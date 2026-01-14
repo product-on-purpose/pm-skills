@@ -1,0 +1,10 @@
+{
+  "useMarkdownLinks": true,
+  "newFileLocation": "current",
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 50
+  }
+}

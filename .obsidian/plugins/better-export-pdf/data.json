@@ -1,0 +1,30 @@
+{
+  "showTitle": true,
+  "maxLevel": "3",
+  "displayHeader": true,
+  "displayFooter": true,
+  "headerTemplate": "<div style=\"width:100%;\n           box-sizing:border-box;\n            font-family: Roboto; \n            font-size:8px; \n            font-weight: bold; \n            padding:0px 15px 10px 15px;\n            display:flex; \n            align-items:center; \n            justify-content:space-between;\n            border-bottom:1px solid #E2E2E2;\">\n  <div style=\"max-width:70%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;\">\n    <span class=\"title\"></span>\n  </div>\n  <div><span class=\"date\"></span></div>\n</div>",
+  "footerTemplate": "<div style=\"width:100%; \n\tbox-sizing:border-box;\n            font-family: Roboto; \n            font-size:8px; \n            font-weight: bold;\n            padding:10px 15px 0px 15px;\n            text-align:center; \n            border-top:1px solid #E2E2E2;\">\n  <span class=\"pageNumber\"></span> of <span class=\"totalPages\"></span>\n</div>\n",
+  "printBackground": false,
+  "generateTaggedPDF": false,
+  "displayMetadata": false,
+  "debug": false,
+  "isTimestamp": false,
+  "enabledCss": true,
+  "concurrency": "1",
+  "prevConfig": {
+    "pageSize": "Letter",
+    "marginType": "0",
+    "showTitle": true,
+    "open": true,
+    "scale": 90,
+    "landscape": false,
+    "marginTop": "60",
+    "marginBottom": "60",
+    "marginLeft": "15",
+    "marginRight": "15",
+    "displayHeader": true,
+    "displayFooter": true,
+    "cssSnippet": "/Users/jonathanprisant/Drive-MBP-Work-PP/.obsidian/snippets/better-pdf-style_v1b_printable-llm.css"
+  }
+}

@@ -1,0 +1,10 @@
+{
+	"id": "pretty-properties",
+	"name": "Pretty Properties",
+	"version": "1.9.11",
+	"minAppVersion": "1.6.7",
+	"description": "Makes note properties look more fun: adds side image, banners, list property colors and allows to hide specific properties.",
+	"author": "Anareaty",
+	"authorUrl": "https://github.com/anareaty",
+	"isDesktopOnly": false
+}

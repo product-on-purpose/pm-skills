@@ -1,0 +1,67 @@
+#better-export-pdf {
+  display: flex;
+  flex-direction: row;
+  height: 75vh;
+}
+
+#better-export-pdf .pdf-preview {
+  flex: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  align-content: flex-start;
+}
+
+#better-export-pdf .pdf-preview .webview-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#better-export-pdf .pdf-preview .print-size {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 99;
+  font-size: 0.6rem;
+  white-space: pre-wrap;
+  text-align: right;
+  visibility: hidden;
+}
+
+#better-export-pdf .pdf-preview > div {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+#better-export-pdf .pdf-preview > div.progress {
+  flex: none;
+  height: auto;
+  width: 100%;
+  text-align: left;
+}
+
+#better-export-pdf .pdf-preview .filename {
+  font-size: 0.75rem;
+  color: var(--color-base-60);
+}
+#better-export-pdf .pdf-preview .filename:not(:first-child) {
+  padding-top: calc(var(--p-spacing));
+}
+
+#better-export-pdf webview {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+#better-export-pdf .setting-wrapper {
+  width: 320px;
+  margin-left: 16px;
+}
+
+#better-export-pdf .setting-wrapper .setting-item[hidden] {
+  display: none;
+}

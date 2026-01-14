@@ -1,0 +1,10 @@
+{
+  "id": "automatic-table-of-contents",
+  "name": "Automatic Table Of Contents",
+  "version": "1.7.3",
+  "minAppVersion": "1.3.0",
+  "description": "Create a table of contents in a note, that updates itself when the note changes",
+  "author": "Johan Satgé",
+  "authorUrl": "https://github.com/johansatge",
+  "isDesktopOnly": false
+}
