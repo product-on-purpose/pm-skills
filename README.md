@@ -220,12 +220,12 @@ pm-skills/
 - [x] Category reference (`_docs/categories.md`)
 - [x] Skill template structure (`_templates/skill-template/`)
 
-### Phase 1: Core Skills (P0)
-- [ ] `problem-statement`
-- [ ] `hypothesis`
-- [ ] `prd`
-- [ ] `user-stories`
-- [ ] `launch-checklist`
+### Phase 1: Core Skills (P0) ✅ COMPLETE
+- [x] `problem-statement` — Define phase
+- [x] `hypothesis` — Define phase
+- [x] `prd` — Deliver phase
+- [x] `user-stories` — Deliver phase
+- [x] `launch-checklist` — Deliver phase
 
 ### Phase 2: Extended Skills (P1)
 - [ ] 8 additional skills (see [VISION.md](_NOTES/VISION.md))

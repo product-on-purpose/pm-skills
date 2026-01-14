@@ -8,6 +8,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Nothing yet
+
+## [0.2.0] - 2026-01-14
+
+### Added
+- **Phase 1 Complete: P0 Core Skills**
+  - `problem-statement` skill — Define phase (`skills/define/problem-statement/`)
+  - `hypothesis` skill — Define phase (`skills/define/hypothesis/`)
+  - `prd` skill — Deliver phase (`skills/deliver/prd/`)
+  - `user-stories` skill — Deliver phase (`skills/deliver/user-stories/`)
+  - `launch-checklist` skill — Deliver phase (`skills/deliver/launch-checklist/`)
+- Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md
+- GitHub labels: `skill`, `phase-1`, `P0`
+- GitHub milestone: v0.2.0 - P0 Core Skills
+- GitHub issues #10-14 for skill tracking
+
+### Changed
+- Updated plan-v1.md Progress Tracker with GitHub issue links
+- Updated CONTEXT.md to reflect Phase 1 completion
+
+## [0.1.0] - 2026-01-14
+
+### Added
 - Initial project structure with agentic coding support
 - Comprehensive README.md with badges, skills inventory, and platform compatibility matrix
 - Apache 2.0 LICENSE

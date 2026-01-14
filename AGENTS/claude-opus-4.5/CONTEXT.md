@@ -2,7 +2,7 @@
 
 ## Current State
 
-**Status:** Phase 0 COMPLETE — Ready for Phase 1 (P0 Core Skills)
+**Status:** Phase 1 COMPLETE — Ready for Phase 2 (P1 Skills)
 **Last Updated:** 2026-01-14
 
 ## Project Overview
@@ -52,6 +52,17 @@ pm-skills/
 
 ## Recent Work
 
+- **Phase 1 COMPLETE** (2026-01-14)
+  - Created 5 P0 Core Skills with SKILL.md, TEMPLATE.md, EXAMPLE.md each:
+    - `skills/define/problem-statement/` — [GitHub #10](https://github.com/product-on-purpose/pm-skills/issues/10)
+    - `skills/define/hypothesis/` — [GitHub #11](https://github.com/product-on-purpose/pm-skills/issues/11)
+    - `skills/deliver/prd/` — [GitHub #12](https://github.com/product-on-purpose/pm-skills/issues/12)
+    - `skills/deliver/user-stories/` — [GitHub #13](https://github.com/product-on-purpose/pm-skills/issues/13)
+    - `skills/deliver/launch-checklist/` — [GitHub #14](https://github.com/product-on-purpose/pm-skills/issues/14)
+  - Created GitHub labels: `skill`, `phase-1`, `P0`
+  - Created GitHub milestone: v0.2.0 - P0 Core Skills
+  - Updated plan-v1.md Progress Tracker with GitHub issue links
+
 - **Phase 0 COMPLETE** (2026-01-14)
   - Created CONTRIBUTING.md with curated contribution model
   - Built full directory structure with .gitkeep files
@@ -59,20 +70,21 @@ pm-skills/
   - Created `_docs/categories.md`
   - Created `_templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md
   - Verified VISION.md at `_NOTES/VISION.md`
-- All 9 GitHub issues (#1-9) closed
-- plan-v1.md Progress Tracker updated
-- README Roadmap updated to show Phase 0 complete
+  - GitHub issues #1-9 closed (plan review fixes)
 
 ## Next Steps
 
-1. **Phase 1: P0 Core Skills** (Issues #6-10) — All can be executed in parallel
-   - `problem-statement` — Define phase (reference implementation)
-   - `hypothesis` — Define phase
-   - `prd` — Deliver phase
-   - `user-stories` — Deliver phase
-   - `launch-checklist` — Deliver phase
+1. **Phase 2: P1 Skills** (8 skills)
+   - `interview-synthesis` — Discover phase
+   - `solution-brief` — Develop phase
+   - `spike-summary` — Develop phase
+   - `adr` — Develop phase
+   - `edge-cases` — Deliver phase
+   - `release-notes` — Deliver phase
+   - `experiment-design` — Measure phase
+   - `instrumentation-spec` — Measure phase
 
-2. After Phase 1: Continue to Phase 2 (P1 Skills) and Phase 3 (P2 Skills + Infrastructure)
+2. After Phase 2: Phase 3 (P2 Skills + Infrastructure)
 
 ## Notes
 
