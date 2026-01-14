@@ -52,6 +52,11 @@
 - [x] Initialize project structure (2026-01-14)
 - [x] Create comprehensive README.md with badges and skills inventory (2026-01-14)
 - [x] Set up AGENTS folder for session continuity (2026-01-14)
+- [x] Add PLANNING folder convention and document it (2026-01-14)
+- [x] Create plan-v1-review.md with comprehensive analysis (2026-01-14)
+- [x] Verify Phase 0 actual status and update Progress Tracker (2026-01-14)
+- [x] Create v0.1 tag (plan review milestone) (2026-01-14)
+- [x] Create GitHub issues #1-9 for plan improvements (2026-01-14)
 
 ## Blocked
 

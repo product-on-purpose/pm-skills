@@ -212,11 +212,13 @@ pm-skills/
 
 ## Roadmap
 
-### Phase 0: Foundation
-- [x] Repository structure
-- [x] Schema documentation
-- [x] Skill template structure
-- [ ] Reference implementation (`problem-statement`)
+### Phase 0: Foundation (~40% complete)
+- [x] Repository structure (README, LICENSE, .gitignore)
+- [ ] Directory structure (skills/, _bundles/, _docs/, _templates/, commands/, releases/)
+- [ ] CONTRIBUTING.md
+- [ ] Schema documentation (`_docs/frontmatter-schema.yaml`)
+- [ ] Category reference (`_docs/categories.md`)
+- [ ] Skill template structure (`_templates/skill-template/`)
 
 ### Phase 1: Core Skills (P0)
 - [ ] `problem-statement`

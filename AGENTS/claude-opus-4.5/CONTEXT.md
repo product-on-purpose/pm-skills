@@ -51,6 +51,11 @@ pm-skills/
 - Initialized project with agentic coding structure
 - Created comprehensive README.md with full skills inventory and platform compatibility
 - Set up AGENTS/claude-opus-4.5/ for session continuity
+- Added PLANNING/ folder convention for collaboration artifacts
+- Created plan-v1-review.md with comprehensive analysis
+- Verified Phase 0 actual status (~40% complete)
+- Created v0.1 tag (plan review milestone)
+- Created 9 GitHub issues for plan improvements (#1-9)
 
 ## Next Steps
 
