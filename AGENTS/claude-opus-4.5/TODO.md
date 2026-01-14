@@ -6,15 +6,6 @@
 
 ## To Do
 
-### Phase 0: Foundation (Issues #1-5)
-- [x] Initialize project with agentic structure
-- [x] Create comprehensive README.md
-- [ ] Repository Bootstrap — create full directory structure with .gitkeep files
-- [ ] Schema Documentation — `_docs/frontmatter-schema.yaml`
-- [ ] Category Reference — `_docs/categories.md`
-- [ ] Skill Template Structure — `_templates/skill-template/`
-- [ ] VISION.md Integration — verify and sync with docs
-
 ### Phase 1: P0 Core Skills (Issues #6-10)
 - [ ] `problem-statement` — Define phase (reference implementation)
 - [ ] `hypothesis` — Define phase
@@ -49,6 +40,7 @@
 
 ## Completed
 
+### Phase 0: Foundation (Issues #1-5) ✅ COMPLETE
 - [x] Initialize project structure (2026-01-14)
 - [x] Create comprehensive README.md with badges and skills inventory (2026-01-14)
 - [x] Set up AGENTS folder for session continuity (2026-01-14)
@@ -57,6 +49,13 @@
 - [x] Verify Phase 0 actual status and update Progress Tracker (2026-01-14)
 - [x] Create v0.1 tag (plan review milestone) (2026-01-14)
 - [x] Create GitHub issues #1-9 for plan improvements (2026-01-14)
+- [x] #1: Repository Bootstrap — CONTRIBUTING.md, directory structure (2026-01-14)
+- [x] #2: Schema Documentation — `_docs/frontmatter-schema.yaml` (2026-01-14)
+- [x] #3: Category Reference — `_docs/categories.md` (2026-01-14)
+- [x] #4: Skill Template Structure — `_templates/skill-template/` (2026-01-14)
+- [x] #5: VISION.md Integration — verified at `_NOTES/VISION.md` (2026-01-14)
+- [x] Close all 9 GitHub issues (#1-9) (2026-01-14)
+- [x] Update README roadmap to show Phase 0 complete (2026-01-14)
 
 ## Blocked
 

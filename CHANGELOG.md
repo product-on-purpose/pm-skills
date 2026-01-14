@@ -22,8 +22,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - plan-v1-review.md — Comprehensive review of implementation plan
 - v0.1 tag — Plan review milestone
 - 9 GitHub issues for plan-v1.md improvement opportunities
+- **Phase 0 Foundation Complete:**
+  - CONTRIBUTING.md with curated contribution model
+  - Full directory structure (`skills/`, `_bundles/`, `_docs/`, `_templates/`, `commands/`, `releases/`)
+  - Schema documentation (`_docs/frontmatter-schema.yaml`)
+  - Category reference (`_docs/categories.md`)
+  - Skill template structure (`_templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md)
+- wrap-session skill for end-of-session documentation workflow
 
 ### Changed
 - Updated CONTEXT.md status from "Foundation complete" to "Foundation in progress (~40%)"
 - Updated plan-v1.md Progress Tracker with inline status notes
 - Fixed README.md roadmap to reflect accurate Phase 0 status
+- **Phase 0 → 100% complete** — All foundation infrastructure now in place
+- Updated README.md roadmap to show Phase 0 complete
+- Expanded P1/P2 skill guidance in plan-v1.md (Issues #11-29)
+- Updated example dates in templates to use `<YYYY-MM-DD>` placeholder
+- Added PowerShell validation commands for Windows compatibility
+
+### Fixed
+- Pre-Flight Checklist path error in plan-v1.md (was "root", now "_NOTES/v1-plan/")
+- VISION.md location inconsistency (now references `_NOTES/VISION.md`)
+- Issue #1 conflict with existing files (added "skip if exists" note)
+
+### Closed
+- All 9 GitHub issues (#1-9) — plan improvements complete
