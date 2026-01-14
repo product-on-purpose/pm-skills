@@ -35,3 +35,5 @@ temp/
 
 # Personal notes
 _NOTES/
+.obsidian
+.claude/settings.local.json
