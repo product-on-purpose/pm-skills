@@ -10,6 +10,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Nothing yet
 
+## [0.3.0] - 2026-01-14
+
+### Added
+- **Phase 2 Complete: P1 Skills (8 skills)**
+  - `interview-synthesis` skill — Discover phase (`skills/discover/interview-synthesis/`)
+  - `solution-brief` skill — Develop phase (`skills/develop/solution-brief/`)
+  - `spike-summary` skill — Develop phase (`skills/develop/spike-summary/`)
+  - `adr` skill — Develop phase (`skills/develop/adr/`)
+  - `edge-cases` skill — Deliver phase (`skills/deliver/edge-cases/`)
+  - `release-notes` skill — Deliver phase (`skills/deliver/release-notes/`)
+  - `experiment-design` skill — Measure phase (`skills/measure/experiment-design/`)
+  - `instrumentation-spec` skill — Measure phase (`skills/measure/instrumentation-spec/`)
+- Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md
+- GitHub labels: `phase-2`, `P1`
+- GitHub milestone: v0.3.0 - P1 Skills
+- GitHub issues #18-25 for skill tracking
+
+### Changed
+- Updated README.md Skills Inventory with status indicators (✅ implemented, 🔜 coming soon)
+- Updated README.md roadmap to show Phase 2 complete
+- Updated plan-v1.md Progress Tracker with GitHub issue links for Phase 2
+- Updated CONTEXT.md to reflect Phase 2 completion and add Skills Inventory table
+
 ## [0.2.0] - 2026-01-14
 
 ### Added

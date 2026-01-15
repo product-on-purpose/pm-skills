@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Skills](https://img.shields.io/badge/skills-24-purple.svg)](#skills-inventory)
+[![Skills](https://img.shields.io/badge/skills-13%2F24-purple.svg)](#skills-inventory)
 [![Agent Skills Spec](https://img.shields.io/badge/spec-agentskills.io-orange.svg)](https://agentskills.io/specification)
 
 > Open source Product Management skills for AI agents
@@ -71,59 +71,61 @@ your-project/
 
 ## Skills Inventory
 
+> **13 of 24 skills implemented** — P0 and P1 skills complete, P2 coming soon
+
 ### Discover — Understanding the Problem Space
 
-| Skill | Category | Description |
-|-------|----------|-------------|
-| `interview-synthesis` | research | Synthesize user research into actionable insights |
-| `competitive-analysis` | research | Map competitive landscape and identify opportunities |
-| `stakeholder-summary` | research | Document stakeholder needs and constraints |
+| Skill | Status | Category | Description |
+|-------|--------|----------|-------------|
+| `interview-synthesis` | ✅ | research | Synthesize user research into actionable insights |
+| `competitive-analysis` | 🔜 | research | Map competitive landscape and identify opportunities |
+| `stakeholder-summary` | 🔜 | research | Document stakeholder needs and constraints |
 
 ### Define — Framing the Problem
 
-| Skill | Category | Description |
-|-------|----------|-------------|
-| `problem-statement` | problem-framing | Create clear problem framing with user impact and success criteria |
-| `hypothesis` | ideation | Define testable assumptions with success metrics |
-| `opportunity-tree` | problem-framing | Map outcome-driven opportunities (Teresa Torres method) |
-| `jtbd-canvas` | problem-framing | Apply Jobs to be Done framework |
+| Skill | Status | Category | Description |
+|-------|--------|----------|-------------|
+| `problem-statement` | ✅ | problem-framing | Create clear problem framing with user impact and success criteria |
+| `hypothesis` | ✅ | ideation | Define testable assumptions with success metrics |
+| `opportunity-tree` | 🔜 | problem-framing | Map outcome-driven opportunities (Teresa Torres method) |
+| `jtbd-canvas` | 🔜 | problem-framing | Apply Jobs to be Done framework |
 
 ### Develop — Exploring Solutions
 
-| Skill | Category | Description |
-|-------|----------|-------------|
-| `solution-brief` | ideation | Document proposed solution approach (one-pager) |
-| `spike-summary` | coordination | Capture time-boxed technical exploration results |
-| `adr` | specification | Record architecture decisions (Nygard format) |
-| `design-rationale` | specification | Document design decision reasoning |
+| Skill | Status | Category | Description |
+|-------|--------|----------|-------------|
+| `solution-brief` | ✅ | ideation | Document proposed solution approach (one-pager) |
+| `spike-summary` | ✅ | coordination | Capture time-boxed technical exploration results |
+| `adr` | ✅ | specification | Record architecture decisions (Nygard format) |
+| `design-rationale` | 🔜 | specification | Document design decision reasoning |
 
 ### Deliver — Specifying and Shipping
 
-| Skill | Category | Description |
-|-------|----------|-------------|
-| `prd` | specification | Write comprehensive product requirements |
-| `user-stories` | specification | Generate user stories with acceptance criteria (INVEST) |
-| `edge-cases` | specification | Document error states, boundaries, recovery paths |
-| `launch-checklist` | coordination | Pre-launch validation across all functions |
-| `release-notes` | coordination | User-facing release documentation |
+| Skill | Status | Category | Description |
+|-------|--------|----------|-------------|
+| `prd` | ✅ | specification | Write comprehensive product requirements |
+| `user-stories` | ✅ | specification | Generate user stories with acceptance criteria (INVEST) |
+| `edge-cases` | ✅ | specification | Document error states, boundaries, recovery paths |
+| `launch-checklist` | ✅ | coordination | Pre-launch validation across all functions |
+| `release-notes` | ✅ | coordination | User-facing release documentation |
 
 ### Measure — Validating with Data
 
-| Skill | Category | Description |
-|-------|----------|-------------|
-| `experiment-design` | validation | Design A/B tests and experiments |
-| `instrumentation-spec` | validation | Define event tracking requirements |
-| `dashboard-requirements` | validation | Specify analytics dashboard needs |
-| `experiment-results` | reflection | Document experiment outcomes and learnings |
+| Skill | Status | Category | Description |
+|-------|--------|----------|-------------|
+| `experiment-design` | ✅ | validation | Design A/B tests and experiments |
+| `instrumentation-spec` | ✅ | validation | Define event tracking requirements |
+| `dashboard-requirements` | 🔜 | validation | Specify analytics dashboard needs |
+| `experiment-results` | 🔜 | reflection | Document experiment outcomes and learnings |
 
 ### Iterate — Learning and Improving
 
-| Skill | Category | Description |
-|-------|----------|-------------|
-| `retrospective` | reflection | Facilitate team retrospectives |
-| `lessons-log` | reflection | Build organizational memory |
-| `refinement-notes` | coordination | Document backlog refinement outcomes |
-| `pivot-decision` | reflection | Framework for pivot/persevere decisions |
+| Skill | Status | Category | Description |
+|-------|--------|----------|-------------|
+| `retrospective` | 🔜 | reflection | Facilitate team retrospectives |
+| `lessons-log` | 🔜 | reflection | Build organizational memory |
+| `refinement-notes` | 🔜 | coordination | Document backlog refinement outcomes |
+| `pivot-decision` | 🔜 | reflection | Framework for pivot/persevere decisions |
 
 ---
 
@@ -227,11 +229,18 @@ pm-skills/
 - [x] `user-stories` — Deliver phase
 - [x] `launch-checklist` — Deliver phase
 
-### Phase 2: Extended Skills (P1)
-- [ ] 8 additional skills (see [VISION.md](_NOTES/VISION.md))
+### Phase 2: Extended Skills (P1) ✅ COMPLETE
+- [x] `interview-synthesis` — Discover phase
+- [x] `solution-brief` — Develop phase
+- [x] `spike-summary` — Develop phase
+- [x] `adr` — Develop phase
+- [x] `edge-cases` — Deliver phase
+- [x] `release-notes` — Deliver phase
+- [x] `experiment-design` — Measure phase
+- [x] `instrumentation-spec` — Measure phase
 
 ### Phase 3: Complete Coverage (P2)
-- [ ] 11 remaining skills
+- [ ] 11 remaining skills (competitive-analysis, stakeholder-summary, opportunity-tree, jtbd-canvas, design-rationale, dashboard-requirements, experiment-results, retrospective, lessons-log, refinement-notes, pivot-decision)
 - [ ] Workflow bundles
 - [ ] Slash commands
 - [ ] GitHub Actions automation
