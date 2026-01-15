@@ -2,8 +2,9 @@
 
 ## Current State
 
-**Status:** Phase 3 COMPLETE — All skills and infrastructure implemented (v1.0.0 ready)
-**Last Updated:** 2026-01-14
+**Status:** v1.0.0 RELEASED — Complete Triple Diamond coverage shipped
+**Last Updated:** 2026-01-15
+**Release:** [v1.0.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.0.0)
 
 ## Project Overview
 
@@ -118,10 +119,14 @@ pm-skills/
 
 ## Next Steps
 
-1. **v1.0.0 Release:**
-   - Tag and create GitHub release
-   - Verify workflows run correctly
-   - Publish to Claude Code marketplace (when available)
+1. **Post-Release:**
+   - Announce release (Twitter, LinkedIn, Product Hunt)
+   - Monitor for user feedback and issues
+   - Claude Code marketplace submission (when available)
+
+2. **v1.1.0 Candidates:**
+   - Validation CI workflow (check skill structure in PRs)
+   - Auto-generated header for AGENTS.md
 
 ## Notes
 
