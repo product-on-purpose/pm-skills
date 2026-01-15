@@ -57,7 +57,8 @@
       "Bash(pwd:*)",
       "Bash(env:*)",
       "Bash(printenv:*)",
-      "Bash(gh milestone:*)"
+      "Bash(gh milestone:*)",
+      "Bash(gh release create:*)"
     ]
   }
 }

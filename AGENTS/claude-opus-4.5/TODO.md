@@ -39,11 +39,19 @@
 - [x] #35: `refinement-notes` — Iterate phase (2026-01-14)
 - [x] #36: `pivot-decision` — Iterate phase (2026-01-14)
 
+### v1.0.1: All Slash Commands (Issues #43-62) ✅ COMPLETE
+- [x] Created 20 missing slash commands (2026-01-15)
+- [x] #43-62: All skill commands now exist in `commands/` directory
+- [x] Updated README.md with full command list (collapsible sections)
+- [x] Updated AGENTS.md with full command list (by phase)
+- [x] Updated CHANGELOG.md with v1.0.1 entry
+- [x] Updated plan-open-skills.md compatibility table
+
 ### Phase 3: Infrastructure ✅ COMPLETE
 - [x] Bundle: `_bundles/triple-diamond.md` (2026-01-14)
 - [x] Bundle: `_bundles/lean-startup.md` (2026-01-14)
 - [x] Bundle: `_bundles/feature-kickoff.md` (2026-01-14)
-- [x] Slash Commands: 5 commands in `commands/` (2026-01-14)
+- [x] Slash Commands: 25 commands in `commands/` (2026-01-15)
 - [x] AGENTS.md: Universal agent discovery (2026-01-14)
 - [x] GitHub Actions: sync-agents-md.yml, release-zips.yml (2026-01-14)
 

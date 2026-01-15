@@ -2,9 +2,9 @@
 
 ## Current State
 
-**Status:** v1.0.0 RELEASED — Complete Triple Diamond coverage shipped
+**Status:** v1.0.1 — All 24 slash commands complete
 **Last Updated:** 2026-01-15
-**Release:** [v1.0.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.0.0)
+**Release:** [v1.0.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.0.1)
 
 ## Project Overview
 
@@ -52,6 +52,18 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **All 24 Slash Commands COMPLETE** (2026-01-15)
+  - Created 20 missing slash commands in `commands/` directory:
+    - Discover: `/competitive-analysis`, `/interview-synthesis`, `/stakeholder-summary`
+    - Define: `/jtbd-canvas`, `/opportunity-tree`
+    - Develop: `/adr`, `/design-rationale`, `/solution-brief`, `/spike-summary`
+    - Deliver: `/edge-cases`, `/launch-checklist`, `/release-notes`
+    - Measure: `/dashboard-requirements`, `/experiment-design`, `/experiment-results`, `/instrumentation-spec`
+    - Iterate: `/lessons-log`, `/pivot-decision`, `/refinement-notes`, `/retrospective`
+  - GitHub issues #43-62 created and closed
+  - Updated README.md, AGENTS.md, CHANGELOG.md with complete command list
+  - Version bumped to v1.0.1
 
 - **Phase 3 P2 Skills COMPLETE** (2026-01-14)
   - Created 11 P2 Skills with SKILL.md, TEMPLATE.md, EXAMPLE.md each:
@@ -102,17 +114,17 @@ pm-skills/
   - Verified VISION.md at `_NOTES/VISION.md`
   - GitHub issues #1-9 closed (plan review fixes)
 
-## Recent Infrastructure (2026-01-14)
+## Recent Infrastructure (2026-01-15)
 
+- **Slash Commands Complete (25 total):**
+  - All 24 skills have corresponding slash commands
+  - 1 bundle command: `/kickoff`
 - **Workflow Bundles Complete:**
   - `_bundles/triple-diamond.md` — Complete product development cycle
   - `_bundles/lean-startup.md` — Build-Measure-Learn rapid iteration
   - `_bundles/feature-kickoff.md` — Quick-start workflow for features
-- **Slash Commands Complete:**
-  - `commands/prd.md`, `commands/problem-statement.md`, `commands/hypothesis.md`
-  - `commands/user-stories.md`, `commands/kickoff.md`
 - **Agent Discovery:**
-  - `AGENTS.md` — Universal agent discovery file
+  - `AGENTS.md` — Universal agent discovery file with all commands listed
 - **GitHub Actions:**
   - `.github/workflows/sync-agents-md.yml` — Auto-sync on skill changes
   - `.github/workflows/release-zips.yml` — Package ZIPs on release

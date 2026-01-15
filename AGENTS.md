@@ -162,13 +162,60 @@ Facilitates and documents a team retrospective capturing what went well, what to
 
 ## Commands
 
+All 24 skills have slash commands for Claude Code:
+
+### Discover
+| Command | Description |
+|---------|-------------|
+| `/competitive-analysis` | Create a structured competitive analysis |
+| `/interview-synthesis` | Synthesize user research interviews into insights |
+| `/stakeholder-summary` | Document stakeholder needs and influence |
+
+### Define
 | Command | Description |
 |---------|-------------|
 | `/hypothesis` | Define a testable hypothesis with success metrics |
-| `/kickoff` | Run the Feature Kickoff workflow (problem → hypothesis → PRD → stories) |
-| `/prd` | Create a Product Requirements Document |
+| `/jtbd-canvas` | Create a Jobs to be Done canvas |
+| `/opportunity-tree` | Create an opportunity solution tree |
 | `/problem-statement` | Create a clear problem statement with success criteria |
+
+### Develop
+| Command | Description |
+|---------|-------------|
+| `/adr` | Create an Architecture Decision Record |
+| `/design-rationale` | Document the reasoning behind design decisions |
+| `/solution-brief` | Create a one-page solution overview |
+| `/spike-summary` | Document the results of a technical or design spike |
+
+### Deliver
+| Command | Description |
+|---------|-------------|
+| `/edge-cases` | Document edge cases and error states for a feature |
+| `/launch-checklist` | Create a comprehensive pre-launch checklist |
+| `/prd` | Create a Product Requirements Document |
+| `/release-notes` | Create user-facing release notes |
 | `/user-stories` | Generate user stories with acceptance criteria |
+
+### Measure
+| Command | Description |
+|---------|-------------|
+| `/dashboard-requirements` | Specify requirements for an analytics dashboard |
+| `/experiment-design` | Design an A/B test or experiment |
+| `/experiment-results` | Document experiment results and learnings |
+| `/instrumentation-spec` | Specify event tracking and analytics instrumentation |
+
+### Iterate
+| Command | Description |
+|---------|-------------|
+| `/lessons-log` | Create a structured lessons learned entry |
+| `/pivot-decision` | Document a pivot or persevere decision |
+| `/refinement-notes` | Document backlog refinement session outcomes |
+| `/retrospective` | Facilitate and document a team retrospective |
+
+### Bundles
+| Command | Description |
+|---------|-------------|
+| `/kickoff` | Run the Feature Kickoff workflow (problem → hypothesis → PRD → stories)
 
 ---
 

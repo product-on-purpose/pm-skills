@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-01-15
+
+### Added
+- **All 24 Slash Commands Complete** — Every skill now has a corresponding command
+  - `/competitive-analysis` — Discover phase
+  - `/interview-synthesis` — Discover phase
+  - `/stakeholder-summary` — Discover phase
+  - `/jtbd-canvas` — Define phase
+  - `/opportunity-tree` — Define phase
+  - `/adr` — Develop phase
+  - `/design-rationale` — Develop phase
+  - `/solution-brief` — Develop phase
+  - `/spike-summary` — Develop phase
+  - `/edge-cases` — Deliver phase
+  - `/launch-checklist` — Deliver phase
+  - `/release-notes` — Deliver phase
+  - `/dashboard-requirements` — Measure phase
+  - `/experiment-design` — Measure phase
+  - `/experiment-results` — Measure phase
+  - `/instrumentation-spec` — Measure phase
+  - `/lessons-log` — Iterate phase
+  - `/pivot-decision` — Iterate phase
+  - `/refinement-notes` — Iterate phase
+  - `/retrospective` — Iterate phase
+- GitHub issues #43-62 created and closed for slash command tracking
+
+### Changed
+- Updated README.md Slash Commands section to list all 24 commands
+- Updated AGENTS.md Commands section to list all 24 commands
+- Updated plan-open-skills.md compatibility table to reflect slash commands complete
+
 ## [1.0.0] - 2026-01-14
 
 **PM-Skills v1.0.0 — Complete Triple Diamond coverage is here!**

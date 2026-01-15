@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Skills](https://img.shields.io/badge/skills-24-brightgreen.svg)](#skills-inventory)
-[![v1.0.0](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/product-on-purpose/pm-skills/releases)
+[![v1.0.1](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/product-on-purpose/pm-skills/releases)
 [![Agent Skills Spec](https://img.shields.io/badge/spec-agentskills.io-orange.svg)](https://agentskills.io/specification)
 
 > **Ship better products, faster.** Open source PM skills that supercharge your AI assistant.
@@ -139,15 +139,88 @@ Don't know where to start? Use a bundle:
 
 ## Slash Commands
 
-For Claude Code users—instant access to common workflows:
+For Claude Code users—24 commands covering every skill:
+
+<details>
+<summary><strong>Discover</strong></summary>
 
 | Command | What it does |
 |---------|--------------|
-| `/prd` | Generate a Product Requirements Document |
-| `/problem-statement` | Frame the problem clearly |
+| `/competitive-analysis` | Map the competitive landscape |
+| `/interview-synthesis` | Synthesize user research |
+| `/stakeholder-summary` | Document stakeholder needs |
+
+</details>
+
+<details>
+<summary><strong>Define</strong></summary>
+
+| Command | What it does |
+|---------|--------------|
 | `/hypothesis` | Create testable hypotheses |
+| `/jtbd-canvas` | Jobs to be Done canvas |
+| `/opportunity-tree` | Outcome-driven opportunity mapping |
+| `/problem-statement` | Frame the problem clearly |
+
+</details>
+
+<details>
+<summary><strong>Develop</strong></summary>
+
+| Command | What it does |
+|---------|--------------|
+| `/adr` | Architecture Decision Record |
+| `/design-rationale` | Document design decisions |
+| `/solution-brief` | One-page solution overview |
+| `/spike-summary` | Document spike findings |
+
+</details>
+
+<details>
+<summary><strong>Deliver</strong></summary>
+
+| Command | What it does |
+|---------|--------------|
+| `/edge-cases` | Document error states and boundaries |
+| `/launch-checklist` | Pre-launch readiness checklist |
+| `/prd` | Product Requirements Document |
+| `/release-notes` | User-facing release notes |
 | `/user-stories` | Break features into stories |
+
+</details>
+
+<details>
+<summary><strong>Measure</strong></summary>
+
+| Command | What it does |
+|---------|--------------|
+| `/dashboard-requirements` | Analytics dashboard specs |
+| `/experiment-design` | Design A/B tests |
+| `/experiment-results` | Document experiment outcomes |
+| `/instrumentation-spec` | Event tracking requirements |
+
+</details>
+
+<details>
+<summary><strong>Iterate</strong></summary>
+
+| Command | What it does |
+|---------|--------------|
+| `/lessons-log` | Capture lessons learned |
+| `/pivot-decision` | Pivot or persevere framework |
+| `/refinement-notes` | Backlog refinement outcomes |
+| `/retrospective` | Team retrospective |
+
+</details>
+
+<details>
+<summary><strong>Bundles</strong></summary>
+
+| Command | What it does |
+|---------|--------------|
 | `/kickoff` | Run the full feature kickoff workflow |
+
+</details>
 
 ---
 
