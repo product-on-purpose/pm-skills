@@ -1,0 +1,115 @@
+name: Sync AGENTS.md
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**/*.md'
+      - '_bundles/*.md'
+      - 'commands/*.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate AGENTS.md
+        run: |
+          cat > AGENTS.md << 'HEADER'
+          # PM-Skills
+
+          > Open source Product Management skills for AI agents
+
+          This repository contains professional PM skills organized by the Triple Diamond framework. Each skill helps AI agents produce high-quality PM artifacts.
+
+          ## Skills
+
+          HEADER
+
+          # Process each phase
+          for phase in discover define develop deliver measure iterate; do
+            phase_title=$(echo "$phase" | sed 's/.*/\u&/')
+            echo "### ${phase_title} Phase" >> AGENTS.md
+            echo "" >> AGENTS.md
+
+            # Find all skills in this phase
+            for skill_dir in skills/$phase/*/; do
+              if [ -f "${skill_dir}SKILL.md" ]; then
+                skill_name=$(basename "$skill_dir")
+
+                # Extract description from frontmatter
+                description=$(sed -n '/^description:/p' "${skill_dir}SKILL.md" | sed 's/description: //')
+
+                echo "#### $skill_name" >> AGENTS.md
+                echo "**Path:** \`${skill_dir}SKILL.md\`" >> AGENTS.md
+                echo "" >> AGENTS.md
+                echo "$description" >> AGENTS.md
+                echo "" >> AGENTS.md
+              fi
+            done
+
+            echo "---" >> AGENTS.md
+            echo "" >> AGENTS.md
+          done
+
+          # Add bundles section
+          cat >> AGENTS.md << 'BUNDLES'
+          ## Workflow Bundles
+
+          | Bundle | Description |
+          |--------|-------------|
+          | [Triple Diamond](_bundles/triple-diamond.md) | Complete product development cycle |
+          | [Lean Startup](_bundles/lean-startup.md) | Build-Measure-Learn rapid iteration |
+          | [Feature Kickoff](_bundles/feature-kickoff.md) | Quick-start workflow for features |
+
+          ---
+
+          ## Commands
+
+          | Command | Description |
+          |---------|-------------|
+          BUNDLES
+
+          # Add commands
+          for cmd in commands/*.md; do
+            if [ -f "$cmd" ]; then
+              cmd_name=$(basename "$cmd" .md)
+              desc=$(sed -n '/^description:/p' "$cmd" | sed 's/description: //')
+              echo "| \`/$cmd_name\` | $desc |" >> AGENTS.md
+            fi
+          done
+
+          cat >> AGENTS.md << 'FOOTER'
+
+          ---
+
+          ## License
+
+          Apache-2.0
+
+          ---
+
+          *Built by [Product on Purpose](https://github.com/product-on-purpose) for PMs who ship.*
+          FOOTER
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code AGENTS.md || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add AGENTS.md
+          git commit -m "chore: sync AGENTS.md with skills inventory"
+          git push

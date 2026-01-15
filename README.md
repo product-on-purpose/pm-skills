@@ -2,190 +2,220 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Skills](https://img.shields.io/badge/skills-13%2F24-purple.svg)](#skills-inventory)
+[![Skills](https://img.shields.io/badge/skills-24-brightgreen.svg)](#skills-inventory)
+[![v1.0.0](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/product-on-purpose/pm-skills/releases)
 [![Agent Skills Spec](https://img.shields.io/badge/spec-agentskills.io-orange.svg)](https://agentskills.io/specification)
 
-> Open source Product Management skills for AI agents
-
-**PM-Skills** is a curated collection of reusable instruction sets that help AI assistants produce high-quality PM artifacts—PRDs, problem statements, user stories, experiment designs, and more.
-
-Built on the [Agent Skills Specification](https://agentskills.io/specification), PM-Skills works across multiple AI platforms and follows the **Triple Diamond** framework for complete product development coverage.
+> **Ship better products, faster.** Open source PM skills that supercharge your AI assistant.
 
 ---
 
-## Highlights
+## What is PM-Skills?
 
-- **24 Professional Skills** — Covering the entire product lifecycle from discovery to iteration
-- **Triple Diamond Framework** — Organized across 6 phases: Discover, Define, Develop, Deliver, Measure, Iterate
-- **Cross-Platform Compatible** — Works with Claude Code, Claude.ai, GitHub Copilot, Cursor, and more
-- **Production-Ready Templates** — Every skill includes templates and real-world examples
-- **Framework Agnostic** — Skills map to Lean Startup, Design Thinking, and other methodologies via bundles
+**PM-Skills** transforms your AI assistant into a seasoned product manager. Instead of starting from scratch every conversation, your AI gets instant access to battle-tested frameworks, templates, and examples for every stage of product development.
+
+```
+You: "Create a PRD for our new search feature"
+
+AI + PM-Skills: *Generates a comprehensive PRD with problem statement,
+                 success metrics, user stories, scope definition, and
+                 technical considerations—all in professional format*
+```
+
+**The result?** Consistent, high-quality PM artifacts in seconds—not hours.
+
+---
+
+## Why PM-Skills?
+
+| Without PM-Skills | With PM-Skills |
+|-------------------|----------------|
+| Generic AI responses | Professional PM frameworks |
+| Inconsistent formats | Production-ready templates |
+| Missing key sections | Comprehensive coverage |
+| Starting from scratch | Building on best practices |
+| Prompt engineering every time | One command, instant results |
 
 ---
 
 ## Quick Start
 
-### Claude Code (Recommended)
+### Claude Code (Fastest)
 
 ```bash
-# Install from marketplace
-claude plugin marketplace add product-on-purpose/pm-skills
-
-# Use any skill
-/prd
-/problem-statement
-/hypothesis
+# Use skills directly—no installation needed
+/prd "Search feature for e-commerce platform"
+/hypothesis "Will one-page checkout increase conversion?"
+/user-stories "Recurring tasks feature from PRD"
 ```
 
-### Claude.ai / Claude Desktop
+### Claude.ai / Desktop
 
-1. Download a skill ZIP from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
-2. Go to **Settings > Capabilities**
-3. Upload the ZIP file
-4. Start a conversation and reference the skill
+1. Download from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
+2. Upload ZIP in **Settings > Capabilities**
+3. Start using: "Use the prd skill to..."
 
-### GitHub Copilot / Cursor / Windsurf
-
-Skills are auto-discovered via `AGENTS.md`. Clone or fork this repository, and your AI assistant will find the skills automatically.
+### Any AI Assistant (GitHub Copilot, Cursor, Windsurf)
 
 ```bash
 git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
-### Manual Installation
-
-Copy any skill folder to your project's `.claude/skills/` directory:
-
-```
-your-project/
-└── .claude/
-    └── skills/
-        └── problem-statement/
-            ├── SKILL.md
-            └── references/
-                ├── TEMPLATE.md
-                └── EXAMPLE.md
-```
+Skills auto-discover via `AGENTS.md`.
 
 ---
 
-## Skills Inventory
+## The 24 Skills
 
-> **13 of 24 skills implemented** — P0 and P1 skills complete, P2 coming soon
+PM-Skills covers the complete product lifecycle using the **Triple Diamond** framework:
 
-### Discover — Understanding the Problem Space
+### Discover — *Find the right problem*
 
-| Skill | Status | Category | Description |
-|-------|--------|----------|-------------|
-| `interview-synthesis` | ✅ | research | Synthesize user research into actionable insights |
-| `competitive-analysis` | 🔜 | research | Map competitive landscape and identify opportunities |
-| `stakeholder-summary` | 🔜 | research | Document stakeholder needs and constraints |
+| Skill | What it does |
+|-------|--------------|
+| `interview-synthesis` | Turn user research into actionable insights |
+| `competitive-analysis` | Map the landscape, find opportunities |
+| `stakeholder-summary` | Understand who matters and what they need |
 
-### Define — Framing the Problem
+### Define — *Frame the problem*
 
-| Skill | Status | Category | Description |
-|-------|--------|----------|-------------|
-| `problem-statement` | ✅ | problem-framing | Create clear problem framing with user impact and success criteria |
-| `hypothesis` | ✅ | ideation | Define testable assumptions with success metrics |
-| `opportunity-tree` | 🔜 | problem-framing | Map outcome-driven opportunities (Teresa Torres method) |
-| `jtbd-canvas` | 🔜 | problem-framing | Apply Jobs to be Done framework |
+| Skill | What it does |
+|-------|--------------|
+| `problem-statement` | Crystal-clear problem framing |
+| `hypothesis` | Testable assumptions with success metrics |
+| `opportunity-tree` | Teresa Torres-style outcome mapping |
+| `jtbd-canvas` | Jobs to be Done framework |
 
-### Develop — Exploring Solutions
+### Develop — *Explore solutions*
 
-| Skill | Status | Category | Description |
-|-------|--------|----------|-------------|
-| `solution-brief` | ✅ | ideation | Document proposed solution approach (one-pager) |
-| `spike-summary` | ✅ | coordination | Capture time-boxed technical exploration results |
-| `adr` | ✅ | specification | Record architecture decisions (Nygard format) |
-| `design-rationale` | 🔜 | specification | Document design decision reasoning |
+| Skill | What it does |
+|-------|--------------|
+| `solution-brief` | One-page solution pitch |
+| `spike-summary` | Document technical explorations |
+| `adr` | Architecture Decision Records (Nygard format) |
+| `design-rationale` | Why you made that design choice |
 
-### Deliver — Specifying and Shipping
+### Deliver — *Ship it*
 
-| Skill | Status | Category | Description |
-|-------|--------|----------|-------------|
-| `prd` | ✅ | specification | Write comprehensive product requirements |
-| `user-stories` | ✅ | specification | Generate user stories with acceptance criteria (INVEST) |
-| `edge-cases` | ✅ | specification | Document error states, boundaries, recovery paths |
-| `launch-checklist` | ✅ | coordination | Pre-launch validation across all functions |
-| `release-notes` | ✅ | coordination | User-facing release documentation |
+| Skill | What it does |
+|-------|--------------|
+| `prd` | Comprehensive product requirements |
+| `user-stories` | INVEST-compliant stories with acceptance criteria |
+| `edge-cases` | Error states, boundaries, recovery paths |
+| `launch-checklist` | Never miss a launch step again |
+| `release-notes` | User-facing release communication |
 
-### Measure — Validating with Data
+### Measure — *Validate with data*
 
-| Skill | Status | Category | Description |
-|-------|--------|----------|-------------|
-| `experiment-design` | ✅ | validation | Design A/B tests and experiments |
-| `instrumentation-spec` | ✅ | validation | Define event tracking requirements |
-| `dashboard-requirements` | 🔜 | validation | Specify analytics dashboard needs |
-| `experiment-results` | 🔜 | reflection | Document experiment outcomes and learnings |
+| Skill | What it does |
+|-------|--------------|
+| `experiment-design` | Rigorous A/B test planning |
+| `instrumentation-spec` | Event tracking requirements |
+| `dashboard-requirements` | Analytics dashboard specs |
+| `experiment-results` | Document learnings from experiments |
 
-### Iterate — Learning and Improving
+### Iterate — *Learn and improve*
 
-| Skill | Status | Category | Description |
-|-------|--------|----------|-------------|
-| `retrospective` | 🔜 | reflection | Facilitate team retrospectives |
-| `lessons-log` | 🔜 | reflection | Build organizational memory |
-| `refinement-notes` | 🔜 | coordination | Document backlog refinement outcomes |
-| `pivot-decision` | 🔜 | reflection | Framework for pivot/persevere decisions |
+| Skill | What it does |
+|-------|--------------|
+| `retrospective` | Team retros that drive action |
+| `lessons-log` | Build organizational memory |
+| `refinement-notes` | Capture backlog refinement outcomes |
+| `pivot-decision` | Evidence-based pivot/persevere framework |
 
 ---
 
 ## Workflow Bundles
 
-Bundles are curated skill sequences for specific methodologies:
+Don't know where to start? Use a bundle:
 
-| Bundle | Description | Core Skills |
-|--------|-------------|-------------|
-| **Triple Diamond** | Complete product development cycle | All 24 skills across 6 phases |
-| **Lean Startup** | Build-Measure-Learn rapid iteration | hypothesis → experiment-design → experiment-results → pivot-decision |
-| **Feature Kickoff** | Quick-start for feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
+| Bundle | Best for | Skills included |
+|--------|----------|-----------------|
+| **[Feature Kickoff](_bundles/feature-kickoff.md)** | New features | problem-statement → hypothesis → prd → user-stories → launch-checklist |
+| **[Lean Startup](_bundles/lean-startup.md)** | Rapid validation | hypothesis → experiment-design → experiment-results → pivot-decision |
+| **[Triple Diamond](_bundles/triple-diamond.md)** | Major initiatives | All 24 skills across 6 phases |
 
-See [`_bundles/`](_bundles/) for detailed workflow guides.
+---
+
+## Slash Commands
+
+For Claude Code users—instant access to common workflows:
+
+| Command | What it does |
+|---------|--------------|
+| `/prd` | Generate a Product Requirements Document |
+| `/problem-statement` | Frame the problem clearly |
+| `/hypothesis` | Create testable hypotheses |
+| `/user-stories` | Break features into stories |
+| `/kickoff` | Run the full feature kickoff workflow |
+
+---
+
+## How Skills Work
+
+Each skill is a self-contained instruction set:
+
+```
+skills/deliver/prd/
+├── SKILL.md              # Instructions for the AI
+└── references/
+    ├── TEMPLATE.md       # Output structure
+    └── EXAMPLE.md        # Real-world example
+```
+
+The AI reads the skill, follows the instructions, uses the template, and references the example to produce consistent, professional output.
+
+### Example: The PRD Skill
+
+**You say:** "Create a PRD for adding dark mode to our app"
+
+**The AI:**
+1. Reads `skills/deliver/prd/SKILL.md` for instructions
+2. Follows the structured approach (problem → solution → metrics → scope)
+3. Uses `TEMPLATE.md` for formatting
+4. References `EXAMPLE.md` for quality benchmarks
+5. Outputs a complete, professional PRD
 
 ---
 
 ## Platform Compatibility
 
-| Platform | Method | Status |
+| Platform | Status | Method |
 |----------|--------|--------|
-| Claude Code | Plugin marketplace | Native |
-| Claude.ai (web) | ZIP upload | Native |
-| Claude Desktop | ZIP upload | Native |
-| Claude API | Skills API | Native |
-| GitHub Copilot | AGENTS.md | Native |
-| Cursor | AGENTS.md | Universal |
-| Windsurf | AGENTS.md | Universal |
-| OpenCode | Native skill support | Native |
+| Claude Code | Native | Slash commands |
+| Claude.ai | Native | ZIP upload |
+| Claude Desktop | Native | ZIP upload |
+| GitHub Copilot | Native | AGENTS.md discovery |
+| Cursor | Universal | AGENTS.md discovery |
+| Windsurf | Universal | AGENTS.md discovery |
+| OpenCode | Native | Skill format |
 
 ---
 
-## Skill Structure
+## Built on Best Practices
 
-Each skill follows a consistent structure:
+PM-Skills incorporates wisdom from:
 
-```
-skills/<phase>/<skill-name>/
-├── SKILL.md              # Instructions with frontmatter
-└── references/
-    ├── TEMPLATE.md       # Output template for the artifact
-    └── EXAMPLE.md        # Completed example
-```
+- **Teresa Torres** — Continuous Discovery Habits, Opportunity Solution Trees
+- **Marty Cagan** — Product discovery, empowered teams
+- **Eric Ries** — Lean Startup, Build-Measure-Learn
+- **Clayton Christensen** — Jobs to be Done theory
+- **Michael Nygard** — Architecture Decision Records
 
-### Frontmatter Schema
+Every skill is field-tested and follows the [Agent Skills Specification](https://agentskills.io/specification).
 
-```yaml
 ---
-name: problem-statement
-description: Creates a clear problem framing document...
-license: Apache-2.0
-metadata:
-  category: problem-framing
-  frameworks: [triple-diamond, lean-startup, design-thinking]
-  author: product-on-purpose
-  version: "1.0.0"
----
-```
 
-See [`_docs/frontmatter-schema.yaml`](_docs/frontmatter-schema.yaml) for the complete schema.
+## Contributing
+
+We welcome contributions! PM-Skills uses a curated model:
+
+1. **Propose** — Open a "Request a Skill" issue
+2. **Discuss** — Get maintainer feedback
+3. **Build** — Follow the [skill template](_templates/skill-template/)
+4. **Ship** — Submit PR, pass review
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
@@ -193,112 +223,30 @@ See [`_docs/frontmatter-schema.yaml`](_docs/frontmatter-schema.yaml) for the com
 
 ```
 pm-skills/
-├── skills/               # PM skills organized by phase
+├── skills/               # 24 skills across 6 phases
 │   ├── discover/         # Research and understanding
 │   ├── define/           # Problem framing
 │   ├── develop/          # Solution exploration
 │   ├── deliver/          # Specification and shipping
-│   ├── measure/          # Validation and measurement
+│   ├── measure/          # Validation and metrics
 │   └── iterate/          # Learning and improvement
-├── _bundles/             # Workflow documentation
-├── _docs/                # Schema and reference docs
+├── _bundles/             # Workflow sequences
+├── _docs/                # Schema and references
 ├── _templates/           # Skill creation templates
 ├── commands/             # Claude Code slash commands
-├── releases/             # Pre-packaged ZIPs
 ├── AGENTS.md             # Universal agent discovery
-├── VISION.md             # Project vision and roadmap
-└── CONTRIBUTING.md       # Contribution guidelines
+└── CONTRIBUTING.md       # How to contribute
 ```
-
----
-
-## Roadmap
-
-### Phase 0: Foundation ✅ COMPLETE
-- [x] Repository structure (README, LICENSE, .gitignore)
-- [x] Directory structure (skills/, _bundles/, _docs/, _templates/, commands/, releases/)
-- [x] CONTRIBUTING.md
-- [x] Schema documentation (`_docs/frontmatter-schema.yaml`)
-- [x] Category reference (`_docs/categories.md`)
-- [x] Skill template structure (`_templates/skill-template/`)
-
-### Phase 1: Core Skills (P0) ✅ COMPLETE
-- [x] `problem-statement` — Define phase
-- [x] `hypothesis` — Define phase
-- [x] `prd` — Deliver phase
-- [x] `user-stories` — Deliver phase
-- [x] `launch-checklist` — Deliver phase
-
-### Phase 2: Extended Skills (P1) ✅ COMPLETE
-- [x] `interview-synthesis` — Discover phase
-- [x] `solution-brief` — Develop phase
-- [x] `spike-summary` — Develop phase
-- [x] `adr` — Develop phase
-- [x] `edge-cases` — Deliver phase
-- [x] `release-notes` — Deliver phase
-- [x] `experiment-design` — Measure phase
-- [x] `instrumentation-spec` — Measure phase
-
-### Phase 3: Complete Coverage (P2)
-- [ ] 11 remaining skills (competitive-analysis, stakeholder-summary, opportunity-tree, jtbd-canvas, design-rationale, dashboard-requirements, experiment-results, retrospective, lessons-log, refinement-notes, pivot-decision)
-- [ ] Workflow bundles
-- [ ] Slash commands
-- [ ] GitHub Actions automation
-
-See [`_NOTES/VISION.md`](_NOTES/VISION.md) for the complete roadmap.
-
----
-
-## Contributing
-
-We welcome contributions! PM-Skills uses a **curated contribution model**:
-
-1. Open a "Request a Skill" issue to propose new skills
-2. Get approval from maintainers
-3. Submit a PR following the skill template
-4. Pass quality review
-
-### Quality Criteria
-
-All skills must:
-
-- Solve a real PM workflow problem
-- Follow the [Agent Skills Specification](https://agentskills.io/specification)
-- Include `TEMPLATE.md` and `EXAMPLE.md`
-- Have descriptive triggers in the description
-- Produce useful, professional output
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
----
-
-## Related Projects
-
-- [Agent Skills Specification](https://agentskills.io) — Format standard
-- [Anthropic Skills](https://github.com/anthropics/skills) — Reference patterns
-- [OpenSkills](https://github.com/numman-ali/openskills) — Universal distribution
 
 ---
 
 ## License
 
-PM-Skills is released under the [Apache License 2.0](LICENSE).
-
-This license allows commercial use, modification, and distribution while requiring attribution and including an explicit patent grant.
-
----
-
-## Acknowledgments
-
-Built with insights from:
-- Teresa Torres' *Continuous Discovery Habits*
-- Marty Cagan's *Inspired* and *Empowered*
-- Eric Ries' *The Lean Startup*
-- Clayton Christensen's *Jobs to be Done* theory
-- Michael Nygard's ADR format
+[Apache License 2.0](LICENSE) — Use commercially, modify freely, contribute back.
 
 ---
 
 <p align="center">
-  <sub>Built by <a href="https://github.com/product-on-purpose">Product on Purpose</a> for PMs who ship.</sub>
+  <strong>Built by <a href="https://github.com/product-on-purpose">Product on Purpose</a></strong><br>
+  <sub>For PMs who ship.</sub>
 </p>

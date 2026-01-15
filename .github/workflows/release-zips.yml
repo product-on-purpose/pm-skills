@@ -1,0 +1,89 @@
+name: Release ZIPs
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to build ZIPs for'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-zips:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create releases directory
+        run: mkdir -p releases
+
+      - name: Package individual skills
+        run: |
+          for phase in discover define develop deliver measure iterate; do
+            for skill_dir in skills/$phase/*/; do
+              if [ -f "${skill_dir}SKILL.md" ]; then
+                skill_name=$(basename "$skill_dir")
+
+                # Create skill ZIP
+                zip -r "releases/${skill_name}.zip" "$skill_dir" \
+                  -x "*.DS_Store" \
+                  -x "*/.git/*"
+
+                echo "Created: releases/${skill_name}.zip"
+              fi
+            done
+          done
+
+      - name: Package complete bundle
+        run: |
+          # Create complete bundle with all skills, bundles, and commands
+          zip -r "releases/pm-skills-complete.zip" \
+            skills/ \
+            _bundles/ \
+            commands/ \
+            AGENTS.md \
+            README.md \
+            LICENSE \
+            -x "*.DS_Store" \
+            -x "*/.git/*" \
+            -x "*.gitkeep"
+
+          echo "Created: releases/pm-skills-complete.zip"
+
+      - name: Package by phase
+        run: |
+          for phase in discover define develop deliver measure iterate; do
+            if [ -d "skills/$phase" ]; then
+              zip -r "releases/pm-skills-${phase}.zip" "skills/$phase/" \
+                -x "*.DS_Store" \
+                -x "*/.git/*" \
+                -x "*.gitkeep"
+
+              echo "Created: releases/pm-skills-${phase}.zip"
+            fi
+          done
+
+      - name: List created ZIPs
+        run: ls -la releases/
+
+      - name: Upload release assets
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: releases/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifacts (for workflow_dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pm-skills-zips
+          path: releases/*.zip
+          retention-days: 7

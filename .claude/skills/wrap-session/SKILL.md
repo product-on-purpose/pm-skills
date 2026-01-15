@@ -48,10 +48,37 @@ AGENTS/
     ├── CONTEXT.md
     ├── TODO.md
     ├── DECISIONS.md
-    └── SESSION-LOG/
+    ├── SESSION-LOG/
+    └── PLANNING/
 ```
 
 See `references/context-files.md` for file formats.
+
+### 4b. Save Planning Artifacts (When Applicable)
+
+If the session involved planning, review, or analysis work that produced artifacts requiring review, save them to `AGENTS/<model>/PLANNING/`:
+
+**When to create PLANNING documents:**
+- Architecture proposals or design documents
+- Code review summaries and recommendations
+- Investigation reports and research findings
+- Implementation plans and roadmaps
+
+**File naming:**
+- Use descriptive, kebab-case names: `auth-system-design.md`, `api-migration-plan.md`
+- Prefix with date for time-sensitive docs: `2025-01-14_performance-analysis.md`
+
+**Required front matter:**
+```yaml
+---
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+sessions:
+  - SESSION-LOG/YYYY-MM-DD_HH-MM_session.md
+status: draft | in-review | approved | superseded
+tags: [planning, review, analysis]
+---
+```
 
 ### 5. Create Session Log
 
@@ -62,7 +89,8 @@ Create `AGENTS/<model>/SESSION-LOG/YYYY-MM-DD_HH-MM_session.md` with:
 3. Decisions made
 4. Issues encountered
 5. Next session recommendations
-6. Session highlights (key prompts/responses, not full transcript)
+6. Next session prompt (copy-paste ready prompt for continuing work)
+7. Session highlights (key prompts/responses, not full transcript)
 
 See `references/session-log-format.md` for template.
 
@@ -84,8 +112,10 @@ project-root/
         ├── CONTEXT.md
         ├── TODO.md
         ├── DECISIONS.md
-        └── SESSION-LOG/
-            └── YYYY-MM-DD_HH-MM_session.md
+        ├── SESSION-LOG/
+        │   └── YYYY-MM-DD_HH-MM_session.md
+        └── PLANNING/
+            └── <descriptive-name>.md
 ```
 
 ## When NOT to Run

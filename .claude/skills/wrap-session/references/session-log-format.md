@@ -42,6 +42,24 @@ Recommended starting point and priorities:
 2. Second priority task
 3. Consider investigating X
 
+## Next Session Prompt
+
+A ready-to-use prompt for continuing this work:
+
+```
+Continue from session [YYYY-MM-DD]. Context: [Brief project description].
+
+Last session accomplished:
+- [Key accomplishment 1]
+- [Key accomplishment 2]
+
+Priority for this session:
+1. [First priority]
+2. [Second priority]
+
+Start by reviewing AGENTS/<model>/CONTEXT.md and the previous session log.
+```
+
 ## Session Highlights
 
 Key exchanges or insights worth preserving:

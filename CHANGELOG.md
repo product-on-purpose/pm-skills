@@ -5,10 +5,49 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2026-01-14
+
+**PM-Skills v1.0.0 — Complete Triple Diamond coverage is here!**
+
+This release marks the completion of all 24 PM skills across the entire product development lifecycle. From discovery to iteration, PM-Skills now provides comprehensive coverage for product managers using AI assistants.
 
 ### Added
-- Nothing yet
+- **Phase 3 Complete: P2 Skills (11 skills) — All 24 skills now implemented!**
+  - `competitive-analysis` skill — Discover phase (`skills/discover/competitive-analysis/`)
+  - `stakeholder-summary` skill — Discover phase (`skills/discover/stakeholder-summary/`)
+  - `opportunity-tree` skill — Define phase (`skills/define/opportunity-tree/`)
+  - `jtbd-canvas` skill — Define phase (`skills/define/jtbd-canvas/`)
+  - `design-rationale` skill — Develop phase (`skills/develop/design-rationale/`)
+  - `dashboard-requirements` skill — Measure phase (`skills/measure/dashboard-requirements/`)
+  - `experiment-results` skill — Measure phase (`skills/measure/experiment-results/`)
+  - `retrospective` skill — Iterate phase (`skills/iterate/retrospective/`)
+  - `lessons-log` skill — Iterate phase (`skills/iterate/lessons-log/`)
+  - `refinement-notes` skill — Iterate phase (`skills/iterate/refinement-notes/`)
+  - `pivot-decision` skill — Iterate phase (`skills/iterate/pivot-decision/`)
+- Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md
+- GitHub labels: `phase-3`, `P2`
+- GitHub issues #26-36 for skill tracking
+- **Phase 3 Infrastructure: Workflow Bundles**
+  - `_bundles/triple-diamond.md` — Complete product development cycle guide
+  - `_bundles/lean-startup.md` — Build-Measure-Learn rapid iteration guide
+  - `_bundles/feature-kickoff.md` — Quick-start workflow for feature development
+- **Phase 3 Infrastructure: Slash Commands**
+  - `commands/prd.md` — Create Product Requirements Document
+  - `commands/problem-statement.md` — Create problem statement
+  - `commands/hypothesis.md` — Define testable hypothesis
+  - `commands/user-stories.md` — Generate user stories
+  - `commands/kickoff.md` — Run Feature Kickoff workflow
+- **Phase 3 Infrastructure: Agent Discovery**
+  - `AGENTS.md` — Universal agent discovery file listing all 24 skills
+- **Phase 3 Infrastructure: GitHub Actions**
+  - `.github/workflows/sync-agents-md.yml` — Auto-sync AGENTS.md on skill changes
+  - `.github/workflows/release-zips.yml` — Package skills as ZIPs on release
+
+### Changed
+- Updated README.md Skills Inventory badge to 24/24 (complete)
+- Updated README.md all skill status indicators to ✅
+- Updated README.md roadmap to show Phase 3 P2 Skills complete
+- Updated CONTEXT.md to reflect Phase 3 completion
 
 ## [0.3.0] - 2026-01-14
 

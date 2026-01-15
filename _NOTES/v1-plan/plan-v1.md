@@ -2253,30 +2253,28 @@ Get-ChildItem commands  # Should show 5 files
 - [x] [#24](https://github.com/product-on-purpose/pm-skills/issues/24): experiment-design *(complete)*
 - [x] [#25](https://github.com/product-on-purpose/pm-skills/issues/25): instrumentation-spec *(complete)*
 
-### Phase 3: P2 Skills
-*GitHub issues to be created when phase starts*
+### Phase 3: P2 Skills ✅ COMPLETE
 
-- [ ] competitive-analysis
-- [ ] stakeholder-summary
-- [ ] opportunity-tree
-- [ ] jtbd-canvas
-- [ ] design-rationale
-- [ ] dashboard-requirements
-- [ ] experiment-results
-- [ ] retrospective
-- [ ] lessons-log
-- [ ] refinement-notes
-- [ ] pivot-decision
+- [x] [#26](https://github.com/product-on-purpose/pm-skills/issues/26): competitive-analysis
+- [x] [#27](https://github.com/product-on-purpose/pm-skills/issues/27): stakeholder-summary
+- [x] [#28](https://github.com/product-on-purpose/pm-skills/issues/28): opportunity-tree
+- [x] [#29](https://github.com/product-on-purpose/pm-skills/issues/29): jtbd-canvas
+- [x] [#30](https://github.com/product-on-purpose/pm-skills/issues/30): design-rationale
+- [x] [#31](https://github.com/product-on-purpose/pm-skills/issues/31): dashboard-requirements
+- [x] [#32](https://github.com/product-on-purpose/pm-skills/issues/32): experiment-results
+- [x] [#33](https://github.com/product-on-purpose/pm-skills/issues/33): retrospective
+- [x] [#34](https://github.com/product-on-purpose/pm-skills/issues/34): lessons-log
+- [x] [#35](https://github.com/product-on-purpose/pm-skills/issues/35): refinement-notes
+- [x] [#36](https://github.com/product-on-purpose/pm-skills/issues/36): pivot-decision
 
-### Phase 3: Infrastructure
-*GitHub issues to be created when phase starts*
+### Phase 3: Infrastructure ✅ COMPLETE
 
-- [ ] Bundle — triple-diamond
-- [ ] Bundle — lean-startup
-- [ ] Bundle — feature-kickoff
-- [ ] Slash Commands
-- [ ] AGENTS.md + README
-- [ ] GitHub Actions
+- [x] Bundle — triple-diamond (`_bundles/triple-diamond.md`)
+- [x] Bundle — lean-startup (`_bundles/lean-startup.md`)
+- [x] Bundle — feature-kickoff (`_bundles/feature-kickoff.md`)
+- [x] Slash Commands (`commands/prd.md`, `problem-statement.md`, `hypothesis.md`, `user-stories.md`, `kickoff.md`)
+- [x] AGENTS.md (`AGENTS.md`)
+- [x] GitHub Actions (`.github/workflows/sync-agents-md.yml`, `release-zips.yml`)
 
 ---
 
