@@ -2,9 +2,17 @@
 
 ## In Progress
 
-*Nothing currently in progress.*
+### Open-Skills Ecosystem Publishing
+- [ ] Submit PR to awesome-claude-skills — content at `_NOTES/efforts/open-skills/awesome-claude-skills-pr.md`
+- [ ] Submit to n-skills marketplace — content at `_NOTES/efforts/open-skills/n-skills-submission.md`
+- [ ] Create GitHub release v1.0.2 to test new workflow
 
 ## To Do
+
+### Open-Skills Follow-up
+- [ ] Monitor [openskills#48](https://github.com/numman-ali/openskills/issues/48) for bug fix
+- [ ] Add awesome-claude-skills badge to README after PR merges
+- [ ] Update README installation instructions when openskills is fixed
 
 ### v1.1.0 Candidates
 - [ ] Validation CI workflow (check skill structure, frontmatter, required files)
@@ -38,6 +46,17 @@
 - [x] #34: `lessons-log` — Iterate phase (2026-01-14)
 - [x] #35: `refinement-notes` — Iterate phase (2026-01-14)
 - [x] #36: `pivot-decision` — Iterate phase (2026-01-14)
+
+### Open-Skills Integration (2026-01-15) ✅ CONTENT READY
+- [x] Created detailed execution plan (`plan-open-skills_detailed.md`)
+- [x] Tested openskills CLI compatibility — found bug
+- [x] Filed [openskills#48](https://github.com/numman-ali/openskills/issues/48) for nested path issue
+- [x] Updated README.md with accurate installation instructions
+- [x] Added "See It In Action" section to README.md
+- [x] Created GitHub release workflow (`.github/workflows/release.yml`)
+- [x] Prepared awesome-claude-skills PR content
+- [x] Prepared n-skills submission content
+- [x] Created manual steps guide
 
 ### v1.0.1: All Slash Commands (Issues #43-62) ✅ COMPLETE
 - [x] Created 20 missing slash commands (2026-01-15)

@@ -1,0 +1,71 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+
+      - name: Create skills ZIP
+        run: |
+          # Create ZIP with skills folder and key files
+          zip -r pm-skills-${{ steps.version.outputs.VERSION }}.zip skills/ AGENTS.md LICENSE README.md
+
+      - name: Create Claude.ai bundle ZIP
+        run: |
+          # Create minimal ZIP for Claude.ai upload
+          zip -r pm-skills-claude-${{ steps.version.outputs.VERSION }}.zip skills/ AGENTS.md
+
+      - name: Generate release notes
+        run: |
+          cat << 'EOF' > RELEASE_NOTES.md
+          ## What's Included
+
+          - 24 PM skills across 6 phases (Discover, Define, Develop, Deliver, Measure, Iterate)
+          - Templates and examples for each skill
+          - AGENTS.md for universal agent discovery
+
+          ## Installation
+
+          ```bash
+          git clone https://github.com/product-on-purpose/pm-skills.git
+          ```
+
+          Or download the ZIP and extract to your project.
+
+          ## Claude.ai / Desktop
+
+          Download `pm-skills-claude-${{ steps.version.outputs.VERSION }}.zip` and upload in **Settings > Capabilities**.
+
+          ## Claude Code
+
+          Use skills directly via slash commands:
+          ```bash
+          /prd "Your feature description"
+          /user-stories "Your PRD context"
+          /hypothesis "Your assumption to test"
+          ```
+          EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            pm-skills-${{ steps.version.outputs.VERSION }}.zip
+            pm-skills-claude-${{ steps.version.outputs.VERSION }}.zip
+          body_path: RELEASE_NOTES.md
+          draft: false
+          prerelease: false

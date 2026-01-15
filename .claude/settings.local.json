@@ -58,7 +58,9 @@
       "Bash(env:*)",
       "Bash(printenv:*)",
       "Bash(gh milestone:*)",
-      "Bash(gh release create:*)"
+      "Bash(gh release create:*)",
+      "Bash(node --version:*)",
+      "Bash(npm --version:*)"
     ]
   }
 }

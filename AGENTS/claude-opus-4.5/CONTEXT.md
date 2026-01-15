@@ -2,9 +2,10 @@
 
 ## Current State
 
-**Status:** v1.0.1 — All 24 slash commands complete
+**Status:** v1.0.1 — Open-skills ecosystem integration in progress
 **Last Updated:** 2026-01-15
 **Release:** [v1.0.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.0.1)
+**Current Effort:** Publishing to awesome-claude-skills and n-skills marketplace
 
 ## Project Overview
 
@@ -52,6 +53,17 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **Open-Skills Ecosystem Integration** (2026-01-15)
+  - Created detailed execution plan for publishing to open-skills ecosystem
+  - Tested openskills CLI — discovered bug with nested directories ([#48](https://github.com/numman-ali/openskills/issues/48))
+  - Verified bug affects Anthropic's official `anthropics/skills` repo too
+  - Updated README.md with accurate installation instructions (Git clone recommended)
+  - Added "See It In Action" section to README.md
+  - Created GitHub release workflow (`.github/workflows/release.yml`)
+  - Prepared PR content for awesome-claude-skills submission
+  - Prepared submission content for n-skills marketplace
+  - Documentation at `_NOTES/efforts/open-skills/`
 
 - **All 24 Slash Commands COMPLETE** (2026-01-15)
   - Created 20 missing slash commands in `commands/` directory:
@@ -131,12 +143,18 @@ pm-skills/
 
 ## Next Steps
 
-1. **Post-Release:**
+1. **Open-Skills Publishing (In Progress):**
+   - [ ] Submit PR to awesome-claude-skills (content ready)
+   - [ ] Submit to n-skills marketplace (content ready)
+   - [ ] Create GitHub release v1.0.2 to trigger workflow
+   - [ ] Monitor openskills#48 for fix
+
+2. **Post-Release:**
    - Announce release (Twitter, LinkedIn, Product Hunt)
    - Monitor for user feedback and issues
    - Claude Code marketplace submission (when available)
 
-2. **v1.1.0 Candidates:**
+3. **v1.1.0 Candidates:**
    - Validation CI workflow (check skill structure in PRs)
    - Auto-generated header for AGENTS.md
 

@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Open-Skills Ecosystem Integration**
+  - `_NOTES/efforts/open-skills/` documentation folder for publishing effort
+  - `plan-open-skills_detailed.md` — Step-by-step execution plan for agentic coding
+  - `awesome-claude-skills-pr.md` — Ready-to-submit PR content for awesome-claude-skills
+  - `n-skills-submission.md` — Ready-to-submit content for n-skills marketplace
+  - `test-results.md` — openskills CLI compatibility test documentation
+  - `openskills-issue.md` — Bug report for openskills nested path issue
+  - `README_installation.md` — Planned vs current installation instructions
+  - `plan-open-skills_detailed_manual-steps.md` — Manual submission guide
+- **GitHub Release Workflow**
+  - `.github/workflows/release.yml` — Automated ZIP creation on tag push
+  - Creates two artifacts: full package + Claude.ai bundle
+
+### Changed
+- Updated README.md Quick Start with 4 installation options (Git clone recommended)
+- Added "See It In Action" section to README.md with input/output example
+- Reordered installation methods based on openskills bug discovery
+
+### Fixed
+- Discovered and documented [openskills#48](https://github.com/numman-ali/openskills/issues/48) — nested directory structure bug affecting pm-skills and anthropics/skills
+
 ## [1.0.1] - 2026-01-15
 
 ### Added
