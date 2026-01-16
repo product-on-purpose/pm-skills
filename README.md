@@ -320,7 +320,7 @@ We welcome contributions! PM-Skills uses a curated model:
 
 1. **Propose** — Open a "Request a Skill" issue
 2. **Discuss** — Get maintainer feedback
-3. **Build** — Follow the [skill template](_templates/skill-template/)
+3. **Build** — Follow the [skill template](templates/skill-template/)
 4. **Ship** — Submit PR, pass review
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
@@ -339,8 +339,8 @@ pm-skills/
 │   ├── measure/          # Validation and metrics
 │   └── iterate/          # Learning and improvement
 ├── _bundles/             # Workflow sequences
-├── _docs/                # Schema and references
-├── _templates/           # Skill creation templates
+├── docs/                 # Schema and references
+├── templates/            # Skill creation templates
 ├── commands/             # Claude Code slash commands
 ├── AGENTS.md             # Universal agent discovery
 └── CONTRIBUTING.md       # How to contribute

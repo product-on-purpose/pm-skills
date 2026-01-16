@@ -9,19 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Open-Skills Ecosystem Integration**
-  - `_NOTES/efforts/open-skills/` documentation folder for publishing effort
-  - `plan-open-skills_detailed.md` — Step-by-step execution plan for agentic coding
-  - `awesome-claude-skills-pr.md` — Ready-to-submit PR content for awesome-claude-skills
-  - `n-skills-submission.md` — Ready-to-submit content for n-skills marketplace
-  - `test-results.md` — openskills CLI compatibility test documentation
-  - `openskills-issue.md` — Bug report for openskills nested path issue
-  - `README_installation.md` — Planned vs current installation instructions
-  - `plan-open-skills_detailed_manual-steps.md` — Manual submission guide
+  - Prepared PR content for awesome-claude-skills submission
+  - Prepared submission content for n-skills marketplace
+  - Documented openskills CLI compatibility testing
+  - Filed [openskills#48](https://github.com/numman-ali/openskills/issues/48) for nested path bug
 - **GitHub Release Workflow**
   - `.github/workflows/release.yml` — Automated ZIP creation on tag push
   - Creates two artifacts: full package + Claude.ai bundle
+- **CLAUDE.md** — Agent instructions with documentation rules
 
 ### Changed
+- Renamed `_docs/` → `docs/` and `_templates/` → `templates/` for standard conventions
 - Updated README.md Quick Start with 4 installation options (Git clone recommended)
 - Added "See It In Action" section to README.md with input/output example
 - Reordered installation methods based on openskills bug discovery
@@ -181,8 +179,8 @@ This release marks the completion of all 24 PM skills across the entire product 
 - Added PowerShell validation commands for Windows compatibility
 
 ### Fixed
-- Pre-Flight Checklist path error in plan-v1.md (was "root", now "_NOTES/v1-plan/")
-- VISION.md location inconsistency (now references `_NOTES/VISION.md`)
+- Pre-Flight Checklist path error in planning document
+- VISION.md location inconsistency resolved
 - Issue #1 conflict with existing files (added "skip if exists" note)
 
 ### Closed

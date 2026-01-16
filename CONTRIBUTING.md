@@ -95,7 +95,7 @@ We are committed to providing a welcoming and inclusive environment. Please:
 
 - Open an issue for skill ideas or questions
 - Check existing issues before creating new ones
-- Review the [VISION.md](_NOTES/VISION.md) for project context
+- See the [README](README.md) for project context and roadmap
 
 ---
 

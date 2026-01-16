@@ -93,9 +93,9 @@
 
 ### Phase 0: Foundation (Issues #1-9) ✅ COMPLETE
 - [x] #1: Repository Bootstrap — CONTRIBUTING.md, directory structure (2026-01-14)
-- [x] #2: Schema Documentation — `_docs/frontmatter-schema.yaml` (2026-01-14)
-- [x] #3: Category Reference — `_docs/categories.md` (2026-01-14)
-- [x] #4: Skill Template Structure — `_templates/skill-template/` (2026-01-14)
+- [x] #2: Schema Documentation — `docs/frontmatter-schema.yaml` (2026-01-14)
+- [x] #3: Category Reference — `docs/categories.md` (2026-01-14)
+- [x] #4: Skill Template Structure — `templates/skill-template/` (2026-01-14)
 - [x] #5: VISION.md Integration — verified at `_NOTES/VISION.md` (2026-01-14)
 - [x] Issues #6-9: Plan improvements and fixes (2026-01-14)
 

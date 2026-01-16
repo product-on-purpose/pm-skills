@@ -69,9 +69,9 @@ Phase gates with clear "complete when" criteria prevent premature advancement.
 | Issue                    | Status      | What Was Created                                                    |
 | ------------------------ | ----------- | ------------------------------------------------------------------- |
 | #1 Repository Bootstrap  | ✅ Complete | CONTRIBUTING.md, skills/ directories, infrastructure dirs           |
-| #2 Schema Documentation  | ✅ Complete | `_docs/frontmatter-schema.yaml`                                     |
-| #3 Category Reference    | ✅ Complete | `_docs/categories.md`                                               |
-| #4 Skill Template        | ✅ Complete | `_templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md |
+| #2 Schema Documentation  | ✅ Complete | `docs/frontmatter-schema.yaml`                                     |
+| #3 Category Reference    | ✅ Complete | `docs/categories.md`                                               |
+| #4 Skill Template        | ✅ Complete | `templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md |
 | #5 VISION.md Integration | ✅ Complete | Verified at `_NOTES/VISION.md`                                      |
 
 **Progress Tracker in plan-v1.md updated to reflect completion.**
