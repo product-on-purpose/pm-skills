@@ -3,9 +3,9 @@
 ## In Progress
 
 ### Open-Skills Ecosystem Publishing
-- [ ] Submit PR to awesome-claude-skills — content at `_NOTES/efforts/open-skills/awesome-claude-skills-pr.md`
-- [ ] Submit to n-skills marketplace — content at `_NOTES/efforts/open-skills/n-skills-submission.md`
-- [ ] Create GitHub release v1.0.2 to test new workflow
+- [ ] Submit PR to awesome-claude-skills — content ready
+- [ ] Submit to n-skills marketplace — content ready
+- [x] Create GitHub release v1.0.2 to test new workflow ✅
 
 ## To Do
 
