@@ -7,7 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-01-16
+
+**PM-Skills v1.1.0 — Documentation & README Overhaul**
+
+This release brings a comprehensive documentation expansion and a major README redesign following open-source best practices. The README now features better navigation, an FAQ section, and improved discoverability.
+
 ### Added
+- **Comprehensive Documentation Expansion**
+  - `docs/getting-started.md` — Detailed setup guide covering 5 installation methods
+  - `docs/guides/using-skills.md` — Beginner to advanced usage guide with SPICE context framework, skill chaining, and 7 power-user patterns
+  - `docs/guides/authoring-pm-skills.md` — Complete guide for creating and submitting new skills
+  - `docs/frameworks/triple-diamond-delivery-process.md` — Triple Diamond methodology documentation
+- **README Major Enhancements**
+  - Collapsible Table of Contents for easier navigation
+  - FAQ section with 7 expandable Q&A items covering common questions
+  - License section with Apache 2.0 permissions explained
+  - Acknowledgments section crediting frameworks and resources
+  - About the Author section
+  - More Suggestions section for community engagement
+  - Project Status badge (Active)
+  - GitHub stats badges (stars, forks, issues, contributors, last commit)
+  - Back-to-top navigation links throughout
+  - Change Log Summary table with version highlights
+  - Releases section with download badge
+  - Expanded Usage intro explaining skills, commands, and bundles
+  - Workflow Bundles intro paragraph
+  - Updated Built with section with visual badges
 - **Open-Skills Ecosystem Integration**
   - Prepared PR content for awesome-claude-skills submission
   - Prepared submission content for n-skills marketplace
@@ -19,10 +45,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **CLAUDE.md** — Agent instructions with documentation rules
 
 ### Changed
+- **Documentation Reference Files Significantly Expanded**
+  - `docs/reference/categories.md` — Expanded from 54 to 420+ lines with diagrams, workflows, and framework mappings
+  - `docs/reference/frontmatter-schema.yaml` — Expanded from 91 to 600 lines with validation rules, examples, and best practices
+- **New `/docs` Taxonomy Structure**
+  - `docs/reference/` — Technical specifications (categories, schema)
+  - `docs/guides/` — How-to guides (using-skills, authoring-pm-skills)
+  - `docs/frameworks/` — Methodology documentation (triple-diamond)
 - Renamed `_docs/` → `docs/` and `_templates/` → `templates/` for standard conventions
+- README.md restructured following best-practices from Best-README-Template and amazing-github-template
 - Updated README.md Quick Start with 4 installation options (Git clone recommended)
-- Added "See It In Action" section to README.md with input/output example
 - Reordered installation methods based on openskills bug discovery
+- Version badge updated to 1.1.0
 
 ### Fixed
 - Discovered and documented [openskills#48](https://github.com/numman-ali/openskills/issues/48) — nested directory structure bug affecting pm-skills and anthropics/skills

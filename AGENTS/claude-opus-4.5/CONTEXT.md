@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** v1.0.2 — Ready for awesome-claude-skills submission
-**Last Updated:** 2026-01-15
-**Release:** [v1.0.2](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.0.2)
-**Next Step:** Manual PR submission to awesome-claude-skills
+**Status:** v1.1.0 — Documentation overhaul & README redesign complete
+**Last Updated:** 2026-01-16
+**Release:** [v1.1.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.1.0)
+**Next Step:** Tag v1.1.0, then submit PR to awesome-claude-skills
 
 ## Project Overview
 
@@ -34,9 +34,11 @@ pm-skills/
 │   ├── measure/          # Validation: experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
 │   └── iterate/          # Learning: retrospective, lessons-log, refinement-notes, pivot-decision
 ├── _bundles/             # Workflow documentation (triple-diamond, lean-startup, feature-kickoff)
-├── docs/                 # Schema and reference docs
-│   ├── frontmatter-schema.yaml
-│   └── categories.md
+├── docs/                 # Comprehensive documentation
+│   ├── getting-started.md # Quick setup guide
+│   ├── reference/        # Technical specs (categories.md, frontmatter-schema.yaml)
+│   ├── guides/           # How-to guides (using-skills.md, authoring-pm-skills.md)
+│   └── frameworks/       # Methodology docs (triple-diamond-delivery-process.md)
 ├── templates/            # Skill creation templates
 │   └── skill-template/   # SKILL.md, TEMPLATE.md, EXAMPLE.md
 ├── commands/             # Claude Code slash commands
@@ -53,6 +55,16 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **Documentation Expansion** (2026-01-16)
+  - Verified accuracy of `docs/reference/categories.md` and `frontmatter-schema.yaml` — all 24 skills validated
+  - Reorganized `/docs` with new taxonomy: `reference/`, `guides/`, `frameworks/`
+  - Expanded `categories.md` from 54 → 420+ lines with diagrams, workflows, framework mappings
+  - Expanded `frontmatter-schema.yaml` from 91 → 600 lines with validation rules, examples, best practices
+  - Created `docs/reference/getting-started.md` — comprehensive setup guide for 5 methods (~600 lines)
+  - Created `docs/guides/using-skills.md` — beginner to advanced usage guide (~750 lines)
+  - Created `docs/guides/authoring-pm-skills.md` — skill creation and submission guide (~850 lines)
+  - Verified all framework claims in README are accurate (Teresa Torres, Christensen, Nygard)
 
 - **v1.0.2 Release & Cleanup** (2026-01-15)
   - Created v1.0.2 tag — release workflow ran successfully

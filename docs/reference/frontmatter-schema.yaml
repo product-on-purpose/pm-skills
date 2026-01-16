@@ -1,0 +1,599 @@
+# =============================================================================
+# PM-Skills Frontmatter Schema
+# =============================================================================
+#
+# Version: 1.0.0
+# Specification: https://agentskills.io/specification
+#
+# This schema defines the YAML frontmatter structure for all SKILL.md files
+# in the pm-skills repository. Frontmatter enables AI agents and tools to
+# discover, categorize, and invoke skills programmatically.
+#
+# =============================================================================
+# TABLE OF CONTENTS
+# =============================================================================
+#
+# 1. Schema Overview
+# 2. Required Fields
+#    - name
+#    - description
+# 3. Optional Fields
+#    - license
+#    - metadata
+#      - category
+#      - frameworks
+#      - author
+#      - version
+# 4. Complete Examples
+# 5. Validation Rules
+# 6. Common Mistakes
+# 7. Best Practices
+#
+# =============================================================================
+
+
+# =============================================================================
+# 1. SCHEMA OVERVIEW
+# =============================================================================
+#
+# Frontmatter is YAML metadata enclosed in triple dashes (---) at the start
+# of a SKILL.md file. It provides machine-readable information about the skill.
+#
+# Basic structure:
+#
+#   ---
+#   name: skill-name
+#   description: What the skill does...
+#   license: Apache-2.0
+#   metadata:
+#     category: specification
+#     frameworks: [triple-diamond, lean-startup]
+#     author: your-name
+#     version: "1.0.0"
+#   ---
+#
+#   # Skill Title
+#
+#   Markdown content begins here...
+#
+# =============================================================================
+
+
+schema:
+
+  # ===========================================================================
+  # 2. REQUIRED FIELDS
+  # ===========================================================================
+  #
+  # These fields are mandated by the agentskills.io specification.
+  # Skills missing required fields will fail validation.
+  # ===========================================================================
+
+  required:
+
+    # -------------------------------------------------------------------------
+    # name
+    # -------------------------------------------------------------------------
+    # The unique identifier for this skill. Used for:
+    # - Skill invocation (e.g., /problem-statement)
+    # - Directory naming (skills/define/problem-statement/)
+    # - Cross-referencing in documentation
+    # -------------------------------------------------------------------------
+    name:
+      type: string
+      pattern: "^[a-z0-9]+(-[a-z0-9]+)*$"
+      minLength: 1
+      maxLength: 64
+      description: |
+        Skill identifier. Must be lowercase, use hyphens for word separation,
+        no consecutive hyphens, no leading/trailing hyphens. Must match the
+        directory name exactly.
+
+        Format rules:
+        - Lowercase letters (a-z) and numbers (0-9) only
+        - Use hyphens (-) to separate words
+        - No spaces, underscores, or special characters
+        - No consecutive hyphens (--)
+        - Cannot start or end with a hyphen
+        - Maximum 64 characters
+
+        Naming conventions:
+        - Use nouns or noun phrases (prd, user-stories, edge-cases)
+        - Be descriptive but concise
+        - Avoid abbreviations unless well-known (prd, adr, jtbd)
+        - Match the output artifact name when possible
+
+      examples:
+        valid:
+          - problem-statement
+          - prd
+          - user-stories
+          - jtbd-canvas
+          - experiment-design
+          - adr
+          - a1b2c3
+
+        invalid:
+          - Problem-Statement    # uppercase not allowed
+          - problem_statement    # underscores not allowed
+          - problem statement    # spaces not allowed
+          - problem--statement   # consecutive hyphens not allowed
+          - -problem-statement   # leading hyphen not allowed
+          - problem-statement-   # trailing hyphen not allowed
+          - PRD                  # uppercase not allowed
+
+    # -------------------------------------------------------------------------
+    # description
+    # -------------------------------------------------------------------------
+    # A human and machine-readable summary of what the skill does.
+    # Critical for AI agent discovery and skill selection.
+    # -------------------------------------------------------------------------
+    description:
+      type: string
+      minLength: 1
+      maxLength: 1024
+      description: |
+        What the skill does and when to use it. This field serves dual purposes:
+
+        1. HUMAN readers: Quickly understand the skill's purpose
+        2. AI agents: Discover and select appropriate skills via semantic search
+
+        Writing effective descriptions:
+
+        Structure:
+        - Start with an action verb (Creates, Generates, Documents, Designs)
+        - State the primary output artifact
+        - Include 1-2 key use cases with "Use when..." phrasing
+
+        Include trigger keywords:
+        - Action words the user might say (analyze, create, write, design)
+        - Artifact names (PRD, requirements, user stories, checklist)
+        - Context phrases (before launch, after experiments, for engineering)
+
+        Length guidance:
+        - Minimum: 50 characters (one clear sentence)
+        - Optimal: 150-300 characters (output + 2-3 use cases)
+        - Maximum: 1024 characters (don't exceed)
+
+        Avoid:
+        - Vague statements ("helps with product work")
+        - Redundant phrases ("this skill is used for...")
+        - Marketing language ("amazing", "powerful", "best")
+
+      examples:
+        good:
+          - |
+            Creates a clear problem framing document with user impact, business
+            context, and success criteria. Use when starting a new initiative,
+            realigning a drifted project, or communicating up to leadership.
+          - |
+            Generates user stories with clear acceptance criteria from product
+            requirements or feature descriptions. Use when breaking down features
+            for sprint planning, writing tickets, or communicating requirements
+            to engineering.
+          - |
+            Documents the results of a completed experiment or A/B test with
+            statistical analysis, learnings, and recommendations. Use after
+            experiments conclude to communicate findings, inform decisions, and
+            build organizational knowledge.
+
+        poor:
+          - "Helps with problem statements"           # too vague, no use cases
+          - "This skill creates PRDs"                 # redundant phrasing
+          - "The ultimate PRD generator!"             # marketing language
+          - "PRD"                                     # way too short
+
+
+  # ===========================================================================
+  # 3. OPTIONAL FIELDS
+  # ===========================================================================
+  #
+  # These fields extend the agentskills.io specification with pm-skills
+  # specific metadata. Recommended but not required for validation.
+  # ===========================================================================
+
+  optional:
+
+    # -------------------------------------------------------------------------
+    # license
+    # -------------------------------------------------------------------------
+    license:
+      type: string
+      default: "Apache-2.0"
+      description: |
+        SPDX license identifier specifying the skill's license terms.
+
+        All pm-skills repository skills use Apache-2.0, but this field allows
+        third-party skills to specify different licenses.
+
+        See: https://spdx.org/licenses/
+
+      examples:
+        - Apache-2.0      # pm-skills default
+        - MIT             # permissive
+        - GPL-3.0-only    # copyleft
+        - CC-BY-4.0       # creative commons
+
+    # -------------------------------------------------------------------------
+    # metadata
+    # -------------------------------------------------------------------------
+    # Container for pm-skills specific extensions
+    # -------------------------------------------------------------------------
+    metadata:
+      type: object
+      description: |
+        Container for pm-skills specific metadata. All properties are optional
+        but recommended for proper categorization and discoverability.
+
+      properties:
+
+        # ---------------------------------------------------------------------
+        # metadata.category
+        # ---------------------------------------------------------------------
+        category:
+          type: string
+          enum:
+            - research
+            - problem-framing
+            - ideation
+            - specification
+            - validation
+            - reflection
+            - coordination
+          description: |
+            Framework-agnostic PM activity type. Categories enable skills to be
+            mapped across different methodologies (Triple Diamond, Lean Startup,
+            Design Thinking).
+
+            Choose the category that best represents the PRIMARY activity:
+
+            research         → Understanding users, market, context
+                               Skills: interview-synthesis, competitive-analysis,
+                               stakeholder-summary
+
+            problem-framing  → Defining what problem to solve
+                               Skills: problem-statement, opportunity-tree,
+                               jtbd-canvas
+
+            ideation         → Generating and evaluating solutions
+                               Skills: hypothesis, solution-brief
+
+            specification    → Detailing what to build
+                               Skills: prd, user-stories, edge-cases, adr,
+                               design-rationale
+
+            validation       → Testing assumptions with data
+                               Skills: experiment-design, instrumentation-spec,
+                               dashboard-requirements
+
+            reflection       → Learning and improving
+                               Skills: experiment-results, retrospective,
+                               lessons-log, pivot-decision
+
+            coordination     → Aligning teams and stakeholders
+                               Skills: launch-checklist, release-notes,
+                               spike-summary, refinement-notes
+
+            See: docs/reference/categories.md for detailed category documentation
+
+        # ---------------------------------------------------------------------
+        # metadata.frameworks
+        # ---------------------------------------------------------------------
+        frameworks:
+          type: array
+          items:
+            type: string
+          description: |
+            List of PM methodologies this skill supports. Used for filtering
+            skills by methodology and organizing bundles.
+
+            Standard framework identifiers:
+            - triple-diamond    → 6-phase delivery process (Discover→Iterate)
+            - lean-startup      → Build-Measure-Learn cycle
+            - design-thinking   → Empathize-Define-Ideate-Prototype-Test
+            - scrum             → Sprint-based agile framework
+            - kanban            → Flow-based agile framework
+            - safe              → Scaled Agile Framework
+
+            Most pm-skills support multiple frameworks. Include all applicable
+            frameworks, not just the primary one.
+
+          examples:
+            - [triple-diamond, lean-startup, design-thinking]  # typical
+            - [triple-diamond]                                  # framework-specific
+            - [scrum, kanban]                                   # agile-specific
+
+        # ---------------------------------------------------------------------
+        # metadata.author
+        # ---------------------------------------------------------------------
+        author:
+          type: string
+          description: |
+            Skill creator or maintainer identifier. Use consistent naming
+            across all your skills for attribution and filtering.
+
+            Format options:
+            - Organization name: product-on-purpose
+            - GitHub username: @username
+            - Full name: Jane Smith
+
+          examples:
+            - product-on-purpose   # organization
+            - "@jsmith"            # GitHub handle
+            - "Jane Smith"         # full name
+
+        # ---------------------------------------------------------------------
+        # metadata.version
+        # ---------------------------------------------------------------------
+        version:
+          type: string
+          pattern: "^\\d+\\.\\d+\\.\\d+$"
+          description: |
+            Semantic version of the skill (MAJOR.MINOR.PATCH).
+
+            Versioning guidelines:
+            - MAJOR: Breaking changes to output format or behavior
+            - MINOR: New features, sections, or capabilities
+            - PATCH: Bug fixes, typo corrections, minor improvements
+
+            Start new skills at 1.0.0. Increment as you make changes.
+
+            Note: Version must be quoted in YAML to prevent interpretation
+            as a float (version: "1.0.0" not version: 1.0.0).
+
+          examples:
+            - "1.0.0"    # initial release
+            - "1.1.0"    # minor feature added
+            - "2.0.0"    # breaking change
+
+
+# =============================================================================
+# 4. COMPLETE EXAMPLES
+# =============================================================================
+
+examples:
+
+  # ---------------------------------------------------------------------------
+  # Minimal valid frontmatter (required fields only)
+  # ---------------------------------------------------------------------------
+  minimal: |
+    ---
+    name: my-skill
+    description: Brief description of what this skill does.
+    ---
+
+  # ---------------------------------------------------------------------------
+  # Recommended frontmatter (all standard fields)
+  # ---------------------------------------------------------------------------
+  recommended: |
+    ---
+    name: problem-statement
+    description: Creates a clear problem framing document with user impact, business context, and success criteria. Use when starting a new initiative, realigning a drifted project, or communicating up to leadership.
+    license: Apache-2.0
+    metadata:
+      category: problem-framing
+      frameworks: [triple-diamond, lean-startup, design-thinking]
+      author: product-on-purpose
+      version: "1.0.0"
+    ---
+
+  # ---------------------------------------------------------------------------
+  # Full example: prd skill
+  # ---------------------------------------------------------------------------
+  prd: |
+    ---
+    name: prd
+    description: Creates a comprehensive Product Requirements Document that aligns stakeholders on what to build, why, and how success will be measured. Use when specifying features, epics, or product initiatives for engineering handoff.
+    license: Apache-2.0
+    metadata:
+      category: specification
+      frameworks: [triple-diamond, lean-startup, design-thinking]
+      author: product-on-purpose
+      version: "1.0.0"
+    ---
+
+  # ---------------------------------------------------------------------------
+  # Full example: experiment-design skill
+  # ---------------------------------------------------------------------------
+  experiment_design: |
+    ---
+    name: experiment-design
+    description: Designs an A/B test or experiment with clear hypothesis, variants, success metrics, sample size, and duration. Use when planning experiments to validate product changes or test hypotheses.
+    license: Apache-2.0
+    metadata:
+      category: validation
+      frameworks: [triple-diamond, lean-startup, design-thinking]
+      author: product-on-purpose
+      version: "1.0.0"
+    ---
+
+
+# =============================================================================
+# 5. VALIDATION RULES
+# =============================================================================
+#
+# Use these rules to validate skill frontmatter programmatically.
+# =============================================================================
+
+validation:
+
+  rules:
+    - id: required-name
+      field: name
+      rule: must be present
+      severity: error
+      message: "Missing required field: name"
+
+    - id: required-description
+      field: description
+      rule: must be present
+      severity: error
+      message: "Missing required field: description"
+
+    - id: name-format
+      field: name
+      rule: must match pattern ^[a-z0-9]+(-[a-z0-9]+)*$
+      severity: error
+      message: "Invalid name format. Use lowercase letters, numbers, and hyphens only."
+
+    - id: name-length
+      field: name
+      rule: length must be 1-64 characters
+      severity: error
+      message: "Name must be between 1 and 64 characters."
+
+    - id: name-matches-directory
+      field: name
+      rule: must match parent directory name
+      severity: error
+      message: "Name must match the skill's directory name exactly."
+
+    - id: description-length
+      field: description
+      rule: length must be 1-1024 characters
+      severity: error
+      message: "Description must be between 1 and 1024 characters."
+
+    - id: description-quality
+      field: description
+      rule: should be at least 50 characters
+      severity: warning
+      message: "Description is very short. Consider adding use cases."
+
+    - id: category-valid
+      field: metadata.category
+      rule: must be one of the valid enum values
+      severity: error
+      message: "Invalid category. Must be one of: research, problem-framing, ideation, specification, validation, reflection, coordination"
+
+    - id: version-format
+      field: metadata.version
+      rule: must match semantic version pattern
+      severity: error
+      message: "Invalid version format. Use semantic versioning (e.g., '1.0.0')."
+
+    - id: version-quoted
+      field: metadata.version
+      rule: should be quoted string
+      severity: warning
+      message: "Version should be quoted to prevent YAML float interpretation."
+
+
+# =============================================================================
+# 6. COMMON MISTAKES
+# =============================================================================
+
+common_mistakes:
+
+  - mistake: "Uppercase in name"
+    incorrect: |
+      name: Problem-Statement
+    correct: |
+      name: problem-statement
+    explanation: "Names must be lowercase. Use hyphens for word separation."
+
+  - mistake: "Underscores in name"
+    incorrect: |
+      name: problem_statement
+    correct: |
+      name: problem-statement
+    explanation: "Use hyphens (-) not underscores (_) for word separation."
+
+  - mistake: "Unquoted version"
+    incorrect: |
+      version: 1.0.0
+    correct: |
+      version: "1.0.0"
+    explanation: "YAML interprets unquoted 1.0.0 as a float. Always quote versions."
+
+  - mistake: "Name doesn't match directory"
+    incorrect: |
+      # In file: skills/define/problem-statement/SKILL.md
+      name: problem-framing
+    correct: |
+      # In file: skills/define/problem-statement/SKILL.md
+      name: problem-statement
+    explanation: "The name field must exactly match the skill's directory name."
+
+  - mistake: "Invalid category"
+    incorrect: |
+      metadata:
+        category: planning
+    correct: |
+      metadata:
+        category: problem-framing
+    explanation: "Category must be one of the 7 valid values. See enum list above."
+
+  - mistake: "Missing frontmatter delimiters"
+    incorrect: |
+      name: problem-statement
+      description: ...
+
+      # Problem Statement
+    correct: |
+      ---
+      name: problem-statement
+      description: ...
+      ---
+
+      # Problem Statement
+    explanation: "Frontmatter must be enclosed in triple dashes (---)."
+
+  - mistake: "Frontmatter not at start of file"
+    incorrect: |
+      # Problem Statement
+
+      ---
+      name: problem-statement
+      ---
+    correct: |
+      ---
+      name: problem-statement
+      ---
+
+      # Problem Statement
+    explanation: "Frontmatter must be the first thing in the file."
+
+
+# =============================================================================
+# 7. BEST PRACTICES
+# =============================================================================
+
+best_practices:
+
+  naming:
+    - "Use the output artifact name when obvious (prd, adr, retrospective)"
+    - "Prefer concrete nouns over abstract verbs (user-stories not write-stories)"
+    - "Keep names short but descriptive (3 words max recommended)"
+    - "Use well-known abbreviations (prd, adr, jtbd) but spell out unclear ones"
+
+  descriptions:
+    - "Start with an action verb (Creates, Generates, Documents, Designs)"
+    - "Include the primary output in the first sentence"
+    - "Add 2-3 'Use when...' triggers for AI discoverability"
+    - "Include keywords users might search for"
+    - "Aim for 150-300 characters"
+
+  metadata:
+    - "Always include category for proper organization"
+    - "List all applicable frameworks, not just the primary one"
+    - "Use consistent author naming across all your skills"
+    - "Start versions at 1.0.0 and increment meaningfully"
+
+  general:
+    - "Validate frontmatter before committing"
+    - "Keep frontmatter focused on machine-readable data"
+    - "Put detailed documentation in the skill body, not the frontmatter"
+    - "Review existing skills for consistent patterns"
+
+
+# =============================================================================
+# SEE ALSO
+# =============================================================================
+#
+# - docs/reference/categories.md      → Category taxonomy documentation
+# - https://agentskills.io/specification → Base specification
+# - https://spdx.org/licenses/        → License identifiers
+# - https://semver.org/               → Semantic versioning
+#
+# =============================================================================

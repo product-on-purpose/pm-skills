@@ -47,6 +47,16 @@
 - [x] #35: `refinement-notes` — Iterate phase (2026-01-14)
 - [x] #36: `pivot-decision` — Iterate phase (2026-01-14)
 
+### Documentation Expansion (2026-01-16) ✅ COMPLETE
+- [x] Deep verification of categories.md and frontmatter-schema.yaml (all 24 skills)
+- [x] Reorganized `/docs` folder with new taxonomy
+- [x] Expanded `docs/reference/categories.md` (54 → 420+ lines)
+- [x] Expanded `docs/reference/frontmatter-schema.yaml` (91 → 600 lines)
+- [x] Created `docs/reference/getting-started.md` (~600 lines)
+- [x] Created `docs/guides/using-skills.md` (~750 lines)
+- [x] Created `docs/guides/authoring-pm-skills.md` (~850 lines)
+- [x] Verified framework claims in README are accurate
+
 ### Open-Skills Integration (2026-01-15) ✅ CONTENT READY
 - [x] Created detailed execution plan (`plan-open-skills_detailed.md`)
 - [x] Tested openskills CLI compatibility — found bug
@@ -105,4 +115,4 @@
 
 ---
 
-*Last updated: 2026-01-15*
+*Last updated: 2026-01-16*
