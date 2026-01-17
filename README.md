@@ -59,7 +59,6 @@
   <a href="#forward-march">Releases</a> •
   <a href="#roadmap">Roadmap</a> •
   <a href="#contributing">Contributing</a> •
-  <a href="#acknowledgments">Credits</a>
 </p>
 
 <details>
@@ -89,7 +88,6 @@
   - [Contributing](#contributing)
   - [Submit a Bug](#submit-a-bug)
 - [FAQ](#faq)
-- [Acknowledgments](#acknowledgments)
 - [About the Author](#about-the-author)
 - [License](#license)
 - [More Suggestions](#more-suggestions)
@@ -165,13 +163,16 @@ Every time you ask an AI to help with product management, you start from zero. G
 - **[Agent Skills Specification](https://agentskills.io/specification)** - Open standard for AI-agent skills
 - **[GitHub Flavored Markdown](https://github.github.com/gfm/)** - Universal documentation format
 - **[Keep a Changelog](https://keepachangelog.com/)** - Structured release documentation
+- **[Best-README-Template](https://github.com/othneildrew/Best-README-Template)** - README inspiration
 
 ### Founded on... 
 
-- [Triple Diamond Framework](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/) - Product development methodology
+- [Triple Diamond Framework](https://medium.com/zendesk-creative-blog/the-zendesk-triple-diamond-process-fd857a11c179) - Product development methodology
 - [Teresa Torres' Opportunity Solution Trees](https://www.producttalk.org/opportunity-solution-tree/) - Outcome-driven discovery
 - [Jobs to be Done Framework](https://jtbd.info/) - Customer motivation framework
 - [Architecture Decision Records](https://adr.github.io/) - Technical decision documentation
+- [Design Council's Double Diamond](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/) - Foundation of our Triple Diamond framework
+- [Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) - ADR format we adapted
 
 ### Works for...
 
@@ -203,7 +204,7 @@ PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specif
 
 **Know what you are doing?** Use the following to get up and running with PM-Skills in under 2 minutes.
 
-**Need more guidance?** Don't fret... we've created a detailed guide here: [Getting Started Guide](docs/reference/getting-started.md) 
+**Need more guidance?** Don't fret... we've created a detailed guide here: [Getting Started Guide](docs/getting-started.md) 
 
 ### Most Recent Release
 
@@ -578,22 +579,6 @@ Absolutely! Check out our [authoring guide](docs/guides/authoring-pm-skills.md) 
 Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corresponding skill. When you type `/prd "my feature"`, Claude Code reads the skill instructions from `skills/deliver/prd/SKILL.md` and generates output following the template. No additional setup required-the commands are defined in the `commands/` directory.
 
 </details>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
-
-## Acknowledgments
-
-This project wouldn't be possible without these incredible resources and communities:
-
-- [Agent Skills Specification](https://agentskills.io/specification) - The standard that makes cross-platform skills possible
-- [Design Council's Double Diamond](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/) - Foundation of our Triple Diamond framework
-- [Teresa Torres](https://www.producttalk.org/) - Opportunity Solution Tree methodology
-- [Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) - ADR format we adapted
-- [Keep a Changelog](https://keepachangelog.com/) - Changelog best practices
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) - README inspiration
-- [Shields.io](https://shields.io/) - Beautiful badges
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
