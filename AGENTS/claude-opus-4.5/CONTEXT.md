@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** v1.1.0 — Documentation overhaul & README redesign complete
+**Status:** v1.1.0 released — Open-skills publishing in progress
 **Last Updated:** 2026-01-16
 **Release:** [v1.1.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.1.0)
-**Next Step:** Tag v1.1.0, then submit PR to awesome-claude-skills
+**Next Step:** Submit PR to awesome-claude-skills (see `_NOTES/efforts/open-skills/plan-pr--awesome-claude-skills.md`)
 
 ## Project Overview
 
@@ -55,6 +55,14 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **Open-Skills Preparation** (2026-01-16)
+  - Added attribution headers to all 24 SKILL.md files (HTML comments)
+  - Created dedicated PR guide: `_NOTES/efforts/open-skills/plan-pr--awesome-claude-skills.md`
+  - Added CODE_OF_CONDUCT.md (Contributor Covenant v2.1)
+  - Updated CONTRIBUTING.md to link to Code of Conduct
+  - GitHub Discussions enabled, repository topics added
+  - Ready for awesome-claude-skills PR submission
 
 - **Documentation Expansion** (2026-01-16)
   - Verified accuracy of `docs/reference/categories.md` and `frontmatter-schema.yaml` — all 24 skills validated
@@ -165,9 +173,11 @@ pm-skills/
 ## Next Steps
 
 1. **Open-Skills Publishing (In Progress):**
-   - [ ] Submit PR to awesome-claude-skills (content ready)
-   - [ ] Submit to n-skills marketplace (content ready)
-   - [ ] Create GitHub release v1.0.2 to trigger workflow
+   - [ ] Submit PR to awesome-claude-skills — see [PR guide](_NOTES/efforts/open-skills/plan-pr--awesome-claude-skills.md)
+   - [ ] Submit to n-skills marketplace — content ready
+   - [x] Create GitHub release v1.1.0 ✅
+   - [x] Attribution headers added to all SKILL.md files ✅
+   - [x] CODE_OF_CONDUCT.md added ✅
    - [ ] Monitor openskills#48 for fix
 
 2. **Post-Release:**
@@ -175,9 +185,10 @@ pm-skills/
    - Monitor for user feedback and issues
    - Claude Code marketplace submission (when available)
 
-3. **v1.1.0 Candidates:**
+3. **v1.2.0 Candidates:**
    - Validation CI workflow (check skill structure in PRs)
    - Auto-generated header for AGENTS.md
+   - MCP server package (pm-skills-mcp)
 
 ## Notes
 

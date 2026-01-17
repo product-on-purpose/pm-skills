@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **CODE_OF_CONDUCT.md** — Contributor Covenant v2.1 for community guidelines
+- **Attribution headers** — Added HTML comment attribution to all 24 SKILL.md files
+
+### Changed
+- **CONTRIBUTING.md** — Updated Code of Conduct section to link to dedicated CODE_OF_CONDUCT.md
+- **README.md** — Minor formatting cleanup (em dashes, navigation labels, alt text)
+
 ## [1.1.0] - 2026-01-16
 
 **PM-Skills v1.1.0 — Documentation & README Overhaul**

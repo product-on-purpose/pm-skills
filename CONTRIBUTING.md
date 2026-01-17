@@ -84,12 +84,7 @@ Per agentskills.io specification:
 
 ## Code of Conduct
 
-We are committed to providing a welcoming and inclusive environment. Please:
-
-- Be respectful and constructive in discussions
-- Focus on the work, not the person
-- Accept constructive criticism gracefully
-- Help others learn and grow
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing. We are committed to providing a welcoming and inclusive environment for everyone.
 
 ## Questions?
 

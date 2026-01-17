@@ -3,9 +3,12 @@
 ## In Progress
 
 ### Open-Skills Ecosystem Publishing
-- [ ] Submit PR to awesome-claude-skills — content ready
+- [ ] Submit PR to awesome-claude-skills — see [PR guide](_NOTES/efforts/open-skills/plan-pr--awesome-claude-skills.md)
 - [ ] Submit to n-skills marketplace — content ready
-- [x] Create GitHub release v1.0.2 to test new workflow ✅
+- [x] Create GitHub release v1.1.0 ✅
+- [x] Add attribution headers to all SKILL.md files ✅
+- [x] Add CODE_OF_CONDUCT.md ✅
+- [x] Create dedicated PR guide for awesome-claude-skills ✅
 
 ## To Do
 

@@ -2,9 +2,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://github.com/product-on-purpose/pm-skills"><img src="docs/assets/pm-skills-logo.png" alt="PM-Skills" width="200"></a>
-  <br>
-  PM-Skills
+  <a href="https://github.com/product-on-purpose/pm-skills">PM-Skills</a>
   <br>
 </h1>
 
@@ -55,7 +53,7 @@
 
 <p align="center">
   <a href="#the-big-idea">About</a> •
-  <a href="#getting-started">Installation</a> •
+  <a href="#getting-started">Getting Started</a> •
   <a href="#the-24-skills">Skills</a> •
   <a href="#workflow-bundles">Bundles</a> •
   <a href="#forward-march">Releases</a> •
@@ -76,7 +74,7 @@
   - [Works for...](#works-for)
 - [Getting Started](#getting-started)
   - [Most Recent Release](#most-recent-release)
-  - [Option 1: Git Clone](#option-1-git-clone-recommended)
+  - [Option 1: Git Clone (Recommended)](#option-1-git-clone-recommended)
   - [Option 2: Claude Code](#option-2-claude-code)
   - [Option 3: Claude.ai / Desktop](#option-3-claudeai--desktop)
   - [Option 4: openskills CLI](#option-4-openskills-cli)
@@ -119,7 +117,7 @@ You: "Create a PRD for our new search feature"
 
 AI + PM-Skills: Generates a comprehensive PRD with problem statement,
                 success metrics, user stories, scope definition, and
-                technical considerations—all in professional format.
+                technical considerations-all in professional format.
 ```
 
 ### The Problem
@@ -143,9 +141,9 @@ Every time you ask an AI to help with product management, you start from zero. G
 - ✅ **24 Production-Ready Skills** covering the complete product lifecycle
 - ✅ **Triple Diamond Framework** organizing Discover, Define, Develop, Deliver, Measure, and Iterate phases
 - ✅ **Workflow Bundles** for common PM workflows (Feature Kickoff, Lean Startup, Triple Diamond)
-- ✅ **Slash Commands** for Claude Code users—instant access to every skill
+- ✅ **Slash Commands** for Claude Code users-instant access to every skill
 - ✅ **Auto-Discovery** via AGENTS.md in GitHub Copilot, Cursor, and Windsurf
-- ✅ **Agent Skills Spec** compliant—works across AI assistants
+- ✅ **Agent Skills Spec** compliant-works across AI assistants
 - ✅ **Best-Practice Templates** based on industry best practices
 - ✅ **Comprehensive Documentation** with examples and references
 - ✅ **Apache 2.0 Licensed** for commercial and personal use
@@ -164,9 +162,9 @@ Every time you ask an AI to help with product management, you start from zero. G
   </a>
 </p>
 
-- **[Agent Skills Specification](https://agentskills.io/specification)** — Open standard for AI-agent skills
-- **[GitHub Flavored Markdown](https://github.github.com/gfm/)** — Universal documentation format
-- **[Keep a Changelog](https://keepachangelog.com/)** — Structured release documentation
+- **[Agent Skills Specification](https://agentskills.io/specification)** - Open standard for AI-agent skills
+- **[GitHub Flavored Markdown](https://github.github.com/gfm/)** - Universal documentation format
+- **[Keep a Changelog](https://keepachangelog.com/)** - Structured release documentation
 
 ### Founded on... 
 
@@ -211,8 +209,8 @@ PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specif
 
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page. Each release includes:
 
-- **`pm-skills-vX.X.X.zip`** — Full package with all skills, bundles, and documentation
-- **`pm-skills-claude-vX.X.X.zip`** — Lightweight bundle optimized for Claude.ai/Desktop upload
+- **`pm-skills-vX.X.X.zip`** - Full package with all skills, bundles, and documentation
+- **`pm-skills-claude-vX.X.X.zip`** - Lightweight bundle optimized for Claude.ai/Desktop upload
 
 **Download the latest release:**
 
@@ -271,7 +269,7 @@ PM-Skills provides three components that work together to accelerate your produc
 | **Commands** | Slash commands for Claude Code (e.g., `/prd`)               | Quick access to individual skills                         |
 | **Bundles**  | Curated multi-skill workflows                               | End-to-end processes (feature kickoff, validation cycles) |
 
-**Skills** are the atomic building blocks—each one teaches your AI how to produce a specific PM artifact with professional quality. **Commands** give you instant access to skills via `/skill-name` syntax. **Workflow bundles** chain multiple skills together for complete product development processes.
+**Skills** are the atomic building blocks-each one teaches your AI how to produce a specific PM artifact with professional quality. **Commands** give you instant access to skills via `/skill-name` syntax. **Workflow bundles** chain multiple skills together for complete product development processes.
 
 ### How Skills Work
 
@@ -299,7 +297,7 @@ skills/deliver/prd/
 
 PM-Skills covers the complete product lifecycle using the **Triple Diamond** framework:
 
-#### 🔍 Discover — *Find the right problem*
+#### 🔍 Discover - *Find the right problem*
 
 | Skill                    | What it does                                | Command                 |
 | ------------------------ | ------------------------------------------- | ----------------------- |
@@ -307,7 +305,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | **competitive-analysis** | Map the landscape, find opportunities       | `/competitive-analysis` |
 | **stakeholder-summary**  | Understand who matters and what they need   | `/stakeholder-summary`  |
 
-#### 📋 Define — *Frame the problem*
+#### 📋 Define - *Frame the problem*
 
 | Skill                 | What it does                              | Command              |
 | --------------------- | ----------------------------------------- | -------------------- |
@@ -316,7 +314,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | **opportunity-tree**  | Teresa Torres-style outcome mapping       | `/opportunity-tree`  |
 | **jtbd-canvas**       | Jobs to be Done framework                 | `/jtbd-canvas`       |
 
-#### 💡 Develop — *Explore solutions*
+#### 💡 Develop - *Explore solutions*
 
 | Skill                | What it does                                  | Command             |
 | -------------------- | --------------------------------------------- | ------------------- |
@@ -325,7 +323,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | **adr**              | Architecture Decision Records (Nygard format) | `/adr`              |
 | **design-rationale** | Why you made that design choice               | `/design-rationale` |
 
-#### 🚀 Deliver — *Ship it*
+#### 🚀 Deliver - *Ship it*
 
 | Skill                | What it does                                      | Command             |
 | -------------------- | ------------------------------------------------- | ------------------- |
@@ -335,7 +333,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | **launch-checklist** | Never miss a launch step again                    | `/launch-checklist` |
 | **release-notes**    | User-facing release communication                 | `/release-notes`    |
 
-#### 📊 Measure — *Validate with data*
+#### 📊 Measure - *Validate with data*
 
 | Skill                      | What it does                        | Command                   |
 | -------------------------- | ----------------------------------- | ------------------------- |
@@ -344,7 +342,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | **dashboard-requirements** | Analytics dashboard specs           | `/dashboard-requirements` |
 | **experiment-results**     | Document learnings from experiments | `/experiment-results`     |
 
-#### 🔄 Iterate — *Learn and improve*
+#### 🔄 Iterate - *Learn and improve*
 
 | Skill                | What it does                             | Command             |
 | -------------------- | ---------------------------------------- | ------------------- |
@@ -389,7 +387,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 
 While individual skills are powerful on their own, real product work rarely happens in isolation. Workflow bundles combine multiple skills into guided, end-to-end processes that mirror how experienced product managers actually work.
 
-Each bundle provides a **sequence of skills** with handoff guidance between steps, ensuring context flows naturally from discovery through delivery. Bundles are opinionated—they encode PM best practices about which artifacts to create and in what order.
+Each bundle provides a **sequence of skills** with handoff guidance between steps, ensuring context flows naturally from discovery through delivery. Bundles are opinionated-they encode PM best practices about which artifacts to create and in what order.
 
 **Don't know where to start?** Use a bundle:
 
@@ -441,7 +439,7 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 | --------- | ---------- | ----------------------------------------------------------------------- |
 | **1.1.0** | 2026-01-16 | Documentation overhaul, README redesign, FAQ, collapsible TOC           |
 | **1.0.1** | 2026-01-15 | All 24 slash commands complete                                          |
-| **1.0.0** | 2026-01-14 | Full Triple Diamond coverage—all 24 skills, workflow bundles, AGENTS.md |
+| **1.0.0** | 2026-01-14 | Full Triple Diamond coverage-all 24 skills, workflow bundles, AGENTS.md |
 | **0.3.0** | 2026-01-14 | P1 Skills (8 skills) + GitHub Actions workflows                         |
 | **0.2.0** | 2026-01-14 | P0 Core Skills (5 skills)                                               |
 | **0.1.0** | 2026-01-14 | Initial project structure, foundation infrastructure                    |
@@ -460,6 +458,7 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] Slash commands for Claude Code
 - [x] Apache 2.0 license for commercial use
 - [ ] openskills CLI support (pending [#48](https://github.com/numman-ali/openskills/issues/48))
+- [ ] pm-skills-mcp package [in progress]
 
 #### Backlog / Considering
 
@@ -555,28 +554,28 @@ Fork the repository and modify the `SKILL.md`, `TEMPLATE.md`, or `EXAMPLE.md` fi
 <details>
 <summary><strong>What's the difference between skills and bundles?</strong></summary>
 
-**Skills** are atomic units—each produces one PM artifact (a PRD, a hypothesis, user stories, etc.). **Bundles** are curated workflows that chain multiple skills together in a recommended sequence. Use skills when you need a specific output; use bundles when you want guided end-to-end processes.
+**Skills** are atomic units-each produces one PM artifact (a PRD, a hypothesis, user stories, etc.). **Bundles** are curated workflows that chain multiple skills together in a recommended sequence. Use skills when you need a specific output; use bundles when you want guided end-to-end processes.
 
 </details>
 
 <details>
 <summary><strong>Why isn't openskills CLI working?</strong></summary>
 
-There's a known bug ([openskills#48](https://github.com/numman-ali/openskills/issues/48)) that prevents installation of skills from nested directory structures. This affects PM-Skills and even Anthropic's official skills repo. Until it's fixed, use `git clone` instead—it's actually faster and more reliable anyway.
+There's a known bug ([openskills#48](https://github.com/numman-ali/openskills/issues/48)) that prevents installation of skills from nested directory structures. This affects PM-Skills and even Anthropic's official skills repo. Until it's fixed, use `git clone` instead-it's actually faster and more reliable anyway.
 
 </details>
 
 <details>
 <summary><strong>Can I contribute new skills?</strong></summary>
 
-Absolutely! Check out our [authoring guide](docs/guides/authoring-pm-skills.md) for the full process. We use a curated contribution model—submit a proposal via GitHub issue first, then create your skill following our template structure. All contributions are reviewed for quality and alignment with PM best practices.
+Absolutely! Check out our [authoring guide](docs/guides/authoring-pm-skills.md) for the full process. We use a curated contribution model-submit a proposal via GitHub issue first, then create your skill following our template structure. All contributions are reviewed for quality and alignment with PM best practices.
 
 </details>
 
 <details>
 <summary><strong>How do slash commands work in Claude Code?</strong></summary>
 
-Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corresponding skill. When you type `/prd "my feature"`, Claude Code reads the skill instructions from `skills/deliver/prd/SKILL.md` and generates output following the template. No additional setup required—the commands are defined in the `commands/` directory.
+Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corresponding skill. When you type `/prd "my feature"`, Claude Code reads the skill instructions from `skills/deliver/prd/SKILL.md` and generates output following the template. No additional setup required-the commands are defined in the `commands/` directory.
 
 </details>
 
@@ -588,13 +587,13 @@ Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corr
 
 This project wouldn't be possible without these incredible resources and communities:
 
-- [Agent Skills Specification](https://agentskills.io/specification) — The standard that makes cross-platform skills possible
-- [Design Council's Double Diamond](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/) — Foundation of our Triple Diamond framework
-- [Teresa Torres](https://www.producttalk.org/) — Opportunity Solution Tree methodology
-- [Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) — ADR format we adapted
-- [Keep a Changelog](https://keepachangelog.com/) — Changelog best practices
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) — README inspiration
-- [Shields.io](https://shields.io/) — Beautiful badges
+- [Agent Skills Specification](https://agentskills.io/specification) - The standard that makes cross-platform skills possible
+- [Design Council's Double Diamond](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/) - Foundation of our Triple Diamond framework
+- [Teresa Torres](https://www.producttalk.org/) - Opportunity Solution Tree methodology
+- [Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) - ADR format we adapted
+- [Keep a Changelog](https://keepachangelog.com/) - Changelog best practices
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template) - README inspiration
+- [Shields.io](https://shields.io/) - Beautiful badges
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -604,7 +603,7 @@ This project wouldn't be possible without these incredible resources and communi
 
 <p align="center">
   <a href="https://github.com/jprisant">
-    <img src="https://img.shields.io/badge/Created_by-Jonathan-Prisant-blue?style=for-the-badge&logo=github" alt="Created by Justin Parker">
+    <img src="https://img.shields.io/badge/Created_by-Jonathan_Prisant-blue?style=for-the-badge&logo=github" alt="Created by Jonathan Prisant">
   </a>
 </p>
 
