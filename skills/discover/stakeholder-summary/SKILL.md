@@ -1,3 +1,4 @@
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: stakeholder-summary
 description: Documents stakeholder needs, concerns, and influence for a project or initiative. Use when starting projects, managing complex stakeholder relationships, or ensuring alignment across organizational boundaries.

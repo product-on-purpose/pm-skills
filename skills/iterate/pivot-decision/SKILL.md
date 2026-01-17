@@ -1,3 +1,4 @@
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: pivot-decision
 description: Documents a strategic pivot or persevere decision with the evidence, analysis, and rationale. Use when evaluating whether to change direction on a product, feature, or strategy based on market feedback.

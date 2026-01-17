@@ -1,3 +1,4 @@
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: spike-summary
 description: Documents the results of a time-boxed technical or design exploration (spike). Use after completing a spike to capture learnings, findings, and recommendations for the team.

@@ -1,3 +1,4 @@
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: user-stories
 description: Generates user stories with clear acceptance criteria from product requirements or feature descriptions. Use when breaking down features for sprint planning, writing tickets, or communicating requirements to engineering.

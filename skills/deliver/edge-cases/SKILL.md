@@ -1,3 +1,4 @@
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: edge-cases
 description: Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive coverage, or during QA planning to identify test scenarios.
