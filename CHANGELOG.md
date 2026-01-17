@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **CODE_OF_CONDUCT.md** — Contributor Covenant v2.1 for community guidelines
 - **Attribution headers** — Added HTML comment attribution to all 24 SKILL.md files
+- **Open-skills ecosystem submissions**
+  - Submitted PR to [awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills/pull/62)
+  - Submitted to [n-skills marketplace](https://github.com/numman-ali/n-skills/issues/6)
 
 ### Changed
 - **CONTRIBUTING.md** — Updated Code of Conduct section to link to dedicated CODE_OF_CONDUCT.md

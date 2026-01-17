@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** v1.1.0 released — Open-skills publishing in progress
-**Last Updated:** 2026-01-16
+**Status:** v1.1.0 released — Open-skills submissions complete, awaiting review
+**Last Updated:** 2026-01-17
 **Release:** [v1.1.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.1.0)
-**Next Step:** Submit PR to awesome-claude-skills (see `_NOTES/efforts/open-skills/plan-pr--awesome-claude-skills.md`)
+**Next Step:** Monitor PR/issue responses, add badge after awesome-claude-skills merge
 
 ## Project Overview
 
@@ -55,6 +55,11 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **Open-Skills Submissions Complete** (2026-01-17)
+  - Submitted PR to awesome-claude-skills: [PR #62](https://github.com/ComposioHQ/awesome-claude-skills/pull/62)
+  - Submitted to n-skills marketplace: [Issue #6](https://github.com/numman-ali/n-skills/issues/6)
+  - Both submissions awaiting review (24-48 hours typical)
 
 - **Open-Skills Preparation** (2026-01-16)
   - Added attribution headers to all 24 SKILL.md files (HTML comments)
@@ -172,15 +177,18 @@ pm-skills/
 
 ## Next Steps
 
-1. **Open-Skills Publishing (In Progress):**
-   - [ ] Submit PR to awesome-claude-skills — see [PR guide](_NOTES/efforts/open-skills/plan-pr--awesome-claude-skills.md)
-   - [ ] Submit to n-skills marketplace — content ready
+1. **Open-Skills Publishing (Submissions Complete):**
+   - [x] Submit PR to awesome-claude-skills — [PR #62](https://github.com/ComposioHQ/awesome-claude-skills/pull/62) ✅
+   - [x] Submit to n-skills marketplace — [Issue #6](https://github.com/numman-ali/n-skills/issues/6) ✅
    - [x] Create GitHub release v1.1.0 ✅
    - [x] Attribution headers added to all SKILL.md files ✅
    - [x] CODE_OF_CONDUCT.md added ✅
+   - [ ] Monitor awesome-claude-skills PR for merge (add badge after)
+   - [ ] Monitor n-skills issue for approval
    - [ ] Monitor openskills#48 for fix
 
-2. **Post-Release:**
+2. **Post-Merge:**
+   - Add awesome-claude-skills badge to README.md
    - Announce release (Twitter, LinkedIn, Product Hunt)
    - Monitor for user feedback and issues
    - Claude Code marketplace submission (when available)
