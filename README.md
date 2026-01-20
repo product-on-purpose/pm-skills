@@ -637,6 +637,7 @@ Have ideas for making PM-Skills even better? Here are some ways to contribute an
 - Give the repo a star if you find it useful
 - Share PM-Skills on Twitter, LinkedIn, or your favorite PM community
 - Write a blog post about how you use PM-Skills in your workflow
+- Help add PM-Skills to curated lists - see [AWESOME-PM-PR.md](AWESOME-PM-PR.md) for submission guide
 
 **Feedback**
 
