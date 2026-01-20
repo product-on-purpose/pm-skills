@@ -1,0 +1,13 @@
+{
+  "name": "issue-creation-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for automated issue creation from markdown drafts",
+  "type": "module",
+  "scripts": {
+    "create-issues": "node create-issues.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "gray-matter": "^4.0.3"
+  }
+}

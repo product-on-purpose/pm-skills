@@ -8,7 +8,28 @@ Each file contains a complete GitHub issue for tracking a submission to a specif
 
 ## How to Use
 
-### Creating GitHub Issues
+### Automated Issue Creation (Recommended) 🤖
+
+**Use the GitHub Actions workflow to automatically create issues from all draft files:**
+
+1. **Navigate to Actions:** Go to https://github.com/product-on-purpose/pm-skills/actions
+2. **Select workflow:** Click "Create Issues from Drafts"
+3. **Run workflow:** Click "Run workflow" button
+4. **Choose mode:**
+   - **Dry Run (default):** Preview what would happen without creating issues
+   - **Live Mode:** Uncheck "Dry run mode" to actually create issues
+
+The workflow will:
+- ✓ Create GitHub issues from all unprocessed draft files
+- ✓ Update the planning tracker with issue numbers
+- ✓ Archive processed files to `.github/issues-archive/`
+- ✓ Track state in `.github/.created-issues.json` (idempotent)
+
+**See [WORKFLOW-GUIDE.md](./WORKFLOW-GUIDE.md) for complete documentation.**
+
+### Manual Issue Creation (Legacy)
+
+If you prefer to create issues manually:
 
 1. **Navigate to pm-skills Issues:** Go to https://github.com/product-on-purpose/pm-skills/issues/new
 2. **Copy issue content:** Open the relevant draft file (e.g., `01-travisvn-awesome-claude-skills.md`)
