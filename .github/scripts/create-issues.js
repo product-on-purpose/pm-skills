@@ -114,7 +114,7 @@ async function createIssue(issueData) {
     title: issueData.title,
     body: issueData.body,
     labels: issueData.labels,
-    assignees: issueData.assignees.length > 0 ? issueData.assignees : [DEFAULT_ASSIGNEE]
+    assignees: issueData.assignees
   });
   
   return {
@@ -163,8 +163,9 @@ async function updatePlanningDoc(filename, issueNumber, issueUrl) {
     }
     
     // Find the section header (e.g., "- [ ] **01 - travisvn/awesome-claude-skills**")
+    // Match the section and the "GitHub Issue: _Create issue here_" line
     const sectionPattern = new RegExp(
-      `(- \\[ \\] \\*\\*${numberPrefix} - [^*]+\\*\\*[^]*?)(\\*\\*GitHub Issue:\\*\\* _Create issue here_)`,
+      `(- \\[ \\] \\*\\*${numberPrefix} - [^*]+\\*\\*[\\s\\S]*?)(\\*\\*GitHub Issue:\\*\\* _Create issue here_)`,
       'i'
     );
     
