@@ -16,6 +16,7 @@ const ARCHIVE_DIR = path.join(REPO_ROOT, '.github/issues-archive');
 const TRACKING_FILE = path.join(REPO_ROOT, '.github/.created-issues.json');
 const PLANNING_DOC = path.join(REPO_ROOT, 'docs/internal/awesome-lists-submission-package_planning.md');
 const EXCLUDED_FILES = ['README.md', 'TRACKER.md', 'QUICK-REFERENCE.md', 'WORKFLOW-GUIDE.md'];
+const DEFAULT_ASSIGNEE = 'jprisant';
 
 // Environment variables
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
@@ -58,29 +59,47 @@ async function getDraftFiles() {
 }
 
 /**
+ * Parse labels from frontmatter
+ */
+function parseLabels(labelsData) {
+  if (!labelsData) return [];
+  if (Array.isArray(labelsData)) return labelsData;
+  return labelsData.split(',').map(l => l.trim());
+}
+
+/**
+ * Parse assignees from frontmatter
+ */
+function parseAssignees(assigneesData) {
+  let assignees = [DEFAULT_ASSIGNEE];
+  
+  if (assigneesData) {
+    if (Array.isArray(assigneesData)) {
+      assignees = assigneesData.filter(a => a && a.trim());
+    } else if (typeof assigneesData === 'string' && assigneesData.trim()) {
+      assignees = assigneesData.split(',').map(a => a.trim()).filter(a => a);
+    }
+  }
+  
+  // Ensure we always have at least one assignee
+  if (assignees.length === 0) {
+    assignees = [DEFAULT_ASSIGNEE];
+  }
+  
+  return assignees;
+}
+
+/**
  * Parse markdown file with frontmatter
  */
 async function parseMarkdownFile(filePath) {
   const content = await fs.readFile(filePath, 'utf-8');
   const { data, content: body } = matter(content);
   
-  // Parse assignees - handle empty strings and default to jprisant
-  let assignees = ['jprisant'];
-  if (data.assignees) {
-    if (Array.isArray(data.assignees)) {
-      assignees = data.assignees.filter(a => a && a.trim());
-    } else if (typeof data.assignees === 'string' && data.assignees.trim()) {
-      assignees = data.assignees.split(',').map(a => a.trim()).filter(a => a);
-    }
-  }
-  if (assignees.length === 0) {
-    assignees = ['jprisant'];
-  }
-  
   return {
     title: data.title || data.name || 'Untitled Issue',
-    labels: data.labels ? (Array.isArray(data.labels) ? data.labels : data.labels.split(',').map(l => l.trim())) : [],
-    assignees: assignees,
+    labels: parseLabels(data.labels),
+    assignees: parseAssignees(data.assignees),
     body: body.trim()
   };
 }
@@ -95,7 +114,7 @@ async function createIssue(issueData) {
     title: issueData.title,
     body: issueData.body,
     labels: issueData.labels,
-    assignees: issueData.assignees.length > 0 ? issueData.assignees : ['jprisant']
+    assignees: issueData.assignees.length > 0 ? issueData.assignees : [DEFAULT_ASSIGNEE]
   });
   
   return {
