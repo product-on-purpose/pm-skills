@@ -65,28 +65,28 @@
 <summary><strong>Table of Contents</strong></summary>
 
 - [The Big Idea](#the-big-idea)
-  - [The Problem](#the-problem)
-  - [The Solution](#the-solution)
-  - [Key Features](#key-features)
-  - [Built with...](#built-with)
-  - [Founded on...](#founded-on)
-  - [Works for...](#works-for)
+    - [The Problem](#the-problem)
+    - [The Solution](#the-solution)
+    - [Key Features](#key-features)
+    - [Built with...](#built-with)
+    - [Founded on...](#founded-on)
+    - [Works for...](#works-for)
 - [Getting Started](#getting-started)
-  - [Most Recent Release](#most-recent-release)
-  - [Option 1: Git Clone (Recommended)](#option-1-git-clone-recommended)
-  - [Option 2: Claude Code](#option-2-claude-code)
-  - [Option 3: Claude.ai / Desktop](#option-3-claudeai--desktop)
-  - [Option 4: openskills CLI](#option-4-openskills-cli)
+    - [Most Recent Release](#most-recent-release)
+    - [Option 1: Git Clone (Recommended)](#option-1-git-clone-recommended)
+    - [Option 2: Claude Code](#option-2-claude-code)
+    - [Option 3: Claude.ai / Desktop](#option-3-claudeai--desktop)
+    - [Option 4: openskills CLI](#option-4-openskills-cli)
 - [Usage](#usage)
-  - [How Skills Work](#how-skills-work)
-  - [The 24 Skills](#the-24-skills)
-  - [Quick Examples](#quick-examples)
-  - [Workflow Bundles](#workflow-bundles)
+    - [How Skills Work](#how-skills-work)
+    - [The 24 Skills](#the-24-skills)
+    - [Quick Examples](#quick-examples)
+    - [Workflow Bundles](#workflow-bundles)
 - [Forward March!](#forward-march)
-  - [Change Log Summary](#change-log-summary)
-  - [Roadmap](#roadmap)
-  - [Contributing](#contributing)
-  - [Submit a Bug](#submit-a-bug)
+    - [Change Log Summary](#change-log-summary)
+    - [Roadmap](#roadmap)
+    - [Contributing](#contributing)
+    - [Submit a Bug](#submit-a-bug)
 - [FAQ](#faq)
 - [About the Author](#about-the-author)
 - [License](#license)
@@ -459,7 +459,7 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] GitHub Copilot, Cursor, and Windsurf integration via AGENTS.md
 - [x] Slash commands for Claude Code
 - [x] Apache 2.0 license for commercial use
-- [ ] openskills CLI support (pending [#48](https://github.com/numman-ali/openskills/issues/48))
+- [x] openskills CLI support ([#48](https://github.com/numman-ali/openskills/issues/48) resolved in v1.3.1)
 - [ ] pm-skills-mcp package [in progress]
 
 #### Backlog / Considering
@@ -608,6 +608,7 @@ I am a follower of Jesus Christ, grateful husband to my beloved, proud (and exha
 Distributed under the **Apache License 2.0**. See [LICENSE](LICENSE) for more information.
 
 This means you can:
+
 - Use PM-Skills commercially
 - Modify and distribute
 - Use privately

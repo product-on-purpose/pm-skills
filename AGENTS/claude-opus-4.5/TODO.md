@@ -18,9 +18,9 @@
 - [x] Update README installation instructions when openskills is fixed ✅
 - [ ] Note: openskills CLI discovers skills in `.claude/skills/` but not `skills/phase/skill-name/` (depth limitation)
 
-### v1.1.0 Candidates
-- [ ] Validation CI workflow (check skill structure, frontmatter, required files)
-- [ ] Auto-generated header comment for AGENTS.md
+### v1.2.0 Candidates
+- [ ] Validation CI workflow — [#86](https://github.com/product-on-purpose/pm-skills/issues/86)
+- [ ] Auto-generated AGENTS.md header — [#87](https://github.com/product-on-purpose/pm-skills/issues/87)
 
 ### Post-Release
 - [ ] Announce on Twitter/LinkedIn

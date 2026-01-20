@@ -2,9 +2,9 @@
 
 ## Current State
 
-**Status:** v1.1.0 released — Open-skills submissions complete, awaiting review
+**Status:** v1.1.1 released — openskills#48 verified, open-skills submissions awaiting review
 **Last Updated:** 2026-01-20
-**Release:** [v1.1.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.1.0)
+**Release:** [v1.1.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.1.1)
 **Next Step:** Monitor PR/issue responses, add badge after awesome-claude-skills merge
 
 ## Project Overview
