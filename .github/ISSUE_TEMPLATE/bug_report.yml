@@ -1,0 +1,51 @@
+name: Bug Report
+description: Report an issue with a skill, template, or documentation
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve pm-skills!
+
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Affected Skill/Area
+      description: Which skill or area has the issue?
+      options:
+        - PRD skill
+        - User Story skill
+        - Sprint Planning skill
+        - Roadmap skill
+        - Documentation
+        - Installation/Setup
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: What went wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        - AI Assistant: [e.g., Claude Code, Cursor, etc.]
+        - OS: [e.g., macOS, Windows, Linux]
+        - pm-skills version: [e.g., v1.1.1]
+    validations:
+      required: false

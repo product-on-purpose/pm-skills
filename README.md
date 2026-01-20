@@ -22,7 +22,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-1.1.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-1.2.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-24-skills">
     <img src="https://img.shields.io/badge/skills-24-brightgreen.svg?style=flat-square" alt="Skills">
@@ -438,6 +438,7 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **1.2.0** | 2026-01-20 | Security policy, CodeQL scanning, Dependabot, issue/PR templates        |
 | **1.1.1** | 2026-01-20 | openskills#48 fix verified, CODE_OF_CONDUCT, open-skills submissions    |
 | **1.1.0** | 2026-01-16 | Documentation overhaul, README redesign, FAQ, collapsible TOC           |
 | **1.0.1** | 2026-01-15 | All 24 slash commands complete                                          |

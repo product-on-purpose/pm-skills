@@ -1,0 +1,34 @@
+name: Feature Request
+description: Suggest a new skill or enhancement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem would this solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this to work?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Request Type
+      options:
+        - New skill
+        - Enhancement to existing skill
+        - New template
+        - Workflow improvement
+        - Documentation
+        - Other
+    validations:
+      required: true

@@ -9,6 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 _No unreleased changes._
 
+## [1.2.0] - 2026-01-20
+
+**PM-Skills v1.2.0 — Security & Community Infrastructure**
+
+This release adds essential security policies, automated vulnerability scanning, and improved issue/PR templates for community contributions.
+
+### Added
+- **SECURITY.md** — Security policy with vulnerability reporting guidelines
+- **CodeQL code scanning** — Automated security analysis via GitHub Actions (`.github/workflows/codeql.yml`)
+- **Dependabot configuration** — Automated dependency updates for GitHub Actions and npm (`.github/dependabot.yml`)
+- **Issue templates** — Structured forms for bug reports and feature requests
+  - `bug_report.yml` — Skill-specific bug reporting with environment details
+  - `feature_request.yml` — New skill and enhancement proposals
+  - `config.yml` — Directs questions to Discussions, security issues to policy
+- **Pull request template** — Standardized PR checklist (`.github/PULL_REQUEST_TEMPLATE.md`)
+
+### Changed
+- Issue creation now requires using templates (blank issues disabled)
+
+### Security
+- Enabled CodeQL scanning for JavaScript analysis on push, PR, and weekly schedule
+- Added security policy with responsible disclosure guidelines
+
 ## [1.1.1] - 2026-01-20
 
 ### Added
