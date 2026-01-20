@@ -81,6 +81,8 @@ Add to the **"Additional resources"** section, after the existing entries and be
 
 ## How to Submit the PR
 
+> **Note:** The awesome-product-management repository uses `master` as its default branch (verified via CONTRIBUTING.md raw URL). If you're submitting to other repositories, always verify the default branch name before creating a PR.
+
 ### Step 1: Fork the Repository
 
 1. Navigate to https://github.com/dend/awesome-product-management
@@ -232,7 +234,7 @@ The PR will be considered successful when:
 4. ✅ Description clearly communicates value
 5. ✅ Maintainer reviews and provides feedback
 6. ✅ Any requested changes are addressed promptly
-7. ✅ PR is merged into master branch
+7. ✅ PR is merged into the default branch (master for this repository)
 
 ---
 
