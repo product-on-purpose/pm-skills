@@ -56,7 +56,8 @@ https://github.com/product-on-purpose/pm-skills
 - [ ] Submit PR following their contribution process (if proceeding)
 - [ ] Track submission status
 - [ ] Update this issue with PR link
-- [ ] Close when merged/accepted OR close with "not submitted - out of scope"
+- [ ] Update [Planning Tracker](../../docs/internal/awesome-lists-submission-package_planning.md) with result
+- [ ] Close when merged/accepted/won't-do OR close with "not submitted - out of scope"
 
 ## Notes
 

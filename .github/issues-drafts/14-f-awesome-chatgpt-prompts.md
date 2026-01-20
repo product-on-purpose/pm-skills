@@ -60,7 +60,8 @@ Professional PM prompt patterns: systematic approaches to generating PRDs, user 
 - [ ] Submit PR or issue (per their process)
 - [ ] Track submission status
 - [ ] Update this issue with PR link
-- [ ] Close when merged/accepted
+- [ ] Update [Planning Tracker](../../docs/internal/awesome-lists-submission-package_planning.md) with result
+- [ ] Close when merged/accepted/won't-do
 
 ## Notes
 
