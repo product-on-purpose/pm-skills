@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** v1.1.1 released — openskills#48 verified, open-skills submissions awaiting review
+**Status:** v1.2.0 released — Security & Community Infrastructure
 **Last Updated:** 2026-01-20
-**Release:** [v1.1.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.1.1)
-**Next Step:** Monitor PR/issue responses, add badge after awesome-claude-skills merge
+**Release:** [v1.2.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.2.0)
+**Next Step:** Enable secret scanning in GitHub settings, monitor PR responses, add badge after awesome-claude-skills merge
 
 ## Project Overview
 
@@ -55,6 +55,17 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **v1.2.0 Released — Security & Community Infrastructure** (2026-01-20)
+  - Added SECURITY.md with vulnerability reporting guidelines
+  - Added CodeQL code scanning workflow (`.github/workflows/codeql.yml`)
+  - Added Dependabot configuration for GitHub Actions and npm updates
+  - Added issue templates: bug_report.yml, feature_request.yml, config.yml
+  - Added pull request template with contribution checklist
+  - Blank issues now disabled (must use templates)
+  - Created open-source repo config guide at jpkb
+  - Audited pm-skills against GitHub best practices (57% → targeting 85%+)
+  - Remaining manual tasks: enable secret scanning, create tag ruleset
 
 - **openskills #48 Resolved** (2026-01-20)
   - Bug fix released in openskills v1.3.1 (now at v1.5.0)
@@ -184,26 +195,36 @@ pm-skills/
 
 ## Next Steps
 
-1. **Open-Skills Publishing (Submissions Complete):**
+1. **v1.2.0 Security Follow-up (Manual GitHub Settings):**
+   - [ ] Enable secret scanning (Settings → Code security)
+   - [ ] Enable secret scanning push protection
+   - [ ] Create tag ruleset for `v*` releases
+   - [ ] Verify Dependabot alerts are enabled
+
+2. **Open-Skills Publishing (Submissions Complete):**
    - [x] Submit PR to awesome-claude-skills — [PR #62](https://github.com/ComposioHQ/awesome-claude-skills/pull/62) ✅
    - [x] Submit to n-skills marketplace — [Issue #6](https://github.com/numman-ali/n-skills/issues/6) ✅
-   - [x] Create GitHub release v1.1.0 ✅
+   - [x] Create GitHub release v1.2.0 ✅
    - [x] Attribution headers added to all SKILL.md files ✅
    - [x] CODE_OF_CONDUCT.md added ✅
+   - [x] SECURITY.md added ✅
+   - [x] Issue templates added ✅
+   - [x] PR template added ✅
    - [ ] Monitor awesome-claude-skills PR for merge (add badge after)
    - [ ] Monitor n-skills issue for approval
    - [x] openskills#48 fixed in v1.3.1 — Windows path separator issue resolved ✅
 
-2. **Post-Merge:**
+3. **Post-Merge:**
    - Add awesome-claude-skills badge to README.md
    - Announce release (Twitter, LinkedIn, Product Hunt)
    - Monitor for user feedback and issues
    - Claude Code marketplace submission (when available)
 
-3. **v1.2.0 Candidates:**
+4. **v1.3.0 Candidates:**
    - Validation CI workflow (check skill structure in PRs)
    - Auto-generated header for AGENTS.md
    - MCP server package (pm-skills-mcp)
+   - CODEOWNERS file
 
 ## Notes
 

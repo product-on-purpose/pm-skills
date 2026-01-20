@@ -2,25 +2,27 @@
 
 ## In Progress
 
-### Open-Skills Ecosystem Publishing
-- [ ] Submit PR to awesome-claude-skills — see [PR guide](_NOTES/efforts/open-skills/plan-pr--awesome-claude-skills.md)
-- [ ] Submit to n-skills marketplace — content ready
-- [x] Create GitHub release v1.1.0 ✅
-- [x] Add attribution headers to all SKILL.md files ✅
-- [x] Add CODE_OF_CONDUCT.md ✅
-- [x] Create dedicated PR guide for awesome-claude-skills ✅
+### v1.2.0 Security Follow-up (Manual GitHub Settings)
+- [ ] Enable secret scanning (Settings → Code security)
+- [ ] Enable secret scanning push protection
+- [ ] Create tag ruleset for `v*` releases (protect release tags)
+- [ ] Verify Dependabot alerts are enabled
 
 ## To Do
 
 ### Open-Skills Follow-up
+- [x] Submit PR to awesome-claude-skills ✅ [PR #62](https://github.com/ComposioHQ/awesome-claude-skills/pull/62)
+- [x] Submit to n-skills marketplace ✅ [Issue #6](https://github.com/numman-ali/n-skills/issues/6)
 - [x] Monitor [openskills#48](https://github.com/numman-ali/openskills/issues/48) for bug fix ✅ Fixed in v1.3.1
 - [ ] Add awesome-claude-skills badge to README after PR merges
 - [x] Update README installation instructions when openskills is fixed ✅
 - [ ] Note: openskills CLI discovers skills in `.claude/skills/` but not `skills/phase/skill-name/` (depth limitation)
 
-### v1.2.0 Candidates
+### v1.3.0 Candidates
 - [ ] Validation CI workflow — [#86](https://github.com/product-on-purpose/pm-skills/issues/86)
 - [ ] Auto-generated AGENTS.md header — [#87](https://github.com/product-on-purpose/pm-skills/issues/87)
+- [ ] CODEOWNERS file for reviewer auto-assignment
+- [ ] MCP server package (pm-skills-mcp)
 
 ### Post-Release
 - [ ] Announce on Twitter/LinkedIn
@@ -28,6 +30,17 @@
 - [ ] Claude Code marketplace submission (when available)
 
 ## Completed
+
+### v1.2.0 Release (2026-01-20) ✅ SHIPPED
+- [x] Created SECURITY.md with vulnerability reporting guidelines
+- [x] Added CodeQL code scanning workflow
+- [x] Added Dependabot configuration
+- [x] Created issue templates (bug_report.yml, feature_request.yml, config.yml)
+- [x] Created pull request template
+- [x] Fixed codeql.yml typo (`lname:` → `name:`)
+- [x] Fixed dependabot.yml location (moved to `.github/`)
+- [x] Updated CHANGELOG.md and README.md for v1.2.0
+- [x] Created tag and pushed to remote
 
 ### v1.0.0 Release (2026-01-15) ✅ SHIPPED
 - [x] Create v1.0.0 git tag
@@ -119,4 +132,4 @@
 
 ---
 
-*Last updated: 2026-01-20*
+*Last updated: 2026-01-20 (v1.2.0 release)*
