@@ -6,14 +6,14 @@ This repository includes comprehensive documentation for submitting PM-Skills to
 
 | Document | Purpose |
 |----------|---------|
-| **[Quick Reference](docs/pr-quick-reference.md)** | One-page guide with exact text and steps |
-| **[Full PR Documentation](docs/awesome-product-management-pr.md)** | Comprehensive guide covering all requirements and considerations |
+| **[Quick Reference](pr-quick-reference.md)** | One-page guide with exact text and steps |
+| **[Full PR Documentation](awesome-product-management-pr.md)** | Comprehensive guide covering all requirements and considerations |
 
 ## 🎯 Quick Start
 
-**Want to submit the PR?** See [docs/pr-quick-reference.md](docs/pr-quick-reference.md)
+**Want to submit the PR?** See [pr-quick-reference.md](pr-quick-reference.md)
 
-**Need detailed guidance?** See [docs/awesome-product-management-pr.md](docs/awesome-product-management-pr.md)
+**Need detailed guidance?** See [awesome-product-management-pr.md](awesome-product-management-pr.md)
 
 ## 📝 What We're Adding
 
@@ -35,7 +35,7 @@ All [contribution requirements](https://github.com/dend/awesome-product-manageme
 ## 🚀 Next Steps
 
 1. **Fork** the [awesome-product-management](https://github.com/dend/awesome-product-management) repository
-2. **Follow** the instructions in [docs/pr-quick-reference.md](docs/pr-quick-reference.md)
+2. **Follow** the instructions in [pr-quick-reference.md](pr-quick-reference.md)
 3. **Submit** the pull request
 4. **Wait** for maintainer review
 5. **Celebrate** when merged! 🎉

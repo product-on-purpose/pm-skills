@@ -90,4 +90,4 @@ Thanks for maintaining this excellent resource!
 
 ---
 
-For detailed guidance, see: [docs/awesome-product-management-pr.md](./awesome-product-management-pr.md)
+For detailed guidance, see: [awesome-product-management-pr.md](./awesome-product-management-pr.md)
