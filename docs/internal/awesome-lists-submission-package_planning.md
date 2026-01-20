@@ -24,7 +24,7 @@
   - **Target Section:** Collaboration & Project Management
   - **Issue Draft:** [02-BehiSecc-awesome-claude-skills.md](../../.github/issues-drafts/02-BehiSecc-awesome-claude-skills.md)
   - **Status:** Not Started
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #69
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -35,7 +35,7 @@
   - **Target Section:** Tools, Templates, or Frameworks
   - **Issue Draft:** [06-hugo53-awesome-ProductManager.md](../../.github/issues-drafts/06-hugo53-awesome-ProductManager.md)
   - **Status:** Not Started
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #73
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -48,7 +48,7 @@
   - **Target Section:** Product Management or Professional Skills
   - **Issue Draft:** [01-travisvn-awesome-claude-skills.md](../../.github/issues-drafts/01-travisvn-awesome-claude-skills.md)
   - **Status:** Not Started
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #68
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -59,7 +59,7 @@
   - **Target Section:** Tools, Templates & Frameworks, or AI Tools for PMs
   - **Issue Draft:** [05-prakashsellathurai-awesome-product-management.md](../../.github/issues-drafts/05-prakashsellathurai-awesome-product-management.md)
   - **Status:** Not Started
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #72
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -71,7 +71,7 @@
   - **Issue Draft:** [03-VoltAgent-awesome-claude-skills.md](../../.github/issues-drafts/03-VoltAgent-awesome-claude-skills.md)
   - **Status:** Not Started
   - **Research Needed:** Verify they accept meta repos/skill collections
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #70
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -83,7 +83,7 @@
   - **Issue Draft:** [04-karanb192-awesome-claude-skills.md](../../.github/issues-drafts/04-karanb192-awesome-claude-skills.md)
   - **Status:** Not Started
   - **Research Needed:** Verify they accept meta repos in addition to single skills
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #71
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -94,7 +94,7 @@
   - **Target Section:** Tools, Resources, Templates & Frameworks
   - **Issue Draft:** [07-yuhenobi-awesome-product-manager.md](../../.github/issues-drafts/07-yuhenobi-awesome-product-manager.md)
   - **Status:** Not Started
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #74
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -105,7 +105,7 @@
   - **Target Section:** Tools, Resources, Frameworks
   - **Issue Draft:** [08-rajavijayach-awesome-product-management.md](../../.github/issues-drafts/08-rajavijayach-awesome-product-management.md)
   - **Status:** Not Started
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #75
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -121,7 +121,7 @@
   - **Issue Draft:** [09-kyrolabs-awesome-agents.md](../../.github/issues-drafts/09-kyrolabs-awesome-agents.md)
   - **Status:** Not Started
   - **Key Framing:** "PM as Code" - systematic workflows agents can execute
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #76
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -133,7 +133,7 @@
   - **Issue Draft:** [10-e2b-dev-awesome-ai-agents.md](../../.github/issues-drafts/10-e2b-dev-awesome-ai-agents.md)
   - **Status:** Not Started
   - **Key Framing:** Emphasize Agent Skills Spec compliance, structured execution
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #77
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -145,7 +145,7 @@
   - **Issue Draft:** [11-Shubhamsaboo-awesome-llm-apps.md](../../.github/issues-drafts/11-Shubhamsaboo-awesome-llm-apps.md)
   - **Status:** Not Started
   - **Key Framing:** Demonstrate structured prompting and framework-based outputs
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #78
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -157,7 +157,7 @@
   - **Issue Draft:** [12-jamesmurdza-awesome-ai-devtools.md](../../.github/issues-drafts/12-jamesmurdza-awesome-ai-devtools.md)
   - **Status:** Not Started
   - **Key Framing:** Integration with Claude Code, GitHub Copilot, Cursor
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #79
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -171,7 +171,7 @@
   - **Issue Draft:** [17-eivindml-awesome-productivity.md](../../.github/issues-drafts/17-eivindml-awesome-productivity.md)
   - **Status:** Not Started
   - **Key Framing:** Efficiency gains and time savings
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #84
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -188,7 +188,7 @@
   - **Status:** Not Started
   - **⚠️ RESEARCH FIRST:** Infrastructure-focused list - only submit if credibly frameable as LLMOps
   - **Decision:** _Submit / Skip (document reason)_
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #80
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -201,7 +201,7 @@
   - **Status:** Not Started
   - **⚠️ RESEARCH FIRST:** May need "PM Skills Prompts" bridge document
   - **Decision:** _Submit / Skip (document reason)_
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #81
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -214,7 +214,7 @@
   - **Status:** Not Started
   - **⚠️ RESEARCH FIRST:** Academic/research-oriented - only if practical applications in scope
   - **Decision:** _Submit / Skip (document reason)_
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #82
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
@@ -227,7 +227,7 @@
   - **Status:** Not Started
   - **⚠️ EVALUATE:** Check if OKR content (Opportunity Solution Trees, hypothesis with metrics) is strong enough
   - **Decision:** _Submit / Skip (document reason)_
-  - **GitHub Issue:** _Create issue here_
+  - **GitHub Issue:** #83
   - **PR Link:** _Add when submitted_
   - **Result:** _Update when complete: Merged / Rejected / Won't Do_
   - **Notes:** _Add learnings, feedback, or context_
