@@ -128,11 +128,8 @@ Example placement:
 
 ```bash
 git add README.md
-git commit -m "Add PM-Skills to Additional resources section
-
-PM-Skills is an open-source collection of 24 professional PM skills
-for AI assistants. Provides production-ready templates and frameworks
-covering the complete product lifecycle."
+git commit -m "Add PM-Skills to Additional resources section" \
+           -m "PM-Skills is an open-source collection of 24 professional PM skills for AI assistants. Provides production-ready templates and frameworks covering the complete product lifecycle."
 ```
 
 ### Step 6: Push to Your Fork
@@ -146,7 +143,7 @@ git push origin add-pm-skills
 1. Navigate to https://github.com/YOUR-USERNAME/awesome-product-management
 2. Click "Pull requests" tab
 3. Click "New pull request"
-4. Ensure base repository is `dend/awesome-product-management` and base branch is `master`
+4. Ensure base repository is `dend/awesome-product-management` and base branch is `master` (this repository uses `master` as its default branch)
 5. Ensure head repository is your fork and compare branch is `add-pm-skills`
 6. Click "Create pull request"
 7. Fill in the PR title and description (see below)
