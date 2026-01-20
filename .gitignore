@@ -43,3 +43,4 @@ AGENTS/*/SESSION-LOG/
 AGENTS/*/TODO.md
 AGENTS/*/PLANNING/
 AGENTS/codex-5.2/
+.github/scripts/node_modules/
