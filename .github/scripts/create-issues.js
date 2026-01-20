@@ -64,10 +64,23 @@ async function parseMarkdownFile(filePath) {
   const content = await fs.readFile(filePath, 'utf-8');
   const { data, content: body } = matter(content);
   
+  // Parse assignees - handle empty strings and default to jprisant
+  let assignees = ['jprisant'];
+  if (data.assignees) {
+    if (Array.isArray(data.assignees)) {
+      assignees = data.assignees.filter(a => a && a.trim());
+    } else if (typeof data.assignees === 'string' && data.assignees.trim()) {
+      assignees = data.assignees.split(',').map(a => a.trim()).filter(a => a);
+    }
+  }
+  if (assignees.length === 0) {
+    assignees = ['jprisant'];
+  }
+  
   return {
     title: data.title || data.name || 'Untitled Issue',
     labels: data.labels ? (Array.isArray(data.labels) ? data.labels : data.labels.split(',').map(l => l.trim())) : [],
-    assignees: data.assignees ? (Array.isArray(data.assignees) ? data.assignees : data.assignees.split(',').map(a => a.trim())) : ['jprisant'],
+    assignees: assignees,
     body: body.trim()
   };
 }
