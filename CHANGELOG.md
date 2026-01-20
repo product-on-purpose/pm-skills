@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+_No unreleased changes._
+
+## [1.1.1] - 2026-01-20
+
 ### Added
 - **CODE_OF_CONDUCT.md** — Contributor Covenant v2.1 for community guidelines
 - **Attribution headers** — Added HTML comment attribution to all 24 SKILL.md files
@@ -16,7 +20,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **CONTRIBUTING.md** — Updated Code of Conduct section to link to dedicated CODE_OF_CONDUCT.md
+- **README.md** — Updated openskills CLI installation section with accurate guidance
 - **README.md** — Minor formatting cleanup (em dashes, navigation labels, alt text)
+
+### Fixed
+- **openskills#48 resolved** — [numman-ali/openskills#48](https://github.com/numman-ali/openskills/issues/48) fixed in openskills v1.3.1
+  - Root cause: hardcoded `/` path separator failed on Windows
+  - Verified: `anthropics/skills` now installs all 17 skills successfully
+  - Note: pm-skills uses deeper nesting than openskills auto-discovers; Git clone recommended
 
 ## [1.1.0] - 2026-01-16
 

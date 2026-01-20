@@ -13,9 +13,10 @@
 ## To Do
 
 ### Open-Skills Follow-up
-- [ ] Monitor [openskills#48](https://github.com/numman-ali/openskills/issues/48) for bug fix
+- [x] Monitor [openskills#48](https://github.com/numman-ali/openskills/issues/48) for bug fix ✅ Fixed in v1.3.1
 - [ ] Add awesome-claude-skills badge to README after PR merges
-- [ ] Update README installation instructions when openskills is fixed
+- [x] Update README installation instructions when openskills is fixed ✅
+- [ ] Note: openskills CLI discovers skills in `.claude/skills/` but not `skills/phase/skill-name/` (depth limitation)
 
 ### v1.1.0 Candidates
 - [ ] Validation CI workflow (check skill structure, frontmatter, required files)
@@ -118,4 +119,4 @@
 
 ---
 
-*Last updated: 2026-01-16*
+*Last updated: 2026-01-20*

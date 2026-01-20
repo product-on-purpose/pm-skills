@@ -247,12 +247,12 @@ No installation needed. Skills work directly via slash commands:
 
 ### Option 4: openskills CLI
 
-> **Known Issue:** openskills CLI cannot install skills from nested directory structures ([openskills#48](https://github.com/numman-ali/openskills/issues/48)). This affects **pm-skills** and **Anthropic's official `anthropics/skills` repo**. Use Git clone until resolved.
+> **Note:** The [openskills CLI](https://github.com/numman-ali/openskills) discovers skills in `.claude/skills/` directories. pm-skills uses a deeper structure (`skills/phase/skill-name/`) for organization, so the CLI finds only utility skills, not the 24 PM skills. Use **Git clone** (Option 1) for full access to all skills.
 
 ```bash
-# Will be fully supported after bug fix
+# Works for repos with .claude/skills/ structure (e.g., anthropics/skills)
 npm i -g openskills
-openskills install product-on-purpose/pm-skills
+openskills install anthropics/skills  # 17 skills
 openskills sync
 ```
 
@@ -438,6 +438,7 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **1.1.1** | 2026-01-20 | openskills#48 fix verified, CODE_OF_CONDUCT, open-skills submissions    |
 | **1.1.0** | 2026-01-16 | Documentation overhaul, README redesign, FAQ, collapsible TOC           |
 | **1.0.1** | 2026-01-15 | All 24 slash commands complete                                          |
 | **1.0.0** | 2026-01-14 | Full Triple Diamond coverage-all 24 skills, workflow bundles, AGENTS.md |

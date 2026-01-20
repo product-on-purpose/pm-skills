@@ -3,7 +3,7 @@
 ## Current State
 
 **Status:** v1.1.0 released — Open-skills submissions complete, awaiting review
-**Last Updated:** 2026-01-17
+**Last Updated:** 2026-01-20
 **Release:** [v1.1.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.1.0)
 **Next Step:** Monitor PR/issue responses, add badge after awesome-claude-skills merge
 
@@ -55,6 +55,13 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **openskills #48 Resolved** (2026-01-20)
+  - Bug fix released in openskills v1.3.1 (now at v1.5.0)
+  - Root cause: hardcoded '/' path separator failed on Windows
+  - Verified: `anthropics/skills` now installs all 17 skills successfully
+  - Note: pm-skills 24 skills not auto-discovered (openskills looks in `.claude/skills/`, not `skills/phase/`)
+  - Git clone remains the recommended installation method for pm-skills
 
 - **Open-Skills Submissions Complete** (2026-01-17)
   - Submitted PR to awesome-claude-skills: [PR #62](https://github.com/ComposioHQ/awesome-claude-skills/pull/62)
@@ -185,7 +192,7 @@ pm-skills/
    - [x] CODE_OF_CONDUCT.md added ✅
    - [ ] Monitor awesome-claude-skills PR for merge (add badge after)
    - [ ] Monitor n-skills issue for approval
-   - [ ] Monitor openskills#48 for fix
+   - [x] openskills#48 fixed in v1.3.1 — Windows path separator issue resolved ✅
 
 2. **Post-Merge:**
    - Add awesome-claude-skills badge to README.md
