@@ -11,7 +11,6 @@ pm-skills/
 ├── _bundles/                 # Workflow bundles
 ├── docs/                     # Documentation
 ├── templates/                # Skill creation templates
-├── releases/                 # Pre-packaged downloads
 ├── AGENTS/                   # AI agent session context
 ├── .github/                  # GitHub configuration
 └── [root files]              # README, LICENSE, etc.
@@ -180,19 +179,6 @@ templates/
 ```
 
 Use these templates when contributing a new skill. See [authoring-pm-skills.md](../guides/authoring-pm-skills.md) for the full process.
-
----
-
-## `/releases/` — Pre-packaged Downloads
-
-Contains generated ZIP files for easy distribution.
-
-| File Pattern | Contents |
-|--------------|----------|
-| `pm-skills-vX.X.X.zip` | Full package: all skills, docs, templates |
-| `pm-skills-claude-vX.X.X.zip` | Lightweight: skills only, optimized for Claude.ai upload |
-
-These are generated automatically by the release workflow. Download from [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases).
 
 ---
 

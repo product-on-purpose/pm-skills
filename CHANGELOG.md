@@ -268,7 +268,7 @@ This release marks the completion of all 24 PM skills across the entire product 
 - 9 GitHub issues for plan-v1.md improvement opportunities
 - **Phase 0 Foundation Complete:**
   - CONTRIBUTING.md with curated contribution model
-  - Full directory structure (`skills/`, `_bundles/`, `_docs/`, `_templates/`, `commands/`, `releases/`)
+  - Full directory structure (`skills/`, `_bundles/`, `docs/`, `templates/`, `commands/`)
   - Schema documentation (`_docs/frontmatter-schema.yaml`)
   - Category reference (`_docs/categories.md`)
   - Skill template structure (`_templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md)

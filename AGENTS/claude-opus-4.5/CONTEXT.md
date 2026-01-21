@@ -42,7 +42,6 @@ pm-skills/
 ├── templates/            # Skill creation templates
 │   └── skill-template/   # SKILL.md, TEMPLATE.md, EXAMPLE.md
 ├── commands/             # Claude Code slash commands
-├── releases/             # Pre-packaged ZIPs for download
 ├── AGENTS/               # AI agent session continuity
 │   └── claude-opus-4.5/
 │       ├── CONTEXT.md    # Project state (this file)
