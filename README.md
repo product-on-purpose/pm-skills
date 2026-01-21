@@ -84,7 +84,7 @@
   - [Built with...](#built-with)
   - [Founded on...](#founded-on)
   - [Works for...](#works-for)
-  - [Project Structure](#project-structure)
+  - [Comparison: pm-skills vs. pm-skills-mcp](#comparison-pm-skills-this-repo-vs-pm-skills-mcp)
 - [Getting Started](#getting-started)
   - [Installation Options](#installation-options)
   - [Quick Start by Platform](#quick-start-by-platform)
@@ -96,10 +96,9 @@
   - [Quick Examples](#quick-examples)
   - [Workflow Bundles](#workflow-bundles)
 - [Project Status](#project-status)
+  - [Project Structure](#project-structure)
   - [Changelog](#changelog)
   - [Roadmap](#roadmap)
-- [Related Projects](#related-projects)
-  - [PM-Skills MCP Server](#pm-skills-mcp-server)
 - [Contributing](#contributing)
   - [How to Contribute](#how-to-contribute)
   - [Reporting Bugs](#reporting-bugs)
@@ -191,16 +190,16 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 ### Founded on...
 
-- [Triple Diamond Framework](https://medium.com/zendesk-creative-blog/the-zendesk-triple-diamond-process-fd857a11c179) - Product development methodology
-- [Teresa Torres' Opportunity Solution Trees](https://www.producttalk.org/opportunity-solution-tree/) - Outcome-driven discovery
-- [Jobs to be Done Framework](https://jtbd.info/) - Customer motivation framework
-- [Architecture Decision Records](https://adr.github.io/) - Technical decision documentation
-- [Design Council's Double Diamond](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/) - Foundation of our Triple Diamond framework
-- [Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) - ADR format we adapted
+- **[Triple Diamond Framework](https://medium.com/zendesk-creative-blog/the-zendesk-triple-diamond-process-fd857a11c179)** - Product development methodology
+- **[Teresa Torres' Opportunity Solution Trees](https://www.producttalk.org/opportunity-solution-tree/)** - Outcome-driven discovery
+- **[Jobs to be Done Framework](https://jtbd.info/)** - Customer motivation framework
+- **[Architecture Decision Records](https://adr.github.io/)** - Technical decision documentation
+- **[Design Council's Double Diamond](https://www.designcouncil.org.uk/our-resources/framework-for-innovation/)** - Foundation of our Triple Diamond framework
+- **[Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)** - ADR format we adapted
 
 ### Works for...
 
-PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specification) and works natively across the AI ecosystem.
+PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/specification)** and works natively across the AI ecosystem.
 
 <!-- ========== UPDATED: Platform Compatibility Table with MCP Column ========== -->
 #### Platform Compatibility
@@ -219,34 +218,34 @@ PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specif
 | **ChatGPT / Codex** | 🔶 Manual    | Copy skill content                                                          | No native support                      |
 | **Other AI Tools**  | 🔶 Manual    | Copy skill content                                                          | Works with any LLM                     |
 
-> **Want programmatic MCP access?** Check out [PM-Skills MCP](https://github.com/product-on-purpose/pm-skills-mcp) for tool-based integration with Claude Desktop, Cursor, and other MCP clients. See our [MCP Integration Guide](docs/guides/mcp-integration.md) and [Ecosystem Overview](docs/reference/ecosystem.md) for details.
-<!-- ========== END UPDATED ========== -->
+### Comparison: pm-skills (this repo) vs. pm-skills-mcp
 
+PM-Skills is available in two complementary forms:
 
-### Project Structure
+|  | pm-skills (this repo) | [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) |
+|---|---|---|
+| **What it is** | Skill library as markdown files | MCP server wrapping the skill library |
+| **Access method** | Git clone, ZIP upload | `npx pm-skills-mcp` |
+| **Setup time** | 2-5 minutes | 30 seconds |
+| **Skill invocation** | Slash commands (Claude Code) | MCP tool calls |
+| **Auto-discovery** | AGENTS.md (Copilot, Cursor, Windsurf) | MCP protocol (Claude Desktop, Cursor) |
+| **Template access** | Navigate file system | URI-based resources |
+| **Workflow bundles** | Manual orchestration | Tool-based execution |
+| **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
+| **Updates** | `git pull` | `npm update pm-skills-mcp` |
 
-```
-pm-skills/
-├── skills/                   # 24 PM skills organized by Triple Diamond phase
-│   ├── discover/             # Research: interview-synthesis, competitive-analysis, stakeholder-summary
-│   ├── define/               # Problem framing: problem-statement, hypothesis, opportunity-tree, jtbd-canvas
-│   ├── develop/              # Solutions: solution-brief, spike-summary, adr, design-rationale
-│   ├── deliver/              # Specification: prd, user-stories, edge-cases, launch-checklist, release-notes
-│   ├── measure/              # Validation: experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
-│   └── iterate/              # Learning: retrospective, lessons-log, refinement-notes, pivot-decision
-├── commands/                 # Claude Code slash commands (25 total)
-├── _bundles/                 # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
-├── docs/                     # Documentation
-│   ├── getting-started.md    # Setup guide
-│   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
-│   └── reference/            # Technical specs (categories.md, ecosystem.md, project-structure.md)
-├── templates/                # Skill creation templates
-├── AGENTS.md                 # Universal agent discovery file
-├── CONTRIBUTING.md           # Contribution guidelines
-└── CHANGELOG.md              # Version history
-```
+**Use pm-skills (this repo) when:**
+- You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)
+- You want to browse, read, and customize skill files directly
+- You're using GitHub Copilot or Windsurf with AGENTS.md discovery
+- You want to fork and heavily customize skills for your team
 
-See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions.
+**Use pm-skills-mcp when:**
+- You want instant setup with `npx pm-skills-mcp`
+- You're using Claude Desktop, Cursor, or any MCP client
+- You want programmatic tool access without managing files
+
+Both approaches give you access to the same 24 production-ready PM skills. See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -276,7 +275,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 ### Quick Start by Platform
 
 <details>
-<summary><strong>Claude Code (Recommended)</strong></summary>
+<summary><strong>Claude Code</strong></summary>
 
 No setup needed! Skills work directly via slash commands in your terminal:
 
@@ -587,7 +586,33 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 
 ## Project Status
 
+### Project Structure
+
+```
+pm-skills/
+├── skills/                   # 24 PM skills organized by Triple Diamond phase
+│   ├── discover/             # Research: interview-synthesis, competitive-analysis, stakeholder-summary
+│   ├── define/               # Problem framing: problem-statement, hypothesis, opportunity-tree, jtbd-canvas
+│   ├── develop/              # Solutions: solution-brief, spike-summary, adr, design-rationale
+│   ├── deliver/              # Specification: prd, user-stories, edge-cases, launch-checklist, release-notes
+│   ├── measure/              # Validation: experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
+│   └── iterate/              # Learning: retrospective, lessons-log, refinement-notes, pivot-decision
+├── commands/                 # Claude Code slash commands (25 total)
+├── _bundles/                 # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
+├── docs/                     # Documentation
+│   ├── getting-started.md    # Setup guide
+│   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
+│   └── reference/            # Technical specs (categories.md, ecosystem.md, project-structure.md)
+├── templates/                # Skill creation templates
+├── AGENTS.md                 # Universal agent discovery file
+├── CONTRIBUTING.md           # Contribution guidelines
+└── CHANGELOG.md              # Version history
+```
+
+See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions.
+
 ### Changelog
+See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
@@ -599,8 +624,6 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 | **0.3.0** | 2026-01-14 | P1 Skills (8 skills) + GitHub Actions workflows                         |
 | **0.2.0** | 2026-01-14 | P0 Core Skills (5 skills)                                               |
 | **0.1.0** | 2026-01-14 | Initial project structure, foundation infrastructure                    |
-
-See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -646,32 +669,6 @@ Coming soon
 Coming soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
-
-<!-- ========== NEW: Related Projects Section ========== -->
-## Related Projects
-
-### PM-Skills MCP Server
-
-[pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) exposes all 24 PM skills as MCP tools, resources, and prompts. It's the recommended approach for:
-
-- **Claude Desktop** users who want instant access without file management
-- **Cursor** users who prefer programmatic tool calls over slash commands
-- **Any MCP client** for universal, protocol-level skill access
-
-```bash
-# One command setup
-npx pm-skills-mcp
-```
-
-| Approach | Best For |
-|----------|----------|
-| **pm-skills** (this repo) | Claude Code slash commands, customization, AGENTS.md discovery |
-| **pm-skills-mcp** | MCP clients, zero-config setup, programmatic access |
-
-Both approaches give you access to the same 24 production-ready PM skills. See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
-<!-- ========== END NEW ========== -->
 
 ---
 
