@@ -60,7 +60,8 @@
       "Bash(gh milestone:*)",
       "Bash(gh release create:*)",
       "Bash(node --version:*)",
-      "Bash(npm --version:*)"
+      "Bash(npm --version:*)",
+      "Bash(powershell -Command \"\\(Get-Content ''.github/workflows/codeql.yml''\\) -replace ''^lname:'', ''name:'' | Set-Content ''.github/workflows/codeql.yml''\")"
     ]
   }
 }

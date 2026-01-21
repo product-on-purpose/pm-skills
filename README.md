@@ -59,6 +59,9 @@
 </p>
 
 > **Using VS Code, Claude Desktop, Cursor?** Try [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) for instant MCP access to all 24 skills - no file management required.
+
+---
+
 <!-- ========== END NEW ========== -->
 
 <p align="center">
@@ -84,6 +87,7 @@
   - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
   - [Installation Options](#installation-options)
+  - [Quick Start by Platform](#quick-start-by-platform)
   - [Releases](#releases)
   - [Alternative: openskills CLI](#alternative-openskills-cli)
 - [Usage](#usage)
@@ -106,6 +110,13 @@
 - [Community](#community)
 
 </details>
+
+---
+
+**Quick Start** (Clone and go!)
+```bash
+git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
+```
 
 ---
 
@@ -211,7 +222,58 @@ PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specif
 > **Want programmatic MCP access?** Check out [PM-Skills MCP](https://github.com/product-on-purpose/pm-skills-mcp) for tool-based integration with Claude Desktop, Cursor, and other MCP clients. See our [MCP Integration Guide](docs/guides/mcp-integration.md) and [Ecosystem Overview](docs/reference/ecosystem.md) for details.
 <!-- ========== END UPDATED ========== -->
 
-#### Quick Start by Platform
+
+### Project Structure
+
+```
+pm-skills/
+├── skills/                   # 24 PM skills organized by Triple Diamond phase
+│   ├── discover/             # Research: interview-synthesis, competitive-analysis, stakeholder-summary
+│   ├── define/               # Problem framing: problem-statement, hypothesis, opportunity-tree, jtbd-canvas
+│   ├── develop/              # Solutions: solution-brief, spike-summary, adr, design-rationale
+│   ├── deliver/              # Specification: prd, user-stories, edge-cases, launch-checklist, release-notes
+│   ├── measure/              # Validation: experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
+│   └── iterate/              # Learning: retrospective, lessons-log, refinement-notes, pivot-decision
+├── commands/                 # Claude Code slash commands (25 total)
+├── _bundles/                 # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
+├── docs/                     # Documentation
+│   ├── getting-started.md    # Setup guide
+│   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
+│   └── reference/            # Technical specs (categories.md, ecosystem.md, project-structure.md)
+├── templates/                # Skill creation templates
+├── AGENTS.md                 # Universal agent discovery file
+├── CONTRIBUTING.md           # Contribution guidelines
+└── CHANGELOG.md              # Version history
+```
+
+See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## Getting Started
+
+**Quick start:** Clone and go.
+
+```bash
+git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
+```
+
+**Need platform-specific instructions?** See [Quick Start by Platform](#quick-start-by-platform) below.
+
+**Want a detailed walkthrough?** Check our [Getting Started Guide](docs/getting-started.md).
+
+### Installation Options
+
+| Method                 | Best For                                  | Command / Action                              |
+| ---------------------- | ----------------------------------------- | --------------------------------------------- |
+| **Git Clone**          | Claude Code, Copilot, Cursor, Windsurf    | `git clone https://github.com/product-on-purpose/pm-skills.git` |
+| **ZIP Download**       | Claude.ai, Claude Desktop                 | [Download Latest Release](https://github.com/product-on-purpose/pm-skills/releases/latest) |
+| **MCP Server**         | Programmatic tool access                  | `npx pm-skills-mcp` ([pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)) |
+
+
+### Quick Start by Platform
 
 <details>
 <summary><strong>Claude Code (Recommended)</strong></summary>
@@ -326,55 +388,6 @@ ChatGPT and other LLMs don't support Agent Skills natively, but you can use skil
 The skill content provides all the context the LLM needs to produce professional output.
 
 </details>
-
-### Project Structure
-
-```
-pm-skills/
-├── skills/                   # 24 PM skills organized by Triple Diamond phase
-│   ├── discover/             # Research: interview-synthesis, competitive-analysis, stakeholder-summary
-│   ├── define/               # Problem framing: problem-statement, hypothesis, opportunity-tree, jtbd-canvas
-│   ├── develop/              # Solutions: solution-brief, spike-summary, adr, design-rationale
-│   ├── deliver/              # Specification: prd, user-stories, edge-cases, launch-checklist, release-notes
-│   ├── measure/              # Validation: experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
-│   └── iterate/              # Learning: retrospective, lessons-log, refinement-notes, pivot-decision
-├── commands/                 # Claude Code slash commands (25 total)
-├── _bundles/                 # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
-├── docs/                     # Documentation
-│   ├── getting-started.md    # Setup guide
-│   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
-│   └── reference/            # Technical specs (categories.md, ecosystem.md, project-structure.md)
-├── templates/                # Skill creation templates
-├── AGENTS.md                 # Universal agent discovery file
-├── CONTRIBUTING.md           # Contribution guidelines
-└── CHANGELOG.md              # Version history
-```
-
-See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
-
-## Getting Started
-
-**Quick start:** Clone and go.
-
-```bash
-git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
-```
-
-**Need platform-specific instructions?** See [Quick Start by Platform](#quick-start-by-platform) above.
-
-**Want a detailed walkthrough?** Check our [Getting Started Guide](docs/getting-started.md).
-
-### Installation Options
-
-| Method                 | Best For                                  | Command / Action                              |
-| ---------------------- | ----------------------------------------- | --------------------------------------------- |
-| **Git Clone**          | Claude Code, Copilot, Cursor, Windsurf    | `git clone https://github.com/product-on-purpose/pm-skills.git` |
-| **ZIP Download**       | Claude.ai, Claude Desktop                 | [Download Latest Release](https://github.com/product-on-purpose/pm-skills/releases/latest) |
-| **MCP Server**         | Programmatic tool access                  | `npx pm-skills-mcp` ([pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)) |
 
 ### Releases
 

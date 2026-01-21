@@ -1,0 +1,30 @@
+# .github/workflows/ci.yml
+name: CI Pipeline # This is just a display name
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build: # Status check name: "build"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run build
+
+#   test: # Status check name: "test"
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - run: npm ci
+#       - run: npm test
+#
+#   lint: # Status check name: "lint"
+#    runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - run: npm ci
+#       - run: npm run lint

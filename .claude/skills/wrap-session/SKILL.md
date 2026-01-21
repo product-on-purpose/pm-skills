@@ -22,6 +22,7 @@ Update the project description and status to reflect current state. Keep changes
 Append changes to the `[Unreleased]` section using Keep a Changelog format. See `references/changelog-format.md` for format details.
 
 **Change categories:**
+
 - `Added` — New features/files
 - `Changed` — Modified functionality
 - `Fixed` — Bug fixes
@@ -35,13 +36,14 @@ If CHANGELOG.md doesn't exist, create it using `assets/CHANGELOG.template.md`.
 
 Create/update files in `AGENTS/<model>/` (e.g., `AGENTS/claude-opus-4.5/`):
 
-| File | Purpose | When to Update |
-|------|---------|----------------|
-| `CONTEXT.md` | Current project state | Always |
-| `TODO.md` | Task tracking | When tasks change |
-| `DECISIONS.md` | Technical decisions | When decisions are made |
+| File           | Purpose               | When to Update          |
+| -------------- | --------------------- | ----------------------- |
+| `CONTEXT.md`   | Current project state | Always                  |
+| `TODO.md`      | Task tracking         | When tasks change       |
+| `DECISIONS.md` | Technical decisions   | When decisions are made |
 
 **If AGENTS folder doesn't exist:** Create the full structure:
+
 ```
 AGENTS/
 └── claude-opus-4.5/
@@ -59,16 +61,19 @@ See `references/context-files.md` for file formats.
 If the session involved planning, review, or analysis work that produced artifacts requiring review, save them to `AGENTS/<model>/PLANNING/`:
 
 **When to create PLANNING documents:**
+
 - Architecture proposals or design documents
 - Code review summaries and recommendations
 - Investigation reports and research findings
 - Implementation plans and roadmaps
 
 **File naming:**
+
 - Use descriptive, kebab-case names: `auth-system-design.md`, `api-migration-plan.md`
 - Prefix with date for time-sensitive docs: `2025-01-14_performance-analysis.md`
 
 **Required front matter:**
+
 ```yaml
 ---
 created: YYYY-MM-DD
@@ -82,7 +87,7 @@ tags: [planning, review, analysis]
 
 ### 5. Create Session Log
 
-Create `AGENTS/<model>/SESSION-LOG/YYYY-MM-DD_HH-MM_session.md` with:
+Create `AGENTS/<model>/SESSION-LOG/YYYY-MM-DD_HH-MM_session-<4-6 word summary separated by hypens>.md` with:
 
 1. Summary (2-3 sentences)
 2. Key accomplishments
@@ -97,6 +102,7 @@ See `references/session-log-format.md` for template.
 ### 6. Confirm Completion
 
 Report to user:
+
 - Files updated/created
 - Key changes documented
 - Recommended pickup point for next session

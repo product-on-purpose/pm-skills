@@ -2,9 +2,9 @@
 
 ## File Naming
 
-`YYYY-MM-DD_HH-MM_session.md`
+`YYYY-MM-DD_HH-MM_session_<4-6 word summary separated by hypen.md`
 
-Example: `2025-01-15_14-30_session.md`
+Example: `2025-01-15_14-30_session_created-new-reference-docs.md`
 
 ## Template
 
@@ -47,17 +47,21 @@ Recommended starting point and priorities:
 A ready-to-use prompt for continuing this work:
 
 ```
+
 Continue from session [YYYY-MM-DD]. Context: [Brief project description].
 
 Last session accomplished:
+
 - [Key accomplishment 1]
 - [Key accomplishment 2]
 
 Priority for this session:
+
 1. [First priority]
 2. [Second priority]
 
 Start by reviewing AGENTS/<model>/CONTEXT.md and the previous session log.
+
 ```
 
 ## Session Highlights
