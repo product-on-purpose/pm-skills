@@ -8,6 +8,17 @@
 - [ ] Create tag ruleset for `v*` releases (protect release tags)
 - [ ] Verify Dependabot alerts are enabled
 
+### Documentation & Cross-Linking Updates (2026-01-21) ✅ COMPLETE
+- [x] Create `docs/reference/ecosystem.md` — [#94](https://github.com/product-on-purpose/pm-skills/issues/94) ✅
+- [x] Create `docs/guides/mcp-integration.md` — [#95](https://github.com/product-on-purpose/pm-skills/issues/95) ✅
+- [x] Update README.md with links to new documentation ✅
+- [x] Add MCP cross-reference badge and callout to README header ✅
+- [x] Add MCP Server quick start section ✅
+- [x] Add Related Projects section ✅
+- [x] Add MCP FAQ entry ✅
+- [x] Commit documentation changes ✅
+- [ ] Consider v1.2.1 patch release for documentation + cross-linking updates
+
 ## To Do
 
 ### Open-Skills Follow-up
@@ -30,6 +41,14 @@
 - [ ] Claude Code marketplace submission (when available)
 
 ## Completed
+
+### README Restructure (2026-01-20) ✅ COMPLETE
+- [x] Restructured README.md headings ("Forward March!" → "Project Status", etc.)
+- [x] Added Project Structure section with tree diagram
+- [x] Created docs/reference/project-structure.md
+- [x] Updated FAQ openskills CLI question
+- [x] Updated pm-skills-mcp README.md to mirror structure
+- [x] Updated Table of Contents and navigation links
 
 ### v1.2.0 Release (2026-01-20) ✅ SHIPPED
 - [x] Created SECURITY.md with vulnerability reporting guidelines
@@ -132,4 +151,4 @@
 
 ---
 
-*Last updated: 2026-01-20 (v1.2.0 release)*
+*Last updated: 2026-01-21 (ecosystem + MCP integration documentation)*

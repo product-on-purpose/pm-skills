@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** v1.2.0 released — Security & Community Infrastructure
-**Last Updated:** 2026-01-20
+**Status:** Post-v1.2.0 — README cross-linking with pm-skills-mcp complete
+**Last Updated:** 2026-01-21
 **Release:** [v1.2.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.2.0)
-**Next Step:** Enable secret scanning in GitHub settings, monitor PR responses, add badge after awesome-claude-skills merge
+**Next Step:** Consider v1.2.1 release for documentation + cross-linking updates
 
 ## Project Overview
 
@@ -55,6 +55,49 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **README Cross-Linking with pm-skills-mcp** (2026-01-21)
+  - Added MCP badge and callout in README header linking to pm-skills-mcp
+  - Updated Platform Compatibility table with MCP links for Claude Desktop, Cursor
+  - Added "Any MCP Client" row with protocol-level access
+  - Added new MCP Server quick start section (collapsible)
+  - Added Related Projects section explaining pm-skills vs pm-skills-mcp
+  - Added FAQ entry: "What's the difference between pm-skills and pm-skills-mcp?"
+  - Part of cross-linking initiative to clarify ecosystem relationship
+
+- **Ecosystem & MCP Integration Documentation** (2026-01-21)
+  - Created `docs/reference/ecosystem.md` — comprehensive ecosystem overview ([#94](https://github.com/product-on-purpose/pm-skills/issues/94))
+    - Explains pm-skills vs pm-skills-mcp relationship
+    - Decision matrix for choosing between approaches
+    - Feature comparison table
+    - Integration patterns (file-based, MCP-based, hybrid)
+    - Customization workflow and version compatibility
+  - Created `docs/guides/mcp-integration.md` — MCP integration guide ([#95](https://github.com/product-on-purpose/pm-skills/issues/95))
+    - Quick start for Claude Desktop, Claude Code, Cursor, VS Code
+    - Complete tool inventory (24 skill + 5 workflow + 6 utility tools)
+    - Slash command to MCP tool mapping table
+    - Customization and troubleshooting sections
+  - Updated README.md with links to new documentation
+  - Updated project structure documentation references
+
+- **README Platform Compatibility & Getting Started Enhancements** (2026-01-20)
+  - Expanded "Works for..." section with comprehensive platform compatibility table
+  - Added status indicators (✅ Native, 🔶 Manual) for 10+ platforms
+  - Added collapsible "Quick Start by Platform" sections for each platform
+  - Cross-referenced PM-Skills MCP for programmatic access
+  - Streamlined "Getting Started" section with Installation Options table
+  - Aligned documentation style with pm-skills-mcp README
+
+- **README Restructure & Project Structure Documentation** (2026-01-20)
+  - Restructured README.md headings for better scannability:
+    - "Forward March!" → "Project Status"
+    - Contributing elevated to H2 with subsections
+    - Created "About" section wrapping Author and License
+    - "More Suggestions" → "Community"
+  - Added Project Structure tree diagram to README.md
+  - Created `docs/reference/project-structure.md` with comprehensive file/folder hierarchy
+  - Updated FAQ: clarified openskills CLI question (bug resolved, structural limitation remains)
+  - Updated pm-skills-mcp README.md to mirror same structure
 
 - **v1.2.0 Released — Security & Community Infrastructure** (2026-01-20)
   - Added SECURITY.md with vulnerability reporting guidelines

@@ -8,15 +8,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **README MCP cross-reference header** — Purple "MCP Server available" badge with callout linking to pm-skills-mcp
+- **README MCP Quick Start section** — Collapsible section for MCP server setup (Claude Desktop, Cursor, any MCP client)
+- **README Related Projects section** — Dedicated section explaining pm-skills vs pm-skills-mcp relationship
+- **README MCP FAQ entry** — "What's the difference between pm-skills and pm-skills-mcp?"
+- **Ecosystem Overview documentation** — `docs/reference/ecosystem.md` explaining pm-skills vs pm-skills-mcp relationship ([#94](https://github.com/product-on-purpose/pm-skills/issues/94))
+  - Decision matrix for choosing between file-based and MCP approaches
+  - Feature comparison table
+  - Integration patterns (file-based, MCP-based, hybrid)
+  - Customization workflow and version compatibility guide
+- **MCP Integration Guide** — `docs/guides/mcp-integration.md` for MCP-based access ([#95](https://github.com/product-on-purpose/pm-skills/issues/95))
+  - Quick start instructions for Claude Desktop, Claude Code, Cursor, VS Code (Cline/Continue)
+  - Complete tool inventory (24 skill + 5 workflow + 6 utility tools)
+  - Slash command to MCP tool mapping table
+  - Troubleshooting section for common issues
 - **Platform Compatibility table** — Expanded "Works for..." section with status indicators, methods, and notes for 10+ platforms
 - **Quick Start by Platform** — Collapsible getting-started sections for Claude Code, Claude.ai/Desktop, GitHub Copilot, Cursor/Windsurf, VS Code, and ChatGPT
 - **PM-Skills MCP cross-reference** — Added callout for programmatic MCP access via pm-skills-mcp
 - **Installation Options table** — Streamlined Getting Started with Git Clone, ZIP Download, and MCP Server methods
 
 ### Changed
+- **README.md header** — Added MCP badge and callout for cross-linking with pm-skills-mcp
+- **README.md Platform Compatibility** — Updated table with MCP links for Claude Desktop, Cursor, and "Any MCP Client" row
+- **README.md MCP callout** — Enhanced with links to new MCP Integration Guide and Ecosystem Overview
+- **README.md Project Structure** — Updated docs/ section to reference new documentation files
 - **README.md "Works for..." section** — Expanded from simple list to comprehensive platform compatibility guide
 - **README.md "Getting Started" section** — Streamlined to avoid redundancy with new Quick Start sections
-- **Table of Contents** — Updated to reflect new Installation Options and Releases subsections
+- **Table of Contents** — Updated to reflect new sections (Related Projects, FAQ additions)
 
 ## [1.2.0] - 2026-01-20
 
