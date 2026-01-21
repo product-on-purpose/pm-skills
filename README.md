@@ -56,9 +56,9 @@
   <a href="#getting-started">Getting Started</a> •
   <a href="#the-24-skills">Skills</a> •
   <a href="#workflow-bundles">Bundles</a> •
-  <a href="#forward-march">Releases</a> •
-  <a href="#roadmap">Roadmap</a> •
+  <a href="#project-status">Status</a> •
   <a href="#contributing">Contributing</a> •
+  <a href="#community">Community</a>
 </p>
 
 <details>
@@ -71,26 +71,26 @@
     - [Built with...](#built-with)
     - [Founded on...](#founded-on)
     - [Works for...](#works-for)
+    - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-    - [Most Recent Release](#most-recent-release)
-    - [Option 1: Git Clone (Recommended)](#option-1-git-clone-recommended)
-    - [Option 2: Claude Code](#option-2-claude-code)
-    - [Option 3: Claude.ai / Desktop](#option-3-claudeai--desktop)
-    - [Option 4: openskills CLI](#option-4-openskills-cli)
+    - [Installation Options](#installation-options)
+    - [Releases](#releases)
 - [Usage](#usage)
     - [How Skills Work](#how-skills-work)
     - [The 24 Skills](#the-24-skills)
     - [Quick Examples](#quick-examples)
     - [Workflow Bundles](#workflow-bundles)
-- [Forward March!](#forward-march)
-    - [Change Log Summary](#change-log-summary)
+- [Project Status](#project-status)
+    - [Changelog](#changelog)
     - [Roadmap](#roadmap)
-    - [Contributing](#contributing)
-    - [Submit a Bug](#submit-a-bug)
+- [Contributing](#contributing)
+    - [How to Contribute](#how-to-contribute)
+    - [Reporting Bugs](#reporting-bugs)
 - [FAQ](#faq)
-- [About the Author](#about-the-author)
-- [License](#license)
-- [More Suggestions](#more-suggestions)
+- [About](#about)
+    - [Author](#author)
+    - [License](#license)
+- [Community](#community)
 
 </details>
 
@@ -176,25 +176,143 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 ### Works for...
 
-PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specification) and works natively across the AI ecosystem:
-
-- **Claude** - Code, Desktop, and claude.ai
-- **GitHub Copilot** - Via AGENTS.md discovery
-- **Cursor** - Via AGENTS.md discovery
-- **Windsurf** - Via AGENTS.md discovery
-- **OpenCode** - Native skill format
+PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specification) and works natively across the AI ecosystem.
 
 #### Platform Compatibility
 
-| Platform       | Status    | Method              |
-| -------------- | --------- | ------------------- |
-| Claude Code    | Native    | Slash commands      |
-| Claude.ai      | Native    | ZIP upload          |
-| Claude Desktop | Native    | ZIP upload          |
-| GitHub Copilot | Native    | AGENTS.md discovery |
-| Cursor         | Universal | AGENTS.md discovery |
-| Windsurf       | Universal | AGENTS.md discovery |
-| OpenCode       | Native    | Skill format        |
+| Platform            | Status       | Method              | Notes                              |
+| ------------------- | ------------ | ------------------- | ---------------------------------- |
+| **Claude Code**     | ✅ Native    | Slash commands      | Best experience with `/prd`, etc.  |
+| **Claude.ai**       | ✅ Native    | ZIP upload          | Upload to Projects                 |
+| **Claude Desktop**  | ✅ Native    | ZIP upload          | Upload via Settings                |
+| **GitHub Copilot**  | ✅ Native    | AGENTS.md discovery | Auto-discovers in repo             |
+| **Cursor**          | ✅ Native    | AGENTS.md discovery | Auto-discovers in workspace        |
+| **Windsurf**        | ✅ Native    | AGENTS.md discovery | Auto-discovers in workspace        |
+| **VS Code**         | ✅ Native    | Via extensions      | Cline, Continue, or manual         |
+| **OpenCode**        | ✅ Native    | Skill format        | Direct skill loading               |
+| **ChatGPT / Codex** | 🔶 Manual    | Copy skill content  | No native support                  |
+| **Other AI Tools**  | 🔶 Manual    | Copy skill content  | Works with any LLM                 |
+
+> **Want programmatic MCP access?** Check out [PM-Skills MCP](https://github.com/product-on-purpose/pm-skills-mcp) for tool-based integration with Claude Desktop, Cursor, and other MCP clients.
+
+#### Quick Start by Platform
+
+<details>
+<summary><strong>Claude Code (Recommended)</strong></summary>
+
+No setup needed! Skills work directly via slash commands in your terminal:
+
+```bash
+# Clone the repo to get slash commands
+git clone https://github.com/product-on-purpose/pm-skills.git
+cd pm-skills
+
+# Use any skill with slash commands
+/prd "Search feature for e-commerce platform"
+/hypothesis "Will one-page checkout increase conversion?"
+/user-stories "Recurring tasks feature from PRD"
+```
+
+All 24 skills are available as `/skill-name` commands. See [commands/](commands/) for the full list.
+
+</details>
+
+<details>
+<summary><strong>Claude.ai / Claude Desktop</strong></summary>
+
+1. Download from [Releases](https://github.com/product-on-purpose/pm-skills/releases):
+   - `pm-skills-claude-vX.X.X.zip` (lightweight, optimized for upload)
+2. Upload in Claude.ai or Desktop:
+   - **Claude.ai**: Project Settings → Add Files → Upload ZIP
+   - **Desktop**: Settings → Capabilities → Upload ZIP
+3. Use skills by name: "Use the prd skill to create requirements for..."
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot</strong></summary>
+
+Copilot auto-discovers skills via `AGENTS.md`:
+
+```bash
+# Clone into your project or as a submodule
+git clone https://github.com/product-on-purpose/pm-skills.git
+
+# Or add as submodule
+git submodule add https://github.com/product-on-purpose/pm-skills.git
+```
+
+Copilot Chat will see the skills. Ask: "Use the prd skill to create requirements for user authentication"
+
+</details>
+
+<details>
+<summary><strong>Cursor / Windsurf</strong></summary>
+
+Both IDEs auto-discover skills via `AGENTS.md`:
+
+```bash
+# Clone into your workspace
+git clone https://github.com/product-on-purpose/pm-skills.git
+```
+
+Open the folder in Cursor or Windsurf. The AI assistant will automatically discover and can use all 24 skills.
+
+</details>
+
+<details>
+<summary><strong>VS Code (Cline / Continue)</strong></summary>
+
+**With Cline or Continue extensions:**
+1. Clone pm-skills into your workspace
+2. The extension will discover skills via `AGENTS.md`
+3. Ask: "Use the hypothesis skill to test my assumption about..."
+
+**Manual approach:**
+1. Open any `SKILL.md` file from `skills/phase/skill-name/`
+2. Copy the content into your AI chat
+3. Ask the AI to follow the skill instructions
+
+</details>
+
+<details>
+<summary><strong>ChatGPT / Other LLMs</strong></summary>
+
+ChatGPT and other LLMs don't support Agent Skills natively, but you can use skills manually:
+
+1. Clone or download pm-skills
+2. Open the skill you need (e.g., `skills/deliver/prd/SKILL.md`)
+3. Copy the full content into your ChatGPT conversation
+4. Ask: "Follow these instructions to create a PRD for [your topic]"
+
+The skill content provides all the context the LLM needs to produce professional output.
+
+</details>
+
+### Project Structure
+
+```
+pm-skills/
+├── skills/                   # 24 PM skills organized by Triple Diamond phase
+│   ├── discover/             # Research: interview-synthesis, competitive-analysis, stakeholder-summary
+│   ├── define/               # Problem framing: problem-statement, hypothesis, opportunity-tree, jtbd-canvas
+│   ├── develop/              # Solutions: solution-brief, spike-summary, adr, design-rationale
+│   ├── deliver/              # Specification: prd, user-stories, edge-cases, launch-checklist, release-notes
+│   ├── measure/              # Validation: experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
+│   └── iterate/              # Learning: retrospective, lessons-log, refinement-notes, pivot-decision
+├── commands/                 # Claude Code slash commands (25 total)
+├── _bundles/                 # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
+├── docs/                     # Documentation
+│   ├── getting-started.md    # Setup guide
+│   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md)
+│   └── reference/            # Technical specs (categories.md, frontmatter-schema.yaml)
+├── templates/                # Skill creation templates
+├── AGENTS.md                 # Universal agent discovery file
+├── CONTRIBUTING.md           # Contribution guidelines
+└── CHANGELOG.md              # Version history
+```
+
+See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -202,57 +320,41 @@ PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specif
 
 ## Getting Started
 
-**Know what you are doing?** Use the following to get up and running with PM-Skills in under 2 minutes.
+**Quick start:** Clone and go.
 
-**Need more guidance?** Don't fret... we've created a detailed guide here: [Getting Started Guide](docs/getting-started.md) 
+```bash
+git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
+```
 
-### Most Recent Release
+**Need platform-specific instructions?** See [Quick Start by Platform](#quick-start-by-platform) above.
 
-All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page. Each release includes:
+**Want a detailed walkthrough?** Check our [Getting Started Guide](docs/getting-started.md).
 
-- **`pm-skills-vX.X.X.zip`** - Full package with all skills, bundles, and documentation
-- **`pm-skills-claude-vX.X.X.zip`** - Lightweight bundle optimized for Claude.ai/Desktop upload
+### Installation Options
 
-**Download the latest release:**
+| Method                 | Best For                                  | Command / Action                              |
+| ---------------------- | ----------------------------------------- | --------------------------------------------- |
+| **Git Clone**          | Claude Code, Copilot, Cursor, Windsurf    | `git clone https://github.com/product-on-purpose/pm-skills.git` |
+| **ZIP Download**       | Claude.ai, Claude Desktop                 | [Download Latest Release](https://github.com/product-on-purpose/pm-skills/releases/latest) |
+| **MCP Server**         | Programmatic tool access                  | `npx pm-skills-mcp` ([pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)) |
+
+### Releases
+
+All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
+
+- **`pm-skills-vX.X.X.zip`** — Full package with all skills, bundles, and documentation
+- **`pm-skills-claude-vX.X.X.zip`** — Lightweight bundle optimized for Claude.ai/Desktop upload
 
 [![Download Latest](https://img.shields.io/github/v/release/product-on-purpose/pm-skills?style=for-the-badge&label=Download&color=brightgreen)](https://github.com/product-on-purpose/pm-skills/releases/latest)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Alternative: openskills CLI
 
-### Option 1: Git Clone (Recommended)
-
-The most reliable method. Works with all AI platforms that support AGENTS.md discovery.
-
-```bash
-git clone https://github.com/product-on-purpose/pm-skills.git
-```
-
-Skills auto-discover via `AGENTS.md` in GitHub Copilot, Cursor, and Windsurf.
-
-### Option 2: Claude Code
-
-No installation needed. Skills work directly via slash commands:
-
-```bash
-/prd "Search feature for e-commerce platform"
-/hypothesis "Will one-page checkout increase conversion?"
-/user-stories "Recurring tasks feature from PRD"
-```
-
-### Option 3: Claude.ai / Desktop
-
-1. Download from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
-2. Upload ZIP in **Settings > Capabilities**
-3. Start using: "Use the prd skill to..."
-
-### Option 4: openskills CLI
-
-> **Note:** The [openskills CLI](https://github.com/numman-ali/openskills) discovers skills in `.claude/skills/` directories. pm-skills uses a deeper structure (`skills/phase/skill-name/`) for organization, so the CLI finds only utility skills, not the 24 PM skills. Use **Git clone** (Option 1) for full access to all skills.
+> **Note:** The [openskills CLI](https://github.com/numman-ali/openskills) discovers skills in `.claude/skills/` directories. PM-Skills uses a nested `skills/phase/skill-name/` structure for organization. Use **Git clone** for full access to all 24 skills.
 
 ```bash
 # Works for repos with .claude/skills/ structure (e.g., anthropics/skills)
 npm i -g openskills
-openskills install anthropics/skills  # 17 skills
+openskills install anthropics/skills
 openskills sync
 ```
 
@@ -432,9 +534,9 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 
 ---
 
-## Forward March!
+## Project Status
 
-### Change Log Summary
+### Changelog
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
@@ -461,7 +563,7 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] Slash commands for Claude Code
 - [x] Apache 2.0 license for commercial use
 - [x] openskills CLI support ([#48](https://github.com/numman-ali/openskills/issues/48) resolved in v1.3.1)
-- [ ] pm-skills-mcp package [in progress]
+- [x] pm-skills-mcp package (v1 release here! https://github.com/product-on-purpose/pm-skills-mcp)
 
 #### Backlog / Considering
 
@@ -494,13 +596,13 @@ Coming soon
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Contributing
+---
 
-First off, **thanks for taking the time to contribute!** 🎉 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
+## Contributing
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
 
-Don't forget to give the project a star! Thanks again!
+### How to Contribute
 
 **Quick contribution steps:**
 
@@ -518,7 +620,7 @@ Don't forget to give the project a star! Thanks again!
 - Testing requirements
 - Documentation standards
 
-### Submit a Bug
+### Reporting Bugs
 
 Please try to create bug reports that are:
 
@@ -562,9 +664,9 @@ Fork the repository and modify the `SKILL.md`, `TEMPLATE.md`, or `EXAMPLE.md` fi
 </details>
 
 <details>
-<summary><strong>Why isn't openskills CLI working?</strong></summary>
+<summary><strong>Why doesn't PM-Skills work with openskills CLI?</strong></summary>
 
-There's a known bug ([openskills#48](https://github.com/numman-ali/openskills/issues/48)) that prevents installation of skills from nested directory structures. This affects PM-Skills and even Anthropic's official skills repo. Until it's fixed, use `git clone` instead-it's actually faster and more reliable anyway.
+The openskills CLI discovers skills in `.claude/skills/` directories, but PM-Skills uses a nested `skills/phase/skill-name/` structure for better organization. This is by design... our structure groups skills by Triple Diamond phase. Use **Git clone** (Option 1) for full access to all 24 skills. The CLI works great for repos that use the flat `.claude/skills/` structure (like `anthropics/skills`).
 
 </details>
 
@@ -586,7 +688,9 @@ Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corr
 
 ---
 
-## About the Author
+## About
+
+### Author
 
 <p align="center">
   <a href="https://github.com/jprisant">
@@ -594,17 +698,13 @@ Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corr
   </a>
 </p>
 
-Howdy, I'm Jonathan Prisant, a product leader/manager/nerd in the church technology space who gets unreasonably excited about understanding + solving problems, serving humans, designing elegant systems, and getting stuff done. I enjoy optimizing and scaling workflows more than is probably healthy... NOT because I'm particularly fond of "business process definition", but because I think in systems and value the outcomes of increased "effectiveness and efficiency" (i.e. doing less of the boring work and more of the work I actually enjoy). 
+Howdy, I'm Jonathan Prisant, a product leader/manager/nerd in the church technology space who gets unreasonably excited about understanding + solving problems, serving humans, designing elegant systems, and getting stuff done. I enjoy optimizing and scaling workflows more than is probably healthy... NOT because I'm particularly fond of "business process definition", but because I think in systems and value the outcomes of increased "effectiveness and efficiency" (i.e. doing less of the boring work and more of the work I actually enjoy).
 
-I am a follower of Jesus Christ, grateful husband to my beloved, proud (and exhausted) dad of 4 humans of various sizes and ages, D&D geek, 3d printing enthusiast, formerly-consistent strength trainer, smart home enthusiast, insatiable learner, compulsive tech-experimenter, writer-of-words that aggregate into sentences and paragraphs, and a bunch of other stuff too. I have too many projects going on across too many domains and need better self control, but hopefully you find this open-source repo helpful and useful. 
+I am a follower of Jesus Christ, grateful husband to my beloved, proud (and exhausted) dad of 4 humans of various sizes and ages, D&D geek, 3d printing enthusiast, formerly-consistent strength trainer, smart home enthusiast, insatiable learner, compulsive tech-experimenter, writer-of-words that aggregate into sentences and paragraphs, and a bunch of other stuff too. I have too many projects going on across too many domains and need better self control, but hopefully you find this open-source repo helpful and useful.
 
 *If PM-Skills has helped you ship better products, consider giving the repo a star and sharing it with your team.*
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
-
-## License
+### License
 
 Distributed under the **Apache License 2.0**. See [LICENSE](LICENSE) for more information.
 
@@ -621,7 +721,7 @@ The only requirements are attribution and including the license notice.
 
 ---
 
-## More Suggestions
+## Community
 
 Have ideas for making PM-Skills even better? Here are some ways to contribute and connect:
 
