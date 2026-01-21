@@ -1,12 +1,11 @@
 <a id="readme-top"></a>
 
 <h1 align="center">
-  <br>
   <a href="https://github.com/product-on-purpose/pm-skills">PM-Skills</a>
   <br>
 </h1>
 
-<h4 align="center">24 battle-tested, best-practice, open-source PM skills that transform your AI into a product management powerhouse.</h4>
+<h4 align="center">A curated collection of 24 best-practice, plug-and-play product management “agent skills” plus templates and workflow bundles for consistent, professional PM outputs.</h4>
 
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills/issues/new?labels=bug">Report a Bug</a>
@@ -58,7 +57,7 @@
   </a>
 </p>
 
-> **Using VS Code, Claude Desktop, Cursor?** Try [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) for instant MCP access to all 24 skills - no file management required.
+> **🔥MCP Server Available!** If you are using VS Code, Claude Desktop, Claude Code (CLI), Github Copilot, Cursor, etc... check out **[pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)** for instant MCP access to all 24 skills and workflows - no file management required.
 
 ---
 
@@ -84,7 +83,7 @@
   - [Built with...](#built-with)
   - [Founded on...](#founded-on)
   - [Works for...](#works-for)
-  - [Comparison: pm-skills vs. pm-skills-mcp](#comparison-pm-skills-this-repo-vs-pm-skills-mcp)
+  - [Comparison: `pm-skills` (this repo) vs. `pm-skills-mcp`](#comparison-pm-skills-this-repo-vs-pm-skills-mcp)
 - [Getting Started](#getting-started)
   - [Installation Options](#installation-options)
   - [Quick Start by Platform](#quick-start-by-platform)
@@ -122,10 +121,6 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 ## The Big Idea
 
 **Stop prompt-fumbling. Start shipping.** Every time you ask an AI to help with product management, you start from zero. Generic responses. Inconsistent formats. Missing critical sections. Hours lost to repetitive prompt crafting.
-
-```
-git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
-```
 
 PM-Skills changes that and gives your AI-tool-of-choice instant access to:
 
@@ -218,9 +213,9 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **ChatGPT / Codex** | 🔶 Manual    | Copy skill content                                                          | No native support                      |
 | **Other AI Tools**  | 🔶 Manual    | Copy skill content                                                          | Works with any LLM                     |
 
-### Comparison: pm-skills (this repo) vs. pm-skills-mcp
+### Comparison: `pm-skills` (this repo) vs. `pm-skills-mcp`
 
-PM-Skills is available in two complementary forms:
+`PM-Skills` is available in two complementary forms:
 
 |  | pm-skills (this repo) | [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) |
 |---|---|---|
@@ -234,18 +229,20 @@ PM-Skills is available in two complementary forms:
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
 | **Updates** | `git pull` | `npm update pm-skills-mcp` |
 
-**Use pm-skills (this repo) when:**
+**Use `pm-skills` (this repo) when:**
 - You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)
 - You want to browse, read, and customize skill files directly
 - You're using GitHub Copilot or Windsurf with AGENTS.md discovery
 - You want to fork and heavily customize skills for your team
 
-**Use pm-skills-mcp when:**
+**Use [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) when:**
 - You want instant setup with `npx pm-skills-mcp`
 - You're using Claude Desktop, Cursor, or any MCP client
 - You want programmatic tool access without managing files
 
-Both approaches give you access to the same 24 production-ready PM skills. See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
+Both approaches give you access to the same 24 production-ready PM skills.
+
+See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
