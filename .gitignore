@@ -38,7 +38,8 @@ _NOTES/
 .obsidian
 .claude/settings.local.json
 
-# Agent working files (keep CONTEXT.md for project context)
+# Agent working files
+# Note: CONTEXT.md and DECISIONS.md are intentionally tracked for continuity
 AGENTS/*/SESSION-LOG/
 AGENTS/*/TODO.md
 AGENTS/*/PLANNING/
