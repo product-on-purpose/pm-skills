@@ -51,6 +51,16 @@
   <img src="https://img.shields.io/github/last-commit/product-on-purpose/pm-skills?style=flat-square" alt="Last Commit">
 </p>
 
+<!-- ========== NEW: MCP Cross-Reference Badge + Callout ========== -->
+<p align="center">
+  <a href="https://github.com/product-on-purpose/pm-skills-mcp">
+    <img src="https://img.shields.io/badge/MCP_Server-available-purple.svg?style=flat-square" alt="MCP Server Available">
+  </a>
+</p>
+
+> **Using VS Code, Claude Desktop, Cursor?** Try [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) for instant MCP access to all 24 skills - no file management required.
+<!-- ========== END NEW ========== -->
+
 <p align="center">
   <a href="#the-big-idea">About</a> •
   <a href="#getting-started">Getting Started</a> •
@@ -65,31 +75,34 @@
 <summary><strong>Table of Contents</strong></summary>
 
 - [The Big Idea](#the-big-idea)
-    - [The Problem](#the-problem)
-    - [The Solution](#the-solution)
-    - [Key Features](#key-features)
-    - [Built with...](#built-with)
-    - [Founded on...](#founded-on)
-    - [Works for...](#works-for)
-    - [Project Structure](#project-structure)
+  - [The Problem](#the-problem)
+  - [The Solution](#the-solution)
+  - [Key Features](#key-features)
+  - [Built with...](#built-with)
+  - [Founded on...](#founded-on)
+  - [Works for...](#works-for)
+  - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-    - [Installation Options](#installation-options)
-    - [Releases](#releases)
+  - [Installation Options](#installation-options)
+  - [Releases](#releases)
+  - [Alternative: openskills CLI](#alternative-openskills-cli)
 - [Usage](#usage)
-    - [How Skills Work](#how-skills-work)
-    - [The 24 Skills](#the-24-skills)
-    - [Quick Examples](#quick-examples)
-    - [Workflow Bundles](#workflow-bundles)
+  - [How Skills Work](#how-skills-work)
+  - [The 24 Skills](#the-24-skills)
+  - [Quick Examples](#quick-examples)
+  - [Workflow Bundles](#workflow-bundles)
 - [Project Status](#project-status)
-    - [Changelog](#changelog)
-    - [Roadmap](#roadmap)
+  - [Changelog](#changelog)
+  - [Roadmap](#roadmap)
+- [Related Projects](#related-projects)
+  - [PM-Skills MCP Server](#pm-skills-mcp-server)
 - [Contributing](#contributing)
-    - [How to Contribute](#how-to-contribute)
-    - [Reporting Bugs](#reporting-bugs)
+  - [How to Contribute](#how-to-contribute)
+  - [Reporting Bugs](#reporting-bugs)
 - [FAQ](#faq)
 - [About](#about)
-    - [Author](#author)
-    - [License](#license)
+  - [Author](#author)
+  - [License](#license)
 - [Community](#community)
 
 </details>
@@ -165,7 +178,7 @@ Every time you ask an AI to help with product management, you start from zero. G
 - **[Keep a Changelog](https://keepachangelog.com/)** - Structured release documentation
 - **[Best-README-Template](https://github.com/othneildrew/Best-README-Template)** - README inspiration
 
-### Founded on... 
+### Founded on...
 
 - [Triple Diamond Framework](https://medium.com/zendesk-creative-blog/the-zendesk-triple-diamond-process-fd857a11c179) - Product development methodology
 - [Teresa Torres' Opportunity Solution Trees](https://www.producttalk.org/opportunity-solution-tree/) - Outcome-driven discovery
@@ -178,22 +191,25 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 PM-Skills follows the [Agent Skills Specification](https://agentskills.io/specification) and works natively across the AI ecosystem.
 
+<!-- ========== UPDATED: Platform Compatibility Table with MCP Column ========== -->
 #### Platform Compatibility
 
-| Platform            | Status       | Method              | Notes                              |
-| ------------------- | ------------ | ------------------- | ---------------------------------- |
-| **Claude Code**     | ✅ Native    | Slash commands      | Best experience with `/prd`, etc.  |
-| **Claude.ai**       | ✅ Native    | ZIP upload          | Upload to Projects                 |
-| **Claude Desktop**  | ✅ Native    | ZIP upload          | Upload via Settings                |
-| **GitHub Copilot**  | ✅ Native    | AGENTS.md discovery | Auto-discovers in repo             |
-| **Cursor**          | ✅ Native    | AGENTS.md discovery | Auto-discovers in workspace        |
-| **Windsurf**        | ✅ Native    | AGENTS.md discovery | Auto-discovers in workspace        |
-| **VS Code**         | ✅ Native    | Via extensions      | Cline, Continue, or manual         |
-| **OpenCode**        | ✅ Native    | Skill format        | Direct skill loading               |
-| **ChatGPT / Codex** | 🔶 Manual    | Copy skill content  | No native support                  |
-| **Other AI Tools**  | 🔶 Manual    | Copy skill content  | Works with any LLM                 |
+| Platform            | Status       | Method                                                                      | Notes                                  |
+| ------------------- | ------------ | --------------------------------------------------------------------------- | -------------------------------------- |
+| **Claude Code**     | ✅ Native    | Slash commands                                                              | Best experience with `/prd`, etc.      |
+| **Claude.ai**       | ✅ Native    | ZIP upload                                                                  | Upload to Projects                     |
+| **Claude Desktop**  | ✅ Native    | ZIP upload or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)    | MCP recommended for programmatic access |
+| **GitHub Copilot**  | ✅ Native    | AGENTS.md discovery                                                         | Auto-discovers in repo                 |
+| **Cursor**          | ✅ Native    | AGENTS.md or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)     | MCP for programmatic tool access       |
+| **Windsurf**        | ✅ Native    | AGENTS.md discovery                                                         | Auto-discovers in workspace            |
+| **VS Code**         | ✅ Native    | Via extensions                                                              | Cline, Continue, or manual             |
+| **OpenCode**        | ✅ Native    | Skill format                                                                | Direct skill loading                   |
+| **Any MCP Client**  | ✅ Universal | [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)        | Protocol-level access                  |
+| **ChatGPT / Codex** | 🔶 Manual    | Copy skill content                                                          | No native support                      |
+| **Other AI Tools**  | 🔶 Manual    | Copy skill content                                                          | Works with any LLM                     |
 
-> **Want programmatic MCP access?** Check out [PM-Skills MCP](https://github.com/product-on-purpose/pm-skills-mcp) for tool-based integration with Claude Desktop, Cursor, and other MCP clients.
+> **Want programmatic MCP access?** Check out [PM-Skills MCP](https://github.com/product-on-purpose/pm-skills-mcp) for tool-based integration with Claude Desktop, Cursor, and other MCP clients. See our [MCP Integration Guide](docs/guides/mcp-integration.md) and [Ecosystem Overview](docs/reference/ecosystem.md) for details.
+<!-- ========== END UPDATED ========== -->
 
 #### Quick Start by Platform
 
@@ -228,6 +244,28 @@ All 24 skills are available as `/skill-name` commands. See [commands/](commands/
 3. Use skills by name: "Use the prd skill to create requirements for..."
 
 </details>
+
+<!-- ========== NEW: MCP Server Quick Start ========== -->
+<details>
+<summary><strong>MCP Server (Claude Desktop, Cursor, Any MCP Client)</strong></summary>
+
+For [MCP-compatible clients](https://modelcontextprotocol.io), use [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp):
+
+```json
+{
+  "mcpServers": {
+    "pm-skills": {
+      "command": "npx",
+      "args": ["pm-skills-mcp"]
+    }
+  }
+}
+```
+
+All 24 skills become available as programmatic tools. See the [pm-skills-mcp README](https://github.com/product-on-purpose/pm-skills-mcp#getting-started) for client-specific setup.
+
+</details>
+<!-- ========== END NEW ========== -->
 
 <details>
 <summary><strong>GitHub Copilot</strong></summary>
@@ -304,8 +342,8 @@ pm-skills/
 ├── _bundles/                 # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
 ├── docs/                     # Documentation
 │   ├── getting-started.md    # Setup guide
-│   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md)
-│   └── reference/            # Technical specs (categories.md, frontmatter-schema.yaml)
+│   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
+│   └── reference/            # Technical specs (categories.md, ecosystem.md, project-structure.md)
 ├── templates/                # Skill creation templates
 ├── AGENTS.md                 # Universal agent discovery file
 ├── CONTRIBUTING.md           # Contribution guidelines
@@ -342,8 +380,8 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
-- **`pm-skills-vX.X.X.zip`** — Full package with all skills, bundles, and documentation
-- **`pm-skills-claude-vX.X.X.zip`** — Lightweight bundle optimized for Claude.ai/Desktop upload
+- **`pm-skills-vX.X.X.zip`** - Full package with all skills, bundles, and documentation
+- **`pm-skills-claude-vX.X.X.zip`** - Lightweight bundle optimized for Claude.ai/Desktop upload
 
 [![Download Latest](https://img.shields.io/github/v/release/product-on-purpose/pm-skills?style=for-the-badge&label=Download&color=brightgreen)](https://github.com/product-on-purpose/pm-skills/releases/latest)
 
@@ -598,6 +636,32 @@ Coming soon
 
 ---
 
+<!-- ========== NEW: Related Projects Section ========== -->
+## Related Projects
+
+### PM-Skills MCP Server
+
+[pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) exposes all 24 PM skills as MCP tools, resources, and prompts. It's the recommended approach for:
+
+- **Claude Desktop** users who want instant access without file management
+- **Cursor** users who prefer programmatic tool calls over slash commands
+- **Any MCP client** for universal, protocol-level skill access
+
+```bash
+# One command setup
+npx pm-skills-mcp
+```
+
+| Approach | Best For |
+|----------|----------|
+| **pm-skills** (this repo) | Claude Code slash commands, customization, AGENTS.md discovery |
+| **pm-skills-mcp** | MCP clients, zero-config setup, programmatic access |
+
+Both approaches give you access to the same 24 production-ready PM skills. See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
+<!-- ========== END NEW ========== -->
+
+---
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
@@ -683,6 +747,19 @@ Absolutely! Check out our [authoring guide](docs/guides/authoring-pm-skills.md) 
 Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corresponding skill. When you type `/prd "my feature"`, Claude Code reads the skill instructions from `skills/deliver/prd/SKILL.md` and generates output following the template. No additional setup required-the commands are defined in the `commands/` directory.
 
 </details>
+
+<!-- ========== NEW: MCP FAQ ========== -->
+<details>
+<summary><strong>What's the difference between pm-skills and pm-skills-mcp?</strong></summary>
+
+**pm-skills** (this repo) is the source skill library with all 24 PM skills as markdown files. It's best for Claude Code slash commands, file browsing, and customization.
+
+**pm-skills-mcp** wraps these same skills in an MCP server for programmatic access. It's best for Claude Desktop, Cursor, and any MCP-compatible client.
+
+Both give you access to identical skills—choose based on your preferred client and workflow. See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
+
+</details>
+<!-- ========== END NEW ========== -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
