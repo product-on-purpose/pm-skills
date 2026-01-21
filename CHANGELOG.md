@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-_No unreleased changes._
+### Added
+- **Platform Compatibility table** — Expanded "Works for..." section with status indicators, methods, and notes for 10+ platforms
+- **Quick Start by Platform** — Collapsible getting-started sections for Claude Code, Claude.ai/Desktop, GitHub Copilot, Cursor/Windsurf, VS Code, and ChatGPT
+- **PM-Skills MCP cross-reference** — Added callout for programmatic MCP access via pm-skills-mcp
+- **Installation Options table** — Streamlined Getting Started with Git Clone, ZIP Download, and MCP Server methods
+
+### Changed
+- **README.md "Works for..." section** — Expanded from simple list to comprehensive platform compatibility guide
+- **README.md "Getting Started" section** — Streamlined to avoid redundancy with new Quick Start sections
+- **Table of Contents** — Updated to reflect new Installation Options and Releases subsections
 
 ## [1.2.0] - 2026-01-20
 
