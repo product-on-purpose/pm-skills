@@ -21,24 +21,38 @@ jobs:
 
       - name: Create skills ZIP
         run: |
-          # Create ZIP with skills folder and key files
-          zip -r pm-skills-${{ steps.version.outputs.VERSION }}.zip skills/ AGENTS.md LICENSE README.md
-
-      - name: Create Claude.ai bundle ZIP
-        run: |
-          # Create minimal ZIP for Claude.ai upload
-          zip -r pm-skills-claude-${{ steps.version.outputs.VERSION }}.zip skills/ AGENTS.md
+          # Create complete ZIP with skills, commands, bundles, and documentation
+          zip -r pm-skills-${{ steps.version.outputs.VERSION }}.zip \
+            skills/ \
+            commands/ \
+            _bundles/ \
+            AGENTS.md \
+            QUICKSTART.md \
+            LICENSE \
+            README.md
 
       - name: Generate release notes
         run: |
           cat << 'EOF' > RELEASE_NOTES.md
           ## What's Included
 
-          - 24 PM skills across 6 phases (Discover, Define, Develop, Deliver, Measure, Iterate)
-          - Templates and examples for each skill
-          - AGENTS.md for universal agent discovery
+          - **24 PM skills** across 6 phases (Discover, Define, Develop, Deliver, Measure, Iterate)
+          - **Slash commands** for instant skill invocation (`/prd`, `/hypothesis`, etc.)
+          - **Workflow bundles** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff)
+          - **QUICKSTART.md** with installation and usage instructions
+
+          ## Download
+
+          **`pm-skills-${{ steps.version.outputs.VERSION }}.zip`** — Complete package for all platforms
 
           ## Installation
+
+          ### Claude.ai / Claude Desktop
+
+          1. Download `pm-skills-${{ steps.version.outputs.VERSION }}.zip`
+          2. Upload in **Settings > Capabilities** (Desktop) or **Project Settings > Add Files** (Claude.ai)
+
+          ### Claude Code / Other Agents
 
           ```bash
           git clone https://github.com/product-on-purpose/pm-skills.git
@@ -46,26 +60,21 @@ jobs:
 
           Or download the ZIP and extract to your project.
 
-          ## Claude.ai / Desktop
+          ## Quick Usage
 
-          Download `pm-skills-claude-${{ steps.version.outputs.VERSION }}.zip` and upload in **Settings > Capabilities**.
-
-          ## Claude Code
-
-          Use skills directly via slash commands:
-          ```bash
-          /prd "Your feature description"
-          /user-stories "Your PRD context"
-          /hypothesis "Your assumption to test"
           ```
+          /prd "Your feature description"
+          /hypothesis "Your assumption to test"
+          /kickoff "Feature name"
+          ```
+
+          See `QUICKSTART.md` in the archive for full instructions.
           EOF
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            pm-skills-${{ steps.version.outputs.VERSION }}.zip
-            pm-skills-claude-${{ steps.version.outputs.VERSION }}.zip
+          files: pm-skills-${{ steps.version.outputs.VERSION }}.zip
           body_path: RELEASE_NOTES.md
           draft: false
           prerelease: false

@@ -294,12 +294,13 @@ All 24 skills are available as `/skill-name` commands. See [commands/](commands/
 <details>
 <summary><strong>Claude.ai / Claude Desktop</strong></summary>
 
-1. Download from [Releases](https://github.com/product-on-purpose/pm-skills/releases):
-   - `pm-skills-claude-vX.X.X.zip` (lightweight, optimized for upload)
+1. Download `pm-skills-vX.X.X.zip` from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
 2. Upload in Claude.ai or Desktop:
    - **Claude.ai**: Project Settings → Add Files → Upload ZIP
    - **Desktop**: Settings → Capabilities → Upload ZIP
 3. Use skills by name: "Use the prd skill to create requirements for..."
+
+See `QUICKSTART.md` in the archive for detailed instructions.
 
 </details>
 
@@ -389,8 +390,9 @@ The skill content provides all the context the LLM needs to produce professional
 
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
-- **`pm-skills-vX.X.X.zip`** - Full package with all skills, bundles, and documentation
-- **`pm-skills-claude-vX.X.X.zip`** - Lightweight bundle optimized for Claude.ai/Desktop upload
+- **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
+
+Each release includes `QUICKSTART.md` with installation and usage instructions.
 
 [![Download Latest](https://img.shields.io/github/v/release/product-on-purpose/pm-skills?style=for-the-badge&label=Download&color=brightgreen)](https://github.com/product-on-purpose/pm-skills/releases/latest)
 

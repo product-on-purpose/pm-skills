@@ -1,0 +1,70 @@
+# PM-Skills Quick Start
+
+## What's Included
+
+- **24 PM skills** across 6 phases (Discover, Define, Develop, Deliver, Measure, Iterate)
+- **Slash commands** for instant skill invocation (`/prd`, `/hypothesis`, etc.)
+- **Workflow bundles** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff)
+
+## Installation
+
+### Claude.ai / Claude Desktop
+
+1. Go to **Settings > Capabilities** (Desktop) or **Project Settings > Add Files** (Claude.ai)
+2. Upload the `pm-skills-*.zip` file
+3. Skills are now available in your conversations
+
+### Claude Code
+
+Clone or copy to your project:
+
+```bash
+git clone https://github.com/product-on-purpose/pm-skills.git
+```
+
+Or extract this ZIP to your project root.
+
+### Other AI Agents
+
+Point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{phase}/{skill-name}/SKILL.md`.
+
+## Usage
+
+### Slash Commands
+
+```
+/prd "Feature description"
+/hypothesis "Assumption to test"
+/user-stories "PRD or feature context"
+/competitive-analysis "Market or product area"
+```
+
+See `AGENTS.md` for the complete command list.
+
+### Workflow Bundles
+
+Run multi-skill workflows:
+
+```
+/kickoff "Feature name"  # Problem → Hypothesis → PRD → Stories
+```
+
+Bundle definitions are in `_bundles/`.
+
+## File Structure
+
+```
+skills/           # All 24 skill definitions
+commands/         # Slash command triggers
+_bundles/         # Multi-skill workflows
+AGENTS.md         # Agent discovery index
+```
+
+## Learn More
+
+- Full documentation: https://github.com/product-on-purpose/pm-skills
+- Skill specification: https://agentskills.io/specification
+
+---
+
+*Built by [Product on Purpose](https://github.com/product-on-purpose) for PMs who ship.*

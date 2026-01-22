@@ -48,6 +48,7 @@ jobs:
             _bundles/ \
             commands/ \
             AGENTS.md \
+            QUICKSTART.md \
             README.md \
             LICENSE \
             -x "*.DS_Store" \

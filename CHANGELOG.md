@@ -8,7 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **QUICKSTART.md** — Bundled installation and usage guide included in release archives
 - **README MCP cross-reference header** — Purple "MCP Server available" badge with callout linking to pm-skills-mcp
+
+### Changed
+- **Release archives now include complete content** — `commands/` and `_bundles/` folders now included in release ZIP
+- **Consolidated to single release archive** — Replaced dual ZIP approach (`pm-skills-*.zip` + `pm-skills-claude-*.zip`) with single complete archive
+- **release.yml workflow** — Simplified to produce one `pm-skills-{version}.zip` with all skills, commands, bundles, and documentation
 - **README MCP Quick Start section** — Collapsible section for MCP server setup (Claude Desktop, Cursor, any MCP client)
 - **README Related Projects section** — Dedicated section explaining pm-skills vs pm-skills-mcp relationship
 - **README MCP FAQ entry** — "What's the difference between pm-skills and pm-skills-mcp?"
