@@ -11,7 +11,7 @@
 ### Claude.ai / Claude Desktop
 
 1. Go to **Settings > Capabilities** (Desktop) or **Project Settings > Add Files** (Claude.ai)
-2. Upload the `pm-skills-*.zip` file
+2. Upload the latest release ZIP (`pm-skills-vX.X.X.zip`) from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
 3. Skills are now available in your conversations
 
 ### Claude Code
@@ -22,11 +22,13 @@ Clone or copy to your project:
 git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
-Or extract this ZIP to your project root.
+Or download and extract the latest ZIP from [Releases](https://github.com/product-on-purpose/pm-skills/releases) to your project root.
 
 ### Other AI Agents
 
 Point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{phase-skill}/SKILL.md` (e.g., `skills/deliver-prd/SKILL.md`).
+
+More detail: see `docs/getting-started.md` for the long-form guide.
 
 ## Usage
 

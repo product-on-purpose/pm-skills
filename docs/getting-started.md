@@ -1,5 +1,14 @@
 # Getting Started with PM-Skills
 
+**Quick Start (3 steps)**
+1) Clone or download the latest ZIP: `git clone https://github.com/product-on-purpose/pm-skills.git` (or get the ZIP from Releases).  
+2) (Claude Code/openskills only) Run the sync helper to populate `.claude/skills` and `.claude/commands`:  
+   - macOS/Linux: `./scripts/sync-claude.sh`  
+   - Windows: `./scripts/sync-claude.ps1`  
+3) Use a slash command: `/prd "Feature description"` or `/hypothesis "Assumption to test"`.
+
+Prefer the full walkthrough? Read on.
+
 Welcome to PM-Skills! This guide will help you understand what this repository offers and how to use it, regardless of your technical background.
 
 ---
