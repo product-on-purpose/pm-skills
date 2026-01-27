@@ -69,9 +69,9 @@ Consider a lighter approach (see [feature-kickoff.md](feature-kickoff.md)) when:
 
 | Skill | Description |
 |-------|-------------|
-| [`interview-synthesis`](../skills/discover/interview-synthesis/SKILL.md) | Synthesize user research into actionable insights |
-| [`competitive-analysis`](../skills/discover/competitive-analysis/SKILL.md) | Map competitive landscape and identify opportunities |
-| [`stakeholder-summary`](../skills/discover/stakeholder-summary/SKILL.md) | Document stakeholder needs and constraints |
+| [`discover-interview-synthesis`](../skills/discover-interview-synthesis/SKILL.md) | Synthesize user research into actionable insights |
+| [`discover-competitive-analysis`](../skills/discover-competitive-analysis/SKILL.md) | Map competitive landscape and identify opportunities |
+| [`discover-stakeholder-summary`](../skills/discover-stakeholder-summary/SKILL.md) | Document stakeholder needs and constraints |
 
 ### Key Outputs
 
@@ -104,10 +104,10 @@ Move to Define when:
 
 | Skill | Description |
 |-------|-------------|
-| [`problem-statement`](../skills/define/problem-statement/SKILL.md) | Create clear problem framing with success criteria |
-| [`hypothesis`](../skills/define/hypothesis/SKILL.md) | Define testable assumptions with metrics |
-| [`opportunity-tree`](../skills/define/opportunity-tree/SKILL.md) | Map outcome-driven opportunities |
-| [`jtbd-canvas`](../skills/define/jtbd-canvas/SKILL.md) | Apply Jobs to be Done framework |
+| [`define-problem-statement`](../skills/define-problem-statement/SKILL.md) | Create clear problem framing with success criteria |
+| [`define-hypothesis`](../skills/define-hypothesis/SKILL.md) | Define testable assumptions with metrics |
+| [`define-opportunity-tree`](../skills/define-opportunity-tree/SKILL.md) | Map outcome-driven opportunities |
+| [`define-jtbd-canvas`](../skills/define-jtbd-canvas/SKILL.md) | Apply Jobs to be Done framework |
 
 ### Key Outputs
 
@@ -140,10 +140,10 @@ Move to Develop when:
 
 | Skill | Description |
 |-------|-------------|
-| [`solution-brief`](../skills/develop/solution-brief/SKILL.md) | Document proposed solution approach |
-| [`spike-summary`](../skills/develop/spike-summary/SKILL.md) | Capture time-boxed exploration results |
-| [`adr`](../skills/develop/adr/SKILL.md) | Record architecture decisions |
-| [`design-rationale`](../skills/develop/design-rationale/SKILL.md) | Document design decision reasoning |
+| [`develop-solution-brief`](../skills/develop-solution-brief/SKILL.md) | Document proposed solution approach |
+| [`develop-spike-summary`](../skills/develop-spike-summary/SKILL.md) | Capture time-boxed exploration results |
+| [`develop-adr`](../skills/develop-adr/SKILL.md) | Record architecture decisions |
+| [`develop-design-rationale`](../skills/develop-design-rationale/SKILL.md) | Document design decision reasoning |
 
 ### Key Outputs
 
@@ -176,11 +176,11 @@ Move to Deliver when:
 
 | Skill | Description |
 |-------|-------------|
-| [`prd`](../skills/deliver/prd/SKILL.md) | Write comprehensive product requirements |
-| [`user-stories`](../skills/deliver/user-stories/SKILL.md) | Generate user stories with acceptance criteria |
-| [`edge-cases`](../skills/deliver/edge-cases/SKILL.md) | Document error states and recovery paths |
-| [`launch-checklist`](../skills/deliver/launch-checklist/SKILL.md) | Pre-launch validation checklist |
-| [`release-notes`](../skills/deliver/release-notes/SKILL.md) | User-facing release documentation |
+| [`deliver-prd`](../skills/deliver-prd/SKILL.md) | Write comprehensive product requirements |
+| [`deliver-user-stories`](../skills/deliver-user-stories/SKILL.md) | Generate user stories with acceptance criteria |
+| [`deliver-edge-cases`](../skills/deliver-edge-cases/SKILL.md) | Document error states and recovery paths |
+| [`deliver-launch-checklist`](../skills/deliver-launch-checklist/SKILL.md) | Pre-launch validation checklist |
+| [`deliver-release-notes`](../skills/deliver-release-notes/SKILL.md) | User-facing release documentation |
 
 ### Key Outputs
 
@@ -214,10 +214,10 @@ Move to Measure when:
 
 | Skill | Description |
 |-------|-------------|
-| [`experiment-design`](../skills/measure/experiment-design/SKILL.md) | Design A/B tests and experiments |
-| [`instrumentation-spec`](../skills/measure/instrumentation-spec/SKILL.md) | Define event tracking requirements |
-| [`dashboard-requirements`](../skills/measure/dashboard-requirements/SKILL.md) | Specify analytics dashboard needs |
-| [`experiment-results`](../skills/measure/experiment-results/SKILL.md) | Document experiment outcomes |
+| [`measure-experiment-design`](../skills/measure-experiment-design/SKILL.md) | Design A/B tests and experiments |
+| [`measure-instrumentation-spec`](../skills/measure-instrumentation-spec/SKILL.md) | Define event tracking requirements |
+| [`measure-dashboard-requirements`](../skills/measure-dashboard-requirements/SKILL.md) | Specify analytics dashboard needs |
+| [`measure-experiment-results`](../skills/measure-experiment-results/SKILL.md) | Document experiment outcomes |
 
 ### Key Outputs
 
@@ -250,10 +250,10 @@ Move to Iterate when:
 
 | Skill | Description |
 |-------|-------------|
-| [`retrospective`](../skills/iterate/retrospective/SKILL.md) | Facilitate team retrospectives |
-| [`lessons-log`](../skills/iterate/lessons-log/SKILL.md) | Build organizational memory |
-| [`refinement-notes`](../skills/iterate/refinement-notes/SKILL.md) | Document backlog refinement outcomes |
-| [`pivot-decision`](../skills/iterate/pivot-decision/SKILL.md) | Framework for pivot/persevere decisions |
+| [`iterate-retrospective`](../skills/iterate-retrospective/SKILL.md) | Facilitate team retrospectives |
+| [`iterate-lessons-log`](../skills/iterate-lessons-log/SKILL.md) | Build organizational memory |
+| [`iterate-refinement-notes`](../skills/iterate-refinement-notes/SKILL.md) | Document backlog refinement outcomes |
+| [`iterate-pivot-decision`](../skills/iterate-pivot-decision/SKILL.md) | Framework for pivot/persevere decisions |
 
 ### Key Outputs
 
@@ -347,3 +347,4 @@ Not every project needs every skill. Use judgment to select the appropriate subs
 ---
 
 *Part of [PM-Skills](../README.md) — Open source Product Management skills for AI agents*
+

@@ -39,7 +39,7 @@ A good PM skill:
 Every skill consists of three files:
 
 ```
-skills/<phase>/<skill-name>/
+skills/<skill-name>/
 ├── SKILL.md              # Instructions for the AI
 └── references/
     ├── TEMPLATE.md       # Output structure
@@ -95,16 +95,16 @@ If you answered "no" to any, reconsider whether this is the right skill.
 
 ### 4. Choose the Right Phase
 
-Skills live in phase directories based on when they're typically used:
+Skills now live in a **flat `skills/` directory** with the phase encoded in the skill name (e.g., `discover-interview-synthesis`, `deliver-prd`). Pick the phase that matches the primary moment of use, then prefix the skill name with that phase for clarity and sorting.
 
 | Phase | When | Examples |
 |-------|------|----------|
-| `discover` | Understanding the landscape | interview-synthesis, competitive-analysis |
-| `define` | Framing the problem | problem-statement, hypothesis |
-| `develop` | Exploring solutions | solution-brief, adr |
-| `deliver` | Specifying and shipping | prd, user-stories, launch-checklist |
-| `measure` | Validating with data | experiment-design, instrumentation-spec |
-| `iterate` | Learning and improving | retrospective, lessons-log |
+| `discover` | Understanding the landscape | discover-interview-synthesis, discover-competitive-analysis |
+| `define` | Framing the problem | define-problem-statement, define-hypothesis |
+| `develop` | Exploring solutions | develop-solution-brief, develop-adr |
+| `deliver` | Specifying and shipping | deliver-prd, deliver-user-stories, deliver-launch-checklist |
+| `measure` | Validating with data | measure-experiment-design, measure-instrumentation-spec |
+| `iterate` | Learning and improving | iterate-retrospective, iterate-lessons-log |
 
 ---
 
@@ -169,12 +169,11 @@ Open a PR with:
 
 ```
 skills/
-└── <phase>/                    # deliver, measure, etc.
-    └── <skill-name>/           # lowercase-with-hyphens
-        ├── SKILL.md            # Main instructions
-        └── references/
-            ├── TEMPLATE.md     # Output template
-            └── EXAMPLE.md      # Completed example
+└── <skill-name>/               # lowercase-with-hyphens, prefixed with phase
+    ├── SKILL.md                # Main instructions
+    └── references/
+        ├── TEMPLATE.md         # Output template
+        └── EXAMPLE.md          # Completed example
 ```
 
 ### Naming Rules
@@ -263,7 +262,7 @@ See `references/EXAMPLE.md` for a completed example.
 Must exactly match the directory name. Lowercase, hyphens only.
 
 ```yaml
-name: sprint-review  # Directory must be skills/iterate/sprint-review/
+name: sprint-review  # Directory must be skills/iterate-sprint-review/
 ```
 
 #### description
@@ -586,9 +585,9 @@ description: <Brief description for command discovery>
 
 Use the `<skill-name>` skill to <what it creates>.
 
-Read the skill instructions from `skills/<phase>/<skill-name>/SKILL.md` and follow them to create <artifact>.
+Read the skill instructions from `skills/<skill-name>/SKILL.md` and follow them to create <artifact>.
 
-Use `skills/<phase>/<skill-name>/references/TEMPLATE.md` as the output format.
+Use `skills/<skill-name>/references/TEMPLATE.md` as the output format.
 
 Context from user: $ARGUMENTS
 ```
@@ -602,9 +601,9 @@ description: Create a Product Requirements Document
 
 Use the `prd` skill to create a comprehensive Product Requirements Document.
 
-Read the skill instructions from `skills/deliver/prd/SKILL.md` and follow them to create a PRD.
+Read the skill instructions from `skills/deliver-prd/SKILL.md` and follow them to create a PRD.
 
-Use `skills/deliver/prd/references/TEMPLATE.md` as the output format.
+Use `skills/deliver-prd/references/TEMPLATE.md` as the output format.
 
 Context from user: $ARGUMENTS
 ```
@@ -639,7 +638,7 @@ Before submitting, thoroughly test your skill.
 #### Method 1: Direct Reference
 
 ```
-Read skills/deliver/my-skill/SKILL.md and use it to create
+Read skills/deliver-my-skill/SKILL.md and use it to create
 [artifact] for [your test scenario].
 ```
 
@@ -685,7 +684,7 @@ Test with at least:
 Before submitting your PR, verify:
 
 ### File Structure
-- [ ] Directory path is `skills/<phase>/<skill-name>/`
+- [ ] Directory path is `skills/<skill-name>/`
 - [ ] Contains `SKILL.md`
 - [ ] Contains `references/TEMPLATE.md`
 - [ ] Contains `references/EXAMPLE.md`
@@ -744,7 +743,7 @@ git checkout -b skill/<skill-name>
 ### 3. Add Your Files
 
 ```
-skills/<phase>/<skill-name>/
+skills/<skill-name>/
 ├── SKILL.md
 └── references/
     ├── TEMPLATE.md
@@ -759,7 +758,7 @@ Add your skill to the appropriate phase section:
 
 ```markdown
 #### <skill-name>
-**Path:** `skills/<phase>/<skill-name>/SKILL.md`
+**Path:** `skills/<skill-name>/SKILL.md`
 
 <Your description from frontmatter>
 ```
@@ -851,7 +850,7 @@ Choosing `ideation` for something that's clearly `specification` confuses organi
 ### Mistake 6: Name Doesn't Match Directory
 
 ```
-Directory: skills/deliver/product-roadmap/
+Directory: skills/deliver-product-roadmap/
 Frontmatter: name: roadmap  # WRONG - must be "product-roadmap"
 ```
 
@@ -946,7 +945,7 @@ templates/skill-template/
 Ready to create a skill? Here's the fast path:
 
 1. [ ] Open "Request a Skill" issue → wait for approval
-2. [ ] Copy `templates/skill-template/` to `skills/<phase>/<name>/`
+2. [ ] Copy `templates/skill-template/` to `skills/<name>/`
 3. [ ] Write SKILL.md with frontmatter, instructions, checklist
 4. [ ] Create TEMPLATE.md matching your instruction steps
 5. [ ] Write complete EXAMPLE.md (no placeholders!)

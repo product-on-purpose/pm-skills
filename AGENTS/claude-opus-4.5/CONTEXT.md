@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** Post-v1.2.0 — README cross-linking with pm-skills-mcp complete
-**Last Updated:** 2026-01-21
+**Status:** Post-v1.2.0 — v2.0 execution plans complete, ready for migration
+**Last Updated:** 2026-01-26
 **Release:** [v1.2.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.2.0)
-**Next Step:** Consider v1.2.1 release for documentation + cross-linking updates
+**Next Step:** Execute v2.0 migration (M1-M4: Jan 27-30) using Codex for execution, Claude for review
 
 ## Project Overview
 
@@ -19,8 +19,8 @@ PM-Skills is an open source collection of Product Management skills for AI agent
 - `CHANGELOG.md` — Version history (Keep a Changelog format)
 - `LICENSE` — Apache 2.0 license
 - `CONTRIBUTING.md` — Contribution guidelines with curated model
-- `_NOTES/VISION.md` — Detailed vision document with full roadmap
-- `_NOTES/v1-plan/plan-v1.md` — Implementation plan with 35 issues
+- `(internal-notes)/VISION.md` — Detailed vision document with full roadmap
+- `(internal-notes)/v1-plan/plan-v1.md` — Implementation plan with 35 issues
 
 ## Architecture
 
@@ -54,6 +54,32 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **v2.0 Execution Plans Complete** (2026-01-26)
+  - Created detailed Claude execution plan with 8 phases, migration mapping for all 24 skills
+  - Applied Codex's 5 feedback items: packaging, doc frontmatter, timeline dates, fail-fast sync helpers, validation
+  - Created tool analysis comparing Claude Code vs Codex for execution
+  - Recommendation: Codex 5.1/Max for execution (score 4.05/5), Claude for review/refinement (2.85/5)
+  - Key decisions locked:
+    - Flat structure: `skills/{phase}-{skill}/` replacing `skills/{phase}/{skill}/`
+    - ZIP includes prebuilt `.claude/skills/` and `.claude/commands/`
+    - Sync helpers validate SKILL.md, TEMPLATE.md, EXAMPLE.md with fail-fast
+    - Two-path install guidance for Claude Code vs other tools
+  - Packaging discrepancy noted between Claude and Codex plans (to reconcile before M4)
+  - Plans located at `(internal-notes)/plans/v2.0-flat-extensions/`
+
+- **v2.0 Planning: Structure, Output, MCP Impact** (2026-01-21)
+  - Analyzed Claude Code skill discovery requirements (flat `.claude/skills/` vs hierarchical `skills/{phase}/`)
+  - Created comprehensive planning documents in `AGENTS/claude-opus-4.5/PLANNING/`:
+    - `plan_skill-structure-revamp.md` — 6 options for restructuring (keep current, flatten, phase prefix, numeric prefix, dual structure, flat+metadata)
+    - `plan_skill-output.md` — Configurable file output (always file, always prompt, configurable default)
+    - `plan_revamp-mcp.md` — Impact analysis for pm-skills-mcp (tool names, resource URIs, workflows, embed script)
+  - Key findings:
+    - Current hierarchical structure is agentskills.io compliant but NOT Claude Code auto-discoverable
+    - Current `commands/` workaround enables slash commands but not skill discovery
+    - Recommended: Option 3 (phase prefix) or Option 5 (dual structure) for Claude Code compatibility
+    - MCP can remain backwards-compatible if tool names aren't changed
+  - Awaiting stakeholder review before implementation
 
 - **README Cross-Linking with pm-skills-mcp** (2026-01-21)
   - Added MCP badge and callout in README header linking to pm-skills-mcp
@@ -123,7 +149,7 @@ pm-skills/
 
 - **Open-Skills Preparation** (2026-01-16)
   - Added attribution headers to all 24 SKILL.md files (HTML comments)
-  - Created dedicated PR guide: `_NOTES/efforts/open-skills/plan-pr--awesome-claude-skills.md`
+  - Created dedicated PR guide: `(internal-notes)/efforts/open-skills/plan-pr--awesome-claude-skills.md`
   - Added CODE_OF_CONDUCT.md (Contributor Covenant v2.1)
   - Updated CONTRIBUTING.md to link to Code of Conduct
   - GitHub Discussions enabled, repository topics added
@@ -143,8 +169,8 @@ pm-skills/
   - Created v1.0.2 tag — release workflow ran successfully
   - Both ZIP artifacts created: pm-skills-v1.0.2.zip, pm-skills-claude-v1.0.2.zip
   - Renamed `_docs/` → `docs/` and `_templates/` → `templates/` for standard conventions
-  - Created CLAUDE.md with documentation rules (never reference `_NOTES/` in public docs)
-  - Cleaned `_NOTES/` references from CHANGELOG.md and CONTRIBUTING.md
+  - Created CLAUDE.md with documentation rules (never reference `(internal-notes)/` in public docs)
+  - Cleaned `(internal-notes)/` references from CHANGELOG.md and CONTRIBUTING.md
   - Updated manual submission guide with copy-paste ready content
   - Ready for manual PR to awesome-claude-skills
 
@@ -157,7 +183,7 @@ pm-skills/
   - Created GitHub release workflow (`.github/workflows/release.yml`)
   - Prepared PR content for awesome-claude-skills submission
   - Prepared submission content for n-skills marketplace
-  - Documentation at `_NOTES/efforts/open-skills/`
+  - Documentation at `(internal-notes)/efforts/open-skills/`
 
 - **All 24 Slash Commands COMPLETE** (2026-01-15)
   - Created 20 missing slash commands in `commands/` directory:
@@ -173,41 +199,41 @@ pm-skills/
 
 - **Phase 3 P2 Skills COMPLETE** (2026-01-14)
   - Created 11 P2 Skills with SKILL.md, TEMPLATE.md, EXAMPLE.md each:
-    - `skills/discover/competitive-analysis/` — [GitHub #26](https://github.com/product-on-purpose/pm-skills/issues/26)
-    - `skills/discover/stakeholder-summary/` — [GitHub #27](https://github.com/product-on-purpose/pm-skills/issues/27)
-    - `skills/define/opportunity-tree/` — [GitHub #28](https://github.com/product-on-purpose/pm-skills/issues/28)
-    - `skills/define/jtbd-canvas/` — [GitHub #29](https://github.com/product-on-purpose/pm-skills/issues/29)
-    - `skills/develop/design-rationale/` — [GitHub #30](https://github.com/product-on-purpose/pm-skills/issues/30)
-    - `skills/measure/dashboard-requirements/` — [GitHub #31](https://github.com/product-on-purpose/pm-skills/issues/31)
-    - `skills/measure/experiment-results/` — [GitHub #32](https://github.com/product-on-purpose/pm-skills/issues/32)
-    - `skills/iterate/retrospective/` — [GitHub #33](https://github.com/product-on-purpose/pm-skills/issues/33)
-    - `skills/iterate/lessons-log/` — [GitHub #34](https://github.com/product-on-purpose/pm-skills/issues/34)
-    - `skills/iterate/refinement-notes/` — [GitHub #35](https://github.com/product-on-purpose/pm-skills/issues/35)
-    - `skills/iterate/pivot-decision/` — [GitHub #36](https://github.com/product-on-purpose/pm-skills/issues/36)
+    - `skills/-/` — [GitHub #26](https://github.com/product-on-purpose/pm-skills/issues/26)
+    - `skills/-/` — [GitHub #27](https://github.com/product-on-purpose/pm-skills/issues/27)
+    - `skills/-/` — [GitHub #28](https://github.com/product-on-purpose/pm-skills/issues/28)
+    - `skills/-/` — [GitHub #29](https://github.com/product-on-purpose/pm-skills/issues/29)
+    - `skills/-/` — [GitHub #30](https://github.com/product-on-purpose/pm-skills/issues/30)
+    - `skills/-/` — [GitHub #31](https://github.com/product-on-purpose/pm-skills/issues/31)
+    - `skills/-/` — [GitHub #32](https://github.com/product-on-purpose/pm-skills/issues/32)
+    - `skills/-/` — [GitHub #33](https://github.com/product-on-purpose/pm-skills/issues/33)
+    - `skills/-/` — [GitHub #34](https://github.com/product-on-purpose/pm-skills/issues/34)
+    - `skills/-/` — [GitHub #35](https://github.com/product-on-purpose/pm-skills/issues/35)
+    - `skills/-/` — [GitHub #36](https://github.com/product-on-purpose/pm-skills/issues/36)
   - Created GitHub labels: `phase-3`, `P2`
   - All 11 issues closed
 
 - **Phase 2 COMPLETE** (2026-01-14)
   - Created 8 P1 Skills with SKILL.md, TEMPLATE.md, EXAMPLE.md each:
-    - `skills/discover/interview-synthesis/` — [GitHub #18](https://github.com/product-on-purpose/pm-skills/issues/18)
-    - `skills/develop/solution-brief/` — [GitHub #19](https://github.com/product-on-purpose/pm-skills/issues/19)
-    - `skills/develop/spike-summary/` — [GitHub #20](https://github.com/product-on-purpose/pm-skills/issues/20)
-    - `skills/develop/adr/` — [GitHub #21](https://github.com/product-on-purpose/pm-skills/issues/21)
-    - `skills/deliver/edge-cases/` — [GitHub #22](https://github.com/product-on-purpose/pm-skills/issues/22)
-    - `skills/deliver/release-notes/` — [GitHub #23](https://github.com/product-on-purpose/pm-skills/issues/23)
-    - `skills/measure/experiment-design/` — [GitHub #24](https://github.com/product-on-purpose/pm-skills/issues/24)
-    - `skills/measure/instrumentation-spec/` — [GitHub #25](https://github.com/product-on-purpose/pm-skills/issues/25)
+    - `skills/-/` — [GitHub #18](https://github.com/product-on-purpose/pm-skills/issues/18)
+    - `skills/-/` — [GitHub #19](https://github.com/product-on-purpose/pm-skills/issues/19)
+    - `skills/-/` — [GitHub #20](https://github.com/product-on-purpose/pm-skills/issues/20)
+    - `skills/-/` — [GitHub #21](https://github.com/product-on-purpose/pm-skills/issues/21)
+    - `skills/-/` — [GitHub #22](https://github.com/product-on-purpose/pm-skills/issues/22)
+    - `skills/-/` — [GitHub #23](https://github.com/product-on-purpose/pm-skills/issues/23)
+    - `skills/-/` — [GitHub #24](https://github.com/product-on-purpose/pm-skills/issues/24)
+    - `skills/-/` — [GitHub #25](https://github.com/product-on-purpose/pm-skills/issues/25)
   - Created GitHub labels: `phase-2`, `P1`
   - Created GitHub milestone: v0.3.0 - P1 Skills
   - All 8 issues closed
 
 - **Phase 1 COMPLETE** (2026-01-14)
   - Created 5 P0 Core Skills with SKILL.md, TEMPLATE.md, EXAMPLE.md each:
-    - `skills/define/problem-statement/` — [GitHub #10](https://github.com/product-on-purpose/pm-skills/issues/10)
-    - `skills/define/hypothesis/` — [GitHub #11](https://github.com/product-on-purpose/pm-skills/issues/11)
-    - `skills/deliver/prd/` — [GitHub #12](https://github.com/product-on-purpose/pm-skills/issues/12)
-    - `skills/deliver/user-stories/` — [GitHub #13](https://github.com/product-on-purpose/pm-skills/issues/13)
-    - `skills/deliver/launch-checklist/` — [GitHub #14](https://github.com/product-on-purpose/pm-skills/issues/14)
+    - `skills/-/` — [GitHub #10](https://github.com/product-on-purpose/pm-skills/issues/10)
+    - `skills/-/` — [GitHub #11](https://github.com/product-on-purpose/pm-skills/issues/11)
+    - `skills/-/` — [GitHub #12](https://github.com/product-on-purpose/pm-skills/issues/12)
+    - `skills/-/` — [GitHub #13](https://github.com/product-on-purpose/pm-skills/issues/13)
+    - `skills/-/` — [GitHub #14](https://github.com/product-on-purpose/pm-skills/issues/14)
   - Created GitHub labels: `skill`, `phase-1`, `P0`
   - Created GitHub milestone: v0.2.0 - P0 Core Skills
 
@@ -217,7 +243,7 @@ pm-skills/
   - Created `docs/frontmatter-schema.yaml`
   - Created `docs/categories.md`
   - Created `templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md
-  - Verified VISION.md at `_NOTES/VISION.md`
+  - Verified VISION.md at `(internal-notes)/VISION.md`
   - GitHub issues #1-9 closed (plan review fixes)
 
 ## Recent Infrastructure (2026-01-15)
@@ -273,7 +299,7 @@ pm-skills/
 - Follows [Agent Skills Specification](https://agentskills.io/specification)
 - Primary Audience: Individual Product Managers using AI assistants
 - Cross-platform: Claude Code, Claude.ai, GitHub Copilot, Cursor, Windsurf, OpenCode
-- Implementation plan is in `_NOTES/v1-plan/plan-v1.md` with detailed issue-by-issue guidance
+- Implementation plan is in `(internal-notes)/v1-plan/plan-v1.md` with detailed issue-by-issue guidance
 - All 24 skills are now complete!
 
 ## Skills Inventory (24/24 Complete)
@@ -331,3 +357,4 @@ pm-skills/
 | lessons-log | reflection | P2 | ✅ Complete |
 | refinement-notes | coordination | P2 | ✅ Complete |
 | pivot-decision | reflection | P2 | ✅ Complete |
+

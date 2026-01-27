@@ -80,13 +80,13 @@ PM-Skills is the **source skill library**—a collection of markdown files conta
 
 ```
 pm-skills/
-├── skills/               # The 24 PM skills
-│   ├── discover/         # Research phase (3 skills)
-│   ├── define/           # Problem framing (4 skills)
-│   ├── develop/          # Solution exploration (4 skills)
-│   ├── deliver/          # Specification (5 skills)
-│   ├── measure/          # Validation (4 skills)
-│   └── iterate/          # Learning (4 skills)
+├── skills/               # The 24 PM skills (flat: {phase}-{skill})
+│   ├── discover-competitive-analysis/
+│   ├── define-hypothesis/
+│   ├── develop-adr/
+│   ├── deliver-prd/
+│   ├── measure-experiment-design/
+│   └── iterate-retrospective/
 ├── commands/             # 25 slash commands for Claude Code
 ├── _bundles/             # Workflow bundles
 ├── docs/                 # Documentation
@@ -302,7 +302,7 @@ Edit any `SKILL.md`, `TEMPLATE.md`, or `EXAMPLE.md` file:
 
 ```bash
 # Example: Customize the PRD template
-code skills/deliver/prd/TEMPLATE.md
+code skills/deliver-prd/references/TEMPLATE.md
 ```
 
 ### 3. Use Custom Skills in Claude Code

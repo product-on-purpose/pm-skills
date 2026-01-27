@@ -3,6 +3,3 @@ contact_links:
   - name: Questions & Discussions
     url: https://github.com/product-on-purpose/pm-skills/discussions
     about: Please ask questions in GitHub Discussions
-  - name: Security Vulnerabilities
-    url: https://github.com/product-on-purpose/pm-skills/security/policy
-    about: Report security issues following our security policy

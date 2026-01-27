@@ -15,31 +15,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Make build scripts executable
+        run: chmod +x scripts/build-release.sh scripts/sync-claude.sh
+
       - name: Get version from tag
         id: version
         run: echo "VERSION=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
 
-      - name: Create skills ZIP
+      - name: Build release artifact
+        run: ./scripts/build-release.sh
+
+      - name: Move artifacts to root for upload
         run: |
-          # Create complete ZIP with skills, commands, bundles, and documentation
-          zip -r pm-skills-${{ steps.version.outputs.VERSION }}.zip \
-            skills/ \
-            commands/ \
-            _bundles/ \
-            AGENTS.md \
-            QUICKSTART.md \
-            LICENSE \
-            README.md
+          mv dist/pm-skills-v2.0.zip pm-skills-${{ steps.version.outputs.VERSION }}.zip
+          mv dist/pm-skills-v2.0.zip.sha256 pm-skills-${{ steps.version.outputs.VERSION }}.zip.sha256
+          mv dist/manifest.txt manifest-${{ steps.version.outputs.VERSION }}.txt
 
       - name: Generate release notes
         run: |
           cat << 'EOF' > RELEASE_NOTES.md
           ## What's Included
 
-          - **24 PM skills** across 6 phases (Discover, Define, Develop, Deliver, Measure, Iterate)
-          - **Slash commands** for instant skill invocation (`/prd`, `/hypothesis`, etc.)
-          - **Workflow bundles** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff)
-          - **QUICKSTART.md** with installation and usage instructions
+          - **24 PM skills** (flat `skills/phase-skill/`)
+          - **Slash commands** (`/prd`, `/hypothesis`, `/kickoff`, etc.)
+          - **Workflow bundles** (Triple Diamond, Lean Startup, Feature Kickoff)
+          - **Claude/opensills discovery** via sync helper (`scripts/sync-claude.sh` / `.ps1`)
+          - **Docs:** README, QUICKSTART, AGENTS, reference guides
 
           ## Download
 
@@ -47,18 +48,15 @@ jobs:
 
           ## Installation
 
-          ### Claude.ai / Claude Desktop
-
+          ### Claude Code / openskills
           1. Download `pm-skills-${{ steps.version.outputs.VERSION }}.zip`
-          2. Upload in **Settings > Capabilities** (Desktop) or **Project Settings > Add Files** (Claude.ai)
+          2. Extract, then run:
+             - Bash: `./scripts/sync-claude.sh`
+             - PowerShell: `./scripts/sync-claude.ps1`
+          3. Claude Code / openskills will discover commands in `.claude/commands/` and skills in `.claude/skills/`.
 
-          ### Claude Code / Other Agents
-
-          ```bash
-          git clone https://github.com/product-on-purpose/pm-skills.git
-          ```
-
-          Or download the ZIP and extract to your project.
+          ### Other editors/agents
+          - Use `skills/` and `commands/` directly from the extracted ZIP.
 
           ## Quick Usage
 
@@ -74,7 +72,10 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: pm-skills-${{ steps.version.outputs.VERSION }}.zip
+          files: |
+            pm-skills-${{ steps.version.outputs.VERSION }}.zip
+            pm-skills-${{ steps.version.outputs.VERSION }}.zip.sha256
+            manifest-${{ steps.version.outputs.VERSION }}.txt
           body_path: RELEASE_NOTES.md
           draft: false
           prerelease: false

@@ -76,7 +76,7 @@ schema:
     # -------------------------------------------------------------------------
     # The unique identifier for this skill. Used for:
     # - Skill invocation (e.g., /problem-statement)
-    # - Directory naming (skills/define/problem-statement/)
+    # - Directory naming (skills/define-problem-statement/)
     # - Cross-referencing in documentation
     # -------------------------------------------------------------------------
     name:
@@ -508,10 +508,10 @@ common_mistakes:
 
   - mistake: "Name doesn't match directory"
     incorrect: |
-      # In file: skills/define/problem-statement/SKILL.md
+      # In file: skills/define-problem-statement/SKILL.md
       name: problem-framing
     correct: |
-      # In file: skills/define/problem-statement/SKILL.md
+      # In file: skills/define-problem-statement/SKILL.md
       name: problem-statement
     explanation: "The name field must exactly match the skill's directory name."
 

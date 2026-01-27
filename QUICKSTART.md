@@ -26,7 +26,7 @@ Or extract this ZIP to your project root.
 
 ### Other AI Agents
 
-Point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{phase}/{skill-name}/SKILL.md`.
+Point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{phase-skill}/SKILL.md` (e.g., `skills/deliver-prd/SKILL.md`).
 
 ## Usage
 
@@ -54,11 +54,15 @@ Bundle definitions are in `_bundles/`.
 ## File Structure
 
 ```
-skills/           # All 24 skill definitions
-commands/         # Slash command triggers
-_bundles/         # Multi-skill workflows
-AGENTS.md         # Agent discovery index
+skills/            # All 24 skill definitions (flat: discover-*, define-*, ...)
+commands/          # Slash command triggers
+_bundles/          # Multi-skill workflows
+scripts/           # sync-claude.(sh|ps1), build-release helpers
+.claude/pm-skills-for-claude.md  # instructions for Claude Code users
+AGENTS.md          # Agent discovery index
 ```
+
+For Claude Code discovery, run `./scripts/sync-claude.sh` (or `.ps1`) to populate `.claude/skills` and `.claude/commands` from the flat source.
 
 ## Learn More
 

@@ -74,7 +74,7 @@ When you ask the AI to create a PRD, it reads the "PRD recipe" and follows it st
 Each skill is a directory containing:
 
 ```
-skills/deliver/prd/
+skills/<skill-name>/
 ├── SKILL.md              # Prompt instructions for the AI
 ├── references/
 │   ├── TEMPLATE.md       # Output structure/format
@@ -115,7 +115,7 @@ description: Create a Product Requirements Document
 
 Use the `prd` skill to create a comprehensive Product Requirements Document.
 
-Read the skill instructions from `skills/deliver/prd/SKILL.md` and follow them.
+Read the skill instructions from `skills/<skill-name>/SKILL.md` and follow them.
 
 Context from user: $ARGUMENTS
 ```
@@ -286,13 +286,13 @@ When you ask the AI to use a skill, it:
 ```
 You: "Use the prd skill to create a PRD for adding dark mode"
 
-AI: *Reads skills/deliver/prd/SKILL.md and follows the instructions*
+AI: *Reads skills/deliver-prd/SKILL.md and follows the instructions*
 ```
 
 Or reference skills directly:
 
 ```
-You: "Read skills/deliver/prd/SKILL.md and create a PRD for dark mode"
+You: "Read skills/deliver-prd/SKILL.md and create a PRD for dark mode"
 ```
 
 #### Keeping Updated
@@ -374,8 +374,8 @@ This method works with any AI—no setup required.
 
 1. **Find the skill you need:**
    - Go to [github.com/product-on-purpose/pm-skills](https://github.com/product-on-purpose/pm-skills)
-   - Navigate to `skills/` → choose a phase → choose a skill
-   - Example: `skills/deliver/prd/`
+   - Navigate to `skills/` → choose a skill (names are prefixed by phase, e.g., `deliver-prd`)
+   - Example: `skills/deliver-prd/`
 
 2. **Copy the skill content:**
    - Click on `SKILL.md`
@@ -430,11 +430,11 @@ Create a script to concatenate files:
 # Usage: ./get-skill.sh prd
 
 SKILL=$1
-cat skills/*//$SKILL/SKILL.md
+cat skills/$SKILL/SKILL.md
 echo -e "\n---\n# TEMPLATE\n"
-cat skills/*/$SKILL/references/TEMPLATE.md
+cat skills/$SKILL/references/TEMPLATE.md
 echo -e "\n---\n# EXAMPLE\n"
-cat skills/*/$SKILL/references/EXAMPLE.md
+cat skills/$SKILL/references/EXAMPLE.md
 ```
 
 ---
@@ -469,7 +469,7 @@ openskills sync
 
 #### Known Issues
 
-> **Warning:** openskills currently has a [known issue](https://github.com/numman-ali/openskills/issues/48) with nested skill directories. pm-skills uses nested directories (`skills/phase/skill-name/`), which may cause problems. Use Git clone until resolved.
+> **Note:** openskills previously had issues with nested directories. pm-skills now ships flat `skills/phase-skill/` plus a sync helper that populates `.claude/skills/`. After cloning, run `./scripts/sync-claude.sh` (or `.ps1`) before using openskills or Claude Code.
 
 #### Usage
 
@@ -639,7 +639,7 @@ See `_bundles/` directory for detailed bundle documentation.
 
 **Solutions:**
 - Ensure `AGENTS.md` is visible to the AI
-- Try explicit paths: "Read `skills/deliver/prd/SKILL.md`"
+- Try explicit paths: "Read `skills/deliver-prd/SKILL.md`"
 - Upload files directly in Claude.ai/Desktop
 - Check that you're in the correct directory
 
@@ -685,9 +685,9 @@ See `_bundles/` directory for detailed bundle documentation.
 
 ### Learn More
 
-- [Categories Reference](./categories.md) — Understand skill organization
-- [Frontmatter Schema](./frontmatter-schema.yaml) — Technical skill structure
-- [Triple Diamond Framework](../frameworks/triple-diamond-delivery-process.md) — The organizing methodology
+- [Categories Reference](./reference/categories.md) — Understand skill organization
+- [Frontmatter Schema](./reference/frontmatter-schema.yaml) — Technical skill structure
+- [Triple Diamond Framework](./frameworks/triple-diamond-delivery-process.md) — The organizing methodology
 
 ### Explore Skills
 
@@ -702,7 +702,7 @@ Browse by phase:
 ### Contribute
 
 Have ideas for new skills or improvements?
-- See [CONTRIBUTING.md](../../CONTRIBUTING.md)
+- See contribution guidelines in README (Contributing section)
 - Open an issue on GitHub
 - Submit a pull request
 

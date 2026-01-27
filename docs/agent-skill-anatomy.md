@@ -110,7 +110,7 @@ Every skill consists of three essential files that work together to guide the AI
 
 **How agents use it**: When invoked, the AI reads SKILL.md to understand what artifact to create, what information to gather from the user, and what process to follow.
 
-**Annotated example** from `skills/define/problem-statement/SKILL.md`:
+**Annotated example** from `skills/define-problem-statement/SKILL.md`:
 
 ````markdown
 ---
@@ -169,7 +169,7 @@ See `references/EXAMPLE.md` for a completed example.
 
 **How agents use it**: The AI uses the template as a skeleton, filling in each section with content appropriate to the user's context while maintaining the prescribed structure.
 
-**Example snippet** from `skills/define/problem-statement/references/TEMPLATE.md`:
+**Example snippet** from `skills/define-problem-statement/references/TEMPLATE.md`:
 
 ````markdown
 ---
@@ -217,7 +217,7 @@ status: draft                             # ← Initial status
 
 **How agents use it**: The AI references the example to calibrate quality, tone, level of detail, and how to handle ambiguity or edge cases.
 
-**Example snippet** from `skills/define/problem-statement/references/EXAMPLE.md`:
+**Example snippet** from `skills/define-problem-statement/references/EXAMPLE.md`:
 
 ````markdown
 ---
@@ -330,54 +330,30 @@ Users report frustration with:
 Per the [agentskills.io specification](https://agentskills.io/specification), skills follow a standardized directory layout:
 
 ```
-skills/<phase>/<skill-name>/
+skills/<skill-name>/
 ├── SKILL.md              # Required: Main instruction file
 └── references/           # Required: Support files directory
     ├── TEMPLATE.md       # Required: Output structure
     └── EXAMPLE.md        # Required: Quality benchmark
 ```
 
-**PM-Skills specific structure** organizes skills by the Triple Diamond framework:
+**PM-Skills specific structure** uses a flat directory where the phase is encoded in the skill name:
 
 ```
 skills/
-├── discover/             # Understanding the landscape
-│   ├── competitive-analysis/
-│   │   ├── SKILL.md
-│   │   └── references/
-│   │       ├── TEMPLATE.md
-│   │       └── EXAMPLE.md
-│   ├── interview-synthesis/
-│   └── stakeholder-summary/
-├── define/               # Framing the problem
-│   ├── hypothesis/
-│   ├── jtbd-canvas/
-│   ├── opportunity-tree/
-│   └── problem-statement/
-├── develop/              # Exploring solutions
-│   ├── adr/
-│   ├── design-rationale/
-│   ├── solution-brief/
-│   └── spike-summary/
-├── deliver/              # Specifying and shipping
-│   ├── edge-cases/
-│   ├── launch-checklist/
-│   ├── prd/
-│   ├── release-notes/
-│   └── user-stories/
-├── measure/              # Validating with data
-│   ├── dashboard-requirements/
-│   ├── experiment-design/
-│   ├── experiment-results/
-│   └── instrumentation-spec/
-└── iterate/              # Learning and improving
-    ├── lessons-log/
-    ├── pivot-decision/
-    ├── refinement-notes/
-    └── retrospective/
+├── discover-competitive-analysis/
+│   ├── SKILL.md
+│   └── references/
+│       ├── TEMPLATE.md
+│       └── EXAMPLE.md
+├── define-problem-statement/
+├── develop-adr/
+├── deliver-prd/
+├── measure-experiment-design/
+└── iterate-retrospective/
 ```
 
-**Phase directory purpose**: Organizes skills by when they're typically used in the product development lifecycle. This maps to the Triple Diamond methodology but is methodology-agnostic through the category system (see [categories.md](reference/categories.md)).
+**Why flat + prefixed?** Keeps paths short while preserving phase context for discovery and sorting. Categories continue to live in metadata; see [categories.md](reference/categories.md) for taxonomy.
 
 ### Naming Conventions
 
@@ -408,7 +384,7 @@ Per the agentskills.io specification, skill names must follow strict rules:
 The agentskills.io specification allows additional directories for skill-specific needs:
 
 ```
-skills/<phase>/<skill-name>/
+skills/<skill-name>/
 ├── SKILL.md
 ├── references/
 │   ├── TEMPLATE.md
@@ -495,7 +471,7 @@ name: PRD                  # uppercase
 **Common mistake**: Name doesn't match directory
 
 ```yaml
-# In file: skills/define/problem-statement/SKILL.md
+# In file: skills/define-problem-statement/SKILL.md
 name: problem-framing      # ✗ WRONG - must be "problem-statement"
 name: problem-statement    # ✓ CORRECT
 ```
@@ -930,7 +906,7 @@ Discovery Phase                  Invocation Phase
 
 ```markdown
 #### problem-statement
-**Path:** `skills/define/problem-statement/SKILL.md`
+**Path:** `skills/define-problem-statement/SKILL.md`
 
 Creates a clear problem framing document with user impact, business context, 
 and success criteria. Use when starting a new initiative, realigning a 
@@ -1229,7 +1205,7 @@ Before finalizing, verify:
 See `references/EXAMPLE.md` for a completed example.
 ````
 
-**Link to actual file**: [skills/define/problem-statement/SKILL.md](../skills/define/problem-statement/SKILL.md)
+**Link to actual file**: [skills/define-problem-statement/SKILL.md](../skills/define-problem-statement/SKILL.md)
 
 **Why this is a "simple" skill**:
 - Straightforward 6-step process
@@ -1336,7 +1312,7 @@ Before finalizing, verify:
 See `references/EXAMPLE.md` for a completed example.
 ````
 
-**Link to actual file**: [skills/deliver/prd/SKILL.md](../skills/deliver/prd/SKILL.md)
+**Link to actual file**: [skills/define-problem-statement/SKILL.md](../skills/define-problem-statement/SKILL.md)
 
 **Why this is a "complex" skill**:
 - 8-step process (vs. 5-6 typical)
@@ -1436,7 +1412,7 @@ Quick reference for skill authors before submission. For complete guidance, see 
 
 ### Directory & Files
 
-- [ ] Directory path is `skills/<phase>/<skill-name>/`
+- [ ] Directory path is `skills/<skill-name>/`
 - [ ] Directory name exactly matches `name` field in frontmatter
 - [ ] Contains `SKILL.md` file
 - [ ] Contains `references/TEMPLATE.md` file
@@ -1495,7 +1471,7 @@ Quick reference for skill authors before submission. For complete guidance, see 
 
 - [ ] Entry added to `AGENTS.md` in appropriate phase section
 - [ ] Command added to `AGENTS.md` Commands table (if applicable)
-- [ ] No references to `_NOTES/` or gitignored paths
+- [ ] No references to gitignored or private paths
 - [ ] All internal links use relative paths
 - [ ] All external links resolve correctly
 

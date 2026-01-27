@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-1.2.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.0.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-24-skills">
     <img src="https://img.shields.io/badge/skills-24-brightgreen.svg?style=flat-square" alt="Skills">
@@ -118,6 +118,18 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 ---
 
+**What's New (v2.0)**
+<details>
+<summary>Sync helper for discovery (.claude/)</summary>
+
+- Skills are now flat (`skills/{phase-skill}/`). Some tools (openskills CLI, certain Claude Code setups) look for `.claude/skills` and `.claude/commands`.
+- Run `./scripts/sync-claude.sh` (macOS/Linux) or `./scripts/sync-claude.ps1` (Windows) after cloning or unzipping to regenerate `.claude/skills` and `.claude/commands` from the flat source.
+- The release ZIP ships only `.claude/pm-skills-for-claude.md`; the sync helper creates the rest locally. Keep `.claude/` untracked.
+
+</details>
+
+---
+
 ## The Big Idea
 
 **Stop prompt-fumbling. Start shipping.** Every time you ask an AI to help with product management, you start from zero. Generic responses. Inconsistent formats. Missing critical sections. Hours lost to repetitive prompt crafting.
@@ -201,12 +213,12 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 
 | Platform            | Status       | Method                                                                      | Notes                                  |
 | ------------------- | ------------ | --------------------------------------------------------------------------- | -------------------------------------- |
-| **Claude Code**     | ✅ Native    | Slash commands                                                              | Best experience with `/prd`, etc.      |
+| **Claude Code**     | ✅ Native    | Slash commands; optional `sync-claude.(sh|ps1)` to populate `.claude/` cache | Best experience with `/prd`, etc.; helper needed for openskills-style discovery |
 | **Claude.ai**       | ✅ Native    | ZIP upload                                                                  | Upload to Projects                     |
 | **Claude Desktop**  | ✅ Native    | ZIP upload or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)    | MCP recommended for programmatic access |
 | **GitHub Copilot**  | ✅ Native    | AGENTS.md discovery                                                         | Auto-discovers in repo                 |
-| **Cursor**          | ✅ Native    | AGENTS.md or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)     | MCP for programmatic tool access       |
-| **Windsurf**        | ✅ Native    | AGENTS.md discovery                                                         | Auto-discovers in workspace            |
+| **Cursor**          | ✅ Native    | AGENTS.md or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)     | MCP for programmatic tool access; sync helper optional if using openskills      |
+| **Windsurf**        | ✅ Native    | AGENTS.md discovery                                                         | Auto-discovers; sync helper not needed |
 | **VS Code**         | ✅ Native    | Via extensions                                                              | Cline, Continue, or manual             |
 | **OpenCode**        | ✅ Native    | Skill format                                                                | Direct skill loading                   |
 | **Any MCP Client**  | ✅ Universal | [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)        | Protocol-level access                  |
@@ -289,6 +301,15 @@ cd pm-skills
 
 All 24 skills are available as `/skill-name` commands. See [commands/](commands/) for the full list.
 
+Need `.claude/skills` for openskills or certain discovery flows? After cloning, run:
+
+```bash
+./scripts/sync-claude.sh   # macOS/Linux
+./scripts/sync-claude.ps1  # Windows
+```
+
+This regenerates `.claude/skills` and `.claude/commands` from the flat source; keep them untracked.
+
 </details>
 
 <details>
@@ -366,7 +387,7 @@ Open the folder in Cursor or Windsurf. The AI assistant will automatically disco
 3. Ask: "Use the hypothesis skill to test my assumption about..."
 
 **Manual approach:**
-1. Open any `SKILL.md` file from `skills/phase/skill-name/`
+1. Open any `SKILL.md` file from `skills/{phase-skill}/` (e.g., `skills/deliver-prd/`)
 2. Copy the content into your AI chat
 3. Ask the AI to follow the skill instructions
 
@@ -378,7 +399,7 @@ Open the folder in Cursor or Windsurf. The AI assistant will automatically disco
 ChatGPT and other LLMs don't support Agent Skills natively, but you can use skills manually:
 
 1. Clone or download pm-skills
-2. Open the skill you need (e.g., `skills/deliver/prd/SKILL.md`)
+2. Open the skill you need (e.g., `skills/deliver-prd/SKILL.md`)
 3. Copy the full content into your ChatGPT conversation
 4. Ask: "Follow these instructions to create a PRD for [your topic]"
 
@@ -398,7 +419,7 @@ Each release includes `QUICKSTART.md` with installation and usage instructions.
 
 ### Alternative: openskills CLI
 
-> **Note:** The [openskills CLI](https://github.com/numman-ali/openskills) discovers skills in `.claude/skills/` directories. PM-Skills uses a nested `skills/phase/skill-name/` structure for organization. Use **Git clone** for full access to all 24 skills.
+> **Note:** The [openskills CLI](https://github.com/numman-ali/openskills) discovers skills in `.claude/skills/` directories. PM-Skills ships a flat `skills/{phase-skill}/` structure plus a sync helper that populates `.claude/skills/` locally. Run `./scripts/sync-claude.sh` (or `.ps1`) after cloning to enable discovery.
 
 ```bash
 # Works for repos with .claude/skills/ structure (e.g., anthropics/skills)
@@ -428,7 +449,7 @@ PM-Skills provides three components that work together to accelerate your produc
 Each skill is a self-contained instruction set:
 
 ```
-skills/deliver/prd/
+skills/<skill-name>/
 ├── SKILL.md              # Instructions for the AI
 └── references/
     ├── TEMPLATE.md       # Output structure
@@ -439,7 +460,7 @@ skills/deliver/prd/
 
 **The AI:**
 
-1. Reads `skills/deliver/prd/SKILL.md` for instructions
+1. Reads `skills/<skill-name>/SKILL.md` for instructions
 2. Follows the structured approach (problem → solution → metrics → scope)
 3. Uses `TEMPLATE.md` for formatting
 4. References `EXAMPLE.md` for quality benchmarks
@@ -589,15 +610,10 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 
 ```
 pm-skills/
-├── skills/                   # 24 PM skills organized by Triple Diamond phase
-│   ├── discover/             # Research: interview-synthesis, competitive-analysis, stakeholder-summary
-│   ├── define/               # Problem framing: problem-statement, hypothesis, opportunity-tree, jtbd-canvas
-│   ├── develop/              # Solutions: solution-brief, spike-summary, adr, design-rationale
-│   ├── deliver/              # Specification: prd, user-stories, edge-cases, launch-checklist, release-notes
-│   ├── measure/              # Validation: experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
-│   └── iterate/              # Learning: retrospective, lessons-log, refinement-notes, pivot-decision
+├── skills/                   # 24 PM skills (flat: discover-*, define-*, develop-*, deliver-*, measure-*, iterate-*)
 ├── commands/                 # Claude Code slash commands (25 total)
 ├── _bundles/                 # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
+├── scripts/                  # sync-claude.(sh|ps1), build-release.(sh|ps1)
 ├── docs/                     # Documentation
 │   ├── getting-started.md    # Setup guide
 │   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
@@ -615,6 +631,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **2.0.0** | 2026-01-26 | Flat `skills/{phase-skill}/`, sync helpers, build scripts, docs refresh |
 | **1.2.0** | 2026-01-20 | Security policy, CodeQL scanning, Dependabot, issue/PR templates        |
 | **1.1.1** | 2026-01-20 | openskills#48 fix verified, CODE_OF_CONDUCT, open-skills submissions    |
 | **1.1.0** | 2026-01-16 | Documentation overhaul, README redesign, FAQ, collapsible TOC           |
@@ -711,7 +728,7 @@ Please try to create bug reports that are:
 <details>
 <summary><strong>Do I need to install all 24 skills?</strong></summary>
 
-No! You can use individual skills as needed. Each skill is self-contained and works independently. If you only need PRDs, just reference the `skills/deliver/prd/` skill. The bundles are optional workflow guides, not requirements.
+No! You can use individual skills as needed. Each skill is self-contained and works independently. If you only need PRDs, just reference the `skills/deliver-prd/` skill. The bundles are optional workflow guides, not requirements.
 
 </details>
 
@@ -739,7 +756,7 @@ Fork the repository and modify the `SKILL.md`, `TEMPLATE.md`, or `EXAMPLE.md` fi
 <details>
 <summary><strong>Why doesn't PM-Skills work with openskills CLI?</strong></summary>
 
-The openskills CLI discovers skills in `.claude/skills/` directories, but PM-Skills uses a nested `skills/phase/skill-name/` structure for better organization. This is by design... our structure groups skills by Triple Diamond phase. Use **Git clone** (Option 1) for full access to all 24 skills. The CLI works great for repos that use the flat `.claude/skills/` structure (like `anthropics/skills`).
+The openskills CLI discovers skills in `.claude/skills/` directories. PM-Skills now ships flat `skills/{phase-skill}/` plus a sync helper that populates `.claude/skills/` locally. Clone the repo, run `./scripts/sync-claude.sh` (or `.ps1`), and openskills/Claude Code will discover all 24 skills.
 
 </details>
 
@@ -753,7 +770,7 @@ Absolutely! Check out our [authoring guide](docs/guides/authoring-pm-skills.md) 
 <details>
 <summary><strong>How do slash commands work in Claude Code?</strong></summary>
 
-Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corresponding skill. When you type `/prd "my feature"`, Claude Code reads the skill instructions from `skills/deliver/prd/SKILL.md` and generates output following the template. No additional setup required-the commands are defined in the `commands/` directory.
+Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corresponding skill. When you type `/prd \"my feature\"`, Claude Code reads the skill instructions from `skills/deliver-prd/SKILL.md` and generates output following the template. No additional setup required-the commands are defined in the `commands/` directory.
 
 </details>
 

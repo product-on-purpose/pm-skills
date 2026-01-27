@@ -7,40 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [2.0.0] - 2026-01-26
+
+### Breaking
+- Repository flattened to `skills/{phase-skill}/` (hyphen-only). All prior nested `skills/<phase>/<skill>/` paths removed.
+- Slash commands now point to the flat skill paths; update local references/scripts accordingly.
+
 ### Added
-- **QUICKSTART.md** — Bundled installation and usage guide included in release archives
-- **README MCP cross-reference header** — Purple "MCP Server available" badge with callout linking to pm-skills-mcp
+- Sync helpers `scripts/sync-claude.sh` and `scripts/sync-claude.ps1` to regenerate `.claude/skills` and `.claude/commands` for Claude Code / openskills discovery with validation.
+- Build scripts `scripts/build-release.sh` and `scripts/build-release.ps1` to create `pm-skills-v2.0.zip` with manifest/hash (excludes populated `.claude`).
+- `.claude/pm-skills-for-claude.md` usage note for discovery.
 
 ### Changed
-- **Release archives now include complete content** — `commands/` and `_bundles/` folders now included in release ZIP
-- **Consolidated to single release archive** — Replaced dual ZIP approach (`pm-skills-*.zip` + `pm-skills-claude-*.zip`) with single complete archive
-- **release.yml workflow** — Simplified to produce one `pm-skills-{version}.zip` with all skills, commands, bundles, and documentation
-- **README MCP Quick Start section** — Collapsible section for MCP server setup (Claude Desktop, Cursor, any MCP client)
-- **README Related Projects section** — Dedicated section explaining pm-skills vs pm-skills-mcp relationship
-- **README MCP FAQ entry** — "What's the difference between pm-skills and pm-skills-mcp?"
-- **Ecosystem Overview documentation** — `docs/reference/ecosystem.md` explaining pm-skills vs pm-skills-mcp relationship ([#94](https://github.com/product-on-purpose/pm-skills/issues/94))
-  - Decision matrix for choosing between file-based and MCP approaches
-  - Feature comparison table
-  - Integration patterns (file-based, MCP-based, hybrid)
-  - Customization workflow and version compatibility guide
-- **MCP Integration Guide** — `docs/guides/mcp-integration.md` for MCP-based access ([#95](https://github.com/product-on-purpose/pm-skills/issues/95))
-  - Quick start instructions for Claude Desktop, Claude Code, Cursor, VS Code (Cline/Continue)
-  - Complete tool inventory (24 skill + 5 workflow + 6 utility tools)
-  - Slash command to MCP tool mapping table
-  - Troubleshooting section for common issues
-- **Platform Compatibility table** — Expanded "Works for..." section with status indicators, methods, and notes for 10+ platforms
-- **Quick Start by Platform** — Collapsible getting-started sections for Claude Code, Claude.ai/Desktop, GitHub Copilot, Cursor/Windsurf, VS Code, and ChatGPT
-- **PM-Skills MCP cross-reference** — Added callout for programmatic MCP access via pm-skills-mcp
-- **Installation Options table** — Streamlined Getting Started with Git Clone, ZIP Download, and MCP Server methods
+- All 24 skills renamed to flat `{phase-skill}` directories; SKILL front matter updated with `phase`, `version: 2.0.0`, and `updated: 2026-01-26`.
+- Docs refreshed to reflect flat structure and two-path install story (flat source vs. optional `.claude/` via sync helper), including README, QUICKSTART, AGENTS, bundles, guides, and references.
+- Workflows (`release.yml`, `release-zips.yml`) call the new build-release script.
+- `.gitignore` now excludes `.claude/skills`, `.claude/commands`, and `dist/`.
 
-### Changed
-- **README.md header** — Added MCP badge and callout for cross-linking with pm-skills-mcp
-- **README.md Platform Compatibility** — Updated table with MCP links for Claude Desktop, Cursor, and "Any MCP Client" row
-- **README.md MCP callout** — Enhanced with links to new MCP Integration Guide and Ecosystem Overview
-- **README.md Project Structure** — Updated docs/ section to reference new documentation files
-- **README.md "Works for..." section** — Expanded from simple list to comprehensive platform compatibility guide
-- **README.md "Getting Started" section** — Streamlined to avoid redundancy with new Quick Start sections
-- **Table of Contents** — Updated to reflect new sections (Related Projects, FAQ additions)
+### Validation
+- Path scan confirms no residual `skills/<phase>/` references in public docs/commands.
+- Front-matter check: all `skills/*/SKILL.md` include required `name`, `phase`, `version`, `updated`.
 
 ## [1.2.0] - 2026-01-20
 
@@ -178,17 +166,17 @@ This release marks the completion of all 24 PM skills across the entire product 
 
 ### Added
 - **Phase 3 Complete: P2 Skills (11 skills) — All 24 skills now implemented!**
-  - `competitive-analysis` skill — Discover phase (`skills/discover/competitive-analysis/`)
-  - `stakeholder-summary` skill — Discover phase (`skills/discover/stakeholder-summary/`)
-  - `opportunity-tree` skill — Define phase (`skills/define/opportunity-tree/`)
-  - `jtbd-canvas` skill — Define phase (`skills/define/jtbd-canvas/`)
-  - `design-rationale` skill — Develop phase (`skills/develop/design-rationale/`)
-  - `dashboard-requirements` skill — Measure phase (`skills/measure/dashboard-requirements/`)
-  - `experiment-results` skill — Measure phase (`skills/measure/experiment-results/`)
-  - `retrospective` skill — Iterate phase (`skills/iterate/retrospective/`)
-  - `lessons-log` skill — Iterate phase (`skills/iterate/lessons-log/`)
-  - `refinement-notes` skill — Iterate phase (`skills/iterate/refinement-notes/`)
-  - `pivot-decision` skill — Iterate phase (`skills/iterate/pivot-decision/`)
+  - `competitive-analysis` skill — Discover phase (`skills/discover-competitive-analysis/`)
+  - `stakeholder-summary` skill — Discover phase (`skills/discover-stakeholder-summary/`)
+  - `opportunity-tree` skill — Define phase (`skills/define-opportunity-tree/`)
+  - `jtbd-canvas` skill — Define phase (`skills/define-jtbd-canvas/`)
+  - `design-rationale` skill — Develop phase (`skills/develop-design-rationale/`)
+  - `dashboard-requirements` skill — Measure phase (`skills/measure-dashboard-requirements/`)
+  - `experiment-results` skill — Measure phase (`skills/measure-experiment-results/`)
+  - `retrospective` skill — Iterate phase (`skills/iterate-retrospective/`)
+  - `lessons-log` skill — Iterate phase (`skills/iterate-lessons-log/`)
+  - `refinement-notes` skill — Iterate phase (`skills/iterate-refinement-notes/`)
+  - `pivot-decision` skill — Iterate phase (`skills/iterate-pivot-decision/`)
 - Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md
 - GitHub labels: `phase-3`, `P2`
 - GitHub issues #26-36 for skill tracking
@@ -218,14 +206,14 @@ This release marks the completion of all 24 PM skills across the entire product 
 
 ### Added
 - **Phase 2 Complete: P1 Skills (8 skills)**
-  - `interview-synthesis` skill — Discover phase (`skills/discover/interview-synthesis/`)
-  - `solution-brief` skill — Develop phase (`skills/develop/solution-brief/`)
-  - `spike-summary` skill — Develop phase (`skills/develop/spike-summary/`)
-  - `adr` skill — Develop phase (`skills/develop/adr/`)
-  - `edge-cases` skill — Deliver phase (`skills/deliver/edge-cases/`)
-  - `release-notes` skill — Deliver phase (`skills/deliver/release-notes/`)
-  - `experiment-design` skill — Measure phase (`skills/measure/experiment-design/`)
-  - `instrumentation-spec` skill — Measure phase (`skills/measure/instrumentation-spec/`)
+  - `interview-synthesis` skill — Discover phase (`skills/discover-interview-synthesis/`)
+  - `solution-brief` skill — Develop phase (`skills/develop-solution-brief/`)
+  - `spike-summary` skill — Develop phase (`skills/develop-spike-summary/`)
+  - `adr` skill — Develop phase (`skills/develop-adr/`)
+  - `edge-cases` skill — Deliver phase (`skills/deliver-edge-cases/`)
+  - `release-notes` skill — Deliver phase (`skills/deliver-release-notes/`)
+  - `experiment-design` skill — Measure phase (`skills/measure-experiment-design/`)
+  - `instrumentation-spec` skill — Measure phase (`skills/measure-instrumentation-spec/`)
 - Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md
 - GitHub labels: `phase-2`, `P1`
 - GitHub milestone: v0.3.0 - P1 Skills
@@ -241,11 +229,11 @@ This release marks the completion of all 24 PM skills across the entire product 
 
 ### Added
 - **Phase 1 Complete: P0 Core Skills**
-  - `problem-statement` skill — Define phase (`skills/define/problem-statement/`)
-  - `hypothesis` skill — Define phase (`skills/define/hypothesis/`)
-  - `prd` skill — Deliver phase (`skills/deliver/prd/`)
-  - `user-stories` skill — Deliver phase (`skills/deliver/user-stories/`)
-  - `launch-checklist` skill — Deliver phase (`skills/deliver/launch-checklist/`)
+  - `problem-statement` skill — Define phase (`skills/define-problem-statement/`)
+  - `hypothesis` skill — Define phase (`skills/define-hypothesis/`)
+  - `prd` skill — Deliver phase (`skills/deliver-prd/`)
+  - `user-stories` skill — Deliver phase (`skills/deliver-user-stories/`)
+  - `launch-checklist` skill — Deliver phase (`skills/deliver-launch-checklist/`)
 - Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md
 - GitHub labels: `skill`, `phase-1`, `P0`
 - GitHub milestone: v0.2.0 - P0 Core Skills
