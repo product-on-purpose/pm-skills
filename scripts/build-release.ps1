@@ -1,12 +1,26 @@
-# pm-skills v2.0 release packager (PowerShell)
-# Builds pm-skills-v2.0.zip with flat skills/commands and helper scripts.
+param(
+    [string]$Version
+)
+
+# pm-skills release packager (PowerShell)
+# Builds pm-skills-vX.Y.Z.zip with flat skills/commands and helper scripts.
 
 $ErrorActionPreference = "Stop"
+
+$Version = if ($Version) { $Version } elseif ($Env:VERSION) { $Env:VERSION } else { $null }
+if (-not $Version) {
+    $tag = git describe --tags --abbrev=0 2>$null
+    if ($LASTEXITCODE -eq 0 -and $tag) {
+        $Version = $tag.Trim()
+    }
+}
+if (-not $Version) { $Version = "2.0.1" }
+$Version = $Version -replace '^v',''
 
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $OutDir = Join-Path $Root "dist"
 $Stage = Join-Path $OutDir "stage"
-$Zip = Join-Path $OutDir "pm-skills-v2.0.zip"
+$Zip = Join-Path $OutDir "pm-skills-v$Version.zip"
 
 Remove-Item -Recurse -Force $OutDir -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $Stage | Out-Null
@@ -34,10 +48,10 @@ Compress-Archive -Path (Join-Path $Stage '*') -DestinationPath $Zip
 
 # Hash + manifest
 $hash = (Get-FileHash -Algorithm SHA256 $Zip).Hash
-Set-Content -Path (Join-Path $OutDir "pm-skills-v2.0.zip.sha256") -Value "$hash  pm-skills-v2.0.zip"
+Set-Content -Path (Join-Path $OutDir "pm-skills-v$Version.zip.sha256") -Value "$hash  pm-skills-v$Version.zip"
 @"
-pm-skills v2.0 release
-ZIP: pm-skills-v2.0.zip
+pm-skills v$Version release
+ZIP: pm-skills-v$Version.zip
 SHA256: $hash
 "@ | Set-Content -Path (Join-Path $OutDir "manifest.txt")
 

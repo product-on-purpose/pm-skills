@@ -11,13 +11,20 @@ Nothing yet.
 
 ## [2.0.1] - 2026-01-27
 
+### Added
+- Validation workflow (`validation.yml`) running command + front-matter checks on Ubuntu and Windows.
+- Front-matter lint scripts (`scripts/lint-skills-frontmatter.sh` / `.ps1`) that verify required keys, directory-name alignment, and reference files.
+- Noted command validator scripts in project structure/README.
+- Scripts guide renamed to `scripts/README_SCRIPTS.md` to avoid name collisions.
+
 ### Changed
+- Removed nested `metadata.version` fields from all skills; lint now enforces a single root version and required keys.
+- Parameterized build scripts (`build-release.sh` / `.ps1`) and release workflows to derive artifact names from the tag/ref (defaulting to v2.0.1); added zip/hash fallbacks for Windows.
+- `validate-commands` now reports multi-skill bundles (e.g., `/kickoff`) without misleading first-path-only output.
+- README path examples updated to `skills/{phase-skill}/`; AGENTS.md clarifies bundle links are repo-relative; release workflow typo fixed (`openskills`).
 - Moved skill templates to `docs/templates/` and updated references (authoring guide, README, project-structure, AGENTS context).
 - README refresh: expanded v2.0 highlights, updated project structure tree, roadmap in-progress items, note that pm-skills-mcp v1.x is outdated (v2.1 underway).
 - `docs/reference/project-structure.md` now has a table of contents, updated directory tree, full commands list, and template path.
-
-### Added
-- Noted command validator scripts in project structure/README.
 
 ## [2.0.0] - 2026-01-26
 

@@ -158,6 +158,8 @@ Facilitates and documents a team retrospective capturing what went well, what to
 | [Lean Startup](_bundles/lean-startup.md) | Build-Measure-Learn rapid iteration |
 | [Feature Kickoff](_bundles/feature-kickoff.md) | Quick-start workflow for features |
 
+Bundle links are repo-relative within this repository.
+
 ---
 
 ## Commands

@@ -10,7 +10,6 @@ metadata:
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
-  version: "2.0.0"
 ---
 # Instrumentation Spec
 

@@ -20,16 +20,13 @@ jobs:
 
       - name: Get version from tag
         id: version
-        run: echo "VERSION=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
       - name: Build release artifact
-        run: ./scripts/build-release.sh
-
-      - name: Move artifacts to root for upload
-        run: |
-          mv dist/pm-skills-v2.0.zip pm-skills-${{ steps.version.outputs.VERSION }}.zip
-          mv dist/pm-skills-v2.0.zip.sha256 pm-skills-${{ steps.version.outputs.VERSION }}.zip.sha256
-          mv dist/manifest.txt manifest-${{ steps.version.outputs.VERSION }}.txt
+        run: ./scripts/build-release.sh "$VERSION"
 
       - name: Generate release notes
         run: |
@@ -39,17 +36,17 @@ jobs:
           - **24 PM skills** (flat `skills/phase-skill/`)
           - **Slash commands** (`/prd`, `/hypothesis`, `/kickoff`, etc.)
           - **Workflow bundles** (Triple Diamond, Lean Startup, Feature Kickoff)
-          - **Claude/opensills discovery** via sync helper (`scripts/sync-claude.sh` / `.ps1`)
+          - **Claude/openskills discovery** via sync helper (`scripts/sync-claude.sh` / `.ps1`)
           - **Docs:** README, QUICKSTART, AGENTS, reference guides
 
           ## Download
 
-          **`pm-skills-${{ steps.version.outputs.VERSION }}.zip`** — Complete package for all platforms
+          **`pm-skills-v${{ steps.version.outputs.version }}.zip`** — Complete package for all platforms
 
           ## Installation
 
           ### Claude Code / openskills
-          1. Download `pm-skills-${{ steps.version.outputs.VERSION }}.zip`
+          1. Download `pm-skills-v${{ steps.version.outputs.version }}.zip`
           2. Extract, then run:
              - Bash: `./scripts/sync-claude.sh`
              - PowerShell: `./scripts/sync-claude.ps1`
@@ -73,9 +70,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            pm-skills-${{ steps.version.outputs.VERSION }}.zip
-            pm-skills-${{ steps.version.outputs.VERSION }}.zip.sha256
-            manifest-${{ steps.version.outputs.VERSION }}.txt
+            dist/pm-skills-v${{ steps.version.outputs.version }}.zip
+            dist/pm-skills-v${{ steps.version.outputs.version }}.zip.sha256
+            dist/manifest.txt
           body_path: RELEASE_NOTES.md
           draft: false
           prerelease: false

@@ -140,6 +140,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 - `scripts/build-release.(sh|ps1)` packages `pm-skills-v2.0.zip` + SHA256.
 - `scripts/validate-commands.(sh|ps1)` ensures commands reference valid skills/templates/examples.
+See `scripts/README_SCRIPTS.md` for script usage, FAQs, and troubleshooting.
 - Release workflow uploads ZIP + hash automatically on tag push.
 
 </details>
@@ -477,7 +478,7 @@ PM-Skills provides three components that work together to accelerate your produc
 Each skill is a self-contained instruction set:
 
 ```
-skills/<skill-name>/
+skills/{phase-skill}/
 ├── SKILL.md              # Instructions for the AI
 └── references/
     ├── TEMPLATE.md       # Output structure
@@ -488,7 +489,7 @@ skills/<skill-name>/
 
 **The AI:**
 
-1. Reads `skills/<skill-name>/SKILL.md` for instructions
+1. Reads `skills/{phase-skill}/SKILL.md` for instructions
 2. Follows the structured approach (problem → solution → metrics → scope)
 3. Uses `TEMPLATE.md` for formatting
 4. References `EXAMPLE.md` for quality benchmarks

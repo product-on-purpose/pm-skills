@@ -20,11 +20,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Determine version
+        id: version
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            VERSION="${{ github.event.inputs.tag }}"
+          else
+            VERSION="${GITHUB_REF_NAME}"
+          fi
+          VERSION="${VERSION#v}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
       - name: Make build scripts executable
         run: chmod +x scripts/build-release.sh scripts/sync-claude.sh
 
       - name: Build release artifact
-        run: ./scripts/build-release.sh
+        run: ./scripts/build-release.sh "$VERSION"
 
       - name: List created ZIPs
         run: ls -la dist/
@@ -34,8 +46,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/pm-skills-v2.0.zip
-            dist/pm-skills-v2.0.zip.sha256
+            dist/pm-skills-v${{ steps.version.outputs.version }}.zip
+            dist/pm-skills-v${{ steps.version.outputs.version }}.zip.sha256
             dist/manifest.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -44,9 +56,9 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         uses: actions/upload-artifact@v6
         with:
-          name: pm-skills-artifacts
+          name: pm-skills-artifacts-v${{ steps.version.outputs.version }}
           path: |
-            dist/pm-skills-v2.0.zip
-            dist/pm-skills-v2.0.zip.sha256
+            dist/pm-skills-v${{ steps.version.outputs.version }}.zip
+            dist/pm-skills-v${{ steps.version.outputs.version }}.zip.sha256
             dist/manifest.txt
           retention-days: 7
