@@ -36,6 +36,7 @@ temp/
 # Personal notes
 _NOTES/
 .obsidian
+.claude/*
 .claude/settings.local.json
 .claude/skills/
 .claude/commands/
