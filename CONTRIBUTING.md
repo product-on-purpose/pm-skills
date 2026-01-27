@@ -38,7 +38,7 @@ All contributed skills must:
 Every skill requires three files:
 
 ```
-skills/<phase>/<skill-name>/
+skills/<skill-name>/
 ├── SKILL.md           # Main instructions with frontmatter
 └── references/
     ├── TEMPLATE.md    # Output template

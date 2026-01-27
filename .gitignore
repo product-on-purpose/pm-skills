@@ -37,6 +37,9 @@ temp/
 _NOTES/
 .obsidian
 .claude/settings.local.json
+.claude/skills/
+.claude/commands/
+dist/
 
 # Agent working files
 # Note: CONTEXT.md and DECISIONS.md are intentionally tracked for continuity

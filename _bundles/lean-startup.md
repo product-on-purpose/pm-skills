@@ -58,17 +58,17 @@ The Build phase isn't about building a complete product—it's about building ju
 
 | Skill | Purpose |
 |-------|---------|
-| [`hypothesis`](../skills/define/hypothesis/SKILL.md) | Define what you believe and how to test it |
-| [`solution-brief`](../skills/develop/solution-brief/SKILL.md) | Articulate the MVP approach |
-| [`spike-summary`](../skills/develop/spike-summary/SKILL.md) | Time-boxed feasibility validation |
+| [`define-hypothesis`](../skills/define-hypothesis/SKILL.md) | Define what you believe and how to test it |
+| [`develop-solution-brief`](../skills/develop-solution-brief/SKILL.md) | Articulate the MVP approach |
+| [`develop-spike-summary`](../skills/develop-spike-summary/SKILL.md) | Time-boxed feasibility validation |
 
 ### Supporting Skills
 
 | Skill | When to Use |
 |-------|-------------|
-| [`prd`](../skills/deliver/prd/SKILL.md) | Lightweight spec for MVP scope |
-| [`user-stories`](../skills/deliver/user-stories/SKILL.md) | Break MVP into implementable stories |
-| [`adr`](../skills/develop/adr/SKILL.md) | Document critical technical choices |
+| [`deliver-prd`](../skills/deliver-prd/SKILL.md) | Lightweight spec for MVP scope |
+| [`deliver-user-stories`](../skills/deliver-user-stories/SKILL.md) | Break MVP into implementable stories |
+| [`develop-adr`](../skills/develop-adr/SKILL.md) | Document critical technical choices |
 
 ### Key Outputs
 
@@ -97,16 +97,16 @@ Measurement must be designed upfront, not retrofitted. The goal is to generate v
 
 | Skill | Purpose |
 |-------|---------|
-| [`experiment-design`](../skills/measure/experiment-design/SKILL.md) | Design rigorous experiments |
-| [`instrumentation-spec`](../skills/measure/instrumentation-spec/SKILL.md) | Define what to track |
-| [`dashboard-requirements`](../skills/measure/dashboard-requirements/SKILL.md) | Build visibility into metrics |
+| [`measure-experiment-design`](../skills/measure-experiment-design/SKILL.md) | Design rigorous experiments |
+| [`measure-instrumentation-spec`](../skills/measure-instrumentation-spec/SKILL.md) | Define what to track |
+| [`measure-dashboard-requirements`](../skills/measure-dashboard-requirements/SKILL.md) | Build visibility into metrics |
 
 ### Supporting Skills
 
 | Skill | When to Use |
 |-------|-------------|
-| [`interview-synthesis`](../skills/discover/interview-synthesis/SKILL.md) | Qualitative validation alongside quantitative |
-| [`edge-cases`](../skills/deliver/edge-cases/SKILL.md) | Ensure measurement isn't corrupted by edge cases |
+| [`discover-interview-synthesis`](../skills/discover-interview-synthesis/SKILL.md) | Qualitative validation alongside quantitative |
+| [`deliver-edge-cases`](../skills/deliver-edge-cases/SKILL.md) | Ensure measurement isn't corrupted by edge cases |
 
 ### Key Outputs
 
@@ -135,16 +135,16 @@ Learning is the unit of progress in Lean Startup. Every cycle should produce val
 
 | Skill | Purpose |
 |-------|---------|
-| [`experiment-results`](../skills/measure/experiment-results/SKILL.md) | Document what happened and why |
-| [`pivot-decision`](../skills/iterate/pivot-decision/SKILL.md) | Framework for strategic pivots |
-| [`lessons-log`](../skills/iterate/lessons-log/SKILL.md) | Capture learnings for future |
+| [`measure-experiment-results`](../skills/measure-experiment-results/SKILL.md) | Document what happened and why |
+| [`iterate-pivot-decision`](../skills/iterate-pivot-decision/SKILL.md) | Framework for strategic pivots |
+| [`iterate-lessons-log`](../skills/iterate-lessons-log/SKILL.md) | Capture learnings for future |
 
 ### Supporting Skills
 
 | Skill | When to Use |
 |-------|-------------|
-| [`retrospective`](../skills/iterate/retrospective/SKILL.md) | Team reflection on process |
-| [`problem-statement`](../skills/define/problem-statement/SKILL.md) | Reframe problem based on learnings |
+| [`iterate-retrospective`](../skills/iterate-retrospective/SKILL.md) | Team reflection on process |
+| [`define-problem-statement`](../skills/define-problem-statement/SKILL.md) | Reframe problem based on learnings |
 
 ### Key Outputs
 
@@ -177,11 +177,11 @@ hypothesis   solution-   experiment- experiment- pivot-
 
 ### 5-Skill Lean Cycle
 
-1. **[`hypothesis`](../skills/define/hypothesis/SKILL.md)** — State what you believe
-2. **[`solution-brief`](../skills/develop/solution-brief/SKILL.md)** — Define MVP approach
-3. **[`experiment-design`](../skills/measure/experiment-design/SKILL.md)** — Plan measurement
-4. **[`experiment-results`](../skills/measure/experiment-results/SKILL.md)** — Document learnings
-5. **[`pivot-decision`](../skills/iterate/pivot-decision/SKILL.md)** — Decide next step
+1. **[`define-hypothesis`](../skills/define-hypothesis/SKILL.md)** — State what you believe
+2. **[`develop-solution-brief`](../skills/develop-solution-brief/SKILL.md)** — Define MVP approach
+3. **[`measure-experiment-design`](../skills/measure-experiment-design/SKILL.md)** — Plan measurement
+4. **[`measure-experiment-results`](../skills/measure-experiment-results/SKILL.md)** — Document learnings
+5. **[`iterate-pivot-decision`](../skills/iterate-pivot-decision/SKILL.md)** — Decide next step
 
 This core loop can run in 1-2 week cycles.
 
@@ -199,11 +199,11 @@ When experiment results suggest a change is needed, consider these pivot types:
 | **Customer Need** | Same customer, different problem | jtbd-canvas, opportunity-tree |
 | **Platform** | Application to platform or vice versa | adr, design-rationale |
 | **Value Capture** | Change monetization model | hypothesis, experiment-design |
-| **Engine of Growth** | Viral ↔ Paid ↔ Sticky | instrumentation-spec, dashboard-requirements |
+| **Engine of Growth** | Viral ↔ Paid ↔ Sticky | measure-instrumentation-spec, measure-dashboard-requirements |
 | **Channel** | Change distribution | competitive-analysis |
 | **Technology** | New technology, same solution | spike-summary, adr |
 
-Use [`pivot-decision`](../skills/iterate/pivot-decision/SKILL.md) to document any pivot.
+Use [`iterate-pivot-decision`](../skills/iterate-pivot-decision/SKILL.md) to document any pivot.
 
 ---
 
@@ -230,7 +230,7 @@ Track progress through:
 2. **Target** — Where you need to be
 3. **Learning velocity** — How fast you're moving toward target
 
-Use [`dashboard-requirements`](../skills/measure/dashboard-requirements/SKILL.md) to specify these metrics.
+Use [`measure-dashboard-requirements`](../skills/measure-dashboard-requirements/SKILL.md) to specify these metrics.
 
 ---
 
@@ -268,7 +268,7 @@ Use [`dashboard-requirements`](../skills/measure/dashboard-requirements/SKILL.md
 - +6pp lift (p < 0.05)
 - Did not hit 25% target but significant improvement
 
-**Decision (from `pivot-decision.md`):**
+**Decision (from `iterate-pivot-decision/SKILL.md`):**
 - Persevere with iteration
 - Next hypothesis: Adding personalization to wizard will close remaining gap
 - Run next experiment in Week 4
@@ -302,3 +302,4 @@ Use [`dashboard-requirements`](../skills/measure/dashboard-requirements/SKILL.md
 ---
 
 *Part of [PM-Skills](../README.md) — Open source Product Management skills for AI agents*
+

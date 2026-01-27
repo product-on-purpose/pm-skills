@@ -47,7 +47,7 @@ This workflow assumes:
 
 ### Step 1: Problem Statement
 
-**Skill:** [`problem-statement`](../skills/define/problem-statement/SKILL.md)
+**Skill:** [`define-problem-statement`](../skills/define-problem-statement/SKILL.md)
 
 **Purpose:** Ensure everyone agrees on what problem we're solving before diving into solutions.
 
@@ -66,7 +66,7 @@ This workflow assumes:
 
 ### Step 2: Hypothesis
 
-**Skill:** [`hypothesis`](../skills/define/hypothesis/SKILL.md)
+**Skill:** [`define-hypothesis`](../skills/define-hypothesis/SKILL.md)
 
 **Purpose:** State what we believe will solve the problem and how we'll know if we're right.
 
@@ -84,7 +84,7 @@ This workflow assumes:
 
 ### Step 3: PRD
 
-**Skill:** [`prd`](../skills/deliver/prd/SKILL.md)
+**Skill:** [`deliver-prd`](../skills/deliver-prd/SKILL.md)
 
 **Purpose:** Specify what we're building in enough detail for engineering to execute.
 
@@ -103,7 +103,7 @@ This workflow assumes:
 
 ### Step 4: User Stories
 
-**Skill:** [`user-stories`](../skills/deliver/user-stories/SKILL.md)
+**Skill:** [`deliver-user-stories`](../skills/deliver-user-stories/SKILL.md)
 
 **Purpose:** Break the PRD into implementable, estimable stories for sprint planning.
 
@@ -127,7 +127,7 @@ Acceptance Criteria:
 
 ### Step 5: Launch Checklist
 
-**Skill:** [`launch-checklist`](../skills/deliver/launch-checklist/SKILL.md)
+**Skill:** [`deliver-launch-checklist`](../skills/deliver-launch-checklist/SKILL.md)
 
 **Purpose:** Ensure nothing is forgotten before shipping.
 
@@ -169,24 +169,24 @@ Add these skills when the situation calls for more depth:
 
 | Add When | Skill |
 |----------|-------|
-| Complex UX decisions | [`design-rationale`](../skills/develop/design-rationale/SKILL.md) |
-| Technical uncertainty | [`spike-summary`](../skills/develop/spike-summary/SKILL.md) |
-| Architecture impact | [`adr`](../skills/develop/adr/SKILL.md) |
+| Complex UX decisions | [`develop-design-rationale`](../skills/develop-design-rationale/SKILL.md) |
+| Technical uncertainty | [`develop-spike-summary`](../skills/develop-spike-summary/SKILL.md) |
+| Architecture impact | [`develop-adr`](../skills/develop-adr/SKILL.md) |
 
 ### During Development
 
 | Add When | Skill |
 |----------|-------|
-| Complex feature | [`edge-cases`](../skills/deliver/edge-cases/SKILL.md) |
-| Needs measurement | [`instrumentation-spec`](../skills/measure/instrumentation-spec/SKILL.md) |
+| Complex feature | [`deliver-edge-cases`](../skills/deliver-edge-cases/SKILL.md) |
+| Needs measurement | [`measure-instrumentation-spec`](../skills/measure-instrumentation-spec/SKILL.md) |
 
 ### After Launch
 
 | Add When | Skill |
 |----------|-------|
-| A/B testing | [`experiment-design`](../skills/measure/experiment-design/SKILL.md) |
-| Team reflection | [`retrospective`](../skills/iterate/retrospective/SKILL.md) |
-| Communication | [`release-notes`](../skills/deliver/release-notes/SKILL.md) |
+| A/B testing | [`measure-experiment-design`](../skills/measure-experiment-design/SKILL.md) |
+| Team reflection | [`iterate-retrospective`](../skills/iterate-retrospective/SKILL.md) |
+| Communication | [`deliver-release-notes`](../skills/deliver-release-notes/SKILL.md) |
 
 ---
 
@@ -299,3 +299,4 @@ Acceptance Criteria:
 ---
 
 *Part of [PM-Skills](../README.md) — Open source Product Management skills for AI agents*
+

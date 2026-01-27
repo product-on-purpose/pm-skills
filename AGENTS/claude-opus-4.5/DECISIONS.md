@@ -53,7 +53,7 @@ Need a location for collaboration artifacts like plan reviews, drafts, and analy
 Add `PLANNING/` folder to `AGENTS/claude-opus-4.5/` structure for storing collaboration artifacts.
 
 **Alternatives Considered:**
-- Put in `_NOTES/` alongside source docs — Mixes working artifacts with reference docs
+- Put in `(internal-notes)/` alongside source docs — Mixes working artifacts with reference docs
 - Put alongside source (e.g., `plan-v1-review.md` next to `plan-v1.md`) — Clutters source folders
 - Put in `AGENTS/claude-opus-4.5/PLANNING/` — Keeps session artifacts together
 

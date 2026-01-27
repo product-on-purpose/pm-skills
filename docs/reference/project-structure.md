@@ -6,7 +6,7 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                   # Core PM skills (24 total)
+├── skills/                   # Core PM skills (24 total, flat)
 ├── commands/                 # Claude Code slash commands
 ├── _bundles/                 # Workflow bundles
 ├── docs/                     # Documentation
@@ -18,29 +18,22 @@ pm-skills/
 
 ---
 
-## `/skills/` — The 24 PM Skills
+## `/skills/` — The 24 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 
 ### Organization
 
-Skills are organized by **Triple Diamond phase**:
+Flat directories named `{phase}-{skill}` (hyphen-only, lowercase). Phase is captured in front matter.
 
-| Directory | Phase | Purpose | Skills |
-|-----------|-------|---------|--------|
-| `skills/discover/` | Discover | Research & understanding | 3 |
-| `skills/define/` | Define | Problem framing | 4 |
-| `skills/develop/` | Develop | Solution exploration | 4 |
-| `skills/deliver/` | Deliver | Specification & shipping | 5 |
-| `skills/measure/` | Measure | Validation & data | 4 |
-| `skills/iterate/` | Iterate | Learning & improvement | 4 |
+Examples: `discover-competitive-analysis`, `define-hypothesis`, `deliver-prd`, `measure-experiment-results`.
 
 ### Skill Structure
 
 Each skill follows the [Agent Skills Specification](https://agentskills.io/specification):
 
 ```
-skills/{phase}/{skill-name}/
+skills/{phase}-{skill-name}/
 ├── SKILL.md              # Instructions for AI (required)
 └── references/
     ├── TEMPLATE.md       # Output structure (required)
@@ -59,55 +52,55 @@ skills/{phase}/{skill-name}/
 
 | Skill | Purpose |
 |-------|---------|
-| `interview-synthesis/` | Turn user research into actionable insights |
-| `competitive-analysis/` | Map market landscape and find opportunities |
-| `stakeholder-summary/` | Understand stakeholder needs and concerns |
+| `discover-interview-synthesis` | Turn user research into actionable insights |
+| `discover-competitive-analysis` | Map market landscape and find opportunities |
+| `discover-stakeholder-summary` | Understand stakeholder needs and concerns |
 
 #### Define Phase (4 skills)
 
 | Skill | Purpose |
 |-------|---------|
-| `problem-statement/` | Crystal-clear problem framing |
-| `hypothesis/` | Testable assumptions with success metrics |
-| `opportunity-tree/` | Teresa Torres-style outcome mapping |
-| `jtbd-canvas/` | Jobs to be Done framework |
+| `define-problem-statement` | Crystal-clear problem framing |
+| `define-hypothesis` | Testable assumptions with success metrics |
+| `define-opportunity-tree` | Teresa Torres-style outcome mapping |
+| `define-jtbd-canvas` | Jobs to be Done framework |
 
 #### Develop Phase (4 skills)
 
 | Skill | Purpose |
 |-------|---------|
-| `solution-brief/` | One-page solution pitch |
-| `spike-summary/` | Document technical explorations |
-| `adr/` | Architecture Decision Records (Nygard format) |
-| `design-rationale/` | Capture design choice reasoning |
+| `develop-solution-brief` | One-page solution pitch |
+| `develop-spike-summary` | Document technical explorations |
+| `develop-adr` | Architecture Decision Records (Nygard format) |
+| `develop-design-rationale` | Capture design choice reasoning |
 
 #### Deliver Phase (5 skills)
 
 | Skill | Purpose |
 |-------|---------|
-| `prd/` | Comprehensive product requirements document |
-| `user-stories/` | INVEST-compliant stories with acceptance criteria |
-| `edge-cases/` | Error states, boundaries, recovery paths |
-| `launch-checklist/` | Pre-launch verification checklist |
-| `release-notes/` | User-facing release communication |
+| `deliver-prd` | Comprehensive product requirements document |
+| `deliver-user-stories` | INVEST-compliant stories with acceptance criteria |
+| `deliver-edge-cases` | Error states, boundaries, recovery paths |
+| `deliver-launch-checklist` | Pre-launch verification checklist |
+| `deliver-release-notes` | User-facing release communication |
 
 #### Measure Phase (4 skills)
 
 | Skill | Purpose |
 |-------|---------|
-| `experiment-design/` | Rigorous A/B test planning |
-| `instrumentation-spec/` | Event tracking requirements |
-| `dashboard-requirements/` | Analytics dashboard specifications |
-| `experiment-results/` | Document learnings from experiments |
+| `measure-experiment-design` | Rigorous A/B test planning |
+| `measure-instrumentation-spec` | Event tracking requirements |
+| `measure-dashboard-requirements` | Analytics dashboard specifications |
+| `measure-experiment-results` | Document learnings from experiments |
 
 #### Iterate Phase (4 skills)
 
 | Skill | Purpose |
 |-------|---------|
-| `retrospective/` | Team retrospectives that drive action |
-| `lessons-log/` | Build organizational memory |
-| `refinement-notes/` | Capture backlog refinement outcomes |
-| `pivot-decision/` | Evidence-based pivot/persevere framework |
+| `iterate-retrospective` | Team retrospectives that drive action |
+| `iterate-lessons-log` | Build organizational memory |
+| `iterate-refinement-notes` | Capture backlog refinement outcomes |
+| `iterate-pivot-decision` | Evidence-based pivot/persevere framework |
 
 ---
 
@@ -117,9 +110,9 @@ Contains Claude Code slash command definitions. Each `.md` file maps a `/command
 
 ```
 commands/
-├── prd.md                    # /prd → skills/deliver/prd
-├── hypothesis.md             # /hypothesis → skills/define/hypothesis
-├── user-stories.md           # /user-stories → skills/deliver/user-stories
+├── prd.md                    # /prd → skills/deliver-prd
+├── hypothesis.md             # /hypothesis → skills/define-hypothesis
+├── user-stories.md           # /user-stories → skills/deliver-user-stories
 ├── kickoff.md                # /kickoff → _bundles/feature-kickoff
 └── ... (25 total)
 ```
@@ -242,7 +235,7 @@ This directory helps AI assistants maintain context across sessions. Not require
 | `SKILL.md` | Skill instruction file (always uppercase) |
 | `TEMPLATE.md` | Output template (always uppercase) |
 | `EXAMPLE.md` | Example output (always uppercase) |
-| `_prefix/` | Underscore prefix for "meta" directories (_bundles, _NOTES) |
+| `_prefix/` | Underscore prefix for meta directories (e.g., `_bundles/`) |
 
 ---
 

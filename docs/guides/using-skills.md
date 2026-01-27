@@ -968,7 +968,7 @@ Friday:    /retrospective (team reflection)
 
 ## See Also
 
-- [Getting Started](../reference/getting-started.md) — Installation and setup
+- [Getting Started](../getting-started.md) — Installation and setup
 - [Categories Reference](../reference/categories.md) — Skill organization
 - [Workflow Bundles](../../_bundles/) — Pre-built workflows
 

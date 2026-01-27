@@ -10,7 +10,7 @@ This workflow uses multiple skills in sequence. For each step, read the skill in
 
 ### Step 1: Problem Statement
 
-Use the `problem-statement` skill from `skills/define/problem-statement/SKILL.md`.
+Use the `define-problem-statement` skill from `skills/define-problem-statement/SKILL.md`.
 
 Create a clear problem framing document that defines:
 - What problem are we solving?
@@ -19,7 +19,7 @@ Create a clear problem framing document that defines:
 
 ### Step 2: Hypothesis
 
-Use the `hypothesis` skill from `skills/define/hypothesis/SKILL.md`.
+Use the `define-hypothesis` skill from `skills/define-hypothesis/SKILL.md`.
 
 Based on the problem statement, create a testable hypothesis:
 - What do we believe will solve the problem?
@@ -27,7 +27,7 @@ Based on the problem statement, create a testable hypothesis:
 
 ### Step 3: PRD
 
-Use the `prd` skill from `skills/deliver/prd/SKILL.md`.
+Use the `deliver-prd` skill from `skills/deliver-prd/SKILL.md`.
 
 Create a Product Requirements Document that specifies:
 - What we're building
@@ -37,7 +37,7 @@ Create a Product Requirements Document that specifies:
 
 ### Step 4: User Stories
 
-Use the `user-stories` skill from `skills/deliver/user-stories/SKILL.md`.
+Use the `deliver-user-stories` skill from `skills/deliver-user-stories/SKILL.md`.
 
 Break the PRD into implementable user stories:
 - Each story follows INVEST criteria
