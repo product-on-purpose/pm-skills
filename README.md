@@ -127,6 +127,30 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - The release ZIP ships only `.claude/pm-skills-for-claude.md`; the sync helper creates the rest locally. Keep `.claude/` untracked.
 
 </details>
+<details>
+<summary>Flat skills layout + command realignment</summary>
+
+- All 24 skills live at `skills/{phase-skill}/`.
+- Every slash command points to the flat path (no nested phase folders).
+- Bundles updated to reference the new paths.
+
+</details>
+<details>
+<summary>Reproducible builds</summary>
+
+- `scripts/build-release.(sh|ps1)` packages `pm-skills-v2.0.zip` + SHA256.
+- `scripts/validate-commands.(sh|ps1)` ensures commands reference valid skills/templates/examples.
+- Release workflow uploads ZIP + hash automatically on tag push.
+
+</details>
+<details>
+<summary>Docs refresh</summary>
+
+- README/QUICKSTART/AGENTS/bundles/guides reference flat paths.
+- Skill templates relocated to `docs/templates/skill-template/` with updated links.
+- Added project-structure and release notes updates for 2.0.1 tidy-up.
+
+</details>
 
 ---
 
@@ -241,6 +265,8 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
 | **Updates** | `git pull` | `npm update pm-skills-mcp` |
 
+> Note: pm-skills-mcp v1.x targets the legacy nested layout; a v2.1 refresh (flat-layout parity) is in progress.
+
 **Use `pm-skills` (this repo) when:**
 - You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)
 - You want to browse, read, and customize skill files directly
@@ -271,6 +297,8 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 **Need platform-specific instructions?** See [Quick Start by Platform](#quick-start-by-platform) below.
 
 **Want a detailed walkthrough?** Check our [Getting Started Guide](docs/getting-started.md).
+
+**Docs navigation:** Quickest: this README’s Quick Start or `QUICKSTART.md` in the repo/release ZIP. Detailed: `docs/getting-started.md` (long-form).
 
 ### Installation Options
 
@@ -610,18 +638,18 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 
 ```
 pm-skills/
-├── skills/                   # 24 PM skills (flat: discover-*, define-*, develop-*, deliver-*, measure-*, iterate-*)
-├── commands/                 # Claude Code slash commands (25 total)
-├── _bundles/                 # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
-├── scripts/                  # sync-claude.(sh|ps1), build-release.(sh|ps1)
-├── docs/                     # Documentation
-│   ├── getting-started.md    # Setup guide
-│   ├── guides/               # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
-│   └── reference/            # Technical specs (categories.md, ecosystem.md, project-structure.md)
-├── templates/                # Skill creation templates
-├── AGENTS.md                 # Universal agent discovery file
-├── CONTRIBUTING.md           # Contribution guidelines
-└── CHANGELOG.md              # Version history
+├── skills/                     # 24 PM skills (flat: discover-*, define-*, develop-*, deliver-*, measure-*, iterate-*)
+├── commands/                   # Slash commands (25) mapping to skills/bundles
+├── _bundles/                   # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
+├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)
+├── docs/                       # Documentation and guides
+│   ├── getting-started.md      # Setup guide
+│   ├── guides/                 # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
+│   ├── reference/              # Technical specs (categories.md, ecosystem.md, project-structure.md)
+│   └── templates/              # Skill template (SKILL.md, TEMPLATE.md, EXAMPLE.md)
+├── AGENTS.md                   # Universal agent discovery file
+├── CONTRIBUTING.md             # Contribution guidelines
+└── CHANGELOG.md                # Version history
 ```
 
 See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions.
@@ -653,7 +681,13 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] Slash commands for Claude Code
 - [x] Apache 2.0 license for commercial use
 - [x] openskills CLI support ([#48](https://github.com/numman-ali/openskills/issues/48) resolved in v1.3.1)
-- [x] pm-skills-mcp package (v1 release here! https://github.com/product-on-purpose/pm-skills-mcp)
+- [x] pm-skills-mcp package (v1 release here! https://github.com/product-on-purpose/pm-skills-mcp) — note: v1.x is outdated; v2.1 (flat-layout parity) in progress.
+
+**In Progress**
+- Project support utilities
+- `/common` shared snippets
+- `/update-doc` helper flow
+- `/link-docs` helper flow
 
 #### Backlog / Considering
 
@@ -836,7 +870,7 @@ Have ideas for making PM-Skills even better? Here are some ways to contribute an
 **Skill Contributions**
 
 - Check out our [authoring guide](docs/guides/authoring-pm-skills.md) to create your own skills
-- Review the [skill template](templates/skill-template/) for the expected structure
+- Review the [skill template](docs/templates/skill-template/) for the expected structure
 
 **Spread the Word**
 

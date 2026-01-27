@@ -916,9 +916,9 @@ Skills should work globally:
 
 ### Templates
 
-Start with the [skill template](../../templates/skill-template/):
+Start with the [skill template](../templates/skill-template/):
 ```
-templates/skill-template/
+docs/templates/skill-template/
 ├── SKILL.md
 └── references/
     ├── TEMPLATE.md
@@ -945,7 +945,7 @@ templates/skill-template/
 Ready to create a skill? Here's the fast path:
 
 1. [ ] Open "Request a Skill" issue → wait for approval
-2. [ ] Copy `templates/skill-template/` to `skills/<name>/`
+2. [ ] Copy `docs/templates/skill-template/` to `skills/<name>/`
 3. [ ] Write SKILL.md with frontmatter, instructions, checklist
 4. [ ] Create TEMPLATE.md matching your instruction steps
 5. [ ] Write complete EXAMPLE.md (no placeholders!)

@@ -242,7 +242,7 @@ pm-skills/
   - Built full directory structure with .gitkeep files
   - Created `docs/frontmatter-schema.yaml`
   - Created `docs/categories.md`
-  - Created `templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md
+  - Created `docs/templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md
   - Verified VISION.md at `(internal-notes)/VISION.md`
   - GitHub issues #1-9 closed (plan review fixes)
 

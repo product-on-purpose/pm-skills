@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Nothing yet.
 
+## [2.0.1] - 2026-01-27
+
+### Changed
+- Moved skill templates to `docs/templates/` and updated references (authoring guide, README, project-structure, AGENTS context).
+- README refresh: expanded v2.0 highlights, updated project structure tree, roadmap in-progress items, note that pm-skills-mcp v1.x is outdated (v2.1 underway).
+- `docs/reference/project-structure.md` now has a table of contents, updated directory tree, full commands list, and template path.
+
+### Added
+- Noted command validator scripts in project structure/README.
+
 ## [2.0.0] - 2026-01-26
 
 ### Breaking
@@ -265,7 +275,7 @@ This release marks the completion of all 24 PM skills across the entire product 
   - Full directory structure (`skills/`, `_bundles/`, `docs/`, `templates/`, `commands/`)
   - Schema documentation (`_docs/frontmatter-schema.yaml`)
   - Category reference (`_docs/categories.md`)
-  - Skill template structure (`_templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md)
+- Skill template structure (`docs/templates/skill-template/` with SKILL.md, TEMPLATE.md, EXAMPLE.md)
 - wrap-session skill for end-of-session documentation workflow
 
 ### Changed

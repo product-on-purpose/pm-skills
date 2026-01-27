@@ -1330,7 +1330,7 @@ See `references/EXAMPLE.md` for a completed example.
 
 ### Template: The Canonical Template
 
-**Link**: [templates/skill-template/SKILL.md](../templates/skill-template/SKILL.md)
+**Link**: [docs/templates/skill-template/SKILL.md](../templates/skill-template/SKILL.md)
 
 **What to customize**:
 

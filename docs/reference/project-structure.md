@@ -1,4 +1,18 @@
 # Project Structure
+# Project Structure
+
+## Table of Contents
+- [Directory Overview](#directory-overview)
+- [/skills/ — Skills](#skillsskills--the-24-pm-skills-flat)
+- [/commands/ — Slash Commands](#commands--slash-commands)
+- [/bundles/ — Workflow Bundles](#bundles--workflow-bundles)
+- [/docs/ — Documentation](#docs--documentation)
+- [/templates/ — Skill Templates](#templates--skill-templates)
+- [/AGENTS/ — AI Agent Context](#agents--ai-agent-context)
+- [/.github/ — GitHub Configuration](#github--github-configuration)
+- [Root Files](#root-files)
+- [File Naming Conventions](#file-naming-conventions)
+- [Related Documentation](#related-documentation)
 
 This document provides a comprehensive overview of the PM-Skills repository structure. For a quick overview, see the [README.md](../../README.md#project-structure).
 
@@ -6,14 +20,14 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                   # Core PM skills (24 total, flat)
-├── commands/                 # Claude Code slash commands
-├── _bundles/                 # Workflow bundles
-├── docs/                     # Documentation
-├── templates/                # Skill creation templates
-├── AGENTS/                   # AI agent session context
-├── .github/                  # GitHub configuration
-└── [root files]              # README, LICENSE, etc.
+├── skills/                     # Core PM skills (24 total, flat)
+├── commands/                   # Claude Code slash commands
+├── _bundles/                   # Workflow bundles
+├── docs/                       # Documentation (incl. templates)
+│   └── templates/              # Skill creation templates
+├── AGENTS/                     # AI agent session context
+├── .github/                    # GitHub configuration
+└── [root files]                # README, LICENSE, etc.
 ```
 
 ---
@@ -106,18 +120,36 @@ skills/{phase}-{skill-name}/
 
 ## `/commands/` — Slash Commands
 
-Contains Claude Code slash command definitions. Each `.md` file maps a `/command` to its corresponding skill.
+Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or bundle).
 
-```
-commands/
-├── prd.md                    # /prd → skills/deliver-prd
-├── hypothesis.md             # /hypothesis → skills/define-hypothesis
-├── user-stories.md           # /user-stories → skills/deliver-user-stories
-├── kickoff.md                # /kickoff → _bundles/feature-kickoff
-└── ... (25 total)
-```
-
-**Total commands:** 25 (24 skill commands + 1 bundle command)
+**Commands (25 total)**
+| Command | Target skill/bundle |
+| --- | --- |
+| `/competitive-analysis` | discover-competitive-analysis |
+| `/interview-synthesis` | discover-interview-synthesis |
+| `/stakeholder-summary` | discover-stakeholder-summary |
+| `/problem-statement` | define-problem-statement |
+| `/hypothesis` | define-hypothesis |
+| `/opportunity-tree` | define-opportunity-tree |
+| `/jtbd-canvas` | define-jtbd-canvas |
+| `/adr` | develop-adr |
+| `/design-rationale` | develop-design-rationale |
+| `/solution-brief` | develop-solution-brief |
+| `/spike-summary` | develop-spike-summary |
+| `/prd` | deliver-prd |
+| `/user-stories` | deliver-user-stories |
+| `/edge-cases` | deliver-edge-cases |
+| `/launch-checklist` | deliver-launch-checklist |
+| `/release-notes` | deliver-release-notes |
+| `/dashboard-requirements` | measure-dashboard-requirements |
+| `/experiment-design` | measure-experiment-design |
+| `/experiment-results` | measure-experiment-results |
+| `/instrumentation-spec` | measure-instrumentation-spec |
+| `/lessons-log` | iterate-lessons-log |
+| `/pivot-decision` | iterate-pivot-decision |
+| `/refinement-notes` | iterate-refinement-notes |
+| `/retrospective` | iterate-retrospective |
+| `/kickoff` | feature-kickoff bundle |
 
 ---
 
@@ -159,12 +191,12 @@ docs/
 
 ---
 
-## `/templates/` — Skill Templates
+## `/docs/templates/` — Skill Templates
 
 Starter templates for creating new skills.
 
 ```
-templates/
+docs/templates/
 └── skill-template/
     ├── SKILL.md              # Template with placeholders
     ├── TEMPLATE.md           # Output structure template
