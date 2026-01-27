@@ -49,3 +49,7 @@ AGENTS/*/TODO.md
 AGENTS/*/PLANNING/
 AGENTS/codex-5.2/
 .github/scripts/node_modules/
+
+# Local convenience
+.favorites.json
+AGENTS/DECISIONS.md
