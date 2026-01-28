@@ -198,7 +198,9 @@ Consult your MCP client's documentation for specific configuration syntax.
 
 ## Tool Inventory
 
-PM-Skills MCP provides **35 tools** organized into three categories.
+PM-Skills MCP v2.1+ provides **36 tools** organized into three categories (24 skills + 5 workflows + 7 utilities).
+
+> **Note:** pm-skills-mcp v2.1.0 is aligned with the pm-skills v2.x flat structure. Resource URIs are now flat (`pm-skills://skills/{skill}`) with phase available in metadata.
 
 ### Skill Tools (24)
 

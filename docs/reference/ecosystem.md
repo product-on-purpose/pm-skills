@@ -342,11 +342,19 @@ git merge upstream/main
 
 ## Version Compatibility
 
-| PM-Skills Version | PM-Skills MCP Version | Notes |
-|-------------------|----------------------|-------|
-| v1.2.x | v1.0.x | Current stable |
-| v1.1.x | v1.0.x | Compatible |
-| v1.0.x | v1.0.x | Compatible |
+| PM-Skills Version | PM-Skills MCP Version | Compatibility |
+|-------------------|----------------------|---------------|
+| v2.1.0+ | v2.1.0+ | **Full alignment** — flat structure, frontmatter-based phase |
+| v2.0.x | v1.1.0 | Partial — nested MCP, flat pm-skills |
+| v1.2.x | v1.0.x | Legacy stable |
+| v1.1.x | v1.0.x | Legacy compatible |
+| v1.0.x | v1.0.x | Legacy compatible |
+
+**v2.1 Alignment Notes:**
+- pm-skills-mcp v2.1+ reads phase from SKILL.md frontmatter (not directory path)
+- Resource URIs are now flat: `pm-skills://skills/{skill}` (phase in metadata)
+- Tool names remain stable: `pm_prd`, `pm_hypothesis`, etc.
+- Custom `PM_SKILLS_PATH` works with any pm-skills v2.x structure
 
 **Compatibility Notes:**
 - PM-Skills MCP embeds a snapshot of pm-skills at build time
