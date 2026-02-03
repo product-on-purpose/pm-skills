@@ -1,6 +1,6 @@
 name: Feature Request
 description: Suggest a new skill or enhancement
-title: "[Feature]: "
+title: "[Feature] "
 labels: ["enhancement"]
 body:
   - type: textarea
