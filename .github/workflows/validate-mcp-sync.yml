@@ -1,0 +1,51 @@
+name: Validate MCP Sync
+
+on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - "commands/**"
+      - ".github/scripts/validate-mcp-sync.js"
+      - ".github/workflows/validate-mcp-sync.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "skills/**"
+      - "commands/**"
+      - ".github/scripts/validate-mcp-sync.js"
+      - ".github/workflows/validate-mcp-sync.yml"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Validation mode: observe or block"
+        required: false
+        default: "observe"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pm-skills
+        uses: actions/checkout@v4
+        with:
+          path: pm-skills
+
+      - name: Checkout pm-skills-mcp
+        uses: actions/checkout@v4
+        with:
+          repository: product-on-purpose/pm-skills-mcp
+          path: pm-skills-mcp
+
+      - name: Embed skills snapshot in pm-skills-mcp for comparison
+        run: node pm-skills-mcp/scripts/embed-skills.js ./pm-skills/skills
+
+      - name: Validate sync status (observe-only default)
+        env:
+          PM_SKILLS_PATH: ./pm-skills
+          PM_SKILLS_MCP_PATH: ./pm-skills-mcp
+          VALIDATE_MCP_SYNC_MODE: ${{ github.event.inputs.mode || 'observe' }}
+        run: node pm-skills/.github/scripts/validate-mcp-sync.js
