@@ -1,6 +1,6 @@
 # v2.2.0 Checklist - Guardrails and Governance
 
-Status: In progress  
+Status: Shipped
 Release type: Minor
 
 ## Scope

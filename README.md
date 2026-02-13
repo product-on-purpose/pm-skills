@@ -137,8 +137,8 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - Established canonical backlog governance:
   - `docs/internal/backlog-canonical.md`
 - Added explicit release execution/checklists:
-  - `docs/releases/Release_v2.2_to_v2.5_execution-plan.md`
-  - `docs/releases/checklist_v2.2.0.md` through `docs/releases/checklist_v2.5.0.md`
+  - `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`
+  - `docs/internal/release-planning/checklist_v2.2.0.md` through `docs/internal/release-planning/checklist_v2.5.0.md`
 
 </details>
 <details>

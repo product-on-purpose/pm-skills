@@ -18,7 +18,7 @@ Superseded backlog files:
 When backlog items change:
 1. Update only the canonical backlog file.
 2. Keep superseded files read-only with redirect headers.
-3. Reflect release-ready changes in `docs/releases/*.md` and `CHANGELOG.md`.
+3. Reflect forward release plans/checklists in `docs/internal/release-planning/*.md` and release-ready outcomes in `docs/releases/*.md` and `CHANGELOG.md`.
 
 ## Release Cadence Anchors
 

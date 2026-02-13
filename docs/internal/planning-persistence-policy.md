@@ -14,14 +14,14 @@ Define which planning artifacts are durable (tracked in git) versus local/epheme
 - `AGENTS/DECISIONS.md`
 - `AGENTS/*/CONTEXT.md`
 - `AGENTS/*/DECISIONS.md`
-- `docs/releases/*.md`
+- `docs/releases/*.md` (shipped release notes and post-ship reviews)
+- `docs/internal/release-planning/*.md` (forward execution plans and release checklists)
 - `CHANGELOG.md`
 
 ### Tier 2: Working-state local artifacts (ignored)
 - `AGENTS/*/SESSION-LOG/**`
 - `AGENTS/*/TODO.md`
 - `AGENTS/*/PLANNING/**`
-- `AGENTS/codex-5.2/**` (temporary historical workspace exception)
 
 ### Tier 3: Local notes and scratch (ignored)
 - `_NOTES/**`

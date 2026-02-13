@@ -21,11 +21,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Canonical backlog governance reference: `docs/internal/backlog-canonical.md`
 - Release execution artifacts:
   - `docs/releases/Release_v2.2.md`
-  - `docs/releases/Release_v2.2_to_v2.5_execution-plan.md`
-  - `docs/releases/checklist_v2.2.0.md`
-  - `docs/releases/checklist_v2.3.0.md`
-  - `docs/releases/checklist_v2.4.0.md`
-  - `docs/releases/checklist_v2.5.0.md`
+  - `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`
+  - `docs/internal/release-planning/checklist_v2.2.0.md`
+  - `docs/internal/release-planning/checklist_v2.3.0.md`
+  - `docs/internal/release-planning/checklist_v2.4.0.md`
+  - `docs/internal/release-planning/checklist_v2.5.0.md`
 
 ### Changed
 - `CONTRIBUTING.md`: added MCP sync guardrail guidance for contributors.

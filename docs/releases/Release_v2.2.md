@@ -25,8 +25,8 @@ It does not add new PM skills. It improves trust, drift detection, and execution
 - supersession pointers in local backlog notes (`_NOTES/**`)
 
 4. Release sequencing documentation:
-- `docs/releases/Release_v2.2_to_v2.5_execution-plan.md`
-- `docs/releases/checklist_v2.2.0.md` to `docs/releases/checklist_v2.5.0.md`
+- `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`
+- `docs/internal/release-planning/checklist_v2.2.0.md` to `docs/internal/release-planning/checklist_v2.5.0.md`
 
 ## What This Means
 

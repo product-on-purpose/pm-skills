@@ -18,7 +18,7 @@ v2.2.0 is a well-scoped governance release that delivers on its three stated obj
 
 ## 1. Scope Adherence
 
-### What was promised (from `checklist_v2.2.0.md`)
+### What was promised (from `docs/internal/release-planning/checklist_v2.2.0.md`)
 
 | Item | Scope | Delivered? |
 |------|-------|-----------|
@@ -106,7 +106,7 @@ v2.2.0 is a well-scoped governance release that delivers on its three stated obj
 **Issues:**
 1. **Canonical file is in `_NOTES/` (gitignored).** The designated canonical backlog is at `_NOTES/efforts/backlog/backlog_codex_2026-02-02_...md`, which is in the `_NOTES/` directory — a Tier 3 ignored path. This means external contributors and collaborators cannot access the canonical backlog. The governance document itself is tracked (`docs/internal/`), but the artifact it points to is not. **Severity: Medium** — this is internally consistent with the planning persistence policy (backlogs are working-state), but "canonical" implies durability that "gitignored" contradicts. The operating rule compensates ("reflect release-ready changes in `docs/releases/*.md`"), but the naming creates cognitive dissonance.
 
-### 2.7 Release Execution Plan (`docs/releases/Release_v2.2_to_v2.5_execution-plan.md`)
+### 2.7 Release Execution Plan (`docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`)
 
 **Strengths:**
 - Excellent dependency-safe sequencing across four releases
@@ -117,7 +117,7 @@ v2.2.0 is a well-scoped governance release that delivers on its three stated obj
 **Issues:**
 - None significant. This is one of the strongest artifacts in the release.
 
-### 2.8 Release Checklists (`checklist_v2.2.0.md` through `checklist_v2.5.0.md`)
+### 2.8 Release Checklists (`docs/internal/release-planning/checklist_v2.2.0.md` through `docs/internal/release-planning/checklist_v2.5.0.md`)
 
 **Strengths:**
 - Consistent format across all four checklists
