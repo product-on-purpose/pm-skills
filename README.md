@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.0.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.2.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-24-skills">
     <img src="https://img.shields.io/badge/skills-24-brightgreen.svg?style=flat-square" alt="Skills">
@@ -118,7 +118,38 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 ---
 
-**What's New (v2.0)**
+**What's New (v2.2)**
+<details>
+<summary>Cross-repo MCP drift guardrail (observe-first)</summary>
+
+- Added `.github/workflows/validate-mcp-sync.yml` to detect `pm-skills` vs `pm-skills-mcp` skill drift.
+- Added `.github/scripts/validate-mcp-sync.js` with actionable mismatch output and manual sync checklist.
+- Default mode is `observe` for v2.2.0; planned switch to `block` after MCP alignment closure in v2.3.0.
+- See `docs/guides/validate-mcp-sync.md` for rollout and troubleshooting.
+
+</details>
+<details>
+<summary>Governance and release execution clarity</summary>
+
+- Added planning persistence policy and tier map:
+  - `docs/internal/planning-persistence-policy.md`
+  - `docs/internal/planning-artifact-tier-map.md`
+- Established canonical backlog governance:
+  - `docs/internal/backlog-canonical.md`
+- Added explicit release execution/checklists:
+  - `docs/releases/Release_v2.2_to_v2.5_execution-plan.md`
+  - `docs/releases/checklist_v2.2.0.md` through `docs/releases/checklist_v2.5.0.md`
+
+</details>
+<details>
+<summary>v2.0 compatibility baseline remains in place</summary>
+
+- Flat skills layout (`skills/{phase-skill}/`) and command realignment remain the canonical structure.
+- Sync helper, release packaging, and command validation workflow remain unchanged.
+
+</details>
+<details>
+<summary>Previous v2.0 details</summary>
 <details>
 <summary>Sync helper for discovery (.claude/)</summary>
 
@@ -151,6 +182,7 @@ See `scripts/README_SCRIPTS.md` for script usage, FAQs, and troubleshooting.
 - Skill templates relocated to `docs/templates/skill-template/` with updated links.
 - Added project-structure and release notes updates for 2.0.1 tidy-up.
 
+</details>
 </details>
 
 ---
@@ -441,8 +473,10 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
+- **Latest stable:** `v2.2.0` (guardrails + governance baseline)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
+Release notes are published in `docs/releases/` (for example, `docs/releases/Release_v2.2.md`).
 
 [![Download Latest](https://img.shields.io/github/v/release/product-on-purpose/pm-skills?style=for-the-badge&label=Download&color=brightgreen)](https://github.com/product-on-purpose/pm-skills/releases/latest)
 
@@ -643,6 +677,7 @@ pm-skills/
 ├── commands/                   # Slash commands (25) mapping to skills/bundles
 ├── _bundles/                   # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
 ├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)
+├── .github/                    # CI workflows + automation scripts (validate-mcp-sync)
 ├── docs/                       # Documentation and guides
 │   ├── getting-started.md      # Setup guide
 │   ├── guides/                 # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
@@ -660,6 +695,8 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **2.2.0** | 2026-02-13 | MCP drift guardrail (observe mode), planning/backlog governance, release execution checklists |
+| **2.1.0** | 2026-01-27 | MCP alignment milestone documentation update                             |
 | **2.0.0** | 2026-01-26 | Flat `skills/{phase-skill}/`, sync helpers, build scripts, docs refresh |
 | **1.2.0** | 2026-01-20 | Security policy, CodeQL scanning, Dependabot, issue/PR templates        |
 | **1.1.1** | 2026-01-20 | openskills#48 fix verified, CODE_OF_CONDUCT, open-skills submissions    |
@@ -682,7 +719,8 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] Slash commands for Claude Code
 - [x] Apache 2.0 license for commercial use
 - [x] openskills CLI support ([#48](https://github.com/numman-ali/openskills/issues/48) resolved in v1.3.1)
-- [x] pm-skills-mcp package (v1 release here! https://github.com/product-on-purpose/pm-skills-mcp) — note: v1.x is outdated; v2.1 (flat-layout parity) in progress.
+- [x] pm-skills-mcp package (https://github.com/product-on-purpose/pm-skills-mcp) with v2.1 compatibility milestone documented
+- [x] v2.2 guardrails release: observe-first cross-repo sync validation + planning/backlog governance
 
 **In Progress**
 - Project support utilities

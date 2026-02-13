@@ -43,10 +43,15 @@ _NOTES/
 dist/
 
 # Agent working files
-# Note: CONTEXT.md and DECISIONS.md are intentionally tracked for continuity
+# Planning persistence policy: docs/internal/planning-persistence-policy.md
+# Durable files are tracked; high-churn working logs and drafts are ignored.
 AGENTS/*/SESSION-LOG/
 AGENTS/*/TODO.md
 AGENTS/*/PLANNING/
+!AGENTS/*/CONTEXT.md
+!AGENTS/*/DECISIONS.md
+!AGENTS/DECISIONS.md
+# Temporary exception: historical codex-5.2 workspace remains local-only.
 AGENTS/codex-5.2/
 .github/scripts/node_modules/
 
