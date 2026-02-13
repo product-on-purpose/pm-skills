@@ -31,18 +31,21 @@ Non-goals:
 
 ## Release 2 - v2.3.0 - MCP Alignment Closure
 
+Status:
+1. Completed (2026-02-13)
+
 Scope:
 1. Execute and close `B-01` using:
-   - `_NOTES/current-state/gpt/B-01a-alignment-checklist.md`
-   - `_NOTES/current-state/gpt/B-01b-evidence-report.md`
-   - `_NOTES/current-state/gpt/B-01c-closure-decision.md`
-   - `_NOTES/current-state/gpt/B-01d-gap-register.md` (if needed)
+   - `_NOTES/delivery-plan/B-01a-alignment-checklist.md`
+   - `_NOTES/delivery-plan/B-01b-evidence-report.md`
+   - `_NOTES/delivery-plan/B-01c-closure-decision.md`
+   - `_NOTES/delivery-plan/B-01d-gap-register.md` (if needed)
 2. Switch `validate-mcp-sync` to blocking mode.
 
 Exit criteria:
-1. `B-01` closure state is explicit: `closed-aligned` or `closed-with-gaps`.
-2. Critical/high gaps are fixed or explicitly accepted with owner + target release.
-3. Drift workflow blocks on mismatch.
+1. `B-01` closure state is explicit: `closed-aligned`.
+2. Critical/high gaps were fixed on pinned refs.
+3. Drift workflow now blocks on mismatch by default.
 
 ## Release 3 - v2.4.0 - Contract Lock
 

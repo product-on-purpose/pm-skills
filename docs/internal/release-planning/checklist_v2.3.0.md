@@ -1,13 +1,13 @@
 # v2.3.0 Checklist - MCP Alignment Closure
 
-Status: Planned  
+Status: Shipped
 Release type: Minor
 
 ## Scope
-- [ ] B-01 closure using `B-01a`/`B-01b`/`B-01c` (`B-01d` if needed)
-- [ ] B-02 phase 2 (`validate-mcp-sync` block mode)
+- [x] B-01 closure using `B-01a`/`B-01b`/`B-01c` (`B-01d` optional if gaps remained)
+- [x] B-02 phase 2 (`validate-mcp-sync` block mode)
 
 ## Exit Criteria
-- [ ] B-01 closure state recorded: `closed-aligned` or `closed-with-gaps`.
-- [ ] All critical/high gaps remediated or explicitly accepted with owners and target release.
-- [ ] `validate-mcp-sync` blocks on mismatch and provides actionable failure output.
+- [x] B-01 closure state recorded: `closed-aligned`.
+- [x] Critical/high gaps from earlier verification cycle remediated on pinned refs.
+- [x] `validate-mcp-sync` blocks on mismatch and provides actionable failure output.

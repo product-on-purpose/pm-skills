@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.2.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.3.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-24-skills">
     <img src="https://img.shields.io/badge/skills-24-brightgreen.svg?style=flat-square" alt="Skills">
@@ -118,13 +118,14 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 ---
 
-**What's New (v2.2)**
+**What's New (v2.3)**
 <details>
-<summary>Cross-repo MCP drift guardrail (observe-first)</summary>
+<summary>Cross-repo MCP drift guardrail (blocking-default)</summary>
 
-- Added `.github/workflows/validate-mcp-sync.yml` to detect `pm-skills` vs `pm-skills-mcp` skill drift.
-- Added `.github/scripts/validate-mcp-sync.js` with actionable mismatch output and manual sync checklist.
-- Default mode is `observe` for v2.2.0; planned switch to `block` after MCP alignment closure in v2.3.0.
+- `validate-mcp-sync` guardrail remains active for `pm-skills` vs `pm-skills-mcp` skill drift checks.
+- Drift check output remains actionable and includes the manual sync checklist.
+- Default mode is `block` in `v2.3.0`; manual runs can still use `mode=observe`.
+- MCP alignment closure (`B-01`) is now recorded as `closed-aligned` on pinned refs.
 - See `docs/guides/validate-mcp-sync.md` for rollout and troubleshooting.
 
 </details>
@@ -695,6 +696,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **2.3.0** | 2026-02-13 | MCP alignment closure (`B-01`) + blocking default sync guardrail (`B-02` phase 2) |
 | **2.2.0** | 2026-02-13 | MCP drift guardrail (observe mode), planning/backlog governance, release execution checklists |
 | **2.1.0** | 2026-01-27 | MCP alignment milestone documentation update                             |
 | **2.0.0** | 2026-01-26 | Flat `skills/{phase-skill}/`, sync helpers, build scripts, docs refresh |
