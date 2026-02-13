@@ -298,7 +298,7 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
 | **Updates** | `git pull` | `npm update pm-skills-mcp` |
 
-> Note: pm-skills-mcp v1.x targets the legacy nested layout; a v2.1 refresh (flat-layout parity) is in progress.
+> Note: pm-skills-mcp v1.x targets the legacy nested layout; use pm-skills-mcp v2.1+ for flat-layout parity with pm-skills v2.x.
 
 **Use `pm-skills` (this repo) when:**
 - You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)

@@ -7,8 +7,8 @@ This guide explains the `validate-mcp-sync` guardrail that checks drift between 
 `validate-mcp-sync` is a validation-only check. It compares skill inventory across repos and reports mismatches with a manual sync checklist.
 
 It has two modes:
-- `observe` (default): reports mismatch but does not fail CI.
-- `block`: reports mismatch and fails CI.
+- `block` (default): reports mismatch and fails CI.
+- `observe`: reports mismatch but does not fail CI.
 
 ## Workflow
 
@@ -32,7 +32,7 @@ File: `.github/scripts/validate-mcp-sync.js`
 Environment variables:
 - `PM_SKILLS_PATH` default: `.`
 - `PM_SKILLS_MCP_PATH` default: `./pm-skills-mcp`
-- `VALIDATE_MCP_SYNC_MODE` default: `observe`
+- `VALIDATE_MCP_SYNC_MODE` default: `observe` in script, overridden to `block` in workflow
 
 The script checks:
 1. Skills present in `pm-skills` but missing in `pm-skills-mcp`
@@ -53,4 +53,4 @@ When drift is reported:
 
 Recommended rollout:
 1. Release with `observe` mode first.
-2. After MCP alignment closure (`B-01`), switch to `block` mode.
+2. After MCP alignment closure (`B-01`), switch workflow default to `block` mode (completed for `v2.3.0`).
