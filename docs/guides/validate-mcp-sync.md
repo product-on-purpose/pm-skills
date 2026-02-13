@@ -19,6 +19,12 @@ Trigger conditions:
 - Pushes to `main` that touch `skills/**` or `commands/**`
 - Manual run via `workflow_dispatch`
 
+Workflow behavior:
+1. Checkout `pm-skills`
+2. Checkout `pm-skills-mcp`
+3. Run `pm-skills-mcp/scripts/embed-skills.js` using `pm-skills/skills` as source
+4. Compare the resulting embedded skill set
+
 ## Script
 
 File: `.github/scripts/validate-mcp-sync.js`

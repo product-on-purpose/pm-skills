@@ -40,6 +40,9 @@ jobs:
           repository: product-on-purpose/pm-skills-mcp
           path: pm-skills-mcp
 
+      - name: Embed skills snapshot in pm-skills-mcp for comparison
+        run: node pm-skills-mcp/scripts/embed-skills.js ./pm-skills/skills
+
       - name: Validate sync status (observe-only default)
         env:
           PM_SKILLS_PATH: ./pm-skills

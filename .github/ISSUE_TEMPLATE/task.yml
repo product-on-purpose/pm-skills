@@ -1,0 +1,12 @@
+name: Task
+description: create a task or to do item
+title: "[Task] "
+labels: ["task"]
+body:
+  - type: textarea
+    id: details
+    attributes:
+      label: Task Details
+      description: what are the details of this task?
+    validations:
+      required: true
