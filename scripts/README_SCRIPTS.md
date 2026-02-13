@@ -16,6 +16,8 @@
 ## Overview
 The `scripts/` folder contains small utilities to keep the repo consistent, reproducible, and discoverable across AI tools. They are safe to run locally; only `build-release` writes to `dist/`.
 
+CI-only automation scripts live in `.github/scripts/` (for example, `validate-mcp-sync.js`).
+
 ## Script Catalog
 
 ### sync-claude.sh / sync-claude.ps1
@@ -61,6 +63,7 @@ The `scripts/` folder contains small utilities to keep the repo consistent, repr
 - Day-to-day: no scripts needed unless using openskills/Claude Code → run `sync-claude`.
 - Pre-release: `sync-claude` (sanity) → `validate-commands` → `build-release`.
 - CI candidate: add `validate-commands` to a lint job.
+- Cross-repo drift guardrail: use `.github/workflows/validate-mcp-sync.yml` (observe first, block later).
 
 ## FAQ
 **Q: Do I need `.claude/` populated?**  

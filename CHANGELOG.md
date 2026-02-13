@@ -7,6 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- No unreleased entries yet.
+
+## [2.2.0] - 2026-02-13
+
+### Added
+- Validation-only MCP drift checker script: `.github/scripts/validate-mcp-sync.js`
+- MCP sync workflow: `.github/workflows/validate-mcp-sync.yml` (observe-only default)
+- MCP sync usage guide: `docs/guides/validate-mcp-sync.md`
+- Planning persistence governance docs:
+  - `docs/internal/planning-persistence-policy.md`
+  - `docs/internal/planning-artifact-tier-map.md`
+- Canonical backlog governance reference: `docs/internal/backlog-canonical.md`
+- Release execution artifacts:
+  - `docs/releases/Release_v2.2.md`
+  - `docs/releases/Release_v2.2_to_v2.5_execution-plan.md`
+  - `docs/releases/checklist_v2.2.0.md`
+  - `docs/releases/checklist_v2.3.0.md`
+  - `docs/releases/checklist_v2.4.0.md`
+  - `docs/releases/checklist_v2.5.0.md`
+
+### Changed
+- `CONTRIBUTING.md`: added MCP sync guardrail guidance for contributors.
+- `scripts/README_SCRIPTS.md`: clarified `.github/scripts/` usage and drift-check rollout.
+- `docs/guides/mcp-integration.md`: linked new MCP sync validation guide.
+- `.gitignore`: aligned AGENTS ignore rules with planning persistence policy.
+
+### Release Notes
+- This release establishes guardrails and governance:
+  - `B-02` phase 1 (observe-only sync validation),
+  - `B-07` planning persistence policy baseline,
+  - `B-08` canonical backlog governance baseline.
+
 ## [2.1.0] - 2026-01-27
 
 ### Added

@@ -456,6 +456,7 @@ Point pm-skills-mcp to your own skill directory:
 - [pm-skills-mcp Getting Started Guide](https://github.com/product-on-purpose/pm-skills-mcp/blob/main/docs/getting-started.md)
 - [pm-skills-mcp Customization Guide](https://github.com/product-on-purpose/pm-skills-mcp/blob/main/docs/customization.md)
 - [PM-Skills Ecosystem Overview](../reference/ecosystem.md)
+- [MCP Sync Validation Guide](./validate-mcp-sync.md)
 
 ### Links
 
