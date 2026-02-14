@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** Post-v1.2.0 — v2.0 execution plans complete, ready for migration
-**Last Updated:** 2026-01-26
-**Release:** [v1.2.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.2.0)
-**Next Step:** Execute v2.0 migration (M1-M4: Jan 27-30) using Codex for execution, Claude for review
+**Status:** v2.3.0 shipped — MCP sync guardrail is blocking-by-default
+**Last Updated:** 2026-02-14
+**Release:** [v2.3.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.3.0)
+**Next Step:** Execute awesome-list PR submissions while preparing v2.4.0 contract-lock work (`B-03`/`B-04`)
 
 ## Project Overview
 
@@ -22,38 +22,102 @@ PM-Skills is an open source collection of Product Management skills for AI agent
 - `(internal-notes)/VISION.md` — Detailed vision document with full roadmap
 - `(internal-notes)/v1-plan/plan-v1.md` — Implementation plan with 35 issues
 
-## Architecture
+## Architecture (v2.0+ Flat Structure)
 
 ```
 pm-skills/
-├── skills/               # PM skills organized by Triple Diamond phase
-│   ├── discover/         # Research: interview-synthesis, competitive-analysis, stakeholder-summary
-│   ├── define/           # Problem framing: problem-statement, hypothesis, opportunity-tree, jtbd-canvas
-│   ├── develop/          # Solutions: solution-brief, spike-summary, adr, design-rationale
-│   ├── deliver/          # Specification: prd, user-stories, edge-cases, launch-checklist, release-notes
-│   ├── measure/          # Validation: experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
-│   └── iterate/          # Learning: retrospective, lessons-log, refinement-notes, pivot-decision
-├── _bundles/             # Workflow documentation (triple-diamond, lean-startup, feature-kickoff)
-├── docs/                 # Comprehensive documentation
-│   ├── getting-started.md # Quick setup guide
-│   ├── reference/        # Technical specs (categories.md, frontmatter-schema.yaml)
-│   ├── guides/           # How-to guides (using-skills.md, authoring-pm-skills.md)
-│   └── frameworks/       # Methodology docs (triple-diamond-delivery-process.md)
-├── templates/            # Skill creation templates
-│   └── skill-template/   # SKILL.md, TEMPLATE.md, EXAMPLE.md
-├── commands/             # Claude Code slash commands
+├── skills/               # PM skills — FLAT structure (v2.0+)
+│   ├── define-hypothesis/
+│   ├── define-problem-statement/
+│   ├── deliver-prd/
+│   ├── deliver-user-stories/
+│   └── ...               # 24 skills total: {phase}-{skill}/
+├── bundles/              # Workflow bundles (triple-diamond, lean-startup, feature-kickoff)
+├── commands/             # Claude Code slash commands (25 total)
+├── docs/                 # Documentation
+│   ├── guides/           # How-to guides
+│   ├── reference/        # Technical specs
+│   ├── frameworks/       # Methodology docs
+│   └── templates/        # Skill creation templates
+├── scripts/              # Build and validation scripts
+│   ├── build-release.sh  # Create versioned ZIP
+│   ├── sync-claude.sh    # Sync to .claude/ for discovery
+│   ├── validate-commands.sh
+│   └── lint-skills-frontmatter.sh
+├── .github/workflows/    # CI/CD
+│   ├── validation.yml    # Runs on Ubuntu + Windows
+│   ├── release.yml       # Create releases on tag
+│   └── release-zips.yml  # Package ZIP artifacts
 ├── AGENTS/               # AI agent session continuity
 │   └── claude-opus-4.5/
 │       ├── CONTEXT.md    # Project state (this file)
-│       ├── DECISIONS.md  # Technical decisions (ADR format)
-│       ├── TODO.md       # Task tracking
+│       ├── DECISIONS.md  # Technical decisions
 │       ├── SESSION-LOG/  # Session summaries
-│       └── PLANNING/     # Working collaboration artifacts
-├── AGENTS.md             # Universal agent discovery (to be generated)
-└── CONTRIBUTING.md       # Contribution guidelines
+│       └── PLANNING/     # Working artifacts
+├── AGENTS.md             # Universal agent discovery
+└── README.md, CHANGELOG.md, CONTRIBUTING.md
 ```
 
 ## Recent Work
+
+- **v2.3.0 Shipped — B-01 Closed, B-02 Blocking Mode Active** (2026-02-14)
+  - Merged release PR #103 and published tag/release `v2.3.0`
+  - Closed B-01 with evidence (`B-01a`, `B-01b`, `B-01c`) as `closed-aligned`
+  - Switched `.github/workflows/validate-mcp-sync.yml` to blocking-default mode
+  - Added release note doc `docs/releases/Release_v2.3.md`
+  - Validation: sync check passes in `block` mode (`24` vs `24`), no drift
+
+- **Awesome-List Submission Campaign Researched** (2026-02-13)
+  - Investigated all 12 target repositories from the submission plan (`_NOTES/repo-submission/submission-targets-popular-plan_2026-02-13.md`)
+  - Created 12 detailed task documents in `_NOTES/repo-submission/task_*.md`, each with copy-ready PR text, exact entry format, risk assessment, and execution checklist
+  - Best-bet targets: BehiSecc (5.8K stars, active), e2b-dev (25.8K stars, ~71% acceptance), kyrolabs (1.7K stars, fast turnaround)
+  - Key findings: travisvn has ~1% community merge rate (gatekeeping); Shubhamsaboo (95K stars) requires contributing SKILL.md files directly; `dend/awesome-product-management` (1.3K stars) surfaced as new high-impact target
+  - Ready for PR execution phase
+
+- **MCP Sync Automation Planned** (2026-01-29)
+  - Created comprehensive planning document: `_NOTES/efforts/mcp-builder-automation/plan_mcp-skill-automation_claude-code.md`
+  - Analyzed two approaches: Validation-Only vs Full Automation
+  - Recommended Validation-Only approach (~2 hours, ~75 LOC)
+  - Key insight: Automate the checking, not the doing
+  - Script location best practice: `/.github/scripts/` for CI, `/scripts/` for users
+  - Created GitHub Issue [#98](https://github.com/product-on-purpose/pm-skills/issues/98)
+  - Architecture: `.github/workflows/validate-mcp-sync.yml` + `.github/scripts/validate-mcp-sync.js`
+
+- **v2.1.0 Released — MCP Alignment Complete** (2026-01-28)
+  - Executed full v2.1 plan for both pm-skills and pm-skills-mcp
+  - **pm-skills-mcp v2.1.0:**
+    - Updated `embed-skills.js` for flat source layout
+    - Updated `loader.ts` to read phase from frontmatter
+    - Flattened resource URIs: `pm-skills://skills/{skill}`
+    - Added `deriveToolName()` in `server.ts` for stable tool names
+    - Updated workflow skill lookups for new naming
+    - All 66 tests passing
+    - Published to npm: `pm-skills-mcp@2.1.0`
+    - Created GitHub release with v2.1.0 tag
+    - Fixed: Removed personal `.claude/` directory from tracking (40 files)
+  - **pm-skills v2.1.0:**
+    - Updated `docs/reference/ecosystem.md` with version alignment table
+    - Updated `docs/guides/mcp-integration.md` with v2.1 notes
+    - Updated CHANGELOG with MCP alignment milestone
+    - Created GitHub release with v2.1.0 tag
+
+- **v2.1 Execution Plan Created** (2026-01-27)
+  - Created comprehensive v2.1 execution plan
+  - Key decisions: flat URIs, stable tool names, frontmatter-based phase
+
+- **v2.0.2 Released** (2026-01-27)
+  - Validation workflow added (`validation.yml`) — runs on Ubuntu and Windows
+  - Front-matter lint scripts created (`lint-skills-frontmatter.sh/ps1`)
+  - Metadata cleanup: removed nested `metadata.version` from all 24 skills
+  - Build scripts parameterized for versioned artifacts
+  - Scripts guide renamed to `scripts/README_SCRIPTS.md`
+  - Release typo fixed (`opensills` → `openskills`)
+
+- **v2.0.0 Released** (2026-01-26)
+  - Repository flattened to `skills/{phase-skill}/` structure
+  - All 24 skills renamed with phase prefix (e.g., `deliver-prd`)
+  - Sync helpers and build scripts added
+  - Documentation updated for flat structure
 
 - **v2.0 Execution Plans Complete** (2026-01-26)
   - Created detailed Claude execution plan with 8 phases, migration mapping for all 24 skills
@@ -263,36 +327,24 @@ pm-skills/
 
 ## Next Steps
 
-1. **v1.2.0 Security Follow-up (Manual GitHub Settings):**
-   - [ ] Enable secret scanning (Settings → Code security)
-   - [ ] Enable secret scanning push protection
-   - [ ] Create tag ruleset for `v*` releases
-   - [ ] Verify Dependabot alerts are enabled
+1. **Awesome-List PR Campaign (immediate):**
+   - [ ] Execute BehiSecc/awesome-claude-skills PR (#1 priority)
+   - [ ] Execute e2b-dev/awesome-ai-agents PR (#5 priority, highest reach)
+   - [ ] Execute kyrolabs/awesome-agents PR (#6 priority, fast turnaround)
+   - [ ] Execute remaining PRs per task documents in `_NOTES/repo-submission/`
+   - [ ] Investigate `dend/awesome-product-management` as new target
+   - [ ] For Shubhamsaboo: adapt 4 skills to their SKILL.md format before PR
 
-2. **Open-Skills Publishing (Submissions Complete):**
-   - [x] Submit PR to awesome-claude-skills — [PR #62](https://github.com/ComposioHQ/awesome-claude-skills/pull/62) ✅
-   - [x] Submit to n-skills marketplace — [Issue #6](https://github.com/numman-ali/n-skills/issues/6) ✅
-   - [x] Create GitHub release v1.2.0 ✅
-   - [x] Attribution headers added to all SKILL.md files ✅
-   - [x] CODE_OF_CONDUCT.md added ✅
-   - [x] SECURITY.md added ✅
-   - [x] Issue templates added ✅
-   - [x] PR template added ✅
-   - [ ] Monitor awesome-claude-skills PR for merge (add badge after)
-   - [ ] Monitor n-skills issue for approval
-   - [x] openskills#48 fixed in v1.3.1 — Windows path separator issue resolved ✅
+2. **v2.2+ Backlog:**
+   - Config-driven output behavior (`pm-skills.config.json`)
+   - Meta-skills: `/project`, `/common`, `/link-docs`, `/update-doc`
+   - MCP file I/O capabilities
+   - Project registry system
 
-3. **Post-Merge:**
-   - Add awesome-claude-skills badge to README.md
-   - Announce release (Twitter, LinkedIn, Product Hunt)
-   - Monitor for user feedback and issues
-   - Claude Code marketplace submission (when available)
-
-4. **v1.3.0 Candidates:**
-   - Validation CI workflow (check skill structure in PRs)
-   - Auto-generated header for AGENTS.md
-   - MCP server package (pm-skills-mcp)
-   - CODEOWNERS file
+3. **Community/Ecosystem:**
+   - [ ] Monitor submitted PRs for maintainer feedback
+   - [ ] Add badges after PR merges
+   - [ ] Star-boosting activities to strengthen VoltAgent/travisvn submissions
 
 ## Notes
 

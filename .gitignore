@@ -51,10 +51,7 @@ AGENTS/*/PLANNING/
 !AGENTS/*/CONTEXT.md
 !AGENTS/*/DECISIONS.md
 !AGENTS/DECISIONS.md
-# Temporary exception: historical codex-5.2 workspace remains local-only.
-AGENTS/codex-5.2/
 .github/scripts/node_modules/
 
 # Local convenience
 .favorites.json
-AGENTS/DECISIONS.md
