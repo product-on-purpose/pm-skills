@@ -1,7 +1,7 @@
 # PM-Skills v2.2 to v2.5 Execution Plan
 
-Date: 2026-02-13  
-Status: Active plan  
+Date: 2026-02-14  
+Status: Active plan (v2.4 kickoff in progress)  
 Release type: Minor for all releases
 
 ## Summary
@@ -13,6 +13,9 @@ This execution plan ships blockers `B-01` to `B-08` in dependency-safe order:
 4. Foundation/persona decisions
 
 ## Release 1 - v2.2.0 - Guardrails and Governance
+
+Status:
+1. Completed (2026-02-13)
 
 Scope:
 1. `B-02` phase 1: `validate-mcp-sync` in observe-only mode.
@@ -32,14 +35,14 @@ Non-goals:
 ## Release 2 - v2.3.0 - MCP Alignment Closure
 
 Status:
-1. Completed (2026-02-13)
+1. Completed (2026-02-14)
 
 Scope:
 1. Execute and close `B-01` using:
-   - `_NOTES/delivery-plan/B-01a-alignment-checklist.md`
-   - `_NOTES/delivery-plan/B-01b-evidence-report.md`
-   - `_NOTES/delivery-plan/B-01c-closure-decision.md`
-   - `_NOTES/delivery-plan/B-01d-gap-register.md` (if needed)
+   - `_NOTES/delivery-plan/B-01a. DONE_alignment-checklist.md`
+   - `_NOTES/delivery-plan/B-01b. DONE_evidence-report.md`
+   - `_NOTES/delivery-plan/B-01c. DONE_closure-decision.md`
+   - `_NOTES/delivery-plan/B-01d. DONE_gap-register.md` (if needed)
 2. Switch `validate-mcp-sync` to blocking mode.
 
 Exit criteria:
@@ -49,9 +52,15 @@ Exit criteria:
 
 ## Release 3 - v2.4.0 - Contract Lock
 
+Status:
+1. In progress (kickoff started 2026-02-14)
+
 Scope:
 1. `B-03`: canonical output behavior contract.
 2. `B-04`: canonical config schema + format.
+3. Kickoff artifacts drafted:
+   - `_NOTES/delivery-plan/B-03a-implementation-checklist.md`
+   - `_NOTES/delivery-plan/B-04a-implementation-checklist.md`
 
 Exit criteria:
 1. One output contract spec is canonical and cross-linked.

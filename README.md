@@ -143,6 +143,14 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 </details>
 <details>
+<summary>v2.4 kickoff started (contract lock)</summary>
+
+- `B-03a` implementation checklist drafted for output behavior contract lock.
+- `B-04a` implementation checklist drafted for config schema/format contract lock.
+- `docs/internal/release-planning/checklist_v2.4.0.md` moved to `In progress`.
+
+</details>
+<details>
 <summary>v2.0 compatibility baseline remains in place</summary>
 
 - Flat skills layout (`skills/{phase-skill}/`) and command realignment remain the canonical structure.
@@ -725,6 +733,7 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] v2.2 guardrails release: observe-first cross-repo sync validation + planning/backlog governance
 
 **In Progress**
+- v2.4 contract lock execution (`B-03` output behavior, `B-04` config schema)
 - Project support utilities
 - `/common` shared snippets
 - `/update-doc` helper flow

@@ -2,7 +2,7 @@
 
 Status: Active
 Owner: Maintainers
-Last updated: 2026-02-13
+Last updated: 2026-02-14
 
 This directory stores tracked, forward-looking release planning controls.
 
@@ -26,3 +26,4 @@ This directory stores tracked, forward-looking release planning controls.
 - Keep its checklist in this directory and set final status (`Shipped` or `Superseded`).
 - Publish release notes/reviews under `docs/releases/`.
 4. Do not place forward execution plans in `docs/releases/`.
+5. When kickoff starts for a planned release, move checklist status to `In progress` and link kickoff artifacts.

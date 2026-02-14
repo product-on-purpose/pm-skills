@@ -7,7 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- No unreleased entries yet.
+### Changed
+- Release-planning state advanced for v2.4 kickoff:
+  - `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`
+  - `docs/internal/release-planning/checklist_v2.4.0.md`
+  - `docs/internal/release-planning/README.md`
+- README roadmap/what's-new sections updated for v2.4 kickoff tracking.
+- Delivery-plan closure artifacts normalized for completed blockers with `DONE_` filename tags:
+  - `B-01*`, `B-02*`, `B-07*`, and `B-08*` artifacts under `_NOTES/delivery-plan/`
+- Blocker closure artifacts finalized (from template state) for:
+  - `B-02` (v2.3 guardrail closure),
+  - `B-07` and `B-08` (v2.2 governance closure).
+
+### Added
+- v2.4 kickoff draft checklists expanded:
+  - `_NOTES/delivery-plan/B-03a-implementation-checklist.md`
+  - `_NOTES/delivery-plan/B-04a-implementation-checklist.md`
 
 ## [2.3.0] - 2026-02-13
 
