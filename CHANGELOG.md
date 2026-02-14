@@ -9,6 +9,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - No unreleased entries yet.
 
+## [2.3.0] - 2026-02-13
+
+### Added
+- Release note artifact: `docs/releases/Release_v2.3.md`.
+
+### Changed
+- MCP sync workflow default mode switched to `block` in `.github/workflows/validate-mcp-sync.yml` (manual `workflow_dispatch` can still set `observe`).
+- Updated MCP sync guide for blocking-default rollout state (`docs/guides/validate-mcp-sync.md`).
+- Updated compatibility references for current MCP status:
+  - `README.md` note now points to `pm-skills-mcp v2.1+` as aligned baseline.
+  - `docs/reference/ecosystem.md` reflects 36 MCP tools (24 skills + 5 workflows + 7 utilities).
+- Release-planning artifacts updated for `v2.3.0` closure:
+  - `docs/internal/release-planning/checklist_v2.3.0.md`
+  - `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`
+
+### Release Notes
+- This release closes the v2.3.0 scope:
+  - `B-01` alignment closure recorded as `closed-aligned` on pinned refs,
+  - `B-02` phase 2 enabled (blocking `validate-mcp-sync` mode by default).
+
 ## [2.2.0] - 2026-02-13
 
 ### Added

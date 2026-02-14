@@ -20,7 +20,7 @@ on:
       mode:
         description: "Validation mode: observe or block"
         required: false
-        default: "observe"
+        default: "block"
 
 permissions:
   contents: read
@@ -43,9 +43,9 @@ jobs:
       - name: Embed skills snapshot in pm-skills-mcp for comparison
         run: node pm-skills-mcp/scripts/embed-skills.js ./pm-skills/skills
 
-      - name: Validate sync status (observe-only default)
+      - name: Validate sync status (blocking default)
         env:
           PM_SKILLS_PATH: ./pm-skills
           PM_SKILLS_MCP_PATH: ./pm-skills-mcp
-          VALIDATE_MCP_SYNC_MODE: ${{ github.event.inputs.mode || 'observe' }}
+          VALIDATE_MCP_SYNC_MODE: ${{ github.event.inputs.mode || 'block' }}
         run: node pm-skills/.github/scripts/validate-mcp-sync.js

@@ -35,7 +35,7 @@ The PM-Skills ecosystem provides **24 professional product management skills** t
 │   │     PM-Skills       │      │   PM-Skills MCP     │         │
 │   │   (Skill Library)   │      │   (MCP Server)      │         │
 │   │                     │      │                     │         │
-│   │  • 24 skill files   │ ───► │  • 35 MCP tools     │         │
+│   │  • 24 skill files   │ ───► │  • 36 MCP tools     │         │
 │   │  • Slash commands   │      │  • 72 MCP resources │         │
 │   │  • AGENTS.md        │      │  • 3 MCP prompts    │         │
 │   │  • Workflow bundles │      │  • Workflow bundles │         │
@@ -120,7 +120,7 @@ PM-Skills MCP is an **MCP server** that wraps the skill library, exposing skills
 
 | Component | Count | Description |
 |-----------|-------|-------------|
-| MCP Tools | 35 | 24 skill tools + 5 workflow tools + 6 utility tools |
+| MCP Tools | 36 | 24 skill tools + 5 workflow tools + 7 utility tools |
 | MCP Resources | 72 | URI-based access to skills, templates, and examples |
 | MCP Prompts | 3 | Guided conversation starters |
 | Embedded Skills | 24 | Bundled copy of pm-skills (zero external dependencies) |
@@ -188,7 +188,7 @@ Use this matrix to choose between the file-based skill library and the MCP serve
 | **24 PM Skills** | ✅ | ✅ |
 | **Workflow Bundles** | ✅ Manual | ✅ Tool-based |
 | **Slash Commands** | ✅ 25 commands | ❌ (use tools) |
-| **MCP Tools** | ❌ | ✅ 35 tools |
+| **MCP Tools** | ❌ | ✅ 36 tools |
 | **MCP Resources** | ❌ | ✅ 72 resources |
 | **MCP Prompts** | ❌ | ✅ 3 prompts |
 | **AGENTS.md Discovery** | ✅ | ✅ |
