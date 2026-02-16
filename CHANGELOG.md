@@ -8,9 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Expanded `validate-mcp-sync` checks to include `pm-skills-mcp` pin metadata and contract-version parity via `pm-skills-source.json`.
-- Corrected MCP integration guide utility-tool inventory to 7 tools (`pm_cache_stats` included).
-- Updated MCP compatibility references to direct version tracking (`pm-skills v2.4.x` ↔ `pm-skills-mcp v2.4.x`) in ecosystem/integration docs.
+- No unreleased changes documented yet.
 
 ## [2.4.0] - 2026-02-16
 
@@ -30,12 +28,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Canonical backlog release cadence anchors synced for v2.4 closure:
   - `docs/internal/backlog-canonical.md`
 - v2.4 contract-lock closure state advanced to `closed-aligned` in delivery-plan artifacts:
-  - `_NOTES/delivery-plan/B-03a-implementation-checklist.md`
-  - `_NOTES/delivery-plan/B-03b-evidence-report.md`
-  - `_NOTES/delivery-plan/B-03c-closure-decision.md`
-  - `_NOTES/delivery-plan/B-04a-implementation-checklist.md`
-  - `_NOTES/delivery-plan/B-04b-evidence-report.md`
-  - `_NOTES/delivery-plan/B-04c-closure-decision.md`
+  - `_NOTES/delivery-plan/B-03a. DONE_implementation-checklist.md`
+  - `_NOTES/delivery-plan/B-03b. DONE_evidence-report.md`
+  - `_NOTES/delivery-plan/B-03c. DONE_closure-decision.md`
+  - `_NOTES/delivery-plan/B-04a. DONE_implementation-checklist.md`
+  - `_NOTES/delivery-plan/B-04b. DONE_evidence-report.md`
+  - `_NOTES/delivery-plan/B-04c. DONE_closure-decision.md`
+- Expanded `validate-mcp-sync` checks to include `pm-skills-mcp` pin metadata and contract-version parity via `pm-skills-source.json`.
+- Corrected MCP integration guide utility-tool inventory to 7 tools (`pm_cache_stats` included).
+- Updated MCP compatibility references to direct version tracking (`pm-skills v2.4.x` ↔ `pm-skills-mcp v2.4.x`) in ecosystem/integration docs.
 
 ### Release Notes
 - This release closes the v2.4.0 contract-lock scope:

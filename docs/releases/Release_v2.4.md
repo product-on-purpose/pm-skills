@@ -14,13 +14,13 @@ It closes `B-03` and `B-04` as `closed-aligned` with evidence-backed determinism
 - Hybrid output defaults with intent guardrails.
 - Collision safety matrix (`abort`, `overwrite`, `merge`, `new-file`) with safe non-interactive fallback.
 - Path safety, target-selection, and required output metadata expectations captured in closure artifacts.
-- Closure decision: `_NOTES/delivery-plan/B-03c-closure-decision.md` (`closed-aligned`).
+- Closure decision: `_NOTES/delivery-plan/B-03c. DONE_closure-decision.md` (`closed-aligned`).
 
 2. B-04 config contract lock:
 - YAML-only canonical authoring with one canonical internal model.
 - Strict config discovery precedence across approved paths.
 - Unknown/deprecated key policy locked (`warn` local, strict `fail` in CI mode, one-version grace).
-- Closure decision: `_NOTES/delivery-plan/B-04c-closure-decision.md` (`closed-aligned`).
+- Closure decision: `_NOTES/delivery-plan/B-04c. DONE_closure-decision.md` (`closed-aligned`).
 
 3. Shared config contract validation proof set:
 - `_NOTES/delivery-plan/config-schema-v1.json`

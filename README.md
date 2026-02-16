@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.3.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.4.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-24-skills">
     <img src="https://img.shields.io/badge/skills-24-brightgreen.svg?style=flat-square" alt="Skills">
@@ -118,7 +118,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 ---
 
-**What's New (v2.3)**
+**What's New (v2.4)**
 <details>
 <summary>Cross-repo MCP drift guardrail (blocking-default)</summary>
 
@@ -127,6 +127,15 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - Default mode is `block` in `v2.3.0`; manual runs can still use `mode=observe`.
 - MCP alignment closure (`B-01`) is now recorded as `closed-aligned` on pinned refs.
 - See `docs/guides/validate-mcp-sync.md` for rollout and troubleshooting.
+
+</details>
+<details>
+<summary>v2.4 contract lock shipped</summary>
+
+- `B-03` output behavior contract and `B-04` config contract are now `closed-aligned`.
+- Release note published: `docs/releases/Release_v2.4.md`.
+- `docs/internal/release-planning/checklist_v2.4.0.md` is now `Shipped`.
+- Delivery-plan closure packet for v2.4 is tracked with `DONE_` filenames under `_NOTES/delivery-plan/`.
 
 </details>
 <details>
@@ -143,11 +152,11 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 </details>
 <details>
-<summary>v2.4 kickoff started (contract lock)</summary>
+<summary>MCP version alignment model updated</summary>
 
-- `B-03a` implementation checklist drafted for output behavior contract lock.
-- `B-04a` implementation checklist drafted for config schema/format contract lock.
-- `docs/internal/release-planning/checklist_v2.4.0.md` moved to `In progress`.
+- PM-Skills and PM-Skills MCP now use direct version tracking from `v2.4.x` onward.
+- Compatibility docs updated to anchor `pm-skills v2.4.x` to `pm-skills-mcp v2.4.x`.
+- `validate-mcp-sync` now also checks pinned source metadata and contract-version parity.
 
 </details>
 <details>
@@ -732,9 +741,9 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] openskills CLI support ([#48](https://github.com/numman-ali/openskills/issues/48) resolved in v1.3.1)
 - [x] pm-skills-mcp package (https://github.com/product-on-purpose/pm-skills-mcp) with v2.4 direct-version-tracking milestone documented
 - [x] v2.2 guardrails release: observe-first cross-repo sync validation + planning/backlog governance
+- [x] v2.4 contract lock release: `B-03` output behavior + `B-04` config contract closed-aligned
 
 **In Progress**
-- v2.4 contract lock execution (`B-03` output behavior, `B-04` config schema)
 - Project support utilities
 - `/common` shared snippets
 - `/update-doc` helper flow
