@@ -7,6 +7,10 @@ Status: Shipped
 
 v2.4.2 is a governance-hygiene patch that clarifies canonical tracked release artifacts versus local working notes, while preserving v2.4 contract-lock behavior.
 
+## Published Artifacts
+
+- GitHub release: `https://github.com/product-on-purpose/pm-skills/releases/tag/v2.4.2`
+
 ## What Was Delivered
 
 1. Canonical delivery-plan policy and migration baseline added:

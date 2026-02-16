@@ -492,6 +492,8 @@ All releases are available on the [GitHub Releases](https://github.com/product-o
 
 - **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
 - **Latest stable:** `v2.4.2` (governance and artifact-placement patch on top of v2.4.0 contract lock)
+- **Latest release notes:** [`docs/releases/Release_v2.4.2.md`](docs/releases/Release_v2.4.2.md)
+- **Published tag:** [`v2.4.2`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.4.2)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
 Release notes are published in `docs/releases/` (for example, `docs/releases/Release_v2.2.md`).
