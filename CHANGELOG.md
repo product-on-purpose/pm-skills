@@ -20,7 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `README.md`
   - `CHANGELOG.md`
 - Captured explicit published-artifact links in release docs:
-  - `docs/releases/Release_v2.4.2.md`
   - `docs/releases/Release_v2.4.3.md`
 
 ### Release Notes
