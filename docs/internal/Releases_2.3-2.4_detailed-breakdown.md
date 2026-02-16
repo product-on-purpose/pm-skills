@@ -54,10 +54,10 @@ Changelog entry: `CHANGELOG.md` -> `## [2.3.0] - 2026-02-13`
 ### 4.1 B-01: Verify and close MCP alignment end-to-end
 
 Core artifacts:
-- `_NOTES/delivery-plan/B-01a. DONE_alignment-checklist.md`
-- `_NOTES/delivery-plan/B-01b. DONE_evidence-report.md`
-- `_NOTES/delivery-plan/B-01c. DONE_closure-decision.md`
-- `_NOTES/delivery-plan/B-01d. DONE_gap-register.md`
+- `_NOTES/delivery-plan/DONE/B-01a. DONE_alignment-checklist.md`
+- `_NOTES/delivery-plan/DONE/B-01b. DONE_evidence-report.md`
+- `_NOTES/delivery-plan/DONE/B-01c. DONE_closure-decision.md`
+- `_NOTES/delivery-plan/DONE/B-01d. DONE_gap-register.md`
 
 #### What this item was
 
@@ -102,10 +102,10 @@ B-01 introduced a closure process that tied all of those surfaces together on a 
 ### 4.2 B-02: Ship validation-only sync workflow with blocking default
 
 Core artifacts:
-- `_NOTES/delivery-plan/B-02. DONE_Ship validation-only pm-skills to pm-skills-mcp sync workflow (validate-mcp-sync).md`
-- `_NOTES/delivery-plan/B-02a. DONE_implementation-checklist.md`
-- `_NOTES/delivery-plan/B-02b. DONE_evidence-report.md`
-- `_NOTES/delivery-plan/B-02c. DONE_closure-decision.md`
+- `_NOTES/delivery-plan/DONE/B-02. DONE_Ship validation-only pm-skills to pm-skills-mcp sync workflow (validate-mcp-sync).md`
+- `_NOTES/delivery-plan/DONE/B-02a. DONE_implementation-checklist.md`
+- `_NOTES/delivery-plan/DONE/B-02b. DONE_evidence-report.md`
+- `_NOTES/delivery-plan/DONE/B-02c. DONE_closure-decision.md`
 
 Primary implementation files:
 - `.github/workflows/validate-mcp-sync.yml`
@@ -176,11 +176,11 @@ Execution plan: `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-p
 ### 5.1 B-03: Canonical output behavior contract lock
 
 Core artifacts (DONE packet):
-- `_NOTES/delivery-plan/B-03. DONE_Lock canonical output behavior contract (prompt-file-hybrid, overwrite-collision rules).md`
-- `_NOTES/delivery-plan/B-03a. DONE_implementation-checklist.md`
-- `_NOTES/delivery-plan/B-03b. DONE_evidence-report.md`
-- `_NOTES/delivery-plan/B-03c. DONE_closure-decision.md`
-- `_NOTES/delivery-plan/B-03d. DONE_gap-register.md`
+- `_NOTES/delivery-plan/DONE/B-03. DONE_Lock canonical output behavior contract (prompt-file-hybrid, overwrite-collision rules).md`
+- `_NOTES/delivery-plan/DONE/B-03a. DONE_implementation-checklist.md`
+- `_NOTES/delivery-plan/DONE/B-03b. DONE_evidence-report.md`
+- `_NOTES/delivery-plan/DONE/B-03c. DONE_closure-decision.md`
+- `_NOTES/delivery-plan/DONE/B-03d. DONE_gap-register.md`
 
 #### What this item was
 
@@ -253,11 +253,11 @@ For maintainers:
 ### 5.2 B-04: Canonical config contract and schema lock
 
 Core artifacts (DONE packet):
-- `_NOTES/delivery-plan/B-04. DONE_Lock one canonical config schema and format (output, projects, commonReferences).md`
-- `_NOTES/delivery-plan/B-04a. DONE_implementation-checklist.md`
-- `_NOTES/delivery-plan/B-04b. DONE_evidence-report.md`
-- `_NOTES/delivery-plan/B-04c. DONE_closure-decision.md`
-- `_NOTES/delivery-plan/B-04d. DONE_gap-register.md`
+- `_NOTES/delivery-plan/DONE/B-04. DONE_Lock one canonical config schema and format (output, projects, commonReferences).md`
+- `_NOTES/delivery-plan/DONE/B-04a. DONE_implementation-checklist.md`
+- `_NOTES/delivery-plan/DONE/B-04b. DONE_evidence-report.md`
+- `_NOTES/delivery-plan/DONE/B-04c. DONE_closure-decision.md`
+- `_NOTES/delivery-plan/DONE/B-04d. DONE_gap-register.md`
 
 Proof artifacts:
 - `_NOTES/delivery-plan/config-schema-v1.json`
@@ -485,22 +485,22 @@ Calling these out prevents false assumptions and keeps roadmap truth clear.
 - `docs/internal/release-planning/checklist_v2.4.0.md`
 
 ### v2.3 closure packets
-- `_NOTES/delivery-plan/B-01a. DONE_alignment-checklist.md`
-- `_NOTES/delivery-plan/B-01b. DONE_evidence-report.md`
-- `_NOTES/delivery-plan/B-01c. DONE_closure-decision.md`
-- `_NOTES/delivery-plan/B-02a. DONE_implementation-checklist.md`
-- `_NOTES/delivery-plan/B-02b. DONE_evidence-report.md`
-- `_NOTES/delivery-plan/B-02c. DONE_closure-decision.md`
+- `_NOTES/delivery-plan/DONE/B-01a. DONE_alignment-checklist.md`
+- `_NOTES/delivery-plan/DONE/B-01b. DONE_evidence-report.md`
+- `_NOTES/delivery-plan/DONE/B-01c. DONE_closure-decision.md`
+- `_NOTES/delivery-plan/DONE/B-02a. DONE_implementation-checklist.md`
+- `_NOTES/delivery-plan/DONE/B-02b. DONE_evidence-report.md`
+- `_NOTES/delivery-plan/DONE/B-02c. DONE_closure-decision.md`
 
 ### v2.4 closure packets
-- `_NOTES/delivery-plan/B-03. DONE_Lock canonical output behavior contract (prompt-file-hybrid, overwrite-collision rules).md`
-- `_NOTES/delivery-plan/B-03a. DONE_implementation-checklist.md`
-- `_NOTES/delivery-plan/B-03b. DONE_evidence-report.md`
-- `_NOTES/delivery-plan/B-03c. DONE_closure-decision.md`
-- `_NOTES/delivery-plan/B-04. DONE_Lock one canonical config schema and format (output, projects, commonReferences).md`
-- `_NOTES/delivery-plan/B-04a. DONE_implementation-checklist.md`
-- `_NOTES/delivery-plan/B-04b. DONE_evidence-report.md`
-- `_NOTES/delivery-plan/B-04c. DONE_closure-decision.md`
+- `_NOTES/delivery-plan/DONE/B-03. DONE_Lock canonical output behavior contract (prompt-file-hybrid, overwrite-collision rules).md`
+- `_NOTES/delivery-plan/DONE/B-03a. DONE_implementation-checklist.md`
+- `_NOTES/delivery-plan/DONE/B-03b. DONE_evidence-report.md`
+- `_NOTES/delivery-plan/DONE/B-03c. DONE_closure-decision.md`
+- `_NOTES/delivery-plan/DONE/B-04. DONE_Lock one canonical config schema and format (output, projects, commonReferences).md`
+- `_NOTES/delivery-plan/DONE/B-04a. DONE_implementation-checklist.md`
+- `_NOTES/delivery-plan/DONE/B-04b. DONE_evidence-report.md`
+- `_NOTES/delivery-plan/DONE/B-04c. DONE_closure-decision.md`
 
 ### Guardrail and validator implementations
 - `.github/workflows/validate-mcp-sync.yml`
@@ -519,3 +519,4 @@ to:
 - "we have enforceable contracts, cross-repo parity controls, closure evidence, and release truth discipline."
 
 That foundation is what allows future feature velocity without sacrificing trust.
+

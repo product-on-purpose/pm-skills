@@ -1,7 +1,9 @@
 # B-05 Foundation-Phase Decision Record
 
-Status: In progress  
+Status: Closed-aligned (`defer`)  
 Blocker: B-05  
+Decision owner: Maintainers  
+Decision date: 2026-02-16  
 Target release: v2.5.0  
 Last updated: 2026-02-16
 
@@ -9,45 +11,37 @@ Last updated: 2026-02-16
 
 Decide whether `foundation` becomes a first-class phase in v2.5.0 and lock required cross-repo behavior for `pm-skills` and `pm-skills-mcp`.
 
-## Current-State Evidence (2026-02-16)
+## Signed Decision (2026-02-16)
+
+For v2.5.0, **defer `foundation` as a first-class phase**.
+
+Policy:
+1. Keep the public phase model at six phases: `discover`, `define`, `develop`, `deliver`, `measure`, `iterate`.
+2. Do not ship persona assumptions that require `foundation` in v2.5.0.
+3. Re-open phase adoption only when concrete `foundation-*` skills are in scope and pm-skills + pm-skills-mcp updates ship together.
+
+## Evidence (Tracked + Validated)
 
 | Area | Current state | Evidence |
 | --- | --- | --- |
-| Sync guardrail phase list | Includes `foundation` as a recognized phase | `pm-skills/.github/scripts/validate-mcp-sync.js` (`PHASES`) |
-| pm-skills current skill inventory | No `foundation-*` skills currently shipped | `pm-skills/skills/` (no matching directory) |
-| MCP type system | `SkillPhase` currently allows only 6 phases (no `foundation`) | `pm-skills-mcp/src/types/index.ts` |
-| MCP listing output order | Phase order currently 6 phases only | `pm-skills-mcp/src/server.ts` |
+| Sync guardrail phase list | Includes `foundation` as a recognized phase token | `pm-skills/.github/scripts/validate-mcp-sync.js` (`PHASES`) |
+| pm-skills shipped inventory | No `foundation-*` skills currently shipped | `pm-skills/skills/` |
+| MCP type system | `SkillPhase` allows 6 phases only (no `foundation`) | `pm-skills-mcp/src/types/index.ts` |
+| MCP listing order | Runtime listing order is the same 6 phases | `pm-skills-mcp/src/server.ts` |
+| Cross-repo parity guardrail | Block mode currently passes on pinned v2.4.3 baseline | `VALIDATE_MCP_SYNC_MODE=block node .github/scripts/validate-mcp-sync.js` |
 
-## Working Recommendation (Pending Sign-Off)
+## Closure Recommendation (Applied)
 
-Default to **defer `foundation` as first-class** unless a concrete v2.5 skill requires it and ships with fully aligned MCP/type/docs updates in the same release.
+Close B-05 as `closed-aligned` with `defer` for v2.5.0.
 
 Rationale:
-1. Cross-repo phase mismatch currently exists in runtime types.
-2. No foundation skill is currently shipped in `pm-skills`.
-3. Defer-by-default preserves compatibility unless there is an explicit, tested change set.
+1. No shipped `foundation-*` skills currently require user-facing phase expansion.
+2. MCP public typing/runtime still reflects a 6-phase model.
+3. Deferring avoids contract churn while preserving v2.4.3 cross-repo release truth.
 
-## Closure Gates
+## Re-open Triggers
 
-Mark B-05 as closed only when all are true:
-1. Signed decision (`adopt` or `defer`) with owner/date.
-2. `pm-skills` + `pm-skills-mcp` phase handling and docs are consistent with that decision.
-3. `validate-mcp-sync` passes in `block` mode after decision changes.
-4. `docs/internal/release-planning/checklist_v2.5.0.md` reflects final decision status.
-
-## Decision Paths
-
-### Path A: Adopt `foundation` in v2.5.0
-1. Update `pm-skills-mcp` type/runtime phase handling.
-2. Add/validate any `foundation-*` skills and command/tool/docs links.
-3. Validate tests and sync guardrails before closure.
-
-### Path B: Defer `foundation`
-1. Keep 6-phase public model for v2.5.0.
-2. Explicitly document defer policy and trigger criteria for future adoption.
-3. Ensure persona work does not assume a shipped `foundation` phase.
-
-## Open Items
-
-- Final approver/signatory for this decision.
-- Decision date and explicit trigger criteria if deferred.
+Re-open B-05 only when all are true:
+1. At least one concrete `foundation-*` skill is approved for an upcoming release scope.
+2. pm-skills-mcp type/runtime/docs changes for `foundation` are prepared in the same change set.
+3. `validate-mcp-sync` block mode and `pm-skills-mcp` tests pass on the candidate refs.

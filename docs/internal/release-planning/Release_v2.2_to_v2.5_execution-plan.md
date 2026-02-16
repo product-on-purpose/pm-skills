@@ -1,7 +1,7 @@
 # PM-Skills v2.2 to v2.5 Execution Plan
 
 Date: 2026-02-14
-Status: Active plan (v2.4 contract lock complete; v2.5 continuity in progress)
+Status: Active plan (v2.4 contract lock complete; v2.5 decision closure complete, cut pending)
 Release type: Minor for all releases
 
 ## Summary
@@ -68,7 +68,7 @@ Exit criteria:
 ## Release 4 - v2.5.0 - Foundation and Persona Decisions
 
 Status:
-1. In progress (continuity kickoff started 2026-02-16)
+1. Decision closure complete (2026-02-16); release cut pending.
 
 Scope:
 1. `B-05`: decide `foundation` phase status and MCP policy impact.
@@ -79,9 +79,14 @@ Scope:
    - `docs/internal/delivery-plan/v2.5/B-05_B-06-closure-path.md`
 
 Exit criteria:
-1. Signed foundation decision exists and is reflected in MCP-facing docs/contracts.
-2. Signed Q1-Q7 decision record exists and is referenced by active persona docs.
-3. Active persona plans do not contain contradictory assumptions.
+1. Signed foundation decision exists and is reflected in MCP-facing docs/contracts. (Met)
+2. Signed Q1-Q7 decision record exists and is referenced by active persona docs. (Met)
+3. Active persona plans do not contain contradictory assumptions. (Met)
+
+Validation snapshot (2026-02-16):
+1. `validate-mcp-sync` passes in block mode on the pinned v2.4.3 baseline.
+2. `pm-skills-mcp` test suite passes (`76/76`).
+3. B-05/B-06 signed records are linked from `docs/internal/release-planning/checklist_v2.5.0.md`.
 
 ## Interface Impact Summary
 
