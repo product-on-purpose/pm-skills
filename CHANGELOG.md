@@ -10,6 +10,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased changes documented yet.
 
+## [2.4.3] - 2026-02-16
+
+### Added
+- Release note artifact: `docs/releases/Release_v2.4.3.md`.
+
+### Changed
+- Rolled forward release metadata references to treat `v2.4.3` as the latest stable patch:
+  - `README.md`
+  - `CHANGELOG.md`
+- Captured explicit published-artifact links in release docs:
+  - `docs/releases/Release_v2.4.2.md`
+  - `docs/releases/Release_v2.4.3.md`
+
+### Release Notes
+- Patch release to include post-`v2.4.2` documentation/release-link updates in tagged artifacts.
+- No PM skill behavior changes and no output/config contract changes from `v2.4.0`.
+
 ## [2.4.2] - 2026-02-16
 
 ### Added
