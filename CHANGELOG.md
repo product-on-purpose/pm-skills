@@ -10,6 +10,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased changes documented yet.
 
+## [2.4.1] - 2026-02-16
+
+### Added
+- Release note artifact: `docs/releases/Release_v2.4.1.md`.
+- Long-form internal delivery/engineering explainer:
+  - `docs/internal/Releases_2.3-2.4_detailed-breakdown.md`
+
+### Changed
+- Finalized `v2.4.x` release-doc consistency:
+  - `README.md`
+  - `CHANGELOG.md`
+  - `docs/releases/Release_v2.4.md`
+  - `docs/internal/release-planning/checklist_v2.4.0.md`
+  - `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`
+
+### Release Notes
+- Patch follow-up for release documentation and communication alignment only.
+- No new PM skills and no output/config contract behavior changes from `v2.4.0`.
+
 ## [2.4.0] - 2026-02-16
 
 ### Added

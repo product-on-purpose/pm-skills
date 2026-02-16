@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.4.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.4.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-24-skills">
     <img src="https://img.shields.io/badge/skills-24-brightgreen.svg?style=flat-square" alt="Skills">
@@ -491,7 +491,7 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
-- **Latest stable:** `v2.4.0` (output/config contract lock closure)
+- **Latest stable:** `v2.4.1` (docs/release-alignment patch on top of v2.4.0 contract lock)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
 Release notes are published in `docs/releases/` (for example, `docs/releases/Release_v2.2.md`).
@@ -713,6 +713,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **2.4.1** | 2026-02-16 | Docs/release-alignment patch follow-up (no contract behavior changes) |
 | **2.4.0** | 2026-02-16 | Contract-lock closure (`B-03`/`B-04`) + release cut |
 | **2.3.0** | 2026-02-13 | MCP alignment closure (`B-01`) + blocking default sync guardrail (`B-02` phase 2) |
 | **2.2.0** | 2026-02-13 | MCP drift guardrail (observe mode), planning/backlog governance, release execution checklists |
