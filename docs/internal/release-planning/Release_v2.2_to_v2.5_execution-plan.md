@@ -1,7 +1,7 @@
 # PM-Skills v2.2 to v2.5 Execution Plan
 
-Date: 2026-02-14  
-Status: Active plan (v2.4 contract lock complete; v2.5 decision prep pending)  
+Date: 2026-02-14
+Status: Active plan (v2.4 contract lock complete; v2.5 continuity in progress)
 Release type: Minor for all releases
 
 ## Summary
@@ -11,6 +11,9 @@ This execution plan ships blockers `B-01` to `B-08` in dependency-safe order:
 2. MCP truth closure
 3. Contract lock
 4. Foundation/persona decisions
+
+Canonical delivery-plan blocker artifacts are tracked in `docs/internal/delivery-plan/`.
+Local `_NOTES/delivery-plan/` files are non-canonical working evidence.
 
 ## Release 1 - v2.2.0 - Guardrails and Governance
 
@@ -38,11 +41,7 @@ Status:
 1. Completed (2026-02-14)
 
 Scope:
-1. Execute and close `B-01` using:
-   - `_NOTES/delivery-plan/B-01a. DONE_alignment-checklist.md`
-   - `_NOTES/delivery-plan/B-01b. DONE_evidence-report.md`
-   - `_NOTES/delivery-plan/B-01c. DONE_closure-decision.md`
-   - `_NOTES/delivery-plan/B-01d. DONE_gap-register.md` (if needed)
+1. Execute and close `B-01` with checklist/evidence/closure artifacts (legacy local evidence remained in `_NOTES/delivery-plan/`).
 2. Switch `validate-mcp-sync` to blocking mode.
 
 Exit criteria:
@@ -58,18 +57,8 @@ Status:
 Scope:
 1. `B-03`: canonical output behavior contract.
 2. `B-04`: canonical config schema + format.
-3. Closure artifacts completed:
-   - `_NOTES/delivery-plan/B-03a. DONE_implementation-checklist.md`
-   - `_NOTES/delivery-plan/B-03b. DONE_evidence-report.md`
-   - `_NOTES/delivery-plan/B-03c. DONE_closure-decision.md`
-   - `_NOTES/delivery-plan/B-04a. DONE_implementation-checklist.md`
-   - `_NOTES/delivery-plan/B-04b. DONE_evidence-report.md`
-   - `_NOTES/delivery-plan/B-04c. DONE_closure-decision.md`
-4. Machine-readable config schema + validator evidence set added:
-   - `_NOTES/delivery-plan/config-schema-v1.json`
-   - `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.ps1`
-   - `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.py`
-   - `_NOTES/delivery-plan/evidence/config/*.yaml`
+3. Canonical tracked closure summary: `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`.
+4. Legacy local working evidence remained in `_NOTES/delivery-plan/` (non-canonical).
 
 Exit criteria:
 1. One output contract spec is canonical and cross-linked.
@@ -78,9 +67,16 @@ Exit criteria:
 
 ## Release 4 - v2.5.0 - Foundation and Persona Decisions
 
+Status:
+1. In progress (continuity kickoff started 2026-02-16)
+
 Scope:
 1. `B-05`: decide `foundation` phase status and MCP policy impact.
 2. `B-06`: signed persona builder Q1-Q7 decision record.
+3. Tracked closure-path artifacts:
+   - `docs/internal/delivery-plan/v2.5/B-05-foundation-phase-decision.md`
+   - `docs/internal/delivery-plan/v2.5/B-06-persona-q1-q7-decision-record.md`
+   - `docs/internal/delivery-plan/v2.5/B-05_B-06-closure-path.md`
 
 Exit criteria:
 1. Signed foundation decision exists and is reflected in MCP-facing docs/contracts.

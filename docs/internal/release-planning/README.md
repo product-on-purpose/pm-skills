@@ -27,3 +27,4 @@ This directory stores tracked, forward-looking release planning controls.
 - Publish release notes/reviews under `docs/releases/`.
 4. Do not place forward execution plans in `docs/releases/`.
 5. When kickoff starts for a planned release, move checklist status to `In progress` and link kickoff artifacts.
+6. Use `docs/internal/delivery-plan/` for canonical blocker decision/closure artifacts; keep `_NOTES/delivery-plan/` as local non-canonical working evidence.

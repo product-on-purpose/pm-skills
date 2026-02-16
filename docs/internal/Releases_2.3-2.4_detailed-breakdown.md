@@ -4,6 +4,9 @@ Date: 2026-02-16
 Audience: Maintainers, contributors, PMs, engineering leads, and MCP integrators  
 Scope: What shipped in `v2.3.0` and `v2.4.0`, why it mattered, how it was implemented, and how to use the resulting baseline
 
+Note: Historical `_NOTES/delivery-plan/` references in this document point to legacy local working evidence.
+Canonical tracked summary for v2.4 contract-lock outcomes is `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`.
+
 ## 1) Why This Document Exists
 
 The `v2.3.0` and `v2.4.0` releases were not feature-count releases. They were reliability and contract releases.

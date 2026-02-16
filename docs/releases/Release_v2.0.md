@@ -45,7 +45,7 @@ We flattened the skill source to a single, predictable layout (`skills/{phase-sk
 - Documentation examples now match the actual file layout.
 
 ## Known Notes
-- `docs/internal/` contains draft links; excluded from link checks. See `docs/internal/link-notes.md`.
+- `docs/internal/` contains draft links and remains excluded from link checks.
 - No MCP code changes in this release; MCP follow-up remains planned (v2.1).
 
 ## Packaging

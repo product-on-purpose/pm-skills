@@ -10,6 +10,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased changes documented yet.
 
+## [2.4.2] - 2026-02-16
+
+### Added
+- Release note artifact: `docs/releases/Release_v2.4.2.md`.
+- Canonical delivery-plan policy and migration docs:
+  - `docs/internal/delivery-plan/README.md`
+  - `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`
+  - `docs/internal/delivery-plan/v2.5/B-05-foundation-phase-decision.md`
+  - `docs/internal/delivery-plan/v2.5/B-06-persona-q1-q7-decision-record.md`
+  - `docs/internal/delivery-plan/v2.5/B-05_B-06-closure-path.md`
+
+### Changed
+- Started v2.5 continuity execution in tracked release-planning artifacts (`B-05`/`B-06` kickoff path and checklist status).
+- Updated release-planning and v2.4 release docs to treat `docs/internal/delivery-plan/` as canonical release-governance truth.
+- Archived legacy internal repo-submission planning docs from `docs/internal/` into local `_NOTES/repo-submission/_archive` (untracked/local-only).
+
+### Removed
+- Legacy internal docs from tracked `docs/internal/`:
+  - `docs/internal/repo-list_claude-code.md`
+  - `docs/internal/pr-quick-reference.md`
+  - `docs/internal/awesome-product-management-pr.md`
+  - `docs/internal/AWESOME-PM-PR.md`
+  - `docs/internal/awesome-lists-submission-package.md`
+  - `docs/internal/awesome-lists-submission-package_planning.md`
+  - `docs/internal/link-notes.md`
+
+### Release Notes
+- Patch release focused on governance hygiene and tracked-vs-local artifact clarity.
+- No PM skill behavior changes and no output/config contract changes from `v2.4.0`.
+
 ## [2.4.1] - 2026-02-16
 
 ### Added
@@ -33,11 +63,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Release note artifact: `docs/releases/Release_v2.4.md`.
-- v2.4 config contract proof artifacts:
-  - `_NOTES/delivery-plan/config-schema-v1.json`
-  - `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.ps1`
-  - `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.py`
-  - `_NOTES/delivery-plan/evidence/config/*.yaml`
+- Canonical tracked contract-lock summary:
+  - `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`
 
 ### Changed
 - Release-planning artifacts updated for `v2.4.0` ship state:
@@ -46,13 +73,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `docs/internal/release-planning/README.md`
 - Canonical backlog release cadence anchors synced for v2.4 closure:
   - `docs/internal/backlog-canonical.md`
-- v2.4 contract-lock closure state advanced to `closed-aligned` in delivery-plan artifacts:
-  - `_NOTES/delivery-plan/B-03a. DONE_implementation-checklist.md`
-  - `_NOTES/delivery-plan/B-03b. DONE_evidence-report.md`
-  - `_NOTES/delivery-plan/B-03c. DONE_closure-decision.md`
-  - `_NOTES/delivery-plan/B-04a. DONE_implementation-checklist.md`
-  - `_NOTES/delivery-plan/B-04b. DONE_evidence-report.md`
-  - `_NOTES/delivery-plan/B-04c. DONE_closure-decision.md`
+- v2.4 contract-lock closure state advanced to `closed-aligned` and is summarized in:
+  - `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`
 - Expanded `validate-mcp-sync` checks to include `pm-skills-mcp` pin metadata and contract-version parity via `pm-skills-source.json`.
 - Corrected MCP integration guide utility-tool inventory to 7 tools (`pm_cache_stats` included).
 - Updated MCP compatibility references to direct version tracking (`pm-skills v2.4.x` ↔ `pm-skills-mcp v2.4.x`) in ecosystem/integration docs.

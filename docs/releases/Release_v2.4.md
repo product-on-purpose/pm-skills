@@ -14,19 +14,17 @@ It closes `B-03` and `B-04` as `closed-aligned` with evidence-backed determinism
 - Hybrid output defaults with intent guardrails.
 - Collision safety matrix (`abort`, `overwrite`, `merge`, `new-file`) with safe non-interactive fallback.
 - Path safety, target-selection, and required output metadata expectations captured in closure artifacts.
-- Closure decision: `_NOTES/delivery-plan/B-03c. DONE_closure-decision.md` (`closed-aligned`).
+- Canonical tracked summary: `docs/internal/delivery-plan/v2.4-contract-lock-summary.md` (`closed-aligned` outcomes).
 
 2. B-04 config contract lock:
 - YAML-only canonical authoring with one canonical internal model.
 - Strict config discovery precedence across approved paths.
 - Unknown/deprecated key policy locked (`warn` local, strict `fail` in CI mode, one-version grace).
-- Closure decision: `_NOTES/delivery-plan/B-04c. DONE_closure-decision.md` (`closed-aligned`).
+- Canonical tracked summary: `docs/internal/delivery-plan/v2.4-contract-lock-summary.md` (`closed-aligned` outcomes).
 
 3. Shared config contract validation proof set:
-- `_NOTES/delivery-plan/config-schema-v1.json`
-- `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.ps1`
-- `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.py`
-- `_NOTES/delivery-plan/evidence/config/*.yaml`
+- Captured in tracked summary: `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`
+- Detailed command-level working evidence remained local in `_NOTES/delivery-plan/`.
 
 4. Release planning state sync for ship:
 - `docs/internal/release-planning/checklist_v2.4.0.md` set to shipped state.

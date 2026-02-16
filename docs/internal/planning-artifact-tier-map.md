@@ -13,6 +13,7 @@ Last updated: 2026-02-13
 | Tier 1 | `AGENTS/*/DECISIONS.md`   | Tracked     | Agent-level durable decision history                 |
 | Tier 1 | `docs/releases/*.md`      | Tracked     | Shipped release notes and post-ship reviews          |
 | Tier 1 | `docs/internal/release-planning/*.md` | Tracked | Forward release execution plans and checklists |
+| Tier 1 | `docs/internal/delivery-plan/**` | Tracked | Canonical blocker decisions and closure-path artifacts |
 | Tier 2 | `AGENTS/*/SESSION-LOG/**` | Ignored     | High-volume, low-signal operational transcripts      |
 | Tier 2 | `AGENTS/*/TODO.md`        | Ignored     | Personal task scratchpad, frequently stale           |
 | Tier 2 | `AGENTS/*/PLANNING/**`    | Ignored     | Exploratory drafts, superseded quickly               |
