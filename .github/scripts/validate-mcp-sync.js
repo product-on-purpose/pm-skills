@@ -20,6 +20,9 @@ const mode = (process.env.VALIDATE_MCP_SYNC_MODE || "observe").toLowerCase() ===
 const pmSkillsPath = process.env.PM_SKILLS_PATH || ".";
 const pmSkillsMcpPath = process.env.PM_SKILLS_MCP_PATH || "./pm-skills-mcp";
 const stepSummaryPath = process.env.GITHUB_STEP_SUMMARY;
+const sourceMetadataFileName = "pm-skills-source.json";
+const semverPattern = /^\d+\.\d+\.\d+$/;
+const shaPattern = /^[0-9a-f]{7,40}$/i;
 
 function pathExists(targetPath) {
   try {
@@ -123,6 +126,116 @@ function collectMissingCommands(pmSkillsRoot, pmSkillNames) {
   return missing.sort((a, b) => a.localeCompare(b));
 }
 
+function readJsonFile(filePath, label) {
+  if (!pathExists(filePath)) {
+    throw new Error(`Missing ${label}: ${filePath}`);
+  }
+  try {
+    const raw = fs.readFileSync(filePath, "utf8");
+    return JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Could not parse ${label} at ${filePath}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+function readLatestReleaseVersion(changelogPath) {
+  if (!pathExists(changelogPath)) {
+    throw new Error(`Missing CHANGELOG.md at ${changelogPath}`);
+  }
+  const lines = fs.readFileSync(changelogPath, "utf8").split(/\r?\n/);
+  for (const line of lines) {
+    const match = line.match(/^## \[(\d+\.\d+\.\d+)\] - \d{4}-\d{2}-\d{2}$/);
+    if (match) {
+      return match[1];
+    }
+  }
+  throw new Error(`Could not find a released semver heading in ${changelogPath}`);
+}
+
+function validateSourceMetadata(sourceMetadata, latestReleaseVersion) {
+  const issues = [];
+  const warnings = [];
+
+  if (typeof sourceMetadata !== "object" || sourceMetadata === null) {
+    return {
+      issues: ["Source metadata must be a JSON object."],
+      warnings,
+    };
+  }
+
+  const repository = typeof sourceMetadata.pmSkillsRepository === "string"
+    ? sourceMetadata.pmSkillsRepository.trim()
+    : "";
+  const ref = typeof sourceMetadata.pmSkillsRef === "string"
+    ? sourceMetadata.pmSkillsRef.trim()
+    : "";
+  const version = typeof sourceMetadata.pmSkillsVersion === "string"
+    ? sourceMetadata.pmSkillsVersion.trim()
+    : "";
+  const outputContractVersion = typeof sourceMetadata.outputContractVersion === "string"
+    ? sourceMetadata.outputContractVersion.trim()
+    : "";
+  const configContractVersion = typeof sourceMetadata.configContractVersion === "string"
+    ? sourceMetadata.configContractVersion.trim()
+    : "";
+
+  if (!repository) {
+    issues.push("pmSkillsRepository is required in pm-skills-source.json.");
+  } else if (repository !== "product-on-purpose/pm-skills") {
+    warnings.push(`pmSkillsRepository is '${repository}' (expected product-on-purpose/pm-skills).`);
+  }
+
+  if (!ref) {
+    issues.push("pmSkillsRef is required in pm-skills-source.json.");
+  }
+
+  if (!version) {
+    issues.push("pmSkillsVersion is required in pm-skills-source.json.");
+  } else if (!semverPattern.test(version)) {
+    issues.push(`pmSkillsVersion '${version}' must match X.Y.Z.`);
+  }
+
+  if (!outputContractVersion) {
+    issues.push("outputContractVersion is required in pm-skills-source.json.");
+  } else if (!semverPattern.test(outputContractVersion)) {
+    issues.push(`outputContractVersion '${outputContractVersion}' must match X.Y.Z.`);
+  }
+
+  if (!configContractVersion) {
+    issues.push("configContractVersion is required in pm-skills-source.json.");
+  } else if (!semverPattern.test(configContractVersion)) {
+    issues.push(`configContractVersion '${configContractVersion}' must match X.Y.Z.`);
+  }
+
+  if (version && outputContractVersion && version !== outputContractVersion) {
+    issues.push(`outputContractVersion '${outputContractVersion}' must match pmSkillsVersion '${version}'.`);
+  }
+
+  if (version && configContractVersion && version !== configContractVersion) {
+    issues.push(`configContractVersion '${configContractVersion}' must match pmSkillsVersion '${version}'.`);
+  }
+
+  if (ref && version && !shaPattern.test(ref) && ref !== `v${version}`) {
+    issues.push(`pmSkillsRef '${ref}' must match 'v${version}' (or be a commit SHA).`);
+  }
+
+  if (latestReleaseVersion && version && version !== latestReleaseVersion) {
+    issues.push(`pmSkillsVersion '${version}' does not match latest pm-skills release '${latestReleaseVersion}'.`);
+  }
+
+  return {
+    issues,
+    warnings,
+    normalized: {
+      repository,
+      ref,
+      version,
+      outputContractVersion,
+      configContractVersion,
+    },
+  };
+}
+
 function formatList(items) {
   if (items.length === 0) {
     return "  - (none)";
@@ -139,10 +252,10 @@ function appendStepSummary(markdown) {
 
 function printChecklist() {
   console.log("Manual sync checklist:");
-  console.log("1) In pm-skills-mcp, run `npm run embed-skills`.");
-  console.log("2) Update pm-skills-mcp/README.md skill tables and tool-count badge.");
-  console.log("3) Update pm-skills-mcp/CHANGELOG.md under [Unreleased] -> Added.");
-  console.log("4) Update pm-skills/README.md skill tables if needed.");
+  console.log("1) In pm-skills-mcp, update `pm-skills-source.json` with repo/ref/version and contract versions.");
+  console.log("2) In pm-skills-mcp, run `npm run embed-skills`.");
+  console.log("3) Update pm-skills-mcp docs/changelog for tool counts and compatibility notes.");
+  console.log("4) Update pm-skills docs/changelog where MCP compatibility references changed.");
   console.log("5) Ensure command files exist for new skills in pm-skills/commands/.");
   console.log("6) Commit and push both repos.");
 }
@@ -162,17 +275,36 @@ function main() {
   const missingInMcp = diffSet(pmSkills, mcpSkills);
   const extraInMcp = diffSet(mcpSkills, pmSkills);
   const missingCommands = collectMissingCommands(pmSkillsPath, pmSkills);
+  const latestReleaseVersion = readLatestReleaseVersion(path.join(pmSkillsPath, "CHANGELOG.md"));
+  const sourceMetadataPath = path.join(pmSkillsMcpPath, sourceMetadataFileName);
+  const sourceMetadata = readJsonFile(sourceMetadataPath, "pm-skills-mcp source metadata");
+  const sourceMetadataValidation = validateSourceMetadata(sourceMetadata, latestReleaseVersion);
 
-  const mismatchDetected = missingInMcp.length > 0 || extraInMcp.length > 0;
+  const skillDriftDetected = missingInMcp.length > 0 || extraInMcp.length > 0;
+  const metadataMismatchDetected = sourceMetadataValidation.issues.length > 0;
+  const mismatchDetected = skillDriftDetected || metadataMismatchDetected;
 
   console.log(`validate-mcp-sync mode: ${mode}`);
   console.log(`pm-skills root: ${pm.root}`);
   console.log(`pm-skills-mcp root: ${mcp.root}`);
   console.log(`skills in pm-skills: ${pmSkills.size}`);
   console.log(`skills in pm-skills-mcp: ${mcpSkills.size}`);
+  console.log(`latest pm-skills release: ${latestReleaseVersion}`);
+  console.log(`source metadata path: ${sourceMetadataPath}`);
+  if (sourceMetadataValidation.normalized) {
+    console.log(`pinned pm-skills repo: ${sourceMetadataValidation.normalized.repository || "(missing)"}`);
+    console.log(`pinned pm-skills ref: ${sourceMetadataValidation.normalized.ref || "(missing)"}`);
+    console.log(`pinned pm-skills version: ${sourceMetadataValidation.normalized.version || "(missing)"}`);
+    console.log(`output contract version: ${sourceMetadataValidation.normalized.outputContractVersion || "(missing)"}`);
+    console.log(`config contract version: ${sourceMetadataValidation.normalized.configContractVersion || "(missing)"}`);
+  }
+  if (sourceMetadataValidation.warnings.length > 0) {
+    console.log("Pin/contract warnings:");
+    console.log(formatList(sourceMetadataValidation.warnings));
+  }
 
   if (!mismatchDetected) {
-    console.log("MCP sync check passed: no skill drift detected.");
+    console.log("MCP sync check passed: no skill drift and pin/contract metadata is aligned.");
     if (missingCommands.length > 0) {
       console.log("Warning: missing command files detected:");
       console.log(formatList(missingCommands));
@@ -185,16 +317,26 @@ function main() {
         `- Mode: ${mode}`,
         `- pm-skills skills: ${pmSkills.size}`,
         `- pm-skills-mcp skills: ${mcpSkills.size}`,
+        `- Latest pm-skills release: ${latestReleaseVersion}`,
+        `- Source metadata issues: ${sourceMetadataValidation.issues.length}`,
       ].join("\n")
     );
     return;
   }
 
   console.log("MCP sync check detected drift.");
-  console.log("Skills in pm-skills but missing in pm-skills-mcp:");
-  console.log(formatList(missingInMcp));
-  console.log("Skills in pm-skills-mcp but not in pm-skills:");
-  console.log(formatList(extraInMcp));
+  if (skillDriftDetected) {
+    console.log("Skills in pm-skills but missing in pm-skills-mcp:");
+    console.log(formatList(missingInMcp));
+    console.log("Skills in pm-skills-mcp but not in pm-skills:");
+    console.log(formatList(extraInMcp));
+  } else {
+    console.log("Skill inventory drift: none.");
+  }
+  if (metadataMismatchDetected) {
+    console.log("Pin/contract metadata issues:");
+    console.log(formatList(sourceMetadataValidation.issues));
+  }
   if (missingCommands.length > 0) {
     console.log("Related warning: missing command files:");
     console.log(formatList(missingCommands));
@@ -209,12 +351,18 @@ function main() {
       `- Mode: ${mode}`,
       `- Missing in pm-skills-mcp: ${missingInMcp.length}`,
       `- Extra in pm-skills-mcp: ${extraInMcp.length}`,
+      `- Pin/contract metadata issues: ${sourceMetadataValidation.issues.length}`,
       "",
       "### Missing in pm-skills-mcp",
-      ...missingInMcp.map((skill) => `- ${skill}`),
+      ...(missingInMcp.length > 0 ? missingInMcp.map((skill) => `- ${skill}`) : ["- (none)"]),
       "",
       "### Extra in pm-skills-mcp",
-      ...extraInMcp.map((skill) => `- ${skill}`),
+      ...(extraInMcp.length > 0 ? extraInMcp.map((skill) => `- ${skill}`) : ["- (none)"]),
+      "",
+      "### Pin/contract metadata issues",
+      ...(sourceMetadataValidation.issues.length > 0
+        ? sourceMetadataValidation.issues.map((issue) => `- ${issue}`)
+        : ["- (none)"]),
     ].join("\n")
   );
 

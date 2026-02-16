@@ -17,7 +17,7 @@ This guide helps you access PM-Skills through the Model Context Protocol (MCP) v
 - [Tool Inventory](#tool-inventory)
   - [Skill Tools (24)](#skill-tools-24)
   - [Workflow Tools (5)](#workflow-tools-5)
-  - [Utility Tools (6)](#utility-tools-6)
+  - [Utility Tools (7)](#utility-tools-7)
 - [Slash Command to MCP Tool Mapping](#slash-command-to-mcp-tool-mapping)
 - [Customization](#customization)
 - [Troubleshooting](#troubleshooting)
@@ -198,9 +198,9 @@ Consult your MCP client's documentation for specific configuration syntax.
 
 ## Tool Inventory
 
-PM-Skills MCP v2.1+ provides **36 tools** organized into three categories (24 skills + 5 workflows + 7 utilities).
+PM-Skills MCP v2.4+ provides **36 tools** organized into three categories (24 skills + 5 workflows + 7 utilities).
 
-> **Note:** pm-skills-mcp v2.1.0 is aligned with the pm-skills v2.x flat structure. Resource URIs are now flat (`pm-skills://skills/{skill}`) with phase available in metadata.
+> **Note:** pm-skills-mcp now tracks pm-skills release versions directly (starting at v2.4.0). Resource URIs are flat (`pm-skills://skills/{skill}`) with phase available in metadata.
 
 ### Skill Tools (24)
 
@@ -283,7 +283,7 @@ Workflow tools orchestrate multiple skills for common PM scenarios:
 
 ---
 
-### Utility Tools (6)
+### Utility Tools (7)
 
 Discovery and validation tools:
 
@@ -295,6 +295,7 @@ Discovery and validation tools:
 | `pm_list_prompts` | List available MCP prompts |
 | `pm_validate` | Validate an artifact against a skill template |
 | `pm_search_skills` | Search skills by keyword |
+| `pm_cache_stats` | Show server cache stats and hit-rate diagnostics |
 
 ---
 

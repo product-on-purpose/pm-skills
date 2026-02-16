@@ -8,21 +8,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Release-planning state advanced for v2.4 kickoff:
+- Expanded `validate-mcp-sync` checks to include `pm-skills-mcp` pin metadata and contract-version parity via `pm-skills-source.json`.
+- Corrected MCP integration guide utility-tool inventory to 7 tools (`pm_cache_stats` included).
+- Updated MCP compatibility references to direct version tracking (`pm-skills v2.4.x` ↔ `pm-skills-mcp v2.4.x`) in ecosystem/integration docs.
+
+## [2.4.0] - 2026-02-16
+
+### Added
+- Release note artifact: `docs/releases/Release_v2.4.md`.
+- v2.4 config contract proof artifacts:
+  - `_NOTES/delivery-plan/config-schema-v1.json`
+  - `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.ps1`
+  - `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.py`
+  - `_NOTES/delivery-plan/evidence/config/*.yaml`
+
+### Changed
+- Release-planning artifacts updated for `v2.4.0` ship state:
   - `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`
   - `docs/internal/release-planning/checklist_v2.4.0.md`
   - `docs/internal/release-planning/README.md`
-- README roadmap/what's-new sections updated for v2.4 kickoff tracking.
-- Delivery-plan closure artifacts normalized for completed blockers with `DONE_` filename tags:
-  - `B-01*`, `B-02*`, `B-07*`, and `B-08*` artifacts under `_NOTES/delivery-plan/`
-- Blocker closure artifacts finalized (from template state) for:
-  - `B-02` (v2.3 guardrail closure),
-  - `B-07` and `B-08` (v2.2 governance closure).
-
-### Added
-- v2.4 kickoff draft checklists expanded:
+- Canonical backlog release cadence anchors synced for v2.4 closure:
+  - `docs/internal/backlog-canonical.md`
+- v2.4 contract-lock closure state advanced to `closed-aligned` in delivery-plan artifacts:
   - `_NOTES/delivery-plan/B-03a-implementation-checklist.md`
+  - `_NOTES/delivery-plan/B-03b-evidence-report.md`
+  - `_NOTES/delivery-plan/B-03c-closure-decision.md`
   - `_NOTES/delivery-plan/B-04a-implementation-checklist.md`
+  - `_NOTES/delivery-plan/B-04b-evidence-report.md`
+  - `_NOTES/delivery-plan/B-04c-closure-decision.md`
+
+### Release Notes
+- This release closes the v2.4.0 contract-lock scope:
+  - `B-03` output behavior contract locked and recorded as `closed-aligned`.
+  - `B-04` config contract/schema lock recorded as `closed-aligned` with validator proof artifacts.
 
 ## [2.3.0] - 2026-02-13
 

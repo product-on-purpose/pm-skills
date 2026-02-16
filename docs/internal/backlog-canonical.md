@@ -2,7 +2,7 @@
 
 Status: Active  
 Owner: Maintainers  
-Last updated: 2026-02-13
+Last updated: 2026-02-16
 
 ## Canonical Source
 
@@ -24,5 +24,5 @@ When backlog items change:
 
 - `v2.2.0`: guardrails and governance (`B-02`, `B-07`, `B-08`)
 - `v2.3.0`: MCP alignment closure (`B-01`) and drift check enforcement (`B-02` block mode)
-- `v2.4.0`: output/config contract lock (`B-03`, `B-04`)
+- `v2.4.0`: output/config contract lock closed-aligned (`B-03`, `B-04`)
 - `v2.5.0`: foundation/persona decisions (`B-05`, `B-06`)

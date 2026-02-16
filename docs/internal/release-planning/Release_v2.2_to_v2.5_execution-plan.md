@@ -1,7 +1,7 @@
 # PM-Skills v2.2 to v2.5 Execution Plan
 
 Date: 2026-02-14  
-Status: Active plan (v2.4 kickoff in progress)  
+Status: Active plan (v2.4 contract lock complete; v2.5 decision prep pending)  
 Release type: Minor for all releases
 
 ## Summary
@@ -53,14 +53,23 @@ Exit criteria:
 ## Release 3 - v2.4.0 - Contract Lock
 
 Status:
-1. In progress (kickoff started 2026-02-14)
+1. Completed (2026-02-16, `closed-aligned` for `B-03` and `B-04`)
 
 Scope:
 1. `B-03`: canonical output behavior contract.
 2. `B-04`: canonical config schema + format.
-3. Kickoff artifacts drafted:
+3. Closure artifacts completed:
    - `_NOTES/delivery-plan/B-03a-implementation-checklist.md`
+   - `_NOTES/delivery-plan/B-03b-evidence-report.md`
+   - `_NOTES/delivery-plan/B-03c-closure-decision.md`
    - `_NOTES/delivery-plan/B-04a-implementation-checklist.md`
+   - `_NOTES/delivery-plan/B-04b-evidence-report.md`
+   - `_NOTES/delivery-plan/B-04c-closure-decision.md`
+4. Machine-readable config schema + validator evidence set added:
+   - `_NOTES/delivery-plan/config-schema-v1.json`
+   - `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.ps1`
+   - `_NOTES/delivery-plan/scripts/validate-config-contract-v2.4.py`
+   - `_NOTES/delivery-plan/evidence/config/*.yaml`
 
 Exit criteria:
 1. One output contract spec is canonical and cross-linked.

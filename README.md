@@ -307,7 +307,7 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
 | **Updates** | `git pull` | `npm update pm-skills-mcp` |
 
-> Note: pm-skills-mcp v1.x targets the legacy nested layout; use pm-skills-mcp v2.1+ for flat-layout parity with pm-skills v2.x.
+> Note: pm-skills-mcp v1.x targets the legacy nested layout; use pm-skills-mcp v2.4+ for version-aligned parity with pm-skills v2.4+.
 
 **Use `pm-skills` (this repo) when:**
 - You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)
@@ -482,7 +482,7 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
-- **Latest stable:** `v2.2.0` (guardrails + governance baseline)
+- **Latest stable:** `v2.4.0` (output/config contract lock closure)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
 Release notes are published in `docs/releases/` (for example, `docs/releases/Release_v2.2.md`).
@@ -704,6 +704,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **2.4.0** | 2026-02-16 | Contract-lock closure (`B-03`/`B-04`) + release cut |
 | **2.3.0** | 2026-02-13 | MCP alignment closure (`B-01`) + blocking default sync guardrail (`B-02` phase 2) |
 | **2.2.0** | 2026-02-13 | MCP drift guardrail (observe mode), planning/backlog governance, release execution checklists |
 | **2.1.0** | 2026-01-27 | MCP alignment milestone documentation update                             |
@@ -729,7 +730,7 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] Slash commands for Claude Code
 - [x] Apache 2.0 license for commercial use
 - [x] openskills CLI support ([#48](https://github.com/numman-ali/openskills/issues/48) resolved in v1.3.1)
-- [x] pm-skills-mcp package (https://github.com/product-on-purpose/pm-skills-mcp) with v2.1 compatibility milestone documented
+- [x] pm-skills-mcp package (https://github.com/product-on-purpose/pm-skills-mcp) with v2.4 direct-version-tracking milestone documented
 - [x] v2.2 guardrails release: observe-first cross-repo sync validation + planning/backlog governance
 
 **In Progress**
@@ -743,7 +744,7 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 
 - [ ] New skills?! Which?
 - [ ] Community skill contributions and marketplace
-- [ ] Skill versioning and compatibility tracking
+- [x] Skill versioning and compatibility tracking
 - [ ] Additional workflow bundles
     - [ ] Product Strategy bundle
     - [ ] Customer Discovery bundle
