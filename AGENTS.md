@@ -2,9 +2,18 @@
 
 > Open source Product Management skills for AI agents
 
-This repository contains professional PM skills organized by the Triple Diamond framework. Each skill helps AI agents produce high-quality PM artifacts.
+This repository contains professional PM skills organized by the Triple Diamond framework plus foundation capabilities. Each skill helps AI agents produce high-quality PM artifacts.
 
 ## Skills
+
+### Foundation Classification
+
+#### persona
+**Path:** `skills/foundation-persona/SKILL.md`
+
+Generates a context-appropriate persona for product or marketing workflows with explicit assumptions, confidence, and evidence trail. Use when shaping artifact perspective, stress-testing decisions, or framing PM/GTM decisions.
+
+---
 
 ### Discover Phase
 
@@ -181,6 +190,7 @@ Bundle links are repo-relative within this repository.
 | `/launch-checklist` | Create a comprehensive pre-launch checklist |
 | `/lessons-log` | Create a structured lessons learned entry |
 | `/opportunity-tree` | Create an opportunity solution tree |
+| `/persona` | Generate a product or marketing persona |
 | `/pivot-decision` | Document a pivot or persevere decision |
 | `/prd` | Create a Product Requirements Document |
 | `/problem-statement` | Create a clear problem statement with success criteria |

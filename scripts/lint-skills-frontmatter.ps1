@@ -10,7 +10,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     $skillFail = $false
 
     if (-not (Test-Path $skillPath)) {
-        Write-Host "✗ $($dir.Name) : missing SKILL.md"
+        Write-Host "[FAIL] $($dir.Name) : missing SKILL.md"
         $Fail = $true
         return
     }
@@ -26,7 +26,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     }
 
     if ($start -eq -1 -or $end -le $start) {
-        Write-Host "✗ $rel : missing or invalid front matter"
+        Write-Host "[FAIL] $rel : missing or invalid front matter"
         $Fail = $true
         return
     }
@@ -35,22 +35,64 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
 
     $nameLine = $front | Where-Object { $_ -match '^name:' } | Select-Object -First 1
     if (-not $nameLine) {
-        Write-Host "✗ $rel : missing name"
+        Write-Host "[FAIL] $rel : missing name"
         $Fail = $true
         $skillFail = $true
     }
     else {
         $nameValue = ($nameLine -split ':', 2)[1].Trim()
         if ($nameValue -ne $dir.Name) {
-            Write-Host "✗ $rel : name mismatch (front matter: $nameValue, dir: $($dir.Name))"
+            Write-Host "[FAIL] $rel : name mismatch (front matter: $nameValue, dir: $($dir.Name))"
             $Fail = $true
             $skillFail = $true
         }
     }
 
-    foreach ($key in @('phase','version','updated','license')) {
+    foreach ($key in @('version','updated','license')) {
         if (-not ($front | Where-Object { $_ -match "^${key}:" })) {
-            Write-Host "✗ $rel : missing $key"
+            Write-Host "[FAIL] $rel : missing $key"
+            $Fail = $true
+            $skillFail = $true
+        }
+    }
+
+    $phaseLine = $front | Where-Object { $_ -match '^phase:' } | Select-Object -First 1
+    $classificationLine = $front | Where-Object { $_ -match '^classification:' } | Select-Object -First 1
+    $phaseValue = if ($phaseLine) { (($phaseLine -split ':', 2)[1].Trim()) } else { $null }
+    $classificationValue = if ($classificationLine) { (($classificationLine -split ':', 2)[1].Trim()) } else { $null }
+
+    $validPhases = @('discover','define','develop','deliver','measure','iterate')
+    $validClassifications = @('domain','foundation','utility')
+
+    if ($phaseValue -and ($validPhases -notcontains $phaseValue)) {
+        Write-Host "[FAIL] $rel : invalid phase '$phaseValue' (expected one of: $($validPhases -join ', '))"
+        $Fail = $true
+        $skillFail = $true
+    }
+
+    if ($classificationValue -and ($validClassifications -notcontains $classificationValue)) {
+        Write-Host "[FAIL] $rel : invalid classification '$classificationValue' (expected one of: $($validClassifications -join ', '))"
+        $Fail = $true
+        $skillFail = $true
+    }
+
+    if ($classificationValue -in @('foundation','utility')) {
+        if ($phaseLine) {
+            Write-Host "[FAIL] $rel : phase should be omitted for classification '$classificationValue'"
+            $Fail = $true
+            $skillFail = $true
+        }
+    }
+    elseif ($classificationValue -eq 'domain') {
+        if (-not $phaseLine) {
+            Write-Host "[FAIL] $rel : missing phase for domain classification"
+            $Fail = $true
+            $skillFail = $true
+        }
+    }
+    else {
+        if (-not $phaseLine) {
+            Write-Host "[FAIL] $rel : missing phase (or set classification to foundation/utility)"
             $Fail = $true
             $skillFail = $true
         }
@@ -58,7 +100,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
 
     $rootVersionCount = ($front | Where-Object { $_ -match '^version:' }).Count
     if ($rootVersionCount -ne 1) {
-        Write-Host "✗ $rel : expected exactly one root version (found $rootVersionCount)"
+        Write-Host "[FAIL] $rel : expected exactly one root version (found $rootVersionCount)"
         $Fail = $true
         $skillFail = $true
     }
@@ -72,7 +114,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
         if ($inMeta -and $trim -match '^\s+version:') { $metaVersion = $true }
     }
     if ($metaVersion) {
-        Write-Host "✗ $rel : metadata.version present (remove nested version)"
+        Write-Host "[FAIL] $rel : metadata.version present (remove nested version)"
         $Fail = $true
         $skillFail = $true
     }
@@ -80,14 +122,14 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     foreach ($ref in @('TEMPLATE.md','EXAMPLE.md')) {
         $refPath = Join-Path (Join-Path $dir.FullName 'references') $ref
         if (-not (Test-Path $refPath)) {
-            Write-Host "✗ $rel : missing references/$ref"
+            Write-Host "[FAIL] $rel : missing references/$ref"
             $Fail = $true
             $skillFail = $true
         }
     }
 
     if (-not $skillFail) {
-        Write-Host "✓ $rel"
+        Write-Host "[OK] $rel"
     }
 }
 
