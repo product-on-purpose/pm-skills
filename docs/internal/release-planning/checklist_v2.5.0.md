@@ -1,8 +1,8 @@
 # v2.5.0 Checklist - Persona Skill + Foundation/Utility + Sample Library
 
-Status: Ready for release cut (`M-10` content-alignment gate closed with explicit evidence)  
+Status: Released (`v2.5.0` published; `M-10` content-alignment gate remained closed through cut/publish)  
 Release type: Minor  
-Last updated: 2026-03-02 (scope narrowed: `F-03` + `F-04` deferred; `M-10` gate closed; matrix rerun `17:57 PT`)
+Last updated: 2026-03-03 (release + publish artifacts verified; `F-03` + `F-04` remain deferred)
 
 ## 1) Scope Definition (Static)
 
@@ -94,14 +94,22 @@ This block closes `M-10`.
    - Non-blocking residual: `foundation-persona` sample outputs align to the published EXAMPLE dossier structure while `TEMPLATE.md` remains a separate contract-format follow-up.
 7. `pm-skills-mcp` pin/version check:
    - `package.json` version: `2.5.0`.
-   - `pm-skills-source.json`: `pmSkillsVersion=2.5.0`, `outputContractVersion=2.5.0`, `configContractVersion=2.5.0`, `pmSkillsRef=01891fe26a456a423be6f14d4feaf6aeb95b4e4f`.
+   - `pm-skills-source.json`: `pmSkillsVersion=2.5.0`, `outputContractVersion=2.5.0`, `configContractVersion=2.5.0`, `pmSkillsRef=5586c98c0d0ca77c763440b58d266d2029ae2719`.
    - `validate-mcp-sync` block mode confirms parity with latest release version `2.5.0`.
 
 ## 5) Readiness Verdict
 
-Current verdict: **Ready for release cut**.
+Current verdict: **Released**.
 
 All blocking gates are closed.
+
+### Post-Cut Artifact Evidence (2026-03-03 PT)
+
+1. `pm-skills` release published: `https://github.com/product-on-purpose/pm-skills/releases/tag/v2.5.0`.
+2. `pm-skills` release workflow success: `https://github.com/product-on-purpose/pm-skills/actions/runs/22634316074`.
+3. `pm-skills-mcp` release published: `https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.5.0`.
+4. `pm-skills-mcp` publish workflow success: `https://github.com/product-on-purpose/pm-skills-mcp/actions/runs/22634768064`.
+5. npm artifact verification: `npm view pm-skills-mcp version` -> `2.5.0`, `dist-tags.latest=2.5.0`.
 
 ## Canonical References
 

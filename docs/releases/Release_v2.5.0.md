@@ -1,7 +1,7 @@
 # PM-Skills v2.5.0 Release Notes
 
-Date: 2026-03-02  
-Status: Ready for release cut (pre-tag)
+Date: 2026-03-03  
+Status: Released (`v2.5.0` tag + GitHub release published)
 
 ## Summary
 
@@ -23,7 +23,7 @@ Deferred from `v2.5.0`:
 `v2.5.0` uses the approved D6 compatibility-signaling exception path:
 1. Release labels remain aligned at `v2.5.0` across repos.
 2. MCP contract-impacting changes are explicitly disclosed here and in `CHANGELOG.md`.
-3. Migration guidance is required before release cut.
+3. Migration guidance was completed before release cut and is part of the published release baseline.
 
 ### Who Is Affected
 
@@ -80,7 +80,13 @@ Deferred from `v2.5.0`:
 7. `M-10-skill-sample-outputs-library` content-alignment gate is closed with explicit evidence in `docs/internal/release-planning/checklist_v2.5.0.md`.
 
 Current readiness verdict:
-1. **Ready for release cut** (all blocking gates closed).
+1. **Released** (all blocking gates were closed at cut time).
+
+## Published Artifacts
+
+1. GitHub release: `https://github.com/product-on-purpose/pm-skills/releases/tag/v2.5.0`.
+2. Release workflow: `https://github.com/product-on-purpose/pm-skills/actions/runs/22634316074` (success).
+3. Cross-repo publish evidence: `pm-skills-mcp` release `v2.5.0` published to npm (`latest=2.5.0`).
 
 Evidence commands for gate truth:
 1. `rg -n "Blocking gates \\(all closed\\)|Current verdict|M-10-skill-sample-outputs-library" docs/internal/release-planning/checklist_v2.5.0.md`
