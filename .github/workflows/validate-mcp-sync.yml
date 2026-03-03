@@ -40,7 +40,20 @@ jobs:
           repository: product-on-purpose/pm-skills-mcp
           path: pm-skills-mcp
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: pm-skills-mcp/package-lock.json
+
+      - name: Install pm-skills-mcp dependencies
+        working-directory: pm-skills-mcp
+        run: npm ci
+
       - name: Embed skills snapshot in pm-skills-mcp for comparison
+        env:
+          PM_INCLUDE_PERSONAS: "false"
         run: node pm-skills-mcp/scripts/embed-skills.js ./pm-skills/skills
 
       - name: Validate sync status (blocking default)
