@@ -10,6 +10,8 @@ This directory stores tracked, forward-looking release planning controls.
 
 - Execution plans for upcoming releases
 - Release checklists used before and during ship
+- Clean-worktree cut/tag/publish procedure:
+  - `docs/internal/release-planning/runbook_clean-worktree-cut-tag-publish.md`
 
 ## Allowed Checklist Status Values
 
