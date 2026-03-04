@@ -120,12 +120,13 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 **What's New (Recent Releases)**
 <details>
-<summary>v2.5.0 - Persona + Foundation/Utility + Sample Library</summary>
+<summary>v2.5.0 - Persona Skill + Foundation/Utility Taxonomy + Sample Library</summary>
 
-- Active shipped lane: `F-02` persona skill + `M-09` foundation/utility taxonomy + `M-10` sample library.
-- `M-10` content-alignment gate is explicitly closed with evidence in `docs/internal/release-planning/checklist_v2.5.0.md`.
-- Deferred from `v2.5.0` by design: `F-03` and `F-04`.
-- Release note: `docs/releases/Release_v2.5.0.md`.
+- New **foundation-persona** skill with `/persona` command (product and marketing output modes).
+- Foundation/utility skill taxonomy: skills can now be classified beyond phase-based categories.
+- Curated sample-output library shipped for all 25 skills.
+- Deferred to a future release: persona archetype library and persona MCP exposure parity.
+- Release note: [docs/releases/Release_v2.5.0.md](docs/releases/Release_v2.5.0.md).
 
 </details>
 <details>
@@ -153,11 +154,11 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 </details>
 <details>
-<summary>v2.4.0 - Contract lock closure</summary>
+<summary>v2.4.0 - Output and config behavior contracts finalized</summary>
 
-- `B-03` output behavior contract and `B-04` config contract closed-aligned.
-- Release checklist moved to shipped state for `v2.4.0`.
-- Release note: `docs/releases/Release_v2.4.0.md`.
+- Output behavior contract locked (hybrid defaults, collision safety, path safety).
+- Config contract locked (YAML-only authoring, strict discovery precedence, deprecation policy).
+- Release note: [docs/releases/Release_v2.4.md](docs/releases/Release_v2.4.md).
 
 </details>
 <details>
@@ -712,12 +713,12 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
-| **2.5.0** | 2026-03-02 | Persona skill shipment (`F-02`) + foundation/utility taxonomy (`M-09`) + sample-library gate closure (`M-10`) |
-| **2.4.3** | 2026-02-16 | Patch release to include post-`v2.4.2` documentation/release-link updates |
-| **2.4.2** | 2026-02-16 | Governance/artifact-placement patch + v2.5 continuity kickoff docs |
-| **2.4.1** | 2026-02-16 | Docs/release-alignment patch follow-up (no contract behavior changes) |
-| **2.4.0** | 2026-02-16 | Contract-lock closure (`B-03`/`B-04`) + release cut |
-| **2.3.0** | 2026-02-13 | MCP alignment closure (`B-01`) + blocking default sync guardrail (`B-02` phase 2) |
+| **2.5.0** | 2026-03-02 | Persona skill, foundation/utility taxonomy, curated sample-output library |
+| **2.4.3** | 2026-02-16 | Documentation and release-link alignment patch |
+| **2.4.2** | 2026-02-16 | Governance hygiene and artifact organization patch |
+| **2.4.1** | 2026-02-16 | Documentation alignment patch (no behavior changes) |
+| **2.4.0** | 2026-02-16 | Output behavior and config contracts finalized |
+| **2.3.0** | 2026-02-13 | MCP alignment verified, cross-repo sync guardrail set to blocking |
 | **2.2.0** | 2026-02-13 | MCP drift guardrail (observe mode), planning/backlog governance, release execution checklists |
 | **2.1.0** | 2026-01-27 | MCP alignment milestone documentation update                             |
 | **2.0.0** | 2026-01-26 | Flat `skills/{phase-skill}/`, sync helpers, build scripts, docs refresh |
@@ -744,7 +745,7 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] openskills CLI support ([#48](https://github.com/numman-ali/openskills/issues/48) resolved in v1.3.1)
 - [x] pm-skills-mcp package (https://github.com/product-on-purpose/pm-skills-mcp) with v2.4 direct-version-tracking milestone documented
 - [x] v2.2 guardrails release: observe-first cross-repo sync validation + planning/backlog governance
-- [x] v2.4 contract lock release: `B-03` output behavior + `B-04` config contract closed-aligned
+- [x] v2.4 contract lock release: output behavior and config contracts finalized
 
 **In Progress**
 - Project support utilities

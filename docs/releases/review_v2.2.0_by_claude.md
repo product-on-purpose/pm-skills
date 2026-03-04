@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-v2.2.0 is a well-scoped governance release that delivers on its three stated objectives: observe-mode MCP drift detection (B-02 phase 1), planning persistence policy (B-07), and canonical backlog governance (B-08). The release is disciplined in what it excludes — no new skills, no blocking CI, no premature contract decisions — which is a strength. The artifacts are clean, internally consistent, and set up the v2.3–v2.5 roadmap with clear dependency ordering.
+v2.2.0 is a well-scoped governance release that delivers on its three stated objectives: observe-mode MCP drift detection, planning persistence policy, and canonical backlog governance. The release is disciplined in what it excludes — no new skills, no blocking CI, no premature contract decisions — which is a strength. The artifacts are clean, internally consistent, and set up the v2.3–v2.5 roadmap with clear dependency ordering.
 
 **Overall assessment: Solid execution.** A few gaps noted below, mostly around staleness in adjacent tracked files and a minor `.gitignore` contradiction.
 
@@ -22,9 +22,9 @@ v2.2.0 is a well-scoped governance release that delivers on its three stated obj
 
 | Item | Scope | Delivered? |
 |------|-------|-----------|
-| B-02 phase 1: `validate-mcp-sync` observe mode | Script + workflow + guide | Yes |
-| B-07: Planning persistence policy + `.gitignore` alignment | Policy doc + tier map + `.gitignore` changes | Yes |
-| B-08: Canonical backlog + supersession pointers | `backlog-canonical.md` + redirect headers in legacy files | Partially — see finding #3 |
+| MCP sync validation (observe mode) | Script + workflow + guide | Yes |
+| Planning persistence policy + `.gitignore` alignment | Policy doc + tier map + `.gitignore` changes | Yes |
+| Canonical backlog + supersession pointers | `backlog-canonical.md` + redirect headers in legacy files | Partially — see finding #3 |
 
 ### Non-goals respected
 
@@ -52,8 +52,8 @@ v2.2.0 is a well-scoped governance release that delivers on its three stated obj
 
 **Issues:**
 1. **Missing `package.json` type declaration.** The script uses `import` (ESM syntax) but there is no `package.json` with `"type": "module"` in `.github/scripts/`. The workflow invokes it as `node pm-skills/.github/scripts/validate-mcp-sync.js` directly. This will fail on Node 18+ without either a `.mjs` extension or a `package.json` declaring ESM. **Severity: Medium** — may silently break in CI depending on the runner's Node version and whether the MCP repo's `package.json` type field is inherited.
-2. **No SKILL.md content comparison.** The script only checks skill inventory (presence/absence), not content drift. A skill could be present in both repos but with divergent content. This is acknowledged as out-of-scope for B-02 phase 1, but worth noting for B-02 phase 2 planning.
-3. **`foundation` in PHASES set.** The `PHASES` constant includes `"foundation"` which is not yet a decided phase (deferred to B-05 in v2.5.0). Including it preemptively is pragmatic but could cause confusion if the phase is never adopted.
+2. **No SKILL.md content comparison.** The script only checks skill inventory (presence/absence), not content drift. A skill could be present in both repos but with divergent content. This is acknowledged as out-of-scope for the observe-mode phase, but worth noting for future blocking-mode enhancements.
+3. **`foundation` in PHASES set.** The `PHASES` constant includes `"foundation"` which is not yet a decided phase (deferred to v2.5.0). Including it preemptively is pragmatic but could cause confusion if the phase is never adopted.
 
 ### 2.2 MCP Sync Workflow (`.github/workflows/validate-mcp-sync.yml`)
 
@@ -72,7 +72,7 @@ v2.2.0 is a well-scoped governance release that delivers on its three stated obj
 **Strengths:**
 - Concise and well-structured — covers purpose, workflow, script, manual checklist, and rollout sequencing
 - Cross-references actual file paths correctly
-- Clear escalation path (observe → block after B-01 closure)
+- Clear escalation path (observe → block after MCP alignment verification)
 
 **Issues:**
 - None significant. This is a good reference document.
@@ -172,9 +172,9 @@ The line 60 entry re-ignores the cross-agent `AGENTS/DECISIONS.md` file that lin
 
 ### Finding #5: No CHANGELOG entry for v2.1.0 governance work
 
-The CHANGELOG v2.2.0 entry is well-structured and follows Keep a Changelog format. No issues there. However, the Release Notes section references blocker IDs (B-02, B-07, B-08) without linking to where these are defined. An external reader encountering these identifiers would have no way to understand them since the backlog is gitignored.
+The CHANGELOG v2.2.0 entry is well-structured and follows Keep a Changelog format. No issues there. However, the Release Notes section previously referenced internal blocker IDs without linking to where they were defined. An external reader encountering these identifiers would have no way to understand them since the backlog is gitignored.
 
-**Recommendation:** Either briefly expand the blocker descriptions in the CHANGELOG, or add a tracked reference document mapping blocker IDs to descriptions.
+**Recommendation:** Use descriptive names instead of internal codes in public-facing documents (CHANGELOG, release notes).
 
 ---
 
@@ -209,13 +209,13 @@ The CHANGELOG v2.2.0 entry is well-structured and follows Keep a Changelog forma
 
 ## 6. Recommendations for v2.3.0
 
-1. **Fix the `.gitignore` DECISIONS.md conflict** before it causes confusion during B-01 closure work
+1. **Fix the `.gitignore` DECISIONS.md conflict** before it causes confusion during MCP alignment closure work
 2. **Add `actions/setup-node@v4`** to the MCP sync workflow with a pinned Node version
 3. **Add a `package.json`** in `.github/scripts/` with `"type": "module"` (or rename to `.mjs`)
 4. **Update `AGENTS/claude-opus-4.5/CONTEXT.md`** to reflect current project state
 5. **Add v2.0–v2.2 decision records** to `AGENTS/claude-opus-4.5/DECISIONS.md`
 6. **Write unit tests for `validate-mcp-sync.js`** before flipping to block mode — a blocking CI check deserves test coverage
-7. **Consider adding content-level drift detection** (hash comparison of SKILL.md files) as a B-02 phase 2 enhancement
+7. **Consider adding content-level drift detection** (hash comparison of SKILL.md files) as a future sync-validation enhancement
 
 ---
 

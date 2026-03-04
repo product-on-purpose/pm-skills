@@ -13,16 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.5.0] - 2026-03-02
 
 ### Added
-- Foundation persona capability (`F-02`) with:
-  - `skills/foundation-persona/` skill + references
-  - `/persona` command at `commands/persona.md`
-  - AGENTS discovery coverage for foundation classification
+- **Foundation persona skill** (`skills/foundation-persona/`) with `/persona` command supporting product and marketing output modes.
+- AGENTS discovery coverage expanded for foundation/utility skill classification.
 
 ### Highlights
-- `M-09` taxonomy updates shipped with explicit foundation classification handling.
-- `M-10` lane closure evidence captured in release planning/checklist artifacts.
-- Doc-hygiene closure completed across README/getting-started and release metadata references.
-- `F-03` and `F-04` remain deferred from `v2.5.0`.
+- Foundation/utility taxonomy shipped: skills can now be classified beyond lifecycle phases.
+- Curated sample-output library shipped for all 25 skills with per-skill coverage targets.
+- Documentation cleanup completed across README, getting-started guide, and release metadata.
+- Deferred to a future release: persona archetype library and persona MCP exposure parity.
 
 ## [2.4.3] - 2026-02-16
 
@@ -43,33 +41,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.4.2] - 2026-02-16
 
 ### Added
-- Release note artifact: `docs/releases/Release_v2.4.2.md`.
-- Canonical delivery-plan policy and migration docs:
-  - `docs/internal/delivery-plan/README.md`
-  - `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`
-  - `docs/internal/delivery-plan/v2.5/B-05-foundation-phase-decision.md`
-  - `docs/internal/delivery-plan/v2.5/B-06-persona-q1-q7-decision-record.md`
-  - `docs/internal/delivery-plan/v2.5/B-05_B-06-closure-path.md`
+- Release note: `docs/releases/Release_v2.4.2.md`.
+- Internal delivery-plan policy and decision records for upcoming v2.5 scope (foundation phase and persona decisions).
 
 ### Changed
-- Started v2.5 continuity execution in tracked release-planning artifacts (`B-05`/`B-06` kickoff path and checklist status).
-- Updated release-planning and v2.4 release docs to treat `docs/internal/delivery-plan/` as canonical release-governance truth.
-- Archived legacy internal repo-submission planning docs from `docs/internal/` into local `_NOTES/repo-submission/_archive` (untracked/local-only).
+- Organized internal governance docs into a canonical tracked structure.
+- Archived legacy planning docs that were no longer relevant.
 
 ### Removed
-- Legacy internal docs from tracked `docs/internal/`:
-  - `docs/internal/repo-list_claude-code.md`
-  - `docs/internal/pr-quick-reference.md`
-  - `docs/internal/awesome-product-management-pr.md`
-  - `docs/internal/AWESOME-PM-PR.md`
-  - `docs/internal/awesome-lists-submission-package.md`
-  - `docs/internal/awesome-lists-submission-package_planning.md`
-  - `docs/internal/link-notes.md`
+- Outdated internal planning docs (repo-submission, PR references, link notes) cleaned up from tracked files.
 
 ### Release Notes
-- Patch release focused on governance hygiene and tracked-vs-local artifact clarity.
-- No PM skill behavior changes and no output/config contract changes from `v2.4.0`.
-- Published GitHub release: `https://github.com/product-on-purpose/pm-skills/releases/tag/v2.4.2`.
+- Governance hygiene patch: cleaner artifact organization, no skill or contract behavior changes.
+- Published GitHub release: [v2.4.2](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.4.2).
 
 ## [2.4.1] - 2026-02-16
 
@@ -111,9 +95,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated MCP compatibility references to direct version tracking (`pm-skills v2.4.x` ↔ `pm-skills-mcp v2.4.x`) in ecosystem/integration docs.
 
 ### Release Notes
-- This release closes the v2.4.0 contract-lock scope:
-  - `B-03` output behavior contract locked and recorded as `closed-aligned`.
-  - `B-04` config contract/schema lock recorded as `closed-aligned` with validator proof artifacts.
+- This release finalizes the v2.4.0 contract-lock scope:
+  - Output behavior contract locked: hybrid defaults, collision safety matrix, path safety, and output metadata expectations.
+  - Config contract locked: YAML-only authoring, strict discovery precedence, and deprecation/unknown-key policy.
 
 ## [2.3.0] - 2026-02-13
 
@@ -132,8 +116,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Release Notes
 - This release closes the v2.3.0 scope:
-  - `B-01` alignment closure recorded as `closed-aligned` on pinned refs,
-  - `B-02` phase 2 enabled (blocking `validate-mcp-sync` mode by default).
+  - MCP alignment verified and locked on pinned repository refs.
+  - Cross-repo sync validation now defaults to blocking mode (previously observe-only).
 
 ## [2.2.0] - 2026-02-13
 
@@ -161,9 +145,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Release Notes
 - This release establishes guardrails and governance:
-  - `B-02` phase 1 (observe-only sync validation),
-  - `B-07` planning persistence policy baseline,
-  - `B-08` canonical backlog governance baseline.
+  - Observe-only cross-repo sync validation (phase 1 of drift detection).
+  - Planning persistence policy baseline (three-tier artifact classification).
+  - Canonical backlog governance baseline.
 
 ## [2.1.0] - 2026-01-27
 
