@@ -6,10 +6,12 @@
   - [sync-claude.sh / sync-claude.ps1](#sync-claudesh--sync-claudeps1)
   - [build-release.sh / build-release.ps1](#build-releasesh--build-releaseps1)
   - [validate-commands.sh / validate-commands.ps1](#validate-commandssh--validate-commandps1)
+  - [lint-skills-frontmatter.sh / lint-skills-frontmatter.ps1](#lint-skills-frontmattersh--lint-skills-frontmatterps1)
 - [When to use what](#when-to-use-what)
 - [FAQ](#faq)
 - [Tips](#tips)
 - [Troubleshooting](#troubleshooting)
+- [Detailed Documentation](#detailed-documentation)
 
 ---
 
@@ -59,10 +61,23 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 
 **Outputs:** Console pass/fail per command; exit non-zero on failure.
 
+### lint-skills-frontmatter.sh / lint-skills-frontmatter.ps1
+**Purpose:** Validate YAML frontmatter and file structure of every skill in `skills/`.
+
+**Why:** Enforces naming conventions, required fields (`name`, `version`, `updated`, `license`), phase/classification consistency, and reference file completeness.
+
+**Use when:** After editing skill frontmatter or adding a new skill; before release; in CI.
+
+**Commands:**
+- Bash: `./scripts/lint-skills-frontmatter.sh`
+- PowerShell: `./scripts/lint-skills-frontmatter.ps1`
+
+**Outputs:** Console pass/fail per skill; exit non-zero on failure.
+
 ## When to use what
 - Day-to-day: no scripts needed unless using openskills/Claude Code → run `sync-claude`.
-- Pre-release: `sync-claude` (sanity) → `validate-commands` → `build-release`.
-- CI candidate: add `validate-commands` to a lint job.
+- Pre-release: `sync-claude` (sanity) → `validate-commands` → `lint-skills-frontmatter` → `build-release`.
+- CI candidate: add `validate-commands` and `lint-skills-frontmatter` to a lint job.
 - Cross-repo drift guardrail: use `.github/workflows/validate-mcp-sync.yml` (observe first, block later).
 
 ## FAQ
@@ -84,3 +99,15 @@ A: Yes. It’s build output and gitignored; delete anytime.
 - `sync-claude` fails missing refs → ensure each skill has `SKILL.md`, `references/TEMPLATE.md`, `references/EXAMPLE.md`.
 - Hash mismatch after build → delete `dist/` and rebuild.
 - Command not found in tool → ensure command file points to correct flat path; rerun `validate-commands`.
+- Frontmatter lint failure → check `SKILL.md` has `name` matching the directory name, plus `version`, `updated`, `license` fields.
+
+## Detailed Documentation
+
+Each script has a dedicated documentation file with full usage details, options, and behavior descriptions:
+
+| Script Pair | Documentation |
+|---|---|
+| `sync-claude.sh` / `.ps1` | [sync-claude.md](sync-claude.md) |
+| `build-release.sh` / `.ps1` | [build-release.md](build-release.md) |
+| `validate-commands.sh` / `.ps1` | [validate-commands.md](validate-commands.md) |
+| `lint-skills-frontmatter.sh` / `.ps1` | [lint-skills-frontmatter.md](lint-skills-frontmatter.md) |
