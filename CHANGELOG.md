@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased changes documented yet.
 
+## [2.5.1] - 2026-03-04
+
+### Changed
+- Canonicalized Claude agent continuity workspace to `AGENTS/claude/` and retired active `AGENTS/claude-opus*` paths.
+- Updated tracked `.claude` scaffolding templates to emit `AGENTS/claude` for init/wrap workflows.
+- Added clean-worktree release runbook for deterministic cut/tag/publish lanes:
+  - `docs/internal/release-planning/runbook_clean-worktree-cut-tag-publish.md`
+
+### Release Notes
+- Patch release focused on agent-workspace naming consistency and release-lane operational hygiene.
+- No PM skill behavior changes and no output/config contract changes from `v2.5.0`.
+
 ## [2.5.0] - 2026-03-02
 
 ### Added

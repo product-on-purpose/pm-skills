@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.5.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.5.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-25-brightgreen.svg?style=flat-square" alt="Skills">
@@ -482,9 +482,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
-- **Latest stable:** `v2.5.0` (persona + foundation/utility + sample-library lane)
-- **Latest release notes:** [`docs/releases/Release_v2.5.0.md`](docs/releases/Release_v2.5.0.md)
-- **Published tag:** [`v2.5.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.5.0)
+- **Latest stable:** `v2.5.1` (agent workspace canonicalization + clean-lane release runbook patch)
+- **Latest release notes:** [`docs/releases/Release_v2.5.1.md`](docs/releases/Release_v2.5.1.md)
+- **Published tag:** [`v2.5.1`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.5.1)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
 Release notes are published in `docs/releases/` (for example, `docs/releases/Release_v2.2.md`).
@@ -712,6 +712,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **2.5.1** | 2026-03-04 | Canonical `AGENTS/claude` workspace + clean-worktree cut/tag/publish runbook |
 | **2.5.0** | 2026-03-02 | Persona skill shipment (`F-02`) + foundation/utility taxonomy (`M-09`) + sample-library gate closure (`M-10`) |
 | **2.4.3** | 2026-02-16 | Patch release to include post-`v2.4.2` documentation/release-link updates |
 | **2.4.2** | 2026-02-16 | Governance/artifact-placement patch + v2.5 continuity kickoff docs |
