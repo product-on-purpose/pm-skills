@@ -22,18 +22,18 @@ It does not add new PM skills. It improves trust, drift detection, and execution
 
 3. Canonical backlog governance:
 - `docs/internal/backlog-canonical.md`
-- supersession pointers in local backlog notes (`_NOTES/**`)
+- Backlog supersession guidance captured in tracked governance docs
 
 4. Release sequencing documentation:
 - `docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md`
-- `docs/internal/release-planning/checklist_v2.2.0.md` to `docs/internal/release-planning/checklist_v2.5.0.md`
+- `docs/internal/release-planning/checklist_v2.2.0.md` through `docs/internal/release-planning/checklist_v2.5.0.md`
 
 ## What This Means
 
-- `v2.2.0`: drift visibility and governance baseline
-- `v2.3.0` target: MCP truth closure (`B-01`) and sync check flips to blocking mode
-- `v2.4.0` target: output/config contract lock
-- `v2.5.0` target: foundation/persona decision closure
+- `v2.2.0` establishes drift visibility and governance baseline.
+- `v2.3.0` targets MCP alignment closure and blocking sync defaults.
+- `v2.4.0` targets output/config contract lock.
+- `v2.5.0` targets foundation/persona decision closure.
 
 ## Validation Performed
 

@@ -60,7 +60,7 @@ We flattened the skill source to a single, predictable layout (`skills/{phase-sk
 - **Command mapping**: `scripts/validate-commands.(sh|ps1)` pass (ensures SKILL + TEMPLATE + EXAMPLE exist for each command).
 - **Sync helper run**: Pass; populated `.claude/skills` and `.claude/commands` locally.
 - **Release build**: `scripts/build-release.(sh|ps1)` produced ZIP + SHA256; verified exclusion of populated `.claude/*`.
-- Logs stored locally (see `_NOTES/logs/` on dev machine; not shipped).
+- Validation logs were captured during release cut and are not part of shipped artifacts.
 
 ## How to Consume (by environment)
 - **Claude Code / openskills**: Clone or unzip → run sync helper → use slash commands.

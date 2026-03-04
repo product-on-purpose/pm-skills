@@ -5,22 +5,22 @@ Status: Released (`v2.5.0` tag + GitHub release published)
 
 ## Summary
 
-`v2.5.0` is the persona-skill + foundation/utility + sample-library lane.  
-Scope includes `F-02`, `M-09`, and `M-10`.
+`v2.5.0` is the persona-skill + foundation/utility + sample-library lane.
+Scope includes persona capability, taxonomy updates, and sample-library closure.
 
-`F-02` inclusion decision for this release lane: **in** (`foundation-persona` is included).  
+Persona capability inclusion decision for this release lane: **in** (`foundation-persona` is included).
 Persona output contract is **locked** for this lane to the final `product` and `marketing` templates.
 Generated `/persona` output modes in current `v2.5.0` guidance are `product` and `marketing` (`buyer` alias maps to `marketing`).
 Generated `/persona agent` mode is out of scope.
-`D12` release-cut scenario lock: **`f02-included`** (manifest currently reports `25` shipped skills, `84` sample files).
+Release-cut scenario lock: **persona included** (manifest currently reports `25` shipped skills and `84` sample files).
 
 Deferred from `v2.5.0`:
-1. `F-03` persona archetype library shipment.
-2. `F-04` persona MCP exposure parity shipment.
+1. Persona archetype library shipment.
+2. Full persona MCP exposure parity shipment.
 
 ## BREAKING CHANGES
 
-`v2.5.0` uses the approved D6 compatibility-signaling exception path:
+`v2.5.0` uses an explicit compatibility-signaling approach:
 1. Release labels remain aligned at `v2.5.0` across repos.
 2. MCP contract-impacting changes are explicitly disclosed here and in `CHANGELOG.md`.
 3. Migration guidance was completed before release cut and is part of the published release baseline.
@@ -31,7 +31,7 @@ Deferred from `v2.5.0`:
 2. Automation/scripts with strict tool/resource count assertions or static allowlists.
 3. Custom skill packs that would generate derived tool-name collisions at startup.
 
-### D6 MCP Migration Matrix
+### MCP Migration Matrix
 
 | ID | Surface | `v2.4.x` | `v2.5.0` | Change Type | Migration Action | Alias/Removal | Automation Impact |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -56,28 +56,28 @@ Deferred from `v2.5.0`:
 2. Run `powershell -ExecutionPolicy Bypass -File scripts/validate-commands.ps1`.
 3. Run `VALIDATE_MCP_SYNC_MODE=block PM_SKILLS_MCP_PATH=../pm-skills-mcp node .github/scripts/validate-mcp-sync.js`.
 4. Run `npm run embed-skills && npm run build && npm test` in `pm-skills-mcp`.
-5. Confirm `library/skill-output-samples/manifest.v2.5.0.json` is locked to `f02-included` with current `25/84` counts.
+5. Confirm `library/skill-output-samples/manifest.v2.5.0.json` is locked to the persona-included scenario with current `25/84` counts.
 
 ## Delivered Scope
 
-1. `F-02`: persona skill and stable `/persona` command behavior (product/marketing output modes in canonical guidance).
-2. `M-09`: foundation/utility taxonomy architecture behavior.
-3. `M-10`: sample outputs library lane with canonical manifest policy (`3` per phase skill; expanded `12` for `foundation-persona`).
+1. Persona skill and stable `/persona` command behavior (product/marketing output modes in canonical guidance).
+2. Foundation/utility taxonomy architecture behavior.
+3. Sample outputs library lane with canonical manifest policy (`3` per phase skill; expanded `12` for `foundation-persona`).
 
 ## Deferred Scope (Future Release)
 
-1. `F-03`: persona archetype library content shipment.
-2. `F-04`: persona MCP exposure parity shipment.
+1. Persona archetype library content shipment.
+2. Persona MCP exposure parity shipment.
 
 ## Release Gates
 
-1. Decision packet baseline locked for `D3-D11` and `D13`.
-2. `F-02` inclusion gate is fixed to `in` and reflected in release artifacts with a locked template contract.
+1. Decision and governance baseline locked before cut.
+2. Persona inclusion gate is fixed to `in` and reflected in release artifacts with a locked template contract.
 3. Canonical tracked docs for `/persona` mode guidance are consistent on product/marketing-only generated output scope.
-4. `library/skill-output-samples/manifest.v2.5.0.json` is locked to `f02-included` (`25/84`) and coverage-verified per manifest policy.
-5. `BREAKING CHANGES` and D6 migration matrix sections are completed before tagging.
+4. `library/skill-output-samples/manifest.v2.5.0.json` is locked to the persona-included scenario (`25/84`) and coverage-verified per manifest policy.
+5. `BREAKING CHANGES` and migration matrix sections are completed before tagging.
 6. Cross-repo validation matrix is green on candidate refs.
-7. `M-10-skill-sample-outputs-library` content-alignment gate is closed with explicit evidence in `docs/internal/release-planning/checklist_v2.5.0.md`.
+7. Sample-library content-alignment gate is closed with explicit evidence in `docs/internal/release-planning/checklist_v2.5.0.md`.
 
 Current readiness verdict:
 1. **Released** (all blocking gates were closed at cut time).
@@ -89,7 +89,7 @@ Current readiness verdict:
 3. Cross-repo publish evidence: `pm-skills-mcp` release `v2.5.0` published to npm (`latest=2.5.0`).
 
 Evidence commands for gate truth:
-1. `rg -n "Blocking gates \\(all closed\\)|Current verdict|M-10-skill-sample-outputs-library" docs/internal/release-planning/checklist_v2.5.0.md`
+1. `rg -n "Blocking gates \\(all closed\\)|Current verdict|sample-library" docs/internal/release-planning/checklist_v2.5.0.md`
 2. `rg -n '"status"|"actualSkillCount"|"actualSampleCount"' library/skill-output-samples/manifest.v2.5.0.json`
 3. `powershell -ExecutionPolicy Bypass -File scripts/lint-skills-frontmatter.ps1`
 4. `powershell -ExecutionPolicy Bypass -File scripts/validate-commands.ps1`

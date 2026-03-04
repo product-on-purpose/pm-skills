@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.5.1-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.5.2-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-25-brightgreen.svg?style=flat-square" alt="Skills">
@@ -120,11 +120,20 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 **What's New (Recent Releases)**
 <details>
+<summary>v2.5.2 - Patch: public release-doc readability and hygiene</summary>
+
+- Public release docs were rewritten in user-first language to improve readability.
+- Internal decision-ID shorthand and local-only working-note path references were removed from release-facing docs.
+- No skill, command, template, or workflow behavior changes.
+- Release note: `docs/releases/Release_v2.5.2.md`.
+
+</details>
+<details>
 <summary>v2.5.0 - Persona + Foundation/Utility + Sample Library</summary>
 
-- Active shipped lane: `F-02` persona skill + `M-09` foundation/utility taxonomy + `M-10` sample library.
-- `M-10` content-alignment gate is explicitly closed with evidence in `docs/internal/release-planning/checklist_v2.5.0.md`.
-- Deferred from `v2.5.0` by design: `F-03` and `F-04`.
+- Active shipped lane: persona skill + foundation/utility taxonomy + sample output library.
+- Content-alignment checks for the sample library are complete and documented.
+- Deferred from `v2.5.0` by design: persona archetype library content and full persona MCP exposure parity.
 - Release note: `docs/releases/Release_v2.5.0.md`.
 
 </details>
@@ -155,9 +164,9 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 <details>
 <summary>v2.4.0 - Contract lock closure</summary>
 
-- `B-03` output behavior contract and `B-04` config contract closed-aligned.
+- Output behavior and configuration contracts were finalized and validated.
 - Release checklist moved to shipped state for `v2.4.0`.
-- Release note: `docs/releases/Release_v2.4.0.md`.
+- Release note: `docs/releases/Release_v2.4.md`.
 
 </details>
 <details>
@@ -482,9 +491,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
-- **Latest stable:** `v2.5.1` (agent workspace canonicalization + clean-lane release runbook patch)
-- **Latest release notes:** [`docs/releases/Release_v2.5.1.md`](docs/releases/Release_v2.5.1.md)
-- **Published tag:** [`v2.5.1`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.5.1)
+- **Latest stable:** `v2.5.2` (public release-doc readability and hygiene patch)
+- **Latest release notes:** [`docs/releases/Release_v2.5.2.md`](docs/releases/Release_v2.5.2.md)
+- **Published tag:** [`v2.5.2`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.5.2)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
 Release notes are published in `docs/releases/` (for example, `docs/releases/Release_v2.2.md`).
@@ -712,13 +721,14 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **2.5.2** | 2026-03-04 | Public release-doc readability and hygiene patch (user-first wording, no local-only path references) |
 | **2.5.1** | 2026-03-04 | Canonical `AGENTS/claude` workspace + clean-worktree cut/tag/publish runbook |
-| **2.5.0** | 2026-03-02 | Persona skill shipment (`F-02`) + foundation/utility taxonomy (`M-09`) + sample-library gate closure (`M-10`) |
+| **2.5.0** | 2026-03-02 | Persona skill shipment + foundation/utility taxonomy + sample-library quality closure |
 | **2.4.3** | 2026-02-16 | Patch release to include post-`v2.4.2` documentation/release-link updates |
 | **2.4.2** | 2026-02-16 | Governance/artifact-placement patch + v2.5 continuity kickoff docs |
 | **2.4.1** | 2026-02-16 | Docs/release-alignment patch follow-up (no contract behavior changes) |
-| **2.4.0** | 2026-02-16 | Contract-lock closure (`B-03`/`B-04`) + release cut |
-| **2.3.0** | 2026-02-13 | MCP alignment closure (`B-01`) + blocking default sync guardrail (`B-02` phase 2) |
+| **2.4.0** | 2026-02-16 | Output and configuration contract lock closure + release cut |
+| **2.3.0** | 2026-02-13 | MCP alignment closure + blocking-default sync guardrail |
 | **2.2.0** | 2026-02-13 | MCP drift guardrail (observe mode), planning/backlog governance, release execution checklists |
 | **2.1.0** | 2026-01-27 | MCP alignment milestone documentation update                             |
 | **2.0.0** | 2026-01-26 | Flat `skills/{phase-skill}/`, sync helpers, build scripts, docs refresh |
@@ -745,7 +755,7 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] openskills CLI support ([#48](https://github.com/numman-ali/openskills/issues/48) resolved in v1.3.1)
 - [x] pm-skills-mcp package (https://github.com/product-on-purpose/pm-skills-mcp) with v2.4 direct-version-tracking milestone documented
 - [x] v2.2 guardrails release: observe-first cross-repo sync validation + planning/backlog governance
-- [x] v2.4 contract lock release: `B-03` output behavior + `B-04` config contract closed-aligned
+- [x] v2.4 contract lock release: output behavior and configuration contracts closed and validated
 
 **In Progress**
 - Project support utilities

@@ -10,6 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - No unreleased changes documented yet.
 
+## [2.5.2] - 2026-03-04
+
+### Changed
+- Rewrote public release-facing docs for clearer user-first language and historical readability.
+- Removed internal decision-ID style references from release-facing docs where they were not needed for external readers.
+- Removed local working-note path references from public release artifacts.
+- Added release note artifact:
+  - `docs/releases/Release_v2.5.2.md`
+
+### Release Notes
+- Patch release focused on public documentation quality and release-communication clarity.
+- No PM skill behavior changes and no output/config contract changes from `v2.5.0`.
+
 ## [2.5.1] - 2026-03-04
 
 ### Changed
@@ -25,16 +38,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.5.0] - 2026-03-02
 
 ### Added
-- Foundation persona capability (`F-02`) with:
+- Foundation persona capability with:
   - `skills/foundation-persona/` skill + references
   - `/persona` command at `commands/persona.md`
   - AGENTS discovery coverage for foundation classification
 
 ### Highlights
-- `M-09` taxonomy updates shipped with explicit foundation classification handling.
-- `M-10` lane closure evidence captured in release planning/checklist artifacts.
+- Taxonomy updates shipped with explicit foundation classification handling.
+- Sample-library lane closure evidence captured in release planning/checklist artifacts.
 - Doc-hygiene closure completed across README/getting-started and release metadata references.
-- `F-03` and `F-04` remain deferred from `v2.5.0`.
+- Persona archetype library shipment and full persona MCP exposure parity remain deferred from `v2.5.0`.
 
 ## [2.4.3] - 2026-02-16
 
@@ -59,14 +72,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Canonical delivery-plan policy and migration docs:
   - `docs/internal/delivery-plan/README.md`
   - `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`
-  - `docs/internal/delivery-plan/v2.5/B-05-foundation-phase-decision.md`
-  - `docs/internal/delivery-plan/v2.5/B-06-persona-q1-q7-decision-record.md`
-  - `docs/internal/delivery-plan/v2.5/B-05_B-06-closure-path.md`
+  - `docs/internal/delivery-plan/v2.5/` continuity kickoff artifacts
 
 ### Changed
-- Started v2.5 continuity execution in tracked release-planning artifacts (`B-05`/`B-06` kickoff path and checklist status).
+- Started v2.5 continuity execution in tracked release-planning artifacts and checklist status.
 - Updated release-planning and v2.4 release docs to treat `docs/internal/delivery-plan/` as canonical release-governance truth.
-- Archived legacy internal repo-submission planning docs from `docs/internal/` into local `_NOTES/repo-submission/_archive` (untracked/local-only).
+- Archived legacy internal repo-submission planning docs from tracked `docs/internal/`.
 
 ### Removed
 - Legacy internal docs from tracked `docs/internal/`:
@@ -124,8 +135,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Release Notes
 - This release closes the v2.4.0 contract-lock scope:
-  - `B-03` output behavior contract locked and recorded as `closed-aligned`.
-  - `B-04` config contract/schema lock recorded as `closed-aligned` with validator proof artifacts.
+  - Output behavior contract locked and recorded as aligned.
+  - Configuration contract/schema lock recorded as aligned with validator proof artifacts.
 
 ## [2.3.0] - 2026-02-13
 
@@ -144,8 +155,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Release Notes
 - This release closes the v2.3.0 scope:
-  - `B-01` alignment closure recorded as `closed-aligned` on pinned refs,
-  - `B-02` phase 2 enabled (blocking `validate-mcp-sync` mode by default).
+  - Cross-repo alignment closure recorded on pinned refs.
+  - Blocking `validate-mcp-sync` mode enabled by default.
 
 ## [2.2.0] - 2026-02-13
 
@@ -173,9 +184,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Release Notes
 - This release establishes guardrails and governance:
-  - `B-02` phase 1 (observe-only sync validation),
-  - `B-07` planning persistence policy baseline,
-  - `B-08` canonical backlog governance baseline.
+  - Observe-only sync validation baseline.
+  - Planning persistence policy baseline.
+  - Canonical backlog governance baseline.
 
 ## [2.1.0] - 2026-01-27
 

@@ -1,11 +1,11 @@
 # PM-Skills v2.4.2 Release Notes
 
-Date: 2026-02-16
+Date: 2026-02-16  
 Status: Shipped
 
 ## Big Idea
 
-v2.4.2 is a governance-hygiene patch that clarifies canonical tracked release artifacts versus local working notes, while preserving v2.4 contract-lock behavior.
+v2.4.2 is a governance-hygiene patch that clarifies durable release artifacts in tracked docs while preserving the v2.4 behavior-contract baseline.
 
 ## Published Artifacts
 
@@ -17,14 +17,12 @@ v2.4.2 is a governance-hygiene patch that clarifies canonical tracked release ar
 - `docs/internal/delivery-plan/README.md`
 - `docs/internal/delivery-plan/v2.4-contract-lock-summary.md`
 
-2. v2.5 continuity kickoff artifacts for B-05/B-06 added in tracked docs:
-- `docs/internal/delivery-plan/v2.5/B-05-foundation-phase-decision.md`
-- `docs/internal/delivery-plan/v2.5/B-06-persona-q1-q7-decision-record.md`
-- `docs/internal/delivery-plan/v2.5/B-05_B-06-closure-path.md`
+2. v2.5 continuity kickoff artifacts added in tracked docs:
+- `docs/internal/delivery-plan/v2.5/`
 
 3. Release-planning and release docs updated to reference tracked canonical delivery-plan artifacts.
 
-4. Legacy internal repo-submission planning docs were moved out of tracked `docs/internal/` and into local `_NOTES/repo-submission/_archive`.
+4. Legacy repo-submission planning drafts were moved out of tracked `docs/internal/` into local working space (not part of published artifacts).
 
 ## Validation Performed
 
@@ -33,11 +31,11 @@ v2.4.2 is a governance-hygiene patch that clarifies canonical tracked release ar
 
 ## What This Means
 
-- `docs/internal/delivery-plan/` now carries minimal durable release-governance truth.
-- `_NOTES/` remains local/high-churn working evidence and scratch context.
-- v2.5 B-05/B-06 continuity now has explicit tracked kickoff artifacts.
+- `docs/internal/delivery-plan/` now holds durable release-governance records.
+- v2.5 continuity has explicit kickoff artifacts in tracked documentation.
+- No user-facing skill behavior changed from v2.4.0.
 
 ## Non-Goals for v2.4.2
 
 - No new PM skills shipped.
-- No output/config contract behavior changes beyond v2.4.0 baseline.
+- No output/config contract behavior changes beyond the v2.4.0 baseline.

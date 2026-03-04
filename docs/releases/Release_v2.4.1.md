@@ -10,9 +10,9 @@ v2.4.1 is a patch follow-up to v2.4.0 focused on release-documentation and commu
 ## What Was Delivered
 
 1. Release metadata consistency updates:
-- `CHANGELOG.md` updated with explicit `2.4.1` entry.
+- `CHANGELOG.md` updated with an explicit `2.4.1` entry.
 - `README.md` updated for current stable badge/version references.
-- `docs/releases/Release_v2.4.md` references remain aligned with shipped v2.4.0 contract-lock scope.
+- `docs/releases/Release_v2.4.md` references kept aligned with shipped v2.4.0 contract-lock scope.
 
 2. Release-planning reference alignment:
 - `docs/internal/release-planning/checklist_v2.4.0.md`
@@ -23,17 +23,17 @@ v2.4.1 is a patch follow-up to v2.4.0 focused on release-documentation and commu
 
 ## Validation Performed
 
-- Confirmed v2.4.1 version markers across changelog/README.
-- Confirmed release-planning docs still indicate v2.4.0 ship state and closure truth.
-- Confirmed no new contract behavior claims beyond v2.4.0.
+- Confirmed v2.4.1 version markers across changelog and README.
+- Confirmed release-planning docs still indicate the v2.4.0 shipped state and closure truth.
+- Confirmed no new behavior-contract claims beyond v2.4.0.
 
 ## What This Means
 
-- `v2.4.1` is documentation and release-communication hardening.
-- `v2.4.0` remains the behavior-contract baseline for output/config decisions.
+- `v2.4.1` is a documentation and release-communication hardening patch.
+- `v2.4.0` remains the behavior-contract baseline for output and configuration decisions.
 
 ## Non-Goals for v2.4.1
 
 - No new PM skills were added.
-- No changes to B-03/B-04 contract semantics.
-- No changes to v2.5 scope (`B-05`, `B-06`) beyond planning continuity.
+- No output/config contract semantic changes.
+- No v2.5 scope changes beyond planning continuity.
