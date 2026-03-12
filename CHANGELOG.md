@@ -21,8 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `library/skill-output-samples/`
 - Sample creation standards filename standardized to:
   - `library/skill-output-samples/SAMPLE_CREATION.md`
-- Sample coverage manifest moved to release-planning artifacts:
-  - `_NOTES/delivery-plan/releases/v2.6.1/artifacts/skill-output-samples_manifest.v2.6.1.json`
+- Sample coverage manifest moved to release-planning artifacts (internal)
 - Release packaging now includes sample-library content:
   - `scripts/build-release.sh`
   - `scripts/build-release.ps1`
