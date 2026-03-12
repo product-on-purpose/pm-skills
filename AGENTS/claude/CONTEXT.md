@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** v2.3.0 shipped — MCP sync guardrail is blocking-by-default
-**Last Updated:** 2026-02-14
-**Release:** [v2.3.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.3.0)
-**Next Step:** Execute awesome-list PR submissions while preparing v2.4.0 contract-lock work (`B-03`/`B-04`)
+**Status:** v2.6.1 shipped — sample library recovered, plugin manifest added
+**Last Updated:** 2026-03-11
+**Release:** [v2.6.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.6.1)
+**Next Step:** Execute baseline-hygiene plan, then v2.7.0 persona library Tier-0
 
 ## Project Overview
 
@@ -33,12 +33,15 @@ pm-skills/
 │   ├── deliver-user-stories/
 │   └── ...               # 24 skills total: {phase}-{skill}/
 ├── bundles/              # Workflow bundles (triple-diamond, lean-startup, feature-kickoff)
-├── commands/             # Claude Code slash commands (25 total)
+├── commands/             # Claude Code slash commands (26 total)
 ├── docs/                 # Documentation
 │   ├── guides/           # How-to guides
 │   ├── reference/        # Technical specs
 │   ├── frameworks/       # Methodology docs
 │   └── templates/        # Skill creation templates
+├── library/              # Curated output libraries
+│   └── skill-output-samples/  # 95 sample outputs across 25 skills
+├── .claude-plugin/       # Claude plugin manifest (plugin.json)
 ├── scripts/              # Build and validation scripts
 │   ├── build-release.sh  # Create versioned ZIP
 │   ├── sync-claude.sh    # Sync to .claude/ for discovery
@@ -60,28 +63,48 @@ pm-skills/
 
 ## Recent Work
 
-- **v2.3.0 Shipped — B-01 Closed, B-02 Blocking Mode Active** (2026-02-14)
-  - Merged release PR #103 and published tag/release `v2.3.0`
-  - Closed B-01 with evidence (`B-01a`, `B-01b`, `B-01c`) as `closed-aligned`
+- **v2.6.1 Shipped — Sample Library Recovery** (2026-03-04)
+  - Sample output library moved and normalized to `library/skill-output-samples/`
+  - 95 sample outputs across 25 skills, with `SAMPLE_CREATION.md` standards
+  - Release packaging (`build-release.sh`/`.ps1`) now includes sample-library content
+  - Release note: `docs/releases/Release_v2.6.1.md`
+
+- **v2.6.0 Shipped — Claude Plugin Manifest** (2026-03-04)
+  - Added `.claude-plugin/plugin.json` for Claude plugin packaging
+  - Plugin packaging validation workflow: `.github/workflows/validate-plugin.yml`
+  - Release packaging enforces plugin-manifest version parity
+  - Release note: `docs/releases/Release_v2.6.0.md`
+
+- **v2.5.2 Shipped — Public Doc Hygiene** (2026-03-04)
+  - Rewrote release-facing docs for clearer user-first language
+  - Removed internal decision-ID references from public release artifacts
+
+- **v2.5.1 Shipped — Agent Workspace Canonicalization** (2026-03-04)
+  - Canonicalized Claude agent workspace to `AGENTS/claude/` (retired `AGENTS/claude-opus*` paths)
+  - Added clean-worktree release runbook: `docs/internal/release-planning/runbook_clean-worktree-cut-tag-publish.md`
+
+- **v2.5.0 Shipped — Foundation Persona Skill** (2026-03-02)
+  - New `skills/foundation-persona/` skill + references
+  - New `/persona` command at `commands/persona.md`
+  - AGENTS discovery updated for foundation classification
+  - Persona archetype library and MCP exposure deferred to v2.7.0
+
+- **v2.4.x Series — Contract Lock & Governance** (2026-02-16)
+  - v2.4.0: Output behavior contract and config/schema lock closed as aligned
+  - v2.4.1: Release-doc consistency finalization
+  - v2.4.2: Canonical delivery-plan policy and v2.5 continuity kickoff; legacy internal docs archived
+  - v2.4.3: Release metadata rolled forward; published-artifact links captured
+  - Expanded `validate-mcp-sync` with pin metadata and contract-version parity checks
+  - Canonical backlog and delivery-plan governance established at `docs/internal/`
+
+- **v2.3.0 Shipped — MCP Sync Blocking Mode** (2026-02-14)
   - Switched `.github/workflows/validate-mcp-sync.yml` to blocking-default mode
-  - Added release note doc `docs/releases/Release_v2.3.md`
-  - Validation: sync check passes in `block` mode (`24` vs `24`), no drift
+  - Release note: `docs/releases/Release_v2.3.md`
 
-- **Awesome-List Submission Campaign Researched** (2026-02-13)
-  - Investigated all 12 target repositories from the submission plan (`_NOTES/repo-submission/submission-targets-popular-plan_2026-02-13.md`)
-  - Created 12 detailed task documents in `_NOTES/repo-submission/task_*.md`, each with copy-ready PR text, exact entry format, risk assessment, and execution checklist
-  - Best-bet targets: BehiSecc (5.8K stars, active), e2b-dev (25.8K stars, ~71% acceptance), kyrolabs (1.7K stars, fast turnaround)
-  - Key findings: travisvn has ~1% community merge rate (gatekeeping); Shubhamsaboo (95K stars) requires contributing SKILL.md files directly; `dend/awesome-product-management` (1.3K stars) surfaced as new high-impact target
-  - Ready for PR execution phase
-
-- **MCP Sync Automation Planned** (2026-01-29)
-  - Created comprehensive planning document: `_NOTES/efforts/mcp-builder-automation/plan_mcp-skill-automation_claude-code.md`
-  - Analyzed two approaches: Validation-Only vs Full Automation
-  - Recommended Validation-Only approach (~2 hours, ~75 LOC)
-  - Key insight: Automate the checking, not the doing
-  - Script location best practice: `/.github/scripts/` for CI, `/scripts/` for users
-  - Created GitHub Issue [#98](https://github.com/product-on-purpose/pm-skills/issues/98)
-  - Architecture: `.github/workflows/validate-mcp-sync.yml` + `.github/scripts/validate-mcp-sync.js`
+- **v2.2.0 Shipped — Guardrails & Governance** (2026-02-13)
+  - MCP drift checker script and observe-only workflow
+  - Planning persistence policy and canonical backlog governance
+  - Release execution artifacts and checklists for v2.2–v2.5
 
 - **v2.1.0 Released — MCP Alignment Complete** (2026-01-28)
   - Executed full v2.1 plan for both pm-skills and pm-skills-mcp
@@ -310,41 +333,48 @@ pm-skills/
   - Verified VISION.md at `(internal-notes)/VISION.md`
   - GitHub issues #1-9 closed (plan review fixes)
 
-## Recent Infrastructure (2026-01-15)
+## Recent Infrastructure (2026-03-11)
 
-- **Slash Commands Complete (25 total):**
-  - All 24 skills have corresponding slash commands
+- **Slash Commands (26 total):**
+  - 25 skill commands (24 original + `/persona`)
   - 1 bundle command: `/kickoff`
-- **Workflow Bundles Complete:**
+- **Skills (25 total):**
+  - 24 Triple Diamond skills + 1 foundation-persona skill
+  - foundation-persona uses `classification: foundation` and `version: 2.5.0` (diverges from the other 24)
+- **Sample Output Library:**
+  - `library/skill-output-samples/` — 95 sample outputs across 25 skills
+  - `SAMPLE_CREATION.md` — standards for sample creation
+- **Plugin Manifest:**
+  - `.claude-plugin/plugin.json` — Claude plugin packaging (added v2.6.0)
+  - `.github/workflows/validate-plugin.yml` — plugin validation CI
+- **Workflow Bundles:**
   - `_bundles/triple-diamond.md` — Complete product development cycle
   - `_bundles/lean-startup.md` — Build-Measure-Learn rapid iteration
   - `_bundles/feature-kickoff.md` — Quick-start workflow for features
 - **Agent Discovery:**
   - `AGENTS.md` — Universal agent discovery file with all commands listed
 - **GitHub Actions:**
-  - `.github/workflows/sync-agents-md.yml` — Auto-sync on skill changes
-  - `.github/workflows/release-zips.yml` — Package ZIPs on release
+  - `.github/workflows/validation.yml` — Runs on Ubuntu + Windows
+  - `.github/workflows/validate-mcp-sync.yml` — MCP drift check (blocking mode)
+  - `.github/workflows/validate-plugin.yml` — Plugin manifest validation
+  - `.github/workflows/release.yml` — Create releases on tag
+  - `.github/workflows/release-zips.yml` — Package ZIP artifacts
 
 ## Next Steps
 
-1. **Awesome-List PR Campaign (immediate):**
-   - [ ] Execute BehiSecc/awesome-claude-skills PR (#1 priority)
-   - [ ] Execute e2b-dev/awesome-ai-agents PR (#5 priority, highest reach)
-   - [ ] Execute kyrolabs/awesome-agents PR (#6 priority, fast turnaround)
-   - [ ] Execute remaining PRs per task documents in `_NOTES/repo-submission/`
-   - [ ] Investigate `dend/awesome-product-management` as new target
-   - [ ] For Shubhamsaboo: adapt 4 skills to their SKILL.md format before PR
+1. **Baseline Hygiene Execution (in progress):**
+   - Executing plan from `_NOTES/baseline-standards/plan_claude/execution_claude-opus-4.6.md`
+   - Quick fixes (A-1, A-2, A-3) and CONTEXT.md update (A-4) in first wave
+   - Systemic prevention (wrap-session check, CI advisory, scripts) in second wave
+   - Effort tracking setup (A-11) pending policy sign-off
 
-2. **v2.2+ Backlog:**
-   - Config-driven output behavior (`pm-skills.config.json`)
-   - Meta-skills: `/project`, `/common`, `/link-docs`, `/update-doc`
-   - MCP file I/O capabilities
-   - Project registry system
+2. **v2.7.0 Persona Library Tier-0:**
+   - Persona archetype library (deferred from v2.5.0)
+   - Full persona MCP exposure parity
 
-3. **Community/Ecosystem:**
-   - [ ] Monitor submitted PRs for maintainer feedback
-   - [ ] Add badges after PR merges
-   - [ ] Star-boosting activities to strengthen VoltAgent/travisvn submissions
+3. **Awesome-List PR Campaign:**
+   - Submit to curated awesome-lists (BehiSecc, e2b-dev, kyrolabs, dend/awesome-product-management)
+   - Adapt skills for Shubhamsaboo format as needed
 
 ## Notes
 
@@ -352,9 +382,15 @@ pm-skills/
 - Primary Audience: Individual Product Managers using AI assistants
 - Cross-platform: Claude Code, Claude.ai, GitHub Copilot, Cursor, Windsurf, OpenCode
 - Implementation plan is in `(internal-notes)/v1-plan/plan-v1.md` with detailed issue-by-issue guidance
-- All 24 skills are now complete!
+- 25 skills total: 24 Triple Diamond + 1 foundation-persona
 
-## Skills Inventory (24/24 Complete)
+## Skills Inventory (25 skills: 24 Triple Diamond + 1 Foundation)
+
+### Foundation (1 skill)
+
+| Skill | Category | Classification | Status |
+|-------|----------|----------------|--------|
+| persona | persona | foundation | ✅ Complete (v2.5.0) |
 
 ### Discover Phase (3 skills)
 
