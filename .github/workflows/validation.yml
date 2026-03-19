@@ -32,3 +32,13 @@ jobs:
       - name: Lint skills front matter (pwsh)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/lint-skills-frontmatter.ps1
+
+      - name: Check CONTEXT.md currency (bash)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-context-currency.sh
+        continue-on-error: true
+
+      - name: Check CONTEXT.md currency (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-context-currency.ps1
+        continue-on-error: true
