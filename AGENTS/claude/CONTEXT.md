@@ -367,11 +367,10 @@ pm-skills/
 
 ## Next Steps
 
-1. **Baseline Hygiene Execution (near complete):**
-   - A-1 through A-4, A-8, A-11 all landed
-   - `scripts/check-context-currency.sh/.ps1` added (A-8, 2026-03-18)
-   - Remaining: A-9 — add advisory CI step to `.github/workflows/validation.yml`
-   - A-5 (wrap-session context check) deferred to a later focused effort
+1. **Baseline Hygiene Execution (complete):**
+   - All unblocked tasks landed: A-1 through A-4, A-8, A-9, A-11
+   - `scripts/check-context-currency.sh/.ps1` + advisory CI step in `validation.yml` (A-8/A-9, 2026-03-18)
+   - A-5 (wrap-session context check) deferred to a later focused effort — out of scope for this pass
 
 2. **v2.7.0 Persona Library Tier-0:**
    - Persona archetype library (deferred from v2.5.0)
