@@ -2,7 +2,7 @@
 
 Status: Active  
 Owner: Maintainers  
-Last updated: 2026-03-16
+Last updated: 2026-03-19
 
 This directory is the canonical tracked home for internal release-governance artifacts.
 
@@ -15,8 +15,9 @@ This directory is the canonical tracked home for internal release-governance art
 ## Current Entry Points
 
 1. `docs/internal/releases/runbook_clean-worktree-cut-tag-publish.md`
-2. `docs/internal/releases/v2.5.0/README.md`
-3. `docs/internal/releases/v2.4.0/README.md`
+2. `docs/internal/releases/v2.6.1/README.md`
+3. `docs/internal/releases/v2.5.0/README.md`
+4. `docs/internal/releases/v2.4.0/README.md`
 
 ## Operating Rules
 

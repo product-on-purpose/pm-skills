@@ -1,9 +1,8 @@
 # Project Structure
-# Project Structure
 
 ## Table of Contents
 - [Directory Overview](#directory-overview)
-- [/skills/ — Skills](#skillsskills--the-24-pm-skills-flat)
+- [/skills/ — Skills](#skills--the-25-pm-skills-flat)
 - [/commands/ — Slash Commands](#commands--slash-commands)
 - [/bundles/ — Workflow Bundles](#bundles--workflow-bundles)
 - [/docs/ — Documentation](#docs--documentation)
@@ -20,7 +19,7 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (24 total, flat)
+├── skills/                     # Core PM skills (25 total, flat)
 ├── commands/                   # Claude Code slash commands
 ├── _bundles/                   # Workflow bundles
 ├── docs/                       # Documentation (incl. templates)
@@ -32,15 +31,15 @@ pm-skills/
 
 ---
 
-## `/skills/` — The 24 PM Skills (flat)
+## `/skills/` — The 25 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 
 ### Organization
 
-Flat directories named `{phase}-{skill}` (hyphen-only, lowercase). Phase is captured in front matter.
+Flat directories named `{phase}-{skill}` for domain skills, plus classification-driven names such as `foundation-persona` for non-phase skills.
 
-Examples: `discover-competitive-analysis`, `define-hypothesis`, `deliver-prd`, `measure-experiment-results`.
+Examples: `discover-competitive-analysis`, `define-hypothesis`, `deliver-prd`, `foundation-persona`.
 
 ### Skill Structure
 
@@ -149,6 +148,7 @@ Contains Claude Code slash command definitions. Each `.md` maps a `/command` to 
 | `/pivot-decision` | iterate-pivot-decision |
 | `/refinement-notes` | iterate-refinement-notes |
 | `/retrospective` | iterate-retrospective |
+| `/persona` | foundation-persona |
 | `/kickoff` | feature-kickoff bundle |
 
 ---
@@ -161,7 +161,7 @@ Bundles chain multiple skills together into guided, end-to-end workflows.
 |--------|---------|-----------------|
 | `feature-kickoff.md` | New feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | `lean-startup.md` | Rapid validation cycle | hypothesis → experiment-design → experiment-results → pivot-decision |
-| `triple-diamond.md` | Complete product development | All 24 skills across 6 phases |
+| `triple-diamond.md` | Complete product development | All 24 phase skills across 6 phases |
 
 ---
 
@@ -213,10 +213,16 @@ Session continuity for AI coding assistants. Contains context, decisions, and se
 
 ```
 AGENTS/
-└── claude/
-    ├── CONTEXT.md            # Current project state
-    ├── DECISIONS.md          # Technical decisions (ADR format)
-    ├── TODO.md               # Task tracking
+├── DECISIONS.md              # Shared cross-agent decisions
+├── claude/
+│   ├── CONTEXT.md            # Claude continuity state
+│   ├── DECISIONS.md          # Claude-local rationale
+│   ├── TODO.md               # Task tracking
+│   ├── SESSION-LOG/          # Session summaries
+│   └── PLANNING/             # Working collaboration artifacts
+└── codex/
+    ├── CONTEXT.md            # Codex continuity state
+    ├── DECISIONS.md          # Codex-local rationale
     ├── SESSION-LOG/          # Session summaries
     └── PLANNING/             # Working collaboration artifacts
 ```

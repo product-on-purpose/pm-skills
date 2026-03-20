@@ -114,14 +114,16 @@ Every skill consists of three essential files that work together to guide the AI
 
 ````markdown
 ---
-name: problem-statement                    # ← Required: Unique identifier
+name: define-problem-statement             # ← Required: Unique identifier
 description: Creates a clear problem...    # ← Required: What it does
-license: Apache-2.0                        # ← Optional: License
+phase: define                              # ← Domain skills require a phase
+version: "2.0.0"                           # ← Root semantic version
+updated: 2026-01-26                        # ← ISO update date
+license: Apache-2.0                        # ← Required in pm-skills
 metadata:                                  # ← Optional: Extended metadata
   category: problem-framing                #   Category from taxonomy
-  frameworks: [triple-diamond]             #   Supported methodologies
+  frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose               #   Creator/maintainer
-  version: "1.0.0"                         #   Semantic version
 ---
 
 # Problem Statement                        # ← H1 title
@@ -337,7 +339,7 @@ skills/<skill-name>/
     └── EXAMPLE.md        # Required: Quality benchmark
 ```
 
-**PM-Skills specific structure** uses a flat directory where the phase is encoded in the skill name:
+**PM-Skills specific structure** uses a flat directory with two naming patterns:
 
 ```
 skills/
@@ -349,11 +351,16 @@ skills/
 ├── define-problem-statement/
 ├── develop-adr/
 ├── deliver-prd/
+├── foundation-persona/
 ├── measure-experiment-design/
 └── iterate-retrospective/
 ```
 
-**Why flat + prefixed?** Keeps paths short while preserving phase context for discovery and sorting. Categories continue to live in metadata; see [categories.md](reference/categories.md) for taxonomy.
+**Naming model**:
+- Domain skills use one of the six lifecycle phases in both frontmatter and directory names (`deliver-prd`, `measure-experiment-design`).
+- Foundation and utility skills use `classification` and omit `phase` (`foundation-persona`).
+
+**Why flat + typed naming?** Keeps paths short while preserving the repo's two-axis model: lifecycle `phase` for domain skills, `classification` for non-phase skills. Categories continue to live in metadata; see [categories.md](reference/categories.md) for taxonomy.
 
 ### Naming Conventions
 
@@ -421,14 +428,17 @@ Frontmatter is YAML metadata enclosed in triple dashes (`---`) at the very start
 
 ````yaml
 ---
-name: skill-name                          # ← REQUIRED
+name: deliver-skill-name                  # ← REQUIRED
 description: What it does and when...     # ← REQUIRED
-license: Apache-2.0                       # ← Optional (default: Apache-2.0)
+phase: deliver                            # ← Required for domain skills
+# classification: foundation              # ← Use instead of phase for non-domain skills
+version: "1.0.0"                          # ← REQUIRED root semantic version
+updated: 2026-03-19                       # ← REQUIRED root ISO date
+license: Apache-2.0                       # ← REQUIRED in pm-skills
 metadata:                                 # ← Optional container
   category: specification                 #   One of 7 categories
   frameworks: [triple-diamond]            #   Array of methodology identifiers
   author: product-on-purpose              #   Creator/maintainer
-  version: "1.0.0"                        #   Semantic version (quoted!)
 ---
 ````
 
@@ -453,10 +463,10 @@ metadata:                                 # ← Optional container
 
 ```yaml
 # Valid ✓
-name: problem-statement
-name: prd
-name: user-stories
-name: jtbd-canvas
+name: define-problem-statement
+name: deliver-prd
+name: deliver-user-stories
+name: define-jtbd-canvas
 name: v2-roadmap
 
 # Invalid ✗
@@ -472,8 +482,8 @@ name: PRD                  # uppercase
 
 ```yaml
 # In file: skills/define-problem-statement/SKILL.md
-name: problem-framing      # ✗ WRONG - must be "problem-statement"
-name: problem-statement    # ✓ CORRECT
+name: problem-framing             # ✗ WRONG - must be "define-problem-statement"
+name: define-problem-statement    # ✓ CORRECT
 ```
 
 ##### `description`
@@ -604,32 +614,50 @@ metadata:
   author: "Jane Smith"         # Full name
 ```
 
-###### `metadata.version`
+###### `classification`
+
+**Type**: `string`  
+**Enum**: `domain | foundation | utility`  
+**Purpose**: Distinguish phase-based PM skills from non-phase skill families
+
+**Rules**:
+- Omit for ordinary domain skills if you want default domain behavior
+- Use `foundation` for non-phase foundation skills like `foundation-persona`
+- Use `utility` for non-phase helper skills
+
+###### `phase`
+
+**Type**: `string`  
+**Enum**: `discover | define | develop | deliver | measure | iterate`  
+**Purpose**: Lifecycle grouping for domain skills
+
+**Rules**:
+- Required when `classification` is `domain`
+- Required when `classification` is omitted
+- Must be omitted when `classification` is `foundation` or `utility`
+
+###### `version`
 
 **Type**: `string`  
 **Pattern**: `^\d+\.\d+\.\d+$` (semantic versioning)  
 **Purpose**: Track skill evolution
 
-**Versioning guidelines**:
-- **MAJOR**: Breaking changes to output format or behavior
-- **MINOR**: New features, sections, or capabilities
-- **PATCH**: Bug fixes, typo corrections, minor improvements
-
-**Critical**: Always quote version to prevent YAML float interpretation
+**Critical**: Use one quoted root `version` field. `metadata.version` is not allowed.
 
 ```yaml
-metadata:
-  version: "1.0.0"    # ✓ CORRECT - quoted
-  version: 1.0.0      # ✗ WRONG - YAML interprets as float 1.0
+version: "1.0.0"    # ✓ CORRECT - quoted root field
+version: 1.0.0      # ✗ WRONG - YAML interprets as float 1.0
 ```
 
-**Version progression example**:
-- `"1.0.0"` — Initial release
-- `"1.1.0"` — Added new section to template (minor)
-- `"1.1.1"` — Fixed typo in instructions (patch)
-- `"2.0.0"` — Changed output structure (major/breaking)
+###### `updated`
 
-**Reference**: [Semantic Versioning](https://semver.org/)
+**Type**: `string`  
+**Pattern**: `^\d{4}-\d{2}-\d{2}$`  
+**Purpose**: Record the last edited date for the skill
+
+```yaml
+updated: 2026-03-19
+```
 
 #### Complete Frontmatter Examples
 
@@ -646,14 +674,33 @@ description: Creates a brief artifact for quick documentation needs.
 
 ```yaml
 ---
-name: problem-statement
+name: define-problem-statement
 description: Creates a clear problem framing document with user impact, business context, and success criteria. Use when starting a new initiative, realigning a drifted project, or communicating up to leadership.
+phase: define
+version: "2.0.0"
+updated: 2026-01-26
 license: Apache-2.0
 metadata:
   category: problem-framing
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
-  version: "1.0.0"
+---
+```
+
+**Foundation (non-phase)**:
+
+```yaml
+---
+name: foundation-persona
+description: Generates an evidence-calibrated product or marketing persona using the canonical v2.5 output contract. Use when shaping artifact perspective, stress-testing decisions, or framing product and GTM strategy.
+classification: foundation
+version: "2.5.0"
+updated: 2026-03-02
+license: Apache-2.0
+metadata:
+  category: research
+  frameworks: [triple-diamond, lean-startup, design-thinking]
+  author: product-on-purpose
 ---
 ```
 
@@ -879,7 +926,7 @@ Discovery Phase                  Invocation Phase
      │                                │ - Example reference
      ▼                                ▼
 ┌──────────────────┐           ┌──────────────────┐
-│ AI sees 24 skills│           │ AI loads 1 skill │
+│ AI sees 25 skills│           │ AI loads 1 skill │
 │ (~6KB metadata)  │           │ (full content)   │
 └──────────────────┘           └──────────────────┘
                                        │
@@ -932,20 +979,22 @@ AI scans AGENTS.md:
 
 **Purpose**: Provide complete instructions, quality criteria, and references
 
-**Benefit**: Context-appropriate loading—only the selected skill loads, not all 24
+**Benefit**: Context-appropriate loading—only the selected skill loads, not all 25
 
 **What the AI reads**:
 
 ```markdown
 ---
-name: problem-statement
+name: define-problem-statement
 description: Creates a clear problem framing document...
+phase: define
+version: "2.0.0"
+updated: 2026-01-26
 license: Apache-2.0
 metadata:
   category: problem-framing
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
-  version: "1.0.0"
 ---
 
 # Problem Statement
@@ -991,9 +1040,9 @@ AI follows SKILL.md instructions
 ### Why This Matters
 
 **Context window efficiency**:
-- Discovery: ~6KB (24 skill names + descriptions)
+- Discovery: ~6KB (25 skill names + descriptions)
 - Invocation: ~15KB (1 full SKILL.md + template + example)
-- Without progressive loading: ~360KB (all 24 skills fully loaded)
+- Without progressive loading: ~375KB (all 25 skills fully loaded)
 
 **Faster agent response**:
 - Skill selection happens instantly (minimal data to parse)
@@ -1115,16 +1164,19 @@ When authoring skills for maximum portability:
 
 ## Practical Examples
 
-### Simple Skill: problem-statement
+### Simple Skill: define-problem-statement
 
 **Full SKILL.md** (annotated):
 
 ````markdown
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
-name: problem-statement                    # ← Matches directory name exactly
+name: define-problem-statement             # ← Matches directory name exactly
 description: Creates a clear problem framing document with user impact, business context, and success criteria. Use when starting a new initiative, realigning a drifted project, or communicating up to leadership.
                                            # ← Description includes triggers
+phase: define                              # ← Domain skills require a phase
+version: "2.0.0"                           # ← Root semantic version
+updated: 2026-01-26                        # ← Root update date
 license: Apache-2.0                        # ← Standard license
 metadata:
   category: problem-framing                # ← Category from taxonomy
@@ -1221,15 +1273,17 @@ See `references/EXAMPLE.md` for a completed example.
 ````markdown
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
-name: prd                                  # ← Short, well-known abbreviation
+name: deliver-prd                          # ← Directory-matching identifier
 description: Creates a comprehensive Product Requirements Document that aligns stakeholders on what to build, why, and how success will be measured. Use when specifying features, epics, or product initiatives for engineering handoff.
                                            # ← Long description with multiple triggers
+phase: deliver                             # ← Domain classification uses phase
+version: "2.0.0"                           # ← Root semantic version
+updated: 2026-01-26                        # ← Root update date
 license: Apache-2.0
 metadata:
   category: specification                  # ← Different category
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
-  version: "1.0.0"
 ---
 
 # Product Requirements Document (PRD)      # ← Formal title with abbreviation
@@ -1312,7 +1366,7 @@ Before finalizing, verify:
 See `references/EXAMPLE.md` for a completed example.
 ````
 
-**Link to actual file**: [skills/define-problem-statement/SKILL.md](../skills/define-problem-statement/SKILL.md)
+**Link to actual file**: [skills/deliver-prd/SKILL.md](../skills/deliver-prd/SKILL.md)
 
 **Why this is a "complex" skill**:
 - 8-step process (vs. 5-6 typical)
@@ -1336,15 +1390,18 @@ See `references/EXAMPLE.md` for a completed example.
 
 ```yaml
 ---
-name: <skill-name>                         # ← Change to your skill name
+name: <phase-or-classification-skill-name> # ← Change to your skill name
 description: <1-2 sentences...>            # ← Write specific description
+phase: <discover|define|develop|deliver|measure|iterate>
+# classification: foundation               # ← Use this instead of phase for non-domain skills
+version: "1.0.0"                           # ← One quoted root version
+updated: 2026-03-19                        # ← Set current ISO date
 license: Apache-2.0                        # ← Keep as-is for pm-skills
 metadata:
   category: <one of 7 categories>          # ← Choose from taxonomy
   frameworks: [triple-diamond, lean-startup, design-thinking]
                                            # ← Update for your skill
   author: product-on-purpose               # ← Keep as-is or use your name
-  version: "1.0.0"                         # ← Start at 1.0.0
 ---
 
 # <Skill Title>                            # ← Descriptive title
@@ -1469,7 +1526,7 @@ Quick reference for skill authors before submission. For complete guidance, see 
 
 ### Documentation
 
-- [ ] Entry added to `AGENTS.md` in appropriate phase section
+- [ ] Entry added to `AGENTS.md` in the appropriate foundation or phase section
 - [ ] Command added to `AGENTS.md` Commands table (if applicable)
 - [ ] No references to gitignored or private paths
 - [ ] All internal links use relative paths
@@ -1531,11 +1588,14 @@ Quick reference for skill authors before submission. For complete guidance, see 
 |-------|----------|------|---------|
 | `name` | Yes | string | `problem-statement` |
 | `description` | Yes | string | `Creates a clear problem...` |
-| `license` | No | string | `Apache-2.0` |
+| `phase` | Conditional | enum | `deliver` |
+| `classification` | Conditional | enum | `foundation` |
+| `version` | Yes | string | `"2.0.0"` |
+| `updated` | Yes | string | `2026-01-26` |
+| `license` | Yes | string | `Apache-2.0` |
 | `metadata.category` | No | enum | `problem-framing` |
 | `metadata.frameworks` | No | array | `[triple-diamond]` |
 | `metadata.author` | No | string | `product-on-purpose` |
-| `metadata.version` | No | string | `"1.0.0"` |
 
 ### Section Order in SKILL.md
 

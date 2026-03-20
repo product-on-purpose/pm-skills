@@ -1,0 +1,444 @@
+﻿{
+    "release":  "v2.6.1",
+    "status":  "f02-included",
+    "amended":  "2026-03-04",
+    "policy":  {
+                   "coverageSet":  "all shipped skills under skills/* at release cut",
+                   "samplesPerSkill":  "3 (phase skills) | 12 (foundation-persona)",
+                   "threads":  [
+                                   "storevine",
+                                   "brainshelf",
+                                   "workbench"
+                               ],
+                   "sampleFilePattern":  "sample_skill_thread_\u003cadditional-helpful-context\u003e.md",
+                   "sampleDirectoryPattern":  "library/skill-output-samples/\u003cskill-name\u003e/",
+                   "baselineAsOf":  "2026-02-24",
+                   "actualizedAt":  "2026-02-24"
+               },
+    "skills":  [
+                   {
+                       "skill":  "define-hypothesis",
+                       "command":  "hypothesis",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/define-hypothesis/sample_define-hypothesis_storevine_campaigns.md",
+                                             "library/skill-output-samples/define-hypothesis/sample_define-hypothesis_brainshelf_resurface.md",
+                                             "library/skill-output-samples/define-hypothesis/sample_define-hypothesis_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/define-hypothesis/sample_define-hypothesis_storevine_campaigns.md",
+                                           "library/skill-output-samples/define-hypothesis/sample_define-hypothesis_brainshelf_resurface.md",
+                                           "library/skill-output-samples/define-hypothesis/sample_define-hypothesis_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "define-jtbd-canvas",
+                       "command":  "jtbd-canvas",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/define-jtbd-canvas/sample_define-jtbd-canvas_storevine_campaigns.md",
+                                             "library/skill-output-samples/define-jtbd-canvas/sample_define-jtbd-canvas_brainshelf_resurface.md",
+                                             "library/skill-output-samples/define-jtbd-canvas/sample_define-jtbd-canvas_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/define-jtbd-canvas/sample_define-jtbd-canvas_storevine_campaigns.md",
+                                           "library/skill-output-samples/define-jtbd-canvas/sample_define-jtbd-canvas_brainshelf_resurface.md",
+                                           "library/skill-output-samples/define-jtbd-canvas/sample_define-jtbd-canvas_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "define-opportunity-tree",
+                       "command":  "opportunity-tree",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_storevine_campaigns.md",
+                                             "library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_brainshelf_resurface.md",
+                                             "library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_storevine_campaigns.md",
+                                           "library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_brainshelf_resurface.md",
+                                           "library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "define-problem-statement",
+                       "command":  "problem-statement",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/define-problem-statement/sample_define-problem-statement_storevine_campaigns.md",
+                                             "library/skill-output-samples/define-problem-statement/sample_define-problem-statement_brainshelf_resurface.md",
+                                             "library/skill-output-samples/define-problem-statement/sample_define-problem-statement_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/define-problem-statement/sample_define-problem-statement_storevine_campaigns.md",
+                                           "library/skill-output-samples/define-problem-statement/sample_define-problem-statement_brainshelf_resurface.md",
+                                           "library/skill-output-samples/define-problem-statement/sample_define-problem-statement_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "deliver-edge-cases",
+                       "command":  "edge-cases",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/deliver-edge-cases/sample_deliver-edge-cases_storevine_campaigns.md",
+                                             "library/skill-output-samples/deliver-edge-cases/sample_deliver-edge-cases_brainshelf_resurface.md",
+                                             "library/skill-output-samples/deliver-edge-cases/sample_deliver-edge-cases_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/deliver-edge-cases/sample_deliver-edge-cases_storevine_campaigns.md",
+                                           "library/skill-output-samples/deliver-edge-cases/sample_deliver-edge-cases_brainshelf_resurface.md",
+                                           "library/skill-output-samples/deliver-edge-cases/sample_deliver-edge-cases_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "deliver-launch-checklist",
+                       "command":  "launch-checklist",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/deliver-launch-checklist/sample_deliver-launch-checklist_storevine_campaigns.md",
+                                             "library/skill-output-samples/deliver-launch-checklist/sample_deliver-launch-checklist_brainshelf_resurface.md",
+                                             "library/skill-output-samples/deliver-launch-checklist/sample_deliver-launch-checklist_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/deliver-launch-checklist/sample_deliver-launch-checklist_storevine_campaigns.md",
+                                           "library/skill-output-samples/deliver-launch-checklist/sample_deliver-launch-checklist_brainshelf_resurface.md",
+                                           "library/skill-output-samples/deliver-launch-checklist/sample_deliver-launch-checklist_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "deliver-prd",
+                       "command":  "prd",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/deliver-prd/sample_deliver-prd_storevine_campaigns.md",
+                                             "library/skill-output-samples/deliver-prd/sample_deliver-prd_brainshelf_resurface.md",
+                                             "library/skill-output-samples/deliver-prd/sample_deliver-prd_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/deliver-prd/sample_deliver-prd_storevine_campaigns.md",
+                                           "library/skill-output-samples/deliver-prd/sample_deliver-prd_brainshelf_resurface.md",
+                                           "library/skill-output-samples/deliver-prd/sample_deliver-prd_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "deliver-release-notes",
+                       "command":  "release-notes",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/deliver-release-notes/sample_deliver-release-notes_storevine_campaigns.md",
+                                             "library/skill-output-samples/deliver-release-notes/sample_deliver-release-notes_brainshelf_resurface.md",
+                                             "library/skill-output-samples/deliver-release-notes/sample_deliver-release-notes_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/deliver-release-notes/sample_deliver-release-notes_storevine_campaigns.md",
+                                           "library/skill-output-samples/deliver-release-notes/sample_deliver-release-notes_brainshelf_resurface.md",
+                                           "library/skill-output-samples/deliver-release-notes/sample_deliver-release-notes_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "deliver-user-stories",
+                       "command":  "user-stories",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/deliver-user-stories/sample_deliver-user-stories_storevine_campaigns.md",
+                                             "library/skill-output-samples/deliver-user-stories/sample_deliver-user-stories_brainshelf_resurface.md",
+                                             "library/skill-output-samples/deliver-user-stories/sample_deliver-user-stories_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/deliver-user-stories/sample_deliver-user-stories_storevine_campaigns.md",
+                                           "library/skill-output-samples/deliver-user-stories/sample_deliver-user-stories_brainshelf_resurface.md",
+                                           "library/skill-output-samples/deliver-user-stories/sample_deliver-user-stories_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "develop-adr",
+                       "command":  "adr",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/develop-adr/sample_develop-adr_storevine_campaigns.md",
+                                             "library/skill-output-samples/develop-adr/sample_develop-adr_brainshelf_resurface.md",
+                                             "library/skill-output-samples/develop-adr/sample_develop-adr_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/develop-adr/sample_develop-adr_storevine_campaigns.md",
+                                           "library/skill-output-samples/develop-adr/sample_develop-adr_brainshelf_resurface.md",
+                                           "library/skill-output-samples/develop-adr/sample_develop-adr_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "develop-design-rationale",
+                       "command":  "design-rationale",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/develop-design-rationale/sample_develop-design-rationale_storevine_campaigns.md",
+                                             "library/skill-output-samples/develop-design-rationale/sample_develop-design-rationale_brainshelf_resurface.md",
+                                             "library/skill-output-samples/develop-design-rationale/sample_develop-design-rationale_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/develop-design-rationale/sample_develop-design-rationale_storevine_campaigns.md",
+                                           "library/skill-output-samples/develop-design-rationale/sample_develop-design-rationale_brainshelf_resurface.md",
+                                           "library/skill-output-samples/develop-design-rationale/sample_develop-design-rationale_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "develop-solution-brief",
+                       "command":  "solution-brief",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/develop-solution-brief/sample_develop-solution-brief_storevine_campaigns.md",
+                                             "library/skill-output-samples/develop-solution-brief/sample_develop-solution-brief_brainshelf_resurface.md",
+                                             "library/skill-output-samples/develop-solution-brief/sample_develop-solution-brief_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/develop-solution-brief/sample_develop-solution-brief_storevine_campaigns.md",
+                                           "library/skill-output-samples/develop-solution-brief/sample_develop-solution-brief_brainshelf_resurface.md",
+                                           "library/skill-output-samples/develop-solution-brief/sample_develop-solution-brief_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "develop-spike-summary",
+                       "command":  "spike-summary",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/develop-spike-summary/sample_develop-spike-summary_storevine_campaigns.md",
+                                             "library/skill-output-samples/develop-spike-summary/sample_develop-spike-summary_brainshelf_resurface.md",
+                                             "library/skill-output-samples/develop-spike-summary/sample_develop-spike-summary_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/develop-spike-summary/sample_develop-spike-summary_storevine_campaigns.md",
+                                           "library/skill-output-samples/develop-spike-summary/sample_develop-spike-summary_brainshelf_resurface.md",
+                                           "library/skill-output-samples/develop-spike-summary/sample_develop-spike-summary_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "discover-competitive-analysis",
+                       "command":  "competitive-analysis",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/discover-competitive-analysis/sample_discover-competitive-analysis_storevine_campaigns.md",
+                                             "library/skill-output-samples/discover-competitive-analysis/sample_discover-competitive-analysis_brainshelf_resurface.md",
+                                             "library/skill-output-samples/discover-competitive-analysis/sample_discover-competitive-analysis_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/discover-competitive-analysis/sample_discover-competitive-analysis_storevine_campaigns.md",
+                                           "library/skill-output-samples/discover-competitive-analysis/sample_discover-competitive-analysis_brainshelf_resurface.md",
+                                           "library/skill-output-samples/discover-competitive-analysis/sample_discover-competitive-analysis_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "discover-interview-synthesis",
+                       "command":  "interview-synthesis",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_storevine_campaigns.md",
+                                             "library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_brainshelf_resurface.md",
+                                             "library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_storevine_campaigns.md",
+                                           "library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_brainshelf_resurface.md",
+                                           "library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "discover-stakeholder-summary",
+                       "command":  "stakeholder-summary",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_storevine_campaigns.md",
+                                             "library/skill-output-samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_brainshelf_resurface.md",
+                                             "library/skill-output-samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_storevine_campaigns.md",
+                                           "library/skill-output-samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_brainshelf_resurface.md",
+                                           "library/skill-output-samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "iterate-lessons-log",
+                       "command":  "lessons-log",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/iterate-lessons-log/sample_iterate-lessons-log_storevine_campaigns.md",
+                                             "library/skill-output-samples/iterate-lessons-log/sample_iterate-lessons-log_brainshelf_resurface.md",
+                                             "library/skill-output-samples/iterate-lessons-log/sample_iterate-lessons-log_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/iterate-lessons-log/sample_iterate-lessons-log_storevine_campaigns.md",
+                                           "library/skill-output-samples/iterate-lessons-log/sample_iterate-lessons-log_brainshelf_resurface.md",
+                                           "library/skill-output-samples/iterate-lessons-log/sample_iterate-lessons-log_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "iterate-pivot-decision",
+                       "command":  "pivot-decision",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/iterate-pivot-decision/sample_iterate-pivot-decision_storevine_campaigns.md",
+                                             "library/skill-output-samples/iterate-pivot-decision/sample_iterate-pivot-decision_brainshelf_resurface.md",
+                                             "library/skill-output-samples/iterate-pivot-decision/sample_iterate-pivot-decision_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/iterate-pivot-decision/sample_iterate-pivot-decision_storevine_campaigns.md",
+                                           "library/skill-output-samples/iterate-pivot-decision/sample_iterate-pivot-decision_brainshelf_resurface.md",
+                                           "library/skill-output-samples/iterate-pivot-decision/sample_iterate-pivot-decision_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "iterate-refinement-notes",
+                       "command":  "refinement-notes",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/iterate-refinement-notes/sample_iterate-refinement-notes_storevine_campaigns.md",
+                                             "library/skill-output-samples/iterate-refinement-notes/sample_iterate-refinement-notes_brainshelf_resurface.md",
+                                             "library/skill-output-samples/iterate-refinement-notes/sample_iterate-refinement-notes_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/iterate-refinement-notes/sample_iterate-refinement-notes_storevine_campaigns.md",
+                                           "library/skill-output-samples/iterate-refinement-notes/sample_iterate-refinement-notes_brainshelf_resurface.md",
+                                           "library/skill-output-samples/iterate-refinement-notes/sample_iterate-refinement-notes_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "iterate-retrospective",
+                       "command":  "retrospective",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_storevine_campaigns.md",
+                                             "library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_brainshelf_resurface.md",
+                                             "library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_storevine_campaigns.md",
+                                           "library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_brainshelf_resurface.md",
+                                           "library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "measure-dashboard-requirements",
+                       "command":  "dashboard-requirements",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_storevine_campaigns.md",
+                                             "library/skill-output-samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_brainshelf_resurface.md",
+                                             "library/skill-output-samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_storevine_campaigns.md",
+                                           "library/skill-output-samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_brainshelf_resurface.md",
+                                           "library/skill-output-samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "measure-experiment-design",
+                       "command":  "experiment-design",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_storevine_campaigns.md",
+                                             "library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_brainshelf_resurface.md",
+                                             "library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_storevine_campaigns.md",
+                                           "library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_brainshelf_resurface.md",
+                                           "library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "measure-experiment-results",
+                       "command":  "experiment-results",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/measure-experiment-results/sample_measure-experiment-results_storevine_campaigns.md",
+                                             "library/skill-output-samples/measure-experiment-results/sample_measure-experiment-results_brainshelf_resurface.md",
+                                             "library/skill-output-samples/measure-experiment-results/sample_measure-experiment-results_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/measure-experiment-results/sample_measure-experiment-results_storevine_campaigns.md",
+                                           "library/skill-output-samples/measure-experiment-results/sample_measure-experiment-results_brainshelf_resurface.md",
+                                           "library/skill-output-samples/measure-experiment-results/sample_measure-experiment-results_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "measure-instrumentation-spec",
+                       "command":  "instrumentation-spec",
+                       "expectedSampleCount":  3,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_storevine_campaigns.md",
+                                             "library/skill-output-samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_brainshelf_resurface.md",
+                                             "library/skill-output-samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_workbench_blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_storevine_campaigns.md",
+                                           "library/skill-output-samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_brainshelf_resurface.md",
+                                           "library/skill-output-samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_workbench_blueprints.md"
+                                       ],
+                       "status":  "sample-complete"
+                   },
+                   {
+                       "skill":  "foundation-persona",
+                       "command":  "persona",
+                       "expectedSampleCount":  12,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_product-detailed-blueprints.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_storevine_marketing-detailed-campaigns.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_brainshelf_product-brief-resurface.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_storevine_product-brief-campaigns.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_brainshelf_marketing-detailed-resurface.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_marketing-brief-blueprints.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_storevine_product-detailed-campaigns.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_storevine_marketing-brief-campaigns.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_brainshelf_product-detailed-resurface.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_brainshelf_marketing-brief-resurface.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_product-brief-blueprints.md",
+                                             "library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_marketing-detailed-blueprints.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_product-detailed-blueprints.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_storevine_marketing-detailed-campaigns.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_brainshelf_product-brief-resurface.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_storevine_product-brief-campaigns.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_brainshelf_marketing-detailed-resurface.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_marketing-brief-blueprints.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_storevine_product-detailed-campaigns.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_storevine_marketing-brief-campaigns.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_brainshelf_product-detailed-resurface.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_brainshelf_marketing-brief-resurface.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_product-brief-blueprints.md",
+                                           "library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_marketing-detailed-blueprints.md"
+                                       ],
+                       "status":  "sample-complete",
+                       "notes":  "Foundation-persona has expanded coverage: 4 samples per thread (product brief, product detailed, marketing brief, marketing detailed) = 12 total."
+                   }
+               ],
+    "actualSkillCount":  25,
+    "actualSampleCount":  84,
+    "notes":  "Coverage verified: 24 phase skills x 3 samples = 72, plus foundation-persona x 12 samples = 84 total."
+}
+
+

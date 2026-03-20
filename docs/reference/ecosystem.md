@@ -35,9 +35,9 @@ The PM-Skills ecosystem provides **24 professional product management skills** t
 │   │     PM-Skills       │      │   PM-Skills MCP     │         │
 │   │   (Skill Library)   │      │   (MCP Server)      │         │
 │   │                     │      │                     │         │
-│   │  • 24 skill files   │ ───► │  • 36 MCP tools     │         │
-│   │  • Slash commands   │      │  • 72 MCP resources │         │
-│   │  • AGENTS.md        │      │  • 3 MCP prompts    │         │
+│   │  • 25 skill files   │ ───► │  • MCP tools        │         │
+│   │  • Slash commands   │      │  • MCP resources    │         │
+│   │  • AGENTS.md        │      │  • MCP prompts      │         │
 │   │  • Workflow bundles │      │  • Workflow bundles │         │
 │   │                     │      │                     │         │
 │   │  Git clone / ZIP    │      │  npm install        │         │
@@ -55,7 +55,7 @@ The PM-Skills ecosystem provides **24 professional product management skills** t
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-Both products provide access to the same 24 skills—they differ in **how** you access them.
+Both products provide access to the same shipped PM-Skills library—they differ in **how** you access it.
 
 ---
 
@@ -71,8 +71,8 @@ PM-Skills is the **source skill library**—a collection of markdown files conta
 
 | Component | Count | Description |
 |-----------|-------|-------------|
-| Skills | 24 | Complete PM artifacts (SKILL.md, TEMPLATE.md, EXAMPLE.md) |
-| Slash Commands | 25 | Claude Code shortcuts (`/prd`, `/hypothesis`, etc.) |
+| Skills | 25 | Complete PM artifacts (24 phase skills + 1 foundation skill) |
+| Slash Commands | 26 | Claude Code shortcuts (`/prd`, `/hypothesis`, `/persona`, etc.) |
 | Workflow Bundles | 3 | Multi-skill workflows (Feature Kickoff, Lean Startup, Triple Diamond) |
 | Documentation | ~10 files | Guides, references, and framework explanations |
 
@@ -80,14 +80,14 @@ PM-Skills is the **source skill library**—a collection of markdown files conta
 
 ```
 pm-skills/
-├── skills/               # The 24 PM skills (flat: {phase}-{skill})
+├── skills/               # The 25 shipped skills (flat, including foundation)
 │   ├── discover-competitive-analysis/
 │   ├── define-hypothesis/
 │   ├── develop-adr/
 │   ├── deliver-prd/
 │   ├── measure-experiment-design/
 │   └── iterate-retrospective/
-├── commands/             # 25 slash commands for Claude Code
+├── commands/             # 26 slash commands for Claude Code
 ├── _bundles/             # Workflow bundles
 ├── docs/                 # Documentation
 └── AGENTS.md             # Universal agent discovery
@@ -120,10 +120,10 @@ PM-Skills MCP is an **MCP server** that wraps the skill library, exposing skills
 
 | Component | Count | Description |
 |-----------|-------|-------------|
-| MCP Tools | 36 | 24 skill tools + 5 workflow tools + 7 utility tools |
-| MCP Resources | 72 | URI-based access to skills, templates, and examples |
-| MCP Prompts | 3 | Guided conversation starters |
-| Embedded Skills | 24 | Bundled copy of pm-skills (zero external dependencies) |
+| MCP Tools | Release-specific | Skill, workflow, and utility tools derived from the shipped library |
+| MCP Resources | Release-specific | URI-based access to skills, templates, and examples |
+| MCP Prompts | Release-specific | Guided conversation starters |
+| Embedded Skills | Release-specific | Bundled snapshot of pm-skills (zero external dependencies) |
 
 #### Key Capabilities
 
@@ -185,12 +185,12 @@ Use this matrix to choose between the file-based skill library and the MCP serve
 
 | Feature | PM-Skills | PM-Skills MCP |
 |---------|-----------|---------------|
-| **24 PM Skills** | ✅ | ✅ |
+| **Shipped PM-Skills catalog** | ✅ | ✅ |
 | **Workflow Bundles** | ✅ Manual | ✅ Tool-based |
-| **Slash Commands** | ✅ 25 commands | ❌ (use tools) |
-| **MCP Tools** | ❌ | ✅ 36 tools |
-| **MCP Resources** | ❌ | ✅ 72 resources |
-| **MCP Prompts** | ❌ | ✅ 3 prompts |
+| **Slash Commands** | ✅ 26 commands | ❌ (use tools) |
+| **MCP Tools** | ❌ | ✅ Release-specific tool set |
+| **MCP Resources** | ❌ | ✅ Release-specific resource set |
+| **MCP Prompts** | ❌ | ✅ Release-specific prompt set |
 | **AGENTS.md Discovery** | ✅ | ✅ |
 | **Custom Skill Path** | ✅ Fork repo | ✅ `PM_SKILLS_PATH` env |
 | **Installation** | Git clone / ZIP | npm install |
@@ -238,7 +238,7 @@ Use pm-skills-mcp for programmatic tool access.
                                               ▼
                                        ┌─────────────────┐
                                        │ Embedded Skills │
-                                       │  (24 skills)    │
+                                       │ (skill library) │
                                        └─────────────────┘
 ```
 
@@ -351,16 +351,14 @@ git merge upstream/main
 | v1.1.x | v1.0.x | Legacy compatible |
 | v1.0.x | v1.0.x | Legacy compatible |
 
-**v2.4 Alignment Notes:**
-- pm-skills-mcp and pm-skills now use direct release version alignment (`v2.4.x` ↔ `v2.4.x`)
-- pm-skills-mcp v2.1+ reads phase from SKILL.md frontmatter (not directory path)
-- Resource URIs are now flat: `pm-skills://skills/{skill}` (phase in metadata)
+**Current Alignment Notes:**
+- pm-skills-mcp tracks pm-skills releases directly in current shipped versions.
+- Resource URIs use the flat `pm-skills://skills/{skill}` form, with phase available in metadata where applicable.
 - Tool names remain stable: `pm_prd`, `pm_hypothesis`, etc.
-- Custom `PM_SKILLS_PATH` works with any pm-skills v2.x structure
+- Custom `PM_SKILLS_PATH` works with current pm-skills v2.x structure.
 
 **Compatibility Notes:**
 - PM-Skills MCP embeds a snapshot of pm-skills at build time
-- From v2.4 onward, pm-skills-mcp releases are expected to track pm-skills versions directly
 - Custom `PM_SKILLS_PATH` bypasses embedded skills (use any pm-skills version)
 
 ---

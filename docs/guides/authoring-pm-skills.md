@@ -57,7 +57,7 @@ commands/<skill-name>.md  # Slash command definition
 
 ### 1. Check If It Already Exists
 
-Review the [existing 24 skills](../../AGENTS.md) to ensure your idea isn't already covered:
+Review the [existing 25 skills](../../AGENTS.md) to ensure your idea isn't already covered:
 
 | Category | Existing Skills |
 |----------|-----------------|
@@ -93,18 +93,29 @@ If you answered "no" to any, reconsider whether this is the right skill.
 | `reflection` | Captures learnings, retrospectives, or pivot decisions |
 | `coordination` | Aligns teams, prepares launches, or communicates |
 
-### 4. Choose the Right Phase
+Plus one non-phase foundation skill:
+- `foundation-persona`
 
-Skills now live in a **flat `skills/` directory** with the phase encoded in the skill name (e.g., `discover-interview-synthesis`, `deliver-prd`). Pick the phase that matches the primary moment of use, then prefix the skill name with that phase for clarity and sorting.
+### 4. Choose Classification and Phase
+
+Skills live in a **flat `skills/` directory**, but the repo now uses two frontmatter axes:
+
+| Classification | Phase rule | Naming pattern | Examples |
+|----------------|------------|----------------|----------|
+| `domain` | `phase` is required | phase-prefixed skill name | `discover-interview-synthesis`, `deliver-prd` |
+| `foundation` | omit `phase` | classification-driven name | `foundation-persona` |
+| `utility` | omit `phase` | classification-driven name | `utility-<name>` |
+
+For most new PM artifact skills, use domain behavior: choose the primary lifecycle phase, then prefix the skill name with that phase for clarity and sorting.
 
 | Phase | When | Examples |
 |-------|------|----------|
-| `discover` | Understanding the landscape | discover-interview-synthesis, discover-competitive-analysis |
-| `define` | Framing the problem | define-problem-statement, define-hypothesis |
-| `develop` | Exploring solutions | develop-solution-brief, develop-adr |
-| `deliver` | Specifying and shipping | deliver-prd, deliver-user-stories, deliver-launch-checklist |
-| `measure` | Validating with data | measure-experiment-design, measure-instrumentation-spec |
-| `iterate` | Learning and improving | iterate-retrospective, iterate-lessons-log |
+| `discover` | Understanding the landscape | `discover-interview-synthesis`, `discover-competitive-analysis` |
+| `define` | Framing the problem | `define-problem-statement`, `define-hypothesis` |
+| `develop` | Exploring solutions | `develop-solution-brief`, `develop-adr` |
+| `deliver` | Specifying and shipping | `deliver-prd`, `deliver-user-stories`, `deliver-launch-checklist` |
+| `measure` | Validating with data | `measure-experiment-design`, `measure-instrumentation-spec` |
+| `iterate` | Learning and improving | `iterate-retrospective`, `iterate-lessons-log` |
 
 ---
 
@@ -123,8 +134,11 @@ Before writing any code, open a "Request a Skill" issue with:
 ### Category
 <one of the 7 categories>
 
+### Classification
+<domain | foundation | utility>
+
 ### Phase
-<one of the 6 phases>
+<one of the 6 phases; required for domain skills, omit for foundation/utility>
 
 ### Description
 <1-2 sentences: what it does and when to use it>
@@ -169,7 +183,7 @@ Open a PR with:
 
 ```
 skills/
-└── <skill-name>/               # lowercase-with-hyphens, prefixed with phase
+└── <skill-name>/               # lowercase-with-hyphens; domain skills are phase-prefixed
     ├── SKILL.md                # Main instructions
     └── references/
         ├── TEMPLATE.md         # Output template
@@ -192,7 +206,7 @@ Per the [agentskills.io specification](https://agentskills.io/specification):
 ### Choosing a Name
 
 Good names:
-- **Match the artifact:** `prd`, `retrospective`, `adr`
+- **Match the repo-native skill ID:** `deliver-prd`, `iterate-retrospective`, `develop-adr`
 - **Are recognizable:** PMs know what "PRD" means
 - **Are searchable:** Include key terms
 - **Are concise:** 1-3 words typical
@@ -207,14 +221,17 @@ The SKILL.md file is the heart of your skill. It tells the AI exactly how to cre
 
 ```markdown
 ---
-name: skill-name
+name: deliver-skill-name
 description: What it does and when to use it. Include trigger keywords.
+phase: deliver
+# classification: foundation   # Use this instead of phase for non-domain skills
+version: "1.0.0"
+updated: 2026-03-19
 license: Apache-2.0
 metadata:
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: your-github-username
-  version: "1.0.0"
 ---
 
 # Skill Title
@@ -262,7 +279,7 @@ See `references/EXAMPLE.md` for a completed example.
 Must exactly match the directory name. Lowercase, hyphens only.
 
 ```yaml
-name: sprint-review  # Directory must be skills/iterate-sprint-review/
+name: iterate-sprint-review  # Directory must be skills/iterate-sprint-review/
 ```
 
 #### description
@@ -299,12 +316,42 @@ frameworks: [triple-diamond, lean-startup, design-thinking]
 
 Options: `triple-diamond`, `lean-startup`, `design-thinking`, `scrum`, `kanban`, `safe`
 
-#### metadata.version
+#### phase
+
+Use `phase` for domain skills. This is required for the 24 phase-classified PM skills.
+
+```yaml
+phase: deliver
+```
+
+Valid values: `discover`, `define`, `develop`, `deliver`, `measure`, `iterate`
+
+#### classification
+
+Use `classification` only when the skill is not a domain skill. Foundation and utility skills omit `phase`.
+
+```yaml
+classification: foundation
+```
+
+Valid values: `domain`, `foundation`, `utility`
+
+#### version
+
+Use one quoted root `version` field. Do not nest version under `metadata`.
 
 Always quote to prevent YAML float interpretation:
 ```yaml
 version: "1.0.0"  # Correct
 version: 1.0.0    # Wrong - YAML interprets as float
+```
+
+#### updated
+
+Use one root `updated` field with an ISO date:
+
+```yaml
+updated: 2026-03-19
 ```
 
 ### Writing the Overview
@@ -693,8 +740,10 @@ Before submitting your PR, verify:
 ### Frontmatter
 - [ ] `name` matches directory name exactly
 - [ ] `description` is 50-300 characters with trigger keywords
+- [ ] Either `phase` or `classification` is correct for the skill type
 - [ ] `category` is one of the 7 valid values
-- [ ] `version` is quoted (`"1.0.0"`)
+- [ ] Root `version` is quoted (`"1.0.0"`)
+- [ ] `updated` uses `YYYY-MM-DD`
 - [ ] `license` is `Apache-2.0`
 
 ### SKILL.md Content
@@ -754,7 +803,7 @@ commands/<skill-name>.md
 
 ### 4. Update AGENTS.md
 
-Add your skill to the appropriate phase section:
+Add your skill to the appropriate section:
 
 ```markdown
 #### <skill-name>
@@ -851,7 +900,7 @@ Choosing `ideation` for something that's clearly `specification` confuses organi
 
 ```
 Directory: skills/deliver-product-roadmap/
-Frontmatter: name: roadmap  # WRONG - must be "product-roadmap"
+Frontmatter: name: roadmap  # WRONG - must be "deliver-product-roadmap"
 ```
 
 ---
@@ -868,7 +917,7 @@ metadata:
 ```
 
 Consider how the skill fits each:
-- **Triple Diamond:** Which phase does it belong to?
+- **Triple Diamond:** If classification is `domain`, which phase does it belong to?
 - **Lean Startup:** Is it Build, Measure, or Learn?
 - **Design Thinking:** Which stage?
 - **Scrum:** Which ceremony or artifact does it support?

@@ -412,7 +412,7 @@ Bundles are pre-defined skill sequences for common workflows.
 |--------|----------|--------|
 | Feature Kickoff | Standard feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | Lean Startup | Rapid validation | hypothesis → experiment-design → experiment-results → pivot-decision |
-| Triple Diamond | Comprehensive product dev | All 24 skills across 6 phases |
+| Triple Diamond | Comprehensive product dev | All 24 phase skills across 6 phases |
 
 ### Invoking a Bundle
 

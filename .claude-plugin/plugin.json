@@ -1,6 +1,6 @@
 {
   "name": "pm-skills",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "25 product management skills for Claude Code, covering the full product lifecycle from discovery through iteration. Includes structured templates, real-world examples, and workflow bundles for PRDs, hypotheses, user stories, experiment design, retrospectives, and more.",
   "homepage": "https://github.com/product-on-purpose/pm-skills",
   "repository": "https://github.com/product-on-purpose/pm-skills",

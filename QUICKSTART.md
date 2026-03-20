@@ -2,7 +2,7 @@
 
 ## What's Included
 
-- **24 PM skills** across 6 phases (Discover, Define, Develop, Deliver, Measure, Iterate)
+- **25 shipped PM skills** (24 phase skills across 6 phases plus 1 foundation persona skill)
 - **Slash commands** for instant skill invocation (`/prd`, `/hypothesis`, etc.)
 - **Workflow bundles** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff)
 - **MCP sync guardrail** via GitHub Actions (`validate-mcp-sync`, observe-first rollout)
@@ -57,27 +57,15 @@ Bundle definitions are in `_bundles/`.
 ## File Structure
 
 ```
-skills/            # All 24 skill definitions (flat: discover-*, define-*, ...)
+skills/            # All 25 skill definitions (24 phase + 1 foundation, flat)
 commands/          # Slash command triggers
 _bundles/          # Multi-skill workflows
-scripts/           # sync-claude.(sh|ps1), build-release helpers
+scripts/           # sync, validation, and release helpers
 .claude/pm-skills-for-claude.md  # instructions for Claude Code users
 AGENTS.md          # Agent discovery index
 ```
 
 For Claude Code discovery, run `./scripts/sync-claude.sh` (or `.ps1`) to populate `.claude/skills` and `.claude/commands` from the flat source.
-
-## Maintainer Notes (v2.2.0)
-
-- Cross-repo drift check:
-  - Workflow: `.github/workflows/validate-mcp-sync.yml`
-  - Script: `.github/scripts/validate-mcp-sync.js`
-  - Guide: `docs/guides/validate-mcp-sync.md`
-- Default is observe mode in v2.2.0. Planned transition to blocking mode is in v2.3.0 after MCP alignment closure.
-- Planning/backlog governance references:
-  - `docs/internal/planning-persistence-policy.md`
-  - `docs/internal/planning-artifact-tier-map.md`
-  - `docs/internal/backlog-canonical.md`
 
 ## Learn More
 

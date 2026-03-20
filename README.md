@@ -57,7 +57,7 @@
   </a>
 </p>
 
-> **🔥MCP Server Available!** If you are using VS Code, Claude Desktop, Claude Code (CLI), Github Copilot, Cursor, etc... check out **[pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)** for instant MCP access to all 25 skills and workflows - no file management required.
+> **🔥MCP Server Available!** If you are using VS Code, Claude Desktop, Claude Code (CLI), Github Copilot, Cursor, etc... check out **[pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)** for instant MCP access to the shipped skill library and bundled workflows - no file management required.
 
 ---
 
@@ -66,7 +66,7 @@
 <p align="center">
   <a href="#the-big-idea">About</a> •
   <a href="#getting-started">Getting Started</a> •
-  <a href="#the-24-skills">Skills</a> •
+  <a href="#the-skills">Skills</a> •
   <a href="#workflow-bundles">Bundles</a> •
   <a href="#project-status">Status</a> •
   <a href="#contributing">Contributing</a> •
@@ -714,7 +714,7 @@ Each bundle provides a **sequence of skills** with handoff guidance between step
 | -------------------------------------------------- | ----------------- | ---------------------------------------------------------------------- |
 | **[Feature Kickoff](_bundles/feature-kickoff.md)** | New features      | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | **[Lean Startup](_bundles/lean-startup.md)**       | Rapid validation  | hypothesis → experiment-design → experiment-results → pivot-decision   |
-| **[Triple Diamond](_bundles/triple-diamond.md)**   | Major initiatives | Full 24-skill phase flow across 6 phases                                |
+| **[Triple Diamond](_bundles/triple-diamond.md)**   | Major initiatives | Full 24 phase-skill flow across 6 phases                                |
 
 #### Workflow Examples
 
@@ -807,7 +807,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) for a full list of proposed features and known issues.
 
-- [x] Launch with 24 production-ready skills
+- [x] Launch with 25 shipped skills (24 phase skills + 1 foundation persona skill)
 - [x] Add workflow bundles (Feature Kickoff, Lean Startup, Triple Diamond)
 - [x] GitHub Copilot, Cursor, and Windsurf integration via AGENTS.md
 - [x] Slash commands for Claude Code
@@ -818,10 +818,8 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] v2.4 contract lock release: output behavior and configuration contracts closed and validated
 
 **In Progress**
-- Project support utilities
-- `/common` shared snippets
-- `/update-doc` helper flow
-- `/link-docs` helper flow
+- Documentation, examples, and ecosystem polish for shipped surfaces
+- Contributor-facing guidance and schema alignment follow-up
 
 #### Backlog / Considering
 

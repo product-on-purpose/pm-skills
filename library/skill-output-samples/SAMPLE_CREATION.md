@@ -11,7 +11,7 @@ Applies to all sample markdown files under:
 This excludes:
 
 - `README_SAMPLES.md` (navigation doc)
-- release-planning artifacts under `_NOTES/`
+- tracked release-governance artifacts under `docs/internal/releases/`
 
 ## 2) Canonical Naming
 
@@ -78,11 +78,11 @@ Legacy files may not have full modern frontmatter; avoid back-editing legacy unl
 
 ## 6) Release-Coverage Metadata
 
-Release-coverage manifest is maintained as a release-planning artifact (not in this folder):
+Release-coverage manifest is maintained as a tracked internal release-governance artifact (not in this folder):
 
-- `_NOTES/delivery-plan/releases/v2.6.1/artifacts/skill-output-samples_manifest.v2.6.1.json`
+- `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json`
 
-When sample files are added/renamed/removed, update that manifest in the same change set.
+When sample files are added/renamed/removed, update that tracked manifest in the same change set.
 
 ## 7) README_SAMPLES Update Workflow
 

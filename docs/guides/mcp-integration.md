@@ -96,7 +96,7 @@ Claude Desktop provides the best MCP experience. Configuration file locations:
 
 **Restart Claude Desktop** to load the server.
 
-**Verify:** Ask Claude "What PM skills are available?" — it should list all 24 skills.
+**Verify:** Ask Claude "What PM skills are available?" — it should list the current PM-Skills catalog from the server.
 
 ---
 
@@ -198,11 +198,11 @@ Consult your MCP client's documentation for specific configuration syntax.
 
 ## Tool Inventory
 
-PM-Skills MCP v2.4+ provides **36 tools** organized into three categories (24 skills + 5 workflows + 7 utilities).
+PM-Skills MCP exposes skill, workflow, and utility tools derived from the current shipped library.
 
 > **Note:** pm-skills-mcp now tracks pm-skills release versions directly (starting at v2.4.0). Resource URIs are flat (`pm-skills://skills/{skill}`) with phase available in metadata.
 
-### Skill Tools (24)
+### Skill Tools
 
 Each skill becomes an MCP tool with standardized parameters:
 

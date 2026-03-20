@@ -1,12 +1,15 @@
 ---
-name: <skill-name>
+name: <phase-or-classification-skill-name>
 description: <1-2 sentences, include trigger keywords, max 1024 chars>
+phase: <discover|define|develop|deliver|measure|iterate>
+# classification: foundation   # For foundation/utility skills, use classification and omit phase
+version: "1.0.0"
+updated: 2026-03-19
 license: Apache-2.0
 metadata:
   category: <one of: research, problem-framing, ideation, specification, validation, reflection, coordination>
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
-  version: "1.0.0"
 ---
 
 # <Skill Title>
