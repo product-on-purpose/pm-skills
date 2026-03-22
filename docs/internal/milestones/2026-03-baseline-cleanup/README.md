@@ -12,6 +12,7 @@ This folder is the tracked home for the March 2026 baseline cleanup milestone. I
 
 ## Supporting Material
 
+- [Distilled summaries](distilled/) — start here for the consolidated final-state view
 - [Planning and execution artifacts](planning-execution/)
 - [_archived/](./_archived/)
 
