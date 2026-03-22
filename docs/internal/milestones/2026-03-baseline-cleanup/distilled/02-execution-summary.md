@@ -101,27 +101,3 @@ C-1 (policy)
 ## What This Execution Established
 
 See `03-decisions-and-governance.md` for the governance model. See `04-next-steps.md` for what comes after.
-
-## Differences from Originals and Reasoning
-
-This document distills three execution-phase documents into one: `execution_shared-claude-codex.md` (shared coordinator), `execution_codex-gpt-5.4.md` (Codex execution plan), and the Claude execution detail from `readme_technical.md`. The Claude execution plan (`plan_claude-opus-4.6.md`) also contained task definitions that informed this summary.
-
-### Structural changes
-
-| Change | Reasoning |
-| --- | --- |
-| **Merged three documents into one chronological narrative.** The shared coordinator tracked status. The Codex execution plan tracked Codex tasks with prompts. The technical readme tracked both lanes with commit-level detail. | During execution, three documents made sense: each agent had its own plan, and the coordinator managed handoffs. Post-completion, a single timeline-first narrative is easier to follow. The originals remain for anyone who needs the operational detail. |
-| **Removed session-resume prompts.** The Codex execution plan included prompts like "Resume Codex execution... Start with C-3." | These were operational scaffolding for live Codex sessions. They have no value post-completion and would confuse readers into thinking there is remaining work. |
-| **Removed per-task execution prompts.** The Codex execution plan included a "Prompt to give Codex" block for each task. | Same reasoning as session-resume prompts. These were input scaffolding, not records of what happened. |
-| **Removed detailed file-change inventories.** The technical readme listed every file changed per task, with line counts and before/after descriptions. | This level of detail is preserved in `readme_technical.md` for reference. The distilled execution summary focuses on outcomes and sequencing, not per-file changes. |
-| **Removed collaboration rules.** The shared coordinator had a "Collaboration Rules" section (5 rules about agent boundaries). | These rules are governance, not execution. They are now in `03-decisions-and-governance.md` where they belong. |
-
-### Content changes
-
-| Change | Reasoning |
-| --- | --- |
-| **Elevated the three critical sequencing decisions as the primary narrative.** The originals tracked sequencing through dependency tables and handoff notes scattered across documents. | The sequencing decisions were the most important coordination outcomes. Elevating them makes clear what mattered most in the execution. The dependency chain diagram preserves the full picture. |
-| **Added a unified timeline.** No original document presented a single date-ordered view of both lanes. | The coordinator had a status table but it was organized by task ID, not chronologically. The timeline makes the parallelism and dependencies visible at a glance. |
-| **Removed the "Notes and Blockers" log.** The Codex execution plan had a date-ordered notes table tracking operational discoveries. | These were session-level operational notes (e.g., "C-1 complete," "worktree refreshed onto branch X"). The meaningful content is captured in the task summaries and timeline. The raw operational log is preserved in the original. |
-| **Removed handoff notes.** The shared coordinator had a "Handoff Notes" section with bullet points about what each completed task unblocked. | These were live coordination artifacts. The dependency chain and task summary capture the same information in a more structured form. |
-| **Added the cross-agent review catch.** Neither the coordinator nor the execution plans explicitly called out that Claude's review of C-4 caught three count errors. | This was documented only in the technical readme. It deserves prominence because it validates the two-agent review model as a practical quality mechanism, not just a coordination overhead. |

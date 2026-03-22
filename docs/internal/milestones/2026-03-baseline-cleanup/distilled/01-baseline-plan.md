@@ -70,26 +70,3 @@ The Codex review of Claude's execution plan (`execution_claude-opus-4.6_reviewed
 - **Cross-dependency acknowledgment was valid.** The claim of "no cross-dependencies" between Claude and Codex workstreams was too strong. The shared coordinator document addressed this by making dependencies explicit.
 
 See `03-decisions-and-governance.md` for the governance model that emerged. See `04-next-steps.md` for what this baseline enables.
-
-## Differences from Originals and Reasoning
-
-This document distills two separate plans (`plan_claude-opus-4.6.md` and `plan_codex-gpt-5.4.md`) into one. Below is what changed and why.
-
-### Structural changes
-
-| Change | Reasoning |
-| --- | --- |
-| **Merged two plans into one.** The Claude plan (dated 2026-03-09) and Codex plan (dated 2026-03-15) were written at different times with different framing. This document presents the final accepted model as a single coherent reference. | Two separate plans made sense during live execution when each agent needed its own entry point. Post-completion, a single reference is easier to navigate and eliminates the need to reconcile differences between the two. |
-| **Removed the open-question framing (OQ1-OQ5).** The Codex plan had a "Decision Closure Summary" resolving five open questions. The Claude plan had a separate "Open Questions" section. | All five questions were resolved before execution began. Preserving the open-question structure in a post-hoc document would mislead readers into thinking these are still open. The resolutions are embedded in "The Accepted Model" table instead. |
-| **Removed detailed per-file execution steps.** The Claude plan included expandable `<details>` blocks with bash commands for each task. | Execution-level detail belongs in the execution record (`02-execution-summary.md` and `readme_technical.md`). A plan document should describe what and why, not the shell commands. |
-| **Removed the six-subsection "Current-State Findings."** The Claude plan had detailed findings (C-1 through C-3, M-1 through M-4). The Codex plan had a similar section with its own numbering. | Replaced with four concise problem statements. The detailed findings were valuable during planning but are historical after execution. The distilled version preserves the problem categories without the diagnostic evidence. |
-
-### Content changes
-
-| Change | Reasoning |
-| --- | --- |
-| **Added Codex review integration section.** Neither original plan included post-hoc assessment of the Codex review feedback. | The Codex review materially improved execution quality. Documenting which feedback proved correct makes the distilled plan a more complete record and gives credit where due. |
-| **Consolidated "Recommended Baseline" into "The Accepted Model" table.** The Codex plan had a detailed four-section baseline (Public Shipped Surface, Internal Operating Surface, Legacy Tracked But Not Baseline, Local Working Space Only). | The full surface inventory is useful for execution but redundant post-completion. The locked decisions table captures the same information in a form that is actionable for future work. The full inventory is preserved in the original. |
-| **Added sequencing rationale from Codex feedback.** The Claude plan proposed all tasks as independently shippable. The Codex review identified sequencing dependencies. | The final accepted sequence reflects what actually happened and why. Presenting tasks as independent when they had real dependencies would be misleading in a post-hoc record. |
-| **Removed "Foundational Skills and Commands" section.** The Claude plan assessed all skills and commands, concluding only wrap-session needed changes. | This finding is preserved implicitly in the scope boundaries. A section confirming "nothing needs to change" adds length without information in a distilled document. |
-| **Removed "Not In Scope Now" details.** Both plans listed specific exclusions (GSD, memory tooling, speculative wrappers, archive cleanup). | Consolidated into a single-line scope boundary. The specific exclusions were valuable during planning to prevent scope creep. Post-completion, the broad statement is sufficient. Deferred items that may come back are tracked in `04-next-steps.md`. |
