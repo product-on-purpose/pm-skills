@@ -143,7 +143,7 @@ This document consolidates governance content that was distributed across `plan_
 
 ## Relationship to Other Documents
 
-- `01-baseline-plan.md` — What was planned and why
-- `02-execution-summary.md` — What was done and how
+- `plan_claude-opus-4.6_v2.md` — What was planned and why
+- `execution_shared-claude-codex_v2.md` — What was done and how
 - **This document** — What was decided and what the rules are
 - `04-next-steps.md` — What comes next

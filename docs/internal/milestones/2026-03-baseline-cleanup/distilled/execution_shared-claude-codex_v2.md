@@ -100,7 +100,7 @@ C-1 (policy)
 
 ## What This Execution Established
 
-See `03-decisions-and-governance.md` for the governance model. See `04-next-steps.md` for what comes after.
+See `plan_codex-gpt-5.4_v2.md` for the governance model. See `04-next-steps.md` for what comes after.
 
 ## Differences from Originals and Reasoning
 
@@ -114,7 +114,7 @@ This document distills three execution-phase documents into one: `execution_shar
 | **Removed session-resume prompts.** The Codex execution plan included prompts like "Resume Codex execution... Start with C-3." | These were operational scaffolding for live Codex sessions. They have no value post-completion and would confuse readers into thinking there is remaining work. |
 | **Removed per-task execution prompts.** The Codex execution plan included a "Prompt to give Codex" block for each task. | Same reasoning as session-resume prompts. These were input scaffolding, not records of what happened. |
 | **Removed detailed file-change inventories.** The technical readme listed every file changed per task, with line counts and before/after descriptions. | This level of detail is preserved in `readme_technical.md` for reference. The distilled execution summary focuses on outcomes and sequencing, not per-file changes. |
-| **Removed collaboration rules.** The shared coordinator had a "Collaboration Rules" section (5 rules about agent boundaries). | These rules are governance, not execution. They are now in `03-decisions-and-governance.md` where they belong. |
+| **Removed collaboration rules.** The shared coordinator had a "Collaboration Rules" section (5 rules about agent boundaries). | These rules are governance, not execution. They are now in `plan_codex-gpt-5.4_v2.md` where they belong. |
 
 ### Content changes
 

@@ -69,7 +69,7 @@ The Codex review of Claude's execution plan (`execution_claude-opus-4.6_reviewed
 - **A-11 gating on C-2 was right.** Having the effort directory and README conventions established before creating brief files meant A-11 built on a pattern rather than inventing one.
 - **Cross-dependency acknowledgment was valid.** The claim of "no cross-dependencies" between Claude and Codex workstreams was too strong. The shared coordinator document addressed this by making dependencies explicit.
 
-See `03-decisions-and-governance.md` for the governance model that emerged. See `04-next-steps.md` for what this baseline enables.
+See `plan_codex-gpt-5.4_v2.md` for the governance model that emerged. See `04-next-steps.md` for what this baseline enables.
 
 ## Differences from Originals and Reasoning
 
