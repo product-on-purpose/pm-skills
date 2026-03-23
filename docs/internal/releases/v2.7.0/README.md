@@ -14,8 +14,8 @@ This directory is the tracked internal release-governance home for the `v2.7.0` 
 | F-06 | New skill | `deliver-acceptance-criteria` — Given/When/Then acceptance criteria skill | Codex | **Committed** | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
 | M-16 | Infrastructure | Exclude `docs/internal/**` from the published ZIP while keeping internal governance docs tracked in-repo | Codex | **Committed** (`0c2e637`) | [#123](https://github.com/product-on-purpose/pm-skills/issues/123) |
 | F-05 | New skill | PM Skill Builder (`/pm-skill-builder`) — interactive utility skill for creating new PM skills | Claude | **Committed** (`3c50108`, `df794a1`, `a67f144`) | [#113](https://github.com/product-on-purpose/pm-skills/issues/113) |
-| D-01 | Documentation | Create `docs/pm-skill-anatomy.md` — architecture and anatomy of a pm-skills skill (extends agentskills.io spec) | Claude | Planned | — |
-| D-02 | Documentation | Review and update public-facing docs for v2.7.0 accuracy | Codex | In progress - first pass done, follow-up needed after F-05 wiring landed | — |
+| D-01 | Documentation | Create `docs/pm-skill-anatomy.md` — architecture and anatomy of a pm-skills skill (extends agentskills.io spec) | Claude | **Committed** | — |
+| D-02 | Documentation | Review and update public-facing docs for v2.7.0 accuracy | Codex + Claude | **Committed** (`12a30a9`) | — |
 
 ## Release Theme
 
@@ -28,8 +28,8 @@ Infrastructure hardening (M-12) + release packaging hygiene (M-16) + first new s
 - [x] M-16 committed and release ZIP excludes `docs/internal/**` while preserving public docs
 - [x] F-05 design approved and implemented
 - [x] F-05 committed and local validators pass (`lint-skills-frontmatter`, `validate-commands`, `validate-agents-md`)
-- [ ] D-01: `docs/pm-skill-anatomy.md` created
-- [ ] D-02: Public-facing docs reviewed and updated for the post-`a67f144` repo state
+- [x] D-01: `docs/pm-skill-anatomy.md` created
+- [x] D-02: Public-facing docs reviewed and updated for the post-`a67f144` repo state
 - [ ] CHANGELOG.md updated with v2.7.0 section
 - [x] Local enhanced validation passes for 27 skills, 28 command docs, and 27 `AGENTS.md` skill entries
 - [ ] Tag `v2.7.0` pushed → release.yml fires → ZIP published
