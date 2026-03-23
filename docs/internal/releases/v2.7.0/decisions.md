@@ -5,6 +5,20 @@ Last updated: 2026-03-22
 
 This document captures important design and architecture decisions made during v2.7.0 development. These should inform the public release notes and FAQ section.
 
+## Decision Index
+
+| ID | Decision | Category |
+|----|----------|----------|
+| D-1 | [Staging and promotion model — discard PACKET.md after promotion](#d-1-pm-skill-builder-staging-and-promotion-model) | F-05 Design |
+| D-2 | [Builder naming — `/pm-skill-builder` vs `/agent-skill-builder`](#d-2-builder-naming--pm-skill-builder-vs-agent-skill-builder) | F-05 Design |
+| D-3 | [PM Skill lifecycle — three separate skills (Create/Validate/Iterate)](#d-3-pm-skill-lifecycle--three-separate-skills) | F-05 Design |
+| D-4 | [CI validation split — enforced vs advisory](#d-4-ci-validation-split--enforced-vs-advisory) | F-05 Design |
+| D-5 | [Exclude `docs/internal/**` from release ZIP (M-16)](#d-5-exclude-docsinternal-from-release-zip-m-16) | Infrastructure |
+| D-6 | [Efforts are atoms, releases are molecules](#d-6-efforts-are-atoms-releases-are-molecules) | Process |
+| D-7 | [Agent assignment framework](#d-7-agent-assignment-framework) | Process |
+| D-8 | [Documentation tasks are release-scoped, not effort-tracked](#d-8-documentation-tasks-are-release-scoped-not-effort-tracked) | Process |
+| D-9 | [Remaining v2.7.0 task agent assignments](#d-9-remaining-v270-task-agent-assignments) | Process |
+
 ---
 
 ## D-1: PM Skill Builder staging and promotion model
@@ -87,8 +101,39 @@ This document captures important design and architecture decisions made during v
 
 ---
 
+## D-8: Documentation tasks are release-scoped, not effort-tracked
+
+**Decision**: D-01 (skill anatomy doc) and D-02 (public docs review) live in the v2.7.0 release governance table with agent assignments but do NOT get effort briefs, GitHub issues, or backlog entries.
+
+**Why**:
+- They're release prep tasks, not standalone work items that persist beyond v2.7.0
+- No design decisions, dependencies, or multi-session complexity
+- The effort system (M-xx, F-xx) is for work that needs design review cycles — these are straightforward writing tasks
+- Adding effort overhead to simple tasks creates busywork without improving tracking
+
+**How to apply**: Track D-xx tasks in the release governance README only. If a documentation task turns out to be complex enough to need design (e.g., D-01 reveals architectural questions), promote it to an effort at that point.
+
+---
+
+## D-9: Remaining v2.7.0 task agent assignments
+
+**Decision**: Agent assignments for all remaining v2.7.0 work.
+
+| Task | Agent | Rationale |
+|------|-------|-----------|
+| F-05 implementation | Claude | Creative content writing — SKILL.md instructions, EXAMPLE.md narrative, quality judgment on gap analysis language. This is the kind of work where design taste matters. |
+| D-01: skill anatomy doc | Claude | New explanatory document requiring architectural understanding and clear writing for contributors who are new to the project. Claude's strength. |
+| D-02: public docs review | Codex | Systematic comparison of existing docs against current repo state. Well-defined scope (8 files), concrete checks (skill counts, script names, command lists). Codex excels at verification against ground truth. |
+| M-16 commit | Codex | Already implemented by Codex, just needs commit. |
+| CHANGELOG v2.7.0 | Claude | Release notes require narrative judgment — what matters to users, how to frame changes. |
+| Release tag | Human | Manual decision point — confirm everything is ready, push the tag. |
+
+**Pattern**: Claude gets writing/design tasks. Codex gets verification/implementation tasks. Human gets external-facing decisions.
+
+---
+
 ## Decisions to add later
 
-- F-05 implementation approach (after implementation plan is finalized)
-- Any breaking changes discovered during implementation
-- Release packaging changes from M-16
+- Any breaking changes discovered during F-05 implementation
+- Release packaging changes from M-16 (once committed)
+- F-05 functional test results

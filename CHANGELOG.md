@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Internal milestone documentation for the March 2026 baseline cleanup under `docs/internal/milestones/2026-03-baseline-cleanup/`.
+- **M-12: CI validation enhancement** (#112) — extended linter with description word count (20-100) and TEMPLATE.md header count (≥3) checks; new `validate-agents-md` script for AGENTS.md ↔ skill directory sync; new `check-mcp-impact` advisory script for MCP impact detection. All scripts follow `.sh + .ps1 + .md` convention.
+- **F-06: deliver-acceptance-criteria skill** (#114) — new Deliver phase skill for Given/When/Then acceptance criteria generation covering happy path, edge cases, error states, and non-functional criteria. Includes SKILL.md, TEMPLATE.md, EXAMPLE.md (e-commerce checkout scenario), `/acceptance-criteria` command, and AGENTS.md entry.
+- v2.7.0 release governance folder with README, gating criteria, and key decisions log.
+- Release governance folders for v2.2.0 and v2.3.0 (migrated from legacy locations).
+- 12 effort briefs in `docs/internal/efforts/` (M-12 through M-16, F-05 through F-11).
+
+### Changed
+- Fixed duplicate workflow steps in `validation.yml` (validate-agents-md and check-mcp-impact each ran twice).
+- Migrated `Releases_2.3-2.4_detailed-breakdown.md` to `docs/internal/releases/v2.4.0/` with updated path references.
+- `docs/internal/backlog-canonical.md` rewritten with Release, Status, and Agent columns.
+- `docs/internal/efforts/README.md` updated with agent assignment framework and guide.
+- `docs/internal/releases/README.md` updated with v2.2.0-v2.7.0 entry points and migration history.
+
+### Removed
+- `docs/internal/delivery-plan/` — legacy directory removed from tracking (archived to `_NOTES/_archived-internal/`).
+- `docs/internal/release-planning/` — legacy directory removed from tracking (archived to `_NOTES/_archived-internal/`).
+- `docs/internal/Releases_2.3-2.4_detailed-breakdown.md` — moved to `docs/internal/releases/v2.4.0/`.
 
 ## [2.6.1] - 2026-03-04
 

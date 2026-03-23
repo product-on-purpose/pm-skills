@@ -5,7 +5,7 @@
   <br>
 </h1>
 
-<h4 align="center">A curated collection of 25 best-practice, plug-and-play product management “agent skills” (24 phase skills + 1 foundation persona skill) plus templates and workflow bundles for consistent, professional PM outputs.</h4>
+<h4 align="center">A curated collection of 26 best-practice, plug-and-play product management “agent skills” (25 phase skills + 1 foundation persona skill) plus templates and workflow bundles for consistent, professional PM outputs.</h4>
 
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills/issues/new?labels=bug">Report a Bug</a>
@@ -24,7 +24,7 @@
     <img src="https://img.shields.io/badge/version-2.6.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
-    <img src="https://img.shields.io/badge/skills-25-brightgreen.svg?style=flat-square" alt="Skills">
+    <img src="https://img.shields.io/badge/skills-26-brightgreen.svg?style=flat-square" alt="Skills">
   </a>
   <a href="https://agentskills.io/specification">
     <img src="https://img.shields.io/badge/spec-agentskills.io-orange.svg?style=flat-square" alt="Agent Skills Spec">

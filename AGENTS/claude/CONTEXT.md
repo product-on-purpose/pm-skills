@@ -2,10 +2,10 @@
 
 ## Current State
 
-**Status:** v2.6.1 shipped — strategic planning complete, backlog integrated, ready to execute
+**Status:** v2.7.0 in progress — M-12 + F-06 committed, M-16 implemented locally, F-05 implementation plan reviewed
 **Last Updated:** 2026-03-22
-**Release:** [v2.6.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.6.1)
-**Next Step:** Effort 0 (marketplace submission) then M-12 (#112, CI enhancement)
+**Release:** [v2.6.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.6.1) (current), v2.7.0 (in progress)
+**Next Step:** Execute F-05 implementation plan, commit M-16, then D-01/D-02 documentation tasks
 
 ## Project Overview
 
@@ -46,6 +46,8 @@ pm-skills/
 │   ├── build-release.sh  # Create versioned ZIP
 │   ├── sync-claude.sh    # Sync to .claude/ for discovery
 │   ├── validate-commands.sh
+│   ├── validate-agents-md.sh  # AGENTS.md ↔ skill directory sync (M-12)
+│   ├── check-mcp-impact.sh   # Advisory MCP impact detection (M-12)
 │   └── lint-skills-frontmatter.sh
 ├── .github/workflows/    # CI/CD
 │   ├── validation.yml    # Runs on Ubuntu + Windows
@@ -62,6 +64,17 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **v2.7.0 In Progress — CI + New Skill + Builder** (2026-03-22)
+  - **M-12 committed**: CI validation enhancement — extended linter, validate-agents-md, check-mcp-impact
+  - **F-06 committed**: deliver-acceptance-criteria skill (Given/When/Then, e-commerce checkout example)
+  - **M-16 implemented locally** (Codex): exclude `docs/internal/**` from release ZIP, awaiting commit
+  - **F-05 design reviewed** (Codex): PM Skill Builder — 8 review findings confirmed and fixed
+  - **F-05 implementation plan reviewed** (Codex): 8 findings confirmed, plan v2 written
+  - **Legacy dirs migrated**: delivery-plan + release-planning archived to `_NOTES/_archived-internal/`
+  - **Release governance**: v2.2.0-v2.7.0 folders in `docs/internal/releases/`, decisions log with 9 entries
+  - **12 effort briefs** created with agent assignments and GitHub issues (#112-#123)
+  - Key decisions: staging area discards PACKET.md, builder naming split, 3-skill lifecycle, docs release-scoped not effort-tracked
 
 - **v2.6.1 Shipped — Sample Library Recovery** (2026-03-04)
   - Sample output library moved and normalized to `library/skill-output-samples/`
@@ -340,12 +353,12 @@ pm-skills/
   - `scripts/check-context-currency.ps1` — PowerShell equivalent for Windows local use
   - CI step pending (A-9): `validation.yml` will run `.sh` with `continue-on-error: true`
 
-- **Slash Commands (26 total):**
-  - 25 skill commands (24 original + `/persona`)
+- **Slash Commands (27 total):**
+  - 26 skill commands (24 original + `/persona` + `/acceptance-criteria`)
   - 1 bundle command: `/kickoff`
-- **Skills (25 total):**
-  - 24 Triple Diamond skills + 1 foundation-persona skill
-  - foundation-persona uses `classification: foundation` and `version: 2.5.0` (diverges from the other 24)
+- **Skills (26 total):**
+  - 25 Triple Diamond skills (24 original + deliver-acceptance-criteria) + 1 foundation-persona skill
+  - foundation-persona uses `classification: foundation` and `version: 2.5.0`
 - **Sample Output Library:**
   - `library/skill-output-samples/` — 95 sample outputs across 25 skills
   - `SAMPLE_CREATION.md` — standards for sample creation
@@ -365,24 +378,35 @@ pm-skills/
   - `.github/workflows/release.yml` — Create releases on tag
   - `.github/workflows/release-zips.yml` — Package ZIP artifacts
 
-## Next Steps (Priority Backlog)
+## Next Steps (v2.7.0 Remaining Work)
 
-See `docs/internal/backlog-canonical.md` for the full priority-ordered table with issue links.
+See `docs/internal/releases/v2.7.0/README.md` for full gating criteria and `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 
-| Priority | ID | Effort | Issue |
-|----------|----|--------|-------|
-| 0 | — | Anthropic marketplace submission (human-only) | — |
-| 1 | M-12 | CI validation enhancement | #112 |
-| 2 | F-05 | PM Skill Builder (`/pm-skill-builder`) | #113 |
-| 3 | F-06 | `deliver-acceptance-criteria` | #114 |
-| 4 | M-13 | Convention alignment pass | #115 |
-| 5 | M-14 | Release automation enhancement | #116 |
-| 6 | M-15 | Community contribution setup | #117 |
-| 7 | F-07 | `discover-market-sizing` | #118 |
-| 8 | F-08 | `measure-survey-analysis` | #119 |
-| 9 | F-09 | Agent Skill Builder (`/agent-skill-builder`) | #120 |
+### v2.7.0 remaining tasks
 
-**Key scope change (2026-03-21):** Multi-project workspace, document evolution, hooks, output styles, and transcript processing moved to Knowledge OS — a separate Product on Purpose initiative. pm-skills focuses on being an excellent, community-ready skill library. M-01 through M-04 are no longer in pm-skills scope.
+| Task | Agent | Status |
+|------|-------|--------|
+| M-16: Commit packaging fix | Codex | Implemented, awaiting commit |
+| F-05: Execute implementation plan (6 tasks) | Claude | Plan reviewed, ready to execute |
+| D-01: Create `docs/pm-skill-anatomy.md` | Claude | Planned |
+| D-02: Review/update public-facing docs | Codex | Planned |
+| CHANGELOG v2.7.0 section | Claude | At tag time |
+| Release tag | Human | After all gating criteria pass |
+
+### Post-v2.7.0 backlog
+
+| ID | Effort | Issue |
+|----|--------|-------|
+| M-13 | Convention alignment pass | #115 |
+| M-14 | Release automation enhancement | #116 |
+| M-15 | Community contribution setup | #117 |
+| F-07 | `discover-market-sizing` | #118 |
+| F-08 | `measure-survey-analysis` | #119 |
+| F-09 | Agent Skill Builder (`/agent-skill-builder`) | #120 |
+| F-10 | PM Skill Validate (`/pm-skill-validate`) | #121 |
+| F-11 | PM Skill Iterate (`/pm-skill-iterate`) | #122 |
+
+**Key scope change (2026-03-21):** M-01 through M-04 moved to Knowledge OS (separate initiative). pm-skills focuses on being an excellent, community-ready skill library.
 
 ## Notes
 
@@ -390,9 +414,9 @@ See `docs/internal/backlog-canonical.md` for the full priority-ordered table wit
 - Primary Audience: Individual Product Managers using AI assistants
 - Cross-platform: Claude Code, Claude.ai, GitHub Copilot, Cursor, Windsurf, OpenCode
 - Implementation plan is in `(internal-notes)/v1-plan/plan-v1.md` with detailed issue-by-issue guidance
-- 25 skills total: 24 Triple Diamond + 1 foundation-persona
+- 26 skills total: 25 Triple Diamond + 1 foundation-persona
 
-## Skills Inventory (25 skills: 24 Triple Diamond + 1 Foundation)
+## Skills Inventory (26 skills: 25 Triple Diamond + 1 Foundation)
 
 ### Foundation (1 skill)
 
@@ -426,12 +450,13 @@ See `docs/internal/backlog-canonical.md` for the full priority-ordered table wit
 | adr | specification | P1 | ✅ Complete |
 | design-rationale | specification | P2 | ✅ Complete |
 
-### Deliver Phase (5 skills)
+### Deliver Phase (6 skills)
 
 | Skill | Category | Priority | Status |
 |-------|----------|----------|--------|
 | prd | specification | P0 | ✅ Complete |
 | user-stories | specification | P0 | ✅ Complete |
+| acceptance-criteria | specification | v2.7.0 | ✅ Complete |
 | edge-cases | specification | P1 | ✅ Complete |
 | launch-checklist | coordination | P0 | ✅ Complete |
 | release-notes | coordination | P1 | ✅ Complete |
