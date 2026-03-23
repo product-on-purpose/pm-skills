@@ -129,7 +129,7 @@ skills/{skill-name}/
 
 Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or bundle).
 
-**Commands (27 total: 26 skill commands + 1 workflow bundle)**
+**Commands (28 total: 27 skill commands + 1 workflow bundle)**
 | Command | Target skill/bundle |
 | --- | --- |
 | `/competitive-analysis` | discover-competitive-analysis |

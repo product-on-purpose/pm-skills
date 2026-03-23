@@ -273,7 +273,7 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 ### Key Features
 
-- ✅ **25 Production-Ready Skills** covering the complete product lifecycle (24 phase skills + 1 foundation persona skill)
+- ✅ **27 Production-Ready Skills** covering the complete product lifecycle (25 phase skills + 1 foundation skill + 1 utility skill)
 - ✅ **Triple Diamond Framework** organizing Discover, Define, Develop, Deliver, Measure, and Iterate phases
 - ✅ **Workflow Bundles** for common PM workflows (Feature Kickoff, Lean Startup, Triple Diamond)
 - ✅ **Slash Commands** for Claude Code users-instant access to every skill
@@ -361,7 +361,7 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 - You're using Claude Desktop, Cursor, or any MCP client
 - You want programmatic tool access without managing files
 
-Both approaches give you access to the same 25 production-ready PM skills (24 phase skills + 1 foundation persona skill).
+Both approaches give you access to the same 27 production-ready PM skills (25 phase skills + 1 foundation skill + 1 utility skill).
 
 See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
 
@@ -834,7 +834,7 @@ Maintenance milestone documentation:
 
 See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) for a full list of proposed features and known issues.
 
-- [x] Launch with 25 shipped skills (24 phase skills + 1 foundation persona skill)
+- [x] Launch with 27 shipped skills (25 phase skills + 1 foundation skill + 1 utility skill)
 - [x] Add workflow bundles (Feature Kickoff, Lean Startup, Triple Diamond)
 - [x] GitHub Copilot, Cursor, and Windsurf integration via AGENTS.md
 - [x] Slash commands for Claude Code

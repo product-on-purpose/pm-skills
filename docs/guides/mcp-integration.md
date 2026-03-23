@@ -27,7 +27,7 @@ This guide helps you access PM-Skills through the Model Context Protocol (MCP) v
 
 ## Overview
 
-**PM-Skills MCP** is an MCP server that exposes the current public `pm-skills-mcp` catalog as programmatic tools. In the current upstream repo state, that means 25 skill tools: 24 phase skills plus `pm_persona`. Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.
+**PM-Skills MCP** is an MCP server that exposes the pm-skills catalog as programmatic tools. As of v2.7.0, that means 27 skill tools: 25 phase skills, `pm_persona`, and `pm_pm_skill_builder`. Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.
 
 ```
 ┌─────────────────┐                    ┌─────────────────┐

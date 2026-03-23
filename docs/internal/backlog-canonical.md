@@ -18,10 +18,10 @@ Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 | Priority | ID | Effort | Type | Agent | Release | Status | Issue |
 |----------|----|--------|------|-------|---------|--------|-------|
 | 0 | — | Anthropic marketplace submission | Quick win | Human | — | Pending | — |
-| 1 | M-12 | CI validation enhancement | Infrastructure | Codex | **v2.7.0** | Reviewed, ready to commit | [#112](https://github.com/product-on-purpose/pm-skills/issues/112) |
-| 2 | F-06 | `deliver-acceptance-criteria` | New skill | Codex | **v2.7.0** | Reviewed, ready to commit | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
-| 3 | M-16 | Exclude `docs/internal/**` from release ZIP | Infrastructure | Codex | **v2.7.0** | Implemented locally, verification passed | [#123](https://github.com/product-on-purpose/pm-skills/issues/123) |
-| 4 | F-05 | PM Skill Builder (`/pm-skill-builder`) | New skill | Claude | **v2.7.0** | Implemented, verification passed | [#113](https://github.com/product-on-purpose/pm-skills/issues/113) |
+| 1 | M-12 | CI validation enhancement | Infrastructure | Codex | **v2.7.0** | Committed (`8d2a418`) | [#112](https://github.com/product-on-purpose/pm-skills/issues/112) |
+| 2 | F-06 | `deliver-acceptance-criteria` | New skill | Codex | **v2.7.0** | Committed (`8d2a418`) | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
+| 3 | M-16 | Exclude `docs/internal/**` from release ZIP | Infrastructure | Codex | **v2.7.0** | Committed (`0c2e637`) | [#123](https://github.com/product-on-purpose/pm-skills/issues/123) |
+| 4 | F-05 | PM Skill Builder (`/pm-skill-builder`) | New skill | Claude | **v2.7.0** | Committed (`3c50108`..`a67f144`) | [#113](https://github.com/product-on-purpose/pm-skills/issues/113) |
 | 5 | M-13 | Convention alignment pass | Quality | Codex | — | Backlog | [#115](https://github.com/product-on-purpose/pm-skills/issues/115) |
 | 6 | M-14 | Release automation enhancement | Infrastructure | Codex | — | Backlog | [#116](https://github.com/product-on-purpose/pm-skills/issues/116) |
 | 7 | M-15 | Community contribution setup | Ecosystem | Claude | — | Backlog | [#117](https://github.com/product-on-purpose/pm-skills/issues/117) |
