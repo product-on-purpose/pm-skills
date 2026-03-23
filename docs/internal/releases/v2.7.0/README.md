@@ -98,6 +98,6 @@ After tagging v2.7.0, `pm-skills-mcp` needs a corresponding update:
 |--------|--------|
 | Re-embed skills | Run `scripts/embed-skills.js` against the v2.7.0 tag |
 | Add F-06 tool | `deliver-acceptance-criteria` → `pm_acceptance_criteria` |
-| Add F-05 tool | `utility-pm-skill-builder` → `pm_skill_builder` (deduplicate `pm_` prefix) |
-| Update naming function | `embed-skills.js` should strip classification prefixes (`foundation-`, `utility-`) in addition to phase prefixes, then collapse any leading `pm_` redundancy |
+| Add F-05 tool | `utility-pm-skill-builder` → `pm_pm_skill_builder` (double `pm_` intentional — consistent with future `pm_agent_skill_builder` from F-09) |
+| Update naming function | `embed-skills.js` should strip classification prefixes (`foundation-`, `utility-`) in addition to phase prefixes; no prefix deduplication |
 | Note | The builder produces packet content as text; file writing is client-dependent (works in Cursor/Claude Code, not Claude Desktop) |

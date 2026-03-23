@@ -109,9 +109,9 @@ None. All existing skills, commands, templates, and bundles are unchanged.
 The companion MCP server ([pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)) is release-pinned and requires a re-embed to pick up v2.7.0 changes:
 
 - **`deliver-acceptance-criteria`** → add as `pm_acceptance_criteria` (standard domain skill)
-- **`utility-pm-skill-builder`** → add as `pm_skill_builder` (deduplicate the `pm_` prefix — stripping `utility-` leaves `pm-skill-builder`, and since `pm_` is already the MCP namespace, collapse the redundant prefix). The builder produces the Skill Implementation Packet as text content; file writing is client-dependent.
+- **`utility-pm-skill-builder`** → add as `pm_pm_skill_builder` (strip `utility-` prefix, convert hyphens to underscores, prepend `pm_`). The double `pm_` is intentional — it preserves the skill name intact and stays consistent with the future `pm_agent_skill_builder` (F-09). The builder produces the Skill Implementation Packet as text content; file writing is client-dependent.
 
-**MCP naming convention update**: the `embed-skills.js` naming function should strip classification prefixes (`foundation-`, `utility-`) in addition to phase prefixes, then deduplicate any leading `pm_` in the result.
+**MCP naming convention update**: the `embed-skills.js` naming function should strip classification prefixes (`foundation-`, `utility-`) in addition to phase prefixes. No prefix deduplication — let skill names pass through intact.
 
 A matching pm-skills-mcp release should follow to pick up both new skills.
 
