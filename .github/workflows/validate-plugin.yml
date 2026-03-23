@@ -84,8 +84,31 @@ jobs:
       - name: Validate skill front matter
         run: bash scripts/lint-skills-frontmatter.sh
 
+      - name: Validate AGENTS.md sync
+        run: bash scripts/validate-agents-md.sh
+
       - name: Validate command mappings
         run: bash scripts/validate-commands.sh
+
+      - name: Validate Cowork compatibility (ZIP under 50MB)
+        run: |
+          set -euo pipefail
+          chmod +x scripts/build-release.sh
+          ./scripts/build-release.sh 0.0.0-ci-check
+          ZIP_FILE="dist/pm-skills-v0.0.0-ci-check.zip"
+          if [[ ! -f "$ZIP_FILE" ]]; then
+            echo "::error::Release ZIP was not created"
+            exit 1
+          fi
+          ZIP_SIZE=$(stat -c%s "$ZIP_FILE" 2>/dev/null || stat -f%z "$ZIP_FILE")
+          ZIP_MB=$((ZIP_SIZE / 1048576))
+          echo "ZIP size: ${ZIP_SIZE} bytes (${ZIP_MB} MB)"
+          if (( ZIP_SIZE > 52428800 )); then
+            echo "::error::Plugin ZIP exceeds Cowork 50MB upload limit (${ZIP_MB} MB)"
+            exit 1
+          fi
+          echo "Cowork ZIP size check passed (${ZIP_MB} MB < 50 MB)"
+          rm -rf dist/
 
       - name: Lint plugin packaging policy
         run: |
