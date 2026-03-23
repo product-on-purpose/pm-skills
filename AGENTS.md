@@ -164,6 +164,15 @@ Facilitates and documents a team retrospective capturing what went well, what to
 
 ---
 
+### Utility Skills
+
+#### pm-skill-builder
+**Path:** `skills/utility-pm-skill-builder/SKILL.md`
+
+Guides contributors from a PM skill idea to a complete Skill Implementation Packet with gap analysis, classification, and draft files. Use when creating new domain, foundation, or utility skills for the pm-skills library.
+
+---
+
 ## Workflow Bundles
 
 | Bundle | Description |
@@ -198,6 +207,7 @@ Bundle links are repo-relative within this repository.
 | `/opportunity-tree` | Create an opportunity solution tree |
 | `/persona` | Generate a product or marketing persona |
 | `/pivot-decision` | Document a pivot or persevere decision |
+| `/pm-skill-builder` | Create a new PM skill with gap analysis and a Skill Implementation Packet |
 | `/prd` | Create a Product Requirements Document |
 | `/problem-statement` | Create a clear problem statement with success criteria |
 | `/refinement-notes` | Document backlog refinement session outcomes |
