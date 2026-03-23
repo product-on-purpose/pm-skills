@@ -186,7 +186,7 @@ Provide post-promotion guidance:
 ## Current Library Reference
 
 Use this table for gap analysis — it reflects the current skill inventory
-(26 skills). Also scan the `skills/` directory for the latest count.
+(27 skills). Also scan the `skills/` directory for the latest count.
 
 ### Domain Skills (25)
 

@@ -3,7 +3,7 @@
 > **Date**: 2026-03-22
 > **Requesting agent**: Claude Opus 4.6
 > **Reviewing agent**: Codex
-> **Status**: Awaiting review
+> **Status**: Reviewed — see `implementation-reviewed-by-codex.md`
 
 ---
 

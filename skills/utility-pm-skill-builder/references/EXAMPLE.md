@@ -35,7 +35,7 @@ what changed, why it matters, and what they need to do differently.
 
 ### Existing skills checked
 
-All 26 skills reviewed. Closest matches:
+All 27 skills reviewed. Closest matches:
 
 - `deliver-release-notes` — produces external-facing release announcements
 - `deliver-launch-checklist` — tracks cross-functional launch readiness
@@ -283,7 +283,7 @@ Creates targeted change management communications for feature launches that alte
 - [x] Output contract present in draft SKILL.md
 - [x] Quality checklist present in draft SKILL.md
 - [x] Quality Forecast identifies Process (40%) as dominant zone with writing guidance
-- [x] Gap analysis checked all 26 existing skills
+- [x] Gap analysis checked all 27 existing skills
 - [x] Why Gate not triggered (no high overlap — release-notes and launch-checklist serve different purposes)
 
 ---

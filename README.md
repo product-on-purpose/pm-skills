@@ -130,7 +130,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - **Release packaging**: `docs/internal/**` excluded from published ZIPs while staying tracked in-repo.
 - **Documentation**: new `docs/pm-skill-anatomy.md` guide, comprehensive public docs refresh.
 - Repo now ships 27 skills, 28 command docs, and 3 workflow bundles.
-- Release note: `docs/releases/Release_v2.7.0.md`.
+- Release note: [`docs/releases/Release_v2.7.0.md`](docs/releases/Release_v2.7.0.md).
 
 </details>
 <details>
