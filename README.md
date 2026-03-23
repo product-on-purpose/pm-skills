@@ -134,106 +134,21 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 </details>
 <details>
-<summary>v2.6.1 - Sample library recovery and packaging inclusion</summary>
+<summary>v2.6.x - Claude plugin packaging + sample library recovery</summary>
 
+**v2.6.1** — Sample library recovery and packaging inclusion:
 - Restored and normalized the shipped sample-output corpus under `library/skill-output-samples/`.
 - Added sample-library staging to release packagers so ZIP artifacts include sample outputs.
-- Added/updated sample-library governance artifacts and standards references for deterministic release validation.
 - Release note: `docs/releases/Release_v2.6.1.md`.
 
-</details>
-<details>
-<summary>v2.6.0 - Claude plugin packaging release</summary>
-
+**v2.6.0** — Claude plugin packaging release:
 - Added Claude plugin manifest support via `.claude-plugin/plugin.json`.
 - Release packaging now includes `.claude-plugin/` and enforces plugin-manifest version alignment with the release version.
-- Added plugin packaging validation workflow with manifest checks, policy lint, and tag/version parity checks.
 - Release note: `docs/releases/Release_v2.6.0.md`.
 
 </details>
-<details>
-<summary>v2.5.2 - Patch: public release-doc readability and hygiene</summary>
 
-- Public release docs were rewritten in user-first language to improve readability.
-- Internal decision-ID shorthand and local-only working-note path references were removed from release-facing docs.
-- No skill, command, template, or workflow behavior changes.
-- Release note: `docs/releases/Release_v2.5.2.md`.
-
-</details>
-<details>
-<summary>v2.5.0 - Persona + Foundation/Utility + Sample Library</summary>
-
-- Active shipped lane: persona skill + foundation/utility taxonomy + sample output library.
-- Content-alignment checks for the sample library are complete and documented.
-- Deferred from `v2.5.0` by design: persona archetype library content and full persona MCP exposure parity.
-- Release note: `docs/releases/Release_v2.5.0.md`.
-
-</details>
-<details>
-<summary>v2.4.3 - Patch: release metadata/link alignment</summary>
-
-- Patch lane focused on post-`v2.4.2` documentation and release-link alignment.
-- No behavior or contract changes from `v2.4.2`.
-- Release note: `docs/releases/Release_v2.4.3.md`.
-
-</details>
-<details>
-<summary>v2.4.2 - Governance and tracked-vs-local artifact hygiene</summary>
-
-- Canonical governance docs aligned in tracked `docs/internal/` structure.
-- Release continuity docs prepared for upcoming `v2.5` lane decisions.
-- Release note: `docs/releases/Release_v2.4.2.md`.
-
-</details>
-<details>
-<summary>v2.4.1 - Patch: docs/release alignment follow-up</summary>
-
-- Follow-up patch for release documentation consistency.
-- No behavior or contract changes from `v2.4.0`.
-- Release note: `docs/releases/Release_v2.4.1.md`.
-
-</details>
-<details>
-<summary>v2.4.0 - Contract lock closure</summary>
-
-- Output behavior and configuration contracts were finalized and validated.
-- Release checklist moved to shipped state for `v2.4.0`.
-- Release note: `docs/releases/Release_v2.4.md`.
-
-</details>
-<details>
-<summary>v2.3.0 - MCP sync guardrail defaults to blocking</summary>
-
-- `validate-mcp-sync` default mode switched to `block`.
-- Guardrail output and rollout guidance documented in `docs/guides/validate-mcp-sync.md`.
-- Release note: `docs/releases/Release_v2.3.md`.
-
-</details>
-<details>
-<summary>v2.2.0 - Governance + release-planning baseline</summary>
-
-- Introduced cross-repo sync checker in observe-first phase.
-- Added canonical planning persistence and release-checklist scaffolding.
-- Release note: `docs/releases/Release_v2.2.md`.
-
-</details>
-<details>
-<summary>v2.0.x baseline - Flat structure and reproducible packaging</summary>
-
-- Flat skill layout (`skills/{phase-skill}/`) and command realignment established as baseline.
-- Sync helper and release packaging scripts became canonical install/release path.
-- Release notes: `docs/releases/Release_v2.0.md` plus follow-up entries in `CHANGELOG.md`.
-
-</details>
-<details>
-<summary>Pre-2.x history - grouped legacy baseline (1.x and 0.x)</summary>
-
-- `1.2.0` to `1.1.0`: security hardening, CI governance, and documentation baseline expansion.
-- `1.0.x`: initial stable Triple Diamond baseline plus slash-command completion.
-- `0.x`: initial repository scaffolding and early phased skill build-out.
-- See the changelog table below and `CHANGELOG.md` for dated release-by-release detail.
-
-</details>
+[View previous release details](#previous-release-details) | [Full changelog](#changelog)
 
 ---
 
@@ -793,6 +708,56 @@ pm-skills/
 ```
 
 See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions.
+
+### Previous Release Details
+
+<a id="previous-release-details"></a>
+
+<details>
+<summary>v2.5.x - Persona skill + foundation/utility taxonomy</summary>
+
+**v2.5.2** — Public release-doc readability and hygiene:
+- Public release docs rewritten in user-first language.
+- No skill, command, template, or workflow behavior changes.
+- Release note: `docs/releases/Release_v2.5.2.md`.
+
+**v2.5.1** — Agent workspace canonicalization:
+- Canonical `AGENTS/claude` workspace + clean-worktree cut/tag/publish runbook.
+- Release note: see `CHANGELOG.md`.
+
+**v2.5.0** — Persona + foundation/utility + sample library:
+- Persona skill shipment + foundation/utility taxonomy + sample output library.
+- Content-alignment checks for the sample library complete and documented.
+- Release note: `docs/releases/Release_v2.5.0.md`.
+
+</details>
+<details>
+<summary>v2.4.x - Contract lock closure + governance</summary>
+
+**v2.4.3** — Release metadata/link alignment patch.
+**v2.4.2** — Governance and tracked-vs-local artifact hygiene.
+**v2.4.1** — Docs/release alignment follow-up.
+**v2.4.0** — Output and configuration contract lock closure.
+- Release notes: `docs/releases/Release_v2.4.md` through `Release_v2.4.3.md`.
+
+</details>
+<details>
+<summary>v2.2.0–v2.3.0 - MCP sync guardrails + governance baseline</summary>
+
+**v2.3.0** — MCP sync guardrail defaults to blocking mode.
+**v2.2.0** — Cross-repo sync checker (observe mode), planning/backlog governance.
+- Release notes: `docs/releases/Release_v2.2.md`, `Release_v2.3.md`.
+
+</details>
+<details>
+<summary>v2.0.x and earlier</summary>
+
+**v2.0.x** — Flat skill layout (`skills/{phase-skill}/`), sync helpers, build scripts, docs refresh.
+**v1.x** — Security hardening, CI governance, documentation baseline, slash-command completion.
+**v0.x** — Initial repository scaffolding and early phased skill build-out.
+- See `CHANGELOG.md` for dated release-by-release detail.
+
+</details>
 
 ### Changelog
 See [CHANGELOG.md](CHANGELOG.md) for full details.
