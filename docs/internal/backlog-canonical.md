@@ -17,7 +17,7 @@ Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 
 | Priority | ID | Effort | Type | Agent | Release | Status | Issue |
 |----------|----|--------|------|-------|---------|--------|-------|
-| 0 | — | Anthropic marketplace submission | Quick win | Human | — | Pending | — |
+| 0 | — | Anthropic marketplace submission | Quick win | Human | — | Submitted (2026-03-22), awaiting review | — |
 | 1 | M-12 | CI validation enhancement | Infrastructure | Codex | **v2.7.0** | Committed (`8d2a418`) | [#112](https://github.com/product-on-purpose/pm-skills/issues/112) |
 | 2 | F-06 | `deliver-acceptance-criteria` | New skill | Codex | **v2.7.0** | Committed (`8d2a418`) | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
 | 3 | M-16 | Exclude `docs/internal/**` from release ZIP | Infrastructure | Codex | **v2.7.0** | Committed (`0c2e637`) | [#123](https://github.com/product-on-purpose/pm-skills/issues/123) |
