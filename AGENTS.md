@@ -84,6 +84,11 @@ Documents the results of a time-boxed technical or design exploration (spike). U
 
 ### Deliver Phase
 
+#### acceptance-criteria
+**Path:** `skills/deliver-acceptance-criteria/SKILL.md`
+
+Generates structured Given/When/Then acceptance criteria for a user story or feature slice. Use when translating product requirements into testable scenarios that cover the happy path, edge cases, error states, and non-functional expectations for engineering handoff and QA.
+
 #### edge-cases
 **Path:** `skills/deliver-edge-cases/SKILL.md`
 
@@ -175,6 +180,7 @@ Bundle links are repo-relative within this repository.
 
 | Command | Description |
 |---------|-------------|
+| `/acceptance-criteria` | Generate acceptance criteria with Given/When/Then |
 | `/adr` | Create an Architecture Decision Record |
 | `/competitive-analysis` | Create a structured competitive analysis |
 | `/dashboard-requirements` | Specify requirements for an analytics dashboard |

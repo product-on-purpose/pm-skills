@@ -5,6 +5,16 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FAIL=0
 
+word_count() {
+  printf '%s\n' "$1" | awk '{ count += NF } END { print count + 0 }'
+}
+
+frontmatter_value() {
+  local key="$1"
+
+  printf '%s\n' "$frontmatter" | sed -n "s/^${key}:[[:space:]]*//p" | head -1
+}
+
 for dir in "$ROOT"/skills/*; do
   [[ -d "$dir" ]] || continue
   skill="$dir/SKILL.md"
@@ -32,7 +42,7 @@ for dir in "$ROOT"/skills/*; do
     continue
   fi
 
-  name_field=$(printf '%s\n' "$frontmatter" | awk -F': *' '/^name:/ {print $2; exit}')
+  name_field="$(frontmatter_value name)"
   if [[ -z "$name_field" ]]; then
     echo "✗ $rel : missing name"
     FAIL=1
@@ -43,6 +53,21 @@ for dir in "$ROOT"/skills/*; do
     skill_fail=1
   fi
 
+  description_field="$(frontmatter_value description)"
+  if [[ -z "$description_field" ]]; then
+    echo "✗ $rel : missing description"
+    FAIL=1
+    skill_fail=1
+  else
+    description_field="$(printf '%s' "$description_field" | sed -E 's/^["'"'"']//; s/["'"'"']$//')"
+    description_words=$(word_count "$description_field")
+    if (( description_words < 20 || description_words > 100 )); then
+      echo "✗ $rel : description must be 20-100 words (found $description_words)"
+      FAIL=1
+      skill_fail=1
+    fi
+  fi
+
   for key in version updated license; do
     if ! printf '%s\n' "$frontmatter" | grep -q "^${key}:"; then
       echo "✗ $rel : missing $key"
@@ -51,8 +76,8 @@ for dir in "$ROOT"/skills/*; do
     fi
   done
 
-  phase_field=$(printf '%s\n' "$frontmatter" | awk -F': *' '/^phase:/ {print $2; exit}')
-  classification_field=$(printf '%s\n' "$frontmatter" | awk -F': *' '/^classification:/ {print $2; exit}')
+  phase_field="$(frontmatter_value phase)"
+  classification_field="$(frontmatter_value classification)"
 
   if [[ -n "$phase_field" && ! "$phase_field" =~ ^(discover|define|develop|deliver|measure|iterate)$ ]]; then
     echo "✗ $rel : invalid phase '$phase_field' (expected one of: discover, define, develop, deliver, measure, iterate)"
@@ -113,6 +138,16 @@ for dir in "$ROOT"/skills/*; do
       skill_fail=1
     fi
   done
+
+  template_path="$dir/references/TEMPLATE.md"
+  if [[ -f "$template_path" ]]; then
+    template_headers=$(grep -c '^## ' "$template_path" || true)
+    if (( template_headers < 3 )); then
+      echo "✗ $rel : references/TEMPLATE.md must contain at least 3 level-2 headers (found $template_headers)"
+      FAIL=1
+      skill_fail=1
+    fi
+  fi
 
   if [[ $skill_fail -eq 0 ]]; then
     echo "✓ $rel"

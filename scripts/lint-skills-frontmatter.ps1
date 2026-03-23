@@ -3,6 +3,30 @@ $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $Fail = $false
 
+function Get-FrontmatterValue {
+    param(
+        [string[]]$Frontmatter,
+        [string]$Key
+    )
+
+    $line = $Frontmatter | Where-Object { $_ -match "^${Key}:" } | Select-Object -First 1
+    if (-not $line) {
+        return $null
+    }
+
+    return ($line -split ':', 2)[1].Trim()
+}
+
+function Get-WordCount {
+    param([string]$Text)
+
+    if ([string]::IsNullOrWhiteSpace($Text)) {
+        return 0
+    }
+
+    return ([regex]::Matches($Text, '\S+')).Count
+}
+
 Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     $dir = $_
     $skillPath = Join-Path $dir.FullName "SKILL.md"
@@ -33,16 +57,29 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
 
     $front = $lines[($start + 1)..($end - 1)]
 
-    $nameLine = $front | Where-Object { $_ -match '^name:' } | Select-Object -First 1
-    if (-not $nameLine) {
+    $nameValue = Get-FrontmatterValue -Frontmatter $front -Key 'name'
+    if (-not $nameValue) {
         Write-Host "[FAIL] $rel : missing name"
         $Fail = $true
         $skillFail = $true
     }
+    elseif ($nameValue -ne $dir.Name) {
+        Write-Host "[FAIL] $rel : name mismatch (front matter: $nameValue, dir: $($dir.Name))"
+        $Fail = $true
+        $skillFail = $true
+    }
+
+    $descriptionValue = Get-FrontmatterValue -Frontmatter $front -Key 'description'
+    if (-not $descriptionValue) {
+        Write-Host "[FAIL] $rel : missing description"
+        $Fail = $true
+        $skillFail = $true
+    }
     else {
-        $nameValue = ($nameLine -split ':', 2)[1].Trim()
-        if ($nameValue -ne $dir.Name) {
-            Write-Host "[FAIL] $rel : name mismatch (front matter: $nameValue, dir: $($dir.Name))"
+        $descriptionValue = $descriptionValue.Trim().Trim('"').Trim("'")
+        $descriptionWords = Get-WordCount -Text $descriptionValue
+        if ($descriptionWords -lt 20 -or $descriptionWords -gt 100) {
+            Write-Host "[FAIL] $rel : description must be 20-100 words (found $descriptionWords)"
             $Fail = $true
             $skillFail = $true
         }
@@ -56,10 +93,8 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
         }
     }
 
-    $phaseLine = $front | Where-Object { $_ -match '^phase:' } | Select-Object -First 1
-    $classificationLine = $front | Where-Object { $_ -match '^classification:' } | Select-Object -First 1
-    $phaseValue = if ($phaseLine) { (($phaseLine -split ':', 2)[1].Trim()) } else { $null }
-    $classificationValue = if ($classificationLine) { (($classificationLine -split ':', 2)[1].Trim()) } else { $null }
+    $phaseValue = Get-FrontmatterValue -Frontmatter $front -Key 'phase'
+    $classificationValue = Get-FrontmatterValue -Frontmatter $front -Key 'classification'
 
     $validPhases = @('discover','define','develop','deliver','measure','iterate')
     $validClassifications = @('domain','foundation','utility')
@@ -77,21 +112,21 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     }
 
     if ($classificationValue -in @('foundation','utility')) {
-        if ($phaseLine) {
+        if ($phaseValue) {
             Write-Host "[FAIL] $rel : phase should be omitted for classification '$classificationValue'"
             $Fail = $true
             $skillFail = $true
         }
     }
     elseif ($classificationValue -eq 'domain') {
-        if (-not $phaseLine) {
+        if (-not $phaseValue) {
             Write-Host "[FAIL] $rel : missing phase for domain classification"
             $Fail = $true
             $skillFail = $true
         }
     }
     else {
-        if (-not $phaseLine) {
+        if (-not $phaseValue) {
             Write-Host "[FAIL] $rel : missing phase (or set classification to foundation/utility)"
             $Fail = $true
             $skillFail = $true
@@ -120,9 +155,19 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     }
 
     foreach ($ref in @('TEMPLATE.md','EXAMPLE.md')) {
-        $refPath = Join-Path (Join-Path $dir.FullName 'references') $ref
+        $refPath = Join-Path (Join-Path $dir 'references') $ref
         if (-not (Test-Path $refPath)) {
             Write-Host "[FAIL] $rel : missing references/$ref"
+            $Fail = $true
+            $skillFail = $true
+        }
+    }
+
+    $templatePath = Join-Path (Join-Path $dir 'references') 'TEMPLATE.md'
+    if (Test-Path $templatePath) {
+        $templateHeaderCount = (Get-Content $templatePath | Where-Object { $_ -match '^## ' }).Count
+        if ($templateHeaderCount -lt 3) {
+            Write-Host "[FAIL] $rel : references/TEMPLATE.md must contain at least 3 level-2 headers (found $templateHeaderCount)"
             $Fail = $true
             $skillFail = $true
         }

@@ -28,6 +28,7 @@ For each `skills/*/SKILL.md`:
 | Field | Rule |
 |---|---|
 | `name` | Must be present and match the directory name exactly |
+| `description` | Must be present and be 20-100 words long |
 | `version` | Must be present exactly once at the root level |
 | `updated` | Must be present |
 | `license` | Must be present |
@@ -49,6 +50,7 @@ For each `skills/*/SKILL.md`:
 ### Additional Guards
 - **No nested version** — `metadata.version` must not exist (only root `version` is allowed).
 - **Exactly one root version** — catches duplicate `version:` lines.
+- **Template structure** — `references/TEMPLATE.md` must contain at least 3 `##` headers.
 
 ## Exit Codes
 
@@ -62,6 +64,8 @@ For each `skills/*/SKILL.md`:
 ```
 [OK] skills/deliver-prd/SKILL.md
 [OK] skills/define-hypothesis/SKILL.md
+[FAIL] skills/deliver-prd/SKILL.md : description must be 20-100 words (found 12)
+[FAIL] skills/deliver-prd/SKILL.md : references/TEMPLATE.md must contain at least 3 '##' headers (found 2)
 [FAIL] skills/foundation-persona/SKILL.md : phase should be omitted for classification 'foundation'
 [OK] skills/measure-experiment-design/SKILL.md
 ```

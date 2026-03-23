@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Validate commands (bash)
         if: matrix.os == 'ubuntu-latest'
@@ -25,6 +27,14 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-commands.ps1
 
+      - name: Validate AGENTS.md sync (bash)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/validate-agents-md.sh
+
+      - name: Validate AGENTS.md sync (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/validate-agents-md.ps1
+
       - name: Lint skills front matter (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/lint-skills-frontmatter.sh
@@ -32,6 +42,16 @@ jobs:
       - name: Lint skills front matter (pwsh)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/lint-skills-frontmatter.ps1
+
+      - name: Check MCP impact (bash)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-mcp-impact.sh
+        continue-on-error: true
+
+      - name: Check MCP impact (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-mcp-impact.ps1
+        continue-on-error: true
 
       - name: Check CONTEXT.md currency (bash)
         if: matrix.os == 'ubuntu-latest'
