@@ -30,7 +30,8 @@ Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 | 10 | F-09 | Agent Skill Builder (`/agent-skill-builder`) | New skill | Claude | — | Backlog | [#120](https://github.com/product-on-purpose/pm-skills/issues/120) |
 | 11 | F-10 | PM Skill Validate (`/pm-skill-validate`) | New skill | Claude | — | Backlog | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
 | 12 | F-11 | PM Skill Iterate (`/pm-skill-iterate`) | New skill | Claude | — | Backlog | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
-| 13 | M-17 | GitHub Pages documentation site | Ecosystem | Claude | — | Backlog | — |
+| 13 | F-12 | Mermaid Diagram Builder (`/mermaid-diagram-builder`) | New skill | Claude | — | Backlog | TBD |
+| 14 | M-17 | GitHub Pages documentation site | Ecosystem | Claude | — | Backlog | — |
 
 See individual effort briefs at `docs/internal/efforts/{ID}-{slug}.md` for scope, decisions, and artifacts.
 
