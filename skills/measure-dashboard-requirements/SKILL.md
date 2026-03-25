@@ -1,4 +1,3 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: measure-dashboard-requirements
 description: Specifies requirements for an analytics dashboard including metrics, visualizations, filters, and data sources. Use when requesting dashboards from data teams, defining KPI tracking, or documenting reporting needs.
@@ -11,6 +10,7 @@ metadata:
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # Dashboard Requirements
 
 A dashboard requirements document specifies what questions a dashboard should answer, what metrics it displays, and how data should be visualized. Clear requirements help data teams build dashboards that actually inform decisions rather than just displaying numbers.

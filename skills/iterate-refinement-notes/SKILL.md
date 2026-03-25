@@ -1,4 +1,3 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: iterate-refinement-notes
 description: Documents backlog refinement session outcomes including stories refined, estimates, questions raised, and decisions made. Use during or after refinement to capture the results and share with absent team members.
@@ -11,6 +10,7 @@ metadata:
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # Refinement Notes
 
 Refinement notes capture the outcomes of backlog refinement (grooming) sessions—what was discussed, what was estimated, and what decisions were made. They serve as a quick reference for team members who missed the session and a historical record of how stories evolved from idea to ready-for-sprint.

@@ -1,4 +1,3 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: deliver-edge-cases
 description: Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive coverage, or during QA planning to identify test scenarios.
@@ -11,6 +10,7 @@ metadata:
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # Edge Cases
 
 An edge cases document systematically catalogs the unusual, boundary, and error scenarios for a feature. While happy-path flows are typically well-specified, edge cases often get discovered in production — causing bugs, poor user experience, and support burden. Documenting edge cases upfront ensures engineering handles them intentionally and QA knows what to test.

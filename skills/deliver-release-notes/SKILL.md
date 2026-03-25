@@ -1,4 +1,3 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: deliver-release-notes
 description: Creates user-facing release notes that communicate new features, improvements, and fixes in clear, benefit-focused language. Use when shipping updates to communicate changes to users, customers, or stakeholders.
@@ -11,6 +10,7 @@ metadata:
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # Release Notes
 
 Release notes communicate product changes to users in a way that highlights value and builds excitement. Unlike changelogs (which document what changed technically), release notes translate changes into user benefits. Good release notes help users discover new capabilities, understand improvements, and trust that issues are being addressed.
