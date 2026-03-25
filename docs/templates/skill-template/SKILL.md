@@ -1,4 +1,3 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: <phase-or-classification-skill-name>
 description: <single-line 20-100 word description; include trigger keywords and do not use folded YAML>
@@ -12,6 +11,7 @@ metadata:
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 # <Skill Title>
 

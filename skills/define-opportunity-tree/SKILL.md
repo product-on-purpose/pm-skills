@@ -1,4 +1,3 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: define-opportunity-tree
 description: Creates an opportunity solution tree mapping desired outcomes to opportunities and potential solutions. Use for outcome-driven product discovery, prioritization, or communicating product strategy.
@@ -11,6 +10,7 @@ metadata:
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # Opportunity Solution Tree
 
 An Opportunity Solution Tree (OST) is a visual framework for product discovery that connects business outcomes to customer opportunities and potential solutions. Developed by Teresa Torres, it prevents the common trap of jumping straight to solutions by ensuring every feature idea traces back to a customer need and measurable outcome.
