@@ -1,0 +1,3 @@
+agno>=2.2.10
+streamlit==1.40.2
+anthropic>=0.40.0
