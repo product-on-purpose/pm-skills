@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.0] - 2026-04-03 ([release notes](docs/releases/Release_v2.8.0.md))
+
+### Added
+- **F-10: utility-pm-skill-validate skill** (#121) — second utility skill. Audits existing skills against structural conventions (mirroring CI) and LLM-assessed quality criteria. Produces a pipe-delimited validation report (`Report schema: v1`) with severity-graded findings (FAIL/WARN/INFO) and actionable recommendations with target file paths. Two-tier assessment rebaselined against shipped library conventions. Includes SKILL.md, TEMPLATE.md (report format), EXAMPLE.md (validated `deliver-prd`), `/pm-skill-validate` command, and AGENTS.md entry. Skill count: 27 → 28.
+- **F-11: utility-pm-skill-iterate skill** (#122) — third utility skill. Applies targeted improvements to existing skills from feedback, validation reports, or convention changes. Unified flow with input normalization, before/after preview, stale-preview guard, version bump class suggestion (don't auto-write), and HISTORY.md creation at second-version trigger point. Includes SKILL.md, TEMPLATE.md (change summary), EXAMPLE.md (iterated `deliver-prd`), `/pm-skill-iterate` command, and AGENTS.md entry. Skill count: 28 → 29.
+- **M-18: CI skill versioning validation** — two new advisory scripts following `.sh` + `.ps1` + `.md` convention: `validate-skill-history` (checks HISTORY.md tracks current frontmatter version) and `validate-skills-manifest` (checks release manifest entries match skill directories). Added to `validation.yml` with `continue-on-error: true`.
+- **D-03: `docs/pm-skill-lifecycle.md`** — public guide explaining the Create → Validate → Iterate lifecycle with workflow patterns (new skill, improve existing, convention change, feedback loop), CI vs validator comparison, and quality standard model.
+- **Governance: `docs/internal/skill-versioning.md`** — SemVer rules for skills, HISTORY.md contract, skills-manifest.yaml format, release checklist, and tie-breaker rule for gray-area version bump classification.
+- `docs/internal/release-plans/v2.7.0/skills-manifest.yaml` — retroactive first use of the skills-manifest convention.
+- `docs/internal/release-plans/v2.8.0/` — release governance with phased execution plan and Codex design review.
+
+### Changed
+- **D-04: public docs refresh for v2.8.0** — updated skill counts (29), command counts (30), utility skill breakdown (3), Skill Lifecycle Tools section in README and QUICKSTART, command table, AGENTS.md entries, AGENTS/claude/CONTEXT.md, `docs/pm-skill-anatomy.md` lifecycle cross-reference, and `scripts/README_SCRIPTS.md` with M-18 script documentation.
+- `docs/internal/releases/` renamed to `docs/internal/release-plans/` with all internal references updated (34 files).
+- `docs/internal/backlog-canonical.md` updated with v2.8.0 assignments (F-10, F-11, D-03, M-18, D-04).
+
+### Release Notes
+- Completes the **PM skill lifecycle**: Create (`/pm-skill-builder`, v2.7.0) → Validate (`/pm-skill-validate`) → Iterate (`/pm-skill-iterate`).
+- First release with **skill versioning governance** — skills-manifest.yaml per release, HISTORY.md per skill (opt-in), SemVer tie-breaker rule.
+- First release with **advisory CI for skill versioning** — HISTORY.md and skills-manifest.yaml validators.
+- Repo now contains 29 skills (25 domain + 1 foundation + 3 utility), 30 command docs, and 3 workflow bundles.
+- **MCP note**: `pm-skills-mcp` needs a re-embed to pick up both new skills. `utility-pm-skill-validate` → `pm_pm_skill_validate`. `utility-pm-skill-iterate` → `pm_pm_skill_iterate`.
+
 ## [2.7.0] - 2026-03-22 ([release notes](docs/releases/Release_v2.7.0.md))
 
 ### Added

@@ -122,6 +122,18 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 **What's New (Recent Releases)**
 <details>
+<summary>v2.8.0 - PM skill lifecycle: Create, Validate, Iterate</summary>
+
+- **New skill**: `utility-pm-skill-validate` (`/pm-skill-validate`) — audits a skill against structural conventions and quality criteria, producing a severity-graded validation report.
+- **New skill**: `utility-pm-skill-iterate` (`/pm-skill-iterate`) — applies targeted improvements based on feedback or validation reports, with before/after previews and version bump suggestions.
+- **New CI**: `validate-skill-history` and `validate-skills-manifest` advisory scripts for skill versioning governance.
+- **New guide**: `docs/pm-skill-lifecycle.md` — workflow patterns for the Create → Validate → Iterate lifecycle.
+- **Governance**: `docs/internal/skill-versioning.md` — SemVer rules, HISTORY.md contract, skills-manifest.yaml format.
+- Repo now ships 29 skills, 30 command docs, and 3 workflow bundles.
+- Release note: [`docs/releases/Release_v2.8.0.md`](docs/releases/Release_v2.8.0.md).
+
+</details>
+<details>
 <summary>v2.7.0 - Utility skills, enhanced CI, and release packaging hygiene</summary>
 
 - **New skill**: `deliver-acceptance-criteria` — Given/When/Then acceptance criteria for stories and features.
@@ -129,7 +141,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - **Enhanced CI**: extended frontmatter linter, AGENTS.md sync validator, MCP impact detection.
 - **Release packaging**: `docs/internal/**` excluded from published ZIPs while staying tracked in-repo.
 - **Documentation**: new `docs/pm-skill-anatomy.md` guide, comprehensive public docs refresh.
-- Repo now ships 29 skills, 30 command docs, and 3 workflow bundles.
+- Repo now ships 27 skills, 28 command docs, and 3 workflow bundles.
 - Release note: [`docs/releases/Release_v2.7.0.md`](docs/releases/Release_v2.7.0.md).
 
 </details>
@@ -502,9 +514,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
-- **Latest stable:** `v2.6.1` (sample library recovery and packaging inclusion)
-- **Latest release notes:** [`docs/releases/Release_v2.6.1.md`](docs/releases/Release_v2.6.1.md)
-- **Published tag:** [`v2.6.1`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.6.1)
+- **Latest stable:** `v2.8.0` (PM skill lifecycle — Create, Validate, Iterate)
+- **Latest release notes:** [`docs/releases/Release_v2.8.0.md`](docs/releases/Release_v2.8.0.md)
+- **Published tag:** [`v2.8.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.8.0)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
 Release notes are published in `docs/releases/` (for example, `docs/releases/Release_v2.2.md`).

@@ -86,8 +86,8 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 - [x] M-18: CI scripts created (`.sh` + `.ps1` + `.md` convention) and added to `validation.yml`
 - [x] D-04: public docs refreshed (skill count 29, command count 30, lifecycle references, M-18 script docs)
 - [ ] MCP impact evaluated (see MCP Impact section below)
-- [ ] CHANGELOG.md updated with v2.8.0 section
-- [ ] `skills-manifest.yaml` finalized in this directory
+- [x] CHANGELOG.md updated with v2.8.0 section
+- [x] `skills-manifest.yaml` finalized (date: 2026-04-03)
 - [ ] Local enhanced validation passes for 29 skills, 30 command docs
 - [ ] Tag `v2.8.0` pushed → release.yml fires → ZIP published
 
