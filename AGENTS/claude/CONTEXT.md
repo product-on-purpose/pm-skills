@@ -2,10 +2,11 @@
 
 ## Current State
 
-**Status:** v2.7.0 released and tagged — all efforts committed, MCP synced
-**Last Updated:** 2026-03-22
-**Release:** [v2.7.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.7.0) (current)
-**Next Step:** Post-v2.7.0 backlog — M-13 (convention alignment), F-07-F-11 (new skills)
+**Status:** v2.8.0 released and tagged — PM skill lifecycle complete (Create → Validate → Iterate)
+**Last Updated:** 2026-04-03
+**Release:** [v2.8.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.8.0) (current)
+**MCP:** [pm-skills-mcp v2.8.0](https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.8.0) synced
+**Next Step:** Post-v2.8.0 backlog — M-13 (convention alignment), F-07/F-08 (new skills), M-17 (GitHub Pages), e2e lifecycle test
 
 ## Project Overview
 
@@ -65,6 +66,19 @@ pm-skills/
 
 ## Recent Work
 
+- **v2.8.0 Released** (2026-04-03)
+  - **Theme**: Complete the PM skill lifecycle — Create → Validate → Iterate
+  - **F-10**: `utility-pm-skill-validate` — audits skills against structural conventions and quality criteria, pipe-delimited report format (`Report schema: v1`), two-tier assessment rebaselined against shipped library (`1398835`)
+  - **F-11**: `utility-pm-skill-iterate` — applies targeted improvements from feedback or validation reports, before/after preview with stale-preview guard, version bump suggestion, HISTORY.md creation at trigger point (`2f6577e`)
+  - **M-18**: CI validation scripts — `validate-skill-history` + `validate-skills-manifest` (advisory, Codex implementation) (`c099efa`)
+  - **D-03**: `docs/pm-skill-lifecycle.md` — public lifecycle guide with 4 workflow patterns (`f678344`)
+  - **D-04**: Public docs refresh — counts (29 skills, 30 commands), Skill Lifecycle Tools sections in README/QUICKSTART, mermaid diagrams across 7 files, command files, AGENTS.md entries
+  - **Governance**: `docs/internal/skill-versioning.md` — SemVer rules, HISTORY.md contract, skills-manifest.yaml format, tie-breaker rule
+  - **Infrastructure**: `docs/internal/releases/` renamed to `docs/internal/release-plans/`
+  - **Codex review**: Full design review with 20 findings (3 blockers resolved), pre-release consistency review with 8 findings (all fixed)
+  - **MCP synced**: pm-skills-mcp v2.8.0 — `pm_pm_skill_validate` + `pm_pm_skill_iterate`, 42 tools (29 skills + 5 workflows + 8 utilities)
+  - Repo: 29 skills (25 domain + 1 foundation + 3 utility), 30 commands, 3 bundles
+
 - **v2.7.0 Released** (2026-03-22)
   - **M-12**: CI validation enhancement — extended linter, validate-agents-md, check-mcp-impact (`8d2a418`)
   - **F-06**: deliver-acceptance-criteria skill — Given/When/Then, e-commerce checkout example (`8d2a418`)
@@ -76,7 +90,7 @@ pm-skills/
   - **MCP sync docs**: maintainer workflow added to `docs/guides/mcp-integration.md`
   - **Release governance**: v2.2.0-v2.7.0 folders, decisions log, detailed release notes
   - **Issues closed**: #112, #113, #114, #123
-  - Repo: 29 skills (25 domain + 1 foundation + 3 utility), 30 commands, 3 bundles
+  - Repo: 27 skills (25 domain + 1 foundation + 1 utility), 28 commands, 3 bundles
 
 - **v2.6.1 Shipped — Sample Library Recovery** (2026-03-04)
   - Sample output library moved and normalized to `library/skill-output-samples/`
@@ -96,7 +110,7 @@ pm-skills/
 
 - **v2.5.1 Shipped — Agent Workspace Canonicalization** (2026-03-04)
   - Canonicalized Claude agent workspace to `AGENTS/claude/` (retired `AGENTS/claude-opus*` paths)
-  - Added clean-worktree release runbook: `docs/internal/release-planning/runbook_clean-worktree-cut-tag-publish.md`
+  - Added clean-worktree release runbook: `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`
 
 - **v2.5.0 Shipped — Foundation Persona Skill** (2026-03-02)
   - New `skills/foundation-persona/` skill + references
