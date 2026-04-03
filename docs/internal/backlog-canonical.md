@@ -2,7 +2,7 @@
 
 Status: Active
 Owner: Maintainers
-Last updated: 2026-03-22
+Last updated: 2026-04-03
 
 GitHub issues are the canonical system for backlog and lifecycle state.
 
@@ -28,9 +28,12 @@ Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 | 8 | F-07 | `discover-market-sizing` | New skill | Claude | — | Backlog | [#118](https://github.com/product-on-purpose/pm-skills/issues/118) |
 | 9 | F-08 | `measure-survey-analysis` | New skill | Claude | — | Backlog | [#119](https://github.com/product-on-purpose/pm-skills/issues/119) |
 | 10 | F-09 | Agent Skill Builder (`/agent-skill-builder`) | New skill | Claude | — | Backlog | [#120](https://github.com/product-on-purpose/pm-skills/issues/120) |
-| 11 | F-10 | PM Skill Validate (`/pm-skill-validate`) | New skill | Claude | — | Backlog | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
-| 12 | F-11 | PM Skill Iterate (`/pm-skill-iterate`) | New skill | Claude | — | Backlog | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
-| 13 | M-17 | GitHub Pages documentation site | Ecosystem | Claude | — | Backlog | — |
+| 11 | F-10 | PM Skill Validate (`/pm-skill-validate`) | New skill | Claude | **v2.8.0** | Design (post-review) | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
+| 12 | F-11 | PM Skill Iterate (`/pm-skill-iterate`) | New skill | Claude | **v2.8.0** | Design (post-review) | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
+| 13 | D-03 | PM Skill Lifecycle Guide | Documentation | Claude | **v2.8.0** | Planned | — |
+| 14 | M-18 | CI: HISTORY.md + skills-manifest validation | Infrastructure | Codex | **v2.8.0** | Planned | — |
+| 15 | D-04 | Public docs refresh for v2.8.0 | Documentation | Codex | **v2.8.0** | Planned | — |
+| 16 | M-17 | GitHub Pages documentation site | Ecosystem | Claude | — | Backlog | — |
 
 See individual effort briefs at `docs/internal/efforts/{ID}-{slug}.md` for scope, decisions, and artifacts.
 

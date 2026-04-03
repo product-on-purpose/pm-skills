@@ -137,7 +137,7 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 - AGENTS.md entry
 
 **Effort brief:** `docs/internal/efforts/F-10-pm-skill-validate.md`
-**Codex review:** `docs/internal/release-plans/v2.8.0/plan_v2.8.0_reviewed-by-codex.md`
+**Codex review:** `docs/internal/release-plans/v2.8.0/_archived/plan_v2.8.0_original_reviewed-by-codex.md`
 
 ### F-11: utility-pm-skill-iterate
 
@@ -163,7 +163,7 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 - AGENTS.md entry
 
 **Effort brief:** `docs/internal/efforts/F-11-pm-skill-iterate.md`
-**Codex review:** `docs/internal/release-plans/v2.8.0/plan_v2.8.0_reviewed-by-codex.md`
+**Codex review:** `docs/internal/release-plans/v2.8.0/_archived/plan_v2.8.0_original_reviewed-by-codex.md`
 
 ### D-03: PM Skill Lifecycle Guide
 

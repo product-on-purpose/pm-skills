@@ -143,7 +143,7 @@ Iterator:
 
 ## Codex Review
 
-Reviewed 2026-04-02. See `docs/internal/release-plans/v2.8.0/plan_v2.8.0_reviewed-by-codex.md` for full findings and evaluations. Key changes from review:
+Reviewed 2026-04-02. See `docs/internal/release-plans/v2.8.0/_archived/plan_v2.8.0_original_reviewed-by-codex.md` for full findings and evaluations. Key changes from review:
 - Preview format changed from "diff" to "before/after blocks" (Finding 3.2)
 - Added stale-preview guard — re-read before writing (Finding 3.3)
 - Version bump changed to suggest-only — don't auto-write number (Finding 4.2)

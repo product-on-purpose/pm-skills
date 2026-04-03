@@ -150,7 +150,7 @@ Single-skill mode is the MCP-portable path. Both modes require reading skill fil
 
 ## Codex Review
 
-Reviewed 2026-04-02. See `docs/internal/release-plans/v2.8.0/plan_v2.8.0_reviewed-by-codex.md` for full findings and evaluations. Key changes from review:
+Reviewed 2026-04-02. See `docs/internal/release-plans/v2.8.0/_archived/plan_v2.8.0_original_reviewed-by-codex.md` for full findings and evaluations. Key changes from review:
 - Report format changed from checkbox markers to pipe-delimited (Finding 1.1)
 - Added `Report schema: v1` header and check IDs (Findings 1.3, 1.4)
 - Tier 2 rebaselined against shipped library — example completeness by section-fill not line count, output contract accepts "use the template," When NOT to Use → INFO (Finding 2.1)

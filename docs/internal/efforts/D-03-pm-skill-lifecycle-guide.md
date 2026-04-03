@@ -31,7 +31,8 @@ Depends on F-10 and F-11 being implemented first. The guide documents actual beh
    - Feedback loop: iterate with feedback → validate → confirm → ship
 4. **Versioning** — how lifecycle tools relate to skill versioning (link to internal doc for governance, summarize SemVer rules inline)
 5. **CI relationship** — what CI catches vs. what validate catches (CI = structure, validate = quality)
-6. **Examples** — at least one worked example per workflow pattern
+6. **Quality standard model** — validator checks *current conventions* and surfaces the *v2.8 standard* as suggestions; the library converges over time through the lifecycle, not retroactively
+7. **Examples** — at least one worked example per workflow pattern
 
 ## Artifacts Produced
 
