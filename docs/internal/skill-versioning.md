@@ -77,16 +77,32 @@ Each skill uses [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html)
 | **Minor** (`x.Y.0`) | New optional capability, new optional output sections, handles more scenarios without breaking existing expectations |
 | **Patch** (`x.y.Z`) | Wording clarified, examples improved, typos fixed, internal heuristics tuned without changing required behavior |
 
+### Tie-breaker rule
+
+When a change doesn't clearly fit one category, apply this precedence:
+
+> **If a user must do something new to stay compliant with the skill's required contract, classify as major.** If the new behavior is additive or optional, classify as minor. If the required behavior is unchanged and only clarified, classify as patch.
+
+The key question is: *does existing usage break?*
+- "You must now include section X" → **major** (existing outputs without X are no longer compliant)
+- "You may now include section X" → **minor** (existing outputs still work, new option available)
+- "Section X is now described more clearly" → **patch** (existing outputs still satisfy the requirement)
+
 ### Examples
 
-| Change | Bump |
-|--------|------|
-| `/pm-skill-builder` renamed to `/skill-builder` | Major |
-| Builder adds optional release-manifest drafting step | Minor |
-| Gap analysis wording clarified | Patch |
-| New optional section in output contract | Minor |
-| Required section removed from output contract | Major |
-| EXAMPLE.md rewritten with better scenario | Patch |
+| Change | Bump | Why |
+|--------|------|-----|
+| `/pm-skill-builder` renamed to `/skill-builder` | Major | Command name is part of the contract; existing prompts break |
+| Required section removed from output contract | Major | Existing outputs that included it are fine, but consumers expecting it break |
+| New required checklist item added | Major | Existing skill outputs that passed the old checklist now fail the new one |
+| Output contract wording tightened — what "done" means changes | Major | Narrows what's compliant; some previously-valid outputs no longer pass |
+| Builder adds optional release-manifest drafting step | Minor | New capability, existing flow unchanged |
+| New optional section in output contract | Minor | Users can ignore it; existing outputs still comply |
+| Validator adds a new optional quality check | Minor | More coverage, no existing behavior changes |
+| Gap analysis wording clarified | Patch | Same check, clearer explanation |
+| EXAMPLE.md rewritten with better scenario | Patch | Reference material improved, no contract change |
+| Description expanded for clarity | Patch | Same skill behavior, better discoverability |
+| Quality checklist item reworded for testability | Patch | Same requirement, clearer phrasing |
 
 ## Skill History (HISTORY.md)
 

@@ -18,7 +18,7 @@ Secondary: lifecycle documentation, skill versioning governance, and CI to suppo
 
 | Effort | Type | Description | Agent | Status | Issue |
 |--------|------|-------------|-------|--------|-------|
-| — | Governance | `skill-versioning.md` tie-breaker rule update | Claude | Planned | — |
+| — | Governance | `skill-versioning.md` tie-breaker rule update | Claude | **Done** | — |
 | F-10 | New skill | `utility-pm-skill-validate` (`/pm-skill-validate`) — SKILL.md | Claude | Planned | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
 | F-10 | New skill | `utility-pm-skill-validate` — TEMPLATE.md + EXAMPLE.md + command | Codex | Planned | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
 | F-11 | New skill | `utility-pm-skill-iterate` (`/pm-skill-iterate`) — SKILL.md | Claude | Planned | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
@@ -70,7 +70,7 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 
 | Phase | Claude track | Codex track | Blocked by |
 |-------|-------------|-------------|------------|
-| 0 | `skill-versioning.md` tie-breaker rule | — | Nothing |
+| 0 | `skill-versioning.md` tie-breaker rule (**done**) | — | Nothing |
 | 1 | F-10 SKILL.md | M-18 CI scripts | Phase 0 |
 | 2 | F-11 SKILL.md | F-10 TEMPLATE.md + EXAMPLE.md + command | Phase 1 |
 | 3 | D-03 lifecycle guide | F-11 TEMPLATE.md + EXAMPLE.md + command | Phase 2 |

@@ -42,7 +42,7 @@ Iteration includes governance. After applying changes, the iterator classifies t
 - New optional section or capability → minor
 - Restructured output contract or changed interaction pattern → major
 
-**Tie-breaker rule:** If a user must do something new to stay compliant with the skill's required contract, classify as major. If the new behavior is additive/optional, classify as minor. If the required behavior is unchanged and only clarified, classify as patch.
+**Tie-breaker rule** (from `docs/internal/skill-versioning.md`)**:** If a user must do something new to stay compliant with the skill's required contract, classify as major. If the new behavior is additive/optional, classify as minor. If the required behavior is unchanged and only clarified, classify as patch.
 
 **What gets written when:**
 - `updated` date → written immediately on apply (tracks file modification time)
