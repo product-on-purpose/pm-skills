@@ -222,6 +222,8 @@ Bundle links are repo-relative within this repository.
 | `/persona` | Generate a product or marketing persona |
 | `/pivot-decision` | Document a pivot or persevere decision |
 | `/pm-skill-builder` | Create a new PM skill with gap analysis and a Skill Implementation Packet |
+| `/pm-skill-iterate` | Apply targeted improvements to a skill from feedback or validation reports |
+| `/pm-skill-validate` | Audit a skill against structural conventions and quality criteria |
 | `/prd` | Create a Product Requirements Document |
 | `/problem-statement` | Create a clear problem statement with success criteria |
 | `/refinement-notes` | Document backlog refinement session outcomes |

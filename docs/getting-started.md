@@ -223,7 +223,6 @@ The repo currently ships 30 command markdown files: 29 skill commands plus the `
 | Iterate | `/retrospective`, `/lessons-log`, `/refinement-notes`, `/pivot-decision` |
 | Utility | `/pm-skill-builder`, `/pm-skill-validate`, `/pm-skill-iterate` |
 | Foundation | `/persona` |
-| Utility | `/pm-skill-builder` |
 
 Plus workflow bundles: `/kickoff`
 

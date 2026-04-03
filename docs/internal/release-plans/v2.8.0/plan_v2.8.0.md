@@ -88,7 +88,7 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 - [x] MCP impact evaluated — 2 new tools needed (`pm_pm_skill_validate`, `pm_pm_skill_iterate`), no renames, pm-skills-mcp release required post-tag
 - [x] CHANGELOG.md updated with v2.8.0 section
 - [x] `skills-manifest.yaml` finalized (date: 2026-04-03)
-- [ ] Local enhanced validation passes for 29 skills, 30 command docs
+- [x] Local enhanced validation passes for 29 skills, 30 command docs (verified by Codex pre-release review)
 - [ ] Tag `v2.8.0` pushed → release.yml fires → ZIP published
 
 ## Effort Details
@@ -282,6 +282,77 @@ After tagging v2.8.0, `pm-skills-mcp` needs a corresponding update:
 ## Canonical Artifacts
 
 1. `docs/internal/release-plans/v2.8.0/plan_v2.8.0.md` (this file)
-2. `docs/internal/release-plans/v2.8.0/skills-manifest.yaml` (draft, finalize at release prep)
-3. `docs/releases/Release_v2.8.0.md` (public release notes — create at tag time)
+2. `docs/internal/release-plans/v2.8.0/skills-manifest.yaml` (finalized 2026-04-03)
+3. `docs/releases/Release_v2.8.0.md` (public release notes)
 4. Effort briefs: `F-10`, `F-11`, `D-03`, `M-18` in `docs/internal/efforts/`
+5. `docs/internal/release-plans/v2.8.0/_archived/plan_v2.8.0_original_reviewed-by-codex.md` (Codex design review)
+
+---
+
+## Pre-Release Review
+
+### Review Prompt (given to Codex by Claude, 2026-04-03)
+
+**Task: Pre-tag consistency review for v2.8.0**
+
+Read these files and check for inconsistencies, stale references, or factual errors:
+
+| File | What to check |
+|------|--------------|
+| `CHANGELOG.md` (v2.8.0 section only) | Skill counts match (29/30), effort IDs correct, issue numbers match effort briefs |
+| `docs/releases/Release_v2.8.0.md` | Same as CHANGELOG + verify MCP tool names follow naming convention |
+| `README.md` | All instances of skill count are 29 (not 27), command count is 30 (not 28), utility count is 3 (not 1), v2.7.0 history entry says 27 (not 29) |
+| `QUICKSTART.md` | Counts match README |
+| `.claude-plugin/plugin.json` | Version is 2.8.0, description says 29 |
+| `docs/internal/release-plans/v2.8.0/skills-manifest.yaml` | Date is 2026-04-03, both skill entries present |
+| `docs/internal/release-plans/v2.8.0/plan_v2.8.0.md` | Gating criteria reflect current state, no stale "Planned" items for done work |
+| `AGENTS.md` | Both new utility skills listed with correct paths |
+| `commands/pm-skill-validate.md` and `commands/pm-skill-iterate.md` | Skill paths are correct, description matches SKILL.md |
+| `docs/getting-started.md` | Counts updated, utility commands in table |
+| `scripts/README_SCRIPTS.md` | M-18 scripts documented |
+
+Also run these validators and report results:
+```bash
+bash scripts/lint-skills-frontmatter.sh
+bash scripts/validate-commands.sh
+bash scripts/validate-agents-md.sh
+bash scripts/validate-skill-history.sh
+bash scripts/validate-skills-manifest.sh
+```
+
+Report any inconsistencies found. Be specific — cite the file, line content, and what's wrong.
+
+### Codex Findings (2026-04-03)
+
+**Issues found:**
+
+1. `README.md` line 24: stale version badge `version-2.7.0` — should be `2.8.0` (plugin.json and release docs already on 2.8.0)
+2. `README.md` line 653: Utility skill inventory table only lists `pm-skill-builder` — missing `pm-skill-validate` and `pm-skill-iterate`
+3. `AGENTS.md` line 224: Commands table missing `/pm-skill-validate` and `/pm-skill-iterate` rows (skill path entries are present at lines 176/183)
+4. `docs/getting-started.md` lines 224/226: contradictory — line 224 correctly lists all 3 utility commands, line 226 re-adds a stale builder-only row
+5. `QUICKSTART.md` line 76: says "29 command markdown files" but should be 30 (matches file structure comment, contradicts "30 slash-command docs" at top)
+6. `plan_v2.8.0.md` line 91: "Local enhanced validation passes" still unchecked despite all validators passing
+7. `plan_v2.8.0.md` lines 285-286: stale future-tense ("draft, finalize at release prep" / "create at tag time") — both already done
+8. `skills-manifest.yaml` lines 1-2: duplicate comment `# Skills changed in this release`
+
+**Checked clean:** Live repo counts (29 skills, 30 commands, 3 utility), CHANGELOG consistency, Release_v2.8.0.md, plugin.json, command files, scripts/README_SCRIPTS.md. All 5 validators passed.
+
+### Claude Evaluation (2026-04-03)
+
+> **Author: Claude Opus 4.6**
+
+All 8 findings are valid. This is exactly the kind of drift that accumulates across a multi-commit session — counts get updated in some files but not others, tables get a new row but miss a related table in the same file.
+
+**Finding 1** (README badge): Missed during the count sweep — I updated text references to 29 skills but not the badge URL. Clear oversight.
+
+**Finding 2** (README utility table): I added the Skill Lifecycle Tools section but didn't update the separate skill inventory table lower in the README. Both need the new skills.
+
+**Finding 3** (AGENTS.md commands table): I added the skill path entries but missed the separate Commands table. Partial update.
+
+**Finding 4** (getting-started.md duplicate row): I added the utility row but the original builder-only row was already there in a different table. Should have replaced it.
+
+**Finding 5** (QUICKSTART command count): I updated the top-level count but missed the file structure comment that also has a count. Same class of error as Finding 1.
+
+**Findings 6-8** (plan doc staleness): These are internal governance references I should have cleaned up during the release prep commit.
+
+**Action:** Fix all 8. No findings rejected.

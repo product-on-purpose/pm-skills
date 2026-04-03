@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.7.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.8.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-29-brightgreen.svg?style=flat-square" alt="Skills">
@@ -651,6 +651,8 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | Skill                  | What it does                                                    | Command              |
 | ---------------------- | --------------------------------------------------------------- | -------------------- |
 | **pm-skill-builder**   | Create new PM skills with gap analysis and guided drafting      | `/pm-skill-builder`  |
+| **pm-skill-validate**  | Audit a skill against structural conventions and quality criteria | `/pm-skill-validate` |
+| **pm-skill-iterate**   | Apply targeted improvements from feedback or validation reports | `/pm-skill-iterate`  |
 
 ### Quick Examples
 
