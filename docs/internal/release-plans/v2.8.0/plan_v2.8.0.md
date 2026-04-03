@@ -1,6 +1,6 @@
 # v2.8.0 Internal Release Governance
 
-Status: Planning (post-Codex review)
+Status: Planning (post-Codex review; M-18 complete)
 Owner: Maintainers
 Last updated: 2026-04-03
 
@@ -19,12 +19,12 @@ Secondary: lifecycle documentation, skill versioning governance, and CI to suppo
 | Effort | Type | Description | Agent | Status | Issue |
 |--------|------|-------------|-------|--------|-------|
 | — | Governance | `skill-versioning.md` tie-breaker rule update | Claude | **Done** | — |
-| F-10 | New skill | `utility-pm-skill-validate` (`/pm-skill-validate`) — SKILL.md | Claude | Planned | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
-| F-10 | New skill | `utility-pm-skill-validate` — TEMPLATE.md + EXAMPLE.md + command | Codex | Planned | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
-| F-11 | New skill | `utility-pm-skill-iterate` (`/pm-skill-iterate`) — SKILL.md | Claude | Planned | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
-| F-11 | New skill | `utility-pm-skill-iterate` — TEMPLATE.md + EXAMPLE.md + command | Codex | Planned | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
-| D-03 | Documentation | PM skill lifecycle guide — how Create, Validate, and Iterate work together | Claude | Planned | — |
-| M-18 | Infrastructure | CI: validate HISTORY.md consistency and `skills-manifest.yaml` | Codex | Planned | — |
+| F-10 | New skill | `utility-pm-skill-validate` (`/pm-skill-validate`) — SKILL.md | Claude | **Done** (`1398835`) | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
+| F-10 | New skill | `utility-pm-skill-validate` — TEMPLATE.md + EXAMPLE.md + command | Claude | **Done** (included in SKILL.md commit) | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
+| F-11 | New skill | `utility-pm-skill-iterate` (`/pm-skill-iterate`) — SKILL.md | Claude | **Done** (`2f6577e`) | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
+| F-11 | New skill | `utility-pm-skill-iterate` — TEMPLATE.md + EXAMPLE.md + command | Claude | **Done** (included in SKILL.md commit) | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
+| D-03 | Documentation | PM skill lifecycle guide — how Create, Validate, and Iterate work together | Claude | **Done** (`f678344`) | — |
+| M-18 | Infrastructure | CI: validate HISTORY.md consistency and `skills-manifest.yaml` | Codex | **Done** | — |
 | D-04 | Documentation | Public docs refresh for v2.8.0 — counts, lifecycle references | Codex | Planned | — |
 
 ## Dependency Chain and Execution Phases
@@ -71,19 +71,19 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 | Phase | Claude track | Codex track | Blocked by |
 |-------|-------------|-------------|------------|
 | 0 | `skill-versioning.md` tie-breaker rule (**done**) | — | Nothing |
-| 1 | F-10 SKILL.md | M-18 CI scripts | Phase 0 |
-| 2 | F-11 SKILL.md | F-10 TEMPLATE.md + EXAMPLE.md + command | Phase 1 |
-| 3 | D-03 lifecycle guide | F-11 TEMPLATE.md + EXAMPLE.md + command | Phase 2 |
+| 1 | F-10 SKILL.md (**done**) | M-18 CI scripts (**done**) | Phase 0 |
+| 2 | F-11 SKILL.md (**done**) | F-10 TEMPLATE+EXAMPLE (**done** — Claude wrote with SKILL.md) | Phase 1 |
+| 3 | D-03 lifecycle guide (**done**) | F-11 TEMPLATE+EXAMPLE (**done** — Claude wrote with SKILL.md) | Phase 2 |
 | 4 | — | D-04 docs refresh | Phase 3 |
 | 5 | Release prep (CHANGELOG, skills-manifest, version bumps) | — | Phase 4 |
 
 ## Gating Criteria
 
-- [ ] F-10 committed and local validators pass
-- [ ] F-11 committed and local validators pass
+- [x] F-10 committed and local validators pass (`1398835`)
+- [x] F-11 committed and local validators pass (`2f6577e`)
 - [ ] F-10 and F-11 work end-to-end: builder creates → validator audits → iterator improves
-- [ ] D-03: lifecycle guide created at `docs/pm-skill-lifecycle.md`
-- [ ] M-18: CI scripts created (`.sh` + `.ps1` + `.md` convention) and added to `validation.yml`
+- [x] D-03: lifecycle guide created at `docs/pm-skill-lifecycle.md` (`f678344`)
+- [x] M-18: CI scripts created (`.sh` + `.ps1` + `.md` convention) and added to `validation.yml`
 - [ ] D-04: public docs refreshed (skill count, command count, lifecycle references)
 - [ ] MCP impact evaluated (see MCP Impact section below)
 - [ ] CHANGELOG.md updated with v2.8.0 section
@@ -187,6 +187,25 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 ### M-18: CI — HISTORY.md and skills-manifest.yaml validation
 
 **What it does:** Two new validation scripts following the `.sh` + `.ps1` + `.md` convention.
+
+**Status (2026-04-03): Done**
+
+**Implemented artifacts:**
+- `scripts/validate-skill-history.sh`
+- `scripts/validate-skill-history.ps1`
+- `scripts/validate-skill-history.md`
+- `scripts/validate-skills-manifest.sh`
+- `scripts/validate-skills-manifest.ps1`
+- `scripts/validate-skills-manifest.md`
+- `.github/workflows/validation.yml` updated with advisory bash/pwsh steps after the existing `check-context-currency` steps
+
+**Local verification (2026-04-03):**
+- `bash scripts/validate-skill-history.sh` -> exit 0
+- `pwsh -File scripts/validate-skill-history.ps1` -> exit 0
+- `bash scripts/validate-skills-manifest.sh` -> exit 0 in the current workspace state
+- `pwsh -File scripts/validate-skills-manifest.ps1` -> exit 0 in the current workspace state
+
+**Note:** The local workspace already contains `skills/utility-pm-skill-iterate/`, so the draft `v2.8.0` manifest no longer demonstrates the expected missing-skill failure described earlier in planning.
 
 **Script 1: `validate-skill-history.sh` / `.ps1`**
 - For any skill with a HISTORY.md: check that the table includes an entry matching the SKILL.md frontmatter `version`

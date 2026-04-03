@@ -62,3 +62,23 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-context-currency.ps1
         continue-on-error: true
+
+      - name: Validate skill HISTORY.md (bash)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/validate-skill-history.sh
+        continue-on-error: true
+
+      - name: Validate skill HISTORY.md (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/validate-skill-history.ps1
+        continue-on-error: true
+
+      - name: Validate skills manifest (bash)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/validate-skills-manifest.sh
+        continue-on-error: true
+
+      - name: Validate skills manifest (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/validate-skills-manifest.ps1
+        continue-on-error: true
