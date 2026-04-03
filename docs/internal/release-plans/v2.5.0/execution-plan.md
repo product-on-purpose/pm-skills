@@ -12,7 +12,7 @@ This execution plan ships blockers `B-01` to `B-08` in dependency-safe order:
 3. Contract lock
 4. Foundation/persona decisions
 
-Canonical internal release-governance artifacts now live in `docs/internal/releases/**`.
+Canonical internal release-governance artifacts now live in `docs/internal/release-plans/**`.
 Local `_NOTES/**` files were working evidence only and are non-canonical.
 
 ## Release 1 - v2.2.0 - Guardrails and Governance
@@ -57,7 +57,7 @@ Status:
 Scope:
 1. `B-03`: canonical output behavior contract.
 2. `B-04`: canonical config schema + format.
-3. Canonical tracked closure summary: `docs/internal/releases/v2.4.0/contract-lock-summary.md`.
+3. Canonical tracked closure summary: `docs/internal/release-plans/v2.4.0/contract-lock-summary.md`.
 4. Legacy local working evidence remained non-canonical.
 
 Exit criteria:
@@ -74,9 +74,9 @@ Scope:
 1. `B-05`: decide `foundation` phase status and MCP policy impact.
 2. `B-06`: signed persona builder Q1-Q7 decision record.
 3. Tracked closure-path artifacts:
-   - `docs/internal/releases/v2.5.0/B-05-foundation-phase-decision.md`
-   - `docs/internal/releases/v2.5.0/B-06-persona-q1-q7-decision-record.md`
-   - `docs/internal/releases/v2.5.0/B-05_B-06-closure-path.md`
+   - `docs/internal/release-plans/v2.5.0/B-05-foundation-phase-decision.md`
+   - `docs/internal/release-plans/v2.5.0/B-06-persona-q1-q7-decision-record.md`
+   - `docs/internal/release-plans/v2.5.0/B-05_B-06-closure-path.md`
 
 Exit criteria:
 1. Signed foundation decision exists and is reflected in MCP-facing docs/contracts. (Met)
@@ -86,7 +86,7 @@ Exit criteria:
 Validation snapshot (2026-02-16):
 1. `validate-mcp-sync` passes in block mode on the pinned v2.4.3 baseline.
 2. `pm-skills-mcp` test suite passes (`76/76`).
-3. B-05/B-06 signed records are linked from `docs/internal/releases/v2.5.0/checklist.md`.
+3. B-05/B-06 signed records are linked from `docs/internal/release-plans/v2.5.0/checklist.md`.
 
 ## Interface Impact Summary
 

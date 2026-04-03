@@ -18,16 +18,16 @@ Last updated: 2026-03-16
 
 ## Required Artifacts (Tracked)
 
-- `docs/internal/releases/v2.5.0/B-05-foundation-phase-decision.md`
-- `docs/internal/releases/v2.5.0/B-06-persona-q1-q7-decision-record.md`
-- `docs/internal/releases/v2.5.0/checklist.md`
+- `docs/internal/release-plans/v2.5.0/B-05-foundation-phase-decision.md`
+- `docs/internal/release-plans/v2.5.0/B-06-persona-q1-q7-decision-record.md`
+- `docs/internal/release-plans/v2.5.0/checklist.md`
 
 ## Validation Checklist (Executed)
 
 | ID | Check | Command / Evidence |
 | --- | --- | --- |
 | V-01 | Phase decision coherence across repos | Review `pm-skills/.github/scripts/validate-mcp-sync.js` and `pm-skills-mcp/src/types/index.ts` |
-| V-02 | Persona assumptions are non-contradictory | Supersession anchors in `docs/internal/releases/v2.5.0/B-06-persona-q1-q7-decision-record.md` |
+| V-02 | Persona assumptions are non-contradictory | Supersession anchors in `docs/internal/release-plans/v2.5.0/B-06-persona-q1-q7-decision-record.md` |
 | V-03 | Cross-repo release truth stays aligned | `VALIDATE_MCP_SYNC_MODE=block PM_SKILLS_MCP_PATH=../pm-skills-mcp node .github/scripts/validate-mcp-sync.js` |
 | V-04 | MCP runtime remains healthy after policy changes | `npm test` in `pm-skills-mcp` |
 

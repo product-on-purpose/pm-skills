@@ -22,7 +22,7 @@ Purpose: cross-LLM decision log for pm-skills. Per-agent details remain in `AGEN
 
 ## 2026-03-15: Baseline cleanup operating model
 **Status:** Accepted  
-**Summary:** GitHub issues own backlog and lifecycle state; `docs/internal/efforts/**` is the tracked home for durable effort briefs; `docs/internal/releases/**` is the tracked home for internal release governance; `_NOTES/**` remains local-only working material.  
+**Summary:** GitHub issues own backlog and lifecycle state; `docs/internal/efforts/**` is the tracked home for durable effort briefs; `docs/internal/release-plans/**` is the tracked home for internal release governance; `_NOTES/**` remains local-only working material.  
 **Applies to:** Claude, Codex, internal docs, future effort/release cleanup.  
 **Consequences:** No tracked file should call `_NOTES/**` canonical; effort and release docs should point to the accepted tracked homes.
 

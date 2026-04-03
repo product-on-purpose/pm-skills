@@ -320,7 +320,7 @@ If you promote the test skill, run validators to confirm the builder produces CI
 **Files:**
 - Modify: `docs/internal/efforts/F-05-pm-skill-builder.md`
 - Modify: `docs/internal/backlog-canonical.md`
-- Modify: `docs/internal/releases/v2.7.0/README.md`
+- Modify: `docs/internal/release-plans/v2.7.0/README.md`
 
 ### Step 1: Reconcile effort brief stale content
 
@@ -350,7 +350,7 @@ Check off the F-05 gating criteria in the v2.7.0 README:
 ### Step 5: Commit
 
 ```bash
-git add docs/internal/efforts/F-05-pm-skill-builder.md docs/internal/backlog-canonical.md docs/internal/releases/v2.7.0/README.md
+git add docs/internal/efforts/F-05-pm-skill-builder.md docs/internal/backlog-canonical.md docs/internal/release-plans/v2.7.0/README.md
 git commit -m "docs(F-05): reconcile effort brief, mark pm-skill-builder as implemented"
 ```
 
@@ -368,7 +368,7 @@ git commit -m "docs(F-05): reconcile effort brief, mark pm-skill-builder as impl
 | `AGENTS.md` | Modify | +8 |
 | `docs/internal/efforts/F-05-pm-skill-builder.md` | Modify | ~10 lines |
 | `docs/internal/backlog-canonical.md` | Modify | ~1 line |
-| `docs/internal/releases/v2.7.0/README.md` | Modify | ~2 lines |
+| `docs/internal/release-plans/v2.7.0/README.md` | Modify | ~2 lines |
 
 Total: ~710 new lines across 6 new/modified files, 5 commits (+ 1 optional fix commit).
 

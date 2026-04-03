@@ -1,0 +1,19 @@
+# Skills changed in this release
+# Status: draft — update versions and dates when efforts are committed
+release: v2.8.0
+date: TBD
+
+skills:
+  - name: utility-pm-skill-validate
+    version: 1.0.0
+    previous_version: null  # new skill
+    change_type: added
+    effort: F-10
+    issue: 121
+
+  - name: utility-pm-skill-iterate
+    version: 1.0.0
+    previous_version: null  # new skill
+    change_type: added
+    effort: F-11
+    issue: 122

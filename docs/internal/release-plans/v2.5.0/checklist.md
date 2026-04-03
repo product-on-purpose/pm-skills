@@ -68,7 +68,7 @@ Deferred (non-blocking for this release cut):
 
 Current evidence baseline for `M-10` gate closure:
 1. Structural completeness is proven (`library/skill-output-samples/manifest.v2.5.0.json` locked to `f02-included`; totals `25/84`).
-2. Content-alignment closure is summarized in `docs/internal/releases/v2.5.0/M-10-closure-summary.md`.
+2. Content-alignment closure is summarized in `docs/internal/release-plans/v2.5.0/M-10-closure-summary.md`.
 3. Release-matrix checks are green on candidate refs with updated `2.5.0` pin metadata.
 
 ### M-10 Closure Evidence Block (2026-03-02 17:57 PT rerun)
@@ -87,7 +87,7 @@ This block closes `M-10`.
 6. `M-10` content-alignment review closure evidence:
    - Structural audit command:
      - `@' ... '@ | node -` (inline corpus audit script) -> `M10_STRUCTURAL_AUDIT PASS files=84 required_keys=8`.
-   - Tracked closure summary: `docs/internal/releases/v2.5.0/M-10-closure-summary.md`.
+   - Tracked closure summary: `docs/internal/release-plans/v2.5.0/M-10-closure-summary.md`.
    - Meta-review appendix (Claude Sonnet 4.6) confirms closure verdict and classifies remaining quality/thread-fidelity observations as non-blocking for `v2.5.0`.
    - Corpus checks: `84/84` sample files present; `84/84` include valid frontmatter and `Scenario/Prompt/Output` sections in order.
    - Prompt-format normalization defects were corrected in affected Workbench samples (fenced slash-command prompts + required frontmatter).
@@ -113,9 +113,9 @@ All blocking gates are closed.
 
 ## Canonical References
 
-1. `docs/internal/releases/v2.5.0/README.md`
-2. `docs/internal/releases/v2.5.0/execution-plan.md`
-3. `docs/internal/releases/v2.5.0/B-05_B-06-closure-path.md`
-4. `docs/internal/releases/v2.5.0/M-10-closure-summary.md`
+1. `docs/internal/release-plans/v2.5.0/README.md`
+2. `docs/internal/release-plans/v2.5.0/execution-plan.md`
+3. `docs/internal/release-plans/v2.5.0/B-05_B-06-closure-path.md`
+4. `docs/internal/release-plans/v2.5.0/M-10-closure-summary.md`
 5. `docs/releases/Release_v2.5.0.md`
 6. `CHANGELOG.md`

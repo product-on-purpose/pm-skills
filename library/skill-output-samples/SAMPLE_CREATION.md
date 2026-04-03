@@ -11,7 +11,7 @@ Applies to all sample markdown files under:
 This excludes:
 
 - `README_SAMPLES.md` (navigation doc)
-- tracked release-governance artifacts under `docs/internal/releases/`
+- tracked release-governance artifacts under `docs/internal/release-plans/`
 
 ## 2) Canonical Naming
 
@@ -80,7 +80,7 @@ Legacy files may not have full modern frontmatter; avoid back-editing legacy unl
 
 Release-coverage manifest is maintained as a tracked internal release-governance artifact (not in this folder):
 
-- `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json`
+- `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json`
 
 When sample files are added/renamed/removed, update that tracked manifest in the same change set.
 

@@ -24,11 +24,11 @@ Adopt one narrow, repo-native baseline:
 1. Keep the public shipped surface authoritative:
    `README.md`, `AGENTS.md`, `CHANGELOG.md`, `QUICKSTART.md`, `skills/**`, `commands/**`, `_bundles/**`, `docs/guides/**`, `docs/reference/**`, `docs/templates/**`, `docs/releases/**`, `library/skill-output-samples/**`, `scripts/**`, `.claude-plugin/plugin.json`, and `.claude/pm-skills-for-claude.md`.
 2. Keep the internal operating surface narrow:
-   `CLAUDE.md`, `AGENTS/DECISIONS.md`, `AGENTS/claude/{CONTEXT.md,DECISIONS.md}`, `AGENTS/codex/{CONTEXT.md,DECISIONS.md,README.md}`, `docs/internal/planning-persistence-policy.md`, `docs/internal/planning-artifact-tier-map.md`, `docs/internal/releases/**`, and `docs/internal/efforts/**`.
+   `CLAUDE.md`, `AGENTS/DECISIONS.md`, `AGENTS/claude/{CONTEXT.md,DECISIONS.md}`, `AGENTS/codex/{CONTEXT.md,DECISIONS.md,README.md}`, `docs/internal/planning-persistence-policy.md`, `docs/internal/planning-artifact-tier-map.md`, `docs/internal/release-plans/**`, and `docs/internal/efforts/**`.
 3. Use GitHub issues for backlog and lifecycle state.
 4. Use `docs/internal/efforts/<effort-id>-<slug>.md` for durable tracked effort context.
 5. Use `_NOTES/**` for local research, prep, drafts, and working scratch only.
-6. Use `docs/internal/releases/vX.Y.Z/**` as the single tracked home for internal release governance.
+6. Use `docs/internal/release-plans/vX.Y.Z/**` as the single tracked home for internal release governance.
 7. Keep only intentionally shipped Claude-facing artifacts tracked: `.claude-plugin/plugin.json` and `.claude/pm-skills-for-claude.md`.
 8. Refresh tracked continuity and authoring docs before touching `wrap-session` or adding more guardrail automation.
 
@@ -39,7 +39,7 @@ This is cleanup, not a new framework. The repo already has the right major surfa
 | Area | Resolution |
 | --- | --- |
 | OQ1 | Keep `.claude-plugin/plugin.json` and `.claude/pm-skills-for-claude.md`; do not treat broader `.claude/**` helper content as baseline truth. |
-| OQ2 | Use GitHub issues for backlog state, `docs/internal/efforts/**` for durable effort briefs, `_NOTES/efforts/**` for local working material, and `docs/internal/releases/**` for release governance. |
+| OQ2 | Use GitHub issues for backlog state, `docs/internal/efforts/**` for durable effort briefs, `_NOTES/efforts/**` for local working material, and `docs/internal/release-plans/**` for release governance. |
 | OQ3 | Keep both `AGENTS/claude/` and `AGENTS/codex/` first-class. Do not add a central `AGENTS/CONTEXT.md`. |
 | OQ4 | Rewrite public, policy, and active internal docs that still shape current work. Do not turn this into archive cleanup. |
 | OQ5 | Keep the baseline plan stable and move execution detail into separate execution docs plus a thin shared coordinator. |
@@ -60,7 +60,7 @@ Why this matters:
 
 - the repo still points tracked readers to `_NOTES/**` for canonical backlog truth
 - release governance is still described as split across `release-planning` and `delivery-plan`
-- the accepted `docs/internal/efforts/**` plus `docs/internal/releases/**` model is not yet reflected in tracked policy
+- the accepted `docs/internal/efforts/**` plus `docs/internal/release-plans/**` model is not yet reflected in tracked policy
 
 ### 2. Internal release governance is still split across two tracked trees
 
@@ -69,7 +69,7 @@ Live tracked structure still centers on:
 - `docs/internal/release-planning/**`
 - `docs/internal/delivery-plan/**`
 
-and does not yet have a versioned `docs/internal/releases/**` home.
+and does not yet have a versioned `docs/internal/release-plans/**` home.
 
 Why this matters:
 
@@ -175,7 +175,7 @@ These define the day-to-day tracked operating model after cleanup:
 - `AGENTS/codex/README.md`
 - `docs/internal/planning-persistence-policy.md`
 - `docs/internal/planning-artifact-tier-map.md`
-- `docs/internal/releases/**`
+- `docs/internal/release-plans/**`
 - `docs/internal/efforts/**`
 
 ### Legacy Tracked But Not Baseline
@@ -204,7 +204,7 @@ These remain useful, but they are not canonical:
 | Backlog state | GitHub issues | open/closed state, priority, milestone, queue | durable specs, large research dumps |
 | Durable effort brief | `docs/internal/efforts/<effort-id>-<slug>.md` | stable scope, key decisions, issue links, canonical artifact links | raw research, daily notes, exploratory drafts |
 | Local working material | `_NOTES/efforts/<effort-id>/**` | research, prep, rough drafts, scratch output | canonical source of truth |
-| Internal release governance | `docs/internal/releases/vX.Y.Z/**` | release checklists, blocker decisions, cut/publish notes, closure records | feature specs or general backlog state |
+| Internal release governance | `docs/internal/release-plans/vX.Y.Z/**` | release checklists, blocker decisions, cut/publish notes, closure records | feature specs or general backlog state |
 | Public release communication | `docs/releases/Release_vX.Y.Z.md` | user-facing release notes | internal governance detail |
 | Shared agent decisions | `AGENTS/DECISIONS.md` | cross-agent rules and accepted operating decisions | long rationale or agent-local detail |
 | Agent-specific continuity | `AGENTS/*/CONTEXT.md`, `AGENTS/*/DECISIONS.md` | current state and agent-local durable decisions | full project history or local scratch |
@@ -219,7 +219,7 @@ Promote content out of `_NOTES/**` only when both are true:
 Promotion targets should be:
 
 - `docs/internal/efforts/**`
-- `docs/internal/releases/**`
+- `docs/internal/release-plans/**`
 - `AGENTS/*/DECISIONS.md`
 - `AGENTS/DECISIONS.md`
 
@@ -264,7 +264,7 @@ Why defer:
 | Seq | Outcome | Primary files | Exit condition |
 | --- | --- | --- | --- |
 | 1 | Rewrite active policy docs to reflect the accepted canonical homes | `docs/internal/planning-persistence-policy.md`, `docs/internal/planning-artifact-tier-map.md` | tracked policy no longer names `_NOTES/**`, `release-planning/**`, or `delivery-plan/**` as canonical |
-| 2 | Consolidate internal release governance and effort-policy entry points | create `docs/internal/releases/**`; add `docs/internal/efforts/README.md`; rewrite `docs/internal/backlog-canonical.md`; update `docs/internal/release-planning/README.md`, `docs/internal/delivery-plan/README.md`, `docs/internal/efforts/M-10-skill-sample-outputs-library.md` | one tracked release-governance home exists and the effort/backlog model is documented in tracked files |
+| 2 | Consolidate internal release governance and effort-policy entry points | create `docs/internal/release-plans/**`; add `docs/internal/efforts/README.md`; rewrite `docs/internal/backlog-canonical.md`; update `docs/internal/release-planning/README.md`, `docs/internal/delivery-plan/README.md`, `docs/internal/efforts/M-10-skill-sample-outputs-library.md` | one tracked release-governance home exists and the effort/backlog model is documented in tracked files |
 | 3 | Refresh live agent continuity and shared decision capture | `AGENTS/codex/CONTEXT.md`, `AGENTS/DECISIONS.md`, optional `AGENTS/DECISIONS_GUIDE.md` | Codex context reflects the current repo and shared decisions are usable as baseline continuity |
 | 4 | Align contributor docs to shipped schema and classification model | `docs/reference/frontmatter-schema.yaml`, `docs/guides/authoring-pm-skills.md`, `docs/agent-skill-anatomy.md`, `docs/templates/skill-template/SKILL.md` | no contributor doc teaches `metadata.version` as canonical or omits `classification` guidance |
 | 5 | Align public/reference docs and remove speculative surfaces | `README.md`, `QUICKSTART.md`, `docs/reference/project-structure.md`, `docs/reference/ecosystem.md`, `docs/guides/mcp-integration.md`, `docs/guides/using-skills.md`, `_bundles/triple-diamond.md` | current docs reflect the live repo surface and stop advertising non-existent helpers |

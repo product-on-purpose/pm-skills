@@ -26,8 +26,8 @@ Both blockers were closed as `closed-aligned` for v2.4.0.
 ## Canonical Tracked References
 
 - `docs/releases/Release_v2.4.md`
-- `docs/internal/releases/v2.4.0/checklist.md`
-- `docs/internal/releases/v2.5.0/execution-plan.md`
+- `docs/internal/release-plans/v2.4.0/checklist.md`
+- `docs/internal/release-plans/v2.5.0/execution-plan.md`
 
 ## Legacy Local Evidence Note
 

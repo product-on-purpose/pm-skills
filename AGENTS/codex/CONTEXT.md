@@ -24,7 +24,7 @@ Track Codex sessions for pm-skills. Use this file for stable facts and current e
 - Accepted baseline operating model:
   - GitHub issues own backlog and lifecycle state
   - `docs/internal/efforts/**` is the tracked home for durable effort briefs
-  - `docs/internal/releases/**` is the tracked home for internal release governance
+  - `docs/internal/release-plans/**` is the tracked home for internal release governance
   - `_NOTES/**` remains local-only working material
   - keep both `AGENTS/claude/` and `AGENTS/codex/` first-class
   - only `.claude-plugin/plugin.json` and `.claude/pm-skills-for-claude.md` are intentionally shipped Claude-facing tracked artifacts
@@ -45,14 +45,14 @@ Track Codex sessions for pm-skills. Use this file for stable facts and current e
   - local uncommitted tracked `M-16` changes remain in the worktree
   - concurrent local edits also exist in `AGENTS/claude/CONTEXT.md`, `README.md`, and `CHANGELOG.md`
   - `docs/internal/_working/**` contains uncommitted working-doc changes, including Codex `M-16` planning updates
-  - `docs/internal/backlog-canonical.md` still lags the more current `docs/internal/releases/v2.7.0/README.md` on some status rows and should be reconciled before tag time
+  - `docs/internal/backlog-canonical.md` still lags the more current `docs/internal/release-plans/v2.7.0/README.md` on some status rows and should be reconciled before tag time
 
 ## Operational playbook
 - Session hygiene: use `AGENTS/codex/WRAP-SESSION_TEMPLATE.md` and save logs under `AGENTS/codex/SESSION-LOG/`
 - Planning docs: place in `AGENTS/codex/PLANNING/` with front matter (see `PLANNING/frontmatter-template.md`)
 - Decisions: record cross-agent items in `AGENTS/DECISIONS.md`; keep Codex-local detail in `AGENTS/codex/DECISIONS.md`
 - Agent boundary: do not edit `AGENTS/<other-agent>/CONTEXT.md` unless the user explicitly asks
-- Continuity rule: re-read tracked `docs/internal/efforts/**` and `docs/internal/releases/**` entry points after any cross-agent structural change before continuing dependent work
+- Continuity rule: re-read tracked `docs/internal/efforts/**` and `docs/internal/release-plans/**` entry points after any cross-agent structural change before continuing dependent work
 
 ## Immediate next steps
 1. Claude finalizes the `F-05` implementation plan response, revises/executes `F-05`, and drives `v2.7.0` release orchestration.
@@ -61,7 +61,7 @@ Track Codex sessions for pm-skills. Use this file for stable facts and current e
 
 ## Reference
 - Latest Codex wrap-session handoff: `AGENTS/codex/SESSION-LOG/2026-03-22_wrap-session_v2.7.0-ci-packaging-f05-review-and-release-handoff.md`
-- Current release governance: `docs/internal/releases/v2.7.0/README.md`
+- Current release governance: `docs/internal/release-plans/v2.7.0/README.md`
 - Shared decisions: `AGENTS/DECISIONS.md`
 - Local technical decisions: `AGENTS/codex/DECISIONS.md`
 - Current F-05 implementation-plan review: `docs/internal/efforts/F-05-pm-skill-builder/implementation-plan_reviewed-by-codex.md`

@@ -10,7 +10,7 @@ Last updated: 2026-03-15
 | Tier 1 | `AGENTS/*/CONTEXT.md` | Tracked | Current implementation context required for handoffs |
 | Tier 1 | `AGENTS/*/DECISIONS.md` | Tracked | Agent-local durable decision history |
 | Tier 1 | `docs/internal/efforts/**` | Tracked | Canonical durable effort briefs and issue/context links |
-| Tier 1 | `docs/internal/releases/**` | Tracked | Canonical internal release-governance artifacts |
+| Tier 1 | `docs/internal/release-plans/**` | Tracked | Canonical internal release-governance artifacts |
 | Tier 1 | `docs/releases/*.md` | Tracked | Public release communication |
 | Tier 1 | `CHANGELOG.md` | Tracked | Shipped repo history summary |
 | Tier 2 | `AGENTS/*/SESSION-LOG/**` | Ignored | High-volume operational transcripts |
@@ -35,7 +35,7 @@ Promote Tier 2 or Tier 3 content only when all conditions are true:
 Promotion target:
 
 - `docs/internal/efforts/**`
-- `docs/internal/releases/**`
+- `docs/internal/release-plans/**`
 - `AGENTS/*/DECISIONS.md`
 - `AGENTS/DECISIONS.md`
 

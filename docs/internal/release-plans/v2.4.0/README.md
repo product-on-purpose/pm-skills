@@ -8,8 +8,8 @@ This folder is the canonical tracked home for the internal release-governance ar
 
 ## Canonical Artifacts
 
-1. `docs/internal/releases/v2.4.0/checklist.md`
-2. `docs/internal/releases/v2.4.0/contract-lock-summary.md`
+1. `docs/internal/release-plans/v2.4.0/checklist.md`
+2. `docs/internal/release-plans/v2.4.0/contract-lock-summary.md`
 
 ## Notes
 

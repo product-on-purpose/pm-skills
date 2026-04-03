@@ -599,7 +599,7 @@ git commit -m "ci: add advisory CONTEXT.md currency check (non-blocking)"
 
 ---
 
-### A-10. Consolidate release governance into `docs/internal/releases/` (from Q-2)
+### A-10. Consolidate release governance into `docs/internal/release-plans/` (from Q-2)
 
 **Why:** Three overlapping locations (`docs/internal/release-planning/`, `docs/internal/delivery-plan/`, `_NOTES/delivery-plan/`) cause confusion about where to find canonical release artifacts. Unifying to one structure.
 **Effort:** 30-45 minutes
@@ -611,7 +611,7 @@ git commit -m "ci: add advisory CONTEXT.md currency check (non-blocking)"
 **1. Create the new structure:**
 
 ```
-docs/internal/releases/
+docs/internal/release-plans/
 ├── README.md              <- How to use this directory (status lifecycle, what goes where)
 ├── v2.2.0/
 │   └── checklist.md       <- moved from release-planning/checklist_v2.2.0.md
@@ -638,18 +638,18 @@ docs/internal/releases/
 ```bash
 # Create version directories
 for v in v2.2.0 v2.3.0 v2.4.0 v2.5.0 v2.5.1 v2.5.2 v2.6.0 v2.6.1; do
-  mkdir -p "docs/internal/releases/$v"
+  mkdir -p "docs/internal/release-plans/$v"
 done
 
 # Move checklists
-git mv docs/internal/release-planning/checklist_v2.2.0.md docs/internal/releases/v2.2.0/checklist.md
-git mv docs/internal/release-planning/checklist_v2.3.0.md docs/internal/releases/v2.3.0/checklist.md
-git mv docs/internal/release-planning/checklist_v2.4.0.md docs/internal/releases/v2.4.0/checklist.md
-git mv docs/internal/release-planning/checklist_v2.5.0.md docs/internal/releases/v2.5.0/checklist.md
+git mv docs/internal/release-planning/checklist_v2.2.0.md docs/internal/release-plans/v2.2.0/checklist.md
+git mv docs/internal/release-planning/checklist_v2.3.0.md docs/internal/release-plans/v2.3.0/checklist.md
+git mv docs/internal/release-planning/checklist_v2.4.0.md docs/internal/release-plans/v2.4.0/checklist.md
+git mv docs/internal/release-planning/checklist_v2.5.0.md docs/internal/release-plans/v2.5.0/checklist.md
 
 # Move decision records
-git mv docs/internal/delivery-plan/v2.4-*.md docs/internal/releases/v2.4.0/decisions.md
-git mv docs/internal/delivery-plan/v2.5-*.md docs/internal/releases/v2.5.0/decisions.md
+git mv docs/internal/delivery-plan/v2.4-*.md docs/internal/release-plans/v2.4.0/decisions.md
+git mv docs/internal/delivery-plan/v2.5-*.md docs/internal/release-plans/v2.5.0/decisions.md
 ```
 
 **3. Create minimal backfill checklists for v2.5.1, v2.5.2, v2.6.0, v2.6.1:**
@@ -664,7 +664,7 @@ Date: YYYY-MM-DD (from CHANGELOG.md)
 Backfilled during repo-hygiene audit. See CHANGELOG.md for full release details.
 ```
 
-**4. Write `docs/internal/releases/README.md`:**
+**4. Write `docs/internal/release-plans/README.md`:**
 
 Explain the structure, status lifecycle (Planned → In progress → Shipped → Superseded), what goes in each version directory (checklist, decisions, post-ship review if applicable).
 
@@ -675,16 +675,16 @@ git rm -r docs/internal/release-planning/  # after moving all checklists
 git rm -r docs/internal/delivery-plan/      # after moving all decisions
 ```
 
-Note: preserve any README.md files in the old directories if they contain useful policy content — fold that into the new `docs/internal/releases/README.md`.
+Note: preserve any README.md files in the old directories if they contain useful policy content — fold that into the new `docs/internal/release-plans/README.md`.
 
-**6. Update planning-persistence-policy.md** — change Tier 1 references from `docs/internal/release-planning/*.md` and `docs/internal/delivery-plan/*.md` to `docs/internal/releases/**/*.md`.
+**6. Update planning-persistence-policy.md** — change Tier 1 references from `docs/internal/release-planning/*.md` and `docs/internal/delivery-plan/*.md` to `docs/internal/release-plans/**/*.md`.
 
 **Commit:**
 
 ```bash
-git add docs/internal/releases/ docs/internal/planning-persistence-policy.md
+git add docs/internal/release-plans/ docs/internal/planning-persistence-policy.md
 git rm -r docs/internal/release-planning/ docs/internal/delivery-plan/
-git commit -m "docs(internal): consolidate release governance into docs/internal/releases/{version}/"
+git commit -m "docs(internal): consolidate release governance into docs/internal/release-plans/{version}/"
 ```
 
 </details>
@@ -858,9 +858,9 @@ Legend: **RESOLVED** = decision made, ready to execute | **AGREED** = direction 
 
 ---
 
-### Q-2. Consolidate release governance into `docs/internal/releases/` — AGREED
+### Q-2. Consolidate release governance into `docs/internal/release-plans/` — AGREED
 
-**Decision:** Merge `docs/internal/release-planning/` and `docs/internal/delivery-plan/` into a unified `docs/internal/releases/` organized by version. Use status markers for lifecycle, not separate directories.
+**Decision:** Merge `docs/internal/release-planning/` and `docs/internal/delivery-plan/` into a unified `docs/internal/release-plans/` organized by version. Use status markers for lifecycle, not separate directories.
 
 **Rationale:** Three overlapping locations (`release-planning/`, `delivery-plan/`, `_NOTES/delivery-plan/`) created confusion and governance drift. A single location with lifecycle status is cleaner and matches how most projects handle this.
 
@@ -870,23 +870,23 @@ The same directory holds both. The status field is the differentiator, not the l
 
 | Release lifecycle stage | What happens                                                               |
 | ----------------------- | -------------------------------------------------------------------------- |
-| **Planning starts**     | Create `docs/internal/releases/v2.7.0/checklist.md` with `Status: Planned` |
+| **Planning starts**     | Create `docs/internal/release-plans/v2.7.0/checklist.md` with `Status: Planned` |
 | **Work begins**         | Update to `Status: In Progress`                                            |
 | **Release ships**       | Update to `Status: Shipped`                                                |
 | **Blocker arises**      | Add decision record to same version directory                              |
 
-This means at any given time, `docs/internal/releases/` might contain:
+This means at any given time, `docs/internal/release-plans/` might contain:
 
 - Several `Shipped` version folders (historical record)
 - One `In Progress` folder (current release)
 - Optionally one `Planned` folder (next release, if planning ahead)
 
-`_NOTES/delivery-plan/` remains the *working scratch* during release prep (drafts, bundles, runbooks, experiments). Once the release ships, the final checklist is promoted to tracked `docs/internal/releases/v2.X.Y/`. The `_NOTES/` working copy stays as personal archive.
+`_NOTES/delivery-plan/` remains the *working scratch* during release prep (drafts, bundles, runbooks, experiments). Once the release ships, the final checklist is promoted to tracked `docs/internal/release-plans/v2.X.Y/`. The `_NOTES/` working copy stays as personal archive.
 
 **Target structure:**
 
 ```
-docs/internal/releases/
+docs/internal/release-plans/
 ├── README.md                         ← lifecycle rules, status values, patch vs minor/major policy
 ├── runbook_cut-tag-publish.md        ← shared procedure (moved from release-planning/)
 ├── v2.2.0/
@@ -911,7 +911,7 @@ docs/internal/releases/
 
 **Actions (replaces original A-6):**
 
-1. Create `docs/internal/releases/` with README.md
+1. Create `docs/internal/release-plans/` with README.md
 2. Move files from `release-planning/` and `delivery-plan/` into version subdirectories
 3. Promote v2.6.0 checklist from `_NOTES/`
 4. Backfill v2.6.1 checklist
@@ -928,9 +928,9 @@ May
 | Directory                 | Purpose                                                | Audience                | Changes?                                                               |
 | ------------------------- | ------------------------------------------------------ | ----------------------- | ---------------------------------------------------------------------- |
 | `docs/releases/`          | **Public release notes** (e.g., `Release_v2.6.1.md`)   | End users, contributors | **No change.** Stays exactly as-is.                                    |
-| `docs/internal/releases/` | **Internal governance** (checklists, decision records) | Maintainers, agents     | **NEW.** This is what replaces `release-planning/` + `delivery-plan/`. |
+| `docs/internal/release-plans/` | **Internal governance** (checklists, decision records) | Maintainers, agents     | **NEW.** This is what replaces `release-planning/` + `delivery-plan/`. |
 
-The status field (`Planned` → `In Progress` → `Shipped`) goes in the *internal* checklists at `docs/internal/releases/v2.X.Y/checklist.md`. The public release notes in `docs/releases/` are never touched by this change.
+The status field (`Planned` → `In Progress` → `Shipped`) goes in the *internal* checklists at `docs/internal/release-plans/v2.X.Y/checklist.md`. The public release notes in `docs/releases/` are never touched by this change.
 
 **Concrete example of what "before release" vs "after release" looks like:**
 
@@ -938,7 +938,7 @@ Before v2.7.0 ships:
 
 ```
 docs/releases/                    ← public, no v2.7.0 file yet
-docs/internal/releases/v2.7.0/
+docs/internal/release-plans/v2.7.0/
     └── checklist.md              Status: In Progress
 _NOTES/delivery-plan/releases/v2.7.0/
     ├── RELEASE_BUNDLE.md         ← working scratch
@@ -950,7 +950,7 @@ After v2.7.0 ships:
 ```
 docs/releases/
     └── Release_v2.7.0.md         ← public release notes (created at ship time)
-docs/internal/releases/v2.7.0/
+docs/internal/release-plans/v2.7.0/
     └── checklist.md              Status: Shipped (promoted from _NOTES/ or updated in place)
 _NOTES/delivery-plan/releases/v2.7.0/
     └── (stays as personal archive)

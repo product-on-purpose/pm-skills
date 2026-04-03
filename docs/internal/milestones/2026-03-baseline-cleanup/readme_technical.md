@@ -47,7 +47,7 @@ By early March 2026, four categories of drift had accumulated in the pm-skills r
 
 **Dirty git state.** `.claude/settings.json` had been deleted from the working directory but not committed. `git status` perpetually showed a pending deletion.
 
-**Governance model mismatch.** Internal policy docs, release notes, effort briefs, and contributor guides described two different canonical models: a previous model (split between `_NOTES/`, `docs/internal/release-planning/`, and `docs/internal/delivery-plan/`) and the accepted model (`docs/internal/releases/**` for release governance, `docs/internal/efforts/**` for effort briefs, GitHub issues for backlog state). The accepted model was decided but not propagated.
+**Governance model mismatch.** Internal policy docs, release notes, effort briefs, and contributor guides described two different canonical models: a previous model (split between `_NOTES/`, `docs/internal/release-planning/`, and `docs/internal/delivery-plan/`) and the accepted model (`docs/internal/release-plans/**` for release governance, `docs/internal/efforts/**` for effort briefs, GitHub issues for backlog state). The accepted model was decided but not propagated.
 
 ---
 
@@ -341,10 +341,10 @@ Issue: #{number}
 
 **Landed:** 2026-03-15
 
-**Problem:** `docs/internal/planning-persistence-policy.md` and `docs/internal/planning-artifact-tier-map.md` described a split canonical model across `_NOTES/`, `docs/internal/release-planning/`, and `docs/internal/delivery-plan/`. The accepted model had moved to `docs/internal/releases/**` and `docs/internal/efforts/**`, but the policy files had not been updated.
+**Problem:** `docs/internal/planning-persistence-policy.md` and `docs/internal/planning-artifact-tier-map.md` described a split canonical model across `_NOTES/`, `docs/internal/release-planning/`, and `docs/internal/delivery-plan/`. The accepted model had moved to `docs/internal/release-plans/**` and `docs/internal/efforts/**`, but the policy files had not been updated.
 
 **Changes:** Both files rewritten to reflect:
-- `docs/internal/releases/**`: tracked release governance home
+- `docs/internal/release-plans/**`: tracked release governance home
 - `docs/internal/efforts/**`: tracked effort brief home
 - `_NOTES/**`: local-only, never canonical
 - `docs/internal/release-planning/**` and `docs/internal/delivery-plan/**`: legacy/historical, not current canonical
@@ -359,10 +359,10 @@ Issue: #{number}
 
 **Landed:** 2026-03-16
 
-**Problem:** `docs/internal/releases/` did not exist as a canonical home with a README. Backlog canonical pointed to a gitignored path. `docs/internal/efforts/` had no README. The M-10 effort brief referenced `_NOTES/` paths.
+**Problem:** `docs/internal/release-plans/` did not exist as a canonical home with a README. Backlog canonical pointed to a gitignored path. `docs/internal/efforts/` had no README. The M-10 effort brief referenced `_NOTES/` paths.
 
 **Changes:**
-- Created `docs/internal/releases/README.md` (canonical home declaration, operating rules)
+- Created `docs/internal/release-plans/README.md` (canonical home declaration, operating rules)
 - Created `docs/internal/efforts/README.md` (effort brief conventions and three-layer model)
 - Rewrote `docs/internal/backlog-canonical.md` as a short policy/index: backlog state lives in GitHub issues; effort context in `docs/internal/efforts/**`
 - Updated `docs/internal/release-planning/README.md` and `docs/internal/delivery-plan/README.md` as legacy/redirect surfaces
@@ -370,7 +370,7 @@ Issue: #{number}
 
 **What this unblocked:** A-11 (effort tracking: now has a tracked `docs/internal/efforts/` home with a README convention to follow).
 
-**Files changed:** `docs/internal/releases/README.md` (new), `docs/internal/efforts/README.md` (new), `docs/internal/backlog-canonical.md` (rewritten), `docs/internal/release-planning/README.md` (updated), `docs/internal/delivery-plan/README.md` (updated), `docs/internal/efforts/M-10-skill-sample-outputs-library.md` (updated, later superseded by A-11)
+**Files changed:** `docs/internal/release-plans/README.md` (new), `docs/internal/efforts/README.md` (new), `docs/internal/backlog-canonical.md` (rewritten), `docs/internal/release-planning/README.md` (updated), `docs/internal/delivery-plan/README.md` (updated), `docs/internal/efforts/M-10-skill-sample-outputs-library.md` (updated, later superseded by A-11)
 
 ---
 
@@ -459,19 +459,19 @@ QUICKSTART.md: Stale "Maintainer Notes (v2.2.0)" section removed (described obse
 
 `.claude-plugin/plugin.json`: Version corrected from `"2.6.0"` to `"2.6.1"`. The plugin manifest had been created in v2.6.0 and not bumped when v2.6.1 shipped.
 
-`docs/releases/Release_v2.6.1.md`: Status updated from `"Release-ready (tag/publish pending explicit approval)"` to `"Released (tag v2.6.1 published)"`. Reference in item 4 of the Canonical Changes list updated from `_NOTES/delivery-plan/releases/v2.6.1/artifacts/skill-output-samples_manifest.v2.6.1.json` to `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json`. Same fix in Canonical References item 9. Item 10 added: `docs/internal/releases/v2.6.1/README.md`.
+`docs/releases/Release_v2.6.1.md`: Status updated from `"Release-ready (tag/publish pending explicit approval)"` to `"Released (tag v2.6.1 published)"`. Reference in item 4 of the Canonical Changes list updated from `_NOTES/delivery-plan/releases/v2.6.1/artifacts/skill-output-samples_manifest.v2.6.1.json` to `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json`. Same fix in Canonical References item 9. Item 10 added: `docs/internal/release-plans/v2.6.1/README.md`.
 
-`library/skill-output-samples/SAMPLE_CREATION.md`: Section 6 "Release-Coverage Metadata" updated. `_NOTES/` path replaced with `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json`. Description updated from "release-planning artifact" to "tracked internal release-governance artifact."
+`library/skill-output-samples/SAMPLE_CREATION.md`: Section 6 "Release-Coverage Metadata" updated. `_NOTES/` path replaced with `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json`. Description updated from "release-planning artifact" to "tracked internal release-governance artifact."
 
 `docs/internal/efforts/M-10-skill-sample-outputs-library.md`: Two lines added to Key Decisions and Artifacts Produced sections to reference the new tracked governance home and manifest path.
 
-`docs/internal/releases/v2.6.1/` (new directory):
+`docs/internal/release-plans/v2.6.1/` (new directory):
 - `README.md`: Status, owner, canonical artifact list, operating notes
 - `skill-output-samples_manifest.v2.6.1.json`: The coverage manifest that previously existed only in `_NOTES/`; now tracked
 
-`docs/internal/releases/README.md`: Entry points updated to add `v2.6.1/README.md` as item #2; last-updated date bumped.
+`docs/internal/release-plans/README.md`: Entry points updated to add `v2.6.1/README.md` as item #2; last-updated date bumped.
 
-**Files changed:** `.claude-plugin/plugin.json`, `docs/releases/Release_v2.6.1.md`, `library/skill-output-samples/SAMPLE_CREATION.md`, `docs/internal/efforts/M-10-skill-sample-outputs-library.md`, `docs/internal/releases/README.md`, `docs/internal/releases/v2.6.1/README.md` (new), `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json` (new)
+**Files changed:** `.claude-plugin/plugin.json`, `docs/releases/Release_v2.6.1.md`, `library/skill-output-samples/SAMPLE_CREATION.md`, `docs/internal/efforts/M-10-skill-sample-outputs-library.md`, `docs/internal/release-plans/README.md`, `docs/internal/release-plans/v2.6.1/README.md` (new), `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json` (new)
 
 ---
 
@@ -519,9 +519,9 @@ C-2 established `docs/internal/efforts/README.md` and updated M-10 to a prelimin
 
 ### Versioned internal release governance
 
-- `docs/internal/releases/README.md`: canonical home declaration
-- `docs/internal/releases/vX.Y.Z/`: per-release directory
-- First concrete instance: `docs/internal/releases/v2.6.1/` with README and manifest
+- `docs/internal/release-plans/README.md`: canonical home declaration
+- `docs/internal/release-plans/vX.Y.Z/`: per-release directory
+- First concrete instance: `docs/internal/release-plans/v2.6.1/` with README and manifest
 - Pattern: future releases create a directory here with governance artifacts
 
 ### Current agent context parity
@@ -559,9 +559,9 @@ C-2 established `docs/internal/efforts/README.md` and updated M-10 to a prelimin
 | `docs/internal/planning-artifact-tier-map.md` | Rewritten | C-1 |
 | `docs/internal/planning-persistence-policy.md` | Rewritten | C-1 |
 | `docs/internal/release-planning/README.md` | Updated | C-2 |
-| `docs/internal/releases/README.md` | Created, updated | C-2, C-6 |
-| `docs/internal/releases/v2.6.1/README.md` | Created | C-6 |
-| `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json` | Created | C-6 |
+| `docs/internal/release-plans/README.md` | Created, updated | C-2, C-6 |
+| `docs/internal/release-plans/v2.6.1/README.md` | Created | C-6 |
+| `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json` | Created | C-6 |
 | `docs/reference/ecosystem.md` | Updated | C-5 |
 | `docs/reference/frontmatter-schema.yaml` | Rewritten | C-4 |
 | `docs/reference/project-structure.md` | Updated | C-5 |

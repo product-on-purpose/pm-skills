@@ -11,7 +11,7 @@ Last updated: 2026-03-16
 
 ## Tracked Evidence
 
-1. `docs/internal/releases/v2.5.0/checklist.md` records the closed `M-10` gate and the release-matrix evidence block.
+1. `docs/internal/release-plans/v2.5.0/checklist.md` records the closed `M-10` gate and the release-matrix evidence block.
 2. `library/skill-output-samples/manifest.v2.5.0.json` is the locked shipped manifest.
 3. `docs/releases/Release_v2.5.0.md` captures the public release outcome.
 
@@ -26,8 +26,8 @@ Last updated: 2026-03-16
 ## Canonical References
 
 1. `docs/internal/efforts/M-10-skill-sample-outputs-library.md`
-2. `docs/internal/releases/v2.5.0/checklist.md`
-3. `docs/internal/releases/v2.5.0/execution-plan.md`
+2. `docs/internal/release-plans/v2.5.0/checklist.md`
+3. `docs/internal/release-plans/v2.5.0/execution-plan.md`
 4. `docs/guides/validate-mcp-sync.md`
 5. `library/skill-output-samples/manifest.v2.5.0.json`
 

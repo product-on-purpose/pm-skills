@@ -82,7 +82,7 @@ Claude already landed the first cleanup batch (`A-1` through `A-4`). Codex now n
 
 **What to change:**
 
-1. define `docs/internal/releases/**` as the tracked home for internal release governance
+1. define `docs/internal/release-plans/**` as the tracked home for internal release governance
 2. define `docs/internal/efforts/**` as the tracked home for durable effort briefs
 3. keep `_NOTES/**` local-only
 4. stop naming `docs/internal/release-planning/**` and `docs/internal/delivery-plan/**` as canonical tracked homes
@@ -104,7 +104,7 @@ Rewrite these tracked policy files to match the accepted baseline:
 - docs/internal/planning-artifact-tier-map.md
 
 Requirements:
-1. docs/internal/releases/** is the tracked home for internal release governance.
+1. docs/internal/release-plans/** is the tracked home for internal release governance.
 2. docs/internal/efforts/** is the tracked home for durable effort briefs.
 3. _NOTES/** remains local-only working space.
 4. Do not describe docs/internal/release-planning/** or docs/internal/delivery-plan/** as the current canonical homes.
@@ -124,8 +124,8 @@ Show the diff before concluding.
 
 **Files touched:**
 
-- create `docs/internal/releases/README.md`
-- add versioned files under `docs/internal/releases/`
+- create `docs/internal/release-plans/README.md`
+- add versioned files under `docs/internal/release-plans/`
 - create `docs/internal/efforts/README.md`
 - rewrite `docs/internal/backlog-canonical.md`
 - update `docs/internal/release-planning/README.md`
@@ -134,7 +134,7 @@ Show the diff before concluding.
 
 **What to change:**
 
-1. create the tracked `docs/internal/releases/` home
+1. create the tracked `docs/internal/release-plans/` home
 2. move or re-home active release-governance artifacts into versioned release folders
 3. rewrite `docs/internal/backlog-canonical.md` as a short policy/index file:
    - backlog state lives in GitHub issues
@@ -146,7 +146,7 @@ Show the diff before concluding.
 
 **Definition of done:**
 
-- `docs/internal/releases/README.md` exists
+- `docs/internal/release-plans/README.md` exists
 - tracked docs now explain one release-governance home
 - `docs/internal/backlog-canonical.md` no longer points to a gitignored canonical backlog file
 - `docs/internal/efforts/README.md` exists
@@ -157,11 +157,11 @@ Show the diff before concluding.
 ```text
 Execute C-2 from _NOTES/baseline-standards/plan_codex/execution_codex-gpt-5.4.md.
 
-Goal: establish docs/internal/releases/** as the single tracked release-governance home and normalize the effort/backlog entry points.
+Goal: establish docs/internal/release-plans/** as the single tracked release-governance home and normalize the effort/backlog entry points.
 
 Work in these files:
-- create docs/internal/releases/README.md
-- create the needed docs/internal/releases/vX.Y.Z/** structure for active tracked release artifacts
+- create docs/internal/release-plans/README.md
+- create the needed docs/internal/release-plans/vX.Y.Z/** structure for active tracked release artifacts
 - create docs/internal/efforts/README.md
 - rewrite docs/internal/backlog-canonical.md as a short policy/index note
 - update docs/internal/release-planning/README.md and docs/internal/delivery-plan/README.md so they read as legacy/redirect surfaces if they remain
@@ -414,10 +414,10 @@ C-1 and C-2 are done. Start with C-3.
 | Date | Item | Note |
 | --- | --- | --- |
 | 2026-03-15 | Plan creation | This execution plan reflects the final Codex baseline decisions, not the earlier open-question worksheet. |
-| 2026-03-15 | C-1 complete | `docs/internal/planning-persistence-policy.md` and `docs/internal/planning-artifact-tier-map.md` now point to `docs/internal/efforts/**` and `docs/internal/releases/**` as the canonical tracked homes. |
-| 2026-03-16 | C-2 complete | `docs/internal/releases/**` now exists as the canonical tracked release-governance home; backlog and effort entry-point docs were rewritten to point at `docs/internal/efforts/**`, GitHub issues, and the new release tree. |
+| 2026-03-15 | C-1 complete | `docs/internal/planning-persistence-policy.md` and `docs/internal/planning-artifact-tier-map.md` now point to `docs/internal/efforts/**` and `docs/internal/release-plans/**` as the canonical tracked homes. |
+| 2026-03-16 | C-2 complete | `docs/internal/release-plans/**` now exists as the canonical tracked release-governance home; backlog and effort entry-point docs were rewritten to point at `docs/internal/efforts/**`, GitHub issues, and the new release tree. |
 | 2026-03-17 | C-3 complete | `AGENTS/codex/CONTEXT.md` and `AGENTS/DECISIONS.md` now reflect the `v2.6.1` repo baseline, the accepted baseline model, and Claude `A-11` completion. |
 | 2026-03-15 | Claude dependency | `A-5` remains deferred until a later wrap-session effort. |
 | 2026-03-17 | Claude dependency | `A-8` and `A-9` are now unblocked because `C-3` refreshed the Codex continuity layer to the current baseline. |
-| 2026-03-16 | Claude dependency | `A-11` is now unblocked because `C-2` established the tracked `docs/internal/releases/**` structure and updated the effort/backlog entry points. |
+| 2026-03-16 | Claude dependency | `A-11` is now unblocked because `C-2` established the tracked `docs/internal/release-plans/**` structure and updated the effort/backlog entry points. |
 | 2026-03-17 | Claude A-11 complete | Claude landed effort tracking: `docs/internal/efforts/README.md`, `F-02-persona-skill.md`, `F-03-persona-library-tier0.md` created; `M-10-skill-sample-outputs-library.md` rewritten to standardized template. GitHub issues #108/#109/#110, label `effort`, milestone `v2.7.0`. C-6 should re-read M-10 brief before editing — format has changed. |

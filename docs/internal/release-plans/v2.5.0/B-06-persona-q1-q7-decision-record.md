@@ -25,9 +25,9 @@ Consolidate persona-builder decision threads into one durable tracked record so 
 
 ## Evidence Inputs
 
-- `docs/internal/releases/v2.5.0/B-05-foundation-phase-decision.md` (Q5 dependency, now signed defer)
-- `docs/internal/releases/v2.5.0/B-05_B-06-closure-path.md` (tracked closure-path context)
-- `docs/internal/releases/v2.5.0/execution-plan.md` (release-train context)
+- `docs/internal/release-plans/v2.5.0/B-05-foundation-phase-decision.md` (Q5 dependency, now signed defer)
+- `docs/internal/release-plans/v2.5.0/B-05_B-06-closure-path.md` (tracked closure-path context)
+- `docs/internal/release-plans/v2.5.0/execution-plan.md` (release-train context)
 
 ## Assumption Closure and Supersession
 
@@ -37,10 +37,10 @@ The following active assumptions are now superseded by this signed record:
 3. Any persona plan that conflicts with this Q1-Q7 matrix without explicit supersession note.
 
 Canonical supersession anchor:
-- `docs/internal/releases/v2.5.0/B-06-persona-q1-q7-decision-record.md` (this file)
+- `docs/internal/release-plans/v2.5.0/B-06-persona-q1-q7-decision-record.md` (this file)
 
 Dependency anchor:
-- `docs/internal/releases/v2.5.0/B-05-foundation-phase-decision.md`
+- `docs/internal/release-plans/v2.5.0/B-05-foundation-phase-decision.md`
 
 ## Closure Gates (Satisfied)
 

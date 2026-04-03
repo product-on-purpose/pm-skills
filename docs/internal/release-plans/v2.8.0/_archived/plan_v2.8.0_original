@@ -1,0 +1,200 @@
+# v2.8.0 Internal Release Governance
+
+Status: Planning
+Owner: Maintainers
+Last updated: 2026-03-31
+
+This directory is the tracked internal release-governance home for the `v2.8.0` release: PM skill lifecycle completion.
+
+## Release Theme
+
+**Complete the PM skill lifecycle: Create → Validate → Iterate.**
+
+v2.7.0 shipped the PM Skill Builder (`/pm-skill-builder`), giving contributors a guided path to *create* new skills. v2.8.0 closes the loop with two companion utility skills — Validate audits an existing skill against conventions and quality criteria, and Iterate applies feedback to improve an existing skill. Together, the three tools form a self-reinforcing lifecycle for skill quality.
+
+Secondary: lifecycle documentation, skill versioning governance, and CI to support skill evolution.
+
+## Release Contents
+
+| Effort | Type | Description | Agent | Status | Issue |
+|--------|------|-------------|-------|--------|-------|
+| F-10 | New skill | `utility-pm-skill-validate` (`/pm-skill-validate`) — audit a skill against conventions, CI rules, and quality criteria | Claude | Planned | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
+| F-11 | New skill | `utility-pm-skill-iterate` (`/pm-skill-iterate`) — apply feedback, validation results, or convention changes to improve an existing skill | Claude | Planned | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
+| D-03 | Documentation | PM skill lifecycle guide — how Create, Validate, and Iterate work together, with usage patterns and workflow examples | Claude | Planned | — |
+| M-18 | Infrastructure | CI: validate HISTORY.md consistency (when present) and `skills-manifest.yaml` in release folders | TBD | Planned | — |
+| D-04 | Documentation | Public docs refresh for v2.8.0 — skill count (29), command count (30), lifecycle docs, skill versioning references | TBD | Planned | — |
+
+## Dependency Chain
+
+```
+F-05 (v2.7.0, shipped)
+  ├── F-10 (validate) — checks against conventions F-05 established
+  │     └── F-11 (iterate) — consumes validation reports from F-10
+  └── M-12 (v2.7.0, shipped) — CI rules that F-10 mirrors at deeper level
+```
+
+F-10 should be built first. F-11 depends on F-10's output format (validation report) as one of its input types. D-03 can be drafted in parallel but finalized after both skills ship.
+
+## Gating Criteria
+
+- [ ] F-10 committed and local validators pass
+- [ ] F-11 committed and local validators pass
+- [ ] F-10 and F-11 work end-to-end: builder creates → validator audits → iterator improves
+- [ ] D-03: lifecycle guide created at `docs/pm-skill-lifecycle.md`
+- [ ] M-18: CI scripts created (`.sh` + `.ps1` + `.md` convention) and added to `validation.yml`
+- [ ] D-04: public docs refreshed (skill count, command count, lifecycle references)
+- [ ] MCP impact evaluated (see MCP Impact section below)
+- [ ] CHANGELOG.md updated with v2.8.0 section
+- [ ] `skills-manifest.yaml` finalized in this directory
+- [ ] Local enhanced validation passes for 29 skills, 30 command docs
+- [ ] Tag `v2.8.0` pushed → release.yml fires → ZIP published
+
+## Effort Details
+
+### F-10: utility-pm-skill-validate
+
+**What it does:** Audits an existing skill directory against structural conventions (mirroring CI) and LLM-assessed quality criteria (beyond CI). Produces a structured validation report that humans can scan and F-11 can consume.
+
+**Design decisions (resolved):**
+
+1. **Output format: Structured Markdown.** Report uses rigid section headings (`## Structural Checks`, `## Quality Checks`, `## Recommendations`) with severity-prefixed lines (`[x] PASS`, `[!] WARN`, `[ ] FAIL`). Human-readable, F-11-parseable. No YAML needed.
+
+2. **Three severity levels:** FAIL (must fix, violates convention), WARN (should fix, below quality bar), INFO (suggestion). Overall result = worst severity found.
+
+3. **Single skill default, batch summary available.** Primary: `/pm-skill-validate deliver-prd` → detailed report. Batch: `/pm-skill-validate --all` → summary table for triage. Batch does not produce 27+ detailed reports.
+
+4. **Two-tier assessment:**
+   - **Tier 1 (Structural):** Mirrors CI checks — frontmatter, naming, file presence, description word count. Deterministic.
+   - **Tier 2 (Quality):** LLM-assessed — output contract covers all template sections, example is complete (≥150 lines, fills all sections), checklist items are testable, description includes trigger phrase, instructions are numbered/imperative. Explicitly excludes writing style, domain accuracy, and framework coverage.
+
+**Artifacts:**
+- `skills/utility-pm-skill-validate/SKILL.md`
+- `skills/utility-pm-skill-validate/references/TEMPLATE.md` (validation report template)
+- `skills/utility-pm-skill-validate/references/EXAMPLE.md` (example report for a real skill)
+- `commands/pm-skill-validate.md`
+- AGENTS.md entry
+
+**Effort brief:** `docs/internal/efforts/F-10-pm-skill-validate.md`
+
+### F-11: utility-pm-skill-iterate
+
+**What it does:** Takes feedback, a validation report, or an improvement request and applies targeted changes to an existing skill. Shows a diff preview, writes on confirmation, auto-suggests a version bump, and offers to update HISTORY.md.
+
+**Design decisions (resolved):**
+
+1. **Diff preview, then direct write.** No staging area — the iterator modifies existing files, not creating from scratch. Shows proposed changes as a diff, user confirms, changes are written. Git diff is the safety net.
+
+2. **Auto-suggest version bump.** After applying changes, the iterator classifies the change (wording fix → patch, new section → minor, contract restructure → major) and suggests a bump per `skill-versioning.md` rules. User can accept or override. Updates `version` and `updated` in frontmatter on confirmation.
+
+3. **Offer to update HISTORY.md (don't force).** If HISTORY.md exists for the skill, offer to append. If it doesn't exist, don't create it — that's a governance decision for release prep per `skill-versioning.md`.
+
+4. **One unified flow for all input types (v1).** Accepts validation reports, user feedback, convention changes, or general improvement requests through the same flow. No explicit modes. Can split in a future version if usage patterns demand it.
+
+**Artifacts:**
+- `skills/utility-pm-skill-iterate/SKILL.md`
+- `skills/utility-pm-skill-iterate/references/TEMPLATE.md` (change summary template)
+- `skills/utility-pm-skill-iterate/references/EXAMPLE.md` (example iteration of a real skill)
+- `commands/pm-skill-iterate.md`
+- AGENTS.md entry
+
+**Effort brief:** `docs/internal/efforts/F-11-pm-skill-iterate.md`
+
+### D-03: PM Skill Lifecycle Guide
+
+**What it does:** Public-facing documentation explaining the Create → Validate → Iterate lifecycle.
+
+**Target path:** `docs/pm-skill-lifecycle.md`
+
+**Should cover:**
+1. The lifecycle model: why three separate tools instead of one
+2. When to use each tool
+3. Workflow patterns:
+   - **New skill:** `/pm-skill-builder` → promote → `/pm-skill-validate` → fix issues → ship
+   - **Improve existing:** `/pm-skill-validate` → review report → `/pm-skill-iterate` with report → review changes → ship
+   - **Convention change:** `/pm-skill-validate` (batch) → triage → `/pm-skill-iterate` per skill → ship
+   - **Feedback loop:** receive feedback → `/pm-skill-iterate` with feedback → `/pm-skill-validate` → confirm → ship
+4. How lifecycle tools relate to versioning (`docs/internal/skill-versioning.md`)
+5. How lifecycle tools relate to CI (what CI catches vs. what validate catches)
+6. Examples of each workflow pattern
+
+### M-18: CI — HISTORY.md and skills-manifest.yaml validation
+
+**What it does:** Two new validation scripts following the `.sh` + `.ps1` + `.md` convention.
+
+**Script 1: `validate-skill-history.sh` / `.ps1`**
+- For any skill with a HISTORY.md: check that the table includes an entry matching the SKILL.md frontmatter `version`
+- Check that HISTORY.md follows the expected format (summary table + version sections)
+- Advisory (non-blocking) for now — becomes blocking once HISTORY.md is more widely adopted
+
+**Script 2: `validate-skills-manifest.sh` / `.ps1`**
+- For any release folder with a `skills-manifest.yaml`: check that listed skill names exist in `skills/`
+- Check that listed versions match the current SKILL.md frontmatter (for the latest release only)
+- Advisory (non-blocking) — catches stale manifests
+
+**Added to:** `.github/workflows/validation.yml`
+
+### D-04: Public Docs Refresh
+
+Same pattern as v2.7.0's D-02. Review and update:
+
+| File | Review focus |
+|------|-------------|
+| `docs/guides/*` | Skill count (29), command count (30), lifecycle tools |
+| `docs/pm-skill-anatomy.md` | Reference lifecycle tools, link to lifecycle guide |
+| `docs/getting-started.md` | Mention `/pm-skill-validate` and `/pm-skill-iterate` |
+| `QUICKSTART.md` | Updated counts, lifecycle mention |
+| `scripts/README_SCRIPTS.md` | Document M-18 scripts |
+| `AGENTS.md` | Two new utility skills |
+
+## Suggested Commit Order
+
+1. F-10 implementation
+2. F-11 implementation
+3. M-18 CI scripts
+4. D-03 lifecycle guide
+5. D-04 public docs refresh
+6. Release prep (CHANGELOG, `skills-manifest.yaml`, version bumps)
+7. Tag and release
+
+F-10 and F-11 could land in separate commits or one combined commit. D-03 should wait until both skills are committed so it can reference actual command names and behavior accurately.
+
+## By the Numbers (projected)
+
+- **29 skills** (up from 27): 25 domain + 1 foundation + 3 utility
+- **30 command docs** (up from 28)
+- **2 new CI validation scripts** (advisory)
+- **1 new public guide** (`docs/pm-skill-lifecycle.md`)
+
+## MCP Impact
+
+**Evaluate before tagging.** Run `scripts/check-mcp-impact.sh` and review.
+
+### Pre-tag: Impact Assessment
+
+| Question | Answer |
+|----------|--------|
+| Do new skills need MCP tool registration? | Yes — F-10 and F-11 each need a tool |
+| Do existing MCP tools change? | No |
+| Does `embed-skills.js` naming handle the new skills? | Needs verification — `utility-` prefix stripping was added for F-05, should work for F-10/F-11 |
+| Do the new skills require file-read capabilities? | Yes — both read existing skill directories. MCP versions need embedded content or read access |
+| Is a pm-skills-mcp release required? | Yes — new tools must be registered |
+
+### Post-tag: MCP Update Required
+
+After tagging v2.8.0, `pm-skills-mcp` needs a corresponding update:
+
+| Action | Detail |
+|--------|--------|
+| Re-embed skills | Run `scripts/embed-skills.js` against the v2.8.0 tag |
+| Add F-10 tool | `utility-pm-skill-validate` → `pm_pm_skill_validate` |
+| Add F-11 tool | `utility-pm-skill-iterate` → `pm_pm_skill_iterate` |
+| Verify naming | Confirm `utility-` prefix stripping produces correct tool names |
+| Test read access | Both tools need to read skill directories — verify MCP embedded content includes enough context |
+| MCP version bump | Bump `pm-skills-mcp` version to match or follow v2.8.0 |
+
+## Canonical Artifacts
+
+1. `docs/internal/release-plans/v2.8.0/plan_v2.8.0.md` (this file)
+2. `docs/internal/release-plans/v2.8.0/skills-manifest.yaml` (draft, finalize at release prep)
+3. `docs/releases/Release_v2.8.0.md` (public release notes — create at tag time)
+4. Effort briefs: `F-10`, `F-11`, `D-03`, `M-18` in `docs/internal/efforts/`

@@ -159,6 +159,6 @@ All validators pass on both bash and PowerShell:
 
 - `CHANGELOG.md` — version history
 - `docs/releases/Release_v2.7.0.md` — this document
-- `docs/internal/releases/v2.7.0/README.md` — internal release governance
-- `docs/internal/releases/v2.7.0/decisions.md` — key decisions log
+- `docs/internal/release-plans/v2.7.0/README.md` — internal release governance
+- `docs/internal/release-plans/v2.7.0/decisions.md` — key decisions log
 - Effort briefs: `docs/internal/efforts/` (M-12, M-16, F-05, F-06)

@@ -30,7 +30,7 @@ Out of scope:
 1. Canonical sample-library path is now `library/skill-output-samples/`.
 2. Sample standards doc is now `library/skill-output-samples/SAMPLE_CREATION.md`.
 3. Sample README standards links updated to `SAMPLE_CREATION.md`.
-4. Coverage manifest is tracked at `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json`.
+4. Coverage manifest is tracked at `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json`.
 5. `scripts/build-release.sh` now stages `library/` (including `library/skill-output-samples/`) and fails if canonical sample files are missing from stage.
 6. `scripts/build-release.ps1` now stages `library/` (including `library/skill-output-samples/`) and fails if canonical sample files are missing from stage.
 7. `.github/workflows/release.yml` generated release notes now explicitly list sample-library inclusion.
@@ -54,5 +54,5 @@ Out of scope:
 6. `scripts/build-release.ps1`
 7. `library/skill-output-samples/README_SAMPLES.md`
 8. `library/skill-output-samples/SAMPLE_CREATION.md`
-9. `docs/internal/releases/v2.6.1/README.md`
-10. `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json`
+9. `docs/internal/release-plans/v2.6.1/README.md`
+10. `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json`

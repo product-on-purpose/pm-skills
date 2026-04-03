@@ -8,19 +8,19 @@ This directory is the canonical tracked home for internal release-governance art
 
 ## What Lives Here
 
-1. Versioned release folders under `docs/internal/releases/vX.Y.Z/`
+1. Versioned release folders under `docs/internal/release-plans/vX.Y.Z/`
 2. Cross-release release-operations docs used across cuts
 3. Tracked blocker decisions, closure summaries, execution plans, and checklists needed for durable release context
 
 ## Current Entry Points
 
-1. `docs/internal/releases/runbook_clean-worktree-cut-tag-publish.md`
-2. `docs/internal/releases/v2.7.0/README.md` (in progress)
-3. `docs/internal/releases/v2.6.1/README.md`
-4. `docs/internal/releases/v2.5.0/README.md`
-5. `docs/internal/releases/v2.4.0/README.md`
-6. `docs/internal/releases/v2.3.0/README.md`
-7. `docs/internal/releases/v2.2.0/README.md`
+1. `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`
+2. `docs/internal/release-plans/v2.7.0/README.md` (in progress)
+3. `docs/internal/release-plans/v2.6.1/README.md`
+4. `docs/internal/release-plans/v2.5.0/README.md`
+5. `docs/internal/release-plans/v2.4.0/README.md`
+6. `docs/internal/release-plans/v2.3.0/README.md`
+7. `docs/internal/release-plans/v2.2.0/README.md`
 
 ## Operating Rules
 

@@ -8,7 +8,7 @@ This directory is the tracked internal release-governance home for the `v2.6.1` 
 
 ## Canonical Artifacts
 
-1. `docs/internal/releases/v2.6.1/skill-output-samples_manifest.v2.6.1.json`
+1. `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json`
 2. `docs/releases/Release_v2.6.1.md`
 3. `library/skill-output-samples/SAMPLE_CREATION.md`
 

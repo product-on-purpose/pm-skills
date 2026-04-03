@@ -19,7 +19,7 @@ These are treated as settled unless the owner explicitly reopens them:
 1. GitHub issues own backlog state.
 2. `docs/internal/efforts/**` is the tracked home for durable effort briefs.
 3. `_NOTES/**` remains local-only working material.
-4. `docs/internal/releases/**` is the target tracked home for internal release governance.
+4. `docs/internal/release-plans/**` is the target tracked home for internal release governance.
 5. Keep both `AGENTS/claude/` and `AGENTS/codex/` first-class.
 6. Keep only intentionally shipped Claude-facing artifacts tracked:
    `.claude-plugin/plugin.json` and `.claude/pm-skills-for-claude.md`.
@@ -38,7 +38,7 @@ These are treated as settled unless the owner explicitly reopens them:
 | A-9 | Claude | add non-blocking CI step for context-currency | completed | A-8 | landed 2026-03-18; bash + pwsh steps in `validation.yml`, committed `de7c3bd` |
 | A-11 | Claude | establish effort briefs + GitHub issues | completed | none | landed 2026-03-17; README + 3 briefs committed; issues #108/#109/#110; label `effort`; milestone `v2.7.0` |
 | C-1 | Codex | rewrite active policy docs | completed | none | landed 2026-03-15 |
-| C-2 | Codex | consolidate release governance + normalize effort entry points | completed | C-1 | landed 2026-03-16; canonical `docs/internal/releases/**` home established |
+| C-2 | Codex | consolidate release governance + normalize effort entry points | completed | C-1 | landed 2026-03-16; canonical `docs/internal/release-plans/**` home established |
 | C-3 | Codex | refresh Codex continuity + shared decision capture | completed | C-2 preferred | landed 2026-03-17; Codex continuity refreshed to current baseline |
 | C-4 | Codex | align contributor schema/authoring docs | completed | none | landed on main 2026-03-20 (`22d96e5`); authoring/schema docs now teach root `version` + `updated`, and `classification` vs `phase` |
 | C-5 | Codex | align public/reference docs and remove speculative surfaces | completed | C-4 preferred | landed on main 2026-03-20 (`22d96e5`); repo-facing docs now reflect 25 shipped skills, current agent surfaces, and narrower MCP language |

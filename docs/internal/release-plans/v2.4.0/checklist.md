@@ -7,7 +7,7 @@ Release type: Minor
 - [x] B-03 canonical output behavior contract
 - [x] B-04 canonical config schema and format
 - [x] Canonical tracked closure summary recorded:
-  - `docs/internal/releases/v2.4.0/contract-lock-summary.md`
+  - `docs/internal/release-plans/v2.4.0/contract-lock-summary.md`
 
 ## Exit Criteria
 - [x] One output contract spec is canonical and cross-linked.

@@ -5,7 +5,7 @@ Audience: Maintainers, contributors, PMs, engineering leads, and MCP integrators
 Scope: What shipped in `v2.3.0` and `v2.4.0`, why it mattered, how it was implemented, and how to use the resulting baseline
 
 Note: Historical `_NOTES/delivery-plan/` references in this document point to legacy local working evidence.
-Canonical tracked summary for v2.4 contract-lock outcomes is `docs/internal/releases/v2.4.0/contract-lock-summary.md`.
+Canonical tracked summary for v2.4 contract-lock outcomes is `docs/internal/release-plans/v2.4.0/contract-lock-summary.md`.
 
 ## 1) Why This Document Exists
 
@@ -170,8 +170,8 @@ Future:
 ## 5) v2.4.0 Deep Dive: Contract Lock Release
 
 Release note: `docs/releases/Release_v2.4.md`  
-Checklist: `docs/internal/releases/v2.4.0/checklist.md` (Status: `Shipped`)
-Execution plan: `docs/internal/releases/v2.5.0/execution-plan.md`
+Checklist: `docs/internal/release-plans/v2.4.0/checklist.md` (Status: `Shipped`)
+Execution plan: `docs/internal/release-plans/v2.5.0/execution-plan.md`
 
 ### 5.1 B-03: Canonical output behavior contract lock
 
@@ -480,9 +480,9 @@ Calling these out prevents false assumptions and keeps roadmap truth clear.
 - `docs/releases/Release_v2.4.md`
 
 ### Release planning controls
-- `docs/internal/releases/v2.5.0/execution-plan.md` (spans v2.2-v2.5)
-- `docs/internal/releases/v2.3.0/checklist.md`
-- `docs/internal/releases/v2.4.0/checklist.md`
+- `docs/internal/release-plans/v2.5.0/execution-plan.md` (spans v2.2-v2.5)
+- `docs/internal/release-plans/v2.3.0/checklist.md`
+- `docs/internal/release-plans/v2.4.0/checklist.md`
 
 ### v2.3 closure packets
 - `_NOTES/delivery-plan/DONE/B-01a. DONE_alignment-checklist.md`

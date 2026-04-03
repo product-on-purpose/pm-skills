@@ -8,12 +8,12 @@ This folder is the canonical tracked home for the internal release-governance ar
 
 ## Canonical Artifacts
 
-1. `docs/internal/releases/v2.5.0/checklist.md`
-2. `docs/internal/releases/v2.5.0/execution-plan.md`
-3. `docs/internal/releases/v2.5.0/B-05-foundation-phase-decision.md`
-4. `docs/internal/releases/v2.5.0/B-06-persona-q1-q7-decision-record.md`
-5. `docs/internal/releases/v2.5.0/B-05_B-06-closure-path.md`
-6. `docs/internal/releases/v2.5.0/M-10-closure-summary.md`
+1. `docs/internal/release-plans/v2.5.0/checklist.md`
+2. `docs/internal/release-plans/v2.5.0/execution-plan.md`
+3. `docs/internal/release-plans/v2.5.0/B-05-foundation-phase-decision.md`
+4. `docs/internal/release-plans/v2.5.0/B-06-persona-q1-q7-decision-record.md`
+5. `docs/internal/release-plans/v2.5.0/B-05_B-06-closure-path.md`
+6. `docs/internal/release-plans/v2.5.0/M-10-closure-summary.md`
 
 ## Notes
 

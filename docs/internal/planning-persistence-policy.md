@@ -16,7 +16,7 @@ Track planning artifacts when future collaborators should be able to cite them w
 - `AGENTS/*/CONTEXT.md`
 - `AGENTS/*/DECISIONS.md`
 - `docs/internal/efforts/**` for durable effort briefs and canonical issue/context links
-- `docs/internal/releases/**` for internal release governance, blocker decisions, and cut/publish notes
+- `docs/internal/release-plans/**` for internal release governance, blocker decisions, and cut/publish notes
 - `docs/releases/*.md` for public release communication
 - `CHANGELOG.md`
 
@@ -43,7 +43,7 @@ Promote content out of local working space only when both are true:
 Promote into one of these tracked homes:
 
 1. `docs/internal/efforts/**`
-2. `docs/internal/releases/**`
+2. `docs/internal/release-plans/**`
 3. `AGENTS/*/DECISIONS.md`
 4. `AGENTS/DECISIONS.md`
 
@@ -57,7 +57,7 @@ Older files under `docs/internal/release-planning/**` and `docs/internal/deliver
 
 1. No tracked file should call `_NOTES/**` canonical.
 2. New durable effort context belongs in `docs/internal/efforts/**`.
-3. New internal release-governance artifacts belong in `docs/internal/releases/**`.
+3. New internal release-governance artifacts belong in `docs/internal/release-plans/**`.
 4. Tracked docs should link to GitHub issues for backlog state instead of replacing them with a second canonical backlog file.
 
 ## Governance Checks
@@ -65,5 +65,5 @@ Older files under `docs/internal/release-planning/**` and `docs/internal/deliver
 Before release or handoff:
 
 1. Confirm decision-impacting items are summarized in tracked decision or effort files.
-2. Confirm canonical effort and release links point to `docs/internal/efforts/**` or `docs/internal/releases/**`.
+2. Confirm canonical effort and release links point to `docs/internal/efforts/**` or `docs/internal/release-plans/**`.
 3. Confirm no active tracked doc treats `_NOTES/**` as the source of truth.

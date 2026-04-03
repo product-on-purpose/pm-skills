@@ -190,7 +190,7 @@ This task is incomplete and slightly overstated.
 
 2. The proposed status wording overshoots what the plan actually verifies.
    - It says to change status to "Implemented, CI passing" (`implementation-plan_pm-skill-builder.md:324`)
-   - But the release governance file gates on "committed and CI green" (`docs/internal/releases/v2.7.0/README.md:24-31`)
+   - But the release governance file gates on "committed and CI green" (`docs/internal/release-plans/v2.7.0/README.md:24-31`)
    - And Task 7 only runs bash validators, not the full cross-platform matrix
 
 Recommendation: Task 8 should both reconcile stale F-05 brief content and use wording like "Implemented locally, verification passed" until committed.

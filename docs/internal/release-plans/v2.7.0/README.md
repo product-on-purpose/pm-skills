@@ -46,7 +46,7 @@ Infrastructure hardening (M-12) + release packaging hygiene (M-16) + first new s
 
 ## Canonical Artifacts
 
-1. `docs/internal/releases/v2.7.0/README.md` (this file)
+1. `docs/internal/release-plans/v2.7.0/README.md` (this file)
 2. `docs/releases/Release_v2.7.0.md` (public release notes — create at tag time)
 3. Effort briefs: `M-12`, `M-16`, `F-05`, `F-06` in `docs/internal/efforts/`
 
