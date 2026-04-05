@@ -81,9 +81,14 @@ plugins:
   - privacy:
       enabled: !ENV [CI, true]
 
-# Exclude internal docs from site build
+# Exclude files from site build that have copies in the MkDocs tree
 exclude_docs: |
   internal/
+  agent-skill-anatomy.md
+  pm-skill-anatomy.md
+  pm-skill-lifecycle.md
+  getting-started.md
+  guides/authoring-pm-skills.md
 
 # ===========================================================================
 # MARKDOWN EXTENSIONS

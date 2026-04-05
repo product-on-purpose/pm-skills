@@ -92,13 +92,13 @@ This repo uses `.github/workflows/validate-mcp-sync.yml` to detect drift between
 
 ## Code of Conduct
 
-Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing. We are committed to providing a welcoming and inclusive environment for everyone.
+Please read and follow our [Code of Conduct](code-of-conduct.md) before contributing. We are committed to providing a welcoming and inclusive environment for everyone.
 
 ## Questions?
 
 - Open an issue for skill ideas or questions
 - Check existing issues before creating new ones
-- See the [README](README.md) for project context and roadmap
+- See the [README](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) for project context and roadmap
 
 ---
 

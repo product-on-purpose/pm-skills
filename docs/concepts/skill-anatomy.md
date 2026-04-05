@@ -1,6 +1,6 @@
 # PM-Skill Anatomy
 
-A practical guide to how skills are structured in the pm-skills repository. For the spec-level, cross-platform reference, see [Agent Skill Anatomy](./agent-skill-anatomy.md). For how skills evolve through the Create → Validate → Iterate lifecycle, see [PM-Skill Lifecycle](./pm-skill-lifecycle.md).
+A practical guide to how skills are structured in the pm-skills repository. For the spec-level, cross-platform reference, see [Agent Skill Anatomy](agent-skill-anatomy.md). For how skills evolve through the Create → Validate → Iterate lifecycle, see [PM-Skill Lifecycle](skill-lifecycle.md).
 
 ---
 
@@ -120,7 +120,7 @@ metadata:
 - `description` must be 20-100 words on a single line (no `>-` or `|` folding)
 - `version` must be quoted and appear exactly once at the root level (no `metadata.version`)
 
-For the full schema, see [frontmatter-schema.yaml](./reference/frontmatter-schema.yaml).
+For the full schema, see [frontmatter-schema.yaml](../reference/frontmatter-schema.yaml).
 
 ---
 
@@ -248,8 +248,8 @@ For manual creation, follow the structure in [skill template](./templates/skill-
 
 ## See Also
 
-- [Agent Skill Anatomy](./agent-skill-anatomy.md) — Spec-level, cross-platform reference (agentskills.io)
-- [Frontmatter Schema](./reference/frontmatter-schema.yaml) — Complete field definitions and validation rules
-- [Category Taxonomy](./reference/categories.md) — Category definitions and framework mappings
-- [Authoring Guide](./guides/authoring-pm-skills.md) — Step-by-step authoring instructions
-- [Getting Started](./getting-started.md) — Setup and usage guide
+- [Agent Skill Anatomy](agent-skill-anatomy.md) — Spec-level, cross-platform reference (agentskills.io)
+- [Frontmatter Schema](../reference/frontmatter-schema.yaml) — Complete field definitions and validation rules
+- [Category Taxonomy](../reference/categories.md) — Category definitions and framework mappings
+- [Authoring Guide](../guides/authoring-pm-skills.md) — Step-by-step authoring instructions
+- [Getting Started](../getting-started/index.md) — Setup and usage guide

@@ -344,7 +344,7 @@ skills/
 - Domain skills use one of the six lifecycle phases in both frontmatter and directory names (`deliver-prd`, `measure-experiment-design`).
 - Foundation and utility skills use `classification` and omit `phase` (`foundation-persona`).
 
-**Why flat + typed naming?** Keeps paths short while preserving the repo's two-axis model: lifecycle `phase` for domain skills, `classification` for non-phase skills. Categories continue to live in metadata; see [categories.md](reference/categories.md) for taxonomy.
+**Why flat + typed naming?** Keeps paths short while preserving the repo's two-axis model: lifecycle `phase` for domain skills, `classification` for non-phase skills. Categories continue to live in metadata; see [categories.md](../reference/categories.md) for taxonomy.
 
 ### Naming Conventions
 
@@ -549,7 +549,7 @@ license: CC-BY-4.0       # creative commons
 | `reflection` | Learning and improving | experiment-results, retrospective, lessons-log, pivot-decision |
 | `coordination` | Aligning teams and stakeholders | launch-checklist, release-notes, spike-summary, refinement-notes |
 
-**See**: [categories.md](reference/categories.md) for detailed taxonomy
+**See**: [categories.md](../reference/categories.md) for detailed taxonomy
 
 **Example**:
 
@@ -688,7 +688,7 @@ metadata:
 ---
 ```
 
-**Reference**: See [frontmatter-schema.yaml](reference/frontmatter-schema.yaml) for complete validation rules and examples.
+**Reference**: See [frontmatter-schema.yaml](../reference/frontmatter-schema.yaml) for complete validation rules and examples.
 
 ### Markdown Content Structure
 
@@ -1242,7 +1242,7 @@ Before finalizing, verify:
 See `references/EXAMPLE.md` for a completed example.
 ````
 
-**Link to actual file**: [skills/define-problem-statement/SKILL.md](../skills/define-problem-statement/SKILL.md)
+**Link to actual file**: [skills/define-problem-statement/SKILL.md](../skills/define/define-problem-statement.md)
 
 **Why this is a "simple" skill**:
 - Straightforward 6-step process
@@ -1351,7 +1351,7 @@ Before finalizing, verify:
 See `references/EXAMPLE.md` for a completed example.
 ````
 
-**Link to actual file**: [skills/deliver-prd/SKILL.md](../skills/deliver-prd/SKILL.md)
+**Link to actual file**: [skills/deliver-prd/SKILL.md](../skills/deliver/deliver-prd.md)
 
 **Why this is a "complex" skill**:
 - 8-step process (vs. 5-6 typical)
@@ -1369,7 +1369,7 @@ See `references/EXAMPLE.md` for a completed example.
 
 ### Template: The Canonical Template
 
-**Link**: [docs/templates/skill-template/SKILL.md](../templates/skill-template/SKILL.md)
+**Link**: [docs/templates/skill-template/SKILL.md](https://github.com/product-on-purpose/pm-skills/blob/main/docs/templates/skill-template/SKILL.md)
 
 **What to customize**:
 
@@ -1450,7 +1450,7 @@ See `references/EXAMPLE.md` for a completed example.
 
 ## Authoring Checklist
 
-Quick reference for skill authors before submission. For complete guidance, see [docs/guides/authoring-pm-skills.md](guides/authoring-pm-skills.md).
+Quick reference for skill authors before submission. For complete guidance, see [docs/../guides/authoring-pm-skills.md](../guides/authoring-pm-skills.md).
 
 ### Directory & Files
 
@@ -1467,7 +1467,7 @@ Quick reference for skill authors before submission. For complete guidance, see 
 - [ ] `name` matches parent directory name exactly
 - [ ] `description` is 50-300 characters with trigger keywords
 - [ ] `description` starts with action verb and includes "Use when..."
-- [ ] `category` is one of 7 valid values from [categories.md](reference/categories.md)
+- [ ] `category` is one of 7 valid values from [categories.md](../reference/categories.md)
 - [ ] `frameworks` array includes all applicable methodologies
 - [ ] `version` is quoted (`"1.0.0"` not `1.0.0`)
 - [ ] `license` is `Apache-2.0` (for pm-skills contributions)
@@ -1528,18 +1528,18 @@ Quick reference for skill authors before submission. For complete guidance, see 
 
 ### PM-Skills Documentation
 
-- **[Getting Started Guide](getting-started.md)** — Installation and first steps
-- **[Using Skills Guide](guides/using-skills.md)** — From beginner to advanced usage
-- **[Authoring PM-Skills](guides/authoring-pm-skills.md)** — Complete authoring guide
-- **[Frontmatter Schema](reference/frontmatter-schema.yaml)** — Field-by-field validation reference
-- **[Category Taxonomy](reference/categories.md)** — All 7 categories explained
-- **[Contributing Guidelines](../CONTRIBUTING.md)** — How to contribute to pm-skills
+- **[Getting Started Guide](../getting-started/index.md)** — Installation and first steps
+- **[Using Skills Guide](../guides/using-skills.md)** — From beginner to advanced usage
+- **[Authoring PM-Skills](../guides/authoring-pm-skills.md)** — Complete authoring guide
+- **[Frontmatter Schema](../reference/frontmatter-schema.yaml)** — Field-by-field validation reference
+- **[Category Taxonomy](../reference/categories.md)** — All 7 categories explained
+- **[Contributing Guidelines](../contributing/index.md)** — How to contribute to pm-skills
 
 ### Community & Ecosystem
 
 - **[PM-Skills Repository](https://github.com/product-on-purpose/pm-skills)** — Main repository
-- **[Skill Template](../templates/skill-template/SKILL.md)** — Starting point for new skills
-- **[Triple Diamond Framework](frameworks/triple-diamond-delivery-process.md)** — The organizing methodology
+- **[Skill Template](https://github.com/product-on-purpose/pm-skills/blob/main/docs/templates/skill-template/SKILL.md)** — Starting point for new skills
+- **[Triple Diamond Framework](triple-diamond.md)** — The organizing methodology
 
 ### Platform Documentation
 
@@ -1607,6 +1607,6 @@ Quick reference for skill authors before submission. For complete guidance, see 
 
 ---
 
-*Part of [PM-Skills](../README.md) — Open source Product Management skills for AI agents*
+*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) — Open source Product Management skills for AI agents*
 
 *Built by [Product on Purpose](https://github.com/product-on-purpose) for PMs who ship.*

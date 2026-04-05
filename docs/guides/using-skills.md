@@ -975,4 +975,4 @@ Friday:    /retrospective (team reflection)
 
 ---
 
-*Part of [PM-Skills](../../README.md) — Open source Product Management skills for AI agents*
+*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) — Open source Product Management skills for AI agents*

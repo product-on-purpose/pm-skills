@@ -63,3 +63,4 @@ AGENTS/*/PLANNING/
 
 # Local convenience
 .favorites.json
+.cache/

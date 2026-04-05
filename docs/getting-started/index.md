@@ -671,9 +671,9 @@ See `_bundles/` directory for detailed bundle documentation.
 
 ### Learn More
 
-- [Categories Reference](./reference/categories.md) — Understand skill organization
-- [Frontmatter Schema](./reference/frontmatter-schema.yaml) — Technical skill structure
-- [Triple Diamond Framework](./frameworks/triple-diamond-delivery-process.md) — The organizing methodology
+- [Categories Reference](../reference/categories.md) — Understand skill organization
+- [Frontmatter Schema](../reference/frontmatter-schema.yaml) — Technical skill structure
+- [Triple Diamond Framework](../concepts/triple-diamond.md) — The organizing methodology
 
 ### Explore Skills
 

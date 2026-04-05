@@ -993,7 +993,7 @@ docs/templates/skill-template/
 - [Frontmatter Schema](../reference/frontmatter-schema.yaml) — Detailed field documentation
 - [Categories Reference](../reference/categories.md) — Category definitions
 - [agentskills.io Specification](https://agentskills.io/specification) — Base specification
-- [Existing Skills](../../AGENTS.md) — See how others are structured
+- [Existing Skills](https://github.com/product-on-purpose/pm-skills/blob/main/AGENTS.md) — See how others are structured
 
 ### Getting Help
 
@@ -1019,4 +1019,4 @@ Ready to create a skill? Here's the fast path:
 
 ---
 
-*Part of [PM-Skills](../../README.md) — Open source Product Management skills for AI agents*
+*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) — Open source Product Management skills for AI agents*

@@ -13,7 +13,7 @@
 - [File Naming Conventions](#file-naming-conventions)
 - [Related Documentation](#related-documentation)
 
-This document provides a comprehensive overview of the PM-Skills repository structure. For a quick overview, see the [README.md](../../README.md#project-structure).
+This document provides a comprehensive overview of the PM-Skills repository structure. For a quick overview, see the [README.md](https://github.com/product-on-purpose/pm-skills/blob/main/README.md#project-structure).
 
 ## Directory Overview
 
