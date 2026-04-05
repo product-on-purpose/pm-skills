@@ -1287,10 +1287,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-triple-diamond" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Triple Diamond
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-skills" class="md-nav__link">
     <span class="md-ellipsis">
       
         The Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills-by-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills by Phase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-skill-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Skill Lifecycle
       
     </span>
   </a>
@@ -1394,12 +1427,22 @@
 <h1 id="pm-skills">PM Skills<a class="headerlink" href="#pm-skills" title="Permanent link">&para;</a></h1>
 <p><strong>29 best-practice product management skills for AI agents.</strong></p>
 <p>PM Skills teaches AI assistants how to produce professional PM artifacts — PRDs, user stories, acceptance criteria, experiment designs, and more. One command, consistent output, every time.</p>
-<pre class="mermaid"><code>flowchart LR
-    Create["/pm-skill-builder\nCreate"] --&gt; Validate["/pm-skill-validate\nValidate"]
-    Validate --&gt; Decision{Findings?}
-    Decision -- "PASS" --&gt; Ship["Ship"]
-    Decision -- "WARN / FAIL" --&gt; Iterate["/pm-skill-iterate\nIterate"]
-    Iterate --&gt; Validate</code></pre>
+<h2 id="the-triple-diamond">The Triple Diamond<a class="headerlink" href="#the-triple-diamond" title="Permanent link">&para;</a></h2>
+<p>Skills are organized across 6 phases of the Triple Diamond framework — three diamonds covering the problem space, the solution space, and the learning space.</p>
+<pre class="mermaid"><code>graph LR
+    subgraph "Problem Space"
+        D1["Discover\n3 skills"] --&gt; D2["Define\n4 skills"]
+    end
+    subgraph "Solution Space"
+        D3["Develop\n4 skills"] --&gt; D4["Deliver\n6 skills"]
+    end
+    subgraph "Learning Space"
+        D5["Measure\n4 skills"] --&gt; D6["Iterate\n4 skills"]
+    end
+    D2 --&gt; D3
+    D4 --&gt; D5
+    D6 -.-&gt;|"next cycle"| D1</code></pre>
+<p><a href="concepts/triple-diamond/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Learn about the Triple Diamond</a></p>
 <h2 id="the-skills">The Skills<a class="headerlink" href="#the-skills" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>
@@ -1451,7 +1494,63 @@
 <p>Create, validate, and iterate skills themselves
   <a href="skills/utility/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Browse</a></p>
 </div>
-<p><a href="concepts/skill-lifecycle/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Learn more about the lifecycle</a></p>
+<h2 id="skills-by-phase">Skills by Phase<a class="headerlink" href="#skills-by-phase" title="Permanent link">&para;</a></h2>
+<p>Every skill mapped to its phase, with the command to invoke it:</p>
+<pre class="mermaid"><code>graph TD
+    subgraph "Discover"
+        S1["/competitive-analysis"]
+        S2["/interview-synthesis"]
+        S3["/stakeholder-summary"]
+    end
+    subgraph "Define"
+        S4["/problem-statement"]
+        S5["/hypothesis"]
+        S6["/opportunity-tree"]
+        S7["/jtbd-canvas"]
+    end
+    subgraph "Develop"
+        S8["/solution-brief"]
+        S9["/spike-summary"]
+        S10["/adr"]
+        S11["/design-rationale"]
+    end
+    subgraph "Deliver"
+        S12["/prd"]
+        S13["/user-stories"]
+        S14["/acceptance-criteria"]
+        S15["/edge-cases"]
+        S16["/launch-checklist"]
+        S17["/release-notes"]
+    end
+    subgraph "Measure"
+        S18["/experiment-design"]
+        S19["/instrumentation-spec"]
+        S20["/dashboard-requirements"]
+        S21["/experiment-results"]
+    end
+    subgraph "Iterate"
+        S22["/retrospective"]
+        S23["/lessons-log"]
+        S24["/refinement-notes"]
+        S25["/pivot-decision"]
+    end
+
+    S1 &amp; S2 &amp; S3 --&gt; S4 &amp; S5
+    S4 &amp; S5 &amp; S6 &amp; S7 --&gt; S8
+    S8 &amp; S9 &amp; S10 &amp; S11 --&gt; S12
+    S12 &amp; S13 &amp; S14 &amp; S15 --&gt; S18
+    S18 &amp; S19 &amp; S20 &amp; S21 --&gt; S22</code></pre>
+<h2 id="the-skill-lifecycle">The Skill Lifecycle<a class="headerlink" href="#the-skill-lifecycle" title="Permanent link">&para;</a></h2>
+<p>Three utility skills form a self-reinforcing quality loop for managing the skill library itself:</p>
+<pre class="mermaid"><code>flowchart LR
+    Create["/pm-skill-builder\nCreate"] --&gt; Validate["/pm-skill-validate\nValidate"]
+    Validate --&gt; Decision{Findings?}
+    Decision -- "PASS" --&gt; Ship["Ship"]
+    Decision -- "WARN / FAIL" --&gt; Iterate["/pm-skill-iterate\nIterate"]
+    Iterate --&gt; Validate</code></pre>
+<p><strong>Create</strong> a new skill with guided gap analysis and classification. <strong>Validate</strong> it against structural conventions and quality criteria. <strong>Iterate</strong> to fix findings from the validation report or apply feedback. Repeat until passing, then ship.</p>
+<p>The lifecycle tools are what keep the library consistent as it grows — the validator catches drift, and the iterator applies fixes with version tracking and change summaries.</p>
+<p><a href="concepts/skill-lifecycle/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Learn more about the lifecycle</a> · <a href="concepts/versioning/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Skill versioning</a></p>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/product-on-purpose/pm-skills.git
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>pm-skills
@@ -1461,7 +1560,7 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/hypothesis &quot;Will one-page checkout increase conversion?&quot;
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>/acceptance-criteria &quot;User can reset password via email&quot;
 </span></code></pre></div>
-<p><a href="getting-started/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Full setup guide</a></p>
+<p><a href="getting-started/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Full setup guide</a> · <a href="guides/skill-finder/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Find the right skill</a> · <a href="guides/recipes/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Recipes</a></p>
 <h2 id="see-it-in-action">See It In Action<a class="headerlink" href="#see-it-in-action" title="Permanent link">&para;</a></h2>
 <p>Follow three fictional companies through the complete product lifecycle — from discovery research to pivot decisions — with real prompts and full outputs.</p>
 <div class="grid cards">
@@ -1544,7 +1643,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 04:01:21 UTC"><span class="timeago" datetime="2026-04-05T04:01:21+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 04:01:21 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 04:27:43 UTC"><span class="timeago" datetime="2026-04-05T04:27:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 04:27:43 UTC">2026-04-05</span>
   </span>
 
     
