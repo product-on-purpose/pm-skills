@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.2] - 2026-04-04
+
+### Added
+- **Skill versioning concepts page** — `docs/concepts/versioning.md`: public-facing guide to skill SemVer, HISTORY.md, skills-manifest.yaml, tie-breaker rule, and lifecycle tool integration.
+- **git-revision-date-localized plugin** — shows "last updated" and "created" dates on every page (enabled in CI).
+- **Custom CSS** — `docs/stylesheets/extra.css` for card grid, tag badge, and admonition styling.
+- **Theme overrides directory** — `overrides/` for future MkDocs Material customization.
+- **F-12 effort brief** — skill quality convergence draft (first real-world use of lifecycle tools at scale).
+
+### Changed
+- `requirements-docs.txt` — added `mkdocs-git-revision-date-localized-plugin`.
+- `mkdocs.yml` — added git-revision-date, custom_dir, extra_css, versioning page in nav.
+- `docs/reference/categories.md` — fixed stale coordination skill count (5→7) and total (27→29).
+- `marketplace.json` — updated to v2.8.1 / 29 skills.
+
+### Release Notes
+- Documentation-only release. No skill or command behavior changes.
+- No `pm-skills-mcp` code changes required (docs parity update only).
+
 ## [2.8.1] - 2026-04-04 ([release notes](docs/releases/Release_v2.8.1.md))
 
 ### Added

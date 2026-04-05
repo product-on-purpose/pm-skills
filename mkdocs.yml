@@ -18,6 +18,7 @@ copyright: >-
 # ===========================================================================
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -83,6 +84,11 @@ plugins:
   - social:
       enabled: !ENV [CI, false]
   - tags
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
+      type: timeago
+      enable_creation_date: true
+      fallback_to_build_date: true
 
 # Exclude files from site build that have copies in the MkDocs tree
 exclude_docs: |
@@ -147,6 +153,9 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/product-on-purpose/pm-skills
+
+extra_css:
+  - stylesheets/extra.css
 
 # ===========================================================================
 # NAVIGATION
@@ -232,6 +241,7 @@ nav:
     - Agent Skill Anatomy: concepts/agent-skill-anatomy.md
     - Skill Lifecycle: concepts/skill-lifecycle.md
     - The Triple Diamond: concepts/triple-diamond.md
+    - Skill Versioning: concepts/versioning.md
     - Skill Comparisons: concepts/comparisons.md
 
   - Showcase:
