@@ -11,14 +11,27 @@ tags:
 
 PM Skills teaches AI assistants how to produce professional PM artifacts — PRDs, user stories, acceptance criteria, experiment designs, and more. One command, consistent output, every time.
 
+## The Triple Diamond
+
+Skills are organized across 6 phases of the Triple Diamond framework — three diamonds covering the problem space, the solution space, and the learning space.
+
 ```mermaid
-flowchart LR
-    Create["/pm-skill-builder\nCreate"] --> Validate["/pm-skill-validate\nValidate"]
-    Validate --> Decision{Findings?}
-    Decision -- "PASS" --> Ship["Ship"]
-    Decision -- "WARN / FAIL" --> Iterate["/pm-skill-iterate\nIterate"]
-    Iterate --> Validate
+graph LR
+    subgraph "Problem Space"
+        D1["Discover\n3 skills"] --> D2["Define\n4 skills"]
+    end
+    subgraph "Solution Space"
+        D3["Develop\n4 skills"] --> D4["Deliver\n6 skills"]
+    end
+    subgraph "Learning Space"
+        D5["Measure\n4 skills"] --> D6["Iterate\n4 skills"]
+    end
+    D2 --> D3
+    D4 --> D5
+    D6 -.->|"next cycle"| D1
 ```
+
+[:octicons-arrow-right-24: Learn about the Triple Diamond](concepts/triple-diamond.md)
 
 ## The Skills
 
@@ -66,7 +79,75 @@ flowchart LR
 
 </div>
 
-[:octicons-arrow-right-24: Learn more about the lifecycle](concepts/skill-lifecycle.md)
+## Skills by Phase
+
+Every skill mapped to its phase, with the command to invoke it:
+
+```mermaid
+graph TD
+    subgraph "Discover"
+        S1["/competitive-analysis"]
+        S2["/interview-synthesis"]
+        S3["/stakeholder-summary"]
+    end
+    subgraph "Define"
+        S4["/problem-statement"]
+        S5["/hypothesis"]
+        S6["/opportunity-tree"]
+        S7["/jtbd-canvas"]
+    end
+    subgraph "Develop"
+        S8["/solution-brief"]
+        S9["/spike-summary"]
+        S10["/adr"]
+        S11["/design-rationale"]
+    end
+    subgraph "Deliver"
+        S12["/prd"]
+        S13["/user-stories"]
+        S14["/acceptance-criteria"]
+        S15["/edge-cases"]
+        S16["/launch-checklist"]
+        S17["/release-notes"]
+    end
+    subgraph "Measure"
+        S18["/experiment-design"]
+        S19["/instrumentation-spec"]
+        S20["/dashboard-requirements"]
+        S21["/experiment-results"]
+    end
+    subgraph "Iterate"
+        S22["/retrospective"]
+        S23["/lessons-log"]
+        S24["/refinement-notes"]
+        S25["/pivot-decision"]
+    end
+
+    S1 & S2 & S3 --> S4 & S5
+    S4 & S5 & S6 & S7 --> S8
+    S8 & S9 & S10 & S11 --> S12
+    S12 & S13 & S14 & S15 --> S18
+    S18 & S19 & S20 & S21 --> S22
+```
+
+## The Skill Lifecycle
+
+Three utility skills form a self-reinforcing quality loop for managing the skill library itself:
+
+```mermaid
+flowchart LR
+    Create["/pm-skill-builder\nCreate"] --> Validate["/pm-skill-validate\nValidate"]
+    Validate --> Decision{Findings?}
+    Decision -- "PASS" --> Ship["Ship"]
+    Decision -- "WARN / FAIL" --> Iterate["/pm-skill-iterate\nIterate"]
+    Iterate --> Validate
+```
+
+**Create** a new skill with guided gap analysis and classification. **Validate** it against structural conventions and quality criteria. **Iterate** to fix findings from the validation report or apply feedback. Repeat until passing, then ship.
+
+The lifecycle tools are what keep the library consistent as it grows — the validator catches drift, and the iterator applies fixes with version tracking and change summaries.
+
+[:octicons-arrow-right-24: Learn more about the lifecycle](concepts/skill-lifecycle.md) · [:octicons-arrow-right-24: Skill versioning](concepts/versioning.md)
 
 ## Quick Start
 
@@ -83,7 +164,7 @@ Then use any skill:
 /acceptance-criteria "User can reset password via email"
 ```
 
-[:octicons-arrow-right-24: Full setup guide](getting-started/)
+[:octicons-arrow-right-24: Full setup guide](getting-started/) · [:octicons-arrow-right-24: Find the right skill](guides/skill-finder.md) · [:octicons-arrow-right-24: Recipes](guides/recipes.md)
 
 ## See It In Action
 
