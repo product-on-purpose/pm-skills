@@ -1,6 +1,6 @@
 ---
 title: PM Skills
-description: 29 AI agent skills for product managers — open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more.
+description: 29 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more.
 tags:
   - Home
 ---
@@ -9,11 +9,11 @@ tags:
 
 **29 best-practice product management skills for AI agents.**
 
-PM Skills teaches AI assistants how to produce professional PM artifacts — PRDs, user stories, acceptance criteria, experiment designs, and more. One command, consistent output, every time.
+PM Skills teaches AI assistants how to produce professional PM artifacts - PRDs, user stories, acceptance criteria, experiment designs, and more. One command, consistent output, every time.
 
 ## The Triple Diamond
 
-Skills are organized across 6 phases of the Triple Diamond framework — three diamonds covering the problem space, the solution space, and the learning space.
+Skills are organized across 6 phases of the Triple Diamond framework - three diamonds covering the problem space, the solution space, and the learning space.
 
 ```mermaid
 graph LR
@@ -37,42 +37,42 @@ graph LR
 
 <div class="grid cards" markdown>
 
-- :material-magnify: **Discover** — 3 skills
+- :material-magnify: **Discover** - 3 skills
   ---
   Research, competitive analysis, stakeholder mapping
   [:octicons-arrow-right-24: Browse](skills/discover/)
 
-- :material-target: **Define** — 4 skills
+- :material-target: **Define** - 4 skills
   ---
   Problem framing, hypotheses, opportunity trees, JTBD
   [:octicons-arrow-right-24: Browse](skills/define/)
 
-- :material-wrench: **Develop** — 4 skills
+- :material-wrench: **Develop** - 4 skills
   ---
   Solution briefs, ADRs, design rationale, spikes
   [:octicons-arrow-right-24: Browse](skills/develop/)
 
-- :material-rocket-launch: **Deliver** — 6 skills
+- :material-rocket-launch: **Deliver** - 6 skills
   ---
   PRDs, user stories, acceptance criteria, edge cases, launch, release notes
   [:octicons-arrow-right-24: Browse](skills/deliver/)
 
-- :material-chart-line: **Measure** — 4 skills
+- :material-chart-line: **Measure** - 4 skills
   ---
   Experiments, instrumentation, dashboards, results
   [:octicons-arrow-right-24: Browse](skills/measure/)
 
-- :material-refresh: **Iterate** — 4 skills
+- :material-refresh: **Iterate** - 4 skills
   ---
   Retrospectives, lessons, refinement, pivot decisions
   [:octicons-arrow-right-24: Browse](skills/iterate/)
 
-- :material-layers-triple: **Foundation** — 1 skill
+- :material-layers-triple: **Foundation** - 1 skill
   ---
   Cross-cutting persona generation
   [:octicons-arrow-right-24: Browse](skills/foundation/)
 
-- :material-tools: **Utility** — 3 skills
+- :material-tools: **Utility** - 3 skills
   ---
   Create, validate, and iterate skills themselves
   [:octicons-arrow-right-24: Browse](skills/utility/)
@@ -133,7 +133,7 @@ block-beta
     discover --> define --> develop --> deliver --> measure --> iterate
 ```
 
-**Plus:** `/persona` (Foundation — cross-cutting) · `/pm-skill-builder` `/pm-skill-validate` `/pm-skill-iterate` (Utility — skill lifecycle)
+**Plus:** `/persona` (Foundation - cross-cutting) · `/pm-skill-builder` `/pm-skill-validate` `/pm-skill-iterate` (Utility - skill lifecycle)
 
 ## The Skill Lifecycle
 
@@ -150,7 +150,7 @@ flowchart LR
 
 **Create** a new skill with guided gap analysis and classification. **Validate** it against structural conventions and quality criteria. **Iterate** to fix findings from the validation report or apply feedback. Repeat until passing, then ship.
 
-The lifecycle tools are what keep the library consistent as it grows — the validator catches drift, and the iterator applies fixes with version tracking and change summaries.
+The lifecycle tools are what keep the library consistent as it grows - the validator catches drift, and the iterator applies fixes with version tracking and change summaries.
 
 [:octicons-arrow-right-24: Learn more about the lifecycle](concepts/skill-lifecycle.md) · [:octicons-arrow-right-24: Skill versioning](concepts/versioning.md)
 
@@ -173,21 +173,21 @@ Then use any skill:
 
 ## See It In Action
 
-Follow three fictional companies through the complete product lifecycle — from discovery research to pivot decisions — with real prompts and full outputs.
+Follow three fictional companies through the complete product lifecycle - from discovery research to pivot decisions - with real prompts and full outputs.
 
 <div class="grid cards" markdown>
 
-- :material-store: **Storevine** — B2B Ecommerce
+- :material-store: **Storevine** - B2B Ecommerce
   ---
   Building email marketing for 15K merchants. Organized prompts.
   [:octicons-arrow-right-24: Follow the journey](showcase/storevine.md)
 
-- :material-bookshelf: **Brainshelf** — Consumer PKM
+- :material-bookshelf: **Brainshelf** - Consumer PKM
   ---
   Building a morning digest for 22K users. Casual prompts.
   [:octicons-arrow-right-24: Follow the journey](showcase/brainshelf.md)
 
-- :material-office-building: **Workbench** — Enterprise Collaboration
+- :material-office-building: **Workbench** - Enterprise Collaboration
   ---
   Building document templates for 500 enterprises. Structured prompts.
   [:octicons-arrow-right-24: Follow the journey](showcase/workbench.md)
