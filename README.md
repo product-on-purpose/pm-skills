@@ -122,41 +122,39 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 **What's New (Recent Releases)**
 <details>
+<summary>v2.8.2 - Docs site polish + versioning concepts</summary>
+
+- **New**: Skill versioning concepts page — `docs/concepts/versioning.md` covering SemVer, HISTORY.md, skills-manifest.yaml, and lifecycle tool integration.
+- **New**: git-revision-date-localized plugin — "last updated" and "created" dates on every docs page.
+- **New**: Custom CSS and theme overrides directory for MkDocs Material customization.
+- Fixed stale coordination skill count in `docs/reference/categories.md` (5→7, total 27→29).
+- Updated `marketplace.json` to v2.8.1 / 29 skills.
+- Documentation-only release — no skill or command behavior changes.
+
+</details>
+<details>
+<summary>v2.8.1 - Documentation site launch</summary>
+
+- **Documentation site** at [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/) — MkDocs Material with tab navigation, dark mode, search, and mermaid diagrams.
+- **"Follow the Product" showcase** — 3 interactive narrative journeys with 84 real sample outputs.
+- **Skill finder** — interactive decision tree and artifact table.
+- **Recipes** — 7 end-to-end workflows with mermaid flow diagrams.
+- **Skill comparisons** — 6 side-by-side comparisons for commonly confused skill pairs.
+- **Prompt gallery**, per-skill real-world examples, quick-try snippets, phase flow diagrams, tags plugin, social cards.
+- **Generation scripts** and deploy workflow for automated docs publishing.
+- **MCP setup guide** — `docs/guides/mcp-setup.md` for Claude Desktop, Cursor, Claude Code, and VS Code.
+- Release note: [`docs/releases/Release_v2.8.1.md`](docs/releases/Release_v2.8.1.md).
+
+</details>
+<details>
 <summary>v2.8.0 - PM skill lifecycle: Create, Validate, Iterate</summary>
 
 - **New skill**: `utility-pm-skill-validate` (`/pm-skill-validate`) — audits a skill against structural conventions and quality criteria, producing a severity-graded validation report.
 - **New skill**: `utility-pm-skill-iterate` (`/pm-skill-iterate`) — applies targeted improvements based on feedback or validation reports, with before/after previews and version bump suggestions.
 - **New CI**: `validate-skill-history` and `validate-skills-manifest` advisory scripts for skill versioning governance.
 - **New guide**: `docs/pm-skill-lifecycle.md` — workflow patterns for the Create → Validate → Iterate lifecycle.
-- **Governance**: `docs/internal/skill-versioning.md` — SemVer rules, HISTORY.md contract, skills-manifest.yaml format.
 - Repo now ships 29 skills, 30 command docs, and 3 workflow bundles.
 - Release note: [`docs/releases/Release_v2.8.0.md`](docs/releases/Release_v2.8.0.md).
-
-</details>
-<details>
-<summary>v2.7.0 - Utility skills, enhanced CI, and release packaging hygiene</summary>
-
-- **New skill**: `deliver-acceptance-criteria` — Given/When/Then acceptance criteria for stories and features.
-- **New skill**: `utility-pm-skill-builder` — first utility-classified skill; interactive builder for creating new PM skills with gap analysis, classification, and draft file generation.
-- **Enhanced CI**: extended frontmatter linter, AGENTS.md sync validator, MCP impact detection.
-- **Release packaging**: `docs/internal/**` excluded from published ZIPs while staying tracked in-repo.
-- **Documentation**: new `docs/pm-skill-anatomy.md` guide, comprehensive public docs refresh.
-- Repo now ships 27 skills, 28 command docs, and 3 workflow bundles.
-- Release note: [`docs/releases/Release_v2.7.0.md`](docs/releases/Release_v2.7.0.md).
-
-</details>
-<details>
-<summary>v2.6.x - Claude plugin packaging + sample library recovery</summary>
-
-**v2.6.1** — Sample library recovery and packaging inclusion:
-- Restored and normalized the shipped sample-output corpus under `library/skill-output-samples/`.
-- Added sample-library staging to release packagers so ZIP artifacts include sample outputs.
-- Release note: `docs/releases/Release_v2.6.1.md`.
-
-**v2.6.0** — Claude plugin packaging release:
-- Added Claude plugin manifest support via `.claude-plugin/plugin.json`.
-- Release packaging now includes `.claude-plugin/` and enforces plugin-manifest version alignment with the release version.
-- Release note: `docs/releases/Release_v2.6.0.md`.
 
 </details>
 
@@ -764,6 +762,32 @@ See [docs/reference/project-structure.md](docs/reference/project-structure.md) f
 <a id="previous-release-details"></a>
 
 <details>
+<summary>v2.7.0 - Utility skills, enhanced CI, and release packaging hygiene</summary>
+
+- **New skill**: `deliver-acceptance-criteria` — Given/When/Then acceptance criteria for stories and features.
+- **New skill**: `utility-pm-skill-builder` — first utility-classified skill; interactive builder for creating new PM skills with gap analysis, classification, and draft file generation.
+- **Enhanced CI**: extended frontmatter linter, AGENTS.md sync validator, MCP impact detection.
+- **Release packaging**: `docs/internal/**` excluded from published ZIPs while staying tracked in-repo.
+- **Documentation**: new `docs/pm-skill-anatomy.md` guide, comprehensive public docs refresh.
+- Repo now ships 27 skills, 28 command docs, and 3 workflow bundles.
+- Release note: [`docs/releases/Release_v2.7.0.md`](docs/releases/Release_v2.7.0.md).
+
+</details>
+<details>
+<summary>v2.6.x - Claude plugin packaging + sample library recovery</summary>
+
+**v2.6.1** — Sample library recovery and packaging inclusion:
+- Restored and normalized the shipped sample-output corpus under `library/skill-output-samples/`.
+- Added sample-library staging to release packagers so ZIP artifacts include sample outputs.
+- Release note: `docs/releases/Release_v2.6.1.md`.
+
+**v2.6.0** — Claude plugin packaging release:
+- Added Claude plugin manifest support via `.claude-plugin/plugin.json`.
+- Release packaging now includes `.claude-plugin/` and enforces plugin-manifest version alignment with the release version.
+- Release note: `docs/releases/Release_v2.6.0.md`.
+
+</details>
+<details>
 <summary>v2.5.x - Persona skill + foundation/utility taxonomy</summary>
 
 **v2.5.2** — Public release-doc readability and hygiene:
@@ -814,6 +838,9 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 
 | Version   | Date       | Highlights                                                              |
 | --------- | ---------- | ----------------------------------------------------------------------- |
+| **2.8.2** | 2026-04-04 | Skill versioning concepts page, git-revision-date plugin, docs polish |
+| **2.8.1** | 2026-04-04 | Documentation site launch with showcase, skill finder, recipes, comparisons, prompt gallery |
+| **2.8.0** | 2026-04-03 | PM skill lifecycle (Validate + Iterate skills), skill versioning governance, advisory CI |
 | **2.7.0** | 2026-03-22 | Utility skills (`pm-skill-builder`), `acceptance-criteria` skill, enhanced CI, release packaging hygiene, docs refresh |
 | **2.6.1** | 2026-03-04 | Sample-library recovery, naming/path normalization, and release ZIP inclusion |
 | **2.6.0** | 2026-03-04 | Claude plugin packaging release with staged manifest version checks |
@@ -858,9 +885,10 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [x] pm-skills-mcp package (https://github.com/product-on-purpose/pm-skills-mcp) with v2.4 direct-version-tracking milestone documented
 - [x] v2.2 guardrails release: observe-first cross-repo sync validation + planning/backlog governance
 - [x] v2.4 contract lock release: output behavior and configuration contracts closed and validated
+- [x] v2.8 PM skill lifecycle: Create → Validate → Iterate utility skills + versioning governance
+- [x] Documentation site with showcase, skill finder, recipes, and comparisons ([product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/))
 
 **In Progress**
-- Documentation, examples, and ecosystem polish for shipped surfaces
 - Contributor-facing guidance and schema alignment follow-up
 
 #### Backlog / Considering
