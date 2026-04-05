@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.1] - 2026-04-04
+
+### Added
+- **Documentation site** at [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/) — MkDocs Material with tab navigation, dark mode, search, and mermaid diagram rendering.
+- **"Follow the Product" showcase** — 3 interactive narrative journeys (Storevine B2B, Brainshelf Consumer, Workbench Enterprise) with 84 real sample outputs from the sample library, including prompts and full artifacts.
+- **Skill finder** — interactive decision tree and artifact table for choosing the right skill.
+- **Recipes** — 7 end-to-end workflows (Pitch a Feature, Run an Experiment, Launch a Feature, Discover and Frame, Define the Opportunity, Sprint Retro, Full Lifecycle) with mermaid flow diagrams.
+- **Skill comparisons** — 6 side-by-side comparisons for commonly confused skill pairs (PRD vs Solution Brief, Hypothesis vs Problem Statement, etc.).
+- **Prompt gallery** — curated real prompts in 3 styles (organized, casual, enterprise) from the sample library.
+- **Per-skill real-world examples** — 3 collapsible sample outputs (one per narrative thread) embedded on 25 skill pages.
+- **Quick-try snippets** — copy-pasteable slash command at the top of every skill page.
+- **Phase flow diagrams** — mermaid diagrams on all 6 phase index pages showing how skills connect.
+- **Tags plugin** — browse skills by phase and category tags.
+- **Social cards** — OpenGraph preview cards for link sharing (enabled in CI).
+- **Generation scripts** — `scripts/generate-skill-pages.py` (29 skill pages + indexes + commands ref) and `scripts/generate-showcase.py` (3 showcase journeys from sample library).
+- **Deploy workflow** — `.github/workflows/deploy-docs.yml` auto-deploys on push to main.
+- **MkDocs config guide** — `docs/internal/mkdocs/mkdocs-config.md` for maintainers.
+
+### Release Notes
+- Documentation-only release — no PM skill or slash-command behavior changes.
+- No `pm-skills-mcp` update required.
+- Site is generated from existing content (skills, samples, docs) plus new guide pages.
+- 70+ navigable pages, zero build warnings.
+
 ## [2.8.0] - 2026-04-03 ([release notes](docs/releases/Release_v2.8.0.md))
 
 ### Added

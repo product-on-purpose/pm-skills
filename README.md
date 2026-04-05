@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.8.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.8.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-29-brightgreen.svg?style=flat-square" alt="Skills">
@@ -523,9 +523,10 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
-- **Latest stable:** `v2.8.0` (PM skill lifecycle — Create, Validate, Iterate)
-- **Latest release notes:** [`docs/releases/Release_v2.8.0.md`](docs/releases/Release_v2.8.0.md)
-- **Published tag:** [`v2.8.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.8.0)
+- **Latest stable:** `v2.8.1` (Documentation site launch)
+- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#281---2026-04-04)
+- **Published tag:** [`v2.8.1`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.8.1)
+- **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
 Release notes are published in `docs/releases/` (for example, `docs/releases/Release_v2.2.md`).
