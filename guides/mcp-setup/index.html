@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Real prompts from the PM Skills sample library — learn by example across three prompt styles.">
+        <meta name="description" content="Install, configure, and use PM Skills via the Model Context Protocol — instant access from Claude Desktop, Cursor, VS Code, and any MCP client.">
       
       
         <meta name="author" content="jprisant">
       
       
-        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/guides/prompt-gallery/">
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/guides/mcp-setup/">
       
       
-        <link rel="prev" href="../recipes/">
+        <link rel="prev" href="../prompt-gallery/">
       
       
-        <link rel="next" href="../mcp-setup/">
+        <link rel="next" href="../mcp-integration/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Prompt Gallery - PM Skills</title>
+        <title>MCP Server Setup - PM Skills</title>
       
     
     
@@ -63,17 +63,17 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Prompt Gallery - PM Skills" />
-<meta property="og:description" content="Real prompts from the PM Skills sample library — learn by example across three prompt styles." />
-<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/guides/prompt-gallery.png" />
+<meta property="og:title" content="MCP Server Setup - PM Skills" />
+<meta property="og:description" content="Install, configure, and use PM Skills via the Model Context Protocol — instant access from Claude Desktop, Cursor, VS Code, and any MCP client." />
+<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/guides/mcp-setup.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/guides/prompt-gallery/" />
+<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/guides/mcp-setup/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Prompt Gallery - PM Skills" />
-<meta property="twitter:description" content="Real prompts from the PM Skills sample library — learn by example across three prompt styles." />
-<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/guides/prompt-gallery.png" />
+<meta property="twitter:title" content="MCP Server Setup - PM Skills" />
+<meta property="twitter:description" content="Install, configure, and use PM Skills via the Model Context Protocol — instant access from Claude Desktop, Cursor, VS Code, and any MCP client." />
+<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/guides/mcp-setup.png" />
 </head>
   
   
@@ -93,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#prompt-gallery" class="md-skip">
+        <a href="#mcp-server-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Prompt Gallery
+              MCP Server Setup
             
           </span>
         </div>
@@ -988,6 +988,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt-gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1007,7 +1035,7 @@
   <span class="md-ellipsis">
     
   
-    Prompt Gallery
+    MCP Setup
   
 
     
@@ -1025,7 +1053,7 @@
   <span class="md-ellipsis">
     
   
-    Prompt Gallery
+    MCP Setup
   
 
     
@@ -1051,10 +1079,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-three-styles" class="md-nav__link">
+  <a href="#what-you-get" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Three Styles
+        What You Get
       
     </span>
   </a>
@@ -1062,22 +1090,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prd-prompts" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PRD Prompts
+        Prerequisites
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="PRD Prompts">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-setup-by-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Setup by Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Setup by Platform">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#organized-storevine" class="md-nav__link">
+  <a href="#claude-desktop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organized (Storevine)
+        Claude Desktop
       
     </span>
   </a>
@@ -1085,10 +1124,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#casual-brainshelf" class="md-nav__link">
+  <a href="#cursor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Casual (Brainshelf)
+        Cursor
       
     </span>
   </a>
@@ -1096,10 +1135,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enterprise-workbench" class="md-nav__link">
+  <a href="#claude-code-cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enterprise (Workbench)
+        Claude Code (CLI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-cline-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code (Cline / Continue)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#any-mcp-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Any MCP Client
       
     </span>
   </a>
@@ -1112,22 +1173,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hypothesis-prompts" class="md-nav__link">
+  <a href="#using-mcp-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hypothesis Prompts
+        Using MCP Tools
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hypothesis Prompts">
+    <nav class="md-nav" aria-label="Using MCP Tools">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#organized-storevine_1" class="md-nav__link">
+  <a href="#natural-language" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organized (Storevine)
+        Natural language
       
     </span>
   </a>
@@ -1135,10 +1196,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#casual-brainshelf_1" class="md-nav__link">
+  <a href="#tool-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Casual (Brainshelf)
+        Tool parameters
       
     </span>
   </a>
@@ -1146,10 +1207,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enterprise-workbench_1" class="md-nav__link">
+  <a href="#skill-to-tool-naming" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enterprise (Workbench)
+        Skill-to-tool naming
       
     </span>
   </a>
@@ -1162,22 +1223,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#competitive-analysis-prompts" class="md-nav__link">
+  <a href="#customization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Competitive Analysis Prompts
+        Customization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Competitive Analysis Prompts">
+    <nav class="md-nav" aria-label="Customization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#organized-storevine_2" class="md-nav__link">
+  <a href="#use-your-own-skills" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organized (Storevine)
+        Use your own skills
       
     </span>
   </a>
@@ -1185,10 +1246,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#casual-brainshelf_2" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Casual (Brainshelf)
+        Environment variables
       
     </span>
   </a>
@@ -1201,38 +1262,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#experiment-design-prompts" class="md-nav__link">
+  <a href="#mcp-vs-file-based-when-to-use-which" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Experiment Design Prompts
+        MCP vs File-Based: When to Use Which
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Experiment Design Prompts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#organized-storevine_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Organized (Storevine)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Takeaway
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
       
     </span>
   </a>
@@ -1243,34 +1298,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mcp-setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MCP Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1687,10 +1714,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-three-styles" class="md-nav__link">
+  <a href="#what-you-get" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Three Styles
+        What You Get
       
     </span>
   </a>
@@ -1698,22 +1725,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prd-prompts" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PRD Prompts
+        Prerequisites
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="PRD Prompts">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-setup-by-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Setup by Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Setup by Platform">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#organized-storevine" class="md-nav__link">
+  <a href="#claude-desktop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organized (Storevine)
+        Claude Desktop
       
     </span>
   </a>
@@ -1721,10 +1759,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#casual-brainshelf" class="md-nav__link">
+  <a href="#cursor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Casual (Brainshelf)
+        Cursor
       
     </span>
   </a>
@@ -1732,10 +1770,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enterprise-workbench" class="md-nav__link">
+  <a href="#claude-code-cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enterprise (Workbench)
+        Claude Code (CLI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-code-cline-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VS Code (Cline / Continue)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#any-mcp-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Any MCP Client
       
     </span>
   </a>
@@ -1748,22 +1808,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hypothesis-prompts" class="md-nav__link">
+  <a href="#using-mcp-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hypothesis Prompts
+        Using MCP Tools
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hypothesis Prompts">
+    <nav class="md-nav" aria-label="Using MCP Tools">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#organized-storevine_1" class="md-nav__link">
+  <a href="#natural-language" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organized (Storevine)
+        Natural language
       
     </span>
   </a>
@@ -1771,10 +1831,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#casual-brainshelf_1" class="md-nav__link">
+  <a href="#tool-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Casual (Brainshelf)
+        Tool parameters
       
     </span>
   </a>
@@ -1782,10 +1842,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enterprise-workbench_1" class="md-nav__link">
+  <a href="#skill-to-tool-naming" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enterprise (Workbench)
+        Skill-to-tool naming
       
     </span>
   </a>
@@ -1798,22 +1858,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#competitive-analysis-prompts" class="md-nav__link">
+  <a href="#customization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Competitive Analysis Prompts
+        Customization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Competitive Analysis Prompts">
+    <nav class="md-nav" aria-label="Customization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#organized-storevine_2" class="md-nav__link">
+  <a href="#use-your-own-skills" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Organized (Storevine)
+        Use your own skills
       
     </span>
   </a>
@@ -1821,10 +1881,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#casual-brainshelf_2" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Casual (Brainshelf)
+        Environment variables
       
     </span>
   </a>
@@ -1837,38 +1897,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#experiment-design-prompts" class="md-nav__link">
+  <a href="#mcp-vs-file-based-when-to-use-which" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Experiment Design Prompts
+        MCP vs File-Based: When to Use Which
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Experiment Design Prompts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#organized-storevine_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Organized (Storevine)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-takeaway" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Takeaway
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
       
     </span>
   </a>
@@ -1909,14 +1963,14 @@
       
       
       
-        <span class="md-tag">Prompts</span>
+        <span class="md-tag">MCP</span>
       
     
   </nav>
 
 
   
-    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/guides/prompt-gallery.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/guides/mcp-setup.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1925,161 +1979,387 @@
     
       
     
-    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/guides/prompt-gallery.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/guides/mcp-setup.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="prompt-gallery">Prompt Gallery<a class="headerlink" href="#prompt-gallery" title="Permanent link">&para;</a></h1>
-<p>Learn how to write effective prompts by studying real examples from the <a href="../showcase/">sample library</a>. Three fictional companies demonstrate three different prompting styles — all produce equally thorough outputs.</p>
-<h2 id="the-three-styles">The Three Styles<a class="headerlink" href="#the-three-styles" title="Permanent link">&para;</a></h2>
+<h1 id="mcp-server-setup">MCP Server Setup<a class="headerlink" href="#mcp-server-setup" title="Permanent link">&para;</a></h1>
+<p>The <a href="https://github.com/product-on-purpose/pm-skills-mcp">pm-skills-mcp</a> server gives you instant access to all 29 PM skills via the Model Context Protocol. No file management, no cloning — just configure your AI client and start using skills.</p>
+<h2 id="what-you-get">What You Get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Style</th>
-<th>Company</th>
-<th>Who it's for</th>
+<th>Feature</th>
+<th>Detail</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Organized</strong></td>
-<td>Storevine (B2B)</td>
-<td>PMs who prepare structured notes and reference prior artifacts</td>
+<td><strong>29 skill tools</strong></td>
+<td>Every PM skill as a callable MCP tool</td>
 </tr>
 <tr>
-<td><strong>Casual</strong></td>
-<td>Brainshelf (Consumer)</td>
-<td>Lean teams moving fast — bullet points, shorthand, enough context to work</td>
+<td><strong>5 workflow tools</strong></td>
+<td>Multi-skill workflows (Feature Kickoff, Lean Startup, etc.)</td>
 </tr>
 <tr>
-<td><strong>Enterprise</strong></td>
-<td>Workbench (Enterprise)</td>
-<td>High-documentation environments with stakeholder scrutiny</td>
+<td><strong>8 utility tools</strong></td>
+<td>Search, list, validate, and cache management</td>
+</tr>
+<tr>
+<td><strong>87 resources</strong></td>
+<td>Skill templates and examples accessible via URI</td>
+</tr>
+<tr>
+<td><strong>3 prompts</strong></td>
+<td>Pre-configured skill invocations</td>
+</tr>
+<tr>
+<td><strong>Zero files to manage</strong></td>
+<td>Skills are embedded in the npm package</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="prd-prompts">PRD Prompts<a class="headerlink" href="#prd-prompts" title="Permanent link">&para;</a></h2>
-<h3 id="organized-storevine">Organized (Storevine)<a class="headerlink" href="#organized-storevine" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/prd
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Feature: Campaigns — native email marketing for Storevine merchants
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Context: Storevine all-in-one ecommerce + web builder, ~18k active merchants
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>[fictional]. See: competitive-analysis (filed last week), problem-statement
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>(approved), solution brief (approved), spike summary (SendGrid selected),
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ADR (SendGrid for dedicated IP warm-up).
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Scope for v1:
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>- Template-based email campaigns (no drag-and-drop builder)
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>- Audience segmentation by purchase history and tags
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>- CAN-SPAM and GDPR compliance built in
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>- Scheduled sends with merchant timezone support
-</span></code></pre></div>
-<h3 id="casual-brainshelf">Casual (Brainshelf)<a class="headerlink" href="#casual-brainshelf" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/prd
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>resurface prd for sprint 8. pulling everything together: solution brief,
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>adr (resend), design rationale (text layout), spike (tfidf).
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>building the daily email digest that surfaces 3-5 saved items matched
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>to reading patterns. 85k registered, 22k MAU [fictional].
-</span></code></pre></div>
-<h3 id="enterprise-workbench">Enterprise (Workbench)<a class="headerlink" href="#enterprise-workbench" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/prd
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Here is the structured brief for the Blueprints v1 PRD.
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>**Product context:**
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>- Workbench collaboration platform, ~500 enterprise customers [fictional], Series B
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>- Competitors: Confluence (Atlassian), Notion, Coda, Monday.com
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>- Key stakeholders: VP Engineering, Head of Legal, IT Security Lead,
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  3 department heads (Engineering, Ops, Marketing)
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>**Problem:** 60% of enterprise projects lack an approved kickoff doc at
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>handoff [fictional]. Teams use ad-hoc templates that miss required sections.
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>**Solution:** Blueprints — reusable document templates with required sections
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>and role-based approval gates.
-</span></code></pre></div>
-<hr />
-<h2 id="hypothesis-prompts">Hypothesis Prompts<a class="headerlink" href="#hypothesis-prompts" title="Permanent link">&para;</a></h2>
-<h3 id="organized-storevine_1">Organized (Storevine)<a class="headerlink" href="#organized-storevine_1" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/hypothesis
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Project: Campaigns — native email marketing for Storevine merchants
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Stage: Post-discovery, pre-PRD finalization
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Hypothesis I want to define:
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>- Non-adopter merchants (no active external email tool, &lt;250 customers)
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  are ~38% of our active base [fictional]
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>- If we offer pre-populated templates and a 3-step &quot;send your first campaign&quot;
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  wizard, we can increase first-send rate from 12% to 30% [fictional]
-</span></code></pre></div>
-<h3 id="casual-brainshelf_1">Casual (Brainshelf)<a class="headerlink" href="#casual-brainshelf_1" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/hypothesis
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>trying to figure out if a morning digest email will actually get people to
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>re-read their saved stuff. context: brainshelf pkm app, 22k MAU [fictional].
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>users save ~47 items/month but revisit fewer than 9% within 30 days.
-</span></code></pre></div>
-<h3 id="enterprise-workbench_1">Enterprise (Workbench)<a class="headerlink" href="#enterprise-workbench_1" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/hypothesis
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Blueprints required-section feature. We believe that enforcing required
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>sections in document templates will reduce time-to-approved-doc from
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>4 days average to 1 day [fictional] for enterprise teams.
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Validation approach: A/B test, required vs. optional sections, 50/50
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>split across new Blueprint creations for 4 weeks.
-</span></code></pre></div>
-<hr />
-<h2 id="competitive-analysis-prompts">Competitive Analysis Prompts<a class="headerlink" href="#competitive-analysis-prompts" title="Permanent link">&para;</a></h2>
-<h3 id="organized-storevine_2">Organized (Storevine)<a class="headerlink" href="#organized-storevine_2" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/competitive-analysis
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Scope: Email marketing tools available to ecommerce merchants — built-in
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>vs. third-party positioning. Informing Campaigns v1 scope and feature
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>prioritization.
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Our product: Storevine — B2B all-in-one ecommerce + web platform, Series A,
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>~18k active merchants [fictional].
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Competitors to evaluate: Shopify Email, Squarespace Email Campaigns,
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Wix Ascend, Klaviyo, Mailchimp, Drip
-</span></code></pre></div>
-<h3 id="casual-brainshelf_2">Casual (Brainshelf)<a class="headerlink" href="#casual-brainshelf_2" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>/competitive-analysis
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>read-later / pkm space, focusing on who does resurfacing or spaced
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>repetition. readwise is the main one. also raindrop, omnivore,
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>instapaper, pocket. we&#39;re brainshelf, 22k MAU consumer pkm app.
-</span></code></pre></div>
-<hr />
-<h2 id="experiment-design-prompts">Experiment Design Prompts<a class="headerlink" href="#experiment-design-prompts" title="Permanent link">&para;</a></h2>
-<h3 id="organized-storevine_3">Organized (Storevine)<a class="headerlink" href="#organized-storevine_3" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/experiment-design
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Project: Campaigns guided first-campaign flow
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Experiment: Does the guided flow increase first-send rate for non-adopter
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>merchants?
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Hypothesis: Pre-populated templates for non-adopter merchants (&lt;250
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>customers, no external email tool) will drive first-send rate from
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>12% to 30% within 14 days of account creation [fictional].
-</span></code></pre></div>
-<hr />
-<h2 id="key-takeaway">Key Takeaway<a class="headerlink" href="#key-takeaway" title="Permanent link">&para;</a></h2>
-<p>All three prompt styles produce equally thorough, complete artifacts. The difference is in <strong>how much context you provide up front</strong>:</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Organized:</strong> References prior work, provides structured context, names specific numbers. Less back-and-forth with the skill.</li>
-<li><strong>Casual:</strong> Gives enough context to produce a good artifact but skips polish. The skill fills in structure and completeness.</li>
-<li><strong>Enterprise:</strong> Full stakeholder lists, quantified baselines, explicit metric definitions. Every artifact can withstand scrutiny.</li>
+<li><strong>Node.js 18+</strong> — check with <code>node --version</code></li>
+<li>An MCP-compatible AI client (Claude Desktop, Cursor, Claude Code, VS Code with Cline/Continue)</li>
 </ul>
-<p><strong>The best prompt is the one you'll actually write.</strong> If you're moving fast, a Brainshelf-style prompt works. If you're presenting to the board, a Workbench-style prompt gives you more control over the output.</p>
-<p>See the full outputs for all prompts in the <a href="../showcase/">Showcase</a>.</p>
+<h2 id="quick-setup-by-platform">Quick Setup by Platform<a class="headerlink" href="#quick-setup-by-platform" title="Permanent link">&para;</a></h2>
+<h3 id="claude-desktop">Claude Desktop<a class="headerlink" href="#claude-desktop" title="Permanent link">&para;</a></h3>
+<p>The recommended MCP experience. Add to your config file:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="macos" name="__tabbed_1" type="radio" /><input id="windows" name="__tabbed_1" type="radio" /><input id="linux" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="macos">macOS</label><label for="windows">Windows</label><label for="linux">Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Edit <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Edit <code>%APPDATA%\Claude\claude_desktop_config.json</code>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Edit <code>~/.config/Claude/claude_desktop_config.json</code>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+</div>
+</div>
+<p><strong>Restart Claude Desktop</strong> after saving. Verify by asking: <em>"What PM skills are available?"</em></p>
+<h3 id="cursor">Cursor<a class="headerlink" href="#cursor" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open <strong>Settings</strong> (Cmd/Ctrl + ,) → <strong>Features</strong> → <strong>MCP Servers</strong></li>
+<li>Add server: name <code>pm-skills</code>, command <code>npx</code>, args <code>pm-skills-mcp</code></li>
+</ol>
+<p>Or edit <code>~/.cursor/mcp.json</code>:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="claude-code-cli">Claude Code (CLI)<a class="headerlink" href="#claude-code-cli" title="Permanent link">&para;</a></h3>
+<p>Add to <code>.claude/settings.json</code> (project) or <code>~/.claude/settings.json</code> (global):</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Claude Code also supports file-based pm-skills via slash commands. You can use both MCP and slash commands simultaneously.</p>
+</div>
+<h3 id="vs-code-cline-continue">VS Code (Cline / Continue)<a class="headerlink" href="#vs-code-cline-continue" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="cline" name="__tabbed_2" type="radio" /><input id="continue" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="cline">Cline</label><label for="continue">Continue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Install <a href="https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev">Cline</a>, then add to its MCP settings:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Install <a href="https://marketplace.visualstudio.com/items?itemName=Continue.continue">Continue</a>, then edit <code>~/.continue/config.json</code>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pm-skills&quot;</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="any-mcp-client">Any MCP Client<a class="headerlink" href="#any-mcp-client" title="Permanent link">&para;</a></h3>
+<p>The general pattern works with any MCP-compatible tool:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Command: npx
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Arguments: pm-skills-mcp
+</span></code></pre></div>
+<p>Or install globally: <code>npm install -g pm-skills-mcp</code>, then use <code>pm-skills-mcp</code> as the command.</p>
+<h2 id="using-mcp-tools">Using MCP Tools<a class="headerlink" href="#using-mcp-tools" title="Permanent link">&para;</a></h2>
+<p>Once connected, your AI assistant can invoke any PM skill as a tool. You don't need to know the tool names — just describe what you need.</p>
+<h3 id="natural-language">Natural language<a class="headerlink" href="#natural-language" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&quot;Create a PRD for our new search feature&quot;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>→ AI invokes pm_prd with topic=&quot;search feature&quot;
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>&quot;Design an A/B test for the new checkout flow&quot;
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>→ AI invokes pm_experiment_design with topic=&quot;new checkout flow&quot;
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>&quot;What PM skills are available?&quot;
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>→ AI invokes pm_list_skills
+</span></code></pre></div>
+<h3 id="tool-parameters">Tool parameters<a class="headerlink" href="#tool-parameters" title="Permanent link">&para;</a></h3>
+<p>Every skill tool accepts:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>topic</code></td>
+<td>Yes</td>
+<td>The subject or feature</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td>No</td>
+<td>Additional requirements, constraints, background</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td>No</td>
+<td><code>full</code> (default), <code>concise</code>, or <code>template-only</code></td>
+</tr>
+<tr>
+<td><code>includeExample</code></td>
+<td>No</td>
+<td><code>true</code> to include a worked example</td>
+</tr>
+</tbody>
+</table>
+<h3 id="skill-to-tool-naming">Skill-to-tool naming<a class="headerlink" href="#skill-to-tool-naming" title="Permanent link">&para;</a></h3>
+<p>MCP tool names are derived from skill directory names by stripping the phase/classification prefix and prepending <code>pm_</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Slash command</th>
+<th>MCP tool</th>
+<th>How it maps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/prd</code></td>
+<td><code>pm_prd</code></td>
+<td><code>deliver-prd</code> → strip <code>deliver-</code> → <code>prd</code> → <code>pm_prd</code></td>
+</tr>
+<tr>
+<td><code>/hypothesis</code></td>
+<td><code>pm_hypothesis</code></td>
+<td><code>define-hypothesis</code> → strip <code>define-</code> → <code>pm_hypothesis</code></td>
+</tr>
+<tr>
+<td><code>/persona</code></td>
+<td><code>pm_persona</code></td>
+<td><code>foundation-persona</code> → strip <code>foundation-</code> → <code>pm_persona</code></td>
+</tr>
+<tr>
+<td><code>/pm-skill-validate</code></td>
+<td><code>pm_pm_skill_validate</code></td>
+<td><code>utility-pm-skill-validate</code> → strip <code>utility-</code> → <code>pm_pm_skill_validate</code></td>
+</tr>
+</tbody>
+</table>
+<p>The double <code>pm_</code> for utility tools is intentional — it preserves the skill name and stays consistent.</p>
+<h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h2>
+<h3 id="use-your-own-skills">Use your own skills<a class="headerlink" href="#use-your-own-skills" title="Permanent link">&para;</a></h3>
+<p>Point the server at a custom skills directory:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">],</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="nt">&quot;PM_SKILLS_PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/your/pm-skills/skills&quot;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use the <strong>absolute path</strong> to the <code>skills/</code> directory, not the repo root.</p>
+</div>
+<h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PM_SKILLS_PATH</code></td>
+<td>(embedded)</td>
+<td>Path to custom skills directory</td>
+</tr>
+<tr>
+<td><code>PM_SKILLS_FORMAT</code></td>
+<td><code>full</code></td>
+<td>Default output format</td>
+</tr>
+<tr>
+<td><code>PM_SKILLS_EXAMPLES</code></td>
+<td><code>false</code></td>
+<td>Include examples by default</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mcp-vs-file-based-when-to-use-which">MCP vs File-Based: When to Use Which<a class="headerlink" href="#mcp-vs-file-based-when-to-use-which" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Use MCP</th>
+<th>Use file-based pm-skills</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Desktop</td>
+<td>Yes</td>
+<td>N/A (no file access)</td>
+</tr>
+<tr>
+<td>Cursor with MCP</td>
+<td>Yes</td>
+<td>Also works (AGENTS.md)</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>Either</td>
+<td>Slash commands are convenient</td>
+</tr>
+<tr>
+<td>Want zero setup</td>
+<td>Yes</td>
+<td>Requires clone/download</td>
+</tr>
+<tr>
+<td>Want to customize skills</td>
+<td>No — fork pm-skills</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Building automated workflows</td>
+<td>Yes</td>
+<td>Possible but harder</td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td>No MCP support</td>
+<td>AGENTS.md discovery</td>
+</tr>
+<tr>
+<td>Windsurf</td>
+<td>No MCP support</td>
+<td>AGENTS.md discovery</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="../../reference/ecosystem/">Ecosystem Overview</a> for a detailed comparison.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Likely cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tools not appearing</td>
+<td>Server didn't start</td>
+<td>Check <code>node --version</code> (need 18+), try <code>npx pm-skills-mcp</code> manually</td>
+</tr>
+<tr>
+<td>"pm_prd not found"</td>
+<td>Old MCP version</td>
+<td>Update: <code>npm update -g pm-skills-mcp</code> (need v2.8.0+)</td>
+</tr>
+<tr>
+<td>Slow first response</td>
+<td>Cache cold start</td>
+<td>Normal — subsequent calls are fast</td>
+</tr>
+<tr>
+<td>Custom skills not loading</td>
+<td>Wrong path</td>
+<td>Use absolute path to <code>skills/</code> directory, not repo root</td>
+</tr>
+<tr>
+<td>Connection refused</td>
+<td>Port conflict</td>
+<td>Try <code>npx</code> instead of global install</td>
+</tr>
+</tbody>
+</table>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/product-on-purpose/pm-skills-mcp">pm-skills-mcp on GitHub</a></li>
+<li><a href="https://www.npmjs.com/package/pm-skills-mcp">pm-skills-mcp on npm</a></li>
+<li><a href="../mcp-integration/">MCP Integration Guide</a> (maintainer workflow + full tool inventory)</li>
+<li><a href="https://modelcontextprotocol.io">Model Context Protocol</a></li>
+</ul>
 
 
 

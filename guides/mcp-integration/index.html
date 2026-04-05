@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/guides/mcp-integration/">
       
       
-        <link rel="prev" href="../prompt-gallery/">
+        <link rel="prev" href="../mcp-setup/">
       
       
         <link rel="next" href="../validate-mcp-sync/">
@@ -811,6 +811,8 @@
       
         
       
+        
+      
     
     
     
@@ -1014,6 +1016,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1194,10 +1224,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skill-tools" class="md-nav__link">
+  <a href="#skill-tools-29" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skill Tools
+        Skill Tools (29)
       
     </span>
   </a>
@@ -1995,10 +2025,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skill-tools" class="md-nav__link">
+  <a href="#skill-tools-29" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skill Tools
+        Skill Tools (29)
       
     </span>
   </a>
@@ -2340,7 +2370,7 @@
 <li><a href="#vs-code-clinecontinue">VS Code (Cline/Continue)</a></li>
 <li><a href="#other-mcp-clients">Other MCP Clients</a></li>
 <li><a href="#tool-inventory">Tool Inventory</a></li>
-<li><a href="#skill-tools-25">Skill Tools (25)</a></li>
+<li><a href="#skill-tools-29">Skill Tools (29)</a></li>
 <li><a href="#workflow-tools-5">Workflow Tools (5)</a></li>
 <li><a href="#utility-tools-8">Utility Tools (8)</a></li>
 <li><a href="#slash-command-to-mcp-tool-mapping">Slash Command to MCP Tool Mapping</a></li>
@@ -2350,7 +2380,7 @@
 </ul>
 <hr />
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><strong>PM-Skills MCP</strong> is an MCP server that exposes the pm-skills catalog as programmatic tools. As of v2.7.0, that means 27 skill tools: 25 phase skills, <code>pm_persona</code>, and <code>pm_pm_skill_builder</code>. Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.</p>
+<p><strong>PM-Skills MCP</strong> is an MCP server that exposes the pm-skills catalog as programmatic tools. As of v2.8.0, that means 29 skill tools (25 phase skills + 1 foundation + 3 utility), plus 5 workflow tools and 8 utility tools (42 total). Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────┐                    ┌─────────────────┐
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│   Your AI       │   MCP Protocol     │  pm-skills-mcp  │
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   Assistant     │ ◄───────────────► │     Server      │
@@ -2533,9 +2563,8 @@
 <p>PM-Skills MCP exposes skill, workflow, and utility tools derived from the current shipped library.</p>
 <blockquote>
 <p><strong>Note:</strong> pm-skills-mcp now tracks pm-skills release versions directly (starting at v2.4.0). Resource URIs are flat (<code>pm-skills://skills/{skill}</code>) with phase available in metadata.</p>
-<p><strong>Current catalog note:</strong> The file-based <code>pm-skills</code> repo can move ahead of the public MCP snapshot. At the moment, <code>pm-skills-mcp</code> includes <code>pm_persona</code>, but not newer file-based additions such as <code>/acceptance-criteria</code> or the path-only <code>utility-pm-skill-builder</code> skill.</p>
 </blockquote>
-<h3 id="skill-tools">Skill Tools<a class="headerlink" href="#skill-tools" title="Permanent link">&para;</a></h3>
+<h3 id="skill-tools-29">Skill Tools (29)<a class="headerlink" href="#skill-tools-29" title="Permanent link">&para;</a></h3>
 <p>Each skill becomes an MCP tool with standardized parameters:</p>
 <table>
 <thead>
@@ -2674,6 +2703,10 @@
 <td><code>pm_release_notes</code></td>
 <td>User-facing release communication</td>
 </tr>
+<tr>
+<td><code>pm_acceptance_criteria</code></td>
+<td>Given/When/Then acceptance criteria</td>
+</tr>
 </tbody>
 </table>
 <h4 id="measure-phase">Measure Phase<a class="headerlink" href="#measure-phase" title="Permanent link">&para;</a></h4>
@@ -2742,6 +2775,29 @@
 <tr>
 <td><code>pm_persona</code></td>
 <td>Generate product or marketing personas with explicit assumptions and evidence</td>
+</tr>
+</tbody>
+</table>
+<h4 id="utility">Utility<a class="headerlink" href="#utility" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pm_pm_skill_builder</code></td>
+<td>Interactive builder for creating new PM skills</td>
+</tr>
+<tr>
+<td><code>pm_pm_skill_validate</code></td>
+<td>Audit a skill against structural conventions and quality criteria</td>
+</tr>
+<tr>
+<td><code>pm_pm_skill_iterate</code></td>
+<td>Apply targeted improvements from feedback or validation reports</td>
 </tr>
 </tbody>
 </table>
@@ -2941,12 +2997,28 @@
 <td><code>pm_persona</code></td>
 </tr>
 <tr>
+<td><code>/acceptance-criteria</code></td>
+<td><code>pm_acceptance_criteria</code></td>
+</tr>
+<tr>
+<td><code>/pm-skill-builder</code></td>
+<td><code>pm_pm_skill_builder</code></td>
+</tr>
+<tr>
+<td><code>/pm-skill-validate</code></td>
+<td><code>pm_pm_skill_validate</code></td>
+</tr>
+<tr>
+<td><code>/pm-skill-iterate</code></td>
+<td><code>pm_pm_skill_iterate</code></td>
+</tr>
+<tr>
 <td><code>/kickoff</code></td>
 <td><code>pm_workflow_feature_kickoff</code></td>
 </tr>
 </tbody>
 </table>
-<p>Starting with v2.7.0, <code>/acceptance-criteria</code> maps to <code>pm_acceptance_criteria</code> and <code>/pm-skill-builder</code> maps to <code>pm_pm_skill_builder</code>. Update your <code>pm-skills-mcp</code> install to v2.7.0+ to access these tools.</p>
+<p>Requires pm-skills-mcp v2.8.0+ for the full 29-skill tool inventory.</p>
 <p><strong>Usage difference:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Slash command (Claude Code with pm-skills)
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/prd search feature
@@ -3025,13 +3097,13 @@
 <p>This section documents how <code>pm-skills</code> releases flow to <code>pm-skills-mcp</code>. It is intended for maintainers, not end users.</p>
 <h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
 <p><code>pm-skills-mcp</code> is <strong>release-pinned</strong> — it embeds a snapshot of skill files at build time and ships them in the npm package. It does not live-sync with the <code>pm-skills</code> repo.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pm-skills (tag v2.7.0)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pm-skills (tag v2.8.0)
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    │
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    ├── validate-mcp-sync.yml ── CI detects drift (blocking)
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    │
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    └── embed-skills.js ──────── copies skills/ into pm-skills-mcp
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>                                      │
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>                                pm-skills-mcp (tag v2.7.0)
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>                                pm-skills-mcp (tag v2.8.0)
 </span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>                                      │
 </span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>                                   npm publish
 </span></code></pre></div>
