@@ -1,0 +1,3657 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documents the results of a completed experiment or A/B test with statistical analysis, learnings, and recommendations. Use after experiments conclude to communicate findings, inform decisions, and build organizational knowledge.">
+      
+      
+        <meta name="author" content="jprisant">
+      
+      
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/skills/measure/measure-experiment-results/">
+      
+      
+        <link rel="prev" href="../measure-experiment-design/">
+      
+      
+        <link rel="next" href="../measure-instrumentation-spec/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>measure-experiment-results - PM Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PM Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              measure-experiment-results
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../bundles/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Bundles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../reference/commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../releases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    PM Skills
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../getting-started/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../discover/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discover
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Discover
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../discover/discover-competitive-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    discover-competitive-analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../discover/discover-interview-synthesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    discover-interview-synthesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../discover/discover-stakeholder-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    discover-stakeholder-summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../define/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Define
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Define
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../define/define-hypothesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    define-hypothesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../define/define-jtbd-canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    define-jtbd-canvas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../define/define-opportunity-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    define-opportunity-tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../define/define-problem-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    define-problem-statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../develop/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Develop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Develop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../develop/develop-adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    develop-adr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../develop/develop-design-rationale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    develop-design-rationale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../develop/develop-solution-brief/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    develop-solution-brief
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../develop/develop-spike-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    develop-spike-summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../deliver/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deliver
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deliver
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deliver/deliver-acceptance-criteria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-acceptance-criteria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deliver/deliver-edge-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-edge-cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deliver/deliver-launch-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-launch-checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deliver/deliver-prd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-prd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deliver/deliver-release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-release-notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deliver/deliver-user-stories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-user-stories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Measure
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Measure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../measure-dashboard-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    measure-dashboard-requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../measure-experiment-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    measure-experiment-design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    measure-experiment-results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../measure-instrumentation-spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    measure-instrumentation-spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../iterate/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iterate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iterate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterate/iterate-lessons-log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iterate-lessons-log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterate/iterate-pivot-decision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iterate-pivot-decision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterate/iterate-refinement-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iterate-refinement-notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterate/iterate-retrospective/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iterate-retrospective
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../foundation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundation/foundation-persona/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    foundation-persona
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../utility/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utility
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utility
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility/utility-pm-skill-builder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-pm-skill-builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility/utility-pm-skill-iterate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-pm-skill-iterate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility/utility-pm-skill-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-pm-skill-validate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../bundles/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bundles
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../guides/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../concepts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../reference/commands/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../contributing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../releases/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Skills
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Measure
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/skills/measure/measure-experiment-results.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/skills/measure/measure-experiment-results.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="_1"><!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 --><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Quick facts</p>
+<p><strong>Phase:</strong> Measure | <strong>Version:</strong> 2.0.0 | <strong>Category:</strong> reflection | <strong>License:</strong> Apache-2.0</p>
+</div>
+<h1 id="experiment-results">Experiment Results<a class="headerlink" href="#experiment-results" title="Permanent link">&para;</a></h1>
+<p>An experiment results document captures what happened when you tested a hypothesis, including statistical outcomes, segment analysis, learnings, and clear recommendations. Good results documentation turns individual experiments into organizational knowledge that improves future decision-making.</p>
+<h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
+<ul>
+<li>After an A/B test or experiment reaches statistical significance</li>
+<li>When an experiment is ended early (for any reason)</li>
+<li>To communicate findings to stakeholders who weren't involved</li>
+<li>During decision-making about whether to ship, iterate, or kill a feature</li>
+<li>To build a repository of learnings that inform future experiments</li>
+</ul>
+<h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
+<p>Use the <code>/experiment-results</code> slash command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/experiment-results &quot;Your context here&quot;
+</span></code></pre></div>
+<p>Or reference the skill file directly: <code>skills/measure-experiment-results/SKILL.md</code></p>
+<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
+<p>When asked to document experiment results, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Summarize the Experiment</strong>
+   Provide context: what was tested, when it ran, how much traffic it received. Link to the original experiment design document if one exists.</p>
+</li>
+<li>
+<p><strong>Restate the Hypothesis</strong>
+   Remind readers what you believed would happen and why. This frames the results interpretation.</p>
+</li>
+<li>
+<p><strong>Present Primary Results</strong>
+   Show the primary metric outcome clearly: what were the values for control and treatment? Include statistical significance (p-value), confidence intervals, and sample sizes. Be honest about whether results are conclusive.</p>
+</li>
+<li>
+<p><strong>Analyze Secondary Metrics</strong>
+   Present guardrail metrics that ensure you didn't cause unintended harm. Note any secondary metrics that moved unexpectedly—both positive and negative.</p>
+</li>
+<li>
+<p><strong>Segment the Data</strong>
+   Look for differential effects across user segments (platform, tenure, plan type, etc.). Sometimes overall results mask important segment-level insights.</p>
+</li>
+<li>
+<p><strong>Extract Learnings</strong>
+   What did you learn beyond the numbers? Include surprising findings, questions raised, and implications for the product hypothesis. Negative results are valuable learnings.</p>
+</li>
+<li>
+<p><strong>Make a Recommendation</strong>
+   Be clear: should we ship, iterate, or kill? Support the recommendation with the evidence. If the decision is nuanced, explain the trade-offs.</p>
+</li>
+<li>
+<p><strong>Define Next Steps</strong>
+   Specify what happens now—engineering work to ship, follow-up experiments, metrics to continue monitoring, or documentation to update.</p>
+</li>
+</ol>
+<h2 id="output-template">Output Template<a class="headerlink" href="#output-template" title="Permanent link">&para;</a></h2>
+<h1 id="experiment-results-experiment-name">Experiment Results: [Experiment Name]<a class="headerlink" href="#experiment-results-experiment-name" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Experiment ID</strong></td>
+<td>[ID]</td>
+</tr>
+<tr>
+<td><strong>Experiment Name</strong></td>
+<td>[Name]</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Completed / Ended Early / Inconclusive</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>[Start date] to [End date] ([X] days)</td>
+</tr>
+<tr>
+<td><strong>Traffic Allocation</strong></td>
+<td>[X]% control / [Y]% treatment</td>
+</tr>
+<tr>
+<td><strong>Total Sample Size</strong></td>
+<td>[N] users</td>
+</tr>
+<tr>
+<td><strong>Owner</strong></td>
+<td>[Name]</td>
+</tr>
+<tr>
+<td><strong>Design Doc</strong></td>
+<td>[Link to experiment design]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="hypothesis-recap">Hypothesis Recap<a class="headerlink" href="#hypothesis-recap" title="Permanent link">&para;</a></h2>
+<p><strong>Original Hypothesis:</strong></p>
+<blockquote>
+<p>We believed that [change/treatment] would [expected outcome] because [rationale].</p>
+</blockquote>
+<p><strong>Success Criteria:</strong></p>
+<ul>
+<li>Primary metric: [Metric] improves by [X]%</li>
+<li>Statistical significance: p &lt; 0.05</li>
+<li>Minimum sample size: [N]</li>
+</ul>
+<hr />
+<h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
+<h3 id="primary-metric-metric-name">Primary Metric: [Metric Name]<a class="headerlink" href="#primary-metric-metric-name" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Value</th>
+<th>Sample Size</th>
+<th>Confidence Interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control</td>
+<td>[X.XX%]</td>
+<td>[N]</td>
+<td>[Lower] - [Upper]</td>
+</tr>
+<tr>
+<td>Treatment</td>
+<td>[X.XX%]</td>
+<td>[N]</td>
+<td>[Lower] - [Upper]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observed Difference:</strong> [&plusmn;X.XX%] ([Relative change]%)</p>
+<p><strong>Statistical Significance:</strong>
+- p-value: [X.XXX]
+- Confidence level: [XX]%
+- Statistically significant: [Yes/No]</p>
+<p><strong>Interpretation:</strong></p>
+<p>[Plain language explanation of what these numbers mean]</p>
+<hr />
+<h3 id="secondary-metrics">Secondary Metrics<a class="headerlink" href="#secondary-metrics" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Difference</th>
+<th>Significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Metric 1]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[&plusmn;X%]</td>
+<td>[Yes/No]</td>
+</tr>
+<tr>
+<td>[Metric 2]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[&plusmn;X%]</td>
+<td>[Yes/No]</td>
+</tr>
+<tr>
+<td>[Metric 3]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[&plusmn;X%]</td>
+<td>[Yes/No]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="guardrail-metrics">Guardrail Metrics<a class="headerlink" href="#guardrail-metrics" title="Permanent link">&para;</a></h3>
+<!-- Metrics that should NOT degrade -->
+
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Threshold</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Metric 1]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>No degradation &gt; [X]%</td>
+<td>Pass/Fail</td>
+</tr>
+<tr>
+<td>[Metric 2]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>No degradation &gt; [X]%</td>
+<td>Pass/Fail</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="segment-analysis">Segment Analysis<a class="headerlink" href="#segment-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="by-segment-dimension-1">By [Segment Dimension 1]<a class="headerlink" href="#by-segment-dimension-1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Difference</th>
+<th>Significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Segment A]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[&plusmn;X%]</td>
+<td>[Yes/No]</td>
+</tr>
+<tr>
+<td>[Segment B]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[&plusmn;X%]</td>
+<td>[Yes/No]</td>
+</tr>
+<tr>
+<td>[Segment C]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[&plusmn;X%]</td>
+<td>[Yes/No]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="by-segment-dimension-2">By [Segment Dimension 2]<a class="headerlink" href="#by-segment-dimension-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Difference</th>
+<th>Significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Segment A]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[&plusmn;X%]</td>
+<td>[Yes/No]</td>
+</tr>
+<tr>
+<td>[Segment B]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[&plusmn;X%]</td>
+<td>[Yes/No]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="segment-insights">Segment Insights<a class="headerlink" href="#segment-insights" title="Permanent link">&para;</a></h3>
+<p>[Notable findings from segment analysis - where did treatment work better/worse?]</p>
+<hr />
+<h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
+<!-- Include charts if available -->
+
+<h3 id="primary-metric-over-time">Primary Metric Over Time<a class="headerlink" href="#primary-metric-over-time" title="Permanent link">&para;</a></h3>
+<p>[Link to chart or describe trend]</p>
+<h3 id="conversion-funnel-impact">Conversion Funnel Impact<a class="headerlink" href="#conversion-funnel-impact" title="Permanent link">&para;</a></h3>
+<p>[Link to chart or describe impact on funnel]</p>
+<hr />
+<h2 id="learnings">Learnings<a class="headerlink" href="#learnings" title="Permanent link">&para;</a></h2>
+<h3 id="what-we-learned">What We Learned<a class="headerlink" href="#what-we-learned" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>[Learning 1]</strong>
+   [Description and evidence]</p>
+</li>
+<li>
+<p><strong>[Learning 2]</strong>
+   [Description and evidence]</p>
+</li>
+<li>
+<p><strong>[Learning 3]</strong>
+   [Description and evidence]</p>
+</li>
+</ol>
+<h3 id="surprising-findings">Surprising Findings<a class="headerlink" href="#surprising-findings" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[Unexpected result 1]</li>
+<li>[Unexpected result 2]</li>
+</ul>
+<h3 id="what-we-still-dont-know">What We Still Don't Know<a class="headerlink" href="#what-we-still-dont-know" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[Open question 1]</li>
+<li>[Open question 2]</li>
+</ul>
+<hr />
+<h2 id="recommendation">Recommendation<a class="headerlink" href="#recommendation" title="Permanent link">&para;</a></h2>
+<h3 id="decision-ship-iterate-kill">Decision: [Ship / Iterate / Kill]<a class="headerlink" href="#decision-ship-iterate-kill" title="Permanent link">&para;</a></h3>
+<p><strong>Rationale:</strong></p>
+<p>[Clear explanation of why this is the recommendation]</p>
+<h3 id="if-shipping">If Shipping<a class="headerlink" href="#if-shipping" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> [Engineering task 1]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> [Engineering task 2]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> [Documentation update]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> [Metrics to continue monitoring]</li>
+</ul>
+<h3 id="if-iterating">If Iterating<a class="headerlink" href="#if-iterating" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>What to change:</strong> [Changes based on learnings]</li>
+<li><strong>Next experiment:</strong> [Brief description]</li>
+<li><strong>Timeline:</strong> [When to run]</li>
+</ul>
+<h3 id="if-killing">If Killing<a class="headerlink" href="#if-killing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Why:</strong> [Clear explanation]</li>
+<li><strong>Learnings to preserve:</strong> [What we take forward]</li>
+<li><strong>Alternative approaches:</strong> [What else might work]</li>
+</ul>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Owner</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Action 1]</td>
+<td>[Name]</td>
+<td>[Date]</td>
+</tr>
+<tr>
+<td>[Action 2]</td>
+<td>[Name]</td>
+<td>[Date]</td>
+</tr>
+<tr>
+<td>[Action 3]</td>
+<td>[Name]</td>
+<td>[Date]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">&para;</a></h2>
+<h3 id="raw-data">Raw Data<a class="headerlink" href="#raw-data" title="Permanent link">&para;</a></h3>
+<p>[Link to data/dashboard]</p>
+<h3 id="statistical-methodology">Statistical Methodology<a class="headerlink" href="#statistical-methodology" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Test type: [Chi-squared / t-test / etc.]</li>
+<li>Power calculation: [Details]</li>
+<li>Multiple comparison correction: [If applicable]</li>
+</ul>
+<h3 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[Any data quality issues or caveats]</li>
+</ul>
+<hr />
+<p><em>Results documented on [date]. Decision implemented on [date].</em></p>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Experiment Results: One-Page Checkout vs. Multi-Step Checkout</summary>
+<h1 id="experiment-results-one-page-checkout-vs-multi-step-checkout">Experiment Results: One-Page Checkout vs. Multi-Step Checkout<a class="headerlink" href="#experiment-results-one-page-checkout-vs-multi-step-checkout" title="Permanent link">&para;</a></h1>
+<h2 id="summary_1">Summary<a class="headerlink" href="#summary_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Experiment ID</strong></td>
+<td>EXP-2026-001</td>
+</tr>
+<tr>
+<td><strong>Experiment Name</strong></td>
+<td>One-Page Checkout</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Completed</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>December 15, 2025 to January 10, 2026 (26 days)</td>
+</tr>
+<tr>
+<td><strong>Traffic Allocation</strong></td>
+<td>50% control / 50% treatment</td>
+</tr>
+<tr>
+<td><strong>Total Sample Size</strong></td>
+<td>47,832 users (23,891 control, 23,941 treatment)</td>
+</tr>
+<tr>
+<td><strong>Owner</strong></td>
+<td>Sarah Martinez, Product Manager</td>
+</tr>
+<tr>
+<td><strong>Design Doc</strong></td>
+<td>EXP-2026-001 Design (internal link)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="hypothesis-recap_1">Hypothesis Recap<a class="headerlink" href="#hypothesis-recap_1" title="Permanent link">&para;</a></h2>
+<p><strong>Original Hypothesis:</strong></p>
+<blockquote>
+<p>We believed that consolidating our 3-step checkout into a single page with accordion sections would increase checkout conversion rate because reducing perceived complexity and eliminating page loads would reduce drop-off at each step.</p>
+</blockquote>
+<p><strong>Success Criteria:</strong></p>
+<ul>
+<li>Primary metric: Checkout conversion rate improves by at least 3%</li>
+<li>Statistical significance: p &lt; 0.05 (two-tailed)</li>
+<li>Minimum sample size: 20,000 users per variant</li>
+</ul>
+<hr />
+<h2 id="results_1">Results<a class="headerlink" href="#results_1" title="Permanent link">&para;</a></h2>
+<h3 id="primary-metric-checkout-conversion-rate">Primary Metric: Checkout Conversion Rate<a class="headerlink" href="#primary-metric-checkout-conversion-rate" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Value</th>
+<th>Sample Size</th>
+<th>Confidence Interval (95%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control (3-step)</td>
+<td>62.4%</td>
+<td>23,891</td>
+<td>61.8% - 63.0%</td>
+</tr>
+<tr>
+<td>Treatment (1-page)</td>
+<td>65.6%</td>
+<td>23,941</td>
+<td>65.0% - 66.2%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observed Difference:</strong> +3.2 percentage points (+5.1% relative improvement)</p>
+<p><strong>Statistical Significance:</strong>
+- p-value: 0.0003
+- Confidence level: 95%
+- Statistically significant: <strong>Yes</strong></p>
+<p><strong>Interpretation:</strong></p>
+<p>The one-page checkout significantly outperformed the 3-step checkout. We can be 95% confident that the true improvement is between 1.8% and 4.6% (absolute). The result exceeds our 3% threshold for success.</p>
+<hr />
+<h3 id="secondary-metrics_1">Secondary Metrics<a class="headerlink" href="#secondary-metrics_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Difference</th>
+<th>Significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cart-to-checkout start</td>
+<td>78.2%</td>
+<td>79.1%</td>
+<td>+0.9%</td>
+<td>No (p=0.12)</td>
+</tr>
+<tr>
+<td>Average order value</td>
+<td>$87.42</td>
+<td>$86.91</td>
+<td>-0.6%</td>
+<td>No (p=0.34)</td>
+</tr>
+<tr>
+<td>Items per order</td>
+<td>2.31</td>
+<td>2.28</td>
+<td>-1.3%</td>
+<td>No (p=0.22)</td>
+</tr>
+<tr>
+<td>Time in checkout</td>
+<td>4.2 min</td>
+<td>3.1 min</td>
+<td>-26.2%</td>
+<td>Yes (p&lt;0.001)</td>
+</tr>
+<tr>
+<td>Payment errors</td>
+<td>2.1%</td>
+<td>1.8%</td>
+<td>-14.3%</td>
+<td>Yes (p=0.03)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="guardrail-metrics_1">Guardrail Metrics<a class="headerlink" href="#guardrail-metrics_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Threshold</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Return rate (7-day)</td>
+<td>8.2%</td>
+<td>8.4%</td>
+<td>No increase &gt; 1%</td>
+<td><strong>Pass</strong></td>
+</tr>
+<tr>
+<td>Customer support tickets</td>
+<td>0.9%</td>
+<td>0.7%</td>
+<td>No increase &gt; 0.5%</td>
+<td><strong>Pass</strong></td>
+</tr>
+<tr>
+<td>Payment failure rate</td>
+<td>3.4%</td>
+<td>3.2%</td>
+<td>No increase &gt; 0.5%</td>
+<td><strong>Pass</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="segment-analysis_1">Segment Analysis<a class="headerlink" href="#segment-analysis_1" title="Permanent link">&para;</a></h2>
+<h3 id="by-device-type">By Device Type<a class="headerlink" href="#by-device-type" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Difference</th>
+<th>Significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desktop</td>
+<td>68.3%</td>
+<td>69.5%</td>
+<td>+1.2%</td>
+<td>No (p=0.18)</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>54.2%</td>
+<td>59.3%</td>
+<td>+5.1%</td>
+<td><strong>Yes</strong> (p&lt;0.001)</td>
+</tr>
+<tr>
+<td>Tablet</td>
+<td>61.7%</td>
+<td>64.1%</td>
+<td>+2.4%</td>
+<td>No (p=0.09)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="by-customer-type">By Customer Type<a class="headerlink" href="#by-customer-type" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Difference</th>
+<th>Significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New customers</td>
+<td>51.8%</td>
+<td>57.2%</td>
+<td>+5.4%</td>
+<td><strong>Yes</strong> (p&lt;0.001)</td>
+</tr>
+<tr>
+<td>Returning customers</td>
+<td>71.3%</td>
+<td>72.1%</td>
+<td>+0.8%</td>
+<td>No (p=0.28)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="by-cart-value">By Cart Value<a class="headerlink" href="#by-cart-value" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Control</th>
+<th>Treatment</th>
+<th>Difference</th>
+<th>Significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; $50</td>
+<td>65.4%</td>
+<td>68.9%</td>
+<td>+3.5%</td>
+<td><strong>Yes</strong> (p=0.008)</td>
+</tr>
+<tr>
+<td>$50-$100</td>
+<td>62.1%</td>
+<td>65.2%</td>
+<td>+3.1%</td>
+<td><strong>Yes</strong> (p=0.02)</td>
+</tr>
+<tr>
+<td>&gt; $100</td>
+<td>58.7%</td>
+<td>61.4%</td>
+<td>+2.7%</td>
+<td>No (p=0.07)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="segment-insights_1">Segment Insights<a class="headerlink" href="#segment-insights_1" title="Permanent link">&para;</a></h3>
+<p>The treatment effect was <strong>strongest on mobile devices</strong> (+5.1% vs +1.2% desktop) and for <strong>new customers</strong> (+5.4% vs +0.8% returning). This makes sense: new customers benefit most from reduced cognitive load, and mobile users benefit most from fewer page loads and scrolling.</p>
+<p>Returning customers showed minimal improvement, likely because they've already learned the existing checkout flow.</p>
+<hr />
+<h2 id="visualization_1">Visualization<a class="headerlink" href="#visualization_1" title="Permanent link">&para;</a></h2>
+<h3 id="conversion-rate-over-time">Conversion Rate Over Time<a class="headerlink" href="#conversion-rate-over-time" title="Permanent link">&para;</a></h3>
+<p>The treatment consistently outperformed control throughout the experiment period. No significant interaction with time was observed (e.g., novelty effect wearing off).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Conversion Rate by Day
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>       70% |
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>           |    ████████████████████████  (Treatment)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>       65% |████████████████████████████
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>           |
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>       60% |████████████████████████████  (Control)
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>           |
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>       55% |________________________________
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>              Dec 15                Jan 10
+</span></code></pre></div>
+<h3 id="funnel-drop-off-comparison">Funnel Drop-off Comparison<a class="headerlink" href="#funnel-drop-off-comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Control Drop-off</th>
+<th>Treatment Drop-off</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cart → Checkout</td>
+<td>21.8%</td>
+<td>20.9%</td>
+<td>+0.9%</td>
+</tr>
+<tr>
+<td>Shipping info</td>
+<td>8.4%</td>
+<td>N/A (combined)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Payment info</td>
+<td>5.2%</td>
+<td>N/A (combined)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Review → Purchase</td>
+<td>4.1%</td>
+<td>3.5%</td>
+<td>+0.6%</td>
+</tr>
+<tr>
+<td><strong>Total checkout drop</strong></td>
+<td>37.6%</td>
+<td>34.4%</td>
+<td><strong>+3.2%</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="learnings_1">Learnings<a class="headerlink" href="#learnings_1" title="Permanent link">&para;</a></h2>
+<h3 id="what-we-learned_1">What We Learned<a class="headerlink" href="#what-we-learned_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Reducing page loads matters more than expected</strong>
+   The 26% reduction in checkout time suggests page load latency was a bigger friction point than the form complexity itself. Users were abandoning during transitions between steps.</p>
+</li>
+<li>
+<p><strong>Mobile optimization is high-leverage</strong>
+   Mobile users saw 4x the improvement of desktop users. Our multi-step checkout was particularly problematic on smaller screens with more scrolling and tapping between pages.</p>
+</li>
+<li>
+<p><strong>New user experience is critical</strong>
+   New customers showed 5.4% improvement vs 0.8% for returning customers. First-time checkout experience has outsized impact on conversion; returning customers have already overcome the learning curve.</p>
+</li>
+<li>
+<p><strong>Form length matters less than perceived progress</strong>
+   The one-page design actually shows MORE fields at once, but the accordion UI creates a sense of progress and control. Perception matters more than raw field count.</p>
+</li>
+</ol>
+<h3 id="surprising-findings_1">Surprising Findings<a class="headerlink" href="#surprising-findings_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Payment errors decreased by 14%:</strong> We didn't expect this. Hypothesis: single-page reduces context-switching errors where users forget information between steps.</li>
+<li><strong>No impact on AOV or items per order:</strong> We worried that faster checkout might mean less consideration, leading to smaller orders. This didn't materialize.</li>
+</ul>
+<h3 id="what-we-still-dont-know_1">What We Still Don't Know<a class="headerlink" href="#what-we-still-dont-know_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Will the mobile improvement persist on different device types (older phones, low-bandwidth connections)?</li>
+<li>Is there a specific accordion section that causes the most friction? (We didn't instrument that level of detail)</li>
+<li>How does this interact with guest checkout vs. account checkout?</li>
+</ul>
+<hr />
+<h2 id="recommendation_1">Recommendation<a class="headerlink" href="#recommendation_1" title="Permanent link">&para;</a></h2>
+<h3 id="decision-ship-to-100">Decision: Ship to 100%<a class="headerlink" href="#decision-ship-to-100" title="Permanent link">&para;</a></h3>
+<p><strong>Rationale:</strong></p>
+<p>The experiment delivered a clear, statistically significant improvement that exceeded our success threshold. The +3.2% lift in checkout conversion represents approximately $840K in additional annual revenue at current traffic levels. No guardrail metrics were violated, and the improvement was consistent across the experiment duration.</p>
+<p>The segment analysis reveals even higher impact on mobile and new customers—our strategic growth priorities.</p>
+<h3 id="shipping-plan">Shipping Plan<a class="headerlink" href="#shipping-plan" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Merge feature branch to main (Eng: Chen, by Jan 17)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Update checkout analytics events for new flow (Eng: Chen, by Jan 17)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Remove experiment infrastructure and flags (Eng: Chen, by Jan 20)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Update help center documentation (Support: Lisa, by Jan 22)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Communicate change to CS team (PM: Sarah, by Jan 17)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Monitor conversion rate daily for 2 weeks post-launch (PM: Sarah, ongoing)</li>
+</ul>
+<h3 id="metrics-to-continue-monitoring">Metrics to Continue Monitoring<a class="headerlink" href="#metrics-to-continue-monitoring" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Checkout conversion rate (daily for 2 weeks, then weekly)</li>
+<li>Mobile vs. desktop conversion gap</li>
+<li>Payment error rate</li>
+<li>Customer support ticket volume related to checkout</li>
+</ul>
+<hr />
+<h2 id="next-steps_1">Next Steps<a class="headerlink" href="#next-steps_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Owner</th>
+<th>Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ship to 100% traffic</td>
+<td>Chen (Eng)</td>
+<td>Jan 17</td>
+</tr>
+<tr>
+<td>Update analytics events</td>
+<td>Chen (Eng)</td>
+<td>Jan 17</td>
+</tr>
+<tr>
+<td>Remove experiment flags</td>
+<td>Chen (Eng)</td>
+<td>Jan 20</td>
+</tr>
+<tr>
+<td>Update help documentation</td>
+<td>Lisa (Support)</td>
+<td>Jan 22</td>
+</tr>
+<tr>
+<td>Post-launch monitoring report</td>
+<td>Sarah (PM)</td>
+<td>Jan 31</td>
+</tr>
+<tr>
+<td>Plan follow-up: guest checkout optimization</td>
+<td>Sarah (PM)</td>
+<td>Feb 1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="appendix_1">Appendix<a class="headerlink" href="#appendix_1" title="Permanent link">&para;</a></h2>
+<h3 id="raw-data_1">Raw Data<a class="headerlink" href="#raw-data_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Experiment Dashboard (Looker link)</li>
+<li>Raw data export (CSV link)</li>
+<li>Statistical analysis notebook (analysis link)</li>
+</ul>
+<h3 id="statistical-methodology_1">Statistical Methodology<a class="headerlink" href="#statistical-methodology_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test type:</strong> Two-proportion z-test for primary metric</li>
+<li><strong>Multiple comparison correction:</strong> Benjamini-Hochberg for segment analysis</li>
+<li><strong>Power calculation:</strong> 80% power to detect 3% lift at α=0.05 required 18,500 per variant</li>
+<li><strong>Sequential analysis:</strong> Not used; experiment ran to planned end date</li>
+</ul>
+<h3 id="known-issues_1">Known Issues<a class="headerlink" href="#known-issues_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Dec 24-26 excluded:</strong> Holiday traffic anomaly removed from analysis (both variants affected equally)</li>
+<li><strong>Bot traffic:</strong> Standard bot filters applied; no unusual activity detected</li>
+<li><strong>One variant had 0.2% more iOS traffic:</strong> Not statistically significant; analysis not adjusted</li>
+</ul>
+<hr />
+<p><em>Results documented on January 14, 2026. Full rollout completed January 20, 2026.</em></p>
+</details>
+<h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
+<p>Before finalizing, verify:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Statistical methods and significance are clearly stated</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Confidence intervals are included (not just p-values)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Segment analysis checked for differential effects</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Secondary/guardrail metrics are reported</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Learnings go beyond just the numbers</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Recommendation is clear and actionable</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Negative or inconclusive results are reported honestly</li>
+</ul>
+<h2 id="output-format">Output Format<a class="headerlink" href="#output-format" title="Permanent link">&para;</a></h2>
+<p>Use the template in <code>references/TEMPLATE.md</code> to structure the output.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 product-on-purpose
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

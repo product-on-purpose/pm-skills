@@ -1,0 +1,3524 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Creates a comprehensive Product Requirements Document that aligns stakeholders on what to build, why, and how success will be measured. Use when specifying features, epics, or product initiatives for engineering handoff.">
+      
+      
+        <meta name="author" content="jprisant">
+      
+      
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/skills/deliver/deliver-prd/">
+      
+      
+        <link rel="prev" href="../deliver-launch-checklist/">
+      
+      
+        <link rel="next" href="../deliver-release-notes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>deliver-prd - PM Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PM Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              deliver-prd
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../bundles/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Bundles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../reference/commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../releases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    PM Skills
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../getting-started/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skills
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../discover/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discover
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Discover
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../discover/discover-competitive-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    discover-competitive-analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../discover/discover-interview-synthesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    discover-interview-synthesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../discover/discover-stakeholder-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    discover-stakeholder-summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../define/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Define
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Define
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../define/define-hypothesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    define-hypothesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../define/define-jtbd-canvas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    define-jtbd-canvas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../define/define-opportunity-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    define-opportunity-tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../define/define-problem-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    define-problem-statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../develop/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Develop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Develop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../develop/develop-adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    develop-adr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../develop/develop-design-rationale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    develop-design-rationale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../develop/develop-solution-brief/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    develop-solution-brief
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../develop/develop-spike-summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    develop-spike-summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deliver
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deliver
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deliver-acceptance-criteria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-acceptance-criteria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deliver-edge-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-edge-cases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deliver-launch-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-launch-checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-prd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deliver-release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-release-notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deliver-user-stories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    deliver-user-stories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../measure/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Measure
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Measure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../measure/measure-dashboard-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    measure-dashboard-requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../measure/measure-experiment-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    measure-experiment-design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../measure/measure-experiment-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    measure-experiment-results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../measure/measure-instrumentation-spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    measure-instrumentation-spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../iterate/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iterate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iterate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterate/iterate-lessons-log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iterate-lessons-log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterate/iterate-pivot-decision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iterate-pivot-decision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterate/iterate-refinement-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iterate-refinement-notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iterate/iterate-retrospective/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iterate-retrospective
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../foundation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../foundation/foundation-persona/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    foundation-persona
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../utility/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utility
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utility
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility/utility-pm-skill-builder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-pm-skill-builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility/utility-pm-skill-iterate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-pm-skill-iterate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../utility/utility-pm-skill-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utility-pm-skill-validate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../bundles/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bundles
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../guides/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../concepts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../reference/commands/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../contributing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../releases/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Skills
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Deliver
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/skills/deliver/deliver-prd.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/skills/deliver/deliver-prd.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="_1"><!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 --><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Quick facts</p>
+<p><strong>Phase:</strong> Deliver | <strong>Version:</strong> 2.0.0 | <strong>Category:</strong> specification | <strong>License:</strong> Apache-2.0</p>
+</div>
+<h1 id="product-requirements-document-prd">Product Requirements Document (PRD)<a class="headerlink" href="#product-requirements-document-prd" title="Permanent link">&para;</a></h1>
+<p>A Product Requirements Document is the primary specification artifact that communicates what to build and why. It bridges the gap between problem understanding and engineering implementation by providing clear requirements, success criteria, and scope boundaries. A good PRD enables engineering to build the right thing while maintaining flexibility on implementation details.</p>
+<h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
+<ul>
+<li>After problem and solution alignment, before engineering work begins</li>
+<li>When specifying features, epics, or product initiatives for handoff</li>
+<li>When multiple teams need to coordinate on a shared deliverable</li>
+<li>When stakeholders need to approve scope before investment</li>
+<li>As reference documentation during development and QA</li>
+</ul>
+<h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
+<p>Use the <code>/prd</code> slash command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/prd &quot;Your context here&quot;
+</span></code></pre></div>
+<p>Or reference the skill file directly: <code>skills/deliver-prd/SKILL.md</code></p>
+<h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
+<p>When asked to create a PRD, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Summarize the Problem</strong>
+   Start with a brief recap of the problem being solved. Link to the problem statement if available. Ensure readers understand <em>why</em> this work matters before diving into <em>what</em> to build.</p>
+</li>
+<li>
+<p><strong>Define Goals and Success Metrics</strong>
+   Articulate what success looks like. Include specific, measurable metrics with baselines and targets. These metrics should connect directly to the problem being solved.</p>
+</li>
+<li>
+<p><strong>Outline the Solution</strong>
+   Describe the proposed solution at a high level. Focus on user-facing functionality and key capabilities. Include enough detail for stakeholders to evaluate the approach without over-specifying implementation.</p>
+</li>
+<li>
+<p><strong>Detail Functional Requirements</strong>
+   Break down what the system must do. Use user stories or requirement statements. Each requirement should be testable — someone should be able to verify if it's met.</p>
+</li>
+<li>
+<p><strong>Define Scope Boundaries</strong>
+   Explicitly state what's in scope, out of scope, and deferred to future iterations. Clear scope prevents scope creep and sets realistic expectations.</p>
+</li>
+<li>
+<p><strong>Address Technical Considerations</strong>
+   Note any technical constraints, architectural decisions, or integration requirements. Don't design the system, but surface considerations engineering needs to know.</p>
+</li>
+<li>
+<p><strong>Identify Dependencies and Risks</strong>
+   List external dependencies, assumptions, and risks that could impact delivery. Include mitigation strategies where applicable.</p>
+</li>
+<li>
+<p><strong>Propose Timeline and Milestones</strong>
+   Outline key phases and checkpoints. This helps stakeholders understand the delivery plan without committing to specific dates prematurely.</p>
+</li>
+</ol>
+<h2 id="output-template">Output Template<a class="headerlink" href="#output-template" title="Permanent link">&para;</a></h2>
+<h1 id="prd-featureinitiative-name">PRD: [Feature/Initiative Name]<a class="headerlink" href="#prd-featureinitiative-name" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h3 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h3>
+<!-- Brief recap of the problem. Link to full problem statement if available. -->
+
+<p>[Problem summary]</p>
+<h3 id="solution-summary">Solution Summary<a class="headerlink" href="#solution-summary" title="Permanent link">&para;</a></h3>
+<!-- High-level description of what we're building -->
+
+<p>[Solution summary]</p>
+<h3 id="target-users">Target Users<a class="headerlink" href="#target-users" title="Permanent link">&para;</a></h3>
+<!-- Who will use this feature? -->
+
+<p>[Target user description]</p>
+<h2 id="goals-success-metrics">Goals &amp; Success Metrics<a class="headerlink" href="#goals-success-metrics" title="Permanent link">&para;</a></h2>
+<h3 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h3>
+<!-- What outcomes are we trying to achieve? -->
+
+<ol>
+<li>[Primary goal]</li>
+<li>[Secondary goal]</li>
+<li>[Secondary goal]</li>
+</ol>
+<h3 id="success-metrics">Success Metrics<a class="headerlink" href="#success-metrics" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current Baseline</th>
+<th>Target</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Primary metric]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[Date]</td>
+</tr>
+<tr>
+<td>[Secondary metric]</td>
+<td>[Value]</td>
+<td>[Value]</td>
+<td>[Date]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="non-goals">Non-Goals<a class="headerlink" href="#non-goals" title="Permanent link">&para;</a></h3>
+<!-- What are we explicitly NOT trying to achieve? -->
+
+<ul>
+<li>[Non-goal 1]</li>
+<li>[Non-goal 2]</li>
+</ul>
+<h2 id="user-stories">User Stories<a class="headerlink" href="#user-stories" title="Permanent link">&para;</a></h2>
+<!-- Summary of key user stories. Link to detailed stories if available. -->
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>User Story</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US-1</td>
+<td>As a [user], I want [action] so that [benefit]</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>US-2</td>
+<td>As a [user], I want [action] so that [benefit]</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>US-3</td>
+<td>As a [user], I want [action] so that [benefit]</td>
+<td>P1</td>
+</tr>
+</tbody>
+</table>
+<p>See [link to detailed user stories] for full acceptance criteria.</p>
+<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
+<h3 id="in-scope">In Scope<a class="headerlink" href="#in-scope" title="Permanent link">&para;</a></h3>
+<!-- What will be delivered in this iteration -->
+
+<ul>
+<li>[Feature/capability 1]</li>
+<li>[Feature/capability 2]</li>
+<li>[Feature/capability 3]</li>
+</ul>
+<h3 id="out-of-scope">Out of Scope<a class="headerlink" href="#out-of-scope" title="Permanent link">&para;</a></h3>
+<!-- What will NOT be delivered -->
+
+<ul>
+<li>[Excluded item 1]</li>
+<li>[Excluded item 2]</li>
+</ul>
+<h3 id="future-considerations">Future Considerations<a class="headerlink" href="#future-considerations" title="Permanent link">&para;</a></h3>
+<!-- Items deferred to future iterations -->
+
+<ul>
+<li>[Future item 1] — [Rationale for deferral]</li>
+<li>[Future item 2] — [Rationale for deferral]</li>
+</ul>
+<h2 id="solution-design">Solution Design<a class="headerlink" href="#solution-design" title="Permanent link">&para;</a></h2>
+<h3 id="functional-requirements">Functional Requirements<a class="headerlink" href="#functional-requirements" title="Permanent link">&para;</a></h3>
+<h4 id="requirement-area-1">[Requirement Area 1]<a class="headerlink" href="#requirement-area-1" title="Permanent link">&para;</a></h4>
+<!-- Group related requirements -->
+
+<ul>
+<li>FR-1: [Requirement statement]</li>
+<li>FR-2: [Requirement statement]</li>
+</ul>
+<h4 id="requirement-area-2">[Requirement Area 2]<a class="headerlink" href="#requirement-area-2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>FR-3: [Requirement statement]</li>
+<li>FR-4: [Requirement statement]</li>
+</ul>
+<h3 id="user-experience">User Experience<a class="headerlink" href="#user-experience" title="Permanent link">&para;</a></h3>
+<!-- Key UX decisions, flows, or wireframe references -->
+
+<p>[UX notes or link to designs]</p>
+<h3 id="edge-cases">Edge Cases<a class="headerlink" href="#edge-cases" title="Permanent link">&para;</a></h3>
+<!-- Important edge cases to handle -->
+
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Expected Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Edge case 1]</td>
+<td>[Behavior]</td>
+</tr>
+<tr>
+<td>[Edge case 2]</td>
+<td>[Behavior]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technical-considerations">Technical Considerations<a class="headerlink" href="#technical-considerations" title="Permanent link">&para;</a></h2>
+<!-- Technical constraints, architectural notes, or integration requirements -->
+
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[Constraint 1]</li>
+<li>[Constraint 2]</li>
+</ul>
+<h3 id="integration-points">Integration Points<a class="headerlink" href="#integration-points" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[System/API 1]: [Integration notes]</li>
+<li>[System/API 2]: [Integration notes]</li>
+</ul>
+<h3 id="data-requirements">Data Requirements<a class="headerlink" href="#data-requirements" title="Permanent link">&para;</a></h3>
+<!-- Any data migration, storage, or privacy considerations -->
+
+<p>[Data notes]</p>
+<h2 id="dependencies-risks">Dependencies &amp; Risks<a class="headerlink" href="#dependencies-risks" title="Permanent link">&para;</a></h2>
+<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Owner</th>
+<th>Status</th>
+<th>Impact if Delayed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Dependency 1]</td>
+<td>[Team/Person]</td>
+<td>[Status]</td>
+<td>[Impact]</td>
+</tr>
+<tr>
+<td>[Dependency 2]</td>
+<td>[Team/Person]</td>
+<td>[Status]</td>
+<td>[Impact]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="risks">Risks<a class="headerlink" href="#risks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Risk 1]</td>
+<td>[H/M/L]</td>
+<td>[H/M/L]</td>
+<td>[Mitigation strategy]</td>
+</tr>
+<tr>
+<td>[Risk 2]</td>
+<td>[H/M/L]</td>
+<td>[H/M/L]</td>
+<td>[Mitigation strategy]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="timeline-milestones">Timeline &amp; Milestones<a class="headerlink" href="#timeline-milestones" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Description</th>
+<th>Target Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Milestone 1]</td>
+<td>[Description]</td>
+<td>[Date]</td>
+</tr>
+<tr>
+<td>[Milestone 2]</td>
+<td>[Description]</td>
+<td>[Date]</td>
+</tr>
+<tr>
+<td>[Launch]</td>
+<td>[Description]</td>
+<td>[Date]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="open-questions">Open Questions<a class="headerlink" href="#open-questions" title="Permanent link">&para;</a></h2>
+<!-- Unresolved questions that need answers before or during development -->
+
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> [Question 1] — Owner: [Name]</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> [Question 2] — Owner: [Name]</li>
+</ul>
+<h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">&para;</a></h2>
+<h3 id="related-documents">Related Documents<a class="headerlink" href="#related-documents" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Problem Statement — add link or path</li>
+<li>User Research — add link or path</li>
+<li>Design Specs — add link or path</li>
+<li>Technical Design — add link or path</li>
+</ul>
+<h3 id="revision-history">Revision History<a class="headerlink" href="#revision-history" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>[Date]</td>
+<td>[Author]</td>
+<td>Initial draft</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>PRD: Recurring Tasks</summary>
+<h1 id="prd-recurring-tasks">PRD: Recurring Tasks<a class="headerlink" href="#prd-recurring-tasks" title="Permanent link">&para;</a></h1>
+<h2 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h2>
+<h3 id="problem-statement_1">Problem Statement<a class="headerlink" href="#problem-statement_1" title="Permanent link">&para;</a></h3>
+<p>Users of TaskFlow spend significant time manually recreating repetitive tasks that occur on predictable schedules. Our research shows that 34% of all tasks created are duplicates of previous tasks, and power users report spending 2+ hours per week on this manual work. This friction reduces productivity and causes users to miss recurring deadlines when they forget to recreate tasks.</p>
+<h3 id="solution-summary_1">Solution Summary<a class="headerlink" href="#solution-summary_1" title="Permanent link">&para;</a></h3>
+<p>Add recurring task functionality that allows users to create tasks that automatically regenerate on defined schedules. Users can set weekly, monthly, or custom recurrence patterns, and the system will create new task instances automatically while preserving the connection to the original recurring series.</p>
+<h3 id="target-users_1">Target Users<a class="headerlink" href="#target-users_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Primary:</strong> Team leads and project managers who manage ongoing operational tasks (weekly reports, monthly reviews, recurring meetings)</li>
+<li><strong>Secondary:</strong> Individual contributors who have personal recurring responsibilities (timesheets, 1:1 prep, status updates)</li>
+</ul>
+<h2 id="goals-success-metrics_1">Goals &amp; Success Metrics<a class="headerlink" href="#goals-success-metrics_1" title="Permanent link">&para;</a></h2>
+<h3 id="goals_1">Goals<a class="headerlink" href="#goals_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Reduce time spent on manual task recreation by 80%</li>
+<li>Decrease missed recurring deadlines by 50%</li>
+<li>Increase weekly active usage among power users</li>
+</ol>
+<h3 id="success-metrics_1">Success Metrics<a class="headerlink" href="#success-metrics_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current Baseline</th>
+<th>Target</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Duplicate task creation rate</td>
+<td>34%</td>
+<td>15%</td>
+<td>90 days post-launch</td>
+</tr>
+<tr>
+<td>Missed recurring deadlines</td>
+<td>12 per user/month</td>
+<td>6 per user/month</td>
+<td>90 days post-launch</td>
+</tr>
+<tr>
+<td>Power user WAU</td>
+<td>67%</td>
+<td>75%</td>
+<td>90 days post-launch</td>
+</tr>
+<tr>
+<td>Feature adoption (% using recurring)</td>
+<td>0%</td>
+<td>40%</td>
+<td>90 days post-launch</td>
+</tr>
+</tbody>
+</table>
+<h3 id="non-goals_1">Non-Goals<a class="headerlink" href="#non-goals_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Task dependencies or predecessor relationships</li>
+<li>Automated task assignment rotation (e.g., round-robin)</li>
+<li>Integration with external calendar systems (deferred to v2)</li>
+</ul>
+<h2 id="user-stories_1">User Stories<a class="headerlink" href="#user-stories_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>User Story</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US-1</td>
+<td>As a team lead, I want to create a task that repeats weekly so that I don't have to manually recreate it</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>US-2</td>
+<td>As a user, I want to edit a single instance without affecting the series so that I can handle exceptions</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>US-3</td>
+<td>As a user, I want to see upcoming instances of recurring tasks so that I can plan my workload</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>US-4</td>
+<td>As a user, I want to pause and resume a recurring series so that I can handle temporary schedule changes</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>US-5</td>
+<td>As a team lead, I want to edit the entire series at once so that I can make bulk changes efficiently</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>US-6</td>
+<td>As a user, I want to set an end date for recurrence so that temporary projects don't create tasks forever</td>
+<td>P1</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="#">User Stories Document</a> for full acceptance criteria.</p>
+<h2 id="scope_1">Scope<a class="headerlink" href="#scope_1" title="Permanent link">&para;</a></h2>
+<h3 id="in-scope_1">In Scope<a class="headerlink" href="#in-scope_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Create recurring tasks with daily, weekly, monthly patterns</li>
+<li>Edit single instance vs. entire series</li>
+<li>View upcoming instances (next 4 weeks)</li>
+<li>Pause/resume recurring series</li>
+<li>Set recurrence end date or occurrence count</li>
+<li>Delete single instance vs. entire series</li>
+<li>Recurring tasks visible in list view, calendar view, and board view</li>
+</ul>
+<h3 id="out-of-scope_1">Out of Scope<a class="headerlink" href="#out-of-scope_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Custom recurrence patterns (e.g., "every 3<sup>rd</sup> Tuesday") — v2</li>
+<li>Calendar sync (Google Calendar, Outlook) — v2</li>
+<li>Task assignment rotation — future consideration</li>
+<li>Recurring subtasks — future consideration</li>
+<li>Bulk operations on multiple recurring series</li>
+</ul>
+<h3 id="future-considerations_1">Future Considerations<a class="headerlink" href="#future-considerations_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Custom patterns (v2):</strong> Complex scheduling like "first Monday of each month" or "every 2 weeks" — deferred due to UI complexity; standard patterns cover 85% of use cases</li>
+<li><strong>Calendar sync (v2):</strong> Two-way sync with external calendars — deferred due to integration complexity and scope</li>
+<li><strong>Assignment rotation:</strong> Auto-rotate assignee for team tasks — requires additional UX research to understand use cases</li>
+</ul>
+<h2 id="solution-design_1">Solution Design<a class="headerlink" href="#solution-design_1" title="Permanent link">&para;</a></h2>
+<h3 id="functional-requirements_1">Functional Requirements<a class="headerlink" href="#functional-requirements_1" title="Permanent link">&para;</a></h3>
+<h4 id="task-creation">Task Creation<a class="headerlink" href="#task-creation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>FR-1: Users can mark any new task as recurring during creation</li>
+<li>FR-2: Recurrence options include: Daily, Weekly (select days), Monthly (select date or day-of-week)</li>
+<li>FR-3: Users can set recurrence to end after X occurrences or on a specific date</li>
+<li>FR-4: Default recurrence end is "never" with system limit of 52 weeks forward generation</li>
+</ul>
+<h4 id="instance-management">Instance Management<a class="headerlink" href="#instance-management" title="Permanent link">&para;</a></h4>
+<ul>
+<li>FR-5: Each recurring task generates instances up to 4 weeks in advance</li>
+<li>FR-6: Completing an instance marks only that instance complete and triggers next instance generation</li>
+<li>FR-7: Editing an instance shows option: "Edit this instance only" or "Edit all future instances"</li>
+<li>FR-8: Deleting an instance shows option: "Delete this instance only" or "Delete entire series"</li>
+</ul>
+<h4 id="series-management">Series Management<a class="headerlink" href="#series-management" title="Permanent link">&para;</a></h4>
+<ul>
+<li>FR-9: Users can pause a recurring series, stopping new instance generation</li>
+<li>FR-10: Paused series display visual indicator and can be resumed</li>
+<li>FR-11: Users can view and edit the recurrence pattern from any instance</li>
+</ul>
+<h3 id="user-experience_1">User Experience<a class="headerlink" href="#user-experience_1" title="Permanent link">&para;</a></h3>
+<p><strong>Creation Flow:</strong>
+1. User clicks "Add Task"
+2. User enters task details
+3. User clicks "Make Recurring" toggle
+4. Recurrence panel expands with pattern options
+5. User selects pattern and confirms
+6. First instance created immediately, future instances generated</p>
+<p><strong>Visual Indicators:</strong>
+- Recurring tasks show refresh icon in list/board views
+- Instance number displayed (e.g., "#3 of series")
+- Paused series show pause indicator with muted styling</p>
+<p>See <a href="#">Figma Design Specs</a> for detailed mockups.</p>
+<h3 id="edge-cases_1">Edge Cases<a class="headerlink" href="#edge-cases_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Expected Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User deletes instance that's in progress</td>
+<td>Prompt: "This task has logged time. Delete anyway?"</td>
+</tr>
+<tr>
+<td>Series created with past start date</td>
+<td>Create instance for next valid date, not retroactively</td>
+</tr>
+<tr>
+<td>Monthly recurrence on 31<sup>st</sup></td>
+<td>Use last day of month for shorter months</td>
+</tr>
+<tr>
+<td>User changes recurrence pattern</td>
+<td>Apply to future instances only, preserve completed instances</td>
+</tr>
+<tr>
+<td>User completes instance early</td>
+<td>Next instance still generates on schedule</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technical-considerations_1">Technical Considerations<a class="headerlink" href="#technical-considerations_1" title="Permanent link">&para;</a></h2>
+<h3 id="constraints_1">Constraints<a class="headerlink" href="#constraints_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Maximum 52 weeks of forward instance generation (prevent database bloat)</li>
+<li>Recurrence calculations must handle timezone correctly (user's local time)</li>
+<li>Instance generation must be idempotent (safe to re-run)</li>
+</ul>
+<h3 id="integration-points_1">Integration Points<a class="headerlink" href="#integration-points_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Notification Service:</strong> Recurring task reminders use existing notification infrastructure</li>
+<li><strong>Activity Feed:</strong> Instance completion logs to activity feed as normal task completion</li>
+<li><strong>Reporting:</strong> Recurring tasks aggregate into existing productivity reports</li>
+</ul>
+<h3 id="data-requirements_1">Data Requirements<a class="headerlink" href="#data-requirements_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>New <code>recurring_series</code> table linking instances to parent series</li>
+<li><code>recurrence_pattern</code> stored as RRULE-compatible format for future calendar sync</li>
+<li>Soft delete for series to preserve historical data</li>
+<li>Migration: No data migration required (new feature)</li>
+</ul>
+<h2 id="dependencies-risks_1">Dependencies &amp; Risks<a class="headerlink" href="#dependencies-risks_1" title="Permanent link">&para;</a></h2>
+<h3 id="dependencies_1">Dependencies<a class="headerlink" href="#dependencies_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Owner</th>
+<th>Status</th>
+<th>Impact if Delayed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calendar view refactor</td>
+<td>Frontend Team</td>
+<td>In Progress</td>
+<td>Cannot show recurring instances in calendar</td>
+</tr>
+<tr>
+<td>Background job infrastructure</td>
+<td>Platform Team</td>
+<td>Complete</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Design specs finalized</td>
+<td>Design Team</td>
+<td>In Review</td>
+<td>Delays development start</td>
+</tr>
+</tbody>
+</table>
+<h3 id="risks_1">Risks<a class="headerlink" href="#risks_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User confusion about instance vs. series editing</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Clear UI copy, confirmation dialogs, user testing</td>
+</tr>
+<tr>
+<td>Performance impact of instance generation</td>
+<td>Low</td>
+<td>High</td>
+<td>Lazy generation, batch processing, monitoring</td>
+</tr>
+<tr>
+<td>Feature complexity delays launch</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>MVP scope locked, defer edge cases to v1.1</td>
+</tr>
+<tr>
+<td>Low adoption if UX isn't intuitive</td>
+<td>Medium</td>
+<td>High</td>
+<td>User testing before launch, in-app education</td>
+</tr>
+</tbody>
+</table>
+<h2 id="timeline-milestones_1">Timeline &amp; Milestones<a class="headerlink" href="#timeline-milestones_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Description</th>
+<th>Target Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Design Complete</td>
+<td>Final mockups approved</td>
+<td>Jan 24, 2026</td>
+</tr>
+<tr>
+<td>Backend Complete</td>
+<td>API and data model ready</td>
+<td>Feb 7, 2026</td>
+</tr>
+<tr>
+<td>Frontend Complete</td>
+<td>UI implementation done</td>
+<td>Feb 21, 2026</td>
+</tr>
+<tr>
+<td>QA Complete</td>
+<td>Testing and bug fixes</td>
+<td>Feb 28, 2026</td>
+</tr>
+<tr>
+<td>Beta Launch</td>
+<td>10% rollout</td>
+<td>Mar 3, 2026</td>
+</tr>
+<tr>
+<td>GA Launch</td>
+<td>100% rollout</td>
+<td>Mar 10, 2026</td>
+</tr>
+</tbody>
+</table>
+<h2 id="open-questions_1">Open Questions<a class="headerlink" href="#open-questions_1" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Should we support "business days only" recurrence? — <strong>Decision: No, defer to v2</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> How do we handle recurring tasks when user loses access to project? — Owner: Product</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Should paused series auto-resume after X time? — Owner: Product</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> What's the right default reminder time for recurring tasks? — Owner: Design</li>
+</ul>
+<h2 id="appendix_1">Appendix<a class="headerlink" href="#appendix_1" title="Permanent link">&para;</a></h2>
+<h3 id="related-documents_1">Related Documents<a class="headerlink" href="#related-documents_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#">Problem Statement: Task Recreation Friction</a></li>
+<li><a href="#">User Research: Recurring Task Needs</a></li>
+<li><a href="#">Figma: Recurring Tasks Design</a></li>
+<li><a href="#">Technical Design: Recurrence Engine</a></li>
+</ul>
+<h3 id="revision-history_1">Revision History<a class="headerlink" href="#revision-history_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>Jan 10, 2026</td>
+<td>Sarah Chen</td>
+<td>Initial draft</td>
+</tr>
+<tr>
+<td>0.2</td>
+<td>Jan 12, 2026</td>
+<td>Sarah Chen</td>
+<td>Added edge cases, updated scope</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>Jan 14, 2026</td>
+<td>Sarah Chen</td>
+<td>Final review, approved by stakeholders</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
+<p>Before finalizing, verify:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Problem and "why now" are clearly articulated</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Success metrics are specific and measurable</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Scope boundaries are explicit (in/out/future)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Requirements are testable and unambiguous</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Technical considerations are surfaced without over-specifying</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Dependencies and risks are documented with owners</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Document is readable in under 15 minutes</li>
+</ul>
+<h2 id="output-format">Output Format<a class="headerlink" href="#output-format" title="Permanent link">&para;</a></h2>
+<p>Use the template in <code>references/TEMPLATE.md</code> to structure the output.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 product-on-purpose
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

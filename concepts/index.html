@@ -6,15 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+        <meta name="description" content="Understanding how PM skills work, the Triple Diamond framework, and the skill lifecycle.">
       
       
         <meta name="author" content="jprisant">
       
       
-        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/pm-skill-lifecycle/">
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/concepts/">
       
       
+        <link rel="prev" href="../guides/validate-mcp-sync/">
+      
+      
+        <link rel="next" href="skill-anatomy/">
       
       
         
@@ -25,7 +29,7 @@
     
     
       
-        <title>PM-Skill Lifecycle - PM Skills</title>
+        <title>Concepts - PM Skills</title>
       
     
     
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pm-skill-lifecycle" class="md-skip">
+        <a href="#concepts" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PM-Skill Lifecycle
+              Concepts
             
           </span>
         </div>
@@ -250,6 +254,184 @@
   
 
       
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../skills/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../bundles/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Bundles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../guides/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../releases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -314,6 +496,8 @@
           
         
       
+        
+      
     
     
     
@@ -360,6 +544,662 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../getting-started/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../skills/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../bundles/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bundles
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../guides/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="skill-anatomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill Anatomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="agent-skill-anatomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Skill Anatomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="skill-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="triple-diamond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Triple Diamond
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../reference/commands/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../contributing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../releases/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -379,158 +1219,6 @@
   
     
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-lifecycle-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Lifecycle Model
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Lifecycle Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-three-tools-instead-of-one" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why three tools instead of one?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-each-tool" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Use Each Tool
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow Patterns
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Workflow Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pattern-1-new-skill" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 1: New Skill
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-2-improve-an-existing-skill" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 2: Improve an Existing Skill
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-3-convention-change-rollout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 3: Convention Change Rollout
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-4-feedback-loop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 4: Feedback Loop
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-the-tools-relate-to-versioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the Tools Relate to Versioning
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-the-validator-relates-to-ci" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How the Validator Relates to CI
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-quality-standard-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Quality Standard Model
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Reference
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -553,7 +1241,7 @@
 
 
   
-    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/pm-skill-lifecycle.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/concepts/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -562,284 +1250,38 @@
     
       
     
-    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/pm-skill-lifecycle.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/concepts/index.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="pm-skill-lifecycle">PM-Skill Lifecycle<a class="headerlink" href="#pm-skill-lifecycle" title="Permanent link">&para;</a></h1>
-<p>A practical guide to creating, validating, and iterating PM skills. For how skills are <em>structured</em>, see <a href="../pm-skill-anatomy/">PM-Skill Anatomy</a>. This guide covers how skills <em>evolve</em>.</p>
-<hr />
-<h2 id="the-lifecycle-model">The Lifecycle Model<a class="headerlink" href="#the-lifecycle-model" title="Permanent link">&para;</a></h2>
-<p>PM skills are managed through three utility skills that form a lifecycle:</p>
-<pre class="mermaid"><code>flowchart LR
-    Create["/pm-skill-builder\nCreate"] --&gt; Validate["/pm-skill-validate\nValidate"]
-    Validate --&gt; Decision{Findings?}
-    Decision -- "PASS" --&gt; Ship["Ship"]
-    Decision -- "WARN / FAIL" --&gt; Iterate["/pm-skill-iterate\nIterate"]
-    Iterate --&gt; Validate</code></pre>
+<h1 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h1>
+<p>Understand the ideas behind PM Skills — what agent skills are, how they're structured, and how they evolve.</p>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
-<th>Command</th>
-<th>What it does</th>
+<th>Topic</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Builder</strong></td>
-<td><code>/pm-skill-builder</code></td>
-<td>Creates a new skill from an idea — gap analysis, classification, draft files, staging, promotion</td>
+<td><a href="skill-anatomy/">Skill Anatomy</a></td>
+<td>How skills are structured: SKILL.md, TEMPLATE.md, EXAMPLE.md</td>
 </tr>
 <tr>
-<td><strong>Validator</strong></td>
-<td><code>/pm-skill-validate</code></td>
-<td>Audits an existing skill against structural conventions and quality criteria — produces a report</td>
+<td><a href="agent-skill-anatomy/">Agent Skill Anatomy</a></td>
+<td>The three-layer model for any agent skill</td>
 </tr>
 <tr>
-<td><strong>Iterator</strong></td>
-<td><code>/pm-skill-iterate</code></td>
-<td>Applies targeted improvements to an existing skill — previews changes, writes on confirmation</td>
-</tr>
-</tbody>
-</table>
-<h3 id="why-three-tools-instead-of-one">Why three tools instead of one?<a class="headerlink" href="#why-three-tools-instead-of-one" title="Permanent link">&para;</a></h3>
-<p>Each tool has a single job. This keeps them focused, independently testable, and composable:</p>
-<ul>
-<li>The <strong>builder</strong> knows how to create files from scratch but doesn't know how to audit them.</li>
-<li>The <strong>validator</strong> knows how to assess quality but doesn't modify anything.</li>
-<li>The <strong>iterator</strong> knows how to apply changes but relies on the validator (or user feedback) to say <em>what</em> to change.</li>
-</ul>
-<p>You can use any tool independently or chain them together.</p>
-<hr />
-<h2 id="when-to-use-each-tool">When to Use Each Tool<a class="headerlink" href="#when-to-use-each-tool" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>I want to...</th>
-<th>Use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Create a new PM skill from an idea</td>
-<td><code>/pm-skill-builder</code></td>
+<td><a href="skill-lifecycle/">Skill Lifecycle</a></td>
+<td>Create, Validate, Iterate — how skills evolve</td>
 </tr>
 <tr>
-<td>Check if a skill meets repo conventions</td>
-<td><code>/pm-skill-validate {skill}</code></td>
-</tr>
-<tr>
-<td>Audit all skills after a convention change</td>
-<td><code>/pm-skill-validate --all</code></td>
-</tr>
-<tr>
-<td>Fix issues found by the validator</td>
-<td><code>/pm-skill-iterate {skill}</code> with the validation report</td>
-</tr>
-<tr>
-<td>Apply specific feedback to a skill</td>
-<td><code>/pm-skill-iterate {skill} "feedback"</code></td>
-</tr>
-<tr>
-<td>Improve a skill's example or template</td>
-<td><code>/pm-skill-iterate {skill} "make the example more realistic"</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="workflow-patterns">Workflow Patterns<a class="headerlink" href="#workflow-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="pattern-1-new-skill">Pattern 1: New Skill<a class="headerlink" href="#pattern-1-new-skill" title="Permanent link">&para;</a></h3>
-<p>Create a skill from scratch, validate it, fix any issues, and ship.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/pm-skill-builder &quot;A skill for creating stakeholder update emails&quot;
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  → Builder runs gap analysis, classifies, generates draft files
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  → Promotes files to canonical locations
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>/pm-skill-validate stakeholder-update-email
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  → Produces validation report (should be mostly PASS for builder output)
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  → Fix any findings manually or with /pm-skill-iterate
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>commit and ship
-</span></code></pre></div>
-<p><strong>When to use:</strong> Starting from zero. The builder handles classification, naming, gap analysis, and file generation. Validation confirms the builder's output meets conventions.</p>
-<h3 id="pattern-2-improve-an-existing-skill">Pattern 2: Improve an Existing Skill<a class="headerlink" href="#pattern-2-improve-an-existing-skill" title="Permanent link">&para;</a></h3>
-<p>Validate first to identify what needs work, then iterate to fix it.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/pm-skill-validate deliver-prd
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  → Report shows: WARN on output-contract-coverage, INFO on when-not-to-use
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>/pm-skill-iterate deliver-prd
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  → Paste or reference the validation report
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  → Iterator normalizes findings into intended changes
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  → Preview → confirm → apply
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  → Suggests version bump (patch for clarifications, minor for new sections)
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>/pm-skill-validate deliver-prd
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  → Confirm the issues are resolved
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>commit and ship
-</span></code></pre></div>
-<p><strong>When to use:</strong> A skill exists and works but could be better — unclear output contract, incomplete example, vague checklist items.</p>
-<h3 id="pattern-3-convention-change-rollout">Pattern 3: Convention Change Rollout<a class="headerlink" href="#pattern-3-convention-change-rollout" title="Permanent link">&para;</a></h3>
-<p>A repo convention changed (e.g., "all skills must have a Limitations section"). Audit all skills to see which need updating, then iterate each one.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/pm-skill-validate --all
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  → Batch summary table shows which skills fail the new convention
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  → Identify the affected skills
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>/pm-skill-validate deliver-prd
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  → Detailed report for one affected skill
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>/pm-skill-iterate deliver-prd
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  → &quot;Add a Limitations section per the new convention&quot;
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  → Preview → confirm → apply
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>(repeat for each affected skill)
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>commit and ship
-</span></code></pre></div>
-<p><strong>When to use:</strong> A structural or quality convention is added or changed and you need to bring existing skills into compliance.</p>
-<h3 id="pattern-4-feedback-loop">Pattern 4: Feedback Loop<a class="headerlink" href="#pattern-4-feedback-loop" title="Permanent link">&para;</a></h3>
-<p>You received feedback on a skill (from a user, a review, or your own testing). Apply it directly, then validate.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/pm-skill-iterate deliver-prd &quot;The example uses a B2C scenario but most users are B2B — rewrite with a SaaS enterprise example&quot;
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  → Iterator reads current files
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  → Normalizes feedback into intended changes (EXAMPLE.md rewrite)
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  → Preview → confirm → apply
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>/pm-skill-validate deliver-prd
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  → Confirm the skill still passes after the change
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>commit and ship
-</span></code></pre></div>
-<p><strong>When to use:</strong> You have specific feedback and don't need to audit first — you already know what to change.</p>
-<hr />
-<h2 id="how-the-tools-relate-to-versioning">How the Tools Relate to Versioning<a class="headerlink" href="#how-the-tools-relate-to-versioning" title="Permanent link">&para;</a></h2>
-<p>Each skill has its own independent version in its <code>SKILL.md</code> frontmatter, following <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>:</p>
-<table>
-<thead>
-<tr>
-<th>Change type</th>
-<th>Version bump</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Wording clarified, examples improved</td>
-<td><strong>Patch</strong> (2.0.0 → 2.0.1)</td>
-<td>Reworded checklist, better example scenario</td>
-</tr>
-<tr>
-<td>New optional capability added</td>
-<td><strong>Minor</strong> (2.0.0 → 2.1.0)</td>
-<td>New optional output section, handles more scenarios</td>
-</tr>
-<tr>
-<td>Required contract changed</td>
-<td><strong>Major</strong> (2.0.0 → 3.0.0)</td>
-<td>Command renamed, required section removed</td>
-</tr>
-</tbody>
-</table>
-<p><strong>The iterator suggests version bumps</strong> based on what it changed, but doesn't write the version number until you confirm. This prevents compounding bumps when you iterate multiple times before releasing.</p>
-<p><strong>HISTORY.md</strong> is created when a skill ships its second version. It connects versions to efforts and releases. The iterator offers to create or update HISTORY.md at the right moment — you don't need to manage it manually.</p>
-<p>For the full versioning governance, see <code>docs/internal/skill-versioning.md</code>.</p>
-<hr />
-<h2 id="how-the-validator-relates-to-ci">How the Validator Relates to CI<a class="headerlink" href="#how-the-validator-relates-to-ci" title="Permanent link">&para;</a></h2>
-<p>The repo has CI scripts that run on every push and PR (see <code>.github/workflows/validation.yml</code>). The validator goes deeper:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>CI Scripts</th>
-<th><code>/pm-skill-validate</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>What it checks</strong></td>
-<td>Structure: frontmatter fields, file presence, naming, word count</td>
-<td>Structure (same as CI) + quality: output contract coverage, example completeness, checklist verifiability, placeholder leakage</td>
-</tr>
-<tr>
-<td><strong>How it runs</strong></td>
-<td>Automated on push/PR</td>
-<td>Interactive, on demand</td>
-</tr>
-<tr>
-<td><strong>Output</strong></td>
-<td>Pass/fail per file</td>
-<td>Structured report with severity levels, check IDs, target file paths, and actionable recommendations</td>
-</tr>
-<tr>
-<td><strong>Who consumes it</strong></td>
-<td>GitHub Actions</td>
-<td>You, or <code>/pm-skill-iterate</code></td>
-</tr>
-<tr>
-<td><strong>When to use</strong></td>
-<td>Always (runs automatically)</td>
-<td>Before shipping a new or modified skill, or when auditing quality</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Rule of thumb:</strong> If CI passes, the skill is <em>structurally valid</em>. If the validator passes, the skill is <em>structurally valid and quality-checked</em>.</p>
-<hr />
-<h2 id="the-quality-standard-model">The Quality Standard Model<a class="headerlink" href="#the-quality-standard-model" title="Permanent link">&para;</a></h2>
-<p>The validator checks skills against two standards:</p>
-<ol>
-<li>
-<p><strong>Current library conventions</strong> — what the shipped library actually does today. These are the checks that matter for structural compliance. Failures here mean something is genuinely wrong.</p>
-</li>
-<li>
-<p><strong>The v2.8 standard</strong> — what newly-built skills (created with <code>/pm-skill-builder</code>) meet. These are surfaced as WARN or INFO findings on older skills.</p>
-</li>
-</ol>
-<p>This means <strong>older skills may legitimately receive quality findings</strong> when validated. That's expected — the library converges toward the higher standard over time through the lifecycle, not retroactively. Each iteration brings a skill closer to the current standard.</p>
-<pre class="mermaid"><code>flowchart LR
-    A["v2.0 skill"] --&gt;|validate| B["3 WARN, 1 INFO"]
-    B --&gt;|iterate| C["v2.0.1\n(2 WARNs fixed)"]
-    C --&gt;|validate| D["1 WARN, 1 INFO"]
-    D --&gt;|iterate| E["v2.0.2\n(last WARN fixed)"]
-    E --&gt;|validate| F["1 INFO\n✓ at standard"]</code></pre>
-<hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>Command</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Create a new skill</td>
-<td><code>/pm-skill-builder "description"</code></td>
-</tr>
-<tr>
-<td>Validate one skill</td>
-<td><code>/pm-skill-validate {skill-name}</code></td>
-</tr>
-<tr>
-<td>Validate all skills (structural only)</td>
-<td><code>/pm-skill-validate --all</code></td>
-</tr>
-<tr>
-<td>Iterate with validation report</td>
-<td><code>/pm-skill-iterate {skill-name}</code> + paste report</td>
-</tr>
-<tr>
-<td>Iterate with feedback</td>
-<td><code>/pm-skill-iterate {skill-name} "feedback"</code></td>
-</tr>
-<tr>
-<td>Check skill structure (anatomy)</td>
-<td>See <a href="../pm-skill-anatomy/">PM-Skill Anatomy</a></td>
-</tr>
-<tr>
-<td>Check versioning rules</td>
-<td>See <code>docs/internal/skill-versioning.md</code></td>
+<td><a href="triple-diamond/">The Triple Diamond</a></td>
+<td>The framework organizing skills into 6 phases</td>
 </tr>
 </tbody>
 </table>
@@ -849,6 +1291,9 @@
 
 
 
+
+  
+  
 
 
 

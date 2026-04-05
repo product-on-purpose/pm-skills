@@ -1,0 +1,4256 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+      
+      
+        <meta name="author" content="jprisant">
+      
+      
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/changelog/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../getting-started/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Changelog - PM Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PM Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../skills/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../bundles/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Bundles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../guides/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../releases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    PM Skills
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#280-2026-04-03-release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.8.0] - 2026-04-03 (release notes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.8.0] - 2026-04-03 (release notes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#270-2026-03-22-release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.7.0] - 2026-03-22 (release notes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.7.0] - 2026-03-22 (release notes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-2026-03-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.6.1] - 2026-03-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.6.1] - 2026-03-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#260-2026-03-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.6.0] - 2026-03-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.6.0] - 2026-03-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#252-2026-03-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.5.2] - 2026-03-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.5.2] - 2026-03-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-2026-03-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.5.1] - 2026-03-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.5.1] - 2026-03-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#250-2026-03-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.5.0] - 2026-03-02
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.5.0] - 2026-03-02">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Highlights
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-2026-02-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.4.3] - 2026-02-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.4.3] - 2026-02-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-2026-02-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.4.2] - 2026-02-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.4.2] - 2026-02-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#241-2026-02-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.4.1] - 2026-02-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.4.1] - 2026-02-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#240-2026-02-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.4.0] - 2026-02-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.4.0] - 2026-02-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#230-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.3.0] - 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.3.0] - 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#220-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.2.0] - 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.2.0] - 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-2026-01-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.1.0] - 2026-01-27
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.1.0] - 2026-01-27">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#201-2026-01-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.0.1] - 2026-01-27
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.0.1] - 2026-01-27">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#200-2026-01-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.0.0] - 2026-01-26
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.0.0] - 2026-01-26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#120-2026-01-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.0] - 2026-01-20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.0] - 2026-01-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#111-2026-01-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.1] - 2026-01-20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.1] - 2026-01-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#110-2026-01-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.0] - 2026-01-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.0] - 2026-01-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#101-2026-01-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.0.1] - 2026-01-15
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.0.1] - 2026-01-15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-2026-01-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.0.0] - 2026-01-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.0.0] - 2026-01-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#030-2026-01-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.3.0] - 2026-01-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.3.0] - 2026-01-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#020-2026-01-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.2.0] - 2026-01-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.2.0] - 2026-01-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#010-2026-01-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.0] - 2026-01-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.0] - 2026-01-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../getting-started/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../skills/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../bundles/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bundles
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../guides/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../concepts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../reference/commands/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../contributing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../releases/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#280-2026-04-03-release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.8.0] - 2026-04-03 (release notes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.8.0] - 2026-04-03 (release notes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#270-2026-03-22-release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.7.0] - 2026-03-22 (release notes)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.7.0] - 2026-03-22 (release notes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#261-2026-03-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.6.1] - 2026-03-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.6.1] - 2026-03-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#260-2026-03-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.6.0] - 2026-03-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.6.0] - 2026-03-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#252-2026-03-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.5.2] - 2026-03-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.5.2] - 2026-03-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-2026-03-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.5.1] - 2026-03-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.5.1] - 2026-03-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#250-2026-03-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.5.0] - 2026-03-02
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.5.0] - 2026-03-02">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Highlights
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-2026-02-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.4.3] - 2026-02-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.4.3] - 2026-02-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-2026-02-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.4.2] - 2026-02-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.4.2] - 2026-02-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#241-2026-02-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.4.1] - 2026-02-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.4.1] - 2026-02-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#240-2026-02-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.4.0] - 2026-02-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.4.0] - 2026-02-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#230-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.3.0] - 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.3.0] - 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#220-2026-02-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.2.0] - 2026-02-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.2.0] - 2026-02-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-notes_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-2026-01-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.1.0] - 2026-01-27
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.1.0] - 2026-01-27">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#201-2026-01-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.0.1] - 2026-01-27
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.0.1] - 2026-01-27">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#200-2026-01-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [2.0.0] - 2026-01-26
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2.0.0] - 2026-01-26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breaking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#120-2026-01-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.2.0] - 2026-01-20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.0] - 2026-01-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#111-2026-01-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.1] - 2026-01-20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.1] - 2026-01-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#110-2026-01-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.1.0] - 2026-01-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.0] - 2026-01-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#101-2026-01-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.0.1] - 2026-01-15
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.0.1] - 2026-01-15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100-2026-01-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [1.0.0] - 2026-01-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.0.0] - 2026-01-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#030-2026-01-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.3.0] - 2026-01-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.3.0] - 2026-01-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#020-2026-01-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.2.0] - 2026-01-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.2.0] - 2026-01-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#010-2026-01-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [0.1.0] - 2026-01-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[0.1.0] - 2026-01-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Closed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/changelog.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/changelog.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>,
+and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<h2 id="280-2026-04-03-release-notes">[2.8.0] - 2026-04-03 (<a href="../releases/Release_v2.8.0/">release notes</a>)<a class="headerlink" href="#280-2026-04-03-release-notes" title="Permanent link">&para;</a></h2>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>F-10: utility-pm-skill-validate skill</strong> (#121) — second utility skill. Audits existing skills against structural conventions (mirroring CI) and LLM-assessed quality criteria. Produces a pipe-delimited validation report (<code>Report schema: v1</code>) with severity-graded findings (FAIL/WARN/INFO) and actionable recommendations with target file paths. Two-tier assessment rebaselined against shipped library conventions. Includes SKILL.md, TEMPLATE.md (report format), EXAMPLE.md (validated <code>deliver-prd</code>), <code>/pm-skill-validate</code> command, and AGENTS.md entry. Skill count: 27 → 28.</li>
+<li><strong>F-11: utility-pm-skill-iterate skill</strong> (#122) — third utility skill. Applies targeted improvements to existing skills from feedback, validation reports, or convention changes. Unified flow with input normalization, before/after preview, stale-preview guard, version bump class suggestion (don't auto-write), and HISTORY.md creation at second-version trigger point. Includes SKILL.md, TEMPLATE.md (change summary), EXAMPLE.md (iterated <code>deliver-prd</code>), <code>/pm-skill-iterate</code> command, and AGENTS.md entry. Skill count: 28 → 29.</li>
+<li><strong>M-18: CI skill versioning validation</strong> — two new advisory scripts following <code>.sh</code> + <code>.ps1</code> + <code>.md</code> convention: <code>validate-skill-history</code> (checks HISTORY.md tracks current frontmatter version) and <code>validate-skills-manifest</code> (checks release manifest entries match skill directories). Added to <code>validation.yml</code> with <code>continue-on-error: true</code>.</li>
+<li><strong>D-03: <code>docs/pm-skill-lifecycle.md</code></strong> — public guide explaining the Create → Validate → Iterate lifecycle with workflow patterns (new skill, improve existing, convention change, feedback loop), CI vs validator comparison, and quality standard model.</li>
+<li><strong>Governance: <code>docs/internal/skill-versioning.md</code></strong> — SemVer rules for skills, HISTORY.md contract, skills-manifest.yaml format, release checklist, and tie-breaker rule for gray-area version bump classification.</li>
+<li><code>docs/internal/release-plans/v2.7.0/skills-manifest.yaml</code> — retroactive first use of the skills-manifest convention.</li>
+<li><code>docs/internal/release-plans/v2.8.0/</code> — release governance with phased execution plan and Codex design review.</li>
+</ul>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>D-04: public docs refresh for v2.8.0</strong> — updated skill counts (29), command counts (30), utility skill breakdown (3), Skill Lifecycle Tools section in README and QUICKSTART, command table, AGENTS.md entries, AGENTS/claude/CONTEXT.md, <code>docs/pm-skill-anatomy.md</code> lifecycle cross-reference, and <code>scripts/README_SCRIPTS.md</code> with M-18 script documentation.</li>
+<li><code>docs/internal/releases/</code> renamed to <code>docs/internal/release-plans/</code> with all internal references updated (34 files).</li>
+<li><code>docs/internal/backlog-canonical.md</code> updated with v2.8.0 assignments (F-10, F-11, D-03, M-18, D-04).</li>
+</ul>
+<h3 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Completes the <strong>PM skill lifecycle</strong>: Create (<code>/pm-skill-builder</code>, v2.7.0) → Validate (<code>/pm-skill-validate</code>) → Iterate (<code>/pm-skill-iterate</code>).</li>
+<li>First release with <strong>skill versioning governance</strong> — skills-manifest.yaml per release, HISTORY.md per skill (opt-in), SemVer tie-breaker rule.</li>
+<li>First release with <strong>advisory CI for skill versioning</strong> — HISTORY.md and skills-manifest.yaml validators.</li>
+<li>Repo now contains 29 skills (25 domain + 1 foundation + 3 utility), 30 command docs, and 3 workflow bundles.</li>
+<li><strong>MCP note</strong>: <code>pm-skills-mcp</code> needs a re-embed to pick up both new skills. <code>utility-pm-skill-validate</code> → <code>pm_pm_skill_validate</code>. <code>utility-pm-skill-iterate</code> → <code>pm_pm_skill_iterate</code>.</li>
+</ul>
+<h2 id="270-2026-03-22-release-notes">[2.7.0] - 2026-03-22 (<a href="../releases/Release_v2.7.0/">release notes</a>)<a class="headerlink" href="#270-2026-03-22-release-notes" title="Permanent link">&para;</a></h2>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>F-06: deliver-acceptance-criteria skill</strong> (#114) — new Deliver phase skill for Given/When/Then acceptance criteria generation covering happy path, edge cases, error states, and non-functional criteria. Includes SKILL.md, TEMPLATE.md, EXAMPLE.md (e-commerce checkout scenario), <code>/acceptance-criteria</code> command, and AGENTS.md entry. Skill count: 25 → 26.</li>
+<li><strong>F-05: utility-pm-skill-builder skill</strong> (#113) — first utility-classified skill. Interactive builder that guides contributors from a PM skill idea to a complete Skill Implementation Packet with gap analysis, Why Gate, classification, exemplar-driven drafting, and staging-to-promotion workflow. Includes SKILL.md, TEMPLATE.md, EXAMPLE.md (change-communication scenario), <code>/pm-skill-builder</code> command, and AGENTS.md Utility Skills section. Skill count: 26 → 27.</li>
+<li><strong>M-12: CI validation enhancement</strong> (#112) — extended linter with description word count (20-100) and TEMPLATE.md header count (≥3) checks; new <code>validate-agents-md</code> script for AGENTS.md ↔ skill directory sync; new <code>check-mcp-impact</code> advisory script for MCP impact detection. All scripts follow <code>.sh + .ps1 + .md</code> convention.</li>
+<li><strong>M-16: exclude docs/internal from release ZIP</strong> (#123) — release packagers (<code>build-release.sh</code> and <code>.ps1</code>) now strip <code>docs/internal/**</code> from staged artifacts. Internal governance docs stay tracked in-repo but no longer ship to end users.</li>
+<li><strong>D-01: <code>docs/pm-skill-anatomy.md</code></strong> — practical guide to pm-skills skill structure covering directory layout, classification types, frontmatter, Triple Diamond phases, wiring layer, and CI validation. Complements the spec-level <code>docs/agent-skill-anatomy.md</code>.</li>
+<li><code>_staging/</code> added to <code>.gitignore</code> for pm-skill-builder draft artifacts.</li>
+</ul>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>D-02: public docs review for v2.7.0</strong> — updated skill counts (27), command counts (28), M-12 script documentation, domain/foundation/utility classification model, skill template modernization, frontmatter schema with utility example, and <code>docs/agent-skill-anatomy.md</code> scope note. Post-F-05 reconciliation patched 3 stale references.</li>
+<li>Fixed duplicate workflow steps in <code>validation.yml</code> (validate-agents-md and check-mcp-impact each ran twice).</li>
+<li>AGENTS.md gains a <code>### Utility Skills</code> section and <code>/pm-skill-builder</code> in the Commands table.</li>
+<li><code>docs/internal/backlog-canonical.md</code> rewritten with Release, Status, and Agent columns.</li>
+<li>Release governance folders created for v2.2.0, v2.3.0, and v2.7.0 (v2.2.0 and v2.3.0 migrated from legacy locations).</li>
+</ul>
+<h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>docs/internal/delivery-plan/</code> — legacy directory removed from tracking.</li>
+<li><code>docs/internal/release-planning/</code> — legacy directory removed from tracking.</li>
+</ul>
+<h3 id="release-notes_1">Release Notes<a class="headerlink" href="#release-notes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>First release with a <strong>utility</strong> skill classification — <code>pm-skill-builder</code> creates new PM skills interactively.</li>
+<li>First release with enhanced CI: frontmatter linting, AGENTS.md sync validation, MCP impact detection.</li>
+<li>Release ZIPs now exclude <code>docs/internal/**</code> while preserving all public documentation.</li>
+<li>Repo now contains 27 skills (25 domain + 1 foundation + 1 utility), 28 command docs, and 3 workflow bundles.</li>
+<li><strong>MCP note</strong>: <code>pm-skills-mcp</code> needs a re-embed to pick up both new skills. <code>deliver-acceptance-criteria</code> → <code>pm_acceptance_criteria</code>. <code>utility-pm-skill-builder</code> → <code>pm_pm_skill_builder</code> (double <code>pm_</code> is intentional — preserves skill name, consistent with future <code>pm_agent_skill_builder</code>). Update <code>embed-skills.js</code> to strip classification prefixes (<code>foundation-</code>, <code>utility-</code>) alongside phase prefixes.</li>
+</ul>
+<h2 id="261-2026-03-04">[2.6.1] - 2026-03-04<a class="headerlink" href="#261-2026-03-04" title="Permanent link">&para;</a></h2>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release note artifact:</li>
+<li><code>docs/releases/Release_v2.6.1.md</code></li>
+</ul>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sample output library moved and normalized to:</li>
+<li><code>library/skill-output-samples/</code></li>
+<li>Sample creation standards filename standardized to:</li>
+<li><code>library/skill-output-samples/SAMPLE_CREATION.md</code></li>
+<li>Sample coverage manifest moved to release-planning artifacts (internal)</li>
+<li>Release packaging now includes sample-library content:</li>
+<li><code>scripts/build-release.sh</code></li>
+<li><code>scripts/build-release.ps1</code></li>
+<li>Release workflow-generated notes now list sample-library inclusion:</li>
+<li><code>.github/workflows/release.yml</code></li>
+<li>README release metadata rolled forward to <code>v2.6.1</code>.</li>
+</ul>
+<h3 id="release-notes_2">Release Notes<a class="headerlink" href="#release-notes_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Patch release focused on sample-library recovery, naming/path normalization, and release-artifact inclusion.</li>
+<li>No PM skill instruction or slash-command behavior changes.</li>
+</ul>
+<h2 id="260-2026-03-04">[2.6.0] - 2026-03-04<a class="headerlink" href="#260-2026-03-04" title="Permanent link">&para;</a></h2>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Claude plugin manifest: <code>.claude-plugin/plugin.json</code>.</li>
+<li>Plugin packaging validation workflow:</li>
+<li><code>.github/workflows/validate-plugin.yml</code></li>
+<li>Release note artifact:</li>
+<li><code>docs/releases/Release_v2.6.0.md</code></li>
+</ul>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release packaging now includes <code>.claude-plugin/</code> in ZIP staging:</li>
+<li><code>scripts/build-release.sh</code></li>
+<li><code>scripts/build-release.ps1</code></li>
+<li>Release packaging now enforces staged plugin-manifest version parity with the target release version.</li>
+<li>GitHub release workflow notes now include plugin-manifest install guidance:</li>
+<li><code>.github/workflows/release.yml</code></li>
+<li>README release/install guidance updated for plugin install plus explicit Copilot/OpenCode setup notes.</li>
+</ul>
+<h3 id="release-notes_3">Release Notes<a class="headerlink" href="#release-notes_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Minor release focused on Claude plugin packaging and release automation hardening.</li>
+<li>No PM skill or slash-command behavior changes.</li>
+<li>No <code>pm-skills-mcp</code> deploy is included in this release scope.</li>
+</ul>
+<h2 id="252-2026-03-04">[2.5.2] - 2026-03-04<a class="headerlink" href="#252-2026-03-04" title="Permanent link">&para;</a></h2>
+<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Rewrote public release-facing docs for clearer user-first language and historical readability.</li>
+<li>Removed internal decision-ID style references from release-facing docs where they were not needed for external readers.</li>
+<li>Removed local working-note path references from public release artifacts.</li>
+<li>Added release note artifact:</li>
+<li><code>docs/releases/Release_v2.5.2.md</code></li>
+</ul>
+<h3 id="release-notes_4">Release Notes<a class="headerlink" href="#release-notes_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Patch release focused on public documentation quality and release-communication clarity.</li>
+<li>No PM skill behavior changes and no output/config contract changes from <code>v2.5.0</code>.</li>
+</ul>
+<h2 id="251-2026-03-04">[2.5.1] - 2026-03-04<a class="headerlink" href="#251-2026-03-04" title="Permanent link">&para;</a></h2>
+<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Canonicalized Claude agent continuity workspace to <code>AGENTS/claude/</code> and retired active <code>AGENTS/claude-opus*</code> paths.</li>
+<li>Updated tracked <code>.claude</code> scaffolding templates to emit <code>AGENTS/claude</code> for init/wrap workflows.</li>
+<li>Added clean-worktree release runbook for deterministic cut/tag/publish lanes:</li>
+<li><code>docs/internal/release-planning/runbook_clean-worktree-cut-tag-publish.md</code></li>
+</ul>
+<h3 id="release-notes_5">Release Notes<a class="headerlink" href="#release-notes_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Patch release focused on agent-workspace naming consistency and release-lane operational hygiene.</li>
+<li>No PM skill behavior changes and no output/config contract changes from <code>v2.5.0</code>.</li>
+</ul>
+<h2 id="250-2026-03-02">[2.5.0] - 2026-03-02<a class="headerlink" href="#250-2026-03-02" title="Permanent link">&para;</a></h2>
+<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Foundation persona capability with:</li>
+<li><code>skills/foundation-persona/</code> skill + references</li>
+<li><code>/persona</code> command at <code>commands/persona.md</code></li>
+<li>AGENTS discovery coverage for foundation classification</li>
+</ul>
+<h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Taxonomy updates shipped with explicit foundation classification handling.</li>
+<li>Sample-library lane closure evidence captured in release planning/checklist artifacts.</li>
+<li>Doc-hygiene closure completed across README/getting-started and release metadata references.</li>
+<li>Persona archetype library shipment and full persona MCP exposure parity remain deferred from <code>v2.5.0</code>.</li>
+</ul>
+<h2 id="243-2026-02-16">[2.4.3] - 2026-02-16<a class="headerlink" href="#243-2026-02-16" title="Permanent link">&para;</a></h2>
+<h3 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release note artifact: <code>docs/releases/Release_v2.4.3.md</code>.</li>
+</ul>
+<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Rolled forward release metadata references to treat <code>v2.4.3</code> as the latest stable patch:</li>
+<li><code>README.md</code></li>
+<li><code>CHANGELOG.md</code></li>
+<li>Captured explicit published-artifact links in release docs:</li>
+<li><code>docs/releases/Release_v2.4.3.md</code></li>
+</ul>
+<h3 id="release-notes_6">Release Notes<a class="headerlink" href="#release-notes_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Patch release to include post-<code>v2.4.2</code> documentation/release-link updates in tagged artifacts.</li>
+<li>No PM skill behavior changes and no output/config contract changes from <code>v2.4.0</code>.</li>
+</ul>
+<h2 id="242-2026-02-16">[2.4.2] - 2026-02-16<a class="headerlink" href="#242-2026-02-16" title="Permanent link">&para;</a></h2>
+<h3 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release note artifact: <code>docs/releases/Release_v2.4.2.md</code>.</li>
+<li>Canonical delivery-plan policy and migration docs:</li>
+<li><code>docs/internal/delivery-plan/README.md</code></li>
+<li><code>docs/internal/delivery-plan/v2.4-contract-lock-summary.md</code></li>
+<li><code>docs/internal/delivery-plan/v2.5/</code> continuity kickoff artifacts</li>
+</ul>
+<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Started v2.5 continuity execution in tracked release-planning artifacts and checklist status.</li>
+<li>Updated release-planning and v2.4 release docs to treat <code>docs/internal/delivery-plan/</code> as canonical release-governance truth.</li>
+<li>Archived legacy internal repo-submission planning docs from tracked <code>docs/internal/</code>.</li>
+</ul>
+<h3 id="removed_1">Removed<a class="headerlink" href="#removed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Legacy internal docs from tracked <code>docs/internal/</code>:</li>
+<li><code>docs/internal/repo-list_claude-code.md</code></li>
+<li><code>docs/internal/pr-quick-reference.md</code></li>
+<li><code>docs/internal/awesome-product-management-pr.md</code></li>
+<li><code>docs/internal/AWESOME-PM-PR.md</code></li>
+<li><code>docs/internal/awesome-lists-submission-package.md</code></li>
+<li><code>docs/internal/awesome-lists-submission-package_planning.md</code></li>
+<li><code>docs/internal/link-notes.md</code></li>
+</ul>
+<h3 id="release-notes_7">Release Notes<a class="headerlink" href="#release-notes_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Patch release focused on governance hygiene and tracked-vs-local artifact clarity.</li>
+<li>No PM skill behavior changes and no output/config contract changes from <code>v2.4.0</code>.</li>
+<li>Published GitHub release: <code>https://github.com/product-on-purpose/pm-skills/releases/tag/v2.4.2</code>.</li>
+</ul>
+<h2 id="241-2026-02-16">[2.4.1] - 2026-02-16<a class="headerlink" href="#241-2026-02-16" title="Permanent link">&para;</a></h2>
+<h3 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release note artifact: <code>docs/releases/Release_v2.4.1.md</code>.</li>
+<li>Long-form internal delivery/engineering explainer:</li>
+<li><code>docs/internal/Releases_2.3-2.4_detailed-breakdown.md</code></li>
+</ul>
+<h3 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Finalized <code>v2.4.x</code> release-doc consistency:</li>
+<li><code>README.md</code></li>
+<li><code>CHANGELOG.md</code></li>
+<li><code>docs/releases/Release_v2.4.md</code></li>
+<li><code>docs/internal/release-planning/checklist_v2.4.0.md</code></li>
+<li><code>docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md</code></li>
+</ul>
+<h3 id="release-notes_8">Release Notes<a class="headerlink" href="#release-notes_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Patch follow-up for release documentation and communication alignment only.</li>
+<li>No new PM skills and no output/config contract behavior changes from <code>v2.4.0</code>.</li>
+</ul>
+<h2 id="240-2026-02-16">[2.4.0] - 2026-02-16<a class="headerlink" href="#240-2026-02-16" title="Permanent link">&para;</a></h2>
+<h3 id="added_8">Added<a class="headerlink" href="#added_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release note artifact: <code>docs/releases/Release_v2.4.md</code>.</li>
+<li>Canonical tracked contract-lock summary:</li>
+<li><code>docs/internal/delivery-plan/v2.4-contract-lock-summary.md</code></li>
+</ul>
+<h3 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release-planning artifacts updated for <code>v2.4.0</code> ship state:</li>
+<li><code>docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md</code></li>
+<li><code>docs/internal/release-planning/checklist_v2.4.0.md</code></li>
+<li><code>docs/internal/release-planning/README.md</code></li>
+<li>Canonical backlog release cadence anchors synced for v2.4 closure:</li>
+<li><code>docs/internal/backlog-canonical.md</code></li>
+<li>v2.4 contract-lock closure state advanced to <code>closed-aligned</code> and is summarized in:</li>
+<li><code>docs/internal/delivery-plan/v2.4-contract-lock-summary.md</code></li>
+<li>Expanded <code>validate-mcp-sync</code> checks to include <code>pm-skills-mcp</code> pin metadata and contract-version parity via <code>pm-skills-source.json</code>.</li>
+<li>Corrected MCP integration guide utility-tool inventory to 7 tools (<code>pm_cache_stats</code> included).</li>
+<li>Updated MCP compatibility references to direct version tracking (<code>pm-skills v2.4.x</code> ↔ <code>pm-skills-mcp v2.4.x</code>) in ecosystem/integration docs.</li>
+</ul>
+<h3 id="release-notes_9">Release Notes<a class="headerlink" href="#release-notes_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>This release closes the v2.4.0 contract-lock scope:</li>
+<li>Output behavior contract locked and recorded as aligned.</li>
+<li>Configuration contract/schema lock recorded as aligned with validator proof artifacts.</li>
+</ul>
+<h2 id="230-2026-02-13">[2.3.0] - 2026-02-13<a class="headerlink" href="#230-2026-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Release note artifact: <code>docs/releases/Release_v2.3.md</code>.</li>
+</ul>
+<h3 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>MCP sync workflow default mode switched to <code>block</code> in <code>.github/workflows/validate-mcp-sync.yml</code> (manual <code>workflow_dispatch</code> can still set <code>observe</code>).</li>
+<li>Updated MCP sync guide for blocking-default rollout state (<code>docs/guides/validate-mcp-sync.md</code>).</li>
+<li>Updated compatibility references for current MCP status:</li>
+<li><code>README.md</code> note now points to <code>pm-skills-mcp v2.1+</code> as aligned baseline.</li>
+<li><code>docs/reference/ecosystem.md</code> reflects 36 MCP tools (24 skills + 5 workflows + 7 utilities).</li>
+<li>Release-planning artifacts updated for <code>v2.3.0</code> closure:</li>
+<li><code>docs/internal/release-planning/checklist_v2.3.0.md</code></li>
+<li><code>docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md</code></li>
+</ul>
+<h3 id="release-notes_10">Release Notes<a class="headerlink" href="#release-notes_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>This release closes the v2.3.0 scope:</li>
+<li>Cross-repo alignment closure recorded on pinned refs.</li>
+<li>Blocking <code>validate-mcp-sync</code> mode enabled by default.</li>
+</ul>
+<h2 id="220-2026-02-13">[2.2.0] - 2026-02-13<a class="headerlink" href="#220-2026-02-13" title="Permanent link">&para;</a></h2>
+<h3 id="added_10">Added<a class="headerlink" href="#added_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Validation-only MCP drift checker script: <code>.github/scripts/validate-mcp-sync.js</code></li>
+<li>MCP sync workflow: <code>.github/workflows/validate-mcp-sync.yml</code> (observe-only default)</li>
+<li>MCP sync usage guide: <code>docs/guides/validate-mcp-sync.md</code></li>
+<li>Planning persistence governance docs:</li>
+<li><code>docs/internal/planning-persistence-policy.md</code></li>
+<li><code>docs/internal/planning-artifact-tier-map.md</code></li>
+<li>Canonical backlog governance reference: <code>docs/internal/backlog-canonical.md</code></li>
+<li>Release execution artifacts:</li>
+<li><code>docs/releases/Release_v2.2.md</code></li>
+<li><code>docs/internal/release-planning/Release_v2.2_to_v2.5_execution-plan.md</code></li>
+<li><code>docs/internal/release-planning/checklist_v2.2.0.md</code></li>
+<li><code>docs/internal/release-planning/checklist_v2.3.0.md</code></li>
+<li><code>docs/internal/release-planning/checklist_v2.4.0.md</code></li>
+<li><code>docs/internal/release-planning/checklist_v2.5.0.md</code></li>
+</ul>
+<h3 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>CONTRIBUTING.md</code>: added MCP sync guardrail guidance for contributors.</li>
+<li><code>scripts/README_SCRIPTS.md</code>: clarified <code>.github/scripts/</code> usage and drift-check rollout.</li>
+<li><code>docs/guides/mcp-integration.md</code>: linked new MCP sync validation guide.</li>
+<li><code>.gitignore</code>: aligned AGENTS ignore rules with planning persistence policy.</li>
+</ul>
+<h3 id="release-notes_11">Release Notes<a class="headerlink" href="#release-notes_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>This release establishes guardrails and governance:</li>
+<li>Observe-only sync validation baseline.</li>
+<li>Planning persistence policy baseline.</li>
+<li>Canonical backlog governance baseline.</li>
+</ul>
+<h2 id="210-2026-01-27">[2.1.0] - 2026-01-27<a class="headerlink" href="#210-2026-01-27" title="Permanent link">&para;</a></h2>
+<h3 id="added_11">Added<a class="headerlink" href="#added_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>MCP Alignment Milestone</strong> — pm-skills-mcp v2.1.0 now fully aligned with flat structure</li>
+<li>Version alignment table in ecosystem documentation</li>
+</ul>
+<h3 id="changed_12">Changed<a class="headerlink" href="#changed_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated ecosystem documentation noting MCP v2.1 compatibility</li>
+<li>Clarified that pm-skills-mcp v2.1+ is required for full compatibility with pm-skills v2.x flat structure</li>
+</ul>
+<h3 id="ecosystem">Ecosystem<a class="headerlink" href="#ecosystem" title="Permanent link">&para;</a></h3>
+<ul>
+<li>pm-skills-mcp v2.1.0 released with:</li>
+<li>Flat resource URIs: <code>pm-skills://skills/{skill}</code></li>
+<li>Phase read from frontmatter, not path</li>
+<li>Tool names remain stable (<code>pm_prd</code>, <code>pm_hypothesis</code>, etc.)</li>
+</ul>
+<h2 id="201-2026-01-27">[2.0.1] - 2026-01-27<a class="headerlink" href="#201-2026-01-27" title="Permanent link">&para;</a></h2>
+<h3 id="added_12">Added<a class="headerlink" href="#added_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Validation workflow (<code>validation.yml</code>) running command + front-matter checks on Ubuntu and Windows.</li>
+<li>Front-matter lint scripts (<code>scripts/lint-skills-frontmatter.sh</code> / <code>.ps1</code>) that verify required keys, directory-name alignment, and reference files.</li>
+<li>Noted command validator scripts in project structure/README.</li>
+<li>Scripts guide renamed to <code>scripts/README_SCRIPTS.md</code> to avoid name collisions.</li>
+</ul>
+<h3 id="changed_13">Changed<a class="headerlink" href="#changed_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Removed nested <code>metadata.version</code> fields from all skills; lint now enforces a single root version and required keys.</li>
+<li>Parameterized build scripts (<code>build-release.sh</code> / <code>.ps1</code>) and release workflows to derive artifact names from the tag/ref (defaulting to v2.0.1); added zip/hash fallbacks for Windows.</li>
+<li><code>validate-commands</code> now reports multi-skill bundles (e.g., <code>/kickoff</code>) without misleading first-path-only output.</li>
+<li>README path examples updated to <code>skills/{phase-skill}/</code>; AGENTS.md clarifies bundle links are repo-relative; release workflow typo fixed (<code>openskills</code>).</li>
+<li>Moved skill templates to <code>docs/templates/</code> and updated references (authoring guide, README, project-structure, AGENTS context).</li>
+<li>README refresh: expanded v2.0 highlights, updated project structure tree, roadmap in-progress items, note that pm-skills-mcp v1.x is outdated (v2.1 underway).</li>
+<li><code>docs/reference/project-structure.md</code> now has a table of contents, updated directory tree, full commands list, and template path.</li>
+</ul>
+<h2 id="200-2026-01-26">[2.0.0] - 2026-01-26<a class="headerlink" href="#200-2026-01-26" title="Permanent link">&para;</a></h2>
+<h3 id="breaking">Breaking<a class="headerlink" href="#breaking" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Repository flattened to <code>skills/{phase-skill}/</code> (hyphen-only). All prior nested <code>skills/&lt;phase&gt;/&lt;skill&gt;/</code> paths removed.</li>
+<li>Slash commands now point to the flat skill paths; update local references/scripts accordingly.</li>
+</ul>
+<h3 id="added_13">Added<a class="headerlink" href="#added_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sync helpers <code>scripts/sync-claude.sh</code> and <code>scripts/sync-claude.ps1</code> to regenerate <code>.claude/skills</code> and <code>.claude/commands</code> for Claude Code / openskills discovery with validation.</li>
+<li>Build scripts <code>scripts/build-release.sh</code> and <code>scripts/build-release.ps1</code> to create <code>pm-skills-v2.0.zip</code> with manifest/hash (excludes populated <code>.claude</code>).</li>
+<li><code>.claude/pm-skills-for-claude.md</code> usage note for discovery.</li>
+</ul>
+<h3 id="changed_14">Changed<a class="headerlink" href="#changed_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>All 24 skills renamed to flat <code>{phase-skill}</code> directories; SKILL front matter updated with <code>phase</code>, <code>version: 2.0.0</code>, and <code>updated: 2026-01-26</code>.</li>
+<li>Docs refreshed to reflect flat structure and two-path install story (flat source vs. optional <code>.claude/</code> via sync helper), including README, QUICKSTART, AGENTS, bundles, guides, and references.</li>
+<li>Workflows (<code>release.yml</code>, <code>release-zips.yml</code>) call the new build-release script.</li>
+<li><code>.gitignore</code> now excludes <code>.claude/skills</code>, <code>.claude/commands</code>, and <code>dist/</code>.</li>
+</ul>
+<h3 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Path scan confirms no residual <code>skills/&lt;phase&gt;/</code> references in public docs/commands.</li>
+<li>Front-matter check: all <code>skills/*/SKILL.md</code> include required <code>name</code>, <code>phase</code>, <code>version</code>, <code>updated</code>.</li>
+</ul>
+<h2 id="120-2026-01-20">[1.2.0] - 2026-01-20<a class="headerlink" href="#120-2026-01-20" title="Permanent link">&para;</a></h2>
+<p><strong>PM-Skills v1.2.0 — Security &amp; Community Infrastructure</strong></p>
+<p>This release adds essential security policies, automated vulnerability scanning, and improved issue/PR templates for community contributions.</p>
+<h3 id="added_14">Added<a class="headerlink" href="#added_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>SECURITY.md</strong> — Security policy with vulnerability reporting guidelines</li>
+<li><strong>CodeQL code scanning</strong> — Automated security analysis via GitHub Actions (<code>.github/workflows/codeql.yml</code>)</li>
+<li><strong>Dependabot configuration</strong> — Automated dependency updates for GitHub Actions and npm (<code>.github/dependabot.yml</code>)</li>
+<li><strong>Issue templates</strong> — Structured forms for bug reports and feature requests</li>
+<li><code>bug_report.yml</code> — Skill-specific bug reporting with environment details</li>
+<li><code>feature_request.yml</code> — New skill and enhancement proposals</li>
+<li><code>config.yml</code> — Directs questions to Discussions, security issues to policy</li>
+<li><strong>Pull request template</strong> — Standardized PR checklist (<code>.github/PULL_REQUEST_TEMPLATE.md</code>)</li>
+</ul>
+<h3 id="changed_15">Changed<a class="headerlink" href="#changed_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Issue creation now requires using templates (blank issues disabled)</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Enabled CodeQL scanning for JavaScript analysis on push, PR, and weekly schedule</li>
+<li>Added security policy with responsible disclosure guidelines</li>
+</ul>
+<h2 id="111-2026-01-20">[1.1.1] - 2026-01-20<a class="headerlink" href="#111-2026-01-20" title="Permanent link">&para;</a></h2>
+<h3 id="added_15">Added<a class="headerlink" href="#added_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CODE_OF_CONDUCT.md</strong> — Contributor Covenant v2.1 for community guidelines</li>
+<li><strong>Attribution headers</strong> — Added HTML comment attribution to all 24 SKILL.md files</li>
+<li><strong>Open-skills ecosystem submissions</strong></li>
+<li>Submitted PR to <a href="https://github.com/ComposioHQ/awesome-claude-skills/pull/62">awesome-claude-skills</a></li>
+<li>Submitted to <a href="https://github.com/numman-ali/n-skills/issues/6">n-skills marketplace</a></li>
+</ul>
+<h3 id="changed_16">Changed<a class="headerlink" href="#changed_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CONTRIBUTING.md</strong> — Updated Code of Conduct section to link to dedicated CODE_OF_CONDUCT.md</li>
+<li><strong>README.md</strong> — Updated openskills CLI installation section with accurate guidance</li>
+<li><strong>README.md</strong> — Minor formatting cleanup (em dashes, navigation labels, alt text)</li>
+</ul>
+<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>openskills#48 resolved</strong> — <a href="https://github.com/numman-ali/openskills/issues/48">numman-ali/openskills#48</a> fixed in openskills v1.3.1</li>
+<li>Root cause: hardcoded <code>/</code> path separator failed on Windows</li>
+<li>Verified: <code>anthropics/skills</code> now installs all 17 skills successfully</li>
+<li>Note: pm-skills uses deeper nesting than openskills auto-discovers; Git clone recommended</li>
+</ul>
+<h2 id="110-2026-01-16">[1.1.0] - 2026-01-16<a class="headerlink" href="#110-2026-01-16" title="Permanent link">&para;</a></h2>
+<p><strong>PM-Skills v1.1.0 — Documentation &amp; README Overhaul</strong></p>
+<p>This release brings a comprehensive documentation expansion and a major README redesign following open-source best practices. The README now features better navigation, an FAQ section, and improved discoverability.</p>
+<h3 id="added_16">Added<a class="headerlink" href="#added_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comprehensive Documentation Expansion</strong></li>
+<li><code>docs/getting-started.md</code> — Detailed setup guide covering 5 installation methods</li>
+<li><code>docs/guides/using-skills.md</code> — Beginner to advanced usage guide with SPICE context framework, skill chaining, and 7 power-user patterns</li>
+<li><code>docs/guides/authoring-pm-skills.md</code> — Complete guide for creating and submitting new skills</li>
+<li><code>docs/frameworks/triple-diamond-delivery-process.md</code> — Triple Diamond methodology documentation</li>
+<li><strong>README Major Enhancements</strong></li>
+<li>Collapsible Table of Contents for easier navigation</li>
+<li>FAQ section with 7 expandable Q&amp;A items covering common questions</li>
+<li>License section with Apache 2.0 permissions explained</li>
+<li>Acknowledgments section crediting frameworks and resources</li>
+<li>About the Author section</li>
+<li>More Suggestions section for community engagement</li>
+<li>Project Status badge (Active)</li>
+<li>GitHub stats badges (stars, forks, issues, contributors, last commit)</li>
+<li>Back-to-top navigation links throughout</li>
+<li>Change Log Summary table with version highlights</li>
+<li>Releases section with download badge</li>
+<li>Expanded Usage intro explaining skills, commands, and bundles</li>
+<li>Workflow Bundles intro paragraph</li>
+<li>Updated Built with section with visual badges</li>
+<li><strong>Open-Skills Ecosystem Integration</strong></li>
+<li>Prepared PR content for awesome-claude-skills submission</li>
+<li>Prepared submission content for n-skills marketplace</li>
+<li>Documented openskills CLI compatibility testing</li>
+<li>Filed <a href="https://github.com/numman-ali/openskills/issues/48">openskills#48</a> for nested path bug</li>
+<li><strong>GitHub Release Workflow</strong></li>
+<li><code>.github/workflows/release.yml</code> — Automated ZIP creation on tag push</li>
+<li>Creates two artifacts: full package + Claude.ai bundle</li>
+<li><strong>CLAUDE.md</strong> — Agent instructions with documentation rules</li>
+</ul>
+<h3 id="changed_17">Changed<a class="headerlink" href="#changed_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Documentation Reference Files Significantly Expanded</strong></li>
+<li><code>docs/reference/categories.md</code> — Expanded from 54 to 420+ lines with diagrams, workflows, and framework mappings</li>
+<li><code>docs/reference/frontmatter-schema.yaml</code> — Expanded from 91 to 600 lines with validation rules, examples, and best practices</li>
+<li><strong>New <code>/docs</code> Taxonomy Structure</strong></li>
+<li><code>docs/reference/</code> — Technical specifications (categories, schema)</li>
+<li><code>docs/guides/</code> — How-to guides (using-skills, authoring-pm-skills)</li>
+<li><code>docs/frameworks/</code> — Methodology documentation (triple-diamond)</li>
+<li>Renamed <code>_docs/</code> → <code>docs/</code> and <code>_templates/</code> → <code>templates/</code> for standard conventions</li>
+<li>README.md restructured following best-practices from Best-README-Template and amazing-github-template</li>
+<li>Updated README.md Quick Start with 4 installation options (Git clone recommended)</li>
+<li>Reordered installation methods based on openskills bug discovery</li>
+<li>Version badge updated to 1.1.0</li>
+</ul>
+<h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Discovered and documented <a href="https://github.com/numman-ali/openskills/issues/48">openskills#48</a> — nested directory structure bug affecting pm-skills and anthropics/skills</li>
+</ul>
+<h2 id="101-2026-01-15">[1.0.1] - 2026-01-15<a class="headerlink" href="#101-2026-01-15" title="Permanent link">&para;</a></h2>
+<h3 id="added_17">Added<a class="headerlink" href="#added_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>All 24 Slash Commands Complete</strong> — Every skill now has a corresponding command</li>
+<li><code>/competitive-analysis</code> — Discover phase</li>
+<li><code>/interview-synthesis</code> — Discover phase</li>
+<li><code>/stakeholder-summary</code> — Discover phase</li>
+<li><code>/jtbd-canvas</code> — Define phase</li>
+<li><code>/opportunity-tree</code> — Define phase</li>
+<li><code>/adr</code> — Develop phase</li>
+<li><code>/design-rationale</code> — Develop phase</li>
+<li><code>/solution-brief</code> — Develop phase</li>
+<li><code>/spike-summary</code> — Develop phase</li>
+<li><code>/edge-cases</code> — Deliver phase</li>
+<li><code>/launch-checklist</code> — Deliver phase</li>
+<li><code>/release-notes</code> — Deliver phase</li>
+<li><code>/dashboard-requirements</code> — Measure phase</li>
+<li><code>/experiment-design</code> — Measure phase</li>
+<li><code>/experiment-results</code> — Measure phase</li>
+<li><code>/instrumentation-spec</code> — Measure phase</li>
+<li><code>/lessons-log</code> — Iterate phase</li>
+<li><code>/pivot-decision</code> — Iterate phase</li>
+<li><code>/refinement-notes</code> — Iterate phase</li>
+<li><code>/retrospective</code> — Iterate phase</li>
+<li>GitHub issues #43-62 created and closed for slash command tracking</li>
+</ul>
+<h3 id="changed_18">Changed<a class="headerlink" href="#changed_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated README.md Slash Commands section to list all 24 commands</li>
+<li>Updated AGENTS.md Commands section to list all 24 commands</li>
+<li>Updated plan-open-skills.md compatibility table to reflect slash commands complete</li>
+</ul>
+<h2 id="100-2026-01-14">[1.0.0] - 2026-01-14<a class="headerlink" href="#100-2026-01-14" title="Permanent link">&para;</a></h2>
+<p><strong>PM-Skills v1.0.0 — Complete Triple Diamond coverage is here!</strong></p>
+<p>This release marks the completion of all 24 PM skills across the entire product development lifecycle. From discovery to iteration, PM-Skills now provides comprehensive coverage for product managers using AI assistants.</p>
+<h3 id="added_18">Added<a class="headerlink" href="#added_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Phase 3 Complete: P2 Skills (11 skills) — All 24 skills now implemented!</strong></li>
+<li><code>competitive-analysis</code> skill — Discover phase (<code>skills/discover-competitive-analysis/</code>)</li>
+<li><code>stakeholder-summary</code> skill — Discover phase (<code>skills/discover-stakeholder-summary/</code>)</li>
+<li><code>opportunity-tree</code> skill — Define phase (<code>skills/define-opportunity-tree/</code>)</li>
+<li><code>jtbd-canvas</code> skill — Define phase (<code>skills/define-jtbd-canvas/</code>)</li>
+<li><code>design-rationale</code> skill — Develop phase (<code>skills/develop-design-rationale/</code>)</li>
+<li><code>dashboard-requirements</code> skill — Measure phase (<code>skills/measure-dashboard-requirements/</code>)</li>
+<li><code>experiment-results</code> skill — Measure phase (<code>skills/measure-experiment-results/</code>)</li>
+<li><code>retrospective</code> skill — Iterate phase (<code>skills/iterate-retrospective/</code>)</li>
+<li><code>lessons-log</code> skill — Iterate phase (<code>skills/iterate-lessons-log/</code>)</li>
+<li><code>refinement-notes</code> skill — Iterate phase (<code>skills/iterate-refinement-notes/</code>)</li>
+<li><code>pivot-decision</code> skill — Iterate phase (<code>skills/iterate-pivot-decision/</code>)</li>
+<li>Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md</li>
+<li>GitHub labels: <code>phase-3</code>, <code>P2</code></li>
+<li>GitHub issues #26-36 for skill tracking</li>
+<li><strong>Phase 3 Infrastructure: Workflow Bundles</strong></li>
+<li><code>_bundles/triple-diamond.md</code> — Complete product development cycle guide</li>
+<li><code>_bundles/lean-startup.md</code> — Build-Measure-Learn rapid iteration guide</li>
+<li><code>_bundles/feature-kickoff.md</code> — Quick-start workflow for feature development</li>
+<li><strong>Phase 3 Infrastructure: Slash Commands</strong></li>
+<li><code>commands/prd.md</code> — Create Product Requirements Document</li>
+<li><code>commands/problem-statement.md</code> — Create problem statement</li>
+<li><code>commands/hypothesis.md</code> — Define testable hypothesis</li>
+<li><code>commands/user-stories.md</code> — Generate user stories</li>
+<li><code>commands/kickoff.md</code> — Run Feature Kickoff workflow</li>
+<li><strong>Phase 3 Infrastructure: Agent Discovery</strong></li>
+<li><code>AGENTS.md</code> — Universal agent discovery file listing all 24 skills</li>
+<li><strong>Phase 3 Infrastructure: GitHub Actions</strong></li>
+<li><code>.github/workflows/sync-agents-md.yml</code> — Auto-sync AGENTS.md on skill changes</li>
+<li><code>.github/workflows/release-zips.yml</code> — Package skills as ZIPs on release</li>
+</ul>
+<h3 id="changed_19">Changed<a class="headerlink" href="#changed_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated README.md Skills Inventory badge to 24/24 (complete)</li>
+<li>Updated README.md all skill status indicators to ✅</li>
+<li>Updated README.md roadmap to show Phase 3 P2 Skills complete</li>
+<li>Updated CONTEXT.md to reflect Phase 3 completion</li>
+</ul>
+<h2 id="030-2026-01-14">[0.3.0] - 2026-01-14<a class="headerlink" href="#030-2026-01-14" title="Permanent link">&para;</a></h2>
+<h3 id="added_19">Added<a class="headerlink" href="#added_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Phase 2 Complete: P1 Skills (8 skills)</strong></li>
+<li><code>interview-synthesis</code> skill — Discover phase (<code>skills/discover-interview-synthesis/</code>)</li>
+<li><code>solution-brief</code> skill — Develop phase (<code>skills/develop-solution-brief/</code>)</li>
+<li><code>spike-summary</code> skill — Develop phase (<code>skills/develop-spike-summary/</code>)</li>
+<li><code>adr</code> skill — Develop phase (<code>skills/develop-adr/</code>)</li>
+<li><code>edge-cases</code> skill — Deliver phase (<code>skills/deliver-edge-cases/</code>)</li>
+<li><code>release-notes</code> skill — Deliver phase (<code>skills/deliver-release-notes/</code>)</li>
+<li><code>experiment-design</code> skill — Measure phase (<code>skills/measure-experiment-design/</code>)</li>
+<li><code>instrumentation-spec</code> skill — Measure phase (<code>skills/measure-instrumentation-spec/</code>)</li>
+<li>Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md</li>
+<li>GitHub labels: <code>phase-2</code>, <code>P1</code></li>
+<li>GitHub milestone: v0.3.0 - P1 Skills</li>
+<li>GitHub issues #18-25 for skill tracking</li>
+</ul>
+<h3 id="changed_20">Changed<a class="headerlink" href="#changed_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated README.md Skills Inventory with status indicators (✅ implemented, 🔜 coming soon)</li>
+<li>Updated README.md roadmap to show Phase 2 complete</li>
+<li>Updated plan-v1.md Progress Tracker with GitHub issue links for Phase 2</li>
+<li>Updated CONTEXT.md to reflect Phase 2 completion and add Skills Inventory table</li>
+</ul>
+<h2 id="020-2026-01-14">[0.2.0] - 2026-01-14<a class="headerlink" href="#020-2026-01-14" title="Permanent link">&para;</a></h2>
+<h3 id="added_20">Added<a class="headerlink" href="#added_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Phase 1 Complete: P0 Core Skills</strong></li>
+<li><code>problem-statement</code> skill — Define phase (<code>skills/define-problem-statement/</code>)</li>
+<li><code>hypothesis</code> skill — Define phase (<code>skills/define-hypothesis/</code>)</li>
+<li><code>prd</code> skill — Deliver phase (<code>skills/deliver-prd/</code>)</li>
+<li><code>user-stories</code> skill — Deliver phase (<code>skills/deliver-user-stories/</code>)</li>
+<li><code>launch-checklist</code> skill — Deliver phase (<code>skills/deliver-launch-checklist/</code>)</li>
+<li>Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md</li>
+<li>GitHub labels: <code>skill</code>, <code>phase-1</code>, <code>P0</code></li>
+<li>GitHub milestone: v0.2.0 - P0 Core Skills</li>
+<li>GitHub issues #10-14 for skill tracking</li>
+</ul>
+<h3 id="changed_21">Changed<a class="headerlink" href="#changed_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated plan-v1.md Progress Tracker with GitHub issue links</li>
+<li>Updated CONTEXT.md to reflect Phase 1 completion</li>
+</ul>
+<h2 id="010-2026-01-14">[0.1.0] - 2026-01-14<a class="headerlink" href="#010-2026-01-14" title="Permanent link">&para;</a></h2>
+<h3 id="added_21">Added<a class="headerlink" href="#added_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Initial project structure with agentic coding support</li>
+<li>Comprehensive README.md with badges, skills inventory, and platform compatibility matrix</li>
+<li>Apache 2.0 LICENSE</li>
+<li>CHANGELOG.md following Keep a Changelog format</li>
+<li>.gitignore with standard exclusions</li>
+<li>AGENTS/claude-opus-4.5/ folder for AI session continuity</li>
+<li>CONTEXT.md — Project state tracking</li>
+<li>TODO.md — Task management</li>
+<li>DECISIONS.md — Technical decision log</li>
+<li>SESSION-LOG/ — Session documentation</li>
+<li>PLANNING/ folder convention for collaboration artifacts (reviews, drafts, analysis)</li>
+<li>plan-v1-review.md — Comprehensive review of implementation plan</li>
+<li>v0.1 tag — Plan review milestone</li>
+<li>9 GitHub issues for plan-v1.md improvement opportunities</li>
+<li><strong>Phase 0 Foundation Complete:</strong></li>
+<li>CONTRIBUTING.md with curated contribution model</li>
+<li>Full directory structure (<code>skills/</code>, <code>_bundles/</code>, <code>docs/</code>, <code>templates/</code>, <code>commands/</code>)</li>
+<li>Schema documentation (<code>_docs/frontmatter-schema.yaml</code>)</li>
+<li>Category reference (<code>_docs/categories.md</code>)</li>
+<li>Skill template structure (<code>docs/templates/skill-template/</code> with SKILL.md, TEMPLATE.md, EXAMPLE.md)</li>
+<li>wrap-session skill for end-of-session documentation workflow</li>
+</ul>
+<h3 id="changed_22">Changed<a class="headerlink" href="#changed_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Updated CONTEXT.md status from "Foundation complete" to "Foundation in progress (~40%)"</li>
+<li>Updated plan-v1.md Progress Tracker with inline status notes</li>
+<li>Fixed README.md roadmap to reflect accurate Phase 0 status</li>
+<li><strong>Phase 0 → 100% complete</strong> — All foundation infrastructure now in place</li>
+<li>Updated README.md roadmap to show Phase 0 complete</li>
+<li>Expanded P1/P2 skill guidance in plan-v1.md (Issues #11-29)</li>
+<li>Updated example dates in templates to use <code>&lt;YYYY-MM-DD&gt;</code> placeholder</li>
+<li>Added PowerShell validation commands for Windows compatibility</li>
+</ul>
+<h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pre-Flight Checklist path error in planning document</li>
+<li>VISION.md location inconsistency resolved</li>
+<li>Issue #1 conflict with existing files (added "skip if exists" note)</li>
+</ul>
+<h3 id="closed">Closed<a class="headerlink" href="#closed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>All 9 GitHub issues (#1-9) — plan improvements complete</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 product-on-purpose
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

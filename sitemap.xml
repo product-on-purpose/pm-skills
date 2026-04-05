@@ -5,19 +5,55 @@
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
-         <loc>https://product-on-purpose.github.io/pm-skills/agent-skill-anatomy/</loc>
+         <loc>https://product-on-purpose.github.io/pm-skills/changelog/</loc>
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
-         <loc>https://product-on-purpose.github.io/pm-skills/getting-started/</loc>
+         <loc>https://product-on-purpose.github.io/pm-skills/bundles/</loc>
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
-         <loc>https://product-on-purpose.github.io/pm-skills/pm-skill-anatomy/</loc>
+         <loc>https://product-on-purpose.github.io/pm-skills/bundles/feature-kickoff/</loc>
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
-         <loc>https://product-on-purpose.github.io/pm-skills/pm-skill-lifecycle/</loc>
+         <loc>https://product-on-purpose.github.io/pm-skills/bundles/lean-startup/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/bundles/triple-diamond/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/concepts/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/concepts/skill-anatomy/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/concepts/skill-lifecycle/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/concepts/triple-diamond/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/contributing/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/contributing/code-of-conduct/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/contributing/privacy/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/contributing/security/</loc>
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
@@ -25,7 +61,19 @@
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
-         <loc>https://product-on-purpose.github.io/pm-skills/guides/authoring-pm-skills/</loc>
+         <loc>https://product-on-purpose.github.io/pm-skills/getting-started/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/getting-started/quickstart/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/guides/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/guides/creating-skills/</loc>
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
@@ -45,11 +93,19 @@
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/reference/commands/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
          <loc>https://product-on-purpose.github.io/pm-skills/reference/ecosystem/</loc>
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://product-on-purpose.github.io/pm-skills/reference/project-structure/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/releases/</loc>
          <lastmod>2026-04-05</lastmod>
     </url>
     <url>
@@ -106,6 +162,158 @@
     </url>
     <url>
          <loc>https://product-on-purpose.github.io/pm-skills/releases/Release_v2.8.0/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/define/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/define/define-hypothesis/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/define/define-jtbd-canvas/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/define/define-opportunity-tree/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/define/define-problem-statement/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/deliver/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/deliver/deliver-acceptance-criteria/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/deliver/deliver-edge-cases/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/deliver/deliver-launch-checklist/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/deliver/deliver-prd/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/deliver/deliver-release-notes/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/deliver/deliver-user-stories/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/develop/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/develop/develop-adr/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/develop/develop-design-rationale/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/develop/develop-solution-brief/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/develop/develop-spike-summary/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/discover/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/discover/discover-competitive-analysis/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/discover/discover-interview-synthesis/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/discover/discover-stakeholder-summary/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/foundation/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/foundation/foundation-persona/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/iterate/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/iterate/iterate-lessons-log/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/iterate/iterate-pivot-decision/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/iterate/iterate-refinement-notes/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/iterate/iterate-retrospective/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/measure/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/measure/measure-dashboard-requirements/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/measure/measure-experiment-design/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/measure/measure-experiment-results/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/measure/measure-instrumentation-spec/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/utility/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/utility/utility-pm-skill-builder/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/utility/utility-pm-skill-iterate/</loc>
+         <lastmod>2026-04-05</lastmod>
+    </url>
+    <url>
+         <loc>https://product-on-purpose.github.io/pm-skills/skills/utility/utility-pm-skill-validate/</loc>
          <lastmod>2026-04-05</lastmod>
     </url>
 </urlset>
