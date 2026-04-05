@@ -61,7 +61,20 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="develop-design-rationale - PM Skills" />
+<meta property="og:description" content="Documents the reasoning behind design decisions including alternatives considered, trade-offs evaluated, and principles applied. Use when making significant UX decisions, aligning with stakeholders on design direction, or preserving design context for future reference." />
+<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/develop/develop-design-rationale.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/develop/develop-design-rationale/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="develop-design-rationale - PM Skills" />
+<meta property="twitter:description" content="Documents the reasoning behind design decisions including alternatives considered, trade-offs evaluated, and principles applied. Use when making significant UX decisions, aligning with stakeholders on design direction, or preserving design context for future reference." />
+<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/develop/develop-design-rationale.png" />
+</head>
   
   
     
@@ -374,6 +387,28 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../../showcase/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Showcase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../../reference/commands/" class="md-tabs__link">
           
   
@@ -494,6 +529,8 @@
       
         
           
+        
+      
         
       
         
@@ -2310,6 +2347,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2377,6 +2420,8 @@
       
         
       
+        
+      
     
     
     
@@ -2405,6 +2450,71 @@
     
   
     Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../showcase/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Showcase
   
 
     
@@ -2692,6 +2802,24 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">Develop</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">specification</span>
+      
+    
+  </nav>
+
 
   
     <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/skills/develop/develop-design-rationale.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
@@ -2715,6 +2843,7 @@
 <p class="admonition-title">Quick facts</p>
 <p><strong>Phase:</strong> Develop | <strong>Version:</strong> 2.0.0 | <strong>Category:</strong> specification | <strong>License:</strong> Apache-2.0</p>
 </div>
+<p class="md-button"><strong>Try it:</strong> <code>/design-rationale "Your context here"</code></p>
 <h1 id="design-rationale">Design Rationale<a class="headerlink" href="#design-rationale" title="Permanent link">&para;</a></h1>
 <p>A design rationale document captures the "why" behind design decisions—the context, constraints, alternatives considered, and reasoning that led to a particular solution. While designs themselves show what was built, rationale documents preserve institutional knowledge about why it was built that way.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
@@ -3367,6 +3496,94 @@
 </table>
 <hr />
 <p><em>This rationale documents the reasoning at the time of decision. Context may change.</em></p>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): Storevine B2B ecommerce platform — Campaigns audience selection UX design decision</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/design-rationale
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Project: Campaigns — native email marketing for Storevine merchants
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Decision: Audience selection UX for the campaign creation flow
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Stage: Pre-sprint design review — finalizing Figma specs before engineering
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Decision I need to document:
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>- We debated 3 audience selection approaches before the design review:
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  A. Custom filter builder (SQL-like nested conditions, matches Klaviyo)
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  B. Pre-built named segments only (curated list, no customization)
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  C. Pre-built segments as default + custom filter as secondary option
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>- We chose Option C after design review with PM, design lead, and eng lead
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Context:
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>- Primary target segment: non-adopter merchants (no current email tool)
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>- Interview data: 3 of 8 merchants cited setup complexity as the barrier
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>- Figma link: [internal — Campaigns audience selection v3 spec]
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Need: full design rationale document for the engineering handoff package.
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>Decision makers: Design Lead, Growth PM, Engineering Lead.
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="design-rationale-campaigns-audience-selection-ux">Design Rationale: Campaigns Audience Selection UX<a class="headerlink" href="#design-rationale-campaigns-audience-selection-ux" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): Brainshelf consumer PKM app — digest email layout design decision for the Resurface feature</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/design-rationale
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>digest email layout for resurface. dan showed three options:
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>option A: rich cards — article thumbnail, title, excerpt, topic tag
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>for each item. looks great in figma but heavy on images and might
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>trigger promotions tab.
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>option B: structured text — article title (linked), source domain,
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>topic tag, estimated read time. no images. clean, editorial feel.
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>fast to scan.
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>option C: minimal plain text — just titles and links, no styling.
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>maximum deliverability but looks like a system notification, not a
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>product experience.
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>we did a quick preference test with 12 users. 9 preferred option B.
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>reasons: &quot;fast,&quot; &quot;doesn&#39;t look like spam,&quot; &quot;I&#39;d actually read this.&quot;
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>going with B. need the rationale written up.
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="design-rationale-resurface-digest-email-layout">Design Rationale: Resurface Digest Email Layout<a class="headerlink" href="#design-rationale-resurface-digest-email-layout" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): Workbench enterprise collaboration platform: guided wizard vs. blank canvas for Blueprint creation flow</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/design-rationale
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Decision: Blueprint creation flow -- guided wizard vs. blank canvas
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Stage: Develop phase, pre-PRD
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Problem: How should a new Blueprint be created? Two options:
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>- Option A: Guided wizard -- step-by-step flow, one section per screen, progress indicator, validation per step
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>- Option B: Blank canvas -- full template opens in the editor, all sections visible, fill in any order (Confluence model)
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>- Option C (hybrid): Wizard for first-time creation, canvas for returning authors who have completed a Blueprint before
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>Context:
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>- Enterprise users are not power users of Workbench yet -- Blueprints is a new feature
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>- Required sections are the core differentiator; the creation flow must make enforcement feel helpful, not punitive
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>- Discovery interviews: middle managers act as &quot;docs police&quot;; the creation flow should reduce, not increase, that burden
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>- Closed-beta preference test (8 users [fictional]): 6 preferred wizard on first use, 5 preferred canvas after their second Blueprint
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>- Karen L. (Eng Lead): wizard adds 1 sprint of effort vs. canvas [fictional]
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>- Tomas G. (Design Lead): wizard produces cleaner first submissions but risks feeling patronizing for experienced authors
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>Evaluation criteria: first-submission completeness rate, author time-to-submit, author satisfaction (NPS), engineering effort, scalability to custom templates
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>Stakeholders: Sandra C. (Head of Product), Karen L. (Eng Lead), Tomas G. (Design Lead)
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="design-rationale-blueprint-creation-flow">Design Rationale: Blueprint Creation Flow<a class="headerlink" href="#design-rationale-blueprint-creation-flow" title="Permanent link">&para;</a></h1>
 </details>
 <h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
 <p>Before finalizing, verify:</p>

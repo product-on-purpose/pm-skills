@@ -61,7 +61,20 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="develop-adr - PM Skills" />
+<meta property="og:description" content="Creates an Architecture Decision Record following the Nygard format to document significant technical decisions, their context, and consequences. Use when making technical choices that affect system architecture, technology selection, or development patterns." />
+<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/develop/develop-adr.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/develop/develop-adr/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="develop-adr - PM Skills" />
+<meta property="twitter:description" content="Creates an Architecture Decision Record following the Nygard format to document significant technical decisions, their context, and consequences. Use when making technical choices that affect system architecture, technology selection, or development patterns." />
+<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/develop/develop-adr.png" />
+</head>
   
   
     
@@ -374,6 +387,28 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../../showcase/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Showcase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../../reference/commands/" class="md-tabs__link">
           
   
@@ -494,6 +529,8 @@
       
         
           
+        
+      
         
       
         
@@ -2310,6 +2347,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2377,6 +2420,8 @@
       
         
       
+        
+      
     
     
     
@@ -2405,6 +2450,71 @@
     
   
     Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../showcase/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Showcase
   
 
     
@@ -2692,6 +2802,24 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">Develop</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">specification</span>
+      
+    
+  </nav>
+
 
   
     <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/skills/develop/develop-adr.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
@@ -2715,6 +2843,7 @@
 <p class="admonition-title">Quick facts</p>
 <p><strong>Phase:</strong> Develop | <strong>Version:</strong> 2.0.0 | <strong>Category:</strong> specification | <strong>License:</strong> Apache-2.0</p>
 </div>
+<p class="md-button"><strong>Try it:</strong> <code>/adr "Your context here"</code></p>
 <h1 id="architecture-decision-record-adr">Architecture Decision Record (ADR)<a class="headerlink" href="#architecture-decision-record-adr" title="Permanent link">&para;</a></h1>
 <p>An Architecture Decision Record documents a significant technical decision along with its context and consequences. ADRs capture the "why" behind architectural choices so future team members understand the reasoning — especially important when they question why something was done a particular way. This skill follows Michael Nygard's lightweight ADR format.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
@@ -2899,6 +3028,93 @@ Be honest about trade-offs.
 <li>ADR-003: Use AWS RDS for managed databases (establishes RDS as our database platform)</li>
 <li>Order Service Capacity Planning Document (/docs/order-service/capacity-planning.md)</li>
 </ul>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): Storevine B2B ecommerce platform — email sending infrastructure for Campaigns</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/adr
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ADR for email sending infrastructure choice for Campaigns v1. We need to pick
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>the vendor before we start the backend build.
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Context: Storevine currently sends transactional emails (order confirm, password
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>reset) through SendGrid on a shared IP. Campaigns will add broadcast marketing
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>email + 3 automated sequences (abandoned cart, welcome, re-engagement) at
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>projected volume of ~2M emails/month at launch [fictional], scaling to ~10M
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>at full merchant adoption [fictional].
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Options we evaluated: SendGrid (upgrade to dedicated IP), AWS SES, Postmark,
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Mailgun.
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>Key constraints:
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>- CAN-SPAM/GDPR compliance is a hard gate before launch
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>- Deliverability matters: one spam incident tanks merchant trust
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>- We have existing SendGrid integration (transactional)
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>- Cost matters but is secondary to deliverability reliability at this stage
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>Decision: SendGrid dedicated IP. Need this documented for the record.
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>Eng lead and growth PM are the deciders.
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="adr-007-email-sending-infrastructure-for-campaigns">ADR-007: Email Sending Infrastructure for Campaigns<a class="headerlink" href="#adr-007-email-sending-infrastructure-for-campaigns" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): Brainshelf consumer PKM app — email sending infrastructure decision for the Resurface digest</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/adr
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>email sending infra for resurface. we don&#39;t have any email sending
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>today — everything is in-app or firebase push. need to pick a provider
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>for the daily digest.
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>options we looked at:
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>- sendgrid (twilio): mature, everyone uses it, but their free tier
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  shrank and the dashboard is confusing
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>- postmark: great deliverability reputation, simple api, but
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  transactional only — no batch/digest support without workarounds
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>- resend: new, developer-first, react email templates, free tier
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  covers our a/b test volume
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>alex ran a quick eval last week. we&#39;re leaning resend. need the ADR
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>written up before sprint 8 starts.
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="adr-007-use-resend-as-the-email-sending-provider-for-the-resurface-digest">ADR-007: Use Resend as the Email Sending Provider for the Resurface Digest<a class="headerlink" href="#adr-007-use-resend-as-the-email-sending-provider-for-the-resurface-digest" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): Workbench enterprise collaboration platform: ADR for Yjs CRDTs for Blueprint co-editing</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/adr
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ADR: Use Yjs CRDTs for Blueprints real-time co-editing
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Product: Workbench Blueprints
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Stage: Post-CRDT spike; recording architecture decision
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Context:
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>- Blueprints requires real-time co-editing (20+ concurrent editors [fictional])
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>- ProseMirror-based editor; no current collaboration layer
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>- Enterprise requirements: offline-first, conflict resolution, per-user audit trail
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>- Spike evaluated Yjs, Automerge, ShareDB
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>Decision: Yjs
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>- 2-day integration via y-prosemirror; 45ms merge latency at 20 users [fictional]; +38KB gzipped [fictional]; offline-first
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>- Automerge rejected: no ProseMirror binding (3-4 week custom build [fictional]); +120KB [fictional]
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>- ShareDB rejected: no offline support (disqualified)
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>Consequences:
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>- Positive: fast integration, offline-first, active community, sub-document support
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>- Negative: WebSocket provider TBD, audit trail requires custom middleware, binary document format
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>- Neutral: bundle size acceptable for enterprise
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>Stakeholders: James W. (VP Engineering), Karen L. (Eng Lead), Nate P. (Backend Engineer)
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="adr-012-use-yjs-crdts-for-blueprints-real-time-co-editing">ADR-012: Use Yjs CRDTs for Blueprints Real-Time Co-Editing<a class="headerlink" href="#adr-012-use-yjs-crdts-for-blueprints-real-time-co-editing" title="Permanent link">&para;</a></h1>
 </details>
 <h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
 <p>Before finalizing, verify:</p>

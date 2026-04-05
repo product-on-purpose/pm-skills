@@ -61,7 +61,20 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="deliver-edge-cases - PM Skills" />
+<meta property="og:description" content="Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive coverage, or during QA planning to identify test scenarios." />
+<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/deliver/deliver-edge-cases.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/deliver/deliver-edge-cases/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="deliver-edge-cases - PM Skills" />
+<meta property="twitter:description" content="Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive coverage, or during QA planning to identify test scenarios." />
+<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/deliver/deliver-edge-cases.png" />
+</head>
   
   
     
@@ -374,6 +387,28 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../../showcase/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Showcase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../../reference/commands/" class="md-tabs__link">
           
   
@@ -494,6 +529,8 @@
       
         
           
+        
+      
         
       
         
@@ -2310,6 +2347,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2377,6 +2420,8 @@
       
         
       
+        
+      
     
     
     
@@ -2405,6 +2450,71 @@
     
   
     Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../showcase/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Showcase
   
 
     
@@ -2692,6 +2802,24 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">Deliver</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">specification</span>
+      
+    
+  </nav>
+
 
   
     <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/skills/deliver/deliver-edge-cases.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
@@ -2715,6 +2843,7 @@
 <p class="admonition-title">Quick facts</p>
 <p><strong>Phase:</strong> Deliver | <strong>Version:</strong> 2.0.0 | <strong>Category:</strong> specification | <strong>License:</strong> Apache-2.0</p>
 </div>
+<p class="md-button"><strong>Try it:</strong> <code>/edge-cases "Your context here"</code></p>
 <h1 id="edge-cases">Edge Cases<a class="headerlink" href="#edge-cases" title="Permanent link">&para;</a></h1>
 <p>An edge cases document systematically catalogs the unusual, boundary, and error scenarios for a feature. While happy-path flows are typically well-specified, edge cases often get discovered in production — causing bugs, poor user experience, and support burden. Documenting edge cases upfront ensures engineering handles them intentionally and QA knows what to test.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
@@ -3370,6 +3499,81 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Two users upload same file simultaneously — both should succeed</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file with only extension (.pdf) — should fail</li>
 </ul>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): Storevine B2B ecommerce platform — Campaigns campaign send flow edge cases</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/edge-cases
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Feature: Campaigns — campaign creation and send flow
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Sprint: Q2 2026 Campaigns build (GA Apr 28, 2026)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Key edge cases I want to cover:
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>- Input validation: subject line, email body, audience size, physical
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  sender address (CAN-SPAM requirement)
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>- Boundary conditions: free tier send volume limit, min/max audience size
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>- Error states: network failure during send, SendGrid API errors
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>- Concurrency: double-click send, merchant edits in two browser tabs
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>- Integration failures: SendGrid unavailable, attribution webhook down
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Related docs:
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>- User story US-CAM-001 (guided first-campaign flow)
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>- Spike summary: SendGrid attribution webhook confirmed
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>- Edge cases will be used for QA test plan and engineering handoff
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Need: full edge cases document with error messages, recovery paths, and
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>QA test scenarios (P1/P2/P3).
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="edge-cases-campaigns-campaign-send-flow">Edge Cases: Campaigns Campaign Send Flow<a class="headerlink" href="#edge-cases-campaigns-campaign-send-flow" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): Brainshelf consumer PKM app — Resurface digest edge cases and error states</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/edge-cases
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>resurface edge cases for sprint 8. need to cover:
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>- what happens when the user&#39;s library is too small
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>- what happens when all items have been resurfaced recently
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>- timezone weirdness (DST, user changes timezone, half-hour offsets)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>- text extraction failures
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>- resend api outages
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>- user clicks a link to a dead URL
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>- email bounces
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>- concurrent opt-in/unsubscribe race conditions
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>alex wants this documented so QA can build the test plan from it.
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="edge-cases-resurface-digest">Edge Cases: Resurface Digest<a class="headerlink" href="#edge-cases-resurface-digest" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): Workbench enterprise collaboration platform - Blueprints edge-case analysis for approval workflows and co-editing</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/edge-cases
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>I need a comprehensive edge-case analysis for Blueprints v1 covering the three highest-risk areas: required-section enforcement boundaries, approval-gate state transitions, and real-time co-editing conflicts.
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>**Context:**
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>- Required sections use a content-presence check (non-whitespace); submit is disabled until all required sections have content
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>- Approval gates support sequential and parallel chains; state stored in relational DB, not in the Yjs document
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>- Co-editing uses Yjs CRDTs with sub-document-level sync; offline edits cache locally and merge on reconnect
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>- 80 closed-beta accounts [fictional], target ~20 concurrent editors per Blueprint [fictional]
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>**What I need:**
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>- Edge cases organized by category
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>- Error messages for each failure state
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>- Recovery paths so QA and engineering know the expected behavior
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>- Prioritized test scenarios (P1 must-test, P2 should-test, P3 nice-to-test)
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>Please be thorough -- Karen&#39;s team will use this directly for test planning.
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h1 id="edge-cases-workbench-blueprints-v1">Edge Cases: Workbench Blueprints v1<a class="headerlink" href="#edge-cases-workbench-blueprints-v1" title="Permanent link">&para;</a></h1>
 </details>
 <h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
 <p>Before finalizing, verify:</p>

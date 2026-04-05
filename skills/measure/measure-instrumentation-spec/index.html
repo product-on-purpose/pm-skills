@@ -61,7 +61,20 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="measure-instrumentation-spec - PM Skills" />
+<meta property="og:description" content="Specifies event tracking and analytics instrumentation requirements for a feature. Use when defining what data to collect, ensuring consistent tracking implementation, or documenting analytics requirements for engineering." />
+<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/measure/measure-instrumentation-spec.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/measure/measure-instrumentation-spec/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="measure-instrumentation-spec - PM Skills" />
+<meta property="twitter:description" content="Specifies event tracking and analytics instrumentation requirements for a feature. Use when defining what data to collect, ensuring consistent tracking implementation, or documenting analytics requirements for engineering." />
+<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/measure/measure-instrumentation-spec.png" />
+</head>
   
   
     
@@ -374,6 +387,28 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../../showcase/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Showcase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../../reference/commands/" class="md-tabs__link">
           
   
@@ -494,6 +529,8 @@
       
         
           
+        
+      
         
       
         
@@ -2310,6 +2347,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2377,6 +2420,8 @@
       
         
       
+        
+      
     
     
     
@@ -2405,6 +2450,71 @@
     
   
     Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../showcase/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Showcase
   
 
     
@@ -2692,6 +2802,24 @@
                 
                   
 
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">Measure</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">validation</span>
+      
+    
+  </nav>
+
 
   
     <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/skills/measure/measure-instrumentation-spec.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
@@ -2715,6 +2843,7 @@
 <p class="admonition-title">Quick facts</p>
 <p><strong>Phase:</strong> Measure | <strong>Version:</strong> 2.0.0 | <strong>Category:</strong> validation | <strong>License:</strong> Apache-2.0</p>
 </div>
+<p class="md-button"><strong>Try it:</strong> <code>/instrumentation-spec "Your context here"</code></p>
 <h1 id="instrumentation-spec">Instrumentation Spec<a class="headerlink" href="#instrumentation-spec" title="Permanent link">&para;</a></h1>
 <p>An instrumentation spec defines what analytics events to track, when to fire them, and what properties to include. It serves as a contract between product and engineering, ensuring consistent data collection that enables accurate measurement. Good instrumentation specs prevent the "we can't answer that question because we didn't track it" problem.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
@@ -3615,6 +3744,100 @@
 <li>View events in browser console: <code>amplitude.getInstance().logLevel = 'DEBUG'</code></li>
 <li>Validate in Amplitude: User Lookup &gt; search by user_id &gt; Event Stream</li>
 </ul>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): Storevine B2B ecommerce platform — Campaigns send flow and first-campaign flow analytics instrumentation</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/instrumentation-spec
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Feature: Campaigns — campaign send flow + guided first-campaign flow
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Analytics platform: Amplitude
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Events I need to instrument:
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>1. campaign_created — merchant saves a campaign draft
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>2. campaign_sent — merchant sends a campaign
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>3. first_send_completed — merchant sends their FIRST campaign ever
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>   (milestone event for the non-adopter hypothesis)
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>4. attribution_recorded — a purchase is linked to a campaign click
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>   within the 7-day attribution window
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Prior work:
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>- Experiment design: A/B test using first_send_completed as primary metric
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>- Spike summary: SendGrid webhook attribution confirmed; unique_args
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>  includes campaign_id, merchant_id, recipient_customer_id
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>PII note: Subscriber email addresses must NOT be sent to Amplitude.
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>Only customer_id (pseudonymous internal identifier).
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>Need: full instrumentation spec with event definitions, properties,
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>PII handling, implementation notes, and QA testing checklist.
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="instrumentation-spec-campaigns-send-flow-and-first-campaign-flow">Instrumentation Spec: Campaigns Send Flow and First-Campaign Flow<a class="headerlink" href="#instrumentation-spec-campaigns-send-flow-and-first-campaign-flow" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): Brainshelf consumer PKM app — Resurface feature analytics instrumentation spec</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/instrumentation-spec
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>resurface analytics events for amplitude. need the full spec before
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>sprint 8 starts so alex and jess can instrument during the build.
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>events:
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>1. resurface_opt_in — user enables the digest
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>2. resurface_digest_sent — server sends a digest email
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>3. resurface_digest_opened — user opens the email (caveat: apple MPP)
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>4. resurface_item_clicked — user clicks an item in the digest
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>5. resurface_unsubscribe — user unsubscribes
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>6. resurface_cadence_changed — user changes frequency
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>7. resurface_digest_skipped — server skips sending (no qualifying items,
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>   exclusion window exhausted, etc.)
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>also need user properties: digest_enabled, digest_cadence, digest_timezone.
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>keep it tight. chloe wants to review before sprint planning on monday.
+</span></code></pre></div>
+<hr />
+<p><strong>Output:</strong></p>
+<h1 id="instrumentation-spec-resurface-digest">Instrumentation Spec: Resurface Digest<a class="headerlink" href="#instrumentation-spec-resurface-digest" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): Workbench enterprise collaboration platform: Blueprints v1 GA instrumentation spec</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/instrumentation-spec
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>I need the instrumentation spec for Blueprints v1 GA. Here are the events I&#39;ve identified from the PRD and experiment results:
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>**Core lifecycle events:**
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>1. `blueprint_created` -- when an author creates a new Blueprint from a template
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>2. `section_completed` -- when a required section transitions from empty to non-empty
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>3. `section_cleared` -- when a required section transitions from non-empty to empty
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>4. `approval_requested` -- when an author submits a Blueprint for approval
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>5. `approval_granted` -- when an approver approves a Blueprint
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>6. `approval_rejected` -- when an approver rejects a Blueprint
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>7. `blueprint_published` -- when an approved Blueprint is published to the team workspace
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>**Key properties I need on each event:**
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>- Standard: account_id, user_id, blueprint_id, template_id, timestamp
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>- blueprint_created: creation_method (wizard/canvas), template_name, required_section_count, optional_section_count
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>- section_completed/cleared: section_id, section_name, is_required, word_count
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>- approval events: approval_chain_type (sequential/parallel), approver_position, approval_cycle_number
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>- blueprint_published: time_to_approved_hours, total_approval_cycles, co_editor_count
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>**PII concerns:**
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>- user_id is internal (UUID), not PII
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>- We must NOT capture section content in events -- only metadata
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>- Account names should not appear in event properties; use account_id only
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>**SDK:** Workbench Analytics SDK (server-side collector, JavaScript client)
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>Please generate the full instrumentation spec with testing checklist.
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h1 id="instrumentation-spec-workbench-blueprints-v1">Instrumentation Spec: Workbench Blueprints v1<a class="headerlink" href="#instrumentation-spec-workbench-blueprints-v1" title="Permanent link">&para;</a></h1>
 </details>
 <h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
 <p>Before finalizing, verify:</p>
