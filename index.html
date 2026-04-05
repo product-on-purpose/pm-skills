@@ -1495,51 +1495,55 @@
   <a href="skills/utility/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Browse</a></p>
 </div>
 <h2 id="skills-by-phase">Skills by Phase<a class="headerlink" href="#skills-by-phase" title="Permanent link">&para;</a></h2>
-<p>Every skill mapped to its phase, with the command to invoke it:</p>
-<pre class="mermaid"><code>graph TD
-    subgraph "Discover"
-        S1["/competitive-analysis"]
-        S2["/interview-synthesis"]
-        S3["/stakeholder-summary"]
-    end
-    subgraph "Define"
-        S4["/problem-statement"]
-        S5["/hypothesis"]
-        S6["/opportunity-tree"]
-        S7["/jtbd-canvas"]
-    end
-    subgraph "Develop"
-        S8["/solution-brief"]
-        S9["/spike-summary"]
-        S10["/adr"]
-        S11["/design-rationale"]
-    end
-    subgraph "Deliver"
-        S12["/prd"]
-        S13["/user-stories"]
-        S14["/acceptance-criteria"]
-        S15["/edge-cases"]
-        S16["/launch-checklist"]
-        S17["/release-notes"]
-    end
-    subgraph "Measure"
-        S18["/experiment-design"]
-        S19["/instrumentation-spec"]
-        S20["/dashboard-requirements"]
-        S21["/experiment-results"]
-    end
-    subgraph "Iterate"
-        S22["/retrospective"]
-        S23["/lessons-log"]
-        S24["/refinement-notes"]
-        S25["/pivot-decision"]
+<p>25 domain skills across 6 phases, plus foundation and utility:</p>
+<pre class="mermaid"><code>block-beta
+    columns 6
+
+    block:discover["Discover"]:1
+        d1["/competitive-analysis"]
+        d2["/interview-synthesis"]
+        d3["/stakeholder-summary"]
     end
 
-    S1 &amp; S2 &amp; S3 --&gt; S4 &amp; S5
-    S4 &amp; S5 &amp; S6 &amp; S7 --&gt; S8
-    S8 &amp; S9 &amp; S10 &amp; S11 --&gt; S12
-    S12 &amp; S13 &amp; S14 &amp; S15 --&gt; S18
-    S18 &amp; S19 &amp; S20 &amp; S21 --&gt; S22</code></pre>
+    block:define["Define"]:1
+        f1["/problem-statement"]
+        f2["/hypothesis"]
+        f3["/opportunity-tree"]
+        f4["/jtbd-canvas"]
+    end
+
+    block:develop["Develop"]:1
+        v1["/solution-brief"]
+        v2["/spike-summary"]
+        v3["/adr"]
+        v4["/design-rationale"]
+    end
+
+    block:deliver["Deliver"]:1
+        l1["/prd"]
+        l2["/user-stories"]
+        l3["/acceptance-criteria"]
+        l4["/edge-cases"]
+        l5["/launch-checklist"]
+        l6["/release-notes"]
+    end
+
+    block:measure["Measure"]:1
+        m1["/experiment-design"]
+        m2["/instrumentation-spec"]
+        m3["/dashboard-requirements"]
+        m4["/experiment-results"]
+    end
+
+    block:iterate["Iterate"]:1
+        i1["/retrospective"]
+        i2["/lessons-log"]
+        i3["/refinement-notes"]
+        i4["/pivot-decision"]
+    end
+
+    discover --&gt; define --&gt; develop --&gt; deliver --&gt; measure --&gt; iterate</code></pre>
+<p><strong>Plus:</strong> <code>/persona</code> (Foundation — cross-cutting) · <code>/pm-skill-builder</code> <code>/pm-skill-validate</code> <code>/pm-skill-iterate</code> (Utility — skill lifecycle)</p>
 <h2 id="the-skill-lifecycle">The Skill Lifecycle<a class="headerlink" href="#the-skill-lifecycle" title="Permanent link">&para;</a></h2>
 <p>Three utility skills form a self-reinforcing quality loop for managing the skill library itself:</p>
 <pre class="mermaid"><code>flowchart LR
@@ -1643,7 +1647,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 04:27:43 UTC"><span class="timeago" datetime="2026-04-05T04:27:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 04:27:43 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 04:41:29 UTC"><span class="timeago" datetime="2026-04-05T04:41:29+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 04:41:29 UTC">2026-04-05</span>
   </span>
 
     
