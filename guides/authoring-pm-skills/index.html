@@ -1,0 +1,2375 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+      
+      
+        <meta name="author" content="jprisant">
+      
+      
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/guides/authoring-pm-skills/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Authoring PM-Skills - PM Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#authoring-pm-skills" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PM Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Authoring PM-Skills
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    PM Skills
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-makes-a-good-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Makes a Good Skill?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-three-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Three Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before You Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-check-if-it-already-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Check If It Already Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validate-the-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validate the Need
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-choose-the-right-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Choose the Right Category
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-choose-classification-and-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Choose Classification and Phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-contribution-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Contribution Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Contribution Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-an-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open an Issue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-wait-for-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Wait for Approval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-build-the-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Build the Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-submit-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Submit a Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Anatomy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Skill Anatomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-a-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a Name
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-skillmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing SKILL.md
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing SKILL.md">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Sections
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing the Frontmatter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-repo-validators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Repo Validators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing the Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-when-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing "When to Use"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing Instructions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-the-quality-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing the Quality Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-templatemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating TEMPLATE.md
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating TEMPLATE.md">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template Principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-prd-template-excerpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: PRD Template (excerpt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template Tips
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-examplemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing EXAMPLE.md
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing EXAMPLE.md">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-an-example-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing an Example Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-quality-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Quality Bar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-slash-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating the Slash Command
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the Slash Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-prd-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: PRD Command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-arguments-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The $ARGUMENTS Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Your Skill
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Your Skill">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-look-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Look For
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontmatter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skillmd-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SKILL.md Content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templatemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TEMPLATE.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examplemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXAMPLE.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submission-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submission Process
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submission Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fork-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fork the Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create a Branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-your-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Add Your Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-update-agentsmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Update AGENTS.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-commit-and-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Commit and Push
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-open-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Open a Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Mistakes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-vague-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Vague Description
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-instructions-too-abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Instructions Too Abstract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-template-doesnt-match-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: Template Doesn't Match Instructions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-incomplete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Incomplete Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-5-wrong-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 5: Wrong Category
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-6-name-doesnt-match-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 6: Name Doesn't Match Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supporting-multiple-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supporting Multiple Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-skill-chains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating Skill Chains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-skill-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Skill Variants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internationalization-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internationalization Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/guides/authoring-pm-skills.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/guides/authoring-pm-skills.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="authoring-pm-skills">Authoring PM-Skills<a class="headerlink" href="#authoring-pm-skills" title="Permanent link">&para;</a></h1>
+<p>This guide walks you through creating new PM skills for submission to the pm-skills repository. Whether you're contributing your first skill or your tenth, this guide covers everything from concept to pull request.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#before-you-start">Before You Start</a></li>
+<li><a href="#the-contribution-process">The Contribution Process</a></li>
+<li><a href="#skill-anatomy">Skill Anatomy</a></li>
+<li><a href="#writing-skillmd">Writing SKILL.md</a></li>
+<li><a href="#creating-templatemd">Creating TEMPLATE.md</a></li>
+<li><a href="#writing-examplemd">Writing EXAMPLE.md</a></li>
+<li><a href="#creating-the-slash-command">Creating the Slash Command</a></li>
+<li><a href="#testing-your-skill">Testing Your Skill</a></li>
+<li><a href="#quality-checklist">Quality Checklist</a></li>
+<li><a href="#submission-process">Submission Process</a></li>
+<li><a href="#common-mistakes">Common Mistakes</a></li>
+<li><a href="#advanced-topics">Advanced Topics</a></li>
+</ul>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h3 id="what-makes-a-good-skill">What Makes a Good Skill?<a class="headerlink" href="#what-makes-a-good-skill" title="Permanent link">&para;</a></h3>
+<p>A good PM skill:</p>
+<ol>
+<li><strong>Solves a real problem</strong> — PMs actually need this artifact regularly</li>
+<li><strong>Produces consistent output</strong> — Same quality every time</li>
+<li><strong>Works across contexts</strong> — Useful for different products, teams, industries</li>
+<li><strong>Is well-documented</strong> — Clear instructions, useful template, realistic example</li>
+<li><strong>Integrates with workflows</strong> — Chains naturally with other skills</li>
+</ol>
+<h3 id="the-three-files">The Three Files<a class="headerlink" href="#the-three-files" title="Permanent link">&para;</a></h3>
+<p>Every skill consists of three files:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>skills/&lt;skill-name&gt;/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── SKILL.md              # Instructions for the AI
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└── references/
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── TEMPLATE.md       # Output structure
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    └── EXAMPLE.md        # Completed example
+</span></code></pre></div>
+<p>Plus an optional slash command:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>commands/&lt;skill-name&gt;.md  # Slash command definition
+</span></code></pre></div></p>
+<hr />
+<h2 id="before-you-start">Before You Start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h2>
+<h3 id="1-check-if-it-already-exists">1. Check If It Already Exists<a class="headerlink" href="#1-check-if-it-already-exists" title="Permanent link">&para;</a></h3>
+<p>Review the existing repo catalog before opening a new skill proposal. The current repo contains 27 skills in <code>skills/</code> (25 phase skills, <code>foundation-persona</code>, and <code>utility-pm-skill-builder</code>), while <code>AGENTS.md</code> lists the currently registered/discoverable subset.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Existing Skills</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>research</td>
+<td>interview-synthesis, competitive-analysis, stakeholder-summary, persona</td>
+</tr>
+<tr>
+<td>problem-framing</td>
+<td>problem-statement, opportunity-tree, jtbd-canvas</td>
+</tr>
+<tr>
+<td>ideation</td>
+<td>hypothesis, solution-brief</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>prd, user-stories, acceptance-criteria, edge-cases, adr, design-rationale</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>experiment-design, instrumentation-spec, dashboard-requirements</td>
+</tr>
+<tr>
+<td>reflection</td>
+<td>experiment-results, retrospective, lessons-log, pivot-decision</td>
+</tr>
+<tr>
+<td>coordination</td>
+<td>launch-checklist, release-notes, spike-summary, refinement-notes</td>
+</tr>
+</tbody>
+</table>
+<p>Plus shipped non-phase skills:
+- <code>foundation-persona</code>
+- <code>utility-pm-skill-builder</code></p>
+<h3 id="2-validate-the-need">2. Validate the Need<a class="headerlink" href="#2-validate-the-need" title="Permanent link">&para;</a></h3>
+<p>Answer these questions:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Do PMs create this artifact at least monthly?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Would 3+ different PM roles find this useful?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Does it produce a concrete deliverable (not just advice)?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Can you describe 3+ distinct use cases?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Is it different enough from existing skills?</li>
+</ul>
+<p>If you answered "no" to any, reconsider whether this is the right skill.</p>
+<h3 id="3-choose-the-right-category">3. Choose the Right Category<a class="headerlink" href="#3-choose-the-right-category" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Use When The Skill...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>research</code></td>
+<td>Gathers or synthesizes information about users, market, or stakeholders</td>
+</tr>
+<tr>
+<td><code>problem-framing</code></td>
+<td>Defines, scopes, or articulates problems to solve</td>
+</tr>
+<tr>
+<td><code>ideation</code></td>
+<td>Explores solutions or forms testable assumptions</td>
+</tr>
+<tr>
+<td><code>specification</code></td>
+<td>Details requirements, decisions, or what to build</td>
+</tr>
+<tr>
+<td><code>validation</code></td>
+<td>Plans or instruments experiments and measurement</td>
+</tr>
+<tr>
+<td><code>reflection</code></td>
+<td>Captures learnings, retrospectives, or pivot decisions</td>
+</tr>
+<tr>
+<td><code>coordination</code></td>
+<td>Aligns teams, prepares launches, or communicates</td>
+</tr>
+</tbody>
+</table>
+<p>Plus shipped non-phase skills:
+- <code>foundation-persona</code>
+- <code>utility-pm-skill-builder</code></p>
+<h3 id="4-choose-classification-and-phase">4. Choose Classification and Phase<a class="headerlink" href="#4-choose-classification-and-phase" title="Permanent link">&para;</a></h3>
+<p>Skills live in a <strong>flat <code>skills/</code> directory</strong>, but the repo now uses two frontmatter axes:</p>
+<table>
+<thead>
+<tr>
+<th>Classification</th>
+<th>Phase rule</th>
+<th>Naming pattern</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain</code></td>
+<td><code>phase</code> is required</td>
+<td>phase-prefixed skill name</td>
+<td><code>discover-interview-synthesis</code>, <code>deliver-prd</code></td>
+</tr>
+<tr>
+<td><code>foundation</code></td>
+<td>omit <code>phase</code></td>
+<td>classification-driven name</td>
+<td><code>foundation-persona</code></td>
+</tr>
+<tr>
+<td><code>utility</code></td>
+<td>omit <code>phase</code></td>
+<td>classification-driven name</td>
+<td><code>utility-&lt;name&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>For most new PM artifact skills, use domain behavior: choose the primary lifecycle phase, then prefix the skill name with that phase for clarity and sorting.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>When</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>discover</code></td>
+<td>Understanding the landscape</td>
+<td><code>discover-interview-synthesis</code>, <code>discover-competitive-analysis</code></td>
+</tr>
+<tr>
+<td><code>define</code></td>
+<td>Framing the problem</td>
+<td><code>define-problem-statement</code>, <code>define-hypothesis</code></td>
+</tr>
+<tr>
+<td><code>develop</code></td>
+<td>Exploring solutions</td>
+<td><code>develop-solution-brief</code>, <code>develop-adr</code></td>
+</tr>
+<tr>
+<td><code>deliver</code></td>
+<td>Specifying and shipping</td>
+<td><code>deliver-prd</code>, <code>deliver-user-stories</code>, <code>deliver-launch-checklist</code></td>
+</tr>
+<tr>
+<td><code>measure</code></td>
+<td>Validating with data</td>
+<td><code>measure-experiment-design</code>, <code>measure-instrumentation-spec</code></td>
+</tr>
+<tr>
+<td><code>iterate</code></td>
+<td>Learning and improving</td>
+<td><code>iterate-retrospective</code>, <code>iterate-lessons-log</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-contribution-process">The Contribution Process<a class="headerlink" href="#the-contribution-process" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-open-an-issue">Step 1: Open an Issue<a class="headerlink" href="#step-1-open-an-issue" title="Permanent link">&para;</a></h3>
+<p>Before writing any code, open a "Request a Skill" issue with:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gu">## Skill Proposal: &lt;skill-name&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="gu">### Name</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>&lt;lowercase-with-hyphens&gt;
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="gu">### Category</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>&lt;one of the 7 categories&gt;
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="gu">### Classification</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>&lt;domain | foundation | utility&gt;
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="gu">### Phase</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>&lt;one of the 6 phases; required for domain skills, omit for foundation/utility&gt;
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="gu">### Description</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>&lt;1-2 sentences: what it does and when to use it&gt;
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="gu">### Use Cases</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="k">1.</span> &lt;Specific scenario where this adds value&gt;
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="k">2.</span> &lt;Another scenario&gt;
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="k">3.</span> &lt;Another scenario&gt;
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="gu">### Example Output (Brief)</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>&lt;Show a snippet of what the skill would produce&gt;
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="gu">### Why This Skill?</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>&lt;Why doesn&#39;t an existing skill cover this? What gap does it fill?&gt;
+</span></code></pre></div>
+<h3 id="step-2-wait-for-approval">Step 2: Wait for Approval<a class="headerlink" href="#step-2-wait-for-approval" title="Permanent link">&para;</a></h3>
+<p>Maintainers will review your proposal and may:
+- <strong>Approve</strong> — You're cleared to build
+- <strong>Request changes</strong> — Adjust the scope or approach
+- <strong>Suggest alternatives</strong> — An existing skill might work
+- <strong>Decline</strong> — The skill doesn't fit the project</p>
+<h3 id="step-3-build-the-skill">Step 3: Build the Skill<a class="headerlink" href="#step-3-build-the-skill" title="Permanent link">&para;</a></h3>
+<p>Once approved, create your skill following this guide.</p>
+<h3 id="step-4-submit-a-pull-request">Step 4: Submit a Pull Request<a class="headerlink" href="#step-4-submit-a-pull-request" title="Permanent link">&para;</a></h3>
+<p>Open a PR with:
+- The three required files
+- The slash command file
+- Updates to AGENTS.md (skill listing)
+- Confirmation that you've tested the skill</p>
+<hr />
+<h2 id="skill-anatomy">Skill Anatomy<a class="headerlink" href="#skill-anatomy" title="Permanent link">&para;</a></h2>
+<h3 id="directory-structure">Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>skills/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>└── &lt;skill-name&gt;/               # lowercase-with-hyphens; domain skills are phase-prefixed
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    ├── SKILL.md                # Main instructions
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    └── references/
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        ├── TEMPLATE.md         # Output template
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        └── EXAMPLE.md          # Completed example
+</span></code></pre></div>
+<h3 id="naming-rules">Naming Rules<a class="headerlink" href="#naming-rules" title="Permanent link">&para;</a></h3>
+<p>Per the <a href="https://agentskills.io/specification">agentskills.io specification</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Valid</th>
+<th>Invalid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lowercase only</td>
+<td><code>problem-statement</code></td>
+<td><code>Problem-Statement</code></td>
+</tr>
+<tr>
+<td>Hyphens for spaces</td>
+<td><code>user-stories</code></td>
+<td><code>user_stories</code></td>
+</tr>
+<tr>
+<td>No consecutive hyphens</td>
+<td><code>edge-cases</code></td>
+<td><code>edge--cases</code></td>
+</tr>
+<tr>
+<td>1-64 characters</td>
+<td><code>prd</code></td>
+<td>(65+ chars)</td>
+</tr>
+<tr>
+<td>Letters, numbers, hyphens</td>
+<td><code>adr</code>, <code>v2-roadmap</code></td>
+<td><code>adr!</code>, <code>v2.roadmap</code></td>
+</tr>
+<tr>
+<td><strong>Must match directory</strong></td>
+<td>Dir: <code>prd/</code>, name: <code>prd</code></td>
+<td>Dir: <code>prd/</code>, name: <code>PRD</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="choosing-a-name">Choosing a Name<a class="headerlink" href="#choosing-a-name" title="Permanent link">&para;</a></h3>
+<p>Good names:
+- <strong>Match the repo-native skill ID:</strong> <code>deliver-prd</code>, <code>iterate-retrospective</code>, <code>develop-adr</code>
+- <strong>Are recognizable:</strong> PMs know what "PRD" means
+- <strong>Are searchable:</strong> Include key terms
+- <strong>Are concise:</strong> 1-3 words typical</p>
+<hr />
+<h2 id="writing-skillmd">Writing SKILL.md<a class="headerlink" href="#writing-skillmd" title="Permanent link">&para;</a></h2>
+<p>The SKILL.md file is the heart of your skill. It tells the AI exactly how to create the artifact.</p>
+<h3 id="required-sections">Required Sections<a class="headerlink" href="#required-sections" title="Permanent link">&para;</a></h3>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>---
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>name: deliver-skill-name
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>description: What it does and when to use it. Include trigger keywords.
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>phase: deliver
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="gh"># classification: foundation   # Use this instead of phase for non-domain skills</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>version: &quot;1.0.0&quot;
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>updated: 2026-03-19
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>license: Apache-2.0
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>metadata:
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  category: specification
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  frameworks: [triple-diamond, lean-startup, design-thinking]
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="gu">  author: your-github-username</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="gu">---</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="gh"># Skill Title</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>&lt;Overview paragraph&gt;
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="gu">## When to Use</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="k">-</span><span class="w"> </span>&lt;Situation 1&gt;
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="k">-</span><span class="w"> </span>&lt;Situation 2&gt;
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="k">-</span><span class="w"> </span>&lt;Situation 3&gt;
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="gu">## Instructions</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>When asked to create [artifact], follow these steps:
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="k">1.</span> <span class="gs">**Step Title**</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>   Description of what to do and why.
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="k">2.</span> <span class="gs">**Step Title**</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>   Description of what to do and why.
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>[Continue with more steps]
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="gu">## Output Contract</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>Use the template in <span class="sb">`references/TEMPLATE.md`</span> to structure the output.
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="gu">## Quality Checklist</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>Before finalizing, verify:
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="k">- [ ]</span> Quality criterion 1
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a><span class="k">- [ ]</span> Quality criterion 2
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a><span class="k">- [ ]</span> Quality criterion 3
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="gu">## Examples</span>
+</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>
+</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a>See <span class="sb">`references/EXAMPLE.md`</span> for a completed example.
+</span></code></pre></div>
+<h3 id="writing-the-frontmatter">Writing the Frontmatter<a class="headerlink" href="#writing-the-frontmatter" title="Permanent link">&para;</a></h3>
+<h4 id="name">name<a class="headerlink" href="#name" title="Permanent link">&para;</a></h4>
+<p>Must exactly match the directory name. Lowercase, hyphens only.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iterate-sprint-review</span><span class="w">  </span><span class="c1"># Directory must be skills/iterate-sprint-review/</span>
+</span></code></pre></div>
+<h4 id="description">description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
+<p>This is critical for AI discovery. Write for both humans and machines.</p>
+<p><strong>Structure:</strong> <code>[Action verb] [artifact type] [key details]. Use when [trigger 1], [trigger 2], or [trigger 3].</code></p>
+<p><strong>Good example:</strong>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Creates a comprehensive Product Requirements Document that aligns stakeholders on what to build, why, and how success will be measured. Use when specifying features, epics, or product initiatives for engineering handoff.</span>
+</span></code></pre></div></p>
+<p><strong>Bad example:</strong>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Helps with PRDs.</span><span class="w">  </span><span class="c1"># Too vague, no triggers</span>
+</span></code></pre></div></p>
+<p><strong>Include trigger keywords:</strong>
+- Action words: creates, generates, documents, designs, analyzes
+- Artifact names: PRD, requirements, stories, checklist
+- Context phrases: before launch, after experiments, for engineering</p>
+<h4 id="metadatacategory">metadata.category<a class="headerlink" href="#metadatacategory" title="Permanent link">&para;</a></h4>
+<p>One of: <code>research</code>, <code>problem-framing</code>, <code>ideation</code>, <code>specification</code>, <code>validation</code>, <code>reflection</code>, <code>coordination</code></p>
+<h4 id="metadataframeworks">metadata.frameworks<a class="headerlink" href="#metadataframeworks" title="Permanent link">&para;</a></h4>
+<p>Which methodologies use this skill:
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">frameworks</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">triple-diamond</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">lean-startup</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">design-thinking</span><span class="p p-Indicator">]</span>
+</span></code></pre></div></p>
+<p>Options: <code>triple-diamond</code>, <code>lean-startup</code>, <code>design-thinking</code>, <code>scrum</code>, <code>kanban</code>, <code>safe</code></p>
+<h4 id="phase">phase<a class="headerlink" href="#phase" title="Permanent link">&para;</a></h4>
+<p>Use <code>phase</code> for domain skills. This is required for the 25 phase-classified PM skills.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deliver</span>
+</span></code></pre></div>
+<p>Valid values: <code>discover</code>, <code>define</code>, <code>develop</code>, <code>deliver</code>, <code>measure</code>, <code>iterate</code></p>
+<h4 id="classification">classification<a class="headerlink" href="#classification" title="Permanent link">&para;</a></h4>
+<p>Use <code>classification</code> only when the skill is not a domain skill. Foundation and utility skills omit <code>phase</code>.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">classification</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foundation</span>
+</span></code></pre></div>
+<p>Valid values: <code>domain</code>, <code>foundation</code>, <code>utility</code></p>
+<h3 id="run-repo-validators">Run Repo Validators<a class="headerlink" href="#run-repo-validators" title="Permanent link">&para;</a></h3>
+<p>Before you open a PR, run the repo validators that correspond to your change:</p>
+<ul>
+<li><code>./scripts/lint-skills-frontmatter.sh</code> or <code>.ps1</code> — skill frontmatter, description length, template structure</li>
+<li><code>./scripts/validate-commands.sh</code> or <code>.ps1</code> — command file path references</li>
+<li><code>./scripts/validate-agents-md.sh</code> or <code>.ps1</code> — <code>AGENTS.md</code> path sync for discoverable skills</li>
+<li><code>./scripts/check-mcp-impact.sh</code> or <code>.ps1</code> — advisory only, but useful when adding or renaming skills</li>
+</ul>
+<h4 id="version">version<a class="headerlink" href="#version" title="Permanent link">&para;</a></h4>
+<p>Use one quoted root <code>version</code> field. Do not nest version under <code>metadata</code>.</p>
+<p>Always quote to prevent YAML float interpretation:
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span><span class="w">  </span><span class="c1"># Correct</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span><span class="w">    </span><span class="c1"># Wrong - YAML interprets as float</span>
+</span></code></pre></div></p>
+<h4 id="updated">updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h4>
+<p>Use one root <code>updated</code> field with an ISO date:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">updated</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-03-19</span>
+</span></code></pre></div>
+<h3 id="writing-the-overview">Writing the Overview<a class="headerlink" href="#writing-the-overview" title="Permanent link">&para;</a></h3>
+<p>One paragraph explaining:
+- What artifact this skill produces
+- Why it matters
+- What value it provides</p>
+<p><strong>Example:</strong>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>A Product Requirements Document is the primary specification artifact that
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>communicates what to build and why. It bridges the gap between problem
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>understanding and engineering implementation by providing clear requirements,
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>success criteria, and scope boundaries. A good PRD enables engineering to
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>build the right thing while maintaining flexibility on implementation details.
+</span></code></pre></div></p>
+<h3 id="writing-when-to-use">Writing "When to Use"<a class="headerlink" href="#writing-when-to-use" title="Permanent link">&para;</a></h3>
+<p>List 4-6 specific situations. Be concrete:</p>
+<p><strong>Good:</strong>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gu">## When to Use</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">-</span><span class="w"> </span>After problem and solution alignment, before engineering work begins
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">-</span><span class="w"> </span>When specifying features, epics, or product initiatives for handoff
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="k">-</span><span class="w"> </span>When multiple teams need to coordinate on a shared deliverable
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="k">-</span><span class="w"> </span>When stakeholders need to approve scope before investment
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="k">-</span><span class="w"> </span>As reference documentation during development and QA
+</span></code></pre></div></p>
+<p><strong>Bad:</strong>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gu">## When to Use</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">-</span><span class="w"> </span>When you need a PRD
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="k">-</span><span class="w"> </span>For product work
+</span></code></pre></div></p>
+<h3 id="writing-instructions">Writing Instructions<a class="headerlink" href="#writing-instructions" title="Permanent link">&para;</a></h3>
+<p>Instructions are step-by-step directions the AI follows. Each step should:</p>
+<ol>
+<li><strong>Have a clear action title</strong> — What to do</li>
+<li><strong>Explain the purpose</strong> — Why it matters</li>
+<li><strong>Provide guidance</strong> — How to do it well</li>
+</ol>
+<p><strong>Example:</strong>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gu">## Instructions</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>When asked to create a PRD, follow these steps:
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="k">1.</span> <span class="gs">**Summarize the Problem**</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>   Start with a brief recap of the problem being solved. Link to the problem
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>   statement if available. Ensure readers understand <span class="ge">*why*</span> this work matters
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>   before diving into <span class="ge">*what*</span> to build.
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="k">2.</span> <span class="gs">**Define Goals and Success Metrics**</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>   Articulate what success looks like. Include specific, measurable metrics
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>   with baselines and targets. These metrics should connect directly to the
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>   problem being solved.
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="k">3.</span> <span class="gs">**Outline the Solution**</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>   Describe the proposed solution at a high level. Focus on user-facing
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>   functionality and key capabilities. Include enough detail for stakeholders
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>   to evaluate the approach without over-specifying implementation.
+</span></code></pre></div></p>
+<p><strong>Tips:</strong>
+- 5-10 steps is typical
+- Each step should be actionable
+- Include what information to gather
+- Mention what to skip or defer</p>
+<h3 id="writing-the-quality-checklist">Writing the Quality Checklist<a class="headerlink" href="#writing-the-quality-checklist" title="Permanent link">&para;</a></h3>
+<p>Provide 5-8 criteria for validating output quality:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gu">## Quality Checklist</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Before finalizing, verify:
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">- [ ]</span> Problem and &quot;why now&quot; are clearly articulated
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="k">- [ ]</span> Success metrics are specific and measurable
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="k">- [ ]</span> Scope boundaries are explicit (in/out/future)
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="k">- [ ]</span> Requirements are testable and unambiguous
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="k">- [ ]</span> Technical considerations are surfaced without over-specifying
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="k">- [ ]</span> Dependencies and risks are documented with owners
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="k">- [ ]</span> Document is readable in under 15 minutes
+</span></code></pre></div>
+<p><strong>Make criteria:</strong>
+- Specific and verifiable
+- Focused on common failure modes
+- Actionable (can be fixed if not met)</p>
+<hr />
+<h2 id="creating-templatemd">Creating TEMPLATE.md<a class="headerlink" href="#creating-templatemd" title="Permanent link">&para;</a></h2>
+<p>The template provides the exact structure for the output.</p>
+<h3 id="template-structure">Template Structure<a class="headerlink" href="#template-structure" title="Permanent link">&para;</a></h3>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>---
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>artifact: &lt;artifact-type&gt;
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>version: &quot;1.0&quot;
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>created: &lt;YYYY-MM-DD&gt;
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="gu">status: draft</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="gu">---</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="gh"># &lt;Artifact Title&gt;</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="gu">## Section 1</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>&lt;!-- Guidance on what goes here --&gt;
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>[Content placeholder]
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="gu">## Section 2</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>&lt;!-- Guidance on what goes here --&gt;
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>[Content placeholder]
+</span></code></pre></div>
+<h3 id="template-principles">Template Principles<a class="headerlink" href="#template-principles" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Use clear section headings</strong> — Match the sections in your instructions</li>
+<li><strong>Include HTML comments</strong> — Guide the AI on what each section needs</li>
+<li><strong>Provide structure hints</strong> — Tables, lists, or prose as appropriate</li>
+<li><strong>Keep it flexible</strong> — Don't over-constrain</li>
+</ol>
+<h3 id="example-prd-template-excerpt">Example: PRD Template (excerpt)<a class="headerlink" href="#example-prd-template-excerpt" title="Permanent link">&para;</a></h3>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>---
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>artifact: prd
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>version: &quot;1.0&quot;
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>created: &lt;YYYY-MM-DD&gt;
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="gu">status: draft</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="gu">---</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="gh"># PRD: [Feature/Initiative Name]</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="gu">## Overview</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="gu">### Problem Statement</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>&lt;!-- Brief recap of the problem. Link to full problem statement if available. --&gt;
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>[Problem summary]
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="gu">### Solution Summary</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>&lt;!-- High-level description of what we&#39;re building --&gt;
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>[Solution summary]
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="gu">## Goals &amp; Success Metrics</span>
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="gu">### Goals</span>
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>&lt;!-- What outcomes are we trying to achieve? --&gt;
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a><span class="k">1.</span> [Primary goal]
+</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a><span class="k">2.</span> [Secondary goal]
+</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>
+</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a><span class="gu">### Success Metrics</span>
+</span><span id="__span-19-31"><a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>
+</span><span id="__span-19-32"><a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>| Metric | Current Baseline | Target | Timeline |
+</span><span id="__span-19-33"><a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>|--------|-----------------|--------|----------|
+</span><span id="__span-19-34"><a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>| [Primary metric] | [Value] | [Value] | [Date] |
+</span><span id="__span-19-35"><a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>
+</span><span id="__span-19-36"><a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a><span class="gu">## Scope</span>
+</span><span id="__span-19-37"><a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>
+</span><span id="__span-19-38"><a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a><span class="gu">### In Scope</span>
+</span><span id="__span-19-39"><a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>&lt;!-- What will be delivered in this iteration --&gt;
+</span><span id="__span-19-40"><a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>
+</span><span id="__span-19-41"><a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a><span class="k">-</span><span class="w"> </span>[Feature/capability 1]
+</span><span id="__span-19-42"><a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a><span class="k">-</span><span class="w"> </span>[Feature/capability 2]
+</span><span id="__span-19-43"><a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a>
+</span><span id="__span-19-44"><a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a><span class="gu">### Out of Scope</span>
+</span><span id="__span-19-45"><a id="__codelineno-19-45" name="__codelineno-19-45" href="#__codelineno-19-45"></a>&lt;!-- What will NOT be delivered --&gt;
+</span><span id="__span-19-46"><a id="__codelineno-19-46" name="__codelineno-19-46" href="#__codelineno-19-46"></a>
+</span><span id="__span-19-47"><a id="__codelineno-19-47" name="__codelineno-19-47" href="#__codelineno-19-47"></a><span class="k">-</span><span class="w"> </span>[Excluded item 1]
+</span></code></pre></div>
+<h3 id="template-tips">Template Tips<a class="headerlink" href="#template-tips" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Match your instructions:</strong> If instructions say "Define Goals," have a "Goals" section</li>
+<li><strong>Use tables for structured data:</strong> Metrics, risks, dependencies work well as tables</li>
+<li><strong>Include frontmatter:</strong> Helps track artifact metadata</li>
+<li><strong>Add placeholder guidance:</strong> <code>&lt;!-- Comments --&gt;</code> help the AI understand intent</li>
+</ul>
+<hr />
+<h2 id="writing-examplemd">Writing EXAMPLE.md<a class="headerlink" href="#writing-examplemd" title="Permanent link">&para;</a></h2>
+<p>The example shows what a great output looks like. This is crucial for quality calibration.</p>
+<h3 id="example-requirements">Example Requirements<a class="headerlink" href="#example-requirements" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Complete</strong> — No placeholders, fully filled out</li>
+<li><strong>Realistic</strong> — Based on a believable scenario</li>
+<li><strong>High quality</strong> — Demonstrates what "good" looks like</li>
+<li><strong>Appropriately detailed</strong> — Not too sparse, not bloated</li>
+</ol>
+<h3 id="example-structure">Example Structure<a class="headerlink" href="#example-structure" title="Permanent link">&para;</a></h3>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>---
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>artifact: prd
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>version: &quot;1.0&quot;
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>created: 2025-01-15
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>status: complete
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="gu">context: Project management tool adding recurring tasks feature</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="gu">---</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="gh"># PRD: Recurring Tasks</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="gu">## Overview</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="gu">### Problem Statement</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>Users of TaskFlow spend significant time manually recreating repetitive
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>tasks that occur on predictable schedules. Our research shows that 34%
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>of all tasks created are duplicates of previous tasks, and power users
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>report spending 2+ hours per week on this manual work...
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>[Continue with fully completed content]
+</span></code></pre></div>
+<h3 id="choosing-an-example-scenario">Choosing an Example Scenario<a class="headerlink" href="#choosing-an-example-scenario" title="Permanent link">&para;</a></h3>
+<p>Pick a scenario that is:</p>
+<ul>
+<li><strong>Relatable</strong> — Most PMs understand it</li>
+<li><strong>Representative</strong> — Shows typical complexity</li>
+<li><strong>Complete</strong> — Has enough depth to fill all sections</li>
+<li><strong>Generic</strong> — Not specific to one industry or company</li>
+</ul>
+<p><strong>Good scenarios:</strong>
+- E-commerce: Search, checkout, wishlist features
+- SaaS: User management, reporting, integrations
+- Productivity: Task management, collaboration, notifications</p>
+<p><strong>Avoid:</strong>
+- Highly specialized domains (medical, legal)
+- Controversial topics
+- Company-specific context</p>
+<h3 id="example-quality-bar">Example Quality Bar<a class="headerlink" href="#example-quality-bar" title="Permanent link">&para;</a></h3>
+<p>Your example should demonstrate:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All template sections filled meaningfully</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Realistic numbers, names, and dates</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Appropriate level of detail</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Professional tone</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No placeholder text (<code>[TBD]</code>, <code>XXX</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Internally consistent</li>
+</ul>
+<hr />
+<h2 id="creating-the-slash-command">Creating the Slash Command<a class="headerlink" href="#creating-the-slash-command" title="Permanent link">&para;</a></h2>
+<p>Slash commands provide quick invocation in Claude Code.</p>
+<h3 id="command-structure">Command Structure<a class="headerlink" href="#command-structure" title="Permanent link">&para;</a></h3>
+<p>Create <code>commands/&lt;skill-name&gt;.md</code>:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>---
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="gu">description: &lt;Brief description for command discovery&gt;</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="gu">---</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>Use the <span class="sb">`&lt;skill-name&gt;`</span> skill to &lt;what it creates&gt;.
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>Read the skill instructions from <span class="sb">`skills/&lt;skill-name&gt;/SKILL.md`</span> and follow them to create &lt;artifact&gt;.
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>Use <span class="sb">`skills/&lt;skill-name&gt;/references/TEMPLATE.md`</span> as the output format.
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>Context from user: $ARGUMENTS
+</span></code></pre></div>
+<h3 id="example-prd-command">Example: PRD Command<a class="headerlink" href="#example-prd-command" title="Permanent link">&para;</a></h3>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>---
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="gu">description: Create a Product Requirements Document</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="gu">---</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>Use the <span class="sb">`prd`</span> skill to create a comprehensive Product Requirements Document.
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>Read the skill instructions from <span class="sb">`skills/deliver-prd/SKILL.md`</span> and follow them to create a PRD.
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>Use <span class="sb">`skills/deliver-prd/references/TEMPLATE.md`</span> as the output format.
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>Context from user: $ARGUMENTS
+</span></code></pre></div>
+<h3 id="the-arguments-variable">The $ARGUMENTS Variable<a class="headerlink" href="#the-arguments-variable" title="Permanent link">&para;</a></h3>
+<p><code>$ARGUMENTS</code> captures everything the user types after the command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>/prd search feature for e-commerce
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>     ↑____________________________↑
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>              $ARGUMENTS
+</span></code></pre></div>
+<hr />
+<h2 id="testing-your-skill">Testing Your Skill<a class="headerlink" href="#testing-your-skill" title="Permanent link">&para;</a></h2>
+<p>Before submitting, thoroughly test your skill.</p>
+<h3 id="test-checklist">Test Checklist<a class="headerlink" href="#test-checklist" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Basic invocation works</strong> — Skill produces reasonable output</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Template is followed</strong> — Output matches template structure</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Example quality is matched</strong> — Output quality similar to example</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Different contexts work</strong> — Try 3+ different scenarios</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Slash command works</strong> — (If created)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Chains with other skills</strong> — Works as input/output with related skills</li>
+</ul>
+<h3 id="testing-methods">Testing Methods<a class="headerlink" href="#testing-methods" title="Permanent link">&para;</a></h3>
+<h4 id="method-1-direct-reference">Method 1: Direct Reference<a class="headerlink" href="#method-1-direct-reference" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Read skills/deliver-my-skill/SKILL.md and use it to create
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>[artifact] for [your test scenario].
+</span></code></pre></div>
+<h4 id="method-2-slash-command">Method 2: Slash Command<a class="headerlink" href="#method-2-slash-command" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>/my-skill &quot;test scenario context&quot;
+</span></code></pre></div>
+<h4 id="method-3-natural-language">Method 3: Natural Language<a class="headerlink" href="#method-3-natural-language" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Use the my-skill skill to create [artifact] for [scenario].
+</span></code></pre></div>
+<h3 id="test-scenarios">Test Scenarios<a class="headerlink" href="#test-scenarios" title="Permanent link">&para;</a></h3>
+<p>Test with at least:</p>
+<ol>
+<li><strong>Minimal context</strong> — Just the basic request</li>
+<li><strong>Rich context</strong> — Detailed background information</li>
+<li><strong>Edge case</strong> — Unusual or challenging scenario</li>
+<li><strong>Different domain</strong> — Another industry or product type</li>
+</ol>
+<h3 id="what-to-look-for">What to Look For<a class="headerlink" href="#what-to-look-for" title="Permanent link">&para;</a></h3>
+<p><strong>Good signs:</strong>
+- Output follows template structure
+- All sections are meaningfully filled
+- Quality matches your example
+- Consistent results across tests</p>
+<p><strong>Warning signs:</strong>
+- Sections are skipped or empty
+- Output doesn't match template
+- Quality varies wildly
+- AI asks too many clarifying questions</p>
+<hr />
+<h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
+<p>Before submitting your PR, verify:</p>
+<h3 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Directory path is <code>skills/&lt;skill-name&gt;/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Contains <code>SKILL.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Contains <code>references/TEMPLATE.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Contains <code>references/EXAMPLE.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Slash command at <code>commands/&lt;skill-name&gt;.md</code></li>
+</ul>
+<h3 id="frontmatter">Frontmatter<a class="headerlink" href="#frontmatter" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>name</code> matches directory name exactly</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>description</code> is 50-300 characters with trigger keywords</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Either <code>phase</code> or <code>classification</code> is correct for the skill type</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>category</code> is one of the 7 valid values</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Root <code>version</code> is quoted (<code>"1.0.0"</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>updated</code> uses <code>YYYY-MM-DD</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>license</code> is <code>Apache-2.0</code></li>
+</ul>
+<h3 id="skillmd-content">SKILL.md Content<a class="headerlink" href="#skillmd-content" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Overview paragraph explains value</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 4-6 "When to Use" situations</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 5-10 clear instruction steps</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> References template and example</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 5-8 quality checklist items</li>
+</ul>
+<h3 id="templatemd">TEMPLATE.md<a class="headerlink" href="#templatemd" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Frontmatter with artifact type</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Clear section structure</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> HTML comments with guidance</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Matches instruction steps</li>
+</ul>
+<h3 id="examplemd">EXAMPLE.md<a class="headerlink" href="#examplemd" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Complete (no placeholders)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Realistic scenario</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Demonstrates quality bar</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Follows template exactly</li>
+</ul>
+<h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tested with 3+ scenarios</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Output matches template</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Quality matches example</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Slash command works</li>
+</ul>
+<hr />
+<h2 id="submission-process">Submission Process<a class="headerlink" href="#submission-process" title="Permanent link">&para;</a></h2>
+<h3 id="1-fork-the-repository">1. Fork the Repository<a class="headerlink" href="#1-fork-the-repository" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># Fork via GitHub UI, then clone your fork</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR-USERNAME/pm-skills.git
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nb">cd</span><span class="w"> </span>pm-skills
+</span></code></pre></div>
+<h3 id="2-create-a-branch">2. Create a Branch<a class="headerlink" href="#2-create-a-branch" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>skill/&lt;skill-name&gt;
+</span></code></pre></div>
+<h3 id="3-add-your-files">3. Add Your Files<a class="headerlink" href="#3-add-your-files" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>skills/&lt;skill-name&gt;/
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>├── SKILL.md
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>└── references/
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>    ├── TEMPLATE.md
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    └── EXAMPLE.md
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>commands/&lt;skill-name&gt;.md
+</span></code></pre></div>
+<h3 id="4-update-agentsmd">4. Update AGENTS.md<a class="headerlink" href="#4-update-agentsmd" title="Permanent link">&para;</a></h3>
+<p>Add your skill to the appropriate section:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gu">#### &lt;skill-name&gt;</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="gs">**Path:**</span> <span class="sb">`skills/&lt;skill-name&gt;/SKILL.md`</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>&lt;Your description from frontmatter&gt;
+</span></code></pre></div>
+<p>Add the command to the Commands section:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>| <span class="sb">`/&lt;skill-name&gt;`</span> | &lt;Brief description&gt; |
+</span></code></pre></div>
+<h3 id="5-commit-and-push">5. Commit and Push<a class="headerlink" href="#5-commit-and-push" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add &lt;skill-name&gt; skill&quot;</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>skill/&lt;skill-name&gt;
+</span></code></pre></div>
+<h3 id="6-open-a-pull-request">6. Open a Pull Request<a class="headerlink" href="#6-open-a-pull-request" title="Permanent link">&para;</a></h3>
+<p>Include in your PR description:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="gu">## New Skill: &lt;skill-name&gt;</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="gu">### Closes</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="gh">#&lt;issue-number&gt; (link to approved proposal)</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="gu">### Description</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>&lt;Brief description of what the skill does&gt;
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="gu">### Testing</span>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="k">-</span><span class="w"> </span>Tested with [scenario 1]
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="k">-</span><span class="w"> </span>Tested with [scenario 2]
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="k">-</span><span class="w"> </span>Tested with [scenario 3]
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="gu">### Checklist</span>
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="k">- [ ]</span> SKILL.md complete with valid frontmatter
+</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="k">- [ ]</span> TEMPLATE.md provides clear structure
+</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="k">- [ ]</span> EXAMPLE.md is complete and realistic
+</span><span id="__span-33-18"><a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a><span class="k">- [ ]</span> Slash command created
+</span><span id="__span-33-19"><a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a><span class="k">- [ ]</span> AGENTS.md updated
+</span><span id="__span-33-20"><a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a><span class="k">- [ ]</span> Tested with multiple scenarios
+</span></code></pre></div>
+<hr />
+<h2 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h2>
+<h3 id="mistake-1-vague-description">Mistake 1: Vague Description<a class="headerlink" href="#mistake-1-vague-description" title="Permanent link">&para;</a></h3>
+<p><strong>Bad:</strong>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Helps create roadmaps</span>
+</span></code></pre></div></p>
+<p><strong>Good:</strong>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Creates a product roadmap document with prioritized initiatives, dependencies, and timeline. Use when planning quarters, communicating strategy to stakeholders, or aligning teams on priorities.</span>
+</span></code></pre></div></p>
+<h3 id="mistake-2-instructions-too-abstract">Mistake 2: Instructions Too Abstract<a class="headerlink" href="#mistake-2-instructions-too-abstract" title="Permanent link">&para;</a></h3>
+<p><strong>Bad:</strong>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="k">1.</span> <span class="gs">**Think about the problem**</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>   Consider what matters.
+</span></code></pre></div></p>
+<p><strong>Good:</strong>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="k">1.</span> <span class="gs">**Define the Problem Scope**</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>   Identify the specific user segment affected, the pain point they experience,
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>   and the business impact of not solving it. Quantify where possible.
+</span></code></pre></div></p>
+<h3 id="mistake-3-template-doesnt-match-instructions">Mistake 3: Template Doesn't Match Instructions<a class="headerlink" href="#mistake-3-template-doesnt-match-instructions" title="Permanent link">&para;</a></h3>
+<p>If instructions say "Define success metrics," the template needs a "Success Metrics" section.</p>
+<h3 id="mistake-4-incomplete-example">Mistake 4: Incomplete Example<a class="headerlink" href="#mistake-4-incomplete-example" title="Permanent link">&para;</a></h3>
+<p>Placeholders like <code>[TBD]</code> or <code>TODO</code> in your example mean the AI won't know what complete looks like.</p>
+<h3 id="mistake-5-wrong-category">Mistake 5: Wrong Category<a class="headerlink" href="#mistake-5-wrong-category" title="Permanent link">&para;</a></h3>
+<p>Choosing <code>ideation</code> for something that's clearly <code>specification</code> confuses organization and discovery.</p>
+<h3 id="mistake-6-name-doesnt-match-directory">Mistake 6: Name Doesn't Match Directory<a class="headerlink" href="#mistake-6-name-doesnt-match-directory" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Directory: skills/deliver-product-roadmap/
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>Frontmatter: name: roadmap  # WRONG - must be &quot;deliver-product-roadmap&quot;
+</span></code></pre></div>
+<hr />
+<h2 id="advanced-topics">Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permanent link">&para;</a></h2>
+<h3 id="supporting-multiple-frameworks">Supporting Multiple Frameworks<a class="headerlink" href="#supporting-multiple-frameworks" title="Permanent link">&para;</a></h3>
+<p>Your skill can work across methodologies:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">  </span><span class="nt">frameworks</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">triple-diamond</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">lean-startup</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">design-thinking</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">scrum</span><span class="p p-Indicator">]</span>
+</span></code></pre></div>
+<p>Consider how the skill fits each:
+- <strong>Triple Diamond:</strong> If classification is <code>domain</code>, which phase does it belong to?
+- <strong>Lean Startup:</strong> Is it Build, Measure, or Learn?
+- <strong>Design Thinking:</strong> Which stage?
+- <strong>Scrum:</strong> Which ceremony or artifact does it support?</p>
+<h3 id="creating-skill-chains">Creating Skill Chains<a class="headerlink" href="#creating-skill-chains" title="Permanent link">&para;</a></h3>
+<p>Design your skill to work with others:</p>
+<p><strong>Inputs from:</strong>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="gu">## When to Use</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="k">-</span><span class="w"> </span>After completing a problem-statement to define testable assumptions
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="k">-</span><span class="w"> </span>Building on insights from interview-synthesis
+</span></code></pre></div></p>
+<p><strong>Outputs to:</strong>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="gu">## Next Steps</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>After creating this artifact, consider:
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="k">-</span><span class="w"> </span>Using the <span class="sb">`prd`</span> skill to specify detailed requirements
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="k">-</span><span class="w"> </span>Running <span class="sb">`experiment-design`</span> to validate assumptions
+</span></code></pre></div></p>
+<h3 id="handling-skill-variants">Handling Skill Variants<a class="headerlink" href="#handling-skill-variants" title="Permanent link">&para;</a></h3>
+<p>If your skill could have variants (e.g., "lightweight PRD" vs "comprehensive PRD"), consider:</p>
+<ol>
+<li><strong>One flexible skill</strong> with instructions for different depths</li>
+<li><strong>Separate skills</strong> if the process differs significantly</li>
+</ol>
+<p>Generally prefer one flexible skill unless workflows are truly different.</p>
+<h3 id="internationalization-considerations">Internationalization Considerations<a class="headerlink" href="#internationalization-considerations" title="Permanent link">&para;</a></h3>
+<p>Skills should work globally:
+- Avoid US-specific terminology without explanation
+- Use ISO date formats (<code>YYYY-MM-DD</code>)
+- Note when concepts are region-specific</p>
+<hr />
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">&para;</a></h3>
+<p>Start with the <a href="../templates/skill-template/">skill template</a>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>docs/templates/skill-template/
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>├── SKILL.md
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>└── references/
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>    ├── TEMPLATE.md
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>    └── EXAMPLE.md
+</span></code></pre></div></p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../../reference/frontmatter-schema.yaml">Frontmatter Schema</a> — Detailed field documentation</li>
+<li><a href="../../reference/categories/">Categories Reference</a> — Category definitions</li>
+<li><a href="https://agentskills.io/specification">agentskills.io Specification</a> — Base specification</li>
+<li><a href="../../AGENTS.md">Existing Skills</a> — See how others are structured</li>
+</ul>
+<h3 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Open an issue for questions</li>
+<li>Review existing skills for patterns</li>
+<li>Ask in your proposal issue before building</li>
+</ul>
+<hr />
+<h2 id="quick-start-checklist">Quick Start Checklist<a class="headerlink" href="#quick-start-checklist" title="Permanent link">&para;</a></h2>
+<p>Ready to create a skill? Here's the fast path:</p>
+<ol class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Open "Request a Skill" issue → wait for approval</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Copy <code>docs/templates/skill-template/</code> to <code>skills/&lt;name&gt;/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Write SKILL.md with frontmatter, instructions, checklist</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Create TEMPLATE.md matching your instruction steps</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Write complete EXAMPLE.md (no placeholders!)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Create <code>commands/&lt;name&gt;.md</code> slash command</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test with 3+ scenarios</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Update AGENTS.md</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Submit PR with checklist complete</li>
+</ol>
+<hr />
+<p><em>Part of <a href="../../README.md">PM-Skills</a> — Open source Product Management skills for AI agents</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 product-on-purpose
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

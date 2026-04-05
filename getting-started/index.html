@@ -1,0 +1,1913 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+      
+      
+        <meta name="author" content="jprisant">
+      
+      
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/getting-started/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Getting Started with PM-Skills - PM Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-with-pm-skills" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PM Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started with PM-Skills
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    PM Skills
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href=".." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-pm-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is PM-Skills?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is PM-Skills?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-it-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem It Solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are Skills?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-are-slash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are Slash Commands?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-skills-and-commands-relate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Skills and Commands Relate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ways-to-use-pm-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ways to Use PM-Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-1-claude-code-slash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 1: Claude Code (Slash Commands)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 1: Claude Code (Slash Commands)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-non-technical-users_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Non-Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-technical-users_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-2-git-clone-any-ai-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 2: Git Clone (Any AI Assistant)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 2: Git Clone (Any AI Assistant)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-non-technical-users_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Non-Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-technical-users_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-3-claudeai-claude-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 3: Claude.ai / Claude Desktop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 3: Claude.ai / Claude Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-non-technical-users_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Non-Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-technical-users_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-4-copy-paste-universal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 4: Copy-Paste (Universal)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 4: Copy-Paste (Universal)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-non-technical-users_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Non-Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-technical-users_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-5-openskills-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 5: openskills CLI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 5: openskills CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-non-technical-users_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Non-Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-technical-users_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Technical Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-the-right-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing the Right Method
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Choosing the Right Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your First Skill
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Your First Skill">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-choose-your-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Choose Your Method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-invoke-the-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Invoke the Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-provide-more-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Provide More Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-review-and-iterate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Review and Iterate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-chain-to-next-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Chain to Next Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-bundles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow Bundles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Bundles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#feature-kickoff-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Kickoff Bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lean-startup-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lean Startup Bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triple-diamond-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triple Diamond Bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-ai-doesnt-seem-to-know-about-the-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "The AI doesn't seem to know about the skills"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-output-doesnt-match-the-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "The output doesn't match the template"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-ai-asks-too-many-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "The AI asks too many questions"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slash-commands-arent-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Slash commands aren't working"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-get-different-results-each-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "I get different results each time"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learn More
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contribute
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Card
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference Card">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skill-invocation-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill Invocation Cheat Sheet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#most-used-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most-Used Skills
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-output-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skill → Output Mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/getting-started.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/getting-started.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="getting-started-with-pm-skills">Getting Started with PM-Skills<a class="headerlink" href="#getting-started-with-pm-skills" title="Permanent link">&para;</a></h1>
+<p><strong>Quick Start (3 steps)</strong>
+1) Clone or download the latest ZIP: <code>git clone https://github.com/product-on-purpose/pm-skills.git</code> (or get the ZIP from Releases).<br />
+2) (Claude Code/openskills only) Run the sync helper to populate <code>.claude/skills</code> and <code>.claude/commands</code>:<br />
+   - macOS/Linux: <code>./scripts/sync-claude.sh</code><br />
+   - Windows: <code>./scripts/sync-claude.ps1</code><br />
+3) Use a slash command: <code>/prd "Feature description"</code> or <code>/hypothesis "Assumption to test"</code>.</p>
+<p>Prefer the full walkthrough? Read on.</p>
+<p>Welcome to PM-Skills! This guide will help you understand what this repository offers and how to use it, regardless of your technical background.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#what-is-pm-skills">What is PM-Skills?</a></li>
+<li><a href="#core-concepts">Core Concepts</a></li>
+<li><a href="#what-are-skills">What are Skills?</a></li>
+<li><a href="#what-are-slash-commands">What are Slash Commands?</a></li>
+<li><a href="#how-skills-and-commands-relate">How Skills and Commands Relate</a></li>
+<li><a href="#ways-to-use-pm-skills">Ways to Use PM-Skills</a></li>
+<li><a href="#method-1-claude-code-slash-commands">Method 1: Claude Code (Slash Commands)</a></li>
+<li><a href="#method-2-git-clone-any-ai-assistant">Method 2: Git Clone (Any AI Assistant)</a></li>
+<li><a href="#method-3-claudeai--claude-desktop">Method 3: Claude.ai / Claude Desktop</a></li>
+<li><a href="#method-4-copy-paste-universal">Method 4: Copy-Paste (Universal)</a></li>
+<li><a href="#method-5-openskills-cli">Method 5: openskills CLI</a></li>
+<li><a href="#choosing-the-right-method">Choosing the Right Method</a></li>
+<li><a href="#your-first-skill">Your First Skill</a></li>
+<li><a href="#workflow-bundles">Workflow Bundles</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#next-steps">Next Steps</a></li>
+</ul>
+<hr />
+<h2 id="what-is-pm-skills">What is PM-Skills?<a class="headerlink" href="#what-is-pm-skills" title="Permanent link">&para;</a></h2>
+<p><strong>PM-Skills</strong> is an open-source collection of 29 product management skills that teach AI assistants how to create professional PM documents. The current repo includes 25 phase skills, 1 foundation skill, and 3 utility skills. Think of it as a playbook that transforms generic AI responses into polished, consistent PM artifacts.</p>
+<h3 id="the-problem-it-solves">The Problem It Solves<a class="headerlink" href="#the-problem-it-solves" title="Permanent link">&para;</a></h3>
+<p>Without PM-Skills:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You: &quot;Write me a PRD&quot;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>AI: *Produces a generic document missing key sections, inconsistent format*
+</span></code></pre></div></p>
+<p>With PM-Skills:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>You: &quot;Write me a PRD&quot;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>AI: *Produces a comprehensive PRD with problem statement, success metrics,
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    user stories, scope boundaries, technical considerations—all in a
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    professional, consistent format*
+</span></code></pre></div></p>
+<h3 id="what-you-get">What You Get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>29 skills in <code>skills/</code></strong> covering the PM lifecycle (25 phase skills + 1 foundation skill + 3 utility skills)</li>
+<li><strong>Professional templates</strong> based on industry best practices</li>
+<li><strong>Real-world examples</strong> showing what good looks like</li>
+<li><strong>Works with any AI assistant</strong> (Claude, ChatGPT, Copilot, etc.)</li>
+</ul>
+<hr />
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="what-are-skills">What are Skills?<a class="headerlink" href="#what-are-skills" title="Permanent link">&para;</a></h3>
+<p>A <strong>skill</strong> is a structured instruction set that teaches an AI assistant how to create a specific type of PM artifact.</p>
+<h4 id="for-non-technical-users">For Non-Technical Users<a class="headerlink" href="#for-non-technical-users" title="Permanent link">&para;</a></h4>
+<p>Think of a skill like a recipe card for an AI chef:
+- The <strong>instructions</strong> tell the AI what questions to ask and what sections to include
+- The <strong>template</strong> shows the exact format to use
+- The <strong>example</strong> demonstrates what a great result looks like</p>
+<p>When you ask the AI to create a PRD, it reads the "PRD recipe" and follows it step by step.</p>
+<h4 id="for-technical-users">For Technical Users<a class="headerlink" href="#for-technical-users" title="Permanent link">&para;</a></h4>
+<p>Each skill is a directory containing:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>skills/&lt;skill-name&gt;/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── SKILL.md              # Prompt instructions for the AI
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── references/
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   ├── TEMPLATE.md       # Output structure/format
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   └── EXAMPLE.md        # Annotated real-world example
+</span></code></pre></div>
+<p>The <code>SKILL.md</code> file contains:
+- YAML frontmatter with metadata (<code>name</code>, <code>description</code>, <code>version</code>, <code>updated</code>, <code>license</code>, and either <code>phase</code> or <code>classification</code>)
+- Structured instructions the AI follows
+- Guidance on information gathering and output formatting</p>
+<p>Skills follow the <a href="https://agentskills.io/specification">Agent Skills Specification</a> for interoperability across AI platforms.</p>
+<hr />
+<h3 id="what-are-slash-commands">What are Slash Commands?<a class="headerlink" href="#what-are-slash-commands" title="Permanent link">&para;</a></h3>
+<p>A <strong>slash command</strong> is a shortcut that invokes a skill in AI assistants that support them.</p>
+<h4 id="for-non-technical-users_1">For Non-Technical Users<a class="headerlink" href="#for-non-technical-users_1" title="Permanent link">&para;</a></h4>
+<p>Instead of typing:</p>
+<blockquote>
+<p>"Please use the PRD skill to create a product requirements document for a search feature"</p>
+</blockquote>
+<p>You can simply type:</p>
+<blockquote>
+<p><code>/prd search feature for e-commerce platform</code></p>
+</blockquote>
+<p>The slash (<code>/</code>) tells the AI "use this skill" and everything after is your context.</p>
+<h4 id="for-technical-users_1">For Technical Users<a class="headerlink" href="#for-technical-users_1" title="Permanent link">&para;</a></h4>
+<p>Slash commands are defined in the <code>commands/</code> directory as markdown files:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>---
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="gu">description: Create a Product Requirements Document</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="gu">---</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Use the <span class="sb">`prd`</span> skill to create a comprehensive Product Requirements Document.
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Read the skill instructions from <span class="sb">`skills/&lt;skill-name&gt;/SKILL.md`</span> and follow them.
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Context from user: $ARGUMENTS
+</span></code></pre></div>
+<p>The <code>$ARGUMENTS</code> variable captures everything typed after the command name.</p>
+<p><strong>Note:</strong> Slash commands are platform-specific. They work natively in Claude Code but require different invocation methods on other platforms.</p>
+<hr />
+<h3 id="how-skills-and-commands-relate">How Skills and Commands Relate<a class="headerlink" href="#how-skills-and-commands-relate" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A["/prd 'search feature'\nSlash Command"] --&gt; C["SKILL.md\nInstructions"]
+    B["'Use the prd skill for...'\nNatural Language"] --&gt; C
+    C --&gt; D["TEMPLATE.md\nStructure"]
+    C --&gt; E["EXAMPLE.md\nQuality Reference"]
+    C --&gt; F["Your Context"]
+    D --&gt; G["AI-Generated\nPM Artifact"]
+    E --&gt; G
+    F --&gt; G</code></pre>
+<p><strong>Key insight:</strong> Skills are the underlying content. Commands are just one way to invoke them.</p>
+<hr />
+<h2 id="ways-to-use-pm-skills">Ways to Use PM-Skills<a class="headerlink" href="#ways-to-use-pm-skills" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Best For</th>
+<th>Setup Time</th>
+<th>Technical Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#method-1-claude-code-slash-commands">Claude Code</a></td>
+<td>Developers using Claude Code</td>
+<td>None</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><a href="#method-2-git-clone-any-ai-assistant">Git Clone</a></td>
+<td>Copilot, Cursor, Windsurf users</td>
+<td>1 minute</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><a href="#method-3-claudeai--claude-desktop">Claude.ai</a></td>
+<td>Claude web/desktop users</td>
+<td>2 minutes</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><a href="#method-4-copy-paste-universal">Copy-Paste</a></td>
+<td>Any AI (ChatGPT, etc.)</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="#method-5-openskills-cli">openskills CLI</a></td>
+<td>Advanced users managing multiple skill sets</td>
+<td>5 minutes</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="method-1-claude-code-slash-commands">Method 1: Claude Code (Slash Commands)<a class="headerlink" href="#method-1-claude-code-slash-commands" title="Permanent link">&para;</a></h2>
+<p><strong>Best for:</strong> Developers using Claude Code CLI or IDE extension</p>
+<h3 id="for-non-technical-users_2">For Non-Technical Users<a class="headerlink" href="#for-non-technical-users_2" title="Permanent link">&para;</a></h3>
+<p>If you're using Claude Code, skills work automatically. Just type a slash command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/prd &quot;Search feature for our e-commerce platform&quot;
+</span></code></pre></div>
+<p>That's it! Claude will create a full PRD using the skill.</p>
+<h3 id="for-technical-users_2">For Technical Users<a class="headerlink" href="#for-technical-users_2" title="Permanent link">&para;</a></h3>
+<h4 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h4>
+<p>Claude Code discovers the registered skill set via <code>AGENTS.md</code> and command definitions in <code>commands/</code>. The full repo catalog lives under <code>skills/</code>, including any path-only skills that have not been wired into <code>AGENTS.md</code> or slash commands yet.</p>
+<h4 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Navigate to a directory containing pm-skills (clone it or work within the repo)</li>
+<li>Start using slash commands immediately</li>
+</ol>
+<h4 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Basic usage</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>/prd<span class="w"> </span><span class="s2">&quot;feature description&quot;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># With more context</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>/prd<span class="w"> </span><span class="s2">&quot;We need a search feature for our e-commerce platform.</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s2">      Users currently can&#39;t find products easily.</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s2">      Target: 20% improvement in product discovery.&quot;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># Chain skills</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>/problem-statement<span class="w"> </span><span class="s2">&quot;checkout abandonment issue&quot;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># ... review output ...</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>/hypothesis<span class="w"> </span><span class="s2">&quot;from the problem statement above&quot;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># ... review output ...</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>/prd<span class="w"> </span><span class="s2">&quot;based on the hypothesis above&quot;</span>
+</span></code></pre></div>
+<h4 id="available-commands">Available Commands<a class="headerlink" href="#available-commands" title="Permanent link">&para;</a></h4>
+<p>The repo currently ships 30 command markdown files: 29 skill commands plus the <code>/kickoff</code> workflow bundle.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Commands</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discover</td>
+<td><code>/interview-synthesis</code>, <code>/competitive-analysis</code>, <code>/stakeholder-summary</code></td>
+</tr>
+<tr>
+<td>Define</td>
+<td><code>/problem-statement</code>, <code>/hypothesis</code>, <code>/opportunity-tree</code>, <code>/jtbd-canvas</code></td>
+</tr>
+<tr>
+<td>Develop</td>
+<td><code>/solution-brief</code>, <code>/spike-summary</code>, <code>/adr</code>, <code>/design-rationale</code></td>
+</tr>
+<tr>
+<td>Deliver</td>
+<td><code>/prd</code>, <code>/user-stories</code>, <code>/acceptance-criteria</code>, <code>/edge-cases</code>, <code>/launch-checklist</code>, <code>/release-notes</code></td>
+</tr>
+<tr>
+<td>Measure</td>
+<td><code>/experiment-design</code>, <code>/instrumentation-spec</code>, <code>/dashboard-requirements</code>, <code>/experiment-results</code></td>
+</tr>
+<tr>
+<td>Iterate</td>
+<td><code>/retrospective</code>, <code>/lessons-log</code>, <code>/refinement-notes</code>, <code>/pivot-decision</code></td>
+</tr>
+<tr>
+<td>Utility</td>
+<td><code>/pm-skill-builder</code>, <code>/pm-skill-validate</code>, <code>/pm-skill-iterate</code></td>
+</tr>
+<tr>
+<td>Foundation</td>
+<td><code>/persona</code></td>
+</tr>
+</tbody>
+</table>
+<p>Plus workflow bundles: <code>/kickoff</code></p>
+<hr />
+<h2 id="method-2-git-clone-any-ai-assistant">Method 2: Git Clone (Any AI Assistant)<a class="headerlink" href="#method-2-git-clone-any-ai-assistant" title="Permanent link">&para;</a></h2>
+<p><strong>Best for:</strong> GitHub Copilot, Cursor, Windsurf, and other AGENTS.md-compatible tools</p>
+<h3 id="for-non-technical-users_3">For Non-Technical Users<a class="headerlink" href="#for-non-technical-users_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Download the repository:</strong></li>
+<li>Go to <a href="https://github.com/product-on-purpose/pm-skills">github.com/product-on-purpose/pm-skills</a></li>
+<li>Click the green "Code" button</li>
+<li>Click "Download ZIP"</li>
+<li>
+<p>Unzip to a folder you'll remember</p>
+</li>
+<li>
+<p><strong>Open in your coding tool:</strong></p>
+</li>
+<li>Open VS Code, Cursor, or your editor</li>
+<li>
+<p>Open the pm-skills folder</p>
+</li>
+<li>
+<p><strong>Use the skills:</strong></p>
+</li>
+<li>Your AI assistant will automatically see the skills</li>
+<li>Ask: "Use the prd skill to create a PRD for [your feature]"</li>
+</ol>
+<h3 id="for-technical-users_3">For Technical Users<a class="headerlink" href="#for-technical-users_3" title="Permanent link">&para;</a></h3>
+<h4 id="setup_1">Setup<a class="headerlink" href="#setup_1" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Clone the repository</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/product-on-purpose/pm-skills.git
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Or add as a submodule to your project</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/product-on-purpose/pm-skills.git<span class="w"> </span>.pm-skills
+</span></code></pre></div>
+<h4 id="how-it-works_1">How It Works<a class="headerlink" href="#how-it-works_1" title="Permanent link">&para;</a></h4>
+<p>Modern AI coding assistants discover skills through the <code>AGENTS.md</code> file at the repository root. This file:
+- Lists all 29 registered skills with paths and descriptions
+- Provides workflow bundles
+- Documents available commands</p>
+<p>When you ask the AI to use a skill, it:
+1. Reads <code>AGENTS.md</code> to locate the skill
+2. Reads <code>SKILL.md</code> for instructions
+3. Reads <code>TEMPLATE.md</code> and <code>EXAMPLE.md</code> from references
+4. Generates output following the instructions</p>
+<h4 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>You: &quot;Use the prd skill to create a PRD for adding dark mode&quot;
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>AI: *Reads skills/deliver-prd/SKILL.md and follows the instructions*
+</span></code></pre></div>
+<p>Or reference skills directly:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>You: &quot;Read skills/deliver-prd/SKILL.md and create a PRD for dark mode&quot;
+</span></code></pre></div>
+<h4 id="keeping-updated">Keeping Updated<a class="headerlink" href="#keeping-updated" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># If cloned directly</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>pm-skills
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># If using submodule</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote<span class="w"> </span>.pm-skills
+</span></code></pre></div>
+<hr />
+<h2 id="method-3-claudeai-claude-desktop">Method 3: Claude.ai / Claude Desktop<a class="headerlink" href="#method-3-claudeai-claude-desktop" title="Permanent link">&para;</a></h2>
+<p><strong>Best for:</strong> Users of Claude's web interface or desktop application</p>
+<h3 id="for-non-technical-users_4">For Non-Technical Users<a class="headerlink" href="#for-non-technical-users_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Download the skills:</strong></li>
+<li>Go to the <a href="https://github.com/product-on-purpose/pm-skills/releases">Releases page</a></li>
+<li>
+<p>Download the latest <code>pm-skills-vX.X.X.zip</code> file</p>
+</li>
+<li>
+<p><strong>Upload to Claude:</strong></p>
+</li>
+<li>Open Claude.ai or Claude Desktop</li>
+<li>Go to <strong>Settings</strong> (gear icon)</li>
+<li>Find <strong>Projects</strong> or <strong>Capabilities</strong></li>
+<li>Click <strong>Add files</strong> or <strong>Upload</strong></li>
+<li>
+<p>Select the ZIP file you downloaded</p>
+</li>
+<li>
+<p><strong>Use the skills:</strong></p>
+</li>
+<li>In any conversation, type: "Use the prd skill to create a PRD for [your feature]"</li>
+<li>Claude will read the skill files and follow them</li>
+</ol>
+<h3 id="for-technical-users_4">For Technical Users<a class="headerlink" href="#for-technical-users_4" title="Permanent link">&para;</a></h3>
+<h4 id="setup-options">Setup Options<a class="headerlink" href="#setup-options" title="Permanent link">&para;</a></h4>
+<p><strong>Option A: Project Knowledge</strong></p>
+<ol>
+<li>Create a new Project in Claude</li>
+<li>Upload skill files to Project Knowledge</li>
+<li>Skills persist across conversations in that project</li>
+</ol>
+<p><strong>Option B: Conversation Upload</strong></p>
+<ol>
+<li>Upload individual skill files at conversation start</li>
+<li>Reference them: "Using the uploaded prd skill..."</li>
+</ol>
+<h4 id="structuring-uploads">Structuring Uploads<a class="headerlink" href="#structuring-uploads" title="Permanent link">&para;</a></h4>
+<p>For best results, upload:
+- The specific <code>SKILL.md</code> you need
+- Its <code>references/TEMPLATE.md</code>
+- Its <code>references/EXAMPLE.md</code></p>
+<p>Or upload the entire <code>skills/</code> directory if your use case varies.</p>
+<h4 id="usage_2">Usage<a class="headerlink" href="#usage_2" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>You: &quot;I&#39;ve uploaded the prd skill. Please use it to create a PRD
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>      for a feature that adds collaborative editing to our docs app.&quot;
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Claude: *Reads the skill files and produces a structured PRD*
+</span></code></pre></div>
+<hr />
+<h2 id="method-4-copy-paste-universal">Method 4: Copy-Paste (Universal)<a class="headerlink" href="#method-4-copy-paste-universal" title="Permanent link">&para;</a></h2>
+<p><strong>Best for:</strong> Any AI assistant (ChatGPT, Gemini, local LLMs, etc.)</p>
+<h3 id="for-non-technical-users_5">For Non-Technical Users<a class="headerlink" href="#for-non-technical-users_5" title="Permanent link">&para;</a></h3>
+<p>This method works with any AI—no setup required.</p>
+<ol>
+<li><strong>Find the skill you need:</strong></li>
+<li>Go to <a href="https://github.com/product-on-purpose/pm-skills">github.com/product-on-purpose/pm-skills</a></li>
+<li>Navigate to <code>skills/</code> → choose a skill (names are prefixed by phase, e.g., <code>deliver-prd</code>)</li>
+<li>
+<p>Example: <code>skills/deliver-prd/</code></p>
+</li>
+<li>
+<p><strong>Copy the skill content:</strong></p>
+</li>
+<li>Click on <code>SKILL.md</code></li>
+<li>Click "Raw" to see plain text</li>
+<li>
+<p>Select all and copy (Ctrl+A, Ctrl+C)</p>
+</li>
+<li>
+<p><strong>Paste into your AI:</strong></p>
+</li>
+<li>Start a new chat</li>
+<li>Paste the skill content</li>
+<li>
+<p>Add your request: "Now create a PRD for [your feature]"</p>
+</li>
+<li>
+<p><strong>Optional: Add template and example:</strong></p>
+</li>
+<li>Also copy <code>references/TEMPLATE.md</code> for structure</li>
+<li>Copy <code>references/EXAMPLE.md</code> for quality reference</li>
+</ol>
+<h3 id="for-technical-users_5">For Technical Users<a class="headerlink" href="#for-technical-users_5" title="Permanent link">&para;</a></h3>
+<h4 id="minimal-copy-paste">Minimal Copy-Paste<a class="headerlink" href="#minimal-copy-paste" title="Permanent link">&para;</a></h4>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[Paste contents of SKILL.md]
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>---
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Now use these instructions to create a PRD for: [your context]
+</span></code></pre></div>
+<h4 id="full-copy-paste-recommended">Full Copy-Paste (Recommended)<a class="headerlink" href="#full-copy-paste-recommended" title="Permanent link">&para;</a></h4>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gh"># SKILL INSTRUCTIONS</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>[Paste contents of SKILL.md]
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="gh"># OUTPUT TEMPLATE</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>[Paste contents of references/TEMPLATE.md]
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="gh"># QUALITY EXAMPLE</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>[Paste contents of references/EXAMPLE.md]
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>---
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>Using the above skill instructions, template, and example as reference,
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>create a PRD for: [your context]
+</span></code></pre></div>
+<h4 id="automating-copy-paste">Automating Copy-Paste<a class="headerlink" href="#automating-copy-paste" title="Permanent link">&para;</a></h4>
+<p>Create a script to concatenate files:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Usage: ./get-skill.sh prd</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nv">SKILL</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/SKILL.md
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n---\n# TEMPLATE\n&quot;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/references/TEMPLATE.md
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n---\n# EXAMPLE\n&quot;</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/references/EXAMPLE.md
+</span></code></pre></div>
+<hr />
+<h2 id="method-5-openskills-cli">Method 5: openskills CLI<a class="headerlink" href="#method-5-openskills-cli" title="Permanent link">&para;</a></h2>
+<p><strong>Best for:</strong> Power users managing multiple skill repositories</p>
+<h3 id="for-non-technical-users_6">For Non-Technical Users<a class="headerlink" href="#for-non-technical-users_6" title="Permanent link">&para;</a></h3>
+<p>This method requires comfort with command-line tools. If that's not you, use one of the earlier methods instead.</p>
+<h3 id="for-technical-users_6">For Technical Users<a class="headerlink" href="#for-technical-users_6" title="Permanent link">&para;</a></h3>
+<h4 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Node.js 18+ installed</li>
+<li>npm or yarn</li>
+</ul>
+<h4 id="setup_2">Setup<a class="headerlink" href="#setup_2" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Install openskills globally</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>openskills
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Install pm-skills</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>openskills<span class="w"> </span>install<span class="w"> </span>product-on-purpose/pm-skills
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Sync to your environment</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>openskills<span class="w"> </span>sync
+</span></code></pre></div>
+<h4 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Note:</strong> openskills previously had issues with nested directories. pm-skills now ships flat <code>skills/phase-skill/</code> plus a sync helper that populates <code>.claude/skills/</code>. After cloning, run <code>./scripts/sync-claude.sh</code> (or <code>.ps1</code>) before using openskills or Claude Code.</p>
+</blockquote>
+<h4 id="usage_3">Usage<a class="headerlink" href="#usage_3" title="Permanent link">&para;</a></h4>
+<p>Once installed, skills are available globally:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># List installed skills</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>openskills<span class="w"> </span>list
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Use in conversations</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># Skills are auto-discovered by compatible AI assistants</span>
+</span></code></pre></div>
+<h4 id="managing-multiple-skill-sets">Managing Multiple Skill Sets<a class="headerlink" href="#managing-multiple-skill-sets" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Install additional skill repositories</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>openskills<span class="w"> </span>install<span class="w"> </span>another-org/their-skills
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Update all skills</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>openskills<span class="w"> </span>update
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Remove a skill set</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>openskills<span class="w"> </span>remove<span class="w"> </span>product-on-purpose/pm-skills
+</span></code></pre></div>
+<hr />
+<h2 id="choosing-the-right-method">Choosing the Right Method<a class="headerlink" href="#choosing-the-right-method" title="Permanent link">&para;</a></h2>
+<h3 id="decision-tree">Decision Tree<a class="headerlink" href="#decision-tree" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A{"Using Claude Code?"} -- Yes --&gt; M1["Method 1\nSlash Commands"]
+    A -- No --&gt; B{"Using Copilot,\nCursor, or Windsurf?"}
+    B -- Yes --&gt; M2["Method 2\nGit Clone"]
+    B -- No --&gt; C{"Using Claude.ai\nor Claude Desktop?"}
+    C -- Yes --&gt; M3["Method 3\nZIP Upload"]
+    C -- No --&gt; D{"Quick, one-time use?"}
+    D -- Yes --&gt; M4["Method 4\nCopy-Paste"]
+    D -- No --&gt; M5["Method 5\nopenskills CLI"]</code></pre>
+<h3 id="comparison-matrix">Comparison Matrix<a class="headerlink" href="#comparison-matrix" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Claude Code</th>
+<th>Git Clone</th>
+<th>Claude Upload</th>
+<th>Copy-Paste</th>
+<th>openskills</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Setup time</td>
+<td>None</td>
+<td>1 min</td>
+<td>2 min</td>
+<td>None</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Slash commands</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Varies</td>
+</tr>
+<tr>
+<td>Auto-updates</td>
+<td>Yes</td>
+<td>Manual</td>
+<td>Manual</td>
+<td>N/A</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Works offline</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Any AI platform</td>
+<td>No</td>
+<td>Most</td>
+<td>Claude only</td>
+<td>Yes</td>
+<td>Most</td>
+</tr>
+<tr>
+<td>Skill chaining</td>
+<td>Easy</td>
+<td>Easy</td>
+<td>Medium</td>
+<td>Hard</td>
+<td>Easy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="your-first-skill">Your First Skill<a class="headerlink" href="#your-first-skill" title="Permanent link">&para;</a></h2>
+<p>Let's walk through using a skill for the first time.</p>
+<h3 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h3>
+<p>You're starting a new feature and want to create a proper problem statement.</p>
+<h3 id="step-1-choose-your-method">Step 1: Choose Your Method<a class="headerlink" href="#step-1-choose-your-method" title="Permanent link">&para;</a></h3>
+<p>Pick the method that matches your setup (see above).</p>
+<h3 id="step-2-invoke-the-skill">Step 2: Invoke the Skill<a class="headerlink" href="#step-2-invoke-the-skill" title="Permanent link">&para;</a></h3>
+<p><strong>Claude Code:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>/problem-statement &quot;Users are abandoning checkout because the process
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>is too long. We lose about $50k/month in abandoned carts.&quot;
+</span></code></pre></div></p>
+<p><strong>Other AI assistants:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Use the problem-statement skill to create a problem statement for:
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Users are abandoning checkout because the process is too long.
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>We lose about $50k/month in abandoned carts.
+</span></code></pre></div></p>
+<h3 id="step-3-provide-more-context">Step 3: Provide More Context<a class="headerlink" href="#step-3-provide-more-context" title="Permanent link">&para;</a></h3>
+<p>The AI will likely ask clarifying questions:
+- Who specifically experiences this problem?
+- What have you tried before?
+- What constraints exist?</p>
+<p>Answer these to improve the output.</p>
+<h3 id="step-4-review-and-iterate">Step 4: Review and Iterate<a class="headerlink" href="#step-4-review-and-iterate" title="Permanent link">&para;</a></h3>
+<p>The AI produces a structured problem statement. Review it and ask for:
+- More detail in specific sections
+- Different framing
+- Additional considerations</p>
+<h3 id="step-5-chain-to-next-skill">Step 5: Chain to Next Skill<a class="headerlink" href="#step-5-chain-to-next-skill" title="Permanent link">&para;</a></h3>
+<p>Once satisfied, use another skill:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Now use the hypothesis skill to create a testable hypothesis
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>based on this problem statement.
+</span></code></pre></div>
+<hr />
+<h2 id="workflow-bundles">Workflow Bundles<a class="headerlink" href="#workflow-bundles" title="Permanent link">&para;</a></h2>
+<p>Bundles are pre-defined sequences of skills for common workflows.</p>
+<h3 id="feature-kickoff-bundle">Feature Kickoff Bundle<a class="headerlink" href="#feature-kickoff-bundle" title="Permanent link">&para;</a></h3>
+<p><strong>Use when:</strong> Starting a new feature from scratch</p>
+<p><strong>Skills included:</strong>
+1. <code>problem-statement</code> → Frame the problem
+2. <code>hypothesis</code> → Define testable assumptions
+3. <code>prd</code> → Specify requirements
+4. <code>user-stories</code> → Break down for engineering
+5. <code>launch-checklist</code> → Prepare for release</p>
+<p><strong>Invocation:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a># Claude Code
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>/kickoff &quot;New search feature for e-commerce platform&quot;
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a># Other assistants
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>&quot;Run the feature kickoff workflow for: [your feature]&quot;
+</span></code></pre></div></p>
+<h3 id="lean-startup-bundle">Lean Startup Bundle<a class="headerlink" href="#lean-startup-bundle" title="Permanent link">&para;</a></h3>
+<p><strong>Use when:</strong> Rapid experimentation and validation</p>
+<p><strong>Skills included:</strong>
+1. <code>hypothesis</code> → State your assumption
+2. <code>experiment-design</code> → Plan validation
+3. <code>experiment-results</code> → Analyze outcomes
+4. <code>pivot-decision</code> → Decide next steps</p>
+<h3 id="triple-diamond-bundle">Triple Diamond Bundle<a class="headerlink" href="#triple-diamond-bundle" title="Permanent link">&para;</a></h3>
+<p><strong>Use when:</strong> Comprehensive product development</p>
+<p><strong>Skills included:</strong> All 25 phase skills across 6 phases</p>
+<p>See <code>_bundles/</code> directory for detailed bundle documentation.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="the-ai-doesnt-seem-to-know-about-the-skills">"The AI doesn't seem to know about the skills"<a class="headerlink" href="#the-ai-doesnt-seem-to-know-about-the-skills" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Skills aren't properly loaded or discovered.</p>
+<p><strong>Solutions:</strong>
+- Ensure <code>AGENTS.md</code> is visible to the AI
+- Try explicit paths: "Read <code>skills/deliver-prd/SKILL.md</code>"
+- Upload files directly in Claude.ai/Desktop
+- Check that you're in the correct directory</p>
+<h3 id="the-output-doesnt-match-the-template">"The output doesn't match the template"<a class="headerlink" href="#the-output-doesnt-match-the-template" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> AI didn't read the template file.</p>
+<p><strong>Solutions:</strong>
+- Explicitly reference the template: "Use the template in <code>references/TEMPLATE.md</code>"
+- Upload/paste the template alongside the skill
+- Ask: "Reformat the output to match the template structure"</p>
+<h3 id="the-ai-asks-too-many-questions">"The AI asks too many questions"<a class="headerlink" href="#the-ai-asks-too-many-questions" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Not enough context provided upfront.</p>
+<p><strong>Solutions:</strong>
+- Provide more detail in your initial request
+- Include: who, what, why, constraints, prior attempts
+- Pre-answer common questions in your prompt</p>
+<h3 id="slash-commands-arent-working">"Slash commands aren't working"<a class="headerlink" href="#slash-commands-arent-working" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> Platform doesn't support them or commands aren't discovered.</p>
+<p><strong>Solutions:</strong>
+- Verify you're using Claude Code (not Claude.ai)
+- Check <code>commands/</code> directory exists
+- Use natural language: "Use the prd skill..." instead</p>
+<h3 id="i-get-different-results-each-time">"I get different results each time"<a class="headerlink" href="#i-get-different-results-each-time" title="Permanent link">&para;</a></h3>
+<p><strong>Cause:</strong> AI variance is normal; context matters.</p>
+<p><strong>Solutions:</strong>
+- Provide consistent, detailed context
+- Save good outputs as additional examples
+- Use the same conversation thread for related artifacts</p>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h3 id="learn-more">Learn More<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../reference/categories/">Categories Reference</a> — Understand skill organization</li>
+<li><a href="../reference/frontmatter-schema.yaml">Frontmatter Schema</a> — Technical skill structure</li>
+<li><a href="../frameworks/triple-diamond-delivery-process/">Triple Diamond Framework</a> — The organizing methodology</li>
+</ul>
+<h3 id="explore-skills">Explore Skills<a class="headerlink" href="#explore-skills" title="Permanent link">&para;</a></h3>
+<p>Browse by phase:
+- <strong>Discover:</strong> interview-synthesis, competitive-analysis, stakeholder-summary
+- <strong>Define:</strong> problem-statement, hypothesis, opportunity-tree, jtbd-canvas
+- <strong>Develop:</strong> solution-brief, spike-summary, adr, design-rationale
+- <strong>Deliver:</strong> prd, user-stories, edge-cases, launch-checklist, release-notes
+- <strong>Measure:</strong> experiment-design, instrumentation-spec, dashboard-requirements, experiment-results
+- <strong>Iterate:</strong> retrospective, lessons-log, refinement-notes, pivot-decision</p>
+<h3 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h3>
+<p>Have ideas for new skills or improvements?
+- See contribution guidelines in README (Contributing section)
+- Open an issue on GitHub
+- Submit a pull request</p>
+<hr />
+<h2 id="quick-reference-card">Quick Reference Card<a class="headerlink" href="#quick-reference-card" title="Permanent link">&para;</a></h2>
+<h3 id="skill-invocation-cheat-sheet">Skill Invocation Cheat Sheet<a class="headerlink" href="#skill-invocation-cheat-sheet" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>How to Invoke</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td><code>/skill-name "context"</code></td>
+</tr>
+<tr>
+<td>Copilot/Cursor</td>
+<td>"Use the skill-name skill to..."</td>
+</tr>
+<tr>
+<td>Claude.ai</td>
+<td>Upload ZIP, then "Use the skill-name skill to..."</td>
+</tr>
+<tr>
+<td>ChatGPT/Other</td>
+<td>Copy-paste SKILL.md, then "Create a..."</td>
+</tr>
+</tbody>
+</table>
+<h3 id="most-used-skills">Most-Used Skills<a class="headerlink" href="#most-used-skills" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Skill</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Define the problem</td>
+<td>problem-statement</td>
+<td><code>/problem-statement</code></td>
+</tr>
+<tr>
+<td>Write requirements</td>
+<td>prd</td>
+<td><code>/prd</code></td>
+</tr>
+<tr>
+<td>Create user stories</td>
+<td>user-stories</td>
+<td><code>/user-stories</code></td>
+</tr>
+<tr>
+<td>Plan an experiment</td>
+<td>experiment-design</td>
+<td><code>/experiment-design</code></td>
+</tr>
+<tr>
+<td>Prepare for launch</td>
+<td>launch-checklist</td>
+<td><code>/launch-checklist</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="skill-output-mapping">Skill → Output Mapping<a class="headerlink" href="#skill-output-mapping" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>Produces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>problem-statement</td>
+<td>Problem framing document</td>
+</tr>
+<tr>
+<td>prd</td>
+<td>Product Requirements Document</td>
+</tr>
+<tr>
+<td>user-stories</td>
+<td>User stories with acceptance criteria</td>
+</tr>
+<tr>
+<td>hypothesis</td>
+<td>Testable hypothesis statement</td>
+</tr>
+<tr>
+<td>experiment-design</td>
+<td>A/B test plan</td>
+</tr>
+<tr>
+<td>retrospective</td>
+<td>Team retro summary with actions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Built by <a href="https://github.com/product-on-purpose">Product on Purpose</a> for PMs who ship.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 product-on-purpose
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
