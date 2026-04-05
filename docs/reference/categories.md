@@ -300,7 +300,7 @@ experiment-results → pivot-decision (if needed)
 - Backlog refinement documentation
 - Cross-functional alignment
 
-**Skills (4):**
+**Skills (7):**
 
 | Skill | Description |
 |-------|-------------|
@@ -309,6 +309,8 @@ experiment-results → pivot-decision (if needed)
 | `spike-summary` | Documents the results of a time-boxed technical or design exploration |
 | `refinement-notes` | Documents backlog refinement session outcomes including stories refined and decisions made |
 | `pm-skill-builder` | Guides contributors from a PM skill idea to a complete Skill Implementation Packet for the repo |
+| `pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria |
+| `pm-skill-iterate` | Applies targeted improvements to a skill based on feedback or validation reports |
 
 **When to use coordination skills:**
 - Before significant launches (1-2 weeks out)
@@ -415,8 +417,8 @@ Summary of skills across categories:
 | specification | 6 | prd, user-stories, acceptance-criteria, edge-cases, adr, design-rationale |
 | validation | 3 | experiment-design, instrumentation-spec, dashboard-requirements |
 | reflection | 4 | experiment-results, retrospective, lessons-log, pivot-decision |
-| coordination | 5 | launch-checklist, release-notes, spike-summary, refinement-notes, pm-skill-builder |
-| **Total** | **27** | |
+| coordination | 7 | launch-checklist, release-notes, spike-summary, refinement-notes, pm-skill-builder, pm-skill-validate, pm-skill-iterate |
+| **Total** | **29** | |
 
 ---
 

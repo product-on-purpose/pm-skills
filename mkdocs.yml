@@ -92,6 +92,7 @@ exclude_docs: |
   pm-skill-lifecycle.md
   getting-started.md
   guides/authoring-pm-skills.md
+  frameworks/triple-diamond-delivery-process.md
 
 # ===========================================================================
 # MARKDOWN EXTENSIONS
