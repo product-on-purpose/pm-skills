@@ -1,5 +1,5 @@
 # [M-18] CI: Skill History and Manifest Validation
-Status: Planned
+Status: Shipped (v2.8.0)
 Release: v2.8.0
 Phase: 1 (parallel with F-10 SKILL.md — no content dependency)
 Issue: TBD

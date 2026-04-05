@@ -1,5 +1,5 @@
 # [M-13] Convention Alignment Pass
-Status: Planned
+Status: Complete (verified 2026-04-04, all skills pass CI)
 Milestone: TBD
 Issue: #115
 Agent: Codex 5.4

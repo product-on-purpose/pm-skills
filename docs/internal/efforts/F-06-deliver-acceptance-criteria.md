@@ -1,5 +1,5 @@
 # [F-06] Deliver Acceptance Criteria Skill
-Status: Review complete, ready to commit
+Status: Shipped (v2.7.0)
 Release: v2.7.0
 Issue: #114
 Agent: Codex 5.4

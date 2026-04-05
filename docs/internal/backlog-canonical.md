@@ -2,7 +2,7 @@
 
 Status: Active
 Owner: Maintainers
-Last updated: 2026-04-03
+Last updated: 2026-04-04
 
 GitHub issues are the canonical system for backlog and lifecycle state.
 
@@ -15,25 +15,33 @@ GitHub issues are the canonical system for backlog and lifecycle state.
 
 Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 
-| Priority | ID | Effort | Type | Agent | Release | Status | Issue |
-|----------|----|--------|------|-------|---------|--------|-------|
-| 0 | — | Anthropic marketplace submission | Quick win | Human | — | Submitted (2026-03-22), awaiting review | — |
-| 1 | M-12 | CI validation enhancement | Infrastructure | Codex | **v2.7.0** | Committed (`8d2a418`) | [#112](https://github.com/product-on-purpose/pm-skills/issues/112) |
-| 2 | F-06 | `deliver-acceptance-criteria` | New skill | Codex | **v2.7.0** | Committed (`8d2a418`) | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
-| 3 | M-16 | Exclude `docs/internal/**` from release ZIP | Infrastructure | Codex | **v2.7.0** | Committed (`0c2e637`) | [#123](https://github.com/product-on-purpose/pm-skills/issues/123) |
-| 4 | F-05 | PM Skill Builder (`/pm-skill-builder`) | New skill | Claude | **v2.7.0** | Committed (`3c50108`..`a67f144`) | [#113](https://github.com/product-on-purpose/pm-skills/issues/113) |
-| 5 | M-13 | Convention alignment pass | Quality | Codex | — | Backlog | [#115](https://github.com/product-on-purpose/pm-skills/issues/115) |
-| 6 | M-14 | Release automation enhancement | Infrastructure | Codex | — | Backlog | [#116](https://github.com/product-on-purpose/pm-skills/issues/116) |
-| 7 | M-15 | Community contribution setup | Ecosystem | Claude | — | Backlog | [#117](https://github.com/product-on-purpose/pm-skills/issues/117) |
-| 8 | F-07 | `discover-market-sizing` | New skill | Claude | — | Backlog | [#118](https://github.com/product-on-purpose/pm-skills/issues/118) |
-| 9 | F-08 | `measure-survey-analysis` | New skill | Claude | — | Backlog | [#119](https://github.com/product-on-purpose/pm-skills/issues/119) |
-| 10 | F-09 | Agent Skill Builder (`/agent-skill-builder`) | New skill | Claude | — | Backlog | [#120](https://github.com/product-on-purpose/pm-skills/issues/120) |
-| 11 | F-10 | PM Skill Validate (`/pm-skill-validate`) | New skill | Claude | **v2.8.0** | Design (post-review) | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
-| 12 | F-11 | PM Skill Iterate (`/pm-skill-iterate`) | New skill | Claude | **v2.8.0** | Design (post-review) | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
-| 13 | D-03 | PM Skill Lifecycle Guide | Documentation | Claude | **v2.8.0** | Planned | — |
-| 14 | M-18 | CI: HISTORY.md + skills-manifest validation | Infrastructure | Codex | **v2.8.0** | Planned | — |
-| 15 | D-04 | Public docs refresh for v2.8.0 | Documentation | Codex | **v2.8.0** | Planned | — |
-| 16 | M-17 | GitHub Pages documentation site | Ecosystem | Claude | — | Backlog | — |
+### Shipped
+
+| ID | Effort | Type | Release | Status | Issue |
+|----|--------|------|---------|--------|-------|
+| — | Anthropic marketplace submission | Quick win | — | Submitted (2026-03-22), awaiting review | — |
+| M-12 | CI validation enhancement | Infrastructure | **v2.7.0** | Shipped | [#112](https://github.com/product-on-purpose/pm-skills/issues/112) |
+| F-06 | `deliver-acceptance-criteria` | New skill | **v2.7.0** | Shipped | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
+| M-16 | Exclude `docs/internal/**` from release ZIP | Infrastructure | **v2.7.0** | Shipped | [#123](https://github.com/product-on-purpose/pm-skills/issues/123) |
+| F-05 | PM Skill Builder (`/pm-skill-builder`) | New skill | **v2.7.0** | Shipped | [#113](https://github.com/product-on-purpose/pm-skills/issues/113) |
+| F-10 | PM Skill Validate (`/pm-skill-validate`) | New skill | **v2.8.0** | Shipped | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
+| F-11 | PM Skill Iterate (`/pm-skill-iterate`) | New skill | **v2.8.0** | Shipped | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
+| D-03 | PM Skill Lifecycle Guide | Documentation | **v2.8.0** | Shipped | — |
+| M-18 | CI: HISTORY.md + skills-manifest validation | Infrastructure | **v2.8.0** | Shipped | — |
+| D-04 | Public docs refresh for v2.8.0 | Documentation | **v2.8.0** | Shipped | — |
+| M-13 | Convention alignment pass | Quality | — | Complete (all skills pass CI, 2026-04-04) | [#115](https://github.com/product-on-purpose/pm-skills/issues/115) |
+| M-17 | GitHub Pages documentation site | Ecosystem | **v2.8.1** | Shipped | — |
+
+### Active Backlog (priority order)
+
+| Priority | ID | Effort | Type | Agent | Status | Issue |
+|----------|----|--------|------|-------|--------|-------|
+| 1 | F-12 | Skill quality convergence | Quality | Claude + Human | Draft | — |
+| 2 | M-14 | Release automation enhancement | Infrastructure | Codex | Backlog | [#116](https://github.com/product-on-purpose/pm-skills/issues/116) |
+| 3 | M-15 | Community contribution setup | Ecosystem | Claude | Backlog | [#117](https://github.com/product-on-purpose/pm-skills/issues/117) |
+| 4 | F-07 | `discover-market-sizing` | New skill | Claude | Backlog | [#118](https://github.com/product-on-purpose/pm-skills/issues/118) |
+| 5 | F-08 | `measure-survey-analysis` | New skill | Claude | Backlog | [#119](https://github.com/product-on-purpose/pm-skills/issues/119) |
+| 6 | F-09 | Agent Skill Builder (`/agent-skill-builder`) | New skill | Claude | Backlog | [#120](https://github.com/product-on-purpose/pm-skills/issues/120) |
 
 See individual effort briefs at `docs/internal/efforts/{ID}-{slug}.md` for scope, decisions, and artifacts.
 

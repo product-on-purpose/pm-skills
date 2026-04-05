@@ -1,5 +1,5 @@
 # [F-11] PM Skill Iterate
-Status: Design (post-Codex review)
+Status: Shipped (v2.8.0)
 Release: v2.8.0
 Issue: #122
 Agent: Claude Opus 4.6

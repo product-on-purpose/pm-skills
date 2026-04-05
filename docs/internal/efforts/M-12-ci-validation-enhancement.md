@@ -1,5 +1,5 @@
 # [M-12] CI Validation Enhancement
-Status: Review complete, ready to commit
+Status: Shipped (v2.7.0)
 Release: v2.7.0
 Issue: #112
 Agent: Codex 5.4

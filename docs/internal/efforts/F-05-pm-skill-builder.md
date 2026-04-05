@@ -1,5 +1,5 @@
 # [F-05] PM Skill Builder
-Status: Implemented, verification passed
+Status: Shipped (v2.7.0)
 Release: v2.7.0
 Issue: #113
 Agent: Claude Opus 4.6

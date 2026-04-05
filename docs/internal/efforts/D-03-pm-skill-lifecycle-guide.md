@@ -1,5 +1,5 @@
 # [D-03] PM Skill Lifecycle Guide
-Status: Planned
+Status: Shipped (v2.8.0)
 Release: v2.8.0
 Phase: 3 (after both F-10 and F-11 SKILL.md files are committed)
 Issue: TBD

@@ -1,5 +1,5 @@
 # [M-16] Exclude docs/internal from Release ZIP
-Status: Implemented locally, verification passed
+Status: Shipped (v2.7.0)
 Release: v2.7.0
 Issue: #123
 Agent: Codex 5.4
