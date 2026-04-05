@@ -1,0 +1,44 @@
+name: Validate Documentation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'requirements-docs.txt'
+      - 'skills/**/SKILL.md'
+      - 'skills/**/TEMPLATE.md'
+      - 'skills/**/EXAMPLE.md'
+      - '_bundles/**'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'requirements-docs.txt'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-validate-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-validate-
+
+      - name: Install Python dependencies
+        run: pip install -r requirements-docs.txt
+
+      - name: Build docs (strict mode)
+        run: mkdocs build --strict
