@@ -325,13 +325,13 @@
     
     
       <li class="md-tabs__item">
-        <a href="../bundles/" class="md-tabs__link">
+        <a href="../workflows/" class="md-tabs__link">
           
   
   
     
   
-  Bundles
+  Workflows
 
         </a>
       </li>
@@ -790,6 +790,18 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -810,14 +822,14 @@
   
   
   
-    <a href="../bundles/" class="md-nav__link">
+    <a href="../workflows/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Bundles
+    Workflows
   
 
     
@@ -1689,22 +1701,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-bundles" class="md-nav__link">
+  <a href="#workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflow Bundles
+        Workflows
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Workflow Bundles">
+    <nav class="md-nav" aria-label="Workflows">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#feature-kickoff-bundle" class="md-nav__link">
+  <a href="#feature-kickoff-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Feature Kickoff Bundle
+        Feature Kickoff Workflow
       
     </span>
   </a>
@@ -1712,10 +1724,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lean-startup-bundle" class="md-nav__link">
+  <a href="#lean-startup-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lean Startup Bundle
+        Lean Startup Workflow
       
     </span>
   </a>
@@ -1723,10 +1735,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#triple-diamond-bundle" class="md-nav__link">
+  <a href="#triple-diamond-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Triple Diamond Bundle
+        Triple Diamond Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-workflows-v290" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Workflows (v2.9.0)
       
     </span>
   </a>
@@ -1974,7 +1997,7 @@
 <li><a href="#method-5-openskills-cli">Method 5: openskills CLI</a></li>
 <li><a href="#choosing-the-right-method">Choosing the Right Method</a></li>
 <li><a href="#your-first-skill">Your First Skill</a></li>
-<li><a href="#workflow-bundles">Workflow Bundles</a></li>
+<li><a href="#workflows">Workflows</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
 </ul>
@@ -2138,7 +2161,7 @@
 </span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>/prd<span class="w"> </span><span class="s2">&quot;based on the hypothesis above&quot;</span>
 </span></code></pre></div>
 <h4 id="available-commands">Available Commands<a class="headerlink" href="#available-commands" title="Permanent link">&para;</a></h4>
-<p>The repo currently ships 30 command markdown files: 29 skill commands plus the <code>/kickoff</code> workflow bundle.</p>
+<p>The repo currently ships 36 command markdown files: 29 skill commands plus 7 workflow commands.</p>
 <table>
 <thead>
 <tr>
@@ -2181,7 +2204,7 @@
 </tr>
 </tbody>
 </table>
-<p>Plus workflow bundles: <code>/kickoff</code></p>
+<p>Plus workflows: <code>/workflow-feature-kickoff</code></p>
 <hr />
 <h2 id="method-2-git-clone-any-ai-assistant">Method 2: Git Clone (Any AI Assistant)<a class="headerlink" href="#method-2-git-clone-any-ai-assistant" title="Permanent link">&para;</a></h2>
 <p><strong>Best for:</strong> GitHub Copilot, Cursor, Windsurf, and other AGENTS.md-compatible tools</p>
@@ -2218,7 +2241,7 @@
 <h4 id="how-it-works_1">How It Works<a class="headerlink" href="#how-it-works_1" title="Permanent link">&para;</a></h4>
 <p>Modern AI coding assistants discover skills through the <code>AGENTS.md</code> file at the repository root. This file:
 - Lists all 29 registered skills with paths and descriptions
-- Provides workflow bundles
+- Provides workflows
 - Documents available commands</p>
 <p>When you ask the AI to use a skill, it:
 1. Reads <code>AGENTS.md</code> to locate the skill
@@ -2513,9 +2536,9 @@
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>based on this problem statement.
 </span></code></pre></div>
 <hr />
-<h2 id="workflow-bundles">Workflow Bundles<a class="headerlink" href="#workflow-bundles" title="Permanent link">&para;</a></h2>
-<p>Bundles are pre-defined sequences of skills for common workflows.</p>
-<h3 id="feature-kickoff-bundle">Feature Kickoff Bundle<a class="headerlink" href="#feature-kickoff-bundle" title="Permanent link">&para;</a></h3>
+<h2 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h2>
+<p>Workflows are pre-defined sequences of skills for common PM processes.</p>
+<h3 id="feature-kickoff-workflow">Feature Kickoff Workflow<a class="headerlink" href="#feature-kickoff-workflow" title="Permanent link">&para;</a></h3>
 <p><strong>Use when:</strong> Starting a new feature from scratch</p>
 <p><strong>Skills included:</strong>
 1. <code>problem-statement</code> → Frame the problem
@@ -2525,22 +2548,64 @@
 5. <code>launch-checklist</code> → Prepare for release</p>
 <p><strong>Invocation:</strong>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a># Claude Code
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>/kickoff &quot;New search feature for e-commerce platform&quot;
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>/workflow-feature-kickoff &quot;New search feature for e-commerce platform&quot;
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a># Other assistants
 </span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>&quot;Run the feature kickoff workflow for: [your feature]&quot;
 </span></code></pre></div></p>
-<h3 id="lean-startup-bundle">Lean Startup Bundle<a class="headerlink" href="#lean-startup-bundle" title="Permanent link">&para;</a></h3>
+<h3 id="lean-startup-workflow">Lean Startup Workflow<a class="headerlink" href="#lean-startup-workflow" title="Permanent link">&para;</a></h3>
 <p><strong>Use when:</strong> Rapid experimentation and validation</p>
 <p><strong>Skills included:</strong>
 1. <code>hypothesis</code> → State your assumption
 2. <code>experiment-design</code> → Plan validation
 3. <code>experiment-results</code> → Analyze outcomes
 4. <code>pivot-decision</code> → Decide next steps</p>
-<h3 id="triple-diamond-bundle">Triple Diamond Bundle<a class="headerlink" href="#triple-diamond-bundle" title="Permanent link">&para;</a></h3>
+<h3 id="triple-diamond-workflow">Triple Diamond Workflow<a class="headerlink" href="#triple-diamond-workflow" title="Permanent link">&para;</a></h3>
 <p><strong>Use when:</strong> Comprehensive product development</p>
 <p><strong>Skills included:</strong> All 25 phase skills across 6 phases</p>
-<p>See <code>_bundles/</code> directory for detailed bundle documentation.</p>
+<h3 id="additional-workflows-v290">Additional Workflows (v2.9.0)<a class="headerlink" href="#additional-workflows-v290" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Command</th>
+<th>Use When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer Discovery</td>
+<td><code>/workflow-customer-discovery</code></td>
+<td>Transforming raw research into a validated problem</td>
+</tr>
+<tr>
+<td>Sprint Planning</td>
+<td><code>/workflow-sprint-planning</code></td>
+<td>Preparing sprint-ready stories from a backlog</td>
+</tr>
+<tr>
+<td>Product Strategy</td>
+<td><code>/workflow-product-strategy</code></td>
+<td>Framing a major strategic initiative</td>
+</tr>
+<tr>
+<td>Post-Launch Learning</td>
+<td><code>/workflow-post-launch-learning</code></td>
+<td>Measuring results and capturing learnings after launch</td>
+</tr>
+<tr>
+<td>Stakeholder Alignment</td>
+<td><code>/workflow-stakeholder-alignment</code></td>
+<td>Getting leadership buy-in before committing resources</td>
+</tr>
+<tr>
+<td>Technical Discovery</td>
+<td><code>/workflow-technical-discovery</code></td>
+<td>Evaluating technical feasibility and architecture</td>
+</tr>
+</tbody>
+</table>
+<p>See <code>_workflows/</code> directory for detailed workflow documentation.</p>
 <hr />
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="the-ai-doesnt-seem-to-know-about-the-skills">"The AI doesn't seem to know about the skills"<a class="headerlink" href="#the-ai-doesnt-seem-to-know-about-the-skills" title="Permanent link">&para;</a></h3>
@@ -2720,7 +2785,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 01:50:03 UTC"><span class="timeago" datetime="2026-04-05T01:50:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 01:50:03 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 03:51:55 UTC"><span class="timeago" datetime="2026-04-07T03:51:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 03:51:55 UTC">2026-04-07</span>
   </span>
 
     

@@ -323,13 +323,13 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../bundles/" class="md-tabs__link">
+        <a href="../../workflows/" class="md-tabs__link">
           
   
   
     
   
-  Bundles
+  Workflows
 
         </a>
       </li>
@@ -740,6 +740,18 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -760,14 +772,14 @@
   
   
   
-    <a href="../../bundles/" class="md-nav__link">
+    <a href="../../workflows/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Bundles
+    Workflows
   
 
     
@@ -1300,10 +1312,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_bundles-workflow-bundles" class="md-nav__link">
+  <a href="#_workflows-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /_bundles/ — Workflow Bundles
+        /_workflows/ — Workflows
       
     </span>
   </a>
@@ -1637,10 +1649,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_bundles-workflow-bundles" class="md-nav__link">
+  <a href="#_workflows-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        /_bundles/ — Workflow Bundles
+        /_workflows/ — Workflows
       
     </span>
   </a>
@@ -1769,7 +1781,7 @@
 <li><a href="#directory-overview">Directory Overview</a></li>
 <li><a href="#skills--the-27-pm-skills-flat">/skills/ — Skills</a></li>
 <li><a href="#commands--slash-commands">/commands/ — Slash Commands</a></li>
-<li><a href="#bundles--workflow-bundles">/bundles/ — Workflow Bundles</a></li>
+<li><a href="#workflows--workflows">/workflows/ — Workflows</a></li>
 <li><a href="#docs--documentation">/docs/ — Documentation</a></li>
 <li><a href="#templates--skill-templates">/templates/ — Skill Templates</a></li>
 <li><a href="#agents--ai-agent-context">/AGENTS/ — AI Agent Context</a></li>
@@ -1783,7 +1795,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pm-skills/
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── skills/                     # Core PM skills (27 total, flat)
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── commands/                   # Slash command markdown files (27 total + .gitkeep)
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── _bundles/                   # Workflow bundles
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── _workflows/                 # Workflows
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── docs/                       # Documentation (incl. templates)
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   └── templates/              # Skill creation templates
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── AGENTS/                     # AI agent session context
@@ -2014,9 +2026,9 @@
 </table>
 <hr />
 <h2 id="commands-slash-commands"><code>/commands/</code> — Slash Commands<a class="headerlink" href="#commands-slash-commands" title="Permanent link">&para;</a></h2>
-<p>Contains Claude Code slash command definitions. Each <code>.md</code> maps a <code>/command</code> to its skill (or bundle).</p>
-<p><strong>Commands (28 total: 27 skill commands + 1 workflow bundle)</strong>
-| Command | Target skill/bundle |
+<p>Contains Claude Code slash command definitions. Each <code>.md</code> maps a <code>/command</code> to its skill (or workflow).</p>
+<p><strong>Commands (36 total: 29 skill commands + 7 workflow commands)</strong>
+| Command | Target skill/workflow |
 | --- | --- |
 | <code>/competitive-analysis</code> | discover-competitive-analysis |
 | <code>/interview-synthesis</code> | discover-interview-synthesis |
@@ -2044,15 +2056,22 @@
 | <code>/refinement-notes</code> | iterate-refinement-notes |
 | <code>/retrospective</code> | iterate-retrospective |
 | <code>/persona</code> | foundation-persona |
-| <code>/kickoff</code> | feature-kickoff bundle |</p>
-<p><code>utility-pm-skill-builder</code> currently ships as a skill file only. There is no committed <code>/pm-skill-builder</code> command yet.</p>
+| <code>/pm-skill-iterate</code> | utility-pm-skill-iterate |
+| <code>/pm-skill-validate</code> | utility-pm-skill-validate |
+| <code>/workflow-feature-kickoff</code> | feature-kickoff workflow |
+| <code>/workflow-customer-discovery</code> | customer-discovery workflow |
+| <code>/workflow-sprint-planning</code> | sprint-planning workflow |
+| <code>/workflow-product-strategy</code> | product-strategy workflow |
+| <code>/workflow-post-launch-learning</code> | post-launch-learning workflow |
+| <code>/workflow-stakeholder-alignment</code> | stakeholder-alignment workflow |
+| <code>/workflow-technical-discovery</code> | technical-discovery workflow |</p>
 <hr />
-<h2 id="_bundles-workflow-bundles"><code>/_bundles/</code> — Workflow Bundles<a class="headerlink" href="#_bundles-workflow-bundles" title="Permanent link">&para;</a></h2>
-<p>Bundles chain multiple skills together into guided, end-to-end workflows.</p>
+<h2 id="_workflows-workflows"><code>/_workflows/</code> — Workflows<a class="headerlink" href="#_workflows-workflows" title="Permanent link">&para;</a></h2>
+<p>Workflows chain multiple skills together into guided, end-to-end sequences.</p>
 <table>
 <thead>
 <tr>
-<th>Bundle</th>
+<th>Workflow</th>
 <th>Purpose</th>
 <th>Skills Included</th>
 </tr>
@@ -2072,6 +2091,36 @@
 <td><code>triple-diamond.md</code></td>
 <td>Complete product development</td>
 <td>All 25 phase skills across 6 phases</td>
+</tr>
+<tr>
+<td><code>customer-discovery.md</code></td>
+<td>Transform raw research into a validated problem</td>
+<td>interview-synthesis → stakeholder-summary → problem-statement → hypothesis</td>
+</tr>
+<tr>
+<td><code>sprint-planning.md</code></td>
+<td>Prepare sprint-ready stories from a backlog</td>
+<td>user-stories → acceptance-criteria → edge-cases</td>
+</tr>
+<tr>
+<td><code>product-strategy.md</code></td>
+<td>Frame a major strategic initiative</td>
+<td>competitive-analysis → opportunity-tree → problem-statement → solution-brief</td>
+</tr>
+<tr>
+<td><code>post-launch-learning.md</code></td>
+<td>Measure results and capture learnings after launch</td>
+<td>experiment-results → dashboard-requirements → lessons-log → retrospective</td>
+</tr>
+<tr>
+<td><code>stakeholder-alignment.md</code></td>
+<td>Build a case for leadership buy-in</td>
+<td>stakeholder-summary → problem-statement → solution-brief → design-rationale</td>
+</tr>
+<tr>
+<td><code>technical-discovery.md</code></td>
+<td>Evaluate technical feasibility and architecture</td>
+<td>spike-summary → adr → solution-brief</td>
 </tr>
 </tbody>
 </table>
@@ -2243,7 +2292,7 @@
 </tr>
 <tr>
 <td><code>_prefix/</code></td>
-<td>Underscore prefix for meta directories (e.g., <code>_bundles/</code>)</td>
+<td>Underscore prefix for meta directories (e.g., <code>_workflows/</code>)</td>
 </tr>
 </tbody>
 </table>
@@ -2278,7 +2327,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 05:18:38 UTC"><span class="timeago" datetime="2026-04-05T05:18:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 05:18:38 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 03:03:30 UTC"><span class="timeago" datetime="2026-04-07T03:03:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 03:03:30 UTC">2026-04-07</span>
   </span>
 
     

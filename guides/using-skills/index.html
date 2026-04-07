@@ -323,13 +323,13 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../bundles/" class="md-tabs__link">
+        <a href="../../workflows/" class="md-tabs__link">
           
   
   
     
   
-  Bundles
+  Workflows
 
         </a>
       </li>
@@ -740,6 +740,18 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -760,14 +772,14 @@
   
   
   
-    <a href="../../bundles/" class="md-nav__link">
+    <a href="../../workflows/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Bundles
+    Workflows
   
 
     
@@ -1679,7 +1691,7 @@
 <ul>
 <li><a href="#iterating-on-outputs">Iterating on Outputs</a></li>
 <li><a href="#chaining-skills">Chaining Skills</a></li>
-<li><a href="#using-workflow-bundles">Using Workflow Bundles</a></li>
+<li><a href="#using-workflows">Using Workflows</a></li>
 <li><a href="#customizing-outputs">Customizing Outputs</a></li>
 </ul>
 <h3 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">&para;</a></h3>
@@ -2063,13 +2075,13 @@
 </span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>└────────┘ └────────┘ └────────────┘
 </span></code></pre></div>
 <hr />
-<h2 id="using-workflow-bundles">Using Workflow Bundles<a class="headerlink" href="#using-workflow-bundles" title="Permanent link">&para;</a></h2>
-<p>Bundles are pre-defined skill sequences for common workflows.</p>
-<h3 id="available-bundles">Available Bundles<a class="headerlink" href="#available-bundles" title="Permanent link">&para;</a></h3>
+<h2 id="using-workflows">Using Workflows<a class="headerlink" href="#using-workflows" title="Permanent link">&para;</a></h2>
+<p>Workflows are pre-defined skill sequences for common PM processes.</p>
+<h3 id="available-workflows">Available Workflows<a class="headerlink" href="#available-workflows" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Bundle</th>
+<th>Workflow</th>
 <th>Use Case</th>
 <th>Skills</th>
 </tr>
@@ -2090,17 +2102,47 @@
 <td>Comprehensive product dev</td>
 <td>All 25 phase skills across 6 phases</td>
 </tr>
+<tr>
+<td>Customer Discovery</td>
+<td>Research to problem framing</td>
+<td>interview-synthesis → jtbd-canvas → opportunity-tree → problem-statement</td>
+</tr>
+<tr>
+<td>Sprint Planning</td>
+<td>Sprint-ready stories</td>
+<td>refinement-notes → user-stories → edge-cases</td>
+</tr>
+<tr>
+<td>Product Strategy</td>
+<td>Strategic initiative framing</td>
+<td>competitive-analysis → stakeholder-summary → opportunity-tree → solution-brief → adr</td>
+</tr>
+<tr>
+<td>Post-Launch Learning</td>
+<td>Ship-to-learn feedback</td>
+<td>instrumentation-spec → dashboard-requirements → experiment-results → retrospective → lessons-log</td>
+</tr>
+<tr>
+<td>Stakeholder Alignment</td>
+<td>Leadership buy-in</td>
+<td>stakeholder-summary → problem-statement → solution-brief → launch-checklist</td>
+</tr>
+<tr>
+<td>Technical Discovery</td>
+<td>Feasibility + architecture</td>
+<td>spike-summary → adr → design-rationale</td>
+</tr>
 </tbody>
 </table>
-<h3 id="invoking-a-bundle">Invoking a Bundle<a class="headerlink" href="#invoking-a-bundle" title="Permanent link">&para;</a></h3>
+<h3 id="invoking-a-workflow">Invoking a Workflow<a class="headerlink" href="#invoking-a-workflow" title="Permanent link">&para;</a></h3>
 <p><strong>Claude Code:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>/kickoff &quot;Save for Later feature for shopping cart&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>/workflow-feature-kickoff &quot;Save for Later feature for shopping cart&quot;
 </span></code></pre></div></p>
 <p><strong>Other platforms:</strong>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Run the Feature Kickoff workflow for adding a
 </span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>&quot;Save for Later&quot; feature to our shopping cart.
 </span></code></pre></div></p>
-<h3 id="bundle-execution">Bundle Execution<a class="headerlink" href="#bundle-execution" title="Permanent link">&para;</a></h3>
+<h3 id="workflow-execution">Workflow Execution<a class="headerlink" href="#workflow-execution" title="Permanent link">&para;</a></h3>
 <p>The AI will work through each skill in sequence:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Starting Feature Kickoff workflow...
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
@@ -2115,7 +2157,7 @@
 </span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
 </span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>...and so on
 </span></code></pre></div>
-<h3 id="customizing-bundle-execution">Customizing Bundle Execution<a class="headerlink" href="#customizing-bundle-execution" title="Permanent link">&para;</a></h3>
+<h3 id="customizing-workflow-execution">Customizing Workflow Execution<a class="headerlink" href="#customizing-workflow-execution" title="Permanent link">&para;</a></h3>
 <p><strong>Skip steps you don't need:</strong>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Run the Feature Kickoff workflow, but skip the launch checklist—
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>we have an existing template for that.
@@ -2605,7 +2647,7 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use 3 different skills successfully</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Chain 2 skills together in one conversation</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Iterate on an output to improve quality</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Try one workflow bundle</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Try one workflow</li>
 </ul>
 <h3 id="intermediate-advanced">Intermediate → Advanced<a class="headerlink" href="#intermediate-advanced" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
@@ -2626,7 +2668,7 @@
 <ul>
 <li><a href="../../getting-started/">Getting Started</a> — Installation and setup</li>
 <li><a href="../../reference/categories/">Categories Reference</a> — Skill organization</li>
-<li><a href="../../_bundles/">Workflow Bundles</a> — Pre-built workflows</li>
+<li><a href="../../_workflows/">Workflows</a> — Pre-built workflows</li>
 </ul>
 <hr />
 <p><em>Part of <a href="https://github.com/product-on-purpose/pm-skills/blob/main/README.md">PM-Skills</a> — Open source Product Management skills for AI agents</em></p>
@@ -2652,7 +2694,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 01:50:03 UTC"><span class="timeago" datetime="2026-04-05T01:50:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 01:50:03 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 03:51:55 UTC"><span class="timeago" datetime="2026-04-07T03:51:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 03:51:55 UTC">2026-04-07</span>
   </span>
 
     

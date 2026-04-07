@@ -325,13 +325,13 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../bundles/" class="md-tabs__link">
+        <a href="../../workflows/" class="md-tabs__link">
           
   
   
     
   
-  Bundles
+  Workflows
 
         </a>
       </li>
@@ -812,10 +812,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#workflow-bundles" class="md-nav__link">
+  <a href="#workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflow Bundles
+        Workflows
       
     </span>
   </a>
@@ -970,6 +970,18 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -990,14 +1002,14 @@
   
   
   
-    <a href="../../bundles/" class="md-nav__link">
+    <a href="../../workflows/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
     
   
-    Bundles
+    Workflows
   
 
     
@@ -1525,10 +1537,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#workflow-bundles" class="md-nav__link">
+  <a href="#workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflow Bundles
+        Workflows
       
     </span>
   </a>
@@ -1616,8 +1628,8 @@
 <h2 id="whats-included">What's Included<a class="headerlink" href="#whats-included" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>29 shipped PM skills in <code>skills/</code></strong> (25 phase skills across 6 phases, 1 foundation skill, 3 utility skills)</li>
-<li><strong>30 slash-command docs in <code>commands/</code></strong> (29 skill commands plus the <code>/kickoff</code> workflow bundle)</li>
-<li><strong>Workflow bundles</strong> for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff)</li>
+<li><strong>36 slash-command docs in <code>commands/</code></strong> (29 skill commands plus 7 workflow commands)</li>
+<li><strong>9 Workflows</strong> for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 6 more)</li>
 <li><strong>MCP sync guardrail</strong> via GitHub Actions (<code>validate-mcp-sync</code>, observe-first rollout)</li>
 </ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
@@ -1644,11 +1656,11 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>/competitive-analysis &quot;Market or product area&quot;
 </span></code></pre></div>
 <p>See <code>AGENTS.md</code> for the complete command list.</p>
-<h3 id="workflow-bundles">Workflow Bundles<a class="headerlink" href="#workflow-bundles" title="Permanent link">&para;</a></h3>
+<h3 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h3>
 <p>Run multi-skill workflows:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/kickoff &quot;Feature name&quot;  # Problem → Hypothesis → PRD → Stories
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/workflow-feature-kickoff &quot;Feature name&quot;  # Problem → Hypothesis → PRD → Stories
 </span></code></pre></div>
-<p>Bundle definitions are in <code>_bundles/</code>.</p>
+<p>Workflow definitions are in <code>_workflows/</code>.</p>
 <h2 id="skill-lifecycle-tools">Skill Lifecycle Tools<a class="headerlink" href="#skill-lifecycle-tools" title="Permanent link">&para;</a></h2>
 <p>Three utility skills manage the skill library itself:</p>
 <pre class="mermaid"><code>flowchart LR
@@ -1659,8 +1671,8 @@
 <p>See <code>docs/pm-skill-lifecycle.md</code> for detailed workflow patterns.</p>
 <h2 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>skills/            # All 29 skill definitions (25 phase + 1 foundation + 3 utility, flat)
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>commands/          # 30 command markdown files (+ .gitkeep)
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>_bundles/          # Multi-skill workflows
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>commands/          # 36 command markdown files (+ .gitkeep)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>_workflows/        # Multi-skill workflows
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>scripts/           # sync, validation, and release helpers
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>.claude/pm-skills-for-claude.md  # instructions for Claude Code users
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>AGENTS.md          # Agent discovery index
@@ -1695,7 +1707,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 01:22:19 UTC"><span class="timeago" datetime="2026-04-05T01:22:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 01:22:19 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 03:03:30 UTC"><span class="timeago" datetime="2026-04-07T03:03:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 03:03:30 UTC">2026-04-07</span>
   </span>
 
     
