@@ -82,3 +82,13 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-skills-manifest.ps1
         continue-on-error: true
+
+      - name: Check stale bundle refs (bash)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-stale-bundle-refs.sh
+        continue-on-error: true
+
+      - name: Check stale bundle refs (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-stale-bundle-refs.ps1
+        continue-on-error: true

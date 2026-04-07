@@ -3,8 +3,8 @@
 ## What's Included
 
 - **29 shipped PM skills in `skills/`** (25 phase skills across 6 phases, 1 foundation skill, 3 utility skills)
-- **30 slash-command docs in `commands/`** (29 skill commands plus the `/kickoff` workflow bundle)
-- **Workflow bundles** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff)
+- **30 slash-command docs in `commands/`** (29 skill commands plus the `/workflow-feature-kickoff` workflow)
+- **Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff)
 - **MCP sync guardrail** via GitHub Actions (`validate-mcp-sync`, observe-first rollout)
 
 ## Installation
@@ -45,15 +45,15 @@ More detail: see `docs/getting-started.md` for the long-form guide.
 
 See `AGENTS.md` for the complete command list.
 
-### Workflow Bundles
+### Workflows
 
 Run multi-skill workflows:
 
 ```
-/kickoff "Feature name"  # Problem → Hypothesis → PRD → Stories
+/workflow-feature-kickoff "Feature name"  # Problem → Hypothesis → PRD → Stories
 ```
 
-Bundle definitions are in `_bundles/`.
+Workflow definitions are in `_workflows/`.
 
 ## Skill Lifecycle Tools
 
@@ -74,7 +74,7 @@ See `docs/pm-skill-lifecycle.md` for detailed workflow patterns.
 ```
 skills/            # All 29 skill definitions (25 phase + 1 foundation + 3 utility, flat)
 commands/          # 30 command markdown files (+ .gitkeep)
-_bundles/          # Multi-skill workflows
+_workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
 .claude/pm-skills-for-claude.md  # instructions for Claude Code users
 AGENTS.md          # Agent discovery index

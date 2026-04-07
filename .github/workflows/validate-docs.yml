@@ -10,7 +10,7 @@ on:
       - 'skills/**/SKILL.md'
       - 'skills/**/TEMPLATE.md'
       - 'skills/**/EXAMPLE.md'
-      - '_bundles/**'
+      - '_workflows/**'
   push:
     branches: [main]
     paths:

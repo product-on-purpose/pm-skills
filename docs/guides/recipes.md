@@ -144,10 +144,10 @@ flowchart LR
 
 ## Full Lifecycle (Kitchen Sink)
 
-Use the `/kickoff` bundle to start, then extend through all 6 phases.
+Use the `/workflow-feature-kickoff` workflow to start, then extend through all 6 phases.
 
 ```
-/kickoff "Feature name"
+/workflow-feature-kickoff "Feature name"
 ```
 
 This runs: Problem Statement → Hypothesis → PRD → User Stories.

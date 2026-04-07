@@ -8,7 +8,7 @@
 
 ## Decision
 
-{Recommendation: create / revise existing / bundle / command / docs-only}
+{Recommendation: create / revise existing / workflow / command / docs-only}
 
 {Why Gate evidence if applicable — the 2-3 specific prompts or scenarios
 where existing skills fail}

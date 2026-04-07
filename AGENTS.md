@@ -187,15 +187,15 @@ Applies targeted improvements to an existing pm-skills skill based on feedback, 
 
 ---
 
-## Workflow Bundles
+## Workflows
 
-| Bundle | Description |
-|--------|-------------|
-| [Triple Diamond](_bundles/triple-diamond.md) | Complete product development cycle |
-| [Lean Startup](_bundles/lean-startup.md) | Build-Measure-Learn rapid iteration |
-| [Feature Kickoff](_bundles/feature-kickoff.md) | Quick-start workflow for features |
+| Workflow | Description |
+|----------|-------------|
+| [Triple Diamond](_workflows/triple-diamond.md) | Complete product development cycle |
+| [Lean Startup](_workflows/lean-startup.md) | Build-Measure-Learn rapid iteration |
+| [Feature Kickoff](_workflows/feature-kickoff.md) | Quick-start workflow for features |
 
-Bundle links are repo-relative within this repository.
+Workflow links are repo-relative within this repository.
 
 ---
 
@@ -215,7 +215,7 @@ Bundle links are repo-relative within this repository.
 | `/instrumentation-spec` | Specify event tracking and analytics instrumentation |
 | `/interview-synthesis` | Synthesize user research interviews into insights |
 | `/jtbd-canvas` | Create a Jobs to be Done canvas |
-| `/kickoff` | Run the Feature Kickoff workflow (problem → hypothesis → PRD → stories) |
+| `/workflow-feature-kickoff` | Run the Feature Kickoff workflow (problem → hypothesis → PRD → stories) |
 | `/launch-checklist` | Create a comprehensive pre-launch checklist |
 | `/lessons-log` | Create a structured lessons learned entry |
 | `/opportunity-tree` | Create an opportunity solution tree |

@@ -84,6 +84,12 @@ plugins:
   - social:
       enabled: !ENV [CI, false]
   - tags
+  - redirects:
+      redirect_maps:
+        'bundles/index.md': 'workflows/index.md'
+        'bundles/feature-kickoff.md': 'workflows/feature-kickoff.md'
+        'bundles/lean-startup.md': 'workflows/lean-startup.md'
+        'bundles/triple-diamond.md': 'workflows/triple-diamond.md'
   - git-revision-date-localized:
       enabled: !ENV [CI, false]
       type: timeago
@@ -93,6 +99,7 @@ plugins:
 # Exclude files from site build that have copies in the MkDocs tree
 exclude_docs: |
   internal/
+  workflows/README.md
   /agent-skill-anatomy.md
   /pm-skill-anatomy.md
   /pm-skill-lifecycle.md
@@ -218,11 +225,11 @@ nav:
       - skills/utility/utility-pm-skill-iterate.md
       - skills/utility/utility-pm-skill-validate.md
 
-  - Bundles:
-    - bundles/index.md
-    - Feature Kickoff: bundles/feature-kickoff.md
-    - Lean Startup: bundles/lean-startup.md
-    - Triple Diamond: bundles/triple-diamond.md
+  - Workflows:
+    - workflows/index.md
+    - Feature Kickoff: workflows/feature-kickoff.md
+    - Lean Startup: workflows/lean-startup.md
+    - Triple Diamond: workflows/triple-diamond.md
 
   - Guides:
     - guides/index.md

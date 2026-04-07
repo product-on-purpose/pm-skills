@@ -44,7 +44,7 @@ Primary improvement opportunities are now in **operability and quality depth**, 
 | Structural consistency | 5/5 | All skills pass frontmatter + required reference checks | Keep gate in CI and add semantic checks |
 | Output contract clarity | 4/5 | Template + example pattern is consistent | Add explicit section-level acceptance criteria |
 | Progressive disclosure | 4/5 | Anatomy docs define SKILL/TEMPLATE/EXAMPLE layering | Add optional “minimum viable output” mode |
-| Composability/workflows | 4/5 | Bundles and kickoff workflow exist | Add explicit skill I/O contracts and handoff fields |
+| Composability/workflows | 4/5 | Workflows and kickoff workflow exist | Add explicit skill I/O contracts and handoff fields |
 | Reliability/quality gates | 4/5 | Existing lint and command validation scripts | Add regression suite using sample prompts + expected skeletons |
 | Maintainability/governance | 4/5 | Strong guides, schemas, and contributor docs | Introduce versioned changelog per skill + deprecation policy |
 
@@ -108,7 +108,7 @@ Recommendation:
 
 What is working well:
 
-- Triple-diamond and Lean Startup bundles communicate process intent.
+- Triple-diamond and Lean Startup workflows communicate process intent.
 
 Gap:
 
@@ -173,8 +173,8 @@ Recommendation:
 ### Milestone 2: Orchestration readiness
 
 - Add `inputs_expected/outputs_produced/next_recommended_skills` metadata
-- Update bundle docs to reference explicit handoff fields
-- Add CI check that bundle-linked skills exist and are non-deprecated
+- Update workflow docs to reference explicit handoff fields
+- Add CI check that workflow-linked skills exist and are non-deprecated
 
 ### Milestone 3: Continuous improvement loop
 

@@ -122,7 +122,7 @@ This means this effort will create up to **26 HISTORY.md files** — the first i
 
 1. **Should M-13 be a prerequisite or can they run in parallel?** M-13 fixes structural issues; this effort fixes quality issues. They touch different aspects of the same files. Running M-13 first avoids merge conflicts and ensures a clean Tier 1 baseline before Tier 2 assessment.
 
-2. **Release vehicle?** Is this v2.8.2 (patch — no new skills), v2.9.0 (minor — significant quality improvement across the library), or bundled with new skill work?
+2. **Release vehicle?** Is this v2.8.2 (patch — no new skills), v2.9.0 (minor — significant quality improvement across the library), or combined with new skill work?
 
 3. **"When NOT to Use" — adopt or defer?** Currently INFO only (1/27 skills have it). Should this effort add it to all skills, or leave it as an aspirational convention? Adding it to all skills would be a minor bump (new section in the contract).
 

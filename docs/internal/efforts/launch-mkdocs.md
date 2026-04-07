@@ -18,7 +18,7 @@ The repo at `github.com/product-on-purpose/pm-skills` contains **no existing mkd
 | `docs/getting-started.md` | Long-form onboarding guide | Direct migration |
 | `docs/pm-skill-anatomy.md` | Skill structure reference | Direct migration |
 | `commands/` (~28 files) | Slash command definitions | Batch migration |
-| `_bundles/` (3 files) | Workflow bundles (Feature Kickoff, Lean Startup, Triple Diamond) | Direct migration |
+| `_workflows/` (3 files) | Workflows (Feature Kickoff, Lean Startup, Triple Diamond) | Direct migration |
 | `CHANGELOG.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md` | Standard open-source files | Direct migration |
 | `docs/releases/Release_v*.md` | Per-version release notes | Blog or releases section |
 | `docs/internal/` | Internal planning docs | **Do NOT migrate** |
@@ -250,11 +250,11 @@ nav:
     - Utility:
       - skills/utility/index.md
 
-  - Bundles:
-    - bundles/index.md
-    - Feature Kickoff: bundles/feature-kickoff.md
-    - Lean Startup: bundles/lean-startup.md
-    - Triple Diamond: bundles/triple-diamond.md
+  - Workflows:
+    - workflows/index.md
+    - Feature Kickoff: workflows/feature-kickoff.md
+    - Lean Startup: workflows/lean-startup.md
+    - Triple Diamond: workflows/triple-diamond.md
 
   - Guides:
     - guides/index.md
@@ -372,7 +372,7 @@ The navigation structure maps the **Diataxis framework** (tutorials, how-to guid
 | **Home** | — | Landing page hero, key features, compatibility grid |
 | **Getting Started** | Tutorials | Learning-oriented walkthroughs from zero to working |
 | **Skills** | Reference | The browsable catalog — one page per skill |
-| **Bundles** | Reference | The 3 workflow bundles with linked skills |
+| **Workflows** | Reference | The 3 workflows with linked skills |
 | **Guides** | How-to | Task-oriented guides for specific goals |
 | **Concepts** | Explanation | Understanding-oriented content about the "why" |
 | **Contributing** | How-to | Contributor onboarding and templates |
@@ -472,7 +472,7 @@ The migration has three tiers of effort. **Tier 1 (direct copy)** involves files
 - `CODE_OF_CONDUCT.md` → `docs/contributing/code-of-conduct.md`
 - `SECURITY.md` → `docs/contributing/security.md`
 - `CHANGELOG.md` → `docs/changelog.md`
-- `_bundles/*.md` → `docs/bundles/{name}.md` (3 files)
+- `_workflows/*.md` → `docs/workflows/{name}.md` (3 files)
 - `docs/templates/skill-template/` → `docs/contributing/template.md`
 - `docs/releases/Release_v*.md` → `docs/blog/posts/` (as blog posts)
 

@@ -180,11 +180,11 @@ commands/pm-skill-builder.md → invokes skills/utility-pm-skill-builder/SKILL.m
 
 The discovery file for AI agents. Lists all registered skills with paths and descriptions, organized by phase/classification. Agents scan this file to find the right skill for a task.
 
-Sections: Foundation Classification, Discover Phase, ..., Iterate Phase, Utility Skills, Workflow Bundles, Commands.
+Sections: Foundation Classification, Discover Phase, ..., Iterate Phase, Utility Skills, Workflows, Commands.
 
-### Bundles (`_bundles/*.md`)
+### Workflows (`_workflows/*.md`)
 
-Multi-skill workflows that chain skills together. Three shipped bundles:
+Multi-skill workflows that chain skills together. Three shipped workflows:
 - **Triple Diamond** — Complete product development cycle
 - **Lean Startup** — Build-Measure-Learn rapid iteration
 - **Feature Kickoff** — Quick-start workflow (problem → hypothesis → PRD → stories)

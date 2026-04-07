@@ -28,7 +28,7 @@ Welcome to PM-Skills! This guide will help you understand what this repository o
 - [Method 5: openskills CLI](#method-5-openskills-cli)
 - [Choosing the Right Method](#choosing-the-right-method)
 - [Your First Skill](#your-first-skill)
-- [Workflow Bundles](#workflow-bundles)
+- [Workflows](#workflows)
 - [Troubleshooting](#troubleshooting)
 - [Next Steps](#next-steps)
 
@@ -211,7 +211,7 @@ Claude Code discovers the registered skill set via `AGENTS.md` and command defin
 
 #### Available Commands
 
-The repo currently ships 30 command markdown files: 29 skill commands plus the `/kickoff` workflow bundle.
+The repo currently ships 30 command markdown files: 29 skill commands plus the `/workflow-feature-kickoff` workflow.
 
 | Phase | Commands |
 |-------|----------|
@@ -224,7 +224,7 @@ The repo currently ships 30 command markdown files: 29 skill commands plus the `
 | Utility | `/pm-skill-builder`, `/pm-skill-validate`, `/pm-skill-iterate` |
 | Foundation | `/persona` |
 
-Plus workflow bundles: `/kickoff`
+Plus workflows: `/workflow-feature-kickoff`
 
 ---
 
@@ -264,7 +264,7 @@ git submodule add https://github.com/product-on-purpose/pm-skills.git .pm-skills
 
 Modern AI coding assistants discover skills through the `AGENTS.md` file at the repository root. This file:
 - Lists all 29 registered skills with paths and descriptions
-- Provides workflow bundles
+- Provides workflows
 - Documents available commands
 
 When you ask the AI to use a skill, it:
@@ -573,11 +573,11 @@ based on this problem statement.
 
 ---
 
-## Workflow Bundles
+## Workflows
 
-Bundles are pre-defined sequences of skills for common workflows.
+Workflows are pre-defined sequences of skills for common PM processes.
 
-### Feature Kickoff Bundle
+### Feature Kickoff Workflow
 
 **Use when:** Starting a new feature from scratch
 
@@ -591,13 +591,13 @@ Bundles are pre-defined sequences of skills for common workflows.
 **Invocation:**
 ```
 # Claude Code
-/kickoff "New search feature for e-commerce platform"
+/workflow-feature-kickoff "New search feature for e-commerce platform"
 
 # Other assistants
 "Run the feature kickoff workflow for: [your feature]"
 ```
 
-### Lean Startup Bundle
+### Lean Startup Workflow
 
 **Use when:** Rapid experimentation and validation
 
@@ -607,13 +607,13 @@ Bundles are pre-defined sequences of skills for common workflows.
 3. `experiment-results` → Analyze outcomes
 4. `pivot-decision` → Decide next steps
 
-### Triple Diamond Bundle
+### Triple Diamond Workflow
 
 **Use when:** Comprehensive product development
 
 **Skills included:** All 25 phase skills across 6 phases
 
-See `_bundles/` directory for detailed bundle documentation.
+See `_workflows/` directory for detailed workflow documentation.
 
 ---
 

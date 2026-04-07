@@ -47,7 +47,7 @@ This workflow assumes:
 
 ### Step 1: Problem Statement
 
-**Skill:** [`define-problem-statement`](../skills/define-problem-statement/SKILL.md)
+**Skill:** [`define-problem-statement`](../skills/define/define-problem-statement.md)
 
 **Purpose:** Ensure everyone agrees on what problem we're solving before diving into solutions.
 
@@ -66,7 +66,7 @@ This workflow assumes:
 
 ### Step 2: Hypothesis
 
-**Skill:** [`define-hypothesis`](../skills/define-hypothesis/SKILL.md)
+**Skill:** [`define-hypothesis`](../skills/define/define-hypothesis.md)
 
 **Purpose:** State what we believe will solve the problem and how we'll know if we're right.
 
@@ -84,7 +84,7 @@ This workflow assumes:
 
 ### Step 3: PRD
 
-**Skill:** [`deliver-prd`](../skills/deliver-prd/SKILL.md)
+**Skill:** [`deliver-prd`](../skills/deliver/deliver-prd.md)
 
 **Purpose:** Specify what we're building in enough detail for engineering to execute.
 
@@ -103,7 +103,7 @@ This workflow assumes:
 
 ### Step 4: User Stories
 
-**Skill:** [`deliver-user-stories`](../skills/deliver-user-stories/SKILL.md)
+**Skill:** [`deliver-user-stories`](../skills/deliver/deliver-user-stories.md)
 
 **Purpose:** Break the PRD into implementable, estimable stories for sprint planning.
 
@@ -127,7 +127,7 @@ Acceptance Criteria:
 
 ### Step 5: Launch Checklist
 
-**Skill:** [`deliver-launch-checklist`](../skills/deliver-launch-checklist/SKILL.md)
+**Skill:** [`deliver-launch-checklist`](../skills/deliver/deliver-launch-checklist.md)
 
 **Purpose:** Ensure nothing is forgotten before shipping.
 
@@ -169,24 +169,24 @@ Add these skills when the situation calls for more depth:
 
 | Add When | Skill |
 |----------|-------|
-| Complex UX decisions | [`develop-design-rationale`](../skills/develop-design-rationale/SKILL.md) |
-| Technical uncertainty | [`develop-spike-summary`](../skills/develop-spike-summary/SKILL.md) |
-| Architecture impact | [`develop-adr`](../skills/develop-adr/SKILL.md) |
+| Complex UX decisions | [`develop-design-rationale`](../skills/develop/develop-design-rationale.md) |
+| Technical uncertainty | [`develop-spike-summary`](../skills/develop/develop-spike-summary.md) |
+| Architecture impact | [`develop-adr`](../skills/develop/develop-adr.md) |
 
 ### During Development
 
 | Add When | Skill |
 |----------|-------|
-| Complex feature | [`deliver-edge-cases`](../skills/deliver-edge-cases/SKILL.md) |
-| Needs measurement | [`measure-instrumentation-spec`](../skills/measure-instrumentation-spec/SKILL.md) |
+| Complex feature | [`deliver-edge-cases`](../skills/deliver/deliver-edge-cases.md) |
+| Needs measurement | [`measure-instrumentation-spec`](../skills/measure/measure-instrumentation-spec.md) |
 
 ### After Launch
 
 | Add When | Skill |
 |----------|-------|
-| A/B testing | [`measure-experiment-design`](../skills/measure-experiment-design/SKILL.md) |
-| Team reflection | [`iterate-retrospective`](../skills/iterate-retrospective/SKILL.md) |
-| Communication | [`deliver-release-notes`](../skills/deliver-release-notes/SKILL.md) |
+| A/B testing | [`measure-experiment-design`](../skills/measure/measure-experiment-design.md) |
+| Team reflection | [`iterate-retrospective`](../skills/iterate/iterate-retrospective.md) |
+| Communication | [`deliver-release-notes`](../skills/deliver/deliver-release-notes.md) |
 
 ---
 
@@ -293,10 +293,10 @@ Acceptance Criteria:
 
 ## See Also
 
-- [Triple Diamond Bundle](triple-diamond.md) — For comprehensive product development
-- [Lean Startup Bundle](lean-startup.md) — For rapid hypothesis validation
+- [Triple Diamond Workflow](triple-diamond.md) — For comprehensive product development
+- [Lean Startup Workflow](lean-startup.md) — For rapid hypothesis validation
 
 ---
 
-*Part of [PM-Skills](../README.md) — Open source Product Management skills for AI agents*
+*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) — Open source Product Management skills for AI agents*
 

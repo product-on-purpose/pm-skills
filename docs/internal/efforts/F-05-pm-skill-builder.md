@@ -34,9 +34,9 @@ The builder uses 4-5 steps with a kill gate:
 ### Kill gate: Gap Analysis + Why Gate + Scope Splitting
 
 Three failure modes that redirect rather than proceed:
-- **High overlap**: Recommend revising an existing skill, creating a bundle, or adding a command
+- **High overlap**: Recommend revising an existing skill, creating a workflow, or adding a command
 - **Can't articulate gaps**: Why Gate fails — the idea doesn't have enough differentiation
-- **Too broad**: Recommend splitting into 2+ focused skills that can be bundled
+- **Too broad**: Recommend splitting into 2+ focused skills that can be chained in a workflow
 
 ### All three classifications supported
 

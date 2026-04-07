@@ -2,7 +2,7 @@
 
 > Build-Measure-Learn cycle for rapid validation
 
-The Lean Startup methodology emphasizes rapid iteration through the Build-Measure-Learn feedback loop. This bundle maps PM-Skills to that cycle, enabling quick hypothesis validation and data-driven pivoting.
+The Lean Startup methodology emphasizes rapid iteration through the Build-Measure-Learn feedback loop. This workflow maps PM-Skills to that cycle, enabling quick hypothesis validation and data-driven pivoting.
 
 ---
 
@@ -288,8 +288,8 @@ Use [`measure-dashboard-requirements`](../skills/measure/measure-dashboard-requi
 
 ## See Also
 
-- [Triple Diamond Bundle](triple-diamond.md) — For comprehensive product development
-- [Feature Kickoff Bundle](feature-kickoff.md) — For quick-start feature development
+- [Triple Diamond Workflow](triple-diamond.md) — For comprehensive product development
+- [Feature Kickoff Workflow](feature-kickoff.md) — For quick-start feature development
 
 ---
 

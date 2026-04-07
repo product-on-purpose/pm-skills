@@ -542,7 +542,7 @@ def generate_commands_reference(all_skills: list) -> None:
     lines.append("")
     lines.append("# Commands Reference")
     lines.append("")
-    lines.append("PM Skills ships 30 slash commands: 29 skill commands plus the `/kickoff` workflow bundle.")
+    lines.append("PM Skills ships 30 slash commands: 29 skill commands plus the `/workflow-feature-kickoff` workflow.")
     lines.append("")
     lines.append("| Command | Skill | Phase | Description |")
     lines.append("|---------|-------|-------|-------------|")
@@ -555,8 +555,8 @@ def generate_commands_reference(all_skills: list) -> None:
                 f"| {s['group_display']} | {desc} |"
             )
 
-    # Add kickoff bundle
-    lines.append("| `/kickoff` | [Feature Kickoff](../bundles/feature-kickoff.md) | Bundle | Run the Feature Kickoff workflow |")
+    # Add workflow-feature-kickoff workflow
+    lines.append("| `/workflow-feature-kickoff` | [Feature Kickoff](../workflows/feature-kickoff.md) | Workflow | Run the Feature Kickoff workflow |")
     lines.append("")
 
     output_path.write_text("\n".join(lines), encoding="utf-8")

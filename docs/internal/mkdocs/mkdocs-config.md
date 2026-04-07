@@ -51,7 +51,7 @@ MkDocs is a static site generator. It takes markdown files as input and produces
    - `mkdocs.yml` — site configuration
    - `requirements-docs.txt` — Python dependencies
    - `skills/**/SKILL.md`, `skills/**/TEMPLATE.md`, `skills/**/EXAMPLE.md` — skill source files
-   - `_bundles/**` — workflow bundle files
+   - `_workflows/**` — workflow files
 
 2. **Checkout**: Full git history is checked out (`fetch-depth: 0`) — this is needed if the `git-revision-date-localized` plugin is ever enabled (currently deferred).
 
@@ -338,7 +338,7 @@ mkdocs gh-deploy --force
 | Edit `mkdocs.yml` | Yes | Site config changed |
 | Edit `requirements-docs.txt` | Yes | Build dependencies changed |
 | Edit `skills/**/SKILL.md` | Yes | Skill content changed (need to regenerate pages) |
-| Edit `_bundles/**` | Yes | Bundle content changed |
+| Edit `_workflows/**` | Yes | Workflow content changed |
 | Edit `README.md` | No | README is not part of the MkDocs source |
 | Edit `scripts/*.py` | No | Script changes don't affect the site unless run |
 | Edit `.github/workflows/*.yml` | No (unless it's deploy-docs.yml) | Other workflows are independent |
@@ -364,7 +364,7 @@ main branch                              gh-pages branch
 │   concepts/                │          │   ...                │
 │   skills/ (generated)      │          │ concepts/            │
 │   guides/                  │          │ guides/              │
-│   bundles/                 │          │ assets/              │
+│   workflows/               │          │ assets/              │
 │   releases/                │          │ search/index.json    │
 │   ...                      │          │ sitemap.xml          │
 │ skills/ (source)           │          └──────────────────────┘

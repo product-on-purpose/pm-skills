@@ -6,7 +6,7 @@ Purpose: cross-LLM decision log for pm-skills. Per-agent details remain in `AGEN
 **Status:** Accepted  
 **Summary:** Keep maintainers' governance and planning artifacts under `docs/internal/**`, but exclude that subtree from published ZIP artifacts in the release packagers instead of moving the directory tree.  
 **Applies to:** Claude, Codex, release packaging, F-05 staging design, future internal docs work.  
-**Consequences:** End users get only public docs in release bundles; internal effort/release governance remains repo-tracked; future builder/staging decisions do not require a repo-wide path migration.
+**Consequences:** End users get only public docs in release packages; internal effort/release governance remains repo-tracked; future builder/staging decisions do not require a repo-wide path migration.
 
 ## 2026-02-13: Skill naming compliance for flat structure
 **Status:** Accepted  

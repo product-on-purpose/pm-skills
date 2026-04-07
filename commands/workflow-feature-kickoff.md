@@ -1,5 +1,5 @@
 ---
-description: Run the Feature Kickoff workflow (problem → hypothesis → PRD → stories)
+description: Run the Feature Kickoff workflow (problem -> hypothesis -> PRD -> stories)
 ---
 
 Run the Feature Kickoff workflow to go from problem to implementation-ready user stories.
@@ -48,6 +48,6 @@ Break the PRD into implementable user stories:
 
 Create all four artifacts in sequence, ensuring each builds on the previous.
 
-Reference the Feature Kickoff bundle at `_bundles/feature-kickoff.md` for additional guidance.
+Reference the Feature Kickoff workflow at `_workflows/feature-kickoff.md` for additional guidance.
 
 Context from user: $ARGUMENTS

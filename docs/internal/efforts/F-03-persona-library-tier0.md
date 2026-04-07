@@ -12,7 +12,7 @@ Ship a reusable persona archetype library at `library/personas/` containing high
 - Tier-0 targets high-reuse archetypes across product, marketing, and agent types.
 - Library entries must meet quality gate: no unsupported claims, required field completeness, no contradictory cross-type fields.
 - Library index maps each persona to downstream PM skill usage.
-- Persona MCP exposure (F-04) is a separate effort, not bundled here.
+- Persona MCP exposure (F-04) is a separate effort, not included here.
 
 ## Artifacts Produced
 

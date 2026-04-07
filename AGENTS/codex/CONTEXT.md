@@ -8,7 +8,7 @@
 Track Codex sessions for pm-skills. Use this file for stable facts and current execution state; use `AGENTS/DECISIONS.md` for cross-agent commitments; use `AGENTS/codex/DECISIONS.md` for agent-local detail; use `AGENTS/codex/SESSION-LOG/` for session summaries.
 
 ## Project snapshot
-- Repo: pm-skills (Triple Diamond PM skills, commands, docs, bundles, and internal operating docs)
+- Repo: pm-skills (Triple Diamond PM skills, commands, docs, workflows, and internal operating docs)
 - Latest published release baseline: `v2.6.1` (see `CHANGELOG.md`)
 - Current local `main` state:
   - branch is `main`

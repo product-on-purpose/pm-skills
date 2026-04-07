@@ -1,0 +1,463 @@
+# v2.9.0 Release Plan — Workflows
+
+Status: Planning
+Owner: Maintainers
+Type: Feature release (minor)
+
+## Release Theme
+
+**Workflows** — rename "bundles" to "workflows" and expand from 3 to 9 guided multi-skill workflows, doubling coverage across the Triple Diamond framework.
+
+---
+
+## Context
+
+The pm-skills repo ships multi-skill workflow guides under the name "bundles," but every user-facing explanation already calls them "workflows," the MCP server uses `pm_workflow_*` tool names, and the broader ecosystem (GitHub Actions, n8n, Zapier) standardizes on "workflow." This release corrects the terminology and adds 6 new workflows in a single release.
+
+---
+
+## Efforts
+
+| ID | Name | Type | Detailed Plan |
+|----|------|------|---------------|
+| **M-19** | [Rename Bundles to Workflows](../../efforts/M-19-bundles-to-workflows.md) | Infrastructure | [plan_bundles-to-workflows.md](../../efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md) |
+| **F-13** | [Workflow Expansion](../../efforts/F-13-workflow-expansion.md) | Feature | This file (sections below) |
+
+---
+
+## Decisions
+
+| Decision | Answer | Rationale |
+|----------|--------|-----------|
+| **Version** | **v2.9.0** (minor) | 6 new workflows = new user-facing capability. Doubles workflow count 3 → 9. New slash commands. |
+| **Rollout** | **Single release** | All 6 are drafted. No reason to incur 3x release overhead for phased rollout. |
+| **Terminology** | **"Workflows"** not "bundles" | Aligns with MCP API, user-facing docs, ecosystem convention. See [M-19](../../efforts/M-19-bundles-to-workflows.md). |
+| **Command prefix** | **`/workflow-{name}`** | Namespace protection — prevents collision with skill commands (e.g., `/stakeholder-alignment` vs `/stakeholder-summary`). |
+| **`_workflows/` vs `docs/workflows/`** | **Generate docs from source** | New `generate-workflow-pages.py` script eliminates manual duplication. |
+| **Workflow versioning** | **Skip** | Workflows chain existing versioned skills. No independent SemVer needed. |
+| **MCP parity** | **Deferred** | Ship workflows in pm-skills first; pm-skills-mcp tool additions + cleanup in a follow-up release. |
+
+---
+
+## `_workflows/` vs `docs/workflows/` — Dual-File Pattern
+
+### Post-M-19 Target State
+
+> **Current state:** `_bundles/` and `docs/bundles/`. M-19 (Commit 1) renames these to the paths shown below.
+
+| Location | Purpose | Link style | Audience |
+|----------|---------|-----------|----------|
+| `_workflows/*.md` | Source of truth | Repo-relative: `../skills/define-hypothesis/SKILL.md` | Agents (Copilot, Cursor, Windsurf), repo browsers |
+| `docs/workflows/*.md` | MkDocs-served copy | Docs-relative: `../skills/define/define-hypothesis.md` | Documentation site readers |
+
+The files are **manually maintained copies** with ~30-40 link rewrites per file. No generation script exists — unlike skills, which have `scripts/generate-skill-pages.py`.
+
+### The problem at scale
+
+- 3 workflows = 6 manually synced files (manageable)
+- **9 workflows = 18 manually synced files** (fragile)
+- Every content edit must be applied in two places with different link formats
+
+### Solution: `scripts/generate-workflow-pages.py`
+
+A script that:
+1. Reads each `_workflows/*.md` file
+2. Rewrites skill links: `../skills/{phase}-{skill}/SKILL.md` → `../skills/{phase}/{phase}-{skill}.md`
+3. Rewrites README link: `../README.md` → absolute GitHub URL
+4. Writes to `docs/workflows/{name}.md`
+5. Regenerates `docs/workflows/index.md` with the full workflow table
+
+This mirrors the established pattern from `generate-skill-pages.py`.
+
+### Directory READMEs
+
+Both directories should include a README clarifying their purpose:
+
+| File | Content |
+|------|---------|
+| `_workflows/README.md` | Source of truth for workflow definitions. Links use repo-relative paths for agent/repo consumers. Do not edit `docs/workflows/` directly — run `scripts/generate-workflow-pages.py` to regenerate. |
+| `docs/workflows/README.md` | **Do not edit directly.** Source of truth is `_workflows/`. These files are maintained via `scripts/generate-workflow-pages.py` (added alongside new workflow content in F-13). Edit the source files in `_workflows/` instead. |
+
+---
+
+## New Workflows
+
+| # | Workflow | Command | Skills Chained | Duration |
+|---|---------|---------|----------------|----------|
+| 1 | Customer Discovery | `/workflow-customer-discovery` | interview-synthesis → jtbd-canvas → opportunity-tree → problem-statement | 2-4h |
+| 2 | Sprint Planning | `/workflow-sprint-planning` | refinement-notes → user-stories → edge-cases | 1-2h |
+| 3 | Product Strategy | `/workflow-product-strategy` | competitive-analysis → stakeholder-summary → opportunity-tree → solution-brief → adr | 4-8h |
+| 4 | Post-Launch Learning | `/workflow-post-launch-learning` | instrumentation-spec → dashboard-requirements → experiment-results → retrospective → lessons-log | 3-6h |
+| 5 | Stakeholder Alignment | `/workflow-stakeholder-alignment` | stakeholder-summary → problem-statement → solution-brief → launch-checklist | 2-4h |
+| 6 | Technical Discovery | `/workflow-technical-discovery` | spike-summary → adr → design-rationale | 1-3h |
+
+---
+
+## Complete Deliverables
+
+### Workflow content (6 files — author these)
+
+| File | Notes |
+|------|-------|
+| `_workflows/customer-discovery.md` | Source of truth |
+| `_workflows/sprint-planning.md` | Source of truth |
+| `_workflows/product-strategy.md` | Source of truth |
+| `_workflows/post-launch-learning.md` | Source of truth |
+| `_workflows/stakeholder-alignment.md` | Source of truth |
+| `_workflows/technical-discovery.md` | Source of truth |
+
+### Slash commands (6 new in F-13 + 1 rename in M-19)
+
+| File | Command | Notes | Effort |
+|------|---------|-------|--------|
+| `commands/workflow-feature-kickoff.md` | `/workflow-feature-kickoff` | Renamed from `kickoff.md`; old `kickoff.md` deleted | M-19 |
+| `commands/workflow-customer-discovery.md` | `/workflow-customer-discovery` | New | F-13 |
+| `commands/workflow-sprint-planning.md` | `/workflow-sprint-planning` | New | F-13 |
+| `commands/workflow-product-strategy.md` | `/workflow-product-strategy` | New | F-13 |
+| `commands/workflow-post-launch-learning.md` | `/workflow-post-launch-learning` | New | F-13 |
+| `commands/workflow-stakeholder-alignment.md` | `/workflow-stakeholder-alignment` | New | F-13 |
+| `commands/workflow-technical-discovery.md` | `/workflow-technical-discovery` | New | F-13 |
+
+### Generated docs (10 files — script produces these)
+
+| File | Notes |
+|------|-------|
+| `docs/workflows/index.md` | Regenerated with 9-workflow table |
+| `docs/workflows/feature-kickoff.md` | Generated from `_workflows/` |
+| `docs/workflows/lean-startup.md` | Generated from `_workflows/` |
+| `docs/workflows/triple-diamond.md` | Generated from `_workflows/` |
+| `docs/workflows/customer-discovery.md` | Generated from `_workflows/` |
+| `docs/workflows/sprint-planning.md` | Generated from `_workflows/` |
+| `docs/workflows/product-strategy.md` | Generated from `_workflows/` |
+| `docs/workflows/post-launch-learning.md` | Generated from `_workflows/` |
+| `docs/workflows/stakeholder-alignment.md` | Generated from `_workflows/` |
+| `docs/workflows/technical-discovery.md` | Generated from `_workflows/` |
+
+### Tooling (2 new files)
+
+| File | Notes |
+|------|-------|
+| `scripts/generate-workflow-pages.py` | Generates `docs/workflows/` from `_workflows/` with link rewriting |
+| `scripts/check-stale-bundle-refs.sh` + `.ps1` | Terminology guard — catches any remaining "bundle" references |
+
+### Cross-cutting updates (summary — see Master Execution Checklist for authoritative inventory)
+
+| File | What changes |
+|------|-------------|
+| `mkdocs.yml` | Nav section: "Bundles" → "Workflows", paths `bundles/` → `workflows/`, 6 new entries, `mkdocs-redirects` plugin config |
+| `requirements-docs.txt` | Add `mkdocs-redirects` |
+| `AGENTS.md` | "Workflow Bundles" → "Workflows", links to `_workflows/`, 6 new entries |
+| `README.md` | "3 workflow bundles" → "9 workflows", feature table, links, directory tree |
+| `QUICKSTART.md` | Directory references |
+| `docs/reference/project-structure.md` | `/_bundles/` → `/_workflows/`, table 3 → 9, command count |
+| `docs/concepts/skill-anatomy.md` | "Bundles" section → "Workflows" |
+| `docs/concepts/versioning.md` | Bundle versioning notes |
+| `docs/guides/using-skills.md` | "Using Workflow Bundles" → "Using Workflows" |
+| `docs/reference/commands.md` | New workflow commands in table |
+| `docs/getting-started/index.md` | Bundle references → workflow |
+| `scripts/generate-skill-pages.py` | Hardcoded count and command table |
+| `scripts/build-release.sh` + `.ps1` | `_bundles` → `_workflows` |
+| `.github/workflows/validate-docs.yml` | Path trigger: `_bundles/**` → `_workflows/**` |
+| `.github/workflows/deploy-docs.yml` | Path trigger: `_bundles/**` → `_workflows/**` |
+| `.github/workflows/sync-agents-md.yml` | Hardcoded workflow table generation |
+| `AGENTS/claude/CONTEXT.md` | Structure listing |
+| `CHANGELOG.md` | v2.9.0 entry |
+| `.claude-plugin/plugin.json` | Version 2.9.0, description text |
+| `marketplace.json` | Description text |
+
+### Release artifacts (new files)
+
+| File | Notes | Created in |
+|------|-------|------------|
+| `docs/internal/release-plans/v2.9.0/plan_v2.9.0.md` | This file | Pre-work |
+| `docs/internal/efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md` | Rename detailed plan | Pre-work |
+| `docs/internal/efforts/M-19-bundles-to-workflows.md` | Rename effort brief | Pre-work |
+| `docs/releases/Release_v2.9.0.md` | **Draft** in Commit 1 (M-19 breaking changes); expanded in Commit 2 (F-13 content) | Commit 1 (draft) → Commit 2 (final) |
+
+---
+
+## CI That Applies
+
+| Workflow | Triggers on | Checks |
+|----------|------------|--------|
+| `validate-docs.yml` | `_workflows/**`, `docs/**`, `mkdocs.yml` | `mkdocs build --strict` + nav page existence |
+| `deploy-docs.yml` | Push to main (same paths) | Auto-deploy to GitHub Pages |
+| Main `validation.yml` | `commands/**` | `validate-commands.sh/ps1`, `validate-agents-md.sh/ps1` |
+| **New:** terminology guard | `docs/**`, `_workflows/**` | `check-stale-bundle-refs.sh` — advisory |
+
+### CI Ordering Constraint
+
+`mkdocs build --strict` itself succeeds even without `docs/workflows/` files — it just silently skips them. It's the *second* check in `validate-docs.yml` (the nav page existence verifier, lines 47-82) that fails by checking whether every `mkdocs.yml` nav entry produced a corresponding HTML file in `site/`. A single commit containing all changes works fine. But **incremental commits during development** will break CI if nav entries land before generated docs.
+
+**Rule:** `docs/workflows/*.md` files must exist before `mkdocs.yml` nav entries are added.
+
+---
+
+## Implementation Approach
+
+### Two-commit strategy
+
+| Commit | Effort | What | Why separate |
+|--------|--------|------|-------------|
+| **Commit 1** | M-19 | Rename `_bundles` → `_workflows`, update all references, add redirects, add terminology guard | Pure rename — no new content. Clean, reviewable diff. |
+| **Commit 2** | F-13 | Add 6 new workflows + commands + generation script + cross-cutting updates | New content lands on clean "workflows" foundation. |
+
+### Commit 1 — Rename (M-19)
+
+Detailed steps and 14 acceptance tests (11 M-19 + 3 v2.9.0 release) in [plan_bundles-to-workflows.md](../../efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md).
+
+Summary:
+1. Rename directories: `_bundles/` → `_workflows/`, `docs/bundles/` → `docs/workflows/`
+2. Update approximately 400 references across ~100 files (with exceptions for historical docs)
+3. Update CI path triggers in 4 workflow files (validate-docs, deploy-docs, sync-agents-md, release)
+4. Add `mkdocs-redirects` plugin for old `bundles/*` URLs
+5. Add `scripts/check-stale-bundle-refs.sh` + `.ps1` (advisory during transition, FAIL post-v2.9.0)
+6. Rename `commands/kickoff.md` → `commands/workflow-feature-kickoff.md`; **delete** old `kickoff.md` (breaking change)
+7. Create **draft** `docs/releases/Release_v2.9.0.md` with M-19 breaking-change callout
+8. Verify: `mkdocs build --strict`, `validate-commands.ps1`, `validate-agents-md.ps1`, terminology guard
+
+### Commit 2 — Expansion (F-13)
+
+1. Create `scripts/generate-workflow-pages.py` (link-rewriting script)
+2. Test against existing 3 workflows to validate output matches current `docs/workflows/` files
+3. Author 6 new `_workflows/*.md` files from drafted content in `docs/internal/efforts/F-13-workflow-expansion/`
+4. Run `generate-workflow-pages.py` to produce `docs/workflows/*.md` + updated `index.md`
+5. Add 6 nav entries to `mkdocs.yml`
+6. Create 6 `commands/workflow-*.md` files
+7. Update cross-cutting files: AGENTS.md, README, project-structure, generate-skill-pages.py, CHANGELOG, plugin version
+8. Finalize `docs/releases/Release_v2.9.0.md` (expand draft from Commit 1 with F-13 content)
+9. Verify: `mkdocs build --strict`, all validation scripts, manual `mkdocs serve` check
+10. Tag `v2.9.0`
+
+### Dependency diagram
+
+```
+Commit 1: M-19 Rename
+  ├── Directory renames
+  ├── Reference updates (~399)
+  ├── CI trigger updates
+  ├── URL redirects
+  └── Terminology guard script
+         ↓
+Commit 2: F-13 Expansion
+  ├── generate-workflow-pages.py
+  ├── 6 new _workflows/*.md
+  ├── Generate docs/workflows/*.md
+  ├── 6 new commands/workflow-*.md
+  ├── Cross-cutting updates
+  ├── Release artifacts
+  └── Tag v2.9.0
+```
+
+---
+
+## MCP Impact
+
+**The MCP server is already 90% aligned.** The public tool names (`pm_workflow_*`), the listing tool (`pm_list_workflows`), and the source directory (`src/workflows/`) all use "workflow" already. The rename is a **source-level API refactor** inside the MCP repo — exported TypeScript symbols change (`WorkflowBundle` → `Workflow`, `WORKFLOW_BUNDLES` → `WORKFLOWS`, etc.), but no user-facing MCP tool names or IDs change.
+
+MCP changes ship as a **separate pm-skills-mcp release** after pm-skills v2.9.0, combined with the 6 new workflow tool additions. The MCP source refactor is **not gated** against v2.9.0 — it is tracked in a companion MCP release plan (to be created).
+
+See [plan_bundles-to-workflows.md](../../efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md) § "pm-skills-mcp Impact" for the full file inventory.
+
+---
+
+## Master Execution Checklist
+
+### Effort Status
+
+| Effort | Description | Status | Commit |
+|--------|------------|--------|--------|
+| **M-19** | [Rename Bundles to Workflows](../../efforts/M-19-bundles-to-workflows.md) | [ ] Not started | Commit 1 |
+| **F-13** | [Workflow Expansion](../../efforts/F-13-workflow-expansion.md) | [ ] Not started | Commit 2 |
+| **Release** | Tag v2.9.0 + public release notes | [ ] Not started | After Commit 2 |
+
+### New Files to Create
+
+| File | Description | Effort | Status |
+|------|------------|--------|--------|
+| `_workflows/README.md` | Source-of-truth directory README | M-19 | [ ] |
+| `docs/workflows/README.md` | "Generated — do not edit" README | M-19 | [ ] |
+| `scripts/check-stale-bundle-refs.sh` | Terminology guard (bash) | M-19 | [ ] |
+| `scripts/check-stale-bundle-refs.ps1` | Terminology guard (PowerShell) | M-19 | [ ] |
+| `commands/workflow-feature-kickoff.md` | Rename of `kickoff.md` with updated refs | M-19 | [ ] |
+| `_workflows/customer-discovery.md` | New workflow content | F-13 | [ ] |
+| `_workflows/sprint-planning.md` | New workflow content | F-13 | [ ] |
+| `_workflows/product-strategy.md` | New workflow content | F-13 | [ ] |
+| `_workflows/post-launch-learning.md` | New workflow content | F-13 | [ ] |
+| `_workflows/stakeholder-alignment.md` | New workflow content | F-13 | [ ] |
+| `_workflows/technical-discovery.md` | New workflow content | F-13 | [ ] |
+| `commands/workflow-customer-discovery.md` | New slash command | F-13 | [ ] |
+| `commands/workflow-sprint-planning.md` | New slash command | F-13 | [ ] |
+| `commands/workflow-product-strategy.md` | New slash command | F-13 | [ ] |
+| `commands/workflow-post-launch-learning.md` | New slash command | F-13 | [ ] |
+| `commands/workflow-stakeholder-alignment.md` | New slash command | F-13 | [ ] |
+| `commands/workflow-technical-discovery.md` | New slash command | F-13 | [ ] |
+| `scripts/generate-workflow-pages.py` | Generates `docs/workflows/` from `_workflows/` | F-13 | [ ] |
+| `docs/releases/Release_v2.9.0.md` | **Draft** in Commit 1 (M-19 breaking changes); finalized in Commit 2 | M-19 (draft) → F-13 (final) | [ ] |
+
+### Files to Delete
+
+| File | Reason | Effort | Status |
+|------|--------|--------|--------|
+| `commands/kickoff.md` | Replaced by `/workflow-feature-kickoff`; breaking change | M-19 | [ ] |
+
+### Directory Renames
+
+| Current | New | Effort | Status |
+|---------|-----|--------|--------|
+| `_bundles/` | `_workflows/` | M-19 | [ ] |
+| `docs/bundles/` | `docs/workflows/` | M-19 | [ ] |
+
+### Generated Files (produced by `generate-workflow-pages.py`)
+
+Once the generation script exists (F-13), all workflow doc pages become generated artifacts — including the 3 existing workflows that were previously manual copies.
+
+| File | Source | Effort | Status |
+|------|--------|--------|--------|
+| `docs/workflows/index.md` | Regenerated with 9-workflow table | F-13 | [ ] |
+| `docs/workflows/feature-kickoff.md` | `_workflows/feature-kickoff.md` (transitions from manual to generated) | F-13 | [ ] |
+| `docs/workflows/lean-startup.md` | `_workflows/lean-startup.md` (transitions from manual to generated) | F-13 | [ ] |
+| `docs/workflows/triple-diamond.md` | `_workflows/triple-diamond.md` (transitions from manual to generated) | F-13 | [ ] |
+| `docs/workflows/customer-discovery.md` | `_workflows/customer-discovery.md` | F-13 | [ ] |
+| `docs/workflows/sprint-planning.md` | `_workflows/sprint-planning.md` | F-13 | [ ] |
+| `docs/workflows/product-strategy.md` | `_workflows/product-strategy.md` | F-13 | [ ] |
+| `docs/workflows/post-launch-learning.md` | `_workflows/post-launch-learning.md` | F-13 | [ ] |
+| `docs/workflows/stakeholder-alignment.md` | `_workflows/stakeholder-alignment.md` | F-13 | [ ] |
+| `docs/workflows/technical-discovery.md` | `_workflows/technical-discovery.md` | F-13 | [ ] |
+
+### Existing Document Updates — Root
+
+| File | What Changes | Effort | Status |
+|------|-------------|--------|--------|
+| `README.md` | **Commit 1:** rename "workflow bundles" → "workflows", `_bundles/` → `_workflows/`, update links, keep count at 3 | M-19 | [ ] |
+| `README.md` | **Commit 2:** update count 3→9, add 6 rows to workflow table, update feature badge | F-13 | [ ] |
+| `AGENTS.md` | **Commit 1:** "Workflow Bundles" → "Workflows", update 3 existing links `_bundles/` → `_workflows/` | M-19 | [ ] |
+| `AGENTS.md` | **Commit 2:** add 6 new workflow entries to table | F-13 | [ ] |
+| `QUICKSTART.md` | Directory references, workflow definitions location | M-19 | [ ] |
+| `CHANGELOG.md` | **Commit 1:** start v2.9.0 entry (M-19 rename, `/kickoff` breaking change) | M-19 | [ ] |
+| `CHANGELOG.md` | **Commit 2:** expand v2.9.0 entry (F-13 expansion content) | F-13 | [ ] |
+| `SECURITY.md` | `_bundles/` mention if present | M-19 | [ ] |
+
+### Existing Document Updates — `mkdocs.yml` & Build Config
+
+| File | What Changes | Effort | Status |
+|------|-------------|--------|--------|
+| `mkdocs.yml` | **Commit 1:** Nav section "Bundles" → "Workflows", rename 3 existing paths `bundles/` → `workflows/`, add `mkdocs-redirects` plugin config | M-19 | [ ] |
+| `mkdocs.yml` | **Commit 2:** add 6 new nav entries under Workflows section | F-13 | [ ] |
+| `requirements-docs.txt` | Add `mkdocs-redirects` | M-19 | [ ] |
+| `.claude-plugin/plugin.json` | Version 2.9.0, description "workflows" | Release | [ ] |
+| `marketplace.json` | Description "workflows" | M-19 | [ ] |
+
+### Existing Document Updates — `docs/`
+
+| File | What Changes | Effort | Status |
+|------|-------------|--------|--------|
+| **Getting Started** | | | |
+| `docs/getting-started/index.md` | Bundle references → workflow | M-19 | [ ] |
+| `docs/getting-started/quickstart.md` | Bundle definitions location | M-19 | [ ] |
+| `docs/getting-started.md` | Bundle references → workflow | M-19 | [ ] |
+| **Concepts** | | | |
+| `docs/concepts/skill-anatomy.md` | "Bundles" section → "Workflows" | M-19 | [ ] |
+| `docs/concepts/versioning.md` | Bundle versioning notes → workflow | M-19 | [ ] |
+| **Guides** | | | |
+| `docs/guides/using-skills.md` | "Using Workflow Bundles" → "Using Workflows" | M-19 | [ ] |
+| `docs/guides/recipes.md` | Bundle cross-reference → workflow | M-19 | [ ] |
+| `docs/guides/mcp-integration.md` | Bundle reference → workflow | M-19 | [ ] |
+| **Reference** | | | |
+| `docs/reference/project-structure.md` | **Commit 1:** `/_bundles/` → `/_workflows/`, rename 3 existing table entries, update command count for kickoff rename | M-19 | [ ] |
+| `docs/reference/project-structure.md` | **Commit 2:** expand table 3→9, update total command count | F-13 | [ ] |
+| `docs/reference/ecosystem.md` | Bundle references → workflow | M-19 | [ ] |
+| `docs/reference/commands.md` | **Commit 1:** Remove `/kickoff`, add `/workflow-feature-kickoff` | M-19 | [ ] |
+| `docs/reference/commands.md` | **Commit 2:** add 6 new `/workflow-*` command entries | F-13 | [ ] |
+| **Workflows (renamed from Bundles)** | | | |
+| `docs/workflows/index.md` | **Commit 1:** rename "Bundles" → "Workflows" in title/description, 3-row table | M-19 | [ ] |
+| `docs/workflows/index.md` | **Commit 2:** expand table 3→9 (via generation script) | F-13 | [ ] |
+| **Showcase** | | | |
+| `docs/showcase/workbench.md` | Narrative bundle references → workflow | M-19 | [ ] |
+| **Skills** | | | |
+| `docs/skills/utility/utility-pm-skill-builder.md` | Incidental bundle references | M-19 | [ ] |
+| Various `docs/skills/*.md` | ~6 incidental bundle references | M-19 | [ ] |
+| **Other** | | | |
+| `docs/pm-skill-anatomy.md` | Bundle section → Workflows | M-19 | [ ] |
+| `docs/changelog.md` | **Commit 1:** start v2.9.0 entry (**separate file** from `CHANGELOG.md` — update independently) | M-19 | [ ] |
+| `docs/changelog.md` | **Commit 2:** expand v2.9.0 entry with F-13 content | F-13 | [ ] |
+| **Releases** | | | |
+| `docs/releases/Release_v2.9.0.md` | New — public release notes with breaking-change callout | Release | [ ] |
+| `docs/releases/Release_v2.0.md` – `v2.8.x` | **No change** — historical record | — | N/A |
+
+### Existing Document Updates — `docs/internal/`
+
+| File | What Changes | Effort | Status |
+|------|-------------|--------|--------|
+| `docs/internal/release-plans/v2.9.0/plan_v2.9.0.md` | Bundle → workflow terminology throughout | M-19 | [ ] |
+| `docs/internal/mkdocs/mkdocs-config.md` | Config references | M-19 | [ ] |
+| `docs/internal/mkdocs/site-enhancements-plan.md` | Enhancement references | M-19 | [ ] |
+| `docs/internal/skill-versioning.md` | Bundle versioning notes → workflow | M-19 | [ ] |
+| `docs/internal/skill-library-evaluation-anthropic-guide.md` | Evaluation criteria | M-19 | [ ] |
+| Various other internal effort briefs | Incidental bundle references | M-19 | [ ] |
+| `docs/internal/efforts/F-13-workflow-expansion/bundle_*.md` | **No change** — historical drafts | — | N/A |
+
+### Existing Document Updates — CI & Scripts
+
+| File | What Changes | Effort | Status |
+|------|-------------|--------|--------|
+| `.github/workflows/validate-docs.yml` | Path trigger: `_bundles/**` → `_workflows/**` | M-19 | [ ] |
+| `.github/workflows/deploy-docs.yml` | Path trigger: `_bundles/**` → `_workflows/**` | M-19 | [ ] |
+| `.github/workflows/sync-agents-md.yml` | **Commit 1:** path trigger `_bundles/` → `_workflows/`, rename section header and 3 existing table rows | M-19 | [ ] |
+| `.github/workflows/sync-agents-md.yml` | **Commit 2:** add 6 new workflow rows to hardcoded table | F-13 | [ ] |
+| `.github/workflows/release.yml` | "Workflow bundles" → "Workflows" in template | M-19 | [ ] |
+| `.github/workflows/validation.yml` | Add terminology guard job/step | M-19 | [ ] |
+| `scripts/generate-skill-pages.py` | **Commit 1:** rename "bundle" refs, remove `/kickoff` row, add `/workflow-feature-kickoff` row | M-19 | [ ] |
+| `scripts/generate-skill-pages.py` | **Commit 2:** update total command count, add 6 new `/workflow-*` rows | F-13 | [ ] |
+| `scripts/build-release.sh` | `_bundles` → `_workflows` | M-19 | [ ] |
+| `scripts/build-release.ps1` | `_bundles` → `_workflows` | M-19 | [ ] |
+| `scripts/build-release.md` | `_bundles/` path references | M-19 | [ ] |
+
+### Existing Document Updates — Agent Context
+
+| File | What Changes | Effort | Status |
+|------|-------------|--------|--------|
+| `AGENTS/claude/CONTEXT.md` | **Commit 1:** rename `_bundles/` → `_workflows/`, keep count at 3 | M-19 | [ ] |
+| `AGENTS/claude/CONTEXT.md` | **Commit 2:** update workflow count 3→9 | F-13 | [ ] |
+| `AGENTS/codex/CONTEXT.md` | Minor reference | M-19 | [ ] |
+| `AGENTS/DECISIONS.md` | Decision record | M-19 | [ ] |
+
+### Explicitly Unchanged (Tier 6)
+
+| Category | Reason |
+|----------|--------|
+| Historical release notes (`docs/releases/Release_v2.0.md` through `v2.8.x`) | Historical record |
+| Historical CHANGELOG entries (pre-v2.9.0) | Historical record |
+| Archived working docs (`docs/internal/_working/distilled/_archived/`) | Dead documents |
+| Issue archive (`.github/issues-archive/`) | External snapshots |
+| Sample library (`library/skill-output-samples/`) | "bundle" in product context |
+| `scripts/README_SCRIPTS.md` | "release bundle" is generic usage |
+| F-13 draft files (`docs/internal/efforts/F-13-workflow-expansion/bundle_*`) | Historical drafts |
+| MCP tool names (`pm_workflow_*`) and IDs | Already correct |
+| MCP resource test (`tests/resources.test.ts`) | Tests URI rejection — keep as-is |
+
+---
+
+## Verification Plan
+
+### After Commit 1 (M-19 — rename)
+See M-19 plan AT-1 through AT-11 for full criteria. Key checks:
+1. `mkdocs build --strict` passes (zero warnings)
+2. `validate-commands.ps1` passes (`/kickoff` deleted, `/workflow-feature-kickoff` exists)
+3. `validate-agents-md.ps1` passes (3 workflows with `_workflows/` links)
+4. `check-stale-bundle-refs.sh` returns zero unexpected matches
+5. Old URLs redirect: `/bundles/feature-kickoff/` → `/workflows/feature-kickoff/`
+6. `grep -r "_bundles"` across public surfaces returns zero matches (with terminology guard exclusions)
+
+### After Commit 2 (F-13 — expansion) + final release
+See M-19 plan AT-12 through AT-13 for full criteria. Key checks:
+7. All 9 workflows render in nav
+8. `generate-workflow-pages.py` runs cleanly
+9. All 7 `commands/workflow-*.md` pass validation
+10. `docs/workflows/index.md` shows 9-row table
+11. README says "9 workflows"
+12. CHANGELOG has v2.9.0 entry with breaking-change callout
+13. `docs/releases/Release_v2.9.0.md` finalized with full content
+14. Git tag `v2.9.0` applied after all checks pass
+
+> **Note:** pm-skills-mcp source refactor (`npm test`) is **not** a v2.9.0 gate. It ships in a companion MCP release.

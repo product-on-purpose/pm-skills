@@ -307,7 +307,7 @@ Discovery and validation tools:
 | `pm_list_skills` | List all available PM skill tools |
 | `pm_list_resources` | List all MCP resources (skills, templates, examples) |
 | `pm_list_personas` | List persona library resources when available |
-| `pm_list_workflows` | List workflow bundles with their steps |
+| `pm_list_workflows` | List workflows with their steps |
 | `pm_list_prompts` | List available MCP prompts |
 | `pm_validate` | Validate an artifact against a skill template |
 | `pm_search_skills` | Search skills by keyword |
@@ -350,7 +350,7 @@ If you're transitioning from file-based pm-skills to MCP, here's the mapping:
 | `/pm-skill-builder` | `pm_pm_skill_builder` |
 | `/pm-skill-validate` | `pm_pm_skill_validate` |
 | `/pm-skill-iterate` | `pm_pm_skill_iterate` |
-| `/kickoff` | `pm_workflow_feature_kickoff` |
+| `/workflow-feature-kickoff` | `pm_workflow_feature_kickoff` |
 
 Requires pm-skills-mcp v2.8.0+ for the full 29-skill tool inventory.
 

@@ -30,7 +30,7 @@ New-Item -ItemType Directory -Force -Path $Stage | Out-Null
 
 # Stage contents
 $toCopy = @(
-  "skills","commands","_bundles","scripts",
+  "skills","commands","_workflows","scripts",
   "library",
   ".claude-plugin",
   ".claude/pm-skills-for-claude.md",

@@ -4,7 +4,7 @@
 - [Directory Overview](#directory-overview)
 - [/skills/ — Skills](#skills--the-27-pm-skills-flat)
 - [/commands/ — Slash Commands](#commands--slash-commands)
-- [/bundles/ — Workflow Bundles](#bundles--workflow-bundles)
+- [/workflows/ — Workflows](#workflows--workflows)
 - [/docs/ — Documentation](#docs--documentation)
 - [/templates/ — Skill Templates](#templates--skill-templates)
 - [/AGENTS/ — AI Agent Context](#agents--ai-agent-context)
@@ -21,7 +21,7 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 pm-skills/
 ├── skills/                     # Core PM skills (27 total, flat)
 ├── commands/                   # Slash command markdown files (27 total + .gitkeep)
-├── _bundles/                   # Workflow bundles
+├── _workflows/                 # Workflows
 ├── docs/                       # Documentation (incl. templates)
 │   └── templates/              # Skill creation templates
 ├── AGENTS/                     # AI agent session context
@@ -127,10 +127,10 @@ skills/{skill-name}/
 
 ## `/commands/` — Slash Commands
 
-Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or bundle).
+Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
 
-**Commands (28 total: 27 skill commands + 1 workflow bundle)**
-| Command | Target skill/bundle |
+**Commands (28 total: 27 skill commands + 1 workflow)**
+| Command | Target skill/workflow |
 | --- | --- |
 | `/competitive-analysis` | discover-competitive-analysis |
 | `/interview-synthesis` | discover-interview-synthesis |
@@ -158,18 +158,18 @@ Contains Claude Code slash command definitions. Each `.md` maps a `/command` to 
 | `/refinement-notes` | iterate-refinement-notes |
 | `/retrospective` | iterate-retrospective |
 | `/persona` | foundation-persona |
-| `/kickoff` | feature-kickoff bundle |
+| `/workflow-feature-kickoff` | feature-kickoff workflow |
 
-`utility-pm-skill-builder` currently ships as a skill file only. There is no committed `/pm-skill-builder` command yet.
+`utility-pm-skill-builder` also has a committed `/pm-skill-builder` command.
 
 ---
 
-## `/_bundles/` — Workflow Bundles
+## `/_workflows/` — Workflows
 
-Bundles chain multiple skills together into guided, end-to-end workflows.
+Workflows chain multiple skills together into guided, end-to-end sequences.
 
-| Bundle | Purpose | Skills Included |
-|--------|---------|-----------------|
+| Workflow | Purpose | Skills Included |
+|----------|---------|-----------------|
 | `feature-kickoff.md` | New feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | `lean-startup.md` | Rapid validation cycle | hypothesis → experiment-design → experiment-results → pivot-decision |
 | `triple-diamond.md` | Complete product development | All 25 phase skills across 6 phases |
@@ -284,7 +284,7 @@ This directory helps AI assistants maintain context across sessions. Not require
 | `SKILL.md` | Skill instruction file (always uppercase) |
 | `TEMPLATE.md` | Output template (always uppercase) |
 | `EXAMPLE.md` | Example output (always uppercase) |
-| `_prefix/` | Underscore prefix for meta directories (e.g., `_bundles/`) |
+| `_prefix/` | Underscore prefix for meta directories (e.g., `_workflows/`) |
 
 ---
 

@@ -5,7 +5,7 @@
   <br>
 </h1>
 
-<h4 align=”center”>A curated collection of 29 best-practice, plug-and-play product management “agent skills” (25 phase skills + 1 foundation skill + 3 utility skills) plus templates and workflow bundles for consistent, professional PM outputs.</h4>
+<h4 align=”center”>A curated collection of 29 best-practice, plug-and-play product management “agent skills” (25 phase skills + 1 foundation skill + 3 utility skills) plus templates and workflows for consistent, professional PM outputs.</h4>
 
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills/issues/new?labels=bug">Report a Bug</a>
@@ -57,7 +57,7 @@
   </a>
 </p>
 
-> **🔥MCP Server Available!** If you are using VS Code, Claude Desktop, Claude Code (CLI), Github Copilot, Cursor, etc... check out **[pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)** for instant MCP access to the shipped skill library and bundled workflows - no file management required.
+> **🔥MCP Server Available!** If you are using VS Code, Claude Desktop, Claude Code (CLI), Github Copilot, Cursor, etc... check out **[pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)** for instant MCP access to the shipped skill library and workflows - no file management required.
 
 ---
 
@@ -67,7 +67,7 @@
   <a href="#the-big-idea">About</a> •
   <a href="#getting-started">Getting Started</a> •
   <a href="#the-skills">Skills</a> •
-  <a href="#workflow-bundles">Bundles</a> •
+  <a href="#workflows">Workflows</a> •
   <a href="#project-status">Status</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#community">Community</a>
@@ -94,7 +94,7 @@
   - [How Skills Work](#how-skills-work)
   - [The Skills](#the-skills)
   - [Quick Examples](#quick-examples)
-  - [Workflow Bundles](#workflow-bundles)
+  - [Workflows](#workflows)
 - [Project Status](#project-status)
   - [Project Structure](#project-structure)
   - [Changelog](#changelog)
@@ -129,7 +129,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - **New CI**: `validate-skill-history` and `validate-skills-manifest` advisory scripts for skill versioning governance.
 - **New guide**: `docs/pm-skill-lifecycle.md` — workflow patterns for the Create → Validate → Iterate lifecycle.
 - **Governance**: `docs/internal/skill-versioning.md` — SemVer rules, HISTORY.md contract, skills-manifest.yaml format.
-- Repo now ships 29 skills, 30 command docs, and 3 workflow bundles.
+- Repo now ships 29 skills, 30 command docs, and 3 workflows.
 - Release note: [`docs/releases/Release_v2.8.0.md`](docs/releases/Release_v2.8.0.md).
 
 </details>
@@ -141,7 +141,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - **Enhanced CI**: extended frontmatter linter, AGENTS.md sync validator, MCP impact detection.
 - **Release packaging**: `docs/internal/**` excluded from published ZIPs while staying tracked in-repo.
 - **Documentation**: new `docs/pm-skill-anatomy.md` guide, comprehensive public docs refresh.
-- Repo now ships 27 skills, 28 command docs, and 3 workflow bundles.
+- Repo now ships 27 skills, 28 command docs, and 3 workflows.
 - Release note: [`docs/releases/Release_v2.7.0.md`](docs/releases/Release_v2.7.0.md).
 
 </details>
@@ -202,7 +202,7 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 - ✅ **29 Production-Ready Skills** covering the complete product lifecycle (25 phase skills + 1 foundation skill + 3 utility skills)
 - ✅ **Triple Diamond Framework** organizing Discover, Define, Develop, Deliver, Measure, and Iterate phases
-- ✅ **Workflow Bundles** for common PM workflows (Feature Kickoff, Lean Startup, Triple Diamond)
+- ✅ **Workflows** for common PM processes (Feature Kickoff, Lean Startup, Triple Diamond)
 - ✅ **Slash Commands** for Claude Code users-instant access to every skill
 - ✅ **Auto-Discovery** via AGENTS.md in GitHub Copilot, Cursor, and Windsurf
 - ✅ **Agent Skills Spec** compliant-works across AI assistants
@@ -306,7 +306,7 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **Skill invocation** | Slash commands (Claude Code) | MCP tool calls |
 | **Auto-discovery** | AGENTS.md (Copilot, Cursor, Windsurf) | MCP protocol (Claude Desktop, Cursor) |
 | **Template access** | Navigate file system | URI-based resources |
-| **Workflow bundles** | Manual orchestration | Tool-based execution |
+| **Workflows** | Manual orchestration | Tool-based execution |
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
 | **Updates** | `git pull` | `npm update pm-skills-mcp` |
 
@@ -522,7 +522,7 @@ The skill content provides all the context the LLM needs to produce professional
 
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
-- **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, bundles, and documentation
+- **`pm-skills-vX.X.X.zip`** — Complete package with all skills, commands, workflows, and documentation
 - **Latest stable:** `v2.8.2` (Docs site polish + versioning concepts)
 - **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#282---2026-04-04)
 - **Published tag:** [`v2.8.2`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.8.2)
@@ -556,9 +556,9 @@ PM-Skills provides three components that work together to accelerate your produc
 | ------------ | ----------------------------------------------------------- | --------------------------------------------------------- |
 | **Skills**   | Self-contained instruction sets with templates and examples | Single artifacts (PRD, user stories, retro)               |
 | **Commands** | Slash commands for Claude Code (e.g., `/prd`)               | Quick access to individual skills                         |
-| **Bundles**  | Curated multi-skill workflows                               | End-to-end processes (feature kickoff, validation cycles) |
+| **Workflows**  | Curated multi-skill processes                              | End-to-end processes (feature kickoff, validation cycles) |
 
-**Skills** are the atomic building blocks-each one teaches your AI how to produce a specific PM artifact with professional quality. **Commands** give you instant access to skills via `/skill-name` syntax. **Workflow bundles** chain multiple skills together for complete product development processes.
+**Skills** are the atomic building blocks-each one teaches your AI how to produce a specific PM artifact with professional quality. **Commands** give you instant access to skills via `/skill-name` syntax. **Workflows** chain multiple skills together for complete product development processes.
 
 ### How Skills Work
 
@@ -687,26 +687,26 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 /interview-synthesis "5 customer interviews about payment flows"
 ```
 
-### Workflow Bundles
+### Workflows
 
-While individual skills are powerful on their own, real product work rarely happens in isolation. Workflow bundles combine multiple skills into guided, end-to-end processes that mirror how experienced product managers actually work.
+While individual skills are powerful on their own, real product work rarely happens in isolation. Workflows combine multiple skills into guided, end-to-end processes that mirror how experienced product managers actually work.
 
-Each bundle provides a **sequence of skills** with handoff guidance between steps, ensuring context flows naturally from discovery through delivery. Bundles are opinionated-they encode PM best practices about which artifacts to create and in what order.
+Each workflow provides a **sequence of skills** with handoff guidance between steps, ensuring context flows naturally from discovery through delivery. Workflows are opinionated-they encode PM best practices about which artifacts to create and in what order.
 
-**Don't know where to start?** Use a bundle:
+**Don't know where to start?** Use a workflow:
 
-| Bundle                                             | Best for          | Skills included                                                        |
-| -------------------------------------------------- | ----------------- | ---------------------------------------------------------------------- |
-| **[Feature Kickoff](_bundles/feature-kickoff.md)** | New features      | problem-statement → hypothesis → prd → user-stories → launch-checklist |
-| **[Lean Startup](_bundles/lean-startup.md)**       | Rapid validation  | hypothesis → experiment-design → experiment-results → pivot-decision   |
-| **[Triple Diamond](_bundles/triple-diamond.md)**   | Major initiatives | Full 25 phase-skill flow across 6 phases                                |
+| Workflow                                                | Best for          | Skills included                                                        |
+| ------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------- |
+| **[Feature Kickoff](_workflows/feature-kickoff.md)** | New features      | problem-statement → hypothesis → prd → user-stories → launch-checklist |
+| **[Lean Startup](_workflows/lean-startup.md)**       | Rapid validation  | hypothesis → experiment-design → experiment-results → pivot-decision   |
+| **[Triple Diamond](_workflows/triple-diamond.md)**   | Major initiatives | Full 25 phase-skill flow across 6 phases                                |
 
 #### Workflow Examples
 
-**For new features**, use the [Feature Kickoff](_bundles/feature-kickoff.md) workflow:
+**For new features**, use the [Feature Kickoff](_workflows/feature-kickoff.md) workflow:
 
 ```
-/kickoff "Mobile push notifications"
+/workflow-feature-kickoff "Mobile push notifications"
 ```
 
 This automatically executes:
@@ -717,13 +717,13 @@ This automatically executes:
 4. `user-stories` - Generate implementation stories
 5. `launch-checklist` - Plan the launch
 
-**For rapid validation**, use the [Lean Startup](_bundles/lean-startup.md) workflow:
+**For rapid validation**, use the [Lean Startup](_workflows/lean-startup.md) workflow:
 
 ```
 Build → Measure → Learn cycle with hypothesis, experiments, and pivot decisions
 ```
 
-**For major initiatives**, use the [Triple Diamond](_bundles/triple-diamond.md) workflow:
+**For major initiatives**, use the [Triple Diamond](_workflows/triple-diamond.md) workflow:
 
 ```
 Complete product development across all 6 phases and 25 phase skills
@@ -742,8 +742,8 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 ```
 pm-skills/
 ├── skills/                     # 29 PM skills (25 phase + 1 foundation + 3 utility)
-├── commands/                   # Slash commands (30) mapping to skills/bundles
-├── _bundles/                   # Workflow bundles: feature-kickoff, lean-startup, triple-diamond
+├── commands/                   # Slash commands (30) mapping to skills/workflows
+├── _workflows/                 # Workflows: feature-kickoff, lean-startup, triple-diamond
 ├── library/                    # Sample output library (skill-output-samples) and related corpus docs
 ├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)
 ├── .github/                    # CI workflows + automation scripts (validate-mcp-sync)
@@ -832,7 +832,7 @@ See [CHANGELOG.md](CHANGELOG.md) for full details.
 | **1.1.1** | 2026-01-20 | openskills#48 fix verified, CODE_OF_CONDUCT, open-skills submissions    |
 | **1.1.0** | 2026-01-16 | Documentation overhaul, README redesign, FAQ, collapsible TOC           |
 | **1.0.1** | 2026-01-15 | Slash-command baseline completion for the initial shipped skill set     |
-| **1.0.0** | 2026-01-14 | First stable Triple Diamond baseline, workflow bundles, and AGENTS.md   |
+| **1.0.0** | 2026-01-14 | First stable Triple Diamond baseline, workflows, and AGENTS.md   |
 | **0.3.0** | 2026-01-14 | P1 skill-lane expansion and GitHub Actions workflow setup               |
 | **0.2.0** | 2026-01-14 | P0 core-skill baseline and early project structure                      |
 | **0.1.0** | 2026-01-14 | Initial project structure, foundation infrastructure                    |
@@ -850,7 +850,7 @@ Maintenance milestone documentation:
 See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) for a full list of proposed features and known issues.
 
 - [x] Launch with 29 shipped skills (25 phase skills + 1 foundation skill + 3 utility skills)
-- [x] Add workflow bundles (Feature Kickoff, Lean Startup, Triple Diamond)
+- [x] Add workflows (Feature Kickoff, Lean Startup, Triple Diamond)
 - [x] GitHub Copilot, Cursor, and Windsurf integration via AGENTS.md
 - [x] Slash commands for Claude Code
 - [x] Apache 2.0 license for commercial use
@@ -868,10 +868,10 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [ ] New skills?! Which?
 - [ ] Community skill contributions and marketplace
 - [x] Skill versioning and compatibility tracking
-- [ ] Additional workflow bundles
-    - [ ] Product Strategy bundle
-    - [ ] Customer Discovery bundle
-    - [ ] Stakeholder Management bundle
+- [ ] Additional workflows
+    - [ ] Product Strategy workflow
+    - [ ] Customer Discovery workflow
+    - [ ] Stakeholder Management workflow
 - [ ] Multi-language support
     - [ ] Spanish translations
     - [ ] Portuguese translations
@@ -936,7 +936,7 @@ Please try to create bug reports that are:
 <details>
 <summary><strong>Do I need to install all 29 skills?</strong></summary>
 
-No! You can use individual skills as needed. Each skill is self-contained and works independently. If you only need PRDs, just reference the `skills/deliver-prd/` skill. The bundles are optional workflow guides, not requirements.
+No! You can use individual skills as needed. Each skill is self-contained and works independently. If you only need PRDs, just reference the `skills/deliver-prd/` skill. The workflows are optional guides, not requirements.
 
 </details>
 
@@ -955,9 +955,9 @@ Fork the repository and modify the `SKILL.md`, `TEMPLATE.md`, or `EXAMPLE.md` fi
 </details>
 
 <details>
-<summary><strong>What's the difference between skills and bundles?</strong></summary>
+<summary><strong>What's the difference between skills and workflows?</strong></summary>
 
-**Skills** are atomic units-each produces one PM artifact (a PRD, a hypothesis, user stories, etc.). **Bundles** are curated workflows that chain multiple skills together in a recommended sequence. Use skills when you need a specific output; use bundles when you want guided end-to-end processes.
+**Skills** are atomic units-each produces one PM artifact (a PRD, a hypothesis, user stories, etc.). **Workflows** chain multiple skills together in a recommended sequence. Use skills when you need a specific output; use workflows when you want guided end-to-end processes.
 
 </details>
 

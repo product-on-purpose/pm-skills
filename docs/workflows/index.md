@@ -1,22 +1,22 @@
 ---
-title: Workflow Bundles
+title: Workflows
 description: Multi-skill workflows that chain PM skills together for common product management processes.
 ---
 
-# Workflow Bundles
+# Workflows
 
-Bundles chain multiple skills into end-to-end workflows. Each bundle defines a sequence of skills to run in order.
+Workflows chain multiple skills into end-to-end sequences. Each workflow defines a sequence of skills to run in order.
 
-| Bundle | Skills chained | Use when |
-|--------|---------------|----------|
+| Workflow | Skills chained | Use when |
+|----------|---------------|----------|
 | [Feature Kickoff](feature-kickoff.md) | Problem Statement → Hypothesis → PRD → User Stories | Starting a new feature from scratch |
 | [Lean Startup](lean-startup.md) | Hypothesis → Experiment Design → Experiment Results → Pivot Decision | Running a build-measure-learn cycle |
 | [Triple Diamond](triple-diamond.md) | Full Discover → Define → Develop → Deliver → Measure → Iterate flow | End-to-end product development |
 
-## How to use a bundle
+## How to use a workflow
 
 ```
-/kickoff "Feature name or description"
+/workflow-feature-kickoff "Feature name or description"
 ```
 
-The `/kickoff` command runs the Feature Kickoff bundle. Other bundles are invoked by referencing their bundle file directly.
+The `/workflow-feature-kickoff` command runs the Feature Kickoff workflow. Other workflows are invoked by referencing their workflow file directly.

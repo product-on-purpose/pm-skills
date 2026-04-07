@@ -15,7 +15,7 @@ This guide takes you from basic skill invocation to advanced workflows and power
 ### Intermediate
 - [Iterating on Outputs](#iterating-on-outputs)
 - [Chaining Skills](#chaining-skills)
-- [Using Workflow Bundles](#using-workflow-bundles)
+- [Using Workflows](#using-workflows)
 - [Customizing Outputs](#customizing-outputs)
 
 ### Advanced
@@ -402,23 +402,23 @@ Some skills have natural dependencies:
 
 ---
 
-## Using Workflow Bundles
+## Using Workflows
 
-Bundles are pre-defined skill sequences for common workflows.
+Workflows are pre-defined skill sequences for common PM processes.
 
-### Available Bundles
+### Available Workflows
 
-| Bundle | Use Case | Skills |
-|--------|----------|--------|
+| Workflow | Use Case | Skills |
+|----------|----------|--------|
 | Feature Kickoff | Standard feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | Lean Startup | Rapid validation | hypothesis → experiment-design → experiment-results → pivot-decision |
 | Triple Diamond | Comprehensive product dev | All 25 phase skills across 6 phases |
 
-### Invoking a Bundle
+### Invoking a Workflow
 
 **Claude Code:**
 ```
-/kickoff "Save for Later feature for shopping cart"
+/workflow-feature-kickoff "Save for Later feature for shopping cart"
 ```
 
 **Other platforms:**
@@ -427,7 +427,7 @@ Run the Feature Kickoff workflow for adding a
 "Save for Later" feature to our shopping cart.
 ```
 
-### Bundle Execution
+### Workflow Execution
 
 The AI will work through each skill in sequence:
 
@@ -446,7 +446,7 @@ Step 3/5: PRD
 ...and so on
 ```
 
-### Customizing Bundle Execution
+### Customizing Workflow Execution
 
 **Skip steps you don't need:**
 ```
@@ -949,7 +949,7 @@ Friday:    /retrospective (team reflection)
 - [ ] Use 3 different skills successfully
 - [ ] Chain 2 skills together in one conversation
 - [ ] Iterate on an output to improve quality
-- [ ] Try one workflow bundle
+- [ ] Try one workflow
 
 ### Intermediate → Advanced
 
@@ -971,7 +971,7 @@ Friday:    /retrospective (team reflection)
 
 - [Getting Started](../getting-started.md) — Installation and setup
 - [Categories Reference](../reference/categories.md) — Skill organization
-- [Workflow Bundles](../../_bundles/) — Pre-built workflows
+- [Workflows](../../_workflows/) — Pre-built workflows
 
 ---
 

@@ -8,10 +8,10 @@ Created: 2026-03-31
 
 This repo tracks versions at two levels:
 
-- **Repo version** — the plugin/bundle release (e.g., `v2.7.0`), tracked in git tags, `CHANGELOG.md`, `.claude-plugin/plugin.json`, and `docs/releases/`.
+- **Repo version** — the plugin release (e.g., `v2.7.0`), tracked in git tags, `CHANGELOG.md`, `.claude-plugin/plugin.json`, and `docs/releases/`.
 - **Skill version** — each skill's independent contract version (e.g., `1.0.0`), tracked in the skill's SKILL.md frontmatter `version` field.
 
-These are intentionally decoupled. A repo release bundles many skills; a skill can iterate across multiple repo releases.
+These are intentionally decoupled. A repo release packages many skills; a skill can iterate across multiple repo releases.
 
 ## Key Concepts
 
@@ -20,7 +20,7 @@ These are intentionally decoupled. A repo release bundles many skills; a skill c
 | **Effort** | A unit of work (design + implementation) | `_NOTES/efforts/` (working), `docs/internal/efforts/` (brief) |
 | **Skill** | A long-lived shipped surface | `skills/{name}/SKILL.md` |
 | **Skill version** | The current contract version of a skill | `version` field in SKILL.md frontmatter |
-| **Repo release** | A tagged bundle of changes | Git tag, `CHANGELOG.md`, `docs/releases/` |
+| **Repo release** | A tagged collection of changes | Git tag, `CHANGELOG.md`, `docs/releases/` |
 | **Skills manifest** | Which skill versions changed in a release | `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml` |
 | **Skill history** | Per-skill changelog across versions | `skills/{name}/HISTORY.md` (created when a skill iterates) |
 

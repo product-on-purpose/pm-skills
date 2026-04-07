@@ -32,7 +32,7 @@ Response targets:
 ## Scope
 
 This policy covers:
-1. Repository content (`skills/`, `commands/`, `_bundles/`, docs, templates)
+1. Repository content (`skills/`, `commands/`, `_workflows/`, docs, templates)
 2. Build/release tooling and GitHub Actions workflows
 3. Published release artifacts
 

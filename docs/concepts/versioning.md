@@ -8,7 +8,7 @@ tags:
 
 # Skill Versioning
 
-PM Skills tracks versions at two levels: the **repo version** (the release bundle) and individual **skill versions** (each skill's contract). These are intentionally decoupled.
+PM Skills tracks versions at two levels: the **repo version** (the release package) and individual **skill versions** (each skill's contract). These are intentionally decoupled.
 
 ## Two Version Levels
 
@@ -17,7 +17,7 @@ PM Skills tracks versions at two levels: the **repo version** (the release bundl
 | **Repo version** | v2.8.1 | Git tags, CHANGELOG.md, plugin.json |
 | **Skill version** | 2.0.0 | `version` field in each SKILL.md frontmatter |
 
-A repo release bundles many skills. A skill can iterate across multiple repo releases. For example, repo v2.8.0 contains `deliver-prd` at version 2.0.0 and `utility-pm-skill-validate` at version 1.0.0.
+A repo release packages many skills. A skill can iterate across multiple repo releases. For example, repo v2.8.0 contains `deliver-prd` at version 2.0.0 and `utility-pm-skill-validate` at version 1.0.0.
 
 ## How Skill Versions Work
 

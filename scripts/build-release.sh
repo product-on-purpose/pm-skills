@@ -38,7 +38,7 @@ if command -v rsync >/dev/null 2>&1; then
   rsync -a --delete \
     "$ROOT/skills" \
     "$ROOT/commands" \
-    "$ROOT/_bundles" \
+    "$ROOT/_workflows" \
     "$ROOT/library" \
     "$ROOT/scripts" \
     "$ROOT/.claude-plugin" \
@@ -50,7 +50,7 @@ else
   cp -a \
     "$ROOT/skills" \
     "$ROOT/commands" \
-    "$ROOT/_bundles" \
+    "$ROOT/_workflows" \
     "$ROOT/library" \
     "$ROOT/scripts" \
     "$ROOT/.claude-plugin" \

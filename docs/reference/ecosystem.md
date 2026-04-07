@@ -38,7 +38,7 @@ The PM-Skills ecosystem provides a file-based PM skill library plus an MCP serve
 │   │  • 27 skill files   │ ───► │  • MCP tools        │         │
 │   │  • Slash commands   │      │  • MCP resources    │         │
 │   │  • AGENTS.md        │      │  • MCP prompts      │         │
-│   │  • Workflow bundles │      │  • Workflow bundles │         │
+│   │  • Workflows       │      │  • Workflows       │         │
 │   │                     │      │                     │         │
 │   │  Git clone / ZIP    │      │  npm install        │         │
 │   └─────────────────────┘      └─────────────────────┘         │
@@ -72,11 +72,11 @@ PM-Skills is the **source skill library**—a collection of markdown files conta
 | Component | Count | Description |
 |-----------|-------|-------------|
 | Skills | 27 | Complete PM artifacts (25 phase skills + 1 foundation skill + 1 utility skill) |
-| Slash Commands | 28 | Command markdown files (27 skill commands + `/kickoff`) |
-| Workflow Bundles | 3 | Multi-skill workflows (Feature Kickoff, Lean Startup, Triple Diamond) |
+| Slash Commands | 28 | Command markdown files (27 skill commands + `/workflow-feature-kickoff`) |
+| Workflows | 3 | Multi-skill workflows (Feature Kickoff, Lean Startup, Triple Diamond) |
 | Documentation | ~10 files | Guides, references, and framework explanations |
 
-All 27 skills are registered in `AGENTS.md` with corresponding slash commands in `commands/`.
+All 27 skills are registered in `AGENTS.md` with corresponding slash commands in `commands/`. Workflows are in `_workflows/`.
 
 #### Directory Structure
 
@@ -90,7 +90,7 @@ pm-skills/
 │   ├── measure-experiment-design/
 │   └── iterate-retrospective/
 ├── commands/             # 27 command markdown files for Claude Code
-├── _bundles/             # Workflow bundles
+├── _workflows/           # Workflows
 ├── docs/                 # Documentation
 └── AGENTS.md             # Universal agent discovery
 ```
@@ -188,7 +188,7 @@ Use this matrix to choose between the file-based skill library and the MCP serve
 | Feature | PM-Skills | PM-Skills MCP |
 |---------|-----------|---------------|
 | **Shipped PM-Skills catalog** | ✅ | ✅ |
-| **Workflow Bundles** | ✅ Manual | ✅ Tool-based |
+| **Workflows** | ✅ Manual | ✅ Tool-based |
 | **Slash Commands** | ✅ 27 command docs | ❌ (use tools) |
 | **MCP Tools** | ❌ | ✅ Release-specific tool set |
 | **MCP Resources** | ❌ | ✅ Release-specific resource set |

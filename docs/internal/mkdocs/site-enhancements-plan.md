@@ -235,7 +235,7 @@ Add before the pip install step:
 ## E-06: Recipes Section
 
 ### What
-Short, concrete end-to-end workflows for common PM tasks. More specific than bundles, more practical than the lifecycle guide.
+Short, concrete end-to-end workflows for common PM tasks. More specific than workflows, more practical than the lifecycle guide.
 
 ### Design
 
@@ -262,7 +262,7 @@ Short, concrete end-to-end workflows for common PM tasks. More specific than bun
 4. `/release-notes` — communicate to users
 
 ## Start from scratch (full lifecycle)
-Use the `/kickoff` bundle, then extend with Measure and Iterate skills.
+Use the `/workflow-feature-kickoff` workflow, then extend with Measure and Iterate skills.
 ```
 
 ### Files
@@ -342,7 +342,7 @@ flowchart LR
 - Or: manually create phase flow diagrams (more control over accuracy)
 
 ### Implementation note
-The connections between skills are not codified anywhere in the repo — they'd need to be manually defined. The bundle files have some of this information but not all phases are covered. Recommend manual mermaid diagrams for v1, with the option to derive them from bundles later.
+The connections between skills are not codified anywhere in the repo — they'd need to be manually defined. The workflow files have some of this information but not all phases are covered. Recommend manual mermaid diagrams for v1, with the option to derive them from workflows later.
 
 ### Effort: ~1.5 hours (8 phase diagrams)
 

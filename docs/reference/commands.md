@@ -5,7 +5,7 @@ description: "All slash commands available in PM Skills."
 
 # Commands Reference
 
-PM Skills ships 30 slash commands: 29 skill commands plus the `/kickoff` workflow bundle.
+PM Skills ships 30 slash commands: 29 skill commands plus the `/workflow-feature-kickoff` workflow.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -38,4 +38,4 @@ PM Skills ships 30 slash commands: 29 skill commands plus the `/kickoff` workflo
 | `/spike-summary` | [develop-spike-summary](../skills/develop/develop-spike-summary.md) | Develop | Documents the results of a time-boxed technical or design ex... |
 | `/stakeholder-summary` | [discover-stakeholder-summary](../skills/discover/discover-stakeholder-summary.md) | Discover | Documents stakeholder needs, concerns, and influence for a p... |
 | `/user-stories` | [deliver-user-stories](../skills/deliver/deliver-user-stories.md) | Deliver | Generates user stories with clear acceptance criteria from p... |
-| `/kickoff` | [Feature Kickoff](../bundles/feature-kickoff.md) | Bundle | Run the Feature Kickoff workflow |
+| `/workflow-feature-kickoff` | [Feature Kickoff](../workflows/feature-kickoff.md) | Workflow | Run the Feature Kickoff workflow |

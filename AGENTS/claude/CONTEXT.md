@@ -2,11 +2,11 @@
 
 ## Current State
 
-**Status:** v2.8.0 released and tagged — PM skill lifecycle complete (Create → Validate → Iterate)
-**Last Updated:** 2026-04-03
-**Release:** [v2.8.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.8.0) (current)
+**Status:** v2.8.2 released — v2.9.0 planning complete, ready for execution
+**Last Updated:** 2026-04-06
+**Release:** [v2.8.2](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.8.2) (current)
 **MCP:** [pm-skills-mcp v2.8.0](https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.8.0) synced
-**Next Step:** Post-v2.8.0 backlog — M-13 (convention alignment), F-07/F-08 (new skills), M-17 (GitHub Pages), e2e lifecycle test
+**Next Step:** Execute v2.9.0 — Commit 1 (M-19: rename bundles→workflows), then Commit 2 (F-13: 6 new workflows)
 
 ## Project Overview
 
@@ -33,8 +33,8 @@ pm-skills/
 │   ├── deliver-prd/
 │   ├── deliver-user-stories/
 │   └── ...               # 29 skills total: {phase/classification}-{skill}/
-├── bundles/              # Workflow bundles (triple-diamond, lean-startup, feature-kickoff)
-├── commands/             # Claude Code slash commands (30 total: 29 skill + 1 bundle)
+├── _workflows/           # Workflows (triple-diamond, lean-startup, feature-kickoff)
+├── commands/             # Claude Code slash commands (30 total: 29 skill + 1 workflow)
 ├── docs/                 # Documentation
 │   ├── guides/           # How-to guides
 │   ├── reference/        # Technical specs
@@ -66,6 +66,25 @@ pm-skills/
 
 ## Recent Work
 
+- **v2.9.0 Planning Complete** (2026-04-06)
+  - **Theme**: Rename "bundles" to "workflows" + expand from 3 to 9 guided multi-skill workflows
+  - **M-19**: Rename `_bundles/` → `_workflows/`, ~400 references across ~100 files, delete `/kickoff`, add `/workflow-feature-kickoff`, URL redirects, terminology guard
+  - **F-13**: 6 new workflows (Customer Discovery, Sprint Planning, Product Strategy, Post-Launch Learning, Stakeholder Alignment, Technical Discovery) with `/workflow-` prefixed commands
+  - **Two-commit strategy**: Commit 1 = M-19 rename (single atomic commit), Commit 2 = F-13 expansion
+  - **MCP**: Source-level API refactor deferred to companion release (non-breaking, `pm_workflow_*` tool names unchanged)
+  - **Codex reviews**: M-19 plan reviewed (13 findings, all addressed), v2.9.0 release plan reviewed (8 findings, all addressed)
+  - **Plans**: `docs/internal/release-plans/v2.9.0/plan_v2.9.0.md` (master), `docs/internal/efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md` (detailed rename)
+  - **Key decisions**: delete `/kickoff` (no alias), terminology guard advisory→FAIL post-v2.9.0, release notes draft in Commit 1
+  - Repo at v2.8.2: 29 skills, 30 commands, 3 workflows (→ 9 workflows after v2.9.0)
+
+- **v2.8.2 Released** (2026-04-04)
+  - Versioning concepts page, git-revision-date plugin, custom CSS, F-12 effort brief
+  - Documentation-only release
+
+- **v2.8.1 Released** (2026-04-04)
+  - MkDocs Material documentation site launch with showcase, skill pages, prompt gallery
+  - Documentation-only release
+
 - **v2.8.0 Released** (2026-04-03)
   - **Theme**: Complete the PM skill lifecycle — Create → Validate → Iterate
   - **F-10**: `utility-pm-skill-validate` — audits skills against structural conventions and quality criteria, pipe-delimited report format (`Report schema: v1`), two-tier assessment rebaselined against shipped library (`1398835`)
@@ -77,7 +96,7 @@ pm-skills/
   - **Infrastructure**: `docs/internal/releases/` renamed to `docs/internal/release-plans/`
   - **Codex review**: Full design review with 20 findings (3 blockers resolved), pre-release consistency review with 8 findings (all fixed)
   - **MCP synced**: pm-skills-mcp v2.8.0 — `pm_pm_skill_validate` + `pm_pm_skill_iterate`, 42 tools (29 skills + 5 workflows + 8 utilities)
-  - Repo: 29 skills (25 domain + 1 foundation + 3 utility), 30 commands, 3 bundles
+  - Repo: 29 skills (25 domain + 1 foundation + 3 utility), 30 commands, 3 workflows
 
 - **v2.7.0 Released** (2026-03-22)
   - **M-12**: CI validation enhancement — extended linter, validate-agents-md, check-mcp-impact (`8d2a418`)
@@ -90,7 +109,7 @@ pm-skills/
   - **MCP sync docs**: maintainer workflow added to `docs/guides/mcp-integration.md`
   - **Release governance**: v2.2.0-v2.7.0 folders, decisions log, detailed release notes
   - **Issues closed**: #112, #113, #114, #123
-  - Repo: 27 skills (25 domain + 1 foundation + 1 utility), 28 commands, 3 bundles
+  - Repo: 27 skills (25 domain + 1 foundation + 1 utility), 28 commands, 3 workflows
 
 - **v2.6.1 Shipped — Sample Library Recovery** (2026-03-04)
   - Sample output library moved and normalized to `library/skill-output-samples/`
@@ -371,7 +390,7 @@ pm-skills/
 
 - **Slash Commands (28 total):**
   - 27 skill commands (24 original + `/persona` + `/acceptance-criteria` + `/pm-skill-builder`)
-  - 1 bundle command: `/kickoff`
+  - 1 workflow command: `/workflow-feature-kickoff`
 - **Skills (27 total):**
   - 25 domain skills (24 original + deliver-acceptance-criteria)
   - 1 foundation skill: foundation-persona (`classification: foundation`)
@@ -382,10 +401,10 @@ pm-skills/
 - **Plugin Manifest:**
   - `.claude-plugin/plugin.json` — Claude plugin packaging (added v2.6.0)
   - `.github/workflows/validate-plugin.yml` — plugin validation CI
-- **Workflow Bundles:**
-  - `_bundles/triple-diamond.md` — Complete product development cycle
-  - `_bundles/lean-startup.md` — Build-Measure-Learn rapid iteration
-  - `_bundles/feature-kickoff.md` — Quick-start workflow for features
+- **Workflows:**
+  - `_workflows/triple-diamond.md` — Complete product development cycle
+  - `_workflows/lean-startup.md` — Build-Measure-Learn rapid iteration
+  - `_workflows/feature-kickoff.md` — Quick-start workflow for features
 - **Agent Discovery:**
   - `AGENTS.md` — Universal agent discovery file with all commands listed
 - **GitHub Actions:**
@@ -395,11 +414,18 @@ pm-skills/
   - `.github/workflows/release.yml` — Create releases on tag
   - `.github/workflows/release-zips.yml` — Package ZIP artifacts
 
-## Next Steps (Post-v2.7.0)
+## Next Steps
 
-See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
+### Active (v2.9.0)
+
+| ID | Effort | Status | Plan |
+|----|--------|--------|------|
+| M-19 | Rename bundles → workflows | Ready for execution | `docs/internal/efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md` |
+| F-13 | Workflow expansion (6 new) | Ready for execution (after M-19) | `docs/internal/efforts/F-13-workflow-expansion.md` |
 
 ### Backlog
+
+See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 
 | ID | Effort | Issue |
 |----|--------|-------|
@@ -409,8 +435,7 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 | F-07 | `discover-market-sizing` | #118 |
 | F-08 | `measure-survey-analysis` | #119 |
 | F-09 | Agent Skill Builder (`/agent-skill-builder`) | #120 |
-| F-10 | PM Skill Validate (`/pm-skill-validate`) | #121 |
-| F-11 | PM Skill Iterate (`/pm-skill-iterate`) | #122 |
+| F-12 | Skill quality convergence | (draft) |
 
 **Key scope change (2026-03-21):** M-01 through M-04 moved to Knowledge OS (separate initiative). pm-skills focuses on being an excellent, community-ready skill library.
 
@@ -419,10 +444,10 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 - Follows [Agent Skills Specification](https://agentskills.io/specification)
 - Primary Audience: Individual Product Managers using AI assistants
 - Cross-platform: Claude Code, Claude.ai, GitHub Copilot, Cursor, Windsurf, OpenCode
-- Implementation plan is in `(internal-notes)/v1-plan/plan-v1.md` with detailed issue-by-issue guidance
-- 27 skills total: 25 domain + 1 foundation + 1 utility
+- 29 skills total: 25 domain + 1 foundation + 3 utility (v2.8.0+)
+- 3 workflows (→ 9 workflows in v2.9.0)
 
-## Skills Inventory (27 skills)
+## Skills Inventory (29 skills)
 
 ### Foundation (1 skill)
 
@@ -430,11 +455,13 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 |-------|----------|----------------|--------|
 | persona | research | foundation | ✅ Complete (v2.5.0) |
 
-### Utility (1 skill)
+### Utility (3 skills)
 
 | Skill | Category | Classification | Status |
 |-------|----------|----------------|--------|
 | pm-skill-builder | coordination | utility | ✅ Complete (v2.7.0) |
+| pm-skill-validate | coordination | utility | ✅ Complete (v2.8.0) |
+| pm-skill-iterate | coordination | utility | ✅ Complete (v2.8.0) |
 
 ### Discover Phase (3 skills)
 

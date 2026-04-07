@@ -7,7 +7,7 @@ Effort brief: `docs/internal/efforts/launch-mkdocs.md`
 
 ## Context
 
-The pm-skills repo (29 skills, 30 commands, 3 bundles) has rich documentation but no documentation site. The effort brief at `launch-mkdocs.md` provides a comprehensive starting point (MkDocs Material config, GitHub Actions workflow, Diataxis-based IA, migration strategy) but contains factual errors that this execution plan corrects.
+The pm-skills repo (29 skills, 30 commands, 3 workflows) has rich documentation but no documentation site. The effort brief at `launch-mkdocs.md` provides a comprehensive starting point (MkDocs Material config, GitHub Actions workflow, Diataxis-based IA, migration strategy) but contains factual errors that this execution plan corrects.
 
 MkDocs Material v9.7.0 unlocked all Insiders features for free. The goal: zero to deployed GitHub Pages site with all existing content migrated.
 
@@ -80,7 +80,7 @@ Source files stay in place — consumed by skills, commands, AGENTS.md, Claude p
 | `SECURITY.md` | `docs/contributing/security.md` |
 | `PRIVACY.md` | `docs/contributing/privacy.md` |
 | `CHANGELOG.md` | `docs/changelog.md` |
-| `_bundles/*.md` | `docs/bundles/` |
+| `_workflows/*.md` | `docs/workflows/` |
 | `docs/releases/Release_v*.md` | Keep paths, add index page |
 
 ### README.md split
@@ -93,7 +93,7 @@ Extract into `docs/index.md`: hero section (The Big Idea), Key Features, Skill L
 - `docs/concepts/index.md`
 - `docs/guides/index.md`
 - `docs/contributing/index.md`
-- `docs/bundles/index.md`
+- `docs/workflows/index.md`
 - `docs/releases/index.md`
 - `docs/skills/index.md` + `docs/skills/{phase}/index.md` (8 phase stubs)
 
@@ -198,7 +198,7 @@ tags:
 
 1. `mkdocs serve` renders with no build warnings
 2. All 29 skill pages render with correct sections
-3. Navigation tabs work: Home, Getting Started, Skills, Bundles, Guides, Concepts, Contributing, Releases
+3. Navigation tabs work: Home, Getting Started, Skills, Workflows, Guides, Concepts, Contributing, Releases
 4. Mermaid diagrams render
 5. GitHub Actions deployment succeeds
 6. Site accessible at `https://product-on-purpose.github.io/pm-skills/`

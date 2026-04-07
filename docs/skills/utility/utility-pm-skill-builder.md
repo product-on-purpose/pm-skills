@@ -31,7 +31,7 @@ in a staging area for review before promotion to canonical locations.
 
 - To modify an existing skill → use a future validation/iteration utility (planned)
 - To create a skill for a non-pm-skills context → use a general agent skill builder (planned)
-- To create a workflow bundle → bundles are authored directly, not via this builder
+- To create a workflow → workflows are authored directly, not via this builder
 
 ## How to Use
 
@@ -78,7 +78,7 @@ skills fail to produce what you need."
 **Kill Gate**: If the user cannot articulate convincing gaps, recommend
 an alternative:
 - "Revise [existing skill] to cover this case"
-- "Create a bundle combining [skill A] + [skill B]"
+- "Create a workflow combining [skill A] + [skill B]"
 - "Add a command variant, not a new skill"
 - "This is a documentation improvement, not a new skill"
 
@@ -98,7 +98,7 @@ If splitting is warranted, present the recommendation:
 "This seems to cover two distinct PM activities:
   1. [Activity A] → produces [Artifact A]
   2. [Activity B] → produces [Artifact B]
-These work better as separate skills that can be chained via a bundle.
+These work better as separate skills that can be chained via a workflow.
 Want to proceed with just [Activity A] for now?"
 
 ### Step 4: Classification + Repo-Fit
@@ -220,7 +220,7 @@ Provide post-promotion guidance:
 
 ## Decision
 
-{Recommendation: create / revise existing / bundle / command / docs-only}
+{Recommendation: create / revise existing / workflow / command / docs-only}
 
 {Why Gate evidence if applicable — the 2-3 specific prompts or scenarios
 where existing skills fail}

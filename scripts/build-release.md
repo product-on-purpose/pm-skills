@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Create a reproducible release ZIP (`dist/pm-skills-vX.Y.Z.zip`) containing all distributable skill content, sample-output library content, commands, bundles, documentation, and the Claude plugin manifest.
+Create a reproducible release ZIP (`dist/pm-skills-vX.Y.Z.zip`) containing all distributable skill content, sample-output library content, commands, workflows, documentation, and the Claude plugin manifest.
 
 ## Usage
 
@@ -38,7 +38,7 @@ The `v` prefix is stripped automatically (`v2.6.0` becomes `2.6.0`).
 
 1. **Runs `sync-claude`** to populate `.claude/skills` and `.claude/commands` from the source tree.
 2. **Stages content** into `dist/stage/`:
-   - `skills/`, `commands/`, `_bundles/`, `scripts/`, `docs/`
+   - `skills/`, `commands/`, `_workflows/`, `scripts/`, `docs/`
    - `library/` (including `library/skill-output-samples/`)
    - `.claude-plugin/` (plugin manifest)
    - `.claude/pm-skills-for-claude.md`

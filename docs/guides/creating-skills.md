@@ -979,7 +979,7 @@ Skills should work globally:
 
 ### Templates
 
-Start with the [skill template](../templates/skill-template/):
+Start with the [skill template](https://github.com/product-on-purpose/pm-skills/tree/main/docs/templates/skill-template):
 ```
 docs/templates/skill-template/
 ├── SKILL.md

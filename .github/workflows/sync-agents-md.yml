@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - 'skills/**/*.md'
-      - '_bundles/*.md'
+      - '_workflows/*.md'
       - 'commands/*.md'
   workflow_dispatch:
 
@@ -60,15 +60,15 @@ jobs:
             echo "" >> AGENTS.md
           done
 
-          # Add bundles section
-          cat >> AGENTS.md << 'BUNDLES'
-          ## Workflow Bundles
+          # Add workflows section
+          cat >> AGENTS.md << 'WORKFLOWS'
+          ## Workflows
 
-          | Bundle | Description |
-          |--------|-------------|
-          | [Triple Diamond](_bundles/triple-diamond.md) | Complete product development cycle |
-          | [Lean Startup](_bundles/lean-startup.md) | Build-Measure-Learn rapid iteration |
-          | [Feature Kickoff](_bundles/feature-kickoff.md) | Quick-start workflow for features |
+          | Workflow | Description |
+          |----------|-------------|
+          | [Triple Diamond](_workflows/triple-diamond.md) | Complete product development cycle |
+          | [Lean Startup](_workflows/lean-startup.md) | Build-Measure-Learn rapid iteration |
+          | [Feature Kickoff](_workflows/feature-kickoff.md) | Quick-start workflow for features |
 
           ---
 
@@ -76,7 +76,7 @@ jobs:
 
           | Command | Description |
           |---------|-------------|
-          BUNDLES
+          WORKFLOWS
 
           # Add commands
           for cmd in commands/*.md; do
