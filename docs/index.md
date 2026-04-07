@@ -204,6 +204,21 @@ Follow three fictional companies through the complete product lifecycle - from d
 | **Claude.ai / Desktop** | ZIP upload or MCP |
 | **Any MCP client** | [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) |
 
+## Release History
+
+PM Skills is actively developed. Recent releases:
+
+| Version | Date | Highlights |
+|---------|------|-----------|
+| [v2.9.0](releases/Release_v2.9.0.md) | 2026-04-06 | Workflows: rename + expansion (3 → 9) |
+| [v2.8.1](releases/Release_v2.8.1.md) | 2026-04-04 | Documentation site launch |
+| [v2.8.0](releases/Release_v2.8.0.md) | 2026-04-03 | PM skill lifecycle: Create, Validate, Iterate |
+| [v2.7.0](releases/Release_v2.7.0.md) | 2026-03-22 | PM Skill Builder, enhanced CI, acceptance criteria |
+| [v2.6.1](releases/Release_v2.6.1.md) | 2026-03-04 | Sample library recovery |
+| [v2.6.0](releases/Release_v2.6.0.md) | 2026-03-04 | Claude plugin packaging |
+
+[:octicons-arrow-right-24: All releases](releases/) · [:octicons-arrow-right-24: Full changelog](changelog.md)
+
 ## Links
 
 - [:fontawesome-brands-github: GitHub Repository](https://github.com/product-on-purpose/pm-skills)
