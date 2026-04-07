@@ -6,35 +6,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Release notes for every PM Skills version.">
+        <meta name="description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
       
       
         <meta name="author" content="jprisant">
       
       
-        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/releases/">
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/releases/Release_v2.8.2/">
       
-      
-        <link rel="prev" href="../contributing/privacy/">
       
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Releases - PM Skills</title>
+        <title>PM-Skills v2.8.2 Release Notes - PM Skills</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -48,16 +46,16 @@
         
         
         
-        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../css/timeago.css">
+      <link rel="stylesheet" href="../../css/timeago.css">
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,17 +63,17 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Releases - PM Skills" />
-<meta property="og:description" content="Release notes for every PM Skills version." />
-<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/releases/index.png" />
+<meta property="og:title" content="PM-Skills v2.8.2 Release Notes - PM Skills" />
+<meta property="og:description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/releases/Release_v2.8.2.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/releases/" />
+<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/releases/Release_v2.8.2/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Releases - PM Skills" />
-<meta property="twitter:description" content="Release notes for every PM Skills version." />
-<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/releases/index.png" />
+<meta property="twitter:title" content="PM-Skills v2.8.2 Release Notes - PM Skills" />
+<meta property="twitter:description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/releases/Release_v2.8.2.png" />
 </head>
   
   
@@ -95,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#releases" class="md-skip">
+        <a href="#pm-skills-v282-release-notes" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +109,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
+    <a href="../.." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
@@ -131,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Releases
+              PM-Skills v2.8.2 Release Notes
             
           </span>
         </div>
@@ -255,7 +253,7 @@
     
     
       <li class="md-tabs__item">
-        <a href=".." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -277,7 +275,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../getting-started/" class="md-tabs__link">
+        <a href="../../getting-started/" class="md-tabs__link">
           
   
   
@@ -299,7 +297,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../skills/" class="md-tabs__link">
+        <a href="../../skills/" class="md-tabs__link">
           
   
   
@@ -321,7 +319,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../workflows/" class="md-tabs__link">
+        <a href="../../workflows/" class="md-tabs__link">
           
   
   
@@ -343,7 +341,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../guides/" class="md-tabs__link">
+        <a href="../../guides/" class="md-tabs__link">
           
   
   
@@ -365,7 +363,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../concepts/" class="md-tabs__link">
+        <a href="../../concepts/" class="md-tabs__link">
           
   
   
@@ -387,7 +385,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../showcase/" class="md-tabs__link">
+        <a href="../../showcase/" class="md-tabs__link">
           
   
   
@@ -409,7 +407,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../reference/commands/" class="md-tabs__link">
+        <a href="../../reference/commands/" class="md-tabs__link">
           
   
   
@@ -431,7 +429,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../contributing/" class="md-tabs__link">
+        <a href="../../contributing/" class="md-tabs__link">
           
   
   
@@ -449,13 +447,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -497,7 +493,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
+    <a href="../.." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
@@ -557,7 +553,7 @@
   
   
   
-    <a href=".." class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       
   
   
@@ -618,7 +614,7 @@
   
   
   
-    <a href="../getting-started/" class="md-nav__link">
+    <a href="../../getting-started/" class="md-nav__link">
       
   
   
@@ -693,7 +689,7 @@
   
   
   
-    <a href="../skills/" class="md-nav__link">
+    <a href="../../skills/" class="md-nav__link">
       
   
   
@@ -770,7 +766,7 @@
   
   
   
-    <a href="../workflows/" class="md-nav__link">
+    <a href="../../workflows/" class="md-nav__link">
       
   
   
@@ -845,7 +841,7 @@
   
   
   
-    <a href="../guides/" class="md-nav__link">
+    <a href="../../guides/" class="md-nav__link">
       
   
   
@@ -916,7 +912,7 @@
   
   
   
-    <a href="../concepts/" class="md-nav__link">
+    <a href="../../concepts/" class="md-nav__link">
       
   
   
@@ -981,7 +977,7 @@
   
   
   
-    <a href="../showcase/" class="md-nav__link">
+    <a href="../../showcase/" class="md-nav__link">
       
   
   
@@ -1044,7 +1040,7 @@
   
   
   
-    <a href="../reference/commands/" class="md-nav__link">
+    <a href="../../reference/commands/" class="md-nav__link">
       
   
   
@@ -1109,7 +1105,7 @@
   
   
   
-    <a href="../contributing/" class="md-nav__link">
+    <a href="../../contributing/" class="md-nav__link">
       
   
   
@@ -1139,8 +1135,6 @@
       
   
   
-    
-  
   
   
     
@@ -1154,26 +1148,24 @@
     
     
       
-        
-        
-      
       
         
       
     
     
       
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
+  
+  
+  
+    <a href="../" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
@@ -1187,25 +1179,12 @@
   
   
 
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_10">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Releases
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -1231,6 +1210,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1252,7 +1272,7 @@
 
 
   
-    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/releases/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/releases/Release_v2.8.2.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1261,112 +1281,32 @@
     
       
     
-    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/releases/index.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/releases/Release_v2.8.2.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h1>
-<p>All PM Skills releases with detailed notes on what changed and why.</p>
-<table>
-<thead>
-<tr>
-<th>Version</th>
-<th>Date</th>
-<th>Highlights</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Release_v2.9.0/">v2.9.0</a></td>
-<td>2026-04-06</td>
-<td>Workflows: rename bundles → workflows + expand 3 → 9</td>
-</tr>
-<tr>
-<td><a href="Release_v2.8.2/">v2.8.2</a></td>
-<td>2026-04-04</td>
-<td>Docs site polish + versioning concepts</td>
-</tr>
-<tr>
-<td><a href="Release_v2.8.1/">v2.8.1</a></td>
-<td>2026-04-04</td>
-<td>MkDocs Material documentation site launch</td>
-</tr>
-<tr>
-<td><a href="Release_v2.8.0/">v2.8.0</a></td>
-<td>2026-04-03</td>
-<td>PM skill lifecycle: Create, Validate, Iterate</td>
-</tr>
-<tr>
-<td><a href="Release_v2.7.0/">v2.7.0</a></td>
-<td>2026-03-22</td>
-<td>PM Skill Builder, enhanced CI, acceptance criteria</td>
-</tr>
-<tr>
-<td><a href="Release_v2.6.1/">v2.6.1</a></td>
-<td>2026-03-04</td>
-<td>Sample library recovery</td>
-</tr>
-<tr>
-<td><a href="Release_v2.6.0/">v2.6.0</a></td>
-<td>2026-03-04</td>
-<td>Claude plugin packaging</td>
-</tr>
-<tr>
-<td><a href="Release_v2.5.2/">v2.5.2</a></td>
-<td>2026-03-04</td>
-<td>Public doc hygiene</td>
-</tr>
-<tr>
-<td><a href="Release_v2.5.1/">v2.5.1</a></td>
-<td>2026-03-04</td>
-<td>Agent workspace canonicalization</td>
-</tr>
-<tr>
-<td><a href="Release_v2.5.0/">v2.5.0</a></td>
-<td>2026-03-02</td>
-<td>Foundation persona skill</td>
-</tr>
-<tr>
-<td><a href="Release_v2.4.3/">v2.4.3</a></td>
-<td>2026-02-16</td>
-<td>Release metadata</td>
-</tr>
-<tr>
-<td><a href="Release_v2.4.2/">v2.4.2</a></td>
-<td>2026-02-16</td>
-<td>Delivery plan policy</td>
-</tr>
-<tr>
-<td><a href="Release_v2.4.1/">v2.4.1</a></td>
-<td>2026-02-16</td>
-<td>Release doc consistency</td>
-</tr>
-<tr>
-<td><a href="Release_v2.4/">v2.4.0</a></td>
-<td>2026-02-16</td>
-<td>Contract lock and governance</td>
-</tr>
-<tr>
-<td><a href="Release_v2.3/">v2.3.0</a></td>
-<td>2026-02-14</td>
-<td>MCP sync blocking mode</td>
-</tr>
-<tr>
-<td><a href="Release_v2.2/">v2.2.0</a></td>
-<td>2026-02-13</td>
-<td>Guardrails and governance</td>
-</tr>
-<tr>
-<td><a href="Release_v2.0/">v2.0.0</a></td>
-<td>2026-01-26</td>
-<td>Flat structure restructure</td>
-</tr>
-</tbody>
-</table>
-<p>See the full <a href="../changelog/">Changelog</a> for a condensed view.</p>
+<h1 id="pm-skills-v282-release-notes">PM-Skills v2.8.2 Release Notes<a class="headerlink" href="#pm-skills-v282-release-notes" title="Permanent link">&para;</a></h1>
+<p><strong>Date</strong>: 2026-04-04
+<strong>Status</strong>: Released
+<strong>Type</strong>: Documentation release — no skill or command behavior changes</p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>v2.8.2 adds the versioning concepts page to the documentation site and polishes the MkDocs Material configuration.</p>
+<h2 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>docs/concepts/versioning.md</code> — explains the two-level versioning model (repo version vs. skill version)</li>
+<li>Git revision date plugin enabled for CI builds</li>
+<li>Custom CSS for docs site styling</li>
+</ul>
+<h2 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Documentation site styling improvements</li>
+</ul>
+<hr />
+<p>This is a documentation-only release. No PM skills, slash commands, or MCP tools were changed.</p>
 
 
 
@@ -1399,7 +1339,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 01:22:19 UTC"><span class="timeago" datetime="2026-04-05T01:22:19+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 01:22:19 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 14:48:45 UTC"><span class="timeago" datetime="2026-04-07T14:48:45+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 14:48:45 UTC">2026-04-07</span>
   </span>
 
     
@@ -1478,14 +1418,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../js/timeago.min.js"></script>
+        <script src="../../js/timeago.min.js"></script>
       
-        <script src="../js/timeago_mkdocs_material.js"></script>
+        <script src="../../js/timeago_mkdocs_material.js"></script>
       
     
   </body>
