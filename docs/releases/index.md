@@ -9,8 +9,9 @@ All PM Skills releases with detailed notes on what changed and why.
 
 | Version | Date | Highlights |
 |---------|------|-----------|
-| [v2.9.0](Release_v2.9.0.md) | 2026-04-06 | Workflows: rename + expansion (3 → 9) |
-| [v2.8.1](Release_v2.8.1.md) | 2026-04-04 | Documentation site launch |
+| [v2.9.0](Release_v2.9.0.md) | 2026-04-06 | Workflows: rename bundles → workflows + expand 3 → 9 |
+| [v2.8.2](Release_v2.8.2.md) | 2026-04-04 | Docs site polish + versioning concepts |
+| [v2.8.1](Release_v2.8.1.md) | 2026-04-04 | MkDocs Material documentation site launch |
 | [v2.8.0](Release_v2.8.0.md) | 2026-04-03 | PM skill lifecycle: Create, Validate, Iterate |
 | [v2.7.0](Release_v2.7.0.md) | 2026-03-22 | PM Skill Builder, enhanced CI, acceptance criteria |
 | [v2.6.1](Release_v2.6.1.md) | 2026-03-04 | Sample library recovery |

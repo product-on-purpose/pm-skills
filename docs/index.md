@@ -204,18 +204,33 @@ Follow three fictional companies through the complete product lifecycle - from d
 | **Claude.ai / Desktop** | ZIP upload or MCP |
 | **Any MCP client** | [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) |
 
-## Release History
+## Workflows
 
-PM Skills is actively developed. Recent releases:
+9 guided multi-skill workflows for common PM processes. Each chains skills in a recommended sequence with handoff guidance.
+
+| Workflow | Best for | Skills |
+|----------|----------|--------|
+| [Feature Kickoff](workflows/feature-kickoff.md) | New features | problem-statement → hypothesis → prd → user-stories → launch-checklist |
+| [Lean Startup](workflows/lean-startup.md) | Rapid validation | hypothesis → experiment-design → experiment-results → pivot-decision |
+| [Triple Diamond](workflows/triple-diamond.md) | Major initiatives | All 25 phase skills across 6 phases |
+| [Customer Discovery](workflows/customer-discovery.md) | Research → problem | interview-synthesis → jtbd-canvas → opportunity-tree → problem-statement |
+| [Sprint Planning](workflows/sprint-planning.md) | Sprint-ready stories | refinement-notes → user-stories → edge-cases |
+| [Product Strategy](workflows/product-strategy.md) | Strategic framing | competitive-analysis → stakeholder-summary → opportunity-tree → solution-brief → adr |
+| [Post-Launch Learning](workflows/post-launch-learning.md) | Ship → learn | instrumentation-spec → dashboard-requirements → experiment-results → retrospective → lessons-log |
+| [Stakeholder Alignment](workflows/stakeholder-alignment.md) | Leadership buy-in | stakeholder-summary → problem-statement → solution-brief → launch-checklist |
+| [Technical Discovery](workflows/technical-discovery.md) | Feasibility | spike-summary → adr → design-rationale |
+
+[:octicons-arrow-right-24: All workflows](workflows/)
+
+## Recent Releases
 
 | Version | Date | Highlights |
 |---------|------|-----------|
-| [v2.9.0](releases/Release_v2.9.0.md) | 2026-04-06 | Workflows: rename + expansion (3 → 9) |
-| [v2.8.1](releases/Release_v2.8.1.md) | 2026-04-04 | Documentation site launch |
+| **[v2.9.0](releases/Release_v2.9.0.md)** | 2026-04-06 | Workflows: rename bundles → workflows, expand 3 → 9, 7 `/workflow-*` commands |
+| [v2.8.2](releases/Release_v2.8.2.md) | 2026-04-04 | Docs site polish + versioning concepts |
+| [v2.8.1](releases/Release_v2.8.1.md) | 2026-04-04 | MkDocs Material documentation site launch |
 | [v2.8.0](releases/Release_v2.8.0.md) | 2026-04-03 | PM skill lifecycle: Create, Validate, Iterate |
-| [v2.7.0](releases/Release_v2.7.0.md) | 2026-03-22 | PM Skill Builder, enhanced CI, acceptance criteria |
-| [v2.6.1](releases/Release_v2.6.1.md) | 2026-03-04 | Sample library recovery |
-| [v2.6.0](releases/Release_v2.6.0.md) | 2026-03-04 | Claude plugin packaging |
+| [v2.7.0](releases/Release_v2.7.0.md) | 2026-03-22 | PM Skill Builder, acceptance criteria, enhanced CI |
 
 [:octicons-arrow-right-24: All releases](releases/) · [:octicons-arrow-right-24: Full changelog](changelog.md)
 
