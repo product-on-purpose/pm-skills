@@ -129,7 +129,7 @@ skills/{skill-name}/
 
 Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
 
-**Commands (28 total: 27 skill commands + 1 workflow)**
+**Commands (36 total: 29 skill commands + 7 workflow commands)**
 | Command | Target skill/workflow |
 | --- | --- |
 | `/competitive-analysis` | discover-competitive-analysis |
@@ -158,9 +158,15 @@ Contains Claude Code slash command definitions. Each `.md` maps a `/command` to 
 | `/refinement-notes` | iterate-refinement-notes |
 | `/retrospective` | iterate-retrospective |
 | `/persona` | foundation-persona |
+| `/pm-skill-iterate` | utility-pm-skill-iterate |
+| `/pm-skill-validate` | utility-pm-skill-validate |
 | `/workflow-feature-kickoff` | feature-kickoff workflow |
-
-`utility-pm-skill-builder` also has a committed `/pm-skill-builder` command.
+| `/workflow-customer-discovery` | customer-discovery workflow |
+| `/workflow-sprint-planning` | sprint-planning workflow |
+| `/workflow-product-strategy` | product-strategy workflow |
+| `/workflow-post-launch-learning` | post-launch-learning workflow |
+| `/workflow-stakeholder-alignment` | stakeholder-alignment workflow |
+| `/workflow-technical-discovery` | technical-discovery workflow |
 
 ---
 
@@ -173,6 +179,12 @@ Workflows chain multiple skills together into guided, end-to-end sequences.
 | `feature-kickoff.md` | New feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | `lean-startup.md` | Rapid validation cycle | hypothesis → experiment-design → experiment-results → pivot-decision |
 | `triple-diamond.md` | Complete product development | All 25 phase skills across 6 phases |
+| `customer-discovery.md` | Transform raw research into a validated problem | interview-synthesis → stakeholder-summary → problem-statement → hypothesis |
+| `sprint-planning.md` | Prepare sprint-ready stories from a backlog | user-stories → acceptance-criteria → edge-cases |
+| `product-strategy.md` | Frame a major strategic initiative | competitive-analysis → opportunity-tree → problem-statement → solution-brief |
+| `post-launch-learning.md` | Measure results and capture learnings after launch | experiment-results → dashboard-requirements → lessons-log → retrospective |
+| `stakeholder-alignment.md` | Build a case for leadership buy-in | stakeholder-summary → problem-statement → solution-brief → design-rationale |
+| `technical-discovery.md` | Evaluate technical feasibility and architecture | spike-summary → adr → solution-brief |
 
 ---
 

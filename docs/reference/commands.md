@@ -5,7 +5,7 @@ description: "All slash commands available in PM Skills."
 
 # Commands Reference
 
-PM Skills ships 30 slash commands: 29 skill commands plus the `/workflow-feature-kickoff` workflow.
+PM Skills ships 36 slash commands: 29 skill commands plus 7 workflow commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -38,4 +38,10 @@ PM Skills ships 30 slash commands: 29 skill commands plus the `/workflow-feature
 | `/spike-summary` | [develop-spike-summary](../skills/develop/develop-spike-summary.md) | Develop | Documents the results of a time-boxed technical or design ex... |
 | `/stakeholder-summary` | [discover-stakeholder-summary](../skills/discover/discover-stakeholder-summary.md) | Discover | Documents stakeholder needs, concerns, and influence for a p... |
 | `/user-stories` | [deliver-user-stories](../skills/deliver/deliver-user-stories.md) | Deliver | Generates user stories with clear acceptance criteria from p... |
+| `/workflow-customer-discovery` | [Customer Discovery](../workflows/customer-discovery.md) | Workflow | Run the Customer Discovery workflow |
 | `/workflow-feature-kickoff` | [Feature Kickoff](../workflows/feature-kickoff.md) | Workflow | Run the Feature Kickoff workflow |
+| `/workflow-post-launch-learning` | [Post-Launch Learning](../workflows/post-launch-learning.md) | Workflow | Run the Post-Launch Learning workflow |
+| `/workflow-product-strategy` | [Product Strategy](../workflows/product-strategy.md) | Workflow | Run the Product Strategy workflow |
+| `/workflow-sprint-planning` | [Sprint Planning](../workflows/sprint-planning.md) | Workflow | Run the Sprint Planning workflow |
+| `/workflow-stakeholder-alignment` | [Stakeholder Alignment](../workflows/stakeholder-alignment.md) | Workflow | Run the Stakeholder Alignment workflow |
+| `/workflow-technical-discovery` | [Technical Discovery](../workflows/technical-discovery.md) | Workflow | Run the Technical Discovery workflow |

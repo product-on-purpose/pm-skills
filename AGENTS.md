@@ -194,6 +194,12 @@ Applies targeted improvements to an existing pm-skills skill based on feedback, 
 | [Triple Diamond](_workflows/triple-diamond.md) | Complete product development cycle |
 | [Lean Startup](_workflows/lean-startup.md) | Build-Measure-Learn rapid iteration |
 | [Feature Kickoff](_workflows/feature-kickoff.md) | Quick-start workflow for features |
+| [Customer Discovery](_workflows/customer-discovery.md) | Transform raw research into a validated problem |
+| [Sprint Planning](_workflows/sprint-planning.md) | Prepare sprint-ready stories from a backlog |
+| [Product Strategy](_workflows/product-strategy.md) | Frame a major strategic initiative |
+| [Post-Launch Learning](_workflows/post-launch-learning.md) | Measure results and capture learnings after launch |
+| [Stakeholder Alignment](_workflows/stakeholder-alignment.md) | Build a case for leadership buy-in |
+| [Technical Discovery](_workflows/technical-discovery.md) | Evaluate technical feasibility and architecture |
 
 Workflow links are repo-relative within this repository.
 
@@ -216,6 +222,12 @@ Workflow links are repo-relative within this repository.
 | `/interview-synthesis` | Synthesize user research interviews into insights |
 | `/jtbd-canvas` | Create a Jobs to be Done canvas |
 | `/workflow-feature-kickoff` | Run the Feature Kickoff workflow (problem → hypothesis → PRD → stories) |
+| `/workflow-customer-discovery` | Run the Customer Discovery workflow |
+| `/workflow-sprint-planning` | Run the Sprint Planning workflow |
+| `/workflow-product-strategy` | Run the Product Strategy workflow |
+| `/workflow-post-launch-learning` | Run the Post-Launch Learning workflow |
+| `/workflow-stakeholder-alignment` | Run the Stakeholder Alignment workflow |
+| `/workflow-technical-discovery` | Run the Technical Discovery workflow |
 | `/launch-checklist` | Create a comprehensive pre-launch checklist |
 | `/lessons-log` | Create a structured lessons learned entry |
 | `/opportunity-tree` | Create an opportunity solution tree |

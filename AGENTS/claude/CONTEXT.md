@@ -33,8 +33,8 @@ pm-skills/
 │   ├── deliver-prd/
 │   ├── deliver-user-stories/
 │   └── ...               # 29 skills total: {phase/classification}-{skill}/
-├── _workflows/           # Workflows (triple-diamond, lean-startup, feature-kickoff)
-├── commands/             # Claude Code slash commands (30 total: 29 skill + 1 workflow)
+├── _workflows/           # 9 Workflows (triple-diamond, lean-startup, feature-kickoff, and 6 more)
+├── commands/             # Claude Code slash commands (36 total: 29 skill + 7 workflow)
 ├── docs/                 # Documentation
 │   ├── guides/           # How-to guides
 │   ├── reference/        # Technical specs
@@ -75,7 +75,7 @@ pm-skills/
   - **Codex reviews**: M-19 plan reviewed (13 findings, all addressed), v2.9.0 release plan reviewed (8 findings, all addressed)
   - **Plans**: `docs/internal/release-plans/v2.9.0/plan_v2.9.0.md` (master), `docs/internal/efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md` (detailed rename)
   - **Key decisions**: delete `/kickoff` (no alias), terminology guard advisory→FAIL post-v2.9.0, release notes draft in Commit 1
-  - Repo at v2.8.2: 29 skills, 30 commands, 3 workflows (→ 9 workflows after v2.9.0)
+  - Repo at v2.9.0: 29 skills, 36 commands, 9 workflows
 
 - **v2.8.2 Released** (2026-04-04)
   - Versioning concepts page, git-revision-date plugin, custom CSS, F-12 effort brief
@@ -96,7 +96,7 @@ pm-skills/
   - **Infrastructure**: `docs/internal/releases/` renamed to `docs/internal/release-plans/`
   - **Codex review**: Full design review with 20 findings (3 blockers resolved), pre-release consistency review with 8 findings (all fixed)
   - **MCP synced**: pm-skills-mcp v2.8.0 — `pm_pm_skill_validate` + `pm_pm_skill_iterate`, 42 tools (29 skills + 5 workflows + 8 utilities)
-  - Repo: 29 skills (25 domain + 1 foundation + 3 utility), 30 commands, 3 workflows
+  - Repo: 29 skills (25 domain + 1 foundation + 3 utility), 36 commands, 9 workflows
 
 - **v2.7.0 Released** (2026-03-22)
   - **M-12**: CI validation enhancement — extended linter, validate-agents-md, check-mcp-impact (`8d2a418`)
@@ -388,9 +388,9 @@ pm-skills/
   - `scripts/check-context-currency.ps1` — PowerShell equivalent for Windows local use
   - CI step pending (A-9): `validation.yml` will run `.sh` with `continue-on-error: true`
 
-- **Slash Commands (28 total):**
-  - 27 skill commands (24 original + `/persona` + `/acceptance-criteria` + `/pm-skill-builder`)
-  - 1 workflow command: `/workflow-feature-kickoff`
+- **Slash Commands (36 total):**
+  - 29 skill commands (24 original + `/persona` + `/acceptance-criteria` + `/pm-skill-builder` + `/pm-skill-validate` + `/pm-skill-iterate`)
+  - 7 workflow commands: `/workflow-feature-kickoff`, `/workflow-customer-discovery`, `/workflow-sprint-planning`, `/workflow-product-strategy`, `/workflow-post-launch-learning`, `/workflow-stakeholder-alignment`, `/workflow-technical-discovery`
 - **Skills (27 total):**
   - 25 domain skills (24 original + deliver-acceptance-criteria)
   - 1 foundation skill: foundation-persona (`classification: foundation`)
@@ -401,10 +401,16 @@ pm-skills/
 - **Plugin Manifest:**
   - `.claude-plugin/plugin.json` — Claude plugin packaging (added v2.6.0)
   - `.github/workflows/validate-plugin.yml` — plugin validation CI
-- **Workflows:**
+- **Workflows (9 total):**
   - `_workflows/triple-diamond.md` — Complete product development cycle
   - `_workflows/lean-startup.md` — Build-Measure-Learn rapid iteration
   - `_workflows/feature-kickoff.md` — Quick-start workflow for features
+  - `_workflows/customer-discovery.md` — Transform raw research into a validated problem
+  - `_workflows/sprint-planning.md` — Prepare sprint-ready stories from a backlog
+  - `_workflows/product-strategy.md` — Frame a major strategic initiative
+  - `_workflows/post-launch-learning.md` — Measure results and capture learnings after launch
+  - `_workflows/stakeholder-alignment.md` — Build a case for leadership buy-in
+  - `_workflows/technical-discovery.md` — Evaluate technical feasibility and architecture
 - **Agent Discovery:**
   - `AGENTS.md` — Universal agent discovery file with all commands listed
 - **GitHub Actions:**
@@ -445,7 +451,7 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 - Primary Audience: Individual Product Managers using AI assistants
 - Cross-platform: Claude Code, Claude.ai, GitHub Copilot, Cursor, Windsurf, OpenCode
 - 29 skills total: 25 domain + 1 foundation + 3 utility (v2.8.0+)
-- 3 workflows (→ 9 workflows in v2.9.0)
+- 9 workflows (expanded from 3 in v2.9.0)
 
 ## Skills Inventory (29 skills)
 

@@ -129,7 +129,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - **New CI**: `validate-skill-history` and `validate-skills-manifest` advisory scripts for skill versioning governance.
 - **New guide**: `docs/pm-skill-lifecycle.md` — workflow patterns for the Create → Validate → Iterate lifecycle.
 - **Governance**: `docs/internal/skill-versioning.md` — SemVer rules, HISTORY.md contract, skills-manifest.yaml format.
-- Repo now ships 29 skills, 30 command docs, and 3 workflows.
+- Repo now ships 29 skills, 36 command docs, and 9 workflows.
 - Release note: [`docs/releases/Release_v2.8.0.md`](docs/releases/Release_v2.8.0.md).
 
 </details>
@@ -141,7 +141,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - **Enhanced CI**: extended frontmatter linter, AGENTS.md sync validator, MCP impact detection.
 - **Release packaging**: `docs/internal/**` excluded from published ZIPs while staying tracked in-repo.
 - **Documentation**: new `docs/pm-skill-anatomy.md` guide, comprehensive public docs refresh.
-- Repo now ships 27 skills, 28 command docs, and 3 workflows.
+- Repo now ships 27 skills, 28 command docs, and 3 workflows (now 9 as of v2.9.0).
 - Release note: [`docs/releases/Release_v2.7.0.md`](docs/releases/Release_v2.7.0.md).
 
 </details>
@@ -202,7 +202,7 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 - ✅ **29 Production-Ready Skills** covering the complete product lifecycle (25 phase skills + 1 foundation skill + 3 utility skills)
 - ✅ **Triple Diamond Framework** organizing Discover, Define, Develop, Deliver, Measure, and Iterate phases
-- ✅ **Workflows** for common PM processes (Feature Kickoff, Lean Startup, Triple Diamond)
+- ✅ **9 Workflows** for common PM processes (Feature Kickoff, Lean Startup, Triple Diamond, and 6 more)
 - ✅ **Slash Commands** for Claude Code users-instant access to every skill
 - ✅ **Auto-Discovery** via AGENTS.md in GitHub Copilot, Cursor, and Windsurf
 - ✅ **Agent Skills Spec** compliant-works across AI assistants
@@ -700,6 +700,12 @@ Each workflow provides a **sequence of skills** with handoff guidance between st
 | **[Feature Kickoff](_workflows/feature-kickoff.md)** | New features      | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | **[Lean Startup](_workflows/lean-startup.md)**       | Rapid validation  | hypothesis → experiment-design → experiment-results → pivot-decision   |
 | **[Triple Diamond](_workflows/triple-diamond.md)**   | Major initiatives | Full 25 phase-skill flow across 6 phases                                |
+| **[Customer Discovery](_workflows/customer-discovery.md)** | Research synthesis | Transform raw research into a validated problem |
+| **[Sprint Planning](_workflows/sprint-planning.md)** | Sprint prep | Prepare sprint-ready stories from a backlog |
+| **[Product Strategy](_workflows/product-strategy.md)** | Strategic initiatives | Frame a major strategic initiative |
+| **[Post-Launch Learning](_workflows/post-launch-learning.md)** | Post-launch | Measure results and capture learnings after launch |
+| **[Stakeholder Alignment](_workflows/stakeholder-alignment.md)** | Leadership buy-in | Build a case for leadership buy-in |
+| **[Technical Discovery](_workflows/technical-discovery.md)** | Tech feasibility | Evaluate technical feasibility and architecture |
 
 #### Workflow Examples
 
@@ -742,8 +748,8 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 ```
 pm-skills/
 ├── skills/                     # 29 PM skills (25 phase + 1 foundation + 3 utility)
-├── commands/                   # Slash commands (30) mapping to skills/workflows
-├── _workflows/                 # Workflows: feature-kickoff, lean-startup, triple-diamond
+├── commands/                   # Slash commands (36) mapping to skills/workflows
+├── _workflows/                 # 9 workflows: feature-kickoff, lean-startup, triple-diamond, and 6 more
 ├── library/                    # Sample output library (skill-output-samples) and related corpus docs
 ├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)
 ├── .github/                    # CI workflows + automation scripts (validate-mcp-sync)
@@ -868,10 +874,13 @@ See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) fo
 - [ ] New skills?! Which?
 - [ ] Community skill contributions and marketplace
 - [x] Skill versioning and compatibility tracking
-- [ ] Additional workflows
-    - [ ] Product Strategy workflow
-    - [ ] Customer Discovery workflow
-    - [ ] Stakeholder Management workflow
+- [x] Additional workflows (shipped in v2.9.0)
+    - [x] Product Strategy workflow
+    - [x] Customer Discovery workflow
+    - [x] Stakeholder Alignment workflow
+    - [x] Sprint Planning workflow
+    - [x] Post-Launch Learning workflow
+    - [x] Technical Discovery workflow
 - [ ] Multi-language support
     - [ ] Spanish translations
     - [ ] Portuguese translations

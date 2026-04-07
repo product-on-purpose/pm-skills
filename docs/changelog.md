@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.9.0] — 2026-04-06
 
+### Added
+- 6 new workflows: Customer Discovery, Sprint Planning, Product Strategy, Post-Launch Learning, Stakeholder Alignment, Technical Discovery
+- 7 `/workflow-*` slash commands (1 renamed from M-19 + 6 new)
+- `scripts/generate-workflow-pages.py` — generates docs/workflows/ from source _workflows/
+
 ### Changed
 - **BREAKING:** Renamed `_bundles/` → `_workflows/` and `docs/bundles/` → `docs/workflows/`
 - **BREAKING:** Removed `/kickoff` command — replaced by `/workflow-feature-kickoff`

@@ -542,7 +542,7 @@ def generate_commands_reference(all_skills: list) -> None:
     lines.append("")
     lines.append("# Commands Reference")
     lines.append("")
-    lines.append("PM Skills ships 30 slash commands: 29 skill commands plus the `/workflow-feature-kickoff` workflow.")
+    lines.append("PM Skills ships 36 slash commands: 29 skill commands plus 7 workflow commands.")
     lines.append("")
     lines.append("| Command | Skill | Phase | Description |")
     lines.append("|---------|-------|-------|-------------|")
@@ -555,8 +555,14 @@ def generate_commands_reference(all_skills: list) -> None:
                 f"| {s['group_display']} | {desc} |"
             )
 
-    # Add workflow-feature-kickoff workflow
+    # Add workflow commands
+    lines.append("| `/workflow-customer-discovery` | [Customer Discovery](../workflows/customer-discovery.md) | Workflow | Run the Customer Discovery workflow |")
     lines.append("| `/workflow-feature-kickoff` | [Feature Kickoff](../workflows/feature-kickoff.md) | Workflow | Run the Feature Kickoff workflow |")
+    lines.append("| `/workflow-post-launch-learning` | [Post-Launch Learning](../workflows/post-launch-learning.md) | Workflow | Run the Post-Launch Learning workflow |")
+    lines.append("| `/workflow-product-strategy` | [Product Strategy](../workflows/product-strategy.md) | Workflow | Run the Product Strategy workflow |")
+    lines.append("| `/workflow-sprint-planning` | [Sprint Planning](../workflows/sprint-planning.md) | Workflow | Run the Sprint Planning workflow |")
+    lines.append("| `/workflow-stakeholder-alignment` | [Stakeholder Alignment](../workflows/stakeholder-alignment.md) | Workflow | Run the Stakeholder Alignment workflow |")
+    lines.append("| `/workflow-technical-discovery` | [Technical Discovery](../workflows/technical-discovery.md) | Workflow | Run the Technical Discovery workflow |")
     lines.append("")
 
     output_path.write_text("\n".join(lines), encoding="utf-8")

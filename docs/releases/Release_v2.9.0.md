@@ -1,11 +1,14 @@
 # Release v2.9.0 — Workflows
 
-**Status:** Draft (M-19 rename complete; F-13 expansion pending)
+**Status:** Final
+**Date:** 2026-04-06
 
 ## Highlights
 
 - Renamed "Bundles" to "Workflows" across the entire repository
-- Expanded from 3 to 9 guided multi-skill workflows (pending F-13)
+- Expanded from 3 to 9 guided multi-skill workflows
+- 7 new `/workflow-*` slash commands
+- New `scripts/generate-workflow-pages.py` for docs generation
 
 ## Breaking Changes
 
@@ -40,7 +43,23 @@ The `/kickoff` slash command has been replaced by `/workflow-feature-kickoff`. T
 
 ## New Workflows
 
-> _This section will be expanded in the F-13 workflow expansion commit._
+6 new workflows expanding coverage across the Triple Diamond framework:
+
+| Workflow | Command | Skills Chained | Duration |
+|----------|---------|----------------|----------|
+| Customer Discovery | `/workflow-customer-discovery` | interview-synthesis -> jtbd-canvas -> opportunity-tree -> problem-statement | 2-4h |
+| Sprint Planning | `/workflow-sprint-planning` | refinement-notes -> user-stories -> edge-cases | 1-2h |
+| Product Strategy | `/workflow-product-strategy` | competitive-analysis -> stakeholder-summary -> opportunity-tree -> solution-brief -> adr | 4-8h |
+| Post-Launch Learning | `/workflow-post-launch-learning` | instrumentation-spec -> dashboard-requirements -> experiment-results -> retrospective -> lessons-log | 3-6h |
+| Stakeholder Alignment | `/workflow-stakeholder-alignment` | stakeholder-summary -> problem-statement -> solution-brief -> launch-checklist | 2-4h |
+| Technical Discovery | `/workflow-technical-discovery` | spike-summary -> adr -> design-rationale | 1-3h |
+
+These join the 3 existing workflows (Feature Kickoff, Lean Startup, Triple Diamond) for a total of 9.
+
+## Added
+
+- `scripts/generate-workflow-pages.py` — generates `docs/workflows/` from `_workflows/` with link rewriting
+- `_workflows/README.md` and `docs/workflows/README.md` — directory purpose documentation
 
 ## Migration Guide
 

@@ -230,6 +230,12 @@ nav:
     - Feature Kickoff: workflows/feature-kickoff.md
     - Lean Startup: workflows/lean-startup.md
     - Triple Diamond: workflows/triple-diamond.md
+    - Customer Discovery: workflows/customer-discovery.md
+    - Sprint Planning: workflows/sprint-planning.md
+    - Product Strategy: workflows/product-strategy.md
+    - Post-Launch Learning: workflows/post-launch-learning.md
+    - Stakeholder Alignment: workflows/stakeholder-alignment.md
+    - Technical Discovery: workflows/technical-discovery.md
 
   - Guides:
     - guides/index.md

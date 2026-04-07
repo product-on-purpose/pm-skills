@@ -9,9 +9,15 @@ Workflows chain multiple skills into end-to-end sequences. Each workflow defines
 
 | Workflow | Skills chained | Use when |
 |----------|---------------|----------|
-| [Feature Kickoff](feature-kickoff.md) | Problem Statement → Hypothesis → PRD → User Stories | Starting a new feature from scratch |
-| [Lean Startup](lean-startup.md) | Hypothesis → Experiment Design → Experiment Results → Pivot Decision | Running a build-measure-learn cycle |
-| [Triple Diamond](triple-diamond.md) | Full Discover → Define → Develop → Deliver → Measure → Iterate flow | End-to-end product development |
+| [Feature Kickoff](feature-kickoff.md) | Problem Statement -> Hypothesis -> PRD -> User Stories | Starting a new feature from scratch |
+| [Lean Startup](lean-startup.md) | Hypothesis -> Experiment Design -> Experiment Results -> Pivot Decision | Running a build-measure-learn cycle |
+| [Triple Diamond](triple-diamond.md) | Full Discover -> Define -> Develop -> Deliver -> Measure -> Iterate flow | End-to-end product development |
+| [Customer Discovery](customer-discovery.md) | Interview Synthesis -> JTBD Canvas -> Opportunity Tree -> Problem Statement | Transforming raw research into a validated problem |
+| [Sprint Planning](sprint-planning.md) | Refinement Notes -> User Stories -> Edge Cases | Preparing sprint-ready stories from a backlog |
+| [Product Strategy](product-strategy.md) | Competitive Analysis -> Stakeholder Summary -> Opportunity Tree -> Solution Brief -> ADR | Framing a major strategic initiative |
+| [Post Launch Learning](post-launch-learning.md) | Instrumentation Spec -> Dashboard Requirements -> Experiment Results -> Retrospective -> Lessons Log | Setting up measurement and capturing learnings after launch |
+| [Stakeholder Alignment](stakeholder-alignment.md) | Stakeholder Summary -> Problem Statement -> Solution Brief -> Launch Checklist | Getting leadership buy-in before committing resources |
+| [Technical Discovery](technical-discovery.md) | Spike Summary -> ADR -> Design Rationale | Evaluating technical feasibility and architecture decisions |
 
 ## How to use a workflow
 
@@ -19,4 +25,5 @@ Workflows chain multiple skills into end-to-end sequences. Each workflow defines
 /workflow-feature-kickoff "Feature name or description"
 ```
 
-The `/workflow-feature-kickoff` command runs the Feature Kickoff workflow. Other workflows are invoked by referencing their workflow file directly.
+Each workflow has a corresponding `/workflow-{name}` slash command. You can also reference the workflow file directly.
+
