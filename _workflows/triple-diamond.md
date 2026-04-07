@@ -4,6 +4,18 @@
 
 The Triple Diamond framework extends the traditional Double Diamond design model to encompass the full product lifecycle, adding dedicated phases for measurement and continuous improvement.
 
+## Workflow Metadata
+
+| Field | Value |
+|-------|-------|
+| **Workflow** | Triple Diamond |
+| **Command** | No dedicated command yet -- reference file directly |
+| **Skills** | All 25 phase skills across 6 phases |
+| **Phases Covered** | All 6 (Discover, Define, Develop, Deliver, Measure, Iterate) |
+| **Estimated Duration** | Weeks to months (comprehensive) |
+| **Prerequisite Inputs** | A new product or major initiative |
+| **Final Output** | Complete product development cycle from research to iteration |
+
 ---
 
 ## Overview
@@ -34,6 +46,22 @@ Diamond 3: Measurement & Iteration
 │    (Diverge)         (Converge)         │
 │                                         │
 └─────────────────────────────────────────┘
+```
+
+```mermaid
+graph LR
+    subgraph "Diamond 1: Discovery"
+        A["Discover"] --> B["Define"]
+    end
+    subgraph "Diamond 2: Development"
+        C["Develop"] --> D["Deliver"]
+    end
+    subgraph "Diamond 3: Measurement"
+        E["Measure"] --> F["Iterate"]
+    end
+    B --> C
+    D --> E
+    F -.->|"next cycle"| A
 ```
 
 ---
@@ -336,6 +364,19 @@ For a typical feature development, follow this path:
 ```
 
 Not every project needs every skill. Use judgment to select the appropriate subset based on project scope, uncertainty level, and team needs.
+
+---
+
+## Quality Checklist
+
+Before considering this workflow complete, verify:
+
+- [ ] Research covers at least 5 user interviews or equivalent
+- [ ] Problem statement is validated with stakeholders
+- [ ] Architecture decisions are documented with context and alternatives
+- [ ] All user stories have acceptance criteria
+- [ ] Experiment design includes guardrail metrics
+- [ ] Retrospective action items have owners and deadlines
 
 ---
 

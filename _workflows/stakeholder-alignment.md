@@ -143,6 +143,13 @@ Initiative Needing Approval
   Execution readiness plan
 ```
 
+```mermaid
+graph LR
+    A["stakeholder-summary"] --> B["problem-statement"]
+    B --> C["solution-brief"]
+    C --> D["launch-checklist"]
+```
+
 ---
 
 ## Tips and Variations
@@ -173,6 +180,14 @@ Before considering this workflow complete, verify:
 - [ ] Resource ask is concrete (team size, timeline, dependencies), not vague
 - [ ] Launch checklist demonstrates execution maturity without over-engineering
 - [ ] Risks are acknowledged with mitigations, not hidden or minimized
+
+---
+
+## See Also
+
+- [Product Strategy](product-strategy.md) — For deeper strategic analysis including competitive landscape and opportunity mapping
+- [Feature Kickoff](feature-kickoff.md) — After approval, move to execution with the full problem-to-launch flow
+- [Customer Discovery](customer-discovery.md) — If stakeholders want more evidence before committing
 
 ---
 

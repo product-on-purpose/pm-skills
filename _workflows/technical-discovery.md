@@ -117,6 +117,12 @@ Technical Question / Feasibility Concern
   Human-readable "why" narrative
 ```
 
+```mermaid
+graph LR
+    A["spike-summary"] --> B["adr"]
+    B --> C["design-rationale"]
+```
+
 ---
 
 ## Tips and Variations
@@ -149,6 +155,14 @@ Before considering this workflow complete, verify:
 - [ ] Design rationale connects the technical decision to product/business goals
 - [ ] Design rationale is understandable by someone who was not part of the spike
 - [ ] All three documents are stored in a discoverable location (not buried in a Slack thread)
+
+---
+
+## See Also
+
+- [Product Strategy](product-strategy.md) — For broader strategic context when the technical decision has strategic implications
+- [Feature Kickoff](feature-kickoff.md) — After feasibility is confirmed, move to execution with the full problem-to-launch flow
+- [Sprint Planning](sprint-planning.md) — To break the confirmed solution into sprint-ready stories
 
 ---
 

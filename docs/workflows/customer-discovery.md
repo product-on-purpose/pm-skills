@@ -139,6 +139,13 @@ Raw Research Data
   Validated problem framing
 ```
 
+```mermaid
+graph LR
+    A["interview-synthesis"] --> B["jtbd-canvas"]
+    B --> C["opportunity-tree"]
+    C --> D["problem-statement"]
+```
+
 ---
 
 ## Tips and Variations
@@ -165,6 +172,14 @@ Before considering this workflow complete, verify:
 - [ ] Problem statement is specific enough to evaluate potential solutions against
 - [ ] Problem statement does NOT embed a solution (it should describe the problem space, not a feature)
 - [ ] Evidence trail is traceable from raw research through to final problem statement
+
+---
+
+## See Also
+
+- [Feature Kickoff](feature-kickoff.md) — When the problem is clear and you are ready to move to execution
+- [Product Strategy](product-strategy.md) — When discovery findings need to feed into broader strategic framing
+- [Triple Diamond](triple-diamond.md) — For a comprehensive end-to-end product development workflow
 
 ---
 

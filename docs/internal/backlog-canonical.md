@@ -2,7 +2,7 @@
 
 Status: Active
 Owner: Maintainers
-Last updated: 2026-04-04
+Last updated: 2026-04-06
 
 GitHub issues are the canonical system for backlog and lifecycle state.
 
@@ -31,12 +31,16 @@ Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 | D-04 | Public docs refresh for v2.8.0 | Documentation | **v2.8.0** | Shipped | — |
 | M-13 | Convention alignment pass | Quality | — | Complete (all skills pass CI, 2026-04-04) | [#115](https://github.com/product-on-purpose/pm-skills/issues/115) |
 | M-17 | GitHub Pages documentation site | Ecosystem | **v2.8.1** | Shipped | — |
+| M-19 | Rename bundles → workflows | Infrastructure | **v2.9.0** | Shipped | — |
+| F-13 | Workflow expansion (3 → 9) | Feature | **v2.9.0** | Shipped | — |
 
 ### Active Backlog (priority order)
 
 | Priority | ID | Effort | Type | Agent | Status | Issue |
 |----------|----|--------|------|-------|--------|-------|
-| 1 | F-12 | Skill quality convergence | Quality | Claude + Human | Draft | — |
+| 1 | D-05 | Dedicated workflows guide | Documentation | Claude | Planned (v2.9.1) | — |
+| 2 | M-20 | Docs count consistency CI | Infrastructure | Claude | Planned (v2.9.1) | — |
+| 3 | F-12 | Skill quality convergence | Quality | Claude + Human | Draft | — |
 | 2 | M-14 | Release automation enhancement | Infrastructure | Codex | Backlog | [#116](https://github.com/product-on-purpose/pm-skills/issues/116) |
 | 3 | M-15 | Community contribution setup | Ecosystem | Claude | Backlog | [#117](https://github.com/product-on-purpose/pm-skills/issues/117) |
 | 4 | F-07 | `discover-market-sizing` | New skill | Claude | Backlog | [#118](https://github.com/product-on-purpose/pm-skills/issues/118) |

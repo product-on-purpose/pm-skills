@@ -4,6 +4,18 @@
 
 Feature Kickoff is a streamlined workflow for developing well-understood features where requirements are relatively clear and deep discovery isn't needed. It gets you from problem to launch efficiently.
 
+## Workflow Metadata
+
+| Field | Value |
+|-------|-------|
+| **Workflow** | Feature Kickoff |
+| **Command** | `/workflow-feature-kickoff` |
+| **Skills** | `define-problem-statement` → `define-hypothesis` → `deliver-prd` → `deliver-user-stories` → `deliver-launch-checklist` |
+| **Phases Covered** | Define, Deliver |
+| **Estimated Duration** | 4-6 hours |
+| **Prerequisite Inputs** | A feature idea or customer request |
+| **Final Output** | Sprint-ready user stories with launch plan |
+
 ---
 
 ## Overview
@@ -14,6 +26,14 @@ Feature Kickoff is a streamlined workflow for developing well-understood feature
 │  problem-statement → hypothesis → prd → user-stories → launch│
 │                                                              │
 └──────────────────────────────────────────────────────────────┘
+```
+
+```mermaid
+graph LR
+    A["problem-statement"] --> B["hypothesis"]
+    B --> C["prd"]
+    C --> D["user-stories"]
+    D --> E["launch-checklist"]
 ```
 
 This workflow assumes:
@@ -288,6 +308,18 @@ Acceptance Criteria:
 | 5 | launch-checklist | 30 min | Pre-launch checklist |
 
 **Total:** ~4-6 hours to kick off a feature
+
+---
+
+## Quality Checklist
+
+Before considering this workflow complete, verify:
+
+- [ ] Problem statement has measurable success criteria
+- [ ] Hypothesis is specific and falsifiable
+- [ ] PRD scope is clear (in/out)
+- [ ] User stories have Given/When/Then acceptance criteria
+- [ ] Launch checklist has owners for every item
 
 ---
 

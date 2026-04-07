@@ -115,6 +115,12 @@ PRD / Solution Brief / Backlog
   Error states, boundaries, recovery
 ```
 
+```mermaid
+graph LR
+    A["refinement-notes"] --> B["user-stories"]
+    B --> C["edge-cases"]
+```
+
 ---
 
 ## Tips and Variations
@@ -144,6 +150,13 @@ Before considering this workflow complete, verify:
 - [ ] Edge cases cover: empty states, error states, boundary values, concurrent access, and permission/auth scenarios
 - [ ] Edge cases include recommended handling (not just "what could go wrong" but "what should happen")
 - [ ] Stories are sized appropriately for a single sprint (no epics disguised as stories)
+
+---
+
+## See Also
+
+- [Feature Kickoff](feature-kickoff.md) — For the full problem-to-stories flow when starting from scratch
+- [Post-Launch Learning](post-launch-learning.md) — After the sprint ships, measure results and capture learnings
 
 ---
 

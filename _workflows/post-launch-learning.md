@@ -168,6 +168,14 @@ Shipped Feature + Success Metrics
   Durable organizational learnings
 ```
 
+```mermaid
+graph LR
+    A["instrumentation-spec"] --> B["dashboard-requirements"]
+    B --> C["experiment-results"]
+    C --> D["retrospective"]
+    D --> E["lessons-log"]
+```
+
 ---
 
 ## Tips and Variations
@@ -198,6 +206,14 @@ Before considering this workflow complete, verify:
 - [ ] Retrospective action items have owners and deadlines (not just "we should do better")
 - [ ] Lessons log entries are generalizable beyond the specific feature
 - [ ] The learning cycle is closed: lessons should visibly influence future planning
+
+---
+
+## See Also
+
+- [Feature Kickoff](feature-kickoff.md) — The workflow that typically precedes this one, ending at launch
+- [Lean Startup](lean-startup.md) — If results suggest pivoting, use this to design the next experiment
+- [Sprint Planning](sprint-planning.md) — If results suggest iterating, use this to plan the next sprint
 
 ---
 

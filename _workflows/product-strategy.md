@@ -168,6 +168,14 @@ Strategic Initiative / Market Opportunity
   Documented architectural decisions
 ```
 
+```mermaid
+graph LR
+    A["competitive-analysis"] --> B["stakeholder-summary"]
+    B --> C["opportunity-tree"]
+    C --> D["solution-brief"]
+    D --> E["adr"]
+```
+
 ---
 
 ## Tips and Variations
@@ -203,6 +211,14 @@ Before considering this workflow complete, verify:
 - [ ] ADRs document rejected alternatives, not just the chosen option
 - [ ] ADRs include consequences (both positive and negative) of each decision
 - [ ] There is a clear evidence trail from competitive gaps -> opportunities -> solution -> decisions
+
+---
+
+## See Also
+
+- [Customer Discovery](customer-discovery.md) — When you need more research before committing to a strategic direction
+- [Stakeholder Alignment](stakeholder-alignment.md) — To get buy-in on the strategy from leadership and cross-functional partners
+- [Technical Discovery](technical-discovery.md) — For evaluating technical feasibility of the proposed solution
 
 ---
 

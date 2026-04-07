@@ -4,6 +4,18 @@
 
 The Lean Startup methodology emphasizes rapid iteration through the Build-Measure-Learn feedback loop. This workflow maps PM-Skills to that cycle, enabling quick hypothesis validation and data-driven pivoting.
 
+## Workflow Metadata
+
+| Field | Value |
+|-------|-------|
+| **Workflow** | Lean Startup |
+| **Command** | No dedicated command yet -- reference file directly |
+| **Skills** | `define-hypothesis` → `develop-solution-brief` → `measure-experiment-design` → `measure-experiment-results` → `iterate-pivot-decision` |
+| **Phases Covered** | Define, Develop, Measure, Iterate |
+| **Estimated Duration** | 1-2 week cycles |
+| **Prerequisite Inputs** | A product idea or assumption to validate |
+| **Final Output** | Validated learning with pivot/persevere decision |
+
 ---
 
 ## Overview
@@ -32,6 +44,15 @@ The Lean Startup cycle focuses on minimizing time through the feedback loop:
    │   MEASURE   │───────────────┘
    │             │
    └─────────────┘
+```
+
+```mermaid
+graph LR
+    A["hypothesis"] --> B["solution-brief"]
+    B --> C["experiment-design"]
+    C --> D["experiment-results"]
+    D --> E["pivot-decision"]
+    E -->|"iterate"| A
 ```
 
 ---
@@ -283,6 +304,18 @@ Use [`measure-dashboard-requirements`](../skills/measure-dashboard-requirements/
 | **Uncertainty** | High | Medium-High | Low |
 | **Research depth** | Minimal upfront | Extensive | None |
 | **Best for** | New products, pivots | Major initiatives | Known improvements |
+
+---
+
+## Quality Checklist
+
+Before considering this workflow complete, verify:
+
+- [ ] Hypothesis is falsifiable with a specific metric target
+- [ ] MVP scope is truly minimal (can build in days/weeks)
+- [ ] Experiment has defined sample size and duration
+- [ ] Results include both quantitative data and qualitative signals
+- [ ] Pivot/persevere decision is based on evidence, not opinion
 
 ---
 
