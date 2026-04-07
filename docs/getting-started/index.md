@@ -613,6 +613,17 @@ Workflows are pre-defined sequences of skills for common PM processes.
 
 **Skills included:** All 25 phase skills across 6 phases
 
+### Additional Workflows (v2.9.0)
+
+| Workflow | Command | Use When |
+|----------|---------|----------|
+| Customer Discovery | `/workflow-customer-discovery` | Transforming raw research into a validated problem |
+| Sprint Planning | `/workflow-sprint-planning` | Preparing sprint-ready stories from a backlog |
+| Product Strategy | `/workflow-product-strategy` | Framing a major strategic initiative |
+| Post-Launch Learning | `/workflow-post-launch-learning` | Measuring results and capturing learnings after launch |
+| Stakeholder Alignment | `/workflow-stakeholder-alignment` | Getting leadership buy-in before committing resources |
+| Technical Discovery | `/workflow-technical-discovery` | Evaluating technical feasibility and architecture |
+
 See `_workflows/` directory for detailed workflow documentation.
 
 ---

@@ -184,10 +184,16 @@ Sections: Foundation Classification, Discover Phase, ..., Iterate Phase, Utility
 
 ### Workflows (`_workflows/*.md`)
 
-Multi-skill workflows that chain skills together. Three shipped workflows:
-- **Triple Diamond** — Complete product development cycle
-- **Lean Startup** — Build-Measure-Learn rapid iteration
+Multi-skill workflows that chain skills together. Nine shipped workflows:
 - **Feature Kickoff** — Quick-start workflow (problem → hypothesis → PRD → stories)
+- **Lean Startup** — Build-Measure-Learn rapid iteration
+- **Triple Diamond** — Complete product development cycle
+- **Customer Discovery** — Research to validated problem
+- **Sprint Planning** — Backlog to sprint-ready stories
+- **Product Strategy** — Competitive context to architecture decisions
+- **Post-Launch Learning** — Measurement to organizational learnings
+- **Stakeholder Alignment** — Leadership buy-in package
+- **Technical Discovery** — Spike to architecture decisions
 
 ---
 

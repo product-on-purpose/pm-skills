@@ -413,6 +413,12 @@ Workflows are pre-defined skill sequences for common PM processes.
 | Feature Kickoff | Standard feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | Lean Startup | Rapid validation | hypothesis → experiment-design → experiment-results → pivot-decision |
 | Triple Diamond | Comprehensive product dev | All 25 phase skills across 6 phases |
+| Customer Discovery | Research to problem framing | interview-synthesis → jtbd-canvas → opportunity-tree → problem-statement |
+| Sprint Planning | Sprint-ready stories | refinement-notes → user-stories → edge-cases |
+| Product Strategy | Strategic initiative framing | competitive-analysis → stakeholder-summary → opportunity-tree → solution-brief → adr |
+| Post-Launch Learning | Ship-to-learn feedback | instrumentation-spec → dashboard-requirements → experiment-results → retrospective → lessons-log |
+| Stakeholder Alignment | Leadership buy-in | stakeholder-summary → problem-statement → solution-brief → launch-checklist |
+| Technical Discovery | Feasibility + architecture | spike-summary → adr → design-rationale |
 
 ### Invoking a Workflow
 
