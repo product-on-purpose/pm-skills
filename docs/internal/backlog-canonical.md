@@ -40,12 +40,14 @@ Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 |----------|----|--------|------|-------|--------|-------|
 | 1 | D-05 | Dedicated workflows guide | Documentation | Claude | Planned (v2.9.1) | — |
 | 2 | M-20 | Docs count consistency CI | Infrastructure | Claude | Planned (v2.9.1) | — |
-| 3 | F-12 | Skill quality convergence | Quality | Claude + Human | Draft | — |
-| 2 | M-14 | Release automation enhancement | Infrastructure | Codex | Backlog | [#116](https://github.com/product-on-purpose/pm-skills/issues/116) |
-| 3 | M-15 | Community contribution setup | Ecosystem | Claude | Backlog | [#117](https://github.com/product-on-purpose/pm-skills/issues/117) |
-| 4 | F-07 | `discover-market-sizing` | New skill | Claude | Backlog | [#118](https://github.com/product-on-purpose/pm-skills/issues/118) |
-| 5 | F-08 | `measure-survey-analysis` | New skill | Claude | Backlog | [#119](https://github.com/product-on-purpose/pm-skills/issues/119) |
-| 6 | F-09 | Agent Skill Builder (`/agent-skill-builder`) | New skill | Claude | Backlog | [#120](https://github.com/product-on-purpose/pm-skills/issues/120) |
+| 3 | F-14 | Workflow Builder (`/workflow-builder`) | New skill | Claude | Backlog | — |
+| 4 | F-15 | Ad-hoc Skill Chaining (`/chain`) | New feature | Claude | Backlog | — |
+| 5 | F-12 | Skill quality convergence | Quality | Claude + Human | Draft | — |
+| 6 | M-14 | Release automation enhancement | Infrastructure | Codex | Backlog | [#116](https://github.com/product-on-purpose/pm-skills/issues/116) |
+| 7 | M-15 | Community contribution setup | Ecosystem | Claude | Backlog | [#117](https://github.com/product-on-purpose/pm-skills/issues/117) |
+| 8 | F-07 | `discover-market-sizing` | New skill | Claude | Backlog | [#118](https://github.com/product-on-purpose/pm-skills/issues/118) |
+| 9 | F-08 | `measure-survey-analysis` | New skill | Claude | Backlog | [#119](https://github.com/product-on-purpose/pm-skills/issues/119) |
+| 10 | F-09 | Agent Skill Builder (`/agent-skill-builder`) | New skill | Claude | Backlog | [#120](https://github.com/product-on-purpose/pm-skills/issues/120) |
 
 See individual effort briefs at `docs/internal/efforts/{ID}-{slug}.md` for scope, decisions, and artifacts.
 
