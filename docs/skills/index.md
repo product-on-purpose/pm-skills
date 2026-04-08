@@ -1,6 +1,6 @@
 ---
 title: Skills
-description: Browse all 29 PM skills organized by Triple Diamond phase.
+description: Browse all 30 PM skills organized by Triple Diamond phase.
 ---
 
 # Skills

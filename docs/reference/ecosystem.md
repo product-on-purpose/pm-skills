@@ -72,7 +72,7 @@ PM-Skills is the **source skill library**—a collection of markdown files conta
 | Component | Count | Description |
 |-----------|-------|-------------|
 | Skills | 27 | Complete PM artifacts (25 phase skills + 1 foundation skill + 1 utility skill) |
-| Slash Commands | 36 | Command markdown files (29 skill commands + 7 workflow commands) |
+| Slash Commands | 37 | Command markdown files (30 skill commands + 7 workflow commands) |
 | Workflows | 9 | Multi-skill workflows (Feature Kickoff, Lean Startup, Triple Diamond, and 6 more) |
 | Documentation | ~10 files | Guides, references, and framework explanations |
 

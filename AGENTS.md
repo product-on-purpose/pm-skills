@@ -187,6 +187,13 @@ Applies targeted improvements to an existing pm-skills skill based on feedback, 
 
 ---
 
+#### mermaid-diagrams
+**Path:** `skills/utility-mermaid-diagrams/SKILL.md`
+
+Teaches PMs to create syntactically valid mermaid diagrams by selecting the right diagram type for their communication need. Covers 15 diagram types with PM-relevant examples, a dual-lens navigation system (type catalog and use-case guide), and a dedicated syntax validity reference. Use when creating, debugging, or reviewing mermaid diagrams in product documents.
+
+---
+
 ## Workflows
 
 | Workflow | Description |

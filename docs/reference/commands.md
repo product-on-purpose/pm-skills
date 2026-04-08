@@ -5,7 +5,7 @@ description: "All slash commands available in PM Skills."
 
 # Commands Reference
 
-PM Skills ships 36 slash commands: 29 skill commands plus 7 workflow commands.
+PM Skills ships 37 slash commands: 30 skill commands plus 7 workflow commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -22,6 +22,7 @@ PM Skills ships 36 slash commands: 29 skill commands plus 7 workflow commands.
 | `/interview-synthesis` | [discover-interview-synthesis](../skills/discover/discover-interview-synthesis.md) | Discover | Synthesizes user research interviews into actionable insight... |
 | `/jtbd-canvas` | [define-jtbd-canvas](../skills/define/define-jtbd-canvas.md) | Define | Creates a Jobs to be Done canvas capturing the functional, e... |
 | `/launch-checklist` | [deliver-launch-checklist](../skills/deliver/deliver-launch-checklist.md) | Deliver | Creates a comprehensive pre-launch checklist covering engine... |
+| `/mermaid-diagrams` | [utility-mermaid-diagrams](../skills/utility/utility-mermaid-diagrams.md) | Utility | Generates Mermaid diagrams from product artifacts and conver... |
 | `/lessons-log` | [iterate-lessons-log](../skills/iterate/iterate-lessons-log.md) | Iterate | Creates a structured lessons learned entry for organizationa... |
 | `/opportunity-tree` | [define-opportunity-tree](../skills/define/define-opportunity-tree.md) | Define | Creates an opportunity solution tree mapping desired outcome... |
 | `/persona` | [foundation-persona](../skills/foundation/foundation-persona.md) | Foundation | Generates an evidence-calibrated product or marketing person... |

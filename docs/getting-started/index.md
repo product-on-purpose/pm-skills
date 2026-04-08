@@ -36,7 +36,7 @@ Welcome to PM-Skills! This guide will help you understand what this repository o
 
 ## What is PM-Skills?
 
-**PM-Skills** is an open-source collection of 29 product management skills that teach AI assistants how to create professional PM documents. The current repo includes 25 phase skills, 1 foundation skill, and 3 utility skills. Think of it as a playbook that transforms generic AI responses into polished, consistent PM artifacts.
+**PM-Skills** is an open-source collection of 30 product management skills that teach AI assistants how to create professional PM documents. The current repo includes 25 phase skills, 1 foundation skill, and 4 utility skills. Think of it as a playbook that transforms generic AI responses into polished, consistent PM artifacts.
 
 ### The Problem It Solves
 
@@ -56,7 +56,7 @@ AI: *Produces a comprehensive PRD with problem statement, success metrics,
 
 ### What You Get
 
-- **29 skills in `skills/`** covering the PM lifecycle (25 phase skills + 1 foundation skill + 3 utility skills)
+- **30 skills in `skills/`** covering the PM lifecycle (25 phase skills + 1 foundation skill + 4 utility skills)
 - **Professional templates** based on industry best practices
 - **Real-world examples** showing what good looks like
 - **Works with any AI assistant** (Claude, ChatGPT, Copilot, etc.)
@@ -211,7 +211,7 @@ Claude Code discovers the registered skill set via `AGENTS.md` and command defin
 
 #### Available Commands
 
-The repo currently ships 36 command markdown files: 29 skill commands plus 7 workflow commands.
+The repo currently ships 37 command markdown files: 30 skill commands plus 7 workflow commands.
 
 | Phase | Commands |
 |-------|----------|
@@ -221,7 +221,7 @@ The repo currently ships 36 command markdown files: 29 skill commands plus 7 wor
 | Deliver | `/prd`, `/user-stories`, `/acceptance-criteria`, `/edge-cases`, `/launch-checklist`, `/release-notes` |
 | Measure | `/experiment-design`, `/instrumentation-spec`, `/dashboard-requirements`, `/experiment-results` |
 | Iterate | `/retrospective`, `/lessons-log`, `/refinement-notes`, `/pivot-decision` |
-| Utility | `/pm-skill-builder`, `/pm-skill-validate`, `/pm-skill-iterate` |
+| Utility | `/pm-skill-builder`, `/pm-skill-validate`, `/pm-skill-iterate`, `/mermaid-diagrams` |
 | Foundation | `/persona` |
 
 Plus workflows: `/workflow-feature-kickoff`
@@ -263,7 +263,7 @@ git submodule add https://github.com/product-on-purpose/pm-skills.git .pm-skills
 #### How It Works
 
 Modern AI coding assistants discover skills through the `AGENTS.md` file at the repository root. This file:
-- Lists all 29 registered skills with paths and descriptions
+- Lists all 30 registered skills with paths and descriptions
 - Provides workflows
 - Documents available commands
 

@@ -129,7 +129,7 @@ skills/{skill-name}/
 
 Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
 
-**Commands (36 total: 29 skill commands + 7 workflow commands)**
+**Commands (37 total: 30 skill commands + 7 workflow commands)**
 | Command | Target skill/workflow |
 | --- | --- |
 | `/competitive-analysis` | discover-competitive-analysis |
@@ -160,6 +160,7 @@ Contains Claude Code slash command definitions. Each `.md` maps a `/command` to 
 | `/persona` | foundation-persona |
 | `/pm-skill-iterate` | utility-pm-skill-iterate |
 | `/pm-skill-validate` | utility-pm-skill-validate |
+| `/mermaid-diagrams` | utility-mermaid-diagrams |
 | `/workflow-feature-kickoff` | feature-kickoff workflow |
 | `/workflow-customer-discovery` | customer-discovery workflow |
 | `/workflow-sprint-planning` | sprint-planning workflow |
