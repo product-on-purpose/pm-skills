@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Directory Overview](#directory-overview)
-- [/skills/ — Skills](#skills--the-27-pm-skills-flat)
+- [/skills/ — Skills](#skills--the-30-pm-skills-flat)
 - [/commands/ — Slash Commands](#commands--slash-commands)
 - [/workflows/ — Workflows](#workflows--workflows)
 - [/docs/ — Documentation](#docs--documentation)
@@ -19,8 +19,8 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (27 total, flat)
-├── commands/                   # Slash command markdown files (27 total + .gitkeep)
+├── skills/                     # Core PM skills (30 total, flat)
+├── commands/                   # Slash command markdown files (37 total + .gitkeep)
 ├── _workflows/                 # Workflows
 ├── docs/                       # Documentation (incl. templates)
 │   └── templates/              # Skill creation templates
@@ -31,7 +31,7 @@ pm-skills/
 
 ---
 
-## `/skills/` — The 27 PM Skills (flat)
+## `/skills/` — The 30 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 
@@ -98,12 +98,20 @@ skills/{skill-name}/
 | `deliver-launch-checklist` | Pre-launch verification checklist |
 | `deliver-release-notes` | User-facing release communication |
 
-#### Foundation / Utility (2 skills)
+#### Foundation (1 skill)
 
 | Skill | Purpose |
 |-------|---------|
 | `foundation-persona` | Evidence-calibrated product or marketing persona generation |
+
+#### Utility (4 skills)
+
+| Skill | Purpose |
+|-------|---------|
+| `utility-mermaid-diagrams` | Generate Mermaid diagrams for PM artifacts |
 | `utility-pm-skill-builder` | Guided creation of new pm-skills-compatible skills |
+| `utility-pm-skill-iterate` | Targeted improvements to existing skills based on feedback |
+| `utility-pm-skill-validate` | Audit skills against structural conventions and quality criteria |
 
 #### Measure Phase (4 skills)
 
@@ -161,6 +169,7 @@ Contains Claude Code slash command definitions. Each `.md` maps a `/command` to 
 | `/pm-skill-iterate` | utility-pm-skill-iterate |
 | `/pm-skill-validate` | utility-pm-skill-validate |
 | `/mermaid-diagrams` | utility-mermaid-diagrams |
+| `/pm-skill-builder` | utility-pm-skill-builder |
 | `/workflow-feature-kickoff` | feature-kickoff workflow |
 | `/workflow-customer-discovery` | customer-discovery workflow |
 | `/workflow-sprint-planning` | sprint-planning workflow |

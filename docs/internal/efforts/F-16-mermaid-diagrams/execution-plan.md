@@ -1,6 +1,6 @@
 # F-16 Execution Plan: utility-mermaid-diagrams
 
-Status: Planning
+Status: Complete (all tasks executed, merged to main 2026-04-07)
 Parent effort: [F-16-mermaid-diagrams.md](./F-16-mermaid-diagrams.md)
 Design reference: [specification.md](./specification.md)
 

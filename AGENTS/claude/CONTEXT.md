@@ -389,12 +389,12 @@ pm-skills/
   - CI step pending (A-9): `validation.yml` will run `.sh` with `continue-on-error: true`
 
 - **Slash Commands (37 total):**
-  - 30 skill commands (24 original + `/persona` + `/acceptance-criteria` + `/pm-skill-builder` + `/pm-skill-validate` + `/pm-skill-iterate` + `/cross-llm-review`)
+  - 30 skill commands (24 original + `/persona` + `/acceptance-criteria` + `/pm-skill-builder` + `/pm-skill-validate` + `/pm-skill-iterate` + `/mermaid-diagrams`)
   - 7 workflow commands: `/workflow-feature-kickoff`, `/workflow-customer-discovery`, `/workflow-sprint-planning`, `/workflow-product-strategy`, `/workflow-post-launch-learning`, `/workflow-stakeholder-alignment`, `/workflow-technical-discovery`
-- **Skills (27 total):**
+- **Skills (30 total):**
   - 25 domain skills (24 original + deliver-acceptance-criteria)
   - 1 foundation skill: foundation-persona (`classification: foundation`)
-  - 1 utility skill: utility-pm-skill-builder (`classification: utility`)
+  - 4 utility skills: utility-pm-skill-builder, utility-pm-skill-validate, utility-pm-skill-iterate, utility-mermaid-diagrams (`classification: utility`)
 - **Sample Output Library:**
   - `library/skill-output-samples/` — 95 sample outputs across 25 skills
   - `SAMPLE_CREATION.md` — standards for sample creation
@@ -468,6 +468,7 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 | pm-skill-builder | coordination | utility | ✅ Complete (v2.7.0) |
 | pm-skill-validate | coordination | utility | ✅ Complete (v2.8.0) |
 | pm-skill-iterate | coordination | utility | ✅ Complete (v2.8.0) |
+| mermaid-diagrams | documentation | utility | New (v2.10.0) |
 
 ### Discover Phase (3 skills)
 

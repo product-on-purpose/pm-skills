@@ -158,19 +158,19 @@ sequenceDiagram
     participant Bank as Issuing Bank
     participant Notify as Notification Service
 
-    Customer ->>+ App: Submit payment
-    App ->>+ Gateway: Charge $49.99
-    Gateway ->>+ Bank: Authorize transaction
+    Customer ->> App: Submit payment
+    App ->> Gateway: Charge $49.99
+    Gateway ->> Bank: Authorize transaction
     alt Approved
-        Bank -->>- Gateway: Authorization code
-        Gateway -->>- App: Payment confirmed
-        App -)+ Notify: Send receipt email
-        Notify --)- App: Email queued
-        App -->>- Customer: Order confirmation
+        Bank -->> Gateway: Authorization code
+        Gateway -->> App: Payment confirmed
+        App -) Notify: Send receipt email
+        Notify --) App: Email queued
+        App -->> Customer: Order confirmation
     else Declined
-        Bank -->>- Gateway: Decline reason
-        Gateway -->>- App: Payment failed
-        App -->>- Customer: Retry or use different card
+        Bank -->> Gateway: Decline reason
+        Gateway -->> App: Payment failed
+        App -->> Customer: Retry or use different card
     end
 ```
 
@@ -278,7 +278,7 @@ stateDiagram-v2
 **Syntax:**
 
 ```mermaid
-kanban
+kanban-beta
     Drafting
         Content brief for blog post
         Interview questions for case study
@@ -305,7 +305,7 @@ kanban
 **PM Example:**
 
 ```mermaid
-kanban
+kanban-beta
     Backlog
         Dark mode support @{priority: Low, ticket: FEAT-201}
         Export to CSV @{priority: High, ticket: FEAT-198}
@@ -1090,7 +1090,7 @@ Free Plan Active,Still on Free,4300
 **Syntax:**
 
 ```mermaid
-treemap
+treemap-beta
     Root
         Platform
             API Errors 450
@@ -1118,7 +1118,7 @@ treemap
 **PM Example:**
 
 ```mermaid
-treemap
+treemap-beta
     Support Tickets
         Billing
             Payment Failed 245

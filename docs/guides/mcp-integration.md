@@ -15,7 +15,7 @@ This guide helps you access PM-Skills through the Model Context Protocol (MCP) v
   - [VS Code (Cline/Continue)](#vs-code-clinecontinue)
   - [Other MCP Clients](#other-mcp-clients)
 - [Tool Inventory](#tool-inventory)
-  - [Skill Tools (29)](#skill-tools-29)
+  - [Skill Tools (30)](#skill-tools-30)
   - [Workflow Tools (5)](#workflow-tools-5)
   - [Utility Tools (8)](#utility-tools-8)
 - [Slash Command to MCP Tool Mapping](#slash-command-to-mcp-tool-mapping)
@@ -202,7 +202,7 @@ PM-Skills MCP exposes skill, workflow, and utility tools derived from the curren
 
 > **Note:** pm-skills-mcp now tracks pm-skills release versions directly (starting at v2.4.0). Resource URIs are flat (`pm-skills://skills/{skill}`) with phase available in metadata.
 
-### Skill Tools (29)
+### Skill Tools (30)
 
 Each skill becomes an MCP tool with standardized parameters:
 
@@ -281,6 +281,7 @@ Each skill becomes an MCP tool with standardized parameters:
 | `pm_pm_skill_builder` | Interactive builder for creating new PM skills |
 | `pm_pm_skill_validate` | Audit a skill against structural conventions and quality criteria |
 | `pm_pm_skill_iterate` | Apply targeted improvements from feedback or validation reports |
+| `pm_mermaid_diagrams` | Generate Mermaid diagrams for PM artifacts |
 
 ---
 
@@ -352,7 +353,7 @@ If you're transitioning from file-based pm-skills to MCP, here's the mapping:
 | `/pm-skill-iterate` | `pm_pm_skill_iterate` |
 | `/workflow-feature-kickoff` | `pm_workflow_feature_kickoff` |
 
-Requires pm-skills-mcp v2.8.0+ for the full 29-skill tool inventory.
+Requires pm-skills-mcp v2.8.0+ for the full 30-skill tool inventory.
 
 **Usage difference:**
 

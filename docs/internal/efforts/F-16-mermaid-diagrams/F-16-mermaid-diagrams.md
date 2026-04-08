@@ -1,7 +1,7 @@
 # [F-16] Mermaid Diagrams Utility Skill
-Status: Implementation Complete (pending release)
-Milestone: TBD
-Issue: TBD
+Status: Merged to main (pending v2.10.0 tag)
+Milestone: v2.10.0
+Issue: TBD (merged without tracking issue — direct commit to feature branch)
 Agent: Claude Opus 4.6
 
 ## Scope
@@ -32,7 +32,7 @@ PM describes what they need to communicate:
 
 2. **Select diagram type** — Navigate via two lenses:
    - **PM use-case guide**: "I need to show decisions" → Flowchart, "I need to show timelines" → Gantt/Timeline
-   - **Diagram catalog**: Browse all 16 types with syntax, limits, and PM-relevant examples
+   - **Diagram catalog**: Browse all 15 types with syntax, limits, and PM-relevant examples
 
 3. **Draft the diagram** — Use the planning worksheet (TEMPLATE.md) to inventory nodes, define relationships, and write the mermaid code block following syntax guide rules.
 
@@ -46,7 +46,7 @@ A syntactically valid mermaid diagram embedded in the PM's document, with clear 
 | Decision | Choice | Rationale |
 |----------|--------|-----------|
 | Audience | PMs, not engineers or AI agents | Framing, examples, and use-cases all target PM workflows |
-| Diagram scope | All 16 types | Comprehensive coverage; PM-relevant framing makes engineering types accessible |
+| Diagram scope | All 15 types | Comprehensive coverage; PM-relevant framing makes engineering types accessible |
 | Organization | Dual-lens (catalog + use-case) | PMs navigate by "what type is this?" and by "what do I need to show?" |
 | Syntax emphasis | First-class concern with dedicated reference | Biggest pain point for non-engineers writing mermaid |
 | Classification | utility (no phase) | Cross-cutting skill usable at any point in product lifecycle |
@@ -56,7 +56,7 @@ A syntactically valid mermaid diagram embedded in the PM's document, with clear 
 
 | Zone | Weight | Rationale |
 |------|--------|-----------|
-| Knowledge | 50 | 16 diagram types, syntax rules, PM use-case mappings |
+| Knowledge | 50 | 15 diagram types, syntax rules, PM use-case mappings |
 | Constraint | 30 | Syntax validity rules, node limits, quoting/escaping, accessibility |
 | Wisdom | 15 | When to diagram vs. not, which type fits, judgment calls |
 | Process | 5 | Lightweight creation flow (assess → select → draft → validate) |
@@ -78,8 +78,8 @@ A syntactically valid mermaid diagram embedded in the PM's document, with clear 
 
 ## Estimated Complexity
 
-Medium — significant reference content to write (16 diagram types × consistent structure), but straightforward skill architecture. No code, no automation, no cross-cutting dependencies.
+Medium — significant reference content to write (15 diagram types × consistent structure), but straightforward skill architecture. No code, no automation, no cross-cutting dependencies.
 
 ## PRs
 
-TBD
+Direct merge to main via `feature/f-16-mermaid-diagrams` branch (commit `06af8fb`, merge commit on main 2026-04-07). No PR — branch merged locally.

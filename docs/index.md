@@ -1,13 +1,13 @@
 ---
 title: PM Skills
-description: 29 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more.
+description: 30 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more.
 tags:
   - Home
 ---
 
 # PM Skills
 
-**29 best-practice product management skills for AI agents.**
+**30 best-practice product management skills for AI agents.**
 
 PM Skills teaches AI assistants how to produce professional PM artifacts - PRDs, user stories, acceptance criteria, experiment designs, and more. One command, consistent output, every time.
 
@@ -72,7 +72,7 @@ graph LR
   Cross-cutting persona generation
   [:octicons-arrow-right-24: Browse](skills/foundation/)
 
-- :material-tools: **Utility** - 3 skills
+- :material-tools: **Utility** - 4 skills
   ---
   Create, validate, and iterate skills themselves
   [:octicons-arrow-right-24: Browse](skills/utility/)

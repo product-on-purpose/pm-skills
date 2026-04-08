@@ -236,6 +236,7 @@ Workflow links are repo-relative within this repository.
 | `/workflow-stakeholder-alignment` | Run the Stakeholder Alignment workflow |
 | `/workflow-technical-discovery` | Run the Technical Discovery workflow |
 | `/launch-checklist` | Create a comprehensive pre-launch checklist |
+| `/mermaid-diagrams` | utility-mermaid-diagrams |
 | `/lessons-log` | Create a structured lessons learned entry |
 | `/opportunity-tree` | Create an opportunity solution tree |
 | `/persona` | Generate a product or marketing persona |

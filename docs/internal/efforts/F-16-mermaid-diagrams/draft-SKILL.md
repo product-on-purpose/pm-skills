@@ -1,9 +1,13 @@
+<!-- SUPERSEDED: See shipped version at skills/utility-mermaid-diagrams/SKILL.md -->
+<!-- Key divergences: description single-lined, version quoted, author added, -->
+<!-- license comment standardized, selection guide table simplified, ref paths -->
+<!-- changed to relative format. All improvements over this draft. -->
 ---
 name: utility-mermaid-diagrams
 description: >-
   Teaches PMs to create syntactically valid mermaid diagrams by selecting
   the right diagram type for their communication need, following syntax
-  validity rules, and validating before shipping. Covers all 16 mermaid
+  validity rules, and validating before shipping. Covers all 15 mermaid
   diagram types with PM-relevant examples and a dual-lens navigation
   system (type catalog and use-case guide).
 version: 1.0.0
@@ -23,7 +27,7 @@ Create effective, syntactically valid mermaid diagrams for product documents.
 ## When to Use
 
 - Creating mermaid diagrams for PRDs, specs, roadmaps, or stakeholder presentations
-- Choosing which of 16 diagram types fits a specific communication need
+- Choosing which of 15 diagram types fits a specific communication need
 - Debugging mermaid code that won't render or renders incorrectly
 - Reviewing diagrams for clarity, accuracy, and accessibility
 
@@ -117,6 +121,6 @@ For the complete syntax reference, see **syntax-guide.md**.
 |------|---------|
 | `references/TEMPLATE.md` | Diagram planning worksheet — fill out before writing mermaid code |
 | `references/EXAMPLE.md` | Worked example: PM creating 4 diagrams for a product launch |
-| `references/diagram-catalog.md` | All 16 diagram types: syntax, PM examples, limits, pitfalls |
+| `references/diagram-catalog.md` | All 15 diagram types: syntax, PM examples, limits, pitfalls |
 | `references/pm-use-cases.md` | PM task → diagram type mapping with mini worked examples |
 | `references/syntax-guide.md` | Complete syntax validity rules, escaping, styling, and validation checklist |

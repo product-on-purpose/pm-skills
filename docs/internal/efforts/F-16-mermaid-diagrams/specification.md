@@ -60,7 +60,7 @@ name: utility-mermaid-diagrams
 description: >-
   Teaches PMs to create syntactically valid mermaid diagrams by selecting
   the right diagram type for their communication need, following syntax
-  validity rules, and validating before shipping. Covers all 16 mermaid
+  validity rules, and validating before shipping. Covers all 15 mermaid
   diagram types with PM-relevant examples and a dual-lens navigation
   system (type catalog + use-case guide).
 version: 1.0.0
@@ -94,7 +94,7 @@ metadata:
 
 4. **Diagram Selection Guide**
    - Decision table: "I need to show..." → recommended type(s) → reference link
-   - Covers ~12 common PM intents mapped to the 16 types
+   - Covers ~12 common PM intents mapped to the 15 types
    - Points to pm-use-cases.md for worked examples, diagram-catalog.md for syntax
 
 5. **Syntax Validity Principles**

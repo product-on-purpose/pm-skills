@@ -131,7 +131,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - **New script**: `scripts/generate-workflow-pages.py` — generates docs site pages from source workflows
 - **URL redirects** for old `/bundles/*` doc site paths via `mkdocs-redirects`
 - **Terminology guard**: `scripts/check-stale-bundle-refs.sh/.ps1` prevents regression
-- Repo now ships 29 skills, 36 command docs, and 9 workflows.
+- Repo now ships 30 skills, 37 command docs, and 9 workflows.
 - Release note: [`docs/releases/Release_v2.9.0.md`](docs/releases/Release_v2.9.0.md).
 
 </details>
@@ -763,7 +763,7 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 ```
 pm-skills/
 ├── skills/                     # 30 PM skills (25 phase + 1 foundation + 4 utility)
-├── commands/                   # Slash commands (36) mapping to skills/workflows
+├── commands/                   # Slash commands (37) mapping to skills/workflows
 ├── _workflows/                 # 9 workflows: feature-kickoff, lean-startup, triple-diamond, and 6 more
 ├── library/                    # Sample output library (skill-output-samples) and related corpus docs
 ├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)
