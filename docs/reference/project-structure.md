@@ -19,8 +19,8 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (30 total, flat)
-├── commands/                   # Slash command markdown files (37 total + .gitkeep)
+├── skills/                     # Core PM skills (31 total, flat)
+├── commands/                   # Slash command markdown files (38 total + .gitkeep)
 ├── _workflows/                 # Workflows
 ├── docs/                       # Documentation (incl. templates)
 │   └── templates/              # Skill creation templates
@@ -31,7 +31,7 @@ pm-skills/
 
 ---
 
-## `/skills/` — The 30 PM Skills (flat)
+## `/skills/` — The 31 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 
@@ -104,7 +104,7 @@ skills/{skill-name}/
 |-------|---------|
 | `foundation-persona` | Evidence-calibrated product or marketing persona generation |
 
-#### Utility (4 skills)
+#### Utility (5 skills)
 
 | Skill | Purpose |
 |-------|---------|
@@ -112,6 +112,7 @@ skills/{skill-name}/
 | `utility-pm-skill-builder` | Guided creation of new pm-skills-compatible skills |
 | `utility-pm-skill-iterate` | Targeted improvements to existing skills based on feedback |
 | `utility-pm-skill-validate` | Audit skills against structural conventions and quality criteria |
+| `utility-slideshow-creator` | Generate professional presentations from JSON deck specs |
 
 #### Measure Phase (4 skills)
 
@@ -137,7 +138,7 @@ skills/{skill-name}/
 
 Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
 
-**Commands (37 total: 30 skill commands + 7 workflow commands)**
+**Commands (38 total: 31 skill commands + 7 workflow commands)**
 | Command | Target skill/workflow |
 | --- | --- |
 | `/competitive-analysis` | discover-competitive-analysis |
@@ -170,6 +171,7 @@ Contains Claude Code slash command definitions. Each `.md` maps a `/command` to 
 | `/pm-skill-validate` | utility-pm-skill-validate |
 | `/mermaid-diagrams` | utility-mermaid-diagrams |
 | `/pm-skill-builder` | utility-pm-skill-builder |
+| `/slideshow-creator` | utility-slideshow-creator |
 | `/workflow-feature-kickoff` | feature-kickoff workflow |
 | `/workflow-customer-discovery` | customer-discovery workflow |
 | `/workflow-sprint-planning` | sprint-planning workflow |

@@ -15,7 +15,7 @@ This guide helps you access PM-Skills through the Model Context Protocol (MCP) v
   - [VS Code (Cline/Continue)](#vs-code-clinecontinue)
   - [Other MCP Clients](#other-mcp-clients)
 - [Tool Inventory](#tool-inventory)
-  - [Skill Tools (30)](#skill-tools-30)
+  - [Skill Tools (31)](#skill-tools-31)
   - [Workflow Tools (5)](#workflow-tools-5)
   - [Utility Tools (8)](#utility-tools-8)
 - [Slash Command to MCP Tool Mapping](#slash-command-to-mcp-tool-mapping)
@@ -27,7 +27,7 @@ This guide helps you access PM-Skills through the Model Context Protocol (MCP) v
 
 ## Overview
 
-**PM-Skills MCP** is an MCP server that exposes the pm-skills catalog as programmatic tools. As of v2.8.0, that means 30 skill tools (25 phase skills + 1 foundation + 4 utility), plus 5 workflow tools and 8 utility tools (43 total). Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.
+**PM-Skills MCP** is an MCP server that exposes the pm-skills catalog as programmatic tools. As of v2.8.0, that means 31 skill tools (25 phase skills + 1 foundation + 5 utility), plus 5 workflow tools and 8 utility tools (44 total). Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.
 
 ```
 ┌─────────────────┐                    ┌─────────────────┐
@@ -202,7 +202,7 @@ PM-Skills MCP exposes skill, workflow, and utility tools derived from the curren
 
 > **Note:** pm-skills-mcp now tracks pm-skills release versions directly (starting at v2.4.0). Resource URIs are flat (`pm-skills://skills/{skill}`) with phase available in metadata.
 
-### Skill Tools (30)
+### Skill Tools (31)
 
 Each skill becomes an MCP tool with standardized parameters:
 
@@ -282,6 +282,7 @@ Each skill becomes an MCP tool with standardized parameters:
 | `pm_pm_skill_validate` | Audit a skill against structural conventions and quality criteria |
 | `pm_pm_skill_iterate` | Apply targeted improvements from feedback or validation reports |
 | `pm_mermaid_diagrams` | Generate Mermaid diagrams for PM artifacts |
+| `pm_slideshow_creator` | Generate professional presentations from JSON deck specs |
 
 ---
 
@@ -353,7 +354,7 @@ If you're transitioning from file-based pm-skills to MCP, here's the mapping:
 | `/pm-skill-iterate` | `pm_pm_skill_iterate` |
 | `/workflow-feature-kickoff` | `pm_workflow_feature_kickoff` |
 
-Requires pm-skills-mcp v2.8.0+ for the full 30-skill tool inventory.
+Requires pm-skills-mcp v2.8.0+ for the full skill tool inventory.
 
 **Usage difference:**
 

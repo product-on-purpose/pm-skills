@@ -5,7 +5,7 @@ site_name: PM Skills
 site_url: https://product-on-purpose.github.io/pm-skills/
 site_author: jprisant
 site_description: >-
-  30 AI agent skills for product managers. Open-source, spec-compliant
+  31 AI agent skills for product managers. Open-source, spec-compliant
   skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.
 repo_name: product-on-purpose/pm-skills
 repo_url: https://github.com/product-on-purpose/pm-skills
@@ -225,6 +225,7 @@ nav:
       - skills/utility/utility-pm-skill-builder.md
       - skills/utility/utility-pm-skill-iterate.md
       - skills/utility/utility-pm-skill-validate.md
+      - skills/utility/utility-slideshow-creator.md
 
   - Workflows:
     - workflows/index.md

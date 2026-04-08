@@ -1,11 +1,11 @@
 ---
 title: Skills
-description: Browse all 30 PM skills organized by Triple Diamond phase.
+description: Browse all 31 PM skills organized by Triple Diamond phase.
 ---
 
 # Skills
 
-PM Skills ships 30 production-ready skills organized by the Triple Diamond framework.
+PM Skills ships 31 production-ready skills organized by the Triple Diamond framework.
 
 | Phase | Skills | Focus |
 |-------|--------|-------|
@@ -16,6 +16,6 @@ PM Skills ships 30 production-ready skills organized by the Triple Diamond frame
 | [Measure](measure/) | 4 | Experiments, instrumentation, dashboards, results |
 | [Iterate](iterate/) | 4 | Retrospectives, lessons, refinement, pivot decisions |
 | [Foundation](foundation/) | 1 | Cross-cutting skills (persona) |
-| [Utility](utility/) | 4 | Skill lifecycle tools (builder, validator, iterator, mermaid diagrams) |
+| [Utility](utility/) | 5 | Skill lifecycle tools (builder, validator, iterator, mermaid diagrams, slideshow creator) |
 
 Skill pages are generated from the source SKILL.md, TEMPLATE.md, and EXAMPLE.md files in each skill directory.

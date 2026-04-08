@@ -194,6 +194,13 @@ Teaches PMs to create syntactically valid mermaid diagrams by selecting the righ
 
 ---
 
+#### slideshow-creator
+**Path:** `skills/utility-slideshow-creator/SKILL.md`
+
+Generates professional presentations from a JSON deck specification using 18 slide types with dark/light variants. Zero design decisions at generation time — Claude selects slide types and fills content slots; all visual properties are pre-decided by the theme. Use when creating slide decks, stakeholder updates, or product review presentations.
+
+---
+
 ## Workflows
 
 | Workflow | Description |
@@ -249,6 +256,7 @@ Workflow links are repo-relative within this repository.
 | `/refinement-notes` | Document backlog refinement session outcomes |
 | `/release-notes` | Create user-facing release notes |
 | `/retrospective` | Facilitate and document a team retrospective |
+| `/slideshow-creator` | Generate professional presentations from JSON deck specs |
 | `/solution-brief` | Create a one-page solution overview |
 | `/spike-summary` | Document the results of a technical or design spike |
 | `/stakeholder-summary` | Document stakeholder needs and influence |

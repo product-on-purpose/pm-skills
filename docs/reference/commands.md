@@ -5,7 +5,7 @@ description: "All slash commands available in PM Skills."
 
 # Commands Reference
 
-PM Skills ships 37 slash commands: 30 skill commands plus 7 workflow commands.
+PM Skills ships 38 slash commands: 31 skill commands plus 7 workflow commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -35,6 +35,7 @@ PM Skills ships 37 slash commands: 30 skill commands plus 7 workflow commands.
 | `/refinement-notes` | [iterate-refinement-notes](../skills/iterate/iterate-refinement-notes.md) | Iterate | Documents backlog refinement session outcomes including stor... |
 | `/release-notes` | [deliver-release-notes](../skills/deliver/deliver-release-notes.md) | Deliver | Creates user-facing release notes that communicate new featu... |
 | `/retrospective` | [iterate-retrospective](../skills/iterate/iterate-retrospective.md) | Iterate | Facilitates and documents a team retrospective capturing wha... |
+| `/slideshow-creator` | [utility-slideshow-creator](../skills/utility/utility-slideshow-creator.md) | Utility | Generates professional presentations from a JSON deck specif... |
 | `/solution-brief` | [develop-solution-brief](../skills/develop/develop-solution-brief.md) | Develop | Creates a concise one-page solution overview that communicat... |
 | `/spike-summary` | [develop-spike-summary](../skills/develop/develop-spike-summary.md) | Develop | Documents the results of a time-boxed technical or design ex... |
 | `/stakeholder-summary` | [discover-stakeholder-summary](../skills/discover/discover-stakeholder-summary.md) | Discover | Documents stakeholder needs, concerns, and influence for a p... |

@@ -32,9 +32,9 @@ pm-skills/
 │   ├── define-problem-statement/
 │   ├── deliver-prd/
 │   ├── deliver-user-stories/
-│   └── ...               # 30 skills total: {phase/classification}-{skill}/
+│   └── ...               # 31 skills total: {phase/classification}-{skill}/
 ├── _workflows/           # 9 Workflows (triple-diamond, lean-startup, feature-kickoff, and 6 more)
-├── commands/             # Claude Code slash commands (37 total: 30 skill + 7 workflow)
+├── commands/             # Claude Code slash commands (38 total: 31 skill + 7 workflow)
 ├── docs/                 # Documentation
 │   ├── guides/           # How-to guides
 │   ├── reference/        # Technical specs
@@ -75,7 +75,7 @@ pm-skills/
   - **Codex reviews**: M-19 plan reviewed (13 findings, all addressed), v2.9.0 release plan reviewed (8 findings, all addressed)
   - **Plans**: `docs/internal/release-plans/v2.9.0/plan_v2.9.0.md` (master), `docs/internal/efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md` (detailed rename)
   - **Key decisions**: delete `/kickoff` (no alias), terminology guard advisory→FAIL post-v2.9.0, release notes draft in Commit 1
-  - Repo at v2.9.0: 30 skills, 37 commands, 9 workflows
+  - Repo at v2.9.0: 31 skills, 38 commands, 9 workflows
 
 - **v2.8.2 Released** (2026-04-04)
   - Versioning concepts page, git-revision-date plugin, custom CSS, F-12 effort brief
@@ -96,7 +96,7 @@ pm-skills/
   - **Infrastructure**: `docs/internal/releases/` renamed to `docs/internal/release-plans/`
   - **Codex review**: Full design review with 20 findings (3 blockers resolved), pre-release consistency review with 8 findings (all fixed)
   - **MCP synced**: pm-skills-mcp v2.8.0 — `pm_pm_skill_validate` + `pm_pm_skill_iterate`, 42 tools (29 skills + 5 workflows + 8 utilities)
-  - Repo: 30 skills (25 domain + 1 foundation + 4 utility), 37 commands, 9 workflows
+  - Repo: 31 skills (25 domain + 1 foundation + 5 utility), 38 commands, 9 workflows
 
 - **v2.7.0 Released** (2026-03-22)
   - **M-12**: CI validation enhancement — extended linter, validate-agents-md, check-mcp-impact (`8d2a418`)
@@ -388,13 +388,13 @@ pm-skills/
   - `scripts/check-context-currency.ps1` — PowerShell equivalent for Windows local use
   - CI step pending (A-9): `validation.yml` will run `.sh` with `continue-on-error: true`
 
-- **Slash Commands (37 total):**
-  - 30 skill commands (24 original + `/persona` + `/acceptance-criteria` + `/pm-skill-builder` + `/pm-skill-validate` + `/pm-skill-iterate` + `/mermaid-diagrams`)
+- **Slash Commands (38 total):**
+  - 31 skill commands (24 original + `/persona` + `/acceptance-criteria` + `/pm-skill-builder` + `/pm-skill-validate` + `/pm-skill-iterate` + `/mermaid-diagrams` + `/slideshow-creator`)
   - 7 workflow commands: `/workflow-feature-kickoff`, `/workflow-customer-discovery`, `/workflow-sprint-planning`, `/workflow-product-strategy`, `/workflow-post-launch-learning`, `/workflow-stakeholder-alignment`, `/workflow-technical-discovery`
 - **Skills (30 total):**
   - 25 domain skills (24 original + deliver-acceptance-criteria)
   - 1 foundation skill: foundation-persona (`classification: foundation`)
-  - 4 utility skills: utility-pm-skill-builder, utility-pm-skill-validate, utility-pm-skill-iterate, utility-mermaid-diagrams (`classification: utility`)
+  - 5 utility skills: utility-pm-skill-builder, utility-pm-skill-validate, utility-pm-skill-iterate, utility-mermaid-diagrams, utility-slideshow-creator (`classification: utility`)
 - **Sample Output Library:**
   - `library/skill-output-samples/` — 95 sample outputs across 25 skills
   - `SAMPLE_CREATION.md` — standards for sample creation
@@ -450,10 +450,10 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 - Follows [Agent Skills Specification](https://agentskills.io/specification)
 - Primary Audience: Individual Product Managers using AI assistants
 - Cross-platform: Claude Code, Claude.ai, GitHub Copilot, Cursor, Windsurf, OpenCode
-- 30 skills total: 25 domain + 1 foundation + 4 utility (v2.8.0+)
+- 31 skills total: 25 domain + 1 foundation + 5 utility (v2.10.0+)
 - 9 workflows (expanded from 3 in v2.9.0)
 
-## Skills Inventory (30 skills)
+## Skills Inventory (31 skills)
 
 ### Foundation (1 skill)
 
@@ -461,14 +461,15 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 |-------|----------|----------------|--------|
 | persona | research | foundation | ✅ Complete (v2.5.0) |
 
-### Utility (4 skills)
+### Utility (5 skills)
 
 | Skill | Category | Classification | Status |
 |-------|----------|----------------|--------|
 | pm-skill-builder | coordination | utility | ✅ Complete (v2.7.0) |
 | pm-skill-validate | coordination | utility | ✅ Complete (v2.8.0) |
 | pm-skill-iterate | coordination | utility | ✅ Complete (v2.8.0) |
-| mermaid-diagrams | documentation | utility | New (v2.10.0) |
+| mermaid-diagrams | documentation | utility | ✅ Complete (v2.10.0) |
+| slideshow-creator | documentation | utility | ✅ Complete (v2.10.0) |
 
 ### Discover Phase (3 skills)
 

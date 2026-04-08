@@ -5,7 +5,7 @@
   <br>
 </h1>
 
-<h4 align=”center”>A curated collection of 30 best-practice, plug-and-play product management “agent skills” (25 phase skills + 1 foundation skill + 4 utility skills) plus templates and workflows for consistent, professional PM outputs.</h4>
+<h4 align=”center”>A curated collection of 31 best-practice, plug-and-play product management “agent skills” (25 phase skills + 1 foundation skill + 5 utility skills) plus templates and workflows for consistent, professional PM outputs.</h4>
 
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills/issues/new?labels=bug">Report a Bug</a>
@@ -24,7 +24,7 @@
     <img src="https://img.shields.io/badge/version-2.9.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
-    <img src="https://img.shields.io/badge/skills-30-brightgreen.svg?style=flat-square" alt="Skills">
+    <img src="https://img.shields.io/badge/skills-31-brightgreen.svg?style=flat-square" alt="Skills">
   </a>
   <a href="https://agentskills.io/specification">
     <img src="https://img.shields.io/badge/spec-agentskills.io-orange.svg?style=flat-square" alt="Agent Skills Spec">
@@ -131,7 +131,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - **New script**: `scripts/generate-workflow-pages.py` — generates docs site pages from source workflows
 - **URL redirects** for old `/bundles/*` doc site paths via `mkdocs-redirects`
 - **Terminology guard**: `scripts/check-stale-bundle-refs.sh/.ps1` prevents regression
-- Repo now ships 30 skills, 37 command docs, and 9 workflows.
+- Repo now ships 31 skills, 38 command docs, and 9 workflows.
 - Release note: [`docs/releases/Release_v2.9.0.md`](docs/releases/Release_v2.9.0.md).
 
 </details>
@@ -214,7 +214,7 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 ### Key Features
 
-- ✅ **30 Production-Ready Skills** covering the complete product lifecycle (25 phase skills + 1 foundation skill + 4 utility skills)
+- ✅ **31 Production-Ready Skills** covering the complete product lifecycle (25 phase skills + 1 foundation skill + 5 utility skills)
 - ✅ **Triple Diamond Framework** organizing Discover, Define, Develop, Deliver, Measure, and Iterate phases
 - ✅ **9 Workflows** for common PM processes (Feature Kickoff, Lean Startup, Triple Diamond, and 6 more)
 - ✅ **Slash Commands** for Claude Code users-instant access to every skill
@@ -337,7 +337,7 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 - You're using Claude Desktop, Cursor, or any MCP client
 - You want programmatic tool access without managing files
 
-Both approaches give you access to the same 30 production-ready PM skills (25 phase skills + 1 foundation skill + 4 utility skills).
+Both approaches give you access to the same 31 production-ready PM skills (25 phase skills + 1 foundation skill + 5 utility skills).
 
 See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
 
@@ -402,7 +402,7 @@ cd pm-skills
 /user-stories "Recurring tasks feature from PRD"
 ```
 
-All 30 skills are available as `/skill-name` commands. See [commands/](commands/) for the full list.
+All 31 skills are available as `/skill-name` commands. See [commands/](commands/) for the full list.
 
 Need `.claude/skills` for openskills or certain discovery flows? After cloning, run:
 
@@ -499,7 +499,7 @@ Both IDEs auto-discover skills via `AGENTS.md`:
 git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
-Open the folder in Cursor or Windsurf. The AI assistant will automatically discover and can use all 30 skills.
+Open the folder in Cursor or Windsurf. The AI assistant will automatically discover and can use all 31 skills.
 
 </details>
 
@@ -669,6 +669,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | **pm-skill-validate**  | Audit a skill against structural conventions and quality criteria | `/pm-skill-validate` |
 | **pm-skill-iterate**   | Apply targeted improvements from feedback or validation reports | `/pm-skill-iterate`  |
 | **mermaid-diagrams**   | Create syntactically valid mermaid diagrams for product documents | `/mermaid-diagrams`  |
+| **slideshow-creator** | Generate professional presentations from JSON deck specs | `/slideshow-creator` |
 
 ### Quick Examples
 
@@ -762,8 +763,8 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 
 ```
 pm-skills/
-├── skills/                     # 30 PM skills (25 phase + 1 foundation + 4 utility)
-├── commands/                   # Slash commands (37) mapping to skills/workflows
+├── skills/                     # 31 PM skills (25 phase + 1 foundation + 5 utility)
+├── commands/                   # Slash commands (38) mapping to skills/workflows
 ├── _workflows/                 # 9 workflows: feature-kickoff, lean-startup, triple-diamond, and 6 more
 ├── library/                    # Sample output library (skill-output-samples) and related corpus docs
 ├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)
@@ -874,7 +875,7 @@ Maintenance milestone documentation:
 
 See the [open issues](https://github.com/product-on-purpose/pm-skills/issues) for a full list of proposed features and known issues.
 
-- [x] Launch with 30 shipped skills (25 phase skills + 1 foundation skill + 4 utility skills)
+- [x] Launch with 31 shipped skills (25 phase skills + 1 foundation skill + 5 utility skills)
 - [x] Add workflows (Feature Kickoff, Lean Startup, Triple Diamond)
 - [x] GitHub Copilot, Cursor, and Windsurf integration via AGENTS.md
 - [x] Slash commands for Claude Code
@@ -962,7 +963,7 @@ Please try to create bug reports that are:
 ## FAQ
 
 <details>
-<summary><strong>Do I need to install all 30 skills?</strong></summary>
+<summary><strong>Do I need to install all 31 skills?</strong></summary>
 
 No! You can use individual skills as needed. Each skill is self-contained and works independently. If you only need PRDs, just reference the `skills/deliver-prd/` skill. The workflows are optional guides, not requirements.
 

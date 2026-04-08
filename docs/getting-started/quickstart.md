@@ -2,8 +2,8 @@
 
 ## What's Included
 
-- **30 shipped PM skills in `skills/`** (25 phase skills across 6 phases, 1 foundation skill, 4 utility skills)
-- **37 slash-command docs in `commands/`** (30 skill commands plus 7 workflow commands)
+- **31 shipped PM skills in `skills/`** (25 phase skills across 6 phases, 1 foundation skill, 5 utility skills)
+- **38 slash-command docs in `commands/`** (31 skill commands plus 7 workflow commands)
 - **9 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 6 more)
 - **MCP sync guardrail** via GitHub Actions (`validate-mcp-sync`, observe-first rollout)
 
@@ -72,8 +72,8 @@ See `docs/pm-skill-lifecycle.md` for detailed workflow patterns.
 ## File Structure
 
 ```
-skills/            # All 30 skill definitions (25 phase + 1 foundation + 4 utility, flat)
-commands/          # 37 command markdown files (+ .gitkeep)
+skills/            # All 31 skill definitions (25 phase + 1 foundation + 5 utility, flat)
+commands/          # 38 command markdown files (+ .gitkeep)
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
 .claude/pm-skills-for-claude.md  # instructions for Claude Code users
