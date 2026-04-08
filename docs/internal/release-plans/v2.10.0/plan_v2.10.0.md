@@ -105,9 +105,20 @@ Merged to main on 2026-04-07. All files created, cross-cutting updates applied, 
 
 | Question | Answer |
 |----------|--------|
-| User-facing API changes? | TBD — depends on additional efforts. |
-| New MCP tools needed? | TBD — `pm_mermaid_diagrams` could expose skill content, but low priority. |
-| Separate MCP release required? | TBD |
+| User-facing API changes? | **Yes** — 2 new MCP tools from shipped skills |
+| New MCP tools needed? | **Yes** — `pm_mermaid_diagrams` (F-16) and `pm_slideshow_creator` (F-19) |
+| Separate MCP release required? | **Yes** — pm-skills-mcp needs embed + build + publish |
+| Code changes needed? | **Minimal** — update `src/config.ts` description count only. Skill loading, tool registration, and resource URIs are all auto-discovered. |
+
+### MCP Alignment Steps (future session)
+
+1. Run `npm run embed-skills` in pm-skills-mcp to copy new skills from pm-skills repo
+2. Update `src/config.ts` description: skill count 27 → current total
+3. `npm run build` and verify `pm_mermaid_diagrams` + `pm_slideshow_creator` tools appear
+4. Version bump pm-skills-mcp package.json
+5. Publish / deploy
+
+**Current gap:** pm-skills-mcp has 28 embedded skills; pm-skills repo has 31. The MCP server is 3 skills behind (utility-mermaid-diagrams, utility-slideshow-creator, and potentially deliver-acceptance-criteria from a prior release).
 
 ---
 
@@ -116,15 +127,22 @@ Merged to main on 2026-04-07. All files created, cross-cutting updates applied, 
 ### Prerequisites
 - [ ] v2.9.1 tagged and pushed (D-05 + M-20)
 - [x] F-16 merged to main (2026-04-07)
-- [ ] Additional v2.10.0 efforts scoped and assigned
-- [ ] GitHub issues created for additional efforts
+- [x] F-19 merged to main (2026-04-08)
+- [ ] Additional v2.10.0 efforts built and merged
+- [ ] MCP alignment: embed new skills, build, publish pm-skills-mcp
+- [ ] GitHub issues created for efforts
 
 ### Commit history
 
 | Commit | Scope | Status |
 |--------|-------|--------|
-| `06af8fb` | F-16 skill content + cross-cutting updates | Merged |
+| `06af8fb` | F-16 skill content + cross-cutting updates | Merged (2026-04-07) |
+| `9dcd8f2` | F-16 audit fixes + F-17/F-18 effort briefs | Merged (2026-04-07) |
+| `a14510a` | F-19–F-23 effort briefs + backlog update | Merged (2026-04-08) |
+| `363b5eb` | F-19 specification | Merged (2026-04-08) |
+| `eabd78d` | F-19 skill content + cross-cutting updates | Merged (2026-04-08) |
 | *(TBD)* | Additional effort commits | — |
+| *(TBD)* | MCP alignment (embed + build + publish) | — |
 | Final | Release artifacts: CHANGELOG, release tag | — |
 
 ---
@@ -135,9 +153,16 @@ Merged to main on 2026-04-07. All files created, cross-cutting updates applied, 
 
 ```powershell
 # All passed on 2026-04-07
-scripts/lint-skills-frontmatter.ps1    # pre-existing failures only
 scripts/validate-commands.ps1          # 37/37 OK
 scripts/validate-agents-md.ps1         # 30 paths matched
+```
+
+### F-19 verification (complete)
+
+```powershell
+# All passed on 2026-04-08
+scripts/validate-commands.ps1          # 38/38 OK
+scripts/validate-agents-md.ps1         # 31 paths matched
 ```
 
 ### Before tagging
