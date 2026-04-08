@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+        <meta name="description" content="30 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Agent Skill Anatomy - PM Skills" />
-<meta property="og:description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="og:description" content="30 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/concepts/agent-skill-anatomy.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/concepts/agent-skill-anatomy/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Agent Skill Anatomy - PM Skills" />
-<meta property="twitter:description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="twitter:description" content="30 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/concepts/agent-skill-anatomy.png" />
 </head>
   
@@ -3588,7 +3588,7 @@
 </span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>     │                                │ - Example reference
 </span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>     ▼                                ▼
 </span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>┌──────────────────┐           ┌──────────────────┐
-</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>│ AI sees 27 skills│           │ AI loads 1 skill │
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>│ AI sees 30 skills│           │ AI loads 1 skill │
 </span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>│ (~6KB metadata)  │           │ (full content)   │
 </span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>└──────────────────┘           └──────────────────┘
 </span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>                                       │
@@ -3603,7 +3603,7 @@
 <h3 id="phase-1-discovery">Phase 1: Discovery<a class="headerlink" href="#phase-1-discovery" title="Permanent link">&para;</a></h3>
 <p><strong>What loads</strong>: Only <code>name</code> and <code>description</code> from frontmatter</p>
 <p><strong>Where from</strong>: <code>AGENTS.md</code> file at repository root or <code>SKILL.md</code> frontmatter during skill indexing</p>
-<p><strong>Current repo note</strong>: <code>AGENTS.md</code> registers all 27 skills in <code>skills/</code>, including domain, foundation, and utility classifications.</p>
+<p><strong>Current repo note</strong>: <code>AGENTS.md</code> registers all 30 skills in <code>skills/</code>, including domain, foundation, and utility classifications.</p>
 <p><strong>Purpose</strong>: Allow AI to scan all available skills quickly and select the appropriate one</p>
 <p><strong>Benefit</strong>: Minimal context window usage during skill selection</p>
 <p><strong>Example</strong> (from AGENTS.md):</p>
@@ -3626,7 +3626,7 @@
 <p><strong>What loads</strong>: Full SKILL.md content</p>
 <p><strong>When</strong>: After skill selection, before artifact generation</p>
 <p><strong>Purpose</strong>: Provide complete instructions, quality criteria, and references</p>
-<p><strong>Benefit</strong>: Context-appropriate loading—only the selected skill loads, not all 27 skills</p>
+<p><strong>Benefit</strong>: Context-appropriate loading—only the selected skill loads, not all 30 skills</p>
 <p><strong>What the AI reads</strong>:</p>
 <div class="language-markdown highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>---
 </span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>name: define-problem-statement
@@ -3674,9 +3674,9 @@
 </span></code></pre></div>
 <h3 id="why-this-matters">Why This Matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h3>
 <p><strong>Context window efficiency</strong>:
-- Discovery: ~6KB (27 skill names + descriptions)
+- Discovery: ~6KB (30 skill names + descriptions)
 - Invocation: ~15KB (1 full SKILL.md + template + example)
-- Without progressive loading: ~400KB (all 27 skills fully loaded)</p>
+- Without progressive loading: ~400KB (all 30 skills fully loaded)</p>
 <p><strong>Faster agent response</strong>:
 - Skill selection happens instantly (minimal data to parse)
 - Only relevant content loads for generation
@@ -4426,7 +4426,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 05:18:38 UTC"><span class="timeago" datetime="2026-04-05T05:18:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 05:18:38 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 8, 2026 05:29:40 UTC"><span class="timeago" datetime="2026-04-08T05:29:40+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 8, 2026 05:29:40 UTC">2026-04-08</span>
   </span>
 
     

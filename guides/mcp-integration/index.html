@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+        <meta name="description" content="30 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="MCP Integration - PM Skills" />
-<meta property="og:description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="og:description" content="30 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/guides/mcp-integration.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/guides/mcp-integration/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="MCP Integration - PM Skills" />
-<meta property="twitter:description" content="29 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="twitter:description" content="30 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/guides/mcp-integration.png" />
 </head>
   
@@ -1240,10 +1240,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skill-tools-29" class="md-nav__link">
+  <a href="#skill-tools-30" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skill Tools (29)
+        Skill Tools (30)
       
     </span>
   </a>
@@ -2043,10 +2043,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skill-tools-29" class="md-nav__link">
+  <a href="#skill-tools-30" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Skill Tools (29)
+        Skill Tools (30)
       
     </span>
   </a>
@@ -2388,7 +2388,7 @@
 <li><a href="#vs-code-clinecontinue">VS Code (Cline/Continue)</a></li>
 <li><a href="#other-mcp-clients">Other MCP Clients</a></li>
 <li><a href="#tool-inventory">Tool Inventory</a></li>
-<li><a href="#skill-tools-29">Skill Tools (29)</a></li>
+<li><a href="#skill-tools-30">Skill Tools (30)</a></li>
 <li><a href="#workflow-tools-5">Workflow Tools (5)</a></li>
 <li><a href="#utility-tools-8">Utility Tools (8)</a></li>
 <li><a href="#slash-command-to-mcp-tool-mapping">Slash Command to MCP Tool Mapping</a></li>
@@ -2398,7 +2398,7 @@
 </ul>
 <hr />
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><strong>PM-Skills MCP</strong> is an MCP server that exposes the pm-skills catalog as programmatic tools. As of v2.8.0, that means 29 skill tools (25 phase skills + 1 foundation + 3 utility), plus 5 workflow tools and 8 utility tools (42 total). Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.</p>
+<p><strong>PM-Skills MCP</strong> is an MCP server that exposes the pm-skills catalog as programmatic tools. As of v2.8.0, that means 30 skill tools (25 phase skills + 1 foundation + 4 utility), plus 5 workflow tools and 8 utility tools (43 total). Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────┐                    ┌─────────────────┐
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│   Your AI       │   MCP Protocol     │  pm-skills-mcp  │
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   Assistant     │ ◄───────────────► │     Server      │
@@ -2582,7 +2582,7 @@
 <blockquote>
 <p><strong>Note:</strong> pm-skills-mcp now tracks pm-skills release versions directly (starting at v2.4.0). Resource URIs are flat (<code>pm-skills://skills/{skill}</code>) with phase available in metadata.</p>
 </blockquote>
-<h3 id="skill-tools-29">Skill Tools (29)<a class="headerlink" href="#skill-tools-29" title="Permanent link">&para;</a></h3>
+<h3 id="skill-tools-30">Skill Tools (30)<a class="headerlink" href="#skill-tools-30" title="Permanent link">&para;</a></h3>
 <p>Each skill becomes an MCP tool with standardized parameters:</p>
 <table>
 <thead>
@@ -2817,6 +2817,10 @@
 <td><code>pm_pm_skill_iterate</code></td>
 <td>Apply targeted improvements from feedback or validation reports</td>
 </tr>
+<tr>
+<td><code>pm_mermaid_diagrams</code></td>
+<td>Generate Mermaid diagrams for PM artifacts</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -3036,7 +3040,7 @@
 </tr>
 </tbody>
 </table>
-<p>Requires pm-skills-mcp v2.8.0+ for the full 29-skill tool inventory.</p>
+<p>Requires pm-skills-mcp v2.8.0+ for the full 30-skill tool inventory.</p>
 <p><strong>Usage difference:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Slash command (Claude Code with pm-skills)
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/prd search feature
@@ -3282,7 +3286,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 02:49:37 UTC"><span class="timeago" datetime="2026-04-07T02:49:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 02:49:37 UTC">2026-04-07</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 8, 2026 05:29:40 UTC"><span class="timeago" datetime="2026-04-08T05:29:40+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 8, 2026 05:29:40 UTC">2026-04-08</span>
   </span>
 
     
