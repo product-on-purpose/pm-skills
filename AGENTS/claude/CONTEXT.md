@@ -2,11 +2,11 @@
 
 ## Current State
 
-**Status:** v2.8.2 released — v2.9.0 planning complete, ready for execution
-**Last Updated:** 2026-04-06
-**Release:** [v2.8.2](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.8.2) (current)
-**MCP:** [pm-skills-mcp v2.8.0](https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.8.0) synced
-**Next Step:** Execute v2.9.0 — Commit 1 (M-19: rename bundles→workflows), then Commit 2 (F-13: 6 new workflows)
+**Status:** v2.9.0 released — v2.10.0 in progress (F-16 + F-19 shipped, F-17–F-23 planned)
+**Last Updated:** 2026-04-09
+**Release:** v2.9.0 (tagged 2026-04-06, pushed), v2.10.0 in progress
+**MCP:** pm-skills-mcp v2.8.0 — 3 skills behind (needs embed of F-16, F-19, and deliver-acceptance-criteria)
+**Next Step:** Build additional v2.10.0 skills (F-17–F-23), align MCP, ship v2.9.1 (D-05 + M-20) as prerequisite
 
 ## Project Overview
 
@@ -65,6 +65,16 @@ pm-skills/
 ```
 
 ## Recent Work
+
+- **v2.10.0 In Progress** (2026-04-07–09)
+  - **F-16 shipped**: `utility-mermaid-diagrams` — 15 diagram types, dual-lens navigation (catalog + PM use-cases), syntax validity reference, 2,656 lines
+  - **F-19 shipped**: `utility-slideshow-creator` — 18 slide types, JSON deck specs, zero design decisions at generation time, generic professional theme, 766 lines
+  - **Effort briefs created**: F-17 (meeting-synthesis), F-18 (meeting-prep), F-20 (slideshow-themer), F-21 (content-voice), F-22 (prototype-creator), F-23 (prototype-styler)
+  - **Comprehensive docs hygiene sweep**: 20+ files updated across two count sweeps (30→31 skills)
+  - **Max-effort audit**: 9 review agents + 4 audit agents caught 24+ stale count references, mermaid syntax issues, anchor mismatches
+  - **MCP alignment documented**: 3-skill gap, embed + build steps in release plan
+  - **Release plan**: `docs/internal/release-plans/v2.10.0/plan_v2.10.0.md`
+  - Repo at v2.10.0-dev: 31 skills, 38 commands, 9 workflows
 
 - **v2.9.0 Planning Complete** (2026-04-06)
   - **Theme**: Rename "bundles" to "workflows" + expand from 3 to 9 guided multi-skill workflows

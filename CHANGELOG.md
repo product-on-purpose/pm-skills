@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] — v2.10.0
+
+### Added
+- **F-16: `utility-mermaid-diagrams`** — new utility skill teaching PMs to create syntactically valid mermaid diagrams. 15 diagram types with dual-lens navigation (type catalog + PM use-case guide), dedicated syntax validity reference, planning worksheet, and worked examples. 2,656 lines across 7 files.
+- **F-19: `utility-slideshow-creator`** — new utility skill for generating professional presentations from JSON deck specifications. 18 slide types with dark/light variants, content-to-layout decision logic, calibrated character limits, Google Slides compatibility. Ships with a generic professional theme. 766 lines across 7 files.
+- `/mermaid-diagrams` slash command
+- `/slideshow-creator` slash command
+- Effort briefs: F-17 (meeting-synthesis), F-18 (meeting-prep), F-20 (slideshow-themer), F-21 (content-voice), F-22 (prototype-creator), F-23 (prototype-styler)
+- v2.10.0 release plan with MCP alignment steps
+
+### Changed
+- Repo now ships 31 skills (25 phase + 1 foundation + 5 utility), 38 command docs, and 9 workflows
+- Comprehensive docs count sweep: 20+ files updated from 29/30→31 skills, 36/37→38 commands, 3/4→5 utility
+- Backlog updated: F-16 shipped, F-17–F-23 added at priorities 3-9
+
 ## [2.9.0] — 2026-04-06
 
 ### Added
