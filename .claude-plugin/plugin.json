@@ -1,6 +1,6 @@
 {
   "name": "pm-skills",
-  "version": "2.9.0",
+  "version": "2.9.1",
   "description": "29 product management skills for AI agents, covering the full product lifecycle from discovery through iteration. Includes structured templates, real-world examples, workflows, an interactive skill builder, and lifecycle tools for validating and iterating skills. Follows the agentskills.io specification.",
   "homepage": "https://github.com/product-on-purpose/pm-skills",
   "repository": "https://github.com/product-on-purpose/pm-skills",
