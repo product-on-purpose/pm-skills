@@ -1,0 +1,293 @@
+---
+title: "utility-slideshow-creator"
+description: "Generates professional presentations from a JSON deck specification using 18 slide types with dark/light variants, content-to-layout decision logic, and calibrated character limits. Ships with a default professional theme and supports custom themes via utility-slideshow-themer."
+tags:
+  - Utility
+  - communication
+---
+
+# <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
+
+!!! info "Quick facts"
+    **Classification:** Utility | **Version:** 1.0.0 | **Category:** communication | **License:** Apache-2.0
+
+**Try it:** `/slideshow-creator "Your context here"`
+{ .md-button }
+
+# Slideshow Creator
+
+Generate professional presentations (.pptx and .pdf) from a JSON deck specification. Zero design decisions at generation time — Claude selects slide types and fills content slots; all visual properties are pre-decided by the theme.
+
+## When to Use
+
+- Creating slide decks for stakeholder updates, product reviews, team presentations
+- Generating professional .pptx files from content briefs
+- Producing consistent presentations without manual formatting
+- Exporting presentations to PDF for sharing or archiving
+
+## When NOT to Use
+
+- Creating complex data visualizations (use dedicated charting tools)
+- Building interactive web presentations (this produces .pptx, not HTML)
+- Editing existing PowerPoint files (this creates new decks from scratch)
+
+## How to Use
+
+Use the `/slideshow-creator` slash command:
+
+```
+/slideshow-creator "Your context here"
+```
+
+Or reference the skill file directly: `skills/utility-slideshow-creator/SKILL.md`
+
+## Instructions
+
+1. **Read the content brief** — Understand topic, audience, length, specific requirements
+2. **Plan the deck** — Select slide types using the decision logic table. Assign dark/light variants for visual rhythm (alternate to avoid monotony).
+3. **Write the JSON deck specification** — Fill content slots, respecting character limits from `references/slide-types.md`
+4. **Run the generation script** — `node scripts/generate-deck.js deck-spec.json`
+5. **Optionally export PDF** — `node scripts/export-pdf.mjs deck-spec.json output.pdf`
+6. **Report the output** — Tell the user where the file(s) are
+
+## Output Template
+
+# JSON Deck Specification Template
+
+<!-- Use this template as a starting point for your deck specification. Fill in the content fields, respecting the character limits documented in slide-types.md. -->
+
+## Deck Metadata
+
+```json
+{
+  "title": "",
+  "author": "",
+  "footerText": "",
+  "outputFileName": "",
+  "slides": []
+}
+```
+
+### Field Reference
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| title | string | yes | Presentation title, used as .pptx metadata |
+| author | string | no | Author name for .pptx metadata |
+| footerText | string | no | Default footer text for all slides |
+| outputFileName | string | no | Output filename. Default: title slugified + .pptx |
+| slides | array | yes | Array of slide objects |
+
+## Slide Object Structure
+
+Every slide object has `type` (required) plus content slots defined in `slide-types.md`.
+
+### Common Optional Fields
+
+| Field | Type | Notes |
+|---|---|---|
+| variant | string | "dark" or "light" -- see defaults per type in slide-types.md |
+| notes | string | Speaker notes for presenter view (no character limit) |
+| footer | string | Override deck-level footerText for this slide |
+| slideNum | string | Override auto-incremented slide number |
+
+### Color Values
+
+Color fields (`accentColor`, `leftColor`, `rightColor`, card/item `color`) accept:
+- **Theme token names:** `"accent"`, `"secondary"`, `"tertiary"`, `"warm"`, `"primary"`, `"primaryDark"`, `"muted"`
+- **6-character hex strings:** `"2563EB"`, `"0891B2"` (no `#` prefix)
+
+## Slide Type Quick Reference
+
+| Type Key | Required Slots | Optional Slots |
+|---|---|---|
+| title_dark | title | subtitle |
+| title_light | title | subtitle |
+| section | title | variant |
+| content | title, body | variant |
+| bullets | title, bullets[] | variant |
+| two_col | title, leftTitle, leftItems[], rightTitle, rightItems[] | variant |
+| stat | stat, label | accentColor, variant |
+| dual_stat | leftStat, leftLabel, rightStat, rightLabel | title, leftColor, rightColor, variant |
+| quote | quote | attribution, variant |
+| three_card | cards[3] | title, variant |
+| four_grid | cards[4] | title, variant |
+| timeline | title, milestones[] | variant |
+| process_flow | title, steps[] | variant |
+| agenda | items[] | title, intro, variant |
+| highlight | title, highlight | context, accentColor, variant |
+| table | title, headers[], rows[][] | variant |
+| icon_rows | title, items[] | variant |
+| closing | (none) | tagline, url |
+
+See `slide-types.md` for character limits and detailed slot definitions.
+
+## Example Output
+
+??? example "Example: Q3 Product Update Deck"
+    # Example: Q3 Product Update Deck
+
+    This example walks through creating a 9-slide product update deck for an engineering all-hands meeting, demonstrating the spec-writing workflow from content brief to JSON output.
+
+    ## Content Brief
+
+    The product team needs a deck for the Q3 engineering all-hands covering:
+    - Customer satisfaction hit a record high (94%)
+    - Three major features shipped (real-time analytics dashboard, API rate limiting, bulk data import)
+    - Revenue grew 18% quarter-over-quarter
+    - Roadmap preview for Q4 (3 milestones)
+    - Key insight: teams using the analytics dashboard have 2.4x faster incident response times
+
+    ## Deck Planning
+
+    ### Slide Type Selection
+
+    | # | Content | Type | Variant | Rationale |
+    |---|---------|------|---------|-----------|
+    | 1 | Opening | title_dark | dark | Bold external opener |
+    | 2 | Section: Metrics | section | dark | Topic transition |
+    | 3 | CSAT record | stat | light | Single metric spotlight |
+    | 4 | Revenue comparison | dual_stat | dark | Two numbers gain from comparison |
+    | 5 | Features shipped | bullets | light | 3-6 point list |
+    | 6 | Feature details | three_card | dark | Three parallel concepts |
+    | 7 | Key insight | highlight | light | Executive takeaway |
+    | 8 | Q4 roadmap | timeline | light | Chronological milestones |
+    | 9 | Close | closing | dark | Standard ending |
+
+    ### Variant Check
+
+    Dark-light alternation: D, D, L, D, L, D, L, L, D -- slight imbalance at slides 7-8 (both light) but acceptable because highlight and timeline are visually distinct types.
+
+    ## JSON Deck Specification
+
+    ```json
+    {
+      "title": "Q3 Product Update",
+      "author": "Product Team",
+      "footerText": "Internal -- Engineering All-Hands",
+      "outputFileName": "q3-product-update.pptx",
+      "slides": [
+        {
+          "type": "title_dark",
+          "title": "Q3 Product\nUpdate",
+          "subtitle": "Engineering All-Hands -- October 2026",
+          "notes": "Welcome everyone. Quick overview of what shipped and what's ahead."
+        },
+        {
+          "type": "section",
+          "title": "Key\nMetrics",
+          "variant": "dark",
+          "notes": "Starting with our headline performance numbers."
+        },
+        {
+          "type": "stat",
+          "stat": "94%",
+          "label": "Customer satisfaction -- highest score this year",
+          "accentColor": "secondary",
+          "variant": "light",
+          "notes": "Up from 88% in Q2. Primary driver: faster support response times from the new dashboard."
+        },
+        {
+          "type": "dual_stat",
+          "title": "Revenue Growth",
+          "leftStat": "$3.2M",
+          "leftLabel": "Q2 recurring revenue",
+          "leftColor": "muted",
+          "rightStat": "$3.8M",
+          "rightLabel": "Q3 recurring revenue",
+          "rightColor": "accent",
+          "variant": "dark",
+          "notes": "18% QoQ growth. Bulk import feature drove 40% of new contract value."
+        },
+        {
+          "type": "bullets",
+          "title": "What Shipped in Q3",
+          "bullets": [
+            "Real-time analytics dashboard with customizable widgets",
+            "API rate limiting with per-client quotas and alerting",
+            "Bulk data import supporting CSV, JSON, and XML formats",
+            "SSO integration for enterprise customers"
+          ],
+          "variant": "light",
+          "notes": "Four major features. Each had full rollout with zero critical incidents."
+        },
+        {
+          "type": "three_card",
+          "title": "Feature Highlights",
+          "cards": [
+            {
+              "title": "Analytics Dashboard",
+              "bullets": ["Real-time metrics", "Custom widgets", "Export to PDF"],
+              "color": "accent"
+            },
+            {
+              "title": "API Rate Limiting",
+              "bullets": ["Per-client quotas", "Automatic alerting", "Usage dashboard"],
+              "color": "secondary"
+            },
+            {
+              "title": "Bulk Import",
+              "bullets": ["CSV, JSON, XML", "Validation preview", "Async processing"],
+              "color": "tertiary"
+            }
+          ],
+          "variant": "dark",
+          "notes": "Deeper dive on the three headline features."
+        },
+        {
+          "type": "highlight",
+          "title": "Key Insight",
+          "highlight": "Teams using the analytics dashboard resolve incidents 2.4x faster than teams using manual monitoring.",
+          "context": "Based on analysis of 180 incidents across 45 teams during August-September. The effect is strongest for teams with 3+ custom dashboard widgets configured.",
+          "accentColor": "accent",
+          "variant": "light",
+          "notes": "This is our strongest product-market signal this quarter."
+        },
+        {
+          "type": "timeline",
+          "title": "Q4 Roadmap",
+          "milestones": [
+            { "label": "OCT", "description": "Advanced filtering and saved views" },
+            { "label": "NOV", "description": "Webhook integrations and event streaming" },
+            { "label": "DEC", "description": "SOC 2 Type II certification complete" },
+            { "label": "JAN", "description": "Public API v2 general availability" }
+          ],
+          "variant": "light",
+          "notes": "Four milestones across the quarter. SOC 2 is the compliance gate for enterprise expansion."
+        },
+        {
+          "type": "closing",
+          "notes": "Thank you. Questions?"
+        }
+      ]
+    }
+    ```
+
+    ## What This Deck Demonstrates
+
+    - **Line break control:** Title slide uses `\n` to split "Q3 Product" and "Update" onto separate lines for deliberate text wrapping
+    - **Section dividers:** The section slide creates a clear visual break before the metrics block, signaling a topic change to the audience
+    - **Single vs comparative metrics:** `stat` spotlights one number (CSAT score) while `dual_stat` places two numbers side-by-side for direct comparison (Q2 vs Q3 revenue)
+    - **Parallel structure:** `three_card` gives equal visual weight to three shipped features, avoiding the implicit ranking that a bullet list creates
+    - **Highlight restraint:** `highlight` is used exactly once for the strongest finding -- overuse dilutes its impact
+    - **Chronological milestones:** `timeline` presents Q4 roadmap items in calendar order, making sequencing and dependencies visible
+    - **Speaker notes on every slide:** Notes provide presenter context without cluttering the slide surface -- especially useful for stakeholder decks that get forwarded without the presenter
+    - **Dark/light rhythm:** Variants alternate to maintain visual energy; the consecutive light slides (7-8) work because highlight and timeline have distinct visual structures
+    - **Character-limit compliance:** All content respects the limits defined in slide-types.md -- titles stay concise, bullets stay scannable, and the highlight sentence remains under the maximum length
+
+## Quality Checklist
+
+- [ ] Every slide has a valid type key (one of the 18 defined types)
+- [ ] All content slots respect character limits from `references/slide-types.md`
+- [ ] Dark/light variants alternate for visual rhythm (no 3+ consecutive same-variant slides)
+- [ ] Deck has a title slide (first) and a closing slide (last)
+- [ ] Section dividers separate distinct topics in decks > 6 slides
+- [ ] Speaker notes included for key slides (stats, highlights, transitions)
+- [ ] JSON is valid (no trailing commas, proper quoting, correct nesting)
+- [ ] Color values are valid theme tokens or 6-character hex strings (no `#` prefix)
+
+## Output Contract
+
+- **Planning artifact**: JSON deck specification (the file Claude writes)
+- **Final output**: .pptx file (+ optional .pdf), generated locally from the spec
+- **Quality gate**: All items in the quality checklist pass
