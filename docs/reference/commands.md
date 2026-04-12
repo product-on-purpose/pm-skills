@@ -22,8 +22,8 @@ PM Skills ships 39 slash commands: 32 skill commands plus 7 workflow commands.
 | `/interview-synthesis` | [discover-interview-synthesis](../skills/discover/discover-interview-synthesis.md) | Discover | Synthesizes user research interviews into actionable insight... |
 | `/jtbd-canvas` | [define-jtbd-canvas](../skills/define/define-jtbd-canvas.md) | Define | Creates a Jobs to be Done canvas capturing the functional, e... |
 | `/launch-checklist` | [deliver-launch-checklist](../skills/deliver/deliver-launch-checklist.md) | Deliver | Creates a comprehensive pre-launch checklist covering engine... |
-| `/mermaid-diagrams` | [utility-mermaid-diagrams](../skills/utility/utility-mermaid-diagrams.md) | Utility | Generates Mermaid diagrams from product artifacts and conver... |
 | `/lessons-log` | [iterate-lessons-log](../skills/iterate/iterate-lessons-log.md) | Iterate | Creates a structured lessons learned entry for organizationa... |
+| `/mermaid-diagrams` | [utility-mermaid-diagrams](../skills/utility/utility-mermaid-diagrams.md) | Utility | Teaches PMs to create syntactically valid mermaid diagrams b... |
 | `/opportunity-tree` | [define-opportunity-tree](../skills/define/define-opportunity-tree.md) | Define | Creates an opportunity solution tree mapping desired outcome... |
 | `/persona` | [foundation-persona](../skills/foundation/foundation-persona.md) | Foundation | Generates an evidence-calibrated product or marketing person... |
 | `/pivot-decision` | [iterate-pivot-decision](../skills/iterate/iterate-pivot-decision.md) | Iterate | Documents a strategic pivot or persevere decision with the e... |
@@ -39,7 +39,7 @@ PM Skills ships 39 slash commands: 32 skill commands plus 7 workflow commands.
 | `/solution-brief` | [develop-solution-brief](../skills/develop/develop-solution-brief.md) | Develop | Creates a concise one-page solution overview that communicat... |
 | `/spike-summary` | [develop-spike-summary](../skills/develop/develop-spike-summary.md) | Develop | Documents the results of a time-boxed technical or design ex... |
 | `/stakeholder-summary` | [discover-stakeholder-summary](../skills/discover/discover-stakeholder-summary.md) | Discover | Documents stakeholder needs, concerns, and influence for a p... |
-| `/update-pm-skills` | [utility-update-pm-skills](../skills/utility/utility-update-pm-skills.md) | Utility | Checks for updates and updates local pm-skills installation... |
+| `/update-pm-skills` | [utility-update-pm-skills](../skills/utility/utility-update-pm-skills.md) | Utility | Checks for newer pm-skills releases, compares local vs. late... |
 | `/user-stories` | [deliver-user-stories](../skills/deliver/deliver-user-stories.md) | Deliver | Generates user stories with clear acceptance criteria from p... |
 | `/workflow-customer-discovery` | [Customer Discovery](../workflows/customer-discovery.md) | Workflow | Run the Customer Discovery workflow |
 | `/workflow-feature-kickoff` | [Feature Kickoff](../workflows/feature-kickoff.md) | Workflow | Run the Feature Kickoff workflow |
