@@ -1,6 +1,6 @@
 ﻿# PM Skills Sample Library
 
-84 sample outputs across 25 PM skills, organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context.
+91 sample outputs across 32 PM skills, organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@
 
 ## What Is This?
 
-This folder contains 84 sample outputs: 3 samples for each of the 24 phase skills, plus 12 samples for the foundation-persona skill (4 per thread, covering both product and marketing modes at brief and detailed depth). The samples serve two purposes:
+This folder contains 91 sample outputs: 3 samples for each of the 24 phase skills, 12 samples for the foundation-persona skill (4 per thread), and 7 single-thread samples for utility skills and deliver-acceptance-criteria. The samples serve two purposes:
 
 1. **Browsability.** If you are evaluating pm-skills for the first time, you can open any sample and see the full artifact a skill produces, including the prompt that generated it.
 2. **Contributor calibration.** If you are writing a new skill or modifying an existing one, these samples show the level of detail, structure, and tone that a well-executed skill output should achieve.
@@ -111,6 +111,7 @@ Each row links to three sample outputs for the same skill, one per thread. The f
 | Deliver | prd | Full Product Requirements Document with goals, scope, stories, and timeline | [storevine](deliver-prd/sample_deliver-prd_storevine_campaigns.md) | [brainshelf](deliver-prd/sample_deliver-prd_brainshelf_resurface.md) | [workbench](deliver-prd/sample_deliver-prd_workbench_blueprints.md) |
 | Deliver | user-stories | User stories with Given/When/Then acceptance criteria and technical notes | [storevine](deliver-user-stories/sample_deliver-user-stories_storevine_campaigns.md) | [brainshelf](deliver-user-stories/sample_deliver-user-stories_brainshelf_resurface.md) | [workbench](deliver-user-stories/sample_deliver-user-stories_workbench_blueprints.md) |
 | Deliver | edge-cases | Edge cases and error states organized by category with test scenarios | [storevine](deliver-edge-cases/sample_deliver-edge-cases_storevine_campaigns.md) | [brainshelf](deliver-edge-cases/sample_deliver-edge-cases_brainshelf_resurface.md) | [workbench](deliver-edge-cases/sample_deliver-edge-cases_workbench_blueprints.md) |
+| Deliver | acceptance-criteria | Given/When/Then acceptance criteria with happy path, edge cases, error states | [storevine](deliver-acceptance-criteria/sample_deliver-acceptance-criteria_storevine_campaigns-email-builder.md) | — | — |
 | Deliver | launch-checklist | Pre-launch readiness checklist across engineering, QA, marketing, legal, and ops | [storevine](deliver-launch-checklist/sample_deliver-launch-checklist_storevine_campaigns.md) | [brainshelf](deliver-launch-checklist/sample_deliver-launch-checklist_brainshelf_resurface.md) | [workbench](deliver-launch-checklist/sample_deliver-launch-checklist_workbench_blueprints.md) |
 | Deliver | release-notes | User-facing release notes with highlights, new features, and known issues | [storevine](deliver-release-notes/sample_deliver-release-notes_storevine_campaigns.md) | [brainshelf](deliver-release-notes/sample_deliver-release-notes_brainshelf_resurface.md) | [workbench](deliver-release-notes/sample_deliver-release-notes_workbench_blueprints.md) |
 | Measure | experiment-design | A/B test or experiment design with hypothesis, variants, metrics, and success criteria | [storevine](measure-experiment-design/sample_measure-experiment-design_storevine_campaigns.md) | [brainshelf](measure-experiment-design/sample_measure-experiment-design_brainshelf_resurface.md) | [workbench](measure-experiment-design/sample_measure-experiment-design_workbench_blueprints.md) |
@@ -121,6 +122,12 @@ Each row links to three sample outputs for the same skill, one per thread. The f
 | Iterate | lessons-log | Structured lesson learned with root cause, recommendations, and applicability | [storevine](iterate-lessons-log/sample_iterate-lessons-log_storevine_campaigns.md) | [brainshelf](iterate-lessons-log/sample_iterate-lessons-log_brainshelf_resurface.md) | [workbench](iterate-lessons-log/sample_iterate-lessons-log_workbench_blueprints.md) |
 | Iterate | refinement-notes | Backlog refinement session notes with stories, decisions, and blockers | [storevine](iterate-refinement-notes/sample_iterate-refinement-notes_storevine_campaigns.md) | [brainshelf](iterate-refinement-notes/sample_iterate-refinement-notes_brainshelf_resurface.md) | [workbench](iterate-refinement-notes/sample_iterate-refinement-notes_workbench_blueprints.md) |
 | Iterate | pivot-decision | Pivot or persevere decision with evidence, options analysis, and implementation plan | [storevine](iterate-pivot-decision/sample_iterate-pivot-decision_storevine_campaigns.md) | [brainshelf](iterate-pivot-decision/sample_iterate-pivot-decision_brainshelf_resurface.md) | [workbench](iterate-pivot-decision/sample_iterate-pivot-decision_workbench_blueprints.md) |
+| Utility | mermaid-diagrams | Mermaid diagram planning worksheet with type selection and syntax validation | [storevine](utility-mermaid-diagrams/sample_utility-mermaid-diagrams_storevine_campaign-flow.md) | — | — |
+| Utility | slideshow-creator | JSON deck specification for presentation generation | [storevine](utility-slideshow-creator/sample_utility-slideshow-creator_storevine_campaigns-launch-deck.md) | — | — |
+| Utility | pm-skill-builder | Skill Implementation Packet for creating a new PM skill | [storevine](utility-pm-skill-builder/sample_utility-pm-skill-builder_storevine_campaign-analytics-skill.md) | — | — |
+| Utility | pm-skill-validate | Validation report for a PM skill against conventions | [storevine](utility-pm-skill-validate/sample_utility-pm-skill-validate_storevine_validate-campaign-analytics.md) | — | — |
+| Utility | pm-skill-iterate | Iteration change summary with before/after and version bump | [storevine](utility-pm-skill-iterate/sample_utility-pm-skill-iterate_storevine_iterate-campaign-analytics.md) | — | — |
+| Utility | update-pm-skills | Update completion report with value delta and file manifest | [storevine](utility-update-pm-skills/sample_utility-update-pm-skills_storevine_update-report.md) | — | — |
 
 ---
 
