@@ -202,7 +202,7 @@ PM-Skills MCP exposes skill, workflow, and utility tools derived from the curren
 
 > **Note:** pm-skills-mcp now tracks pm-skills release versions directly (starting at v2.4.0). Resource URIs are flat (`pm-skills://skills/{skill}`) with phase available in metadata.
 
-### Skill Tools (31)
+### Skill Tools (32)
 
 Each skill becomes an MCP tool with standardized parameters:
 
