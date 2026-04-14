@@ -1098,10 +1098,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-three-tools-instead-of-one" class="md-nav__link">
+  <a href="#why-four-tools-instead-of-one" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why three tools instead of one?
+        Why four tools instead of one?
       
     </span>
   </a>
@@ -1110,6 +1110,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-consumer-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Consumer Flow
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1620,10 +1631,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-three-tools-instead-of-one" class="md-nav__link">
+  <a href="#why-four-tools-instead-of-one" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why three tools instead of one?
+        Why four tools instead of one?
       
     </span>
   </a>
@@ -1632,6 +1643,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-consumer-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Consumer Flow
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1791,20 +1813,34 @@
 
 
 <h1 id="pm-skill-lifecycle">PM-Skill Lifecycle<a class="headerlink" href="#pm-skill-lifecycle" title="Permanent link">&para;</a></h1>
-<p>A practical guide to creating, validating, and iterating PM skills. For how skills are <em>structured</em>, see <a href="../skill-anatomy/">PM-Skill Anatomy</a>. This guide covers how skills <em>evolve</em>.</p>
+<p>A practical guide to creating, validating, iterating, and updating PM skills. For how skills are <em>structured</em>, see <a href="../skill-anatomy/">PM-Skill Anatomy</a>. This guide covers how skills <em>evolve</em>.</p>
 <hr />
 <h2 id="the-lifecycle-model">The Lifecycle Model<a class="headerlink" href="#the-lifecycle-model" title="Permanent link">&para;</a></h2>
-<p>PM skills are managed through three utility skills that form a lifecycle:</p>
+<p>PM skills evolve along two axes:</p>
+<ul>
+<li><strong>Author axis</strong> — how maintainers create and improve skills in the library (builder → validator → iterator).</li>
+<li><strong>Consumer axis</strong> — how users keep their local installation current with the upstream library (updater).</li>
+</ul>
 <pre class="mermaid"><code>flowchart LR
-    Create["/pm-skill-builder\nCreate"] --&gt; Validate["/pm-skill-validate\nValidate"]
-    Validate --&gt; Decision{Findings?}
-    Decision -- "PASS" --&gt; Ship["Ship"]
-    Decision -- "WARN / FAIL" --&gt; Iterate["/pm-skill-iterate\nIterate"]
-    Iterate --&gt; Validate</code></pre>
+    subgraph Author["Author axis — evolve the library"]
+        Create["/pm-skill-builder&lt;br/&gt;Create"] --&gt; Validate["/pm-skill-validate&lt;br/&gt;Validate"]
+        Validate --&gt; Decision{Findings?}
+        Decision -- "PASS" --&gt; Ship["Ship to repo"]
+        Decision -- "WARN / FAIL" --&gt; Iterate["/pm-skill-iterate&lt;br/&gt;Iterate"]
+        Iterate --&gt; Validate
+    end
+
+    Ship --&gt; Release[(pm-skills&lt;br/&gt;release)]
+
+    subgraph Consumer["Consumer axis — stay current"]
+        Release --&gt; Update["/update-pm-skills&lt;br/&gt;Update"]
+        Update --&gt; Local[(Local&lt;br/&gt;installation)]
+    end</code></pre>
 <table>
 <thead>
 <tr>
 <th>Tool</th>
+<th>Axis</th>
 <th>Command</th>
 <th>What it does</th>
 </tr>
@@ -1812,29 +1848,51 @@
 <tbody>
 <tr>
 <td><strong>Builder</strong></td>
+<td>Author</td>
 <td><code>/pm-skill-builder</code></td>
 <td>Creates a new skill from an idea — gap analysis, classification, draft files, staging, promotion</td>
 </tr>
 <tr>
 <td><strong>Validator</strong></td>
+<td>Author</td>
 <td><code>/pm-skill-validate</code></td>
 <td>Audits an existing skill against structural conventions and quality criteria — produces a report</td>
 </tr>
 <tr>
 <td><strong>Iterator</strong></td>
+<td>Author</td>
 <td><code>/pm-skill-iterate</code></td>
 <td>Applies targeted improvements to an existing skill — previews changes, writes on confirmation</td>
 </tr>
+<tr>
+<td><strong>Updater</strong></td>
+<td>Consumer</td>
+<td><code>/update-pm-skills</code></td>
+<td>Checks for newer pm-skills releases, previews changes, and applies the update with confirmation</td>
+</tr>
 </tbody>
 </table>
-<h3 id="why-three-tools-instead-of-one">Why three tools instead of one?<a class="headerlink" href="#why-three-tools-instead-of-one" title="Permanent link">&para;</a></h3>
+<h3 id="why-four-tools-instead-of-one">Why four tools instead of one?<a class="headerlink" href="#why-four-tools-instead-of-one" title="Permanent link">&para;</a></h3>
 <p>Each tool has a single job. This keeps them focused, independently testable, and composable:</p>
 <ul>
 <li>The <strong>builder</strong> knows how to create files from scratch but doesn't know how to audit them.</li>
 <li>The <strong>validator</strong> knows how to assess quality but doesn't modify anything.</li>
 <li>The <strong>iterator</strong> knows how to apply changes but relies on the validator (or user feedback) to say <em>what</em> to change.</li>
+<li>The <strong>updater</strong> is consumer-side — it doesn't author skills, it propagates upstream changes into a local installation safely (preview, backup, validated copy, value-delta report).</li>
 </ul>
 <p>You can use any tool independently or chain them together.</p>
+<hr />
+<h2 id="the-consumer-flow">The Consumer Flow<a class="headerlink" href="#the-consumer-flow" title="Permanent link">&para;</a></h2>
+<p>The updater is used after the authoring loop has shipped a new release. It answers: <em>"Is my local pm-skills out of date, and what would change if I updated?"</em></p>
+<pre class="mermaid"><code>flowchart LR
+    Status["/update-pm-skills --status&lt;br/&gt;quick version check"] --&gt; Decision{Newer&lt;br/&gt;release?}
+    Decision -- "No" --&gt; Done["Up to date"]
+    Decision -- "Yes" --&gt; Preview["/update-pm-skills --report-only&lt;br/&gt;preview changes"]
+    Preview --&gt; Apply{"Apply?"}
+    Apply -- "No" --&gt; Keep["Keep current version"]
+    Apply -- "Yes" --&gt; Run["/update-pm-skills&lt;br/&gt;full update"]
+    Run --&gt; Smoke["Post-update smoke test +&lt;br/&gt;value-delta report"]</code></pre>
+<p>Key safety properties: validated-before-copy, optional backup, value-delta report documenting what changed, and a degraded mode for no-network environments.</p>
 <hr />
 <h2 id="when-to-use-each-tool">When to Use Each Tool<a class="headerlink" href="#when-to-use-each-tool" title="Permanent link">&para;</a></h2>
 <table>
@@ -1868,6 +1926,18 @@
 <tr>
 <td>Improve a skill's example or template</td>
 <td><code>/pm-skill-iterate {skill} "make the example more realistic"</code></td>
+</tr>
+<tr>
+<td>Check if my local pm-skills is out of date</td>
+<td><code>/update-pm-skills --status</code></td>
+</tr>
+<tr>
+<td>Preview what an update would change</td>
+<td><code>/update-pm-skills --report-only</code></td>
+</tr>
+<tr>
+<td>Apply the latest pm-skills release locally</td>
+<td><code>/update-pm-skills</code></td>
 </tr>
 </tbody>
 </table>
@@ -2086,7 +2156,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 01:50:03 UTC"><span class="timeago" datetime="2026-04-05T01:50:03+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 01:50:03 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 14, 2026 00:52:26 UTC"><span class="timeago" datetime="2026-04-14T00:52:26+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 14, 2026 00:52:26 UTC">2026-04-14</span>
   </span>
 
     

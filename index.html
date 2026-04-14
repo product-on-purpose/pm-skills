@@ -1469,13 +1469,13 @@
 <p>Skills are organized across 6 phases of the Triple Diamond framework - three diamonds covering the problem space, the solution space, and the learning space.</p>
 <pre class="mermaid"><code>graph LR
     subgraph "Problem Space"
-        D1["Discover\n3 skills"] --&gt; D2["Define\n4 skills"]
+        D1["Discover&lt;br/&gt;3 skills"] --&gt; D2["Define&lt;br/&gt;4 skills"]
     end
     subgraph "Solution Space"
-        D3["Develop\n4 skills"] --&gt; D4["Deliver\n6 skills"]
+        D3["Develop&lt;br/&gt;4 skills"] --&gt; D4["Deliver&lt;br/&gt;6 skills"]
     end
     subgraph "Learning Space"
-        D5["Measure\n4 skills"] --&gt; D6["Iterate\n4 skills"]
+        D5["Measure&lt;br/&gt;4 skills"] --&gt; D6["Iterate&lt;br/&gt;4 skills"]
     end
     D2 --&gt; D3
     D4 --&gt; D5
@@ -1529,7 +1529,7 @@
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21.71 20.29-1.42 1.42a1 1 0 0 1-1.41 0L7 9.85A3.8 3.8 0 0 1 6 10a4 4 0 0 1-3.78-5.3l2.54 2.54.53-.53 1.42-1.42.53-.53L4.7 2.22A4 4 0 0 1 10 6a3.8 3.8 0 0 1-.15 1l11.86 11.88a1 1 0 0 1 0 1.41M2.29 18.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0l5.47-5.46-2.83-2.83M20 2l-4 2v2l-2.17 2.17 2 2L18 8h2l2-4Z"/></svg></span> <strong>Utility</strong> - 6 skills</li>
 </ul>
 <hr />
-<p>Create, validate, iterate skills, generate presentations, and update
+<p>Create, validate, iterate skills, generate diagrams and presentations, and update the library
   <a href="skills/utility/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Browse</a></p>
 </div>
 <h2 id="skills-by-phase">Skills by Phase<a class="headerlink" href="#skills-by-phase" title="Permanent link">&para;</a></h2>
@@ -1581,14 +1581,14 @@
     end
 
     discover --&gt; define --&gt; develop --&gt; deliver --&gt; measure --&gt; iterate</code></pre>
-<p><strong>Plus:</strong> <code>/persona</code> (Foundation - cross-cutting) · <code>/pm-skill-builder</code> <code>/pm-skill-validate</code> <code>/pm-skill-iterate</code> <code>/slideshow-creator</code> <code>/update-pm-skills</code> (Utility)</p>
+<p><strong>Plus:</strong> <code>/persona</code> (Foundation - cross-cutting) · <code>/pm-skill-builder</code> <code>/pm-skill-validate</code> <code>/pm-skill-iterate</code> <code>/mermaid-diagrams</code> <code>/slideshow-creator</code> <code>/update-pm-skills</code> (Utility)</p>
 <h2 id="the-skill-lifecycle">The Skill Lifecycle<a class="headerlink" href="#the-skill-lifecycle" title="Permanent link">&para;</a></h2>
 <p>Three utility skills form a self-reinforcing quality loop for managing the skill library itself:</p>
 <pre class="mermaid"><code>flowchart LR
-    Create["/pm-skill-builder\nCreate"] --&gt; Validate["/pm-skill-validate\nValidate"]
+    Create["/pm-skill-builder&lt;br/&gt;Create"] --&gt; Validate["/pm-skill-validate&lt;br/&gt;Validate"]
     Validate --&gt; Decision{Findings?}
     Decision -- "PASS" --&gt; Ship["Ship"]
-    Decision -- "WARN / FAIL" --&gt; Iterate["/pm-skill-iterate\nIterate"]
+    Decision -- "WARN / FAIL" --&gt; Iterate["/pm-skill-iterate&lt;br/&gt;Iterate"]
     Iterate --&gt; Validate</code></pre>
 <p><strong>Create</strong> a new skill with guided gap analysis and classification. <strong>Validate</strong> it against structural conventions and quality criteria. <strong>Iterate</strong> to fix findings from the validation report or apply feedback. Repeat until passing, then ship.</p>
 <p>The lifecycle tools are what keep the library consistent as it grows - the validator catches drift, and the iterator applies fixes with version tracking and change summaries.</p>
@@ -1726,7 +1726,22 @@
 </thead>
 <tbody>
 <tr>
-<td><strong><a href="releases/Release_v2.9.0/">v2.9.0</a></strong></td>
+<td><strong>v2.10.1</strong></td>
+<td>2026-04-13</td>
+<td>Post-v2.10.0 polish: dynamic skill-page counts, backlog spec drafts, F-25 scope move</td>
+</tr>
+<tr>
+<td><strong><a href="releases/Release_v2.10.0/">v2.10.0</a></strong></td>
+<td>2026-04-11</td>
+<td>Utility skill expansion: <code>/mermaid-diagrams</code>, <code>/slideshow-creator</code>, <code>/update-pm-skills</code></td>
+</tr>
+<tr>
+<td><a href="releases/Release_v2.9.1/">v2.9.1</a></td>
+<td>2026-04-10</td>
+<td>Workflows guide + docs count consistency CI</td>
+</tr>
+<tr>
+<td><a href="releases/Release_v2.9.0/">v2.9.0</a></td>
 <td>2026-04-06</td>
 <td>Workflows: rename bundles → workflows, expand 3 → 9, 7 <code>/workflow-*</code> commands</td>
 </tr>
@@ -1744,11 +1759,6 @@
 <td><a href="releases/Release_v2.8.0/">v2.8.0</a></td>
 <td>2026-04-03</td>
 <td>PM skill lifecycle: Create, Validate, Iterate</td>
-</tr>
-<tr>
-<td><a href="releases/Release_v2.7.0/">v2.7.0</a></td>
-<td>2026-03-22</td>
-<td>PM Skill Builder, acceptance criteria, enhanced CI</td>
 </tr>
 </tbody>
 </table>
@@ -1782,7 +1792,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 12, 2026 00:40:06 UTC"><span class="timeago" datetime="2026-04-12T00:40:06+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 12, 2026 00:40:06 UTC">2026-04-12</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 14, 2026 00:52:26 UTC"><span class="timeago" datetime="2026-04-14T00:52:26+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 14, 2026 00:52:26 UTC">2026-04-14</span>
   </span>
 
     
