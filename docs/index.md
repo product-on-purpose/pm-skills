@@ -18,13 +18,13 @@ Skills are organized across 6 phases of the Triple Diamond framework - three dia
 ```mermaid
 graph LR
     subgraph "Problem Space"
-        D1["Discover\n3 skills"] --> D2["Define\n4 skills"]
+        D1["Discover<br/>3 skills"] --> D2["Define<br/>4 skills"]
     end
     subgraph "Solution Space"
-        D3["Develop\n4 skills"] --> D4["Deliver\n6 skills"]
+        D3["Develop<br/>4 skills"] --> D4["Deliver<br/>6 skills"]
     end
     subgraph "Learning Space"
-        D5["Measure\n4 skills"] --> D6["Iterate\n4 skills"]
+        D5["Measure<br/>4 skills"] --> D6["Iterate<br/>4 skills"]
     end
     D2 --> D3
     D4 --> D5
@@ -74,7 +74,7 @@ graph LR
 
 - :material-tools: **Utility** - 6 skills
   ---
-  Create, validate, iterate skills, generate presentations, and update
+  Create, validate, iterate skills, generate diagrams and presentations, and update the library
   [:octicons-arrow-right-24: Browse](skills/utility/)
 
 </div>
@@ -133,7 +133,7 @@ block-beta
     discover --> define --> develop --> deliver --> measure --> iterate
 ```
 
-**Plus:** `/persona` (Foundation - cross-cutting) · `/pm-skill-builder` `/pm-skill-validate` `/pm-skill-iterate` `/slideshow-creator` `/update-pm-skills` (Utility)
+**Plus:** `/persona` (Foundation - cross-cutting) · `/pm-skill-builder` `/pm-skill-validate` `/pm-skill-iterate` `/mermaid-diagrams` `/slideshow-creator` `/update-pm-skills` (Utility)
 
 ## The Skill Lifecycle
 
@@ -141,10 +141,10 @@ Three utility skills form a self-reinforcing quality loop for managing the skill
 
 ```mermaid
 flowchart LR
-    Create["/pm-skill-builder\nCreate"] --> Validate["/pm-skill-validate\nValidate"]
+    Create["/pm-skill-builder<br/>Create"] --> Validate["/pm-skill-validate<br/>Validate"]
     Validate --> Decision{Findings?}
     Decision -- "PASS" --> Ship["Ship"]
-    Decision -- "WARN / FAIL" --> Iterate["/pm-skill-iterate\nIterate"]
+    Decision -- "WARN / FAIL" --> Iterate["/pm-skill-iterate<br/>Iterate"]
     Iterate --> Validate
 ```
 
@@ -226,11 +226,13 @@ Follow three fictional companies through the complete product lifecycle - from d
 
 | Version | Date | Highlights |
 |---------|------|-----------|
-| **[v2.9.0](releases/Release_v2.9.0.md)** | 2026-04-06 | Workflows: rename bundles → workflows, expand 3 → 9, 7 `/workflow-*` commands |
+| **v2.10.1** | 2026-04-13 | Post-v2.10.0 polish: dynamic skill-page counts, backlog spec drafts, F-25 scope move |
+| **[v2.10.0](releases/Release_v2.10.0.md)** | 2026-04-11 | Utility skill expansion: `/mermaid-diagrams`, `/slideshow-creator`, `/update-pm-skills` |
+| [v2.9.1](releases/Release_v2.9.1.md) | 2026-04-10 | Workflows guide + docs count consistency CI |
+| [v2.9.0](releases/Release_v2.9.0.md) | 2026-04-06 | Workflows: rename bundles → workflows, expand 3 → 9, 7 `/workflow-*` commands |
 | [v2.8.2](releases/Release_v2.8.2.md) | 2026-04-04 | Docs site polish + versioning concepts |
 | [v2.8.1](releases/Release_v2.8.1.md) | 2026-04-04 | MkDocs Material documentation site launch |
 | [v2.8.0](releases/Release_v2.8.0.md) | 2026-04-03 | PM skill lifecycle: Create, Validate, Iterate |
-| [v2.7.0](releases/Release_v2.7.0.md) | 2026-03-22 | PM Skill Builder, acceptance criteria, enhanced CI |
 
 [:octicons-arrow-right-24: All releases](releases/) · [:octicons-arrow-right-24: Full changelog](changelog.md)
 

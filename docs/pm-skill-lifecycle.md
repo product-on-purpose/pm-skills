@@ -1,37 +1,70 @@
 # PM-Skill Lifecycle
 
-A practical guide to creating, validating, and iterating PM skills. For how skills are *structured*, see [PM-Skill Anatomy](./pm-skill-anatomy.md). This guide covers how skills *evolve*.
+A practical guide to creating, validating, iterating, and updating PM skills. For how skills are *structured*, see [PM-Skill Anatomy](./pm-skill-anatomy.md). This guide covers how skills *evolve*.
 
 ---
 
 ## The Lifecycle Model
 
-PM skills are managed through three utility skills that form a lifecycle:
+PM skills evolve along two axes:
+
+- **Author axis** — how maintainers create and improve skills in the library (builder → validator → iterator).
+- **Consumer axis** — how users keep their local installation current with the upstream library (updater).
 
 ```mermaid
 flowchart LR
-    Create["/pm-skill-builder\nCreate"] --> Validate["/pm-skill-validate\nValidate"]
-    Validate --> Decision{Findings?}
-    Decision -- "PASS" --> Ship["Ship"]
-    Decision -- "WARN / FAIL" --> Iterate["/pm-skill-iterate\nIterate"]
-    Iterate --> Validate
+    subgraph Author["Author axis — evolve the library"]
+        Create["/pm-skill-builder<br/>Create"] --> Validate["/pm-skill-validate<br/>Validate"]
+        Validate --> Decision{Findings?}
+        Decision -- "PASS" --> Ship["Ship to repo"]
+        Decision -- "WARN / FAIL" --> Iterate["/pm-skill-iterate<br/>Iterate"]
+        Iterate --> Validate
+    end
+
+    Ship --> Release[(pm-skills<br/>release)]
+
+    subgraph Consumer["Consumer axis — stay current"]
+        Release --> Update["/update-pm-skills<br/>Update"]
+        Update --> Local[(Local<br/>installation)]
+    end
 ```
 
-| Tool | Command | What it does |
-|------|---------|-------------|
-| **Builder** | `/pm-skill-builder` | Creates a new skill from an idea — gap analysis, classification, draft files, staging, promotion |
-| **Validator** | `/pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria — produces a report |
-| **Iterator** | `/pm-skill-iterate` | Applies targeted improvements to an existing skill — previews changes, writes on confirmation |
+| Tool | Axis | Command | What it does |
+|------|------|---------|-------------|
+| **Builder** | Author | `/pm-skill-builder` | Creates a new skill from an idea — gap analysis, classification, draft files, staging, promotion |
+| **Validator** | Author | `/pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria — produces a report |
+| **Iterator** | Author | `/pm-skill-iterate` | Applies targeted improvements to an existing skill — previews changes, writes on confirmation |
+| **Updater** | Consumer | `/update-pm-skills` | Checks for newer pm-skills releases, previews changes, and applies the update with confirmation |
 
-### Why three tools instead of one?
+### Why four tools instead of one?
 
 Each tool has a single job. This keeps them focused, independently testable, and composable:
 
 - The **builder** knows how to create files from scratch but doesn't know how to audit them.
 - The **validator** knows how to assess quality but doesn't modify anything.
 - The **iterator** knows how to apply changes but relies on the validator (or user feedback) to say *what* to change.
+- The **updater** is consumer-side — it doesn't author skills, it propagates upstream changes into a local installation safely (preview, backup, validated copy, value-delta report).
 
 You can use any tool independently or chain them together.
+
+---
+
+## The Consumer Flow
+
+The updater is used after the authoring loop has shipped a new release. It answers: *"Is my local pm-skills out of date, and what would change if I updated?"*
+
+```mermaid
+flowchart LR
+    Status["/update-pm-skills --status<br/>quick version check"] --> Decision{Newer<br/>release?}
+    Decision -- "No" --> Done["Up to date"]
+    Decision -- "Yes" --> Preview["/update-pm-skills --report-only<br/>preview changes"]
+    Preview --> Apply{"Apply?"}
+    Apply -- "No" --> Keep["Keep current version"]
+    Apply -- "Yes" --> Run["/update-pm-skills<br/>full update"]
+    Run --> Smoke["Post-update smoke test +<br/>value-delta report"]
+```
+
+Key safety properties: validated-before-copy, optional backup, value-delta report documenting what changed, and a degraded mode for no-network environments.
 
 ---
 
@@ -45,6 +78,9 @@ You can use any tool independently or chain them together.
 | Fix issues found by the validator | `/pm-skill-iterate {skill}` with the validation report |
 | Apply specific feedback to a skill | `/pm-skill-iterate {skill} "feedback"` |
 | Improve a skill's example or template | `/pm-skill-iterate {skill} "make the example more realistic"` |
+| Check if my local pm-skills is out of date | `/update-pm-skills --status` |
+| Preview what an update would change | `/update-pm-skills --report-only` |
+| Apply the latest pm-skills release locally | `/update-pm-skills` |
 
 ---
 
