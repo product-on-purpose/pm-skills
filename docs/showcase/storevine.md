@@ -14,6 +14,36 @@ tags:
 
 ## Phase: Foundation
 
+### Lean Canvas
+
+*Storevine Campaigns one-page business thesis for pre-PRD leadership review, framing the built-in re-engagement bet against the Klaviyo tool-juggling pattern*
+
+!!! quote "Prompt"
+    ```text
+    /lean-canvas
+
+    Build a lean canvas for Storevine Campaigns (built-in email + SMS re-engagement) ahead of v1 leadership review.
+
+    Context:
+    - 15k merchants on Storevine (Series A, ~70 employees)
+    - ~38% of merchants currently juggle Klaviyo or Mailchimp as a second tool [fictional]
+    - Win-loss interviews (Jan 2026, n=14): 6/14 wins cited "too many tools"; 4/9 losses said "Klaviyo is good enough" [fictional]
+    - Competitive landscape already mapped (see discover-competitive-analysis from Feb 2026)
+    - Initial persona for self-serve SMB merchant already drafted via /persona
+    - Need: lean canvas for leadership review, content mode is fine, confidence-honest
+
+    The canvas should feed directly into the v1 PRD so be concrete on revenue math and key metrics.
+    ```
+
+    ---
+
+    **Visual-mode companion**: a fully rendered HTML canvas (canonical Maurya layout, print-ready A3 landscape) ships alongside this sample at [`sample_foundation-lean-canvas_storevine_campaigns.html`](https://github.com/product-on-purpose/pm-skills/blob/main/library/skill-output-samples/foundation-lean-canvas/sample_foundation-lean-canvas_storevine_campaigns.html).
+
+??? example "Full output: Lean Canvas"
+    # Lean Canvas: Storevine Campaigns
+
+---
+
 ### Persona (Marketing Brief)
 
 *Storevine Campaigns marketing persona for self-serve SMB merchant acquisition and competitive positioning against Shopify plus Klaviyo*

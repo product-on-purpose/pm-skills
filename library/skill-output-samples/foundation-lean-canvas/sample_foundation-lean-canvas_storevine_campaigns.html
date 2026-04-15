@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lean Canvas: Storevine Campaigns</title>
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --surface: #FAFAFA;
+    --border: #E5E7EB;
+    --ink: #111827;
+    --muted: #6B7280;
+    --accent-problem: #EF4444;
+    --accent-solution: #3B82F6;
+    --accent-uvp: #8B5CF6;
+    --accent-advantage: #F59E0B;
+    --accent-customer: #10B981;
+    --accent-money: #D97706;
+    --conf-high: #10B981;
+    --conf-med: #F59E0B;
+    --conf-low: #EF4444;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .canvas-wrapper {
+    max-width: 1400px;
+    margin: 32px auto;
+    padding: 24px;
+  }
+
+  header.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+
+  header.meta h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  header.meta .meta-right {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  header.meta .meta-right strong {
+    color: var(--ink);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: minmax(180px, auto) minmax(180px, auto) minmax(140px, auto);
+    grid-template-areas:
+      "problem  solution    uvp  advantage  customer"
+      "problem  keymetrics  uvp  channels   customer"
+      "cost     cost        rev  rev        rev";
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .block {
+    background: var(--surface);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    position: relative;
+    border-top: 3px solid var(--border);
+  }
+
+  .block[data-accent="problem"]    { border-top-color: var(--accent-problem); }
+  .block[data-accent="solution"]   { border-top-color: var(--accent-solution); }
+  .block[data-accent="uvp"]        { border-top-color: var(--accent-uvp); }
+  .block[data-accent="advantage"]  { border-top-color: var(--accent-advantage); }
+  .block[data-accent="customer"]   { border-top-color: var(--accent-customer); }
+  .block[data-accent="keymetrics"] { border-top-color: var(--accent-solution); }
+  .block[data-accent="channels"]   { border-top-color: var(--accent-customer); }
+  .block[data-accent="cost"]       { border-top-color: var(--accent-money); }
+  .block[data-accent="rev"]        { border-top-color: var(--accent-money); }
+
+  .block.problem    { grid-area: problem; }
+  .block.solution   { grid-area: solution; }
+  .block.uvp        { grid-area: uvp; }
+  .block.advantage  { grid-area: advantage; }
+  .block.customer   { grid-area: customer; }
+  .block.keymetrics { grid-area: keymetrics; }
+  .block.channels   { grid-area: channels; }
+  .block.cost       { grid-area: cost; }
+  .block.rev        { grid-area: rev; }
+
+  .block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .block-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .block-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--muted);
+    border-radius: 50%;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .confidence {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 10px;
+    color: #FFFFFF;
+  }
+
+  .confidence.H { background: var(--conf-high); }
+  .confidence.M { background: var(--conf-med); }
+  .confidence.L { background: var(--conf-low); }
+
+  .block-body {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  .block-body ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .block-body li + li { margin-top: 4px; }
+
+  .block-body .subheading {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 10px 0 4px;
+  }
+
+  .block-body em {
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  footer.evidence-strip {
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer.evidence-strip strong { color: var(--ink); }
+
+  @media print {
+    @page { size: A3 landscape; margin: 12mm; }
+    body { font-size: 12px; }
+    .canvas-wrapper { margin: 0; padding: 0; max-width: none; }
+    header.meta, footer.evidence-strip { page-break-inside: avoid; }
+    .grid { grid-template-rows: minmax(160px, auto) minmax(160px, auto) minmax(120px, auto); }
+  }
+</style>
+</head>
+<body>
+
+<main class="canvas-wrapper" role="img" aria-label="Lean canvas for Storevine Campaigns, nine-block strategic thesis">
+
+  <header class="meta">
+    <h1>Lean Canvas &mdash; Storevine Campaigns</h1>
+    <div class="meta-right">
+      <div><strong>Created:</strong> 2026-04-15</div>
+      <div><strong>Purpose:</strong> New feature thesis, pre-PRD leadership review</div>
+      <div><strong>Overall confidence:</strong> Medium</div>
+    </div>
+  </header>
+
+  <section class="grid">
+
+    <article class="block problem" data-accent="problem">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">1</span>Problem</div>
+        <span class="confidence H">H</span>
+      </div>
+      <div class="block-body">
+        <ul>
+          <li>Klaviyo / Mailchimp setup cost ($45+/mo) and deliverability anxiety block SMB re-engagement</li>
+          <li>Tool-juggling tax: duplicate catalogs, broken segmentation on refunds, sync failures</li>
+          <li>Solo merchants treat email-marketing setup as a rolling TODO and never ship a campaign</li>
+        </ul>
+        <div class="subheading">Existing alternatives</div>
+        <ul>
+          <li>Klaviyo or Mailchimp as external tools via Storevine API integrations</li>
+          <li>Shopify Email for merchants who split catalog management</li>
+          <li>Manual Gmail or personal SMS for the smallest merchants</li>
+          <li>Non-consumption: accepting cart abandoners as lost customers</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="block solution" data-accent="solution">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">4</span>Solution</div>
+        <span class="confidence M">M</span>
+      </div>
+      <div class="block-body">
+        <ul>
+          <li>One-click pre-configured campaign library (abandoned cart, welcome, winback)</li>
+          <li>Unified customer + catalog segmentation with real-time order events</li>
+          <li>Guided first-send flow with AI-suggested copy and audience</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="block uvp" data-accent="uvp">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">3</span>Unique Value Proposition</div>
+        <span class="confidence M">M</span>
+      </div>
+      <div class="block-body">
+        Bring re-engagement into the store you already run, so you keep more customers without juggling a second tool, a second catalog, or a second invoice.
+        <div class="subheading">High-level concept</div>
+        <em>Klaviyo inside your store, with zero integration work.</em>
+      </div>
+    </article>
+
+    <article class="block advantage" data-accent="advantage">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">9</span>Unfair Advantage</div>
+        <span class="confidence M">M</span>
+      </div>
+      <div class="block-body">
+        We already own the customer list and product catalog in canonical form with real-time order events. No integration, no schema mapping, no sync failures. Structurally difficult for third-party tools to match without Storevine's permission.
+      </div>
+    </article>
+
+    <article class="block customer" data-accent="customer">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">2</span>Customer Segments</div>
+        <span class="confidence M">M</span>
+      </div>
+      <div class="block-body">
+        Storevine SMB merchants ($50k to $2M GMV annually) not running automated email or SMS, or unhappy with their current second tool.
+        <div class="subheading">Early adopters</div>
+        Merchants with 100 to 500 monthly orders who installed and churned from Klaviyo or Mailchimp within the last 12 months. Roughly 4% of the base [fictional], pre-qualified on willingness to try an embedded alternative.
+      </div>
+    </article>
+
+    <article class="block keymetrics" data-accent="keymetrics">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">8</span>Key Metrics</div>
+        <span class="confidence M">M</span>
+      </div>
+      <div class="block-body">
+        <ul>
+          <li>Activation: 45% first-send within 14 days [fictional]</li>
+          <li>Net revenue retention: 115% by Y1 end</li>
+          <li>Monthly churn: under 3.5% [fictional]</li>
+          <li>SMS cost ratio: under 18% of revenue at scale</li>
+          <li>NPS among Campaigns customers: 42+ by Y1 end</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="block channels" data-accent="channels">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">5</span>Channels</div>
+        <span class="confidence M">M</span>
+      </div>
+      <div class="block-body">
+        <div class="subheading">Compounding (free, long-horizon)</div>
+        <ul>
+          <li>In-app discovery at first-product, first-order, first-abandonment moments</li>
+          <li>Storevine merchant community (Slack + forum) case studies</li>
+          <li>Content series: "the real cost of a second tool"</li>
+        </ul>
+        <div class="subheading">Traction-demonstrating (paid, near-term)</div>
+        <ul>
+          <li>Lifecycle email to "churned from Klaviyo" cohort</li>
+          <li>Paid webinars with 3 Storevine-adjacent SMB agencies</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="block cost" data-accent="cost">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">7</span>Cost Structure</div>
+        <span class="confidence L">L</span>
+      </div>
+      <div class="block-body">
+        <ul>
+          <li>CAC ~$80 per merchant (embedded acquisition) [fictional]</li>
+          <li>Fixed: 4 engineers + 1 designer + 2 founders = ~$1.1M Y1 burn [fictional]</li>
+          <li>Variable: SMS carrier fees ($0.03 to $0.04 per SMS), email infra, deliverability monitoring</li>
+          <li>Cost driver: SMS volume, not email. If SMS outpaces email by 2x+, margin compresses</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="block rev" data-accent="rev">
+      <div class="block-header">
+        <div class="block-title"><span class="block-num">6</span>Revenue Streams</div>
+        <span class="confidence M">M</span>
+      </div>
+      <div class="block-body">
+        <ul>
+          <li>Model: per-store subscription add-on + usage-based SMS overage</li>
+          <li>Price: $39/mo flat (5k emails, 500 SMS included); $0.01/extra email, $0.05/extra SMS</li>
+          <li>Volume (Y1): 2,700 merchants on Campaigns = 18% of base [fictional]</li>
+          <li>LTV: ~$1,120 per merchant (22-month average lifetime)</li>
+          <li>Math: 2,700 x $51 x 12 = <strong>$1.65M ARR end of Y1 (base case)</strong></li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+
+  <footer class="evidence-strip">
+    <span><strong>Validated:</strong> 3</span>
+    <span><strong>Assumed:</strong> 3</span>
+    <span><strong>Open questions:</strong> 3</span>
+    <span><strong>Owner:</strong> Storevine Campaigns PM</span>
+    <span><strong>Next review:</strong> Monthly (first two quarters of v1)</span>
+  </footer>
+
+</main>
+
+</body>
+</html>

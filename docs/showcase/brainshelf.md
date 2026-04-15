@@ -14,6 +14,35 @@ tags:
 
 ## Phase: Foundation
 
+### Lean Canvas
+
+*Brainshelf Resurface one-page thesis for pre-scope sanity check and the Friday board-update anchor, framing the Monday-morning digest bet against the flat long-tail-retention baseline*
+
+!!! quote "Prompt"
+    ```text
+    /lean-canvas
+
+    quick lean canvas for Resurface (morning email digest of saved stuff).
+
+    context:
+    - brainshelf post-seed, 85k users, retention flat
+    - users with 3+ saves/wk have 3.4x retention and 2.1 referrals/quarter [fictional]
+    - hypothesis: send saved items back to them monday mornings
+    - competitors in the space: Readwise Reader, Raindrop, Omnivore, Pocket
+    - need a one-pager for board update friday and to scope v1
+
+    content mode is fine. be honest about what we don't know.
+    ```
+
+    ---
+
+    **Visual-mode companion**: a fully rendered HTML canvas (canonical Maurya layout, print-ready A3 landscape) ships alongside this sample at [`sample_foundation-lean-canvas_brainshelf_resurface.html`](https://github.com/product-on-purpose/pm-skills/blob/main/library/skill-output-samples/foundation-lean-canvas/sample_foundation-lean-canvas_brainshelf_resurface.html).
+
+??? example "Full output: Lean Canvas"
+    # Lean Canvas: Brainshelf Resurface
+
+---
+
 ### Persona (Marketing Brief)
 
 *Brainshelf marketing persona for newsletter-creator acquisition and content-curation positioning*

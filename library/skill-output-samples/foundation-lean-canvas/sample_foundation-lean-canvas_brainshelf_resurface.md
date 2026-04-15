@@ -204,4 +204,11 @@ Open question. No defensible moat yet. Candidate: our existing save-behavior dat
 
 ## Visual Output
 
-> Skipped in content mode. If visual mode had been requested, the skill would also produce `./lean-canvas-brainshelf-resurface.html`, with the Problem cell showing "Saves never revisited: 1:0.3 read ratio," the UVP cell showing "Monday morning delivery of last week's saves," and the Revenue cell showing "$5/mo Curator tier x 1,600 users = $96k Y1 ARR."
+This sample ships with a companion visual-mode render at [`sample_foundation-lean-canvas_brainshelf_resurface.html`](sample_foundation-lean-canvas_brainshelf_resurface.html), generated from the same content above via the skill's `references/html-template.html` scaffold.
+
+- **Layout**: canonical Maurya 9-block grid with per-column color accents
+- **Confidence badges**: each block tagged `H`, `M`, or `L`; this canvas shows predominantly `L` (early-stage, pre-revenue thesis)
+- **Self-contained**: no external fonts, stylesheets, or scripts; opens offline
+- **Print-ready**: `@media print` page-size A3 landscape
+
+Open directly in a browser or export to PDF via the browser print dialog for the Friday board update.

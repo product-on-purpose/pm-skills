@@ -204,4 +204,11 @@ We already have the merchant's complete customer list and product catalog in can
 
 ## Visual Output
 
-> Skipped in content mode; no `.html` file was written. If visual mode had been requested, the skill would also produce `./lean-canvas-storevine-campaigns.html`, with the Problem cell in accent red showing "Tool juggling tax: $45+/mo and sync failures," the UVP cell in accent purple showing "Re-engagement inside the store you already run," and the Revenue cell in accent amber showing "$39/mo add-on x 2,700 merchants = $1.65M Y1 ARR base case."
+This sample ships with a companion visual-mode render at [`sample_foundation-lean-canvas_storevine_campaigns.html`](sample_foundation-lean-canvas_storevine_campaigns.html), generated from the same content above via the skill's `references/html-template.html` scaffold.
+
+- **Layout**: canonical Maurya 9-block grid with per-column color accents (Problem red, Solution blue, UVP purple, Unfair Advantage amber, Customer Segments green, Cost and Revenue amber)
+- **Confidence badges**: each block tagged `H`, `M`, or `L` with matching color; aggregates visible at a glance
+- **Self-contained**: no external fonts, stylesheets, or scripts; opens offline in any modern browser
+- **Print-ready**: `@media print` page-size A3 landscape; fits the canvas on one page
+
+Open the `.html` file directly or export to PDF via browser print for sharing in leadership reviews.

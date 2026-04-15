@@ -223,4 +223,11 @@ Deep integration with Workbench's existing approval engine and audit-trail infra
 
 ## Visual Output
 
-> Skipped in content mode; a polished print-ready `.html` would be generated in visual mode. If regenerated in visual mode, the file would be written to `./lean-canvas-workbench-blueprints.html` with the Problem cell showing "Regulated launches slip 2-4 weeks from missed compliance sections," the UVP cell showing "Templates guarantee required sections filled before review," the Revenue cell showing "Bundled Enterprise expansion: $20k ARR x 60 customers = $1.2M Y1," and the Unfair Advantage cell showing "Deep integration with existing approval engine + audit trail."
+This sample ships with a companion visual-mode render at [`sample_foundation-lean-canvas_workbench_blueprints.html`](sample_foundation-lean-canvas_workbench_blueprints.html), generated from the same content above via the skill's `references/html-template.html` scaffold.
+
+- **Layout**: canonical Maurya 9-block grid with per-column color accents
+- **Confidence badges**: each block tagged `H`, `M`, or `L`; this canvas shows mostly `M` with `H` on Problem, Customer Segments, and Channels (pilot-validated)
+- **Self-contained**: no external fonts, stylesheets, or scripts; opens offline
+- **Print-ready**: `@media print` page-size A3 landscape, suitable for the Q3 expansion-strategy review packet
+
+Open directly in a browser or export to PDF via the browser print dialog for attachment to the finance-reviewed expansion-pricing memo.
