@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+Target: v2.11.0. Accumulating per-skill additions; tag will be cut when the slate is complete. Release plan: `docs/internal/release-plans/v2.11.0/plan_v2.11.0.md`.
+
+### Added
+
+- **F-26: `foundation-lean-canvas`** - new foundation skill that produces the canonical Ash Maurya 9-block lean canvas as a one-page integrated business thesis. Two modes: `content` (structured markdown) and `visual` (writes a self-contained attractive HTML file with CSS Grid Maurya layout, per-column color accents, confidence badges per block, accessibility attributes, and A3 landscape print styling). Ships with `references/TEMPLATE.md`, a RestoreAI Customer Success Copilot `references/EXAMPLE.md`, a 324-line `references/html-template.html` scaffold, a `/lean-canvas` slash command, and 3 thread samples (Storevine Campaigns, Brainshelf Resurface, Workbench Blueprints).
+- `docs/internal/efforts/F-26-lean-canvas.md` and `F-26-lean-canvas/specification.md` - effort stub and shipped-state specification for F-26.
+- `docs/internal/release-plans/v2.11.0/plan_v2.11.0.md` - release plan opened for v2.11.0 with F-26 as the first effort, scope boundary, decisions table, and release cutting checklist.
+
 ## [2.10.2] — 2026-04-14
 
 Maintenance patch: corrects plugin manifest drift and extends the count-consistency CI to prevent it from recurring. No skill behavior changes.

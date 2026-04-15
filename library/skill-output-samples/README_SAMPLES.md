@@ -1,6 +1,6 @@
 ﻿# PM Skills Sample Library
 
-91 sample outputs across 32 PM skills, organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs.
+94 sample outputs across 33 PM skills, organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@
 
 ## What Is This?
 
-This folder contains 91 sample outputs: 3 samples for each of the 24 phase skills, 12 samples for the foundation-persona skill (4 per thread), and 7 single-thread samples for utility skills and deliver-acceptance-criteria. The samples serve two purposes:
+This folder contains 94 sample outputs: 3 samples for each of the 24 phase skills, 12 samples for the foundation-persona skill (4 per thread), 3 samples for the foundation-lean-canvas skill (one per thread), and 7 single-thread samples for utility skills and deliver-acceptance-criteria. The samples serve two purposes:
 
 1. **Browsability.** If you are evaluating pm-skills for the first time, you can open any sample and see the full artifact a skill produces, including the prompt that generated it.
 2. **Contributor calibration.** If you are writing a new skill or modifying an existing one, these samples show the level of detail, structure, and tone that a well-executed skill output should achieve.
@@ -95,6 +95,7 @@ Each row links to three sample outputs for the same skill, one per thread. The f
 
 | Phase | Skill | What It Produces | Storevine | Brainshelf | Workbench |
 |-------|-------|-----------------|-----------|------------|-----------|
+| Foundation | lean-canvas | One-page business thesis across nine interlocking blocks (problem, customer, UVP, solution, channels, revenue, cost, metrics, unfair advantage) | [storevine](foundation-lean-canvas/sample_foundation-lean-canvas_storevine_campaigns.md) | [brainshelf](foundation-lean-canvas/sample_foundation-lean-canvas_brainshelf_resurface.md) | [workbench](foundation-lean-canvas/sample_foundation-lean-canvas_workbench_blueprints.md) |
 | Foundation | persona (product) | Story-first product persona dossier with evidence and confidence | [brief](foundation-persona/sample_foundation-persona_storevine_product-brief-campaigns.md) / [detailed](foundation-persona/sample_foundation-persona_storevine_product-detailed-campaigns.md) | [brief](foundation-persona/sample_foundation-persona_brainshelf_product-brief-resurface.md) / [detailed](foundation-persona/sample_foundation-persona_brainshelf_product-detailed-resurface.md) | [brief](foundation-persona/sample_foundation-persona_workbench_product-brief-blueprints.md) / [detailed](foundation-persona/sample_foundation-persona_workbench_product-detailed-blueprints.md) |
 | Foundation | persona (marketing) | Story-first marketing persona dossier with evidence and confidence | [brief](foundation-persona/sample_foundation-persona_storevine_marketing-brief-campaigns.md) / [detailed](foundation-persona/sample_foundation-persona_storevine_marketing-detailed-campaigns.md) | [brief](foundation-persona/sample_foundation-persona_brainshelf_marketing-brief-resurface.md) / [detailed](foundation-persona/sample_foundation-persona_brainshelf_marketing-detailed-resurface.md) | [brief](foundation-persona/sample_foundation-persona_workbench_marketing-brief-blueprints.md) / [detailed](foundation-persona/sample_foundation-persona_workbench_marketing-detailed-blueprints.md) |
 | Discover | competitive-analysis | Structured competitor landscape with feature matrix and positioning map | [storevine](discover-competitive-analysis/sample_discover-competitive-analysis_storevine_campaigns.md) | [brainshelf](discover-competitive-analysis/sample_discover-competitive-analysis_brainshelf_resurface.md) | [workbench](discover-competitive-analysis/sample_discover-competitive-analysis_workbench_blueprints.md) |
@@ -141,6 +142,7 @@ The Storevine thread follows the PM team building **Campaigns**, a built-in emai
 
 | Phase | Skill | Description |
 |-------|-------|-------------|
+| Foundation | [lean-canvas](foundation-lean-canvas/sample_foundation-lean-canvas_storevine_campaigns.md) | One-page Campaigns business thesis: embedded re-engagement for SMB merchants tired of Klaviyo tool-juggling |
 | Foundation | [persona - product brief](foundation-persona/sample_foundation-persona_storevine_product-brief-campaigns.md) | Solo merchant product persona for first-send onboarding and activation |
 | Foundation | [persona - product detailed](foundation-persona/sample_foundation-persona_storevine_product-detailed-campaigns.md) | Multi-location merchant product persona for cross-store campaign management |
 | Foundation | [persona - marketing brief](foundation-persona/sample_foundation-persona_storevine_marketing-brief-campaigns.md) | Self-serve SMB acquisition persona for competitive positioning against Shopify+Klaviyo |
@@ -180,6 +182,7 @@ The Brainshelf thread follows the PM team building **Resurface**, a contextual m
 
 | Phase | Skill | Description |
 |-------|-------|-------------|
+| Foundation | [lean-canvas](foundation-lean-canvas/sample_foundation-lean-canvas_brainshelf_resurface.md) | One-page Resurface thesis: Monday-morning digest of saved items to lift long-tail retention |
 | Foundation | [persona - product brief](foundation-persona/sample_foundation-persona_brainshelf_product-brief-resurface.md) | Brief product persona for Resurface activation and repeat-habit design decisions |
 | Foundation | [persona - product detailed](foundation-persona/sample_foundation-persona_brainshelf_product-detailed-resurface.md) | Power-curator product persona for curation-aware resurfacing and topic filters |
 | Foundation | [persona - marketing brief](foundation-persona/sample_foundation-persona_brainshelf_marketing-brief-resurface.md) | Newsletter-creator acquisition persona for curation positioning and Curator tier |
@@ -219,6 +222,7 @@ The Workbench thread follows the PM team building **Blueprints**, reusable docum
 
 | Phase | Skill | Description |
 |-------|-------|-------------|
+| Foundation | [lean-canvas](foundation-lean-canvas/sample_foundation-lean-canvas_workbench_blueprints.md) | One-page Blueprints thesis: enforced-section templates with approval gates for regulated-industry expansion |
 | Foundation | [persona - product brief](foundation-persona/sample_foundation-persona_workbench_product-brief-blueprints.md) | Document-author product persona for submission experience and completion visibility |
 | Foundation | [persona - product detailed](foundation-persona/sample_foundation-persona_workbench_product-detailed-blueprints.md) | Approval-governance product persona for enterprise operations workflows |
 | Foundation | [persona - marketing brief](foundation-persona/sample_foundation-persona_workbench_marketing-brief-blueprints.md) | Internal champion marketing persona for enterprise sales playbook and pilot-to-expansion |

@@ -8,6 +8,11 @@ This repository contains professional PM skills organized by the Triple Diamond 
 
 ### Foundation Classification
 
+#### lean-canvas
+**Path:** `skills/foundation-lean-canvas/SKILL.md`
+
+Generate a one-page lean canvas across nine interlocking blocks (problem, customer, UVP, solution, channels, revenue, cost, metrics, unfair advantage). Optional visual mode writes a self-contained HTML file rendering the canonical Maurya layout for sharing, printing, or presentation.
+
 #### persona
 **Path:** `skills/foundation-persona/SKILL.md`
 
@@ -250,6 +255,7 @@ Workflow links are repo-relative within this repository.
 | `/workflow-stakeholder-alignment` | Run the Stakeholder Alignment workflow |
 | `/workflow-technical-discovery` | Run the Technical Discovery workflow |
 | `/launch-checklist` | Create a comprehensive pre-launch checklist |
+| `/lean-canvas` | Generate a one-page lean canvas with optional HTML output |
 | `/mermaid-diagrams` | utility-mermaid-diagrams |
 | `/lessons-log` | Create a structured lessons learned entry |
 | `/opportunity-tree` | Create an opportunity solution tree |

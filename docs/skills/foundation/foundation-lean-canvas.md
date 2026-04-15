@@ -1,0 +1,592 @@
+---
+title: "foundation-lean-canvas"
+description: "Produces a one-page lean canvas across nine interlocking blocks (problem, customer, UVP, solution, channels, revenue, cost, metrics, unfair advantage) with optional inline HTML and SVG visual rendering. Use when framing a new product thesis, stress-testing an existing strategy, comparing strategic options side-by-side, or aligning a team on business-model assumptions. Works as a strategic hub that cross-links to deeper PM skills without duplicating them."
+tags:
+  - Foundation
+  - problem-framing
+---
+
+# <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
+
+!!! info "Quick facts"
+    **Classification:** Foundation | **Version:** 1.0.0 | **Category:** problem-framing | **License:** Apache-2.0
+
+**Try it:** `/lean-canvas "Your context here"`
+{ .md-button }
+
+# Lean Canvas
+
+A lean canvas is a one-page business thesis that makes your assumptions about problem, customer, solution, and viability explicit and testable. Developed by Ash Maurya from Alex Osterwalder's Business Model Canvas, it is specifically adapted for startups and product teams operating under uncertainty. Nine interlocking blocks force you to articulate the whole picture at once so that changing one block's assumptions surfaces the ripple effect on the others.
+
+This skill is a strategic hub, not a specialist tool. It produces the integrated one-page artifact and cross-links to deeper PM skills (`/problem-statement`, `/persona`, `/jtbd-canvas`, `/solution-brief`, `/competitive-analysis`, `/experiment-design`) for single-block depth when needed.
+
+## When to Use
+
+- Framing a new product, feature, or business thesis on one page
+- Stress-testing an existing business by making implicit assumptions explicit
+- Comparing two or more strategic options side-by-side (run the skill once per option, then diff)
+- Onboarding new team members into the strategic thesis in a single artifact
+- Mid-phase reality check: does the thesis still hold given what we have learned?
+- Pairing with `/experiment-design` to prioritize which block assumptions to test first
+
+## When NOT to Use
+
+- You need deep research on a single block (persona detail, problem framing, competitive landscape). Use the specialist skill (`/persona`, `/problem-statement`, `/competitive-analysis`) instead.
+- You are drafting a PRD, user stories, or acceptance criteria. Use `/prd`, `/user-stories`, `/acceptance-criteria`; lean canvas is strategy, not specification.
+- You want to brainstorm solutions without a customer-problem anchor. Start with `/problem-statement` or `/jtbd-canvas` and return to lean canvas once the problem is framed.
+- You need a Business Model Canvas for an established enterprise with known customers and channels. Maurya designed lean canvas specifically for high-uncertainty early-stage ventures; a BMC is a better fit for steady-state analysis.
+
+## How to Use
+
+Use the `/lean-canvas` slash command:
+
+```
+/lean-canvas "Your context here"
+```
+
+Or reference the skill file directly: `skills/foundation-lean-canvas/SKILL.md`
+
+## Instructions
+
+When asked to create a lean canvas, follow these steps:
+
+1. **Resolve mode and intent**
+   Determine whether the request is `content` or `visual`. If mode is omitted, default to `content` and state the fallback.
+   Clarify the target: new product thesis, existing-business stress test, or side-by-side comparison of options. If unclear, ask once before proceeding.
+
+2. **Collect context and evidence**
+   Use user-provided context first: product name, market, target customer, any research already done, existing alternatives users are hiring today, known constraints.
+   If evidence is thin, continue generation but mark gaps in the Evidence & Confidence section and calibrate per-block confidence accordingly.
+   For existing businesses, distinguish current assumptions from validated data explicitly.
+
+3. **Fill the nine blocks in recommended order**
+   Fill in this order because each block's answer constrains the next. Do not skip ahead.
+
+   a. **Problem** — Top 3 problems, ranked by pain intensity and frequency. Include Existing Alternatives (what customers do today, including workarounds and non-consumption, not just direct competitors).
+   b. **Customer Segments** — Who has these problems most acutely? Name Early Adopters as a distinct subset you will reach first. Early Adopters are more painful, more reachable, and more willing to try a new solution than the broader segment.
+   c. **Unique Value Proposition (UVP)** — One sentence that makes a clear, testable promise. Include a High-Level Concept ("X for Y" analogy) that accelerates understanding for busy readers.
+   d. **Solution** — Top 3 features that address the top 3 problems. Map 1:1 to the Problem block. Keep it concrete but do not over-engineer; this is a hypothesis, not a spec.
+   e. **Channels** — Free and paid paths to your early adopters. Distinguish compounding channels (content, SEO, community) from traction-demonstrating channels (outbound, paid ads).
+   f. **Revenue Streams** — Model (subscription, transaction, freemium, services), price point, expected volume, and LTV. Show the math so the revenue thesis is inspectable.
+   g. **Cost Structure** — CAC, fixed vs variable, and the cost driver that shapes the growth curve.
+   h. **Key Metrics** — The 3 to 5 leading indicators that signal whether the model is working. AARRR (Acquisition, Activation, Retention, Revenue, Referral) is a useful default frame.
+   i. **Unfair Advantage** — What cannot be easily copied or bought. Empty is acceptable if framed as an open question; never fabricate a moat.
+
+4. **Apply evidence and confidence policy**
+   Tag each block with `High`, `Medium`, or `Low` confidence plus a one-line rationale.
+   Populate the Evidence & Confidence section: `Validated` (assumptions with named sources), `Assumed` (no data yet), `Open Questions` (what you would need to learn to raise confidence), `Governance` (who owns the canvas and when it is revisited).
+   A block marked "High" must name a specific evidence source, not a generic claim.
+
+5. **Render and write the visual file (visual mode only)**
+   Read `references/html-template.html`. It is a complete, self-contained HTML5 document using CSS Grid to express the canonical Maurya nine-block layout, with per-column color accents, confidence badges, and A3 landscape print styling.
+   Fill every `{{PLACEHOLDER}}` token in the template with content from the markdown canvas:
+   - `{{PRODUCT_NAME}}`, `{{CREATED_DATE}}`, `{{PURPOSE}}`, `{{OVERALL_CONFIDENCE}}` from the canvas header.
+   - `{{PROBLEM_CONTENT}}`, `{{EXISTING_ALTERNATIVES}}`, `{{SOLUTION_CONTENT}}`, `{{UVP_CONTENT}}`, `{{HIGH_LEVEL_CONCEPT}}`, `{{ADVANTAGE_CONTENT}}`, `{{CUSTOMER_CONTENT}}`, `{{EARLY_ADOPTERS}}`, `{{METRICS_CONTENT}}`, `{{CHANNELS_CONTENT}}`, `{{COST_CONTENT}}`, `{{REVENUE_CONTENT}}` from the respective blocks. Use a `<ul><li>` list for multi-item blocks; keep cell content concise (one-line summaries, not the full markdown detail) so the visual stays scannable.
+   - `{{CONF_PROBLEM}}`, `{{CONF_SOLUTION}}`, `{{CONF_UVP}}`, `{{CONF_ADVANTAGE}}`, `{{CONF_CUSTOMER}}`, `{{CONF_METRICS}}`, `{{CONF_CHANNELS}}`, `{{CONF_COST}}`, `{{CONF_REVENUE}}` with the single letter `H`, `M`, or `L` matching each block's confidence tag. Each appears twice in the template (once in the class attribute for styling, once as visible text).
+   - `{{VALIDATED_COUNT}}`, `{{ASSUMED_COUNT}}`, `{{OPEN_QUESTIONS_COUNT}}`, `{{OWNER}}`, `{{NEXT_REVIEW}}` in the footer evidence strip.
+   Write the filled document to disk at a user-specified path, or default to `./lean-canvas-{slug}.html` in the current working directory (where `{slug}` is the product name lowercased with non-alphanumeric characters replaced by hyphens).
+   Do not introduce external font or CSS links; the template is intentionally self-contained.
+   In content mode, skip this step entirely.
+
+6. **Finalize for direct use**
+   Remove all template guidance blockquotes (`>` notes) from the final artifact.
+   Verify UVP is decision-changing and testable, not marketing fluff.
+   Confirm Early Adopters is a distinct subset (not a restatement of Customer Segments).
+   Confirm Solution block items map 1:1 to Problem block items.
+
+## Output Template
+
+# Lean Canvas: {Product or Initiative Name}
+
+> **Created**: {ISO date}
+> **Author**: {name or team}
+> **Mode**: {content | visual}
+> **Overall confidence**: {High | Medium | Low}
+> **Purpose**: {new thesis | stress test | option comparison | alignment}
+
+---
+
+## 1. Problem
+
+> List the top 3 problems your customer has, ranked by pain intensity and frequency. Resist the urge to list every pain point; the discipline is picking the three that matter most.
+
+- **P1**: {problem one}
+- **P2**: {problem two}
+- **P3**: {problem three}
+
+### Existing Alternatives
+
+> How do customers solve this today? Include direct tools, workarounds, and non-consumption (ignoring the problem, accepting the pain). Non-consumption is often the largest and most overlooked competitor.
+
+- {alternative one}
+- {alternative two}
+- {alternative three}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**: {one-line evidence summary or gap}
+
+---
+
+## 2. Customer Segments
+
+> Who has these problems most acutely? Be specific: role, industry, size, situation.
+
+- {segment description}
+
+### Early Adopters
+
+> A distinct subset you will reach first. More specific, more painful, more willing to try a new solution than the broader segment. If early adopters equal the segment, you have not narrowed enough.
+
+- {early-adopter description}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**:
+
+---
+
+## 3. Unique Value Proposition
+
+> A single testable promise. One sentence that makes clear what you offer and why it is different and worth buying. Avoid marketing fluff and vague superlatives.
+
+{UVP sentence}
+
+### High-Level Concept
+
+> The "X for Y" analogy that accelerates understanding. Example: "Airbnb for office space." "GitHub for writers." "Flipboard for podcasts."
+
+{X for Y analogy}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**:
+
+---
+
+## 4. Solution
+
+> Top 3 features that address the top 3 problems. Map 1:1 to the Problem block. Keep it concrete but do not over-engineer; this is a hypothesis, not a specification.
+
+- **For P1**: {feature one}
+- **For P2**: {feature two}
+- **For P3**: {feature three}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**:
+
+---
+
+## 5. Channels
+
+> Free and paid paths to your early adopters. Favor channels that compound over time alongside channels that demonstrate near-term traction.
+
+### Compounding (free, long-horizon)
+
+- {channel}
+
+### Traction-demonstrating (paid, near-term)
+
+- {channel}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**:
+
+---
+
+## 6. Revenue Streams
+
+> Model, price, volume, lifetime value. Show the math so the revenue thesis is inspectable.
+
+- **Model**: {subscription | transaction | freemium | services | other}
+- **Price**: {price per unit}
+- **Volume (Year 1)**: {expected count}
+- **LTV**: {lifetime value}
+- **Math**: {price x volume = revenue}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**:
+
+---
+
+## 7. Cost Structure
+
+> What is the unit economics shape? What drives cost growth?
+
+- **CAC (customer acquisition cost)**: {amount}
+- **Fixed costs**: {categories and rough amount}
+- **Variable costs**: {per-unit cost drivers}
+- **Cost driver**: {what makes total cost grow as you scale?}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**:
+
+---
+
+## 8. Key Metrics
+
+> 3 to 5 leading indicators that tell you whether the model is working. AARRR (Acquisition, Activation, Retention, Revenue, Referral) is a useful default frame.
+
+- {metric and target}
+- {metric and target}
+- {metric and target}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**:
+
+---
+
+## 9. Unfair Advantage
+
+> What cannot be easily copied or bought? Empty is acceptable if framed as an open question. Never fabricate a moat.
+
+{Advantage, or: "Open question. No defensible moat yet. Currently exploring {X} as a candidate."}
+
+**Confidence**: {High | Medium | Low}
+**Rationale**:
+
+---
+
+## Evidence & Confidence
+
+### Validated
+
+> Assumptions backed by named, specific sources (customer interviews, usage data, market reports).
+
+- {assumption}, evidence: {source}
+
+### Assumed
+
+> Assumptions with no data yet. These are the candidates for the next round of experiments.
+
+- {assumption}
+
+### Open Questions
+
+> What you would need to learn to raise confidence on a specific block. Write these as testable questions.
+
+- {question}
+
+### Governance
+
+> Who owns iteration on this canvas? When is it revisited? What triggers an unscheduled revision?
+
+- **Owner**:
+- **Review cadence**:
+- **Revision triggers**:
+
+---
+
+## Visual Output (Visual mode only)
+
+> Omit this entire section in content mode. In visual mode, the skill writes a self-contained `.html` file to disk separately (it does not appear inline in this markdown). Fill this section with the file path and a one-line description of what was rendered.
+
+- **Written to**: `{./lean-canvas-{slug}.html or user-specified path}`
+- **Layout**: Canonical Maurya nine-block grid with per-column color accents and confidence badges
+- **Self-contained**: No external fonts, stylesheets, or scripts; opens correctly offline
+- **Print-ready**: A3 landscape page size via `@media print`; fits the canvas on one page
+- **Accessibility**: `role="img"` and `aria-label` set on the canvas wrapper
+
+Open the file in a browser to review, or export to PDF via the browser's print dialog.
+
+## Example Output
+
+??? example "Lean Canvas: RestoreAI (Customer Success Copilot for Mid-Market SaaS)"
+    # Lean Canvas: RestoreAI (Customer Success Copilot for Mid-Market SaaS)
+
+    > **Created**: 2026-04-15
+    > **Author**: Product strategy, RestoreAI founding team
+    > **Mode**: content
+    > **Overall confidence**: Medium
+    > **Purpose**: New thesis. Framing the v1 strategic bet before engineering investment is committed.
+
+    ---
+
+    ## 1. Problem
+
+    - **P1**: CS managers at 50 to 500 person SaaS companies spend 40%+ of their week triaging tickets across Zendesk, Slack, and Gong with no unified view of account health. They miss early churn signals because signal is fragmented across tools.
+    - **P2**: CS leaders cannot confidently answer "which accounts need intervention this week?" without a manual weekly spreadsheet pull that takes 3 to 4 hours and is stale by Tuesday.
+    - **P3**: Individual CSMs burn out from reactive firefighting. Industry attrition for CSMs is 27% annually (Gainsight 2025 benchmark), driven partly by the emotional load of surprise-churn accounts.
+
+    ### Existing Alternatives
+
+    - **Gainsight / Totango / Catalyst**: dedicated CS platforms. Strong, but priced for enterprise ($50k to $150k ARR minimum) and heavy to implement (3 to 6 month rollouts). Overkill for 50 to 500 person companies.
+    - **Manual spreadsheets + BI**: most common alternative. Cheap but stale, brittle, and does not surface signals proactively.
+    - **Zendesk + Slack alerts**: free but reactive. Flags problems after customers have already disengaged.
+    - **Non-consumption**: accepting churn as the cost of doing business. Far more common than CS leaders admit in public.
+
+    **Confidence**: High
+    **Rationale**: 18 customer discovery interviews with CS leaders at SaaS companies between 50 and 400 employees (Q1 2026). Pain frequency and intensity consistent across all 18.
+
+    ---
+
+    ## 2. Customer Segments
+
+    - Mid-market SaaS companies (50 to 500 employees, $5M to $50M ARR) with a dedicated CS function but not yet ready to commit to enterprise CS platforms.
+
+    ### Early Adopters
+
+    - Founder- or VP-led CS teams at Series B to Series C SaaS companies (100 to 300 employees, $10M to $30M ARR) where the CS leader reports directly to the CEO or CRO and has budget authority for tools under $30k annual. These leaders feel the pain weekly, have explicit mandates to reduce logo churn, and are willing to adopt new tools without a committee. Specifically targeting LinkedIn CS communities and the Pavilion CS group for initial outreach.
+
+    **Confidence**: Medium
+    **Rationale**: Segment is sized from SaaS market data (Crunchbase, 2025), but early adopter persona is currently calibrated on 8 of the 18 interviewees and needs validation via a paid pilot cohort.
+
+    ---
+
+    ## 3. Unique Value Proposition
+
+    RestoreAI surfaces the 5 accounts most likely to churn this week, with the specific next action for each CSM to take, before any manual analysis is required.
+
+    ### High-Level Concept
+
+    Copilot for Customer Success: like GitHub Copilot for engineers, RestoreAI proactively suggests the next right action to CSMs based on signal patterns across their existing tools.
+
+    **Confidence**: Medium
+    **Rationale**: The "5 accounts / this week / specific next action" framing tested well with 14 of 18 interviewees. The "Copilot for CS" analogy is new and has not been validated with the segment; it works well with investor audiences but may need adjustment for buyers.
+
+    ---
+
+    ## 4. Solution
+
+    - **For P1 (fragmented signal)**: A unified account health view that ingests Zendesk, Slack, Gong, Salesforce, and product usage data via pre-built connectors. Zero custom integration work for the first five tools.
+    - **For P2 (stale weekly pull)**: A Monday-morning "Accounts at Risk" digest delivered via Slack, ranked by churn probability with the top signal cited for each. Refreshes daily.
+    - **For P3 (CSM burnout from surprise churn)**: Per-CSM "next best action" suggestions, linked to each at-risk account, specifying what to send, who to loop in, and when.
+
+    **Confidence**: Medium
+    **Rationale**: Feature set is a hypothesis from interview pain-point mapping, not yet validated with working software. Connector scope is feasible based on prior experience (two of the founders shipped similar connectors at their last company); churn-prediction accuracy is the largest open risk.
+
+    ---
+
+    ## 5. Channels
+
+    ### Compounding (free, long-horizon)
+
+    - Weekly long-form essay series on "State of CS" published on a dedicated Substack and cross-posted to LinkedIn, targeting the CS leader audience. Goal: become the most-read voice on mid-market CS ops in 12 months.
+    - Open-source the account-health scoring framework as a standalone GitHub repo. Draws engineers and CS ops folks into the orbit, seeds inbound.
+    - Speaking at Pavilion, CS Leaders Network, and Gainsight Pulse events. Cost: time only.
+
+    ### Traction-demonstrating (paid, near-term)
+
+    - Outbound sales to VPs of CS at Series B to Series C SaaS companies, sourced via Apollo and LinkedIn Sales Navigator. Targeting 40 conversations per month in the first two quarters.
+    - LinkedIn ads targeting CS leader job titles at company-size-bounded SaaS firms. Budget: $5k per month initially, optimized for demo requests.
+
+    **Confidence**: Medium
+    **Rationale**: Compounding channels are standard for B2B SaaS and have worked for comparable tools. Outbound targeting is well-scoped but conversion rate is unknown; LinkedIn ads may or may not work for this segment. First 90 days are explicit learning.
+
+    ---
+
+    ## 6. Revenue Streams
+
+    - **Model**: Per-seat SaaS subscription
+    - **Price**: $149 per CSM seat per month, minimum 5 seats. Annual billing preferred with 15% discount.
+    - **Volume (Year 1)**: 40 customers averaging 8 seats = 320 total seats
+    - **LTV**: Assuming 85% gross retention and 110% net revenue retention, 3-year LTV per seat is approximately $5,600
+    - **Math**: 320 seats x $149 x 12 = $572k ARR at end of Year 1 (base case). Upper band with expansion: $690k ARR.
+
+    **Confidence**: Medium
+    **Rationale**: Pricing calibrated against Gainsight and Totango per-seat equivalents, adjusted for mid-market positioning. Volume assumption is an estimate; LTV math is standard SaaS and assumes comparable-category retention, which is itself a hypothesis.
+
+    ---
+
+    ## 7. Cost Structure
+
+    - **CAC (customer acquisition cost)**: Target $4,200 per customer (blended across outbound and inbound). LTV:CAC target ratio 3:1 or better.
+    - **Fixed costs**: 4 engineers + 1 designer + 2 founders = approximately $1.4M annual burn in Year 1.
+    - **Variable costs**: LLM inference ($0.08 to $0.15 per account scored per day), data infrastructure ($0.02 per account per day), connector hosting. Roughly $12 to $18 per account per month in COGS.
+    - **Cost driver**: LLM inference volume scales with account count AND with the depth of analysis per account. If per-account inference cost grows faster than per-seat revenue, gross margin compresses. This is the single biggest cost risk.
+
+    **Confidence**: Low
+    **Rationale**: LLM pricing is volatile and model-capability-dependent. Engineering burn rate is controllable but our Year 1 scope assumes no infra-engineer hire, which is optimistic. CAC target is aspirational given we have not run a single paid campaign yet.
+
+    ---
+
+    ## 8. Key Metrics
+
+    - **Activation**: % of new customers whose first "Accounts at Risk" digest surfaces an account the CSM had not already flagged. Target: 70%+ in first month.
+    - **Retention (leading)**: Weekly active CSMs per account. Target: 80%+ weekly active in months 2 to 3.
+    - **Churn prediction accuracy**: Precision@5 on weekly at-risk digest (did 4+ of the 5 surfaced accounts actually show churn signal within 30 days?). Target: 60%+ precision at end of Year 1.
+    - **Revenue (lagging)**: Net revenue retention across the customer base. Target: 110%+ NRR by end of Year 1.
+    - **Referral**: % of new customer conversations sourced via existing customer or ecosystem referral. Target: 30%+ by end of Year 1.
+
+    **Confidence**: Medium
+    **Rationale**: Metric selection follows AARRR and is standard. Specific targets are calibrated against comparable SaaS benchmarks but have not been tested against our actual product yet. Precision@5 threshold is the most uncertain.
+
+    ---
+
+    ## 9. Unfair Advantage
+
+    Open question. No defensible moat yet. Currently exploring two candidates: (1) a proprietary taxonomy of account-health signals built from the 18 discovery interviews and extended through the first 20 customers, which could become a structured data asset if kept current; (2) the founding team's combined 14 years at mid-market SaaS CS organizations, which gives us earned trust in the target buyer community. Neither is defensible on its own over 24+ months; both require active compounding.
+
+    **Confidence**: Low
+    **Rationale**: "Unfair advantage" is the block we are weakest on. Treating it as an open research question, not a claim.
+
+    ---
+
+    ## Evidence & Confidence
+
+    ### Validated
+
+    - Problem P1 (fragmented signal across tools): Validated via 18 of 18 discovery interviews (Q1 2026). All 18 named at least 3 disparate tools and struggled to answer "show me this week's at-risk accounts" without manual work.
+    - Existing Alternatives (Gainsight/Totango too heavy for mid-market): Validated via 12 of 18 interviewees who had actively evaluated and rejected enterprise CS platforms.
+    - CS attrition 27% annual: Gainsight Benchmark Report 2025.
+    - Competitive pricing range for enterprise CS platforms ($50k to $150k ARR minimum): Vendor public pricing pages and deal sizes shared by 6 interviewees.
+
+    ### Assumed
+
+    - Churn prediction accuracy threshold (Precision@5 > 60%) is achievable with current LLM-plus-ruleset approach. No working prototype yet.
+    - Per-seat pricing of $149 is acceptable to the segment. Calibrated from comps, not tested.
+    - 40 customers in Year 1 via the described channel mix. Estimated from outbound-funnel conversion assumptions, not measured.
+    - LinkedIn CS communities and Pavilion will convert to pilot conversations at a reasonable rate.
+
+    ### Open Questions
+
+    - What is the actual Precision@5 ceiling we can hit with available signal across Zendesk, Slack, Gong, Salesforce, and product usage data? Run a retrospective backtest on one friendly early customer's 12 months of historical data.
+    - Is the "Copilot for CS" positioning more resonant with buyers than "proactive CS intelligence"? A/B test landing page messaging in the first paid-ad cohort.
+    - Does the $149 per-seat price point feel high, right, or low to the target CS leader? Probe in pricing-sensitivity interviews with 10 more leaders in the target segment before finalizing Year 1 price.
+    - What is the real CAC via LinkedIn ads plus outbound combined? Only measurable by running the campaigns; budget $15k for a 60-day CAC-discovery experiment.
+
+    ### Governance
+
+    - **Owner**: VP Product (RestoreAI founding team)
+    - **Review cadence**: Monthly stress test in the first 6 months, quarterly thereafter. At each review, confidence tags are re-evaluated and any block moving from Assumed to Validated (or the reverse) is logged.
+    - **Revision triggers**: Unscheduled revision required if: (a) a block's confidence drops from High to Medium or below, (b) a customer-segment assumption is invalidated (e.g., mid-market does not feel the pain we expected), (c) a material competitive shift (e.g., Gainsight releases a mid-market SKU at $10k ARR), or (d) unit economics materially diverge from plan (gross margin under 60% for two consecutive quarters).
+
+    ---
+
+    ## Visual Output
+
+    > Skipped in content mode; no `.html` file is written. If this canvas were generated in `visual` mode instead, the skill would additionally write a self-contained file to `./lean-canvas-restoreai.html`. That file would render the nine blocks in the canonical Maurya grid layout, with the Problem block spanning the left column in accent red, Customer Segments spanning the right column in accent green, UVP anchored in the center in accent purple, and Cost Structure + Revenue Streams across the bottom in accent amber. Each cell would display its block number, name, a confidence badge (H / M / L, color-coded), and the one-line summaries: for RestoreAI, the Problem cell would show "CS managers triage across fragmented tools (40%+ of week), miss churn signals" with confidence badge M; the UVP cell would show "Surfaces the 5 accounts most likely to churn this week, with the specific next action for each CSM" plus the Copilot-for-CS analogy in the concept slot; the Revenue cell would show "$149/seat/mo x 320 seats = $572k Y1 ARR base case." The file would open directly in a browser with no network access and print cleanly at A3 landscape.
+
+## Real-World Examples
+
+See this skill applied to three different product contexts:
+
+??? example "Storevine (B2B): Storevine Campaigns lean canvas for framing the built-in email / SMS re-engagement feature as an embedded alternative to Klaviyo for SMB merchants"
+    **Prompt:**
+
+    ```text
+    /lean-canvas
+
+    Build a lean canvas for Storevine Campaigns (built-in email + SMS re-engagement) ahead of v1 leadership review.
+
+    Context:
+    - 15k merchants on Storevine (Series A, ~70 employees)
+    - ~38% of merchants currently juggle Klaviyo or Mailchimp as a second tool [fictional]
+    - Win-loss interviews (Jan 2026, n=14): 6/14 wins cited "too many tools"; 4/9 losses said "Klaviyo is good enough" [fictional]
+    - Competitive landscape already mapped (see discover-competitive-analysis from Feb 2026)
+    - Initial persona for self-serve SMB merchant already drafted via /persona
+    - Need: lean canvas for leadership review, content mode is fine, confidence-honest
+
+    The canvas should feed directly into the v1 PRD so be concrete on revenue math and key metrics.
+    ```
+
+    ---
+
+    **Output:**
+
+    # Lean Canvas: Storevine Campaigns
+
+    > **Created**: 2026-04-15
+    > **Author**: Storevine Campaigns PM
+    > **Mode**: content
+    > **Overall confidence**: Medium
+    > **Purpose**: New feature thesis. Pre-PRD strategic review for leadership.
+
+    ---
+
+??? example "Brainshelf (Consumer): Brainshelf Resurface lean canvas for framing the morning email digest as a retention and referral lever in a consumer PKM app"
+    **Prompt:**
+
+    ```text
+    /lean-canvas
+
+    quick lean canvas for Resurface (morning email digest of saved stuff).
+
+    context:
+    - brainshelf post-seed, 85k users, retention flat
+    - users with 3+ saves/wk have 3.4x retention and 2.1 referrals/quarter [fictional]
+    - hypothesis: send saved items back to them monday mornings
+    - competitors in the space: Readwise Reader, Raindrop, Omnivore, Pocket
+    - need a one-pager for board update friday and to scope v1
+
+    content mode is fine. be honest about what we don't know.
+    ```
+
+    ---
+
+    **Output:**
+
+    # Lean Canvas: Brainshelf Resurface
+
+    > **Created**: 2026-04-15
+    > **Author**: Brainshelf PM
+    > **Mode**: content
+    > **Overall confidence**: Low-Medium
+    > **Purpose**: New feature thesis. Pre-scope sanity check and board-update anchor.
+
+    ---
+
+??? example "Workbench (Enterprise): Workbench Blueprints lean canvas for framing the required-section doc templates with approval gates as an enterprise expansion motion against Confluence and Notion"
+    **Prompt:**
+
+    ```text
+    Sandra V. to PM Skills agent:
+
+    > I need a lean canvas for Workbench Blueprints GA. This should inform the Q3
+    > expansion-strategy review on July 12 and feed directly into the Blueprints
+    > v1 PRD and expansion pricing memo.
+    >
+    > Context:
+    > - 3 pilot customers (2 health, 1 finance) are active with 8 more in the
+    >   qualified pipeline
+    > - Common stall point discovered during pilot: approval-gate configuration
+    >   takes 45+ minutes initially per template, which is a bad first impression
+    >   even though setup is one-time
+    > - Pilot retention data preview: all 3 pilot customers extended to 6-month
+    >   paid engagements at list price; 2 of 3 are discussing company-wide
+    >   rollout for Q4 [fictional]
+    > - Competitive reality: Confluence and Notion are the incumbents but
+    >   neither has enforcement semantics; our only direct peer is a startup
+    >   called Document-as-Code tools (niche adoption)
+    > - Product scope: required-section templates, role-based approvals,
+    >   compliance-section presets, approval audit trail
+    > - Pricing question to resolve: bundle into Enterprise tier (expansion
+    >   revenue) vs. standalone SKU. Leadership leans bundle; CFO is
+    >   questioning the revenue-attribution math.
+    >
+    > Need: complete lean canvas, content mode, calibrated for enterprise
+    > buying reality. Evidence and confidence section should be thorough
+    > because this feeds a finance-reviewed memo. Cross-link to the
+    > competitive analysis and Sandra Vo persona we have on file.
+    ```
+
+    ---
+
+    **Output:**
+
+    # Lean Canvas: Workbench Blueprints
+
+    > **Created**: 2026-04-15
+    > **Author**: Workbench Blueprints PM
+    > **Mode**: content
+    > **Overall confidence**: Medium-High
+    > **Purpose**: New feature thesis. Q3 expansion-strategy review anchor; feeds GA PRD and expansion pricing memo.
+
+    ---
+
+## Quality Checklist
+
+Before finalizing, verify:
+
+- [ ] All nine blocks are present and ordered correctly (Problem, Customer Segments, UVP, Solution, Channels, Revenue Streams, Cost Structure, Key Metrics, Unfair Advantage)
+- [ ] Problem lists the top 3 problems AND includes an Existing Alternatives subsection
+- [ ] Customer Segments names Early Adopters as a distinct subset, not a restatement
+- [ ] UVP is one sentence AND includes a High-Level Concept analogy ("X for Y")
+- [ ] Solution maps 1:1 to the Problem block (top 3 features for top 3 problems)
+- [ ] Channels distinguishes compounding from traction-demonstrating paths
+- [ ] Revenue Streams shows the math (model, price, volume, LTV)
+- [ ] Cost Structure names CAC and identifies the cost driver
+- [ ] Key Metrics lists 3 to 5 leading indicators
+- [ ] Unfair Advantage is either specific OR explicitly flagged as an open question
+- [ ] Each block has a confidence tag (`High|Medium|Low`) with a one-line rationale
+- [ ] Evidence & Confidence section has all four subsections populated
+- [ ] Template guidance blockquotes are removed from the final artifact
+- [ ] Visual mode: the generated `.html` file opens successfully in a browser with no network access; every `{{PLACEHOLDER}}` has been replaced; confidence badges render with correct color; the canonical Maurya nine-block arrangement is visible; print-preview at A3 landscape fits the canvas on one page; `role="img"` and `aria-label` are present; the file path is reported back to the user
+- [ ] Content mode: no `.html` file is written and no visual section appears in the markdown
