@@ -1,0 +1,3209 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+      
+      
+        <meta name="author" content="jprisant">
+      
+      
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/reference/skill-families/meeting-skills-contract/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../../contributing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Meeting Skills Contract - PM Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Meeting Skills Contract - PM Skills" />
+<meta property="og:description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/reference/skill-families/meeting-skills-contract.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/reference/skill-families/meeting-skills-contract/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Meeting Skills Contract - PM Skills" />
+<meta property="twitter:description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/reference/skill-families/meeting-skills-contract.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#meeting-skills-family-contract" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PM Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Meeting Skills Contract
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../skills/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../workflows/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflows
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../showcase/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Showcase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/using-meeting-skills/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../releases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    PM Skills
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../getting-started/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../skills/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../workflows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../guides/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../concepts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../showcase/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Showcase
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../guides/using-meeting-skills/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../categories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skill Families
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_5" id="__nav_9_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Skill Families
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting Skills Contract
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meeting Skills Contract
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-document-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this document is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-family-contract-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why a family contract exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-5-skills-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 5 skills at a glance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The 5 skills at a glance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-they-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How they chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#universal-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Universal principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Universal principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-zero-friction-execution-go-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Zero-friction execution (go mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-adaptive-executor-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Adaptive Executor pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-evidence-and-confidence-discipline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Evidence and confidence discipline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-filename-based-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Filename-based chaining
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-taxonomies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared taxonomies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shared taxonomies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meeting-type-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meeting type enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attendee-role-enum-simplified-raci-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attendee role enum (simplified RACI-4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-quality-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input quality levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidence levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifact-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifact types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-enum-stakeholder-update-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channel enum (stakeholder-update only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audience-variant-enum-stakeholder-update-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audience variant enum (stakeholder-update only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibility-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visibility enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#universal-output-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Universal output requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Universal output requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-shareable-summary-at-the-top" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Shareable summary at the top
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sources-references-section-at-the-bottom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Sources &amp; References section at the bottom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-yaml-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. YAML frontmatter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-file-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. File naming convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-input-quality-flagging-and-confidence-markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Input quality flagging and confidence markers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-anti-meeting-check-pre-meeting-skills-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Anti-meeting check (pre-meeting skills only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-non-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit non-goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enforcement-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enforcement (CI)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enforcement (CI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-validator-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the validator checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-validator-does-not-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the validator does NOT check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-posture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI posture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change log
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../contributing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../releases/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-document-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this document is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-family-contract-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why a family contract exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-5-skills-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 5 skills at a glance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The 5 skills at a glance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-they-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How they chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#universal-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Universal principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Universal principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-zero-friction-execution-go-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Zero-friction execution (go mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-adaptive-executor-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Adaptive Executor pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-evidence-and-confidence-discipline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Evidence and confidence discipline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-filename-based-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Filename-based chaining
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shared-taxonomies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared taxonomies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shared taxonomies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meeting-type-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meeting type enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attendee-role-enum-simplified-raci-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attendee role enum (simplified RACI-4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-quality-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input quality levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidence levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifact-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifact types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-enum-stakeholder-update-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channel enum (stakeholder-update only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audience-variant-enum-stakeholder-update-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audience variant enum (stakeholder-update only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibility-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visibility enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status enum
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#universal-output-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Universal output requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Universal output requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-shareable-summary-at-the-top" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Shareable summary at the top
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sources-references-section-at-the-bottom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Sources &amp; References section at the bottom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-yaml-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. YAML frontmatter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-file-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. File naming convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-input-quality-flagging-and-confidence-markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Input quality flagging and confidence markers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-anti-meeting-check-pre-meeting-skills-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Anti-meeting check (pre-meeting skills only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-non-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit non-goals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enforcement-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enforcement (CI)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enforcement (CI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-validator-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the validator checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-validator-does-not-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the validator does NOT check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ci-posture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI posture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change log
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../commands/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Reference
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Skill Families
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/reference/skill-families/meeting-skills-contract.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/reference/skill-families/meeting-skills-contract.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="meeting-skills-family-contract">Meeting Skills Family Contract<a class="headerlink" href="#meeting-skills-family-contract" title="Permanent link">&para;</a></h1>
+<p><strong>Status</strong>: Canonical (enforced by CI)
+<strong>Version</strong>: 1.1.0
+<strong>Applies to</strong>: <code>foundation-meeting-agenda</code>, <code>foundation-meeting-brief</code>, <code>foundation-meeting-recap</code>, <code>foundation-meeting-synthesize</code>, <code>foundation-stakeholder-update</code>
+<strong>Last updated</strong>: 2026-04-17</p>
+<hr />
+<h2 id="what-this-document-is">What this document is<a class="headerlink" href="#what-this-document-is" title="Permanent link">&para;</a></h2>
+<p>This is the shared behavioral and structural contract that governs all skills in the pm-skills meeting family. It defines what the skills have in common: the frontmatter they emit, the file naming they use, the behavioral pattern they follow, the shared taxonomies they reference, and the non-goals they respect.</p>
+<p>Individual skill <code>SKILL.md</code> files implement the family-specific behavior (what they produce, how their process differs); this document defines what they share. A skill in this family is not conforming to the family unless it conforms to this contract.</p>
+<p><strong>Enforcement</strong>: the <code>scripts/validate-meeting-skills-family.sh</code> validator runs against every PR touching <code>skills/foundation-meeting-*/</code> or <code>skills/foundation-stakeholder-update/</code> and fails the build if the contract is violated.</p>
+<h2 id="why-a-family-contract-exists">Why a family contract exists<a class="headerlink" href="#why-a-family-contract-exists" title="Permanent link">&para;</a></h2>
+<p>Meeting skills share enough cross-cutting structure — shareable summaries for chat clients, sources traceability, file-based chaining between artifacts, quality signals, input flexibility — that implementing each skill independently would produce drift. The family contract makes the shared surface explicit and enforceable so the skills compose cleanly: a recap can auto-populate from an agenda, a synthesis can consume recaps, a stakeholder update can reference a recap, and the interfaces between them stay stable across future iterations.</p>
+<hr />
+<h2 id="the-5-skills-at-a-glance">The 5 skills at a glance<a class="headerlink" href="#the-5-skills-at-a-glance" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>Phase in meeting lifecycle</th>
+<th>Primary audience</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>foundation-meeting-agenda</code></td>
+<td>Pre-meeting</td>
+<td>Attendees</td>
+<td><code>/meeting-agenda</code></td>
+</tr>
+<tr>
+<td><code>foundation-meeting-brief</code></td>
+<td>Pre-meeting</td>
+<td>User (private prep)</td>
+<td><code>/meeting-brief</code></td>
+</tr>
+<tr>
+<td><code>foundation-meeting-recap</code></td>
+<td>Post-meeting</td>
+<td>Attendees (actions inline)</td>
+<td><code>/meeting-recap</code></td>
+</tr>
+<tr>
+<td><code>foundation-meeting-synthesize</code></td>
+<td>Cross-meeting</td>
+<td>User / leadership</td>
+<td><code>/meeting-synthesize</code></td>
+</tr>
+<tr>
+<td><code>foundation-stakeholder-update</code></td>
+<td>Post-meeting</td>
+<td>Primarily non-attendees; secondarily some attendees</td>
+<td><code>/stakeholder-update</code></td>
+</tr>
+</tbody>
+</table>
+<p>All 5 are classified under the <code>foundation</code> phase (cross-cutting lifecycle tooling), consistent with <code>foundation-persona</code> and <code>foundation-lean-canvas</code>.</p>
+<h3 id="how-they-chain">How they chain<a class="headerlink" href="#how-they-chain" title="Permanent link">&para;</a></h3>
+<p><strong>Single-meeting lifecycle</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>meeting-brief (user prep) + meeting-agenda (attendee prep)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                        ↓
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                [meeting happens]
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                        ↓
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            meeting-recap (attendees, actions inline)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                        ↓
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            stakeholder-update (non-attendees, audience-tailored)
+</span></code></pre></div>
+<p><strong>Cross-meeting</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[recaps from many meetings]  →  meeting-synthesize  →  synthesis artifact
+</span></code></pre></div>
+<p>Chaining is <strong>filename-based</strong>: there is no separate meeting_id. The filename pattern encodes identity (see File Naming Convention below), and artifacts reference each other by full filename in their <code>related_*</code> frontmatter fields.</p>
+<hr />
+<h2 id="universal-principles">Universal principles<a class="headerlink" href="#universal-principles" title="Permanent link">&para;</a></h2>
+<p>Every skill in this family follows these principles. Individual <code>SKILL.md</code> files must explicitly acknowledge them.</p>
+<h3 id="1-zero-friction-execution-go-mode">1. Zero-friction execution (go mode)<a class="headerlink" href="#1-zero-friction-execution-go-mode" title="Permanent link">&para;</a></h3>
+<p>The skill never blocks on interrogation. When invoked, it reads whatever input is provided, infers whatever it can, and either (a) presents a brief inference summary and accepts a one-word <code>go</code> to proceed, (b) runs silently if the user invoked with <code>--go</code>, or &copy; runs through immediately if the user provided all inputs upfront.</p>
+<p><strong>Default flow</strong>:</p>
+<ol>
+<li>User invokes: <code>/meeting-agenda @topic-doc.md @attendee-list.md</code></li>
+<li>Skill reads inputs, runs inference pass</li>
+<li>Skill presents a brief inference summary:<blockquote>
+<p>Inferred:
+- Meeting type: <code>decision-making</code> (confidence: medium — from "need to decide whether to ship v2")
+- Duration: <code>45 min</code> (type-specific default for decision-making — not specified)
+- Attendees: 6 people, RACI inferred from attendee-list context
+- Objective: "Decide v2 ship timing for Q2"</p>
+<p>Say <strong>go</strong> to proceed, or tell me what to adjust.</p>
+</blockquote>
+</li>
+<li>User says <code>go</code> → skill produces output; or user corrects any subset → skill re-infers and re-summarizes</li>
+<li>Output's <code>Generation context</code> section notes every inference that made it into the final artifact</li>
+</ol>
+<p><strong>Explicit go-mode</strong>: <code>/meeting-agenda --go @topic-doc.md</code> — skips the checkpoint, uses defaults, produces output in one shot. User reviews <code>Generation context</code> to see what was defaulted.</p>
+<p><strong>Fully-specified</strong>: <code>/meeting-agenda --type=decision-making --duration=60 --topic="..." @attendees.md</code> — skill uses provided values as authoritative; no checkpoint because nothing is ambiguous.</p>
+<p><strong>Blocking questions</strong> are permitted only when inference confidence is actively low on a load-bearing input AND no reasonable default exists. This should be rare. When asking, the skill must state the default it will apply if the user does not answer.</p>
+<p><strong>Load-bearing inference gates</strong> (v1.1.0):</p>
+<p>Some inferences are load-bearing — downstream output depends on them. When confidence is below <code>high</code> on any of the following fields, the skill must flag the risk in the inference summary with a <code>⚠</code> marker and surface the dependency explicitly. The user can still say <code>go</code>, but the flag ensures they see the risk:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Why load-bearing</th>
+<th>Required flag when &lt;high confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stakeholder positions</td>
+<td>Tactical-notes guidance builds on these</td>
+<td>"⚠ stakeholder-position inference is low-confidence; recommend confirming before using tactical-notes guidance"</td>
+</tr>
+<tr>
+<td>Primary ask / primary CTA</td>
+<td>Skill structures output around this</td>
+<td>"⚠ primary ask inferred; confirm before acting"</td>
+</tr>
+<tr>
+<td>Decision-maker attribution</td>
+<td>Downstream escalation depends on correct attribution</td>
+<td>"⚠ decision-maker inferred; verify before escalating"</td>
+</tr>
+<tr>
+<td>Anticipated questions (soft)</td>
+<td>Weaker dependency; soft flag only</td>
+<td>No blocking flag</td>
+</tr>
+</tbody>
+</table>
+<p>Implementation: each skill's process step that computes inferences must check confidence and emit the flag into the go-mode inference summary when below-high.</p>
+<p><strong>Anti-patterns</strong> (prohibited):</p>
+<ul>
+<li>Asking "is this attendee list correct?" mid-flow</li>
+<li>Asking the user to confirm inferred values before producing anything</li>
+<li>Rejecting low-quality input — <code>input_quality: low</code> exists precisely for this</li>
+<li>Requiring more than what the user provided before producing any output</li>
+<li>Passing load-bearing low-confidence inferences silently (v1.1.0 — must flag with <code>⚠</code>)</li>
+</ul>
+<h3 id="2-adaptive-executor-pattern">2. Adaptive Executor pattern<a class="headerlink" href="#2-adaptive-executor-pattern" title="Permanent link">&para;</a></h3>
+<p>Every skill gracefully accepts variable-quality input:</p>
+<ul>
+<li>Clean structured notes with headers and sections</li>
+<li>Raw transcripts from Zoom, Google Meet, Otter, Fireflies, Krisp MCP, or manual paste</li>
+<li>Bullet-point scraps or shorthand notes</li>
+<li>Slack thread exports</li>
+<li>Hybrid inputs (partial transcript + user annotations)</li>
+<li>User-provided ancillary context (prior recaps, related docs, stakeholder briefs)</li>
+</ul>
+<p>Skills ask only for critically missing context; they do not require structured input. When content is fragmentary, skills flag it via <code>input_quality: low</code> and produce a best-effort output with explicit <code>Known gaps</code> rather than refusing.</p>
+<h3 id="3-evidence-and-confidence-discipline">3. Evidence and confidence discipline<a class="headerlink" href="#3-evidence-and-confidence-discipline" title="Permanent link">&para;</a></h3>
+<p>Skills never fabricate attendees, decisions, actions, or claims unsupported by input. Uncertainty is surfaced, not hidden. Every output carries:</p>
+<ul>
+<li>An overall <code>input_quality</code> marker (<code>high | medium | low</code>) in frontmatter</li>
+<li>An overall <code>confidence</code> marker in frontmatter</li>
+<li>Inline per-section confidence markers where warranted (<code>[confidence: high]</code>, <code>[confidence: medium]</code>, <code>[confidence: low]</code>)</li>
+<li>A <code>Known gaps</code> list in the <code>Sources &amp; References</code> section</li>
+</ul>
+<p>When the skill infers a value (meeting type, attendee role, decision classification), it flags the inference inline with its confidence and the evidence basis.</p>
+<h3 id="4-filename-based-chaining">4. Filename-based chaining<a class="headerlink" href="#4-filename-based-chaining" title="Permanent link">&para;</a></h3>
+<p>No separate <code>meeting_id</code> field. The filename itself is the identifier; artifacts reference each other by full filename.</p>
+<p>Chaining fields in frontmatter:</p>
+<ul>
+<li><code>project</code> + <code>topics</code> — enables cross-meeting grouping for synthesis</li>
+<li><code>related_brief</code>, <code>related_agenda</code>, <code>related_recap</code>, <code>related_synthesis</code> — explicit filename references</li>
+<li><code>source_meetings</code> (synthesis only) — list of recap filenames feeding the synthesis</li>
+</ul>
+<p>This keeps coordination costs low: no lookup tables, no ID assignment ceremony, no collisions across overlapping topics and teams.</p>
+<hr />
+<h2 id="shared-taxonomies">Shared taxonomies<a class="headerlink" href="#shared-taxonomies" title="Permanent link">&para;</a></h2>
+<p>These enums are canonical across all 5 skills. When a skill uses any of these concepts, it draws values from these lists.</p>
+<h3 id="meeting-type-enum">Meeting type enum<a class="headerlink" href="#meeting-type-enum" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>standup
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>planning
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>review
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>decision-making
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>brainstorm
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>1-on-1
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>stakeholder-review
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>project-kickoff
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>working-session
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>exec-briefing
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>incident-postmortem
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>customer-call
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>training-workshop
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>business-review
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>other
+</span></code></pre></div>
+<p>(v1.1.0 added <code>incident-postmortem</code>, <code>customer-call</code>, <code>training-workshop</code>, <code>business-review</code> — common archetypes that were previously forced into <code>other</code>.)</p>
+<p><strong>Frontmatter field</strong>: <code>meeting_type</code> (optional — skill infers when absent).</p>
+<p><strong>Applies to</strong>: <code>meeting-agenda</code>, <code>meeting-brief</code>, <code>meeting-recap</code>, <code>stakeholder-update</code> (single-meeting skills). <code>meeting-synthesize</code> omits this field (aggregates across meeting types) but may filter by it via <code>scope_filter</code>.</p>
+<h3 id="attendee-role-enum-simplified-raci-4">Attendee role enum (simplified RACI-4)<a class="headerlink" href="#attendee-role-enum-simplified-raci-4" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>decision-maker
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>contributor
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>informed
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>optional
+</span></code></pre></div>
+<p><strong>Frontmatter field</strong>: <code>attendees</code> is an optional list of objects with optional <code>role</code> values. The skill infers roles from context when not provided.</p>
+<p>Example:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">attendees</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jonathan</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">decision-maker</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maria</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contributor</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alex</span><span class="w">  </span><span class="c1"># no role provided; skill infers</span>
+</span></code></pre></div>
+<p><strong>Applies to</strong>: <code>meeting-agenda</code>, <code>meeting-brief</code>, <code>meeting-recap</code>, <code>stakeholder-update</code>. <code>meeting-synthesize</code> omits (aggregates across meetings).</p>
+<h3 id="input-quality-levels">Input quality levels<a class="headerlink" href="#input-quality-levels" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>high      — structured notes with clear topics, complete attendee list, explicit decisions and actions captured
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>medium    — partial notes, some gaps, requires moderate inference
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>low       — fragmentary input, significant inference required, multiple gaps
+</span></code></pre></div>
+<p><strong>Frontmatter field</strong>: <code>input_quality</code> (required).</p>
+<h3 id="confidence-levels">Confidence levels<a class="headerlink" href="#confidence-levels" title="Permanent link">&para;</a></h3>
+<p>Same enum used for overall confidence (frontmatter <code>confidence</code>) and inline per-section markers:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>high    — directly supported by input
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>medium  — inferred from multiple contextual cues
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>low     — tentative, verify before sharing
+</span></code></pre></div>
+<h3 id="artifact-types">Artifact types<a class="headerlink" href="#artifact-types" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>meeting-agenda
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>meeting-brief
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>meeting-recap
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>meeting-synthesis
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>stakeholder-update
+</span></code></pre></div>
+<p><strong>Frontmatter field</strong>: <code>artifact_type</code> (required). Exactly one per artifact.</p>
+<blockquote>
+<p><strong>v1.1.0 note</strong>: The v1.0.0 contract listed bare names (<code>agenda</code>, <code>brief</code>, <code>recap</code>, <code>synthesis</code>, <code>stakeholder-update</code>) but its example YAML and all 5 implementations used the prefixed form. v1.1.0 corrects the enum to match implementation. The <code>meeting-*</code> prefix is semantically valuable when this repo later adds other cross-cutting skill families (e.g., <code>research-*</code> artifact types would not collide).</p>
+</blockquote>
+<h3 id="channel-enum-stakeholder-update-only">Channel enum (stakeholder-update only)<a class="headerlink" href="#channel-enum-stakeholder-update-only" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>slack | teams | email | notion | exec-memo
+</span></code></pre></div>
+<h3 id="audience-variant-enum-stakeholder-update-only">Audience variant enum (stakeholder-update only)<a class="headerlink" href="#audience-variant-enum-stakeholder-update-only" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>engineering | design | leadership | customer-facing | mixed
+</span></code></pre></div>
+<h3 id="visibility-enum">Visibility enum<a class="headerlink" href="#visibility-enum" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>private | team | leadership | public
+</span></code></pre></div>
+<p><strong>Frontmatter field</strong>: <code>visibility</code> (required). Defaults:</p>
+<ul>
+<li><code>meeting-agenda</code>: <code>team</code></li>
+<li><code>meeting-brief</code>: <code>private</code></li>
+<li><code>meeting-recap</code>: <code>team</code></li>
+<li><code>meeting-synthesize</code>: <code>team</code></li>
+<li><code>stakeholder-update</code>: set by user intent (typically <code>team</code> or <code>leadership</code>)</li>
+</ul>
+<h3 id="status-enum">Status enum<a class="headerlink" href="#status-enum" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>draft | final | archived
+</span></code></pre></div>
+<p><strong>Frontmatter field</strong>: <code>status</code> (required). New artifacts default to <code>draft</code>.</p>
+<hr />
+<h2 id="universal-output-requirements">Universal output requirements<a class="headerlink" href="#universal-output-requirements" title="Permanent link">&para;</a></h2>
+<p>Every artifact produced by any meeting skill must include these structural elements.</p>
+<h3 id="1-shareable-summary-at-the-top">1. Shareable summary at the top<a class="headerlink" href="#1-shareable-summary-at-the-top" title="Permanent link">&para;</a></h3>
+<p>Every output document leads with a <code>## Shareable summary</code> block designed to be copied and pasted into Slack, Microsoft Teams, or email with no further editing.</p>
+<p><strong>Right-sized</strong> means:</p>
+<ul>
+<li>3–6 short lines for most outputs; a short paragraph plus bullets for synthesis</li>
+<li>Leads with the most important information (outcome, ask, or headline)</li>
+<li>Skimmable in under 10 seconds</li>
+<li>Self-contained — a reader who does not open the full doc still gets the essentials</li>
+<li>Plain prose and simple bullets — no nested headers, no tables, no markdown that breaks in chat clients</li>
+</ul>
+<p>The <code>stakeholder-update</code> skill is a special case (clarified in v1.1.0):</p>
+<ul>
+<li>It does NOT use a <code>## Shareable summary</code> section (the channel-tailored body already is the shareable content)</li>
+<li>Instead, it MUST use a <code>## Shareable update</code> section that contains ONLY the channel-tailored message body (what a user would copy and paste into Slack, email, Notion, etc.)</li>
+<li>The <code>## Shareable update</code> section is the explicit shareable boundary — audit notes (<code>## Technical-to-business translation notes</code>) and <code>## Sources &amp; References</code> sit OUTSIDE that boundary and must NOT be copied into the outgoing message</li>
+<li>The validator enforces presence of <code>## Shareable update</code> for stakeholder-update (not <code>## Shareable summary</code>, which would be wrong for this skill)</li>
+</ul>
+<p>v1.0.0 claimed "the entire output is shareable content" which was misleading — the template included audit sections that should not go to stakeholders. v1.1.0 adds an explicit shareable boundary.</p>
+<p><strong>End-marker convention</strong> (v1.1.0): to make the boundary visually unambiguous, templates mark the END of the Shareable update section with a blockquote like:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">&gt; </span><span class="ge">[End of Shareable update section. Everything below is INTERNAL — do not copy into the outgoing message.]</span>
+</span></code></pre></div>
+<p>The end-marker is a hard convention for this family's templates and samples. A reader scanning for "what do I paste" can scroll until they see the end marker and know to stop copying. The validator does not currently enforce the end-marker (it only enforces the <code>## Shareable update</code> section heading), but the convention is strongly recommended and documented in the end-user guide at <code>docs/guides/using-meeting-skills.md</code>.</p>
+<h3 id="2-sources-references-section-at-the-bottom">2. Sources &amp; References section at the bottom<a class="headerlink" href="#2-sources-references-section-at-the-bottom" title="Permanent link">&para;</a></h3>
+<p>Every output document ends with a <code>## Sources &amp; References</code> section with this structure:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gu">## Sources &amp; References</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="gu">### Primary inputs</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>[what the skill drew from to produce this artifact]
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">-</span><span class="w"> </span>{{Source type}}: {{Source name/identifier}}
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="gu">### Referenced artifacts</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>[related meeting-family or project documents, using full filenames]
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">-</span><span class="w"> </span>Brief: [<span class="nt">{{filename}}</span>](<span class="na">{{path}}</span>)
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="k">-</span><span class="w"> </span>Agenda: [<span class="nt">{{filename}}</span>](<span class="na">{{path}}</span>)
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="k">-</span><span class="w"> </span>Prior recap: [<span class="nt">{{filename}}</span>](<span class="na">{{path}}</span>)
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="gu">### External references</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>[docs, links, data cited in the meeting content]
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="k">-</span><span class="w"> </span>{{Title}}: {{Link}}
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="gu">### Generation context</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Generated**</span>: {{Timestamp}}
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Skill version**</span>: {{Version}}
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Input quality**</span>: {{high | medium | low}} — {{Brief rationale}}
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Overall confidence**</span>: {{high | medium | low}} — {{Brief rationale}}
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Known gaps**</span>: {{List of topics the input did not cover sufficiently, or &quot;None identified&quot;}}
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Inferences applied**</span>: {{List of values inferred by the skill, each with confidence marker}}
+</span></code></pre></div>
+<p>Purpose: auditability (can a reader verify claims?), chaining (downstream skills know what to trust), synthesis enablement (cross-meeting synthesis depends on traceable lineage).</p>
+<h3 id="3-yaml-frontmatter">3. YAML frontmatter<a class="headerlink" href="#3-yaml-frontmatter" title="Permanent link">&para;</a></h3>
+<p>Every output document begins with YAML frontmatter. Universal base fields appear in all artifacts; per-skill additions are layered on top.</p>
+<h4 id="universal-base-fields">Universal base fields<a class="headerlink" href="#universal-base-fields" title="Permanent link">&para;</a></h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nn">---</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># Document identity</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nt">artifact_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meeting-recap</span><span class="w">            </span><span class="c1"># meeting-agenda | meeting-brief | meeting-recap | meeting-synthesis | stakeholder-update</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nt">generated_at</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-04-18T09:15:00Z</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nt">generated_by_skill</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meeting-recap</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># Meeting identity (omitted by synthesis)</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nt">meeting_title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Search</span><span class="nv"> </span><span class="s">Feature</span><span class="nv"> </span><span class="s">Kickoff&quot;</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="nt">meeting_date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-04-17</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="nt">meeting_start_time</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14:00</span><span class="nv"> </span><span class="s">EST&quot;</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="nt">meeting_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project-kickoff</span><span class="w">           </span><span class="c1"># optional — skill infers when absent; values from Meeting type enum</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="nt">meeting_duration_minutes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w">            </span><span class="c1"># default 30 when not specified</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># Project / topic (enables cross-meeting grouping for synthesis)</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search-feature</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="nt">topics</span><span class="p">:</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search-scope</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">engineering-capacity</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="c1"># Attendees (optional; roles inferred when absent)</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="nt">attendees</span><span class="p">:</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jonathan</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">decision-maker</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">maria</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contributor</span>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="nt">attendees_absent</span><span class="p">:</span>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sarah</span>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="c1"># Chaining references (full filenames, relative to same directory)</span>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="nt">related_brief</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-04-17_14-00EST_search-feature-kickoff_brief.md</span>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="nt">related_agenda</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-04-17_14-00EST_search-feature-kickoff_agenda.md</span>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a><span class="nt">related_recap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-04-17_14-00EST_search-feature-kickoff_recap.md</span>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="nt">related_synthesis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-Q1_search-feature_synthesis.md</span>
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="c1"># Quality signals (required)</span>
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="nt">input_quality</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span><span class="w">                     </span><span class="c1"># high | medium | low</span>
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="nt">confidence</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span><span class="w">                        </span><span class="c1"># overall artifact confidence</span>
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="nt">input_sources</span><span class="p">:</span>
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">transcript</span>
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;zoom-recording-2026-04-17&quot;</span>
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="c1"># Sharing / lifecycle</span>
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a><span class="nt">visibility</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">team</span><span class="w">                        </span><span class="c1"># private | team | leadership | public</span>
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">draft</span><span class="w">                           </span><span class="c1"># draft | final | archived</span>
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a><span class="nn">---</span>
+</span></code></pre></div>
+<h4 id="per-skill-additional-fields">Per-skill additional fields<a class="headerlink" href="#per-skill-additional-fields" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong><code>meeting-agenda</code></strong>: <code>meeting_duration_minutes</code> (integer, default varies by meeting type — see table below), <code>desired_outcomes</code> (list)</li>
+</ul>
+<p><strong>Type-specific duration defaults</strong> (v1.1.0):</p>
+<table>
+<thead>
+<tr>
+<th>Meeting type</th>
+<th>Default duration (minutes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>standup</code></td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>1-on-1</code></td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>exec-briefing</code></td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>other</code></td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>decision-making</code></td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>brainstorm</code></td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>stakeholder-review</code></td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>planning</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>review</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>project-kickoff</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>working-session</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>incident-postmortem</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>customer-call</code></td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>training-workshop</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>business-review</code></td>
+<td>60</td>
+</tr>
+</tbody>
+</table>
+<p>The universal 30-minute default from v1.0.0 is now type-specific. When a skill cannot infer meeting type (or infers <code>other</code> at low confidence), the 30-minute fallback applies but is flagged in the inference summary. This prevents kickoffs and working sessions from being silently under-sized.
+- <strong><code>meeting-brief</code></strong>: <code>stakeholders</code> (list of objects with name, position), <code>primary_ask</code> (string)
+- <strong><code>meeting-recap</code></strong>: <code>agenda_reconciliation</code> (object: <code>topics_planned</code>, <code>topics_hit</code>, <code>topics_skipped</code>, <code>topics_emerged</code>), <code>meeting_quality</code> (object: <code>outcomes_achieved</code>, <code>started_on_time</code>, <code>ended_on_time</code>, <code>key_attendees_present</code>), <code>meeting_type_source</code> (enum: <code>explicit | inferred | null</code>), <code>unassigned_action_ratio</code> (float 0.0–1.0, v1.1.0)
+- <strong><code>meeting-synthesize</code></strong>: <code>source_meetings</code> (list of recap filenames), <code>time_range</code> (object: <code>start</code>, <code>end</code>), <code>scope_filter</code> (string); omits single-meeting fields (<code>meeting_title</code>, <code>meeting_date</code>, <code>meeting_start_time</code>, <code>attendees</code>, etc.)
+- <strong><code>stakeholder-update</code></strong>: <code>channel</code> (enum), <code>audience_variant</code> (enum), <code>thread_continuation_of</code> (filename or null), <code>primary_cta</code> (string)</p>
+<h3 id="4-file-naming-convention">4. File naming convention<a class="headerlink" href="#4-file-naming-convention" title="Permanent link">&para;</a></h3>
+<p><strong>Single-meeting artifacts</strong> (agenda, brief, recap):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>YYYY-MM-DD_HH-MMtimezone_title_artifact-type[_prepared-YYYY-MM-DD].md
+</span></code></pre></div>
+<p><strong>Stakeholder-update artifacts</strong> (variant-aware, per v1.1.0):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>YYYY-MM-DD_HH-MMtimezone_title_stakeholder-update-{channel}-{audience}[_prepared-YYYY-MM-DD].md
+</span></code></pre></div>
+<p>The variant suffix (<code>-{channel}-{audience}</code>) prevents filename collisions when one meeting produces multiple stakeholder-update artifacts tailored to different channels or audiences (e.g., a leadership email and an engineering slack update from the same meeting).</p>
+<p>Where:</p>
+<ul>
+<li><code>YYYY-MM-DD</code> — meeting date (not prep date)</li>
+<li><code>HH-MMtimezone</code> — meeting start time with concatenated timezone abbreviation (e.g., <code>14-00EST</code>, <code>09-30PST</code>, <code>16-00UTC</code>). See DST note below.</li>
+<li><code>title</code> — short slug of the meeting title (see slug normalization rules below)</li>
+<li><code>artifact-type</code> — one of <code>agenda</code>, <code>brief</code>, <code>recap</code>, <code>stakeholder-update</code></li>
+<li><code>{channel}</code> (stakeholder-update only) — <code>slack</code>, <code>teams</code>, <code>email</code>, <code>notion</code>, or <code>exec-memo</code></li>
+<li><code>{audience}</code> (stakeholder-update only) — <code>engineering</code>, <code>design</code>, <code>leadership</code>, <code>customer-facing</code>, or <code>mixed</code></li>
+<li><code>_prepared-YYYY-MM-DD</code> — optional, only when prep date differs from meeting date</li>
+</ul>
+<p>Examples:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>2026-04-17_14-00EST_search-feature-kickoff_agenda.md
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>2026-04-17_14-00EST_search-feature-kickoff_brief.md
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>2026-04-17_14-00EST_search-feature-kickoff_recap_prepared-2026-04-18.md
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>2026-04-17_14-00EST_search-feature-kickoff_stakeholder-update-slack-engineering.md
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>2026-04-17_14-00EST_search-feature-kickoff_stakeholder-update-email-leadership.md
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>2026-04-17_14-00EST_search-feature-kickoff_stakeholder-update-notion-mixed.md
+</span></code></pre></div>
+<p><strong>Slug normalization rules</strong> (v1.1.0):</p>
+<ul>
+<li>ASCII lowercase only; transliterate Unicode characters via the Python <code>unicodedata.normalize('NFKD', ...)</code> convention or equivalent</li>
+<li>Hyphen separators; strip all other punctuation</li>
+<li>Maximum length: 60 characters</li>
+<li>Collision handling: if two artifacts of the same type for the same meeting-date/time/title collide (e.g., two agendas for a same-titled meeting with the same start time in the same timezone), append <code>-2</code>, <code>-3</code>, etc. to disambiguate</li>
+</ul>
+<p><strong>Timezone note (DST)</strong> (v1.1.0):</p>
+<p>Timezone abbreviations (<code>EST</code>, <code>PST</code>, <code>CST</code>, etc.) are DST-ambiguous: <code>EST</code> is actually <code>EDT</code> during US daylight saving time. The filename convention accepts abbreviations for user-friendliness (users know <code>EST</code> better than <code>-0400</code>), but:</p>
+<ul>
+<li>Within a single user's workflow, DST drift is low-risk (abbreviations are a reasonable approximation)</li>
+<li>For cross-region collaboration or precise cross-system identity, complement with an <code>IANA_timezone</code> frontmatter field (e.g., <code>IANA_timezone: America/New_York</code>) or use UTC offsets in filenames (<code>14-00-0400</code>)</li>
+<li>This contract does not enforce a specific timezone format; teams may adopt their own convention as long as it is consistent within their workflow</li>
+</ul>
+<p><strong>Synthesis artifacts</strong> (inherently multi-meeting):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>YYYY-Qn_topic_synthesis[_prepared-YYYY-MM-DD].md          (quarter-based)
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>YYYY-MM-DD-to-YYYY-MM-DD_topic_synthesis[_prepared-YYYY-MM-DD].md   (explicit range)
+</span></code></pre></div>
+<p>Examples:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>2026-Q1_search-feature_synthesis.md
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>2026-01-01-to-2026-03-31_search-feature_synthesis.md
+</span></code></pre></div>
+<p><strong>Why this format</strong>:</p>
+<ul>
+<li>Meeting date + time creates a natural-sort key that groups a meeting's artifact family together — all four single-meeting types sort adjacently</li>
+<li>Time + timezone makes same-day meetings distinguishable without needing a separate ID</li>
+<li>Optional <code>_prepared-YYYY-MM-DD</code> suffix captures post-meeting artifacts written later without cluttering names that do not need it</li>
+<li>No separate <code>meeting_id</code> required; the filename is the identifier</li>
+</ul>
+<h3 id="5-input-quality-flagging-and-confidence-markers">5. Input quality flagging and confidence markers<a class="headerlink" href="#5-input-quality-flagging-and-confidence-markers" title="Permanent link">&para;</a></h3>
+<p>Every skill must:</p>
+<ul>
+<li><strong>Assess input quality</strong> at start and flag it in frontmatter: <code>high</code>, <code>medium</code>, or <code>low</code></li>
+<li><strong>Surface confidence per section</strong> where appropriate (e.g., a claim backed by 5 meetings is higher-confidence than one backed by a single offhand comment)</li>
+<li><strong>Explicitly note gaps</strong> in the <code>Sources &amp; References</code> section: "The following topics lacked sufficient detail to summarize: {X, Y}"</li>
+<li><strong>Never fabricate</strong> attendees, decisions, or actions not supported by input</li>
+</ul>
+<h3 id="6-anti-meeting-check-pre-meeting-skills-only">6. Anti-meeting check (pre-meeting skills only)<a class="headerlink" href="#6-anti-meeting-check-pre-meeting-skills-only" title="Permanent link">&para;</a></h3>
+<p><code>meeting-agenda</code> and <code>meeting-brief</code> must begin with an anti-meeting check — an upfront prompt asking "does this need to be a meeting at all?" If the stated objective can be met async (written update, document review, decision via Slack poll, etc.), the skill recommends that instead and produces a brief async-alternative suggestion rather than a full meeting artifact.</p>
+<p>This check runs before the go-mode inference summary. If the user overrides ("yes, it needs to be a meeting"), the skill proceeds.</p>
+<p><code>meeting-recap</code>, <code>meeting-synthesize</code>, and <code>stakeholder-update</code> do not run this check — they operate on meetings that have already happened or on meeting-series analysis, where the question is moot.</p>
+<p><strong>Synchronous-value statement requirement</strong> (v1.1.0):</p>
+<p>The anti-meeting check passes only when the meeting has at least one named source of synchronous value:</p>
+<ul>
+<li><strong>Tradeoff to discuss</strong> — multiple options exist with uncertain preference; real-time back-and-forth produces better decisions than async</li>
+<li><strong>Conflict to resolve</strong> — visible disagreement between named stakeholders; sync resolution is faster than async ping-pong</li>
+<li><strong>Co-creation</strong> — shared document-writing, whiteboarding, design critique; the artifact is produced in the meeting, not before or after</li>
+<li><strong>Relationship-building</strong> — first-time stakeholder meetings; mutual calibration on working styles</li>
+<li><strong>Blocker escalation</strong> — time-sensitive unblocking; async would miss the window</li>
+</ul>
+<p>If none of these apply, the skill recommends the async alternative. Common anti-patterns (bypassed by earlier versions of this check):</p>
+<ul>
+<li>Status-only syncs where everyone reads the same update to each other — default to async document + threaded Q&amp;A</li>
+<li>Round-robin check-ins with &gt;5 attendees and no decision need — default to async survey or threaded Slack</li>
+<li>"Just an FYI" meetings — default to recorded Loom or async doc</li>
+<li>Agenda padding ("there might be discussion") without a specific tradeoff named</li>
+</ul>
+<p>The check is intentionally stricter in v1.1.0 because it was bypassed in v1.0.0 by simply staying at five attendees or adding the word "decision" to the topic. The stricter check biases toward async; users can still override.</p>
+<hr />
+<h2 id="explicit-non-goals">Explicit non-goals<a class="headerlink" href="#explicit-non-goals" title="Permanent link">&para;</a></h2>
+<p>Things this family of skills will not do. Listed here to prevent scope creep in future iterations.</p>
+<ol>
+<li><strong>Calendar integration</strong> — skills produce documents, not calendar events. Users copy output into their calendar tool. If calendar MCP integration is desired later, it is a separate workflow, not skill scope.</li>
+<li><strong>Live transcription</strong> — skills consume transcripts, they do not produce them. Upstream tools (Krisp, Otter, Fireflies, Zoom) handle transcription.</li>
+<li><strong>Meeting recording</strong> — not a skill responsibility.</li>
+<li><strong>Attendee authentication or identity resolution</strong> — skills accept names as provided. Disambiguation of "Alex" vs. "Alex R." vs. "Alexandra" is the user's responsibility; skills flag ambiguity but do not resolve it.</li>
+<li><strong>Synchronous collaboration</strong> — these are async prep and post-processing skills. Real-time collaboration during meetings is out of scope.</li>
+<li><strong>Slide generation</strong> — if a stakeholder-update needs slides, the user chains to a separate slideshow skill. Meeting family skills produce markdown artifacts.</li>
+</ol>
+<hr />
+<h2 id="enforcement-ci">Enforcement (CI)<a class="headerlink" href="#enforcement-ci" title="Permanent link">&para;</a></h2>
+<p>The <code>scripts/validate-meeting-skills-family.sh</code> / <code>.ps1</code> validator runs against every PR touching files matching:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>skills/foundation-meeting-*
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>skills/foundation-stakeholder-update/**
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>docs/reference/skill-families/meeting-skills-contract.md
+</span></code></pre></div>
+<h3 id="what-the-validator-checks">What the validator checks<a class="headerlink" href="#what-the-validator-checks" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Skill directory structure</strong> — each of the 5 skills has a <code>SKILL.md</code>, <code>references/TEMPLATE.md</code>, <code>references/EXAMPLE.md</code></li>
+<li><strong>Contract reference</strong> — each <code>SKILL.md</code> contains a link to <code>docs/reference/skill-families/meeting-skills-contract.md</code></li>
+<li><strong>Zero-friction execution section</strong> — each <code>SKILL.md</code> contains a section titled <code>Zero-friction execution</code> (or equivalent <code>Go mode</code>) that reaffirms the behavioral contract</li>
+<li><strong>Template shareable summary / shareable update</strong> — each <code>TEMPLATE.md</code> contains a <code>## Shareable summary</code> section, EXCEPT <code>stakeholder-update</code> which must contain a <code>## Shareable update</code> section instead (v1.1.0 explicit copy boundary; audit notes and sources sit outside the section and must not be shareable). Treating the entire stakeholder-update output as shareable — the v1.0.0 claim — is explicitly rejected.</li>
+<li><strong>Template sources section</strong> — each <code>TEMPLATE.md</code> contains a <code>## Sources &amp; References</code> section with the four required subsections (Primary inputs, Referenced artifacts, External references, Generation context)</li>
+<li><strong>Frontmatter schema shape</strong> — each <code>TEMPLATE.md</code> frontmatter block includes the universal base fields (<code>artifact_type</code>, <code>version</code>, <code>generated_at</code>, <code>generated_by_skill</code>, <code>input_quality</code>, <code>confidence</code>, <code>visibility</code>, <code>status</code>)</li>
+<li><strong>Enum values</strong> — when frontmatter uses <code>meeting_type</code>, <code>attendee role</code>, <code>input_quality</code>, <code>confidence</code>, <code>artifact_type</code>, <code>channel</code>, <code>audience_variant</code>, <code>visibility</code>, or <code>status</code>, the value (if populated) is from the enum defined in this contract</li>
+<li><strong>File naming in examples</strong> — filenames referenced in <code>EXAMPLE.md</code> and sample output match the naming convention above</li>
+</ol>
+<h3 id="what-the-validator-does-not-check">What the validator does NOT check<a class="headerlink" href="#what-the-validator-does-not-check" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Field population (values may be null/absent — skills infer)</li>
+<li>Inference confidence thresholds</li>
+<li>Coverage of every enum value in examples</li>
+<li>Semantic correctness of content</li>
+</ul>
+<p>Schema shape and contract conformance only. Content quality is reviewed manually.</p>
+<h3 id="ci-posture">CI posture<a class="headerlink" href="#ci-posture" title="Permanent link">&para;</a></h3>
+<p><strong>Enforcing from day one</strong>. Violations fail the CI job and block merges. Rationale: all 5 skills are authored together against this contract; no retroactive cleanup phase. Advisory-first would only make sense if pre-existing violations needed gradual remediation.</p>
+<hr />
+<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
+<p>This contract is versioned independently from the skills it governs.</p>
+<ul>
+<li><strong>Contract version</strong> appears in the frontmatter of this document (currently <code>1.0.0</code>)</li>
+<li><strong>Individual skill versions</strong> start at <code>1.0.0</code> on first ship and follow pm-skills' SemVer governance (see <code>docs/internal/skill-versioning.md</code>)</li>
+<li><strong>Contract bumps</strong> follow SemVer:</li>
+<li>PATCH: clarifications, typo fixes, non-breaking enum additions</li>
+<li>MINOR: new optional fields, new enum members, new universal principles that are additive</li>
+<li>MAJOR: breaking changes to frontmatter schema, enum removals, naming convention changes, removal of universal principles</li>
+<li>Contract MAJOR bumps require updating all 5 skills and a CHANGELOG entry in the repo-level changelog</li>
+</ul>
+<p>When the contract version changes, the validator script must be updated to match, and a note added to the release plan that ships the change.</p>
+<hr />
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Per-skill details in each <code>skills/foundation-meeting-*/SKILL.md</code></li>
+<li>Release coordination: <code>docs/internal/release-plans/v2.11.0/plan_v2.11.0.md</code></li>
+<li>Family authoring plan (internal): <code>docs/internal/efforts/meeting-skills-family/plan_family-contract.md</code></li>
+<li>Skill versioning governance: <code>docs/internal/skill-versioning.md</code></li>
+</ul>
+<hr />
+<h2 id="change-log">Change log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Version</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-04-17</td>
+<td>1.0.0</td>
+<td>Initial contract. Absorbs content from archived <code>_NOTES/foundation-meeting-skills-descriptions.md</code> and <code>..._templates.md</code> (2026-04-17). Codifies 18 decisions from the authoring plan.</td>
+</tr>
+<tr>
+<td>2026-04-17</td>
+<td>1.1.0</td>
+<td>Resolution pass from Codex adversarial review (see <code>docs/internal/release-plans/v2.11.0/plan_v2.11_codex-review.md</code>). Changes: (1) <code>artifact_type</code> enum corrected from bare names to prefixed names (matches implementation); (2) stakeholder-update filename pattern adds <code>-{channel}-{audience}</code> variant suffix to prevent collisions; (3) slug normalization rules added (ASCII, 60-char max, collision suffixes); (4) timezone DST note added; (5) load-bearing inference gates added (stakeholder positions, primary CTA, decision-maker attribution require <code>⚠</code> flag when confidence &lt;high); (6) meeting-duration default is now type-specific (30 min is fallback, not universal); (7) anti-meeting check now requires a positive synchronous-value statement (prevents bypass by staying at 5 attendees); (8) recap adds <code>meeting_type_source</code> and <code>unassigned_action_ratio</code> frontmatter fields; (9) meeting-type enum expanded with <code>incident-postmortem</code>, <code>customer-call</code>, <code>training-workshop</code>, <code>business-review</code>; (10) stakeholder-update shareable boundary made explicit via <code>## Shareable update</code> section. No breaking changes — all v1.0.0 valid artifacts remain valid; new behavior is additive.</td>
+</tr>
+<tr>
+<td>2026-04-18</td>
+<td>1.1.0 (errata)</td>
+<td>Second Codex adversarial review resolution. Non-breaking clarifications: (a) corrected go-mode default-flow example duration to reflect type-specific table (was 30 min, now 45 min for decision-making); (b) corrected fully-specified example <code>--type=decision</code> to <code>--type=decision-making</code> matching the enum; &copy; corrected <code>artifact_type</code> inline comment in universal base-fields example from old bare enum names to prefixed names; (d) corrected validator-what-it-checks section to require <code>## Shareable update</code> for stakeholder-update instead of treating whole output as shareable; (e) added explicit end-marker convention for stakeholder-update shareable boundary. No version bump — these are errata within v1.1.0, caught by adversarial review before v2.11.0 release tag.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 18, 2026 16:23:54 UTC"><span class="timeago" datetime="2026-04-18T16:23:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 18, 2026 16:23:54 UTC">2026-04-18</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 18, 2026 16:23:54 UTC"><span class="timeago" datetime="2026-04-18T16:23:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 18, 2026 16:23:54 UTC">2026-04-18</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 product-on-purpose
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>
