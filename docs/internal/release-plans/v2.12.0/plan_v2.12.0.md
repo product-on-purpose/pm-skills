@@ -44,6 +44,7 @@ v2.11.0 shipped the Meeting Skills Family (5 skills + contract + enforcing CI) p
 | **F-33** | [check-sample-standards CI Script](../../efforts/F-33-check-sample-standards-ci.md) | Infrastructure | [brief](../../efforts/F-33-check-sample-standards-ci.md) | Backlog |
 | **F-34** | [THREAD_PROFILES.md Reference](../../efforts/F-34-thread-profiles-reference.md) | Infrastructure | [brief](../../efforts/F-34-thread-profiles-reference.md) | Backlog |
 | **F-35** | [pm-skill-iterate Sample Regeneration](../../efforts/F-35-pm-skill-iterate-sample-regeneration.md) | Feature (utility-skill update) | [brief](../../efforts/F-35-pm-skill-iterate-sample-regeneration.md) | Backlog (blocked on F-31 + F-32) |
+| **F-36** | [Generic Skill-Family-Registration Validator](../../efforts/F-36-generic-family-registration-validator.md) | Infrastructure | [brief](../../efforts/F-36-generic-family-registration-validator.md) | Backlog (surfaced by post-v2.11.0 CI audit; closes gap G2) |
 
 ### Dependency graph
 
@@ -54,6 +55,7 @@ graph TD
     F31[F-31: pm-skill-validate<br/>family + sample awareness]
     F33[F-33: check-sample-standards<br/>CI enforcement]
     F35[F-35: pm-skill-iterate<br/>sample regeneration]
+    F36[F-36: generic family-registration<br/>validator]
     F29[F-29: meeting-lifecycle<br/>workflow]
     F30[F-30: family-adoption<br/>guide]
 
@@ -218,3 +220,4 @@ When planning kicks off (post-v2.11.0 + 2-4 weeks of signal), expand this stub i
 | Date | Change |
 |------|--------|
 | 2026-04-18 | Stub created at end of v2.11.0 completion session; captures 7 efforts that surfaced or were deferred during v2.11.0 (F-29, F-30, F-31-F-35) |
+| 2026-04-18 | F-36 added post-v2.11.0 tag. Surfaced by CI audit (`docs/internal/audit-ci/2026-04-18_ci-audit_post-v2.11.0.md`) as gap G2 (generic family-registration validator). Scales beyond meeting-skills-family to future skill families without per-family hardcoding. |
