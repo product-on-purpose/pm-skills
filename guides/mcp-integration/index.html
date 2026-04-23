@@ -2552,10 +2552,10 @@
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>└─────────────────┘                    └─────────────────┘
 </span></code></pre></div>
 <p><strong>Key Benefits:</strong>
-- <strong>Zero file management</strong> — No cloning, no uploads
-- <strong>Universal</strong> — Works with any MCP-compatible client
-- <strong>Parameterized</strong> — Tools accept topic, context, format options
-- <strong>Discoverable</strong> — Built-in search and listing tools</p>
+- <strong>Zero file management</strong> . No cloning, no uploads
+- <strong>Universal</strong> . Works with any MCP-compatible client
+- <strong>Parameterized</strong> . Tools accept topic, context, format options
+- <strong>Discoverable</strong> . Built-in search and listing tools</p>
 <hr />
 <h2 id="when-to-use-mcp">When to Use MCP<a class="headerlink" href="#when-to-use-mcp" title="Permanent link">&para;</a></h2>
 <p>Choose MCP over file-based pm-skills when:</p>
@@ -2639,7 +2639,7 @@
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <p><strong>Restart Claude Desktop</strong> to load the server.</p>
-<p><strong>Verify:</strong> Ask Claude "What PM skills are available?" — it should list the current PM-Skills catalog from the server.</p>
+<p><strong>Verify:</strong> Ask Claude "What PM skills are available?" . it should list the current PM-Skills catalog from the server.</p>
 <hr />
 <h3 id="claude-code-cli">Claude Code (CLI)<a class="headerlink" href="#claude-code-cli" title="Permanent link">&para;</a></h3>
 <p>Add to project settings (<code>.claude/settings.json</code>) or global settings (<code>~/.claude/settings.json</code>):</p>
@@ -3263,7 +3263,7 @@
 <h2 id="maintainer-mcp-sync-workflow">Maintainer: MCP Sync Workflow<a class="headerlink" href="#maintainer-mcp-sync-workflow" title="Permanent link">&para;</a></h2>
 <p>This section documents how <code>pm-skills</code> releases flow to <code>pm-skills-mcp</code>. It is intended for maintainers, not end users.</p>
 <h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
-<p><code>pm-skills-mcp</code> is <strong>release-pinned</strong> — it embeds a snapshot of skill files at build time and ships them in the npm package. It does not live-sync with the <code>pm-skills</code> repo.</p>
+<p><code>pm-skills-mcp</code> is <strong>release-pinned</strong> . it embeds a snapshot of skill files at build time and ships them in the npm package. It does not live-sync with the <code>pm-skills</code> repo.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pm-skills (tag v2.8.0)
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    │
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    ├── validate-mcp-sync.yml ── CI detects drift (blocking)
@@ -3349,7 +3349,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Expected CI behavior after a pm-skills release</strong>: <code>validate-mcp-sync</code> will show a failure on <code>main</code> until <code>pm-skills-mcp</code> is updated. This is the guardrail working as designed — it creates visible pressure to complete the sync.</p>
+<p><strong>Expected CI behavior after a pm-skills release</strong>: <code>validate-mcp-sync</code> will show a failure on <code>main</code> until <code>pm-skills-mcp</code> is updated. This is the guardrail working as designed . it creates visible pressure to complete the sync.</p>
 <hr />
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="server-not-starting">Server Not Starting<a class="headerlink" href="#server-not-starting" title="Permanent link">&para;</a></h3>
@@ -3431,7 +3431,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 12, 2026 00:45:58 UTC"><span class="timeago" datetime="2026-04-12T00:45:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 12, 2026 00:45:58 UTC">2026-04-12</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

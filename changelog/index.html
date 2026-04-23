@@ -692,12 +692,12 @@
   <a href="#290-2026-04-06" class="md-nav__link">
     <span class="md-ellipsis">
       
-        [2.9.0] — 2026-04-06
+        [2.9.0] . 2026-04-06
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="[2.9.0] — 2026-04-06">
+    <nav class="md-nav" aria-label="[2.9.0] . 2026-04-06">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2631,12 +2631,12 @@
   <a href="#290-2026-04-06" class="md-nav__link">
     <span class="md-ellipsis">
       
-        [2.9.0] — 2026-04-06
+        [2.9.0] . 2026-04-06
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="[2.9.0] — 2026-04-06">
+    <nav class="md-nav" aria-label="[2.9.0] . 2026-04-06">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3865,58 +3865,58 @@
 <p>All notable changes to this project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>,
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
-<h2 id="290-2026-04-06">[2.9.0] — 2026-04-06<a class="headerlink" href="#290-2026-04-06" title="Permanent link">&para;</a></h2>
+<h2 id="290-2026-04-06">[2.9.0] . 2026-04-06<a class="headerlink" href="#290-2026-04-06" title="Permanent link">&para;</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
 <ul>
 <li>6 new workflows: Customer Discovery, Sprint Planning, Product Strategy, Post-Launch Learning, Stakeholder Alignment, Technical Discovery</li>
 <li>7 <code>/workflow-*</code> slash commands (1 renamed from M-19 + 6 new)</li>
-<li><code>scripts/generate-workflow-pages.py</code> — generates docs/workflows/ from source _workflows/</li>
+<li><code>scripts/generate-workflow-pages.py</code> . generates docs/workflows/ from source _workflows/</li>
 </ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>BREAKING:</strong> Renamed <code>_bundles/</code> → <code>_workflows/</code> and <code>docs/bundles/</code> → <code>docs/workflows/</code></li>
-<li><strong>BREAKING:</strong> Removed <code>/kickoff</code> command — replaced by <code>/workflow-feature-kickoff</code></li>
+<li><strong>BREAKING:</strong> Removed <code>/kickoff</code> command . replaced by <code>/workflow-feature-kickoff</code></li>
 <li>Renamed "Workflow Bundles" → "Workflows" across all documentation</li>
 <li>Added URL redirects for old <code>/bundles/*</code> doc site paths</li>
 </ul>
 <h2 id="280-2026-04-03-release-notes">[2.8.0] - 2026-04-03 (<a href="../releases/Release_v2.8.0/">release notes</a>)<a class="headerlink" href="#280-2026-04-03-release-notes" title="Permanent link">&para;</a></h2>
 <h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>F-10: utility-pm-skill-validate skill</strong> (#121) — second utility skill. Audits existing skills against structural conventions (mirroring CI) and LLM-assessed quality criteria. Produces a pipe-delimited validation report (<code>Report schema: v1</code>) with severity-graded findings (FAIL/WARN/INFO) and actionable recommendations with target file paths. Two-tier assessment rebaselined against shipped library conventions. Includes SKILL.md, TEMPLATE.md (report format), EXAMPLE.md (validated <code>deliver-prd</code>), <code>/pm-skill-validate</code> command, and AGENTS.md entry. Skill count: 27 → 28.</li>
-<li><strong>F-11: utility-pm-skill-iterate skill</strong> (#122) — third utility skill. Applies targeted improvements to existing skills from feedback, validation reports, or convention changes. Unified flow with input normalization, before/after preview, stale-preview guard, version bump class suggestion (don't auto-write), and HISTORY.md creation at second-version trigger point. Includes SKILL.md, TEMPLATE.md (change summary), EXAMPLE.md (iterated <code>deliver-prd</code>), <code>/pm-skill-iterate</code> command, and AGENTS.md entry. Skill count: 28 → 29.</li>
-<li><strong>M-18: CI skill versioning validation</strong> — two new advisory scripts following <code>.sh</code> + <code>.ps1</code> + <code>.md</code> convention: <code>validate-skill-history</code> (checks HISTORY.md tracks current frontmatter version) and <code>validate-skills-manifest</code> (checks release manifest entries match skill directories). Added to <code>validation.yml</code> with <code>continue-on-error: true</code>.</li>
-<li><strong>D-03: <code>docs/pm-skill-lifecycle.md</code></strong> — public guide explaining the Create → Validate → Iterate lifecycle with workflow patterns (new skill, improve existing, convention change, feedback loop), CI vs validator comparison, and quality standard model.</li>
-<li><strong>Governance: <code>docs/internal/skill-versioning.md</code></strong> — SemVer rules for skills, HISTORY.md contract, skills-manifest.yaml format, release checklist, and tie-breaker rule for gray-area version bump classification.</li>
-<li><code>docs/internal/release-plans/v2.7.0/skills-manifest.yaml</code> — retroactive first use of the skills-manifest convention.</li>
-<li><code>docs/internal/release-plans/v2.8.0/</code> — release governance with phased execution plan and Codex design review.</li>
+<li><strong>F-10: utility-pm-skill-validate skill</strong> (#121) . second utility skill. Audits existing skills against structural conventions (mirroring CI) and LLM-assessed quality criteria. Produces a pipe-delimited validation report (<code>Report schema: v1</code>) with severity-graded findings (FAIL/WARN/INFO) and actionable recommendations with target file paths. Two-tier assessment rebaselined against shipped library conventions. Includes SKILL.md, TEMPLATE.md (report format), EXAMPLE.md (validated <code>deliver-prd</code>), <code>/pm-skill-validate</code> command, and AGENTS.md entry. Skill count: 27 → 28.</li>
+<li><strong>F-11: utility-pm-skill-iterate skill</strong> (#122) . third utility skill. Applies targeted improvements to existing skills from feedback, validation reports, or convention changes. Unified flow with input normalization, before/after preview, stale-preview guard, version bump class suggestion (don't auto-write), and HISTORY.md creation at second-version trigger point. Includes SKILL.md, TEMPLATE.md (change summary), EXAMPLE.md (iterated <code>deliver-prd</code>), <code>/pm-skill-iterate</code> command, and AGENTS.md entry. Skill count: 28 → 29.</li>
+<li><strong>M-18: CI skill versioning validation</strong> . two new advisory scripts following <code>.sh</code> + <code>.ps1</code> + <code>.md</code> convention: <code>validate-skill-history</code> (checks HISTORY.md tracks current frontmatter version) and <code>validate-skills-manifest</code> (checks release manifest entries match skill directories). Added to <code>validation.yml</code> with <code>continue-on-error: true</code>.</li>
+<li><strong>D-03: <code>docs/pm-skill-lifecycle.md</code></strong> . public guide explaining the Create → Validate → Iterate lifecycle with workflow patterns (new skill, improve existing, convention change, feedback loop), CI vs validator comparison, and quality standard model.</li>
+<li><strong>Governance: <code>docs/internal/skill-versioning.md</code></strong> . SemVer rules for skills, HISTORY.md contract, skills-manifest.yaml format, release checklist, and tie-breaker rule for gray-area version bump classification.</li>
+<li><code>docs/internal/release-plans/v2.7.0/skills-manifest.yaml</code> . retroactive first use of the skills-manifest convention.</li>
+<li><code>docs/internal/release-plans/v2.8.0/</code> . release governance with phased execution plan and Codex design review.</li>
 </ul>
 <h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>D-04: public docs refresh for v2.8.0</strong> — updated skill counts (29), command counts (30), utility skill breakdown (3), Skill Lifecycle Tools section in README and QUICKSTART, command table, AGENTS.md entries, AGENTS/claude/CONTEXT.md, <code>docs/pm-skill-anatomy.md</code> lifecycle cross-reference, and <code>scripts/README_SCRIPTS.md</code> with M-18 script documentation.</li>
+<li><strong>D-04: public docs refresh for v2.8.0</strong> . updated skill counts (29), command counts (30), utility skill breakdown (3), Skill Lifecycle Tools section in README and QUICKSTART, command table, AGENTS.md entries, AGENTS/claude/CONTEXT.md, <code>docs/pm-skill-anatomy.md</code> lifecycle cross-reference, and <code>scripts/README_SCRIPTS.md</code> with M-18 script documentation.</li>
 <li><code>docs/internal/releases/</code> renamed to <code>docs/internal/release-plans/</code> with all internal references updated (34 files).</li>
 <li><code>docs/internal/backlog-canonical.md</code> updated with v2.8.0 assignments (F-10, F-11, D-03, M-18, D-04).</li>
 </ul>
 <h3 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Completes the <strong>PM skill lifecycle</strong>: Create (<code>/pm-skill-builder</code>, v2.7.0) → Validate (<code>/pm-skill-validate</code>) → Iterate (<code>/pm-skill-iterate</code>).</li>
-<li>First release with <strong>skill versioning governance</strong> — skills-manifest.yaml per release, HISTORY.md per skill (opt-in), SemVer tie-breaker rule.</li>
-<li>First release with <strong>advisory CI for skill versioning</strong> — HISTORY.md and skills-manifest.yaml validators.</li>
+<li>First release with <strong>skill versioning governance</strong> . skills-manifest.yaml per release, HISTORY.md per skill (opt-in), SemVer tie-breaker rule.</li>
+<li>First release with <strong>advisory CI for skill versioning</strong> . HISTORY.md and skills-manifest.yaml validators.</li>
 <li>Repo now contains 29 skills (25 domain + 1 foundation + 3 utility), 30 command docs, and 3 workflow bundles.</li>
 <li><strong>MCP note</strong>: <code>pm-skills-mcp</code> needs a re-embed to pick up both new skills. <code>utility-pm-skill-validate</code> → <code>pm_pm_skill_validate</code>. <code>utility-pm-skill-iterate</code> → <code>pm_pm_skill_iterate</code>.</li>
 </ul>
 <h2 id="270-2026-03-22-release-notes">[2.7.0] - 2026-03-22 (<a href="../releases/Release_v2.7.0/">release notes</a>)<a class="headerlink" href="#270-2026-03-22-release-notes" title="Permanent link">&para;</a></h2>
 <h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>F-06: deliver-acceptance-criteria skill</strong> (#114) — new Deliver phase skill for Given/When/Then acceptance criteria generation covering happy path, edge cases, error states, and non-functional criteria. Includes SKILL.md, TEMPLATE.md, EXAMPLE.md (e-commerce checkout scenario), <code>/acceptance-criteria</code> command, and AGENTS.md entry. Skill count: 25 → 26.</li>
-<li><strong>F-05: utility-pm-skill-builder skill</strong> (#113) — first utility-classified skill. Interactive builder that guides contributors from a PM skill idea to a complete Skill Implementation Packet with gap analysis, Why Gate, classification, exemplar-driven drafting, and staging-to-promotion workflow. Includes SKILL.md, TEMPLATE.md, EXAMPLE.md (change-communication scenario), <code>/pm-skill-builder</code> command, and AGENTS.md Utility Skills section. Skill count: 26 → 27.</li>
-<li><strong>M-12: CI validation enhancement</strong> (#112) — extended linter with description word count (20-100) and TEMPLATE.md header count (≥3) checks; new <code>validate-agents-md</code> script for AGENTS.md ↔ skill directory sync; new <code>check-mcp-impact</code> advisory script for MCP impact detection. All scripts follow <code>.sh + .ps1 + .md</code> convention.</li>
-<li><strong>M-16: exclude docs/internal from release ZIP</strong> (#123) — release packagers (<code>build-release.sh</code> and <code>.ps1</code>) now strip <code>docs/internal/**</code> from staged artifacts. Internal governance docs stay tracked in-repo but no longer ship to end users.</li>
-<li><strong>D-01: <code>docs/pm-skill-anatomy.md</code></strong> — practical guide to pm-skills skill structure covering directory layout, classification types, frontmatter, Triple Diamond phases, wiring layer, and CI validation. Complements the spec-level <code>docs/agent-skill-anatomy.md</code>.</li>
+<li><strong>F-06: deliver-acceptance-criteria skill</strong> (#114) . new Deliver phase skill for Given/When/Then acceptance criteria generation covering happy path, edge cases, error states, and non-functional criteria. Includes SKILL.md, TEMPLATE.md, EXAMPLE.md (e-commerce checkout scenario), <code>/acceptance-criteria</code> command, and AGENTS.md entry. Skill count: 25 → 26.</li>
+<li><strong>F-05: utility-pm-skill-builder skill</strong> (#113) . first utility-classified skill. Interactive builder that guides contributors from a PM skill idea to a complete Skill Implementation Packet with gap analysis, Why Gate, classification, exemplar-driven drafting, and staging-to-promotion workflow. Includes SKILL.md, TEMPLATE.md, EXAMPLE.md (change-communication scenario), <code>/pm-skill-builder</code> command, and AGENTS.md Utility Skills section. Skill count: 26 → 27.</li>
+<li><strong>M-12: CI validation enhancement</strong> (#112) . extended linter with description word count (20-100) and TEMPLATE.md header count (≥3) checks; new <code>validate-agents-md</code> script for AGENTS.md ↔ skill directory sync; new <code>check-mcp-impact</code> advisory script for MCP impact detection. All scripts follow <code>.sh + .ps1 + .md</code> convention.</li>
+<li><strong>M-16: exclude docs/internal from release ZIP</strong> (#123) . release packagers (<code>build-release.sh</code> and <code>.ps1</code>) now strip <code>docs/internal/**</code> from staged artifacts. Internal governance docs stay tracked in-repo but no longer ship to end users.</li>
+<li><strong>D-01: <code>docs/pm-skill-anatomy.md</code></strong> . practical guide to pm-skills skill structure covering directory layout, classification types, frontmatter, Triple Diamond phases, wiring layer, and CI validation. Complements the spec-level <code>docs/agent-skill-anatomy.md</code>.</li>
 <li><code>_staging/</code> added to <code>.gitignore</code> for pm-skill-builder draft artifacts.</li>
 </ul>
 <h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>D-02: public docs review for v2.7.0</strong> — updated skill counts (27), command counts (28), M-12 script documentation, domain/foundation/utility classification model, skill template modernization, frontmatter schema with utility example, and <code>docs/agent-skill-anatomy.md</code> scope note. Post-F-05 reconciliation patched 3 stale references.</li>
+<li><strong>D-02: public docs review for v2.7.0</strong> . updated skill counts (27), command counts (28), M-12 script documentation, domain/foundation/utility classification model, skill template modernization, frontmatter schema with utility example, and <code>docs/agent-skill-anatomy.md</code> scope note. Post-F-05 reconciliation patched 3 stale references.</li>
 <li>Fixed duplicate workflow steps in <code>validation.yml</code> (validate-agents-md and check-mcp-impact each ran twice).</li>
 <li>AGENTS.md gains a <code>### Utility Skills</code> section and <code>/pm-skill-builder</code> in the Commands table.</li>
 <li><code>docs/internal/backlog-canonical.md</code> rewritten with Release, Status, and Agent columns.</li>
@@ -3924,16 +3924,16 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>docs/internal/delivery-plan/</code> — legacy directory removed from tracking.</li>
-<li><code>docs/internal/release-planning/</code> — legacy directory removed from tracking.</li>
+<li><code>docs/internal/delivery-plan/</code> . legacy directory removed from tracking.</li>
+<li><code>docs/internal/release-planning/</code> . legacy directory removed from tracking.</li>
 </ul>
 <h3 id="release-notes_1">Release Notes<a class="headerlink" href="#release-notes_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>First release with a <strong>utility</strong> skill classification — <code>pm-skill-builder</code> creates new PM skills interactively.</li>
+<li>First release with a <strong>utility</strong> skill classification . <code>pm-skill-builder</code> creates new PM skills interactively.</li>
 <li>First release with enhanced CI: frontmatter linting, AGENTS.md sync validation, MCP impact detection.</li>
 <li>Release ZIPs now exclude <code>docs/internal/**</code> while preserving all public documentation.</li>
 <li>Repo now contains 27 skills (25 domain + 1 foundation + 1 utility), 28 command docs, and 3 workflow bundles.</li>
-<li><strong>MCP note</strong>: <code>pm-skills-mcp</code> needs a re-embed to pick up both new skills. <code>deliver-acceptance-criteria</code> → <code>pm_acceptance_criteria</code>. <code>utility-pm-skill-builder</code> → <code>pm_pm_skill_builder</code> (double <code>pm_</code> is intentional — preserves skill name, consistent with future <code>pm_agent_skill_builder</code>). Update <code>embed-skills.js</code> to strip classification prefixes (<code>foundation-</code>, <code>utility-</code>) alongside phase prefixes.</li>
+<li><strong>MCP note</strong>: <code>pm-skills-mcp</code> needs a re-embed to pick up both new skills. <code>deliver-acceptance-criteria</code> → <code>pm_acceptance_criteria</code>. <code>utility-pm-skill-builder</code> → <code>pm_pm_skill_builder</code> (double <code>pm_</code> is intentional . preserves skill name, consistent with future <code>pm_agent_skill_builder</code>). Update <code>embed-skills.js</code> to strip classification prefixes (<code>foundation-</code>, <code>utility-</code>) alongside phase prefixes.</li>
 </ul>
 <h2 id="261-2026-03-04">[2.6.1] - 2026-03-04<a class="headerlink" href="#261-2026-03-04" title="Permanent link">&para;</a></h2>
 <h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
@@ -4182,7 +4182,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h2 id="210-2026-01-27">[2.1.0] - 2026-01-27<a class="headerlink" href="#210-2026-01-27" title="Permanent link">&para;</a></h2>
 <h3 id="added_12">Added<a class="headerlink" href="#added_12" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>MCP Alignment Milestone</strong> — pm-skills-mcp v2.1.0 now fully aligned with flat structure</li>
+<li><strong>MCP Alignment Milestone</strong> . pm-skills-mcp v2.1.0 now fully aligned with flat structure</li>
 <li>Version alignment table in ecosystem documentation</li>
 </ul>
 <h3 id="changed_13">Changed<a class="headerlink" href="#changed_13" title="Permanent link">&para;</a></h3>
@@ -4240,18 +4240,18 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Front-matter check: all <code>skills/*/SKILL.md</code> include required <code>name</code>, <code>phase</code>, <code>version</code>, <code>updated</code>.</li>
 </ul>
 <h2 id="120-2026-01-20">[1.2.0] - 2026-01-20<a class="headerlink" href="#120-2026-01-20" title="Permanent link">&para;</a></h2>
-<p><strong>PM-Skills v1.2.0 — Security &amp; Community Infrastructure</strong></p>
+<p><strong>PM-Skills v1.2.0 . Security &amp; Community Infrastructure</strong></p>
 <p>This release adds essential security policies, automated vulnerability scanning, and improved issue/PR templates for community contributions.</p>
 <h3 id="added_15">Added<a class="headerlink" href="#added_15" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>SECURITY.md</strong> — Security policy with vulnerability reporting guidelines</li>
-<li><strong>CodeQL code scanning</strong> — Automated security analysis via GitHub Actions (<code>.github/workflows/codeql.yml</code>)</li>
-<li><strong>Dependabot configuration</strong> — Automated dependency updates for GitHub Actions and npm (<code>.github/dependabot.yml</code>)</li>
-<li><strong>Issue templates</strong> — Structured forms for bug reports and feature requests</li>
-<li><code>bug_report.yml</code> — Skill-specific bug reporting with environment details</li>
-<li><code>feature_request.yml</code> — New skill and enhancement proposals</li>
-<li><code>config.yml</code> — Directs questions to Discussions, security issues to policy</li>
-<li><strong>Pull request template</strong> — Standardized PR checklist (<code>.github/PULL_REQUEST_TEMPLATE.md</code>)</li>
+<li><strong>SECURITY.md</strong> . Security policy with vulnerability reporting guidelines</li>
+<li><strong>CodeQL code scanning</strong> . Automated security analysis via GitHub Actions (<code>.github/workflows/codeql.yml</code>)</li>
+<li><strong>Dependabot configuration</strong> . Automated dependency updates for GitHub Actions and npm (<code>.github/dependabot.yml</code>)</li>
+<li><strong>Issue templates</strong> . Structured forms for bug reports and feature requests</li>
+<li><code>bug_report.yml</code> . Skill-specific bug reporting with environment details</li>
+<li><code>feature_request.yml</code> . New skill and enhancement proposals</li>
+<li><code>config.yml</code> . Directs questions to Discussions, security issues to policy</li>
+<li><strong>Pull request template</strong> . Standardized PR checklist (<code>.github/PULL_REQUEST_TEMPLATE.md</code>)</li>
 </ul>
 <h3 id="changed_16">Changed<a class="headerlink" href="#changed_16" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4265,35 +4265,35 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h2 id="111-2026-01-20">[1.1.1] - 2026-01-20<a class="headerlink" href="#111-2026-01-20" title="Permanent link">&para;</a></h2>
 <h3 id="added_16">Added<a class="headerlink" href="#added_16" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>CODE_OF_CONDUCT.md</strong> — Contributor Covenant v2.1 for community guidelines</li>
-<li><strong>Attribution headers</strong> — Added HTML comment attribution to all 24 SKILL.md files</li>
+<li><strong>CODE_OF_CONDUCT.md</strong> . Contributor Covenant v2.1 for community guidelines</li>
+<li><strong>Attribution headers</strong> . Added HTML comment attribution to all 24 SKILL.md files</li>
 <li><strong>Open-skills ecosystem submissions</strong></li>
 <li>Submitted PR to <a href="https://github.com/ComposioHQ/awesome-claude-skills/pull/62">awesome-claude-skills</a></li>
 <li>Submitted to <a href="https://github.com/numman-ali/n-skills/issues/6">n-skills marketplace</a></li>
 </ul>
 <h3 id="changed_17">Changed<a class="headerlink" href="#changed_17" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>CONTRIBUTING.md</strong> — Updated Code of Conduct section to link to dedicated CODE_OF_CONDUCT.md</li>
-<li><strong>README.md</strong> — Updated openskills CLI installation section with accurate guidance</li>
-<li><strong>README.md</strong> — Minor formatting cleanup (em dashes, navigation labels, alt text)</li>
+<li><strong>CONTRIBUTING.md</strong> . Updated Code of Conduct section to link to dedicated CODE_OF_CONDUCT.md</li>
+<li><strong>README.md</strong> . Updated openskills CLI installation section with accurate guidance</li>
+<li><strong>README.md</strong> . Minor formatting cleanup (em dashes, navigation labels, alt text)</li>
 </ul>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>openskills#48 resolved</strong> — <a href="https://github.com/numman-ali/openskills/issues/48">numman-ali/openskills#48</a> fixed in openskills v1.3.1</li>
+<li><strong>openskills#48 resolved</strong> . <a href="https://github.com/numman-ali/openskills/issues/48">numman-ali/openskills#48</a> fixed in openskills v1.3.1</li>
 <li>Root cause: hardcoded <code>/</code> path separator failed on Windows</li>
 <li>Verified: <code>anthropics/skills</code> now installs all 17 skills successfully</li>
 <li>Note: pm-skills uses deeper nesting than openskills auto-discovers; Git clone recommended</li>
 </ul>
 <h2 id="110-2026-01-16">[1.1.0] - 2026-01-16<a class="headerlink" href="#110-2026-01-16" title="Permanent link">&para;</a></h2>
-<p><strong>PM-Skills v1.1.0 — Documentation &amp; README Overhaul</strong></p>
+<p><strong>PM-Skills v1.1.0 . Documentation &amp; README Overhaul</strong></p>
 <p>This release brings a comprehensive documentation expansion and a major README redesign following open-source best practices. The README now features better navigation, an FAQ section, and improved discoverability.</p>
 <h3 id="added_17">Added<a class="headerlink" href="#added_17" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Comprehensive Documentation Expansion</strong></li>
-<li><code>docs/getting-started.md</code> — Detailed setup guide covering 5 installation methods</li>
-<li><code>docs/guides/using-skills.md</code> — Beginner to advanced usage guide with SPICE context framework, skill chaining, and 7 power-user patterns</li>
-<li><code>docs/guides/authoring-pm-skills.md</code> — Complete guide for creating and submitting new skills</li>
-<li><code>docs/frameworks/triple-diamond-delivery-process.md</code> — Triple Diamond methodology documentation</li>
+<li><code>docs/getting-started.md</code> . Detailed setup guide covering 5 installation methods</li>
+<li><code>docs/guides/using-skills.md</code> . Beginner to advanced usage guide with SPICE context framework, skill chaining, and 7 power-user patterns</li>
+<li><code>docs/guides/authoring-pm-skills.md</code> . Complete guide for creating and submitting new skills</li>
+<li><code>docs/frameworks/triple-diamond-delivery-process.md</code> . Triple Diamond methodology documentation</li>
 <li><strong>README Major Enhancements</strong></li>
 <li>Collapsible Table of Contents for easier navigation</li>
 <li>FAQ section with 7 expandable Q&amp;A items covering common questions</li>
@@ -4315,19 +4315,19 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Documented openskills CLI compatibility testing</li>
 <li>Filed <a href="https://github.com/numman-ali/openskills/issues/48">openskills#48</a> for nested path bug</li>
 <li><strong>GitHub Release Workflow</strong></li>
-<li><code>.github/workflows/release.yml</code> — Automated ZIP creation on tag push</li>
+<li><code>.github/workflows/release.yml</code> . Automated ZIP creation on tag push</li>
 <li>Creates two artifacts: full package + Claude.ai bundle</li>
-<li><strong>CLAUDE.md</strong> — Agent instructions with documentation rules</li>
+<li><strong>CLAUDE.md</strong> . Agent instructions with documentation rules</li>
 </ul>
 <h3 id="changed_18">Changed<a class="headerlink" href="#changed_18" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Documentation Reference Files Significantly Expanded</strong></li>
-<li><code>docs/reference/categories.md</code> — Expanded from 54 to 420+ lines with diagrams, workflows, and framework mappings</li>
-<li><code>docs/reference/frontmatter-schema.yaml</code> — Expanded from 91 to 600 lines with validation rules, examples, and best practices</li>
+<li><code>docs/reference/categories.md</code> . Expanded from 54 to 420+ lines with diagrams, workflows, and framework mappings</li>
+<li><code>docs/reference/frontmatter-schema.yaml</code> . Expanded from 91 to 600 lines with validation rules, examples, and best practices</li>
 <li><strong>New <code>/docs</code> Taxonomy Structure</strong></li>
-<li><code>docs/reference/</code> — Technical specifications (categories, schema)</li>
-<li><code>docs/guides/</code> — How-to guides (using-skills, authoring-pm-skills)</li>
-<li><code>docs/frameworks/</code> — Methodology documentation (triple-diamond)</li>
+<li><code>docs/reference/</code> . Technical specifications (categories, schema)</li>
+<li><code>docs/guides/</code> . How-to guides (using-skills, authoring-pm-skills)</li>
+<li><code>docs/frameworks/</code> . Methodology documentation (triple-diamond)</li>
 <li>Renamed <code>_docs/</code> → <code>docs/</code> and <code>_templates/</code> → <code>templates/</code> for standard conventions</li>
 <li>README.md restructured following best-practices from Best-README-Template and amazing-github-template</li>
 <li>Updated README.md Quick Start with 4 installation options (Git clone recommended)</li>
@@ -4336,32 +4336,32 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Discovered and documented <a href="https://github.com/numman-ali/openskills/issues/48">openskills#48</a> — nested directory structure bug affecting pm-skills and anthropics/skills</li>
+<li>Discovered and documented <a href="https://github.com/numman-ali/openskills/issues/48">openskills#48</a> . nested directory structure bug affecting pm-skills and anthropics/skills</li>
 </ul>
 <h2 id="101-2026-01-15">[1.0.1] - 2026-01-15<a class="headerlink" href="#101-2026-01-15" title="Permanent link">&para;</a></h2>
 <h3 id="added_18">Added<a class="headerlink" href="#added_18" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>All 24 Slash Commands Complete</strong> — Every skill now has a corresponding command</li>
-<li><code>/competitive-analysis</code> — Discover phase</li>
-<li><code>/interview-synthesis</code> — Discover phase</li>
-<li><code>/stakeholder-summary</code> — Discover phase</li>
-<li><code>/jtbd-canvas</code> — Define phase</li>
-<li><code>/opportunity-tree</code> — Define phase</li>
-<li><code>/adr</code> — Develop phase</li>
-<li><code>/design-rationale</code> — Develop phase</li>
-<li><code>/solution-brief</code> — Develop phase</li>
-<li><code>/spike-summary</code> — Develop phase</li>
-<li><code>/edge-cases</code> — Deliver phase</li>
-<li><code>/launch-checklist</code> — Deliver phase</li>
-<li><code>/release-notes</code> — Deliver phase</li>
-<li><code>/dashboard-requirements</code> — Measure phase</li>
-<li><code>/experiment-design</code> — Measure phase</li>
-<li><code>/experiment-results</code> — Measure phase</li>
-<li><code>/instrumentation-spec</code> — Measure phase</li>
-<li><code>/lessons-log</code> — Iterate phase</li>
-<li><code>/pivot-decision</code> — Iterate phase</li>
-<li><code>/refinement-notes</code> — Iterate phase</li>
-<li><code>/retrospective</code> — Iterate phase</li>
+<li><strong>All 24 Slash Commands Complete</strong> . Every skill now has a corresponding command</li>
+<li><code>/competitive-analysis</code> . Discover phase</li>
+<li><code>/interview-synthesis</code> . Discover phase</li>
+<li><code>/stakeholder-summary</code> . Discover phase</li>
+<li><code>/jtbd-canvas</code> . Define phase</li>
+<li><code>/opportunity-tree</code> . Define phase</li>
+<li><code>/adr</code> . Develop phase</li>
+<li><code>/design-rationale</code> . Develop phase</li>
+<li><code>/solution-brief</code> . Develop phase</li>
+<li><code>/spike-summary</code> . Develop phase</li>
+<li><code>/edge-cases</code> . Deliver phase</li>
+<li><code>/launch-checklist</code> . Deliver phase</li>
+<li><code>/release-notes</code> . Deliver phase</li>
+<li><code>/dashboard-requirements</code> . Measure phase</li>
+<li><code>/experiment-design</code> . Measure phase</li>
+<li><code>/experiment-results</code> . Measure phase</li>
+<li><code>/instrumentation-spec</code> . Measure phase</li>
+<li><code>/lessons-log</code> . Iterate phase</li>
+<li><code>/pivot-decision</code> . Iterate phase</li>
+<li><code>/refinement-notes</code> . Iterate phase</li>
+<li><code>/retrospective</code> . Iterate phase</li>
 <li>GitHub issues #43-62 created and closed for slash command tracking</li>
 </ul>
 <h3 id="changed_19">Changed<a class="headerlink" href="#changed_19" title="Permanent link">&para;</a></h3>
@@ -4371,40 +4371,40 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Updated plan-open-skills.md compatibility table to reflect slash commands complete</li>
 </ul>
 <h2 id="100-2026-01-14">[1.0.0] - 2026-01-14<a class="headerlink" href="#100-2026-01-14" title="Permanent link">&para;</a></h2>
-<p><strong>PM-Skills v1.0.0 — Complete Triple Diamond coverage is here!</strong></p>
+<p><strong>PM-Skills v1.0.0 . Complete Triple Diamond coverage is here!</strong></p>
 <p>This release marks the completion of all 24 PM skills across the entire product development lifecycle. From discovery to iteration, PM-Skills now provides comprehensive coverage for product managers using AI assistants.</p>
 <h3 id="added_19">Added<a class="headerlink" href="#added_19" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Phase 3 Complete: P2 Skills (11 skills) — All 24 skills now implemented!</strong></li>
-<li><code>competitive-analysis</code> skill — Discover phase (<code>skills/discover-competitive-analysis/</code>)</li>
-<li><code>stakeholder-summary</code> skill — Discover phase (<code>skills/discover-stakeholder-summary/</code>)</li>
-<li><code>opportunity-tree</code> skill — Define phase (<code>skills/define-opportunity-tree/</code>)</li>
-<li><code>jtbd-canvas</code> skill — Define phase (<code>skills/define-jtbd-canvas/</code>)</li>
-<li><code>design-rationale</code> skill — Develop phase (<code>skills/develop-design-rationale/</code>)</li>
-<li><code>dashboard-requirements</code> skill — Measure phase (<code>skills/measure-dashboard-requirements/</code>)</li>
-<li><code>experiment-results</code> skill — Measure phase (<code>skills/measure-experiment-results/</code>)</li>
-<li><code>retrospective</code> skill — Iterate phase (<code>skills/iterate-retrospective/</code>)</li>
-<li><code>lessons-log</code> skill — Iterate phase (<code>skills/iterate-lessons-log/</code>)</li>
-<li><code>refinement-notes</code> skill — Iterate phase (<code>skills/iterate-refinement-notes/</code>)</li>
-<li><code>pivot-decision</code> skill — Iterate phase (<code>skills/iterate-pivot-decision/</code>)</li>
+<li><strong>Phase 3 Complete: P2 Skills (11 skills) . All 24 skills now implemented!</strong></li>
+<li><code>competitive-analysis</code> skill . Discover phase (<code>skills/discover-competitive-analysis/</code>)</li>
+<li><code>stakeholder-summary</code> skill . Discover phase (<code>skills/discover-stakeholder-summary/</code>)</li>
+<li><code>opportunity-tree</code> skill . Define phase (<code>skills/define-opportunity-tree/</code>)</li>
+<li><code>jtbd-canvas</code> skill . Define phase (<code>skills/define-jtbd-canvas/</code>)</li>
+<li><code>design-rationale</code> skill . Develop phase (<code>skills/develop-design-rationale/</code>)</li>
+<li><code>dashboard-requirements</code> skill . Measure phase (<code>skills/measure-dashboard-requirements/</code>)</li>
+<li><code>experiment-results</code> skill . Measure phase (<code>skills/measure-experiment-results/</code>)</li>
+<li><code>retrospective</code> skill . Iterate phase (<code>skills/iterate-retrospective/</code>)</li>
+<li><code>lessons-log</code> skill . Iterate phase (<code>skills/iterate-lessons-log/</code>)</li>
+<li><code>refinement-notes</code> skill . Iterate phase (<code>skills/iterate-refinement-notes/</code>)</li>
+<li><code>pivot-decision</code> skill . Iterate phase (<code>skills/iterate-pivot-decision/</code>)</li>
 <li>Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md</li>
 <li>GitHub labels: <code>phase-3</code>, <code>P2</code></li>
 <li>GitHub issues #26-36 for skill tracking</li>
 <li><strong>Phase 3 Infrastructure: Workflow Bundles</strong></li>
-<li><code>_bundles/triple-diamond.md</code> — Complete product development cycle guide</li>
-<li><code>_bundles/lean-startup.md</code> — Build-Measure-Learn rapid iteration guide</li>
-<li><code>_bundles/feature-kickoff.md</code> — Quick-start workflow for feature development</li>
+<li><code>_bundles/triple-diamond.md</code> . Complete product development cycle guide</li>
+<li><code>_bundles/lean-startup.md</code> . Build-Measure-Learn rapid iteration guide</li>
+<li><code>_bundles/feature-kickoff.md</code> . Quick-start workflow for feature development</li>
 <li><strong>Phase 3 Infrastructure: Slash Commands</strong></li>
-<li><code>commands/prd.md</code> — Create Product Requirements Document</li>
-<li><code>commands/problem-statement.md</code> — Create problem statement</li>
-<li><code>commands/hypothesis.md</code> — Define testable hypothesis</li>
-<li><code>commands/user-stories.md</code> — Generate user stories</li>
-<li><code>commands/kickoff.md</code> — Run Feature Kickoff workflow</li>
+<li><code>commands/prd.md</code> . Create Product Requirements Document</li>
+<li><code>commands/problem-statement.md</code> . Create problem statement</li>
+<li><code>commands/hypothesis.md</code> . Define testable hypothesis</li>
+<li><code>commands/user-stories.md</code> . Generate user stories</li>
+<li><code>commands/kickoff.md</code> . Run Feature Kickoff workflow</li>
 <li><strong>Phase 3 Infrastructure: Agent Discovery</strong></li>
-<li><code>AGENTS.md</code> — Universal agent discovery file listing all 24 skills</li>
+<li><code>AGENTS.md</code> . Universal agent discovery file listing all 24 skills</li>
 <li><strong>Phase 3 Infrastructure: GitHub Actions</strong></li>
-<li><code>.github/workflows/sync-agents-md.yml</code> — Auto-sync AGENTS.md on skill changes</li>
-<li><code>.github/workflows/release-zips.yml</code> — Package skills as ZIPs on release</li>
+<li><code>.github/workflows/sync-agents-md.yml</code> . Auto-sync AGENTS.md on skill changes</li>
+<li><code>.github/workflows/release-zips.yml</code> . Package skills as ZIPs on release</li>
 </ul>
 <h3 id="changed_20">Changed<a class="headerlink" href="#changed_20" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4417,14 +4417,14 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h3 id="added_20">Added<a class="headerlink" href="#added_20" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Phase 2 Complete: P1 Skills (8 skills)</strong></li>
-<li><code>interview-synthesis</code> skill — Discover phase (<code>skills/discover-interview-synthesis/</code>)</li>
-<li><code>solution-brief</code> skill — Develop phase (<code>skills/develop-solution-brief/</code>)</li>
-<li><code>spike-summary</code> skill — Develop phase (<code>skills/develop-spike-summary/</code>)</li>
-<li><code>adr</code> skill — Develop phase (<code>skills/develop-adr/</code>)</li>
-<li><code>edge-cases</code> skill — Deliver phase (<code>skills/deliver-edge-cases/</code>)</li>
-<li><code>release-notes</code> skill — Deliver phase (<code>skills/deliver-release-notes/</code>)</li>
-<li><code>experiment-design</code> skill — Measure phase (<code>skills/measure-experiment-design/</code>)</li>
-<li><code>instrumentation-spec</code> skill — Measure phase (<code>skills/measure-instrumentation-spec/</code>)</li>
+<li><code>interview-synthesis</code> skill . Discover phase (<code>skills/discover-interview-synthesis/</code>)</li>
+<li><code>solution-brief</code> skill . Develop phase (<code>skills/develop-solution-brief/</code>)</li>
+<li><code>spike-summary</code> skill . Develop phase (<code>skills/develop-spike-summary/</code>)</li>
+<li><code>adr</code> skill . Develop phase (<code>skills/develop-adr/</code>)</li>
+<li><code>edge-cases</code> skill . Deliver phase (<code>skills/deliver-edge-cases/</code>)</li>
+<li><code>release-notes</code> skill . Deliver phase (<code>skills/deliver-release-notes/</code>)</li>
+<li><code>experiment-design</code> skill . Measure phase (<code>skills/measure-experiment-design/</code>)</li>
+<li><code>instrumentation-spec</code> skill . Measure phase (<code>skills/measure-instrumentation-spec/</code>)</li>
 <li>Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md</li>
 <li>GitHub labels: <code>phase-2</code>, <code>P1</code></li>
 <li>GitHub milestone: v0.3.0 - P1 Skills</li>
@@ -4441,11 +4441,11 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h3 id="added_21">Added<a class="headerlink" href="#added_21" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Phase 1 Complete: P0 Core Skills</strong></li>
-<li><code>problem-statement</code> skill — Define phase (<code>skills/define-problem-statement/</code>)</li>
-<li><code>hypothesis</code> skill — Define phase (<code>skills/define-hypothesis/</code>)</li>
-<li><code>prd</code> skill — Deliver phase (<code>skills/deliver-prd/</code>)</li>
-<li><code>user-stories</code> skill — Deliver phase (<code>skills/deliver-user-stories/</code>)</li>
-<li><code>launch-checklist</code> skill — Deliver phase (<code>skills/deliver-launch-checklist/</code>)</li>
+<li><code>problem-statement</code> skill . Define phase (<code>skills/define-problem-statement/</code>)</li>
+<li><code>hypothesis</code> skill . Define phase (<code>skills/define-hypothesis/</code>)</li>
+<li><code>prd</code> skill . Deliver phase (<code>skills/deliver-prd/</code>)</li>
+<li><code>user-stories</code> skill . Deliver phase (<code>skills/deliver-user-stories/</code>)</li>
+<li><code>launch-checklist</code> skill . Deliver phase (<code>skills/deliver-launch-checklist/</code>)</li>
 <li>Each skill includes SKILL.md, references/TEMPLATE.md, and references/EXAMPLE.md</li>
 <li>GitHub labels: <code>skill</code>, <code>phase-1</code>, <code>P0</code></li>
 <li>GitHub milestone: v0.2.0 - P0 Core Skills</li>
@@ -4465,13 +4465,13 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>CHANGELOG.md following Keep a Changelog format</li>
 <li>.gitignore with standard exclusions</li>
 <li>AGENTS/claude-opus-4.5/ folder for AI session continuity</li>
-<li>CONTEXT.md — Project state tracking</li>
-<li>TODO.md — Task management</li>
-<li>DECISIONS.md — Technical decision log</li>
-<li>SESSION-LOG/ — Session documentation</li>
+<li>CONTEXT.md . Project state tracking</li>
+<li>TODO.md . Task management</li>
+<li>DECISIONS.md . Technical decision log</li>
+<li>SESSION-LOG/ . Session documentation</li>
 <li>PLANNING/ folder convention for collaboration artifacts (reviews, drafts, analysis)</li>
-<li>plan-v1-review.md — Comprehensive review of implementation plan</li>
-<li>v0.1 tag — Plan review milestone</li>
+<li>plan-v1-review.md . Comprehensive review of implementation plan</li>
+<li>v0.1 tag . Plan review milestone</li>
 <li>9 GitHub issues for plan-v1.md improvement opportunities</li>
 <li><strong>Phase 0 Foundation Complete:</strong></li>
 <li>CONTRIBUTING.md with curated contribution model</li>
@@ -4486,7 +4486,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Updated CONTEXT.md status from "Foundation complete" to "Foundation in progress (~40%)"</li>
 <li>Updated plan-v1.md Progress Tracker with inline status notes</li>
 <li>Fixed README.md roadmap to reflect accurate Phase 0 status</li>
-<li><strong>Phase 0 → 100% complete</strong> — All foundation infrastructure now in place</li>
+<li><strong>Phase 0 → 100% complete</strong> . All foundation infrastructure now in place</li>
 <li>Updated README.md roadmap to show Phase 0 complete</li>
 <li>Expanded P1/P2 skill guidance in plan-v1.md (Issues #11-29)</li>
 <li>Updated example dates in templates to use <code>&lt;YYYY-MM-DD&gt;</code> placeholder</li>
@@ -4500,7 +4500,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h3 id="closed">Closed<a class="headerlink" href="#closed" title="Permanent link">&para;</a></h3>
 <ul>
-<li>All 9 GitHub issues (#1-9) — plan improvements complete</li>
+<li>All 9 GitHub issues (#1-9) . plan improvements complete</li>
 </ul>
 
 
@@ -4524,7 +4524,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 03:03:30 UTC"><span class="timeago" datetime="2026-04-07T03:03:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 03:03:30 UTC">2026-04-07</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

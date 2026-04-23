@@ -3220,7 +3220,7 @@
 </div>
 <p class="md-button"><strong>Try it:</strong> <code>/lessons-log "Your context here"</code></p>
 <h1 id="lessons-log">Lessons Log<a class="headerlink" href="#lessons-log" title="Permanent link">&para;</a></h1>
-<p>A lessons log entry captures significant learning from projects, incidents, or experiences in a format that's useful to future teams who weren't there. Unlike retrospectives (which focus on team improvement), lessons logs focus on organizational knowledge that transcends individual teams—patterns, anti-patterns, and hard-won wisdom.</p>
+<p>A lessons log entry captures significant learning from projects, incidents, or experiences in a format that's useful to future teams who weren't there. Unlike retrospectives (which focus on team improvement), lessons logs focus on organizational knowledge that transcends individual teams.patterns, anti-patterns, and hard-won wisdom.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>After completing a significant project or initiative</li>
@@ -3248,11 +3248,11 @@
 </li>
 <li>
 <p><strong>Describe What Happened</strong>
-   Write a factual account of what occurred. Be specific about actions taken, decisions made, and outcomes observed. Avoid blame—focus on events and systems.</p>
+   Write a factual account of what occurred. Be specific about actions taken, decisions made, and outcomes observed. Avoid blame.focus on events and systems.</p>
 </li>
 <li>
 <p><strong>Extract the Lesson</strong>
-   Articulate what you learned clearly. The lesson should be actionable—something others can apply. Distinguish between what you observed and your interpretation of why it matters.</p>
+   Articulate what you learned clearly. The lesson should be actionable.something others can apply. Distinguish between what you observed and your interpretation of why it matters.</p>
 </li>
 <li>
 <p><strong>Formulate Recommendations</strong>
@@ -3308,7 +3308,7 @@
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <!-- One paragraph summary of the lesson for quick scanning -->
 
-<p>[Brief summary of what happened and what was learned—someone should be able to decide if this is relevant from this paragraph alone]</p>
+<p>[Brief summary of what happened and what was learned.someone should be able to decide if this is relevant from this paragraph alone]</p>
 <hr />
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
 <h3 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h3>
@@ -3386,7 +3386,7 @@
 <h3 id="outcome">Outcome<a class="headerlink" href="#outcome" title="Permanent link">&para;</a></h3>
 <!-- What was the result? -->
 
-<p>[Description of the outcome—good, bad, or mixed]</p>
+<p>[Description of the outcome.good, bad, or mixed]</p>
 <hr />
 <h2 id="the-lesson">The Lesson<a class="headerlink" href="#the-lesson" title="Permanent link">&para;</a></h2>
 <h3 id="what-we-learned">What We Learned<a class="headerlink" href="#what-we-learned" title="Permanent link">&para;</a></h3>
@@ -3483,7 +3483,7 @@
 <!-- Relevant quotes from team members or stakeholders -->
 
 <blockquote>
-<p>"[Quote]" — [Attribution]</p>
+<p>"[Quote]" . [Attribution]</p>
 </blockquote>
 <h3 id="artifacts">Artifacts<a class="headerlink" href="#artifacts" title="Permanent link">&para;</a></h3>
 <!-- Links to relevant documents, postmortems, etc. -->
@@ -3563,7 +3563,7 @@
 </table>
 <hr />
 <h2 id="summary_1">Summary<a class="headerlink" href="#summary_1" title="Permanent link">&para;</a></h2>
-<p>Our payment service experienced a 47-minute outage during Black Friday due to database connection pool exhaustion under 10x normal load. Despite running load tests, we didn't catch this because our synthetic load tests didn't replicate real traffic patterns—specifically the bursty, concentrated nature of flash sale traffic. Production traffic replay would have caught this.</p>
+<p>Our payment service experienced a 47-minute outage during Black Friday due to database connection pool exhaustion under 10x normal load. Despite running load tests, we didn't catch this because our synthetic load tests didn't replicate real traffic patterns.specifically the bursty, concentrated nature of flash sale traffic. Production traffic replay would have caught this.</p>
 <hr />
 <h2 id="context_1">Context<a class="headerlink" href="#context_1" title="Permanent link">&para;</a></h2>
 <h3 id="background_1">Background<a class="headerlink" href="#background_1" title="Permanent link">&para;</a></h3>
@@ -3579,7 +3579,7 @@
 <tbody>
 <tr>
 <td>Oct 15</td>
-<td>Load testing complete—10x capacity validated</td>
+<td>Load testing complete.10x capacity validated</td>
 </tr>
 <tr>
 <td>Oct 20</td>
@@ -3629,8 +3629,8 @@
 </ul>
 <h3 id="constraints_1">Constraints<a class="headerlink" href="#constraints_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Black Friday is immovable—no option to delay or reschedule</li>
-<li>Payment service is critical path—no graceful degradation possible</li>
+<li>Black Friday is immovable.no option to delay or reschedule</li>
+<li>Payment service is critical path.no graceful degradation possible</li>
 <li>Real traffic replay wasn't available (privacy concerns, infrastructure gap)</li>
 </ul>
 <hr />
@@ -3641,7 +3641,7 @@
 <p><strong>Sale launch (09:00):</strong> Traffic increased as expected. Systems initially handling load well.</p>
 </li>
 <li>
-<p><strong>Flash sale spike (09:02):</strong> A limited-quantity flash sale created concentrated traffic—5,000 users hitting checkout simultaneously rather than distributed load.</p>
+<p><strong>Flash sale spike (09:02):</strong> A limited-quantity flash sale created concentrated traffic.5,000 users hitting checkout simultaneously rather than distributed load.</p>
 </li>
 <li>
 <p><strong>Connection pool saturation (09:03):</strong> Payment service database connections exhausted. Each flash sale request held connections longer due to inventory checks under contention.</p>
@@ -3698,17 +3698,17 @@
 </tbody>
 </table>
 <h3 id="outcome_1">Outcome<a class="headerlink" href="#outcome_1" title="Permanent link">&para;</a></h3>
-<p>47-minute service outage during our highest-revenue hour. Estimated $340,000 direct revenue loss, unknown brand damage. Customer trust impacted—we received 400+ complaint tickets in the following week referencing the Black Friday experience.</p>
+<p>47-minute service outage during our highest-revenue hour. Estimated $340,000 direct revenue loss, unknown brand damage. Customer trust impacted.we received 400+ complaint tickets in the following week referencing the Black Friday experience.</p>
 <hr />
 <h2 id="the-lesson_1">The Lesson<a class="headerlink" href="#the-lesson_1" title="Permanent link">&para;</a></h2>
 <h3 id="what-we-learned_1">What We Learned<a class="headerlink" href="#what-we-learned_1" title="Permanent link">&para;</a></h3>
 <p><strong>Primary Lesson:</strong>
-Synthetic load tests with evenly distributed traffic don't catch burst-pattern failures. Production traffic replay—using anonymized real traffic patterns—reveals timing, distribution, and correlation patterns that synthetic tests miss.</p>
+Synthetic load tests with evenly distributed traffic don't catch burst-pattern failures. Production traffic replay.using anonymized real traffic patterns.reveals timing, distribution, and correlation patterns that synthetic tests miss.</p>
 <p><strong>Supporting Observations:</strong>
 - Our load test sent 100 requests/second evenly distributed. Real traffic came in bursts of 5,000 in 10 seconds.
 - Synthetic tests didn't simulate correlated requests (many users hitting the same flash sale item).
 - Connection pool math was correct for throughput but wrong for concurrency under burst.
-- The failure mode was predictable in retrospect—database contention under burst is a known pattern.</p>
+- The failure mode was predictable in retrospect.database contention under burst is a known pattern.</p>
 <h3 id="why-this-matters_1">Why This Matters<a class="headerlink" href="#why-this-matters_1" title="Permanent link">&para;</a></h3>
 <p>Load testing is expensive and time-consuming. If we're going to invest in it, we need it to actually predict production behavior. Synthetic tests gave us false confidence. Production traffic replay is the only way to truly simulate real-world patterns, especially for events with unusual traffic characteristics.</p>
 <h3 id="root-cause-analysis_1">Root Cause Analysis<a class="headerlink" href="#root-cause-analysis_1" title="Permanent link">&para;</a></h3>
@@ -3738,7 +3738,7 @@ Synthetic load tests with evenly distributed traffic don't catch burst-pattern f
 <h3 id="avoid-this_1">Avoid This<a class="headerlink" href="#avoid-this_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p><strong>Don't assume synthetic load tests prove production readiness.</strong> Synthetic tests prove a specific pattern works—they don't prove all patterns work. Know what you haven't tested.</p>
+<p><strong>Don't assume synthetic load tests prove production readiness.</strong> Synthetic tests prove a specific pattern works.they don't prove all patterns work. Know what you haven't tested.</p>
 </li>
 <li>
 <p><strong>Don't treat load testing as a one-time checkbox.</strong> Traffic patterns change. Run load tests regularly, especially before major events or after significant changes.</p>
@@ -3812,8 +3812,8 @@ Synthetic load tests with evenly distributed traffic don't catch burst-pattern f
 </table>
 <h3 id="quotes_1">Quotes<a class="headerlink" href="#quotes_1" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p>"The load test results looked great. We hit 10x traffic with no issues. What we didn't realize is that we were testing a fantasy version of 10x traffic." — Sarah Chen, Platform Engineering</p>
-<p>"In retrospect, of course flash sales create burst patterns. We just didn't think to simulate it." — Mike Johnson, Payment Service Owner</p>
+<p>"The load test results looked great. We hit 10x traffic with no issues. What we didn't realize is that we were testing a fantasy version of 10x traffic." . Sarah Chen, Platform Engineering</p>
+<p>"In retrospect, of course flash sales create burst patterns. We just didn't think to simulate it." . Mike Johnson, Payment Service Owner</p>
 </blockquote>
 <h3 id="artifacts_1">Artifacts<a class="headerlink" href="#artifacts_1" title="Permanent link">&para;</a></h3>
 <ul>
@@ -3855,7 +3855,7 @@ Synthetic load tests with evenly distributed traffic don't catch burst-pattern f
 <h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
 <p>See this skill applied to three different product contexts:</p>
 <details class="example">
-<summary>Storevine (B2B): Storevine B2B ecommerce platform — lesson learned from the Campaigns guided first-campaign flow A/B test</summary>
+<summary>Storevine (B2B): Storevine B2B ecommerce platform . lesson learned from the Campaigns guided first-campaign flow A/B test</summary>
 <p><strong>Prompt:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/lessons-log
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -3872,7 +3872,7 @@ Synthetic load tests with evenly distributed traffic don't catch burst-pattern f
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>What surprised us: We expected the guided UX structure (progress
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>indicator, step sequencing, explicit prompts) to be the mechanism.
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>Funnel analysis shows the treatment advantage is concentrated at the
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>template and subject line step — content pre-population, not UX
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>template and subject line step . content pre-population, not UX
 </span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>scaffolding, is doing the work.
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Lesson type: Success Pattern / Strategy
@@ -3883,7 +3883,7 @@ Synthetic load tests with evenly distributed traffic don't catch burst-pattern f
 <h1 id="content-quality-not-ux-scaffolding-is-the-non-adopter-activation-mechanism">Content Quality, Not UX Scaffolding, Is the Non-Adopter Activation Mechanism<a class="headerlink" href="#content-quality-not-ux-scaffolding-is-the-non-adopter-activation-mechanism" title="Permanent link">&para;</a></h1>
 </details>
 <details class="example">
-<summary>Brainshelf (Consumer): Brainshelf consumer PKM app — timezone handling lesson from the Resurface Sprint 8 launch</summary>
+<summary>Brainshelf (Consumer): Brainshelf consumer PKM app . timezone handling lesson from the Resurface Sprint 8 launch</summary>
 <p><strong>Prompt:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/lessons-log
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
@@ -3892,13 +3892,13 @@ Synthetic load tests with evenly distributed traffic don't catch burst-pattern f
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>of 7:30 local because the backend didn&#39;t recognize &quot;Europe/Kyiv&quot; and
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>silently fell back to UTC.
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>detected: feb 18, 2026 — alex noticed the send log timestamps were
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>detected: feb 18, 2026 . alex noticed the send log timestamps were
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>wrong for EU users.
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>fixed: feb 18, same day — updated IANA database, added explicit
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>fixed: feb 18, same day . updated IANA database, added explicit
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>fallback logging, patched within 2 hours.
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>lesson type: failure pattern / technical
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>the real lesson isn&#39;t the specific bug — it&#39;s that we had ZERO
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>the real lesson isn&#39;t the specific bug . it&#39;s that we had ZERO
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>integration tests for timezone-dependent behavior. the unit tests
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>mocked the timezone, so they never caught the gap between the device
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>timezone string and the server&#39;s IANA database.
@@ -3970,7 +3970,7 @@ Synthetic load tests with evenly distributed traffic don't catch burst-pattern f
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 02:52:51 UTC"><span class="timeago" datetime="2026-04-05T02:52:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 02:52:51 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

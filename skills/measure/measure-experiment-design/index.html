@@ -3239,7 +3239,7 @@
 <ol>
 <li>
 <p><strong>Articulate the Hypothesis</strong>
-   Write a clear, testable hypothesis in the format: "We believe [change] for [users] will [outcome] as measured by [metric]." One hypothesis per experiment — if you're testing multiple things, run multiple experiments.</p>
+   Write a clear, testable hypothesis in the format: "We believe [change] for [users] will [outcome] as measured by [metric]." One hypothesis per experiment . if you're testing multiple things, run multiple experiments.</p>
 </li>
 <li>
 <p><strong>Define the Variants</strong>
@@ -3255,7 +3255,7 @@
 </li>
 <li>
 <p><strong>Estimate Duration</strong>
-   Based on sample size and available traffic, calculate how long the experiment needs to run. Account for weekly patterns — avoid ending mid-week if behavior varies by day.</p>
+   Based on sample size and available traffic, calculate how long the experiment needs to run. Account for weekly patterns . avoid ending mid-week if behavior varies by day.</p>
 </li>
 <li>
 <p><strong>Define Targeting and Allocation</strong>
@@ -3757,7 +3757,7 @@
 <h3 id="inclusion-criteria_1">Inclusion Criteria<a class="headerlink" href="#inclusion-criteria_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Logged-in or guest users</li>
-<li>Mobile web (not native apps — app experiment runs separately)</li>
+<li>Mobile web (not native apps . app experiment runs separately)</li>
 <li>Users in US and Canada (payment methods configured)</li>
 <li>Cart value &gt;= $10 (exclude micro-purchases)</li>
 </ul>
@@ -3860,18 +3860,18 @@
 <ul>
 <li>Hypothesis Document: Mobile Checkout Improvement (internal doc link)</li>
 <li>Design Mockups (Figma link)</li>
-<li>Previous Experiment: Guest Checkout (results/guest-checkout-q3-2025.md) — 3% lift, informed this design</li>
+<li>Previous Experiment: Guest Checkout (results/guest-checkout-q3-2025.md) . 3% lift, informed this design</li>
 <li>User Research: Checkout Friction Study (research PDF)</li>
 </ul>
 </details>
 <h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
 <p>See this skill applied to three different product contexts:</p>
 <details class="example">
-<summary>Storevine (B2B): Storevine B2B ecommerce platform — Campaigns guided first-campaign flow A/B experiment design</summary>
+<summary>Storevine (B2B): Storevine B2B ecommerce platform . Campaigns guided first-campaign flow A/B experiment design</summary>
 <p><strong>Prompt:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/experiment-design
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Project: Campaigns — Campaigns guided first-campaign flow
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Project: Campaigns . Campaigns guided first-campaign flow
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Experiment: Does the guided first-campaign flow increase first-send rate
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            for non-adopter merchants?
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
@@ -3899,7 +3899,7 @@
 <h1 id="experiment-design-guided-first-campaign-flow-for-non-adopter-merchants">Experiment Design: Guided First-Campaign Flow for Non-Adopter Merchants<a class="headerlink" href="#experiment-design-guided-first-campaign-flow-for-non-adopter-merchants" title="Permanent link">&para;</a></h1>
 </details>
 <details class="example">
-<summary>Brainshelf (Consumer): Brainshelf consumer PKM app — Resurface A/B test experiment design</summary>
+<summary>Brainshelf (Consumer): Brainshelf consumer PKM app . Resurface A/B test experiment design</summary>
 <p><strong>Prompt:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/experiment-design
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
@@ -3912,7 +3912,7 @@
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>control gets nothing (current experience). measure 7-day return rate
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>for both groups.
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>secondary metric: email CTR (treatment only — control doesn&#39;t get
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>secondary metric: email CTR (treatment only . control doesn&#39;t get
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>email). guardrail: unsub rate ≤2%/week.
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>sample: 400 per variant from the 9,800 eligible users [fictional].
@@ -3989,7 +3989,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 02:52:51 UTC"><span class="timeago" datetime="2026-04-05T02:52:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 02:52:51 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

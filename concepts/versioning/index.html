@@ -1837,7 +1837,7 @@
 </table>
 <p>A repo release packages many skills. A skill can iterate across multiple repo releases. For example, repo v2.8.0 contains <code>deliver-prd</code> at version 2.0.0 and <code>utility-pm-skill-validate</code> at version 1.0.0.</p>
 <h2 id="how-skill-versions-work">How Skill Versions Work<a class="headerlink" href="#how-skill-versions-work" title="Permanent link">&para;</a></h2>
-<p>Each skill follows <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning 2.0.0</a>. The "public API" of a skill is its shipped contract — the command name, required output sections, interaction pattern, and output guarantees.</p>
+<p>Each skill follows <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning 2.0.0</a>. The "public API" of a skill is its shipped contract . the command name, required output sections, interaction pattern, and output guarantees.</p>
 <h3 id="what-triggers-each-bump">What triggers each bump<a class="headerlink" href="#what-triggers-each-bump" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1850,17 +1850,17 @@
 <tbody>
 <tr>
 <td><strong>Major</strong> (X.0.0)</td>
-<td>Required contract changed — existing usage breaks</td>
+<td>Required contract changed . existing usage breaks</td>
 <td>Command renamed, required section removed, interaction pattern changed</td>
 </tr>
 <tr>
 <td><strong>Minor</strong> (x.Y.0)</td>
-<td>New optional capability — existing usage still works</td>
+<td>New optional capability . existing usage still works</td>
 <td>New optional output section, handles more scenarios</td>
 </tr>
 <tr>
 <td><strong>Patch</strong> (x.y.Z)</td>
-<td>Clarification only — same requirements, better expression</td>
+<td>Clarification only . same requirements, better expression</td>
 <td>Wording improved, example rewritten, checklist item rephrased</td>
 </tr>
 </tbody>
@@ -1880,7 +1880,7 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    EXAMPLE.md
 </span></code></pre></div>
 <p>HISTORY.md includes a summary table (newest first) and a section per version describing what changed and why.</p>
-<p>Skills on their first version don't need HISTORY.md — the effort brief and skills manifest cover the initial release.</p>
+<p>Skills on their first version don't need HISTORY.md . the effort brief and skills manifest cover the initial release.</p>
 <h2 id="skills-manifest">Skills Manifest<a class="headerlink" href="#skills-manifest" title="Permanent link">&para;</a></h2>
 <p>Each repo release includes a <code>skills-manifest.yaml</code> in its release plan folder, listing which skill versions changed:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">release</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v2.8.0</span>
@@ -1903,11 +1903,11 @@
 <h2 id="how-the-lifecycle-tools-handle-versioning">How the Lifecycle Tools Handle Versioning<a class="headerlink" href="#how-the-lifecycle-tools-handle-versioning" title="Permanent link">&para;</a></h2>
 <p>The <a href="../skill-lifecycle/">lifecycle tools</a> integrate with versioning:</p>
 <ul>
-<li><strong><code>/pm-skill-validate</code></strong> — reports the current skill version in the validation report header</li>
-<li><strong><code>/pm-skill-iterate</code></strong> — suggests a version bump class (patch/minor/major) after applying changes, updates the <code>version</code> and <code>updated</code> fields on confirmation, and offers to create or update HISTORY.md</li>
+<li><strong><code>/pm-skill-validate</code></strong> . reports the current skill version in the validation report header</li>
+<li><strong><code>/pm-skill-iterate</code></strong> . suggests a version bump class (patch/minor/major) after applying changes, updates the <code>version</code> and <code>updated</code> fields on confirmation, and offers to create or update HISTORY.md</li>
 </ul>
 <h2 id="current-skill-versions">Current Skill Versions<a class="headerlink" href="#current-skill-versions" title="Permanent link">&para;</a></h2>
-<p>All 25 domain skills and the foundation skill are at version <strong>2.0.0</strong> (from the v2.0 flat-structure restructure). The 3 utility skills are at <strong>1.0.0</strong> (shipped in v2.7.0 and v2.8.0). No skill has iterated past its initial version yet — the first version bumps will come from the <a href="https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/efforts/F-12-skill-quality-convergence.md">quality convergence effort</a>.</p>
+<p>All 25 domain skills and the foundation skill are at version <strong>2.0.0</strong> (from the v2.0 flat-structure restructure). The 3 utility skills are at <strong>1.0.0</strong> (shipped in v2.7.0 and v2.8.0). No skill has iterated past its initial version yet . the first version bumps will come from the <a href="https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/efforts/F-12-skill-quality-convergence.md">quality convergence effort</a>.</p>
 <h2 id="traceability">Traceability<a class="headerlink" href="#traceability" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1961,7 +1961,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 02:49:37 UTC"><span class="timeago" datetime="2026-04-07T02:49:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 02:49:37 UTC">2026-04-07</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

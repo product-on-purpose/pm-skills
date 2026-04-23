@@ -1461,7 +1461,7 @@
 <strong>Status</strong>: Ready for tag</p>
 <hr />
 <h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
-<p>v2.8.0 completes the <strong>PM skill lifecycle</strong>: <strong>Create → Validate → Iterate</strong>. Building on the PM Skill Builder shipped in v2.7.0, this release adds two companion utility skills — a validator that audits skills against conventions and quality criteria, and an iterator that applies targeted improvements. Together, the three tools form a self-reinforcing system for skill quality.</p>
+<p>v2.8.0 completes the <strong>PM skill lifecycle</strong>: <strong>Create → Validate → Iterate</strong>. Building on the PM Skill Builder shipped in v2.7.0, this release adds two companion utility skills . a validator that audits skills against conventions and quality criteria, and an iterator that applies targeted improvements. Together, the three tools form a self-reinforcing system for skill quality.</p>
 <p>The release also introduces <strong>skill versioning governance</strong> (SemVer rules, HISTORY.md, skills-manifest.yaml), <strong>advisory CI</strong> for version tracking, and a <strong>lifecycle guide</strong> documenting workflow patterns.</p>
 <p><strong>By the numbers:</strong>
 - <strong>29 skills</strong> (up from 27): 25 domain + 1 foundation + 3 utility
@@ -1472,10 +1472,10 @@
 <h2 id="whats-new-and-why-it-matters">What's New and Why It Matters<a class="headerlink" href="#whats-new-and-why-it-matters" title="Permanent link">&para;</a></h2>
 <h3 id="new-skill-utility-pm-skill-validate-f-10">New Skill: <code>utility-pm-skill-validate</code> (F-10)<a class="headerlink" href="#new-skill-utility-pm-skill-validate-f-10" title="Permanent link">&para;</a></h3>
 <p><strong>What</strong>: A utility skill that audits an existing pm-skills skill against structural conventions (mirroring CI) and LLM-assessed quality criteria.</p>
-<p><strong>Why it matters</strong>: CI catches structural issues (missing files, bad frontmatter), but can't assess quality — is the output contract complete? Does the example fill all template sections? Are checklist items testable? The validator goes deeper, producing a structured report with severity-graded findings and actionable recommendations that the iterator can consume.</p>
+<p><strong>Why it matters</strong>: CI catches structural issues (missing files, bad frontmatter), but can't assess quality . is the output contract complete? Does the example fill all template sections? Are checklist items testable? The validator goes deeper, producing a structured report with severity-graded findings and actionable recommendations that the iterator can consume.</p>
 <p><strong>Key design decisions</strong> (informed by Codex review):
 - Pipe-delimited report format (<code>STATUS | TIER | CHECK-ID | message</code>) with <code>Report schema: v1</code> for forward compatibility
-- Two-tier assessment rebaselined against actual shipped library — validates <em>current conventions</em> and surfaces the <em>v2.8 standard</em> as suggestions
+- Two-tier assessment rebaselined against actual shipped library . validates <em>current conventions</em> and surfaces the <em>v2.8 standard</em> as suggestions
 - Tier 2 findings capped at WARN (except placeholder leakage which is objectively grounded)
 - Single-skill detailed mode + batch Tier-1-only summary</p>
 <p><strong>Use it</strong>: <code>/pm-skill-validate deliver-prd</code></p>
@@ -1486,23 +1486,23 @@
 <p><strong>Why it matters</strong>: Before the iterator, improving a skill meant manual editing with no structured workflow. The iterator normalizes any input (validation report, free text, convention change) into a structured change list, previews proposed edits as before/after blocks, and writes on confirmation. It also suggests version bumps and offers to maintain HISTORY.md.</p>
 <p><strong>Key design decisions</strong> (informed by Codex review):
 - Before/after preview with stale-preview guard (re-reads files before writing)
-- Version bump class suggested but not auto-written — prevents compounding across multiple iterations
+- Version bump class suggested but not auto-written . prevents compounding across multiple iterations
 - HISTORY.md creation offered at the second-version trigger point; format validated before append
 - Unified flow with explicit input normalization step</p>
 <p><strong>Use it</strong>: <code>/pm-skill-iterate deliver-prd "output contract should list all template sections"</code></p>
 <p><strong>Issue</strong>: <a href="https://github.com/product-on-purpose/pm-skills/issues/122">#122</a></p>
 <hr />
 <h3 id="lifecycle-guide-d-03">Lifecycle Guide (D-03)<a class="headerlink" href="#lifecycle-guide-d-03" title="Permanent link">&para;</a></h3>
-<p><strong>What</strong>: <code>docs/pm-skill-lifecycle.md</code> — a public guide explaining the Create → Validate → Iterate lifecycle.</p>
+<p><strong>What</strong>: <code>docs/pm-skill-lifecycle.md</code> . a public guide explaining the Create → Validate → Iterate lifecycle.</p>
 <p><strong>Why it matters</strong>: Three independent tools need a guide that explains how they work as a system. The guide includes four workflow patterns (new skill, improve existing, convention change, feedback loop), a CI vs validator comparison, and the quality standard model.</p>
 <hr />
 <h3 id="ci-skill-versioning-validation-m-18">CI: Skill Versioning Validation (M-18)<a class="headerlink" href="#ci-skill-versioning-validation-m-18" title="Permanent link">&para;</a></h3>
 <p><strong>What</strong>: Two new advisory CI scripts: <code>validate-skill-history</code> and <code>validate-skills-manifest</code>.</p>
 <p><strong>Why it matters</strong>: As skills iterate through the lifecycle, version history (HISTORY.md) and release manifests (skills-manifest.yaml) need to stay in sync with frontmatter. These scripts catch drift automatically.</p>
-<p>Both run with <code>continue-on-error: true</code> — advisory for now, blocking once adoption grows.</p>
+<p>Both run with <code>continue-on-error: true</code> . advisory for now, blocking once adoption grows.</p>
 <hr />
 <h3 id="skill-versioning-governance">Skill Versioning Governance<a class="headerlink" href="#skill-versioning-governance" title="Permanent link">&para;</a></h3>
-<p><strong>What</strong>: <code>docs/internal/skill-versioning.md</code> — defines how skill versions are tracked independently of repo versions.</p>
+<p><strong>What</strong>: <code>docs/internal/skill-versioning.md</code> . defines how skill versions are tracked independently of repo versions.</p>
 <p><strong>Key concepts</strong>:
 - Each skill has its own SemVer version in frontmatter, decoupled from the repo version
 - <code>skills-manifest.yaml</code> in each release folder records which skill versions changed
@@ -1521,8 +1521,8 @@
 <h2 id="infrastructure">Infrastructure<a class="headerlink" href="#infrastructure" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>docs/internal/releases/</code> renamed to <code>docs/internal/release-plans/</code> for clarity (34 files updated)</li>
-<li><code>docs/internal/release-plans/v2.7.0/skills-manifest.yaml</code> — retroactive first use of manifest convention</li>
-<li><code>docs/internal/release-plans/v2.8.0/</code> — full release governance with phased execution plan and Codex design review</li>
+<li><code>docs/internal/release-plans/v2.7.0/skills-manifest.yaml</code> . retroactive first use of manifest convention</li>
+<li><code>docs/internal/release-plans/v2.8.0/</code> . full release governance with phased execution plan and Codex design review</li>
 <li><code>docs/internal/backlog-canonical.md</code> updated with v2.8.0 assignments</li>
 </ul>
 <hr />
@@ -1531,7 +1531,7 @@
 - Re-embed skills: <code>scripts/embed-skills.js</code> against the v2.8.0 tag
 - New tools: <code>pm_pm_skill_validate</code>, <code>pm_pm_skill_iterate</code>
 - Verify <code>utility-</code> prefix stripping produces correct tool names
-- Both new skills read existing skill directories — verify MCP embedded content is sufficient</p>
+- Both new skills read existing skill directories . verify MCP embedded content is sufficient</p>
 
 
 
@@ -1554,7 +1554,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 3, 2026 17:29:20 UTC"><span class="timeago" datetime="2026-04-03T17:29:20+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 3, 2026 17:29:20 UTC">2026-04-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

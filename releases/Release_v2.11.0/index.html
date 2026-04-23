@@ -25,7 +25,7 @@
     
     
       
-        <title>Release v2.11.0 — Meeting Skills Family + Lean Canvas - PM Skills</title>
+        <title>Release v2.11.0. Meeting Skills Family + Lean Canvas - PM Skills</title>
       
     
     
@@ -63,7 +63,7 @@
     
   
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Release v2.11.0 — Meeting Skills Family + Lean Canvas - PM Skills" />
+<meta property="og:title" content="Release v2.11.0. Meeting Skills Family + Lean Canvas - PM Skills" />
 <meta property="og:description" content="The first pm-skills release with a canonical skill-family contract pattern. Ships 6 new foundation skills (lean-canvas + 5-skill meeting lifecycle family), enforcing CI for cross-skill consistency, thread-aligned sample library, and end-user + adoption documentation." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/releases/Release_v2.11.0.png" />
 <meta property="og:image:type" content="image/png" />
@@ -71,7 +71,7 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/releases/Release_v2.11.0/" />
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="Release v2.11.0 — Meeting Skills Family + Lean Canvas - PM Skills" />
+<meta property="twitter:title" content="Release v2.11.0. Meeting Skills Family + Lean Canvas - PM Skills" />
 <meta property="twitter:description" content="The first pm-skills release with a canonical skill-family contract pattern. Ships 6 new foundation skills (lean-canvas + 5-skill meeting lifecycle family), enforcing CI for cross-skill consistency, thread-aligned sample library, and end-user + adoption documentation." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/releases/Release_v2.11.0.png" />
 </head>
@@ -129,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Release v2.11.0 — Meeting Skills Family + Lean Canvas
+              Release v2.11.0. Meeting Skills Family + Lean Canvas
             
           </span>
         </div>
@@ -1545,7 +1545,7 @@
   
 
 
-<h1 id="release-v2110-meeting-skills-family-lean-canvas">Release v2.11.0 — Meeting Skills Family + Lean Canvas<a class="headerlink" href="#release-v2110-meeting-skills-family-lean-canvas" title="Permanent link">&para;</a></h1>
+<h1 id="release-v2110-meeting-skills-family-lean-canvas">Release v2.11.0. Meeting Skills Family + Lean Canvas<a class="headerlink" href="#release-v2110-meeting-skills-family-lean-canvas" title="Permanent link">&para;</a></h1>
 <p><strong>Released</strong>: 2026-04-18
 <strong>Type</strong>: Feature release (minor)
 <strong>Skill count</strong>: 32 → 38 (+6)
@@ -1571,16 +1571,16 @@
     style G fill:#ffe1f0</code></pre>
 <h3 id="6-new-foundation-phase-skills">6 new foundation-phase skills<a class="headerlink" href="#6-new-foundation-phase-skills" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong><code>foundation-lean-canvas</code></strong> (<code>/lean-canvas</code>) — one-page business thesis across 9 interlocking blocks with optional HTML visual rendering (F-26, shipped to main mid-plan 2026-04-15)</li>
-<li><strong><code>foundation-meeting-agenda</code></strong> (<code>/meeting-agenda</code>) — attendee-facing structural doc with time-boxed topics, type tags, owners, and prep</li>
-<li><strong><code>foundation-meeting-brief</code></strong> (<code>/meeting-brief</code>) — user's private strategic prep with stakeholder reads, ranked outcomes, anticipated Q&amp;A</li>
-<li><strong><code>foundation-meeting-recap</code></strong> (<code>/meeting-recap</code>) — post-meeting topic-segmented summary with decisions bold-flagged and actions inline</li>
-<li><strong><code>foundation-meeting-synthesize</code></strong> (<code>/meeting-synthesize</code>) — cross-meeting archaeology surfacing patterns, trajectories, and contradictions across recaps</li>
-<li><strong><code>foundation-stakeholder-update</code></strong> (<code>/stakeholder-update</code>) — async outward communication with 5 channel variants (slack, teams, email, notion, exec-memo) × 5 audience variants</li>
+<li><strong><code>foundation-lean-canvas</code></strong> (<code>/lean-canvas</code>). one-page business thesis across 9 interlocking blocks with optional HTML visual rendering (F-26, shipped to main mid-plan 2026-04-15)</li>
+<li><strong><code>foundation-meeting-agenda</code></strong> (<code>/meeting-agenda</code>). attendee-facing structural doc with time-boxed topics, type tags, owners, and prep</li>
+<li><strong><code>foundation-meeting-brief</code></strong> (<code>/meeting-brief</code>). user's private strategic prep with stakeholder reads, ranked outcomes, anticipated Q&amp;A</li>
+<li><strong><code>foundation-meeting-recap</code></strong> (<code>/meeting-recap</code>). post-meeting topic-segmented summary with decisions bold-flagged and actions inline</li>
+<li><strong><code>foundation-meeting-synthesize</code></strong> (<code>/meeting-synthesize</code>). cross-meeting archaeology surfacing patterns, trajectories, and contradictions across recaps</li>
+<li><strong><code>foundation-stakeholder-update</code></strong> (<code>/stakeholder-update</code>). async outward communication with 5 channel variants (slack, teams, email, notion, exec-memo) × 5 audience variants</li>
 </ul>
 <h3 id="meeting-skills-family-contract-v110">Meeting Skills Family Contract (v1.1.0)<a class="headerlink" href="#meeting-skills-family-contract-v110" title="Permanent link">&para;</a></h3>
 <p>First canonical cross-cutting skill-family contract at <a href="../../reference/skill-families/meeting-skills-contract/"><code>docs/reference/skill-families/meeting-skills-contract.md</code></a>. Defines shared behavioral pattern (zero-friction execution / go-mode), frontmatter schema, filename-based chaining, universal output requirements, and 6 shared taxonomies across the 5 meeting skills.</p>
-<p><strong>Enforced by</strong> <code>scripts/validate-meeting-skills-family.sh</code> (and <code>.ps1</code>) — runs in CI on every PR touching family files. Checks:
+<p><strong>Enforced by</strong> <code>scripts/validate-meeting-skills-family.sh</code> (and <code>.ps1</code>). runs in CI on every PR touching family files. Checks:
 - Each SKILL.md references the contract
 - Each SKILL.md has a Zero-friction execution section
 - Each TEMPLATE.md has the required shareable-summary (or shareable-update for stakeholder-update) + sources-section structure
@@ -1598,7 +1598,7 @@
 <h3 id="thread-aligned-library-samples-15-new-120-total">Thread-aligned library samples (15 new, 120 total)<a class="headerlink" href="#thread-aligned-library-samples-15-new-120-total" title="Permanent link">&para;</a></h3>
 <p>Library grew from 94 → 120 samples (all counted correctly per v2.11.0 errata). The 5 new meeting skills ship with 3 samples each following the canonical storevine/brainshelf/workbench thread pattern and conforming to <a href="../../library/skill-output-samples/SAMPLE_CREATION.md"><code>SAMPLE_CREATION.md</code></a>. Each sample has Scenario / Prompt / Output structure, fictional-marker discipline, and top-level sample-library frontmatter (8 keys).</p>
 <h3 id="end-user-guide">End-user guide<a class="headerlink" href="#end-user-guide" title="Permanent link">&para;</a></h3>
-<p><a href="../../guides/using-meeting-skills/"><code>docs/guides/using-meeting-skills.md</code></a> — narrative walkthrough from first-meeting through cross-meeting synthesis. 3 mermaid diagrams covering:</p>
+<p><a href="../../guides/using-meeting-skills/"><code>docs/guides/using-meeting-skills.md</code></a>. narrative walkthrough from first-meeting through cross-meeting synthesis. 3 mermaid diagrams covering:</p>
 <ol>
 <li>The family's 5 skills at a glance</li>
 <li>Go-mode decision flow (invocation → inference → checkpoint → output)</li>
@@ -1606,11 +1606,11 @@
 </ol>
 <h3 id="adversarial-review-loop-process-improvement">Adversarial review loop (process improvement)<a class="headerlink" href="#adversarial-review-loop-process-improvement" title="Permanent link">&para;</a></h3>
 <p>v2.11.0 was the first release reviewed by 2 rounds of Codex adversarial review. Findings:
-- <strong>Round 1</strong>: 15 findings (3 CRITICAL, 7 IMPORTANT, 3 MINOR, 1 NIT) — 14 resolved same session; 1 deferred to F-31 (v2.12.0)
-- <strong>Round 2</strong> (post-resolution): 11 findings (0 CRITICAL, 6 IMPORTANT, 3 MINOR, 2 NIT) — 10 resolved same session; 1 stylistic refinement resolved in final pass</p>
+- <strong>Round 1</strong>: 15 findings (3 CRITICAL, 7 IMPORTANT, 3 MINOR, 1 NIT). 14 resolved same session; 1 deferred to F-31 (v2.12.0)
+- <strong>Round 2</strong> (post-resolution): 11 findings (0 CRITICAL, 6 IMPORTANT, 3 MINOR, 2 NIT). 10 resolved same session; 1 stylistic refinement resolved in final pass</p>
 <p>Process learnings codified in:
-- <a href="../../internal/release-plans/v2.11.0/plan_v2.11_review-journal/"><code>plan_v2.11_review-journal.md</code></a> — comprehensive narrative of all reviews, findings, resolutions, pattern analysis
-- <a href="../../internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist/"><code>plan_v2.11_pre-release-checklist.md</code></a> — now starts with Phase 0 Adversarial Review Loop ("re-run until findings stabilize below IMPORTANT severity"), added based on v2.11.0 experience</p>
+- <a href="../../internal/release-plans/v2.11.0/plan_v2.11_review-journal/"><code>plan_v2.11_review-journal.md</code></a>. comprehensive narrative of all reviews, findings, resolutions, pattern analysis
+- <a href="../../internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist/"><code>plan_v2.11_pre-release-checklist.md</code></a>. now starts with Phase 0 Adversarial Review Loop ("re-run until findings stabilize below IMPORTANT severity"), added based on v2.11.0 experience</p>
 <h3 id="v2120-backlog-established">v2.12.0 backlog established<a class="headerlink" href="#v2120-backlog-established" title="Permanent link">&para;</a></h3>
 <p>Seven efforts queued for next release, split into two threads:</p>
 <p><strong>Sample-automation loop</strong> (closes the "samples as a dependency you can't forget" gap discovered in this release):
@@ -1629,7 +1629,7 @@
 <p>No breaking changes. All existing skills unchanged. New skills are additive.</p>
 <p>New capabilities:
 - <code>/lean-canvas</code>, <code>/meeting-agenda</code>, <code>/meeting-brief</code>, <code>/meeting-recap</code>, <code>/meeting-synthesize</code>, <code>/stakeholder-update</code> slash commands now available
-- Meeting Skills Family Contract is canonical — read it before authoring meeting-family skills
+- Meeting Skills Family Contract is canonical. read it before authoring meeting-family skills
 - CI validator <code>validate-meeting-skills-family</code> runs automatically</p>
 <h3 id="for-teams-already-using-internal-meeting-templates">For teams already using internal meeting templates<a class="headerlink" href="#for-teams-already-using-internal-meeting-templates" title="Permanent link">&para;</a></h3>
 <p>See <a href="../../guides/using-meeting-skills/"><code>docs/guides/using-meeting-skills.md</code></a>. A team-level adoption guide (F-30) is planned for v2.12.0 after usage signals inform its design.</p>
@@ -1707,17 +1707,17 @@
 <h2 id="files-of-note">Files of note<a class="headerlink" href="#files-of-note" title="Permanent link">&para;</a></h2>
 <h3 id="for-end-users">For end users<a class="headerlink" href="#for-end-users" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../../reference/skill-families/meeting-skills-contract/">Family contract</a> — authoritative spec</li>
-<li><a href="../../guides/using-meeting-skills/">Using the Meeting Skills Family</a> — narrative guide with diagrams</li>
-<li><a href="../../reference/skill-families/">Skill Families index</a> — cross-cutting pattern landing page</li>
-<li><a href="../../skills/foundation/">Foundation skills index</a> — all 7 foundation skills listed</li>
+<li><a href="../../reference/skill-families/meeting-skills-contract/">Family contract</a>. authoritative spec</li>
+<li><a href="../../guides/using-meeting-skills/">Using the Meeting Skills Family</a>. narrative guide with diagrams</li>
+<li><a href="../../reference/skill-families/">Skill Families index</a>. cross-cutting pattern landing page</li>
+<li><a href="../../skills/foundation/">Foundation skills index</a>. all 7 foundation skills listed</li>
 <li>15 sample outputs across storevine/brainshelf/workbench threads</li>
 </ul>
 <h3 id="for-maintainers">For maintainers<a class="headerlink" href="#for-maintainers" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="../../internal/release-plans/v2.11.0/plan_v2.11.0/">v2.11.0 release plan</a></li>
 <li><a href="../../internal/release-plans/v2.11.0/plan_v2.11_review-journal/">Review journal</a></li>
-<li><a href="../../internal/release-plans/v2.11.0/plan_v2.11_codex-review/">Codex review tracker</a> — Round 1 + 2 findings</li>
+<li><a href="../../internal/release-plans/v2.11.0/plan_v2.11_codex-review/">Codex review tracker</a>. Round 1 + 2 findings</li>
 <li><a href="../../internal/release-plans/v2.11.0/plan_v2.11_ci-coverage-analysis/">CI coverage analysis</a></li>
 <li><a href="../../internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist/">Pre-release checklist template</a></li>
 <li><a href="../../internal/efforts/meeting-skills-family/plan_family-contract/">Family authoring plan</a></li>
@@ -1747,7 +1747,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 18, 2026 16:23:54 UTC"><span class="timeago" datetime="2026-04-18T16:23:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 18, 2026 16:23:54 UTC">2026-04-18</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

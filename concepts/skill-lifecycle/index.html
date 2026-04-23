@@ -1899,11 +1899,11 @@
 <h2 id="the-lifecycle-model">The Lifecycle Model<a class="headerlink" href="#the-lifecycle-model" title="Permanent link">&para;</a></h2>
 <p>PM skills evolve along two axes:</p>
 <ul>
-<li><strong>Author axis</strong> — how maintainers create and improve skills in the library (builder → validator → iterator).</li>
-<li><strong>Consumer axis</strong> — how users keep their local installation current with the upstream library (updater).</li>
+<li><strong>Author axis</strong> . how maintainers create and improve skills in the library (builder → validator → iterator).</li>
+<li><strong>Consumer axis</strong> . how users keep their local installation current with the upstream library (updater).</li>
 </ul>
 <pre class="mermaid"><code>flowchart LR
-    subgraph Author["Author axis — evolve the library"]
+    subgraph Author["Author axis . evolve the library"]
         Create["/pm-skill-builder&lt;br/&gt;Create"] --&gt; Validate["/pm-skill-validate&lt;br/&gt;Validate"]
         Validate --&gt; Decision{Findings?}
         Decision -- "PASS" --&gt; Ship["Ship to repo"]
@@ -1913,7 +1913,7 @@
 
     Ship --&gt; Release[(pm-skills&lt;br/&gt;release)]
 
-    subgraph Consumer["Consumer axis — stay current"]
+    subgraph Consumer["Consumer axis . stay current"]
         Release --&gt; Update["/update-pm-skills&lt;br/&gt;Update"]
         Update --&gt; Local[(Local&lt;br/&gt;installation)]
     end</code></pre>
@@ -1931,19 +1931,19 @@
 <td><strong>Builder</strong></td>
 <td>Author</td>
 <td><code>/pm-skill-builder</code></td>
-<td>Creates a new skill from an idea — gap analysis, classification, draft files, staging, promotion</td>
+<td>Creates a new skill from an idea . gap analysis, classification, draft files, staging, promotion</td>
 </tr>
 <tr>
 <td><strong>Validator</strong></td>
 <td>Author</td>
 <td><code>/pm-skill-validate</code></td>
-<td>Audits an existing skill against structural conventions and quality criteria — produces a report</td>
+<td>Audits an existing skill against structural conventions and quality criteria . produces a report</td>
 </tr>
 <tr>
 <td><strong>Iterator</strong></td>
 <td>Author</td>
 <td><code>/pm-skill-iterate</code></td>
-<td>Applies targeted improvements to an existing skill — previews changes, writes on confirmation</td>
+<td>Applies targeted improvements to an existing skill . previews changes, writes on confirmation</td>
 </tr>
 <tr>
 <td><strong>Updater</strong></td>
@@ -1959,7 +1959,7 @@
 <li>The <strong>builder</strong> knows how to create files from scratch but doesn't know how to audit them.</li>
 <li>The <strong>validator</strong> knows how to assess quality but doesn't modify anything.</li>
 <li>The <strong>iterator</strong> knows how to apply changes but relies on the validator (or user feedback) to say <em>what</em> to change.</li>
-<li>The <strong>updater</strong> is consumer-side — it doesn't author skills, it propagates upstream changes into a local installation safely (preview, backup, validated copy, value-delta report).</li>
+<li>The <strong>updater</strong> is consumer-side . it doesn't author skills, it propagates upstream changes into a local installation safely (preview, backup, validated copy, value-delta report).</li>
 </ul>
 <p>You can use any tool independently or chain them together.</p>
 <hr />
@@ -2053,7 +2053,7 @@
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>commit and ship
 </span></code></pre></div>
-<p><strong>When to use:</strong> A skill exists and works but could be better — unclear output contract, incomplete example, vague checklist items.</p>
+<p><strong>When to use:</strong> A skill exists and works but could be better . unclear output contract, incomplete example, vague checklist items.</p>
 <h3 id="pattern-3-convention-change-rollout">Pattern 3: Convention Change Rollout<a class="headerlink" href="#pattern-3-convention-change-rollout" title="Permanent link">&para;</a></h3>
 <p>A repo convention changed (e.g., "all skills must have a Limitations section"). Audit all skills to see which need updating, then iterate each one.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/pm-skill-validate --all
@@ -2074,7 +2074,7 @@
 <p><strong>When to use:</strong> A structural or quality convention is added or changed and you need to bring existing skills into compliance.</p>
 <h3 id="pattern-4-feedback-loop">Pattern 4: Feedback Loop<a class="headerlink" href="#pattern-4-feedback-loop" title="Permanent link">&para;</a></h3>
 <p>You received feedback on a skill (from a user, a review, or your own testing). Apply it directly, then validate.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/pm-skill-iterate deliver-prd &quot;The example uses a B2C scenario but most users are B2B — rewrite with a SaaS enterprise example&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/pm-skill-iterate deliver-prd &quot;The example uses a B2C scenario but most users are B2B . rewrite with a SaaS enterprise example&quot;
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  → Iterator reads current files
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  → Normalizes feedback into intended changes (EXAMPLE.md rewrite)
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  → Preview → confirm → apply
@@ -2084,7 +2084,7 @@
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>commit and ship
 </span></code></pre></div>
-<p><strong>When to use:</strong> You have specific feedback and don't need to audit first — you already know what to change.</p>
+<p><strong>When to use:</strong> You have specific feedback and don't need to audit first . you already know what to change.</p>
 <hr />
 <h2 id="how-the-tools-relate-to-versioning">How the Tools Relate to Versioning<a class="headerlink" href="#how-the-tools-relate-to-versioning" title="Permanent link">&para;</a></h2>
 <p>Each skill has its own independent version in its <code>SKILL.md</code> frontmatter, following <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>:</p>
@@ -2115,7 +2115,7 @@
 </tbody>
 </table>
 <p><strong>The iterator suggests version bumps</strong> based on what it changed, but doesn't write the version number until you confirm. This prevents compounding bumps when you iterate multiple times before releasing.</p>
-<p><strong>HISTORY.md</strong> is created when a skill ships its second version. It connects versions to efforts and releases. The iterator offers to create or update HISTORY.md at the right moment — you don't need to manage it manually.</p>
+<p><strong>HISTORY.md</strong> is created when a skill ships its second version. It connects versions to efforts and releases. The iterator offers to create or update HISTORY.md at the right moment . you don't need to manage it manually.</p>
 <p>For the full versioning governance, see <code>docs/internal/skill-versioning.md</code>.</p>
 <hr />
 <h2 id="how-the-validator-relates-to-ci">How the Validator Relates to CI<a class="headerlink" href="#how-the-validator-relates-to-ci" title="Permanent link">&para;</a></h2>
@@ -2162,13 +2162,13 @@
 <p>The validator checks skills against two standards:</p>
 <ol>
 <li>
-<p><strong>Current library conventions</strong> — what the shipped library actually does today. These are the checks that matter for structural compliance. Failures here mean something is genuinely wrong.</p>
+<p><strong>Current library conventions</strong> . what the shipped library actually does today. These are the checks that matter for structural compliance. Failures here mean something is genuinely wrong.</p>
 </li>
 <li>
-<p><strong>The v2.8 standard</strong> — what newly-built skills (created with <code>/pm-skill-builder</code>) meet. These are surfaced as WARN or INFO findings on older skills.</p>
+<p><strong>The v2.8 standard</strong> . what newly-built skills (created with <code>/pm-skill-builder</code>) meet. These are surfaced as WARN or INFO findings on older skills.</p>
 </li>
 </ol>
-<p>This means <strong>older skills may legitimately receive quality findings</strong> when validated. That's expected — the library converges toward the higher standard over time through the lifecycle, not retroactively. Each iteration brings a skill closer to the current standard.</p>
+<p>This means <strong>older skills may legitimately receive quality findings</strong> when validated. That's expected . the library converges toward the higher standard over time through the lifecycle, not retroactively. Each iteration brings a skill closer to the current standard.</p>
 <pre class="mermaid"><code>flowchart LR
     A["v2.0 skill"] --&gt;|validate| B["3 WARN, 1 INFO"]
     B --&gt;|iterate| C["v2.0.1\n(2 WARNs fixed)"]
@@ -2237,7 +2237,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 14, 2026 00:52:26 UTC"><span class="timeago" datetime="2026-04-14T00:52:26+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 14, 2026 00:52:26 UTC">2026-04-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

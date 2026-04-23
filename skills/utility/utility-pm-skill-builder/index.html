@@ -3221,7 +3221,7 @@
 <p class="md-button"><strong>Try it:</strong> <code>/pm-skill-builder "Your context here"</code></p>
 <h1 id="pm-skill-builder">PM Skill Builder<a class="headerlink" href="#pm-skill-builder" title="Permanent link">&para;</a></h1>
 <p>This skill creates new PM skills for the pm-skills library. It produces a
-Skill Implementation Packet — a complete design document with draft files —
+Skill Implementation Packet . a complete design document with draft files .
 in a staging area for review before promotion to canonical locations.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3250,7 +3250,7 @@ in a staging area for review before promotion to canonical locations.</p>
 - <strong>Skill-first</strong>: "Describe the skill you want to create. What artifact
   does it produce? What PM activity does it support?"</p>
 <p>Both entry points produce the same downstream flow. If the user provides
-one form, do not ask for the other — extract what you need and proceed.</p>
+one form, do not ask for the other . extract what you need and proceed.</p>
 <p>If the idea is vague, ask ONE follow-up question to clarify the artifact
 type and target audience before proceeding.</p>
 <h3 id="step-2-gap-analysis">Step 2: Gap Analysis<a class="headerlink" href="#step-2-gap-analysis" title="Permanent link">&para;</a></h3>
@@ -3304,32 +3304,32 @@ Identify 1-2 existing skills that are the closest structural match:
 - Same phase &gt; same category &gt; similar artifact type
 - Read their SKILL.md to understand section structure, instruction style,
   output contract format, and quality checklist pattern
-- Name the exemplars explicitly: "Modeled after [skill] — same phase,
+- Name the exemplars explicitly: "Modeled after [skill] . same phase,
   [category] category"</p>
 <p>Present the classification and exemplar selection for user confirmation.</p>
 <h3 id="step-5-generate-skill-implementation-packet">Step 5: Generate Skill Implementation Packet<a class="headerlink" href="#step-5-generate-skill-implementation-packet" title="Permanent link">&para;</a></h3>
 <p>Produce the complete packet using <code>references/TEMPLATE.md</code> as the format.
 The packet includes:</p>
 <ol>
-<li><strong>Decision</strong> — recommendation + Why Gate evidence (if applicable)</li>
-<li><strong>Classification</strong> — type, phase (if domain), category, directory name</li>
-<li><strong>Overlap Analysis</strong> — what was found, why this skill is still needed</li>
-<li><strong>Quality Forecast</strong> — K/P/C/W zone distribution + writing guidance:</li>
+<li><strong>Decision</strong> . recommendation + Why Gate evidence (if applicable)</li>
+<li><strong>Classification</strong> . type, phase (if domain), category, directory name</li>
+<li><strong>Overlap Analysis</strong> . what was found, why this skill is still needed</li>
+<li><strong>Quality Forecast</strong> . K/P/C/W zone distribution + writing guidance:</li>
 <li>Knowledge-heavy (≥35% K): reference frameworks, include When to Use</li>
 <li>Process-heavy (≥35% P): numbered steps, prescriptive, clear I/O per step</li>
 <li>Constraint-heavy (≥35% C): MUST/SHOULD/MUST NOT rules, separate section</li>
 <li>Wisdom-heavy (≥25% W): reflective questions, guide thinking</li>
-<li><strong>Exemplar Skills</strong> — which existing skills modeled, why</li>
-<li><strong>Draft Frontmatter</strong> — complete, valid YAML block</li>
-<li><strong>Draft SKILL.md</strong> — full content (not an outline), mirroring exemplar structure</li>
-<li><strong>Draft TEMPLATE.md</strong> — section headers with guidance comments</li>
-<li><strong>Draft EXAMPLE.md</strong> — complete, realistic example (150-300 lines) with a
+<li><strong>Exemplar Skills</strong> . which existing skills modeled, why</li>
+<li><strong>Draft Frontmatter</strong> . complete, valid YAML block</li>
+<li><strong>Draft SKILL.md</strong> . full content (not an outline), mirroring exemplar structure</li>
+<li><strong>Draft TEMPLATE.md</strong> . section headers with guidance comments</li>
+<li><strong>Draft EXAMPLE.md</strong> . complete, realistic example (150-300 lines) with a
    specific PM scenario, every section filled, optional sections demonstrated
    both filled and skipped</li>
-<li><strong>Draft Command</strong> — command frontmatter</li>
-<li><strong>AGENTS.md Entry</strong> — exact text to add</li>
-<li><strong>Validation Checklist</strong> — all CI rules checked against the draft</li>
-<li><strong>Next Steps</strong> — local CI, testing, contribution workflow</li>
+<li><strong>Draft Command</strong> . command frontmatter</li>
+<li><strong>AGENTS.md Entry</strong> . exact text to add</li>
+<li><strong>Validation Checklist</strong> . all CI rules checked against the draft</li>
+<li><strong>Next Steps</strong> . local CI, testing, contribution workflow</li>
 </ol>
 <h3 id="step-6-write-to-staging-area">Step 6: Write to Staging Area<a class="headerlink" href="#step-6-write-to-staging-area" title="Permanent link">&para;</a></h3>
 <p>Write all generated files to the staging area:</p>
@@ -3341,7 +3341,7 @@ The packet includes:</p>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>└── command.md             ← draft command
 </span></code></pre></div>
 <blockquote>
-<p><strong>Note</strong>: <code>_staging/</code> is gitignored — draft artifacts never ship in releases.
+<p><strong>Note</strong>: <code>_staging/</code> is gitignored . draft artifacts never ship in releases.
 The staging folder is discarded after promotion.</p>
 </blockquote>
 <p>Report what was written and where.</p>
@@ -3383,7 +3383,7 @@ their canonical locations. Proceed? [yes/no]"</p>
 4. Run CI validation: <code>bash scripts/lint-skills-frontmatter.sh &amp;&amp; bash scripts/validate-agents-md.sh &amp;&amp; bash scripts/validate-commands.sh</code>
 5. If validation passes, delete the staging folder: <code>_staging/pm-skill-builder/{skill-name}/</code>
 6. If validation fails, report the error and keep staging intact for fixes</p>
-<p>Design rationale lives in the GitHub issue, PR, or effort brief — not
+<p>Design rationale lives in the GitHub issue, PR, or effort brief . not
 in a permanent packet file.</p>
 <p>Provide post-promotion guidance:
 - "Run CI locally: <code>bash scripts/lint-skills-frontmatter.sh</code>"
@@ -3400,7 +3400,7 @@ in a permanent packet file.</p>
 <hr />
 <h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
 <p>{Recommendation: create / revise existing / workflow / command / docs-only}</p>
-<p>{Why Gate evidence if applicable — the 2-3 specific prompts or scenarios
+<p>{Why Gate evidence if applicable . the 2-3 specific prompts or scenarios
 where existing skills fail}</p>
 <hr />
 <h2 id="classification">Classification<a class="headerlink" href="#classification" title="Permanent link">&para;</a></h2>
@@ -3439,7 +3439,7 @@ where existing skills fail}</p>
 <h3 id="existing-skills-checked">Existing skills checked<a class="headerlink" href="#existing-skills-checked" title="Permanent link">&para;</a></h3>
 <p>{List of skills reviewed during gap analysis}</p>
 <h3 id="findings">Findings<a class="headerlink" href="#findings" title="Permanent link">&para;</a></h3>
-<p>{What was found — specific overlap and differentiation}</p>
+<p>{What was found . specific overlap and differentiation}</p>
 <h3 id="why-this-skill-is-still-needed">Why this skill is still needed<a class="headerlink" href="#why-this-skill-is-still-needed" title="Permanent link">&para;</a></h3>
 <p>{The gap this skill fills that no existing skill covers}</p>
 <hr />
@@ -3482,7 +3482,7 @@ guidance signals for writing style, not scored metrics.</p>
 </blockquote>
 <p><strong>Dominant zone</strong>: {zone} ({weight}%)</p>
 <h3 id="writing-guidance">Writing Guidance<a class="headerlink" href="#writing-guidance" title="Permanent link">&para;</a></h3>
-<p>{Zone-specific guidance based on the dominant zone — see Quality Forecast
+<p>{Zone-specific guidance based on the dominant zone . see Quality Forecast
 Guide in SKILL.md for the mapping}</p>
 <hr />
 <h2 id="exemplar-skills">Exemplar Skills<a class="headerlink" href="#exemplar-skills" title="Permanent link">&para;</a></h2>
@@ -3509,9 +3509,9 @@ Guide in SKILL.md for the mapping}</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="l l-Scalar l-Scalar-Plain">&lt;!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 --&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nn">---</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">skill-name</span><span class="p p-Indicator">}</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">20-100 word description on a single line — linter reads first line only</span><span class="p p-Indicator">}</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">phase</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">phase</span><span class="p p-Indicator">}</span><span class="w">          </span><span class="c1"># for domain skills only — omit for foundation/utility</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">classification</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">type</span><span class="p p-Indicator">}</span><span class="w">  </span><span class="c1"># for foundation/utility only — omit for domain</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">20-100 word description on a single line . linter reads first line only</span><span class="p p-Indicator">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">phase</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">phase</span><span class="p p-Indicator">}</span><span class="w">          </span><span class="c1"># for domain skills only . omit for foundation/utility</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">classification</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">type</span><span class="p p-Indicator">}</span><span class="w">  </span><span class="c1"># for foundation/utility only . omit for domain</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nt">updated</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">date</span><span class="p p-Indicator">}</span>
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apache-2.0</span>
@@ -3528,7 +3528,7 @@ would capture the literal <code>&gt;-</code> string and fail the 20-100 word che
 </blockquote>
 <hr />
 <h2 id="draft-skillmd">Draft SKILL.md<a class="headerlink" href="#draft-skillmd" title="Permanent link">&para;</a></h2>
-<p>{Full draft content — not an outline. Includes:
+<p>{Full draft content . not an outline. Includes:
 - Title and introductory paragraph
 - When to Use section
 - When NOT to Use section (if applicable)
@@ -3546,7 +3546,7 @@ Each section has:
 - Placeholder structure showing the expected format}</p>
 <hr />
 <h2 id="draft-examplemd">Draft EXAMPLE.md<a class="headerlink" href="#draft-examplemd" title="Permanent link">&para;</a></h2>
-<p>{A complete, realistic example — 150-300 lines.
+<p>{A complete, realistic example . 150-300 lines.
 - Picks a specific PM scenario appropriate to the skill's domain
 - Fills every TEMPLATE.md section with concrete content
 - Demonstrates optional sections both filled and skipped
@@ -3586,7 +3586,7 @@ Must pass <code>validate-agents-md.sh</code> which checks path ↔ directory syn
 </blockquote>
 <hr />
 <h2 id="validation-checklist">Validation Checklist<a class="headerlink" href="#validation-checklist" title="Permanent link">&para;</a></h2>
-<h3 id="ci-validation-must-pass-enforced-by-linter-validators">CI Validation (must pass — enforced by linter + validators)<a class="headerlink" href="#ci-validation-must-pass-enforced-by-linter-validators" title="Permanent link">&para;</a></h3>
+<h3 id="ci-validation-must-pass-enforced-by-linter-validators">CI Validation (must pass . enforced by linter + validators)<a class="headerlink" href="#ci-validation-must-pass-enforced-by-linter-validators" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>name</code> matches directory name</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>description</code> is 20-100 words (single-line, no <code>&gt;-</code>)</li>
@@ -3598,7 +3598,7 @@ Must pass <code>validate-agents-md.sh</code> which checks path ↔ directory syn
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Command file references correct skill path (<code>validate-commands.sh</code>)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> AGENTS.md entry uses <code>#### {name}</code> + <code>**Path:**</code> format (<code>validate-agents-md.sh</code>)</li>
 </ul>
-<h3 id="quality-checks-should-pass-builder-enforced-not-ci-gated">Quality Checks (should pass — builder-enforced, not CI-gated)<a class="headerlink" href="#quality-checks-should-pass-builder-enforced-not-ci-gated" title="Permanent link">&para;</a></h3>
+<h3 id="quality-checks-should-pass-builder-enforced-not-ci-gated">Quality Checks (should pass . builder-enforced, not CI-gated)<a class="headerlink" href="#quality-checks-should-pass-builder-enforced-not-ci-gated" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>references/EXAMPLE.md</code> is a complete artifact (150-300 lines), not an outline</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Output contract present in SKILL.md</li>
@@ -3670,12 +3670,12 @@ what changed, why it matters, and what they need to do differently.</p>
 <hr />
 <h2 id="overlap-analysis_1">Overlap Analysis<a class="headerlink" href="#overlap-analysis_1" title="Permanent link">&para;</a></h2>
 <h3 id="existing-skills-checked_1">Existing skills checked<a class="headerlink" href="#existing-skills-checked_1" title="Permanent link">&para;</a></h3>
-<p>All 27 skills reviewed. Closest matches:</p>
+<p>All 38 skills reviewed. Closest matches:</p>
 <ul>
-<li><code>deliver-release-notes</code> — produces external-facing release announcements</li>
-<li><code>deliver-launch-checklist</code> — tracks cross-functional launch readiness</li>
-<li><code>deliver-user-stories</code> — defines implementation requirements</li>
-<li><code>discover-stakeholder-summary</code> — maps stakeholder needs and influence</li>
+<li><code>deliver-release-notes</code> . produces external-facing release announcements</li>
+<li><code>deliver-launch-checklist</code> . tracks cross-functional launch readiness</li>
+<li><code>deliver-user-stories</code> . defines implementation requirements</li>
+<li><code>discover-stakeholder-summary</code> . maps stakeholder needs and influence</li>
 </ul>
 <h3 id="findings_1">Findings<a class="headerlink" href="#findings_1" title="Permanent link">&para;</a></h3>
 <p><strong>deliver-release-notes</strong>: Covers what shipped and why users should care, but
@@ -3686,7 +3686,7 @@ who need to understand workflow impact and guide adoption.</p>
 does not guide what those communications should contain, how to structure them
 for different audiences, or how to sequence rollout messaging.</p>
 <h3 id="why-this-skill-is-still-needed_1">Why this skill is still needed<a class="headerlink" href="#why-this-skill-is-still-needed_1" title="Permanent link">&para;</a></h3>
-<p>No existing skill produces the actual communication artifact — the email, Slack
+<p>No existing skill produces the actual communication artifact . the email, Slack
 message, or internal knowledge-base update that tells affected users what
 changed, what they need to do differently, and where to get help. This is a
 distinct coordination artifact in the Deliver phase.</p>
@@ -3742,11 +3742,11 @@ the PM must choose between communication approaches based on change severity.</p
 <tbody>
 <tr>
 <td>deliver-release-notes</td>
-<td>Same phase (deliver), same category (coordination), closest artifact type — both produce written communications about product changes</td>
+<td>Same phase (deliver), same category (coordination), closest artifact type . both produce written communications about product changes</td>
 </tr>
 <tr>
 <td>deliver-launch-checklist</td>
-<td>Same phase (deliver), different category — shows how to structure a multi-audience coordination artifact with checkpoints</td>
+<td>Same phase (deliver), different category . shows how to structure a multi-audience coordination artifact with checkpoints</td>
 </tr>
 </tbody>
 </table>
@@ -3870,7 +3870,7 @@ A full implementation would expand each section to 5-15 lines.</p>
 <hr />
 <h2 id="draft-examplemd_1">Draft EXAMPLE.md<a class="headerlink" href="#draft-examplemd_1" title="Permanent link">&para;</a></h2>
 <p>A complete example would demonstrate a change communication package for a
-realistic SaaS scenario — such as migrating a dashboard reporting interface
+realistic SaaS scenario . such as migrating a dashboard reporting interface
 from a legacy layout to a new design system. It would fill every template
 section with concrete content: three audience segments (power users, casual
 viewers, account administrators), before/after workflow descriptions, drafted
@@ -3904,7 +3904,7 @@ through T+3 days. Target length: 150-300 lines.</p>
 <h3 id="ci-validation">CI Validation<a class="headerlink" href="#ci-validation" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>name</code> matches directory name (<code>deliver-change-communication</code>)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>description</code> is 20-100 words (single-line) — 33 words</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>description</code> is 20-100 words (single-line) . 33 words</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>version</code> present (<code>"1.0.0"</code>)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>updated</code> present (<code>2026-03-22</code>)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>license</code> present (<code>Apache-2.0</code>)</li>
@@ -3920,7 +3920,7 @@ through T+3 days. Target length: 150-300 lines.</p>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Quality checklist present in draft SKILL.md</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Quality Forecast identifies Process (40%) as dominant zone with writing guidance</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Gap analysis checked all 27 existing skills</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Why Gate not triggered (no high overlap — release-notes and launch-checklist serve different purposes)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Why Gate not triggered (no high overlap . release-notes and launch-checklist serve different purposes)</li>
 </ul>
 <hr />
 <h2 id="next-steps_1">Next Steps<a class="headerlink" href="#next-steps_1" title="Permanent link">&para;</a></h2>
@@ -3936,7 +3936,7 @@ through T+3 days. Target length: 150-300 lines.</p>
 <h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
 <p>See this skill applied to three different product contexts:</p>
 <details class="example">
-<summary>Storevine (B2B): Storevine B2B ecommerce platform — using the skill builder to create a campaign-analytics skill</summary>
+<summary>Storevine (B2B): Storevine B2B ecommerce platform . using the skill builder to create a campaign-analytics skill</summary>
 <p><strong>Prompt:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>/pm-skill-builder
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
@@ -3975,10 +3975,10 @@ through T+3 days. Target length: 150-300 lines.</p>
 </ul>
 <h2 id="output-contract">Output Contract<a class="headerlink" href="#output-contract" title="Permanent link">&para;</a></h2>
 <p>The builder MUST produce draft files for the new skill:
-- <code>SKILL.md</code> — full skill instructions
-- <code>references/TEMPLATE.md</code> — output template with guidance comments
-- <code>references/EXAMPLE.md</code> — complete worked example (150-300 lines)
-- <code>command.md</code> — slash command file</p>
+- <code>SKILL.md</code> . full skill instructions
+- <code>references/TEMPLATE.md</code> . output template with guidance comments
+- <code>references/EXAMPLE.md</code> . complete worked example (150-300 lines)
+- <code>command.md</code> . slash command file</p>
 <p>All drafts are written to <code>_staging/pm-skill-builder/{skill-name}/</code> (gitignored).</p>
 <p>On promotion, files are copied to canonical locations, AGENTS.md is
 updated, and the staging folder is discarded.</p>
@@ -4004,7 +4004,7 @@ updated, and the staging folder is discarded.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 12, 2026 09:05:46 UTC"><span class="timeago" datetime="2026-04-12T09:05:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 12, 2026 09:05:46 UTC">2026-04-12</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

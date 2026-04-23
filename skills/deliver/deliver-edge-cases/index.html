@@ -3220,7 +3220,7 @@
 </div>
 <p class="md-button"><strong>Try it:</strong> <code>/edge-cases "Your context here"</code></p>
 <h1 id="edge-cases">Edge Cases<a class="headerlink" href="#edge-cases" title="Permanent link">&para;</a></h1>
-<p>An edge cases document systematically catalogs the unusual, boundary, and error scenarios for a feature. While happy-path flows are typically well-specified, edge cases often get discovered in production — causing bugs, poor user experience, and support burden. Documenting edge cases upfront ensures engineering handles them intentionally and QA knows what to test.</p>
+<p>An edge cases document systematically catalogs the unusual, boundary, and error scenarios for a feature. While happy-path flows are typically well-specified, edge cases often get discovered in production . causing bugs, poor user experience, and support burden. Documenting edge cases upfront ensures engineering handles them intentionally and QA knows what to test.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>During feature specification before engineering begins</li>
@@ -3239,7 +3239,7 @@
 <ol>
 <li>
 <p><strong>Define the Feature Scope</strong>
-   Clearly describe what feature or flow you're analyzing. Edge cases are specific to context — the same input might be valid in one feature and invalid in another.</p>
+   Clearly describe what feature or flow you're analyzing. Edge cases are specific to context . the same input might be valid in one feature and invalid in another.</p>
 </li>
 <li>
 <p><strong>Walk Through Input Validation</strong>
@@ -3840,7 +3840,7 @@
 1. Click "Manage storage" to delete files
 2. Click "Upgrade plan" for more space
 3. Cancel upload, files not uploaded</p>
-<p><strong>Data preservation:</strong> No partial upload — check happens before transfer starts.</p>
+<p><strong>Data preservation:</strong> No partial upload . check happens before transfer starts.</p>
 <h3 id="session-expired-during-long-upload">Session Expired During Long Upload<a class="headerlink" href="#session-expired-during-long-upload" title="Permanent link">&para;</a></h3>
 <p><strong>User sees:</strong> Toast: "Your session expired. Please sign in to continue."</p>
 <p><strong>Recovery options:</strong>
@@ -3851,38 +3851,38 @@
 <h2 id="test-scenarios_1">Test Scenarios<a class="headerlink" href="#test-scenarios_1" title="Permanent link">&para;</a></h2>
 <h3 id="must-test-p1_1">Must Test (P1)<a class="headerlink" href="#must-test-p1_1" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file exactly 100MB — should succeed</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file 100MB + 1KB — should fail with size error</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload 50 files at once — should succeed</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload 51 files at once — should fail with batch limit error</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Disconnect network mid-upload — should pause and recover</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload .exe disguised as .pdf — should be rejected (MIME check)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Double-click upload button — should only upload once</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file exactly 100MB . should succeed</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file 100MB + 1KB . should fail with size error</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload 50 files at once . should succeed</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload 51 files at once . should fail with batch limit error</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Disconnect network mid-upload . should pause and recover</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload .exe disguised as .pdf . should be rejected (MIME check)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Double-click upload button . should only upload once</li>
 </ul>
 <h3 id="should-test-p2_1">Should Test (P2)<a class="headerlink" href="#should-test-p2_1" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file with unicode filename — should sanitize</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file with 300-character name — should truncate</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload 0-byte file — should fail</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload duplicate filename — should auto-rename</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Navigate away during upload — should show warning</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Storage 99% full, upload 2% of quota — should fail</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file with unicode filename . should sanitize</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file with 300-character name . should truncate</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload 0-byte file . should fail</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload duplicate filename . should auto-rename</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Navigate away during upload . should show warning</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Storage 99% full, upload 2% of quota . should fail</li>
 </ul>
 <h3 id="nice-to-test-p3_1">Nice to Test (P3)<a class="headerlink" href="#nice-to-test-p3_1" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload when thumbnail service down — should succeed with generic icon</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Two users upload same file simultaneously — both should succeed</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file with only extension (.pdf) — should fail</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload when thumbnail service down . should succeed with generic icon</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Two users upload same file simultaneously . both should succeed</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Upload file with only extension (.pdf) . should fail</li>
 </ul>
 </details>
 <h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
 <p>See this skill applied to three different product contexts:</p>
 <details class="example">
-<summary>Storevine (B2B): Storevine B2B ecommerce platform — Campaigns campaign send flow edge cases</summary>
+<summary>Storevine (B2B): Storevine B2B ecommerce platform . Campaigns campaign send flow edge cases</summary>
 <p><strong>Prompt:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/edge-cases
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Feature: Campaigns — campaign creation and send flow
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Feature: Campaigns . campaign creation and send flow
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Sprint: Q2 2026 Campaigns build (GA Apr 28, 2026)
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Key edge cases I want to cover:
@@ -3906,7 +3906,7 @@
 <h1 id="edge-cases-campaigns-campaign-send-flow">Edge Cases: Campaigns Campaign Send Flow<a class="headerlink" href="#edge-cases-campaigns-campaign-send-flow" title="Permanent link">&para;</a></h1>
 </details>
 <details class="example">
-<summary>Brainshelf (Consumer): Brainshelf consumer PKM app — Resurface digest edge cases and error states</summary>
+<summary>Brainshelf (Consumer): Brainshelf consumer PKM app . Resurface digest edge cases and error states</summary>
 <p><strong>Prompt:</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/edge-cases
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
@@ -3984,7 +3984,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 5, 2026 02:52:51 UTC"><span class="timeago" datetime="2026-04-05T02:52:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 5, 2026 02:52:51 UTC">2026-04-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

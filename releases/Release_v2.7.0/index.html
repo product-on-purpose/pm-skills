@@ -1506,7 +1506,7 @@
 <hr />
 <h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
 <p>v2.7.0 is the largest pm-skills release since the v2.0 restructure. It ships <strong>two new skills</strong>, introduces the <strong>utility skill classification</strong>, hardens the <strong>CI pipeline</strong>, cleans up <strong>release packaging</strong>, and delivers a comprehensive <strong>documentation refresh</strong> across the entire public surface.</p>
-<p>The headline feature is the <strong>PM Skill Builder</strong> (<code>/pm-skill-builder</code>) — the first utility-classified skill, which guides contributors through creating new PM skills interactively. This closes the loop on the skill creation workflow: instead of reverse-engineering existing skills, contributors now have a structured builder with gap analysis, classification guidance, and draft file generation.</p>
+<p>The headline feature is the <strong>PM Skill Builder</strong> (<code>/pm-skill-builder</code>) . the first utility-classified skill, which guides contributors through creating new PM skills interactively. This closes the loop on the skill creation workflow: instead of reverse-engineering existing skills, contributors now have a structured builder with gap analysis, classification guidance, and draft file generation.</p>
 <p><strong>By the numbers:</strong>
 - <strong>27 skills</strong> (up from 25): 25 domain + 1 foundation + 1 utility
 - <strong>28 command docs</strong> (up from 26): 27 skill commands + 1 workflow bundle
@@ -1516,12 +1516,12 @@
 <h2 id="whats-new-and-why-it-matters">What's New and Why It Matters<a class="headerlink" href="#whats-new-and-why-it-matters" title="Permanent link">&para;</a></h2>
 <h3 id="new-skill-deliver-acceptance-criteria-f-06">New Skill: <code>deliver-acceptance-criteria</code> (F-06)<a class="headerlink" href="#new-skill-deliver-acceptance-criteria-f-06" title="Permanent link">&para;</a></h3>
 <p><strong>What</strong>: A Deliver-phase skill that generates structured Given/When/Then acceptance criteria for user stories or feature slices. Covers happy path, edge cases, error states, and non-functional expectations.</p>
-<p><strong>Why it matters</strong>: Acceptance criteria are the handoff contract between PM and engineering. Vague criteria lead to rework. This skill produces testable, unambiguous scenarios that QA can verify without guessing intent — reducing back-and-forth during sprint execution.</p>
+<p><strong>Why it matters</strong>: Acceptance criteria are the handoff contract between PM and engineering. Vague criteria lead to rework. This skill produces testable, unambiguous scenarios that QA can verify without guessing intent . reducing back-and-forth during sprint execution.</p>
 <p><strong>Use it</strong>: <code>/acceptance-criteria "User can reset password via email"</code></p>
 <p><strong>Issue</strong>: <a href="https://github.com/product-on-purpose/pm-skills/issues/114">#114</a></p>
 <hr />
 <h3 id="new-skill-utility-pm-skill-builder-f-05">New Skill: <code>utility-pm-skill-builder</code> (F-05)<a class="headerlink" href="#new-skill-utility-pm-skill-builder-f-05" title="Permanent link">&para;</a></h3>
-<p><strong>What</strong>: The first utility-classified skill. An interactive builder that guides contributors from a PM skill idea to a complete Skill Implementation Packet — including gap analysis, a Why Gate to prevent duplicates, classification, exemplar-driven drafting, and a staging-to-promotion workflow.</p>
+<p><strong>What</strong>: The first utility-classified skill. An interactive builder that guides contributors from a PM skill idea to a complete Skill Implementation Packet . including gap analysis, a Why Gate to prevent duplicates, classification, exemplar-driven drafting, and a staging-to-promotion workflow.</p>
 <p><strong>Why it matters</strong>: Before the builder, creating a new PM skill required reverse-engineering existing skills and manually assembling 5+ files across 3 directories. The builder encodes all conventions, runs overlap detection against all 27 existing skills, and produces CI-compliant drafts. It reduces the skill creation process from hours of convention-hunting to a guided conversation.</p>
 <p><strong>How it works</strong>:
 1. Describe your skill idea (problem-first or skill-first)
@@ -1535,10 +1535,10 @@
 <hr />
 <h3 id="enhanced-ci-validation-m-12">Enhanced CI Validation (M-12)<a class="headerlink" href="#enhanced-ci-validation-m-12" title="Permanent link">&para;</a></h3>
 <p><strong>What</strong>: Extended the frontmatter linter and added three new validation scripts:
-- <code>lint-skills-frontmatter</code> — now checks description word count (20-100) and TEMPLATE.md header count (&gt;=3)
-- <code>validate-agents-md</code> — verifies AGENTS.md paths match actual skill directories
-- <code>validate-commands</code> — verifies command files reference valid skill paths
-- <code>check-mcp-impact</code> — advisory detection of skill changes that may affect the MCP server</p>
+- <code>lint-skills-frontmatter</code> . now checks description word count (20-100) and TEMPLATE.md header count (&gt;=3)
+- <code>validate-agents-md</code> . verifies AGENTS.md paths match actual skill directories
+- <code>validate-commands</code> . verifies command files reference valid skill paths
+- <code>check-mcp-impact</code> . advisory detection of skill changes that may affect the MCP server</p>
 <p><strong>Why it matters</strong>: As the skill library grows, manual validation doesn't scale. These scripts catch naming mismatches, orphaned entries, and structural drift before they ship. Every new skill committed in this release passed all four validators on both bash and PowerShell.</p>
 <p><strong>Issue</strong>: <a href="https://github.com/product-on-purpose/pm-skills/issues/112">#112</a></p>
 <hr />
@@ -1549,15 +1549,15 @@
 <hr />
 <h3 id="utility-skill-classification">Utility Skill Classification<a class="headerlink" href="#utility-skill-classification" title="Permanent link">&para;</a></h3>
 <p><strong>What</strong>: Skills now have three classifications:
-- <strong>Domain</strong> (25 skills) — phase-specific PM activities (discover, define, develop, deliver, measure, iterate)
-- <strong>Foundation</strong> (1 skill) — cross-cutting capabilities that apply across phases
-- <strong>Utility</strong> (1 skill) — meta-skills that operate on the repository, workflow, or other skills</p>
-<p><strong>Why it matters</strong>: The original two-tier model (domain + foundation) couldn't cleanly accommodate tooling skills like the builder. Utility skills don't produce PM artifacts — they produce <em>other skills</em>. The three-tier model is more expressive and sets up the planned Create (F-05) -&gt; Validate (F-10) -&gt; Iterate (F-11) lifecycle.</p>
+- <strong>Domain</strong> (25 skills) . phase-specific PM activities (discover, define, develop, deliver, measure, iterate)
+- <strong>Foundation</strong> (1 skill) . cross-cutting capabilities that apply across phases
+- <strong>Utility</strong> (1 skill) . meta-skills that operate on the repository, workflow, or other skills</p>
+<p><strong>Why it matters</strong>: The original two-tier model (domain + foundation) couldn't cleanly accommodate tooling skills like the builder. Utility skills don't produce PM artifacts . they produce <em>other skills</em>. The three-tier model is more expressive and sets up the planned Create (F-05) -&gt; Validate (F-10) -&gt; Iterate (F-11) lifecycle.</p>
 <hr />
 <h3 id="documentation-refresh-d-01-d-02">Documentation Refresh (D-01, D-02)<a class="headerlink" href="#documentation-refresh-d-01-d-02" title="Permanent link">&para;</a></h3>
 <p><strong>What</strong>:
-- <strong>D-01</strong>: New <code>docs/pm-skill-anatomy.md</code> — practical guide to pm-skills structure covering directory layout, the three-file model, classification types, frontmatter rules, Triple Diamond phases, the wiring layer, and CI validation.
-- <strong>D-02</strong>: Updated 14 public-facing docs for v2.7.0 accuracy — skill counts, command counts, M-12 script documentation, classification model, skill template modernization, and frontmatter schema with utility examples.</p>
+- <strong>D-01</strong>: New <code>docs/pm-skill-anatomy.md</code> . practical guide to pm-skills structure covering directory layout, the three-file model, classification types, frontmatter rules, Triple Diamond phases, the wiring layer, and CI validation.
+- <strong>D-02</strong>: Updated 14 public-facing docs for v2.7.0 accuracy . skill counts, command counts, M-12 script documentation, classification model, skill template modernization, and frontmatter schema with utility examples.</p>
 <p><strong>Why it matters</strong>: Public docs were showing stale counts (25 skills instead of 27), missing the new CI scripts, and had no explanation of utility skills. The new anatomy guide gives contributors a single starting point for understanding how skills work, complementing the spec-level <code>agent-skill-anatomy.md</code>.</p>
 <hr />
 <h2 id="breaking-changes">Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h2>
@@ -1567,9 +1567,9 @@
 <p>The companion MCP server (<a href="https://github.com/product-on-purpose/pm-skills-mcp">pm-skills-mcp</a>) is release-pinned and requires a re-embed to pick up v2.7.0 changes:</p>
 <ul>
 <li><strong><code>deliver-acceptance-criteria</code></strong> → add as <code>pm_acceptance_criteria</code> (standard domain skill)</li>
-<li><strong><code>utility-pm-skill-builder</code></strong> → add as <code>pm_pm_skill_builder</code> (strip <code>utility-</code> prefix, convert hyphens to underscores, prepend <code>pm_</code>). The double <code>pm_</code> is intentional — it preserves the skill name intact and stays consistent with the future <code>pm_agent_skill_builder</code> (F-09). The builder produces the Skill Implementation Packet as text content; file writing is client-dependent.</li>
+<li><strong><code>utility-pm-skill-builder</code></strong> → add as <code>pm_pm_skill_builder</code> (strip <code>utility-</code> prefix, convert hyphens to underscores, prepend <code>pm_</code>). The double <code>pm_</code> is intentional . it preserves the skill name intact and stays consistent with the future <code>pm_agent_skill_builder</code> (F-09). The builder produces the Skill Implementation Packet as text content; file writing is client-dependent.</li>
 </ul>
-<p><strong>MCP naming convention update</strong>: the <code>embed-skills.js</code> naming function should strip classification prefixes (<code>foundation-</code>, <code>utility-</code>) in addition to phase prefixes. No prefix deduplication — let skill names pass through intact.</p>
+<p><strong>MCP naming convention update</strong>: the <code>embed-skills.js</code> naming function should strip classification prefixes (<code>foundation-</code>, <code>utility-</code>) in addition to phase prefixes. No prefix deduplication . let skill names pass through intact.</p>
 <p>A matching pm-skills-mcp release should follow to pick up both new skills.</p>
 <hr />
 <h2 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h2>
@@ -1662,10 +1662,10 @@
 <hr />
 <h2 id="canonical-references">Canonical References<a class="headerlink" href="#canonical-references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>CHANGELOG.md</code> — version history</li>
-<li><code>docs/releases/Release_v2.7.0.md</code> — this document</li>
-<li><code>docs/internal/release-plans/v2.7.0/README.md</code> — internal release governance</li>
-<li><code>docs/internal/release-plans/v2.7.0/decisions.md</code> — key decisions log</li>
+<li><code>CHANGELOG.md</code> . version history</li>
+<li><code>docs/releases/Release_v2.7.0.md</code> . this document</li>
+<li><code>docs/internal/release-plans/v2.7.0/README.md</code> . internal release governance</li>
+<li><code>docs/internal/release-plans/v2.7.0/decisions.md</code> . key decisions log</li>
 <li>Effort briefs: <code>docs/internal/efforts/</code> (M-12, M-16, F-05, F-06)</li>
 </ul>
 
@@ -1690,7 +1690,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 3, 2026 09:34:43 UTC"><span class="timeago" datetime="2026-04-03T09:34:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 3, 2026 09:34:43 UTC">2026-04-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

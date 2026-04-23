@@ -2585,7 +2585,7 @@
   <a href="#step-3-run-tier-1-structural-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3: Run Tier 1 — Structural Checks
+        Step 3: Run Tier 1 . Structural Checks
       
     </span>
   </a>
@@ -2596,7 +2596,7 @@
   <a href="#step-4-run-tier-2-quality-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Run Tier 2 — Quality Checks
+        Step 4: Run Tier 2 . Quality Checks
       
     </span>
   </a>
@@ -3334,7 +3334,7 @@
   <a href="#step-3-run-tier-1-structural-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3: Run Tier 1 — Structural Checks
+        Step 3: Run Tier 1 . Structural Checks
       
     </span>
   </a>
@@ -3345,7 +3345,7 @@
   <a href="#step-4-run-tier-2-quality-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Run Tier 2 — Quality Checks
+        Step 4: Run Tier 2 . Quality Checks
       
     </span>
   </a>
@@ -3478,9 +3478,9 @@
 conventions and quality criteria. It produces a validation report that a
 human can scan and that <code>/pm-skill-iterate</code> can consume as input.</p>
 <p>The validator checks two tiers:
-- <strong>Tier 1 (Structural)</strong> — deterministic checks that mirror CI: frontmatter,
+- <strong>Tier 1 (Structural)</strong> . deterministic checks that mirror CI: frontmatter,
   naming, file presence, description word count.
-- <strong>Tier 2 (Quality)</strong> — LLM-assessed coherence checks: does the output
+- <strong>Tier 2 (Quality)</strong> . LLM-assessed coherence checks: does the output
   contract reference the template? Is the example complete? Are checklist
   items testable?</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
@@ -3557,7 +3557,7 @@ Tier 2 in batch mode.</p>
 - The AGENTS.md entry for this skill</p>
 <p>If reading files is not possible (MCP/embedded environment), ask the user
 to paste the content of each file before proceeding (see Degraded Mode).</p>
-<h3 id="step-3-run-tier-1-structural-checks">Step 3: Run Tier 1 — Structural Checks<a class="headerlink" href="#step-3-run-tier-1-structural-checks" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-run-tier-1-structural-checks">Step 3: Run Tier 1 . Structural Checks<a class="headerlink" href="#step-3-run-tier-1-structural-checks" title="Permanent link">&para;</a></h3>
 <p>Run these deterministic checks. Each produces a <code>PASS</code> or <code>FAIL</code> line.</p>
 <table>
 <thead>
@@ -3630,10 +3630,10 @@ to paste the content of each file before proceeding (see Degraded Mode).</p>
 </tr>
 </tbody>
 </table>
-<h3 id="step-4-run-tier-2-quality-checks">Step 4: Run Tier 2 — Quality Checks<a class="headerlink" href="#step-4-run-tier-2-quality-checks" title="Permanent link">&para;</a></h3>
+<h3 id="step-4-run-tier-2-quality-checks">Step 4: Run Tier 2 . Quality Checks<a class="headerlink" href="#step-4-run-tier-2-quality-checks" title="Permanent link">&para;</a></h3>
 <p>Run these LLM-assessed checks. Each produces a <code>PASS</code>, <code>WARN</code>, or <code>INFO</code>
 line. Tier 2 findings are capped at <code>WARN</code> unless objectively grounded
-(placeholder leakage is the exception — it can <code>FAIL</code>).</p>
+(placeholder leakage is the exception . it can <code>FAIL</code>).</p>
 <table>
 <thead>
 <tr>
@@ -3659,7 +3659,7 @@ line. Tier 2 findings are capped at <code>WARN</code> unless objectively grounde
 <tr>
 <td><code>example-completeness</code></td>
 <td>EXAMPLE.md fills all template sections</td>
-<td>Compare <code>##</code> headers in TEMPLATE.md against <code>##</code> headers in EXAMPLE.md. WARN if EXAMPLE.md is missing sections that appear in the template. Also check for unresolved placeholders. Line count is informational only — report it but do not gate on it.</td>
+<td>Compare <code>##</code> headers in TEMPLATE.md against <code>##</code> headers in EXAMPLE.md. WARN if EXAMPLE.md is missing sections that appear in the template. Also check for unresolved placeholders. Line count is informational only . report it but do not gate on it.</td>
 <td>WARN</td>
 </tr>
 <tr>
@@ -3683,19 +3683,19 @@ line. Tier 2 findings are capped at <code>WARN</code> unless objectively grounde
 <tr>
 <td><code>placeholder-leakage</code></td>
 <td>No leftover scaffolding in any shipped file</td>
-<td>Scan SKILL.md, TEMPLATE.md, and EXAMPLE.md for: <code>[Placeholder]</code> or <code>[Feature Name]</code> patterns, <code>&lt;!-- ... --&gt;</code> HTML comments (except the license header), template guidance blockquotes that should have been removed, and authoring notes like "TODO" or "FIXME". FAIL if any are found — this is objectively grounded.</td>
+<td>Scan SKILL.md, TEMPLATE.md, and EXAMPLE.md for: <code>[Placeholder]</code> or <code>[Feature Name]</code> patterns, <code>&lt;!-- ... --&gt;</code> HTML comments (except the license header), template guidance blockquotes that should have been removed, and authoring notes like "TODO" or "FIXME". FAIL if any are found . this is objectively grounded.</td>
 <td>FAIL</td>
 </tr>
 <tr>
 <td><code>when-not-to-use</code></td>
 <td>"When NOT to Use" section present in SKILL.md</td>
-<td>Check for a section with "When NOT to Use" or similar heading. INFO only — this is present in 1/27 shipped skills and is not yet a convention.</td>
+<td>Check for a section with "When NOT to Use" or similar heading. INFO only . this is present in 1/27 shipped skills and is not yet a convention.</td>
 <td>INFO</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Quality standard framing:</strong> These checks validate against current library
-conventions — what the shipped library actually does today. Findings graded
+conventions . what the shipped library actually does today. Findings graded
 WARN or INFO represent the v2.8 quality standard that newer skills (built
 with <code>/pm-skill-builder</code>) meet. Older skills may legitimately receive these
 findings until iterated through the lifecycle.</p>
@@ -3780,14 +3780,14 @@ standard), and the skill lacks a "When NOT to Use" section (informational).</p>
 </ul>
 <h2 id="quality-checks_1">Quality Checks<a class="headerlink" href="#quality-checks_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>WARN | quality | output-contract-coverage | Output Format section says "Use the template in <code>references/TEMPLATE.md</code> to structure the output" but does not enumerate template sections explicitly. Accepted as valid — this is the current library convention.</li>
+<li>WARN | quality | output-contract-coverage | Output Format section says "Use the template in <code>references/TEMPLATE.md</code> to structure the output" but does not enumerate template sections explicitly. Accepted as valid . this is the current library convention.</li>
 <li>PASS | quality | checklist-verifiability | all 7 checklist items are specific and testable (e.g., "Success metrics are specific and measurable", "Document is readable in under 15 minutes")</li>
 <li>PASS | quality | example-completeness | EXAMPLE.md fills all 10 template sections with concrete content. No placeholder scaffolding detected. Line count: 212 (informational).</li>
 <li>PASS | quality | template-example-alignment | EXAMPLE.md section headers match TEMPLATE.md in order and naming</li>
 <li>PASS | quality | description-actionability | description includes trigger phrase: "Use when specifying features, epics, or product initiatives for engineering handoff"</li>
 <li>PASS | quality | instruction-clarity | 8 numbered steps with imperative verbs (Summarize, Define, Outline, Detail, Define, Address, Identify, Propose)</li>
 <li>PASS | quality | placeholder-leakage | no unresolved placeholders, HTML comments (except license header), or authoring notes found</li>
-<li>INFO | quality | when-not-to-use | no "When NOT to Use" section present (optional — present in 1/27 shipped skills)</li>
+<li>INFO | quality | when-not-to-use | no "When NOT to Use" section present (optional . present in 1/27 shipped skills)</li>
 </ul>
 <h2 id="recommendations_1">Recommendations<a class="headerlink" href="#recommendations_1" title="Permanent link">&para;</a></h2>
 <ol>
@@ -3801,7 +3801,7 @@ standard), and the skill lacks a "When NOT to Use" section (informational).</p>
 <p>This report demonstrates:
 - All 12 Tier 1 structural checks passing (common for shipped skills)
 - Tier 2 quality checks surfacing one WARN and one INFO against a well-established skill
-- The WARN for <code>output-contract-coverage</code> illustrates the "current conventions vs. v2.8 standard" framing — the skill is valid by current standards, but the validator surfaces the higher standard as a suggestion
+- The WARN for <code>output-contract-coverage</code> illustrates the "current conventions vs. v2.8 standard" framing . the skill is valid by current standards, but the validator surfaces the higher standard as a suggestion
 - The INFO for <code>when-not-to-use</code> illustrates a finding that is purely optional guidance
 - Recommendations include target file paths and specific actions for each finding
 - The overall Result is WARN (worst severity found), not FAIL</p>
@@ -3809,7 +3809,7 @@ standard), and the skill lacks a "When NOT to Use" section (informational).</p>
 <h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
 <p>See this skill applied to three different product contexts:</p>
 <details class="example">
-<summary>Storevine (B2B): Storevine B2B ecommerce platform — validating the campaign-analytics skill from skill builder output</summary>
+<summary>Storevine (B2B): Storevine B2B ecommerce platform . validating the campaign-analytics skill from skill builder output</summary>
 <p><strong>Prompt:</strong></p>
 <p>```
 /pm-skill-validate</p>
@@ -3829,7 +3829,7 @@ Result: WARN</p>
 <p>Before delivering the report, verify:</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All Tier 1 structural checks were run (not skipped)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All Tier 2 quality checks were run (not skipped) — single skill mode only</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All Tier 2 quality checks were run (not skipped) . single skill mode only</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Report follows the exact section and line format from Step 5</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Every non-passing check appears in Recommendations with a target file path</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Result field reflects the worst severity found</li>
@@ -3868,7 +3868,7 @@ Result: WARN</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 12, 2026 09:05:46 UTC"><span class="timeago" datetime="2026-04-12T09:05:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 12, 2026 09:05:46 UTC">2026-04-12</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

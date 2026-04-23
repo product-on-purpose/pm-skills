@@ -1078,7 +1078,7 @@
   <a href="#skillmd-the-instructions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SKILL.md — The Instructions
+        SKILL.md . The Instructions
       
     </span>
   </a>
@@ -1089,7 +1089,7 @@
   <a href="#templatemd-the-output-format" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TEMPLATE.md — The Output Format
+        TEMPLATE.md . The Output Format
       
     </span>
   </a>
@@ -1100,7 +1100,7 @@
   <a href="#examplemd-the-quality-benchmark" class="md-nav__link">
     <span class="md-ellipsis">
       
-        EXAMPLE.md — The Quality Benchmark
+        EXAMPLE.md . The Quality Benchmark
       
     </span>
   </a>
@@ -1804,7 +1804,7 @@
   <a href="#skillmd-the-instructions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SKILL.md — The Instructions
+        SKILL.md . The Instructions
       
     </span>
   </a>
@@ -1815,7 +1815,7 @@
   <a href="#templatemd-the-output-format" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TEMPLATE.md — The Output Format
+        TEMPLATE.md . The Output Format
       
     </span>
   </a>
@@ -1826,7 +1826,7 @@
   <a href="#examplemd-the-quality-benchmark" class="md-nav__link">
     <span class="md-ellipsis">
       
-        EXAMPLE.md — The Quality Benchmark
+        EXAMPLE.md . The Quality Benchmark
       
     </span>
   </a>
@@ -2074,7 +2074,7 @@
 <p>Directory names follow the pattern <code>{prefix}-{skill-name}</code> where the prefix is the phase (for domain skills) or classification (for foundation/utility skills).</p>
 <hr />
 <h2 id="the-three-files">The Three Files<a class="headerlink" href="#the-three-files" title="Permanent link">&para;</a></h2>
-<h3 id="skillmd-the-instructions">SKILL.md — The Instructions<a class="headerlink" href="#skillmd-the-instructions" title="Permanent link">&para;</a></h3>
+<h3 id="skillmd-the-instructions">SKILL.md . The Instructions<a class="headerlink" href="#skillmd-the-instructions" title="Permanent link">&para;</a></h3>
 <p>The core file. Contains frontmatter metadata and markdown instructions that tell an AI agent how to produce an artifact. Structure:</p>
 <table>
 <thead>
@@ -2114,11 +2114,11 @@
 </tr>
 </tbody>
 </table>
-<h3 id="templatemd-the-output-format">TEMPLATE.md — The Output Format<a class="headerlink" href="#templatemd-the-output-format" title="Permanent link">&para;</a></h3>
+<h3 id="templatemd-the-output-format">TEMPLATE.md . The Output Format<a class="headerlink" href="#templatemd-the-output-format" title="Permanent link">&para;</a></h3>
 <p>Defines the structure of what the skill produces. Contains section headers with guidance comments explaining what goes in each section. The agent fills this template when executing the skill.</p>
 <p>CI requirement: must contain at least 3 <code>##</code> sections.</p>
-<h3 id="examplemd-the-quality-benchmark">EXAMPLE.md — The Quality Benchmark<a class="headerlink" href="#examplemd-the-quality-benchmark" title="Permanent link">&para;</a></h3>
-<p>A complete, realistic example of the skill's output. Shows what "good" looks like — not an outline or placeholder, but a fully filled artifact (typically 150-300 lines for complex skills).</p>
+<h3 id="examplemd-the-quality-benchmark">EXAMPLE.md . The Quality Benchmark<a class="headerlink" href="#examplemd-the-quality-benchmark" title="Permanent link">&para;</a></h3>
+<p>A complete, realistic example of the skill's output. Shows what "good" looks like . not an outline or placeholder, but a fully filled artifact (typically 150-300 lines for complex skills).</p>
 <hr />
 <h2 id="classification-types">Classification Types<a class="headerlink" href="#classification-types" title="Permanent link">&para;</a></h2>
 <p>Skills are classified into three types that determine their directory naming and frontmatter:</p>
@@ -2173,15 +2173,15 @@
 <h2 id="the-triple-diamond">The Triple Diamond<a class="headerlink" href="#the-triple-diamond" title="Permanent link">&para;</a></h2>
 <p>PM-skills organizes domain skills across 6 phases of the Triple Diamond framework:</p>
 <pre class="mermaid"><code>graph TD
-    subgraph Diamond1["Diamond 1 — Problem Space"]
+    subgraph Diamond1["Diamond 1 . Problem Space"]
         DISCOVER["**DISCOVER**\n3 skills\nresearch &amp; context"]
         DEFINE["**DEFINE**\n4 skills\nproblem framing"]
     end
-    subgraph Diamond2["Diamond 2 — Solution Space"]
+    subgraph Diamond2["Diamond 2 . Solution Space"]
         DEVELOP["**DEVELOP**\n4 skills\nideation &amp; spec"]
         DELIVER["**DELIVER**\n6 skills\nhandoff &amp; launch"]
     end
-    subgraph Diamond3["Diamond 3 — Learning Space"]
+    subgraph Diamond3["Diamond 3 . Learning Space"]
         MEASURE["**MEASURE**\n4 skills\ndata &amp; testing"]
         ITERATE["**ITERATE**\n4 skills\nlearning &amp; adapting"]
     end
@@ -2231,7 +2231,7 @@
 </tr>
 </tbody>
 </table>
-<p>Foundation and utility skills sit outside the phase model — they serve all phases or operate at a meta level.</p>
+<p>Foundation and utility skills sit outside the phase model . they serve all phases or operate at a meta level.</p>
 <hr />
 <h2 id="the-wiring-layer">The Wiring Layer<a class="headerlink" href="#the-wiring-layer" title="Permanent link">&para;</a></h2>
 <p>Skills don't work in isolation. Three mechanisms connect them to users and agents:</p>
@@ -2246,15 +2246,15 @@
 <p>Sections: Foundation Classification, Discover Phase, ..., Iterate Phase, Utility Skills, Workflows, Commands.</p>
 <h3 id="workflows-_workflowsmd">Workflows (<code>_workflows/*.md</code>)<a class="headerlink" href="#workflows-_workflowsmd" title="Permanent link">&para;</a></h3>
 <p>Multi-skill workflows that chain skills together. Nine shipped workflows:
-- <strong>Feature Kickoff</strong> — Quick-start workflow (problem → hypothesis → PRD → stories)
-- <strong>Lean Startup</strong> — Build-Measure-Learn rapid iteration
-- <strong>Triple Diamond</strong> — Complete product development cycle
-- <strong>Customer Discovery</strong> — Research to validated problem
-- <strong>Sprint Planning</strong> — Backlog to sprint-ready stories
-- <strong>Product Strategy</strong> — Competitive context to architecture decisions
-- <strong>Post-Launch Learning</strong> — Measurement to organizational learnings
-- <strong>Stakeholder Alignment</strong> — Leadership buy-in package
-- <strong>Technical Discovery</strong> — Spike to architecture decisions</p>
+- <strong>Feature Kickoff</strong> . Quick-start workflow (problem → hypothesis → PRD → stories)
+- <strong>Lean Startup</strong> . Build-Measure-Learn rapid iteration
+- <strong>Triple Diamond</strong> . Complete product development cycle
+- <strong>Customer Discovery</strong> . Research to validated problem
+- <strong>Sprint Planning</strong> . Backlog to sprint-ready stories
+- <strong>Product Strategy</strong> . Competitive context to architecture decisions
+- <strong>Post-Launch Learning</strong> . Measurement to organizational learnings
+- <strong>Stakeholder Alignment</strong> . Leadership buy-in package
+- <strong>Technical Discovery</strong> . Spike to architecture decisions</p>
 <hr />
 <h2 id="ci-validation">CI Validation<a class="headerlink" href="#ci-validation" title="Permanent link">&para;</a></h2>
 <p>Four scripts validate skill integrity:</p>
@@ -2280,7 +2280,7 @@
 </tr>
 <tr>
 <td><code>check-mcp-impact</code></td>
-<td>Advisory — detects skill additions/renames that may affect the MCP server</td>
+<td>Advisory . detects skill additions/renames that may affect the MCP server</td>
 </tr>
 </tbody>
 </table>
@@ -2317,11 +2317,11 @@
 <hr />
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../agent-skill-anatomy/">Agent Skill Anatomy</a> — Spec-level, cross-platform reference (agentskills.io)</li>
-<li><a href="../../reference/frontmatter-schema.yaml">Frontmatter Schema</a> — Complete field definitions and validation rules</li>
-<li><a href="../../reference/categories/">Category Taxonomy</a> — Category definitions and framework mappings</li>
-<li><a href="../../guides/creating-skills/">Authoring Guide</a> — Step-by-step authoring instructions</li>
-<li><a href="../../getting-started/">Getting Started</a> — Setup and usage guide</li>
+<li><a href="../agent-skill-anatomy/">Agent Skill Anatomy</a> . Spec-level, cross-platform reference (agentskills.io)</li>
+<li><a href="../../reference/frontmatter-schema.yaml">Frontmatter Schema</a> . Complete field definitions and validation rules</li>
+<li><a href="../../reference/categories/">Category Taxonomy</a> . Category definitions and framework mappings</li>
+<li><a href="../../guides/creating-skills/">Authoring Guide</a> . Step-by-step authoring instructions</li>
+<li><a href="../../getting-started/">Getting Started</a> . Setup and usage guide</li>
 </ul>
 
 
@@ -2345,7 +2345,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 7, 2026 03:51:55 UTC"><span class="timeago" datetime="2026-04-07T03:51:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 7, 2026 03:51:55 UTC">2026-04-07</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     

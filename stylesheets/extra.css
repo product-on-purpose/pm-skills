@@ -1,4 +1,4 @@
-/* PM Skills — Custom Styles */
+/* PM Skills . Custom Styles */
 
 /* Slightly tighter card grid on wide screens */
 @media screen and (min-width: 76.25em) {
@@ -13,17 +13,17 @@
   opacity: 0.8;
 }
 
-/* Phase index flow diagrams — constrain width */
+/* Phase index flow diagrams . constrain width */
 .mermaid {
   max-width: 100%;
 }
 
-/* Collapsible example admonitions — subtle border */
+/* Collapsible example admonitions . subtle border */
 details.example {
   border-left-width: 3px;
 }
 
-/* Tags — slightly smaller badges */
+/* Tags . slightly smaller badges */
 .md-tags .md-tag {
   font-size: 0.65rem;
 }

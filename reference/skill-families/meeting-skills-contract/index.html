@@ -2492,7 +2492,7 @@
 <p>Individual skill <code>SKILL.md</code> files implement the family-specific behavior (what they produce, how their process differs); this document defines what they share. A skill in this family is not conforming to the family unless it conforms to this contract.</p>
 <p><strong>Enforcement</strong>: the <code>scripts/validate-meeting-skills-family.sh</code> validator runs against every PR touching <code>skills/foundation-meeting-*/</code> or <code>skills/foundation-stakeholder-update/</code> and fails the build if the contract is violated.</p>
 <h2 id="why-a-family-contract-exists">Why a family contract exists<a class="headerlink" href="#why-a-family-contract-exists" title="Permanent link">&para;</a></h2>
-<p>Meeting skills share enough cross-cutting structure — shareable summaries for chat clients, sources traceability, file-based chaining between artifacts, quality signals, input flexibility — that implementing each skill independently would produce drift. The family contract makes the shared surface explicit and enforceable so the skills compose cleanly: a recap can auto-populate from an agenda, a synthesis can consume recaps, a stakeholder update can reference a recap, and the interfaces between them stay stable across future iterations.</p>
+<p>Meeting skills share enough cross-cutting structure. shareable summaries for chat clients, sources traceability, file-based chaining between artifacts, quality signals, input flexibility. that implementing each skill independently would produce drift. The family contract makes the shared surface explicit and enforceable so the skills compose cleanly: a recap can auto-populate from an agenda, a synthesis can consume recaps, a stakeholder update can reference a recap, and the interfaces between them stay stable across future iterations.</p>
 <hr />
 <h2 id="the-5-skills-at-a-glance">The 5 skills at a glance<a class="headerlink" href="#the-5-skills-at-a-glance" title="Permanent link">&para;</a></h2>
 <table>
@@ -2563,8 +2563,8 @@
 <li>Skill reads inputs, runs inference pass</li>
 <li>Skill presents a brief inference summary:<blockquote>
 <p>Inferred:
-- Meeting type: <code>decision-making</code> (confidence: medium — from "need to decide whether to ship v2")
-- Duration: <code>45 min</code> (type-specific default for decision-making — not specified)
+- Meeting type: <code>decision-making</code> (confidence: medium. from "need to decide whether to ship v2")
+- Duration: <code>45 min</code> (type-specific default for decision-making. not specified)
 - Attendees: 6 people, RACI inferred from attendee-list context
 - Objective: "Decide v2 ship timing for Q2"</p>
 <p>Say <strong>go</strong> to proceed, or tell me what to adjust.</p>
@@ -2573,11 +2573,11 @@
 <li>User says <code>go</code> → skill produces output; or user corrects any subset → skill re-infers and re-summarizes</li>
 <li>Output's <code>Generation context</code> section notes every inference that made it into the final artifact</li>
 </ol>
-<p><strong>Explicit go-mode</strong>: <code>/meeting-agenda --go @topic-doc.md</code> — skips the checkpoint, uses defaults, produces output in one shot. User reviews <code>Generation context</code> to see what was defaulted.</p>
-<p><strong>Fully-specified</strong>: <code>/meeting-agenda --type=decision-making --duration=60 --topic="..." @attendees.md</code> — skill uses provided values as authoritative; no checkpoint because nothing is ambiguous.</p>
+<p><strong>Explicit go-mode</strong>: <code>/meeting-agenda --go @topic-doc.md</code>. skips the checkpoint, uses defaults, produces output in one shot. User reviews <code>Generation context</code> to see what was defaulted.</p>
+<p><strong>Fully-specified</strong>: <code>/meeting-agenda --type=decision-making --duration=60 --topic="..." @attendees.md</code>. skill uses provided values as authoritative; no checkpoint because nothing is ambiguous.</p>
 <p><strong>Blocking questions</strong> are permitted only when inference confidence is actively low on a load-bearing input AND no reasonable default exists. This should be rare. When asking, the skill must state the default it will apply if the user does not answer.</p>
 <p><strong>Load-bearing inference gates</strong> (v1.1.0):</p>
-<p>Some inferences are load-bearing — downstream output depends on them. When confidence is below <code>high</code> on any of the following fields, the skill must flag the risk in the inference summary with a <code>⚠</code> marker and surface the dependency explicitly. The user can still say <code>go</code>, but the flag ensures they see the risk:</p>
+<p>Some inferences are load-bearing. downstream output depends on them. When confidence is below <code>high</code> on any of the following fields, the skill must flag the risk in the inference summary with a <code>⚠</code> marker and surface the dependency explicitly. The user can still say <code>go</code>, but the flag ensures they see the risk:</p>
 <table>
 <thead>
 <tr>
@@ -2614,9 +2614,9 @@
 <ul>
 <li>Asking "is this attendee list correct?" mid-flow</li>
 <li>Asking the user to confirm inferred values before producing anything</li>
-<li>Rejecting low-quality input — <code>input_quality: low</code> exists precisely for this</li>
+<li>Rejecting low-quality input. <code>input_quality: low</code> exists precisely for this</li>
 <li>Requiring more than what the user provided before producing any output</li>
-<li>Passing load-bearing low-confidence inferences silently (v1.1.0 — must flag with <code>⚠</code>)</li>
+<li>Passing load-bearing low-confidence inferences silently (v1.1.0. must flag with <code>⚠</code>)</li>
 </ul>
 <h3 id="2-adaptive-executor-pattern">2. Adaptive Executor pattern<a class="headerlink" href="#2-adaptive-executor-pattern" title="Permanent link">&para;</a></h3>
 <p>Every skill gracefully accepts variable-quality input:</p>
@@ -2642,9 +2642,9 @@
 <p>No separate <code>meeting_id</code> field. The filename itself is the identifier; artifacts reference each other by full filename.</p>
 <p>Chaining fields in frontmatter:</p>
 <ul>
-<li><code>project</code> + <code>topics</code> — enables cross-meeting grouping for synthesis</li>
-<li><code>related_brief</code>, <code>related_agenda</code>, <code>related_recap</code>, <code>related_synthesis</code> — explicit filename references</li>
-<li><code>source_meetings</code> (synthesis only) — list of recap filenames feeding the synthesis</li>
+<li><code>project</code> + <code>topics</code>. enables cross-meeting grouping for synthesis</li>
+<li><code>related_brief</code>, <code>related_agenda</code>, <code>related_recap</code>, <code>related_synthesis</code>. explicit filename references</li>
+<li><code>source_meetings</code> (synthesis only). list of recap filenames feeding the synthesis</li>
 </ul>
 <p>This keeps coordination costs low: no lookup tables, no ID assignment ceremony, no collisions across overlapping topics and teams.</p>
 <hr />
@@ -2667,8 +2667,8 @@
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>business-review
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>other
 </span></code></pre></div>
-<p>(v1.1.0 added <code>incident-postmortem</code>, <code>customer-call</code>, <code>training-workshop</code>, <code>business-review</code> — common archetypes that were previously forced into <code>other</code>.)</p>
-<p><strong>Frontmatter field</strong>: <code>meeting_type</code> (optional — skill infers when absent).</p>
+<p>(v1.1.0 added <code>incident-postmortem</code>, <code>customer-call</code>, <code>training-workshop</code>, <code>business-review</code>. common archetypes that were previously forced into <code>other</code>.)</p>
+<p><strong>Frontmatter field</strong>: <code>meeting_type</code> (optional. skill infers when absent).</p>
 <p><strong>Applies to</strong>: <code>meeting-agenda</code>, <code>meeting-brief</code>, <code>meeting-recap</code>, <code>stakeholder-update</code> (single-meeting skills). <code>meeting-synthesize</code> omits this field (aggregates across meeting types) but may filter by it via <code>scope_filter</code>.</p>
 <h3 id="attendee-role-enum-simplified-raci-4">Attendee role enum (simplified RACI-4)<a class="headerlink" href="#attendee-role-enum-simplified-raci-4" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>decision-maker
@@ -2687,16 +2687,16 @@
 </span></code></pre></div>
 <p><strong>Applies to</strong>: <code>meeting-agenda</code>, <code>meeting-brief</code>, <code>meeting-recap</code>, <code>stakeholder-update</code>. <code>meeting-synthesize</code> omits (aggregates across meetings).</p>
 <h3 id="input-quality-levels">Input quality levels<a class="headerlink" href="#input-quality-levels" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>high      — structured notes with clear topics, complete attendee list, explicit decisions and actions captured
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>medium    — partial notes, some gaps, requires moderate inference
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>low       — fragmentary input, significant inference required, multiple gaps
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>high     . structured notes with clear topics, complete attendee list, explicit decisions and actions captured
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>medium   . partial notes, some gaps, requires moderate inference
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>low      . fragmentary input, significant inference required, multiple gaps
 </span></code></pre></div>
 <p><strong>Frontmatter field</strong>: <code>input_quality</code> (required).</p>
 <h3 id="confidence-levels">Confidence levels<a class="headerlink" href="#confidence-levels" title="Permanent link">&para;</a></h3>
 <p>Same enum used for overall confidence (frontmatter <code>confidence</code>) and inline per-section markers:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>high    — directly supported by input
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>medium  — inferred from multiple contextual cues
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>low     — tentative, verify before sharing
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>high   . directly supported by input
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>medium . inferred from multiple contextual cues
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>low    . tentative, verify before sharing
 </span></code></pre></div>
 <h3 id="artifact-types">Artifact types<a class="headerlink" href="#artifact-types" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>meeting-agenda
@@ -2740,19 +2740,19 @@
 <li>3–6 short lines for most outputs; a short paragraph plus bullets for synthesis</li>
 <li>Leads with the most important information (outcome, ask, or headline)</li>
 <li>Skimmable in under 10 seconds</li>
-<li>Self-contained — a reader who does not open the full doc still gets the essentials</li>
-<li>Plain prose and simple bullets — no nested headers, no tables, no markdown that breaks in chat clients</li>
+<li>Self-contained. a reader who does not open the full doc still gets the essentials</li>
+<li>Plain prose and simple bullets. no nested headers, no tables, no markdown that breaks in chat clients</li>
 </ul>
 <p>The <code>stakeholder-update</code> skill is a special case (clarified in v1.1.0):</p>
 <ul>
 <li>It does NOT use a <code>## Shareable summary</code> section (the channel-tailored body already is the shareable content)</li>
 <li>Instead, it MUST use a <code>## Shareable update</code> section that contains ONLY the channel-tailored message body (what a user would copy and paste into Slack, email, Notion, etc.)</li>
-<li>The <code>## Shareable update</code> section is the explicit shareable boundary — audit notes (<code>## Technical-to-business translation notes</code>) and <code>## Sources &amp; References</code> sit OUTSIDE that boundary and must NOT be copied into the outgoing message</li>
+<li>The <code>## Shareable update</code> section is the explicit shareable boundary. audit notes (<code>## Technical-to-business translation notes</code>) and <code>## Sources &amp; References</code> sit OUTSIDE that boundary and must NOT be copied into the outgoing message</li>
 <li>The validator enforces presence of <code>## Shareable update</code> for stakeholder-update (not <code>## Shareable summary</code>, which would be wrong for this skill)</li>
 </ul>
-<p>v1.0.0 claimed "the entire output is shareable content" which was misleading — the template included audit sections that should not go to stakeholders. v1.1.0 adds an explicit shareable boundary.</p>
+<p>v1.0.0 claimed "the entire output is shareable content" which was misleading. the template included audit sections that should not go to stakeholders. v1.1.0 adds an explicit shareable boundary.</p>
 <p><strong>End-marker convention</strong> (v1.1.0): to make the boundary visually unambiguous, templates mark the END of the Shareable update section with a blockquote like:</p>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">&gt; </span><span class="ge">[End of Shareable update section. Everything below is INTERNAL — do not copy into the outgoing message.]</span>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">&gt; </span><span class="ge">[End of Shareable update section. Everything below is INTERNAL. do not copy into the outgoing message.]</span>
 </span></code></pre></div>
 <p>The end-marker is a hard convention for this family's templates and samples. A reader scanning for "what do I paste" can scroll until they see the end marker and know to stop copying. The validator does not currently enforce the end-marker (it only enforces the <code>## Shareable update</code> section heading), but the convention is strongly recommended and documented in the end-user guide at <code>docs/guides/using-meeting-skills.md</code>.</p>
 <h3 id="2-sources-references-section-at-the-bottom">2. Sources &amp; References section at the bottom<a class="headerlink" href="#2-sources-references-section-at-the-bottom" title="Permanent link">&para;</a></h3>
@@ -2776,8 +2776,8 @@
 </span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="gu">### Generation context</span>
 </span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Generated**</span>: {{Timestamp}}
 </span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Skill version**</span>: {{Version}}
-</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Input quality**</span>: {{high | medium | low}} — {{Brief rationale}}
-</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Overall confidence**</span>: {{high | medium | low}} — {{Brief rationale}}
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Input quality**</span>: {{high | medium | low}}. {{Brief rationale}}
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Overall confidence**</span>: {{high | medium | low}}. {{Brief rationale}}
 </span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Known gaps**</span>: {{List of topics the input did not cover sufficiently, or &quot;None identified&quot;}}
 </span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="k">-</span><span class="w"> </span><span class="gs">**Inferences applied**</span>: {{List of values inferred by the skill, each with confidence marker}}
 </span></code></pre></div>
@@ -2796,7 +2796,7 @@
 </span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nt">meeting_title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Search</span><span class="nv"> </span><span class="s">Feature</span><span class="nv"> </span><span class="s">Kickoff&quot;</span>
 </span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="nt">meeting_date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-04-17</span>
 </span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="nt">meeting_start_time</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14:00</span><span class="nv"> </span><span class="s">EST&quot;</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="nt">meeting_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project-kickoff</span><span class="w">           </span><span class="c1"># optional — skill infers when absent; values from Meeting type enum</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="nt">meeting_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project-kickoff</span><span class="w">           </span><span class="c1"># optional. skill infers when absent; values from Meeting type enum</span>
 </span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="nt">meeting_duration_minutes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w">            </span><span class="c1"># default 30 when not specified</span>
 </span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
 </span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># Project / topic (enables cross-meeting grouping for synthesis)</span>
@@ -2834,7 +2834,7 @@
 </span></code></pre></div>
 <h4 id="per-skill-additional-fields">Per-skill additional fields<a class="headerlink" href="#per-skill-additional-fields" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong><code>meeting-agenda</code></strong>: <code>meeting_duration_minutes</code> (integer, default varies by meeting type — see table below), <code>desired_outcomes</code> (list)</li>
+<li><strong><code>meeting-agenda</code></strong>: <code>meeting_duration_minutes</code> (integer, default varies by meeting type. see table below), <code>desired_outcomes</code> (list)</li>
 </ul>
 <p><strong>Type-specific duration defaults</strong> (v1.1.0):</p>
 <table>
@@ -2922,13 +2922,13 @@
 <p>The variant suffix (<code>-{channel}-{audience}</code>) prevents filename collisions when one meeting produces multiple stakeholder-update artifacts tailored to different channels or audiences (e.g., a leadership email and an engineering slack update from the same meeting).</p>
 <p>Where:</p>
 <ul>
-<li><code>YYYY-MM-DD</code> — meeting date (not prep date)</li>
-<li><code>HH-MMtimezone</code> — meeting start time with concatenated timezone abbreviation (e.g., <code>14-00EST</code>, <code>09-30PST</code>, <code>16-00UTC</code>). See DST note below.</li>
-<li><code>title</code> — short slug of the meeting title (see slug normalization rules below)</li>
-<li><code>artifact-type</code> — one of <code>agenda</code>, <code>brief</code>, <code>recap</code>, <code>stakeholder-update</code></li>
-<li><code>{channel}</code> (stakeholder-update only) — <code>slack</code>, <code>teams</code>, <code>email</code>, <code>notion</code>, or <code>exec-memo</code></li>
-<li><code>{audience}</code> (stakeholder-update only) — <code>engineering</code>, <code>design</code>, <code>leadership</code>, <code>customer-facing</code>, or <code>mixed</code></li>
-<li><code>_prepared-YYYY-MM-DD</code> — optional, only when prep date differs from meeting date</li>
+<li><code>YYYY-MM-DD</code>. meeting date (not prep date)</li>
+<li><code>HH-MMtimezone</code>. meeting start time with concatenated timezone abbreviation (e.g., <code>14-00EST</code>, <code>09-30PST</code>, <code>16-00UTC</code>). See DST note below.</li>
+<li><code>title</code>. short slug of the meeting title (see slug normalization rules below)</li>
+<li><code>artifact-type</code>. one of <code>agenda</code>, <code>brief</code>, <code>recap</code>, <code>stakeholder-update</code></li>
+<li><code>{channel}</code> (stakeholder-update only). <code>slack</code>, <code>teams</code>, <code>email</code>, <code>notion</code>, or <code>exec-memo</code></li>
+<li><code>{audience}</code> (stakeholder-update only). <code>engineering</code>, <code>design</code>, <code>leadership</code>, <code>customer-facing</code>, or <code>mixed</code></li>
+<li><code>_prepared-YYYY-MM-DD</code>. optional, only when prep date differs from meeting date</li>
 </ul>
 <p>Examples:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>2026-04-17_14-00EST_search-feature-kickoff_agenda.md
@@ -2962,7 +2962,7 @@
 </span></code></pre></div>
 <p><strong>Why this format</strong>:</p>
 <ul>
-<li>Meeting date + time creates a natural-sort key that groups a meeting's artifact family together — all four single-meeting types sort adjacently</li>
+<li>Meeting date + time creates a natural-sort key that groups a meeting's artifact family together. all four single-meeting types sort adjacently</li>
 <li>Time + timezone makes same-day meetings distinguishable without needing a separate ID</li>
 <li>Optional <code>_prepared-YYYY-MM-DD</code> suffix captures post-meeting artifacts written later without cluttering names that do not need it</li>
 <li>No separate <code>meeting_id</code> required; the filename is the identifier</li>
@@ -2976,23 +2976,23 @@
 <li><strong>Never fabricate</strong> attendees, decisions, or actions not supported by input</li>
 </ul>
 <h3 id="6-anti-meeting-check-pre-meeting-skills-only">6. Anti-meeting check (pre-meeting skills only)<a class="headerlink" href="#6-anti-meeting-check-pre-meeting-skills-only" title="Permanent link">&para;</a></h3>
-<p><code>meeting-agenda</code> and <code>meeting-brief</code> must begin with an anti-meeting check — an upfront prompt asking "does this need to be a meeting at all?" If the stated objective can be met async (written update, document review, decision via Slack poll, etc.), the skill recommends that instead and produces a brief async-alternative suggestion rather than a full meeting artifact.</p>
+<p><code>meeting-agenda</code> and <code>meeting-brief</code> must begin with an anti-meeting check. an upfront prompt asking "does this need to be a meeting at all?" If the stated objective can be met async (written update, document review, decision via Slack poll, etc.), the skill recommends that instead and produces a brief async-alternative suggestion rather than a full meeting artifact.</p>
 <p>This check runs before the go-mode inference summary. If the user overrides ("yes, it needs to be a meeting"), the skill proceeds.</p>
-<p><code>meeting-recap</code>, <code>meeting-synthesize</code>, and <code>stakeholder-update</code> do not run this check — they operate on meetings that have already happened or on meeting-series analysis, where the question is moot.</p>
+<p><code>meeting-recap</code>, <code>meeting-synthesize</code>, and <code>stakeholder-update</code> do not run this check. they operate on meetings that have already happened or on meeting-series analysis, where the question is moot.</p>
 <p><strong>Synchronous-value statement requirement</strong> (v1.1.0):</p>
 <p>The anti-meeting check passes only when the meeting has at least one named source of synchronous value:</p>
 <ul>
-<li><strong>Tradeoff to discuss</strong> — multiple options exist with uncertain preference; real-time back-and-forth produces better decisions than async</li>
-<li><strong>Conflict to resolve</strong> — visible disagreement between named stakeholders; sync resolution is faster than async ping-pong</li>
-<li><strong>Co-creation</strong> — shared document-writing, whiteboarding, design critique; the artifact is produced in the meeting, not before or after</li>
-<li><strong>Relationship-building</strong> — first-time stakeholder meetings; mutual calibration on working styles</li>
-<li><strong>Blocker escalation</strong> — time-sensitive unblocking; async would miss the window</li>
+<li><strong>Tradeoff to discuss</strong>. multiple options exist with uncertain preference; real-time back-and-forth produces better decisions than async</li>
+<li><strong>Conflict to resolve</strong>. visible disagreement between named stakeholders; sync resolution is faster than async ping-pong</li>
+<li><strong>Co-creation</strong>. shared document-writing, whiteboarding, design critique; the artifact is produced in the meeting, not before or after</li>
+<li><strong>Relationship-building</strong>. first-time stakeholder meetings; mutual calibration on working styles</li>
+<li><strong>Blocker escalation</strong>. time-sensitive unblocking; async would miss the window</li>
 </ul>
 <p>If none of these apply, the skill recommends the async alternative. Common anti-patterns (bypassed by earlier versions of this check):</p>
 <ul>
-<li>Status-only syncs where everyone reads the same update to each other — default to async document + threaded Q&amp;A</li>
-<li>Round-robin check-ins with &gt;5 attendees and no decision need — default to async survey or threaded Slack</li>
-<li>"Just an FYI" meetings — default to recorded Loom or async doc</li>
+<li>Status-only syncs where everyone reads the same update to each other. default to async document + threaded Q&amp;A</li>
+<li>Round-robin check-ins with &gt;5 attendees and no decision need. default to async survey or threaded Slack</li>
+<li>"Just an FYI" meetings. default to recorded Loom or async doc</li>
 <li>Agenda padding ("there might be discussion") without a specific tradeoff named</li>
 </ul>
 <p>The check is intentionally stricter in v1.1.0 because it was bypassed in v1.0.0 by simply staying at five attendees or adding the word "decision" to the topic. The stricter check biases toward async; users can still override.</p>
@@ -3000,12 +3000,12 @@
 <h2 id="explicit-non-goals">Explicit non-goals<a class="headerlink" href="#explicit-non-goals" title="Permanent link">&para;</a></h2>
 <p>Things this family of skills will not do. Listed here to prevent scope creep in future iterations.</p>
 <ol>
-<li><strong>Calendar integration</strong> — skills produce documents, not calendar events. Users copy output into their calendar tool. If calendar MCP integration is desired later, it is a separate workflow, not skill scope.</li>
-<li><strong>Live transcription</strong> — skills consume transcripts, they do not produce them. Upstream tools (Krisp, Otter, Fireflies, Zoom) handle transcription.</li>
-<li><strong>Meeting recording</strong> — not a skill responsibility.</li>
-<li><strong>Attendee authentication or identity resolution</strong> — skills accept names as provided. Disambiguation of "Alex" vs. "Alex R." vs. "Alexandra" is the user's responsibility; skills flag ambiguity but do not resolve it.</li>
-<li><strong>Synchronous collaboration</strong> — these are async prep and post-processing skills. Real-time collaboration during meetings is out of scope.</li>
-<li><strong>Slide generation</strong> — if a stakeholder-update needs slides, the user chains to a separate slideshow skill. Meeting family skills produce markdown artifacts.</li>
+<li><strong>Calendar integration</strong>. skills produce documents, not calendar events. Users copy output into their calendar tool. If calendar MCP integration is desired later, it is a separate workflow, not skill scope.</li>
+<li><strong>Live transcription</strong>. skills consume transcripts, they do not produce them. Upstream tools (Krisp, Otter, Fireflies, Zoom) handle transcription.</li>
+<li><strong>Meeting recording</strong>. not a skill responsibility.</li>
+<li><strong>Attendee authentication or identity resolution</strong>. skills accept names as provided. Disambiguation of "Alex" vs. "Alex R." vs. "Alexandra" is the user's responsibility; skills flag ambiguity but do not resolve it.</li>
+<li><strong>Synchronous collaboration</strong>. these are async prep and post-processing skills. Real-time collaboration during meetings is out of scope.</li>
+<li><strong>Slide generation</strong>. if a stakeholder-update needs slides, the user chains to a separate slideshow skill. Meeting family skills produce markdown artifacts.</li>
 </ol>
 <hr />
 <h2 id="enforcement-ci">Enforcement (CI)<a class="headerlink" href="#enforcement-ci" title="Permanent link">&para;</a></h2>
@@ -3016,18 +3016,18 @@
 </span></code></pre></div>
 <h3 id="what-the-validator-checks">What the validator checks<a class="headerlink" href="#what-the-validator-checks" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Skill directory structure</strong> — each of the 5 skills has a <code>SKILL.md</code>, <code>references/TEMPLATE.md</code>, <code>references/EXAMPLE.md</code></li>
-<li><strong>Contract reference</strong> — each <code>SKILL.md</code> contains a link to <code>docs/reference/skill-families/meeting-skills-contract.md</code></li>
-<li><strong>Zero-friction execution section</strong> — each <code>SKILL.md</code> contains a section titled <code>Zero-friction execution</code> (or equivalent <code>Go mode</code>) that reaffirms the behavioral contract</li>
-<li><strong>Template shareable summary / shareable update</strong> — each <code>TEMPLATE.md</code> contains a <code>## Shareable summary</code> section, EXCEPT <code>stakeholder-update</code> which must contain a <code>## Shareable update</code> section instead (v1.1.0 explicit copy boundary; audit notes and sources sit outside the section and must not be shareable). Treating the entire stakeholder-update output as shareable — the v1.0.0 claim — is explicitly rejected.</li>
-<li><strong>Template sources section</strong> — each <code>TEMPLATE.md</code> contains a <code>## Sources &amp; References</code> section with the four required subsections (Primary inputs, Referenced artifacts, External references, Generation context)</li>
-<li><strong>Frontmatter schema shape</strong> — each <code>TEMPLATE.md</code> frontmatter block includes the universal base fields (<code>artifact_type</code>, <code>version</code>, <code>generated_at</code>, <code>generated_by_skill</code>, <code>input_quality</code>, <code>confidence</code>, <code>visibility</code>, <code>status</code>)</li>
-<li><strong>Enum values</strong> — when frontmatter uses <code>meeting_type</code>, <code>attendee role</code>, <code>input_quality</code>, <code>confidence</code>, <code>artifact_type</code>, <code>channel</code>, <code>audience_variant</code>, <code>visibility</code>, or <code>status</code>, the value (if populated) is from the enum defined in this contract</li>
-<li><strong>File naming in examples</strong> — filenames referenced in <code>EXAMPLE.md</code> and sample output match the naming convention above</li>
+<li><strong>Skill directory structure</strong>. each of the 5 skills has a <code>SKILL.md</code>, <code>references/TEMPLATE.md</code>, <code>references/EXAMPLE.md</code></li>
+<li><strong>Contract reference</strong>. each <code>SKILL.md</code> contains a link to <code>docs/reference/skill-families/meeting-skills-contract.md</code></li>
+<li><strong>Zero-friction execution section</strong>. each <code>SKILL.md</code> contains a section titled <code>Zero-friction execution</code> (or equivalent <code>Go mode</code>) that reaffirms the behavioral contract</li>
+<li><strong>Template shareable summary / shareable update</strong>. each <code>TEMPLATE.md</code> contains a <code>## Shareable summary</code> section, EXCEPT <code>stakeholder-update</code> which must contain a <code>## Shareable update</code> section instead (v1.1.0 explicit copy boundary; audit notes and sources sit outside the section and must not be shareable). Treating the entire stakeholder-update output as shareable. the v1.0.0 claim. is explicitly rejected.</li>
+<li><strong>Template sources section</strong>. each <code>TEMPLATE.md</code> contains a <code>## Sources &amp; References</code> section with the four required subsections (Primary inputs, Referenced artifacts, External references, Generation context)</li>
+<li><strong>Frontmatter schema shape</strong>. each <code>TEMPLATE.md</code> frontmatter block includes the universal base fields (<code>artifact_type</code>, <code>version</code>, <code>generated_at</code>, <code>generated_by_skill</code>, <code>input_quality</code>, <code>confidence</code>, <code>visibility</code>, <code>status</code>)</li>
+<li><strong>Enum values</strong>. when frontmatter uses <code>meeting_type</code>, <code>attendee role</code>, <code>input_quality</code>, <code>confidence</code>, <code>artifact_type</code>, <code>channel</code>, <code>audience_variant</code>, <code>visibility</code>, or <code>status</code>, the value (if populated) is from the enum defined in this contract</li>
+<li><strong>File naming in examples</strong>. filenames referenced in <code>EXAMPLE.md</code> and sample output match the naming convention above</li>
 </ol>
 <h3 id="what-the-validator-does-not-check">What the validator does NOT check<a class="headerlink" href="#what-the-validator-does-not-check" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Field population (values may be null/absent — skills infer)</li>
+<li>Field population (values may be null/absent. skills infer)</li>
 <li>Inference confidence thresholds</li>
 <li>Coverage of every enum value in examples</li>
 <li>Semantic correctness of content</li>
@@ -3075,12 +3075,12 @@
 <tr>
 <td>2026-04-17</td>
 <td>1.1.0</td>
-<td>Resolution pass from Codex adversarial review (see <code>docs/internal/release-plans/v2.11.0/plan_v2.11_codex-review.md</code>). Changes: (1) <code>artifact_type</code> enum corrected from bare names to prefixed names (matches implementation); (2) stakeholder-update filename pattern adds <code>-{channel}-{audience}</code> variant suffix to prevent collisions; (3) slug normalization rules added (ASCII, 60-char max, collision suffixes); (4) timezone DST note added; (5) load-bearing inference gates added (stakeholder positions, primary CTA, decision-maker attribution require <code>⚠</code> flag when confidence &lt;high); (6) meeting-duration default is now type-specific (30 min is fallback, not universal); (7) anti-meeting check now requires a positive synchronous-value statement (prevents bypass by staying at 5 attendees); (8) recap adds <code>meeting_type_source</code> and <code>unassigned_action_ratio</code> frontmatter fields; (9) meeting-type enum expanded with <code>incident-postmortem</code>, <code>customer-call</code>, <code>training-workshop</code>, <code>business-review</code>; (10) stakeholder-update shareable boundary made explicit via <code>## Shareable update</code> section. No breaking changes — all v1.0.0 valid artifacts remain valid; new behavior is additive.</td>
+<td>Resolution pass from Codex adversarial review (see <code>docs/internal/release-plans/v2.11.0/plan_v2.11_codex-review.md</code>). Changes: (1) <code>artifact_type</code> enum corrected from bare names to prefixed names (matches implementation); (2) stakeholder-update filename pattern adds <code>-{channel}-{audience}</code> variant suffix to prevent collisions; (3) slug normalization rules added (ASCII, 60-char max, collision suffixes); (4) timezone DST note added; (5) load-bearing inference gates added (stakeholder positions, primary CTA, decision-maker attribution require <code>⚠</code> flag when confidence &lt;high); (6) meeting-duration default is now type-specific (30 min is fallback, not universal); (7) anti-meeting check now requires a positive synchronous-value statement (prevents bypass by staying at 5 attendees); (8) recap adds <code>meeting_type_source</code> and <code>unassigned_action_ratio</code> frontmatter fields; (9) meeting-type enum expanded with <code>incident-postmortem</code>, <code>customer-call</code>, <code>training-workshop</code>, <code>business-review</code>; (10) stakeholder-update shareable boundary made explicit via <code>## Shareable update</code> section. No breaking changes. all v1.0.0 valid artifacts remain valid; new behavior is additive.</td>
 </tr>
 <tr>
 <td>2026-04-18</td>
 <td>1.1.0 (errata)</td>
-<td>Second Codex adversarial review resolution. Non-breaking clarifications: (a) corrected go-mode default-flow example duration to reflect type-specific table (was 30 min, now 45 min for decision-making); (b) corrected fully-specified example <code>--type=decision</code> to <code>--type=decision-making</code> matching the enum; &copy; corrected <code>artifact_type</code> inline comment in universal base-fields example from old bare enum names to prefixed names; (d) corrected validator-what-it-checks section to require <code>## Shareable update</code> for stakeholder-update instead of treating whole output as shareable; (e) added explicit end-marker convention for stakeholder-update shareable boundary. No version bump — these are errata within v1.1.0, caught by adversarial review before v2.11.0 release tag.</td>
+<td>Second Codex adversarial review resolution. Non-breaking clarifications: (a) corrected go-mode default-flow example duration to reflect type-specific table (was 30 min, now 45 min for decision-making); (b) corrected fully-specified example <code>--type=decision</code> to <code>--type=decision-making</code> matching the enum; &copy; corrected <code>artifact_type</code> inline comment in universal base-fields example from old bare enum names to prefixed names; (d) corrected validator-what-it-checks section to require <code>## Shareable update</code> for stakeholder-update instead of treating whole output as shareable; (e) added explicit end-marker convention for stakeholder-update shareable boundary. No version bump. these are errata within v1.1.0, caught by adversarial review before v2.11.0 release tag.</td>
 </tr>
 </tbody>
 </table>
@@ -3106,7 +3106,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 18, 2026 16:23:54 UTC"><span class="timeago" datetime="2026-04-18T16:23:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 18, 2026 16:23:54 UTC">2026-04-18</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
   </span>
 
     
