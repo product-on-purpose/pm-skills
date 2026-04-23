@@ -1,6 +1,6 @@
 ---
 title: "foundation-meeting-recap"
-description: "Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available; reconciles planned vs. actual topics. Accepts transcripts from any tool, notes, or hybrid inputs."
+description: "Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking."
 tags:
   - Foundation
   - meeting
@@ -11,58 +11,595 @@ tags:
 !!! info "Quick facts"
     **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 
-**Try it:** `/meeting-recap @transcript.txt`
+**Try it:** `/meeting-recap "Your context here"`
 { .md-button }
 
 # Meeting Recap
 
-A meeting recap is a post-meeting topic-segmented summary produced for attendees and light distribution. It organizes content by topic rather than chronology, highlights decisions visually, and captures actions inline (with owner, due date, dependencies) per topic segment, plus a consolidated actions view at the end.
+A meeting recap is a post-meeting topic-segmented summary produced for attendees and light distribution. It organizes content by topic rather than chronology, highlights decisions visually, and captures actions inline (with owner, due date, dependencies) per topic segment, plus a consolidated actions view at the end for scannability.
 
-This skill absorbs what would otherwise be a separate "meeting-actions" skill. Actions in this family live alongside the context that makes them meaningful.
+This skill absorbs what would otherwise be a separate "meeting-actions" skill. Actions in this family live alongside the context that makes them meaningful, not in a sibling artifact.
 
-This skill belongs to the [Meeting Skills Family](../../reference/skill-families/meeting-skills-contract.md).
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
 - After any internal meeting that produces decisions or actions affecting attendees
-- When a sibling `/meeting-agenda` exists and needs reconciliation
-- When inputs include a transcript or mixed notes and transcript
+- When a sibling `/meeting-agenda` exists and needs reconciliation (planned vs. actual topics)
+- When the team needs a topic-organized reference rather than a chronological transcript dump
+- When inputs include a transcript (Zoom, Meet, Otter, Fireflies, Krisp MCP) or mixed notes and transcript
 
 ## When NOT to Use
 
-- Communicating outcomes to non-attendees. Use `/stakeholder-update` instead.
-- Cross-meeting synthesis. Use `/meeting-synthesize`.
-- Live note-taking. This skill consumes finished inputs.
+- Communicating outcomes to non-attendees. Use `/stakeholder-update`. recap assumes reader context; stakeholder-update translates to readers without it.
+- Cross-meeting synthesis (patterns across multiple meetings). Use `/meeting-synthesize`.
+- Live meeting note-taking. This skill consumes finished inputs; it does not transcribe live.
 
 ## How to Use
 
+Use the `/meeting-recap` slash command:
+
 ```
-/meeting-recap @transcript.txt
-/meeting-recap @transcript.txt @live-notes.md
+/meeting-recap "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-meeting-recap/SKILL.md`
 
-## Key features
-
-- **Zero-friction execution**: reads inputs, auto-discovers sibling agenda, runs inference, presents brief summary, accepts `go` or corrections.
-- **Agenda auto-discovery**: filename-prefix match on same-directory `*_{title}_agenda.md` loads topic skeleton and desired-outcomes.
-- **Fabrication prohibition**: never invents owners or dates. Missing info is flagged as `[owner: unassigned]` or `[due: not specified]`.
-- **Decision visual emphasis**: decisions are bold-flagged within topic segments. Inferred decisions carry confidence markers.
-- **Consolidated actions by owner**: regrouped at the end for single-owner scannability.
-- **Agenda reconciliation**: planned vs. hit vs. skipped vs. emerged, reported explicitly.
-- **Meeting quality signals**: outcomes-achieved ratio, start/end-on-time, key attendee presence.
-
 ## Instructions
 
-Full instructions in `skills/foundation-meeting-recap/SKILL.md`. See also:
+When asked to create a meeting recap, follow these steps:
 
-- [Skill template](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-recap/references/TEMPLATE.md)
-- [Worked example](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-recap/references/EXAMPLE.md)
-- [Sample outputs](https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-meeting-recap)
+1. **Parse inputs and detect type**
+   Transcript (timestamped speaker-attributed lines), notes (bullet or prose), or hybrid. Note input quality upfront. transcript plus structured notes is high; scrappy bullets is low.
 
-## Related skills
+2. **Auto-discover related agenda**
+   Look in the same directory for a file matching the pattern `{YYYY-MM-DD}_{HH-MMtimezone}_{title-slug}_agenda.md`. If found, load it. its topic list is the recap's topic skeleton and its `desired_outcomes` drive the meeting-quality reconciliation.
 
-- [`/meeting-agenda`](foundation-meeting-agenda.md). upstream: provides topic skeleton
-- [`/meeting-synthesize`](foundation-meeting-synthesize.md). downstream: consumes recaps
-- [`/stakeholder-update`](foundation-stakeholder-update.md). downstream: translates recap outcomes
+3. **Present go-mode inference summary**
+   Show detected meeting date, title, attendees (if inferred), input quality assessment. Accept `go` or corrections.
+
+4. **Topic-segment the content**
+   - If agenda was loaded, use its topic list as scaffold (plus any emergent topics)
+   - If no agenda, identify topics from transcript discourse markers ("moving on to", "the other thing")
+
+5. **Per topic segment, extract**
+   - **Discussion summary**: 2-3 sentences capturing what was discussed
+   - **Decisions made**: bold-flagged visually. Never fabricate. if uncertain, flag "appears to have decided X [confidence: medium]"
+   - **Actions**: owner + due date + dependencies. Flag missing owners as `[owner: unassigned]` and missing dates as `[due: not specified]`. Never invent.
+   - **Open questions**: unresolved items with confidence marker on whether they are truly unresolved or simply not re-raised
+
+6. **Consolidate actions by owner**
+   Regroup all actions under each owner. Enables single-owner scan ("what do I owe after this meeting?").
+
+7. **Reconcile agenda** (if agenda loaded)
+   - `topics_planned`: from agenda topic list
+   - `topics_hit`: topics actually discussed
+   - `topics_skipped`: planned but not discussed, with brief reason
+   - `topics_emerged`: discussed but not on agenda
+
+8. **Assess meeting quality signals**
+   - `outcomes_achieved`: N/M ratio of agenda `desired_outcomes` met (when agenda present)
+   - `started_on_time` / `ended_on_time`: from timestamps when available; skipped when not
+   - `key_attendees_present`: flag if decision-makers were absent
+
+9. **Surface next steps**
+   When we reconvene, what needs to happen on the critical path before that.
+
+10. **Render TEMPLATE.md and validate**
+    - Every action's owner appears in `attendees` or is explicitly `unassigned`
+    - `meeting_quality.outcomes_achieved` matches `N/M` pattern when populated
+    - `agenda_reconciliation` fields present even when empty lists
+
+## Output Template
+
+# Meeting recap: {{Meeting title}}
+
+## Shareable summary
+
+> [guidance (v1.1.0 errata): 3-5 short lines, no mini-headers, Slack/email copy-safe. Lead with outcome, inline key decisions, inline top actions. Plain prose + simple bullets only. no nested markdown.]
+
+**{{Meeting title}}** | {{Date}}
+{{1-sentence accomplishment summary, optionally naming 1-2 key decisions inline.}}
+Top actions: {{Owner 1}}: {{action}} ({{due}}); {{Owner 2}}: {{action}} ({{due}}); {{Owner 3}}: {{action}} ({{due}}).
+{{if unassigned_action_ratio > 0.3 or any high-priority action unassigned:}} ⚠ {{N}} of {{M}} actions need owners. see Ownership reconciliation section.
+Full recap linked below.
+
+---
+
+## Full recap
+
+### Meeting details
+
+- **Date**: {{Date}}
+- **Actual duration**: {{Duration}} min
+- **Attendees present**: {{Names}}
+- **Attendees absent**: {{Names or "none"}}
+- **Recording**: {{Link or "none"}}
+
+### Overall summary
+
+> [guidance: 2-3 sentences capturing what this meeting accomplished in plain language]
+
+{{Summary text}}
+
+### Agenda reconciliation
+
+> [guidance: explicit report of what was planned vs. what actually happened. If no agenda existed, note "no prior agenda loaded"]
+
+- **Planned topics**: {{list or "no agenda"}}
+- **Topics addressed**: {{list}} ({{N}} of {{M}})
+- **Topics skipped**: {{list or "none"}}. {{brief reason per skip}}
+- **Topics that emerged**: {{list or "none"}}. {{brief context}}
+
+### Topics
+
+#### {{Topic 1}}
+
+*Type: {{Discussion | Decision | Information | Working}} (from agenda, if available)*
+
+**Discussion**
+
+{{Summary of what was discussed}}
+
+**Decisions made**
+
+- **{{Decision 1}}**. {{brief rationale}}
+- **{{Decision 2}}**. {{brief rationale}} [confidence: {{level}} if inferred]
+
+**Actions**
+
+- [ ] {{Owner}}: {{Action}} | Due: {{Date or "not specified"}} | Dependencies: {{any or "none"}}
+- [ ] {{Owner or "unassigned"}}: {{Action}} | Due: {{Date or "not specified"}}
+
+**Open questions**
+
+- {{Unresolved question}} [confidence: {{level}}]
+
+---
+
+#### {{Topic 2}}
+
+> [guidance: repeat structure]
+
+---
+
+### All actions (consolidated by owner)
+
+#### {{Owner 1}}
+
+- [ ] {{Action}} | Due: {{Date}} | Topic: {{Topic}}
+- [ ] {{Action}} | Due: {{Date}} | Topic: {{Topic}}
+
+#### {{Owner 2}}
+
+- [ ] {{Action}} | Due: {{Date}} | Topic: {{Topic}}
+
+#### Unassigned
+
+- [ ] {{Action}} | Topic: {{Topic}} | **Needs owner**
+
+### Meeting quality signals
+
+> [guidance: lightweight signals supporting downstream retrospective use]
+
+- **Outcomes achieved**: {{N of M or "no agenda outcomes to reconcile"}}
+- **Time management**: {{brief note on start/end and pacing}}
+- **Key attendee presence**: {{brief note on who was needed and whether they were there}}
+
+### Next steps
+
+- **When we reconvene**: {{Date or cadence}}
+- **What needs to happen first**: {{Critical path items}}
+
+---
+
+## Sources & References
+
+### Primary inputs
+
+- {{Source type}}: {{Source name}} (e.g., "transcript via Otter, 48 minutes")
+- {{Source type}}: {{Source name}} (e.g., "user live notes")
+
+### Referenced artifacts
+
+- Agenda: {{filename or "none loaded"}}. {{if loaded, note: used for topic skeleton and desired-outcomes reconciliation}}
+- Brief: {{filename if applicable}}
+- Prior recaps on this topic: {{filenames or "none"}}
+
+### External references
+
+- {{Links mentioned in meeting}}
+
+### Generation context
+
+- **Generated**: {{Timestamp}}
+- **Skill version**: 1.0.0
+- **Input quality**: {{high | medium | low}}. {{rationale}}
+- **Overall confidence**: {{high | medium | low}}. {{rationale}}
+- **Known gaps**: {{list of topics with insufficient detail, or "None identified"}}
+- **Inferences applied**: {{list of inferred values with confidence, e.g., "decision on X inferred from 'let's go with X' [confidence: medium]"}}
+- **Fabrication check**: {{"all action owners appear in attendees list or are explicitly unassigned" | or list of failures}}
+
+## Example Output
+
+??? example "Meeting recap: Search Feature Kickoff"
+    # Meeting recap: Search Feature Kickoff
+
+    ## Shareable summary
+
+    **Search Feature Kickoff** | 2026-04-17
+    Scope and capacity agreed; timeline deferred to a follow-up next week due to emergent vendor-contract question on the search provider.
+
+    **Key decisions**:
+    - MVP scope: autocomplete + filters IN; saved searches OUT (defer to v2)
+    - Q2 eng capacity: 8 sprint-weeks committed; alex owns staffing plan
+
+    **Top actions**:
+    - alex: publish sprint-week staffing plan (Due: 2026-04-24)
+    - maria: investigate vendor contract constraints on search provider (Due: 2026-04-22)
+    - jonathan: schedule follow-up for timeline commitment after vendor answer (Due: 2026-04-25)
+
+    **Full recap below**
+
+    ---
+
+    ## Full recap
+
+    ### Meeting details
+
+    - **Date**: 2026-04-17
+    - **Actual duration**: 68 min (overran by 8 min)
+    - **Attendees present**: jonathan, maria, alex, sarah
+    - **Attendees absent**: none
+    - **Recording**: https://meet.example/search-kickoff/recording
+
+    ### Overall summary
+
+    Agreed on MVP scope (autocomplete + filters in; saved searches deferred) and Q2 engineering capacity (8 sprint-weeks). Timeline commitment deferred to next week because an emergent question on the search-provider vendor contract needs resolution before a date can be committed. Meeting ran 8 minutes over due to the vendor-contract tangent.
+
+    ### Agenda reconciliation
+
+    - **Planned topics**: scope, capacity, timeline, next-steps
+    - **Topics addressed**: scope, capacity (2 of 4)
+    - **Topics skipped**: timeline. deferred because vendor contract question blocks commitment; next-steps. absorbed into emergent vendor-contract discussion
+    - **Topics that emerged**: vendor-contract-review. alex raised a prior email from the search-provider indicating potential licensing limits on usage; needs investigation before timeline is committable
+
+    ### Topics
+
+    #### Scope
+
+    *Type: Decision (from agenda)*
+
+    **Discussion**
+
+    Walked the scope draft together. Autocomplete and filters had clear customer-research backing; saved searches was the contested line. Agreed that saved searches solves a narrower user need and can be deferred without losing the MVP value prop.
+
+    **Decisions made**
+
+    - **MVP scope: autocomplete IN, filters IN, saved searches OUT (defer to v2)**. rationale: autocomplete + filters cover 80% of the research-identified user need; saved searches adds complexity (accounts, persistence) that costs Q2 engineering time without proportional customer-value gain
+
+    **Actions**
+
+    - [ ] maria: update scope doc to reflect decision; circulate for final sign-off by EOD Friday | Due: 2026-04-18 | Dependencies: none
+    - [ ] jonathan: add saved-searches to v2 backlog with rationale link | Due: 2026-04-18
+
+    **Open questions**
+
+    - None on scope itself; vendor contract issue (see below) may force scope reconsideration if licensing blocks autocomplete
+
+    ---
+
+    #### Capacity
+
+    *Type: Decision (from agenda)*
+
+    **Discussion**
+
+    Alex walked the Q2 capacity model. 8 sprint-weeks available for search; no backfill needed if scope holds. Flagged that saved-searches would have required 3 additional sprint-weeks, reinforcing the scope decision.
+
+    **Decisions made**
+
+    - **Q2 engineering capacity: 8 sprint-weeks committed to search feature**. rationale: fits within scope agreed in prior topic; no backfill required
+
+    **Actions**
+
+    - [ ] alex: publish detailed sprint-week staffing plan (who, which sprint) | Due: 2026-04-24
+    - [ ] alex: flag dependencies on design-system team if any emerge | Due: 2026-04-24
+
+    **Open questions**
+
+    - None
+
+    ---
+
+    #### Vendor-contract-review (emergent)
+
+    *Type: Discussion (emergent. not on agenda)*
+
+    **Discussion**
+
+    Alex surfaced a prior email from the search-provider (Algolia) indicating possible licensing limits on query volume at our projected usage. Raised concern that if limits trigger, we could be forced to renegotiate or re-architect. Decision was to investigate before committing to a ship timeline.
+
+    **Decisions made**
+
+    - **Defer timeline commitment until vendor contract is reviewed** [confidence: high]. rationale: committing a date before vendor-licensing risk is known would create rework
+
+    **Actions**
+
+    - [ ] maria: investigate vendor contract constraints (read licensing terms; query legal if needed) | Due: 2026-04-22 | Dependencies: legal review if terms are ambiguous
+    - [ ] jonathan: schedule 30-min follow-up for the week of 2026-04-21 once maria has vendor answer | Due: 2026-04-25
+
+    **Open questions**
+
+    - Does vendor licensing support our projected Q2 query volume? [confidence: high. specific question]
+    - If limits apply, are they negotiable or hard? [confidence: medium. depends on legal review]
+
+    ---
+
+    ### All actions (consolidated by owner)
+
+    #### maria
+
+    - [ ] Update scope doc to reflect decision; circulate for final sign-off | Due: 2026-04-18 | Topic: scope
+    - [ ] Investigate vendor contract constraints (licensing limits on query volume) | Due: 2026-04-22 | Topic: vendor-contract-review
+
+    #### alex
+
+    - [ ] Publish detailed sprint-week staffing plan | Due: 2026-04-24 | Topic: capacity
+    - [ ] Flag dependencies on design-system team if any emerge | Due: 2026-04-24 | Topic: capacity
+
+    #### jonathan
+
+    - [ ] Add saved-searches to v2 backlog with rationale link | Due: 2026-04-18 | Topic: scope
+    - [ ] Schedule 30-min follow-up for week of 2026-04-21 once vendor answer is in | Due: 2026-04-25 | Topic: vendor-contract-review
+
+    ### Meeting quality signals
+
+    - **Outcomes achieved**: 2 of 3 stated outcomes met (scope, capacity; ship-date deferred pending vendor review)
+    - **Time management**: Started on time; ended 8 min over due to emergent vendor-contract discussion
+    - **Key attendee presence**: All attendees present; decision-maker (jonathan) engaged throughout
+
+    ### Next steps
+
+    - **When we reconvene**: week of 2026-04-21 (30 min, narrow focus: vendor answer + timeline commitment)
+    - **What needs to happen first**: maria completes vendor contract investigation
+
+    ---
+
+    ## Sources & References
+
+    ### Primary inputs
+
+    - Transcript: zoom-recording-2026-04-17 via Otter (68 min, speaker-attributed)
+    - jonathan's live notes (supplementary, used for context where transcript was ambiguous on speaker attribution)
+
+    ### Referenced artifacts
+
+    - Agenda: 2026-04-17_14-00EST_search-feature-kickoff_agenda.md. used for topic skeleton and desired-outcomes reconciliation
+    - Brief: 2026-04-17_14-00EST_search-feature-kickoff_brief.md (consulted for stakeholder context)
+    - Prior recaps on this topic: none (this is a kickoff)
+
+    ### External references
+
+    - [Scope draft](https://notion.example/search-scope)
+    - [Capacity model](https://sheets.example/q2-capacity)
+    - [Algolia licensing email (internal)](https://email.internal/algolia-licensing-2026-03-15)
+
+    ### Generation context
+
+    - **Generated**: 2026-04-18T09:15:00Z
+    - **Skill version**: 1.0.0
+    - **Input quality**: high. transcript plus live notes; all speakers identifiable
+    - **Overall confidence**: high. decisions, actions, owners, dates all directly supported in transcript
+    - **Known gaps**: None identified
+    - **Inferences applied**: topic "vendor-contract-review" emerged during meeting and was not in agenda; labeled as emergent [confidence: high. explicit in transcript]
+    - **Fabrication check**: all action owners (maria, alex, jonathan) appear in attendees list; no unassigned actions
+
+## Real-World Examples
+
+See this skill applied to three different product contexts:
+
+??? example "Storevine (B2B): campaigns-pricing-decision"
+    **Prompt:**
+
+    ```
+    /meeting-recap @campaigns-pricing-decision-transcript.txt @jonathan-live-notes.md
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-recap
+    version: 1.0
+    generated_at: 2026-04-24T19:30:00Z
+    generated_by_skill: foundation-meeting-recap
+
+    meeting_title: "Campaigns Pricing Decision"
+    meeting_date: 2026-04-24
+    meeting_start_time: "13:00 EST"
+    meeting_type: decision-making
+
+    project: campaigns
+    topics:
+      - tier-structure
+      - grandfathering
+      - rollout-date
+
+    attendees:
+      - name: jonathan-pm
+        role: decision-maker
+      - name: maria-eng
+        role: contributor
+      - name: alex-marketing
+        role: contributor
+      - name: sam-data
+        role: contributor
+    attendees_absent: []
+
+    related_agenda: 2026-04-24_13-00EST_campaigns-pricing-decision_agenda.md
+    related_brief: null
+
+    agenda_reconciliation:
+      topics_planned: [tier-structure, grandfathering, rollout-date]
+      topics_hit: [tier-structure, grandfathering, rollout-date]
+      topics_skipped: []
+      topics_emerged: [comms-plan-ownership]
+
+    meeting_quality:
+      outcomes_achieved: "3/3"
+      started_on_time: true
+      ended_on_time: false
+      key_attendees_present: true
+
+    meeting_type_source: explicit
+    unassigned_action_ratio: 0.0
+
+    input_quality: high
+    confidence: high
+    visibility: team
+    status: draft
+    ---
+
+    # Meeting recap: Campaigns Pricing Decision
+
+??? example "Brainshelf (Consumer): resurface-scope-cut"
+    **Prompt:**
+
+    ```
+    /meeting-recap @priya-notes.md
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-recap
+    version: 1.0
+    generated_at: 2026-04-15T21:45:00Z
+    generated_by_skill: foundation-meeting-recap
+
+    meeting_title: "Resurface Sprint Scope Cut"
+    meeting_date: 2026-04-15
+    meeting_start_time: "13:00 PT"
+    meeting_type: decision-making
+
+    project: resurface
+    topics:
+      - scope-cut-decision
+      - kept-scope-confirmation
+
+    attendees:
+      - name: priya-pm
+        role: decision-maker
+      - name: elena-algo
+        role: contributor
+      - name: mia-design
+        role: contributor
+    attendees_absent: []
+
+    related_agenda: null
+    related_brief: null
+
+    agenda_reconciliation:
+      topics_planned: []
+      topics_hit: [scope-cut-decision, kept-scope-confirmation]
+      topics_skipped: []
+      topics_emerged: []
+
+    meeting_quality:
+      outcomes_achieved: "no agenda outcomes to reconcile"
+      started_on_time: null
+      ended_on_time: null
+      key_attendees_present: true
+
+    meeting_type_source: inferred
+    unassigned_action_ratio: 0.0
+
+    input_quality: medium
+    confidence: medium
+    visibility: team
+    status: draft
+    ---
+
+    # Meeting recap: Resurface Sprint Scope Cut
+
+??? example "Workbench (Enterprise): blueprints-customer-feedback"
+    **Prompt:**
+
+    ```
+    /meeting-recap @zoom-transcript.txt @anna-customer-feedback-notes.md
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-recap
+    version: 1.0
+    generated_at: 2026-04-25T19:30:00Z
+    generated_by_skill: foundation-meeting-recap
+
+    meeting_title: "Blueprints v1.1 Customer Feedback Review"
+    meeting_date: 2026-04-25
+    meeting_start_time: "13:00 EST"
+    meeting_type: stakeholder-review
+
+    project: blueprints
+    topics:
+      - design-walkthrough
+      - customer-feedback-themes
+      - must-fix-items
+      - nice-to-have-items
+
+    attendees:
+      - name: david-pm
+        role: decision-maker
+      - name: sasha-designer
+        role: contributor
+      - name: linda-compliance
+        role: contributor
+      - name: raj-eng
+        role: contributor
+      - name: anna-cs
+        role: contributor
+    attendees_absent: []
+
+    related_agenda: 2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_agenda.md
+    related_brief: null
+
+    agenda_reconciliation:
+      topics_planned: [design-walkthrough, customer-feedback-themes, must-fix-items, nice-to-have-items]
+      topics_hit: [design-walkthrough, customer-feedback-themes, must-fix-items, nice-to-have-items]
+      topics_skipped: []
+      topics_emerged: []
+
+    meeting_quality:
+      outcomes_achieved: "3/3"
+      started_on_time: true
+      ended_on_time: true
+      key_attendees_present: true
+
+    meeting_type_source: explicit
+    unassigned_action_ratio: 0.0
+
+    input_quality: high
+    confidence: high
+    visibility: team
+    status: draft
+    ---
+
+    # Meeting recap: Blueprints v1.1 Customer Feedback Review
+
+## Quality Checklist
+
+- [ ] Input quality flagged honestly (high / medium / low)
+- [ ] Agenda auto-discovery attempted; result noted in Generation context
+- [ ] Every topic segment has Discussion / Decisions / Actions / Open questions subsections
+- [ ] Decisions are bold-flagged; never invented; confidence marked when inferred
+- [ ] Every action has owner (or explicit `unassigned`) + due date (or explicit `not specified`)
+- [ ] Consolidated actions view regrouped by owner
+- [ ] Agenda reconciliation populated when agenda was loaded
+- [ ] Meeting quality signals populated with data available; skipped fields flagged
+- [ ] Shareable summary 5-6 lines, lead with decisions and top actions
+- [ ] Sources and References Generation context notes transcript source and any missing owners/dates

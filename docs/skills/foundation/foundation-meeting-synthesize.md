@@ -1,6 +1,6 @@
 ---
 title: "foundation-meeting-synthesize"
-description: "Cross-meeting archaeology skill. Consumes multiple meeting recaps over a period and surfaces patterns invisible in any single meeting: how decisions evolved, who said what, where threads are stalling, where contradictions have emerged. Produces a plain-text timeline, themes, stakeholder position tracking, contradiction flags, and prioritized follow-ups."
+description: "Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes) over a period and surfaces patterns invisible in any single meeting. Shows how decisions evolved, who has been saying what, where threads are stalling, and where contradictions have emerged. Produces a plain-text timeline, themes with confidence markers, stakeholder position tracking, consolidated decision list, contradiction flags, open items, narrative summary, and prioritized follow-ups."
 tags:
   - Foundation
   - meeting
@@ -9,18 +9,18 @@ tags:
 # <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 !!! info "Quick facts"
-    **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
+    **Classification:** Foundation | **Version:** 1.0.1 | **Category:** meeting | **License:** Apache-2.0
 
-**Try it:** `/meeting-synthesize @recap1.md @recap2.md @recap3.md`
+**Try it:** `/meeting-synthesize "Your context here"`
 { .md-button }
 
 # Meeting Synthesize
 
 Meeting synthesis is the archaeology skill for multi-meeting initiatives. It consumes a set of meeting recaps (and optionally raw notes) over a period, and surfaces patterns that no single meeting reveals: how decisions evolved, how stakeholder positions shifted, where threads are stalling, where contradictions have emerged.
 
-Distinct from `/discover-interview-synthesis`: that skill works on user-research conversations with research-specific frameworks. This skill works on internal org meetings with org-specific patterns.
+Distinct from `/discover-interview-synthesis`: that skill works on user-research conversations with research-specific frameworks (jobs-to-be-done, buying insights). This skill works on internal org meetings with org-specific patterns (stakeholder alignment, decision evolution, project history).
 
-This skill belongs to the [Meeting Skills Family](../../reference/skill-families/meeting-skills-contract.md).
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
@@ -29,6 +29,7 @@ This skill belongs to the [Meeting Skills Family](../../reference/skill-families
 - Project retrospective input (the story of how we got here)
 - Investigating why a multi-meeting initiative has stalled
 - Quarterly review of a topic that has crossed many meetings
+- Surfacing contradictions that no single-meeting reviewer caught
 
 ## When NOT to Use
 
@@ -38,33 +39,595 @@ This skill belongs to the [Meeting Skills Family](../../reference/skill-families
 
 ## How to Use
 
+Use the `/meeting-synthesize` slash command:
+
 ```
-/meeting-synthesize @recap1.md @recap2.md @recap3.md
-/meeting-synthesize --quarter=2026-Q1 @recap*.md
-/meeting-synthesize --format=board-prep @recap*.md
+/meeting-synthesize "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-meeting-synthesize/SKILL.md`
 
-## Key features
-
-- **Zero-friction execution**: loads sources, runs inference on themes and stakeholder evolution, presents brief summary, accepts `go` or corrections
-- **Filters**: time range (`--quarter`, `--range`), topic, stakeholder
-- **Format hints**: `board-prep`, `onboarding`, `retro-input`, `exec-brief` control output presentation
-- **Contradiction flags**: first-class section for decisions or positions in conflict
-- **Stakeholder position tracking**: evolution over time, not just snapshots
-- **Plain-text timeline**: renders everywhere (no binary images)
-- **Confidence markers per theme**: tied to frequency across sources
-
 ## Instructions
 
-Full instructions in `skills/foundation-meeting-synthesize/SKILL.md`. See also:
+When asked to create a meeting synthesis, follow these steps:
 
-- [Skill template](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-synthesize/references/TEMPLATE.md)
-- [Worked example](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-synthesize/references/EXAMPLE.md)
-- [Sample outputs](https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-meeting-synthesize)
+1. **Load sources**
+   Read all provided recap filenames or note files. Parse frontmatter to extract meeting metadata. Note per-source input quality (recap frontmatter's `input_quality` if available; otherwise assess from content).
 
-## Related skills
+   **Metadata source tracking** (v1.1.0): for each recap, also note the `meeting_type_source` field (`explicit | inferred | null`). When synthesizing across mixed sources, the synthesis must document the mix explicitly in the Scope section: "meeting_type values: N explicit, M inferred, K null." This prevents non-reproducible results when filtering by meeting_type across a mix of confidence levels. If filtering by `meeting_type`, state whether the filter includes inferred values and how null values are handled.
 
-- [`/meeting-recap`](foundation-meeting-recap.md). upstream: primary input source
-- [`/discover-interview-synthesis`](../discover/discover-interview-synthesis.md). sibling pattern for user research (different domain)
+2. **Apply filters**
+   If time range, topic, or stakeholder filter provided, narrow the source set before proceeding. Record the filter applied in frontmatter `scope_filter`.
+
+3. **Present go-mode inference summary**
+   Meeting count after filter, time range detected from source metadata, per-source input quality levels, scope filter description.
+
+4. **Build the plain-text timeline**
+   Chronological order by `meeting_date`. Each entry shows date, meeting name, key decision or shift, and confidence or contradiction flag if applicable. Render as markdown (no binary images. must render everywhere).
+
+5. **Extract themes**
+   Cluster recurring topics across sources. For each theme, record description, sources where it appeared, and confidence marker tied to frequency ("appears in 5/5 meetings" → high; "appears in 2/5 meetings" → medium; "mentioned in 1 meeting" → low).
+
+6. **Track stakeholder positions**
+   For each named stakeholder across sources, record initial position → current position, alignment state (aligned / divergent / shifting), and key statements with dates. Flag confidence on each position based on whether it was direct-quoted or paraphrased.
+
+7. **Consolidate decisions**
+   Cross-meeting, sorted chronologically. Table format: Date | Decision | Context | Meeting | Confidence.
+
+8. **Separate decision evolution from unresolved contradictions** (v1.1.0)
+   Two distinct outputs, not one combined "contradictions" section:
+   - **Decision evolution** (resolved): earlier decision → later decision on the same topic, where the later one supersedes. This is historical context, not a red flag. No `⚠` emphasis.
+   - **Unresolved contradictions**: decisions or positions currently in conflict that need reconciliation. Use `⚠` visual emphasis. For each:
+     - Earlier reference (meeting + date + decision)
+     - Later reference (meeting + date + decision that conflicts)
+     - Status: unresolved / needs reconciliation
+   
+   The distinction matters because v1.0.0 conflated them, creating false-positive "contradictions" in exec contexts where the "contradiction" was actually intentional scope evolution.
+
+9. **Identify open items and stalled threads**
+   Topics surfacing 2+ times without resolution. When they last appeared.
+
+10. **Draft narrative summary**
+    2-3 paragraphs: what happened, what changed, where we are, what is at stake. The "story" of the meeting set.
+
+11. **Prioritize follow-up suggestions**
+    - High: unblocking now; suggested owner or forum
+    - Medium: important but not blocking
+    - Low: monitor
+    Each with rationale.
+
+12. **Apply format hint** (if provided)
+    One process generates the full synthesis data. The hint controls section ordering and truncation for the specific use case:
+    - `board-prep`: lead with narrative + contradictions + prioritized follow-ups; shorter timeline
+    - `onboarding`: lead with narrative + stakeholder tracking; full timeline
+    - `retro-input`: lead with themes + stalled threads + meeting-quality aggregate
+    - `exec-brief`: TL;DR + top 3 items only
+
+13. **Render TEMPLATE.md and validate**
+    - `source_meetings` list is non-empty
+    - `time_range.start` ≤ `time_range.end`
+    - Every theme has a confidence marker
+    - Every contradiction has before/after source citations
+    - At least 1 prioritized follow-up
+
+## Output Template
+
+# Meeting synthesis: {{Topic / initiative / scope}}
+
+## Shareable summary
+
+> [guidance: scope + 2-3 sentence headline takeaway + 3-5 key themes + top open items + top prioritized follow-ups]
+
+**Synthesis scope**: {{Topic}} across {{N}} meetings, {{Date range}}
+
+{{2-3 sentence headline takeaway capturing the arc or state}}
+
+**Key themes**:
+- {{Theme 1}}
+- {{Theme 2}}
+- {{Theme 3}}
+
+**Top open items**:
+- {{Stalled thread 1}}
+- {{Stalled thread 2}}
+
+**Top priority follow-ups**:
+- {{High-priority follow-up 1}}
+- {{High-priority follow-up 2}}
+
+---
+
+## Full synthesis
+
+### Scope
+
+- **Topic or initiative**: {{Name}}
+- **Time range**: {{Start date}} to {{End date}}
+- **Meetings included** ({{N}}):
+  - {{Date}}: {{Meeting name}} ([recap filename]({{path}})) [input quality: {{level}}]
+  - {{Date}}: {{Meeting name}} ([recap filename]({{path}})) [input quality: {{level}}]
+- **Scope filter applied**: {{filter description or "none"}}
+- **Sources used**: {{Recaps / notes / transcripts mix}}
+
+### Timeline
+
+> [guidance: plain-text markdown chronological rendering, no binary images. Each entry: date | event | shift. Flag contradictions and low-confidence items inline.]
+
+```
+{{Date}}  |  {{Meeting / event name}}
+          |  → {{Key decision or shift}}
+          |  {{Optional: confidence or flag}}
+          |
+{{Date}}  |  {{Meeting / event name}}
+          |  → {{Key decision or shift}}
+          |  [!] {{Contradiction flag if applicable}}
+          |
+{{Date}}  |  {{Meeting / event name}}
+          |  → {{Key decision or shift}}
+```
+
+### Themes
+
+#### {{Theme 1}} [confidence: {{level}}. {{rationale, e.g., "appears in 5/5 meetings"}}]
+
+{{Description of the theme and where it appeared}}
+
+- {{Meeting date}}: {{Manifestation}}
+- {{Meeting date}}: {{Manifestation}}
+
+#### {{Theme 2}} [confidence: {{level}}]
+
+{{Description}}
+
+> [guidance: repeat per theme]
+
+### Stakeholder position tracking
+
+**{{Stakeholder 1}}**
+
+- **Position evolution**: {{Initial view → Current view}}
+- **Key statements**:
+  - {{Date}}: "{{paraphrased position}}"
+  - {{Date}}: "{{paraphrased position}}"
+- **Alignment state**: {{aligned with team / divergent / shifting}}
+
+**{{Stakeholder 2}}**
+
+> [guidance: repeat per key stakeholder]
+
+### Consolidated decision list
+
+> [guidance: decisions from across all meetings in scope, chronological, with source citations]
+
+| Date | Decision | Context | Meeting | Confidence |
+|------|----------|---------|---------|------------|
+| {{Date}} | {{Decision}} | {{Brief context}} | {{Meeting name}} | {{level}} |
+
+### Decision evolution (resolved)
+
+> [v1.1.0. split from contradictions. Decision evolution captures supersedes-chains: later decisions that replaced earlier ones. Historical context. NO [!] visual emphasis. this is expected, not a red flag.]
+
+**{{Topic 1}}**
+
+- **{{Earlier date}}** ({{Meeting}}): {{Earlier decision}}
+- **{{Later date}}** ({{Meeting}}): {{Later decision supersedes earlier}}
+- **Context**: {{why the shift. new evidence, stakeholder input, reality-check}}
+
+### Unresolved contradictions (⚠)
+
+> [guidance: the highest-value archaeology output. decisions or positions CURRENTLY in conflict that need reconciliation. Reserve [!] emphasis for this section only. If no live contradictions, state "No live unresolved contradictions as of {{date}}."]
+
+**[!] {{Contradiction 1}}**
+
+- **{{Date}}** ({{Meeting}}): {{Earlier decision or position}}
+- **{{Date}}** ({{Meeting}}): {{Later decision or position that conflicts}}
+- **Status**: unresolved. needs reconciliation
+
+**[!] {{Contradiction 2}}**
+
+> [guidance: repeat structure for unresolved cases only]
+
+### Open items and stalled threads
+
+- **{{Open item 1}}**: {{Why it is stuck, when it last surfaced, last meeting to touch it}}
+- **{{Open item 2}}**: {{Why it is stuck, when it last surfaced}}
+
+### Narrative summary
+
+> [guidance: the "story" of this meeting set in 2-3 paragraphs. what happened, what changed, where we are, what is at stake. Prose, not bullets.]
+
+{{Paragraph 1}}
+
+{{Paragraph 2}}
+
+{{Paragraph 3}}
+
+### Prioritized follow-up suggestions
+
+> [guidance: the "now what". actionable next steps ranked by priority]
+
+**[High priority]**
+
+- {{Follow-up 1}}: {{Why this matters now, suggested owner or forum}}
+- {{Follow-up 2}}: {{Why this matters now}}
+
+**[Medium priority]**
+
+- {{Follow-up 3}}: {{Rationale}}
+- {{Follow-up 4}}: {{Rationale}}
+
+**[Lower priority / monitor]**
+
+- {{Follow-up 5}}: {{Rationale}}
+
+---
+
+## Sources & References
+
+### Primary inputs (source meetings)
+
+- {{recap-filename-1.md}} ({{date}}). input quality: {{level}}
+- {{recap-filename-2.md}} ({{date}}). input quality: {{level}}
+- {{recap-filename-3.md}} ({{date}}). input quality: {{level}}
+
+### Referenced artifacts
+
+- Prior syntheses on this topic: {{filenames or "none"}}
+- Related project briefs: {{filenames or "none"}}
+
+### External references
+
+- {{Docs cited across the meeting set}}
+
+### Generation context
+
+- **Generated**: {{Timestamp}}
+- **Skill version**: 1.0.0
+- **Input quality**: {{weighted average across sources}}. {{rationale}}
+- **Overall confidence**: {{level}}. {{rationale}}
+- **Known gaps**: {{topics or time periods with thin coverage}}
+- **Scope filter**: {{as applied, or "none"}}
+- **Format hint**: {{default | board-prep | onboarding | retro-input | exec-brief}}
+
+## Example Output
+
+??? example "Meeting synthesis: Search Feature (Q1 2026)"
+    # Meeting synthesis: Search Feature (Q1 2026)
+
+    ## Shareable summary
+
+    **Synthesis scope**: Search feature across 5 meetings, 2026-01-15 to 2026-03-31
+
+    Q1 converged on a scope-and-capacity decision (autocomplete + filters; 8 sprint-weeks for Q2) but surfaced a late-breaking vendor-licensing concern that now blocks a ship-date commitment. Stakeholder positions evolved from skeptical-of-scope to aligned-on-scope; the vendor question is the one unresolved thread.
+
+    **Key themes**:
+    - Scope discipline held across 3 scope-test moments (autocomplete + filters consistently in; saved searches consistently out)
+    - Engineering capacity concern resolved via explicit model (alex's capacity model emerged in Feb; referenced in all subsequent meetings)
+    - Vendor-licensing risk emerged late (Mar 26); not present in earlier meetings
+
+    **Top open items**:
+    - Algolia licensing terms review (maria): blocks Q2 ship-date commitment
+
+    **Top priority follow-ups**:
+    - [High] Schedule vendor-licensing resolution meeting within 2 weeks; currently blocks timeline
+    - [High] Document the capacity model as reusable artifact; referenced 4 times across the 5 meetings
+
+    ---
+
+    ## Full synthesis
+
+    ### Scope
+
+    - **Topic or initiative**: Search feature for Q2 2026 ship
+    - **Time range**: 2026-01-15 to 2026-03-31
+    - **Meetings included** (5):
+      - 2026-01-15: Search Scope Kickoff (2026-01-15_14-00EST_search-scope-kickoff_recap.md) [input quality: high]
+      - 2026-02-05: Search Scope Review (2026-02-05_14-00EST_search-scope-review_recap.md) [input quality: high]
+      - 2026-02-19: Search Capacity Planning (2026-02-19_14-00EST_search-capacity-planning_recap.md) [input quality: medium]
+      - 2026-03-12: Search Capacity Decision (2026-03-12_14-00EST_search-capacity-decision_recap.md) [input quality: high]
+      - 2026-03-26: Search Vendor Risk Review (2026-03-26_14-00EST_search-vendor-risk-review_recap.md) [input quality: high]
+    - **Scope filter applied**: project=search-feature
+    - **Sources used**: 5 recaps (all structured)
+
+    ### Timeline
+
+    ```
+    2026-01-15  |  Search Scope Kickoff
+                |  → Initial scope proposal: autocomplete + filters + saved searches
+                |  [confidence: high. kickoff consensus]
+                |
+    2026-02-05  |  Search Scope Review
+                |  → Scope narrowed: saved searches deferred to v2
+                |  [!] scope tightened from kickoff; maria supported, priya-cfo skeptical of Q2 feasibility even after narrowing
+                |
+    2026-02-19  |  Search Capacity Planning
+                |  → Alex presents capacity model showing 8 sprint-weeks for narrowed scope
+                |  [confidence: high]
+                |
+    2026-03-12  |  Search Capacity Decision
+                |  → 8 sprint-weeks committed; priya-cfo signed off after Q1 overrun context addressed
+                |
+    2026-03-26  |  Search Vendor Risk Review
+                |  → Algolia licensing concern surfaced; timeline commitment paused pending investigation
+                |  [!] new risk not present in earlier meetings; blocks ship-date
+    ```
+
+    ### Themes
+
+    #### Scope discipline held [confidence: high. consistent across 3/5 meetings]
+
+    Autocomplete + filters appeared IN in every scope-test moment. Saved searches appeared IN at kickoff, OUT from Feb 5 onward. Decision held through 2 subsequent capacity conversations without reopening.
+
+    - 2026-01-15: proposed IN (kickoff)
+    - 2026-02-05: saved searches DEFERRED to v2; autocomplete + filters held
+    - 2026-03-12: scope reconfirmed implicitly in capacity decision
+
+    #### Capacity model as anchor [confidence: high. referenced in 4/5 meetings]
+
+    Alex's capacity model emerged on Feb 19 and was referenced as the authoritative capacity artifact in every subsequent meeting. The model's credibility came from having the specific tradeoff math ("cutting saved searches saves 3 sprint-weeks").
+
+    - 2026-02-19: introduced
+    - 2026-03-12: referenced to anchor the 8-sprint-week commitment
+    - 2026-03-26: referenced to confirm vendor risk does not change capacity (only timeline)
+
+    #### Vendor-licensing as late-emerging risk [confidence: medium. appears in 1/5 meetings, recency gives weight]
+
+    Algolia licensing concern surfaced only on Mar 26, late in the quarter. Alex referenced a prior email from Algolia that had been sitting unreviewed since March 15. Suggests a pattern: external-risk signals arriving mid-cycle that the team lacks a routine to triage.
+
+    - 2026-03-26: first surfaced; tied to email dated 2026-03-15
+
+    ### Stakeholder position tracking
+
+    **priya-cfo** (CFO)
+
+    - **Position evolution**: skeptical-of-feasibility → cautiously-aligned → committed-with-monthly-review
+    - **Key statements**:
+      - 2026-02-05: "can Q2 realistically absorb search on top of Q1 overrun?"
+      - 2026-03-12: "willing to commit if we have a monthly-review mechanism"
+    - **Alignment state**: aligned (with conditions)
+
+    **maria-cpo** (CPO)
+
+    - **Position evolution**: scope-supportive from the start (consistent)
+    - **Key statements**:
+      - 2026-01-15: "autocomplete + filters align with the product vision"
+      - 2026-02-05: "deferring saved searches to v2 is the right call"
+    - **Alignment state**: aligned throughout
+
+    **alex** (engineering lead)
+
+    - **Position evolution**: capacity-concerned → capacity-confident (after model)
+    - **Key statements**:
+      - 2026-01-15: "we need to see the tradeoffs before I can commit capacity"
+      - 2026-02-19: "the model shows 8 sprint-weeks is feasible for the narrowed scope"
+      - 2026-03-26: "vendor licensing is a new risk we need to handle before I can commit a date"
+    - **Alignment state**: aligned, but pragmatic about new risks
+
+    ### Consolidated decision list
+
+    | Date | Decision | Context | Meeting | Confidence |
+    |------|----------|---------|---------|------------|
+    | 2026-01-15 | Initial scope: autocomplete + filters + saved searches | Kickoff proposal | Search Scope Kickoff | high |
+    | 2026-02-05 | Defer saved searches to v2 | Scope review | Search Scope Review | high |
+    | 2026-02-19 | Capacity model: 8 sprint-weeks for narrowed scope | Capacity planning | Search Capacity Planning | high |
+    | 2026-03-12 | Commit 8 sprint-weeks for Q2 | CFO signoff received | Search Capacity Decision | high |
+    | 2026-03-26 | Defer ship-date commitment pending vendor-licensing review | Vendor risk surfaced | Search Vendor Risk Review | high |
+
+    ### Contradiction flags
+
+    **[!] Initial scope vs. narrowed scope** (resolved)
+
+    - **2026-01-15** (Search Scope Kickoff): scope included saved searches
+    - **2026-02-05** (Search Scope Review): saved searches deferred to v2
+    - **Status**: resolved by the Feb 5 decision; not a live contradiction, noted for history
+
+    No live unresolved contradictions in this time range.
+
+    ### Open items and stalled threads
+
+    - **Algolia licensing terms review** (maria): surfaced 2026-03-26; blocks Q2 ship-date commitment. Not a stalled thread yet (only one meeting), but timeline-critical.
+    - **Capacity-model documentation as reusable artifact**: referenced 4 times across meetings, never formally documented as a project-level artifact. Would benefit teams beyond search feature.
+
+    ### Narrative summary
+
+    Q1 search-feature planning converged on scope and capacity through a disciplined sequence. The kickoff proposed autocomplete, filters, and saved searches; a February scope review deferred saved searches to v2, and that decision held across subsequent capacity conversations. Alex's capacity model, introduced in mid-February, became the anchor artifact. referenced in every subsequent meeting and credited with giving priya-cfo the confidence to commit 8 sprint-weeks on March 12 (after the Q1 overrun context was addressed).
+
+    The one outstanding question is vendor-licensing, which surfaced only on March 26. Alex referenced an Algolia email from March 15 indicating potential query-volume limits. The team correctly paused on a ship-date commitment pending investigation, but the two-week gap between the Algolia email arrival and its meeting-surfacing suggests a gap in how external-vendor risk signals get routed to active planning.
+
+    Going into Q2, the team has scope and capacity committed, but not a timeline. The Algolia investigation is the critical path; once resolved, a short follow-up meeting can commit the ship date. The broader pattern worth capturing: the capacity model's role as an anchor artifact is reusable, and the vendor-signal-triage gap is a process improvement the team can adopt for other initiatives.
+
+    ### Prioritized follow-up suggestions
+
+    **[High priority]**
+
+    - Schedule vendor-licensing resolution meeting within 2 weeks: maria completes Algolia investigation; if limits apply, assess whether negotiable or hard. Blocks Q2 timeline commitment.
+    - Document the capacity model as a reusable artifact: alex publishes the model format in a shared location; referenced by search feature and available for other initiatives. Reduces rework for future capacity conversations.
+
+    **[Medium priority]**
+
+    - Build a routine for external-vendor risk signal triage: the March 15 Algolia email sat for 11 days. A weekly scan of vendor-comms for at-risk initiatives would catch signals earlier. Alex to propose a mechanism.
+
+    **[Lower priority / monitor]**
+
+    - Stakeholder alignment pattern: priya-cfo's "willing to commit with monthly-review" approach worked well here. Consider whether this pattern should generalize to other cross-org commitments.
+
+    ---
+
+    ## Sources & References
+
+    ### Primary inputs (source meetings)
+
+    - 2026-01-15_14-00EST_search-scope-kickoff_recap.md (2026-01-15). input quality: high
+    - 2026-02-05_14-00EST_search-scope-review_recap.md (2026-02-05). input quality: high
+    - 2026-02-19_14-00EST_search-capacity-planning_recap.md (2026-02-19). input quality: medium (partial notes; no transcript)
+    - 2026-03-12_14-00EST_search-capacity-decision_recap.md (2026-03-12). input quality: high
+    - 2026-03-26_14-00EST_search-vendor-risk-review_recap.md (2026-03-26). input quality: high
+
+    ### Referenced artifacts
+
+    - Prior syntheses on this topic: none (first synthesis)
+    - Related project briefs: 2026-01-12_search-feature-brief.md (planning-phase brief)
+
+    ### External references
+
+    - Alex's capacity model: [capacity-model-q2.xlsx](https://sheets.example/q2-capacity)
+    - Scope draft: [search-scope.md](https://notion.example/search-scope)
+
+    ### Generation context
+
+    - **Generated**: 2026-04-02T10:00:00Z
+    - **Skill version**: 1.0.0
+    - **Input quality**: high. 4 of 5 recaps at high quality, 1 at medium; no low-quality sources
+    - **Overall confidence**: high. decisions consistent across sources; stakeholder positions have multiple attestations
+    - **Known gaps**: Algolia licensing terms themselves not yet reviewed (only the fact that limits may apply). Depth of vendor-risk impact is medium-confidence until maria completes investigation.
+    - **Scope filter**: project=search-feature
+    - **Format hint**: default (full synthesis; user did not request board-prep / onboarding / retro-input / exec-brief variant)
+
+## Real-World Examples
+
+See this skill applied to three different product contexts:
+
+??? example "Storevine (B2B): q1-campaigns-retro"
+    **Prompt:**
+
+    ```
+    /meeting-synthesize --format=retro-input --quarter=2026-Q1 @recap*.md
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-synthesis
+    version: 1.0
+    generated_at: 2026-04-01T10:00:00Z
+    generated_by_skill: foundation-meeting-synthesize
+
+    project: campaigns
+    topics:
+      - research
+      - scoping
+      - capacity
+
+    time_range:
+      start: 2026-01-01
+      end: 2026-03-31
+
+    scope_filter: "project=campaigns, format=retro-input"
+
+    source_meetings:
+      - 2026-01-14_14-00EST_campaigns-research-kickoff_recap.md
+      - 2026-02-04_14-00EST_campaigns-user-interview-debrief_recap.md
+      - 2026-02-25_14-00EST_campaigns-scope-workshop_recap.md
+      - 2026-03-11_14-00EST_campaigns-capacity-review_recap.md
+      - 2026-03-25_14-00EST_campaigns-q1-close-out_recap.md
+
+    input_quality: high
+    confidence: high
+    visibility: team
+    status: draft
+    ---
+
+    # Meeting synthesis: Q1 Campaigns Retrospective Input
+
+??? example "Brainshelf (Consumer): resurface-design-iteration"
+    **Prompt:**
+
+    ```
+    /meeting-synthesize @resurface-*.md
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-synthesis
+    version: 1.0
+    generated_at: 2026-04-05T11:00:00Z
+    generated_by_skill: foundation-meeting-synthesize
+
+    project: resurface
+    topics:
+      - algorithm
+      - ux
+      - notification-timing
+
+    time_range:
+      start: 2026-01-15
+      end: 2026-03-31
+
+    scope_filter: "project=resurface"
+
+    source_meetings:
+      - 2026-01-20_11-00PST_resurface-kickoff_recap.md
+      - 2026-02-03_11-00PST_resurface-algo-v0_recap.md
+      - 2026-02-17_11-00PST_resurface-notification-copy_recap.md
+      - 2026-03-03_11-00PST_resurface-user-feedback-session_recap.md
+      - 2026-03-17_11-00PST_resurface-algo-v1_recap.md
+      - 2026-03-31_11-00PST_resurface-ux-refinement_recap.md
+
+    input_quality: medium
+    confidence: medium
+    visibility: team
+    status: draft
+    ---
+
+    # Meeting synthesis: Resurface Design Iteration Q1 2026
+
+??? example "Workbench (Enterprise): blueprints-board-prep"
+    **Prompt:**
+
+    ```
+    /meeting-synthesize --format=board-prep --quarter=2026-Q1 @blueprints-*.md
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-synthesis
+    version: 1.0
+    generated_at: 2026-04-02T08:00:00Z
+    generated_by_skill: foundation-meeting-synthesize
+
+    project: blueprints-enterprise-expansion
+    topics:
+      - healthcare-customer-validation
+      - compliance-investment
+      - sales-motion
+
+    time_range:
+      start: 2026-01-01
+      end: 2026-03-31
+
+    scope_filter: "project=blueprints-enterprise-expansion, format=board-prep"
+
+    source_meetings:
+      - 2026-01-22_14-00EST_blueprints-exec-review_recap.md
+      - 2026-02-05_14-00EST_blueprints-compliance-feasibility_recap.md
+      - 2026-02-26_14-00EST_blueprints-customer-interviews-debrief_recap.md
+      - 2026-03-12_14-00EST_blueprints-exec-review_recap.md
+      - 2026-03-26_14-00EST_blueprints-sales-motion-alignment_recap.md
+
+    input_quality: high
+    confidence: high
+    visibility: leadership
+    status: draft
+    ---
+
+    # Meeting synthesis: Blueprints Enterprise Expansion. Board Prep
+
+## Quality Checklist
+
+- [ ] Source meetings listed with filename + date + per-source input quality
+- [ ] Time range populated and sensible
+- [ ] Scope filter described (or "none applied")
+- [ ] Timeline is plain-text markdown (no binary images)
+- [ ] Themes include confidence markers tied to frequency
+- [ ] Stakeholder position tracking shows evolution (initial → current), not just snapshot
+- [ ] Consolidated decision list is chronological with source citations
+- [ ] Contradictions are flagged in their own first-class section (not buried)
+- [ ] Narrative summary is 2-3 paragraphs, not bullets
+- [ ] Follow-ups are prioritized (High / Medium / Low) with rationale
+- [ ] Frontmatter omits single-meeting fields (meeting_title, meeting_date, etc.)
+- [ ] Sources and References weights input quality across sources

@@ -1,6 +1,6 @@
 ---
 title: "foundation-meeting-brief"
-description: "Produces a private strategic preparation document for a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated Q&A with prepared responses, risks, specific asks, and success signals. The user's personal tactical prep, distinct from the attendee-facing agenda."
+description: "Produces a private strategic preparation document for the user before a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated questions with prepared responses, risks and tensions, specific asks, and success signals. Distinct from meeting-agenda because this artifact is not shared with attendees; it is the user's personal tactical prep for meetings where positioning matters."
 tags:
   - Foundation
   - meeting
@@ -11,54 +11,501 @@ tags:
 !!! info "Quick facts"
     **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 
-**Try it:** `/meeting-brief "Your meeting context here"`
+**Try it:** `/meeting-brief "Your context here"`
 { .md-button }
 
 # Meeting Brief
 
 A meeting brief is the user's private strategic preparation document for a meeting where context, stakes, or positioning matter. It captures what the user needs to know, what they want to accomplish, who they are engaging with, and how to navigate the conversation. This is strategic prep, not meeting structure, which keeps it distinct from a meeting agenda.
 
-This skill belongs to the [Meeting Skills Family](../../reference/skill-families/meeting-skills-contract.md), a group of five foundation-phase skills that share a common behavioral contract and filename-based chaining.
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
 - Walking into a stakeholder review, exec briefing, or negotiation-adjacent conversation
 - First meeting with a new stakeholder where relationship calibration matters
-- A meeting where the user needs something from others (capacity, decision, approval)
+- A meeting where the user needs something from others (capacity commitment, decision, approval)
 - Any conversation where specific positioning, messaging, or risk navigation is required
 
 ## When NOT to Use
 
 - Preparing the agenda attendees will see. Use `/meeting-agenda` instead.
 - Post-meeting summarization. Use `/meeting-recap`.
-- Low-stakes recurring meetings (standups, routine syncs) where the agenda alone is sufficient.
+- The meeting is low-stakes and well-trodden (recurring team sync, standup). A brief is overhead for these; the agenda alone is sufficient.
 
 ## How to Use
 
+Use the `/meeting-brief` slash command:
+
 ```
-/meeting-brief "Your meeting context here"
+/meeting-brief "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-meeting-brief/SKILL.md`
 
-## Key features
-
-- **Zero-friction execution** (per family contract): reads inputs, auto-discovers related artifacts, infers missing values, presents a brief inference summary, accepts one-word `go` or corrections.
-- **Anti-meeting check**: shared with `/meeting-agenda`; proposes async alternative if the objective can be met async.
-- **Per-stakeholder tactical reads**: position, stakes, likely concerns, relationship state, tactical notes. Inferred from prior recaps and stakeholder summaries when available.
-- **Default `visibility: private`**: brief is not intended for sharing.
-- **Ranked outcomes**: must achieve / should achieve / nice to achieve. Forces the tradeoff.
-- **Success signals**: behavioral cues for knowing the meeting went well in the moment, not just outcome markers.
-
 ## Instructions
 
-Full instructions are in the skill file at `skills/foundation-meeting-brief/SKILL.md`. See also:
+When asked to create a meeting brief, follow these steps:
 
-- [Skill template](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-brief/references/TEMPLATE.md)
-- [Worked example](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-brief/references/EXAMPLE.md)
-- [Sample outputs](https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-meeting-brief)
+1. **Run anti-meeting check**
+   Apply the trigger patterns. If matched, propose async alternative and await override.
 
-## Related skills
+2. **Parse and load inputs**
+   Read the topic. Load any `@file` references. Auto-discover related artifacts: prior recaps on same topic (same `project`/`topics` frontmatter), stakeholder summaries from `/discover-stakeholder-summary` outputs, related project docs.
 
-- [`/meeting-agenda`](foundation-meeting-agenda.md). attendee-facing agenda (shares anti-meeting check)
-- [`/discover-stakeholder-summary`](../discover/discover-stakeholder-summary.md). upstream input for stakeholder positions
+3. **Infer missing values**
+   Apply these rules:
+
+   | Value | Inferred from | Confidence |
+   |-------|---------------|------------|
+   | Stakeholder positions | Prior recap language, stakeholder summary content | High if recap cites direct quote; medium if position in 2+ sources; low otherwise |
+   | Stakes per attendee | Role plus topic-ownership cues | Always flag inferences |
+   | Top 3 goals | User's primary ask plus meeting type | Offer as ranked strawman in go-mode |
+   | Anticipated questions | Stakeholder position analysis plus typical-by-role objections | Flag as inferred |
+   | Risks / tensions | Conflict patterns in prior recaps | High if prior recap flagged contradiction |
+
+4. **Present go-mode inference summary**
+   Show the inferred stakeholder positions, primary ask, top-3 goals. Accept `go` or corrections.
+
+5. **Build the background section**
+   Relevant history, prior decisions, recent developments. Cross-reference prior recaps by filename when available.
+
+6. **Do per-stakeholder analysis**
+   For each key attendee: position on topic, stakes (what they win or lose), likely concerns, relationship state (strong / neutral / strained), tactical notes (how to engage).
+
+7. **Rank desired outcomes**
+   Must achieve / should achieve / nice to achieve. Force the tradeoff explicitly.
+
+8. **Draft key messages**
+   In priority order, phrased for delivery. Not bullet points to read; phrased as you would say them.
+
+9. **Anticipate questions and responses**
+   Table format: Q | prepared response. Aim for the three questions the user is most likely to get.
+
+10. **Identify risks and tensions**
+    With explicit mitigations. Flag anything that could derail the meeting.
+
+11. **Specify asks**
+    What the user needs from specific people by name. Not generic "get alignment" but "ask alex to commit eng capacity for Q2 by Thursday."
+
+12. **Define success signals**
+    How the user knows in the moment that the meeting went well. Behavioral cues, not just outcome markers.
+
+13. **Render TEMPLATE.md and validate**
+    - `visibility: private` default
+    - Stakeholder list has minimum fields (name, position) when present
+    - Primary ask is non-empty (use "alignment" or "information gathering" if no specific ask)
+
+## Output Template
+
+# Meeting brief: {{Meeting title}}
+
+## Shareable summary
+
+> [guidance: private-use by default. Share only with trusted advisor, co-presenter, or manager if needed. Flags purpose, top 3 goals, key risk, primary ask.]
+
+**{{Meeting title}}** | {{Date}}
+**Purpose**: {{One-line purpose}}
+**Top goals**:
+1. {{Goal 1}}
+2. {{Goal 2}}
+3. {{Goal 3}}
+**Key risk**: {{One-line risk or tension to watch}}
+**Primary ask**: {{What the user needs from the meeting}}
+
+---
+
+## Full brief
+
+### Context
+
+- **Meeting**: {{Title}}, {{Date}}, {{Duration}}
+- **Format**: {{In-person / remote / hybrid}}
+- **Attendees and roles**: {{List}}
+- **Chair or facilitator**: {{Name}}
+
+### Background
+
+> [guidance: relevant history, prior decisions, recent developments the user needs top-of-mind]
+
+- {{Point 1}}
+- {{Point 2}}
+- {{Point 3}}
+
+### Stakeholder reads
+
+> [guidance: per key attendee, capture position, stakes, likely concerns, relationship state, tactical notes]
+
+**{{Stakeholder 1}}** ({{Role}})
+
+- **Position on topic**: {{Known or inferred view}} [confidence: {{level}}]
+- **Stakes**: {{What they win or lose}}
+- **Likely concerns**: {{What they'll push on}}
+- **Relationship state**: {{Strong / neutral / strained}}
+- **Tactical notes**: {{How to engage them}}
+
+**{{Stakeholder 2}}** ({{Role}})
+
+- **Position on topic**: {{view}} [confidence: {{level}}]
+- **Stakes**: {{stakes}}
+- **Likely concerns**: {{concerns}}
+- **Relationship state**: {{state}}
+- **Tactical notes**: {{notes}}
+
+### Desired outcomes (ranked)
+
+1. **Must achieve**: {{Non-negotiable outcome}}
+2. **Should achieve**: {{Strong preference}}
+3. **Nice to achieve**: {{Bonus outcome}}
+
+### Key messages
+
+> [guidance: what the user wants to communicate, in priority order, phrased for delivery]
+
+1. {{Message 1}}
+2. {{Message 2}}
+3. {{Message 3}}
+
+### Anticipated questions and responses
+
+| Question | Prepared response |
+|----------|-------------------|
+| {{Q1}} | {{Response}} |
+| {{Q2}} | {{Response}} |
+| {{Q3}} | {{Response}} |
+
+### Risks and tensions
+
+- **{{Risk 1}}**: {{Mitigation}}
+- **{{Risk 2}}**: {{Mitigation}}
+
+### Asks
+
+- **From {{Person}}**: {{What the user needs, by when}}
+- **From {{Person}}**: {{ask}}
+
+### Success signals
+
+> [guidance: how the user will know the meeting went well in the moment. behavioral cues, not just outcome markers]
+
+- {{Signal 1}}
+- {{Signal 2}}
+
+---
+
+## Sources & References
+
+### Primary inputs
+
+- User-provided context: {{summary}}
+- Stakeholder summaries (if discovered): {{filenames}}
+
+### Referenced artifacts
+
+- Agenda: {{filename if exists}}
+- Prior recaps on this topic: {{filenames}}
+- Related stakeholder summaries: {{filenames}}
+
+### External references
+
+- {{Relevant docs and links}}
+
+### Generation context
+
+- **Generated**: {{Timestamp}}
+- **Skill version**: 1.0.0
+- **Input quality**: {{high | medium | low}}. {{rationale}}
+- **Overall confidence**: {{high | medium | low}}. {{rationale}}
+- **Known gaps**: {{List or "None identified"}}
+- **Inferences applied**: {{list of inferred values with confidence}}
+- **Anti-meeting check**: {{Ran. override accepted | Ran. async alternative produced instead}}
+
+## Example Output
+
+??? example "Meeting brief: Q2 Roadmap Commitment with CFO"
+    # Meeting brief: Q2 Roadmap Commitment with CFO
+
+    ## Shareable summary
+
+    **Q2 Roadmap Commitment with CFO** | 2026-04-18
+    **Purpose**: Secure CFO signoff on engineering capacity allocation for search feature in Q2
+    **Top goals**:
+    1. CFO verbal yes on search feature capacity allocation
+    2. Agreement on how Q1 overrun gets absorbed without cutting Q2 scope
+    3. Clear check-in cadence for Q2 (monthly review vs. ad-hoc)
+    **Key risk**: CFO uses Q1 overrun to impose capacity cap that would force scope cut
+    **Primary ask**: CFO signoff on eng capacity for search feature in Q2 despite Q1 overrun
+
+    ---
+
+    ## Full brief
+
+    ### Context
+
+    - **Meeting**: Q2 Roadmap Commitment, 2026-04-18, 45 min
+    - **Format**: In-person (CFO office)
+    - **Attendees and roles**: jonathan (decision-maker, running this), priya-cfo (decision-maker), maria-cpo (contributor, supporting)
+    - **Chair or facilitator**: jonathan
+
+    ### Background
+
+    - Q1 search feature work overran by 15% on eng hours; scope held but deadline slipped 2 weeks
+    - CFO has been vocal in leadership about "disciplined capacity" this year; Q1 overrun landed during her messaging
+    - Maria (CPO) already signaled private support for search in Q2; this is a two-on-one dynamic
+    - Prior exec review on 2026-03-20 flagged Q1 overrun but did not set a capacity policy; this meeting may be where that policy lands
+
+    ### Stakeholder reads
+
+    **priya-cfo** (CFO)
+
+    - **Position on topic**: wants to hold line on eng capacity; skeptical of scope creep on search after Q1 overrun [confidence: high, from prior exec review comments]
+    - **Stakes**: accountability for delivering financial discipline messaging; a Q2 overrun would damage that narrative
+    - **Likely concerns**: "why should I trust Q2 commitments after Q1 slipped?"; "what stops this from happening again?"; "what's the cost if we cut scope instead?"
+    - **Relationship state**: neutral; worked together for 2 years; she's direct but fair; respects data, impatient with handwaving
+    - **Tactical notes**: lead with data on Q1 root cause (not excuses); offer specific capacity discipline mechanism (monthly review); have a pre-committed scope-cut fallback ready to show you thought about it
+
+    **maria-cpo** (CPO)
+
+    - **Position on topic**: supports v2 ship; wants search feature in Q2 [confidence: high, confirmed in 1:1 yesterday]
+    - **Stakes**: her product strategy relies on search shipping Q2; any cut affects broader product narrative
+    - **Likely concerns**: if CFO pushes for scope cut, she wants to back the PM's specific proposal rather than improvise
+    - **Relationship state**: strong; aligned on substance
+    - **Tactical notes**: prep her before the meeting on the specific asks so she reinforces rather than improvising; have her in supporting-speaker role, not co-presenter (keeps dynamic focused)
+
+    ### Desired outcomes (ranked)
+
+    1. **Must achieve**: CFO verbal yes on search feature capacity in Q2
+    2. **Should achieve**: Agreement on how Q1 overrun is absorbed without Q2 scope cut
+    3. **Nice to achieve**: Monthly Q2 review cadence agreed (creates accountability mechanism CFO can trust)
+
+    ### Key messages
+
+    1. "Q1 overrun had a specific identifiable cause (design handoff delay); we've added a handoff checkpoint to prevent recurrence. Root cause is addressed, not excused."
+    2. "Search feature in Q2 has a specific capacity ask: 8 eng-weeks. Here's the tradeoff map if any cut is needed."
+    3. "I'd like to propose a monthly Q2 review so you have a formal mechanism to catch issues early, not post-hoc."
+
+    ### Anticipated questions and responses
+
+    | Question | Prepared response |
+    |----------|-------------------|
+    | "Why should I trust Q2 after Q1 slipped?" | Q1 root cause was design handoff delay (specific, now addressed via checkpoint). Not a capacity estimation issue. Happy to walk through the root-cause analysis. |
+    | "What if we cut scope instead?" | Here's the tradeoff map (show prepared doc). Cutting autocomplete saves 3 eng-weeks but removes the headline value prop; cutting filters saves 2 eng-weeks but strands existing users who asked for it. Specific impact per cut. |
+    | "What's the mechanism to prevent another overrun?" | Monthly Q2 review with explicit hours-burned and scope-remaining report. I'd welcome that cadence. |
+
+    ### Risks and tensions
+
+    - **CFO uses Q1 overrun to impose a capacity cap that forces scope cut**: Mitigation. have the tradeoff map ready to make the cost of cutting visible, not abstract. Don't let "just cut scope" be a costless answer.
+    - **Meeting drifts to broader capacity policy discussion, postponing search decision**: Mitigation. explicit ask upfront: "I have 3 things I need today; happy to schedule a separate capacity-policy conversation."
+
+    ### Asks
+
+    - **From priya-cfo**: verbal yes on search feature eng capacity for Q2 (8 eng-weeks)
+    - **From priya-cfo**: agreement on absorbing Q1 overrun from Q2 slack rather than cutting Q2 scope
+    - **From maria-cpo**: reinforce the scope rationale if priya pushes on cuts; do not co-present the ask (keeps the dynamic clean)
+
+    ### Success signals
+
+    - priya-cfo engages with the tradeoff map (asks specific questions) rather than dismissing with generic capacity concerns
+    - priya-cfo proposes her own cadence mechanism, indicating she's problem-solving with us rather than gatekeeping
+    - maria-cpo stays in supporting role, not improvising new asks
+
+    ---
+
+    ## Sources & References
+
+    ### Primary inputs
+
+    - User-provided context: "Brief me for CFO meeting tomorrow on Q2 roadmap"
+    - Yesterday's 1:1 with maria-cpo (verbally confirmed support)
+
+    ### Referenced artifacts
+
+    - Agenda: none (no shared agenda; brief for jonathan's prep only)
+    - Prior recaps on this topic: 2026-03-20_15-00EST_exec-review_recap.md (referenced for Q1 overrun context)
+    - Related stakeholder summaries: stakeholder_priya-cfo.md (loaded)
+
+    ### External references
+
+    - [Q2 capacity model](https://sheets.example/q2-capacity)
+    - [Search feature scope tradeoff map](https://notion.example/search-scope-tradeoffs)
+
+    ### Generation context
+
+    - **Generated**: 2026-04-17T09:00:00Z
+    - **Skill version**: 1.0.0
+    - **Input quality**: high. user provided meeting context, stakeholder summary existed, prior recap referenced Q1 overrun dynamics
+    - **Overall confidence**: medium. stakeholder positions are high-confidence; anticipated questions are medium-confidence (inferred from typical CFO objections + priya's known style)
+    - **Known gaps**: Do not know if priya-cfo has spoken to maria-cpo 1:1 about this; if yes, she may already have a position shaped by those conversations
+    - **Inferences applied**: priya's likely concerns inferred from prior exec review + style [confidence: medium]; anticipated questions inferred from CFO-role patterns [confidence: medium]
+    - **Anti-meeting check**: Ran. override accepted (exec decision with relationship dynamic warrants sync conversation; async would risk misinterpretation of capacity commitment)
+
+## Real-World Examples
+
+See this skill applied to three different product contexts:
+
+??? example "Storevine (B2B): campaigns-exec-briefing"
+    **Prompt:**
+
+    ```
+    /meeting-brief "Tomorrow 9am exec briefing, 30 min with priya-ceo and rachel-vp. Campaigns Q2 commitment. Priya pushed back on capacity in Q1 exec review (I have the recap). Rachel privately supports."
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-brief
+    version: 1.0
+    generated_at: 2026-04-16T17:00:00Z
+    generated_by_skill: foundation-meeting-brief
+
+    meeting_title: "Campaigns Q2 Exec Briefing"
+    meeting_date: 2026-04-17
+    meeting_start_time: "09:00 EST"
+    meeting_type: exec-briefing
+
+    project: campaigns
+    topics:
+      - q2-commitment
+      - capacity-context
+
+    attendees:
+      - name: jonathan-pm
+        role: contributor
+      - name: priya-ceo
+        role: decision-maker
+      - name: rachel-vp
+        role: contributor
+
+    stakeholders:
+      - name: priya-ceo
+        position: "cost-sensitive; pushed back on Q1 capacity; wants to hold line on Q2"
+      - name: rachel-vp
+        position: "private supporter; wants Campaigns in Q2; will back scope discipline"
+
+    primary_ask: "CEO greenlight for Campaigns Q2 launch with explicit capacity discipline mechanism"
+
+    related_agenda: null
+
+    input_quality: high
+    confidence: medium
+    visibility: private
+    status: draft
+    ---
+
+    # Meeting brief: Campaigns Q2 Exec Briefing
+
+??? example "Brainshelf (Consumer): curator-tier-pitch"
+    **Prompt:**
+
+    ```
+    /meeting-brief "weekly product mtg tomorrow, pitching curator tier to leo and noor, leo prob skeptical noor open, 30 min"
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-brief
+    version: 1.0
+    generated_at: 2026-04-19T18:00:00Z
+    generated_by_skill: foundation-meeting-brief
+
+    meeting_title: "Curator Tier Pitch at Weekly Product Meeting"
+    meeting_date: 2026-04-20
+    meeting_start_time: "10:00 PT"
+    meeting_type: stakeholder-review
+
+    project: curator-tier
+    topics:
+      - tier-pitch
+      - concerns
+      - decision-or-defer
+
+    attendees:
+      - name: priya-pm
+        role: contributor
+      - name: leo-cofounder-1
+        role: decision-maker
+      - name: noor-cofounder-2
+        role: decision-maker
+
+    stakeholders:
+      - name: leo-cofounder-1
+        position: "⚠ likely skeptical of subscription expansion [inferred: medium]"
+      - name: noor-cofounder-2
+        position: "⚠ open-but-not-committed [inferred: medium]"
+
+    primary_ask: "greenlight for a 4-week Curator tier experiment with explicit kill criteria"
+
+    related_agenda: null
+
+    input_quality: low
+    confidence: medium
+    visibility: private
+    status: draft
+    ---
+
+    # Meeting brief: Curator Tier Pitch at Weekly Product Meeting
+
+??? example "Workbench (Enterprise): vp-ops-roi-briefing"
+    **Prompt:**
+
+    ```
+    /meeting-brief "VP Ops briefing Monday 2pm EST 45 min, david-pm briefing carlos-vp-ops on Blueprints ROI case. Carlos pushed back on Blueprints Q1 investment (see 2026-02-05_14-00EST_q1-investment-review_recap.md). New evidence just landed: 6 healthcare customer interviews with strong positive signal (@customer-interview-synthesis.md). Goal: get carlos behind the Blueprints expansion case ahead of Tuesday CEO review. Include 2026-03-15_14-00EST_compliance-investment-case_recap.md as prior context."
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-brief
+    version: 1.0
+    generated_at: 2026-04-27T09:00:00Z
+    generated_by_skill: foundation-meeting-brief
+
+    meeting_title: "Blueprints ROI Case VP Ops Briefing"
+    meeting_date: 2026-04-28
+    meeting_start_time: "14:00 EST"
+    meeting_type: stakeholder-review
+
+    project: blueprints
+    topics:
+      - roi-case
+      - q1-concerns
+      - pre-ceo-alignment
+
+    attendees:
+      - name: david-pm
+        role: contributor
+      - name: carlos-vp-ops
+        role: decision-maker
+
+    stakeholders:
+      - name: carlos-vp-ops
+        position: "pushed back on Blueprints Q1 investment; cost-discipline focus; evidence-driven"
+
+    primary_ask: "Carlos verbal support for Blueprints expansion case ahead of Tuesday CEO review"
+
+    related_agenda: null
+
+    input_quality: high
+    confidence: high
+    visibility: private
+    status: draft
+    ---
+
+    # Meeting brief: Blueprints ROI Case VP Ops Briefing
+
+## Quality Checklist
+
+- [ ] Anti-meeting check was applied and recorded
+- [ ] `visibility: private` default applied
+- [ ] Background section cross-references prior recaps when available
+- [ ] Every key stakeholder has a position, stakes, concerns, relationship state entry (with confidence markers on inferred fields)
+- [ ] Desired outcomes are ranked (must / should / nice), not flat
+- [ ] Key messages are phrased for delivery, not for reading
+- [ ] Anticipated Q&A table has 3 or more entries
+- [ ] Asks are specific (named person, specific ask, by-when)
+- [ ] Shareable summary suitable for trusted-advisor review only (flagged as such)
+- [ ] Sources and References section includes Generation context with inferences flagged

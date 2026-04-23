@@ -1,6 +1,6 @@
 ---
 title: "foundation-stakeholder-update"
-description: "Produces async communication to stakeholders from a meeting recap. Supports channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Translates meeting outcomes into what-it-means language for readers, surfaces a primary CTA up front, flags technical-to-business translations, and detects thread continuation."
+description: "Produces async communication to stakeholders, primarily non-attendees and secondarily some attendees who want a reference. Translates meeting outcomes into what-it-means language for readers, with channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces a primary CTA up front, flags technical-to-business translations for user verification, and detects thread continuation from prior updates."
 tags:
   - Foundation
   - meeting
@@ -11,57 +11,477 @@ tags:
 !!! info "Quick facts"
     **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 
-**Try it:** `/stakeholder-update @recap.md --channel=slack --audience=engineering`
+**Try it:** `/stakeholder-update "Your context here"`
 { .md-button }
 
 # Stakeholder Update
 
-A stakeholder update is async communication to readers who need to know the outcomes of a meeting. Primary audience is non-attendees; secondary audience is some attendees who want a reference version.
+A stakeholder update is async communication to readers who need to know the outcomes of a meeting. Primary audience is non-attendees; secondary audience is some attendees who want a reference version (came in late, stepped out, need something to forward).
 
-Distinct from `/meeting-recap` (summary of what happened for people in the room) and from `/discover-stakeholder-summary` (understanding stakeholders, not communicating to them).
+Distinct from `/meeting-recap` in audience, format, and purpose: the recap is a summary of what happened for people who were in the room; the stakeholder-update is a translation of outcomes into what-it-means for readers (tailored to their role, with technical-to-business translation where the audience warrants it).
 
-This skill belongs to the [Meeting Skills Family](../../reference/skill-families/meeting-skills-contract.md).
+Distinct from `/discover-stakeholder-summary`: that skill is about understanding stakeholders (input to the user's work). This skill is about communicating to stakeholders (output from the user's work).
+
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
 - After a meeting with outcomes affecting teams who were not in the room
-- When a decision needs to propagate async to downstream teams
-- When the user needs something from readers (specific CTA) and cannot afford burial
+- When a decision or commitment needs to propagate to downstream teams async
+- When a recap exists and needs to be translated into audience-specific language
+- When the user needs something from readers (specific CTA) and cannot afford for it to be buried
 
 ## When NOT to Use
 
 - Summarizing what happened for attendees. Use `/meeting-recap`.
-- Broadcasting status with no specific audience tailoring.
-- User research communications. Use `/discover-interview-synthesis` plus targeted comms.
+- Broadcasting status with no specific audience tailoring. A plain Slack message is sufficient; the skill adds value when translation or CTA framing matters.
+- Communicating research findings to stakeholders. Use `/discover-interview-synthesis` plus targeted comms.
 
 ## How to Use
 
+Use the `/stakeholder-update` slash command:
+
 ```
-/stakeholder-update @recap.md --channel=slack --audience=engineering
-/stakeholder-update @recap.md --channel=email --audience=leadership --cta="FYI-only"
+/stakeholder-update "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-stakeholder-update/SKILL.md`
 
-## Key features
-
-- **Zero-friction execution**: loads recap, detects thread continuation, runs inference, presents brief summary, accepts `go` or corrections
-- **5 channel variants**: slack, teams, email, notion, exec-memo. each with format-appropriate rendering
-- **5 audience variants**: engineering, design, leadership, customer-facing, mixed. each with tailored "what this means for you"
-- **CTA surfaced up front**: action needed or explicit FYI-only, never buried
-- **Technical-to-business translation log**: translations inspectable by the user before sending
-- **Thread continuation detection**: auto-links to prior updates on the same project/topics
-- **Entire output is shareable content**: no separate summary block needed (per family contract)
-
 ## Instructions
 
-Full instructions in `skills/foundation-stakeholder-update/SKILL.md`. See also:
+When asked to create a stakeholder update, follow these steps:
 
-- [Skill template](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-stakeholder-update/references/TEMPLATE.md)
-- [Worked example](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-stakeholder-update/references/EXAMPLE.md)
-- [Sample outputs](https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-stakeholder-update)
+1. **Load related recap**
+   Parse frontmatter to extract meeting context, decisions, actions, outcomes. If no recap provided, accept raw meeting notes with a lower input-quality flag.
 
-## Related skills
+2. **Detect thread continuation**
+   Scan same directory for prior `stakeholder-update` artifacts with matching `project` / `topics`. If found, reference the prior update in the frontmatter `thread_continuation_of` field.
 
-- [`/meeting-recap`](foundation-meeting-recap.md). upstream: primary input source
-- [`/discover-stakeholder-summary`](../discover/discover-stakeholder-summary.md). distinct purpose (understanding stakeholders)
+3. **Present go-mode inference summary**
+   Show inferred channel (if not specified), detected audience, proposed CTA, thread continuation status, translation candidates (flagged jargon or acronyms that may not land).
+
+4. **Distill key outcomes**
+   From the recap or notes, select 3-5 outcomes that matter to the target audience. Do not include everything from the recap. filter by audience relevance.
+
+5. **Frame the CTA**
+   If action is needed: lead with it, not bury it
+   If FYI-only: state explicitly in the TL;DR
+
+6. **Translate technical-to-business**
+   Flag jargon and acronyms unlikely to land with the audience. Provide plainer alternatives. Keep a translations-applied log for user verification in the output's Generation context.
+
+7. **Build the channel-tailored variant**
+
+   - **Slack / Teams**: headline (one action-oriented line, optionally one emoji), TL;DR 3 bullets, context sentence, "what this means for [audience]", CTA (bold with marker if action needed; italic "FYI-only" if not), thread-continuation link, more-links footer
+   - **Email**: subject line (topic + outcome), greeting ("Hi [audience]"), opening sentence (headline + why they are receiving this), TL;DR, context 2-3 sentences, what was decided / advanced, what this means for your team, what I need from you (with by-when), thread reference, sign-off
+   - **Notion**: rich H1/H2/H3 structure, longer context block, collapsible sections for detail, table for decisions and actions
+   - **Exec-memo**: TL;DR first (3-4 lines), supporting detail in 3 sections max, asks section upfront, formal tone, no emoji
+
+8. **Render TEMPLATE.md with the selected variant as primary**
+   Other variants may be included as collapsible alternates for user flexibility. Remove all guidance blockquotes from the final artifact.
+
+9. **Validate**
+   - `channel` is in enum
+   - `audience_variant` is in enum
+   - `primary_cta` is non-empty (use "FYI-only" if no action needed)
+   - `related_recap` is a valid filename reference or flagged as raw-notes input
+
+## Output Template
+
+# Stakeholder update: {{Topic or meeting reference}}
+
+## Shareable update
+
+> [v1.1.0: This section contains the message body to copy and paste into {{channel}}. EVERYTHING BELOW this section is NOT shareable. audit notes and sources stay internal. The format below matches the selected channel variant; other variants are reference-only.]
+
+---
+
+### Slack / Teams variant
+
+**{{Headline: one line, action-oriented, skimmable}}**
+
+**TL;DR**
+
+- {{Key outcome 1}}
+- {{Key outcome 2}}
+- {{Key outcome 3}}
+
+**Context** ({{sentence or two}})
+
+{{Brief framing for readers who may or may not have been in the room}}
+
+**What this means for {{audience}}**
+
+{{Translation of outcomes into audience-relevant impact}}
+
+{{if CTA needed:}}
+**What I need from you**
+
+- {{Ask}}: {{by when}}
+
+{{if FYI-only:}}
+*FYI-only. no action needed.*
+
+{{if thread continuation:}}
+*Follow-up to: {{link to prior update}}*
+
+More: {{recap filename link}} | {{related doc}}
+
+---
+
+### Email variant
+
+**Subject**: {{Clear subject line with topic + outcome}}
+
+Hi {{audience}},
+
+{{Opening sentence: headline + why they are receiving this}}
+
+**TL;DR**
+
+- {{Key outcome 1}}
+- {{Key outcome 2}}
+- {{Key outcome 3}}
+
+**Context**
+
+{{Brief framing. 2-3 sentences}}
+
+**What was decided or advanced**
+
+- {{Outcome 1 in plain language}}
+- {{Outcome 2 in plain language}}
+
+**What this means for your team**
+
+{{Tailored translation of impact}}
+
+{{if CTA needed:}}
+**What I need from you**
+
+- {{Ask 1}}: {{by when}}
+- {{Ask 2}}: {{by when}}
+
+{{if thread continuation:}}
+This is a follow-up to my update on {{date}}: {{link}}
+
+For more detail, see: {{recap filename link}}
+
+Thanks,
+{{User}}
+
+---
+
+### Notion / exec-memo variant
+
+> [guidance: richer formatting, longer context, optimized for reference. For exec-memo, tighten to TL;DR first, formal tone, no emoji.]
+
+[full structure with more context, more headers, more links per channel-specific behavior]
+
+---
+
+> [End of Shareable update section. Everything below is INTERNAL. do not copy into the outgoing message.]
+
+## Technical-to-business translation notes
+
+> [guidance: include this section when translations were applied, so the user can verify translations land with their audience]
+
+**Translations applied**:
+
+- "{{Technical term}}" → "{{Plain language}}" *(reason: audience = {{variant}})*
+- "{{Acronym}}" → "{{Expanded meaning}}"
+
+**Flagged but kept** (may need further review):
+
+- "{{Term}}". may not land with all readers, consider rewording if update goes wider
+
+---
+
+## Sources & References
+
+### Primary inputs
+
+- Related recap: {{filename}}
+- User-provided audience and CTA parameters
+
+### Referenced artifacts
+
+- Recap: {{filename}}
+- Prior update in thread: {{filename if applicable}}
+
+### External references
+
+- {{Linked resources in the update}}
+
+### Generation context
+
+- **Generated**: {{Timestamp}}
+- **Skill version**: 1.0.0
+- **Channel**: {{channel}}
+- **Audience variant**: {{variant}}
+- **Thread continuation**: {{yes with link / no}}
+- **Input quality**: {{high | medium | low}}. {{rationale}}
+- **Known gaps**: {{e.g., "User did not specify full audience list; defaulted to leadership tone"}}
+- **Translations applied**: {{count}}. see Technical-to-business translation notes section above
+
+## Example Output
+
+??? example "Stakeholder update: Search Feature Q2 scope + capacity decided"
+    # Stakeholder update: Search Feature Q2 scope + capacity decided
+
+    ## Shareable update
+
+    > [v1.1.0: copy the section below into Slack. Everything below the "End of Shareable update" marker is internal. do not paste.]
+
+    ---
+
+    ### Slack / Teams variant (primary. matches frontmatter channel)
+
+    **Search feature Q2: scope and capacity decided; ship-date pending vendor review**
+
+    **TL;DR**
+
+    - MVP scope: autocomplete + filters IN, saved searches OUT (deferred to v2)
+    - Q2 engineering capacity: 8 sprint-weeks committed
+    - Ship-date deferred 1 week pending Algolia licensing review
+
+    **Context**
+
+    Kickoff yesterday settled the scope and capacity questions that have been open since January. Ship-date commitment was paused when alex surfaced an Algolia licensing question that needs resolution before we lock a date.
+
+    **What this means for engineering**
+
+    The scope agreed is narrower than the original proposal, which means no backfill is needed to absorb search work into Q2. If your team has dependencies on design-system components we use for search (autocomplete patterns, filter chips), those should not shift. The main watch-out: if Algolia licensing turns out to be restrictive, we may need to evaluate self-hosting or a different provider, which would touch infra planning.
+
+    **What I need from you**
+
+    - Confirm no dependency conflicts with your Q2 plans by 2026-04-22
+    - If you see infra implications from a potential provider change, flag in thread before Monday
+
+    More: [recap](2026-04-17_14-00EST_search-feature-kickoff_recap.md) | [scope draft](https://notion.example/search-scope) | [capacity model](https://sheets.example/q2-capacity)
+
+    ---
+
+    ### Email variant (alternate)
+
+    **Subject**: Search feature Q2 scope and capacity decided; ship-date pending vendor review
+
+    Hi engineering leads,
+
+    Sending this because yesterday's search-feature kickoff produced scope and capacity decisions that may touch your Q2 planning. Wanted to get this in front of you ahead of Monday sprint planning.
+
+    **TL;DR**
+
+    - MVP scope: autocomplete + filters IN; saved searches OUT (deferred to v2)
+    - Q2 engineering capacity: 8 sprint-weeks committed
+    - Ship-date deferred 1 week pending Algolia licensing review
+
+    **Context**
+
+    Scope and capacity have been open questions since January. Kickoff yesterday converged both: we narrowed scope relative to the original proposal, which made the capacity commitment (8 sprint-weeks) workable without backfill. The vendor-licensing question emerged in the same meeting and is the one outstanding item.
+
+    **What was decided or advanced**
+
+    - Scope narrowed: saved-searches deferred to v2; autocomplete and filters held
+    - 8 sprint-weeks committed for Q2 search work
+    - Monthly review cadence agreed with CFO for Q2 progress tracking
+
+    **What this means for your team**
+
+    The narrowed scope means no capacity conflicts for other Q2 commitments. If Algolia licensing turns out to be restrictive, we may need a provider-change evaluation, which would touch infra planning. That is the main watch-out; current estimate is we know by 2026-04-22.
+
+    **What I need from you**
+
+    - Confirm no dependency conflicts with your Q2 plans by 2026-04-22
+    - If you see infra implications from a potential provider change, flag before Monday sprint planning
+
+    For more detail, see the [meeting recap](2026-04-17_14-00EST_search-feature-kickoff_recap.md).
+
+    Thanks,
+    jonathan
+
+    ---
+
+    ### Notion / exec-memo variants
+
+    > [For notion and exec-memo variants, see the reference template. Primary output for this example is the slack variant above.]
+
+    ---
+
+    ## Technical-to-business translation notes
+
+    **Translations applied**:
+
+    - "autocomplete" kept as-is (engineering audience knows the term)
+    - "8 sprint-weeks" kept as-is (engineering audience tracks by sprint-week)
+    - "backfill" kept as-is (engineering-native term)
+
+    **Flagged but kept** (may need further review for non-engineering audiences):
+
+    - "Algolia licensing". if update goes to non-engineering readers, add context on what Algolia is (search provider) and why licensing matters
+    - "provider-change evaluation". if wider audience, rephrase as "evaluate different search tooling"
+
+    ---
+
+    ## Sources & References
+
+    ### Primary inputs
+
+    - Related recap: 2026-04-17_14-00EST_search-feature-kickoff_recap.md
+    - User-provided audience: engineering
+    - User-provided CTA: "confirm no dependency conflicts"
+
+    ### Referenced artifacts
+
+    - Recap: 2026-04-17_14-00EST_search-feature-kickoff_recap.md
+    - Prior update in thread: none (this is the first update for search feature in Q2 planning)
+
+    ### External references
+
+    - [Scope draft](https://notion.example/search-scope)
+    - [Capacity model](https://sheets.example/q2-capacity)
+
+    ### Generation context
+
+    - **Generated**: 2026-04-18T10:00:00Z
+    - **Skill version**: 1.0.0
+    - **Channel**: slack
+    - **Audience variant**: engineering
+    - **Thread continuation**: no (first update on this topic in Q2)
+    - **Input quality**: high. recap was high-quality; all outcomes directly supported
+    - **Known gaps**: None identified for engineering audience; flagged 2 items that would need translation if this same update goes wider later
+    - **Translations applied**: 0 for engineering audience (all terminology appropriate); 2 flagged for potential wider-audience use
+
+## Real-World Examples
+
+See this skill applied to three different product contexts:
+
+??? example "Storevine (B2B): campaigns-slack-support"
+    **Prompt:**
+
+    ```
+    /meeting-update @2026-04-24_13-00EST_campaigns-pricing-decision_recap.md --channel=slack --audience=customer-facing --cta="update support playbook with new pricing + grandfathering flow by 2026-05-15"
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: stakeholder-update
+    version: 1.0
+    generated_at: 2026-04-25T09:00:00Z
+    generated_by_skill: foundation-stakeholder-update
+
+    meeting_title: "Campaigns Pricing Decision"
+    meeting_date: 2026-04-24
+
+    project: campaigns
+    topics:
+      - pricing-decision
+
+    channel: slack
+    audience_variant: customer-facing
+    primary_cta: "update support playbook with new pricing + grandfathering flow by 2026-05-15"
+
+    thread_continuation_of: null
+
+    related_recap: 2026-04-24_13-00EST_campaigns-pricing-decision_recap.md
+
+    input_quality: high
+    confidence: high
+    visibility: team
+    status: draft
+    ---
+
+    # Stakeholder update: Campaigns Pricing Committed
+
+??? example "Brainshelf (Consumer): resurface-email-beta-users"
+    **Prompt:**
+
+    ```
+    /stakeholder-update @2026-03-17_11-00PST_resurface-algo-v1_recap.md --channel=email --audience=customer-facing --cta="FYI-only" "email to ~500 beta users, thank them for feedback, signal shipment of algo v1 improvements"
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: stakeholder-update
+    version: 1.0
+    generated_at: 2026-03-18T09:00:00Z
+    generated_by_skill: foundation-stakeholder-update
+
+    meeting_title: "Resurface Algorithm v1"
+    meeting_date: 2026-03-17
+
+    project: resurface
+    topics:
+      - algorithm-v1
+
+    channel: email
+    audience_variant: customer-facing
+    primary_cta: "FYI-only"
+
+    thread_continuation_of: null
+
+    related_recap: 2026-03-17_11-00PST_resurface-algo-v1_recap.md
+
+    input_quality: high
+    confidence: high
+    visibility: public
+    status: draft
+    ---
+
+    # Stakeholder update: Resurface v1 Shipped. Thank You for the Feedback
+
+??? example "Workbench (Enterprise): blueprints-notion-enterprise-cs"
+    **Prompt:**
+
+    ```
+    /stakeholder-update @2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_recap.md --channel=notion --audience=customer-facing --cta="review and confirm CS playbook alignment by 2026-05-20"
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: stakeholder-update
+    version: 1.0
+    generated_at: 2026-04-26T10:00:00Z
+    generated_by_skill: foundation-stakeholder-update
+
+    meeting_title: "Blueprints v1.1 Customer Feedback Review"
+    meeting_date: 2026-04-25
+
+    project: blueprints
+    topics:
+      - v1-1-scope
+      - customer-feedback
+
+    channel: notion
+    audience_variant: customer-facing
+    primary_cta: "review and confirm CS playbook alignment by 2026-05-20"
+
+    thread_continuation_of: null
+
+    related_recap: 2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_recap.md
+
+    input_quality: high
+    confidence: high
+    visibility: team
+    status: draft
+    ---
+
+    # Stakeholder update: Blueprints v1.1 Scope Decided. Enterprise CS Briefing
+
+## Quality Checklist
+
+- [ ] Channel variant matches the specified or inferred channel
+- [ ] Audience variant's "what this means for you" is specifically tailored (not generic)
+- [ ] CTA is surfaced up front, not buried
+- [ ] Technical-to-business translations are logged in Generation context for user verification (INTERNAL. outside shareable boundary)
+- [ ] Thread continuation referenced if prior updates exist on the same topic
+- [ ] `## Shareable update` section present with channel-tailored body (v1.1.0. replaces "entire output is shareable" from v1.0.0)
+- [ ] Explicit boundary marker between Shareable update and internal sections (translations, sources)
+- [ ] Sources and References section lists the source recap and any prior updates in thread (INTERNAL)
+- [ ] Filename uses v1.1.0 variant pattern: `YYYY-MM-DD_HH-MMtimezone_title_stakeholder-update-{channel}-{audience}.md`

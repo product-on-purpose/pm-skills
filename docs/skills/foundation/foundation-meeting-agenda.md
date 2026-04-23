@@ -1,6 +1,6 @@
 ---
 title: "foundation-meeting-agenda"
-description: "Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants. Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics."
+description: "Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants (standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing). Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics."
 tags:
   - Foundation
   - meeting
@@ -11,54 +11,493 @@ tags:
 !!! info "Quick facts"
     **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 
-**Try it:** `/meeting-agenda "Your meeting topic here"`
+**Try it:** `/meeting-agenda "Your context here"`
 { .md-button }
 
 # Meeting Agenda
 
 A meeting agenda is the attendee-facing structural document that sets expectations before a meeting. It answers "what will we discuss, who owns each topic, how will we spend the time, and what does done look like?" Distinct from a meeting brief, which is the user's private strategic prep; the agenda is shared with participants and focused on structure and flow.
 
-This skill belongs to the [Meeting Skills Family](../../reference/skill-families/meeting-skills-contract.md), a group of five foundation-phase skills (agenda, brief, recap, synthesize, stakeholder-update) that share a common behavioral contract, frontmatter schema, and filename-based chaining.
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md), which defines shared frontmatter, file naming, the go-mode behavioral pattern, and universal output requirements across all meeting skills.
 
 ## When to Use
 
 - Running or chairing a cross-functional working session, project kickoff, stakeholder review, or decision meeting
 - Any meeting with more than three attendees or more than thirty minutes
-- Recurring meeting where a rolling structure (1-on-1, team sync) needs fresh framing
+- Recurring meeting where a rolling structure (1-on-1, team sync) needs fresh framing each time
 - Mid-initiative alignment moment where explicit desired outcomes prevent drift
 
 ## When NOT to Use
 
-- The user's preparation is private and tactical. Use `/meeting-brief` instead.
+- The user's preparation is private and tactical (positioning, stakeholder reads, asks). Use `/meeting-brief` instead.
 - The meeting has already happened. Use `/meeting-recap` for post-meeting summarization.
 - The user wants to communicate outcomes to non-attendees. Use `/stakeholder-update` after the meeting.
 
 ## How to Use
 
+Use the `/meeting-agenda` slash command:
+
 ```
-/meeting-agenda "Your meeting topic here"
+/meeting-agenda "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-meeting-agenda/SKILL.md`
 
-## Key features
-
-- **Zero-friction execution** (per family contract): reads inputs, infers missing values, presents a brief inference summary, accepts one-word `go` or corrections. No blocking interrogation.
-- **Anti-meeting check**: opens with "does this need to be a meeting?" If the objective can be handled async, proposes the alternative instead.
-- **Ten meeting-type variants**: standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing, other. Each reshapes the topic list to match the meeting's purpose.
-- **Topic time math validation**: sum of topic times must equal meeting duration. Overflows are flagged, not silently trimmed.
-- **Default duration**: 30 min (per family contract).
-
 ## Instructions
 
-Full instructions are in the skill file at `skills/foundation-meeting-agenda/SKILL.md`. See also:
+When asked to create a meeting agenda, follow these steps:
 
-- [Skill template](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-agenda/references/TEMPLATE.md)
-- [Worked example](https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-agenda/references/EXAMPLE.md)
-- [Sample outputs](https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-meeting-agenda)
+1. **Run anti-meeting check**
+   Apply the trigger patterns above. If the user's objective matches, propose the async alternative and ask for override. Only proceed to step 2 on explicit override.
 
-## Related skills
+2. **Parse and load inputs**
+   Read the topic or purpose. Load all `@file` references provided. Extract any attendee list, time constraints, or linked documents.
 
-- [`/meeting-brief`](foundation-meeting-brief.md). user's private prep (shares anti-meeting check)
-- [`/meeting-recap`](foundation-meeting-recap.md). downstream: auto-populates from this agenda's topic list
-- [`/stakeholder-update`](foundation-stakeholder-update.md). downstream: translates outcomes to non-attendees
+3. **Infer missing values**
+   Apply these inference rules:
+
+   | Value | Inferred from | Default |
+   |-------|---------------|---------|
+   | Meeting type | Topic keywords, attendee seniority mix | `other` (low confidence) |
+   | Duration | Explicit in topic doc (rare); meeting-type-specific default when type is inferred at medium+ confidence | v1.1.0: type-specific (see family contract). 30 min only for `other`, `1-on-1`, `exec-briefing`, `customer-call`. Kickoff = 60, working-session = 60, decision-making = 45, etc. |
+   | Objective | Topic phrasing | Infer; surface in summary |
+   | Attendee RACI | Seniority, topic ownership cues | Flag all inferences |
+   | Desired outcomes | Objective plus meeting type heuristics | Offer strawman |
+
+   **Load-bearing inference gates** (v1.1.0): when attendee RACI or desired outcomes are inferred below-high confidence, flag in the go-mode summary with `⚠`. See family contract "Zero-friction execution" section.
+
+4. **Present go-mode inference summary**
+   Show the inferred values with confidence markers. Accept `go` to proceed, or corrections to revise. Re-run inference after any correction and present the summary again.
+
+5. **Design the time-boxed topic list**
+   Apply the meeting-type variant (see below). Size topic times so their sum equals the meeting duration. If the topic list overflows the available time, flag it explicitly and ask for reconciliation (do not silently trim).
+
+   Each topic must have:
+   - Type tag: `Discussion | Decision | Information | Working`
+   - Owner (name or team)
+   - Goal (what done looks like)
+   - Time allocation
+   - Pre-read link if any
+
+6. **Specify attendee prep**
+   List required prep with links and estimated prep time. Add recommended context for attendees who want deeper background. Add "come ready to" expectations that force clarity on what each attendee contributes.
+
+7. **Add parking lot and logistics placeholders**
+   Parking lot is a placeholder for off-topic items raised during the meeting. Logistics covers join link, materials needed, recording ownership.
+
+8. **Render the TEMPLATE.md with filled values**
+   Remove all guidance blockquotes from the final artifact.
+
+9. **Validate output**
+   - Frontmatter shape conforms to the family contract's universal base fields plus agenda-specific fields (`meeting_duration_minutes`, `desired_outcomes`)
+   - Sum of topic times equals meeting duration (+/- 2 min tolerance)
+   - At least one desired outcome is listed
+   - Anti-meeting check result is recorded in `Generation context`
+
+## Output Template
+
+# {{Meeting title}}
+
+## Shareable summary
+
+> [guidance: 5-6 short lines, skimmable in 10 seconds, Slack/Teams-paste-ready. No nested headers. No tables.]
+
+**{{Meeting title}}** | {{Date}} at {{Time}} ({{Duration}} min)
+**Purpose**: {{One-line purpose}}
+**Topics**:
+- {{Topic 1}} ({{time}} min)
+- {{Topic 2}} ({{time}} min)
+- {{Topic 3}} ({{time}} min)
+**Pre-reads**: {{Links or "none required"}}
+
+---
+
+## Full agenda
+
+### Meeting details
+
+- **Date and time**: {{Date}}, {{Time}} ({{Timezone}})
+- **Duration**: {{Duration}} min
+- **Location**: {{Link or room}}
+- **Meeting type**: {{Type}}
+- **Attendees**: {{Names and roles}}
+
+### Purpose
+
+> [guidance: one to two sentences answering "why are we meeting?"]
+
+{{Purpose text}}
+
+### Desired outcomes
+
+> [guidance: concrete, verifiable outcomes. These become the yardstick for recap quality signals.]
+
+- {{Outcome 1}}
+- {{Outcome 2}}
+- {{Outcome 3}}
+
+### Topics
+
+#### {{Topic 1}} ({{time}} min). {{Owner}}
+
+- **Type**: {{Discussion | Decision | Information | Working}}
+- **Goal**: {{What done looks like}}
+- **Pre-read**: {{Link or "none"}}
+
+#### {{Topic 2}} ({{time}} min). {{Owner}}
+
+- **Type**: {{type}}
+- **Goal**: {{goal}}
+- **Pre-read**: {{link}}
+
+> [guidance: repeat per topic; types distinguish discussion from decision and information transfer]
+
+### Attendee prep
+
+**Required prep** (estimated: {{N}} min)
+
+- [ ] {{Prep task 1}}. {{Link}}
+- [ ] {{Prep task 2}}. {{Link}}
+
+**Recommended context**
+
+- {{Link}}: {{What to skim and why}}
+
+**Come ready to**
+
+- {{Expectation 1}} (e.g., share your team's Q2 commitments)
+- {{Expectation 2}} (e.g., weigh in on the scope tradeoff)
+
+### Parking lot
+
+> [guidance: placeholder for off-topic items raised during the meeting. Remains empty at agenda-creation time.]
+
+### Logistics
+
+- **Join link**: {{URL}}
+- **Materials**: {{Doc links}}
+- **Recording**: {{Yes/No, owner name}}
+
+---
+
+## Sources & References
+
+### Primary inputs
+
+> [guidance: what the skill drew from to produce this agenda]
+
+- {{Source type}}: {{Source name or identifier}}
+- Meeting duration: {{user-specified or default 30 min}}
+
+### Referenced artifacts
+
+- Brief: {{filename if exists}}
+- Related prior recaps on this topic: {{filenames or "none"}}
+
+### External references
+
+- {{Pre-read docs with links}}
+
+### Generation context
+
+- **Generated**: {{Timestamp}}
+- **Skill version**: 1.0.0
+- **Input quality**: {{high | medium | low}}. {{Brief rationale}}
+- **Overall confidence**: {{high | medium | low}}. {{Brief rationale}}
+- **Known gaps**: {{List or "None identified"}}
+- **Inferences applied**: {{List of values inferred by the skill, each with confidence marker. E.g., "Meeting type: decision-making [confidence: medium, inferred from 'decide' keyword in topic"]}}
+- **Anti-meeting check**: {{Ran. override accepted | Ran. async alternative produced instead}}
+
+## Example Output
+
+??? example "Search Feature Kickoff"
+    # Search Feature Kickoff
+
+    ## Shareable summary
+
+    **Search Feature Kickoff** | 2026-04-17 at 14:00 EST (60 min)
+    **Purpose**: Commit MVP scope, Q2 engineering capacity, and ship-date target for the new search feature
+    **Topics**:
+    - Scope review (20 min)
+    - Capacity commitment (20 min)
+    - Ship-date target (15 min)
+    **Pre-reads**: [scope draft](https://notion.example/search-scope) (5 min), [capacity model](https://sheets.example/q2-capacity) (3 min)
+
+    ---
+
+    ## Full agenda
+
+    ### Meeting details
+
+    - **Date and time**: 2026-04-17, 14:00 EST
+    - **Duration**: 60 min
+    - **Location**: https://meet.example/search-kickoff
+    - **Meeting type**: project-kickoff
+    - **Attendees**: jonathan (decision-maker), maria (contributor, PM), alex (contributor, eng lead), sarah (informed, design)
+
+    ### Purpose
+
+    Commit to an in/out MVP scope, confirm engineering capacity for Q2, and set a ship-date target that the team can plan around. Without these three commitments, downstream planning stalls.
+
+    ### Desired outcomes
+
+    - In/out scope list agreed and written into the kickoff doc
+    - Engineering capacity commitment logged in the Q2 plan
+    - Ship-date target added to the team calendar with dependencies noted
+
+    ### Topics
+
+    #### Scope review (20 min). maria
+
+    - **Type**: Decision
+    - **Goal**: Each item on the scope draft marked in, out, or deferred to v2
+    - **Pre-read**: [scope draft](https://notion.example/search-scope)
+
+    #### Capacity commitment (20 min). alex
+
+    - **Type**: Decision
+    - **Goal**: Eng capacity agreed in sprint-weeks for Q2; risks and backfill plan surfaced
+    - **Pre-read**: [capacity model](https://sheets.example/q2-capacity)
+
+    #### Ship-date target (15 min). jonathan
+
+    - **Type**: Decision
+    - **Goal**: Target ship date committed with explicit dependencies called out
+    - **Pre-read**: none
+
+    #### Next steps (5 min). maria
+
+    - **Type**: Working
+    - **Goal**: Owners assigned for follow-up; next sync scheduled
+    - **Pre-read**: none
+
+    ### Attendee prep
+
+    **Required prep** (estimated: 8 min)
+
+    - [ ] Read the scope draft and note in/out views. [scope draft](https://notion.example/search-scope)
+    - [ ] Review the capacity model and flag any concerns. [capacity model](https://sheets.example/q2-capacity)
+
+    **Recommended context**
+
+    - [Prior user research on search](https://notion.example/search-research): skim the findings summary to understand the customer problem
+
+    **Come ready to**
+
+    - Share your team's Q2 commitments (alex)
+    - Weigh in on the scope tradeoff for autocomplete vs. filters (everyone)
+    - Flag known dependencies on other teams (alex, sarah)
+
+    ### Parking lot
+
+    ### Logistics
+
+    - **Join link**: https://meet.example/search-kickoff
+    - **Materials**: [scope draft](https://notion.example/search-scope), [capacity model](https://sheets.example/q2-capacity)
+    - **Recording**: Yes, owner: maria
+
+    ---
+
+    ## Sources & References
+
+    ### Primary inputs
+
+    - User-provided context: "Run a kickoff for search feature; need scope, capacity, ship-date commitments"
+    - Meeting duration: 60 min (user-specified)
+
+    ### Referenced artifacts
+
+    - Brief: 2026-04-17_14-00EST_search-feature-kickoff_brief.md
+    - Related prior recaps on this topic: none (this is a kickoff)
+
+    ### External references
+
+    - [scope draft](https://notion.example/search-scope)
+    - [capacity model](https://sheets.example/q2-capacity)
+    - [Prior user research on search](https://notion.example/search-research)
+
+    ### Generation context
+
+    - **Generated**: 2026-04-17T13:30:00Z
+    - **Skill version**: 1.0.0
+    - **Input quality**: high. user provided topic, attendees, duration, and pre-read links
+    - **Overall confidence**: high. all values either user-specified or directly derivable
+    - **Known gaps**: None identified
+    - **Inferences applied**: Meeting type inferred as project-kickoff [confidence: high, from "kickoff" in topic]; attendee roles inferred from seniority context
+    - **Anti-meeting check**: Ran. override accepted (decision meeting with 4 attendees warrants sync discussion of tradeoffs)
+
+## Real-World Examples
+
+See this skill applied to three different product contexts:
+
+??? example "Storevine (B2B): campaigns-kickoff"
+    **Prompt:**
+
+    ```
+    /meeting-agenda "Campaigns feature launch kickoff; Thursday 2pm EST; 60 min; scope, capacity, launch target. Attendees: jonathan (PM), maria (eng lead), alex (marketing lead), sam (data analyst). Pre-read: scope doc and capacity model."
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-agenda
+    version: 1.0
+    generated_at: 2026-04-17T13:00:00Z
+    generated_by_skill: foundation-meeting-agenda
+
+    meeting_title: "Campaigns Feature Launch Kickoff"
+    meeting_date: 2026-04-17
+    meeting_start_time: "14:00 EST"
+    meeting_type: project-kickoff
+    meeting_duration_minutes: 60
+
+    project: campaigns
+    topics:
+      - scope
+      - capacity
+      - launch-target
+
+    attendees:
+      - name: jonathan
+        role: decision-maker
+      - name: maria
+        role: contributor
+      - name: alex
+        role: contributor
+      - name: sam
+        role: contributor
+
+    desired_outcomes:
+      - "Scope committed: feature set in/out for v1 launch"
+      - "Engineering capacity confirmed for Q2 (sprint-weeks committed)"
+      - "Launch-target date set with explicit dependencies"
+
+    related_brief: null
+    input_quality: high
+    confidence: high
+    visibility: team
+    status: draft
+    ---
+
+    # Campaigns Feature Launch Kickoff
+
+??? example "Brainshelf (Consumer): resurface-algo-review"
+    **Prompt:**
+
+    ```
+    /meeting-agenda "resurface algo review this Wed 11am PT 45 min, me + elena (algo) + mia (design), need to pick direction for next sprint between 2 options"
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-agenda
+    version: 1.0
+    generated_at: 2026-04-20T08:30:00Z
+    generated_by_skill: foundation-meeting-agenda
+
+    meeting_title: "Resurface Algorithm Review"
+    meeting_date: 2026-04-22
+    meeting_start_time: "11:00 PT"
+    meeting_type: review
+    meeting_duration_minutes: 45
+
+    project: resurface
+    topics:
+      - current-behavior
+      - option-a-recency-weighted
+      - option-b-topic-clustered
+      - direction-decision
+
+    attendees:
+      - name: priya-pm
+        role: decision-maker
+      - name: elena-algo
+        role: contributor
+      - name: mia-design
+        role: contributor
+
+    desired_outcomes:
+      - "Shared understanding of current Resurface algorithm's observed user behavior"
+      - "Direction committed for next sprint (Option A, Option B, or hybrid)"
+      - "Owner and success metrics assigned for chosen direction"
+
+    related_brief: null
+    input_quality: medium
+    confidence: medium
+    visibility: team
+    status: draft
+    ---
+
+    # Resurface Algorithm Review
+
+??? example "Workbench (Enterprise): blueprints-approval-design"
+    **Prompt:**
+
+    ```
+    /meeting-agenda "Blueprints approval-gate design working session, Monday 2026-04-28 at 2pm EST, 60 min. Attendees: me (david-pm), sasha (lead designer), raj (eng manager), linda (compliance). Goal: co-design the approval-gate UX for Blueprints v1.1 that satisfies HIPAA workflow requirements without adding more than 2 minutes to typical doc creation. Pre-read: [regulatory requirements summary](https://notion.example/blueprints-regs), [customer interview synthesis: 6 healthcare customers](https://notion.example/blueprints-customer-interviews). Working session format, not presentation."
+    ```
+
+    **Output:**
+
+    ```markdown
+    ---
+    artifact_type: meeting-agenda
+    version: 1.0
+    generated_at: 2026-04-24T10:00:00Z
+    generated_by_skill: foundation-meeting-agenda
+
+    meeting_title: "Blueprints Approval-Gate Design Working Session"
+    meeting_date: 2026-04-28
+    meeting_start_time: "14:00 EST"
+    meeting_type: working-session
+    meeting_duration_minutes: 60
+
+    project: blueprints
+    topics:
+      - constraint-alignment
+      - approval-flow-co-design
+      - exception-handling
+      - deliverable-commit
+
+    attendees:
+      - name: david-pm
+        role: decision-maker
+      - name: sasha-designer
+        role: contributor
+      - name: raj-eng
+        role: contributor
+      - name: linda-compliance
+        role: decision-maker
+
+    desired_outcomes:
+      - "Shared constraint map: regulatory must-haves vs. UX nice-to-haves vs. out-of-scope"
+      - "Co-designed approval-flow sketch (whiteboard or Figma) covering the happy path"
+      - "Exception-handling approach agreed for rejected and amended documents"
+      - "Deliverable committed: who writes the v1.1 spec by end of week"
+
+    related_brief: null
+    input_quality: high
+    confidence: high
+    visibility: team
+    status: draft
+    ---
+
+    # Blueprints Approval-Gate Design Working Session
+
+## Quality Checklist
+
+Before delivering the agenda, verify:
+
+- [ ] Anti-meeting check was applied and recorded
+- [ ] Meeting type is set (or explicitly `other` with low-confidence flag)
+- [ ] Duration is set (default 30 min if not provided, flagged as default)
+- [ ] Desired outcomes are concrete and verifiable (not "discuss X" but "decide whether to ship X")
+- [ ] Every topic has type tag, owner, goal, time
+- [ ] Topic times sum to meeting duration
+- [ ] Pre-read prep time is listed (attendees skip prep when duration is not stated)
+- [ ] Logistics section has join link and materials references
+- [ ] Shareable summary is 5-6 lines, Slack-paste-ready
+- [ ] Sources and References section includes Generation context with defaults applied and inferences made
