@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants. Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics.">
+        <meta name="description" content="Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants (standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing). Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="foundation-meeting-agenda - PM Skills" />
-<meta property="og:description" content="Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants. Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics." />
+<meta property="og:description" content="Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants (standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing). Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-meeting-agenda.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/foundation/foundation-meeting-agenda/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="foundation-meeting-agenda - PM Skills" />
-<meta property="twitter:description" content="Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants. Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics." />
+<meta property="twitter:description" content="Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants (standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing). Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-meeting-agenda.png" />
 </head>
   
@@ -3218,47 +3218,474 @@
 <p class="admonition-title">Quick facts</p>
 <p><strong>Classification:</strong> Foundation | <strong>Version:</strong> 1.0.0 | <strong>Category:</strong> meeting | <strong>License:</strong> Apache-2.0</p>
 </div>
-<p class="md-button"><strong>Try it:</strong> <code>/meeting-agenda "Your meeting topic here"</code></p>
+<p class="md-button"><strong>Try it:</strong> <code>/meeting-agenda "Your context here"</code></p>
 <h1 id="meeting-agenda">Meeting Agenda<a class="headerlink" href="#meeting-agenda" title="Permanent link">&para;</a></h1>
 <p>A meeting agenda is the attendee-facing structural document that sets expectations before a meeting. It answers "what will we discuss, who owns each topic, how will we spend the time, and what does done look like?" Distinct from a meeting brief, which is the user's private strategic prep; the agenda is shared with participants and focused on structure and flow.</p>
-<p>This skill belongs to the <a href="../../../reference/skill-families/meeting-skills-contract/">Meeting Skills Family</a>, a group of five foundation-phase skills (agenda, brief, recap, synthesize, stakeholder-update) that share a common behavioral contract, frontmatter schema, and filename-based chaining.</p>
+<p>This skill belongs to the Meeting Skills Family. It conforms to the <a href="../../docs/reference/skill-families/meeting-skills-contract.md">Meeting Skills Family Contract</a>, which defines shared frontmatter, file naming, the go-mode behavioral pattern, and universal output requirements across all meeting skills.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Running or chairing a cross-functional working session, project kickoff, stakeholder review, or decision meeting</li>
 <li>Any meeting with more than three attendees or more than thirty minutes</li>
-<li>Recurring meeting where a rolling structure (1-on-1, team sync) needs fresh framing</li>
+<li>Recurring meeting where a rolling structure (1-on-1, team sync) needs fresh framing each time</li>
 <li>Mid-initiative alignment moment where explicit desired outcomes prevent drift</li>
 </ul>
 <h2 id="when-not-to-use">When NOT to Use<a class="headerlink" href="#when-not-to-use" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The user's preparation is private and tactical. Use <code>/meeting-brief</code> instead.</li>
+<li>The user's preparation is private and tactical (positioning, stakeholder reads, asks). Use <code>/meeting-brief</code> instead.</li>
 <li>The meeting has already happened. Use <code>/meeting-recap</code> for post-meeting summarization.</li>
 <li>The user wants to communicate outcomes to non-attendees. Use <code>/stakeholder-update</code> after the meeting.</li>
 </ul>
 <h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/meeting-agenda &quot;Your meeting topic here&quot;
+<p>Use the <code>/meeting-agenda</code> slash command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/meeting-agenda &quot;Your context here&quot;
 </span></code></pre></div>
 <p>Or reference the skill file directly: <code>skills/foundation-meeting-agenda/SKILL.md</code></p>
-<h2 id="key-features">Key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Zero-friction execution</strong> (per family contract): reads inputs, infers missing values, presents a brief inference summary, accepts one-word <code>go</code> or corrections. No blocking interrogation.</li>
-<li><strong>Anti-meeting check</strong>: opens with "does this need to be a meeting?" If the objective can be handled async, proposes the alternative instead.</li>
-<li><strong>Ten meeting-type variants</strong>: standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing, other. Each reshapes the topic list to match the meeting's purpose.</li>
-<li><strong>Topic time math validation</strong>: sum of topic times must equal meeting duration. Overflows are flagged, not silently trimmed.</li>
-<li><strong>Default duration</strong>: 30 min (per family contract).</li>
-</ul>
 <h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
-<p>Full instructions are in the skill file at <code>skills/foundation-meeting-agenda/SKILL.md</code>. See also:</p>
+<p>When asked to create a meeting agenda, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Run anti-meeting check</strong>
+   Apply the trigger patterns above. If the user's objective matches, propose the async alternative and ask for override. Only proceed to step 2 on explicit override.</p>
+</li>
+<li>
+<p><strong>Parse and load inputs</strong>
+   Read the topic or purpose. Load all <code>@file</code> references provided. Extract any attendee list, time constraints, or linked documents.</p>
+</li>
+<li>
+<p><strong>Infer missing values</strong>
+   Apply these inference rules:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Inferred from</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meeting type</td>
+<td>Topic keywords, attendee seniority mix</td>
+<td><code>other</code> (low confidence)</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>Explicit in topic doc (rare); meeting-type-specific default when type is inferred at medium+ confidence</td>
+<td>v1.1.0: type-specific (see family contract). 30 min only for <code>other</code>, <code>1-on-1</code>, <code>exec-briefing</code>, <code>customer-call</code>. Kickoff = 60, working-session = 60, decision-making = 45, etc.</td>
+</tr>
+<tr>
+<td>Objective</td>
+<td>Topic phrasing</td>
+<td>Infer; surface in summary</td>
+</tr>
+<tr>
+<td>Attendee RACI</td>
+<td>Seniority, topic ownership cues</td>
+<td>Flag all inferences</td>
+</tr>
+<tr>
+<td>Desired outcomes</td>
+<td>Objective plus meeting type heuristics</td>
+<td>Offer strawman</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Load-bearing inference gates</strong> (v1.1.0): when attendee RACI or desired outcomes are inferred below-high confidence, flag in the go-mode summary with <code>⚠</code>. See family contract "Zero-friction execution" section.</p>
+<ol>
+<li>
+<p><strong>Present go-mode inference summary</strong>
+   Show the inferred values with confidence markers. Accept <code>go</code> to proceed, or corrections to revise. Re-run inference after any correction and present the summary again.</p>
+</li>
+<li>
+<p><strong>Design the time-boxed topic list</strong>
+   Apply the meeting-type variant (see below). Size topic times so their sum equals the meeting duration. If the topic list overflows the available time, flag it explicitly and ask for reconciliation (do not silently trim).</p>
+</li>
+</ol>
+<p>Each topic must have:
+   - Type tag: <code>Discussion | Decision | Information | Working</code>
+   - Owner (name or team)
+   - Goal (what done looks like)
+   - Time allocation
+   - Pre-read link if any</p>
+<ol>
+<li>
+<p><strong>Specify attendee prep</strong>
+   List required prep with links and estimated prep time. Add recommended context for attendees who want deeper background. Add "come ready to" expectations that force clarity on what each attendee contributes.</p>
+</li>
+<li>
+<p><strong>Add parking lot and logistics placeholders</strong>
+   Parking lot is a placeholder for off-topic items raised during the meeting. Logistics covers join link, materials needed, recording ownership.</p>
+</li>
+<li>
+<p><strong>Render the TEMPLATE.md with filled values</strong>
+   Remove all guidance blockquotes from the final artifact.</p>
+</li>
+<li>
+<p><strong>Validate output</strong></p>
+</li>
+<li>Frontmatter shape conforms to the family contract's universal base fields plus agenda-specific fields (<code>meeting_duration_minutes</code>, <code>desired_outcomes</code>)</li>
+<li>Sum of topic times equals meeting duration (&plusmn; 2 min tolerance)</li>
+<li>At least one desired outcome is listed</li>
+<li>Anti-meeting check result is recorded in <code>Generation context</code></li>
+</ol>
+<h2 id="output-template">Output Template<a class="headerlink" href="#output-template" title="Permanent link">&para;</a></h2>
+<h1 id="meeting-title">{{Meeting title}}<a class="headerlink" href="#meeting-title" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-summary">Shareable summary<a class="headerlink" href="#shareable-summary" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[guidance: 5-6 short lines, skimmable in 10 seconds, Slack/Teams-paste-ready. No nested headers. No tables.]</p>
+</blockquote>
+<p><strong>{{Meeting title}}</strong> | {{Date}} at {{Time}} ({{Duration}} min)
+<strong>Purpose</strong>: {{One-line purpose}}
+<strong>Topics</strong>:
+- {{Topic 1}} ({{time}} min)
+- {{Topic 2}} ({{time}} min)
+- {{Topic 3}} ({{time}} min)
+<strong>Pre-reads</strong>: {{Links or "none required"}}</p>
+<hr />
+<h2 id="full-agenda">Full agenda<a class="headerlink" href="#full-agenda" title="Permanent link">&para;</a></h2>
+<h3 id="meeting-details">Meeting details<a class="headerlink" href="#meeting-details" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-agenda/references/TEMPLATE.md">Skill template</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-agenda/references/EXAMPLE.md">Worked example</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-meeting-agenda">Sample outputs</a></li>
+<li><strong>Date and time</strong>: {{Date}}, {{Time}} ({{Timezone}})</li>
+<li><strong>Duration</strong>: {{Duration}} min</li>
+<li><strong>Location</strong>: {{Link or room}}</li>
+<li><strong>Meeting type</strong>: {{Type}}</li>
+<li><strong>Attendees</strong>: {{Names and roles}}</li>
 </ul>
-<h2 id="related-skills">Related skills<a class="headerlink" href="#related-skills" title="Permanent link">&para;</a></h2>
+<h3 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: one to two sentences answering "why are we meeting?"]</p>
+</blockquote>
+<p>{{Purpose text}}</p>
+<h3 id="desired-outcomes">Desired outcomes<a class="headerlink" href="#desired-outcomes" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: concrete, verifiable outcomes. These become the yardstick for recap quality signals.]</p>
+</blockquote>
 <ul>
-<li><a href="../foundation-meeting-brief/"><code>/meeting-brief</code></a>. user's private prep (shares anti-meeting check)</li>
-<li><a href="../foundation-meeting-recap/"><code>/meeting-recap</code></a>. downstream: auto-populates from this agenda's topic list</li>
-<li><a href="../foundation-stakeholder-update/"><code>/stakeholder-update</code></a>. downstream: translates outcomes to non-attendees</li>
+<li>{{Outcome 1}}</li>
+<li>{{Outcome 2}}</li>
+<li>{{Outcome 3}}</li>
+</ul>
+<h3 id="topics">Topics<a class="headerlink" href="#topics" title="Permanent link">&para;</a></h3>
+<h4 id="topic-1-time-min-owner">{{Topic 1}} ({{time}} min). {{Owner}}<a class="headerlink" href="#topic-1-time-min-owner" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Type</strong>: {{Discussion | Decision | Information | Working}}</li>
+<li><strong>Goal</strong>: {{What done looks like}}</li>
+<li><strong>Pre-read</strong>: {{Link or "none"}}</li>
+</ul>
+<h4 id="topic-2-time-min-owner">{{Topic 2}} ({{time}} min). {{Owner}}<a class="headerlink" href="#topic-2-time-min-owner" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Type</strong>: {{type}}</li>
+<li><strong>Goal</strong>: {{goal}}</li>
+<li><strong>Pre-read</strong>: {{link}}</li>
+</ul>
+<blockquote>
+<p>[guidance: repeat per topic; types distinguish discussion from decision and information transfer]</p>
+</blockquote>
+<h3 id="attendee-prep">Attendee prep<a class="headerlink" href="#attendee-prep" title="Permanent link">&para;</a></h3>
+<p><strong>Required prep</strong> (estimated: {{N}} min)</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {{Prep task 1}}. {{Link}}</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {{Prep task 2}}. {{Link}}</li>
+</ul>
+<p><strong>Recommended context</strong></p>
+<ul>
+<li>{{Link}}: {{What to skim and why}}</li>
+</ul>
+<p><strong>Come ready to</strong></p>
+<ul>
+<li>{{Expectation 1}} (e.g., share your team's Q2 commitments)</li>
+<li>{{Expectation 2}} (e.g., weigh in on the scope tradeoff)</li>
+</ul>
+<h3 id="parking-lot">Parking lot<a class="headerlink" href="#parking-lot" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: placeholder for off-topic items raised during the meeting. Remains empty at agenda-creation time.]</p>
+</blockquote>
+<h3 id="logistics">Logistics<a class="headerlink" href="#logistics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Join link</strong>: {{URL}}</li>
+<li><strong>Materials</strong>: {{Doc links}}</li>
+<li><strong>Recording</strong>: {{Yes/No, owner name}}</li>
+</ul>
+<hr />
+<h2 id="sources-references">Sources &amp; References<a class="headerlink" href="#sources-references" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs">Primary inputs<a class="headerlink" href="#primary-inputs" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: what the skill drew from to produce this agenda]</p>
+</blockquote>
+<ul>
+<li>{{Source type}}: {{Source name or identifier}}</li>
+<li>Meeting duration: {{user-specified or default 30 min}}</li>
+</ul>
+<h3 id="referenced-artifacts">Referenced artifacts<a class="headerlink" href="#referenced-artifacts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Brief: {{filename if exists}}</li>
+<li>Related prior recaps on this topic: {{filenames or "none"}}</li>
+</ul>
+<h3 id="external-references">External references<a class="headerlink" href="#external-references" title="Permanent link">&para;</a></h3>
+<ul>
+<li>{{Pre-read docs with links}}</li>
+</ul>
+<h3 id="generation-context">Generation context<a class="headerlink" href="#generation-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: {{Timestamp}}</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Input quality</strong>: {{high | medium | low}}. {{Brief rationale}}</li>
+<li><strong>Overall confidence</strong>: {{high | medium | low}}. {{Brief rationale}}</li>
+<li><strong>Known gaps</strong>: {{List or "None identified"}}</li>
+<li><strong>Inferences applied</strong>: {{List of values inferred by the skill, each with confidence marker. E.g., "Meeting type: decision-making [confidence: medium, inferred from 'decide' keyword in topic"]}}</li>
+<li><strong>Anti-meeting check</strong>: {{Ran. override accepted | Ran. async alternative produced instead}}</li>
+</ul>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Search Feature Kickoff</summary>
+<h1 id="search-feature-kickoff">Search Feature Kickoff<a class="headerlink" href="#search-feature-kickoff" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-summary_1">Shareable summary<a class="headerlink" href="#shareable-summary_1" title="Permanent link">&para;</a></h2>
+<p><strong>Search Feature Kickoff</strong> | 2026-04-17 at 14:00 EST (60 min)
+<strong>Purpose</strong>: Commit MVP scope, Q2 engineering capacity, and ship-date target for the new search feature
+<strong>Topics</strong>:
+- Scope review (20 min)
+- Capacity commitment (20 min)
+- Ship-date target (15 min)
+<strong>Pre-reads</strong>: <a href="https://notion.example/search-scope">scope draft</a> (5 min), <a href="https://sheets.example/q2-capacity">capacity model</a> (3 min)</p>
+<hr />
+<h2 id="full-agenda_1">Full agenda<a class="headerlink" href="#full-agenda_1" title="Permanent link">&para;</a></h2>
+<h3 id="meeting-details_1">Meeting details<a class="headerlink" href="#meeting-details_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Date and time</strong>: 2026-04-17, 14:00 EST</li>
+<li><strong>Duration</strong>: 60 min</li>
+<li><strong>Location</strong>: https://meet.example/search-kickoff</li>
+<li><strong>Meeting type</strong>: project-kickoff</li>
+<li><strong>Attendees</strong>: jonathan (decision-maker), maria (contributor, PM), alex (contributor, eng lead), sarah (informed, design)</li>
+</ul>
+<h3 id="purpose_1">Purpose<a class="headerlink" href="#purpose_1" title="Permanent link">&para;</a></h3>
+<p>Commit to an in/out MVP scope, confirm engineering capacity for Q2, and set a ship-date target that the team can plan around. Without these three commitments, downstream planning stalls.</p>
+<h3 id="desired-outcomes_1">Desired outcomes<a class="headerlink" href="#desired-outcomes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>In/out scope list agreed and written into the kickoff doc</li>
+<li>Engineering capacity commitment logged in the Q2 plan</li>
+<li>Ship-date target added to the team calendar with dependencies noted</li>
+</ul>
+<h3 id="topics_1">Topics<a class="headerlink" href="#topics_1" title="Permanent link">&para;</a></h3>
+<h4 id="scope-review-20-min-maria">Scope review (20 min). maria<a class="headerlink" href="#scope-review-20-min-maria" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Type</strong>: Decision</li>
+<li><strong>Goal</strong>: Each item on the scope draft marked in, out, or deferred to v2</li>
+<li><strong>Pre-read</strong>: <a href="https://notion.example/search-scope">scope draft</a></li>
+</ul>
+<h4 id="capacity-commitment-20-min-alex">Capacity commitment (20 min). alex<a class="headerlink" href="#capacity-commitment-20-min-alex" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Type</strong>: Decision</li>
+<li><strong>Goal</strong>: Eng capacity agreed in sprint-weeks for Q2; risks and backfill plan surfaced</li>
+<li><strong>Pre-read</strong>: <a href="https://sheets.example/q2-capacity">capacity model</a></li>
+</ul>
+<h4 id="ship-date-target-15-min-jonathan">Ship-date target (15 min). jonathan<a class="headerlink" href="#ship-date-target-15-min-jonathan" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Type</strong>: Decision</li>
+<li><strong>Goal</strong>: Target ship date committed with explicit dependencies called out</li>
+<li><strong>Pre-read</strong>: none</li>
+</ul>
+<h4 id="next-steps-5-min-maria">Next steps (5 min). maria<a class="headerlink" href="#next-steps-5-min-maria" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Type</strong>: Working</li>
+<li><strong>Goal</strong>: Owners assigned for follow-up; next sync scheduled</li>
+<li><strong>Pre-read</strong>: none</li>
+</ul>
+<h3 id="attendee-prep_1">Attendee prep<a class="headerlink" href="#attendee-prep_1" title="Permanent link">&para;</a></h3>
+<p><strong>Required prep</strong> (estimated: 8 min)</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Read the scope draft and note in/out views. <a href="https://notion.example/search-scope">scope draft</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Review the capacity model and flag any concerns. <a href="https://sheets.example/q2-capacity">capacity model</a></li>
+</ul>
+<p><strong>Recommended context</strong></p>
+<ul>
+<li><a href="https://notion.example/search-research">Prior user research on search</a>: skim the findings summary to understand the customer problem</li>
+</ul>
+<p><strong>Come ready to</strong></p>
+<ul>
+<li>Share your team's Q2 commitments (alex)</li>
+<li>Weigh in on the scope tradeoff for autocomplete vs. filters (everyone)</li>
+<li>Flag known dependencies on other teams (alex, sarah)</li>
+</ul>
+<h3 id="parking-lot_1">Parking lot<a class="headerlink" href="#parking-lot_1" title="Permanent link">&para;</a></h3>
+<h3 id="logistics_1">Logistics<a class="headerlink" href="#logistics_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Join link</strong>: https://meet.example/search-kickoff</li>
+<li><strong>Materials</strong>: <a href="https://notion.example/search-scope">scope draft</a>, <a href="https://sheets.example/q2-capacity">capacity model</a></li>
+<li><strong>Recording</strong>: Yes, owner: maria</li>
+</ul>
+<hr />
+<h2 id="sources-references_1">Sources &amp; References<a class="headerlink" href="#sources-references_1" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs_1">Primary inputs<a class="headerlink" href="#primary-inputs_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>User-provided context: "Run a kickoff for search feature; need scope, capacity, ship-date commitments"</li>
+<li>Meeting duration: 60 min (user-specified)</li>
+</ul>
+<h3 id="referenced-artifacts_1">Referenced artifacts<a class="headerlink" href="#referenced-artifacts_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Brief: 2026-04-17_14-00EST_search-feature-kickoff_brief.md</li>
+<li>Related prior recaps on this topic: none (this is a kickoff)</li>
+</ul>
+<h3 id="external-references_1">External references<a class="headerlink" href="#external-references_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://notion.example/search-scope">scope draft</a></li>
+<li><a href="https://sheets.example/q2-capacity">capacity model</a></li>
+<li><a href="https://notion.example/search-research">Prior user research on search</a></li>
+</ul>
+<h3 id="generation-context_1">Generation context<a class="headerlink" href="#generation-context_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: 2026-04-17T13:30:00Z</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Input quality</strong>: high. user provided topic, attendees, duration, and pre-read links</li>
+<li><strong>Overall confidence</strong>: high. all values either user-specified or directly derivable</li>
+<li><strong>Known gaps</strong>: None identified</li>
+<li><strong>Inferences applied</strong>: Meeting type inferred as project-kickoff [confidence: high, from "kickoff" in topic]; attendee roles inferred from seniority context</li>
+<li><strong>Anti-meeting check</strong>: Ran. override accepted (decision meeting with 4 attendees warrants sync discussion of tradeoffs)</li>
+</ul>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): campaigns-kickoff</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/meeting-agenda &quot;Campaigns feature launch kickoff; Thursday 2pm EST; 60 min; scope, capacity, launch target. Attendees: jonathan (PM), maria (eng lead), alex (marketing lead), sam (data analyst). Pre-read: scope doc and capacity model.&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown">```markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-agenda
+version: 1.0
+generated_at: 2026-04-17T13:00:00Z
+generated_by_skill: foundation-meeting-agenda</p>
+<p>meeting_title: "Campaigns Feature Launch Kickoff"
+meeting_date: 2026-04-17
+meeting_start_time: "14:00 EST"
+meeting_type: project-kickoff
+meeting_duration_minutes: 60</p>
+<p>project: campaigns
+topics:
+  - scope
+  - capacity
+  - launch-target</p>
+<p>attendees:
+  - name: jonathan
+    role: decision-maker
+  - name: maria
+    role: contributor
+  - name: alex
+    role: contributor
+  - name: sam
+    role: contributor</p>
+<p>desired_outcomes:
+  - "Scope committed: feature set in/out for v1 launch"
+  - "Engineering capacity confirmed for Q2 (sprint-weeks committed)"
+  - "Launch-target date set with explicit dependencies"</p>
+<p>related_brief: null
+input_quality: high
+confidence: high
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="campaigns-feature-launch-kickoff">Campaigns Feature Launch Kickoff<a class="headerlink" href="#campaigns-feature-launch-kickoff" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): resurface-algo-review</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/meeting-agenda &quot;resurface algo review this Wed 11am PT 45 min, me + elena (algo) + mia (design), need to pick direction for next sprint between 2 options&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_1">```markdown<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-agenda
+version: 1.0
+generated_at: 2026-04-20T08:30:00Z
+generated_by_skill: foundation-meeting-agenda</p>
+<p>meeting_title: "Resurface Algorithm Review"
+meeting_date: 2026-04-22
+meeting_start_time: "11:00 PT"
+meeting_type: review
+meeting_duration_minutes: 45</p>
+<p>project: resurface
+topics:
+  - current-behavior
+  - option-a-recency-weighted
+  - option-b-topic-clustered
+  - direction-decision</p>
+<p>attendees:
+  - name: priya-pm
+    role: decision-maker
+  - name: elena-algo
+    role: contributor
+  - name: mia-design
+    role: contributor</p>
+<p>desired_outcomes:
+  - "Shared understanding of current Resurface algorithm's observed user behavior"
+  - "Direction committed for next sprint (Option A, Option B, or hybrid)"
+  - "Owner and success metrics assigned for chosen direction"</p>
+<p>related_brief: null
+input_quality: medium
+confidence: medium
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="resurface-algorithm-review">Resurface Algorithm Review<a class="headerlink" href="#resurface-algorithm-review" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): blueprints-approval-design</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/meeting-agenda &quot;Blueprints approval-gate design working session, Monday 2026-04-28 at 2pm EST, 60 min. Attendees: me (david-pm), sasha (lead designer), raj (eng manager), linda (compliance). Goal: co-design the approval-gate UX for Blueprints v1.1 that satisfies HIPAA workflow requirements without adding more than 2 minutes to typical doc creation. Pre-read: [regulatory requirements summary](https://notion.example/blueprints-regs), [customer interview synthesis: 6 healthcare customers](https://notion.example/blueprints-customer-interviews). Working session format, not presentation.&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_2">```markdown<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-agenda
+version: 1.0
+generated_at: 2026-04-24T10:00:00Z
+generated_by_skill: foundation-meeting-agenda</p>
+<p>meeting_title: "Blueprints Approval-Gate Design Working Session"
+meeting_date: 2026-04-28
+meeting_start_time: "14:00 EST"
+meeting_type: working-session
+meeting_duration_minutes: 60</p>
+<p>project: blueprints
+topics:
+  - constraint-alignment
+  - approval-flow-co-design
+  - exception-handling
+  - deliverable-commit</p>
+<p>attendees:
+  - name: david-pm
+    role: decision-maker
+  - name: sasha-designer
+    role: contributor
+  - name: raj-eng
+    role: contributor
+  - name: linda-compliance
+    role: decision-maker</p>
+<p>desired_outcomes:
+  - "Shared constraint map: regulatory must-haves vs. UX nice-to-haves vs. out-of-scope"
+  - "Co-designed approval-flow sketch (whiteboard or Figma) covering the happy path"
+  - "Exception-handling approach agreed for rejected and amended documents"
+  - "Deliverable committed: who writes the v1.1 spec by end of week"</p>
+<p>related_brief: null
+input_quality: high
+confidence: high
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="blueprints-approval-gate-design-working-session">Blueprints Approval-Gate Design Working Session<a class="headerlink" href="#blueprints-approval-gate-design-working-session" title="Permanent link">&para;</a></h1>
+</details>
+<h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
+<p>Before delivering the agenda, verify:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Anti-meeting check was applied and recorded</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Meeting type is set (or explicitly <code>other</code> with low-confidence flag)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Duration is set (default 30 min if not provided, flagged as default)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Desired outcomes are concrete and verifiable (not "discuss X" but "decide whether to ship X")</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Every topic has type tag, owner, goal, time</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Topic times sum to meeting duration</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Pre-read prep time is listed (attendees skip prep when duration is not stated)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Logistics section has join link and materials references</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Shareable summary is 5-6 lines, Slack-paste-ready</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sources and References section includes Generation context with defaults applied and inferences made</li>
 </ul>
 
 
@@ -3282,7 +3709,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 16:28:12 UTC"><span class="timeago" datetime="2026-04-23T16:28:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 16:28:12 UTC">2026-04-23</span>
   </span>
 
     

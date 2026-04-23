@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Cross-meeting archaeology skill. Consumes multiple meeting recaps over a period and surfaces patterns invisible in any single meeting: how decisions evolved, who said what, where threads are stalling, where contradictions have emerged. Produces a plain-text timeline, themes, stakeholder position tracking, contradiction flags, and prioritized follow-ups.">
+        <meta name="description" content="Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes) over a period and surfaces patterns invisible in any single meeting. Shows how decisions evolved, who has been saying what, where threads are stalling, and where contradictions have emerged. Produces a plain-text timeline, themes with confidence markers, stakeholder position tracking, consolidated decision list, contradiction flags, open items, narrative summary, and prioritized follow-ups.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="foundation-meeting-synthesize - PM Skills" />
-<meta property="og:description" content="Cross-meeting archaeology skill. Consumes multiple meeting recaps over a period and surfaces patterns invisible in any single meeting: how decisions evolved, who said what, where threads are stalling, where contradictions have emerged. Produces a plain-text timeline, themes, stakeholder position tracking, contradiction flags, and prioritized follow-ups." />
+<meta property="og:description" content="Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes) over a period and surfaces patterns invisible in any single meeting. Shows how decisions evolved, who has been saying what, where threads are stalling, and where contradictions have emerged. Produces a plain-text timeline, themes with confidence markers, stakeholder position tracking, consolidated decision list, contradiction flags, open items, narrative summary, and prioritized follow-ups." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-meeting-synthesize.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/foundation/foundation-meeting-synthesize/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="foundation-meeting-synthesize - PM Skills" />
-<meta property="twitter:description" content="Cross-meeting archaeology skill. Consumes multiple meeting recaps over a period and surfaces patterns invisible in any single meeting: how decisions evolved, who said what, where threads are stalling, where contradictions have emerged. Produces a plain-text timeline, themes, stakeholder position tracking, contradiction flags, and prioritized follow-ups." />
+<meta property="twitter:description" content="Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes) over a period and surfaces patterns invisible in any single meeting. Shows how decisions evolved, who has been saying what, where threads are stalling, and where contradictions have emerged. Produces a plain-text timeline, themes with confidence markers, stakeholder position tracking, consolidated decision list, contradiction flags, open items, narrative summary, and prioritized follow-ups." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-meeting-synthesize.png" />
 </head>
   
@@ -3216,13 +3216,13 @@
 <h1 id="_1"><!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 --><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">Quick facts</p>
-<p><strong>Classification:</strong> Foundation | <strong>Version:</strong> 1.0.0 | <strong>Category:</strong> meeting | <strong>License:</strong> Apache-2.0</p>
+<p><strong>Classification:</strong> Foundation | <strong>Version:</strong> 1.0.1 | <strong>Category:</strong> meeting | <strong>License:</strong> Apache-2.0</p>
 </div>
-<p class="md-button"><strong>Try it:</strong> <code>/meeting-synthesize @recap1.md @recap2.md @recap3.md</code></p>
+<p class="md-button"><strong>Try it:</strong> <code>/meeting-synthesize "Your context here"</code></p>
 <h1 id="meeting-synthesize">Meeting Synthesize<a class="headerlink" href="#meeting-synthesize" title="Permanent link">&para;</a></h1>
 <p>Meeting synthesis is the archaeology skill for multi-meeting initiatives. It consumes a set of meeting recaps (and optionally raw notes) over a period, and surfaces patterns that no single meeting reveals: how decisions evolved, how stakeholder positions shifted, where threads are stalling, where contradictions have emerged.</p>
-<p>Distinct from <code>/discover-interview-synthesis</code>: that skill works on user-research conversations with research-specific frameworks. This skill works on internal org meetings with org-specific patterns.</p>
-<p>This skill belongs to the <a href="../../../reference/skill-families/meeting-skills-contract/">Meeting Skills Family</a>.</p>
+<p>Distinct from <code>/discover-interview-synthesis</code>: that skill works on user-research conversations with research-specific frameworks (jobs-to-be-done, buying insights). This skill works on internal org meetings with org-specific patterns (stakeholder alignment, decision evolution, project history).</p>
+<p>This skill belongs to the Meeting Skills Family. It conforms to the <a href="../../docs/reference/skill-families/meeting-skills-contract.md">Meeting Skills Family Contract</a>.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Board prep or exec-brief preparation across a meeting sequence</li>
@@ -3230,6 +3230,7 @@
 <li>Project retrospective input (the story of how we got here)</li>
 <li>Investigating why a multi-meeting initiative has stalled</li>
 <li>Quarterly review of a topic that has crossed many meetings</li>
+<li>Surfacing contradictions that no single-meeting reviewer caught</li>
 </ul>
 <h2 id="when-not-to-use">When NOT to Use<a class="headerlink" href="#when-not-to-use" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3238,32 +3239,593 @@
 <li>User research conversation synthesis. Use <code>/discover-interview-synthesis</code>.</li>
 </ul>
 <h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/meeting-synthesize @recap1.md @recap2.md @recap3.md
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/meeting-synthesize --quarter=2026-Q1 @recap*.md
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>/meeting-synthesize --format=board-prep @recap*.md
+<p>Use the <code>/meeting-synthesize</code> slash command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/meeting-synthesize &quot;Your context here&quot;
 </span></code></pre></div>
 <p>Or reference the skill file directly: <code>skills/foundation-meeting-synthesize/SKILL.md</code></p>
-<h2 id="key-features">Key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Zero-friction execution</strong>: loads sources, runs inference on themes and stakeholder evolution, presents brief summary, accepts <code>go</code> or corrections</li>
-<li><strong>Filters</strong>: time range (<code>--quarter</code>, <code>--range</code>), topic, stakeholder</li>
-<li><strong>Format hints</strong>: <code>board-prep</code>, <code>onboarding</code>, <code>retro-input</code>, <code>exec-brief</code> control output presentation</li>
-<li><strong>Contradiction flags</strong>: first-class section for decisions or positions in conflict</li>
-<li><strong>Stakeholder position tracking</strong>: evolution over time, not just snapshots</li>
-<li><strong>Plain-text timeline</strong>: renders everywhere (no binary images)</li>
-<li><strong>Confidence markers per theme</strong>: tied to frequency across sources</li>
-</ul>
 <h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
-<p>Full instructions in <code>skills/foundation-meeting-synthesize/SKILL.md</code>. See also:</p>
-<ul>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-synthesize/references/TEMPLATE.md">Skill template</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-synthesize/references/EXAMPLE.md">Worked example</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-meeting-synthesize">Sample outputs</a></li>
+<p>When asked to create a meeting synthesis, follow these steps:</p>
+<ol>
+<li><strong>Load sources</strong>
+   Read all provided recap filenames or note files. Parse frontmatter to extract meeting metadata. Note per-source input quality (recap frontmatter's <code>input_quality</code> if available; otherwise assess from content).</li>
+</ol>
+<p><strong>Metadata source tracking</strong> (v1.1.0): for each recap, also note the <code>meeting_type_source</code> field (<code>explicit | inferred | null</code>). When synthesizing across mixed sources, the synthesis must document the mix explicitly in the Scope section: "meeting_type values: N explicit, M inferred, K null." This prevents non-reproducible results when filtering by meeting_type across a mix of confidence levels. If filtering by <code>meeting_type</code>, state whether the filter includes inferred values and how null values are handled.</p>
+<ol>
+<li>
+<p><strong>Apply filters</strong>
+   If time range, topic, or stakeholder filter provided, narrow the source set before proceeding. Record the filter applied in frontmatter <code>scope_filter</code>.</p>
+</li>
+<li>
+<p><strong>Present go-mode inference summary</strong>
+   Meeting count after filter, time range detected from source metadata, per-source input quality levels, scope filter description.</p>
+</li>
+<li>
+<p><strong>Build the plain-text timeline</strong>
+   Chronological order by <code>meeting_date</code>. Each entry shows date, meeting name, key decision or shift, and confidence or contradiction flag if applicable. Render as markdown (no binary images. must render everywhere).</p>
+</li>
+<li>
+<p><strong>Extract themes</strong>
+   Cluster recurring topics across sources. For each theme, record description, sources where it appeared, and confidence marker tied to frequency ("appears in 5/5 meetings" → high; "appears in &#8534; meetings" → medium; "mentioned in 1 meeting" → low).</p>
+</li>
+<li>
+<p><strong>Track stakeholder positions</strong>
+   For each named stakeholder across sources, record initial position → current position, alignment state (aligned / divergent / shifting), and key statements with dates. Flag confidence on each position based on whether it was direct-quoted or paraphrased.</p>
+</li>
+<li>
+<p><strong>Consolidate decisions</strong>
+   Cross-meeting, sorted chronologically. Table format: Date | Decision | Context | Meeting | Confidence.</p>
+</li>
+<li>
+<p><strong>Separate decision evolution from unresolved contradictions</strong> (v1.1.0)
+   Two distinct outputs, not one combined "contradictions" section:</p>
+</li>
+<li><strong>Decision evolution</strong> (resolved): earlier decision → later decision on the same topic, where the later one supersedes. This is historical context, not a red flag. No <code>⚠</code> emphasis.</li>
+<li><strong>Unresolved contradictions</strong>: decisions or positions currently in conflict that need reconciliation. Use <code>⚠</code> visual emphasis. For each:<ul>
+<li>Earlier reference (meeting + date + decision)</li>
+<li>Later reference (meeting + date + decision that conflicts)</li>
+<li>Status: unresolved / needs reconciliation</li>
 </ul>
-<h2 id="related-skills">Related skills<a class="headerlink" href="#related-skills" title="Permanent link">&para;</a></h2>
+</li>
+</ol>
+<p>The distinction matters because v1.0.0 conflated them, creating false-positive "contradictions" in exec contexts where the "contradiction" was actually intentional scope evolution.</p>
+<ol>
+<li>
+<p><strong>Identify open items and stalled threads</strong>
+   Topics surfacing 2+ times without resolution. When they last appeared.</p>
+</li>
+<li>
+<p><strong>Draft narrative summary</strong>
+    2-3 paragraphs: what happened, what changed, where we are, what is at stake. The "story" of the meeting set.</p>
+</li>
+<li>
+<p><strong>Prioritize follow-up suggestions</strong></p>
 <ul>
-<li><a href="../foundation-meeting-recap/"><code>/meeting-recap</code></a>. upstream: primary input source</li>
-<li><a href="../../discover/discover-interview-synthesis/"><code>/discover-interview-synthesis</code></a>. sibling pattern for user research (different domain)</li>
+<li>High: unblocking now; suggested owner or forum</li>
+<li>Medium: important but not blocking</li>
+<li>Low: monitor
+Each with rationale.</li>
+</ul>
+</li>
+<li>
+<p><strong>Apply format hint</strong> (if provided)
+    One process generates the full synthesis data. The hint controls section ordering and truncation for the specific use case:</p>
+<ul>
+<li><code>board-prep</code>: lead with narrative + contradictions + prioritized follow-ups; shorter timeline</li>
+<li><code>onboarding</code>: lead with narrative + stakeholder tracking; full timeline</li>
+<li><code>retro-input</code>: lead with themes + stalled threads + meeting-quality aggregate</li>
+<li><code>exec-brief</code>: TL;DR + top 3 items only</li>
+</ul>
+</li>
+<li>
+<p><strong>Render TEMPLATE.md and validate</strong></p>
+<ul>
+<li><code>source_meetings</code> list is non-empty</li>
+<li><code>time_range.start</code> ≤ <code>time_range.end</code></li>
+<li>Every theme has a confidence marker</li>
+<li>Every contradiction has before/after source citations</li>
+<li>At least 1 prioritized follow-up</li>
+</ul>
+</li>
+</ol>
+<h2 id="output-template">Output Template<a class="headerlink" href="#output-template" title="Permanent link">&para;</a></h2>
+<h1 id="meeting-synthesis-topic-initiative-scope">Meeting synthesis: {{Topic / initiative / scope}}<a class="headerlink" href="#meeting-synthesis-topic-initiative-scope" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-summary">Shareable summary<a class="headerlink" href="#shareable-summary" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[guidance: scope + 2-3 sentence headline takeaway + 3-5 key themes + top open items + top prioritized follow-ups]</p>
+</blockquote>
+<p><strong>Synthesis scope</strong>: {{Topic}} across {{N}} meetings, {{Date range}}</p>
+<p>{{2-3 sentence headline takeaway capturing the arc or state}}</p>
+<p><strong>Key themes</strong>:
+- {{Theme 1}}
+- {{Theme 2}}
+- {{Theme 3}}</p>
+<p><strong>Top open items</strong>:
+- {{Stalled thread 1}}
+- {{Stalled thread 2}}</p>
+<p><strong>Top priority follow-ups</strong>:
+- {{High-priority follow-up 1}}
+- {{High-priority follow-up 2}}</p>
+<hr />
+<h2 id="full-synthesis">Full synthesis<a class="headerlink" href="#full-synthesis" title="Permanent link">&para;</a></h2>
+<h3 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Topic or initiative</strong>: {{Name}}</li>
+<li><strong>Time range</strong>: {{Start date}} to {{End date}}</li>
+<li><strong>Meetings included</strong> ({{N}}):</li>
+<li>{{Date}}: {{Meeting name}} (<a href="{{path}}">recap filename</a>) [input quality: {{level}}]</li>
+<li>{{Date}}: {{Meeting name}} (<a href="{{path}}">recap filename</a>) [input quality: {{level}}]</li>
+<li><strong>Scope filter applied</strong>: {{filter description or "none"}}</li>
+<li><strong>Sources used</strong>: {{Recaps / notes / transcripts mix}}</li>
+</ul>
+<h3 id="timeline">Timeline<a class="headerlink" href="#timeline" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: plain-text markdown chronological rendering, no binary images. Each entry: date | event | shift. Flag contradictions and low-confidence items inline.]</p>
+</blockquote>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{{Date}}  |  {{Meeting / event name}}
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>          |  → {{Key decision or shift}}
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>          |  {{Optional: confidence or flag}}
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>          |
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>{{Date}}  |  {{Meeting / event name}}
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>          |  → {{Key decision or shift}}
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>          |  [!] {{Contradiction flag if applicable}}
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>          |
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>{{Date}}  |  {{Meeting / event name}}
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>          |  → {{Key decision or shift}}
+</span></code></pre></div>
+<h3 id="themes">Themes<a class="headerlink" href="#themes" title="Permanent link">&para;</a></h3>
+<h4 id="theme-1-confidence-level-rationale-eg-appears-in-55-meetings">{{Theme 1}} [confidence: {{level}}. {{rationale, e.g., "appears in 5/5 meetings"}}]<a class="headerlink" href="#theme-1-confidence-level-rationale-eg-appears-in-55-meetings" title="Permanent link">&para;</a></h4>
+<p>{{Description of the theme and where it appeared}}</p>
+<ul>
+<li>{{Meeting date}}: {{Manifestation}}</li>
+<li>{{Meeting date}}: {{Manifestation}}</li>
+</ul>
+<h4 id="theme-2-confidence-level">{{Theme 2}} [confidence: {{level}}]<a class="headerlink" href="#theme-2-confidence-level" title="Permanent link">&para;</a></h4>
+<p>{{Description}}</p>
+<blockquote>
+<p>[guidance: repeat per theme]</p>
+</blockquote>
+<h3 id="stakeholder-position-tracking">Stakeholder position tracking<a class="headerlink" href="#stakeholder-position-tracking" title="Permanent link">&para;</a></h3>
+<p><strong>{{Stakeholder 1}}</strong></p>
+<ul>
+<li><strong>Position evolution</strong>: {{Initial view → Current view}}</li>
+<li><strong>Key statements</strong>:</li>
+<li>{{Date}}: "{{paraphrased position}}"</li>
+<li>{{Date}}: "{{paraphrased position}}"</li>
+<li><strong>Alignment state</strong>: {{aligned with team / divergent / shifting}}</li>
+</ul>
+<p><strong>{{Stakeholder 2}}</strong></p>
+<blockquote>
+<p>[guidance: repeat per key stakeholder]</p>
+</blockquote>
+<h3 id="consolidated-decision-list">Consolidated decision list<a class="headerlink" href="#consolidated-decision-list" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: decisions from across all meetings in scope, chronological, with source citations]</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Decision</th>
+<th>Context</th>
+<th>Meeting</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{Date}}</td>
+<td>{{Decision}}</td>
+<td>{{Brief context}}</td>
+<td>{{Meeting name}}</td>
+<td>{{level}}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="decision-evolution-resolved">Decision evolution (resolved)<a class="headerlink" href="#decision-evolution-resolved" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[v1.1.0. split from contradictions. Decision evolution captures supersedes-chains: later decisions that replaced earlier ones. Historical context. NO [!] visual emphasis. this is expected, not a red flag.]</p>
+</blockquote>
+<p><strong>{{Topic 1}}</strong></p>
+<ul>
+<li><strong>{{Earlier date}}</strong> ({{Meeting}}): {{Earlier decision}}</li>
+<li><strong>{{Later date}}</strong> ({{Meeting}}): {{Later decision supersedes earlier}}</li>
+<li><strong>Context</strong>: {{why the shift. new evidence, stakeholder input, reality-check}}</li>
+</ul>
+<h3 id="unresolved-contradictions">Unresolved contradictions (⚠)<a class="headerlink" href="#unresolved-contradictions" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: the highest-value archaeology output. decisions or positions CURRENTLY in conflict that need reconciliation. Reserve [!] emphasis for this section only. If no live contradictions, state "No live unresolved contradictions as of {{date}}."]</p>
+</blockquote>
+<p><strong>[!] {{Contradiction 1}}</strong></p>
+<ul>
+<li><strong>{{Date}}</strong> ({{Meeting}}): {{Earlier decision or position}}</li>
+<li><strong>{{Date}}</strong> ({{Meeting}}): {{Later decision or position that conflicts}}</li>
+<li><strong>Status</strong>: unresolved. needs reconciliation</li>
+</ul>
+<p><strong>[!] {{Contradiction 2}}</strong></p>
+<blockquote>
+<p>[guidance: repeat structure for unresolved cases only]</p>
+</blockquote>
+<h3 id="open-items-and-stalled-threads">Open items and stalled threads<a class="headerlink" href="#open-items-and-stalled-threads" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>{{Open item 1}}</strong>: {{Why it is stuck, when it last surfaced, last meeting to touch it}}</li>
+<li><strong>{{Open item 2}}</strong>: {{Why it is stuck, when it last surfaced}}</li>
+</ul>
+<h3 id="narrative-summary">Narrative summary<a class="headerlink" href="#narrative-summary" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: the "story" of this meeting set in 2-3 paragraphs. what happened, what changed, where we are, what is at stake. Prose, not bullets.]</p>
+</blockquote>
+<p>{{Paragraph 1}}</p>
+<p>{{Paragraph 2}}</p>
+<p>{{Paragraph 3}}</p>
+<h3 id="prioritized-follow-up-suggestions">Prioritized follow-up suggestions<a class="headerlink" href="#prioritized-follow-up-suggestions" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: the "now what". actionable next steps ranked by priority]</p>
+</blockquote>
+<p><strong>[High priority]</strong></p>
+<ul>
+<li>{{Follow-up 1}}: {{Why this matters now, suggested owner or forum}}</li>
+<li>{{Follow-up 2}}: {{Why this matters now}}</li>
+</ul>
+<p><strong>[Medium priority]</strong></p>
+<ul>
+<li>{{Follow-up 3}}: {{Rationale}}</li>
+<li>{{Follow-up 4}}: {{Rationale}}</li>
+</ul>
+<p><strong>[Lower priority / monitor]</strong></p>
+<ul>
+<li>{{Follow-up 5}}: {{Rationale}}</li>
+</ul>
+<hr />
+<h2 id="sources-references">Sources &amp; References<a class="headerlink" href="#sources-references" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs-source-meetings">Primary inputs (source meetings)<a class="headerlink" href="#primary-inputs-source-meetings" title="Permanent link">&para;</a></h3>
+<ul>
+<li>{{recap-filename-1.md}} ({{date}}). input quality: {{level}}</li>
+<li>{{recap-filename-2.md}} ({{date}}). input quality: {{level}}</li>
+<li>{{recap-filename-3.md}} ({{date}}). input quality: {{level}}</li>
+</ul>
+<h3 id="referenced-artifacts">Referenced artifacts<a class="headerlink" href="#referenced-artifacts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Prior syntheses on this topic: {{filenames or "none"}}</li>
+<li>Related project briefs: {{filenames or "none"}}</li>
+</ul>
+<h3 id="external-references">External references<a class="headerlink" href="#external-references" title="Permanent link">&para;</a></h3>
+<ul>
+<li>{{Docs cited across the meeting set}}</li>
+</ul>
+<h3 id="generation-context">Generation context<a class="headerlink" href="#generation-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: {{Timestamp}}</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Input quality</strong>: {{weighted average across sources}}. {{rationale}}</li>
+<li><strong>Overall confidence</strong>: {{level}}. {{rationale}}</li>
+<li><strong>Known gaps</strong>: {{topics or time periods with thin coverage}}</li>
+<li><strong>Scope filter</strong>: {{as applied, or "none"}}</li>
+<li><strong>Format hint</strong>: {{default | board-prep | onboarding | retro-input | exec-brief}}</li>
+</ul>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Meeting synthesis: Search Feature (Q1 2026)</summary>
+<h1 id="meeting-synthesis-search-feature-q1-2026">Meeting synthesis: Search Feature (Q1 2026)<a class="headerlink" href="#meeting-synthesis-search-feature-q1-2026" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-summary_1">Shareable summary<a class="headerlink" href="#shareable-summary_1" title="Permanent link">&para;</a></h2>
+<p><strong>Synthesis scope</strong>: Search feature across 5 meetings, 2026-01-15 to 2026-03-31</p>
+<p>Q1 converged on a scope-and-capacity decision (autocomplete + filters; 8 sprint-weeks for Q2) but surfaced a late-breaking vendor-licensing concern that now blocks a ship-date commitment. Stakeholder positions evolved from skeptical-of-scope to aligned-on-scope; the vendor question is the one unresolved thread.</p>
+<p><strong>Key themes</strong>:
+- Scope discipline held across 3 scope-test moments (autocomplete + filters consistently in; saved searches consistently out)
+- Engineering capacity concern resolved via explicit model (alex's capacity model emerged in Feb; referenced in all subsequent meetings)
+- Vendor-licensing risk emerged late (Mar 26); not present in earlier meetings</p>
+<p><strong>Top open items</strong>:
+- Algolia licensing terms review (maria): blocks Q2 ship-date commitment</p>
+<p><strong>Top priority follow-ups</strong>:
+- [High] Schedule vendor-licensing resolution meeting within 2 weeks; currently blocks timeline
+- [High] Document the capacity model as reusable artifact; referenced 4 times across the 5 meetings</p>
+<hr />
+<h2 id="full-synthesis_1">Full synthesis<a class="headerlink" href="#full-synthesis_1" title="Permanent link">&para;</a></h2>
+<h3 id="scope_1">Scope<a class="headerlink" href="#scope_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Topic or initiative</strong>: Search feature for Q2 2026 ship</li>
+<li><strong>Time range</strong>: 2026-01-15 to 2026-03-31</li>
+<li><strong>Meetings included</strong> (5):</li>
+<li>2026-01-15: Search Scope Kickoff (2026-01-15_14-00EST_search-scope-kickoff_recap.md) [input quality: high]</li>
+<li>2026-02-05: Search Scope Review (2026-02-05_14-00EST_search-scope-review_recap.md) [input quality: high]</li>
+<li>2026-02-19: Search Capacity Planning (2026-02-19_14-00EST_search-capacity-planning_recap.md) [input quality: medium]</li>
+<li>2026-03-12: Search Capacity Decision (2026-03-12_14-00EST_search-capacity-decision_recap.md) [input quality: high]</li>
+<li>2026-03-26: Search Vendor Risk Review (2026-03-26_14-00EST_search-vendor-risk-review_recap.md) [input quality: high]</li>
+<li><strong>Scope filter applied</strong>: project=search-feature</li>
+<li><strong>Sources used</strong>: 5 recaps (all structured)</li>
+</ul>
+<h3 id="timeline_1">Timeline<a class="headerlink" href="#timeline_1" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>2026-01-15  |  Search Scope Kickoff
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>            |  → Initial scope proposal: autocomplete + filters + saved searches
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>            |  [confidence: high. kickoff consensus]
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>            |
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2026-02-05  |  Search Scope Review
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>            |  → Scope narrowed: saved searches deferred to v2
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>            |  [!] scope tightened from kickoff; maria supported, priya-cfo skeptical of Q2 feasibility even after narrowing
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            |
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>2026-02-19  |  Search Capacity Planning
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>            |  → Alex presents capacity model showing 8 sprint-weeks for narrowed scope
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            |  [confidence: high]
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>            |
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>2026-03-12  |  Search Capacity Decision
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>            |  → 8 sprint-weeks committed; priya-cfo signed off after Q1 overrun context addressed
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>            |
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>2026-03-26  |  Search Vendor Risk Review
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            |  → Algolia licensing concern surfaced; timeline commitment paused pending investigation
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>            |  [!] new risk not present in earlier meetings; blocks ship-date
+</span></code></pre></div>
+<h3 id="themes_1">Themes<a class="headerlink" href="#themes_1" title="Permanent link">&para;</a></h3>
+<h4 id="scope-discipline-held-confidence-high-consistent-across-35-meetings">Scope discipline held [confidence: high. consistent across &#8535; meetings]<a class="headerlink" href="#scope-discipline-held-confidence-high-consistent-across-35-meetings" title="Permanent link">&para;</a></h4>
+<p>Autocomplete + filters appeared IN in every scope-test moment. Saved searches appeared IN at kickoff, OUT from Feb 5 onward. Decision held through 2 subsequent capacity conversations without reopening.</p>
+<ul>
+<li>2026-01-15: proposed IN (kickoff)</li>
+<li>2026-02-05: saved searches DEFERRED to v2; autocomplete + filters held</li>
+<li>2026-03-12: scope reconfirmed implicitly in capacity decision</li>
+</ul>
+<h4 id="capacity-model-as-anchor-confidence-high-referenced-in-45-meetings">Capacity model as anchor [confidence: high. referenced in &#8536; meetings]<a class="headerlink" href="#capacity-model-as-anchor-confidence-high-referenced-in-45-meetings" title="Permanent link">&para;</a></h4>
+<p>Alex's capacity model emerged on Feb 19 and was referenced as the authoritative capacity artifact in every subsequent meeting. The model's credibility came from having the specific tradeoff math ("cutting saved searches saves 3 sprint-weeks").</p>
+<ul>
+<li>2026-02-19: introduced</li>
+<li>2026-03-12: referenced to anchor the 8-sprint-week commitment</li>
+<li>2026-03-26: referenced to confirm vendor risk does not change capacity (only timeline)</li>
+</ul>
+<h4 id="vendor-licensing-as-late-emerging-risk-confidence-medium-appears-in-15-meetings-recency-gives-weight">Vendor-licensing as late-emerging risk [confidence: medium. appears in &#8533; meetings, recency gives weight]<a class="headerlink" href="#vendor-licensing-as-late-emerging-risk-confidence-medium-appears-in-15-meetings-recency-gives-weight" title="Permanent link">&para;</a></h4>
+<p>Algolia licensing concern surfaced only on Mar 26, late in the quarter. Alex referenced a prior email from Algolia that had been sitting unreviewed since March 15. Suggests a pattern: external-risk signals arriving mid-cycle that the team lacks a routine to triage.</p>
+<ul>
+<li>2026-03-26: first surfaced; tied to email dated 2026-03-15</li>
+</ul>
+<h3 id="stakeholder-position-tracking_1">Stakeholder position tracking<a class="headerlink" href="#stakeholder-position-tracking_1" title="Permanent link">&para;</a></h3>
+<p><strong>priya-cfo</strong> (CFO)</p>
+<ul>
+<li><strong>Position evolution</strong>: skeptical-of-feasibility → cautiously-aligned → committed-with-monthly-review</li>
+<li><strong>Key statements</strong>:</li>
+<li>2026-02-05: "can Q2 realistically absorb search on top of Q1 overrun?"</li>
+<li>2026-03-12: "willing to commit if we have a monthly-review mechanism"</li>
+<li><strong>Alignment state</strong>: aligned (with conditions)</li>
+</ul>
+<p><strong>maria-cpo</strong> (CPO)</p>
+<ul>
+<li><strong>Position evolution</strong>: scope-supportive from the start (consistent)</li>
+<li><strong>Key statements</strong>:</li>
+<li>2026-01-15: "autocomplete + filters align with the product vision"</li>
+<li>2026-02-05: "deferring saved searches to v2 is the right call"</li>
+<li><strong>Alignment state</strong>: aligned throughout</li>
+</ul>
+<p><strong>alex</strong> (engineering lead)</p>
+<ul>
+<li><strong>Position evolution</strong>: capacity-concerned → capacity-confident (after model)</li>
+<li><strong>Key statements</strong>:</li>
+<li>2026-01-15: "we need to see the tradeoffs before I can commit capacity"</li>
+<li>2026-02-19: "the model shows 8 sprint-weeks is feasible for the narrowed scope"</li>
+<li>2026-03-26: "vendor licensing is a new risk we need to handle before I can commit a date"</li>
+<li><strong>Alignment state</strong>: aligned, but pragmatic about new risks</li>
+</ul>
+<h3 id="consolidated-decision-list_1">Consolidated decision list<a class="headerlink" href="#consolidated-decision-list_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Decision</th>
+<th>Context</th>
+<th>Meeting</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-01-15</td>
+<td>Initial scope: autocomplete + filters + saved searches</td>
+<td>Kickoff proposal</td>
+<td>Search Scope Kickoff</td>
+<td>high</td>
+</tr>
+<tr>
+<td>2026-02-05</td>
+<td>Defer saved searches to v2</td>
+<td>Scope review</td>
+<td>Search Scope Review</td>
+<td>high</td>
+</tr>
+<tr>
+<td>2026-02-19</td>
+<td>Capacity model: 8 sprint-weeks for narrowed scope</td>
+<td>Capacity planning</td>
+<td>Search Capacity Planning</td>
+<td>high</td>
+</tr>
+<tr>
+<td>2026-03-12</td>
+<td>Commit 8 sprint-weeks for Q2</td>
+<td>CFO signoff received</td>
+<td>Search Capacity Decision</td>
+<td>high</td>
+</tr>
+<tr>
+<td>2026-03-26</td>
+<td>Defer ship-date commitment pending vendor-licensing review</td>
+<td>Vendor risk surfaced</td>
+<td>Search Vendor Risk Review</td>
+<td>high</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contradiction-flags">Contradiction flags<a class="headerlink" href="#contradiction-flags" title="Permanent link">&para;</a></h3>
+<p><strong>[!] Initial scope vs. narrowed scope</strong> (resolved)</p>
+<ul>
+<li><strong>2026-01-15</strong> (Search Scope Kickoff): scope included saved searches</li>
+<li><strong>2026-02-05</strong> (Search Scope Review): saved searches deferred to v2</li>
+<li><strong>Status</strong>: resolved by the Feb 5 decision; not a live contradiction, noted for history</li>
+</ul>
+<p>No live unresolved contradictions in this time range.</p>
+<h3 id="open-items-and-stalled-threads_1">Open items and stalled threads<a class="headerlink" href="#open-items-and-stalled-threads_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Algolia licensing terms review</strong> (maria): surfaced 2026-03-26; blocks Q2 ship-date commitment. Not a stalled thread yet (only one meeting), but timeline-critical.</li>
+<li><strong>Capacity-model documentation as reusable artifact</strong>: referenced 4 times across meetings, never formally documented as a project-level artifact. Would benefit teams beyond search feature.</li>
+</ul>
+<h3 id="narrative-summary_1">Narrative summary<a class="headerlink" href="#narrative-summary_1" title="Permanent link">&para;</a></h3>
+<p>Q1 search-feature planning converged on scope and capacity through a disciplined sequence. The kickoff proposed autocomplete, filters, and saved searches; a February scope review deferred saved searches to v2, and that decision held across subsequent capacity conversations. Alex's capacity model, introduced in mid-February, became the anchor artifact. referenced in every subsequent meeting and credited with giving priya-cfo the confidence to commit 8 sprint-weeks on March 12 (after the Q1 overrun context was addressed).</p>
+<p>The one outstanding question is vendor-licensing, which surfaced only on March 26. Alex referenced an Algolia email from March 15 indicating potential query-volume limits. The team correctly paused on a ship-date commitment pending investigation, but the two-week gap between the Algolia email arrival and its meeting-surfacing suggests a gap in how external-vendor risk signals get routed to active planning.</p>
+<p>Going into Q2, the team has scope and capacity committed, but not a timeline. The Algolia investigation is the critical path; once resolved, a short follow-up meeting can commit the ship date. The broader pattern worth capturing: the capacity model's role as an anchor artifact is reusable, and the vendor-signal-triage gap is a process improvement the team can adopt for other initiatives.</p>
+<h3 id="prioritized-follow-up-suggestions_1">Prioritized follow-up suggestions<a class="headerlink" href="#prioritized-follow-up-suggestions_1" title="Permanent link">&para;</a></h3>
+<p><strong>[High priority]</strong></p>
+<ul>
+<li>Schedule vendor-licensing resolution meeting within 2 weeks: maria completes Algolia investigation; if limits apply, assess whether negotiable or hard. Blocks Q2 timeline commitment.</li>
+<li>Document the capacity model as a reusable artifact: alex publishes the model format in a shared location; referenced by search feature and available for other initiatives. Reduces rework for future capacity conversations.</li>
+</ul>
+<p><strong>[Medium priority]</strong></p>
+<ul>
+<li>Build a routine for external-vendor risk signal triage: the March 15 Algolia email sat for 11 days. A weekly scan of vendor-comms for at-risk initiatives would catch signals earlier. Alex to propose a mechanism.</li>
+</ul>
+<p><strong>[Lower priority / monitor]</strong></p>
+<ul>
+<li>Stakeholder alignment pattern: priya-cfo's "willing to commit with monthly-review" approach worked well here. Consider whether this pattern should generalize to other cross-org commitments.</li>
+</ul>
+<hr />
+<h2 id="sources-references_1">Sources &amp; References<a class="headerlink" href="#sources-references_1" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs-source-meetings_1">Primary inputs (source meetings)<a class="headerlink" href="#primary-inputs-source-meetings_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>2026-01-15_14-00EST_search-scope-kickoff_recap.md (2026-01-15). input quality: high</li>
+<li>2026-02-05_14-00EST_search-scope-review_recap.md (2026-02-05). input quality: high</li>
+<li>2026-02-19_14-00EST_search-capacity-planning_recap.md (2026-02-19). input quality: medium (partial notes; no transcript)</li>
+<li>2026-03-12_14-00EST_search-capacity-decision_recap.md (2026-03-12). input quality: high</li>
+<li>2026-03-26_14-00EST_search-vendor-risk-review_recap.md (2026-03-26). input quality: high</li>
+</ul>
+<h3 id="referenced-artifacts_1">Referenced artifacts<a class="headerlink" href="#referenced-artifacts_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Prior syntheses on this topic: none (first synthesis)</li>
+<li>Related project briefs: 2026-01-12_search-feature-brief.md (planning-phase brief)</li>
+</ul>
+<h3 id="external-references_1">External references<a class="headerlink" href="#external-references_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Alex's capacity model: <a href="https://sheets.example/q2-capacity">capacity-model-q2.xlsx</a></li>
+<li>Scope draft: <a href="https://notion.example/search-scope">search-scope.md</a></li>
+</ul>
+<h3 id="generation-context_1">Generation context<a class="headerlink" href="#generation-context_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: 2026-04-02T10:00:00Z</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Input quality</strong>: high. 4 of 5 recaps at high quality, 1 at medium; no low-quality sources</li>
+<li><strong>Overall confidence</strong>: high. decisions consistent across sources; stakeholder positions have multiple attestations</li>
+<li><strong>Known gaps</strong>: Algolia licensing terms themselves not yet reviewed (only the fact that limits may apply). Depth of vendor-risk impact is medium-confidence until maria completes investigation.</li>
+<li><strong>Scope filter</strong>: project=search-feature</li>
+<li><strong>Format hint</strong>: default (full synthesis; user did not request board-prep / onboarding / retro-input / exec-brief variant)</li>
+</ul>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): q1-campaigns-retro</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/meeting-synthesize --format=retro-input --quarter=2026-Q1 @recap*.md
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown">```markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-synthesis
+version: 1.0
+generated_at: 2026-04-01T10:00:00Z
+generated_by_skill: foundation-meeting-synthesize</p>
+<p>project: campaigns
+topics:
+  - research
+  - scoping
+  - capacity</p>
+<p>time_range:
+  start: 2026-01-01
+  end: 2026-03-31</p>
+<p>scope_filter: "project=campaigns, format=retro-input"</p>
+<p>source_meetings:
+  - 2026-01-14_14-00EST_campaigns-research-kickoff_recap.md
+  - 2026-02-04_14-00EST_campaigns-user-interview-debrief_recap.md
+  - 2026-02-25_14-00EST_campaigns-scope-workshop_recap.md
+  - 2026-03-11_14-00EST_campaigns-capacity-review_recap.md
+  - 2026-03-25_14-00EST_campaigns-q1-close-out_recap.md</p>
+<p>input_quality: high
+confidence: high
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="meeting-synthesis-q1-campaigns-retrospective-input">Meeting synthesis: Q1 Campaigns Retrospective Input<a class="headerlink" href="#meeting-synthesis-q1-campaigns-retrospective-input" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): resurface-design-iteration</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/meeting-synthesize @resurface-*.md
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_1">```markdown<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-synthesis
+version: 1.0
+generated_at: 2026-04-05T11:00:00Z
+generated_by_skill: foundation-meeting-synthesize</p>
+<p>project: resurface
+topics:
+  - algorithm
+  - ux
+  - notification-timing</p>
+<p>time_range:
+  start: 2026-01-15
+  end: 2026-03-31</p>
+<p>scope_filter: "project=resurface"</p>
+<p>source_meetings:
+  - 2026-01-20_11-00PST_resurface-kickoff_recap.md
+  - 2026-02-03_11-00PST_resurface-algo-v0_recap.md
+  - 2026-02-17_11-00PST_resurface-notification-copy_recap.md
+  - 2026-03-03_11-00PST_resurface-user-feedback-session_recap.md
+  - 2026-03-17_11-00PST_resurface-algo-v1_recap.md
+  - 2026-03-31_11-00PST_resurface-ux-refinement_recap.md</p>
+<p>input_quality: medium
+confidence: medium
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="meeting-synthesis-resurface-design-iteration-q1-2026">Meeting synthesis: Resurface Design Iteration Q1 2026<a class="headerlink" href="#meeting-synthesis-resurface-design-iteration-q1-2026" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): blueprints-board-prep</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/meeting-synthesize --format=board-prep --quarter=2026-Q1 @blueprints-*.md
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_2">```markdown<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-synthesis
+version: 1.0
+generated_at: 2026-04-02T08:00:00Z
+generated_by_skill: foundation-meeting-synthesize</p>
+<p>project: blueprints-enterprise-expansion
+topics:
+  - healthcare-customer-validation
+  - compliance-investment
+  - sales-motion</p>
+<p>time_range:
+  start: 2026-01-01
+  end: 2026-03-31</p>
+<p>scope_filter: "project=blueprints-enterprise-expansion, format=board-prep"</p>
+<p>source_meetings:
+  - 2026-01-22_14-00EST_blueprints-exec-review_recap.md
+  - 2026-02-05_14-00EST_blueprints-compliance-feasibility_recap.md
+  - 2026-02-26_14-00EST_blueprints-customer-interviews-debrief_recap.md
+  - 2026-03-12_14-00EST_blueprints-exec-review_recap.md
+  - 2026-03-26_14-00EST_blueprints-sales-motion-alignment_recap.md</p>
+<p>input_quality: high
+confidence: high
+visibility: leadership
+status: draft</p>
+<hr />
+<h1 id="meeting-synthesis-blueprints-enterprise-expansion-board-prep">Meeting synthesis: Blueprints Enterprise Expansion. Board Prep<a class="headerlink" href="#meeting-synthesis-blueprints-enterprise-expansion-board-prep" title="Permanent link">&para;</a></h1>
+</details>
+<h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Source meetings listed with filename + date + per-source input quality</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Time range populated and sensible</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Scope filter described (or "none applied")</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Timeline is plain-text markdown (no binary images)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Themes include confidence markers tied to frequency</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Stakeholder position tracking shows evolution (initial → current), not just snapshot</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Consolidated decision list is chronological with source citations</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Contradictions are flagged in their own first-class section (not buried)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Narrative summary is 2-3 paragraphs, not bullets</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Follow-ups are prioritized (High / Medium / Low) with rationale</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Frontmatter omits single-meeting fields (meeting_title, meeting_date, etc.)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sources and References weights input quality across sources</li>
 </ul>
 
 
@@ -3287,7 +3849,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 16:28:12 UTC"><span class="timeago" datetime="2026-04-23T16:28:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 16:28:12 UTC">2026-04-23</span>
   </span>
 
     

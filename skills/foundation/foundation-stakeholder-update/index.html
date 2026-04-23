@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Produces async communication to stakeholders from a meeting recap. Supports channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Translates meeting outcomes into what-it-means language for readers, surfaces a primary CTA up front, flags technical-to-business translations, and detects thread continuation.">
+        <meta name="description" content="Produces async communication to stakeholders, primarily non-attendees and secondarily some attendees who want a reference. Translates meeting outcomes into what-it-means language for readers, with channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces a primary CTA up front, flags technical-to-business translations for user verification, and detects thread continuation from prior updates.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="foundation-stakeholder-update - PM Skills" />
-<meta property="og:description" content="Produces async communication to stakeholders from a meeting recap. Supports channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Translates meeting outcomes into what-it-means language for readers, surfaces a primary CTA up front, flags technical-to-business translations, and detects thread continuation." />
+<meta property="og:description" content="Produces async communication to stakeholders, primarily non-attendees and secondarily some attendees who want a reference. Translates meeting outcomes into what-it-means language for readers, with channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces a primary CTA up front, flags technical-to-business translations for user verification, and detects thread continuation from prior updates." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-stakeholder-update.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/foundation/foundation-stakeholder-update/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="foundation-stakeholder-update - PM Skills" />
-<meta property="twitter:description" content="Produces async communication to stakeholders from a meeting recap. Supports channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Translates meeting outcomes into what-it-means language for readers, surfaces a primary CTA up front, flags technical-to-business translations, and detects thread continuation." />
+<meta property="twitter:description" content="Produces async communication to stakeholders, primarily non-attendees and secondarily some attendees who want a reference. Translates meeting outcomes into what-it-means language for readers, with channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces a primary CTA up front, flags technical-to-business translations for user verification, and detects thread continuation from prior updates." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-stakeholder-update.png" />
 </head>
   
@@ -3218,49 +3218,393 @@
 <p class="admonition-title">Quick facts</p>
 <p><strong>Classification:</strong> Foundation | <strong>Version:</strong> 1.0.0 | <strong>Category:</strong> meeting | <strong>License:</strong> Apache-2.0</p>
 </div>
-<p class="md-button"><strong>Try it:</strong> <code>/stakeholder-update @recap.md --channel=slack --audience=engineering</code></p>
+<p class="md-button"><strong>Try it:</strong> <code>/stakeholder-update "Your context here"</code></p>
 <h1 id="stakeholder-update">Stakeholder Update<a class="headerlink" href="#stakeholder-update" title="Permanent link">&para;</a></h1>
-<p>A stakeholder update is async communication to readers who need to know the outcomes of a meeting. Primary audience is non-attendees; secondary audience is some attendees who want a reference version.</p>
-<p>Distinct from <code>/meeting-recap</code> (summary of what happened for people in the room) and from <code>/discover-stakeholder-summary</code> (understanding stakeholders, not communicating to them).</p>
-<p>This skill belongs to the <a href="../../../reference/skill-families/meeting-skills-contract/">Meeting Skills Family</a>.</p>
+<p>A stakeholder update is async communication to readers who need to know the outcomes of a meeting. Primary audience is non-attendees; secondary audience is some attendees who want a reference version (came in late, stepped out, need something to forward).</p>
+<p>Distinct from <code>/meeting-recap</code> in audience, format, and purpose: the recap is a summary of what happened for people who were in the room; the stakeholder-update is a translation of outcomes into what-it-means for readers (tailored to their role, with technical-to-business translation where the audience warrants it).</p>
+<p>Distinct from <code>/discover-stakeholder-summary</code>: that skill is about understanding stakeholders (input to the user's work). This skill is about communicating to stakeholders (output from the user's work).</p>
+<p>This skill belongs to the Meeting Skills Family. It conforms to the <a href="../../docs/reference/skill-families/meeting-skills-contract.md">Meeting Skills Family Contract</a>.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>After a meeting with outcomes affecting teams who were not in the room</li>
-<li>When a decision needs to propagate async to downstream teams</li>
-<li>When the user needs something from readers (specific CTA) and cannot afford burial</li>
+<li>When a decision or commitment needs to propagate to downstream teams async</li>
+<li>When a recap exists and needs to be translated into audience-specific language</li>
+<li>When the user needs something from readers (specific CTA) and cannot afford for it to be buried</li>
 </ul>
 <h2 id="when-not-to-use">When NOT to Use<a class="headerlink" href="#when-not-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Summarizing what happened for attendees. Use <code>/meeting-recap</code>.</li>
-<li>Broadcasting status with no specific audience tailoring.</li>
-<li>User research communications. Use <code>/discover-interview-synthesis</code> plus targeted comms.</li>
+<li>Broadcasting status with no specific audience tailoring. A plain Slack message is sufficient; the skill adds value when translation or CTA framing matters.</li>
+<li>Communicating research findings to stakeholders. Use <code>/discover-interview-synthesis</code> plus targeted comms.</li>
 </ul>
 <h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/stakeholder-update @recap.md --channel=slack --audience=engineering
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/stakeholder-update @recap.md --channel=email --audience=leadership --cta=&quot;FYI-only&quot;
+<p>Use the <code>/stakeholder-update</code> slash command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/stakeholder-update &quot;Your context here&quot;
 </span></code></pre></div>
 <p>Or reference the skill file directly: <code>skills/foundation-stakeholder-update/SKILL.md</code></p>
-<h2 id="key-features">Key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Zero-friction execution</strong>: loads recap, detects thread continuation, runs inference, presents brief summary, accepts <code>go</code> or corrections</li>
-<li><strong>5 channel variants</strong>: slack, teams, email, notion, exec-memo. each with format-appropriate rendering</li>
-<li><strong>5 audience variants</strong>: engineering, design, leadership, customer-facing, mixed. each with tailored "what this means for you"</li>
-<li><strong>CTA surfaced up front</strong>: action needed or explicit FYI-only, never buried</li>
-<li><strong>Technical-to-business translation log</strong>: translations inspectable by the user before sending</li>
-<li><strong>Thread continuation detection</strong>: auto-links to prior updates on the same project/topics</li>
-<li><strong>Entire output is shareable content</strong>: no separate summary block needed (per family contract)</li>
-</ul>
 <h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
-<p>Full instructions in <code>skills/foundation-stakeholder-update/SKILL.md</code>. See also:</p>
+<p>When asked to create a stakeholder update, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Load related recap</strong>
+   Parse frontmatter to extract meeting context, decisions, actions, outcomes. If no recap provided, accept raw meeting notes with a lower input-quality flag.</p>
+</li>
+<li>
+<p><strong>Detect thread continuation</strong>
+   Scan same directory for prior <code>stakeholder-update</code> artifacts with matching <code>project</code> / <code>topics</code>. If found, reference the prior update in the frontmatter <code>thread_continuation_of</code> field.</p>
+</li>
+<li>
+<p><strong>Present go-mode inference summary</strong>
+   Show inferred channel (if not specified), detected audience, proposed CTA, thread continuation status, translation candidates (flagged jargon or acronyms that may not land).</p>
+</li>
+<li>
+<p><strong>Distill key outcomes</strong>
+   From the recap or notes, select 3-5 outcomes that matter to the target audience. Do not include everything from the recap. filter by audience relevance.</p>
+</li>
+<li>
+<p><strong>Frame the CTA</strong>
+   If action is needed: lead with it, not bury it
+   If FYI-only: state explicitly in the TL;DR</p>
+</li>
+<li>
+<p><strong>Translate technical-to-business</strong>
+   Flag jargon and acronyms unlikely to land with the audience. Provide plainer alternatives. Keep a translations-applied log for user verification in the output's Generation context.</p>
+</li>
+<li>
+<p><strong>Build the channel-tailored variant</strong></p>
+</li>
+<li>
+<p><strong>Slack / Teams</strong>: headline (one action-oriented line, optionally one emoji), TL;DR 3 bullets, context sentence, "what this means for [audience]", CTA (bold with marker if action needed; italic "FYI-only" if not), thread-continuation link, more-links footer</p>
+</li>
+<li><strong>Email</strong>: subject line (topic + outcome), greeting ("Hi [audience]"), opening sentence (headline + why they are receiving this), TL;DR, context 2-3 sentences, what was decided / advanced, what this means for your team, what I need from you (with by-when), thread reference, sign-off</li>
+<li><strong>Notion</strong>: rich H1/H2/H3 structure, longer context block, collapsible sections for detail, table for decisions and actions</li>
+<li>
+<p><strong>Exec-memo</strong>: TL;DR first (3-4 lines), supporting detail in 3 sections max, asks section upfront, formal tone, no emoji</p>
+</li>
+<li>
+<p><strong>Render TEMPLATE.md with the selected variant as primary</strong>
+   Other variants may be included as collapsible alternates for user flexibility. Remove all guidance blockquotes from the final artifact.</p>
+</li>
+<li>
+<p><strong>Validate</strong></p>
+</li>
+<li><code>channel</code> is in enum</li>
+<li><code>audience_variant</code> is in enum</li>
+<li><code>primary_cta</code> is non-empty (use "FYI-only" if no action needed)</li>
+<li><code>related_recap</code> is a valid filename reference or flagged as raw-notes input</li>
+</ol>
+<h2 id="output-template">Output Template<a class="headerlink" href="#output-template" title="Permanent link">&para;</a></h2>
+<h1 id="stakeholder-update-topic-or-meeting-reference">Stakeholder update: {{Topic or meeting reference}}<a class="headerlink" href="#stakeholder-update-topic-or-meeting-reference" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-update">Shareable update<a class="headerlink" href="#shareable-update" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[v1.1.0: This section contains the message body to copy and paste into {{channel}}. EVERYTHING BELOW this section is NOT shareable. audit notes and sources stay internal. The format below matches the selected channel variant; other variants are reference-only.]</p>
+</blockquote>
+<hr />
+<h3 id="slack-teams-variant">Slack / Teams variant<a class="headerlink" href="#slack-teams-variant" title="Permanent link">&para;</a></h3>
+<p><strong>{{Headline: one line, action-oriented, skimmable}}</strong></p>
+<p><strong>TL;DR</strong></p>
 <ul>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-stakeholder-update/references/TEMPLATE.md">Skill template</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-stakeholder-update/references/EXAMPLE.md">Worked example</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-stakeholder-update">Sample outputs</a></li>
+<li>{{Key outcome 1}}</li>
+<li>{{Key outcome 2}}</li>
+<li>{{Key outcome 3}}</li>
 </ul>
-<h2 id="related-skills">Related skills<a class="headerlink" href="#related-skills" title="Permanent link">&para;</a></h2>
+<p><strong>Context</strong> ({{sentence or two}})</p>
+<p>{{Brief framing for readers who may or may not have been in the room}}</p>
+<p><strong>What this means for {{audience}}</strong></p>
+<p>{{Translation of outcomes into audience-relevant impact}}</p>
+<p>{{if CTA needed:}}
+<strong>What I need from you</strong></p>
 <ul>
-<li><a href="../foundation-meeting-recap/"><code>/meeting-recap</code></a>. upstream: primary input source</li>
-<li><a href="../../discover/discover-stakeholder-summary/"><code>/discover-stakeholder-summary</code></a>. distinct purpose (understanding stakeholders)</li>
+<li>{{Ask}}: {{by when}}</li>
+</ul>
+<p>{{if FYI-only:}}
+<em>FYI-only. no action needed.</em></p>
+<p>{{if thread continuation:}}
+<em>Follow-up to: {{link to prior update}}</em></p>
+<p>More: {{recap filename link}} | {{related doc}}</p>
+<hr />
+<h3 id="email-variant">Email variant<a class="headerlink" href="#email-variant" title="Permanent link">&para;</a></h3>
+<p><strong>Subject</strong>: {{Clear subject line with topic + outcome}}</p>
+<p>Hi {{audience}},</p>
+<p>{{Opening sentence: headline + why they are receiving this}}</p>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>{{Key outcome 1}}</li>
+<li>{{Key outcome 2}}</li>
+<li>{{Key outcome 3}}</li>
+</ul>
+<p><strong>Context</strong></p>
+<p>{{Brief framing. 2-3 sentences}}</p>
+<p><strong>What was decided or advanced</strong></p>
+<ul>
+<li>{{Outcome 1 in plain language}}</li>
+<li>{{Outcome 2 in plain language}}</li>
+</ul>
+<p><strong>What this means for your team</strong></p>
+<p>{{Tailored translation of impact}}</p>
+<p>{{if CTA needed:}}
+<strong>What I need from you</strong></p>
+<ul>
+<li>{{Ask 1}}: {{by when}}</li>
+<li>{{Ask 2}}: {{by when}}</li>
+</ul>
+<p>{{if thread continuation:}}
+This is a follow-up to my update on {{date}}: {{link}}</p>
+<p>For more detail, see: {{recap filename link}}</p>
+<p>Thanks,
+{{User}}</p>
+<hr />
+<h3 id="notion-exec-memo-variant">Notion / exec-memo variant<a class="headerlink" href="#notion-exec-memo-variant" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: richer formatting, longer context, optimized for reference. For exec-memo, tighten to TL;DR first, formal tone, no emoji.]</p>
+</blockquote>
+<p>[full structure with more context, more headers, more links per channel-specific behavior]</p>
+<hr />
+<blockquote>
+<p>[End of Shareable update section. Everything below is INTERNAL. do not copy into the outgoing message.]</p>
+</blockquote>
+<h2 id="technical-to-business-translation-notes">Technical-to-business translation notes<a class="headerlink" href="#technical-to-business-translation-notes" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[guidance: include this section when translations were applied, so the user can verify translations land with their audience]</p>
+</blockquote>
+<p><strong>Translations applied</strong>:</p>
+<ul>
+<li>"{{Technical term}}" → "{{Plain language}}" <em>(reason: audience = {{variant}})</em></li>
+<li>"{{Acronym}}" → "{{Expanded meaning}}"</li>
+</ul>
+<p><strong>Flagged but kept</strong> (may need further review):</p>
+<ul>
+<li>"{{Term}}". may not land with all readers, consider rewording if update goes wider</li>
+</ul>
+<hr />
+<h2 id="sources-references">Sources &amp; References<a class="headerlink" href="#sources-references" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs">Primary inputs<a class="headerlink" href="#primary-inputs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Related recap: {{filename}}</li>
+<li>User-provided audience and CTA parameters</li>
+</ul>
+<h3 id="referenced-artifacts">Referenced artifacts<a class="headerlink" href="#referenced-artifacts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Recap: {{filename}}</li>
+<li>Prior update in thread: {{filename if applicable}}</li>
+</ul>
+<h3 id="external-references">External references<a class="headerlink" href="#external-references" title="Permanent link">&para;</a></h3>
+<ul>
+<li>{{Linked resources in the update}}</li>
+</ul>
+<h3 id="generation-context">Generation context<a class="headerlink" href="#generation-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: {{Timestamp}}</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Channel</strong>: {{channel}}</li>
+<li><strong>Audience variant</strong>: {{variant}}</li>
+<li><strong>Thread continuation</strong>: {{yes with link / no}}</li>
+<li><strong>Input quality</strong>: {{high | medium | low}}. {{rationale}}</li>
+<li><strong>Known gaps</strong>: {{e.g., "User did not specify full audience list; defaulted to leadership tone"}}</li>
+<li><strong>Translations applied</strong>: {{count}}. see Technical-to-business translation notes section above</li>
+</ul>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Stakeholder update: Search Feature Q2 scope + capacity decided</summary>
+<h1 id="stakeholder-update-search-feature-q2-scope-capacity-decided">Stakeholder update: Search Feature Q2 scope + capacity decided<a class="headerlink" href="#stakeholder-update-search-feature-q2-scope-capacity-decided" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-update_1">Shareable update<a class="headerlink" href="#shareable-update_1" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[v1.1.0: copy the section below into Slack. Everything below the "End of Shareable update" marker is internal. do not paste.]</p>
+</blockquote>
+<hr />
+<h3 id="slack-teams-variant-primary-matches-frontmatter-channel">Slack / Teams variant (primary. matches frontmatter channel)<a class="headerlink" href="#slack-teams-variant-primary-matches-frontmatter-channel" title="Permanent link">&para;</a></h3>
+<p><strong>Search feature Q2: scope and capacity decided; ship-date pending vendor review</strong></p>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>MVP scope: autocomplete + filters IN, saved searches OUT (deferred to v2)</li>
+<li>Q2 engineering capacity: 8 sprint-weeks committed</li>
+<li>Ship-date deferred 1 week pending Algolia licensing review</li>
+</ul>
+<p><strong>Context</strong></p>
+<p>Kickoff yesterday settled the scope and capacity questions that have been open since January. Ship-date commitment was paused when alex surfaced an Algolia licensing question that needs resolution before we lock a date.</p>
+<p><strong>What this means for engineering</strong></p>
+<p>The scope agreed is narrower than the original proposal, which means no backfill is needed to absorb search work into Q2. If your team has dependencies on design-system components we use for search (autocomplete patterns, filter chips), those should not shift. The main watch-out: if Algolia licensing turns out to be restrictive, we may need to evaluate self-hosting or a different provider, which would touch infra planning.</p>
+<p><strong>What I need from you</strong></p>
+<ul>
+<li>Confirm no dependency conflicts with your Q2 plans by 2026-04-22</li>
+<li>If you see infra implications from a potential provider change, flag in thread before Monday</li>
+</ul>
+<p>More: <a href="2026-04-17_14-00EST_search-feature-kickoff_recap.md">recap</a> | <a href="https://notion.example/search-scope">scope draft</a> | <a href="https://sheets.example/q2-capacity">capacity model</a></p>
+<hr />
+<h3 id="email-variant-alternate">Email variant (alternate)<a class="headerlink" href="#email-variant-alternate" title="Permanent link">&para;</a></h3>
+<p><strong>Subject</strong>: Search feature Q2 scope and capacity decided; ship-date pending vendor review</p>
+<p>Hi engineering leads,</p>
+<p>Sending this because yesterday's search-feature kickoff produced scope and capacity decisions that may touch your Q2 planning. Wanted to get this in front of you ahead of Monday sprint planning.</p>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>MVP scope: autocomplete + filters IN; saved searches OUT (deferred to v2)</li>
+<li>Q2 engineering capacity: 8 sprint-weeks committed</li>
+<li>Ship-date deferred 1 week pending Algolia licensing review</li>
+</ul>
+<p><strong>Context</strong></p>
+<p>Scope and capacity have been open questions since January. Kickoff yesterday converged both: we narrowed scope relative to the original proposal, which made the capacity commitment (8 sprint-weeks) workable without backfill. The vendor-licensing question emerged in the same meeting and is the one outstanding item.</p>
+<p><strong>What was decided or advanced</strong></p>
+<ul>
+<li>Scope narrowed: saved-searches deferred to v2; autocomplete and filters held</li>
+<li>8 sprint-weeks committed for Q2 search work</li>
+<li>Monthly review cadence agreed with CFO for Q2 progress tracking</li>
+</ul>
+<p><strong>What this means for your team</strong></p>
+<p>The narrowed scope means no capacity conflicts for other Q2 commitments. If Algolia licensing turns out to be restrictive, we may need a provider-change evaluation, which would touch infra planning. That is the main watch-out; current estimate is we know by 2026-04-22.</p>
+<p><strong>What I need from you</strong></p>
+<ul>
+<li>Confirm no dependency conflicts with your Q2 plans by 2026-04-22</li>
+<li>If you see infra implications from a potential provider change, flag before Monday sprint planning</li>
+</ul>
+<p>For more detail, see the <a href="2026-04-17_14-00EST_search-feature-kickoff_recap.md">meeting recap</a>.</p>
+<p>Thanks,
+jonathan</p>
+<hr />
+<h3 id="notion-exec-memo-variants">Notion / exec-memo variants<a class="headerlink" href="#notion-exec-memo-variants" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[For notion and exec-memo variants, see the reference template. Primary output for this example is the slack variant above.]</p>
+</blockquote>
+<hr />
+<h2 id="technical-to-business-translation-notes_1">Technical-to-business translation notes<a class="headerlink" href="#technical-to-business-translation-notes_1" title="Permanent link">&para;</a></h2>
+<p><strong>Translations applied</strong>:</p>
+<ul>
+<li>"autocomplete" kept as-is (engineering audience knows the term)</li>
+<li>"8 sprint-weeks" kept as-is (engineering audience tracks by sprint-week)</li>
+<li>"backfill" kept as-is (engineering-native term)</li>
+</ul>
+<p><strong>Flagged but kept</strong> (may need further review for non-engineering audiences):</p>
+<ul>
+<li>"Algolia licensing". if update goes to non-engineering readers, add context on what Algolia is (search provider) and why licensing matters</li>
+<li>"provider-change evaluation". if wider audience, rephrase as "evaluate different search tooling"</li>
+</ul>
+<hr />
+<h2 id="sources-references_1">Sources &amp; References<a class="headerlink" href="#sources-references_1" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs_1">Primary inputs<a class="headerlink" href="#primary-inputs_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Related recap: 2026-04-17_14-00EST_search-feature-kickoff_recap.md</li>
+<li>User-provided audience: engineering</li>
+<li>User-provided CTA: "confirm no dependency conflicts"</li>
+</ul>
+<h3 id="referenced-artifacts_1">Referenced artifacts<a class="headerlink" href="#referenced-artifacts_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Recap: 2026-04-17_14-00EST_search-feature-kickoff_recap.md</li>
+<li>Prior update in thread: none (this is the first update for search feature in Q2 planning)</li>
+</ul>
+<h3 id="external-references_1">External references<a class="headerlink" href="#external-references_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://notion.example/search-scope">Scope draft</a></li>
+<li><a href="https://sheets.example/q2-capacity">Capacity model</a></li>
+</ul>
+<h3 id="generation-context_1">Generation context<a class="headerlink" href="#generation-context_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: 2026-04-18T10:00:00Z</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Channel</strong>: slack</li>
+<li><strong>Audience variant</strong>: engineering</li>
+<li><strong>Thread continuation</strong>: no (first update on this topic in Q2)</li>
+<li><strong>Input quality</strong>: high. recap was high-quality; all outcomes directly supported</li>
+<li><strong>Known gaps</strong>: None identified for engineering audience; flagged 2 items that would need translation if this same update goes wider later</li>
+<li><strong>Translations applied</strong>: 0 for engineering audience (all terminology appropriate); 2 flagged for potential wider-audience use</li>
+</ul>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): campaigns-slack-support</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/meeting-update @2026-04-24_13-00EST_campaigns-pricing-decision_recap.md --channel=slack --audience=customer-facing --cta=&quot;update support playbook with new pricing + grandfathering flow by 2026-05-15&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown">```markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
+<p>artifact_type: stakeholder-update
+version: 1.0
+generated_at: 2026-04-25T09:00:00Z
+generated_by_skill: foundation-stakeholder-update</p>
+<p>meeting_title: "Campaigns Pricing Decision"
+meeting_date: 2026-04-24</p>
+<p>project: campaigns
+topics:
+  - pricing-decision</p>
+<p>channel: slack
+audience_variant: customer-facing
+primary_cta: "update support playbook with new pricing + grandfathering flow by 2026-05-15"</p>
+<p>thread_continuation_of: null</p>
+<p>related_recap: 2026-04-24_13-00EST_campaigns-pricing-decision_recap.md</p>
+<p>input_quality: high
+confidence: high
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="stakeholder-update-campaigns-pricing-committed">Stakeholder update: Campaigns Pricing Committed<a class="headerlink" href="#stakeholder-update-campaigns-pricing-committed" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): resurface-email-beta-users</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/stakeholder-update @2026-03-17_11-00PST_resurface-algo-v1_recap.md --channel=email --audience=customer-facing --cta=&quot;FYI-only&quot; &quot;email to ~500 beta users, thank them for feedback, signal shipment of algo v1 improvements&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_1">```markdown<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
+<p>artifact_type: stakeholder-update
+version: 1.0
+generated_at: 2026-03-18T09:00:00Z
+generated_by_skill: foundation-stakeholder-update</p>
+<p>meeting_title: "Resurface Algorithm v1"
+meeting_date: 2026-03-17</p>
+<p>project: resurface
+topics:
+  - algorithm-v1</p>
+<p>channel: email
+audience_variant: customer-facing
+primary_cta: "FYI-only"</p>
+<p>thread_continuation_of: null</p>
+<p>related_recap: 2026-03-17_11-00PST_resurface-algo-v1_recap.md</p>
+<p>input_quality: high
+confidence: high
+visibility: public
+status: draft</p>
+<hr />
+<h1 id="stakeholder-update-resurface-v1-shipped-thank-you-for-the-feedback">Stakeholder update: Resurface v1 Shipped. Thank You for the Feedback<a class="headerlink" href="#stakeholder-update-resurface-v1-shipped-thank-you-for-the-feedback" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): blueprints-notion-enterprise-cs</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/stakeholder-update @2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_recap.md --channel=notion --audience=customer-facing --cta=&quot;review and confirm CS playbook alignment by 2026-05-20&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_2">```markdown<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
+<p>artifact_type: stakeholder-update
+version: 1.0
+generated_at: 2026-04-26T10:00:00Z
+generated_by_skill: foundation-stakeholder-update</p>
+<p>meeting_title: "Blueprints v1.1 Customer Feedback Review"
+meeting_date: 2026-04-25</p>
+<p>project: blueprints
+topics:
+  - v1-1-scope
+  - customer-feedback</p>
+<p>channel: notion
+audience_variant: customer-facing
+primary_cta: "review and confirm CS playbook alignment by 2026-05-20"</p>
+<p>thread_continuation_of: null</p>
+<p>related_recap: 2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_recap.md</p>
+<p>input_quality: high
+confidence: high
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="stakeholder-update-blueprints-v11-scope-decided-enterprise-cs-briefing">Stakeholder update: Blueprints v1.1 Scope Decided. Enterprise CS Briefing<a class="headerlink" href="#stakeholder-update-blueprints-v11-scope-decided-enterprise-cs-briefing" title="Permanent link">&para;</a></h1>
+</details>
+<h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Channel variant matches the specified or inferred channel</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Audience variant's "what this means for you" is specifically tailored (not generic)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> CTA is surfaced up front, not buried</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Technical-to-business translations are logged in Generation context for user verification (INTERNAL. outside shareable boundary)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Thread continuation referenced if prior updates exist on the same topic</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>## Shareable update</code> section present with channel-tailored body (v1.1.0. replaces "entire output is shareable" from v1.0.0)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Explicit boundary marker between Shareable update and internal sections (translations, sources)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sources and References section lists the source recap and any prior updates in thread (INTERNAL)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Filename uses v1.1.0 variant pattern: <code>YYYY-MM-DD_HH-MMtimezone_title_stakeholder-update-{channel}-{audience}.md</code></li>
 </ul>
 
 
@@ -3284,7 +3628,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 16:28:12 UTC"><span class="timeago" datetime="2026-04-23T16:28:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 16:28:12 UTC">2026-04-23</span>
   </span>
 
     

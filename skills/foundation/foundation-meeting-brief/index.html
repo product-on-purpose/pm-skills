@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Produces a private strategic preparation document for a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated Q&A with prepared responses, risks, specific asks, and success signals. The user's personal tactical prep, distinct from the attendee-facing agenda.">
+        <meta name="description" content="Produces a private strategic preparation document for the user before a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated questions with prepared responses, risks and tensions, specific asks, and success signals. Distinct from meeting-agenda because this artifact is not shared with attendees; it is the user's personal tactical prep for meetings where positioning matters.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="foundation-meeting-brief - PM Skills" />
-<meta property="og:description" content="Produces a private strategic preparation document for a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated Q&A with prepared responses, risks, specific asks, and success signals. The user's personal tactical prep, distinct from the attendee-facing agenda." />
+<meta property="og:description" content="Produces a private strategic preparation document for the user before a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated questions with prepared responses, risks and tensions, specific asks, and success signals. Distinct from meeting-agenda because this artifact is not shared with attendees; it is the user's personal tactical prep for meetings where positioning matters." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-meeting-brief.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/foundation/foundation-meeting-brief/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="foundation-meeting-brief - PM Skills" />
-<meta property="twitter:description" content="Produces a private strategic preparation document for a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated Q&A with prepared responses, risks, specific asks, and success signals. The user's personal tactical prep, distinct from the attendee-facing agenda." />
+<meta property="twitter:description" content="Produces a private strategic preparation document for the user before a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated questions with prepared responses, risks and tensions, specific asks, and success signals. Distinct from meeting-agenda because this artifact is not shared with attendees; it is the user's personal tactical prep for meetings where positioning matters." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-meeting-brief.png" />
 </head>
   
@@ -3218,47 +3218,520 @@
 <p class="admonition-title">Quick facts</p>
 <p><strong>Classification:</strong> Foundation | <strong>Version:</strong> 1.0.0 | <strong>Category:</strong> meeting | <strong>License:</strong> Apache-2.0</p>
 </div>
-<p class="md-button"><strong>Try it:</strong> <code>/meeting-brief "Your meeting context here"</code></p>
+<p class="md-button"><strong>Try it:</strong> <code>/meeting-brief "Your context here"</code></p>
 <h1 id="meeting-brief">Meeting Brief<a class="headerlink" href="#meeting-brief" title="Permanent link">&para;</a></h1>
 <p>A meeting brief is the user's private strategic preparation document for a meeting where context, stakes, or positioning matter. It captures what the user needs to know, what they want to accomplish, who they are engaging with, and how to navigate the conversation. This is strategic prep, not meeting structure, which keeps it distinct from a meeting agenda.</p>
-<p>This skill belongs to the <a href="../../../reference/skill-families/meeting-skills-contract/">Meeting Skills Family</a>, a group of five foundation-phase skills that share a common behavioral contract and filename-based chaining.</p>
+<p>This skill belongs to the Meeting Skills Family. It conforms to the <a href="../../docs/reference/skill-families/meeting-skills-contract.md">Meeting Skills Family Contract</a>.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Walking into a stakeholder review, exec briefing, or negotiation-adjacent conversation</li>
 <li>First meeting with a new stakeholder where relationship calibration matters</li>
-<li>A meeting where the user needs something from others (capacity, decision, approval)</li>
+<li>A meeting where the user needs something from others (capacity commitment, decision, approval)</li>
 <li>Any conversation where specific positioning, messaging, or risk navigation is required</li>
 </ul>
 <h2 id="when-not-to-use">When NOT to Use<a class="headerlink" href="#when-not-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Preparing the agenda attendees will see. Use <code>/meeting-agenda</code> instead.</li>
 <li>Post-meeting summarization. Use <code>/meeting-recap</code>.</li>
-<li>Low-stakes recurring meetings (standups, routine syncs) where the agenda alone is sufficient.</li>
+<li>The meeting is low-stakes and well-trodden (recurring team sync, standup). A brief is overhead for these; the agenda alone is sufficient.</li>
 </ul>
 <h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/meeting-brief &quot;Your meeting context here&quot;
+<p>Use the <code>/meeting-brief</code> slash command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/meeting-brief &quot;Your context here&quot;
 </span></code></pre></div>
 <p>Or reference the skill file directly: <code>skills/foundation-meeting-brief/SKILL.md</code></p>
-<h2 id="key-features">Key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Zero-friction execution</strong> (per family contract): reads inputs, auto-discovers related artifacts, infers missing values, presents a brief inference summary, accepts one-word <code>go</code> or corrections.</li>
-<li><strong>Anti-meeting check</strong>: shared with <code>/meeting-agenda</code>; proposes async alternative if the objective can be met async.</li>
-<li><strong>Per-stakeholder tactical reads</strong>: position, stakes, likely concerns, relationship state, tactical notes. Inferred from prior recaps and stakeholder summaries when available.</li>
-<li><strong>Default <code>visibility: private</code></strong>: brief is not intended for sharing.</li>
-<li><strong>Ranked outcomes</strong>: must achieve / should achieve / nice to achieve. Forces the tradeoff.</li>
-<li><strong>Success signals</strong>: behavioral cues for knowing the meeting went well in the moment, not just outcome markers.</li>
-</ul>
 <h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
-<p>Full instructions are in the skill file at <code>skills/foundation-meeting-brief/SKILL.md</code>. See also:</p>
+<p>When asked to create a meeting brief, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Run anti-meeting check</strong>
+   Apply the trigger patterns. If matched, propose async alternative and await override.</p>
+</li>
+<li>
+<p><strong>Parse and load inputs</strong>
+   Read the topic. Load any <code>@file</code> references. Auto-discover related artifacts: prior recaps on same topic (same <code>project</code>/<code>topics</code> frontmatter), stakeholder summaries from <code>/discover-stakeholder-summary</code> outputs, related project docs.</p>
+</li>
+<li>
+<p><strong>Infer missing values</strong>
+   Apply these rules:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Inferred from</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stakeholder positions</td>
+<td>Prior recap language, stakeholder summary content</td>
+<td>High if recap cites direct quote; medium if position in 2+ sources; low otherwise</td>
+</tr>
+<tr>
+<td>Stakes per attendee</td>
+<td>Role plus topic-ownership cues</td>
+<td>Always flag inferences</td>
+</tr>
+<tr>
+<td>Top 3 goals</td>
+<td>User's primary ask plus meeting type</td>
+<td>Offer as ranked strawman in go-mode</td>
+</tr>
+<tr>
+<td>Anticipated questions</td>
+<td>Stakeholder position analysis plus typical-by-role objections</td>
+<td>Flag as inferred</td>
+</tr>
+<tr>
+<td>Risks / tensions</td>
+<td>Conflict patterns in prior recaps</td>
+<td>High if prior recap flagged contradiction</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p><strong>Present go-mode inference summary</strong>
+   Show the inferred stakeholder positions, primary ask, top-3 goals. Accept <code>go</code> or corrections.</p>
+</li>
+<li>
+<p><strong>Build the background section</strong>
+   Relevant history, prior decisions, recent developments. Cross-reference prior recaps by filename when available.</p>
+</li>
+<li>
+<p><strong>Do per-stakeholder analysis</strong>
+   For each key attendee: position on topic, stakes (what they win or lose), likely concerns, relationship state (strong / neutral / strained), tactical notes (how to engage).</p>
+</li>
+<li>
+<p><strong>Rank desired outcomes</strong>
+   Must achieve / should achieve / nice to achieve. Force the tradeoff explicitly.</p>
+</li>
+<li>
+<p><strong>Draft key messages</strong>
+   In priority order, phrased for delivery. Not bullet points to read; phrased as you would say them.</p>
+</li>
+<li>
+<p><strong>Anticipate questions and responses</strong>
+   Table format: Q | prepared response. Aim for the three questions the user is most likely to get.</p>
+</li>
+<li>
+<p><strong>Identify risks and tensions</strong>
+    With explicit mitigations. Flag anything that could derail the meeting.</p>
+</li>
+<li>
+<p><strong>Specify asks</strong>
+    What the user needs from specific people by name. Not generic "get alignment" but "ask alex to commit eng capacity for Q2 by Thursday."</p>
+</li>
+<li>
+<p><strong>Define success signals</strong>
+    How the user knows in the moment that the meeting went well. Behavioral cues, not just outcome markers.</p>
+</li>
+<li>
+<p><strong>Render TEMPLATE.md and validate</strong></p>
 <ul>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-brief/references/TEMPLATE.md">Skill template</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-brief/references/EXAMPLE.md">Worked example</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-meeting-brief">Sample outputs</a></li>
+<li><code>visibility: private</code> default</li>
+<li>Stakeholder list has minimum fields (name, position) when present</li>
+<li>Primary ask is non-empty (use "alignment" or "information gathering" if no specific ask)</li>
 </ul>
-<h2 id="related-skills">Related skills<a class="headerlink" href="#related-skills" title="Permanent link">&para;</a></h2>
+</li>
+</ol>
+<h2 id="output-template">Output Template<a class="headerlink" href="#output-template" title="Permanent link">&para;</a></h2>
+<h1 id="meeting-brief-meeting-title">Meeting brief: {{Meeting title}}<a class="headerlink" href="#meeting-brief-meeting-title" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-summary">Shareable summary<a class="headerlink" href="#shareable-summary" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[guidance: private-use by default. Share only with trusted advisor, co-presenter, or manager if needed. Flags purpose, top 3 goals, key risk, primary ask.]</p>
+</blockquote>
+<p><strong>{{Meeting title}}</strong> | {{Date}}
+<strong>Purpose</strong>: {{One-line purpose}}
+<strong>Top goals</strong>:
+1. {{Goal 1}}
+2. {{Goal 2}}
+3. {{Goal 3}}
+<strong>Key risk</strong>: {{One-line risk or tension to watch}}
+<strong>Primary ask</strong>: {{What the user needs from the meeting}}</p>
+<hr />
+<h2 id="full-brief">Full brief<a class="headerlink" href="#full-brief" title="Permanent link">&para;</a></h2>
+<h3 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../foundation-meeting-agenda/"><code>/meeting-agenda</code></a>. attendee-facing agenda (shares anti-meeting check)</li>
-<li><a href="../../discover/discover-stakeholder-summary/"><code>/discover-stakeholder-summary</code></a>. upstream input for stakeholder positions</li>
+<li><strong>Meeting</strong>: {{Title}}, {{Date}}, {{Duration}}</li>
+<li><strong>Format</strong>: {{In-person / remote / hybrid}}</li>
+<li><strong>Attendees and roles</strong>: {{List}}</li>
+<li><strong>Chair or facilitator</strong>: {{Name}}</li>
+</ul>
+<h3 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: relevant history, prior decisions, recent developments the user needs top-of-mind]</p>
+</blockquote>
+<ul>
+<li>{{Point 1}}</li>
+<li>{{Point 2}}</li>
+<li>{{Point 3}}</li>
+</ul>
+<h3 id="stakeholder-reads">Stakeholder reads<a class="headerlink" href="#stakeholder-reads" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: per key attendee, capture position, stakes, likely concerns, relationship state, tactical notes]</p>
+</blockquote>
+<p><strong>{{Stakeholder 1}}</strong> ({{Role}})</p>
+<ul>
+<li><strong>Position on topic</strong>: {{Known or inferred view}} [confidence: {{level}}]</li>
+<li><strong>Stakes</strong>: {{What they win or lose}}</li>
+<li><strong>Likely concerns</strong>: {{What they'll push on}}</li>
+<li><strong>Relationship state</strong>: {{Strong / neutral / strained}}</li>
+<li><strong>Tactical notes</strong>: {{How to engage them}}</li>
+</ul>
+<p><strong>{{Stakeholder 2}}</strong> ({{Role}})</p>
+<ul>
+<li><strong>Position on topic</strong>: {{view}} [confidence: {{level}}]</li>
+<li><strong>Stakes</strong>: {{stakes}}</li>
+<li><strong>Likely concerns</strong>: {{concerns}}</li>
+<li><strong>Relationship state</strong>: {{state}}</li>
+<li><strong>Tactical notes</strong>: {{notes}}</li>
+</ul>
+<h3 id="desired-outcomes-ranked">Desired outcomes (ranked)<a class="headerlink" href="#desired-outcomes-ranked" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Must achieve</strong>: {{Non-negotiable outcome}}</li>
+<li><strong>Should achieve</strong>: {{Strong preference}}</li>
+<li><strong>Nice to achieve</strong>: {{Bonus outcome}}</li>
+</ol>
+<h3 id="key-messages">Key messages<a class="headerlink" href="#key-messages" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: what the user wants to communicate, in priority order, phrased for delivery]</p>
+</blockquote>
+<ol>
+<li>{{Message 1}}</li>
+<li>{{Message 2}}</li>
+<li>{{Message 3}}</li>
+</ol>
+<h3 id="anticipated-questions-and-responses">Anticipated questions and responses<a class="headerlink" href="#anticipated-questions-and-responses" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Prepared response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{Q1}}</td>
+<td>{{Response}}</td>
+</tr>
+<tr>
+<td>{{Q2}}</td>
+<td>{{Response}}</td>
+</tr>
+<tr>
+<td>{{Q3}}</td>
+<td>{{Response}}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="risks-and-tensions">Risks and tensions<a class="headerlink" href="#risks-and-tensions" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>{{Risk 1}}</strong>: {{Mitigation}}</li>
+<li><strong>{{Risk 2}}</strong>: {{Mitigation}}</li>
+</ul>
+<h3 id="asks">Asks<a class="headerlink" href="#asks" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>From {{Person}}</strong>: {{What the user needs, by when}}</li>
+<li><strong>From {{Person}}</strong>: {{ask}}</li>
+</ul>
+<h3 id="success-signals">Success signals<a class="headerlink" href="#success-signals" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: how the user will know the meeting went well in the moment. behavioral cues, not just outcome markers]</p>
+</blockquote>
+<ul>
+<li>{{Signal 1}}</li>
+<li>{{Signal 2}}</li>
+</ul>
+<hr />
+<h2 id="sources-references">Sources &amp; References<a class="headerlink" href="#sources-references" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs">Primary inputs<a class="headerlink" href="#primary-inputs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>User-provided context: {{summary}}</li>
+<li>Stakeholder summaries (if discovered): {{filenames}}</li>
+</ul>
+<h3 id="referenced-artifacts">Referenced artifacts<a class="headerlink" href="#referenced-artifacts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Agenda: {{filename if exists}}</li>
+<li>Prior recaps on this topic: {{filenames}}</li>
+<li>Related stakeholder summaries: {{filenames}}</li>
+</ul>
+<h3 id="external-references">External references<a class="headerlink" href="#external-references" title="Permanent link">&para;</a></h3>
+<ul>
+<li>{{Relevant docs and links}}</li>
+</ul>
+<h3 id="generation-context">Generation context<a class="headerlink" href="#generation-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: {{Timestamp}}</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Input quality</strong>: {{high | medium | low}}. {{rationale}}</li>
+<li><strong>Overall confidence</strong>: {{high | medium | low}}. {{rationale}}</li>
+<li><strong>Known gaps</strong>: {{List or "None identified"}}</li>
+<li><strong>Inferences applied</strong>: {{list of inferred values with confidence}}</li>
+<li><strong>Anti-meeting check</strong>: {{Ran. override accepted | Ran. async alternative produced instead}}</li>
+</ul>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Meeting brief: Q2 Roadmap Commitment with CFO</summary>
+<h1 id="meeting-brief-q2-roadmap-commitment-with-cfo">Meeting brief: Q2 Roadmap Commitment with CFO<a class="headerlink" href="#meeting-brief-q2-roadmap-commitment-with-cfo" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-summary_1">Shareable summary<a class="headerlink" href="#shareable-summary_1" title="Permanent link">&para;</a></h2>
+<p><strong>Q2 Roadmap Commitment with CFO</strong> | 2026-04-18
+<strong>Purpose</strong>: Secure CFO signoff on engineering capacity allocation for search feature in Q2
+<strong>Top goals</strong>:
+1. CFO verbal yes on search feature capacity allocation
+2. Agreement on how Q1 overrun gets absorbed without cutting Q2 scope
+3. Clear check-in cadence for Q2 (monthly review vs. ad-hoc)
+<strong>Key risk</strong>: CFO uses Q1 overrun to impose capacity cap that would force scope cut
+<strong>Primary ask</strong>: CFO signoff on eng capacity for search feature in Q2 despite Q1 overrun</p>
+<hr />
+<h2 id="full-brief_1">Full brief<a class="headerlink" href="#full-brief_1" title="Permanent link">&para;</a></h2>
+<h3 id="context_1">Context<a class="headerlink" href="#context_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Meeting</strong>: Q2 Roadmap Commitment, 2026-04-18, 45 min</li>
+<li><strong>Format</strong>: In-person (CFO office)</li>
+<li><strong>Attendees and roles</strong>: jonathan (decision-maker, running this), priya-cfo (decision-maker), maria-cpo (contributor, supporting)</li>
+<li><strong>Chair or facilitator</strong>: jonathan</li>
+</ul>
+<h3 id="background_1">Background<a class="headerlink" href="#background_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Q1 search feature work overran by 15% on eng hours; scope held but deadline slipped 2 weeks</li>
+<li>CFO has been vocal in leadership about "disciplined capacity" this year; Q1 overrun landed during her messaging</li>
+<li>Maria (CPO) already signaled private support for search in Q2; this is a two-on-one dynamic</li>
+<li>Prior exec review on 2026-03-20 flagged Q1 overrun but did not set a capacity policy; this meeting may be where that policy lands</li>
+</ul>
+<h3 id="stakeholder-reads_1">Stakeholder reads<a class="headerlink" href="#stakeholder-reads_1" title="Permanent link">&para;</a></h3>
+<p><strong>priya-cfo</strong> (CFO)</p>
+<ul>
+<li><strong>Position on topic</strong>: wants to hold line on eng capacity; skeptical of scope creep on search after Q1 overrun [confidence: high, from prior exec review comments]</li>
+<li><strong>Stakes</strong>: accountability for delivering financial discipline messaging; a Q2 overrun would damage that narrative</li>
+<li><strong>Likely concerns</strong>: "why should I trust Q2 commitments after Q1 slipped?"; "what stops this from happening again?"; "what's the cost if we cut scope instead?"</li>
+<li><strong>Relationship state</strong>: neutral; worked together for 2 years; she's direct but fair; respects data, impatient with handwaving</li>
+<li><strong>Tactical notes</strong>: lead with data on Q1 root cause (not excuses); offer specific capacity discipline mechanism (monthly review); have a pre-committed scope-cut fallback ready to show you thought about it</li>
+</ul>
+<p><strong>maria-cpo</strong> (CPO)</p>
+<ul>
+<li><strong>Position on topic</strong>: supports v2 ship; wants search feature in Q2 [confidence: high, confirmed in 1:1 yesterday]</li>
+<li><strong>Stakes</strong>: her product strategy relies on search shipping Q2; any cut affects broader product narrative</li>
+<li><strong>Likely concerns</strong>: if CFO pushes for scope cut, she wants to back the PM's specific proposal rather than improvise</li>
+<li><strong>Relationship state</strong>: strong; aligned on substance</li>
+<li><strong>Tactical notes</strong>: prep her before the meeting on the specific asks so she reinforces rather than improvising; have her in supporting-speaker role, not co-presenter (keeps dynamic focused)</li>
+</ul>
+<h3 id="desired-outcomes-ranked_1">Desired outcomes (ranked)<a class="headerlink" href="#desired-outcomes-ranked_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Must achieve</strong>: CFO verbal yes on search feature capacity in Q2</li>
+<li><strong>Should achieve</strong>: Agreement on how Q1 overrun is absorbed without Q2 scope cut</li>
+<li><strong>Nice to achieve</strong>: Monthly Q2 review cadence agreed (creates accountability mechanism CFO can trust)</li>
+</ol>
+<h3 id="key-messages_1">Key messages<a class="headerlink" href="#key-messages_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>"Q1 overrun had a specific identifiable cause (design handoff delay); we've added a handoff checkpoint to prevent recurrence. Root cause is addressed, not excused."</li>
+<li>"Search feature in Q2 has a specific capacity ask: 8 eng-weeks. Here's the tradeoff map if any cut is needed."</li>
+<li>"I'd like to propose a monthly Q2 review so you have a formal mechanism to catch issues early, not post-hoc."</li>
+</ol>
+<h3 id="anticipated-questions-and-responses_1">Anticipated questions and responses<a class="headerlink" href="#anticipated-questions-and-responses_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Prepared response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Why should I trust Q2 after Q1 slipped?"</td>
+<td>Q1 root cause was design handoff delay (specific, now addressed via checkpoint). Not a capacity estimation issue. Happy to walk through the root-cause analysis.</td>
+</tr>
+<tr>
+<td>"What if we cut scope instead?"</td>
+<td>Here's the tradeoff map (show prepared doc). Cutting autocomplete saves 3 eng-weeks but removes the headline value prop; cutting filters saves 2 eng-weeks but strands existing users who asked for it. Specific impact per cut.</td>
+</tr>
+<tr>
+<td>"What's the mechanism to prevent another overrun?"</td>
+<td>Monthly Q2 review with explicit hours-burned and scope-remaining report. I'd welcome that cadence.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="risks-and-tensions_1">Risks and tensions<a class="headerlink" href="#risks-and-tensions_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CFO uses Q1 overrun to impose a capacity cap that forces scope cut</strong>: Mitigation. have the tradeoff map ready to make the cost of cutting visible, not abstract. Don't let "just cut scope" be a costless answer.</li>
+<li><strong>Meeting drifts to broader capacity policy discussion, postponing search decision</strong>: Mitigation. explicit ask upfront: "I have 3 things I need today; happy to schedule a separate capacity-policy conversation."</li>
+</ul>
+<h3 id="asks_1">Asks<a class="headerlink" href="#asks_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>From priya-cfo</strong>: verbal yes on search feature eng capacity for Q2 (8 eng-weeks)</li>
+<li><strong>From priya-cfo</strong>: agreement on absorbing Q1 overrun from Q2 slack rather than cutting Q2 scope</li>
+<li><strong>From maria-cpo</strong>: reinforce the scope rationale if priya pushes on cuts; do not co-present the ask (keeps the dynamic clean)</li>
+</ul>
+<h3 id="success-signals_1">Success signals<a class="headerlink" href="#success-signals_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>priya-cfo engages with the tradeoff map (asks specific questions) rather than dismissing with generic capacity concerns</li>
+<li>priya-cfo proposes her own cadence mechanism, indicating she's problem-solving with us rather than gatekeeping</li>
+<li>maria-cpo stays in supporting role, not improvising new asks</li>
+</ul>
+<hr />
+<h2 id="sources-references_1">Sources &amp; References<a class="headerlink" href="#sources-references_1" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs_1">Primary inputs<a class="headerlink" href="#primary-inputs_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>User-provided context: "Brief me for CFO meeting tomorrow on Q2 roadmap"</li>
+<li>Yesterday's 1:1 with maria-cpo (verbally confirmed support)</li>
+</ul>
+<h3 id="referenced-artifacts_1">Referenced artifacts<a class="headerlink" href="#referenced-artifacts_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Agenda: none (no shared agenda; brief for jonathan's prep only)</li>
+<li>Prior recaps on this topic: 2026-03-20_15-00EST_exec-review_recap.md (referenced for Q1 overrun context)</li>
+<li>Related stakeholder summaries: stakeholder_priya-cfo.md (loaded)</li>
+</ul>
+<h3 id="external-references_1">External references<a class="headerlink" href="#external-references_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://sheets.example/q2-capacity">Q2 capacity model</a></li>
+<li><a href="https://notion.example/search-scope-tradeoffs">Search feature scope tradeoff map</a></li>
+</ul>
+<h3 id="generation-context_1">Generation context<a class="headerlink" href="#generation-context_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: 2026-04-17T09:00:00Z</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Input quality</strong>: high. user provided meeting context, stakeholder summary existed, prior recap referenced Q1 overrun dynamics</li>
+<li><strong>Overall confidence</strong>: medium. stakeholder positions are high-confidence; anticipated questions are medium-confidence (inferred from typical CFO objections + priya's known style)</li>
+<li><strong>Known gaps</strong>: Do not know if priya-cfo has spoken to maria-cpo 1:1 about this; if yes, she may already have a position shaped by those conversations</li>
+<li><strong>Inferences applied</strong>: priya's likely concerns inferred from prior exec review + style [confidence: medium]; anticipated questions inferred from CFO-role patterns [confidence: medium]</li>
+<li><strong>Anti-meeting check</strong>: Ran. override accepted (exec decision with relationship dynamic warrants sync conversation; async would risk misinterpretation of capacity commitment)</li>
+</ul>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): campaigns-exec-briefing</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/meeting-brief &quot;Tomorrow 9am exec briefing, 30 min with priya-ceo and rachel-vp. Campaigns Q2 commitment. Priya pushed back on capacity in Q1 exec review (I have the recap). Rachel privately supports.&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown">```markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-brief
+version: 1.0
+generated_at: 2026-04-16T17:00:00Z
+generated_by_skill: foundation-meeting-brief</p>
+<p>meeting_title: "Campaigns Q2 Exec Briefing"
+meeting_date: 2026-04-17
+meeting_start_time: "09:00 EST"
+meeting_type: exec-briefing</p>
+<p>project: campaigns
+topics:
+  - q2-commitment
+  - capacity-context</p>
+<p>attendees:
+  - name: jonathan-pm
+    role: contributor
+  - name: priya-ceo
+    role: decision-maker
+  - name: rachel-vp
+    role: contributor</p>
+<p>stakeholders:
+  - name: priya-ceo
+    position: "cost-sensitive; pushed back on Q1 capacity; wants to hold line on Q2"
+  - name: rachel-vp
+    position: "private supporter; wants Campaigns in Q2; will back scope discipline"</p>
+<p>primary_ask: "CEO greenlight for Campaigns Q2 launch with explicit capacity discipline mechanism"</p>
+<p>related_agenda: null</p>
+<p>input_quality: high
+confidence: medium
+visibility: private
+status: draft</p>
+<hr />
+<h1 id="meeting-brief-campaigns-q2-exec-briefing">Meeting brief: Campaigns Q2 Exec Briefing<a class="headerlink" href="#meeting-brief-campaigns-q2-exec-briefing" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): curator-tier-pitch</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/meeting-brief &quot;weekly product mtg tomorrow, pitching curator tier to leo and noor, leo prob skeptical noor open, 30 min&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_1">```markdown<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-brief
+version: 1.0
+generated_at: 2026-04-19T18:00:00Z
+generated_by_skill: foundation-meeting-brief</p>
+<p>meeting_title: "Curator Tier Pitch at Weekly Product Meeting"
+meeting_date: 2026-04-20
+meeting_start_time: "10:00 PT"
+meeting_type: stakeholder-review</p>
+<p>project: curator-tier
+topics:
+  - tier-pitch
+  - concerns
+  - decision-or-defer</p>
+<p>attendees:
+  - name: priya-pm
+    role: contributor
+  - name: leo-cofounder-1
+    role: decision-maker
+  - name: noor-cofounder-2
+    role: decision-maker</p>
+<p>stakeholders:
+  - name: leo-cofounder-1
+    position: "⚠ likely skeptical of subscription expansion [inferred: medium]"
+  - name: noor-cofounder-2
+    position: "⚠ open-but-not-committed [inferred: medium]"</p>
+<p>primary_ask: "greenlight for a 4-week Curator tier experiment with explicit kill criteria"</p>
+<p>related_agenda: null</p>
+<p>input_quality: low
+confidence: medium
+visibility: private
+status: draft</p>
+<hr />
+<h1 id="meeting-brief-curator-tier-pitch-at-weekly-product-meeting">Meeting brief: Curator Tier Pitch at Weekly Product Meeting<a class="headerlink" href="#meeting-brief-curator-tier-pitch-at-weekly-product-meeting" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): vp-ops-roi-briefing</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/meeting-brief &quot;VP Ops briefing Monday 2pm EST 45 min, david-pm briefing carlos-vp-ops on Blueprints ROI case. Carlos pushed back on Blueprints Q1 investment (see 2026-02-05_14-00EST_q1-investment-review_recap.md). New evidence just landed: 6 healthcare customer interviews with strong positive signal (@customer-interview-synthesis.md). Goal: get carlos behind the Blueprints expansion case ahead of Tuesday CEO review. Include 2026-03-15_14-00EST_compliance-investment-case_recap.md as prior context.&quot;
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_2">```markdown<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-brief
+version: 1.0
+generated_at: 2026-04-27T09:00:00Z
+generated_by_skill: foundation-meeting-brief</p>
+<p>meeting_title: "Blueprints ROI Case VP Ops Briefing"
+meeting_date: 2026-04-28
+meeting_start_time: "14:00 EST"
+meeting_type: stakeholder-review</p>
+<p>project: blueprints
+topics:
+  - roi-case
+  - q1-concerns
+  - pre-ceo-alignment</p>
+<p>attendees:
+  - name: david-pm
+    role: contributor
+  - name: carlos-vp-ops
+    role: decision-maker</p>
+<p>stakeholders:
+  - name: carlos-vp-ops
+    position: "pushed back on Blueprints Q1 investment; cost-discipline focus; evidence-driven"</p>
+<p>primary_ask: "Carlos verbal support for Blueprints expansion case ahead of Tuesday CEO review"</p>
+<p>related_agenda: null</p>
+<p>input_quality: high
+confidence: high
+visibility: private
+status: draft</p>
+<hr />
+<h1 id="meeting-brief-blueprints-roi-case-vp-ops-briefing">Meeting brief: Blueprints ROI Case VP Ops Briefing<a class="headerlink" href="#meeting-brief-blueprints-roi-case-vp-ops-briefing" title="Permanent link">&para;</a></h1>
+</details>
+<h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Anti-meeting check was applied and recorded</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>visibility: private</code> default applied</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Background section cross-references prior recaps when available</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Every key stakeholder has a position, stakes, concerns, relationship state entry (with confidence markers on inferred fields)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Desired outcomes are ranked (must / should / nice), not flat</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Key messages are phrased for delivery, not for reading</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Anticipated Q&amp;A table has 3 or more entries</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Asks are specific (named person, specific ask, by-when)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Shareable summary suitable for trusted-advisor review only (flagged as such)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sources and References section includes Generation context with inferences flagged</li>
 </ul>
 
 
@@ -3282,7 +3755,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 16:28:12 UTC"><span class="timeago" datetime="2026-04-23T16:28:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 16:28:12 UTC">2026-04-23</span>
   </span>
 
     

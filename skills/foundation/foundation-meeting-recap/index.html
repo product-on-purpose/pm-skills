@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available; reconciles planned vs. actual topics. Accepts transcripts from any tool, notes, or hybrid inputs.">
+        <meta name="description" content="Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="foundation-meeting-recap - PM Skills" />
-<meta property="og:description" content="Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available; reconciles planned vs. actual topics. Accepts transcripts from any tool, notes, or hybrid inputs." />
+<meta property="og:description" content="Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-meeting-recap.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/skills/foundation/foundation-meeting-recap/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="foundation-meeting-recap - PM Skills" />
-<meta property="twitter:description" content="Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available; reconciles planned vs. actual topics. Accepts transcripts from any tool, notes, or hybrid inputs." />
+<meta property="twitter:description" content="Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/skills/foundation/foundation-meeting-recap.png" />
 </head>
   
@@ -3218,50 +3218,524 @@
 <p class="admonition-title">Quick facts</p>
 <p><strong>Classification:</strong> Foundation | <strong>Version:</strong> 1.0.0 | <strong>Category:</strong> meeting | <strong>License:</strong> Apache-2.0</p>
 </div>
-<p class="md-button"><strong>Try it:</strong> <code>/meeting-recap @transcript.txt</code></p>
+<p class="md-button"><strong>Try it:</strong> <code>/meeting-recap "Your context here"</code></p>
 <h1 id="meeting-recap">Meeting Recap<a class="headerlink" href="#meeting-recap" title="Permanent link">&para;</a></h1>
-<p>A meeting recap is a post-meeting topic-segmented summary produced for attendees and light distribution. It organizes content by topic rather than chronology, highlights decisions visually, and captures actions inline (with owner, due date, dependencies) per topic segment, plus a consolidated actions view at the end.</p>
-<p>This skill absorbs what would otherwise be a separate "meeting-actions" skill. Actions in this family live alongside the context that makes them meaningful.</p>
-<p>This skill belongs to the <a href="../../../reference/skill-families/meeting-skills-contract/">Meeting Skills Family</a>.</p>
+<p>A meeting recap is a post-meeting topic-segmented summary produced for attendees and light distribution. It organizes content by topic rather than chronology, highlights decisions visually, and captures actions inline (with owner, due date, dependencies) per topic segment, plus a consolidated actions view at the end for scannability.</p>
+<p>This skill absorbs what would otherwise be a separate "meeting-actions" skill. Actions in this family live alongside the context that makes them meaningful, not in a sibling artifact.</p>
+<p>This skill belongs to the Meeting Skills Family. It conforms to the <a href="../../docs/reference/skill-families/meeting-skills-contract.md">Meeting Skills Family Contract</a>.</p>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <ul>
 <li>After any internal meeting that produces decisions or actions affecting attendees</li>
-<li>When a sibling <code>/meeting-agenda</code> exists and needs reconciliation</li>
-<li>When inputs include a transcript or mixed notes and transcript</li>
+<li>When a sibling <code>/meeting-agenda</code> exists and needs reconciliation (planned vs. actual topics)</li>
+<li>When the team needs a topic-organized reference rather than a chronological transcript dump</li>
+<li>When inputs include a transcript (Zoom, Meet, Otter, Fireflies, Krisp MCP) or mixed notes and transcript</li>
 </ul>
 <h2 id="when-not-to-use">When NOT to Use<a class="headerlink" href="#when-not-to-use" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Communicating outcomes to non-attendees. Use <code>/stakeholder-update</code> instead.</li>
-<li>Cross-meeting synthesis. Use <code>/meeting-synthesize</code>.</li>
-<li>Live note-taking. This skill consumes finished inputs.</li>
+<li>Communicating outcomes to non-attendees. Use <code>/stakeholder-update</code>. recap assumes reader context; stakeholder-update translates to readers without it.</li>
+<li>Cross-meeting synthesis (patterns across multiple meetings). Use <code>/meeting-synthesize</code>.</li>
+<li>Live meeting note-taking. This skill consumes finished inputs; it does not transcribe live.</li>
 </ul>
 <h2 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/meeting-recap @transcript.txt
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>/meeting-recap @transcript.txt @live-notes.md
+<p>Use the <code>/meeting-recap</code> slash command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/meeting-recap &quot;Your context here&quot;
 </span></code></pre></div>
 <p>Or reference the skill file directly: <code>skills/foundation-meeting-recap/SKILL.md</code></p>
-<h2 id="key-features">Key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Zero-friction execution</strong>: reads inputs, auto-discovers sibling agenda, runs inference, presents brief summary, accepts <code>go</code> or corrections.</li>
-<li><strong>Agenda auto-discovery</strong>: filename-prefix match on same-directory <code>*_{title}_agenda.md</code> loads topic skeleton and desired-outcomes.</li>
-<li><strong>Fabrication prohibition</strong>: never invents owners or dates. Missing info is flagged as <code>[owner: unassigned]</code> or <code>[due: not specified]</code>.</li>
-<li><strong>Decision visual emphasis</strong>: decisions are bold-flagged within topic segments. Inferred decisions carry confidence markers.</li>
-<li><strong>Consolidated actions by owner</strong>: regrouped at the end for single-owner scannability.</li>
-<li><strong>Agenda reconciliation</strong>: planned vs. hit vs. skipped vs. emerged, reported explicitly.</li>
-<li><strong>Meeting quality signals</strong>: outcomes-achieved ratio, start/end-on-time, key attendee presence.</li>
-</ul>
 <h2 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h2>
-<p>Full instructions in <code>skills/foundation-meeting-recap/SKILL.md</code>. See also:</p>
+<p>When asked to create a meeting recap, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Parse inputs and detect type</strong>
+   Transcript (timestamped speaker-attributed lines), notes (bullet or prose), or hybrid. Note input quality upfront. transcript plus structured notes is high; scrappy bullets is low.</p>
+</li>
+<li>
+<p><strong>Auto-discover related agenda</strong>
+   Look in the same directory for a file matching the pattern <code>{YYYY-MM-DD}_{HH-MMtimezone}_{title-slug}_agenda.md</code>. If found, load it. its topic list is the recap's topic skeleton and its <code>desired_outcomes</code> drive the meeting-quality reconciliation.</p>
+</li>
+<li>
+<p><strong>Present go-mode inference summary</strong>
+   Show detected meeting date, title, attendees (if inferred), input quality assessment. Accept <code>go</code> or corrections.</p>
+</li>
+<li>
+<p><strong>Topic-segment the content</strong></p>
+</li>
+<li>If agenda was loaded, use its topic list as scaffold (plus any emergent topics)</li>
+<li>
+<p>If no agenda, identify topics from transcript discourse markers ("moving on to", "the other thing")</p>
+</li>
+<li>
+<p><strong>Per topic segment, extract</strong></p>
+</li>
+<li><strong>Discussion summary</strong>: 2-3 sentences capturing what was discussed</li>
+<li><strong>Decisions made</strong>: bold-flagged visually. Never fabricate. if uncertain, flag "appears to have decided X [confidence: medium]"</li>
+<li><strong>Actions</strong>: owner + due date + dependencies. Flag missing owners as <code>[owner: unassigned]</code> and missing dates as <code>[due: not specified]</code>. Never invent.</li>
+<li>
+<p><strong>Open questions</strong>: unresolved items with confidence marker on whether they are truly unresolved or simply not re-raised</p>
+</li>
+<li>
+<p><strong>Consolidate actions by owner</strong>
+   Regroup all actions under each owner. Enables single-owner scan ("what do I owe after this meeting?").</p>
+</li>
+<li>
+<p><strong>Reconcile agenda</strong> (if agenda loaded)</p>
+</li>
+<li><code>topics_planned</code>: from agenda topic list</li>
+<li><code>topics_hit</code>: topics actually discussed</li>
+<li><code>topics_skipped</code>: planned but not discussed, with brief reason</li>
+<li>
+<p><code>topics_emerged</code>: discussed but not on agenda</p>
+</li>
+<li>
+<p><strong>Assess meeting quality signals</strong></p>
+</li>
+<li><code>outcomes_achieved</code>: N/M ratio of agenda <code>desired_outcomes</code> met (when agenda present)</li>
+<li><code>started_on_time</code> / <code>ended_on_time</code>: from timestamps when available; skipped when not</li>
+<li>
+<p><code>key_attendees_present</code>: flag if decision-makers were absent</p>
+</li>
+<li>
+<p><strong>Surface next steps</strong>
+   When we reconvene, what needs to happen on the critical path before that.</p>
+</li>
+<li>
+<p><strong>Render TEMPLATE.md and validate</strong></p>
 <ul>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-recap/references/TEMPLATE.md">Skill template</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/blob/main/skills/foundation-meeting-recap/references/EXAMPLE.md">Worked example</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-meeting-recap">Sample outputs</a></li>
+<li>Every action's owner appears in <code>attendees</code> or is explicitly <code>unassigned</code></li>
+<li><code>meeting_quality.outcomes_achieved</code> matches <code>N/M</code> pattern when populated</li>
+<li><code>agenda_reconciliation</code> fields present even when empty lists</li>
 </ul>
-<h2 id="related-skills">Related skills<a class="headerlink" href="#related-skills" title="Permanent link">&para;</a></h2>
+</li>
+</ol>
+<h2 id="output-template">Output Template<a class="headerlink" href="#output-template" title="Permanent link">&para;</a></h2>
+<h1 id="meeting-recap-meeting-title">Meeting recap: {{Meeting title}}<a class="headerlink" href="#meeting-recap-meeting-title" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-summary">Shareable summary<a class="headerlink" href="#shareable-summary" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[guidance (v1.1.0 errata): 3-5 short lines, no mini-headers, Slack/email copy-safe. Lead with outcome, inline key decisions, inline top actions. Plain prose + simple bullets only. no nested markdown.]</p>
+</blockquote>
+<p><strong>{{Meeting title}}</strong> | {{Date}}
+{{1-sentence accomplishment summary, optionally naming 1-2 key decisions inline.}}
+Top actions: {{Owner 1}}: {{action}} ({{due}}); {{Owner 2}}: {{action}} ({{due}}); {{Owner 3}}: {{action}} ({{due}}).
+{{if unassigned_action_ratio &gt; 0.3 or any high-priority action unassigned:}} ⚠ {{N}} of {{M}} actions need owners. see Ownership reconciliation section.
+Full recap linked below.</p>
+<hr />
+<h2 id="full-recap">Full recap<a class="headerlink" href="#full-recap" title="Permanent link">&para;</a></h2>
+<h3 id="meeting-details">Meeting details<a class="headerlink" href="#meeting-details" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../foundation-meeting-agenda/"><code>/meeting-agenda</code></a>. upstream: provides topic skeleton</li>
-<li><a href="../foundation-meeting-synthesize/"><code>/meeting-synthesize</code></a>. downstream: consumes recaps</li>
-<li><a href="../foundation-stakeholder-update/"><code>/stakeholder-update</code></a>. downstream: translates recap outcomes</li>
+<li><strong>Date</strong>: {{Date}}</li>
+<li><strong>Actual duration</strong>: {{Duration}} min</li>
+<li><strong>Attendees present</strong>: {{Names}}</li>
+<li><strong>Attendees absent</strong>: {{Names or "none"}}</li>
+<li><strong>Recording</strong>: {{Link or "none"}}</li>
+</ul>
+<h3 id="overall-summary">Overall summary<a class="headerlink" href="#overall-summary" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: 2-3 sentences capturing what this meeting accomplished in plain language]</p>
+</blockquote>
+<p>{{Summary text}}</p>
+<h3 id="agenda-reconciliation">Agenda reconciliation<a class="headerlink" href="#agenda-reconciliation" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: explicit report of what was planned vs. what actually happened. If no agenda existed, note "no prior agenda loaded"]</p>
+</blockquote>
+<ul>
+<li><strong>Planned topics</strong>: {{list or "no agenda"}}</li>
+<li><strong>Topics addressed</strong>: {{list}} ({{N}} of {{M}})</li>
+<li><strong>Topics skipped</strong>: {{list or "none"}}. {{brief reason per skip}}</li>
+<li><strong>Topics that emerged</strong>: {{list or "none"}}. {{brief context}}</li>
+</ul>
+<h3 id="topics">Topics<a class="headerlink" href="#topics" title="Permanent link">&para;</a></h3>
+<h4 id="topic-1">{{Topic 1}}<a class="headerlink" href="#topic-1" title="Permanent link">&para;</a></h4>
+<p><em>Type: {{Discussion | Decision | Information | Working}} (from agenda, if available)</em></p>
+<p><strong>Discussion</strong></p>
+<p>{{Summary of what was discussed}}</p>
+<p><strong>Decisions made</strong></p>
+<ul>
+<li><strong>{{Decision 1}}</strong>. {{brief rationale}}</li>
+<li><strong>{{Decision 2}}</strong>. {{brief rationale}} [confidence: {{level}} if inferred]</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {{Owner}}: {{Action}} | Due: {{Date or "not specified"}} | Dependencies: {{any or "none"}}</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {{Owner or "unassigned"}}: {{Action}} | Due: {{Date or "not specified"}}</li>
+</ul>
+<p><strong>Open questions</strong></p>
+<ul>
+<li>{{Unresolved question}} [confidence: {{level}}]</li>
+</ul>
+<hr />
+<h4 id="topic-2">{{Topic 2}}<a class="headerlink" href="#topic-2" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>[guidance: repeat structure]</p>
+</blockquote>
+<hr />
+<h3 id="all-actions-consolidated-by-owner">All actions (consolidated by owner)<a class="headerlink" href="#all-actions-consolidated-by-owner" title="Permanent link">&para;</a></h3>
+<h4 id="owner-1">{{Owner 1}}<a class="headerlink" href="#owner-1" title="Permanent link">&para;</a></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {{Action}} | Due: {{Date}} | Topic: {{Topic}}</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {{Action}} | Due: {{Date}} | Topic: {{Topic}}</li>
+</ul>
+<h4 id="owner-2">{{Owner 2}}<a class="headerlink" href="#owner-2" title="Permanent link">&para;</a></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {{Action}} | Due: {{Date}} | Topic: {{Topic}}</li>
+</ul>
+<h4 id="unassigned">Unassigned<a class="headerlink" href="#unassigned" title="Permanent link">&para;</a></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> {{Action}} | Topic: {{Topic}} | <strong>Needs owner</strong></li>
+</ul>
+<h3 id="meeting-quality-signals">Meeting quality signals<a class="headerlink" href="#meeting-quality-signals" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>[guidance: lightweight signals supporting downstream retrospective use]</p>
+</blockquote>
+<ul>
+<li><strong>Outcomes achieved</strong>: {{N of M or "no agenda outcomes to reconcile"}}</li>
+<li><strong>Time management</strong>: {{brief note on start/end and pacing}}</li>
+<li><strong>Key attendee presence</strong>: {{brief note on who was needed and whether they were there}}</li>
+</ul>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>When we reconvene</strong>: {{Date or cadence}}</li>
+<li><strong>What needs to happen first</strong>: {{Critical path items}}</li>
+</ul>
+<hr />
+<h2 id="sources-references">Sources &amp; References<a class="headerlink" href="#sources-references" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs">Primary inputs<a class="headerlink" href="#primary-inputs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>{{Source type}}: {{Source name}} (e.g., "transcript via Otter, 48 minutes")</li>
+<li>{{Source type}}: {{Source name}} (e.g., "user live notes")</li>
+</ul>
+<h3 id="referenced-artifacts">Referenced artifacts<a class="headerlink" href="#referenced-artifacts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Agenda: {{filename or "none loaded"}}. {{if loaded, note: used for topic skeleton and desired-outcomes reconciliation}}</li>
+<li>Brief: {{filename if applicable}}</li>
+<li>Prior recaps on this topic: {{filenames or "none"}}</li>
+</ul>
+<h3 id="external-references">External references<a class="headerlink" href="#external-references" title="Permanent link">&para;</a></h3>
+<ul>
+<li>{{Links mentioned in meeting}}</li>
+</ul>
+<h3 id="generation-context">Generation context<a class="headerlink" href="#generation-context" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: {{Timestamp}}</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Input quality</strong>: {{high | medium | low}}. {{rationale}}</li>
+<li><strong>Overall confidence</strong>: {{high | medium | low}}. {{rationale}}</li>
+<li><strong>Known gaps</strong>: {{list of topics with insufficient detail, or "None identified"}}</li>
+<li><strong>Inferences applied</strong>: {{list of inferred values with confidence, e.g., "decision on X inferred from 'let's go with X' [confidence: medium]"}}</li>
+<li><strong>Fabrication check</strong>: {{"all action owners appear in attendees list or are explicitly unassigned" | or list of failures}}</li>
+</ul>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary>Meeting recap: Search Feature Kickoff</summary>
+<h1 id="meeting-recap-search-feature-kickoff">Meeting recap: Search Feature Kickoff<a class="headerlink" href="#meeting-recap-search-feature-kickoff" title="Permanent link">&para;</a></h1>
+<h2 id="shareable-summary_1">Shareable summary<a class="headerlink" href="#shareable-summary_1" title="Permanent link">&para;</a></h2>
+<p><strong>Search Feature Kickoff</strong> | 2026-04-17
+Scope and capacity agreed; timeline deferred to a follow-up next week due to emergent vendor-contract question on the search provider.</p>
+<p><strong>Key decisions</strong>:
+- MVP scope: autocomplete + filters IN; saved searches OUT (defer to v2)
+- Q2 eng capacity: 8 sprint-weeks committed; alex owns staffing plan</p>
+<p><strong>Top actions</strong>:
+- alex: publish sprint-week staffing plan (Due: 2026-04-24)
+- maria: investigate vendor contract constraints on search provider (Due: 2026-04-22)
+- jonathan: schedule follow-up for timeline commitment after vendor answer (Due: 2026-04-25)</p>
+<p><strong>Full recap below</strong></p>
+<hr />
+<h2 id="full-recap_1">Full recap<a class="headerlink" href="#full-recap_1" title="Permanent link">&para;</a></h2>
+<h3 id="meeting-details_1">Meeting details<a class="headerlink" href="#meeting-details_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Date</strong>: 2026-04-17</li>
+<li><strong>Actual duration</strong>: 68 min (overran by 8 min)</li>
+<li><strong>Attendees present</strong>: jonathan, maria, alex, sarah</li>
+<li><strong>Attendees absent</strong>: none</li>
+<li><strong>Recording</strong>: https://meet.example/search-kickoff/recording</li>
+</ul>
+<h3 id="overall-summary_1">Overall summary<a class="headerlink" href="#overall-summary_1" title="Permanent link">&para;</a></h3>
+<p>Agreed on MVP scope (autocomplete + filters in; saved searches deferred) and Q2 engineering capacity (8 sprint-weeks). Timeline commitment deferred to next week because an emergent question on the search-provider vendor contract needs resolution before a date can be committed. Meeting ran 8 minutes over due to the vendor-contract tangent.</p>
+<h3 id="agenda-reconciliation_1">Agenda reconciliation<a class="headerlink" href="#agenda-reconciliation_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Planned topics</strong>: scope, capacity, timeline, next-steps</li>
+<li><strong>Topics addressed</strong>: scope, capacity (2 of 4)</li>
+<li><strong>Topics skipped</strong>: timeline. deferred because vendor contract question blocks commitment; next-steps. absorbed into emergent vendor-contract discussion</li>
+<li><strong>Topics that emerged</strong>: vendor-contract-review. alex raised a prior email from the search-provider indicating potential licensing limits on usage; needs investigation before timeline is committable</li>
+</ul>
+<h3 id="topics_1">Topics<a class="headerlink" href="#topics_1" title="Permanent link">&para;</a></h3>
+<h4 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h4>
+<p><em>Type: Decision (from agenda)</em></p>
+<p><strong>Discussion</strong></p>
+<p>Walked the scope draft together. Autocomplete and filters had clear customer-research backing; saved searches was the contested line. Agreed that saved searches solves a narrower user need and can be deferred without losing the MVP value prop.</p>
+<p><strong>Decisions made</strong></p>
+<ul>
+<li><strong>MVP scope: autocomplete IN, filters IN, saved searches OUT (defer to v2)</strong>. rationale: autocomplete + filters cover 80% of the research-identified user need; saved searches adds complexity (accounts, persistence) that costs Q2 engineering time without proportional customer-value gain</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> maria: update scope doc to reflect decision; circulate for final sign-off by EOD Friday | Due: 2026-04-18 | Dependencies: none</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> jonathan: add saved-searches to v2 backlog with rationale link | Due: 2026-04-18</li>
+</ul>
+<p><strong>Open questions</strong></p>
+<ul>
+<li>None on scope itself; vendor contract issue (see below) may force scope reconsideration if licensing blocks autocomplete</li>
+</ul>
+<hr />
+<h4 id="capacity">Capacity<a class="headerlink" href="#capacity" title="Permanent link">&para;</a></h4>
+<p><em>Type: Decision (from agenda)</em></p>
+<p><strong>Discussion</strong></p>
+<p>Alex walked the Q2 capacity model. 8 sprint-weeks available for search; no backfill needed if scope holds. Flagged that saved-searches would have required 3 additional sprint-weeks, reinforcing the scope decision.</p>
+<p><strong>Decisions made</strong></p>
+<ul>
+<li><strong>Q2 engineering capacity: 8 sprint-weeks committed to search feature</strong>. rationale: fits within scope agreed in prior topic; no backfill required</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> alex: publish detailed sprint-week staffing plan (who, which sprint) | Due: 2026-04-24</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> alex: flag dependencies on design-system team if any emerge | Due: 2026-04-24</li>
+</ul>
+<p><strong>Open questions</strong></p>
+<ul>
+<li>None</li>
+</ul>
+<hr />
+<h4 id="vendor-contract-review-emergent">Vendor-contract-review (emergent)<a class="headerlink" href="#vendor-contract-review-emergent" title="Permanent link">&para;</a></h4>
+<p><em>Type: Discussion (emergent. not on agenda)</em></p>
+<p><strong>Discussion</strong></p>
+<p>Alex surfaced a prior email from the search-provider (Algolia) indicating possible licensing limits on query volume at our projected usage. Raised concern that if limits trigger, we could be forced to renegotiate or re-architect. Decision was to investigate before committing to a ship timeline.</p>
+<p><strong>Decisions made</strong></p>
+<ul>
+<li><strong>Defer timeline commitment until vendor contract is reviewed</strong> [confidence: high]. rationale: committing a date before vendor-licensing risk is known would create rework</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> maria: investigate vendor contract constraints (read licensing terms; query legal if needed) | Due: 2026-04-22 | Dependencies: legal review if terms are ambiguous</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> jonathan: schedule 30-min follow-up for the week of 2026-04-21 once maria has vendor answer | Due: 2026-04-25</li>
+</ul>
+<p><strong>Open questions</strong></p>
+<ul>
+<li>Does vendor licensing support our projected Q2 query volume? [confidence: high. specific question]</li>
+<li>If limits apply, are they negotiable or hard? [confidence: medium. depends on legal review]</li>
+</ul>
+<hr />
+<h3 id="all-actions-consolidated-by-owner_1">All actions (consolidated by owner)<a class="headerlink" href="#all-actions-consolidated-by-owner_1" title="Permanent link">&para;</a></h3>
+<h4 id="maria">maria<a class="headerlink" href="#maria" title="Permanent link">&para;</a></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Update scope doc to reflect decision; circulate for final sign-off | Due: 2026-04-18 | Topic: scope</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Investigate vendor contract constraints (licensing limits on query volume) | Due: 2026-04-22 | Topic: vendor-contract-review</li>
+</ul>
+<h4 id="alex">alex<a class="headerlink" href="#alex" title="Permanent link">&para;</a></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Publish detailed sprint-week staffing plan | Due: 2026-04-24 | Topic: capacity</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Flag dependencies on design-system team if any emerge | Due: 2026-04-24 | Topic: capacity</li>
+</ul>
+<h4 id="jonathan">jonathan<a class="headerlink" href="#jonathan" title="Permanent link">&para;</a></h4>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Add saved-searches to v2 backlog with rationale link | Due: 2026-04-18 | Topic: scope</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Schedule 30-min follow-up for week of 2026-04-21 once vendor answer is in | Due: 2026-04-25 | Topic: vendor-contract-review</li>
+</ul>
+<h3 id="meeting-quality-signals_1">Meeting quality signals<a class="headerlink" href="#meeting-quality-signals_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Outcomes achieved</strong>: 2 of 3 stated outcomes met (scope, capacity; ship-date deferred pending vendor review)</li>
+<li><strong>Time management</strong>: Started on time; ended 8 min over due to emergent vendor-contract discussion</li>
+<li><strong>Key attendee presence</strong>: All attendees present; decision-maker (jonathan) engaged throughout</li>
+</ul>
+<h3 id="next-steps_1">Next steps<a class="headerlink" href="#next-steps_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>When we reconvene</strong>: week of 2026-04-21 (30 min, narrow focus: vendor answer + timeline commitment)</li>
+<li><strong>What needs to happen first</strong>: maria completes vendor contract investigation</li>
+</ul>
+<hr />
+<h2 id="sources-references_1">Sources &amp; References<a class="headerlink" href="#sources-references_1" title="Permanent link">&para;</a></h2>
+<h3 id="primary-inputs_1">Primary inputs<a class="headerlink" href="#primary-inputs_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Transcript: zoom-recording-2026-04-17 via Otter (68 min, speaker-attributed)</li>
+<li>jonathan's live notes (supplementary, used for context where transcript was ambiguous on speaker attribution)</li>
+</ul>
+<h3 id="referenced-artifacts_1">Referenced artifacts<a class="headerlink" href="#referenced-artifacts_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Agenda: 2026-04-17_14-00EST_search-feature-kickoff_agenda.md. used for topic skeleton and desired-outcomes reconciliation</li>
+<li>Brief: 2026-04-17_14-00EST_search-feature-kickoff_brief.md (consulted for stakeholder context)</li>
+<li>Prior recaps on this topic: none (this is a kickoff)</li>
+</ul>
+<h3 id="external-references_1">External references<a class="headerlink" href="#external-references_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://notion.example/search-scope">Scope draft</a></li>
+<li><a href="https://sheets.example/q2-capacity">Capacity model</a></li>
+<li><a href="https://email.internal/algolia-licensing-2026-03-15">Algolia licensing email (internal)</a></li>
+</ul>
+<h3 id="generation-context_1">Generation context<a class="headerlink" href="#generation-context_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generated</strong>: 2026-04-18T09:15:00Z</li>
+<li><strong>Skill version</strong>: 1.0.0</li>
+<li><strong>Input quality</strong>: high. transcript plus live notes; all speakers identifiable</li>
+<li><strong>Overall confidence</strong>: high. decisions, actions, owners, dates all directly supported in transcript</li>
+<li><strong>Known gaps</strong>: None identified</li>
+<li><strong>Inferences applied</strong>: topic "vendor-contract-review" emerged during meeting and was not in agenda; labeled as emergent [confidence: high. explicit in transcript]</li>
+<li><strong>Fabrication check</strong>: all action owners (maria, alex, jonathan) appear in attendees list; no unassigned actions</li>
+</ul>
+</details>
+<h2 id="real-world-examples">Real-World Examples<a class="headerlink" href="#real-world-examples" title="Permanent link">&para;</a></h2>
+<p>See this skill applied to three different product contexts:</p>
+<details class="example">
+<summary>Storevine (B2B): campaigns-pricing-decision</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/meeting-recap @campaigns-pricing-decision-transcript.txt @jonathan-live-notes.md
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown">```markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-recap
+version: 1.0
+generated_at: 2026-04-24T19:30:00Z
+generated_by_skill: foundation-meeting-recap</p>
+<p>meeting_title: "Campaigns Pricing Decision"
+meeting_date: 2026-04-24
+meeting_start_time: "13:00 EST"
+meeting_type: decision-making</p>
+<p>project: campaigns
+topics:
+  - tier-structure
+  - grandfathering
+  - rollout-date</p>
+<p>attendees:
+  - name: jonathan-pm
+    role: decision-maker
+  - name: maria-eng
+    role: contributor
+  - name: alex-marketing
+    role: contributor
+  - name: sam-data
+    role: contributor
+attendees_absent: []</p>
+<p>related_agenda: 2026-04-24_13-00EST_campaigns-pricing-decision_agenda.md
+related_brief: null</p>
+<p>agenda_reconciliation:
+  topics_planned: [tier-structure, grandfathering, rollout-date]
+  topics_hit: [tier-structure, grandfathering, rollout-date]
+  topics_skipped: []
+  topics_emerged: [comms-plan-ownership]</p>
+<p>meeting_quality:
+  outcomes_achieved: "3/3"
+  started_on_time: true
+  ended_on_time: false
+  key_attendees_present: true</p>
+<p>meeting_type_source: explicit
+unassigned_action_ratio: 0.0</p>
+<p>input_quality: high
+confidence: high
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="meeting-recap-campaigns-pricing-decision">Meeting recap: Campaigns Pricing Decision<a class="headerlink" href="#meeting-recap-campaigns-pricing-decision" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Brainshelf (Consumer): resurface-scope-cut</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/meeting-recap @priya-notes.md
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_1">```markdown<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-recap
+version: 1.0
+generated_at: 2026-04-15T21:45:00Z
+generated_by_skill: foundation-meeting-recap</p>
+<p>meeting_title: "Resurface Sprint Scope Cut"
+meeting_date: 2026-04-15
+meeting_start_time: "13:00 PT"
+meeting_type: decision-making</p>
+<p>project: resurface
+topics:
+  - scope-cut-decision
+  - kept-scope-confirmation</p>
+<p>attendees:
+  - name: priya-pm
+    role: decision-maker
+  - name: elena-algo
+    role: contributor
+  - name: mia-design
+    role: contributor
+attendees_absent: []</p>
+<p>related_agenda: null
+related_brief: null</p>
+<p>agenda_reconciliation:
+  topics_planned: []
+  topics_hit: [scope-cut-decision, kept-scope-confirmation]
+  topics_skipped: []
+  topics_emerged: []</p>
+<p>meeting_quality:
+  outcomes_achieved: "no agenda outcomes to reconcile"
+  started_on_time: null
+  ended_on_time: null
+  key_attendees_present: true</p>
+<p>meeting_type_source: inferred
+unassigned_action_ratio: 0.0</p>
+<p>input_quality: medium
+confidence: medium
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="meeting-recap-resurface-sprint-scope-cut">Meeting recap: Resurface Sprint Scope Cut<a class="headerlink" href="#meeting-recap-resurface-sprint-scope-cut" title="Permanent link">&para;</a></h1>
+</details>
+<details class="example">
+<summary>Workbench (Enterprise): blueprints-customer-feedback</summary>
+<p><strong>Prompt:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/meeting-recap @zoom-transcript.txt @anna-customer-feedback-notes.md
+</span></code></pre></div>
+<p><strong>Output:</strong></p>
+<h2 id="markdown_2">```markdown<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
+<p>artifact_type: meeting-recap
+version: 1.0
+generated_at: 2026-04-25T19:30:00Z
+generated_by_skill: foundation-meeting-recap</p>
+<p>meeting_title: "Blueprints v1.1 Customer Feedback Review"
+meeting_date: 2026-04-25
+meeting_start_time: "13:00 EST"
+meeting_type: stakeholder-review</p>
+<p>project: blueprints
+topics:
+  - design-walkthrough
+  - customer-feedback-themes
+  - must-fix-items
+  - nice-to-have-items</p>
+<p>attendees:
+  - name: david-pm
+    role: decision-maker
+  - name: sasha-designer
+    role: contributor
+  - name: linda-compliance
+    role: contributor
+  - name: raj-eng
+    role: contributor
+  - name: anna-cs
+    role: contributor
+attendees_absent: []</p>
+<p>related_agenda: 2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_agenda.md
+related_brief: null</p>
+<p>agenda_reconciliation:
+  topics_planned: [design-walkthrough, customer-feedback-themes, must-fix-items, nice-to-have-items]
+  topics_hit: [design-walkthrough, customer-feedback-themes, must-fix-items, nice-to-have-items]
+  topics_skipped: []
+  topics_emerged: []</p>
+<p>meeting_quality:
+  outcomes_achieved: "3/3"
+  started_on_time: true
+  ended_on_time: true
+  key_attendees_present: true</p>
+<p>meeting_type_source: explicit
+unassigned_action_ratio: 0.0</p>
+<p>input_quality: high
+confidence: high
+visibility: team
+status: draft</p>
+<hr />
+<h1 id="meeting-recap-blueprints-v11-customer-feedback-review">Meeting recap: Blueprints v1.1 Customer Feedback Review<a class="headerlink" href="#meeting-recap-blueprints-v11-customer-feedback-review" title="Permanent link">&para;</a></h1>
+</details>
+<h2 id="quality-checklist">Quality Checklist<a class="headerlink" href="#quality-checklist" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Input quality flagged honestly (high / medium / low)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Agenda auto-discovery attempted; result noted in Generation context</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Every topic segment has Discussion / Decisions / Actions / Open questions subsections</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Decisions are bold-flagged; never invented; confidence marked when inferred</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Every action has owner (or explicit <code>unassigned</code>) + due date (or explicit <code>not specified</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Consolidated actions view regrouped by owner</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Agenda reconciliation populated when agenda was loaded</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Meeting quality signals populated with data available; skipped fields flagged</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Shareable summary 5-6 lines, lead with decisions and top actions</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sources and References Generation context notes transcript source and any missing owners/dates</li>
 </ul>
 
 
@@ -3285,7 +3759,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 16:28:12 UTC"><span class="timeago" datetime="2026-04-23T16:28:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 16:28:12 UTC">2026-04-23</span>
   </span>
 
     
