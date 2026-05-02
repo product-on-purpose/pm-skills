@@ -1,0 +1,699 @@
+---
+title: "measure-okr-grader"
+description: "Scores completed OKR sets at cycle close with KR-level scoring per the canonical OKR type enum (committed | aspirational | learning | operational_health | compliance_or_safety), committed-vs-aspirational interpretation, evidence quality assessment, learning synthesis, and next-cycle recommendations. Refuses to retroactively change targets or shrink committed scope, average away guardrail KRs, treat 0.7 as success for committed or compliance_or_safety KRs, equate effort with impact, or use scores for individual performance. Hands off to iterate-lessons-log, iterate-retrospective, define-hypothesis, measure-dashboard-requirements, measure-instrumentation-spec, and foundation-okr-writer."
+tags:
+  - Measure
+  - reflection
+---
+
+# OKR Grader
+
+!!! info "Quick facts"
+    **Phase:** Measure | **Version:** 1.0.0 | **Category:** reflection | **License:** Apache-2.0
+
+**Try it:** `/okr-grader "Your context here"`
+{ .md-button }
+
+An OKR Cycle Review is a backward-looking artifact that closes the loop on a completed OKR set. It scores each KR against its baseline and target, separates committed from aspirational interpretation, surfaces what evidence does and does not support, names what the team learned, and prepares input for next-cycle drafting. Done well, a cycle review protects the integrity of the OKR operating system by refusing to dress up missed commitments as aspirational stretch, refusing to celebrate effort over outcome, and refusing to let scoring carry weight it cannot bear.
+
+This skill is an evidence interpreter, not an arithmetic engine. Its job is to read final KR values, compare them against the original OKR set's intent, and produce a review that names the learning honestly. It enforces the empirical scoring conventions drawn from Doerr (`Measure What Matters`), Wodtke (`Radical Focus`), Castro (committed vs aspirational interpretation), Grove (`High Output Management`), and the OKR community's accumulated practice on misuse failure modes. It pairs with `foundation-okr-writer` (which produced the OKR set being scored) and hands off the learnings produced here to the iterate skills that consume them.
+
+## When to Use
+
+- The OKR cycle has ended (or you are scoring a partial-cycle close)
+- You have final or interim KR values, baselines, and targets
+- Stakeholders need a clear review with score, evidence, and learning
+- The team is deciding what to continue, stop, change, or carry forward
+- There is disagreement about whether a score is good or bad
+- Evidence quality across KRs is uneven and needs to be made visible
+
+## When NOT to Use
+
+- You are still drafting OKRs . use `/okr-writer`
+- You want a generic team retro . use `/retrospective`
+- You are reporting a single experiment result . use `/experiment-results`
+- You need a stakeholder progress update without scoring . use `/stakeholder-update`
+- The OKR set was never agreed on or never tracked . scoring requires an authored set; backfill via `/okr-writer` first
+- You want to use scores to evaluate individuals . the skill refuses this
+
+## How to Use
+
+Use the `/okr-grader` slash command:
+
+```
+/okr-grader "Your context here"
+```
+
+Or reference the skill file directly: `skills/measure-okr-grader/SKILL.md`
+
+## Instructions
+
+When asked to score completed OKRs, follow these steps:
+
+1. **Validate scoring readiness**
+   Check inputs: original OKR set, cycle dates, final KR values (or interim values for partial-close), baselines, targets, evidence sources, and OKR types (committed | aspirational | learning | operational_health | compliance_or_safety). If a value is missing, mark it explicitly (`not-yet-observable`, `not-instrumented`, `not-supplied`); never fabricate. Refuse to grade KRs whose original definitions are missing entirely.
+
+2. **Classify each KR's type and indicator class**
+   The OKR type is one of `committed | aspirational | learning | operational_health | compliance_or_safety` (the five values produced by `foundation-okr-writer`). The indicator class is one of `leading | lagging | guardrail | health | evidence_generation`. Carry both forward from the original OKR set, or assign defaults if the original set did not specify. The OKR type determines the scoring convention: `aspirational` uses the 0.6 to 0.7 sweet spot; `committed` targets 1.0; `compliance_or_safety` is binary; `operational_health` is pass | fail | drift-within-tolerance against a threshold band; `learning` grades by validated or invalidated rather than by score. The indicator class adds independent rules that apply on top of the type's scoring (see Step 3).
+
+3. **Score each KR**
+   For each KR, compute or assign a score using the convention for its OKR type:
+   - `aspirational` KR: numeric score = (actual - baseline) / (target - baseline). Sweet spot is 0.6 to 0.7.
+   - `committed` KR: pass or fail against the target. Anything below 1.0 is a miss.
+   - `compliance_or_safety` KR: binary. Met or not met. No partial credit. No retroactive scope shrinkage when coverage is partial; mark as not-yet-fully-observable instead.
+   - `operational_health` KR: pass | fail | drift-within-tolerance against the threshold band.
+   - `learning` KR: validated, invalidated, partially-validated, or insufficient-evidence. No numeric score.
+   Then apply indicator-class rules independently of the OKR type:
+   - any KR with indicator class `guardrail` is reported as its own signal and is NEVER averaged into the primary objective score, regardless of its OKR type. A failed guardrail does not dilute a high primary KR score.
+   For each score, state the calculation or rationale and the evidence confidence (high | medium | low | unknown).
+
+4. **Interpret the objective score**
+   Avoid naive averaging when one KR is a guardrail, compliance threshold, or learning KR. Produce a qualitative read of the objective alongside any rough numeric average. State explicitly what the score does and does not mean.
+
+5. **Assess evidence quality**
+   For each KR, name the evidence's reliability and any caveats (instrumentation gaps, target shifts mid-cycle, cohort definition changes, measurement window mismatches, sample-size limitations). Recommend fixes for next cycle's measurement plan.
+
+6. **Review initiatives as bets**
+   For each initiative the team ran, name which KR it was expected to move, whether it shipped, what its apparent contribution was, and whether the evidence supports continuing, retiring, or reworking it. Use Castro's "initiatives are bets, not commitments" framing. Separate ship-status from KR-impact; an initiative that shipped on time but did not move its KR is not a partial win.
+
+7. **Synthesize learning**
+   Capture validated assumptions, invalidated assumptions, surprises, and decision implications. Distinguish between learnings about the customer or product (carry forward), learnings about team process (hand to `/retrospective`), and learnings about measurement (hand to `/instrumentation-spec` or `/dashboard-requirements`).
+
+8. **Prepare next-cycle recommendations**
+   For each objective: continue, revise, retire, or escalate. Suggest candidate next-cycle OKRs or open questions for `/okr-writer`. Hand-off measurement gaps to `/dashboard-requirements` or `/instrumentation-spec`. Hand-off assumption tests to `/hypothesis`. Hand-off team-process work to `/retrospective`. Hand-off organizational memory to `/lessons-log`. Hand-off next-cycle drafting to `/okr-writer`.
+
+9. **Surface risks in interpretation**
+   Make explicit any places the score could mislead a reader: forced numeric scores on KRs that are not yet observable, confounded initiative results, stakeholder framings that under-state evidence, single-cycle results that need a second cycle of confirmation.
+
+10. **Note the source of truth**
+    The artifact is a review document, not the canonical OKR system. Include a `source_of_truth` field pointing to the original OKR tracker.
+
+11. **Finalize for direct use**
+    Remove all skill instruction commentary from the final artifact. The final output should be reader-facing.
+
+## Output Template
+
+# OKR Cycle Review: {team or scope name}, {cycle}
+
+> Output template for the `measure-okr-grader` skill. Section order is canonical and enforced by the skill's Output Contract. Remove this guidance blockquote and all template comments before finalizing the artifact for the user.
+
+## Summary
+
+> One-paragraph orientation: scope, cycle, overall interpretation (aspirational sweet spot? clear win? committed miss? mixed?), evidence confidence overall, and the main learning the cycle produced. Do NOT lead with a single number; OKRs with heterogeneous types do not average meaningfully.
+
+- Scope: {team | product-area | department | company}
+- Cycle: {2026-Q3 | 2026-H2 | 2026 | launch window | custom}
+- Overall interpretation: {qualitative read; do not force a single average across mixed KR types}
+- Evidence confidence: {high | medium | low | mixed}
+- Main learning: {one sentence on the most load-bearing learning}
+
+## Scorecard
+
+> Each KR is scored using the convention for its OKR type from the canonical 5-value enum: `committed | aspirational | learning | operational_health | compliance_or_safety`. Indicator class (`leading | lagging | guardrail | health | evidence_generation`) is independent and applies on top of the type. Numeric scores belong to aspirational KRs only; committed KRs are pass or fail; compliance_or_safety KRs are binary (no partial credit, no retroactive scope shrinkage); operational_health KRs are pass | fail | drift-within-tolerance; learning KRs use validated or invalidated language. Special states: `not-yet-observable` for cycle-window extensions past close; `not-yet-fully-observable` for committed or compliance_or_safety KRs with partial coverage. KRs with indicator class `guardrail` are surfaced as their own signal and never averaged into the primary objective score, regardless of OKR type.
+
+- Objective: {original objective text}
+  - Rough qualitative read: {one-line summary; do NOT force a single numeric average across heterogeneous types}
+
+- KR1 ({OKR type}; indicator class {indicator class}): {original KR text, baseline to target}
+  - Actual: {value, with `as_of` date; `not-yet-observable` if cycle window extends past close; `not-yet-fully-observable` if committed or compliance_or_safety with partial coverage}
+  - Score: {numeric on 0-1 scale for aspirational; pass | fail for committed; binary met | not-met for compliance_or_safety; pass | fail | drift-within-tolerance for operational_health; validated | invalidated for learning; deferred for not-yet-(fully-)observable}
+  - Evidence confidence: {high | medium | low | unknown}
+  - Interpretation: {what this score does and does not mean; if indicator class is `guardrail`, note that the score is reported separately and not averaged into the primary score}
+
+- KR2: {as above}
+
+- KR3: {as above}
+
+## Objective Interpretation
+
+> Synthesize a qualitative read of the objective. Avoid naive averaging when KRs have different types. State explicitly what the score does and does not mean so future readers cannot over-read it.
+
+- Result: {qualitative summary}
+- Why: {what drove the result; which initiatives carried the load}
+- What changed during the cycle: {scope shifts, market changes, team changes, dependency shifts}
+- What the score does and does not mean:
+  - Does mean: {1 to 2 statements}
+  - Does NOT mean: {1 to 2 statements that prevent over-reading}
+
+## Evidence Quality
+
+> For each significant evidence issue, name the issue, its impact on the score, and a recommended fix for next cycle. Do not paper over weak evidence with precise numbers.
+
+- Issue 1: {description}
+  - Impact: {how this affects the score's reliability}
+  - Recommended fix: {next-cycle measurement change}
+
+- Issue 2: {as above}
+
+## Initiative Review
+
+> For each initiative the team ran, name which KR it was expected to move, whether it shipped, what its apparent contribution was, and whether the evidence supports continuing, retiring, or reworking it. Separate ship-status from KR-impact.
+
+- Initiative 1: {name}
+  - Linked to: {KR1, KR2, etc.}
+  - Status: {shipped on time | shipped late | partially shipped | not shipped}
+  - Apparent contribution: {high | medium | low | unclear}
+  - Recommendation: {continue | retire | rework with sharper hypothesis}
+
+- Initiative 2: {as above}
+
+## Learning
+
+> Distinguish customer or product learnings (carry forward to next cycle), team-process learnings (hand to retrospective), and measurement learnings (hand to instrumentation or dashboard skills).
+
+- Validated assumptions: {list}
+- Invalidated assumptions: {list}
+- Surprises: {findings the team did not anticipate}
+- Decision implications: {what the team should do differently next cycle}
+
+## Next-cycle Recommendations
+
+> Numbered list. Each recommendation either drives next-cycle OKR drafting or hands off to a specific downstream skill. The grader's job is to set up the next cycle, not to write its OKRs.
+
+1. {recommendation}
+2. {recommendation}
+3. {recommendation}
+4. Hand-off:
+   - `/lessons-log` for {what learning needs organizational memory}
+   - `/retrospective` for {what team-process work needs reflection}
+   - `/hypothesis` for {what assumption needs an explicit test}
+   - `/instrumentation-spec` or `/dashboard-requirements` for {what measurement gap needs filling}
+   - `/okr-writer` for {next-cycle drafting note}
+
+## Risks in Interpretation
+
+> Make explicit any places the score could mislead a reader. The grader's job is to protect the integrity of the OKR operating system, not to manufacture certainty.
+
+- {risk 1}
+- {risk 2}
+
+## Source of Truth
+
+{URL or path to the live OKR tracker; this artifact is a review document, not the canonical record}
+
+## Example Output
+
+??? example "Sample: measure-okr-grader. Storevine Campaigns Q3 2026 Cycle Review"
+    # Sample: measure-okr-grader. Storevine Campaigns Q3 2026 Cycle Review
+
+    ## Scenario
+
+    Storevine's Campaigns team is closing the Q3 2026 cycle. The OKR set was authored in late June using `/okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3.md`). The cycle ended September 30. Final values are now in for KR1 and KR3; KR2's 90-day cohorts are partially complete (the 60-day intermediate is available, the 90-day final is not yet observable).
+
+    The team wants a cycle review they can take to the Q4 planning workshop. The growth-pm runs `/okr-grader` with the original OKR set, the final and interim KR values, the cycle's narrative, and the initiative status.
+
+    The cycle had a mixed result. KR1 hit hard. KR2 trended below projection. KR3 guardrail held. Initiative 2 (Templates v2) underperformed expectations and the team needs to decide whether to retire the thesis or carry it.
+
+    **Source Notes:**
+
+    - Storevine is fictional
+    - All metrics `[fictional]`
+    - Pairs with `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3.md`
+    - Aspirational OKR scoring follows the Google convention (0.6 to 0.7 sweet spot for aspirational)
+    - Committed and compliance_or_safety scoring conventions are not exercised in this sample; see the workbench thread for committed and compliance_or_safety scoring examples
+
+    ## Prompt
+
+    ```
+    /okr-grader
+
+    Original OKR: see sample_foundation-okr-writer_storevine_campaigns-q3.md
+    Cycle: Q3 2026 (July 1 to September 30, 2026)
+    OKR type: aspirational
+
+    Final KR values:
+    - KR1 (weekly active senders): 26% [fictional] (target was 28%, baseline 14%)
+    - KR2 (90-day campaign retention): 60-day cohort interim is 19% [fictional];
+      full 90-day target was 38% (baseline 22.8%); 90-day final not yet observable
+    - KR3 (guardrail, median CTR): 3.6% [fictional] (target was hold at or above
+      3.4%, baseline 3.4%)
+
+    Guardrails:
+    - Unsubscribe rate ended cycle at 0.81% [fictional] (baseline 0.72%, threshold 0.95%)
+    - Spam complaint rate ended at 0.05% [fictional] (baseline 0.04%, threshold 0.1%)
+
+    Initiative status:
+    - Initiative 1 (Lifecycle email triggers): shipped July 22 as planned. Open
+      rate on triggered emails 38% [fictional]. Click-through to send action
+      21% [fictional].
+    - Initiative 2 (Templates v2): shipped 8 of 12 templates by Sept 30
+      [fictional]. Adoption among first-time repeat senders was 31% [fictional],
+      below the 60% [fictional] target. Templates that did get adopted showed
+      no significant retention difference vs. generic templates (Q3 cohort).
+    - Initiative 3 (Campaign performance feedback loop): shipped Aug 28.
+      Adoption among repeat senders 64% [fictional]. Self-reported usefulness
+      4.1 / 5 [fictional].
+
+    Cycle context:
+    - Onboarding team's Q3 KR (boost Campaigns activation rate to 50%)
+      hit 47% [fictional]; close enough that we did not rebaseline KR1
+      mid-cycle.
+    - Mid-cycle, the team caught a bug in lifecycle trigger eligibility logic
+      (week 3 of August). Fixed in 4 days but ~120 merchants [fictional]
+      received duplicate triggers. No measurable impact on unsub rate.
+
+    Stakeholder interpretation: Campaigns leadership reads the cycle as a
+    clear win on activation-to-recurring-send (KR1) and a learning result
+    on retention-thesis (KR2 + Templates v2). Looking for grader's
+    independent read.
+    ```
+
+    ## Output
+
+    ```markdown
+    # OKR Cycle Review: Storevine Campaigns Team, Q3 2026
+
+    ## Summary
+
+    - Scope: Campaigns team
+    - Cycle: 2026-Q3 (July 1 to September 30, 2026)
+    - Overall interpretation: strong aspirational outcome on KR1, partial signal
+      on KR2, guardrail held. The KR2 90-day window extends past cycle close, so
+      a single objective-level number is misleading. The honest read is that the
+      team validated the engagement thesis (KR1) and invalidated the
+      templates-as-retention-driver thesis (Initiative 2).
+    - Evidence confidence: high for KR1 and KR3, medium for KR2 (interim only),
+      high for guardrails.
+    - Main learning: lifecycle triggers drove the engagement lift; templates v2
+      did not move retention. The Campaigns engagement-causes-retention belief
+      held at the leading-indicator level (KR1) but the lagging-indicator
+      evidence is not yet in.
+
+    ## Scorecard
+
+    - Objective: Make Campaigns the marketing tool merchants reach for every
+      week.
+      - Rough qualitative read: validated lift in weekly engagement; retention
+        causality still open. Do not collapse this to a single average; KR2
+        is not yet observable at 90 days.
+
+    - KR1: Increase weekly active senders from 14% to 28% [fictional] of
+      Campaigns-activated merchants by 2026-09-30.
+      - Actual: 26% [fictional] (as_of 2026-09-30, trailing 4-week average).
+      - Score: 0.86 (aspirational). Calculation:
+        (26 - 14) / (28 - 14) = 12 / 14 = 0.857.
+      - Evidence confidence: high. Amplitude `campaign_sent` event well-
+        instrumented; cohort definition stable across cycle (Onboarding team's
+        near-miss kept the activated-merchant denominator within tolerance).
+      - Interpretation: lifecycle triggers (Initiative 1) materially moved the
+        metric. The triggered-email-to-send conversion (21%) translates cleanly
+        into the weekly cohort lift.
+
+    - KR2: Increase 90-day campaign retention from 22.8% to 38% [fictional] for
+      merchants who send their first campaign in Q3.
+      - Actual: not-yet-observable. Q3 cohorts' 90-day windows extend into late
+        December. Interim 60-day signal is 19% [fictional].
+      - Score: deferred. Final score available 2026-12-31. Best-estimate
+        projection if forced today is 0.10 to 0.20 (aspirational), well below
+        the 0.6 to 0.7 sweet spot. See Risks in Interpretation below; do not
+        treat the projection as the final score.
+      - Evidence confidence: medium. The 60-day interim is reliable; the 90-day
+        projection assumes Q2 cohort decay shape, which may not apply to a
+        cohort with different engagement composition.
+      - Interpretation: retention thesis is trending below projection. Hold the
+        final score until 2026-12-31 and grade then.
+
+    - KR3 (operational_health; indicator class guardrail): Hold median
+      campaign click-through rate at or above 3.4% [fictional] across all
+      Q3 sends.
+      - Actual: 3.6% [fictional].
+      - Score: pass (operational_health; threshold held within band).
+        Improved by 0.2 percentage points above the baseline.
+      - Evidence confidence: high.
+      - Interpretation: lifecycle triggers did not degrade send-quality. This
+        is meaningful. The most common failure mode for "send more" initiatives
+        is engagement collapse; the team avoided it. Per the indicator-class
+        `guardrail` rule, KR3 is reported as its own signal and is NOT averaged
+        into the primary objective score.
+
+    ## Objective Interpretation
+
+    - Result: aspirational success on activation engagement (KR1); aspirational
+      shortfall (likely) on the retention thesis (KR2, score deferred). The
+      guardrail held.
+    - Why: Initiative 1 (lifecycle triggers) was the load-bearing bet for KR1
+      and it worked roughly as hypothesized. Initiative 2 (Templates v2) was
+      the load-bearing bet for KR2 and it under-shipped (8 of 12) and
+      under-adopted (31% vs 60% target). Even templates that were adopted did
+      not show a retention effect.
+    - What changed during the cycle: mid-cycle bug in lifecycle eligibility
+      (4 days, no measurable impact). No external surprises. Onboarding team's
+      near-miss on its own KR did not destabilize our KR1 denominator.
+    - What the score does and does not mean:
+      - Does mean: lifecycle triggers are a validated engagement lever and
+        should continue at full scale.
+      - Does mean: the templates-as-retention-driver thesis is weak. Adopted
+        templates showed no retention difference vs generic. This is
+        invalidating evidence, not just inconclusive evidence.
+      - Does NOT mean: engagement does not drive retention. The KR1 lift is
+        too recent to have produced measurable retention impact yet.
+      - Does NOT mean: Campaigns is a finished product. KR2 remains an open
+        thesis that needs a different bet next cycle.
+
+    ## Evidence Quality
+
+    - Issue 1: KR2's 90-day window extends past the cycle boundary. Q3 grade
+      is a projection until late December.
+      - Impact: cannot give a confident final score this cycle. Forcing a
+        numeric score now would mislead readers.
+      - Recommended fix: in next cycle's `/okr-writer` run, either
+        (a) reframe KR2 as a 30-day or 60-day intermediate metric, or
+        (b) accept that retention KRs are graded one quarter in arrears and
+        document the convention explicitly. Choosing (b) is cleaner if the
+        team plans to keep retention as a primary KR.
+
+    - Issue 2: KR2's underperformance correlates with Initiative 2's
+      under-shipping (8 of 12 templates) and low adoption (31%). This confounds
+      the templates-as-retention-driver test: the team did not run the bet at
+      full scale.
+      - Impact: the invalidating evidence is partial. A team could argue
+        "we did not really try."
+      - Recommended fix: do not relitigate Templates v2 next cycle without a
+        clearer hypothesis about why adoption was low. The grader's read is
+        that the thesis is weak enough to retire; the team should explicitly
+        decide rather than carry an ambiguous bet forward.
+
+    - Issue 3: Mid-cycle lifecycle-trigger bug affected ~120 merchants with
+      duplicate sends. No measurable unsub or CTR impact, but the bug is
+      unrecorded in standard dashboards.
+      - Impact: low for this cycle. Documented here for the cycle log.
+      - Recommended fix: add a `triggered_email_dedup_failures` event so future
+        cycles can detect this class of bug in real time.
+
+    ## Initiative Review
+
+    - Initiative 1 (Lifecycle email triggers):
+      - Linked to: KR1 primarily, KR2 secondarily.
+      - Status: shipped on time (July 22).
+      - Apparent contribution: high. Triggered emails reached 38% open rate
+        and 21% click-through-to-send rate, translating into the KR1 weekly
+        cohort lift.
+      - Recommendation: continue at full scale next cycle.
+
+    - Initiative 2 (Templates v2):
+      - Linked to: KR1 and KR2.
+      - Status: partially shipped (8 of 12 templates).
+      - Apparent contribution: low. Adopted templates showed no retention
+        effect in the Q3 cohort. Even at full ship, the underlying thesis is
+        not supported by the partial evidence.
+      - Recommendation: retire the current framing. If the team wants to
+        revisit, run `/hypothesis` first to sharpen the sub-thesis
+        (which segment, which template type, which trigger), and validate via
+        `/experiment-design` before baking into a KR.
+
+    - Initiative 3 (Campaign performance feedback loop):
+      - Linked to: KR2 primarily.
+      - Status: shipped late (August 28 vs target of mid-August).
+      - Apparent contribution: unclear. 64% adoption among repeat senders and
+        4.1 / 5 self-reported usefulness suggest merchant demand, but the
+        contribution to KR2 cannot be isolated from Initiative 1's effects.
+      - Recommendation: continue next cycle to gather more data; consider
+        promoting from supporting bet to candidate primary initiative if the
+        Q4 retention cohort shows a feedback-loop effect.
+
+    ## Learning
+
+    - Validated assumptions:
+      - Lifecycle triggers materially increase weekly engagement.
+      - Engagement gains do not require sacrificing send quality (KR3 held).
+      - Empowered-team initiative ownership produced a learning-grade Q3, not
+        just a delivery-grade Q3.
+
+    - Invalidated assumptions:
+      - Templates v2 as the primary retention-driver lever. The adopted cohort
+        showed no retention effect. This is the strongest invalidating signal
+        of the cycle.
+      - Designer capacity to ship 12 seasonal templates in Q3 was overestimated;
+        8 of 12 was the actual capacity. Revise next cycle's planning.
+
+    - Surprises:
+      - Initiative 3 (feedback loop) shipped late but adopted high. Adoption
+        rate suggests merchant demand for post-send analytics is stronger than
+        the team expected. Worth a deeper investigation.
+      - The 60-day interim for KR2 came in lower than the Q2 baseline cohort
+        despite KR1 success. If engagement causally drives retention, the team
+        should have seen at least a small interim lift. The flat result is
+        itself information.
+
+    - Decision implications:
+      - Continue Initiative 1 at full scale next cycle.
+      - Retire Initiative 2's current framing.
+      - Promote Initiative 3 from supporting bet to candidate primary initiative
+        for KR2 next cycle.
+      - Reframe KR2 measurement boundary (Issue 1) before Q4 OKR drafting.
+
+    ## Next-cycle Recommendations
+
+    1. Continue lifecycle triggers as a primary lever. Set Q4 KR1 target based
+       on Q3's 26% landing point, not Q3's pre-cycle 14% baseline.
+
+    2. Retire the Templates v2 thesis as currently framed. Do not re-run the
+       bet without sharpening the sub-thesis first.
+
+    3. Reframe KR2 to either 60-day retention (gradeable within cycle) or
+       90-day retention (graded one quarter in arrears). The former gives
+       clearer cycle accountability; the latter is methodologically truer to
+       the underlying behavior. Pre-decide before Q4 OKR drafting.
+
+    4. Investigate the engagement-without-retention finding. If KR1 lifts
+       continue without moving retention, the engagement-causes-retention
+       belief is wrong and the team's strategy needs to change.
+
+    5. Hand-off:
+       - `/lessons-log` for the Templates v2 invalidation (organizational
+         memory).
+       - `/retrospective` for the team-process learning on designer capacity
+         estimation.
+       - `/hypothesis` for "Campaigns engagement causally affects 12-month
+         merchant retention" with a defined invalidation criterion.
+       - `/instrumentation-spec` for the `triggered_email_dedup_failures`
+         event.
+       - `/okr-writer` for next-cycle drafting once KR2 measurement boundary
+         is resolved.
+
+    ## Risks in Interpretation
+
+    - A naive 0.62 rough-average objective score would include a forced KR2
+      score that is not yet observable. Reading 0.62 as "the team hit the
+      aspirational sweet spot" would be misleading. The honest read is "0.86
+      on KR1, retention thesis still open at 90 days, guardrail held." Avoid
+      collapsing heterogeneous KR types into a single number.
+
+    - Initiative 2's under-shipping confounds the Templates v2 invalidation. A
+      reasonable counter-read is "we did not really test it." The grader's
+      stronger evidence is the no-retention effect among the 31% who did adopt;
+      that is the part that says the thesis is weak even at full adoption.
+
+    - Stakeholder framing of "clear win on activation, learning on retention"
+      is broadly correct but understates the invalidating signal on Templates
+      v2. The Q4 planning workshop should explicitly decide whether to retire
+      or rework the thesis rather than leave it as ambiguously "ongoing."
+
+    - KR3 (guardrail) holding is good news but is not by itself proof of
+      safety. Two cycles of held guardrails would strengthen the case that
+      lifecycle triggers do not degrade send quality at scale.
+
+    ## Source of Truth
+
+    go/okrs-q3-2026-campaigns (Confluence). This artifact is a review document,
+    not the canonical OKR record.
+    ```
+
+## Real-World Examples
+
+See this skill applied to three different product contexts:
+
+??? example "Storevine (B2B): Storevine B2B ecommerce platform. Campaigns team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer storevine sample."
+    **Prompt:**
+
+    ```
+    /okr-grader
+
+    Original OKR: see sample_foundation-okr-writer_storevine_campaigns-q3.md
+    Cycle: Q3 2026 (July 1 to September 30, 2026)
+    OKR type: aspirational
+
+    Final KR values:
+    - KR1 (weekly active senders): 26% [fictional] (target was 28%, baseline 14%)
+    - KR2 (90-day campaign retention): 60-day cohort interim is 19% [fictional];
+      full 90-day target was 38% (baseline 22.8%); 90-day final not yet observable
+    - KR3 (guardrail, median CTR): 3.6% [fictional] (target was hold at or above
+      3.4%, baseline 3.4%)
+
+    Guardrails:
+    - Unsubscribe rate ended cycle at 0.81% [fictional] (baseline 0.72%, threshold 0.95%)
+    - Spam complaint rate ended at 0.05% [fictional] (baseline 0.04%, threshold 0.1%)
+
+    Initiative status:
+    - Initiative 1 (Lifecycle email triggers): shipped July 22 as planned. Open
+      rate on triggered emails 38% [fictional]. Click-through to send action
+      21% [fictional].
+    - Initiative 2 (Templates v2): shipped 8 of 12 templates by Sept 30
+      [fictional]. Adoption among first-time repeat senders was 31% [fictional],
+      below the 60% [fictional] target. Templates that did get adopted showed
+      no significant retention difference vs. generic templates (Q3 cohort).
+    - Initiative 3 (Campaign performance feedback loop): shipped Aug 28.
+      Adoption among repeat senders 64% [fictional]. Self-reported usefulness
+      4.1 / 5 [fictional].
+
+    Cycle context:
+    - Onboarding team's Q3 KR (boost Campaigns activation rate to 50%)
+      hit 47% [fictional]; close enough that we did not rebaseline KR1
+      mid-cycle.
+    - Mid-cycle, the team caught a bug in lifecycle trigger eligibility logic
+      (week 3 of August). Fixed in 4 days but ~120 merchants [fictional]
+      received duplicate triggers. No measurable impact on unsub rate.
+
+    Stakeholder interpretation: Campaigns leadership reads the cycle as a
+    clear win on activation-to-recurring-send (KR1) and a learning result
+    on retention-thesis (KR2 + Templates v2). Looking for grader's
+    independent read.
+    ```
+
+    **Output:**
+
+    ```markdown
+    # OKR Cycle Review: Storevine Campaigns Team, Q3 2026
+
+??? example "Brainshelf (Consumer): Brainshelf prosumer knowledge tool. Resurface team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer brainshelf sample. Demonstrates aspirational sweet-spot scoring with an invalidating signal on the retention-multiplier hypothesis."
+    **Prompt:**
+
+    ```
+    /okr-grader
+
+    Original OKR: see sample_foundation-okr-writer_brainshelf_resurface-q3.md
+    Cycle: Q3 2026 (July 1 to September 30, 2026)
+    OKR type: aspirational
+
+    Final KR values:
+    - KR1 (weekly Resurface-active members): 36% [fictional] (target 41%, baseline 22%)
+    - KR2 (30-day retention among Resurface-engaged members): 59% [fictional]
+      (target 68%, baseline 56%)
+    - KR3 (guardrail, member-reported relevance): 4.3 / 5 [fictional]
+      (target hold at or above 4.2 / 5, baseline 4.2 / 5)
+
+    Guardrails (health):
+    - "Resurface item felt repetitive" rate ended at 6.4% [fictional]
+      (baseline 5%, threshold 8%)
+    - Push notification opt-out rate ended at 5.1% [fictional]
+      (baseline 3.1%, threshold 6%)
+
+    Initiative status:
+    - Initiative 1 (Algo v1.5): shipped August 4 (on plan). Hit-rate on
+      first-impression items rose from 64% to 71% [fictional].
+    - Initiative 2 (Push notification triggers for high-confidence surfaces):
+      shipped July 28. Push open rate 41% [fictional]; click-through to
+      Resurface item 18% [fictional] vs the 2x in-app rate hypothesized
+      from beta data.
+    - Initiative 3 (Personalized first-session Resurface onboarding):
+      shipped September 12 (delayed by 4 weeks due to onboarding team
+      capacity). Q3 first-session cohort is too small for a clean read.
+
+    Cycle context:
+    - Sharing team's Q3 KR (items shared per week +30%) hit 23% [fictional];
+      the surface-able content pool grew slightly, not enough to require
+      algo retraining cadence change.
+    - The 500-user beta cohort that produced the original 3.4x retention
+      multiplier was re-run in August at the broader population scale
+      (n=12,400 [fictional]). The replication observed a 1.6x multiplier,
+      not 3.4x.
+
+    Stakeholder interpretation: Resurface leadership reads the cycle as a
+    "strong engagement quarter, retention thesis needs more time." Looking
+    for grader's independent read on whether the retention-multiplier
+    hypothesis should be retired or carried forward.
+    ```
+
+    **Output:**
+
+    ```markdown
+    # OKR Cycle Review: Brainshelf Resurface Team, Q3 2026
+
+??? example "Workbench (Enterprise): Workbench enterprise B2B platform. Blueprints team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer workbench sample. Demonstrates mixed-empowerment scoring with committed KR fail handled correctly (not softened to aspirational), compliance_or_safety KR scored as not-yet-fully-observable when audit coverage is partial (no retroactive scope shrinkage), aspirational KR in sweet spot, and committed KR with guardrail indicator class held."
+    **Prompt:**
+
+    ```
+    /okr-grader
+
+    Original OKR: see sample_foundation-okr-writer_workbench_blueprints-q3.md
+    Cycle: Q3 2026 (July 1 to September 30, 2026)
+    OKR types: mixed. KR1 (committed), KR2 (aspirational), KR3
+    (compliance_or_safety), KR4 (committed; indicator class guardrail).
+
+    Final KR values:
+    - KR1 (committed, 12 contracted onboardings): 10 of 12 completed by
+      Q3 close. Two healthcare accounts slipped to Q4 due to extended
+      HIPAA security review.
+    - KR2 (aspirational, 28 executions/week per onboarded tier-1 account):
+      19 [fictional] median across the 10 onboarded accounts (target 28,
+      baseline 0).
+    - KR3 (committed, compliance, zero HIPAA critical findings):
+      0 critical findings across the 1 healthcare account that completed
+      HIPAA audit in Q3. (Two healthcare accounts deferred their first
+      audit cycle to Q4 with the slipped onboardings.)
+    - KR4 (guardrail, CS time-to-resolution): 3.9 hours [fictional] median
+      (target hold at or below 4 hours, baseline 3.8 hours).
+
+    Health checks:
+    - Tier-1 customer satisfaction (CSAT) for Blueprints: 4.5 / 5
+      [fictional] (target hold at or above 4.4).
+    - Customer engineer weekly hours: 47 [fictional] median across the
+      cycle (target below 50 to prevent burnout).
+
+    Initiative status:
+    - Initiative 1 (White-glove onboarding): shipped per-account; 10 of
+      12 completed onboarding sessions, 2 in progress at cycle close.
+    - Initiative 2 (Industry-vertical template library): 24 of 24
+      templates shipped by August 14 [fictional]. Adoption among
+      onboarded accounts: 73% used at least one vertical template
+      in their first 4 weeks.
+    - Initiative 3 (Customer-health dashboard): slipped to Q4. Data
+      engineering capacity reallocated mid-cycle to a higher-priority
+      platform reliability incident.
+
+    Cycle context:
+    - Q3 included 2 weeks of Workbench platform reliability incidents
+      (mid-August) that reallocated data engineering capacity from
+      Initiative 3 to incident response. Blueprints availability was
+      not affected.
+    - The two slipped healthcare accounts (Mercy Regional Health and
+      Pacific Coast Medical) are both in active HIPAA security review
+      with target completion dates in late October and mid-November
+      respectively. Contracts have not been amended; both customers
+      are aware of the slip and have not raised concerns.
+    - The Customer Acquisition team's Q3 OKR ("sign 4 new tier-1
+      enterprise accounts") hit 5 of 4 [fictional]. Per the original
+      OKR's Alignment Notes, those new accounts will defer Blueprints
+      onboarding to Q4.
+
+    Stakeholder interpretation: Blueprints leadership reads the cycle
+    as "10 of 12 is a strong delivery; the two slipped accounts are
+    HIPAA-blocked, not Blueprints-blocked; engagement is healthy;
+    compliance held." Looking for grader's independent read on whether
+    the committed-KR miss should be treated as a postmortem trigger.
+    ```
+
+    **Output:**
+
+    ```markdown
+    # OKR Cycle Review: Workbench Blueprints Team, Q3 2026
+
+## Quality Checklist
+
+Before finalizing, verify:
+
+- [ ] Every KR has a final value, an explicit `not-yet-observable` marker, or an explicit `not-yet-fully-observable` marker (for partial-coverage on `committed` or `compliance_or_safety` KRs)
+- [ ] Every KR has an evidence confidence rating
+- [ ] Every KR's score uses the convention for its OKR type from the canonical enum: `committed | aspirational | learning | operational_health | compliance_or_safety`
+- [ ] `guardrail` is treated as indicator class, not as an OKR type
+- [ ] KRs with indicator class `guardrail` are surfaced separately and never averaged into the primary score
+- [ ] No retroactive target changes are silently absorbed
+- [ ] No retroactive scope shrinkage on `committed` or `compliance_or_safety` KRs (partial coverage is `not-yet-fully-observable`, not `pass-on-in-scope`)
+- [ ] No committed KR is graded as aspirational
+- [ ] No effort-equals-impact framing on initiatives
+- [ ] No compensation-coupled framing
+- [ ] Risks-in-interpretation section names where the score could mislead a reader
+- [ ] Hand-off section names specific downstream skills with rationale
+- [ ] Source-of-truth note present
+- [ ] Skill instruction commentary removed from final artifact
+- [ ] Markdown only . no JSON output

@@ -5,7 +5,7 @@ description: "All slash commands available in PM Skills."
 
 # Commands Reference
 
-PM Skills ships 46 slash commands: 39 skill commands plus 7 workflow commands.
+PM Skills ships 47 slash commands: 40 skill commands plus 7 workflow commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -29,6 +29,7 @@ PM Skills ships 46 slash commands: 39 skill commands plus 7 workflow commands.
 | `/meeting-recap` | [foundation-meeting-recap](../skills/foundation/foundation-meeting-recap.md) | Foundation | Produces a topic-segmented post-meeting summary for attendee... |
 | `/meeting-synthesize` | [foundation-meeting-synthesize](../skills/foundation/foundation-meeting-synthesize.md) | Foundation | Cross-meeting archaeology skill. Consumes multiple meeting r... |
 | `/mermaid-diagrams` | [utility-mermaid-diagrams](../skills/utility/utility-mermaid-diagrams.md) | Utility | Teaches PMs to create syntactically valid mermaid diagrams b... |
+| `/okr-grader` | [measure-okr-grader](../skills/measure/measure-okr-grader.md) | Measure | Scores completed OKR sets at cycle close with KR-level scori... |
 | `/okr-writer` | [foundation-okr-writer](../skills/foundation/foundation-okr-writer.md) | Foundation | Drafts, reviews, rewrites, and coaches outcome-based OKR set... |
 | `/opportunity-tree` | [define-opportunity-tree](../skills/define/define-opportunity-tree.md) | Define | Creates an opportunity solution tree mapping desired outcome... |
 | `/persona` | [foundation-persona](../skills/foundation/foundation-persona.md) | Foundation | Generates an evidence-calibrated product or marketing person... |

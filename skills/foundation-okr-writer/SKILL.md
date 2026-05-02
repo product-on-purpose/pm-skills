@@ -42,7 +42,7 @@ Five entry modes support different engagement levels. Mode is detected from user
 - You only need event tracking . use `/instrumentation-spec`
 - You only need an experiment . use `/experiment-design`
 - You only need a hypothesis . use `/hypothesis`
-- The cycle has ended and you need formal scoring with evidence and learning synthesis. A dedicated grader skill is planned but not yet shipped; until then, use this skill's Audit Only mode to review the OKR set against final values, and use `/retrospective` plus `/lessons-log` for cycle-close reflection
+- The cycle has ended and you need formal scoring with evidence and learning synthesis . use `/okr-grader`
 - The team is purely business-as-usual and needs steady-state KPIs, not stretch outcomes . OKRs are the wrong artifact
 
 ## Instructions
@@ -181,4 +181,4 @@ Before finalizing, verify:
 
 ## Examples
 
-See `references/EXAMPLE.md` for a completed OKR set in the storevine sample thread (Campaigns team, Q3 2026), demonstrating Guided mode on an empowered-team product context with a real cross-team alignment dependency. The companion `measure-okr-grader` skill (planned for a later release) handles end-of-cycle scoring; together they cover the full quarterly arc.
+See `references/EXAMPLE.md` for a completed OKR set in the storevine sample thread (Campaigns team, Q3 2026), demonstrating Guided mode on an empowered-team product context with a real cross-team alignment dependency. The companion `measure-okr-grader` skill handles end-of-cycle scoring; together they cover the full quarterly arc.

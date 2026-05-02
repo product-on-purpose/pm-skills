@@ -21,7 +21,7 @@ Generates a context-appropriate persona for product or marketing workflows with 
 #### okr-writer
 **Path:** `skills/foundation-okr-writer/SKILL.md`
 
-Drafts, reviews, rewrites, and coaches outcome-based OKR sets. Supports five entry modes (Guided default, One-Shot via --oneshot, Sustained Coach, Audit Only, Rewrite). Diagnoses empowered-team context, refuses to fabricate baselines, refuses compensation coupling, and reframes feature-delivery KRs into outcome KRs. Member of the OKR Skills set (companion `measure-okr-grader` planned for a later release).
+Drafts, reviews, rewrites, and coaches outcome-based OKR sets. Supports five entry modes (Guided default, One-Shot via --oneshot, Sustained Coach, Audit Only, Rewrite). Diagnoses empowered-team context, refuses to fabricate baselines, refuses compensation coupling, and reframes feature-delivery KRs into outcome KRs. Member of the OKR Skills set (companion: `measure-okr-grader`).
 
 #### meeting-agenda
 **Path:** `skills/foundation-meeting-agenda/SKILL.md`
@@ -175,6 +175,11 @@ Documents the results of a completed experiment or A/B test with statistical ana
 
 Specifies event tracking and analytics instrumentation requirements for a feature. Use when defining what data to collect, ensuring consistent tracking implementation, or documenting analytics requirements for engineering.
 
+#### okr-grader
+**Path:** `skills/measure-okr-grader/SKILL.md`
+
+Scores completed OKR sets at cycle close with KR-level scoring, committed-vs-aspirational interpretation, evidence quality assessment, learning synthesis, and next-cycle recommendations. Refuses to retroactively change targets, average away failed guardrails, treat 0.7 as success for committed or compliance KRs, equate effort with impact, or use scores as individual performance ratings. Hands off learnings to /lessons-log, team-process work to /retrospective, assumption tests to /hypothesis, measurement gaps to /dashboard-requirements or /instrumentation-spec, and next-cycle drafting to /okr-writer. Member of the OKR Skills set (companion: `foundation-okr-writer`).
+
 ---
 
 ### Iterate Phase
@@ -290,6 +295,7 @@ Workflow links are repo-relative within this repository.
 | `/lean-canvas` | Generate a one-page lean canvas with optional HTML output |
 | `/mermaid-diagrams` | utility-mermaid-diagrams |
 | `/lessons-log` | Create a structured lessons learned entry |
+| `/okr-grader` | Score completed OKRs at cycle close with evidence-based interpretation and learning synthesis |
 | `/okr-writer` | Draft, review, rewrite, or coach OKRs with outcome-based KRs and quality audit |
 | `/opportunity-tree` | Create an opportunity solution tree |
 | `/persona` | Generate a product or marketing persona |
