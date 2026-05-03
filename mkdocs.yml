@@ -280,6 +280,7 @@ nav:
     - Using the Meeting Skills Family: guides/using-meeting-skills.md
 
   - Reference:
+    - Overview: reference/README.md
     - Commands: reference/commands.md
     - Categories: reference/categories.md
     - Ecosystem: reference/ecosystem.md
