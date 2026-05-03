@@ -435,7 +435,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../reference/commands/" class="md-tabs__link">
+        <a href="../../reference/" class="md-tabs__link">
           
   
   
@@ -1444,6 +1444,10 @@
     
       
         
+          
+        
+      
+        
       
         
       
@@ -1473,7 +1477,7 @@
   
   
   
-    <a href="../../reference/commands/" class="md-nav__link">
+    <a href="../../reference/" class="md-nav__link">
       
   
   
@@ -1907,7 +1911,17 @@
 <li><strong><code>/pm-skill-iterate</code></strong> . suggests a version bump class (patch/minor/major) after applying changes, updates the <code>version</code> and <code>updated</code> fields on confirmation, and offers to create or update HISTORY.md</li>
 </ul>
 <h2 id="current-skill-versions">Current Skill Versions<a class="headerlink" href="#current-skill-versions" title="Permanent link">&para;</a></h2>
-<p>All 25 domain skills and the foundation skill are at version <strong>2.0.0</strong> (from the v2.0 flat-structure restructure). The 3 utility skills are at <strong>1.0.0</strong> (shipped in v2.7.0 and v2.8.0). No skill has iterated past its initial version yet . the first version bumps will come from the <a href="https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/efforts/F-12-skill-quality-convergence.md">quality convergence effort</a>.</p>
+<p>Skill versions are tracked individually in each <code>skills/{name}/SKILL.md</code> frontmatter and aggregated per release in <code>docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml</code>. The frontmatter is the source of truth; this section is summary.</p>
+<p>As of v2.12.0 (40 skills total):</p>
+<ul>
+<li><strong>24 domain skills at 2.0.0</strong>: lifted during the v2.0 flat-structure restructure.</li>
+<li><strong>2 domain skills at 1.0.0</strong>: <code>deliver-acceptance-criteria</code> (shipped in v2.7.0) and <code>measure-okr-grader</code> (shipped in v2.12.0).</li>
+<li><strong><code>foundation-persona</code> at 2.5.0</strong>: evolved through 2.x iterations to the canonical v2.5 output contract.</li>
+<li><strong><code>foundation-meeting-synthesize</code> at 1.0.1</strong>: patched in v2.11.1 (description reworded to remove an inline <code>:</code> that was truncating under strict YAML).</li>
+<li><strong>6 foundation skills at 1.0.0</strong>: <code>foundation-lean-canvas</code>, <code>foundation-meeting-agenda</code>, <code>foundation-meeting-brief</code>, <code>foundation-meeting-recap</code>, <code>foundation-okr-writer</code>, <code>foundation-stakeholder-update</code>.</li>
+<li><strong>6 utility skills at 1.0.0</strong>: <code>utility-pm-skill-builder</code>, <code>utility-pm-skill-validate</code>, <code>utility-pm-skill-iterate</code>, <code>utility-mermaid-diagrams</code>, <code>utility-slideshow-creator</code>, <code>utility-update-pm-skills</code>.</li>
+</ul>
+<p>Most version bumps to date have been the v2.0 flat-structure lift, the v2.5 persona contract evolution, and the v2.11.1 meeting-synthesize description patch. The first quality-driven version bumps will come from the <a href="https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/efforts/F-12-skill-quality-convergence.md">quality convergence effort</a>.</p>
 <h2 id="traceability">Traceability<a class="headerlink" href="#traceability" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1961,7 +1975,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 3, 2026 20:17:12 UTC"><span class="timeago" datetime="2026-05-03T20:17:12+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 3, 2026 20:17:12 UTC">2026-05-03</span>
   </span>
 
     
