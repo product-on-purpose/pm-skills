@@ -47,15 +47,17 @@ graph TD
     J[v2.12.0 release prep + count consistency sweep]
     L[Release-state Codex confirmation, round 1 catches reference-README defects]
     M[Round 2 catches homepage / anatomy / versioning drift]
-    N[Round 3 verifies convergence]
+    N[Round 3 catches versioning data accuracy, anatomy counts, date alignment]
+    P[Round 4 catches release-notes audit-trail and changelog anchor]
+    Q[Loop terminates: 4 rounds, MEDIUM-only audit-trail meta-findings, no HIGH/IMPORTANT, below Phase 0 termination threshold]
     O[v2.12.0 tagged]
 
-    A --> B --> C --> D --> E --> F --> G --> H --> I --> J --> L --> M --> N --> O
+    A --> B --> C --> D --> E --> F --> G --> H --> I --> J --> L --> M --> N --> P --> Q --> O
 
     style A fill:#c8e6c9
     style C fill:#fff4e1
     style I fill:#c8e6c9
-    style N fill:#c8e6c9
+    style Q fill:#c8e6c9
     style O fill:#81c784
 ```
 
@@ -132,7 +134,7 @@ This is the first release where the new OKR Skills set ships with a Phase 0 Adve
 - `scripts/check-context-currency.sh` passes (AGENTS/claude/CONTEXT.md and AGENTS/codex/CONTEXT.md both at v2.12.0)
 - `scripts/generate-skill-pages.py` regenerates the docs/skills mirror without diff drift
 - `mkdocs build --strict` passes with the new `docs/reference/README.md` wired into nav
-- Codex adversarial review converged on stable findings: 3 rounds for the grader (round 1: 1 HIGH + 2 MEDIUM; round 2: 2 MEDIUM taxonomy drift; round 3: 0), 1 round for the writer; 3 release-state confirmation rounds (round 1: 2 MEDIUM reference-README defects; round 2: 2 MEDIUM homepage / anatomy / versioning drift; round 3: convergence)
+- Codex adversarial review converged on stable findings: 3 rounds for the grader (round 1: 1 HIGH + 2 MEDIUM; round 2: 2 MEDIUM taxonomy drift; round 3: 0), 1 round for the writer; 4 release-state confirmation rounds (round 1: 2 MEDIUM reference-README defects; round 2: 2 MEDIUM homepage / anatomy / versioning drift; round 3: 3 MEDIUM versioning data accuracy + anatomy counts + date alignment; round 4: 2 MEDIUM release-notes audit-trail accuracy + changelog anchor). Loop terminated after the round-4 fix per the Phase 0 codified rule "until findings stabilize below IMPORTANT severity": MEDIUM count was 2 / 2 / 3 / 2 across rounds (no escalation, no HIGH, all findings below IMPORTANT threshold), and the round-4 findings were entirely meta-level audit-trail accuracy in the release notes themselves rather than new release-state defects. The pattern of fix-introduces-fix is exactly what the Phase 0 loop is designed to catch: each resolution can introduce new drift, and only by re-running the review do you find it.
 - Zero em-dash characters in tracked files
 - Zero references to the silently removed Quality Forecast / K/P/C/W zone classification in tracked files
 
@@ -161,7 +163,7 @@ Use the writer to draft or audit a quarterly OKR set. At cycle close, feed the O
 
 ## Links
 
-- [Full changelog entry](../../CHANGELOG.md#2120--2026-05-01)
+- [Full changelog entry](../../CHANGELOG.md#2120---2026-05-03)
 - [Internal release plan](../internal/release-plans/v2.12.0/plan_v2.12.0.md)
 - [Skills manifest](../internal/release-plans/v2.12.0/skills-manifest.yaml)
 - [foundation-okr-writer](../skills/foundation/foundation-okr-writer.md)
