@@ -87,7 +87,18 @@ The [lifecycle tools](skill-lifecycle.md) integrate with versioning:
 
 ## Current Skill Versions
 
-Skill versions are tracked individually in each `skills/{name}/SKILL.md` frontmatter and aggregated per release in `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml`. As of v2.12.0 (40 skills: 26 domain + 8 foundation + 6 utility), the original 25 domain skills and `foundation-persona` are at **2.0.0** (lifted during the v2.0 flat-structure restructure); every other skill is at **1.0.0** (its first stable version). No skill has iterated past its current version yet . the first version bumps will come from the [quality convergence effort](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/efforts/F-12-skill-quality-convergence.md).
+Skill versions are tracked individually in each `skills/{name}/SKILL.md` frontmatter and aggregated per release in `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml`. The frontmatter is the source of truth; this section is summary.
+
+As of v2.12.0 (40 skills total):
+
+- **24 domain skills at 2.0.0**: lifted during the v2.0 flat-structure restructure.
+- **2 domain skills at 1.0.0**: `deliver-acceptance-criteria` (shipped in v2.7.0) and `measure-okr-grader` (shipped in v2.12.0).
+- **`foundation-persona` at 2.5.0**: evolved through 2.x iterations to the canonical v2.5 output contract.
+- **`foundation-meeting-synthesize` at 1.0.1**: patched in v2.11.1 (description reworded to remove an inline `: ` that was truncating under strict YAML).
+- **6 foundation skills at 1.0.0**: `foundation-lean-canvas`, `foundation-meeting-agenda`, `foundation-meeting-brief`, `foundation-meeting-recap`, `foundation-okr-writer`, `foundation-stakeholder-update`.
+- **6 utility skills at 1.0.0**: `utility-pm-skill-builder`, `utility-pm-skill-validate`, `utility-pm-skill-iterate`, `utility-mermaid-diagrams`, `utility-slideshow-creator`, `utility-update-pm-skills`.
+
+Most version bumps to date have been the v2.0 flat-structure lift, the v2.5 persona contract evolution, and the v2.11.1 meeting-synthesize description patch. The first quality-driven version bumps will come from the [quality convergence effort](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/efforts/F-12-skill-quality-convergence.md).
 
 ## Traceability
 

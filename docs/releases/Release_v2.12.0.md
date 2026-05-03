@@ -5,7 +5,7 @@ description: "First release with the OKR Skills set: foundation-okr-writer and m
 
 # Release v2.12.0. OKR Skills Launch
 
-**Released**: 2026-05-01
+**Released**: 2026-05-03
 **Type**: Feature release (minor)
 **Skill count**: 40 (up from 38)
 **Key theme**: OKR Skills set; full quarterly write-and-score cycle
@@ -44,15 +44,19 @@ graph TD
     G[Codex adversarial review on grader, round 1]
     H[Round 2 catches taxonomy propagation]
     I[Round 3 returns 0 findings]
-    J[v2.12.0 release prep]
-    K[v2.12.0 tagged]
+    J[v2.12.0 release prep + count consistency sweep]
+    L[Release-state Codex confirmation, round 1 catches reference-README defects]
+    M[Round 2 catches homepage / anatomy / versioning drift]
+    N[Round 3 verifies convergence]
+    O[v2.12.0 tagged]
 
-    A --> B --> C --> D --> E --> F --> G --> H --> I --> J --> K
+    A --> B --> C --> D --> E --> F --> G --> H --> I --> J --> L --> M --> N --> O
 
     style A fill:#c8e6c9
     style C fill:#fff4e1
     style I fill:#c8e6c9
-    style K fill:#81c784
+    style N fill:#c8e6c9
+    style O fill:#81c784
 ```
 
 ### Added
@@ -122,8 +126,13 @@ This is the first release where the new OKR Skills set ships with a Phase 0 Adve
 - All 40 SKILL.md files pass `scripts/lint-skills-frontmatter.sh`
 - `scripts/validate-commands.sh` passes (40 / 40 commands resolve to canonical SKILL.md paths)
 - `scripts/validate-agents-md.sh` passes (40 skill paths matched in AGENTS.md)
+- `scripts/validate-meeting-skills-family.sh` passes (Meeting Skills Family contract conformance)
+- `scripts/validate-version-consistency.sh` passes at 2.12.0 (CHANGELOG, plugin.json, marketplace.json, README badge all aligned)
+- `scripts/check-count-consistency.sh` passes (40 skills, 47 commands, 9 workflows; no stale hardcoded counts in tracked files)
+- `scripts/check-context-currency.sh` passes (AGENTS/claude/CONTEXT.md and AGENTS/codex/CONTEXT.md both at v2.12.0)
 - `scripts/generate-skill-pages.py` regenerates the docs/skills mirror without diff drift
-- Codex adversarial review converged on stable findings (3 rounds for the grader, 1 round for the writer)
+- `mkdocs build --strict` passes with the new `docs/reference/README.md` wired into nav
+- Codex adversarial review converged on stable findings: 3 rounds for the grader (round 1: 1 HIGH + 2 MEDIUM; round 2: 2 MEDIUM taxonomy drift; round 3: 0), 1 round for the writer; 3 release-state confirmation rounds (round 1: 2 MEDIUM reference-README defects; round 2: 2 MEDIUM homepage / anatomy / versioning drift; round 3: convergence)
 - Zero em-dash characters in tracked files
 - Zero references to the silently removed Quality Forecast / K/P/C/W zone classification in tracked files
 

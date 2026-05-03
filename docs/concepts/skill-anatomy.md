@@ -63,7 +63,7 @@ A complete, realistic example of the skill's output. Shows what "good" looks lik
 
 Skills are classified into three types that determine their directory naming and frontmatter:
 
-### Domain Skills (25)
+### Domain Skills (26)
 
 Phase-specific PM activities organized by the Triple Diamond framework.
 
@@ -71,17 +71,17 @@ Phase-specific PM activities organized by the Triple Diamond framework.
 - **Frontmatter**: `phase: deliver` (required), no `classification` field
 - **Phases**: discover, define, develop, deliver, measure, iterate
 
-### Foundation Skills (1)
+### Foundation Skills (8)
 
-Cross-cutting capabilities that apply across multiple phases.
+Cross-cutting capabilities that apply across multiple phases (persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update).
 
 - **Directory**: `foundation-{skill-name}` (e.g., `foundation-persona`)
 - **Frontmatter**: `classification: foundation` (required), no `phase` field
 - **Use when**: the skill applies to multiple phases equally
 
-### Utility Skills (1)
+### Utility Skills (6)
 
-Meta-skills that operate on the repository, workflow, or other skills.
+Meta-skills that operate on the repository, workflow, or other skills (skill lifecycle, diagrams, slideshows, library updates).
 
 - **Directory**: `utility-{skill-name}` (e.g., `utility-pm-skill-builder`)
 - **Frontmatter**: `classification: utility` (required), no `phase` field
@@ -140,7 +140,7 @@ graph TD
         DELIVER["**DELIVER**\n6 skills\nhandoff & launch"]
     end
     subgraph Diamond3["Diamond 3 . Learning Space"]
-        MEASURE["**MEASURE**\n4 skills\ndata & testing"]
+        MEASURE["**MEASURE**\n5 skills\ndata & testing"]
         ITERATE["**ITERATE**\n4 skills\nlearning & adapting"]
     end
     DISCOVER --> DEFINE
@@ -156,7 +156,7 @@ graph TD
 | Define | 4 | Problem framing, hypotheses, opportunity trees, JTBD |
 | Develop | 4 | Solution briefs, ADRs, design rationale, spikes |
 | Deliver | 6 | PRDs, user stories, acceptance criteria, edge cases, launch, release notes |
-| Measure | 4 | Experiments, instrumentation, dashboards, results |
+| Measure | 5 | Experiments, instrumentation, dashboards, results, OKR grading |
 | Iterate | 4 | Retrospectives, lessons, refinement, pivot decisions |
 
 Foundation and utility skills sit outside the phase model . they serve all phases or operate at a meta level.

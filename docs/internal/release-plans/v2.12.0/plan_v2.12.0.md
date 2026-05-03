@@ -1,42 +1,52 @@
 # v2.12.0 Release Plan: OKR Skills Launch
 
-Status: Release prep complete; pending tag
+Status: Release prep complete + Phase 0 review converged; tagging 2026-05-03
 Owner: Maintainers
 Type: Feature release (minor)
 Stub created: 2026-04-18 (during v2.11.0 completion)
 Theme pivoted: 2026-05-01 (from sample-automation to OKR launch)
+Tagged: 2026-05-03 (pending push)
 
 ## Release Theme
 
 Ship the first two skills of the OKR Skills set: `foundation-okr-writer` and `measure-okr-grader`. The original v2.12.0 stub theme (sample-automation + meeting-ecosystem continuation) has been pushed to v2.13.0+ because that work is gated on real-world meeting-skills usage feedback that has not yet arrived. The OKR work has momentum from the 2026-04-29 strategy session and a complete OKR-doctrine knowledge base.
 
-## Status Snapshot (2026-05-01, evening)
+## Status Snapshot (2026-05-03)
 
 | Item | Status |
 |---|---|
 | `foundation-okr-writer` skill canonical | Shipped (commit `6bcfba1`) |
 | `foundation-okr-writer` 3 thread samples | Shipped (storevine, brainshelf, workbench) |
 | `foundation-okr-writer` AGENTS.md + mkdocs.yml + commands ref | Updated |
-| `foundation-okr-writer` Codex adversarial review | 2 medium findings resolved (generator-bug fix, nonexistent-command redirect rephrased) |
+| `foundation-okr-writer` Codex adversarial review | Done. 2 medium findings resolved (generator-bug fix, nonexistent-command redirect rephrased) |
 | `measure-okr-grader` skill | Shipped (commit `a5c000f`) |
 | `measure-okr-grader` 3 thread samples | Shipped (storevine, brainshelf, workbench) |
-| `measure-okr-grader` Phase 0 Adversarial Review Loop | 3 rounds; converged on 0 findings round 3 |
+| `measure-okr-grader` Phase 0 Adversarial Review Loop | Done. 3 rounds; converged on 0 findings round 3 |
 | `measure-okr-grader` cross-reference cleanup in writer | Applied (line 45 redirect, line 184 active reference) |
 | pm-skill-builder packet format | Simplified (silently bundled) |
 | Legacy effort docs | Reorganized; old format removed from tracked tree |
 | Sprint-skill backlog stubs (F-41, F-42) | Added |
-| CHANGELOG.md v2.12.0 entry | Authored |
+| CHANGELOG.md v2.12.0 entry | Authored, dated 2026-05-03, follow-up bullets added for release-state review rounds and operational doc reconciliation |
 | skills-manifest.yaml | Authored |
-| Release_v2.12.0.md | Authored |
+| Release_v2.12.0.md | Authored, validation list expanded for follow-up CI runs, mermaid extended for release-state review rounds |
 | README.md skill counts and version badge | Updated to 40 / 2.12.0 |
+| README.md What's New v2.12.0 entry | Authored. v2.11.1 closed; v2.12.0 set to `<details open>` |
+| README.md "Latest stable" pointer | Bumped from v2.10.2 to v2.12.0 |
 | .claude-plugin/plugin.json + marketplace.json | Updated to 40 / 2.12.0 |
 | README_SAMPLES.md | Updated (126 / 40) |
 | Em-dash sweep across docs/skills/ mirror | Committed |
 | docs/internal/audit-ci/ → docs/internal/audit/_archived/ rename | Committed |
-| Pre-release checklist | Executed (full CI clean, Phase 0 review converged, em-dash zero in tracked files) |
-| Codex adversarial review on full release diff | Pending |
-| /ultrareview on full release | Pending (user-triggered) |
-| Tag and push | Pending |
+| Operational doc count reconciliation (commit `92cfbcf`) | Done. 26 files: anatomy concept pages, getting-started family, project-structure, ecosystem, skills landing page, authoring/creating-skills guides, workflow guide, README operational sections, foundation-okr-writer/EXAMPLE.md repo_version typo, docs/changelog.md mirror sync. README "What's New" historical entries preserved with inline `vX.Y.Z` prefixes |
+| AGENTS/claude/CONTEXT.md refresh | Done. Current State block fully refreshed for v2.12.0 |
+| AGENTS/codex/CONTEXT.md currency marker | Done. v2.12.0 marker pinned at top; full content refresh deferred to v2.13.0 |
+| docs/reference/README.md (Reference section overview) | Authored, wired into mkdocs nav, count refreshed to 47/40, footer trimmed of broken internal-audit link (commit `5b61244`) |
+| docs/index.md homepage release-state refresh | Done. Frontmatter description, hero, mermaid Triple Diamond Measure phase, Measure grid card, Foundation grid card, "25 domain skills" header, block-beta mermaid Measure block (added /okr-grader), Plus list (added /okr-writer) (commit `46828b1`) |
+| docs/concepts/skill-anatomy.md frontmatter section | Rewrite. Example now starts with `---` on line 1; attribution comment moved AFTER closing `---`; explicit "First line must be `---`" rule added with v2.11.1 lint reference (commit `46828b1`) |
+| docs/concepts/versioning.md Current Skill Versions | Refreshed for v2.12.0 state; pointers added to per-skill SKILL.md frontmatter and per-release skills-manifest.yaml as authoritative sources (commit `46828b1`) |
+| Pre-release checklist | Executed (full CI clean, Phase 0 review converged across both OKR skills + 3 release-state confirmation rounds, em-dash zero in tracked files, mkdocs --strict passes) |
+| Codex adversarial review on full release | Done. 3 release-state rounds converged: round 1 (review-moq6jjc9-...) caught 2 MEDIUM in untracked reference/README.md; round 2 (review-bmlgpyd0q-...) caught 2 MEDIUM in rendered docs (homepage / skill-anatomy); round 3 (review-b8frnehmv-...) verifies convergence |
+| /ultrareview on full release | N/A. Per user directive 2026-05-03: appropriately scoped for design-decision releases where the chosen approach itself might be wrong; overkill for doc-heavy release prep where the Phase 0 Codex loop and mechanical CI guards already cover the surface |
+| Tag and push | Pending (final step after round-3 confirmation result lands) |
 
 ## Major Deliverables
 
@@ -111,23 +121,28 @@ The deferral is non-controversial: F-29 and F-30 were always time-gated on real-
 | `validate-skill-history` | No HISTORY.md required for first-version skills | Must pass |
 | `check-count-consistency` | Counts updated for the new skill family | Must pass |
 
-## Pre-release Checklist (not yet executed)
+## Pre-release Checklist (executed)
 
 Per the v2.11.0 codified Phase 0 Adversarial Review Loop:
 
-- [ ] Em-dash sweep (zero expected; running for defense in depth)
-- [ ] Generator reruns (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`)
-- [ ] Full CI suite passes
-- [ ] Live skills CLI dry-run discovers all 40 skills
-- [ ] Codex adversarial review on the writer (already done; 2 findings resolved 2026-05-01)
-- [ ] Codex adversarial review on the grader (after build)
-- [ ] Codex adversarial review on the family pair (cross-skill consistency)
-- [ ] CHANGELOG.md v2.12.0 entry authored
-- [ ] `docs/releases/Release_v2.12.0.md` authored
-- [ ] `docs/internal/release-plans/v2.12.0/skills-manifest.yaml` authored
-- [ ] Version bumps: README badge, `.claude-plugin/plugin.json`, `marketplace.json`
-- [ ] Final commit with all release artifacts
-- [ ] Tag, push, GitHub release polish, live verification
+- [x] Em-dash sweep (zero in tracked files; sweep extended in `92cfbcf` for archived audit + workbench sample line + README/CHANGELOG cleanup)
+- [x] Generator reruns (`generate-skill-pages.py`; `mkdocs build --strict` exits 0)
+- [x] Full enforcing CI suite passes (`validate-commands`, `validate-agents-md` 40 paths, `lint-skills-frontmatter` bash-canonical, `validate-meeting-skills-family`, `validate-version-consistency` at 2.12.0)
+- [x] Advisory CI suite passes (`check-count-consistency` 40/47/9, `check-context-currency` claude+codex both at v2.12.0)
+- [x] Codex adversarial review on the writer (2 findings resolved before writer commit `6bcfba1`)
+- [x] Codex adversarial review on the grader (3 rounds, converged on 0 findings round 3, before grader commit `a5c000f`)
+- [x] Codex adversarial review on the family pair / full release state (3 release-state rounds; round 3 confirms convergence)
+- [x] CHANGELOG.md v2.12.0 entry authored
+- [x] `docs/releases/Release_v2.12.0.md` authored
+- [x] `docs/internal/release-plans/v2.12.0/skills-manifest.yaml` authored
+- [x] Version bumps: README badge, `.claude-plugin/plugin.json`, `marketplace.json`
+- [x] README.md "What's New" v2.12.0 entry authored; v2.11.1 closed
+- [x] README.md "Latest stable" / "Latest release notes" / "Published tag" pointers bumped from v2.10.2 to v2.12.0
+- [x] AGENTS/claude/CONTEXT.md current-state block refreshed; AGENTS/codex/CONTEXT.md given v2.12.0 currency marker
+- [x] docs/reference/README.md added as Reference section overview, wired into mkdocs nav
+- [x] Operational doc count reconciliation across rendered surfaces (anatomy, getting-started, project-structure, ecosystem, skills landing, authoring guides, workflow guide, homepage, skill-anatomy frontmatter example, versioning concept page)
+- [x] Final release-prep commits land on `main`: `92cfbcf` (count + CONTEXT), `5b61244` (reference README), `46828b1` (homepage + anatomy + versioning)
+- [ ] Tag v2.12.0, push origin main + tag, gh release create using `docs/releases/Release_v2.12.0.md` as notes
 
 ## MCP Impact
 
@@ -139,10 +154,10 @@ Per the v2.11.0 codified Phase 0 Adversarial Review Loop:
 
 ## Open Questions
 
-1. **Grader build sequencing**: should the grader build happen before or after the v2.12.0 prep commits land? Recommendation: commits first (writer launch as discrete diff), then grader. This is the path being executed at time of writing.
-2. **Family contract timing**: contract document at `docs/reference/skill-families/okr-skills-contract.md` is deferred per Decisions table. Revisit when grader ships.
-3. **Cross-skill cross-references**: should `define-hypothesis`, `define-opportunity-tree`, `iterate-retrospective` mention `/okr-writer` and `/okr-grader` for discoverability? Optional polish; not blocking.
-4. **Tag timing**: target tag date open. Suggested no earlier than 5 business days after grader ships, to allow real-world testing of the writer in the interim.
+1. **Grader build sequencing**: ~~should the grader build happen before or after the v2.12.0 prep commits land?~~ **Resolved**: commits first (writer launch as discrete diff via `6bcfba1`), then grader (`a5c000f`), then release artifacts (`0173476`), then count + CONTEXT follow-up (`92cfbcf`), then reference README (`5b61244`), then homepage / anatomy / versioning (`46828b1`).
+2. **Family contract timing**: contract document at `docs/reference/skill-families/okr-skills-contract.md` deferred per Decisions table. Revisit if a third OKR skill (e.g., OKR retrospective, OKR cascade validator) is queued, since two skills do not yet justify a formal contract.
+3. **Cross-skill cross-references**: should `define-hypothesis`, `define-opportunity-tree`, `iterate-retrospective` mention `/okr-writer` and `/okr-grader` for discoverability? Optional polish; not blocking. Codex review did not flag this as a release defect. Defer to v2.13 doc consistency overhaul.
+4. **Tag timing**: ~~target tag date open. Suggested no earlier than 5 business days after grader ships, to allow real-world testing of the writer in the interim.~~ **Resolved**: tagging 2026-05-03. The grader shipped 2026-05-01 via `a5c000f`; 2 calendar days passed during release-state Phase 0 confirmation review and operational doc reconciliation rather than user testing. The 5-business-day suggestion is relaxed because (a) the grader passed 3 rounds of adversarial review with convergence, (b) sample artifacts cover the empowerment + type spectrum end-to-end, and (c) holding for in-the-wild testing on a still-untagged release adds friction without proportional signal.
 
 ## Related
 
@@ -162,3 +177,8 @@ Per the v2.11.0 codified Phase 0 Adversarial Review Loop:
 | 2026-04-18 | Stub created at end of v2.11.0 completion session; original theme: sample-automation + meeting-ecosystem (8 efforts F-29 to F-36) |
 | 2026-04-18 | F-36 added post-v2.11.0 tag (CI audit gap G2) |
 | 2026-05-01 | Theme pivoted from sample-automation to OKR Skills Launch. Original 8 efforts deferred to v2.13.0+. `foundation-okr-writer` shipped to main (uncommitted). `measure-okr-grader` pending. F-41 and F-42 stubs added to backlog. Quiet pm-skill-builder packet-format simplification bundled. |
+| 2026-05-01 | `measure-okr-grader` shipped (commit `a5c000f`). 3 rounds of Codex adversarial review converged. Release artifacts authored (CHANGELOG, Release_v2.12.0.md, manifest, plugin/marketplace bumps, README badge, README_SAMPLES.md count). Audit-CI tree consolidated into `docs/internal/audit/_archived/`. Em-dash sweep extension across `docs/skills/` mirror. Initial release-prep commit `0173476`. |
+| 2026-05-03 | Operational doc count reconciliation across rendered surfaces (commit `92cfbcf`, 26 files). AGENTS/claude/CONTEXT.md refreshed for v2.12.0; AGENTS/codex/CONTEXT.md given v2.12.0 currency marker. |
+| 2026-05-03 | Release-state Phase 0 confirmation loop kicked off. Round 1 caught 2 MEDIUM in untracked `docs/reference/README.md` (stale 46/39 count, missing mkdocs nav entry). Resolved in commit `5b61244`: count refreshed to 47/40, README wired into mkdocs as Reference section overview, broken footer link to `docs/internal/_working/audit_repo-structure_*.md` trimmed. |
+| 2026-05-03 | Round 2 caught 2 MEDIUM in rendered public docs (docs/index.md homepage hero/mermaid/grid cards still at 38 skills with 4 measure / 7 foundation; docs/concepts/skill-anatomy.md frontmatter example teaching pre-v2.11.1 ordering with HTML comment before YAML delimiter, which the v2.11.1 lint rule explicitly rejects). Round 2 also surfaced docs/concepts/versioning.md as severely-stale ("All 25 domain skills and the foundation skill"). Resolved in commit `46828b1`. |
+| 2026-05-03 | Round 3 launched (background `b8frnehmv`) to verify convergence. README "What's New" v2.12.0 entry authored; v2.11.1 closed. README "Latest stable" pointer bumped from v2.10.2 to v2.12.0. CHANGELOG date refreshed to 2026-05-03 with follow-up bullets for release-state review rounds and operational doc reconciliation. Release_v2.12.0.md mermaid extended for release-state review rounds; validation list expanded. /ultrareview removed from plan per user directive (overkill for doc-heavy release prep; appropriate for design-decision releases). |

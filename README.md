@@ -126,6 +126,20 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 **What's New (Recent Releases)**
 <details open>
+<summary>v2.12.0 - OKR Skills Launch</summary>
+
+- **OKR Skills set**: first release with the OKR write-and-score pair. `foundation-okr-writer` (`/okr-writer`) drafts, reviews, rewrites, and coaches outcome-based OKR sets; `measure-okr-grader` (`/okr-grader`) scores completed OKRs at cycle close per a canonical 5-value type enum (`committed | aspirational | learning | operational_health | compliance_or_safety`) and refuses the misuse failure modes (retroactive target changes, retroactive scope shrinkage on committed or compliance KRs, softening committed misses with aspirational scoring, averaging failed guardrails into the primary score, and OKR scores as individual performance ratings).
+- **5 entry modes** for the writer (Guided default, One-Shot via `--oneshot`, Sustained Coach, Audit Only, Rewrite). Empowered-team diagnostic with conditional Disclosure section when feature-team signals are present. 16-item anti-pattern catalog. Constraint Rules block (MUST / MUST NOT). Quality Audit Rubric on every draft.
+- **Grader special states**: `not-yet-observable` (cycle-window extensions past close, e.g. 90-day cohorts) and `not-yet-fully-observable` (committed or compliance_or_safety KRs with partial coverage; cannot be retroactively shrunk to claim a pass on the observed subset). Indicator class `guardrail` is independent of OKR type and adds a never-averaged-into-primary-score rule.
+- **6 thread-aligned library samples** added (3 per skill across storevine, brainshelf, workbench). The storevine Campaigns thread now spans `measure-experiment-results`, `foundation-okr-writer`, and `measure-okr-grader` for a complete write-and-score arc on a single product context.
+- **Phase 0 Adversarial Review Loop** applied per the v2.11.0 codification. The grader's review took 3 rounds to converge (round 1 caught 1 HIGH plus 2 MEDIUM; round 2 caught 2 MEDIUM taxonomy-drift propagations introduced by round 1 fixes; round 3 returned 0 findings). Two release-state confirmation rounds caught additional rendered-doc count drift (homepage hero, mermaid phase cards, skill-anatomy frontmatter example, versioning concept page) that the count-consistency CI's regex could not detect.
+- **`docs/reference/README.md`** added as the canonical Reference section overview, wired into mkdocs nav. Indexes frontmatter schema, command catalog, category taxonomy, project structure, ecosystem comparison, and skill-family contracts.
+- **Internal builder cleanup** bundled silently: `utility-pm-skill-builder` Step 5 packet format reduced from 13 to 12 items (no downstream impact). Audit-history tree consolidated under `docs/internal/audit/_archived/`.
+- v2.12.0: Repo now ships 40 skills (26 phase + 8 foundation + 6 utility), 47 command docs, and 9 workflows.
+- Release note: [`docs/releases/Release_v2.12.0.md`](docs/releases/Release_v2.12.0.md).
+
+</details>
+<details>
 <summary>v2.11.1 - skills.sh CLI Compatibility Patch</summary>
 
 - **Install in one command (v2.11.1)**: `npx skills add product-on-purpose/pm-skills` now installs all 38 skills through the open [`skills` CLI](https://github.com/vercel-labs/skills) and the [skills.sh directory](https://skills.sh). Previously broken for 6 foundation skills due to a YAML-frontmatter quirk.
@@ -606,9 +620,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** . Complete package with all skills, commands, workflows, and documentation
-- **Latest stable:** `v2.10.2` (Plugin manifest drift fix and count-consistency CI hardening)
-- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2102---2026-04-14)
-- **Published tag:** [`v2.10.2`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.10.2)
+- **Latest stable:** `v2.12.0` (OKR Skills Launch: foundation-okr-writer + measure-okr-grader)
+- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2120---2026-05-03)
+- **Published tag:** [`v2.12.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.12.0)
 - **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.

@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.12.0] - 2026-05-01
+## [2.12.0] - 2026-05-03
 
-OKR Skills Launch. First release with the OKR Skills set: `foundation-okr-writer` and `measure-okr-grader` covering the full quarterly OKR write-and-score cycle. Adds 2 new skills (40 total) and 6 new thread-aligned library samples (126 total). Both skills shipped together so cross-skill hand-offs and the canonical 5-value OKR type enum (`committed | aspirational | learning | operational_health | compliance_or_safety`) are coherent at first appearance. Internal `utility-pm-skill-builder` packet-format simplification bundled silently. Phase 0 Adversarial Review Loop applied across both skills with 3 review rounds converged before tag.
+OKR Skills Launch. First release with the OKR Skills set: `foundation-okr-writer` and `measure-okr-grader` covering the full quarterly OKR write-and-score cycle. Adds 2 new skills (40 total) and 6 new thread-aligned library samples (126 total). Both skills shipped together so cross-skill hand-offs and the canonical 5-value OKR type enum (`committed | aspirational | learning | operational_health | compliance_or_safety`) are coherent at first appearance. Internal `utility-pm-skill-builder` packet-format simplification bundled silently. Phase 0 Adversarial Review Loop applied across the OKR skills (3 rounds converged) and the broader release state (2 confirmation rounds caught rendered-doc count drift the count-consistency CI's regex could not detect).
 
 ### Added
 
@@ -37,7 +37,15 @@ OKR Skills Launch. First release with the OKR Skills set: `foundation-okr-writer
 
 - **Phase 0 Adversarial Review Loop** applied across both new skills. The grader's 3-round review converged on stable findings: round 1 caught 1 HIGH (workbench compliance KR retroactive scope shrinkage in sample) and 2 MEDIUM (`/define-hypothesis` nonexistent slash command, OKR-type-vs-indicator-class taxonomy drift); round 2 caught 2 MEDIUM (taxonomy drift propagation to TEMPLATE.md and sample KR3 framings); round 3 returned 0 findings. The writer's earlier review caught 1 generator-script bug (HTML attribution comment rendering as page H1) and 1 nonexistent-command directive, both resolved before the writer commit.
 
+- **Release-state Phase 0 confirmation** loop on the broader release. Round 1 caught 2 MEDIUM in `docs/reference/README.md` (stale 46/39 count, missing mkdocs nav entry); round 2 caught 2 MEDIUM in rendered docs (homepage hero / mermaid / phase cards still at 38 skills, skill-anatomy contributor guide teaching pre-v2.11.1 frontmatter ordering); round 3 verifies convergence. These rounds caught defects the count-consistency CI's regex (`\d+\s+(?:PM\s+|product\s+management\s+)?skills`) could not detect because the prose interleaves adjectives like "AI agent" between the digit and "skills".
+
 - **Em-dash sweep extension** across the auto-generated `docs/skills/` mirror to keep the mirror in sync with the standing no-em-dash rule applied to source SKILL.md files.
+
+- **Operational doc count reconciliation** across rendered surfaces: anatomy concept pages, getting-started guides, project-structure reference, ecosystem reference, skills landing page, authoring guides, workflow guides, and the homepage. README "What's New" historical entries preserved with inline `vX.Y.Z` prefixes so the count-CI script's version-line skip rule keeps them out of the flagged set.
+
+- **AGENTS/claude/CONTEXT.md** Current State block refreshed for v2.12.0 (release commits, skill count, MCP gap delta, v2.13.0 deferred items, next-step list). **AGENTS/codex/CONTEXT.md** given a top-of-file v2.12.0 currency marker; full refresh deferred to v2.13.0.
+
+- **`docs/reference/README.md`** added as the canonical Reference section overview, wired into mkdocs nav. Indexes frontmatter schema, command catalog, category taxonomy, project structure, ecosystem comparison, and skill-family contracts.
 
 - **`docs/internal/audit-ci/` reorganized** into `docs/internal/audit/_archived/` to consolidate audit history under a single tree.
 
