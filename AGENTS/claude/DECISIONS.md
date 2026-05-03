@@ -153,4 +153,49 @@ Set `.github/workflows/validate-mcp-sync.yml` to use `block` mode by default whi
 
 ---
 
+## 2026-05-03: Phase 0 release-state confirmation loop (extending v2.11.0 per-skill loop)
+
+**Status:** Accepted (demonstrated in v2.12.0 release; not yet codified in a checklist file).
+
+**Context:**
+The v2.11.0 cycle codified the Phase 0 Adversarial Review Loop for *per-skill* review: Codex adversarial review then resolution then re-run until findings stabilize below IMPORTANT severity. The v2.12.0 cycle exposed a gap in that codification. After both OKR skills (writer + grader) had passed their per-skill loops with convergence, the broader release state still contained drift that mechanical CI could not detect: untracked files with stale counts that were not yet wired into mkdocs nav; rendered-doc prose forms saying "38 AI agent skills" that fell outside the count-CI regex shape; per-phase counts in mermaid diagrams below the script's 10 min-threshold; version data accuracy in concept docs that required reading current SKILL.md frontmatter rather than writing from memory.
+
+**Decision:**
+pm-skills releases run TWO Phase 0 loops, not one. The per-skill loop on each new or modified skill remains the v2.11.0 codification. A second release-state loop runs on the FULL release stack (working tree) after the per-skill loops converge and before the tag. The release-state loop terminates per the same rule (findings stabilize below IMPORTANT severity).
+
+**Alternatives Considered:**
+- Single per-skill loop only . Rejected because it provably misses release-state defects (v2.12.0 release-state loop caught 9 distinct MEDIUM defects across 4 rounds that the per-skill loops did not surface).
+- Skip release-state review for "small" releases . Rejected because v2.12.0's release-state defects were not small in aggregate impact; the homepage hero saying "38 skills" on a 40-skill landing page is a first-impression contradiction. There is no reliable in-advance signal for "this release is small enough to skip review."
+- Make the count-CI script smarter to subsume the release-state loop's role . Partial answer; will be pursued in v2.13 CI refactoring. But adversarial review catches taxonomy and audit-trail issues that pattern-matching CI cannot. The two layers are complementary, not redundant.
+
+**Consequences:**
+- Release prep adds ~12 minutes of Codex compute (3-4 release-state rounds at ~3 min each). Bounded cost.
+- Release-state defects that would otherwise ship are caught and fixed pre-tag. v2.12.0 caught 9 such defects.
+- The release notes' Validation section now includes the release-state loop as a concrete artifact (per-round finding counts, resolution commit hashes, termination rationale).
+- This decision is not yet codified in `docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md`. Codification is a v2.13.0 task: copy the v2.12.0 plan's pre-release checklist into the canonical template.
+
+---
+
+## 2026-05-03: /ultrareview calibration for pm-skills releases
+
+**Status:** Accepted (per user direction in v2.12.0 cycle).
+
+**Context:**
+v2.12.0 release prep planning included a `/ultrareview` step (multi-agent cloud review of the current branch). After running 4 rounds of release-state Codex adversarial review with convergence, the user observed that `/ultrareview` would be overkill for v2.12.0 specifically: the release was bounded doc reconciliation + count consistency, not a design-decision release where the chosen approach itself might be wrong.
+
+**Decision:**
+`/ultrareview` is appropriate for design-decision releases where the chosen approach itself might be wrong. It is overkill for doc-heavy release prep where the Phase 0 Codex loop and mechanical CI guards already cover the surface. Default suggestion behavior in pm-skills release planning: do not propose `/ultrareview` for releases whose theme is doc reconciliation, CI cleanup, count refresh, or other mechanically-verifiable bounded scope. Do propose `/ultrareview` for releases whose theme is new feature design where the design space is open and multi-perspective synthesis would change the outcome.
+
+**Alternatives Considered:**
+- Always run `/ultrareview` as belt-and-suspenders . Rejected. /ultrareview is billed cloud compute; running it on every release without a clear value hypothesis is paying for what cheap automation already proved. Past the v2.12.0 Phase 0 loop convergence, marginal additional review on bounded doc work has diminishing returns.
+- Never run `/ultrareview` . Rejected. Design-decision releases (where multiple LLM perspectives could change the design) genuinely benefit from multi-agent synthesis.
+- Decide case-by-case at release time without a default . Rejected because absence of default biases toward "always run for diligence" which the user explicitly does not want for the doc-heavy case.
+
+**Consequences:**
+- Release planning documents (`plan_vX.Y.Z.md` Status Snapshot) should mark `/ultrareview` as N/A by default for doc-heavy releases, with a one-sentence rationale that points back to this decision.
+- Future feature-cycle releases (e.g., a v2.X.0 that adds a new skill family with open design questions) should explicitly include `/ultrareview` in the pre-release checklist.
+- Codified in v2.12.0 plan_v2.12.0.md Status Snapshot row "/ultrareview on full release: N/A".
+
+---
+
 *Add new decisions above this line*
