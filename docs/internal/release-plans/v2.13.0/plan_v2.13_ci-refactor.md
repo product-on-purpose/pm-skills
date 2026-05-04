@@ -27,22 +27,24 @@ All 14 items are in scope. Sequencing across 3 waves per audit Section 10. No it
 
 ## Status tracking
 
-| # | Item | Audit ref | Wave | Status | PR |
+| # | Item | Audit ref | Wave | Status | Commit |
 |---|---|---|---|---|---|
-| 1 | Fix `check-stale-bundle-refs.ps1` reserved-word bug | 5.1.1 | 1 | Not started | - |
-| 2 | Fix `check-workflow-coverage.ps1` Join-Path | 5.1.2 | 1 | Not started | - |
-| 3 | Fix `check-generated-freshness.ps1` Join-Path | 5.1.3 | 1 | Not started | - |
-| 4 | Fix `lint-skills-frontmatter.ps1` path-detection | 5.1.4 | 1 | Not started | - |
-| 5 | Tighten `check-count-consistency` regex; promote enforcing | 16.1 | 1 | Not started | - |
-| 6 | New: `check-nav-completeness` | 16.2 | 1 | Not started | - |
-| 7 | New: `check-generated-content-untouched` | 16.3 | 2 | Not started | - |
-| 8 | New: `validate-references-cross-doc` | 16.4 | 2 | Not started | - |
+| 1 | Fix `check-stale-bundle-refs.ps1` reserved-word bug | 5.1.1 | 1 | **Done** | `0706ef7` |
+| 2 | Fix `check-workflow-coverage.ps1` Join-Path | 5.1.2 | 1 | **Done** | `5b4f912` |
+| 3 | Fix `check-generated-freshness.ps1` Join-Path | 5.1.3 | 1 | **Done** | `7269183` |
+| 4 | Fix `lint-skills-frontmatter.ps1` path-detection | 5.1.4 | 1 | **Done** | `c3367d2` |
+| 5 | Tighten `check-count-consistency` regex; promote enforcing | 16.1 | 1 | **Done** | `ab752ae` + `254026f` |
+| 6 | New: `check-nav-completeness` | 16.2 | 1 | **Done** | `86ce58a` |
+| 7 | New: `check-generated-content-untouched` | 16.3 | 2 | Not started (blocked on Bucket A) | - |
+| 8 | New: `validate-references-cross-doc` | 16.4 | 2 | Not started (blocked on Bucket A) | - |
 | 9 | New: `validate-docs-frontmatter` | 16.5 | 3 | Not started | - |
 | 10 | New: `check-internal-link-validity` | 16.6 | 3 | Not started | - |
 | 11 | New: `check-version-references` | 16.7 | 3 | Not started | - |
 | 12 | F-36: `validate-skill-family-registration` | 16.8 | 3 | Not started | - |
 
 **Status legend:** Not started / In progress / Done / Blocked. Update during cycle execution.
+
+**Wave 1 status (2026-05-03):** All 6 items complete. Commits `0706ef7` through `86ce58a` on branch `v2.13/cycle`. Verification gate partially red (see decisions journal): `check-count-consistency` (now enforcing) flags 12+ pre-existing stale counts that require Bucket B doc-cleanup landings before CI is fully green. Wave 1 itself is functionally complete; the red CI is the validator doing its job, exposing pre-existing drift that Bucket B will close.
 
 ---
 
@@ -134,6 +136,10 @@ Decisions made during execution (not pre-locked in the audit). Append-only log.
 | Date | Decision | Context | Audit impact |
 |---|---|---|---|
 | 2026-05-03 | Audit + plan split executed; spec lives in audit Section 16, status here. | Codified at `docs/internal/audit/README.md`. | None (organizational, not analytical) |
+| 2026-05-03 | Worktree created at `pm-skills_worktrees/v2.13-cycle` with branch `v2.13/cycle`. | All v2.13 cycle work happens on this branch; merges to main at end-of-cycle. | None |
+| 2026-05-03 | Item 5 split into two commits (`ab752ae` + `254026f`) due to read prerequisite issue with validation.yml in worktree (initial Edit failed; second commit completed posture promotion). | First commit message claimed posture promotion was bundled; second commit corrects the audit trail. | None |
+| 2026-05-03 | Item 6 (`check-nav-completeness`) added `templates/*` to `AUTO_INCLUDE_PATTERNS` after first test-run flagged 3 pre-existing template orphans (`docs/templates/skill-template/{SKILL,TEMPLATE,EXAMPLE}.md`). | Templates are reference content linked from `creating-skills.md` and `agent-skill-anatomy.md`, not nav targets. Auto-include is the correct disposition. | Added template-pattern note to audit Section 16.2 implementation sketch in this plan's spec source |
+| 2026-05-03 | Item 5 tightened regex catches 12+ pre-existing stale count references that the old regex missed (e.g., `26 skills` in homepage hero, `27 skills` in utility skill catalog tables, `40 commands` references that should be 47). | These are exactly the v2.12.0-Codex-Round-2 class of drift. CI is now red on `v2.13/cycle` until Bucket B doc-cleanup work lands. The CI redness is intentional and expected; it's the validator catching pre-existing drift, not a regression. | None (validator behaves as designed) |
 
 ---
 
