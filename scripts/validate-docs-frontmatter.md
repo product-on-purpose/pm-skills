@@ -54,8 +54,8 @@ This catches docs that lack the metadata Material for MkDocs uses for tag indexi
 | `---` (closing) | Yes | Must close the frontmatter block |
 | `title` | Yes | Non-empty, ≤80 chars |
 | `description` | Yes | 50-300 chars |
-| `tags` | No | If present, list of strings (validation is lenient) |
-| `date` | No | If present, parses as YYYY-MM-DD (validation is lenient) |
+| `tags` | No | NOT validated by this script (Material for MkDocs and the tags plugin handle their own validation) |
+| `date` | No | NOT validated by this script |
 
 ## Auto-skip
 

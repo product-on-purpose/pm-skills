@@ -119,16 +119,20 @@ while IFS= read -r fs_file; do
     FAIL_COUNT=$((FAIL_COUNT + 1))
   fi
 
-  # Check required: description
-  description=$(echo "$frontmatter" | grep -m1 '^description:' | sed -E 's/^description:[[:space:]]*//' | sed 's/^"//;s/"$//;s/^'\''//;s/'\''$//')
-  if [[ -z "$description" ]]; then
-    # description might span multiple lines (>- or |); try block scalar
+  # Check required: description (handles single-line and block-scalar forms)
+  description_raw=$(echo "$frontmatter" | grep -m1 '^description:' | sed -E 's/^description:[[:space:]]*//')
+
+  if [[ "$description_raw" =~ ^[\>\|] ]]; then
+    # Block scalar (description: >- or description: |): collect indented lines after the marker
     desc_block=$(awk '
       /^description:[[:space:]]*[>|]/ { in_desc=1; next }
       in_desc && /^[a-z]/ { in_desc=0 }
       in_desc { gsub(/^[[:space:]]+/, ""); print }
-    ' <<< "$frontmatter")
+    ' <<< "$frontmatter" | tr '\n' ' ' | sed -E 's/[[:space:]]+/ /g; s/^[[:space:]]+//; s/[[:space:]]+$//')
     description="$desc_block"
+  else
+    # Single-line: strip surrounding quotes
+    description=$(echo "$description_raw" | sed 's/^"//;s/"$//;s/^'\''//;s/'\''$//')
   fi
 
   if [[ -z "$description" ]]; then

@@ -104,6 +104,7 @@ The third example above is intentional historical (M-22 freeze marker for MCP). 
 - **Path-based exclusions only.** The script doesn't try to detect "intentional historical reference" via prose context (e.g., "shipped in v2.7.0" should not flag, but the script would). Triage is manual; expand exclusions to silence known-good prose.
 - **Single source-of-truth assumption.** The script reads `plugin.json`. If `marketplace.json` or other manifest disagrees (caught by `validate-version-consistency`), this script's "current" version may be stale.
 - **No semver awareness.** A reference to `v2.13.1` (post-release patch) would flag as drift even if intentional. Triage required.
+- **Core semver only (no prerelease suffixes).** The regex `v[0-9]+\.[0-9]+\.[0-9]+` matches the core version even inside suffixed refs like `v2.13.0-rc1`. If current is `v2.13.0`, the prerelease ref matches the core and is treated as clean rather than flagged as drift. Intentional behavior: prerelease refs are typically deliberate (e.g., release-prep prose); they're not drift.
 
 ## See Also
 

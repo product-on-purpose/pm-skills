@@ -283,7 +283,7 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 - Bash: `./scripts/validate-docs-frontmatter.sh` (advisory) or `--strict` (hard-fail)
 - PowerShell: `./scripts/validate-docs-frontmatter.ps1` or `-Strict`
 
-**Outputs:** File count, finding count (failures + warnings), per-finding file:line. Auto-skips generated content (skills, workflows, showcase, commands.md, releases) and `templates/`.
+**Outputs:** File count, finding count (failures + warnings), per-finding file path with the issue (e.g., "missing frontmatter delimiter", "title exceeds 80 chars"). Auto-skips generated content (skills, workflows, showcase, commands.md, releases) and `templates/`.
 
 ### validate-skill-family-registration.sh / validate-skill-family-registration.ps1
 **Purpose:** Generic structural validator for all skill families declared in `docs/reference/skill-families/_registry.yaml`. Verifies each family has a contract document, members exist as `skills/` directories, and members reference the contract.
