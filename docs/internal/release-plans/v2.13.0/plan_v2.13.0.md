@@ -56,7 +56,7 @@ graph LR
 
 ---
 
-## Status Snapshot (2026-05-03)
+## Status Snapshot (updated 2026-05-04)
 
 | Item | Status |
 |---|---|
@@ -65,12 +65,19 @@ graph LR
 | Source: CI audit (full) | `docs/internal/audit/ci-audit_2026-05-03.md` |
 | Source: branches + PR audit | `docs/internal/audit/branches-pr_2026-05-03.md` |
 | Source: v2.12.0 session log | `AGENTS/claude/SESSION-LOG/2026-05-03_v2.12.0-tag-ship-and-v2.13-handoff_session.md` |
-| CI refactor strand-level plan | [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md)  -  drafted 2026-05-03 |
-| Zensical spike plan | [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md)  -  drafted 2026-05-03 |
-| Pre-release checklist | [`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md)  -  drafted 2026-05-03 |
-| Skills manifest | `skills-manifest.yaml`  -  drafted 2026-05-03 (empty by design) |
+| CI refactor strand-level plan | [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md) - drafted 2026-05-03; **Wave 1 + Wave 3 complete 2026-05-03 to 2026-05-04** |
+| Zensical spike plan | [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md) - drafted 2026-05-03 |
+| Pre-release checklist | [`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md) - drafted 2026-05-03 |
+| Skills manifest | `skills-manifest.yaml` - drafted 2026-05-03 (empty by design) |
 | Theme decision | Foundation Hardening + Doc Stack Decision (locked) |
 | Effort numbering convention | No new F-XX effort docs for v2.13 mechanical work; existing F-29 to F-37 retained as deferral records |
+| Worktree | `E:\Projects\product-on-purpose\pm-skills_worktrees\v2.13-cycle` (branch `v2.13/cycle`); pushed to origin 2026-05-04 |
+| Active PR | [#140](https://github.com/product-on-purpose/pm-skills/pull/140) (draft) - opened 2026-05-04 to trigger CI verification on Wave 1 + Wave 3 work |
+| Bucket A status | Pending Open Questions decisions (OQ-1 duplicate files, OQ-2 frameworks folder, OQ-4 Pattern 5C) |
+| Bucket B status | Not started; closes the advisory CI findings the new validators surface |
+| Bucket C status | **Wave 1 + Wave 3 complete**, both Phase 0 Codex loops converged; Wave 2 blocked on Bucket A |
+| Bucket D status | Not started (Zensical compatibility spike) |
+| Validator inventory | 17 → 22 (net +5 in v2.13); enforcing 5 → 7 |
 | Tag target | TBD |
 
 ---
