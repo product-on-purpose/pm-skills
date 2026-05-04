@@ -40,7 +40,7 @@ $mkdocsContent = if (Test-Path $MkdocsPath) { Get-Content $MkdocsPath -Raw } els
 
 foreach ($slug in $slugs) {
     # 1. Check docs/workflows/{slug}.md exists
-    $docsPage = Join-Path $Root "docs" "workflows" "$slug.md"
+    $docsPage = Join-Path -Path $Root -ChildPath "docs/workflows/$slug.md"
     if (-not (Test-Path $docsPage)) {
         Write-Host "[FAIL] Missing generated page: docs/workflows/$slug.md"
         $Fail = $true
@@ -69,7 +69,7 @@ foreach ($slug in $slugs) {
 Write-Host ""
 Write-Host "--- Advisory: Workflow command coverage ---"
 foreach ($slug in $slugs) {
-    $cmdFile = Join-Path $Root "commands" "workflow-$slug.md"
+    $cmdFile = Join-Path -Path $Root -ChildPath "commands/workflow-$slug.md"
     if (Test-Path $cmdFile) {
         Write-Host "  [OK] commands/workflow-$slug.md"
     } else {
