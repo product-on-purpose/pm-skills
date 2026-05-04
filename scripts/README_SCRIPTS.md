@@ -22,6 +22,7 @@
   - [check-nav-completeness.sh / check-nav-completeness.ps1](#check-nav-completenesssh--check-nav-completenessps1)
   - [check-version-references.sh / check-version-references.ps1](#check-version-referencessh--check-version-referencesps1)
   - [validate-docs-frontmatter.sh / validate-docs-frontmatter.ps1](#validate-docs-frontmattersh--validate-docs-frontmatterps1)
+  - [validate-skill-family-registration.sh / validate-skill-family-registration.ps1](#validate-skill-family-registrationsh--validate-skill-family-registrationps1)
 - [When to use what](#when-to-use-what)
 - [FAQ](#faq)
 - [Tips](#tips)
@@ -284,13 +285,26 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 
 **Outputs:** File count, finding count (failures + warnings), per-finding file:line. Auto-skips generated content (skills, workflows, showcase, commands.md, releases) and `templates/`.
 
+### validate-skill-family-registration.sh / validate-skill-family-registration.ps1
+**Purpose:** Generic structural validator for all skill families declared in `docs/reference/skill-families/_registry.yaml`. Verifies each family has a contract document, members exist as `skills/` directories, and members reference the contract.
+
+**Why:** Closes audit gap G2. Adding a new skill family no longer requires authoring a new validator script. Family-specific contract rules (template sections, artifact_type enums, filename conventions) remain in family-specific validators (e.g., `validate-meeting-skills-family`); this generic validator handles structural integrity.
+
+**Use when:** After adding or renaming family member skills; after creating a new family; in CI (enforcing).
+
+**Commands:**
+- Bash: `./scripts/validate-skill-family-registration.sh`
+- PowerShell: `./scripts/validate-skill-family-registration.ps1`
+
+**Outputs:** Per-family pass/fail with member-by-member status. Summary count of families validated.
+
 ## When to use what
 - **Day-to-day:** No scripts needed unless using openskills/Claude Code → run `sync-claude`.
 - **After adding a skill:** `validate-commands` → `lint-skills-frontmatter` → `validate-agents-md` → `check-mcp-impact` → `check-count-consistency`.
 - **After adding a workflow:** `check-workflow-coverage` → `check-count-consistency` → `check-generated-freshness`.
 - **After adding a script:** `validate-script-docs` (ensure companion `.md` exists).
 - **Pre-release:** All validation scripts → `validate-version-consistency` → `check-count-consistency` → `build-release`.
-- **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`.
+- **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`, `validate-skill-family-registration`.
 - **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`, `check-version-references`, `validate-docs-frontmatter`.
 - **Cross-repo drift:** `.github/workflows/validate-mcp-sync.yml` (observe first, block later).
 
@@ -344,3 +358,4 @@ Each script has a dedicated documentation file with full usage details, options,
 | `check-nav-completeness.sh` / `.ps1` | [check-nav-completeness.md](check-nav-completeness.md) |
 | `check-version-references.sh` / `.ps1` | [check-version-references.md](check-version-references.md) |
 | `validate-docs-frontmatter.sh` / `.ps1` | [validate-docs-frontmatter.md](validate-docs-frontmatter.md) |
+| `validate-skill-family-registration.sh` / `.ps1` | [validate-skill-family-registration.md](validate-skill-family-registration.md) |

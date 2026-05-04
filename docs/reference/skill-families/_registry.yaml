@@ -1,0 +1,31 @@
+# Skill Families Registry
+#
+# Authoritative listing of all skill families in pm-skills. Each family
+# declares its canonical contract document and member skills. The
+# validate-skill-family-registration script consumes this file to verify
+# structural integrity:
+#   - Contract file exists at the declared path
+#   - All declared members exist as directories in skills/
+#   - Each member's SKILL.md references the family contract path
+#
+# Adding a new family:
+#   1. Author the contract document at docs/reference/skill-families/<family>-contract.md
+#   2. Author the member skills under skills/<phase-or-classification>-<name>/
+#   3. Add an entry to this registry
+#   4. (Optional) Author a family-specific validator if the contract has rules
+#      beyond structural integrity (see validate-meeting-skills-family.sh as
+#      example)
+#
+# Family-specific contract rules (e.g., required template sections, filename
+# conventions, artifact_type enums) are NOT enforced by the generic validator.
+# They live in family-specific validators that complement this one.
+
+families:
+  meeting-skills:
+    contract: docs/reference/skill-families/meeting-skills-contract.md
+    members:
+      - foundation-meeting-agenda
+      - foundation-meeting-brief
+      - foundation-meeting-recap
+      - foundation-meeting-synthesize
+      - foundation-stakeholder-update

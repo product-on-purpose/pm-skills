@@ -40,7 +40,7 @@ All 14 items are in scope. Sequencing across 3 waves per audit Section 10. No it
 | 9 | New: `validate-docs-frontmatter` | 16.5 | 3 | **Done** (advisory; deviation from audit's enforcing posture documented) | _pending_ |
 | 10 | New: `check-internal-link-validity` | 16.6 | 3 | Not started | - |
 | 11 | New: `check-version-references` | 16.7 | 3 | **Done** (advisory) | _pending_ |
-| 12 | F-36: `validate-skill-family-registration` | 16.8 | 3 | Not started | - |
+| 12 | F-36: `validate-skill-family-registration` | 16.8 | 3 | **Done** (structural-integrity scope; family-specific rule generalization deferred to v2.14) | _pending_ |
 
 **Status legend:** Not started / In progress / Done / Blocked. Update during cycle execution.
 
