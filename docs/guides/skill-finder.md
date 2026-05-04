@@ -98,6 +98,6 @@ flowchart TD
 
 ## Still not sure?
 
-- **Confused between two skills?** Check the [Skill Comparisons](../concepts/comparisons.md) page
+- **Confused between two skills?** Check the [PM-Skill Comparisons](pm-skill-comparisons.md) page
 - **Want a multi-step workflow?** Check the [Recipes](recipes.md) page
 - **Want to see real output?** Check the [Showcase](../showcase/) to see every skill in action

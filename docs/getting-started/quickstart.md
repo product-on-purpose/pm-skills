@@ -29,7 +29,7 @@ Or download and extract the latest ZIP from [Releases](https://github.com/produc
 
 Point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{skill-name}/SKILL.md` (e.g., `skills/deliver-prd/SKILL.md`).
 
-More detail: see `docs/getting-started.md` for the long-form guide.
+More detail: see `docs/getting-started/index.md` for the long-form guide.
 
 ## Usage
 
@@ -67,7 +67,7 @@ flowchart LR
     Iterate --> Validate
 ```
 
-See `docs/pm-skill-lifecycle.md` for detailed workflow patterns.
+See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
 
 ## File Structure
 

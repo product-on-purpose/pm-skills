@@ -15,6 +15,8 @@ This folder is for lookup, not learning. New contributors should start with [`do
 | File | Purpose | When to read it |
 |------|---------|-----------------|
 | [`frontmatter-schema.yaml`](frontmatter-schema.yaml) | Authoritative schema for SKILL.md frontmatter. Defines required fields, conditional rules (phase vs classification), and validation expectations. Mirrored by `scripts/lint-skills-frontmatter.sh`. | When authoring or modifying any SKILL.md, or when CI fails on frontmatter. |
+| [`pm-skill-anatomy.md`](pm-skill-anatomy.md) | Structural rules for PM-Skills: directory layout, the three-file model, classification types, phase requirements, frontmatter rules, validation expectations. | When authoring a new skill or checking compliance with structural rules. |
+| [`pm-skill-versioning.md`](pm-skill-versioning.md) | SemVer rules for individual skill versions, HISTORY.md governance, skills-manifest.yaml format, and tie-breaker rules for version-bump classification. | When deciding how to bump a skill version, or when authoring a release plan. |
 
 ### Catalogs
 

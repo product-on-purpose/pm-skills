@@ -2,7 +2,7 @@
 title: Skill Comparisons
 description: Side-by-side comparisons for commonly confused PM skill pairs.
 tags:
-  - Concepts
+  - Guides
 ---
 
 # Skill Comparisons

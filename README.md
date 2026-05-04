@@ -323,7 +323,7 @@ flowchart LR
 /pm-skill-iterate stakeholder-update-email   # paste the validation report
 ```
 
-See [PM-Skill Lifecycle](docs/pm-skill-lifecycle.md) for workflow patterns and detailed usage.
+See [PM-Skill Lifecycle](docs/guides/pm-skill-lifecycle.md) for workflow patterns and detailed usage.
 
 ### Built with...
 
@@ -429,9 +429,9 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 **Need platform-specific instructions?** See [Quick Start by Platform](#quick-start-by-platform) below.
 
-**Want a detailed walkthrough?** Check our [Getting Started Guide](docs/getting-started.md).
+**Want a detailed walkthrough?** Check our [Getting Started Guide](docs/getting-started/index.md).
 
-**Docs navigation:** Quickest: this README’s Quick Start or `QUICKSTART.md` in the repo/release ZIP. Detailed: `docs/getting-started.md` (long-form).
+**Docs navigation:** Quickest: this README’s Quick Start or `QUICKSTART.md` in the repo/release ZIP. Detailed: `docs/getting-started/index.md` (long-form).
 
 ### Install as Claude Code Plugin
 
@@ -866,8 +866,8 @@ pm-skills/
 ├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)
 ├── .github/                    # CI workflows + automation scripts (validate-mcp-sync)
 ├── docs/                       # Documentation and guides
-│   ├── getting-started.md      # Setup guide
-│   ├── guides/                 # How-to guides (using-skills.md, authoring-pm-skills.md, mcp-integration.md)
+│   ├── getting-started/        # Setup guides (index + quickstart)
+│   ├── guides/                 # How-to guides (using-skills.md, creating-pm-skills.md, mcp-integration.md)
 │   ├── reference/              # Technical specs (categories.md, ecosystem.md, project-structure.md)
 │   └── templates/              # Skill template (SKILL.md, TEMPLATE.md, EXAMPLE.md)
 ├── AGENTS.md                   # Universal agent discovery file
@@ -1096,7 +1096,7 @@ The openskills CLI discovers skills in `.claude/skills/` directories. PM-Skills 
 <details>
 <summary><strong>Can I contribute new skills?</strong></summary>
 
-Absolutely! Check out our [authoring guide](docs/guides/authoring-pm-skills.md) for the full process. We use a curated contribution model-submit a proposal via GitHub issue first, then create your skill following our template structure. All contributions are reviewed for quality and alignment with PM best practices.
+Absolutely! Check out our [authoring guide](docs/guides/creating-pm-skills.md) for the full process. We use a curated contribution model-submit a proposal via GitHub issue first, then create your skill following our template structure. All contributions are reviewed for quality and alignment with PM best practices.
 
 </details>
 
@@ -1168,7 +1168,7 @@ Have ideas for making PM-Skills even better? Here are some ways to contribute an
 
 **Skill Contributions**
 
-- Check out our [authoring guide](docs/guides/authoring-pm-skills.md) to create your own skills
+- Check out our [authoring guide](docs/guides/creating-pm-skills.md) to create your own skills
 - Review the [skill template](docs/templates/skill-template/) for the expected structure
 
 **Spread the Word**

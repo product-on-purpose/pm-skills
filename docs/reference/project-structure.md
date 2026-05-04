@@ -206,10 +206,10 @@ Workflows chain multiple skills together into guided, end-to-end sequences.
 
 ```
 docs/
-├── getting-started.md        # Quick setup guide
+├── getting-started/          # Quick setup guides (index + quickstart)
 ├── guides/
 │   ├── using-skills.md       # How to use skills effectively
-│   └── authoring-pm-skills.md # How to create new skills
+│   └── creating-pm-skills.md # How to create new skills
 ├── reference/
 │   ├── categories.md         # Skill categorization system
 │   ├── frontmatter-schema.yaml # Metadata specification
@@ -220,9 +220,9 @@ docs/
 
 | Document | Audience | Purpose |
 |----------|----------|---------|
-| `getting-started.md` | New users | Installation and first steps |
+| `getting-started/index.md` | New users | Installation and first steps |
 | `guides/using-skills.md` | All users | Beginner to advanced usage |
-| `guides/creating-skills.md` | Contributors | Skill creation guide |
+| `guides/creating-pm-skills.md` | Contributors | Skill creation guide |
 | `reference/categories.md` | Contributors | Category taxonomy |
 | `reference/frontmatter-schema.yaml` | Contributors | Metadata validation rules |
 
@@ -240,7 +240,7 @@ docs/templates/
     └── EXAMPLE.md            # Example template
 ```
 
-Use these templates when contributing a new skill. See [authoring-pm-skills.md](../guides/creating-skills.md) for the full process.
+Use these templates when contributing a new skill. See [creating-pm-skills.md](../guides/creating-pm-skills.md) for the full process.
 
 ---
 
@@ -316,8 +316,8 @@ This directory helps AI assistants maintain context across sessions. Not require
 
 ## Related Documentation
 
-- [Getting Started Guide](../getting-started.md)
+- [Getting Started Guide](../getting-started/index.md)
 - [Using Skills Guide](../guides/using-skills.md)
-- [Authoring PM Skills](../guides/creating-skills.md)
+- [Creating PM Skills](../guides/creating-pm-skills.md)
 - [Category Reference](categories.md)
 - [Frontmatter Schema](frontmatter-schema.yaml)

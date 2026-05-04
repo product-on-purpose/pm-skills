@@ -1,6 +1,15 @@
 # Getting Started with PM-Skills
 
-**Quick Start (3 steps)**
+**Fastest path (one command)**
+
+```bash
+npx skills add product-on-purpose/pm-skills
+```
+
+Installs all 40 skills into your agent's default skills directory. Works with Claude Code, Cursor, GitHub Copilot, Cline, and any agent supported by the open [`skills` CLI](https://github.com/vercel-labs/skills). Shipped in v2.11.1 and now the recommended install path.
+
+**Alternative: Clone-based Quick Start (3 steps)**
+
 1) Clone or download the latest ZIP: `git clone https://github.com/product-on-purpose/pm-skills.git` (or get the ZIP from Releases).  
 2) (Claude Code/openskills only) Run the sync helper to populate `.claude/skills` and `.claude/commands`:  
    - macOS/Linux: `./scripts/sync-claude.sh`  
@@ -684,7 +693,7 @@ See `_workflows/` directory for detailed workflow documentation.
 
 - [Categories Reference](../reference/categories.md) . Understand skill organization
 - [Frontmatter Schema](../reference/frontmatter-schema.yaml) . Technical skill structure
-- [Triple Diamond Framework](../concepts/triple-diamond.md) . The organizing methodology
+- [Triple Diamond Framework](../concepts/triple-diamond-delivery-process.md) . The organizing methodology
 
 ### Explore Skills
 

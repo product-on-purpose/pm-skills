@@ -1,6 +1,6 @@
 # PM-Skill Lifecycle
 
-A practical guide to creating, validating, iterating, and updating PM skills. For how skills are *structured*, see [PM-Skill Anatomy](./pm-skill-anatomy.md). This guide covers how skills *evolve*.
+A practical guide to creating, validating, iterating, and updating PM skills. For how skills are *structured*, see [PM-Skill Anatomy](../reference/pm-skill-anatomy.md). This guide covers how skills *evolve*.
 
 ---
 
@@ -233,5 +233,5 @@ flowchart LR
 | Validate all skills (structural only) | `/pm-skill-validate --all` |
 | Iterate with validation report | `/pm-skill-iterate {skill-name}` + paste report |
 | Iterate with feedback | `/pm-skill-iterate {skill-name} "feedback"` |
-| Check skill structure (anatomy) | See [PM-Skill Anatomy](./pm-skill-anatomy.md) |
+| Check skill structure (anatomy) | See [PM-Skill Anatomy](../reference/pm-skill-anatomy.md) |
 | Check versioning rules | See `docs/internal/skill-versioning.md` |

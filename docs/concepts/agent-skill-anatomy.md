@@ -32,7 +32,7 @@ A comprehensive reference for understanding the structure, components, and stand
 
 ## Introduction
 
-> **Scope note:** This guide is the spec-level, cross-platform anatomy reference for agent skills. If a future `docs/pm-skill-anatomy.md` lands, keep that file focused on PM-Skills-specific authoring workflow and repo conventions so it complements this guide instead of duplicating it.
+> **Scope note:** This guide is the spec-level, cross-platform anatomy reference for agent skills. See [PM-Skill Anatomy](../reference/pm-skill-anatomy.md) for the PM-Skills-specific anatomy guide that complements this with repo conventions and authoring workflow.
 
 ### What is an Agent Skill?
 
@@ -1450,7 +1450,7 @@ See `references/EXAMPLE.md` for a completed example.
 
 ## Authoring Checklist
 
-Quick reference for skill authors before submission. For complete guidance, see [docs/../guides/creating-skills.md](../guides/creating-skills.md).
+Quick reference for skill authors before submission. For complete guidance, see [Creating PM Skills](../guides/creating-pm-skills.md).
 
 ### Directory & Files
 
@@ -1530,7 +1530,7 @@ Quick reference for skill authors before submission. For complete guidance, see 
 
 - **[Getting Started Guide](../getting-started/index.md)** . Installation and first steps
 - **[Using Skills Guide](../guides/using-skills.md)** . From beginner to advanced usage
-- **[Authoring PM-Skills](../guides/creating-skills.md)** . Complete authoring guide
+- **[Creating PM-Skills](../guides/creating-pm-skills.md)** . Complete authoring guide
 - **[Frontmatter Schema](../reference/frontmatter-schema.yaml)** . Field-by-field validation reference
 - **[Category Taxonomy](../reference/categories.md)** . All 7 categories explained
 - **[Contributing Guidelines](../contributing/index.md)** . How to contribute to pm-skills
@@ -1539,7 +1539,7 @@ Quick reference for skill authors before submission. For complete guidance, see 
 
 - **[PM-Skills Repository](https://github.com/product-on-purpose/pm-skills)** . Main repository
 - **[Skill Template](https://github.com/product-on-purpose/pm-skills/blob/main/docs/templates/skill-template/SKILL.md)** . Starting point for new skills
-- **[Triple Diamond Framework](triple-diamond.md)** . The organizing methodology
+- **[Triple Diamond Framework](triple-diamond-delivery-process.md)** . The organizing methodology
 
 ### Platform Documentation
 

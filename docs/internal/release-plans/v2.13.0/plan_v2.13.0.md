@@ -58,27 +58,27 @@ graph LR
 
 ## Status Snapshot (updated 2026-05-04)
 
-| Item | Status |
-|---|---|
-| Plan | Scope locked; bucket inventory drafted; Open Questions pending maintainer decisions |
-| Source: doc-structure audit | `docs/internal/audit/audit_repo-structure_2026-05-01.md` |
-| Source: CI audit (full) | `docs/internal/audit/ci-audit_2026-05-03.md` |
-| Source: branches + PR audit | `docs/internal/audit/branches-pr_2026-05-03.md` |
-| Source: v2.12.0 session log | `AGENTS/claude/SESSION-LOG/2026-05-03_v2.12.0-tag-ship-and-v2.13-handoff_session.md` |
-| CI refactor strand-level plan | [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md) - drafted 2026-05-03; **Wave 1 + Wave 3 complete 2026-05-03 to 2026-05-04** |
-| Zensical spike plan | [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md) - drafted 2026-05-03 |
-| Pre-release checklist | [`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md) - drafted 2026-05-03 |
-| Skills manifest | `skills-manifest.yaml` - drafted 2026-05-03 (empty by design) |
-| Theme decision | Foundation Hardening + Doc Stack Decision (locked) |
-| Effort numbering convention | No new F-XX effort docs for v2.13 mechanical work; existing F-29 to F-37 retained as deferral records |
-| Worktree | `E:\Projects\product-on-purpose\pm-skills_worktrees\v2.13-cycle` (branch `v2.13/cycle`); pushed to origin 2026-05-04 |
-| Active PR | [#140](https://github.com/product-on-purpose/pm-skills/pull/140) (draft) - opened 2026-05-04 to trigger CI verification on Wave 1 + Wave 3 work |
-| Bucket A status | Pending Open Questions decisions (OQ-1 duplicate files, OQ-2 frameworks folder, OQ-4 Pattern 5C) |
-| Bucket B status | Not started; closes the advisory CI findings the new validators surface |
-| Bucket C status | **Wave 1 + Wave 3 complete**, both Phase 0 Codex loops converged; Wave 2 blocked on Bucket A |
-| Bucket D status | Not started (Zensical compatibility spike) |
-| Validator inventory | 17 → 22 (net +5 in v2.13); enforcing 5 → 7 |
-| Tag target | TBD |
+| Item                          | Status                                                                                                                                          |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Plan                          | Scope locked; bucket inventory drafted; Open Questions pending maintainer decisions                                                             |
+| Source: doc-structure audit   | `docs/internal/audit/audit_repo-structure_2026-05-01.md`                                                                                        |
+| Source: CI audit (full)       | `docs/internal/audit/ci-audit_2026-05-03.md`                                                                                                    |
+| Source: branches + PR audit   | `docs/internal/audit/branches-pr_2026-05-03.md`                                                                                                 |
+| Source: v2.12.0 session log   | `AGENTS/claude/SESSION-LOG/2026-05-03_v2.12.0-tag-ship-and-v2.13-handoff_session.md`                                                            |
+| CI refactor strand-level plan | [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md) - drafted 2026-05-03; **Wave 1 + Wave 3 complete 2026-05-03 to 2026-05-04**            |
+| Zensical spike plan           | [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md) - drafted 2026-05-03                                                             |
+| Pre-release checklist         | [`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md) - drafted 2026-05-03                                               |
+| Skills manifest               | `skills-manifest.yaml` - drafted 2026-05-03 (empty by design)                                                                                   |
+| Theme decision                | Foundation Hardening + Doc Stack Decision (locked)                                                                                              |
+| Effort numbering convention   | No new F-XX effort docs for v2.13 mechanical work; existing F-29 to F-37 retained as deferral records                                           |
+| Worktree                      | `E:\Projects\product-on-purpose\pm-skills_worktrees\v2.13-cycle` (branch `v2.13/cycle`); pushed to origin 2026-05-04                            |
+| Active PR                     | [#140](https://github.com/product-on-purpose/pm-skills/pull/140) (draft) - opened 2026-05-04 to trigger CI verification on Wave 1 + Wave 3 work |
+| Bucket A status               | **A1, A2, A3 shipped 2026-05-04** (5 file moves, 6 legacy duplicate deletes, naming + Diátaxis folder reorg). A.4 (Pattern 5C generated frontmatter flag) deferred to fresh session. |
+| Bucket B status               | Not started; closes the advisory CI findings the new validators surface                                                                         |
+| Bucket C status               | **Wave 1 + Wave 3 complete**, both Phase 0 Codex loops converged; Wave 2 blocked on Bucket A                                                    |
+| Bucket D status               | Not started (Zensical compatibility spike)                                                                                                      |
+| Validator inventory           | 17 → 22 (net +5 in v2.13); enforcing 5 → 7                                                                                                      |
+| Tag target                    | TBD                                                                                                                                             |
 
 ---
 
@@ -190,6 +190,8 @@ Explicit guards to prevent the scope creep risk noted at the v2.12.0 to v2.13.0 
 | **Adversarial review** | Per-strand AND release-state Phase 0 loops | Per v2.11.0 codification + v2.12.0 release-state extension |
 | **Generator regen** | Mandatory pre-release | All 3 Python generators must re-run cleanly; new `check-generated-content-untouched` validator enforces |
 | **Zensical migration target** | Decided by spike outcome | GO → v2.14.0 commitment; NO-GO → Plan B (Astro Starlight) deferred to separate effort |
+| **Naming convention (locked 2026-05-04)** | `pm-skill-*` filename prefix for PM-Skills-specific content; no prefix for cross-platform/agent-skill content | Reverses MkDocs migration's "lump everything under concepts" simplification. Filename signals scope (PM-specific vs generic) at a glance, independent of folder. |
+| **Folder semantics (locked 2026-05-04)** | concepts/ = generic explanatory; reference/ = PM-Skills lookup material; guides/ = PM-Skills how-to material | Aligns to Diátaxis 4-quadrant doc taxonomy. Pre-A2 reorg, concepts/ was effectively a junk drawer holding PM-Skills-specific anatomy/lifecycle/versioning/comparisons; post-reorg, all 3 folders match their semantic purpose and reader's mode of use (scan vs follow). |
 
 ---
 
@@ -197,9 +199,9 @@ Explicit guards to prevent the scope creep risk noted at the v2.12.0 to v2.13.0 
 
 | # | Question | Source | Default | Decision (TBD) |
 |---|---|---|---|---|
-| **OQ-1** | Duplicate top-level files: Option A (keep + warn), B (single source generated), or C (delete + redirect)? | Audit 3.5 | **C  -  delete duplicates, redirect via `mkdocs-redirects`** (smallest ongoing maintenance) | TBD |
-| **OQ-2** | `docs/frameworks/` folder (1 excluded file): delete or promote? | Audit 5.4 | **Delete folder; merge content into `docs/concepts/triple-diamond.md`** | TBD |
-| **OQ-3** | `creating-skills.md` vs `authoring-pm-skills.md`  -  which is canonical? | Audit Pattern 3 | **Keep `creating-skills.md` as canonical**; redirect the other | TBD |
+| **OQ-1** | Duplicate top-level files: Option A (keep + warn), B (single source generated), or C (delete + redirect)? | Audit 3.5 | **C  -  delete duplicates, redirect via `mkdocs-redirects`** (smallest ongoing maintenance) | **Resolved 2026-05-04: Option C executed.** All 4 top-level legacy duplicates deleted; redirects in mkdocs.yml. Real drift was 60 of 3,226 lines for agent-skill-anatomy and 21 of 1,495 lines for getting-started after CR-strip; canonical was strictly newer in all cases. |
+| **OQ-2** | `docs/frameworks/` folder (1 excluded file): delete or promote? | Audit 5.4 | **Delete folder; merge content into `docs/concepts/triple-diamond.md`** | **Resolved 2026-05-04: deleted folder.** Content was byte-identical to canonical (no merge needed). Canonical also renamed `concepts/triple-diamond.md` → `concepts/triple-diamond-delivery-process.md` for descriptive accuracy. |
+| **OQ-3** | `creating-skills.md` vs `authoring-pm-skills.md`  -  which is canonical? | Audit Pattern 3 | **Keep `creating-skills.md` as canonical**; redirect the other | **Resolved 2026-05-04: renamed canonical to `creating-pm-skills.md`** per the locked `pm-skill-*` naming convention; deleted authoring duplicate; both old paths redirect to new. |
 | **OQ-4** | Pattern 5 (generated-content marker): adopt 5A (filesystem move), 5B (banner comment), or 5C (frontmatter `generated: true`)? | Audit Pattern 5 | **5C  -  frontmatter flag** (least disruptive, most automatable, pairs with new CI script) | TBD |
 | **OQ-5** | Pattern 2 (frontmatter-driven counts via mkdocs-macros-plugin): adopt in v2.13 or defer? | Audit Pattern 2 | **Defer to v2.14.0+** pending Zensical decision (depends on which engine renders) | TBD |
 | **OQ-6** | F-37 HTML Template Creator: include in v2.13 or defer? | Working tree untracked | **Defer to v2.14.0+**  -  conflicts with "no new skills" guard | TBD |
@@ -323,3 +325,4 @@ Top-level summary:
 |---|---|
 | 2026-05-02 | Stub created based on v2.12.0 deferrals + 2026-05-01 audits. Theme: Foundation Hardening. Six buckets (A-F) drafted. Four open questions. |
 | 2026-05-03 | Scope locked: three strands (doc consistency + CI refactor + Zensical compatibility spike). Theme updated to "Foundation Hardening + Doc Stack Decision". Buckets restructured to A-D (old E + F dissolved into deferral table). Bucket E sample-automation slate deferred all except F-34 (lifted into B). Bucket F refactor patterns 1/2/4/5A deferred. Pattern 5C adopted as default (lifted into A). F-36 lifted into C strand doc. F-37 deferred. Open Questions reduced to 7 with my proposed defaults pre-filled. CI strand doc, Zensical spike doc, pre-release checklist, and skills-manifest authored as siblings. No new F-XX effort docs (effort-doc convention paused for v2.13 mechanical work per maintainer feedback on doc bloat). |
+| 2026-05-04 | Bucket A executed: A1 (frameworks delete + `triple-diamond-delivery-process` rename in concepts/), A2 (4 concept moves out of concepts/ to reference/ and guides/ per Diátaxis + 4 legacy duplicate deletes including substantial-drift agent-skill-anatomy and getting-started after CR-strip analysis revealed real drift was minor), A3 (`creating-skills` → `creating-pm-skills` + `authoring-pm-skills` delete). Naming convention (`pm-skill-*` prefix for PM-specific content) and folder semantics (concepts=generic, reference=lookup, guides=how-to) locked. OQ-1, OQ-2, OQ-3 resolved. Backup at `_NOTES/backup-git/2026-05-04_v2.13-refactor/` (10 files + INDEX.md). mkdocs.yml `exclude_docs:` reduced from 8 entries to 2. Bucket A.4 (Pattern 5C generated frontmatter flag) deferred to fresh session. |

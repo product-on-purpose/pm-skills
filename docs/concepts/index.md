@@ -9,7 +9,5 @@ Understand the ideas behind PM Skills . what agent skills are, how they're struc
 
 | Topic | Description |
 |-------|-------------|
-| [Skill Anatomy](skill-anatomy.md) | How skills are structured: SKILL.md, TEMPLATE.md, EXAMPLE.md |
 | [Agent Skill Anatomy](agent-skill-anatomy.md) | The three-layer model for any agent skill |
-| [Skill Lifecycle](skill-lifecycle.md) | Create, Validate, Iterate . how skills evolve |
-| [The Triple Diamond](triple-diamond.md) | The framework organizing skills into 6 phases |
+| [The Triple Diamond](triple-diamond-delivery-process.md) | The framework organizing skills into 6 phases |

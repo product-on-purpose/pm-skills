@@ -2,7 +2,7 @@
 title: Skill Versioning
 description: How PM skills are versioned independently of repo releases, using SemVer, HISTORY.md, and skills-manifest.yaml.
 tags:
-  - Concepts
+  - Reference
   - Versioning
 ---
 
@@ -80,7 +80,7 @@ This answers: "Which skill versions shipped in release X?"
 
 ## How the Lifecycle Tools Handle Versioning
 
-The [lifecycle tools](skill-lifecycle.md) integrate with versioning:
+The [lifecycle tools](../guides/pm-skill-lifecycle.md) integrate with versioning:
 
 - **`/pm-skill-validate`** . reports the current skill version in the validation report header
 - **`/pm-skill-iterate`** . suggests a version bump class (patch/minor/major) after applying changes, updates the `version` and `updated` fields on confirmation, and offers to create or update HISTORY.md

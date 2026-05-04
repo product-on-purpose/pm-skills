@@ -1,6 +1,6 @@
 # PM-Skill Anatomy
 
-A practical guide to how skills are structured in the pm-skills repository. For the spec-level, cross-platform reference, see [Agent Skill Anatomy](agent-skill-anatomy.md). For how skills evolve through the Create → Validate → Iterate lifecycle, see [PM-Skill Lifecycle](skill-lifecycle.md).
+A practical guide to how skills are structured in the pm-skills repository. For the spec-level, cross-platform reference, see [Agent Skill Anatomy](../concepts/agent-skill-anatomy.md). For how skills evolve through the Create → Validate → Iterate lifecycle, see [PM-Skill Lifecycle](../guides/pm-skill-lifecycle.md).
 
 ---
 
@@ -255,8 +255,8 @@ For manual creation, follow the structure in [skill template](https://github.com
 
 ## See Also
 
-- [Agent Skill Anatomy](agent-skill-anatomy.md) . Spec-level, cross-platform reference (agentskills.io)
+- [Agent Skill Anatomy](../concepts/agent-skill-anatomy.md) . Spec-level, cross-platform reference (agentskills.io)
 - [Frontmatter Schema](../reference/frontmatter-schema.yaml) . Complete field definitions and validation rules
 - [Category Taxonomy](../reference/categories.md) . Category definitions and framework mappings
-- [Authoring Guide](../guides/creating-skills.md) . Step-by-step authoring instructions
+- [Creating PM Skills Guide](../guides/creating-pm-skills.md) . Step-by-step authoring instructions
 - [Getting Started](../getting-started/index.md) . Setup and usage guide

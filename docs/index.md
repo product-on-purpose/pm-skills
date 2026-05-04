@@ -31,7 +31,7 @@ graph LR
     D6 -.->|"next cycle"| D1
 ```
 
-[:octicons-arrow-right-24: Learn about the Triple Diamond](concepts/triple-diamond.md)
+[:octicons-arrow-right-24: Learn about the Triple Diamond](concepts/triple-diamond-delivery-process.md)
 
 ## The Skills
 
@@ -177,7 +177,7 @@ flowchart LR
 
 The lifecycle tools are what keep the library consistent as it grows - the validator catches drift, and the iterator applies fixes with version tracking and change summaries.
 
-[:octicons-arrow-right-24: Learn more about the lifecycle](concepts/skill-lifecycle.md) · [:octicons-arrow-right-24: Skill versioning](concepts/versioning.md)
+[:octicons-arrow-right-24: Learn more about the lifecycle](guides/pm-skill-lifecycle.md) · [:octicons-arrow-right-24: PM-Skill versioning](reference/pm-skill-versioning.md)
 
 ## Quick Start
 

@@ -90,6 +90,13 @@ plugins:
         'bundles/feature-kickoff.md': 'workflows/feature-kickoff.md'
         'bundles/lean-startup.md': 'workflows/lean-startup.md'
         'bundles/triple-diamond.md': 'workflows/triple-diamond.md'
+        'concepts/triple-diamond.md': 'concepts/triple-diamond-delivery-process.md'
+        'concepts/versioning.md': 'reference/pm-skill-versioning.md'
+        'concepts/comparisons.md': 'guides/pm-skill-comparisons.md'
+        'concepts/skill-anatomy.md': 'reference/pm-skill-anatomy.md'
+        'concepts/skill-lifecycle.md': 'guides/pm-skill-lifecycle.md'
+        'guides/creating-skills.md': 'guides/creating-pm-skills.md'
+        'guides/authoring-pm-skills.md': 'guides/creating-pm-skills.md'
   - git-revision-date-localized:
       enabled: !ENV [CI, false]
       type: timeago
@@ -100,12 +107,6 @@ plugins:
 exclude_docs: |
   internal/
   workflows/README.md
-  /agent-skill-anatomy.md
-  /pm-skill-anatomy.md
-  /pm-skill-lifecycle.md
-  /getting-started.md
-  guides/authoring-pm-skills.md
-  frameworks/triple-diamond-delivery-process.md
 
 # ===========================================================================
 # MARKDOWN EXTENSIONS
@@ -253,7 +254,9 @@ nav:
     - Using Skills: guides/using-skills.md
     - Using Workflows: guides/using-workflows.md
     - Updating PM Skills: guides/updating-pm-skills.md
-    - Creating Skills: guides/creating-skills.md
+    - Creating PM Skills: guides/creating-pm-skills.md
+    - PM-Skill Lifecycle: guides/pm-skill-lifecycle.md
+    - PM-Skill Comparisons: guides/pm-skill-comparisons.md
     - Skill Finder: guides/skill-finder.md
     - Recipes: guides/recipes.md
     - Prompt Gallery: guides/prompt-gallery.md
@@ -263,12 +266,8 @@ nav:
 
   - Concepts:
     - concepts/index.md
-    - Skill Anatomy: concepts/skill-anatomy.md
     - Agent Skill Anatomy: concepts/agent-skill-anatomy.md
-    - Skill Lifecycle: concepts/skill-lifecycle.md
-    - The Triple Diamond: concepts/triple-diamond.md
-    - Skill Versioning: concepts/versioning.md
-    - Skill Comparisons: concepts/comparisons.md
+    - The Triple Diamond: concepts/triple-diamond-delivery-process.md
 
   - Showcase:
     - showcase/index.md
@@ -283,6 +282,8 @@ nav:
     - Overview: reference/README.md
     - Commands: reference/commands.md
     - Categories: reference/categories.md
+    - PM-Skill Anatomy: reference/pm-skill-anatomy.md
+    - PM-Skill Versioning: reference/pm-skill-versioning.md
     - Ecosystem: reference/ecosystem.md
     - Project Structure: reference/project-structure.md
     - Skill Families:
