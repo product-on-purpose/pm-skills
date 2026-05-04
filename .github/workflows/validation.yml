@@ -155,4 +155,12 @@ jobs:
       - name: Check generated freshness (pwsh)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-generated-freshness.ps1
+
+      - name: Check nav completeness (bash, enforcing)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-nav-completeness.sh
+
+      - name: Check nav completeness (pwsh, enforcing)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-nav-completeness.ps1
         continue-on-error: true
