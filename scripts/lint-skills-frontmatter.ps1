@@ -169,7 +169,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     }
 
     foreach ($ref in @('TEMPLATE.md','EXAMPLE.md')) {
-        $refPath = Join-Path (Join-Path $dir 'references') $ref
+        $refPath = Join-Path -Path $dir.FullName -ChildPath "references/$ref"
         if (-not (Test-Path $refPath)) {
             Write-Host "[FAIL] $rel : missing references/$ref"
             $Fail = $true
@@ -177,7 +177,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
         }
     }
 
-    $templatePath = Join-Path (Join-Path $dir 'references') 'TEMPLATE.md'
+    $templatePath = Join-Path -Path $dir.FullName -ChildPath "references/TEMPLATE.md"
     if (Test-Path $templatePath) {
         $templateHeaderCount = (Get-Content $templatePath | Where-Object { $_ -match '^## ' }).Count
         if ($templateHeaderCount -lt 3) {
