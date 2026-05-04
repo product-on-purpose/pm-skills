@@ -64,7 +64,7 @@ $filesToCheck = $trackedFiles | Where-Object {
 }
 
 # Search for "bundle" references (case-insensitive, word boundary)
-$matches = @()
+$bundleMatches = @()
 foreach ($file in $filesToCheck) {
     $fullPath = Join-Path $Root $file
     if (Test-Path $fullPath -PathType Leaf) {
@@ -74,30 +74,30 @@ foreach ($file in $filesToCheck) {
             foreach ($line in (Get-Content $fullPath -ErrorAction SilentlyContinue)) {
                 $lineNum++
                 if ($line -match '\bbundles?\b') {
-                    $matches += "${file}:${lineNum}:$line"
+                    $bundleMatches += "${file}:${lineNum}:$line"
                 }
             }
         }
     }
 }
 
-if ($matches.Count -eq 0) {
+if ($bundleMatches.Count -eq 0) {
     Write-Host "PASS: No stale 'bundle' references found."
     exit 0
 }
 
-Write-Host "Found $($matches.Count) potential stale reference(s):"
+Write-Host "Found $($bundleMatches.Count) potential stale reference(s):"
 Write-Host ""
-foreach ($m in $matches) {
+foreach ($m in $bundleMatches) {
     Write-Host "  $m"
 }
 Write-Host ""
 
 if ($Strict) {
-    Write-Host "FAIL (-Strict): $($matches.Count) stale 'bundle' reference(s) found."
+    Write-Host "FAIL (-Strict): $($bundleMatches.Count) stale 'bundle' reference(s) found."
     exit 1
 } else {
-    Write-Host "WARN: $($matches.Count) stale 'bundle' reference(s) found (advisory mode)."
+    Write-Host "WARN: $($bundleMatches.Count) stale 'bundle' reference(s) found (advisory mode)."
     Write-Host "  Run with -Strict to treat as failure."
     exit 0
 }
