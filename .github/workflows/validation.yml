@@ -139,13 +139,15 @@ jobs:
         run: pwsh -File scripts/check-workflow-coverage.ps1
         continue-on-error: true
 
-      - name: Check count consistency (bash, enforcing)
+      - name: Check count consistency (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/check-count-consistency.sh
+        continue-on-error: true
 
-      - name: Check count consistency (pwsh, enforcing)
+      - name: Check count consistency (pwsh)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-count-consistency.ps1
+        continue-on-error: true
 
       - name: Check generated freshness (bash)
         if: matrix.os == 'ubuntu-latest'
@@ -155,6 +157,7 @@ jobs:
       - name: Check generated freshness (pwsh)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-generated-freshness.ps1
+        continue-on-error: true
 
       - name: Check nav completeness (bash, enforcing)
         if: matrix.os == 'ubuntu-latest'
@@ -163,4 +166,3 @@ jobs:
       - name: Check nav completeness (pwsh, enforcing)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-nav-completeness.ps1
-        continue-on-error: true

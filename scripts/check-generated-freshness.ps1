@@ -27,14 +27,14 @@ if (Test-Path $Generator) {
     Write-Host ""
 
     # Create temp directory
-    $TempRoot = Join-Path ([System.IO.Path]::GetTempPath()) "pm-skills-freshness-$(Get-Random)"
+    $TempRoot = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "pm-skills-freshness-$(Get-Random)"
     New-Item -ItemType Directory -Path $TempRoot -Force | Out-Null
     New-Item -ItemType Directory -Path (Join-Path -Path $TempRoot -ChildPath "docs/workflows") -Force | Out-Null
     New-Item -ItemType Directory -Path (Join-Path -Path $TempRoot -ChildPath "scripts") -Force | Out-Null
 
     try {
         # Copy source files needed by the generator
-        Copy-Item -Path (Join-Path $Root "_workflows") -Destination $TempRoot -Recurse
+        Copy-Item -Path (Join-Path -Path $Root -ChildPath "_workflows") -Destination $TempRoot -Recurse
         Copy-Item -Path $Generator -Destination (Join-Path -Path $TempRoot -ChildPath "scripts/generate-workflow-pages.py")
 
         # Try to run the generator
@@ -59,7 +59,7 @@ if (Test-Path $Generator) {
             $stale = @()
             $genFiles = Get-ChildItem -Path $generatedDir -Filter "*.md" -ErrorAction SilentlyContinue
             foreach ($genFile in $genFiles) {
-                $committedFile = Join-Path $committedDir $genFile.Name
+                $committedFile = Join-Path -Path $committedDir -ChildPath $genFile.Name
                 if (-not (Test-Path $committedFile)) {
                     $stale += "$($genFile.Name) (missing from docs/workflows/)"
                     $Fail = $true

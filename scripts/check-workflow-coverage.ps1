@@ -19,7 +19,7 @@ Write-Host "=== Workflow Coverage Check ==="
 Write-Host ""
 
 # Collect workflow slugs (exclude README.md and files starting with _)
-$workflowFiles = Get-ChildItem -Path (Join-Path $Root "_workflows") -Filter "*.md" |
+$workflowFiles = Get-ChildItem -Path (Join-Path -Path $Root -ChildPath "_workflows") -Filter "*.md" |
     Where-Object { $_.Name -ne "README.md" -and -not $_.Name.StartsWith("_") }
 
 if ($workflowFiles.Count -eq 0) {
@@ -32,8 +32,8 @@ $slugs = $workflowFiles | ForEach-Object { $_.BaseName }
 Write-Host "Found $($slugs.Count) workflow(s) in _workflows/"
 Write-Host ""
 
-$AgentsPath = Join-Path $Root "AGENTS.md"
-$MkdocsPath = Join-Path $Root "mkdocs.yml"
+$AgentsPath = Join-Path -Path $Root -ChildPath "AGENTS.md"
+$MkdocsPath = Join-Path -Path $Root -ChildPath "mkdocs.yml"
 
 $agentsContent = if (Test-Path $AgentsPath) { Get-Content $AgentsPath -Raw } else { $null }
 $mkdocsContent = if (Test-Path $MkdocsPath) { Get-Content $MkdocsPath -Raw } else { $null }

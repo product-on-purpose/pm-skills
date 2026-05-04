@@ -19,6 +19,7 @@
   - [check-generated-freshness.sh / check-generated-freshness.ps1](#check-generated-freshnesssh--check-generated-freshnessps1)
   - [check-context-currency.sh / check-context-currency.ps1](#check-context-currencysh--check-context-currencyps1)
   - [check-stale-bundle-refs.sh / check-stale-bundle-refs.ps1](#check-stale-bundle-refssh--check-stale-bundle-refsps1)
+  - [check-nav-completeness.sh / check-nav-completeness.ps1](#check-nav-completenesssh--check-nav-completenessps1)
 - [When to use what](#when-to-use-what)
 - [FAQ](#faq)
 - [Tips](#tips)
@@ -242,13 +243,26 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 
 **Outputs:** Warning-only in default mode; hard-fail in strict mode.
 
+### check-nav-completeness.sh / check-nav-completeness.ps1
+**Purpose:** Verify every `docs/**/*.md` file (excluding `docs/internal/`) is in `mkdocs.yml` `nav:` or `exclude_docs:` (or matches an `AUTO_INCLUDE_PATTERNS` entry for transitively-reachable content like release notes and templates).
+
+**Why:** Catches silent doc orphans. v2.12.0 cycle had `docs/reference/README.md` added but not wired into nav, invisible on the site until manual review caught it. Closes that orphan-class issue.
+
+**Use when:** After adding new docs/*.md files; when restructuring mkdocs nav; in CI (enforcing).
+
+**Commands:**
+- Bash: `./scripts/check-nav-completeness.sh`
+- PowerShell: `./scripts/check-nav-completeness.ps1`
+
+**Outputs:** Pass with file/nav counts, or fail listing each orphan or broken nav entry.
+
 ## When to use what
 - **Day-to-day:** No scripts needed unless using openskills/Claude Code → run `sync-claude`.
 - **After adding a skill:** `validate-commands` → `lint-skills-frontmatter` → `validate-agents-md` → `check-mcp-impact` → `check-count-consistency`.
 - **After adding a workflow:** `check-workflow-coverage` → `check-count-consistency` → `check-generated-freshness`.
 - **After adding a script:** `validate-script-docs` (ensure companion `.md` exists).
 - **Pre-release:** All validation scripts → `validate-version-consistency` → `check-count-consistency` → `build-release`.
-- **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`.
+- **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`.
 - **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`.
 - **Cross-repo drift:** `.github/workflows/validate-mcp-sync.yml` (observe first, block later).
 
@@ -299,3 +313,4 @@ Each script has a dedicated documentation file with full usage details, options,
 | `check-generated-freshness.sh` / `.ps1` | [check-generated-freshness.md](check-generated-freshness.md) |
 | `check-context-currency.sh` / `.ps1` | [check-context-currency.md](check-context-currency.md) |
 | `check-stale-bundle-refs.sh` / `.ps1` | [check-stale-bundle-refs.md](check-stale-bundle-refs.md) |
+| `check-nav-completeness.sh` / `.ps1` | [check-nav-completeness.md](check-nav-completeness.md) |

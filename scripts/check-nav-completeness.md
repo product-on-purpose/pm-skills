@@ -78,7 +78,10 @@ FAIL: 1 nav-completeness violation(s).
 
 ## Limitations / Known Issues
 
-- YAML parsing is regex-based, not a full YAML parser. Handles the current `mkdocs.yml` structure but may miss edge cases (e.g., commented-out nav entries with unusual indentation, multiline string concatenation).
+- YAML parsing is regex-based, not a full YAML parser. Handles the current `mkdocs.yml` structure but may miss edge cases:
+  - Commented-out nav entries with unusual indentation
+  - Inline comments on nav lines (e.g., `- index.md  # home page` would still extract `index.md` correctly, but a commented-out entry like `# - removed.md` would also extract `removed.md` as if it were active). The script currently does NOT strip YAML comments before regex extraction. A future enhancement (v2.14) would strip comments first or use a full YAML parser. Not actively breaking on the current `mkdocs.yml` (no commented entries).
+  - Multiline string concatenation
 - The forward check handles directory exclusions ending with `/` (e.g., `internal/`) and exact-file exclusions. Glob patterns in `exclude_docs` (if mkdocs ever supports them in a future version) are NOT handled by this script's exclusion check, but ARE handled via the script's separate `AUTO_INCLUDE_PATTERNS` array.
 - The reverse check only verifies file existence, not link validity within rendered content. Use `check-internal-link-validity` (Wave 3) for cross-link validation.
 

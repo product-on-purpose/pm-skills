@@ -93,8 +93,8 @@ foreach ($file in $filesToCheck) {
         if ($line -match 'v[0-9]+\.') { continue }
 
         foreach ($check in $checks) {
-            $matches = [regex]::Matches($line, $check.Pattern, 'IgnoreCase')
-            foreach ($m in $matches) {
+            $regexMatches = [regex]::Matches($line, $check.Pattern, 'IgnoreCase')
+            foreach ($m in $regexMatches) {
                 $num = [int]$m.Groups[1].Value
                 if ($num -ne $check.Count -and $num -ge $MinThreshold) {
                     $mismatches += "  ${file}:${lineNum}: found '$num $($check.Name)' (actual: $($check.Count))"

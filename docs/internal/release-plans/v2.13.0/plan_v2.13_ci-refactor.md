@@ -1,8 +1,8 @@
 # v2.13 CI Refactor: Execution Plan
 
-**Status:** Plan (not yet executed)
+**Status:** Wave 1 complete; Waves 2-3 pending (post-Codex Round 1 resolution applied)
 **Cycle:** v2.13.0
-**Created:** 2026-05-03 (initial); 2026-05-03 (trimmed to thin execution tracker per audit + plan pair convention)
+**Created:** 2026-05-03 (initial); 2026-05-03 (trimmed to thin execution tracker per audit + plan pair convention); 2026-05-03 (post-Codex Round 1 resolution)
 **Spec source:** [`../../audit/ci-audit_2026-05-03.md`](../../audit/ci-audit_2026-05-03.md) Sections 10 (plan summary) and 16 (implementation specifications)
 **Convention:** Per [`../../audit/README.md`](../../audit/README.md) audit + plan pair convention
 
@@ -140,6 +140,8 @@ Decisions made during execution (not pre-locked in the audit). Append-only log.
 | 2026-05-03 | Item 5 split into two commits (`ab752ae` + `254026f`) due to read prerequisite issue with validation.yml in worktree (initial Edit failed; second commit completed posture promotion). | First commit message claimed posture promotion was bundled; second commit corrects the audit trail. | None |
 | 2026-05-03 | Item 6 (`check-nav-completeness`) added `templates/*` to `AUTO_INCLUDE_PATTERNS` after first test-run flagged 3 pre-existing template orphans (`docs/templates/skill-template/{SKILL,TEMPLATE,EXAMPLE}.md`). | Templates are reference content linked from `creating-skills.md` and `agent-skill-anatomy.md`, not nav targets. Auto-include is the correct disposition. | Added template-pattern note to audit Section 16.2 implementation sketch in this plan's spec source |
 | 2026-05-03 | Item 5 tightened regex catches 12+ pre-existing stale count references that the old regex missed (e.g., `26 skills` in homepage hero, `27 skills` in utility skill catalog tables, `40 commands` references that should be 47). | These are exactly the v2.12.0-Codex-Round-2 class of drift. CI is now red on `v2.13/cycle` until Bucket B doc-cleanup work lands. The CI redness is intentional and expected; it's the validator catching pre-existing drift, not a regression. | None (validator behaves as designed) |
+| 2026-05-03 | **Codex Round 1 adversarial review** found 0 CRITICAL, 3 IMPORTANT, 3 MEDIUM, 2 MINOR. Recommendation: RESOLVE. Findings captured in codex session at `C:/Users/jpris/.codex/sessions/2026/05/03/rollout-2026-05-03T20-24-40-019df104-3e81-7ae2-bf76-d76a7319814c.jsonl`. | The relay subagent did not surface findings inline; retrieved by reading the codex session jsonl. | None (process learning) |
+| 2026-05-03 | **Codex Round 1 resolution applied:** rolled back posture promotion on `check-count-consistency` (back to advisory) because the tightened regex produces false positives on legitimate qualified sub-counts like `26 phase skills` (correct: 26 phase + 8 foundation + 6 utility = 40 total). Per-classification awareness was deferred to v2.14 in audit Section 16.1; promoting to enforcing without that awareness was the gap. Also: completed Join-Path parity in `check-workflow-coverage.ps1` and `check-generated-freshness.ps1` (4 remaining 2-arg positional calls converted to named); fixed validation.yml posture inconsistency (restored advisory on `check-generated-freshness` pwsh, removed accidental advisory from `check-nav-completeness` pwsh); renamed `$matches` to `$regexMatches` in `check-count-consistency.ps1` (same automatic-variable class as Bug 1); updated plan top-status; updated `README_SCRIPTS.md` with new validator and posture corrections. | Findings 5 (YAML-comment stripping in nav parser) and 6 (mkdocs.yml stale count + `*.yml` not in scan) deferred: finding 5 is not actively breaking (nav-parser-on-current-mkdocs.yml works); finding 6 is a Bucket B count-cleanup item plus a v2.14 enhancement to scan `*.yml`. | Audit Section 16.1 should note the qualifier-aware-counts deferral more prominently in v2.14 entry; Section 16.2 should add a known-limitation about YAML comment stripping |
 
 ---
 
