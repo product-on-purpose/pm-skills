@@ -73,9 +73,9 @@ $mismatches = @()
 
 # Patterns to check: (regex, resource name, actual count)
 $checks = @(
-    @{ Pattern = '(\d+)\s+(?:PM\s+|product\s+management\s+)?skills'; Name = 'skills'; Count = $SkillCount },
-    @{ Pattern = '(\d+)\s+commands'; Name = 'commands'; Count = $CommandCount },
-    @{ Pattern = '(\d+)\s+workflows'; Name = 'workflows'; Count = $WorkflowCount }
+    @{ Pattern = '(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}skills'; Name = 'skills'; Count = $SkillCount },
+    @{ Pattern = '(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}commands'; Name = 'commands'; Count = $CommandCount },
+    @{ Pattern = '(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}workflows'; Name = 'workflows'; Count = $WorkflowCount }
 )
 
 foreach ($file in $filesToCheck) {

@@ -81,9 +81,9 @@ check_resource() {
         num = substr(line, RSTART, RLENGTH) + 0
         rest = substr(line, RSTART + RLENGTH)
         matched = 0
-        if (rname == "skills" && rest ~ /^[ ]+(pm[ ]+|product[ ]+management[ ]+)?skills/) matched = 1
-        if (rname == "commands" && rest ~ /^[ ]+commands/) matched = 1
-        if (rname == "workflows" && rest ~ /^[ ]+workflows/) matched = 1
+        if (rname == "skills" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills/) matched = 1
+        if (rname == "commands" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}commands/) matched = 1
+        if (rname == "workflows" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}workflows/) matched = 1
         if (matched && num != actual && num >= min_t) {
           printf "  %s:%s: found \x27%d %s\x27 (actual: %d)\n", file, linenum, num, rname, actual
         }
@@ -93,9 +93,9 @@ check_resource() {
 }
 
 MISMATCHES=""
-MISMATCHES+=$(check_resource '[0-9]+ (PM |product management )?skills' "skills" "$SKILL_COUNT")
-MISMATCHES+=$(check_resource '[0-9]+ commands' "commands" "$COMMAND_COUNT")
-MISMATCHES+=$(check_resource '[0-9]+ workflows' "workflows" "$WORKFLOW_COUNT")
+MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}skills' "skills" "$SKILL_COUNT")
+MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}commands' "commands" "$COMMAND_COUNT")
+MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}workflows' "workflows" "$WORKFLOW_COUNT")
 
 if [[ -z "$MISMATCHES" ]]; then
   echo "PASS: No stale counts found in tracked .md or .json files."

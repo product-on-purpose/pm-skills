@@ -22,9 +22,11 @@ powershell -ExecutionPolicy Bypass -File .\scripts\check-count-consistency.ps1
    - Skills: directories in `skills/`
    - Commands: `.md` files in `commands/`
    - Workflows: `.md` files in `_workflows/` (excluding `README.md`)
-2. Scans all tracked `.md` and `.json` files (including `plugin.json` and `marketplace.json`) for patterns like `{N} skills`, `{N} commands`, `{N} workflows` (also `{N} PM skills`, `{N} product management skills`)
+2. Scans all tracked `.md` and `.json` files (including `plugin.json` and `marketplace.json`) for patterns like `{N} skills`, `{N} commands`, `{N} workflows` with up to 3 alpha-word interstitials (e.g., `{N} AI agent skills`, `{N} best-practice product management skills`)
 3. Compares found numbers against actual counts
 4. Reports mismatches with file path and line number
+
+**Regex behavior (v2.13.0):** the script's regex was tightened from `[0-9]+ (PM|product management)? skills` to `[0-9]+ ([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills` so prose-form interstitials are caught. The 3-token cap keeps false-positive risk bounded (e.g., "we have 38 great teams of seasoned product managers and skills" with 5+ interstitials is intentionally not matched). Per-phase counts (Discover 3, Foundation 8) below the `MinThreshold = 10` filter are still skipped to avoid false-positive on legitimate per-phase prose; codifying per-phase awareness is a v2.14.0+ enhancement.
 
 Exclusions (not flagged as stale):
 - `CHANGELOG.md` . historical entries are correct for their time
