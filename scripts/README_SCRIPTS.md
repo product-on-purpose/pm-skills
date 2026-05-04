@@ -21,6 +21,7 @@
   - [check-stale-bundle-refs.sh / check-stale-bundle-refs.ps1](#check-stale-bundle-refssh--check-stale-bundle-refsps1)
   - [check-nav-completeness.sh / check-nav-completeness.ps1](#check-nav-completenesssh--check-nav-completenessps1)
   - [check-version-references.sh / check-version-references.ps1](#check-version-referencessh--check-version-referencesps1)
+  - [validate-docs-frontmatter.sh / validate-docs-frontmatter.ps1](#validate-docs-frontmattersh--validate-docs-frontmatterps1)
 - [When to use what](#when-to-use-what)
 - [FAQ](#faq)
 - [Tips](#tips)
@@ -270,6 +271,19 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 
 **Outputs:** Pass if all non-excluded refs match current version, or warn/fail with file:line per drifted reference. Excludes historical paths (CHANGELOG, releases, plan archives, session logs, agent context files).
 
+### validate-docs-frontmatter.sh / validate-docs-frontmatter.ps1
+**Purpose:** Validate that every rendered `docs/**/*.md` page has well-formed YAML frontmatter with required fields `title` and `description`.
+
+**Why:** Catches docs that lack metadata Material for MkDocs uses for tag indexing, search, and SEO. Hand-edited content (concepts, guides, reference, contributing) often lacks frontmatter.
+
+**Use when:** After authoring or restructuring rendered docs; in CI (advisory in v2.13.0; promote to enforcing in v2.14.0+ once cleanup is done).
+
+**Commands:**
+- Bash: `./scripts/validate-docs-frontmatter.sh` (advisory) or `--strict` (hard-fail)
+- PowerShell: `./scripts/validate-docs-frontmatter.ps1` or `-Strict`
+
+**Outputs:** File count, finding count (failures + warnings), per-finding file:line. Auto-skips generated content (skills, workflows, showcase, commands.md, releases) and `templates/`.
+
 ## When to use what
 - **Day-to-day:** No scripts needed unless using openskills/Claude Code → run `sync-claude`.
 - **After adding a skill:** `validate-commands` → `lint-skills-frontmatter` → `validate-agents-md` → `check-mcp-impact` → `check-count-consistency`.
@@ -277,7 +291,7 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 - **After adding a script:** `validate-script-docs` (ensure companion `.md` exists).
 - **Pre-release:** All validation scripts → `validate-version-consistency` → `check-count-consistency` → `build-release`.
 - **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`.
-- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`, `check-version-references`.
+- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`, `check-version-references`, `validate-docs-frontmatter`.
 - **Cross-repo drift:** `.github/workflows/validate-mcp-sync.yml` (observe first, block later).
 
 ## FAQ
@@ -329,3 +343,4 @@ Each script has a dedicated documentation file with full usage details, options,
 | `check-stale-bundle-refs.sh` / `.ps1` | [check-stale-bundle-refs.md](check-stale-bundle-refs.md) |
 | `check-nav-completeness.sh` / `.ps1` | [check-nav-completeness.md](check-nav-completeness.md) |
 | `check-version-references.sh` / `.ps1` | [check-version-references.md](check-version-references.md) |
+| `validate-docs-frontmatter.sh` / `.ps1` | [validate-docs-frontmatter.md](validate-docs-frontmatter.md) |

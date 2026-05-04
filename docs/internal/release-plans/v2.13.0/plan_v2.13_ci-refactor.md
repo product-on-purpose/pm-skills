@@ -37,7 +37,7 @@ All 14 items are in scope. Sequencing across 3 waves per audit Section 10. No it
 | 6 | New: `check-nav-completeness` | 16.2 | 1 | **Done** | `86ce58a` |
 | 7 | New: `check-generated-content-untouched` | 16.3 | 2 | Not started (blocked on Bucket A) | - |
 | 8 | New: `validate-references-cross-doc` | 16.4 | 2 | Not started (blocked on Bucket A) | - |
-| 9 | New: `validate-docs-frontmatter` | 16.5 | 3 | Not started | - |
+| 9 | New: `validate-docs-frontmatter` | 16.5 | 3 | **Done** (advisory; deviation from audit's enforcing posture documented) | _pending_ |
 | 10 | New: `check-internal-link-validity` | 16.6 | 3 | Not started | - |
 | 11 | New: `check-version-references` | 16.7 | 3 | **Done** (advisory) | _pending_ |
 | 12 | F-36: `validate-skill-family-registration` | 16.8 | 3 | Not started | - |
