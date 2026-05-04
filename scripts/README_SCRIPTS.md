@@ -20,6 +20,7 @@
   - [check-context-currency.sh / check-context-currency.ps1](#check-context-currencysh--check-context-currencyps1)
   - [check-stale-bundle-refs.sh / check-stale-bundle-refs.ps1](#check-stale-bundle-refssh--check-stale-bundle-refsps1)
   - [check-nav-completeness.sh / check-nav-completeness.ps1](#check-nav-completenesssh--check-nav-completenessps1)
+  - [check-version-references.sh / check-version-references.ps1](#check-version-referencessh--check-version-referencesps1)
 - [When to use what](#when-to-use-what)
 - [FAQ](#faq)
 - [Tips](#tips)
@@ -256,6 +257,19 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 
 **Outputs:** Pass with file/nav counts, or fail listing each orphan or broken nav entry.
 
+### check-version-references.sh / check-version-references.ps1
+**Purpose:** Catch hardcoded version drift across tracked `.md` and `.json` files. Pairs with `validate-version-consistency` (which catches drift between manifests).
+
+**Why:** After a release, files like README, AGENTS docs, and concept pages sometimes have stale `vX.Y.Z` references. This validator detects that drift at PR time.
+
+**Use when:** After tagging a release; before tagging a new release; in CI (advisory in v2.13.0; promote to enforcing in v2.14.0+ once stable).
+
+**Commands:**
+- Bash: `./scripts/check-version-references.sh` (advisory) or `--strict` (hard-fail)
+- PowerShell: `./scripts/check-version-references.ps1` or `-Strict`
+
+**Outputs:** Pass if all non-excluded refs match current version, or warn/fail with file:line per drifted reference. Excludes historical paths (CHANGELOG, releases, plan archives, session logs, agent context files).
+
 ## When to use what
 - **Day-to-day:** No scripts needed unless using openskills/Claude Code → run `sync-claude`.
 - **After adding a skill:** `validate-commands` → `lint-skills-frontmatter` → `validate-agents-md` → `check-mcp-impact` → `check-count-consistency`.
@@ -263,7 +277,7 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 - **After adding a script:** `validate-script-docs` (ensure companion `.md` exists).
 - **Pre-release:** All validation scripts → `validate-version-consistency` → `check-count-consistency` → `build-release`.
 - **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`.
-- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`.
+- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`, `check-version-references`.
 - **Cross-repo drift:** `.github/workflows/validate-mcp-sync.yml` (observe first, block later).
 
 ## FAQ
@@ -314,3 +328,4 @@ Each script has a dedicated documentation file with full usage details, options,
 | `check-context-currency.sh` / `.ps1` | [check-context-currency.md](check-context-currency.md) |
 | `check-stale-bundle-refs.sh` / `.ps1` | [check-stale-bundle-refs.md](check-stale-bundle-refs.md) |
 | `check-nav-completeness.sh` / `.ps1` | [check-nav-completeness.md](check-nav-completeness.md) |
+| `check-version-references.sh` / `.ps1` | [check-version-references.md](check-version-references.md) |

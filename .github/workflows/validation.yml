@@ -166,3 +166,13 @@ jobs:
       - name: Check nav completeness (pwsh, enforcing)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-nav-completeness.ps1
+
+      - name: Check version references (bash)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-version-references.sh
+        continue-on-error: true
+
+      - name: Check version references (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-version-references.ps1
+        continue-on-error: true
