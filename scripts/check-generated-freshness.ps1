@@ -17,7 +17,7 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Root = Split-Path -Parent $ScriptDir
 
 $Fail = $false
-$Generator = Join-Path $Root "scripts" "generate-workflow-pages.py"
+$Generator = Join-Path -Path $Root -ChildPath "scripts/generate-workflow-pages.py"
 
 Write-Host "=== Generated Freshness Check ==="
 Write-Host ""
@@ -29,16 +29,16 @@ if (Test-Path $Generator) {
     # Create temp directory
     $TempRoot = Join-Path ([System.IO.Path]::GetTempPath()) "pm-skills-freshness-$(Get-Random)"
     New-Item -ItemType Directory -Path $TempRoot -Force | Out-Null
-    New-Item -ItemType Directory -Path (Join-Path $TempRoot "docs" "workflows") -Force | Out-Null
-    New-Item -ItemType Directory -Path (Join-Path $TempRoot "scripts") -Force | Out-Null
+    New-Item -ItemType Directory -Path (Join-Path -Path $TempRoot -ChildPath "docs/workflows") -Force | Out-Null
+    New-Item -ItemType Directory -Path (Join-Path -Path $TempRoot -ChildPath "scripts") -Force | Out-Null
 
     try {
         # Copy source files needed by the generator
         Copy-Item -Path (Join-Path $Root "_workflows") -Destination $TempRoot -Recurse
-        Copy-Item -Path $Generator -Destination (Join-Path $TempRoot "scripts" "generate-workflow-pages.py")
+        Copy-Item -Path $Generator -Destination (Join-Path -Path $TempRoot -ChildPath "scripts/generate-workflow-pages.py")
 
         # Try to run the generator
-        $genScript = Join-Path $TempRoot "scripts" "generate-workflow-pages.py"
+        $genScript = Join-Path -Path $TempRoot -ChildPath "scripts/generate-workflow-pages.py"
         $genSucceeded = $false
 
         try {
@@ -53,8 +53,8 @@ if (Test-Path $Generator) {
             Write-Host "Generator ran successfully."
             Write-Host ""
 
-            $committedDir = Join-Path $Root "docs" "workflows"
-            $generatedDir = Join-Path $TempRoot "docs" "workflows"
+            $committedDir = Join-Path -Path $Root -ChildPath "docs/workflows"
+            $generatedDir = Join-Path -Path $TempRoot -ChildPath "docs/workflows"
 
             $stale = @()
             $genFiles = Get-ChildItem -Path $generatedDir -Filter "*.md" -ErrorAction SilentlyContinue
@@ -90,7 +90,7 @@ if (Test-Path $Generator) {
                 Where-Object { $_.Name -ne "README.md" -and -not $_.Name.StartsWith("_") }
 
             foreach ($wf in $workflowFiles) {
-                $docsPage = Join-Path $Root "docs" "workflows" $wf.Name
+                $docsPage = Join-Path -Path $Root -ChildPath "docs/workflows/$($wf.Name)"
                 if (-not (Test-Path $docsPage)) {
                     Write-Host "  [FAIL] Missing: docs/workflows/$($wf.Name)"
                     $Fail = $true
@@ -113,7 +113,7 @@ if (Test-Path $Generator) {
         Where-Object { $_.Name -ne "README.md" -and -not $_.Name.StartsWith("_") }
 
     foreach ($wf in $workflowFiles) {
-        $docsPage = Join-Path $Root "docs" "workflows" $wf.Name
+        $docsPage = Join-Path -Path $Root -ChildPath "docs/workflows/$($wf.Name)"
         if (Test-Path $docsPage) {
             Write-Host "  [OK] docs/workflows/$($wf.Name)"
         } else {
