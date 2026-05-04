@@ -23,6 +23,7 @@
   - [check-version-references.sh / check-version-references.ps1](#check-version-referencessh--check-version-referencesps1)
   - [validate-docs-frontmatter.sh / validate-docs-frontmatter.ps1](#validate-docs-frontmattersh--validate-docs-frontmatterps1)
   - [validate-skill-family-registration.sh / validate-skill-family-registration.ps1](#validate-skill-family-registrationsh--validate-skill-family-registrationps1)
+  - [check-internal-link-validity.sh / check-internal-link-validity.ps1](#check-internal-link-validitysh--check-internal-link-validityps1)
 - [When to use what](#when-to-use-what)
 - [FAQ](#faq)
 - [Tips](#tips)
@@ -298,6 +299,19 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 
 **Outputs:** Per-family pass/fail with member-by-member status. Summary count of families validated.
 
+### check-internal-link-validity.sh / check-internal-link-validity.ps1
+**Purpose:** Validate internal links in rendered docs. Walks `docs/**/*.md` (excluding internal/ and exclude_docs), extracts markdown links, filters to internal-only (skips http/https/mailto/etc.), and verifies each target exists.
+
+**Why:** Catches broken internal links at PR time. Closes audit gap G4. Pure-bash + grep regex implementation; no external tooling (lychee) required.
+
+**Use when:** After authoring docs with cross-references; before tagging a release; in CI (advisory in v2.13.0; promote to enforcing in v2.14.0+).
+
+**Commands:**
+- Bash: `./scripts/check-internal-link-validity.sh` (advisory) or `--strict` (hard-fail)
+- PowerShell: `./scripts/check-internal-link-validity.ps1` or `-Strict`
+
+**Outputs:** Files-checked count, broken-link count, per-finding source-file + broken link path. External URL validation NOT done (out of scope; v2.14 may add via lychee).
+
 ## When to use what
 - **Day-to-day:** No scripts needed unless using openskills/Claude Code → run `sync-claude`.
 - **After adding a skill:** `validate-commands` → `lint-skills-frontmatter` → `validate-agents-md` → `check-mcp-impact` → `check-count-consistency`.
@@ -305,7 +319,7 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 - **After adding a script:** `validate-script-docs` (ensure companion `.md` exists).
 - **Pre-release:** All validation scripts → `validate-version-consistency` → `check-count-consistency` → `build-release`.
 - **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`, `validate-skill-family-registration`.
-- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`, `check-version-references`, `validate-docs-frontmatter`.
+- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`, `check-version-references`, `validate-docs-frontmatter`, `check-internal-link-validity`.
 - **Cross-repo drift:** `.github/workflows/validate-mcp-sync.yml` (observe first, block later).
 
 ## FAQ
@@ -359,3 +373,4 @@ Each script has a dedicated documentation file with full usage details, options,
 | `check-version-references.sh` / `.ps1` | [check-version-references.md](check-version-references.md) |
 | `validate-docs-frontmatter.sh` / `.ps1` | [validate-docs-frontmatter.md](validate-docs-frontmatter.md) |
 | `validate-skill-family-registration.sh` / `.ps1` | [validate-skill-family-registration.md](validate-skill-family-registration.md) |
+| `check-internal-link-validity.sh` / `.ps1` | [check-internal-link-validity.md](check-internal-link-validity.md) |

@@ -194,3 +194,13 @@ jobs:
       - name: Validate skill family registration (pwsh, enforcing)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-skill-family-registration.ps1
+
+      - name: Check internal link validity (bash)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-internal-link-validity.sh
+        continue-on-error: true
+
+      - name: Check internal link validity (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-internal-link-validity.ps1
+        continue-on-error: true

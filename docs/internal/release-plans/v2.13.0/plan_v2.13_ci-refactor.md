@@ -1,6 +1,6 @@
 # v2.13 CI Refactor: Execution Plan
 
-**Status:** Wave 1 complete; Wave 3 partial complete (items 9, 11, 12 done; item 10 lychee not started); Wave 2 pending Bucket A architectural decisions
+**Status:** Wave 1 complete; Wave 3 complete (items 9, 11, 12, 10 done); Wave 2 pending Bucket A architectural decisions
 **Cycle:** v2.13.0
 **Created:** 2026-05-03 (initial); 2026-05-03 (trimmed to thin execution tracker per audit + plan pair convention); 2026-05-03 (post-Codex Round 1 Wave 1 resolution); 2026-05-03 (Wave 3 partial + Codex Round 1 resolution)
 **Spec source:** [`../../audit/ci-audit_2026-05-03.md`](../../audit/ci-audit_2026-05-03.md) Sections 10 (plan summary) and 16 (implementation specifications)
@@ -38,7 +38,7 @@ All 14 items are in scope. Sequencing across 3 waves per audit Section 10. No it
 | 7 | New: `check-generated-content-untouched` | 16.3 | 2 | Not started (blocked on Bucket A) | - |
 | 8 | New: `validate-references-cross-doc` | 16.4 | 2 | Not started (blocked on Bucket A) | - |
 | 9 | New: `validate-docs-frontmatter` | 16.5 | 3 | **Done** (advisory; deviation from audit's enforcing posture documented) | `f6f9785` + Codex resolution |
-| 10 | New: `check-internal-link-validity` | 16.6 | 3 | Not started | - |
+| 10 | New: `check-internal-link-validity` | 16.6 | 3 | **Done** (advisory; pure-bash impl, lychee deferred to v2.14) | _pending_ |
 | 11 | New: `check-version-references` | 16.7 | 3 | **Done** (advisory) | `13085b0` + Codex resolution |
 | 12 | F-36: `validate-skill-family-registration` | 16.8 | 3 | **Done** (structural-integrity scope; family-specific rule generalization deferred to v2.14) | `04d7624` |
 
