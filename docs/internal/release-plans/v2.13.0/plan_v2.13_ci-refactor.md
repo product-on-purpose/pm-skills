@@ -176,6 +176,6 @@ For analytical questions (lychee vs alternatives, family-registry path, count-CI
 
 | Date | Change |
 |---|---|
-| 2026-05-03 | Initial CI refactor plan authored. 14 items across 3 waves. |
+| 2026-05-03 | Initial CI refactor plan authored. 12 items across 3 waves (PowerShell parity bugfixes 1-4, count-consistency promotion 5, then 7 new validators 6-12). |
 | 2026-05-03 | Trimmed to thin execution tracker per audit + plan pair convention. Implementation specifications migrated to audit Section 16. Status tracking, sequencing, CI integration, pre-release gates, and decisions journal retained here. |
 | 2026-05-04 | **Wave 2 complete** (items 7 + 8 shipped). Item 7 `check-generated-content-untouched` ships enforcing; uses snapshot/regen/diff pattern with line-ending normalization (--strip-trailing-cr on bash, CRLF -> LF on PS) for Windows-checkout safety. Pairs with Bucket A.4 Pattern 5C. Item 8 `validate-references-cross-doc` ships enforcing per audit recommendation; current `docs/reference/` state PASSes cleanly (the post-Bucket-A reorg + 10 redirects left no broken refs). Validator skips template placeholders ({{x}}, <x>) to avoid false positives on contract-doc syntax examples (3 such found in `meeting-skills-contract.md`). All 12 CI items now done. Validator inventory: 22 -> 24; enforcing 7 -> 9. |

@@ -484,9 +484,11 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 - 47 slash commands (40 skill + 7 workflow)
 - 126 library samples in `library/skill-output-samples/`
 
-## Skills Inventory (32 skills)
+## Skills Inventory
 
-### Foundation (1 skill)
+> **Note (refresh deferred to v2.14.0+):** the per-phase tables below are at the v2.10.x-era 32-skill catalog and have not been refreshed for the current 40-skill catalog (26 phase + 8 foundation + 6 utility) shipped in v2.11.0/v2.12.0. The authoritative current catalog lives in `docs/reference/categories.md` (taxonomy + counts) and `docs/skills/index.md` (curated index). This table will be regenerated as part of the v2.14.0 cycle's CONTEXT.md refresh.
+
+### Foundation (1 skill, stale - actual is 8)
 
 | Skill | Category | Classification | Status |
 |-------|----------|----------------|--------|
