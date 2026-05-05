@@ -44,7 +44,7 @@
 | **Custom CSS** | `extra_css: stylesheets/extra.css`  -  verify rules apply | CSS rules visible in rendered output |
 | **Custom directory** | `theme.custom_dir: overrides`  -  confirm honored or document divergence | Either honored or clear non-compat note |
 | **Generator output** | `generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py` produce content; build it with Zensical | Generated pages render |
-| **`exclude_docs:`** | Honored (5 paths excluded) | No 404s for excluded files; site doesn't include them |
+| **`exclude_docs:`** | Honored (2 paths excluded) | No 404s for excluded files; site doesn't include them |
 | **Nav structure** | Multi-level nav with section indexes | Nav renders identically or with minor cosmetic diffs |
 | **Build performance** | Time `zensical build` vs `mkdocs build` | ZRX claim of 4-5x rebuild speed verified or contradicted |
 

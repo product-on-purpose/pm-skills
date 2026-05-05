@@ -17,7 +17,7 @@ Two structural compatibility failures fire NO-GO triggers per the spike plan's
 rubric (Section 3.3):
 
 1. **`mkdocs-redirects` plugin: not honored.** Zero redirect HTML files
-   generated. The 10 redirect entries in `mkdocs.yml` (bundles to workflows,
+   generated. The 12 redirect entries in `mkdocs.yml` (bundles to workflows,
    concepts/triple-diamond renames, mcp-setup consolidation, authoring-guide
    consolidation) silently dropped. Every bookmarked old URL would 404 after
    migration.
@@ -66,7 +66,7 @@ before Zensical reaches feature parity, Plan B gets its own effort doc.
 
 **Severity:** BLOCKER (NO-GO trigger: "core plugin (redirects) fundamentally doesn't work")
 
-`mkdocs.yml` lines 86-99 declare 10 redirect mappings via the `redirects`
+`mkdocs.yml` lines 86-99 declare 12 redirect mappings via the `redirects`
 plugin. Material plus `mkdocs-redirects` produces an HTML file at each
 old path that issues a meta-refresh / JS redirect to the new path. Zensical
 0.0.40 generates zero such files.
@@ -76,7 +76,7 @@ Verified by checking specific old paths:
 - `site/bundles/` -> directory does not exist (should redirect to `workflows/`)
 - `site/concepts/triple-diamond/` -> directory does not exist (should redirect to `concepts/triple-diamond-delivery-process/`)
 
-All 10 redirect entries silently dropped. No build warning was emitted to
+All 12 redirect entries silently dropped. No build warning was emitted to
 flag the incompatibility; the site simply omits the redirect files.
 
 **Impact if migrated unchanged:** Every existing bookmark, search-engine
@@ -216,7 +216,7 @@ two BLOCKERs above and a follow-up evaluation becomes useful.
 | `privacy` | Privacy compliance for embedded content | Not assessed; CI-only plugin. UNASSESSED. |
 | `social` | Social card generation | Not assessed; CI-only plugin. UNASSESSED. |
 | `tags` | Tag index page | `tags/` directory generated. Functional rendering not verified in browser. PASSES at the artifact level. |
-| `redirects` | URL redirects (10 mapped) | **NOT HONORED.** Zero redirect HTML files generated. **BLOCKER.** |
+| `redirects` | URL redirects (12 mapped) | **NOT HONORED.** Zero redirect HTML files generated. **BLOCKER.** |
 | `git-revision-date-localized` | "Last updated" timestamps | Not assessed; CI-only plugin. UNASSESSED. |
 
 | Markdown extension | Used for | Spike outcome |
