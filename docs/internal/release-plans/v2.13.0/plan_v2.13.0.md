@@ -58,11 +58,11 @@ graph LR
 
 ## Progress Dashboard
 
-**Overall:** 13 of 27 work items shipped (48%); pre-release gates 0 of 5
-**Current focus:** Bucket A.4 (Pattern 5C generated frontmatter flag)
+**Overall:** 14 of 27 work items shipped (52%); pre-release gates 0 of 5
+**Current focus:** Bucket B (count + link cleanup) OR Bucket C Wave 2 (now unblocked)
 **Last updated:** 2026-05-04
 
-Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + Wave 1 (7 items) + Wave 3 (3 items) = 13.
+Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + A.4 + Wave 1 (7 items) + Wave 3 (3 items) = 14. **Bucket A complete.**
 
 ### Status legend
 
@@ -71,14 +71,14 @@ Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + Wa
 - ⬜ Not started
 - ⛔ Blocked (dependency identified)
 
-### Bucket A  -  Doc structure refactor (3 of 4 = 75%)
+### Bucket A  -  Doc structure refactor (4 of 4 = 100% ✓)
 
 | # | Item | Status | Evidence / Notes |
 |---|------|--------|------------------|
 | A.1 | Frameworks folder delete + `triple-diamond` rename | ✅ Shipped | commit `4190f45` |
 | A.2 | Cross-folder reorg: 4 moves out of `concepts/` to `reference/` + `guides/` | ✅ Shipped | commit `4190f45` |
 | A.3 | Authoring guide consolidation: `creating-skills` → `creating-pm-skills`, delete `authoring-pm-skills` | ✅ Shipped | commit `4190f45` |
-| A.4 | Pattern 5C generated frontmatter flag (~52 pages) | 🟡 Next up | Edits 3 generator scripts; unblocks Bucket C Wave 2 |
+| A.4 | Pattern 5C generated frontmatter flag (63 pages: 38 skills + 8 phase indices + 1 commands ref + 9 workflows + 1 workflow index + 3 showcase + 1 showcase index + commands ref) | ✅ Shipped | this session; unblocks Bucket C Wave 2 |
 
 ### Bucket B  -  Doc count + link cleanup (0 of 9 = 0%)
 
@@ -94,15 +94,15 @@ Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + Wa
 | B.8 | `docs/reference/project-structure.md` full reconciliation | ⬜ Not started | A.1 patched 4 lines; full sweep needed |
 | B.9 | `docs/guides/index.md` full guide listing (currently 5 of ~13) | ⬜ Not started | Audit Tier 2 |
 
-### Bucket C  -  CI hardening (10 of 12 = 83%, Wave 2 blocked)
+### Bucket C  -  CI hardening (10 of 12 = 83%, Wave 2 unblocked)
 
 Detail at [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md).
 
 | # | Item | Status | Evidence / Notes |
 |---|------|--------|------------------|
 | C.W1 | Wave 1: 5 PS parity bugfixes + count regex tighten + nav-completeness validator (7 items) | ✅ Shipped | prior session, PR #140 |
-| C.W2.1 | `check-generated-content-untouched` validator | ⛔ Blocked on A.4 | Pattern 5C frontmatter must exist first |
-| C.W2.2 | `validate-references-cross-doc` validator | ⛔ Blocked on A.4 | Stable file set required |
+| C.W2.1 | `check-generated-content-untouched` validator | ⬜ Not started (unblocked) | Pattern 5C frontmatter now present (A.4 shipped) |
+| C.W2.2 | `validate-references-cross-doc` validator | ⬜ Not started (unblocked) | Stable file set established (Bucket A complete) |
 | C.W3 | Wave 3: docs frontmatter + internal links + version refs + F-36 family validator (3 items) | ✅ Shipped | prior session, PR #140 |
 
 ### Bucket D  -  Zensical compatibility spike (0 of 2 = 0%)
@@ -269,7 +269,7 @@ Explicit guards to prevent the scope creep risk noted at the v2.12.0 to v2.13.0 
 | **OQ-1** | Duplicate top-level files: Option A (keep + warn), B (single source generated), or C (delete + redirect)? | Audit 3.5 | **C  -  delete duplicates, redirect via `mkdocs-redirects`** (smallest ongoing maintenance) | **Resolved 2026-05-04: Option C executed.** All 4 top-level legacy duplicates deleted; redirects in mkdocs.yml. Real drift was 60 of 3,226 lines for agent-skill-anatomy and 21 of 1,495 lines for getting-started after CR-strip; canonical was strictly newer in all cases. |
 | **OQ-2** | `docs/frameworks/` folder (1 excluded file): delete or promote? | Audit 5.4 | **Delete folder; merge content into `docs/concepts/triple-diamond.md`** | **Resolved 2026-05-04: deleted folder.** Content was byte-identical to canonical (no merge needed). Canonical also renamed `concepts/triple-diamond.md` → `concepts/triple-diamond-delivery-process.md` for descriptive accuracy. |
 | **OQ-3** | `creating-skills.md` vs `authoring-pm-skills.md`  -  which is canonical? | Audit Pattern 3 | **Keep `creating-skills.md` as canonical**; redirect the other | **Resolved 2026-05-04: renamed canonical to `creating-pm-skills.md`** per the locked `pm-skill-*` naming convention; deleted authoring duplicate; both old paths redirect to new. |
-| **OQ-4** | Pattern 5 (generated-content marker): adopt 5A (filesystem move), 5B (banner comment), or 5C (frontmatter `generated: true`)? | Audit Pattern 5 | **5C  -  frontmatter flag** (least disruptive, most automatable, pairs with new CI script) | TBD |
+| **OQ-4** | Pattern 5 (generated-content marker): adopt 5A (filesystem move), 5B (banner comment), or 5C (frontmatter `generated: true`)? | Audit Pattern 5 | **5C  -  frontmatter flag** (least disruptive, most automatable, pairs with new CI script) | **Resolved 2026-05-04: Option 5C executed.** All 3 generators (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`) now emit `generated: true` + `source:` frontmatter fields and a visible `!!! warning "Generated file"` admonition pointing editors to the source. Coverage: 63 generated pages (38 skill + 8 phase indices + 1 commands ref + 9 workflows + 1 workflow index + 3 showcase + 1 showcase index). Unblocks Bucket C Wave 2 item 7 (`check-generated-content-untouched`). |
 | **OQ-5** | Pattern 2 (frontmatter-driven counts via mkdocs-macros-plugin): adopt in v2.13 or defer? | Audit Pattern 2 | **Defer to v2.14.0+** pending Zensical decision (depends on which engine renders) | TBD |
 | **OQ-6** | F-37 HTML Template Creator: include in v2.13 or defer? | Working tree untracked | **Defer to v2.14.0+**  -  conflicts with "no new skills" guard | TBD |
 | **OQ-7** | Sample-automation slate F-29 to F-36 except F-34: defer all? | Session log re-eval | **Defer all except F-34** (lifted into Bucket B) and F-36 (lifted into Bucket C strand doc as generic family validator) | TBD |
@@ -334,7 +334,7 @@ What shipping the full v2.13.0 release produces, by audience and by effect.
 | 5 docs reorganized into Diátaxis-aligned folders | Bucket A | `concepts/` = generic; `reference/` = lookup; `guides/` = how-to |
 | 6 legacy duplicate files deleted | Bucket A | Single source of truth per concept |
 | `docs/frameworks/` folder retired | Bucket A | `mkdocs.yml exclude_docs:` reduced 8 → 2 |
-| ~52 generated pages get a "do not edit" banner | Bucket A.4 | Visible warning + `generated: true` frontmatter flag |
+| 63 generated pages get a "do not edit" banner | Bucket A.4 | Visible warning + `generated: true` + `source:` frontmatter fields |
 | ~12 stale counts reconciled | Bucket B | Numbers match across skill catalog, mcp-setup, README, project-structure, guides/index |
 | 12 broken internal links fixed | Bucket B | Click-throughs work everywhere |
 | 10 redirect entries in `mkdocs.yml` | Bucket A | Old bookmarks still reach new locations |
@@ -493,3 +493,4 @@ Top-level summary:
 | 2026-05-03 | Scope locked: three strands (doc consistency + CI refactor + Zensical compatibility spike). Theme updated to "Foundation Hardening + Doc Stack Decision". Buckets restructured to A-D (old E + F dissolved into deferral table). Bucket E sample-automation slate deferred all except F-34 (lifted into B). Bucket F refactor patterns 1/2/4/5A deferred. Pattern 5C adopted as default (lifted into A). F-36 lifted into C strand doc. F-37 deferred. Open Questions reduced to 7 with my proposed defaults pre-filled. CI strand doc, Zensical spike doc, pre-release checklist, and skills-manifest authored as siblings. No new F-XX effort docs (effort-doc convention paused for v2.13 mechanical work per maintainer feedback on doc bloat). |
 | 2026-05-04 | Bucket A executed: A1 (frameworks delete + `triple-diamond-delivery-process` rename in concepts/), A2 (4 concept moves out of concepts/ to reference/ and guides/ per Diátaxis + 4 legacy duplicate deletes including substantial-drift agent-skill-anatomy and getting-started after CR-strip analysis revealed real drift was minor), A3 (`creating-skills` → `creating-pm-skills` + `authoring-pm-skills` delete). Naming convention (`pm-skill-*` prefix for PM-specific content) and folder semantics (concepts=generic, reference=lookup, guides=how-to) locked. OQ-1, OQ-2, OQ-3 resolved. Backup at `_NOTES/backup-git/2026-05-04_v2.13-refactor/` (10 files + INDEX.md). mkdocs.yml `exclude_docs:` reduced from 8 entries to 2. Bucket A.4 (Pattern 5C generated frontmatter flag) deferred to fresh session. |
 | 2026-05-04 | Plan readability pass: added Progress Dashboard section (item-level status with ✅/🟡/⬜/⛔ icons across 22 work items in 4 buckets + 5 pre-release gates) for in-flight visibility. Added Outcomes at v2.13.0 Tag Time section synthesizing what shipping the full release produces (stays-the-same / visible changes / under-the-hood / Zensical decision artifact / deferred / audience reads / acceptance criteria). Trimmed bucket-status rows from Status Snapshot to avoid dual-source-of-truth drift. Net: 2 new sections, 1 small table trim, scope/decisions/OQs unchanged. |
+| 2026-05-04 | Bucket A.4 executed: Pattern 5C generated-content marker applied to all 3 generator scripts (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`). Each generated page now carries `generated: true` and `source: scripts/generate-X.py` in frontmatter plus a `!!! warning "Generated file"` admonition pointing editors to the source. Coverage: 63 pages (38 skill + 8 phase indices + 1 commands ref + 9 workflows + 1 workflow index + 3 showcase + 1 showcase index). OQ-4 resolved. **Bucket A complete (4 of 4).** Bucket C Wave 2 (items 7 + 8) now unblocked. Progress: 14 of 27 work items shipped (52%). |
