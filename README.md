@@ -53,18 +53,18 @@
   <img src="https://img.shields.io/github/last-commit/product-on-purpose/pm-skills?style=flat-square" alt="Last Commit">
 </p>
 
-<!-- ========== NEW: MCP Cross-Reference Badge + Callout ========== -->
+<!-- ========== UPDATED: MCP Cross-Reference Badge + Callout (maintenance mode) ========== -->
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills-mcp">
-    <img src="https://img.shields.io/badge/MCP_Server-available-purple.svg?style=flat-square" alt="MCP Server Available">
+    <img src="https://img.shields.io/badge/MCP_Server-maintenance%20mode-yellow.svg?style=flat-square" alt="MCP Server: Maintenance Mode">
   </a>
 </p>
 
-> **🔥MCP Server Available!** If you are using VS Code, Claude Desktop, Claude Code (CLI), Github Copilot, Cursor, etc... check out **[pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)** for instant MCP access to the shipped skill library and workflows - no file management required.
+> **MCP Server: Maintenance Mode (effective 2026-05-04).** The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server (v2.9.1) remains available on npm for clients that need MCP transport. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold. **For new users, the file-based install path documented in [Getting Started](#getting-started) is the recommended path.** See [MCP Integration](docs/guides/mcp-integration.md) for status details and resumption criteria.
 
 ---
 
-<!-- ========== END NEW ========== -->
+<!-- ========== END UPDATED ========== -->
 
 <p align="center">
   <a href="#the-big-idea">About</a> •
@@ -364,9 +364,9 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | ------------------- | ------------ | --------------------------------------------------------------------------- | -------------------------------------- |
 | **Claude Code**     | ✅ Native    | Slash commands; optional `sync-claude.(sh|ps1)` to populate `.claude/` cache | Best experience with `/prd`, etc.; helper needed for openskills-style discovery |
 | **Claude.ai**       | ✅ Native    | ZIP upload                                                                  | Upload to Projects                     |
-| **Claude Desktop**  | ✅ Native    | ZIP upload or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)    | MCP recommended for programmatic access |
+| **Claude Desktop**  | ✅ Native    | ZIP upload or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)    | MCP available for programmatic access (server in maintenance mode) |
 | **GitHub Copilot**  | ✅ Native    | AGENTS.md discovery                                                         | Auto-discovers in repo                 |
-| **Cursor**          | ✅ Native    | AGENTS.md or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)     | MCP for programmatic tool access; sync helper optional if using openskills      |
+| **Cursor**          | ✅ Native    | AGENTS.md or [MCP](https://github.com/product-on-purpose/pm-skills-mcp)     | MCP available (server in maintenance mode); sync helper optional if using openskills |
 | **Windsurf**        | ✅ Native    | AGENTS.md discovery                                                         | Auto-discovers; sync helper not needed |
 | **VS Code**         | ✅ Native    | Via extensions                                                              | Cline, Continue, or manual             |
 | **OpenCode**        | ✅ Native    | Skill format                                                                | Direct skill loading                   |
@@ -378,6 +378,8 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 
 `PM-Skills` is available in two complementary forms:
 
+> **Note:** `pm-skills-mcp` entered [maintenance mode](docs/guides/mcp-integration.md) on 2026-05-04. It remains available for clients that need MCP transport. New users are best served by the file-based install path (recommended path going forward).
+
 |  | pm-skills (this repo) | [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) |
 |---|---|---|
 | **What it is** | Skill library as markdown files | MCP server wrapping the skill library |
@@ -388,9 +390,9 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **Template access** | Navigate file system | URI-based resources |
 | **Workflows** | Manual orchestration | Tool-based execution |
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
-| **Updates** | `git pull` | `npm update pm-skills-mcp` |
+| **Updates** | `git pull` (active maintenance) | Frozen at v2.9.1 (maintenance mode) |
 
-> Note: pm-skills-mcp v1.x targets the legacy nested layout; use pm-skills-mcp v2.4+ for version-aligned parity with pm-skills v2.4+.
+> Note: pm-skills-mcp v2.9.1 is the final maintenance-mode release embedding 29 skills. See [MCP Integration](docs/guides/mcp-integration.md) for status details.
 
 **Use `pm-skills` (this repo) when:**
 - You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)
@@ -398,12 +400,12 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 - You're using GitHub Copilot or Windsurf with AGENTS.md discovery
 - You want to fork and heavily customize skills for your team
 
-**Use [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) when:**
-- You want instant setup with `npx pm-skills-mcp`
-- You're using Claude Desktop, Cursor, or any MCP client
-- You want programmatic tool access without managing files
+**Use [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) (maintenance mode) when:**
+- Your team has already adopted it and v2.9.1's catalog meets current needs
+- Your tooling specifically requires the MCP transport (e.g., self-hosted MCP-only configurations)
+- The frozen 29-skill catalog meets your scope (skills added to `pm-skills` since v2.9.1 are not embedded)
 
-Both approaches give you access to the same 40 production-ready PM skills (26 phase skills + 8 foundation skills + 6 utility skills).
+The file-based install ships all 40 production-ready PM skills (26 phase skills + 8 foundation skills + 6 utility skills). The frozen v2.9.1 MCP build embeds a subset of 29 skills.
 
 See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
 

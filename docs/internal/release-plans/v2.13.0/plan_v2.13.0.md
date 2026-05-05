@@ -84,10 +84,10 @@ Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + A.
 
 | # | Item | Status | Notes |
 |---|------|--------|-------|
-| B.1 | Reconcile counts across 6 docs (skill-anatomy, categories, ecosystem, project-structure, mcp-integration, getting-started) | ⬜ Not started | Audit Tier 1 #2-3, Tier 2 #7 |
+| B.1 | Reconcile counts across 6 docs (skill-anatomy, categories, ecosystem, project-structure, mcp-integration, getting-started) | 🟡 Partial | Audit Tier 1 #2-3, Tier 2 #7. `mcp-integration.md` and `ecosystem.md` MCP-count concerns subsumed by 2026-05-05 MCP maintenance-mode pivot (file rewritten / section reframed). Remaining: skill-anatomy (file is `agent-skill-anatomy.md`; already correct), categories, project-structure (1 line: Measure 4→5), getting-started (already correct). |
 | B.2 | `mkdocs.yml site_description` 32→40, `skills/index.md` + `showcase/index.md` "do not edit" banners | ⬜ Not started | Audit Tier 1 #1, #4, #5 |
 | B.3 | `utility-pm-skill-builder` SKILL.md catalog table | ⬜ Not started | Foundation 1→8, Utility 1→6, Domain 25→26 |
-| B.4 | `docs/guides/mcp-setup.md` frozen-MCP framing | ⬜ Not started | "all 38" → frozen at 28 per M-22 |
+| B.4 | `docs/guides/mcp-setup.md` frozen-MCP framing | ⬜ Re-evaluate | Original framing ("all 38" → frozen at 28 per M-22) may be subsumed by 2026-05-05 MCP maintenance-mode pivot. Re-read mcp-setup.md before working; may need full maintenance-mode rewrite or removal in favor of `mcp-integration.md` as canonical status page. |
 | B.5 | `AGENTS/codex/CONTEXT.md` decision: refresh OR vestigial-redirect | ⬜ Not started | v2.12.0 session log carryover |
 | B.6 | README "What's New" inline-version-prefix workaround | ⬜ Not started | Generated section vs section-aware count CI |
 | B.7 | F-34: `THREAD_PROFILES.md` standalone reference doc | ⬜ Not started | Lifted from old Bucket E |
@@ -204,6 +204,26 @@ Summary at this level:
 | Conditional: Plan B (Astro Starlight) effort doc IF spike returns NO-GO | Defer to separate effort | `docs/internal/efforts/...` (only if triggered) |
 
 Decision rubric, plugin compatibility checklist, time-box, and Plan B trigger conditions all in the strand doc.
+
+---
+
+## Out-of-cycle work added 2026-05-05: MCP maintenance mode pivot
+
+Not in the original v2.13.0 plan. User-initiated pivot to publish an official maintenance-mode marker for the companion `pm-skills-mcp` server, rather than continuing release parity with this library. Tracked here so the cycle's release notes can mention it and so subsequent buckets (B.1, B.4, ecosystem.md doc) reference the right canonical status page.
+
+| # | Item | Status | Notes |
+|---|------|--------|-------|
+| MCP.1 | `pm-skills-mcp` v2.9.1 release: README banner + status badge swap + Project Status Development Status subsection + CHANGELOG entry combining maintenance announcement with held-back v2.9.0 catch-up content + version bump in `package.json` and `src/config.ts` | ✅ Shipped (separate repo) | Local commit `3e39776` + tag `v2.9.1` in `pm-skills-mcp`. Push + npm publish pending coordinated wave-push. |
+| MCP.2 | `docs/guides/mcp-integration.md` aggressive trim: 570 → 39 lines. Removed quick-start per client, tool inventory, slash-mapping, customization, sync workflow, troubleshooting (now canonically in pm-skills-mcp's own README). Kept maintenance notice + recommended path + skill-parity table + interest-registration link. | ✅ Shipped | This commit. -554 / +23 net. |
+| MCP.3 | `README.md` MCP cross-reference callout + comparison table + Use-when bullets reframed for maintenance-mode posture. Status badge swapped from purple `available` to yellow `maintenance mode`. Comparison Updates row updated to reflect frozen v2.9.1. | ✅ Shipped | This commit. +15 / -13. |
+| MCP.4 | `docs/reference/ecosystem.md`: maintenance notice atop the PM-Skills MCP section; line 27 ecosystem statement reframed; Decision Matrix qualifier note. | ✅ Shipped | This commit. +6 / -2 net. |
+
+Decisions captured during pivot:
+- Single-release strategy (Option X): v2.9.1 carries both the v2.9.0 held-back changes and the maintenance announcement, rather than two separate npm publishes.
+- Em-dash sweep scope (Option C): pm-skills-mcp README swept (15 em-dashes), CHANGELOG history left as-published.
+- Tone: "Maintenance Mode" framing (industry-standard, neutral, descriptive). Not "Paused" (too soft) or "Frozen/Deprecated" (too strong).
+- Decision Matrix kept rows intact; added qualifier note rather than per-row rewrites.
+- npm namespace strategy (scoped publishing under `@product-on-purpose/`, name-dispute against tarunccet's `pm-skills` squat) flagged as v2.14.0+ scope; not in this cycle.
 
 ---
 
@@ -495,3 +515,4 @@ Top-level summary:
 | 2026-05-04 | Plan readability pass: added Progress Dashboard section (item-level status with ✅/🟡/⬜/⛔ icons across 22 work items in 4 buckets + 5 pre-release gates) for in-flight visibility. Added Outcomes at v2.13.0 Tag Time section synthesizing what shipping the full release produces (stays-the-same / visible changes / under-the-hood / Zensical decision artifact / deferred / audience reads / acceptance criteria). Trimmed bucket-status rows from Status Snapshot to avoid dual-source-of-truth drift. Net: 2 new sections, 1 small table trim, scope/decisions/OQs unchanged. |
 | 2026-05-04 | Bucket A.4 executed: Pattern 5C generated-content marker applied to all 3 generator scripts (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`). Each generated page now carries `generated: true` and `source: scripts/generate-X.py` in frontmatter plus a `!!! warning "Generated file"` admonition pointing editors to the source. Coverage: 63 pages (38 skill + 8 phase indices + 1 commands ref + 9 workflows + 1 workflow index + 3 showcase + 1 showcase index). OQ-4 resolved. **Bucket A complete (4 of 4).** Bucket C Wave 2 (items 7 + 8) now unblocked. Progress: 14 of 27 work items shipped (52%). |
 | 2026-05-04 | Bucket C Wave 2 executed: items 7 + 8 shipped. Item 7 `check-generated-content-untouched` ships enforcing using snapshot/regen/diff with Windows-safe line-ending normalization. Pairs with Pattern 5C: every generated page declares `generated: true` and any hand-edit drifts the diff. Item 8 `validate-references-cross-doc` ships enforcing per audit recommendation (option 8a); current `docs/reference/` state PASSes cleanly so no findings to fix. Validator skips template placeholders (`{{x}}`, `<x>`) to avoid false positives on contract-doc syntax examples. **Bucket C complete (12 of 12).** Validator inventory: 22 -> 24; enforcing tier 7 -> 9. Progress: 16 of 27 work items shipped (59%). |
+| 2026-05-05 | Out-of-cycle: MCP maintenance mode pivot (4 work items MCP.1-MCP.4 added). User-initiated decision to publish `pm-skills-mcp` v2.9.1 as official maintenance-mode marker. `pm-skills-mcp` Batch 1 committed locally (commit `3e39776`, tag `v2.9.1`); push + npm publish pending coordinated wave-push. `pm-skills` downstream sweep done in 3 sub-batches: 2.1 `mcp-integration.md` aggressive trim (-554/+23), 2.2 `README.md` MCP-section reframe (+15/-13), 2.3 `ecosystem.md` notice + Decision Matrix qualifier (+6/-2). Bucket B.1 partially subsumed (mcp-integration.md scope handled). Bucket B.4 status changed to `Re-evaluate` (mcp-setup.md may also need full maintenance-mode rewrite). Sibling commit removes unused `mkdocs.yml` `theme.custom_dir: overrides` hook + empty `overrides/.gitkeep` (basic hygiene). |

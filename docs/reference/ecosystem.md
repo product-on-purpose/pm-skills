@@ -24,7 +24,7 @@ This guide explains the PM-Skills ecosystem, which comprises two complementary p
 
 ## Overview
 
-The PM-Skills ecosystem provides a file-based PM skill library plus an MCP server companion. The current `pm-skills` repo ships 40 skill directories (26 phase skills, 8 foundation skills, 6 utility skills), while `pm-skills-mcp` exposes a release-pinned snapshot of that library.
+The PM-Skills ecosystem provides a file-based PM skill library plus an MCP server companion in maintenance mode. The current `pm-skills` repo ships 40 skill directories (26 phase skills, 8 foundation skills, 6 utility skills), while `pm-skills-mcp` v2.9.1 (frozen) exposes a release-pinned snapshot of 29 of those skills.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -113,6 +113,10 @@ pm-skills/
 
 ### PM-Skills MCP (MCP Server)
 
+!!! warning "Maintenance mode (effective 2026-05-04)"
+
+    Active development on `pm-skills-mcp` is paused. The published v2.9.1 release remains available on npm and continues to expose 29 PM skills, 11 workflow tools, and 8 utility tools. Security patches and critical bug fixes will continue. New skill parity with the upstream `pm-skills` library is on hold. See [MCP Integration](../guides/mcp-integration.md) for status details.
+
 **Repository:** [github.com/product-on-purpose/pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)
 **npm Package:** [pm-skills-mcp](https://www.npmjs.com/package/pm-skills-mcp)
 
@@ -166,7 +170,9 @@ Or configure directly in your MCP client:
 
 ## Decision Matrix
 
-Use this matrix to choose between the file-based skill library and the MCP server:
+Use this matrix to choose between the file-based skill library and the MCP server.
+
+> **Note:** All "PM-Skills MCP" recommendations below assume the MCP server is in maintenance mode (effective 2026-05-04). New users should default to the file-based PM-Skills install; MCP recommendations apply primarily to teams already using the v2.9.1 release.
 
 | Scenario | Recommended | Reason |
 |----------|-------------|--------|
