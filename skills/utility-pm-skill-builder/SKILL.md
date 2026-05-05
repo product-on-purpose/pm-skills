@@ -195,7 +195,7 @@ Provide post-promotion guidance:
 Use this table for gap analysis . it reflects the current skill inventory.
 Also scan the `skills/` directory for the latest authoritative count.
 
-### Domain Skills (25)
+### Domain Skills (26)
 
 | Phase | Skill | Category | Description |
 |-------|-------|----------|-------------|
@@ -220,22 +220,35 @@ Also scan the `skills/` directory for the latest authoritative count.
 | measure | experiment-design | validation | A/B test or experiment design |
 | measure | experiment-results | reflection | Experiment results and learnings |
 | measure | instrumentation-spec | validation | Event tracking specification |
+| measure | okr-grader | reflection | OKR cycle-close scoring at the KR level |
 | iterate | lessons-log | reflection | Structured lessons learned |
 | iterate | pivot-decision | reflection | Pivot or persevere decision |
 | iterate | refinement-notes | coordination | Backlog refinement outcomes |
 | iterate | retrospective | reflection | Team retrospective |
 
-### Foundation Skills (1)
+### Foundation Skills (8)
 
 | Skill | Category | Description |
 |-------|----------|-------------|
+| lean-canvas | problem-framing | One-page lean canvas across nine interlocking blocks |
+| meeting-agenda | meeting | Attendee-facing pre-meeting agenda |
+| meeting-brief | meeting | Private pre-meeting strategic preparation |
+| meeting-recap | meeting | Post-meeting summary with decisions and actions |
+| meeting-synthesize | meeting | Cross-meeting pattern synthesis from multiple recaps |
+| okr-writer | coordination | Outcome-based OKR set authoring with coaching |
 | persona | research | Evidence-calibrated product or marketing persona |
+| stakeholder-update | meeting | Async stakeholder communication for non-attendees |
 
-### Utility Skills (1)
+### Utility Skills (6)
 
 | Skill | Category | Description |
 |-------|----------|-------------|
+| mermaid-diagrams | documentation | Mermaid diagram authoring with syntax validation |
 | pm-skill-builder | coordination | This skill |
+| pm-skill-iterate | coordination | Targeted improvements to an existing skill |
+| pm-skill-validate | coordination | Audit a skill against structural conventions and quality criteria |
+| slideshow-creator | communication | JSON-spec presentation generation across 18 slide types |
+| update-pm-skills | coordination | Check for and apply pm-skills releases locally |
 
 ## Output Contract
 

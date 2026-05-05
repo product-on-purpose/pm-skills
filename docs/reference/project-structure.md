@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Directory Overview](#directory-overview)
-- [/skills/ . Skills](#skills--the-32-pm-skills-flat)
+- [/skills/ . Skills](#skills--the-40-pm-skills-flat)
 - [/commands/ . Slash Commands](#commands--slash-commands)
 - [/workflows/ . Workflows](#workflows--workflows)
 - [/docs/ . Documentation](#docs--documentation)
@@ -19,8 +19,8 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (38 total, flat)
-├── commands/                   # Slash command markdown files (45 total + .gitkeep)
+├── skills/                     # Core PM skills (40 total, flat)
+├── commands/                   # Slash command markdown files (47 total + .gitkeep)
 ├── _workflows/                 # Workflows
 ├── docs/                       # Documentation (incl. templates)
 │   └── templates/              # Skill creation templates
@@ -98,11 +98,18 @@ skills/{skill-name}/
 | `deliver-launch-checklist` | Pre-launch verification checklist |
 | `deliver-release-notes` | User-facing release communication |
 
-#### Foundation (1 skill)
+#### Foundation (8 skills)
 
 | Skill | Purpose |
 |-------|---------|
+| `foundation-lean-canvas` | One-page lean canvas across nine interlocking blocks |
+| `foundation-meeting-agenda` | Attendee-facing pre-meeting agenda |
+| `foundation-meeting-brief` | Private pre-meeting strategic preparation |
+| `foundation-meeting-recap` | Post-meeting summary with decisions and actions |
+| `foundation-meeting-synthesize` | Cross-meeting pattern synthesis from multiple recaps |
+| `foundation-okr-writer` | Outcome-based OKR set authoring with coaching |
 | `foundation-persona` | Evidence-calibrated product or marketing persona generation |
+| `foundation-stakeholder-update` | Async stakeholder communication for non-attendees |
 
 #### Utility (6 skills)
 
@@ -164,11 +171,19 @@ Contains Claude Code slash command definitions. Each `.md` maps a `/command` to 
 | `/experiment-design` | measure-experiment-design |
 | `/experiment-results` | measure-experiment-results |
 | `/instrumentation-spec` | measure-instrumentation-spec |
+| `/okr-grader` | measure-okr-grader |
 | `/lessons-log` | iterate-lessons-log |
 | `/pivot-decision` | iterate-pivot-decision |
 | `/refinement-notes` | iterate-refinement-notes |
 | `/retrospective` | iterate-retrospective |
+| `/lean-canvas` | foundation-lean-canvas |
+| `/meeting-agenda` | foundation-meeting-agenda |
+| `/meeting-brief` | foundation-meeting-brief |
+| `/meeting-recap` | foundation-meeting-recap |
+| `/meeting-synthesize` | foundation-meeting-synthesize |
+| `/okr-writer` | foundation-okr-writer |
 | `/persona` | foundation-persona |
+| `/stakeholder-update` | foundation-stakeholder-update |
 | `/pm-skill-iterate` | utility-pm-skill-iterate |
 | `/pm-skill-validate` | utility-pm-skill-validate |
 | `/mermaid-diagrams` | utility-mermaid-diagrams |
