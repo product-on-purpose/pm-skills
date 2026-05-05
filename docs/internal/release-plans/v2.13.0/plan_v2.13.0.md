@@ -58,11 +58,11 @@ graph LR
 
 ## Progress Dashboard
 
-**Overall:** 14 of 27 work items shipped (52%); pre-release gates 0 of 5
-**Current focus:** Bucket B (count + link cleanup) OR Bucket C Wave 2 (now unblocked)
+**Overall:** 16 of 27 work items shipped (59%); pre-release gates 0 of 5
+**Current focus:** Bucket B (count + link cleanup) OR Bucket D (Zensical spike)
 **Last updated:** 2026-05-04
 
-Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + A.4 + Wave 1 (7 items) + Wave 3 (3 items) = 14. **Bucket A complete.**
+Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + A.4 + Wave 1 (7 items) + Wave 2 (2 items) + Wave 3 (3 items) = 16. **Buckets A and C complete.**
 
 ### Status legend
 
@@ -94,15 +94,15 @@ Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + A.
 | B.8 | `docs/reference/project-structure.md` full reconciliation | ⬜ Not started | A.1 patched 4 lines; full sweep needed |
 | B.9 | `docs/guides/index.md` full guide listing (currently 5 of ~13) | ⬜ Not started | Audit Tier 2 |
 
-### Bucket C  -  CI hardening (10 of 12 = 83%, Wave 2 unblocked)
+### Bucket C  -  CI hardening (12 of 12 = 100% ✓)
 
 Detail at [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md).
 
 | # | Item | Status | Evidence / Notes |
 |---|------|--------|------------------|
 | C.W1 | Wave 1: 5 PS parity bugfixes + count regex tighten + nav-completeness validator (7 items) | ✅ Shipped | prior session, PR #140 |
-| C.W2.1 | `check-generated-content-untouched` validator | ⬜ Not started (unblocked) | Pattern 5C frontmatter now present (A.4 shipped) |
-| C.W2.2 | `validate-references-cross-doc` validator | ⬜ Not started (unblocked) | Stable file set established (Bucket A complete) |
+| C.W2.1 | `check-generated-content-untouched` validator | ✅ Shipped | this session; enforcing; pairs with Pattern 5C |
+| C.W2.2 | `validate-references-cross-doc` validator | ✅ Shipped | this session; enforcing; PASS on current state |
 | C.W3 | Wave 3: docs frontmatter + internal links + version refs + F-36 family validator (3 items) | ✅ Shipped | prior session, PR #140 |
 
 ### Bucket D  -  Zensical compatibility spike (0 of 2 = 0%)
@@ -144,7 +144,7 @@ Detail at [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md).
 | Worktree                      | `E:\Projects\product-on-purpose\pm-skills_worktrees\v2.13-cycle` (branch `v2.13/cycle`); pushed to origin 2026-05-04                            |
 | Active PR                     | [#140](https://github.com/product-on-purpose/pm-skills/pull/140) (draft) - opened 2026-05-04 to trigger CI verification on Wave 1 + Wave 3 work |
 | Bucket-level progress         | See [Progress Dashboard](#progress-dashboard) above for item-level status                                                                       |
-| Validator inventory           | 17 → 22 currently (net +5 to date); target 17 → 24 (net +7) at v2.13.0 tag                                                                       |
+| Validator inventory           | 17 → 24 (net +7); enforcing tier 5 → 9 (Wave 1's nav-completeness + Wave 2's 2 enforcing + F-36 enforcing). All Bucket C deliverables shipped.   |
 | Tag target                    | TBD                                                                                                                                             |
 
 ---
@@ -494,3 +494,4 @@ Top-level summary:
 | 2026-05-04 | Bucket A executed: A1 (frameworks delete + `triple-diamond-delivery-process` rename in concepts/), A2 (4 concept moves out of concepts/ to reference/ and guides/ per Diátaxis + 4 legacy duplicate deletes including substantial-drift agent-skill-anatomy and getting-started after CR-strip analysis revealed real drift was minor), A3 (`creating-skills` → `creating-pm-skills` + `authoring-pm-skills` delete). Naming convention (`pm-skill-*` prefix for PM-specific content) and folder semantics (concepts=generic, reference=lookup, guides=how-to) locked. OQ-1, OQ-2, OQ-3 resolved. Backup at `_NOTES/backup-git/2026-05-04_v2.13-refactor/` (10 files + INDEX.md). mkdocs.yml `exclude_docs:` reduced from 8 entries to 2. Bucket A.4 (Pattern 5C generated frontmatter flag) deferred to fresh session. |
 | 2026-05-04 | Plan readability pass: added Progress Dashboard section (item-level status with ✅/🟡/⬜/⛔ icons across 22 work items in 4 buckets + 5 pre-release gates) for in-flight visibility. Added Outcomes at v2.13.0 Tag Time section synthesizing what shipping the full release produces (stays-the-same / visible changes / under-the-hood / Zensical decision artifact / deferred / audience reads / acceptance criteria). Trimmed bucket-status rows from Status Snapshot to avoid dual-source-of-truth drift. Net: 2 new sections, 1 small table trim, scope/decisions/OQs unchanged. |
 | 2026-05-04 | Bucket A.4 executed: Pattern 5C generated-content marker applied to all 3 generator scripts (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`). Each generated page now carries `generated: true` and `source: scripts/generate-X.py` in frontmatter plus a `!!! warning "Generated file"` admonition pointing editors to the source. Coverage: 63 pages (38 skill + 8 phase indices + 1 commands ref + 9 workflows + 1 workflow index + 3 showcase + 1 showcase index). OQ-4 resolved. **Bucket A complete (4 of 4).** Bucket C Wave 2 (items 7 + 8) now unblocked. Progress: 14 of 27 work items shipped (52%). |
+| 2026-05-04 | Bucket C Wave 2 executed: items 7 + 8 shipped. Item 7 `check-generated-content-untouched` ships enforcing using snapshot/regen/diff with Windows-safe line-ending normalization. Pairs with Pattern 5C: every generated page declares `generated: true` and any hand-edit drifts the diff. Item 8 `validate-references-cross-doc` ships enforcing per audit recommendation (option 8a); current `docs/reference/` state PASSes cleanly so no findings to fix. Validator skips template placeholders (`{{x}}`, `<x>`) to avoid false positives on contract-doc syntax examples. **Bucket C complete (12 of 12).** Validator inventory: 22 -> 24; enforcing tier 7 -> 9. Progress: 16 of 27 work items shipped (59%). |

@@ -1,6 +1,6 @@
 # v2.13 CI Refactor: Execution Plan
 
-**Status:** Wave 1 complete; Wave 3 complete (items 9, 11, 12, 10 done); Wave 2 pending Bucket A architectural decisions
+**Status:** Wave 1 + Wave 2 + Wave 3 complete (all 12 items done); pre-release verification gates pending
 **Cycle:** v2.13.0
 **Created:** 2026-05-03 (initial); 2026-05-03 (trimmed to thin execution tracker per audit + plan pair convention); 2026-05-03 (post-Codex Round 1 Wave 1 resolution); 2026-05-03 (Wave 3 partial + Codex Round 1 resolution)
 **Spec source:** [`../../audit/ci-audit_2026-05-03.md`](../../audit/ci-audit_2026-05-03.md) Sections 10 (plan summary) and 16 (implementation specifications)
@@ -35,8 +35,8 @@ All 14 items are in scope. Sequencing across 3 waves per audit Section 10. No it
 | 4 | Fix `lint-skills-frontmatter.ps1` path-detection | 5.1.4 | 1 | **Done** | `c3367d2` |
 | 5 | Tighten `check-count-consistency` regex; promote enforcing | 16.1 | 1 | **Done** | `ab752ae` + `254026f` |
 | 6 | New: `check-nav-completeness` | 16.2 | 1 | **Done** | `86ce58a` |
-| 7 | New: `check-generated-content-untouched` | 16.3 | 2 | Not started (blocked on Bucket A) | - |
-| 8 | New: `validate-references-cross-doc` | 16.4 | 2 | Not started (blocked on Bucket A) | - |
+| 7 | New: `check-generated-content-untouched` | 16.3 | 2 | **Done** (enforcing; pairs with Pattern 5C from Bucket A.4) | this session |
+| 8 | New: `validate-references-cross-doc` | 16.4 | 2 | **Done** (enforcing; PASS on current state, no findings to fix) | this session |
 | 9 | New: `validate-docs-frontmatter` | 16.5 | 3 | **Done** (advisory; deviation from audit's enforcing posture documented) | `f6f9785` + Codex resolution |
 | 10 | New: `check-internal-link-validity` | 16.6 | 3 | **Done** (advisory; pure-bash impl, lychee deferred to v2.14) | _pending_ |
 | 11 | New: `check-version-references` | 16.7 | 3 | **Done** (advisory) | `13085b0` + Codex resolution |
@@ -176,3 +176,4 @@ For analytical questions (lychee vs alternatives, family-registry path, count-CI
 |---|---|
 | 2026-05-03 | Initial CI refactor plan authored. 14 items across 3 waves. |
 | 2026-05-03 | Trimmed to thin execution tracker per audit + plan pair convention. Implementation specifications migrated to audit Section 16. Status tracking, sequencing, CI integration, pre-release gates, and decisions journal retained here. |
+| 2026-05-04 | **Wave 2 complete** (items 7 + 8 shipped). Item 7 `check-generated-content-untouched` ships enforcing; uses snapshot/regen/diff pattern with line-ending normalization (--strip-trailing-cr on bash, CRLF -> LF on PS) for Windows-checkout safety. Pairs with Bucket A.4 Pattern 5C. Item 8 `validate-references-cross-doc` ships enforcing per audit recommendation; current `docs/reference/` state PASSes cleanly (the post-Bucket-A reorg + 10 redirects left no broken refs). Validator skips template placeholders ({{x}}, <x>) to avoid false positives on contract-doc syntax examples (3 such found in `meeting-skills-contract.md`). All 12 CI items now done. Validator inventory: 22 -> 24; enforcing 7 -> 9. |
