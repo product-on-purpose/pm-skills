@@ -56,6 +56,76 @@ graph LR
 
 ---
 
+## Progress Dashboard
+
+**Overall:** 13 of 27 work items shipped (48%); pre-release gates 0 of 5
+**Current focus:** Bucket A.4 (Pattern 5C generated frontmatter flag)
+**Last updated:** 2026-05-04
+
+Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + Wave 1 (7 items) + Wave 3 (3 items) = 13.
+
+### Status legend
+
+- ✅ Shipped (commit identified)
+- 🟡 In progress (work started, not committed)
+- ⬜ Not started
+- ⛔ Blocked (dependency identified)
+
+### Bucket A  -  Doc structure refactor (3 of 4 = 75%)
+
+| # | Item | Status | Evidence / Notes |
+|---|------|--------|------------------|
+| A.1 | Frameworks folder delete + `triple-diamond` rename | ✅ Shipped | commit `4190f45` |
+| A.2 | Cross-folder reorg: 4 moves out of `concepts/` to `reference/` + `guides/` | ✅ Shipped | commit `4190f45` |
+| A.3 | Authoring guide consolidation: `creating-skills` → `creating-pm-skills`, delete `authoring-pm-skills` | ✅ Shipped | commit `4190f45` |
+| A.4 | Pattern 5C generated frontmatter flag (~52 pages) | 🟡 Next up | Edits 3 generator scripts; unblocks Bucket C Wave 2 |
+
+### Bucket B  -  Doc count + link cleanup (0 of 9 = 0%)
+
+| # | Item | Status | Notes |
+|---|------|--------|-------|
+| B.1 | Reconcile counts across 6 docs (skill-anatomy, categories, ecosystem, project-structure, mcp-integration, getting-started) | ⬜ Not started | Audit Tier 1 #2-3, Tier 2 #7 |
+| B.2 | `mkdocs.yml site_description` 32→40, `skills/index.md` + `showcase/index.md` "do not edit" banners | ⬜ Not started | Audit Tier 1 #1, #4, #5 |
+| B.3 | `utility-pm-skill-builder` SKILL.md catalog table | ⬜ Not started | Foundation 1→8, Utility 1→6, Domain 25→26 |
+| B.4 | `docs/guides/mcp-setup.md` frozen-MCP framing | ⬜ Not started | "all 38" → frozen at 28 per M-22 |
+| B.5 | `AGENTS/codex/CONTEXT.md` decision: refresh OR vestigial-redirect | ⬜ Not started | v2.12.0 session log carryover |
+| B.6 | README "What's New" inline-version-prefix workaround | ⬜ Not started | Generated section vs section-aware count CI |
+| B.7 | F-34: `THREAD_PROFILES.md` standalone reference doc | ⬜ Not started | Lifted from old Bucket E |
+| B.8 | `docs/reference/project-structure.md` full reconciliation | ⬜ Not started | A.1 patched 4 lines; full sweep needed |
+| B.9 | `docs/guides/index.md` full guide listing (currently 5 of ~13) | ⬜ Not started | Audit Tier 2 |
+
+### Bucket C  -  CI hardening (10 of 12 = 83%, Wave 2 blocked)
+
+Detail at [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md).
+
+| # | Item | Status | Evidence / Notes |
+|---|------|--------|------------------|
+| C.W1 | Wave 1: 5 PS parity bugfixes + count regex tighten + nav-completeness validator (7 items) | ✅ Shipped | prior session, PR #140 |
+| C.W2.1 | `check-generated-content-untouched` validator | ⛔ Blocked on A.4 | Pattern 5C frontmatter must exist first |
+| C.W2.2 | `validate-references-cross-doc` validator | ⛔ Blocked on A.4 | Stable file set required |
+| C.W3 | Wave 3: docs frontmatter + internal links + version refs + F-36 family validator (3 items) | ✅ Shipped | prior session, PR #140 |
+
+### Bucket D  -  Zensical compatibility spike (0 of 2 = 0%)
+
+Detail at [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md).
+
+| # | Item | Status | Notes |
+|---|------|--------|-------|
+| D.1 | Execute Zensical spike against current `mkdocs.yml` | ⬜ Not started | Needs `pip install zensical` approval; 60-min time-box |
+| D.2 | Write spike report with GO / GO-WITH-CAVEATS / NO-GO decision | ⬜ Not started | Output: `plan_v2.13_zensical-spike-report_YYYY-MM-DD.md` |
+
+### Pre-release gates (Phase 6, executed at tag time)
+
+| # | Item | Status |
+|---|------|--------|
+| PR.1 | Per-strand Phase 0 adversarial review loops (Bucket A, Bucket C new validators, Bucket D spike) | ⬜ Not started |
+| PR.2 | Release-state Phase 0 adversarial review loop | ⬜ Not started |
+| PR.3 | Generator regen pre-release (mandatory) | ⬜ Not started |
+| PR.4 | Pre-release checklist all green ([`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md)) | ⬜ Not started |
+| PR.5 | CHANGELOG.md + Release_v2.13.0.md authored | ⬜ Not started |
+
+---
+
 ## Status Snapshot (updated 2026-05-04)
 
 | Item                          | Status                                                                                                                                          |
@@ -73,11 +143,8 @@ graph LR
 | Effort numbering convention   | No new F-XX effort docs for v2.13 mechanical work; existing F-29 to F-37 retained as deferral records                                           |
 | Worktree                      | `E:\Projects\product-on-purpose\pm-skills_worktrees\v2.13-cycle` (branch `v2.13/cycle`); pushed to origin 2026-05-04                            |
 | Active PR                     | [#140](https://github.com/product-on-purpose/pm-skills/pull/140) (draft) - opened 2026-05-04 to trigger CI verification on Wave 1 + Wave 3 work |
-| Bucket A status               | **A1, A2, A3 shipped 2026-05-04** (5 file moves, 6 legacy duplicate deletes, naming + Diátaxis folder reorg). A.4 (Pattern 5C generated frontmatter flag) deferred to fresh session. |
-| Bucket B status               | Not started; closes the advisory CI findings the new validators surface                                                                         |
-| Bucket C status               | **Wave 1 + Wave 3 complete**, both Phase 0 Codex loops converged; Wave 2 blocked on Bucket A                                                    |
-| Bucket D status               | Not started (Zensical compatibility spike)                                                                                                      |
-| Validator inventory           | 17 → 22 (net +5 in v2.13); enforcing 5 → 7                                                                                                      |
+| Bucket-level progress         | See [Progress Dashboard](#progress-dashboard) above for item-level status                                                                       |
+| Validator inventory           | 17 → 22 currently (net +5 to date); target 17 → 24 (net +7) at v2.13.0 tag                                                                       |
 | Tag target                    | TBD                                                                                                                                             |
 
 ---
@@ -241,6 +308,105 @@ Per-strand Phase 0 Adversarial Review Loops + release-state Phase 0 Loop + gener
 
 ---
 
+## Outcomes at v2.13.0 Tag Time
+
+What shipping the full v2.13.0 release produces, by audience and by effect.
+
+### What stays the same (skill consumers see no change)
+
+| Area | State at v2.13.0 |
+|------|------------------|
+| PM skills count | 40 (26 phase + 8 foundation + 6 utility); zero added, zero removed |
+| Skill content (`skills/*/SKILL.md`) | Untouched |
+| Workflows | Unchanged (9 workflows) |
+| Library samples | Unchanged (120 samples) |
+| MCP server | Frozen at 28 skills per M-22 |
+| License | Apache 2.0 |
+| agentskills.io spec compliance | Unchanged |
+| Doc stack runtime | MkDocs Material (Zensical spike is venv-isolated; not a runtime dependency) |
+| AGENTS.md skill discovery | Unchanged |
+
+### What changes (visible in the rendered docs)
+
+| Change | Source | User-facing effect |
+|--------|--------|--------------------|
+| 6 doc files renamed with `pm-skill-*` prefix | Bucket A | Filenames signal scope (PM-specific vs generic) at a glance |
+| 5 docs reorganized into Diátaxis-aligned folders | Bucket A | `concepts/` = generic; `reference/` = lookup; `guides/` = how-to |
+| 6 legacy duplicate files deleted | Bucket A | Single source of truth per concept |
+| `docs/frameworks/` folder retired | Bucket A | `mkdocs.yml exclude_docs:` reduced 8 → 2 |
+| ~52 generated pages get a "do not edit" banner | Bucket A.4 | Visible warning + `generated: true` frontmatter flag |
+| ~12 stale counts reconciled | Bucket B | Numbers match across skill catalog, mcp-setup, README, project-structure, guides/index |
+| 12 broken internal links fixed | Bucket B | Click-throughs work everywhere |
+| 10 redirect entries in `mkdocs.yml` | Bucket A | Old bookmarks still reach new locations |
+
+### What's new (under the hood)
+
+| Item | Effect |
+|------|--------|
+| Validator inventory 17 → 24 | 7 new automated checks |
+| Enforcing validators 5 → 7 | Stricter gate on PRs |
+| `check-generated-content-untouched` | Future hand-edits to generated pages rejected at CI |
+| `validate-references-cross-doc` | Internal-link breakage caught at CI |
+| `check-internal-link-validity` (advisory) | Reports broken links without blocking |
+| `check-version-references` (advisory) | Surfaces stale version mentions |
+| `check-docs-frontmatter` | Frontmatter consistency across docs |
+| `nav-completeness` | Every doc reachable from `mkdocs.yml` nav |
+| F-36 generic family-registration validator | `validate-meeting-skills-family` becomes a thin wrapper |
+| 5 PowerShell parity bugfixes | PS1 scripts now bash-equivalent |
+| Pattern 5C frontmatter flag | `generated: true` on all generated pages, machine-readable |
+
+### Decision artifact: Zensical compatibility
+
+| Output | Effect |
+|--------|--------|
+| `plan_v2.13_zensical-spike-report_YYYY-MM-DD.md` | GO / GO-WITH-CAVEATS / NO-GO decision tees up v2.14.0+ |
+| If GO: v2.14.0 commits to Zensical migration | Plan B (Astro Starlight) shelved |
+| If NO-GO: Plan B (Astro Starlight) becomes its own effort doc | v2.14.0 evaluates the alternative |
+| Zero runtime impact in v2.13.0 either way | MkDocs Material stays as the runtime stack through v2.13 |
+
+### What's deferred to v2.14.0+ (explicit out-of-scope guards)
+
+| Item | Why deferred |
+|------|--------------|
+| Zensical migration itself | v2.13 ships only the spike + decision; migration is v2.14+ if greenlit |
+| F-37 HTML Template Creator | Conflicts with "no new skills" guard |
+| F-29 Meeting Lifecycle Workflow | Time-gated on real-world meeting-skills usage feedback |
+| F-30 Family Adoption Guide | Time-gated on at least one team's adoption experience |
+| F-31 / F-32 / F-33 / F-35 sample-automation slate | May be obsolete after v2.12.0 builder cleanup; re-eval before v2.14 |
+| `mkdocs-macros-plugin` (Pattern 2) | Adds dependency; defer pending Zensical decision |
+| Bash + PS1 dual-stack consolidation | v2.14+ strategic question |
+| MCP server unfreeze | Frozen per M-22; revisit when team adoption demand justifies |
+
+### Audience reads
+
+| Audience | Experience post-v2.13.0 |
+|----------|--------------------------|
+| **New visitor cloning the repo** | Cleaner nav. Doc folders match Diátaxis. Skill content identical to v2.12.0. |
+| **Existing user with bookmarked paths** | Redirects catch every old URL (10 redirect entries in `mkdocs.yml`) |
+| **PR contributor** | Stronger CI catches silent rot. Generator output protected from hand-edits. PowerShell bugs fixed. |
+| **Maintainer (you)** | Lower drift-accumulation rate. Foundation for the Zensical decision in v2.14. v2.12.0's 9-defect-across-4-rounds review experience does not repeat. |
+| **Skill consumer** (someone using `deliver-prd`, `define-jtbd-canvas`, etc.) | Identical PM skill behavior. No visible change. |
+
+### Acceptance criteria for tag readiness
+
+The release is tag-ready when all of these are true:
+
+- [ ] All Bucket A items shipped (A.1, A.2, A.3, A.4)
+- [ ] All Bucket B items shipped (B.1 through B.9)
+- [ ] All Bucket C waves shipped (Wave 1, Wave 2, Wave 3 = 12 CI items total)
+- [ ] Bucket D spike report written with GO / GO-WITH-CAVEATS / NO-GO decision
+- [ ] All 7 new validators returning clean (or advisory-only with documented findings)
+- [ ] `mkdocs build --strict` passes
+- [ ] Generator regen produces clean output (mandatory pre-release)
+- [ ] All 4 Phase 0 adversarial review loops converged (per-strand x3 + release-state x1)
+- [ ] Pre-release checklist ([`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md)) all items checked
+- [ ] CHANGELOG.md v2.13.0 entry written
+- [ ] Release_v2.13.0.md drafted
+- [ ] No em-dash (U+2014) or en-dash (U+2013) characters anywhere in repo (standing rule per CLAUDE.md)
+- [ ] No new external runtime dependencies introduced
+
+---
+
 ## CI That Applies
 
 Standard release validators plus the 7 new ones added in Bucket C. After Bucket C ships, validator inventory grows from 17 to 24. CI matrix posture (Ubuntu + Windows, bash + pwsh) unchanged.
@@ -326,3 +492,4 @@ Top-level summary:
 | 2026-05-02 | Stub created based on v2.12.0 deferrals + 2026-05-01 audits. Theme: Foundation Hardening. Six buckets (A-F) drafted. Four open questions. |
 | 2026-05-03 | Scope locked: three strands (doc consistency + CI refactor + Zensical compatibility spike). Theme updated to "Foundation Hardening + Doc Stack Decision". Buckets restructured to A-D (old E + F dissolved into deferral table). Bucket E sample-automation slate deferred all except F-34 (lifted into B). Bucket F refactor patterns 1/2/4/5A deferred. Pattern 5C adopted as default (lifted into A). F-36 lifted into C strand doc. F-37 deferred. Open Questions reduced to 7 with my proposed defaults pre-filled. CI strand doc, Zensical spike doc, pre-release checklist, and skills-manifest authored as siblings. No new F-XX effort docs (effort-doc convention paused for v2.13 mechanical work per maintainer feedback on doc bloat). |
 | 2026-05-04 | Bucket A executed: A1 (frameworks delete + `triple-diamond-delivery-process` rename in concepts/), A2 (4 concept moves out of concepts/ to reference/ and guides/ per Diátaxis + 4 legacy duplicate deletes including substantial-drift agent-skill-anatomy and getting-started after CR-strip analysis revealed real drift was minor), A3 (`creating-skills` → `creating-pm-skills` + `authoring-pm-skills` delete). Naming convention (`pm-skill-*` prefix for PM-specific content) and folder semantics (concepts=generic, reference=lookup, guides=how-to) locked. OQ-1, OQ-2, OQ-3 resolved. Backup at `_NOTES/backup-git/2026-05-04_v2.13-refactor/` (10 files + INDEX.md). mkdocs.yml `exclude_docs:` reduced from 8 entries to 2. Bucket A.4 (Pattern 5C generated frontmatter flag) deferred to fresh session. |
+| 2026-05-04 | Plan readability pass: added Progress Dashboard section (item-level status with ✅/🟡/⬜/⛔ icons across 22 work items in 4 buckets + 5 pre-release gates) for in-flight visibility. Added Outcomes at v2.13.0 Tag Time section synthesizing what shipping the full release produces (stays-the-same / visible changes / under-the-hood / Zensical decision artifact / deferred / audience reads / acceptance criteria). Trimmed bucket-status rows from Status Snapshot to avoid dual-source-of-truth drift. Net: 2 new sections, 1 small table trim, scope/decisions/OQs unchanged. |
