@@ -1,8 +1,9 @@
 # v2.13 Zensical Compatibility Spike: Plan
 
-**Status:** Plan (not yet executed)
+**Status:** Executed 2026-05-05; outcome NO-GO. See [`plan_v2.13_zensical-spike-report_2026-05-05.md`](plan_v2.13_zensical-spike-report_2026-05-05.md).
 **Cycle:** v2.13.0
 **Created:** 2026-05-03
+**Executed:** 2026-05-05 (Claude Opus 4.7, ~55 min within the 60-min time-box)
 **Type:** Time-boxed deciding artifact
 
 > **What this is.** A compatibility spike against `mkdocs.yml` to decide whether pm-skills can migrate from Material for MkDocs to Zensical (squidfunk's own successor project). The spike produces a go / go-with-caveats / no-go decision artifact that tees up the v2.14.0+ migration commitment. v2.13 ships only the spike + decision; the actual migration is out of scope.
