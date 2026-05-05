@@ -13,6 +13,9 @@ Categories represent **framework-agnostic PM activities**. They enable skills to
   - [validation](#validation)
   - [reflection](#reflection)
   - [coordination](#coordination)
+  - [meeting](#meeting)
+  - [communication](#communication)
+  - [documentation](#documentation)
 - [Framework Mapping](#framework-mapping)
 - [Category Selection Guide](#category-selection-guide)
 - [Category Distribution](#category-distribution)
@@ -118,13 +121,14 @@ stakeholder-summary → interview-synthesis → competitive-analysis
 - Success criteria definition
 - Constraint mapping
 
-**Skills (3):**
+**Skills (4):**
 
 | Skill | Description |
 |-------|-------------|
 | `problem-statement` | Creates a clear problem framing document with user impact, business context, and success criteria |
 | `opportunity-tree` | Creates an opportunity solution tree mapping desired outcomes to opportunities and potential solutions |
 | `jtbd-canvas` | Creates a Jobs to be Done canvas capturing the functional, emotional, and social dimensions of a customer job |
+| `lean-canvas` | Creates a one-page Lean Canvas to capture problem, customer segment, value proposition, and key metrics for an opportunity |
 
 **When to use problem-framing skills:**
 - Starting a new initiative to establish shared understanding
@@ -271,6 +275,7 @@ instrumentation-spec → experiment-design → dashboard-requirements
 | `retrospective` | Facilitates and documents a team retrospective capturing what went well, what to improve, and action items |
 | `lessons-log` | Creates a structured lessons learned entry for organizational memory |
 | `pivot-decision` | Documents a strategic pivot or persevere decision with evidence, analysis, and rationale |
+| `okr-grader` | Grades a draft OKR set against quality criteria (specific, measurable, ambitious, time-bound) and recommends revisions |
 
 **When to use reflection skills:**
 - After experiments conclude (success or failure)
@@ -300,7 +305,7 @@ experiment-results → pivot-decision (if needed)
 - Backlog refinement documentation
 - Cross-functional alignment
 
-**Skills (7):**
+**Skills (9):**
 
 | Skill | Description |
 |-------|-------------|
@@ -311,6 +316,8 @@ experiment-results → pivot-decision (if needed)
 | `pm-skill-builder` | Guides contributors from a PM skill idea to a complete Skill Implementation Packet for the repo |
 | `pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria |
 | `pm-skill-iterate` | Applies targeted improvements to a skill based on feedback or validation reports |
+| `okr-writer` | Drafts an objectives-and-key-results plan from upstream strategy with tight, measurable key results |
+| `update-pm-skills` | Coordinates a sweep that updates the local pm-skills installation and surfaces changes to the team |
 
 **When to use coordination skills:**
 - Before significant launches (1-2 weeks out)
@@ -326,6 +333,90 @@ spike-summary → refinement-notes → launch-checklist → release-notes
 
 ---
 
+### meeting
+
+> Running productive meetings end-to-end
+
+**Purpose:** Plan, run, and follow up on meetings so participants leave with clarity. Meeting skills support the full lifecycle from agenda preparation through recap distribution and stakeholder updates.
+
+**Activities:**
+- Agenda setting and pre-read preparation
+- Meeting brief authoring for absent stakeholders
+- Real-time facilitation aids
+- Post-meeting synthesis and recap
+- Stakeholder update communication
+
+**Skills (5):**
+
+| Skill | Description |
+|-------|-------------|
+| `meeting-agenda` | Drafts a focused agenda from the meeting purpose, attendees, and time-box |
+| `meeting-brief` | Authors a one-page brief that primes attendees with context, decisions needed, and pre-reads |
+| `meeting-recap` | Synthesizes a meeting transcript into decisions, action items, and follow-ups |
+| `meeting-synthesize` | Cross-meeting synthesis distilling themes from multiple sessions into a single narrative |
+| `stakeholder-update` | Generates a stakeholder-facing update from meeting outputs and recent project state |
+
+**When to use meeting skills:**
+- Recurring leadership reviews and steering committees
+- Cross-functional working sessions with absentee stakeholders
+- Discovery and customer-research interviews
+- Sprint ceremonies that need durable artifacts
+
+**Common workflow:**
+```
+meeting-agenda → meeting-brief → (meeting happens) → meeting-recap → stakeholder-update
+   (plan)         (prime)                              (capture)         (broadcast)
+```
+
+---
+
+### communication
+
+> Crafting visual or verbal communications
+
+**Purpose:** Produce communication artifacts that translate product context into formats stakeholders can consume quickly. Communication skills package complex content for specific audiences and channels.
+
+**Activities:**
+- Slideshow drafting for leadership reviews
+- Visual narratives for cross-functional sharing
+- Executive readouts and decks
+
+**Skills (1):**
+
+| Skill | Description |
+|-------|-------------|
+| `slideshow-creator` | Generates a slideshow draft (outline plus per-slide notes) tuned to a chosen audience and time-box |
+
+**When to use communication skills:**
+- Leadership readouts and quarterly reviews
+- Cross-team alignment sessions
+- Stakeholder enablement before a major decision
+
+---
+
+### documentation
+
+> Producing visual diagrams and structured documentation
+
+**Purpose:** Create supporting documentation artifacts (diagrams, structured references) that complement other PM artifacts. Documentation skills produce embeddable assets rather than standalone narrative documents.
+
+**Activities:**
+- Mermaid diagram authoring for system flows, decisions, and timelines
+- Embeddable visual artifacts for other docs
+
+**Skills (1):**
+
+| Skill | Description |
+|-------|-------------|
+| `mermaid-diagrams` | Generates Mermaid diagrams (flowchart, sequence, state, gantt, etc.) tuned to the surrounding doc context |
+
+**When to use documentation skills:**
+- Augmenting a PRD or solution brief with a flow diagram
+- Producing decision trees or system maps inside other artifacts
+- Quickly visualizing a process from a textual description
+
+---
+
 ## Framework Mapping
 
 ### Quick Reference
@@ -333,12 +424,15 @@ spike-summary → refinement-notes → launch-checklist → release-notes
 | Category | Triple Diamond | Lean Startup | Design Thinking |
 |----------|---------------|--------------|-----------------|
 | research | Discover | Customer Development | Empathize |
-| problem-framing | Define | . | Define |
+| problem-framing | Define | - | Define |
 | ideation | Define/Develop | Build (hypothesis) | Ideate |
 | specification | Deliver | Build | Prototype |
 | validation | Measure | Measure | Test |
-| reflection | Iterate | Learn | . |
+| reflection | Iterate | Learn | - |
 | coordination | All phases | All phases | All phases |
+| meeting | All phases | All phases | All phases |
+| communication | All phases | All phases | All phases |
+| documentation | All phases | All phases | All phases |
 
 ### Detailed Mapping
 
@@ -399,8 +493,17 @@ What type of PM work are you doing?
 ├─ Learning from outcomes?
 │  └─ reflection
 │
-└─ Coordinating people?
-   └─ coordination
+├─ Coordinating people?
+│  └─ coordination
+│
+├─ Running a meeting end-to-end?
+│  └─ meeting
+│
+├─ Producing a slideshow or readout?
+│  └─ communication
+│
+└─ Producing a diagram or embeddable doc artifact?
+   └─ documentation
 ```
 
 ---
@@ -412,13 +515,16 @@ Summary of skills across categories:
 | Category | Skill Count | Skills |
 |----------|-------------|--------|
 | research | 4 | interview-synthesis, competitive-analysis, stakeholder-summary, persona |
-| problem-framing | 3 | problem-statement, opportunity-tree, jtbd-canvas |
+| problem-framing | 4 | problem-statement, opportunity-tree, jtbd-canvas, lean-canvas |
 | ideation | 2 | hypothesis, solution-brief |
 | specification | 6 | prd, user-stories, acceptance-criteria, edge-cases, adr, design-rationale |
 | validation | 3 | experiment-design, instrumentation-spec, dashboard-requirements |
-| reflection | 4 | experiment-results, retrospective, lessons-log, pivot-decision |
-| coordination | 7 | launch-checklist, release-notes, spike-summary, refinement-notes, pm-skill-builder, pm-skill-validate, pm-skill-iterate |
-| **Total** | **29** | |
+| reflection | 5 | experiment-results, retrospective, lessons-log, pivot-decision, okr-grader |
+| coordination | 9 | launch-checklist, release-notes, spike-summary, refinement-notes, pm-skill-builder, pm-skill-validate, pm-skill-iterate, okr-writer, update-pm-skills |
+| meeting | 5 | meeting-agenda, meeting-brief, meeting-recap, meeting-synthesize, stakeholder-update |
+| communication | 1 | slideshow-creator |
+| documentation | 1 | mermaid-diagrams |
+| **Total** | **40** | |
 
 ---
 

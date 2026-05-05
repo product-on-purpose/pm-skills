@@ -223,16 +223,16 @@ Workflows chain multiple skills together into guided, end-to-end sequences.
 ```
 docs/
 ├── getting-started/          # Quick setup guides (index + quickstart)
-├── guides/
-│   ├── using-skills.md       # How to use skills effectively
-│   └── creating-pm-skills.md # How to create new skills
-├── reference/
-│   ├── categories.md         # Skill categorization system
-│   ├── frontmatter-schema.yaml # Metadata specification
-│   └── project-structure.md  # This file
-└── frameworks/
-    └── triple-diamond-delivery-process.md
+├── guides/                   # How-to guides (using skills, creating pm-skills, mcp-integration, ...)
+├── concepts/                 # Conceptual orientation (triple-diamond-delivery-process, ...)
+├── reference/                # Lookup material (categories, anatomy, project-structure, ...)
+├── skills/                   # Generated per-skill pages (one per skill, plus phase/category indices)
+├── workflows/                # Generated workflow pages (one per workflow + index)
+├── showcase/                 # Generated thread-aligned showcase (storevine, brainshelf, workbench)
+└── releases/                 # Per-version release notes
 ```
+
+The `docs/frameworks/` folder was retired in v2.13.0 (Bucket A.1); the canonical Triple Diamond reference now lives at `docs/concepts/triple-diamond-delivery-process.md` with a `mkdocs.yml` redirect from the old path.
 
 | Document | Audience | Purpose |
 |----------|----------|---------|

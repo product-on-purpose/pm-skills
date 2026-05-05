@@ -393,9 +393,9 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **Template access** | Navigate file system | URI-based resources |
 | **Workflows** | Manual orchestration | Tool-based execution |
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
-| **Updates** | `git pull` (active maintenance) | Frozen at v2.9.2 (maintenance mode) |
+| **Updates** | `git pull` (active maintenance) | Maintenance mode (v2.9.x line, latest v2.9.3; security patches + critical bug fixes only) |
 
-> Note: pm-skills-mcp v2.9.2 is the final maintenance-mode release, embedding the full current 40-skill catalog. See [MCP Integration](docs/guides/mcp-integration.md) for status details.
+> Note: pm-skills-mcp is in maintenance mode (latest v2.9.3 in the v2.9.x line; v2.9.3 cleared open Dependabot advisories on 2026-05-05). The catalog is frozen at the v2.9.2 build (40 skills, 59 tools); subsequent v2.9.x patches do not change the catalog. See [MCP Integration](docs/guides/mcp-integration.md) for status details.
 
 **Use `pm-skills` (this repo) when:**
 - You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)
@@ -404,7 +404,7 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 - You want to fork and heavily customize skills for your team
 
 **Use [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) (maintenance mode) when:**
-- Your team has already adopted it and v2.9.2's catalog meets current needs
+- Your team has already adopted it and the frozen 40-skill catalog meets current needs
 - Your tooling specifically requires the MCP transport (e.g., self-hosted MCP-only configurations)
 - The frozen 40-skill catalog meets your scope (skills added to `pm-skills` after the v2.9.2 build are not embedded)
 
@@ -745,6 +745,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | **instrumentation-spec**   | Event tracking requirements         | `/instrumentation-spec`   |
 | **dashboard-requirements** | Analytics dashboard specs           | `/dashboard-requirements` |
 | **experiment-results**     | Document learnings from experiments | `/experiment-results`     |
+| **okr-grader**             | Grade a draft OKR set against quality criteria | `/okr-grader`             |
 
 #### 🔄 Iterate - *Learn and improve*
 
@@ -757,9 +758,16 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 
 #### 🧭 Foundation - *Cross-cutting capability*
 
-| Skill                | What it does                                                                 | Command      |
-| -------------------- | ---------------------------------------------------------------------------- | ------------ |
-| **persona**          | Generate product or marketing personas with evidence and confidence | `/persona`   |
+| Skill                          | What it does                                                                 | Command                |
+| ------------------------------ | ---------------------------------------------------------------------------- | ---------------------- |
+| **persona**                    | Generate product or marketing personas with evidence and confidence | `/persona`             |
+| **lean-canvas**                | Capture problem, customer segment, value proposition, and key metrics on one page | `/lean-canvas`         |
+| **okr-writer**                 | Draft an objectives-and-key-results plan with tight, measurable key results | `/okr-writer`          |
+| **stakeholder-update**         | Compose a stakeholder-facing update from project state and recent activity | `/stakeholder-update`  |
+| **meeting-agenda**             | Draft a focused agenda from purpose, attendees, and time-box | `/meeting-agenda`      |
+| **meeting-brief**              | One-page brief priming attendees with context and pre-reads | `/meeting-brief`       |
+| **meeting-recap**              | Synthesize a meeting transcript into decisions, actions, and follow-ups | `/meeting-recap`       |
+| **meeting-synthesize**         | Cross-meeting synthesis distilling themes from multiple sessions | `/meeting-synthesize`  |
 
 #### 🔧 Utility - *Meta-tooling*
 
@@ -865,7 +873,7 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 ```
 pm-skills/
 ├── skills/                     # 40 PM skills (26 phase + 8 foundation + 6 utility)
-├── commands/                   # Slash commands (45) mapping to skills/workflows
+├── commands/                   # Slash commands (47) mapping to skills/workflows
 ├── _workflows/                 # 9 workflows: feature-kickoff, lean-startup, triple-diamond, and 6 more
 ├── library/                    # Sample output library (skill-output-samples) and related corpus docs
 ├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)

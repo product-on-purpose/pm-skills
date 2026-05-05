@@ -228,12 +228,12 @@ The repo currently ships 47 command markdown files: 40 skill commands plus 7 wor
 | Define | `/problem-statement`, `/hypothesis`, `/opportunity-tree`, `/jtbd-canvas` |
 | Develop | `/solution-brief`, `/spike-summary`, `/adr`, `/design-rationale` |
 | Deliver | `/prd`, `/user-stories`, `/acceptance-criteria`, `/edge-cases`, `/launch-checklist`, `/release-notes` |
-| Measure | `/experiment-design`, `/instrumentation-spec`, `/dashboard-requirements`, `/experiment-results` |
+| Measure | `/experiment-design`, `/instrumentation-spec`, `/dashboard-requirements`, `/experiment-results`, `/okr-grader` |
 | Iterate | `/retrospective`, `/lessons-log`, `/refinement-notes`, `/pivot-decision` |
 | Utility | `/pm-skill-builder`, `/pm-skill-validate`, `/pm-skill-iterate`, `/mermaid-diagrams`, `/slideshow-creator`, `/update-pm-skills` |
-| Foundation | `/persona` |
+| Foundation | `/persona`, `/lean-canvas`, `/okr-writer`, `/stakeholder-update`, `/meeting-agenda`, `/meeting-brief`, `/meeting-recap`, `/meeting-synthesize` |
 
-Plus workflows: `/workflow-feature-kickoff`
+Plus workflows: `/workflow-feature-kickoff`, `/workflow-customer-discovery`, `/workflow-sprint-planning`, `/workflow-product-strategy`, `/workflow-post-launch-learning`, `/workflow-stakeholder-alignment`, `/workflow-technical-discovery`
 
 ---
 

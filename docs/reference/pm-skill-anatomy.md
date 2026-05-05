@@ -200,21 +200,25 @@ Multi-skill workflows that chain skills together. Nine shipped workflows:
 
 ## CI Validation
 
-Four scripts validate skill integrity:
+Skill integrity is enforced by a growing suite of validators in `scripts/`. Core skill-specific scripts:
 
 | Script | What it checks |
 |--------|---------------|
 | `lint-skills-frontmatter` | Frontmatter fields, description word count, phase/classification consistency, TEMPLATE.md structure, EXAMPLE.md existence |
 | `validate-agents-md` | AGENTS.md paths match actual skill directories |
 | `validate-commands` | Command files reference valid skill paths |
-| `check-mcp-impact` | Advisory . detects skill additions/renames that may affect the MCP server |
+| `validate-skill-family-registration` | Registry-driven family validation (meeting-skills-family + future families) |
+| `check-mcp-impact` | Advisory; detects skill additions/renames that may affect the MCP server |
 
-Run all validators before committing new skills:
+The full CI suite covers nav completeness, frontmatter on rendered docs, generated-content drift, internal link validity, version-reference consistency, cross-doc references, and more. See `.github/workflows/validation.yml` for the canonical list of scripts and their enforcement posture, and `scripts/README_SCRIPTS.md` for one-paragraph summaries of each.
+
+Run the core skill-specific validators before committing new skills:
 
 ```bash
 bash scripts/lint-skills-frontmatter.sh
 bash scripts/validate-agents-md.sh
 bash scripts/validate-commands.sh
+bash scripts/validate-skill-family-registration.sh
 bash scripts/check-mcp-impact.sh
 ```
 
