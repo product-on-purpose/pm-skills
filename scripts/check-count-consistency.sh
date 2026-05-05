@@ -44,12 +44,36 @@ EXCLUDES=(
   ':!.github/.created-issues.json'
   ':!.github/scripts/'
   ':!AGENTS/claude/CONTEXT.md'
+  ':!AGENTS/claude/DECISIONS.md'
   ':!AGENTS/claude/SESSION-LOG/'
   ':!library/'
   ':!scripts/check-count-consistency.sh'
   ':!scripts/check-count-consistency.ps1'
   ':!scripts/check-count-consistency.md'
 )
+
+# --- Pre-compute count-exempt line ranges per file ---
+#
+# Files can mark sections as historical/exempt with HTML-comment markers:
+#   <!-- count-exempt:start -->
+#   ... historical content (e.g., What's New release entries) ...
+#   <!-- count-exempt:end -->
+#
+# This is the canonical mechanism for "this section is historical, do not
+# check counts here". Replaces the prior `v[0-9]+\.` substring exemption,
+# which was too broad (skipped any line mentioning a version, even outside
+# historical sections) and could not be audited.
+#
+# The marker file format is: <file><TAB><start_line><TAB><end_line>
+EXEMPT_RANGES=$(mktemp)
+trap 'rm -f "$EXEMPT_RANGES"' EXIT
+
+git -C "$ROOT" grep -lE '<!-- count-exempt:start -->' -- '*.md' '*.json' "${EXCLUDES[@]}" 2>/dev/null | while read -r f; do
+  awk -v file="$f" '
+    /<!-- count-exempt:start -->/ { start = NR; next }
+    /<!-- count-exempt:end -->/   { if (start) { print file "\t" start "\t" NR; start = 0 } }
+  ' "$ROOT/$f"
+done > "$EXEMPT_RANGES"
 
 # Minimum threshold . counts below this are likely per-phase/per-category,
 # not total counts. Comparison uses >= so values equal to the threshold are
@@ -62,28 +86,61 @@ check_resource() {
   local actual_count="$3"
 
   git -C "$ROOT" grep -inE "$grep_pattern" -- '*.md' '*.json' "${EXCLUDES[@]}" 2>/dev/null | \
-    awk -F: -v actual="$actual_count" -v rname="$resource_name" -v min_t="$MIN_THRESHOLD" '
+    awk -F: -v actual="$actual_count" -v rname="$resource_name" -v min_t="$MIN_THRESHOLD" -v ranges_file="$EXEMPT_RANGES" '
+    BEGIN {
+      # Load count-exempt line ranges from the pre-computed table.
+      # Format per row: <file>\t<start>\t<end>
+      while ((getline line < ranges_file) > 0) {
+        nf = split(line, parts, "\t")
+        if (nf < 3) continue
+        f = parts[1]
+        idx = exempt_count[f]++
+        exempt_start[f, idx] = parts[2] + 0
+        exempt_end[f, idx]   = parts[3] + 0
+      }
+      close(ranges_file)
+    }
     {
       file = $1
-      linenum = $2
+      linenum = $2 + 0
       # Reconstruct content (may contain colons)
       content = ""
       for (i = 3; i <= NF; i++) {
         content = content (i > 3 ? ":" : "") $i
       }
 
-      # Skip lines with version references
-      if (content ~ /v[0-9]+\./) next
+      # Skip lines inside count-exempt sections (canonical mechanism for
+      # historical content like README "What'\''s New" release entries).
+      if (file in exempt_count) {
+        for (i = 0; i < exempt_count[file]; i++) {
+          if (linenum >= exempt_start[file, i] && linenum <= exempt_end[file, i]) {
+            next
+          }
+        }
+      }
 
-      # Extract numbers before the resource name
+      # Extract numbers before the resource name.
+      #
+      # Subset-descriptor exclusions: phrases like "26 phase skills",
+      # "8 foundation skills", "40 skill commands" describe SUBSETS of the
+      # total, not total counts. The validator should not flag them as stale
+      # because the number is meant to describe the subset (and is correct
+      # for that subset). Without this exclusion, the prior regex
+      # `[0-9]+ ([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills` would greedily match
+      # subset phrases and force authors to either rephrase or carry the
+      # broad version-prefix exemption that this script no longer uses.
       line = tolower(content)
       while (match(line, /[0-9]+/)) {
         num = substr(line, RSTART, RLENGTH) + 0
         rest = substr(line, RSTART + RLENGTH)
+        is_subset = 0
+        # Skip subset descriptors before the resource name.
+        if (rname == "skills" && rest ~ /^[ ]+(phase|foundation|utility|domain|shipped|embedded|test|sample|library|lines? )/) is_subset = 1
+        if (rname == "commands" && rest ~ /^[ ]+(skill|workflow)[ -]/) is_subset = 1
         matched = 0
-        if (rname == "skills" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills/) matched = 1
-        if (rname == "commands" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}commands/) matched = 1
-        if (rname == "workflows" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}workflows/) matched = 1
+        if (!is_subset && rname == "skills" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills/) matched = 1
+        if (!is_subset && rname == "commands" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}commands/) matched = 1
+        if (!is_subset && rname == "workflows" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}workflows/) matched = 1
         if (matched && num != actual && num >= min_t) {
           printf "  %s:%s: found \x27%d %s\x27 (actual: %d)\n", file, linenum, num, rname, actual
         }

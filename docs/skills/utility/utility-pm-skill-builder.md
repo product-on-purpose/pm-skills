@@ -656,11 +656,16 @@ Context from user: $ARGUMENTS
 
     ### Quality Checks
 
+    <!-- count-exempt:start -->
+    <!-- This block is illustrative example output captured at v2.7.0 era; the
+         "27 existing skills" count is intentionally point-in-time and is not
+         a current-state claim. Excluded from check-count-consistency. -->
     - [x] `references/EXAMPLE.md` will be a complete artifact (150-300 lines)
     - [x] Output contract present in draft SKILL.md
     - [x] Quality checklist present in draft SKILL.md
     - [x] Gap analysis checked all 27 existing skills
     - [x] Why Gate not triggered (no high overlap . release-notes and launch-checklist serve different purposes)
+    <!-- count-exempt:end -->
 
     ---
 

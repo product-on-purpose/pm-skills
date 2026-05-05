@@ -125,6 +125,8 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 ---
 
 **What's New (Recent Releases)**
+
+<!-- count-exempt:start -->
 <details open>
 <summary>v2.12.0 - OKR Skills Launch</summary>
 
@@ -239,6 +241,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - Release note: `docs/releases/Release_v2.6.0.md`.
 
 </details>
+<!-- count-exempt:end -->
 
 [View previous release details](#previous-release-details) | [Full changelog](#changelog)
 

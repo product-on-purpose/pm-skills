@@ -258,6 +258,7 @@ Follow three fictional companies through the complete product lifecycle - from d
 
 ## Recent Releases
 
+<!-- count-exempt:start -->
 | Version | Date | Highlights |
 |---------|------|-----------|
 | **[v2.12.0](releases/Release_v2.12.0.md)** | 2026-05-03 | OKR Skills Launch: `foundation-okr-writer` + `measure-okr-grader` with canonical type and indicator-class enums; 38 to 40 skills |
@@ -268,6 +269,7 @@ Follow three fictional companies through the complete product lifecycle - from d
 | [v2.10.0](releases/Release_v2.10.0.md) | 2026-04-11 | Utility skill expansion: `/mermaid-diagrams`, `/slideshow-creator`, `/update-pm-skills` |
 | [v2.9.1](releases/Release_v2.9.1.md) | 2026-04-10 | Workflows guide + docs count consistency CI |
 | [v2.9.0](releases/Release_v2.9.0.md) | 2026-04-06 | Workflows: rename bundles to workflows, expand 3 to 9, 7 `/workflow-*` commands |
+<!-- count-exempt:end -->
 
 [:octicons-arrow-right-24: All releases](releases/) · [:octicons-arrow-right-24: Full changelog](changelog.md)
 

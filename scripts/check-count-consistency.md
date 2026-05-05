@@ -26,14 +26,30 @@ powershell -ExecutionPolicy Bypass -File .\scripts\check-count-consistency.ps1
 3. Compares found numbers against actual counts
 4. Reports mismatches with file path and line number
 
-**Regex behavior (v2.13.0):** the script's regex was tightened from `[0-9]+ (PM|product management)? skills` to `[0-9]+ ([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills` so prose-form interstitials are caught. The 3-token cap keeps false-positive risk bounded (e.g., "we have 38 great teams of seasoned product managers and skills" with 5+ interstitials is intentionally not matched). Per-phase counts (Discover 3, Foundation 8) below the `MinThreshold = 10` filter are still skipped to avoid false-positive on legitimate per-phase prose; codifying per-phase awareness is a v2.14.0+ enhancement.
+**Regex behavior (v2.13.0 update):** the historical 3-token interstitial allowance (`[0-9]+ ([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills`) is retained, but two additional layers of exemption now apply:
+
+1. **Subset-descriptor exclusion.** Phrases that describe a *subset* of the total (e.g., "26 phase skills", "8 foundation skills", "40 skill commands") are no longer flagged. The validator detects subset descriptors when the digit is immediately followed by a known subset word (`phase`, `foundation`, `utility`, `domain`, `shipped`, `embedded`, `test`, `sample`, `library`, `lines?` for skills; `skill`, `workflow` for commands) and excludes that occurrence from the stale-count check. This replaces the prior `v[0-9]+\.` substring exemption, which was too broad (skipped any line with a version mention).
+
+2. **Section-aware exemption via HTML markers.** Files can mark sections as historical or illustrative with paired markers:
+
+   ```html
+   <!-- count-exempt:start -->
+   ... historical content (e.g., README "What's New" release entries) ...
+   <!-- count-exempt:end -->
+   ```
+
+   The validator pre-scans every checked file for marker pairs, then skips any line in the resulting ranges. This is the canonical mechanism for explicit exemption (point-in-time release entries, illustrative example output, sample-output catalogs that contain dated counts) and is what every new historical content section should use. It gives auditable, file-scoped exemption rather than the implicit prior workaround.
+
+Per-phase counts (Discover 3, Foundation 8) below the `MinThreshold = 10` filter are still skipped to avoid false-positive on legitimate per-phase prose. Codifying per-phase awareness is a v2.14.0+ enhancement.
 
 Exclusions (not flagged as stale):
 - `CHANGELOG.md` . historical entries are correct for their time
 - `docs/releases/` . same reason
 - `docs/internal/` . planning docs may reference future counts
 - `.github/.created-issues.json` and `.github/scripts/` . tooling state and npm manifests, not docs
-- Lines containing version references like `v2.` . likely historical context
+- `AGENTS/claude/CONTEXT.md`, `AGENTS/claude/DECISIONS.md`, `AGENTS/claude/SESSION-LOG/` . agent-internal context that legitimately references historical states
+- Lines inside `<!-- count-exempt:start --> ... <!-- count-exempt:end -->` blocks
+- Lines whose digit is followed by a subset descriptor (see above)
 
 ## Exit Codes
 
