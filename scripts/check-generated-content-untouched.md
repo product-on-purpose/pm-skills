@@ -51,7 +51,7 @@ pwsh -File ./scripts/check-generated-content-untouched.ps1
 
 | Path | Coverage |
 |------|----------|
-| `docs/skills/` | 38 individual skill pages + 8 phase index pages |
+| `docs/skills/` | 40 individual skill pages + 8 phase index pages |
 | `docs/workflows/` | 9 workflow pages + 1 index |
 | `docs/showcase/` | 3 thread pages + 1 index |
 | `docs/reference/commands.md` | 1 commands reference page |

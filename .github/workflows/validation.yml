@@ -142,12 +142,10 @@ jobs:
       - name: Check count consistency (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/check-count-consistency.sh
-        continue-on-error: true
 
       - name: Check count consistency (pwsh)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-count-consistency.ps1
-        continue-on-error: true
 
       - name: Check generated freshness (bash)
         if: matrix.os == 'ubuntu-latest'
@@ -160,63 +158,63 @@ jobs:
         continue-on-error: true
 
       - name: Check nav completeness (bash, enforcing)
-        if: matrix.os == 'ubuntu-latest'
+        if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-nav-completeness.sh
 
       - name: Check nav completeness (pwsh, enforcing)
-        if: matrix.os == 'windows-latest'
+        if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-nav-completeness.ps1
 
       - name: Check version references (bash)
-        if: matrix.os == 'ubuntu-latest'
+        if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-version-references.sh
         continue-on-error: true
 
       - name: Check version references (pwsh)
-        if: matrix.os == 'windows-latest'
+        if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-version-references.ps1
         continue-on-error: true
 
       - name: Validate docs frontmatter (bash)
-        if: matrix.os == 'ubuntu-latest'
+        if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-docs-frontmatter.sh
         continue-on-error: true
 
       - name: Validate docs frontmatter (pwsh)
-        if: matrix.os == 'windows-latest'
+        if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-docs-frontmatter.ps1
         continue-on-error: true
 
       - name: Validate skill family registration (bash, enforcing)
-        if: matrix.os == 'ubuntu-latest'
+        if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-skill-family-registration.sh
 
       - name: Validate skill family registration (pwsh, enforcing)
-        if: matrix.os == 'windows-latest'
+        if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-skill-family-registration.ps1
 
       - name: Check internal link validity (bash)
-        if: matrix.os == 'ubuntu-latest'
+        if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-internal-link-validity.sh
         continue-on-error: true
 
       - name: Check internal link validity (pwsh)
-        if: matrix.os == 'windows-latest'
+        if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-internal-link-validity.ps1
         continue-on-error: true
 
       - name: Check generated content untouched (bash, enforcing)
-        if: matrix.os == 'ubuntu-latest'
+        if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-generated-content-untouched.sh
 
       - name: Check generated content untouched (pwsh, enforcing)
-        if: matrix.os == 'windows-latest'
+        if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-generated-content-untouched.ps1
 
       - name: Validate cross-doc references (bash, enforcing)
-        if: matrix.os == 'ubuntu-latest'
+        if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-references-cross-doc.sh
 
       - name: Validate cross-doc references (pwsh, enforcing)
-        if: matrix.os == 'windows-latest'
+        if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-references-cross-doc.ps1
