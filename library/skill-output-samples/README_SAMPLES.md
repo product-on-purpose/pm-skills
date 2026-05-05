@@ -10,6 +10,7 @@
 - [How Each Sample Is Structured](#how-each-sample-is-structured)
 - [Data Integrity Rules](#data-integrity-rules)
 - [Sample Creation Standards](SAMPLE_CREATION.md)
+- [Thread Profiles (machine-readable)](THREAD_PROFILES.md)
 - [Browse by Skill](#browse-by-skill)
 - [Browse by Company](#browse-by-company)
   - [Storevine (B2B Ecommerce)](#storevine--b2b-ecommerce-platform)
@@ -98,6 +99,12 @@ Every sample file follows a consistent three-section format:
 ## Sample Creation Standards
 
 For naming, content quality, frontmatter, and README update workflow standards, use [SAMPLE_CREATION.md](SAMPLE_CREATION.md).
+
+---
+
+## Thread Profiles
+
+For machine-readable per-thread metadata (identity, stage, prompt style, character naming convention, sample-suffix patterns, scenario archetypes), use [THREAD_PROFILES.md](THREAD_PROFILES.md). It is the structured contract that tooling reads from; this README is the human-readable counterpart.
 
 ---
 
