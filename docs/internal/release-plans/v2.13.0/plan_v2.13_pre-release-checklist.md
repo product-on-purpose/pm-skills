@@ -152,13 +152,13 @@ bash scripts/check-version-references.sh  # new in v2.13, advisory
 
 ### 2b. Bucket B count + link fidelity
 
-- [ ] Zero stale skill counts across `concepts/skill-anatomy.md`, `reference/categories.md`, `reference/ecosystem.md`, `reference/project-structure.md`, `guides/mcp-integration.md`, `guides/mcp-setup.md`, `getting-started.md`, `mkdocs.yml site_description`
-- [ ] All counts at 40 (or correctly noted frozen-at-28 for MCP per M-22)
-- [ ] `docs/guides/index.md` lists all 13 current guides (was 5 of 11)
-- [ ] `docs/skills/index.md` and `docs/showcase/index.md` carry "do not edit" banners matching `docs/workflows/README.md`
+- [ ] Zero stale skill counts across `concepts/agent-skill-anatomy.md`, `reference/categories.md`, `reference/ecosystem.md`, `reference/project-structure.md`, `guides/mcp-integration.md`, `getting-started/index.md`, `mkdocs.yml site_description`
+- [ ] All counts at 40 (MCP frozen at 40 in v2.9.2 per 2026-05-05 maintenance-mode pivot; superseded the v2.11.0 M-22 28-skill freeze when v2.9.2 re-embedded the full current catalog)
+- [ ] `docs/guides/index.md` lists all current guides
+- [ ] `docs/skills/index.md` carries hand-edited curated index banner; `docs/showcase/index.md` carries auto-generated banner from A.4
 - [ ] `utility-pm-skill-builder` SKILL.md catalog table updated: Foundation (1)→(8), Utility (1)→(6), Domain (25)→(26)
 - [ ] `AGENTS/codex/CONTEXT.md` decision executed (refresh or vestigial-redirect)
-- [ ] `mcp-setup.md` "all 38 PM skills via MCP" rewritten with correct frozen-MCP framing
+- [ ] `mcp-setup.md` deleted; `mkdocs.yml redirect_maps` redirects `guides/mcp-setup.md` to `guides/mcp-integration.md` (canonical maintenance-mode status page)
 - [ ] README "What's New" workaround replaced (section-aware CI or generated section) OR explicitly accepted as v2.13.0 carryover
 
 ### 2c. Bucket C CI strand fidelity

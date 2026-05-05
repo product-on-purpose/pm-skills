@@ -115,7 +115,7 @@ skills/{skill-name}/
 | `utility-slideshow-creator` | Generate professional presentations from JSON deck specs |
 | `utility-update-pm-skills` | Check for updates and update local pm-skills installation |
 
-#### Measure Phase (4 skills)
+#### Measure Phase (5 skills)
 
 | Skill | Purpose |
 |-------|---------|
@@ -123,6 +123,7 @@ skills/{skill-name}/
 | `measure-instrumentation-spec` | Event tracking requirements |
 | `measure-dashboard-requirements` | Analytics dashboard specifications |
 | `measure-experiment-results` | Document learnings from experiments |
+| `measure-okr-grader` | Score OKR achievement at end-of-quarter using canonical type and indicator-class enums |
 
 #### Iterate Phase (4 skills)
 
