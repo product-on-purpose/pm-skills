@@ -60,7 +60,7 @@
   </a>
 </p>
 
-> **MCP Server: Maintenance Mode (effective 2026-05-04).** The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server (v2.9.1) remains available on npm for clients that need MCP transport. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold. **For new users, the file-based install path documented in [Getting Started](#getting-started) is the recommended path.** See [MCP Integration](docs/guides/mcp-integration.md) for status details and resumption criteria.
+> **MCP Server: Maintenance Mode (effective 2026-05-04).** The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server (v2.9.2) remains available on npm for clients that need MCP transport. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold. **For new users, the file-based install path documented in [Getting Started](#getting-started) is the recommended path.** See [MCP Integration](docs/guides/mcp-integration.md) for status details and resumption criteria.
 
 ---
 
@@ -390,9 +390,9 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **Template access** | Navigate file system | URI-based resources |
 | **Workflows** | Manual orchestration | Tool-based execution |
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
-| **Updates** | `git pull` (active maintenance) | Frozen at v2.9.1 (maintenance mode) |
+| **Updates** | `git pull` (active maintenance) | Frozen at v2.9.2 (maintenance mode) |
 
-> Note: pm-skills-mcp v2.9.1 is the final maintenance-mode release embedding 29 skills. See [MCP Integration](docs/guides/mcp-integration.md) for status details.
+> Note: pm-skills-mcp v2.9.2 is the final maintenance-mode release, embedding the full current 40-skill catalog. See [MCP Integration](docs/guides/mcp-integration.md) for status details.
 
 **Use `pm-skills` (this repo) when:**
 - You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)
@@ -401,11 +401,11 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 - You want to fork and heavily customize skills for your team
 
 **Use [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) (maintenance mode) when:**
-- Your team has already adopted it and v2.9.1's catalog meets current needs
+- Your team has already adopted it and v2.9.2's catalog meets current needs
 - Your tooling specifically requires the MCP transport (e.g., self-hosted MCP-only configurations)
-- The frozen 29-skill catalog meets your scope (skills added to `pm-skills` since v2.9.1 are not embedded)
+- The frozen 40-skill catalog meets your scope (skills added to `pm-skills` after the v2.9.2 build are not embedded)
 
-The file-based install ships all 40 production-ready PM skills (26 phase skills + 8 foundation skills + 6 utility skills). The frozen v2.9.1 MCP build embeds a subset of 29 skills.
+The file-based install ships all 40 production-ready PM skills (26 phase skills + 8 foundation skills + 6 utility skills). The frozen v2.9.2 MCP build embeds the same 40-skill catalog at the time of its publication, after which point only the file-based install receives new skills.
 
 See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
 
