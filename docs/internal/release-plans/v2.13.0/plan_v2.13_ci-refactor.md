@@ -1,6 +1,6 @@
 # v2.13 CI Refactor: Execution Plan
 
-**Status:** Wave 1 + Wave 2 + Wave 3 complete (all 12 items done); pre-release verification gates pending
+**Status:** Executed - Wave 1 + Wave 2 + Wave 3 complete (all 12 items done); Codex round 1 + round 2 adversarial reviews converged below IMPORTANT; pre-release verification gates closed (PR.4 mechanical CI all green 2026-05-05)
 **Cycle:** v2.13.0
 **Created:** 2026-05-03 (initial); 2026-05-03 (trimmed to thin execution tracker per audit + plan pair convention); 2026-05-03 (post-Codex Round 1 Wave 1 resolution); 2026-05-03 (Wave 3 partial + Codex Round 1 resolution)
 **Spec source:** [`../../audit/ci-audit_2026-05-03.md`](../../audit/ci-audit_2026-05-03.md) Sections 10 (plan summary) and 16 (implementation specifications)

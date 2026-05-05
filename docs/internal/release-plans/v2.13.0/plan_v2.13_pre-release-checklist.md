@@ -73,18 +73,18 @@ graph LR
 
 **Per-strand checklist:**
 
-- [ ] Bucket A  -  doc-structure adversarial review round(s) executed
-- [ ] Bucket C  -  new-validators adversarial review (logic correctness, false-positive risk) executed
-- [ ] Bucket D  -  Zensical spike report adversarial review executed (decision rubric correctly applied?)
-- [ ] All CRITICAL + IMPORTANT findings from per-strand resolved or explicitly deferred
-- [ ] Re-runs until per-strand findings stabilize below IMPORTANT
+- [x] Bucket A  -  doc-structure adversarial review round(s) executed
+- [x] Bucket C  -  new-validators adversarial review (logic correctness, false-positive risk) executed
+- [x] Bucket D  -  Zensical spike report adversarial review executed (decision rubric correctly applied?)
+- [x] All CRITICAL + IMPORTANT findings from per-strand resolved or explicitly deferred
+- [x] Re-runs until per-strand findings stabilize below IMPORTANT
 
 **Release-state checklist:**
 
-- [ ] Release-state loop round 1 executed (against full release stack)
-- [ ] All CRITICAL + IMPORTANT resolved
+- [x] Release-state loop round 1 executed (against full release stack)
+- [x] All CRITICAL + IMPORTANT resolved
 - [ ] Re-runs until release-state findings stabilize per the v2.12.0-codified rule
-- [ ] Each round's findings + resolution commit documented in plan_v2.13.0.md Change Log
+- [x] Each round's findings + resolution commit documented in plan_v2.13.0.md Change Log
 
 **v2.13-specific watch items** (lessons from v2.12.0):
 
@@ -123,20 +123,20 @@ bash scripts/check-version-references.sh  # new in v2.13, advisory
 
 **Checklist:**
 
-- [ ] `lint-skills-frontmatter` green. all 40 skills pass (no new skills in v2.13)
-- [ ] `validate-commands` green. all 47 commands map to valid skills
-- [ ] `validate-agents-md` green. 40 skill paths match
-- [ ] `validate-skills-manifest` green. v2.13.0 manifest is empty (no skill version bumps); validator handles empty manifest
-- [ ] `validate-meeting-skills-family` green. unchanged
+- [x] `lint-skills-frontmatter` green. all 40 skills pass (no new skills in v2.13)
+- [x] `validate-commands` green. all 47 commands map to valid skills
+- [x] `validate-agents-md` green. 40 skill paths match
+- [x] `validate-skills-manifest` green. v2.13.0 manifest is empty (no skill version bumps); validator handles empty manifest
+- [x] `validate-meeting-skills-family` green. unchanged
 - [ ] `validate-version-consistency` green. all version refs at 2.13.0
-- [ ] `check-nav-completeness` green (new). all `docs/**/*.md` in nav or exclude_docs
-- [ ] `check-generated-content-untouched` green (new). regenerate clean
-- [ ] `validate-references-cross-doc` green (new). all reference cross-links resolve
-- [ ] `validate-docs-frontmatter` green (new). all rendered docs have title + description
-- [ ] `check-internal-link-validity` green (new). zero broken internal links
-- [ ] `validate-skill-family-registration` green (new). registry-driven family validation passes
-- [ ] `check-count-consistency` green for current-state (now enforcing). historical entries advisory
-- [ ] `check-version-references` reviewed (new, advisory). drift documented or fixed
+- [x] `check-nav-completeness` green (new). all `docs/**/*.md` in nav or exclude_docs
+- [x] `check-generated-content-untouched` green (new). regenerate clean
+- [x] `validate-references-cross-doc` green (new). all reference cross-links resolve
+- [x] `validate-docs-frontmatter` green (new). all rendered docs have title + description
+- [x] `check-internal-link-validity` green (new). zero broken internal links
+- [x] `validate-skill-family-registration` green (new). registry-driven family validation passes
+- [x] `check-count-consistency` green for current-state (now enforcing). historical entries advisory
+- [x] `check-version-references` reviewed (new, advisory). drift documented or fixed
 
 ---
 
@@ -144,39 +144,39 @@ bash scripts/check-version-references.sh  # new in v2.13, advisory
 
 ### 2a. Bucket A doc-structure fidelity
 
-- [ ] Duplicate top-level files resolved per Open Question 1 decision (delete + redirect, OR keep + warn, OR generate)
-- [ ] `docs/frameworks/` resolved per Open Question 2 decision (deleted or promoted)
-- [ ] `creating-skills.md` vs `authoring-pm-skills.md` consolidation complete; redirect in place if duplicate deleted
-- [ ] Pattern 5C frontmatter `generated: true` flag added to every generated page (`docs/skills/**/*.md`, `docs/workflows/*.md`, `docs/showcase/*.md`, `docs/reference/commands.md`)
-- [ ] All `redirects` plugin entries in `mkdocs.yml` resolve to existing paths
+- [x] Duplicate top-level files resolved per Open Question 1 decision (delete + redirect, OR keep + warn, OR generate)
+- [x] `docs/frameworks/` resolved per Open Question 2 decision (deleted or promoted)
+- [x] `creating-skills.md` vs `authoring-pm-skills.md` consolidation complete; redirect in place if duplicate deleted
+- [x] Pattern 5C frontmatter `generated: true` flag added to every generated page (`docs/skills/**/*.md`, `docs/workflows/*.md`, `docs/showcase/*.md`, `docs/reference/commands.md`)
+- [x] All `redirects` plugin entries in `mkdocs.yml` resolve to existing paths
 
 ### 2b. Bucket B count + link fidelity
 
-- [ ] Zero stale skill counts across `concepts/agent-skill-anatomy.md`, `reference/categories.md`, `reference/ecosystem.md`, `reference/project-structure.md`, `guides/mcp-integration.md`, `getting-started/index.md`, `mkdocs.yml site_description`
-- [ ] All counts at 40 (MCP frozen at 40 in v2.9.2 per 2026-05-05 maintenance-mode pivot; superseded the v2.11.0 M-22 28-skill freeze when v2.9.2 re-embedded the full current catalog)
-- [ ] `docs/guides/index.md` lists all current guides
-- [ ] `docs/skills/index.md` carries hand-edited curated index banner; `docs/showcase/index.md` carries auto-generated banner from A.4
-- [ ] `utility-pm-skill-builder` SKILL.md catalog table updated: Foundation (1)→(8), Utility (1)→(6), Domain (25)→(26)
-- [ ] `AGENTS/codex/CONTEXT.md` decision executed (refresh or vestigial-redirect)
-- [ ] `mcp-setup.md` deleted; `mkdocs.yml redirect_maps` redirects `guides/mcp-setup.md` to `guides/mcp-integration.md` (canonical maintenance-mode status page)
-- [ ] README "What's New" workaround replaced (section-aware CI or generated section) OR explicitly accepted as v2.13.0 carryover
+- [x] Zero stale skill counts across `concepts/agent-skill-anatomy.md`, `reference/categories.md`, `reference/ecosystem.md`, `reference/project-structure.md`, `guides/mcp-integration.md`, `getting-started/index.md`, `mkdocs.yml site_description`
+- [x] All counts at 40 (MCP frozen at 40 in v2.9.2 per 2026-05-05 maintenance-mode pivot; superseded the v2.11.0 M-22 28-skill freeze when v2.9.2 re-embedded the full current catalog)
+- [x] `docs/guides/index.md` lists all current guides
+- [x] `docs/skills/index.md` carries hand-edited curated index banner; `docs/showcase/index.md` carries auto-generated banner from A.4
+- [x] `utility-pm-skill-builder` SKILL.md catalog table updated: Foundation (1)→(8), Utility (1)→(6), Domain (25)→(26)
+- [x] `AGENTS/codex/CONTEXT.md` decision executed (refresh or vestigial-redirect)
+- [x] `mcp-setup.md` deleted; `mkdocs.yml redirect_maps` redirects `guides/mcp-setup.md` to `guides/mcp-integration.md` (canonical maintenance-mode status page)
+- [x] README "What's New" workaround replaced (section-aware CI or generated section) OR explicitly accepted as v2.13.0 carryover
 
 ### 2c. Bucket C CI strand fidelity
 
-- [ ] All 5 PowerShell parity bugs fixed; PS1 output matches bash on current main
-- [ ] `check-count-consistency` regex tightening lands and passes against current state with no false positives
-- [ ] All 7 new validators have `.sh` + `.ps1` + `.md` triplet completeness (verified by `validate-script-docs.sh`)
-- [ ] `validation.yml` updated with new job entries; both Ubuntu and Windows legs green
-- [ ] At least one Codex round on each new validator's logic correctness
+- [x] All 5 PowerShell parity bugs fixed; PS1 output matches bash on current main
+- [x] `check-count-consistency` regex tightening lands and passes against current state with no false positives
+- [x] All 7 new validators have `.sh` + `.ps1` + `.md` triplet completeness (verified by `validate-script-docs.sh`)
+- [x] `validation.yml` updated with new job entries; both Ubuntu and Windows legs green
+- [x] At least one Codex round on each new validator's logic correctness
 
 ### 2d. Bucket D Zensical spike fidelity
 
-- [ ] Spike executed within time-box
-- [ ] Spike report written: `plan_v2.13_zensical-spike-report_YYYY-MM-DD.md`
-- [ ] Decision recorded: GO / GO-WITH-CAVEATS / NO-GO
+- [x] Spike executed within time-box
+- [x] Spike report written: `plan_v2.13_zensical-spike-report_YYYY-MM-DD.md`
+- [x] Decision recorded: GO / GO-WITH-CAVEATS / NO-GO
 - [ ] If GO or GO-WITH-CAVEATS: v2.14.0+ migration commitment captured in v2.14 backlog
-- [ ] If NO-GO: Plan B (Astro Starlight) deferred to v2.14.0+ as separate effort
-- [ ] Report archived in `docs/internal/release-plans/v2.13.0/` for retention
+- [x] If NO-GO: Plan B (Astro Starlight) deferred to v2.14.0+ as separate effort
+- [x] Report archived in `docs/internal/release-plans/v2.13.0/` for retention
 
 ---
 
@@ -219,13 +219,13 @@ graph LR
 
 ## Phase 4. Release coordination
 
-- [ ] `docs/internal/release-plans/v2.13.0/plan_v2.13.0.md` Status Snapshot reflects every commit and artifact
-- [ ] Pre-release Checklist marked executed with checkboxes
-- [ ] Open Questions all marked Resolved with the actual decision history
-- [ ] Change Log appended with every release-cycle event
-- [ ] `docs/internal/release-plans/v2.13.0/skills-manifest.yaml` confirmed empty (no skill version bumps)
-- [ ] CI refactor doc (`plan_v2.13_ci-refactor.md`) marked Executed with each item's resolution status
-- [ ] Spike doc (`plan_v2.13_zensical-spike.md`) cross-referenced by spike report
+- [x] `docs/internal/release-plans/v2.13.0/plan_v2.13.0.md` Status Snapshot reflects every commit and artifact
+- [x] Pre-release Checklist marked executed with checkboxes
+- [x] Open Questions all marked Resolved with the actual decision history
+- [x] Change Log appended with every release-cycle event
+- [x] `docs/internal/release-plans/v2.13.0/skills-manifest.yaml` confirmed empty (no skill version bumps)
+- [x] CI refactor doc (`plan_v2.13_ci-refactor.md`) marked Executed with each item's resolution status
+- [x] Spike doc (`plan_v2.13_zensical-spike.md`) cross-referenced by spike report
 
 ---
 
