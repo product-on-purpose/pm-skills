@@ -2,11 +2,11 @@
 
 ## Current State
 
-**Status:** v2.13.0 cycle scope work COMPLETE (27 of 27 items across Buckets A, B, C, D). Tag prep not yet started: 5 pre-release gates remain (per-strand and release-state Phase 0 adversarial review loops, generator regen, pre-release checklist, CHANGELOG + Release_v2.13.0.md authoring). Out-of-cycle pm-skills-mcp v2.9.2 maintenance-mode pivot also COMPLETE end-to-end (npm publish + GitHub Release at https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.9.2). Worktree at `f0c914b` on `v2.13/cycle`, pushed. Primary `main` still has local-only commit `87ddf7a` (no-em-dash rule codified in CLAUDE.md) that was branched after the worktree creation; reconciliation happens at merge time.
-**Last Updated:** 2026-05-05 (Bucket B and Bucket D both completed today; cycle scope at 27/27). Bucket B (9/9): all count + link cleanup including B.7 F-34 `THREAD_PROFILES.md` shipped at `library/skill-output-samples/THREAD_PROFILES.md` (~395 lines machine-readable per-thread metadata for tooling consumers; `README_SAMPLES.md` cross-links). Bucket D (2/2): Zensical compatibility spike executed against Zensical 0.0.40 with Material 9.7.6 baseline; outcome **NO-GO** for v2.14.0 commitment due to two BLOCKERs (`mkdocs-redirects` plugin not honored, `exclude_docs:` leaks 183 internal HTML files into public output). Recommendation: stay on Material through v2.14.0; do NOT trigger Plan B (Astro Starlight) immediately; re-spike Zensical when blockers resolve. Report at `docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md`. Validator inventory at 24 (final v2.13.0 target). Enforcing tier at 9. Recent commits on `v2.13/cycle`: `596cca9` (MCP.1 ship), `fb18124` (B.7 ship), `f0c914b` (Bucket D Zensical spike NO-GO). PR #140 reflects all v2.13 cycle work.
-**Release:** v2.12.0 (tag `v2.12.0`, head commit `098771a`, all 9 release commits pushed to origin/main). GitHub release published from `docs/releases/Release_v2.12.0.md`. Previous: v2.11.1 shipped 2026-04-22 (skills.sh CLI compatibility); v2.11.0 shipped 2026-04-18 (Meeting Skills Family + lean-canvas); v2.10.2 prepared 2026-04-14 (never tagged); v2.10.1 shipped 2026-04-13.
-**Skill count:** 40 (26 phase + 8 foundation + 6 utility). +2 since v2.11.1: foundation-okr-writer (F-41) + measure-okr-grader (F-42).
-**MCP:** pm-skills-mcp frozen per M-22 (v2.11.0 decision). 12 skills behind now (28 embedded vs 40 in repo). Revisit when team adoption creates demand.
+**Status:** v2.13.0 cycle scope work COMPLETE (27 of 27 items across Buckets A, B, C, D) plus 5 out-of-cycle MCP items shipped (MCP.1-MCP.5). Tag prep IN PROGRESS: PR.1 (per-strand Phase 0) CLOSED 2026-05-05; PR.2 (release-state Phase 0) round 1 returned 6 IMPORTANT findings, resolution in progress. PR.3-PR.5 (generator regen, pre-release checklist, CHANGELOG + Release_v2.13.0.md authoring) pending after PR.2 converges. Worktree on `v2.13/cycle`, pushed; latest commits on origin: `0ff7071` (PR.2 batch 2 master plan + ci-refactor reconciliation), `05c5252` (PR.2 batch 1 public docs reconciliation), `ec91f89` (PR.1 closure). Primary `main` at `87ddf7a` (no-em-dash CLAUDE.md rule, already on origin/main).
+**Last Updated:** 2026-05-05. Recent activity (chronological today): MCP.1 ship (v2.9.2 npm publish + GH Release); B.7 F-34 THREAD_PROFILES.md ship; Bucket D Zensical spike NO-GO; session wrap; MCP.5 v2.9.3 security-patch follow-up shipped end-to-end (cleared all 8 open Dependabot alerts in 2-hour announcement-to-patch turnaround); PR.1 per-strand Phase 0 closed via 4 Codex Codex tasks (Bucket A retry, Bucket C round 1, Bucket C round 2, Bucket D retry); PR.2 release-state Phase 0 review found 6 IMPORTANT, resolution in progress (Batch 1 public docs + Batch 2 master plan + ci-refactor landed; Batch 3 CONTEXT.md + mkdocs.yml in flight).
+**Release:** v2.12.0 is the latest tagged release (tag `v2.12.0`, head commit `098771a`, on origin/main). GitHub release published from `docs/releases/Release_v2.12.0.md`. v2.13.0 is in cycle on `v2.13/cycle`, tag pending PR.2-PR.5 convergence. Previous: v2.11.1 shipped 2026-04-22; v2.11.0 shipped 2026-04-18 (Meeting Skills Family + lean-canvas).
+**Skill count:** 40 (26 phase + 8 foundation + 6 utility). +2 since v2.11.1: foundation-okr-writer + measure-okr-grader (both shipped in v2.12.0 OKR Skills Launch).
+**MCP:** pm-skills-mcp in maintenance mode 2026-05-04. Latest in v2.9.x maintenance line is **v2.9.3** (security-patch follow-up to v2.9.2; cleared all 8 open Dependabot moderate advisories on 2026-05-05; 0 alerts post-ship). Catalog frozen at 40 skills per the v2.9.2 build (re-embedded full current catalog; M-22's prior 28-skill freeze superseded). Subsequent v2.9.x patches do not change the catalog.
 **v2.13.0 theme (locked 2026-05-03):** Doc consistency overhaul + CI refactoring + Material for MkDocs to Zensical migration. Three coherent strands of cleanup work that the user explicitly framed as a separate cycle from v2.12.0 feature work. Untracked items in `docs/internal/` are 2.13 prep material (F-37 html-template-creator effort, organization-design, multi-repo extraction design, v2.13.0 release plan stub, skills-ideas brainstorm).
 **v2.13.0 specific items observed during v2.12.0 release prep (deferred):** `utility-pm-skill-builder` SKILL.md catalog table stale (Foundation lists 1, Utility lists 1 in the gap-analysis table; actuals are 8 and 6); `AGENTS/codex/CONTEXT.md` last actively maintained 2026-03-22 at v2.7.0 (got a v2.12.0 currency marker only, full content refresh deferred); pre-existing lint-skills-frontmatter PS1 false-positives for utility-pm-skill-validate, utility-slideshow-creator, utility-update-pm-skills (bash version passes; PS1 path-detection bug); 3 PowerShell CI scripts with parse errors (check-stale-bundle-refs, check-workflow-coverage, check-generated-freshness); docs/guides/mcp-setup.md "all 38 PM skills via MCP" wording (frozen MCP actually has 28); count-consistency CI script regex blind spots (prose forms with adjective interstitials between digit and "skills"; per-phase counts below 10 min-threshold). Pre-existing v2.12.0 backlog still open: F-29 (lifecycle workflow), F-30 (adoption guide), F-31/32/33/34/35 (sample-automation loop), F-36 (generic family-registration validator).
 **Material/Zensical decision (research-staged, not committed):** MkDocs upstream is potentially abandoned and a v2 may break Material plugins; Material for MkDocs is in maintenance mode for ~12 months per squidfunk's announcement. Zensical is squidfunk's own successor project (drop-in `mkdocs.yml` compatibility, ZRX differential build engine 4-5x faster, third-party module ecosystem opening early 2026). Recommended path: 30-min Zensical compatibility spike on pm-skills before committing. Astro Starlight is the Plan B if Zensical compatibility holes are too deep; Docusaurus is overkill for pm-skills' content shape.
@@ -38,16 +38,19 @@ pm-skills/
 │   ├── define-problem-statement/
 │   ├── deliver-prd/
 │   ├── deliver-user-stories/
-│   └── ...               # 32 skills total: {phase/classification}-{skill}/
+│   └── ...               # 40 skills total: {phase/classification}-{skill}/
 ├── _workflows/           # 9 Workflows (triple-diamond, lean-startup, feature-kickoff, and 6 more)
-├── commands/             # Claude Code slash commands (39 total: 32 skill + 7 workflow)
-├── docs/                 # Documentation
+├── commands/             # Claude Code slash commands (47 total: 40 skill + 7 workflow)
+├── docs/                 # Documentation (Diataxis: concepts, guides, reference, plus generated skills/workflows/showcase)
+│   ├── concepts/         # Conceptual orientation (triple-diamond-delivery-process, ...)
 │   ├── guides/           # How-to guides
-│   ├── reference/        # Technical specs
-│   ├── frameworks/       # Methodology docs
+│   ├── reference/        # Lookup material
+│   ├── skills/           # Generated per-skill pages (one per skill + category indices)
+│   ├── workflows/        # Generated workflow pages
+│   ├── showcase/         # Generated thread-aligned showcase
 │   └── templates/        # Skill creation templates
 ├── library/              # Curated output libraries
-│   └── skill-output-samples/  # 95 sample outputs across 25 skills
+│   └── skill-output-samples/  # 126 sample outputs across the catalog
 ├── .claude-plugin/       # Claude plugin manifest (plugin.json)
 ├── scripts/              # Build and validation scripts
 │   ├── build-release.sh  # Create versioned ZIP
@@ -445,12 +448,15 @@ pm-skills/
 
 ## Next Steps
 
-### Active (v2.9.0)
+### Active (v2.13.0 tag prep)
 
-| ID | Effort | Status | Plan |
-|----|--------|--------|------|
-| M-19 | Rename bundles → workflows | Ready for execution | `docs/internal/efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md` |
-| F-13 | Workflow expansion (6 new) | Ready for execution (after M-19) | `docs/internal/efforts/F-13-workflow-expansion.md` |
+| Gate | Item | Status | Reference |
+|------|------|--------|-----------|
+| PR.1 | Per-strand Phase 0 adversarial review (Bucket A, Bucket C new validators, Bucket D spike) | ✅ Closed 2026-05-05 | Codex sessions in master plan PR.1 row |
+| PR.2 | Release-state Phase 0 adversarial review | 🟡 Round 1 returned 6 IMPORTANT; resolution in progress (Batch 1 + 2 landed; Batch 3 in flight) | `task-mot1m40y-esjydx` |
+| PR.3 | Generator regen pre-release | ⬜ Pending PR.2 convergence | `scripts/check-generated-content-untouched.sh` re-validates |
+| PR.4 | Pre-release checklist all green | ⬜ Pending PR.2-PR.3 | `docs/internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist.md` |
+| PR.5 | CHANGELOG.md v2.13.0 + Release_v2.13.0.md authored | ⬜ Pending | Author after PR.4 |
 
 ### Backlog
 
@@ -473,8 +479,10 @@ See `docs/internal/backlog-canonical.md` for the priority-ordered backlog.
 - Follows [Agent Skills Specification](https://agentskills.io/specification)
 - Primary Audience: Individual Product Managers using AI assistants
 - Cross-platform: Claude Code, Claude.ai, GitHub Copilot, Cursor, Windsurf, OpenCode
-- 32 skills total: 25 domain + 1 foundation + 6 utility (v2.10.0+)
+- 40 skills total: 26 phase (domain) + 8 foundation + 6 utility (v2.13.0)
 - 9 workflows (expanded from 3 in v2.9.0)
+- 47 slash commands (40 skill + 7 workflow)
+- 126 library samples in `library/skill-output-samples/`
 
 ## Skills Inventory (32 skills)
 

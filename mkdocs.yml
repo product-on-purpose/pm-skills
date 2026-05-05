@@ -253,6 +253,7 @@ nav:
     - guides/index.md
     - Using Skills: guides/using-skills.md
     - Using Workflows: guides/using-workflows.md
+    - Using the Meeting Skills Family: guides/using-meeting-skills.md
     - Updating PM Skills: guides/updating-pm-skills.md
     - Creating PM Skills: guides/creating-pm-skills.md
     - PM-Skill Lifecycle: guides/pm-skill-lifecycle.md
@@ -273,9 +274,6 @@ nav:
     - "Storevine (B2B)": showcase/storevine.md
     - "Brainshelf (Consumer)": showcase/brainshelf.md
     - "Workbench (Enterprise)": showcase/workbench.md
-
-  - Guides:
-    - Using the Meeting Skills Family: guides/using-meeting-skills.md
 
   - Reference:
     - Overview: reference/README.md
