@@ -14,14 +14,14 @@
 
 ## Scope summary
 
-v2.13.0 ships 14 items from the 2026-05-03 CI audit plan:
+v2.13.0 ships 12 items from the 2026-05-03 CI audit plan:
 
 - **Items 1-4** (PowerShell parity bugfixes): audit Sections 5.1.1-5.1.4
 - **Items 5-12** (existing-script change + 7 new validators + F-36 family validator): audit Section 16
 
-All 14 items are in scope. Sequencing across 3 waves per audit Section 10. No items deferred from the audit's plan.
+All 12 items are in scope. Sequencing across 3 waves per audit Section 10. No items deferred from the audit's plan.
 
-**Net surface delta:** validator inventory grows from 17 to 24. Enforcing tier grows from 5 to 11. Bash + PS1 dual-stack maintained for v2.13 (consolidation decision deferred to v2.14.0+ per audit Section 9).
+**Net surface delta:** validator inventory grows from 15 to 22 (7 new). Enforcing tier grows from 5 to 10: 4 new validators ship enforcing (nav-completeness, generated-content-untouched, references-cross-doc, skill-family-registration), check-count-consistency was promoted from advisory to enforcing for current-state, and 3 new validators ship advisory (validate-docs-frontmatter, check-internal-link-validity, check-version-references). Bash + PS1 dual-stack maintained for v2.13 (consolidation decision deferred to v2.14.0+ per audit Section 9).
 
 ---
 
@@ -88,14 +88,16 @@ After v2.13 ships, `validation.yml` grows by 7 new validator jobs. Per existing 
   run: bash scripts/check-generated-content-untouched.sh
 - name: Validate cross-doc references
   run: bash scripts/validate-references-cross-doc.sh
-- name: Validate docs frontmatter
-  run: bash scripts/validate-docs-frontmatter.sh
-- name: Check internal link validity
-  run: bash scripts/check-internal-link-validity.sh
 - name: Validate skill family registration
   run: bash scripts/validate-skill-family-registration.sh
 
-# Advisory
+# Advisory (continue-on-error: true; deviation from audit's enforcing posture, documented in decisions journal entries dated 2026-05-03 and 2026-05-04)
+- name: Validate docs frontmatter
+  run: bash scripts/validate-docs-frontmatter.sh
+  continue-on-error: true
+- name: Check internal link validity
+  run: bash scripts/check-internal-link-validity.sh
+  continue-on-error: true
 - name: Check version references
   run: bash scripts/check-version-references.sh
   continue-on-error: true
@@ -124,7 +126,7 @@ Before v2.13.0 tag, verify CI cleanliness:
 - [ ] `check-count-consistency` tightened regex passes against current state (no pre-existing violations introduced)
 - [ ] All 7 new validators pass against current state (any pre-existing violations addressed in their respective Bucket A/B fixes)
 - [ ] `validation.yml` updated with new job entries; both Ubuntu and Windows legs green
-- [ ] `validate-script-docs.sh` confirms all 24 validators have triplet completeness
+- [ ] `validate-script-docs.sh` confirms all 22 validators have triplet completeness
 - [ ] At least one Codex round of adversarial review on the new validators themselves (logic correctness, false-positive risk)
 
 ---

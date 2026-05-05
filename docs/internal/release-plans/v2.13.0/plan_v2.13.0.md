@@ -1,7 +1,7 @@
 # v2.13.0 Release Plan: Foundation Hardening + Doc Stack Decision
 
-**Status:** Plan (scope locked, decisions pending in Open Questions)
-**Owner:** TBD
+**Status:** Pre-tag - all 27/27 in-cycle items shipped + 5 out-of-cycle MCP items shipped (MCP.1-MCP.5); PR.1 (per-strand Phase 0) closed; PR.2 (release-state Phase 0) in resolution; PR.3-PR.5 pending
+**Owner:** jprisant
 **Type:** Refactor + decision release (minor)
 **Created:** 2026-05-02 (stub) → 2026-05-03 (scope locked, three strands defined)
 **Sources:**
@@ -259,7 +259,7 @@ Explicit guards to prevent the scope creep risk noted at the v2.12.0 to v2.13.0 
 
 1. **No new PM skills.** v2.13.0 ships zero new skill artifacts. F-37 (HTML Template Creator) and any future skill ideas remain in backlog for v2.14.0+.
 2. **No actual Zensical migration.** v2.13.0 ships only the spike + decision. Migration is v2.14.0+ if greenlit.
-3. **No MCP work.** MCP server remains frozen per M-22.
+3. **No in-cycle MCP work.** MCP server remained frozen per M-22 at the start of v2.13.0. An out-of-cycle MCP maintenance-mode pivot (MCP.1-MCP.5) was added mid-cycle on 2026-05-05 by explicit user decision; it is tracked separately in the dedicated MCP section above and was NOT scope creep on the original v2.13 buckets. The original guard prevented in-cycle MCP feature work; the out-of-cycle exception was a deliberate user-initiated pivot.
 4. **No retroactive HISTORY.md backfill.** HISTORY.md governance is unchanged.
 5. **No marketplace.json structural changes.** Continue treating it as version-mirror only.
 6. **No new external runtime dependencies.** mkdocs plugin set unchanged in v2.13. Zensical install for spike is venv-isolated and does not become a runtime dependency. `mkdocs-macros-plugin` (Pattern 2) deferred. Lychee for link-checking adopted in CI only.
@@ -291,9 +291,9 @@ Explicit guards to prevent the scope creep risk noted at the v2.12.0 to v2.13.0 
 | **OQ-2** | `docs/frameworks/` folder (1 excluded file): delete or promote? | Audit 5.4 | **Delete folder; merge content into `docs/concepts/triple-diamond.md`** | **Resolved 2026-05-04: deleted folder.** Content was byte-identical to canonical (no merge needed). Canonical also renamed `concepts/triple-diamond.md` → `concepts/triple-diamond-delivery-process.md` for descriptive accuracy. |
 | **OQ-3** | `creating-skills.md` vs `authoring-pm-skills.md`  -  which is canonical? | Audit Pattern 3 | **Keep `creating-skills.md` as canonical**; redirect the other | **Resolved 2026-05-04: renamed canonical to `creating-pm-skills.md`** per the locked `pm-skill-*` naming convention; deleted authoring duplicate; both old paths redirect to new. |
 | **OQ-4** | Pattern 5 (generated-content marker): adopt 5A (filesystem move), 5B (banner comment), or 5C (frontmatter `generated: true`)? | Audit Pattern 5 | **5C  -  frontmatter flag** (least disruptive, most automatable, pairs with new CI script) | **Resolved 2026-05-04: Option 5C executed.** All 3 generators (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`) now emit `generated: true` + `source:` frontmatter fields and a visible `!!! warning "Generated file"` admonition pointing editors to the source. Coverage: 63 generated pages (38 skill + 8 phase indices + 1 commands ref + 9 workflows + 1 workflow index + 3 showcase + 1 showcase index). Unblocks Bucket C Wave 2 item 7 (`check-generated-content-untouched`). |
-| **OQ-5** | Pattern 2 (frontmatter-driven counts via mkdocs-macros-plugin): adopt in v2.13 or defer? | Audit Pattern 2 | **Defer to v2.14.0+** pending Zensical decision (depends on which engine renders) | TBD |
-| **OQ-6** | F-37 HTML Template Creator: include in v2.13 or defer? | Working tree untracked | **Defer to v2.14.0+**  -  conflicts with "no new skills" guard | TBD |
-| **OQ-7** | Sample-automation slate F-29 to F-36 except F-34: defer all? | Session log re-eval | **Defer all except F-34** (lifted into Bucket B) and F-36 (lifted into Bucket C strand doc as generic family validator) | TBD |
+| **OQ-5** | Pattern 2 (frontmatter-driven counts via mkdocs-macros-plugin): adopt in v2.13 or defer? | Audit Pattern 2 | **Defer to v2.14.0+** pending Zensical decision (depends on which engine renders) | **Resolved 2026-05-05: deferred to v2.14.0+.** Zensical spike returned NO-GO; Material continues. Reconsider when Zensical re-spike is triggered (per `plan_v2.13_zensical-spike-report_2026-05-05.md`). |
+| **OQ-6** | F-37 HTML Template Creator: include in v2.13 or defer? | Working tree untracked | **Defer to v2.14.0+** - conflicts with "no new skills" guard | **Resolved 2026-05-04: deferred to v2.14.0+** per Out of Scope guard #1; effort doc retained at `docs/internal/efforts/F-37-html-template-creator.md`. |
+| **OQ-7** | Sample-automation slate F-29 to F-36 except F-34: defer all? | Session log re-eval | **Defer all except F-34** (lifted into Bucket B) and F-36 (lifted into Bucket C strand doc as generic family validator) | **Resolved 2026-05-04: F-34 lifted into Bucket B (shipped as B.7); F-36 lifted into Bucket C strand doc (shipped as Wave 3 item 12); F-29, F-30, F-31, F-32, F-33, F-35 deferred to v2.14.0+ per Deferred table.** |
 
 These resolve doc-reorg architectural questions. Bucket C (CI) and Bucket D (Zensical) have their own internal decisions documented in their respective strand docs; they don't surface here.
 
@@ -340,8 +340,8 @@ What shipping the full v2.13.0 release produces, by audience and by effect.
 | PM skills count | 40 (26 phase + 8 foundation + 6 utility); zero added, zero removed |
 | Skill content (`skills/*/SKILL.md`) | Untouched |
 | Workflows | Unchanged (9 workflows) |
-| Library samples | Unchanged (120 samples) |
-| MCP server | Frozen at 28 skills per M-22 |
+| Library samples | Unchanged (126 samples) |
+| MCP server | Catalog frozen at 40 skills per v2.9.2 build (M-22's 28-skill freeze superseded 2026-05-05 when v2.9.2 re-embedded the full current catalog); v2.9.x maintenance line (latest v2.9.3) continues with security patches |
 | License | Apache 2.0 |
 | agentskills.io spec compliance | Unchanged |
 | Doc stack runtime | MkDocs Material (Zensical spike is venv-isolated; not a runtime dependency) |
@@ -364,8 +364,8 @@ What shipping the full v2.13.0 release produces, by audience and by effect.
 
 | Item | Effect |
 |------|--------|
-| Validator inventory 17 → 24 | 7 new automated checks |
-| Enforcing validators 5 → 7 | Stricter gate on PRs |
+| Validator inventory 15 → 22 | 7 new automated checks |
+| Enforcing validators 5 → 10 | Stricter gate on PRs (5 newly-enforcing: 4 new + check-count-consistency promoted) |
 | `check-generated-content-untouched` | Future hand-edits to generated pages rejected at CI |
 | `validate-references-cross-doc` | Internal-link breakage caught at CI |
 | `check-internal-link-validity` (advisory) | Reports broken links without blocking |
@@ -450,9 +450,10 @@ Detail at [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md) Section 6.
 
 | Question | Answer |
 |---|---|
-| New MCP tools needed? | No. MCP server frozen per M-22. |
-| Skill count drift relative to MCP | MCP at 28; repo at 40 going into v2.13.0; v2.13.0 adds 0 new skills. Gap unchanged. |
-| Separate MCP release required? | No. |
+| New MCP tools needed for v2.13.0 cycle work? | No. v2.13.0 in-cycle scope adds zero new pm-skills, so the MCP server's catalog needs no update from v2.13.0 itself. |
+| Skill count drift relative to MCP (in-cycle) | Going into v2.13.0: MCP at 28 per M-22 freeze (2026-04-17); repo at 40. v2.13.0 in-cycle scope: 0 new skills, so the in-cycle gap is unchanged. |
+| Out-of-cycle MCP work happened? | Yes. User-initiated maintenance-mode pivot 2026-05-05 (MCP.1-MCP.5). v2.9.2 re-embedded the full 40-skill catalog (M-22's 28-skill freeze superseded). v2.9.3 follow-up patch shipped same day to clear all 8 open Dependabot moderate advisories; 0 alerts post-ship. Out-of-cycle scope tracked separately in the MCP section. |
+| Separate MCP release required for in-cycle work? | No. The out-of-cycle MCP releases (v2.9.2, v2.9.3) shipped independently of v2.13.0's release cycle. |
 
 ---
 
@@ -522,6 +523,7 @@ Top-level summary:
 | 2026-05-05 | Bucket B quick-wins batch shipped: B.1 (project-structure.md Measure 4→5 + measure-okr-grader row + plan path correction), B.2 (mkdocs.yml site_description 32→40 + skills/index.md hand-edited curated banner), B.4 (mcp-setup.md deleted + redirect to mcp-integration.md per maintenance-mode pivot subsumption + nav entry removed + pre-release-checklist updated), B.9 (guides/index.md expanded 7→12 guides). Bucket B progress: 0 of 9 → 4 of 9 (44%). |
 | 2026-05-05 | Bucket B medium-tier batch shipped: B.5 (AGENTS/codex/CONTEXT.md vestigial-redirect rewrite, 74→32 lines, currency marker retained for check-context-currency CI), B.3 (utility-pm-skill-builder catalog: Domain 25→26, Foundation 1→8, Utility 1→6 with descriptions and categories sourced from each skill's frontmatter), B.8 (project-structure.md full reconciliation: TOC anchor, directory tree counts 38→40 + 45→47, Foundation section 1→8 with full listing, slash command table +8 missing rows). Bucket B progress: 4 of 9 → 7 of 9 (78%). |
 | 2026-05-05 | B.6 shipped (Option a: section-aware CI extension). Replaced the broad `v[0-9]+\.` line-exemption in `check-count-consistency.{sh,ps1}` with: (1) `<!-- count-exempt:start -->`/`end` HTML-comment markers for explicit historical-content exemption (added to README What's New, docs/index.md Recent Releases, utility-pm-skill-builder/references/EXAMPLE.md illustrative section); (2) subset-descriptor exclusion list (`phase`, `foundation`, `utility`, `domain`, `shipped`, `embedded`, `test`, `sample`, `library`, `lines?` for skills; `skill`, `workflow` for commands) so phrasing like "26 phase skills" / "40 skill commands" is no longer flagged as a stale total. Side effect: surfaced 18 hidden findings the prior workaround had silenced; all resolved (12 subset false positives via regex tightening, 1 line-count false positive via `lines?` addition, 2 EXAMPLE.md illustrative via markers, 3 generated-output mirrors via source-file regen propagation, 2 historical AGENTS/claude/DECISIONS.md references via file-level exclusion). Validator now PASSes cleanly. `check-count-consistency.md` doc rewritten to document both new mechanisms. Bucket B progress: 7 of 9 → 8 of 9 (89%). Remaining: B.7 (F-34 THREAD_PROFILES.md). |
+| 2026-05-05 | Hygiene: commit `06a2e36` removed unused `mkdocs.yml` `theme.custom_dir: overrides` hook + empty `overrides/.gitkeep`. Sibling commit to the MCP maintenance-mode pivot batch; not tracked as a Bucket A/B/C/D scope item because it is incidental cleanup rather than planned scope. |
 | 2026-05-05 | Out-of-cycle: MCP maintenance mode pivot (4 work items MCP.1-MCP.4 added). User-initiated decision to publish `pm-skills-mcp` as official maintenance-mode marker. Originally targeted v2.9.1 (commit `3e39776`, tag `v2.9.1`); pushed to GitHub but failed at `npm publish` because the build step revealed `embed-skills.js` copies the upstream `pm-skills` library live (40 skills now, not the 29 from v2.9.0 build time). Corrected via v2.9.2 (commit `083b8e3`, tag `v2.9.2`): all skill-count references updated 29→40, total tool count 48→59, in pm-skills-mcp/{README,CHANGELOG,CLAUDE.md,src/config.ts,package.json}. v2.9.1 tag retained in git for reference but unpublished. `pm-skills` downstream sweep done in 3 sub-batches initially against v2.9.1 references (commit `1b1d76b`): 2.1 `mcp-integration.md` aggressive trim (-554/+23), 2.2 `README.md` MCP-section reframe (+15/-13), 2.3 `ecosystem.md` notice + Decision Matrix qualifier (+6/-2). Follow-on commit corrects all v2.9.1→v2.9.2 references and 29→40 skill counts. Bucket B.1 partially subsumed (mcp-integration.md scope handled). Bucket B.4 status changed to `Re-evaluate` (mcp-setup.md may also need full maintenance-mode rewrite). Sibling commit `06a2e36` removes unused `mkdocs.yml` `theme.custom_dir: overrides` hook + empty `overrides/.gitkeep` (basic hygiene). |
 | 2026-05-05 | PR.1 closed (per-strand Phase 0 adversarial review). All three strands converged below IMPORTANT severity via Codex review. Bucket A retry session `task-moszvz7v-fdr6kl` (5m38s) found 1 MINOR (doc count drift) cleared in `d7da4a5`. Bucket C round 1 `task-mosyoe00-canbf1` (7m45s) found 2 IMPORTANT + 3 MEDIUM + 1 MINOR; the 2 IMPORTANT (count-consistency still advisory in CI; new validators missing always() condition cascade-skipping later checks) cleared in `d7da4a5`; round 2 `task-mot0w2ue-9k000t` confirmed CONVERGED. Bucket D retry `task-mot0yn6c-ysyzde` (7m58s, MCP filesystem only after sandbox shell unavailable) found 4 MEDIUM + 2 MINOR; both BLOCKERs confirmed valid via independent cross-reference to Zensical's own compatibility/config/validation docs (NO-GO holds). Bucket D O2 count-drift polish (10→12 redirect_maps; 5→2 exclude_docs paths) shipped as `4c3682b`. Two stalled Codex tasks cancelled (`task-mosynsg8-8jlc0d` Bucket A original at 58m, `task-mosyp69l-ersa06` Bucket D original at 60m); MCP-filesystem-fallback briefing instruction was the unlock for retries. Total Codex compute time across PR.1: ~26 minutes wall-clock across 4 successful tasks. Per-strand findings stabilized; PR.2 release-state loop is next. |
 | 2026-05-05 | MCP.5 ship: `pm-skills-mcp` v2.9.3 follow-up patch shipped end-to-end (commit `1700854`, tag `v2.9.3`, npm publish at 18:09 UTC, GitHub Release at https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.9.3). `npm audit fix` cleared 8 open Dependabot moderate advisories via transitive bumps (hono 4.12.10 to 4.12.17, @hono/node-server 1.19.12 to 1.19.14, vite 6.4.1 to 6.4.2, postcss 8.5.6 to 8.5.14); post-ship Dependabot open-alert count is 0. Bundled three latent v2.9.x maintenance debts in the same patch: tests/loader.test.ts catalog assertions corrected for the 40-skill embedded library (measure phase 4 to 5; deliver+measure filter 10 to 11; suite green at 81 of 81 from a previously red state shipped at v2.9.2); package-lock.json top-level version metadata synced from a stale 2.8.1; CHANGELOG.md retroactive em-dash sweep (28 occurrences in entries from v2.6.0 and earlier) per the no-em-dash rule codified 2026-04-13. Two-hour announcement-to-patch turnaround (v2.9.2 published 16:08 UTC, v2.9.3 published 18:09 UTC) operationally validates the v2.9.2 maintenance-mode "security patches will continue" commitment. Embedded skill catalog (40 skills) and tool counts (59 total) unchanged. |
