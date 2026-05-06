@@ -232,7 +232,7 @@ Documentation and tooling polish following v2.10.0. No skill behavior changes.
 - Documentation-only release. No skill or command behavior changes.
 - No `pm-skills-mcp` code changes required (docs parity update only).
 
-## [2.8.1] - 2026-04-04 ([release notes](docs/releases/Release_v2.8.1.md))
+## [2.8.1] - 2026-04-04 ([release notes](releases/Release_v2.8.1.md))
 
 ### Added
 - **Documentation site** at [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/) . MkDocs Material with tab navigation, dark mode, search, and mermaid diagram rendering.
@@ -260,7 +260,7 @@ Documentation and tooling polish following v2.10.0. No skill behavior changes.
 - Site is generated from existing content (skills, samples, docs) plus new guide pages.
 - 70+ navigable pages, zero build warnings.
 
-## [2.8.0] - 2026-04-03 ([release notes](docs/releases/Release_v2.8.0.md))
+## [2.8.0] - 2026-04-03 ([release notes](releases/Release_v2.8.0.md))
 
 ### Added
 - **F-10: utility-pm-skill-validate skill** (#121) . second utility skill. Audits existing skills against structural conventions (mirroring CI) and LLM-assessed quality criteria. Produces a pipe-delimited validation report (`Report schema: v1`) with severity-graded findings (FAIL/WARN/INFO) and actionable recommendations with target file paths. Two-tier assessment rebaselined against shipped library conventions. Includes SKILL.md, TEMPLATE.md (report format), EXAMPLE.md (validated `deliver-prd`), `/pm-skill-validate` command, and AGENTS.md entry. Skill count: 27 → 28.
@@ -283,7 +283,7 @@ Documentation and tooling polish following v2.10.0. No skill behavior changes.
 - Repo now contains 29 skills (25 domain + 1 foundation + 3 utility), 30 command docs, and 3 workflow bundles.
 - **MCP note**: `pm-skills-mcp` needs a re-embed to pick up both new skills. `utility-pm-skill-validate` → `pm_pm_skill_validate`. `utility-pm-skill-iterate` → `pm_pm_skill_iterate`.
 
-## [2.7.0] - 2026-03-22 ([release notes](docs/releases/Release_v2.7.0.md))
+## [2.7.0] - 2026-03-22 ([release notes](releases/Release_v2.7.0.md))
 
 ### Added
 - **F-06: deliver-acceptance-criteria skill** (#114) . new Deliver phase skill for Given/When/Then acceptance criteria generation covering happy path, edge cases, error states, and non-functional criteria. Includes SKILL.md, TEMPLATE.md, EXAMPLE.md (e-commerce checkout scenario), `/acceptance-criteria` command, and AGENTS.md entry. Skill count: 25 → 26.

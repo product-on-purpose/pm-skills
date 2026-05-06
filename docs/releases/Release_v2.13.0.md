@@ -203,6 +203,170 @@ The release-state loop's value was on display across rounds 2-7: each Codex roun
 
 ---
 
+## Detailed change manifest
+
+This section is an exhaustive, file-by-file breakdown of every relocation, deletion, rename, addition, and modification that landed in v2.13.0. It is intended for maintainers, contributors, and downstream tooling that needs to know exactly what changed. User-facing impact is summarized in the TL;DR and Why-this-matters sections above; this section is the audit trail.
+
+### A. New files added (tracked)
+
+**Scripts (7 new validator triplets):**
+
+- `scripts/check-nav-completeness.sh`, `.ps1`, `.md` (Bucket C Wave 1, item 6; commit `86ce58a`).
+- `scripts/check-generated-content-untouched.sh`, `.ps1`, `.md` (Bucket C Wave 2.1; commit `a170ecd`).
+- `scripts/validate-references-cross-doc.sh`, `.ps1`, `.md` (Bucket C Wave 2.2; commit `a170ecd`).
+- `scripts/validate-docs-frontmatter.sh`, `.ps1`, `.md` (Bucket C Wave 3, item 9; commit `f6f9785`).
+- `scripts/check-internal-link-validity.sh`, `.ps1`, `.md` (Bucket C Wave 3, item 10; commit `6d0d2ac`).
+- `scripts/check-version-references.sh`, `.ps1`, `.md` (Bucket C Wave 3, item 11; commit `13085b0`).
+- `scripts/validate-skill-family-registration.sh`, `.ps1`, `.md` (Bucket C Wave 3, item 12 / F-36; commit `04d7624`).
+
+**Library samples reference document:**
+
+- `library/skill-output-samples/THREAD_PROFILES.md` (F-34; commit `fb18124`). Approximately 395 lines of machine-readable per-thread metadata for tooling consumers.
+
+**Release artifacts:**
+
+- `docs/releases/Release_v2.13.0.md` (this file; promoted from `plan_v2.13_release-notes-DRAFT.md` in commit `6f81fb1`).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13.0.md` (master plan; pre-existed as a stub before cycle, expanded throughout).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_ci-refactor.md` (CI strand doc).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike.md` (Zensical spike plan).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md` (NO-GO decision artifact).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist.md` (Phase 0 to Phase 6 gate checklist).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_release-notes-DRAFT.md` (PR.5 author-time draft; preserved post-promotion as audit trail).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_changelog-DRAFT.md` (PR.5 author-time draft).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_readme-update-DRAFT.md` (PR.5 author-time draft with promotion checklist).
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_final-sweep_2026-05-05.md` (final-pass review captured at ship time).
+- `docs/internal/release-plans/v2.13.0/skills-manifest.yaml` (empty by design; no skill version bumps in v2.13).
+
+**Skill family registry (referenced by F-36 validator):**
+
+- `docs/reference/skill-families/_registry.yaml` (registry consumed by `validate-skill-family-registration`).
+
+### B. Files renamed (rename preserves history)
+
+- `docs/guides/creating-skills.md` to `docs/guides/creating-pm-skills.md` (Bucket A.3; commit `4190f45`). Per the locked `pm-skill-*` filename prefix convention. Old path redirects via `mkdocs.yml redirect_maps`.
+- `docs/concepts/triple-diamond.md` to `docs/concepts/triple-diamond-delivery-process.md` (Bucket A.1; commit `4190f45`). Renamed for descriptive accuracy. Old path redirects.
+
+### C. Files moved (cross-folder reorg, Diataxis-aligned)
+
+These were moved out of `docs/concepts/` into `docs/reference/` (lookup material) or `docs/guides/` (how-to material) per the v2.13 doc-folder semantics decision (Bucket A.2; commit `4190f45`):
+
+- `docs/concepts/skill-anatomy.md` to `docs/reference/pm-skill-anatomy.md`. Lookup-material per Diataxis. Renamed with `pm-skill-*` prefix per the locked convention.
+- `docs/concepts/versioning.md` to `docs/reference/pm-skill-versioning.md`. Lookup-material; renamed with prefix.
+- `docs/concepts/comparisons.md` to `docs/guides/pm-skill-comparisons.md`. How-to-style material; renamed with prefix.
+- `docs/concepts/skill-lifecycle.md` to `docs/guides/pm-skill-lifecycle.md`. How-to-style material; renamed with prefix.
+
+All four moves carry corresponding `mkdocs.yml redirect_maps` entries so old bookmarks resolve.
+
+### D. Files removed (deleted from tracking)
+
+- `docs/concepts/agent-skill-anatomy.md` removed (Bucket A.2 legacy duplicate cleanup; commit `4190f45`). Canonical is now `docs/reference/pm-skill-anatomy.md` (deprecated path; redirected via `mkdocs.yml redirect_maps`).
+- `docs/concepts/getting-started.md` removed (Bucket A.2). Canonical is now `docs/getting-started/index.md` (deprecated path; redirected).
+- `docs/guides/authoring-pm-skills.md` removed (Bucket A.3). Canonical is now `docs/guides/creating-pm-skills.md` (deprecated path; redirected).
+- `docs/guides/mcp-setup.md` removed (Bucket B.4 mcp-setup.md deletion + redirect to mcp-integration.md per the maintenance-mode pivot subsumption). The canonical "how to use MCP" content now lives in `pm-skills-mcp`'s own README.
+- `docs/frameworks/triple-diamond.md` and the entire `docs/frameworks/` folder removed (Bucket A.1). Canonical is `docs/concepts/triple-diamond-delivery-process.md` (deprecated path; redirected). The `mkdocs.yml exclude_docs:` directive was reduced from 8 entries to 2 as a side effect.
+
+These removals were judged safe via CR-strip drift analysis. The "real divergence" between deprecated and canonical was 60 of 3,226 lines for `agent-skill-anatomy` and 21 of 1,495 lines for `getting-started`; the canonical was strictly newer in all cases, so no content was lost.
+
+### E. Files reorganized (`mkdocs.yml` overrides cleanup)
+
+- `mkdocs.yml` `theme.custom_dir: overrides` directive removed and the empty `overrides/.gitkeep` placeholder removed (sibling commit `06a2e36`). The override slot was unused; this is incidental hygiene tracked in the master plan Change Log but not in any Bucket A/B/C/D row.
+
+### F. Files modified - substantial changes
+
+**Public-facing documentation:**
+
+- `README.md` - skill counts updated to 40 across all surfaces (project structure tree commands count 45 to 47); Measure section table extended with `/okr-grader`; Foundation section table extended from 1 to 8 commands; MCP section reframed for v2.9.x maintenance line (latest v2.9.3) with frozen-at-v2.9.2-build framing; "All 26 domain and foundation skills" corrected to "All 40 skills (26 phase + 8 foundation + 6 utility)" with workflow + utility tool counts; new v2.13.0 What's New block (open) above the v2.12.0 block (collapsed); Latest stable + release notes + published tag pointers updated to v2.13.0.
+- `CHANGELOG.md` - new `## [2.13.0] - 2026-05-05` entry inserted above the v2.12.0 entry with full Added / Changed / Infrastructure / Fixed / Out-of-cycle / Deferred sections.
+- `docs/releases/index.md` - new top row for v2.13.0; v2.10.1 and v2.10.2 broken rows removed (they linked to release-notes files that were never authored; v2.10.0 row updated with a note pointing to CHANGELOG.md for the patch history).
+- `docs/index.md` - homepage hero recent-releases table extended with v2.13.0; broken `releases/Release_v2.10.1.md` and `releases/Release_v2.10.2.md` rows removed; v2.10.0 row enriched with a CHANGELOG reference for the patch history.
+- `docs/changelog.md` - 3 broken release-note links corrected from `docs/releases/Release_v2.X.Y.md` (path-prefix bug) to `releases/Release_v2.X.Y.md`.
+- `docs/getting-started/index.md` - Available Commands table extended (Measure phase 4 to 5 commands; Foundation 1 to 8 commands; workflows expanded from 1 listed command to all 7).
+- `docs/guides/mcp-integration.md` - already trimmed during the mid-cycle MCP pivot from 570 to 39 lines (Bucket B.4 / MCP.2). Updated mid-cycle for v2.9.3 (replaced "v2.9.2 remains available on npm" framing with "v2.9.x maintenance line, latest v2.9.3" and frozen-at-v2.9.2-build framing).
+- `docs/guides/index.md` - listing expanded from 7 to 12 guides (added `using-meeting-skills`, `skill-finder`, `recipes`, `prompt-gallery`, `updating-pm-skills`).
+- `docs/guides/validate-mcp-sync.md` - new maintenance-mode warning callout added at top noting the workflow's reduced relevance under MCP maintenance mode.
+- `docs/reference/categories.md` - reconciled total skill count from 29 (stale) to 40; per-category counts updated; 3 new sections added (`meeting`, `communication`, `documentation`) for categories that exist in skill frontmatter but were previously undocumented; Framework Mapping table extended; Category Selection Guide branches added; Category Distribution table updated to 40 total.
+- `docs/reference/ecosystem.md` - hero paragraph and Decision Matrix qualifier reframed for v2.9.x maintenance line; ecosystem statement updated.
+- `docs/reference/project-structure.md` - TOC anchor `the-32-pm-skills-flat` to `the-40-pm-skills-flat`; directory tree counts updated; Foundation section expanded 1 to 8; Slash command table gained 8 missing rows; stale `docs/frameworks/` tree entry removed with a one-line note about the v2.13 retirement.
+- `docs/reference/pm-skill-anatomy.md` - "Four scripts validate skill integrity" expanded to 5 core scripts plus a note pointing to `.github/workflows/validation.yml` and `scripts/README_SCRIPTS.md` as canonical for the full CI suite.
+
+**Master plan and CI strand documentation:**
+
+- `docs/internal/release-plans/v2.13.0/plan_v2.13.0.md` - top Status block flipped from "Plan (decisions pending)" to "Pre-tag (all 27/27 in-cycle items shipped + 5 MCP items shipped; PR.1 to PR.5 closed; Phase 5 tag-time chores in flight)"; Out of Scope #3 reworded from "No MCP work" to "No in-cycle MCP work" with explicit acknowledgement of the out-of-cycle pivot; "What stays the same" library samples 120 to 126 and MCP catalog reframed; "What's new" validator inventory 17 to 24 corrected to 15 to 22 + enforcing 5 to 7 corrected to 5 to 10; Open Questions OQ-5/OQ-6/OQ-7 marked Resolved; MCP Impact section reframed; multiple Change Log entries appended for every cycle event including PR.1 to PR.5 closures + the round-by-round PR.2 audit trail; PR.2 row in Pre-release gates table flipped to Shipped with full Codex session IDs; Bucket A.4 description corrected to 40 individual skill pages with category-indices breakdown.
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_ci-refactor.md` - "14 items" corrected to "12 items" (matching status table); validator inventory "17 to 24" corrected to "15 to 22"; "5 to 11 enforcing" corrected to "5 to 10" with breakdown of which validators are new-enforcing vs new-advisory vs promoted; YAML snippet rewritten to drop the never-implemented `--current-state` / `--historical` args and reference the actual marker-based exemption mechanism shipped in B.6; pre-release verification gates ticked as the work landed; top status flipped to Executed.
+- `docs/internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist.md` - 51 of 75 boxes ticked covering Phase 0 + Phase 1 + Phase 2 + Phase 4 closeable items; release-state-rerun box ticked with note about the 7-numbered-round convergence trajectory; Phase 5 expanded with an explicit `validate-version-consistency` re-run item between version bumps and the git tag step.
+
+**Validation workflow:**
+
+- `.github/workflows/validation.yml` - 7 new validator job entries added for the new Bucket C validators; `if: always() && matrix.os == ...` added to all 14 new-validator step conditions so an enforcing-step failure does not cascade-skip later validators in the same job; `continue-on-error: true` removed from both `Check count consistency (bash)` and `Check count consistency (pwsh)` steps to actually wire the promotion-to-enforcing into CI.
+
+**Existing CI scripts (PowerShell parity bugfixes):**
+
+- `scripts/check-stale-bundle-refs.ps1` - `$matches` PowerShell reserved-word collision resolved (commit `0706ef7`).
+- `scripts/check-workflow-coverage.ps1` - `Join-Path` named-parameter usage corrected (commit `5b4f912`).
+- `scripts/check-generated-freshness.ps1` - same `Join-Path` fix (commit `7269183`).
+- `scripts/lint-skills-frontmatter.ps1` - `$dir.FullName` path-detection bug fixed (commit `c3367d2`).
+
+**check-count-consistency overhaul (Bucket B.6 + C item 5):**
+
+- `scripts/check-count-consistency.sh` and `.ps1` - tightened regex (commit `ab752ae`); promoted to enforcing for current-state files (commit `254026f`); marker-based count-exempt range system replaced version-prefix line-exemption (commit `35956ab`); subset-descriptor exclusion list added so phrasings like "26 phase skills" no longer flag as stale total-counts.
+- `scripts/check-count-consistency.md` - documentation rewritten to reflect both new mechanisms (commit `35956ab`).
+
+**Generator scripts (Pattern 5C generated-content marker, Bucket A.4):**
+
+- `scripts/generate-skill-pages.py`, `scripts/generate-workflow-pages.py`, `scripts/generate-showcase.py` - all 3 generators updated to emit `generated: true` + `source: scripts/...` frontmatter fields plus a `!!! warning "Generated file"` admonition pointing editors to the source. Coverage: 63 generated pages (commit `a38b36a`).
+
+**Skills catalog table (Bucket B.3):**
+
+- `skills/utility-pm-skill-builder/SKILL.md` - catalog table updated from Domain 25 + Foundation 1 + Utility 1 to Domain 26 + Foundation 8 + Utility 6 with descriptions and categories sourced from each skill's frontmatter.
+
+**Agent context:**
+
+- `AGENTS/codex/CONTEXT.md` - shrunk from 74 lines to 32 lines as a vestigial-redirect (Bucket B.5; commit pre-existing) acknowledging Codex usage scope is now Phase 0 adversarial review only; points to `AGENTS/claude/CONTEXT.md` as canonical project context. Currency marker `v2.12.0` retained so `check-context-currency` CI still passes.
+- `AGENTS/claude/CONTEXT.md` - top-of-file Current State block fully rewritten reflecting current pre-tag state (PR.1 to PR.5 closed); architecture diagram counts updated 32 to 40 skills + 39 to 47 commands + 95 to 126 samples; Active section flipped from v2.9.0 effort tracking to v2.13.0 tag-prep gate tracking; Skills Inventory header annotated with a deferred-refresh note pointing to `docs/reference/categories.md` and `docs/skills/index.md` as canonical for the current 40-skill catalog.
+- `AGENTS/claude/DECISIONS.md` - release-state-loop entry updated from "not yet codified" to "Accepted and codified" with reference to the v2.13 pre-release checklist Phase 0 section.
+
+**Plugin manifest and marketplace:**
+
+- `.claude-plugin/plugin.json` - version bumped 2.12.0 to 2.13.0 (commit `8b48ee0`).
+- `marketplace.json` - version bumped 2.12.0 to 2.13.0 (commit `8b48ee0`).
+
+**README badges:**
+
+- `README.md` shields.io version badge URL bumped 2.12.0 to 2.13.0 (commit `8b48ee0`).
+
+**Backlog:**
+
+- `docs/internal/backlog-canonical.md` - Last updated bumped 2026-04-06 to 2026-05-05; M-23 (Phase 5 GitHub-platform metadata refresh checklist) and M-24 (advisory `gh-release-metadata` script) added as v2.14.0+ entries.
+
+### G. CLAUDE.md cross-cycle absorption
+
+- The primary `main` branch had received commit `87ddf7a` (no-em-dash CLAUDE.md project rule codification) on 2026-05-04, before the `v2.13/cycle` worktree was created. At Phase 5 tag-time, `main` was merged into `v2.13/cycle` to absorb that commit (merge commit `e85ac4e`); `v2.13/cycle` was then fast-forwarded into `main`. The merged CLAUDE.md content includes the no-em-dash rule alongside the existing Documentation Rules + Project Context sections.
+
+### H. Generated content regenerated
+
+All 63 generated pages (40 skill pages + 8 category indices + 9 workflow pages + 1 workflow index + 3 showcase pages + 1 showcase index + 1 commands reference) were regenerated with the Pattern 5C generated-content marker. Re-running the 3 generators against current state produces zero git diff at HEAD; `check-generated-content-untouched.sh` validator: PASS.
+
+### I. Files NOT changed (intentionally)
+
+- `library/skill-output-samples/*` - all 126 sample files unchanged. v2.13 added 1 new reference document (`THREAD_PROFILES.md`) but did not modify or add any sample.
+- `_workflows/*.md` - all 9 workflow source files unchanged. v2.13 added zero new workflows.
+- `skills/*/SKILL.md` - all 40 skill source files unchanged in their behavioral content. The catalog table inside `skills/utility-pm-skill-builder/SKILL.md` was updated for catalog accuracy (Bucket B.3) but no other source SKILL.md was touched.
+- `commands/*.md` - all 47 command files unchanged.
+- `_NOTES/` - gitignored; no v2.13 changes affect anything in this directory.
+
+### J. Tag and merge sequence (Phase 5)
+
+1. Version bumps committed on `v2.13/cycle` as commit `8b48ee0`.
+2. PR.5 promotion landed on `v2.13/cycle` as commit `6f81fb1` plus follow-on `54b189e` (PR.5 closure in master plan).
+3. Final-sweep document landed on `v2.13/cycle` as commit `ba41138`.
+4. `git fetch origin` from worktree; `git merge main --no-edit` into `v2.13/cycle` to absorb commit `87ddf7a` (merge commit `e85ac4e`).
+5. `git checkout main` in primary repo; `git merge v2.13/cycle --ff-only` (fast-forward).
+6. `git tag -a v2.13.0` annotated on the merged HEAD.
+7. `git push origin main` and `git push origin v2.13.0` (both remote-affecting; in the B3 batch).
+8. `gh release create v2.13.0 --notes-file docs/releases/Release_v2.13.0.md` (creates the public release page from this file).
+
+---
+
 ## Related artifacts
 
 - Master plan: [`docs/internal/release-plans/v2.13.0/plan_v2.13.0.md`](../internal/release-plans/v2.13.0/plan_v2.13.0.md)

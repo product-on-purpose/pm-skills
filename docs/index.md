@@ -261,12 +261,11 @@ Follow three fictional companies through the complete product lifecycle - from d
 <!-- count-exempt:start -->
 | Version | Date | Highlights |
 |---------|------|-----------|
+| **[v2.13.0](releases/Release_v2.13.0.md)** | 2026-05-05 | Foundation Hardening + Doc Stack Decision: maintenance and quality release with zero new skills; 7 new CI gates that catch doc drift on PRs (validator inventory 15 to 22; enforcing tier 5 to 10); Diataxis-aligned docs with `pm-skill-*` filename prefix; Pattern 5C generated-content marker; out-of-cycle pm-skills-mcp v2.9.3 security patch |
 | **[v2.12.0](releases/Release_v2.12.0.md)** | 2026-05-03 | OKR Skills Launch: `foundation-okr-writer` + `measure-okr-grader` with canonical type and indicator-class enums; 38 to 40 skills |
 | [v2.11.1](releases/Release_v2.11.1.md) | 2026-04-22 | skills.sh CLI compatibility patch: unblocks `npx skills add product-on-purpose/pm-skills`; lint hardening; em-dash sweep completion |
 | **[v2.11.0](releases/Release_v2.11.0.md)** | 2026-04-18 | Meeting Skills Family: 5 foundation skills + canonical contract + enforcing CI; lean-canvas; 32 to 38 skills |
-| [v2.10.2](releases/Release_v2.10.2.md) | 2026-04-14 | Manifest drift fix + JSON count CI extension |
-| [v2.10.1](releases/Release_v2.10.1.md) | 2026-04-13 | Post-v2.10.0 polish: dynamic skill-page counts, backlog spec drafts |
-| [v2.10.0](releases/Release_v2.10.0.md) | 2026-04-11 | Utility skill expansion: `/mermaid-diagrams`, `/slideshow-creator`, `/update-pm-skills` |
+| [v2.10.0](releases/Release_v2.10.0.md) | 2026-04-11 | Utility skill expansion: `/mermaid-diagrams`, `/slideshow-creator`, `/update-pm-skills`. (v2.10.1 and v2.10.2 patches followed; see CHANGELOG.md for details.) |
 | [v2.9.1](releases/Release_v2.9.1.md) | 2026-04-10 | Workflows guide + docs count consistency CI |
 | [v2.9.0](releases/Release_v2.9.0.md) | 2026-04-06 | Workflows: rename bundles to workflows, expand 3 to 9, 7 `/workflow-*` commands |
 <!-- count-exempt:end -->
