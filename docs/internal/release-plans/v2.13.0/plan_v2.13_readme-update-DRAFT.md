@@ -91,18 +91,18 @@ Add a new top row for v2.13.0 above the v2.12.0 row in the releases table.
 ### Find
 
 ```markdown
-| Version | Date | Theme | Notes |
-|---------|------|-------|-------|
-| [v2.12.0](Release_v2.12.0.md) | 2026-05-03 | OKR Skills Launch | foundation-okr-writer + measure-okr-grader |
+| Version | Date | Highlights |
+|---------|------|-----------|
+| [v2.12.0](Release_v2.12.0.md) | 2026-05-01 | OKR Skills Launch: foundation-okr-writer + measure-okr-grader pair covering the full quarterly write-and-score cycle; 38 to 40 skills; 6 new thread-aligned samples; Phase 0 Adversarial Review Loop applied |
 ```
 
 ### Replace with
 
 ```markdown
-| Version | Date | Theme | Notes |
-|---------|------|-------|-------|
-| [v2.13.0](Release_v2.13.0.md) | 2026-05-XX | Foundation Hardening + Doc Stack Decision | Refactor + decision release; 7 new CI validators; Zensical NO-GO |
-| [v2.12.0](Release_v2.12.0.md) | 2026-05-03 | OKR Skills Launch | foundation-okr-writer + measure-okr-grader |
+| Version | Date | Highlights |
+|---------|------|-----------|
+| [v2.13.0](Release_v2.13.0.md) | 2026-05-XX | Foundation Hardening + Doc Stack Decision: refactor + decision release with zero new skills (40 unchanged); 7 new CI validators (15 to 22 inventory; enforcing tier 5 to 10); doc consistency overhaul (Diataxis-aligned + pm-skill-* prefix); Pattern 5C generated-content marker on 63 pages; Material to Zensical compatibility spike returned NO-GO; Phase 0 Adversarial Review Loop applied across per-strand and release-state layers (5 review rounds converged) |
+| [v2.12.0](Release_v2.12.0.md) | 2026-05-01 | OKR Skills Launch: foundation-okr-writer + measure-okr-grader pair covering the full quarterly write-and-score cycle; 38 to 40 skills; 6 new thread-aligned samples; Phase 0 Adversarial Review Loop applied |
 ```
 
 (Replace `2026-05-XX` with actual tag date at tag time.)

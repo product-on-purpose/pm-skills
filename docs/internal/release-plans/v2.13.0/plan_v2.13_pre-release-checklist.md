@@ -83,7 +83,7 @@ graph LR
 
 - [x] Release-state loop round 1 executed (against full release stack)
 - [x] All CRITICAL + IMPORTANT resolved
-- [ ] Re-runs until release-state findings stabilize per the v2.12.0-codified rule
+- [x] Re-runs until release-state findings stabilize per the v2.12.0-codified rule (5 rounds run 2026-05-05; round 5 confirmed convergence: round-4 findings RESOLVED, drafts caught and corrected pre-promotion in round 6 sweep)
 - [x] Each round's findings + resolution commit documented in plan_v2.13.0.md Change Log
 
 **v2.13-specific watch items** (lessons from v2.12.0):

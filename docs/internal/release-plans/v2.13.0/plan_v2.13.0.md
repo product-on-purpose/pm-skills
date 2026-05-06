@@ -1,6 +1,6 @@
 # v2.13.0 Release Plan: Foundation Hardening + Doc Stack Decision
 
-**Status:** Pre-tag - all 27/27 in-cycle items shipped + 5 out-of-cycle MCP items shipped (MCP.1-MCP.5); PR.1 (per-strand Phase 0) closed; PR.2 (release-state Phase 0) closed via round 1 self-review + round 2 Codex re-review with round 3 resolution in flight; PR.3 (generator regen) closed first-run; PR.4 (pre-release checklist) closed; PR.5 (CHANGELOG + Release notes authoring) is the next gate
+**Status:** Pre-tag - all 27/27 in-cycle items shipped + 5 out-of-cycle MCP items shipped (MCP.1-MCP.5); pre-release gates: PR.1 (per-strand Phase 0) closed, PR.2 (release-state Phase 0) closed after 5 rounds, PR.3 (generator regen) closed first-run, PR.4 (pre-release checklist) closed; PR.5 (CHANGELOG + Release notes promotion to canonical locations from drafts in plan_ folder) is the next gate, then Phase 5 tag-time chores (version bumps, merge sequence, tag, push, release)
 **Owner:** jprisant
 **Type:** Refactor + decision release (minor)
 **Created:** 2026-05-02 (stub) → 2026-05-03 (scope locked, three strands defined)
@@ -58,8 +58,8 @@ graph LR
 
 ## Progress Dashboard
 
-**Overall:** 27 of 27 work items shipped (100%); pre-release gates 0 of 5
-**Current focus:** Pre-release gates (5 items at tag prep)
+**Overall:** 27 of 27 work items shipped (100%); pre-release gates 4 of 5 closed (PR.5 promotion is next)
+**Current focus:** PR.5 promotion (paste drafts in `plan_v2.13_*-DRAFT.md` into canonical CHANGELOG.md + docs/releases/Release_v2.13.0.md + docs/releases/index.md + README; replace `2026-05-XX` placeholders), then Phase 5 tag-time chores
 **Last updated:** 2026-05-05
 
 Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + A.4 + B.1 + B.2 + B.3 + B.4 + B.5 + B.6 + B.7 + B.8 + B.9 + Wave 1 (7 items) + Wave 2 (2 items) + Wave 3 (3 items) + D.1 + D.2 = 27. **All scope buckets complete; only pre-release gates remain.**
@@ -78,7 +78,7 @@ Per-bucket totals: A=4, B=9, C=12, D=2 = 27 items. Shipped: A.1 + A.2 + A.3 + A.
 | A.1 | Frameworks folder delete + `triple-diamond` rename | ✅ Shipped | commit `4190f45` |
 | A.2 | Cross-folder reorg: 4 moves out of `concepts/` to `reference/` + `guides/` | ✅ Shipped | commit `4190f45` |
 | A.3 | Authoring guide consolidation: `creating-skills` → `creating-pm-skills`, delete `authoring-pm-skills` | ✅ Shipped | commit `4190f45` |
-| A.4 | Pattern 5C generated frontmatter flag (63 pages: 38 skills + 8 phase indices + 1 commands ref + 9 workflows + 1 workflow index + 3 showcase + 1 showcase index + commands ref) | ✅ Shipped | this session; unblocks Bucket C Wave 2 |
+| A.4 | Pattern 5C generated frontmatter flag (63 pages: 40 individual skill pages + 8 category indices (6 phase + foundation + utility) + 9 workflows + 1 workflow index + 3 showcase + 1 showcase index + 1 commands ref) | ✅ Shipped | this session; unblocks Bucket C Wave 2 |
 
 ### Bucket B  -  Doc count + link cleanup (9 of 9 = 100% ✓)
 
@@ -121,7 +121,7 @@ Detail at [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md). Report
 | PR.1 | Per-strand Phase 0 adversarial review loops (Bucket A, Bucket C new validators, Bucket D spike) | ✅ Shipped | All three strands converged below IMPORTANT severity. Codex session IDs: Bucket A retry `task-moszvz7v-fdr6kl` (5m38s); Bucket C round 1 `task-mosyoe00-canbf1` (7m45s); Bucket C round 2 `task-mot0w2ue-9k000t` (~5m, CONVERGED verdict); Bucket D retry `task-mot0yn6c-ysyzde` (7m58s, both BLOCKERs hold under independent scrutiny). Resolution commits: `d7da4a5` (Bucket C 2 IMPORTANT + Bucket A 1 MINOR), `4c3682b` (Bucket D 4 MEDIUM count-drift polish). |
 | PR.2 | Release-state Phase 0 adversarial review loop | ✅ Shipped | 4 rounds converged: round 1 (`task-mot1m40y-esjydx`) found 6 IMPORTANT + 3 MEDIUM + 1 MINOR; round 2 (`task-motc66m6-csy9ay`) found 4 of 6 IMPORTANTs persisted as stale-status-block-text + 2 new MEDIUM + 1 new MINOR; round 3 resolution (commit `0d43188`) plus drafts authored; round 4 (`task-acb13e3c-9a1d51d24`, session 019dface-8282-7e10-a4ac-7e11088caf32) confirmed all round-2 findings RESOLVED but flagged 2 new IMPORTANTs (this gate-table row stale; release-plans/README.md index stale 2026-03-22), resolved in this commit. Resolution surface across rounds 1-4: `05c5252` + `0ff7071` + `c5d41dc` + `0ed4621` + `0d43188` + this commit. Pattern lesson: stale-aggregate-counter applied at meta level (status-block text drifts as state advances unless every gate closure sweeps all release-stack docs); codified as durable feedback memory `feedback_stale-aggregate-counter`. |
 | PR.3 | Generator regen pre-release (mandatory) | ✅ Shipped | Re-ran all 3 generators on 2026-05-05 against `0ed4621`: `generate-skill-pages.py` (40 skills + 8 category indices + commands.md), `generate-workflow-pages.py` (9 workflows + index), `generate-showcase.py` (3 thread pages + index). Zero git diff post-regen. `check-generated-content-untouched.sh` validator: PASS for all 63 generated pages. Pattern 5C drift prevention confirmed working. No commit needed. |
-| PR.4 | Pre-release checklist all green ([`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md)) | ✅ Shipped | Mechanical CI sweep run 2026-05-05 against `aa49867`: all 10 enforcing scripts PASS (lint-skills-frontmatter, validate-commands, validate-agents-md, validate-skills-manifest, validate-meeting-skills-family, check-nav-completeness, check-generated-content-untouched, validate-references-cross-doc, check-count-consistency, validate-skill-family-registration); all 5 advisory scripts PASS (check-context-currency, check-version-references, validate-docs-frontmatter, check-internal-link-validity); validate-version-consistency PASS at 2.12.0 (will re-verify at 2.13.0 post version bump). 51/75 checklist boxes ticked (24 remaining are PR.5/Phase-5 tag-time/Phase-6 post-release/N-A-on-NO-GO/PR.2-round-2-Codex-pending). |
+| PR.4 | Pre-release checklist all green ([`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md)) | ✅ Shipped | Mechanical CI sweep run 2026-05-05 against `aa49867`: all 10 enforcing scripts PASS (lint-skills-frontmatter, validate-commands, validate-agents-md, validate-skills-manifest, validate-meeting-skills-family, check-nav-completeness, check-generated-content-untouched, validate-references-cross-doc, check-count-consistency, validate-skill-family-registration); all 5 advisory scripts PASS (check-context-currency, check-version-references, validate-docs-frontmatter, check-internal-link-validity); validate-version-consistency PASS at 2.12.0 (will re-verify at 2.13.0 post version bump). Checklist boxes ticked covering Phase 0 + Phase 1 + Phase 2 + Phase 4 closeable items; remaining unticked are PR.5 + Phase 5 tag-time chores + Phase 6 post-release signals + the version-consistency-at-2.13.0 box that re-runs after version bumps. |
 | PR.5 | CHANGELOG.md + Release_v2.13.0.md authored | ⬜ Not started | |
 
 ---
@@ -144,7 +144,7 @@ Detail at [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md). Report
 | Worktree                      | `E:\Projects\product-on-purpose\pm-skills_worktrees\v2.13-cycle` (branch `v2.13/cycle`); pushed to origin 2026-05-04                            |
 | Active PR                     | [#140](https://github.com/product-on-purpose/pm-skills/pull/140) (draft) - opened 2026-05-04 to trigger CI verification on Wave 1 + Wave 3 work |
 | Bucket-level progress         | See [Progress Dashboard](#progress-dashboard) above for item-level status                                                                       |
-| Validator inventory           | 17 → 24 (net +7); enforcing tier 5 → 9 (Wave 1's nav-completeness + Wave 2's 2 enforcing + F-36 enforcing). All Bucket C deliverables shipped.   |
+| Validator inventory           | 15 → 22 (net +7); enforcing tier 5 → 10 (4 new enforcing - nav-completeness + generated-content-untouched + references-cross-doc + skill-family-registration - plus check-count-consistency promotion; 3 new advisory - validate-docs-frontmatter + check-internal-link-validity + check-version-references). All Bucket C deliverables shipped. |
 | Tag target                    | TBD                                                                                                                                             |
 
 ---

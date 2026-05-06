@@ -36,7 +36,7 @@ Foundation Hardening + Doc Stack Decision. Refactor and decision release with th
 
 ### Infrastructure
 
-- **Phase 0 Adversarial Review Loop** applied across per-strand (PR.1) and release-state (PR.2) layers per the v2.11.0 + v2.12.0 codification. PR.1 closed via 4 Codex tasks. PR.2 closed via 4 rounds (round 1 found 6 IMPORTANT plus 3 MEDIUM plus 1 MINOR; round 2 caught 4 of 6 IMPORTANTs persisting as stale-status-block-text; round 3 resolution; round 4 confirmation).
+- **Phase 0 Adversarial Review Loop** applied across per-strand (PR.1) and release-state (PR.2) layers per the v2.11.0 + v2.12.0 codification. PR.1 closed via 4 Codex tasks. PR.2 closed via 5 Codex review rounds + 1 final comprehensive resolution sweep: round 1 found 6 IMPORTANT plus 3 MEDIUM plus 1 MINOR; round 2 caught 4 of 6 IMPORTANTs persisting as stale-status-block-text plus 2 new MEDIUM plus 1 new MINOR; round 4 caught next-layer stale-summary text (gate-table row + index file); round 5 caught draft-file audit-trail misrepresentation + further status-block drift; round 6 comprehensive sweep across the full release stack converged the loop. Six-layer convergence depth itself catalogued the stale-aggregate-counter pattern at meta level (status text drifts as state advances unless every closure sweeps all release-stack docs simultaneously).
 - **Stale-aggregate-counter pattern codified** as durable feedback memory after PR.2 round 2 caught it at meta level. Status-block text drifts as state advances unless every gate closure sweeps all release-stack docs; pattern is now a standing rule for future cycles.
 - **Validator inventory grows from 15 to 22** (7 new). **Enforcing tier grows from 5 to 10** (4 new enforcing + count-consistency promoted).
 
