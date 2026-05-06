@@ -1,4 +1,16 @@
+---
+artifact: discovery-note
+title: Library Sample Frontmatter Correction Example
+cycle: v2.14.0
+created: 2026-05-06
+status: draft
+topic: library-sample-frontmatter-placement-bug
+---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
+
 # Library Sample Frontmatter: Corrected Format Example
+
+> **Note**: This file is itself an example of correctly-placed frontmatter. The `---` block above is at byte 0 of the file, with the attribution comment placed immediately after the closing fence. View this file on GitHub to see the rendered two-column metadata table at the top of the page; that table is what every library sample file should produce after the v2.14.0 sweep.
 
 > **Discovery**: 2026-05-06
 > **Cycle**: v2.14.0
