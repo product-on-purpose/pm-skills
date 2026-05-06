@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+        <meta name="description" content="40 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Quickstart - PM Skills" />
-<meta property="og:description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="og:description" content="40 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/getting-started/quickstart.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/getting-started/quickstart/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Quickstart - PM Skills" />
-<meta property="twitter:description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="twitter:description" content="40 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/getting-started/quickstart.png" />
 </head>
   
@@ -398,28 +398,6 @@
     
   
   Showcase
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../guides/using-meeting-skills/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Guides
 
         </a>
       </li>
@@ -1083,6 +1061,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1140,14 +1122,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -1275,64 +1249,11 @@
     
       
         
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../../guides/using-meeting-skills/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Guides
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
+        
+      
+        
+      
         
       
         
@@ -1735,7 +1656,7 @@
 <p>Or download and extract the latest ZIP from <a href="https://github.com/product-on-purpose/pm-skills/releases">Releases</a> to your project root.</p>
 <h3 id="other-ai-agents">Other AI Agents<a class="headerlink" href="#other-ai-agents" title="Permanent link">&para;</a></h3>
 <p>Point your agent to <code>AGENTS.md</code> for skill discovery. Each skill is self-contained in <code>skills/{skill-name}/SKILL.md</code> (e.g., <code>skills/deliver-prd/SKILL.md</code>).</p>
-<p>More detail: see <code>docs/getting-started.md</code> for the long-form guide.</p>
+<p>More detail: see <code>docs/getting-started/index.md</code> for the long-form guide.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <h3 id="slash-commands">Slash Commands<a class="headerlink" href="#slash-commands" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/prd &quot;Feature description&quot;
@@ -1757,7 +1678,7 @@
     Validate -- "PASS" --&gt; Ship["Ship"]
     Validate -- "Findings" --&gt; Iterate["/pm-skill-iterate\nIterate"]
     Iterate --&gt; Validate</code></pre>
-<p>See <code>docs/pm-skill-lifecycle.md</code> for detailed workflow patterns.</p>
+<p>See <code>docs/guides/pm-skill-lifecycle.md</code> for detailed workflow patterns.</p>
 <h2 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>skills/            # All 40 skill definitions (26 phase + 8 foundation + 6 utility, flat)
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>commands/          # 39 command markdown files (+ .gitkeep)
@@ -1796,7 +1717,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 3, 2026 18:59:51 UTC"><span class="timeago" datetime="2026-05-03T18:59:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 3, 2026 18:59:51 UTC">2026-05-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 4, 2026 23:21:54 UTC"><span class="timeago" datetime="2026-05-04T23:21:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 4, 2026 23:21:54 UTC">2026-05-04</span>
   </span>
 
     

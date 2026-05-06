@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+        <meta name="description" content="40 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
       
       
         <meta name="author" content="jprisant">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Getting Started with PM-Skills - PM Skills" />
-<meta property="og:description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="og:description" content="40 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/getting-started/index.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/getting-started/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="Getting Started with PM-Skills - PM Skills" />
-<meta property="twitter:description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="twitter:description" content="40 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/getting-started/index.png" />
 </head>
   
@@ -398,28 +398,6 @@
     
   
   Showcase
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../guides/using-meeting-skills/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Guides
 
         </a>
       </li>
@@ -903,6 +881,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -960,14 +942,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -1095,64 +1069,11 @@
     
       
         
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../guides/using-meeting-skills/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Guides
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
+        
+      
+        
+      
         
       
         
@@ -2062,8 +1983,12 @@
 
 
 <h1 id="getting-started-with-pm-skills">Getting Started with PM-Skills<a class="headerlink" href="#getting-started-with-pm-skills" title="Permanent link">&para;</a></h1>
-<p><strong>Quick Start (3 steps)</strong>
-1) Clone or download the latest ZIP: <code>git clone https://github.com/product-on-purpose/pm-skills.git</code> (or get the ZIP from Releases).<br />
+<p><strong>Fastest path (one command)</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npx<span class="w"> </span>skills<span class="w"> </span>add<span class="w"> </span>product-on-purpose/pm-skills
+</span></code></pre></div>
+<p>Installs all 40 skills into your agent's default skills directory. Works with Claude Code, Cursor, GitHub Copilot, Cline, and any agent supported by the open <a href="https://github.com/vercel-labs/skills"><code>skills</code> CLI</a>. Shipped in v2.11.1 and now the recommended install path.</p>
+<p><strong>Alternative: Clone-based Quick Start (3 steps)</strong></p>
+<p>1) Clone or download the latest ZIP: <code>git clone https://github.com/product-on-purpose/pm-skills.git</code> (or get the ZIP from Releases).<br />
 2) (Claude Code/openskills only) Run the sync helper to populate <code>.claude/skills</code> and <code>.claude/commands</code>:<br />
    - macOS/Linux: <code>./scripts/sync-claude.sh</code><br />
    - Windows: <code>./scripts/sync-claude.ps1</code><br />
@@ -2095,14 +2020,14 @@
 <p><strong>PM-Skills</strong> is an open-source collection of 40 product management skills that teach AI assistants how to create professional PM documents. The current repo includes 26 phase skills, 8 foundation skills, and 6 utility skills. Think of it as a playbook that transforms generic AI responses into polished, consistent PM artifacts.</p>
 <h3 id="the-problem-it-solves">The Problem It Solves<a class="headerlink" href="#the-problem-it-solves" title="Permanent link">&para;</a></h3>
 <p>Without PM-Skills:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You: &quot;Write me a PRD&quot;
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>AI: *Produces a generic document missing key sections, inconsistent format*
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>You: &quot;Write me a PRD&quot;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>AI: *Produces a generic document missing key sections, inconsistent format*
 </span></code></pre></div></p>
 <p>With PM-Skills:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>You: &quot;Write me a PRD&quot;
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>AI: *Produces a comprehensive PRD with problem statement, success metrics,
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    user stories, scope boundaries, technical considerations.all in a
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    professional, consistent format*
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You: &quot;Write me a PRD&quot;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>AI: *Produces a comprehensive PRD with problem statement, success metrics,
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    user stories, scope boundaries, technical considerations.all in a
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    professional, consistent format*
 </span></code></pre></div></p>
 <h3 id="what-you-get">What You Get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2123,11 +2048,11 @@
 <p>When you ask the AI to create a PRD, it reads the "PRD recipe" and follows it step by step.</p>
 <h4 id="for-technical-users">For Technical Users<a class="headerlink" href="#for-technical-users" title="Permanent link">&para;</a></h4>
 <p>Each skill is a directory containing:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>skills/&lt;skill-name&gt;/
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── SKILL.md              # Prompt instructions for the AI
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── references/
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   ├── TEMPLATE.md       # Output structure/format
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   └── EXAMPLE.md        # Annotated real-world example
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>skills/&lt;skill-name&gt;/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── SKILL.md              # Prompt instructions for the AI
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├── references/
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│   ├── TEMPLATE.md       # Output structure/format
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│   └── EXAMPLE.md        # Annotated real-world example
 </span></code></pre></div>
 <p>The <code>SKILL.md</code> file contains:
 - YAML frontmatter with metadata (<code>name</code>, <code>description</code>, <code>version</code>, <code>updated</code>, <code>license</code>, and either <code>phase</code> or <code>classification</code>)
@@ -2149,15 +2074,15 @@
 <p>The slash (<code>/</code>) tells the AI "use this skill" and everything after is your context.</p>
 <h4 id="for-technical-users_1">For Technical Users<a class="headerlink" href="#for-technical-users_1" title="Permanent link">&para;</a></h4>
 <p>Slash commands are defined in the <code>commands/</code> directory as markdown files:</p>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>---
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="gu">description: Create a Product Requirements Document</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="gu">---</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Use the <span class="sb">`prd`</span> skill to create a comprehensive Product Requirements Document.
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Read the skill instructions from <span class="sb">`skills/&lt;skill-name&gt;/SKILL.md`</span> and follow them.
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Context from user: $ARGUMENTS
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>---
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gu">description: Create a Product Requirements Document</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="gu">---</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Use the <span class="sb">`prd`</span> skill to create a comprehensive Product Requirements Document.
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Read the skill instructions from <span class="sb">`skills/&lt;skill-name&gt;/SKILL.md`</span> and follow them.
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Context from user: $ARGUMENTS
 </span></code></pre></div>
 <p>The <code>$ARGUMENTS</code> variable captures everything typed after the command name.</p>
 <p><strong>Note:</strong> Slash commands are platform-specific. They work natively in Claude Code but require different invocation methods on other platforms.</p>
@@ -2222,7 +2147,7 @@
 <p><strong>Best for:</strong> Developers using Claude Code CLI or IDE extension</p>
 <h3 id="for-non-technical-users_2">For Non-Technical Users<a class="headerlink" href="#for-non-technical-users_2" title="Permanent link">&para;</a></h3>
 <p>If you're using Claude Code, skills work automatically. Just type a slash command:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/prd &quot;Search feature for our e-commerce platform&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/prd &quot;Search feature for our e-commerce platform&quot;
 </span></code></pre></div>
 <p>That's it! Claude will create a full PRD using the skill.</p>
 <h3 id="for-technical-users_2">For Technical Users<a class="headerlink" href="#for-technical-users_2" title="Permanent link">&para;</a></h3>
@@ -2234,20 +2159,20 @@
 <li>Start using slash commands immediately</li>
 </ol>
 <h4 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Basic usage</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>/prd<span class="w"> </span><span class="s2">&quot;feature description&quot;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># With more context</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>/prd<span class="w"> </span><span class="s2">&quot;We need a search feature for our e-commerce platform.</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s2">      Users currently can&#39;t find products easily.</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s2">      Target: 20% improvement in product discovery.&quot;</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># Chain skills</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>/problem-statement<span class="w"> </span><span class="s2">&quot;checkout abandonment issue&quot;</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># ... review output ...</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>/hypothesis<span class="w"> </span><span class="s2">&quot;from the problem statement above&quot;</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># ... review output ...</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>/prd<span class="w"> </span><span class="s2">&quot;based on the hypothesis above&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Basic usage</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/prd<span class="w"> </span><span class="s2">&quot;feature description&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># With more context</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>/prd<span class="w"> </span><span class="s2">&quot;We need a search feature for our e-commerce platform.</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s2">      Users currently can&#39;t find products easily.</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="s2">      Target: 20% improvement in product discovery.&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Chain skills</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>/problem-statement<span class="w"> </span><span class="s2">&quot;checkout abandonment issue&quot;</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># ... review output ...</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>/hypothesis<span class="w"> </span><span class="s2">&quot;from the problem statement above&quot;</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1"># ... review output ...</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>/prd<span class="w"> </span><span class="s2">&quot;based on the hypothesis above&quot;</span>
 </span></code></pre></div>
 <h4 id="available-commands">Available Commands<a class="headerlink" href="#available-commands" title="Permanent link">&para;</a></h4>
 <p>The repo currently ships 47 command markdown files: 40 skill commands plus 7 workflow commands.</p>
@@ -2277,7 +2202,7 @@
 </tr>
 <tr>
 <td>Measure</td>
-<td><code>/experiment-design</code>, <code>/instrumentation-spec</code>, <code>/dashboard-requirements</code>, <code>/experiment-results</code></td>
+<td><code>/experiment-design</code>, <code>/instrumentation-spec</code>, <code>/dashboard-requirements</code>, <code>/experiment-results</code>, <code>/okr-grader</code></td>
 </tr>
 <tr>
 <td>Iterate</td>
@@ -2289,11 +2214,11 @@
 </tr>
 <tr>
 <td>Foundation</td>
-<td><code>/persona</code></td>
+<td><code>/persona</code>, <code>/lean-canvas</code>, <code>/okr-writer</code>, <code>/stakeholder-update</code>, <code>/meeting-agenda</code>, <code>/meeting-brief</code>, <code>/meeting-recap</code>, <code>/meeting-synthesize</code></td>
 </tr>
 </tbody>
 </table>
-<p>Plus workflows: <code>/workflow-feature-kickoff</code></p>
+<p>Plus workflows: <code>/workflow-feature-kickoff</code>, <code>/workflow-customer-discovery</code>, <code>/workflow-sprint-planning</code>, <code>/workflow-product-strategy</code>, <code>/workflow-post-launch-learning</code>, <code>/workflow-stakeholder-alignment</code>, <code>/workflow-technical-discovery</code></p>
 <hr />
 <h2 id="method-2-git-clone-any-ai-assistant">Method 2: Git Clone (Any AI Assistant)<a class="headerlink" href="#method-2-git-clone-any-ai-assistant" title="Permanent link">&para;</a></h2>
 <p><strong>Best for:</strong> GitHub Copilot, Cursor, Windsurf, and other AGENTS.md-compatible tools</p>
@@ -2321,11 +2246,11 @@
 </ol>
 <h3 id="for-technical-users_3">For Technical Users<a class="headerlink" href="#for-technical-users_3" title="Permanent link">&para;</a></h3>
 <h4 id="setup_1">Setup<a class="headerlink" href="#setup_1" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Clone the repository</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/product-on-purpose/pm-skills.git
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Or add as a submodule to your project</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/product-on-purpose/pm-skills.git<span class="w"> </span>.pm-skills
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Clone the repository</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/product-on-purpose/pm-skills.git
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Or add as a submodule to your project</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/product-on-purpose/pm-skills.git<span class="w"> </span>.pm-skills
 </span></code></pre></div>
 <h4 id="how-it-works_1">How It Works<a class="headerlink" href="#how-it-works_1" title="Permanent link">&para;</a></h4>
 <p>Modern AI coding assistants discover skills through the <code>AGENTS.md</code> file at the repository root. This file:
@@ -2338,20 +2263,20 @@
 3. Reads <code>TEMPLATE.md</code> and <code>EXAMPLE.md</code> from references
 4. Generates output following the instructions</p>
 <h4 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>You: &quot;Use the prd skill to create a PRD for adding dark mode&quot;
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>AI: *Reads skills/deliver-prd/SKILL.md and follows the instructions*
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>You: &quot;Use the prd skill to create a PRD for adding dark mode&quot;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>AI: *Reads skills/deliver-prd/SKILL.md and follows the instructions*
 </span></code></pre></div>
 <p>Or reference skills directly:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>You: &quot;Read skills/deliver-prd/SKILL.md and create a PRD for dark mode&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>You: &quot;Read skills/deliver-prd/SKILL.md and create a PRD for dark mode&quot;
 </span></code></pre></div>
 <h4 id="keeping-updated">Keeping Updated<a class="headerlink" href="#keeping-updated" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># If cloned directly</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>pm-skills
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># If using submodule</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote<span class="w"> </span>.pm-skills
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># If cloned directly</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">cd</span><span class="w"> </span>pm-skills
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># If using submodule</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote<span class="w"> </span>.pm-skills
 </span></code></pre></div>
 <hr />
 <h2 id="method-3-claudeai-claude-desktop">Method 3: Claude.ai / Claude Desktop<a class="headerlink" href="#method-3-claudeai-claude-desktop" title="Permanent link">&para;</a></h2>
@@ -2399,10 +2324,10 @@
 - Its <code>references/EXAMPLE.md</code></p>
 <p>Or upload the entire <code>skills/</code> directory if your use case varies.</p>
 <h4 id="usage_2">Usage<a class="headerlink" href="#usage_2" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>You: &quot;I&#39;ve uploaded the prd skill. Please use it to create a PRD
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>      for a feature that adds collaborative editing to our docs app.&quot;
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Claude: *Reads the skill files and produces a structured PRD*
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>You: &quot;I&#39;ve uploaded the prd skill. Please use it to create a PRD
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>      for a feature that adds collaborative editing to our docs app.&quot;
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Claude: *Reads the skill files and produces a structured PRD*
 </span></code></pre></div>
 <hr />
 <h2 id="method-4-copy-paste-universal">Method 4: Copy-Paste (Universal)<a class="headerlink" href="#method-4-copy-paste-universal" title="Permanent link">&para;</a></h2>
@@ -2440,38 +2365,38 @@
 </ol>
 <h3 id="for-technical-users_5">For Technical Users<a class="headerlink" href="#for-technical-users_5" title="Permanent link">&para;</a></h3>
 <h4 id="minimal-copy-paste">Minimal Copy-Paste<a class="headerlink" href="#minimal-copy-paste" title="Permanent link">&para;</a></h4>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[Paste contents of SKILL.md]
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>---
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Now use these instructions to create a PRD for: [your context]
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>[Paste contents of SKILL.md]
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>---
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Now use these instructions to create a PRD for: [your context]
 </span></code></pre></div>
 <h4 id="full-copy-paste-recommended">Full Copy-Paste (Recommended)<a class="headerlink" href="#full-copy-paste-recommended" title="Permanent link">&para;</a></h4>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gh"># SKILL INSTRUCTIONS</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>[Paste contents of SKILL.md]
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="gh"># OUTPUT TEMPLATE</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>[Paste contents of references/TEMPLATE.md]
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="gh"># QUALITY EXAMPLE</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>[Paste contents of references/EXAMPLE.md]
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>---
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>Using the above skill instructions, template, and example as reference,
-</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>create a PRD for: [your context]
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gh"># SKILL INSTRUCTIONS</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>[Paste contents of SKILL.md]
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="gh"># OUTPUT TEMPLATE</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>[Paste contents of references/TEMPLATE.md]
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="gh"># QUALITY EXAMPLE</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>[Paste contents of references/EXAMPLE.md]
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>---
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>Using the above skill instructions, template, and example as reference,
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>create a PRD for: [your context]
 </span></code></pre></div>
 <h4 id="automating-copy-paste">Automating Copy-Paste<a class="headerlink" href="#automating-copy-paste" title="Permanent link">&para;</a></h4>
 <p>Create a script to concatenate files:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Usage: ./get-skill.sh prd</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nv">SKILL</span><span class="o">=</span><span class="nv">$1</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/SKILL.md
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n---\n# TEMPLATE\n&quot;</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/references/TEMPLATE.md
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n---\n# EXAMPLE\n&quot;</span>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/references/EXAMPLE.md
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># Usage: ./get-skill.sh prd</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nv">SKILL</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/SKILL.md
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n---\n# TEMPLATE\n&quot;</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/references/TEMPLATE.md
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n---\n# EXAMPLE\n&quot;</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>cat<span class="w"> </span>skills/<span class="nv">$SKILL</span>/references/EXAMPLE.md
 </span></code></pre></div>
 <hr />
 <h2 id="method-5-openskills-cli">Method 5: openskills CLI<a class="headerlink" href="#method-5-openskills-cli" title="Permanent link">&para;</a></h2>
@@ -2485,14 +2410,14 @@
 <li>npm or yarn</li>
 </ul>
 <h4 id="setup_2">Setup<a class="headerlink" href="#setup_2" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Install openskills globally</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>openskills
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Install pm-skills</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>openskills<span class="w"> </span>install<span class="w"> </span>product-on-purpose/pm-skills
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Sync to your environment</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>openskills<span class="w"> </span>sync
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Install openskills globally</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>openskills
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Install pm-skills</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>openskills<span class="w"> </span>install<span class="w"> </span>product-on-purpose/pm-skills
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Sync to your environment</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>openskills<span class="w"> </span>sync
 </span></code></pre></div>
 <h4 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h4>
 <blockquote>
@@ -2500,21 +2425,21 @@
 </blockquote>
 <h4 id="usage_3">Usage<a class="headerlink" href="#usage_3" title="Permanent link">&para;</a></h4>
 <p>Once installed, skills are available globally:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># List installed skills</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>openskills<span class="w"> </span>list
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Use in conversations</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># Skills are auto-discovered by compatible AI assistants</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># List installed skills</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>openskills<span class="w"> </span>list
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Use in conversations</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Skills are auto-discovered by compatible AI assistants</span>
 </span></code></pre></div>
 <h4 id="managing-multiple-skill-sets">Managing Multiple Skill Sets<a class="headerlink" href="#managing-multiple-skill-sets" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Install additional skill repositories</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>openskills<span class="w"> </span>install<span class="w"> </span>another-org/their-skills
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Update all skills</span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>openskills<span class="w"> </span>update
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Remove a skill set</span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>openskills<span class="w"> </span>remove<span class="w"> </span>product-on-purpose/pm-skills
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Install additional skill repositories</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>openskills<span class="w"> </span>install<span class="w"> </span>another-org/their-skills
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Update all skills</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>openskills<span class="w"> </span>update
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Remove a skill set</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>openskills<span class="w"> </span>remove<span class="w"> </span>product-on-purpose/pm-skills
 </span></code></pre></div>
 <hr />
 <h2 id="choosing-the-right-method">Choosing the Right Method<a class="headerlink" href="#choosing-the-right-method" title="Permanent link">&para;</a></h2>
@@ -2600,13 +2525,13 @@
 <p>Pick the method that matches your setup (see above).</p>
 <h3 id="step-2-invoke-the-skill">Step 2: Invoke the Skill<a class="headerlink" href="#step-2-invoke-the-skill" title="Permanent link">&para;</a></h3>
 <p><strong>Claude Code:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>/problem-statement &quot;Users are abandoning checkout because the process
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>is too long. We lose about $50k/month in abandoned carts.&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>/problem-statement &quot;Users are abandoning checkout because the process
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>is too long. We lose about $50k/month in abandoned carts.&quot;
 </span></code></pre></div></p>
 <p><strong>Other AI assistants:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Use the problem-statement skill to create a problem statement for:
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Users are abandoning checkout because the process is too long.
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>We lose about $50k/month in abandoned carts.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Use the problem-statement skill to create a problem statement for:
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Users are abandoning checkout because the process is too long.
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>We lose about $50k/month in abandoned carts.
 </span></code></pre></div></p>
 <h3 id="step-3-provide-more-context">Step 3: Provide More Context<a class="headerlink" href="#step-3-provide-more-context" title="Permanent link">&para;</a></h3>
 <p>The AI will likely ask clarifying questions:
@@ -2621,8 +2546,8 @@
 - Additional considerations</p>
 <h3 id="step-5-chain-to-next-skill">Step 5: Chain to Next Skill<a class="headerlink" href="#step-5-chain-to-next-skill" title="Permanent link">&para;</a></h3>
 <p>Once satisfied, use another skill:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Now use the hypothesis skill to create a testable hypothesis
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>based on this problem statement.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Now use the hypothesis skill to create a testable hypothesis
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>based on this problem statement.
 </span></code></pre></div>
 <hr />
 <h2 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h2>
@@ -2636,11 +2561,11 @@
 4. <code>user-stories</code> → Break down for engineering
 5. <code>launch-checklist</code> → Prepare for release</p>
 <p><strong>Invocation:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a># Claude Code
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>/workflow-feature-kickoff &quot;New search feature for e-commerce platform&quot;
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a># Other assistants
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>&quot;Run the feature kickoff workflow for: [your feature]&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a># Claude Code
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>/workflow-feature-kickoff &quot;New search feature for e-commerce platform&quot;
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a># Other assistants
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>&quot;Run the feature kickoff workflow for: [your feature]&quot;
 </span></code></pre></div></p>
 <h3 id="lean-startup-workflow">Lean Startup Workflow<a class="headerlink" href="#lean-startup-workflow" title="Permanent link">&para;</a></h3>
 <p><strong>Use when:</strong> Rapid experimentation and validation</p>
@@ -2734,7 +2659,7 @@
 <ul>
 <li><a href="../reference/categories/">Categories Reference</a> . Understand skill organization</li>
 <li><a href="../reference/frontmatter-schema.yaml">Frontmatter Schema</a> . Technical skill structure</li>
-<li><a href="../concepts/triple-diamond/">Triple Diamond Framework</a> . The organizing methodology</li>
+<li><a href="../concepts/triple-diamond-delivery-process/">Triple Diamond Framework</a> . The organizing methodology</li>
 </ul>
 <h3 id="explore-skills">Explore Skills<a class="headerlink" href="#explore-skills" title="Permanent link">&para;</a></h3>
 <p>Browse by phase:
@@ -2874,7 +2799,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 3, 2026 18:59:51 UTC"><span class="timeago" datetime="2026-05-03T18:59:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 3, 2026 18:59:51 UTC">2026-05-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 5, 2026 22:04:50 UTC"><span class="timeago" datetime="2026-05-05T22:04:50+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 5, 2026 22:04:50 UTC">2026-05-05</span>
   </span>
 
     

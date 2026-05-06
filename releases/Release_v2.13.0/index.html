@@ -1,0 +1,2143 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Maintenance and quality release with the same 40-skill catalog as v2.12.0. Cleaner Diataxis-aligned documentation, 7 new CI gates that catch doc drift on PRs (validator inventory 15 to 22; enforcing tier 5 to 10), and an out-of-cycle pm-skills-mcp v2.9.3 security-patch follow-up to the v2.9.2 maintenance-mode announcement.">
+      
+      
+        <meta name="author" content="jprisant">
+      
+      
+        <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/releases/Release_v2.13.0/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Release v2.13.0. Foundation Hardening + Doc Stack Decision - PM Skills</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.56f7ac64.css">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Release v2.13.0. Foundation Hardening + Doc Stack Decision - PM Skills" />
+<meta property="og:description" content="Maintenance and quality release with the same 40-skill catalog as v2.12.0. Cleaner Diataxis-aligned documentation, 7 new CI gates that catch doc drift on PRs (validator inventory 15 to 22; enforcing tier 5 to 10), and an out-of-cycle pm-skills-mcp v2.9.3 security-patch follow-up to the v2.9.2 maintenance-mode announcement." />
+<meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/releases/Release_v2.13.0.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/releases/Release_v2.13.0/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Release v2.13.0. Foundation Hardening + Doc Stack Decision - PM Skills" />
+<meta property="twitter:description" content="Maintenance and quality release with the same 40-skill catalog as v2.12.0. Cleaner Diataxis-aligned documentation, 7 new CI gates that catch doc drift on PRs (validator inventory 15 to 22; enforcing tier 5 to 10), and an out-of-cycle pm-skills-mcp v2.9.3 security-patch follow-up to the v2.9.2 maintenance-mode announcement." />
+<meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/releases/Release_v2.13.0.png" />
+</head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#release-v2130-foundation-hardening-doc-stack-decision" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PM Skills" class="md-header__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PM Skills
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Release v2.13.0. Foundation Hardening + Doc Stack Decision
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../skills/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Skills
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../workflows/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflows
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guides/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../showcase/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Showcase
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PM Skills" class="md-nav__button md-logo" aria-label="PM Skills" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/></svg>
+
+    </a>
+    PM Skills
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/product-on-purpose/pm-skills" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    product-on-purpose/pm-skills
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../getting-started/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../skills/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../workflows/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../guides/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../concepts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../showcase/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Showcase
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../reference/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../contributing/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TL;DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What changed
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What changed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed-visible-in-the-rendered-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed (visible in the rendered docs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-new-under-the-hood" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's new (under the hood)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decision-artifact-zensical-compatibility-bucket-d-2-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision artifact: Zensical compatibility (Bucket D, 2 items)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-cycle-pm-skills-mcp-maintenance-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out-of-cycle: pm-skills-mcp maintenance mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure / process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-phase-0-adversarial-review-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation: Phase 0 Adversarial Review Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-deferred-to-v2140" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's deferred to v2.14.0+
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#counts-at-v2130" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counts at v2.13.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-change-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed change manifest
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed change manifest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-new-files-added-tracked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. New files added (tracked)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-files-renamed-rename-preserves-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Files renamed (rename preserves history)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-files-moved-cross-folder-reorg-diataxis-aligned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Files moved (cross-folder reorg, Diataxis-aligned)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-files-removed-deleted-from-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Files removed (deleted from tracking)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-files-reorganized-mkdocsyml-overrides-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. Files reorganized (mkdocs.yml overrides cleanup)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-files-modified-substantial-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F. Files modified - substantial changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-claudemd-cross-cycle-absorption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        G. CLAUDE.md cross-cycle absorption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-generated-content-regenerated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        H. Generated content regenerated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-files-not-changed-intentionally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. Files NOT changed (intentionally)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j-tag-and-merge-sequence-phase-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        J. Tag and merge sequence (Phase 5)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related artifacts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/product-on-purpose/pm-skills/edit/main/docs/releases/Release_v2.13.0.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills/raw/main/docs/releases/Release_v2.13.0.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="release-v2130-foundation-hardening-doc-stack-decision">Release v2.13.0. Foundation Hardening + Doc Stack Decision<a class="headerlink" href="#release-v2130-foundation-hardening-doc-stack-decision" title="Permanent link">&para;</a></h1>
+<p><strong>Released</strong>: 2026-05-05
+<strong>Type</strong>: Refactor + decision release (minor)
+<strong>Skill count</strong>: 40 (unchanged from v2.12.0)
+<strong>Key theme</strong>: Foundation Hardening + Doc Stack Decision</p>
+<hr />
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<p>v2.13.0 is a maintenance and quality release. The 40-skill catalog is unchanged from v2.12.0, so day-to-day usage of <code>/prd</code>, <code>/hypothesis</code>, <code>/user-stories</code>, and the rest of the catalog is identical. What changed is everything around the catalog:</p>
+<ul>
+<li><strong>Cleaner, more navigable documentation.</strong> Duplicate files removed; counts reconciled across every public surface (README, getting-started, reference docs, mkdocs config, homepage hero); a new Diataxis-aligned folder structure (concepts, guides, reference) with a <code>pm-skill-*</code> filename prefix that signals scope at a glance; every generated page clearly labeled so editors know which file is the source.</li>
+<li><strong>For contributors and forkers</strong>, 7 new CI gates catch documentation drift on pull requests automatically: nav completeness, generated-content untouched, cross-doc reference integrity, docs frontmatter coverage, internal link validity, version-reference consistency, and skill-family registration. The enforcing CI tier doubled (5 to 10) and the validator inventory grew from 15 to 22.</li>
+<li><strong>For <code>pm-skills-mcp</code> users</strong>, the companion MCP server shipped v2.9.3 the same week, a security-patch follow-up to v2.9.2 that cleared all 8 open Dependabot moderate advisories (<code>hono</code>, <code>@hono/node-server</code>, <code>vite</code>, <code>postcss</code>). The catalog frozen at the v2.9.2 build (40 skills + 11 workflow tools + 8 utility tools) is unchanged.</li>
+</ul>
+<p>If you use pm-skills via the file-based install (<code>npx skills add product-on-purpose/pm-skills</code> or <code>git clone</code>), the upgrade is purely additive cleanup: nothing in your workflow changes, but the docs and contribution surface are noticeably better.</p>
+<hr />
+<h2 id="what-changed">What changed<a class="headerlink" href="#what-changed" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    A[v2.12.0 tagged]
+    B[2026-05-02 v2.13 stub]
+    C[2026-05-03 scope locked: 3 strands, 4 buckets]
+    D[Bucket A: doc structure refactor 4/4]
+    E[Bucket B: count + link cleanup 9/9]
+    F[Bucket C: CI hardening 12/12]
+    G[Bucket D: Zensical spike + NO-GO decision 2/2]
+    H[Out-of-cycle: MCP v2.9.2 maintenance-mode pivot]
+    I[Out-of-cycle: MCP v2.9.3 security patch 8 to 0 Dependabot alerts]
+    J[PR.1: per-strand Phase 0 review converged]
+    K[PR.2: release-state Phase 0 review 5 review rounds + 3 resolution passes converged]
+    L[PR.3: generator regen first-run convergence]
+    M[PR.4: mechanical CI all green]
+    N[PR.5: CHANGELOG + Release notes authored]
+    O[v2.13.0 tagged]
+
+    A --&gt; B --&gt; C
+    C --&gt; D
+    C --&gt; E
+    C --&gt; F
+    C --&gt; G
+    D --&gt; J
+    E --&gt; J
+    F --&gt; J
+    G --&gt; J
+    C --&gt; H --&gt; I
+    J --&gt; K --&gt; L --&gt; M --&gt; N --&gt; O
+
+    style A fill:#c8e6c9
+    style C fill:#fff4e1
+    style J fill:#c8e6c9
+    style K fill:#c8e6c9
+    style L fill:#c8e6c9
+    style M fill:#c8e6c9
+    style N fill:#c8e6c9
+    style O fill:#81c784</code></pre>
+<h3 id="changed-visible-in-the-rendered-docs">Changed (visible in the rendered docs)<a class="headerlink" href="#changed-visible-in-the-rendered-docs" title="Permanent link">&para;</a></h3>
+<p><strong>Doc structure (Bucket A, 4 items):</strong></p>
+<ul>
+<li><strong>Frameworks folder retired.</strong> <code>docs/frameworks/</code> deleted; the canonical Triple Diamond reference now lives at <code>docs/concepts/triple-diamond-delivery-process.md</code> with a <code>mkdocs.yml</code> redirect from the old path. Reduces <code>mkdocs.yml exclude_docs:</code> from 8 entries to 2.</li>
+<li><strong>Cross-folder reorg (Diataxis-aligned).</strong> 4 concept files moved out of <code>concepts/</code> to <code>reference/</code> and <code>guides/</code> per the Diataxis 4-quadrant taxonomy (concepts = generic explanatory; reference = PM-Skills lookup material; guides = PM-Skills how-to material). 4 legacy duplicate files deleted after CR-strip drift analysis (real divergence was 60 of 3,226 lines for <code>agent-skill-anatomy</code> and 21 of 1,495 lines for <code>getting-started</code>; canonical was strictly newer in all cases).</li>
+<li><strong>Authoring guide consolidation.</strong> <code>creating-skills.md</code> renamed to <code>creating-pm-skills.md</code> per the locked <code>pm-skill-*</code> prefix convention; <code>authoring-pm-skills.md</code> deleted; both old paths redirect to the new canonical.</li>
+<li><strong>Pattern 5C generated-content marker</strong> on all 63 generated pages (40 individual skill pages + 8 category index pages + 9 workflow pages + 1 workflow index + 3 showcase pages + 1 showcase index + 1 commands reference). The 8 category indices comprise 6 Triple Diamond phase indices (discover, define, develop, deliver, measure, iterate) plus the foundation and utility category indices. Each generated page now carries <code>generated: true</code> and <code>source: scripts/...</code> frontmatter fields plus a visible <code>!!! warning "Generated file"</code> admonition pointing editors to the source. Pairs with the new <code>check-generated-content-untouched</code> validator that detects hand-edits to generated pages.</li>
+</ul>
+<p><strong>Count and link cleanup (Bucket B, 9 items):</strong></p>
+<ul>
+<li><strong>Skill counts reconciled</strong> across <code>concepts/agent-skill-anatomy.md</code>, <code>reference/categories.md</code>, <code>reference/ecosystem.md</code>, <code>reference/project-structure.md</code>, <code>guides/mcp-integration.md</code>, <code>getting-started/index.md</code>, <code>mkdocs.yml site_description</code>, and the homepage hero. All current-state references now say 40 skills (26 phase + 8 foundation + 6 utility).</li>
+<li><strong><code>utility-pm-skill-builder</code> catalog table</strong> updated: Domain 25 to 26 (added <code>measure-okr-grader</code>); Foundation 1 to 8 (added <code>lean-canvas</code> plus the 5 meeting-* skills plus <code>okr-writer</code> plus <code>stakeholder-update</code>; persona retained); Utility 1 to 6 (added <code>mermaid-diagrams</code>, <code>pm-skill-iterate</code>, <code>pm-skill-validate</code>, <code>slideshow-creator</code>, <code>update-pm-skills</code>; pm-skill-builder retained).</li>
+<li><strong><code>docs/guides/mcp-setup.md</code> deleted</strong> and redirected to <code>guides/mcp-integration.md</code> per the maintenance-mode pivot subsumption. The canonical "how to use MCP" content now lives in <code>pm-skills-mcp</code>'s own README.</li>
+<li><strong><code>AGENTS/codex/CONTEXT.md</code> vestigial-redirect rewrite.</strong> Shrunk 74 to 32 lines acknowledging that Codex usage scope is now Phase 0 adversarial review only (codified v2.11.0); points to <code>AGENTS/claude/CONTEXT.md</code> as canonical project context.</li>
+<li><strong>README "What's New" workaround replaced</strong> (Option a section-aware CI extension). The broad <code>v[0-9]+\.</code> line-exemption in <code>check-count-consistency.{sh,ps1}</code> was replaced with explicit HTML-comment markers (<code>&lt;!-- count-exempt:start --&gt;</code> / <code>&lt;!-- count-exempt:end --&gt;</code>) for historical-content exemption plus a subset-descriptor exclusion list (so phrasing like "26 phase skills" no longer flags as a stale total). Surfaced and resolved 18 hidden findings the prior workaround had silenced.</li>
+<li><strong>F-34 THREAD_PROFILES.md</strong> added at <code>library/skill-output-samples/THREAD_PROFILES.md</code> as a machine-readable per-thread metadata contract for tooling consumers (<code>utility-pm-skill-builder</code> primary; future regen tools). Documents thread identity, feature arc, prompt style, character naming convention, real competitors, sample-suffix patterns, and scenario archetypes per phase across all three threads (storevine, brainshelf, workbench).</li>
+<li><strong><code>docs/reference/project-structure.md</code> full reconciliation.</strong> TOC anchor <code>the-32-pm-skills-flat</code> to <code>the-40-pm-skills-flat</code>. Directory tree counts updated. Foundation section expanded 1 to 8 with full skill listing. Slash command table gained 8 missing rows.</li>
+<li><strong><code>docs/guides/index.md</code> expanded</strong> from 7 to 12 listed guides (added <code>using-meeting-skills</code>, <code>skill-finder</code>, <code>recipes</code>, <code>prompt-gallery</code>, <code>updating-pm-skills</code>).</li>
+</ul>
+<h3 id="whats-new-under-the-hood">What's new (under the hood)<a class="headerlink" href="#whats-new-under-the-hood" title="Permanent link">&para;</a></h3>
+<p><strong>CI hardening (Bucket C, 12 items):</strong></p>
+<ul>
+<li><strong>5 PowerShell parity bugfixes.</strong> Fixed <code>$matches</code> reserved-word collision in <code>check-stale-bundle-refs.ps1</code>, <code>Join-Path</code> named-parameter usage in <code>check-workflow-coverage.ps1</code> and <code>check-generated-freshness.ps1</code>, path-detection bug in <code>lint-skills-frontmatter.ps1</code>. PS1 versions now match bash output on current main.</li>
+<li><strong><code>check-count-consistency</code> tightened and promoted to enforcing</strong> for current-state files. The original line-level <code>v[0-9]+\.</code> exemption was replaced with explicit HTML-comment markers plus a subset-descriptor exclusion list (per Bucket B item 6). PS1 + bash now emit identical findings on identical input.</li>
+<li><strong>7 new validators</strong>, each with <code>.sh</code> + <code>.ps1</code> + <code>.md</code> triplet completeness:<ul>
+<li><code>check-nav-completeness</code> (enforcing): every <code>docs/**/*.md</code> is in nav OR <code>exclude_docs</code> OR auto-include patterns</li>
+<li><code>check-generated-content-untouched</code> (enforcing): snapshots, regenerates, diffs, restores; fails on hand-edits to generated pages. Pairs with Pattern 5C from Bucket A.4.</li>
+<li><code>validate-references-cross-doc</code> (enforcing): every cross-link in <code>docs/reference/</code> resolves</li>
+<li><code>validate-skill-family-registration</code> (enforcing): registry-driven family validation (covers <code>meeting-skills-family</code> plus future families); F-36</li>
+<li><code>validate-docs-frontmatter</code> (advisory): every rendered doc has title plus description</li>
+<li><code>check-internal-link-validity</code> (advisory): zero broken internal links across the doc tree</li>
+<li><code>check-version-references</code> (advisory): version-reference drift detector</li>
+</ul>
+</li>
+<li><strong>Net surface delta:</strong> validator inventory grows from 15 to 22 (7 new). Enforcing tier grows from 5 to 10 (4 new enforcing + count-consistency promoted). Bash + PS1 dual-stack maintained for v2.13 (consolidation decision deferred to v2.14.0+).</li>
+</ul>
+<h3 id="decision-artifact-zensical-compatibility-bucket-d-2-items">Decision artifact: Zensical compatibility (Bucket D, 2 items)<a class="headerlink" href="#decision-artifact-zensical-compatibility-bucket-d-2-items" title="Permanent link">&para;</a></h3>
+<p><strong>Outcome: NO-GO for v2.14.0 commitment.</strong></p>
+<p>The 60-minute time-boxed compatibility spike against Zensical 0.0.40 (with MkDocs Material 9.7.6 as baseline) surfaced two BLOCKERs that disqualify Zensical for our content shape at this maturity level:</p>
+<ul>
+<li><strong><code>mkdocs-redirects</code> plugin not honored.</strong> Zero redirect HTML files generated for the 12 mapped paths in <code>mkdocs.yml redirects.redirect_maps</code>. All bookmarked old URLs would 404 under Zensical.</li>
+<li><strong><code>exclude_docs:</code> not honored.</strong> 183 internal HTML files from <code>docs/internal/</code> leaked into the public <code>site/</code> output despite the explicit <code>exclude_docs: internal/</code> directive. Privacy-equivalent of a structural failure.</li>
+</ul>
+<p>Plus an IMPORTANT-severity behavioral difference: Zensical 0.0.40 emits 2940 link-reference parser warnings on bracketed text (<code>[role]/[action]/[benefit]</code> user-story templates, <code>[yes / no]</code> choice prompts, <code>cards[3]</code> array notation, etc.) that Material does not. All sampled cases were false positives. Volume makes <code>--strict</code> mode unusable at this Zensical version.</p>
+<p><strong>Recommendation:</strong> stay on MkDocs Material through v2.14.0+. Do <strong>NOT</strong> trigger Plan B (Astro Starlight) immediately per the spike plan's Section 5 logic; Plan B becomes its own effort doc only if Material's maintenance posture deteriorates in parallel. Re-spike Zensical when both blockers resolve in upstream releases (suggested triggers: announcement of <code>mkdocs-redirects</code> parity, announcement of <code>exclude_docs</code> honoring, or Zensical reaching v0.5+ regardless).</p>
+<p>The full spike report is at <code>docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md</code>. It will be retained as the canonical decision artifact for v2.14.0+ stack-decision discussions; future re-spikes write a new dated report rather than editing this one.</p>
+<h3 id="out-of-cycle-pm-skills-mcp-maintenance-mode">Out-of-cycle: pm-skills-mcp maintenance mode<a class="headerlink" href="#out-of-cycle-pm-skills-mcp-maintenance-mode" title="Permanent link">&para;</a></h3>
+<p>Two same-week pm-skills-mcp releases happened mid-cycle on 2026-05-05 by explicit user-initiated decision. Tracked separately from in-cycle scope but called out here for completeness:</p>
+<ul>
+<li><strong><code>pm-skills-mcp</code> v2.9.2 maintenance-mode pivot.</strong> Announces formal maintenance mode (effective 2026-05-04), re-embeds the full current 40-skill catalog at v2.9.2 build time (superseding the prior v2.11.0 M-22 28-skill freeze), updates README and CHANGELOG and CLAUDE.md and <code>src/config.ts</code> for the maintenance posture. Published to npm with a GitHub Release.</li>
+<li><strong><code>pm-skills-mcp</code> v2.9.3 security-patch follow-up.</strong> Two hours after the v2.9.2 announcement, v2.9.3 cleared all 8 open Dependabot moderate advisories via transitive <code>npm audit fix</code> (<code>hono</code> 4.12.10 to 4.12.17, <code>@hono/node-server</code> 1.19.12 to 1.19.14, <code>vite</code> 6.4.1 to 6.4.2, <code>postcss</code> 8.5.6 to 8.5.14). Post-ship Dependabot open-alert count: 0. Bundled three latent v2.9.x maintenance debts in the same patch: <code>tests/loader.test.ts</code> catalog assertions corrected for the 40-skill embedded library, <code>package-lock.json</code> top-level version metadata synced, and a retroactive em-dash sweep on 28 occurrences in pre-2026-04-13 CHANGELOG entries.</li>
+</ul>
+<p>The 2-hour announcement-to-patch turnaround validates the v2.9.2 maintenance-mode "security patches will continue" commitment in operational practice. Catalog frozen at v2.9.2 build (40 skills, 11 workflow tools, 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the catalog.</p>
+<hr />
+<h2 id="infrastructure-process">Infrastructure / process<a class="headerlink" href="#infrastructure-process" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Phase 0 Adversarial Review Loop</strong> applied across both per-strand and release-state layers, per the v2.11.0 codification + v2.12.0 release-state extension. PR.1 (per-strand): 4 Codex tasks (Bucket A retry, Bucket C round 1 + round 2, Bucket D retry) converged below IMPORTANT severity. PR.2 (release-state): 5 Codex review rounds + 3 resolution passes (8 numbered rounds total). Each Codex round caught a deeper layer of stale-summary text introduced by the previous round's resolution; round 6 was a comprehensive sweep across the full release stack rather than another incremental fix; round 8 resolved final audit-trail correctness defects.</li>
+<li><strong>PR.3 generator regen</strong> converged on first run. All 3 generators (<code>generate-skill-pages.py</code>, <code>generate-workflow-pages.py</code>, <code>generate-showcase.py</code>) produced zero git diff against current state. <code>check-generated-content-untouched.sh</code> validator: PASS for all 63 generated pages.</li>
+<li><strong>PR.4 mechanical CI</strong> all green. 10 enforcing scripts PASS plus 5 advisory scripts PASS at the pre-PR.5 commit.</li>
+<li><strong>Same-commit-as-work pattern</strong> applied throughout the cycle. Plan-doc updates landed in the same commit as the work they describe; eliminates the v2.12.0-class "release-state Codex review finds plan disagrees with code" defect.</li>
+<li><strong>Stale-aggregate-counter pattern codified</strong> as durable feedback memory after PR.2 round 2 caught it at meta level (status-block text, not just numerical aggregates, drifts unless every gate closure sweeps all release-stack docs). The pattern is now a standing rule for future cycles.</li>
+</ul>
+<hr />
+<h2 id="why-this-matters">Why this matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h2>
+<p>For users, v2.13.0 is the release that makes pm-skills feel finished as a library. The 40-skill catalog has been stable since v2.12.0; what was rough was the documentation around it - duplicate files in two places, stale skill counts on seven different public surfaces, generated pages indistinguishable from hand-edited ones, navigational dead-ends after the v2.11 to v2.12 growth. v2.13.0 fixes all of that. Browsing the docs, finding a skill, understanding which file is canonical, contributing a fix - each is now noticeably smoother.</p>
+<p>For contributors and forkers, the CI hardening is the durable user-value. Doc drift, broken cross-references, and stale counts have historically been caught only at release time, often by the maintainer reading the rendered site. v2.13.0 turns those checks into automated PR gates: 7 new validators run on every PR across both Ubuntu and Windows. A typo in a skill cross-reference, a count that fell out of sync, a hand-edit to a generated page - all caught at PR time, not at release time.</p>
+<p>For <code>pm-skills-mcp</code> users, the same-week v2.9.3 security patch is direct user-value: 8 → 0 open Dependabot advisories with a 2-hour announcement-to-patch turnaround that demonstrated the maintenance-mode commitment in practice. If you depend on the MCP server, the v2.9.3 release is recommended for the security fixes alone.</p>
+<hr />
+<h2 id="validation-phase-0-adversarial-review-loop">Validation: Phase 0 Adversarial Review Loop<a class="headerlink" href="#validation-phase-0-adversarial-review-loop" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Round</th>
+<th>Layer</th>
+<th>Findings</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PR.1 / Bucket A retry</td>
+<td>Per-strand</td>
+<td>0 CRITICAL + 0 IMPORTANT + 0 MEDIUM + 1 MINOR</td>
+<td>Resolved + Bucket A clears Phase 0</td>
+</tr>
+<tr>
+<td>PR.1 / Bucket C round 1</td>
+<td>Per-strand</td>
+<td>0 CRITICAL + 2 IMPORTANT + 3 MEDIUM + 1 MINOR</td>
+<td>2 IMPORTANTs resolved; 3 MEDIUM + 1 MINOR documented as known debt</td>
+</tr>
+<tr>
+<td>PR.1 / Bucket C round 2</td>
+<td>Per-strand</td>
+<td>0 CRITICAL + 0 IMPORTANT (CONVERGED)</td>
+<td>Bucket C clears Phase 0</td>
+</tr>
+<tr>
+<td>PR.1 / Bucket D retry</td>
+<td>Per-strand</td>
+<td>0 CRITICAL + 0 IMPORTANT + 4 MEDIUM + 2 MINOR. Both NO-GO BLOCKERs hold under cross-reference to Zensical's own compatibility docs.</td>
+<td>4 MEDIUM count-drift items resolved; methodology MEDIUMs documented</td>
+</tr>
+<tr>
+<td>PR.2 round 1</td>
+<td>Release-state</td>
+<td>0 CRITICAL + 6 IMPORTANT + 3 MEDIUM + 1 MINOR</td>
+<td>Resolved across 3 batch commits + self-review residuals</td>
+</tr>
+<tr>
+<td>PR.2 round 2</td>
+<td>Release-state</td>
+<td>0 CRITICAL + 4 IMPORTANT (round-1 stale-status persisted) + 2 new MEDIUM + 1 new MINOR</td>
+<td>Resolved</td>
+</tr>
+<tr>
+<td>PR.2 round 3</td>
+<td>(resolution pass; no separate Codex review)</td>
+<td>n/a</td>
+<td>Resolution commit covered round 2 findings</td>
+</tr>
+<tr>
+<td>PR.2 round 4</td>
+<td>Release-state</td>
+<td>0 CRITICAL + 2 new IMPORTANT (next-layer stale-summary at gate-table row + sibling index file)</td>
+<td>Resolved + drafts authored</td>
+</tr>
+<tr>
+<td>PR.2 round 5</td>
+<td>Release-state</td>
+<td>0 CRITICAL + 4 new IMPORTANT (top status block + drafts misrepresenting audit trail + count breakdown stale + README update draft wrong index headers) + 1 new MEDIUM</td>
+<td>Resolved in round 6 comprehensive sweep</td>
+</tr>
+<tr>
+<td>PR.2 round 6</td>
+<td>(resolution pass; comprehensive sweep across full release stack)</td>
+<td>n/a</td>
+<td>Resolution commit</td>
+</tr>
+<tr>
+<td>PR.2 round 7</td>
+<td>Release-state</td>
+<td>0 CRITICAL + 2 IMPORTANT (audit-trail correctness defects in PR.2 row + checklist note + README "What's New" draft) + 1 MEDIUM</td>
+<td>Resolved</td>
+</tr>
+<tr>
+<td>PR.2 round 8</td>
+<td>(resolution pass; user-value reframe of TL;DR + Why-this-matters + README block also landed in this round)</td>
+<td>n/a</td>
+<td>Resolution commits + draft user-value reframe</td>
+</tr>
+<tr>
+<td>PR.3 generator regen</td>
+<td>Mechanical</td>
+<td>0 git diff after regen; <code>check-generated-content-untouched</code> PASS</td>
+<td>First-run convergence</td>
+</tr>
+<tr>
+<td>PR.4 mechanical CI</td>
+<td>Mechanical</td>
+<td>10 enforcing PASS + 5 advisory PASS</td>
+<td>Tag-ready except pending version bump</td>
+</tr>
+</tbody>
+</table>
+<p>The release-state loop's value was on display across rounds 2-7: each Codex round caught the next layer of stale-summary text introduced by the previous round's resolution. Round 6 was a comprehensive sweep across the entire release stack rather than another incremental fix; round 8 resolved final audit-trail correctness defects and applied the user-value reframe to the public-facing summaries. Same defect class as the codified <code>feedback_stale-aggregate-counter</code> memory, applied at meta level. The pattern lesson: every gate closure must sweep ALL release-stack docs that reference the gate's state simultaneously, not just the doc whose row was edited.</p>
+<hr />
+<h2 id="whats-deferred-to-v2140">What's deferred to v2.14.0+<a class="headerlink" href="#whats-deferred-to-v2140" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zensical migration</td>
+<td>Spike outcome: NO-GO. Re-spike when blockers resolve.</td>
+</tr>
+<tr>
+<td>Plan B Astro Starlight</td>
+<td>Per spike plan Section 5: Plan B does NOT trigger immediately on NO-GO; only triggers if Material maintenance posture deteriorates in parallel.</td>
+</tr>
+<tr>
+<td>F-37 HTML Template Creator</td>
+<td>Conflicts with v2.13's "no new skills" guard.</td>
+</tr>
+<tr>
+<td>F-29 Meeting Lifecycle Workflow</td>
+<td>Time-gated on real-world meeting-skills usage feedback.</td>
+</tr>
+<tr>
+<td>F-30 Family Adoption Guide</td>
+<td>Time-gated on at least one team's adoption experience.</td>
+</tr>
+<tr>
+<td>F-31 / F-32 / F-33 / F-35 Sample-automation slate</td>
+<td>May be obsolete after v2.12 builder cleanup; re-evaluate before v2.14.</td>
+</tr>
+<tr>
+<td>Pattern 2 mkdocs-macros frontmatter-driven counts</td>
+<td>Adds dependency; deferred pending Zensical decision.</td>
+</tr>
+<tr>
+<td>Bash + PS1 dual-stack consolidation</td>
+<td>Strategic question; deferred to v2.14.0+.</td>
+</tr>
+<tr>
+<td><code>.github/workflows/validation.yml</code> Validate <code>_pm-skills/</code> in <code>.gitignore</code> (advisory)</td>
+<td>Pre-existing advisory, not in v2.13 scope.</td>
+</tr>
+<tr>
+<td>AGENTS/claude/CONTEXT.md per-phase Skills Inventory tables</td>
+<td>At v2.10.x-era 32-skill state per intentional deferral. Authoritative current catalog lives in <code>docs/reference/categories.md</code> and <code>docs/skills/index.md</code>. Full table refresh slated for v2.14.0.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="counts-at-v2130">Counts at v2.13.0<a class="headerlink" href="#counts-at-v2130" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Count</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skills</td>
+<td>40</td>
+<td>26 phase + 8 foundation + 6 utility (unchanged from v2.12.0)</td>
+</tr>
+<tr>
+<td>Workflows</td>
+<td>9</td>
+<td>unchanged</td>
+</tr>
+<tr>
+<td>Slash commands</td>
+<td>47</td>
+<td>40 skill + 7 workflow</td>
+</tr>
+<tr>
+<td>Library samples</td>
+<td>126</td>
+<td>unchanged from v2.12.0</td>
+</tr>
+<tr>
+<td>Validators (total)</td>
+<td>22</td>
+<td>up from 15</td>
+</tr>
+<tr>
+<td>Validators (enforcing)</td>
+<td>10</td>
+<td>up from 5</td>
+</tr>
+<tr>
+<td>Validators (advisory)</td>
+<td>12</td>
+<td>up from 10</td>
+</tr>
+<tr>
+<td>pm-skills-mcp tools (frozen at v2.9.2 build)</td>
+<td>59</td>
+<td>40 skill + 11 workflow + 8 utility</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="detailed-change-manifest">Detailed change manifest<a class="headerlink" href="#detailed-change-manifest" title="Permanent link">&para;</a></h2>
+<p>This section is an exhaustive, file-by-file breakdown of every relocation, deletion, rename, addition, and modification that landed in v2.13.0. It is intended for maintainers, contributors, and downstream tooling that needs to know exactly what changed. User-facing impact is summarized in the TL;DR and Why-this-matters sections above; this section is the audit trail.</p>
+<h3 id="a-new-files-added-tracked">A. New files added (tracked)<a class="headerlink" href="#a-new-files-added-tracked" title="Permanent link">&para;</a></h3>
+<p><strong>Scripts (7 new validator triplets):</strong></p>
+<ul>
+<li><code>scripts/check-nav-completeness.sh</code>, <code>.ps1</code>, <code>.md</code> (Bucket C Wave 1, item 6; commit <code>86ce58a</code>).</li>
+<li><code>scripts/check-generated-content-untouched.sh</code>, <code>.ps1</code>, <code>.md</code> (Bucket C Wave 2.1; commit <code>a170ecd</code>).</li>
+<li><code>scripts/validate-references-cross-doc.sh</code>, <code>.ps1</code>, <code>.md</code> (Bucket C Wave 2.2; commit <code>a170ecd</code>).</li>
+<li><code>scripts/validate-docs-frontmatter.sh</code>, <code>.ps1</code>, <code>.md</code> (Bucket C Wave 3, item 9; commit <code>f6f9785</code>).</li>
+<li><code>scripts/check-internal-link-validity.sh</code>, <code>.ps1</code>, <code>.md</code> (Bucket C Wave 3, item 10; commit <code>6d0d2ac</code>).</li>
+<li><code>scripts/check-version-references.sh</code>, <code>.ps1</code>, <code>.md</code> (Bucket C Wave 3, item 11; commit <code>13085b0</code>).</li>
+<li><code>scripts/validate-skill-family-registration.sh</code>, <code>.ps1</code>, <code>.md</code> (Bucket C Wave 3, item 12 / F-36; commit <code>04d7624</code>).</li>
+</ul>
+<p><strong>Library samples reference document:</strong></p>
+<ul>
+<li><code>library/skill-output-samples/THREAD_PROFILES.md</code> (F-34; commit <code>fb18124</code>). Approximately 395 lines of machine-readable per-thread metadata for tooling consumers.</li>
+</ul>
+<p><strong>Release artifacts:</strong></p>
+<ul>
+<li><code>docs/releases/Release_v2.13.0.md</code> (this file; promoted from <code>plan_v2.13_release-notes-DRAFT.md</code> in commit <code>6f81fb1</code>).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13.0.md</code> (master plan; pre-existed as a stub before cycle, expanded throughout).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_ci-refactor.md</code> (CI strand doc).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike.md</code> (Zensical spike plan).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md</code> (NO-GO decision artifact).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist.md</code> (Phase 0 to Phase 6 gate checklist).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_release-notes-DRAFT.md</code> (PR.5 author-time draft; preserved post-promotion as audit trail).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_changelog-DRAFT.md</code> (PR.5 author-time draft).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_readme-update-DRAFT.md</code> (PR.5 author-time draft with promotion checklist).</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_final-sweep_2026-05-05.md</code> (final-pass review captured at ship time).</li>
+<li><code>docs/internal/release-plans/v2.13.0/skills-manifest.yaml</code> (empty by design; no skill version bumps in v2.13).</li>
+</ul>
+<p><strong>Skill family registry (referenced by F-36 validator):</strong></p>
+<ul>
+<li><code>docs/reference/skill-families/_registry.yaml</code> (registry consumed by <code>validate-skill-family-registration</code>).</li>
+</ul>
+<h3 id="b-files-renamed-rename-preserves-history">B. Files renamed (rename preserves history)<a class="headerlink" href="#b-files-renamed-rename-preserves-history" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>docs/guides/creating-skills.md</code> to <code>docs/guides/creating-pm-skills.md</code> (Bucket A.3; commit <code>4190f45</code>). Per the locked <code>pm-skill-*</code> filename prefix convention. Old path redirects via <code>mkdocs.yml redirect_maps</code>.</li>
+<li><code>docs/concepts/triple-diamond.md</code> to <code>docs/concepts/triple-diamond-delivery-process.md</code> (Bucket A.1; commit <code>4190f45</code>). Renamed for descriptive accuracy. Old path redirects.</li>
+</ul>
+<h3 id="c-files-moved-cross-folder-reorg-diataxis-aligned">C. Files moved (cross-folder reorg, Diataxis-aligned)<a class="headerlink" href="#c-files-moved-cross-folder-reorg-diataxis-aligned" title="Permanent link">&para;</a></h3>
+<p>These were moved out of <code>docs/concepts/</code> into <code>docs/reference/</code> (lookup material) or <code>docs/guides/</code> (how-to material) per the v2.13 doc-folder semantics decision (Bucket A.2; commit <code>4190f45</code>):</p>
+<ul>
+<li><code>docs/concepts/skill-anatomy.md</code> to <code>docs/reference/pm-skill-anatomy.md</code>. Lookup-material per Diataxis. Renamed with <code>pm-skill-*</code> prefix per the locked convention.</li>
+<li><code>docs/concepts/versioning.md</code> to <code>docs/reference/pm-skill-versioning.md</code>. Lookup-material; renamed with prefix.</li>
+<li><code>docs/concepts/comparisons.md</code> to <code>docs/guides/pm-skill-comparisons.md</code>. How-to-style material; renamed with prefix.</li>
+<li><code>docs/concepts/skill-lifecycle.md</code> to <code>docs/guides/pm-skill-lifecycle.md</code>. How-to-style material; renamed with prefix.</li>
+</ul>
+<p>All four moves carry corresponding <code>mkdocs.yml redirect_maps</code> entries so old bookmarks resolve.</p>
+<h3 id="d-files-removed-deleted-from-tracking">D. Files removed (deleted from tracking)<a class="headerlink" href="#d-files-removed-deleted-from-tracking" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>docs/concepts/agent-skill-anatomy.md</code> removed (Bucket A.2 legacy duplicate cleanup; commit <code>4190f45</code>). Canonical is now <code>docs/reference/pm-skill-anatomy.md</code> (deprecated path; redirected via <code>mkdocs.yml redirect_maps</code>).</li>
+<li><code>docs/concepts/getting-started.md</code> removed (Bucket A.2). Canonical is now <code>docs/getting-started/index.md</code> (deprecated path; redirected).</li>
+<li><code>docs/guides/authoring-pm-skills.md</code> removed (Bucket A.3). Canonical is now <code>docs/guides/creating-pm-skills.md</code> (deprecated path; redirected).</li>
+<li><code>docs/guides/mcp-setup.md</code> removed (Bucket B.4 mcp-setup.md deletion + redirect to mcp-integration.md per the maintenance-mode pivot subsumption). The canonical "how to use MCP" content now lives in <code>pm-skills-mcp</code>'s own README.</li>
+<li><code>docs/frameworks/triple-diamond.md</code> and the entire <code>docs/frameworks/</code> folder removed (Bucket A.1). Canonical is <code>docs/concepts/triple-diamond-delivery-process.md</code> (deprecated path; redirected). The <code>mkdocs.yml exclude_docs:</code> directive was reduced from 8 entries to 2 as a side effect.</li>
+</ul>
+<p>These removals were judged safe via CR-strip drift analysis. The "real divergence" between deprecated and canonical was 60 of 3,226 lines for <code>agent-skill-anatomy</code> and 21 of 1,495 lines for <code>getting-started</code>; the canonical was strictly newer in all cases, so no content was lost.</p>
+<h3 id="e-files-reorganized-mkdocsyml-overrides-cleanup">E. Files reorganized (<code>mkdocs.yml</code> overrides cleanup)<a class="headerlink" href="#e-files-reorganized-mkdocsyml-overrides-cleanup" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>mkdocs.yml</code> <code>theme.custom_dir: overrides</code> directive removed and the empty <code>overrides/.gitkeep</code> placeholder removed (sibling commit <code>06a2e36</code>). The override slot was unused; this is incidental hygiene tracked in the master plan Change Log but not in any Bucket A/B/C/D row.</li>
+</ul>
+<h3 id="f-files-modified-substantial-changes">F. Files modified - substantial changes<a class="headerlink" href="#f-files-modified-substantial-changes" title="Permanent link">&para;</a></h3>
+<p><strong>Public-facing documentation:</strong></p>
+<ul>
+<li><code>README.md</code> - skill counts updated to 40 across all surfaces (project structure tree commands count 45 to 47); Measure section table extended with <code>/okr-grader</code>; Foundation section table extended from 1 to 8 commands; MCP section reframed for v2.9.x maintenance line (latest v2.9.3) with frozen-at-v2.9.2-build framing; "All 26 domain and foundation skills" corrected to "All 40 skills (26 phase + 8 foundation + 6 utility)" with workflow + utility tool counts; new v2.13.0 What's New block (open) above the v2.12.0 block (collapsed); Latest stable + release notes + published tag pointers updated to v2.13.0.</li>
+<li><code>CHANGELOG.md</code> - new <code>## [2.13.0] - 2026-05-05</code> entry inserted above the v2.12.0 entry with full Added / Changed / Infrastructure / Fixed / Out-of-cycle / Deferred sections.</li>
+<li><code>docs/releases/index.md</code> - new top row for v2.13.0; v2.10.1 and v2.10.2 broken rows removed (they linked to release-notes files that were never authored; v2.10.0 row updated with a note pointing to CHANGELOG.md for the patch history).</li>
+<li><code>docs/index.md</code> - homepage hero recent-releases table extended with v2.13.0; broken <code>releases/Release_v2.10.1.md</code> and <code>releases/Release_v2.10.2.md</code> rows removed; v2.10.0 row enriched with a CHANGELOG reference for the patch history.</li>
+<li><code>docs/changelog.md</code> - 3 broken release-note links corrected from <code>docs/releases/Release_v2.X.Y.md</code> (path-prefix bug) to <code>releases/Release_v2.X.Y.md</code>.</li>
+<li><code>docs/getting-started/index.md</code> - Available Commands table extended (Measure phase 4 to 5 commands; Foundation 1 to 8 commands; workflows expanded from 1 listed command to all 7).</li>
+<li><code>docs/guides/mcp-integration.md</code> - already trimmed during the mid-cycle MCP pivot from 570 to 39 lines (Bucket B.4 / MCP.2). Updated mid-cycle for v2.9.3 (replaced "v2.9.2 remains available on npm" framing with "v2.9.x maintenance line, latest v2.9.3" and frozen-at-v2.9.2-build framing).</li>
+<li><code>docs/guides/index.md</code> - listing expanded from 7 to 12 guides (added <code>using-meeting-skills</code>, <code>skill-finder</code>, <code>recipes</code>, <code>prompt-gallery</code>, <code>updating-pm-skills</code>).</li>
+<li><code>docs/guides/validate-mcp-sync.md</code> - new maintenance-mode warning callout added at top noting the workflow's reduced relevance under MCP maintenance mode.</li>
+<li><code>docs/reference/categories.md</code> - reconciled total skill count from 29 (stale) to 40; per-category counts updated; 3 new sections added (<code>meeting</code>, <code>communication</code>, <code>documentation</code>) for categories that exist in skill frontmatter but were previously undocumented; Framework Mapping table extended; Category Selection Guide branches added; Category Distribution table updated to 40 total.</li>
+<li><code>docs/reference/ecosystem.md</code> - hero paragraph and Decision Matrix qualifier reframed for v2.9.x maintenance line; ecosystem statement updated.</li>
+<li><code>docs/reference/project-structure.md</code> - TOC anchor <code>the-32-pm-skills-flat</code> to <code>the-40-pm-skills-flat</code>; directory tree counts updated; Foundation section expanded 1 to 8; Slash command table gained 8 missing rows; stale <code>docs/frameworks/</code> tree entry removed with a one-line note about the v2.13 retirement.</li>
+<li><code>docs/reference/pm-skill-anatomy.md</code> - "Four scripts validate skill integrity" expanded to 5 core scripts plus a note pointing to <code>.github/workflows/validation.yml</code> and <code>scripts/README_SCRIPTS.md</code> as canonical for the full CI suite.</li>
+</ul>
+<p><strong>Master plan and CI strand documentation:</strong></p>
+<ul>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13.0.md</code> - top Status block flipped from "Plan (decisions pending)" to "Pre-tag (all 27/27 in-cycle items shipped + 5 MCP items shipped; PR.1 to PR.5 closed; Phase 5 tag-time chores in flight)"; Out of Scope #3 reworded from "No MCP work" to "No in-cycle MCP work" with explicit acknowledgement of the out-of-cycle pivot; "What stays the same" library samples 120 to 126 and MCP catalog reframed; "What's new" validator inventory 17 to 24 corrected to 15 to 22 + enforcing 5 to 7 corrected to 5 to 10; Open Questions OQ-5/OQ-6/OQ-7 marked Resolved; MCP Impact section reframed; multiple Change Log entries appended for every cycle event including PR.1 to PR.5 closures + the round-by-round PR.2 audit trail; PR.2 row in Pre-release gates table flipped to Shipped with full Codex session IDs; Bucket A.4 description corrected to 40 individual skill pages with category-indices breakdown.</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_ci-refactor.md</code> - "14 items" corrected to "12 items" (matching status table); validator inventory "17 to 24" corrected to "15 to 22"; "5 to 11 enforcing" corrected to "5 to 10" with breakdown of which validators are new-enforcing vs new-advisory vs promoted; YAML snippet rewritten to drop the never-implemented <code>--current-state</code> / <code>--historical</code> args and reference the actual marker-based exemption mechanism shipped in B.6; pre-release verification gates ticked as the work landed; top status flipped to Executed.</li>
+<li><code>docs/internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist.md</code> - 51 of 75 boxes ticked covering Phase 0 + Phase 1 + Phase 2 + Phase 4 closeable items; release-state-rerun box ticked with note about the 7-numbered-round convergence trajectory; Phase 5 expanded with an explicit <code>validate-version-consistency</code> re-run item between version bumps and the git tag step.</li>
+</ul>
+<p><strong>Validation workflow:</strong></p>
+<ul>
+<li><code>.github/workflows/validation.yml</code> - 7 new validator job entries added for the new Bucket C validators; <code>if: always() &amp;&amp; matrix.os == ...</code> added to all 14 new-validator step conditions so an enforcing-step failure does not cascade-skip later validators in the same job; <code>continue-on-error: true</code> removed from both <code>Check count consistency (bash)</code> and <code>Check count consistency (pwsh)</code> steps to actually wire the promotion-to-enforcing into CI.</li>
+</ul>
+<p><strong>Existing CI scripts (PowerShell parity bugfixes):</strong></p>
+<ul>
+<li><code>scripts/check-stale-bundle-refs.ps1</code> - <code>$matches</code> PowerShell reserved-word collision resolved (commit <code>0706ef7</code>).</li>
+<li><code>scripts/check-workflow-coverage.ps1</code> - <code>Join-Path</code> named-parameter usage corrected (commit <code>5b4f912</code>).</li>
+<li><code>scripts/check-generated-freshness.ps1</code> - same <code>Join-Path</code> fix (commit <code>7269183</code>).</li>
+<li><code>scripts/lint-skills-frontmatter.ps1</code> - <code>$dir.FullName</code> path-detection bug fixed (commit <code>c3367d2</code>).</li>
+</ul>
+<p><strong>check-count-consistency overhaul (Bucket B.6 + C item 5):</strong></p>
+<ul>
+<li><code>scripts/check-count-consistency.sh</code> and <code>.ps1</code> - tightened regex (commit <code>ab752ae</code>); promoted to enforcing for current-state files (commit <code>254026f</code>); marker-based count-exempt range system replaced version-prefix line-exemption (commit <code>35956ab</code>); subset-descriptor exclusion list added so phrasings like "26 phase skills" no longer flag as stale total-counts.</li>
+<li><code>scripts/check-count-consistency.md</code> - documentation rewritten to reflect both new mechanisms (commit <code>35956ab</code>).</li>
+</ul>
+<p><strong>Generator scripts (Pattern 5C generated-content marker, Bucket A.4):</strong></p>
+<ul>
+<li><code>scripts/generate-skill-pages.py</code>, <code>scripts/generate-workflow-pages.py</code>, <code>scripts/generate-showcase.py</code> - all 3 generators updated to emit <code>generated: true</code> + <code>source: scripts/...</code> frontmatter fields plus a <code>!!! warning "Generated file"</code> admonition pointing editors to the source. Coverage: 63 generated pages (commit <code>a38b36a</code>).</li>
+</ul>
+<p><strong>Skills catalog table (Bucket B.3):</strong></p>
+<ul>
+<li><code>skills/utility-pm-skill-builder/SKILL.md</code> - catalog table updated from Domain 25 + Foundation 1 + Utility 1 to Domain 26 + Foundation 8 + Utility 6 with descriptions and categories sourced from each skill's frontmatter.</li>
+</ul>
+<p><strong>Agent context:</strong></p>
+<ul>
+<li><code>AGENTS/codex/CONTEXT.md</code> - shrunk from 74 lines to 32 lines as a vestigial-redirect (Bucket B.5; commit pre-existing) acknowledging Codex usage scope is now Phase 0 adversarial review only; points to <code>AGENTS/claude/CONTEXT.md</code> as canonical project context. Currency marker <code>v2.12.0</code> retained so <code>check-context-currency</code> CI still passes.</li>
+<li><code>AGENTS/claude/CONTEXT.md</code> - top-of-file Current State block fully rewritten reflecting current pre-tag state (PR.1 to PR.5 closed); architecture diagram counts updated 32 to 40 skills + 39 to 47 commands + 95 to 126 samples; Active section flipped from v2.9.0 effort tracking to v2.13.0 tag-prep gate tracking; Skills Inventory header annotated with a deferred-refresh note pointing to <code>docs/reference/categories.md</code> and <code>docs/skills/index.md</code> as canonical for the current 40-skill catalog.</li>
+<li><code>AGENTS/claude/DECISIONS.md</code> - release-state-loop entry updated from "not yet codified" to "Accepted and codified" with reference to the v2.13 pre-release checklist Phase 0 section.</li>
+</ul>
+<p><strong>Plugin manifest and marketplace:</strong></p>
+<ul>
+<li><code>.claude-plugin/plugin.json</code> - version bumped 2.12.0 to 2.13.0 (commit <code>8b48ee0</code>).</li>
+<li><code>marketplace.json</code> - version bumped 2.12.0 to 2.13.0 (commit <code>8b48ee0</code>).</li>
+</ul>
+<p><strong>README badges:</strong></p>
+<ul>
+<li><code>README.md</code> shields.io version badge URL bumped 2.12.0 to 2.13.0 (commit <code>8b48ee0</code>).</li>
+</ul>
+<p><strong>Backlog:</strong></p>
+<ul>
+<li><code>docs/internal/backlog-canonical.md</code> - Last updated bumped 2026-04-06 to 2026-05-05; M-23 (Phase 5 GitHub-platform metadata refresh checklist) and M-24 (advisory <code>gh-release-metadata</code> script) added as v2.14.0+ entries.</li>
+</ul>
+<h3 id="g-claudemd-cross-cycle-absorption">G. CLAUDE.md cross-cycle absorption<a class="headerlink" href="#g-claudemd-cross-cycle-absorption" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The primary <code>main</code> branch had received commit <code>87ddf7a</code> (no-em-dash CLAUDE.md project rule codification) on 2026-05-04, before the <code>v2.13/cycle</code> worktree was created. At Phase 5 tag-time, <code>main</code> was merged into <code>v2.13/cycle</code> to absorb that commit (merge commit <code>e85ac4e</code>); <code>v2.13/cycle</code> was then fast-forwarded into <code>main</code>. The merged CLAUDE.md content includes the no-em-dash rule alongside the existing Documentation Rules + Project Context sections.</li>
+</ul>
+<h3 id="h-generated-content-regenerated">H. Generated content regenerated<a class="headerlink" href="#h-generated-content-regenerated" title="Permanent link">&para;</a></h3>
+<p>All 63 generated pages (40 skill pages + 8 category indices + 9 workflow pages + 1 workflow index + 3 showcase pages + 1 showcase index + 1 commands reference) were regenerated with the Pattern 5C generated-content marker. Re-running the 3 generators against current state produces zero git diff at HEAD; <code>check-generated-content-untouched.sh</code> validator: PASS.</p>
+<h3 id="i-files-not-changed-intentionally">I. Files NOT changed (intentionally)<a class="headerlink" href="#i-files-not-changed-intentionally" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>library/skill-output-samples/*</code> - all 126 sample files unchanged. v2.13 added 1 new reference document (<code>THREAD_PROFILES.md</code>) but did not modify or add any sample.</li>
+<li><code>_workflows/*.md</code> - all 9 workflow source files unchanged. v2.13 added zero new workflows.</li>
+<li><code>skills/*/SKILL.md</code> - all 40 skill source files unchanged in their behavioral content. The catalog table inside <code>skills/utility-pm-skill-builder/SKILL.md</code> was updated for catalog accuracy (Bucket B.3) but no other source SKILL.md was touched.</li>
+<li><code>commands/*.md</code> - all 47 command files unchanged.</li>
+<li><code>_NOTES/</code> - gitignored; no v2.13 changes affect anything in this directory.</li>
+</ul>
+<h3 id="j-tag-and-merge-sequence-phase-5">J. Tag and merge sequence (Phase 5)<a class="headerlink" href="#j-tag-and-merge-sequence-phase-5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Version bumps committed on <code>v2.13/cycle</code> as commit <code>8b48ee0</code>.</li>
+<li>PR.5 promotion landed on <code>v2.13/cycle</code> as commit <code>6f81fb1</code> plus follow-on <code>54b189e</code> (PR.5 closure in master plan).</li>
+<li>Final-sweep document landed on <code>v2.13/cycle</code> as commit <code>ba41138</code>.</li>
+<li><code>git fetch origin</code> from worktree; <code>git merge main --no-edit</code> into <code>v2.13/cycle</code> to absorb commit <code>87ddf7a</code> (merge commit <code>e85ac4e</code>).</li>
+<li><code>git checkout main</code> in primary repo; <code>git merge v2.13/cycle --ff-only</code> (fast-forward).</li>
+<li><code>git tag -a v2.13.0</code> annotated on the merged HEAD.</li>
+<li><code>git push origin main</code> and <code>git push origin v2.13.0</code> (both remote-affecting; in the B3 batch).</li>
+<li><code>gh release create v2.13.0 --notes-file docs/releases/Release_v2.13.0.md</code> (creates the public release page from this file).</li>
+</ol>
+<hr />
+<h2 id="related-artifacts">Related artifacts<a class="headerlink" href="#related-artifacts" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Master plan: <a href="../../internal/release-plans/v2.13.0/plan_v2.13.0/"><code>docs/internal/release-plans/v2.13.0/plan_v2.13.0.md</code></a></li>
+<li>CI strand doc: <a href="../../internal/release-plans/v2.13.0/plan_v2.13_ci-refactor/"><code>docs/internal/release-plans/v2.13.0/plan_v2.13_ci-refactor.md</code></a></li>
+<li>Zensical spike plan: <a href="../../internal/release-plans/v2.13.0/plan_v2.13_zensical-spike/"><code>docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike.md</code></a></li>
+<li>Zensical spike report (NO-GO): <a href="../../internal/release-plans/v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05/"><code>docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md</code></a></li>
+<li>Pre-release checklist: <a href="../../internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist/"><code>docs/internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist.md</code></a></li>
+<li>Skills manifest (empty by design): <a href="../../internal/release-plans/v2.13.0/skills-manifest.yaml"><code>docs/internal/release-plans/v2.13.0/skills-manifest.yaml</code></a></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 6, 2026 03:55:44 UTC"><span class="timeago" datetime="2026-05-06T03:55:44+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 6, 2026 03:55:44 UTC">2026-05-06</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 6, 2026 01:11:47 UTC"><span class="timeago" datetime="2026-05-06T01:11:47+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 6, 2026 01:11:47 UTC">2026-05-06</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 product-on-purpose
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "header.autohide", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

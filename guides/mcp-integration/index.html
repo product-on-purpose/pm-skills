@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more.">
+        <meta name="description" content="Status and recommended path for using PM-Skills via Model Context Protocol.">
       
       
         <meta name="author" content="jprisant">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://product-on-purpose.github.io/pm-skills/guides/mcp-integration/">
       
       
-        <link rel="prev" href="../mcp-setup/">
+        <link rel="prev" href="../prompt-gallery/">
       
       
         <link rel="next" href="../validate-mcp-sync/">
@@ -68,7 +68,7 @@
   
 <meta property="og:type" content="website" />
 <meta property="og:title" content="MCP Integration - PM Skills" />
-<meta property="og:description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="og:description" content="Status and recommended path for using PM-Skills via Model Context Protocol." />
 <meta property="og:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/guides/mcp-integration.png" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
@@ -76,7 +76,7 @@
 <meta property="og:url" content="https://product-on-purpose.github.io/pm-skills/guides/mcp-integration/" />
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:title" content="MCP Integration - PM Skills" />
-<meta property="twitter:description" content="32 AI agent skills for product managers. Open-source, spec-compliant skills for Claude Code, Cursor, Codex CLI, GitHub Copilot, and more." />
+<meta property="twitter:description" content="Status and recommended path for using PM-Skills via Model Context Protocol." />
 <meta property="twitter:image" content="https://product-on-purpose.github.io/pm-skills/assets/images/social/guides/mcp-integration.png" />
 </head>
   
@@ -97,7 +97,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mcp-integration-guide" class="md-skip">
+        <a href="#mcp-integration" class="md-skip">
           Skip to content
         </a>
       
@@ -398,28 +398,6 @@
     
   
   Showcase
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../using-meeting-skills/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Guides
 
         </a>
       </li>
@@ -855,6 +833,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -977,6 +959,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../using-meeting-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using the Meeting Skills Family
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../updating-pm-skills/" class="md-nav__link">
         
   
@@ -1005,14 +1015,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../creating-skills/" class="md-nav__link">
+      <a href="../creating-pm-skills/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Creating Skills
+    Creating PM Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pm-skill-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PM-Skill Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pm-skill-comparisons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PM-Skill Comparisons
   
 
     
@@ -1114,34 +1180,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../mcp-setup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MCP Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1205,10 +1243,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
+  <a href="#recommended-path-file-based-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Table of Contents
+        Recommended path: file-based install
       
     </span>
   </a>
@@ -1216,10 +1254,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#using-the-mcp-server-legacy-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        Using the MCP server (legacy path)
       
     </span>
   </a>
@@ -1227,10 +1265,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-mcp" class="md-nav__link">
+  <a href="#skill-parity-at-maintenance-time" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to Use MCP
+        Skill parity at maintenance time
       
     </span>
   </a>
@@ -1238,379 +1276,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#registering-interest-in-resumed-mcp-development" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Registering interest in resumed MCP development
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Quick Start">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#claude-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Claude Desktop
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claude-code-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Claude Code (CLI)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cursor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cursor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs-code-clinecontinue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VS Code (Cline/Continue)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#other-mcp-clients" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Other MCP Clients
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tool-inventory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tool Inventory
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tool Inventory">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skill-tools-32" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skill Tools (32)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#workflow-tools-5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow Tools (5)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#utility-tools-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Utility Tools (8)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#slash-command-to-mcp-tool-mapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slash Command to MCP Tool Mapping
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Customization
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Customization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-custom-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using Custom Skills
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#workflow-fork-customize-mcp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow: Fork + Customize + MCP
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment Variables
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#maintainer-mcp-sync-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Maintainer: MCP Sync Workflow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Maintainer: MCP Sync Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#when-to-sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Sync
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to Sync
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tool-naming-convention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tool Naming Convention
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ci-guardrails" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CI Guardrails
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#server-not-starting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Server Not Starting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools-not-appearing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools Not Appearing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-skills-not-loading" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom Skills Not Loading
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connection-refused" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connection Refused
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slow-response-times" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slow Response Times
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Links
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1669,14 +1341,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -1804,64 +1468,11 @@
     
       
         
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-  
-    <a href="../using-meeting-skills/" class="md-nav__link">
-      
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Guides
-  
-
-    
-  </span>
-  
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
           
+        
+      
+        
+      
         
       
         
@@ -2071,10 +1682,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
+  <a href="#recommended-path-file-based-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Table of Contents
+        Recommended path: file-based install
       
     </span>
   </a>
@@ -2082,10 +1693,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#using-the-mcp-server-legacy-path" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        Using the MCP server (legacy path)
       
     </span>
   </a>
@@ -2093,10 +1704,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-mcp" class="md-nav__link">
+  <a href="#skill-parity-at-maintenance-time" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to Use MCP
+        Skill parity at maintenance time
       
     </span>
   </a>
@@ -2104,379 +1715,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#registering-interest-in-resumed-mcp-development" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        Registering interest in resumed MCP development
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Quick Start">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#claude-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Claude Desktop
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claude-code-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Claude Code (CLI)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cursor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cursor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vs-code-clinecontinue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VS Code (Cline/Continue)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#other-mcp-clients" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Other MCP Clients
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tool-inventory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tool Inventory
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tool Inventory">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skill-tools-32" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Skill Tools (32)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#workflow-tools-5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow Tools (5)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#utility-tools-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Utility Tools (8)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#slash-command-to-mcp-tool-mapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slash Command to MCP Tool Mapping
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Customization
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Customization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-custom-skills" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using Custom Skills
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#workflow-fork-customize-mcp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow: Fork + Customize + MCP
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment Variables
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#maintainer-mcp-sync-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Maintainer: MCP Sync Workflow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Maintainer: MCP Sync Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#when-to-sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Sync
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to Sync
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tool-naming-convention" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tool Naming Convention
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ci-guardrails" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CI Guardrails
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#server-not-starting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Server Not Starting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools-not-appearing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools Not Appearing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-skills-not-loading" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom Skills Not Loading
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connection-refused" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connection Refused
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slow-response-times" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slow Response Times
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Links
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2519,900 +1764,54 @@
   
 
 
-<h1 id="mcp-integration-guide">MCP Integration Guide<a class="headerlink" href="#mcp-integration-guide" title="Permanent link">&para;</a></h1>
-<p>This guide helps you access PM-Skills through the Model Context Protocol (MCP) via <a href="https://github.com/product-on-purpose/pm-skills-mcp">pm-skills-mcp</a>.</p>
-<hr />
-<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<h1 id="mcp-integration">MCP Integration<a class="headerlink" href="#mcp-integration" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">MCP server is in maintenance mode</p>
+<p>The companion MCP server <a href="https://github.com/product-on-purpose/pm-skills-mcp"><code>pm-skills-mcp</code></a> entered maintenance mode on 2026-05-04. The current release in the v2.9.x maintenance line is <a href="https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.9.3">v2.9.3</a> (security-patch follow-up to the v2.9.2 maintenance-mode announcement; cleared all open Dependabot advisories on 2026-05-05). The catalog is frozen at the v2.9.2 build (40 PM skills, 11 workflow tools, and 8 utility tools); subsequent v2.9.x patches do not change the catalog. Active development is paused pending demonstrated demand. Security patches and critical bug fixes will continue; new skill parity with this <code>pm-skills</code> library is on hold after the v2.9.2 build.</p>
+</div>
+<h2 id="recommended-path-file-based-install">Recommended path: file-based install<a class="headerlink" href="#recommended-path-file-based-install" title="Permanent link">&para;</a></h2>
+<p>For new users, the <strong>file-based install path</strong> is the recommended way to use PM-Skills. It is under active maintenance, ships the full current catalog of all 40 skills, and works with any agent supported by the open <a href="https://github.com/vercel-labs/skills"><code>skills</code> CLI</a> or by Claude Code's slash-command system.</p>
 <ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#when-to-use-mcp">When to Use MCP</a></li>
-<li><a href="#quick-start">Quick Start</a></li>
-<li><a href="#claude-desktop">Claude Desktop</a></li>
-<li><a href="#claude-code-cli">Claude Code (CLI)</a></li>
-<li><a href="#cursor">Cursor</a></li>
-<li><a href="#vs-code-clinecontinue">VS Code (Cline/Continue)</a></li>
-<li><a href="#other-mcp-clients">Other MCP Clients</a></li>
-<li><a href="#tool-inventory">Tool Inventory</a></li>
-<li><a href="#skill-tools-32">Skill Tools (32)</a></li>
-<li><a href="#workflow-tools-5">Workflow Tools (5)</a></li>
-<li><a href="#utility-tools-8">Utility Tools (8)</a></li>
-<li><a href="#slash-command-to-mcp-tool-mapping">Slash Command to MCP Tool Mapping</a></li>
-<li><a href="#customization">Customization</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-<li><a href="#resources">Resources</a></li>
+<li><a href="../../getting-started/">Getting Started</a> for installation</li>
+<li><a href="../../skills/">Skills catalog</a> for the full list</li>
+<li><a href="../../workflows/">Workflows</a> for multi-skill chains</li>
 </ul>
-<hr />
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><strong>PM-Skills MCP</strong> is an MCP server that exposes the pm-skills catalog as programmatic tools. As of v2.10.0, that means 32 skill tools (25 phase skills + 1 foundation + 6 utility), plus 5 workflow tools and 8 utility tools (45 total). Instead of uploading files or using slash commands, your AI assistant invokes tools directly via the Model Context Protocol.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────┐                    ┌─────────────────┐
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│   Your AI       │   MCP Protocol     │  pm-skills-mcp  │
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   Assistant     │ ◄───────────────► │     Server      │
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│                 │                    │                 │
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│ &quot;Create a PRD   │   tools/call       │  ┌───────────┐  │
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  for search&quot;    │ ─────────────────► │  │ pm_prd    │  │
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│                 │                    │  │ pm_hypo   │  │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│                 │   skill content    │  │ pm_...    │  │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  [PRD output]   │ ◄───────────────── │  └───────────┘  │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>└─────────────────┘                    └─────────────────┘
-</span></code></pre></div>
-<p><strong>Key Benefits:</strong>
-- <strong>Zero file management</strong> . No cloning, no uploads
-- <strong>Universal</strong> . Works with any MCP-compatible client
-- <strong>Parameterized</strong> . Tools accept topic, context, format options
-- <strong>Discoverable</strong> . Built-in search and listing tools</p>
-<hr />
-<h2 id="when-to-use-mcp">When to Use MCP<a class="headerlink" href="#when-to-use-mcp" title="Permanent link">&para;</a></h2>
-<p>Choose MCP over file-based pm-skills when:</p>
-<table>
-<thead>
-<tr>
-<th>Use Case</th>
-<th>MCP Recommended?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Using Claude Desktop</td>
-<td>✅ Yes</td>
-</tr>
-<tr>
-<td>Using Cursor with MCP support</td>
-<td>✅ Yes</td>
-</tr>
-<tr>
-<td>Want zero configuration</td>
-<td>✅ Yes</td>
-</tr>
-<tr>
-<td>Need programmatic tool access</td>
-<td>✅ Yes</td>
-</tr>
-<tr>
-<td>Building automated PM workflows</td>
-<td>✅ Yes</td>
-</tr>
-<tr>
-<td>Using Claude Code with slash commands</td>
-<td>❌ Use pm-skills directly</td>
-</tr>
-<tr>
-<td>Heavily customizing skills</td>
-<td>❌ Fork pm-skills</td>
-</tr>
-<tr>
-<td>Uploading to Claude.ai Projects</td>
-<td>❌ Use pm-skills ZIP</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Not sure?</strong> See <a href="../../reference/ecosystem/">docs/reference/ecosystem.md</a> for a detailed comparison.</p>
-<hr />
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<h3 id="claude-desktop">Claude Desktop<a class="headerlink" href="#claude-desktop" title="Permanent link">&para;</a></h3>
-<p>Claude Desktop provides the best MCP experience. Configuration file locations:</p>
-<table>
-<thead>
-<tr>
-<th>Platform</th>
-<th>Path</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>macOS</td>
-<td><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></td>
-</tr>
-<tr>
-<td>Windows</td>
-<td><code>%APPDATA%\Claude\claude_desktop_config.json</code></td>
-</tr>
-<tr>
-<td>Linux</td>
-<td><code>~/.config/Claude/claude_desktop_config.json</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Add to configuration:</strong></p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<p><strong>Restart Claude Desktop</strong> to load the server.</p>
-<p><strong>Verify:</strong> Ask Claude "What PM skills are available?" . it should list the current PM-Skills catalog from the server.</p>
-<hr />
-<h3 id="claude-code-cli">Claude Code (CLI)<a class="headerlink" href="#claude-code-cli" title="Permanent link">&para;</a></h3>
-<p>Add to project settings (<code>.claude/settings.json</code>) or global settings (<code>~/.claude/settings.json</code>):</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<p><strong>Note:</strong> Claude Code also supports slash commands from the file-based pm-skills. You can use both approaches simultaneously.</p>
-<hr />
-<h3 id="cursor">Cursor<a class="headerlink" href="#cursor" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Open <strong>Settings</strong> (Cmd/Ctrl + ,)</li>
-<li>Navigate to <strong>Features</strong> → <strong>MCP Servers</strong></li>
-<li>Add new server:</li>
-<li><strong>Name:</strong> <code>pm-skills</code></li>
-<li><strong>Command:</strong> <code>npx</code></li>
-<li><strong>Arguments:</strong> <code>pm-skills-mcp</code></li>
-</ol>
-<p>Or edit <code>~/.cursor/mcp.json</code> directly:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<hr />
-<h3 id="vs-code-clinecontinue">VS Code (Cline/Continue)<a class="headerlink" href="#vs-code-clinecontinue" title="Permanent link">&para;</a></h3>
-<p><strong>Cline Extension:</strong></p>
-<ol>
-<li>Install <a href="https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev">Cline</a> from VS Code marketplace</li>
-<li>Open Cline settings</li>
-<li>Add MCP server configuration:</li>
-</ol>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<p><strong>Continue Extension:</strong></p>
-<ol>
-<li>Install <a href="https://marketplace.visualstudio.com/items?itemName=Continue.continue">Continue</a> from VS Code marketplace</li>
-<li>Edit <code>~/.continue/config.json</code></li>
-<li>Add under <code>mcpServers</code>:</li>
-</ol>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pm-skills&quot;</span><span class="p">,</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">]</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">]</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
-</span></code></pre></div>
-<hr />
-<h3 id="other-mcp-clients">Other MCP Clients<a class="headerlink" href="#other-mcp-clients" title="Permanent link">&para;</a></h3>
-<p>PM-Skills MCP works with any MCP-compatible client. The general pattern:</p>
-<ol>
-<li><strong>Install globally</strong> (optional): <code>npm install -g pm-skills-mcp</code></li>
-<li><strong>Configure client</strong> to start the server:</li>
-<li>Command: <code>npx</code> (or <code>pm-skills-mcp</code> if installed globally)</li>
-<li>Args: <code>["pm-skills-mcp"]</code> (empty if using global install)</li>
-<li><strong>Restart client</strong> to connect</li>
-</ol>
-<p>Consult your MCP client's documentation for specific configuration syntax.</p>
-<hr />
-<h2 id="tool-inventory">Tool Inventory<a class="headerlink" href="#tool-inventory" title="Permanent link">&para;</a></h2>
-<p>PM-Skills MCP exposes skill, workflow, and utility tools derived from the current shipped library.</p>
-<blockquote>
-<p><strong>Note:</strong> pm-skills-mcp now tracks pm-skills release versions directly (starting at v2.4.0). Resource URIs are flat (<code>pm-skills://skills/{skill}</code>) with phase available in metadata.</p>
-</blockquote>
-<h3 id="skill-tools-32">Skill Tools (32)<a class="headerlink" href="#skill-tools-32" title="Permanent link">&para;</a></h3>
-<p>Each skill becomes an MCP tool with standardized parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>topic</code></td>
-<td><strong>Yes</strong></td>
-<td>The subject or feature for this artifact</td>
-</tr>
-<tr>
-<td><code>context</code></td>
-<td>No</td>
-<td>Additional requirements, constraints, or background</td>
-</tr>
-<tr>
-<td><code>format</code></td>
-<td>No</td>
-<td>Output verbosity: <code>full</code>, <code>concise</code>, or <code>template-only</code></td>
-</tr>
-<tr>
-<td><code>includeExample</code></td>
-<td>No</td>
-<td>Set to <code>true</code> to include a worked example</td>
-</tr>
-</tbody>
-</table>
-<h4 id="discover-phase">Discover Phase<a class="headerlink" href="#discover-phase" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_interview_synthesis</code></td>
-<td>Turn user research into actionable insights</td>
-</tr>
-<tr>
-<td><code>pm_competitive_analysis</code></td>
-<td>Map the landscape, find opportunities</td>
-</tr>
-<tr>
-<td><code>pm_stakeholder_summary</code></td>
-<td>Understand who matters and what they need</td>
-</tr>
-</tbody>
-</table>
-<h4 id="define-phase">Define Phase<a class="headerlink" href="#define-phase" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_problem_statement</code></td>
-<td>Crystal-clear problem framing</td>
-</tr>
-<tr>
-<td><code>pm_hypothesis</code></td>
-<td>Testable assumptions with success metrics</td>
-</tr>
-<tr>
-<td><code>pm_opportunity_tree</code></td>
-<td>Teresa Torres-style outcome mapping</td>
-</tr>
-<tr>
-<td><code>pm_jtbd_canvas</code></td>
-<td>Jobs to be Done framework</td>
-</tr>
-</tbody>
-</table>
-<h4 id="develop-phase">Develop Phase<a class="headerlink" href="#develop-phase" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_solution_brief</code></td>
-<td>One-page solution pitch</td>
-</tr>
-<tr>
-<td><code>pm_spike_summary</code></td>
-<td>Document technical explorations</td>
-</tr>
-<tr>
-<td><code>pm_adr</code></td>
-<td>Architecture Decision Records</td>
-</tr>
-<tr>
-<td><code>pm_design_rationale</code></td>
-<td>Design decision documentation</td>
-</tr>
-</tbody>
-</table>
-<h4 id="deliver-phase">Deliver Phase<a class="headerlink" href="#deliver-phase" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_prd</code></td>
-<td>Comprehensive product requirements</td>
-</tr>
-<tr>
-<td><code>pm_user_stories</code></td>
-<td>INVEST-compliant stories with acceptance criteria</td>
-</tr>
-<tr>
-<td><code>pm_edge_cases</code></td>
-<td>Error states, boundaries, recovery paths</td>
-</tr>
-<tr>
-<td><code>pm_launch_checklist</code></td>
-<td>Never miss a launch step again</td>
-</tr>
-<tr>
-<td><code>pm_release_notes</code></td>
-<td>User-facing release communication</td>
-</tr>
-<tr>
-<td><code>pm_acceptance_criteria</code></td>
-<td>Given/When/Then acceptance criteria</td>
-</tr>
-</tbody>
-</table>
-<h4 id="measure-phase">Measure Phase<a class="headerlink" href="#measure-phase" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_experiment_design</code></td>
-<td>Rigorous A/B test planning</td>
-</tr>
-<tr>
-<td><code>pm_instrumentation_spec</code></td>
-<td>Event tracking requirements</td>
-</tr>
-<tr>
-<td><code>pm_dashboard_requirements</code></td>
-<td>Analytics dashboard specs</td>
-</tr>
-<tr>
-<td><code>pm_experiment_results</code></td>
-<td>Document learnings from experiments</td>
-</tr>
-</tbody>
-</table>
-<h4 id="iterate-phase">Iterate Phase<a class="headerlink" href="#iterate-phase" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_retrospective</code></td>
-<td>Team retros that drive action</td>
-</tr>
-<tr>
-<td><code>pm_lessons_log</code></td>
-<td>Build organizational memory</td>
-</tr>
-<tr>
-<td><code>pm_refinement_notes</code></td>
-<td>Capture backlog refinement outcomes</td>
-</tr>
-<tr>
-<td><code>pm_pivot_decision</code></td>
-<td>Evidence-based pivot/persevere framework</td>
-</tr>
-</tbody>
-</table>
-<h4 id="foundation">Foundation<a class="headerlink" href="#foundation" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_persona</code></td>
-<td>Generate product or marketing personas with explicit assumptions and evidence</td>
-</tr>
-</tbody>
-</table>
-<h4 id="utility">Utility<a class="headerlink" href="#utility" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_pm_skill_builder</code></td>
-<td>Interactive builder for creating new PM skills</td>
-</tr>
-<tr>
-<td><code>pm_pm_skill_validate</code></td>
-<td>Audit a skill against structural conventions and quality criteria</td>
-</tr>
-<tr>
-<td><code>pm_pm_skill_iterate</code></td>
-<td>Apply targeted improvements from feedback or validation reports</td>
-</tr>
-<tr>
-<td><code>pm_mermaid_diagrams</code></td>
-<td>Generate Mermaid diagrams for PM artifacts</td>
-</tr>
-<tr>
-<td><code>pm_slideshow_creator</code></td>
-<td>Generate professional presentations from JSON deck specs</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="workflow-tools-5">Workflow Tools (5)<a class="headerlink" href="#workflow-tools-5" title="Permanent link">&para;</a></h3>
-<p>Workflow tools orchestrate multiple skills for common PM scenarios:</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Skills Involved</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_workflow_feature_kickoff</code></td>
-<td>problem → hypothesis → solution → PRD → stories</td>
-<td>Standard feature development</td>
-</tr>
-<tr>
-<td><code>pm_workflow_lean_startup</code></td>
-<td>hypothesis → experiment → results → pivot</td>
-<td>Build-Measure-Learn cycle</td>
-</tr>
-<tr>
-<td><code>pm_workflow_triple_diamond</code></td>
-<td>Full 6-phase sequence</td>
-<td>Complete product development</td>
-</tr>
-<tr>
-<td><code>pm_workflow_quick_prd</code></td>
-<td>problem → PRD</td>
-<td>Fast requirements capture</td>
-</tr>
-<tr>
-<td><code>pm_workflow_experiment_cycle</code></td>
-<td>hypothesis → experiment → results → lessons</td>
-<td>Rapid validation loop</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="utility-tools-8">Utility Tools (8)<a class="headerlink" href="#utility-tools-8" title="Permanent link">&para;</a></h3>
-<p>Discovery and validation tools:</p>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pm_list_skills</code></td>
-<td>List all available PM skill tools</td>
-</tr>
-<tr>
-<td><code>pm_list_resources</code></td>
-<td>List all MCP resources (skills, templates, examples)</td>
-</tr>
-<tr>
-<td><code>pm_list_personas</code></td>
-<td>List persona library resources when available</td>
-</tr>
-<tr>
-<td><code>pm_list_workflows</code></td>
-<td>List workflows with their steps</td>
-</tr>
-<tr>
-<td><code>pm_list_prompts</code></td>
-<td>List available MCP prompts</td>
-</tr>
-<tr>
-<td><code>pm_validate</code></td>
-<td>Validate an artifact against a skill template</td>
-</tr>
-<tr>
-<td><code>pm_search_skills</code></td>
-<td>Search skills by keyword</td>
-</tr>
-<tr>
-<td><code>pm_cache_stats</code></td>
-<td>Show server cache stats and hit-rate diagnostics</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="slash-command-to-mcp-tool-mapping">Slash Command to MCP Tool Mapping<a class="headerlink" href="#slash-command-to-mcp-tool-mapping" title="Permanent link">&para;</a></h2>
-<p>If you're transitioning from file-based pm-skills to MCP, here's the mapping:</p>
-<table>
-<thead>
-<tr>
-<th>Slash Command</th>
-<th>MCP Tool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/prd</code></td>
-<td><code>pm_prd</code></td>
-</tr>
-<tr>
-<td><code>/hypothesis</code></td>
-<td><code>pm_hypothesis</code></td>
-</tr>
-<tr>
-<td><code>/problem-statement</code></td>
-<td><code>pm_problem_statement</code></td>
-</tr>
-<tr>
-<td><code>/user-stories</code></td>
-<td><code>pm_user_stories</code></td>
-</tr>
-<tr>
-<td><code>/launch-checklist</code></td>
-<td><code>pm_launch_checklist</code></td>
-</tr>
-<tr>
-<td><code>/interview-synthesis</code></td>
-<td><code>pm_interview_synthesis</code></td>
-</tr>
-<tr>
-<td><code>/competitive-analysis</code></td>
-<td><code>pm_competitive_analysis</code></td>
-</tr>
-<tr>
-<td><code>/stakeholder-summary</code></td>
-<td><code>pm_stakeholder_summary</code></td>
-</tr>
-<tr>
-<td><code>/opportunity-tree</code></td>
-<td><code>pm_opportunity_tree</code></td>
-</tr>
-<tr>
-<td><code>/jtbd-canvas</code></td>
-<td><code>pm_jtbd_canvas</code></td>
-</tr>
-<tr>
-<td><code>/solution-brief</code></td>
-<td><code>pm_solution_brief</code></td>
-</tr>
-<tr>
-<td><code>/spike-summary</code></td>
-<td><code>pm_spike_summary</code></td>
-</tr>
-<tr>
-<td><code>/adr</code></td>
-<td><code>pm_adr</code></td>
-</tr>
-<tr>
-<td><code>/design-rationale</code></td>
-<td><code>pm_design_rationale</code></td>
-</tr>
-<tr>
-<td><code>/edge-cases</code></td>
-<td><code>pm_edge_cases</code></td>
-</tr>
-<tr>
-<td><code>/release-notes</code></td>
-<td><code>pm_release_notes</code></td>
-</tr>
-<tr>
-<td><code>/experiment-design</code></td>
-<td><code>pm_experiment_design</code></td>
-</tr>
-<tr>
-<td><code>/instrumentation-spec</code></td>
-<td><code>pm_instrumentation_spec</code></td>
-</tr>
-<tr>
-<td><code>/dashboard-requirements</code></td>
-<td><code>pm_dashboard_requirements</code></td>
-</tr>
-<tr>
-<td><code>/experiment-results</code></td>
-<td><code>pm_experiment_results</code></td>
-</tr>
-<tr>
-<td><code>/retrospective</code></td>
-<td><code>pm_retrospective</code></td>
-</tr>
-<tr>
-<td><code>/lessons-log</code></td>
-<td><code>pm_lessons_log</code></td>
-</tr>
-<tr>
-<td><code>/refinement-notes</code></td>
-<td><code>pm_refinement_notes</code></td>
-</tr>
-<tr>
-<td><code>/pivot-decision</code></td>
-<td><code>pm_pivot_decision</code></td>
-</tr>
-<tr>
-<td><code>/persona</code></td>
-<td><code>pm_persona</code></td>
-</tr>
-<tr>
-<td><code>/acceptance-criteria</code></td>
-<td><code>pm_acceptance_criteria</code></td>
-</tr>
-<tr>
-<td><code>/pm-skill-builder</code></td>
-<td><code>pm_pm_skill_builder</code></td>
-</tr>
-<tr>
-<td><code>/pm-skill-validate</code></td>
-<td><code>pm_pm_skill_validate</code></td>
-</tr>
-<tr>
-<td><code>/pm-skill-iterate</code></td>
-<td><code>pm_pm_skill_iterate</code></td>
-</tr>
-<tr>
-<td><code>/workflow-feature-kickoff</code></td>
-<td><code>pm_workflow_feature_kickoff</code></td>
-</tr>
-</tbody>
-</table>
-<p>Requires pm-skills-mcp v2.8.0+ for the full skill tool inventory.</p>
-<p><strong>Usage difference:</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Slash command (Claude Code with pm-skills)
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/prd search feature
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a># MCP tool (Claude Desktop with pm-skills-mcp)
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>&quot;Create a PRD for the search feature&quot;
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>→ AI invokes pm_prd with topic=&quot;search feature&quot;
-</span></code></pre></div>
-<hr />
-<h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h2>
-<h3 id="using-custom-skills">Using Custom Skills<a class="headerlink" href="#using-custom-skills" title="Permanent link">&para;</a></h3>
-<p>Point pm-skills-mcp to your own skill directory:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">],</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="nt">&quot;PM_SKILLS_PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/your/pm-skills/skills&quot;</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="workflow-fork-customize-mcp">Workflow: Fork + Customize + MCP<a class="headerlink" href="#workflow-fork-customize-mcp" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Fork pm-skills</strong> on GitHub</li>
-<li><strong>Clone your fork</strong> locally</li>
-<li><strong>Modify skills</strong> as needed</li>
-<li><strong>Configure MCP</strong> to use your fork:</li>
-</ol>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">&quot;pm-skills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pm-skills-mcp&quot;</span><span class="p">],</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="nt">&quot;PM_SKILLS_PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Users/you/repos/pm-skills/skills&quot;</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span>
-</span></code></pre></div>
-<ol>
-<li><strong>Keep updated</strong> by merging from upstream</li>
-</ol>
-<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>PM_SKILLS_PATH</code></td>
-<td>(embedded)</td>
-<td>Path to custom skills directory</td>
-</tr>
-<tr>
-<td><code>PM_SKILLS_FORMAT</code></td>
-<td><code>full</code></td>
-<td>Default output format</td>
-</tr>
-<tr>
-<td><code>PM_SKILLS_EXAMPLES</code></td>
-<td><code>false</code></td>
-<td>Include examples by default</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="maintainer-mcp-sync-workflow">Maintainer: MCP Sync Workflow<a class="headerlink" href="#maintainer-mcp-sync-workflow" title="Permanent link">&para;</a></h2>
-<p>This section documents how <code>pm-skills</code> releases flow to <code>pm-skills-mcp</code>. It is intended for maintainers, not end users.</p>
-<h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
-<p><code>pm-skills-mcp</code> is <strong>release-pinned</strong> . it embeds a snapshot of skill files at build time and ships them in the npm package. It does not live-sync with the <code>pm-skills</code> repo.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pm-skills (tag v2.8.0)
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    │
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    ├── validate-mcp-sync.yml ── CI detects drift (blocking)
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    │
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    └── embed-skills.js ──────── copies skills/ into pm-skills-mcp
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>                                      │
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>                                pm-skills-mcp (tag v2.8.0)
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>                                      │
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>                                   npm publish
-</span></code></pre></div>
-<h3 id="when-to-sync">When to Sync<a class="headerlink" href="#when-to-sync" title="Permanent link">&para;</a></h3>
-<p>Sync after any <code>pm-skills</code> release that adds, removes, or renames skills. The <code>check-mcp-impact</code> script and <code>validate-mcp-sync.yml</code> CI workflow both detect when sync is needed.</p>
-<h3 id="how-to-sync">How to Sync<a class="headerlink" href="#how-to-sync" title="Permanent link">&para;</a></h3>
-<p>From the <code>pm-skills-mcp</code> repo root:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># 1. Embed skills from the pm-skills sibling directory (or specify path)</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>node<span class="w"> </span>scripts/embed-skills.js<span class="w"> </span>../pm-skills/skills
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># 2. Update the source pin</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">#    Edit pm-skills-source.json: pmSkillsRef, pmSkillsVersion, updated</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># 3. Bump version in package.json and src/config.ts</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># 4. Update CHANGELOG.md</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1"># 5. Commit, tag, publish</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>git<span class="w"> </span>add<span class="w"> </span>-A<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore(release): sync with pm-skills vX.Y.Z&quot;</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>git<span class="w"> </span>tag<span class="w"> </span>vX.Y.Z<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main<span class="w"> </span>--tags
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>npm<span class="w"> </span>publish
-</span></code></pre></div>
-<h3 id="tool-naming-convention">Tool Naming Convention<a class="headerlink" href="#tool-naming-convention" title="Permanent link">&para;</a></h3>
-<p>The <code>deriveToolName</code> function in <code>src/server.ts</code> strips the directory prefix and prepends <code>pm_</code>:</p>
-<table>
-<thead>
-<tr>
-<th>Skill directory</th>
-<th>Stripped</th>
-<th>MCP tool name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>deliver-prd</code></td>
-<td><code>prd</code></td>
-<td><code>pm_prd</code></td>
-</tr>
-<tr>
-<td><code>foundation-persona</code></td>
-<td><code>persona</code></td>
-<td><code>pm_persona</code></td>
-</tr>
-<tr>
-<td><code>utility-pm-skill-builder</code></td>
-<td><code>pm-skill-builder</code></td>
-<td><code>pm_pm_skill_builder</code></td>
-</tr>
-</tbody>
-</table>
-<p>Prefixes stripped: <code>discover-</code>, <code>define-</code>, <code>develop-</code>, <code>deliver-</code>, <code>measure-</code>, <code>iterate-</code>, <code>foundation-</code>, <code>utility-</code>. Remaining hyphens become underscores.</p>
-<h3 id="ci-guardrails">CI Guardrails<a class="headerlink" href="#ci-guardrails" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Location</th>
-<th>Behavior</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>validate-mcp-sync.yml</code></td>
-<td><code>.github/workflows/</code></td>
-<td>Runs on PRs/pushes touching <code>skills/</code> or <code>commands/</code>. Checks out both repos, embeds, validates. <strong>Blocks by default.</strong></td>
-</tr>
-<tr>
-<td><code>check-mcp-impact.sh/.ps1</code></td>
-<td><code>scripts/</code></td>
-<td>Local advisory. Non-blocking.</td>
-</tr>
-<tr>
-<td><code>check-mcp-impact.md</code></td>
-<td><code>scripts/</code></td>
-<td>Script documentation</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Expected CI behavior after a pm-skills release</strong>: <code>validate-mcp-sync</code> will show a failure on <code>main</code> until <code>pm-skills-mcp</code> is updated. This is the guardrail working as designed . it creates visible pressure to complete the sync.</p>
-<hr />
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="server-not-starting">Server Not Starting<a class="headerlink" href="#server-not-starting" title="Permanent link">&para;</a></h3>
-<p><strong>Symptom:</strong> AI doesn't recognize PM-Skills tools</p>
-<p><strong>Solutions:</strong>
-1. Verify Node.js is installed: <code>node --version</code> (requires v18+)
-2. Test server manually: <code>npx pm-skills-mcp</code>
-3. Check MCP client logs for connection errors
-4. Restart your MCP client after configuration changes</p>
-<h3 id="tools-not-appearing">Tools Not Appearing<a class="headerlink" href="#tools-not-appearing" title="Permanent link">&para;</a></h3>
-<p><strong>Symptom:</strong> <code>pm_list_skills</code> returns nothing or errors</p>
-<p><strong>Solutions:</strong>
-1. Ensure the server started successfully
-2. If using <code>PM_SKILLS_PATH</code>, verify the path exists and contains skill folders
-3. Check that skill folders have <code>SKILL.md</code> files</p>
-<h3 id="custom-skills-not-loading">Custom Skills Not Loading<a class="headerlink" href="#custom-skills-not-loading" title="Permanent link">&para;</a></h3>
-<p><strong>Symptom:</strong> MCP uses embedded skills instead of custom ones</p>
-<p><strong>Solutions:</strong>
-1. Verify <code>PM_SKILLS_PATH</code> is set correctly in your config
-2. Use absolute paths (not relative)
-3. Ensure the path points to the <code>skills/</code> directory, not the repo root:
-   - ✅ <code>/path/to/pm-skills/skills</code>
-   - ❌ <code>/path/to/pm-skills</code></p>
-<h3 id="connection-refused">Connection Refused<a class="headerlink" href="#connection-refused" title="Permanent link">&para;</a></h3>
-<p><strong>Symptom:</strong> MCP client can't connect to server</p>
-<p><strong>Solutions:</strong>
-1. Check if another process is using the same port
-2. Try running with <code>npx</code> instead of global install
-3. Update pm-skills-mcp: <code>npm update -g pm-skills-mcp</code></p>
-<h3 id="slow-response-times">Slow Response Times<a class="headerlink" href="#slow-response-times" title="Permanent link">&para;</a></h3>
-<p><strong>Symptom:</strong> Tools take a long time to respond</p>
-<p><strong>Solutions:</strong>
-1. First invocation is slower (loading skills into cache)
-2. Subsequent calls should be faster
-3. If using custom path, ensure it's on a local filesystem (not network drive)</p>
-<hr />
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
+<h2 id="using-the-mcp-server-legacy-path">Using the MCP server (legacy path)<a class="headerlink" href="#using-the-mcp-server-legacy-path" title="Permanent link">&para;</a></h2>
+<p>If your team has already adopted <code>pm-skills-mcp</code> or has a specific reason to use the MCP transport (e.g., a client that does not support file-based skills), the latest v2.9.x release remains fully functional. Setup, configuration, and troubleshooting are documented in the MCP server's own README:</p>
 <ul>
-<li><a href="https://github.com/product-on-purpose/pm-skills-mcp#readme">pm-skills-mcp README</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills-mcp/blob/main/docs/getting-started.md">pm-skills-mcp Getting Started Guide</a></li>
-<li><a href="https://github.com/product-on-purpose/pm-skills-mcp/blob/main/docs/customization.md">pm-skills-mcp Customization Guide</a></li>
-<li><a href="../../reference/ecosystem/">PM-Skills Ecosystem Overview</a></li>
-<li><a href="../validate-mcp-sync/">MCP Sync Validation Guide</a></li>
+<li><a href="https://github.com/product-on-purpose/pm-skills-mcp"><code>pm-skills-mcp</code> README</a></li>
+<li><a href="https://github.com/product-on-purpose/pm-skills-mcp/releases"><code>pm-skills-mcp</code> releases</a></li>
 </ul>
-<h3 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>pm-skills-mcp Repository:</strong> <a href="https://github.com/product-on-purpose/pm-skills-mcp">github.com/product-on-purpose/pm-skills-mcp</a></li>
-<li><strong>npm Package:</strong> <a href="https://www.npmjs.com/package/pm-skills-mcp">npmjs.com/package/pm-skills-mcp</a></li>
-<li><strong>Model Context Protocol:</strong> <a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a></li>
-<li><strong>MCP Specification:</strong> <a href="https://spec.modelcontextprotocol.io">spec.modelcontextprotocol.io</a></li>
-</ul>
-<h3 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h3>
-<ul>
-<li><a href="https://github.com/product-on-purpose/pm-skills-mcp/issues/new">Open an issue</a> for bugs or feature requests</li>
-<li><a href="https://github.com/product-on-purpose/pm-skills-mcp/discussions">Start a discussion</a> for questions</li>
-</ul>
-<hr />
-<p><em>Part of the <a href="https://github.com/product-on-purpose/pm-skills">PM-Skills</a> ecosystem.</em></p>
+<h2 id="skill-parity-at-maintenance-time">Skill parity at maintenance time<a class="headerlink" href="#skill-parity-at-maintenance-time" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>This <code>pm-skills</code> library</th>
+<th><code>pm-skills-mcp</code> v2.9.x maintenance line (frozen catalog)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total skills</td>
+<td>40 (and growing)</td>
+<td>40 (frozen at v2.9.2 build)</td>
+</tr>
+<tr>
+<td>Workflows</td>
+<td>9</td>
+<td>11 (legacy names retained)</td>
+</tr>
+<tr>
+<td>Active maintenance</td>
+<td>Yes</td>
+<td>Maintenance mode</td>
+</tr>
+</tbody>
+</table>
+<p>The v2.9.2 build of <code>pm-skills-mcp</code> embeds the full current 40-skill catalog at the time of its publication (2026-05-05). Skills added to <code>pm-skills</code> after that build are not embedded in the MCP server. Use the file-based install for parity with future pm-skills releases.</p>
+<h2 id="registering-interest-in-resumed-mcp-development">Registering interest in resumed MCP development<a class="headerlink" href="#registering-interest-in-resumed-mcp-development" title="Permanent link">&para;</a></h2>
+<p>If your team would benefit from resumed MCP server development, <a href="https://github.com/product-on-purpose/pm-skills-mcp/discussions">open a discussion</a>. Demand signals (discussion engagement, install volume growth, direct contact) inform when development resumes.</p>
 
 
 
@@ -3435,7 +1834,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 23, 2026 02:24:59 UTC"><span class="timeago" datetime="2026-04-23T02:24:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 23, 2026 02:24:59 UTC">2026-04-23</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="May 5, 2026 22:04:50 UTC"><span class="timeago" datetime="2026-05-05T22:04:50+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="May 5, 2026 22:04:50 UTC">2026-05-05</span>
   </span>
 
     
