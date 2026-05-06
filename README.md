@@ -53,16 +53,12 @@
   <img src="https://img.shields.io/github/last-commit/product-on-purpose/pm-skills?style=flat-square" alt="Last Commit">
 </p>
 
-<!-- ========== UPDATED: MCP Cross-Reference Badge + Callout (maintenance mode) ========== -->
+<!-- ========== UPDATED: MCP Cross-Reference Badge (maintenance mode) ========== -->
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills-mcp">
     <img src="https://img.shields.io/badge/MCP_Server-maintenance%20mode-yellow.svg?style=flat-square" alt="MCP Server: Maintenance Mode">
   </a>
 </p>
-
-> **MCP Server: Maintenance Mode (effective 2026-05-04).** The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server is in the v2.9.x maintenance line (latest v2.9.3) and remains available on npm for clients that need MCP transport. The catalog is frozen at the v2.9.2 build (40 skills, 11 workflow tools, 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the catalog. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold. **For new users, the file-based install path documented in [Getting Started](#getting-started) is the recommended path.** See [MCP Integration](docs/guides/mcp-integration.md) for status details and resumption criteria.
-
----
 
 <!-- ========== END UPDATED ========== -->
 
@@ -121,6 +117,15 @@
 ```bash
 git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 ```
+
+<details>
+<summary><strong>📦 MCP Server: Maintenance Mode (effective 2026-05-04)</strong></summary>
+
+The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server is in the v2.9.x maintenance line (latest v2.9.3) and remains available on npm for clients that need MCP transport. The catalog is frozen at the v2.9.2 build (40 skills, 11 workflow tools, 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the catalog. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold.
+
+**For new users, the file-based install path documented in [Getting Started](#getting-started) is the recommended path.** See [MCP Integration](docs/guides/mcp-integration.md) for status details and resumption criteria.
+
+</details>
 
 ---
 
@@ -198,58 +203,6 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 - v2.10.x: Repo now ships 32 skills, 39 command docs, and 9 workflows.
 - v2.10.1 patch: backlog spec drafts for 10 upcoming skills, generated docs/skills/ pages, F-25 scope moved to agent-config-toolkit.
 - v2.10.2 patch: corrected plugin / marketplace manifest skill counts (29 → 32) to match repo state; extended `check-count-consistency` CI to scan JSON manifests and closed an off-by-one in its threshold comparison; fixed README "10 workflows" to "9 workflows".
-
-</details>
-<details>
-<summary>v2.9.0 - Workflows: rename + expansion (3 → 9)</summary>
-
-- **BREAKING:** Renamed `_bundles/` → `_workflows/` and `docs/bundles/` → `docs/workflows/`
-- **BREAKING:** `/kickoff` command replaced by `/workflow-feature-kickoff`
-- **6 new workflows**: Customer Discovery, Sprint Planning, Product Strategy, Post-Launch Learning, Stakeholder Alignment, Technical Discovery
-- **7 `/workflow-*` slash commands** (1 renamed + 6 new)
-- **New script**: `scripts/generate-workflow-pages.py` . generates docs site pages from source workflows
-- **URL redirects** for old `/bundles/*` doc site paths via `mkdocs-redirects`
-- **Terminology guard**: `scripts/check-stale-bundle-refs.sh/.ps1` prevents regression
-- v2.9.0: Repo now ships 31 skills, 38 command docs, and 9 workflows.
-- Release note: [`docs/releases/Release_v2.9.0.md`](docs/releases/Release_v2.9.0.md).
-
-</details>
-<details>
-<summary>v2.8.0 - PM skill lifecycle: Create, Validate, Iterate</summary>
-
-- **New skill**: `utility-pm-skill-validate` (`/pm-skill-validate`) . audits a skill against structural conventions and quality criteria, producing a severity-graded validation report.
-- **New skill**: `utility-pm-skill-iterate` (`/pm-skill-iterate`) . applies targeted improvements based on feedback or validation reports, with before/after previews and version bump suggestions.
-- **New CI**: `validate-skill-history` and `validate-skills-manifest` advisory scripts for skill versioning governance.
-- **New guide**: `docs/pm-skill-lifecycle.md` . workflow patterns for the Create → Validate → Iterate lifecycle.
-- **Governance**: `docs/internal/skill-versioning.md` . SemVer rules, HISTORY.md contract, skills-manifest.yaml format.
-- v2.8.0: Repo now ships 29 skills, 30 command docs, and 3 workflows.
-- Release note: [`docs/releases/Release_v2.8.0.md`](docs/releases/Release_v2.8.0.md).
-
-</details>
-<details>
-<summary>v2.7.0 - Utility skills, enhanced CI, and release packaging hygiene</summary>
-
-- **New skill**: `deliver-acceptance-criteria` . Given/When/Then acceptance criteria for stories and features.
-- **New skill**: `utility-pm-skill-builder` . first utility-classified skill; interactive builder for creating new PM skills with gap analysis, classification, and draft file generation.
-- **Enhanced CI**: extended frontmatter linter, AGENTS.md sync validator, MCP impact detection.
-- **Release packaging**: `docs/internal/**` excluded from published ZIPs while staying tracked in-repo.
-- **Documentation**: new `docs/pm-skill-anatomy.md` guide, comprehensive public docs refresh.
-- v2.7.0: Repo now ships 27 skills, 28 command docs, and 3 workflows.
-- Release note: [`docs/releases/Release_v2.7.0.md`](docs/releases/Release_v2.7.0.md).
-
-</details>
-<details>
-<summary>v2.6.x - Claude plugin packaging + sample library recovery</summary>
-
-**v2.6.1** . Sample library recovery and packaging inclusion:
-- Restored and normalized the shipped sample-output corpus under `library/skill-output-samples/`.
-- Added sample-library staging to release packagers so ZIP artifacts include sample outputs.
-- Release note: `docs/releases/Release_v2.6.1.md`.
-
-**v2.6.0** . Claude plugin packaging release:
-- Added Claude plugin manifest support via `.claude-plugin/plugin.json`.
-- Release packaging now includes `.claude-plugin/` and enforces plugin-manifest version alignment with the release version.
-- Release note: `docs/releases/Release_v2.6.0.md`.
 
 </details>
 <!-- count-exempt:end -->
@@ -405,8 +358,6 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 | **Workflows** | Manual orchestration | Tool-based execution |
 | **Customization** | Edit files directly | Set `PM_SKILLS_PATH` to custom folder |
 | **Updates** | `git pull` (active maintenance) | Maintenance mode (v2.9.x line, latest v2.9.3; security patches + critical bug fixes only) |
-
-> Note: pm-skills-mcp is in maintenance mode (latest v2.9.3 in the v2.9.x line; v2.9.3 cleared open Dependabot advisories on 2026-05-05). The catalog is frozen at the v2.9.2 build (40 skills, 59 tools); subsequent v2.9.x patches do not change the catalog. See [MCP Integration](docs/guides/mcp-integration.md) for status details.
 
 **Use `pm-skills` (this repo) when:**
 - You prefer slash commands in Claude Code (`/prd`, `/hypothesis`)
@@ -905,6 +856,58 @@ See [docs/reference/project-structure.md](docs/reference/project-structure.md) f
 
 <a id="previous-release-details"></a>
 
+<details>
+<summary>v2.9.0 - Workflows: rename + expansion (3 → 9)</summary>
+
+- **BREAKING:** Renamed `_bundles/` → `_workflows/` and `docs/bundles/` → `docs/workflows/`
+- **BREAKING:** `/kickoff` command replaced by `/workflow-feature-kickoff`
+- **6 new workflows**: Customer Discovery, Sprint Planning, Product Strategy, Post-Launch Learning, Stakeholder Alignment, Technical Discovery
+- **7 `/workflow-*` slash commands** (1 renamed + 6 new)
+- **New script**: `scripts/generate-workflow-pages.py` . generates docs site pages from source workflows
+- **URL redirects** for old `/bundles/*` doc site paths via `mkdocs-redirects`
+- **Terminology guard**: `scripts/check-stale-bundle-refs.sh/.ps1` prevents regression
+- v2.9.0: Repo now ships 31 skills, 38 command docs, and 9 workflows.
+- Release note: [`docs/releases/Release_v2.9.0.md`](docs/releases/Release_v2.9.0.md).
+
+</details>
+<details>
+<summary>v2.8.0 - PM skill lifecycle: Create, Validate, Iterate</summary>
+
+- **New skill**: `utility-pm-skill-validate` (`/pm-skill-validate`) . audits a skill against structural conventions and quality criteria, producing a severity-graded validation report.
+- **New skill**: `utility-pm-skill-iterate` (`/pm-skill-iterate`) . applies targeted improvements based on feedback or validation reports, with before/after previews and version bump suggestions.
+- **New CI**: `validate-skill-history` and `validate-skills-manifest` advisory scripts for skill versioning governance.
+- **New guide**: `docs/pm-skill-lifecycle.md` . workflow patterns for the Create → Validate → Iterate lifecycle.
+- **Governance**: `docs/internal/skill-versioning.md` . SemVer rules, HISTORY.md contract, skills-manifest.yaml format.
+- v2.8.0: Repo now ships 29 skills, 30 command docs, and 3 workflows.
+- Release note: [`docs/releases/Release_v2.8.0.md`](docs/releases/Release_v2.8.0.md).
+
+</details>
+<details>
+<summary>v2.7.0 - Utility skills, enhanced CI, and release packaging hygiene</summary>
+
+- **New skill**: `deliver-acceptance-criteria` . Given/When/Then acceptance criteria for stories and features.
+- **New skill**: `utility-pm-skill-builder` . first utility-classified skill; interactive builder for creating new PM skills with gap analysis, classification, and draft file generation.
+- **Enhanced CI**: extended frontmatter linter, AGENTS.md sync validator, MCP impact detection.
+- **Release packaging**: `docs/internal/**` excluded from published ZIPs while staying tracked in-repo.
+- **Documentation**: new `docs/pm-skill-anatomy.md` guide, comprehensive public docs refresh.
+- v2.7.0: Repo now ships 27 skills, 28 command docs, and 3 workflows.
+- Release note: [`docs/releases/Release_v2.7.0.md`](docs/releases/Release_v2.7.0.md).
+
+</details>
+<details>
+<summary>v2.6.x - Claude plugin packaging + sample library recovery</summary>
+
+**v2.6.1** . Sample library recovery and packaging inclusion:
+- Restored and normalized the shipped sample-output corpus under `library/skill-output-samples/`.
+- Added sample-library staging to release packagers so ZIP artifacts include sample outputs.
+- Release note: `docs/releases/Release_v2.6.1.md`.
+
+**v2.6.0** . Claude plugin packaging release:
+- Added Claude plugin manifest support via `.claude-plugin/plugin.json`.
+- Release packaging now includes `.claude-plugin/` and enforces plugin-manifest version alignment with the release version.
+- Release note: `docs/releases/Release_v2.6.0.md`.
+
+</details>
 <details>
 <summary>v2.5.x - Persona skill + foundation/utility taxonomy</summary>
 
