@@ -2,7 +2,7 @@
 
 Status: Active
 Owner: Maintainers
-Last updated: 2026-04-06
+Last updated: 2026-05-05
 
 GitHub issues are the canonical system for backlog and lifecycle state.
 
@@ -59,6 +59,8 @@ Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 | 14 | M-21 | Explore release-please integration | Infrastructure | Claude or Codex | Backlog | [#136](https://github.com/product-on-purpose/pm-skills/issues/136) |
 | 15 | M-14 | Release automation enhancement | Infrastructure | Codex | Backlog | [#116](https://github.com/product-on-purpose/pm-skills/issues/116) |
 | 16 | M-15 | Community contribution setup | Ecosystem | Claude | Backlog | [#117](https://github.com/product-on-purpose/pm-skills/issues/117) |
+| 17 | M-23 | Pre-release checklist Phase 5 sub-section for GitHub-platform metadata refresh (repo description, topics, About website link, pinned content, skills.sh listing). 3-5 checkbox items added to `plan_v2.13_pre-release-checklist.md` template (or its v2.14 successor) at tag-prep time. Quick-win complement to in-repo file checks. | Documentation | Claude | Backlog (v2.14.0+) | TBD |
+| 18 | M-24 | `scripts/gh-release-metadata.{sh,ps1,md}` advisory script. Uses `gh repo view --json description,repositoryTopics,homepageUrl` to dump current GitHub-platform metadata; compares against a manifest at `.github/repo-metadata.yaml`; surfaces drift. Stays advisory because some platforms-side updates are intentionally ahead-of-release. Pairs with M-23 checklist update. | Infrastructure | Claude | Backlog (v2.14.0+) | TBD |
 
 See individual effort briefs at `docs/internal/efforts/{ID}-{slug}.md` for scope, decisions, and artifacts.
 
