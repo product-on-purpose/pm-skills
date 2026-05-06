@@ -118,6 +118,8 @@
 git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 ```
 
+---
+
 <details>
 <summary><strong>📦 MCP Server: Maintenance Mode (effective 2026-05-04)</strong></summary>
 
