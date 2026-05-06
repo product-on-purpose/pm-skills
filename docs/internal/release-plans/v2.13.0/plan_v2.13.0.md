@@ -190,7 +190,7 @@ Summary at this level:
 | Wave 2: After Bucket A lands | Generated-content untouched + cross-doc references validators | ~3-4 days |
 | Wave 3: Durable improvements | Docs frontmatter + internal links + version refs + F-36 family validator | ~1-2 weeks |
 
-After v2.13: validator inventory grows from 17 to 24 scripts. CI matrix posture (Ubuntu + Windows, bash + pwsh) unchanged. Strategic question raised but deferred to v2.14.0+ (bash + PS1 dual-stack consolidation).
+After v2.13: validator inventory grows from 15 to 22 scripts (net +7). CI matrix posture (Ubuntu + Windows, bash + pwsh) unchanged. Strategic question raised but deferred to v2.14.0+ (bash + PS1 dual-stack consolidation).
 
 ### Bucket D  -  Zensical compatibility spike
 
@@ -430,7 +430,7 @@ The release is tag-ready when all of these are true:
 
 ## CI That Applies
 
-Standard release validators plus the 7 new ones added in Bucket C. After Bucket C ships, validator inventory grows from 17 to 24. CI matrix posture (Ubuntu + Windows, bash + pwsh) unchanged.
+Standard release validators plus the 7 new ones added in Bucket C. After Bucket C ships, validator inventory grows from 15 to 22 (net +7). CI matrix posture (Ubuntu + Windows, bash + pwsh) unchanged.
 
 | Workflow | Notes |
 |---|---|

@@ -40,7 +40,7 @@ graph TD
     H[Out-of-cycle: MCP v2.9.2 maintenance-mode pivot]
     I[Out-of-cycle: MCP v2.9.3 security patch 8 to 0 Dependabot alerts]
     J[PR.1: per-strand Phase 0 review converged]
-    K[PR.2: release-state Phase 0 review 4 rounds converged]
+    K[PR.2: release-state Phase 0 review 5 rounds + final sweep converged]
     L[PR.3: generator regen first-run convergence]
     M[PR.4: mechanical CI all green]
     N[PR.5: CHANGELOG + Release notes authored]
@@ -75,7 +75,7 @@ graph TD
 - **Frameworks folder retired.** `docs/frameworks/` deleted; the canonical Triple Diamond reference now lives at `docs/concepts/triple-diamond-delivery-process.md` with a `mkdocs.yml` redirect from the old path. Reduces `mkdocs.yml exclude_docs:` from 8 entries to 2.
 - **Cross-folder reorg (Diataxis-aligned).** 4 concept files moved out of `concepts/` to `reference/` and `guides/` per the Diataxis 4-quadrant taxonomy (concepts = generic explanatory; reference = PM-Skills lookup material; guides = PM-Skills how-to material). 4 legacy duplicate files deleted after CR-strip drift analysis (real divergence was 60 of 3,226 lines for `agent-skill-anatomy` and 21 of 1,495 lines for `getting-started`; canonical was strictly newer in all cases).
 - **Authoring guide consolidation.** `creating-skills.md` renamed to `creating-pm-skills.md` per the locked `pm-skill-*` prefix convention; `authoring-pm-skills.md` deleted; both old paths redirect to the new canonical.
-- **Pattern 5C generated-content marker** on all 63 generated pages (38 individual skill pages + 8 category index pages + 9 workflow pages + 1 workflow index + 3 showcase pages + 1 showcase index + 1 commands reference). Each generated page now carries `generated: true` and `source: scripts/...` frontmatter fields plus a visible `!!! warning "Generated file"` admonition pointing editors to the source. Pairs with the new `check-generated-content-untouched` validator that detects hand-edits to generated pages.
+- **Pattern 5C generated-content marker** on all 63 generated pages (40 individual skill pages + 8 category index pages + 9 workflow pages + 1 workflow index + 3 showcase pages + 1 showcase index + 1 commands reference). The 8 category indices comprise 6 Triple Diamond phase indices (discover, define, develop, deliver, measure, iterate) plus the foundation and utility category indices. Each generated page now carries `generated: true` and `source: scripts/...` frontmatter fields plus a visible `!!! warning "Generated file"` admonition pointing editors to the source. Pairs with the new `check-generated-content-untouched` validator that detects hand-edits to generated pages.
 
 **Count and link cleanup (Bucket B, 9 items):**
 
