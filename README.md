@@ -128,6 +128,17 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 <!-- count-exempt:start -->
 <details open>
+<summary>v2.13.0 - Foundation Hardening + Doc Stack Decision</summary>
+
+- **Maintenance and quality release; same 40-skill catalog as v2.12.0.** Day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is unchanged. What changed is everything around the catalog.
+- **Cleaner, more navigable documentation.** Duplicate files removed; skill counts reconciled across README, getting-started, reference docs, mkdocs config, and the homepage hero (all now consistent at 40); a new Diataxis-aligned folder structure (concepts = generic; reference = lookup; guides = how-to); a `pm-skill-*` filename prefix convention that signals at a glance which docs are PM-Skills-specific vs generic agent material; every generated page clearly labeled with a `generated: true` frontmatter flag and a "do not edit" admonition pointing editors to the source.
+- **For contributors and forkers, 7 new CI gates** catch documentation drift on pull requests automatically: nav completeness, generated-content untouched, cross-doc reference integrity, docs frontmatter coverage, internal link validity, version-reference consistency, and skill-family registration. The validator inventory grew from 15 to 22; the enforcing tier doubled (5 to 10). A typo in a skill cross-reference, a count that fell out of sync, a hand-edit to a generated page - all caught at PR time now.
+- **For `pm-skills-mcp` users, a same-week security patch.** v2.9.3 cleared all 8 open Dependabot moderate advisories two hours after the v2.9.2 maintenance-mode announcement. The frozen catalog (40 skills + 11 workflow tools + 8 utility tools = 59 tools) is unchanged; v2.9.x is the maintenance line going forward.
+- **Phase 0 Adversarial Review Loop applied** across per-strand (4 Codex tasks closed) and release-state (5 Codex review rounds + 3 resolution passes converged) layers per the v2.11.0 + v2.12.0 codification. Caught and codified a meta-level case of the stale-aggregate-counter pattern (durable feedback memory): mid-loop summary text freezes in-progress claims and needs a final correctness pass before any promotion.
+- Release note: [`docs/releases/Release_v2.13.0.md`](docs/releases/Release_v2.13.0.md).
+
+</details>
+<details>
 <summary>v2.12.0 - OKR Skills Launch</summary>
 
 - **OKR Skills set**: first release with the OKR write-and-score pair. `foundation-okr-writer` (`/okr-writer`) drafts, reviews, rewrites, and coaches outcome-based OKR sets; `measure-okr-grader` (`/okr-grader`) scores completed OKRs at cycle close per a canonical 5-value type enum (`committed | aspirational | learning | operational_health | compliance_or_safety`) and refuses the misuse failure modes (retroactive target changes, retroactive scope shrinkage on committed or compliance KRs, softening committed misses with aspirational scoring, averaging failed guardrails into the primary score, and OKR scores as individual performance ratings).
@@ -625,9 +636,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** . Complete package with all skills, commands, workflows, and documentation
-- **Latest stable:** `v2.12.0` (OKR Skills Launch: foundation-okr-writer + measure-okr-grader)
-- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2120---2026-05-03)
-- **Published tag:** [`v2.12.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.12.0)
+- **Latest stable:** `v2.13.0` (Foundation Hardening + Doc Stack Decision)
+- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2130---2026-05-05)
+- **Published tag:** [`v2.13.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.13.0)
 - **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.

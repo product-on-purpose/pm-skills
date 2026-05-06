@@ -9,6 +9,7 @@ All PM Skills releases with detailed notes on what changed and why.
 
 | Version | Date | Highlights |
 |---------|------|-----------|
+| [v2.13.0](Release_v2.13.0.md) | 2026-05-05 | Foundation Hardening + Doc Stack Decision: maintenance and quality release with zero new skills (40 unchanged); 7 new CI gates that catch doc drift on PRs (validator inventory 15 to 22; enforcing tier 5 to 10); Diataxis-aligned doc structure with `pm-skill-*` filename prefix; Pattern 5C generated-content marker on 63 pages; out-of-cycle pm-skills-mcp v2.9.3 security patch (8 to 0 Dependabot alerts); Phase 0 Adversarial Review Loop applied (5 Codex review rounds + 3 resolution passes converged) |
 | [v2.12.0](Release_v2.12.0.md) | 2026-05-01 | OKR Skills Launch: foundation-okr-writer + measure-okr-grader pair covering the full quarterly write-and-score cycle; 38 to 40 skills; 6 new thread-aligned samples; Phase 0 Adversarial Review Loop applied |
 | [v2.11.1](Release_v2.11.1.md) | 2026-04-22 | skills.sh CLI compatibility patch; unblocks `npx skills add product-on-purpose/pm-skills`; lint hardening; em-dash sweep |
 | [v2.11.0](Release_v2.11.0.md) | 2026-04-18 | Meeting Skills Family (5 foundation skills + contract + enforcing CI) + lean-canvas; first cross-cutting skill-family pattern; 32→38 skills |
