@@ -1,6 +1,6 @@
 # v2.13.0 Release Plan: Foundation Hardening + Doc Stack Decision
 
-**Status:** Pre-tag - all 27/27 in-cycle items shipped + 5 out-of-cycle MCP items shipped (MCP.1-MCP.5); PR.1 (per-strand Phase 0) closed; PR.2 (release-state Phase 0) in resolution; PR.3-PR.5 pending
+**Status:** Pre-tag - all 27/27 in-cycle items shipped + 5 out-of-cycle MCP items shipped (MCP.1-MCP.5); PR.1 (per-strand Phase 0) closed; PR.2 (release-state Phase 0) closed via round 1 self-review + round 2 Codex re-review with round 3 resolution in flight; PR.3 (generator regen) closed first-run; PR.4 (pre-release checklist) closed; PR.5 (CHANGELOG + Release notes authoring) is the next gate
 **Owner:** jprisant
 **Type:** Refactor + decision release (minor)
 **Created:** 2026-05-02 (stub) → 2026-05-03 (scope locked, three strands defined)
@@ -126,7 +126,7 @@ Detail at [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md). Report
 
 ---
 
-## Status Snapshot (updated 2026-05-04)
+## Status Snapshot (updated 2026-05-05)
 
 | Item                          | Status                                                                                                                                          |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |

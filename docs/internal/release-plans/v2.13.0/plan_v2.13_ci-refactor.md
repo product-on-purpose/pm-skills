@@ -106,12 +106,18 @@ After v2.13 ships, `validation.yml` grows by 7 new validator jobs. Per existing 
 **Posture changes for existing scripts:**
 
 ```yaml
-# check-count-consistency: was advisory, now enforcing for current-state
-- name: Check count consistency (current-state)
-  run: bash scripts/check-count-consistency.sh --current-state
-- name: Check count consistency (historical, advisory)
-  run: bash scripts/check-count-consistency.sh --historical
-  continue-on-error: true
+# check-count-consistency: was advisory, now enforcing.
+# (The original audit sketch envisioned --current-state / --historical flags;
+# v2.13 implementation instead uses HTML-comment markers (count-exempt:start/end)
+# in source files for explicit historical exemption, plus a subset-descriptor
+# exclusion list inside the script itself. See B.6 in plan_v2.13.0.md and the
+# 2026-05-05 marker-based exemption decision in this file's Decisions journal.)
+- name: Check count consistency (bash)
+  if: matrix.os == 'ubuntu-latest'
+  run: bash scripts/check-count-consistency.sh
+- name: Check count consistency (pwsh)
+  if: matrix.os == 'windows-latest'
+  run: pwsh -File scripts/check-count-consistency.ps1
 ```
 
 Windows leg of matrix mirrors the same job set with `pwsh` invocations.
@@ -122,12 +128,12 @@ Windows leg of matrix mirrors the same job set with `pwsh` invocations.
 
 Before v2.13.0 tag, verify CI cleanliness:
 
-- [ ] All 5 PS parity bugfixes land and PS1 versions match bash output on current main
-- [ ] `check-count-consistency` tightened regex passes against current state (no pre-existing violations introduced)
-- [ ] All 7 new validators pass against current state (any pre-existing violations addressed in their respective Bucket A/B fixes)
-- [ ] `validation.yml` updated with new job entries; both Ubuntu and Windows legs green
-- [ ] `validate-script-docs.sh` confirms all 22 validators have triplet completeness
-- [ ] At least one Codex round of adversarial review on the new validators themselves (logic correctness, false-positive risk)
+- [x] All 5 PS parity bugfixes land and PS1 versions match bash output on current main
+- [x] `check-count-consistency` tightened regex passes against current state (no pre-existing violations introduced)
+- [x] All 7 new validators pass against current state (any pre-existing violations addressed in their respective Bucket A/B fixes)
+- [x] `validation.yml` updated with new job entries; both Ubuntu and Windows legs green
+- [x] `validate-script-docs.sh` confirms all 22 validators have triplet completeness
+- [x] At least one Codex round of adversarial review on the new validators themselves (logic correctness, false-positive risk)
 
 ---
 

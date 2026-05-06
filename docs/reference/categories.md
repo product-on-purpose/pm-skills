@@ -275,7 +275,7 @@ instrumentation-spec → experiment-design → dashboard-requirements
 | `retrospective` | Facilitates and documents a team retrospective capturing what went well, what to improve, and action items |
 | `lessons-log` | Creates a structured lessons learned entry for organizational memory |
 | `pivot-decision` | Documents a strategic pivot or persevere decision with evidence, analysis, and rationale |
-| `okr-grader` | Grades a draft OKR set against quality criteria (specific, measurable, ambitious, time-bound) and recommends revisions |
+| `okr-grader` | Scores completed OKR sets at cycle close with KR-level scoring per the canonical OKR type enum, committed-vs-aspirational interpretation, evidence quality assessment, learning synthesis, and next-cycle recommendations |
 
 **When to use reflection skills:**
 - After experiments conclude (success or failure)

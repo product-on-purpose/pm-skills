@@ -60,7 +60,7 @@
   </a>
 </p>
 
-> **MCP Server: Maintenance Mode (effective 2026-05-04).** The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server (v2.9.2) remains available on npm for clients that need MCP transport. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold. **For new users, the file-based install path documented in [Getting Started](#getting-started) is the recommended path.** See [MCP Integration](docs/guides/mcp-integration.md) for status details and resumption criteria.
+> **MCP Server: Maintenance Mode (effective 2026-05-04).** The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server is in the v2.9.x maintenance line (latest v2.9.3) and remains available on npm for clients that need MCP transport. The catalog is frozen at the v2.9.2 build (40 skills, 11 workflow tools, 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the catalog. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold. **For new users, the file-based install path documented in [Getting Started](#getting-started) is the recommended path.** See [MCP Integration](docs/guides/mcp-integration.md) for status details and resumption criteria.
 
 ---
 
@@ -533,7 +533,7 @@ For [MCP-compatible clients](https://modelcontextprotocol.io), use [pm-skills-mc
 }
 ```
 
-All 26 domain and foundation skills become available as programmatic tools (the utility skill is designed for Claude Code environments). See the [pm-skills-mcp README](https://github.com/product-on-purpose/pm-skills-mcp#getting-started) for client-specific setup.
+All 40 skills (26 phase + 8 foundation + 6 utility) become available as programmatic tools, alongside 11 workflow tools and 8 server-utility tools (59 tools total). Some utility skills like `update-pm-skills` are designed for file-system contexts and have reduced applicability via MCP transport. See the [pm-skills-mcp README](https://github.com/product-on-purpose/pm-skills-mcp#getting-started) for client-specific setup.
 
 </details>
 <!-- ========== END NEW ========== -->
@@ -745,7 +745,7 @@ PM-Skills covers the complete product lifecycle using the **Triple Diamond** fra
 | **instrumentation-spec**   | Event tracking requirements         | `/instrumentation-spec`   |
 | **dashboard-requirements** | Analytics dashboard specs           | `/dashboard-requirements` |
 | **experiment-results**     | Document learnings from experiments | `/experiment-results`     |
-| **okr-grader**             | Grade a draft OKR set against quality criteria | `/okr-grader`             |
+| **okr-grader**             | Score completed OKR sets at cycle close with KR-level scoring + learning synthesis | `/okr-grader`             |
 
 #### 🔄 Iterate - *Learn and improve*
 

@@ -219,7 +219,7 @@ graph LR
 
 ## Phase 4. Release coordination
 
-- [x] `docs/internal/release-plans/v2.13.0/plan_v2.13.0.md` Status Snapshot reflects every commit and artifact
+- [ ] `docs/internal/release-plans/v2.13.0/plan_v2.13.0.md` Status Snapshot reflects every commit and artifact (NOTE: re-tick at PR.5 / Phase 5 tag-prep time after Status Snapshot is refreshed alongside CHANGELOG / Release notes authoring; the Snapshot was refreshed to 2026-05-05 in round 3 resolution but additional commits may still land before tag)
 - [x] Pre-release Checklist marked executed with checkboxes
 - [x] Open Questions all marked Resolved with the actual decision history
 - [x] Change Log appended with every release-cycle event
@@ -239,6 +239,7 @@ Customary at git-tag time (not at feature-complete time):
 - [ ] `.claude-plugin/plugin.json` version bumped from 2.12.0 to 2.13.0
 - [ ] `marketplace.json` version bumped
 - [ ] README badge bumped
+- [ ] `bash scripts/validate-version-consistency.sh` re-run after the bumps land (must PASS at 2.13.0 across plugin manifest, marketplace, README badge, and any other version-tracked files)
 - [ ] Git tag `v2.13.0` created (annotated) and pushed
 - [ ] GitHub release published from `Release_v2.13.0.md`
 

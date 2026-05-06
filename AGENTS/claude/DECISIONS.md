@@ -155,7 +155,7 @@ Set `.github/workflows/validate-mcp-sync.yml` to use `block` mode by default whi
 
 ## 2026-05-03: Phase 0 release-state confirmation loop (extending v2.11.0 per-skill loop)
 
-**Status:** Accepted (demonstrated in v2.12.0 release; not yet codified in a checklist file).
+**Status:** Accepted and codified. Demonstrated in v2.12.0 release; codified in v2.13.0's `docs/internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist.md` (Phase 0 section explicitly enumerates per-strand AND release-state Phase 0 loops with convergence rules). Re-applied during v2.13.0 tag prep with PR.1 (per-strand) + PR.2 (release-state) + their resolution rounds.
 
 **Context:**
 The v2.11.0 cycle codified the Phase 0 Adversarial Review Loop for *per-skill* review: Codex adversarial review then resolution then re-run until findings stabilize below IMPORTANT severity. The v2.12.0 cycle exposed a gap in that codification. After both OKR skills (writer + grader) had passed their per-skill loops with convergence, the broader release state still contained drift that mechanical CI could not detect: untracked files with stale counts that were not yet wired into mkdocs nav; rendered-doc prose forms saying "38 AI agent skills" that fell outside the count-CI regex shape; per-phase counts in mermaid diagrams below the script's 10 min-threshold; version data accuracy in concept docs that required reading current SKILL.md frontmatter rather than writing from memory.
@@ -172,7 +172,7 @@ pm-skills releases run TWO Phase 0 loops, not one. The per-skill loop on each ne
 - Release prep adds ~12 minutes of Codex compute (3-4 release-state rounds at ~3 min each). Bounded cost.
 - Release-state defects that would otherwise ship are caught and fixed pre-tag. v2.12.0 caught 9 such defects.
 - The release notes' Validation section now includes the release-state loop as a concrete artifact (per-round finding counts, resolution commit hashes, termination rationale).
-- This decision is not yet codified in `docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md`. Codification is a v2.13.0 task: copy the v2.12.0 plan's pre-release checklist into the canonical template.
+- Codified in v2.13.0 at `docs/internal/release-plans/v2.13.0/plan_v2.13_pre-release-checklist.md`. The Phase 0 section explicitly enumerates per-strand AND release-state loops with convergence rules. Used in v2.13.0 tag prep as PR.1 (per-strand) + PR.2 (release-state).
 
 ---
 
