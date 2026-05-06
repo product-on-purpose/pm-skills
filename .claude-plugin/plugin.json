@@ -1,6 +1,6 @@
 {
   "name": "pm-skills",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "description": "40 product management skills for AI agents, covering the full product lifecycle from discovery through iteration. Includes the v2.12.0 OKR Skills set (foundation-okr-writer + measure-okr-grader for the full quarterly OKR write-and-score cycle), the v2.11.0 Meeting Skills Family (5 cross-cutting skills governed by a shared contract with enforcing CI), lean canvas, persona, structured templates, real-world examples, workflows, an interactive skill builder, and lifecycle tools for validating and iterating skills. Follows the agentskills.io specification.",
   "homepage": "https://github.com/product-on-purpose/pm-skills",
   "repository": "https://github.com/product-on-purpose/pm-skills",
