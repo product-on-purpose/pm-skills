@@ -83,7 +83,7 @@ graph LR
 
 - [x] Release-state loop round 1 executed (against full release stack)
 - [x] All CRITICAL + IMPORTANT resolved
-- [x] Re-runs until release-state findings stabilize per the v2.12.0-codified rule (7 Codex review rounds + 1 comprehensive sweep + 2 stale-text follow-ons run 2026-05-05; convergence verified: round 5 found 4 new IMPORTANT + 1 MEDIUM, round 6 was a comprehensive sweep, round 7 found 2 remaining audit-trail correctness defects, round 8 resolved them. The 7-round depth itself catalogued the stale-aggregate-counter pattern at meta level: mid-loop status text freezes in-progress claims and needs a final correctness pass.)
+- [x] Re-runs until release-state findings stabilize per the v2.12.0-codified rule (5 Codex review rounds + 3 resolution passes = 8 numbered rounds run 2026-05-05; convergence verified: round 5 found 4 new IMPORTANT + 1 MEDIUM, round 6 was a comprehensive resolution sweep, round 7 found 2 remaining audit-trail correctness defects, round 8 resolved them. The 8-round depth itself catalogued the stale-aggregate-counter pattern at meta level: mid-loop status text freezes in-progress claims and needs a final correctness pass.)
 - [x] Each round's findings + resolution commit documented in plan_v2.13.0.md Change Log
 
 **v2.13-specific watch items** (lessons from v2.12.0):
