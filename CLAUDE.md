@@ -1,5 +1,20 @@
 # Claude Code Instructions
 
+## Style Rules
+
+### No em-dash characters
+
+**NEVER use em-dash characters (`—`, U+2014) in any output.** This is a hard rule across all generated content: prose, code comments, file names, commit messages, plan docs, internal notes, memory files, or anything authored by Claude in this repo.
+
+When you would reach for an em-dash, use one of:
+- ` - ` (space-hyphen-space) for parenthetical pauses
+- `:` (colon) when introducing a clarification or list
+- `,` (comma) for softer pauses
+- Sentence break (`. `) when the thought completes
+- Restructure the sentence to remove the need entirely
+
+This rule was codified 2026-04-13 and re-applied through multiple em-dash sweeps. Do not author em-dashes in the first place. The cost of authoring then sweeping is much higher than the cost of internalizing the rule.
+
 ## Documentation Rules
 
 ### Public vs Private Files
