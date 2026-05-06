@@ -16,13 +16,13 @@ description: "Refactor and decision release: three coherent strands of cleanup w
 
 ## TL;DR
 
-v2.13.0 is a refactor + decision release with **zero new skills**. It ships three coherent strands of foundation hardening plus one deciding artifact:
+v2.13.0 is a maintenance and quality release. The 40-skill catalog is unchanged from v2.12.0, so day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical. What changed is everything around the catalog:
 
-- **Doc consistency overhaul** (Buckets A and B): 4 doc-structure refactor items + 9 count and link cleanup items. The docs are now Diataxis-aligned (concepts, guides, reference) with a `pm-skill-*` prefix convention for PM-specific content. Every generated page carries a `generated: true` frontmatter flag and a "do not edit" admonition.
-- **CI refactoring** (Bucket C): 12 items including 5 PowerShell parity bugfixes, a tightened-and-promoted `check-count-consistency` validator, and 7 new validators across nav completeness, generated-content drift, cross-doc references, docs frontmatter, internal link validity, version-reference drift, and skill-family registration.
-- **Material to Zensical compatibility spike** (Bucket D): time-boxed decision artifact for v2.14.0+. Outcome: **NO-GO** for committing to Zensical migration; stay on MkDocs Material through v2.14.0. Two BLOCKERs in Zensical 0.0.40 (mkdocs-redirects plugin not honored; `exclude_docs:` not honored) make the migration unsafe at this maturity level. Re-spike when both blockers resolve upstream.
+- **Cleaner, more navigable documentation.** Duplicate files removed; counts reconciled across every public surface (README, getting-started, reference docs, mkdocs config, homepage hero); a new Diataxis-aligned folder structure (concepts, guides, reference) with a `pm-skill-*` filename prefix that signals scope at a glance; every generated page clearly labeled so editors know which file is the source.
+- **For contributors and forkers**, 7 new CI gates catch documentation drift on pull requests automatically: nav completeness, generated-content untouched, cross-doc reference integrity, docs frontmatter coverage, internal link validity, version-reference consistency, and skill-family registration. The enforcing CI tier doubled (5 to 10) and the validator inventory grew from 15 to 22.
+- **For `pm-skills-mcp` users**, the companion MCP server shipped v2.9.3 the same week, a security-patch follow-up to v2.9.2 that cleared all 8 open Dependabot moderate advisories (`hono`, `@hono/node-server`, `vite`, `postcss`). The catalog frozen at the v2.9.2 build (40 skills + 11 workflow tools + 8 utility tools) is unchanged.
 
-Out-of-cycle but tracked here so the release-state record is complete: the companion `pm-skills-mcp` server entered **maintenance mode** mid-cycle on 2026-05-04. v2.9.2 announced the pivot; v2.9.3 followed two hours later as a security-patch that cleared all 8 open Dependabot moderate advisories (validating the maintenance-mode commitment in operational practice).
+If you use pm-skills via the file-based install (`npx skills add product-on-purpose/pm-skills` or `git clone`), the upgrade is purely additive cleanup: nothing in your workflow changes, but the docs and contribution surface are noticeably better.
 
 ---
 
@@ -142,11 +142,11 @@ The 2-hour announcement-to-patch turnaround validates the v2.9.2 maintenance-mod
 
 ## Why this matters
 
-v2.13.0 is the cycle where pm-skills converted accumulated foundation debt into shipped foundation. Three years of doc-shape decisions had crystallized into duplicate top-level files, drifted siblings, stale counts in seven public surfaces, and a deferred "what doc engine do we run?" question. The cycle resolved all of it with a binding decision: Diataxis structure plus `pm-skill-*` filename prefix plus generated-content marker plus 7 new validators that prevent future drift, plus a NO-GO on Zensical for v2.14.0 that says "the foundation we just hardened keeps running on Material."
+For users, v2.13.0 is the release that makes pm-skills feel finished as a library. The 40-skill catalog has been stable since v2.12.0; what was rough was the documentation around it - duplicate files in two places, stale skill counts on seven different public surfaces, generated pages indistinguishable from hand-edited ones, navigational dead-ends after the v2.11 to v2.12 growth. v2.13.0 fixes all of that. Browsing the docs, finding a skill, understanding which file is canonical, contributing a fix - each is now noticeably smoother.
 
-The CI strand is the durable win. Each new validator targets a specific defect class that mechanical CI did not previously catch: nav completeness, generated-content drift, cross-doc references, docs frontmatter coverage, internal link validity, version-reference drift, skill-family registration. The enforcing tier doubled (5 to 10). External contributors will see the new gates on PRs first.
+For contributors and forkers, the CI hardening is the durable user-value. Doc drift, broken cross-references, and stale counts have historically been caught only at release time, often by the maintainer reading the rendered site. v2.13.0 turns those checks into automated PR gates: 7 new validators run on every PR across both Ubuntu and Windows. A typo in a skill cross-reference, a count that fell out of sync, a hand-edit to a generated page - all caught at PR time, not at release time.
 
-The Zensical NO-GO is the most informationally valuable outcome the spike could have returned. A GO would have created v2.14.0 migration commitment with unknown second-order issues; a NO-GO clearly maps the upstream parity work that has to land before re-spike is worth running. The doc-cleanup work in Buckets A and B was originally framed as a Zensical-migration prerequisite; with NO-GO, the cleanup stands on its own merit (less debt regardless of stack), and the migration framing is decoupled from v2.14.0+ decisions.
+For `pm-skills-mcp` users, the same-week v2.9.3 security patch is direct user-value: 8 → 0 open Dependabot advisories with a 2-hour announcement-to-patch turnaround that demonstrated the maintenance-mode commitment in practice. If you depend on the MCP server, the v2.9.3 release is recommended for the security fixes alone.
 
 ---
 

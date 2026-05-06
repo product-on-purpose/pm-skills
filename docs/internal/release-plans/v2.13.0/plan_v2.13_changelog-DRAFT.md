@@ -6,7 +6,7 @@
 
 ## [2.13.0] - 2026-05-XX
 
-Foundation Hardening + Doc Stack Decision. Refactor and decision release with three coherent strands plus one deciding artifact: doc consistency overhaul (Buckets A and B), CI refactoring (Bucket C: 12 items), and a Material for MkDocs to Zensical compatibility spike (Bucket D: NO-GO). Zero new skills (40 total, unchanged). Adds 7 new CI validators (15 to 22 inventory) and grows the enforcing tier from 5 to 10. Out-of-cycle pm-skills-mcp v2.9.2 maintenance-mode pivot plus v2.9.3 security-patch follow-up shipped same week (8 to 0 open Dependabot advisories, 2-hour announcement-to-patch turnaround).
+Foundation Hardening + Doc Stack Decision. Maintenance and quality release. The 40-skill catalog is unchanged from v2.12.0, so day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical. What changed is everything around the catalog: cleaner Diataxis-aligned documentation (duplicate files removed, counts reconciled, generated pages clearly labeled, `pm-skill-*` filename prefix convention), 7 new CI gates that catch doc drift on PRs automatically (validator inventory 15 to 22; enforcing tier 5 to 10), and an out-of-cycle `pm-skills-mcp` v2.9.3 security-patch follow-up to the v2.9.2 maintenance-mode announcement that cleared all 8 open Dependabot moderate advisories.
 
 ### Added
 
