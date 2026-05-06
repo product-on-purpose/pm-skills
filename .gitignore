@@ -42,6 +42,9 @@ _NOTES/
 
 # Skill builder staging area
 _staging/
+
+# v2.14 Astro Starlight compatibility spike workspace
+_spike/
 .obsidian
 .claude/*
 .claude/settings.local.json

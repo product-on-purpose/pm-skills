@@ -2,7 +2,7 @@
 
 ## Current State
 
-**Status:** v2.13.0 SHIPPED 2026-05-05 (tag `v2.13.0` at commit `cbdbc5f`; GitHub Release page live at https://github.com/product-on-purpose/pm-skills/releases/tag/v2.13.0). All 5 pre-release gates closed: PR.1 (per-strand Phase 0; 4 Codex tasks), PR.2 (release-state Phase 0; 5 Codex review rounds + 3 resolution passes converged), PR.3 (generator regen first-run convergence), PR.4 (pre-release checklist all 15 mechanical CI scripts PASS), PR.5 (CHANGELOG + Release_v2.13.0.md promoted from drafts). Out-of-cycle pm-skills-mcp v2.9.3 security-patch shipped same week (8 to 0 open Dependabot moderate advisories; 2-hour announcement-to-patch turnaround). pm-skills-mcp GitHub repo description refreshed from stale "29 skills" to current "40 PM skills + 11 workflows + 8 utility tools (59 tools)" with v2.9.x maintenance-line framing. v2.14.0 placeholder cycle plan authored at `docs/internal/release-plans/v2.14.0/plan_v2.14.0.md` with tentative theme "Doc Stack Migration: MkDocs Material to Astro Starlight" pending Day-1 spike outcome.
+**Status:** v2.13.0 SHIPPED 2026-05-05 (tag `v2.13.0` at commit `cbdbc5f`; GitHub Release page live at https://github.com/product-on-purpose/pm-skills/releases/tag/v2.13.0). All 5 pre-release gates closed: PR.1 (per-strand Phase 0; 4 Codex tasks), PR.2 (release-state Phase 0; 5 Codex review rounds + 3 resolution passes converged), PR.3 (generator regen first-run convergence), PR.4 (pre-release checklist all 15 mechanical CI scripts PASS), PR.5 (CHANGELOG + Release_v2.13.0.md promoted from drafts). Out-of-cycle pm-skills-mcp v2.9.3 security-patch shipped same week (8 to 0 open Dependabot moderate advisories; 2-hour announcement-to-patch turnaround). pm-skills-mcp GitHub repo description refreshed from stale "29 skills" to current "40 PM skills + 11 workflows + 8 utility tools (59 tools)" with v2.9.x maintenance-line framing. v2.14.0 cycle plan committed 2026-05-06 at `docs/internal/release-plans/v2.14.0/plan_v2.14.0.md` with theme "Doc Stack Migration: MkDocs Material to Astro Starlight"; Day 1 spike EXECUTED 2026-05-06 with verdict **GO-WITH-CAVEATS** (report at `plan_v2.14_starlight-spike-report_2026-05-06.md`); all three v2.13 BLOCKERs cleared (redirects PASS, excludes PASS, parser warnings 0 vs Zensical's 2,940); 5 bounded caveats sum to ~17-22 hours of migration work; Bucket B (migration execution) promoted to active for v2.14.0 ship.
 **Last Updated:** 2026-05-06. Post-tag housekeeping completed: 3 Dependabot PRs (#129 setup-python 5 to 6, #130 actions/cache 4 to 5, #139 action-gh-release 2 to 3) merged via squash; 6 stale local branches deleted (backup/claude-path-cutover, feature/f-16-mermaid-diagrams, feature/f-19-slideshow-creator, v2.0-codex, wip/local-agent-context, docs/mkdocs-site); 10 origin claude/* orphan branches deleted from GitHub; origin/v2.13/cycle auto-deleted by GitHub on PR #140 merge; origin/docs/mkdocs-site deleted (verified fully merged). README reorganized: MCP notice converted to collapsible + relocated to Quick Start area; v2.6 to v2.9 What's New entries moved to Project Status > Previous Release Details; duplicate MCP note removed from comparison table area. Final remote branches: main, gh-pages only (after Dependabot auto-cleanup).
 **Release:** v2.13.0 is the latest tagged release (tag `v2.13.0`, head commit `cbdbc5f`, on origin/main). GitHub release published from `docs/releases/Release_v2.13.0.md`. Previous: v2.12.0 (2026-05-03 / OKR Skills Launch); v2.11.1 (2026-04-22); v2.11.0 (2026-04-18 / Meeting Skills Family + lean-canvas).
 **Skill count:** 40 (26 phase + 8 foundation + 6 utility). Unchanged from v2.12.0; v2.13.0 was a maintenance and quality release with zero new skills.
@@ -448,15 +448,15 @@ pm-skills/
 
 ## Next Steps
 
-### Active (v2.14.0 cycle - placeholder)
+### Active (v2.14.0 cycle - Bucket B promoted)
 
-v2.13.0 SHIPPED. v2.14.0 cycle theme is tentative: doc-stack migration from MkDocs Material to Astro Starlight, contingent on a Day-1 60-minute compatibility spike using the v2.13 spike rubric verbatim. Placeholder plan at `docs/internal/release-plans/v2.14.0/plan_v2.14.0.md`.
+v2.13.0 SHIPPED. v2.14.0 cycle theme committed 2026-05-06: doc-stack migration from MkDocs Material to Astro Starlight. **Day 1 spike EXECUTED 2026-05-06 with verdict GO-WITH-CAVEATS.** All three v2.13 BLOCKERs cleared (redirects PASS, excludes PASS, parser warnings 0 vs Zensical's 2,940). Bucket B (migration execution) is now active for v2.14.0 ship. Cycle plan at `docs/internal/release-plans/v2.14.0/plan_v2.14.0.md`; spike plan at `plan_v2.14_starlight-spike.md`; spike report at `plan_v2.14_starlight-spike-report_2026-05-06.md`.
 
 | Gate | Item | Status |
 |------|------|--------|
-| Day 1 | Astro Starlight compatibility spike (60-min, time-boxed) | Not started |
-| Bucket B | Migration execution if Day-1 returns GO (1-2 weeks; config rewrite + content collections + theme port + redirects + Pages deploy) | Conditional |
-| Bucket C | Pivot scope if Day-1 returns NO-GO (sample-automation slate F-31/F-32/F-33/F-35; meeting-lifecycle F-29/F-30; QW-1 to QW-9 doc cleanup; M-23/M-24 GitHub-platform metadata) | Conditional |
+| Day 1 | Astro Starlight compatibility spike (60-min, time-boxed) | Executed 2026-05-06; GO-WITH-CAVEATS |
+| Bucket B | Migration execution: title injection script, redirect base-path fix, templates exclusion, custom CSS port, library samples mount, sidebar nav port, generator updates, Pages deploy workflow update, smoke test (~17-22 hours est) | Active execution |
+| Contingency | NOT triggered | n/a |
 
 ### Backlog
 

@@ -1,19 +1,22 @@
-# v2.14.0 Release Plan: Doc Stack Migration to Astro Starlight (PLACEHOLDER)
+# v2.14.0 Release Plan: Doc Stack Migration to Astro Starlight
 
-**Status:** Placeholder; theme tentative pending Day-1 spike outcome
+**Status:** Day 1 spike EXECUTED 2026-05-06; verdict GO-WITH-CAVEATS; Bucket B (migration) promoted to active execution
 **Owner:** TBD
-**Type:** Migration release (minor) - tentative
+**Type:** Migration release (minor)
 **Created:** 2026-05-05
+**Updated:** 2026-05-06 (promoted from placeholder; spike executed; verdict GO-WITH-CAVEATS)
 **Sources:**
-- v2.13.0 Zensical compatibility spike report: [`../v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md`](../v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md) (NO-GO outcome)
-- v2.13.0 spike plan: [`../v2.13.0/plan_v2.13_zensical-spike.md`](../v2.13.0/plan_v2.13_zensical-spike.md) (rubric reusable for Starlight)
-- v2.13.0 final sweep: [`../v2.13.0/plan_v2.13_final-sweep_2026-05-05.md`](../v2.13.0/plan_v2.13_final-sweep_2026-05-05.md) (QW-1 to QW-9 quick-win opportunities)
+- v2.14 Starlight compatibility spike plan: [`plan_v2.14_starlight-spike.md`](./plan_v2.14_starlight-spike.md)
+- v2.14 Starlight spike report: [`plan_v2.14_starlight-spike-report_2026-05-06.md`](./plan_v2.14_starlight-spike-report_2026-05-06.md) (executed 2026-05-06; GO-WITH-CAVEATS)
+- v2.13.0 Zensical compatibility spike report: [`../v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md`](../v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md) (NO-GO outcome; BLOCKER baseline for Starlight retests)
+- v2.13.0 Zensical spike plan: [`../v2.13.0/plan_v2.13_zensical-spike.md`](../v2.13.0/plan_v2.13_zensical-spike.md) (structural model for the Starlight spike plan)
+- v2.13.0 final sweep: [`../v2.13.0/plan_v2.13_final-sweep_2026-05-05.md`](../v2.13.0/plan_v2.13_final-sweep_2026-05-05.md) (QW-1 to QW-9 quick-win opportunities; contingency-scope candidates)
 
-> **What this is.** A placeholder cycle plan capturing the doc-stack migration intent for v2.14.0. Real plan content gets authored after the Day-1 Starlight spike returns its GO / GO-WITH-CAVEATS / NO-GO verdict.
+> **What this is.** The v2.14.0 release plan, committing the cycle to the doc-stack migration from MkDocs Material to Astro Starlight. Day 1 runs the compatibility spike (`plan_v2.14_starlight-spike.md`); Days 2-N execute the migration on a GO verdict. A NO-GO verdict triggers the Contingency section (pivot scope to backlog). The spike is a deciding artifact, not a release artifact: v2.14 ships either the migration (GO path) or a pivot theme (NO-GO path), never the spike report by itself.
 
 ---
 
-## Tentative theme
+## Theme
 
 **Doc Stack Migration: MkDocs Material to Astro Starlight.**
 
@@ -27,28 +30,29 @@ v2.13.0's Zensical compatibility spike returned NO-GO at Zensical 0.0.40 due to 
 
 ---
 
-## Scope (tentative; pending Day-1 spike)
+## Scope
 
 ### Bucket A: Starlight compatibility spike (Day 1, time-boxed 60 min)
 
-Reuses the v2.13 spike rubric verbatim. Decision criteria:
+Detailed plan: [`plan_v2.14_starlight-spike.md`](./plan_v2.14_starlight-spike.md). Summary of decision criteria (full table in the spike plan, Section 2.2):
 
 | Criterion | Pass condition |
 |---|---|
-| Redirects | All current `mkdocs.yml redirect_maps` entries resolve via Astro `redirects:` config |
-| Excludes | `docs/internal/` content does NOT appear in built `dist/` output |
-| Parser warnings | No false-positive warnings on bracketed text (`[role]`, `[yes / no]`, `cards[3]`, etc.) |
+| Redirects (v2.13 BLOCKER 1 retest) | All current `mkdocs.yml redirect_maps` entries resolve via Astro `redirects:` config |
+| Excludes (v2.13 BLOCKER 2 retest) | `docs/internal/` content does NOT appear in built `dist/` output |
+| Parser warnings (v2.13 IMPORTANT retest) | No false-positive warnings on bracketed text (`[role]`, `[yes / no]`, `cards[3]`, etc.) |
 | Performance | Cold build at most 1.5x slower than Material; rebuild faster than Material full build |
-| Generated content | All 63 generator-output pages render correctly; frontmatter `generated: true` flag preserved |
+| Generated content | All 63 generator-output pages render correctly; frontmatter `generated: true` and `source:` flags preserved |
 | Library samples | The 126 sample files render with consistent typography |
-| Mermaid | Diagrams render (likely needs explicit Astro Mermaid integration) |
+| Mermaid | Diagrams render via chosen Astro Mermaid integration |
 | Skill cards / category indices | The Diataxis-aligned content collections map cleanly |
+| GitHub Pages compatibility | Static output deploys cleanly at the `/pm-skills/` base path |
 
-Outcome: GO / GO-WITH-CAVEATS / NO-GO decision recorded in `plan_v2.14_starlight-spike-report_YYYY-MM-DD.md`.
+Outcome: GO / GO-WITH-CAVEATS / NO-GO decision recorded in `plan_v2.14_starlight-spike-report_YYYY-MM-DD.md` next to this plan.
 
-### Bucket B: Migration execution (if Day-1 returns GO)
+### Bucket B: Migration execution (active scope on GO verdict)
 
-Approximate sequence (1-2 weeks of focused work):
+This is the planned path. Approximate sequence (1-2 weeks of focused work):
 
 1. **Config rewrite.** `mkdocs.yml` to `astro.config.mjs` + Starlight config. Nav, theme overrides, plugins, redirects, excludes, custom_dir replacements.
 2. **Content collection setup.** Map current `docs/` structure to Starlight content collections. Diataxis folders (concepts, guides, reference) become collection entries.
@@ -60,9 +64,15 @@ Approximate sequence (1-2 weeks of focused work):
 8. **Performance benchmarking.** Verify cold build + rebuild times match expectations from the spike.
 9. **Smoke test.** Browse all major doc paths; verify no regressions on user-visible content.
 
-### Bucket C: Pivot scope (if Day-1 returns NO-GO)
+---
 
-If Starlight returns NO-GO (low-probability but possible), v2.14.0 pivots scope on the spot. Candidate pivot themes:
+## Contingency: NO-GO pivot
+
+This section applies only if the Day-1 spike returns NO-GO. It is not the planned path.
+
+If Starlight returns NO-GO, v2.14.0 pivots scope on the spot. The doc-stack question becomes a v2.15.0+ planning concern with a fresh evaluation pass; do NOT auto-trigger another doc-stack spike (Hugo, VitePress, Eleventy) inside the v2.14 cycle. Material continues in maintenance-mode posture until the next evaluation; this is acceptable because Material's stated maintenance window is ~12 months and pm-skills has runway.
+
+Candidate pivot themes (pick one or compose a slate; final selection at NO-GO time):
 
 - **Sample-automation slate**: F-31 / F-32 / F-33 / F-35 deferred from v2.13.0; re-evaluate post-v2.12 builder cleanup.
 - **F-29 Meeting Lifecycle Workflow** + **F-30 Family Adoption Guide**: time-gated on real-world feedback; check signal arrival.
@@ -72,13 +82,13 @@ If Starlight returns NO-GO (low-probability but possible), v2.14.0 pivots scope 
 
 ---
 
-## Spike rubric (reusable from v2.13)
+## Spike rubric pointer
 
-The v2.13 spike rubric at `../v2.13.0/plan_v2.13_zensical-spike.md` Section 3.3 applies verbatim with "Zensical" replaced by "Starlight":
+The full GO / GO-WITH-CAVEATS / NO-GO rubric lives in [`plan_v2.14_starlight-spike.md`](./plan_v2.14_starlight-spike.md) Section 3. Summary:
 
-- **GO triggers:** all major checks pass; performance acceptable; no privacy regressions; clean redirects.
-- **GO-WITH-CAVEATS triggers:** majority of checks pass with minor caveats documented; migration is viable but with documented limitations.
-- **NO-GO triggers:** any structural BLOCKER on the order of v2.13's Zensical findings (privacy regression, broken redirects, etc.).
+- **GO triggers:** all v2.13 BLOCKER retests pass (redirects, excludes, parser warnings); generators + samples + mermaid + search all functional; performance acceptable; GitHub Pages deploy works.
+- **GO-WITH-CAVEATS triggers:** majority of checks pass; remediation cost ≤5 days of work; caveats documented per-item with severity.
+- **NO-GO triggers:** any of the three v2.13 BLOCKERs reproduces; or generators / mermaid / GitHub Pages fundamentally broken; or remediation cost >5 days.
 
 ---
 
@@ -98,13 +108,14 @@ Out-of-scope guards depend on the pivot theme selected.
 
 ---
 
-## Decisions (provisional)
+## Decisions
 
 | Decision | Choice | Rationale |
 |---|---|---|
-| **v2.14.0 theme** | Doc Stack: Starlight Migration (tentative pending Day-1 spike) | v2.13.0 NO-GO on Zensical; Material's maintenance posture is steady but Starlight's modernity + active investment makes it the strongest forward-looking choice |
+| **v2.14.0 theme** | Doc Stack: Starlight Migration (committed 2026-05-06) | v2.13.0 NO-GO on Zensical; Material's maintenance posture is steady but Starlight's modernity + active investment makes it the strongest forward-looking choice. Spike confirms compatibility; verdict drives whether migration ships in this cycle or pivots to contingency. |
 | **Spike vs migration in same cycle** | Both in v2.14.0 (spike Day 1, migration Days 2-N if GO) | Avoids "spike report" as a release artifact; spike is planning material, not user-value |
-| **Plan B if Starlight returns NO-GO** | Pivot v2.14 scope to one of the candidate pivot themes; do NOT auto-trigger a Hugo or VitePress spike | Avoid open-ended cascading spikes; if Starlight fails, the doc-stack question becomes a v2.15 + planning concern |
+| **Plan B if Starlight returns NO-GO** | Pivot v2.14 scope to one of the candidate Contingency themes; do NOT auto-trigger a Hugo or VitePress spike | Avoid open-ended cascading spikes; if Starlight fails, the doc-stack question becomes a v2.15+ planning concern |
+| **Spike plan as separate artifact from cycle plan** | Yes; spike plan at `plan_v2.14_starlight-spike.md`, cycle plan at `plan_v2.14.0.md` | Mirrors v2.13 structure; spike plan is a deciding artifact with its own rubric and execution protocol; cycle plan owns the scope-vs-contingency framing |
 | **Out-of-cycle MCP work** | None expected | pm-skills-mcp v2.9.x maintenance line continues independently; no v2.14 in-cycle MCP scope |
 
 ---
@@ -164,13 +175,13 @@ These are only relevant if v2.14 pivots from Starlight migration. Under the GO p
 
 ---
 
-## Sequencing (tentative)
+## Sequencing
 
 ```
 Day 1: Starlight spike (60 min, time-boxed)
-  to GO          Days 2-N: Bucket B migration execution
-  to GO-WITH-CAVEATS:  Days 2-N: Bucket B with documented caveats; possibly v2.14 ships partial; v2.15 finishes
-  to NO-GO:       Day 1.5+: pivot to Bucket C scope (sample-automation, doc-cleanup, etc.)
+  to GO              Days 2-N: Bucket B migration execution (planned path)
+  to GO-WITH-CAVEATS Days 2-N: Bucket B with documented caveats; possibly v2.14 ships partial; v2.15 finishes
+  to NO-GO           Day 1.5+: pivot to Contingency scope (sample-automation, doc-cleanup, etc.)
 ```
 
 ---
@@ -179,11 +190,14 @@ Day 1: Starlight spike (60 min, time-boxed)
 
 | Item | Status |
 |---|---|
-| Plan | Placeholder (this file); real content authored post-spike |
-| Spike rubric | Reused from v2.13 spike plan; verbatim with "Zensical" to "Starlight" |
-| Spike date | TBD; early v2.14.0 cycle |
-| Theme decision | Tentative: Starlight migration; final after spike |
-| Backlog candidates if pivot | F-29, F-30, F-31-F-35, F-37, M-23, M-24, QW-1 to QW-9 |
+| Cycle plan (this file) | Committed (2026-05-06); Bucket B promoted to active execution after GO-WITH-CAVEATS verdict |
+| Spike plan | Authored 2026-05-06 at [`plan_v2.14_starlight-spike.md`](./plan_v2.14_starlight-spike.md); executed |
+| Spike rubric | Codified in spike plan Section 3; mirrors v2.13's structure with Starlight-specific pass conditions |
+| Spike date | Executed 2026-05-06 (~50 min execution + 15 min report) |
+| Spike report | [`plan_v2.14_starlight-spike-report_2026-05-06.md`](./plan_v2.14_starlight-spike-report_2026-05-06.md); verdict GO-WITH-CAVEATS |
+| Theme decision | Committed: Starlight migration; spike confirmed; Bucket B execution begins next session |
+| Caveats from spike | 5 bounded items totaling ~17-22 hours estimated migration effort (table in spike report) |
+| Contingency status | NOT triggered (Bucket B path active) |
 | Out-of-cycle MCP impact | None expected |
 
 ---
