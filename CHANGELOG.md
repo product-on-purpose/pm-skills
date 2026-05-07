@@ -7,6 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.13.1] - 2026-05-06
+
+Plugin Install Path Correction. Patch release. The 40-skill catalog is unchanged from v2.13.0; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, etc. is identical. What changes is the plugin install path: `/plugin marketplace add product-on-purpose/pm-skills` now succeeds, where it had failed silently since v2.7.0 due to two unrelated bugs in `marketplace.json` (wrong location and missing schema fields).
+
+### Fixed
+
+- **`marketplace.json` relocated** from repo root to `.claude-plugin/marketplace.json`, the canonical path Claude Code's plugin system reads from. Move performed via `git mv` so file history is preserved. The repo-root location is no longer present.
+- **README count-exempt markers extended** to cover the "Previous Release Details" section. Pre-release CI surfaced 3 pre-existing stale per-version counts in historical release blocks (v2.9.0 "31 skills", v2.8.0 "29 skills", v2.7.0 "27 skills") that fell outside the v2.13.0 count-exempt range. These are correct as historical statements about what shipped at each version; the wrap restores `check-count-consistency` to PASS without rewriting historical text.
+- **`marketplace.json` schema corrected** to satisfy Claude Code's marketplace registry:
+    - Added top-level `owner` object with `name` and `url` (required field; was absent).
+    - Converted plugin entry's `author` from a bare string to an object with `name` and `url` (string form is rejected by the schema).
+    - Both changes are non-behavioral; the same plugin metadata is now expressed in the schema-conformant shape.
+
+### Added
+
+- **`scripts/validate-plugin-install.{sh,ps1,md}`** (enforcing). New CI validator that asserts the plugin install path will work end-to-end. Verifies both manifests exist at canonical paths (`.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`), validates required fields against Claude Code's marketplace schema (`name`, `owner.name`, `plugins`, per-plugin `name` + `version` + `source` + `author` as object), and enforces cross-manifest version + name consistency. Catches the exact bug class that shipped silently from v2.7.0 through v2.13.0.
+- **`docs/releases/Release_v2.13.1.md`** authored as the release notes artifact.
+- **`docs/internal/release-plans/v2.13.1/plan_v2.13.1.md`** authored as the release plan.
+
+### Changed
+
+- **`scripts/validate-version-consistency.{sh,ps1}`** updated to read `marketplace.json` from `.claude-plugin/marketplace.json` instead of the repo root. Continues to enforce that plugin.json and marketplace.json declare the same version.
+- **`README.md` "Install as Claude Code Plugin" section** rewritten. Primary path is now the `/plugin marketplace add` + `/plugin install` flow that the marketplace registration enables. Manifest-direct install (the prior text) retained as a fallback for older Claude clients.
+- **`.claude/pm-skills-for-claude.md`** updated to acknowledge plugin install as a parallel path alongside the sync-helper. No primary recommendation between the two paths in this release; recommendation positioning deferred to v2.14.0 or later.
+- **Validator inventory grows from 22 to 23** (1 new enforcing). Enforcing tier grows from 10 to 11.
+
+### Compatibility
+
+- **No content changes.** All 40 skills, 47 slash commands, 9 workflows, 126 library samples, and 22 CI scripts are unchanged from v2.13.0.
+- **Codex compatibility unaffected.** Codex (and any non-Claude-Code agent) reads from `skills/` and `AGENTS.md` directly; `marketplace.json` is Claude-Code-specific. The file move and schema additions have zero impact on Codex usage.
+- **Sync-helper install path unaffected.** Users who install via `scripts/sync-claude.sh` see no change.
+- **`pm-skills-mcp` companion server unaffected.** v2.9.x maintenance line continues independently.
+
+### Why this matters
+
+For Claude Code users, this is the release that makes plugin install actually work. Prior to v2.13.1, anyone who tried `/plugin marketplace add product-on-purpose/pm-skills` got two cryptic errors in sequence (file not found, then schema violation). The bug had shipped silently across multiple releases because no CI step exercised the install path; existing CI only checked manifest version consistency. v2.13.1 fixes both errors and adds the missing CI guard.
+
+For maintainers and forkers, the new `validate-plugin-install` script is the durable user-value. It is the front-door check: "if a user tried to install pm-skills as a plugin right now, would it succeed?" That question now has a continuous answer in CI rather than only at release time.
+
 ## [2.13.0] - 2026-05-05
 
 Foundation Hardening + Doc Stack Decision. Maintenance and quality release. The 40-skill catalog is unchanged from v2.12.0, so day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical. What changed is everything around the catalog: cleaner Diataxis-aligned documentation (duplicate files removed, counts reconciled, generated pages clearly labeled, `pm-skill-*` filename prefix convention), 7 new CI gates that catch doc drift on PRs automatically (validator inventory 15 to 22; enforcing tier 5 to 10), and an out-of-cycle `pm-skills-mcp` v2.9.3 security-patch follow-up to the v2.9.2 maintenance-mode announcement that cleared all 8 open Dependabot moderate advisories.

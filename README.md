@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.13.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.13.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-40-brightgreen.svg?style=flat-square" alt="Skills">
@@ -135,6 +135,18 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 <!-- count-exempt:start -->
 <details open>
+<summary>v2.13.1 - Plugin Install Path Correction</summary>
+
+- **Plugin install path fixed.** `/plugin marketplace add product-on-purpose/pm-skills` now works against the public repo. Prior to this release, marketplace.json lived at the repo root and lacked the `owner` schema field that Claude Code's marketplace registry requires; the install path failed silently for any user who tried it. The same 40-skill catalog ships unchanged.
+- **`marketplace.json` relocated to `.claude-plugin/marketplace.json`** (the canonical Claude Code path). `git mv` preserves the file's history. The repo-root location is no longer present.
+- **Marketplace schema corrected.** Added top-level `owner` object with `name` + `url`. Converted plugin entry's `author` from string to object form (Claude Code's schema rejects string-form authors).
+- **New CI script `validate-plugin-install.{sh,ps1,md}`** (enforcing). Verifies both manifests exist at canonical paths, validates against Claude Code's marketplace schema (required fields: `name`, `owner.name`, `plugins`, per-plugin `name` + `version` + `source` + `author` as object), and asserts cross-manifest version + name consistency. Catches the exact bug class that shipped silently from v2.7.0 through v2.13.0. Front-door check.
+- **README "Install as Claude Code Plugin" section rewritten** with the modern `/plugin marketplace add` flow as the primary path; manifest-direct install retained as fallback.
+- **`.claude/pm-skills-for-claude.md` updated** to acknowledge plugin install alongside the sync-helper path. No primary recommendation between paths (decision deferred to v2.14.0+).
+- Release note: [`docs/releases/Release_v2.13.1.md`](docs/releases/Release_v2.13.1.md).
+
+</details>
+<details>
 <summary>v2.13.0 - Foundation Hardening + Doc Stack Decision</summary>
 
 - **Maintenance and quality release; same 40-skill catalog as v2.12.0.** Day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is unchanged. What changed is everything around the catalog.
@@ -404,19 +416,29 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 
 ### Install as Claude Code Plugin
 
-Use this option if your Claude client supports plugin-manifest install flows.
+The fastest path for Claude Code users. Run two commands inside Claude Code:
+
+```
+/plugin marketplace add product-on-purpose/pm-skills
+/plugin install pm-skills@pm-skills-marketplace
+```
+
+After install, all 40 skills and 47 commands resolve from any directory. Slash commands like `/prd`, `/opportunity-tree`, `/agenda`, `/okr-writer`, etc. work out of the box.
+
+**Verify with `/plugin list`** to confirm `pm-skills` is installed.
+
+**Local-directory install** (for forkers and contributors who want to track their working tree rather than the published version):
+
+```
+/plugin marketplace add /path/to/your/local/pm-skills
+/plugin install pm-skills@pm-skills-marketplace
+```
+
+**Manifest-direct fallback** (older Claude clients or non-marketplace install flows):
 
 1. Clone the repo or extract the release ZIP.
 2. During plugin setup, select the manifest at `.claude-plugin/plugin.json`.
 3. Complete install in your client and reload if prompted.
-
-Example local setup:
-
-```bash
-git clone https://github.com/product-on-purpose/pm-skills.git
-cd pm-skills
-# Then point your client to: .claude-plugin/plugin.json
-```
 
 ### Installation Options
 
@@ -589,9 +611,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** . Complete package with all skills, commands, workflows, and documentation
-- **Latest stable:** `v2.13.0` (Foundation Hardening + Doc Stack Decision)
-- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2130---2026-05-05)
-- **Published tag:** [`v2.13.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.13.0)
+- **Latest stable:** `v2.13.1` (Plugin Install Path Correction)
+- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2131---2026-05-06)
+- **Published tag:** [`v2.13.1`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.13.1)
 - **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
@@ -858,6 +880,10 @@ See [docs/reference/project-structure.md](docs/reference/project-structure.md) f
 
 <a id="previous-release-details"></a>
 
+<!-- count-exempt:start -->
+<!-- Historical release blocks below carry per-version counts that are correct as historical statements about what shipped at that version. They are exempt from current-state count consistency. -->
+
+
 <details>
 <summary>v2.9.0 - Workflows: rename + expansion (3 → 9)</summary>
 
@@ -955,6 +981,7 @@ See [docs/reference/project-structure.md](docs/reference/project-structure.md) f
 - See `CHANGELOG.md` for dated release-by-release detail.
 
 </details>
+<!-- count-exempt:end -->
 
 ### Changelog
 See [CHANGELOG.md](CHANGELOG.md) for full details.

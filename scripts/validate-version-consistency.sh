@@ -5,7 +5,7 @@
 set -euo pipefail
 
 PLUGIN_FILE=".claude-plugin/plugin.json"
-MARKET_FILE="marketplace.json"
+MARKET_FILE=".claude-plugin/marketplace.json"
 
 if [[ ! -f "$PLUGIN_FILE" ]]; then
   echo "FAIL: $PLUGIN_FILE not found"

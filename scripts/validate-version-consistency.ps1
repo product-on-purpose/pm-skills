@@ -5,7 +5,7 @@
 $ErrorActionPreference = "Stop"
 
 $pluginFile = ".claude-plugin/plugin.json"
-$marketFile = "marketplace.json"
+$marketFile = ".claude-plugin/marketplace.json"
 
 if (-not (Test-Path $pluginFile)) {
     Write-Host "FAIL: $pluginFile not found"
