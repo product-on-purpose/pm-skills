@@ -197,6 +197,6 @@ Post-install, all 40 skills resolve under the `pm-skills:` namespace (e.g., `pm-
 ## Related artifacts
 
 - Release plan: [`docs/internal/release-plans/v2.13.1/plan_v2.13.1.md`](../internal/release-plans/v2.13.1/plan_v2.13.1.md)
-- Validator documentation: [`scripts/validate-plugin-install.md`](../../scripts/validate-plugin-install.md)
+- Validator documentation: [`scripts/validate-plugin-install.md`](https://github.com/product-on-purpose/pm-skills/blob/main/scripts/validate-plugin-install.md)
 - Prior release notes (v2.13.0): [`docs/releases/Release_v2.13.0.md`](Release_v2.13.0.md)
 - v2.14.0 cycle plan: [`docs/internal/release-plans/v2.14.0/plan_v2.14.0.md`](../internal/release-plans/v2.14.0/plan_v2.14.0.md)

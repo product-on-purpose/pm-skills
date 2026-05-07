@@ -168,6 +168,8 @@ Coordination rules during this v2.13.1 release prep:
 | `.github/workflows/validation.yml` integration of `validate-plugin-install` | Local CI script is enforcing. CI workflow integration follows in v2.14.0 or as a follow-on commit; not gating for this patch. |
 | README "Quick Start by Platform" Claude Code section refresh | The plugin marketplace path is documented in the dedicated "Install as Claude Code Plugin" section; the platform-specific block was not touched in this patch. |
 | Frontmatter placement correction in 102 library and skill files | Tracked as a v2.14.0 work item. See `docs/internal/release-plans/v2.14.0/discovery/spec_frontmatter-correction.md`. Independent from this patch. |
+| Sweep 11 pre-existing mkdocs strict-mode warnings | Deferred to v2.14.0. The Starlight migration replaces the mkdocs build entirely; fixing pre-Starlight warnings would be wasted work. Pre-existing warnings: 5x Foundation meeting-skills links to `docs/reference/skill-families/meeting-skills-contract.md`; 2x foundation-stakeholder-update links to a date-stamped recap file; release-notes links from v2.11.0/v2.11.1/v2.12.0 to non-docs paths (`library/`, `CHANGELOG.md`); guides/updating-pm-skills.md link path. None are user-visible regressions; all are mkdocs-strict false positives in build that has been red since pre-v2.13.0 ship. |
+| Hygiene patch follow-up commit | Bundled in v2.13.1 cycle: post-tag commit fixes the 1 new mkdocs warning my Release_v2.13.1.md introduced (link to `scripts/validate-plugin-install.md` rewritten to absolute GitHub URL) and runs `gh release edit` to replace the auto-generated boilerplate release notes with the authored `Release_v2.13.1.md` content. |
 
 ---
 
