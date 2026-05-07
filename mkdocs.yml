@@ -177,6 +177,7 @@ nav:
   - Getting Started:
     - getting-started/index.md
     - Quickstart: getting-started/quickstart.md
+    - Install by Platform: getting-started/platforms.md
 
   - Skills:
     - skills/index.md
