@@ -57,7 +57,7 @@ Paths NOT scanned for drift (historical version refs are correct):
 | `docs/internal/multi-repo-*`, `agent-component-usage_*`, `skill-versioning.md`, `cross-llm-review-protocol.md` | Design docs reference the versions they describe |
 | `docs/internal/distribution/`, `docs/internal/mkdocs/` | Distribution and mkdocs migration docs reference relevant versions |
 | `.github/issues-archive/`, `.github/issues-drafts/` | Historical issue content |
-| `AGENTS/{claude,codex}/SESSION-LOG/` | Per-session logs reference the version active at session time |
+| `AGENTS/SESSION-LOG/` (and legacy `AGENTS/{claude,codex}/SESSION-LOG/`) | Per-session logs reference the version active at session time |
 | `AGENTS/claude/CONTEXT.md` and `AGENTS/codex/CONTEXT.md` | "Recent Work" sections list version history |
 | `AGENTS/claude/DECISIONS.md` and `AGENTS/codex/DECISIONS.md` | Decision logs reference the version a decision applied to |
 | `AGENTS/claude/PLANNING/` | Working artifacts reference relevant versions |

@@ -254,7 +254,7 @@ The spike requires installing Zensical, which modifies the local Python environm
 
 ## 10. Related
 
-- v2.12.0 session log Phase 10: [`../../../../AGENTS/claude/SESSION-LOG/2026-05-03_v2.12.0-tag-ship-and-v2.13-handoff_session.md`](../../../../AGENTS/claude/SESSION-LOG/2026-05-03_v2.12.0-tag-ship-and-v2.13-handoff_session.md)
+- v2.12.0 session log Phase 10: [`../../../../AGENTS/SESSION-LOG/2026-05-03_claude_v2.12.0-tag-ship-and-v2.13-handoff.md`](../../../../AGENTS/SESSION-LOG/2026-05-03_claude_v2.12.0-tag-ship-and-v2.13-handoff.md)
 - Current `mkdocs.yml`: [`../../../../mkdocs.yml`](../../../../mkdocs.yml)
 - Zensical compatibility (live URL): https://zensical.org/compatibility/
 - Squidfunk Material maintenance announcement: linked from the compatibility page

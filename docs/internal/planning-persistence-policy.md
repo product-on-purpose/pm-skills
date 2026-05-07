@@ -24,7 +24,8 @@ Track planning artifacts when future collaborators should be able to cite them w
 
 Keep high-churn planning material local and non-canonical.
 
-- `AGENTS/*/SESSION-LOG/**`
+- `AGENTS/SESSION-LOG/**` (shared session logs; model encoded in filename)
+- `AGENTS/*/SESSION-LOG/**` (legacy per-agent locations)
 - `AGENTS/*/TODO.md`
 - `AGENTS/*/PLANNING/**`
 - `_NOTES/**`

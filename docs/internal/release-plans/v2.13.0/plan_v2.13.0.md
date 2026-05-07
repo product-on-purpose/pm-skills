@@ -134,7 +134,7 @@ Detail at [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md). Report
 | Source: doc-structure audit   | `docs/internal/audit/audit_repo-structure_2026-05-01.md`                                                                                        |
 | Source: CI audit (full)       | `docs/internal/audit/ci-audit_2026-05-03.md`                                                                                                    |
 | Source: branches + PR audit   | `docs/internal/audit/branches-pr_2026-05-03.md`                                                                                                 |
-| Source: v2.12.0 session log   | `AGENTS/claude/SESSION-LOG/2026-05-03_v2.12.0-tag-ship-and-v2.13-handoff_session.md`                                                            |
+| Source: v2.12.0 session log   | `AGENTS/SESSION-LOG/2026-05-03_claude_v2.12.0-tag-ship-and-v2.13-handoff.md`                                                                    |
 | CI refactor strand-level plan | [`plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md) - drafted 2026-05-03; **Wave 1 + Wave 3 complete 2026-05-03 to 2026-05-04**            |
 | Zensical spike plan           | [`plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md) - drafted 2026-05-03                                                             |
 | Pre-release checklist         | [`plan_v2.13_pre-release-checklist.md`](plan_v2.13_pre-release-checklist.md) - drafted 2026-05-03                                               |
@@ -497,7 +497,7 @@ Top-level summary:
 - Doc-structure audit: [`../../audit/audit_repo-structure_2026-05-01.md`](../../audit/audit_repo-structure_2026-05-01.md)
 - CI audit (full): [`../../audit/ci-audit_2026-05-03.md`](../../audit/ci-audit_2026-05-03.md)
 - Branches/PR audit: [`../../audit/branches-pr_2026-05-03.md`](../../audit/branches-pr_2026-05-03.md)
-- v2.12.0 session log (handoff): [`../../../../AGENTS/claude/SESSION-LOG/2026-05-03_v2.12.0-tag-ship-and-v2.13-handoff_session.md`](../../../../AGENTS/claude/SESSION-LOG/2026-05-03_v2.12.0-tag-ship-and-v2.13-handoff_session.md)
+- v2.12.0 session log (handoff): [`../../../../AGENTS/SESSION-LOG/2026-05-03_claude_v2.12.0-tag-ship-and-v2.13-handoff.md`](../../../../AGENTS/SESSION-LOG/2026-05-03_claude_v2.12.0-tag-ship-and-v2.13-handoff.md)
 - Strand-level docs:
   - CI refactor: [`./plan_v2.13_ci-refactor.md`](plan_v2.13_ci-refactor.md)
   - Zensical spike: [`./plan_v2.13_zensical-spike.md`](plan_v2.13_zensical-spike.md)

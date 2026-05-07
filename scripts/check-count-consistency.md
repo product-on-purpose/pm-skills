@@ -47,7 +47,7 @@ Exclusions (not flagged as stale):
 - `docs/releases/` . same reason
 - `docs/internal/` . planning docs may reference future counts
 - `.github/.created-issues.json` and `.github/scripts/` . tooling state and npm manifests, not docs
-- `AGENTS/claude/CONTEXT.md`, `AGENTS/claude/DECISIONS.md`, `AGENTS/claude/SESSION-LOG/` . agent-internal context that legitimately references historical states
+- `AGENTS/claude/CONTEXT.md`, `AGENTS/claude/DECISIONS.md`, `AGENTS/SESSION-LOG/` (and legacy `AGENTS/claude/SESSION-LOG/`, `AGENTS/codex/SESSION-LOG/`) . agent-internal context that legitimately references historical states
 - Lines inside `<!-- count-exempt:start --> ... <!-- count-exempt:end -->` blocks
 - Lines whose digit is followed by a subset descriptor (see above)
 

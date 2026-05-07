@@ -81,7 +81,7 @@ When the canonical convention is decided, update this section and rename existin
 
 - **Release plans:** [`docs/internal/release-plans/vX.Y.Z/plan_vX.Y.Z.md`](../release-plans/) (release coordinator) plus optional strand docs (`plan_vX.Y_<strand>.md`)
 - **Effort docs:** [`docs/internal/efforts/F-XX-name.md`](../efforts/) (per-effort planning surface). Reserve for genuinely complex efforts; refactor-cycle work goes in plan tables, not per-item effort docs.
-- **Session logs:** [`AGENTS/claude/SESSION-LOG/`](../../../AGENTS/claude/SESSION-LOG/) and [`AGENTS/codex/SESSION-LOG/`](../../../AGENTS/codex/SESSION-LOG/) (per-session continuity)
+- **Session logs:** [`AGENTS/SESSION-LOG/`](../../../AGENTS/SESSION-LOG/) (shared, model encoded in filename: `<date>_<model>_<scope>.md`)
 - **Agent context:** [`AGENTS.md`](../../../AGENTS.md), [`AGENTS/claude/CONTEXT.md`](../../../AGENTS/claude/CONTEXT.md), [`AGENTS/codex/CONTEXT.md`](../../../AGENTS/codex/CONTEXT.md)
 
 ---

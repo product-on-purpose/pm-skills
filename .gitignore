@@ -1,6 +1,7 @@
 # MkDocs build output
 site/
 .memsearch/
+SESSION-LOG/
 
 # OS generated files
 .DS_Store
@@ -58,7 +59,7 @@ docs/internal/milestones/**/_archived/
 # Agent working files
 # Planning persistence policy: docs/internal/planning-persistence-policy.md
 # Durable files are tracked; high-churn working logs and drafts are ignored.
-AGENTS/*/SESSION-LOG/
+# Note: SESSION-LOG/ is matched by the top-level rule above.
 AGENTS/*/TODO.md
 AGENTS/*/PLANNING/
 !AGENTS/*/CONTEXT.md

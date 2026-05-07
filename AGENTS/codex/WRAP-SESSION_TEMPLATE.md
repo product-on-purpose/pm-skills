@@ -3,7 +3,7 @@
 Use this at the end of every implementation session to produce a decision-complete handoff artifact with clear restart instructions.
 
 Save each completed handoff in:
-- `AGENTS/codex/SESSION-LOG/YYYY-MM-DD_wrap-session_<scope>.md`
+- `AGENTS/SESSION-LOG/YYYY-MM-DD[_HH-MM]_codex_<scope>.md`
 
 ## 1) Session Metadata
 - Date:
@@ -57,7 +57,7 @@ Split by tracked vs local-only artifacts.
 ### Local-only / ignored
 - `_NOTES/...`
 - `.claude/...`
-- `AGENTS/codex/SESSION-LOG/...`
+- `AGENTS/SESSION-LOG/...`
 
 ## 8) Repo State at End
 - Current branch:
@@ -90,7 +90,7 @@ git switch -c <next-branch>
 Include one ready-to-run prompt for the next agent session.
 
 ```text
-Resume from AGENTS/codex/SESSION-LOG/<file>.md.
+Resume from AGENTS/SESSION-LOG/<file>.md.
 Goal: <next releasable chunk>.
 Do:
 1) <task 1>

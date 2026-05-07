@@ -267,16 +267,16 @@ Session continuity for AI coding assistants. Contains context, decisions, and se
 ```
 AGENTS/
 ├── DECISIONS.md              # Shared cross-agent decisions
+├── SESSION-LOG/              # Shared session logs (model encoded in filename:
+│                             #   <date>[_<HH-MM>]_<model>_<scope>.md)
 ├── claude/
 │   ├── CONTEXT.md            # Claude continuity state
 │   ├── DECISIONS.md          # Claude-local rationale
 │   ├── TODO.md               # Task tracking
-│   ├── SESSION-LOG/          # Session summaries
 │   └── PLANNING/             # Working collaboration artifacts
 └── codex/
     ├── CONTEXT.md            # Codex continuity state
     ├── DECISIONS.md          # Codex-local rationale
-    ├── SESSION-LOG/          # Session summaries
     └── PLANNING/             # Working collaboration artifacts
 ```
 

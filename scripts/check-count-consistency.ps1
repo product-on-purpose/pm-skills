@@ -49,7 +49,9 @@ $excludePatterns = @(
     '^\.github/scripts/',
     '^AGENTS/claude/CONTEXT\.md$',
     '^AGENTS/claude/DECISIONS\.md$',
+    '^AGENTS/SESSION-LOG/',
     '^AGENTS/claude/SESSION-LOG/',
+    '^AGENTS/codex/SESSION-LOG/',
     '^library/',
     '^scripts/check-count-consistency\.'
 )

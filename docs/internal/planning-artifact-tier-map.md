@@ -13,7 +13,7 @@ Last updated: 2026-03-15
 | Tier 1 | `docs/internal/release-plans/**` | Tracked | Canonical internal release-governance artifacts |
 | Tier 1 | `docs/releases/*.md` | Tracked | Public release communication |
 | Tier 1 | `CHANGELOG.md` | Tracked | Shipped repo history summary |
-| Tier 2 | `AGENTS/*/SESSION-LOG/**` | Ignored | High-volume operational transcripts |
+| Tier 2 | `AGENTS/SESSION-LOG/**` (and legacy `AGENTS/*/SESSION-LOG/**`) | Ignored | High-volume operational transcripts; model encoded in filename |
 | Tier 2 | `AGENTS/*/TODO.md` | Ignored | Personal task scratchpad |
 | Tier 2 | `AGENTS/*/PLANNING/**` | Ignored | Exploratory drafts and superseded plans |
 | Tier 3 | `_NOTES/**` | Ignored | Local research, prompts, scratch notes, and drafts |

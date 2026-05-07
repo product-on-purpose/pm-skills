@@ -25,7 +25,7 @@ Three triggers, in priority order:
 - Cross-LLM review protocol: `docs/internal/cross-llm-review-protocol.md`
 - Phase 0 Adversarial Review Loop template: `docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md`
 - Codex local technical decisions (if any): `AGENTS/codex/DECISIONS.md`
-- Codex session logs (if any): `AGENTS/codex/SESSION-LOG/`
+- Session logs (shared, model encoded in filename): `AGENTS/SESSION-LOG/` (legacy: `AGENTS/codex/SESSION-LOG/`)
 
 ## History
 

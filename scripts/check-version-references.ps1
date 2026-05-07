@@ -65,6 +65,7 @@ $ExcludePatterns = @(
     '^\.github/issues-drafts/',
     '^\.github/\.created-issues\.json$',
     '^\.github/scripts/',
+    '^AGENTS/SESSION-LOG/',
     '^AGENTS/claude/SESSION-LOG/',
     '^AGENTS/codex/SESSION-LOG/',
     '^AGENTS/claude/CONTEXT\.md$',
