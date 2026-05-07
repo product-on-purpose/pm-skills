@@ -6,10 +6,13 @@
 **Created:** 2026-05-05
 **Updated:** 2026-05-06 (promoted from placeholder; spike executed; verdict GO-WITH-CAVEATS)
 **Sources:**
-- v2.14 Starlight migration execution plan (authoritative for migration execution; Phases 1-4): [`plan_v2.14_starlight-migration.md`](./plan_v2.14_starlight-migration.md) (authored 2026-05-06; 13 workstreams + detailed CI + Material deprecation criteria)
+- v2.14 Starlight migration execution plan (authoritative for migration execution; Phases 1-4): [`plan_v2.14_starlight-migration.md`](./plan_v2.14_starlight-migration.md) (authored 2026-05-06; updated 2026-05-07 cross-session sync; 14 workstreams in 4 phases + detailed CI + Material deprecation criteria + 3 Decision Briefs DM-1/DM-2/DM-3)
+- v2.14 frontmatter correction spec (in-cycle work item): [`discovery/spec_frontmatter-correction.md`](./discovery/spec_frontmatter-correction.md) (drafted 2026-05-06; 5 maintainer questions Q1-Q5 pending signoff before W3.5 execution; covers 102 library + skills files)
+- v2.14 frontmatter example reference artifact: [`discovery/frontmatter-correction-example.md`](./discovery/frontmatter-correction-example.md)
 - v2.14 Starlight compatibility spike plan: [`plan_v2.14_starlight-spike.md`](./plan_v2.14_starlight-spike.md)
-- v2.14 Starlight spike report: [`plan_v2.14_starlight-spike-report_2026-05-06.md`](./plan_v2.14_starlight-spike-report_2026-05-06.md) (executed 2026-05-06; GO-WITH-CAVEATS)
+- v2.14 Starlight spike report: [`plan_v2.14_starlight-spike-report_2026-05-06.md`](./plan_v2.14_starlight-spike-report_2026-05-06.md) (executed 2026-05-06; GO-WITH-CAVEATS; updated 2026-05-07 with cross-session sync)
 - v2.14 Codex adversarial review (archived): [`_archive/plan_v2.14_starlight-spike-report_2026-05-06_original_reviewed-by-codex.md`](./_archive/plan_v2.14_starlight-spike-report_2026-05-06_original_reviewed-by-codex.md)
+- v2.13.1 release plan (concurrent hotfix; latest tag): [`../v2.13.1/plan_v2.13.1.md`](../v2.13.1/plan_v2.13.1.md) (Plugin install path correction shipped 2026-05-06 during this cycle's planning; new validator `validate-plugin-install` whose workflow integration is deferred to v2.14 W10)
 - v2.13.0 Zensical compatibility spike report: [`../v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md`](../v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md) (NO-GO outcome; BLOCKER baseline for Starlight retests)
 - v2.13.0 Zensical spike plan: [`../v2.13.0/plan_v2.13_zensical-spike.md`](../v2.13.0/plan_v2.13_zensical-spike.md) (structural model for the Starlight spike plan)
 - v2.13.0 final sweep: [`../v2.13.0/plan_v2.13_final-sweep_2026-05-05.md`](../v2.13.0/plan_v2.13_final-sweep_2026-05-05.md) (QW-1 to QW-9 quick-win opportunities; contingency-scope candidates)
@@ -293,7 +296,9 @@ Day 1 (Phase 0):    Starlight compatibility spike (60 min, time-boxed)
 | Spike report | [`plan_v2.14_starlight-spike-report_2026-05-06.md`](./plan_v2.14_starlight-spike-report_2026-05-06.md); verdict GO-WITH-CAVEATS pending pre-ship validation gates |
 | Codex adversarial review | Completed 2026-05-06 (9 Major / 8 Minor / 2 Notes / 0 Blockers); review artifact archived at [`_archive/plan_v2.14_starlight-spike-report_2026-05-06_original_reviewed-by-codex.md`](./_archive/plan_v2.14_starlight-spike-report_2026-05-06_original_reviewed-by-codex.md); 19 actions applied to spike report + cycle plan |
 | Decision Briefs (D1-D4) | All resolved 2026-05-06; recorded in Decisions Briefs section above with maintainer signoff slots filled |
-| Migration execution plan | [`plan_v2.14_starlight-migration.md`](./plan_v2.14_starlight-migration.md) authored 2026-05-06; 13 workstreams + detailed CI + Material deprecation criteria; 2 new Decision Briefs (DM-1, DM-2) for maintainer signoff before W12 / W11 |
+| Migration execution plan | [`plan_v2.14_starlight-migration.md`](./plan_v2.14_starlight-migration.md) authored 2026-05-06; updated 2026-05-07 cross-session sync; 14 workstreams in 4 phases + detailed CI + Material deprecation criteria; 3 new Decision Briefs (DM-1 mkdocs.yml deletion timing, DM-2 deploy action choice, DM-3 install-path positioning) for maintainer signoff at workstream kickoff |
+| Frontmatter correction spec (in-cycle) | [`discovery/spec_frontmatter-correction.md`](./discovery/spec_frontmatter-correction.md) drafted 2026-05-06; 102 files affected (100 library samples + 2 OKR-skill EXAMPLE.md); 5 maintainer questions Q1-Q5 pending signoff before W3.5 execution; bundled placement fix + schema enhancement + lint extension in one PR |
+| Concurrent v2.13.1 ship | Latest tag is now v2.13.1 (plugin install path correction; shipped 2026-05-06 in parallel session); new validator `validate-plugin-install` enforcing locally; workflow integration deferred to v2.14 W10 |
 | Theme decision | Committed: Starlight migration; spike confirmed; migration execution (Phases 1-4) begins next session |
 | Effort estimate (post-review) | 30-40 hours focused work (~5-8 calendar days); see spike report Estimated migration effort table |
 | Pre-ship validation gates | 7 gates listed in spike report Outcome section; must clear before v2.14.0 ships |

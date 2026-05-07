@@ -21,28 +21,31 @@
 
 | Dimension | Value |
 |---|---|
-| Effort estimate | 30-40 hours focused work (base 22-28 + validation reserve 8-12) |
-| Calendar estimate | 5-8 days assuming context-switching |
-| Workstreams | 13 (W1-W13) |
+| Effort estimate | 33-45 hours focused work (base 25-33 + validation reserve 8-12; +3-5 hrs vs original after W3.5 frontmatter sweep added per cross-session sync) |
+| Calendar estimate | 6-9 days assuming context-switching |
+| Workstreams | 14 (W1, W2, W3, W3.5, W4-W13) |
 | Pre-ship validation gates | 7 |
-| New CI checks | 2 (production-mode internal/ exclusion; edit-link resolution) |
+| New CI checks | 3 (production-mode internal/ exclusion; edit-link resolution; `validate-plugin-install` workflow integration deferred from v2.13.1) |
 | Material artifacts to deprecate | mkdocs.yml + ~6 Material plugin pip dependencies + custom CSS + workflow steps + documentation references |
+| Pre-existing mkdocs warnings | 11 (deferred from v2.13.1; resolved by mkdocs deletion in W12) |
+| Concurrent work absorbed | v2.13.1 (plugin install path correction; latest tag) + spec_frontmatter-correction (102-file scope) |
 | Risk profile | Medium. Spike covered ~80% of compatibility surface; the 20% is bounded by validation gates. |
 
 ```
 W1 Pre-flight setup
   -> W2 Production content-source mount (D2)
-       -> W3 Frontmatter compliance (title injection)
+       -> W3 Frontmatter compliance (51 docs/ files; title injection)
+       -> W3.5 Library + skills frontmatter correction (102 files; per spec)
        -> W4 Sidebar IA hybrid (D3)
        -> W6 Mermaid integration (D4)
        -> W8 Generator output verification
        -> W9 Redirect mapping
-       -> W10 CI workflow migration
+       -> W10 CI workflow migration (incl. validate-plugin-install integration)
             -> W11 GitHub Pages deploy migration
                  -> W12 Material deprecation
                       -> W13 Final validation + ship
        -> W5 Custom CSS port (depends on W4)
-       -> W7 Library samples (depends on W2 + W4)
+       -> W7 Library samples mount (depends on W2 + W3.5 + W4)
 ```
 
 ---
@@ -59,8 +62,10 @@ Recap of decisions resolved in the cycle plan's Decision Briefs section. This pl
 | D4 | Mermaid loading strategy | Option B (lazy-load) with Option C (code-split) fallback; defer to v2.15 if neither works | W6 |
 | Adjacent | Old Material URL preservation | Lower priority; redirect base-path bug is MEDIUM polish, not pre-ship gate | W9 (optional polish) |
 | Adjacent | Astro 6 + Node 22.12+ bump | Deferred to v2.15+ as focused upgrade cycle | Out of scope for v2.14 |
+| Spec-block | Frontmatter placement + schema (Q1-Q5 in spec_frontmatter-correction.md) | 5 maintainer questions pending signoff before W3.5 execution | W3.5 (foundational; blocks W7) |
+| Spec-block | Library samples title quality (autogenerate vs hand-curated) | Per spec Decision Brief 2 alternative: "Generate `title:` automatically from filename via Starlight config" was rejected ("low-quality titles"); hand-curate via generator-as-starting-point | W3.5 |
 
-New decisions surfaced by this plan are recorded in Section 6 below as DM-1, DM-2.
+New decisions surfaced by this plan are recorded in Section 6 below as DM-1, DM-2, DM-3 (DM-3 added in cross-session sync 2026-05-07).
 
 ---
 
@@ -68,9 +73,9 @@ New decisions surfaced by this plan are recorded in Section 6 below as DM-1, DM-
 
 Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-sections retain individual H3 headers; phase markers are short H3 dividers between them.
 
-### Phase 1: Foundation (W1-W3)
+### Phase 1: Foundation (W1, W2, W3, W3.5)
 
-*End-of-phase outcome: Astro builds against in-place `docs/` mount with valid frontmatter.*
+*End-of-phase outcome: Astro builds against in-place `docs/` mount; all in-scope markdown files (docs/ + library samples + skill EXAMPLE.md) have valid byte-0 frontmatter that Starlight schema accepts.*
 
 ### W1: Pre-flight setup
 
@@ -147,6 +152,42 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Effort:** 1 hour (script) + 1-2 hours (quality pass + validator update) = 2-3 hours
 
 **Owner:** Codex (script) + Claude (validator + review)
+
+---
+
+### W3.5: Library + skills frontmatter correction (102 files; per spec)
+
+**Goal.** Correct frontmatter placement and schema in the 102 markdown files that have YAML frontmatter starting at line 2 (after an HTML attribution comment) instead of byte 0. Authoritative spec: [`discovery/spec_frontmatter-correction.md`](./discovery/spec_frontmatter-correction.md). This work was discovered during the v2.13.1 release prep window and runs in this cycle as an independent but bundled work item.
+
+**Tasks:**
+- Resolve 5 maintainer Decision Briefs in the spec before execution (Q1 placement format, Q2 schema scope, Q3 `context:` field disposition, Q4 OKR-skill EXAMPLE.md schema scope, Q5 PR boundaries)
+- Update generator and standards docs first (lowest risk):
+  - `library/skill-output-samples/SAMPLE_CREATION.md` Section 5 rewrite (byte-0 placement; complete frontmatter example)
+  - `skills/utility-pm-skill-builder/SKILL.md` Step 5 instruction (byte-0 enforcement on output)
+  - `skills/utility-pm-skill-iterate/SKILL.md` Step 5 byte-0 preservation note
+  - `skills/utility-pm-skill-validate/SKILL.md` new Tier 1 check `frontmatter-at-byte-zero`
+- Mechanical sweep of 102 files (deterministic script; no LLM-authored per-file edits):
+  - 100 library samples in `library/skill-output-samples/**/sample_*.md`
+  - 2 OKR-skill EXAMPLE.md files (`skills/measure-okr-grader/references/EXAMPLE.md` + `skills/foundation-okr-writer/references/EXAMPLE.md`)
+  - Apply placement fix + (per Q2 outcome) `title:` (and optionally `description:`) schema additions in same script run
+- Extend `scripts/lint-skills-frontmatter.sh` and `.ps1` to broader scope: TEMPLATE.md / EXAMPLE.md / library samples; add per-class schema check for library samples specifically; archive the audit logic as `scripts/check-frontmatter-byte-zero.sh` (advisory-only at first per spec open item)
+- Spot-check on github.com: 6 representative samples (2 per thread) + both OKR EXAMPLE.md files render metadata table correctly
+
+**Acceptance criteria:**
+- All 102 files have `---` at byte 0 with attribution comment on line immediately after closing fence
+- All 100 library samples have `title:` field (and per Q2 outcome possibly `description:`)
+- `bash scripts/lint-skills-frontmatter.sh` exits 0 across all in-scope file classes after sweep
+- `bash scripts/lint-skills-frontmatter.sh` exits non-zero with clear error when test file is manually broken (verify before revert)
+- `SAMPLE_CREATION.md` Section 5 documents byte-0 placement with in-line example
+- `pm-skill-builder`, `pm-skill-iterate`, `pm-skill-validate` SKILL.md files reflect byte-0 placement requirement
+- Spot-check confirms metadata-table rendering on github.com for the 8 sample files
+- Spike report Caveat 1 updated to reflect full title scope (was `51/125 docs files`; now `51 docs + 100 samples + 2 EXAMPLE = 153 files total`)
+
+**Dependencies:** W1 (production project scaffold)
+
+**Effort:** 3-5 hours focused (1 hour generator/standards updates + 1-2 hours sweep + 1 hour lint extensions + 30 min spot-checks)
+
+**Owner:** Codex (deterministic sweep script) + Claude (generator/standards/lint updates + review)
 
 ---
 
@@ -248,9 +289,9 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 - Sample typography consistent across threads (storevine / brainshelf / workbench look the same modulo content)
 - Any MDX collisions either fixed or documented as known issues
 
-**Dependencies:** W2, W4
+**Dependencies:** W2, W3.5 (samples must have byte-0 frontmatter before Starlight schema accepts them), W4
 
-**Effort:** 4-6 hours
+**Effort:** 4-6 hours (down from initial estimate now that W3.5 handles the frontmatter sweep ahead of mount)
 
 **Owner:** Claude
 
@@ -350,7 +391,8 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 | `check-internal-link-validity.sh/.ps1` (advisory) | PROMOTE to enforcing per QW-7 (v2.13 final-sweep) | Particularly important post-migration since Starlight does not surface broken-link warnings the same way Material `--strict` did |
 | `check-count-consistency.sh/.ps1` | KEEP UNCHANGED | Validates source counts |
 | `validate-docs-frontmatter.sh/.ps1` (advisory) | PROMOTE to enforcing per QW-3 + extended to require `title:` (W3) | |
-| `validate-version-consistency.sh/.ps1` | KEEP UNCHANGED | Validates plugin manifests |
+| `validate-version-consistency.sh/.ps1` | KEEP UNCHANGED | Validates plugin manifests; v2.13.1 updated path to `.claude-plugin/marketplace.json` |
+| `validate-plugin-install.sh/.ps1/.md` | KEEP UNCHANGED + WIRE INTO `validation.yml` | NEW in v2.13.1 (enforcing locally; workflow integration deferred to v2.14). Schema-validates plugin.json + marketplace.json against Claude Code's expected shape. Add as enforcing CI step in `validation.yml`. |
 
 #### W10.4: New automated checks
 
@@ -482,6 +524,7 @@ Acceptance: `pip list 2>/dev/null | grep -i 'mkdocs\|pymdownx\|cairosvg'` return
 - [ ] **README, CONTRIBUTING, and developer-facing docs reflect new build commands.** Verification: manual review.
 - [ ] **Python virtualenv (if existed) updated or removed.** Verification: documented in dependency-policy.md (created in W1).
 - [ ] **CHANGELOG.md captures the deprecation explicitly.** Verification: v2.14.0 entry has a "Deprecated" section listing mkdocs / mkdocs-material / pymdownx / etc. (per Keep a Changelog convention).
+- [ ] **11 pre-existing mkdocs strict-mode warnings (deferred from v2.13.1) are resolved by virtue of mkdocs deletion.** Verification: pre-Starlight build had 11 strict-mode warnings (5x foundation meeting-skills cross-ref links; 2x foundation-stakeholder-update date-stamped recap link; release-notes path-prefix issues from v2.11.0/v2.11.1/v2.12.0; guides/updating-pm-skills.md link path). Per v2.13.1 plan, these were deferred since fixing pre-Starlight warnings is wasted work. Post-mkdocs-removal, these are non-issues. NOTE: Starlight uses different link-validation. The same broken cross-refs may surface in `check-internal-link-validity` (promoted to enforcing in W10.3); fix any that still apply during W13 final validation.
 
 **Dependencies:** W11 (cutover verified before deletion is safe); DM-1 (timing decision)
 
@@ -592,6 +635,31 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 - [ ] Reject; alternative direction: 
 - Notes: 
 
+### DM-3: Recommended install-path positioning
+
+**What it is.** v2.13.1 documented three parallel install paths neutrally without primary recommendation: (a) Claude Code plugin marketplace (`/plugin marketplace add product-on-purpose/pm-skills`), (b) sync helper (`scripts/sync-claude.sh`), (c) `npx skills add`. The v2.13.1 plan explicitly defers the recommended-path positioning question to "v2.14.0 or later." This decision determines which path README, CONTRIBUTING, and contributor docs treat as primary.
+
+**Why it matters.** Without a recommended path, contributors and users see three options and may pick suboptimally. With Starlight migration shipping in v2.14, the install paths still work (the doc-stack change does not affect the plugin install machinery), so the timing is right to set positioning as part of broader docs refresh.
+
+**Desired outcomes.**
+- One primary path documented as the recommended approach in README "Install as Claude Code Plugin" section.
+- Other paths retained as alternatives with clear tradeoffs.
+- Contributor onboarding flow points at the recommended path consistently.
+
+**Potential solutions.**
+- **Option A: Plugin marketplace as primary.** Pros: native Claude Code experience; auto-updates; matches v2.13.1 effort investment. Cons: requires Claude Code; less flexible for IDE / non-CC users.
+- **Option B: Sync helper as primary.** Pros: works across all Claude environments (Claude Code, Claude.ai, Cursor, etc.); explicit sync model. Cons: requires shell access; less polished UX than plugin install.
+- **Option C: `npx skills add` (openskills CLI) as primary.** Pros: cross-tool standard; aligns with broader skills ecosystem. Cons: openskills had bugs historically (#48 closed; pm-skills 24 skills not auto-discovered per CONTEXT.md note); less mature for our use case.
+- **Option D: Keep neutral (status quo from v2.13.1).** Pros: no decision needed; users self-select. Cons: defers the question indefinitely; no clear contributor onboarding path.
+
+**Recommendation: Option A (plugin marketplace as primary).** v2.13.1 invested in making this path work cleanly; the validate-plugin-install validator now guards against regression; native Claude Code UX is the lowest-friction onboarding. Sync helper and npx skills add stay as documented alternatives.
+
+**Maintainer decision / feedback:**
+- [ ] Accept recommendation (Option A)
+- [ ] Modify: 
+- [ ] Reject; alternative direction: 
+- Notes: 
+
 ---
 
 ## 7. Risk register
@@ -636,3 +704,4 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 | Date | Change |
 |---|---|
 | 2026-05-06 | Initial migration plan authored after Codex adversarial review of spike report. 13 workstreams, 7 Pre-Ship Validation Gates, 2 new Decision Briefs (DM-1 mkdocs.yml deletion timing; DM-2 deploy action choice), Phase 0 schedule, Risk register. Total estimate 30-40 focused hours / 5-8 calendar days. |
+| 2026-05-07 | Cross-session sync: absorbed concurrent v2.13.1 ship (latest tag now v2.13.1; new validator `validate-plugin-install` enforcing locally + workflow integration deferred to W10) and `spec_frontmatter-correction.md` (102-file scope; new W3.5 workstream). Added DM-3 (recommended install-path positioning, deferred from v2.13.1 maintainer call). Revised estimate from 30-40 to 33-45 focused hours / 6-9 calendar days. Updated W7 dependencies (W3.5 added). Updated W12 acceptance criteria with 11 deferred mkdocs warnings. |

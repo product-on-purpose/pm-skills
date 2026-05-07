@@ -7,7 +7,8 @@
 **Starlight version (tested):** 0.34.8 (pinned to ~0.34.0)
 **astro-mermaid version:** 2.0.1
 **Material version (baseline):** Material for MkDocs 9.7.6 (mkdocs.yml current)
-**Spike POC location:** `_spike/starlight-poc/` (gitignored; safe to delete after report consumed)
+**Spike POC location:** `_spike/starlight-poc/` (gitignored; deleted in W1 of the migration plan)
+**Library samples count clarification:** `library/skill-output-samples/` contains ~132 markdown files total of which 100 are samples-with-frontmatter (the rest are READMEs / SAMPLE_CREATION.md / etc.). The spike report's references to "132 sample files" mean the file count to mount; the 100 figure is what `spec_frontmatter-correction.md` operates on (frontmatter-bearing samples that need byte-0 correction).
 **Plan:** [`plan_v2.14_starlight-spike.md`](./plan_v2.14_starlight-spike.md)
 
 ---
@@ -76,7 +77,7 @@ Build log analysis: **0 content/parser warnings** in Starlight build. Excluded f
 
 Compared against:
 - Zensical 0.0.40 (v2.13): 2,940 false-positive parser warnings on bracketed-text patterns (`[role]`, `[yes / no]`, `cards[3]`). Made `--strict` mode unusable.
-- Material `--strict` (current): 13 warnings, all real broken cross-references (the F5/F7 issues catalogued in v2.13 final-sweep). Real bugs to fix during migration regardless.
+- Material `--strict` (current): 13 warnings as observed by the spike's clean-checkout build; v2.13.1 release prep observed 11 pre-existing warnings (small variance across builds; both numbers are in the same ballpark). All real broken cross-references (the F5/F7 issues catalogued in v2.13 final-sweep). Real bugs but per v2.13.1 plan deferred to v2.14 since "the Starlight migration replaces the mkdocs build entirely; fixing pre-Starlight warnings would be wasted work." Note: same broken cross-refs may surface in Starlight's `check-internal-link-validity` validator (promoted to enforcing in W10.3 of the migration plan); fix any that still apply during W13 final validation.
 
 Starlight's MDX/Markdown parser handled all bracketed-text patterns without false positives. This is a clean win.
 
@@ -135,18 +136,23 @@ Note: Material's measured 6.00s tool-reported / 6.99s wall-clock is faster than 
 
 ## What didn't work
 
-### Title frontmatter required on every page (MEDIUM, ~1 hour script)
+### Title frontmatter required on every page (MEDIUM; cross-session sync 2026-05-07: full scope is 153 files not 51)
 
-Starlight's `docsSchema` requires `title: string` on every doc. **51 of 125 source files (~41%) lack `title:` frontmatter** in the current `docs/` tree:
+Starlight's `docsSchema` requires `title: string` on every doc. **In `docs/` alone: 51 of 125 source files (~41%) lack `title:` frontmatter** as the spike originally found:
 - 12 files have other frontmatter but no title.
 - 39 files have no frontmatter at all (mostly index pages and READMEs).
 
-The spike fixed this with a PowerShell script that injects `title: <derived from filename>` into all 51 files (with parser-aware FM boundary detection). Production migration would do one of:
-- Same script approach (auto-derive from filename; ~1 hour to write + audit).
-- Author titles by hand for higher quality (~4-8 hours for 51 files).
-- Modify the docsSchema to make title optional and let Starlight default it (loses Starlight's auto-title-from-frontmatter behavior; not recommended).
+**Cross-session sync 2026-05-07 - additional scope discovered:** the `discovery/spec_frontmatter-correction.md` (parallel-session work) audited the full repo and found 102 ADDITIONAL markdown files outside `docs/` with frontmatter starting at line 2 (after an HTML attribution comment) instead of byte 0:
+- 100 library samples in `library/skill-output-samples/**/sample_*.md`
+- 2 OKR-skill `references/EXAMPLE.md` files
 
-**Severity:** MEDIUM. Bounded one-shot remediation. Real production work but not architectural.
+These 102 files need both placement correction AND `title:` injection (per the spec's Decision Brief 2 schema enhancement). Total title scope across the migration: **153 files** (51 in docs/ + 100 library samples + 2 EXAMPLE.md). The 102-file sweep is now its own workstream (W3.5 in `plan_v2.14_starlight-migration.md`).
+
+The spike's POC handled the 51 docs/ files via a PowerShell script (parser-aware FM boundary detection). Production migration approach for all 153:
+- W3 (51 docs/ files): same script approach (~1 hour write + audit).
+- W3.5 (102 library + skills files): deterministic mechanical sweep per `spec_frontmatter-correction.md` (~3-5 hours; bundles placement fix + title-injection + lint extension).
+
+**Severity:** MEDIUM. Bounded one-shot remediation across both workstreams. Real production work but not architectural.
 
 ### Redirect destination base-path bug (MEDIUM polish; defer-OK)
 
@@ -339,5 +345,6 @@ The Starlight verdict's caveats sum to ~1-2 days of remediation work; the Zensic
 
 | Date | Change |
 |---|---|
-| 2026-05-06 | Spike executed against current `mkdocs.yml`; report authored. Verdict: GO-WITH-CAVEATS; recommend v2.14 migration migration. |
-| 2026-05-06 | Codex adversarial review applied (9 Major / 8 Minor / 2 Notes / 0 Blockers). Verdict reframed to "GO-WITH-CAVEATS pending migration validation gates." Performance NO-GO trigger explicitly waived per D1 maintainer call (no hard remediation gate; light monitoring). Redirect destination base-path bug downgraded from IMPORTANT to MEDIUM polish per maintainer "don't care that much about old Material URLs." Estimated effort revised 17-22 to 30-40 hours (base + validation reserve). New sections: migration validation gates, Stakeholder impact, Mermaid bundle size finding. Performance ratios recomputed on tool-reported baseline (2.04x cold no-Mermaid; 3.12x with Mermaid). Pattern 5C wording softened to "schema accepts" not "preserved into HTML metadata." |
+| 2026-05-06 | Spike executed against current `mkdocs.yml`; report authored. Verdict: GO-WITH-CAVEATS; recommend v2.14 migration. |
+| 2026-05-06 | Codex adversarial review applied (9 Major / 8 Minor / 2 Notes / 0 Blockers). Verdict reframed to "GO-WITH-CAVEATS pending pre-ship validation gates." Performance NO-GO trigger explicitly waived per D1 maintainer call (no hard remediation gate; light monitoring). Redirect destination base-path bug downgraded from IMPORTANT to MEDIUM polish per maintainer "don't care that much about old Material URLs." Estimated effort revised 17-22 to 30-40 hours (base + validation reserve). New sections: Pre-ship validation gates, Stakeholder impact, Mermaid bundle size finding. Performance ratios recomputed on tool-reported baseline (2.04x cold no-Mermaid; 3.12x with Mermaid). Pattern 5C wording softened to "schema accepts" not "preserved into HTML metadata." |
+| 2026-05-07 | Cross-session sync: absorbed concurrent v2.13.1 ship + `spec_frontmatter-correction.md`. Caveat 1 expanded to acknowledge full title scope (153 files: 51 docs + 100 library samples + 2 EXAMPLE.md); the 102 additional files are now W3.5 in the migration plan. Material `--strict` warnings count disambiguated (13 spike-time vs 11 v2.13.1-prep-time; same defect class; both deferred to mkdocs deletion). Library samples count clarified (~132 files in collection / 100 frontmatter-bearing). Header note added re: spike POC deletion + samples-count clarification. |
