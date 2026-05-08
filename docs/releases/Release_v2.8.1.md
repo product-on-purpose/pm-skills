@@ -1,5 +1,5 @@
 ---
-title: v2.8.1
+title: Release v2.8.1
 ---
 
 # PM-Skills v2.8.1 Release Notes

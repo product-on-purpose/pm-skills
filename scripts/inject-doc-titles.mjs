@@ -95,7 +95,7 @@ function deriveTitle(filePath) {
 
   const releaseMatch = name.match(/^Release_v([0-9].*)$/);
   if (releaseMatch) {
-    return 'v' + releaseMatch[1];
+    return 'Release v' + releaseMatch[1];
   }
 
   if (name === 'changelog' || name === 'CHANGELOG') return 'Changelog';

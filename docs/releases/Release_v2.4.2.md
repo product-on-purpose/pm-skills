@@ -1,5 +1,5 @@
 ---
-title: v2.4.2
+title: Release v2.4.2
 ---
 
 # PM-Skills v2.4.2 Release Notes

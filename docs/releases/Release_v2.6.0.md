@@ -1,5 +1,5 @@
 ---
-title: v2.6.0
+title: Release v2.6.0
 ---
 
 # PM-Skills v2.6.0 Release Notes
