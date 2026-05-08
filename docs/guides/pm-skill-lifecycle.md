@@ -1,3 +1,7 @@
+---
+title: PM Skill Lifecycle
+---
+
 # PM-Skill Lifecycle
 
 A practical guide to creating, validating, iterating, and updating PM skills. For how skills are *structured*, see [PM-Skill Anatomy](../reference/pm-skill-anatomy.md). This guide covers how skills *evolve*.

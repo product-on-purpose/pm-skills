@@ -1,3 +1,7 @@
+---
+title: v2.0
+---
+
 # PM‑Skills v2.0 Release Notes
 Date: 2026-01-26  
 Status: Shipped (tag v2.0.0). Use for support, audits, and future agent runs.

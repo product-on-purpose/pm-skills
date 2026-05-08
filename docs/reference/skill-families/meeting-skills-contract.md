@@ -1,3 +1,7 @@
+---
+title: Meeting Skills Contract
+---
+
 # Meeting Skills Family Contract
 
 **Status**: Canonical (enforced by CI)

@@ -1,3 +1,7 @@
+---
+title: v2.9.1
+---
+
 # Release v2.9.1 . Workflow Docs & CI Consistency
 
 **Status:** Final

@@ -1,3 +1,7 @@
+---
+title: Using Skills
+---
+
 # Using Skills: Beginner to Advanced
 
 This guide takes you from basic skill invocation to advanced workflows and power-user techniques.

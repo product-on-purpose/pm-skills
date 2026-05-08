@@ -1,4 +1,5 @@
 ---
+title: Sprint Planning
 generated: true
 source: scripts/generate-workflow-pages.py
 ---

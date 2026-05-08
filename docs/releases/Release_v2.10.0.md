@@ -1,3 +1,7 @@
+---
+title: v2.10.0
+---
+
 # Release v2.10.0 . Utility & Skill Expansion
 
 **Status:** Final

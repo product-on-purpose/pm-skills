@@ -1,3 +1,7 @@
+---
+title: Stakeholder Alignment
+---
+
 # Stakeholder Alignment Workflow
 
 > **Build a compelling case for leadership buy-in before committing resources.**

@@ -1,3 +1,7 @@
+---
+title: Agent Skill Anatomy
+---
+
 # Agent Skill Anatomy: A Deconstructed Guide
 
 A comprehensive reference for understanding the structure, components, and standards of agent skills according to the [agentskills.io specification](https://agentskills.io/specification).

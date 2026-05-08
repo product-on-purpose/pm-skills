@@ -1,3 +1,7 @@
+---
+title: Ecosystem
+---
+
 # PM-Skills Ecosystem Overview
 
 This guide explains the PM-Skills ecosystem, which comprises two complementary products that work together to bring professional product management skills to AI assistants.

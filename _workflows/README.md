@@ -1,3 +1,7 @@
+---
+title: Workflows
+---
+
 # Workflows
 
 Source of truth for workflow definitions.

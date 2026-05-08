@@ -1,3 +1,7 @@
+---
+title: Categories
+---
+
 # Category Taxonomy
 
 Categories represent **framework-agnostic PM activities**. They enable skills to be mapped to any methodology (Triple Diamond, Lean Startup, Design Thinking, etc.) through a common vocabulary.

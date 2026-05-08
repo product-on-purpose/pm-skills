@@ -1,3 +1,7 @@
+---
+title: Getting Started
+---
+
 # Getting Started with PM-Skills
 
 **Fastest path (one command)**

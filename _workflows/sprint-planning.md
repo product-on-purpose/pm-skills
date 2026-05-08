@@ -1,3 +1,7 @@
+---
+title: Sprint Planning
+---
+
 # Sprint Planning Workflow
 
 > **Turn a prioritized backlog into sprint-ready stories with comprehensive edge case coverage.**

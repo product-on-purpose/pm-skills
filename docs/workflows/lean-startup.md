@@ -1,4 +1,5 @@
 ---
+title: Lean Startup
 generated: true
 source: scripts/generate-workflow-pages.py
 ---

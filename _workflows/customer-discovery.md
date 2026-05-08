@@ -1,3 +1,7 @@
+---
+title: Customer Discovery
+---
+
 # Customer Discovery Workflow
 
 > **Transform raw research into a clear, validated problem worth solving.**

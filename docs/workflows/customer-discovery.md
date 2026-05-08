@@ -1,4 +1,5 @@
 ---
+title: Customer Discovery
 generated: true
 source: scripts/generate-workflow-pages.py
 ---

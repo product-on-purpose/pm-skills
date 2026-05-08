@@ -1,3 +1,7 @@
+---
+title: Contributing
+---
+
 # Contributing to PM-Skills
 
 Thank you for your interest in contributing to PM-Skills! This document provides guidelines for contributing skills and other improvements.

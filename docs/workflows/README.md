@@ -1,3 +1,7 @@
+---
+title: Workflows
+---
+
 # Workflows (Generated)
 
 **Do not edit directly.** Source of truth is `_workflows/`.

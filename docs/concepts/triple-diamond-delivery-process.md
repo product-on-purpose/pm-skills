@@ -1,3 +1,7 @@
+---
+title: Triple Diamond Delivery Process
+---
+
 # The Triple Diamond Delivery Process: A Comprehensive Guide
 
 ## Executive Summary

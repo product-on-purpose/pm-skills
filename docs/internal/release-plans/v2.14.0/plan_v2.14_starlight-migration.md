@@ -128,6 +128,8 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 
 **Owner:** Claude
 
+**Status (2026-05-07):** EXECUTED. `src/content.config.ts` configured with `glob({ pattern: ['**/*.{md,mdx}', '!internal/**', '!templates/**'], base: './docs' })` plus `docsSchema()` extended with pm-skills custom frontmatter fields. `astro.config.mjs` `editLink: { baseUrl: 'https://github.com/product-on-purpose/pm-skills/edit/main/' }` (NOT `.../edit/main/docs/`; the doubled-`docs/` defect Codex flagged in S5.M1 surfaced and was fixed). `src/content/docs/` placeholder removed. Build passes; verification shown in W3 status block.
+
 ---
 
 ### W3: Frontmatter compliance (title injection)
@@ -135,23 +137,30 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Every doc has the `title:` frontmatter Starlight requires.
 
 **Tasks:**
-- Run title-injection script (parser-aware FM boundary detection per spike experience) on all 51 files lacking `title:`
+- Run title-injection script (parser-aware FM boundary detection per spike experience) on all 49 files lacking `title:` (down from spike's 51; v2.13.1 ship and concurrent work added 2 titles)
 - Manual quality pass: review filename-derived titles for cases that look bad (e.g., underscores, all-caps, abbreviations); replace with hand-authored titles as needed
-- Update `astro.config.mjs` content collection schema with extended fields: `generated`, `source`, `phase`, `classification`, `version`, `updated`, `license`, `metadata`, `tags`, `date`, `draft` (per spike Caveat 1 and Pattern 5C)
-- Update `lint-skills-frontmatter` validator: extend to require `title:` on every doc/*.md (or pull this requirement into a new `validate-docs-frontmatter` advisory-to-enforcing promotion per QW-7)
+- Update `astro.config.mjs` content collection schema with extended fields: `generated`, `source`, `phase`, `classification`, `version`, `updated`, `license`, `metadata`, `tags`, `date`, `draft` (per spike Caveat 1 and Pattern 5C). Now landed in `src/content.config.ts` per Astro 5 + Starlight 0.34 conventions.
+- Extend `validate-docs-frontmatter` validator (already advisory mode and already requires `title:`) - promotion to enforcing happens in W10.3 per QW-7
+
+**W3 sub-fix (out-of-original-scope, in-W3-execution-scope): Generator-source preservation.**
+- The 9 `_workflows/*.md` source files have no frontmatter; the workflow generator overwrites `docs/workflows/*.md` from these sources on each regen. Without `title:` in source, regen would lose W3's docs/workflows changes.
+- Action: extend title-injection script to also walk `_workflows/`. Script run added `title:` to 10 source files (including `_workflows/README.md`).
+- W8 (Generator output verification) will run all 3 generators and confirm regen preserves the title: across regens.
 
 **Acceptance criteria:**
 - 100% of `docs/**/*.md` (excluding `internal/` and `templates/`) have `title:` frontmatter
 - Build completes without "title required" schema errors
-- 51-file diff is committed with clear commit message: `fix(docs): inject title frontmatter for Starlight schema compliance (51 files)`
+- 49-file docs/ diff + 10-file _workflows/ diff committed with clear commit message: `fix(docs+_workflows): inject title frontmatter for Starlight schema compliance (59 files)`
 - Title quality reviewed (no `Readme` or `Index` titles where a real title applies)
-- `lint-skills-frontmatter` validator catches missing `title:` on new contributions
+- `validate-docs-frontmatter` validator catches missing `title:` on new contributions
 
 **Dependencies:** W1
 
 **Effort:** 1 hour (script) + 1-2 hours (quality pass + validator update) = 2-3 hours
 
 **Owner:** Codex (script) + Claude (validator + review)
+
+**Status (2026-05-07):** EXECUTED. Build passes (125 pages in 4.2s warm / 8.8s cold). 0 internal/* in dist; 0 templates/* in dist; 5/5 sample editLinks resolve to real files in repo. URL slug normalization observed (Starlight strips dots/underscores from filenames; e.g., `Release_v2.13.0.md` becomes `/releases/release_v2130/`). EditLink continues to resolve to original filename via the source-path preservation; external URL change captured for W9 redirect-mapping.
 
 ---
 
@@ -660,6 +669,48 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 - [ ] Reject; alternative direction: 
 - Notes: 
 
+### DM-4: Astro 5.13.x CVE pin policy
+
+**What it is.** Surfaced during W1 `npm install`: `npm audit` reports 5 chained Astro CVEs against the pinned `astro ~5.13.0`. The chain:
+
+| Advisory | Severity | Fix range | Affects |
+|---|---|---|---|
+| `GHSA-wrwg-2hg8-v723` | High (CVSS 7.1) | `>5.15.6` | Reflected XSS via server islands feature (SSR-only) |
+| `GHSA-hr2q-hp5q-x767` | Moderate (CVSS 6.5) | `>=5.15.5` | URL manipulation via headers; middleware bypass (SSR-only) |
+| `GHSA-5ff5-9fcw-vg88` | Moderate (CVSS 6.5) | `>=5.14.3` | X-Forwarded-Host reflected without validation (SSR-only) |
+| Cloudflare adapter `_image` Stored XSS | (varies) | (varies) | Cloudflare adapter only |
+| `GHSA-x3h8-62x9-952g` | Low (CVSS 3.5) | `>=5.14.3` | Astro Development Server arbitrary local file read |
+
+pm-skills is built as a static site (SSG; no SSR, no server islands, no Cloudflare adapter). The four high+moderate items are gated to features pm-skills does not use. The remaining LOW item (`<5.14.3` dev-server local file read) only manifests during `npm run dev`, never in the published site.
+
+**Why it matters.** CI advisory tooling (Dependabot, GitHub advisory scanning) will surface this audit chain whether or not the runtime exposure exists for pm-skills. Maintainer judgment is needed to decide whether to (a) absorb the fix versions and accept Astro minor-version drift mid-cycle, (b) hold the pin and document the static-site exemption, or (c) wait for an Astro 5.13.x backport (none currently announced).
+
+**Desired outcomes.**
+- Repository-level audit position is explicit and defensible (not implicit / rationalized after the fact).
+- Astro pin choice is consistent with the v2.14 stability theme (the spike validated `~5.13.0` end-to-end).
+- Future audit findings have a written precedent for triage logic.
+
+**Potential solutions.**
+- **Option A: Hold `~5.13.0` pin; document the static-site exemption.** Pros: matches spike-validated version exactly; zero rebuild risk; the actual exposure on a static GitHub Pages build is the LOW dev-server item, which only affects local dev, where contributor exposure is bounded. Cons: `npm audit` continues to report HIGH; CI advisory dashboards stay red until version bump; future contributors may re-flag without context.
+- **Option B: Bump pin to `~5.16.0` (or current `5.x` patch line covering all CVEs).** Pros: clean audit; CI dashboards green; defense-in-depth even though SSR features are unused. Cons: pulls in 3 minor versions of behavior change vs the version the spike validated; W2-W11 acceptance criteria need re-validation under the new minor; risks invalidating the spike's "GO-WITH-CAVEATS" verdict if any minor introduces an incompatibility.
+- **Option C: Wait for an Astro 5.13.x backport.** Pros: minimal motion; preserves spike validation. Cons: no announced backport; CVE chain stays open indefinitely; high probability the patch never ships and we're back to A or B.
+
+**Recommendation: Option A (hold the pin; document the exemption).** Rationale:
+1. The actual exposure is the dev-server LOW item (`<5.14.3`); the High and Moderate items all require SSR/middleware/adapter features pm-skills does not use.
+2. The spike report's `GO-WITH-CAVEATS` verdict was validated against `5.13.x` specifically. A 3-minor bump invalidates that validation; revalidation is W13 effort.
+3. Static-site CVE triage is a recurring pattern in this repo (Material/MkDocs has had similar advisories). Documenting the static-site exemption sets precedent.
+
+**Implementation if Option A selected:**
+- Add a "Known accepted CVEs (static-site exemption)" section to `docs/internal/dependency-policy.md` with the 5-row table above plus the rationale.
+- Add a brief note to v2.14.0 release notes ("Static-site CVE exemption for Astro SSR features") so external readers see the position.
+- Re-evaluate at v2.15+ (when the Astro 6 + Node 22.12+ bump is in scope) since that cycle will move past 5.x entirely.
+
+**Maintainer decision / feedback:**
+- [ ] Accept recommendation (Option A)
+- [ ] Modify: 
+- [ ] Reject; alternative direction: 
+- Notes: 
+
 ---
 
 ## 7. Risk register
@@ -705,3 +756,5 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 |---|---|
 | 2026-05-06 | Initial migration plan authored after Codex adversarial review of spike report. 13 workstreams, 7 Pre-Ship Validation Gates, 2 new Decision Briefs (DM-1 mkdocs.yml deletion timing; DM-2 deploy action choice), Phase 0 schedule, Risk register. Total estimate 30-40 focused hours / 5-8 calendar days. |
 | 2026-05-07 | Cross-session sync: absorbed concurrent v2.13.1 ship (latest tag now v2.13.1; new validator `validate-plugin-install` enforcing locally + workflow integration deferred to W10) and `spec_frontmatter-correction.md` (102-file scope; new W3.5 workstream). Added DM-3 (recommended install-path positioning, deferred from v2.13.1 maintainer call). Revised estimate from 30-40 to 33-45 focused hours / 6-9 calendar days. Updated W7 dependencies (W3.5 added). Updated W12 acceptance criteria with 11 deferred mkdocs warnings. |
+| 2026-05-07 | W1 (Pre-flight setup) executed: production scaffold landed at repo root (`package.json` with pinned ~5.13.0/~0.34.0/~2.0.1; `astro.config.mjs` with `site` + `base: '/pm-skills'`; `tsconfig.json` extending `astro/tsconfigs/strict`; `src/content/docs/index.md` placeholder; `docs/internal/dependency-policy.md`). `_spike/starlight-poc/` deleted. `npm install` clean (500 packages, 0 peer-dep warnings). `npm run build` exits 0 against placeholder content (1 page in 2.50s). DM-4 added: Astro 5.13.x CVE pin policy (5 chained CVEs surfaced by `npm audit`; 4 SSR/Cloudflare-only, 1 dev-server LOW; recommend Option A static-site exemption pending maintainer signoff). |
+| 2026-05-07 | W2 (Production content-source mount, D2 Option B) + W3 (Frontmatter compliance, title injection) executed bundled. `src/content.config.ts` configured with glob loader rooted at `./docs` excluding `internal/` and `templates/`; `docsSchema` extended with pm-skills custom fields. `astro.config.mjs` editLink baseUrl set without trailing `docs/` (Codex S5.M1 defect surfaced and fixed during verification). `src/content/docs/` placeholder removed. `scripts/inject-doc-titles.mjs` authored (parser-aware FM boundary detection per spike Caveat 1 lesson) and run across `docs/` (49 files modified; spike's 51-file count revised down by 2 from concurrent v2.13.1 work) and `_workflows/` (10 files modified; W3 sub-fix for generator-source preservation). One manual quality fix: "Post Launch Learning" -> "Post-Launch Learning". Build passes 125 pages in 4.2s warm / 8.8s cold. Verification: 0 `internal/*` in dist; 0 `templates/*` in dist; 5/5 sample editLinks resolve correctly. URL slug normalization observed (Starlight strips dots and underscores; affects 26+ release pages); captured for W9 redirect-mapping. |

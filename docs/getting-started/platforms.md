@@ -1,3 +1,7 @@
+---
+title: Platforms
+---
+
 # Install PM-Skills on Your Platform
 
 PM-Skills works across the AI agent ecosystem. This page covers every supported platform with step-by-step setup instructions. For the README's quick-start summary, see [README.md](../../README.md#getting-started).

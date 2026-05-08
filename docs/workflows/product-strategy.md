@@ -1,4 +1,5 @@
 ---
+title: Product Strategy
 generated: true
 source: scripts/generate-workflow-pages.py
 ---

@@ -52,6 +52,8 @@ _spike/
 .claude/skills/
 .claude/commands/
 dist/
+.astro/
+node_modules/
 */_archived/*
 _LOCAL/
 docs/internal/milestones/**/_archived/

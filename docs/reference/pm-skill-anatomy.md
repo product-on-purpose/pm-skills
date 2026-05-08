@@ -1,3 +1,7 @@
+---
+title: PM Skill Anatomy
+---
+
 # PM-Skill Anatomy
 
 A practical guide to how skills are structured in the pm-skills repository. For the spec-level, cross-platform reference, see [Agent Skill Anatomy](../concepts/agent-skill-anatomy.md). For how skills evolve through the Create → Validate → Iterate lifecycle, see [PM-Skill Lifecycle](../guides/pm-skill-lifecycle.md).

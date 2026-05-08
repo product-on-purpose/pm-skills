@@ -1,3 +1,7 @@
+---
+title: Lean Startup
+---
+
 # Lean Startup Workflow
 
 > Build-Measure-Learn cycle for rapid validation

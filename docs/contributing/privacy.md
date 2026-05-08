@@ -1,3 +1,7 @@
+---
+title: Privacy
+---
+
 # Privacy Policy
 
 **PM-Skills** is an open-source collection of product management skill files for AI agents.

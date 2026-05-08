@@ -1,3 +1,7 @@
+---
+title: Triple Diamond
+---
+
 # Triple Diamond Workflow
 
 > Complete product development cycle from discovery to iteration

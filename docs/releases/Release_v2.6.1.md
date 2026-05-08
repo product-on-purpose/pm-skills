@@ -1,3 +1,7 @@
+---
+title: v2.6.1
+---
+
 # PM-Skills v2.6.1 Release Notes
 
 Date: 2026-03-04  

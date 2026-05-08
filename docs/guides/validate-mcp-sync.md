@@ -1,3 +1,7 @@
+---
+title: Validate MCP Sync
+---
+
 # validate-mcp-sync Guide
 
 !!! warning "Reduced relevance under MCP maintenance mode (effective 2026-05-04)"

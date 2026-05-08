@@ -1,3 +1,7 @@
+---
+title: Feature Kickoff
+---
+
 # Feature Kickoff Workflow
 
 > Quick-start workflow for feature development

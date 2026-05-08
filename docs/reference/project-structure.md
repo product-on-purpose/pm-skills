@@ -1,3 +1,7 @@
+---
+title: Project Structure
+---
+
 # Project Structure
 
 ## Table of Contents
