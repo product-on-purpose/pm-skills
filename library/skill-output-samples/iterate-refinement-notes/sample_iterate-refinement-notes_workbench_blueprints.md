@@ -8,7 +8,7 @@ skill_version: "2.0.0"
 created: 2026-02-20
 status: sample
 thread: workbench
-context: Workbench enterprise collaboration platform: Blueprints v1.1 backlog refinement session
+context: "Workbench enterprise collaboration platform: Blueprints v1.1 backlog refinement session"
 ---
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 

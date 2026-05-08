@@ -203,4 +203,23 @@ if [[ -d "$SAMPLES_DIR" ]]; then
   done < <(find "$SAMPLES_DIR" -name "sample_*.md" -type f -print0)
 fi
 
+# YAML parse-validity check across all in-scope files. Catches the
+# unquoted colon-in-value defect class that github rejects with "mapping
+# values are not allowed in this context". Byte-0 check is structural
+# placement; this is parse validity.
+YAML_FILES=()
+while IFS= read -r -d $'\0' f; do YAML_FILES+=("$f"); done < <(
+  find "$ROOT/skills" -type f \( -name SKILL.md -o -name TEMPLATE.md -o -name EXAMPLE.md \) -print0
+)
+if [[ -d "$SAMPLES_DIR" ]]; then
+  while IFS= read -r -d $'\0' f; do YAML_FILES+=("$f"); done < <(
+    find "$SAMPLES_DIR" -type f -name 'sample_*.md' -print0
+  )
+fi
+if [[ ${#YAML_FILES[@]} -gt 0 ]]; then
+  if ! node "$ROOT/scripts/check-frontmatter-yaml.mjs" "${YAML_FILES[@]}"; then
+    FAIL=1
+  fi
+fi
+
 exit "$FAIL"

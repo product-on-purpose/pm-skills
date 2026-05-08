@@ -8,7 +8,7 @@ skill_version: "2.0.0"
 created: 2026-02-20
 status: sample
 thread: workbench
-context: Workbench enterprise collaboration platform: Blueprints required-section enforcement A/B test results
+context: "Workbench enterprise collaboration platform: Blueprints required-section enforcement A/B test results"
 ---
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 

@@ -223,4 +223,22 @@ if (Test-Path $samplesDir) {
     }
 }
 
+# YAML parse-validity check across all in-scope files. Catches the
+# unquoted-colon-in-value defect class that github's frontmatter renderer
+# rejects. The byte-0 check is structural placement; this is parse-validity.
+$yamlFiles = @()
+$yamlFiles += Get-ChildItem -Path (Join-Path $Root 'skills') -Recurse -File |
+    Where-Object { $_.Name -in @('SKILL.md', 'TEMPLATE.md', 'EXAMPLE.md') } |
+    ForEach-Object { $_.FullName }
+if (Test-Path $samplesDir) {
+    $yamlFiles += Get-ChildItem -Path $samplesDir -Filter 'sample_*.md' -Recurse -File |
+        ForEach-Object { $_.FullName }
+}
+if ($yamlFiles.Count -gt 0) {
+    & node (Join-Path $Root 'scripts/check-frontmatter-yaml.mjs') @yamlFiles
+    if ($LASTEXITCODE -ne 0) {
+        $Fail = $true
+    }
+}
+
 if ($Fail) { exit 1 } else { exit 0 }

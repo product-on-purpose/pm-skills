@@ -8,7 +8,7 @@ skill_version: "2.0.0"
 created: 2026-02-21
 status: sample
 thread: workbench
-context: Workbench enterprise collaboration platform: Blueprints discovery interviews on documentation consistency and Confluence fatigue
+context: "Workbench enterprise collaboration platform: Blueprints discovery interviews on documentation consistency and Confluence fatigue"
 ---
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 

@@ -403,15 +403,31 @@ All three batches in one PR. Reviewer can verify each batch in isolation by read
 
 The work is complete when:
 
-1. All 102 files have `---` at byte 0 with the attribution comment on the line immediately after the closing fence.
-2. All 100 library samples have `title:` (and, if Decision Brief 2 ships the full schema, `description:`) populated.
-3. `bash scripts/lint-skills-frontmatter.sh` exits 0 on a clean tree.
-4. `bash scripts/lint-skills-frontmatter.sh` exits non-zero with a clear error message when one in-scope file is manually broken (test before revert).
-5. `library/skill-output-samples/SAMPLE_CREATION.md` Section 5 documents the byte-0 placement rule with an in-line example.
-6. `utility-pm-skill-builder`, `utility-pm-skill-iterate`, and `utility-pm-skill-validate` SKILL.md files reflect the byte-0 placement requirement in their respective output contracts.
-7. Spot-check on github.com confirms metadata-table rendering for at least 6 representative library samples (2 per thread).
-8. Spot-check on github.com confirms metadata-table rendering for both OKR-skill EXAMPLE.md files.
-9. The Starlight spike caveat 1 ("title-frontmatter required (51/125 files)") is updated in the next spike-report revision to reflect that library samples now meet the requirement.
+1. ✅ All 102 files have `---` at byte 0 with the attribution comment on the line immediately after the closing fence.
+2. ✅ All 100 library samples have `title:` (and, if Decision Brief 2 ships the full schema, `description:`) populated.
+3. ✅ `bash scripts/lint-skills-frontmatter.sh` exits 0 on a clean tree.
+4. ✅ `bash scripts/lint-skills-frontmatter.sh` exits non-zero with a clear error message when one in-scope file is manually broken (test before revert).
+5. ✅ `library/skill-output-samples/SAMPLE_CREATION.md` Section 5 documents the byte-0 placement rule with an in-line example.
+6. ✅ `utility-pm-skill-builder`, `utility-pm-skill-iterate`, and `utility-pm-skill-validate` SKILL.md files reflect the byte-0 placement requirement in their respective output contracts.
+7. ✅ Spot-check on github.com confirms metadata-table rendering for at least 6 representative library samples (2 per thread). Verified post-push 2026-05-08 via Playwright on 6 URLs (2 storevine, 2 brainshelf, 2 workbench). Initial sweep flagged 1 of 6 (URL 5: workbench/develop-adr) failing with YAML parse error; root-caused to a 19-file regression and fixed in the post-merge addendum below.
+8. ✅ Spot-check on github.com confirms metadata-table rendering for both OKR-skill EXAMPLE.md files. Verified post-push 2026-05-08 via Playwright on `foundation-okr-writer/references/EXAMPLE.md` and `measure-okr-grader/references/EXAMPLE.md`; both render structured metadata table at top with title, description, artifact, version, and other fields as bordered rows.
+9. ⏸️ The Starlight spike caveat 1 ("title-frontmatter required (51/125 files)") is updated in the next spike-report revision to reflect that library samples now meet the requirement. (Deferred; spike report is a frozen historical artifact; addendum can be added at W7 kickoff if useful.)
+
+### Post-merge addendum (2026-05-08): 19-file YAML regression and fix
+
+The github.com spot-check (acceptance #7) surfaced a defect class the W3.5 sweep did not address. 19 `*_workbench_blueprints.md` library samples had `context:` values that began with the workbench preface "Workbench enterprise collaboration platform: ..." (note the colon). YAML parses an unquoted colon-and-space inside a scalar value as a nested mapping, so github's frontmatter renderer rejected those 19 files with `"mapping values are not allowed in this context"`.
+
+**Root cause**: Q3-A "preserve `context:` with distinct semantics" correctly retained existing context values, but the sweep did not audit those values for parse-safety. The W3.5 lint extension only enforced byte-0 placement (a structural check), not YAML parse validity. Storevine and brainshelf threads were unaffected because their preface uses a hyphen separator instead of a colon.
+
+**Fix shipped**:
+
+1. Quoted all 19 affected `context:` values with double quotes (idempotent regex; preserves Q3-A semantics).
+2. Added `scripts/check-frontmatter-yaml.mjs` which runs each in-scope file's frontmatter through `js-yaml` and reports parse failures.
+3. Extended `scripts/lint-skills-frontmatter.sh` and `.ps1` to invoke the new helper across the same scope as the byte-0 check (skills/SKILL.md, skills/references/{TEMPLATE,EXAMPLE}.md, library samples).
+4. Manual break test confirmed: lint exits 0 on clean tree; lint exits 1 with `"YAML parse error - bad indentation of a mapping entry"` when an unquoted colon-containing context is injected; lint returns to 0 on restore.
+5. Re-Playwright verification confirmed the 19 broken files now render the structured metadata table as expected.
+
+This closes the YAML parse-validity gap as a CI-enforced guardrail, eliminating the same defect class for future sample additions.
 
 ---
 
