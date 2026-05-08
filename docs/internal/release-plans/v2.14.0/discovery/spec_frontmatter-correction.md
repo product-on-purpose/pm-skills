@@ -19,18 +19,17 @@ related:
 
 ## What this spec needs from you (maintainer-action block)
 
-Answer each question by replacing the `_______` with your decision, then convert the leading `- [ ]` to `- [x]`. The body of the spec (Maintainer Slots inside each Decision Brief) carries the same questions in context; this block exists at the top so a future-session pickup sees the gating decisions immediately without scrolling.
+Each open question now has its own Decision Brief in the body of this spec, following the 6-part convention (What it is / Why it matters / Desired outcomes / Potential solutions / Recommendation / Maintainer decision-feedback). Answer the question inside its Decision Brief by checking one of the Accept / Modify / Reject options and adding any Notes. This top block is navigation; the actual decision lives in each brief.
 
-- [ ] **Q1. Placement format.** Comment goes on the line immediately after the closing `---` fence, with no blank line between them, matching `discovery/frontmatter-correction-example.md`. Confirm or override.
-  - **Answer**: _______
-- [ ] **Q2. Schema scope.** Bundle `title:` + `description:` additions together (recommended), or ship `title:` only and defer `description:` to a future cycle.
-  - **Answer**: _______
-- [ ] **Q3. `context:` field disposition.** Keep `context:` alongside `description:` with distinct semantics (default), rename to `scenario:`, or merge into `description:`.
-  - **Answer**: _______
-- [ ] **Q4. OKR-skill EXAMPLE.md schema scope.** Do the 2 OKR-skill `references/EXAMPLE.md` files receive only the placement fix (smaller scope), or also `title:`/`description:` if Q2 lands the broader schema.
-  - **Answer**: _______
-- [ ] **Q5. PR boundaries.** Bundle generators + sweep + lint into one PR (recommended), or split into multiple PRs.
-  - **Answer**: _______
+| Question | Subject | Brief | Recommended |
+|---|---|---|---|
+| Q1 | Placement format | [Decision Brief 1](#decision-brief-1-placement-format-q1) | Option A (no blank line between closing `---` and comment) |
+| Q2 | Schema scope (title + description bundling) | [Decision Brief 2](#decision-brief-2-schema-scope---title-and-description-bundling-q2) | Option A (bundle both) |
+| Q3 | `context:` field disposition | [Decision Brief 3](#decision-brief-3-context-field-disposition-q3) | Option A (keep both with distinct semantics) |
+| Q4 | OKR-skill EXAMPLE.md schema scope | [Decision Brief 4](#decision-brief-4-okr-skill-examplemd-schema-scope-q4) | Conditional on Q2 (Option C if Q2-A; Option B if Q2-B) |
+| Q5 | PR boundaries | [Decision Brief 5](#decision-brief-5-pr-boundaries-q5) | Option A (bundle in one PR) |
+
+Once all 5 briefs have a maintainer decision recorded, this spec is unblocked and W3.5 in `plan_v2.14_starlight-migration.md` can proceed.
 
 ## Other open items not yet resolved
 
@@ -72,26 +71,17 @@ Per the repo's "no effort-doc bloat on refactor cycles" rule, this work appears 
 
 ---
 
-## Decision Brief 1: Placement correction
+## Decision Brief 1: Placement format (Q1)
 
-### What
+**What it is.** In all 102 affected files, the `<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->` attribution line is currently at line 1 (before the opening `---`), which causes GitHub and Starlight to ignore the YAML frontmatter. The decision is the exact target placement: immediately after the closing `---` fence with no blank line (matches `discovery/frontmatter-correction-example.md`), or with a blank line, or at end of file, or delete entirely.
 
-In all 102 affected files, relocate the line `<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->` from its current position (line 1, before the opening `---`) to the line immediately after the closing `---` fence of the YAML frontmatter block. No other content changes.
+**Why it matters.** GitHub's markdown renderer recognizes YAML frontmatter only when the file *begins* with `---\n`. Any preceding bytes (HTML comment, BOM, whitespace) cause the renderer to fall through to body-markdown mode. In body mode, the YAML block becomes a paragraph; markdown's soft-break rule joins single newlines with a space, collapsing the field list into a single run-on line. The same byte-0 requirement applies to Astro Starlight content collections (Zod schema validation), Jekyll, Hugo, and MkDocs Material's `meta` plugin.
 
-### Why
+The placement bug has two costs today:
+1. **Now**: 100 sample pages on github.com show degraded rendering (no metadata table at top of page).
+2. **At v2.14.0 cut**: Starlight will either reject these files (build failure) or strip them silently (missing pages).
 
-GitHub's markdown renderer recognizes YAML frontmatter only when the file *begins* with `---\n`. Any preceding bytes (HTML comment, BOM, whitespace) cause the renderer to fall through to body-markdown mode. In body mode, the YAML block becomes a paragraph; markdown's soft-break rule joins single newlines with a space, collapsing the field list into a single run-on line.
-
-The same byte-0 requirement applies to:
-- Astro Starlight content collections (Zod schema validation runs on parsed frontmatter)
-- Jekyll, Hugo, MkDocs Material's `meta` plugin
-- Most static-site generators
-
-The placement bug therefore has two costs:
-1. **Today**: 100 sample pages on github.com show degraded rendering (no metadata table at top of page).
-2. **At v2.14.0 cut**: Starlight will either reject these files (build failure) or strip them silently (missing pages). Per the spike report, the build pipeline expects all sample pages to be valid Starlight content.
-
-### Desired outcomes
+**Desired outcomes.**
 
 | Outcome | How verified |
 |---|---|
@@ -99,76 +89,57 @@ The placement bug therefore has two costs:
 | Starlight build succeeds with all 102 files indexed in their content collections | `astro build` exits 0 with expected page count, and a sample URL renders as a Starlight page |
 | Sample-creation guidance documents the correct pattern so future samples ship correctly | `SAMPLE_CREATION.md` Section 5 explicitly mandates byte-0 placement with an example |
 
-### Alternatives considered
+**Potential solutions.**
 
-| Alternative | Reason rejected |
-|---|---|
-| **Delete the attribution comment entirely** | User decision (2026-05-06): keep the comment. Per-file attribution improves browsability when samples are viewed in isolation outside the repo. Repo root LICENSE alone does not survive the user-copies-a-single-file workflow. |
-| **Move the comment to the end of each file** | Standard convention is to place attribution at the top of source files where readers expect to find it. End-of-file placement is unconventional and fragile (easy to lose in edits that touch the bottom of the file). |
-| **Wrap each frontmatter block in a fenced code block on github.com via custom rendering** | Not possible. GitHub's markdown rendering is fixed-behavior and not configurable per repo. The fix must be in the file. |
-| **Defer the fix until v2.15.0 (post-Starlight)** | The Starlight migration cannot proceed cleanly with broken files. Per the spike report (Caveat 1), the migration already requires per-file frontmatter touches; folding this fix in is cheaper than two passes. |
+- **Option A: Comment immediately after closing `---` fence, no blank line between them.** Pros: matches `discovery/frontmatter-correction-example.md` (the existing reference); minimal motion; one-line placement; visually distinct from frontmatter; easy to script and lint. Cons: none identified.
+- **Option B: Comment immediately after closing `---` fence, with one blank line between.** Pros: visually separates the comment from the frontmatter block. Cons: one extra blank line per file (102 across the repo, trivial); creates an editing trap (someone can collapse the blank line without realizing it changes nothing visible).
+- **Option C: Move comment to end of file.** Pros: out of the way at top. Cons: unconventional; readers expect attribution at top of source files; fragile (easy to lose in edits that touch the bottom of the file).
+- **Option D: Delete the attribution comment entirely; rely on repo LICENSE alone.** Pros: simplest. Cons: maintainer 2026-05-06 decision: keep per-file attribution because samples are often viewed in isolation outside the repo, where the LICENSE doesn't follow.
 
-### Recommendation
+**Recommendation: Option A** (immediately after closing `---` fence, no blank line). Matches the existing `discovery/frontmatter-correction-example.md` reference; minimal motion; one-line placement; easy to script and lint. The other 26 skill `references/EXAMPLE.md` files (which already have correct byte-0 frontmatter) use this same pattern; choosing Option A keeps the repo's attribution placement uniform.
 
-Move the attribution comment to the line immediately after the closing `---` fence in all 102 files via a single mechanical script. Verify rendering on a representative sample on github.com before merging.
-
-### Maintainer slot
-
-- [ ] Confirm the move (not delete) decision still stands after seeing spec scope.
-- [ ] Confirm the format shown in `discovery/frontmatter-correction-example.md` is the canonical target shape (no blank line between closing `---` and the comment).
+**Maintainer decision / feedback:**
+- [ ] Accept recommendation (Option A; no blank line between closing `---` and comment)
+- [ ] Modify: 
+- [ ] Reject; alternative direction: 
+- Notes: 
 
 ---
 
-## Decision Brief 2: Frontmatter schema enhancement
+## Decision Brief 2: Schema scope - title and description bundling (Q2)
 
-### What
+**What it is.** Library samples currently have an 8-field frontmatter schema (`artifact`, `version`, `repo_version`, `skill_version`, `created`, `status`, `thread`, `context`) but no `title:` or `description:` fields. The decision: bundle both additions in this PR (Option A), or ship `title:` only and defer `description:` to a future cycle (Option B), or bundle the additions but make `description:` optional rather than populated (Option C).
 
-Augment the library-sample frontmatter schema with two additions and one deprecation candidate, applied during the same sweep as the placement fix:
+**Why it matters.** Astro Starlight requires `title:` on every collected page; this is non-negotiable for the v2.14 build to pass. `description:` is optional but high-value: it controls how each sample appears in Starlight's automatic listing pages, search results, and any social-card preview. Without `description:`, Starlight falls back to the first 160 characters of body text, which for samples means raw scenario prose without context. The Starlight spike report documents this as Caveat 1 ("title-frontmatter required") but the spike audited `docs/**/*.md` only; library samples were not in scope at spike time. With samples now Starlight-collected, the `title:` requirement applies repo-wide.
 
-| Change | Rationale |
-|---|---|
-| **Add `title:`** field (required) | Astro Starlight content collections require `title:` on every collected page. Currently absent on 100 sample files; will be required for 100 of 100. |
-| **Add `description:`** field (optional, recommended) | Starlight uses `description:` for SEO meta tags, social cards, and listing-page excerpts. Currently absent. |
-| **Audit `context:` field for retention or rename** | `context:` partially overlaps with `description:`. Decide whether to keep both (with distinct semantics), rename `context:` to a more specific name like `scenario:`, or fold it into `description:`. |
+Bundling `title:` + `description:` in one mechanical sweep is cheaper than a second pass touching the same 100 files; the alternative requires two PRs, two reviews, and a merge-conflict surface on identical files.
 
-The two skill EXAMPLE.md files (the additional 2 in scope) use a smaller frontmatter shape (5 fields vs 8) and may not need `description:` since they are not directly published as Starlight pages today; they receive only the placement fix unless the schema decision treats them as in-scope for the broader enhancement.
-
-### Why
-
-The Starlight spike report documents Caveat 1 as: "title-frontmatter required (51/125 files; ~1 hour script)." That count is for `docs/**/*.md` only; library samples were not audited at spike time. With samples now in scope for Starlight publishing, the `title:` requirement applies repo-wide. Adding `title:` during the placement sweep is cheaper than adding it in a second pass.
-
-`description:` is optional but high-value: it controls how each sample appears in Starlight's automatic listing pages, search results, and any social-card preview. Without it, Starlight falls back to the first 160 characters of body text, which for samples means raw scenario prose without context.
-
-The `context:` field's overlap with `description:` is a smaller concern, but worth resolving now to avoid having two near-synonym fields in the schema long-term.
-
-### Desired outcomes
+**Desired outcomes.**
 
 | Outcome | How verified |
 |---|---|
 | Every library sample carries a `title:` derived from its skill, thread, and scenario | Linter passes; Starlight build succeeds |
-| Every library sample carries a `description:` of 1-2 sentences | Spot-check 6 samples; confirm they read well as listing-page excerpts |
-| The `context:` field's role is clarified (kept, renamed, or merged) | Schema decision committed in this spec |
+| Each sample's listing-page excerpt is meaningful (1-2 sentences, not raw markdown) | Spot-check 6 samples; confirm they read well as listing-page excerpts |
+| Future samples ship with both fields populated | `SAMPLE_CREATION.md` Section 5 mandates both fields with examples |
 
-### Alternatives considered
+**Potential solutions.**
 
-| Alternative | Reason rejected (or held) |
-|---|---|
-| **Defer schema enhancements until after the placement fix** | Two passes mean two PRs touching the same 100 files, two reviews, two merge conflicts to resolve. Bundling is cheaper. |
-| **Add only `title:`, defer `description:`** | Acceptable fallback if scope feels too large. `title:` is the only Starlight-required addition; `description:` improves quality but does not gate the build. **Held as a fallback if maintainer prefers smaller scope.** |
-| **Generate `title:` automatically from filename via Starlight config** | Starlight supports this but produces low-quality titles ("sample define opportunity tree brainshelf resurface"). Hand-curated titles per file are higher quality and worth the one-time effort. |
-| **Drop `repo_version:` and `skill_version:` from sample frontmatter as part of this cleanup** | Out of scope. Those fields carry sample-provenance information valuable for backlinking samples to specific shipped versions; they should not be removed without a separate decision. |
+- **Option A: Bundle `title:` + `description:` in this PR; populate both.** Pros: cheaper (one sweep, one review, one merge surface); higher quality search/listing experience from day one of the migration; contributors learn one schema, not two. Cons: more per-file authoring work to derive `description:` (mitigated by deriving from existing `context:` as a starting point).
+- **Option B: Ship `title:` only in this PR; defer `description:` to v2.15+.** Pros: smaller scope; lower review surface area; faster to ship. Cons: requires a second mechanical pass touching the same 100 files later; samples have lower-quality listing previews until v2.15+.
+- **Option C: Bundle both fields as schema, but make `description:` optional rather than populated.** Pros: schema is forward-compatible; no per-file authoring of descriptions. Cons: most samples ship without populated `description:`, defeating the listing-quality goal; just defers the per-file authoring work.
+- **Option D: Defer all schema enhancements; ship placement fix only.** Pros: minimum scope. Cons: doesn't satisfy Starlight's `title:` requirement; the migration build will fail or strip pages silently.
 
-### Recommendation
+**Recommendation: Option A** (bundle both, populate both). Touching 100 files twice is wasteful when one pass can land both. The `context:` field is already populated in every sample and provides a reasonable starting point for `description:` (refine where the derivation is awkward). Option D is rejected outright because it doesn't satisfy the Starlight requirement; Option C is rejected because empty `description:` defeats the field's purpose.
 
-Bundle the schema enhancement with the placement fix:
-
-1. Add `title:` (required) to all 100 library samples and to the 2 OKR-skill EXAMPLE.md files. Derive titles by hand or via a one-time generator script that reads the existing `artifact`, `thread`, and `context` fields.
-2. Add `description:` (optional, populated) to all 100 library samples. Derive from the existing `context:` field as a starting point, then refine where the result is awkward.
-3. Hold `context:` retention decision for a follow-up turn. Default position: keep `context:` as it carries scenario-specific framing distinct from `description:`'s SEO role; let them coexist with clear distinct semantics documented in `SAMPLE_CREATION.md`.
-
-If maintainer prefers smaller scope: ship `title:` only in this PR and defer `description:` and the `context:` decision to v2.15.0 prep.
+**Maintainer decision / feedback:**
+- [ ] Accept recommendation (Option A; bundle title + description, populate both)
+- [ ] Modify: 
+- [ ] Reject; alternative direction: 
+- Notes: 
 
 ### Proposed final schema for library samples
+
+If Option A is selected, the post-sweep schema looks like this:
 
 ```yaml
 ---
@@ -181,17 +152,96 @@ skill_version: "2.0.0"
 created: 2026-02-20
 status: sample
 thread: brainshelf
-context: Brainshelf consumer PKM app . opportunity tree for saved content re-engagement
+context: Brainshelf consumer PKM app - opportunity tree for saved content re-engagement
 ---
 ```
 
 Field ordering: Starlight conventions place `title:` and `description:` first because they are SEO-load-bearing. Existing fields follow. The closing `---` and the attribution comment then follow as specified in Decision Brief 1.
 
-### Maintainer slot
+---
 
-- [ ] Approve the schema enhancement bundling (one PR with both changes), or split into two PRs.
-- [ ] Approve `title:` and `description:` additions, or restrict to `title:` only.
-- [ ] Confirm `context:` retention decision (keep / rename / merge into `description:`).
+## Decision Brief 3: `context:` field disposition (Q3)
+
+**What it is.** The existing library-sample schema includes a `context:` field that carries scenario-specific framing (e.g., "Brainshelf consumer PKM app - opportunity tree for saved content re-engagement"). Adding `description:` per Q2 creates partial overlap: both fields describe the sample. The decision: keep both with distinct semantics (Option A), rename `context:` to `scenario:` for clearer naming (Option B), or fold `context:` into `description:` and drop the separate field (Option C).
+
+**Why it matters.** Two near-synonym fields in the same schema is a maintenance smell. If they coexist without crisp documented semantics, contributors must guess which to populate, leading to schema drift over time. If one is renamed, every existing 100-sample file needs the field renamed; that's the same mechanical cost as the placement fix and best done in the same PR. If they're merged, the existing `context:` content needs distillation to fit the SEO-grade 1-2 sentence description shape (potentially lossy).
+
+**Desired outcomes.**
+- Schema has either one description-class field, or two with crisp documented semantics.
+- Contributors can tell which field to populate without reading mailing-list archives.
+- `SAMPLE_CREATION.md` Section 5 documents the choice with examples.
+- Existing `context:` content is preserved (not silently lost) regardless of decision.
+
+**Potential solutions.**
+
+- **Option A: Keep both with distinct semantics.** `description:` is SEO-load-bearing (1-2 sentences for listing pages and meta tags); `context:` is scenario-load-bearing (richer narrative; the why-this-sample framing). Document the distinction in `SAMPLE_CREATION.md`. Pros: zero rename motion; preserves existing `context:` content. Cons: two fields to populate; risk of drift over time if contributors don't read the docs.
+- **Option B: Rename `context:` to `scenario:`.** Pros: more specific name; semantics clarified by name alone; `description:` SEO purpose is unambiguous. Cons: 100-file rename cost (mechanical, scriptable); any downstream tools that read `context:` need updating (audit needed).
+- **Option C: Fold `context:` into `description:`.** Pros: simplest schema; one description-class field. Cons: existing `context:` content needs distillation into 1-2 sentences (lossy); narrative framing is lost; `description:` becomes overloaded.
+
+**Recommendation: Option A** (keep both with distinct semantics). Lowest motion; preserves existing scenario content; the SEO field is purpose-built. Document in `SAMPLE_CREATION.md` that `description:` is for listing-page excerpts (1-2 sentences, SEO-grade) and `context:` is for scenario framing (richer narrative; why-this-sample-exists). Drift risk is bounded by the linter (which can validate both fields are populated and `description:` is short).
+
+**Maintainer decision / feedback:**
+- [ ] Accept recommendation (Option A; keep both with distinct semantics, documented)
+- [ ] Modify: 
+- [ ] Reject; alternative direction: 
+- Notes: 
+
+---
+
+## Decision Brief 4: OKR-skill EXAMPLE.md schema scope (Q4)
+
+**What it is.** Two skill `references/EXAMPLE.md` files (`measure-okr-grader/references/EXAMPLE.md` and `foundation-okr-writer/references/EXAMPLE.md`) have the byte-0 placement bug. They use a smaller frontmatter shape (5 fields vs 8) and are NOT directly published as Starlight pages today (they live under `skills/*/` which Starlight's content collection does not index by default; per W2 mount config, only `docs/**` and library samples are collected). The decision: do these 2 files receive only the placement fix (Option A; smaller scope), the placement fix plus `title:` only (Option B; aligns if Q2 lands title-only), the full schema treatment matching the 100 library samples (Option C; aligns if Q2 lands the bundled schema), or defer entirely to v2.15+ (Option D).
+
+**Why it matters.** EXAMPLE.md files are reference material for skill contributors, not user-facing pages. Adding `title:` to them is technically free (the file structure permits it; existing 26 other EXAMPLE.md files have varying schemas), but `description:` may not apply since they're not listing-page candidates. Decoupling these 2 files from the schema enhancement keeps the v2.14 PR boundaries cleaner; coupling them keeps schema treatment uniform across all 102 in-scope files.
+
+**Desired outcomes.**
+- The 2 OKR-skill EXAMPLE.md files are byte-0 compliant after this PR.
+- The schema treatment is consistent with the broader Q2 outcome.
+- The PR diff is reviewable as one focused change without ambiguity over which files got which treatment.
+
+**Potential solutions.**
+
+- **Option A: Placement fix only; no schema additions.** Pros: minimal scope on these 2 files. Cons: divergent treatment from the 100 library samples; if `title:` is added to samples (Q2 outcome), these 2 files have a different schema than their sibling sample files.
+- **Option B: Placement fix + `title:` only.** Pros: aligns with Q2 if Q2 lands `title:` only; gives these 2 files Starlight-compatible structure even though they're not Starlight-collected today. Cons: requires deriving meaningful titles (cheap; can use skill name + " example" pattern).
+- **Option C: Placement fix + full schema (Q2 bundled outcome).** Pros: maximum consistency; all 102 files in scope get uniform treatment. Cons: `description:` on EXAMPLE.md files may not be load-bearing today (these files aren't Starlight-collected as published pages).
+- **Option D: Defer entirely to v2.15+.** Pros: smaller v2.14 PR; keeps EXAMPLE.md scope out of the migration. Cons: leaves the placement bug unfixed on 2 files; sibling 100 files get fixed; treats these 2 files as an exception without clear justification.
+
+**Recommendation:** Option C if Q2 lands the bundled title + description schema (Q2 Option A); Option B if Q2 lands `title:` only (Q2 Option B). Either way, Option D is rejected (the placement bug is in scope and these 2 files belong with the rest of the sweep). Reasoning: the 2 OKR EXAMPLE.md files are part of the same defect class as the 100 library samples; excluding them from the schema treatment creates two divergent schema shapes for what's effectively one defect class.
+
+**Maintainer decision / feedback:**
+- [ ] Accept recommendation as conditional on Q2 outcome (Option C if Q2-A; Option B if Q2-B)
+- [ ] Modify: 
+- [ ] Reject; alternative direction: 
+- Notes: 
+
+---
+
+## Decision Brief 5: PR boundaries (Q5)
+
+**What it is.** This spec covers three coupled work items: (1) generators and standards docs updates (`SAMPLE_CREATION.md`, `pm-skill-builder`, `pm-skill-iterate`, `pm-skill-validate` SKILL.md files), (2) the 102-file mechanical sweep (placement fix + Q2-outcome schema additions), (3) the CI lint extension (`lint-skills-frontmatter.sh` + `.ps1`). The decision: bundle all three in one PR (Option A), split into 3 PRs by work item (Option B), split into 2 PRs (Option C: generators + sweep, then lint), or some other split.
+
+**Why it matters.** PR boundaries affect review ergonomics, revertability, and how the work appears in the cycle's commit history. Bundled means one review, one merge surface, one revert if needed. Split means smaller diffs but more coordination cost (the lint extension can't merge before the sweep, since the sweep makes the lint extension green; if lint lands first it would fail CI on the existing 102 broken files).
+
+**Desired outcomes.**
+- Reviewer can verify each batch in isolation by reading the diff in dependency order.
+- The work appears as a coherent unit in the v2.14 cycle history (not scattered across the cycle).
+- Revert path is clean if the sweep needs to be undone.
+- CI stays green from PR open onward (no transient red states).
+
+**Potential solutions.**
+
+- **Option A: Bundle all three in one PR.** Pros: single review; coherent unit; sweeps + lint land together so CI passes from PR open; matches the repo's "no effort-doc bloat on refactor cycles" rule (one row in `plan_v2.14.0.md` = one commit in history). Cons: larger diff (~110 file changes); harder to revert one batch without reverting all (mitigated by the work being tightly coupled in scope).
+- **Option B: Split into 3 PRs (generators, sweep, lint).** Pros: smaller diffs per PR; easier to revert one batch. Cons: 3x review overhead; ordering dependency (lint must merge after sweep or CI breaks); commits scattered across the cycle; coordination cost on which PR is in flight.
+- **Option C: Split into 2 PRs (generators + sweep, then lint).** Pros: smaller per-PR diffs; the high-volume mechanical sweep is reviewed first; lint follows after sweep is verified clean. Cons: 2x review overhead; still has ordering dependency (lint can't land first).
+- **Option D: Bundle generators + lint, sweep separately.** Pros: separates the mechanical (high-volume, low-decision) sweep from the deliberate (lower-volume, higher-decision) generators + lint changes. Cons: the lint can't enforce until the sweep lands; ordering dependency persists; lint PR has to ship as advisory until sweep merges.
+
+**Recommendation: Option A** (bundle in one PR). The mechanical sweep is straightforward and deterministic (script-driven); the generators + lint changes are small-surface (4 SKILL.md files plus 1 linter pair). Bundling makes the PR self-contained and easy to verify by reading the diff in dependency order: generators first (the contracts), sweep second (the mechanical fix), lint third (the guardrail). The "no effort-doc bloat on refactor cycles" rule applies: this work is one row in `plan_v2.14.0.md`, so it should be one commit in history.
+
+**Maintainer decision / feedback:**
+- [ ] Accept recommendation (Option A; bundle in one PR)
+- [ ] Modify: 
+- [ ] Reject; alternative direction: 
+- Notes: 
 
 ---
 
@@ -354,15 +404,19 @@ The work is complete when:
 
 ---
 
-## Open questions for maintainer
+## Open questions for maintainer (navigation index)
 
-These are the same items in the Maintainer Slots above, consolidated here for sign-off in one place:
+The 5 questions are each their own Decision Brief above with the full 6-part structure (What it is / Why it matters / Desired outcomes / Potential solutions / Recommendation / Maintainer decision-feedback). This index is for quick navigation:
 
-1. **Placement format**: comment on the line immediately after closing `---`, no blank line between them. Confirm this matches the format in `discovery/frontmatter-correction-example.md`.
-2. **Schema scope**: bundle `title:` + `description:` together, or ship `title:` only and defer `description:` to a future cycle.
-3. **`context:` field disposition**: keep alongside `description:` (default), rename to `scenario:`, or fold into `description:`.
-4. **Skill EXAMPLE.md inclusion in schema enhancement**: do the 2 OKR-skill EXAMPLE.md files receive only the placement fix (smaller scope), or do they also receive `title:`/`description:` if the broader schema lands?
-5. **PR boundaries**: bundle all three work items (generators + sweep + lint) into one PR (recommended), or split.
+| Q | Subject | Brief | Status |
+|---|---|---|---|
+| Q1 | Placement format | [Decision Brief 1](#decision-brief-1-placement-format-q1) | Open |
+| Q2 | Schema scope (title + description bundling) | [Decision Brief 2](#decision-brief-2-schema-scope---title-and-description-bundling-q2) | Open |
+| Q3 | `context:` field disposition | [Decision Brief 3](#decision-brief-3-context-field-disposition-q3) | Open |
+| Q4 | OKR-skill EXAMPLE.md schema scope | [Decision Brief 4](#decision-brief-4-okr-skill-examplemd-schema-scope-q4) | Open |
+| Q5 | PR boundaries | [Decision Brief 5](#decision-brief-5-pr-boundaries-q5) | Open |
+
+Once all 5 briefs have a maintainer decision recorded, this spec is unblocked and W3.5 in `plan_v2.14_starlight-migration.md` can proceed.
 
 ---
 

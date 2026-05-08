@@ -132,6 +132,13 @@ Out-of-scope guards depend on the pivot theme selected.
 
 Four maintainer-signoff decisions surfaced by the Codex adversarial review of the spike report. Each follows the Decision Brief convention (codified in this session): What / Why / Desired outcomes / Potential solutions / Recommendation / Maintainer decision. Source review: [`plan_v2.14_starlight-spike-report_2026-05-06_reviewed-by-codex.md`](./plan_v2.14_starlight-spike-report_2026-05-06_reviewed-by-codex.md).
 
+> **Where the actually-open decisions live (as of 2026-05-08).** D1-D4 below are RESOLVED with maintainer signoff dated 2026-05-06. The currently-open Decision Briefs and questions awaiting maintainer signoff are NOT in this file; they live at:
+>
+> - **DM-1, DM-2, DM-3, DM-4** in [`plan_v2.14_starlight-migration.md`](./plan_v2.14_starlight-migration.md) Section 6 (mkdocs.yml deletion timing; deploy action choice; install-path positioning; Astro 5.13.x CVE pin policy).
+> - **Q1, Q2, Q3, Q4, Q5** in [`discovery/spec_frontmatter-correction.md`](./discovery/spec_frontmatter-correction.md) Decision Briefs 1-5 (frontmatter placement format; schema scope; `context:` field disposition; OKR EXAMPLE.md schema scope; PR boundaries).
+>
+> Each follows the same 6-part Decision Brief convention used in this section, with empty maintainer-decision-feedback checkboxes ready for signoff.
+
 ### D1: Performance NO-GO Waiver
 
 **What it is.** Spike plan Section 3.3 published a NO-GO trigger of "cold build regresses ≥2x against Material with no clear path to remediation." Recomputed actual cold build on tool-reported times: 2.04x without Mermaid, 3.12x with Mermaid. By strict reading, the verdict should be NO-GO.
