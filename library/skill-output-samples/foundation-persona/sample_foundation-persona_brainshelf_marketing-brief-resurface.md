@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation Persona: Brainshelf Marketing Brief Resurface"
+description: "Brainshelf marketing persona for newsletter-creator acquisition and content-curation positioning."
 artifact: persona
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf marketing persona for newsletter-creator acquisition and content-curation positioning
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

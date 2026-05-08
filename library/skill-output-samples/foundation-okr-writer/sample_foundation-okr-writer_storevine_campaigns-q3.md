@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation OKR Writer: Storevine Campaigns Q3"
+description: "Storevine B2B ecommerce platform. Campaigns team Q3 2026 OKR set following the May 2026 Campaigns GA and the validated guided first-campaign flow."
 artifact: foundation-okr-writer
 version: "1.0"
 repo_version: "2.12.0"
@@ -9,6 +10,7 @@ status: canonical
 thread: storevine
 context: Storevine B2B ecommerce platform. Campaigns team Q3 2026 OKR set following the May 2026 Campaigns GA and the validated guided first-campaign flow.
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 # Sample: foundation-okr-writer. Storevine Campaigns Q3 2026 OKR Set
 

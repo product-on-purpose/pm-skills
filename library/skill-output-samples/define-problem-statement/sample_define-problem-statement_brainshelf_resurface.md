@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Define Problem Statement: Brainshelf Resurface"
+description: "Brainshelf consumer PKM app - saved content re-engagement problem statement."
 artifact: problem-statement
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf consumer PKM app . saved content re-engagement problem statement
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

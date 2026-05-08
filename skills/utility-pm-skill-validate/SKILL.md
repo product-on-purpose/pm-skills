@@ -87,6 +87,7 @@ Run these deterministic checks. Each produces a `PASS` or `FAIL` line.
 
 | Check ID | What to check | Pass condition |
 |----------|--------------|----------------|
+| `frontmatter-at-byte-zero` | First line of SKILL.md, references/TEMPLATE.md, references/EXAMPLE.md is exactly `---` | Line 1 is the opening `---` fence with no preceding HTML comment, BOM, or whitespace. Severity: FAIL. Reference: `library/skill-output-samples/SAMPLE_CREATION.md` Section 5. |
 | `name-match` | Frontmatter `name` matches directory name | Exact string match |
 | `description-present` | Frontmatter `description` exists | Non-empty value |
 | `description-length` | Description word count | 20-100 words |

@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Deliver PRD: Storevine Campaigns"
+description: "Storevine B2B ecommerce platform - Campaigns (built-in email marketing)."
 artifact: prd
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . Campaigns (built-in email marketing)
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

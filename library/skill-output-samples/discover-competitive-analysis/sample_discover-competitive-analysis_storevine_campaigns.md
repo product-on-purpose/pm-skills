@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Discover Competitive Analysis: Storevine Campaigns"
+description: "Storevine B2B ecommerce platform - email marketing competitive landscape for Campaigns."
 artifact: competitive-analysis
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . email marketing competitive landscape for Campaigns
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

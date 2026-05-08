@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Deliver Edge Cases: Storevine Campaigns"
+description: "Storevine B2B ecommerce platform - Campaigns campaign send flow edge cases."
 artifact: edge-cases
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . Campaigns campaign send flow edge cases
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

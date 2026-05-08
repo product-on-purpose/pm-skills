@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Deliver Release Notes: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform - Workbench 3.5 release notes for Blueprints GA."
 artifact: release-notes
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,8 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform - Workbench 3.5 release notes for Blueprints GA
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
+
 # Sample Output 03 - deliver-release-notes
 
 Skill: deliver-release-notes

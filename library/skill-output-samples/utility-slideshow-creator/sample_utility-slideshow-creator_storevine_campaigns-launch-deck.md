@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Utility Slideshow Creator: Storevine Campaigns Launch Deck"
+description: "Storevine B2B ecommerce platform - stakeholder presentation for Campaigns feature launch."
 artifact: slideshow-deck-spec
 version: "1.0"
 repo_version: "2.10.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . stakeholder presentation for Campaigns feature launch
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

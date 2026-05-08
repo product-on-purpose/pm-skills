@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Measure Instrumentation Spec: Brainshelf Resurface"
+description: "Brainshelf consumer PKM app - Resurface feature analytics instrumentation spec."
 artifact: instrumentation-spec
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf consumer PKM app . Resurface feature analytics instrumentation spec
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

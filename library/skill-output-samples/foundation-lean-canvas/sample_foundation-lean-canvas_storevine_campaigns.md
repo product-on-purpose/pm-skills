@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation Lean Canvas: Storevine Campaigns"
+description: "Storevine Campaigns lean canvas for framing the built-in email / SMS re-engagement feature as an embedded alternative to Klaviyo for SMB merchants."
 artifact: lean-canvas
 version: "1.0"
 repo_version: "2.10.2"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine Campaigns lean canvas for framing the built-in email / SMS re-engagement feature as an embedded alternative to Klaviyo for SMB merchants
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

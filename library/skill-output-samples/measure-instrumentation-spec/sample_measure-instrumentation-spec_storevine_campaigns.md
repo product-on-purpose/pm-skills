@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Measure Instrumentation Spec: Storevine Campaigns"
+description: "Storevine B2B ecommerce platform - Campaigns send flow and first-campaign flow analytics instrumentation."
 artifact: instrumentation-spec
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . Campaigns send flow and first-campaign flow analytics instrumentation
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

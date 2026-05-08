@@ -9,13 +9,14 @@ related:
   - discovery/frontmatter-correction-example.md
   - plan_v2.14_starlight-spike-report_2026-05-06.md
 ---
+
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 # Spec: Frontmatter Placement Correction and Schema Enhancement
 
-> **STATUS: AWAITING MAINTAINER SIGN-OFF.** This spec is fully drafted but execution is blocked. Before any code or content edits ship, the 5 questions below must be answered and locked into this document. After sign-off, proceed to execution per the "Implementation order" section further down.
+> **STATUS: EXECUTED 2026-05-08.** Maintainer signoff on Q1-Q5 received; sweep run on 102 files (100 broken library samples + 2 OKR EXAMPLE.md per Q4-C); generators + standards docs updated; CI lint extension landed. GitHub web-view rendering verified via Playwright before sweep. See migration plan change log for the full execution record.
 >
-> Owner of sign-off: jprisant. Drafted: 2026-05-06.
+> Owner of sign-off: jprisant. Drafted: 2026-05-06. Executed: 2026-05-08.
 
 ## What this spec needs from you (maintainer-action block)
 
@@ -78,16 +79,17 @@ Per the repo's "no effort-doc bloat on refactor cycles" rule, this work appears 
 **Why it matters.** GitHub's markdown renderer recognizes YAML frontmatter only when the file *begins* with `---\n`. Any preceding bytes (HTML comment, BOM, whitespace) cause the renderer to fall through to body-markdown mode. In body mode, the YAML block becomes a paragraph; markdown's soft-break rule joins single newlines with a space, collapsing the field list into a single run-on line. The same byte-0 requirement applies to Astro Starlight content collections (Zod schema validation), Jekyll, Hugo, and MkDocs Material's `meta` plugin.
 
 The placement bug has two costs today:
+
 1. **Now**: 100 sample pages on github.com show degraded rendering (no metadata table at top of page).
 2. **At v2.14.0 cut**: Starlight will either reject these files (build failure) or strip them silently (missing pages).
 
 **Desired outcomes.**
 
-| Outcome | How verified |
-|---|---|
-| All 102 files render their frontmatter as a metadata table on github.com | Spot-check 6 files (2 per thread) on `main` after merge |
-| Starlight build succeeds with all 102 files indexed in their content collections | `astro build` exits 0 with expected page count, and a sample URL renders as a Starlight page |
-| Sample-creation guidance documents the correct pattern so future samples ship correctly | `SAMPLE_CREATION.md` Section 5 explicitly mandates byte-0 placement with an example |
+| Outcome                                                                                 | How verified                                                                                 |
+| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| All 102 files render their frontmatter as a metadata table on github.com                | Spot-check 6 files (2 per thread) on `main` after merge                                      |
+| Starlight build succeeds with all 102 files indexed in their content collections        | `astro build` exits 0 with expected page count, and a sample URL renders as a Starlight page |
+| Sample-creation guidance documents the correct pattern so future samples ship correctly | `SAMPLE_CREATION.md` Section 5 explicitly mandates byte-0 placement with an example          |
 
 **Potential solutions.**
 
@@ -99,9 +101,11 @@ The placement bug has two costs today:
 **Recommendation: Option A** (immediately after closing `---` fence, no blank line). Matches the existing `discovery/frontmatter-correction-example.md` reference; minimal motion; one-line placement; easy to script and lint. The other 26 skill `references/EXAMPLE.md` files (which already have correct byte-0 frontmatter) use this same pattern; choosing Option A keeps the repo's attribution placement uniform.
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation (Option A; no blank line between closing `---` and comment)
-- [ ] Modify: 
+
+- [x] Accept recommendation (Option A; no blank line between closing `---` and comment)
+- [x] Modify: Use the structure that aligns with github's implementation of front matter. 
 - [ ] Reject; alternative direction: 
+
 - Notes: 
 
 ---
@@ -116,11 +120,11 @@ Bundling `title:` + `description:` in one mechanical sweep is cheaper than a sec
 
 **Desired outcomes.**
 
-| Outcome | How verified |
-|---|---|
-| Every library sample carries a `title:` derived from its skill, thread, and scenario | Linter passes; Starlight build succeeds |
-| Each sample's listing-page excerpt is meaningful (1-2 sentences, not raw markdown) | Spot-check 6 samples; confirm they read well as listing-page excerpts |
-| Future samples ship with both fields populated | `SAMPLE_CREATION.md` Section 5 mandates both fields with examples |
+| Outcome                                                                              | How verified                                                          |
+| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| Every library sample carries a `title:` derived from its skill, thread, and scenario | Linter passes; Starlight build succeeds                               |
+| Each sample's listing-page excerpt is meaningful (1-2 sentences, not raw markdown)   | Spot-check 6 samples; confirm they read well as listing-page excerpts |
+| Future samples ship with both fields populated                                       | `SAMPLE_CREATION.md` Section 5 mandates both fields with examples     |
 
 **Potential solutions.**
 
@@ -132,9 +136,11 @@ Bundling `title:` + `description:` in one mechanical sweep is cheaper than a sec
 **Recommendation: Option A** (bundle both, populate both). Touching 100 files twice is wasteful when one pass can land both. The `context:` field is already populated in every sample and provides a reasonable starting point for `description:` (refine where the derivation is awkward). Option D is rejected outright because it doesn't satisfy the Starlight requirement; Option C is rejected because empty `description:` defeats the field's purpose.
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation (Option A; bundle title + description, populate both)
+
+- [x] Accept recommendation (Option A; bundle title + description, populate both)
 - [ ] Modify: 
 - [ ] Reject; alternative direction: 
+
 - Notes: 
 
 ### Proposed final schema for library samples
@@ -167,6 +173,7 @@ Field ordering: Starlight conventions place `title:` and `description:` first be
 **Why it matters.** Two near-synonym fields in the same schema is a maintenance smell. If they coexist without crisp documented semantics, contributors must guess which to populate, leading to schema drift over time. If one is renamed, every existing 100-sample file needs the field renamed; that's the same mechanical cost as the placement fix and best done in the same PR. If they're merged, the existing `context:` content needs distillation to fit the SEO-grade 1-2 sentence description shape (potentially lossy).
 
 **Desired outcomes.**
+
 - Schema has either one description-class field, or two with crisp documented semantics.
 - Contributors can tell which field to populate without reading mailing-list archives.
 - `SAMPLE_CREATION.md` Section 5 documents the choice with examples.
@@ -181,9 +188,11 @@ Field ordering: Starlight conventions place `title:` and `description:` first be
 **Recommendation: Option A** (keep both with distinct semantics). Lowest motion; preserves existing scenario content; the SEO field is purpose-built. Document in `SAMPLE_CREATION.md` that `description:` is for listing-page excerpts (1-2 sentences, SEO-grade) and `context:` is for scenario framing (richer narrative; why-this-sample-exists). Drift risk is bounded by the linter (which can validate both fields are populated and `description:` is short).
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation (Option A; keep both with distinct semantics, documented)
+
+- [x] Accept recommendation (Option A; keep both with distinct semantics, documented)
 - [ ] Modify: 
 - [ ] Reject; alternative direction: 
+
 - Notes: 
 
 ---
@@ -195,6 +204,7 @@ Field ordering: Starlight conventions place `title:` and `description:` first be
 **Why it matters.** EXAMPLE.md files are reference material for skill contributors, not user-facing pages. Adding `title:` to them is technically free (the file structure permits it; existing 26 other EXAMPLE.md files have varying schemas), but `description:` may not apply since they're not listing-page candidates. Decoupling these 2 files from the schema enhancement keeps the v2.14 PR boundaries cleaner; coupling them keeps schema treatment uniform across all 102 in-scope files.
 
 **Desired outcomes.**
+
 - The 2 OKR-skill EXAMPLE.md files are byte-0 compliant after this PR.
 - The schema treatment is consistent with the broader Q2 outcome.
 - The PR diff is reviewable as one focused change without ambiguity over which files got which treatment.
@@ -209,9 +219,11 @@ Field ordering: Starlight conventions place `title:` and `description:` first be
 **Recommendation:** Option C if Q2 lands the bundled title + description schema (Q2 Option A); Option B if Q2 lands `title:` only (Q2 Option B). Either way, Option D is rejected (the placement bug is in scope and these 2 files belong with the rest of the sweep). Reasoning: the 2 OKR EXAMPLE.md files are part of the same defect class as the 100 library samples; excluding them from the schema treatment creates two divergent schema shapes for what's effectively one defect class.
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation as conditional on Q2 outcome (Option C if Q2-A; Option B if Q2-B)
+
+- [x] Accept recommendation as conditional on Q2 outcome (Option C if Q2-A; Option B if Q2-B)
 - [ ] Modify: 
 - [ ] Reject; alternative direction: 
+
 - Notes: 
 
 ---
@@ -223,6 +235,7 @@ Field ordering: Starlight conventions place `title:` and `description:` first be
 **Why it matters.** PR boundaries affect review ergonomics, revertability, and how the work appears in the cycle's commit history. Bundled means one review, one merge surface, one revert if needed. Split means smaller diffs but more coordination cost (the lint extension can't merge before the sweep, since the sweep makes the lint extension green; if lint lands first it would fail CI on the existing 102 broken files).
 
 **Desired outcomes.**
+
 - Reviewer can verify each batch in isolation by reading the diff in dependency order.
 - The work appears as a coherent unit in the v2.14 cycle history (not scattered across the cycle).
 - Revert path is clean if the sweep needs to be undone.
@@ -238,9 +251,11 @@ Field ordering: Starlight conventions place `title:` and `description:` first be
 **Recommendation: Option A** (bundle in one PR). The mechanical sweep is straightforward and deterministic (script-driven); the generators + lint changes are small-surface (4 SKILL.md files plus 1 linter pair). Bundling makes the PR self-contained and easy to verify by reading the diff in dependency order: generators first (the contracts), sweep second (the mechanical fix), lint third (the guardrail). The "no effort-doc bloat on refactor cycles" rule applies: this work is one row in `plan_v2.14.0.md`, so it should be one commit in history.
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation (Option A; bundle in one PR)
+
+- [x] Accept recommendation (Option A; bundle in one PR)
 - [ ] Modify: 
 - [ ] Reject; alternative direction: 
+
 - Notes: 
 
 ---
@@ -252,11 +267,12 @@ Field ordering: Starlight conventions place `title:` and `description:` first be
 The existing `scripts/lint-skills-frontmatter.sh` already enforces byte-0 `---` for files matching `skills/*/SKILL.md` (line 31-36). Two extensions:
 
 1. **Broaden the byte-0 check** to additionally cover:
+
    - `skills/*/references/TEMPLATE.md` (currently ~40 files)
    - `skills/*/references/EXAMPLE.md` (currently ~40 files)
    - `library/skill-output-samples/**/*.md` (currently 102 files including README and standards docs that have no frontmatter; the check should skip files that have no `---` at all and only fail on files that have `---` somewhere but not at byte 0)
+1. **Add a schema check** for library samples specifically:
 
-2. **Add a schema check** for library samples specifically:
    - Required fields: `title`, `description` (if Decision Brief 2 lands the full schema), `artifact`, `version`, `created`, `status`, `thread`, `context`
    - Per-field validation: `created` is ISO date; `thread` is one of the canonical thread enum values; `status` is `sample` or `legacy`.
 
@@ -268,11 +284,11 @@ The bug shipped because the linter's byte-0 check was scoped to one file class (
 
 ### Desired outcomes
 
-| Outcome | How verified |
-|---|---|
-| `bash scripts/lint-skills-frontmatter.sh` exits 0 across all in-scope file classes after the sweep | Run locally on a clean tree |
+| Outcome                                                                                              | How verified                                                                                         |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `bash scripts/lint-skills-frontmatter.sh` exits 0 across all in-scope file classes after the sweep   | Run locally on a clean tree                                                                          |
 | Reintroducing the bug pattern in any in-scope file class causes CI to fail with a clear error message | Manual test: insert a comment before `---` in one sample file, run the linter, verify FAIL with file path and reason |
-| Linter is idempotent and side-effect-free | No file mutations; exit code is the only signal |
+| Linter is idempotent and side-effect-free                                                            | No file mutations; exit code is the only signal                                                      |
 
 ### Implementation note
 
@@ -317,6 +333,7 @@ Then iterate this function over the new file classes added to the linter's scope
 **Current state**: Section 5 ("Frontmatter Standards") lists required keys but does not specify placement. No example block.
 
 **Change**: Rewrite Section 5 to:
+
 1. Explicitly require `---` at byte 0 of the file (no preceding content of any kind, including HTML comments).
 2. Place the attribution comment (`<!-- PM-Skills | ... | Apache 2.0 -->`) on the line immediately after the closing `---` fence.
 3. Include a complete frontmatter block as an in-line example (the same one shown in Decision Brief 2 above).
@@ -329,6 +346,7 @@ This is the canonical authoring spec; making it correct prevents the bug class f
 **Current state**: Step 5 generates a "Draft Frontmatter . complete, valid YAML block" but does not enforce byte-0 placement in the output instructions. Step 6 writes drafts to `_staging/`. Step 7 promotes to canonical paths.
 
 **Change**: 
+
 1. In Step 5, add explicit instruction: "The draft `SKILL.md` content MUST begin with `---` at byte 0. Place any attribution comment AFTER the closing `---` fence, never before."
 2. Update `references/TEMPLATE.md` if it serves as the literal template for generated SKILL.md files (verify no leftover examples that put the comment first).
 
@@ -337,6 +355,7 @@ This is the canonical authoring spec; making it correct prevents the bug class f
 **Current state**: Modifies existing skills, including the `updated:` field (Step 5). Does not generate new files from scratch.
 
 **Change**: 
+
 1. In Step 5, when re-reading and re-writing files, verify byte-0 `---` placement is preserved. Add a defensive check: if the existing file violates byte-0, the iterator should warn and offer to fix the placement before applying other changes.
 
 ### `skills/utility-pm-skill-validate/SKILL.md`
@@ -344,6 +363,7 @@ This is the canonical authoring spec; making it correct prevents the bug class f
 **Current state**: Tier 1 structural checks include `name-match`, `description-present`, etc. The `placeholder-leakage` check (Tier 2) scans for HTML comments but explicitly excepts "the license header" without validating its position.
 
 **Change**:
+
 1. Add a new Tier 1 structural check: `frontmatter-at-byte-zero`. Pass condition: line 1 of `SKILL.md`, `references/TEMPLATE.md`, and `references/EXAMPLE.md` is exactly `---`. Severity: FAIL.
 2. Update the Step 3 checks table accordingly.
 3. Update `references/EXAMPLE.md` (the validation report example) to include this check.
@@ -359,15 +379,18 @@ This is the canonical authoring spec; making it correct prevents the bug class f
 ## Implementation order
 
 1. **Update generators and standards docs first** (lowest risk, source-of-truth fix):
+
    - `library/skill-output-samples/SAMPLE_CREATION.md` Section 5 rewrite
    - `skills/utility-pm-skill-builder/SKILL.md` Step 5 instruction
    - `skills/utility-pm-skill-iterate/SKILL.md` Step 5 byte-0 preservation note
    - `skills/utility-pm-skill-validate/SKILL.md` new Tier 1 check
-2. **Sweep the 102 files** (mechanical, scripted):
+1. **Sweep the 102 files** (mechanical, scripted):
+
    - 100 library samples
    - 2 skill OKR EXAMPLE.md files
    - Apply placement fix and (per Decision Brief 2 outcome) schema additions in the same script run
-3. **Land the CI lint extension last** (guardrail):
+1. **Land the CI lint extension last** (guardrail):
+
    - Extend `scripts/lint-skills-frontmatter.sh` and `.ps1`
    - Verify it passes on the post-sweep tree
    - Verify it fails on a manually-broken test file before reverting
@@ -394,13 +417,13 @@ The work is complete when:
 
 ## Risks and mitigations
 
-| Risk | Likelihood | Mitigation |
-|---|---|---|
-| Mechanical sweep introduces a typo in one of 102 files | Low | Use a deterministic script (no LLM-authored edits per file). Diff-review the full sweep before merge. |
-| Adding `title:` requires hand-curated values; tedium leads to low-quality titles | Medium | Generate from `artifact + thread + context` as a starting point; review and refine per file. Budget ~1 hour for refinement across 100 files. |
-| Schema additions break `pm-skill-validate` if it has hardcoded field expectations | Low | The validator only checks SKILL.md frontmatter today; library samples are out of its scope. Confirm during implementation. |
-| MCP server has cached or embedded sample frontmatter that would drift | Low | Per existing project memory, MCP gap is frozen at 28 skills with no library samples embedded. No drift risk. |
-| Starlight schema validation rejects a field we did not anticipate | Medium | Run `astro build` against the post-sweep tree as part of acceptance. Spike has already validated 5 caveats; this would be a 6th if found. |
+| Risk                                                                              | Likelihood | Mitigation                                                                                           |
+| --------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------- |
+| Mechanical sweep introduces a typo in one of 102 files                            | Low        | Use a deterministic script (no LLM-authored edits per file). Diff-review the full sweep before merge. |
+| Adding `title:` requires hand-curated values; tedium leads to low-quality titles  | Medium     | Generate from `artifact + thread + context` as a starting point; review and refine per file. Budget ~1 hour for refinement across 100 files. |
+| Schema additions break `pm-skill-validate` if it has hardcoded field expectations | Low        | The validator only checks SKILL.md frontmatter today; library samples are out of its scope. Confirm during implementation. |
+| MCP server has cached or embedded sample frontmatter that would drift             | Low        | Per existing project memory, MCP gap is frozen at 28 skills with no library samples embedded. No drift risk. |
+| Starlight schema validation rejects a field we did not anticipate                 | Medium     | Run `astro build` against the post-sweep tree as part of acceptance. Spike has already validated 5 caveats; this would be a 6th if found. |
 
 ---
 
@@ -408,13 +431,13 @@ The work is complete when:
 
 The 5 questions are each their own Decision Brief above with the full 6-part structure (What it is / Why it matters / Desired outcomes / Potential solutions / Recommendation / Maintainer decision-feedback). This index is for quick navigation:
 
-| Q | Subject | Brief | Status |
-|---|---|---|---|
-| Q1 | Placement format | [Decision Brief 1](#decision-brief-1-placement-format-q1) | Open |
-| Q2 | Schema scope (title + description bundling) | [Decision Brief 2](#decision-brief-2-schema-scope---title-and-description-bundling-q2) | Open |
-| Q3 | `context:` field disposition | [Decision Brief 3](#decision-brief-3-context-field-disposition-q3) | Open |
-| Q4 | OKR-skill EXAMPLE.md schema scope | [Decision Brief 4](#decision-brief-4-okr-skill-examplemd-schema-scope-q4) | Open |
-| Q5 | PR boundaries | [Decision Brief 5](#decision-brief-5-pr-boundaries-q5) | Open |
+| Q   | Subject                                     | Brief                                                                                  | Status |
+| --- | ------------------------------------------- | -------------------------------------------------------------------------------------- | ------ |
+| Q1  | Placement format                            | [Decision Brief 1](#decision-brief-1-placement-format-q1)                              | Open   |
+| Q2  | Schema scope (title + description bundling) | [Decision Brief 2](#decision-brief-2-schema-scope---title-and-description-bundling-q2) | Open   |
+| Q3  | `context:` field disposition                | [Decision Brief 3](#decision-brief-3-context-field-disposition-q3)                     | Open   |
+| Q4  | OKR-skill EXAMPLE.md schema scope           | [Decision Brief 4](#decision-brief-4-okr-skill-examplemd-schema-scope-q4)              | Open   |
+| Q5  | PR boundaries                               | [Decision Brief 5](#decision-brief-5-pr-boundaries-q5)                                 | Open   |
 
 Once all 5 briefs have a maintainer decision recorded, this spec is unblocked and W3.5 in `plan_v2.14_starlight-migration.md` can proceed.
 

@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Utility PM Skill Validate: Storevine Validate Campaign Analytics"
+description: "Storevine B2B ecommerce platform - validating the campaign-analytics skill from skill builder output."
 artifact: validation-report
 version: "1.0"
 repo_version: "2.10.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . validating the campaign-analytics skill from skill builder output
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

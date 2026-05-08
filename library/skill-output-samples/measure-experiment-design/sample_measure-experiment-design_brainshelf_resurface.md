@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Measure Experiment Design: Brainshelf Resurface"
+description: "Brainshelf consumer PKM app - Resurface A/B test experiment design."
 artifact: experiment-design
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf consumer PKM app . Resurface A/B test experiment design
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

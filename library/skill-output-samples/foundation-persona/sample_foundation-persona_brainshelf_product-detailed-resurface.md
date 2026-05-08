@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation Persona: Brainshelf Product Detailed Resurface"
+description: "Brainshelf Resurface product persona for power-curator workflows and advanced resurfacing customization."
 artifact: persona
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf Resurface product persona for power-curator workflows and advanced resurfacing customization
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Deliver Edge Cases: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform - Blueprints edge-case analysis for approval workflows and co-editing."
 artifact: edge-cases
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,8 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform - Blueprints edge-case analysis for approval workflows and co-editing
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
+
 # Sample Output 03 - deliver-edge-cases
 
 Skill: deliver-edge-cases

@@ -148,10 +148,24 @@ for dir in "$ROOT"/skills/*; do
   fi
 
   for ref in TEMPLATE.md EXAMPLE.md; do
-    if [[ ! -f "$dir/references/$ref" ]]; then
+    refpath="$dir/references/$ref"
+    if [[ ! -f "$refpath" ]]; then
       echo "✗ $rel : missing references/$ref"
       FAIL=1
       skill_fail=1
+    else
+      # Byte-0 placement check: only enforce when the file actually has YAML
+      # frontmatter. The signal we use is the bug pattern itself - HTML comment
+      # on line 1 followed by `---` on line 2. Files without frontmatter, or
+      # files where `---` appears as a markdown horizontal rule in the body,
+      # correctly skip this check.
+      ref_l1=$(sed -n '1p' "$refpath" | tr -d '\r')
+      ref_l2=$(sed -n '2p' "$refpath" | tr -d '\r')
+      if [[ "$ref_l1" == "<!--"*"-->" && "$ref_l2" == "---" ]]; then
+        echo "✗ ${refpath#$ROOT/} : frontmatter byte-0 violation (HTML comment on line 1, '---' on line 2; move comment to line immediately after closing '---' fence)"
+        FAIL=1
+        skill_fail=1
+      fi
     fi
   done
 
@@ -169,5 +183,24 @@ for dir in "$ROOT"/skills/*; do
     echo "✓ $rel"
   fi
 done
+
+# W3.5: byte-0 check for library samples + OKR EXAMPLE.md files
+# Scope: library/skill-output-samples/**/sample_*.md (any sample with frontmatter)
+# Skip files with no frontmatter (e.g., README_SAMPLES.md, SAMPLE_CREATION.md)
+SAMPLES_DIR="$ROOT/library/skill-output-samples"
+if [[ -d "$SAMPLES_DIR" ]]; then
+  while IFS= read -r -d $'\0' sample; do
+    rel="${sample#$ROOT/}"
+    name=$(basename "$sample")
+    [[ "$name" == sample_*.md ]] || continue
+
+    sample_l1=$(sed -n '1p' "$sample" | tr -d '\r')
+    sample_l2=$(sed -n '2p' "$sample" | tr -d '\r')
+    if [[ "$sample_l1" == "<!--"*"-->" && "$sample_l2" == "---" ]]; then
+      echo "✗ $rel : frontmatter byte-0 violation (HTML comment on line 1, '---' on line 2; move comment to line immediately after closing '---' fence)"
+      FAIL=1
+    fi
+  done < <(find "$SAMPLES_DIR" -name "sample_*.md" -type f -print0)
+fi
 
 exit "$FAIL"

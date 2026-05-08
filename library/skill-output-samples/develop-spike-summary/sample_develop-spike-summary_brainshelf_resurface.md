@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Develop Spike Summary: Brainshelf Resurface"
+description: "Brainshelf consumer PKM app - topic-matching algorithm spike for the Resurface digest."
 artifact: spike-summary
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf consumer PKM app . topic-matching algorithm spike for the Resurface digest
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

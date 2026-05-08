@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Utility PM Skill Iterate: Storevine Iterate Campaign Analytics"
+description: "Storevine B2B ecommerce platform - iterating on campaign-analytics skill after validation findings."
 artifact: iteration-change-summary
 version: "1.0"
 repo_version: "2.10.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . iterating on campaign-analytics skill after validation findings
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

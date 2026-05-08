@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Deliver User Stories: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform - Blueprints v1 sprint stories for required sections and approval gates."
 artifact: user-story
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,8 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform - Blueprints v1 sprint stories for required sections and approval gates
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
+
 # Sample Output 03 - deliver-user-stories
 
 Skill: deliver-user-stories

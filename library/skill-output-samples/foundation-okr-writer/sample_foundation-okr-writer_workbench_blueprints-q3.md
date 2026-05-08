@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation OKR Writer: Workbench Blueprints Q3"
+description: "Workbench enterprise B2B platform. Blueprints team Q3 2026 OKR set following the June 15 v1.1 launch. Mixed-empowerment signal demonstrates the Disclosure section."
 artifact: foundation-okr-writer
 version: "1.0"
 repo_version: "2.12.0"
@@ -9,6 +10,7 @@ status: canonical
 thread: workbench
 context: Workbench enterprise B2B platform. Blueprints team Q3 2026 OKR set following the June 15 v1.1 launch. Mixed-empowerment signal demonstrates the Disclosure section.
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 # Sample: foundation-okr-writer. Workbench Blueprints Q3 2026 OKR Set
 

@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Measure OKR Grader: Brainshelf Resurface Q3"
+description: "Brainshelf prosumer knowledge tool. Resurface team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer brainshelf sample. Demonstrates aspirational sweet-spot scoring with an invalidating signal on the retention-multiplier hypothesis."
 artifact: measure-okr-grader
 version: "1.0"
 repo_version: "2.12.0"
@@ -9,6 +10,7 @@ status: canonical
 thread: brainshelf
 context: Brainshelf prosumer knowledge tool. Resurface team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer brainshelf sample. Demonstrates aspirational sweet-spot scoring with an invalidating signal on the retention-multiplier hypothesis.
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 # Sample: measure-okr-grader. Brainshelf Resurface Q3 2026 Cycle Review
 

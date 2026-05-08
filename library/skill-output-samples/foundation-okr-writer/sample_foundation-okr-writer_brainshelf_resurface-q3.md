@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation OKR Writer: Brainshelf Resurface Q3"
+description: "Brainshelf prosumer knowledge tool. Resurface team Q3 2026 OKR set following the March 2026 algo v1 ship and beta validation."
 artifact: foundation-okr-writer
 version: "1.0"
 repo_version: "2.12.0"
@@ -9,6 +10,7 @@ status: canonical
 thread: brainshelf
 context: Brainshelf prosumer knowledge tool. Resurface team Q3 2026 OKR set following the March 2026 algo v1 ship and beta validation.
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 # Sample: foundation-okr-writer. Brainshelf Resurface Q3 2026 OKR Set
 

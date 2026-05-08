@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Measure Experiment Results: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform: Blueprints required-section enforcement A/B test results."
 artifact: experiment-results
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform: Blueprints required-section enforcement A/B test results
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

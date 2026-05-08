@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Develop ADR: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform: ADR for Yjs CRDTs for Blueprint co-editing."
 artifact: adr
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform: ADR for Yjs CRDTs for Blueprint co-editing
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

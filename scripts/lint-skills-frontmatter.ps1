@@ -174,6 +174,20 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
             Write-Host "[FAIL] $rel : missing references/$ref"
             $Fail = $true
             $skillFail = $true
+        } else {
+            # Byte-0 placement check: only enforce on the bug pattern (HTML comment
+            # on line 1, '---' on line 2). Avoids false positives on markdown
+            # horizontal rules in body content.
+            $refLines = Get-Content $refPath -ErrorAction SilentlyContinue
+            $line1 = if ($refLines.Count -ge 1) { $refLines[0].Trim() } else { '' }
+            $line2 = if ($refLines.Count -ge 2) { $refLines[1].Trim() } else { '' }
+            if ($line1 -match '^<!--.*-->$' -and $line2 -eq '---') {
+                $refRel = $refPath -replace [regex]::Escape("$Root\"), ''
+                $refRel = $refRel -replace '\\', '/'
+                Write-Host "[FAIL] $refRel : frontmatter byte-0 violation (HTML comment on line 1, '---' on line 2; move comment to line immediately after closing '---' fence)"
+                $Fail = $true
+                $skillFail = $true
+            }
         }
     }
 
@@ -189,6 +203,23 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
 
     if (-not $skillFail) {
         Write-Host "[OK] $rel"
+    }
+}
+
+# W3.5: byte-0 check for library samples
+$samplesDir = Join-Path -Path $Root -ChildPath 'library/skill-output-samples'
+if (Test-Path $samplesDir) {
+    Get-ChildItem -Path $samplesDir -Filter 'sample_*.md' -Recurse -File | ForEach-Object {
+        $sample = $_.FullName
+        $sampleRel = $sample -replace [regex]::Escape("$Root\"), ''
+        $sampleRel = $sampleRel -replace '\\', '/'
+        $sampleLines = Get-Content $sample -ErrorAction SilentlyContinue
+        $sl1 = if ($sampleLines.Count -ge 1) { $sampleLines[0].Trim() } else { '' }
+        $sl2 = if ($sampleLines.Count -ge 2) { $sampleLines[1].Trim() } else { '' }
+        if ($sl1 -match '^<!--.*-->$' -and $sl2 -eq '---') {
+            Write-Host "[FAIL] $sampleRel : frontmatter byte-0 violation (HTML comment on line 1, '---' on line 2; move comment to line immediately after closing '---' fence)"
+            $Fail = $true
+        }
     }
 }
 

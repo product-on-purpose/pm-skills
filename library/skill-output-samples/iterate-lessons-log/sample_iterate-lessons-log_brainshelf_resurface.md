@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Iterate Lessons Log: Brainshelf Resurface"
+description: "Brainshelf consumer PKM app - timezone handling lesson from the Resurface Sprint 8 launch."
 artifact: lessons-log
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf consumer PKM app . timezone handling lesson from the Resurface Sprint 8 launch
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

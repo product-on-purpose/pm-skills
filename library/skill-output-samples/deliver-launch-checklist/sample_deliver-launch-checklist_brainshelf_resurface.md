@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Deliver Launch Checklist: Brainshelf Resurface"
+description: "Brainshelf consumer PKM app - Resurface feature launch checklist for Sprint 8 ship."
 artifact: launch-checklist
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf consumer PKM app . Resurface feature launch checklist for Sprint 8 ship
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

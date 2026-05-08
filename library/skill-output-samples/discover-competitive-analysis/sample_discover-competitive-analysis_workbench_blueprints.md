@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Discover Competitive Analysis: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform: Blueprints competitive landscape."
 artifact: competitive-analysis
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform: Blueprints competitive landscape
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

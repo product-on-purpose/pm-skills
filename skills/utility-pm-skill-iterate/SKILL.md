@@ -160,6 +160,12 @@ content to what you recorded in Step 2.
 - Update the `updated` field in SKILL.md frontmatter to today's date.
   (The `updated` field tracks when the file was last modified, regardless
   of whether a version bump is accepted.)
+- **Byte-0 preservation:** verify each rewritten file still has `---` at
+  byte 0 of the file (no preceding content). If the previous content
+  violated byte-0 placement (e.g., HTML attribution comment on line 1),
+  surface this defensively before applying other changes and offer to
+  fix the placement as part of the same write. Reference:
+  `library/skill-output-samples/SAMPLE_CREATION.md` Section 5.
 - Report what was written: list each file and a one-line summary of
   what changed.
 

@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Discover Stakeholder Summary: Brainshelf Resurface"
+description: "Brainshelf consumer PKM app - internal stakeholder map for the Resurface feature."
 artifact: stakeholder-summary
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf consumer PKM app . internal stakeholder map for the Resurface feature
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

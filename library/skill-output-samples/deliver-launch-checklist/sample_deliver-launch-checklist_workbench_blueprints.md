@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Deliver Launch Checklist: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform - Blueprints v1 GA launch readiness checklist."
 artifact: launch-checklist
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,8 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform - Blueprints v1 GA launch readiness checklist
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
+
 # Sample Output 03 - deliver-launch-checklist
 
 Skill: deliver-launch-checklist

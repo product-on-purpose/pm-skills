@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Discover Interview Synthesis: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform: Blueprints discovery interviews on documentation consistency and Confluence fatigue."
 artifact: interview-synthesis
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform: Blueprints discovery interviews on documentation consistency and Confluence fatigue
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Iterate Refinement Notes: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform: Blueprints v1.1 backlog refinement session."
 artifact: refinement-notes
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform: Blueprints v1.1 backlog refinement session
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

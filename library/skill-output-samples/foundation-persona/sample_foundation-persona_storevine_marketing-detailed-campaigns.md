@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation Persona: Storevine Marketing Detailed Campaigns"
+description: "Storevine Campaigns committee-buying marketing persona for launch and enablement planning."
 artifact: persona
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine Campaigns committee-buying marketing persona for launch and enablement planning
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

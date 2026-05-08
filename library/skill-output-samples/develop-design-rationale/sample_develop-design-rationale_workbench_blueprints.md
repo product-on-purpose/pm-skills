@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Develop Design Rationale: Workbench Blueprints"
+description: "Workbench enterprise collaboration platform: guided wizard vs. blank canvas for Blueprint creation flow."
 artifact: design-rationale
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: workbench
 context: Workbench enterprise collaboration platform: guided wizard vs. blank canvas for Blueprint creation flow
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

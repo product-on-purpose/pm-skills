@@ -63,18 +63,70 @@ Additional requirements:
 
 ## 5) Frontmatter Standards
 
-For modern thread samples (`storevine`, `brainshelf`, `workbench`), include frontmatter keys consistent with current corpus patterns:
+Library sample frontmatter MUST start at byte 0 of the file (the opening `---` fence on line 1, no preceding content of any kind including HTML comments, BOM, or whitespace). The `<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->` attribution comment goes on the line immediately after the closing `---` fence, with no blank line between them. This placement satisfies GitHub's markdown renderer (which displays the YAML as a structured metadata table at the top of the page) and Astro Starlight's content-collection schema validation.
 
-1. `artifact`
-2. `version`
-3. `repo_version`
-4. `skill_version`
-5. `created`
-6. `status`
-7. `thread`
-8. `context`
+### Required schema
 
-Legacy files may not have full modern frontmatter; avoid back-editing legacy unless there is a correctness issue.
+For modern thread samples (`storevine`, `brainshelf`, `workbench`), the frontmatter has 10 fields in this order:
+
+| # | Field | Required | Purpose |
+|---|---|---|---|
+| 1 | `title` | Required | SEO-load-bearing; appears in Starlight listing-page nav, search results, social cards, and HTML `<title>` tag |
+| 2 | `description` | Required | SEO-load-bearing; 1-2 sentences for Starlight listing-page excerpt and meta description |
+| 3 | `artifact` | Required | Skill artifact type (e.g., `opportunity-tree`, `prd`) |
+| 4 | `version` | Required | Sample-content version, string-quoted (e.g., `"1.0"`) |
+| 5 | `repo_version` | Required | pm-skills version when sample was authored (e.g., `"2.5.0"`) |
+| 6 | `skill_version` | Required | Skill version when sample was authored (e.g., `"2.0.0"`) |
+| 7 | `created` | Required | ISO date (e.g., `2026-02-20`) |
+| 8 | `status` | Required | One of `sample`, `legacy` |
+| 9 | `thread` | Required | One of `storevine`, `brainshelf`, `workbench` |
+| 10 | `context` | Required | Scenario-load-bearing; richer narrative (the why-this-sample); distinct from `description:` which is SEO-grade |
+
+The two SEO-load-bearing fields (`title:` and `description:`) come first because Starlight conventions place them at the top. The remaining 8 fields preserve the existing schema order.
+
+### Canonical example
+
+```markdown
+---
+title: "Opportunity Tree: Brainshelf Resurface 60-day Retention"
+description: "Outcome-driven tree mapping three opportunities for re-engaging saved content in the Brainshelf consumer PKM app."
+artifact: opportunity-tree
+version: "1.0"
+repo_version: "2.5.0"
+skill_version: "2.0.0"
+created: 2026-02-20
+status: sample
+thread: brainshelf
+context: Brainshelf consumer PKM app - opportunity tree for saved content re-engagement
+---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
+
+## Scenario
+
+[Body content begins here]
+```
+
+### `description` vs `context` distinction
+
+The two fields look similar but serve different purposes:
+
+- **`description:`** is SEO-grade. 1-2 sentences. Appears in listing-page excerpts, meta description tags, and search-result previews. Should read as a summary that makes a reader want to click through.
+- **`context:`** is scenario framing. Richer narrative. Captures the why-this-sample-exists: the product, the team, the constraint that makes this sample illustrative. Not displayed in listing UI; used for cross-sample analysis and authoring guidance.
+
+When in doubt: `description:` answers "what is this sample showing?"; `context:` answers "in what scenario was this sample produced?".
+
+### Validation
+
+`scripts/lint-skills-frontmatter.sh` (and `.ps1`) enforces:
+
+- byte-0 `---` fence (no HTML comment, BOM, or whitespace on line 1)
+- attribution comment immediately after closing `---` fence (no blank line between them)
+- presence of all 10 required fields
+- `created` is ISO date format
+- `status` is one of the 2 enum values
+- `thread` is one of the 3 enum values
+
+Legacy files (`status: legacy`) may not have full modern frontmatter; avoid back-editing legacy unless there is a correctness issue.
 
 ## 6) Release-Coverage Metadata
 

@@ -128,7 +128,7 @@ The packet includes:
 2. **Classification** . type, phase (if domain), category, directory name
 3. **Overlap Analysis** . what was found, why this skill is still needed
 4. **Exemplar Skills** . which existing skills modeled, why
-5. **Draft Frontmatter** . complete, valid YAML block
+5. **Draft Frontmatter** . complete, valid YAML block. The frontmatter MUST begin with `---` at byte 0 of the file (no preceding content of any kind, including HTML comments, BOM, or whitespace). Place any attribution comment AFTER the closing `---` fence, never before. Reference: `library/skill-output-samples/SAMPLE_CREATION.md` Section 5.
 6. **Draft SKILL.md** . full content (not an outline), mirroring exemplar structure
 7. **Draft TEMPLATE.md** . section headers with guidance comments
 8. **Draft EXAMPLE.md** . complete, realistic example (150-300 lines) with a

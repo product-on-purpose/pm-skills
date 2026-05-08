@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation Persona: Storevine Marketing Brief Campaigns"
+description: "Storevine Campaigns marketing persona for self-serve SMB merchant acquisition and competitive positioning against Shopify plus Klaviyo."
 artifact: persona
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine Campaigns marketing persona for self-serve SMB merchant acquisition and competitive positioning against Shopify plus Klaviyo
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

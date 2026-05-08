@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Measure OKR Grader: Canonical Example"
+description: "Storevine B2B ecommerce platform. Campaigns team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer storevine sample."
 artifact: measure-okr-grader
 version: "1.0"
 repo_version: "2.12.0"
@@ -9,6 +10,7 @@ status: canonical
 thread: storevine
 context: Storevine B2B ecommerce platform. Campaigns team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer storevine sample.
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 # Sample: measure-okr-grader. Storevine Campaigns Q3 2026 Cycle Review
 

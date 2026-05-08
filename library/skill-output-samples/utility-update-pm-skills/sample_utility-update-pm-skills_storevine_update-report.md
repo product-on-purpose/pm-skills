@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Utility Update PM Skills: Storevine Update Report"
+description: "Storevine PM running /update-pm-skills to update from v2.9.1 to v2.10.0."
 artifact: update-report
 version: "1.0"
 repo_version: "2.10.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine PM running /update-pm-skills to update from v2.9.1 to v2.10.0
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

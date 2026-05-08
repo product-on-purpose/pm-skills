@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation Lean Canvas: Workbench Blueprints"
+description: "Workbench Blueprints lean canvas for framing the required-section doc templates with approval gates as an enterprise expansion motion against Confluence and Notion."
 artifact: lean-canvas
 version: "1.0"
 repo_version: "2.10.2"
@@ -9,6 +10,7 @@ status: sample
 thread: workbench
 context: Workbench Blueprints lean canvas for framing the required-section doc templates with approval gates as an enterprise expansion motion against Confluence and Notion
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

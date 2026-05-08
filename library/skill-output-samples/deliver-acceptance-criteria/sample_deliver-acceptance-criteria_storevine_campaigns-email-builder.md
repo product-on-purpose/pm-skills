@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Deliver Acceptance Criteria: Storevine Campaigns Email Builder"
+description: "Storevine B2B ecommerce platform - acceptance criteria for the Campaigns email template builder."
 artifact: acceptance-criteria
 version: "1.0"
 repo_version: "2.10.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . acceptance criteria for the Campaigns email template builder
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

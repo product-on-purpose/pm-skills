@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Define JTBD Canvas: Storevine Campaigns"
+description: "Storevine B2B ecommerce platform - merchant email and tool-stack job-to-be-done for Campaigns."
 artifact: jtbd-canvas
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . merchant email and tool-stack job-to-be-done for Campaigns
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

@@ -6,6 +6,7 @@
 **Owner:** TBD
 **Created:** 2026-05-06
 **Sources:**
+
 - v2.14 cycle plan: [`plan_v2.14.0.md`](./plan_v2.14.0.md) (Decision Briefs D1-D4 resolved)
 - v2.14 Starlight spike plan: [`plan_v2.14_starlight-spike.md`](./plan_v2.14_starlight-spike.md)
 - v2.14 Starlight spike report (post-Codex): [`plan_v2.14_starlight-spike-report_2026-05-06.md`](./plan_v2.14_starlight-spike-report_2026-05-06.md)
@@ -19,17 +20,17 @@
 
 ## 1. Migration overview
 
-| Dimension | Value |
-|---|---|
-| Effort estimate | 33-45 hours focused work (base 25-33 + validation reserve 8-12; +3-5 hrs vs original after W3.5 frontmatter sweep added per cross-session sync) |
-| Calendar estimate | 6-9 days assuming context-switching |
-| Workstreams | 14 (W1, W2, W3, W3.5, W4-W13) |
-| Pre-ship validation gates | 7 |
-| New CI checks | 3 (production-mode internal/ exclusion; edit-link resolution; `validate-plugin-install` workflow integration deferred from v2.13.1) |
+| Dimension                       | Value                                                                                                |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Effort estimate                 | 33-45 hours focused work (base 25-33 + validation reserve 8-12; +3-5 hrs vs original after W3.5 frontmatter sweep added per cross-session sync) |
+| Calendar estimate               | 6-9 days assuming context-switching                                                                  |
+| Workstreams                     | 14 (W1, W2, W3, W3.5, W4-W13)                                                                        |
+| Pre-ship validation gates       | 7                                                                                                    |
+| New CI checks                   | 3 (production-mode internal/ exclusion; edit-link resolution; `validate-plugin-install` workflow integration deferred from v2.13.1) |
 | Material artifacts to deprecate | mkdocs.yml + ~6 Material plugin pip dependencies + custom CSS + workflow steps + documentation references |
-| Pre-existing mkdocs warnings | 11 (deferred from v2.13.1; resolved by mkdocs deletion in W12) |
-| Concurrent work absorbed | v2.13.1 (plugin install path correction; latest tag) + spec_frontmatter-correction (102-file scope) |
-| Risk profile | Medium. Spike covered ~80% of compatibility surface; the 20% is bounded by validation gates. |
+| Pre-existing mkdocs warnings    | 11 (deferred from v2.13.1; resolved by mkdocs deletion in W12)                                       |
+| Concurrent work absorbed        | v2.13.1 (plugin install path correction; latest tag) + spec_frontmatter-correction (102-file scope)  |
+| Risk profile                    | Medium. Spike covered ~80% of compatibility surface; the 20% is bounded by validation gates.         |
 
 ```
 W1 Pre-flight setup
@@ -54,16 +55,16 @@ W1 Pre-flight setup
 
 Recap of decisions resolved in the cycle plan's Decision Briefs section. This plan executes against these resolutions.
 
-| ID | Decision | Outcome | Affects |
-|---|---|---|---|
-| D1 | Performance NO-GO trigger waiver | Option A (waiver only; no hard remediation gate; light monitoring) | W13 (benchmark-only, not gating) |
-| D2 | Production content-source strategy | Option B (in-place mount via custom docsLoader pattern) | W2 (foundational); W7 (samples mount); W11 (deploy) |
-| D3 | Sidebar IA strategy | Option C (hybrid: manual top-level, autogenerate within sections) | W4 |
-| D4 | Mermaid loading strategy | Option B (lazy-load) with Option C (code-split) fallback; defer to v2.15 if neither works | W6 |
-| Adjacent | Old Material URL preservation | Lower priority; redirect base-path bug is MEDIUM polish, not pre-ship gate | W9 (optional polish) |
-| Adjacent | Astro 6 + Node 22.12+ bump | Deferred to v2.15+ as focused upgrade cycle | Out of scope for v2.14 |
-| Spec-block | Frontmatter placement + schema (Q1-Q5 in spec_frontmatter-correction.md) | 5 maintainer questions pending signoff before W3.5 execution | W3.5 (foundational; blocks W7) |
-| Spec-block | Library samples title quality (autogenerate vs hand-curated) | Per spec Decision Brief 2 alternative: "Generate `title:` automatically from filename via Starlight config" was rejected ("low-quality titles"); hand-curate via generator-as-starting-point | W3.5 |
+| ID         | Decision                                                                 | Outcome                                                                                              | Affects                                             |
+| ---------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| D1         | Performance NO-GO trigger waiver                                         | Option A (waiver only; no hard remediation gate; light monitoring)                                   | W13 (benchmark-only, not gating)                    |
+| D2         | Production content-source strategy                                       | Option B (in-place mount via custom docsLoader pattern)                                              | W2 (foundational); W7 (samples mount); W11 (deploy) |
+| D3         | Sidebar IA strategy                                                      | Option C (hybrid: manual top-level, autogenerate within sections)                                    | W4                                                  |
+| D4         | Mermaid loading strategy                                                 | Option B (lazy-load) with Option C (code-split) fallback; defer to v2.15 if neither works            | W6                                                  |
+| Adjacent   | Old Material URL preservation                                            | Lower priority; redirect base-path bug is MEDIUM polish, not pre-ship gate                           | W9 (optional polish)                                |
+| Adjacent   | Astro 6 + Node 22.12+ bump                                               | Deferred to v2.15+ as focused upgrade cycle                                                          | Out of scope for v2.14                              |
+| Spec-block | Frontmatter placement + schema (Q1-Q5 in spec_frontmatter-correction.md) | 5 maintainer questions pending signoff before W3.5 execution                                         | W3.5 (foundational; blocks W7)                      |
+| Spec-block | Library samples title quality (autogenerate vs hand-curated)             | Per spec Decision Brief 2 alternative: "Generate `title:` automatically from filename via Starlight config" was rejected ("low-quality titles"); hand-curate via generator-as-starting-point | W3.5                                                |
 
 New decisions surfaced by this plan are recorded in Section 6 below as DM-1, DM-2, DM-3 (DM-3 added in cross-session sync 2026-05-07).
 
@@ -82,6 +83,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Establish the spike POC's lessons in production-grade pinning before any new code lands.
 
 **Tasks:**
+
 - Add `engines.node: ">=22.0.0 <23"` field to root-level `package.json` (per Codex S7.M2)
 - Pin dependencies: `astro` to `~5.13`, `@astrojs/starlight` to `~0.34`, `astro-mermaid` to `~2.0` (consciously floated minor with documented policy in CONTRIBUTING.md or a new `docs/internal/dependency-policy.md`)
 - Decide on spike POC: delete `_spike/starlight-poc/` after confirming nothing useful was missed, or repurpose as the migration starting point (recommend delete; the POC was throwaway by design)
@@ -89,6 +91,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 - First `npm install` and confirm no peer-dep warnings
 
 **Acceptance criteria:**
+
 - New Astro project exists at repo root (not under `_spike/`)
 - `package.json` has `engines.node` field and explicit pin policy
 - `npm install` completes without errors or warnings
@@ -109,6 +112,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Mount existing `docs/` in-place via custom docsLoader pattern. Contributors continue editing `docs/` directly.
 
 **Tasks:**
+
 - Configure `astro.config.mjs` `srcDir` and content collection root to point at the existing `docs/` directory (the exact mechanism depends on Astro's content loader API: investigate `glob` loader vs custom path)
 - Configure exclusion: `pattern: '!internal/**'` so `docs/internal/` does not appear in `dist/`
 - Configure exclusion: `pattern: '!templates/**'` per spike Caveat 3
@@ -116,6 +120,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 - Verify edit-link generation: pick 3 sample pages, confirm `editLink` URLs resolve to actual files in the repo (e.g., `https://github.com/product-on-purpose/pm-skills/edit/main/docs/skills/define/define-hypothesis.md` should be a real file path)
 
 **Acceptance criteria:**
+
 - Build completes against in-place `docs/` mount with no file copying
 - `Get-ChildItem dist/ -Recurse | Where-Object { $_.FullName -match 'internal' }` returns zero results
 - `Get-ChildItem dist/ -Recurse | Where-Object { $_.FullName -match 'templates' }` returns zero results
@@ -137,17 +142,20 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Every doc has the `title:` frontmatter Starlight requires.
 
 **Tasks:**
+
 - Run title-injection script (parser-aware FM boundary detection per spike experience) on all 49 files lacking `title:` (down from spike's 51; v2.13.1 ship and concurrent work added 2 titles)
 - Manual quality pass: review filename-derived titles for cases that look bad (e.g., underscores, all-caps, abbreviations); replace with hand-authored titles as needed
 - Update `astro.config.mjs` content collection schema with extended fields: `generated`, `source`, `phase`, `classification`, `version`, `updated`, `license`, `metadata`, `tags`, `date`, `draft` (per spike Caveat 1 and Pattern 5C). Now landed in `src/content.config.ts` per Astro 5 + Starlight 0.34 conventions.
 - Extend `validate-docs-frontmatter` validator (already advisory mode and already requires `title:`) - promotion to enforcing happens in W10.3 per QW-7
 
 **W3 sub-fix (out-of-original-scope, in-W3-execution-scope): Generator-source preservation.**
+
 - The 9 `_workflows/*.md` source files have no frontmatter; the workflow generator overwrites `docs/workflows/*.md` from these sources on each regen. Without `title:` in source, regen would lose W3's docs/workflows changes.
 - Action: extend title-injection script to also walk `_workflows/`. Script run added `title:` to 10 source files (including `_workflows/README.md`).
 - W8 (Generator output verification) will run all 3 generators and confirm regen preserves the title: across regens.
 
 **Acceptance criteria:**
+
 - 100% of `docs/**/*.md` (excluding `internal/` and `templates/`) have `title:` frontmatter
 - Build completes without "title required" schema errors
 - 49-file docs/ diff + 10-file _workflows/ diff committed with clear commit message: `fix(docs+_workflows): inject title frontmatter for Starlight schema compliance (59 files)`
@@ -169,20 +177,22 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Correct frontmatter placement and schema in the 102 markdown files that have YAML frontmatter starting at line 2 (after an HTML attribution comment) instead of byte 0. Authoritative spec: [`discovery/spec_frontmatter-correction.md`](./discovery/spec_frontmatter-correction.md). This work was discovered during the v2.13.1 release prep window and runs in this cycle as an independent but bundled work item.
 
 **Tasks:**
+
 - Resolve 5 maintainer Decision Briefs in the spec before execution (Q1 placement format, Q2 schema scope, Q3 `context:` field disposition, Q4 OKR-skill EXAMPLE.md schema scope, Q5 PR boundaries)
 - Update generator and standards docs first (lowest risk):
-  - `library/skill-output-samples/SAMPLE_CREATION.md` Section 5 rewrite (byte-0 placement; complete frontmatter example)
-  - `skills/utility-pm-skill-builder/SKILL.md` Step 5 instruction (byte-0 enforcement on output)
-  - `skills/utility-pm-skill-iterate/SKILL.md` Step 5 byte-0 preservation note
-  - `skills/utility-pm-skill-validate/SKILL.md` new Tier 1 check `frontmatter-at-byte-zero`
+    - `library/skill-output-samples/SAMPLE_CREATION.md` Section 5 rewrite (byte-0 placement; complete frontmatter example)
+    - `skills/utility-pm-skill-builder/SKILL.md` Step 5 instruction (byte-0 enforcement on output)
+    - `skills/utility-pm-skill-iterate/SKILL.md` Step 5 byte-0 preservation note
+    - `skills/utility-pm-skill-validate/SKILL.md` new Tier 1 check `frontmatter-at-byte-zero`
 - Mechanical sweep of 102 files (deterministic script; no LLM-authored per-file edits):
-  - 100 library samples in `library/skill-output-samples/**/sample_*.md`
-  - 2 OKR-skill EXAMPLE.md files (`skills/measure-okr-grader/references/EXAMPLE.md` + `skills/foundation-okr-writer/references/EXAMPLE.md`)
-  - Apply placement fix + (per Q2 outcome) `title:` (and optionally `description:`) schema additions in same script run
+    - 100 library samples in `library/skill-output-samples/**/sample_*.md`
+    - 2 OKR-skill EXAMPLE.md files (`skills/measure-okr-grader/references/EXAMPLE.md` + `skills/foundation-okr-writer/references/EXAMPLE.md`)
+    - Apply placement fix + (per Q2 outcome) `title:` (and optionally `description:`) schema additions in same script run
 - Extend `scripts/lint-skills-frontmatter.sh` and `.ps1` to broader scope: TEMPLATE.md / EXAMPLE.md / library samples; add per-class schema check for library samples specifically; archive the audit logic as `scripts/check-frontmatter-byte-zero.sh` (advisory-only at first per spec open item)
 - Spot-check on github.com: 6 representative samples (2 per thread) + both OKR EXAMPLE.md files render metadata table correctly
 
 **Acceptance criteria:**
+
 - All 102 files have `---` at byte 0 with attribution comment on line immediately after closing fence
 - All 100 library samples have `title:` field (and per Q2 outcome possibly `description:`)
 - `bash scripts/lint-skills-frontmatter.sh` exits 0 across all in-scope file classes after sweep
@@ -209,12 +219,14 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Implement Option C: manual top-level section ordering and labels, autogenerate within each section.
 
 **Tasks:**
+
 - Author top-level section list in `astro.config.mjs` Starlight `sidebar:` config matching the current `mkdocs.yml` nav top level (Home / Getting Started / Skills / Workflows / Guides / Concepts / Showcase / Reference / Contributing / Releases)
 - For each section, configure `autogenerate: { directory: '<section-path>' }` to populate items from filesystem
 - Add label overrides for known autogenerate drift cases (e.g., `Reference / README` should display as "Overview"; release titles default to filename and need explicit overrides for Release_v2.X.Y.md to "v2.X.Y")
 - Verify nav matches Material site at top level via visual diff
 
 **Acceptance criteria:**
+
 - Top-level sidebar order matches `mkdocs.yml` nav top level exactly (Home through Releases)
 - Section labels match (custom labels honored: "Overview" not "Readme")
 - Within sections, every page that exists under that directory appears in the sidebar
@@ -234,6 +246,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Port Material-targeting selectors in `docs/stylesheets/extra.css` to Starlight equivalents (or retire selectors that no longer apply).
 
 **Tasks:**
+
 - **CSS inventory pass (PREREQUISITE per Codex S3.M3):** read `docs/stylesheets/extra.css` line by line; for each selector, decide: port / retire / keep generic. Document in a temporary scratch file `_local_v2.14_css-inventory.md` (gitignored).
 - Browser screenshot pass: side-by-side Material (current) vs Starlight (in-progress) on key page types (home, skill, workflow, guide-with-mermaid, reference, release notes). Identify visual regressions that the CSS port needs to address.
 - For each Material-specific selector (`md-*`, `.md-grid`, `.md-button`, `.md-tags .md-tag`): port to Starlight equivalent (Starlight uses generic class names: `sidebar`, `sidebar-pane`, `right-sidebar`, plus per-component scoped Astro hashes like `astro-vrdttmbt`)
@@ -242,6 +255,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 - Deliberately retire any selector with no Starlight equivalent (don't port "just in case")
 
 **Acceptance criteria:**
+
 - CSS inventory is complete: every selector in original `extra.css` has a disposition row (port / retire / keep generic)
 - All Material-class selectors either ported or retired (zero `md-*` or `.md-` references in shipping CSS)
 - Visual smoke test: home, skill page, workflow, guide-with-mermaid, reference, release notes all render acceptably (no broken layouts; minor stylistic differences acceptable per "Cosmetic diffs" section of spike report)
@@ -261,12 +275,14 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Implement Mermaid loading per D4: lazy-load if `astro-mermaid` supports it, else code-split, else defer to v2.15.
 
 **Tasks:**
+
 - Investigate `astro-mermaid` API for lazy-load support (read npm README + source); if supported, configure
 - If not supported: implement code-split via dynamic import in MDX wrapper components
 - If neither path is straightforward in v2.14 budget: defer Mermaid optimization to v2.15 and ship eager loading (with explicit acknowledgment in release notes)
 - Verify Mermaid renders on known-mermaid pages: homepage hero, release notes (multiple), master plans (in `docs/internal/release-plans/v2.14.0/` if mounted; should NOT be mounted per W2 internal-exclusion), `using-meeting-skills.md` (3 blocks)
 
 **Acceptance criteria:**
+
 - Mermaid renders correctly on all known-mermaid pages
 - One of the three loading strategies is selected and documented (lazy-load configured / code-split configured / eager-loading deferred-to-v2.15)
 - If lazy-load or code-split: Vite chunk-size warning for `mermaid.core` is gone OR explicitly accepted with rationale
@@ -285,6 +301,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Mount the 132 library/skill-output-samples files; verify they render.
 
 **Tasks:**
+
 - Decision: mount samples as a separate Starlight content collection (browseable under a new `/samples/` route) OR as flat docs under an existing path (e.g., `/library/`). Recommend separate collection for clear separation.
 - Configure docsLoader / glob loader for `library/skill-output-samples/`
 - Build and verify all 132 sample files render
@@ -292,6 +309,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 - Triage MDX collisions: search for `<` characters in non-code-block contexts in samples; if widespread, document fix-up scope as separate task
 
 **Acceptance criteria:**
+
 - 132 sample files render in the built site
 - No build errors from sample content
 - Sample matrix (8+ samples spanning all skill phases + 3 threads) visually verified
@@ -311,6 +329,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Confirm the 3 Python generators continue producing content Starlight builds.
 
 **Tasks:**
+
 - Run `python scripts/generate-skill-pages.py` and verify output structure unchanged
 - Run `python scripts/generate-workflow-pages.py` likewise
 - Run `python scripts/generate-showcase.py` likewise
@@ -319,6 +338,7 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 - Run `check-generated-content-untouched` validator; should pass
 
 **Acceptance criteria:**
+
 - 3 generators run without modification
 - All 63 generator-output pages render in `dist/`
 - Pattern 5C frontmatter still present in source files post-generation
@@ -337,12 +357,14 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 **Goal.** Port `mkdocs.yml redirect_maps` to Astro `redirects:` config.
 
 **Tasks:**
+
 - Port all 12 entries from `mkdocs.yml redirects.redirect_maps` to `astro.config.mjs redirects:` (5 minutes)
 - Decision: apply base-path fix to destinations (12 manual edits) OR ship without per maintainer "don't care about old URLs" call
 - If applying fix: prefix every destination with `/pm-skills` so meta-refresh and canonical link include base
 - Verify redirect HTML pages generate in `dist/` for each entry
 
 **Acceptance criteria:**
+
 - 12 redirect entries in `astro.config.mjs`
 - Redirect HTML pages exist in `dist/` for each entry (12 files at expected paths)
 - (OPTIONAL) base-path destinations correct OR deliberately deferred with note in release notes that old URLs may 404
@@ -366,42 +388,42 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 
 #### W10.1: Inventory current `.github/workflows/`
 
-| Workflow file | Current purpose | Migration disposition |
-|---|---|---|
-| `validation.yml` | Runs all source-validating scripts on Ubuntu + Windows; also builds with mkdocs to catch broken-link warnings | **MODIFY:** keep all source-validating steps unchanged (they validate markdown not rendered HTML); replace `mkdocs build` step with `npm run build`; add new automated checks (W10.4) |
-| `release.yml` | Creates GitHub Release on tag push | **KEEP UNCHANGED:** does not depend on doc stack |
-| `release-zips.yml` | Packages ZIP artifacts | **KEEP UNCHANGED:** packages skill source files, not built site |
-| `validate-mcp-sync.yml` | Validates pm-skills repo and pm-skills-mcp repo are in sync | **KEEP UNCHANGED:** validates source markdown only |
-| `validate-plugin.yml` | Validates Claude plugin manifest | **KEEP UNCHANGED:** validates plugin.json + marketplace.json |
-| (NEW) `deploy-pages.yml` | (does not exist; mkdocs gh-deploy was run manually or via another mechanism) | **CREATE:** Astro Action -> gh-pages branch (per W11) |
+| Workflow file            | Current purpose                                                                                      | Migration disposition                                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `validation.yml`         | Runs all source-validating scripts on Ubuntu + Windows; also builds with mkdocs to catch broken-link warnings | **MODIFY:** keep all source-validating steps unchanged (they validate markdown not rendered HTML); replace `mkdocs build` step with `npm run build`; add new automated checks (W10.4) |
+| `release.yml`            | Creates GitHub Release on tag push                                                                   | **KEEP UNCHANGED:** does not depend on doc stack                                                     |
+| `release-zips.yml`       | Packages ZIP artifacts                                                                               | **KEEP UNCHANGED:** packages skill source files, not built site                                      |
+| `validate-mcp-sync.yml`  | Validates pm-skills repo and pm-skills-mcp repo are in sync                                          | **KEEP UNCHANGED:** validates source markdown only                                                   |
+| `validate-plugin.yml`    | Validates Claude plugin manifest                                                                     | **KEEP UNCHANGED:** validates plugin.json + marketplace.json                                         |
+| (NEW) `deploy-pages.yml` | (does not exist; mkdocs gh-deploy was run manually or via another mechanism)                         | **CREATE:** Astro Action -> gh-pages branch (per W11)                                                |
 
 #### W10.2: validation.yml step-level changes
 
-| Step | Current | New |
-|---|---|---|
-| Setup Node | (not present or only for tests) | **ADD:** Node 22.x (matches engines.node from W1) |
-| Setup Python | Required for mkdocs + scripts | **KEEP:** still needed for generator scripts (W8) |
-| `npm install` | (not present) | **ADD:** install Astro/Starlight deps |
-| `pip install -r requirements.txt` | Installs MkDocs Material stack | **MODIFY:** if a Python `requirements.txt` exists for mkdocs, slim to only the generator-script dependencies; if no separate requirements file, this is a no-op after Material is uninstalled in W12 |
-| `mkdocs build --strict` | Catches broken cross-refs as warnings | **REPLACE:** `npm run build` (Starlight catches schema errors as build errors; cross-ref validation is a separate concern handled by `check-internal-link-validity` validator) |
-| All `bash scripts/*.sh` and `pwsh scripts/*.ps1` validators | Source markdown validation | **KEEP UNCHANGED** |
-| Generated content checks | Run generators + assert untouched | **KEEP UNCHANGED:** generators produce markdown; markdown is markdown |
+| Step                                                        | Current                               | New                                                                                                  |
+| ----------------------------------------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Setup Node                                                  | (not present or only for tests)       | **ADD:** Node 22.x (matches engines.node from W1)                                                    |
+| Setup Python                                                | Required for mkdocs + scripts         | **KEEP:** still needed for generator scripts (W8)                                                    |
+| `npm install`                                               | (not present)                         | **ADD:** install Astro/Starlight deps                                                                |
+| `pip install -r requirements.txt`                           | Installs MkDocs Material stack        | **MODIFY:** if a Python `requirements.txt` exists for mkdocs, slim to only the generator-script dependencies; if no separate requirements file, this is a no-op after Material is uninstalled in W12 |
+| `mkdocs build --strict`                                     | Catches broken cross-refs as warnings | **REPLACE:** `npm run build` (Starlight catches schema errors as build errors; cross-ref validation is a separate concern handled by `check-internal-link-validity` validator) |
+| All `bash scripts/*.sh` and `pwsh scripts/*.ps1` validators | Source markdown validation            | **KEEP UNCHANGED**                                                                                   |
+| Generated content checks                                    | Run generators + assert untouched     | **KEEP UNCHANGED:** generators produce markdown; markdown is markdown                                |
 
 #### W10.3: Validator script changes
 
-| Validator | Disposition | Notes |
-|---|---|---|
-| `validate-commands.sh/.ps1` | KEEP UNCHANGED | Validates commands/ vs skills/ |
-| `lint-skills-frontmatter.sh/.ps1` | EXTEND | Add `title:` field requirement (per W3) |
-| `validate-agents-md.sh/.ps1` | KEEP UNCHANGED | Validates AGENTS.md sync |
-| `check-mcp-impact.sh/.ps1` | KEEP UNCHANGED | Advisory MCP impact detection |
-| `validate-meeting-skills-family.sh/.ps1` | KEEP UNCHANGED | Family contract enforcement |
-| `check-generated-content-untouched.sh/.ps1` | KEEP UNCHANGED | Generators produce same content |
-| `check-internal-link-validity.sh/.ps1` (advisory) | PROMOTE to enforcing per QW-7 (v2.13 final-sweep) | Particularly important post-migration since Starlight does not surface broken-link warnings the same way Material `--strict` did |
-| `check-count-consistency.sh/.ps1` | KEEP UNCHANGED | Validates source counts |
-| `validate-docs-frontmatter.sh/.ps1` (advisory) | PROMOTE to enforcing per QW-3 + extended to require `title:` (W3) | |
-| `validate-version-consistency.sh/.ps1` | KEEP UNCHANGED | Validates plugin manifests; v2.13.1 updated path to `.claude-plugin/marketplace.json` |
-| `validate-plugin-install.sh/.ps1/.md` | KEEP UNCHANGED + WIRE INTO `validation.yml` | NEW in v2.13.1 (enforcing locally; workflow integration deferred to v2.14). Schema-validates plugin.json + marketplace.json against Claude Code's expected shape. Add as enforcing CI step in `validation.yml`. |
+| Validator                                         | Disposition                                                       | Notes                                                                                                |
+| ------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `validate-commands.sh/.ps1`                       | KEEP UNCHANGED                                                    | Validates commands/ vs skills/                                                                       |
+| `lint-skills-frontmatter.sh/.ps1`                 | EXTEND                                                            | Add `title:` field requirement (per W3)                                                              |
+| `validate-agents-md.sh/.ps1`                      | KEEP UNCHANGED                                                    | Validates AGENTS.md sync                                                                             |
+| `check-mcp-impact.sh/.ps1`                        | KEEP UNCHANGED                                                    | Advisory MCP impact detection                                                                        |
+| `validate-meeting-skills-family.sh/.ps1`          | KEEP UNCHANGED                                                    | Family contract enforcement                                                                          |
+| `check-generated-content-untouched.sh/.ps1`       | KEEP UNCHANGED                                                    | Generators produce same content                                                                      |
+| `check-internal-link-validity.sh/.ps1` (advisory) | PROMOTE to enforcing per QW-7 (v2.13 final-sweep)                 | Particularly important post-migration since Starlight does not surface broken-link warnings the same way Material `--strict` did |
+| `check-count-consistency.sh/.ps1`                 | KEEP UNCHANGED                                                    | Validates source counts                                                                              |
+| `validate-docs-frontmatter.sh/.ps1` (advisory)    | PROMOTE to enforcing per QW-3 + extended to require `title:` (W3) |                                                                                                      |
+| `validate-version-consistency.sh/.ps1`            | KEEP UNCHANGED                                                    | Validates plugin manifests; v2.13.1 updated path to `.claude-plugin/marketplace.json`                |
+| `validate-plugin-install.sh/.ps1/.md`             | KEEP UNCHANGED + WIRE INTO `validation.yml`                       | NEW in v2.13.1 (enforcing locally; workflow integration deferred to v2.14). Schema-validates plugin.json + marketplace.json against Claude Code's expected shape. Add as enforcing CI step in `validation.yml`. |
 
 #### W10.4: New automated checks
 
@@ -452,6 +474,7 @@ node scripts/verify-edit-links.js dist/ docs/
 **Goal.** Replace `mkdocs gh-deploy` with Astro Action -> gh-pages branch; verify cutover.
 
 **Tasks:**
+
 - Identify current GitHub Pages config: `Settings > Pages > Source = Deploy from a branch > gh-pages`. Confirm before touching.
 - Author `.github/workflows/deploy-pages.yml`. Recommendation: use `withastro/action` official action (vs hand-rolled GitHub Action). See DM-2 below.
 - Configure `site: 'https://product-on-purpose.github.io'` and `base: '/pm-skills'` in `astro.config.mjs`
@@ -459,6 +482,7 @@ node scripts/verify-edit-links.js dist/ docs/
 - Cutover: deploy to `gh-pages` from `main` after PR.5 promotion; verify production URL `https://product-on-purpose.github.io/pm-skills/` loads
 
 **Acceptance criteria:**
+
 - `gh-pages` branch updated by Astro action, not by `mkdocs gh-deploy`
 - `https://product-on-purpose.github.io/pm-skills/` loads with Starlight UI
 - All major page types load: home, skill page, workflow, guide-with-mermaid, reference, release notes
@@ -485,41 +509,41 @@ node scripts/verify-edit-links.js dist/ docs/
 
 #### W12.1: Files to delete
 
-| Path | Action | Verification |
-|---|---|---|
-| `mkdocs.yml` | DELETE (per DM-1; recommended timing: after PR.5, as the last commit before tag) | File does not exist; no references to it anywhere in the repo |
-| `docs/stylesheets/extra.css` | RETIRE (after CSS port to `src/styles/custom.css` in W5) | File does not exist OR has been moved to `src/styles/` Starlight-aware path |
-| `requirements.txt` (if it lists mkdocs deps) | TRIM or DELETE | Either the file is gone OR it lists only generator-script deps (no mkdocs / pymdownx / mkdocs-* entries) |
-| Material-specific images in `docs/` | INVESTIGATE then ACTION | Inventory first; many docs images are doc content (skill diagrams), not Material-specific. Delete only Material-branded chrome (e.g., favicon.ico if it's the Material default) |
-| `.github/workflows/<any>.yml` containing `mkdocs gh-deploy` | DELETE the workflow OR delete the step | `grep -r 'mkdocs gh-deploy' .github/` returns 0 results |
-| Generated `site/` directory (in `.gitignore`) | KEEP IGNORED (still useful as gitignore entry; `site/` may exist as Astro `dist/` alternative or unused) | `.gitignore` still excludes `site/` |
+| Path                                                        | Action                                                                                               | Verification                                                                                         |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `mkdocs.yml`                                                | DELETE (per DM-1; recommended timing: after PR.5, as the last commit before tag)                     | File does not exist; no references to it anywhere in the repo                                        |
+| `docs/stylesheets/extra.css`                                | RETIRE (after CSS port to `src/styles/custom.css` in W5)                                             | File does not exist OR has been moved to `src/styles/` Starlight-aware path                          |
+| `requirements.txt` (if it lists mkdocs deps)                | TRIM or DELETE                                                                                       | Either the file is gone OR it lists only generator-script deps (no mkdocs / pymdownx / mkdocs-* entries) |
+| Material-specific images in `docs/`                         | INVESTIGATE then ACTION                                                                              | Inventory first; many docs images are doc content (skill diagrams), not Material-specific. Delete only Material-branded chrome (e.g., favicon.ico if it's the Material default) |
+| `.github/workflows/<any>.yml` containing `mkdocs gh-deploy` | DELETE the workflow OR delete the step                                                               | `grep -r 'mkdocs gh-deploy' .github/` returns 0 results                                              |
+| Generated `site/` directory (in `.gitignore`)               | KEEP IGNORED (still useful as gitignore entry; `site/` may exist as Astro `dist/` alternative or unused) | `.gitignore` still excludes `site/`                                                                  |
 
 #### W12.2: pip dependencies to remove
 
 If `requirements.txt`, `pyproject.toml`, or other Python dependency files reference any of these, remove them:
 
-| Package | Why it was used | Replacement |
-|---|---|---|
-| `mkdocs` | Static site generator | Astro (Node) |
-| `mkdocs-material` | Theme | Starlight (Node) |
-| `mkdocs-redirects` | URL redirects | Astro `redirects:` config |
-| `pymdownx-extensions` (and all `pymdownx.*` modules) | Markdown extensions | Starlight built-ins + remark/rehype plugins |
-| `mkdocs-tags-plugin` | Tag indexing | Custom (build a tag-index page) OR drop tags-as-feature for v2.14 |
-| `mkdocs-git-revision-date-localized-plugin` | "Last updated" timestamps | remark plugin (e.g., `remark-mtime`) |
-| `mkdocs-social` | OG image generation | Starlight built-in OG image support |
-| `cairosvg`, `pillow` (if added for social-card font rendering) | Material plugin transitive deps | Not needed |
+| Package                                                        | Why it was used                 | Replacement                                                       |
+| -------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------- |
+| `mkdocs`                                                       | Static site generator           | Astro (Node)                                                      |
+| `mkdocs-material`                                              | Theme                           | Starlight (Node)                                                  |
+| `mkdocs-redirects`                                             | URL redirects                   | Astro `redirects:` config                                         |
+| `pymdownx-extensions` (and all `pymdownx.*` modules)           | Markdown extensions             | Starlight built-ins + remark/rehype plugins                       |
+| `mkdocs-tags-plugin`                                           | Tag indexing                    | Custom (build a tag-index page) OR drop tags-as-feature for v2.14 |
+| `mkdocs-git-revision-date-localized-plugin`                    | "Last updated" timestamps       | remark plugin (e.g., `remark-mtime`)                              |
+| `mkdocs-social`                                                | OG image generation             | Starlight built-in OG image support                               |
+| `cairosvg`, `pillow` (if added for social-card font rendering) | Material plugin transitive deps | Not needed                                                        |
 
 Acceptance: `pip list 2>/dev/null | grep -i 'mkdocs\|pymdownx\|cairosvg'` returns 0 results in a fresh virtualenv built from current repo.
 
 #### W12.3: Documentation updates
 
-| File | What changes |
-|---|---|
-| `README.md` | Replace any "build with `mkdocs serve`" or `mkdocs build` instructions with `npm run dev` / `npm run build` |
-| `CONTRIBUTING.md` | Update build / preview commands |
-| `docs/guides/*` | Update any guide that references mkdocs (e.g., `validate-mcp-sync.md` is unaffected; check each) |
-| `docs/concepts/agent-skill-anatomy.md` | Verify no mkdocs-specific content |
-| `docs/internal/cross-llm-review-protocol.md` etc. | Not a public concern; verify no mkdocs setup steps |
+| File                                              | What changes                                                                                         |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `README.md`                                       | Replace any "build with `mkdocs serve`" or `mkdocs build` instructions with `npm run dev` / `npm run build` |
+| `CONTRIBUTING.md`                                 | Update build / preview commands                                                                      |
+| `docs/guides/*`                                   | Update any guide that references mkdocs (e.g., `validate-mcp-sync.md` is unaffected; check each)     |
+| `docs/concepts/agent-skill-anatomy.md`            | Verify no mkdocs-specific content                                                                    |
+| `docs/internal/cross-llm-review-protocol.md` etc. | Not a public concern; verify no mkdocs setup steps                                                   |
 
 #### W12.4: Material deprecation acceptance criteria
 
@@ -548,6 +572,7 @@ Acceptance: `pip list 2>/dev/null | grep -i 'mkdocs\|pymdownx\|cairosvg'` return
 **Goal.** Pre-ship verification across all acceptance criteria + Pre-Ship Validation Gates.
 
 **Tasks:**
+
 - Re-run all 24 validators (22 existing + 2 new); confirm all pass
 - Browser visual smoke test on key page types (paired human + Claude session): home, skill page (one per phase), workflow, guide-with-mermaid, reference, release notes, contributing, showcase
 - Performance benchmark (light per D1: record cold and warm build times; no hard gate)
@@ -555,6 +580,7 @@ Acceptance: `pip list 2>/dev/null | grep -i 'mkdocs\|pymdownx\|cairosvg'` return
 - PR.2 release-state Codex adversarial review (Section 5 below)
 
 **Acceptance criteria:**
+
 - All 24 validators green on Ubuntu + Windows
 - All 7 Pre-Ship Validation Gates pass (see Section 4)
 - Browser smoke test: 0 regressions on key page types
@@ -573,15 +599,15 @@ Acceptance: `pip list 2>/dev/null | grep -i 'mkdocs\|pymdownx\|cairosvg'` return
 
 Seven gates from spike report Outcome section, expanded with per-gate verification method.
 
-| Gate | Verification method | Owning workstream |
-|---|---|---|
-| **G1: Production content-source strategy verified** (D2) | Build runs against in-place `docs/` mount; `dist/` contains zero `internal/*` paths; edit-link random-sample resolves correctly | W2, W10.4 |
-| **G2: Library samples render correctly** | Build includes 132 samples; sample-matrix smoke test (8+ samples spanning phases + threads) visually verified | W7 |
-| **G3: Custom CSS port complete** | CSS inventory complete; zero Material-class selectors in shipping CSS; visual smoke test passes | W5 |
-| **G4: Sidebar IA hybrid implemented** (D3) | Top-level matches Material; section labels honored; release titles correct | W4 |
-| **G5: GitHub Pages deploy verified end-to-end** | Production URL loads; all major page types render; assets resolve; search works | W11 |
-| **G6: Edit links resolve** | Random-sample 5 built pages; each editLink URL maps to real file in repo | W2, W10.4 |
-| **G7: Browser visual smoke test on key page types** | Manual paired session; 0 regressions on home / skill / workflow / guide-with-mermaid / reference / release notes | W13 |
+| Gate                                                     | Verification method                                                                                  | Owning workstream |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------------- |
+| **G1: Production content-source strategy verified** (D2) | Build runs against in-place `docs/` mount; `dist/` contains zero `internal/*` paths; edit-link random-sample resolves correctly | W2, W10.4         |
+| **G2: Library samples render correctly**                 | Build includes 132 samples; sample-matrix smoke test (8+ samples spanning phases + threads) visually verified | W7                |
+| **G3: Custom CSS port complete**                         | CSS inventory complete; zero Material-class selectors in shipping CSS; visual smoke test passes      | W5                |
+| **G4: Sidebar IA hybrid implemented** (D3)               | Top-level matches Material; section labels honored; release titles correct                           | W4                |
+| **G5: GitHub Pages deploy verified end-to-end**          | Production URL loads; all major page types render; assets resolve; search works                      | W11               |
+| **G6: Edit links resolve**                               | Random-sample 5 built pages; each editLink URL maps to real file in repo                             | W2, W10.4         |
+| **G7: Browser visual smoke test on key page types**      | Manual paired session; 0 regressions on home / skill / workflow / guide-with-mermaid / reference / release notes | W13               |
 
 ---
 
@@ -589,13 +615,13 @@ Seven gates from spike report Outcome section, expanded with per-gate verificati
 
 Codified pattern from v2.11 / v2.12 / v2.13 (originally "Phase 0 Adversarial Review Loop"; dropping the "Phase 0" prefix here to avoid collision with the cycle's Phase 0 compatibility-decision label). For a doc-stack migration, scoped lighter than v2.13 PR.2 marathon.
 
-| Gate | What it covers | Method | Trigger |
-|---|---|---|---|
-| **PR.1: Per-strand Codex review** | Individual workstream reviews as they complete (W2, W4, W5, W7, W10, W11, W12) | Codex `codex-rescue` agent dispatched per workstream with workstream-specific scope | After each workstream completes (parallel-friendly) |
-| **PR.2: Release-state Codex review** | Full migration plan + state of repo before tag; Cross-doc consistency between this plan, the cycle plan, and the release notes draft | Codex review against full release-state (this is the adversarial-review pattern v2.13 PR.2 ran 5 rounds; for v2.14 expect 1-2 rounds since less is changing) | After all workstreams complete; before PR.5 |
-| **PR.3: Generator regen** | Run all 3 generators against current source; confirm `check-generated-content-untouched` validator passes (zero diff) | Mechanical CI | After PR.2 |
-| **PR.4: Pre-release checklist** | All 24 validators green; all 7 Pre-Ship Validation Gates pass | Mechanical CI + W13 verification | After PR.3 |
-| **PR.5: CHANGELOG + Release notes + README + tag** | Authored drafts promoted to canonical; v2.14.0 tag at last release-prep commit | Manual + Claude authored, human approved | After PR.4 |
+| Gate                                               | What it covers                                                                                       | Method                                                                                               | Trigger                                             |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| **PR.1: Per-strand Codex review**                  | Individual workstream reviews as they complete (W2, W4, W5, W7, W10, W11, W12)                       | Codex `codex-rescue` agent dispatched per workstream with workstream-specific scope                  | After each workstream completes (parallel-friendly) |
+| **PR.2: Release-state Codex review**               | Full migration plan + state of repo before tag; Cross-doc consistency between this plan, the cycle plan, and the release notes draft | Codex review against full release-state (this is the adversarial-review pattern v2.13 PR.2 ran 5 rounds; for v2.14 expect 1-2 rounds since less is changing) | After all workstreams complete; before PR.5         |
+| **PR.3: Generator regen**                          | Run all 3 generators against current source; confirm `check-generated-content-untouched` validator passes (zero diff) | Mechanical CI                                                                                        | After PR.2                                          |
+| **PR.4: Pre-release checklist**                    | All 24 validators green; all 7 Pre-Ship Validation Gates pass                                        | Mechanical CI + W13 verification                                                                     | After PR.3                                          |
+| **PR.5: CHANGELOG + Release notes + README + tag** | Authored drafts promoted to canonical; v2.14.0 tag at last release-prep commit                       | Manual + Claude authored, human approved                                                             | After PR.4                                          |
 
 ---
 
@@ -612,6 +638,7 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 **Desired outcome.** A clean cutover with a minimal rollback window if needed.
 
 **Potential solutions.**
+
 - **Option A: Delete at start of W12.** Pros: clean cutover; no dual-stack period. Cons: rollback requires git revert of multiple commits; less safe.
 - **Option B: Delete as last commit before v2.14.0 tag.** Pros: revertible until tag; symbolic "ship" moment; minimal rollback window. Cons: brief period where mkdocs.yml exists alongside astro config (cognitive overhead).
 - **Option C: Keep through v2.15+ as fallback.** Pros: max safety; can still build Material site if needed. Cons: dual-stack maintenance burden; mkdocs.yml drifts; muddies the "we shipped Starlight" message.
@@ -619,9 +646,11 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 **Recommendation: Option B** (last commit before tag). Best balance of cutover cleanliness and rollback safety.
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation (Option B)
+
+- [x] Accept recommendation (Option B)
 - [ ] Modify: 
 - [ ] Reject; alternative direction: 
+
 - Notes: 
 
 ### DM-2: GitHub Pages deploy action choice
@@ -633,16 +662,19 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 **Desired outcome.** Reliable deploy that does not need babying.
 
 **Potential solutions.**
+
 - **Option A: Use `withastro/action` official.** Pros: maintained by Astro core team; updates automatically; well-documented. Cons: less customization; opinionated about Node version + cache strategy.
 - **Option B: Hand-rolled with `peaceiris/actions-gh-pages`.** Pros: full control over Node version, cache strategy, build command sequence. Cons: more YAML to maintain; can drift from Astro best practices over time.
 
 **Recommendation: Option A** (official action). pm-skills is small enough that we don't need custom build orchestration; the official action is the lowest-maintenance path.
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation (Option A)
+
+- [x] Accept recommendation (Option A)
 - [ ] Modify: 
 - [ ] Reject; alternative direction: 
-- Notes: 
+
+- Notes:
 
 ### DM-3: Recommended install-path positioning
 
@@ -651,11 +683,13 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 **Why it matters.** Without a recommended path, contributors and users see three options and may pick suboptimally. With Starlight migration shipping in v2.14, the install paths still work (the doc-stack change does not affect the plugin install machinery), so the timing is right to set positioning as part of broader docs refresh.
 
 **Desired outcomes.**
+
 - One primary path documented as the recommended approach in README "Install as Claude Code Plugin" section.
 - Other paths retained as alternatives with clear tradeoffs.
 - Contributor onboarding flow points at the recommended path consistently.
 
 **Potential solutions.**
+
 - **Option A: Plugin marketplace as primary.** Pros: native Claude Code experience; auto-updates; matches v2.13.1 effort investment. Cons: requires Claude Code; less flexible for IDE / non-CC users.
 - **Option B: Sync helper as primary.** Pros: works across all Claude environments (Claude Code, Claude.ai, Cursor, etc.); explicit sync model. Cons: requires shell access; less polished UX than plugin install.
 - **Option C: `npx skills add` (openskills CLI) as primary.** Pros: cross-tool standard; aligns with broader skills ecosystem. Cons: openskills had bugs historically (#48 closed; pm-skills 24 skills not auto-discovered per CONTEXT.md note); less mature for our use case.
@@ -664,81 +698,89 @@ Decisions surfaced by migration planning, requiring maintainer signoff before W1
 **Recommendation: Option A (plugin marketplace as primary).** v2.13.1 invested in making this path work cleanly; the validate-plugin-install validator now guards against regression; native Claude Code UX is the lowest-friction onboarding. Sync helper and npx skills add stay as documented alternatives.
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation (Option A)
+
+- [x] Accept recommendation (Option A)
 - [ ] Modify: 
 - [ ] Reject; alternative direction: 
-- Notes: 
+
+- Notes:
 
 ### DM-4: Astro 5.13.x CVE pin policy
 
 **What it is.** Surfaced during W1 `npm install`: `npm audit` reports 5 chained Astro CVEs against the pinned `astro ~5.13.0`. The chain:
 
-| Advisory | Severity | Fix range | Affects |
-|---|---|---|---|
-| `GHSA-wrwg-2hg8-v723` | High (CVSS 7.1) | `>5.15.6` | Reflected XSS via server islands feature (SSR-only) |
-| `GHSA-hr2q-hp5q-x767` | Moderate (CVSS 6.5) | `>=5.15.5` | URL manipulation via headers; middleware bypass (SSR-only) |
-| `GHSA-5ff5-9fcw-vg88` | Moderate (CVSS 6.5) | `>=5.14.3` | X-Forwarded-Host reflected without validation (SSR-only) |
-| Cloudflare adapter `_image` Stored XSS | (varies) | (varies) | Cloudflare adapter only |
-| `GHSA-x3h8-62x9-952g` | Low (CVSS 3.5) | `>=5.14.3` | Astro Development Server arbitrary local file read |
+| Advisory                               | Severity            | Fix range  | Affects                                                    |
+| -------------------------------------- | ------------------- | ---------- | ---------------------------------------------------------- |
+| `GHSA-wrwg-2hg8-v723`                  | High (CVSS 7.1)     | `>5.15.6`  | Reflected XSS via server islands feature (SSR-only)        |
+| `GHSA-hr2q-hp5q-x767`                  | Moderate (CVSS 6.5) | `>=5.15.5` | URL manipulation via headers; middleware bypass (SSR-only) |
+| `GHSA-5ff5-9fcw-vg88`                  | Moderate (CVSS 6.5) | `>=5.14.3` | X-Forwarded-Host reflected without validation (SSR-only)   |
+| Cloudflare adapter `_image` Stored XSS | (varies)            | (varies)   | Cloudflare adapter only                                    |
+| `GHSA-x3h8-62x9-952g`                  | Low (CVSS 3.5)      | `>=5.14.3` | Astro Development Server arbitrary local file read         |
 
 pm-skills is built as a static site (SSG; no SSR, no server islands, no Cloudflare adapter). The four high+moderate items are gated to features pm-skills does not use. The remaining LOW item (`<5.14.3` dev-server local file read) only manifests during `npm run dev`, never in the published site.
 
 **Why it matters.** CI advisory tooling (Dependabot, GitHub advisory scanning) will surface this audit chain whether or not the runtime exposure exists for pm-skills. Maintainer judgment is needed to decide whether to (a) absorb the fix versions and accept Astro minor-version drift mid-cycle, (b) hold the pin and document the static-site exemption, or (c) wait for an Astro 5.13.x backport (none currently announced).
 
 **Desired outcomes.**
+
 - Repository-level audit position is explicit and defensible (not implicit / rationalized after the fact).
 - Astro pin choice is consistent with the v2.14 stability theme (the spike validated `~5.13.0` end-to-end).
 - Future audit findings have a written precedent for triage logic.
 
 **Potential solutions.**
+
 - **Option A: Hold `~5.13.0` pin; document the static-site exemption.** Pros: matches spike-validated version exactly; zero rebuild risk; the actual exposure on a static GitHub Pages build is the LOW dev-server item, which only affects local dev, where contributor exposure is bounded. Cons: `npm audit` continues to report HIGH; CI advisory dashboards stay red until version bump; future contributors may re-flag without context.
 - **Option B: Bump pin to `~5.16.0` (or current `5.x` patch line covering all CVEs).** Pros: clean audit; CI dashboards green; defense-in-depth even though SSR features are unused. Cons: pulls in 3 minor versions of behavior change vs the version the spike validated; W2-W11 acceptance criteria need re-validation under the new minor; risks invalidating the spike's "GO-WITH-CAVEATS" verdict if any minor introduces an incompatibility.
 - **Option C: Wait for an Astro 5.13.x backport.** Pros: minimal motion; preserves spike validation. Cons: no announced backport; CVE chain stays open indefinitely; high probability the patch never ships and we're back to A or B.
 
 **Recommendation: Option A (hold the pin; document the exemption).** Rationale:
+
 1. The actual exposure is the dev-server LOW item (`<5.14.3`); the High and Moderate items all require SSR/middleware/adapter features pm-skills does not use.
 2. The spike report's `GO-WITH-CAVEATS` verdict was validated against `5.13.x` specifically. A 3-minor bump invalidates that validation; revalidation is W13 effort.
 3. Static-site CVE triage is a recurring pattern in this repo (Material/MkDocs has had similar advisories). Documenting the static-site exemption sets precedent.
 
 **Implementation if Option A selected:**
+
 - Add a "Known accepted CVEs (static-site exemption)" section to `docs/internal/dependency-policy.md` with the 5-row table above plus the rationale.
 - Add a brief note to v2.14.0 release notes ("Static-site CVE exemption for Astro SSR features") so external readers see the position.
 - Re-evaluate at v2.15+ (when the Astro 6 + Node 22.12+ bump is in scope) since that cycle will move past 5.x entirely.
 
 **Maintainer decision / feedback:**
-- [ ] Accept recommendation (Option A)
+
+- [x] Accept recommendation (Option A)
 - [ ] Modify: 
 - [ ] Reject; alternative direction: 
+
 - Notes: 
 
 ---
 
 ## 7. Risk register
 
-| Risk | Likelihood | Impact | Mitigation |
-|---|---|---|---|
-| Untested compatibility surfaces emerging mid-migration (sample MDX collisions; CSS edge cases; CI environment differences) | Medium | Medium | Validation reserve (8-12 hrs) sized for this; W7 sample matrix + W5 CSS inventory front-load discovery |
-| D1-D4 outcomes shift between now and execution (e.g., D2 Option B docsLoader pattern API doesn't work as expected) | Low | High | Each D-decision has an alternate path (D2 has Option A or C as fallbacks); document fallback chosen in CHANGELOG |
-| Astro 5.x going to maintenance mode unexpectedly (Astro 6 already exists) | Low | Medium | Astro 5 is current-maintained; v2.15+ deferral handles the upgrade |
-| `astro-mermaid` plugin maintenance status uncertainty | Medium | Low | If maintenance halts, switch to `rehype-mermaid` (alternative integration); D4 already has fallback options |
-| GitHub Pages config differences from local build | Medium | Medium | W11 first deploy goes to a preview path before cutover |
-| Edit-link resolution check (W10.4) is harder to implement than expected | Low | Low | Defer the automated check to v2.14.1 if blocking; verify manually as W13 acceptance criterion |
-| Title injection script (W3) produces low-quality titles for many files | Low | Low | Manual quality pass after script run; fall back to author titles by hand for the worst cases |
-| Library samples (W7) reveal widespread MDX collisions requiring per-file fixes | Low | Medium | Validation reserve covers; if catastrophic, defer samples to v2.15 (samples are bonus, not core docs) |
-| 132 sample files dramatically slow build | Low | Low | Astro content collections are fast; if a problem, investigate parallel build options |
-| pm-skills-mcp impact discovered late | Low | Low | MCP consumes source markdown not built site; verify in W2 |
+| Risk                                                                                                 | Likelihood | Impact | Mitigation                                                                                           |
+| ---------------------------------------------------------------------------------------------------- | ---------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| Untested compatibility surfaces emerging mid-migration (sample MDX collisions; CSS edge cases; CI environment differences) | Medium     | Medium | Validation reserve (8-12 hrs) sized for this; W7 sample matrix + W5 CSS inventory front-load discovery |
+| D1-D4 outcomes shift between now and execution (e.g., D2 Option B docsLoader pattern API doesn't work as expected) | Low        | High   | Each D-decision has an alternate path (D2 has Option A or C as fallbacks); document fallback chosen in CHANGELOG |
+| Astro 5.x going to maintenance mode unexpectedly (Astro 6 already exists)                            | Low        | Medium | Astro 5 is current-maintained; v2.15+ deferral handles the upgrade                                   |
+| `astro-mermaid` plugin maintenance status uncertainty                                                | Medium     | Low    | If maintenance halts, switch to `rehype-mermaid` (alternative integration); D4 already has fallback options |
+| GitHub Pages config differences from local build                                                     | Medium     | Medium | W11 first deploy goes to a preview path before cutover                                               |
+| Edit-link resolution check (W10.4) is harder to implement than expected                              | Low        | Low    | Defer the automated check to v2.14.1 if blocking; verify manually as W13 acceptance criterion        |
+| Title injection script (W3) produces low-quality titles for many files                               | Low        | Low    | Manual quality pass after script run; fall back to author titles by hand for the worst cases         |
+| Library samples (W7) reveal widespread MDX collisions requiring per-file fixes                       | Low        | Medium | Validation reserve covers; if catastrophic, defer samples to v2.15 (samples are bonus, not core docs) |
+| 132 sample files dramatically slow build                                                             | Low        | Low    | Astro content collections are fast; if a problem, investigate parallel build options                 |
+| pm-skills-mcp impact discovered late                                                                 | Low        | Low    | MCP consumes source markdown not built site; verify in W2                                            |
 
 ---
 
 ## 8. Open Questions
 
-| # | Question | Default | Decision |
-|---|---|---|---|
-| OQ-M1 | Should library samples become a separate Starlight content collection (e.g., `/samples/` route) or be merged into existing `/showcase/`? | Separate `/samples/` collection (clearer separation; preserves existing showcase intent) | TBD at W7 kickoff |
-| OQ-M2 | What's the Mermaid theme strategy if D4 lazy-load works? Default Mermaid theme (Tailwind-ish) or attempt to match Material's theme? | Default Mermaid theme; defer custom theming to v2.15+ | TBD at W6 kickoff |
-| OQ-M3 | Does the `tags` plugin functionality (Material's tags page) need replication in Starlight, or can we drop tags-as-a-feature for v2.14? | Drop for v2.14; add custom tag-index page in v2.15 if user demand | TBD at W12 kickoff |
-| OQ-M4 | Is `validate-docs-frontmatter` promotion to enforcing (per W10.3) safe to ship in same cycle as the title-injection script (W3)? | Yes; W3 lands first in dependency order; promotion in W10 verifies | TBD |
-| OQ-M5 | Does the spike workspace `_spike/starlight-poc/` need to be preserved for any reason, or is deletion in W1 safe? | Deletion safe; the workspace was throwaway by design | TBD at W1 kickoff |
+| #     | Question                                                                                             | Default                                                                                  | Decision           |
+| ----- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------ |
+| OQ-M1 | Should library samples become a separate Starlight content collection (e.g., `/samples/` route) or be merged into existing `/showcase/`? | Separate `/samples/` collection (clearer separation; preserves existing showcase intent) | TBD at W7 kickoff  |
+| OQ-M2 | What's the Mermaid theme strategy if D4 lazy-load works? Default Mermaid theme (Tailwind-ish) or attempt to match Material's theme? | Default Mermaid theme; defer custom theming to v2.15+                                    | TBD at W6 kickoff  |
+| OQ-M3 | Does the `tags` plugin functionality (Material's tags page) need replication in Starlight, or can we drop tags-as-a-feature for v2.14? | Drop for v2.14; add custom tag-index page in v2.15 if user demand                        | TBD at W12 kickoff |
+| OQ-M4 | Is `validate-docs-frontmatter` promotion to enforcing (per W10.3) safe to ship in same cycle as the title-injection script (W3)? | Yes; W3 lands first in dependency order; promotion in W10 verifies                       | TBD                |
+| OQ-M5 | Does the spike workspace `_spike/starlight-poc/` need to be preserved for any reason, or is deletion in W1 safe? | Deletion safe; the workspace was throwaway by design                                     | TBD at W1 kickoff  |
 
 ---
 
@@ -752,10 +794,11 @@ pm-skills is built as a static site (SSG; no SSR, no server islands, no Cloudfla
 
 ## 10. Change Log
 
-| Date | Change |
-|---|---|
+| Date       | Change                                                                                               |
+| ---------- | ---------------------------------------------------------------------------------------------------- |
 | 2026-05-06 | Initial migration plan authored after Codex adversarial review of spike report. 13 workstreams, 7 Pre-Ship Validation Gates, 2 new Decision Briefs (DM-1 mkdocs.yml deletion timing; DM-2 deploy action choice), Phase 0 schedule, Risk register. Total estimate 30-40 focused hours / 5-8 calendar days. |
 | 2026-05-07 | Cross-session sync: absorbed concurrent v2.13.1 ship (latest tag now v2.13.1; new validator `validate-plugin-install` enforcing locally + workflow integration deferred to W10) and `spec_frontmatter-correction.md` (102-file scope; new W3.5 workstream). Added DM-3 (recommended install-path positioning, deferred from v2.13.1 maintainer call). Revised estimate from 30-40 to 33-45 focused hours / 6-9 calendar days. Updated W7 dependencies (W3.5 added). Updated W12 acceptance criteria with 11 deferred mkdocs warnings. |
 | 2026-05-07 | W1 (Pre-flight setup) executed: production scaffold landed at repo root (`package.json` with pinned ~5.13.0/~0.34.0/~2.0.1; `astro.config.mjs` with `site` + `base: '/pm-skills'`; `tsconfig.json` extending `astro/tsconfigs/strict`; `src/content/docs/index.md` placeholder; `docs/internal/dependency-policy.md`). `_spike/starlight-poc/` deleted. `npm install` clean (500 packages, 0 peer-dep warnings). `npm run build` exits 0 against placeholder content (1 page in 2.50s). DM-4 added: Astro 5.13.x CVE pin policy (5 chained CVEs surfaced by `npm audit`; 4 SSR/Cloudflare-only, 1 dev-server LOW; recommend Option A static-site exemption pending maintainer signoff). |
 | 2026-05-07 | W2 (Production content-source mount, D2 Option B) + W3 (Frontmatter compliance, title injection) executed bundled. `src/content.config.ts` configured with glob loader rooted at `./docs` excluding `internal/` and `templates/`; `docsSchema` extended with pm-skills custom fields. `astro.config.mjs` editLink baseUrl set without trailing `docs/` (Codex S5.M1 defect surfaced and fixed during verification). `src/content/docs/` placeholder removed. `scripts/inject-doc-titles.mjs` authored (parser-aware FM boundary detection per spike Caveat 1 lesson) and run across `docs/` (49 files modified; spike's 51-file count revised down by 2 from concurrent v2.13.1 work) and `_workflows/` (10 files modified; W3 sub-fix for generator-source preservation). One manual quality fix: "Post Launch Learning" -> "Post-Launch Learning". Build passes 125 pages in 4.2s warm / 8.8s cold. Verification: 0 `internal/*` in dist; 0 `templates/*` in dist; 5/5 sample editLinks resolve correctly. URL slug normalization observed (Starlight strips dots and underscores; affects 26+ release pages); captured for W9 redirect-mapping. |
 | 2026-05-08 | Phase 1 cleanup pass: (a) release-notes title quality fix - 19 files were initially derived as bare `v2.X.Y` (loses "Release " context for sidebar nav and `<title>` tag); fixed to `Release v2.X.Y`. `inject-doc-titles.mjs` `deriveTitle()` updated for future-proofing. (b) Existing CI validators sanity run: `lint-skills-frontmatter.sh`, `validate-commands.sh`, `check-generated-content-untouched.sh`, `validate-agents-md.sh` all PASS - Phase 1 did not regress existing CI surface. The `check-generated-content-untouched` PASS specifically validates the W3 sub-fix (`_workflows/` + `docs/workflows/` are internally consistent). (c) Static dist verification: 5 sample pages confirmed with correct `<title>` tag, edit links, and slug-normalized paths. Mermaid blocks render as 0 in dist (expected; W6 has not configured `astro-mermaid` yet). |
+| 2026-05-08 | W3.5 (Library + skills frontmatter correction) EXECUTED end-to-end. Maintainer signoff on Q1-Q5 in `discovery/spec_frontmatter-correction.md` resolved (Q1=A, Q2=A, Q3=A, Q4=C-conditional, Q5=A). GitHub rendering verified via Playwright screenshot comparison (broken sample shows YAML as run-on prose; correctly-formatted example shows structured metadata table at top of page). Sweep covered 102 files: 100 broken library samples + 2 OKR EXAMPLE.md (per Q4-C). Updates: (a) generators + standards docs (`SAMPLE_CREATION.md` Section 5 rewrite with placement + 10-field schema + canonical example + description-vs-context distinction; `pm-skill-builder/iterate/validate` SKILL.md byte-0 enforcement language); (b) sweep script `scripts/sweep-frontmatter.mjs` (parser-aware, deterministic, idempotent); (c) lint extension `lint-skills-frontmatter.sh/.ps1` enforcing byte-0 placement on TEMPLATE.md, EXAMPLE.md, and library samples (with bug-pattern detection that avoids markdown-horizontal-rule false positives). Acronym fixes applied to 21 derived titles (Jtbd to JTBD, Prd to PRD, Adr to ADR, Okr to OKR, Pm to PM). Verification: lint exits 0 on clean tree; lint exits 1 with clear error when one sample is manually broken; `npm run build` 125 pages clean. Maintainer also signed off DM-1 (Option B), DM-2 (Option A), DM-3 (Option A), DM-4 (Option A). |

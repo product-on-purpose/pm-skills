@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation Persona: Brainshelf Marketing Detailed Resurface"
+description: "Brainshelf Resurface marketing persona for freemium-to-paid conversion strategy and subscription messaging."
 artifact: persona
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf Resurface marketing persona for freemium-to-paid conversion strategy and subscription messaging
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

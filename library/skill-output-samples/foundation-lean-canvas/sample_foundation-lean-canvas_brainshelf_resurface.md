@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Foundation Lean Canvas: Brainshelf Resurface"
+description: "Brainshelf Resurface lean canvas for framing the morning email digest as a retention and referral lever in a consumer PKM app."
 artifact: lean-canvas
 version: "1.0"
 repo_version: "2.10.2"
@@ -9,6 +10,7 @@ status: sample
 thread: brainshelf
 context: Brainshelf Resurface lean canvas for framing the morning email digest as a retention and referral lever in a consumer PKM app
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

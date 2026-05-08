@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Iterate Lessons Log: Storevine Campaigns"
+description: "Storevine B2B ecommerce platform - lesson learned from the Campaigns guided first-campaign flow A/B test."
 artifact: lessons-log
 version: "1.0"
 repo_version: "2.5.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . lesson learned from the Campaigns guided first-campaign flow A/B test
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 

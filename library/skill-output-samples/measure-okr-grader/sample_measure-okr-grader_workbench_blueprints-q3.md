@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Measure OKR Grader: Workbench Blueprints Q3"
+description: "Workbench enterprise B2B platform. Blueprints team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer workbench sample. Demonstrates mixed-empowerment scoring with committed KR fail handled correctly (not softened to aspirational), compliance_or_safety KR scored as not-yet-fully-observable when audit coverage is partial (no retroactive scope shrinkage), aspirational KR in sweet spot, and committed KR with guardrail indicator class held."
 artifact: measure-okr-grader
 version: "1.0"
 repo_version: "2.12.0"
@@ -9,6 +10,7 @@ status: canonical
 thread: workbench
 context: Workbench enterprise B2B platform. Blueprints team Q3 2026 cycle review at quarter close (October 2026). Scores the OKR set produced in the foundation-okr-writer workbench sample. Demonstrates mixed-empowerment scoring with committed KR fail handled correctly (not softened to aspirational), compliance_or_safety KR scored as not-yet-fully-observable when audit coverage is partial (no retroactive scope shrinkage), aspirational KR in sweet spot, and committed KR with guardrail indicator class held.
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 # Sample: measure-okr-grader. Workbench Blueprints Q3 2026 Cycle Review
 

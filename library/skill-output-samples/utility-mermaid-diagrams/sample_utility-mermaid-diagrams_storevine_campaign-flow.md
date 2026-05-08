@@ -1,5 +1,6 @@
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
+title: "Utility Mermaid Diagrams: Storevine Campaign Flow"
+description: "Storevine B2B ecommerce platform - mermaid flowchart for Campaigns email send approval workflow."
 artifact: mermaid-diagram
 version: "1.0"
 repo_version: "2.10.0"
@@ -9,6 +10,7 @@ status: sample
 thread: storevine
 context: Storevine B2B ecommerce platform . mermaid flowchart for Campaigns email send approval workflow
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 
