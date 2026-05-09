@@ -22,9 +22,9 @@
 
 | Dimension                       | Value                                                                                                |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Effort estimate                 | 33-45 hours focused work (base 25-33 + validation reserve 8-12; +3-5 hrs vs original after W3.5 frontmatter sweep added per cross-session sync) |
-| Calendar estimate               | 6-9 days assuming context-switching                                                                  |
-| Workstreams                     | 14 (W1, W2, W3, W3.5, W4-W13)                                                                        |
+| Effort estimate                 | 37-51 hours focused work (base 25-33 + validation reserve 8-12 + W3.5 +3-5 hrs + W5.5 +4-6 hrs added 2026-05-08 cross-session sync) |
+| Calendar estimate               | 7-10 days assuming context-switching                                                                 |
+| Workstreams                     | 15 (W1, W2, W3, W3.5, W4, W5, W5.5, W6-W13)                                                          |
 | Pre-ship validation gates       | 7                                                                                                    |
 | New CI checks                   | 3 (production-mode internal/ exclusion; edit-link resolution; `validate-plugin-install` workflow integration deferred from v2.13.1) |
 | Material artifacts to deprecate | mkdocs.yml + ~6 Material plugin pip dependencies + custom CSS + workflow steps + documentation references |
@@ -45,8 +45,9 @@ W1 Pre-flight setup
             -> W11 GitHub Pages deploy migration
                  -> W12 Material deprecation
                       -> W13 Final validation + ship
-       -> W5 Custom CSS port (depends on W4)
-       -> W7 Library samples mount (depends on W2 + W3.5 + W4)
+       -> W5 Custom CSS port (depends on W4 and W5.5; paused at inventory pending W5.5)
+       -> W5.5 Markdown extension parity (depends on W2; blocks W5 final port and W7)
+       -> W7 Library samples mount (depends on W2 + W3.5 + W4 + W5.5)
 ```
 
 ---
@@ -266,9 +267,59 @@ Grouped into 4 phases by demonstrable outcome at end of phase. Workstream sub-se
 
 **Dependencies:** W4 (sidebar in place; needed as visual reference)
 
-**Effort:** 1 hour (inventory) + 4-8 hours (port) = 5-9 hours
+**Effort:** 1 hour (inventory) + 4-8 hours (port) = 5-9 hours (revised 2026-05-08: actual scope ~30 min for port given W5.5 fixes md-button leakage; the 4-8 hour port estimate assumed widespread Material-class CSS surface that does not exist in pm-skills)
 
 **Owner:** Claude (inventory + port); human (browser screenshot review)
+
+**Status (2026-05-08):** PAUSED at inventory stage. Inventory pass complete: 5 selectors in `docs/stylesheets/extra.css`. Dispositions: `.md-grid` RETIRE (no usage in user-facing content); `.md-button` PORT (kept; will be active once W5.5 enables `{ .class }` syntax via remark-attr); `.mermaid` KEEP (generic class); `details.example` RETIRE (no usage); `.md-tags .md-tag` RETIRE (tags-as-feature deferred per OQ-M3). CSS port itself is ~30 min of work (much smaller than 4-8 hr estimate; pm-skills had only 30 lines of custom CSS). PAUSED on W5.5: the `.md-button` disposition depends on whether the class ends up applied (W5.5 enables this); also the W5 visual smoke test needs to happen after W5.5 fixes admonition + collapsible leakage on the same skill pages so the test isn't dominated by other regressions.
+
+---
+
+### W5.5: Markdown extension parity (added 2026-05-08; pymdownx-to-remark gap)
+
+**Goal.** Bridge the pymdownx-to-Astro/Starlight markdown gap so the three pymdownx extensions in active corpus use (admonition `!!!`, collapsible `???`, attr_list `{ .class }`) render correctly in Starlight (or are converted to Starlight-native equivalent syntax).
+
+**Discovery (2026-05-08).** During W5 inventory pass, audit of built HTML on `dist/skills/develop/develop-adr/index.html` revealed three distinct pymdownx syntaxes leaking as literal text: `!!! info "Quick facts"` (admonition; 70 source files use this), `??? note "..."` (collapsible; 46 source files), and `{ .md-button }` (attr_list; 28+ source files). pymdownx is a Python markdown ecosystem; Astro/Starlight uses remark/rehype which has different plugins and conventions. The `{ .md-button }` issue triggered the discovery; admonitions and collapsibles are the larger blast radius. W5 plan did not anticipate this scope; W5.5 added as a new workstream.
+
+**Tasks:**
+
+1. **Corpus audit**: enumerate all source files using each syntax (start from grep counts: 70 + 46 + 28); separate generator output from hand-authored content
+2. **Per-syntax decision**:
+    - `attr_list` (`{ .class }`): install `remark-attr` (or equivalent rehype plugin); preserves source syntax, applies classes; verify `.md-button` class lands on `<p>` tags
+    - `admonition` (`!!! type "title"`): rewrite source to Starlight asides syntax `:::note[title]` or `:::tip[title]` etc; native Starlight component with built-in styling; future-proof
+    - `pymdownx.details` (`??? type "title"`): rewrite source to MDX `<details><summary>...</summary>...</details>` blocks; native HTML; works without plugin
+3. **Generator updates**:
+    - `scripts/generate-skill-pages.py`: emit Starlight-native syntax for admonitions and collapsibles in generated skill pages (~28 files regenerate cleanly)
+    - `scripts/generate-workflow-pages.py`: same for workflow pages (~10 files)
+    - `scripts/generate-showcase.py`: verify if showcase generator emits these syntaxes; update if so
+4. **Hand-authored content rewrite**:
+    - Authored regex sweep script (parser-aware, idempotent) for non-generated pages (`docs/guides/`, `docs/reference/`, `docs/concepts/`, hand-authored sub-pages)
+    - Test on 1-2 files first, then full sweep
+    - Manual review of edge cases (multi-line admonitions, nested content, indentation handling)
+5. **Build + verify**: rebuild; grep dist HTML for `!!! `, `??? `, `{ .md-button }` literal-text patterns; expect 0 hits
+6. **Visual smoke test**: skill page (admonition + collapsible + button), workflow page, showcase page, hand-authored guide page
+
+**Acceptance criteria:**
+
+- 0 instances of `!!! ` followed by markdown admonition title in built HTML (i.e., no leakage)
+- 0 instances of `??? ` followed by collapsible title in built HTML
+- 0 instances of `{ .md-button }` (or other `{ .class }` patterns) as literal text in built HTML
+- Skill pages render admonitions as styled boxes (Starlight aside component) and collapsibles as functional `<details>` elements
+- `.md-button` class is applied to `<p>` (or appropriate) elements; CSS rule from W5 takes effect
+- Generators preserve the new syntax across regen runs (Pattern 5C compliant)
+- `npm run build` exits 0 with no markdown-syntax warnings
+
+**Dependencies:** W2 (mounted content). BLOCKS: W5 final port (because `.md-button` disposition depends on attr_list working); W7 library samples mount (because samples may use the same syntaxes; verify during audit).
+
+**Effort:** 4-6 hours focused work:
+- Corpus audit + per-syntax decisions: 30 min
+- remark-attr install + config: 30 min
+- Generator updates (skill + workflow generators; possibly showcase): 1-2 hr
+- Hand-authored content rewrite scripts: 1-2 hr
+- Build verification + smoke test: 30 min
+- Status block + commit: 30 min
+
+**Owner:** Claude (audit + scripts + plugin install + content rewrite); human (visual smoke-test review)
 
 ---
 
@@ -805,3 +856,4 @@ pm-skills is built as a static site (SSG; no SSR, no server islands, no Cloudfla
 | 2026-05-08 | Phase 1 cleanup pass: (a) release-notes title quality fix - 19 files were initially derived as bare `v2.X.Y` (loses "Release " context for sidebar nav and `<title>` tag); fixed to `Release v2.X.Y`. `inject-doc-titles.mjs` `deriveTitle()` updated for future-proofing. (b) Existing CI validators sanity run: `lint-skills-frontmatter.sh`, `validate-commands.sh`, `check-generated-content-untouched.sh`, `validate-agents-md.sh` all PASS - Phase 1 did not regress existing CI surface. The `check-generated-content-untouched` PASS specifically validates the W3 sub-fix (`_workflows/` + `docs/workflows/` are internally consistent). (c) Static dist verification: 5 sample pages confirmed with correct `<title>` tag, edit links, and slug-normalized paths. Mermaid blocks render as 0 in dist (expected; W6 has not configured `astro-mermaid` yet). |
 | 2026-05-08 | W3.5 (Library + skills frontmatter correction) EXECUTED end-to-end. Maintainer signoff on Q1-Q5 in `discovery/spec_frontmatter-correction.md` resolved (Q1=A, Q2=A, Q3=A, Q4=C-conditional, Q5=A). GitHub rendering verified via Playwright screenshot comparison (broken sample shows YAML as run-on prose; correctly-formatted example shows structured metadata table at top of page). Sweep covered 102 files: 100 broken library samples + 2 OKR EXAMPLE.md (per Q4-C). Updates: (a) generators + standards docs (`SAMPLE_CREATION.md` Section 5 rewrite with placement + 10-field schema + canonical example + description-vs-context distinction; `pm-skill-builder/iterate/validate` SKILL.md byte-0 enforcement language); (b) sweep script `scripts/sweep-frontmatter.mjs` (parser-aware, deterministic, idempotent); (c) lint extension `lint-skills-frontmatter.sh/.ps1` enforcing byte-0 placement on TEMPLATE.md, EXAMPLE.md, and library samples (with bug-pattern detection that avoids markdown-horizontal-rule false positives). Acronym fixes applied to 21 derived titles (Jtbd to JTBD, Prd to PRD, Adr to ADR, Okr to OKR, Pm to PM). Verification: lint exits 0 on clean tree; lint exits 1 with clear error when one sample is manually broken; `npm run build` 125 pages clean. Maintainer also signed off DM-1 (Option B), DM-2 (Option A), DM-3 (Option A), DM-4 (Option A). |
 | 2026-05-08 | W4 (Sidebar IA hybrid, D3 Option C) EXECUTED. Maintainer signoff on 4 W4-kickoff clarifications: Home group disposition (standard Starlight: Changelog/Tags as top-level slugs, homepage via logo); tags page disposition (include in nav, mirror mkdocs); release sidebar label drift (accept "Release v2.X.Y" titles per parent session); working-tree (continue on main per Phase 1 pattern). `astro.config.mjs` sidebar shipped with 11 top-level entries; Skills section uses manual phase items in Triple Diamond order with autogenerate within each phase; `docs/reference/README.md` got `sidebar.label: Overview` + `sidebar.order: 1`; 24 release files stamped with reverse-chronological `sidebar.order` via inline Node semver sweep. UPSTREAM Starlight quirk discovered + worked around: `autogenerate.directory` matches `entry.filePath` relative to hardcoded `src/content/docs/`; with our D2 Option B in-place mount, all autogenerate paths must prefix with `docs/`; documented prominently. W2-territory bug surfaced from W4: `workflows/README.md` (a contributor meta-doc duplicate-titled with `workflows/index.md`) was not excluded; added to glob exclusions in `src/content.config.ts`. Build 124 pages in 4.48s warm. Acceptance #1 (top-level order) PASS; #2 (Section labels) PASS for hand-authored files (Reference Overview); #3 (within-section presence) PASS; #4 (release titles) reconciled per Q3-A; #5 (visual diff vs Material) deferred to W5 CSS port pass. Deferrals: skill-families sub-group lowercase (Starlight cannot override autogenerated sub-group labels via frontmatter; would require manual items conversion); skill leaf labels lowercase (`scripts/generate-skill-pages.py` output convention; W8 territory). |
+| 2026-05-08 | W5 (Custom CSS port) inventory pass started; PAUSED at inventory and W5.5 (Markdown extension parity) added as new workstream. Discovery during W5 inventory: built HTML for `dist/skills/develop/develop-adr/index.html` revealed three pymdownx syntaxes leaking as literal text in Starlight: `!!! admonition` (70 source files), `??? collapsible` (46 source files), `{ .md-button }` attr_list (28+ source files). Astro/Starlight uses remark/rehype, not pymdownx; built HTML retains the literal markdown source. CSS inventory itself is much smaller than W5 plan anticipated: 5 selectors in 30 lines; 4 retire-able; 1 keep (`.mermaid`). W5 paused because `.md-button` CSS port disposition depends on whether the class lands (W5.5 enables this), and the visual smoke test needs to follow W5.5 to isolate signal from the markdown leakage. W5.5 scope: install `remark-attr` for `{ .class }`; rewrite `!!!` to Starlight asides `:::note[title]`; rewrite `???` to MDX `<details>`; update generators (`generate-skill-pages.py`, `generate-workflow-pages.py`); estimated 4-6 hr. Workstream count revised: 14 to 15. Total effort estimate revised: 33-45 to 37-51 hr. Calendar revised: 6-9 to 7-10 days. Maintainer accepted W5.5 spin-up over alternatives (expand W5 in place; ship leaks; plugin-only path). |
