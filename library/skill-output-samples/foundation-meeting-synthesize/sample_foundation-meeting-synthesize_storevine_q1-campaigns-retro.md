@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting synthesize: Storevine Q1 Campaigns Retrospective Input"
+description: "Sample output for foundation-meeting-synthesize skill applied to the storevine thread (q1-campaigns-retro)."
 artifact: foundation-meeting-synthesize
 version: 1.0
 repo_version: 2.11.0

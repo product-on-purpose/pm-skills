@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting recap: Brainshelf Resurface Scope Cut"
+description: "Sample output for foundation-meeting-recap skill applied to the brainshelf thread (resurface-scope-cut)."
 artifact: foundation-meeting-recap
 version: 1.0
 repo_version: 2.11.0

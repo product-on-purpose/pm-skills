@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting agenda: Brainshelf Resurface Algorithm Review"
+description: "Sample output for foundation-meeting-agenda skill applied to the brainshelf thread (resurface-algo-review)."
 artifact: foundation-meeting-agenda
 version: 1.0
 repo_version: 2.11.0

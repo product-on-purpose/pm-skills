@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting brief: Storevine Campaigns Exec Briefing Prep"
+description: "Sample output for foundation-meeting-brief skill applied to the storevine thread (campaigns-exec-briefing)."
 artifact: foundation-meeting-brief
 version: 1.0
 repo_version: 2.11.0

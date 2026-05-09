@@ -1,4 +1,6 @@
 ---
+title: "Foundation stakeholder update: Workbench Blueprints Notion Update To Enterprise CS"
+description: "Sample output for foundation-stakeholder-update skill applied to the workbench thread (blueprints-notion-enterprise-cs)."
 artifact: foundation-stakeholder-update
 version: 1.0
 repo_version: 2.11.0

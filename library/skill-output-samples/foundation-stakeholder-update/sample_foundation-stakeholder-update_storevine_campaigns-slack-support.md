@@ -1,4 +1,6 @@
 ---
+title: "Foundation stakeholder update: Storevine Campaigns Slack Update To Support Team"
+description: "Sample output for foundation-stakeholder-update skill applied to the storevine thread (campaigns-slack-support)."
 artifact: foundation-stakeholder-update
 version: 1.0
 repo_version: 2.11.0

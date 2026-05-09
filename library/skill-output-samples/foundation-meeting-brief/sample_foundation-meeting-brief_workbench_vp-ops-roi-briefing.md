@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting brief: Workbench VP Ops ROI Briefing Prep"
+description: "Sample output for foundation-meeting-brief skill applied to the workbench thread (vp-ops-roi-briefing)."
 artifact: foundation-meeting-brief
 version: 1.0
 repo_version: 2.11.0

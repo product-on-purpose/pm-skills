@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting agenda: Workbench Blueprints Approval Gate Design"
+description: "Sample output for foundation-meeting-agenda skill applied to the workbench thread (blueprints-approval-design)."
 artifact: foundation-meeting-agenda
 version: 1.0
 repo_version: 2.11.0

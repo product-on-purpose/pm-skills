@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting synthesize: Brainshelf Resurface Design Iteration Themes"
+description: "Sample output for foundation-meeting-synthesize skill applied to the brainshelf thread (resurface-design-iteration)."
 artifact: foundation-meeting-synthesize
 version: 1.0
 repo_version: 2.11.0

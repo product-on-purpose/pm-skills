@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting synthesize: Workbench Blueprints Board Prep"
+description: "Sample output for foundation-meeting-synthesize skill applied to the workbench thread (blueprints-board-prep)."
 artifact: foundation-meeting-synthesize
 version: 1.0
 repo_version: 2.11.0

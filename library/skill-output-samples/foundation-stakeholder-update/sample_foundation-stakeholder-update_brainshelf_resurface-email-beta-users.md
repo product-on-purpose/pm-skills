@@ -1,4 +1,6 @@
 ---
+title: "Foundation stakeholder update: Brainshelf Resurface Email To Beta Users"
+description: "Sample output for foundation-stakeholder-update skill applied to the brainshelf thread (resurface-email-beta-users)."
 artifact: foundation-stakeholder-update
 version: 1.0
 repo_version: 2.11.0

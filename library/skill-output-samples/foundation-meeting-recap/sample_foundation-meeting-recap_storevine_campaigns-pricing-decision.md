@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting recap: Storevine Campaigns Pricing Decision"
+description: "Sample output for foundation-meeting-recap skill applied to the storevine thread (campaigns-pricing-decision)."
 artifact: foundation-meeting-recap
 version: 1.0
 repo_version: 2.11.0

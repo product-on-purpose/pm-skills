@@ -144,6 +144,17 @@ export default defineConfig({
           label: 'Releases',
           autogenerate: { directory: 'docs/releases' },
         },
+        {
+          // W7: 115 library sample pages mounted under /samples/. Collapsed
+          // by default to avoid sidebar clutter (each sample is a leaf within
+          // a per-skill subgroup, so the section expands to 40 subgroups).
+          label: 'Samples',
+          collapsed: true,
+          autogenerate: {
+            directory: 'library/skill-output-samples',
+            collapsed: true,
+          },
+        },
       ],
     }),
   ],

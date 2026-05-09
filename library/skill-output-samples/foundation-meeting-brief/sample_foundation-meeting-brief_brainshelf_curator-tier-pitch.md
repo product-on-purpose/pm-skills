@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting brief: Brainshelf Curator Tier Founder Pitch"
+description: "Sample output for foundation-meeting-brief skill applied to the brainshelf thread (curator-tier-pitch)."
 artifact: foundation-meeting-brief
 version: 1.0
 repo_version: 2.11.0

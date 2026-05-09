@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting agenda: Storevine Campaigns Kickoff"
+description: "Sample output for foundation-meeting-agenda skill applied to the storevine thread (campaigns-kickoff)."
 artifact: foundation-meeting-agenda
 version: 1.0
 repo_version: 2.11.0

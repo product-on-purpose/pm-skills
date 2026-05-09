@@ -1,4 +1,6 @@
 ---
+title: "Foundation meeting recap: Workbench Blueprints Customer Feedback Review"
+description: "Sample output for foundation-meeting-recap skill applied to the workbench thread (blueprints-customer-feedback)."
 artifact: foundation-meeting-recap
 version: 1.0
 repo_version: 2.11.0
