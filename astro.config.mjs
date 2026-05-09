@@ -19,7 +19,102 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/product-on-purpose/pm-skills/edit/main/',
       },
-      sidebar: [],
+      // W4 (D3 Option C): manual top-level section ordering and labels;
+      // autogenerate within sections. Order mirrors mkdocs.yml nav top level.
+      // Per-section label drift handled via frontmatter sidebar.label overrides
+      // (see docs/reference/README.md for the canonical example).
+      // Per Q1-A: Changelog and Tags are top-level sidebar entries (Starlight
+      // convention), not nested under a Home group. Homepage reachable via logo.
+      //
+      // IMPORTANT: autogenerate directory paths are PREFIXED WITH 'docs/'.
+      // This is a D2-Option-B consequence: our custom glob loader (src/content.config.ts)
+      // mounts ./docs in-place; entry.filePath retains the 'docs/' prefix.
+      // Starlight's autogenerate logic in node_modules/@astrojs/starlight/utils/navigation.ts
+      // tries to strip the path src/content/docs/ from filePaths to compute "directory"
+      // matches, but for our entries the strip is a no-op. So we match on the actual
+      // filePath structure: docs/<section>. Do not "fix" these prefixes.
+      // Tracked at collection.ts: "We still rely on the content collection folder
+      // structure to be fixed for now" (Starlight upstream limitation).
+      sidebar: [
+        { slug: 'changelog' },
+        { slug: 'tags' },
+        {
+          label: 'Getting Started',
+          autogenerate: { directory: 'docs/getting-started' },
+        },
+        {
+          // Skills section: manual phase ordering (Triple Diamond) and
+          // capitalized labels. Phase index.md files are generator output
+          // (scripts/generate-skill-pages.py) so adding sidebar frontmatter
+          // there would be overwritten on regen. Within each phase,
+          // autogenerate handles the skill leaves.
+          label: 'Skills',
+          items: [
+            // Skills section overview (slug refs use post-base path; no 'docs/' prefix here)
+            'skills',
+            {
+              label: 'Discover',
+              autogenerate: { directory: 'docs/skills/discover' },
+            },
+            {
+              label: 'Define',
+              autogenerate: { directory: 'docs/skills/define' },
+            },
+            {
+              label: 'Develop',
+              autogenerate: { directory: 'docs/skills/develop' },
+            },
+            {
+              label: 'Deliver',
+              autogenerate: { directory: 'docs/skills/deliver' },
+            },
+            {
+              label: 'Measure',
+              autogenerate: { directory: 'docs/skills/measure' },
+            },
+            {
+              label: 'Iterate',
+              autogenerate: { directory: 'docs/skills/iterate' },
+            },
+            {
+              label: 'Foundation',
+              autogenerate: { directory: 'docs/skills/foundation' },
+            },
+            {
+              label: 'Utility',
+              autogenerate: { directory: 'docs/skills/utility' },
+            },
+          ],
+        },
+        {
+          label: 'Workflows',
+          autogenerate: { directory: 'docs/workflows' },
+        },
+        {
+          label: 'Guides',
+          autogenerate: { directory: 'docs/guides' },
+        },
+        {
+          label: 'Concepts',
+          autogenerate: { directory: 'docs/concepts' },
+        },
+        {
+          label: 'Showcase',
+          autogenerate: { directory: 'docs/showcase' },
+        },
+        {
+          label: 'Reference',
+          autogenerate: { directory: 'docs/reference' },
+        },
+        {
+          label: 'Contributing',
+          autogenerate: { directory: 'docs/contributing' },
+        },
+        {
+          label: 'Releases',
+          autogenerate: { directory: 'docs/releases' },
+        },
+      ],
     }),
   ],
 });

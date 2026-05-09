@@ -1,5 +1,7 @@
 ---
 title: Release v2.10.0
+sidebar:
+  order: 6
 ---
 
 # Release v2.10.0 . Utility & Skill Expansion

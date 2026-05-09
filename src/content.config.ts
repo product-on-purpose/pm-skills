@@ -8,6 +8,7 @@ import { docsSchema } from '@astrojs/starlight/schema';
 // Exclusions:
 //   - internal/**: gitignored release-plans, working notes, audits (production exemption)
 //   - templates/**: skill-template SKILL.md uses `<placeholder>` syntax that YAML-parses as a nested mapping (per spike Caveat 3)
+//   - workflows/README.md: contributor-facing meta-doc for the _workflows/ source folder (the canonical user-facing page is workflows/index.md, generated from the same source); previously excluded via mkdocs.yml exclude_docs (W4 surfaced; was missing from W2)
 //
 // The schema extends Starlight's docsSchema() with pm-skills custom frontmatter fields,
 // all optional. Pattern 5C `generated:` and `source:` fields are preserved through the
@@ -16,7 +17,7 @@ import { docsSchema } from '@astrojs/starlight/schema';
 export const collections = {
   docs: defineCollection({
     loader: glob({
-      pattern: ['**/*.{md,mdx}', '!internal/**', '!templates/**'],
+      pattern: ['**/*.{md,mdx}', '!internal/**', '!templates/**', '!workflows/README.md'],
       base: './docs',
     }),
     schema: docsSchema({

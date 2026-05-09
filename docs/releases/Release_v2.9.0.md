@@ -1,5 +1,7 @@
 ---
 title: Release v2.9.0
+sidebar:
+  order: 8
 ---
 
 # Release v2.9.0 . Workflows

@@ -1,5 +1,7 @@
 ---
 title: Release v2.0
+sidebar:
+  order: 24
 ---
 
 # PM‑Skills v2.0 Release Notes

@@ -1,6 +1,8 @@
 ---
 title: "Release v2.13.1. Plugin Install Path Correction"
 description: "Patch release that fixes the broken Claude Code plugin install path. marketplace.json relocated to the canonical .claude-plugin/ location and reshaped to satisfy the marketplace registry schema. New validate-plugin-install CI guard prevents regression. Same 40-skill catalog as v2.13.0; zero behavioral change."
+sidebar:
+  order: 1
 ---
 
 # Release v2.13.1. Plugin Install Path Correction

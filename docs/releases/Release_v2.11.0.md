@@ -1,6 +1,8 @@
 ---
 title: "Release v2.11.0. Meeting Skills Family + Lean Canvas"
 description: "The first pm-skills release with a canonical skill-family contract pattern. Ships 6 new foundation skills (lean-canvas + 5-skill meeting lifecycle family), enforcing CI for cross-skill consistency, thread-aligned sample library, and end-user + adoption documentation."
+sidebar:
+  order: 5
 ---
 
 # Release v2.11.0. Meeting Skills Family + Lean Canvas

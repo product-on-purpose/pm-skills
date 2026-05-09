@@ -1,6 +1,8 @@
 ---
 title: "Release v2.11.1. skills.sh CLI Compatibility Patch"
 description: "Unblocks installation via the open skills CLI (npx skills add product-on-purpose/pm-skills) so the full 38-skill library is discoverable through skills.sh. No behavioral changes to any skill. Patch bundles three linked YAML-frontmatter fixes, 25 stale-file removals, a lint hardening pass, and the em-dash standing-rule sweep."
+sidebar:
+  order: 4
 ---
 
 # Release v2.11.1. skills.sh CLI Compatibility Patch

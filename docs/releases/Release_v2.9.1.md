@@ -1,5 +1,7 @@
 ---
 title: Release v2.9.1
+sidebar:
+  order: 7
 ---
 
 # Release v2.9.1 . Workflow Docs & CI Consistency

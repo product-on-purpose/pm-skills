@@ -1,6 +1,8 @@
 ---
 title: "Release v2.13.0. Foundation Hardening + Doc Stack Decision"
 description: "Maintenance and quality release with the same 40-skill catalog as v2.12.0. Cleaner Diataxis-aligned documentation, 7 new CI gates that catch doc drift on PRs (validator inventory 15 to 22; enforcing tier 5 to 10), and an out-of-cycle pm-skills-mcp v2.9.3 security-patch follow-up to the v2.9.2 maintenance-mode announcement."
+sidebar:
+  order: 2
 ---
 
 # Release v2.13.0. Foundation Hardening + Doc Stack Decision

@@ -1,6 +1,8 @@
 ---
 title: "Release v2.12.0. OKR Skills Launch"
 description: "First release with the OKR Skills set: foundation-okr-writer and measure-okr-grader cover the full quarterly OKR write-and-score cycle. Adds 2 new skills (40 total) and 6 new thread-aligned library samples (126 total). Both skills shipped together so cross-skill hand-offs and the canonical OKR type enum are coherent at first appearance. Phase 0 Adversarial Review Loop applied with 3 review rounds converged before tag."
+sidebar:
+  order: 3
 ---
 
 # Release v2.12.0. OKR Skills Launch

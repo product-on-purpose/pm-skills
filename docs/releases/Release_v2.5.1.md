@@ -1,5 +1,7 @@
 ---
 title: Release v2.5.1
+sidebar:
+  order: 16
 ---
 
 # PM-Skills v2.5.1 Release Notes
