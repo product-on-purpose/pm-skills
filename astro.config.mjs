@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mermaid from 'astro-mermaid';
 
 // W1 scaffold. Production configuration filled in across W2-W11:
 //   W2: content collection loader pointing in-place at docs/
 //   W4: sidebar (Option C hybrid: manual top-level, autogenerate within)
 //   W5: customCss reference
-//   W6: Mermaid integration (D4: lazy-load with code-split fallback)
+//   W6: Mermaid integration (D4: lazy-load with code-split fallback) - DONE
 //   W9: redirects: from mkdocs.yml redirect_maps
 //   W11: site + base verified against gh-pages deploy
 
@@ -13,6 +14,14 @@ export default defineConfig({
   site: 'https://product-on-purpose.github.io',
   base: '/pm-skills',
   integrations: [
+    // W6 (D4): astro-mermaid renders client-side per-page (only loads the
+    // mermaid bundle on pages that contain code blocks). MUST come BEFORE
+    // starlight per the integration-order rule in astro-mermaid README.
+    // autoTheme follows site theme (Starlight light/dark).
+    mermaid({
+      theme: 'default',
+      autoTheme: true,
+    }),
     starlight({
       title: 'pm-skills',
       description: 'PM skills for AI agents',
