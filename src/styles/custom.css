@@ -1,0 +1,9 @@
+/* PM Skills custom Starlight styles. */
+/* W5 (Custom CSS port): minimal port from docs/stylesheets/extra.css. */
+/* Retired selectors: .md-grid, .md-button, .md-tags .md-tag, details.example. */
+/* See plan_v2.14_starlight-migration.md W5 section for inventory + dispositions. */
+
+/* Mermaid diagram width (paired with W6 mermaid integration). */
+.mermaid {
+  max-width: 100%;
+}

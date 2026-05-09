@@ -19,6 +19,9 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/product-on-purpose/pm-skills/edit/main/',
       },
+      // W5 (Custom CSS port): minimal port; only .mermaid keeps. See
+      // src/styles/custom.css for rationale + retired-selector inventory.
+      customCss: ['./src/styles/custom.css'],
       // W4 (D3 Option C): manual top-level section ordering and labels;
       // autogenerate within sections. Order mirrors mkdocs.yml nav top level.
       // Per-section label drift handled via frontmatter sidebar.label overrides
