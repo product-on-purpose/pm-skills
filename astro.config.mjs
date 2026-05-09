@@ -13,6 +13,24 @@ import mermaid from 'astro-mermaid';
 export default defineConfig({
   site: 'https://product-on-purpose.github.io',
   base: '/pm-skills',
+  // W9 (Redirect mapping): port of mkdocs.yml redirect_maps entries.
+  // Per maintainer 2026-05-06 adjacent call: old Material URL preservation
+  // is lower-priority; redirect destination base-path correctness is not a
+  // pre-ship gate. Destinations use plain paths; base path applied by Astro.
+  redirects: {
+    '/bundles/': '/workflows/',
+    '/bundles/feature-kickoff/': '/workflows/feature-kickoff/',
+    '/bundles/lean-startup/': '/workflows/lean-startup/',
+    '/bundles/triple-diamond/': '/workflows/triple-diamond/',
+    '/concepts/triple-diamond/': '/concepts/triple-diamond-delivery-process/',
+    '/concepts/versioning/': '/reference/pm-skill-versioning/',
+    '/concepts/comparisons/': '/guides/pm-skill-comparisons/',
+    '/concepts/skill-anatomy/': '/reference/pm-skill-anatomy/',
+    '/concepts/skill-lifecycle/': '/guides/pm-skill-lifecycle/',
+    '/guides/creating-skills/': '/guides/creating-pm-skills/',
+    '/guides/authoring-pm-skills/': '/guides/creating-pm-skills/',
+    '/guides/mcp-setup/': '/guides/mcp-integration/',
+  },
   integrations: [
     // W6 (D4): astro-mermaid renders client-side per-page (only loads the
     // mermaid bundle on pages that contain code blocks). MUST come BEFORE
