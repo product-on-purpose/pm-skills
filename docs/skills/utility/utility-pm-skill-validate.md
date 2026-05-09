@@ -1,5 +1,5 @@
 ---
-title: "utility-pm-skill-validate"
+title: "PM Skill Validate"
 description: "Audits an existing pm-skills skill against structural conventions and quality criteria. Produces a structured validation report with pass/fail checks, severity-graded findings, and actionable recommendations. Use when checking whether a skill meets repo standards before shipping or after making changes."
 generated: true
 source: scripts/generate-skill-pages.py

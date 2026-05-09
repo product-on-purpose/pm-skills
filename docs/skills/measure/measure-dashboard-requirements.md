@@ -1,5 +1,5 @@
 ---
-title: "measure-dashboard-requirements"
+title: "Dashboard Requirements"
 description: "Specifies requirements for an analytics dashboard including metrics, visualizations, filters, and data sources. Use when requesting dashboards from data teams, defining KPI tracking, or documenting reporting needs."
 generated: true
 source: scripts/generate-skill-pages.py

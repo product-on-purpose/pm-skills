@@ -304,12 +304,18 @@ def generate_skill_page(skill_dir: Path) -> dict | None:
     if isinstance(metadata.get("metadata"), dict):
         category = metadata["metadata"].get("category", "")
 
+    # Compute display title from source SKILL.md H1 (Codex P2 fix:
+    # was emitting `name` slug as title; now uses the proper H1).
+    page_title = sections.get("_intro", "").split("\n")[0].lstrip("# ").strip()
+    if not page_title:
+        page_title = name
+
     # Build the page
     lines = []
 
     # Frontmatter (Pattern 5C: generated-content marker)
     lines.append("---")
-    lines.append(f'title: "{name}"')
+    lines.append(f'title: "{page_title}"')
     lines.append(f'description: "{description}"')
     lines.append("generated: true")
     lines.append("source: scripts/generate-skill-pages.py")
@@ -320,11 +326,8 @@ def generate_skill_page(skill_dir: Path) -> dict | None:
     lines.append("---")
     lines.append("")
 
-    # Title
-    title = sections.get("_intro", "").split("\n")[0].lstrip("# ").strip()
-    if not title:
-        title = name
-    lines.append(f"# {title}")
+    # Body H1 (matches frontmatter title; Starlight may render either based on layout)
+    lines.append(f"# {page_title}")
     lines.append("")
 
     # Generated-content aside (Pattern 5C; Starlight aside replaces pymdownx admonition)

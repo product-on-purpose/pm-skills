@@ -1,5 +1,5 @@
 ---
-title: "develop-adr"
+title: "Architecture Decision Record (ADR)"
 description: "Creates an Architecture Decision Record following the Nygard format to document significant technical decisions, their context, and consequences. Use when making technical choices that affect system architecture, technology selection, or development patterns."
 generated: true
 source: scripts/generate-skill-pages.py

@@ -1,5 +1,5 @@
 ---
-title: "define-jtbd-canvas"
+title: "Jobs to be Done Canvas"
 description: "Creates a Jobs to be Done canvas capturing the functional, emotional, and social dimensions of a customer job. Use when deeply understanding customer motivations, designing for jobs, or reframing product positioning."
 generated: true
 source: scripts/generate-skill-pages.py

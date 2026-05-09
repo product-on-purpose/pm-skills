@@ -1,5 +1,5 @@
 ---
-title: "foundation-lean-canvas"
+title: "Lean Canvas"
 description: "Produces a one-page lean canvas across nine interlocking blocks (problem, customer, UVP, solution, channels, revenue, cost, metrics, unfair advantage) with optional inline HTML and SVG visual rendering. Use when framing a new product thesis, stress-testing an existing strategy, comparing strategic options side-by-side, or aligning a team on business-model assumptions. Works as a strategic hub that cross-links to deeper PM skills without duplicating them."
 generated: true
 source: scripts/generate-skill-pages.py

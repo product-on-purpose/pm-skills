@@ -1,5 +1,5 @@
 ---
-title: "utility-pm-skill-iterate"
+title: "PM Skill Iterate"
 description: "Applies targeted improvements to an existing pm-skills skill based on feedback, validation reports, or convention changes. Reads current files, previews proposed changes, writes on confirmation, and suggests a version bump. Use when improving a skill after validation or feedback."
 generated: true
 source: scripts/generate-skill-pages.py

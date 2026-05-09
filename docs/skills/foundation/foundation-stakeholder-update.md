@@ -1,5 +1,5 @@
 ---
-title: "foundation-stakeholder-update"
+title: "Stakeholder Update"
 description: "Produces async communication to stakeholders, primarily non-attendees and secondarily some attendees who want a reference. Translates meeting outcomes into what-it-means language for readers, with channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces a primary CTA up front, flags technical-to-business translations for user verification, and detects thread continuation from prior updates."
 generated: true
 source: scripts/generate-skill-pages.py

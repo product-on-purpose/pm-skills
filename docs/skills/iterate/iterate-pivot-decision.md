@@ -1,5 +1,5 @@
 ---
-title: "iterate-pivot-decision"
+title: "Pivot Decision"
 description: "Documents a strategic pivot or persevere decision with the evidence, analysis, and rationale. Use when evaluating whether to change direction on a product, feature, or strategy based on market feedback."
 generated: true
 source: scripts/generate-skill-pages.py

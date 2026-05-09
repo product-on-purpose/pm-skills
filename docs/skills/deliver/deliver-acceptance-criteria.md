@@ -1,5 +1,5 @@
 ---
-title: "deliver-acceptance-criteria"
+title: "Acceptance Criteria"
 description: "Generates structured Given/When/Then acceptance criteria for a user story or feature slice. Use when translating product requirements into testable scenarios that cover the happy path, edge cases, error states, and non-functional expectations for engineering handoff and QA."
 generated: true
 source: scripts/generate-skill-pages.py

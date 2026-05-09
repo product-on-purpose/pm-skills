@@ -1,5 +1,5 @@
 ---
-title: "measure-okr-grader"
+title: "OKR Grader"
 description: "Scores completed OKR sets at cycle close with KR-level scoring per the canonical OKR type enum (committed | aspirational | learning | operational_health | compliance_or_safety), committed-vs-aspirational interpretation, evidence quality assessment, learning synthesis, and next-cycle recommendations. Refuses to retroactively change targets or shrink committed scope, average away guardrail KRs, treat 0.7 as success for committed or compliance_or_safety KRs, equate effort with impact, or use scores for individual performance. Hands off to iterate-lessons-log, iterate-retrospective, define-hypothesis, measure-dashboard-requirements, measure-instrumentation-spec, and foundation-okr-writer."
 generated: true
 source: scripts/generate-skill-pages.py

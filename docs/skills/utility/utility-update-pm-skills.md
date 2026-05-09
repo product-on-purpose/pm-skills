@@ -1,5 +1,5 @@
 ---
-title: "utility-update-pm-skills"
+title: "PM Skills Updater"
 description: "Checks for newer pm-skills releases, compares local vs. latest version, previews what would change, and updates local files after user confirmation. Generates a structured update report documenting changed files, new capabilities, and the value delta between versions. Use when you want to bring a local pm-skills installation up to date."
 generated: true
 source: scripts/generate-skill-pages.py

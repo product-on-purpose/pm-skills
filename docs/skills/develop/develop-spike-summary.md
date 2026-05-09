@@ -1,5 +1,5 @@
 ---
-title: "develop-spike-summary"
+title: "Spike Summary"
 description: "Documents the results of a time-boxed technical or design exploration (spike). Use after completing a spike to capture learnings, findings, and recommendations for the team."
 generated: true
 source: scripts/generate-skill-pages.py

@@ -1,5 +1,5 @@
 ---
-title: "measure-experiment-results"
+title: "Experiment Results"
 description: "Documents the results of a completed experiment or A/B test with statistical analysis, learnings, and recommendations. Use after experiments conclude to communicate findings, inform decisions, and build organizational knowledge."
 generated: true
 source: scripts/generate-skill-pages.py

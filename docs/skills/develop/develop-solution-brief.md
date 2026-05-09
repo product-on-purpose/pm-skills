@@ -1,5 +1,5 @@
 ---
-title: "develop-solution-brief"
+title: "Solution Brief"
 description: "Creates a concise one-page solution overview that communicates the proposed approach, key decisions, and trade-offs. Use when pitching solutions to stakeholders, aligning teams on approach, or documenting solution intent before detailed specification."
 generated: true
 source: scripts/generate-skill-pages.py

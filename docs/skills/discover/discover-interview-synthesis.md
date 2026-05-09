@@ -1,5 +1,5 @@
 ---
-title: "discover-interview-synthesis"
+title: "Interview Synthesis"
 description: "Synthesizes user research interviews into actionable insights, patterns, and recommendations. Use after conducting user interviews, customer calls, or usability sessions to extract and communicate findings."
 generated: true
 source: scripts/generate-skill-pages.py

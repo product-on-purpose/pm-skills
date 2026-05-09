@@ -1,5 +1,5 @@
 ---
-title: "deliver-release-notes"
+title: "Release Notes"
 description: "Creates user-facing release notes that communicate new features, improvements, and fixes in clear, benefit-focused language. Use when shipping updates to communicate changes to users, customers, or stakeholders."
 generated: true
 source: scripts/generate-skill-pages.py

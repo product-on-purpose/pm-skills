@@ -1,5 +1,5 @@
 ---
-title: "iterate-lessons-log"
+title: "Lessons Log"
 description: "Creates a structured lessons learned entry for organizational memory. Use after projects, incidents, or significant learnings to capture knowledge for future teams and initiatives."
 generated: true
 source: scripts/generate-skill-pages.py

@@ -1,5 +1,5 @@
 ---
-title: "deliver-prd"
+title: "Product Requirements Document (PRD)"
 description: "Creates a comprehensive Product Requirements Document that aligns stakeholders on what to build, why, and how success will be measured. Use when specifying features, epics, or product initiatives for engineering handoff."
 generated: true
 source: scripts/generate-skill-pages.py

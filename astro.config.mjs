@@ -2,6 +2,12 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
 
+// Codex P0 fix (post-Phase 2 review): .md link stripping happens via
+// scripts/post-build-strip-md-links.mjs (run after `astro build` in the
+// build script). Astro markdown.remarkPlugins did not pick up the custom
+// plugin in this Starlight + custom-glob-loader setup; post-build HTML
+// rewrite is reliable.
+
 // W1 scaffold. Production configuration filled in across W2-W11:
 //   W2: content collection loader pointing in-place at docs/
 //   W4: sidebar (Option C hybrid: manual top-level, autogenerate within)
@@ -67,7 +73,10 @@ export default defineConfig({
       // structure to be fixed for now" (Starlight upstream limitation).
       sidebar: [
         { slug: 'changelog' },
-        { slug: 'tags' },
+        // Tags page removed from sidebar (Codex P2): Material's tags plugin
+        // had no Starlight equivalent; the page rendered empty. Per OQ-M3,
+        // tags-as-feature deferred to v2.15+. The page itself is marked
+        // draft: true so it doesn't build.
         {
           label: 'Getting Started',
           autogenerate: { directory: 'docs/getting-started' },

@@ -1,5 +1,5 @@
 ---
-title: "define-hypothesis"
+title: "Hypothesis"
 description: "Defines a testable hypothesis with clear success metrics and validation approach. Use when forming assumptions to test, designing experiments, or aligning team on what success looks like."
 generated: true
 source: scripts/generate-skill-pages.py

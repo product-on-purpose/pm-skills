@@ -1,5 +1,5 @@
 ---
-title: "iterate-retrospective"
+title: "Retrospective"
 description: "Facilitates and documents a team retrospective capturing what went well, what to improve, and action items. Use at the end of sprints, projects, or milestones to reflect and improve team practices."
 generated: true
 source: scripts/generate-skill-pages.py

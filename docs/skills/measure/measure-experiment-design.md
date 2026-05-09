@@ -1,5 +1,5 @@
 ---
-title: "measure-experiment-design"
+title: "Experiment Design"
 description: "Designs an A/B test or experiment with clear hypothesis, variants, success metrics, sample size, and duration. Use when planning experiments to validate product changes or test hypotheses."
 generated: true
 source: scripts/generate-skill-pages.py

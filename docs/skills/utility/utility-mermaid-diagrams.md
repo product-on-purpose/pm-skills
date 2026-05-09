@@ -1,5 +1,5 @@
 ---
-title: "utility-mermaid-diagrams"
+title: "Mermaid Diagrams"
 description: "Teaches PMs to create syntactically valid mermaid diagrams by selecting the right diagram type for their communication need, following syntax validity rules, and validating before shipping. Covers all 15 mermaid diagram types with PM-relevant examples and a dual-lens navigation system."
 generated: true
 source: scripts/generate-skill-pages.py

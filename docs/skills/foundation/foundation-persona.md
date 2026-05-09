@@ -1,5 +1,5 @@
 ---
-title: "foundation-persona"
+title: "Persona Builder"
 description: "Generates an evidence-calibrated product or marketing persona using the canonical v2.5 output contract. Use when shaping artifact perspective, stress-testing decisions, or framing product and GTM strategy."
 generated: true
 source: scripts/generate-skill-pages.py

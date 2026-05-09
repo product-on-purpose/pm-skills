@@ -1,5 +1,5 @@
 ---
-title: "discover-competitive-analysis"
+title: "Competitive Analysis"
 description: "Creates a structured competitive analysis comparing features, positioning, and strategy across competitors. Use when entering a market, planning differentiation, or understanding the competitive landscape."
 generated: true
 source: scripts/generate-skill-pages.py

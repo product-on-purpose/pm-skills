@@ -1,5 +1,5 @@
 ---
-title: "measure-instrumentation-spec"
+title: "Instrumentation Spec"
 description: "Specifies event tracking and analytics instrumentation requirements for a feature. Use when defining what data to collect, ensuring consistent tracking implementation, or documenting analytics requirements for engineering."
 generated: true
 source: scripts/generate-skill-pages.py

@@ -1,5 +1,5 @@
 ---
-title: "deliver-user-stories"
+title: "User Stories"
 description: "Generates user stories with clear acceptance criteria from product requirements or feature descriptions. Use when breaking down features for sprint planning, writing tickets, or communicating requirements to engineering."
 generated: true
 source: scripts/generate-skill-pages.py

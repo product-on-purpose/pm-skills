@@ -1,5 +1,5 @@
 ---
-title: "foundation-meeting-recap"
+title: "Meeting Recap"
 description: "Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking."
 generated: true
 source: scripts/generate-skill-pages.py

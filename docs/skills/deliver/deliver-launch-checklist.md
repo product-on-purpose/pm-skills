@@ -1,5 +1,5 @@
 ---
-title: "deliver-launch-checklist"
+title: "Launch Checklist"
 description: "Creates a comprehensive pre-launch checklist covering engineering, design, marketing, support, legal, and operations readiness. Use before releasing features, products, or major updates to ensure nothing is missed."
 generated: true
 source: scripts/generate-skill-pages.py

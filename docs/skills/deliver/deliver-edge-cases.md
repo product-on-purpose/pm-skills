@@ -1,5 +1,5 @@
 ---
-title: "deliver-edge-cases"
+title: "Edge Cases"
 description: "Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive coverage, or during QA planning to identify test scenarios."
 generated: true
 source: scripts/generate-skill-pages.py

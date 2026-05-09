@@ -1,5 +1,5 @@
 ---
-title: "foundation-meeting-agenda"
+title: "Meeting Agenda"
 description: "Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants (standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing). Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics."
 generated: true
 source: scripts/generate-skill-pages.py

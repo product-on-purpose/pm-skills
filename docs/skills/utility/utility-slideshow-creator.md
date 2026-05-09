@@ -1,5 +1,5 @@
 ---
-title: "utility-slideshow-creator"
+title: "Slideshow Creator"
 description: "Generates professional presentations from a JSON deck specification using 18 slide types with dark/light variants, content-to-layout decision logic, and calibrated character limits. Ships with a default professional theme and supports custom themes via utility-slideshow-themer."
 generated: true
 source: scripts/generate-skill-pages.py

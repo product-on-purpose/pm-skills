@@ -1,5 +1,5 @@
 ---
-title: "iterate-refinement-notes"
+title: "Refinement Notes"
 description: "Documents backlog refinement session outcomes including stories refined, estimates, questions raised, and decisions made. Use during or after refinement to capture the results and share with absent team members."
 generated: true
 source: scripts/generate-skill-pages.py

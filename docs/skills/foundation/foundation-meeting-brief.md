@@ -1,5 +1,5 @@
 ---
-title: "foundation-meeting-brief"
+title: "Meeting Brief"
 description: "Produces a private strategic preparation document for the user before a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated questions with prepared responses, risks and tensions, specific asks, and success signals. Distinct from meeting-agenda because this artifact is not shared with attendees; it is the user's personal tactical prep for meetings where positioning matters."
 generated: true
 source: scripts/generate-skill-pages.py

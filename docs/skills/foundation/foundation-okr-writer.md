@@ -1,5 +1,5 @@
 ---
-title: "foundation-okr-writer"
+title: "OKR Writer"
 description: "Drafts, reviews, rewrites, and coaches outcome-based OKR sets across team, department, product, or company scopes. Supports five entry modes (Guided default, One-Shot via --oneshot, Sustained Coach, Audit Only, Rewrite). Diagnoses empowered-team context and adjusts framing; refuses to fabricate baselines or targets; refuses to use OKR scores for compensation; reframes feature-delivery KRs into outcome KRs. Use when planning quarterly OKRs, translating strategy into team outcomes, reviewing draft OKRs for quality, or converting roadmap-as-OKR drafts into proper OKR sets."
 generated: true
 source: scripts/generate-skill-pages.py
