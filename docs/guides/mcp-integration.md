@@ -5,9 +5,9 @@ description: "Status and recommended path for using PM-Skills via Model Context 
 
 # MCP Integration
 
-!!! warning "MCP server is in maintenance mode"
-
-    The companion MCP server [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) entered maintenance mode on 2026-05-04. The current release in the v2.9.x maintenance line is [v2.9.3](https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.9.3) (security-patch follow-up to the v2.9.2 maintenance-mode announcement; cleared all open Dependabot advisories on 2026-05-05). The catalog is frozen at the v2.9.2 build (40 PM skills, 11 workflow tools, and 8 utility tools); subsequent v2.9.x patches do not change the catalog. Active development is paused pending demonstrated demand. Security patches and critical bug fixes will continue; new skill parity with this `pm-skills` library is on hold after the v2.9.2 build.
+:::caution[MCP server is in maintenance mode]
+The companion MCP server [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) entered maintenance mode on 2026-05-04. The current release in the v2.9.x maintenance line is [v2.9.3](https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.9.3) (security-patch follow-up to the v2.9.2 maintenance-mode announcement; cleared all open Dependabot advisories on 2026-05-05). The catalog is frozen at the v2.9.2 build (40 PM skills, 11 workflow tools, and 8 utility tools); subsequent v2.9.x patches do not change the catalog. Active development is paused pending demonstrated demand. Security patches and critical bug fixes will continue; new skill parity with this `pm-skills` library is on hold after the v2.9.2 build.
+:::
 
 ## Recommended path: file-based install
 
