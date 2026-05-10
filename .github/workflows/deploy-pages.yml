@@ -17,17 +17,17 @@ name: Deploy to GitHub Pages
 # deploy-pages) preserve the chain.
 #
 # Trigger plan:
-#   - workflow_dispatch only at first cut. User dispatches manually
-#     once after the Pages source flip to verify production renders
-#     Starlight cleanly.
-#   - After successful verify, follow-up commit adds
-#     `push: branches: [main]` so future commits auto-deploy.
+#   - First cut shipped with workflow_dispatch only; user flipped Pages
+#     source to "GitHub Actions" and verified the manual dispatch.
+#   - This commit adds push trigger so future commits to main auto-deploy.
 #   - Until W12, deploy-docs.yml continues firing on docs/ changes
 #     and pushes to the now-dormant gh-pages branch (harmless waste,
 #     useful as a rollback path: flip Pages source back to gh-pages
 #     to instantly serve the last mkdocs build).
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
