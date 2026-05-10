@@ -47,9 +47,25 @@ export default defineConfig({
     // mermaid bundle on pages that contain code blocks). MUST come BEFORE
     // starlight per the integration-order rule in astro-mermaid README.
     // autoTheme follows site theme (Starlight light/dark).
+    //
+    // W13 M1 (Mermaid beautification, Layer 1): brand the line color and
+    // font family via themeVariables. autoTheme remains true so Mermaid
+    // still switches its base theme between 'default' (light) and 'dark'
+    // (dark) following Starlight's data-theme attribute. themeVariables
+    // are applied on top of whichever base theme is active, so the brand
+    // overrides work in both modes. Indigo lineColor (#5C7CFA) matches
+    // the favicon Triple Diamond mark; system-ui font matches Starlight
+    // body text for visual consistency.
     mermaid({
       theme: 'default',
       autoTheme: true,
+      mermaidConfig: {
+        themeVariables: {
+          lineColor: '#5C7CFA',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+          fontSize: '14px',
+        },
+      },
     }),
     starlight({
       title: 'pm-skills',
