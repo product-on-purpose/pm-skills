@@ -8,8 +8,6 @@ tags:
   - research
 ---
 
-# Persona Builder
-
 :::note[Quick facts]
 **Classification:** Foundation | **Version:** 2.5.0 | **Category:** research | **License:** Apache-2.0
 :::

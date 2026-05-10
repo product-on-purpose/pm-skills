@@ -102,6 +102,13 @@ def inject_generated_marker(content: str, source_file: str) -> str:
     # frontmatter; the check-generated-content-untouched.sh validator still uses the
     # frontmatter marker.
 
+    # Strip the body H1 (v2.14.x V15 fix): source `_workflows/*.md` files start with
+    # `# {Workflow Name} Workflow` for standalone-on-GitHub readability. Starlight
+    # renders the frontmatter title as the page heading; keeping the body H1 produces
+    # title duplication on the docs site. Source files stay untouched; the generator
+    # strips at copy boundary.
+    rest = re.sub(r'^#\s+.+?\n+', '', rest, count=1, flags=re.MULTILINE)
+
     return new_fm + rest
 
 
@@ -139,8 +146,7 @@ def generate_index(workflow_files: list[tuple[str, dict]]) -> str:
         "source: scripts/generate-workflow-pages.py",
         "---",
         "",
-        "# Workflows",
-        "",
+        # No body H1: Starlight renders frontmatter title (v2.14.x V15 fix).
         "Workflows chain multiple skills into end-to-end sequences. Each workflow defines a sequence of skills to run in order.",
         "",
         '> **Need help choosing?** See the [Using Workflows Guide](../guides/using-workflows.md) for a decision tree, comparison matrix, and customization patterns.',

@@ -7,8 +7,6 @@ tags:
   - Measure
 ---
 
-# Measure Skills
-
 ## How these skills connect
 
 ```mermaid

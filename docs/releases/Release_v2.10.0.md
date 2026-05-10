@@ -4,8 +4,6 @@ sidebar:
   order: 6
 ---
 
-# Release v2.10.0 . Utility & Skill Expansion
-
 **Status:** Final
 **Date:** 2026-04-11
 

@@ -3,8 +3,6 @@ title: Ecosystem
 description: Comparison of the file-based pm-skills repo and the companion pm-skills-mcp MCP server. Decision matrix, feature comparison, integration patterns, and version compatibility notes for choosing between them.
 ---
 
-# PM-Skills Ecosystem Overview
-
 This guide explains the PM-Skills ecosystem, which comprises two complementary products that work together to bring professional product management skills to AI assistants.
 
 ---

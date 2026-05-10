@@ -4,8 +4,6 @@ generated: true
 source: scripts/generate-workflow-pages.py
 ---
 
-# Feature Kickoff Workflow
-
 > Quick-start workflow for feature development
 
 Feature Kickoff is a streamlined workflow for developing well-understood features where requirements are relatively clear and deep discovery isn't needed. It gets you from problem to launch efficiently.

@@ -4,8 +4,6 @@ sidebar:
   order: 20
 ---
 
-# PM-Skills v2.4.1 Release Notes
-
 Date: 2026-02-16  
 Status: Shipped
 

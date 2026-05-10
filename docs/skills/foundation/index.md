@@ -7,8 +7,6 @@ tags:
   - Foundation
 ---
 
-# Foundation Skills
-
 ## Skills in this phase
 
 | Skill | Description | Command |

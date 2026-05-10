@@ -4,8 +4,6 @@ sidebar:
   order: 8
 ---
 
-# Release v2.9.0 . Workflows
-
 **Status:** Final
 **Date:** 2026-04-06
 

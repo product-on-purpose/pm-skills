@@ -8,8 +8,6 @@ tags:
   - specification
 ---
 
-# Architecture Decision Record (ADR)
-
 :::note[Quick facts]
 **Phase:** Develop | **Version:** 2.0.0 | **Category:** specification | **License:** Apache-2.0
 :::

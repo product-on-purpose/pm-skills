@@ -8,8 +8,6 @@ tags:
   - reflection
 ---
 
-# Experiment Results
-
 :::note[Quick facts]
 **Phase:** Measure | **Version:** 2.0.0 | **Category:** reflection | **License:** Apache-2.0
 :::

@@ -8,8 +8,6 @@ tags:
   - reflection
 ---
 
-# OKR Grader
-
 :::note[Quick facts]
 **Phase:** Measure | **Version:** 1.0.0 | **Category:** reflection | **License:** Apache-2.0
 :::

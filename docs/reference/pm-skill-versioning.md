@@ -6,8 +6,6 @@ tags:
   - Versioning
 ---
 
-# Skill Versioning
-
 PM Skills tracks versions at two levels: the **repo version** (the release package) and individual **skill versions** (each skill's contract). These are intentionally decoupled.
 
 ## Two Version Levels

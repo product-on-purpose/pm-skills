@@ -5,8 +5,6 @@ sidebar:
   order: 1
 ---
 
-# Release v2.13.1. Plugin Install Path Correction
-
 **Released**: 2026-05-06
 **Type**: Patch release
 **Skill count**: 40 (unchanged from v2.13.0)

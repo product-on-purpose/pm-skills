@@ -8,8 +8,6 @@ tags:
   - problem-framing
 ---
 
-# Lean Canvas
-
 :::note[Quick facts]
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::

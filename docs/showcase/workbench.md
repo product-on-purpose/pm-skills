@@ -8,8 +8,6 @@ tags:
   - Workbench
 ---
 
-# Workbench: Follow the Product
-
 > Series B, ~200 employees, ~500 enterprise customers. Building **Blueprints** . document templates with approval gates.
 >
 > **Prompt style:** Enterprise . full stakeholder lists, quantified baselines, explicit metrics.

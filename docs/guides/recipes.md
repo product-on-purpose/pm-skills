@@ -6,8 +6,6 @@ tags:
   - Workflows
 ---
 
-# Recipes
-
 Recipes are concrete, step-by-step workflows that chain multiple skills together for common PM tasks. Each recipe shows the skills to use, the order to use them, and what each step produces.
 
 ## Pitch a Feature

@@ -3,8 +3,6 @@ title: Meeting Skills Contract
 description: Canonical v1.1.0 contract for the 5 foundation-meeting-* skills plus foundation-stakeholder-update. Shared frontmatter, file naming, behavioral patterns, and enforcement rules validated by CI.
 ---
 
-# Meeting Skills Family Contract
-
 **Status**: Canonical (enforced by CI)
 **Version**: 1.1.0
 **Applies to**: `foundation-meeting-agenda`, `foundation-meeting-brief`, `foundation-meeting-recap`, `foundation-meeting-synthesize`, `foundation-stakeholder-update`

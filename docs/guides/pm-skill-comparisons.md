@@ -5,8 +5,6 @@ tags:
   - Guides
 ---
 
-# Skill Comparisons
-
 Some skills produce similar-sounding artifacts. These comparisons help you pick the right one.
 
 ## PRD vs Solution Brief

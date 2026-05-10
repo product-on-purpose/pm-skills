@@ -5,8 +5,6 @@ sidebar:
   order: 3
 ---
 
-# Release v2.12.0. OKR Skills Launch
-
 **Released**: 2026-05-03
 **Type**: Feature release (minor)
 **Skill count**: 40 (up from 38)

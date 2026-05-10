@@ -8,8 +8,6 @@ tags:
   - specification
 ---
 
-# Design Rationale
-
 :::note[Quick facts]
 **Phase:** Develop | **Version:** 2.0.0 | **Category:** specification | **License:** Apache-2.0
 :::

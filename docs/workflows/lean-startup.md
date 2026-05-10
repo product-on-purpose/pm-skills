@@ -4,8 +4,6 @@ generated: true
 source: scripts/generate-workflow-pages.py
 ---
 
-# Lean Startup Workflow
-
 > Build-Measure-Learn cycle for rapid validation
 
 The Lean Startup methodology emphasizes rapid iteration through the Build-Measure-Learn feedback loop. This workflow maps PM-Skills to that cycle, enabling quick hypothesis validation and data-driven pivoting.

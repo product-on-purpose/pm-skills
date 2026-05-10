@@ -8,8 +8,6 @@ tags:
   - reflection
 ---
 
-# Pivot Decision
-
 :::note[Quick facts]
 **Phase:** Iterate | **Version:** 2.0.0 | **Category:** reflection | **License:** Apache-2.0
 :::

@@ -3,8 +3,6 @@ title: Agent Skill Anatomy
 description: "Conceptual deconstruction of the agent-skill pattern: what a skill is, how skills compose with agents and commands, and what distinguishes pm-skills' shape from the broader agent-skill ecosystem."
 ---
 
-# Agent Skill Anatomy: A Deconstructed Guide
-
 A comprehensive reference for understanding the structure, components, and standards of agent skills according to the [agentskills.io specification](https://agentskills.io/specification).
 
 ---

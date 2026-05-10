@@ -8,8 +8,6 @@ tags:
   - Brainshelf
 ---
 
-# Brainshelf: Follow the Product
-
 > Post-seed, ~20 employees, ~22,000 MAU. Building **Resurface** . contextual morning email digest.
 >
 > **Prompt style:** Casual . rough, fast, enough context to work. Bullet points and shorthand.

@@ -4,8 +4,6 @@ sidebar:
   order: 11
 ---
 
-# PM-Skills v2.8.0 Release Notes
-
 **Date**: 2026-04-03
 **Status**: Ready for tag
 

@@ -8,8 +8,6 @@ tags:
   - ideation
 ---
 
-# Hypothesis
-
 :::note[Quick facts]
 **Phase:** Define | **Version:** 2.0.0 | **Category:** ideation | **License:** Apache-2.0
 :::

@@ -8,8 +8,6 @@ tags:
   - problem-framing
 ---
 
-# Opportunity Solution Tree
-
 :::note[Quick facts]
 **Phase:** Define | **Version:** 2.0.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::

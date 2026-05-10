@@ -5,8 +5,6 @@ tags:
   - Guides
 ---
 
-# Skill Finder
-
 Not sure which skill to use? Start here.
 
 ## By what you need to do

@@ -3,8 +3,6 @@ title: Releases
 description: Release notes for every PM Skills version, with one-line highlights per release and links to detailed per-version pages. Chronological release index for the pm-skills repo.
 ---
 
-# Releases
-
 All PM Skills releases with detailed notes on what changed and why.
 
 | Version | Date | Highlights |

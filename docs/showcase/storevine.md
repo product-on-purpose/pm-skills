@@ -8,8 +8,6 @@ tags:
   - Storevine
 ---
 
-# Storevine: Follow the Product
-
 > Series A, ~70 employees, ~15,000 merchants. Building **Campaigns** . native email marketing.
 >
 > **Prompt style:** Organized . structured context, references prior work, clear scope boundaries.

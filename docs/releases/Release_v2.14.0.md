@@ -5,8 +5,6 @@ sidebar:
   order: 1
 ---
 
-# Release v2.14.0. Doc Stack Migration: MkDocs Material to Astro Starlight
-
 **Released**: 2026-05-10
 **Type**: Doc-stack migration release (minor)
 **Skill count**: 40 (unchanged from v2.13.x)

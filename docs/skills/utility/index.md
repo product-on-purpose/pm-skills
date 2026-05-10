@@ -7,8 +7,6 @@ tags:
   - Utility
 ---
 
-# Utility Skills
-
 ## Skills in this phase
 
 | Skill | Description | Command |

@@ -8,8 +8,6 @@ tags:
   - ideation
 ---
 
-# Solution Brief
-
 :::note[Quick facts]
 **Phase:** Develop | **Version:** 2.0.0 | **Category:** ideation | **License:** Apache-2.0
 :::

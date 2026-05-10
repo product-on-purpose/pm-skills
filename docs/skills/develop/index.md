@@ -7,8 +7,6 @@ tags:
   - Develop
 ---
 
-# Develop Skills
-
 ## How these skills connect
 
 ```mermaid

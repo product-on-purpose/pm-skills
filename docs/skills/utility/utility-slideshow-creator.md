@@ -8,8 +8,6 @@ tags:
   - communication
 ---
 
-# Slideshow Creator
-
 :::note[Quick facts]
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** communication | **License:** Apache-2.0
 :::

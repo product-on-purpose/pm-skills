@@ -6,8 +6,6 @@ tags:
   - Prompts
 ---
 
-# Prompt Gallery
-
 Learn how to write effective prompts by studying real examples from the [sample library](../showcase/). Three fictional companies demonstrate three different prompting styles . all produce equally thorough outputs.
 
 ## The Three Styles

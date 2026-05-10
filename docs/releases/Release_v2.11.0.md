@@ -5,8 +5,6 @@ sidebar:
   order: 5
 ---
 
-# Release v2.11.0. Meeting Skills Family + Lean Canvas
-
 **Released**: 2026-04-18
 **Type**: Feature release (minor)
 **Skill count**: 32 → 38 (+6)

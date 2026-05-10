@@ -3,8 +3,6 @@ title: Security
 description: "Security policy for pm-skills: how to report vulnerabilities, supported versions, and the static-site CVE exemption position documented in docs/internal/dependency-policy.md."
 ---
 
-# Security Policy
-
 ## Supported Versions
 
 | Version | Supported |

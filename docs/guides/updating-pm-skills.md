@@ -3,8 +3,6 @@ title: Updating PM Skills
 description: How to check for updates and keep your pm-skills installation current.
 ---
 
-# Updating PM Skills
-
 The **update-pm-skills** skill keeps your local pm-skills installation current with the latest release. It checks versions, previews changes, creates backups, and produces a structured report -- all without you having to manage files manually.
 
 This guide is for **end users** who installed pm-skills via clone or ZIP download. If you are a repo contributor, use `git pull` instead.

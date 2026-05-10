@@ -4,8 +4,6 @@ generated: true
 source: scripts/generate-workflow-pages.py
 ---
 
-# Customer Discovery Workflow
-
 > **Transform raw research into a clear, validated problem worth solving.**
 
 ---

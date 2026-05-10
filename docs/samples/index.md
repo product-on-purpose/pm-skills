@@ -5,8 +5,6 @@ sidebar:
   order: 1
 ---
 
-# Samples
-
 The samples corpus contains **115 real PM artifacts** produced by the pm-skills commands, organized by skill and by product thread. Use this section as a "what does the output actually look like?" reference when picking which skill to run, when tuning your prompt style, or when comparing how the same skill behaves across different product contexts.
 
 ## What lives here

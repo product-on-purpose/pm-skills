@@ -3,8 +3,6 @@ title: Using Workflows
 description: How to choose, invoke, customize, and build PM skill workflows for common product management processes.
 ---
 
-# Using Workflows
-
 Workflows chain multiple PM skills into end-to-end sequences for common product management processes. Instead of invoking skills one at a time, a workflow runs them in order, passing context forward from each step to the next.
 
 PM Skills includes **9 pre-built workflows** covering feature development, research, strategy, experimentation, and more.

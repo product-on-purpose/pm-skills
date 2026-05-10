@@ -4,8 +4,6 @@ sidebar:
   order: 7
 ---
 
-# Release v2.9.1 . Workflow Docs & CI Consistency
-
 **Status:** Final
 **Date:** 2026-04-10
 

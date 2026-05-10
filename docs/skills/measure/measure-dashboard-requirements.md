@@ -8,8 +8,6 @@ tags:
   - validation
 ---
 
-# Dashboard Requirements
-
 :::note[Quick facts]
 **Phase:** Measure | **Version:** 2.0.0 | **Category:** validation | **License:** Apache-2.0
 :::

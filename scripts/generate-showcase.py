@@ -198,8 +198,7 @@ def generate_thread_page(thread_key: str) -> None:
     lines.append(f"  - {thread['display']}")
     lines.append("---")
     lines.append("")
-    lines.append(f"# {thread['display']}: Follow the Product")
-    lines.append("")
+    # No body H1: Starlight renders frontmatter title (v2.14.x V15 fix).
     # Generated-content marker: frontmatter (set above). Visible aside removed V10.
     lines.append(f"> {thread['description']}")
     lines.append(f">")
@@ -304,8 +303,7 @@ def generate_index_page() -> None:
     lines.append("")
     lines.append("import { Card, CardGrid } from '@astrojs/starlight/components';")
     lines.append("")
-    lines.append("# Showcase: Follow the Product")
-    lines.append("")
+    # No body H1: Starlight renders frontmatter title (v2.14.x V15 fix).
     # Generated-content marker: frontmatter (set above). Visible aside removed V10.
     lines.append("See every PM skill in action. Three fictional companies, three different prompt styles,")
     lines.append("one complete lifecycle each . from discovery research through pivot decisions.")

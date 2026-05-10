@@ -8,8 +8,6 @@ tags:
   - specification
 ---
 
-# Product Requirements Document (PRD)
-
 :::note[Quick facts]
 **Phase:** Deliver | **Version:** 2.0.0 | **Category:** specification | **License:** Apache-2.0
 :::

@@ -7,8 +7,6 @@ tags:
   - Discover
 ---
 
-# Discover Skills
-
 ## How these skills connect
 
 ```mermaid

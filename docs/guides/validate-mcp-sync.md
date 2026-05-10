@@ -3,8 +3,6 @@ title: Validate MCP Sync
 description: How to validate that the pm-skills-mcp companion server is in sync with the file-based pm-skills repo. Covers the validate-mcp-sync.yml workflow, drift detection, and maintenance-mode posture.
 ---
 
-# validate-mcp-sync Guide
-
 :::caution[Reduced relevance under MCP maintenance mode (effective 2026-05-04)]
 The `pm-skills-mcp` companion server is in the v2.9.x maintenance line (latest v2.9.3 as of 2026-05-05) with the catalog frozen at the v2.9.2 build. New skills added to this `pm-skills` library are NOT embedded into the MCP server. The `validate-mcp-sync` guardrail therefore reports drift by design (intentional gap), not regression.
 

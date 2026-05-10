@@ -4,8 +4,6 @@ generated: true
 source: scripts/generate-workflow-pages.py
 ---
 
-# Stakeholder Alignment Workflow
-
 > **Build a compelling case for leadership buy-in before committing resources.**
 
 ---

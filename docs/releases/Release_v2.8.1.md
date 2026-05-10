@@ -4,8 +4,6 @@ sidebar:
   order: 10
 ---
 
-# PM-Skills v2.8.1 Release Notes
-
 **Date**: 2026-04-04
 **Status**: Released
 **Type**: Documentation release . no skill or command behavior changes

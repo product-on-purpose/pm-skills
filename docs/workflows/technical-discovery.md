@@ -4,8 +4,6 @@ generated: true
 source: scripts/generate-workflow-pages.py
 ---
 
-# Technical Discovery Workflow
-
 > **Move from "can we build this?" to documented decisions with a structured spike-to-ADR pipeline.**
 
 ---

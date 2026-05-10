@@ -7,8 +7,6 @@ tags:
   - Meeting Skills
 ---
 
-# Using the Meeting Skills Family
-
 The Meeting Skills Family is a coordinated set of five `foundation-meeting-*` skills for the meeting lifecycle: pre-meeting prep, post-meeting summarization, cross-meeting analysis, and outward stakeholder communication. This guide walks you through the family as a PM would encounter it in practice.
 
 Read the [family contract](../reference/skill-families/meeting-skills-contract.md) if you need the formal specification. This guide is for getting started.

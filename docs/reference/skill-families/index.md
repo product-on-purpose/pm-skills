@@ -6,8 +6,6 @@ tags:
   - Skill Families
 ---
 
-# Skill Families
-
 A skill family is a coordinated group of PM skills that share a common behavioral pattern, frontmatter schema, file naming convention, and cross-skill integration points. Families make the shared surface explicit and enforceable so related skills compose cleanly without drift across future iterations.
 
 Each family has:

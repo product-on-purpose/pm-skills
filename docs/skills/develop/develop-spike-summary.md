@@ -8,8 +8,6 @@ tags:
   - coordination
 ---
 
-# Spike Summary
-
 :::note[Quick facts]
 **Phase:** Develop | **Version:** 2.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::

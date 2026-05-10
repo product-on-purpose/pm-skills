@@ -8,8 +8,6 @@ tags:
   - coordination
 ---
 
-# Release Notes
-
 :::note[Quick facts]
 **Phase:** Deliver | **Version:** 2.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::

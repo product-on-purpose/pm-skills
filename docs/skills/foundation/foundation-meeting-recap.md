@@ -8,8 +8,6 @@ tags:
   - meeting
 ---
 
-# Meeting Recap
-
 :::note[Quick facts]
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 :::

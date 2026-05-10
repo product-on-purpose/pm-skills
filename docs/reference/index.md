@@ -6,8 +6,6 @@ sidebar:
   order: 1
 ---
 
-# Reference
-
 Canonical specifications and lookup tables for PM Skills contributors.
 
 ## What lives here

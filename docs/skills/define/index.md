@@ -7,8 +7,6 @@ tags:
   - Define
 ---
 
-# Define Skills
-
 ## How these skills connect
 
 ```mermaid

@@ -3,8 +3,6 @@ title: Creating PM Skills
 description: "Authoring guide for new pm-skills: SKILL.md frontmatter requirements, the three-file model (SKILL + TEMPLATE + EXAMPLE), classification rules, naming conventions, and validator-driven PR review."
 ---
 
-# Authoring PM-Skills
-
 This guide walks you through creating new PM skills for submission to the pm-skills repository. Whether you're contributing your first skill or your tenth, this guide covers everything from concept to pull request.
 
 ---

@@ -8,8 +8,6 @@ tags:
   - meeting
 ---
 
-# Meeting Synthesize
-
 :::note[Quick facts]
 **Classification:** Foundation | **Version:** 1.0.1 | **Category:** meeting | **License:** Apache-2.0
 :::

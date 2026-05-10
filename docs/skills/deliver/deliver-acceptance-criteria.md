@@ -8,8 +8,6 @@ tags:
   - specification
 ---
 
-# Acceptance Criteria
-
 :::note[Quick facts]
 **Phase:** Deliver | **Version:** 1.0.0 | **Category:** specification | **License:** Apache-2.0
 :::

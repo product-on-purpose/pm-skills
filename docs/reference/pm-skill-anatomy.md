@@ -3,8 +3,6 @@ title: PM Skill Anatomy
 description: "Structural rules for pm-skills: directory layout, three-file model (SKILL/TEMPLATE/EXAMPLE), classification types, phase requirements, frontmatter conventions, and validation expectations enforced by CI."
 ---
 
-# PM-Skill Anatomy
-
 A practical guide to how skills are structured in the pm-skills repository. For the spec-level, cross-platform reference, see [Agent Skill Anatomy](../concepts/agent-skill-anatomy.md). For how skills evolve through the Create → Validate → Iterate lifecycle, see [PM-Skill Lifecycle](../guides/pm-skill-lifecycle.md).
 
 ---

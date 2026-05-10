@@ -4,8 +4,6 @@ sidebar:
   order: 16
 ---
 
-# PM-Skills v2.5.1 Release Notes
-
 Date: 2026-03-04  
 Status: Released (`v2.5.1` tag + GitHub release published)
 

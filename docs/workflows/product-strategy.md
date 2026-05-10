@@ -4,8 +4,6 @@ generated: true
 source: scripts/generate-workflow-pages.py
 ---
 
-# Product Strategy Workflow
-
 > **Frame a major initiative with competitive context, stakeholder alignment, and documented architectural decisions.**
 
 ---

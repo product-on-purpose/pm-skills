@@ -3,8 +3,6 @@ title: Triple Diamond Delivery Process
 description: "The Triple Diamond product-delivery framework: three diamonds (Problem Space, Solution Space, Learning Space) covering six phases (Discover, Define, Develop, Deliver, Measure, Iterate) that organize the 40 pm-skills."
 ---
 
-# The Triple Diamond Delivery Process: A Comprehensive Guide
-
 ## Executive Summary
 
 The Triple Diamond is an evolution of the well-known Double Diamond design process that extends beyond design-centric thinking to encompass the full product development lifecycle. Originally developed by Zendesk's product design team, this framework addresses a critical gap in traditional design methodologies: what happens after design concepts are validated but before products reach customers.

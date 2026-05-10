@@ -5,8 +5,6 @@ sidebar:
   order: 2
 ---
 
-# Release v2.13.0. Foundation Hardening + Doc Stack Decision
-
 **Released**: 2026-05-05
 **Type**: Refactor + decision release (minor)
 **Skill count**: 40 (unchanged from v2.12.0)

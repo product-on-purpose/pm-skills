@@ -5,8 +5,6 @@ generated: true
 source: scripts/generate-workflow-pages.py
 ---
 
-# Workflows
-
 Workflows chain multiple skills into end-to-end sequences. Each workflow defines a sequence of skills to run in order.
 
 > **Need help choosing?** See the [Using Workflows Guide](../guides/using-workflows.md) for a decision tree, comparison matrix, and customization patterns.

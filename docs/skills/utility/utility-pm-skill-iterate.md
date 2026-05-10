@@ -8,8 +8,6 @@ tags:
   - coordination
 ---
 
-# PM Skill Iterate
-
 :::note[Quick facts]
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::

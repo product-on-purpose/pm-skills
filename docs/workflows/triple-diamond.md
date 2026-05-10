@@ -4,8 +4,6 @@ generated: true
 source: scripts/generate-workflow-pages.py
 ---
 
-# Triple Diamond Workflow
-
 > Complete product development cycle from discovery to iteration
 
 The Triple Diamond framework extends the traditional Double Diamond design model to encompass the full product lifecycle, adding dedicated phases for measurement and continuous improvement.

@@ -8,8 +8,6 @@ tags:
   - coordination
 ---
 
-# OKR Writer
-
 :::note[Quick facts]
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::

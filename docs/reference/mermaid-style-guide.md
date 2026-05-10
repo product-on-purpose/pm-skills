@@ -5,8 +5,6 @@ sidebar:
   order: 5
 ---
 
-# Mermaid Diagram Style Guide
-
 Reference for **anyone authoring a Mermaid diagram in pm-skills documentation**, whether you are a human PM contributor or an agent (Claude, Codex, GPT, etc.) generating a diagram inline. Quick-scan headers + copy-pasteable code blocks + decision matrices.
 
 > **Live HTML preview**: a self-contained rendered version of all examples below is at [`mermaid-style-guide.html`](https://product-on-purpose.github.io/pm-skills/mermaid-style-guide.html). Opens locally too (no docs site required).

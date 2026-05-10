@@ -8,8 +8,6 @@ tags:
   - coordination
 ---
 
-# Refinement Notes
-
 :::note[Quick facts]
 **Phase:** Iterate | **Version:** 2.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::

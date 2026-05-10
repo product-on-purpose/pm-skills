@@ -8,8 +8,6 @@ tags:
   - documentation
 ---
 
-# Mermaid Diagrams
-
 :::note[Quick facts]
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** documentation | **License:** Apache-2.0
 :::

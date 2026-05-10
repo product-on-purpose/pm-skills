@@ -3,8 +3,6 @@ title: Guides
 description: Task-oriented guides for using, creating, and integrating PM skills.
 ---
 
-# Guides
-
 How-to guides for specific tasks with PM Skills.
 
 | Guide | Description |

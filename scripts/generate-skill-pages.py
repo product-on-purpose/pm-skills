@@ -351,9 +351,8 @@ def generate_skill_page(skill_dir: Path) -> dict | None:
     lines.append("---")
     lines.append("")
 
-    # Body H1 (matches frontmatter title; Starlight may render either based on layout)
-    lines.append(f"# {page_title}")
-    lines.append("")
+    # No body H1: Starlight renders the frontmatter title as the page heading.
+    # Emitting `# {page_title}` here would duplicate the title (v2.14.x V15 fix).
 
     # Generated-content marker: frontmatter `generated: true` + `source:` fields (set above)
     # are the contributor / validator marker (Pattern 5C). The user-facing visible aside
@@ -559,8 +558,7 @@ def generate_phase_index(group: str, skills: list) -> None:
     lines.append(f"  - {display}")
     lines.append("---")
     lines.append("")
-    lines.append(f"# {display} Skills")
-    lines.append("")
+    # No body H1: Starlight renders frontmatter title (v2.14.x V15 fix).
 
     # Generated-content marker: frontmatter (set above). Visible aside removed in V10.
 
@@ -604,8 +602,7 @@ def generate_commands_reference(all_skills: list) -> None:
     lines.append("source: scripts/generate-skill-pages.py")
     lines.append("---")
     lines.append("")
-    lines.append("# Commands Reference")
-    lines.append("")
+    # No body H1: Starlight renders frontmatter title (v2.14.x V15 fix).
     # Generated-content marker: frontmatter (set above). Visible aside removed in V10.
     lines.append(f"PM Skills ships {total_cmd_count} slash commands: {skill_cmd_count} skill commands plus {workflow_cmd_count} workflow commands.")
     lines.append("")

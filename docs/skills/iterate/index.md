@@ -7,8 +7,6 @@ tags:
   - Iterate
 ---
 
-# Iterate Skills
-
 ## How these skills connect
 
 ```mermaid

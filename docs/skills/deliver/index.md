@@ -7,8 +7,6 @@ tags:
   - Deliver
 ---
 
-# Deliver Skills
-
 ## How these skills connect
 
 ```mermaid

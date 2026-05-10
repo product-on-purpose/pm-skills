@@ -5,8 +5,6 @@ sidebar:
   order: 4
 ---
 
-# Release v2.11.1. skills.sh CLI Compatibility Patch
-
 **Released**: 2026-04-22
 **Type**: Patch release
 **Skill count**: 38 (unchanged)
