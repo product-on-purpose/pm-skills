@@ -119,6 +119,14 @@ Source `skills/{name}/SKILL.md` files use paths like `../../docs/reference/skill
 
 The script's `grep -P` (Perl regex) requires a UTF-8 locale. On Windows Git Bash with empty default `LANG`/`LC_ALL`, `grep -P` silently fails with "supports only unibyte and UTF-8 locales" and returns no matches; the validator then reports 0 broken links because link extraction never ran. CI Linux runners use `C.UTF-8` by default and work fine. The script prepends `export LC_ALL=${LC_ALL:-C.UTF-8}` so Windows Git Bash testing surfaces the same findings as CI Linux. Defense-in-depth; do not remove.
 
+### 6. Generators do NOT emit a body `# Heading` matching the frontmatter title
+
+Starlight automatically renders the frontmatter `title:` field as the page heading. If a markdown body ALSO starts with `# Heading` matching that title, both render and the heading appears twice. (This was a regression from the MkDocs Material to Astro Starlight migration; Material did not auto-render the frontmatter title, so the body H1 was the only heading.)
+
+All three generators (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`) explicitly do NOT emit a body H1 after the frontmatter block. The workflow generator additionally strips the source `# Workflow Name` H1 from `_workflows/*.md` files at the copy boundary via a regex pass (`re.sub(r'^#\s+.+?\n+', '', rest, count=1, flags=re.MULTILINE)`). Source `_workflows/*.md` files keep their H1 for standalone-on-GitHub readability; the stripping happens only in the docs/workflows/ output.
+
+If you are authoring new hand-authored docs or adding generator paths: rely on frontmatter `title:` as the page heading; do not add a `# Heading` line below the closing `---`. The page content should start with a paragraph or the first `## Section` heading.
+
 ## Code of Conduct
 
 Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing. We are committed to providing a welcoming and inclusive environment for everyone.

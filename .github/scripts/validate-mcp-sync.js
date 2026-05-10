@@ -366,7 +366,21 @@ function main() {
     ].join("\n")
   );
 
-  if (mode === "block") {
+  // Check for maintenance flag in pm-skills-source.json. When set to true, drift is
+  // expected (the MCP catalog is frozen at a prior pm-skills version per the
+  // maintenance-mode posture; see pm-skills CONTRIBUTING.md MCP Sync Guardrail
+  // section). Validator surfaces the drift for visibility but does NOT fail CI
+  // regardless of the mode env var. This makes pm-skills-mcp/pm-skills-source.json
+  // the authoritative source for the maintenance posture; the workflow-default
+  // mode flip (v2.14.x V9) becomes redundant safety. Future: when the MCP exits
+  // maintenance mode, remove the flag from source.json and the validator will
+  // honor `mode` again.
+  const maintenanceMode = sourceMetadata && sourceMetadata.maintenance === true;
+
+  if (maintenanceMode) {
+    console.log("Maintenance flag detected in pm-skills-source.json (maintenance: true).");
+    console.log("Drift is the documented posture; not failing this run regardless of mode.");
+  } else if (mode === "block") {
     process.exitCode = 1;
   } else {
     console.log("Observe-only mode active; not failing this run.");

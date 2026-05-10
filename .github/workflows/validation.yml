@@ -207,6 +207,14 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-internal-link-validity.ps1 -Strict
 
+      - name: Check no body H1 duplication (bash, enforcing)
+        if: always() && matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-no-body-h1.sh --strict
+
+      - name: Check no body H1 duplication (pwsh, enforcing)
+        if: always() && matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-no-body-h1.ps1 -Strict
+
       - name: Check generated content untouched (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-generated-content-untouched.sh
