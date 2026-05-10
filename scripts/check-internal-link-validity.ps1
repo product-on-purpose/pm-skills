@@ -1,14 +1,17 @@
 # check-internal-link-validity.ps1 - Validate internal links in rendered docs.
 #
-# Walks docs/**/*.md (excluding docs/internal/ and mkdocs.yml exclude_docs),
-# extracts markdown links of the form [text](path), filters to internal-only
-# (skips http://, https://, mailto:, etc.), resolves each target relative to
-# the source file, and verifies existence.
+# Walks docs/**/*.md (excluding docs/internal/ and a hardcoded list mirroring
+# src/content.config.ts glob excludes), extracts markdown links of the form
+# [text](path), filters to internal-only (skips http://, https://, mailto:,
+# etc.), resolves each target relative to the source file, and verifies
+# existence.
 #
 # Closes audit gap G4 (link checking in docs).
 #
-# Posture: ADVISORY in v2.13.0. Promote to enforcing in v2.14.0+ once
-# pre-existing broken links are cleaned up.
+# Posture: ENFORCING in v2.14.0+ (W10-promoted from advisory). Source-of-truth
+# for excluded paths migrated from mkdocs.yml exclude_docs to a hardcoded
+# array here (W12 Material deprecation). If src/content.config.ts changes its
+# glob excludes, update $excludePaths below to match.
 #
 # Exit codes:
 #   0 - All internal links resolve OR advisory mode (default)
@@ -26,36 +29,25 @@ $ErrorActionPreference = "Stop"
 
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Root = Split-Path -Parent $ScriptDir
-$MkdocsYml = Join-Path -Path $Root -ChildPath "mkdocs.yml"
 
 Write-Host "=== Internal Link Validity Check ==="
 Write-Host ""
 
-# Extract exclude_docs from mkdocs.yml
-$excludePaths = @()
-if (Test-Path $MkdocsYml) {
-    $mkdocsLines = Get-Content $MkdocsYml
-    $inExc = $false
-    foreach ($line in $mkdocsLines) {
-        if ($line -match '^exclude_docs:') { $inExc = $true; continue }
-        if ($inExc -and $line -match '^[^\s#]') { $inExc = $false; continue }
-        if ($inExc) {
-            $stripped = $line -replace '^\s+', ''
-            if ($stripped.Length -gt 0) {
-                $excludePaths += $stripped
-            }
-        }
-    }
-}
+# Hardcoded exclusion list. Mirrors src/content.config.ts glob excludes
+# under docs/. Was previously read from mkdocs.yml exclude_docs in v2.13.x.
+# Trailing slash means "directory prefix"; no trailing slash means "exact file".
+$excludePaths = @(
+    "templates/"
+    "workflows/README.md"
+)
 
 function Test-Excluded {
     param([string]$FsFile)
     foreach ($exc in $excludePaths) {
-        $excClean = $exc -replace '^/', ''
-        if ($excClean -match '/$') {
-            if ($FsFile.StartsWith($excClean)) { return $true }
+        if ($exc -match '/$') {
+            if ($FsFile.StartsWith($exc)) { return $true }
         } else {
-            if ($FsFile -eq $excClean) { return $true }
+            if ($FsFile -eq $exc) { return $true }
         }
     }
     return $false
@@ -160,6 +152,6 @@ if ($Strict) {
 } else {
     Write-Host "WARN: $brokenCount broken internal link(s) (advisory mode)."
     Write-Host "  Triage: each is either a typo'd link or a renamed/moved target."
-    Write-Host "  Promote to enforcing (-Strict in CI) in v2.14.0+ after cleanup."
+    Write-Host "  CI runs this script without -Strict; pass -Strict for enforcing local runs."
     exit 0
 }

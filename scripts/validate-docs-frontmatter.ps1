@@ -1,11 +1,14 @@
 # validate-docs-frontmatter.ps1 - Validate frontmatter on rendered docs pages.
 #
-# Every docs/**/*.md (excluding docs/internal/ and mkdocs.yml exclude_docs)
-# should have well-formed YAML frontmatter with required fields title and
-# description. Optional fields (tags, date) validated when present.
+# Every docs/**/*.md (excluding docs/internal/ and a hardcoded list mirroring
+# src/content.config.ts glob excludes) should have well-formed YAML frontmatter
+# with required fields title and description. Optional fields (tags, date)
+# validated when present.
 #
-# Posture: ADVISORY in v2.13.0. Promote to enforcing in v2.14.0+ once
-# frontmatter coverage is complete.
+# Posture: ENFORCING in v2.14.0+ (W10-promoted from advisory). Source-of-truth
+# for excluded paths migrated from mkdocs.yml exclude_docs to a hardcoded
+# array here (W12 Material deprecation). If src/content.config.ts changes its
+# glob excludes, update $excludePaths below to match.
 #
 # Exit codes:
 #   0 - All checked docs pass OR advisory mode (default)
@@ -23,10 +26,17 @@ $ErrorActionPreference = "Stop"
 
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Root = Split-Path -Parent $ScriptDir
-$MkdocsYml = Join-Path -Path $Root -ChildPath "mkdocs.yml"
 
 Write-Host "=== Docs Frontmatter Validation ==="
 Write-Host ""
+
+# Hardcoded exclusion list. Mirrors src/content.config.ts glob excludes
+# under docs/. Was previously read from mkdocs.yml exclude_docs in v2.13.x.
+# Trailing slash means "directory prefix"; no trailing slash means "exact file".
+$excludePaths = @(
+    "templates/"
+    "workflows/README.md"
+)
 
 # Auto-skip patterns: rendered docs that legitimately may not need frontmatter
 $AutoSkipPatterns = @(
@@ -38,31 +48,13 @@ $AutoSkipPatterns = @(
     "releases/Release_v*.md"
 )
 
-# Extract exclude_docs from mkdocs.yml
-$excludePaths = @()
-if (Test-Path $MkdocsYml) {
-    $mkdocsLines = Get-Content $MkdocsYml
-    $inExc = $false
-    foreach ($line in $mkdocsLines) {
-        if ($line -match '^exclude_docs:') { $inExc = $true; continue }
-        if ($inExc -and $line -match '^[^\s#]') { $inExc = $false; continue }
-        if ($inExc) {
-            $stripped = $line -replace '^\s+', ''
-            if ($stripped.Length -gt 0) {
-                $excludePaths += $stripped
-            }
-        }
-    }
-}
-
 function Test-Excluded {
     param([string]$FsFile)
     foreach ($exc in $excludePaths) {
-        $excClean = $exc -replace '^/', ''
-        if ($excClean -match '/$') {
-            if ($FsFile.StartsWith($excClean)) { return $true }
+        if ($exc -match '/$') {
+            if ($FsFile.StartsWith($exc)) { return $true }
         } else {
-            if ($FsFile -eq $excClean) { return $true }
+            if ($FsFile -eq $exc) { return $true }
         }
     }
     foreach ($pattern in $AutoSkipPatterns) {
@@ -165,7 +157,7 @@ foreach ($fsFile in $fsFiles) {
 $skipped = $fsFiles.Count - $checked
 
 Write-Host "Files checked: $checked"
-Write-Host "Excluded by mkdocs.yml exclude_docs or auto-skip: $skipped"
+Write-Host "Excluded (excludePaths or auto-skip): $skipped"
 Write-Host ""
 
 $total = $failCount + $warnCount
@@ -189,7 +181,6 @@ if ($Strict) {
     exit 1
 } else {
     Write-Host "WARN: $total frontmatter finding(s) (advisory mode)."
-    Write-Host "  Many rendered docs currently lack frontmatter; cleanup is a Bucket B / v2.14 effort."
-    Write-Host "  Promote to enforcing (-Strict in CI) once frontmatter coverage is complete."
+    Write-Host "  CI runs this script without -Strict; pass -Strict for enforcing local runs."
     exit 0
 }

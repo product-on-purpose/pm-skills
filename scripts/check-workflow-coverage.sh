@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # check-workflow-coverage.sh . Verify every workflow file has matching entries
-# across the repo (docs page, AGENTS.md, mkdocs.yml).
+# across the repo (docs page, AGENTS.md). Starlight autogenerate covers
+# nav inclusion for docs/workflows/{slug}.md structurally; the previous
+# mkdocs.yml entry check was retired in W12 (Material deprecation).
 #
 # Exit codes:
 #   0 . All workflows are fully covered
@@ -38,7 +40,6 @@ echo "Found ${#SLUGS[@]} workflow(s) in _workflows/"
 echo ""
 
 AGENTS="$ROOT/AGENTS.md"
-MKDOCS="$ROOT/mkdocs.yml"
 
 for slug in "${SLUGS[@]}"; do
   # 1. Check docs/workflows/{slug}.md exists
@@ -58,16 +59,6 @@ for slug in "${SLUGS[@]}"; do
     FAIL=1
   fi
 
-  # 3. Check mkdocs.yml references workflows/{slug}.md
-  if [[ -f "$MKDOCS" ]]; then
-    if ! grep -q "workflows/${slug}.md" "$MKDOCS"; then
-      echo "✗ mkdocs.yml: no entry for workflows/${slug}.md"
-      FAIL=1
-    fi
-  else
-    echo "✗ mkdocs.yml not found"
-    FAIL=1
-  fi
 done
 
 # Advisory: check for workflow commands (not required)

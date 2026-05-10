@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 # validate-docs-frontmatter.sh - Validate frontmatter on rendered docs pages.
 #
-# Every docs/**/*.md (excluding docs/internal/ and mkdocs.yml exclude_docs)
-# should have well-formed YAML frontmatter with required fields title and
-# description. Optional fields (tags, date) validated when present.
+# Every docs/**/*.md (excluding docs/internal/ and a hardcoded list mirroring
+# src/content.config.ts glob excludes) should have well-formed YAML frontmatter
+# with required fields title and description. Optional fields (tags, date)
+# validated when present.
 #
-# Posture: ADVISORY in v2.13.0 (deviation from audit's "enforcing" posture).
-# Many pre-existing rendered docs lack frontmatter; cleanup is a Bucket B
-# or v2.14 effort. Shipping enforcing now would block CI on existing drift.
-# Promote to enforcing once frontmatter coverage is complete.
+# Posture: ENFORCING in v2.14.0+ (W10-promoted from advisory). Source-of-truth
+# for excluded paths migrated from mkdocs.yml exclude_docs to a hardcoded
+# array here (W12 Material deprecation). If src/content.config.ts changes its
+# glob excludes, update EXCLUDE_PATHS below to match.
 #
 # Exit codes:
 #   0 - All checked docs pass OR advisory mode (default)
@@ -18,11 +19,10 @@
 #   ./scripts/validate-docs-frontmatter.sh
 #   ./scripts/validate-docs-frontmatter.sh --strict
 
-set -euo pipefail
+set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-MKDOCS_YML="$ROOT/mkdocs.yml"
 
 STRICT=false
 if [[ "${1:-}" == "--strict" ]]; then
@@ -32,16 +32,13 @@ fi
 echo "=== Docs Frontmatter Validation ==="
 echo ""
 
-# Extract exclude_docs entries from mkdocs.yml
-EXCLUDE_PATHS=$(awk '
-  /^exclude_docs:/ { in_exc=1; next }
-  in_exc && /^[^[:space:]#]/ { in_exc=0; next }
-  in_exc {
-    line=$0
-    sub(/^[[:space:]]+/, "", line)
-    if (length(line) > 0) print line
-  }
-' "$MKDOCS_YML" 2>/dev/null || true)
+# Hardcoded exclusion list. Mirrors src/content.config.ts glob excludes
+# under docs/. Was previously read from mkdocs.yml exclude_docs in v2.13.x.
+# Trailing slash means "directory prefix"; no trailing slash means "exact file".
+EXCLUDE_PATHS=(
+  "templates/"
+  "workflows/README.md"
+)
 
 # Auto-skip patterns: rendered docs that legitimately may not need frontmatter
 AUTO_SKIP_PATTERNS=(
@@ -55,15 +52,14 @@ AUTO_SKIP_PATTERNS=(
 
 is_excluded() {
   local fs_file="$1"
-  while IFS= read -r exc_path; do
-    [[ -z "$exc_path" ]] && continue
-    local exc_clean="${exc_path#/}"
-    if [[ "$exc_clean" == */ ]]; then
-      [[ "$fs_file" == "$exc_clean"* ]] && return 0
+  local exc_path
+  for exc_path in "${EXCLUDE_PATHS[@]}"; do
+    if [[ "$exc_path" == */ ]]; then
+      [[ "$fs_file" == "${exc_path}"* ]] && return 0
     else
-      [[ "$fs_file" == "$exc_clean" ]] && return 0
+      [[ "$fs_file" == "$exc_path" ]] && return 0
     fi
-  done <<< "$EXCLUDE_PATHS"
+  done
 
   for pattern in "${AUTO_SKIP_PATTERNS[@]}"; do
     [[ "$fs_file" == $pattern ]] && return 0
@@ -80,7 +76,7 @@ FS_FILES=$(find "$ROOT/docs" -name "*.md" -type f \
 FAIL_COUNT=0
 WARN_COUNT=0
 CHECKED=0
-declare -a FINDINGS
+FINDINGS=()
 
 while IFS= read -r fs_file; do
   [[ -z "$fs_file" ]] && continue
@@ -152,7 +148,7 @@ while IFS= read -r fs_file; do
 done <<< "$FS_FILES"
 
 echo "Files checked: $CHECKED"
-echo "Excluded by mkdocs.yml exclude_docs or auto-skip: $(($(echo "$FS_FILES" | grep -c .) - CHECKED))"
+echo "Excluded (EXCLUDE_PATHS or auto-skip): $(($(echo "$FS_FILES" | grep -c .) - CHECKED))"
 echo ""
 
 TOTAL=$((FAIL_COUNT + WARN_COUNT))
@@ -179,7 +175,6 @@ if [[ "$STRICT" == "true" ]]; then
   exit 1
 else
   echo "WARN: $TOTAL frontmatter finding(s) (advisory mode)."
-  echo "  Many rendered docs currently lack frontmatter; cleanup is a Bucket B / v2.14 effort."
-  echo "  Promote to enforcing (--strict in CI) once frontmatter coverage is complete."
+  echo "  CI runs this script without --strict; pass --strict for enforcing local runs."
   exit 0
 fi

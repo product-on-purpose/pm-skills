@@ -1,5 +1,7 @@
 # check-workflow-coverage.ps1 . Verify every workflow file has matching entries
-# across the repo (docs page, AGENTS.md, mkdocs.yml).
+# across the repo (docs page, AGENTS.md). Starlight autogenerate covers
+# nav inclusion for docs/workflows/{slug}.md structurally; the previous
+# mkdocs.yml entry check was retired in W12 (Material deprecation).
 #
 # Exit codes:
 #   0 . All workflows are fully covered
@@ -33,10 +35,8 @@ Write-Host "Found $($slugs.Count) workflow(s) in _workflows/"
 Write-Host ""
 
 $AgentsPath = Join-Path -Path $Root -ChildPath "AGENTS.md"
-$MkdocsPath = Join-Path -Path $Root -ChildPath "mkdocs.yml"
 
 $agentsContent = if (Test-Path $AgentsPath) { Get-Content $AgentsPath -Raw } else { $null }
-$mkdocsContent = if (Test-Path $MkdocsPath) { Get-Content $MkdocsPath -Raw } else { $null }
 
 foreach ($slug in $slugs) {
     # 1. Check docs/workflows/{slug}.md exists
@@ -52,15 +52,6 @@ foreach ($slug in $slugs) {
         $Fail = $true
     } elseif ($agentsContent -notmatch [regex]::Escape($slug)) {
         Write-Host "[FAIL] AGENTS.md: no entry containing '$slug'"
-        $Fail = $true
-    }
-
-    # 3. Check mkdocs.yml references workflows/{slug}.md
-    if ($null -eq $mkdocsContent) {
-        Write-Host "[FAIL] mkdocs.yml not found"
-        $Fail = $true
-    } elseif ($mkdocsContent -notmatch "workflows/$slug\.md") {
-        Write-Host "[FAIL] mkdocs.yml: no entry for workflows/$slug.md"
         $Fail = $true
     }
 }
