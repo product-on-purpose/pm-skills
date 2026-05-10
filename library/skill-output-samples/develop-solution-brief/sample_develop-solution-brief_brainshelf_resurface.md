@@ -60,13 +60,13 @@ Brainshelf users save content enthusiastically (~47 items/month average [fiction
 
 ## Proposed Solution
 
-Resurface is a daily morning email digest that surfaces 3–5 saved items matched to the user's recent reading interests and delivers them to the user's inbox at 7:30 AM in their local timezone. The email contains article titles, source domains, topic tags, and estimated read times . no images, no marketing copy, no guilt-inducing item counts. Each item links directly to the saved content so the user can start reading with a single click. Resurface requires explicit opt-in (email permission + digest activation) and can be configured to deliver daily (default) or three times per week. The feature creates the external trigger that is currently missing from the Brainshelf experience, connecting the user's moment of morning availability to their most relevant saved content.
+Resurface is a daily morning email digest that surfaces 3 - 5 saved items matched to the user's recent reading interests and delivers them to the user's inbox at 7:30 AM in their local timezone. The email contains article titles, source domains, topic tags, and estimated read times . no images, no marketing copy, no guilt-inducing item counts. Each item links directly to the saved content so the user can start reading with a single click. Resurface requires explicit opt-in (email permission + digest activation) and can be configured to deliver daily (default) or three times per week. The feature creates the external trigger that is currently missing from the Brainshelf experience, connecting the user's moment of morning availability to their most relevant saved content.
 
 ## Key Features
 
-1. **Daily email digest:** A digest email delivered at 7:30 AM in the user's local timezone containing 3–5 saved items. The structured text layout (no images) is designed to feel like a personal recommendation, not a marketing newsletter, maximizing both deliverability and trust.
+1. **Daily email digest:** A digest email delivered at 7:30 AM in the user's local timezone containing 3 - 5 saved items. The structured text layout (no images) is designed to feel like a personal recommendation, not a marketing newsletter, maximizing both deliverability and trust.
 
-2. **Topic-matching algorithm:** A TF-IDF–based relevance engine that selects digest items by matching each saved item's content against the user's recent reading patterns (items read, saved, or clicked in the prior 7 days). Items are ranked by relevance score and filtered to exclude items already resurfaced in the prior 14 days to prevent repetition.
+2. **Topic-matching algorithm:** A TF-IDF - based relevance engine that selects digest items by matching each saved item's content against the user's recent reading patterns (items read, saved, or clicked in the prior 7 days). Items are ranked by relevance score and filtered to exclude items already resurfaced in the prior 14 days to prevent repetition.
 
 3. **Opt-in flow:** A lightweight in-app prompt (home screen card + settings toggle) that asks users to enable the digest and confirm their email address. Opt-in is required before any email is sent. The flow is designed to be low-friction (two taps) while remaining fully compliant with email consent requirements.
 
@@ -79,7 +79,7 @@ Resurface is a daily morning email digest that surfaces 3–5 saved items matche
 | Metric | Current | Target | Timeline |
 |--------|---------|--------|----------|
 | 7-day return rate (primary) | 18% [fictional] | 25% [fictional] | Q2 2026 |
-| Resurface email CTR (secondary) | n/a | ≥15% [fictional] | 4-week A/B test (Mar 9 – Apr 5, 2026) |
+| Resurface email CTR (secondary) | n/a | ≥15% [fictional] | 4-week A/B test (Mar 9  -  Apr 5, 2026) |
 | Email unsubscribe rate (guardrail) | n/a | ≤2% per week [fictional] | Ongoing from launch |
 
 ## Trade-offs Considered
@@ -103,7 +103,7 @@ Resurface is a daily morning email digest that surfaces 3–5 saved items matche
 ## Next Steps
 
 1. Finalize Sprint 8 stories and assign to engineers . Priya M., by Feb 2, 2026
-2. Complete Resend integration and DNS configuration . Alex R. + Jess T., Sprint 8 (Feb 3–16, 2026)
-3. Build opt-in flow and digest email template . Sam W. + Dan K., Sprint 8 (Feb 3–16, 2026)
+2. Complete Resend integration and DNS configuration . Alex R. + Jess T., Sprint 8 (Feb 3 - 16, 2026)
+3. Build opt-in flow and digest email template . Sam W. + Dan K., Sprint 8 (Feb 3 - 16, 2026)
 4. Ship Resurface to production behind feature flag . Alex R., end of Sprint 8 (Feb 14, 2026)
-5. Begin opt-in enrollment and A/B test setup . Priya M. + Chloe B., Mar 2–8, 2026
+5. Begin opt-in enrollment and A/B test setup . Priya M. + Chloe B., Mar 2 - 8, 2026

@@ -85,7 +85,7 @@ recommendation: ship to all eligible users.
 
 **Original Hypothesis:**
 
-> We believed that offering a daily morning email digest of 3–5 topic-matched saved items would increase the 7-day return rate by at least 5 percentage points because the digest creates the external trigger that is currently missing from the Brainshelf experience, connecting moments of morning availability to the user's most relevant saved content.
+> We believed that offering a daily morning email digest of 3 - 5 topic-matched saved items would increase the 7-day return rate by at least 5 percentage points because the digest creates the external trigger that is currently missing from the Brainshelf experience, connecting moments of morning availability to the user's most relevant saved content.
 
 **Success Criteria:**
 
@@ -101,8 +101,8 @@ recommendation: ship to all eligible users.
 
 | Variant | Value | Sample Size | Confidence Interval |
 |---------|-------|-------------|---------------------|
-| Control | 18.1% [fictional] | 400 [fictional] | 14.3% – 21.9% [fictional] |
-| Treatment | 23.4% [fictional] | 400 [fictional] | 19.3% – 27.5% [fictional] |
+| Control | 18.1% [fictional] | 400 [fictional] | 14.3%  -  21.9% [fictional] |
+| Treatment | 23.4% [fictional] | 400 [fictional] | 19.3%  -  27.5% [fictional] |
 
 **Observed Difference:** +5.3 pp [fictional] (29.3% relative lift)
 
@@ -113,7 +113,7 @@ recommendation: ship to all eligible users.
 
 **Interpretation:**
 
-The treatment group's 7-day return rate of 23.4% [fictional] represents a 5.3 percentage point improvement over the control group's 18.1% [fictional], exceeding the pre-registered minimum detectable effect of 5pp. The result is statistically significant at p = 0.008 [fictional], well below the 0.05 threshold. This means we can reject the null hypothesis that the digest has no effect on return rate with high confidence. The 95% confidence interval for the treatment effect is approximately +1.4pp to +9.2pp [fictional], meaning the true effect is very likely positive and could be as large as 9pp. The point estimate of 5.3pp would move Brainshelf's return rate from below the consumer utility median (25–35%) to the lower edge of the median range, directly advancing the Q1 retention OKR.
+The treatment group's 7-day return rate of 23.4% [fictional] represents a 5.3 percentage point improvement over the control group's 18.1% [fictional], exceeding the pre-registered minimum detectable effect of 5pp. The result is statistically significant at p = 0.008 [fictional], well below the 0.05 threshold. This means we can reject the null hypothesis that the digest has no effect on return rate with high confidence. The 95% confidence interval for the treatment effect is approximately +1.4pp to +9.2pp [fictional], meaning the true effect is very likely positive and could be as large as 9pp. The point estimate of 5.3pp would move Brainshelf's return rate from below the consumer utility median (25 - 35%) to the lower edge of the median range, directly advancing the Q1 retention OKR.
 
 ---
 
@@ -143,8 +143,8 @@ The treatment group's 7-day return rate of 23.4% [fictional] represents a 5.3 pe
 | Segment | Control | Treatment | Difference | Significant? |
 |---------|---------|-----------|------------|--------------|
 | Heavy savers (100+ items) | 16.3% [fictional] | 23.4% [fictional] | +7.1pp [fictional] | Yes (p = 0.01) [fictional] |
-| Medium savers (50–99 items) | 18.9% [fictional] | 24.1% [fictional] | +5.2pp [fictional] | Yes (p = 0.04) [fictional] |
-| Light savers (10–49 items) | 19.7% [fictional] | 23.5% [fictional] | +3.8pp [fictional] | No (p = 0.12) [fictional] |
+| Medium savers (50 - 99 items) | 18.9% [fictional] | 24.1% [fictional] | +5.2pp [fictional] | Yes (p = 0.04) [fictional] |
+| Light savers (10 - 49 items) | 19.7% [fictional] | 23.5% [fictional] | +3.8pp [fictional] | No (p = 0.12) [fictional] |
 
 ### By Digest Cadence (Treatment Only, Opted-In Users)
 
@@ -155,7 +155,7 @@ The treatment group's 7-day return rate of 23.4% [fictional] represents a 5.3 pe
 
 ### Segment Insights
 
-The treatment effect is strongest among heavy savers (100+ items), who showed a +7.1pp lift [fictional]. This is consistent with the hypothesis: users with larger libraries have more relevant content for the topic-matching algorithm to select from, producing higher-quality digests. The light saver segment (10–49 items) showed a directionally positive but not statistically significant lift (+3.8pp, p = 0.12 [fictional]) . the smaller library limits the algorithm's ability to find highly relevant items, and the sample size for this segment is smaller.
+The treatment effect is strongest among heavy savers (100+ items), who showed a +7.1pp lift [fictional]. This is consistent with the hypothesis: users with larger libraries have more relevant content for the topic-matching algorithm to select from, producing higher-quality digests. The light saver segment (10 - 49 items) showed a directionally positive but not statistically significant lift (+3.8pp, p = 0.12 [fictional]) . the smaller library limits the algorithm's ability to find highly relevant items, and the sample size for this segment is smaller.
 
 Daily cadence users had a meaningfully higher CTR (18.6% [fictional]) than 3x/week users (14.1% [fictional]), and a correspondingly higher return rate. This supports the habit-formation hypothesis: daily delivery creates a routine that 3x/week delivery does not. However, the 3x/week sample is small (33 users [fictional]), so the cadence comparison should be treated as directional rather than definitive.
 
@@ -191,7 +191,7 @@ Treatment group opt-in funnel: 400 eligible users → 287 saw opt-in card (71.8%
 
 ### What We Still Don't Know
 
-- Whether the return rate lift persists beyond 4 weeks. The upward trend in weeks 1–4 is encouraging, but longer-term data (8–12 weeks) is needed to confirm that the habit is durable.
+- Whether the return rate lift persists beyond 4 weeks. The upward trend in weeks 1 - 4 is encouraging, but longer-term data (8 - 12 weeks) is needed to confirm that the habit is durable.
 - Whether the 3x/week cadence is truly less effective than daily, or whether the sample size (33 users [fictional]) is too small to draw conclusions. A follow-up test with a larger sample could answer this.
 - Whether the treatment effect would differ for users who have churned (no activity in 30+ days). The experiment only included active savers . the digest's potential to win back churned users is untested.
 

@@ -129,7 +129,7 @@ Merchant interviews identified three participants (P3, P6, P8) who have no email
 
 **When** the send completes
 
-**Then** the system displays an in-app confirmation: the number of recipients the campaign was sent to, the campaign subject line, and a message directing the merchant to check the Campaigns dashboard in 24–48 hours to see open rates and revenue attributed . replacing the guided flow with the standard Campaigns dashboard view
+**Then** the system displays an in-app confirmation: the number of recipients the campaign was sent to, the campaign subject line, and a message directing the merchant to check the Campaigns dashboard in 24 - 48 hours to see open rates and revenue attributed . replacing the guided flow with the standard Campaigns dashboard view
 
 ## Design Notes
 

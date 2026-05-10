@@ -168,7 +168,7 @@ want a proper stakeholder map with communication plan.
 
 **Concerns:**
 - "Inbox fatigue" risk: if the daily digest feels repetitive, formulaic, or irrelevant, users will unsubscribe or mentally filter it out; the unsubscribe rate is the guardrail metric he cares most about
-- The 3–5 item format might feel too sparse or too dense depending on the content type surfaced; wants to test visual density with real content before launch
+- The 3 - 5 item format might feel too sparse or too dense depending on the content type surfaced; wants to test visual density with real content before launch
 
 **What Motivates Them:**
 - Craft and user empathy; wants Brainshelf to be a product users love, not just use; the Resurface email is a touchpoint that enters the user's personal inbox and must earn that privilege

@@ -47,7 +47,7 @@ Variants:
 Sample: ~6,800 eligible non-adopter merchants [fictional]; need enough
   per variant to detect a 8 pp improvement with 80% power
 
-Run period: April 28 – June 27, 2026 (60 days from GA)
+Run period: April 28  -  June 27, 2026 (60 days from GA)
 
 Need: full experiment design with sample size calculation, success
 criteria, risks, and implementation notes.
@@ -190,7 +190,7 @@ Treatment variant's first campaign send rate is lower than control or does not r
 
 ### Inconclusive (More Data Needed)
 
-Treatment variant's first campaign send rate is 20–29% [fictional] at 60 days but does not reach p < 0.05. In this case, run qualitative follow-up interviews with 10 non-completing treatment merchants to identify whether design, content, or audience-selection friction is blocking the final completion step before deciding whether to extend or iterate.
+Treatment variant's first campaign send rate is 20 - 29% [fictional] at 60 days but does not reach p < 0.05. In this case, run qualitative follow-up interviews with 10 non-completing treatment merchants to identify whether design, content, or audience-selection friction is blocking the final completion step before deciding whether to extend or iterate.
 
 ## Risks & Mitigations
 

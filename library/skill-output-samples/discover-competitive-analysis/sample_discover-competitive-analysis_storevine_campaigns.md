@@ -20,7 +20,7 @@ Storevine is preparing to build Campaigns . a native email marketing feature for
 
 - Klaviyo's S-1 filing (SEC EDGAR, September 2023) reported ~130,000 paying customers at IPO, with average GMV per customer of approximately $280,000 annually . establishing the scale and revenue density of merchants that depend on email-driven re-engagement.
 - Shopify launched Shopify Email in 2019 and has expanded it to include basic automation; Shopify's FY2023 Annual Report describes merchant solutions as a key platform retention lever, validating the built-in email strategy.
-- Mailchimp's public Email Marketing Benchmarks report (mailchimp.com) documents average open rates for retail as 17–21%, with significant variance based on list hygiene and sending frequency.
+- Mailchimp's public Email Marketing Benchmarks report (mailchimp.com) documents average open rates for retail as 17 - 21%, with significant variance based on list hygiene and sending frequency.
 - The CAN-SPAM Act (FTC, ftc.gov) and GDPR Article 6 define the compliance floor for commercial email: one-click unsubscribe, physical address disclosure, honest subject lines, and documented consent for EU recipients.
 
 ---
@@ -100,7 +100,7 @@ References: problem-statement (Q4 discovery), exit survey analysis.
 | Feature | Storevine Campaigns (planned) | Shopify Email | Klaviyo | Mailchimp | Campaign Monitor |
 |---------|------------------------------|---------------|---------|-----------|-----------------|
 | Drag-and-drop editor | Full | Full | Full | Full | Full |
-| Pre-built templates | Full (8–12 at launch) | Full | Full | Full | Full |
+| Pre-built templates | Full (8 - 12 at launch) | Full | Full | Full | Full |
 | Audience segmentation (purchase-based) | Full | Partial | Full | Partial | Partial |
 | Abandoned cart automation | Full | Full | Full | Full | Partial |
 | Welcome series automation | Full | Full | Full | Full | Full |
@@ -118,8 +118,8 @@ References: problem-statement (Q4 discovery), exit survey analysis.
 | Competitor | Free Tier | Entry Paid | Mid-Tier | Pricing Model |
 |------------|-----------|------------|----------|---------------|
 | Shopify Email | 10,000 emails/month free | $0.001/email above limit | Included in Shopify plans | Volume-based add-on to Shopify subscription |
-| Klaviyo | 250 contacts / 500 emails | ~$20/month (up to 500 contacts) | ~$100–$500/month (scales with list size) | Per contact/month |
-| Mailchimp | 500 contacts / 1,000 emails/month | ~$13/month (Essentials) | ~$20–$60/month | Per contact/month (3 tiers) |
+| Klaviyo | 250 contacts / 500 emails | ~$20/month (up to 500 contacts) | ~$100 - $500/month (scales with list size) | Per contact/month |
+| Mailchimp | 500 contacts / 1,000 emails/month | ~$13/month (Essentials) | ~$20 - $60/month | Per contact/month (3 tiers) |
 | Campaign Monitor | None | ~$9/month (Basic, pay-per-campaign) | ~$29/month (Unlimited) | Per campaign or per month |
 
 *Sourced from public pricing pages, February 2026. Enterprise tiers are custom-negotiated and not publicly listed.*
@@ -169,7 +169,7 @@ References: problem-statement (Q4 discovery), exit survey analysis.
 ### Klaviyo
 
 **Overview:** The dominant advanced email and SMS marketing platform for ecommerce, with the deepest commerce platform integration in the market and predictive analytics that no built-in tool currently matches.
-**Target Customer:** Growth-oriented ecommerce merchants generating $500K–$50M+ in annual revenue who treat email and SMS as primary revenue channels, not supplementary communication.
+**Target Customer:** Growth-oriented ecommerce merchants generating $500K - $50M+ in annual revenue who treat email and SMS as primary revenue channels, not supplementary communication.
 **Key Differentiator:** Predictive analytics applied to segmentation . expected next order date, customer lifetime value prediction, and churn risk scoring enable segments that are structurally impossible for tools without native ecommerce data access.
 
 **Strengths:**
@@ -178,8 +178,8 @@ References: problem-statement (Q4 discovery), exit survey analysis.
 - SMS and email are unified in a single platform with shared audience data . the only tool in this set where a merchant can manage both channels without additional integration overhead.
 
 **Weaknesses:**
-- Pricing scales aggressively with list size; merchants with 5,000+ contacts pay $100–$200/month before adding SMS, making Klaviyo cost-prohibitive for the majority of Storevine's merchant base.
-- Setup complexity is significant . new users typically require 4–8 hours to configure their first automation flow, creating a self-serve adoption barrier that smaller merchants struggle to clear.
+- Pricing scales aggressively with list size; merchants with 5,000+ contacts pay $100 - $200/month before adding SMS, making Klaviyo cost-prohibitive for the majority of Storevine's merchant base.
+- Setup complexity is significant . new users typically require 4 - 8 hours to configure their first automation flow, creating a self-serve adoption barrier that smaller merchants struggle to clear.
 - Merchants who adopt Klaviyo early develop strong dependency on its data model and flow library; switching costs are high and actively inhibit migration even when pricing becomes a concern.
 
 **Recent Moves:** Klaviyo launched CDP (customer data platform) capabilities in 2024 and expanded its enterprise reporting suite; SMS revenue is growing as a share of platform revenue per FY2024 investor communications.
@@ -272,7 +272,7 @@ References: problem-statement (Q4 discovery), exit survey analysis.
 ## Next Steps
 
 - [ ] Share with engineering lead: confirm revenue attribution via SendGrid open/click webhooks is feasible within the v1 timeline; this is the recommended launch differentiator.
-- [ ] Share with merchant success team: validate zero-setup positioning with 3–5 merchants currently using Klaviyo . confirm they experience integration configuration as a friction point worth calling out in messaging.
+- [ ] Share with merchant success team: validate zero-setup positioning with 3 - 5 merchants currently using Klaviyo . confirm they experience integration configuration as a friction point worth calling out in messaging.
 - [ ] Revisit watch list in 90 days: check Shopify Email changelog and Klaviyo pricing updates before Campaigns GA to confirm differentiation holds.
 
 ---

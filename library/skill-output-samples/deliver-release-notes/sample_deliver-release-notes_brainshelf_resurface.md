@@ -57,7 +57,7 @@ articles (better fallback to article metadata).
 
 ### Resurface: Your Morning Reading Digest
 
-You save great content to Brainshelf every week . now Brainshelf brings the best of it back to you. Resurface is a daily morning email that delivers 3–5 of your most relevant saved items, matched to what you've been reading recently. It arrives at 7:30 AM your time, ready for your morning coffee or commute. No more guilt pile . just the articles that are actually worth your time, resurfaced when you're ready to read them.
+You save great content to Brainshelf every week . now Brainshelf brings the best of it back to you. Resurface is a daily morning email that delivers 3 - 5 of your most relevant saved items, matched to what you've been reading recently. It arrives at 7:30 AM your time, ready for your morning coffee or commute. No more guilt pile . just the articles that are actually worth your time, resurfaced when you're ready to read them.
 
 ### One-Click Reading, Zero Effort
 
@@ -67,7 +67,7 @@ Every item in the digest links directly to the original article. Tap it, and you
 
 ## New Features
 
-- **Resurface digest email:** A daily morning email with 3–5 saved items matched to your recent reading interests. Delivered at 7:30 AM in your timezone. Enable it from the card on your home screen or from Settings > Notifications.
+- **Resurface digest email:** A daily morning email with 3 - 5 saved items matched to your recent reading interests. Delivered at 7:30 AM in your timezone. Enable it from the card on your home screen or from Settings > Notifications.
 
 - **Opt-in flow:** Look for the Resurface card at the top of your home screen. Tap "Enable Digest" and your first email arrives the next morning. We'll never send you email without your explicit permission.
 

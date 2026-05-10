@@ -60,7 +60,7 @@ Understand why Brainshelf users save content at a high rate (~47 items/month ave
 ### Methodology
 
 - **Format:** Video call (Zoom)
-- **Duration:** 30–45 minutes per interview
+- **Duration:** 30 - 45 minutes per interview
 - **Interviewer(s):** Priya M. (PM)
 - **Date Range:** January 6 to January 17, 2026
 
@@ -160,7 +160,7 @@ Users save content with at least three different intents . "to read later," "to 
 
 **1. Build an External Re-Engagement Trigger (Resurface Email Digest)**
 
-Every participant lacked a natural trigger to return to their saved library. An email digest surfacing 3–5 saved items matched to the user's recent reading topics would create the missing touchpoint. Email is preferred over push notification because Brainshelf's push notification opt-in rate is low [fictional] and email reaches users regardless of app install state. The Readwise model (daily review email) provides market validation that this mechanic can drive habitual re-engagement in PKM tools. This recommendation directly leads to the Resurface hypothesis and A/B experiment design.
+Every participant lacked a natural trigger to return to their saved library. An email digest surfacing 3 - 5 saved items matched to the user's recent reading topics would create the missing touchpoint. Email is preferred over push notification because Brainshelf's push notification opt-in rate is low [fictional] and email reaches users regardless of app install state. The Readwise model (daily review email) provides market validation that this mechanic can drive habitual re-engagement in PKM tools. This recommendation directly leads to the Resurface hypothesis and A/B experiment design.
 
 **2. Prioritize Recent, Article-Type Saves in the Resurface Algorithm**
 

@@ -164,14 +164,14 @@ See [User Stories . Campaigns v1](#) for full acceptance criteria.
 
 ### In Scope
 
-- Campaign creation using template library (8–12 templates at launch)
+- Campaign creation using template library (8 - 12 templates at launch)
 - Drag-and-drop content editor (no custom HTML)
 - Audience builder: filter by purchase count, total spend, customer tags,
   subscription date, last order date; AND/OR logic; real-time size estimate
 - Saved segments for reuse across campaigns
 - Single-send (broadcast) campaigns and scheduled sending
 - Three trigger automations: abandoned cart (1-hour delay), welcome series
-  (on subscription), re-engagement (90-day inactivity, configurable 30–180 days)
+  (on subscription), re-engagement (90-day inactivity, configurable 30 - 180 days)
 - Campaign analytics: sends, open rate, click rate, unsubscribe rate, revenue
   attributed within 5 days of open
 - CSV import for existing email lists
@@ -209,7 +209,7 @@ See [User Stories . Campaigns v1](#) for full acceptance criteria.
 - FR-1: Merchants can create a new campaign from the Campaigns dashboard
 - FR-2: Campaign creation follows a linear wizard: Name → Template → Audience →
   Content → Schedule → Review & Send
-- FR-3: Template library offers 8–12 templates at launch (promotional, seasonal,
+- FR-3: Template library offers 8 - 12 templates at launch (promotional, seasonal,
   newsletter, re-engagement)
 - FR-4: Drag-and-drop editor supports text blocks, image blocks, CTA buttons,
   dividers, and logo placement
@@ -237,7 +237,7 @@ See [User Stories . Campaigns v1](#) for full acceptance criteria.
   complete checkout within 1 hour
 - FR-14: Welcome trigger fires when a new subscriber joins the merchant's list
 - FR-15: Re-engagement trigger fires when a subscribed customer has placed no order
-  in N days (default 90; merchant-configurable 30–180)
+  in N days (default 90; merchant-configurable 30 - 180)
 - FR-16: Each automation supports a single email in v1; multi-step sequences are
   out of scope
 

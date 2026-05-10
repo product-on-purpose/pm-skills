@@ -51,8 +51,8 @@ opt-in enrollment starts mar 2. a/b test starts mar 9.
 
 | Field | Value |
 |-------|-------|
-| What | Resurface: daily email digest surfacing 3–5 saved items matched to recent reading interests |
-| Launch Date | February 14–16, 2026 (behind feature flag) |
+| What | Resurface: daily email digest surfacing 3 - 5 saved items matched to recent reading interests |
+| Launch Date | February 14 - 16, 2026 (behind feature flag) |
 | Launch Type | Major Feature (Brainshelf's first email feature) |
 | Launch Owner | Priya M. |
 | Go/No-Go Decision Maker | Marco S. (CEO) |
@@ -140,10 +140,10 @@ opt-in enrollment starts mar 2. a/b test starts mar 9.
 
 | Item | Owner | Due | Status | Notes |
 |------|-------|-----|--------|-------|
-| [ ] Resend sending domain verified and DNS propagated | Jess T. | Feb 6 | | Verify with MXToolbox; allow 24–48 hours for propagation |
+| [ ] Resend sending domain verified and DNS propagated | Jess T. | Feb 6 | | Verify with MXToolbox; allow 24 - 48 hours for propagation |
 | [ ] Cron job deployed and scheduled in production (disabled until feature flag on) | Alex R. | Feb 14 | | Runs once per minute; processes users whose 7:30 AM local is within the current UTC minute |
 | [ ] Resend webhook endpoint deployed and receiving test events | Jess T. | Feb 12 | | Test with Resend's webhook testing tool |
-| [ ] On-call rotation confirmed for launch window (Feb 14–16) | Alex R. | Feb 12 | | Alex R. primary, Jess T. secondary |
+| [ ] On-call rotation confirmed for launch window (Feb 14 - 16) | Alex R. | Feb 12 | | Alex R. primary, Jess T. secondary |
 | [ ] Alerting configured: digest send failure rate >5% [fictional] triggers PagerDuty | Chloe B. | Feb 12 | | Based on Resend webhook delivery events |
 | [ ] Seed list test: send 10 test digests to team members across Gmail, Outlook, Apple Mail | Sam W. | Feb 13 | | Verify inbox placement (not promotions tab) |
 

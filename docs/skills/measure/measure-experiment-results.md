@@ -510,7 +510,7 @@ See this skill applied to three different product contexts:
 /experiment-results
 
 Experiment: Campaigns guided first-campaign flow A/B test
-Ran: April 28 – June 27, 2026 (60 days from GA)
+Ran: April 28  -  June 27, 2026 (60 days from GA)
 
 Results:
 - Control (blank canvas): 13.4% first-send rate, N=1,204 merchants [fictional]

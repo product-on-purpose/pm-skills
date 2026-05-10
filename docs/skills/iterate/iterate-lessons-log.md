@@ -511,7 +511,7 @@ See this skill applied to three different product contexts:
 /lessons-log
 
 Lesson from: Campaigns guided first-campaign flow A/B test
-Experiment ran: April 28 – June 27, 2026 (60 days from GA)
+Experiment ran: April 28  -  June 27, 2026 (60 days from GA)
 Decision: Ship guided flow as default for all non-adopter merchants
 
 Primary finding:

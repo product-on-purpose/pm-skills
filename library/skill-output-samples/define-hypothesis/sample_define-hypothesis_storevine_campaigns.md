@@ -42,7 +42,7 @@ Hypothesis I want to define:
   [fictional] within 60 days of GA
 
 Prior work to reference:
-- Merchant interview synthesis (Jan 12–28, 2026): P3, P6, and P8 described
+- Merchant interview synthesis (Jan 12 - 28, 2026): P3, P6, and P8 described
   email as "too overwhelming to start" or perennially "on the list"
 - Competitive analysis (Feb 2026): Shopify Email's template-first + free
   tier activation is their primary new-merchant onboarding lever
@@ -73,7 +73,7 @@ pass/fail criteria, and risks. Will attach to PRD as primary testable belief.
 
 ### Problem Context
 
-Merchant interviews conducted January 12–28, 2026 identified three distinct segments with respect to email: Klaviyo power users locked in by data and workflow dependency, Mailchimp users reluctant to switch due to migration friction, and non-adopters who have never built an email program at all. Three of eight participants fell into the non-adopter category; all three cited setup intimidation as the reason they have not started. Interview Insight 2 identified this segment as structurally easier to activate than switchers because there is no migration cost, no existing workflow to replicate, and no seasonal disruption risk to navigate. This hypothesis addresses that insight directly.
+Merchant interviews conducted January 12 - 28, 2026 identified three distinct segments with respect to email: Klaviyo power users locked in by data and workflow dependency, Mailchimp users reluctant to switch due to migration friction, and non-adopters who have never built an email program at all. Three of eight participants fell into the non-adopter category; all three cited setup intimidation as the reason they have not started. Interview Insight 2 identified this segment as structurally easier to activate than switchers because there is no migration cost, no existing workflow to replicate, and no seasonal disruption risk to navigate. This hypothesis addresses that insight directly.
 
 ### Supporting Evidence
 
@@ -138,7 +138,7 @@ A/B test within the non-adopter segment. Control variant: the existing Campaigns
 
 - **Validated if:** Treatment first-send rate is ≥30% [fictional] with statistical significance (p < 0.05) and no guardrail metric degradation
 - **Invalidated if:** Treatment first-send rate is below 20% [fictional] or does not achieve statistical significance after 60 days
-- **Inconclusive if:** Treatment first-send rate is 20–29% [fictional] . in this case, qualitative follow-up interviews with non-completing treatment merchants will inform whether a design iteration or a segment redefinition is needed
+- **Inconclusive if:** Treatment first-send rate is 20 - 29% [fictional] . in this case, qualitative follow-up interviews with non-completing treatment merchants will inform whether a design iteration or a segment redefinition is needed
 
 ## Risks & Assumptions
 
@@ -158,7 +158,7 @@ A/B test within the non-adopter segment. Control variant: the existing Campaigns
 
 | Phase | Dates | Duration |
 |-------|-------|----------|
-| Setup & instrumentation | Mar 17 – Apr 4, 2026 | 3 weeks |
-| Test running | Apr 28 – Jun 27, 2026 (60 days from GA) | 60 days |
-| Analysis | Jun 28 – Jul 5, 2026 | 1 week |
+| Setup & instrumentation | Mar 17  -  Apr 4, 2026 | 3 weeks |
+| Test running | Apr 28  -  Jun 27, 2026 (60 days from GA) | 60 days |
+| Analysis | Jun 28  -  Jul 5, 2026 | 1 week |
 | Decision | Jul 7, 2026 | . |

@@ -101,7 +101,7 @@ filters: date range, experiment variant, library size segment.
 |----------|-----------------|-------------------|
 | Priya M. (PM) | Daily during test | Return rate trend, CTR, unsubscribe rate |
 | Chloe B. (Data) | Daily during test | All metrics; data quality checks |
-| Alex R. (Engineering) | 2–3x/week | Send success rate, item click distribution |
+| Alex R. (Engineering) | 2 - 3x/week | Send success rate, item click distribution |
 | Jordan L. (Growth) | Weekly | Opt-in rate, segment differences |
 | Marco S. (CEO) | Weekly (Monday exec check-in) | Single-screen summary: return rate, CTR, guardrail status |
 
@@ -235,7 +235,7 @@ Desktop browser (Amplitude web app). Marco views via screen share . the dashboar
 | **Chart Type** | Table |
 | **X-Axis** | n/a (table) |
 | **Y-Axis** | n/a (table) |
-| **Series/Breakdown** | Rows: Heavy savers (100+), Medium savers (50–99), Light savers (10–49), Daily cadence, 3x/week cadence. Columns: Control return rate, Treatment return rate, Delta, p-value, CTR (treatment only). |
+| **Series/Breakdown** | Rows: Heavy savers (100+), Medium savers (50 - 99), Light savers (10 - 49), Daily cadence, 3x/week cadence. Columns: Control return rate, Treatment return rate, Delta, p-value, CTR (treatment only). |
 | **Interactivity** | Sortable columns |
 | **Position** | Bottom (full width) |
 
@@ -269,9 +269,9 @@ Desktop browser (Amplitude web app). Marco views via screen share . the dashboar
 
 | Filter | Type | Default Value | Options |
 |--------|------|---------------|---------|
-| Date Range | Date picker | Full experiment window (Mar 9 – Apr 5, 2026) | Custom range, last 7 days, last 14 days |
+| Date Range | Date picker | Full experiment window (Mar 9  -  Apr 5, 2026) | Custom range, last 7 days, last 14 days |
 | Experiment Variant | Dropdown | All (both variants) | All, Control, Treatment |
-| Library Size Segment | Dropdown | All | All, Heavy (100+), Medium (50–99), Light (10–49) |
+| Library Size Segment | Dropdown | All | All, Heavy (100+), Medium (50 - 99), Light (10 - 49) |
 
 ### Chart-Specific Filters
 
@@ -285,8 +285,8 @@ Desktop browser (Amplitude web app). Marco views via screen share . the dashboar
 | Segment Name | Definition | Use Case |
 |--------------|------------|----------|
 | Heavy savers | Users with 100+ saved items at experiment start | Analyze whether larger libraries produce stronger treatment effects |
-| Medium savers | Users with 50–99 saved items at experiment start | Middle segment for comparison |
-| Light savers | Users with 10–49 saved items at experiment start | Analyze whether small libraries limit topic-matching effectiveness |
+| Medium savers | Users with 50 - 99 saved items at experiment start | Middle segment for comparison |
+| Light savers | Users with 10 - 49 saved items at experiment start | Analyze whether small libraries limit topic-matching effectiveness |
 | Daily cadence | Opted-in treatment users on daily delivery | Compare engagement by cadence |
 | 3x/week cadence | Opted-in treatment users on 3x/week delivery | Compare engagement by cadence |
 
@@ -306,13 +306,13 @@ Desktop browser (Amplitude web app). Marco views via screen share . the dashboar
 
 **Refresh Frequency:** Near real-time (Amplitude default)
 **Refresh Time:** No batch processing required; all events stream to Amplitude in real time
-**Historical Data Needed:** Experiment window only (March 9 – April 5, 2026); 2-week pre-experiment baseline for return rate comparison
+**Historical Data Needed:** Experiment window only (March 9  -  April 5, 2026); 2-week pre-experiment baseline for return rate comparison
 **Data Retention:** 12 months (standard Amplitude retention)
 
 ### Data Quality Considerations
 
 - Apple Mail Privacy Protection inflates `resurface_digest_opened` events; the dashboard does NOT include an open rate metric for this reason
-- The `item_position` property on `resurface_item_clicked` events should be validated: values must be 1–5; any values outside this range indicate an instrumentation bug
+- The `item_position` property on `resurface_item_clicked` events should be validated: values must be 1 - 5; any values outside this range indicate an instrumentation bug
 - Server-side events (`digest_sent`, `digest_skipped`) are dependent on the cron job's availability; if the cron job fails, these events will not fire, creating a data gap that must be reconciled with the Resend delivery logs
 
 ---

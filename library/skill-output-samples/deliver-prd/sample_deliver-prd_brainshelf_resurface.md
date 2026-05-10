@@ -19,7 +19,7 @@ With the solution brief approved and the spike complete, Priya M. wrote the full
 **Source Notes:**
 
 - Marty Cagan, "Inspired: How to Create Tech Products Customers Love" (svpg.com) . the PRD philosophy applied in this document; Cagan advocates for PRDs that focus on what the product does and why, leaving implementation details to engineering, while being precise enough about acceptance criteria that the team can build without ambiguity.
-- Lenny Rachitsky's consumer app retention benchmarks (Lenny's Newsletter, 2023) . the 7-day return rate benchmarks used to validate the 25% target; Rachitsky places the median for consumer utility apps at 25–35%, making the target the minimum viable retention performance for the category.
+- Lenny Rachitsky's consumer app retention benchmarks (Lenny's Newsletter, 2023) . the 7-day return rate benchmarks used to validate the 25% target; Rachitsky places the median for consumer utility apps at 25 - 35%, making the target the minimum viable retention performance for the category.
 - Nir Eyal, "Hooked: How to Build Habit-Forming Products" (nirandfar.com) . the external trigger framework that underpins the Resurface hypothesis; Eyal's model identifies a daily email as the minimum viable external trigger for products where the internal trigger (self-motivation to return) has not yet been established.
 
 ---
@@ -64,7 +64,7 @@ Brainshelf users save content at a high rate (~47 items/month average [fictional
 
 ### Solution Summary
 
-Resurface is a daily morning email digest that delivers 3–5 saved items matched to the user's recent reading interests. The email arrives at 7:30 AM in the user's local timezone and contains article titles, source domains, topic tags, and estimated read times in a structured text layout (no images). Each item links directly to the saved content for one-click reading. The feature requires explicit opt-in and supports daily or 3x/week delivery cadence. Resurface creates the external trigger that is currently missing from the Brainshelf experience, connecting moments of morning availability to the user's most relevant saved content.
+Resurface is a daily morning email digest that delivers 3 - 5 saved items matched to the user's recent reading interests. The email arrives at 7:30 AM in the user's local timezone and contains article titles, source domains, topic tags, and estimated read times in a structured text layout (no images). Each item links directly to the saved content for one-click reading. The feature requires explicit opt-in and supports daily or 3x/week delivery cadence. Resurface creates the external trigger that is currently missing from the Brainshelf experience, connecting moments of morning availability to the user's most relevant saved content.
 
 ### Target Users
 
@@ -110,7 +110,7 @@ See the detailed user stories document for full acceptance criteria.
 ### In Scope
 
 - Daily email digest delivery at 7:30 AM user local time via Resend API
-- TF-IDF–based topic-matching algorithm to select 3–5 items per digest
+- TF-IDF - based topic-matching algorithm to select 3 - 5 items per digest
 - In-app opt-in flow (home screen card + settings toggle) with email confirmation
 - Structured text email template (React Email) with article title, source, topic tag, read time
 - Cadence setting: daily (default) or 3x/week (Monday, Wednesday, Friday)
@@ -139,7 +139,7 @@ See the detailed user stories document for full acceptance criteria.
 #### Email Delivery
 
 - FR-1: The system shall send a digest email to each opted-in user at 7:30 AM in their stored timezone
-- FR-2: Each digest shall contain 3–5 saved items selected by the topic-matching algorithm; if fewer than 3 items pass the minimum relevance threshold, the digest shall contain only the qualifying items (minimum 1)
+- FR-2: Each digest shall contain 3 - 5 saved items selected by the topic-matching algorithm; if fewer than 3 items pass the minimum relevance threshold, the digest shall contain only the qualifying items (minimum 1)
 - FR-3: If zero items pass the relevance threshold, no digest shall be sent for that day; the system shall not send empty or low-relevance digests
 - FR-4: The system shall not resurface the same item within a 14-day window; items included in a previous digest are excluded for 14 days from the send date
 - FR-5: The system shall use Resend API for email delivery, with SPF, DKIM, and DMARC configured on the brainshelf.app domain
@@ -223,10 +223,10 @@ User email addresses are already stored in the Brainshelf user table (required f
 | DNS + Resend integration complete | Email can be sent from brainshelf.app | Feb 7, 2026 |
 | Topic matching + email template complete | End-to-end digest generation working in staging | Feb 14, 2026 |
 | Sprint 8 ship | Resurface deployed to production behind feature flag | Feb 16, 2026 |
-| Setup week | Opt-in enrollment begins; A/B experiment configured in Amplitude | Mar 2–8, 2026 |
+| Setup week | Opt-in enrollment begins; A/B experiment configured in Amplitude | Mar 2 - 8, 2026 |
 | A/B test start | Feature flag enabled for treatment group; first digests sent | Mar 9, 2026 |
 | A/B test end | 4-week test window closes | Apr 5, 2026 |
-| Analysis + decision | Experiment results analyzed; ship/iterate/kill decision | Apr 6–11, 2026 |
+| Analysis + decision | Experiment results analyzed; ship/iterate/kill decision | Apr 6 - 11, 2026 |
 
 ## Open Questions
 

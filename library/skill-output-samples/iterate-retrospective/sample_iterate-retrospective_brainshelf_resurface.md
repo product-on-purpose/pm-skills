@@ -51,7 +51,7 @@ contributed to the bug), (3) weekly eng/pm sync . IN PROGRESS.
 
 ## Overview
 
-**Period Covered:** Sprint 8 (Feb 3 – Feb 16, 2026)
+**Period Covered:** Sprint 8 (Feb 3  -  Feb 16, 2026)
 **Date Held:** February 19, 2026
 **Facilitator:** PM
 **Duration:** 60 minutes
@@ -166,7 +166,7 @@ Sprint 8 was the Resurface launch sprint. Resurface is the first major user-faci
 - Success criteria: CI pipeline includes notification scheduling tests; no merge to main can break the timezone assertion without a failing test.
 
 **Action 2: Pre-Send Dry-Run Mode**
-- What: Add a dry-run flag to the notification dispatch job. When `dry_run=true`, the job runs the full scheduling and template-rendering pipeline but routes output to a seed list of internal test users (5–10 people across US, UK, and CET timezones) rather than production. Output includes a preview of send times in each recipient's local timezone for human review.
+- What: Add a dry-run flag to the notification dispatch job. When `dry_run=true`, the job runs the full scheduling and template-rendering pipeline but routes output to a seed list of internal test users (5 - 10 people across US, UK, and CET timezones) rather than production. Output includes a preview of send times in each recipient's local timezone for human review.
 - Why: Provides a final human-visible check before any notification push reaches production users.
 - Success criteria: Dry-run mode is used for all future notification feature launches; no production push goes out without a dry-run sign-off from the PM.
 
@@ -185,9 +185,9 @@ Sprint 8 was the Resurface launch sprint. Resurface is the first major user-faci
 
 | Indicator | This Retro | Last Retro | Trend |
 |-----------|------------|------------|-------|
-| Team morale (1–5) | 3.8 [fictional] | 3.4 [fictional] | ↑ |
-| Process satisfaction (1–5) | 3.2 [fictional] | 3.5 [fictional] | ↓ |
-| Collaboration (1–5) | 4.1 [fictional] | 3.9 [fictional] | ↑ |
+| Team morale (1 - 5) | 3.8 [fictional] | 3.4 [fictional] | ↑ |
+| Process satisfaction (1 - 5) | 3.2 [fictional] | 3.5 [fictional] | ↓ |
+| Collaboration (1 - 5) | 4.1 [fictional] | 3.9 [fictional] | ↑ |
 
 *Morale up: the team is energized from shipping. Process satisfaction down: the timezone incident and the deferred-test miss left the team feeling the QA process is fragile.*
 

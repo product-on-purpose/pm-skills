@@ -377,7 +377,7 @@ Key topics: current email tool setup, how they chose it, what they use
 Storevine's built-in tools for (if anything), what would need to be true
 to switch, seasonal patterns.
 
-Date range: Jan 12 – Jan 28, 2026
+Date range: Jan 12  -  Jan 28, 2026
 Interviewer: UX researcher + growth PM
 ```
 
@@ -433,7 +433,7 @@ Research project: Blueprints discovery interviews -- documentation consistency a
 Product: Workbench (enterprise collaboration platform, Series B, ~500 enterprise customers [fictional])
 Feature under exploration: Blueprints -- reusable document templates with required sections and role-based approval gates
 
-Participants: 6 enterprise team leads interviewed over 3 weeks (Oct 6–24, 2025)
+Participants: 6 enterprise team leads interviewed over 3 weeks (Oct 6 - 24, 2025)
 - P1: VP Ops, financial services, 8,000 employees, Confluence customer
 - P2: Director of Compliance, healthcare SaaS, 2,200 employees, Confluence customer
 - P3: Head of Product, logistics platform, 1,500 employees, Notion customer

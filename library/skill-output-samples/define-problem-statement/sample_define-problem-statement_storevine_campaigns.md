@@ -70,7 +70,7 @@ Active Storevine merchants who send email marketing to their customer base . or 
 
 ### How are they affected?
 
-Merchants who use external email tools maintain a separate platform subscription ($20–$200/month depending on list size [fictional]), configure and maintain an API data sync between Storevine and their email tool, rebuild customer and order data as segment definitions inside the email platform, and manage support relationships with two separate vendors when either platform changes. Merchants who want to start email marketing but find external tools too complex to set up either abandon the attempt or post on social media instead . forgoing email's re-engagement revenue entirely.
+Merchants who use external email tools maintain a separate platform subscription ($20 - $200/month depending on list size [fictional]), configure and maintain an API data sync between Storevine and their email tool, rebuild customer and order data as segment definitions inside the email platform, and manage support relationships with two separate vendors when either platform changes. Merchants who want to start email marketing but find external tools too complex to set up either abandon the attempt or post on social media instead . forgoing email's re-engagement revenue entirely.
 
 ### Scale of impact
 

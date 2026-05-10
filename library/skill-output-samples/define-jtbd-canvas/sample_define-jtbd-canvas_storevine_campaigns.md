@@ -41,7 +41,7 @@ Job I want to map:
   setup, and data sync
 
 Research basis:
-- 8 merchant interviews (Jan 12–28, 2026) . direct quotes available
+- 8 merchant interviews (Jan 12 - 28, 2026) . direct quotes available
 - Competitive analysis (Feb 2026): Klaviyo used by ~40% of active
   merchants [fictional]; Mailchimp by ~20% [fictional]
 - Q4 exit survey: 22% churn cited "had to use a separate email tool"
@@ -63,7 +63,7 @@ inform v1 feature prioritization and GA messaging strategy.
 **Job Title:** Re-engage customers via email without adding another tool to manage
 **Date:** February 20, 2026
 **Author:** Growth PM, Storevine
-**Research Basis:** Eight merchant interviews (Jan 12–28, 2026); Q4 exit survey analysis; competitive analysis of email marketing tools (Feb 2026)
+**Research Basis:** Eight merchant interviews (Jan 12 - 28, 2026); Q4 exit survey analysis; competitive analysis of email marketing tools (Feb 2026)
 
 ---
 

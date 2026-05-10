@@ -96,7 +96,7 @@ and where the white space is for us.
 | Competitor | Free Tier | Premium | Pricing Model |
 |------------|-----------|---------|---------------|
 | Brainshelf | Yes (core save/read) | $4.99/mo [fictional] | Freemium |
-| Readwise | 30-day trial only | ~$8–10/mo | Subscription (no free tier) |
+| Readwise | 30-day trial only | ~$8 - 10/mo | Subscription (no free tier) |
 | Raindrop.io | Yes (core bookmarks) | $3/mo ($28/yr) | Freemium |
 | Pocket | Yes (core save) | ~$5/mo ($45/yr) | Freemium |
 | Instapaper | Yes (core save) | $3/mo ($30/yr) | Freemium |
@@ -141,7 +141,7 @@ and where the white space is for us.
 - Strong word-of-mouth among knowledge workers and the "Tools for Thought" community
 
 **Weaknesses:**
-- No free tier . the ~$8–10/month price point is a barrier for casual users and students; Readwise self-selects for power users and excludes the broader market
+- No free tier . the ~$8 - 10/month price point is a barrier for casual users and students; Readwise self-selects for power users and excludes the broader market
 - Resurfacing is highlight-dependent . users must annotate content before it can be resurfaced; users who save but don't highlight (the majority of read-later users) get limited value from the review mechanism
 - Reader (the read-later product) is complex and feature-dense; onboarding friction is high for users who just want to save and revisit articles
 
@@ -229,7 +229,7 @@ and where the white space is for us.
 ## Strategic Recommendations
 
 ### Where to Compete Head-On
-1. **Daily email resurfacing** . match Readwise's core mechanic (daily email surfacing saved content) but make it accessible: available on the free tier with a 3-item limit [fictional], expanded to 5 items on Premium. Readwise's ~$8–10/month paywall is the vulnerability.
+1. **Daily email resurfacing** . match Readwise's core mechanic (daily email surfacing saved content) but make it accessible: available on the free tier with a 3-item limit [fictional], expanded to 5 items on Premium. Readwise's ~$8 - 10/month paywall is the vulnerability.
 2. **Mobile reading experience** . match Instapaper's clean reading UX for saved articles; the reading experience is the moment of value delivery for resurfaced content.
 
 ### Where to Differentiate

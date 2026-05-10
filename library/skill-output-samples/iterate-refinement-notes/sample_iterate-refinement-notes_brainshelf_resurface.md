@@ -62,7 +62,7 @@ duplicate).
 | **Date** | April 15, 2026, 2:00 PM |
 | **Duration** | 45 minutes |
 | **Facilitator** | Priya M. |
-| **Sprint Preparing For** | Sprint 9 (April 21 – May 2, 2026) |
+| **Sprint Preparing For** | Sprint 9 (April 21  -  May 2, 2026) |
 
 ### Attendees
 
@@ -99,7 +99,7 @@ duplicate).
 **Discussion Notes:**
 - Alex presented the migration plan: replace the TF-IDF vectorization pipeline with OpenAI `text-embedding-3-small` embeddings for saved item similarity scoring. The spike showed embeddings achieve ~84% precision vs. ~72% for TF-IDF [fictional], which would address the "irrelevant items" feedback from the post-test survey.
 - The migration is a backend change only . no frontend or email template changes required. Existing TF-IDF vectors would be replaced with 1536-dimensional embedding vectors stored in the same PostgreSQL JSONB column.
-- The batch re-embedding of all ~460K existing saved items [fictional] is estimated at $15–25 one-time cost [fictional] plus ~$2–5/month ongoing for new saves [fictional]. Alex needs an OpenAI API key and budget approval from Marco before starting.
+- The batch re-embedding of all ~460K existing saved items [fictional] is estimated at $15 - 25 one-time cost [fictional] plus ~$2 - 5/month ongoing for new saves [fictional]. Alex needs an OpenAI API key and budget approval from Marco before starting.
 - Jess raised a concern about API latency: if OpenAI's embedding endpoint is slow or down, the digest generation cron job could be delayed. Alex proposed a fallback to TF-IDF if the embedding call fails, which adds complexity but ensures reliability.
 
 **Scope Changes:**
@@ -175,9 +175,9 @@ duplicate).
 | **Assignee** | Chloe B. (data analysis) |
 
 **Discussion Notes:**
-- Users with fewer than 20 saved items exhaust the candidate pool quickly under the 14-day exclusion window. After 2 weeks, all items have been resurfaced and the digest starts skipping days. The A/B test showed that light savers (10–49 items) had the smallest return rate lift (+3.8pp [fictional], not statistically significant), which may be partly due to pool exhaustion.
-- Alex proposed shortening the exclusion window for small libraries: 7 days instead of 14 for users with <20 items, 10 days for 20–50 items. Priya asked Chloe to pull data on how many users are in the <20 segment and how often their digests are being skipped before committing to a specific threshold.
-- The team discussed whether to reduce the digest item count for small libraries (e.g., 2 items instead of 3–5) but decided to defer that decision until after seeing Chloe's data.
+- Users with fewer than 20 saved items exhaust the candidate pool quickly under the 14-day exclusion window. After 2 weeks, all items have been resurfaced and the digest starts skipping days. The A/B test showed that light savers (10 - 49 items) had the smallest return rate lift (+3.8pp [fictional], not statistically significant), which may be partly due to pool exhaustion.
+- Alex proposed shortening the exclusion window for small libraries: 7 days instead of 14 for users with <20 items, 10 days for 20 - 50 items. Priya asked Chloe to pull data on how many users are in the <20 segment and how often their digests are being skipped before committing to a specific threshold.
+- The team discussed whether to reduce the digest item count for small libraries (e.g., 2 items instead of 3 - 5) but decided to defer that decision until after seeing Chloe's data.
 
 **Scope Changes:**
 - Story not yet scoped . waiting on data analysis
@@ -209,7 +209,7 @@ duplicate).
 ### Question Details
 
 **Q: What's the minimum library size where TF-IDF produces useful relevance results?**
-- Context: Users with very small libraries (10–15 items) may receive digests where the "most relevant" items are barely above the threshold. If TF-IDF precision drops below a useful level for small libraries, the team should either exclude these users from the digest or apply a different selection strategy.
+- Context: Users with very small libraries (10 - 15 items) may receive digests where the "most relevant" items are barely above the threshold. If TF-IDF precision drops below a useful level for small libraries, the team should either exclude these users from the digest or apply a different selection strategy.
 - Impact: RSF-013 (small-library handling) is blocked until this is answered.
 - Notes: Chloe will re-run the spike benchmark for a simulated 15-item library to measure precision at small scale.
 
@@ -247,7 +247,7 @@ duplicate).
 
 ## Parking Lot
 
-- **Weekly summary email:** Jordan L. (absent) had previously suggested a weekly digest variant that summarizes the week's reading activity and surfaces 5–7 items. Deferred to Sprint 10 or later; the cadence experiment (RSF-012) should complete first to inform whether lower frequency is viable.
+- **Weekly summary email:** Jordan L. (absent) had previously suggested a weekly digest variant that summarizes the week's reading activity and surfaces 5 - 7 items. Deferred to Sprint 10 or later; the cadence experiment (RSF-012) should complete first to inform whether lower frequency is viable.
 - **"Not interested" feedback loop:** Allowing users to mark a resurfaced item as "not interested" to improve future relevance. Deferred because it requires a new interaction in the email and in the app; prioritize after embedding migration improves baseline relevance.
 
 ---

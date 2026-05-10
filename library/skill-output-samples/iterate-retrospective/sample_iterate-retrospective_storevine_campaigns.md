@@ -30,7 +30,7 @@ Nine days after Campaigns GA (April 28, 2026), Storevine's growth PM facilitated
 /retrospective
 
 Sprint: Campaigns v1.0 build sprint + GA week
-Period: February 3 – May 5, 2026 [fictional]
+Period: February 3  -  May 5, 2026 [fictional]
 Date held: May 7, 2026
 Format: Start / Stop / Continue
 Duration: 90 minutes [fictional]
@@ -68,7 +68,7 @@ Need: full sprint retrospective with action items.
 
 ## Overview
 
-**Period Covered:** February 3 – May 5, 2026 (13-week Campaigns build sprint and GA week) [fictional]
+**Period Covered:** February 3  -  May 5, 2026 (13-week Campaigns build sprint and GA week) [fictional]
 **Date Held:** May 7, 2026
 **Facilitator:** Growth PM
 **Duration:** 90 minutes [fictional]
@@ -85,7 +85,7 @@ Need: full sprint retrospective with action items.
 
 ### Context
 
-The Campaigns v1.0 build sprint closed with a clean GA on April 28, 2026, and a full GA week (April 28 – May 5) with zero rollback events. This retrospective covers the 13-week build sprint, the pre-GA launch checklist execution, and the first 7 days of merchant activity . including the initial feature flag rollout (10% → 25% → 50% → 100% over 6 days [fictional]), the first merchant sends, and the GA-week Merchant Success ticket volume. The A/B test launched on GA day and is running; this retro does not cover experiment results (which will not be available for 60 days).
+The Campaigns v1.0 build sprint closed with a clean GA on April 28, 2026, and a full GA week (April 28  -  May 5) with zero rollback events. This retrospective covers the 13-week build sprint, the pre-GA launch checklist execution, and the first 7 days of merchant activity . including the initial feature flag rollout (10% → 25% → 50% → 100% over 6 days [fictional]), the first merchant sends, and the GA-week Merchant Success ticket volume. The A/B test launched on GA day and is running; this retro does not cover experiment results (which will not be available for 60 days).
 
 ---
 
@@ -126,7 +126,7 @@ The Campaigns v1.0 build sprint closed with a clean GA on April 28, 2026, and a 
 ### Challenges Faced
 
 - Legal review started 3 weeks before GA instead of the intended 6 weeks; the CAN-SPAM compliance architecture sign-off was not received until April 14 [fictional], which was 14 days before GA and 2 weeks after marketing needed the compliance copy finalized for the blog post, email campaign, and in-app banner
-- DMARC/SPF/DKIM setup took 5 business days instead of the 1 day estimated [fictional]; DNS propagation delays (24–72 hours per record, multiple records required) were discovered during implementation rather than during sprint planning, and the setup nearly missed its April 21 launch gate deadline
+- DMARC/SPF/DKIM setup took 5 business days instead of the 1 day estimated [fictional]; DNS propagation delays (24 - 72 hours per record, multiple records required) were discovered during implementation rather than during sprint planning, and the setup nearly missed its April 21 launch gate deadline
 - The Klaviyo partner notice email . required 48 hours before the GA announcement . was sent on GA day itself (April 28 [fictional]) instead of April 26; the launch checklist item had no explicitly assigned owner, and it was picked up by Growth PM only after the GA announcement draft was already in review
 
 ### Process Pain Points
@@ -162,7 +162,7 @@ For any feature with compliance implications (user data collection, external com
 ### DMARC/SPF/DKIM Setup and Infrastructure Estimation
 
 **What was discussed:**
-The Platform Squad estimated DMARC/SPF/DKIM setup at 1 day [fictional] based on previous experience with shared sending infrastructure on the Storevine platform. Dedicated sending domain setup proved to be significantly more complex: it required creating multiple DNS records (SPF TXT record, DKIM CNAME records, DMARC TXT record), waiting 24–72 hours for each record type to propagate before verification, and then iterating when Google's authentication checker reported partial failures due to subdomain configuration. Total elapsed time was 5 business days [fictional], with setup beginning on April 14 and completing April 21 . the launch gate deadline.
+The Platform Squad estimated DMARC/SPF/DKIM setup at 1 day [fictional] based on previous experience with shared sending infrastructure on the Storevine platform. Dedicated sending domain setup proved to be significantly more complex: it required creating multiple DNS records (SPF TXT record, DKIM CNAME records, DMARC TXT record), waiting 24 - 72 hours for each record type to propagate before verification, and then iterating when Google's authentication checker reported partial failures due to subdomain configuration. Total elapsed time was 5 business days [fictional], with setup beginning on April 14 and completing April 21 . the launch gate deadline.
 
 **Root cause identified:**
 This was the first time the Platform Squad had provisioned a dedicated sending domain. The team had experience with shared infrastructure but not with DNS-level configuration for email authentication. DNS propagation windows were not in the standard sprint estimation checklist, and there was no runbook to reference.
@@ -207,9 +207,9 @@ Engineering Lead will document a DMARC/SPF/DKIM setup runbook covering the full 
 
 | Indicator | This Retro | Last Retro | Trend |
 |-----------|------------|------------|-------|
-| Team morale (1–5) [fictional] | 4.2 | 3.8 | ↑ |
-| Process satisfaction (1–5) [fictional] | 3.6 | 3.4 | ↑ |
-| Collaboration (1–5) [fictional] | 4.5 | 4.1 | ↑ |
+| Team morale (1 - 5) [fictional] | 4.2 | 3.8 | ↑ |
+| Process satisfaction (1 - 5) [fictional] | 3.6 | 3.4 | ↑ |
+| Collaboration (1 - 5) [fictional] | 4.5 | 4.1 | ↑ |
 
 ### Recurring Themes
 

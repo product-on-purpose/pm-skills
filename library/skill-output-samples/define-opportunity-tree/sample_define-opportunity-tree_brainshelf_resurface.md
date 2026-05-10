@@ -19,7 +19,7 @@ Brainshelf's PM built an opportunity solution tree mapping three user-facing opp
 **Source Notes:**
 
 - Teresa Torres, "Continuous Discovery Habits" (producttalk.org) . the opportunity solution tree framework applied in this document; Torres's methodology structures product discovery around a measurable outcome, user-derived opportunities, solution options, and assumption tests, ensuring that solution selection is evidence-driven rather than opinion-driven.
-- Lenny Rachitsky's consumer app retention benchmarks (Lenny's Newsletter, 2023) . 7-day return rate benchmarks for consumer utility apps; placed Brainshelf's 18% baseline [fictional] below the 25–35% median range and informed the 25% [fictional] target as the minimum viable improvement.
+- Lenny Rachitsky's consumer app retention benchmarks (Lenny's Newsletter, 2023) . 7-day return rate benchmarks for consumer utility apps; placed Brainshelf's 18% baseline [fictional] below the 25 - 35% median range and informed the 25% [fictional] target as the minimum viable improvement.
 - Amplitude, "North Star Metric" (amplitude.com/blog/north-star-metric) . the framework used to select 7-day return rate as the North Star metric for the tree; return rate measures the specific behavior (coming back to read) that the Resurface feature is designed to create, making it more actionable than DAU or MAU for this outcome.
 
 ---
@@ -63,7 +63,7 @@ want to prioritize opp 1 / email digest based on competitive analysis
 
 ### Why This Outcome Matters
 
-The 7-day return rate is the strongest leading indicator of long-term retention for Brainshelf. Users who return within 7 days of their last session are 3.2x more likely to retain at 90 days compared to users who do not [fictional]. The current 18% rate [fictional] places Brainshelf below the 25–35% median for consumer utility apps. Improving return rate is the Q1 retention OKR and the primary metric the CEO has identified for the next investor update (Q2 2026 [fictional]). Without a product intervention that moves this metric, the retention trajectory does not support the planned fundraise.
+The 7-day return rate is the strongest leading indicator of long-term retention for Brainshelf. Users who return within 7 days of their last session are 3.2x more likely to retain at 90 days compared to users who do not [fictional]. The current 18% rate [fictional] places Brainshelf below the 25 - 35% median for consumer utility apps. Improving return rate is the Q1 retention OKR and the primary metric the CEO has identified for the next investor update (Q2 2026 [fictional]). Without a product intervention that moves this metric, the retention trajectory does not support the planned fundraise.
 
 ---
 
@@ -107,13 +107,13 @@ digest  notif.  ness    archive tagging collect.
 #### Solutions
 
 **Solution 1A: Morning Email Digest (Resurface)**
-- Description: Daily morning email at 7:30 AM local time surfacing 3–5 saved items matched to the user's recent reading topics. Requires email opt-in. Items selected by topic similarity to content saved in the prior 7 days.
+- Description: Daily morning email at 7:30 AM local time surfacing 3 - 5 saved items matched to the user's recent reading topics. Requires email opt-in. Items selected by topic similarity to content saved in the prior 7 days.
 - Effort: M (email infrastructure + topic-matching algorithm + opt-in flow; 4-week build sprint [fictional])
 - Riskiest Assumption: Users will opt in to a daily email from Brainshelf at a rate sufficient to power a 4-week A/B experiment (≥10% opt-in [fictional])
 - Assumption Test: Track opt-in rate in the first 7 days after the prompt goes live; if below 10% [fictional], extend the enrollment window or test a less frequent cadence (3x/week)
 
 **Solution 1B: In-App Notification Card**
-- Description: A card shown at the top of the Brainshelf home screen when the user opens the app, surfacing 1–3 saved items. No email required; trigger depends on the user opening the app.
+- Description: A card shown at the top of the Brainshelf home screen when the user opens the app, surfacing 1 - 3 saved items. No email required; trigger depends on the user opening the app.
 - Effort: S (simpler implementation; no email infrastructure needed)
 - Riskiest Assumption: Users open the app frequently enough for the card to be seen; if users only open the app to save (which is the current behavior), the card will not reach them at the moment of reading availability
 - Assumption Test: Measure how many of the target segment open the Brainshelf home screen at least once per week without a save event triggering the visit; if fewer than 20% [fictional], the in-app card cannot reach most of the target
@@ -187,7 +187,7 @@ digest  notif.  ness    archive tagging collect.
 | Rank | Opportunity | Impact | Confidence | Effort | Score |
 |------|-------------|--------|------------|--------|-------|
 | 1 | Re-engagement trigger gap | High | High | M | Strong |
-| 2 | Library overwhelm | Medium | Medium | M–L | Moderate |
+| 2 | Library overwhelm | Medium | Medium | M - L | Moderate |
 | 3 | Content relevance decay | Medium | Medium | M | Moderate |
 
 ### Parking Lot

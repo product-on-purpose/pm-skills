@@ -239,7 +239,7 @@ Key topics: current email tool setup, how they chose it, what they use
 Storevine's built-in tools for (if anything), what would need to be true
 to switch, seasonal patterns.
 
-Date range: Jan 12 – Jan 28, 2026
+Date range: Jan 12  -  Jan 28, 2026
 Interviewer: UX researcher + growth PM
 ```
 
@@ -365,7 +365,7 @@ Hypothesis I want to define:
   [fictional] within 60 days of GA
 
 Prior work to reference:
-- Merchant interview synthesis (Jan 12–28, 2026): P3, P6, and P8 described
+- Merchant interview synthesis (Jan 12 - 28, 2026): P3, P6, and P8 described
   email as "too overwhelming to start" or perennially "on the list"
 - Competitive analysis (Feb 2026): Shopify Email's template-first + free
   tier activation is their primary new-merchant onboarding lever
@@ -452,7 +452,7 @@ Job I want to map:
   setup, and data sync
 
 Research basis:
-- 8 merchant interviews (Jan 12–28, 2026) . direct quotes available
+- 8 merchant interviews (Jan 12 - 28, 2026) . direct quotes available
 - Competitive analysis (Feb 2026): Klaviyo used by ~40% of active
   merchants [fictional]; Mailchimp by ~20% [fictional]
 - Q4 exit survey: 22% churn cited "had to use a separate email tool"
@@ -898,7 +898,7 @@ Variants:
 Sample: ~6,800 eligible non-adopter merchants [fictional]; need enough
   per variant to detect a 8 pp improvement with 80% power
 
-Run period: April 28 – June 27, 2026 (60 days from GA)
+Run period: April 28  -  June 27, 2026 (60 days from GA)
 
 Need: full experiment design with sample size calculation, success
 criteria, risks, and implementation notes.
@@ -1013,7 +1013,7 @@ visualizations, filters, data sources, and acceptance criteria.
 /experiment-results
 
 Experiment: Campaigns guided first-campaign flow A/B test
-Ran: April 28 – June 27, 2026 (60 days from GA)
+Ran: April 28  -  June 27, 2026 (60 days from GA)
 
 Results:
 - Control (blank canvas): 13.4% first-send rate, N=1,204 merchants [fictional]
@@ -1057,7 +1057,7 @@ for stakeholder review and decision record.
 /retrospective
 
 Sprint: Campaigns v1.0 build sprint + GA week
-Period: February 3 – May 5, 2026 [fictional]
+Period: February 3  -  May 5, 2026 [fictional]
 Date held: May 7, 2026
 Format: Start / Stop / Continue
 Duration: 90 minutes [fictional]
@@ -1108,7 +1108,7 @@ Need: full sprint retrospective with action items.
 /lessons-log
 
 Lesson from: Campaigns guided first-campaign flow A/B test
-Experiment ran: April 28 – June 27, 2026 (60 days from GA)
+Experiment ran: April 28  -  June 27, 2026 (60 days from GA)
 Decision: Ship guided flow as default for all non-adopter merchants
 
 Primary finding:

@@ -65,7 +65,7 @@ want to have the design doc locked before the setup week (mar 2-8).
 
 ## Hypothesis
 
-**We believe** offering a daily morning email digest of 3–5 topic-matched saved items
+**We believe** offering a daily morning email digest of 3 - 5 topic-matched saved items
 
 **for** active savers (users with 10+ saved items, active in the last 30 days)
 
@@ -75,7 +75,7 @@ want to have the design doc locked before the setup week (mar 2-8).
 
 ## Background
 
-Brainshelf's 7-day return rate is 18% [fictional], below the 25–35% median for consumer utility apps and below the Q1 retention OKR target of 25% [fictional]. The January 2026 user interviews identified the absence of an external return trigger as the primary barrier to re-engagement: users save content but never come back because nothing prompts them to. The Resurface feature creates a daily email trigger that delivers relevant saved items to the user's inbox at 7:30 AM local time. The feature was shipped behind a feature flag on February 16, 2026, and this experiment will determine whether the digest meaningfully improves return rates before a full rollout.
+Brainshelf's 7-day return rate is 18% [fictional], below the 25 - 35% median for consumer utility apps and below the Q1 retention OKR target of 25% [fictional]. The January 2026 user interviews identified the absence of an external return trigger as the primary barrier to re-engagement: users save content but never come back because nothing prompts them to. The Resurface feature creates a daily email trigger that delivers relevant saved items to the user's inbox at 7:30 AM local time. The feature was shipped behind a feature flag on February 16, 2026, and this experiment will determine whether the digest meaningfully improves return rates before a full rollout.
 
 ## Variants
 
@@ -93,7 +93,7 @@ Brainshelf's 7-day return rate is 18% [fictional], below the 25–35% median for
 
 ### Treatment (B)
 
-**Description:** Users see the Resurface opt-in card on their home screen and can enable the daily digest. Opted-in users receive a daily email at 7:30 AM local time with 3–5 topic-matched saved items. Users who do not opt in remain in the treatment group for analysis purposes (intent-to-treat) but do not receive emails.
+**Description:** Users see the Resurface opt-in card on their home screen and can enable the daily digest. Opted-in users receive a daily email at 7:30 AM local time with 3 - 5 topic-matched saved items. Users who do not opt in remain in the treatment group for analysis purposes (intent-to-treat) but do not receive emails.
 
 **Details:**
 - Resurface opt-in card displayed on the home screen
@@ -185,7 +185,7 @@ The treatment is considered a loss if the 7-day return rate in the treatment gro
 
 ### Inconclusive (More Data Needed)
 
-The result is considered inconclusive if the treatment shows a positive trend (2–4pp lift) that does not reach statistical significance at p < 0.05 after 4 weeks. In this case, the team may extend the experiment to 6 weeks to accumulate more data, or increase the sample size by enrolling additional users from the eligible pool.
+The result is considered inconclusive if the treatment shows a positive trend (2 - 4pp lift) that does not reach statistical significance at p < 0.05 after 4 weeks. In this case, the team may extend the experiment to 6 weeks to accumulate more data, or increase the sample size by enrolling additional users from the eligible pool.
 
 ## Risks & Mitigations
 

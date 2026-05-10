@@ -19,7 +19,7 @@ After synthesizing the January 2026 user interviews, Brainshelf's PM formalized 
 **Source Notes:**
 
 - Nir Eyal, "Hooked: How to Build Habit-Forming Products" (nirandfar.com) . the habit formation framework that contextualizes the return-trigger gap; Eyal's hook model identifies an external trigger as the minimum requirement for habit formation in products where the internal trigger (self-motivation) is insufficiently established.
-- Lenny Rachitsky's consumer app retention benchmarks (Lenny's Newsletter, 2023) . 30-day retention benchmarks for consumer utility apps place typical retention at 25–35%; Brainshelf's 7-day return rate of 18% [fictional] falls below this range, confirming the re-engagement gap is a retention risk, not a normal usage pattern.
+- Lenny Rachitsky's consumer app retention benchmarks (Lenny's Newsletter, 2023) . 30-day retention benchmarks for consumer utility apps place typical retention at 25 - 35%; Brainshelf's 7-day return rate of 18% [fictional] falls below this range, confirming the re-engagement gap is a retention risk, not a normal usage pattern.
 - Brainshelf interview synthesis (internal, January 2026) . the qualitative evidence base for the guilt pile problem; 5 of 7 interview participants described their saved library in negative emotional terms.
 
 ---
@@ -74,7 +74,7 @@ Brainshelf's Q1 2026 retention OKR targets increasing the 7-day return rate from
 
 ### Business Impact
 
-- 7-day return rate of 18% [fictional] is below the 25–35% median for consumer utility apps (per Lenny Rachitsky's benchmarks); closing this gap would move Brainshelf from below-median to median retention performance
+- 7-day return rate of 18% [fictional] is below the 25 - 35% median for consumer utility apps (per Lenny Rachitsky's benchmarks); closing this gap would move Brainshelf from below-median to median retention performance
 - 30-day retention is approximately 12% [fictional]; users who do not form a return habit within the first 30 days are unlikely to retain at 60 or 90 days
 - The guilt pile contributes to passive churn: users do not actively cancel, but they stop engaging and eventually leave; monthly churn among save-only users is 8% [fictional] vs. 3% [fictional] among users who both save and read
 

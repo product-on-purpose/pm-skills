@@ -18,7 +18,7 @@ With the merchant interview synthesis and competitive analysis complete, Storevi
 
 **Source Notes:**
 
-- Recurly Research (recurly.com) documents median annual churn rates for B2B SaaS at 5–7% for enterprise and 10–15% for SMB, establishing the benchmark against which Storevine's 22% [fictional] annual churn rate indicates significant retention opportunity relative to the category.
+- Recurly Research (recurly.com) documents median annual churn rates for B2B SaaS at 5 - 7% for enterprise and 10 - 15% for SMB, establishing the benchmark against which Storevine's 22% [fictional] annual churn rate indicates significant retention opportunity relative to the category.
 - Teresa Torres, Continuous Discovery Habits (Product Talk LLC, 2021) . establishes the opportunity-solution tree as the canonical method for organizing product opportunities against a business outcome, separating opportunities (customer problems) from solutions (what to build) to avoid premature solution commitment.
 - Shopify's FY2023 Annual Report identifies merchant solutions . including Shopify Email . as a primary platform retention lever, validating the strategic logic that native tooling reduces the pull toward external alternatives and tightens platform retention.
 
@@ -69,7 +69,7 @@ branch, prioritization, and experiments backlog for Q2 planning.
 
 ### Why This Outcome Matters
 
-At ~18,000 active merchants [fictional] and an average merchant lifetime value of $3,200 [fictional], each percentage-point reduction in annual churn represents approximately $576,000 [fictional] in retained annual revenue. The Q4 exit survey identified tool fragmentation . merchants being required to use external tools for capabilities they expect the platform to provide . as the top-three churn driver, making this outcome directly actionable through product investment. Recurly Research benchmarks place median SMB SaaS annual churn at 10–15%; at 22% [fictional], Storevine is operating significantly above category, confirming that retention improvement is the highest-leverage investment available.
+At ~18,000 active merchants [fictional] and an average merchant lifetime value of $3,200 [fictional], each percentage-point reduction in annual churn represents approximately $576,000 [fictional] in retained annual revenue. The Q4 exit survey identified tool fragmentation . merchants being required to use external tools for capabilities they expect the platform to provide . as the top-three churn driver, making this outcome directly actionable through product investment. Recurly Research benchmarks place median SMB SaaS annual churn at 10 - 15%; at 22% [fictional], Storevine is operating significantly above category, confirming that retention improvement is the highest-leverage investment available.
 
 ---
 
@@ -157,7 +157,7 @@ At ~18,000 active merchants [fictional] and an average merchant lifetime value o
 
 ### Opportunity 3: Merchants perceive the Storevine subscription as insufficient value relative to their total tool stack cost
 
-**Description:** Merchants who pay for Storevine plus Klaviyo plus additional plugins accumulate a total SaaS spend that can reach $300–$500/month [fictional]. For merchants who do not perceive Storevine as delivering email, analytics, or other capabilities natively, the question of whether the Storevine subscription is justified relative to its cost becomes a recurring churn signal. This opportunity is less directly supported by interview data and more inferred from the churn signal pattern.
+**Description:** Merchants who pay for Storevine plus Klaviyo plus additional plugins accumulate a total SaaS spend that can reach $300 - $500/month [fictional]. For merchants who do not perceive Storevine as delivering email, analytics, or other capabilities natively, the question of whether the Storevine subscription is justified relative to its cost becomes a recurring churn signal. This opportunity is less directly supported by interview data and more inferred from the churn signal pattern.
 **Impact Potential:** Medium
 **Confidence:** Medium
 
@@ -175,7 +175,7 @@ At ~18,000 active merchants [fictional] and an average merchant lifetime value o
 - Assumption Test: Merchant value perception survey with 50 merchants [fictional] before and after Campaigns GA announcement; measure whether free pricing changes stated intent to activate
 
 **Solution 3B: App marketplace depth . identify and fill top external tool dependency gaps natively**
-- Description: Audit external tools used by churned merchants to identify the 3–5 most common dependencies beyond email; build or partner to provide native or deeply integrated alternatives within the Storevine platform
+- Description: Audit external tools used by churned merchants to identify the 3 - 5 most common dependencies beyond email; build or partner to provide native or deeply integrated alternatives within the Storevine platform
 - Effort: XL
 - Riskiest Assumption: Merchants are churning because of tool stack cost and fragmentation broadly . not because of any specific feature gap . and that a platform comprehensiveness strategy will outperform point-solution investments
 - Assumption Test: Churned-merchant exit interview cohort (20 merchants [fictional]) to map external tool dependencies and identify whether a consolidation message would have changed the cancellation decision

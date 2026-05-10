@@ -336,7 +336,7 @@ Hypothesis I want to define:
   [fictional] within 60 days of GA
 
 Prior work to reference:
-- Merchant interview synthesis (Jan 12–28, 2026): P3, P6, and P8 described
+- Merchant interview synthesis (Jan 12 - 28, 2026): P3, P6, and P8 described
   email as "too overwhelming to start" or perennially "on the list"
 - Competitive analysis (Feb 2026): Shopify Email's template-first + free
   tier activation is their primary new-merchant onboarding lever

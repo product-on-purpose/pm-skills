@@ -72,7 +72,7 @@ The Campaigns campaign send flow covers the full creation and send path: audienc
 |----------|------------------|----------|-------|
 | Subject line is empty | Block send; show inline error "Add a subject line . recipients see this first" | P1 | Required by CAN-SPAM (honest subject line mandate) |
 | Subject line contains only whitespace | Treat as empty; block send with same error as empty | P2 | Whitespace-only values must not bypass the empty check |
-| Subject line exceeds 150 characters | Show character count warning at 100 characters; block save at 151 | P2 | Most email clients display 60–70 characters; 150 is the Campaigns max |
+| Subject line exceeds 150 characters | Show character count warning at 100 characters; block save at 151 | P2 | Most email clients display 60 - 70 characters; 150 is the Campaigns max |
 | Email body is blank | Block send; show inline error "Add content to your campaign before sending" | P1 | Empty HTML template is not a valid send |
 | Email body contains only whitespace or empty HTML tags | Treat as empty; block send with same error as blank body | P2 | Strip whitespace before validation |
 | Recipient audience has zero matching customers | Block send; show error "Your audience has no recipients. Choose a different segment." | P1 | Occurs when a named segment or custom filter matches no current customers |
@@ -85,7 +85,7 @@ The Campaigns campaign send flow covers the full creation and send path: audienc
 | Audience size is 1 customer | Allow send; no minimum recipient count enforced in v1 | P2 | Confirm no bulk-send rate restrictions apply at this volume |
 | Free tier monthly send limit exactly reached (10,000 sends used [fictional]) | Block send; show pre-send error "You've reached your 10,000 free sends for this month [fictional]. Upgrade to continue sending." | P1 | Block must fire before the SendGrid API call is made |
 | Campaign audience exceeds remaining free tier sends (e.g., 200 recipients remaining, audience of 500) | Block send; show error with remaining count "You have 200 [fictional] free sends remaining this month . this campaign would send to 500. Reduce your audience or upgrade your plan." | P1 | Partial sends are not permitted; the entire campaign must be within the available send quota |
-| Subject line is exactly 150 characters | Allow send; display character count warning but do not block | P2 | Warning copy: "Your subject line is at the 150-character limit. Most email clients show 60–70 characters." |
+| Subject line is exactly 150 characters | Allow send; display character count warning but do not block | P2 | Warning copy: "Your subject line is at the 150-character limit. Most email clients show 60 - 70 characters." |
 | Campaign is scheduled at exactly midnight on the first day of a new billing month | Campaign should use the send quota for the month in which it is sent, not the month in which it was scheduled | P2 | Edge case for scheduled send (future feature); document for when scheduling ships |
 
 ### Error States

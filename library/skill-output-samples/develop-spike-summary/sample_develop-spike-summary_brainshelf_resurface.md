@@ -70,7 +70,7 @@ feature sticks.
 
 ## Background
 
-The Resurface feature requires a mechanism to select 3–5 saved items for each user's daily digest email. The items must be relevant to the user's recent reading interests . not random, not chronological, and not repetitive. The January 2026 user interviews identified irrelevant suggestions as one of the primary reasons users ignore recommendation-style features ("If it showed me random stuff I saved six months ago, I'd unsubscribe immediately" . P3 [fictional]). The team set a 70% precision target as the minimum acceptable accuracy: at least 7 out of 10 surfaced items should be rated "relevant" by the user, meaning the algorithm must do meaningfully better than random selection but does not need to achieve the precision of a full recommendation engine. The spike was scoped to answer whether this target is achievable within the team's current capabilities and infrastructure constraints (no ML infrastructure, no GPU, pre-Series A budget).
+The Resurface feature requires a mechanism to select 3 - 5 saved items for each user's daily digest email. The items must be relevant to the user's recent reading interests . not random, not chronological, and not repetitive. The January 2026 user interviews identified irrelevant suggestions as one of the primary reasons users ignore recommendation-style features ("If it showed me random stuff I saved six months ago, I'd unsubscribe immediately" . P3 [fictional]). The team set a 70% precision target as the minimum acceptable accuracy: at least 7 out of 10 surfaced items should be rated "relevant" by the user, meaning the algorithm must do meaningfully better than random selection but does not need to achieve the precision of a full recommendation engine. The spike was scoped to answer whether this target is achievable within the team's current capabilities and infrastructure constraints (no ML infrastructure, no GPU, pre-Series A budget).
 
 ## Approach
 
@@ -112,12 +112,12 @@ TF-IDF vectorization with cosine similarity correctly identified relevant items 
 
 ### Finding 3: OpenAI Embeddings Achieve ~84% Precision . Highest Accuracy but Adds External Dependency
 
-Embedding similarity using `text-embedding-3-small` achieved approximately 84% precision [fictional], meaningfully outperforming TF-IDF. The embedding approach handles vocabulary mismatch well (the "machine learning" / "AI" / "neural networks" problem) because embeddings encode semantic meaning rather than lexical overlap. However, the approach introduces three new constraints: (1) an external API dependency . if the OpenAI API is down, digest generation fails; (2) a per-call cost of approximately $0.02 per 1M tokens, which at Brainshelf's scale would be roughly $15–25/month for initial embedding generation plus $2–5/month for ongoing new-save embeddings [fictional]; and (3) a latency overhead of ~200ms per API call for embedding generation [fictional], which is acceptable for batch processing but adds complexity to the save-time pipeline if embeddings are generated synchronously.
+Embedding similarity using `text-embedding-3-small` achieved approximately 84% precision [fictional], meaningfully outperforming TF-IDF. The embedding approach handles vocabulary mismatch well (the "machine learning" / "AI" / "neural networks" problem) because embeddings encode semantic meaning rather than lexical overlap. However, the approach introduces three new constraints: (1) an external API dependency . if the OpenAI API is down, digest generation fails; (2) a per-call cost of approximately $0.02 per 1M tokens, which at Brainshelf's scale would be roughly $15 - 25/month for initial embedding generation plus $2 - 5/month for ongoing new-save embeddings [fictional]; and (3) a latency overhead of ~200ms per API call for embedding generation [fictional], which is acceptable for batch processing but adds complexity to the save-time pipeline if embeddings are generated synchronously.
 
 **Evidence:**
 - Benchmark precision: 82%, 86%, 83% across the three libraries (mean: 83.7% [fictional])
 - False negative rate: 11% [fictional] . the lowest of the three approaches
-- Cost estimate: ~$15–25 one-time for embedding 150K existing saved items [fictional]; ~$2–5/month ongoing for new saves [fictional]
+- Cost estimate: ~$15 - 25 one-time for embedding 150K existing saved items [fictional]; ~$2 - 5/month ongoing for new saves [fictional]
 - API latency: ~200ms per embedding call [fictional]; batch generation of a 300-item library takes ~60 seconds [fictional]
 
 ## Recommendation
@@ -158,8 +158,8 @@ The 12-point precision gap between TF-IDF (72% [fictional]) and embeddings (84% 
 
 | Action | Owner | Timeline |
 |--------|-------|----------|
-| Port TF-IDF prototype from Python to TypeScript | Alex R. | Sprint 8, week 1 (Feb 3–7, 2026) |
-| Build text extraction pipeline with Cheerio + OG fallback | Jess T. | Sprint 8, week 1 (Feb 3–7, 2026) |
-| Run batch migration to pre-compute vectors for existing saved items | Alex R. | Sprint 8, week 2 (Feb 10–14, 2026) |
-| Define relevance score threshold and digest selection rules | Priya M. + Alex R. | Sprint 8, week 1 (Feb 3–7, 2026) |
+| Port TF-IDF prototype from Python to TypeScript | Alex R. | Sprint 8, week 1 (Feb 3 - 7, 2026) |
+| Build text extraction pipeline with Cheerio + OG fallback | Jess T. | Sprint 8, week 1 (Feb 3 - 7, 2026) |
+| Run batch migration to pre-compute vectors for existing saved items | Alex R. | Sprint 8, week 2 (Feb 10 - 14, 2026) |
+| Define relevance score threshold and digest selection rules | Priya M. + Alex R. | Sprint 8, week 1 (Feb 3 - 7, 2026) |
 | Evaluate embedding migration as a v2 improvement if Resurface A/B test succeeds | Alex R. | Post-experiment (April 2026) |

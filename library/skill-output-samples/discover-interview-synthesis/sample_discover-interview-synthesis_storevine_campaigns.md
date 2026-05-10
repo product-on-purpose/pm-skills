@@ -43,7 +43,7 @@ Key topics: current email tool setup, how they chose it, what they use
 Storevine's built-in tools for (if anything), what would need to be true
 to switch, seasonal patterns.
 
-Date range: Jan 12 – Jan 28, 2026
+Date range: Jan 12  -  Jan 28, 2026
 Interviewer: UX researcher + growth PM
 ```
 
@@ -62,9 +62,9 @@ To understand why Storevine merchants who are actively using third-party email m
 ### Methodology
 
 - **Format:** Video call (Zoom), semi-structured interview guide
-- **Duration:** 45 minutes average; range 38–52 minutes
+- **Duration:** 45 minutes average; range 38 - 52 minutes
 - **Interviewer(s):** UX Researcher (lead), Growth PM (observer/note-taker)
-- **Date Range:** January 12 – January 28, 2026
+- **Date Range:** January 12  -  January 28, 2026
 
 ### Participant Summary
 

@@ -456,7 +456,7 @@ Variants:
 Sample: ~6,800 eligible non-adopter merchants [fictional]; need enough
   per variant to detect a 8 pp improvement with 80% power
 
-Run period: April 28 – June 27, 2026 (60 days from GA)
+Run period: April 28  -  June 27, 2026 (60 days from GA)
 
 Need: full experiment design with sample size calculation, success
 criteria, risks, and implementation notes.

@@ -43,7 +43,7 @@ can't decide if a 4-minute update is worth opening. This is killing our enterpri
 trial-to-paid conversion (currently 19% [fictional]).
 
 Validated solution:
-Orbit Digest . AI-generated text summary (3–5 sentences) surfaced inline before the
+Orbit Digest . AI-generated text summary (3 - 5 sentences) surfaced inline before the
 video player loads. Hypothesis tested with 6 enterprise pilot teams. Update open rate
 increased from 17% to 23% [fictional] during the pilot.
 
@@ -92,7 +92,7 @@ Orbit's enterprise trial-to-paid conversion rate, currently at 19% [fictional].
 
 ### Solution Summary
 
-Orbit Digest is an AI-generated text summary (3–5 sentences) surfaced inline above the
+Orbit Digest is an AI-generated text summary (3 - 5 sentences) surfaced inline above the
 video player for each async update on Digest-enabled channels. The summary is generated
 automatically from the video transcript as soon as processing completes, giving recipients
 the shared context they need to decide whether to watch . without requiring creators to
@@ -141,7 +141,7 @@ write separate description text.
 
 | ID | User Story | Priority |
 |----|-----------|----------|
-| US-1 | As an async update recipient, I want to see a 3–5 sentence summary before the video loads so that I can decide whether the update is relevant to act on now | P0 |
+| US-1 | As an async update recipient, I want to see a 3 - 5 sentence summary before the video loads so that I can decide whether the update is relevant to act on now | P0 |
 | US-2 | As an async update creator, I want my update's summary to generate automatically so that I don't have to write a description manually | P0 |
 | US-3 | As a creator, I want to edit or regenerate the summary if it's inaccurate so that I'm in control of what teammates see | P0 |
 | US-4 | As a channel admin, I want to enable or disable Digest as the default for new updates in my channel so that I can control the experience for my team | P1 |
@@ -197,7 +197,7 @@ See [Orbit Digest User Stories](#) for full acceptance criteria.
 
 - FR-1: When a video update is posted to a Digest-enabled channel, the system initiates
   transcription via the self-hosted Whisper pipeline within 60 seconds of upload completion
-- FR-2: Once transcription completes, the summarization service generates a 3–5 sentence
+- FR-2: Once transcription completes, the summarization service generates a 3 - 5 sentence
   summary from the transcript text
 - FR-3: Updates shorter than 60 seconds do not generate a Digest; the Digest area is
   hidden for those updates with no indicator shown
@@ -242,7 +242,7 @@ See [Orbit Digest User Stories](#) for full acceptance criteria.
 
 **Recipient flow (core case):**
 1. Recipient opens Orbit thread containing a new async update
-2. Digest summary loads inline above video player (Orbit Digest icon + 3–5 sentence text)
+2. Digest summary loads inline above video player (Orbit Digest icon + 3 - 5 sentence text)
 3. Recipient reads summary, decides to watch → clicks play on the video below
 4. On return visit, summary displays in "seen" muted state
 

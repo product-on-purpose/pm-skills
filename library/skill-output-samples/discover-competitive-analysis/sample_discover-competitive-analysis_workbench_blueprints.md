@@ -36,7 +36,7 @@ Our product: Workbench -- enterprise collaboration platform, Series B, ~500 ente
 
 Competitors: Atlassian Confluence, Notion, Coda, Monday.com
 
-Segment: Enterprise (500–10,000 employees). Buyers: ops, compliance, and product team leads.
+Segment: Enterprise (500 - 10,000 employees). Buyers: ops, compliance, and product team leads.
 
 Feature matrix dimensions needed:
 - Document templates

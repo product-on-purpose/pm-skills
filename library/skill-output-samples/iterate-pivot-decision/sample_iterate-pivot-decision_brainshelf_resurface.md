@@ -57,7 +57,7 @@ need the formal decision doc for marco. decision date: april 11, 2026.
 | **Decision Date** | April 11, 2026 |
 | **Decision Maker(s)** | Marco S. (CEO), Priya M. (Product Manager) |
 | **Product/Initiative** | Resurface . Morning Email Digest |
-| **Time in Market** | 8 weeks (feature shipped Feb 16, 2026; A/B test ran Mar 9 – Apr 5, 2026) |
+| **Time in Market** | 8 weeks (feature shipped Feb 16, 2026; A/B test ran Mar 9  -  Apr 5, 2026) |
 | **Investment to Date** | 1 sprint (Sprint 8, 2 weeks, 2 backend engineers + 1 frontend + 1 designer) + 4 weeks of A/B test operation |
 
 ---
@@ -74,7 +74,7 @@ The 4-week A/B test produced a clear positive result: the treatment group's 7-da
 
 ### What We're Doing Now
 
-The Resurface email digest is live behind a feature flag for 400 treatment users [fictional] in the A/B test. The feature sends a daily morning email at 7:30 AM local time with 3–5 topic-matched saved items using a TF-IDF relevance algorithm. The control group (400 users [fictional]) receives the standard Brainshelf experience with no digest.
+The Resurface email digest is live behind a feature flag for 400 treatment users [fictional] in the A/B test. The feature sends a daily morning email at 7:30 AM local time with 3 - 5 topic-matched saved items using a TF-IDF relevance algorithm. The control group (400 users [fictional]) receives the standard Brainshelf experience with no digest.
 
 ### Key Metrics
 
@@ -128,7 +128,7 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 ### Market Signals
 
 - Pocket (Mozilla) announced a "Resurface" feature in their February 2026 product update, validating the resurfacing concept in the read-later category [fictional]
-- Readwise continues to grow in the premium PKM segment; Brainshelf's freemium resurfacing differentiates from Readwise's $8–10/month offering
+- Readwise continues to grow in the premium PKM segment; Brainshelf's freemium resurfacing differentiates from Readwise's $8 - 10/month offering
 
 ### Internal Learnings
 
@@ -171,7 +171,7 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 - The feature has been built, tested, and de-risked; shipping is low-cost and low-risk
 
 **Risks:**
-- The 4-week trend may not persist beyond 8–12 weeks; habit formation could plateau or reverse at scale
+- The 4-week trend may not persist beyond 8 - 12 weeks; habit formation could plateau or reverse at scale
 - Scaling from 400 to 9,800 users increases email volume from ~12K to ~290K emails/month [fictional]; deliverability at scale is untested
 
 **Resource Requirements:** 1 sprint (Sprint 9) for rollout + v2 planning; ongoing operational cost ~$20/month Resend [fictional]
@@ -180,7 +180,7 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 
 ### Option 2: Trigger Mechanism Pivot . Push Notifications
 
-**Description:** Replace the email digest with mobile push notifications as the primary return trigger. Instead of a morning email with 3–5 items, send a single push notification at 7:30 AM local time with the most relevant saved item and a "Read now" CTA that deep-links to the article in the Brainshelf app.
+**Description:** Replace the email digest with mobile push notifications as the primary return trigger. Instead of a morning email with 3 - 5 items, send a single push notification at 7:30 AM local time with the most relevant saved item and a "Read now" CTA that deep-links to the article in the Brainshelf app.
 
 **What Changes:**
 - Email digest deprecated; push notification replaces it
@@ -197,13 +197,13 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 - Brainshelf's current notification permission rate is unknown . if it is low, the addressable population may be smaller than email opt-in
 - Rebuilding the trigger mechanism as push requires a new sprint of development; the validated email approach is discarded
 
-**Resource Requirements:** 1–2 sprints for push notification infrastructure + rebuild; ongoing FCM/APNs operational cost (minimal)
+**Resource Requirements:** 1 - 2 sprints for push notification infrastructure + rebuild; ongoing FCM/APNs operational cost (minimal)
 
 ---
 
 ### Option 3: Surface Pivot . In-App Resurfacing Card
 
-**Description:** Replace the email digest with an in-app resurfacing card on the Brainshelf home screen. When the user opens the app, the home screen shows a "Continue reading" card with 3–5 topic-matched saved items. No email, no push notification . the trigger depends on the user opening the app on their own.
+**Description:** Replace the email digest with an in-app resurfacing card on the Brainshelf home screen. When the user opens the app, the home screen shows a "Continue reading" card with 3 - 5 topic-matched saved items. No email, no push notification . the trigger depends on the user opening the app on their own.
 
 **What Changes:**
 - Email digest deprecated; in-app card replaces it
@@ -232,7 +232,7 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 |-----------|--------|------------|
 | Evidence strength | High | How strong is the evidence that this option will improve 7-day return rate? |
 | External trigger capability | High | Does this option create an external trigger that reaches the user outside the app? |
-| Team capability | Medium | Can the current team execute this option within 1–2 sprints? |
+| Team capability | Medium | Can the current team execute this option within 1 - 2 sprints? |
 | Operational complexity | Medium | What is the ongoing operational burden? |
 | Risk level | Medium | What is the likelihood of negative user impact? |
 
@@ -293,7 +293,7 @@ No dissenting views were raised. Alex R. expressed a preference for prioritizing
 |----------|---------|--------|-----|
 | Budget (Resend) | $20/month [fictional] | $20/month [fictional] | None |
 | Headcount | 2 backend, 1 frontend, 1 designer | Same | None |
-| Technology | Resend, Amplitude, TF-IDF | + OpenAI API (embeddings) | API key + ~$15–25/month [fictional] |
+| Technology | Resend, Amplitude, TF-IDF | + OpenAI API (embeddings) | API key + ~$15 - 25/month [fictional] |
 
 ### Success Criteria
 
@@ -328,7 +328,7 @@ No dissenting views were raised. Alex R. expressed a preference for prioritizing
 
 | Audience | Message | Channel | When |
 |----------|---------|---------|------|
-| All eligible users | Opt-in prompt on home screen (phased rollout) | In-app | April 14–16, 2026 |
+| All eligible users | Opt-in prompt on home screen (phased rollout) | In-app | April 14 - 16, 2026 |
 | Blog / social media | "Introducing Resurface" announcement | Blog + Twitter/X | April 21, 2026 |
 
 ---

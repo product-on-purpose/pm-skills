@@ -50,7 +50,7 @@ alex wants this documented so QA can build the test plan from it.
 
 ## Feature Overview
 
-The Resurface digest is a daily email containing 3–5 saved items matched to the user's recent reading interests, delivered at 7:30 AM in the user's local timezone via the Resend API. Edge cases arise from library size variability, timezone complexity, external URL dependencies, email delivery failures, and concurrent user state changes.
+The Resurface digest is a daily email containing 3 - 5 saved items matched to the user's recent reading interests, delivered at 7:30 AM in the user's local timezone via the Resend API. Edge cases arise from library size variability, timezone complexity, external URL dependencies, email delivery failures, and concurrent user state changes.
 
 **Related Documents:**
 - Resurface PRD (Deliver phase)
@@ -73,7 +73,7 @@ The Resurface digest is a daily email containing 3–5 saved items matched to th
 |----------|------------------|----------|-------|
 | User has exactly 10 saved items (minimum eligibility threshold) | User is eligible for opt-in; digest is generated from the 10-item library, selecting up to 5 items above the relevance threshold | P1 | Min eligibility: 10 items |
 | User drops below 10 saved items after opting in (deletes items) | Digest continues to be sent as long as at least 1 item passes the relevance threshold; eligibility is checked only at opt-in time, not on each send | P2 | Avoid churn from deletion |
-| All items in the library have been resurfaced within the 14-day exclusion window | No digest is sent for that day; system logs "digest_skipped" with reason "exclusion_window_exhausted"; user is not unsubscribed | P1 | Small libraries (~10–20 items) will hit this regularly |
+| All items in the library have been resurfaced within the 14-day exclusion window | No digest is sent for that day; system logs "digest_skipped" with reason "exclusion_window_exhausted"; user is not unsubscribed | P1 | Small libraries (~10 - 20 items) will hit this regularly |
 | User has 500+ saved items | Topic-matching algorithm processes all items; TF-IDF computation time is ~200ms for 500 items [fictional], within acceptable limits; no special handling needed | P3 | Performance tested during spike up to 1,000 items |
 | User has had no reading activity in the past 7 days (no recent centroid) | Extend the recency window to 14 days, then 30 days; if still no activity, use the user's 5 most recently saved items as the centroid proxy | P1 | Prevents empty centroid → no digest for inactive-but-opted-in users |
 

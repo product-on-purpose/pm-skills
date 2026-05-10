@@ -63,7 +63,7 @@ doing nothing (guilt pile grows), raindrop.io (organize but no resurface).
 **Who:** An information-curious person who regularly saves web articles, blog posts, and reference material to a read-later or bookmarking tool, but does not have a consistent habit of returning to read what they saved.
 
 **Key Characteristics:**
-- Saves content 3–5 times per week or more (the act of saving is habitual; the act of reading saved content is not)
+- Saves content 3 - 5 times per week or more (the act of saving is habitual; the act of reading saved content is not)
 - Works in a knowledge-intensive role or has knowledge-intensive interests (tech, design, research, journalism, academia)
 - Experiences information overload as a daily condition, not an occasional event . there is always more to save than time to read
 
@@ -103,7 +103,7 @@ Low urgency in the moment . the user will simply open Twitter, Reddit, or a news
 
 **What is the practical task to accomplish?**
 
-Surface 3–5 saved items that are (1) still relevant to the user's current interests, (2) high enough quality to justify reading time, and (3) presented in a context that makes starting easy (not buried in a 400-item undifferentiated list).
+Surface 3 - 5 saved items that are (1) still relevant to the user's current interests, (2) high enough quality to justify reading time, and (3) presented in a context that makes starting easy (not buried in a 400-item undifferentiated list).
 
 **Definition of "Done":**
 
@@ -181,10 +181,10 @@ Surface 3–5 saved items that are (1) still relevant to the user's current inte
 
 | Solution Type | Solution | Strengths | Weaknesses |
 |---------------|----------|-----------|------------|
-| Direct Competitor | Readwise (daily review email + spaced repetition) | Proven resurfacing mechanic; creates a daily habit of revisiting highlights; strong community reputation | Expensive (~$8–10/month, no free tier); requires highlighting before content can be resurfaced; not a good fit for users who save but don't annotate |
+| Direct Competitor | Readwise (daily review email + spaced repetition) | Proven resurfacing mechanic; creates a daily habit of revisiting highlights; strong community reputation | Expensive (~$8 - 10/month, no free tier); requires highlighting before content can be resurfaced; not a good fit for users who save but don't annotate |
 | Indirect Alternative | Browser bookmarks + manual browsing | Free; no new tool to learn; bookmarks are always accessible in the browser toolbar | No resurfacing, no organization, no trigger to return; bookmarks accumulate and become as overwhelming as the Brainshelf library |
 | Non-consumption | Doing nothing (accepting the guilt pile) | Zero effort; no cost; no new email to manage | The guilt pile grows; retention declines; the user eventually churns when the negative emotion exceeds the perceived value of saving |
-| DIY/Manual | Setting a daily reminder (phone alarm, calendar event) to "check my saved articles" | User-controlled cadence; no dependency on product features | Requires sustained willpower; reminder fatigue sets in within 1–2 weeks [fictional]; the reminder is generic ("check your library") without pointing to specific relevant items |
+| DIY/Manual | Setting a daily reminder (phone alarm, calendar event) to "check my saved articles" | User-controlled cadence; no dependency on product features | Requires sustained willpower; reminder fatigue sets in within 1 - 2 weeks [fictional]; the reminder is generic ("check your library") without pointing to specific relevant items |
 
 **Why Do They Switch?**
 

@@ -18,7 +18,7 @@ After Campaigns GA, Storevine's growth PM defined the requirements for the Campa
 
 **Source Notes:**
 
-- Recurly Research (recurly.com/resources/blog/churn-rate) . B2B SaaS churn benchmark data documents median SMB annual churn at 10–15%, providing the comparison context for monitoring whether Campaigns is reducing Storevine's 22% [fictional] churn toward the 14% [fictional] target.
+- Recurly Research (recurly.com/resources/blog/churn-rate) . B2B SaaS churn benchmark data documents median SMB annual churn at 10 - 15%, providing the comparison context for monitoring whether Campaigns is reducing Storevine's 22% [fictional] churn toward the 14% [fictional] target.
 - Amplitude documentation (amplitude.com/docs/analytics/charts) . the analytics platform used for Campaigns event tracking; its chart types and filter capabilities inform the visualization specifications in this requirements document.
 - DMA (Data & Marketing Association, dma.org.uk) email marketing ROI benchmarks . establishes that attributed revenue (revenue traceable to email sends) is the standard measurement target for email marketing programs, validating the decision to surface campaign-attributed revenue as a primary dashboard metric rather than a secondary one.
 
@@ -166,7 +166,7 @@ visualizations, filters, data sources, and acceptance criteria.
 |-----------|-------|
 | **Purpose** | Track whether each new cohort of non-adopter merchants is meeting the 30% [fictional] first-send rate target at 60 days |
 | **Chart Type** | Line chart with reference line at 30% [fictional] |
-| **X-Axis** | Days since activation (0–60) |
+| **X-Axis** | Days since activation (0 - 60) |
 | **Y-Axis** | Cumulative first-send rate (%) |
 | **Series/Breakdown** | One line per weekly merchant cohort (by activation week); most recent 4 cohorts visible |
 | **Interactivity** | Hover tooltip shows cohort size and current cumulative rate; click cohort label to isolate one cohort |

@@ -554,7 +554,7 @@ Job I want to map:
   setup, and data sync
 
 Research basis:
-- 8 merchant interviews (Jan 12–28, 2026) . direct quotes available
+- 8 merchant interviews (Jan 12 - 28, 2026) . direct quotes available
 - Competitive analysis (Feb 2026): Klaviyo used by ~40% of active
   merchants [fictional]; Mailchimp by ~20% [fictional]
 - Q4 exit survey: 22% churn cited "had to use a separate email tool"

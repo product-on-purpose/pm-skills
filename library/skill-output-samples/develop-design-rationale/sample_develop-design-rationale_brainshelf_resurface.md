@@ -18,7 +18,7 @@ Before Sprint 8 began, Dan K. presented three layout directions for the Resurfac
 
 **Source Notes:**
 
-- Nielsen Norman Group, "Email Newsletter Usability" (nngroup.com/articles/email-newsletters/) . the email UX research that informed the evaluation criteria; NN/g's findings that users scan email in an F-pattern and make open/click decisions within 3–5 seconds directly shaped the "scannability" criterion.
+- Nielsen Norman Group, "Email Newsletter Usability" (nngroup.com/articles/email-newsletters/) . the email UX research that informed the evaluation criteria; NN/g's findings that users scan email in an F-pattern and make open/click decisions within 3 - 5 seconds directly shaped the "scannability" criterion.
 - Litmus, "2024 Ultimate Guide to Email Design" (litmus.com/resources/ultimate-guide-to-email-design) . the rendering compatibility data used to assess image-heavy layouts; Litmus reports that 43% of email opens occur with images blocked by default, which informed the deliverability risk assessment for Option A.
 - Jason Rodriguez, "Modern HTML Email" (modernhtmlemail.com) . the email development reference used by Dan K. when evaluating template complexity; Rodriguez's guidance on progressive enhancement and dark mode support influenced the technical feasibility ratings.
 
@@ -68,7 +68,7 @@ going with B. need the rationale written up.
 
 ### Problem Statement
 
-The Resurface feature delivers a daily email digest containing 3–5 saved items matched to the user's recent reading interests. The email layout must accomplish two things simultaneously: it must be visually compelling enough to earn a click (the primary experiment metric is click-through rate), and it must be simple enough to avoid email client rendering issues, promotions tab classification, and the visual pattern of marketing spam that users have learned to ignore.
+The Resurface feature delivers a daily email digest containing 3 - 5 saved items matched to the user's recent reading interests. The email layout must accomplish two things simultaneously: it must be visually compelling enough to earn a click (the primary experiment metric is click-through rate), and it must be simple enough to avoid email client rendering issues, promotions tab classification, and the visual pattern of marketing spam that users have learned to ignore.
 
 ### User Need
 
@@ -80,14 +80,14 @@ Users described their ideal resurfacing experience as feeling like a "personal r
 |-----------------|-------------|
 | Technical | Gmail clips emails larger than 102 KB; image-heavy layouts risk clipping, especially with 5 items. Resend's React Email templates render server-side, so dynamic image loading adds complexity to the send pipeline |
 | Business | The A/B experiment's primary metric is click-through rate; the layout must maximize CTR without inflating unsubscribe rate (guardrail: ≤2% per week). The experiment has a 4-week window . there is no time for a layout iteration mid-test |
-| Timeline | Template must be built and QA'd within Sprint 8 (Feb 3–16, 2026). Dan K. has 3 design days allocated; Sam W. has 1.5 days for React Email template implementation |
+| Timeline | Template must be built and QA'd within Sprint 8 (Feb 3 - 16, 2026). Dan K. has 3 design days allocated; Sam W. has 1.5 days for React Email template implementation |
 | Resources | No dedicated email developer on the team; Sam W. (frontend) will build the template using React Email, which he has not used before |
 | Brand/Platform | Brainshelf has no established email brand identity; this is the first email the product has ever sent. The layout will define the email brand going forward |
 
 ### Design Principles Applied
 
 - **Earn trust before asking for engagement:** The first email Brainshelf sends must feel personal and trustworthy, not promotional. Users are giving the product permission to enter their inbox . the layout must respect that permission by prioritizing clarity over visual impact.
-- **Optimize for the scan, not the read:** Users decide whether to click within 3–5 seconds of opening. The layout must communicate "here are 3–5 things worth your time" in a single visual scan, not require reading paragraphs of copy to find the value.
+- **Optimize for the scan, not the read:** Users decide whether to click within 3 - 5 seconds of opening. The layout must communicate "here are 3 - 5 things worth your time" in a single visual scan, not require reading paragraphs of copy to find the value.
 - **Degrade gracefully:** The email must look good with images off, in dark mode, and on mobile. Any element that depends on image rendering for comprehension is a single point of failure for the user experience.
 
 ---
@@ -119,7 +119,7 @@ Users described their ideal resurfacing experience as feeling like a "personal r
 **Visual/Wireframe:** Figma . Resurface Email v1 / Option B (internal link)
 
 **Pros:**
-- Fast to scan; a user can evaluate all 3–5 items in under 5 seconds without scrolling on mobile
+- Fast to scan; a user can evaluate all 3 - 5 items in under 5 seconds without scrolling on mobile
 - No dependency on external images eliminates rendering inconsistencies, dark mode issues, and Gmail clip risk; the email is lightweight (<20 KB [fictional]) and renders identically across all clients
 - The text-forward aesthetic signals "personal" rather than "promotional," directly addressing the interview insight that users ignore emails that "look like a newsletter"
 - Template implementation is straightforward; Sam W. estimated 1 day of React Email work versus 3 days for Option A
@@ -219,7 +219,7 @@ Jordan L. (Growth) initially advocated for Option A, arguing that the visual ric
 
 **Is this decision reversible?** Yes, easily
 
-**Cost to reverse:** Replacing the email template requires updating the React Email component and re-deploying the send pipeline. No data model changes, no API changes, no user-facing migration. Estimated effort: 2–3 days of design and frontend work.
+**Cost to reverse:** Replacing the email template requires updating the React Email component and re-deploying the send pipeline. No data model changes, no API changes, no user-facing migration. Estimated effort: 2 - 3 days of design and frontend work.
 
 **Conditions that would warrant reverting:**
 - CTR in the A/B test is below the 8pp MDE threshold and qualitative feedback suggests the layout is not engaging enough
@@ -233,7 +233,7 @@ Jordan L. (Growth) initially advocated for Option A, arguing that the visual ric
 
 - Email CTR (primary experiment metric): direct measure of whether the layout drives engagement
 - Email unsubscribe rate (guardrail): ≤2% per week; a rising unsubscribe rate may indicate layout fatigue or perceived low quality
-- Heatmap click distribution across the 3–5 items: if clicks are concentrated on item 1, the layout may not be scannable enough to drive engagement with lower-ranked items
+- Heatmap click distribution across the 3 - 5 items: if clicks are concentrated on item 1, the layout may not be scannable enough to drive engagement with lower-ranked items
 
 ### Future Decisions Required
 

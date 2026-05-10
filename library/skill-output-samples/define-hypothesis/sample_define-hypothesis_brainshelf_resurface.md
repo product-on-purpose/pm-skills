@@ -14,11 +14,11 @@ context: Brainshelf consumer PKM app . Resurface morning email digest hypothesis
 
 ## Scenario
 
-Brainshelf has ~85,000 registered users and ~22,000 MAU [fictional]. User interviews and behavioral data revealed that users save an average of 47 items per month but revisit fewer than 9% of them within 30 days [fictional] . a pattern users described as a "guilt pile." The PM wants to test whether a morning resurface email digest, which surfaces 3–5 saved items based on recent reading patterns, increases the re-read rate before committing engineering resources to a full Resurface feature build.
+Brainshelf has ~85,000 registered users and ~22,000 MAU [fictional]. User interviews and behavioral data revealed that users save an average of 47 items per month but revisit fewer than 9% of them within 30 days [fictional] . a pattern users described as a "guilt pile." The PM wants to test whether a morning resurface email digest, which surfaces 3 - 5 saved items based on recent reading patterns, increases the re-read rate before committing engineering resources to a full Resurface feature build.
 
 **Source Notes:**
 
-- Lenny Rachitsky's consumer app retention benchmarks (Lenny's Newsletter, 2023) place typical 30-day retention for consumer utility apps at 25–35%, with re-engagement email as one of the highest-ROI levers for apps below median retention.
+- Lenny Rachitsky's consumer app retention benchmarks (Lenny's Newsletter, 2023) place typical 30-day retention for consumer utility apps at 25 - 35%, with re-engagement email as one of the highest-ROI levers for apps below median retention.
 - Research published in the Journal of Consumer Psychology (Soman, 2001, "The Mental Accounting of Sunk Cost") supports the behavioral observation that accumulated, unread items increase guilt and reduce engagement . consistent with what Brainshelf users described in interviews.
 
 ---
@@ -49,7 +49,7 @@ guardrail: don't tank unsubscribe rate.
 
 ## Hypothesis Statement
 
-**We believe that** sending a daily morning email digest surfacing 3–5 saved items matched to the user's recent reading topics
+**We believe that** sending a daily morning email digest surfacing 3 - 5 saved items matched to the user's recent reading topics
 
 **for** active Brainshelf users who have saved 10 or more items but have not revisited any saved item in the past 7 days
 
@@ -67,7 +67,7 @@ Brainshelf users consistently save content they intend to return to, but behavio
 
 - Behavioral data: users save an average of 47 items/month but revisit fewer than 9% within 30 days [fictional]. The revisit rate has been flat for three cohorts despite feature additions to the saving experience.
 - User interview synthesis (n=7): 5 of 7 users described their saved library in negative terms ("overwhelming," "guilt pile," "I forget it exists"). No user described a natural trigger for returning to saved content . revisiting was entirely self-initiated and rare.
-- Re-engagement email benchmarks from Lenny's Newsletter (2023) indicate that re-engagement email is one of the highest-ROI retention levers for consumer apps below median 30-day retention, with click rates in successful implementations ranging from 8–22%.
+- Re-engagement email benchmarks from Lenny's Newsletter (2023) indicate that re-engagement email is one of the highest-ROI retention levers for consumer apps below median 30-day retention, with click rates in successful implementations ranging from 8 - 22%.
 - Readwise's core product loop . daily email highlighting previously saved highlights . demonstrates that a scheduled email resurface mechanic can drive habitual re-engagement in PKM tools.
 
 ### Alternative Hypotheses Considered
@@ -119,7 +119,7 @@ These users continue saving content (median 4 saves/week in this segment [fictio
 
 ### Method
 
-Randomized A/B test. Users meeting the segment criteria who opt in to the Resurface email (email opt-in required at experiment enrollment) are randomized 50/50. Control group receives no digest. Treatment group receives a daily morning digest (7:30 AM local time) surfacing 3–5 saved items matched by topic similarity to content saved in the prior 7 days.
+Randomized A/B test. Users meeting the segment criteria who opt in to the Resurface email (email opt-in required at experiment enrollment) are randomized 50/50. Control group receives no digest. Treatment group receives a daily morning digest (7:30 AM local time) surfacing 3 - 5 saved items matched by topic similarity to content saved in the prior 7 days.
 
 *Note: opt-in is required before randomization to avoid measuring the effect of the consent prompt rather than the digest itself. Opt-in rate will be tracked as an observational metric but is not the primary measure.*
 
@@ -155,8 +155,8 @@ Randomized A/B test. Users meeting the segment criteria who opt in to the Resurf
 
 | Phase | Dates | Duration |
 |-------|-------|----------|
-| Setup & instrumentation | Mar 2 – Mar 8, 2026 | 1 week |
+| Setup & instrumentation | Mar 2  -  Mar 8, 2026 | 1 week |
 | Opt-in prompt live; enrollment begins | Mar 9, 2026 | . |
-| Test running | Mar 9 – Apr 5, 2026 | 4 weeks |
-| Analysis | Apr 6 – Apr 10, 2026 | 1 week |
+| Test running | Mar 9  -  Apr 5, 2026 | 4 weeks |
+| Analysis | Apr 6  -  Apr 10, 2026 | 1 week |
 | Decision | Apr 11, 2026 | . |

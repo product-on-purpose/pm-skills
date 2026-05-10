@@ -20,7 +20,7 @@ Three weeks after the Campaigns A/B test concluded and the guided first-campaign
 
 - Ben Yoskovitz and Alistair Croll, "Lean Analytics" (leananalyticsbook.com) . the persevere/pivot evaluation framework applied in this document; establishes that a pivot is warranted when validated data shows the core hypothesis is wrong or the market opportunity is smaller than assumed, not merely when a secondary segment underperforms relative to prediction.
 - Eric Ries, "The Lean Startup" (theleanstartup.com) . the taxonomy of pivot types (Customer Segment Pivot, Customer Need Pivot, Platform Pivot, and others) used to classify the options considered in this evaluation; provides the conceptual basis for distinguishing a pivot from an optimization within the current direction.
-- Recurly Research (recurly.com/resources/research) . B2B SaaS churn benchmarks that document median SMB annual churn at 10–15%; affirms the urgency of the churn OKR (22% → 14% [fictional]) that makes persevering on the validated non-adopter activation track the lower-risk strategic choice for the remainder of 2026.
+- Recurly Research (recurly.com/resources/research) . B2B SaaS churn benchmarks that document median SMB annual churn at 10 - 15%; affirms the urgency of the churn OKR (22% → 14% [fictional]) that makes persevering on the validated non-adopter activation track the lower-risk strategic choice for the remainder of 2026.
 
 ---
 
@@ -108,7 +108,7 @@ Campaigns v1.0 is live for all active Storevine merchants. The guided first-camp
 
 | Resource | Amount |
 |----------|--------|
-| Time | 8 months [fictional] (December 2025 – July 2026) |
+| Time | 8 months [fictional] (December 2025  -  July 2026) |
 | Budget | ~$480K engineering + design [fictional] |
 | Team | 4 Platform Squad engineers + 1 design lead + 1 growth PM × 8 months [fictional] |
 | Opportunity cost | Klaviyo-migrator engagement work and advanced segmentation features deferred for 8 months [fictional] |
@@ -177,7 +177,7 @@ Campaigns v1.0 is live for all active Storevine merchants. The guided first-camp
 - The validated activation mechanism (content pre-population) has further depth to explore before it plateaus
 
 **Risks:**
-- Klaviyo-migrated merchant churn compounds over time; if not addressed within 2–3 quarters, the segment will erode even as non-adopter activation improves
+- Klaviyo-migrated merchant churn compounds over time; if not addressed within 2 - 3 quarters, the segment will erode even as non-adopter activation improves
 - Migrated merchants who re-evaluate Klaviyo within 6 months of migration will attribute the failure to Campaigns feature gaps, creating a reputation risk
 
 **Resource Requirements:** Existing team (no change); qualitative research for migrators fits within the growth PM's discretionary time.

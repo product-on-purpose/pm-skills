@@ -186,7 +186,7 @@ Need: full refinement notes for Sprint 12 planning.
 | CAM-089 | Per-campaign open rate and click rate | 5 [fictional] | Ready | Denominator question to resolve before implementation |
 | CAM-090 | Follow-on experiment . 3 vs. 5 products | 3 [fictional] | Ready | 30-day experiment window; mobile spec confirmed |
 | CAM-088 | EU merchant GDPR consent data model | . | Blocked | Awaiting Legal sign-off; expected Aug 5 |
-| CAM-091 | Abandoned cart email trigger | . | Needs Work | Split into 4 child stories (CAM-091a–d) |
+| CAM-091 | Abandoned cart email trigger | . | Needs Work | Split into 4 child stories (CAM-091a - d) |
 
 ---
 
@@ -221,7 +221,7 @@ Need: full refinement notes for Sprint 12 planning.
 | Action | Owner | Due Date | Status |
 |--------|-------|----------|--------|
 | Resolve open rate denominator question (Amplitude vs. SendGrid) and update CAM-089 ACs | Backend Engineer + Growth PM | Jul 25, 2026 [fictional] | Not Started |
-| Draft 4 child stories for CAM-091 (CAM-091a–d) in Jira with initial acceptance criteria | Growth PM | Jul 26, 2026 [fictional] | Not Started |
+| Draft 4 child stories for CAM-091 (CAM-091a - d) in Jira with initial acceptance criteria | Growth PM | Jul 26, 2026 [fictional] | Not Started |
 | Confirm Legal sign-off date for CAM-088 and update Jira blocker with expected resolution date | Growth PM | Aug 1, 2026 [fictional] | Not Started |
 
 ---
@@ -253,7 +253,7 @@ Need: full refinement notes for Sprint 12 planning.
 - CAM-088: EU merchant GDPR consent data model *(if Legal sign-off received by August 5)*
 
 **Preparation Needed:**
-- Growth PM to draft CAM-091a–d in Jira with initial acceptance criteria before Aug 5
+- Growth PM to draft CAM-091a - d in Jira with initial acceptance criteria before Aug 5
 - Backend Engineer and Growth PM to resolve open rate denominator question and update CAM-089 ACs before Aug 5
 - Growth PM to confirm with Legal whether CAM-088 review will be complete by August 5; if not, CAM-088 will be deferred to a later sprint
 

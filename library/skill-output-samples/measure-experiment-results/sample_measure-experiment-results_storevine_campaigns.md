@@ -30,7 +30,7 @@ Sixty days after the Campaigns GA, Storevine's growth PM documented the results 
 /experiment-results
 
 Experiment: Campaigns guided first-campaign flow A/B test
-Ran: April 28 – June 27, 2026 (60 days from GA)
+Ran: April 28  -  June 27, 2026 (60 days from GA)
 
 Results:
 - Control (blank canvas): 13.4% first-send rate, N=1,204 merchants [fictional]
@@ -92,8 +92,8 @@ for stakeholder review and decision record.
 
 | Variant | Value | Sample Size | Confidence Interval |
 |---------|-------|-------------|---------------------|
-| Control | 13.4% [fictional] | 1,204 [fictional] | 11.6% – 15.2% |
-| Treatment | 31.7% [fictional] | 1,198 [fictional] | 29.2% – 34.2% |
+| Control | 13.4% [fictional] | 1,204 [fictional] | 11.6%  -  15.2% |
+| Treatment | 31.7% [fictional] | 1,198 [fictional] | 29.2%  -  34.2% |
 
 **Observed Difference:** +18.3 percentage points [fictional] (+136.6% relative)
 
@@ -140,13 +140,13 @@ Treatment merchants sent their first campaign at a rate of 31.7% [fictional] wit
 
 | Segment | Control | Treatment | Difference | Significant? |
 |---------|---------|-----------|------------|----|
-| 0–50 customers [fictional] | 8.2% [fictional] | 22.6% [fictional] | +14.4 pp [fictional] | Yes |
-| 51–150 customers [fictional] | 14.1% [fictional] | 33.9% [fictional] | +19.8 pp [fictional] | Yes |
-| 151–250 customers [fictional] | 17.6% [fictional] | 39.4% [fictional] | +21.8 pp [fictional] | Yes |
+| 0 - 50 customers [fictional] | 8.2% [fictional] | 22.6% [fictional] | +14.4 pp [fictional] | Yes |
+| 51 - 150 customers [fictional] | 14.1% [fictional] | 33.9% [fictional] | +19.8 pp [fictional] | Yes |
+| 151 - 250 customers [fictional] | 17.6% [fictional] | 39.4% [fictional] | +21.8 pp [fictional] | Yes |
 
 ### Segment Insights
 
-The treatment effect is consistent across all analyzed segments . no segment shows a null or negative treatment effect. The effect is strongest in the fashion and home goods category, consistent with merchant interview finding that these merchants have higher seasonal awareness and were more motivated to send promotional campaigns. The effect scales with customer count: merchants closer to the 250-customer threshold show a larger absolute improvement, likely because they have more product sales history to populate the pre-filled template with meaningful top-products data. The 0–50 customer segment shows the smallest absolute improvement but still a strong relative effect (+176% [fictional]), suggesting even very early-stage merchants benefit from the guided flow.
+The treatment effect is consistent across all analyzed segments . no segment shows a null or negative treatment effect. The effect is strongest in the fashion and home goods category, consistent with merchant interview finding that these merchants have higher seasonal awareness and were more motivated to send promotional campaigns. The effect scales with customer count: merchants closer to the 250-customer threshold show a larger absolute improvement, likely because they have more product sales history to populate the pre-filled template with meaningful top-products data. The 0 - 50 customer segment shows the smallest absolute improvement but still a strong relative effect (+176% [fictional]), suggesting even very early-stage merchants benefit from the guided flow.
 
 ---
 
@@ -236,4 +236,4 @@ The guided first-campaign flow exceeded the 30% [fictional] first-send rate targ
 
 ### Known Issues
 
-- The 0–50 customer segment includes merchants who joined Storevine within the last 30 days [fictional]; these merchants may have different motivation levels than established merchants, which could confound the segment comparison. A matched-cohort analysis by account age is recommended before drawing category-level conclusions from the segment breakdown.
+- The 0 - 50 customer segment includes merchants who joined Storevine within the last 30 days [fictional]; these merchants may have different motivation levels than established merchants, which could confound the segment comparison. A matched-cohort analysis by account age is recommended before drawing category-level conclusions from the segment breakdown.

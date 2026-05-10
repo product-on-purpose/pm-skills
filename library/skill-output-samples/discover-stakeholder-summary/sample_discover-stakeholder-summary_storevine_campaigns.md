@@ -91,7 +91,7 @@ plan, and risk mitigation for Klaviyo and resistant stakeholders.
 - Growth PM (feature owner)
 - Engineering Lead, Platform
 - Merchant Success Team
-- Power-user Merchants (discovery cohort; 5–6 fashion and home merchants)
+- Power-user Merchants (discovery cohort; 5 - 6 fashion and home merchants)
 
 **Keep Satisfied (High Influence, Low Interest):**
 - Legal (CAN-SPAM/GDPR review . low day-to-day interest, but a hard launch gate with high blocking power)

@@ -63,7 +63,7 @@ keep them tight. alex and jess need to estimate on monday.
 
 **As a** Brainshelf user who has opted in to the Resurface digest,
 
-**I want** to receive a daily email at 7:30 AM my local time with 3–5 saved items matched to my recent reading interests,
+**I want** to receive a daily email at 7:30 AM my local time with 3 - 5 saved items matched to my recent reading interests,
 
 **so that** I have an external prompt to return to my saved content and actually read something I saved.
 
@@ -81,13 +81,13 @@ The Resurface digest is the core deliverable of the Resurface feature. It addres
 
 **Then** the user receives a digest email delivered via Resend within 5 minutes of the scheduled time
 
-### AC-2: Digest Contains 3–5 Relevant Items
+### AC-2: Digest Contains 3 - 5 Relevant Items
 
 **Given** a user has 50+ saved items and has read 3 articles about "product management" in the past 7 days
 
 **When** the topic-matching algorithm runs for that user
 
-**Then** the digest contains 3–5 items with the highest cosine similarity to the user's recent reading centroid, all above the minimum relevance threshold of 0.15 [fictional]
+**Then** the digest contains 3 - 5 items with the highest cosine similarity to the user's recent reading centroid, all above the minimum relevance threshold of 0.15 [fictional]
 
 ### AC-3: Fewer Than 3 Items Above Threshold
 
@@ -278,7 +278,7 @@ One-click read is the core interaction of the Resurface digest. The email's valu
 
 **When** the click redirect passes through the Brainshelf tracking endpoint
 
-**Then** an "item_clicked" event is recorded in Amplitude with properties: user_id, item_id, digest_date, item_position (1–5), and the event is stored in the `digest_events` table
+**Then** an "item_clicked" event is recorded in Amplitude with properties: user_id, item_id, digest_date, item_position (1 - 5), and the event is stored in the `digest_events` table
 
 ### AC-3: Multiple Clicks on Same Item
 

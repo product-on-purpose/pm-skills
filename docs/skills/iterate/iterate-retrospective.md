@@ -482,7 +482,7 @@ See this skill applied to three different product contexts:
 /retrospective
 
 Sprint: Campaigns v1.0 build sprint + GA week
-Period: February 3 – May 5, 2026 [fictional]
+Period: February 3  -  May 5, 2026 [fictional]
 Date held: May 7, 2026
 Format: Start / Stop / Continue
 Duration: 90 minutes [fictional]
