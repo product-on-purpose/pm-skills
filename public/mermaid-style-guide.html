@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pm-skills Mermaid Style Guide (live preview)</title>
+<meta name="description" content="Self-contained rendered preview of the pm-skills Mermaid diagram style guide. Opens locally too.">
+<style>
+  :root {
+    --indigo: #5C7CFA;
+    --bg: #ffffff;
+    --fg: #1a1a2e;
+    --muted: #6b7280;
+    --card: #fafbfc;
+    --border: #e5e7eb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1117;
+      --fg: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #1a1d27;
+      --border: #2c303b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    color: var(--fg);
+    background: var(--bg);
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+  header {
+    border-bottom: 2px solid var(--indigo);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  h1 { color: var(--indigo); margin: 0 0 0.25rem; }
+  h2 {
+    margin-top: 2.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--fg);
+  }
+  h3 { margin-top: 1.5rem; color: var(--fg); }
+  p, li { color: var(--fg); }
+  .lede { color: var(--muted); margin-top: 0; }
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  .swatch {
+    border: 2px solid;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .swatch strong { display: block; font-size: 1rem; margin-bottom: 0.25rem; }
+  .swatch code { font-size: 0.75rem; color: inherit; opacity: 0.85; }
+  .example {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+  }
+  .example h3 { margin-top: 0; }
+  .example .source {
+    background: rgba(92, 124, 250, 0.06);
+    border-left: 3px solid var(--indigo);
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    font-family: ui-monospace, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    border-radius: 0 4px 4px 0;
+    margin: 0.5rem 0 1rem;
+  }
+  .example .render {
+    background: var(--bg);
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    overflow-x: auto;
+  }
+  .example .meta { color: var(--muted); font-size: 0.85rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--card); font-weight: 600; }
+  code {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.85em;
+    background: var(--card);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+  }
+  .pill {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .pill-discover { background: #e7f5ff; color: #0c2d5e; border: 1px solid #1971c2; }
+  .pill-define { background: #e6fcf5; color: #0a4f3c; border: 1px solid #0ca678; }
+  .pill-develop { background: #f3e8ff; color: #3a1d8a; border: 1px solid #7048e8; }
+  .pill-deliver { background: #fff4e1; color: #5e2200; border: 1px solid #d9480f; }
+  .pill-measure { background: #fff9db; color: #5e3e00; border: 1px solid #e8a317; }
+  .pill-iterate { background: #ffe9ec; color: #5c0a25; border: 1px solid #c2255c; }
+  footer {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--indigo); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>pm-skills Mermaid Style Guide</h1>
+  <p class="lede">Self-contained live preview. Renders the same examples as the canonical MD doc at <code>docs/reference/mermaid-style-guide.md</code>. Open this file locally or via <code>/pm-skills/mermaid-style-guide.html</code>.</p>
+</header>
+
+<h2>Brand palette</h2>
+
+<p>Two tiers: <strong>global brand</strong> (via <code>themeVariables</code>) applies to every diagram automatically; <strong>Triple Diamond palette</strong> (via <code>classDef</code> or <code>style</code>) applies to phase-aligned diagrams.</p>
+
+<h3>Global brand</h3>
+<table>
+  <tr><th>Variable</th><th>Value</th><th>Effect</th></tr>
+  <tr><td><code>lineColor</code></td><td><code>#5C7CFA</code></td><td>Indigo edges (matches favicon Triple Diamond mark)</td></tr>
+  <tr><td><code>fontFamily</code></td><td><code>system-ui, ...</code></td><td>Matches Starlight body text</td></tr>
+  <tr><td><code>fontSize</code></td><td><code>14px</code></td><td>Slightly tighter than default 16px</td></tr>
+</table>
+
+<h3>Triple Diamond palette</h3>
+
+<div class="palette">
+  <div class="swatch" style="background:#e7f5ff;border-color:#1971c2;color:#0c2d5e">
+    <strong>Discover</strong>
+    <code>#e7f5ff / #1971c2 / #0c2d5e</code>
+  </div>
+  <div class="swatch" style="background:#e6fcf5;border-color:#0ca678;color:#0a4f3c">
+    <strong>Define</strong>
+    <code>#e6fcf5 / #0ca678 / #0a4f3c</code>
+  </div>
+  <div class="swatch" style="background:#f3e8ff;border-color:#7048e8;color:#3a1d8a">
+    <strong>Develop</strong>
+    <code>#f3e8ff / #7048e8 / #3a1d8a</code>
+  </div>
+  <div class="swatch" style="background:#fff4e1;border-color:#d9480f;color:#5e2200">
+    <strong>Deliver</strong>
+    <code>#fff4e1 / #d9480f / #5e2200</code>
+  </div>
+  <div class="swatch" style="background:#fff9db;border-color:#e8a317;color:#5e3e00">
+    <strong>Measure</strong>
+    <code>#fff9db / #e8a317 / #5e3e00</code>
+  </div>
+  <div class="swatch" style="background:#ffe9ec;border-color:#c2255c;color:#5c0a25">
+    <strong>Iterate</strong>
+    <code>#ffe9ec / #c2255c / #5c0a25</code>
+  </div>
+</div>
+
+<h2>Examples</h2>
+
+<div class="example">
+  <h3>1. Phase flowchart with classDef (graph LR)</h3>
+  <p class="meta">Use for: ordered phases with arrows. Triple Diamond palette via <code>classDef</code> + <code>class</code>.</p>
+  <pre class="source">graph LR
+    subgraph "Problem Space"
+        D1["Discover&lt;br/&gt;3 skills"] --&gt; D2["Define&lt;br/&gt;4 skills"]
+    end
+    subgraph "Solution Space"
+        D3["Develop&lt;br/&gt;4 skills"] --&gt; D4["Deliver&lt;br/&gt;6 skills"]
+    end
+    subgraph "Learning Space"
+        D5["Measure&lt;br/&gt;5 skills"] --&gt; D6["Iterate&lt;br/&gt;4 skills"]
+    end
+    D2 --&gt; D3
+    D4 --&gt; D5
+    D6 -.-&gt;|"next cycle"| D1
+
+    classDef discover fill:#e7f5ff,stroke:#1971c2,color:#0c2d5e,stroke-width:2px
+    classDef define fill:#e6fcf5,stroke:#0ca678,color:#0a4f3c,stroke-width:2px
+    classDef develop fill:#f3e8ff,stroke:#7048e8,color:#3a1d8a,stroke-width:2px
+    classDef deliver fill:#fff4e1,stroke:#d9480f,color:#5e2200,stroke-width:2px
+    classDef measure fill:#fff9db,stroke:#e8a317,color:#5e3e00,stroke-width:2px
+    classDef iterate fill:#ffe9ec,stroke:#c2255c,color:#5c0a25,stroke-width:2px
+
+    class D1 discover
+    class D2 define
+    class D3 develop
+    class D4 deliver
+    class D5 measure
+    class D6 iterate</pre>
+  <div class="render">
+<pre class="mermaid">
+graph LR
+    subgraph "Problem Space"
+        D1["Discover<br/>3 skills"] --> D2["Define<br/>4 skills"]
+    end
+    subgraph "Solution Space"
+        D3["Develop<br/>4 skills"] --> D4["Deliver<br/>6 skills"]
+    end
+    subgraph "Learning Space"
+        D5["Measure<br/>5 skills"] --> D6["Iterate<br/>4 skills"]
+    end
+    D2 --> D3
+    D4 --> D5
+    D6 -.->|"next cycle"| D1
+
+    classDef discover fill:#e7f5ff,stroke:#1971c2,color:#0c2d5e,stroke-width:2px
+    classDef define fill:#e6fcf5,stroke:#0ca678,color:#0a4f3c,stroke-width:2px
+    classDef develop fill:#f3e8ff,stroke:#7048e8,color:#3a1d8a,stroke-width:2px
+    classDef deliver fill:#fff4e1,stroke:#d9480f,color:#5e2200,stroke-width:2px
+    classDef measure fill:#fff9db,stroke:#e8a317,color:#5e3e00,stroke-width:2px
+    classDef iterate fill:#ffe9ec,stroke:#c2255c,color:#5c0a25,stroke-width:2px
+
+    class D1 discover
+    class D2 define
+    class D3 develop
+    class D4 deliver
+    class D5 measure
+    class D6 iterate
+</pre>
+  </div>
+</div>
+
+<div class="example">
+  <h3>2. Workflow flowchart with semantic palette (graph TD)</h3>
+  <p class="meta">Use for: branching logic with decisions. Semantic colors (green=success, yellow=warning, blue=branch). Do NOT use Triple Diamond palette here.</p>
+  <pre class="source">graph TD
+    A[Invoke skill] --&gt; B{Inputs valid?}
+    B --&gt;|yes| C[Run inference]
+    B --&gt;|no| D[Return error]
+    C --&gt; E{Confidence high?}
+    E --&gt;|yes| F[Produce output]
+    E --&gt;|low| G[Present summary with warnings]
+    G --&gt; H{User confirms?}
+    H --&gt;|go| F
+    H --&gt;|correction| C
+
+    style F fill:#c8e6c9
+    style G fill:#fff9c4
+    style B fill:#e1f5ff
+    style E fill:#e1f5ff
+    style H fill:#e1f5ff</pre>
+  <div class="render">
+<pre class="mermaid">
+graph TD
+    A[Invoke skill] --> B{Inputs valid?}
+    B -->|yes| C[Run inference]
+    B -->|no| D[Return error]
+    C --> E{Confidence high?}
+    E -->|yes| F[Produce output]
+    E -->|low| G[Present summary with warnings]
+    G --> H{User confirms?}
+    H -->|go| F
+    H -->|correction| C
+
+    style F fill:#c8e6c9
+    style G fill:#fff9c4
+    style B fill:#e1f5ff
+    style E fill:#e1f5ff
+    style H fill:#e1f5ff
+</pre>
+  </div>
+</div>
+
+<div class="example">
+  <h3>3. Behavioral sequence (sequenceDiagram)</h3>
+  <p class="meta">Use for: back-and-forth between named participants. Limited styling; keep clean.</p>
+  <pre class="source">sequenceDiagram
+    participant You
+    participant Brief as /meeting-brief
+    participant Agenda as /meeting-agenda
+    participant Recap as /meeting-recap
+
+    You-&gt;&gt;Brief: Schedule strategic meeting
+    Brief--&gt;&gt;You: Stakeholder reads + asks
+    You-&gt;&gt;Agenda: Draft attendee-facing structure
+    Agenda--&gt;&gt;You: Time-boxed topics
+    Note over You,Recap: The meeting happens
+    You-&gt;&gt;Recap: Capture decisions + actions
+    Recap--&gt;&gt;You: Topic summary + actions</pre>
+  <div class="render">
+<pre class="mermaid">
+sequenceDiagram
+    participant You
+    participant Brief as /meeting-brief
+    participant Agenda as /meeting-agenda
+    participant Recap as /meeting-recap
+
+    You->>Brief: Schedule strategic meeting
+    Brief-->>You: Stakeholder reads + asks
+    You->>Agenda: Draft attendee-facing structure
+    Agenda-->>You: Time-boxed topics
+    Note over You,Recap: The meeting happens
+    You->>Recap: Capture decisions + actions
+    Recap-->>You: Topic summary + actions
+</pre>
+  </div>
+</div>
+
+<div class="example">
+  <h3>4. State diagram (stateDiagram-v2)</h3>
+  <p class="meta">Use for: named states + transitions, not phases or interactions.</p>
+  <pre class="source">stateDiagram-v2
+    [*] --&gt; Drafted
+    Drafted --&gt; Reviewed: pm submits for review
+    Reviewed --&gt; Approved: stakeholder signoff
+    Reviewed --&gt; Drafted: revision requested
+    Approved --&gt; Shipped: feature flag flipped
+    Shipped --&gt; Measured: instrumentation live
+    Measured --&gt; [*]
+    Measured --&gt; Drafted: pivot decision</pre>
+  <div class="render">
+<pre class="mermaid">
+stateDiagram-v2
+    [*] --> Drafted
+    Drafted --> Reviewed: pm submits for review
+    Reviewed --> Approved: stakeholder signoff
+    Reviewed --> Drafted: revision requested
+    Approved --> Shipped: feature flag flipped
+    Shipped --> Measured: instrumentation live
+    Measured --> [*]
+    Measured --> Drafted: pivot decision
+</pre>
+  </div>
+</div>
+
+<div class="example">
+  <h3>5. Gantt timeline</h3>
+  <p class="meta">Use for: overlapping work with durations.</p>
+  <pre class="source">gantt
+    title v2.14.0 Migration Cycle
+    dateFormat YYYY-MM-DD
+    section Phase 0
+    Spike + decision        :2026-05-06, 1d
+    section Phase 1
+    Foundation              :2026-05-07, 2d
+    section Phase 2
+    Parity                  :2026-05-08, 2d
+    section Phase 3
+    Cutover                 :2026-05-09, 1d
+    section Phase 4
+    Material retirement     :2026-05-10, 1d
+    Final validation        :2026-05-10, 1d</pre>
+  <div class="render">
+<pre class="mermaid">
+gantt
+    title v2.14.0 Migration Cycle
+    dateFormat YYYY-MM-DD
+    section Phase 0
+    Spike + decision        :2026-05-06, 1d
+    section Phase 1
+    Foundation              :2026-05-07, 2d
+    section Phase 2
+    Parity                  :2026-05-08, 2d
+    section Phase 3
+    Cutover                 :2026-05-09, 1d
+    section Phase 4
+    Material retirement     :2026-05-10, 1d
+    Final validation        :2026-05-10, 1d
+</pre>
+  </div>
+</div>
+
+<h2>Diagram type decision matrix</h2>
+
+<table>
+  <tr><th>If you are showing...</th><th>Use</th><th>Triple Diamond palette?</th></tr>
+  <tr><td>Ordered phases or steps</td><td><code>graph LR</code> or <code>graph TD</code></td><td><span class="pill pill-discover">Yes if phase-aligned</span></td></tr>
+  <tr><td>Phase grid with constituent items</td><td><code>block-beta</code></td><td><span class="pill pill-discover">Yes (use <code>style</code>)</span></td></tr>
+  <tr><td>Branching logic / decisions</td><td><code>graph TD</code> with <code>{decision}</code></td><td>No - use semantic colors</td></tr>
+  <tr><td>Roles interacting over time</td><td><code>sequenceDiagram</code></td><td>No - limited styling</td></tr>
+  <tr><td>Named states + transitions</td><td><code>stateDiagram-v2</code></td><td>Optional</td></tr>
+  <tr><td>Overlapping work with durations</td><td><code>gantt</code></td><td>No - use section colors</td></tr>
+  <tr><td>Hierarchical idea expansion</td><td><code>mindmap</code></td><td>No - radial structure</td></tr>
+  <tr><td>Percentage breakdown</td><td><code>pie</code></td><td>No - dataset-driven</td></tr>
+</table>
+
+<h2>For agents: machine-readable summary</h2>
+
+<pre class="source">brand_palette:
+  global_edge_color: "#5C7CFA"
+  global_font_family: "system-ui, ..."
+  global_font_size: "14px"
+
+triple_diamond:
+  discover: { fill: "#e7f5ff", stroke: "#1971c2", color: "#0c2d5e" }
+  define:   { fill: "#e6fcf5", stroke: "#0ca678", color: "#0a4f3c" }
+  develop:  { fill: "#f3e8ff", stroke: "#7048e8", color: "#3a1d8a" }
+  deliver:  { fill: "#fff4e1", stroke: "#d9480f", color: "#5e2200" }
+  measure:  { fill: "#fff9db", stroke: "#e8a317", color: "#5e3e00" }
+  iterate:  { fill: "#ffe9ec", stroke: "#c2255c", color: "#5c0a25" }
+
+stroke_width_default: "2px"
+
+syntax_by_diagram_type:
+  graph_lr_td: "classDef + class"
+  block_beta:  "style {block-id}"
+  sequence_diagram: "note + rect (limited)"
+  state_diagram_v2: "classDef + class"
+  gantt: "section + class"
+
+constraints:
+  no_em_dashes: true
+  no_en_dashes: true
+  prefer_dash_substitute: " - "
+  quote_subgraph_titles: true</pre>
+
+<footer>
+  Canonical MD source: <code>docs/reference/mermaid-style-guide.md</code>.
+  This HTML preview lives at <code>public/mermaid-style-guide.html</code> and is served at <a href="/pm-skills/mermaid-style-guide.html"><code>/pm-skills/mermaid-style-guide.html</code></a> on the docs site, or open the file directly in a browser for offline reference.
+</footer>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'default',
+    themeVariables: {
+      lineColor: '#5C7CFA',
+      fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+      fontSize: '14px',
+    },
+  });
+</script>
+
+</body>
+</html>
