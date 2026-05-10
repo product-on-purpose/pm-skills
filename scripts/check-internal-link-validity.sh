@@ -28,6 +28,14 @@
 
 set -euo pipefail
 
+# Ensure UTF-8 locale so 'grep -P' (Perl regex) works on systems with
+# empty default LANG/LC_ALL (notably Windows Git Bash). On Linux runners
+# C.UTF-8 is typically already set; this is defensive. Without a UTF-8
+# locale, 'grep -P' silently fails with 'supports only unibyte and UTF-8
+# locales' and the script reports 0 broken links even when broken links
+# exist (W13 FU6 surface; closes the bash/pwsh parity gap).
+export LC_ALL="${LC_ALL:-C.UTF-8}"
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 

@@ -26,7 +26,7 @@ Distinct from `/meeting-recap` in audience, format, and purpose: the recap is a 
 
 Distinct from `/discover-stakeholder-summary`: that skill is about understanding stakeholders (input to the user's work). This skill is about communicating to stakeholders (output from the user's work).
 
-This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
@@ -264,7 +264,7 @@ The scope agreed is narrower than the original proposal, which means no backfill
 - Confirm no dependency conflicts with your Q2 plans by 2026-04-22
 - If you see infra implications from a potential provider change, flag in thread before Monday
 
-More: [recap](2026-04-17_14-00EST_search-feature-kickoff_recap.md) | [scope draft](https://notion.example/search-scope) | [capacity model](https://sheets.example/q2-capacity)
+More: recap (`2026-04-17_14-00EST_search-feature-kickoff_recap.md`) | [scope draft](https://notion.example/search-scope) | [capacity model](https://sheets.example/q2-capacity)
 
 ---
 
@@ -301,7 +301,7 @@ The narrowed scope means no capacity conflicts for other Q2 commitments. If Algo
 - Confirm no dependency conflicts with your Q2 plans by 2026-04-22
 - If you see infra implications from a potential provider change, flag before Monday sprint planning
 
-For more detail, see the [meeting recap](2026-04-17_14-00EST_search-feature-kickoff_recap.md).
+For more detail, see the meeting recap (`2026-04-17_14-00EST_search-feature-kickoff_recap.md`).
 
 Thanks,
 jonathan

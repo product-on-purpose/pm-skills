@@ -206,6 +206,30 @@ def indent_content(content: str, spaces: int = 4) -> str:
     return "\n".join(prefix + line if line.strip() else "" for line in content.split("\n"))
 
 
+def rewrite_internal_paths(text: str) -> str:
+    """Rewrite '../../docs/' to '../../' in markdown link targets.
+
+    Source SKILL.md files at skills/{name}/SKILL.md use '../../docs/...'
+    which resolves correctly from the source location (going up 2 dirs to
+    repo root, then into docs/). When the generator copies that content to
+    docs/skills/{phase}/{name}.md, the same '../../docs/...' resolves to
+    docs/docs/... which does not exist (the generated file is already
+    inside docs/, so going up 2 lands at docs/, not at repo root).
+
+    This function rewrites markdown link targets matching '](../../docs/'
+    to '](../../', so paths resolve correctly from the generated file's
+    location. Only markdown link form ']( ... )' is touched; inline
+    code, prose mentions, and frontmatter are not affected.
+
+    Closes the W13 B3.5 P1.1 follow-up (FU6 in v2.14 cycle): Codex PR.2
+    review surfaced 5 doubled-docs-prefix broken links in foundation-
+    meeting-* and foundation-stakeholder-update generator output. The
+    source SKILL.md paths are CORRECT for the source location; the
+    generator just needed a translation step at the copy boundary.
+    """
+    return re.sub(r'\]\(\.\./\.\./docs/', '](../../', text)
+
+
 def parse_sample_sections(filepath: Path) -> dict:
     """Parse a sample file into scenario, prompt, and output sections."""
     content = filepath.read_text(encoding="utf-8")
@@ -292,6 +316,7 @@ def generate_skill_page(skill_dir: Path) -> dict | None:
 
     content = skill_file.read_text(encoding="utf-8")
     metadata, body = parse_frontmatter(content)
+    body = rewrite_internal_paths(body)
     sections = extract_sections(body)
 
     group, group_display = classify_skill(metadata, dirname)
@@ -394,14 +419,14 @@ def generate_skill_page(skill_dir: Path) -> dict | None:
     if template_content:
         lines.append("## Output Template")
         lines.append("")
-        template_body = strip_frontmatter(template_content)
+        template_body = rewrite_internal_paths(strip_frontmatter(template_content))
         lines.append(template_body.strip())
         lines.append("")
 
     # Example Output
     example_content = read_file_content(example_file)
     if example_content:
-        example_body = strip_frontmatter(example_content)
+        example_body = rewrite_internal_paths(strip_frontmatter(example_content))
         example_title = example_body.split("\n")[0].lstrip("# ").strip()
         if not example_title:
             example_title = "Complete example"

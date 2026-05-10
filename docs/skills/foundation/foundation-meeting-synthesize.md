@@ -24,7 +24,7 @@ Meeting synthesis is the archaeology skill for multi-meeting initiatives. It con
 
 Distinct from `/discover-interview-synthesis`: that skill works on user-research conversations with research-specific frameworks (jobs-to-be-done, buying insights). This skill works on internal org meetings with org-specific patterns (stakeholder alignment, decision evolution, project history).
 
-This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 

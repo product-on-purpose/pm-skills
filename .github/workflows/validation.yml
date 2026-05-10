@@ -199,13 +199,13 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-skill-family-registration.ps1
 
-      - name: Check internal link validity (bash, advisory)
+      - name: Check internal link validity (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-internal-link-validity.sh
+        run: bash scripts/check-internal-link-validity.sh --strict
 
-      - name: Check internal link validity (pwsh, advisory)
+      - name: Check internal link validity (pwsh, enforcing)
         if: always() && matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-internal-link-validity.ps1
+        run: pwsh -File scripts/check-internal-link-validity.ps1 -Strict
 
       - name: Check generated content untouched (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'

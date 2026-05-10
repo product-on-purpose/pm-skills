@@ -24,7 +24,7 @@ A meeting recap is a post-meeting topic-segmented summary produced for attendees
 
 This skill absorbs what would otherwise be a separate "meeting-actions" skill. Actions in this family live alongside the context that makes them meaningful, not in a sibling artifact.
 
-This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
