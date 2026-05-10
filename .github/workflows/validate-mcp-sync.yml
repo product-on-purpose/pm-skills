@@ -30,18 +30,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout pm-skills
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: pm-skills
 
       - name: Checkout pm-skills-mcp
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: product-on-purpose/pm-skills-mcp
           path: pm-skills-mcp
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
