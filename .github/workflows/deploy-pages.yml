@@ -1,29 +1,25 @@
 name: Deploy to GitHub Pages
 
-# v2.14.0 W11 (cutover via Option D: GitHub Actions Pages source).
+# v2.14.0 W11 cutover landed via flipping the Pages source from
+# "Deploy from a branch > gh-pages" to "GitHub Actions" in repo
+# Settings > Pages. After the flip, this workflow's last successful
+# deployment IS production.
 #
-# Replaces deploy-docs.yml (mkdocs gh-deploy --force) once the user
-# flips the Pages source from "Deploy from a branch > gh-pages" to
-# "GitHub Actions" in repo Settings > Pages. Until that flip, this
-# workflow can run successfully through the build + upload-artifact
-# steps but the deploy step requires the Actions Pages source.
+# DM-2 deviation: plan recommended the all-in-one withastro/action,
+# but our npm run build chains a Phase 2 post-build sweep
+# (scripts/post-build-strip-md-links.mjs, the Codex P0 fix) that the
+# all-in-one action would skip because it runs astro build directly
+# with no custom-script hook. Composable steps (setup-node + npm ci +
+# npm run build + upload-pages-artifact + deploy-pages) preserve the
+# chain.
 #
-# DM-2 deviation: plan recommended withastro/action, but our
-# npm run build chains a Phase 2 post-build sweep
-# (scripts/post-build-strip-md-links.mjs, the Codex P0 fix). The
-# all-in-one withastro/action runs `astro build` directly with no
-# custom-script hook and would skip our sweep. Composable steps
-# (setup-node + npm ci + npm run build + upload-pages-artifact +
-# deploy-pages) preserve the chain.
+# Triggers: push to main (auto-deploy) and workflow_dispatch (manual).
+# Concurrency group "pages" with cancel-in-progress: false so a slower
+# in-flight deploy is not interrupted by a newer trigger.
 #
-# Trigger plan:
-#   - First cut shipped with workflow_dispatch only; user flipped Pages
-#     source to "GitHub Actions" and verified the manual dispatch.
-#   - This commit adds push trigger so future commits to main auto-deploy.
-#   - Until W12, deploy-docs.yml continues firing on docs/ changes
-#     and pushes to the now-dormant gh-pages branch (harmless waste,
-#     useful as a rollback path: flip Pages source back to gh-pages
-#     to instantly serve the last mkdocs build).
+# Rollback path: flip Pages source back to "Deploy from a branch >
+# gh-pages" to serve the last gh-pages build (a static fossil from
+# before the v2.14 doc-stack cutover).
 
 on:
   push:
