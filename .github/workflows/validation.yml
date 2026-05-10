@@ -19,6 +19,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Node 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Astro/Starlight dependencies
+        run: npm ci
+
       - name: Validate commands (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-commands.sh
@@ -109,6 +117,14 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-version-consistency.ps1
 
+      - name: Validate plugin install path (bash, enforcing)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/validate-plugin-install.sh
+
+      - name: Validate plugin install path (pwsh, enforcing)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/validate-plugin-install.ps1
+
       - name: Validate _pm-skills/ in .gitignore (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-gitignore-pm-skills.sh
@@ -175,15 +191,13 @@ jobs:
         run: pwsh -File scripts/check-version-references.ps1
         continue-on-error: true
 
-      - name: Validate docs frontmatter (bash)
+      - name: Validate docs frontmatter (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-docs-frontmatter.sh
-        continue-on-error: true
 
-      - name: Validate docs frontmatter (pwsh)
+      - name: Validate docs frontmatter (pwsh, enforcing)
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-docs-frontmatter.ps1
-        continue-on-error: true
 
       - name: Validate skill family registration (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
@@ -193,15 +207,13 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-skill-family-registration.ps1
 
-      - name: Check internal link validity (bash)
+      - name: Check internal link validity (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-internal-link-validity.sh
-        continue-on-error: true
 
-      - name: Check internal link validity (pwsh)
+      - name: Check internal link validity (pwsh, enforcing)
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-internal-link-validity.ps1
-        continue-on-error: true
 
       - name: Check generated content untouched (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
@@ -218,3 +230,7 @@ jobs:
       - name: Validate cross-doc references (pwsh, enforcing)
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-references-cross-doc.ps1
+
+      - name: Build site with Astro Starlight (enforcing)
+        if: always()
+        run: npm run build
