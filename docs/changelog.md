@@ -62,7 +62,77 @@ Doc Stack Migration: MkDocs Material to Astro Starlight. Doc-stack migration rel
 - Astro 5.13.x static-site CVE exemption documented in `docs/internal/dependency-policy.md`. 5 advisories on the pinned version are accepted as not-applicable to pm-skills' SSG runtime profile (no SSR, no server islands, no Cloudflare adapter).
 
 > Full release narrative: see [`Release_v2.14.0`](releases/Release_v2.14.0.md).
-> v2.13.0 and v2.13.1 entries: see the root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md) (docs site backfill scheduled for v2.14.x).
+
+## [2.13.1] - 2026-05-06
+
+Plugin Install Path Correction. Patch release. The 40-skill catalog is unchanged from v2.13.0; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, etc. is identical. What changes is the plugin install path: `/plugin marketplace add product-on-purpose/pm-skills` now succeeds, where it had failed silently since v2.7.0 due to two unrelated bugs in `marketplace.json` (wrong location and missing schema fields).
+
+### Fixed
+
+- **`marketplace.json` relocated** from repo root to `.claude-plugin/marketplace.json`, the canonical path Claude Code's plugin system reads from. Move performed via `git mv` so file history is preserved. The repo-root location is no longer present.
+- **README count-exempt markers extended** to cover the "Previous Release Details" section. Pre-release CI surfaced 3 pre-existing stale per-version counts in historical release blocks (v2.9.0 "31 skills", v2.8.0 "29 skills", v2.7.0 "27 skills") that fell outside the v2.13.0 count-exempt range. These are correct as historical statements about what shipped at each version; the wrap restores `check-count-consistency` to PASS without rewriting historical text.
+- **`marketplace.json` schema corrected** to satisfy Claude Code's marketplace registry:
+    - Added top-level `owner` object with `name` and `url` (required field; was absent).
+    - Converted plugin entry's `author` from a bare string to an object with `name` and `url` (string form is rejected by the schema).
+    - Both changes are non-behavioral; the same plugin metadata is now expressed in the schema-conformant shape.
+
+### Added
+
+- **`scripts/validate-plugin-install.{sh,ps1,md}`** (enforcing). New CI validator that asserts the plugin install path will work end-to-end. Verifies both manifests exist at canonical paths (`.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`), validates required fields against Claude Code's marketplace schema (`name`, `owner.name`, `plugins`, per-plugin `name` + `version` + `source` + `author` as object), and enforces cross-manifest version + name consistency. Catches the exact bug class that shipped silently from v2.7.0 through v2.13.0.
+- **`docs/releases/Release_v2.13.1.md`** authored as the release notes artifact.
+- **`docs/internal/release-plans/v2.13.1/plan_v2.13.1.md`** authored as the release plan.
+
+### Changed
+
+- **`scripts/validate-version-consistency.{sh,ps1}`** updated to read `marketplace.json` from `.claude-plugin/marketplace.json` instead of the repo root. Continues to enforce that plugin.json and marketplace.json declare the same version.
+- **`README.md` "Install as Claude Code Plugin" section** rewritten. Primary path is now the `/plugin marketplace add` + `/plugin install` flow that the marketplace registration enables. Manifest-direct install (the prior text) retained as a fallback for older Claude clients.
+- **`.claude/pm-skills-for-claude.md`** updated to acknowledge plugin install as a parallel path alongside the sync-helper. No primary recommendation between the two paths in this release; recommendation positioning deferred to v2.14.0 or later.
+- **Validator inventory grows from 22 to 23** (1 new enforcing). Enforcing tier grows from 10 to 11.
+
+### Compatibility
+
+- **No content changes.** All 40 skills, 47 slash commands, 9 workflows, 126 library samples, and 22 CI scripts are unchanged from v2.13.0.
+- **Codex compatibility unaffected.** Codex (and any non-Claude-Code agent) reads from `skills/` and `AGENTS.md` directly; `marketplace.json` is Claude-Code-specific. The file move and schema additions have zero impact on Codex usage.
+- **Sync-helper install path unaffected.** Users who install via `scripts/sync-claude.sh` see no change.
+- **`pm-skills-mcp` companion server unaffected.** v2.9.x maintenance line continues independently.
+
+## [2.13.0] - 2026-05-05
+
+Foundation Hardening + Doc Stack Decision. Maintenance and quality release. The 40-skill catalog is unchanged from v2.12.0, so day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical. What changed is everything around the catalog: cleaner Diataxis-aligned documentation (duplicate files removed, counts reconciled, generated pages clearly labeled, `pm-skill-*` filename prefix convention), 7 new CI gates that catch doc drift on PRs automatically (validator inventory 15 to 22; enforcing tier 5 to 10), and an out-of-cycle `pm-skills-mcp` v2.9.3 security-patch follow-up to the v2.9.2 maintenance-mode announcement that cleared all 8 open Dependabot moderate advisories.
+
+### Added
+
+- **7 new CI validators** (Bucket C) each with `.sh` + `.ps1` + `.md` triplet completeness:
+    - `check-nav-completeness` (enforcing): every `docs/**/*.md` is in nav OR `exclude_docs` OR auto-include patterns
+    - `check-generated-content-untouched` (enforcing): snapshots, regenerates, diffs, restores; fails on hand-edits to generated pages. Pairs with Pattern 5C generated-content marker from Bucket A.4.
+    - `validate-references-cross-doc` (enforcing): every cross-link in `docs/reference/` resolves
+    - `validate-skill-family-registration` (enforcing): registry-driven family validation (`meeting-skills-family` plus future families); F-36
+    - `validate-docs-frontmatter` (advisory): every rendered doc has title plus description
+    - `check-internal-link-validity` (advisory): zero broken internal links across the doc tree
+    - `check-version-references` (advisory): version-reference drift detector
+- **Pattern 5C generated-content marker** on all 63 generated pages: `generated: true` and `source: scripts/...` frontmatter fields plus a visible `!!! warning "Generated file"` admonition pointing editors to the source. All 3 generators (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`) emit the marker.
+- **F-34 `library/skill-output-samples/THREAD_PROFILES.md`**: machine-readable per-thread metadata contract for tooling consumers (`utility-pm-skill-builder` primary; future regen tools).
+- **Zensical compatibility spike report** at `docs/internal/release-plans/v2.13.0/plan_v2.13_zensical-spike-report_2026-05-05.md`. Decision artifact for v2.14.0+ stack-decision discussions; outcome NO-GO.
+
+### Changed
+
+- **Doc structure refactor (Bucket A):** `docs/frameworks/` retired (canonical Triple Diamond reference moved to `docs/concepts/triple-diamond-delivery-process.md`); 4 concept files reorganized to `docs/reference/` and `docs/guides/` per Diataxis 4-quadrant taxonomy; 4 legacy duplicate files deleted; `creating-skills.md` renamed to `creating-pm-skills.md` per the locked `pm-skill-*` prefix convention.
+- **Count and link cleanup (Bucket B):** skill counts reconciled across 7 public surfaces (concepts, reference, guides, getting-started, mkdocs config, homepage hero) at 40; `utility-pm-skill-builder` catalog table updated; `docs/guides/mcp-setup.md` deleted and redirected to `mcp-integration.md`; `AGENTS/codex/CONTEXT.md` shrunk 74 to 32 lines as a vestigial-redirect; README "What's New" workaround replaced with explicit HTML-comment markers; `docs/guides/index.md` expanded from 7 to 12 listed guides.
+- **5 PowerShell parity bugfixes (Bucket C):** `check-stale-bundle-refs.ps1`, `check-workflow-coverage.ps1`, `check-generated-freshness.ps1`, `lint-skills-frontmatter.ps1`. PS1 versions now match bash output.
+- **`check-count-consistency` tightened and promoted to enforcing** for current-state files. Original line-level `v[0-9]+\.` exemption replaced with explicit HTML-comment markers plus a subset-descriptor exclusion list.
+
+### Infrastructure
+
+- **Phase 0 Adversarial Review Loop** applied across per-strand (PR.1) and release-state (PR.2) layers. PR.1 closed via 4 Codex tasks. PR.2 closed via 5 Codex review rounds + 3 resolution passes (8 numbered rounds total).
+- **Stale-aggregate-counter pattern codified** as durable feedback memory after PR.2 round 2 caught it at meta level.
+- **Validator inventory grows from 15 to 22** (7 new). **Enforcing tier grows from 5 to 10** (4 new enforcing + count-consistency promoted).
+
+### Out-of-cycle (pm-skills-mcp companion server)
+
+- **`pm-skills-mcp` v2.9.2** (2026-05-05): formal maintenance-mode announcement (effective 2026-05-04). Re-embeds the full current 40-skill catalog at v2.9.2 build time. Total tools: 59 (40 skill + 11 workflow + 8 utility). Active development paused; security patches and critical bug fixes will continue.
+- **`pm-skills-mcp` v2.9.3** (2026-05-05): security-patch follow-up two hours after v2.9.2. Cleared all 8 open Dependabot moderate advisories. Post-ship Dependabot open-alert count: 0. The 2-hour announcement-to-patch turnaround validates the v2.9.2 maintenance-mode commitment in operational practice.
+
+> See the root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md) for the complete v2.13.0 entry with full Bucket / Fixed / Deferred sections.
 
 ## [2.12.0] - 2026-05-01
 
