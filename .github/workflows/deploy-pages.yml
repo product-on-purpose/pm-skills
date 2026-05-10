@@ -1,0 +1,76 @@
+name: Deploy to GitHub Pages
+
+# v2.14.0 W11 (cutover via Option D: GitHub Actions Pages source).
+#
+# Replaces deploy-docs.yml (mkdocs gh-deploy --force) once the user
+# flips the Pages source from "Deploy from a branch > gh-pages" to
+# "GitHub Actions" in repo Settings > Pages. Until that flip, this
+# workflow can run successfully through the build + upload-artifact
+# steps but the deploy step requires the Actions Pages source.
+#
+# DM-2 deviation: plan recommended withastro/action, but our
+# npm run build chains a Phase 2 post-build sweep
+# (scripts/post-build-strip-md-links.mjs, the Codex P0 fix). The
+# all-in-one withastro/action runs `astro build` directly with no
+# custom-script hook and would skip our sweep. Composable steps
+# (setup-node + npm ci + npm run build + upload-pages-artifact +
+# deploy-pages) preserve the chain.
+#
+# Trigger plan:
+#   - workflow_dispatch only at first cut. User dispatches manually
+#     once after the Pages source flip to verify production renders
+#     Starlight cleanly.
+#   - After successful verify, follow-up commit adds
+#     `push: branches: [main]` so future commits auto-deploy.
+#   - Until W12, deploy-docs.yml continues firing on docs/ changes
+#     and pushes to the now-dormant gh-pages branch (harmless waste,
+#     useful as a rollback path: flip Pages source back to gh-pages
+#     to instantly serve the last mkdocs build).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site (Astro Starlight + Phase 2 post-build sweep)
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
