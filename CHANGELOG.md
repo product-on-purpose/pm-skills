@@ -7,6 +7,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Post-v2.14.0 cleanup. ~20 commits shipped to main but not yet tagged; awaiting v2.14.1 or accumulating toward v2.15. The 40-skill catalog remains unchanged.
+
+### Added
+
+- **`docs/reference/mermaid-style-guide.md` + `public/mermaid-style-guide.html`** (FU8). Canonical Mermaid diagram style guide with decision matrix for diagram-type selection, Triple Diamond palette spec, 5 diagram-type examples (graph LR, block-beta, sequenceDiagram, stateDiagram-v2, gantt), dark mode audit notes, and a machine-readable YAML spec for agents. Self-contained HTML preview opens locally or serves at `/pm-skills/mermaid-style-guide.html`.
+- **7 README stubs** across `docs/{skills,guides,concepts,contributing,getting-started,showcase,releases}/` (FU7). Short pointer files matching the workflows + reference precedent so each docs section has a GitHub-directory landing page distinct from the Astro-built `index.md`.
+- **`MIN_EDIT_LINKS` env var threshold** in `scripts/verify-edit-links.mjs` (V3). Default 100; catches silent regression where editLink emission breaks (would otherwise pass with 0 occurrences).
+- **"Maintainer notes: architectural workarounds" section** in `CONTRIBUTING.md` (V2). Documents 5 inline-commented workarounds future-maintainers should not "fix": autogenerate docs/ prefix; post-build .md link sweep; EXCLUDE_PATHS mirroring; generator rewrite_internal_paths; LC_ALL fallback.
+- **`maintenance: true` flag + `maintenanceNote`** in `pm-skills-mcp/pm-skills-source.json` (V9; cross-repo commit 7e9cac5 in pm-skills-mcp). Documents the M-22 frozen-catalog posture explicitly.
+
+### Changed
+
+- **`check-internal-link-validity.{sh,ps1}` promoted to truly enforcing** in CI (FU6). Added `--strict` / `-Strict` flag in `.github/workflows/validation.yml`. Also fixed 7 broken doubled-docs-prefix links via generator path-rewrite + LC_ALL fallback for Windows Git Bash locale. Scope expanded in V6 to include `.mdx` files (docs/index.mdx + docs/showcase/index.mdx now scanned).
+- **`validate-docs-frontmatter.{sh,ps1}` promoted to truly enforcing** in CI (V5). Added `--strict` / `-Strict` flag. Required cleaning 20 docs (19 missing descriptions; 1 too-short description; 9 needed YAML quote-wrapping for embedded colons).
+- **`validate-mcp-sync.yml` default mode flipped from `block` to `observe`** (V9). MCP entered maintenance mode 2026-05-04; drift between pm-skills and pm-skills-mcp is the documented posture. CONTRIBUTING.md "MCP Sync Guardrail" section updated to reflect the steady-state.
+- **9 GitHub Actions workflow files bumped** from `actions/{checkout,setup-node}@v4` and `upload-pages-artifact@v3` and `deploy-pages@v4` to `@v5` (FU4). Ahead of forced Node 20 cutoff 2026-06-02.
+- **Mermaid global theme + CSS polish** (M1+M2). `lineColor: '#5C7CFA'` (favicon indigo) and `fontFamily: 'system-ui'` via `mermaidConfig.themeVariables` in `astro.config.mjs`. Plus `.mermaid` SVG rules in `src/styles/custom.css` for edge stroke-width, node corner-radius, and cluster fill-opacity.
+- **Triple Diamond classDef palette** applied to home page diagrams (M3). 6-color palette for the 6 phases via `classDef` (graph LR) and `style` (block-beta).
+- **`docs/changelog.md` v2.13.0 + v2.13.1 entries backfilled** (FU3). Closes the 2-version gap that existed at v2.14.0 tag.
+- **`README.md` version surfaces refreshed** (FU1): shields.io badge URL, "Latest stable", "Latest release notes" anchor, "Published tag" all bumped to v2.14.0. Plus `docs/index.mdx` Recent Releases row and `.claude/pm-skills-for-claude.md` install-path note.
+- **Generator output reframed for users** (V10). Removed the visible `:::caution[Generated file]` aside from 63 generator-output pages (per-skill, per-phase, workflow, showcase, commands reference); also removed the "Hand-edited curated index" note from `docs/skills/index.md`. Pattern 5C generated-content marker preserved via frontmatter (`generated: true` + `source:`), which is what `check-generated-content-untouched.sh` validates. Users no longer see contributor-noise on rendered pages.
+
+### Fixed
+
+- **45 library sample files swept of 182 en-dashes** (V11). Pre-existing en-dashes that had been latent because the no-em-dashes hook only fires on Edit/Write tool calls; generators bypass the hook. Replaced with space-hyphen-space per CLAUDE.md substitute. Generators re-run; downstream docs/skills/* and docs/showcase/* refreshed.
+- **3 routing defects from W13 visual smoke** (B2.5; this lands under v2.14.0, not Unreleased). Captured here for completeness in the post-tag narrative.
+
+### Disabled
+
+- **`sync-agents-md.yml` auto-trigger removed** (V7). Workflow had been failing on every skills/** push since 2026-04-23 because its `skills/$phase/*/` glob did not match the flat `skills/{phase-name}/` structure pm-skills uses. AGENTS.md is hand-authored as the canonical contributor-facing doc; auto-sync would gut the content. `workflow_dispatch` retained for future revival.
+
+### Process
+
+- **AGENTS/claude/CONTEXT.md status block refreshed** to v2.14.0 SHIPPED state (V12).
+- **`docs/releases/Release_v2.14.0.md` Counts table** clarified as tag-time snapshot with pointer to post-tag drift (V13).
+- **Two plan docs annotated with post-tag follow-up summary row** for traceability without rewriting the at-tag-time close (V13).
+
 ## [2.14.0] - 2026-05-10
 
 Doc Stack Migration: MkDocs Material to Astro Starlight. Doc-stack migration release. The 40-skill catalog is unchanged from v2.13.x; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical. What changed is the documentation site itself: MkDocs Material is retired; Astro Starlight ships in its place. The user-visible site at https://product-on-purpose.github.io/pm-skills/ continues to serve the same content under a modern static-site stack. 4 phases / 13 workstreams executed; Phase 0 Adversarial Review Loop applied via `codex:rescue` against trunk release-state.

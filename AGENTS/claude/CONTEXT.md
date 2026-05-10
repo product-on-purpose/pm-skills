@@ -2,17 +2,33 @@
 
 ## Current State
 
-**Status:** v2.14.0 cycle in progress; **Phase 1 (Foundation) COMPLETE locally as of 2026-05-08** with 4 commits not yet pushed: `c172fa0` Phase 1 Foundation (W1 scaffold + W2 in-place mount + W3 title sweep), `50c1378` Phase 1 cleanup (release titles + CI sanity), `2094d37` Q1-Q5 Decision Brief refactor, `3aa5fcb` W3.5 frontmatter byte-0 sweep + schema enhancement (102 files). All 9 cycle Decision Briefs (DM-1 through DM-4 in migration plan, Q1-Q5 in spec) resolved with explicit maintainer Accept signoff. GitHub web-view rendering verified via Playwright before W3.5 sweep ran. Astro+Starlight builds clean against in-place `docs/` mount: 125 pages in 4.24s warm. Lint extension (`lint-skills-frontmatter.sh/.ps1`) enforces byte-0 placement on TEMPLATE.md, EXAMPLE.md, library samples with bug-pattern detection. Phase 2 (Parity = W4 Sidebar IA + W5 CSS port + W6 Mermaid + W7 Library samples mount + W8 Generator verification + W9 Redirect mapping; ~15-24 focused hours) is the next batch; recommend fresh session. v2.13.1 SHIPPED 2026-05-06 is the latest tagged release (plugin install path correction). v2.13.0 tagged 2026-05-05. v2.14.0 cycle plan committed 2026-05-06 with theme "Doc Stack Migration: MkDocs Material to Astro Starlight"; Phase 0 (compatibility decision) EXECUTED 2026-05-06 with verdict GO-WITH-CAVEATS; Codex adversarial review applied (9 Major / 8 Minor / 2 Notes / 0 Blockers); 19 actions integrated. Consolidated migration plan at `plan_v2.14_starlight-migration.md` with 14 workstreams in 4 phases. Revised effort estimate: **33-45 hours focused work / 6-9 calendar days** for migration execution (Phases 1-4); Phase 1 consumed roughly 6-8 hours.
-**Last Updated:** 2026-05-08 (Phase 1 wrap session). Prior: 2026-05-06 (Phase 0 + cycle plan commits). Post-tag housekeeping completed: 3 Dependabot PRs (#129 setup-python 5 to 6, #130 actions/cache 4 to 5, #139 action-gh-release 2 to 3) merged via squash; 6 stale local branches deleted (backup/claude-path-cutover, feature/f-16-mermaid-diagrams, feature/f-19-slideshow-creator, v2.0-codex, wip/local-agent-context, docs/mkdocs-site); 10 origin claude/* orphan branches deleted from GitHub; origin/v2.13/cycle auto-deleted by GitHub on PR #140 merge; origin/docs/mkdocs-site deleted (verified fully merged). README reorganized: MCP notice converted to collapsible + relocated to Quick Start area; v2.6 to v2.9 What's New entries moved to Project Status > Previous Release Details; duplicate MCP note removed from comparison table area. Final remote branches: main, gh-pages only (after Dependabot auto-cleanup).
-**Release:** v2.13.1 is the latest tagged release (plugin install path correction; shipped 2026-05-06 in concurrent session). GitHub release published from `docs/releases/Release_v2.13.1.md`. Previous: v2.13.0 (2026-05-05 / Doc + CI hygiene; tag `v2.13.0` at `cbdbc5f`); v2.12.0 (2026-05-03 / OKR Skills Launch); v2.11.1 (2026-04-22); v2.11.0 (2026-04-18 / Meeting Skills Family + lean-canvas). v2.13.1 added new enforcing validator `validate-plugin-install` (workflow integration deferred to v2.14 W10).
-**Skill count:** 40 (26 phase + 8 foundation + 6 utility). Unchanged from v2.12.0; v2.13.0 was a maintenance and quality release with zero new skills.
-**MCP:** pm-skills-mcp in maintenance mode (effective 2026-05-04). Latest in v2.9.x maintenance line is **v2.9.3** (security-patch follow-up to v2.9.2; cleared all 8 open Dependabot moderate advisories on 2026-05-05; 0 alerts post-ship). GitHub repo description updated 2026-05-06 from stale "29 skills" to current 40-skills + 11 workflows + 8 utility tools framing; npm tarball verified to ship 40 SKILL.md files (matches the catalog claim in v2.13.0 release notes). Catalog frozen at 40 skills per the v2.9.2 build. Subsequent v2.9.x patches do not change the catalog.
-**v2.13.0 theme (locked 2026-05-03):** Doc consistency overhaul + CI refactoring + Material for MkDocs to Zensical migration. Three coherent strands of cleanup work that the user explicitly framed as a separate cycle from v2.12.0 feature work. Untracked items in `docs/internal/` are 2.13 prep material (F-37 html-template-creator effort, organization-design, multi-repo extraction design, v2.13.0 release plan stub, skills-ideas brainstorm).
-**v2.13.0 specific items observed during v2.12.0 release prep (deferred):** `utility-pm-skill-builder` SKILL.md catalog table stale (Foundation lists 1, Utility lists 1 in the gap-analysis table; actuals are 8 and 6); `AGENTS/codex/CONTEXT.md` last actively maintained 2026-03-22 at v2.7.0 (got a v2.12.0 currency marker only, full content refresh deferred); pre-existing lint-skills-frontmatter PS1 false-positives for utility-pm-skill-validate, utility-slideshow-creator, utility-update-pm-skills (bash version passes; PS1 path-detection bug); 3 PowerShell CI scripts with parse errors (check-stale-bundle-refs, check-workflow-coverage, check-generated-freshness); docs/guides/mcp-setup.md "all 38 PM skills via MCP" wording (frozen MCP actually has 28); count-consistency CI script regex blind spots (prose forms with adjective interstitials between digit and "skills"; per-phase counts below 10 min-threshold). Pre-existing v2.12.0 backlog still open: F-29 (lifecycle workflow), F-30 (adoption guide), F-31/32/33/34/35 (sample-automation loop), F-36 (generic family-registration validator).
-**Material/Zensical decision (research-staged, not committed):** MkDocs upstream is potentially abandoned and a v2 may break Material plugins; Material for MkDocs is in maintenance mode for ~12 months per squidfunk's announcement. Zensical is squidfunk's own successor project (drop-in `mkdocs.yml` compatibility, ZRX differential build engine 4-5x faster, third-party module ecosystem opening early 2026). Recommended path: 30-min Zensical compatibility spike on pm-skills before committing. Astro Starlight is the Plan B if Zensical compatibility holes are too deep; Docusaurus is overkill for pm-skills' content shape.
-**Memory updates pending (user wanted to think):** 3 candidates identified at session close: (1) feedback memory on `/ultrareview` calibration (overkill for doc-heavy release prep, appropriate for design-decision releases); (2) feedback memory on "don't author factual prose claims from memory in tracked docs" (re-derive from manifest or frontmatter at edit time; Codex round 3 caught me doing this in versioning.md); (3) project memory on Phase 0 release-state confirmation loop pattern (a layer of review beyond the per-skill Phase 0 loop). User asked to think before saving.
-**Next Step:** Push 4 Phase 1 commits to origin (`git push origin main`) to enable github web-view spot-check on swept samples (W3.5 spec acceptance #7-#8). Then open fresh session for Phase 2 (Parity). Continuation prompt is in `AGENTS/SESSION-LOG/2026-05-08_10-18_claude_v2.14-phase-1-foundation-complete.md`.
-**Process notes for v2.12.0:** The v2.11.0-codified Phase 0 Adversarial Review Loop demonstrated its value at scale this cycle. The grader's per-skill loop converged in 3 rounds (1 HIGH + 4 MEDIUM total). The release-state loop (a NEW layer of review beyond the per-skill loop) ran 4 rounds with MEDIUM count 2 / 2 / 3 / 2 across rounds, no HIGH, no escalation, terminated per "below IMPORTANT" rule. Each round caught a distinct defect class: untracked file inconsistencies (round 1) → rendered-doc prose forms (round 2) → version data accuracy from prose (round 3) → audit-trail accuracy of the loop's own description in release notes (round 4). The cost was ~12 minutes of Codex compute; the benefit was 9 distinct release-state defects caught and fixed that mechanical CI could not detect. Em-dash standing-rule maintained zero across tracked files.
+**Status:** v2.14.0 SHIPPED 2026-05-10 at HEAD `5718440` (annotated tag; GitHub Release published from `docs/releases/Release_v2.14.0.md`). Doc Stack Migration: MkDocs Material to Astro Starlight. Production at https://product-on-purpose.github.io/pm-skills/ verified end-to-end (home, /reference/, /samples/, /releases/Release_v2.14.0/, redirect base-path all 200). All 4 phases complete (Phase 0 spike GO-WITH-CAVEATS 2026-05-06; Phase 1 Foundation; Phase 2 Parity; Phase 3 Cutover; Phase 4 Material retirement + W13 final validation). W13 ran in 4 planned sub-batches (B1 perf + auto-gates, B2 visual smoke, B3 Codex PR.2 via codex:rescue, B4 release artifacts + tag) + 2 mid-cycle insertions (B2.5 routing fixes for /reference/ + /samples/ + redirect base-path; B3.5 Codex PR.2 P1+P3 fixes including bash/pwsh parity gap discovery and locale fallback).
+
+**Post-tag cleanup (shipped to main but not tagged; awaiting v2.14.1 or accumulating toward v2.15):** ~20 commits across 3 batches.
+
+1. FU1-FU8 (post-tag follow-ups): version sweep across 5 stale v2.13.1 surfaces; gitignore session artifacts; docs/changelog.md v2.13.x backfill; Node 20 actions bump (forced cutoff 2026-06-02); jp-wrap-session log; check-internal-link-validity bash/pwsh parity fix (Windows Git Bash LC_ALL=C.UTF-8 locale issue) + 7 broken links fixed via generator rewrite_internal_paths() + EXAMPLE.md backtick-form fix + promotion to truly enforcing via --strict; 7 README stubs across docs/{skills,guides,concepts,contributing,getting-started,showcase,releases}/ + glob exclusion in src/content.config.ts + EXCLUDE_PATHS extensions in 4 validators; Mermaid style guide (MD + HTML) at docs/reference/mermaid-style-guide.md + public/mermaid-style-guide.html.
+
+2. M1-M3 (Mermaid beautification): astro.config.mjs themeVariables (lineColor #5C7CFA + system-ui font + fontSize 14px); src/styles/custom.css polish (edge stroke-width 1.75px + node rect rx/ry 6 + cluster fill-opacity 0.4); per-diagram classDef + style directive Triple Diamond palette applied to docs/index.mdx graph LR and block-beta diagrams (6 phases color-coded).
+
+3. V1-V11 (v2.14.x backlog closure): V1 dark mode contrast audit (Playwright DOM eval; solid-pastel palette = accepted posture documented in style guide); V2 CONTRIBUTING.md "Maintainer notes: architectural workarounds" section documenting 5 inline-commented workarounds; V3 verify-edit-links.mjs MIN_EDIT_LINKS threshold; V4 bash grep -P audit (confirmed FU6 scope correct); V5 validate-docs-frontmatter cleanup across 20 docs + YAML quote-wrapping for colons + promotion to --strict; V6 link validator .mdx scope expansion; V7 sync-agents-md.yml auto-trigger disabled (workflow_dispatch kept); V8 path-filtered workflow audit (only V7 + V9 had stale-failure); V9 pm-skills-mcp/pm-skills-source.json metadata v2.14.0 + maintenance: true flag (cross-repo commit 7e9cac5) + validate-mcp-sync.yml default mode block to observe (matches MCP maintenance posture per M-22 freeze); V10 user-facing "Generated file" asides removed from 63 generator-output pages + "Hand-edited curated" note removed from docs/skills/index.md; V11 en-dash sweep across 45 library sample files (182 en-dash occurrences swept to space-hyphen-space) + regenerate downstream docs.
+
+**Last Updated:** 2026-05-10 (V12-V14 release-artifact accuracy sweep). Prior: 2026-05-08 (Phase 1 wrap session before v2.14.0 ship).
+
+**Release:** v2.14.0 SHIPPED 2026-05-10 (Doc Stack Migration). GitHub Release: https://github.com/product-on-purpose/pm-skills/releases/tag/v2.14.0. Previous: v2.13.1 (2026-05-06 plugin install path correction); v2.13.0 (2026-05-05 Foundation Hardening + Doc Stack Decision); v2.12.0 (2026-05-03 OKR Skills Launch); v2.11.1 (2026-04-22); v2.11.0 (2026-04-18 Meeting Skills Family + lean-canvas).
+
+**Skill count:** 40 (26 phase + 8 foundation + 6 utility). Unchanged from v2.12.0 through v2.14.0; v2.14.0 was a doc-stack migration release with zero catalog changes.
+
+**MCP:** pm-skills-mcp in maintenance mode (effective 2026-05-04). Latest tagged: **v2.9.3** (security-patch follow-up; 0 Dependabot alerts post-ship). Catalog frozen at v2.9.2 build (40 skill tools + 11 workflow tools + 8 utility tools = 59 tools). v2.14.x V9 updated pm-skills-mcp/pm-skills-source.json metadata to v2.14.0 + added `maintenance: true` flag; pm-skills validate-mcp-sync.yml default mode flipped from block to observe so drift no longer fails CI (drift is the maintenance posture).
+
+**Two CI validators promoted to truly enforcing this cycle:** check-internal-link-validity (FU6) and validate-docs-frontmatter (V5). Both now run with --strict / -Strict in CI and were verified PASS on Ubuntu + Windows. Previously these were "enforcing in name only" (CI step ran without --strict so scripts exited 0 with findings).
+
+**Two long-standing failing workflows closed:** sync-agents-md.yml disabled (V7; was failing on every skills/** push since 2026-04-23 due to flat skills/ structure mismatch); validate-mcp-sync.yml flipped to observe (V9; failure was the M-22 maintenance posture, not a bug).
+
+**Architectural workarounds documented:** CONTRIBUTING.md "Maintainer notes" section now documents 5 workarounds future-maintainers should NOT "fix": autogenerate `docs/` prefix in astro.config.mjs; scripts/post-build-strip-md-links.mjs running after astro build; EXCLUDE_PATHS hardcoded arrays mirroring src/content.config.ts glob excludes; scripts/generate-skill-pages.py rewrite_internal_paths() helper; scripts/check-internal-link-validity.sh LC_ALL=C.UTF-8 fallback.
+
+**Mermaid style guide shipped:** docs/reference/mermaid-style-guide.md (canonical reference; user-facing) + public/mermaid-style-guide.html (self-contained live preview; opens locally or served at /pm-skills/mermaid-style-guide.html). Documents 3-layer styling model (M1 themeVariables + M2 CSS polish + M3 per-diagram classDef), Triple Diamond palette, 5 diagram-type examples, dark mode audit notes, machine-readable YAML spec for agents.
+
+**Next Step:** v2.15+ cycle planning (fresh session). Deferred items: JS theme-listener for true dark-mode-adaptive Mermaid (V1 deferred); library samples scope expansion in link validator (V6 partial); slug normalization for release URLs; Astro 6 + Node 22.12+ upgrade (Decision 11 in v2.14 cycle plan); sync-agents-md.yml rewrite to walk flat skills/{phase-name}/ structure (V7 disable was tactical); validate-mcp-sync.js maintenance: true flag awareness (V9 used workflow-default flip; cleaner solution is validator reads the flag from source.json).
 
 ## Project Overview
 
@@ -448,29 +464,30 @@ pm-skills/
 
 ## Next Steps
 
-### Active (v2.14.0 cycle - Phases 1-4 migration execution promoted)
+### Active (post-v2.14.0; v2.15+ planning)
 
-v2.13.0 SHIPPED. v2.14.0 cycle theme committed 2026-05-06: doc-stack migration from MkDocs Material to Astro Starlight. **Phase 0 (compatibility decision) EXECUTED 2026-05-06 with verdict GO-WITH-CAVEATS.** All three v2.13 BLOCKERs cleared (redirects PASS, excludes PASS, parser warnings 0 vs Zensical's 2,940). Codex adversarial review applied (9 Major / 8 Minor / 2 Notes / 0 Blockers); 19 actions integrated. Phases 1-4 (migration execution) is now active for v2.14.0 ship.
+v2.14.0 SHIPPED 2026-05-10. Post-tag cleanup (FU1-FU8 + M1-M3 + V1-V11) also shipped to main but not tagged (awaiting v2.14.1 or accumulating toward v2.15). The next active cycle is v2.15+ scoping; recommend fresh session for cycle planning.
 
-Authoritative documents:
-- Cycle plan (strategy + decisions): `docs/internal/release-plans/v2.14.0/plan_v2.14.0.md`
-- Migration execution plan (consolidated; 13 workstreams in 4 phases): `docs/internal/release-plans/v2.14.0/plan_v2.14_starlight-migration.md`
-- Spike plan: `plan_v2.14_starlight-spike.md`
-- Spike report: `plan_v2.14_starlight-spike-report_2026-05-06.md`
-- Archived Codex review: `_archive/plan_v2.14_starlight-spike-report_2026-05-06_original_reviewed-by-codex.md`
+Authoritative documents (closed; reference only):
+- Cycle plan (closed 2026-05-10): `docs/internal/release-plans/v2.14.0/plan_v2.14.0.md`
+- Migration execution plan (closed 2026-05-10; all 13 workstreams + W13 sub-batches): `docs/internal/release-plans/v2.14.0/plan_v2.14_starlight-migration.md`
+- Spike plan + report (Phase 0 artifacts): `plan_v2.14_starlight-spike.md` + `plan_v2.14_starlight-spike-report_2026-05-06.md`
+- Release notes: `docs/releases/Release_v2.14.0.md`
+- Session log (deep mode): `AGENTS/SESSION-LOG/2026-05-10_07-00_claude_v2.14.0-tag-ship-and-post-tag-followups.md` (gitignored; covers W13 + tag + FU1-FU8 + M1-M3)
 
 | Gate | Item | Status |
 |------|------|--------|
-| Phase 0 | Compatibility decision (Astro Starlight spike, 60-min time-boxed) | Executed 2026-05-06; GO-WITH-CAVEATS pending pre-ship validation gates |
-| Phase 1 | Foundation (W1-W3): pre-flight + in-place mount + frontmatter compliance | Pending kickoff |
-| Phase 2 | Parity (W4-W9): sidebar IA + CSS port + Mermaid + samples + generators + redirects | Pending Phase 1 |
-| Phase 3 | Cutover (W10-W11): CI workflow migration + GitHub Pages deploy | Pending Phase 2 |
-| Phase 4 | Deprecate + Ship (W12-W13): Material removal + final validation | Pending Phase 3 |
-| Pre-ship validation gates | 7 gates listed in spike report Outcome section | Must clear before v2.14.0 tags |
-| Decision Briefs (D1-D4 + DM-1, DM-2) | All 4 D-Briefs resolved 2026-05-06; DM-1 + DM-2 pending signoff at workstream kickoff | D1-D4 resolved; DM-1, DM-2 open |
-| Contingency (NO-GO pivot) | NOT triggered | n/a |
+| Phase 0 spike | Astro Starlight compatibility decision | Executed 2026-05-06; GO-WITH-CAVEATS |
+| Phase 1 Foundation (W1-W3.5) | Pre-flight + in-place mount + frontmatter compliance | CLOSED 2026-05-08 |
+| Phase 2 Parity (W4-W9 + W5.5) | Sidebar IA + CSS port + Starlight asides + Mermaid + samples + generators + redirects | CLOSED 2026-05-09 |
+| Phase 3 Cutover (W10-W11) | CI migration + GitHub Pages deploy + post-cutover icon-leakage fix | CLOSED 2026-05-10 |
+| Phase 4 Deprecate + Ship (W12-W13) | Material removal + final validation + tag | CLOSED 2026-05-10; v2.14.0 tagged at `5718440` |
+| Pre-ship validation gates (G1-G7) | All 7 PASS at tag | DONE |
+| Decision Briefs (D1-D4 + DM-1 to DM-4 + Q1-Q5) | All resolved with maintainer Accept signoff | DONE |
+| Codex PR.2 (release-state) | 0 P0 + 3 P1 + 4 P2 + 2 P3; all P1 resolved before tag; P2 + P3 deferred or closed in post-tag V batches | DONE |
+| Post-tag FU1-FU8 + M1-M3 + V1-V11 | All shipped to main 2026-05-10; CI green | DONE |
 
-Total estimated effort: 30-40 hours focused work / 5-8 calendar days.
+v2.14.x has no remaining work. v2.15+ scoping items deferred to fresh session.
 
 ### Backlog
 

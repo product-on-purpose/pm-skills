@@ -119,19 +119,21 @@ For maintainers of similar repos, the 4-phase / 13-workstream cycle plan plus th
 
 ## Counts at v2.14.0
 
+Snapshot at tag time (`5718440`, 2026-05-10). Post-tag cleanup (FU1-FU8 + M1-M3 + V1-V11 batches; ~20 commits) is shipped to main but not part of the v2.14.0 tag. See the CHANGELOG `[Unreleased]` section for post-tag drift from these numbers (added pages, promoted validators, etc.).
+
 | Surface | Count | Note |
 |---|---|---|
 | Skills | 40 | unchanged from v2.13.x (26 phase + 8 foundation + 6 utility) |
 | Workflows | 9 | unchanged |
 | Slash commands | 47 | 40 skill + 7 workflow |
-| Library samples | 115 | mounted under /samples/ via W7; 11 legacy/orbit excluded (9 + 2) |
+| Library samples | 115 | mounted under /samples/ via W7; 11 legacy/orbit excluded (9 + 2); post-tag V11 swept en-dashes in all 45 affected sample files |
 | Validators (total) | 23 | net -1 from v2.13.x (24 to 23); `check-nav-completeness` retired (Starlight autogenerate solves orphan class structurally) |
-| Validators (enforcing) | 11 | structurally enforcing CI steps; 2 of these run in advisory mode pending v2.14.x bash/pwsh parity fix |
-| Validators (advisory) | 12 | unchanged |
-| Pages built | 239 | 124 docs + 115 samples |
+| Validators (enforcing at tag) | 11 | structurally enforcing CI steps; 2 of these ran in advisory mode at tag pending bash/pwsh parity fix. Post-tag: both promoted to truly enforcing in v2.14.x FU6 (check-internal-link-validity --strict) and V5 (validate-docs-frontmatter --strict). Current state: 13 enforcing + 10 advisory. |
+| Validators (advisory at tag) | 12 | post-tag: 10 (2 promoted; see above) |
+| Pages built at tag | 239 | 124 docs + 115 samples. Post-tag: 254 pages (added 7 README stubs via FU7, Mermaid style guide MD+HTML via FU8, samples/index.md + reference/index.md via B2.5, etc.) |
 | Redirect entries preserved | 12 | all destinations include /pm-skills/ base |
 | Mermaid blocks across pages | 31 | rendered client-side via astro-mermaid |
-| pm-skills-mcp tools (frozen at v2.9.2 build) | 59 | maintenance line; v2.14.0 doc-stack migration does not affect MCP |
+| pm-skills-mcp tools (frozen at v2.9.2 build) | 59 | maintenance line; v2.14.0 doc-stack migration does not affect MCP. Post-tag V9 updated pm-skills-mcp/pm-skills-source.json metadata to v2.14.0 + maintenance: true flag |
 
 ---
 
