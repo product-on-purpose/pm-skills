@@ -36,6 +36,7 @@ Write-Host ""
 $excludePaths = @(
     "templates/"
     "workflows/README.md"
+    "reference/README.md"
 )
 
 # Auto-skip patterns: rendered docs that legitimately may not need frontmatter

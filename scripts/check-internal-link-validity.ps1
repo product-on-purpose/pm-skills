@@ -39,6 +39,7 @@ Write-Host ""
 $excludePaths = @(
     "templates/"
     "workflows/README.md"
+    "reference/README.md"
 )
 
 function Test-Excluded {

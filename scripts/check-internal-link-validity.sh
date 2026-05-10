@@ -45,6 +45,7 @@ echo ""
 EXCLUDE_PATHS=(
   "templates/"
   "workflows/README.md"
+  "reference/README.md"
 )
 
 is_excluded() {

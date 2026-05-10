@@ -20,22 +20,27 @@ export default defineConfig({
   site: 'https://product-on-purpose.github.io',
   base: '/pm-skills',
   // W9 (Redirect mapping): port of mkdocs.yml redirect_maps entries.
-  // Per maintainer 2026-05-06 adjacent call: old Material URL preservation
-  // is lower-priority; redirect destination base-path correctness is not a
-  // pre-ship gate. Destinations use plain paths; base path applied by Astro.
+  // W13 B2.5: destinations now include the /pm-skills/ base path. Astro does
+  // NOT auto-prepend the base to redirect destinations (verified in dist
+  // output); without the prefix the meta-refresh lands at the bare GitHub
+  // Pages domain (product-on-purpose.github.io) which is not the pm-skills
+  // project page, producing a "Site not found" error. Sources stay relative
+  // to the site root because Astro's redirect-source side IS base-aware.
+  // 2026-05-06 deferral re-decided after live-impact evidence (Site not
+  // found, not just "broken link").
   redirects: {
-    '/bundles/': '/workflows/',
-    '/bundles/feature-kickoff/': '/workflows/feature-kickoff/',
-    '/bundles/lean-startup/': '/workflows/lean-startup/',
-    '/bundles/triple-diamond/': '/workflows/triple-diamond/',
-    '/concepts/triple-diamond/': '/concepts/triple-diamond-delivery-process/',
-    '/concepts/versioning/': '/reference/pm-skill-versioning/',
-    '/concepts/comparisons/': '/guides/pm-skill-comparisons/',
-    '/concepts/skill-anatomy/': '/reference/pm-skill-anatomy/',
-    '/concepts/skill-lifecycle/': '/guides/pm-skill-lifecycle/',
-    '/guides/creating-skills/': '/guides/creating-pm-skills/',
-    '/guides/authoring-pm-skills/': '/guides/creating-pm-skills/',
-    '/guides/mcp-setup/': '/guides/mcp-integration/',
+    '/bundles/': '/pm-skills/workflows/',
+    '/bundles/feature-kickoff/': '/pm-skills/workflows/feature-kickoff/',
+    '/bundles/lean-startup/': '/pm-skills/workflows/lean-startup/',
+    '/bundles/triple-diamond/': '/pm-skills/workflows/triple-diamond/',
+    '/concepts/triple-diamond/': '/pm-skills/concepts/triple-diamond-delivery-process/',
+    '/concepts/versioning/': '/pm-skills/reference/pm-skill-versioning/',
+    '/concepts/comparisons/': '/pm-skills/guides/pm-skill-comparisons/',
+    '/concepts/skill-anatomy/': '/pm-skills/reference/pm-skill-anatomy/',
+    '/concepts/skill-lifecycle/': '/pm-skills/guides/pm-skill-lifecycle/',
+    '/guides/creating-skills/': '/pm-skills/guides/creating-pm-skills/',
+    '/guides/authoring-pm-skills/': '/pm-skills/guides/creating-pm-skills/',
+    '/guides/mcp-setup/': '/pm-skills/guides/mcp-integration/',
   },
   integrations: [
     // W6 (D4): astro-mermaid renders client-side per-page (only loads the
@@ -157,12 +162,21 @@ export default defineConfig({
           // W7: 115 library sample pages mounted under /samples/. Collapsed
           // by default to avoid sidebar clutter (each sample is a leaf within
           // a per-skill subgroup, so the section expands to 40 subgroups).
+          // W13 B2.5: hybrid items (overview slug + library autogen) so the
+          // /samples/ section root resolves to a real overview page rather
+          // than 404. Mirrors the Skills section pattern (slug ref + autogen).
           label: 'Samples',
           collapsed: true,
-          autogenerate: {
-            directory: 'library/skill-output-samples',
-            collapsed: true,
-          },
+          items: [
+            'samples',
+            {
+              label: 'Library',
+              autogenerate: {
+                directory: 'library/skill-output-samples',
+                collapsed: true,
+              },
+            },
+          ],
         },
       ],
     }),
