@@ -1,8 +1,8 @@
 # Dependency Policy
 
 **Cycle introduced:** v2.14.0
-**Last updated:** 2026-05-07
-**Scope:** Node toolchain pinning for the Astro Starlight documentation stack.
+**Last updated:** 2026-05-10
+**Scope:** Node toolchain pinning for the Astro Starlight documentation stack; accepted-CVE exemptions for the static-site build profile.
 
 ## Node engine
 
@@ -39,3 +39,27 @@ When a maintainer wants to bump any line in this table:
 2. Run the full local build and validation matrix.
 3. Document the bump rationale in the CHANGELOG under "Changed" (Keep a Changelog format).
 4. Update this file's "Last updated" date and any affected version specifiers.
+
+## Known accepted CVEs (static-site exemption)
+
+pm-skills is built as a static site (SSG via Astro Starlight). It uses no SSR, no server islands, no middleware, and no Cloudflare adapter. The build artifact is plain HTML, JS, and CSS served by GitHub Pages. The following npm advisories on `astro ~5.13.0` (the v2.14 spike-validated pin per DM-4) are accepted as not-applicable to our runtime profile:
+
+| Advisory | Severity | Fix range | Feature affected | Applies to pm-skills? |
+|---|---|---|---|---|
+| `GHSA-wrwg-2hg8-v723` | High (CVSS 7.1) | `>5.15.6` | Reflected XSS via server islands feature (SSR-only) | No - we do not enable server islands. |
+| `GHSA-hr2q-hp5q-x767` | Moderate (CVSS 6.5) | `>=5.15.5` | URL manipulation via headers; middleware bypass (SSR-only) | No - we have no SSR middleware. |
+| `GHSA-5ff5-9fcw-vg88` | Moderate (CVSS 6.5) | `>=5.14.3` | X-Forwarded-Host reflected without validation (SSR-only) | No - we have no SSR request handling. |
+| Cloudflare adapter `_image` Stored XSS | (varies) | (varies) | Cloudflare adapter only | No - we do not use the Cloudflare adapter. |
+| `GHSA-x3h8-62x9-952g` | Low (CVSS 3.5) | `>=5.14.3` | Astro Development Server arbitrary local file read | Bounded - manifests only during `npm run dev` (local contributor environment); never in the published GitHub Pages site. |
+
+The four High and Moderate advisories require SSR or adapter features that pm-skills does not use. The remaining Low advisory affects only the local dev server, where contributor exposure is bounded. CI advisory tooling (Dependabot, GitHub advisory scanning) will continue to surface these advisories as long as the Astro pin remains below the fix range. The exemption is documented here so the position is explicit and defensible rather than implicit / rationalized after the fact.
+
+**Re-evaluation point.** The Astro 6 + Node 22.12+ bump is deferred to v2.15+ (Decision 11 in the v2.14 cycle plan). At that cycle, the pin moves past 5.x entirely; this exemption table can be revisited and most likely removed when the underlying advisories no longer apply to a 6.x-pinned codebase.
+
+## Decision lineage
+
+This file's positions came from the following deliberations:
+
+- Astro pin policy (DM-4 in `docs/internal/release-plans/v2.14.0/plan_v2.14_starlight-migration.md`): Option A (hold `~5.13.0`; document static-site exemption) accepted by maintainer 2026-05-06.
+- Astro 6 + Node 22.12+ deferral (Decision 11 in `docs/internal/release-plans/v2.14.0/plan_v2.14.0.md`): bump deferred to v2.15+.
+- Tight-pin rationale: surfaced during W1 spike when Astro 6 hard-failed install on Node 22.11.0; documented here as the "Astro 6 hard-fail on Node 22.11.0" lesson.

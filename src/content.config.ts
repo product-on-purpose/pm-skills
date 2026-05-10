@@ -15,7 +15,7 @@ import { docsSchema } from '@astrojs/starlight/schema';
 //   - templates/**: skill-template SKILL.md uses `<placeholder>` syntax that YAML-parses as a nested mapping (per spike Caveat 3)
 //   - workflows/README.md: contributor-facing meta-doc for the _workflows/ source folder (the canonical user-facing page is workflows/index.md, generated from the same source); previously excluded via mkdocs.yml exclude_docs (W4 surfaced; was missing from W2)
 //   - reference/README.md: short GitHub-directory landing page for docs/reference/; the canonical user-facing page is reference/index.md (W13 B2.5 fix; resolves /reference/ 404 from W13 visual smoke)
-//   - sample_*_legacy_*.md and sample_*_orbit_*.md: 26 W3.5-excluded library samples missing schema fields (per Path B decision)
+//   - sample_*_legacy_*.md and sample_*_orbit_*.md: 11 historical library samples (9 legacy + 2 orbit) excluded by filename pattern per maintainer Path B decision 2026-05-09; these remain on disk for historical record but do not ship to the docs site
 //
 // Schema extends Starlight's docsSchema() with pm-skills custom frontmatter fields
 // for both docs/ and library samples (all optional). Pattern 5C `generated:` and

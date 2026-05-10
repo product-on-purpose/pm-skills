@@ -183,11 +183,11 @@ jobs:
         run: pwsh -File scripts/check-version-references.ps1
         continue-on-error: true
 
-      - name: Validate docs frontmatter (bash, enforcing)
+      - name: Validate docs frontmatter (bash, advisory)
         if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-docs-frontmatter.sh
 
-      - name: Validate docs frontmatter (pwsh, enforcing)
+      - name: Validate docs frontmatter (pwsh, advisory)
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-docs-frontmatter.ps1
 
@@ -199,11 +199,11 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-skill-family-registration.ps1
 
-      - name: Check internal link validity (bash, enforcing)
+      - name: Check internal link validity (bash, advisory)
         if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-internal-link-validity.sh
 
-      - name: Check internal link validity (pwsh, enforcing)
+      - name: Check internal link validity (pwsh, advisory)
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-internal-link-validity.ps1
 
