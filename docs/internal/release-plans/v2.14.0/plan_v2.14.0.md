@@ -1,10 +1,10 @@
 # v2.14.0 Release Plan: Doc Stack Migration to Astro Starlight
 
-**Status:** Phase 0 (compatibility decision) EXECUTED 2026-05-06; verdict GO-WITH-CAVEATS; Phases 1-4 (migration execution) promoted to active scope
-**Owner:** TBD
+**Status:** EXECUTED 2026-05-10; v2.14.0 tagged. All 4 phases complete (Phase 0 spike GO-WITH-CAVEATS; Phases 1-4 migration execution + W13 final validation including B1-B4 sub-batches with mid-cycle B2.5 routing fixes and B3.5 Codex PR.2 P1+P3 fixes).
+**Owner:** Claude + human
 **Type:** Migration release (minor)
 **Created:** 2026-05-05
-**Updated:** 2026-05-06 (promoted from placeholder; spike executed; verdict GO-WITH-CAVEATS)
+**Updated:** 2026-05-10 (cycle close; v2.14.0 tagged)
 **Sources:**
 - v2.14 Starlight migration execution plan (authoritative for migration execution; Phases 1-4): [`plan_v2.14_starlight-migration.md`](./plan_v2.14_starlight-migration.md) (authored 2026-05-06; updated 2026-05-07 cross-session sync; 14 workstreams in 4 phases + detailed CI + Material deprecation criteria + 3 Decision Briefs DM-1/DM-2/DM-3)
 - v2.14 frontmatter correction spec (in-cycle work item): [`discovery/spec_frontmatter-correction.md`](./discovery/spec_frontmatter-correction.md) (drafted 2026-05-06; 5 maintainer questions Q1-Q5 pending signoff before W3.5 execution; covers 102 library + skills files)
@@ -306,11 +306,13 @@ Day 1 (Phase 0):    Starlight compatibility spike (60 min, time-boxed)
 | Migration execution plan | [`plan_v2.14_starlight-migration.md`](./plan_v2.14_starlight-migration.md) authored 2026-05-06; updated 2026-05-07 cross-session sync; 14 workstreams in 4 phases + detailed CI + Material deprecation criteria; 3 new Decision Briefs (DM-1 mkdocs.yml deletion timing, DM-2 deploy action choice, DM-3 install-path positioning) for maintainer signoff at workstream kickoff |
 | Frontmatter correction spec (in-cycle) | [`discovery/spec_frontmatter-correction.md`](./discovery/spec_frontmatter-correction.md) drafted 2026-05-06; 102 files affected (100 library samples + 2 OKR-skill EXAMPLE.md); 5 maintainer questions Q1-Q5 pending signoff before W3.5 execution; bundled placement fix + schema enhancement + lint extension in one PR |
 | Concurrent v2.13.1 ship | Latest tag is now v2.13.1 (plugin install path correction; shipped 2026-05-06 in parallel session); new validator `validate-plugin-install` enforcing locally; workflow integration deferred to v2.14 W10 |
-| Theme decision | Committed: Starlight migration; spike confirmed; migration execution (Phases 1-4) begins next session |
-| Effort estimate (post-review) | 30-40 hours focused work (~5-8 calendar days); see spike report Estimated migration effort table |
-| Pre-ship validation gates | 7 gates listed in spike report Outcome section; must clear before v2.14.0 ships |
-| Contingency status | NOT triggered (migration execution path active) |
-| Out-of-cycle MCP impact | None expected |
+| Theme decision | Executed: Starlight migration shipped; spike confirmed; all 4 phases (W1-W13) complete |
+| Effort estimate (post-review) | 30-40 hours focused work estimated; actual ~33-38 hours across spike + 4 phases (Phase 1 ~6-8h, Phase 2 ~12-15h, Phase 3 ~7-9h including W11 cutover and icon-leakage fix, Phase 4 ~5-6h W12 + ~3h W13) |
+| Pre-ship validation gates | All 7 gates PASS at v2.14.0 tag (G1 mount + 238/238 editLinks; G2 115 samples shipping + spot-check; G3 zero Material classes; G4 D3 Option C sidebar; G5 production deploy verified; G6 edit links mechanical; G7 visual smoke 11 page types + 8 phase roots) |
+| Contingency status | NOT triggered (migration execution path completed) |
+| Out-of-cycle MCP impact | None occurred (pm-skills-mcp v2.9.x maintenance line untouched) |
+| Cycle close | v2.14.0 tagged 2026-05-10. Release notes at [`Release_v2.14.0.md`](../../../releases/Release_v2.14.0.md). CHANGELOG entry at root `CHANGELOG.md`. Plugin manifests bumped 2.13.1 to 2.14.0. v2.14.x cleanup items deferred per release notes "What's deferred" section (validator parity fix, README stub coverage, slug normalization, CONTRIBUTING.md workaround docs, Node 20 actions bump, docs/changelog.md v2.13.x backfill). |
+| Codex PR.2 release-state review | Executed 2026-05-10 via `codex:rescue` against trunk HEAD `da11498`. 0 P0, 3 P1, 4 P2, 2 P3 findings. P1.2 + P3.1 + P1.3 resolved before tag; P1.1 partial (CI step labels relabeled to advisory; full enforcement deferred to v2.14.x bash/pwsh parity fix); P2 deferred to v2.14.x. First cycle where Codex review ran without an open PR. |
 
 ---
 

@@ -135,6 +135,20 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 <!-- count-exempt:start -->
 <details open>
+<summary>v2.14.0 - Doc Stack Migration: MkDocs Material to Astro Starlight</summary>
+
+- **Doc-stack migration release; same 40-skill catalog as v2.13.x.** Day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is unchanged. What changed is the documentation site itself: MkDocs Material is retired; Astro Starlight ships in its place. Same URL, same content, modern static-site stack.
+- **Build pipeline switches from Python pip to Node 22.x.** `mkdocs build --strict` to `npm run build` (Astro + Starlight + post-build .md link sweep). Faster cold builds; warm builds particularly competitive. New `.github/workflows/deploy-pages.yml` deploys via GitHub Actions Pages source (auto-deploys on push to main; ~1m9s to live).
+- **For readers, the docs site renders faster and gains modern features.** Client-side Pagefind search; native dark-mode auto-toggle; inline-SVG icon rendering via Starlight's curated icon library; client-side Mermaid via astro-mermaid 2.0.1 (code-split bundle, only loads on pages with mermaid blocks; renders 31 mermaid blocks across the site).
+- **For contributors, the source-of-truth boundary is cleaner.** `docs/` is mounted in place via custom Astro glob loader (D2 Option B); no synthetic copy step. Editing flows are unchanged; the new build infrastructure is invisible to anyone editing markdown.
+- **For inbound-link consumers, 12 redirect entries are preserved.** All Material-era URLs from `mkdocs.yml redirect_maps` redirect cleanly to current pm-skills pages with proper `/pm-skills/` base path handling. Re-decided the 2026-05-06 deferral after live-impact evidence (W13 B2.5 visual smoke) revealed redirects without base were landing at "Site not found · GitHub Pages".
+- **Routing fixes from W13 visual smoke** ship in B2.5 sub-batch: `/reference/` 404 (workflows-style README + index pattern); `/samples/` 404 (new overview index + hybrid sidebar items); redirect base-path. Browser smoke test layer caught these where mechanical CI passes did not.
+- **Phase 0 Adversarial Review Loop via `codex:rescue`** against trunk release-state (first cycle where Codex review ran without an open PR). 0 P0, 3 P1, 4 P2, 2 P3 findings. P1.2 + P3.1 + P1.3 resolved before tag; P1.1 partial (CI step labels relabeled to honestly reflect actual behavior; full enforcement deferred to v2.14.x bash/pwsh parity fix); P2 deferred to v2.14.x.
+- **Validator inventory net -1** (24 to 23). `check-nav-completeness` retired (Starlight autogenerate solves orphan class structurally). `mkdocs.yml`, `requirements-docs.txt`, `deploy-docs.yml`, `validate-docs.yml`, `docs/stylesheets/extra.css` retired.
+- Release note: [`docs/releases/Release_v2.14.0.md`](docs/releases/Release_v2.14.0.md).
+
+</details>
+<details>
 <summary>v2.13.1 - Plugin Install Path Correction</summary>
 
 - **Plugin install path fixed.** `/plugin marketplace add product-on-purpose/pm-skills` now works against the public repo. Prior to this release, marketplace.json lived at the repo root and lacked the `owner` schema field that Claude Code's marketplace registry requires; the install path failed silently for any user who tried it. The same 40-skill catalog ships unchanged.

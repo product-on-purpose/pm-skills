@@ -11,6 +11,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.0] - 2026-05-10
+
+Doc Stack Migration: MkDocs Material to Astro Starlight. Doc-stack migration release. The 40-skill catalog is unchanged from v2.13.x; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical. What changed is the documentation site itself: MkDocs Material is retired; Astro Starlight ships in its place. The user-visible site continues to serve the same content under a modern static-site stack. 4 phases / 13 workstreams executed.
+
+### Added
+
+- Astro Starlight stack pinned in `package.json`: `astro ~5.13.0`, `@astrojs/starlight ~0.34.0`, `astro-mermaid ~2.0.1`, `sharp ^0.34.5`.
+- `astro.config.mjs` authoring (sidebar IA, redirects, mermaid, custom CSS); `src/content.config.ts` glob loader (in-place docs/ mount + library/skill-output-samples/ remap to /samples/).
+- `.github/workflows/deploy-pages.yml` GitHub Actions Pages deploy (composable steps preserve post-build .md link sweep).
+- `scripts/verify-edit-links.mjs` post-build edit-link verifier (238/238 unique targets resolve).
+- `scripts/post-build-strip-md-links.mjs` post-build .md link sweep (Codex P0 fix from Phase 2; strips 440 links across 59 files).
+- `docs/reference/index.md` and `docs/samples/index.md` overview pages (W13 B2.5 routing fixes).
+- `public/favicon.svg` (Triple Diamond mark).
+- `src/styles/custom.css` minimal port from Material extra.css.
+- `docs/internal/dependency-policy.md` "Known accepted CVEs (static-site exemption)" section per DM-4.
+- `docs/internal/release-plans/v2.14.0/plan_v2.14_starlight-migration.md` master migration plan; spike report.
+- `docs/releases/Release_v2.14.0.md` release notes.
+
+### Changed
+
+- Build pipeline: `mkdocs build --strict` (Python pip) to `npm run build` (Node 22.x).
+- Deploy pipeline: `mkdocs gh-deploy` to GitHub Actions Pages source (auto-deploys on push to main).
+- Generator output reframe (W5.5): pymdownx admonitions to Starlight asides; MDX details for collapsibles. 38 doc pages regenerated.
+- Home page rewrite (W11 C3): `docs/index.md` to `docs/index.mdx`; 31 pymdownx shortcodes converted to Starlight `<CardGrid>` + `<Card icon=...>`.
+- 4 source validators decoupled from `mkdocs.yml` (W12 C2); hardcoded EXCLUDE_PATHS arrays mirror src/content.config.ts glob excludes.
+- Validator inventory net -1 (24 to 23): `check-nav-completeness` retired (Starlight autogenerate solves orphan class structurally).
+
+### Removed
+
+- `mkdocs.yml`, `requirements-docs.txt`, `.github/workflows/deploy-docs.yml`, `.github/workflows/validate-docs.yml`, `scripts/check-nav-completeness.{sh,ps1,md}`, `docs/stylesheets/extra.css`.
+
+### Fixed
+
+- `/reference/` 404 (B2.5 F1): README.md kept as GitHub-directory landing pointer; new index.md is the Astro source-of-truth at `/reference/`.
+- `/samples/` 404 (B2.5 F2): authored `docs/samples/index.md`; Samples sidebar switched to hybrid items.
+- Redirect destinations landing at "Site not found · GitHub Pages" (B2.5 F3): prepended `/pm-skills/` to all 12 destinations.
+- Favicon 404 + Material/Octicon shortcode leakage on home + showcase pages (W11 C3).
+
+### Compatibility
+
+- All 40 skills, 47 slash commands, 9 workflows, 115 mounted samples, and source-side editing flows are unchanged from v2.13.x.
+- Codex compatibility unaffected (reads from `skills/` and `AGENTS.md` directly).
+- Sync-helper, `npx skills add`, and `/plugin marketplace add` install paths unaffected.
+- `pm-skills-mcp` companion server unaffected.
+- Inbound-link compatibility for Material-era URLs: all 12 redirect entries preserved with `/pm-skills/` base path.
+
+### Security
+
+- Astro 5.13.x static-site CVE exemption documented in `docs/internal/dependency-policy.md`. 5 advisories on the pinned version are accepted as not-applicable to pm-skills' SSG runtime profile (no SSR, no server islands, no Cloudflare adapter).
+
+> Full release narrative: see [`Release_v2.14.0`](releases/Release_v2.14.0.md).
+> v2.13.0 and v2.13.1 entries: see the root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md) (docs site backfill scheduled for v2.14.x).
+
 ## [2.12.0] - 2026-05-01
 
 OKR Skills Launch. First release with the OKR Skills set: `foundation-okr-writer` and `measure-okr-grader` covering the full quarterly OKR write-and-score cycle. Adds 2 new skills (40 total) and 6 new thread-aligned library samples (126 total). Both skills shipped together so cross-skill hand-offs and the canonical 5-value OKR type enum (`committed | aspirational | learning | operational_health | compliance_or_safety`) are coherent at first appearance. Internal `utility-pm-skill-builder` packet-format simplification bundled silently. Phase 0 Adversarial Review Loop applied across both skills with 3 review rounds converged before tag.

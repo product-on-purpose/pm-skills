@@ -7,6 +7,70 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.0] - 2026-05-10
+
+Doc Stack Migration: MkDocs Material to Astro Starlight. Doc-stack migration release. The 40-skill catalog is unchanged from v2.13.x; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical. What changed is the documentation site itself: MkDocs Material is retired; Astro Starlight ships in its place. The user-visible site at https://product-on-purpose.github.io/pm-skills/ continues to serve the same content under a modern static-site stack. 4 phases / 13 workstreams executed; Phase 0 Adversarial Review Loop applied via `codex:rescue` against trunk release-state.
+
+### Added
+
+- **Astro Starlight stack pinned in `package.json`**: `astro ~5.13.0`, `@astrojs/starlight ~0.34.0`, `astro-mermaid ~2.0.1`, `sharp ^0.34.5`. Node engine `>=22.0.0 <23` (deliberately below Astro 6's `>=22.12` requirement; Astro 6 + Node 22.12+ deferred to v2.15+).
+- **`astro.config.mjs`** authoring: site + base config, in-place `docs/` content collection mount, sidebar IA (D3 Option C: manual top-level + autogenerate within), 12 redirect entries with `/pm-skills/` base path, mermaid integration with `autoTheme: true`, custom CSS reference.
+- **`src/content.config.ts`** custom glob loader (D2 Option B): mounts `docs/**/*.{md,mdx}` and `library/skill-output-samples/**/sample_*.md` in place; excludes `docs/internal/**`, `docs/templates/**`, `docs/workflows/README.md`, `docs/reference/README.md` (W13 B2.5), and 11 legacy/orbit historical samples; remaps library-sample paths to `/samples/{skill}/{stem}/`. Schema extends Starlight's `docsSchema()` with pm-skills custom frontmatter fields plus sample-specific fields.
+- **`.github/workflows/deploy-pages.yml`** GitHub Actions Pages deploy workflow. Composable steps (checkout + setup-node + npm ci + npm run build + upload-pages-artifact + deploy-pages) preserve the post-build `.md` link sweep that the all-in-one `withastro/action` would skip (DM-2 deviation rationale documented in workflow header).
+- **`scripts/verify-edit-links.mjs`** post-build edit-link verifier. Walks `dist/**/*.html`, parses Starlight editLink hrefs, asserts each target file exists in repo source. 238/238 unique targets resolve cleanly.
+- **`scripts/post-build-strip-md-links.mjs`** post-build `.md` link sweep. Codex P0 fix from Phase 2 review: Astro `markdown.remarkPlugins` did not invoke our plugin in the Starlight + custom-glob-loader setup; post-build HTML rewrite is reliable. Strips 440 `.md` link suffixes across 59 files.
+- **`docs/reference/index.md`** authored as the Astro source-of-truth Reference overview at `/reference/`; resolves `/reference/` 404 from W13 B2.5.
+- **`docs/samples/index.md`** authored with corpus overview (115 samples, 40 skills, 3 threads); resolves `/samples/` 404 from W13 B2.5.
+- **`public/favicon.svg`** Triple Diamond mark (3 indigo `#5C7CFA` filled diamonds; 280 bytes uncompressed). Resolves W11 C3 favicon 404.
+- **`src/styles/custom.css`** minimal port from `docs/stylesheets/extra.css`; only `.mermaid` rule retained (the other 4 Material-specific selectors retired with Material).
+- **`docs/internal/dependency-policy.md` "Known accepted CVEs (static-site exemption)" section** per DM-4 plan. Documents 5 advisories on `astro ~5.13.0` (SSR / server islands / Cloudflare adapter features pm-skills does not use). Re-evaluation point set at v2.15+ Astro 6 bump.
+- **`docs/internal/release-plans/v2.14.0/plan_v2.14_starlight-migration.md`** master migration plan (14 workstreams in 4 phases; W13 status block updated through B1-B4 sub-batches).
+- **`docs/internal/release-plans/v2.14.0/plan_v2.14_starlight-spike-report_2026-05-06.md`** GO-WITH-CAVEATS spike report (5 bounded caveats; all closed during execution).
+- **`docs/releases/Release_v2.14.0.md`** authored as the release notes artifact.
+
+### Changed
+
+- **Build pipeline** moves from `mkdocs build --strict` (Python pip toolchain) to `npm run build` (Node 22.x toolchain; chains `astro build && node scripts/post-build-strip-md-links.mjs`).
+- **Deploy pipeline** moves from `mkdocs gh-deploy --force` (push to `gh-pages` branch) to GitHub Actions Pages source (auto-deploys on push to main; ~1m9s build to live). GitHub Pages source flipped manually during W11 cutover.
+- **Generator output reframe** in W5.5: 3 generators (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`) updated to emit Starlight-native syntax. `!!! warning "Generated file"` to `:::caution[Generated file]`; `!!! info "Quick facts"` to `:::note[Quick facts]`; `??? example "..."` to MDX `<details><summary>...</summary>`; `{ .md-button }` line removed. 38 doc pages regenerated. 4 hand-authored doc pages also rewritten to Starlight asides.
+- **Home page rewrite** in W11 C3: `docs/index.md` to `docs/index.mdx`; 31 pymdownx shortcodes converted to Starlight `<CardGrid>` + `<Card icon=...>` components drawing from Starlight's curated icon library (8 phase Cards + 3 showcase Cards). Material grid wrapper removed. Shortcode leakage defect from post-cutover surfaced and fixed.
+- **Showcase index regenerated** as `.mdx` with Starlight `<CardGrid>` + `<Card>` components. THREADS icons (Storevine = bars, Brainshelf = open-book, Workbench = laptop) drawn from Starlight's curated library.
+- **`scripts/check-internal-link-validity.{sh,ps1}`, `scripts/validate-docs-frontmatter.{sh,ps1}`, `scripts/check-workflow-coverage.{sh,ps1}`** decoupled from `mkdocs.yml`. Hardcoded `EXCLUDE_PATHS` arrays mirror `src/content.config.ts` glob excludes. Bash array initialization changed to `FOO=()` form (avoids `set -u` unbound-variable error). `validate-docs-frontmatter.sh` relaxed from `set -euo pipefail` to `set -uo pipefail` (description-detection grep returns non-zero on description-less docs; advisory-mode collect-and-print intent requires the script to keep running).
+- **Validator inventory** net -1 (24 to 23). `check-nav-completeness` retired entirely (Starlight autogenerate solves the orphan class structurally; the validator was a W2-era guard for MkDocs' explicit-nav model). 4 validators added to CI (`validate-plugin-install` enforcing wired in W10 C1; `verify-edit-links.mjs` new in W10 C2; production-mode `internal/` exclusion check inline in W10 C2). 2 validators promoted from `continue-on-error: true` to enforcing in W10 C1, but the underlying scripts remain in advisory mode (relabeled as "advisory" in CI step names in B3.5 to honestly reflect actual behavior pending v2.14.x parity fix).
+- **`.claude-plugin/plugin.json`** version bumped 2.13.1 to 2.14.0.
+- **`.claude-plugin/marketplace.json`** version bumped 2.13.1 to 2.14.0.
+
+### Removed
+
+- **`mkdocs.yml`** (298 lines) retired in W12 C1.
+- **`requirements-docs.txt`** (5 lines) retired in W12 C1 (pip mkdocs deps no longer needed).
+- **`.github/workflows/deploy-docs.yml`** retired in W12 C1 (mkdocs gh-deploy replaced by deploy-pages.yml).
+- **`.github/workflows/validate-docs.yml`** retired in W10 C3 (mkdocs build --strict replaced by npm run build smoke test in validation.yml).
+- **`scripts/check-nav-completeness.{sh,ps1,md}`** retired in W12 C2 (orphan class solved structurally by Starlight autogenerate).
+- **`docs/stylesheets/extra.css`** retired in W5; minimal port to `src/styles/custom.css` (4 of 5 Material-specific selectors retired; only `.mermaid` kept).
+
+### Fixed
+
+- **`/reference/` 404 on production** (W13 B2.5 F1). Cause: `docs/reference/README.md` mapped to `/reference/readme/` via Starlight's README slug rule, not `/reference/`. Fix: workflows-style pattern; README.md kept as GitHub-directory landing pointer; new `docs/reference/index.md` is the Astro source-of-truth at `/reference/`.
+- **`/samples/` 404 on production** (W13 B2.5 F2). Cause: no source `docs/samples/index.md`. Fix: authored overview index; Samples sidebar switched to hybrid items (slug ref + Library autogen).
+- **Redirect destinations landing at "Site not found · GitHub Pages"** (W13 B2.5 F3). Cause: redirect destinations used plain paths without the `/pm-skills/` base. Fix: prepended `/pm-skills/` to all 12 destinations; canonical URLs corrected. Re-decided the 2026-05-06 deferral after live-impact evidence shifted the cost-benefit.
+- **Favicon 404 on production** (W11 C3). Starlight emits a default `<link rel="shortcut icon">` even without explicit favicon config; we had no asset at the served path. Fix: `public/favicon.svg`.
+- **Material/Octicon shortcode leakage on home + showcase pages** (W11 C3). 31 occurrences on `docs/index.md` + 6 on `docs/showcase/index.md`. Fix: convert to MDX with Starlight `<CardGrid>` + `<Card icon=...>` components.
+- **Stale `26 W3.5-excluded` comment** in `src/content.config.ts` corrected to actual `11 historical library samples (9 legacy + 2 orbit)` (B3.5 P3.1; surfaced by Codex PR.2 review).
+
+### Compatibility
+
+- **No content changes.** All 40 skills, 47 slash commands, 9 workflows, 115 mounted library samples (126 source samples on disk), 23 CI scripts, and source-side editing flows are unchanged from v2.13.x.
+- **Codex compatibility unaffected.** Codex (and any non-Claude-Code agent) reads from `skills/` and `AGENTS.md` directly; the doc-stack migration is invisible to source-skill consumers.
+- **Sync-helper install path unaffected.** Users who install via `scripts/sync-claude.sh` or `npx skills add` see no change.
+- **Plugin marketplace install path unaffected.** `/plugin marketplace add product-on-purpose/pm-skills` continues to work; v2.13.1 plumbing remains.
+- **`pm-skills-mcp` companion server unaffected.** v2.9.x maintenance line continues independently.
+- **Inbound-link compatibility for Material-era URLs.** All 12 redirect entries from `mkdocs.yml redirect_maps` are preserved with `/pm-skills/` base path; old bookmarks resolve to current pm-skills pages.
+
+### Security
+
+- **Astro 5.13.x static-site CVE exemption** documented in `docs/internal/dependency-policy.md`. 5 advisories (1 High, 3 Moderate, 1 Low) on the pinned Astro version are accepted as not-applicable to pm-skills' SSG runtime profile (no SSR, no server islands, no middleware, no Cloudflare adapter). The Low advisory affects only the local dev server; contributor exposure is bounded. Re-evaluation point set at v2.15+ when the Astro 6 + Node 22.12+ bump is in scope.
+
 ## [2.13.1] - 2026-05-06
 
 Plugin Install Path Correction. Patch release. The 40-skill catalog is unchanged from v2.13.0; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, etc. is identical. What changes is the plugin install path: `/plugin marketplace add product-on-purpose/pm-skills` now succeeds, where it had failed silently since v2.7.0 due to two unrelated bugs in `marketplace.json` (wrong location and missing schema fields).
