@@ -13,8 +13,7 @@ import { docsSchema } from '@astrojs/starlight/schema';
 // Exclusions:
 //   - internal/**: gitignored release-plans, working notes, audits (production exemption)
 //   - templates/**: skill-template SKILL.md uses `<placeholder>` syntax that YAML-parses as a nested mapping (per spike Caveat 3)
-//   - workflows/README.md: contributor-facing meta-doc for the _workflows/ source folder (the canonical user-facing page is workflows/index.md, generated from the same source); previously excluded via mkdocs.yml exclude_docs (W4 surfaced; was missing from W2)
-//   - reference/README.md: short GitHub-directory landing page for docs/reference/; the canonical user-facing page is reference/index.md (W13 B2.5 fix; resolves /reference/ 404 from W13 visual smoke)
+//   - docs/**/README.md: GitHub-directory landing pages for every docs/ subdirectory (skills/, guides/, concepts/, contributing/, getting-started/, reference/, releases/, showcase/, workflows/). The canonical user-facing overview for each section is the sibling index.md (or index.mdx). Pattern established with workflows/README.md (W4) and reference/README.md (W13 B2.5); generalized to all sections in W13 FU7 to keep GitHub directory auto-render across the doc tree without shipping duplicate landing pages to the docs site.
 //   - sample_*_legacy_*.md and sample_*_orbit_*.md: 11 historical library samples (9 legacy + 2 orbit) excluded by filename pattern per maintainer Path B decision 2026-05-09; these remain on disk for historical record but do not ship to the docs site
 //
 // Schema extends Starlight's docsSchema() with pm-skills custom frontmatter fields
@@ -28,8 +27,7 @@ export const collections = {
         'docs/**/*.{md,mdx}',
         '!docs/internal/**',
         '!docs/templates/**',
-        '!docs/workflows/README.md',
-        '!docs/reference/README.md',
+        '!docs/**/README.md',
         'library/skill-output-samples/**/sample_*.md',
         '!library/skill-output-samples/**/sample_*_legacy_*.md',
         '!library/skill-output-samples/**/sample_*_orbit_*.md',

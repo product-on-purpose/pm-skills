@@ -37,8 +37,17 @@ echo ""
 # Trailing slash means "directory prefix"; no trailing slash means "exact file".
 EXCLUDE_PATHS=(
   "templates/"
+  # GitHub-directory landing pages (canonical user-facing pages are sibling
+  # index.md / index.mdx); pattern established W4 + W13 B2.5 + W13 FU7
   "workflows/README.md"
   "reference/README.md"
+  "skills/README.md"
+  "guides/README.md"
+  "concepts/README.md"
+  "contributing/README.md"
+  "getting-started/README.md"
+  "showcase/README.md"
+  "releases/README.md"
 )
 
 # Auto-skip patterns: rendered docs that legitimately may not need frontmatter
