@@ -1,5 +1,6 @@
 ---
 title: Contributing
+description: "How to contribute to pm-skills: contribution model, quality criteria, skill structure conventions, naming rules, and PR review process. Read this before opening a PR."
 ---
 
 # Contributing to PM-Skills

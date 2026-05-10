@@ -1,12 +1,26 @@
 name: Sync AGENTS.md
 
+# DISABLED auto-trigger (v2.14.x V7; 2026-05-10).
+#
+# This workflow auto-generated AGENTS.md by walking `skills/$phase/*/`
+# (nested phase-directory structure). pm-skills uses a flat
+# `skills/{phase-prefix}-{name}/` structure instead, so the generation
+# step produced an empty AGENTS.md and the auto-commit-then-push step
+# failed for two reasons: (1) push to main blocked by branch protection
+# rules; (2) the generated AGENTS.md would have gutted the hand-authored
+# content that contributors actively maintain.
+#
+# Has been failing on every skills/** push since at least 2026-04-23.
+# Disabled now to stop the noise; AGENTS.md remains hand-authored as a
+# canonical contributor-facing document.
+#
+# To revive: rewrite the workflow's generation step to walk the flat
+# skills/{phase-prefix}-{name}/ structure (parse the prefix to determine
+# phase), confirm the output matches the hand-authored AGENTS.md shape,
+# and reinstate the push trigger via PR (so branch protection cooperates).
+# v2.15+ scope.
+
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'skills/**/*.md'
-      - '_workflows/*.md'
-      - 'commands/*.md'
   workflow_dispatch:
 
 permissions:

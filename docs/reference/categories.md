@@ -1,5 +1,6 @@
 ---
 title: Categories
+description: The 7-category pm-skills taxonomy (research, problem-framing, ideation, specification, validation, reflection, coordination) with per-category skill mappings, framework correspondences, and selection guide.
 ---
 
 # Category Taxonomy

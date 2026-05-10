@@ -1,5 +1,6 @@
 ---
 title: Code of Conduct
+description: Standards of behavior for contributors and maintainers of pm-skills. Adopted from the Contributor Covenant; applies to all project spaces (issues, PRs, discussions).
 ---
 
 

@@ -1,5 +1,6 @@
 ---
 title: Ecosystem
+description: Comparison of the file-based pm-skills repo and the companion pm-skills-mcp MCP server. Decision matrix, feature comparison, integration patterns, and version compatibility notes for choosing between them.
 ---
 
 # PM-Skills Ecosystem Overview

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+description: Keep-a-Changelog-formatted release history for the pm-skills repo. Mirrors the root CHANGELOG.md as a navigable docs-site page.
 ---
 
 # Changelog

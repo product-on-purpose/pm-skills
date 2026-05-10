@@ -183,13 +183,13 @@ jobs:
         run: pwsh -File scripts/check-version-references.ps1
         continue-on-error: true
 
-      - name: Validate docs frontmatter (bash, advisory)
+      - name: Validate docs frontmatter (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
-        run: bash scripts/validate-docs-frontmatter.sh
+        run: bash scripts/validate-docs-frontmatter.sh --strict
 
-      - name: Validate docs frontmatter (pwsh, advisory)
+      - name: Validate docs frontmatter (pwsh, enforcing)
         if: always() && matrix.os == 'windows-latest'
-        run: pwsh -File scripts/validate-docs-frontmatter.ps1
+        run: pwsh -File scripts/validate-docs-frontmatter.ps1 -Strict
 
       - name: Validate skill family registration (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'

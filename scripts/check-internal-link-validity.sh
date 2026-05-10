@@ -78,8 +78,12 @@ is_excluded() {
   return 1
 }
 
-# Collect docs files
-FS_FILES=$(find "$ROOT/docs" -name "*.md" -type f \
+# Collect docs files. Includes both .md and .mdx (v2.14.x V6 scope
+# expansion per Codex P2.1: src/content.config.ts mounts both extensions).
+# Library samples (library/skill-output-samples/sample_*.md) are NOT
+# scanned here; their internal-link pattern differs and they are
+# deferred to v2.15+ once the validator supports multiple base paths.
+FS_FILES=$(find "$ROOT/docs" \( -name "*.md" -o -name "*.mdx" \) -type f \
   | grep -v "/docs/internal/" \
   | sed "s|$ROOT/docs/||" \
   | sort)

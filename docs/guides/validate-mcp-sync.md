@@ -1,5 +1,6 @@
 ---
 title: Validate MCP Sync
+description: How to validate that the pm-skills-mcp companion server is in sync with the file-based pm-skills repo. Covers the validate-mcp-sync.yml workflow, drift detection, and maintenance-mode posture.
 ---
 
 # validate-mcp-sync Guide

@@ -23,15 +23,29 @@
  *   repoRoot = .
  *
  * Exit codes:
- *   0  PASS. All editLink targets resolve to existing repo files.
- *   1  FAIL. One or more editLink targets do not exist in the repo.
+ *   0  PASS. All editLink targets resolve to existing repo files AND
+ *           the total occurrence count meets the minimum threshold.
+ *   1  FAIL. One or more editLink targets do not exist in the repo,
+ *           OR the total occurrence count fell below the minimum
+ *           threshold (silent regression where editLink emission broke).
  *   2  ERROR. dist/ does not exist (run npm run build first).
+ *
+ * Minimum-count threshold (Codex P2.2):
+ *   We have 238 editLink occurrences across 238 unique targets as of
+ *   v2.14.0. A regression where editLink emission silently broke (e.g.,
+ *   Starlight config drift, baseUrl typo, custom-glob-loader change)
+ *   would result in 0 occurrences. Without a minimum threshold the
+ *   script would pass on 0/0, hiding the regression. The threshold is
+ *   configurable via MIN_EDIT_LINKS env var; default 100 (allows ~50%
+ *   content shrinkage before failing, while catching the all-or-nothing
+ *   regression mode).
  */
 
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 
 const EDIT_BASE_URL = 'https://github.com/product-on-purpose/pm-skills/edit/main/';
+const MIN_EDIT_LINKS = Number.parseInt(process.env.MIN_EDIT_LINKS ?? '100', 10);
 
 const distDir = resolve(process.argv[2] ?? 'dist');
 const repoRoot = resolve(process.argv[3] ?? '.');
@@ -99,6 +113,16 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
+if (totalLinks < MIN_EDIT_LINKS) {
+  console.error(
+    `FAIL: editLink occurrence count (${totalLinks}) is below the minimum threshold (${MIN_EDIT_LINKS}). This usually signals that editLink emission silently broke (Starlight config drift, baseUrl typo, or custom-glob-loader change). Investigate astro.config.mjs editLink config and src/content.config.ts loader.`,
+  );
+  console.error(
+    `  Tip: tune MIN_EDIT_LINKS env var if intentional content shrinkage caused this.`,
+  );
+  process.exit(1);
+}
+
 console.log(
-  `PASS: ${totalLinks} editLink occurrences across ${checkedTargets.size} unique targets all resolve to existing repo paths`,
+  `PASS: ${totalLinks} editLink occurrences across ${checkedTargets.size} unique targets all resolve to existing repo paths (above minimum threshold ${MIN_EDIT_LINKS})`,
 );

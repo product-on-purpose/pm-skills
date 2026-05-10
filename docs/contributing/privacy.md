@@ -1,5 +1,6 @@
 ---
 title: Privacy
+description: "Privacy policy for pm-skills: what data the project collects (none from end users; only github-platform metadata for contributors), how it is used, and contributor expectations."
 ---
 
 # Privacy Policy

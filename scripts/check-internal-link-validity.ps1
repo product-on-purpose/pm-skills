@@ -63,10 +63,13 @@ function Test-Excluded {
     return $false
 }
 
-# Collect docs files
+# Collect docs files. Includes both .md and .mdx (v2.14.x V6 scope
+# expansion per Codex P2.1: src/content.config.ts mounts both extensions).
+# Library samples are deferred to v2.15+.
 $docsDir = Join-Path -Path $Root -ChildPath "docs"
-$fsFiles = Get-ChildItem -Path $docsDir -Filter "*.md" -Recurse -File |
+$fsFiles = Get-ChildItem -Path $docsDir -Recurse -File |
     Where-Object {
+        ($_.Extension -eq ".md" -or $_.Extension -eq ".mdx") -and
         $_.FullName -notmatch '[\\/]docs[\\/]internal[\\/]'
     } |
     ForEach-Object {

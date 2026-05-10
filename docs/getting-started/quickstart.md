@@ -1,5 +1,6 @@
 ---
 title: Quickstart
+description: Five-minute pm-skills install + first skill invocation. Pick an install path, run /prd or /hypothesis, and see the output. The fastest possible smoke test that pm-skills works in your AI agent.
 ---
 
 # PM-Skills Quick Start

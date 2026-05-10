@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+description: "First-steps guide for new pm-skills users: install paths, your first skill invocation, and where to go next for deeper guides, reference material, and the full skill catalog."
 ---
 
 # Getting Started with PM-Skills

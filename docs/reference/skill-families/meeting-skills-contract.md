@@ -1,5 +1,6 @@
 ---
 title: Meeting Skills Contract
+description: Canonical v1.1.0 contract for the 5 foundation-meeting-* skills plus foundation-stakeholder-update. Shared frontmatter, file naming, behavioral patterns, and enforcement rules validated by CI.
 ---
 
 # Meeting Skills Family Contract
@@ -283,7 +284,7 @@ Every output document leads with a `## Shareable summary` block designed to be c
 
 **Right-sized** means:
 
-- 3–6 short lines for most outputs; a short paragraph plus bullets for synthesis
+- 3 to 6 short lines for most outputs; a short paragraph plus bullets for synthesis
 - Leads with the most important information (outcome, ask, or headline)
 - Skimmable in under 10 seconds
 - Self-contained. a reader who does not open the full doc still gets the essentials
@@ -419,7 +420,7 @@ status: draft                           # draft | final | archived
 
 The universal 30-minute default from v1.0.0 is now type-specific. When a skill cannot infer meeting type (or infers `other` at low confidence), the 30-minute fallback applies but is flagged in the inference summary. This prevents kickoffs and working sessions from being silently under-sized.
 - **`meeting-brief`**: `stakeholders` (list of objects with name, position), `primary_ask` (string)
-- **`meeting-recap`**: `agenda_reconciliation` (object: `topics_planned`, `topics_hit`, `topics_skipped`, `topics_emerged`), `meeting_quality` (object: `outcomes_achieved`, `started_on_time`, `ended_on_time`, `key_attendees_present`), `meeting_type_source` (enum: `explicit | inferred | null`), `unassigned_action_ratio` (float 0.0–1.0, v1.1.0)
+- **`meeting-recap`**: `agenda_reconciliation` (object: `topics_planned`, `topics_hit`, `topics_skipped`, `topics_emerged`), `meeting_quality` (object: `outcomes_achieved`, `started_on_time`, `ended_on_time`, `key_attendees_present`), `meeting_type_source` (enum: `explicit | inferred | null`), `unassigned_action_ratio` (float 0.0 to 1.0, v1.1.0)
 - **`meeting-synthesize`**: `source_meetings` (list of recap filenames), `time_range` (object: `start`, `end`), `scope_filter` (string); omits single-meeting fields (`meeting_title`, `meeting_date`, `meeting_start_time`, `attendees`, etc.)
 - **`stakeholder-update`**: `channel` (enum), `audience_variant` (enum), `thread_continuation_of` (filename or null), `primary_cta` (string)
 

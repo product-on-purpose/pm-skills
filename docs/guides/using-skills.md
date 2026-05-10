@@ -1,5 +1,6 @@
 ---
 title: Using Skills
+description: How to invoke pm-skills via slash commands in Claude Code or via direct file reads in other agents. Covers go-mode, prompt patterns, output handling, and cross-skill hand-offs.
 ---
 
 # Using Skills: Beginner to Advanced

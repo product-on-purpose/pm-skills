@@ -1,5 +1,6 @@
 ---
 title: Platforms
+description: "Which AI platforms support pm-skills and how: Claude Code plugin marketplace, sync helper, npx skills add, and direct file-based install. Includes per-platform compatibility notes and version pinning."
 ---
 
 # Install PM-Skills on Your Platform

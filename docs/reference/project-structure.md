@@ -1,5 +1,6 @@
 ---
 title: Project Structure
+description: High-level walkthrough of the pm-skills repository layout - skills/, commands/, _workflows/, docs/, AGENTS/, .github/ - explaining which folder serves which purpose at the repo level for contributors.
 ---
 
 # Project Structure

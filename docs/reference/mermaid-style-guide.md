@@ -9,7 +9,7 @@ sidebar:
 
 Reference for **anyone authoring a Mermaid diagram in pm-skills documentation**, whether you are a human PM contributor or an agent (Claude, Codex, GPT, etc.) generating a diagram inline. Quick-scan headers + copy-pasteable code blocks + decision matrices.
 
-> **Live HTML preview**: a self-contained rendered version of all examples below is at [`mermaid-style-guide.html`](/pm-skills/mermaid-style-guide.html). Opens locally too (no docs site required).
+> **Live HTML preview**: a self-contained rendered version of all examples below is at [`mermaid-style-guide.html`](https://product-on-purpose.github.io/pm-skills/mermaid-style-guide.html). Opens locally too (no docs site required).
 
 ## When to use which diagram type
 
@@ -313,7 +313,9 @@ Starlight switches the site between light and dark mode based on the user's syst
 
 - Pick fills + strokes that work in both backgrounds. Light pastels with medium-saturation strokes work well because the high-contrast border preserves visibility on dark backgrounds.
 - Use the Triple Diamond palette as your default; it has been tested in both modes.
-- If you author a diagram where dark mode is jarring, prefer rgba() with an alpha < 1 so the background partially shows through. Example: `fill:rgba(231,245,255,0.4)` instead of `fill:#e7f5ff`.
+- If you author a diagram where dark mode is jarring, prefer rgba() with an alpha < 1 so the background partially shows through. Example: `fill:rgba(231,245,255,0.4)` instead of `fill:#e7f5ff`. **Caveat**: rgba() with low alpha (below ~0.6) on dark backgrounds reduces the fill-text contrast and can make dark text unreadable. Stick with solid hex unless you have audited dark-mode text readability.
+
+**Audit 2026-05-10 (v2.14.x V1):** the current Triple Diamond palette (solid hex pastels + 2px strokes + dark text) was audited via Playwright DOM eval on the home page in dark mode (forced via `data-theme="dark"`). Result: light pastel islands sit on the dark canvas with high-contrast borders; dark text remains readable on the light pastel fills (the inside-the-node contrast is preserved regardless of canvas color). Aesthetic verdict: functional but visually "bright islands on dark canvas." A more harmonious dark-mode appearance would require a JS theme-listener that re-renders Mermaid with a different classDef palette on `data-theme="dark"` (deferred; v2.15+ scope). For now, the solid-hex palette is the accepted posture.
 
 ## Common mistakes
 
@@ -395,7 +397,7 @@ rendering:
 
 ## Related artifacts
 
-- Live HTML preview of all examples: [`mermaid-style-guide.html`](/pm-skills/mermaid-style-guide.html)
+- Live HTML preview of all examples: [`mermaid-style-guide.html`](https://product-on-purpose.github.io/pm-skills/mermaid-style-guide.html)
 - M1 + M2 source: [`astro.config.mjs`](https://github.com/product-on-purpose/pm-skills/blob/main/astro.config.mjs) + [`src/styles/custom.css`](https://github.com/product-on-purpose/pm-skills/blob/main/src/styles/custom.css)
 - M3 home page application: [`docs/index.mdx`](../) (graph LR + block-beta)
 - pm-skills brand favicon source (for color reference): [`public/favicon.svg`](https://github.com/product-on-purpose/pm-skills/blob/main/public/favicon.svg)

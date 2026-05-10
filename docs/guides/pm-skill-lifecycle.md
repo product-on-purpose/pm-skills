@@ -1,5 +1,6 @@
 ---
 title: PM Skill Lifecycle
+description: "The Create-Validate-Iterate lifecycle for managing PM skills as a library: how the utility skills (pm-skill-builder, pm-skill-validate, pm-skill-iterate) compose into a self-reinforcing quality loop."
 ---
 
 # PM-Skill Lifecycle

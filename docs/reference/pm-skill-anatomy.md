@@ -1,5 +1,6 @@
 ---
 title: PM Skill Anatomy
+description: "Structural rules for pm-skills: directory layout, three-file model (SKILL/TEMPLATE/EXAMPLE), classification types, phase requirements, frontmatter conventions, and validation expectations enforced by CI."
 ---
 
 # PM-Skill Anatomy
