@@ -75,3 +75,7 @@ _pm-skills/
 # Local convenience
 .favorites.json
 .cache/
+
+# Session artifacts (Playwright MCP outputs; ad-hoc screenshots taken during W11/W13 visual smoke)
+.playwright-mcp/
+w11-home-*.png
