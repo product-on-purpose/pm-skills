@@ -125,8 +125,8 @@ Snapshot at tag time (`5718440`, 2026-05-10). Post-tag cleanup (FU1-FU8 + M1-M3 
 | Workflows | 9 | unchanged |
 | Slash commands | 47 | 40 skill + 7 workflow |
 | Library samples | 115 | mounted under /samples/ via W7; 11 legacy/orbit excluded (9 + 2); post-tag V11 swept en-dashes in all 45 affected sample files |
-| Validators (total) | 23 | net -1 from v2.13.x (24 to 23); `check-nav-completeness` retired (Starlight autogenerate solves orphan class structurally) |
-| Validators (enforcing at tag) | 11 | structurally enforcing CI steps; 2 of these ran in advisory mode at tag pending bash/pwsh parity fix. Post-tag: both promoted to truly enforcing in v2.14.x FU6 (check-internal-link-validity --strict) and V5 (validate-docs-frontmatter --strict). Current state: 13 enforcing + 10 advisory. |
+| Validators (total) at tag | 23 | net -1 from v2.13.x (24 to 23); `check-nav-completeness` retired (Starlight autogenerate solves orphan class structurally). Post-tag: 24 (+1 for new `check-no-body-h1` enforcing validator added in post-V15 deferral closure C) |
+| Validators (enforcing at tag) | 11 | structurally enforcing CI steps; 2 of these ran in advisory mode at tag pending bash/pwsh parity fix. Post-tag: 14 enforcing (+1 FU6 check-internal-link-validity promoted; +1 V5 validate-docs-frontmatter promoted; +1 new check-no-body-h1 added enforcing). |
 | Validators (advisory at tag) | 12 | post-tag: 10 (2 promoted; see above) |
 | Pages built at tag | 239 | 124 docs + 115 samples. Post-tag: 254 pages (added 7 README stubs via FU7, Mermaid style guide MD+HTML via FU8, samples/index.md + reference/index.md via B2.5, etc.) |
 | Redirect entries preserved | 12 | all destinations include /pm-skills/ base |
