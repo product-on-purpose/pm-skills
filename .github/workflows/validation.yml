@@ -234,3 +234,29 @@ jobs:
       - name: Build site with Astro Starlight (enforcing)
         if: always()
         run: npm run build
+
+      - name: Check internal/ exclusion from dist (bash, enforcing)
+        if: always() && matrix.os == 'ubuntu-latest'
+        run: |
+          leaks=$(find dist/ -path '*internal*' -type f 2>/dev/null)
+          if [ -n "$leaks" ]; then
+            echo "FAIL: internal/ paths leaked into dist/:"
+            echo "$leaks" | head -10
+            exit 1
+          fi
+          echo "PASS: no internal/ paths in dist/"
+
+      - name: Check internal/ exclusion from dist (pwsh, enforcing)
+        if: always() && matrix.os == 'windows-latest'
+        run: |
+          $leaks = Get-ChildItem -Path dist -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.FullName -match 'internal' }
+          if ($leaks.Count -gt 0) {
+            Write-Output "FAIL: internal/ paths leaked into dist/: $($leaks.Count) files"
+            $leaks | Select-Object -First 10 | ForEach-Object { Write-Output $_.FullName }
+            exit 1
+          }
+          Write-Output "PASS: no internal/ paths in dist/"
+
+      - name: Verify edit-link resolution (enforcing)
+        if: always()
+        run: node scripts/verify-edit-links.mjs dist .
