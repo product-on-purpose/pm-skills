@@ -5,6 +5,8 @@ tags:
   - Home
 ---
 
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
 # PM Skills
 
 **40 best-practice product management skills for AI agents.**
@@ -31,77 +33,59 @@ graph LR
     D6 -.->|"next cycle"| D1
 ```
 
-[:octicons-arrow-right-24: Learn about the Triple Diamond](concepts/triple-diamond-delivery-process.md)
+[Learn about the Triple Diamond](concepts/triple-diamond-delivery-process.md)
 
 ## The Skills
 
-<div class="grid cards" markdown>
+<CardGrid>
+  <Card title="Discover (3 skills)" icon="magnifier">
+    Research, competitive analysis, stakeholder mapping.
 
--   :material-magnify: **Discover** - 3 skills
+    [Browse Discover](skills/discover/)
+  </Card>
 
-    ---
+  <Card title="Define (4 skills)" icon="puzzle">
+    Problem framing, hypotheses, opportunity trees, JTBD.
 
-    Research, competitive analysis, stakeholder mapping
+    [Browse Define](skills/define/)
+  </Card>
 
-    [:octicons-arrow-right-24: Browse](skills/discover/)
+  <Card title="Develop (4 skills)" icon="setting">
+    Solution briefs, ADRs, design rationale, spikes.
 
--   :material-target: **Define** - 4 skills
+    [Browse Develop](skills/develop/)
+  </Card>
 
-    ---
+  <Card title="Deliver (6 skills)" icon="rocket">
+    PRDs, user stories, acceptance criteria, edge cases, launch, release notes.
 
-    Problem framing, hypotheses, opportunity trees, JTBD
+    [Browse Deliver](skills/deliver/)
+  </Card>
 
-    [:octicons-arrow-right-24: Browse](skills/define/)
+  <Card title="Measure (5 skills)" icon="bars">
+    Experiments, instrumentation, dashboards, results, OKR grading.
 
--   :material-wrench: **Develop** - 4 skills
+    [Browse Measure](skills/measure/)
+  </Card>
 
-    ---
+  <Card title="Iterate (4 skills)" icon="random">
+    Retrospectives, lessons, refinement, pivot decisions.
 
-    Solution briefs, ADRs, design rationale, spikes
+    [Browse Iterate](skills/iterate/)
+  </Card>
 
-    [:octicons-arrow-right-24: Browse](skills/develop/)
+  <Card title="Foundation (8 skills)" icon="open-book">
+    Cross-cutting skills: persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update.
 
--   :material-rocket-launch: **Deliver** - 6 skills
+    [Browse Foundation](skills/foundation/)
+  </Card>
 
-    ---
+  <Card title="Utility (6 skills)" icon="pencil">
+    Create, validate, iterate skills, generate diagrams and presentations, and update the library.
 
-    PRDs, user stories, acceptance criteria, edge cases, launch, release notes
-
-    [:octicons-arrow-right-24: Browse](skills/deliver/)
-
--   :material-chart-line: **Measure** - 5 skills
-
-    ---
-
-    Experiments, instrumentation, dashboards, results, OKR grading
-
-    [:octicons-arrow-right-24: Browse](skills/measure/)
-
--   :material-refresh: **Iterate** - 4 skills
-
-    ---
-
-    Retrospectives, lessons, refinement, pivot decisions
-
-    [:octicons-arrow-right-24: Browse](skills/iterate/)
-
--   :material-layers-triple: **Foundation** - 8 skills
-
-    ---
-
-    Cross-cutting skills: persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update
-
-    [:octicons-arrow-right-24: Browse](skills/foundation/)
-
--   :material-tools: **Utility** - 6 skills
-
-    ---
-
-    Create, validate, iterate skills, generate diagrams and presentations, and update the library
-
-    [:octicons-arrow-right-24: Browse](skills/utility/)
-
-</div>
+    [Browse Utility](skills/utility/)
+  </Card>
+</CardGrid>
 
 ## Skills by Phase
 
@@ -177,7 +161,7 @@ flowchart LR
 
 The lifecycle tools are what keep the library consistent as it grows - the validator catches drift, and the iterator applies fixes with version tracking and change summaries.
 
-[:octicons-arrow-right-24: Learn more about the lifecycle](guides/pm-skill-lifecycle.md) · [:octicons-arrow-right-24: PM-Skill versioning](reference/pm-skill-versioning.md)
+[Learn more about the lifecycle](guides/pm-skill-lifecycle.md) · [PM-Skill versioning](reference/pm-skill-versioning.md)
 
 ## Quick Start
 
@@ -194,39 +178,31 @@ Then use any skill:
 /acceptance-criteria "User can reset password via email"
 ```
 
-[:octicons-arrow-right-24: Full setup guide](getting-started/) · [:octicons-arrow-right-24: Find the right skill](guides/skill-finder.md) · [:octicons-arrow-right-24: Recipes](guides/recipes.md)
+[Full setup guide](getting-started/) · [Find the right skill](guides/skill-finder.md) · [Recipes](guides/recipes.md)
 
 ## See It In Action
 
 Follow three fictional companies through the complete product lifecycle - from discovery research to pivot decisions - with real prompts and full outputs.
 
-<div class="grid cards" markdown>
-
--   :material-store: **Storevine** - B2B Ecommerce
-
-    ---
-
+<CardGrid>
+  <Card title="Storevine - B2B Ecommerce" icon="bars">
     Building email marketing for 15K merchants. Organized prompts.
 
-    [:octicons-arrow-right-24: Follow the journey](showcase/storevine.md)
+    [Follow the journey](showcase/storevine.md)
+  </Card>
 
--   :material-bookshelf: **Brainshelf** - Consumer PKM
-
-    ---
-
+  <Card title="Brainshelf - Consumer PKM" icon="open-book">
     Building a morning digest for 22K users. Casual prompts.
 
-    [:octicons-arrow-right-24: Follow the journey](showcase/brainshelf.md)
+    [Follow the journey](showcase/brainshelf.md)
+  </Card>
 
--   :material-office-building: **Workbench** - Enterprise Collaboration
-
-    ---
-
+  <Card title="Workbench - Enterprise Collaboration" icon="laptop">
     Building document templates for 500 enterprises. Structured prompts.
 
-    [:octicons-arrow-right-24: Follow the journey](showcase/workbench.md)
-
-</div>
+    [Follow the journey](showcase/workbench.md)
+  </Card>
+</CardGrid>
 
 ## Works Everywhere
 
@@ -244,21 +220,20 @@ Follow three fictional companies through the complete product lifecycle - from d
 
 | Workflow | Best for | Skills |
 |----------|----------|--------|
-| [Feature Kickoff](workflows/feature-kickoff.md) | New features | problem-statement → hypothesis → prd → user-stories → launch-checklist |
-| [Lean Startup](workflows/lean-startup.md) | Rapid validation | hypothesis → experiment-design → experiment-results → pivot-decision |
+| [Feature Kickoff](workflows/feature-kickoff.md) | New features | problem-statement, hypothesis, prd, user-stories, launch-checklist |
+| [Lean Startup](workflows/lean-startup.md) | Rapid validation | hypothesis, experiment-design, experiment-results, pivot-decision |
 | [Triple Diamond](workflows/triple-diamond.md) | Major initiatives | All 26 phase skills across 6 phases |
-| [Customer Discovery](workflows/customer-discovery.md) | Research → problem | interview-synthesis → jtbd-canvas → opportunity-tree → problem-statement |
-| [Sprint Planning](workflows/sprint-planning.md) | Sprint-ready stories | refinement-notes → user-stories → edge-cases |
-| [Product Strategy](workflows/product-strategy.md) | Strategic framing | competitive-analysis → stakeholder-summary → opportunity-tree → solution-brief → adr |
-| [Post-Launch Learning](workflows/post-launch-learning.md) | Ship → learn | instrumentation-spec → dashboard-requirements → experiment-results → retrospective → lessons-log |
-| [Stakeholder Alignment](workflows/stakeholder-alignment.md) | Leadership buy-in | stakeholder-summary → problem-statement → solution-brief → launch-checklist |
-| [Technical Discovery](workflows/technical-discovery.md) | Feasibility | spike-summary → adr → design-rationale |
+| [Customer Discovery](workflows/customer-discovery.md) | Research to problem | interview-synthesis, jtbd-canvas, opportunity-tree, problem-statement |
+| [Sprint Planning](workflows/sprint-planning.md) | Sprint-ready stories | refinement-notes, user-stories, edge-cases |
+| [Product Strategy](workflows/product-strategy.md) | Strategic framing | competitive-analysis, stakeholder-summary, opportunity-tree, solution-brief, adr |
+| [Post-Launch Learning](workflows/post-launch-learning.md) | Ship to learn | instrumentation-spec, dashboard-requirements, experiment-results, retrospective, lessons-log |
+| [Stakeholder Alignment](workflows/stakeholder-alignment.md) | Leadership buy-in | stakeholder-summary, problem-statement, solution-brief, launch-checklist |
+| [Technical Discovery](workflows/technical-discovery.md) | Feasibility | spike-summary, adr, design-rationale |
 
-[:octicons-arrow-right-24: All workflows](workflows/)
+[All workflows](workflows/)
 
 ## Recent Releases
 
-<!-- count-exempt:start -->
 | Version | Date | Highlights |
 |---------|------|-----------|
 | **[v2.13.0](releases/Release_v2.13.0.md)** | 2026-05-05 | Foundation Hardening + Doc Stack Decision: maintenance and quality release with zero new skills; 7 new CI gates that catch doc drift on PRs (validator inventory 15 to 22; enforcing tier 5 to 10); Diataxis-aligned docs with `pm-skill-*` filename prefix; Pattern 5C generated-content marker; out-of-cycle pm-skills-mcp v2.9.3 security patch |
@@ -268,13 +243,11 @@ Follow three fictional companies through the complete product lifecycle - from d
 | [v2.10.0](releases/Release_v2.10.0.md) | 2026-04-11 | Utility skill expansion: `/mermaid-diagrams`, `/slideshow-creator`, `/update-pm-skills`. (v2.10.1 and v2.10.2 patches followed; see CHANGELOG.md for details.) |
 | [v2.9.1](releases/Release_v2.9.1.md) | 2026-04-10 | Workflows guide + docs count consistency CI |
 | [v2.9.0](releases/Release_v2.9.0.md) | 2026-04-06 | Workflows: rename bundles to workflows, expand 3 to 9, 7 `/workflow-*` commands |
-<!-- count-exempt:end -->
 
-[:octicons-arrow-right-24: All releases](releases/) · [:octicons-arrow-right-24: Full changelog](changelog.md)
+[All releases](releases/) · [Full changelog](changelog.md)
 
 ## Links
 
-- [:fontawesome-brands-github: GitHub Repository](https://github.com/product-on-purpose/pm-skills)
-- [:material-server: MCP Server](https://github.com/product-on-purpose/pm-skills-mcp)
-- [:material-file-document: Agent Skills Specification](https://agentskills.io/specification)
-- [:material-tag: Browse by tag](tags.md)
+- [GitHub Repository](https://github.com/product-on-purpose/pm-skills)
+- [MCP Server](https://github.com/product-on-purpose/pm-skills-mcp)
+- [Agent Skills Specification](https://agentskills.io/specification)

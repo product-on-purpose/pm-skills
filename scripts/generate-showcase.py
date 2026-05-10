@@ -27,7 +27,7 @@ THREADS = {
     "storevine": {
         "display": "Storevine",
         "subtitle": "B2B Ecommerce Platform",
-        "icon": ":material-store:",
+        "icon": "bars",
         "description": "Series A, ~70 employees, ~15,000 merchants. Building **Campaigns** . native email marketing.",
         "prompt_style": "Organized . structured context, references prior work, clear scope boundaries.",
         "suffix": "campaigns",
@@ -35,7 +35,7 @@ THREADS = {
     "brainshelf": {
         "display": "Brainshelf",
         "subtitle": "Consumer PKM App",
-        "icon": ":material-bookshelf:",
+        "icon": "open-book",
         "description": "Post-seed, ~20 employees, ~22,000 MAU. Building **Resurface** . contextual morning email digest.",
         "prompt_style": "Casual . rough, fast, enough context to work. Bullet points and shorthand.",
         "suffix": "resurface",
@@ -43,7 +43,7 @@ THREADS = {
     "workbench": {
         "display": "Workbench",
         "subtitle": "Enterprise Collaboration",
-        "icon": ":material-office-building:",
+        "icon": "laptop",
         "description": "Series B, ~200 employees, ~500 enterprise customers. Building **Blueprints** . document templates with approval gates.",
         "prompt_style": "Enterprise . full stakeholder lists, quantified baselines, explicit metrics.",
         "suffix": "blueprints",
@@ -292,7 +292,7 @@ def generate_thread_page(thread_key: str) -> None:
 
 def generate_index_page() -> None:
     """Generate the showcase index page."""
-    output_path = OUTPUT_DIR / "index.md"
+    output_path = OUTPUT_DIR / "index.mdx"
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     lines = []
@@ -304,6 +304,8 @@ def generate_index_page() -> None:
     lines.append("tags:")
     lines.append("  - Showcase")
     lines.append("---")
+    lines.append("")
+    lines.append("import { Card, CardGrid } from '@astrojs/starlight/components';")
     lines.append("")
     lines.append("# Showcase: Follow the Product")
     lines.append("")
@@ -318,17 +320,17 @@ def generate_index_page() -> None:
     lines.append("including the full prompt that generated each one.")
     lines.append("")
 
-    lines.append('<div class="grid cards" markdown>')
-    lines.append("")
+    lines.append("<CardGrid>")
     for key, thread in THREADS.items():
-        lines.append(f"- {thread['icon']} **{thread['display']}** . {thread['subtitle']}")
-        lines.append("  ---")
-        lines.append(f"  {thread['description']}")
-        lines.append(f"  ")
-        lines.append(f"  **Prompt style:** {thread['prompt_style']}")
-        lines.append(f"  [:octicons-arrow-right-24: Follow the journey]({key}.md)")
+        lines.append(f'  <Card title="{thread["display"]} - {thread["subtitle"]}" icon="{thread["icon"]}">')
+        lines.append(f"    {thread['description']}")
         lines.append("")
-    lines.append("</div>")
+        lines.append(f"    **Prompt style:** {thread['prompt_style']}")
+        lines.append("")
+        lines.append(f"    [Follow the journey]({key}.md)")
+        lines.append("  </Card>")
+        lines.append("")
+    lines.append("</CardGrid>")
     lines.append("")
 
     lines.append("## How the samples work")

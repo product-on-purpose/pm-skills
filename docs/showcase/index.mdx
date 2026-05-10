@@ -7,6 +7,8 @@ tags:
   - Showcase
 ---
 
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
 # Showcase: Follow the Product
 
 :::caution[Generated file]
@@ -19,30 +21,32 @@ one complete lifecycle each . from discovery research through pivot decisions.
 Each journey demonstrates **25+ real artifacts** produced by pm-skills slash commands,
 including the full prompt that generated each one.
 
-<div class="grid cards" markdown>
+<CardGrid>
+  <Card title="Storevine - B2B Ecommerce Platform" icon="bars">
+    Series A, ~70 employees, ~15,000 merchants. Building **Campaigns** . native email marketing.
 
-- :material-store: **Storevine** . B2B Ecommerce Platform
-  ---
-  Series A, ~70 employees, ~15,000 merchants. Building **Campaigns** . native email marketing.
-  
-  **Prompt style:** Organized . structured context, references prior work, clear scope boundaries.
-  [:octicons-arrow-right-24: Follow the journey](storevine.md)
+    **Prompt style:** Organized . structured context, references prior work, clear scope boundaries.
 
-- :material-bookshelf: **Brainshelf** . Consumer PKM App
-  ---
-  Post-seed, ~20 employees, ~22,000 MAU. Building **Resurface** . contextual morning email digest.
-  
-  **Prompt style:** Casual . rough, fast, enough context to work. Bullet points and shorthand.
-  [:octicons-arrow-right-24: Follow the journey](brainshelf.md)
+    [Follow the journey](storevine.md)
+  </Card>
 
-- :material-office-building: **Workbench** . Enterprise Collaboration
-  ---
-  Series B, ~200 employees, ~500 enterprise customers. Building **Blueprints** . document templates with approval gates.
-  
-  **Prompt style:** Enterprise . full stakeholder lists, quantified baselines, explicit metrics.
-  [:octicons-arrow-right-24: Follow the journey](workbench.md)
+  <Card title="Brainshelf - Consumer PKM App" icon="open-book">
+    Post-seed, ~20 employees, ~22,000 MAU. Building **Resurface** . contextual morning email digest.
 
-</div>
+    **Prompt style:** Casual . rough, fast, enough context to work. Bullet points and shorthand.
+
+    [Follow the journey](brainshelf.md)
+  </Card>
+
+  <Card title="Workbench - Enterprise Collaboration" icon="laptop">
+    Series B, ~200 employees, ~500 enterprise customers. Building **Blueprints** . document templates with approval gates.
+
+    **Prompt style:** Enterprise . full stakeholder lists, quantified baselines, explicit metrics.
+
+    [Follow the journey](workbench.md)
+  </Card>
+
+</CardGrid>
 
 ## How the samples work
 
