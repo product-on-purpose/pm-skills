@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.13.1-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.14.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-40-brightgreen.svg?style=flat-square" alt="Skills">
@@ -625,9 +625,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** . Complete package with all skills, commands, workflows, and documentation
-- **Latest stable:** `v2.13.1` (Plugin Install Path Correction)
-- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2131---2026-05-06)
-- **Published tag:** [`v2.13.1`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.13.1)
+- **Latest stable:** `v2.14.0` (Doc Stack Migration: MkDocs Material to Astro Starlight)
+- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2140---2026-05-10)
+- **Published tag:** [`v2.14.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.14.0)
 - **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
