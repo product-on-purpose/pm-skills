@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.14.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.14.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-40-brightgreen.svg?style=flat-square" alt="Skills">
@@ -135,6 +135,20 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 <!-- count-exempt:start -->
 <details open>
+<summary>v2.14.1 - Polish + V15 Regression Fix</summary>
+
+- **Same-day patch for v2.14.0.** Doc-stack migration to Astro Starlight shipped 2026-05-10; this patch shipped same day with title-duplication fix + post-tag polish. The 40-skill catalog is unchanged; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical.
+- **Title duplication fixed across every Starlight-rendered page.** v2.14.0 shipped with a migration regression: Starlight auto-renders frontmatter `title:` as the page heading; body content also starting with `# Heading` made the title render twice. 62 hand-authored docs + 6 generator emission sites stripped of body H1; workflow generator strips source H1 at copy boundary so `_workflows/*.md` files stay standalone-readable on GitHub. Production verified: 1 H1 per page (was 2). Spotted on mobile screenshots of `/showcase/workbench/` + skill pages + phase indexes.
+- **Generator output reframed for users.** 63 generator-output pages no longer emit the visible `:::caution[Generated file]` admonition (was contributor-noise on rendered docs). Pattern 5C generated-content marker preserved via frontmatter `generated: true` + `source:` (validator anchor; `check-generated-content-untouched.sh` PASS).
+- **Mermaid 3-layer beautification.** Branded `lineColor: '#5C7CFA'` (favicon indigo) + system-ui font via themeVariables; SVG polish (edge stroke-width 1.75px + node corner-radius 6 + cluster fill-opacity 0.4); Triple Diamond palette via `classDef` and `style` on home page diagrams. Plus a new canonical Mermaid style guide at `docs/reference/mermaid-style-guide.md` + self-contained `public/mermaid-style-guide.html` with diagram-type decision matrix and machine-readable YAML spec for agents.
+- **Three CI validators now truly enforcing on Ubuntu + Windows.** `check-internal-link-validity` and `validate-docs-frontmatter` shipped at v2.14.0 with `enforcing` labels but ran in advisory mode (no `--strict` flag). v2.14.1 promotes both. Plus a new third validator `check-no-body-h1` (bash + pwsh triplet) for forward enforcement against the title-duplication regression class. Total validators: 23 to 24; enforcing tier: 11 to 14.
+- **MCP maintenance posture codified.** Cross-repo: `pm-skills-mcp/pm-skills-source.json` metadata updated to v2.14.0 + `maintenance: true` flag. pm-skills: `validate-mcp-sync.yml` default mode flipped to `observe`; validator reads the maintenance flag and treats drift as expected when set. Closes the long-standing CI failure from M-22 catalog freeze.
+- **9 GitHub Actions workflow files bumped** to `@v5` for `checkout`, `setup-node`, `upload-pages-artifact`, `deploy-pages`. Ahead of Node 20 forced cutoff 2026-06-02.
+- **CONTRIBUTING.md "Maintainer notes: architectural workarounds"** section now documents 6 inline-commented workarounds future-maintainers should NOT "fix" (was 5; +1 for Starlight title-vs-body-H1 convention).
+- Release note: [`docs/releases/Release_v2.14.1.md`](docs/releases/Release_v2.14.1.md).
+
+</details>
+<details>
 <summary>v2.14.0 - Doc Stack Migration: MkDocs Material to Astro Starlight</summary>
 
 - **Doc-stack migration release; same 40-skill catalog as v2.13.x.** Day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is unchanged. What changed is the documentation site itself: MkDocs Material is retired; Astro Starlight ships in its place. Same URL, same content, modern static-site stack.
@@ -625,9 +639,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** . Complete package with all skills, commands, workflows, and documentation
-- **Latest stable:** `v2.14.0` (Doc Stack Migration: MkDocs Material to Astro Starlight)
-- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2140---2026-05-10)
-- **Published tag:** [`v2.14.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.14.0)
+- **Latest stable:** `v2.14.1` (Polish + V15 regression fix)
+- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2141---2026-05-10)
+- **Published tag:** [`v2.14.1`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.14.1)
 - **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.

@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Post-v2.14.0 cleanup. ~20 commits shipped to main but not yet tagged; awaiting v2.14.1 or accumulating toward v2.15. The 40-skill catalog remains unchanged.
+## [2.14.1] - 2026-05-10
+
+Polish + V15 regression fix. Patch release. The 40-skill catalog is unchanged from v2.14.0; day-to-day usage is identical. What changes is the docs-site rendering (title duplication fixed across all Starlight pages; generator output reframed for users; Mermaid 3-layer beautification) plus CI infrastructure (two validators promoted to truly enforcing, third validator added, MCP maintenance posture codified). Ships same-day as v2.14.0 (2026-05-10) per the v2.13.0 -> v2.13.1 1-day-patch precedent.
 
 ### Added
 

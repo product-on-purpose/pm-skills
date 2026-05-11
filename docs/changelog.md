@@ -10,7 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Post-v2.14.0 cleanup. ~20 commits shipped to main but not yet tagged; awaiting v2.14.1 or accumulating toward v2.15. The 40-skill catalog remains unchanged. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#unreleased).
+## [2.14.1] - 2026-05-10
+
+Polish + V15 regression fix. Patch release. The 40-skill catalog is unchanged from v2.14.0. Title duplication fixed across all Starlight pages; generator output reframed for users; Mermaid 3-layer beautification; two CI validators promoted to truly enforcing; new check-no-body-h1 validator added; MCP maintenance posture codified. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2141---2026-05-10).
 
 Highlights:
 
