@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.2] - 2026-05-10
+
+Codex Final Review Closure (Cumulative Docs Hygiene Patch). Same-day successor to v2.14.1. The 40-skill catalog is unchanged from v2.14.1; day-to-day usage is identical. What changes is documentation accuracy, validator scope, workflow safety posture, and cross-repo metadata. Addresses every actionable finding from the Codex final review of the v2.14.x release cycle (0 P0, 1 P1, 11 P2, 1 P3).
+
+### Changed
+
+- **`scripts/validate-docs-frontmatter.{sh,ps1}` scope expanded to `.mdx`** (Codex P2). Mirrors V6's `check-internal-link-validity` pattern. `src/content.config.ts` mounts both `.md` and `.mdx`, and `docs/index.mdx` is the Starlight homepage; without this expansion, frontmatter regressions on MDX surfaces silently bypass the validator. Verified PASS at 37 files (was 36 `.md`-only).
+- **`scripts/check-no-body-h1.md` clarified with "What this rule does NOT catch (by design)" section** (Codex P2). Explicit framing of allowed cases: H1s later in body, H1s in fenced code blocks, body H1s in files without frontmatter `title:`. Prevents future over-engineering into a no-H1-anywhere rule.
+- **`docs/guides/validate-mcp-sync.md` refreshed for observe-mode default** (Codex P2). Updates guidance to match the v2.14.1 V9 workflow change + B validator maintenance-flag awareness. Mode history section captures the v2.3.0 then v2.14.x evolution.
+- **`.github/workflows/sync-agents-md.yml` workflow_dispatch hardened with two-layer defense** (Codex P2). Input gate: `apply: true` choice input required before commit/push (default `false`). Token gate: workflow-level `permissions: contents: read` ensures the GITHUB_TOKEN cannot push even if the input gate is bypassed. Reviving the workflow requires a code-reviewable PR rather than a click-and-regret event.
+- **`pm-skills-mcp/README.md` cross-repo update** (Codex P1). 5 stale "25 skills" references corrected to "40 skills" with explicit catalog-frozen-at-v2.9.2-build framing; latest published version pointer updated to v2.9.3 (was v2.7.0); changelog table extended with v2.8.x and v2.9.x rows; pinned-version install example updated.
+- **`CONTRIBUTING.md` workaround count corrected** (Codex P3). "Five workarounds" to "Six workarounds" (matches actual 6 numbered architectural-workaround entries after v2.14.1 added the Starlight title-vs-body-H1 convention entry).
+- **`docs/internal/release-plans/v2.14.0/plan_v2.14_starlight-migration.md` top status updated** (Codex P2). "Authored 2026-05-06; ready for execution kickoff" to "EXECUTED 2026-05-10 (Phases 0-4 + W13 sub-batches B1-B4 + B2.5/B3.5 mid-cycle insertions); v2.14.0 tagged at HEAD 5718440; post-tag cleanup (FU1-FU8 + M1-M3 + V1-V15 + A+B+C) shipped same day as v2.14.1 tag; Codex-driven docs hygiene shipped as v2.14.2."
+- **`docs/releases/Release_v2.14.0.md` "What's deferred to v2.14.x" table reframed with Post-tag disposition column** (Codex P2). 6 of 9 deferrals closed in v2.14.1 + v2.14.2; 3 remain v2.15+ (tags-as-feature, URL slug normalization, Astro 6 upgrade).
+- **`README.md` version surface refreshed**: shields.io version badge `2.14.1` to `2.14.2`; "Latest stable" pointer; "Latest release notes" anchor; "Published tag" link. Plus `docs/index.mdx` Recent Releases row, `docs/releases/index.md` releases-index row, and `.claude/pm-skills-for-claude.md` "as of v..." narrative.
+- **Plugin manifest version bumps**: `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json` to `2.14.2`.
+
+### Added
+
+- **`docs/releases/Release_v2.14.2.md`** authored as the release notes artifact. Documents the Codex finding closures table (P1/P2/P3 by row), what is NOT in v2.14.2 (v2.15+ deferrals), migration/compatibility, and verification.
+
 ## [2.14.1] - 2026-05-10
 
 Polish + V15 regression fix. Patch release. The 40-skill catalog is unchanged from v2.14.0; day-to-day usage is identical. What changes is the docs-site rendering (title duplication fixed across all Starlight pages; generator output reframed for users; Mermaid 3-layer beautification) plus CI infrastructure (two validators promoted to truly enforcing, third validator added, MCP maintenance posture codified). Ships same-day as v2.14.0 (2026-05-10) per the v2.13.0 -> v2.13.1 1-day-patch precedent.

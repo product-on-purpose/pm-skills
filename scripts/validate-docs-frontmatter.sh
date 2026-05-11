@@ -77,8 +77,10 @@ is_excluded() {
   return 1
 }
 
-# Collect docs files to validate
-FS_FILES=$(find "$ROOT/docs" -name "*.md" -type f \
+# Collect docs files to validate. Includes both .md and .mdx (v2.14.2 scope
+# expansion per Codex P2: src/content.config.ts mounts both extensions, and
+# docs/index.mdx is the Starlight homepage; mirrors check-internal-link-validity).
+FS_FILES=$(find "$ROOT/docs" \( -name "*.md" -o -name "*.mdx" \) -type f \
   | grep -v "/docs/internal/" \
   | sed "s|$ROOT/docs/||" \
   | sort)

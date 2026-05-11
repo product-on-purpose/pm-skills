@@ -135,19 +135,23 @@ Snapshot at tag time (`5718440`, 2026-05-10). Post-tag cleanup (FU1-FU8 + M1-M3 
 
 ---
 
-## What's deferred to v2.14.x
+## What's deferred to v2.14.x (tag-time deferral list with post-tag dispositions)
 
-| Item | Reason |
-|---|---|
-| `check-internal-link-validity` bash/pwsh parity fix + 7 broken-link cleanup | pwsh -Strict catches 7 broken links in foundation-meeting-* generator output (doubled-docs-prefix paths from source SKILL.md); bash --strict misses them. Adding --strict to both creates cross-OS CI asymmetry. Fix bash path-resolution + fix the 7 broken links + then promote both to true enforcing. |
-| `check-internal-link-validity` and `validate-docs-frontmatter` content scope expansion | Currently scan only `*.md`; src/content.config.ts also includes `.mdx` and `library/skill-output-samples/`. Expand validators to match the rendered content set. |
-| `verify-edit-links.mjs` minimum-count assertion | Currently passes on 0 occurrences; should fail if edit-link count drops below an expected threshold. |
-| README stub coverage across docs sections | reference/ and workflows/ have both README.md (GitHub auto-render) and index.md (Astro). Other docs sections (skills/, guides/, concepts/, etc.) have only index.md. v2.14.x consistency pass adds README stubs or accepts and documents the partial coverage. |
-| Tags-as-feature | `docs/tags.md` is `draft: true` and removed from sidebar (Material tags plugin had no Starlight equivalent at migration time). Re-evaluate when a Starlight tags plugin emerges or when a custom remark plugin is in scope. |
-| URL slug shape (preserves casing and dots, e.g. `/releases/Release_v2.13.0/`) | Functional but non-conventional. v2.14.x or v2.15+ may add slug normalization with a redirect map for in-the-wild URLs. |
-| Architectural workaround documentation in CONTRIBUTING.md | Three workarounds (autogenerate prefix, post-build link sweep, EXCLUDE_PATHS arrays) are well-commented inline; v2.14.x adds a maintainer note in CONTRIBUTING.md or a docs-internal Starlight maintenance guide. |
-| Node 20 deprecation in GitHub Actions | `actions/checkout@v4`, `actions/setup-node@v4`, `actions/upload-artifact@v4` use Node 20 internally. GitHub forces Node 24 starting 2026-06-02. Bump in next maintenance commit. |
-| Astro 6 + Node 22.12+ upgrade | Deferred to v2.15+ per Decision 11 in the v2.14 cycle plan; the static-site CVE exemption table in `docs/internal/dependency-policy.md` becomes mostly moot at that cycle. |
+This table reflects the deferral list **as of the v2.14.0 tag** (2026-05-10, HEAD `5718440`). The Post-tag column documents what happened to each item after tag, across the v2.14.1 + v2.14.2 patch tags shipped same day.
+
+| Item (at v2.14.0 tag) | Reason at tag | Post-tag disposition |
+|---|---|---|
+| `check-internal-link-validity` bash/pwsh parity fix + 7 broken-link cleanup | pwsh -Strict catches 7 broken links in foundation-meeting-* generator output (doubled-docs-prefix paths from source SKILL.md); bash --strict misses them. Adding --strict to both creates cross-OS CI asymmetry. | **CLOSED in v2.14.1 FU6**: LC_ALL=C.UTF-8 fallback closed the parity gap (root cause was Windows Git Bash locale); generator path-rewrite in `rewrite_internal_paths()` fixed the 7 broken links at copy boundary; both bash + pwsh promoted to truly enforcing in CI. |
+| `check-internal-link-validity` and `validate-docs-frontmatter` content scope expansion | Currently scan only `*.md`; src/content.config.ts also includes `.mdx` and `library/skill-output-samples/`. | **Partially CLOSED**: v2.14.1 V6 added `.mdx` to `check-internal-link-validity`; v2.14.2 added `.mdx` to `validate-docs-frontmatter`. Library samples (`library/skill-output-samples/`) scope expansion remains deferred to v2.15+ due to different path structure. |
+| `verify-edit-links.mjs` minimum-count assertion | Currently passes on 0 occurrences; should fail if edit-link count drops below an expected threshold. | **CLOSED in v2.14.1 V3**: `MIN_EDIT_LINKS` env var added (default 100); silent regression where edit-link emission breaks now caught. |
+| README stub coverage across docs sections | reference/ and workflows/ have both README.md (GitHub auto-render) and index.md (Astro). Other docs sections have only index.md. | **CLOSED in v2.14.1 FU7**: 7 README stubs added across `docs/{skills,guides,concepts,contributing,getting-started,showcase,releases}/` with `!docs/**/README.md` glob exclusion. |
+| Tags-as-feature | `docs/tags.md` is `draft: true` and removed from sidebar (Material tags plugin had no Starlight equivalent at migration time). | **STILL DEFERRED to v2.15+**: re-evaluate when a Starlight tags plugin emerges or when a custom remark plugin is in scope. |
+| URL slug shape (preserves casing and dots, e.g. `/releases/Release_v2.13.0/`) | Functional but non-conventional. | **STILL DEFERRED to v2.15+**: slug normalization with redirect map for in-the-wild URLs. |
+| Architectural workaround documentation in CONTRIBUTING.md | Three workarounds (autogenerate prefix, post-build link sweep, EXCLUDE_PATHS arrays) are well-commented inline; v2.14.x adds a maintainer note in CONTRIBUTING.md. | **CLOSED in v2.14.1 V2 + post-V15 deferral closure A**: CONTRIBUTING.md "Maintainer notes: architectural workarounds" section now documents 6 workarounds (added: generator path-rewrite, LC_ALL fallback, Starlight title-vs-body-H1 convention). |
+| Node 20 deprecation in GitHub Actions | `actions/checkout@v4`, `actions/setup-node@v4`, `actions/upload-artifact@v4` use Node 20 internally. GitHub forces Node 24 starting 2026-06-02. | **CLOSED in v2.14.1 FU4**: 9 workflow files bumped to `@v5` for checkout, setup-node, upload-pages-artifact, deploy-pages. |
+| Astro 6 + Node 22.12+ upgrade | Deferred to v2.15+ per Decision 11 in the v2.14 cycle plan. | **STILL DEFERRED to v2.15+**: reserved as the v2.15.0 cycle theme; static-site CVE exemption table in `docs/internal/dependency-policy.md` becomes mostly moot at that cycle. |
+
+**Net v2.14.x backlog disposition**: 6 of 9 closed in v2.14.1 + v2.14.2 (full bash/pwsh parity, .mdx scope expansion across two validators, edit-links min-count, README stub coverage, workaround docs, Node 20 actions bump). 3 remain deferred to v2.15+: tags-as-feature, URL slug normalization, Astro 6 + Node 22.12+ upgrade. Plus additional v2.15+ items surfaced post-tag (JS theme-listener for dark-mode Mermaid; library samples scope in link validator; sync-agents-md.yml full rewrite; check-version-references --strict promotion; etc.).
 
 ---
 

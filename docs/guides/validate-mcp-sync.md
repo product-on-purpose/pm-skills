@@ -18,8 +18,10 @@ This guide explains the `validate-mcp-sync` guardrail that checks drift between 
 `validate-mcp-sync` is a validation-only check. It compares skill inventory across repos and checks pinned source/contract metadata alignment.
 
 It has two modes:
-- `block` (default): reports mismatch and fails CI.
-- `observe`: reports mismatch but does not fail CI.
+- `observe` (default since v2.14.x V9): reports mismatch but does not fail CI.
+- `block`: reports mismatch and fails CI.
+
+The `observe` default reflects the MCP maintenance-mode posture (effective 2026-05-04): drift is intentional, not a regression, so CI surfaces drift for visibility without blocking unrelated work. The validator additionally honors a `maintenance: true` flag in `pm-skills-mcp/pm-skills-source.json`: when set, drift is downgraded to advisory output and the run remains green even under `block` mode. To re-enable strict blocking (for an MCP catalog refresh or maintenance-mode exit), remove the `maintenance` flag from `pm-skills-source.json` and dispatch the workflow with `mode: block`.
 
 ## Workflow
 
@@ -44,7 +46,7 @@ File: `.github/scripts/validate-mcp-sync.js`
 Environment variables:
 - `PM_SKILLS_PATH` default: `.`
 - `PM_SKILLS_MCP_PATH` default: `./pm-skills-mcp`
-- `VALIDATE_MCP_SYNC_MODE` default: `observe` in script, overridden to `block` in workflow
+- `VALIDATE_MCP_SYNC_MODE` default: `observe` in both script and workflow. Pass `mode: block` via `workflow_dispatch` to override.
 
 The script checks:
 1. Skills present in `pm-skills` but missing in `pm-skills-mcp`
@@ -65,8 +67,8 @@ When drift is reported:
 6. Add missing `pm-skills/commands/{skill}.md` files if applicable.
 7. Commit and push both repos.
 
-## Release Sequencing
+## Mode History
 
-Recommended rollout:
-1. Release with `observe` mode first.
-2. After MCP alignment closure (`B-01`), switch workflow default to `block` mode (completed for `v2.3.0`).
+- `v2.3.0`: switched from `observe` default to `block` default after `B-01` MCP alignment closure (legacy rollout).
+- `v2.14.x V9` (2026-05-10): reverted to `observe` default after `pm-skills-mcp` entered maintenance mode (M-22, effective 2026-05-04). The catalog is frozen at the v2.9.2 build; drift on skills added after that build is intentional and the validator now surfaces it without blocking.
+- `v2.14.x B` (2026-05-10): validator script reads the `maintenance: true` flag from `pm-skills-mcp/pm-skills-source.json` and downgrades drift to advisory output. This protects the `block` mode dispatch path from firing on maintenance-mode-expected drift while still being available for an intentional catalog refresh.

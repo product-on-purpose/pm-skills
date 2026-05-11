@@ -1,6 +1,6 @@
 # v2.14 Starlight Migration Plan
 
-**Status:** Authored 2026-05-06; ready for execution kickoff (next session)
+**Status:** Authored 2026-05-06; EXECUTED 2026-05-10 (Phases 0-4 + W13 sub-batches B1-B4 + B2.5/B3.5 mid-cycle insertions); v2.14.0 tagged at HEAD 5718440; post-tag cleanup (FU1-FU8 + M1-M3 + V1-V15 + A+B+C) shipped same day as v2.14.1 tag; subsequent Codex-driven docs hygiene shipped as v2.14.2. Full close-out detail in the Change Log section at the bottom of this file.
 **Cycle:** v2.14.0
 **Type:** Consolidated migration execution plan
 **Owner:** TBD

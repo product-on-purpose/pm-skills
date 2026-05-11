@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.14.1-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.14.2-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-40-brightgreen.svg?style=flat-square" alt="Skills">
@@ -135,6 +135,20 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 <!-- count-exempt:start -->
 <details open>
+<summary>v2.14.2 - Codex Final Review Closure (Cumulative Docs Hygiene Patch)</summary>
+
+- **Cumulative patch to close Codex final review findings.** Same-day successor to v2.14.1. 0 P0, 1 P1, 11 P2, 1 P3 findings addressed across docs, scripts, workflows, and cross-repo metadata. The 40-skill catalog is unchanged; day-to-day usage is identical.
+- **`validate-docs-frontmatter` scope expanded to .mdx.** Closes parity gap with `check-internal-link-validity` (V6 pattern from v2.14.1). The Starlight homepage `docs/index.mdx` and any future MDX surfaces are now subject to the same frontmatter validation as `.md` files.
+- **`check-no-body-h1` doc clarified.** Explicit "what is NOT caught" section so future maintainers don't over-engineer the validator into a no-H1-anywhere rule. Documents allowed cases: H1s later in body, H1s in fenced code blocks, body H1s in files without frontmatter `title:`.
+- **`validate-mcp-sync` guide refreshed for observe-mode default.** Updates guidance to match the v2.14.1 V9 workflow change + B validator maintenance-flag awareness. Mode history section captures the v2.3.0 then v2.14.x evolution.
+- **`sync-agents-md.yml` workflow_dispatch hardened (defense-in-depth).** Two-layer protection: (a) input gate requires `apply: true` choice before commit/push; (b) workflow-level `permissions: contents: read` ensures the GITHUB_TOKEN cannot push even if the input gate is bypassed. Reviving the workflow requires a code-reviewable PR rather than a click-and-regret event.
+- **`pm-skills-mcp/README.md` cross-repo update.** 5 stale "25 skills" references corrected to "40 skills" (catalog frozen at v2.9.2 build under maintenance mode); latest version pointer updated to v2.9.3; changelog table extended with v2.8.x and v2.9.x rows.
+- **CONTRIBUTING.md workaround count corrected** from "Five workarounds" to "Six workarounds" (matches actual 6 numbered architectural-workaround entries).
+- **Release plan + release notes status reframed.** `plan_v2.14_starlight-migration.md` top-status updated from "ready for execution kickoff" to "EXECUTED". `Release_v2.14.0.md` "What's deferred to v2.14.x" table reframed with a Post-tag disposition column showing 6 of 9 deferrals closed in v2.14.1 + v2.14.2; 3 remain v2.15+ (tags-as-feature, URL slug normalization, Astro 6 upgrade).
+- Release note: [`docs/releases/Release_v2.14.2.md`](docs/releases/Release_v2.14.2.md).
+
+</details>
+<details>
 <summary>v2.14.1 - Polish + V15 Regression Fix</summary>
 
 - **Same-day patch for v2.14.0.** Doc-stack migration to Astro Starlight shipped 2026-05-10; this patch shipped same day with title-duplication fix + post-tag polish. The 40-skill catalog is unchanged; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is identical.
@@ -639,9 +653,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** . Complete package with all skills, commands, workflows, and documentation
-- **Latest stable:** `v2.14.1` (Polish + V15 regression fix)
-- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2141---2026-05-10)
-- **Published tag:** [`v2.14.1`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.14.1)
+- **Latest stable:** `v2.14.2` (Codex final review closure: cumulative docs hygiene patch)
+- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2142---2026-05-10)
+- **Published tag:** [`v2.14.2`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.14.2)
 - **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.

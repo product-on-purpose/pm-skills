@@ -1,6 +1,7 @@
 name: Sync AGENTS.md
 
 # DISABLED auto-trigger (v2.14.x V7; 2026-05-10).
+# HARDENED workflow_dispatch (v2.14.2; 2026-05-10).
 #
 # This workflow auto-generated AGENTS.md by walking `skills/$phase/*/`
 # (nested phase-directory structure). pm-skills uses a flat
@@ -11,8 +12,18 @@ name: Sync AGENTS.md
 # content that contributors actively maintain.
 #
 # Has been failing on every skills/** push since at least 2026-04-23.
-# Disabled now to stop the noise; AGENTS.md remains hand-authored as a
-# canonical contributor-facing document.
+# V7 disabled the auto-trigger; v2.14.2 additionally hardens the manual
+# dispatch path with two defense layers:
+#   (a) Input gate: workflow runs as a dry-run by default. Commit/push
+#       step is gated behind an explicit `apply: true` input choice.
+#   (b) Token gate: job-level `contents: read` ensures the GITHUB_TOKEN
+#       cannot push even if the input gate is bypassed. A future revival
+#       must bump permissions to `contents: write` via PR (visible code
+#       change reviewable in source control).
+#
+# AGENTS.md remains hand-authored as a canonical contributor-facing
+# document. Do NOT set `apply: true` until the generation step is
+# rewritten to walk the flat `skills/{phase-prefix}-{name}/` structure.
 #
 # To revive: rewrite the workflow's generation step to walk the flat
 # skills/{phase-prefix}-{name}/ structure (parse the prefix to determine
@@ -22,9 +33,18 @@ name: Sync AGENTS.md
 
 on:
   workflow_dispatch:
+    inputs:
+      apply:
+        description: "Commit and push the regenerated AGENTS.md. Default false (dry-run). DO NOT set true until the generation step is rewritten for the flat skills/ structure."
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   sync:
@@ -120,14 +140,30 @@ jobs:
           *Built by [Product on Purpose](https://github.com/product-on-purpose) for PMs who ship.*
           FOOTER
 
-      - name: Check for changes
+      - name: Check for changes (dry-run diff)
         id: git-check
         run: |
-          git diff --exit-code AGENTS.md || echo "changed=true" >> $GITHUB_OUTPUT
+          if git diff --exit-code AGENTS.md; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes detected against checked-in AGENTS.md."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "::warning::Generated AGENTS.md differs from checked-in version. Review the diff above before re-dispatching with apply: true."
+          fi
 
-      - name: Commit changes
-        if: steps.git-check.outputs.changed == 'true'
+      - name: Refuse commit/push without explicit apply input
+        if: github.event.inputs.apply != 'true'
         run: |
+          echo "Dry-run mode: apply=${{ github.event.inputs.apply }}. Skipping commit and push."
+          echo "The generation step uses a stale glob (skills/\$phase/*/) and would overwrite hand-authored AGENTS.md."
+          echo "To attempt a real write: re-dispatch with apply: true (only after the generation step is rewritten)."
+
+      - name: Commit changes (apply mode)
+        if: steps.git-check.outputs.changed == 'true' && github.event.inputs.apply == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "::warning::apply: true requested. The current generation step is known broken (stale glob); branch protection on main will reject the push. This step is wired for a future rewrite, not for current use."
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add AGENTS.md

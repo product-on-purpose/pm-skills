@@ -93,7 +93,7 @@ This repo uses `.github/workflows/validate-mcp-sync.yml` to detect drift between
 
 ## Maintainer notes: architectural workarounds
 
-Five workarounds in the codebase look like odd code but exist for specific reasons. If you are tempted to "clean these up," read the inline comment in the source file first. Each one has a real reason that is non-obvious from the syntax alone.
+Six workarounds in the codebase look like odd code but exist for specific reasons. If you are tempted to "clean these up," read the inline comment in the source file first. Each one has a real reason that is non-obvious from the syntax alone.
 
 ### 1. Autogenerate paths prefixed with `docs/` in `astro.config.mjs`
 

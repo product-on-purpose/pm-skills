@@ -12,6 +12,8 @@ This script is forward enforcement: catches regressions where a future contribut
 
 ## Rule
 
+This is a **first-rendered-heading guard**, not a "no body H1 anywhere" rule.
+
 For each `docs/**/*.{md,mdx}` file:
 
 1. If the file has a frontmatter `title:` field, AND
@@ -25,6 +27,14 @@ Lines that are ignored when finding "first body line":
 - MDX import statements (`import { Card } from '@astrojs/starlight/components';`)
 - MDX JS comments (`{/* ... */}`)
 - Single-line HTML comments (`<!-- ... -->`)
+
+### What this rule does NOT catch (by design)
+
+- `# Heading` lines that appear **later** in the body (after a paragraph, an aside, a `##` section, etc.). Those are legal Markdown and uncommon in practice; if you find a real duplication regression case there, file an issue.
+- `# Heading` lines inside **fenced code blocks** (between ` ``` `). The line-by-line scan does not track fence state, but a fenced `#` is treated as code-content and renders as code, not as a page heading - so no duplication.
+- Body H1s in files **without** a frontmatter `title:` field. If no `title:` is set, Starlight does not auto-render a heading, so a body H1 is the only visible heading and is legitimate.
+
+The validator's job is to catch the high-frequency regression pattern (frontmatter `title:` + immediate body `# Heading`), not to enforce a stricter linting policy than Starlight itself imposes.
 
 ## Scope
 

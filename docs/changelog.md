@@ -10,6 +10,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.2] - 2026-05-10
+
+Codex Final Review Closure (Cumulative Docs Hygiene Patch). Same-day successor to v2.14.1. The 40-skill catalog is unchanged from v2.14.1; day-to-day usage is identical. What changes is documentation accuracy, validator scope, workflow safety posture, and cross-repo metadata. Addresses every actionable finding from the Codex final review of the v2.14.x release cycle (0 P0, 1 P1, 11 P2, 1 P3). Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2142---2026-05-10).
+
+Highlights:
+
+- **`validate-docs-frontmatter` scope expanded to `.mdx`** (Codex P2). Bash + pwsh now include `docs/index.mdx` and any future MDX surfaces. Mirrors V6's `check-internal-link-validity` pattern.
+- **`check-no-body-h1` doc clarified** with "What this rule does NOT catch (by design)" section. Prevents future over-engineering into a no-H1-anywhere rule.
+- **`validate-mcp-sync` guide refreshed** for observe-mode default + maintenance-flag awareness (matches v2.14.1 V9 + B changes).
+- **`sync-agents-md.yml` workflow_dispatch hardened** with two-layer defense: `apply: true` input gate (default false) plus `permissions: contents: read` token gate. Reviving requires a code-reviewable PR.
+- **`pm-skills-mcp/README.md` cross-repo update** (Codex P1). 5 "25 skills" residues to "40 skills" (catalog frozen at v2.9.2 build); v2.9.3 latest pointer; changelog table extended with v2.8.x + v2.9.x rows.
+- **`CONTRIBUTING.md` workaround count** corrected "Five" to "Six" (Codex P3).
+- **Release plan top status + Release_v2.14.0 deferrals table** reframed: 6 of 9 deferrals closed in v2.14.1 + v2.14.2; 3 remain v2.15+.
+- **Version surfaces refreshed**: shields.io badge `2.14.1` to `2.14.2`; Latest stable + Published tag; docs/index.mdx Recent Releases; docs/releases/index.md; .claude/pm-skills-for-claude.md; plugin.json + marketplace.json.
+
 ## [2.14.1] - 2026-05-10
 
 Polish + V15 regression fix. Patch release. The 40-skill catalog is unchanged from v2.14.0. Title duplication fixed across all Starlight pages; generator output reframed for users; Mermaid 3-layer beautification; two CI validators promoted to truly enforcing; new check-no-body-h1 validator added; MCP maintenance posture codified. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2141---2026-05-10).
