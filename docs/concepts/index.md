@@ -9,3 +9,5 @@ Understand the ideas behind PM Skills . what agent skills are, how they're struc
 |-------|-------------|
 | [Agent Skill Anatomy](agent-skill-anatomy.md) | The three-layer model for any agent skill |
 | [The Triple Diamond](triple-diamond-delivery-process.md) | The framework organizing skills into 6 phases |
+| [Foundation Sprint](foundation-sprint.md) | The two-day workshop for choosing the strategic promise to test, ending in a Founding Hypothesis |
+| [Design Sprint](design-sprint.md) | The five-day workshop for testing a risky idea with a realistic prototype and target customers |

@@ -457,6 +457,38 @@ git add docs/guides/using-foundation-sprint.md
 git commit -m "docs(sprint-skills): user guide for Foundation Sprint"
 ```
 
+#### Task 19a: Author docs/concepts/foundation-sprint.md
+
+**Files:**
+- Create: `docs/concepts/foundation-sprint.md`
+- Modify: `docs/concepts/index.md` (add Foundation Sprint row to the topic table)
+
+**Rationale:** The `docs/concepts/` section holds conceptual explainers (Agent Skill Anatomy, Triple Diamond Delivery Process). Foundation Sprint warrants the same treatment so users encountering the skill family understand the underlying framework before invoking any individual skill. Distinct from the `docs/guides/using-foundation-sprint.md` operational guide: the concepts doc explains the framework's reasoning, history, and design decisions; the guide explains how to use the pm-skills implementation.
+
+- [ ] **Step 1: Author concept doc**
+
+Mirror the structure of `docs/concepts/triple-diamond-delivery-process.md`: executive summary; origins and canonical sources; conceptual model with one or more mermaid diagrams; two-day breakdown with per-block diagrams; core concepts (Founding Hypothesis, Mini Manifesto, Magic Lenses, Note-and-Vote); Foundation Sprint vs Design Sprint comparison; practical applications; variants (enterprise, startup, AI-era); common failure modes; how Foundation Sprint connects to pm-skills (skill family map); references and further reading.
+
+Required source citations (in References section):
+- Knapp, Jake; Zeratsky, John. *Click: How to Make What People Want* (Simon & Schuster, expected). https://www.theclickbook.com/
+- Character Capital. "Foundation Sprint guide." https://www.character.vc/guide/foundation-sprint
+- Knapp, Jake; Zeratsky, John. "Introducing the Foundation Sprint." Lenny's Newsletter. https://www.lennysnewsletter.com/p/introducing-the-foundation-sprint
+- Design Sprint Academy. "What is the Foundation Sprint?" https://www.designsprint.academy/blog/what-is-the-foundation-sprint
+- Character Capital. "Note and Vote guide." https://www.character.vc/guide/note-and-vote
+
+Source spec for content authoring: `docs/internal/efforts/foundation-sprint-skills/foundation-sprint-detailed-guide-pm-skills.md` (the synthesized guide with confidence-tagged claims).
+
+- [ ] **Step 2: Add row to docs/concepts/index.md**
+
+Append a row to the topic table for `[Foundation Sprint](foundation-sprint.md)` with a one-line description.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add docs/concepts/foundation-sprint.md docs/concepts/index.md
+git commit -m "docs(concepts): Foundation Sprint framework explainer"
+```
+
 #### Task 20: Update AGENTS.md
 
 **Files:**

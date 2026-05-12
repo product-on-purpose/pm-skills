@@ -335,6 +335,38 @@ git add docs/guides/using-design-sprint.md
 git commit -m "docs(sprint-skills): user guide for Design Sprint"
 ```
 
+#### Task 15a: Author docs/concepts/design-sprint.md
+
+**Files:**
+- Create: `docs/concepts/design-sprint.md`
+- Modify: `docs/concepts/index.md` (add Design Sprint row to the topic table)
+
+**Rationale:** The `docs/concepts/` section holds conceptual explainers. Design Sprint warrants the same treatment as Foundation Sprint (Task 19a in `foundation-sprint-integration-plan.md`) so users encountering the skill family understand the underlying framework before invoking any individual skill. Distinct from the `docs/guides/using-design-sprint.md` operational guide: the concepts doc explains the framework's reasoning, history, and design decisions; the guide explains how to use the pm-skills implementation.
+
+- [ ] **Step 1: Author concept doc**
+
+Mirror the structure of `docs/concepts/triple-diamond-delivery-process.md` and the sibling `docs/concepts/foundation-sprint.md`: executive summary; origins (Sprint book + GV + Character Capital); conceptual model with mermaid diagrams; five-day breakdown with per-day diagrams; core concepts (How Might We notes, Lightning Demos, Crazy 8s, Heat Map, Supervote, Storyboard, Five-Act Interview, Scorecard); Foundation Sprint to Design Sprint handoff; variants (remote, Rumble, follow-up, hardware/service); common failure modes; how Design Sprint connects to pm-skills (skill family map); references and further reading.
+
+Required source citations (in References section):
+- Knapp, Jake; Zeratsky, John; Kowitz, Braden. *Sprint: How to Solve Big Problems and Test New Ideas in Just Five Days* (Simon & Schuster, 2016). https://www.thesprintbook.com/
+- Google Ventures. "The Design Sprint." https://www.gv.com/sprint/
+- Character Capital. "Design Sprint guide." https://www.character.vc/guide/design-sprint
+- Google. "Design Sprint Kit: Methodology overview." https://designsprintkit.withgoogle.com/methodology/overview
+- Character Capital. "Note and Vote guide." https://www.character.vc/guide/note-and-vote
+
+Source spec for content authoring: `docs/internal/efforts/design-sprint-skills/design-sprint-detailed-guide-pm-skills.md` (the synthesized guide with confidence-tagged claims).
+
+- [ ] **Step 2: Add row to docs/concepts/index.md**
+
+Append a row to the topic table for `[Design Sprint](design-sprint.md)` with a one-line description.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add docs/concepts/design-sprint.md docs/concepts/index.md
+git commit -m "docs(concepts): Design Sprint framework explainer"
+```
+
 #### Task 16: Update AGENTS.md
 
 **Files:**
