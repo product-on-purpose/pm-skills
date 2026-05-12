@@ -1,7 +1,11 @@
-# MkDocs build output
-site/
+# User
 .memsearch/
 SESSION-LOG/
+.understand-anything
+
+
+# MkDocs build output
+site/
 
 # OS generated files
 .DS_Store
