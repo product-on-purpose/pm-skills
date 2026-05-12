@@ -41,6 +41,22 @@ This plan covers:
 
 This plan does NOT re-create validator infrastructure or shared skills - those are owned by the Foundation Sprint plan.
 
+## Ratified Decisions
+
+The Design Sprint design spec (`design-sprint-design-spec.md`) ends with 7 open questions, each carrying a "Lean X" recommendation but no explicit decision. The pre-execution review flagged this as P2.2 (risk of cross-skill inconsistency if open questions are re-litigated mid-execution). The following decisions are ratified before Phase 1 Task 1 begins:
+
+| # | Open question | Ratified decision | Authored into |
+|---|---|---|---|
+| 1 | Prototype build inside or outside skill scope | **Outside skill scope.** `design-sprint-prototype-plan` produces role plan + script + trial-run checklist; the prototype build itself is craft activity outside the AI invocation surface | `design-sprint-prototype-plan` SKILL.md "When NOT to use" section |
+| 2 | Five-Act Interview script generation (spec leaned: canonical structure for v0.1) | **Canonical Five-Act structure (Welcome / Context / Intro / Tasks / Debrief)** with team-supplied task wording; the act sequence is fixed | `design-sprint-prototype-plan` TEMPLATE.md interview-script section |
+| 3 | Scorecard customer count (spec leaned: 5 with warning at 3/4 or 6/7) | **5 customers is canonical; validator warns at 3-4 or 6-7; rejects below 3 or above 7** with a message recommending the canonical count | `design-sprint-test-and-score` SKILL.md instructions step 1 |
+| 4 | Friday synthesis depth (exec memo or stakeholder-update?) | **Leave executive memo authoring to `foundation-stakeholder-update`** (existing pm-skills foundation skill); Friday skill produces Decider summary only | `design-sprint-test-and-score` outputs explicitly excludes exec memo |
+| 5 | Rumble support (spec leaned: defer to v0.2) | **Defer to v0.2;** v0.1.0 supports single-prototype testing only | Not authored in v0.1.0 |
+| 6 | Remote vs in-person variant (spec leaned: parameter for v0.1) | **Single skill with `format: in-person \| remote \| hybrid` input parameter;** SKILL.md instructions branch on format where needed | `design-sprint-brief` SKILL.md inputs section |
+| 7 | Hardware or service sprint variants (spec leaned: defer; document as known variants) | **Defer to v0.2 or later;** Sprint book hardware/service variants documented as "known variants" in `docs/guides/using-design-sprint.md` | `docs/guides/using-design-sprint.md` Variants section (Task 15) |
+
+These decisions are locked. Re-litigation requires an explicit plan amendment, not in-skill drift.
+
 ## File Structure
 
 ### Files to create (44 new files)

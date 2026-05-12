@@ -37,6 +37,21 @@ This plan covers:
 
 This plan does NOT cover: Design Sprint skills, bridge skill, Design Sprint workflow. Those are in `design-sprint-integration-plan.md`.
 
+## Ratified Decisions
+
+The Foundation Sprint design spec (`foundation-sprint-design-spec.md`) ends with 6 open questions, each carrying a "Lean X" recommendation but no explicit decision. The pre-execution review flagged this as P2.2 (risk of cross-skill inconsistency if open questions are re-litigated mid-execution). The following decisions are ratified before Phase 1 Task 1 begins:
+
+| # | Open question | Ratified decision | Authored into |
+|---|---|---|---|
+| 1 | Approach option count enforcement (spec leaned: enforce min 3) | **Enforce minimum 3 approaches; warn at 4-7; reject at 8 or more** with a clear message pointing to the Decider's role to narrow before progressing | `foundation-sprint-approach-options` SKILL.md instructions step 3 |
+| 2 | Custom lens count in Magic Lenses (spec leaned: prompt for at least 1 custom lens) | **Require at least 1 custom lens in addition to the 4 classic lenses (customer, pragmatic, growth, money)** | `foundation-sprint-magic-lenses` SKILL.md instructions step 3 |
+| 3 | Hypothesis template strictness (spec leaned: strict for v0.1) | **Strict canonical template:** "If we help [target customer] solve [important problem] with [approach], they will choose it over [competitors or alternatives] because our solution is [differentiators]." Paraphrase is not accepted in v0.1.0 | `foundation-sprint-founding-hypothesis` TEMPLATE.md |
+| 4 | Assumption scorecard "right size" (5-7 assumptions per Lenny's recommendation) | **Recommend 5-7 assumptions; accept 3-10 with no validator warning;** scorecard is a strategic tool, not a checklist enforcer | `foundation-sprint-founding-hypothesis` SKILL.md instructions step 4 |
+| 5 | Compressed 1-day variant (spec leaned: defer to v0.2) | **Defer to v0.2;** v0.1.0 ships only the canonical 2-day arc | Not authored in v0.1.0 |
+| 6 | AI-era guidance placement (spec leaned: separate guide) | **Separate guide section within `docs/guides/using-foundation-sprint.md`** rather than scattered across SKILL.md files | `docs/guides/using-foundation-sprint.md` AI-era section (Task 19) |
+
+These decisions are locked. Re-litigation requires an explicit plan amendment, not in-skill drift.
+
 ## File Structure
 
 ### Files to create (53 new files)
@@ -81,14 +96,15 @@ This plan does NOT cover: Design Sprint skills, bridge skill, Design Sprint work
 - `docs/guides/using-foundation-sprint.md`
 
 **Sprint family contract (1 file)**
-- `docs/reference/sprint-skills-family-contract.md`
+- `docs/reference/skill-families/sprint-skills-contract.md`
 
-### Files to modify (5 files)
+### Files to modify (6 files)
 
 - `scripts/lint-skills-frontmatter.sh`: add `sprint` to allowed `classification` values
 - `scripts/lint-skills-frontmatter.ps1`: same, PowerShell parity
 - `scripts/validate-agents-md.sh`: extend to recognize `skills/foundation-sprint-*` and `skills/sprint-note-and-vote` directories
 - `scripts/validate-agents-md.ps1`: same, PowerShell parity
+- `docs/reference/skill-families/_registry.yaml`: register the sprint-skills family with all 16 members (Task 5 Step 3)
 - `AGENTS.md`: add Foundation Sprint skills section
 
 ---
@@ -199,32 +215,92 @@ git add scripts/validate-sprint-skills-family.ps1
 git commit -m "feat(scripts): validate-sprint-skills-family PowerShell parity"
 ```
 
-#### Task 5: Author sprint-skills family contract doc
+#### Task 5: Author sprint-skills family contract doc and register the family
 
 **Files:**
-- Create: `docs/reference/sprint-skills-family-contract.md`
+- Create: `docs/reference/skill-families/sprint-skills-contract.md` (per existing skill-families/ convention; pre-execution-review P1.1 fix)
+- Modify: `docs/reference/skill-families/_registry.yaml` (register the sprint-skills family with all 16 members; pre-execution-review P1.2 fix)
 
 - [ ] **Step 1: Read meeting-skills contract as reference**
 
-Read `docs/reference/skill-families/meeting-skills-contract.md` for structure and depth.
+Read `docs/reference/skill-families/meeting-skills-contract.md` for structure and depth. Read `docs/reference/skill-families/_registry.yaml` to understand the registration schema.
 
-- [ ] **Step 2: Author the sprint contract**
+- [ ] **Step 2: Author the sprint-skills contract**
 
-Cover:
-- Shared frontmatter fields (`classification`, `sprint_type`, `sprint_move`, `prerequisites`, `inputs`, `outputs`, `timebox_minutes`, `roles`, `frameworks`)
-- Naming convention (foundation-sprint-*, design-sprint-*, sprint-*, bridge)
-- File anatomy (SKILL.md + TEMPLATE.md + EXAMPLE.md)
-- Non-negotiable output elements (Decider Checkpoint in every TEMPLATE.md)
-- Zero-friction execution behavior
-- CI enforcement reference
-- Library sample requirements (3 threads: brainshelf-book-catalog, storevine-retail-direction, workbench-debugging-toolchain)
-- Versioning policy
+Cover, with explicit root vs metadata-nested distinction (pre-execution-review P1.3 fix):
 
-- [ ] **Step 3: Commit**
+**Root-level frontmatter fields** (required for every sprint-skills member):
+
+```yaml
+name: <skill-name>
+description: <one-line description with Use-when triggers>
+classification: sprint
+sprint_type: shared | foundation | design | bridge
+sprint_move: <short-kebab move identifier; e.g., readiness, basics, founding-hypothesis, foundation-to-design>
+version: "X.Y.Z"
+updated: YYYY-MM-DD
+license: Apache-2.0
+```
+
+**Metadata-nested fields** (required unless otherwise noted):
+
+```yaml
+metadata:
+  category: <sprint-readiness | sprint-strategy | sprint-decision | sprint-bridge | sprint-build | sprint-validation>
+  frameworks: <subset of: foundation-sprint, design-sprint, click, sprint, character-note-and-vote>
+  timebox_minutes: <integer; per spec timebox>
+  roles: <array of: facilitator, decider, pm, design, engineering, researcher, customer-expert, whole-team>
+  prerequisites: <array of skill names; optional; semantics defined below>
+  inputs: <array of input artifacts the skill consumes>
+  outputs: <array of output artifacts the skill produces>
+  author: product-on-purpose
+```
+
+**Prerequisite semantics (pre-execution-review P2.1 fix):** The `metadata.prerequisites` array lists recommended-but-not-required upstream skills. The family validator does not block invocation when prerequisites are missing; the skill body documents what happens when a prerequisite output is absent (typically: skill prompts the user to confirm equivalent context). Multi-prerequisite cases (e.g., bridge skill OR readiness skill) are captured as an array of all valid upstream skill names; the skill body explains the OR logic in its "When to use" section.
+
+Other content to cover in the contract doc:
+
+- Naming convention: `foundation-sprint-{move}`, `design-sprint-{move}`, `sprint-{move}` (the bridge skill `sprint-foundation-to-design` matches the `sprint-{move}` pattern; no special case needed; pre-execution-review P3.3)
+- File anatomy: SKILL.md + `references/TEMPLATE.md` + `references/EXAMPLE.md`
+- Non-negotiable output elements: every TEMPLATE.md ends with a `## Decider Checkpoint` section; every SKILL.md instructions step references the Decider role at appropriate decision points
+- Zero-friction execution behavior: skill produces a bundled artifact in a single invocation; no multi-turn back-and-forth required
+- Library sample requirements: 3 threads (brainshelf-book-catalog, storevine-retail-direction, workbench-debugging-toolchain); samples carry continuity across the sprint sequence
+- Versioning policy: each member skill follows pm-skills SemVer (root `version:` field); family contract has its own version tracked in this doc's frontmatter
+- CI enforcement reference: link to `scripts/validate-sprint-skills-family.sh` and `scripts/validate-sprint-skills-family.ps1`, plus the generic `validate-skill-family-registration` script
+
+- [ ] **Step 3: Register the family in `_registry.yaml`**
+
+Append a sprint-skills entry to `docs/reference/skill-families/_registry.yaml`:
+
+```yaml
+  sprint-skills:
+    contract: docs/reference/skill-families/sprint-skills-contract.md
+    members:
+      - sprint-note-and-vote
+      - foundation-sprint-readiness
+      - foundation-sprint-brief
+      - foundation-sprint-basics
+      - foundation-sprint-differentiation
+      - foundation-sprint-approach-options
+      - foundation-sprint-magic-lenses
+      - foundation-sprint-founding-hypothesis
+      - sprint-foundation-to-design
+      - design-sprint-readiness
+      - design-sprint-brief
+      - design-sprint-map-and-target
+      - design-sprint-sketch
+      - design-sprint-decide-and-storyboard
+      - design-sprint-prototype-plan
+      - design-sprint-test-and-score
+```
+
+Note: This registers all 16 members up front, including the 8 that will be authored by the Design Sprint plan. The generic family-registration validator will report informational findings for not-yet-authored members; this is expected and acceptable. When DS plan completes, all 16 members will pass the integrity check.
+
+- [ ] **Step 4: Commit**
 
 ```bash
-git add docs/reference/sprint-skills-family-contract.md
-git commit -m "docs(sprint-skills): sprint-skills family contract"
+git add docs/reference/skill-families/sprint-skills-contract.md docs/reference/skill-families/_registry.yaml
+git commit -m "docs(sprint-skills): sprint-skills family contract and registry entry"
 ```
 
 ### Phase 2: Shared skill
