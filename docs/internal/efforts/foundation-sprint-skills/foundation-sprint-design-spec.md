@@ -1,8 +1,10 @@
 # Foundation Sprint Track: Design Spec
 
-**Status:** Draft for review
-**Authored:** 2026-05-10
-**Cross-references:** `sprint-skills-architecture.md` (shared decisions), `design-sprint-design-spec.md` (sibling track)
+**Status:** Draft (architectural amendment 2026-05-13: tool classification, dropped bridge, two families)
+**Authored:** 2026-05-10; amended 2026-05-13
+**Cross-references:** `design-sprint-design-spec.md` (sibling track); architectural decisions captured in `docs/internal/release-plans/v2.15.0/plan_v2.15.0.md` Ratified Decisions table and project memory `project_v2.15-tool-classification-decisions.md`
+
+> **Amendment note (2026-05-13):** This spec's original architecture used `classification: sprint` with `sprint_type` and `sprint_move` root fields, plus a `sprint-foundation-to-design` bridge skill and a `sprint-note-and-vote` shared skill within a single `sprint-skills` family. The integration plans now reflect a refactored architecture: `classification: tool`, two families (`foundation-sprint-skills` + `design-sprint-skills`), bridge skill DROPPED, note-and-vote relocated to `tool-note-and-vote` as a standalone tool. Skill slugs throughout this spec should be read as `tool-foundation-sprint-{move}` in the new architecture. The per-skill content contracts (purpose, inputs, outputs, common pitfalls, Decider checkpoints) remain valid.
 
 ## Track purpose
 
@@ -19,9 +21,9 @@ This track delivers 7 AI-assisted facilitation skills covering the canonical Fou
 - Library samples plan for the track
 - Track-specific open questions
 
-This document references `sprint-skills-architecture.md` for shared decisions (packaging, repo layout, frontmatter contract, family contract, validators, versioning). Architecture content is NOT duplicated here.
+Architectural decisions (classification, family structure, frontmatter contract, validators, versioning) live in the integration plans and the master release plan, not duplicated here. See `plan_v2.15.0.md` Ratified Decisions table.
 
-Cross-track skills (`sprint-note-and-vote` shared, `sprint-foundation-to-design` bridge) are documented in `design-sprint-design-spec.md` to keep them in one place.
+The standalone `tool-note-and-vote` skill (formerly proposed as `sprint-note-and-vote` shared) is documented in the Foundation Sprint integration plan Task 6 (it ships alongside the FS family). The bridge skill (`sprint-foundation-to-design`) was DROPPED per the 2026-05-13 amendment; the FS-to-DS transition is documented narratively in `_workflows/foundation-to-design.md` and in the two user guides.
 
 ## Method fidelity and canonical sources
 
@@ -36,21 +38,21 @@ The 7 skills encode Character's structure (Basics, Differentiation, Approach), u
 
 ## Skill catalog summary
 
-| # | Skill slug | Move | Timebox | Primary bundled output |
+| # | Skill slug (post-amendment) | Move | Timebox | Primary bundled output |
 |---|---|---|---|---|
-| 1 | `foundation-sprint-readiness` | Pre-sprint | 30-45 min | Readiness assessment with go/conditional-go/wait verdict |
-| 2 | `foundation-sprint-brief` | Pre-sprint | 45-60 min | Sprint brief: scope, team, logistics, success criteria |
-| 3 | `foundation-sprint-basics` | Day 1 morning | 90-120 min | Target customer plus important problem plus advantage inventory plus competitor map |
-| 4 | `foundation-sprint-differentiation` | Day 1 afternoon | 120-180 min | Differentiator set plus 2x2 chart plus decision principles plus mini-manifesto |
-| 5 | `foundation-sprint-approach-options` | Day 2 morning | 60-90 min | One-page summaries for 3-7 candidate approaches |
-| 6 | `foundation-sprint-magic-lenses` | Day 2 afternoon | 90-120 min | Lens evaluation (classic plus custom) plus top bet plus backup |
-| 7 | `foundation-sprint-founding-hypothesis` | Day 2 end | 30-45 min | Founding Hypothesis plus assumption scorecard plus recommended next test |
+| 1 | `tool-foundation-sprint-readiness` | Pre-sprint | 30-45 min | Readiness assessment with go/conditional-go/wait verdict |
+| 2 | `tool-foundation-sprint-brief` | Pre-sprint | 45-60 min | Sprint brief: scope, team, logistics, success criteria |
+| 3 | `tool-foundation-sprint-basics` | Day 1 morning | 90-120 min | Target customer plus important problem plus advantage inventory plus competitor map |
+| 4 | `tool-foundation-sprint-differentiation` | Day 1 afternoon | 120-180 min | Differentiator set plus 2x2 chart plus decision principles plus mini-manifesto |
+| 5 | `tool-foundation-sprint-approach-options` | Day 2 morning | 60-90 min | One-page summaries for 3-7 candidate approaches |
+| 6 | `tool-foundation-sprint-magic-lenses` | Day 2 afternoon | 90-120 min | Lens evaluation (classic plus custom) plus top bet plus backup |
+| 7 | `tool-foundation-sprint-founding-hypothesis` | Day 2 end | 30-45 min | Founding Hypothesis plus assumption scorecard plus recommended next test |
 
-Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in design-sprint-design-spec.md) and 1 shared skill `sprint-note-and-vote` used 8 or more times across this track.
+Plus `tool-note-and-vote` standalone tool (used 8 or more times across this track for decision moments). No bridge skill (FS-to-DS transition lives in workflow doc and user guides per 2026-05-13 amendment).
 
 ## Per-skill detailed contracts
 
-### 1. foundation-sprint-readiness
+### 1. tool-foundation-sprint-readiness
 
 **Purpose:** assess whether a Foundation Sprint fits the team's current question. Prevents the most common sprint failure mode (running sprints without prerequisites for success).
 
@@ -90,7 +92,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 ---
 
-### 2. foundation-sprint-brief
+### 2. tool-foundation-sprint-brief
 
 **Purpose:** produce the pre-sprint brief that aligns the team on scope, participants, logistics, and success criteria before Day 1.
 
@@ -118,7 +120,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 **Timebox:** 45-60 min
 
-**Frontmatter prerequisites:** `foundation-sprint-readiness` (recommended) or skip if user has done equivalent
+**Frontmatter prerequisites:** `tool-foundation-sprint-readiness` (recommended) or skip if user has done equivalent
 
 **Canonical references:** Character pre-sprint guide; Click prep recommendations; pm-skills `foundation-meeting-brief` precedent for brief structure
 
@@ -131,7 +133,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 ---
 
-### 3. foundation-sprint-basics
+### 3. tool-foundation-sprint-basics
 
 **Purpose:** produce Day 1 morning's bundled output, which is the foundational decisions about who the product is for, what problem it solves, why the team has a right to win, and what customers do instead today.
 
@@ -158,9 +160,9 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 **Timebox:** 90-120 min
 
-**Frontmatter prerequisites:** `foundation-sprint-brief`
+**Frontmatter prerequisites:** `tool-foundation-sprint-brief`
 
-**Cross-skill usage:** invokes `sprint-note-and-vote` 4 times (once per decision)
+**Cross-skill usage:** invokes `tool-note-and-vote` 4 times (once per decision)
 
 **Canonical references:** Character Basics agenda; Click Day 1 morning; Lenny's "target customer" and "important problem" sections
 
@@ -176,7 +178,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 ---
 
-### 4. foundation-sprint-differentiation
+### 4. tool-foundation-sprint-differentiation
 
 **Purpose:** produce Day 1 afternoon's bundled artifact, which is the differentiation chart, decision principles, and mini-manifesto that define how the product will stand apart.
 
@@ -201,9 +203,9 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 **Timebox:** 120-180 min
 
-**Frontmatter prerequisites:** `foundation-sprint-basics`
+**Frontmatter prerequisites:** `tool-foundation-sprint-basics`
 
-**Cross-skill usage:** invokes `sprint-note-and-vote` for differentiator selection
+**Cross-skill usage:** invokes `tool-note-and-vote` for differentiator selection
 
 **Canonical references:** Character Differentiation agenda; Click Day 1 afternoon; Lenny's differentiation section
 
@@ -218,7 +220,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 ---
 
-### 5. foundation-sprint-approach-options
+### 5. tool-foundation-sprint-approach-options
 
 **Purpose:** produce Day 2 morning's output, which is one-page summaries for 3 to 7 candidate approaches that will be evaluated through Magic Lenses.
 
@@ -245,7 +247,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 **Timebox:** 60-90 min
 
-**Frontmatter prerequisites:** `foundation-sprint-differentiation`
+**Frontmatter prerequisites:** `tool-foundation-sprint-differentiation`
 
 **Canonical references:** Character Approach agenda; Click Day 2 morning
 
@@ -259,7 +261,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 ---
 
-### 6. foundation-sprint-magic-lenses
+### 6. tool-foundation-sprint-magic-lenses
 
 **Purpose:** produce Day 2 afternoon's bundled output, which is the lens evaluation that compares approaches across multiple perspectives and yields a top bet plus backup.
 
@@ -285,9 +287,9 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 **Timebox:** 90-120 min
 
-**Frontmatter prerequisites:** `foundation-sprint-approach-options`
+**Frontmatter prerequisites:** `tool-foundation-sprint-approach-options`
 
-**Cross-skill usage:** invokes `sprint-note-and-vote` for top bet selection
+**Cross-skill usage:** invokes `tool-note-and-vote` for top bet selection
 
 **Canonical references:** Character Magic Lenses; Click Day 2 afternoon; Lenny's "Magic Lenses" section
 
@@ -302,7 +304,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 ---
 
-### 7. foundation-sprint-founding-hypothesis
+### 7. tool-foundation-sprint-founding-hypothesis
 
 **Purpose:** produce Day 2 end's bundled output, which is the Founding Hypothesis statement plus assumption scorecard that defines what to test next.
 
@@ -328,7 +330,7 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 **Timebox:** 30-45 min
 
-**Frontmatter prerequisites:** `foundation-sprint-magic-lenses`
+**Frontmatter prerequisites:** `tool-foundation-sprint-magic-lenses`
 
 **Canonical references:** Character Founding Hypothesis template; Lenny's hypothesis structure; Click Founding Hypothesis
 
@@ -341,13 +343,13 @@ Plus 1 bridge skill `sprint-foundation-to-design` (cross-track, defined in desig
 
 **Decider checkpoint:** Decider signs the hypothesis. Sprint ends.
 
-**Hand-off:** outputs feed `sprint-foundation-to-design` (if next step is a Design Sprint) or pm-skills validation skills (if next step is non-sprint: `measure-experiment-design`, `discover-interview-synthesis`, etc.).
+**Hand-off:** outputs feed the `foundation-to-design` workflow narrative (if next step is a Design Sprint; the Founding Hypothesis content becomes Day 1 strategic context, with no separate bridge skill) or pm-skills validation skills (if next step is non-sprint: `measure-experiment-design`, `discover-interview-synthesis`, etc.).
 
 ---
 
 ## Workflow: `foundation-sprint`
 
-`sprint-skills/_workflows/foundation-sprint.md` chains the 7 skills with optional prep.
+`_workflows/foundation-sprint.md` chains the 7 skills with optional prep.
 
 ```text
 workflow: foundation-sprint
@@ -356,23 +358,23 @@ team_size: 3 to 5 people including Decider
 
 steps:
   prep:
-    - foundation-sprint-readiness
-    - foundation-sprint-brief
+    - tool-foundation-sprint-readiness
+    - tool-foundation-sprint-brief
   day_1:
     morning:
-      - foundation-sprint-basics
+      - tool-foundation-sprint-basics
     afternoon:
-      - foundation-sprint-differentiation
+      - tool-foundation-sprint-differentiation
   day_2:
     morning:
-      - foundation-sprint-approach-options
+      - tool-foundation-sprint-approach-options
     afternoon:
-      - foundation-sprint-magic-lenses
+      - tool-foundation-sprint-magic-lenses
     end:
-      - foundation-sprint-founding-hypothesis
+      - tool-foundation-sprint-founding-hypothesis
 
 next_workflow_options:
-  - foundation-to-design                # if next step is a Design Sprint
+  - foundation-to-design                # if next step is a Design Sprint (narrative handoff, no bridge skill)
   - pm-skills:workflow-feature-kickoff  # if hypothesis becomes a PRD
   - pm-skills:measure-experiment-design # if direct experimentation
 ```

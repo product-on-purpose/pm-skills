@@ -306,23 +306,23 @@ Design Sprints extend beyond software when the team adopts a prototype mindset. 
 
 ## How Design Sprint Connects to pm-skills
 
-The Design Sprint framework lands in pm-skills as a `classification: sprint` skill family, alongside the Foundation Sprint family and the shared sprint mechanics.
+The Design Sprint framework lands in pm-skills as a `design-sprint-skills` family under the `classification: tool` taxonomy, alongside the Foundation Sprint family and the standalone `tool-note-and-vote` decision tool.
 
 ### Skill Family Map
 
 ```mermaid
 flowchart TD
-    Bridge[sprint-foundation-to-design<br/>Convert Founding Hypothesis to challenge] --> Readiness[design-sprint-readiness<br/>Is the team ready?]
-    Readiness --> Brief[design-sprint-brief<br/>Prep, team, customer recruiting]
-    Brief --> MapTarget[design-sprint-map-and-target<br/>Monday: long-term goal, HMW, map, target]
-    MapTarget --> Sketch[design-sprint-sketch<br/>Tuesday: Lightning Demos, Four-Step Sketch]
-    Sketch --> Decide[design-sprint-decide-and-storyboard<br/>Wednesday: Heat Map, Supervote, Storyboard]
-    Decide --> Prototype[design-sprint-prototype-plan<br/>Thursday: roles, build, trial, interview script]
-    Prototype --> Test[design-sprint-test-and-score<br/>Friday: Five-Act interviews, scorecard, decision]
-    NoteVote[sprint-note-and-vote<br/>Decision protocol used throughout]
+    Handoff[Narrative FS-to-DS handoff<br/>Founding Hypothesis becomes Day 1 context] --> Readiness[tool-design-sprint-readiness<br/>Is the team ready?]
+    Readiness --> Brief[tool-design-sprint-brief<br/>Prep, team, customer recruiting]
+    Brief --> MapTarget[tool-design-sprint-map-and-target<br/>Monday: long-term goal, HMW, map, target]
+    MapTarget --> Sketch[tool-design-sprint-sketch<br/>Tuesday: Lightning Demos, Four-Step Sketch]
+    Sketch --> Decide[tool-design-sprint-decide-and-storyboard<br/>Wednesday: Heat Map, Supervote, Storyboard]
+    Decide --> Prototype[tool-design-sprint-prototype-plan<br/>Thursday: roles, build, trial, interview script]
+    Prototype --> Test[tool-design-sprint-test-and-score<br/>Friday: Five-Act interviews, scorecard, decision]
+    NoteVote[tool-note-and-vote<br/>Standalone decision tool used throughout]
 ```
 
-The `sprint-note-and-vote` skill is shared with Foundation Sprint because the protocol is used by both. The `sprint-foundation-to-design` bridge skill converts a Founding Hypothesis into a Design Sprint challenge brief, making the strategic promise into testable scorecard questions.
+The `tool-note-and-vote` skill is a standalone tool (not a family member) used by both Foundation Sprint and Design Sprint at decision moments. The FS-to-DS transition is documented narratively in `_workflows/foundation-to-design.md` and in both user guides; there is no separate bridge skill because canonical Knapp/Zeratsky methodology has no formal handoff move.
 
 ### Recommended Workflow
 
@@ -378,8 +378,8 @@ When a team has run a Foundation Sprint and produced a Founding Hypothesis, the 
 ### Related pm-skills Concepts
 
 - [Foundation Sprint](foundation-sprint.md) - the upstream method that produces the Founding Hypothesis a Design Sprint can test
-- [The Triple Diamond Delivery Process](triple-diamond-delivery-process.md) - the framework organizing the 40 phase, foundation, and utility pm-skills
-- [Agent Skill Anatomy](agent-skill-anatomy.md) - the structural pattern every pm-skill follows, including Design Sprint skills
+- [The Triple Diamond Delivery Process](triple-diamond-delivery-process.md) - the framework organizing pm-skills' domain, foundation, and utility skills
+- [Agent Skill Anatomy](agent-skill-anatomy.md) - the structural pattern every pm-skill follows, including the `tool-design-sprint-*` family
 
 ---
 

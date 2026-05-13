@@ -328,23 +328,23 @@ Character argues that as AI makes building faster, deciding what to build become
 
 ## How Foundation Sprint Connects to pm-skills
 
-The Foundation Sprint framework lands in pm-skills as a `classification: sprint` skill family, integrated alongside the existing phase, foundation, and utility skills.
+The Foundation Sprint framework lands in pm-skills as a `foundation-sprint-skills` family under the `classification: tool` taxonomy, integrated alongside the existing domain, foundation, and utility skills.
 
 ### Skill Family Map
 
 ```mermaid
 flowchart TD
-    Readiness[foundation-sprint-readiness<br/>Is the team ready?] --> Brief[foundation-sprint-brief<br/>Prep and sprint setup]
-    Brief --> Basics[foundation-sprint-basics<br/>Customer, problem, advantage, competitors]
-    Basics --> Diff[foundation-sprint-differentiation<br/>Differentiators, 2x2 chart, principles, Mini Manifesto]
-    Diff --> Options[foundation-sprint-approach-options<br/>Generate up to 7 approaches]
-    Options --> Lenses[foundation-sprint-magic-lenses<br/>Compare approaches, top bet, backup]
-    Lenses --> Hypothesis[foundation-sprint-founding-hypothesis<br/>Write the single testable promise]
-    Hypothesis --> Bridge[sprint-foundation-to-design<br/>Convert hypothesis into Design Sprint brief]
-    NoteVote[sprint-note-and-vote<br/>Decision protocol used throughout]
+    Readiness[tool-foundation-sprint-readiness<br/>Is the team ready?] --> Brief[tool-foundation-sprint-brief<br/>Prep and sprint setup]
+    Brief --> Basics[tool-foundation-sprint-basics<br/>Customer, problem, advantage, competitors]
+    Basics --> Diff[tool-foundation-sprint-differentiation<br/>Differentiators, 2x2 chart, principles, Mini Manifesto]
+    Diff --> Options[tool-foundation-sprint-approach-options<br/>Generate up to 7 approaches]
+    Options --> Lenses[tool-foundation-sprint-magic-lenses<br/>Compare approaches, top bet, backup]
+    Lenses --> Hypothesis[tool-foundation-sprint-founding-hypothesis<br/>Write the single testable promise]
+    Hypothesis --> Handoff[Narrative handoff<br/>Founding Hypothesis becomes Design Sprint context]
+    NoteVote[tool-note-and-vote<br/>Standalone decision tool used throughout]
 ```
 
-The `sprint-note-and-vote` skill is shared with Design Sprint because the Note-and-Vote protocol is used by both. The `sprint-foundation-to-design` bridge skill converts the Founding Hypothesis into a Design Sprint brief, so the strategic promise becomes the testable challenge.
+The `tool-note-and-vote` skill is a standalone tool used by both Foundation Sprint and Design Sprint at decision moments; it is not a family member of either sprint family. The Foundation-to-Design transition is described narratively in `_workflows/foundation-to-design.md` and in this guide's companion `docs/guides/using-foundation-sprint.md`; there is no separate bridge skill because canonical Knapp/Zeratsky methodology has no formal handoff move.
 
 ### Recommended Workflow
 
@@ -394,9 +394,9 @@ Teams that have a Design Sprint scheduled but cannot clearly answer "what hypoth
 
 ### Related pm-skills Concepts
 
-- [The Triple Diamond Delivery Process](triple-diamond-delivery-process.md) - the framework organizing the 40 phase, foundation, and utility pm-skills
+- [The Triple Diamond Delivery Process](triple-diamond-delivery-process.md) - the framework organizing pm-skills' domain, foundation, and utility skills
 - [Design Sprint](design-sprint.md) - the downstream method that tests the Founding Hypothesis
-- [Agent Skill Anatomy](agent-skill-anatomy.md) - the structural pattern every pm-skill follows, including Foundation Sprint skills
+- [Agent Skill Anatomy](agent-skill-anatomy.md) - the structural pattern every pm-skill follows, including the `tool-foundation-sprint-*` family
 
 ---
 

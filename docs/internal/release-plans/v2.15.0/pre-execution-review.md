@@ -258,3 +258,50 @@ Accept or defer:
 ## Next Step
 
 User decides which findings to act on now vs. accept. After fixes land, execution can begin from FS plan Phase 1 Task 1 against a clean review baseline.
+
+---
+
+## Amendment 2026-05-13: Tool Classification Architectural Refactor
+
+After the P1 + P2.1/P2.2 fixes were applied (commit `5060ec9`), the user identified a higher-order taxonomy concern: `classification: sprint` plus mixed prefixes (`foundation-sprint-*`, `design-sprint-*`, `sprint-*`) broke the existing pm-skills convention where prefix = classification value. The original review had treated this as out-of-scope ("naming conventions are consistent" appeared in the What's Right section), but the consistency was internal to sprint skills, not consistent with the rest of the repo.
+
+A post-review architectural conversation produced four locked decisions that supersede portions of the original review and the integration plans:
+
+| Original assumption | Locked amendment |
+|---|---|
+| `classification: sprint` with `sprint_type: shared \| foundation \| design \| bridge` distinguishing roles | New `classification: tool` value; `metadata.tool` field (`foundation-sprint` or `design-sprint`) distinguishes methodology. `sprint_type` and `sprint_move` root fields are dropped. |
+| One `sprint-skills` family with 16 members spanning both methodologies | Two families: `foundation-sprint-skills` (7 members) and `design-sprint-skills` (7 members). Each gets its own contract and validator pair. |
+| Bridge skill `sprint-foundation-to-design` ships as the 16th member | Bridge skill DROPPED. Not canonical Knapp/Zeratsky methodology. Transition lives in `_workflows/foundation-to-design.md` and both user guides. |
+| `sprint-note-and-vote` is a shared family member | `tool-note-and-vote` is a standalone tool (not a member of either family). Lives under `classification: tool` because it is a structured decision-making tool, but is not methodology-specific. |
+| Skill count: 16 new | Skill count: 15 new (16 to 15 via dropped bridge). Total pm-skills catalog grows from 40 to 55. |
+
+### Impact on the original findings
+
+| Original finding | Status after amendment |
+|---|---|
+| P1.1: Family contract path | Superseded. Now two contract paths: `foundation-sprint-skills-contract.md` and `design-sprint-skills-contract.md`. Both follow the documented convention. |
+| P1.2: Registry registration with all 16 members | Superseded. Each family registers its own 7 members. Note-and-vote and bridge are NOT registered (note-and-vote is standalone; bridge dropped). |
+| P1.3: Root vs metadata frontmatter placement | Partially superseded. Root-level fields no longer include `sprint_type` or `sprint_move`. Metadata-nested includes new `tool` and `move` fields. The general root vs metadata distinction remains valid. |
+| P2.1: Optional prerequisite semantics | Unchanged. Prerequisite array is advisory; validator does not block. |
+| P2.2: Spec open questions ratified | Unchanged for original 13 questions. DS plan adds an 8th: bridge skill existence (locked: DROPPED). |
+| P2.3: Workflow craft-time notes | Unchanged. Still folds into DS workflow tasks. |
+| P2.4: Sample attribution math | Resolved by amendment. Sample count drops to 45 (15 skills x 3 threads), no bridge samples, note-and-vote samples ship with FS plan. |
+| P2.5: Category taxonomy | Unchanged. Still a Phase 6 (docs) task; may benefit from the new tool classification distinguishing tool-* categories from non-tool categories. |
+| P3.1: Sample effort sizing | Unchanged (awareness). |
+| P3.2: Concept doc editorial commentary | Unchanged. Concept docs need refresh for tool classification (skill-name updates) but the editorial style call stands. |
+| P3.3: Validator naming redundancy | Resolved by amendment. Two distinct family validators replace the special-case bridge naming. |
+
+### What still needs review
+
+The architectural amendment introduces these new artifacts that did not exist when this review was authored:
+
+- Two family contracts and their internal consistency with the meeting-skills-contract.md precedent
+- The `_workflows/foundation-to-design.md` narrative handoff section (the load-bearing replacement for the dropped bridge skill)
+- The two user guides' handoff sections (each must cover what the dropped bridge skill would have produced)
+- The `metadata.tool` field semantics and validator enforcement
+
+A second pre-execution review pass against the amended plans is optional but recommended before Phase 1 Task 1 begins, especially for the handoff coverage.
+
+### Authoritative reference
+
+The locked decisions are captured in the memory file `project_v2.15-tool-classification-decisions.md` and in the Ratified Decisions tables of `plan_v2.15.0.md`, `foundation-sprint-integration-plan.md`, and `design-sprint-integration-plan.md`. This amendment section provides the audit trail; the plans are the source of truth for execution.

@@ -8,11 +8,11 @@
 
 ## Release Theme
 
-**Sprint Skills Launch.** Ships the first cross-cutting `classification: sprint` skill family covering Foundation Sprint (Jake Knapp + John Zeratsky's 2-day strategic-alignment workshop) and Design Sprint (Knapp + Zeratsky + Kowitz's 5-day prototype-and-test workshop). 16 new skills (8 Foundation Sprint + 8 Design Sprint including 1 bridge skill and 1 shared decision skill) plus 3 workflows, 16 commands, 48 library samples, 2 user guides, 2 concept docs, the sprint-skills family contract, and a new family validator pair.
+**Sprint Skills Launch.** Ships the first `classification: tool` skills covering Foundation Sprint (Jake Knapp + John Zeratsky's 2-day strategic-alignment workshop) and Design Sprint (Knapp + Zeratsky + Kowitz's 5-day prototype-and-test workshop). 15 new skills (7 Foundation Sprint + 7 Design Sprint + 1 standalone `tool-note-and-vote`) plus 3 workflows, 15 commands, 45 library samples, 2 user guides, 2 concept docs, two family contracts (foundation-sprint-skills + design-sprint-skills), and two family validator pairs. No separate bridge skill: the Foundation-to-Design handoff lives in the `foundation-to-design` workflow doc and in the two user guides, since canonical Knapp/Zeratsky methodology has no formal handoff step.
 
 Bundled alongside: small v2.14.x deferral cleanup (Node 22 upgrade on 3 lagging CI workflows + AGENTS/claude/CONTEXT.md skills-inventory refresh).
 
-Skill count grows from 40 to 56 (+16). Classification taxonomy grows from 3 to 4 (phase / foundation / utility / sprint).
+Skill count grows from 40 to 55 (+15). Classification taxonomy grows from 3 to 4 (domain / foundation / utility / tool).
 
 ## Context
 
@@ -20,7 +20,7 @@ v2.14.0 shipped 2026-05-10 (Doc Stack Migration to Astro Starlight); v2.14.1 and
 
 v2.15.0 scoping decided 2026-05-11 in a session that resolved a lingering architectural question from May 10: whether sprint skills should ship as a separate plugin or integrate into pm-skills. The decision was integration (see [Ratified Decisions](#ratified-decisions) below).
 
-v2.15.0 prep complete as of 2026-05-12. Pre-execution review across 6 axes (plan-spec consistency, cross-track coherence, concept doc fidelity, spec completeness, execution sequencing, family contract anchoring) returned 0 P0 / 3 P1 / 5 P2 / 3 P3 findings. P1 + P2.1/P2.2 fixes applied. Execution can begin against a clean baseline.
+v2.15.0 prep complete as of 2026-05-12. Pre-execution review across 6 axes (plan-spec consistency, cross-track coherence, concept doc fidelity, spec completeness, execution sequencing, family contract anchoring) returned 0 P0 / 3 P1 / 5 P2 / 3 P3 findings against the original `classification: sprint` architecture. P1 + P2.1/P2.2 fixes applied to that baseline. Subsequent architectural amendment 2026-05-13 introduced the `tool` classification, split sprint-skills into two families (foundation-sprint-skills + design-sprint-skills), dropped the bridge skill, and reclassified note-and-vote as a standalone `tool`. See pre-execution-review.md Amendment section. Execution can begin against the amended baseline.
 
 ### Prerequisites
 
@@ -40,12 +40,12 @@ This master plan orchestrates four sub-plans. Each sub-plan owns its own task li
 
 | Sub-plan | Path | Scope | Tasks | Effort |
 |---|---|---|---|---|
-| **Foundation Sprint Integration Plan** | [`foundation-sprint-integration-plan.md`](./foundation-sprint-integration-plan.md) | 7 FS skills + sprint-note-and-vote shared skill + validators + family contract + workflow + commands + 24 samples + guide + concept doc + AGENTS.md | 21 (7 phases) | 8-10 sessions |
-| **Design Sprint Integration Plan** | [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md) | 7 DS skills + sprint-foundation-to-design bridge skill + 2 workflows + commands + 24 samples + guide + concept doc + AGENTS.md + version bump + CHANGELOG | 18 (7 phases) | 8-10 sessions |
+| **Foundation Sprint Integration Plan** | [`foundation-sprint-integration-plan.md`](./foundation-sprint-integration-plan.md) | 7 FS skills + tool-note-and-vote standalone skill + lint validator extension + family validator pair + foundation-sprint-skills contract + workflow + commands + 24 samples + guide + concept doc + AGENTS.md | 21 (7 phases) | 8-10 sessions |
+| **Design Sprint Integration Plan** | [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md) | 7 DS skills + 2 workflows + design-sprint-skills contract + design-sprint family validator pair + commands + 21 samples + guide + concept doc + AGENTS.md + version bump + CHANGELOG | 17 (7 phases) | 8-10 sessions |
 | **v2.14.x Deferrals Cleanup Plan** | [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md) | Node 22 bump on 3 workflows + AGENTS/claude/CONTEXT.md skills-inventory refresh | 2 (2 phases) | ~2 hours |
-| **Pre-Execution Review** | [`pre-execution-review.md`](./pre-execution-review.md) | 6-axis review of plans and specs; findings doc | n/a (review artifact) | done |
+| **Pre-Execution Review** | [`pre-execution-review.md`](./pre-execution-review.md) | 6-axis review of plans and specs; findings doc + 2026-05-13 amendment for tool-classification refactor | n/a (review artifact) | done |
 
-Total executable scope: 41 tasks, 16-22 sessions including cleanup. Foundation Sprint plan executes first (owns shared infrastructure); Design Sprint plan executes second (assumes Foundation Sprint complete).
+Total executable scope: 40 tasks, 16-22 sessions including cleanup. Foundation Sprint plan executes first (owns shared infrastructure plus the `tool` classification validator changes); Design Sprint plan executes second (assumes Foundation Sprint complete; ships its own family contract and validator). The Foundation-to-Design transition lives in the `_workflows/foundation-to-design.md` workflow doc and the two user guides; no separate bridge skill.
 
 ## Source Material
 
@@ -63,15 +63,19 @@ The sub-plans reference these authoring sources:
 
 | Decision | Answer | Source |
 |---|---|---|
-| **Version** | **v2.15.0** (minor) | New skill family = new capability |
-| **Architecture** | Integrate into pm-skills under `classification: sprint`; no separate plugin or repo | Decided 2026-05-11; see session log `2026-05-11_18-10_claude_v2.15-sprint-skills-decision-and-plan-org.md` D1 |
+| **Version** | **v2.15.0** (minor) | New classification + skills = new capability |
+| **Architecture** | Integrate into pm-skills under `classification: tool` (new classification value); no separate plugin or repo | Decided 2026-05-11 (integration); refined 2026-05-13 (tool classification); see project memory `project_v2.15-tool-classification-decisions.md` |
+| **`tool` classification meaning** | Named, externally-sourced methodology composed of multiple skills working as a system. Foundation Sprint and Design Sprint are the first inhabitants; future candidates include JTBD, Double Diamond, Shape Up, OKRs-process. | Architectural amendment 2026-05-13 |
+| **Skill prefix = classification** | All sprint skills use `tool-` prefix: `tool-foundation-sprint-*`, `tool-design-sprint-*`, `tool-note-and-vote`. Preserves the existing repo convention (prefix=classification) across all 55 skills. | Architectural amendment 2026-05-13 |
 | **Both tracks ship in one tag** | v2.15.0 contains both Foundation Sprint and Design Sprint; single CHANGELOG entry | Decided 2026-05-11 D2 |
-| **Sequencing** | Foundation Sprint executes first (owns shared infrastructure); Design Sprint executes second | Decided 2026-05-11 D2 |
-| **Family contract location** | `docs/reference/skill-families/sprint-skills-contract.md` matches existing skill-families/ convention | Pre-execution review P1.1 fix (commit `5060ec9`) |
-| **Family registration** | Append to `docs/reference/skill-families/_registry.yaml` with all 16 members upfront (informational warnings for not-yet-authored members are expected) | Pre-execution review P1.2 fix (commit `5060ec9`) |
-| **Frontmatter convention** | Root-level: `name`, `description`, `classification`, `sprint_type`, `sprint_move`, `version`, `updated`, `license`. Metadata-nested: `category`, `frameworks`, `timebox_minutes`, `roles`, `prerequisites`, `inputs`, `outputs`, `author` | Pre-execution review P1.3 fix (commit `5060ec9`) |
-| **Prerequisite semantics** | Array of recommended-but-not-required upstream skills; validator does not block; multi-prerequisite OR handled in skill body | Pre-execution review P2.1 fix (commit `5060ec9`) |
-| **Spec open questions** | All 13 spec open questions ratified in Ratified Decisions sections of both integration plans | Pre-execution review P2.2 fix (commit `5060ec9`); see FS plan + DS plan Ratified Decisions tables |
+| **Sequencing** | Foundation Sprint executes first (owns the `tool` classification validator extensions + tool-note-and-vote); Design Sprint executes second | Decided 2026-05-11 D2 |
+| **Family structure** | Two families: `foundation-sprint-skills` (7 members) and `design-sprint-skills` (7 members). Each gets its own contract and validator pair. `tool-note-and-vote` is a standalone tool, NOT a family member. | Architectural amendment 2026-05-13 |
+| **Family contract location** | Two files: `docs/reference/skill-families/foundation-sprint-skills-contract.md` and `docs/reference/skill-families/design-sprint-skills-contract.md`. Matches existing meeting-skills-contract.md convention. | Architectural amendment 2026-05-13 (supersedes original single-contract decision) |
+| **Family registration** | Two entries in `docs/reference/skill-families/_registry.yaml` (foundation-sprint-skills and design-sprint-skills); FS plan registers FS family with its 7 members; DS plan registers DS family with its 7 members | Architectural amendment 2026-05-13 |
+| **Bridge skill** | DROPPED. No `tool-foundation-sprint-to-design` skill. The FS-to-DS transition lives in `_workflows/foundation-to-design.md` and the user guides as narrative content. Reason: not canonical Knapp/Zeratsky methodology. | Architectural amendment 2026-05-13 |
+| **Frontmatter convention** | Root-level: `name`, `description`, `classification: tool`, `version`, `updated`, `license`. Metadata-nested: `tool` (value: `foundation-sprint` or `design-sprint`; not present on `tool-note-and-vote`), `category`, `frameworks`, `timebox_minutes`, `roles`, `prerequisites`, `inputs`, `outputs`, `author`. The `sprint_type` and `sprint_move` root fields are dropped; their information is encoded in the skill name + `metadata.tool`. | Architectural amendment 2026-05-13 (supersedes prior fix in commit `5060ec9`) |
+| **Prerequisite semantics** | Array of recommended-but-not-required upstream skills; validator does not block; multi-prerequisite OR handled in skill body | Pre-execution review P2.1 fix (commit `5060ec9`); unchanged by amendment |
+| **Spec open questions** | All 13 spec open questions ratified in Ratified Decisions sections of both integration plans | Pre-execution review P2.2 fix (commit `5060ec9`); unchanged by amendment |
 | **v2.14.x cleanup scope** | 4 of 6 originally-listed Tier 1 deferrals already closed in v2.14.1; 2 remain (Node 22 bump + CONTEXT.md refresh) | Status audit in `v2.14.x-deferrals-cleanup-plan.md` |
 | **Node target for 3 lagging workflows** | Node 22 (matches existing `deploy-pages.yml` + `validation.yml`); Node 24 / 22.12+ deferred to v2.16 with Astro 6 upgrade | Decided 2026-05-11 |
 | **Tier 2 deferrals to v2.16** | tags-as-feature, URL slug normalization, Astro 6 + Node 22.12+, sync-agents-md.yml full rewrite all deferred | Stub at `docs/internal/release-plans/v2.16.0/plan_v2.16.0.md` |
@@ -82,38 +86,39 @@ Re-litigation of any of these decisions requires an explicit plan amendment, not
 
 ## Deliverables Overview
 
-### Skills (16 new)
+### Skills (15 new)
 
 | Track | Skills |
 |---|---|
-| Shared | `sprint-note-and-vote` (decision protocol used by both tracks) |
-| Foundation Sprint (7) | `foundation-sprint-readiness`, `foundation-sprint-brief`, `foundation-sprint-basics`, `foundation-sprint-differentiation`, `foundation-sprint-approach-options`, `foundation-sprint-magic-lenses`, `foundation-sprint-founding-hypothesis` |
-| Bridge | `sprint-foundation-to-design` (converts Founding Hypothesis to Design Sprint brief) |
-| Design Sprint (7) | `design-sprint-readiness`, `design-sprint-brief`, `design-sprint-map-and-target`, `design-sprint-sketch`, `design-sprint-decide-and-storyboard`, `design-sprint-prototype-plan`, `design-sprint-test-and-score` |
+| Standalone tool | `tool-note-and-vote` (decision protocol; standalone, not a family member) |
+| Foundation Sprint family (7) | `tool-foundation-sprint-readiness`, `tool-foundation-sprint-brief`, `tool-foundation-sprint-basics`, `tool-foundation-sprint-differentiation`, `tool-foundation-sprint-approach-options`, `tool-foundation-sprint-magic-lenses`, `tool-foundation-sprint-founding-hypothesis` |
+| Design Sprint family (7) | `tool-design-sprint-readiness`, `tool-design-sprint-brief`, `tool-design-sprint-map-and-target`, `tool-design-sprint-sketch`, `tool-design-sprint-decide-and-storyboard`, `tool-design-sprint-prototype-plan`, `tool-design-sprint-test-and-score` |
 
-Each skill = SKILL.md + `references/TEMPLATE.md` + `references/EXAMPLE.md` (3 files), so 48 skill files total.
+Each skill = SKILL.md + `references/TEMPLATE.md` + `references/EXAMPLE.md` (3 files), so 45 skill files total.
 
 ### Workflows (3 new)
 
 - `_workflows/foundation-sprint.md` - chains the 7 FS skills
 - `_workflows/design-sprint.md` - chains the 7 DS skills
-- `_workflows/foundation-to-design.md` - end-to-end arc (FS + bridge + DS)
+- `_workflows/foundation-to-design.md` - end-to-end arc (FS workflow + narrative handoff guidance + DS workflow). The FS-to-DS handoff is described narratively here and in the two user guides; no bridge skill artifact.
 
-### Commands (16 new)
+### Commands (15 new)
 
-One slash command per skill in `commands/` (7 FS + 7 DS + bridge + shared = 16).
+One slash command per skill in `commands/` (7 FS + 7 DS + 1 standalone = 15).
 
-### Library samples (48)
+### Library samples (45)
 
-Three thread continuations (Brainshelf book-catalog, Storevine retail-direction, Workbench debugging-toolchain), each carrying a complete Foundation Sprint to Design Sprint arc through all 16 skills.
+Three thread continuations (Brainshelf book-catalog, Storevine retail-direction, Workbench debugging-toolchain), each carrying a complete Foundation Sprint to Design Sprint arc through all 15 skills.
 
 ### Infrastructure
 
-- `docs/reference/skill-families/sprint-skills-contract.md` - family contract
-- Updated `docs/reference/skill-families/_registry.yaml` - family registration with 16 members
-- `scripts/validate-sprint-skills-family.sh` + `.ps1` - new family validator pair
-- Extended `scripts/lint-skills-frontmatter.sh` + `.ps1` - allow `classification: sprint`
-- Extended `scripts/validate-agents-md.sh` + `.ps1` - recognize sprint skill directories
+- `docs/reference/skill-families/foundation-sprint-skills-contract.md` - foundation-sprint family contract
+- `docs/reference/skill-families/design-sprint-skills-contract.md` - design-sprint family contract
+- Updated `docs/reference/skill-families/_registry.yaml` - two family registrations
+- `scripts/validate-foundation-sprint-skills-family.sh` + `.ps1` - FS family validator pair
+- `scripts/validate-design-sprint-skills-family.sh` + `.ps1` - DS family validator pair
+- Extended `scripts/lint-skills-frontmatter.sh` + `.ps1` - allow `classification: tool`
+- Extended `scripts/validate-agents-md.sh` + `.ps1` - recognize `tool-*` skill directories
 
 ### Concept docs (2; already shipped in prep commits)
 
@@ -141,10 +146,10 @@ Sprint-skills section added with all 16 members and brief descriptions.
 | Sub-plan | Sessions |
 |---|---|
 | Foundation Sprint Integration Plan | 8-10 |
-| Design Sprint Integration Plan | 8-10 |
+| Design Sprint Integration Plan | 7-9 (one less skill than original 8 due to dropped bridge) |
 | v2.14.x Cleanup Plan | ~0.5 (folded into FS or DS plan sessions) |
 | Pre-tag artifact pass (CHANGELOG, release notes, version bump, skills-manifest) | 1 |
-| **Total** | **17-22 sessions** |
+| **Total** | **16-21 sessions** |
 
 ---
 
@@ -152,8 +157,9 @@ Sprint-skills section added with all 16 members and brief descriptions.
 
 Author and complete at the end of execution, before tagging v2.15.0:
 
-- [ ] All 41 sub-plan tasks marked complete
-- [ ] All sprint skills pass `validate-sprint-skills-family.sh` (Bash + PowerShell parity)
+- [ ] All 40 sub-plan tasks marked complete
+- [ ] All FS family skills pass `validate-foundation-sprint-skills-family.sh` (Bash + PowerShell parity)
+- [ ] All DS family skills pass `validate-design-sprint-skills-family.sh` (Bash + PowerShell parity)
 - [ ] All standard validators pass on `main` (`lint-skills-frontmatter`, `validate-commands`, `validate-agents-md`, `validate-meeting-skills-family`, `validate-docs-frontmatter`, `check-no-body-h1`, `check-internal-link-validity`)
 - [ ] CONTEXT.md skills inventory refresh complete (v2.14.x cleanup Task 2)
 - [ ] AGENTS.md regenerated and synced
@@ -184,8 +190,7 @@ Author and complete at the end of execution, before tagging v2.15.0:
 
 ### From this session's prep work
 
-- `MEMORY.md` "Active Work (as of 2026-04-18)" block is stale; refresh during execution
-- 4 prep commits (`9e1042c`, `5b9e590`, `0d97209`, `5060ec9`) plus this master plan + session log = 5-6 commits to push before execution begins
+- 5 prep commits (`9e1042c`, `5b9e590`, `0d97209`, `5060ec9`, `65bd14d`) live on origin/main; the 2026-05-13 architectural amendment lands as a separate refactor commit covering tool classification, two-family structure, dropped bridge, and tool-note-and-vote rename
 
 ### From v2.16 stub
 

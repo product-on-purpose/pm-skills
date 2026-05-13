@@ -1,24 +1,26 @@
 # Design Sprint Track: Design Spec
 
-**Status:** Draft for review
-**Authored:** 2026-05-10
-**Cross-references:** `sprint-skills-architecture.md` (shared decisions), `foundation-sprint-design-spec.md` (sibling track)
+**Status:** Draft (architectural amendment 2026-05-13: tool classification, dropped bridge, two families)
+**Authored:** 2026-05-10; amended 2026-05-13
+**Cross-references:** `foundation-sprint-design-spec.md` (sibling track); architectural decisions captured in `docs/internal/release-plans/v2.15.0/plan_v2.15.0.md` Ratified Decisions table and project memory `project_v2.15-tool-classification-decisions.md`
+
+> **Amendment note (2026-05-13):** This spec's original architecture used `classification: sprint` with `sprint_type` and `sprint_move` root fields, plus a `sprint-foundation-to-design` bridge skill (full contract below) and a `sprint-note-and-vote` shared skill (full contract below) within a single `sprint-skills` family. The integration plans now reflect a refactored architecture: `classification: tool`, two families (`foundation-sprint-skills` + `design-sprint-skills`), bridge skill DROPPED entirely, note-and-vote relocated to `tool-note-and-vote` as a standalone tool. Skill slugs throughout this spec should be read as `tool-design-sprint-{move}` in the new architecture. The per-skill content contracts (purpose, inputs, outputs, common pitfalls, Decider checkpoints) remain valid. The bridge skill section below is HISTORICAL ONLY; the integration plan does not ship it.
 
 ## Track purpose
 
 Design Sprint is a 5-day workshop that tests a risky product idea with target customers through a realistic prototype. The output is a tested prototype, scorecard answers, and an evidence-backed decision: build, iterate, run another sprint, or stop.
 
-This track delivers 7 AI-assisted facilitation skills covering the canonical Design Sprint arc, plus 2 cross-track skills used by both tracks.
+This track delivers 7 AI-assisted facilitation skills covering the canonical Design Sprint arc. The originally-planned 2 cross-track skills are now: `tool-note-and-vote` (standalone tool, ships with FS plan; contract preserved below for historical reference); `tool-foundation-sprint-to-design` bridge skill DROPPED entirely.
 
 ## What this document covers
 
-- 7 Design Sprint skill contracts
-- 2 cross-track skill contracts: `sprint-note-and-vote` (shared) and `sprint-foundation-to-design` (bridge)
-- `design-sprint` and `foundation-to-design` workflows
+- 7 Design Sprint skill contracts (current, post-amendment)
+- 2 cross-track skill contracts (HISTORICAL; bridge dropped, note-and-vote relocated)
+- `design-sprint` and `foundation-to-design` workflows (the latter has narrative transition, not a bridge skill invocation)
 - Library samples plan for the track
-- Track-specific open questions
+- Track-specific open questions (ratified in the DS integration plan)
 
-References `sprint-skills-architecture.md` for shared decisions (packaging, repo layout, frontmatter contract, family contract, validators, versioning).
+Architectural decisions live in the integration plans and the master release plan, not duplicated here. See `plan_v2.15.0.md` Ratified Decisions table.
 
 ## Method fidelity and canonical sources
 
@@ -34,24 +36,24 @@ The 7 skills preserve the GV five-day structure (Monday-Friday). The "Goldilocks
 
 ## Skill catalog summary
 
-| # | Skill slug | Move | Timebox | Primary bundled output |
+| # | Skill slug (post-amendment) | Move | Timebox | Primary bundled output |
 |---|---|---|---|---|
-| 1 | `design-sprint-readiness` | Pre-sprint | 30-45 min | Readiness assessment with go/conditional-go/wait verdict |
-| 2 | `design-sprint-brief` | Pre-sprint | 60-90 min | Sprint brief: challenge, team, customer recruiting plan, logistics |
-| 3 | `design-sprint-map-and-target` | Monday | 90-120 min | Long-term goal plus sprint questions plus customer map plus HMW clusters plus target moment |
-| 4 | `design-sprint-sketch` | Tuesday | 150-210 min | Lightning demo board plus four-step sketches plus assignments |
-| 5 | `design-sprint-decide-and-storyboard` | Wednesday | 180-240 min | Heat map plus critique notes plus supervote plus storyboard |
-| 6 | `design-sprint-prototype-plan` | Thursday | 60-120 min | Prototype role plan plus interview script plus trial-run checklist plus participant schedule |
-| 7 | `design-sprint-test-and-score` | Friday | 240-300 min | Interview observations plus scorecard plus decisions plus hot takes plus next-step memo |
+| 1 | `tool-design-sprint-readiness` | Pre-sprint | 30-45 min | Readiness assessment with go/conditional-go/wait verdict |
+| 2 | `tool-design-sprint-brief` | Pre-sprint | 60-90 min | Sprint brief: challenge, team, customer recruiting plan, logistics |
+| 3 | `tool-design-sprint-map-and-target` | Monday | 90-120 min | Long-term goal plus sprint questions plus customer map plus HMW clusters plus target moment |
+| 4 | `tool-design-sprint-sketch` | Tuesday | 150-210 min | Lightning demo board plus four-step sketches plus assignments |
+| 5 | `tool-design-sprint-decide-and-storyboard` | Wednesday | 180-240 min | Heat map plus critique notes plus supervote plus storyboard |
+| 6 | `tool-design-sprint-prototype-plan` | Thursday | 60-120 min | Prototype role plan plus interview script plus trial-run checklist plus participant schedule |
+| 7 | `tool-design-sprint-test-and-score` | Friday | 240-300 min | Interview observations plus scorecard plus decisions plus hot takes plus next-step memo |
 
-Plus 2 cross-track skills (detailed below):
+Historical cross-track skills (DOCUMENTED BELOW FOR ORIGIN REFERENCE; current architecture):
 
-- `sprint-foundation-to-design` (bridge): converts a Founding Hypothesis to a Design Sprint brief
-- `sprint-note-and-vote` (shared): universal decision mechanic used 10 or more times across both tracks
+- `sprint-foundation-to-design` (bridge): DROPPED 2026-05-13. Not a canonical Knapp/Zeratsky move. The FS-to-DS transition lives narratively in `_workflows/foundation-to-design.md` and both user guides.
+- `sprint-note-and-vote` (shared): relocated to `tool-note-and-vote` standalone tool (ships with FS integration plan). Used multiple times across both tracks at decision moments.
 
 ## Per-skill detailed contracts
 
-### 1. design-sprint-readiness
+### 1. tool-design-sprint-readiness
 
 **Purpose:** assess whether a Design Sprint fits. Critical because Design Sprint failure modes are expensive (5-day team commitment plus customer recruiting cost).
 
@@ -93,7 +95,7 @@ Plus 2 cross-track skills (detailed below):
 
 ---
 
-### 2. design-sprint-brief
+### 2. tool-design-sprint-brief
 
 **Purpose:** produce the pre-sprint brief covering challenge, team, customer recruiting plan, logistics, and success definition.
 
@@ -126,7 +128,7 @@ Plus 2 cross-track skills (detailed below):
 
 **Timebox:** 60-90 min (longer than Foundation Sprint brief because customer recruiting adds dimensions)
 
-**Frontmatter prerequisites:** `design-sprint-readiness` (recommended) OR `sprint-foundation-to-design` (if coming from Foundation Sprint)
+**Frontmatter prerequisites:** `tool-design-sprint-readiness` (recommended). When coming from a Foundation Sprint, the FS Founding Hypothesis output is consumed as optional input context (no separate bridge skill).
 
 **Canonical references:** Sprint book Chapter 3; Character pre-sprint guide; AJ&Smart remote sprint template
 
@@ -140,7 +142,7 @@ Plus 2 cross-track skills (detailed below):
 
 ---
 
-### 3. design-sprint-map-and-target (Monday)
+### 3. tool-design-sprint-map-and-target (Monday)
 
 **Purpose:** produce Monday's bundled artifact, which is the long-term goal, sprint questions, customer/system map, HMW clusters, and chosen target moment.
 
@@ -167,9 +169,9 @@ Plus 2 cross-track skills (detailed below):
 
 **Timebox:** 90-120 min for facilitated section (does not include expert interviews which run in parallel)
 
-**Frontmatter prerequisites:** `design-sprint-brief`
+**Frontmatter prerequisites:** `tool-design-sprint-brief`
 
-**Cross-skill usage:** invokes `sprint-note-and-vote` for HMW prioritization and target selection
+**Cross-skill usage:** invokes `tool-note-and-vote` for HMW prioritization and target selection
 
 **Canonical references:** Sprint book Monday chapter; GV "Sprint Week Monday"; Character Day 1 of Design Sprint
 
@@ -184,7 +186,7 @@ Plus 2 cross-track skills (detailed below):
 
 ---
 
-### 4. design-sprint-sketch (Tuesday)
+### 4. tool-design-sprint-sketch (Tuesday)
 
 **Purpose:** produce Tuesday's bundled artifact, which is lightning demo inspirations and four-step solution sketches from each team member.
 
@@ -213,7 +215,7 @@ Plus 2 cross-track skills (detailed below):
 
 **Timebox:** 150-210 min
 
-**Frontmatter prerequisites:** `design-sprint-map-and-target`
+**Frontmatter prerequisites:** `tool-design-sprint-map-and-target`
 
 **Canonical references:** Sprint book Tuesday chapter; GV "Sprint Week Tuesday"; Character Day 2
 
@@ -228,7 +230,7 @@ Plus 2 cross-track skills (detailed below):
 
 ---
 
-### 5. design-sprint-decide-and-storyboard (Wednesday)
+### 5. tool-design-sprint-decide-and-storyboard (Wednesday)
 
 **Purpose:** produce Wednesday's bundled artifact, which is the decision (which sketch becomes the prototype) plus the storyboard that will drive Thursday's build.
 
@@ -255,9 +257,9 @@ Plus 2 cross-track skills (detailed below):
 
 **Timebox:** 180-240 min (Wednesday is the most decision-heavy day)
 
-**Frontmatter prerequisites:** `design-sprint-sketch`
+**Frontmatter prerequisites:** `tool-design-sprint-sketch`
 
-**Cross-skill usage:** invokes `sprint-note-and-vote` for straw poll and supervote
+**Cross-skill usage:** invokes `tool-note-and-vote` for straw poll and supervote
 
 **Canonical references:** Sprint book Wednesday chapter; GV "Sprint Week Wednesday"; Character Day 3
 
@@ -271,7 +273,7 @@ Plus 2 cross-track skills (detailed below):
 
 ---
 
-### 6. design-sprint-prototype-plan (Thursday morning / setup)
+### 6. tool-design-sprint-prototype-plan (Thursday morning / setup)
 
 **Purpose:** produce Thursday's planning artifact, which is the prototype role plan, interview script, trial-run checklist, and participant confirmation. Note: this skill plans Thursday's work; the actual prototype build is a craft activity outside the AI's invocation surface.
 
@@ -298,7 +300,7 @@ Plus 2 cross-track skills (detailed below):
 
 **Timebox:** 60-120 min (skill output); the prototype build itself takes the rest of Thursday
 
-**Frontmatter prerequisites:** `design-sprint-decide-and-storyboard`
+**Frontmatter prerequisites:** `tool-design-sprint-decide-and-storyboard`
 
 **Canonical references:** Sprint book Thursday chapter; GV "Sprint Week Thursday"; Character Day 4
 
@@ -313,7 +315,7 @@ Plus 2 cross-track skills (detailed below):
 
 ---
 
-### 7. design-sprint-test-and-score (Friday)
+### 7. tool-design-sprint-test-and-score (Friday)
 
 **Purpose:** produce Friday's bundled artifact, which is the customer interviews, scorecard, decisions, hot takes, and next-step memo.
 
@@ -342,7 +344,7 @@ Plus 2 cross-track skills (detailed below):
 
 **Timebox:** 240-300 min (5 interviews of 30 to 45 min each plus 60 to 90 min synthesis)
 
-**Frontmatter prerequisites:** `design-sprint-prototype-plan`
+**Frontmatter prerequisites:** `tool-design-sprint-prototype-plan`
 
 **Canonical references:** Sprint book Friday chapter; GV "Sprint Week Friday"; Character Day 5
 
@@ -360,9 +362,11 @@ Plus 2 cross-track skills (detailed below):
 
 ---
 
-## Cross-track skills
+## Cross-track skills (HISTORICAL: amended 2026-05-13)
 
-### sprint-note-and-vote
+> **The two sub-sections below are HISTORICAL.** Per the 2026-05-13 architectural amendment, the cross-track design changed: `sprint-note-and-vote` was renamed to `tool-note-and-vote` and reclassified as a standalone tool (ships with the FS integration plan, not a family member). `sprint-foundation-to-design` was DROPPED entirely (not canonical Knapp/Zeratsky methodology; transition lives in `_workflows/foundation-to-design.md` and both user guides). The contracts below remain useful for understanding original design intent.
+
+### sprint-note-and-vote (historical; current name: tool-note-and-vote)
 
 **Purpose:** universal decision mechanic used throughout both Foundation Sprint and Design Sprint. Captures silent ideation, vote summaries, and decision records.
 
@@ -404,7 +408,9 @@ Plus 2 cross-track skills (detailed below):
 
 ---
 
-### sprint-foundation-to-design
+### sprint-foundation-to-design (HISTORICAL; DROPPED)
+
+> This skill was dropped per the 2026-05-13 amendment. The conversion logic described below now lives as narrative content in `_workflows/foundation-to-design.md` and in the two user guides. The original contract is preserved here for context.
 
 **Purpose:** bridge skill that converts a Founding Hypothesis plus assumption scorecard from a Foundation Sprint into a Design Sprint brief. The highest-risk assumption becomes the Design Sprint challenge.
 
@@ -454,7 +460,7 @@ Plus 2 cross-track skills (detailed below):
 
 ### `design-sprint`
 
-`sprint-skills/_workflows/design-sprint.md` chains the 7 Design Sprint skills.
+`_workflows/design-sprint.md` chains the 7 Design Sprint skills.
 
 ```text
 workflow: design-sprint
@@ -463,19 +469,19 @@ team_size: 7 or fewer including Decider
 
 steps:
   prep:
-    - design-sprint-readiness
-    - design-sprint-brief
+    - tool-design-sprint-readiness
+    - tool-design-sprint-brief
   monday:
-    - design-sprint-map-and-target
+    - tool-design-sprint-map-and-target
   tuesday:
-    - design-sprint-sketch
+    - tool-design-sprint-sketch
   wednesday:
-    - design-sprint-decide-and-storyboard
+    - tool-design-sprint-decide-and-storyboard
   thursday:
-    - design-sprint-prototype-plan
+    - tool-design-sprint-prototype-plan
     (prototype build is craft activity outside AI invocation)
   friday:
-    - design-sprint-test-and-score
+    - tool-design-sprint-test-and-score
 
 next_workflow_options:
   - pm-skills:workflow-feature-kickoff       # build path
@@ -486,34 +492,36 @@ next_workflow_options:
 
 ### `foundation-to-design`
 
-`sprint-skills/_workflows/foundation-to-design.md` chains the full Foundation Sprint, bridge, and Design Sprint sequence.
+`_workflows/foundation-to-design.md` documents the end-to-end Foundation Sprint to Design Sprint arc, with a narrative transition section (no bridge skill).
 
 ```text
 workflow: foundation-to-design
-duration: 8 to 9 days (2 FS + 1 bridge + 5 DS, plus prep)
+duration: 7 to 8 days (2 FS + 5 DS, plus prep; no separate bridge day)
 team_size: 3 to 5 for FS; expanded to 7 or fewer for DS
 
 steps:
   foundation_sprint:
-    - all 7 foundation-sprint skills via foundation-sprint workflow
-  bridge:
-    - sprint-foundation-to-design
+    - all 7 tool-foundation-sprint-* skills via foundation-sprint workflow
+  transition:
+    # narrative section in the workflow doc; no skill invocation
+    # covers: which FS outputs map to which DS inputs, go/no-go checkpoint, team continuity, timing
   design_sprint:
-    - all 7 design-sprint skills via design-sprint workflow
+    - all 7 tool-design-sprint-* skills via design-sprint workflow
 ```
+
+The transition section is the load-bearing replacement for the dropped bridge skill.
 
 ## Library samples plan
 
 Same fictional clients as Foundation Sprint (Brainshelf, Storevine, Workbench). Each client gets a complete Design Sprint trace.
 
-- 7 Design Sprint skills times 3 clients = 21 samples
-- 2 cross-track skills times 3 clients = 6 samples (note-and-vote, foundation-to-design)
-- Total for this track's contribution: 27 samples
-- Combined sprint-skills v0.1.0 library: 21 (Foundation track) + 27 (Design track + cross-track) = **48 samples**
+- 7 Design Sprint skills times 3 clients = 21 samples (this plan's contribution)
+- 0 cross-track samples (bridge dropped; tool-note-and-vote samples ship with FS plan)
+- Combined v2.15.0 sprint-skills library: 21 (Foundation track + 3 note-and-vote samples) + 21 (Design track) + 3 (tool-note-and-vote samples) = 45 samples
 
 Each sample includes: filled TEMPLATE with realistic content, decision rationale notes, common-pitfall annotations, cross-reference to the next sample in the same client's sprint.
 
-For the `foundation-to-design` bridge samples specifically: each client's bridge sample takes their Foundation Sprint Founding Hypothesis output and produces a Design Sprint brief, demonstrating the full end-to-end arc.
+For the FS-to-DS handoff: each client's `tool-foundation-sprint-founding-hypothesis` sample documents the strategic context (highest-risk assumption identified in the scorecard) that the team carries into their `tool-design-sprint-readiness` sample. No separate bridge sample.
 
 ## Track-specific open questions
 
