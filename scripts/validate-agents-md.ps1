@@ -8,6 +8,9 @@ if (-not (Test-Path $AgentsPath)) {
     exit 1
 }
 
+# Enumerates ALL skill directories under skills/, regardless of classification
+# prefix (domain/foundation/utility/tool). Adding a new classification (e.g.,
+# tool added 2026-05-13) requires no validator changes.
 $skillPaths = Get-ChildItem -Path (Join-Path $Root "skills") -Directory |
     ForEach-Object { "skills/$($_.Name)/SKILL.md" } |
     Sort-Object -Unique

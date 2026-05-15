@@ -11,6 +11,9 @@ if [[ ! -f "$AGENTS" ]]; then
   exit 1
 fi
 
+# Enumerates ALL skill directories under skills/, regardless of classification
+# prefix (domain/foundation/utility/tool). Adding a new classification (e.g.,
+# tool added 2026-05-13) requires no validator changes.
 skill_paths=()
 for dir in "$ROOT"/skills/*; do
   [[ -d "$dir" ]] || continue
