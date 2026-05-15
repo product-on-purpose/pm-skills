@@ -29,3 +29,14 @@ families:
       - foundation-meeting-recap
       - foundation-meeting-synthesize
       - foundation-stakeholder-update
+
+  foundation-sprint-skills:
+    contract: docs/reference/skill-families/foundation-sprint-skills-contract.md
+    members:
+      - tool-foundation-sprint-readiness
+      - tool-foundation-sprint-brief
+      - tool-foundation-sprint-basics
+      - tool-foundation-sprint-differentiation
+      - tool-foundation-sprint-approach-options
+      - tool-foundation-sprint-magic-lenses
+      - tool-foundation-sprint-founding-hypothesis
