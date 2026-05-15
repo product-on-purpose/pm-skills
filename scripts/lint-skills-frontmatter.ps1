@@ -235,9 +235,15 @@ if (Test-Path $samplesDir) {
         ForEach-Object { $_.FullName }
 }
 if ($yamlFiles.Count -gt 0) {
-    & node (Join-Path $Root 'scripts/check-frontmatter-yaml.mjs') @yamlFiles
-    if ($LASTEXITCODE -ne 0) {
-        $Fail = $true
+    # Batch files to avoid argument-list-too-long on large corpora.
+    # Mirrors the Bash version's batching behavior.
+    $batchSize = 50
+    for ($i = 0; $i -lt $yamlFiles.Count; $i += $batchSize) {
+        $batch = $yamlFiles[$i..([Math]::Min($i + $batchSize - 1, $yamlFiles.Count - 1))]
+        & node (Join-Path $Root 'scripts/check-frontmatter-yaml.mjs') @batch
+        if ($LASTEXITCODE -ne 0) {
+            $Fail = $true
+        }
     }
 }
 

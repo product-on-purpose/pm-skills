@@ -250,6 +250,70 @@ Checks for newer pm-skills releases, compares local vs. latest version, previews
 
 ---
 
+### Tool Classification
+
+The `tool` classification represents named external methodologies composed of multiple skills working as a system. The first inhabitants are the Foundation Sprint and Design Sprint families plus a standalone decision tool.
+
+#### tool-note-and-vote
+**Path:** `skills/tool-note-and-vote/SKILL.md`
+
+Structured group-decision mechanic that captures silent ideation, voting summaries, and Decider sign-off in a single bundled artifact. Use when a small team needs to make a fast decision with diverse input, when groupthink is a risk, or when a workshop moment demands silent contribution before discussion. Applicable to Foundation Sprint, Design Sprint, and any participatory decision context.
+
+---
+
+#### Foundation Sprint Family
+
+The 7 `tool-foundation-sprint-*` skills implement Knapp and Zeratsky's two-day Foundation Sprint workshop. Family contract: `docs/reference/skill-families/foundation-sprint-skills-contract.md`. Workflow: `_workflows/foundation-sprint.md`.
+
+##### tool-foundation-sprint-readiness
+**Path:** `skills/tool-foundation-sprint-readiness/SKILL.md`
+
+Pre-sprint diagnostic that determines whether a team should run a Foundation Sprint now, postpone it, or do prerequisite work first. Produces a Go / Conditional Go / Wait verdict with diagnosis, recommended preconditions, attendee list, and pre-sprint activities. Use when a team is considering starting a Foundation Sprint.
+
+---
+
+##### tool-foundation-sprint-brief
+**Path:** `skills/tool-foundation-sprint-brief/SKILL.md`
+
+Pre-sprint brief that locks scope, the decision the sprint must unlock, team and role assignments, logistics, inputs to bring, and success criteria before Day 1 of a Foundation Sprint. Use after the readiness verdict is Go and before the sprint begins.
+
+---
+
+##### tool-foundation-sprint-basics
+**Path:** `skills/tool-foundation-sprint-basics/SKILL.md`
+
+Day 1 morning move of a Foundation Sprint. Forces explicit team choices on target customer, important problem, team advantage, and competitors and alternatives. Produces a single coherent strategic frame that becomes the input to Day 1 afternoon Differentiation.
+
+---
+
+##### tool-foundation-sprint-differentiation
+**Path:** `skills/tool-foundation-sprint-differentiation/SKILL.md`
+
+Day 1 afternoon move of a Foundation Sprint. Converts the morning Basics frame into a defensible strategic position by scoring differentiator candidates, choosing two committed differentiators, plotting alternatives on a 2x2 chart, writing decision principles, and producing a one-page Mini Manifesto.
+
+---
+
+##### tool-foundation-sprint-approach-options
+**Path:** `skills/tool-foundation-sprint-approach-options/SKILL.md`
+
+Day 2 morning move of a Foundation Sprint. Forces generation of 3 to 7 candidate approaches as one-page summaries before the team converges on a top bet. Enforces a minimum of 3 approaches to prevent first-idea anchoring.
+
+---
+
+##### tool-foundation-sprint-magic-lenses
+**Path:** `skills/tool-foundation-sprint-magic-lenses/SKILL.md`
+
+Day 2 afternoon move of a Foundation Sprint. Evaluates the candidate approach set through multiple lenses (4 classic plus at least 1 custom) to surface trade-offs, identify consistent winners and contradictions, and produce a top bet plus a backup plan.
+
+---
+
+##### tool-foundation-sprint-founding-hypothesis
+**Path:** `skills/tool-foundation-sprint-founding-hypothesis/SKILL.md`
+
+Day 2 end capstone move of a Foundation Sprint. Compresses the sprint's full strategic frame into a single canonical sentence (the Founding Hypothesis) plus an assumption scorecard, why-we-believe, what-could-prove-us-wrong, and recommended next validation step.
+
+---
+
 ## Workflows
 
 | Workflow | Description |

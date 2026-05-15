@@ -217,9 +217,17 @@ if [[ -d "$SAMPLES_DIR" ]]; then
   )
 fi
 if [[ ${#YAML_FILES[@]} -gt 0 ]]; then
-  if ! node "$ROOT/scripts/check-frontmatter-yaml.mjs" "${YAML_FILES[@]}"; then
-    FAIL=1
-  fi
+  # Batch files to avoid "Argument list too long" on Windows/MSYS bash
+  # when the corpus grows. Each batch is processed in one node invocation;
+  # any batch failure marks FAIL but processing continues so all errors
+  # surface in a single run.
+  BATCH_SIZE=50
+  for ((i=0; i<${#YAML_FILES[@]}; i+=BATCH_SIZE)); do
+    batch=("${YAML_FILES[@]:i:BATCH_SIZE}")
+    if ! node "$ROOT/scripts/check-frontmatter-yaml.mjs" "${batch[@]}"; then
+      FAIL=1
+    fi
+  done
 fi
 
 exit "$FAIL"

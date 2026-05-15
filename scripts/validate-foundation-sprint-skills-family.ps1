@@ -154,11 +154,11 @@ foreach ($skill in $FamilySkills) {
 
     # Check 4: metadata.move matches expected
     $metaMove = Get-MetadataField -Frontmatter $Frontmatter -Field 'move'
-    $expectedMove = $ExpectedMove[$skill]
-    if ($metaMove -ne $expectedMove) {
-        FailSkill $skill "metadata.move='$metaMove' (expected '$expectedMove')"
+    $expectedMoveValue = $ExpectedMove[$skill]
+    if ($metaMove -ne $expectedMoveValue) {
+        FailSkill $skill "metadata.move='$metaMove' (expected '$expectedMoveValue')"
     } else {
-        PassSkill $skill "metadata.move: $expectedMove"
+        PassSkill $skill "metadata.move: $expectedMoveValue"
     }
 
     # Check 5: SKILL.md references the family contract
