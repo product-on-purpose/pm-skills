@@ -16,8 +16,12 @@
   },
   "dependencies": {
     "@astrojs/starlight": "~0.34.0",
-    "astro": "~5.13.0",
+    "astro": "^5.18.1",
     "astro-mermaid": "~2.0.1",
     "sharp": "^0.34.5"
+  },
+  "overrides": {
+    "mermaid": "^11.15.0",
+    "devalue": "^5.8.1"
   }
 }
