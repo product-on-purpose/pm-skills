@@ -48,6 +48,8 @@ These items were explicitly deferred to v2.16+ during the v2.14.x cycle close-ou
 
 **Sequencing dependency:** v2.15.0's `v2.14.x-deferrals-cleanup-plan.md` Task 1 bumps three workflows to Node 22. v2.16.0 will need to bump all five workflows from Node 22 to Node 22.12+ (or Node 24).
 
+**Dependabot closure bonus:** This upgrade also closes the 3 Dependabot alerts that v2.15.0's Task 3 left deferred: alert #10 (Astro: XSS in `define:vars` via incomplete `</script>` tag sanitization; patch 6.1.6), alerts #15 and #16 (Astro: server-island encrypted parameters vulnerable to cross-component replay; patch 6.1.10). Net Dependabot alert count after this upgrade lands: 0.
+
 **Open questions:**
 - Plain Node 22.12+ jump or commit to Node 24 LTS?
 - Does astro-mermaid 2.0.1 support Astro 6, or does it require its own upgrade?
