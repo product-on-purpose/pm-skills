@@ -111,7 +111,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     $classificationValue = Get-FrontmatterValue -Frontmatter $front -Key 'classification'
 
     $validPhases = @('discover','define','develop','deliver','measure','iterate')
-    $validClassifications = @('domain','foundation','utility')
+    $validClassifications = @('domain','foundation','utility','tool')
 
     if ($phaseValue -and ($validPhases -notcontains $phaseValue)) {
         Write-Host "[FAIL] $rel : invalid phase '$phaseValue' (expected one of: $($validPhases -join ', '))"
@@ -125,7 +125,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
         $skillFail = $true
     }
 
-    if ($classificationValue -in @('foundation','utility')) {
+    if ($classificationValue -in @('foundation','utility','tool')) {
         if ($phaseValue) {
             Write-Host "[FAIL] $rel : phase should be omitted for classification '$classificationValue'"
             $Fail = $true
@@ -141,7 +141,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
     }
     else {
         if (-not $phaseValue) {
-            Write-Host "[FAIL] $rel : missing phase (or set classification to foundation/utility)"
+            Write-Host "[FAIL] $rel : missing phase (or set classification to foundation/utility/tool)"
             $Fail = $true
             $skillFail = $true
         }

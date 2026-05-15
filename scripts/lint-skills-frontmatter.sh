@@ -101,13 +101,13 @@ for dir in "$ROOT"/skills/*; do
     skill_fail=1
   fi
 
-  if [[ -n "$classification_field" && ! "$classification_field" =~ ^(domain|foundation|utility)$ ]]; then
-    echo "✗ $rel : invalid classification '$classification_field' (expected one of: domain, foundation, utility)"
+  if [[ -n "$classification_field" && ! "$classification_field" =~ ^(domain|foundation|utility|tool)$ ]]; then
+    echo "✗ $rel : invalid classification '$classification_field' (expected one of: domain, foundation, utility, tool)"
     FAIL=1
     skill_fail=1
   fi
 
-  if [[ "$classification_field" == "foundation" || "$classification_field" == "utility" ]]; then
+  if [[ "$classification_field" == "foundation" || "$classification_field" == "utility" || "$classification_field" == "tool" ]]; then
     if [[ -n "$phase_field" ]]; then
       echo "✗ $rel : phase should be omitted for classification '$classification_field'"
       FAIL=1
@@ -121,7 +121,7 @@ for dir in "$ROOT"/skills/*; do
     fi
   else
     if [[ -z "$phase_field" ]]; then
-      echo "✗ $rel : missing phase (or set classification to foundation/utility)"
+      echo "✗ $rel : missing phase (or set classification to foundation/utility/tool)"
       FAIL=1
       skill_fail=1
     fi
