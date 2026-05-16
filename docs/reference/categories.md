@@ -36,7 +36,7 @@ Product management methodologies use different terminology for similar activitie
 
 Categories provide a **neutral abstraction layer** that lets skills work across methodologies without being tied to any specific framework's vocabulary.
 
-They are also **orthogonal to classification**. Domain, foundation, and utility skills can all use the same `metadata.category` taxonomy.
+They are also **orthogonal to classification**. Domain, foundation, utility, and tool skills can all use the same `metadata.category` taxonomy. (The `tool` classification was introduced in v2.15.0 for named external methodologies composed of multiple skills working as a system: e.g., the Foundation Sprint and Design Sprint families.)
 
 ### How Categories Work
 

@@ -1,12 +1,17 @@
 ---
 title: Foundation Sprint Skills Contract
-description: Canonical v0.1.0 contract for the 7 tool-foundation-sprint-* skills. Shared frontmatter, naming convention, file anatomy, Decider Checkpoint requirement, library samples, and enforcement rules validated by CI.
+description: Canonical v0.2.0 contract for the 7 tool-foundation-sprint-* skills. Shared frontmatter, naming convention, file anatomy, Decider Checkpoint requirement, library samples with version-tiered coverage, and enforcement rules validated by CI.
 ---
 
 **Status**: Canonical (enforced by CI)
-**Version**: 0.1.0
+**Version**: 0.2.0
 **Applies to**: `tool-foundation-sprint-readiness`, `tool-foundation-sprint-brief`, `tool-foundation-sprint-basics`, `tool-foundation-sprint-differentiation`, `tool-foundation-sprint-approach-options`, `tool-foundation-sprint-magic-lenses`, `tool-foundation-sprint-founding-hypothesis`
-**Last updated**: 2026-05-14
+**Last updated**: 2026-05-15
+
+**v0.2.0 changes from v0.1.0** (all from 2026-05-15 Codex adversarial review acceptance):
+- Library sample requirements made version-tiered (F32): v0.1.0 requires Brainshelf; v1.0.0 requires all 3 threads. With this v0.2.0 contract the FS family ships Brainshelf + Storevine + Workbench (24 samples).
+- Frameworks metadata field clarified as subset (F13): `foundation-sprint` REQUIRED; `click` + `character-note-and-vote` present when the skill body draws on those sources. Previously the example implied a fixed 3-element list.
+- CI enforcement list reorganized to separate family-level checks from per-member checks (F10); validator coverage gaps explicitly documented for future v0.3.0/v1.0.0 promotion.
 
 ---
 
@@ -244,3 +249,4 @@ Future tool families (JTBD process, Double Diamond, Shape Up, etc.) would follow
 | Version | Date | Change |
 |---|---|---|
 | 0.1.0 | 2026-05-14 | Initial contract authored alongside Foundation Sprint family scaffolding |
+| 0.2.0 | 2026-05-15 | Codex adversarial review acceptance: library samples version-tiered (F32; v0.1.0 Brainshelf REQUIRED + Storevine/Workbench RECOMMENDED; v1.0.0 all 3 threads REQUIRED); `metadata.frameworks` clarified as subset semantics with `foundation-sprint` required (F13); CI enforcement list reorganized into family-level + per-member splits with explicit validator-coverage gap documentation (F10) |
