@@ -321,6 +321,11 @@ The 7 `tool-design-sprint-*` skills implement Knapp, Zeratsky, and Kowitz's five
 
 Pre-sprint diagnostic that determines whether a team should run a Design Sprint now, postpone it, or do prerequisite work first. Produces a Go / Conditional Go / Wait verdict with diagnosis, recommended preconditions, attendee list, customer recruiting plan, and pre-sprint activities. Use when a team is considering starting a Design Sprint and wants a fast yes/no diagnosis before committing five days of team time and customer recruiting cost.
 
+##### tool-design-sprint-brief
+**Path:** `skills/tool-design-sprint-brief/SKILL.md`
+
+Pre-sprint brief that locks challenge, sprint questions, team and role assignments, customer recruiting plan, prototype medium, interview format, logistics, and success criteria before Monday of a Design Sprint. Use after the readiness verdict is Go and before Monday begins. Produces a two-page artifact the team and Decider sign off on as the contract for the next five days.
+
 ---
 
 ## Workflows

@@ -21,7 +21,7 @@
 | Phase | Status |
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
-| Phase 2: 7 DS family skills | IN PROGRESS (1 of 7 shipped: tool-design-sprint-readiness via Task 4; DS family validator now 1/7 enforcing; AGENTS.md DS section added with readiness entry) |
+| Phase 2: 7 DS family skills | IN PROGRESS (2 of 7 shipped: tool-design-sprint-readiness via Task 4, tool-design-sprint-brief via Task 5; DS family validator now 2/7 enforcing; AGENTS.md at 50 paths) |
 | Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
 | Phase 4: 7 slash commands | NOT STARTED |
 | Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 2 Task 5: author `skills/tool-design-sprint-brief/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). The second DS family member. Estimated effort: ~1 to 1.5 hours. Use `skills/tool-foundation-sprint-brief/SKILL.md` as the structural shape reference. DS brief is longer-timeboxed than FS brief (60-90 min vs 45-60 min) because it includes the customer recruiting plan dimension. Per the in-execution discovery during Task 4, also extend AGENTS.md Design Sprint Family section with the brief entry in-commit (the existing FS pattern was to bundle AGENTS.md updates per-skill).
+Phase 2 Task 6: author `skills/tool-design-sprint-map-and-target/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Monday's bundled artifact: long-term goal, sprint questions (refined from brief), customer map, HMW clusters, target moment. Timebox 90-120 min per spec. Prerequisites: `tool-design-sprint-brief`. Brainshelf EXAMPLE picks up Monday 2026-05-26 with the brief locked. AGENTS.md update in-commit per the established pattern.
 
 ## Prerequisites
 
@@ -289,7 +289,9 @@ Note: AGENTS.md update is in-commit with the new skill (discovery during executi
 
 Follow Task 4 pattern. Spec section "2. design-sprint-brief". `metadata.move: brief`. Prerequisites: `tool-design-sprint-readiness`. Includes customer recruiting plan dimension (longer timebox than Foundation Sprint brief). Accepts a Founding Hypothesis as input when coming from a prior Foundation Sprint, but does not require a separate bridge skill artifact.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
+
+Result (2026-05-15): SKILL.md authored at v0.1.0 with 9 output sections (vs FS brief's 6): challenge statement, sprint questions, decider windows, team roster, customer recruiting plan, prototype medium decision, interview format, logistics, success criteria. Timebox 75 min (FS brief 60). Frameworks subset: design-sprint + sprint (no character-note-and-vote; brief doesn't use the mechanic). TEMPLATE.md two-page-discipline; Decider Checkpoint at line 100 of 112 (89.3%). EXAMPLE.md continues Brainshelf narrative: brief locked 2026-05-22, recruiting closed early 2026-05-21 (6 slots; USD 600 authorized; 2 channels), Figma clickable medium, remote moderated interviews with Riley, sprint locked for week of 2026-05-26. DS family validator 2/7 enforcing. AGENTS.md updated in-commit (50 paths PASS). lint + FS family no regression.
 
 #### Task 6: Author tool-design-sprint-map-and-target
 
