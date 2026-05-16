@@ -14,19 +14,19 @@
 
 ## Status
 
-**Phases 1 + 2 + 3 COMPLETE. Phase 4 ready to execute.** All prerequisites met as of 2026-05-15. 12 of 21 tasks shipped (Phase 1 contract+validators+registry + Phase 2 all 7 DS family skills + Phase 3 both workflows). 9 tasks across 4 remaining phases pending (commands, library samples, docs incl Task 17a concept-doc refresh, integration).
+**Phases 1-7 COMPLETE. v2.15.0 ready to tag.** All 21 tasks shipped: Phase 1 contract+validators+registry; Phase 2 all 7 DS family skills + adversarial review; Phase 3 both workflows; Phase 4 all 7 slash commands; Phase 5 all 21 library samples (Brainshelf + Storevine + Workbench); Phase 6 user guide + concept doc + AGENTS.md; Phase 7 full validator sweep + pre-tag artifact prep (CHANGELOG.md + docs/changelog.md + Release_v2.15.0.md + README.md badges + plugin.json + marketplace.json + .claude/pm-skills-for-claude.md + skills-manifest.yaml + docs/releases/index.md + docs/index.mdx + stale-count sweep across 9+ files). Validators all PASS in --strict mode; check-internal-link-validity 0 broken links; validate-version-consistency 2.15.0; check-count-consistency PASS at 55 skills + 62 commands + 12 workflows.
 
 ### Where we are (snapshot 2026-05-15 evening)
 
 | Phase | Status |
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
-| Phase 2: 7 DS family skills | COMPLETE (7 of 7 shipped: readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan, test-and-score; DS family validator 7/7 enforcing with --strict PASS; AGENTS.md at 55 paths; full Brainshelf 7-skill arc demonstrates end-to-end coherence) |
-| Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | COMPLETE (Tasks 11 + 12 shipped; both workflow docs live; FS workflow forward-references updated to live links; AGENTS.md DS Family section workflow-pending labels removed) |
-| Phase 4: 7 slash commands | NOT STARTED |
-| Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
-| Phase 6: Documentation (using-design-sprint guide + concept doc verification + AGENTS.md DS section) | NOT STARTED |
-| Phase 7: Integration check | NOT STARTED |
+| Phase 2: 7 DS family skills | COMPLETE (7 of 7 shipped: readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan, test-and-score; DS family validator 7/7 enforcing with --strict PASS; AGENTS.md at 55 paths; full Brainshelf 7-skill arc demonstrates end-to-end coherence; adversarial-review remediation shipped 2026-05-16) |
+| Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | COMPLETE (Tasks 11 + 12 shipped 2026-05-16; both workflow docs live; FS workflow forward-references updated to live links; AGENTS.md DS Family section workflow-pending labels removed) |
+| Phase 4: 7 slash commands | COMPLETE (Task 13 shipped 2026-05-16; 7 commands in commands/tool-design-sprint-*.md; validate-commands PASS) |
+| Phase 5: Library samples (21; 7 skills x 3 threads) | COMPLETE (Tasks 14-16 shipped 2026-05-16; 21 DS library samples + 7 Brainshelf FS continuity preserved; 3 narrative threads: Brainshelf book-catalog + Storevine retail-direction + Workbench debugging-toolchain) |
+| Phase 6: Documentation (using-design-sprint guide + concept doc verification + AGENTS.md DS section) | COMPLETE (Task 17 user guide ~2,100 words; Task 17a concept doc verified current; Task 18 AGENTS.md DS Family section finalized at 55 paths with all-pending labels removed) |
+| Phase 7: Integration check | COMPLETE (Tasks 19 + 20 shipped 2026-05-16; full validator sweep all PASS; pre-tag artifact prep: CHANGELOG.md + docs/changelog.md + Release_v2.15.0.md + README.md badges + plugin.json + marketplace.json + .claude/pm-skills-for-claude.md + skills-manifest.yaml + docs/releases/index.md + docs/index.mdx + stale-count consistency sweep) |
 
 ### Prerequisites status (all met)
 
@@ -40,7 +40,15 @@
 
 ### Immediate next action
 
-Phase 4 Task 13: author 7 slash commands in `commands/tool-design-sprint-*.md`. Pattern from existing FS commands (`commands/tool-foundation-sprint-*.md`). Quick work; estimated ~0.5 session. Then Phase 5 (21 library samples; biggest remaining lift; 2-3 sessions). Then Phase 6 (using-design-sprint guide ~1500-2000 words including FS-to-DS handoff section + concept doc verification + AGENTS.md any final tweaks; ~1 session). Then Phase 7 (full validation suite + smoke tests). Total remaining: ~5-7 sessions to v2.15.0 ship.
+v2.15.0 ready to tag. All 21 DS plan tasks shipped; full validator sweep PASS; pre-tag artifacts authored. Next user-triggered action: annotated tag + GitHub Release.
+
+```bash
+git tag -a v2.15.0 -m "Sprint Skills Launch: Foundation Sprint + Design Sprint families + tool-note-and-vote"
+git push origin v2.15.0
+gh release create v2.15.0 --title "v2.15.0 - Sprint Skills Launch" --notes-file docs/releases/Release_v2.15.0.md
+```
+
+After tag, the CI workflow runs both family validators with --strict on the tagged commit; GitHub Pages deploys the updated site (255+ pages); pm-skills-mcp catalog remains frozen at v2.9.2 per maintenance-mode decision.
 
 ## Prerequisites
 

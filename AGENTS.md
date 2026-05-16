@@ -314,7 +314,7 @@ Day 2 end capstone move of a Foundation Sprint. Compresses the sprint's full str
 
 #### Design Sprint Family
 
-The 7 `tool-design-sprint-*` skills implement Knapp, Zeratsky, and Kowitz's five-day Design Sprint workshop. Family contract: `docs/reference/skill-families/design-sprint-skills-contract.md`. Workflow: `_workflows/design-sprint.md`. End-to-end FS-to-DS workflow: `_workflows/foundation-to-design.md`. User guide: `docs/guides/using-design-sprint.md` (pending; ships in Phase 6 of the Design Sprint plan).
+The 7 `tool-design-sprint-*` skills implement Knapp, Zeratsky, and Kowitz's five-day Design Sprint workshop. Family contract: `docs/reference/skill-families/design-sprint-skills-contract.md`. Workflow: `_workflows/design-sprint.md`. End-to-end FS-to-DS workflow: `_workflows/foundation-to-design.md`. User guide: `docs/guides/using-design-sprint.md`. Concept doc: `docs/concepts/design-sprint.md`.
 
 ##### tool-design-sprint-readiness
 **Path:** `skills/tool-design-sprint-readiness/SKILL.md`

@@ -28,7 +28,7 @@ This folder is for lookup, not learning. New contributors should start with [`do
 
 | File | Purpose | When to read it |
 |------|---------|-----------------|
-| [`commands.md`](commands.md) | Complete table of every slash command shipped, mapped to its target skill or workflow and phase. 47 commands as of v2.12.0: 40 skill commands plus 7 workflow commands. | When the user asks "what commands exist?" or you need the canonical command-to-skill mapping. |
+| [`commands.md`](commands.md) | Complete table of every slash command shipped, mapped to its target skill or workflow and phase. 62 commands as of v2.15.0: 55 skill commands plus 7 workflow commands. | When the user asks "what commands exist?" or you need the canonical command-to-skill mapping. |
 | [`categories.md`](categories.md) | The 7-category taxonomy (`research`, `problem-framing`, `ideation`, `specification`, `validation`, `reflection`, `coordination`) with skill mappings, framework mapping (Triple Diamond, Lean Startup, Design Thinking), and category selection guide. | When choosing `metadata.category` for a new skill, or when explaining how skills relate to PM methodologies. |
 
 ### Architecture and ecosystem
@@ -76,4 +76,4 @@ If you need to add a new reference document, ensure it:
 
 ## Last updated
 
-2026-05-03 with v2.12.0 OKR Skills Launch (count refresh: 47 commands, 40 skills).
+2026-05-16 with v2.15.0 Sprint Skills Launch (count refresh: 62 commands, 55 skills).

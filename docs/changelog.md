@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.15.0] - 2026-05-16
+
+**Sprint Skills Launch.** 15 new skills under the new `classification: tool` taxonomy implementing Knapp/Zeratsky/Kowitz canonical sprint methodologies: 7 Foundation Sprint family + 7 Design Sprint family + 1 tool-note-and-vote standalone. Skill catalog 40 to 55. Two family contracts with enforcing CI validators (with --strict release-mode). End-to-end FS-to-DS workflow with a narrative-only handoff conversation (replaces dropped bridge skill). 45 library samples across 3 narrative threads (Brainshelf, Storevine, Workbench). Two user guides + two concept docs. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2150---2026-05-16) and [`docs/releases/Release_v2.15.0.md`](releases/Release_v2.15.0.md).
+
 ## [2.14.2] - 2026-05-10
 
 Codex Final Review Closure (Cumulative Docs Hygiene Patch). Same-day successor to v2.14.1. The 40-skill catalog is unchanged from v2.14.1; day-to-day usage is identical. What changes is documentation accuracy, validator scope, workflow safety posture, and cross-repo metadata. Addresses every actionable finding from the Codex final review of the v2.14.x release cycle (0 P0, 1 P1, 11 P2, 1 P3). Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2142---2026-05-10).

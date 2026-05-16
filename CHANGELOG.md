@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.15.0] - 2026-05-16
+
+**Sprint Skills Launch.** Ships pm-skills' first `classification: tool` skills implementing Knapp/Zeratsky/Kowitz canonical sprint methodologies. 15 new skills (7 Foundation Sprint family + 7 Design Sprint family + 1 tool-note-and-vote standalone) bring the catalog from 40 to 55. New tool classification taxonomy added alongside phase/foundation/utility. Two family contracts with enforcing CI validators (each with --strict mode for release-time validation). End-to-end FS-to-DS workflow with a narrative-only handoff conversation that replaces the dropped bridge skill (canonical Knapp/Zeratsky methodology has no formal handoff move; pm-skills does not invent one).
+
+### Added
+
+- **`classification: tool` taxonomy** for skills representing named external methodologies composed of multiple skills working as a system. Foundation Sprint and Design Sprint are the first inhabitants; future candidates include JTBD, Double Diamond, Shape Up. The `validate-skill-family-registration` validator and `lint-skills-frontmatter` accept the new value; existing classification values (phase/foundation/utility) unchanged.
+- **Foundation Sprint family (`foundation-sprint-skills`; 7 skills)** implementing Knapp/Zeratsky's two-day strategic-alignment workshop: `tool-foundation-sprint-readiness`, `tool-foundation-sprint-brief`, `tool-foundation-sprint-basics`, `tool-foundation-sprint-differentiation`, `tool-foundation-sprint-approach-options`, `tool-foundation-sprint-magic-lenses`, `tool-foundation-sprint-founding-hypothesis`. Family contract at `docs/reference/skill-families/foundation-sprint-skills-contract.md` v0.2.0; family validator `validate-foundation-sprint-skills-family.{sh,ps1}` with `--strict`/`-Strict` flag.
+- **Design Sprint family (`design-sprint-skills`; 7 skills)** implementing Knapp/Zeratsky/Kowitz's five-day prototype-and-test workshop: `tool-design-sprint-readiness`, `tool-design-sprint-brief`, `tool-design-sprint-map-and-target`, `tool-design-sprint-sketch`, `tool-design-sprint-decide-and-storyboard`, `tool-design-sprint-prototype-plan`, `tool-design-sprint-test-and-score`. Family contract at `docs/reference/skill-families/design-sprint-skills-contract.md` v0.1.0; family validator `validate-design-sprint-skills-family.{sh,ps1}` with `--strict`/`-Strict` flag.
+- **`tool-note-and-vote`** standalone tool implementing Knapp/Zeratsky/Kowitz's note-and-vote group-decision mechanic. Used at decision moments throughout both sprint families; NOT a family member.
+- **3 new workflows**: `_workflows/foundation-sprint.md` (2-day FS arc), `_workflows/design-sprint.md` (5-day DS arc), `_workflows/foundation-to-design.md` (end-to-end FS+DS arc; load-bearing replacement for the dropped bridge skill with a 12-row FS-to-DS slot-mapping table and 3-question go/no-go checkpoint).
+- **15 slash commands** matching the 15 new skills (`/tool-foundation-sprint-*`, `/tool-design-sprint-*`, `/tool-note-and-vote`).
+- **45 library samples** across 3 narrative threads (Brainshelf B2C book-tracking, Storevine B2B retail managed-intelligence, Workbench SRE incident-response observability) demonstrating end-to-end FS-to-DS arcs per company.
+- **2 user guides**: `docs/guides/using-foundation-sprint.md` (~2,700 words; includes AI-era section) and `docs/guides/using-design-sprint.md` (~2,100 words; includes Coming from a Foundation Sprint section as the load-bearing replacement for the dropped bridge skill).
+- **2 concept docs**: `docs/concepts/foundation-sprint.md` and `docs/concepts/design-sprint.md` providing framework reasoning, history, and design decisions for each sprint methodology.
+- **CI workflow extension** (`.github/workflows/validation.yml`): both Foundation Sprint and Design Sprint family validators now run with `--strict`/`-Strict` on every PR (Ubuntu + Windows runners). Closes a previously-undetected gap where neither family-specific validator was wired into CI (only the structural family-registration validator was).
+
+### Changed
+
+- **Skill count**: 40 -> 55 (+15: 7 Foundation Sprint family + 7 Design Sprint family + 1 tool-note-and-vote).
+- **Classification taxonomy**: 3 values -> 4 (added `tool`).
+- **AGENTS.md**: gains a Tools section with Foundation Sprint Family + Design Sprint Family subsections + the standalone tool-note-and-vote entry; 55 skill paths matched.
+- **Foundation Sprint family contract bumped v0.1.0 to v0.2.0** after Codex adversarial review of FS-track Phase 2 (2026-05-15): library samples made version-tiered (Brainshelf REQUIRED at v0.1.0; all 3 threads REQUIRED at v1.0.0); frameworks metadata clarified as subset semantics; CI enforcement list reorganized to family-level + per-member splits with explicit validator-coverage gap documentation.
+
+### Documentation
+
+- **Two adversarial-review cycles documented** in the v2.15.0 plan files (one per family track) with full triage tables: FS-track 35 findings (14 accept / 14 defer / 7 reject); DS-track 13 Codex findings + 20 Claude self-audit findings (19 accept-fix-now / 1 defer / dedup). All Codex P1 findings closed before tag; deferred items tracked for v2.16.
+- **Plan-update hygiene rule codified**: when shipping a task tracked in a release/integration plan, update plan status block + checkboxes in the same session. Codified in `feedback_update-plans-as-you-ship.md` memory.
+
+### Known limitations (deferred to v2.16+)
+
+- DS family validator `--strict` mode enforces structural conformance (file presence, classification, metadata.tool, metadata.move, contract reference, Decider Checkpoint position) but does NOT yet enforce the full metadata-shape contract (category enum, frameworks subset values, timebox_minutes integer, roles enum, prerequisites array, inputs/outputs presence, author field). Universal `lint-skills-frontmatter` provides the floor for root-field shape.
+- pm-skills-mcp catalog remains frozen at v2.9.2 build (per maintenance-mode decision from 2026-05-04); the 15 new tool skills do NOT embed in the MCP server. File-based install is the recommended path for new users.
+- 2 Dependabot alerts remain open requiring Astro 6.x upgrade; deferred to v2.16 per `plan_v2.16.0.md` DI3.
+
 ## [2.14.2] - 2026-05-10
 
 Codex Final Review Closure (Cumulative Docs Hygiene Patch). Same-day successor to v2.14.1. The 40-skill catalog is unchanged from v2.14.1; day-to-day usage is identical. What changes is documentation accuracy, validator scope, workflow safety posture, and cross-repo metadata. Addresses every actionable finding from the Codex final review of the v2.14.x release cycle (0 P0, 1 P1, 11 P2, 1 P3).

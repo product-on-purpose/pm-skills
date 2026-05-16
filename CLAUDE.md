@@ -43,7 +43,7 @@ When referencing files in documentation:
 
 ## Project Context
 
-- **48 PM skills on main** (v2.15.0 ship target: 55): 26 phase skills (across 6 Triple Diamond phases) + 8 foundation skills + 6 utility skills + 8 tool skills (Foundation Sprint family of 7 + tool-note-and-vote standalone). Design Sprint family (7) pending; promotes to 55 at v2.15.0 tag.
+- **55 PM skills on main** (v2.15.0 shipped): 26 phase skills (across 6 Triple Diamond phases) + 8 foundation skills + 6 utility skills + 15 tool-classification entries (Foundation Sprint family of 7 + Design Sprint family of 7 + tool-note-and-vote standalone).
 - Follows [agentskills.io specification](https://agentskills.io/specification)
 - Apache 2.0 licensed
 - See `AGENTS.md` for skill discovery

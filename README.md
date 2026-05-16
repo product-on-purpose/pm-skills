@@ -21,10 +21,10 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.14.2-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.15.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
-    <img src="https://img.shields.io/badge/skills-40-brightgreen.svg?style=flat-square" alt="Skills">
+    <img src="https://img.shields.io/badge/skills-55-brightgreen.svg?style=flat-square" alt="Skills">
   </a>
   <a href="https://agentskills.io/specification">
     <img src="https://img.shields.io/badge/spec-agentskills.io-orange.svg?style=flat-square" alt="Agent Skills Spec">
@@ -123,7 +123,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git && cd pm-skills
 <details>
 <summary><strong>📦 MCP Server: Maintenance Mode (effective 2026-05-04)</strong></summary>
 
-The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server is in the v2.9.x maintenance line (latest v2.9.3) and remains available on npm for clients that need MCP transport. The catalog is frozen at the v2.9.2 build (40 skills, 11 workflow tools, 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the catalog. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold.
+The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) server is in the v2.9.x maintenance line (latest v2.9.3) and remains available on npm for clients that need MCP transport. The catalog is frozen at the v2.9.2 build (40 MCP-embedded entries + 11 workflow tools + 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the catalog. Active development on the MCP server is paused; security patches and critical bug fixes will continue, and new skill parity with this library is on hold.
 
 **For new users, the file-based install path documented in [Getting Started](#getting-started) is the recommended path.** See [MCP Integration](docs/guides/mcp-integration.md) for status details and resumption criteria.
 
@@ -135,6 +135,18 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 <!-- count-exempt:start -->
 <details open>
+<summary>v2.15.0 - Sprint Skills Launch (Foundation Sprint + Design Sprint families)</summary>
+
+- **15 new skills under the new `classification: tool` taxonomy.** 7 Foundation Sprint family (Knapp/Zeratsky 2-day strategic alignment) + 7 Design Sprint family (Knapp/Zeratsky/Kowitz 5-day prototype-and-test) + 1 standalone `tool-note-and-vote` (group decision mechanic). Skill catalog grows from 40 to 55.
+- **Two family contracts** with enforcing CI validators: `foundation-sprint-skills-contract.md` v0.2.0 and `design-sprint-skills-contract.md` v0.1.0. Both validators support `--strict`/`-Strict` mode for release-time CI; previously-undetected gap closed where neither family-specific validator was wired into CI.
+- **3 new workflows** including the load-bearing `_workflows/foundation-to-design.md` end-to-end FS+DS arc with a 12-row slot-mapping table + 3-question go/no-go checkpoint. Replaces the dropped bridge skill narratively (canonical Knapp/Zeratsky methodology has no formal handoff move).
+- **45 library samples** across 3 narrative threads (Brainshelf, Storevine, Workbench) demonstrating end-to-end FS-to-DS arcs per company.
+- **2 user guides + 2 concept docs** for the sprint methodologies. `using-design-sprint.md` includes the operational FS-to-DS handoff section.
+- **Two adversarial-review cycles documented** (FS-track 35 findings; DS-track 13 Codex + 20 self-audit findings). All P1 findings closed before tag.
+- Release note: [`docs/releases/Release_v2.15.0.md`](docs/releases/Release_v2.15.0.md).
+
+</details>
+<details>
 <summary>v2.14.2 - Codex Final Review Closure (Cumulative Docs Hygiene Patch)</summary>
 
 - **Cumulative patch to close Codex final review findings.** Same-day successor to v2.14.1. 0 P0, 1 P1, 11 P2, 1 P3 findings addressed across docs, scripts, workflows, and cross-repo metadata. The 40-skill catalog is unchanged; day-to-day usage is identical.
@@ -142,7 +154,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 - **`check-no-body-h1` doc clarified.** Explicit "what is NOT caught" section so future maintainers don't over-engineer the validator into a no-H1-anywhere rule. Documents allowed cases: H1s later in body, H1s in fenced code blocks, body H1s in files without frontmatter `title:`.
 - **`validate-mcp-sync` guide refreshed for observe-mode default.** Updates guidance to match the v2.14.1 V9 workflow change + B validator maintenance-flag awareness. Mode history section captures the v2.3.0 then v2.14.x evolution.
 - **`sync-agents-md.yml` workflow_dispatch hardened (defense-in-depth).** Two-layer protection: (a) input gate requires `apply: true` choice before commit/push; (b) workflow-level `permissions: contents: read` ensures the GITHUB_TOKEN cannot push even if the input gate is bypassed. Reviving the workflow requires a code-reviewable PR rather than a click-and-regret event.
-- **`pm-skills-mcp/README.md` cross-repo update.** 5 stale "25 skills" references corrected to "40 skills" (catalog frozen at v2.9.2 build under maintenance mode); latest version pointer updated to v2.9.3; changelog table extended with v2.8.x and v2.9.x rows.
+- **`pm-skills-mcp/README.md` cross-repo update.** 5 stale "25 skills" references corrected to "40 PM entries" (catalog frozen at v2.9.2 build under maintenance mode); latest version pointer updated to v2.9.3; changelog table extended with v2.8.x and v2.9.x rows.
 - **CONTRIBUTING.md workaround count corrected** from "Five workarounds" to "Six workarounds" (matches actual 6 numbered architectural-workaround entries).
 - **Release plan + release notes status reframed.** `plan_v2.14_starlight-migration.md` top-status updated from "ready for execution kickoff" to "EXECUTED". `Release_v2.14.0.md` "What's deferred to v2.14.x" table reframed with a Post-tag disposition column showing 6 of 9 deferrals closed in v2.14.1 + v2.14.2; 3 remain v2.15+ (tags-as-feature, URL slug normalization, Astro 6 upgrade).
 - Release note: [`docs/releases/Release_v2.14.2.md`](docs/releases/Release_v2.14.2.md).
@@ -194,7 +206,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 - **Maintenance and quality release; same 40-skill catalog as v2.12.0.** Day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the rest of the catalog is unchanged. What changed is everything around the catalog.
 - **Cleaner, more navigable documentation.** Duplicate files removed; skill counts reconciled across README, getting-started, reference docs, mkdocs config, and the homepage hero (all now consistent at 40); a new Diataxis-aligned folder structure (concepts = generic; reference = lookup; guides = how-to); a `pm-skill-*` filename prefix convention that signals at a glance which docs are PM-Skills-specific vs generic agent material; every generated page clearly labeled with a `generated: true` frontmatter flag and a "do not edit" admonition pointing editors to the source.
 - **For contributors and forkers, 7 new CI gates** catch documentation drift on pull requests automatically: nav completeness, generated-content untouched, cross-doc reference integrity, docs frontmatter coverage, internal link validity, version-reference consistency, and skill-family registration. The validator inventory grew from 15 to 22; the enforcing tier doubled (5 to 10). A typo in a skill cross-reference, a count that fell out of sync, a hand-edit to a generated page - all caught at PR time now.
-- **For `pm-skills-mcp` users, a same-week security patch.** v2.9.3 cleared all 8 open Dependabot moderate advisories two hours after the v2.9.2 maintenance-mode announcement. The frozen catalog (40 skills + 11 workflow tools + 8 utility tools = 59 tools) is unchanged; v2.9.x is the maintenance line going forward.
+- **For `pm-skills-mcp` users, a same-week security patch.** v2.9.3 cleared all 8 open Dependabot moderate advisories two hours after the v2.9.2 maintenance-mode announcement. The frozen catalog (40 MCP-embedded entries + 11 workflow tools + 8 utility tools = 59 tools) is unchanged; v2.9.x is the maintenance line going forward.
 - **Phase 0 Adversarial Review Loop applied** across per-strand (4 Codex tasks closed) and release-state (5 Codex review rounds + 3 resolution passes converged) layers per the v2.11.0 + v2.12.0 codification. Caught and codified a meta-level case of the stale-aggregate-counter pattern (durable feedback memory): mid-loop summary text freezes in-progress claims and needs a final correctness pass before any promotion.
 - Release note: [`docs/releases/Release_v2.13.0.md`](docs/releases/Release_v2.13.0.md).
 
@@ -209,7 +221,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 - **Phase 0 Adversarial Review Loop** applied per the v2.11.0 codification. The grader's review took 3 rounds to converge (round 1 caught 1 HIGH plus 2 MEDIUM; round 2 caught 2 MEDIUM taxonomy-drift propagations introduced by round 1 fixes; round 3 returned 0 findings). Two release-state confirmation rounds caught additional rendered-doc count drift (homepage hero, mermaid phase cards, skill-anatomy frontmatter example, versioning concept page) that the count-consistency CI's regex could not detect.
 - **`docs/reference/README.md`** added as the canonical Reference section overview, wired into mkdocs nav. Indexes frontmatter schema, command catalog, category taxonomy, project structure, ecosystem comparison, and skill-family contracts.
 - **Internal builder cleanup** bundled silently: `utility-pm-skill-builder` Step 5 packet format reduced from 13 to 12 items (no downstream impact). Audit-history tree consolidated under `docs/internal/audit/_archived/`.
-- v2.12.0: Repo now ships 40 skills (26 phase + 8 foundation + 6 utility), 47 command docs, and 9 workflows.
+- v2.12.0: Repo now ships 55 skills (26 phase + 8 foundation + 6 utility), 47 command docs, and 9 workflows.
 - Release note: [`docs/releases/Release_v2.12.0.md`](docs/releases/Release_v2.12.0.md).
 
 </details>
@@ -303,7 +315,7 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 ### Key Features
 
-- ✅ **40 Production-Ready Skills** covering the complete product lifecycle (26 phase skills + 8 foundation skills + 6 utility skills)
+- ✅ **55 Production-Ready Skills** covering the complete product lifecycle (26 phase skills + 8 foundation skills + 6 utility skills)
 - ✅ **Triple Diamond Framework** organizing Discover, Define, Develop, Deliver, Measure, and Iterate phases
 - ✅ **9 Workflows** for common PM processes (Feature Kickoff, Lean Startup, Triple Diamond, and 6 more)
 - ✅ **Slash Commands** for Claude Code users-instant access to every skill
@@ -424,9 +436,9 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 **Use [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) (maintenance mode) when:**
 - Your team has already adopted it and the frozen 40-skill catalog meets current needs
 - Your tooling specifically requires the MCP transport (e.g., self-hosted MCP-only configurations)
-- The frozen 40-skill catalog meets your scope (skills added to `pm-skills` after the v2.9.2 build are not embedded)
+- The frozen 40-entry MCP catalog meets your scope (skills added to `pm-skills` after the v2.9.2 build are not embedded)
 
-The file-based install ships all 40 production-ready PM skills (26 phase skills + 8 foundation skills + 6 utility skills). The frozen v2.9.2 MCP build embeds the same 40-skill catalog at the time of its publication, after which point only the file-based install receives new skills.
+The file-based install ships all 55 production-ready PM skills (26 phase skills + 8 foundation skills + 6 utility skills). The frozen v2.9.2 MCP build embeds the 40-entry catalog at the time of its publication, after which point only the file-based install receives new skills.
 
 See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
 
@@ -436,7 +448,7 @@ See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed compari
 
 ## Getting Started
 
-**Fastest path:** Install all 40 skills into your agent with one command, using the open [`skills` CLI](https://github.com/vercel-labs/skills):
+**Fastest path:** Install all 55 skills into your agent with one command, using the open [`skills` CLI](https://github.com/vercel-labs/skills):
 
 ```bash
 npx skills add product-on-purpose/pm-skills
@@ -465,7 +477,7 @@ The fastest path for Claude Code users. Run two commands inside Claude Code:
 /plugin install pm-skills@pm-skills-marketplace
 ```
 
-After install, all 40 skills and 47 commands resolve from any directory. Slash commands like `/prd`, `/opportunity-tree`, `/agenda`, `/okr-writer`, etc. work out of the box.
+After install, all 55 skills and 62 commands resolve from any directory. Slash commands like `/prd`, `/opportunity-tree`, `/agenda`, `/okr-writer`, etc. work out of the box.
 
 **Verify with `/plugin list`** to confirm `pm-skills` is installed.
 
@@ -503,7 +515,7 @@ After install, all 40 skills and 47 commands resolve from any directory. Slash c
 npx skills add product-on-purpose/pm-skills
 ```
 
-Installs all 40 skills into your agent's default skills directory. Slash commands (`/prd`, `/hypothesis`, `/user-stories`, etc.) become available immediately. No clone, no sync helper.
+Installs all 55 skills into your agent's default skills directory. Slash commands (`/prd`, `/hypothesis`, `/user-stories`, etc.) become available immediately. No clone, no sync helper.
 
 **Alternative: clone the full repo** (gives you the sample library, library/skill-output-samples, internal docs, and workflows alongside the skills):
 
@@ -518,7 +530,7 @@ cd pm-skills
 /user-stories "Recurring tasks feature from PRD"
 ```
 
-All 40 skills are available as `/skill-name` commands. See [commands/](commands/) for the full list.
+All 55 skills are available as `/skill-name` commands. See [commands/](commands/) for the full list.
 
 Need `.claude/skills` for openskills or certain discovery flows? After cloning, run:
 
@@ -561,7 +573,7 @@ For [MCP-compatible clients](https://modelcontextprotocol.io), use [pm-skills-mc
 }
 ```
 
-All 40 skills (26 phase + 8 foundation + 6 utility) become available as programmatic tools, alongside 11 workflow tools and 8 server-utility tools (59 tools total). Some utility skills like `update-pm-skills` are designed for file-system contexts and have reduced applicability via MCP transport. See the [pm-skills-mcp README](https://github.com/product-on-purpose/pm-skills-mcp#getting-started) for client-specific setup.
+All 40 MCP-embedded entries (26 phase + 8 foundation + 6 utility) become available as programmatic tools, alongside 11 workflow tools and 8 server-utility tools (59 tools total). Some utility skills like `update-pm-skills` are designed for file-system contexts and have reduced applicability via MCP transport. See the [pm-skills-mcp README](https://github.com/product-on-purpose/pm-skills-mcp#getting-started) for client-specific setup.
 
 </details>
 <!-- ========== END NEW ========== -->
@@ -615,7 +627,7 @@ Both IDEs auto-discover skills via `AGENTS.md`:
 git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
-Open the folder in Cursor or Windsurf. The AI assistant will automatically discover and can use all 40 skills.
+Open the folder in Cursor or Windsurf. The AI assistant will automatically discover and can use all 55 skills.
 
 </details>
 
@@ -653,9 +665,9 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** . Complete package with all skills, commands, workflows, and documentation
-- **Latest stable:** `v2.14.2` (Codex final review closure: cumulative docs hygiene patch)
-- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2142---2026-05-10)
-- **Published tag:** [`v2.14.2`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.14.2)
+- **Latest stable:** `v2.15.0` (Sprint Skills Launch: Foundation Sprint + Design Sprint families + tool-note-and-vote)
+- **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2150---2026-05-16)
+- **Published tag:** [`v2.15.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.15.0)
 - **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)
 
 Each release includes `QUICKSTART.md` with installation and usage instructions.
@@ -671,7 +683,7 @@ The open [`skills` CLI](https://github.com/vercel-labs/skills) from Vercel Labs 
 npx skills add product-on-purpose/pm-skills
 ```
 
-This clones pm-skills, scans the `skills/` directory, and installs all 40 skills into your agent's default skills directory. Supported agents include Claude Code, Cursor, GitHub Copilot, Cline, and others. Discoverable via the [skills.sh directory](https://skills.sh/product-on-purpose/pm-skills).
+This clones pm-skills, scans the `skills/` directory, and installs all 55 skills into your agent's default skills directory. Supported agents include Claude Code, Cursor, GitHub Copilot, Cline, and others. Discoverable via the [skills.sh directory](https://skills.sh/product-on-purpose/pm-skills).
 
 Telemetry is anonymous and opt-out via `DISABLE_TELEMETRY=1` or `DO_NOT_TRACK=1` in your environment.
 
@@ -900,7 +912,7 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 
 ```
 pm-skills/
-├── skills/                     # 40 PM skills (26 phase + 8 foundation + 6 utility)
+├── skills/                     # 55 PM skills (26 phase + 8 foundation + 6 utility + 15 tool)
 ├── commands/                   # Slash commands (47) mapping to skills/workflows
 ├── _workflows/                 # 9 workflows: feature-kickoff, lean-startup, triple-diamond, and 6 more
 ├── library/                    # Sample output library (skill-output-samples) and related corpus docs
@@ -1157,7 +1169,7 @@ Please try to create bug reports that are:
 ## FAQ
 
 <details>
-<summary><strong>Do I need to install all 40 skills?</strong></summary>
+<summary><strong>Do I need to install all 55 skills?</strong></summary>
 
 No! You can use individual skills as needed. Each skill is self-contained and works independently. If you only need PRDs, just reference the `skills/deliver-prd/` skill. The workflows are optional guides, not requirements.
 
@@ -1209,7 +1221,7 @@ Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corr
 <details>
 <summary><strong>What's the difference between pm-skills and pm-skills-mcp?</strong></summary>
 
-**pm-skills** (this repo) is the source skill library with all 40 PM skills as markdown files. It's best for Claude Code slash commands, file browsing, and customization.
+**pm-skills** (this repo) is the source skill library with all 55 PM skills as markdown files. It's best for Claude Code slash commands, file browsing, and customization.
 
 **pm-skills-mcp** wraps these same skills in an MCP server for programmatic access. It's best for Claude Desktop, Cursor, and any MCP-compatible client.
 

@@ -34,7 +34,7 @@ pm-skills/
 
 ---
 
-## `/skills/` . The 40 PM Skills (flat)
+## `/skills/` . The 55 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 
@@ -150,7 +150,7 @@ skills/{skill-name}/
 
 Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
 
-**Commands (47 total: 40 skill commands + 7 workflow commands)**
+**Commands (62 total: 55 skill commands + 7 workflow commands)**
 | Command | Target skill/workflow |
 | --- | --- |
 | `/competitive-analysis` | discover-competitive-analysis |

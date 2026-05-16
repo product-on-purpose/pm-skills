@@ -1,0 +1,129 @@
+# Skills changed in this release
+release: v2.15.0
+date: 2026-05-16
+
+skills:
+  # Foundation Sprint family (7 new)
+  - name: tool-foundation-sprint-readiness
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Foundation Sprint family entry point. Pre-sprint diagnostic producing Go / Conditional Go / Wait verdict against 8 canonical readiness criteria. classification: tool; metadata.tool: foundation-sprint; metadata.move: readiness."
+
+  - name: tool-foundation-sprint-brief
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Foundation Sprint pre-sprint scope contract. One-page brief that locks scope, decision target, team roster, logistics, and success criteria before Day 1. metadata.move: brief."
+
+  - name: tool-foundation-sprint-basics
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Foundation Sprint Day 1 morning move. Forces explicit team choices on target customer, important problem, team advantage, and competitors/alternatives. metadata.move: basics."
+
+  - name: tool-foundation-sprint-differentiation
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Foundation Sprint Day 1 afternoon move. Converts the morning Basics frame into a defensible strategic position through scored differentiator candidates, 2x2 chart with competitors plotted, 3-5 decision principles, and one-page Mini Manifesto. metadata.move: differentiation."
+
+  - name: tool-foundation-sprint-approach-options
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Foundation Sprint Day 2 morning move. Generates 3-7 candidate approaches as one-page summaries before convergence. Anti-anchoring discipline. metadata.move: approach-options."
+
+  - name: tool-foundation-sprint-magic-lenses
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Foundation Sprint Day 2 afternoon move. Evaluates the approach set through 4 classic lenses (customer, pragmatic, growth, money) plus at least 1 custom lens. Decider supervote selects top bet plus backup plan. metadata.move: magic-lenses."
+
+  - name: tool-foundation-sprint-founding-hypothesis
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Foundation Sprint Day 2 end capstone. Compresses the sprint's full strategic frame into one canonical Founding Hypothesis sentence plus assumption scorecard plus recommended next test. metadata.move: founding-hypothesis."
+
+  # Design Sprint family (7 new)
+  - name: tool-design-sprint-readiness
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Design Sprint family entry point. Pre-sprint diagnostic against 8 canonical readiness criteria including customer access for Friday and prototype medium feasibility. Output adds a customer recruiting plan (target profile, source, count, incentive, recruiter owner, deadline, Friday schedule). classification: tool; metadata.tool: design-sprint; metadata.move: readiness."
+
+  - name: tool-design-sprint-brief
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Design Sprint pre-sprint scope contract. Two-page brief locking challenge, sprint questions, team, customer recruiting plan, prototype medium, interview format, logistics, and success criteria. Per Ratified Decision 6, accepts a format input (in-person / remote / hybrid). metadata.move: brief."
+
+  - name: tool-design-sprint-map-and-target
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Design Sprint Day 1 (Monday) move. Produces long-term goal, 3-7 refined sprint questions, 5-15 step customer/system map, expert interview notes from 2-4 cameo experts, HMW (How Might We) cluster board heat-mapped via tool-note-and-vote, and Decider's target moment. metadata.move: map-and-target."
+
+  - name: tool-design-sprint-sketch
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Design Sprint Day 2 (Tuesday) move. Structures lightning demos plus four-step independent solution sketch protocol (Notes / Ideas / Crazy 8s / Solution Sketch). Each team member produces one sketch INDIVIDUALLY and SILENTLY; skill orchestrates the day but does not author the sketches themselves. metadata.move: sketch."
+
+  - name: tool-design-sprint-decide-and-storyboard
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Design Sprint Day 3 (Wednesday) move. Runs art museum layout, heat map, speed critique, straw poll, Decider supervote (Sprint book canonical 3-dot), rumble-vs-all-in-one decision (per Ratified Decision 5: v0.1 supports the decision but not dual-prototype execution), and the 5-15 panel storyboard. metadata.move: decide-and-storyboard."
+
+  - name: tool-design-sprint-prototype-plan
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Design Sprint Day 4 (Thursday morning) move. Produces 5 canonical Sprint book roles (Maker, Stitcher, Writer, Asset Collector, Interviewer), prototype brief, Five-Act Interview script per Ratified Decision 2, trial-run checklist, and Friday participant confirmation tracker. Per Ratified Decision 1, the actual prototype build is craft work outside this skill's AI invocation surface. metadata.move: prototype-plan."
+
+  - name: tool-design-sprint-test-and-score
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Design Sprint Day 5 (Friday) sprint-closing move. Per-customer interview observation notes (5 customers canonical per Ratified Decision 3; Nielsen 2000), best quotes, scorecard grid (sprint-question rows by customer columns with Y/N/partial/unclear cells and day-end Validated/Invalidated/Inconclusive decision per row), observed patterns, hot takes silently in parallel, Decider summary (build / iterate / pivot / stop / reframe). Per Ratified Decision 4, exec memo authoring delegates to foundation-stakeholder-update. metadata.move: test-and-score."
+
+  # Standalone tool (1 new)
+  - name: tool-note-and-vote
+    version: 0.1.0
+    previous_version: null
+    change_type: added
+    notes: "Standalone group-decision tool implementing Knapp/Zeratsky/Kowitz canonical note-and-vote mechanic (silent ideation + heat-map voting + Decider supervote). Used at decision moments throughout both sprint families: Monday HMW prioritization, optional Monday target supervote, Wednesday heat-map + straw poll. NOT a family member. classification: tool; metadata.tool: note-and-vote."
+
+# Non-skill release metadata (validator only inspects skills[*].name; the
+# following sections are documentation-only and do not register skills):
+
+families_added:
+  - family: foundation-sprint-skills
+    contract: docs/reference/skill-families/foundation-sprint-skills-contract.md
+    contract_version: 0.2.0
+    validator: scripts/validate-foundation-sprint-skills-family.{sh,ps1}
+    members: 7
+    notes: "Foundation Sprint family. Contract v0.2.0 (bumped from v0.1.0 during Phase 2 adversarial review for version-tiered sample coverage clause + frameworks subset semantics + CI enforcement split). Validator runs in CI on every PR with --strict on both Ubuntu and Windows."
+
+  - family: design-sprint-skills
+    contract: docs/reference/skill-families/design-sprint-skills-contract.md
+    contract_version: 0.1.0
+    validator: scripts/validate-design-sprint-skills-family.{sh,ps1}
+    members: 7
+    notes: "Design Sprint family. Contract v0.1.0 mirrors FS v0.2.0 structure with DS-specific deltas (5-day arc, Sprint book canonical sources, metadata.tool: design-sprint). Validator runs in CI on every PR with --strict on both Ubuntu and Windows."
+
+classification_added:
+  - classification: tool
+    notes: "New classification value alongside phase / foundation / utility. For skills implementing named external methodologies composed of multiple skills working as a system. Foundation Sprint and Design Sprint are the first inhabitants; future candidates include JTBD process, Double Diamond, Shape Up."
+
+workflows_added:
+  - workflow: _workflows/foundation-sprint.md
+  - workflow: _workflows/design-sprint.md
+  - workflow: _workflows/foundation-to-design.md  # load-bearing replacement for dropped bridge skill; 12-row slot-mapping table + 3-question go/no-go checkpoint
+
+ci_added:
+  - validator_step: validate-foundation-sprint-skills-family --strict (Ubuntu + Windows)
+  - validator_step: validate-design-sprint-skills-family --strict (Ubuntu + Windows)
+  notes: "Both family-specific validators now run on every PR; closes previously-undetected gap where only the structural validate-skill-family-registration was wired in."
