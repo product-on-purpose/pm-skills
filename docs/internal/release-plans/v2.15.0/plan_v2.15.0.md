@@ -12,7 +12,7 @@
 
 **Foundation Sprint track**: COMPLETE. All 21 plan tasks shipped on origin/main. Full 3-thread sample coverage (24 samples: Brainshelf + Storevine + Workbench); AI-era guide section added closing Codex F35; family contract amended for sample-coverage tiering. FS track exceeds v1.0.0 contract sample requirements; ready to ship with v2.15.0 release.
 
-**Design Sprint track**: Not started; unblocked. All 8 prerequisites verified met by FS Phase 7 hand-off check. 21 tasks across 7 phases pending.
+**Design Sprint track**: Phase 1 of 7 COMPLETE (DS family contract v0.1.0 + Bash/PowerShell validator pair with `--strict` parity + `_registry.yaml` entry shipped). Both validators PASS in scaffolding state; FS family validator + lint + agents-md remain 100% PASS (no regression). Phase 2 (7 DS skills) ready to start. 17 tasks across 6 remaining phases pending.
 
 **v2.14.x cleanup track**: 2 of 3 tasks done. Task 1 (Node 22 bump on 3 workflows) shipped `0d9af62`; Task 3 (Dependabot bump - added mid-cycle) shipped `7a099b4`, closed 15 of 17 alerts. Task 2 (AGENTS/claude/CONTEXT.md per-phase tables refresh) sequenced for post-DS-ship.
 
@@ -20,7 +20,7 @@
 
 ### What's next (by priority)
 
-1. **Kick off Design Sprint plan**: author `design-sprint-skills-contract.md`, the family validator pair, and the first DS skill (`tool-design-sprint-readiness`). These are Phases 1-2 of [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md). The proven FS scaffolding makes per-phase work faster than the originals. ~3-4 hours per session; 6-8 sessions total estimated for the full DS track.
+1. **DS Phase 2 - 7 DS family skills**: Phase 1 (contract + validators + registry) shipped 2026-05-15. Next: author the 7 `tool-design-sprint-*` skills (readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan, test-and-score) per Phase 2 of [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md). Start with `tool-design-sprint-readiness` using the FS readiness skill as structural reference. Validator will flip from scaffolding-state NOTICE to enforcing OK on first skill ship. ~2 skills per session; 3-4 sessions for all 7. Phases 3-7 (workflows, commands, samples, guides, integration) follow.
 2. **CONTEXT.md refresh**: AGENTS/claude/CONTEXT.md per-phase tables refresh to the final v2.15.0 catalog. Sequenced for after DS family ships so the refresh reflects all 55 skills in one pass. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
 3. **Pre-tag artifact pass**: CHANGELOG entry, plugin.json + marketplace.json version bumps, `docs/releases/Release_v2.15.0.md`, skills-manifest.yaml authoring, optional Codex adversarial review (pattern now established; FS track went through one this cycle), annotated tag, GitHub Release. See [Release-Time Checklist](#release-time-checklist) below for the full list. ~1-2 sessions.
 

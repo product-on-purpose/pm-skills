@@ -14,13 +14,13 @@
 
 ## Status
 
-**Ready to execute.** All prerequisites met as of 2026-05-15 (HEAD `ce2acae`). No DS plan tasks shipped yet. 20 tasks across 7 phases pending.
+**Phase 1 COMPLETE. Phase 2 ready to execute.** All prerequisites met as of 2026-05-15. 3 of 20 tasks shipped (Phase 1: contract + validator pair + registry). 17 tasks across 6 remaining phases pending.
 
-### Where we are (snapshot 2026-05-15)
+### Where we are (snapshot 2026-05-15 evening)
 
 | Phase | Status |
 |---|---|
-| Phase 1: DS family contract + validator pair | NOT STARTED |
+| Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
 | Phase 2: 7 DS family skills | NOT STARTED |
 | Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
 | Phase 4: 7 slash commands | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 1 Task 1: author `docs/reference/skill-families/design-sprint-skills-contract.md` mirroring the FS family contract structure. Estimated effort: ~1 hour. See Phase 1 section below for details.
+Phase 2 Task 4: author `skills/tool-design-sprint-readiness/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). The first DS family member. Estimated effort: ~1 to 1.5 hours. Following the FS pattern, the validator will flip from scaffolding-state NOTICE to enforcing-state OK once this skill lands. Use `skills/tool-foundation-sprint-readiness/SKILL.md` as the structural shape reference and `library/skill-output-samples/tool-foundation-sprint-readiness/sample_tool-foundation-sprint-readiness_brainshelf_book-catalog.md` as the sample-thread reference (the Brainshelf DS samples continue that same company arc).
 
 ## Prerequisites
 
@@ -143,11 +143,11 @@ These decisions are locked. Re-litigation requires an explicit plan amendment, n
 **Files:**
 - Create: `scripts/validate-design-sprint-skills-family.sh`
 
-- [ ] **Step 1: Read FS family validator as reference**
+- [x] **Step 1: Read FS family validator as reference**
 
 Read `scripts/validate-foundation-sprint-skills-family.sh` (shipped by the FS plan) for structural pattern.
 
-- [ ] **Step 2: Author the DS validator**
+- [x] **Step 2: Author the DS validator**
 
 Checks to implement (WARN mode initially; promote to FAIL in a follow-up once all DS skills are shipped):
 - Every `skills/tool-design-sprint-*` folder has SKILL.md + `references/TEMPLATE.md` + `references/EXAMPLE.md`
@@ -157,12 +157,16 @@ Checks to implement (WARN mode initially; promote to FAIL in a follow-up once al
 - TEMPLATE.md ends with a "Decider Checkpoint" section
 - Naming: directory name matches `tool-design-sprint-{metadata.move}`
 
-- [ ] **Step 3: Test against empty state**
+Implementation note (2026-05-15): the validator went beyond the WARN baseline and inherited the `--strict` flag pattern from the FS family validator (v0.2.0). Default behavior emits WARN on partial state; `--strict` elevates to FAIL for release-time CI. All 6 per-member checks plus the family-level contract presence check are enforcing once any skill is authored.
+
+- [x] **Step 3: Test against empty state**
 
 Run: `bash scripts/validate-design-sprint-skills-family.sh`
 Expected: exits cleanly with no DS family members present yet.
 
-- [ ] **Step 4: Commit**
+Result (2026-05-15): 3 NOTICE lines, exit 0. PASS.
+
+- [x] **Step 4: Commit**
 
 ```bash
 git add scripts/validate-design-sprint-skills-family.sh
@@ -176,7 +180,9 @@ git commit -m "feat(scripts): validate-design-sprint-skills-family Bash validato
 
 Port from Bash; match parity 1:1.
 
-- [ ] Steps 1-3 follow Task 1 pattern; commit message `feat(scripts): validate-design-sprint-skills-family PowerShell parity`
+- [x] Steps 1-3 follow Task 1 pattern; commit message `feat(scripts): validate-design-sprint-skills-family PowerShell parity`
+
+Result (2026-05-15): PowerShell validator inherits the `-Strict` switch (parity with the Bash `--strict` flag). Smoke-tested via `pwsh -NoProfile -File scripts/validate-design-sprint-skills-family.ps1` and returned the same 3 NOTICE lines + exit 0 as the Bash version. PASS.
 
 #### Task 3: Author design-sprint-skills family contract + registry registration
 
@@ -184,11 +190,13 @@ Port from Bash; match parity 1:1.
 - Create: `docs/reference/skill-families/design-sprint-skills-contract.md`
 - Modify: `docs/reference/skill-families/_registry.yaml` (append design-sprint-skills entry; FS family entry already present from FS plan)
 
-- [ ] **Step 1: Author the contract**
+- [x] **Step 1: Author the contract**
 
 Parallel to `foundation-sprint-skills-contract.md` (shipped by FS plan). Frontmatter, root vs metadata structure, naming convention, file anatomy, Decider Checkpoint requirement, library sample requirements, versioning policy, CI enforcement reference. Differences from FS contract: `metadata.tool` equals `design-sprint`; canonical references are Sprint book + GV Design Sprint guide + Character DS guide + Google Design Sprint Kit (not Click book).
 
-- [ ] **Step 2: Append registry entry**
+Result (2026-05-15): contract authored at v0.1.0 mirroring FS v0.2.0 structure. Includes version-tiered sample coverage clause (Brainshelf REQUIRED for v0.1.0; all 3 threads for v1.0.0) and frameworks subset semantics (`design-sprint` REQUIRED; `sprint` and `character-note-and-vote` present-as-needed). The DS contract starts at v0.1.0 because there is no prior version to amend; the FS v0.2.0 lessons are pre-baked into v0.1.0 rather than requiring a same-week minor bump.
+
+- [x] **Step 2: Append registry entry**
 
 ```yaml
   design-sprint-skills:
@@ -203,7 +211,7 @@ Parallel to `foundation-sprint-skills-contract.md` (shipped by FS plan). Frontma
       - tool-design-sprint-test-and-score
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add docs/reference/skill-families/design-sprint-skills-contract.md docs/reference/skill-families/_registry.yaml

@@ -40,3 +40,14 @@ families:
       - tool-foundation-sprint-approach-options
       - tool-foundation-sprint-magic-lenses
       - tool-foundation-sprint-founding-hypothesis
+
+  design-sprint-skills:
+    contract: docs/reference/skill-families/design-sprint-skills-contract.md
+    members:
+      - tool-design-sprint-readiness
+      - tool-design-sprint-brief
+      - tool-design-sprint-map-and-target
+      - tool-design-sprint-sketch
+      - tool-design-sprint-decide-and-storyboard
+      - tool-design-sprint-prototype-plan
+      - tool-design-sprint-test-and-score
