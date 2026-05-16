@@ -44,7 +44,7 @@ The 7 `tool-foundation-sprint-*` skills implement the canonical 2-day Foundation
 | `tool-foundation-sprint-magic-lenses` | Day 2 PM | Top bet + backup with rationale |
 | `tool-foundation-sprint-founding-hypothesis` | Day 2 end | Canonical hypothesis sentence + assumption scorecard + recommended next test |
 
-Family contract: `docs/reference/skill-families/foundation-sprint-skills-contract.md` v0.2.0. Family validator: `scripts/validate-foundation-sprint-skills-family.{sh,ps1}` with `--strict`/`-Strict` flag.
+Family contract: `docs/reference/skill-families/foundation-sprint-skills-contract.md` v0.3.0. Family validator: `scripts/validate-foundation-sprint-skills-family.{sh,ps1}` with `--strict`/`-Strict` flag.
 
 ### Design Sprint family (7 new skills)
 
@@ -60,7 +60,7 @@ The 7 `tool-design-sprint-*` skills implement the canonical 5-day Design Sprint 
 | `tool-design-sprint-prototype-plan` | Thursday morning | 5-role plan + Five-Act interview script + trial-run checklist |
 | `tool-design-sprint-test-and-score` | Friday | 5 interviews + scorecard + Decider's build/iterate/pivot/stop call |
 
-Family contract: `docs/reference/skill-families/design-sprint-skills-contract.md` v0.1.0. Family validator: `scripts/validate-design-sprint-skills-family.{sh,ps1}` with `--strict`/`-Strict` flag.
+Family contract: `docs/reference/skill-families/design-sprint-skills-contract.md` v0.2.0. Family validator: `scripts/validate-design-sprint-skills-family.{sh,ps1}` with `--strict`/`-Strict` flag.
 
 ### Standalone tool
 
@@ -84,10 +84,32 @@ Each thread has 14 samples: 7 Foundation Sprint + 7 Design Sprint. Brainshelf al
 
 ### User guides + concept docs
 
+**Operational guides** (2):
+
 - **`docs/guides/using-foundation-sprint.md`** (~2,700 words; ships with the AI-era section).
 - **`docs/guides/using-design-sprint.md`** (~2,100 words; includes the operational FS-to-DS handoff section as the load-bearing replacement for the dropped bridge skill).
-- **`docs/concepts/foundation-sprint.md`** (framework reasoning, history, design decisions).
-- **`docs/concepts/design-sprint.md`** (framework reasoning, history, design decisions).
+
+**Methodology concept docs** (2):
+
+- **`docs/concepts/foundation-sprint.md`** (framework reasoning, history, design decisions; 9 mermaid diagrams covering conceptual model, two-day breakdown, per-half-day timelines, Founding Hypothesis template, Magic Lenses matrix, Note-and-Vote, family map).
+- **`docs/concepts/design-sprint.md`** (framework reasoning, history, design decisions; 9 mermaid diagrams covering conceptual model, five-day breakdown, per-day timelines, Wednesday voting cascade, Five-Act Interview, family map).
+
+**Disambiguation + reference docs** (3, new in this release):
+
+- **`docs/concepts/workshop-sprints-vs-agile-sprints.md`** explains the three methodologies sharing the word "sprint" (agile / Foundation Sprint / Design Sprint), shows a side-by-side comparison matrix, and presents the end-to-end coexistence arc with two mermaid diagrams. Codifies the naming-discipline rationale.
+- **`docs/reference/sprint-methodology-glossary.md`** (~1,900 words) covers 40 terms across 3 sections: FS-specific (10), DS-specific (19), shared primitives (11). Explicitly excludes agile sprint terms with a cross-reference to `_workflows/sprint-planning.md`.
+- **`docs/reference/workshop-method-comparison.md`** comparison matrix across 8 workshop methods (Foundation Sprint, Design Sprint, agile sprint planning, Lean Canvas, JTBD, Customer Discovery, Feature Kickoff, Experiment Design) plus a decision-tree mermaid for picking the right tool.
+
+**Sprint family user guides** (8, new in this release; 4 per family):
+
+- **FAQ** (`{foundation,design}-sprint-faq.md`): when-to-use, who-attends, comparison to agile sprints and adjacent methods, recovery from common failures, AI-era deltas from canonical Knapp/Zeratsky/Kowitz. Each FAQ ships with a decision-tree mermaid mirroring the readiness-skill canonical signals.
+- **Cheat sheet** (`{foundation,design}-sprint-cheat-sheet.md`): printable one-pager with day-by-day timeboxes and a mermaid day-arc.
+- **Case studies** (`{foundation,design}-sprint-case-studies.md`): three end-to-end narratives (Brainshelf, Storevine, Workbench) threading the FS-to-DS arc using the library samples.
+- **Recovery playbook** (`{foundation,design}-sprint-recovery.md`): PRE-1 through POST-2 failure-mode scenarios with named remediations.
+
+**Canonical primitive enhancement**:
+
+- **`skills/tool-note-and-vote/SKILL.md`** gains a 5-step protocol mermaid diagram showing silent vs spoken phase coloring, three legal supervote outcomes (top vote / Decider override / re-vote), and the re-vote loopback path back to silent ideation.
 
 ### CI workflow extension
 
@@ -122,7 +144,7 @@ This documentation-only handoff replaces what a SKILL.md would have provided.
 
 Each family contract is a separate document with its own validator. The validators support a `--strict` (Bash) / `-Strict` (PowerShell) flag that elevates partial-family state from WARN to FAIL; CI invokes `--strict` at PR time so a PR that only partially populates a family is detectable. Default behavior (no flag) remains permissive for incremental authoring during development.
 
-### Library samples version-tiered (per FS family contract v0.2.0)
+### Library samples version-tiered (per FS family contract; v0.2.0 then v0.3.0)
 
 The Foundation Sprint family contract was bumped from v0.1.0 to v0.2.0 (during the Phase 2 adversarial review) to clarify that library samples are version-tiered:
 
@@ -130,6 +152,16 @@ The Foundation Sprint family contract was bumped from v0.1.0 to v0.2.0 (during t
 - **v1.0.0** (future): All 3 threads REQUIRED.
 
 At v2.15.0 ship, all 3 threads are populated for both FS and DS families (45 samples total), exceeding the v0.1.0 contract requirement for both families. The contract version-tier framing is preserved for future families that may ship incrementally.
+
+### Workshop-sprint vs agile-sprint naming discipline (FS v0.3.0; DS v0.2.0)
+
+A late v2.15.0 design pass surfaced that bare "sprint" causes cognitive collision because the agile / Scrum sprint is the default PM mental model for that word. Both family contracts were bumped to add a Naming Discipline section (FS v0.2.0 to v0.3.0; DS v0.1.0 to v0.2.0):
+
+- Always include the full method name on first reference per document.
+- Prefer qualified terms ("the Foundation Sprint week", "your Design Sprint output") over bare "sprint" thereafter.
+- Reserve bare "sprint" for agile / Scrum iteration context only, with explicit "(agile)" or "(Scrum)" qualifier when both methodologies could be confused in surrounding context.
+
+The discipline was applied across all v2.15.0 documentation in the same pass: top-of-doc disambiguation callouts added to the two user guides + two concept docs + three workflow files. A new top-level disambiguation doc (`docs/concepts/workshop-sprints-vs-agile-sprints.md`) sits at the head of the v2.15.0 docs surface for readers arriving with the agile-sprint mental model.
 
 ---
 
@@ -165,9 +197,9 @@ Full triage documented in `docs/internal/release-plans/v2.15.0/design-sprint-int
 | `validate-agents-md` | PASS (55 paths matched) |
 | `validate-commands` | PASS (15 new commands resolve) |
 | `validate-meeting-skills-family` | PASS (zero regression) |
-| `check-internal-link-validity --strict` | PASS (134 files checked; 0 broken links) |
+| `check-internal-link-validity --strict` | PASS (146 files checked; 0 broken links) |
 | `validate-skill-family-registration` | PASS (both new families registered; both contract paths valid) |
-| `validate-docs-frontmatter --strict` | PASS (includes new concept doc + user guide) |
+| `validate-docs-frontmatter --strict` | PASS (54 docs checked including new concept docs + 8 user guides + disambiguation + glossary + comparison) |
 | `check-no-body-h1 --strict` | PASS |
 
 CI workflow now runs both family validators with `--strict` / `-Strict` on every PR (Ubuntu + Windows).
@@ -229,13 +261,16 @@ Same intent as v2.14.0's deferred-table pattern: items intentionally NOT shipped
 - 15 new SKILL.md + 15 references/TEMPLATE.md + 15 references/EXAMPLE.md = 45 skill files
 - 15 new commands/tool-*.md = 15 command files
 - 3 new _workflows/*.md = 3 workflow files
-- 2 new docs/reference/skill-families/*-contract.md = 2 contract files
-- 2 new docs/guides/using-*-sprint.md = 2 guide files
-- 2 new docs/concepts/*-sprint.md = 2 concept files (foundation-sprint.md updated; design-sprint.md updated)
+- 2 new docs/reference/skill-families/*-contract.md = 2 contract files (both bumped post-tag-prep: FS to v0.3.0, DS to v0.2.0 for Naming Discipline section)
+- 2 new docs/guides/using-*-sprint.md = 2 operational guide files
+- 2 new docs/concepts/*-sprint.md = 2 concept files
+- 1 new docs/concepts/workshop-sprints-vs-agile-sprints.md = 1 disambiguation file
+- 2 new docs/reference/{sprint-methodology-glossary, workshop-method-comparison}.md = 2 reference files
+- 8 new docs/guides/{foundation,design}-sprint-{faq,cheat-sheet,case-studies,recovery}.md = 8 sprint user-guide files
 - 45 new library/skill-output-samples/tool-*/sample_*.md = 45 sample files
 - 4 new validator scripts (2 Bash + 2 PowerShell) = 4 script files
 
-Plus updates to: AGENTS.md (Tools section), CHANGELOG.md (this entry), docs/changelog.md (mirror entry), README.md (badges + What's New + version pointers), .claude/pm-skills-for-claude.md (version pointer), .claude-plugin/plugin.json + marketplace.json (version + description), docs/reference/categories.md (taxonomy reference), .github/workflows/validation.yml (4 added family-validator steps).
+Plus updates to: AGENTS.md (Tools section), CHANGELOG.md (this entry), docs/changelog.md (mirror entry), README.md (badges + What's New + version pointers), .claude/pm-skills-for-claude.md (version pointer), .claude-plugin/plugin.json + marketplace.json (version + description), docs/reference/categories.md (taxonomy reference), .github/workflows/validation.yml (4 added family-validator steps), and a doc-only mermaid addition to `skills/tool-note-and-vote/SKILL.md` (canonical 5-step protocol diagram).
 
 ---
 

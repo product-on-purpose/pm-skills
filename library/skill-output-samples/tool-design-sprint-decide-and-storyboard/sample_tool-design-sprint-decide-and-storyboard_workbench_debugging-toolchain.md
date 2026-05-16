@@ -1,6 +1,6 @@
 ---
 title: "Design Sprint Decide and Storyboard: Workbench One-Screen UX Validation"
-description: "Workbench Wednesday artifact: 4 sketches heat-mapped, Priya supervotes Sketch A all-in-one (spatial-mental-model layout) with reasoning that A best answers both "what is broken" and "what to look at first" without conflicting metaphors, 8-panel storyboard from PagerDuty alert through 60-sec orient through stay-or-revert decision."
+description: "Workbench Wednesday artifact: 4 sketches heat-mapped, Priya supervotes Sketch A all-in-one (spatial-mental-model layout) with reasoning that A best answers both 'what is broken' and 'what to look at first' without conflicting metaphors, 8-panel storyboard from PagerDuty alert through 60-sec orient through stay-or-revert decision."
 artifact: design-sprint-decide-and-storyboard
 version: "1.0"
 repo_version: "2.15.0"

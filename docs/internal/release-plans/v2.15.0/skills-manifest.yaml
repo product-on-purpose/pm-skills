@@ -102,17 +102,17 @@ skills:
 families_added:
   - family: foundation-sprint-skills
     contract: docs/reference/skill-families/foundation-sprint-skills-contract.md
-    contract_version: 0.2.0
+    contract_version: 0.3.0
     validator: scripts/validate-foundation-sprint-skills-family.{sh,ps1}
     members: 7
-    notes: "Foundation Sprint family. Contract v0.2.0 (bumped from v0.1.0 during Phase 2 adversarial review for version-tiered sample coverage clause + frameworks subset semantics + CI enforcement split). Validator runs in CI on every PR with --strict on both Ubuntu and Windows."
+    notes: "Foundation Sprint family. Contract v0.3.0 (bumped v0.2.0 to v0.3.0 on 2026-05-16 adding the Naming Discipline section; previously bumped v0.1.0 to v0.2.0 during Phase 2 adversarial review for version-tiered sample coverage + frameworks subset semantics + CI enforcement split). Validator runs in CI on every PR with --strict on both Ubuntu and Windows."
 
   - family: design-sprint-skills
     contract: docs/reference/skill-families/design-sprint-skills-contract.md
-    contract_version: 0.1.0
+    contract_version: 0.2.0
     validator: scripts/validate-design-sprint-skills-family.{sh,ps1}
     members: 7
-    notes: "Design Sprint family. Contract v0.1.0 mirrors FS v0.2.0 structure with DS-specific deltas (5-day arc, Sprint book canonical sources, metadata.tool: design-sprint). Validator runs in CI on every PR with --strict on both Ubuntu and Windows."
+    notes: "Design Sprint family. Contract v0.2.0 (bumped v0.1.0 to v0.2.0 on 2026-05-16 adding the Naming Discipline section mirroring FS v0.3.0). Mirrors FS structure with DS-specific deltas (5-day arc, Sprint book canonical sources, metadata.tool: design-sprint). Validator runs in CI on every PR with --strict on both Ubuntu and Windows."
 
 classification_added:
   - classification: tool

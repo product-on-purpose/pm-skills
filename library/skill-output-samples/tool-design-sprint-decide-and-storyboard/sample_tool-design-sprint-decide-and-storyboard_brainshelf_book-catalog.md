@@ -1,6 +1,6 @@
 ---
 title: "Design Sprint Decide and Storyboard: Brainshelf Camera-Capture Validation"
-description: "Brainshelf Wednesday artifact: 4 sketches heat-mapped (A=4 dots, B=4, C=1, D=3), 4 speed critiques with "what would worry me" lists, straw poll Jamie+Sam pick B, Jamie supervotes Sketch B all-in-one with reasoning tied to Q1 lead question, 9-panel storyboard from "tap Brainshelf icon at bookstore" through "recall a passage months later"."
+description: "Brainshelf Wednesday artifact: 4 sketches heat-mapped (A=4 dots, B=4, C=1, D=3), 4 speed critiques with 'what would worry me' lists, straw poll Jamie+Sam pick B, Jamie supervotes Sketch B all-in-one with reasoning tied to Q1 lead question, 9-panel storyboard from 'tap Brainshelf icon at bookstore' through 'recall a passage months later'."
 artifact: design-sprint-decide-and-storyboard
 version: "1.0"
 repo_version: "2.15.0"
