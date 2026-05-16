@@ -1,6 +1,6 @@
 ---
 title: Sprint Methodology Glossary
-description: "Cross-method glossary of terminology used in the Foundation Sprint and Design Sprint workshop methodologies (Knapp, Zeratsky, Kowitz). Covers terms specific to each methodology plus shared primitives (Decider, Note-and-Vote, etc.). Does NOT cover agile / Scrum sprint terminology - see disambiguation note at top."
+description: "Cross-method glossary of terminology used in the Foundation Sprint and Design Sprint workshop methodologies (Knapp/Zeratsky/Kowitz). FS-specific + DS-specific + shared primitives. Excludes agile sprint terms; see disambiguation note."
 ---
 
 ## Scope and disambiguation

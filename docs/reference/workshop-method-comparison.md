@@ -1,6 +1,6 @@
 ---
 title: Workshop and Method Comparison
-description: "When to choose among PM workshop methodologies and adjacent pm-skills: Foundation Sprint, Design Sprint, agile / Scrum sprint planning, Lean Canvas, JTBD canvas, Customer Discovery workflow, Feature Kickoff workflow, and Experiment Design. Comparison matrix plus decision-tree guidance for picking the right tool."
+description: "When to choose among PM workshop methodologies and adjacent pm-skills: Foundation Sprint, Design Sprint, agile sprint planning, Lean Canvas, JTBD, Customer Discovery, Feature Kickoff, Experiment Design. Comparison matrix + decision-tree."
 ---
 
 ## Purpose

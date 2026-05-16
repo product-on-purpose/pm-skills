@@ -1,6 +1,6 @@
 ---
 title: Workshop Sprints vs Agile Sprints
-description: "Disambiguation reference: the Foundation Sprint and Design Sprint methodologies (Knapp/Zeratsky/Kowitz workshop sprints) share the word 'sprint' with agile/Scrum iteration sprints but are different methodologies with different purposes, durations, and outputs. This page exists so readers do not carry agile-sprint assumptions into workshop-methodology content (or vice versa)."
+description: "Disambiguation: Foundation Sprint and Design Sprint (Knapp/Zeratsky/Kowitz workshops) share the word 'sprint' with agile/Scrum iteration sprints but are different methodologies. Comparison matrix + when-to-use guidance + naming-discipline rationale."
 ---
 
 ## Why this page exists
