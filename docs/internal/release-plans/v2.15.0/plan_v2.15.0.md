@@ -1,10 +1,36 @@
 # v2.15.0 Release Plan: Sprint Skills Launch + v2.14.x Cleanup
 
-**Status:** Planning complete (2026-05-12); execution starting
+**Status:** Execution in progress (FS family complete; DS family pending)
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (scoping); 2026-05-12 (this master plan authored)
-**Updated:** 2026-05-12 (pre-execution review and P1+P2 fixes applied)
+**Updated:** 2026-05-15 (progress snapshot + post-audit cleanup)
+
+---
+
+## Where We Are (snapshot 2026-05-15, HEAD `ce2acae`)
+
+**Foundation Sprint track**: 19 of 21 plan tasks shipped. Family is functionally complete and shippable - 7 skills + standalone + workflow + 8 commands + 8 Brainshelf samples + family contract + family validator + concept doc + user guide all live on origin/main. Remaining: Tasks 17-18 (Storevine + Workbench library samples; optional for coverage) and Task 21 (Phase 7 final validation + smoke test).
+
+**Design Sprint track**: Not started. All prerequisites met (FS validators + tool-note-and-vote + tool classification all live). 20 tasks across 7 phases pending.
+
+**v2.14.x cleanup track**: 2 of 3 tasks done. Task 1 (Node 22 bump on 3 workflows) shipped `0d9af62`; Task 3 (Dependabot bump - added mid-cycle) shipped `7a099b4`, closed 15 of 17 alerts. Task 2 (AGENTS/claude/CONTEXT.md per-phase tables refresh) sequenced for post-DS-ship.
+
+**Dependabot state**: 2 alerts open on origin/main (down from 17 pre-cycle). Both require Astro 6.x and are deferred to v2.16 per `plan_v2.16.0.md` DI3.
+
+### What's next (by priority)
+
+1. **Phase 7 Task 21** of FS plan: full validator suite + smoke test (~1 hour). Closes the FS integration plan entirely.
+2. **DS plan kickoff**: Phase 1 (DS family contract + validator pair) and Phase 3 first skill (`tool-design-sprint-readiness`) (~3-4 hours).
+3. **Phase 5 Tasks 17-18** of FS plan: Storevine + Workbench library samples (optional coverage; ~5-6 hours; can run in parallel with DS work).
+4. **v2.14.x Task 2**: CONTEXT.md refresh after DS family ships.
+5. **Pre-tag artifact pass**: CHANGELOG, version bumps, release notes, tag, GitHub Release.
+
+### Estimated remaining
+
+8-11 sessions to v2.15.0 tag. The FS family is the bigger lift (now done); DS family executes against a proven pattern.
+
+---
 
 ## Release Theme
 

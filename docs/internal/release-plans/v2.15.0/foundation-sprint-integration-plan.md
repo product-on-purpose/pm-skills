@@ -14,7 +14,29 @@
 
 ## Status
 
-Draft. Promote to `docs/internal/release-plans/v2.15.0/` when the v2.15.0 release cycle begins.
+**Execution near-complete.** 19 of 21 tasks shipped on origin/main as of 2026-05-15 (HEAD `ce2acae`). Foundation Sprint family is functionally shippable; only optional sample coverage and a final integration check remain.
+
+### Where we are (snapshot 2026-05-15)
+
+| Phase | Status | Closing commit(s) |
+|---|---|---|
+| Phase 1: Validator infrastructure (Tasks 1-5) | SHIPPED | `f4baba4`, `0829a3c`, `d1b3ba0`, `d18159b`, `44ad8d7` |
+| Phase 2: tool-note-and-vote standalone (Task 6) | SHIPPED | `760d3c2` |
+| Phase 3: 7 FS family skills (Tasks 7-13) | SHIPPED | `b3b6b5d`, `8e2bf67`, `b2d5254`, `04b30b5`, `5b5ac4b`, `d4ea045`, `29901fb` |
+| Phase 4: Workflow + commands (Tasks 14-15) | SHIPPED | `9509a80`, `d7a6946` |
+| Phase 5: Library samples (Tasks 16-18) | PARTIAL | `df53cb1` (Brainshelf, Task 16); Storevine (Task 17) + Workbench (Task 18) pending |
+| Phase 6: Documentation (Tasks 19, 19a, 20) | SHIPPED | Task 19: `b04ff14` (using-foundation-sprint guide); Task 19a: absorbed by `7096bca` tool-classification refactor (verified clean); Task 20: `519e216` (AGENTS.md tool section) |
+| Phase 7: Integration check (Task 21) | PENDING | - |
+
+### What's left
+
+- **Task 17**: Storevine library samples (8 fresh Brainshelf-style samples; ~2-3 hours; optional coverage but matches meeting-skills 3-thread precedent)
+- **Task 18**: Workbench library samples (8 fresh samples; ~2-3 hours; same optionality)
+- **Task 21**: Phase 7 full validation suite + smoke-test a slash command (~1 hour; closes this plan)
+
+### Hand-off readiness for Design Sprint plan
+
+All DS plan prerequisites are now met: `tool-note-and-vote` shipped, `lint-skills-frontmatter` and `validate-agents-md` recognize `classification: tool`, FS family validator exists as a pattern reference, FS family contract exists as a pattern reference, all 7 FS family skills shipped, AGENTS.md tool section in place.
 
 ## Prerequisites
 

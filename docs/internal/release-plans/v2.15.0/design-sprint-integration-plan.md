@@ -14,7 +14,33 @@
 
 ## Status
 
-Draft. Promote to `docs/internal/release-plans/v2.15.0/` alongside the Foundation Sprint plan when the release cycle begins.
+**Ready to execute.** All prerequisites met as of 2026-05-15 (HEAD `ce2acae`). No DS plan tasks shipped yet. 20 tasks across 7 phases pending.
+
+### Where we are (snapshot 2026-05-15)
+
+| Phase | Status |
+|---|---|
+| Phase 1: DS family contract + validator pair | NOT STARTED |
+| Phase 2: 7 DS family skills | NOT STARTED |
+| Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
+| Phase 4: 7 slash commands | NOT STARTED |
+| Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
+| Phase 6: Documentation (using-design-sprint guide + concept doc verification + AGENTS.md DS section) | NOT STARTED |
+| Phase 7: Integration check | NOT STARTED |
+
+### Prerequisites status (all met)
+
+- [x] `skills/tool-note-and-vote/` exists and passes `lint-skills-frontmatter` (shipped in FS plan commit `760d3c2`)
+- [x] `scripts/lint-skills-frontmatter.sh` + `.ps1` recognize `classification: tool` (shipped `f4baba4`)
+- [x] `scripts/validate-agents-md.sh` + `.ps1` recognize `skills/tool-*` directory patterns (already classification-agnostic; documented `0829a3c`)
+- [x] `scripts/validate-foundation-sprint-skills-family.sh` + `.ps1` exist as pattern reference (shipped `d1b3ba0`, `d18159b`)
+- [x] `docs/reference/skill-families/foundation-sprint-skills-contract.md` exists as pattern reference (shipped `44ad8d7`)
+- [x] All 7 Foundation Sprint skills (`tool-foundation-sprint-*`) shipped (commits `b3b6b5d` through `29901fb`)
+- [x] AGENTS.md tool section in place with FS family + tool-note-and-vote (shipped `519e216`)
+
+### Immediate next action
+
+Phase 1 Task 1: author `docs/reference/skill-families/design-sprint-skills-contract.md` mirroring the FS family contract structure. Estimated effort: ~1 hour. See Phase 1 section below for details.
 
 ## Prerequisites
 
