@@ -331,6 +331,11 @@ Pre-sprint brief that locks challenge, sprint questions, team and role assignmen
 
 Day 1 (Monday) move of a Design Sprint. Produces the bundled Monday artifact: long-term goal, sprint questions (3-7 testable risks), customer or system map (5-15 step flow), expert interview notes, HMW (How Might We) cluster board, and the Decider's chosen target moment. Use Day 1 morning and afternoon after the sprint brief is locked. Sets the design target for Tuesday's sketches and Wednesday's storyboard.
 
+##### tool-design-sprint-sketch
+**Path:** `skills/tool-design-sprint-sketch/SKILL.md`
+
+Day 2 (Tuesday) move of a Design Sprint that structures lightning demos and the four-step independent solution sketch protocol (Notes, Ideas, Crazy 8s, Solution Sketch). Each team member produces one solution sketch individually; the skill orchestrates the day but does not author the sketches themselves. Use Tuesday morning after Monday's target moment is locked.
+
 ---
 
 ## Workflows

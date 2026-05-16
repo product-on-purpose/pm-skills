@@ -21,7 +21,7 @@
 | Phase | Status |
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
-| Phase 2: 7 DS family skills | IN PROGRESS (3 of 7 shipped: readiness, brief, map-and-target; DS family validator now 3/7 enforcing; AGENTS.md at 51 paths) |
+| Phase 2: 7 DS family skills | IN PROGRESS (4 of 7 shipped: readiness, brief, map-and-target, sketch; DS family validator now 4/7 enforcing; AGENTS.md at 52 paths) |
 | Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
 | Phase 4: 7 slash commands | NOT STARTED |
 | Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 2 Task 7: author `skills/tool-design-sprint-sketch/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Tuesday's artifact: lightning demo board, sketch assignment, four-step solution sketches from each team member (Notes 20m + Ideas 20m + Crazy 8s 8m + Solution Sketch 30-90m). Timebox 150-210 min per spec. Prerequisites: `tool-design-sprint-map-and-target`. Structurally distinct: skill structures the activity but individuals produce the sketches in silent independent work. EXAMPLE Brainshelf Tuesday 2026-05-27 with 4 team-member sketches described textually. AGENTS.md update in-commit.
+Phase 2 Task 8: author `skills/tool-design-sprint-decide-and-storyboard/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Wednesday's artifact: heat map, critique notes, supervote, storyboard. Most decision-heavy day; uses note-and-vote for the heat-map. Timebox 180-240 min per spec. Prerequisites: `tool-design-sprint-sketch`. EXAMPLE Brainshelf Wednesday 2026-05-28 with team voting on Sketch A/B/C/D (blind), Jamie supervote, and 3-step storyboard. AGENTS.md update in-commit.
 
 ## Prerequisites
 
@@ -305,7 +305,9 @@ Result (2026-05-15): SKILL.md authored at v0.1.0 with 6 output sections (long-te
 
 Follow Task 4 pattern. Spec section "4. design-sprint-sketch". `metadata.move: sketch`. Prerequisites: `tool-design-sprint-map-and-target`. Tuesday's artifact: lightning demos, four-step sketches, assignments. Note: this skill structures the activity; the human team produces sketches individually.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
+
+Result (2026-05-15): SKILL.md authored at v0.1.0 with 4 output sections (lightning demo board, sketch assignment plan, four-step sketches from each team member, recruiting tracker update). Timebox 180 min for Facilitator-led portions. Tuesday Time Structure section documents the day arc. Frameworks subset: design-sprint + sprint (NO note-and-vote; Tuesday has no voting). Roles 7 (whole team sketches independently). TEMPLATE.md sketch-description format avoids reproducing actual sketches; each sketcher gets a textual description section. Decider Checkpoint at line 72 of 82 (87.8%); Tuesday's checkpoint is logistics-only (sketch collection + attribution stripping + Wednesday attendance). EXAMPLE.md continues Brainshelf Tuesday 2026-05-27: 12 lightning demos with patterns extracted, swarm assignment, 4 textually-described sketches showing distinct design philosophies (Jamie undo countdown + geolocation; Alex polaroid stack + minimal capture; Sam explicit two-step + tabular library; Riley journal entry + captured-contexts library), recruiting tracker shows 1 cancellation absorbed by buffer activation. DS family validator 4/7 enforcing.
 
 #### Task 8: Author tool-design-sprint-decide-and-storyboard
 
