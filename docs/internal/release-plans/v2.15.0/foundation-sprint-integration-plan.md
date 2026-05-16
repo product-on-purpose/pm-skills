@@ -14,7 +14,7 @@
 
 ## Status
 
-**Plan complete.** 20 of 21 tasks shipped on origin/main as of 2026-05-15. The only remaining tasks are Tasks 17 + 18 (Storevine + Workbench library samples), which are optional coverage matching the meeting-skills 3-thread precedent. The Foundation Sprint family is functionally shippable and validator-confirmed; Phase 7 integration check passed; DS plan can begin executing immediately.
+**Plan complete.** 19 of 21 tasks shipped on origin/main as of 2026-05-15, plus Phase 7 integration check passed as a phase-level closure (Task 21 has 3 sub-step checkboxes but Phase 7 is not a "deliverable" task in the same sense as Tasks 1-20). The only remaining tasks are Tasks 17 + 18 (Storevine + Workbench library samples). The contract was amended 2026-05-15 to make 3-thread coverage RECOMMENDED for v0.1.0 and REQUIRED for v1.0.0, so Tasks 17-18 are not a v2.15.0 blocker. The Foundation Sprint family is functionally shippable and validator-confirmed; DS plan can begin executing immediately.
 
 ### Where we are (snapshot 2026-05-15)
 
@@ -726,3 +726,162 @@ Content coverage of `foundation-sprint-design-spec.md`:
 - Library samples (24: 8 skills x 3 threads) covered by Tasks 16-18
 - User guide covered by Task 19 (handoff section absorbs the dropped bridge skill's intent)
 - Open questions from the spec are ratified in the Ratified Decisions table above
+
+---
+
+## Adversarial Review (2026-05-15)
+
+Codex adversarial review run against the FS track at HEAD `bd04cb7` returned 35 findings across 6 areas: family-contract vs validator gaps, cross-skill consistency, guide content errors, FS-to-DS bridge gap, Dependabot override pattern, and plan internal consistency. Full Codex output is captured in this session's transcript. This section records each finding with adversarial triage: **ACCEPT** (fix now), **DEFER** (real issue, scheduled later), or **REJECT** (Codex is wrong or proposed fix is misaligned with architecture).
+
+Summary: 14 ACCEPT (fixed in commits following this review), 14 DEFER (scheduled or v2.16+), 7 REJECT (with reasoning).
+
+### 1. Family contract vs validator gaps
+
+**F1 (P1) — Validator skips root-field checks beyond `classification`** (`contract:76` + `validator:116`)
+The validator only checks `classification: tool`; the contract mandates `name`, `description`, `version`, `updated`, `license`. DEFER to v2.16: expanding the family validator to enforce all root fields is a substantial validator-engineering pass, and these fields are already covered by `lint-skills-frontmatter` at the universal layer. The redundancy gap is real but not silently allowing bad skills today.
+
+**F2 (P1) — Validator skips metadata-field checks beyond `tool`/`move`** (`contract:91` + `validator:126`)
+Validator does not enforce `category`, `frameworks`, `timebox_minutes`, `roles`, `prerequisites`, `inputs`, `outputs`, `author`. DEFER to v2.16: same reasoning as F1; lint covers the universal frontmatter shape and the family-specific values are caught by content review. Accept as a "next-iteration of family validator" item.
+
+**F3 (P1) — Validator allows missing skill dirs after partial authoring** (`contract:127` + `validator:82`)
+Contract says all 7 family directories MUST exist; validator's scaffolding-state logic permits missing dirs with notices. ACCEPT for v2.15.0 closure: now that all 7 FS family skills exist on origin/main, the scaffolding-state escape hatch is no longer needed for FS. Fix by adding a strict-mode flag or by adding an explicit "all 7 must exist when family is non-empty" check.
+
+**F4 (P1) — Validator skips library-samples 3-thread enforcement** (`contract:170` + `validator`)
+Contract says each family skill MUST ship 3 samples (Brainshelf + Storevine + Workbench). Validator does not check samples at all. **TIED TO F32 contract amendment**: depending on F32 resolution (amend contract to "Brainshelf required; Storevine + Workbench aspirational for v0.1.0" vs ship all 21 samples before tag), this validator change is either deferred or moot. DEFER pending F32 decision.
+
+**F5 (P2) — Naming convention coverage gaps in validator** (`contract:114` + `validator:140`)
+Validator checks `metadata.move` against hardcoded expected values; does not check `name == basename(dir)`, command file existence, sample naming. DEFER to v2.16: `validate-agents-md` covers directory naming; `validate-commands` covers command existence; sample naming is moot until F32 is resolved.
+
+**F6 (P2) — Prerequisite-fallback semantics not enforced** (`contract:107` + `validator:126`)
+Contract says skill bodies document equivalent-context fallback when prerequisite output is absent; validator doesn't check. **REJECT**: this is a content-quality check, not a structural check. A static validator cannot reliably grep for "equivalent-context" phrasing without producing false positives/negatives. Better to handle in content review (see F15 for the underlying content gap, ACCEPTED separately).
+
+**F7 (P2) — Decider Checkpoint structural specificity** (`contract:144` + `validator:163`)
+Validator only checks that "Decider Checkpoint" heading appears in last 25% of TEMPLATE.md; does not enforce it's the FINAL section, contains `**Signed:**` field, or that SKILL.md references it. DEFER to v2.16: current 25%-rule catches the common defect (heading mid-doc); the extra structural checks are marginal-utility for the cost of writing them.
+
+**F8 (P2) — Zero-friction validator clauses are unenforceable** (`contract:185` + `validator`)
+Contract requires "zero-friction behavior" (single invocation, no multi-turn interrogation); validator doesn't check. **REJECT**: these are behavioral aspirations, not statically-checkable properties. Codex itself acknowledges this is hard. The contract should be amended to mark these as "guidance, not CI-enforced" rather than expanding the validator.
+
+**F9 (P3) — Versioning policy not enforced** (`contract:193` + `validator:68`)
+Contract has a SemVer policy; validator doesn't check version field shape or behavior-version coupling. **REJECT for validator scope**: static validators cannot reliably check semantic version semantics. ACCEPT as governance documentation: amend contract to mark versioning policy as governance-only.
+
+**F10 (P3) — Contract-existence check not enumerated in 6-checks list** (`validator:68`)
+Validator checks contract file exists but doesn't list this in the contract's "6 enumerated checks." ACCEPT: trivial doc fix. Will note "0. canonical contract exists" in the contract's CI enforcement list.
+
+### 2. Cross-skill consistency
+
+**F11 (P1) — Founding Hypothesis prereqs missing Basics + Differentiation** (`founding-hypothesis SKILL.md:20`)
+Hypothesis frontmatter lists only `magic-lenses` as prerequisite, but body needs Basics + Differentiation fields to fill canonical slots. ACCEPT: legitimate frontmatter incompleteness; will add the missing prereqs.
+
+**F12 (P2) — Approach Options missing `decider` role** (`approach-options SKILL.md:17`)
+6 of 7 family skills list `decider` in roles; Approach Options does not, but its body invokes Decider for narrowing. ACCEPT: simple inconsistency. Will add `decider`.
+
+**F13 (P2) — Framework metadata pattern inconsistent across 3 skills** (`brief`, `approach-options`, `founding-hypothesis` SKILL.md:13)
+Contract example shows `[foundation-sprint, click, character-note-and-vote]`; 3 skills omit `character-note-and-vote`. ACCEPT with contract clarification: amend contract example to say "frameworks: subset of [foundation-sprint, click, character-note-and-vote]; foundation-sprint REQUIRED for all family members; click + character-note-and-vote SHOULD appear when the skill draws on those sources." Fix the 3 skills accordingly.
+
+**F14 (P2) — Approach Options prereqs declare Differentiation only; needs Basics too** (`approach-options SKILL.md:22`)
+Same family pattern as F11 (transitive context not declared). ACCEPT: will add Basics to prereqs.
+
+**F15 (P2) — 5 skills lack explicit prereq-absence fallback text**
+Brief documents equivalent-prep; Basics, Differentiation, Approach Options, Magic Lenses, Founding Hypothesis don't. DEFER to v2.16: this is ~5 SKILL.md edits adding a "If prerequisite output is absent" paragraph each. Real gap but not blocking ship; better to handle once we have field-usage signal showing whether teams actually hit this.
+
+### 3. Guide content errors
+
+**F16 (P1) — Guide says "focus" lens; spec says "money" lens** (`guide:104` vs `magic-lenses SKILL.md:67`)
+Magic Lenses uses customer/pragmatic/growth/**money**, not /focus. The guide is factually wrong. ACCEPT: fix immediately.
+
+**F17 (P1) — Guide gives wrong canonical hypothesis template** (`guide:113` vs `founding-hypothesis SKILL.md:62`)
+Guide: "If we build [approach] for [customer] facing [problem]..."; SKILL.md strict template: "If we help [target customer] solve [important problem] with [approach], they will choose it over [competitors or alternatives] because our solution is [differentiators]." ACCEPT: critical fix; the strict template is the entire point of the skill.
+
+**F18 (P1) — Guide partial-attendance contradicts contract/brief/readiness** (`guide:125`)
+Guide describes a partial-attendance protocol for the Decider; brief template + readiness criteria require Decider present for all 4 blocks. ACCEPT: remove the partial-attendance language from the guide, replace with a clearer statement that partial Decider attendance is a Conditional Go diagnosis, not a routine pattern.
+
+**F19 (P2) — Guide says readiness is 15 min; SKILL says 30-45** (`guide:58` vs `readiness SKILL.md:34`)
+ACCEPT: timing drift. Fix guide.
+
+**F20 (P2) — Guide says brief is 30-45 min; SKILL says 45-60** (`guide:68` vs `brief SKILL.md:16`)
+ACCEPT: timing drift. Fix guide.
+
+**F21 (P2) — Mini Manifesto length mischaracterized** (`guide:86` vs `differentiation SKILL.md:58`)
+Guide says "3 to 5 sentences"; SKILL.md says one-page strategic summary with multiple paragraphs including negative-positioning. ACCEPT: fix guide.
+
+**F22 (P2) — Approach Options recovery path inconsistent** (`guide:96` vs `approach-options SKILL.md:79`)
+Guide says "get outside input"; SKILL says "push back into ideation for a third option." ACCEPT: align guide to SKILL pattern (push for third option first; only seek outside input if the team genuinely cannot).
+
+### 4. FS-to-DS bridge handoff
+
+**F23 (P1) — Workflow links to nonexistent `_workflows/foundation-to-design.md`** (`workflow:231`)
+The dropped bridge skill's narrative replacement is supposed to live in `foundation-to-design.md`, but that file does not exist (it's a DS plan deliverable). ACCEPT: fix immediately by either (a) removing the link until DS plan ships it, or (b) creating a stub. Choose (a) since the file's content depends on DS work not yet done.
+
+**F24 (P2) — Handoff table omits Mini Manifesto, principles, differentiators, competitors, team advantage** (`workflow:215` + `guide:169`)
+The 6-row handoff table maps customer/problem/top-bet/scorecard/assumption/backup; the Mini Manifesto + decision principles + differentiators + competitors + team advantage are also load-bearing FS outputs that should constrain DS work. ACCEPT: expand handoff table with these 5 additional rows.
+
+**F25 (P2) — "Customer recruiting profile" handoff too vague** (`guide:169`)
+Codex suggests adding recruiting criteria, exclusion criteria, source, owner, count, screener. **REJECT**: recruiting checklist construction is a DS-plan responsibility (`tool-design-sprint-brief` or `tool-design-sprint-readiness`), not an FS-plan output. Bloating the FS guide with DS internals violates the architectural separation between the two families. The FS output is "who the customer is"; the DS skill consumes that and builds the recruiting plan.
+
+**F26 (P2) — Go/no-go checkpoint lacks decision tree** (`workflow:225`)
+Codex wants explicit DS readiness criteria + fallback decision tree (customer research vs experiment vs DS). **REJECT for FS workflow**: this is the responsibility of `tool-design-sprint-readiness` (the DS plan's first skill). The FS workflow correctly hands off to "is the hypothesis prototype-testable" and points to DS readiness for the deeper diagnosis. Adding the decision tree here would duplicate DS-readiness logic.
+
+### 5. Dependabot override pattern
+
+**F27 (P2) — Top-level `overrides` is npm-specific, not pnpm-portable** (`package.json:23`)
+Codex notes pnpm uses `pnpm.overrides`. **REJECT for v2.15**: repo uses npm (per `package-lock.json` presence); pnpm portability is hypothetical. Will note in CONTRIBUTING.md when we next touch it, but no code change needed.
+
+**F28 (P2) — Caret-range overrides allow drift** (`package.json:24`)
+`"mermaid": "^11.15.0"` allows minor/patch float. Codex suggests exact pin. **REJECT**: caret ranges allow future security patches to flow without requiring a new override; exact pins block them. The Dependabot scan re-runs on each lock-file change; a future Mermaid 11.16.0 patch is safer than pinning at 11.15.0 forever. Current approach is intentional, not lazy.
+
+**F29 (P2) — Mermaid not declared as direct dependency** (`package.json:20` + `astro-mermaid` peer)
+Codex notes Mermaid is a peer of astro-mermaid; we only override it transitively. **DEFER to v2.16**: real gap but currently works because npm resolves the peer via the override. Cleaner approach (explicit direct dep) is hygiene, not a security/correctness issue.
+
+**F30 (P3) — Global devalue override may force unintended consumers** (`package.json:25`)
+Codex suggests scoped nested override. **REJECT for now**: there's only one consumer of `devalue` in our tree (Astro), so global override has zero blast radius. If a second consumer is ever added with a different version requirement, we'll revisit.
+
+### 6. Plan internal consistency
+
+**F31 (P1) — Task count "20 of 21" with 2 tasks remaining is arithmetic-inconsistent** (`plan_v2.15.0:9` + `FS-plan:13`)
+With Tasks 17 + 18 remaining, the count should be 19 of 21, not 20 of 21. The "20" treats Phase 7 closure as task completion but undercounts the outstanding samples. ACCEPT: normalize to "19 of 21 shipped + 1 phase-level closure (Phase 7)." Codex is correct that the counting is sloppy.
+
+**F32 (P1) — Optional samples contradict family contract MUST-3-samples clause** (`FS-plan:73` + `contract:170`)
+Plan says Storevine + Workbench samples are optional; contract says all 3 threads are required per family skill. Choose: amend contract (preferred for v0.1.0) or ship all 21 samples before tag. ACCEPT contract amendment: mark 3-thread coverage as "RECOMMENDED for v0.1.0; REQUIRED for v1.0.0." Tracks the meeting-skills precedent more honestly.
+
+**F33 (P2) — DS task count discrepancy: 20 vs 17** (`plan_v2.15.0:18` + `:71`)
+Where We Are says DS has 20 tasks; Sub-Plans table says 17. ACCEPT: verify against DS plan source-of-truth, fix the inconsistent one. DS plan body has 7 phases with varying task counts; need to count from there.
+
+**F34 (P2) — skills-manifest.yaml "16 sprint skills" is stale bridge count** (`plan_v2.15.0:218` or similar)
+Should be 15 (7 FS + 7 DS + tool-note-and-vote = 15) per the dropped bridge. ACCEPT: fix.
+
+**F35 (P2) — AI-era content missing from guide despite ratified decision** (`FS-plan:105` + `guide:1`)
+Ratified Decision 6 says AI-era guidance lives in the guide; guide has no AI-era section. AI-era content currently lives in concept doc only. DEFER to a follow-up commit this cycle: add an AI-era section to the guide (~200-300 words) before v2.15.0 tag. Real gap, deliberate scope add, ~30 min work.
+
+### Implementation summary
+
+**Fixed in commits following this review:**
+- F3 (validator strict-mode for non-empty family)
+- F10 (contract enumerated-checks list update)
+- F11 (Founding Hypothesis prereqs)
+- F12 (Approach Options decider role)
+- F13 (framework subset clarification + 3 skill fixes)
+- F14 (Approach Options Basics prereq)
+- F16, F17, F18, F19, F20, F21, F22 (7 guide content fixes)
+- F23 (remove dead foundation-to-design.md link)
+- F24 (expand handoff table with 5 additional rows)
+- F31 (task counting normalization)
+- F32 (contract amendment: 3-thread coverage RECOMMENDED for v0.1.0)
+- F33 (DS task count reconciliation)
+- F34 (skills-manifest count 16 to 15)
+
+**Deferred to v2.16 or later in v2.15 cycle:**
+- F1, F2, F5, F7 (validator coverage expansion)
+- F4 (sample-existence validator; tied to F32 amendment)
+- F9 (versioning policy: governance-only, no validator change)
+- F15 (prereq-absence fallback text across 5 skills)
+- F29 (Mermaid explicit direct dep)
+- F35 (AI-era guide section, ~30 min follow-up this cycle)
+
+**Rejected with reasoning:**
+- F6 (validator can't reliably grep content quality)
+- F8 (zero-friction is behavioral, not structural)
+- F25 (recruiting checklist belongs in DS plan, not FS guide)
+- F26 (DS readiness decision tree belongs in DS plan, not FS workflow)
+- F27 (pnpm portability is hypothetical for npm-only repo)
+- F28 (caret ranges allow future security patches; intentional)
+- F30 (devalue has single consumer; global override has zero blast radius)
