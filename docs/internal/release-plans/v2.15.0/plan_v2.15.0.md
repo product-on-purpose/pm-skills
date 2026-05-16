@@ -8,11 +8,11 @@
 
 ---
 
-## Where We Are (snapshot 2026-05-15, HEAD `ce2acae`)
+## Where We Are (snapshot 2026-05-15, HEAD `7a0f517`)
 
-**Foundation Sprint track**: 19 of 21 plan tasks shipped. Family is functionally complete and shippable - 7 skills + standalone + workflow + 8 commands + 8 Brainshelf samples + family contract + family validator + concept doc + user guide all live on origin/main. Remaining: Tasks 17-18 (Storevine + Workbench library samples; optional for coverage) and Task 21 (Phase 7 final validation + smoke test).
+**Foundation Sprint track**: 20 of 21 plan tasks shipped + Phase 7 integration check passed. Family is functionally complete, validator-confirmed, and DS plan can begin immediately. Only optional sample coverage (Tasks 17-18 for Storevine + Workbench threads) remains.
 
-**Design Sprint track**: Not started. All prerequisites met (FS validators + tool-note-and-vote + tool classification all live). 20 tasks across 7 phases pending.
+**Design Sprint track**: Not started; unblocked. All 8 prerequisites verified met by FS Phase 7 hand-off check. 20 tasks across 7 phases pending.
 
 **v2.14.x cleanup track**: 2 of 3 tasks done. Task 1 (Node 22 bump on 3 workflows) shipped `0d9af62`; Task 3 (Dependabot bump - added mid-cycle) shipped `7a099b4`, closed 15 of 17 alerts. Task 2 (AGENTS/claude/CONTEXT.md per-phase tables refresh) sequenced for post-DS-ship.
 
@@ -20,15 +20,14 @@
 
 ### What's next (by priority)
 
-1. **Close out Foundation Sprint plan**: run the full validator suite + smoke-test a slash command + hand off to DS plan. This is the final phase of [`foundation-sprint-integration-plan.md`](./foundation-sprint-integration-plan.md) (Phase 7 / Task 21 in that doc). ~1 hour. Closes the FS integration plan entirely.
-2. **Kick off Design Sprint plan**: author `design-sprint-skills-contract.md`, the family validator pair, and the first DS skill (`tool-design-sprint-readiness`). These are Phases 1-2 of [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md). ~3-4 hours per session.
-3. **Optional FS sample coverage**: 16 additional library samples across two narrative threads (Storevine retail-direction, Workbench debugging-toolchain). Phase 5 Tasks 17-18 of [`foundation-sprint-integration-plan.md`](./foundation-sprint-integration-plan.md). ~5-6 hours total; can run in parallel with DS work; brings sample threads to 3-count parity with the meeting-skills precedent.
-4. **CONTEXT.md refresh**: AGENTS/claude/CONTEXT.md per-phase tables refresh to the final v2.15.0 catalog. Sequenced for after DS family ships so the refresh reflects all 55 skills in one pass. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
-5. **Pre-tag artifact pass**: CHANGELOG entry, plugin.json + marketplace.json version bumps, `docs/releases/Release_v2.15.0.md`, skills-manifest.yaml authoring, optional Codex adversarial review, annotated tag, GitHub Release. See [Release-Time Checklist](#release-time-checklist) below for the full list. ~1-2 sessions.
+1. **Kick off Design Sprint plan**: author `design-sprint-skills-contract.md`, the family validator pair, and the first DS skill (`tool-design-sprint-readiness`). These are Phases 1-2 of [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md). ~3-4 hours per session.
+2. **Optional FS sample coverage**: 16 additional library samples across two narrative threads (Storevine retail-direction, Workbench debugging-toolchain). Phase 5 Tasks 17-18 of [`foundation-sprint-integration-plan.md`](./foundation-sprint-integration-plan.md). ~5-6 hours total; can run in parallel with DS work; brings sample threads to 3-count parity with the meeting-skills precedent.
+3. **CONTEXT.md refresh**: AGENTS/claude/CONTEXT.md per-phase tables refresh to the final v2.15.0 catalog. Sequenced for after DS family ships so the refresh reflects all 55 skills in one pass. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
+4. **Pre-tag artifact pass**: CHANGELOG entry, plugin.json + marketplace.json version bumps, `docs/releases/Release_v2.15.0.md`, skills-manifest.yaml authoring, optional Codex adversarial review, annotated tag, GitHub Release. See [Release-Time Checklist](#release-time-checklist) below for the full list. ~1-2 sessions.
 
 ### Estimated remaining
 
-8-11 sessions to v2.15.0 tag. The FS family is the bigger lift (now done); DS family executes against a proven pattern.
+7-10 sessions to v2.15.0 tag. The FS family is the bigger lift (now done); DS family executes against a proven pattern.
 
 ---
 

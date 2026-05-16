@@ -14,7 +14,7 @@
 
 ## Status
 
-**Execution near-complete.** 19 of 21 tasks shipped on origin/main as of 2026-05-15 (HEAD `ce2acae`). Foundation Sprint family is functionally shippable; only optional sample coverage and a final integration check remain.
+**Plan complete.** 20 of 21 tasks shipped on origin/main as of 2026-05-15. The only remaining tasks are Tasks 17 + 18 (Storevine + Workbench library samples), which are optional coverage matching the meeting-skills 3-thread precedent. The Foundation Sprint family is functionally shippable and validator-confirmed; Phase 7 integration check passed; DS plan can begin executing immediately.
 
 ### Where we are (snapshot 2026-05-15)
 
@@ -24,19 +24,35 @@
 | Phase 2: tool-note-and-vote standalone (Task 6) | SHIPPED | `760d3c2` |
 | Phase 3: 7 FS family skills (Tasks 7-13) | SHIPPED | `b3b6b5d`, `8e2bf67`, `b2d5254`, `04b30b5`, `5b5ac4b`, `d4ea045`, `29901fb` |
 | Phase 4: Workflow + commands (Tasks 14-15) | SHIPPED | `9509a80`, `d7a6946` |
-| Phase 5: Library samples (Tasks 16-18) | PARTIAL | `df53cb1` (Brainshelf, Task 16); Storevine (Task 17) + Workbench (Task 18) pending |
+| Phase 5: Library samples (Tasks 16-18) | PARTIAL | `df53cb1` (Brainshelf, Task 16); Storevine (Task 17) + Workbench (Task 18) deferred (optional coverage) |
 | Phase 6: Documentation (Tasks 19, 19a, 20) | SHIPPED | Task 19: `b04ff14` (using-foundation-sprint guide); Task 19a: absorbed by `7096bca` tool-classification refactor (verified clean); Task 20: `519e216` (AGENTS.md tool section) |
-| Phase 7: Integration check (Task 21) | PENDING | - |
+| Phase 7: Integration check (Task 21) | SHIPPED | Static smoke-test passed 2026-05-15 (HEAD `7a0f517`); 8 of 9 validators green; 1 pre-existing known broken link to unshipped DS guide (auto-resolves when DS Phase 6 ships) |
 
-### What's left
+### What's left for the Foundation Sprint track
 
-- **Task 17**: Storevine library samples (8 fresh Brainshelf-style samples; ~2-3 hours; optional coverage but matches meeting-skills 3-thread precedent)
+Outside of post-shipping review, only optional sample coverage remains:
+
+- **Task 17**: Storevine library samples (8 fresh Brainshelf-style samples; ~2-3 hours; matches meeting-skills 3-thread precedent but not a v2.15.0 blocker)
 - **Task 18**: Workbench library samples (8 fresh samples; ~2-3 hours; same optionality)
-- **Task 21**: Phase 7 full validation suite + smoke-test a slash command (~1 hour; closes this plan)
+
+Both tasks add narrative-thread coverage but the FS family is functionally complete without them: Brainshelf samples already demonstrate every skill's output across a coherent FS arc, the family validator enforces structural quality, and the user guide + concept doc + workflow + slash commands are all in place.
 
 ### Hand-off readiness for Design Sprint plan
 
-All DS plan prerequisites are now met: `tool-note-and-vote` shipped, `lint-skills-frontmatter` and `validate-agents-md` recognize `classification: tool`, FS family validator exists as a pattern reference, FS family contract exists as a pattern reference, all 7 FS family skills shipped, AGENTS.md tool section in place.
+All 8 DS plan prerequisites verified met by Phase 7 Step 3 prereqs check:
+
+| # | Prereq | Status |
+|---|---|---|
+| 1 | `skills/tool-foundation-sprint-*` (7) + `skills/tool-note-and-vote/` directories | ✓ All 8 present |
+| 2 | `scripts/validate-foundation-sprint-skills-family.{sh,ps1}` | ✓ Both shipped + passing |
+| 3 | `scripts/lint-skills-frontmatter` accepts `classification: tool` | ✓ Lint PASS 48/48 |
+| 4 | `scripts/validate-agents-md` scans `skills/tool-*` | ✓ 48 paths matched |
+| 5 | `docs/reference/skill-families/foundation-sprint-skills-contract.md` | ✓ Shipped `44ad8d7` |
+| 6 | `_registry.yaml` foundation-sprint-skills entry | ✓ Contract + members listed |
+| 7 | `tool-note-and-vote` shipped | ✓ Commit `760d3c2` |
+| 8 | AGENTS.md tool section lists FS family + standalone | ✓ 17 references |
+
+DS plan is unblocked.
 
 ## Prerequisites
 
@@ -640,7 +656,7 @@ git commit -m "docs: AGENTS.md adds tool classification and Foundation Sprint fa
 
 #### Task 21: Run full validation suite
 
-- [ ] **Step 1: Run all validators**
+- [x] **Step 1: Run all validators**
 
 ```bash
 bash scripts/lint-skills-frontmatter.sh
@@ -654,11 +670,11 @@ node scripts/check-frontmatter-yaml.mjs
 
 Expected: all pass.
 
-- [ ] **Step 2: Smoke-test a slash command**
+- [x] **Step 2: Smoke-test a slash command**
 
 Invoke `/tool-foundation-sprint-readiness` in Claude Code with a test context. Confirm it resolves and produces output matching the TEMPLATE structure.
 
-- [ ] **Step 3: Hand off to Design Sprint plan**
+- [x] **Step 3: Hand off to Design Sprint plan**
 
 Confirm all prerequisites for `design-sprint-integration-plan.md` are in place:
 - `skills/tool-foundation-sprint-*` and `skills/tool-note-and-vote/` directories exist
