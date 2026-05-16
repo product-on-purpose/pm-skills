@@ -14,7 +14,7 @@
 
 ## Status
 
-**Plan complete.** 19 of 21 tasks shipped on origin/main as of 2026-05-15, plus Phase 7 integration check passed as a phase-level closure (Task 21 has 3 sub-step checkboxes but Phase 7 is not a "deliverable" task in the same sense as Tasks 1-20). The only remaining tasks are Tasks 17 + 18 (Storevine + Workbench library samples). The contract was amended 2026-05-15 to make 3-thread coverage RECOMMENDED for v0.1.0 and REQUIRED for v1.0.0, so Tasks 17-18 are not a v2.15.0 blocker. The Foundation Sprint family is functionally shippable and validator-confirmed; DS plan can begin executing immediately.
+**Plan COMPLETE.** All 21 tasks shipped on origin/main as of 2026-05-15. Tasks 17 + 18 (Storevine + Workbench library samples) landed in the end-of-session push following the Codex adversarial review cycle. The FS family is functionally complete, validator-confirmed, and exceeds even the v1.0.0 sample-coverage requirement (3 full thread arcs: Brainshelf + Storevine + Workbench = 24 samples across 8 skills, plus 1 AI-era guide section added closing F35). DS plan can begin executing immediately.
 
 ### Where we are (snapshot 2026-05-15)
 
@@ -24,18 +24,13 @@
 | Phase 2: tool-note-and-vote standalone (Task 6) | SHIPPED | `760d3c2` |
 | Phase 3: 7 FS family skills (Tasks 7-13) | SHIPPED | `b3b6b5d`, `8e2bf67`, `b2d5254`, `04b30b5`, `5b5ac4b`, `d4ea045`, `29901fb` |
 | Phase 4: Workflow + commands (Tasks 14-15) | SHIPPED | `9509a80`, `d7a6946` |
-| Phase 5: Library samples (Tasks 16-18) | PARTIAL | `df53cb1` (Brainshelf, Task 16); Storevine (Task 17) + Workbench (Task 18) deferred (optional coverage) |
-| Phase 6: Documentation (Tasks 19, 19a, 20) | SHIPPED | Task 19: `b04ff14` (using-foundation-sprint guide); Task 19a: absorbed by `7096bca` tool-classification refactor (verified clean); Task 20: `519e216` (AGENTS.md tool section) |
+| Phase 5: Library samples (Tasks 16-18) | SHIPPED | `df53cb1` (Brainshelf, Task 16); Storevine + Workbench shipped same-session post-Codex-review (Tasks 17, 18); 24 samples total across 3 threads |
+| Phase 6: Documentation (Tasks 19, 19a, 20) | SHIPPED | Task 19: `b04ff14` (using-foundation-sprint guide) + `4ce10fe` (AI-era section, closes Codex F35); Task 19a: absorbed by `7096bca` tool-classification refactor (verified clean); Task 20: `519e216` (AGENTS.md tool section) |
 | Phase 7: Integration check (Task 21) | SHIPPED | Static smoke-test passed 2026-05-15 (HEAD `7a0f517`); 8 of 9 validators green; 1 pre-existing known broken link to unshipped DS guide (auto-resolves when DS Phase 6 ships) |
 
 ### What's left for the Foundation Sprint track
 
-Outside of post-shipping review, only optional sample coverage remains:
-
-- **Task 17**: Storevine library samples (8 fresh Brainshelf-style samples; ~2-3 hours; matches meeting-skills 3-thread precedent but not a v2.15.0 blocker)
-- **Task 18**: Workbench library samples (8 fresh samples; ~2-3 hours; same optionality)
-
-Both tasks add narrative-thread coverage but the FS family is functionally complete without them: Brainshelf samples already demonstrate every skill's output across a coherent FS arc, the family validator enforces structural quality, and the user guide + concept doc + workflow + slash commands are all in place.
+**Nothing remaining at the plan-task level.** All 21 tasks closed. The FS track ships with v2.15.0 once the broader release pipeline runs: DS plan execution, v2.14.x cleanup Task 2 (CONTEXT.md), pre-tag artifact pass.
 
 ### Hand-off readiness for Design Sprint plan
 
@@ -571,13 +566,13 @@ git commit -m "docs(foundation-sprint-skills): brainshelf Foundation Sprint samp
 
 Follow Task 16 pattern. Storevine context: B2B retail analytics startup running Foundation Sprint to decide between self-serve analytics vs. managed intelligence service direction.
 
-- [ ] Steps 1-4: same lifecycle.
+- [x] Steps 1-4: same lifecycle.
 
 #### Task 18: Author Workbench thread samples (8 samples)
 
 Follow Task 16 pattern. Workbench context: developer tooling team running Foundation Sprint to validate whether to build a distributed-systems debugging product or a general observability platform.
 
-- [ ] Steps 1-4: same lifecycle.
+- [x] Steps 1-4: same lifecycle.
 
 ### Phase 6: Documentation
 
