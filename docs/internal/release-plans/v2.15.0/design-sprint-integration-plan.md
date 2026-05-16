@@ -21,7 +21,7 @@
 | Phase | Status |
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
-| Phase 2: 7 DS family skills | IN PROGRESS (2 of 7 shipped: tool-design-sprint-readiness via Task 4, tool-design-sprint-brief via Task 5; DS family validator now 2/7 enforcing; AGENTS.md at 50 paths) |
+| Phase 2: 7 DS family skills | IN PROGRESS (3 of 7 shipped: readiness, brief, map-and-target; DS family validator now 3/7 enforcing; AGENTS.md at 51 paths) |
 | Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
 | Phase 4: 7 slash commands | NOT STARTED |
 | Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 2 Task 6: author `skills/tool-design-sprint-map-and-target/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Monday's bundled artifact: long-term goal, sprint questions (refined from brief), customer map, HMW clusters, target moment. Timebox 90-120 min per spec. Prerequisites: `tool-design-sprint-brief`. Brainshelf EXAMPLE picks up Monday 2026-05-26 with the brief locked. AGENTS.md update in-commit per the established pattern.
+Phase 2 Task 7: author `skills/tool-design-sprint-sketch/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Tuesday's artifact: lightning demo board, sketch assignment, four-step solution sketches from each team member (Notes 20m + Ideas 20m + Crazy 8s 8m + Solution Sketch 30-90m). Timebox 150-210 min per spec. Prerequisites: `tool-design-sprint-map-and-target`. Structurally distinct: skill structures the activity but individuals produce the sketches in silent independent work. EXAMPLE Brainshelf Tuesday 2026-05-27 with 4 team-member sketches described textually. AGENTS.md update in-commit.
 
 ## Prerequisites
 
@@ -297,7 +297,9 @@ Result (2026-05-15): SKILL.md authored at v0.1.0 with 9 output sections (vs FS b
 
 Follow Task 4 pattern. Spec section "3. design-sprint-map-and-target". `metadata.move: map-and-target`. Prerequisites: `tool-design-sprint-brief`. Monday's bundled artifact: long-term goal, sprint questions, customer map, HMW clusters, target moment.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
+
+Result (2026-05-15): SKILL.md authored at v0.1.0 with 6 output sections (long-term goal, sprint questions, customer or system map, expert interview notes, HMW cluster board, target moment). Timebox 105 min for facilitated sections; Monday workshop time structure section documents the 7-hour day arc and what runs in parallel. Frameworks subset: design-sprint + sprint + character-note-and-vote (uses note-and-vote for HMW heat-map voting and optional target-moment supervote). Roles expand to 7 incl researcher and customer-expert (Monday brings cameo experts). TEMPLATE.md ASCII map skeleton plus HMW cluster table; Decider Checkpoint at line 92 of 103 (89.3%). EXAMPLE.md continues Brainshelf Monday 2026-05-26: 6 sprint questions (4 from brief + 2 added morning), full ASCII customer-system map showing capture-or-not + recall-pain arcs, 3 expert interviews (UX researcher, indie bookstore owner, mobile OCR engineer), 67 HMWs clustered to 6 themes, C1 (capture confirmation) wins heat-map vote, Jamie selects capture-plus-confirmation as target moment over recall-only with explicit rationale tying back to FS assumption A1. In-execution discovery: lint-skills-frontmatter caught a YAML parse error in the description (unquoted colon-space pattern); fixed by rewriting "artifact: long-term goal" to "artifact containing long-term goal" before commit (per feedback_yaml-parse-validity-in-sweeps.md rule). AGENTS.md updated in-commit (51 paths PASS). DS family validator 3/7 enforcing.
 
 #### Task 7: Author tool-design-sprint-sketch
 

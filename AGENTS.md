@@ -326,6 +326,11 @@ Pre-sprint diagnostic that determines whether a team should run a Design Sprint 
 
 Pre-sprint brief that locks challenge, sprint questions, team and role assignments, customer recruiting plan, prototype medium, interview format, logistics, and success criteria before Monday of a Design Sprint. Use after the readiness verdict is Go and before Monday begins. Produces a two-page artifact the team and Decider sign off on as the contract for the next five days.
 
+##### tool-design-sprint-map-and-target
+**Path:** `skills/tool-design-sprint-map-and-target/SKILL.md`
+
+Day 1 (Monday) move of a Design Sprint. Produces the bundled Monday artifact: long-term goal, sprint questions (3-7 testable risks), customer or system map (5-15 step flow), expert interview notes, HMW (How Might We) cluster board, and the Decider's chosen target moment. Use Day 1 morning and afternoon after the sprint brief is locked. Sets the design target for Tuesday's sketches and Wednesday's storyboard.
+
 ---
 
 ## Workflows
