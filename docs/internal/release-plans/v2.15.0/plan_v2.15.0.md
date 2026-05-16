@@ -20,11 +20,11 @@
 
 ### What's next (by priority)
 
-1. **Phase 7 Task 21** of FS plan: full validator suite + smoke test (~1 hour). Closes the FS integration plan entirely.
-2. **DS plan kickoff**: Phase 1 (DS family contract + validator pair) and Phase 3 first skill (`tool-design-sprint-readiness`) (~3-4 hours).
-3. **Phase 5 Tasks 17-18** of FS plan: Storevine + Workbench library samples (optional coverage; ~5-6 hours; can run in parallel with DS work).
-4. **v2.14.x Task 2**: CONTEXT.md refresh after DS family ships.
-5. **Pre-tag artifact pass**: CHANGELOG, version bumps, release notes, tag, GitHub Release.
+1. **Close out Foundation Sprint plan**: run the full validator suite + smoke-test a slash command + hand off to DS plan. This is the final phase of [`foundation-sprint-integration-plan.md`](./foundation-sprint-integration-plan.md) (Phase 7 / Task 21 in that doc). ~1 hour. Closes the FS integration plan entirely.
+2. **Kick off Design Sprint plan**: author `design-sprint-skills-contract.md`, the family validator pair, and the first DS skill (`tool-design-sprint-readiness`). These are Phases 1-2 of [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md). ~3-4 hours per session.
+3. **Optional FS sample coverage**: 16 additional library samples across two narrative threads (Storevine retail-direction, Workbench debugging-toolchain). Phase 5 Tasks 17-18 of [`foundation-sprint-integration-plan.md`](./foundation-sprint-integration-plan.md). ~5-6 hours total; can run in parallel with DS work; brings sample threads to 3-count parity with the meeting-skills precedent.
+4. **CONTEXT.md refresh**: AGENTS/claude/CONTEXT.md per-phase tables refresh to the final v2.15.0 catalog. Sequenced for after DS family ships so the refresh reflects all 55 skills in one pass. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
+5. **Pre-tag artifact pass**: CHANGELOG entry, plugin.json + marketplace.json version bumps, `docs/releases/Release_v2.15.0.md`, skills-manifest.yaml authoring, optional Codex adversarial review, annotated tag, GitHub Release. See [Release-Time Checklist](#release-time-checklist) below for the full list. ~1-2 sessions.
 
 ### Estimated remaining
 
