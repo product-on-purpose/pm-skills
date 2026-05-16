@@ -14,14 +14,14 @@
 
 ## Status
 
-**Phase 1 COMPLETE. Phase 2 ready to execute.** All prerequisites met as of 2026-05-15. 3 of 20 tasks shipped (Phase 1: contract + validator pair + registry). 17 tasks across 6 remaining phases pending.
+**Phases 1 + 2 COMPLETE. Phase 3 ready to execute.** All prerequisites met as of 2026-05-15. 10 of 20 tasks shipped (Phase 1 contract+validators+registry + Phase 2 all 7 DS family skills). 10 tasks across 5 remaining phases pending (workflows, commands, library samples, docs, integration).
 
 ### Where we are (snapshot 2026-05-15 evening)
 
 | Phase | Status |
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
-| Phase 2: 7 DS family skills | IN PROGRESS (6 of 7 shipped: readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan; DS family validator now 6/7 enforcing; AGENTS.md at 54 paths) |
+| Phase 2: 7 DS family skills | COMPLETE (7 of 7 shipped: readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan, test-and-score; DS family validator 7/7 enforcing with --strict PASS; AGENTS.md at 55 paths; full Brainshelf 7-skill arc demonstrates end-to-end coherence) |
 | Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
 | Phase 4: 7 slash commands | NOT STARTED |
 | Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 2 Task 10: author `skills/tool-design-sprint-test-and-score/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Friday's sprint-closing artifact: per-customer observation notes, scorecard grid (sprint questions x customers with Y/N + notes), observed patterns, hot takes per team member, Decider summary (build/iterate/stop/reframe + highest-confidence learning + most important revision + next artifact). Timebox 240-300 min (5 interviews of 30-45 min plus 60-90 min synthesis). Prerequisites: `tool-design-sprint-prototype-plan`. This skill closes Phase 2 (7 of 7 DS family skills shipped). EXAMPLE Brainshelf Friday 2026-05-30 with 5 customer interviews, scorecard for Q1-Q6, Jamie's build/iterate/pivot-to-Red-Bookstore-Mode/stop call by 16:30 PT. AGENTS.md update in-commit. DS family validator will then PASS 7/7 enforcing including --strict mode.
+Phase 3 Task 11: author `_workflows/design-sprint.md` (the 5-day DS workflow chaining readiness through test-and-score). Then Task 12: `_workflows/foundation-to-design.md` (FS-to-DS end-to-end workflow including the narrative-only handoff that replaces the dropped bridge skill). Phase 3 ~0.5 session. Then Phase 4 (7 slash commands; quick). Then Phase 5 (21 library samples; the biggest remaining lift; 2-3 sessions). Then Phase 6 (using-design-sprint guide ~1500-2000 words including FS-to-DS handoff section + concept doc verification; ~1 session). Then Phase 7 (full validation suite + smoke tests). Total remaining: ~6-8 sessions to v2.15.0 ship.
 
 ## Prerequisites
 
@@ -329,7 +329,9 @@ Result (2026-05-15): SKILL.md authored at v0.1.0 with 5 output sections (prototy
 
 Follow Task 4 pattern. Spec section "7. design-sprint-test-and-score". `metadata.move: test-and-score`. Prerequisites: `tool-design-sprint-prototype-plan`. Friday's artifact: interview observations, scorecard grid, decisions, hot takes, next-step memo. Sprint-closing artifact.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
+
+Result (2026-05-15): SKILL.md authored at v0.1.0 with 6 output sections (per-customer interview observation notes, best quotes, scorecard grid, observed patterns in 4 buckets, hot takes per team member, Decider summary). Timebox 270 min for synthesis sections; interview time runs in parallel. Friday Time Structure section documents the day arc. Scorecard mechanic section documents the day-end decision rules (Validated/Invalidated/Inconclusive per N-of-5 thresholds). Frameworks subset: design-sprint + sprint (no note-and-vote; Friday has no voting). Honors Ratified Decision 3 (5 customers canonical; warn 3-4 or 6-7; reject below 3 or above 7) and Ratified Decision 4 (exec memo delegated to foundation-stakeholder-update; this skill produces Decider summary only). TEMPLATE.md is the largest in the family (5 customer observation sections + 6+ scorecard rows + 4 observed-pattern buckets + per-team-member hot takes + Decider summary). Decider Checkpoint at line 124 of 137 (90.5%). EXAMPLE.md continues Brainshelf Friday 2026-05-30 with all 5 customer interviews (4 from primary roster + Discord-4 from buffer), 6-row scorecard with Q1 validated 4-of-5 / Q3 pricing validated above USD 4 / Q5 capture-to-library understanding validated 5-of-5, 10 best quotes, observed patterns including the unexpected 3-of-5 unprompted notes ask, hot takes from all 4 team members showing distinct reads on the same evidence, Jamie's Decider call (Build with notes added to v0.1 scope; 6-week MVP becomes 7-8 weeks; PRD via deliver-prd by 2026-06-06). **DS family validator now PASSES 7 of 7 enforcing; --strict mode PASSES exit 0 (release-time CI gate passes).** Phase 2 complete.
 
 ### Phase 3: Workflows
 
