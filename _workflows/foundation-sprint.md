@@ -259,7 +259,7 @@ Team continuity considerations: the Foundation Sprint team typically expands for
 
 Timing: run the Design Sprint within 1 to 2 weeks of Foundation Sprint so the strategic context is fresh. Longer gaps invite re-litigation of the Founding Hypothesis.
 
-For the full end-to-end arc, the `foundation-to-design.md` workflow ships with the Design Sprint plan; until then, this handoff section + the user guide are authoritative.
+For the full end-to-end arc, see [`foundation-to-design`](foundation-to-design.md), which chains Foundation Sprint and Design Sprint with the canonical narrative handoff conversation and slot-mapping table.
 
 ---
 
@@ -294,5 +294,5 @@ See also [`docs/concepts/foundation-sprint.md`](../docs/concepts/foundation-spri
 
 - [Customer Discovery](customer-discovery.md): upstream of Foundation Sprint when the team needs problem framing or customer research first.
 - [Feature Kickoff](feature-kickoff.md): downstream when the Founding Hypothesis is confirmed and the team is moving to delivery.
-- `foundation-to-design`: end-to-end arc when both Foundation Sprint and Design Sprint run back-to-back. Ships with the Design Sprint plan (`design-sprint-integration-plan.md`); not yet authored.
+- [`foundation-to-design`](foundation-to-design.md): end-to-end arc when both Foundation Sprint and Design Sprint run back-to-back; includes the narrative handoff conversation that replaces the dropped bridge skill.
 - [Product Strategy](product-strategy.md): broader strategic context if the team is also re-evaluating the whole product direction.

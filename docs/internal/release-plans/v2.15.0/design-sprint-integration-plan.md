@@ -14,7 +14,7 @@
 
 ## Status
 
-**Phases 1 + 2 COMPLETE. Phase 3 ready to execute.** All prerequisites met as of 2026-05-15. 10 of 21 tasks shipped (Phase 1 contract+validators+registry + Phase 2 all 7 DS family skills). 11 tasks across 5 remaining phases pending (workflows, commands, library samples, docs incl Task 17a concept-doc refresh, integration).
+**Phases 1 + 2 + 3 COMPLETE. Phase 4 ready to execute.** All prerequisites met as of 2026-05-15. 12 of 21 tasks shipped (Phase 1 contract+validators+registry + Phase 2 all 7 DS family skills + Phase 3 both workflows). 9 tasks across 4 remaining phases pending (commands, library samples, docs incl Task 17a concept-doc refresh, integration).
 
 ### Where we are (snapshot 2026-05-15 evening)
 
@@ -22,7 +22,7 @@
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
 | Phase 2: 7 DS family skills | COMPLETE (7 of 7 shipped: readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan, test-and-score; DS family validator 7/7 enforcing with --strict PASS; AGENTS.md at 55 paths; full Brainshelf 7-skill arc demonstrates end-to-end coherence) |
-| Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
+| Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | COMPLETE (Tasks 11 + 12 shipped; both workflow docs live; FS workflow forward-references updated to live links; AGENTS.md DS Family section workflow-pending labels removed) |
 | Phase 4: 7 slash commands | NOT STARTED |
 | Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
 | Phase 6: Documentation (using-design-sprint guide + concept doc verification + AGENTS.md DS section) | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 3 Task 11: author `_workflows/design-sprint.md` (the 5-day DS workflow chaining readiness through test-and-score). Then Task 12: `_workflows/foundation-to-design.md` (FS-to-DS end-to-end workflow including the narrative-only handoff that replaces the dropped bridge skill). Phase 3 ~0.5 session. Then Phase 4 (7 slash commands; quick). Then Phase 5 (21 library samples; the biggest remaining lift; 2-3 sessions). Then Phase 6 (using-design-sprint guide ~1500-2000 words including FS-to-DS handoff section + concept doc verification; ~1 session). Then Phase 7 (full validation suite + smoke tests). Total remaining: ~6-8 sessions to v2.15.0 ship.
+Phase 4 Task 13: author 7 slash commands in `commands/tool-design-sprint-*.md`. Pattern from existing FS commands (`commands/tool-foundation-sprint-*.md`). Quick work; estimated ~0.5 session. Then Phase 5 (21 library samples; biggest remaining lift; 2-3 sessions). Then Phase 6 (using-design-sprint guide ~1500-2000 words including FS-to-DS handoff section + concept doc verification + AGENTS.md any final tweaks; ~1 session). Then Phase 7 (full validation suite + smoke tests). Total remaining: ~5-7 sessions to v2.15.0 ship.
 
 ## Prerequisites
 
@@ -340,11 +340,13 @@ Result (2026-05-15): SKILL.md authored at v0.1.0 with 6 output sections (per-cus
 **Files:**
 - Create: `_workflows/design-sprint.md`
 
-- [ ] **Step 1: Author workflow doc**
+- [x] **Step 1: Author workflow doc**
 
 Use spec section "Workflows: design-sprint". Document: prep phase (`tool-design-sprint-readiness`, `tool-design-sprint-brief`), Monday (`tool-design-sprint-map-and-target`), Tuesday (`tool-design-sprint-sketch`), Wednesday (`tool-design-sprint-decide-and-storyboard`), Thursday (`tool-design-sprint-prototype-plan` + craft build), Friday (`tool-design-sprint-test-and-score`). Include next-workflow handoffs to pm-skills downstream (deliver-prd, measure-experiment-design, iterate-pivot-decision) or follow-up sprints.
 
-- [ ] **Step 2: Commit**
+Result (2026-05-16): `_workflows/design-sprint.md` authored mirroring FS workflow structure. Metadata table, ASCII overview + mermaid diagram, When-to-Use + When-NOT, 8-step Core Sequence (readiness + brief + Mon map-and-target + Tue sketch + Wed decide-and-storyboard + Thu morning prototype-plan + Thu craft build + Fri test-and-score), Other Next Steps table mapping Decider call to downstream skill (build to deliver-prd; iterate to measure-experiment-design; pivot to iterate-pivot-decision; stop to iterate-lessons-log; stakeholder comms to foundation-stakeholder-update), canonical sources, related workflows.
+
+- [x] **Step 2: Commit**
 
 ```bash
 git add _workflows/design-sprint.md
@@ -356,7 +358,7 @@ git commit -m "feat(design-sprint-skills): add design-sprint workflow"
 **Files:**
 - Create: `_workflows/foundation-to-design.md`
 
-- [ ] **Step 1: Author workflow doc**
+- [x] **Step 1: Author workflow doc**
 
 End-to-end arc: invoke `foundation-sprint` workflow, then a narrative transition section (no bridge skill artifact), then `design-sprint` workflow. Total canonical duration: 7-8 days (2 FS + 5 DS + 1 prep day; the FS-to-DS handoff is described as a brief planning conversation rather than a workshop step).
 
@@ -368,7 +370,9 @@ The transition section is the load-bearing replacement for the dropped bridge sk
 
 This is documentation, not a skill invocation. Users read it, apply it, and move into `tool-design-sprint-readiness` with the FS outputs as context inputs.
 
-- [ ] **Step 2: Commit**
+Result (2026-05-16): `_workflows/foundation-to-design.md` authored as the canonical end-to-end arc. Metadata table, ASCII overview + mermaid diagram showing 2-3 calendar-week spread, When-to-Use + When-NOT, Part 1 (Foundation Sprint outputs that become DS inputs - 11 items enumerated), Part 2 (Narrative Handoff: 5-step conversation structure + 12-row slot mapping table covering all FS outputs to DS inputs + 3-question go/no-go checkpoint), Part 3 (Design Sprint with notes on what changes between standalone DS and FS-to-DS for each step), canonical sources, related workflows. Closes the bridge-skill replacement narrative load-bearing for v2.15.0 ship. Two existing forward-references in `_workflows/foundation-sprint.md` (transition section + related workflows) updated to live links.
+
+- [x] **Step 2: Commit**
 
 ```bash
 git add _workflows/foundation-to-design.md
