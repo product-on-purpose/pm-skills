@@ -188,6 +188,45 @@ flowchart LR
 
 **Other next steps that are not a Design Sprint:** the Founding Hypothesis's recommended next test is not always a prototype. Sometimes the right answer is more customer research (via `discover-interview-synthesis`), a focused experiment (via `measure-experiment-design`), a concierge MVP, or skipping straight to feature kickoff if the hypothesis is already well-validated.
 
+## Working with AI during a Foundation Sprint
+
+The pm-skills implementation makes AI a first-class participant in the sprint, but the canonical Knapp/Zeratsky principle still holds: **the Decider decides, the team contributes, the AI prepares**. Use AI to accelerate the work AI is good at (drafting, synthesizing, generating alternatives, summarizing) and keep humans in charge of the work humans must own (customer empathy, business judgment, the supervote).
+
+### Where AI helps
+
+| Sprint moment | AI usage pattern | Why it works |
+|---|---|---|
+| Pre-sprint prep | Draft the brief from a paragraph of context (`/tool-foundation-sprint-brief @notes.md`) | Removes the "blank page" friction; the team edits a draft instead of starting cold |
+| Day 1 AM Basics | Generate competitor map and "do nothing" alternatives | AI sweeps faster than the team can recall; humans curate |
+| Day 1 PM Differentiation | Draft Mini Manifesto from the scored 2x2 + principles | First-draft language is faster to react to than to compose |
+| Day 2 AM Approach Options | Generate the 3rd-7th candidate approaches when the team is anchored on 1-2 | Anti-anchoring discipline gets easier with a generative collaborator |
+| Day 2 PM Magic Lenses | Draft scores across the 4 classic lenses; humans curate + supply the custom lens | AI handles the symmetric scoring grunt work; custom lens is irreducibly human |
+| Day 2 end Founding Hypothesis | Draft hypothesis language fitting the strict canonical template | The strict template constrains output enough that AI drafts are easy to evaluate |
+| Throughout | Capture meeting notes during note-and-vote and decision moments | Reduces facilitator load |
+
+### Where AI does NOT help (or hurts)
+
+| Sprint moment | Why AI fails here |
+|---|---|
+| Decider supervote | The point of the Decider role is single-human accountability; AI input dilutes ownership and erodes team buy-in |
+| Customer empathy claims | AI can summarize prior research; it cannot manufacture customer knowledge. If the team's input is "we think customers want X," AI generates more confident-sounding versions of the same guess. Use customer evidence, not AI hallucinations |
+| Team advantage assessment | "Why us, why now" requires honest self-assessment that AI cannot perform. AI will rationalize whatever advantage the team proposes |
+| Final Founding Hypothesis sign-off | The hypothesis is the team's commitment, not a prediction. Treat the AI-drafted version as a candidate, then the Decider says the final words |
+| Picking between approaches when scores tie | AI score tie-breaking is fake confidence. Force the Decider to choose, then live with the choice |
+
+### Specific prompt patterns
+
+When the team is using Claude Code with pm-skills loaded, a few patterns produce consistently better results:
+
+1. **Pass the prior artifact explicitly**: `/tool-foundation-sprint-differentiation @basics-output.md`. Skills auto-discover related artifacts but the explicit pass is faster and avoids ambiguity when multiple Basics artifacts exist.
+2. **Tell the skill what's missing**: "Decider unavailable Day 2 AM; will sign at Day 2 end" surfaces it as inference and the Decider Checkpoint flags the gap rather than silently passing.
+3. **Re-run when the Founding Hypothesis is vague**: the strictness check is the point; re-run with sharper inputs rather than accepting the vague draft.
+4. **Use `/tool-note-and-vote` for any moment the team would otherwise spend 60+ minutes debating**: 20-30 minutes silent ideation + voting + Decider supervote is dramatically faster than open discussion.
+
+### The "AI co-facilitator" pattern
+
+A working pattern from early Foundation Sprint pilots: one human facilitator, one AI scribe-plus-drafter. The facilitator manages time, attention, and group dynamics; the AI captures notes, drafts artifacts, and offers alternative framings on request. The Decider, PM, and design participants stay focused on judgment work. This is the model the pm-skills toolkit is designed around.
+
 ## Common pitfalls
 
 1. **Running without a Decider.** The sprint produces an unowned hypothesis that re-litigates as soon as anyone disagrees with next steps. Re-run readiness; do not start the sprint until a Decider is named.
