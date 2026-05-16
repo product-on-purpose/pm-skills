@@ -336,6 +336,11 @@ Day 1 (Monday) move of a Design Sprint. Produces the bundled Monday artifact: lo
 
 Day 2 (Tuesday) move of a Design Sprint that structures lightning demos and the four-step independent solution sketch protocol (Notes, Ideas, Crazy 8s, Solution Sketch). Each team member produces one solution sketch individually; the skill orchestrates the day but does not author the sketches themselves. Use Tuesday morning after Monday's target moment is locked.
 
+##### tool-design-sprint-decide-and-storyboard
+**Path:** `skills/tool-design-sprint-decide-and-storyboard/SKILL.md`
+
+Day 3 (Wednesday) move of a Design Sprint that runs the art museum layout, heat map, speed critique, straw poll, Decider supervote, rumble-vs-all-in-one decision, and the storyboard that drives Thursday's prototype build. The most decision-heavy day of the sprint. Use Wednesday morning and afternoon after Tuesday's sketches are collected and attribution-stripped.
+
 ---
 
 ## Workflows

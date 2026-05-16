@@ -21,7 +21,7 @@
 | Phase | Status |
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
-| Phase 2: 7 DS family skills | IN PROGRESS (4 of 7 shipped: readiness, brief, map-and-target, sketch; DS family validator now 4/7 enforcing; AGENTS.md at 52 paths) |
+| Phase 2: 7 DS family skills | IN PROGRESS (5 of 7 shipped: readiness, brief, map-and-target, sketch, decide-and-storyboard; DS family validator now 5/7 enforcing; AGENTS.md at 53 paths) |
 | Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
 | Phase 4: 7 slash commands | NOT STARTED |
 | Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 2 Task 8: author `skills/tool-design-sprint-decide-and-storyboard/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Wednesday's artifact: heat map, critique notes, supervote, storyboard. Most decision-heavy day; uses note-and-vote for the heat-map. Timebox 180-240 min per spec. Prerequisites: `tool-design-sprint-sketch`. EXAMPLE Brainshelf Wednesday 2026-05-28 with team voting on Sketch A/B/C/D (blind), Jamie supervote, and 3-step storyboard. AGENTS.md update in-commit.
+Phase 2 Task 9: author `skills/tool-design-sprint-prototype-plan/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Thursday's artifact: role plan, interview script (Five-Act canonical), trial-run checklist, participant schedule. Timebox 60-120 min per spec. Prerequisites: `tool-design-sprint-decide-and-storyboard`. Planning only; prototype build is craft activity outside the skill's AI invocation surface (Ratified Decision 1). EXAMPLE Brainshelf Thursday 2026-05-29 with Alex+Sam paired on Figma build while Riley owns interview script preparation. AGENTS.md update in-commit.
 
 ## Prerequisites
 
@@ -313,7 +313,9 @@ Result (2026-05-15): SKILL.md authored at v0.1.0 with 4 output sections (lightni
 
 Follow Task 4 pattern. Spec section "5. design-sprint-decide-and-storyboard". `metadata.move: decide-and-storyboard`. Prerequisites: `tool-design-sprint-sketch`. Wednesday's artifact: heat map, critique, supervote, storyboard. Most decision-heavy day.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
+
+Result (2026-05-15): SKILL.md authored at v0.1.0 with 7 output sections (art museum layout, heat map, speed critique notes, straw poll results, supervote, rumble-vs-all-in-one decision, storyboard). Timebox 210 min. Wednesday Time Structure section documents the 7-hour day arc with morning decision-heavy (heat map through supervote) and afternoon storyboard build. Frameworks subset: design-sprint + sprint + character-note-and-vote (note-and-vote invoked twice: heat-map and straw poll; supervote is Decider's direct call). TEMPLATE.md 9-table storyboard with What sees / What does / System response / Notes-for-builders columns. Decider Checkpoint at line 109 of 119 (91.6%). EXAMPLE.md continues Brainshelf Wednesday 2026-05-28: 4 sketches dot-mapped (A=4, B=4, C=1, D=3 of 12 total dots), 4 speed critiques with explicit "what would worry me" lists, straw poll Jamie+Sam picked B / Alex picked D / Riley picked A, Jamie supervotes Sketch B all-in-one with reasoning tied to Q1 lead question, 9-panel storyboard from "tap Brainshelf icon" through "recall a passage months later"; open questions for builders are visual polish only (interaction logic storyboard-locked). DS family validator 5/7 enforcing.
 
 #### Task 9: Author tool-design-sprint-prototype-plan
 
