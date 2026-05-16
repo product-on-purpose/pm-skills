@@ -243,6 +243,11 @@ How Foundation Sprint outputs feed Design Sprint inputs:
 |---|---|
 | Target customer | Customer recruiting profile (Design Sprint brief) |
 | Important problem framing | Day 1 long-term goal context |
+| Team advantage | Day 1 expert interview prioritization + framing of "why us, why now" |
+| Competitors and alternatives | Day 1 long-term goal context + Day 4 prototype differentiation framing |
+| Differentiators | Day 1 Map and Target + Day 3 storyboard moments of differentiation |
+| Mini Manifesto | Day 1 sanity-check during Map and Target; Day 3 storyboard alignment check |
+| Decision principles | Day 2 Decide voting criteria + Day 3 storyboard guardrails |
 | Top bet (approach) | Prototype direction (Day 3 storyboard) |
 | Assumption scorecard | Sprint questions (Day 1 Map and Target) |
 | Highest-risk assumption | Primary scorecard row (Day 5 Test and Score) |
@@ -254,7 +259,7 @@ Team continuity considerations: the Foundation Sprint team typically expands for
 
 Timing: run the Design Sprint within 1 to 2 weeks of Foundation Sprint so the strategic context is fresh. Longer gaps invite re-litigation of the Founding Hypothesis.
 
-For the full end-to-end arc, see [`foundation-to-design.md`](foundation-to-design.md) (Design Sprint plan).
+For the full end-to-end arc, the `foundation-to-design.md` workflow ships with the Design Sprint plan; until then, this handoff section + the user guide are authoritative.
 
 ---
 
@@ -289,5 +294,5 @@ See also [`docs/concepts/foundation-sprint.md`](../docs/concepts/foundation-spri
 
 - [Customer Discovery](customer-discovery.md): upstream of Foundation Sprint when the team needs problem framing or customer research first.
 - [Feature Kickoff](feature-kickoff.md): downstream when the Founding Hypothesis is confirmed and the team is moving to delivery.
-- [`foundation-to-design`](foundation-to-design.md): end-to-end arc when both Foundation Sprint and Design Sprint run back-to-back.
+- `foundation-to-design`: end-to-end arc when both Foundation Sprint and Design Sprint run back-to-back. Ships with the Design Sprint plan (`design-sprint-integration-plan.md`); not yet authored.
 - [Product Strategy](product-strategy.md): broader strategic context if the team is also re-evaluating the whole product direction.

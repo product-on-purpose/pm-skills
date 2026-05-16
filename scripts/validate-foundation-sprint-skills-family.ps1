@@ -11,6 +11,10 @@
 # validator exits 0 with notices. Once any family skill is authored, the
 # contract doc and per-skill checks are enforced.
 
+param(
+    [switch]$Strict
+)
+
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
@@ -101,7 +105,18 @@ if ($AuthoredCount -eq 0) {
     exit 0
 }
 
-Write-Host "[INFO] foundation-sprint-skills-family : $AuthoredCount of $($FamilySkills.Count) family skills present; enforcing checks."
+# Partial-state detection (between scaffolding and complete)
+$TotalCount = $FamilySkills.Count
+if ($AuthoredCount -lt $TotalCount) {
+    if ($Strict) {
+        Write-Host "[FAIL] foundation-sprint-skills-family : $AuthoredCount of $TotalCount family skills authored. Strict mode requires all $TotalCount to ship."
+        $Fail = 1
+    } else {
+        Write-Host "[WARN] foundation-sprint-skills-family : $AuthoredCount of $TotalCount family skills authored. Family is incomplete. Pass -Strict to fail on partial state (recommended for release-time validation)."
+    }
+}
+
+Write-Host "[INFO] foundation-sprint-skills-family : $AuthoredCount of $TotalCount family skills present; enforcing checks."
 
 # --- Check 1: Contract doc exists ---
 if (-not (Test-Path $ContractFile)) {

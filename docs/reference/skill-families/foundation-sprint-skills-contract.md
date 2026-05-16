@@ -83,7 +83,7 @@ metadata:
   tool: foundation-sprint
   move: <kebab-case move identifier; see "The 7 skills at a glance" table>
   category: <see docs/reference/categories.md>
-  frameworks: [foundation-sprint, click, character-note-and-vote]
+  frameworks: <subset of [foundation-sprint, click, character-note-and-vote]; foundation-sprint REQUIRED; click present when the skill draws on Click book content; character-note-and-vote present when the skill body uses the note-and-vote mechanic>
   timebox_minutes: <integer; per spec timebox>
   roles: <array of: facilitator, decider, pm, design, engineering, researcher, customer-expert, whole-team>
   prerequisites: <array of skill names; optional; semantics defined below>
@@ -160,7 +160,7 @@ SKILL.md must reference the Decider Checkpoint at appropriate decision points in
 
 ## Library sample requirements
 
-Each family-member skill MUST ship 3 library samples in `library/skill-output-samples/tool-foundation-sprint-{move}/`, one per canonical thread:
+Each family-member skill ships library samples in `library/skill-output-samples/tool-foundation-sprint-{move}/` following the canonical 3-thread structure:
 
 | Thread | Scenario | Sample filename |
 |---|---|---|
@@ -168,7 +168,12 @@ Each family-member skill MUST ship 3 library samples in `library/skill-output-sa
 | Storevine | `retail-direction` | `sample_tool-foundation-sprint-{move}_storevine_retail-direction.md` |
 | Workbench | `debugging-toolchain` | `sample_tool-foundation-sprint-{move}_workbench_debugging-toolchain.md` |
 
-Library samples MUST tell a coherent story across the 7-skill arc for each thread. The Brainshelf basics sample's customer becomes the Brainshelf differentiation sample's input; that differentiation becomes the Brainshelf magic-lenses input; and so on through the Founding Hypothesis. The same is true for Storevine and Workbench.
+**Coverage requirements by contract version:**
+
+- **v0.1.0 (current; v2.15.0 ship target):** Brainshelf thread REQUIRED for all 7 family members. Storevine and Workbench threads RECOMMENDED. This matches the v2.11.0 meeting-skills-family precedent where the 3-thread arc was introduced incrementally; "functionally shippable" means the canonical Brainshelf arc exists end-to-end.
+- **v1.0.0 (future):** All 3 threads REQUIRED for all family members. Promote when both Storevine and Workbench arcs are authored and the family validator can enforce the 3-thread check.
+
+When a sample is authored, it MUST tell a coherent story across the 7-skill arc for its thread. The Brainshelf basics sample's customer becomes the Brainshelf differentiation sample's input; that differentiation becomes the Brainshelf magic-lenses input; and so on through the Founding Hypothesis. The same is true for Storevine and Workbench when those threads are completed.
 
 ---
 
@@ -201,7 +206,12 @@ Validator behavior changes that affect ship-readiness are major-bumps.
 | `scripts/lint-skills-frontmatter.sh` and `.ps1` | Universal frontmatter checks (classification, version, license, etc.) |
 | `scripts/validate-agents-md.sh` and `.ps1` | AGENTS.md sync (enumerates `skills/tool-*` directories automatically) |
 
-The family validator enforces 6 checks per family member once any skill is authored:
+The family validator enforces these checks once any skill is authored:
+
+**Family-level (1 check):**
+0. Canonical contract document (this file) exists at `docs/reference/skill-families/foundation-sprint-skills-contract.md`
+
+**Per family member (6 checks):**
 1. Directory contains SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md
 2. SKILL.md classification is `tool`
 3. SKILL.md `metadata.tool` is `foundation-sprint`
@@ -210,6 +220,8 @@ The family validator enforces 6 checks per family member once any skill is autho
 6. TEMPLATE.md contains a `Decider Checkpoint` section in the last 25% of the file
 
 In scaffolding state (zero family skills authored), the validator exits 0 with notices. This permits the family contract to land before the first skill ships, mirroring the meeting-skills precedent.
+
+**Validator coverage gap (v0.1.0):** the contract specifies additional clauses that the v0.1.0 validator does not enforce: full root-field and metadata-field shape checks (F1/F2 from the 2026-05-15 adversarial review), library-sample 3-thread coverage (F4; gated on the v0.1.0 -> v1.0.0 promotion), and prerequisite-fallback content shape (F6/F15). The universal `lint-skills-frontmatter` provides the floor for root-field shape; the gap is documented and scheduled for v2.16 validator expansion.
 
 ---
 

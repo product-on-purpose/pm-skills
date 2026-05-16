@@ -18,6 +18,8 @@ metadata:
     - decider
     - pm
   prerequisites:
+    - tool-foundation-sprint-basics
+    - tool-foundation-sprint-differentiation
     - tool-foundation-sprint-magic-lenses
   inputs:
     - basics bundled artifact

@@ -14,6 +14,14 @@
 
 set -euo pipefail
 
+# Flags
+STRICT=0
+for arg in "$@"; do
+  case "$arg" in
+    --strict) STRICT=1 ;;
+  esac
+done
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FAIL=0
 
@@ -64,7 +72,18 @@ if [[ $authored_count -eq 0 ]]; then
   exit 0
 fi
 
-echo "[INFO] foundation-sprint-skills-family : $authored_count of ${#FAMILY_SKILLS[@]} family skills present; enforcing checks."
+# Partial-state detection (between scaffolding and complete)
+total_count=${#FAMILY_SKILLS[@]}
+if [[ $authored_count -lt $total_count ]]; then
+  if [[ $STRICT -eq 1 ]]; then
+    echo "[FAIL] foundation-sprint-skills-family : $authored_count of $total_count family skills authored. Strict mode requires all $total_count to ship."
+    FAIL=1
+  else
+    echo "[WARN] foundation-sprint-skills-family : $authored_count of $total_count family skills authored. Family is incomplete. Pass --strict to fail on partial state (recommended for release-time validation)."
+  fi
+fi
+
+echo "[INFO] foundation-sprint-skills-family : $authored_count of $total_count family skills present; enforcing checks."
 
 # --- Check 1: Contract doc exists at canonical path ---
 if [[ ! -f "$CONTRACT_FILE" ]]; then

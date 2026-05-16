@@ -15,10 +15,12 @@ metadata:
   timebox_minutes: 75
   roles:
     - facilitator
+    - decider
     - pm
     - design
     - engineering
   prerequisites:
+    - tool-foundation-sprint-basics
     - tool-foundation-sprint-differentiation
   inputs:
     - basics bundled artifact

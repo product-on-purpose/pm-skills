@@ -21,6 +21,7 @@ These items were explicitly deferred to v2.16+ during the v2.14.x cycle close-ou
 **Estimated effort:** 1 to 2 sessions. Depends on tag taxonomy decisions (which tags are user-visible vs. internal-only).
 
 **Open questions:**
+
 - Tag taxonomy: derive from existing frontmatter or curate a smaller user-visible set?
 - Tag landing page layout: list of pages, grouped by section, or auto-generated index?
 
@@ -51,6 +52,7 @@ These items were explicitly deferred to v2.16+ during the v2.14.x cycle close-ou
 **Dependabot closure bonus:** This upgrade also closes the 2 Dependabot alerts that v2.15.0's Task 3 left deferred: alert #10 (Astro: XSS in `define:vars` via incomplete `</script>` tag sanitization; patch 6.1.6) and alert #16 (Astro: server-island encrypted parameters vulnerable to cross-component replay; patch 6.1.10). Note: alert #15 was a package.json-manifest duplicate of #16 and was auto-deduped by Dependabot when the v2.15.0 Task 3 lock file landed. Net Dependabot alert count after this upgrade lands: 0.
 
 **Open questions:**
+
 - Plain Node 22.12+ jump or commit to Node 24 LTS?
 - Does astro-mermaid 2.0.1 support Astro 6, or does it require its own upgrade?
 - Do the existing custom CSS classes survive Astro 6's default styles?
@@ -107,4 +109,4 @@ Promote this stub to a full v2.16.0 plan when:
 2. A theme decision is recorded (Astro 6 backbone vs. feature-only release vs. mixed)
 3. Per-item open questions above have proposed answers (even if not yet ratified)
 
-Until then, this file is a holding pen for in-flight scope conversations.
+fUntil then, this file is a holding pen for in-flight scope conversations.

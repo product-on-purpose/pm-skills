@@ -10,9 +10,9 @@
 
 ## Where We Are (snapshot 2026-05-15, HEAD `7a0f517`)
 
-**Foundation Sprint track**: 20 of 21 plan tasks shipped + Phase 7 integration check passed. Family is functionally complete, validator-confirmed, and DS plan can begin immediately. Only optional sample coverage (Tasks 17-18 for Storevine + Workbench threads) remains.
+**Foundation Sprint track**: 19 of 21 plan tasks shipped + Phase 7 integration check passed (Phase 7 was a phase-level closure, not a discrete task). Family is functionally complete, validator-confirmed, and DS plan can begin immediately. Only optional sample coverage (Tasks 17-18 for Storevine + Workbench threads) remains; contract amended 2026-05-15 to make 3-thread coverage RECOMMENDED for v0.1.0, REQUIRED for v1.0.0.
 
-**Design Sprint track**: Not started; unblocked. All 8 prerequisites verified met by FS Phase 7 hand-off check. 20 tasks across 7 phases pending.
+**Design Sprint track**: Not started; unblocked. All 8 prerequisites verified met by FS Phase 7 hand-off check. 21 tasks across 7 phases pending.
 
 **v2.14.x cleanup track**: 2 of 3 tasks done. Task 1 (Node 22 bump on 3 workflows) shipped `0d9af62`; Task 3 (Dependabot bump - added mid-cycle) shipped `7a099b4`, closed 15 of 17 alerts. Task 2 (AGENTS/claude/CONTEXT.md per-phase tables refresh) sequenced for post-DS-ship.
 
@@ -66,7 +66,7 @@ This master plan orchestrates four sub-plans. Each sub-plan owns its own task li
 | Sub-plan | Path | Scope | Tasks | Effort |
 |---|---|---|---|---|
 | **Foundation Sprint Integration Plan** | [`foundation-sprint-integration-plan.md`](./foundation-sprint-integration-plan.md) | 7 FS skills + tool-note-and-vote standalone skill + lint validator extension + family validator pair + foundation-sprint-skills contract + workflow + commands + 24 samples + guide + concept doc + AGENTS.md | 21 (7 phases) | 8-10 sessions |
-| **Design Sprint Integration Plan** | [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md) | 7 DS skills + 2 workflows + design-sprint-skills contract + design-sprint family validator pair + commands + 21 samples + guide + concept doc + AGENTS.md + version bump + CHANGELOG | 17 (7 phases) | 8-10 sessions |
+| **Design Sprint Integration Plan** | [`design-sprint-integration-plan.md`](./design-sprint-integration-plan.md) | 7 DS skills + 2 workflows + design-sprint-skills contract + design-sprint family validator pair + commands + 21 samples + guide + concept doc + AGENTS.md + version bump + CHANGELOG | 21 (7 phases) | 8-10 sessions |
 | **v2.14.x Deferrals Cleanup Plan** | [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md) | Node 22 bump on 3 workflows + AGENTS/claude/CONTEXT.md skills-inventory refresh | 2 (2 phases) | ~2 hours |
 | **Pre-Execution Review** | [`pre-execution-review.md`](./pre-execution-review.md) | 6-axis review of plans and specs; findings doc + 2026-05-13 amendment for tool-classification refactor | n/a (review artifact) | done |
 
@@ -157,7 +157,7 @@ Three thread continuations (Brainshelf book-catalog, Storevine retail-direction,
 
 ### AGENTS.md updates
 
-Sprint-skills section added with all 16 members and brief descriptions.
+Sprint-skills section added with all 15 members (7 FS + 7 DS + tool-note-and-vote standalone) and brief descriptions.
 
 ### v2.14.x cleanup (2 items bundled)
 
@@ -196,7 +196,7 @@ Author and complete at the end of execution, before tagging v2.15.0:
 - [ ] `docs/index.mdx` Recent Releases section updated
 - [ ] `.claude/pm-skills-for-claude.md` version pointer updated
 - [ ] `README.md` shields.io badge and Latest stable version refreshed
-- [ ] `skills-manifest.yaml` authored at `docs/internal/release-plans/v2.15.0/skills-manifest.yaml` listing all 16 sprint skills at their initial version
+- [ ] `skills-manifest.yaml` authored at `docs/internal/release-plans/v2.15.0/skills-manifest.yaml` listing all 15 sprint skills at their initial version (7 FS + 7 DS + tool-note-and-vote)
 - [ ] AGENTS/claude/CONTEXT.md Status block refreshed with v2.15.0 ship details
 - [ ] Astro build PASS locally and via CI
 - [ ] All production URLs verified 200 (home, /reference/, /samples/, /releases/Release_v2.15.0/, plus 2 concept docs and 2 user guides)

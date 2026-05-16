@@ -55,7 +55,7 @@ flowchart LR
 
 Imagine you are about to start a significant new product bet. The team has strong but scattered beliefs about who the customer is, what the right approach is, and how to differentiate. A Design Sprint is on the calendar, but you cannot yet name the hypothesis it would test. Foundation Sprint is the right tool.
 
-### Step 0. Readiness check (15 minutes, days before)
+### Step 0. Readiness check (30-45 minutes, days before)
 
 ```bash
 /tool-foundation-sprint-readiness "We're starting a B2B retail analytics product; team of 4; founder available; no Decider named yet"
@@ -65,7 +65,7 @@ The skill returns Go, Conditional Go (with prerequisites), or Wait. Common Wait 
 
 If the verdict is Wait, do not run the sprint. Re-run readiness after addressing the prerequisites.
 
-### Step 1. Write the brief (30-45 minutes, prep day)
+### Step 1. Write the brief (45-60 minutes, prep day)
 
 ```bash
 /tool-foundation-sprint-brief "B2B retail analytics; founders + PM + design + eng; Decider is founder; goal is Founding Hypothesis to feed a Design Sprint two weeks later"
@@ -89,7 +89,7 @@ Use `/tool-note-and-vote` if the team is split between two target customer frami
 /tool-foundation-sprint-differentiation @basics-output.md
 ```
 
-The team scores differentiators against competitors on a 2x2 chart, names the decision principles that the product will live by, and writes a Mini Manifesto: 3 to 5 sentences capturing what makes this product worth building. The Mini Manifesto becomes a sanity-check artifact: every later decision in the sprint can be evaluated against it.
+The team scores differentiators against competitors on a 2x2 chart, names the decision principles that the product will live by, and writes a Mini Manifesto: a one-page strategic summary including a "what this product is" paragraph and an explicit "what this product is NOT" paragraph. The Mini Manifesto becomes a sanity-check artifact: every later decision in the sprint can be evaluated against it.
 
 `/tool-note-and-vote` is the typical mechanism for selecting the final 2 axes of the 2x2 chart.
 
@@ -101,7 +101,7 @@ The team scores differentiators against competitors on a 2x2 chart, names the de
 
 The team generates 3 to 7 candidate approaches as one-page summaries. The minimum-3 floor is anti-anchoring discipline: the most common Day 2 failure is the team converging on a single approach without generating alternatives. The maximum-7 ceiling protects the afternoon Magic Lenses block from blowing up.
 
-If the team only generates 2 ideas, treat that as a signal that you need outside input (customer research, expert interview, or a longer ideation block) before proceeding.
+If the team only generates 2 ideas, push back into ideation to force at least one more option before progressing. The minimum-3 floor is anti-anchoring discipline, not a budget. Only pause for outside input (customer research, expert interview) if the team genuinely cannot produce a third candidate after a focused ideation block.
 
 ### Step 5. Day 2 afternoon - Magic Lenses (90-120 minutes)
 
@@ -109,7 +109,7 @@ If the team only generates 2 ideas, treat that as a signal that you need outside
 /tool-foundation-sprint-magic-lenses @approach-options.md
 ```
 
-Each approach is evaluated through 4 classic lenses (customer, pragmatic, growth, focus) plus at least 1 custom lens specific to the team's situation. The custom lens captures team-specific constraints or opportunities the 4 classic lenses miss; this is a ratified requirement of the skill. The output names the top bet and a backup.
+Each approach is evaluated through 4 classic lenses (customer, pragmatic, growth, money) plus at least 1 custom lens specific to the team's situation. The custom lens captures team-specific constraints or opportunities the 4 classic lenses miss; this is a ratified requirement of the skill. The output names the top bet and a backup.
 
 `/tool-note-and-vote` runs at the end to consolidate scoring into a single top-bet supervote.
 
@@ -119,7 +119,7 @@ Each approach is evaluated through 4 classic lenses (customer, pragmatic, growth
 /tool-foundation-sprint-founding-hypothesis @magic-lenses.md
 ```
 
-The capstone skill writes the canonical Founding Hypothesis: a single sentence in the form "If we build [approach] for [customer] facing [problem], we believe [advantage] will make them [adoption signal] because [differentiator]." The skill enforces the canonical structure strictly; paraphrase is rejected. Strictness forces every slot to be filled specifically, which is the whole point.
+The capstone skill writes the canonical Founding Hypothesis: a single sentence in the form "If we help [target customer] solve [important problem] with [approach], they will choose it over [competitors or alternatives] because our solution is [differentiators]." The skill enforces this exact structure strictly; paraphrase is rejected. Strictness forces every slot to be filled specifically, which is the whole point.
 
 The output also includes an assumption scorecard ranking the hypothesis's component beliefs by risk, plus a recommended next test (Design Sprint, customer research, or focused experiment).
 
@@ -127,9 +127,9 @@ The output also includes an assumption scorecard ranking the hypothesis's compon
 
 Every Foundation Sprint needs a single Decider with formal supervote authority. Without one, the sprint produces a "team consensus" Founding Hypothesis that nobody is accountable for and that re-litigates the moment the team disagrees on next steps.
 
-The Decider is usually the founder, GM, or product leader. At a minimum, they must attend Day 1 morning (Basics) and Day 2 end (Founding Hypothesis). A partial-attendance protocol covers the case where the Decider can only join key checkpoints; the family contract requires TEMPLATE.md files to flag Decider checkpoint placement.
+The Decider is usually the founder, GM, or product leader. The brief and readiness criteria require the Decider to attend all four sprint blocks (Day 1 AM Basics, Day 1 PM Differentiation, Day 2 AM Approach Options, Day 2 PM Magic Lenses, Day 2 end Founding Hypothesis); the family contract requires every TEMPLATE.md to position a Decider Checkpoint at the end so each artifact has explicit sign-off.
 
-If no Decider can be named, the readiness skill will return Wait. Do not run the sprint.
+If the Decider can realistically only attend a subset of blocks, the readiness skill returns Conditional Go with explicit checkpoint coverage requirements, not Go. If no Decider can be named, readiness returns Wait. Do not run the sprint without a committed Decider.
 
 ## How note-and-vote fits in
 
@@ -172,6 +172,11 @@ flowchart LR
 |---|---|
 | Target customer | Customer recruiting profile (Design Sprint brief) |
 | Important problem framing | Day 1 long-term goal context |
+| Team advantage | Day 1 expert interview prioritization + framing of "why us, why now" |
+| Competitors and alternatives | Day 1 long-term goal context + Day 4 prototype differentiation framing |
+| Differentiators | Day 1 Map and Target + Day 3 storyboard moments of differentiation |
+| Mini Manifesto | Day 1 sanity-check during Map and Target; Day 3 storyboard alignment check |
+| Decision principles | Day 2 Decide voting criteria + Day 3 storyboard guardrails |
 | Top bet (approach) | Prototype direction (Day 3 storyboard) |
 | Assumption scorecard | Sprint questions (Day 1 Map and Target) |
 | Highest-risk assumption | Primary scorecard row (Day 5 Test and Score) |
