@@ -341,6 +341,11 @@ Day 2 (Tuesday) move of a Design Sprint that structures lightning demos and the 
 
 Day 3 (Wednesday) move of a Design Sprint that runs the art museum layout, heat map, speed critique, straw poll, Decider supervote, rumble-vs-all-in-one decision, and the storyboard that drives Thursday's prototype build. The most decision-heavy day of the sprint. Use Wednesday morning and afternoon after Tuesday's sketches are collected and attribution-stripped.
 
+##### tool-design-sprint-prototype-plan
+**Path:** `skills/tool-design-sprint-prototype-plan/SKILL.md`
+
+Day 4 (Thursday) move of a Design Sprint that produces the planning artifact for the day. Output covers the prototype role plan (Maker, Stitcher, Writer, Asset Collector, Interviewer), prototype brief, canonical Five-Act Interview script (Welcome, Context, Intro, Tasks, Debrief), trial-run checklist, and Friday participant confirmation tracker. The actual prototype build is craft work outside the skill's AI invocation surface.
+
 ---
 
 ## Workflows

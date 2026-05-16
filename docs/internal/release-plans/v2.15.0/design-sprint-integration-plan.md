@@ -21,7 +21,7 @@
 | Phase | Status |
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
-| Phase 2: 7 DS family skills | IN PROGRESS (5 of 7 shipped: readiness, brief, map-and-target, sketch, decide-and-storyboard; DS family validator now 5/7 enforcing; AGENTS.md at 53 paths) |
+| Phase 2: 7 DS family skills | IN PROGRESS (6 of 7 shipped: readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan; DS family validator now 6/7 enforcing; AGENTS.md at 54 paths) |
 | Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
 | Phase 4: 7 slash commands | NOT STARTED |
 | Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 2 Task 9: author `skills/tool-design-sprint-prototype-plan/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Thursday's artifact: role plan, interview script (Five-Act canonical), trial-run checklist, participant schedule. Timebox 60-120 min per spec. Prerequisites: `tool-design-sprint-decide-and-storyboard`. Planning only; prototype build is craft activity outside the skill's AI invocation surface (Ratified Decision 1). EXAMPLE Brainshelf Thursday 2026-05-29 with Alex+Sam paired on Figma build while Riley owns interview script preparation. AGENTS.md update in-commit.
+Phase 2 Task 10: author `skills/tool-design-sprint-test-and-score/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). Friday's sprint-closing artifact: per-customer observation notes, scorecard grid (sprint questions x customers with Y/N + notes), observed patterns, hot takes per team member, Decider summary (build/iterate/stop/reframe + highest-confidence learning + most important revision + next artifact). Timebox 240-300 min (5 interviews of 30-45 min plus 60-90 min synthesis). Prerequisites: `tool-design-sprint-prototype-plan`. This skill closes Phase 2 (7 of 7 DS family skills shipped). EXAMPLE Brainshelf Friday 2026-05-30 with 5 customer interviews, scorecard for Q1-Q6, Jamie's build/iterate/pivot-to-Red-Bookstore-Mode/stop call by 16:30 PT. AGENTS.md update in-commit. DS family validator will then PASS 7/7 enforcing including --strict mode.
 
 ## Prerequisites
 
@@ -321,7 +321,9 @@ Result (2026-05-15): SKILL.md authored at v0.1.0 with 7 output sections (art mus
 
 Follow Task 4 pattern. Spec section "6. design-sprint-prototype-plan". `metadata.move: prototype-plan`. Prerequisites: `tool-design-sprint-decide-and-storyboard`. Thursday's artifact: role plan, interview script, trial-run checklist. Planning only; prototype build is craft work outside AI invocation surface.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
+
+Result (2026-05-15): SKILL.md authored at v0.1.0 with 5 output sections (prototype role plan with 5 canonical roles, prototype brief, Five-Act interview script, trial-run checklist, participant confirmation tracker). Timebox 90 min. Frameworks subset: design-sprint + sprint (NO note-and-vote; Thursday morning planning is Facilitator-led with Decider sign-off). Roles: facilitator + design + engineering + researcher + pm (Decider sign-off happens at end but Decider is not a Thursday-morning role). Honors Ratified Decisions 1 (prototype build is craft, outside skill scope) and 2 (Five-Act canonical structure with team-supplied Tasks act wording). TEMPLATE.md includes the full 5-Act script structure with canonical wording in Welcome/Context/Intro/Debrief and team-supplied wording in Tasks. Decider Checkpoint at line 92 of 103 (89.3%). EXAMPLE.md continues Brainshelf Thursday morning 2026-05-29: 5 canonical roles assigned (Alex=Maker+Stitcher; Jamie=Writer; Sam+Riley=Asset Collector split; Riley=Interviewer), fidelity bar lock for 9 panels (Panels 1-5 full-fidelity; Panels 6-9 frame-with-linear-advance), full Five-Act script with 3 Tasks (capture-The-Overstory, find-it-1-week-later, recall-old-growth-forests-6-months-later) plus probing notes for Riley, trial-run checklist scheduled 15:30-17:00 PT with Sam playing fake customer, all 5 participants confirmed Thursday morning, backup-of-backup identified. DS family validator 6/7 enforcing.
 
 #### Task 10: Author tool-design-sprint-test-and-score
 
