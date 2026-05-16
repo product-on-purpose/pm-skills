@@ -98,6 +98,6 @@
 - [ ] Decider approves the Five-Act interview script's Tasks act wording (the team-supplied portion).
 - [ ] Decider approves the trial-run gate criteria; trial run MUST pass before Friday begins.
 - [ ] Decider acknowledges participant tracker status; if at-risk slots exist, recruiter actions are authorized.
-- [ ] Decider confirms attendance for Friday PM 14:00-16:30 PT Decider review of the scorecard.
+- [ ] Decider confirms attendance for Friday PM 14:00-18:00 PT Decider window (observe interview slots 4-5 + Decider review concludes by 17:30 PT).
 
 **Signed:** [Decider name, role], [ISO date and local time]

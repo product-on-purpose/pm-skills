@@ -114,6 +114,6 @@
 - [ ] Decider confirms the storyboard is specific enough that Thursday's builders can start without re-debating design.
 - [ ] Decider confirms the storyboard scope (target moment plus minimal setup plus minimal outcome) is build-feasible in one day.
 - [ ] Decider acknowledges that critique concerns NOT addressed in the storyboard are accepted as known weaknesses; Friday's test may surface them.
-- [ ] Decider commits to attending Friday PM 14:00-16:30 for the Decider review of the scorecard.
+- [ ] Decider commits to attending Friday PM 14:00-18:00 (observe interview slots 4-5 + Decider review concludes by 17:30).
 
 **Signed:** [Decider name, role], [ISO date and local time]

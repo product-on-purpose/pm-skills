@@ -60,15 +60,15 @@ Slot derivation:
 
 ## Recommended Next Validation Step
 
-**Next step:** Design Sprint week of 2026-05-26.
+**Next step:** Design Sprint week of 2026-06-01.
 
 **What it tests:** A1 (switchable from "do nothing") first; A2 (OCR accuracy) via the Thursday prototype build; A3 (personal recall draw) via the Friday recall flow test; A5 (pricing) via the Friday Five-Act Interview Act 5 debrief.
 
 **Owner:** Jamie (founder, PM); Riley owns customer recruiting.
 
-**Timeline:** Sprint begins Monday 2026-05-26; Friday testing 2026-05-30; Decider call by 16:30 Friday; 7-day instrumented follow-up through 2026-06-06.
+**Timeline:** Sprint begins Monday 2026-06-01; Friday testing 2026-06-05; Decider call by 16:30 Friday; 7-day instrumented follow-up through 2026-06-12.
 
-**Decision the next step unlocks:** Build (6-week MVP cycle starting June 2), iterate (refine prototype + re-sprint), pivot to backup (Red Bookstore Mode), or stop.
+**Decision the next step unlocks:** Build (6-week MVP cycle starting Monday 2026-06-08), iterate (refine prototype + re-sprint), pivot to backup (Red Bookstore Mode), or stop.
 
 ## Decider Checkpoint
 
@@ -76,7 +76,7 @@ Slot derivation:
 
 - [x] Jamie ratifies the Founding Hypothesis sentence verbatim.
 - [x] Jamie confirms the 6-row assumption scorecard.
-- [x] Jamie commits to running a Design Sprint week of 2026-05-26 as the next test.
+- [x] Jamie commits to running a Design Sprint week of 2026-06-01 as the next test.
 - [x] Jamie acknowledges the backup plan (Red Bookstore Mode) is real, not theoretical.
 - [x] Jamie acknowledges the team will not re-litigate the social-reader direction without explicit invalidation evidence from the Design Sprint.
 

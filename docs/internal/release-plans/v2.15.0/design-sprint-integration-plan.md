@@ -14,7 +14,7 @@
 
 ## Status
 
-**Phases 1 + 2 COMPLETE. Phase 3 ready to execute.** All prerequisites met as of 2026-05-15. 10 of 20 tasks shipped (Phase 1 contract+validators+registry + Phase 2 all 7 DS family skills). 10 tasks across 5 remaining phases pending (workflows, commands, library samples, docs, integration).
+**Phases 1 + 2 COMPLETE. Phase 3 ready to execute.** All prerequisites met as of 2026-05-15. 10 of 21 tasks shipped (Phase 1 contract+validators+registry + Phase 2 all 7 DS family skills). 11 tasks across 5 remaining phases pending (workflows, commands, library samples, docs incl Task 17a concept-doc refresh, integration).
 
 ### Where we are (snapshot 2026-05-15 evening)
 
@@ -79,7 +79,7 @@ The Design Sprint design spec (`design-sprint-design-spec.md`) ends with 7 open 
 | 2 | Five-Act Interview script generation (spec leaned: canonical structure for v0.1) | **Canonical Five-Act structure (Welcome / Context / Intro / Tasks / Debrief)** with team-supplied task wording; the act sequence is fixed | `tool-design-sprint-prototype-plan` TEMPLATE.md interview-script section |
 | 3 | Scorecard customer count (spec leaned: 5 with warning at 3/4 or 6/7) | **5 customers is canonical; validator warns at 3-4 or 6-7; rejects below 3 or above 7** with a message recommending the canonical count | `tool-design-sprint-test-and-score` SKILL.md instructions step 1 |
 | 4 | Friday synthesis depth (exec memo or stakeholder-update?) | **Leave executive memo authoring to `foundation-stakeholder-update`** (existing pm-skills foundation skill); Friday skill produces Decider summary only | `tool-design-sprint-test-and-score` outputs explicitly excludes exec memo |
-| 5 | Rumble support (spec leaned: defer to v0.2) | **Defer to v0.2;** v0.1.0 supports single-prototype testing only | Not authored in v0.1.0 |
+| 5 | Rumble support (spec leaned: defer to v0.2) | **v0.1.0 supports the rumble *decision* (Decider's call between rumble and all-in-one; default is all-in-one) but NOT dual-prototype execution.** Dual-prototype build orchestration and dual-track Friday testing defer to v0.2. Amended 2026-05-16 (DS06 Codex finding) to reflect that the decide-and-storyboard skill body and template already contain the decision section coherently, and removing it would leave Wednesday with no rumble-vs-all-in-one conversation. | `tool-design-sprint-decide-and-storyboard` SKILL.md + TEMPLATE.md (decision section); EXAMPLE shows Jamie picking all-in-one with explicit rationale |
 | 6 | Remote vs in-person variant (spec leaned: parameter for v0.1) | **Single skill with `format: in-person \| remote \| hybrid` input parameter;** SKILL.md instructions branch on format where needed | `tool-design-sprint-brief` SKILL.md inputs section |
 | 7 | Hardware or service sprint variants (spec leaned: defer; document as known variants) | **Defer to v0.2 or later;** Sprint book hardware/service variants documented as "known variants" in `docs/guides/using-design-sprint.md` | `docs/guides/using-design-sprint.md` Variants section |
 | 8 | FS-to-DS bridge skill (added by 2026-05-13 architectural amendment) | **No bridge skill.** Canonical Knapp/Zeratsky methodology has no formal handoff move; pm-skills should not invent canonical-looking skills. The transition is described narratively in `_workflows/foundation-to-design.md` (this plan, Task 12) and in both user guides. | `_workflows/foundation-to-design.md` + `docs/guides/using-foundation-sprint.md` + `docs/guides/using-design-sprint.md` |
@@ -88,7 +88,7 @@ These decisions are locked. Re-litigation requires an explicit plan amendment, n
 
 ## File Structure
 
-### Files to create (43 new files)
+### Files to create (55 new files)
 
 **Validators (2 files)**
 - `scripts/validate-design-sprint-skills-family.sh`
@@ -236,7 +236,7 @@ metadata:
   tool: design-sprint
   move: <move>
   category: <see categories.md>
-  frameworks: [design-sprint, sprint, character-note-and-vote]
+  frameworks: <subset of [design-sprint, sprint, character-note-and-vote]; design-sprint REQUIRED; sprint present when skill body cites Sprint book; character-note-and-vote present when skill body uses the note-and-vote mechanic>
   timebox_minutes: <integer>
   roles: [...]
   prerequisites: [...]    # array of tool-design-sprint-* skill names; optional
@@ -413,7 +413,7 @@ Thread scenarios carry over from the Foundation Sprint samples - the Design Spri
 
 - [ ] **Step 1: Plan the Brainshelf Design Sprint trace**
 
-Continue from the Brainshelf Foundation Sprint samples. The FS trace identified "Will users add 50+ books per session?" as the highest-risk assumption (this analysis is documented in the FS `tool-foundation-sprint-founding-hypothesis` sample's scorecard plus the `using-foundation-sprint.md` handoff narrative; no bridge sample). The Design Sprint trace validates this assumption through prototype testing with 5 target customers.
+Continue from the Brainshelf Foundation Sprint samples. The FS trace identified A1 ("25+/year readers are switchable from 'do nothing' with sub-3-second camera-first capture") as the highest-risk assumption (this analysis is documented in the FS `tool-foundation-sprint-founding-hypothesis` sample's scorecard plus the `using-foundation-sprint.md` handoff narrative; no bridge sample). The Design Sprint trace validates A1 through prototype testing with 5 target customers, alongside directional evidence on A2 (OCR accuracy), A3 (recall draw), A5 (pricing), and A6 ("did I already read this?" pain frequency).
 
 - [ ] **Step 2: Author 7 samples**
 
@@ -581,3 +581,54 @@ Content coverage of `design-sprint-design-spec.md`:
 - User guide covered by Task 17 (handoff section absorbs the dropped bridge skill's intent)
 - Bridge skill spec section in the design spec is now historical context (see spec amendment)
 - Open questions from the spec are ratified in the Ratified Decisions table above
+
+## Adversarial Review (2026-05-16)
+
+Post-Phase 2 closure adversarial review using the FS family precedent: my own self-audit (DSC01-DSC20) plus a Codex adversarial review (DS01-DS13). Combined surface: 33 raw findings; after dedup and triage: ~21 unique items.
+
+### Triage outcomes
+
+| Bucket | Codex | Claude self-audit | Combined unique | Resolved this batch |
+|---|---|---|---|---|
+| P1 critical | 6 (DS01, DS02, DS03, DS06, DS11, DS12) | 0 | 6 | 6 |
+| P2 important | 6 (DS04, DS05, DS07, DS08, DS09, DS13) | 7 (DSC01, DSC02, DSC03, DSC07, DSC09, DSC12, DSC17, DSC19) | 12 | 11 (DS13 deferred to v2.16) |
+| P3 minor | 1 (DS10) | 1 (DSC04) | 2 | 2 |
+| Reject (no action) | 0 | 8 (DSC08, DSC10, DSC11, DSC13, DSC15, DSC16, DSC18, DSC20) | 8 | n/a |
+
+### Highest-leverage findings (Codex P1 set)
+
+1. **DS01 calendar mapping** - Brainshelf sprint week labeled 2026-05-26 (Tue) through 2026-05-30 (Sat) as Monday-Friday across 5 EXAMPLE files plus the upstream FS founding-hypothesis sample. Cascaded to 2026-06-01 (Mon) through 2026-06-05 (Fri); 8 files updated; all prep/build/PRD dates re-derived (recruiting deadline 2026-05-29; brief signed 2026-05-29; PRD target 2026-06-12; MVP build start 2026-06-08; investor reconfirm 2026-06-08; OCR spike week of 2026-06-15).
+2. **DS02 sub-3-second validated by 29-42 sec task timings** - separated "discrete capture interaction" (sub-3-sec per Panel 1 tap to Panel 4 toast; median 2.5s) from "full Task 1 completion" (35s incl. script-read + chip selection). Scorecard cells now show both numbers; validation claim correctly references capture-interaction timing.
+3. **DS03 5-sec Q5 threshold marked Y for 12s/8s/18s** - threshold revised to 15 sec across 3 files (map-and-target sprint questions list, map-and-target sprint-tests note, test-and-score scorecard); C3 18s noted as just-over-threshold borderline.
+4. **DS06 Rumble deferred but authored** - Ratified Decision 5 amended: v0.1 supports the rumble *decision* (Decider's call between rumble and all-in-one; default all-in-one) but NOT dual-prototype execution. Decide-and-storyboard skill body + template + EXAMPLE retain coherence.
+5. **DS11 CI workflow missing DS family validator** - added 4 steps to `.github/workflows/validation.yml` (FS + DS family validators on Ubuntu and Windows runners, with --strict / -Strict elevation). Discovery during review: the FS family validator was also missing from CI; both now run on every PR.
+6. **DS12 Brainshelf library sample requirement** - contract amended: Brainshelf samples are a release-gate requirement (must exist in `library/skill-output-samples/` before v2.15.0 tag; ships Phase 5), not a Phase 2 conformance failure. In-skill `references/EXAMPLE.md` files satisfy the structural family-validator check; library-thread coverage is satisfied by Phase 5 sample authoring.
+
+### Implemented fixes (P2/P3 batch)
+
+- DS04 Friday schedule overlap - SKILL.md Friday Time Structure rewritten (09:00-16:30 interviews; 16:30-16:45 wrap; 16:45-17:00 hot takes; 17:00-17:30 Decider review; 17:30-18:00 summary capture); cascaded Decider window to 14:00-18:00 PT and "by 17:30 Friday" call timing across brief + readiness + decide-and-storyboard + prototype-plan + test-and-score files (both EXAMPLE + TEMPLATE files updated for shared structural patterns).
+- DS05 TODO allowance removed from prototype-plan EXAMPLE fidelity bar + trial-run checklist.
+- DS07 Phase 5 Brainshelf assumption rewritten from "50+ books per session" to canonical A1 ("25+/year readers switchable from 'do nothing' with sub-3-second capture") with A2/A3/A5/A6 directional-evidence note added.
+- DS08 plan frontmatter snippet updated from fixed-list to subset semantics matching the contract.
+- DS09 brief inputs gained explicit `format` parameter (per Ratified Decision 6); brief body Inference Inputs table gained a `Format` row documenting how format branches body authoring.
+- DS10 plan task count corrected 20 to 21 (Task 17a was missing from the rollup); file count corrected 43 to 55 (matches the actual listed creates).
+- DSC02 supervote 1-sticker vs 3-dots aligned: EXAMPLE now reads "Jamie placed all 3 supervote dots on Sketch B (Sprint book canonical 3-dot supervote)".
+- DSC04 4-cohort rule gained no-N qualifier: "4 Y is Validated; 3 Y with no N is directional."
+- DSC07 anonymization headers reworked: removed misleading "Sketcher N (attribution removed)" phrasing; sketches now headed by their letter with the attribution-timing footnote.
+- DSC09 Nielsen "Why You Only Need to Test with 5 Users" (2000) citation added to test-and-score Canonical Sources.
+- DSC12 readiness body cross-skill reference corrected from `tool-design-sprint-map-and-target` to `tool-design-sprint-brief` (the brief locks sprint questions; map-and-target refines).
+- DSC17 "Bookshop and Other Books" renamed to "Twig and Cover Books" across 4 EXAMPLE files (clearly fictional; eliminates real-bookstore risk).
+- DSC19 brief Decider Checkpoint authorization wording clarified: "Jamie re-confirms customer recruiting plan ... (originally authorized 2026-05-15 at readiness sign-off; recruiting closed 2026-05-27)".
+
+### Deferred to v2.16
+
+- **DS13 metadata/frontmatter shape coverage gap** - validator currently checks only classification/tool/move plus contract path and Decider Checkpoint; full root-field and metadata-field enforcement (category enum, frameworks subset, timebox_minutes integer, roles enum, prerequisites array, inputs/outputs presence, author field) defer to v2.16. Documented in contract CI Enforcement coverage-gap section.
+
+### Validator state after batch
+
+- DS family validator: 7/7 enforcing PASS in `--strict` mode (release-gate green)
+- FS family validator: 7/7 enforcing PASS in `--strict` mode; zero regression from this batch
+- lint-skills-frontmatter: 55 skills PASS
+- validate-agents-md: 55 paths matched PASS
+- validate-meeting-skills-family: PASS
+- CI workflow `.github/workflows/validation.yml` now runs both FS and DS family validators with --strict on every PR (Ubuntu + Windows)

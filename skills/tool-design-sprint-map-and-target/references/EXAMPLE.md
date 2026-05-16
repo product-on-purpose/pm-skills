@@ -1,6 +1,6 @@
 # Design Sprint Monday Artifact: Brainshelf Camera-Capture Validation
 
-Monday 2026-05-26. The Brainshelf team's sprint brief was locked Friday 2026-05-22 with 6 customer slots confirmed for Friday 2026-05-30. The team is together for the full Monday workshop: Jamie + Sam in-person at Capitol Hill Coworking; Alex + Riley remote on Zoom + Miro. Three cameo experts scheduled for the afternoon. This artifact captures the team's Day 1 convergence from the brief's 4 sprint questions to the chosen target moment.
+Monday 2026-06-01. The Brainshelf team's sprint brief was locked Friday 2026-05-29 with 6 customer slots confirmed for Friday 2026-06-05. The team is together for the full Monday workshop: Jamie + Sam in-person at Capitol Hill Coworking; Alex + Riley remote on Zoom + Miro. Three cameo experts scheduled for the afternoon. This artifact captures the team's Day 1 convergence from the brief's 4 sprint questions to the chosen target moment.
 
 ## Long-Term Goal
 
@@ -14,7 +14,7 @@ The brief's 4 questions seed this list; the team refined wording during the morn
 2. Does OCR + cover-recognition accuracy in the Figma prototype feel acceptable, or do mis-resolutions break trust?
 3. When asked "what would you pay for this and how often?", do customers self-describe a sustainable price point above USD 4 per month?
 4. Do customers describe "did I already read this?" as a frequent, painful problem?
-5. When customers capture a book, do they understand within 5 seconds where it lives in their library and how to find it later?
+5. When customers capture a book, do they understand within 15 seconds where it lives in their library and how to find it later?
 6. Do customers see the value proposition as "fast capture" or as "trustworthy recall", and does the answer depend on use context (at home, at a bookstore, at a friend's house)?
 
 ## Customer or System Map
@@ -114,7 +114,7 @@ Total HMWs surfaced: 67 (team + expert interviews). Clustered into 6 themes. Hea
 
 **Decider rationale:** Jamie chose the capture-plus-confirmation moment over the recall-only moment for three reasons. First, the lead sprint question (Q1, FS-A1) lives here: if capture-plus-confirmation invalidates, the entire camera-first direction pivots regardless of how good recall would be. Second, C1 had the highest heat-map vote count (7), giving the team confidence the capture-confirmation pair is where the most reusable design insight lives. Third, the recall surface depends on the capture flow having produced meaningful captured books; testing recall in isolation would have required scripting fake library state for each customer.
 
-**Sprint questions the target moment most directly tests:** Q1 (lead; sub-3-second capture without abandonment, library valuable for recall), Q2 (OCR accuracy + trust), and Q5 (capture-to-library-location understanding in 5 seconds).
+**Sprint questions the target moment most directly tests:** Q1 (lead; sub-3-second capture without abandonment, library valuable for recall), Q2 (OCR accuracy + trust), and Q5 (capture-to-library-location understanding in 15 seconds).
 
 Q3 (pricing) and Q4 (recall pain frequency) will be addressed in Friday's Act 2 (Context) and Act 5 (Debrief) of the Five-Act Interview, not directly via prototype testing. Q6 (capture vs recall as value prop) is addressed via observation across Friday's 5 interviews.
 
@@ -129,6 +129,6 @@ Q3 (pricing) and Q4 (recall pain frequency) will be addressed in Friday's Act 2 
 - [x] Jamie selects the target moment (capture + immediate post-capture confirmation; map Steps 2 + 3 transition; includes a 2-step recall flow from the confirmation surface).
 - [x] Jamie commits to attending Wednesday morning 09:00-12:30 PT for heat-map plus supervote.
 
-**Signed:** Jamie (founder, PM), 2026-05-26 16:55 PT.
+**Signed:** Jamie (founder, PM), 2026-06-01 16:55 PT.
 
-**Monday closed. Tuesday sketches begin 09:00 PT 2026-05-27 against the capture-plus-confirmation target.**
+**Monday closed. Tuesday sketches begin 09:00 PT 2026-06-02 against the capture-plus-confirmation target.**

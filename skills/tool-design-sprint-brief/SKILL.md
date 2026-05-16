@@ -26,6 +26,7 @@ metadata:
     - founding hypothesis (optional; from a prior Foundation Sprint)
     - team roster
     - customer recruiting source and plan
+    - format (in-person | remote | hybrid; per Ratified Decision 6)
     - logistics constraints
   outputs:
     - challenge statement and why-now
@@ -87,7 +88,8 @@ See `references/TEMPLATE.md` for the canonical structure and `references/EXAMPLE
 | Founding Hypothesis (optional; from a prior Foundation Sprint) | The highest-risk assumption from the FS scorecard becomes the lead sprint question; the top bet becomes the design direction; the backup becomes the fallback decision if Friday invalidates |
 | Team roster | Maps people to the required Design Sprint roles (Decider, Facilitator, PM, Design, Engineering, Researcher or Customer Expert); confirms 4-7 person band |
 | Customer recruiting source and plan | Locks recruiter owner, target profile, source channel, honorarium budget, deadline, and Friday schedule |
-| Logistics constraints | Produces the dates/hours/location/format/tools matrix; flags any constraint that would force the sprint to extend beyond 5 days or split across calendar weeks |
+| Format (in-person, remote, hybrid; per Ratified Decision 6) | Branches the brief body where format affects authoring: recruiting plan (in-person requires geo-local cohort; remote allows cross-timezone), prototype medium (some media work better in-person; e.g., physical mock), interview format (live vs remote moderated), observer setup (in-room vs Zoom breakout room) |
+| Logistics constraints | Produces the dates/hours/location/tools matrix; flags any constraint that would force the sprint to extend beyond 5 days or split across calendar weeks |
 
 ## Brief Length Discipline
 

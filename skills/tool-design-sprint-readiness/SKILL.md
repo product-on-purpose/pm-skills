@@ -130,7 +130,7 @@ This skill is the entry point of the design-sprint-skills family. It has no prer
 
 When the verdict is Go, the natural next invocation is `tool-design-sprint-brief` to lock challenge, team, recruiting plan, prototype medium, and logistics. When the verdict is Wait, the team typically does prerequisite work (problem framing, Foundation Sprint, customer recruiting setup) before re-invoking this skill.
 
-A team coming directly from a Foundation Sprint should bring the Founding Hypothesis as input context. The hypothesis's highest-risk assumption (typically marked in the FS assumption scorecard) becomes the candidate sprint question for `tool-design-sprint-map-and-target` on Monday. No bridge skill exists or is required; the narrative handoff is described in `_workflows/foundation-to-design.md` and in both user guides.
+A team coming directly from a Foundation Sprint should bring the Founding Hypothesis as input context. The hypothesis's highest-risk assumption (typically marked in the FS assumption scorecard) becomes the lead candidate sprint question for `tool-design-sprint-brief` (which locks the sprint questions); `tool-design-sprint-map-and-target` on Monday then refines the locked questions during the morning. No bridge skill exists or is required; the narrative handoff is described in `_workflows/foundation-to-design.md` and in both user guides.
 
 `tool-note-and-vote` may be invoked once during the readiness conversation if the team disagrees on whether a Design Sprint is the right tool (vs. a smaller experiment or direct build). In practice, the diagnostic is usually conclusive.
 

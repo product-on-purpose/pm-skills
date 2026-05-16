@@ -59,6 +59,22 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-meeting-skills-family.ps1
 
+      - name: Validate foundation-sprint-skills-family contract (bash, --strict)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/validate-foundation-sprint-skills-family.sh --strict
+
+      - name: Validate foundation-sprint-skills-family contract (pwsh, -Strict)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/validate-foundation-sprint-skills-family.ps1 -Strict
+
+      - name: Validate design-sprint-skills-family contract (bash, --strict)
+        if: matrix.os == 'ubuntu-latest'
+        run: bash scripts/validate-design-sprint-skills-family.sh --strict
+
+      - name: Validate design-sprint-skills-family contract (pwsh, -Strict)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/validate-design-sprint-skills-family.ps1 -Strict
+
       - name: Check MCP impact (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/check-mcp-impact.sh

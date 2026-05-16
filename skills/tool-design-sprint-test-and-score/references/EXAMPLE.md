@@ -1,6 +1,6 @@
 # Design Sprint Friday Artifact: Brainshelf Camera-Capture Validation
 
-Friday 2026-05-30. Trial run passed Thursday 17:15 PT (one minor copy fix landed at 17:30 PT). 5 customers completed the full Five-Act interview Friday 09:00-15:30 PT (4 from the primary roster + Discord-4 from the activated buffer). Jamie's Decider review concluded 16:20 PT. This is the sprint's payoff artifact.
+Friday 2026-06-05. Trial run passed Thursday 17:15 PT (one minor copy fix landed at 17:30 PT). 5 customers completed the full Five-Act interview Friday 09:00-16:30 PT (4 from the primary roster + Discord-4 from the activated buffer). Jamie's Decider review concluded 17:30 PT. This is the sprint's payoff artifact.
 
 ## Per-Customer Interview Observation Notes
 
@@ -14,8 +14,8 @@ Friday 2026-05-30. Trial run passed Thursday 17:15 PT (one minor copy fix landed
 - Has tried Goodreads twice; abandoned both times within a week because "it felt like homework."
 
 **Tasks (Act 4) behavior:**
-- **Task 1:** Completed in 38 seconds. Hovered on Panel 3 chip selection for 5 sec ("I'm not sure if I want to commit to Read or Want to Read yet"). Tapped "Want to read." Did not notice the "where you saw it: Bookshop and Other Books" tag.
-- **Task 2:** Found The Overstory in 12 seconds via the "Recently captured" row. Asked unprompted: "What's the Bookshop and Other Books thing?" When explained, said: "That's the thing I'd actually use this for."
+- **Task 1:** Completed in 38 seconds. Hovered on Panel 3 chip selection for 5 sec ("I'm not sure if I want to commit to Read or Want to Read yet"). Tapped "Want to read." Did not notice the "where you saw it: Twig and Cover Books" tag.
+- **Task 2:** Found The Overstory in 12 seconds via the "Recently captured" row. Asked unprompted: "What's the Twig and Cover Books thing?" When explained, said: "That's the thing I'd actually use this for."
 - **Task 3:** Searched "trees" (not "forests"). Found The Overstory; was surprised it matched ("I didn't write 'trees' anywhere, did I?"). When explained that the captured-time context tag is searchable, said: "That's interesting but it feels like it might be too magic."
 
 **Debrief (Act 5) reactions:**
@@ -88,6 +88,7 @@ Friday 2026-05-30. Trial run passed Thursday 17:15 PT (one minor copy fix landed
 - "Bookly is okay but it's designed for tracking what you're reading, not for capturing what you find."
 - Described a workflow of photographing book covers in her phone's Camera app then losing track of which folder they're in.
 - Strong articulator of the books-as-memory framing: "I read the way some people garden. I'm not collecting; I'm building a memory."
+- Volunteered a recent example of recall pain: "Last month I almost bought a Le Guin novella I'd already read three years ago. I caught it at the register only because the cover felt familiar. That happens to me maybe four times a year and I always think 'I should have a way to know.'"
 
 **Tasks (Act 4) behavior:**
 - **Task 1:** Completed in 29 seconds (fastest of all 5). Did not hesitate; tapped chip immediately. Noticed geolocation and laughed: "That solves the folder problem."
@@ -116,11 +117,11 @@ Friday 2026-05-30. Trial run passed Thursday 17:15 PT (one minor copy fix landed
 
 | | C1 | C2 | C3 | C4 | C5 | Day-end decision |
 |---|---|---|---|---|---|---|
-| Q1: Will 25+/year readers complete sub-3-second capture without abandoning, and is the library valuable for personal recall? | Y (38s; "way faster than Goodreads") | Y (31s; "I'd actually use this") | partial (42s; hesitated mid-flow; "not sure I'd stick with it") | Y (33s; "cleanest I've seen") | Y (29s; "solves the folder problem") | **Validated (4-of-5 Y; 1 partial; 0 N)** |
+| Q1: Will 25+/year readers complete sub-3-second capture without abandoning, and is the library valuable for personal recall? | Y (capture interaction ~2.5s; full task 38s incl. script-read; "way faster than Goodreads") | Y (capture interaction ~2.2s; full task 31s; "I'd actually use this") | partial (capture interaction ~3.4s with mid-flow pause; full task 42s; "not sure I'd stick with it") | Y (capture interaction ~2.6s; full task 33s; "cleanest I've seen") | Y (capture interaction ~2.0s; full task 29s; "solves the folder problem") | **Validated (4-of-5 Y on capture-interaction sub-3-sec bar; 1 partial; 0 N)** |
 | Q2: Does OCR + cover-recognition feel acceptable in the prototype, or do mis-resolutions break trust? | Y (didn't notice it was simulated) | Y (no comment) | unclear (asked "did it work?" once) | Y (no comment) | Y (no comment) | **Validated for Figma simulation; real-OCR test deferred (4-of-5 Y; 1 unclear)** |
 | Q3: Sustainable price point above USD 4/month? | Y (USD 4-5) | Y (GBP 5-7 = USD 6-9) | partial (USD 3; below threshold) | Y (USD 6-8) | Y (USD 10) | **Validated above USD 4 (4-of-5 Y; median USD 6)** |
 | Q4: Do customers describe "did I already read this?" as frequent and painful? | Y (described 3 instances; 1 duplicate purchase) | Y (Goodreads abandoned partly for this) | N ("I just remember the books I want to talk about") | Y (Notes app mess; "distributed systems" failure) | Y (paper-notebook fallback for this) | **Validated (4-of-5 Y; 1 N)** |
-| Q5: Do customers understand within 5 sec where the book lives and how to find it? | Y (12s in Task 2) | Y (8s) | Y (18s) | Y (6s) | Y (5s) | **Validated (5-of-5 Y; median 8s)** |
+| Q5: Do customers understand within 15 sec where the book lives and how to find it? | Y (12s in Task 2) | Y (8s) | Y (18s; just over threshold) | Y (6s) | Y (5s) | **Validated (4-of-5 Y; 1 borderline at 18s; median 8s; all below 20s)** |
 | Q6: Do customers see value as fast capture or as trustworthy recall, and does it depend on context? | Capture (bookstore moment specifically) | Both (capture flow + library shelf metaphor) | Capture (skeptical on recall stickiness) | Both, leaning recall (wants notes) | Both, leaning recall (memory framing) | **Inconclusive trend toward "both, leaning recall for power users; capture for casual users." Not a binary; depends on the use context as the question anticipated.** |
 
 Decider override notes: Q3 day-end decision marked Validated despite C3's USD 3 partial; Jamie reasoning: C3 self-described as marginal target ("not sure I'd actually use it enough to pay much more"); the other 4 customers (median USD 6) carry the validation.
@@ -130,7 +131,7 @@ Decider override notes: Q3 day-end decision marked Validated despite C3's USD 3 
 ### Worked (validated patterns)
 
 - **The "where you saw it" geolocation tag** (5 of 5 noticed; 4 of 5 enthusiastically endorsed): the single most-praised element of the prototype. C1 called it the "killer feature"; C5 said it "solves the folder problem." C3 was the lone partial because he "doesn't go to bookstores much."
-- **Sub-3-second capture timing** (5 of 5 hit; median 35 sec including reading the script context): the speed worked. Even C3's 42-sec capture was perceived as fast because the alternative is Goodreads/manual entry.
+- **Sub-3-second capture interaction** (4 of 5 hit on the discrete capture interaction: Panel 1 tap through Panel 4 toast; median 2.5s. Full Task 1 completion median was 35 sec including script-read and chip selection; the capture interaction is the load-bearing measurement against assumption A1): the speed worked. Even C3's 3.4s capture interaction with mid-flow pause was perceived as fast in debrief because the alternative is Goodreads/manual entry.
 - **The 4-chip status selection (Read / Want / Reading / Reference)** (5 of 5 used without confusion): four chips was the right number; nobody asked for more or fewer.
 - **The library "Recently captured" row visual** (4 of 5 explored beyond Task 2's requirement; C5 spent 90 sec): the visual metaphor of a row of recent captures landed.
 
@@ -177,7 +178,7 @@ The framing matters more than I expected. C5's "I read the way some people garde
 
 **Most important revision the team would make:** Add notes/annotation per capture to the v0.1 scope (not v0.2 deferral). This was the consistent unprompted ask across 3 of 5 customers and the single most-mentioned gap in the prototype.
 
-**Next artifact:** PRD for v0.1 build with the notes-added scope; produced via `deliver-prd` skill within 5 business days of sprint close (target: 2026-06-06). The PRD will reference this Friday artifact and the FS Founding Hypothesis as its load-bearing context.
+**Next artifact:** PRD for v0.1 build with the notes-added scope; produced via `deliver-prd` skill within 5 business days of sprint close (target: 2026-06-12). The PRD will reference this Friday artifact and the FS Founding Hypothesis as its load-bearing context.
 
 ## Decider Checkpoint
 
@@ -187,9 +188,9 @@ The framing matters more than I expected. C5's "I read the way some people garde
 - [x] Jamie commits to the call (Build with notes added to v0.1 scope) and acknowledges the team will not re-litigate without explicit new evidence (e.g., real-OCR trust failure surfaces in the Sam-proposed 1-week spike).
 - [x] Jamie names the highest-confidence learning: "where you saw it" contextual capture is the differentiating wedge.
 - [x] Jamie names the most important revision: notes/annotation per capture moves from v0.2 deferral to v0.1 inclusion (6-week MVP becomes 7-8 weeks).
-- [x] Jamie names the next artifact: PRD for v0.1 build; Jamie owns; target 2026-06-06.
-- [x] Jamie acknowledges the Monday context handoff: the seed-round pitch deck timing slips 1-2 weeks; investor schedule re-confirmation goes out Monday 2026-06-02. Sam's real-OCR spike scheduled week of 2026-06-09 in parallel with PRD finalization.
+- [x] Jamie names the next artifact: PRD for v0.1 build; Jamie owns; target 2026-06-12.
+- [x] Jamie acknowledges the Monday context handoff: the seed-round pitch deck timing slips 1-2 weeks; investor schedule re-confirmation goes out Monday 2026-06-08. Sam's real-OCR spike scheduled week of 2026-06-15 in parallel with PRD finalization.
 
-**Signed:** Jamie (founder, PM), 2026-05-30 16:25 PT.
+**Signed:** Jamie (founder, PM), 2026-06-05 17:30 PT.
 
-**Sprint closed. Foundation Sprint + Design Sprint arc complete; Build authorized; PRD work begins Monday 2026-06-02.**
+**Sprint closed. Foundation Sprint + Design Sprint arc complete; Build authorized; PRD work begins Monday 2026-06-08.**

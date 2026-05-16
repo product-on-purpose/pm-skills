@@ -21,7 +21,7 @@
 |---|---|---|
 | Mon AM | [date] 09:00-12:30 | Map and Target; long-term goal, sprint questions, target moment |
 | Wed AM | [date] 09:00-12:30 | Heat map, critique, supervote |
-| Fri PM | [date] 14:00-16:30 | Decider review of Friday scorecard; build/iterate/pivot/stop call |
+| Fri PM | [date] 14:00-18:00 | Decider observes interview slots 4-5 from breakout room; Decider review of Friday scorecard begins after last interview wraps 16:30; build/iterate/pivot/stop call by 17:30 |
 | (Ideal) Full week | [date range] | All 5 days |
 
 **[Decider name]'s confirmed availability:** [state which windows are committed and any gaps]
@@ -91,7 +91,7 @@
 The sprint is **successful** if:
 
 1. [Friday produces a clear validation or invalidation of Sprint Question 1, with evidence from 5 customer interviews.]
-2. [Decider makes an explicit build / iterate / pivot / stop call by 16:30 Friday.]
+2. [Decider makes an explicit build / iterate / pivot / stop call by 17:30 Friday.]
 3. [Sprint Questions 2-4 have at least directional evidence from Friday.]
 4. [The team's confidence in the underlying hypothesis or direction has measurably changed (up or down) from Monday morning.]
 
@@ -106,7 +106,7 @@ The sprint is **unsuccessful** if [the explicit failure conditions: Friday inter
 - [ ] Decider authorizes customer recruiting plan, including honorarium budget.
 - [ ] Decider confirms prototype medium and acknowledges the team will not over-invest in the prototype as if it were the product.
 - [ ] Decider confirms interview format, recording, and consent posture.
-- [ ] Decider confirms success criteria and acknowledges the sprint will produce a single build/iterate/pivot/stop call by 16:30 Friday.
+- [ ] Decider confirms success criteria and acknowledges the sprint will produce a single build/iterate/pivot/stop call by 17:30 Friday.
 - [ ] Decider acknowledges that recruiting cancellation or insufficient prototype scope must trigger a postpone decision rather than a slipped sprint.
 
 **Signed:** [Decider name, role], [ISO date and local time]

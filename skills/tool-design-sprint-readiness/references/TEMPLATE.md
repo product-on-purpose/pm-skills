@@ -102,7 +102,7 @@
 - [ ] Decider commits to attending the load-bearing windows (Mon AM, Wed AM, Fri PM) at minimum (if verdict is Go or Conditional Go).
 - [ ] Decider acknowledges the documented preconditions and owns ensuring they are met before Monday (if Conditional Go).
 - [ ] Decider authorizes the customer recruiting plan, including honorarium budget (if verdict is Go).
-- [ ] Decider agrees the output should be a Friday scorecard plus a Decider review by 16:30 Friday with an explicit build / iterate / pivot / stop call.
+- [ ] Decider agrees the output should be a Friday scorecard plus a Decider review by 17:30 Friday with an explicit build / iterate / pivot / stop call.
 - [ ] Decider acknowledges that the sprint will produce a single direction validated or invalidated; the prototype is not the product, and the team will not over-invest in the prototype as if it were.
 
 **Signed:** [Decider name, role], [ISO date and local time]

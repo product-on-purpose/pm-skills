@@ -51,12 +51,12 @@ Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.m
 - It is Day 5 of the Design Sprint and Thursday's prototype passed trial run.
 - 5 confirmed participants are scheduled (canonical; or 4 if 1 cancelled-and-no-buffer; pause if below 4).
 - The team can observe interviews live (in-person or via Zoom breakout room) and synthesize during the day.
-- The Decider is present Friday PM for the post-interview review (canonically 14:00-16:30 PT).
+- The Decider is present Friday PM for the post-interview review (canonically 14:00-18:00 PT window covering observation of slots 4-5 plus Decider review by 17:30 PT).
 
 ## When NOT to Use
 
 - Thursday prototype did not pass trial run. Re-run trial; if still failing at 19:00 PT Thursday, postpone Friday.
-- Fewer than 3 customers confirmed. Per Ratified Decision 3: validator rejects below 3 (insufficient signal) or above 7 (synthesis overload). 3-4 or 6-7 customers gets a warning; 5 is canonical.
+- Fewer than 3 customers confirmed. Per Ratified Decision 3, the canonical guidance is 5 customers; 3-4 or 6-7 gets a documented warning; below 3 or above 7 should trigger a re-decision (postpone or split testing). Note: the v0.1.0 family validator does NOT mechanically enforce these thresholds (cohort count is in the EXAMPLE artifact, not in frontmatter); enforcement is a v2.16 validator-expansion candidate.
 - Decider unavailable for the post-interview review window. Without Decider, the day produces observations without a call.
 - The team plans to use this skill to write the executive memo. Per Ratified Decision 4: exec memo authoring is delegated to `foundation-stakeholder-update` (existing pm-skills foundation skill); this skill produces the Decider summary only.
 
@@ -75,14 +75,14 @@ See `references/TEMPLATE.md` for the canonical structure and `references/EXAMPLE
 
 ## Friday Time Structure
 
-Friday is the longest day: customer interviews start early (canonically 09:00 PT) and the Decider review concludes the day (canonically 16:30 PT).
+Friday is the longest day: customer interviews start early (canonically 09:00 PT) and the Decider review concludes the day (canonically 17:30 PT).
 
-- **09:00-15:00**: 5 customer interviews of 50-60 minutes each at 09:00 / 10:30 / 12:00 (after a short refresh; or skip 12:00 slot if no buffer needed) / 14:00 / 15:30. Each slot: 10 min setup + 50-55 min interview + 5-15 min team huddle to capture observations before next customer.
-- **12:30-13:30 (or after slot 3)**: Lunch + interim observation review
-- **15:00-15:30**: Last-customer wrap; observation note tidy
-- **15:30-16:00**: Team writes hot takes silently in parallel
-- **16:00-16:30**: Decider reviews scorecard + hot takes; makes the call
-- **16:30-17:00**: Decider summary captured; team begins post-sprint disposition (next-step calendar, downstream deliverable assignment)
+- **09:00-16:30**: 5 customer interviews of 50-60 minutes each at 09:00 / 10:30 / 12:00 / 14:00 / 15:30. Each slot: 10 min setup + 50-55 min interview + 5 min team huddle to capture observations before next customer.
+- **13:00-14:00**: Lunch (slot 3 wraps ~13:00; lunch overlaps the slot 3 to slot 4 buffer)
+- **16:30-16:45**: Last-customer wrap; observation note tidy
+- **16:45-17:00**: Team writes hot takes silently in parallel
+- **17:00-17:30**: Decider reviews scorecard + hot takes; makes the call
+- **17:30-18:00**: Decider summary captured; team begins post-sprint disposition (next-step calendar, downstream deliverable assignment)
 
 This skill's 270-minute timebox covers the synthesis sections (scorecard, patterns, hot takes, Decider summary). The 5 interviews themselves (~5 hours of interview time) run in parallel with continuous observation capture.
 
@@ -97,8 +97,8 @@ The scorecard is a 2-D grid. Rows are sprint questions from Monday's map-and-tar
 | ... | ... | ... | ... | ... | ... | ... |
 
 Day-end decision rules:
-- **Validated**: 4 or 5 of 5 Y (strong signal); 3 of 5 Y with no N (directional). For 4-customer cohorts: 3-4 Y is Validated.
-- **Invalidated**: 4 or 5 of 5 N. For 4-customer cohorts: 3-4 N is Invalidated.
+- **Validated**: 4 or 5 of 5 Y (strong signal); 3 of 5 Y with no N (directional). For 4-customer cohorts: 4 Y is Validated; 3 Y with no N is directional.
+- **Invalidated**: 4 or 5 of 5 N. For 4-customer cohorts: 4 N is Invalidated; 3 N with no Y is directional.
 - **Inconclusive**: all other patterns. Inconclusive questions get scheduled for follow-up (a smaller test, a quant experiment, or a second Design Sprint).
 
 The Decider can override day-end decisions but should record reasoning.
@@ -128,6 +128,7 @@ Downstream invocations after the sprint closes: `deliver-prd` (if Decider call i
 - GV Design Sprint Guide. "Sprint Week Friday." https://www.gv.com/sprint/
 - Character Capital. "Design Sprint Day 5." https://www.character.vc
 - Google Design Sprint Kit. "Friday scorecard template + interview observation worksheet." https://designsprintkit.withgoogle.com/
+- Nielsen, J. (2000). "Why You Only Need to Test with 5 Users." Nielsen Norman Group. https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/ (canonical research for the 5-customer cohort size).
 
 ## Decider Checkpoint
 

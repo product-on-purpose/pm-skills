@@ -1,6 +1,6 @@
 # Design Sprint Brief: Brainshelf Camera-Capture Validation
 
-Locked Tuesday 2026-05-19 (one week before sprint start). The Brainshelf team's `tool-design-sprint-readiness` verdict was Go on 2026-05-15; Riley activated recruiting on 2026-05-16 and confirmed 6 customer slots by 2026-05-21 (two days ahead of the 2026-05-23 deadline). This brief locks the remaining decisions (sprint questions, prototype medium, interview format, success criteria) and authorizes the USD 600 customer-recruiting spend.
+Locked Friday 2026-05-29 (3 days before sprint start). The Brainshelf team's `tool-design-sprint-readiness` verdict was Go on 2026-05-15; Riley activated recruiting on 2026-05-16 and confirmed 6 customer slots by 2026-05-27 (two days ahead of the 2026-05-29 deadline). This brief locks the remaining decisions (sprint questions, prototype medium, interview format, success criteria) and authorizes the USD 600 customer-recruiting spend.
 
 ## Challenge Statement and Why-Now
 
@@ -17,12 +17,12 @@ Design and test a sub-3-second camera-first book-capture flow for 25+/year reade
 
 | Window | Day(s) | Required for |
 |---|---|---|
-| Mon AM | 2026-05-26 09:00-12:30 PT | Map and Target; long-term goal, sprint questions, target moment |
-| Wed AM | 2026-05-28 09:00-12:30 PT | Heat map, critique, supervote |
-| Fri PM | 2026-05-30 14:00-16:30 PT | Decider review of Friday scorecard; build/iterate/pivot/stop call |
-| Full week (ideal) | 2026-05-26 through 2026-05-30 | All 5 days, full attendance committed |
+| Mon AM | 2026-06-01 09:00-12:30 PT | Map and Target; long-term goal, sprint questions, target moment |
+| Wed AM | 2026-06-03 09:00-12:30 PT | Heat map, critique, supervote |
+| Fri PM | 2026-06-05 14:00-18:00 PT | Decider observes interview slots 4-5 from breakout room; Decider review of Friday scorecard begins after last interview wraps 16:30; build/iterate/pivot/stop call by 17:30 PT |
+| Full week (ideal) | 2026-06-01 through 2026-06-05 | All 5 days, full attendance committed |
 
-**Jamie's confirmed availability:** all 5 days, full attendance, no calendar conflicts; backup investor calls rescheduled to 2026-06-02 afternoon.
+**Jamie's confirmed availability:** all 5 days, full attendance, no calendar conflicts; backup investor calls rescheduled to 2026-06-08 afternoon.
 
 ## Team Roster
 
@@ -44,7 +44,7 @@ No cameo experts required. Riley acts as both customer expert (week-long context
 | Count needed | 5 (6 confirmed for 1-buffer) |
 | Incentive | USD 100 per 60-minute interview; budget USD 600 total (6 slots); authorized by Jamie 2026-05-15 |
 | Recruiter owner | Riley |
-| Recruiting deadline | 2026-05-23 (CLOSED; 6 confirmed slots locked 2026-05-21) |
+| Recruiting deadline | 2026-05-29 (CLOSED; 6 confirmed slots locked 2026-05-27) |
 | Friday schedule | 6 slots: 09:00 / 10:30 / 12:00 / 14:00 / 15:30 / 17:00 PT. Buffer slot 17:00 used only on earlier no-show. |
 | Recording and consent | Zoom recording with audio + video; consent form sent at confirmation; 90-day retention; raw video deleted post-synthesis; quotes anonymized in any external sharing. |
 
@@ -58,7 +58,7 @@ No cameo experts required. Riley acts as both customer expert (week-long context
 
 **Build owners:** Alex (design lead) and Sam (engineering lead). Sam's role on Thursday is to keep Alex unblocked on Figma constraints (component patterns, interaction logic) so the prototype completes by 17:00 PT for the Friday dry-run.
 
-**Build day:** Thursday 2026-05-29, target completion 17:00 PT for Friday dry-run.
+**Build day:** Thursday 2026-06-04, target completion 17:00 PT for Friday dry-run.
 
 ## Interview Format
 
@@ -70,43 +70,43 @@ No cameo experts required. Riley acts as both customer expert (week-long context
 
 **Script structure:** Five-Act Interview (Welcome / Context / Intro / Tasks / Debrief). Tasks Act customized to the camera-capture flow and recall surface; other Acts canonical from Sprint book Chapter 17. Estimated 50 minutes per slot with 10 minute buffer for technical recovery.
 
-**Recording and consent:** Zoom audio + video recording; consent form sent with calendar invite (DocuSign template based on Google Design Sprint Kit's consent form); 90-day retention; raw video deleted post-synthesis Monday 2026-06-02; quotes anonymized in any external sharing or fundraising deck use.
+**Recording and consent:** Zoom audio + video recording; consent form sent with calendar invite (DocuSign template based on Google Design Sprint Kit's consent form); 90-day retention; raw video deleted post-synthesis Monday 2026-06-08; quotes anonymized in any external sharing or fundraising deck use.
 
 ## Sprint Logistics
 
 | Element | Value |
 |---|---|
-| Sprint week | 2026-05-26 (Mon) through 2026-05-30 (Fri) |
+| Sprint week | 2026-06-01 (Mon) through 2026-06-05 (Fri) |
 | Hours | 09:00 - 17:00 PT each day with 12:30-13:30 lunch |
 | Location | Hybrid: Jamie + Sam in-person at Capitol Hill Coworking (Seattle); Alex + Riley remote on Zoom + Miro |
 | Format | In-room whiteboard + shared Miro board mirroring the whiteboard; daily standup recapped in Miro for remote attendees |
 | Tools | Miro (whiteboard), Zoom (video), Figma (prototype Thursday), GitHub Project board (decision log), Otter (interview transcripts) |
 | Daily rhythm | 09:00 standup (15 min); 12:30 lunch; 16:30 day-end review (15 min); Slack silenced 09:00-17:00 |
-| Non-sprint coverage | Sam: on-call coverage delegated to part-time contractor week of 2026-05-26. Jamie: investor pings async-only until Monday 2026-06-02. Alex + Riley: customer-success rerouted to no-coverage-needed auto-responses. |
+| Non-sprint coverage | Sam: on-call coverage delegated to part-time contractor week of 2026-06-01. Jamie: investor pings async-only until Monday 2026-06-08. Alex + Riley: customer-success rerouted to no-coverage-needed auto-responses. |
 
 ## Success Criteria
 
 The sprint is **successful** if:
 
 1. Friday produces a clear validation or invalidation of Sprint Question 1 (the lead A1 question), with evidence from at least 4 of the 5 customer interviews (1-customer no-show tolerance).
-2. Jamie makes an explicit build / iterate / pivot to Red Bookstore Mode / stop call by 16:30 Friday 2026-05-30.
+2. Jamie makes an explicit build / iterate / pivot to Red Bookstore Mode / stop call by 17:30 Friday 2026-06-05.
 3. Sprint Questions 2-4 have at least directional evidence from Friday (full validation deferred to post-sprint testing).
 4. Team's collective confidence in the Founding Hypothesis (measured on a 1-10 scale Monday morning vs. Friday close) has moved at least 2 points in either direction (validation or invalidation; "no change" indicates the sprint did not actually test).
 
-The sprint is **unsuccessful** if Friday interviews do not complete due to recruiting failure (more than 2 no-shows; buffer slot insufficient), if the Figma prototype is not testable on Friday (Thursday build slips past 18:00 PT and Friday dry-run cannot occur), if Jamie's call slips past Monday 2026-06-02, or if scope drift forces the sprint to add a Saturday or extend into the following week.
+The sprint is **unsuccessful** if Friday interviews do not complete due to recruiting failure (more than 2 no-shows; buffer slot insufficient), if the Figma prototype is not testable on Friday (Thursday build slips past 18:00 PT and Friday dry-run cannot occur), if Jamie's call slips past Monday 2026-06-08, or if scope drift forces the sprint to add a Saturday or extend into the following week.
 
 ## Decider Checkpoint
 
-**Decider sign-off required before Monday 2026-05-26 begins.**
+**Decider sign-off required before Monday 2026-06-01 begins.**
 
 - [x] Jamie confirms the challenge and sprint questions; questions are answerable from the 5 Friday interviews (6 confirmed slots; 1 buffer).
 - [x] Jamie confirms the team roster and attendance windows; all 4 attendees committed all 5 days.
-- [x] Jamie authorized customer recruiting plan and the USD 600 honorarium budget (committed 2026-05-15; recruiting closed 2026-05-21).
+- [x] Jamie re-confirms customer recruiting plan and the USD 600 honorarium budget (originally authorized 2026-05-15 at readiness sign-off; recruiting closed 2026-05-27).
 - [x] Jamie confirms prototype medium (Figma clickable) and acknowledges the team will not over-invest in the Figma prototype; the prototype tests interaction and recall framing, not engineering feasibility.
 - [x] Jamie confirms interview format (remote moderated; Zoom + Figma screen-share; Riley moderator; Five-Act Interview script), recording (audio + video; 90-day retention), and consent posture (DocuSign at recruiting time).
-- [x] Jamie confirms success criteria and acknowledges the sprint will produce a single build / iterate / pivot to Red Bookstore Mode / stop call by 16:30 Friday 2026-05-30.
+- [x] Jamie confirms success criteria and acknowledges the sprint will produce a single build / iterate / pivot to Red Bookstore Mode / stop call by 17:30 Friday 2026-06-05.
 - [x] Jamie acknowledges that recruiting cancellation cascade (more than 2 no-shows) or prototype slip past Thursday 18:00 PT triggers postpone, not slip-into-next-week.
 
-**Signed:** Jamie (founder, PM), 2026-05-22 16:45 PT.
+**Signed:** Jamie (founder, PM), 2026-05-29 16:45 PT.
 
-**Brief locked. Sprint begins Monday 2026-05-26 09:00 PT.**
+**Brief locked. Sprint begins Monday 2026-06-01 09:00 PT.**

@@ -1,6 +1,6 @@
 # Design Sprint Thursday Planning Artifact: Brainshelf Camera-Capture Validation
 
-Thursday morning 2026-05-29, 09:30 PT. Wednesday closed with Sketch B supervoted all-in-one and a 9-panel storyboard locked. Today: parallel Figma build (Alex + Sam paired); Riley drafts and mock-runs the Five-Act interview script; Jamie reviews build progress and signs off on the plan before the day's parallel work begins.
+Thursday morning 2026-06-04, 09:30 PT. Wednesday closed with Sketch B supervoted all-in-one and a 9-panel storyboard locked. Today: parallel Figma build (Alex + Sam paired); Riley drafts and mock-runs the Five-Act interview script; Jamie reviews build progress and signs off on the plan before the day's parallel work begins.
 
 ## Prototype Role Plan
 
@@ -18,7 +18,7 @@ Thursday morning 2026-05-29, 09:30 PT. Wednesday closed with Sketch B supervoted
 
 **What to build:** All 9 storyboard panels from Wednesday (Panel 1 Brainshelf icon tap through Panel 9 recall moment). Panels 1-5 are the load-bearing test panels (capture + confirmation + library view); Panels 6-9 are the contextual surround that lets the customer understand the recall payoff. Build all 9 as Figma frames; ensure Panels 1-5 have full interaction; Panels 6-9 may be lightly interactive (next-tap-advance only).
 
-**Fidelity bar:** Will a customer believe this is real for the 30-minute interview? For Panels 1-5: every frame has a frame, every inter-frame interaction triggers within 200ms, copy is final, visual design is on-brand (Brainshelf navy + warm-white + serif headline; Inter for body), book cover thumbnails use real public-domain covers (no stock placeholder). For Panels 6-9: every frame exists; interactions are linear advance; copy is "final-ish" (can have one TODO that the Interviewer steers around).
+**Fidelity bar:** Will a customer believe this is real for the 30-minute interview? For Panels 1-5: every frame has a frame, every inter-frame interaction triggers within 200ms, copy is final, visual design is on-brand (Brainshelf navy + warm-white + serif headline; Inter for body), book cover thumbnails use real public-domain covers (no stock placeholder). For Panels 6-9: every frame exists; interactions are linear advance; copy is lightly polished but final (no TODOs or placeholders; Riley confirmed during trial run that nothing requires steering-around).
 
 **Time allocation per role:** Per role plan above. Critical path: Writer finishes copy by 12:30 PT so Stitcher has final copy for Panel 3 and Panel 5 (the most copy-sensitive panels).
 
@@ -49,7 +49,7 @@ Okay, now I'm going to show you something we're working on. It's an early protot
 
 ### Act 4: Tasks (28 min)
 
-**Task 1 (15 min):** You just picked up a book called "The Overstory" at a bookstore called Bookshop and Other Books. You want to remember you found it. Try to add it to Brainshelf.
+**Task 1 (15 min):** You just picked up a book called "The Overstory" at a bookstore called Twig and Cover Books. You want to remember you found it. Try to add it to Brainshelf.
 - Probing notes for Riley: "Walk me through what you're thinking now." "What did you expect to happen when you tapped that?" "If this didn't work, what would you try instead?" Note timestamp when customer reaches Panel 4 (capture complete) to measure capture time.
 
 **Task 2 (8 min):** It's a week later. You want to find "The Overstory" in your library. Show me what you'd do.
@@ -75,9 +75,9 @@ Run with Sam playing a target-profile customer at 15:30-17:00 PT.
 
 - [ ] Prototype reaches every storyboard panel without dead links or missing assets
 - [ ] All inter-panel interactions trigger as expected; specifically: Panel 1 tap to Panel 2 camera; Panel 2 recognition pulse plays; Panel 3 card slide-up; Panel 3 chip taps commit; Panel 4 toast appears; Panel 5 library scroll works; Panel 6 search input accepts text; Panel 7 card opens; Panel 8 search-with-context works
-- [ ] Final copy is in place in Panels 1-5; Panels 6-9 may have one TODO Riley steers around
+- [ ] Final copy is in place in all 9 Panels; no TODOs or placeholder text anywhere
 - [ ] All 6 book cover thumbnails (The Overstory, plus 5 others for library backfill) are public-domain or fair-use; Sam confirmed via Open Library Cover API
-- [ ] Sample location data shows "Bookshop and Other Books" specifically (not a generic placeholder); other library books show varied real-but-public bookstore names
+- [ ] Sample location data shows "Twig and Cover Books" specifically (not a generic placeholder); other library books show varied real-but-public bookstore names
 - [ ] Riley can complete the full Five-Act script in 55-65 minutes (target 60 with buffer)
 - [ ] Tasks act produces observable behavior; Sam (as fake customer) demonstrated probe-able moments without script-following
 - [ ] Zoom recording on; Otter transcription armed; consent form sent in calendar invites
@@ -106,8 +106,8 @@ Run with Sam playing a target-profile customer at 15:30-17:00 PT.
 - [x] Jamie approves the Five-Act Tasks act wording; specifically the 3-task structure: capture-The-Overstory / find-it-1-week-later / recall-old-growth-forests-6-months-later.
 - [x] Jamie approves the trial-run gate criteria; if any gate fails at 17:00 PT, the team has until 19:00 PT to recover before Friday begins, otherwise Friday postpones.
 - [x] Jamie acknowledges participant tracker status: 5 of 5 confirmed; buffer slot is open; Riley has backup-of-backup identified.
-- [x] Jamie confirms attendance for Friday 14:00-16:30 PT Decider review (Decider observes interview slots 09:00-15:30 from breakout room; Decider review begins after 15:30 interview).
+- [x] Jamie confirms attendance for Friday 14:00-18:00 PT Decider window (Decider observes interview slots 09:00-16:30 from breakout room; Decider review begins after 15:30 interview wraps 16:30 and concludes by 17:30 PT).
 
-**Signed:** Jamie (founder, PM), 2026-05-29 09:55 PT.
+**Signed:** Jamie (founder, PM), 2026-06-04 09:55 PT.
 
 **Build authorized. Alex begins Figma build at 10:00 PT; trial run scheduled 15:30 PT; full plan locked.**
