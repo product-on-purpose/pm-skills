@@ -110,7 +110,7 @@ $mismatches = @()
 # subset). The SubsetPattern is checked against the slice immediately after
 # the digit and before the resource name; any match excludes the candidate.
 $checks = @(
-    @{ Pattern = '(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}skills'; Name = 'skills'; Count = $SkillCount; SubsetPattern = '(\d+)\s+(phase|foundation|utility|domain|shipped|embedded|test|sample|library|lines?)\b' },
+    @{ Pattern = '(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}skills'; Name = 'skills'; Count = $SkillCount; SubsetPattern = '(\d+)\s+(phase|foundation|utility|tool|domain|shipped|embedded|test|sample|library|lines?)\b' },
     @{ Pattern = '(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}commands'; Name = 'commands'; Count = $CommandCount; SubsetPattern = '(\d+)\s+(skill|workflow)[\s-]' },
     @{ Pattern = '(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}workflows'; Name = 'workflows'; Count = $WorkflowCount; SubsetPattern = $null }
 )

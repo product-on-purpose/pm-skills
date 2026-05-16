@@ -47,6 +47,21 @@ PM Skills ships 62 slash commands: 55 skill commands plus 7 workflow commands.
 | `/spike-summary` | [develop-spike-summary](../skills/develop/develop-spike-summary.md) | Develop | Documents the results of a time-boxed technical or design ex... |
 | `/stakeholder-summary` | [discover-stakeholder-summary](../skills/discover/discover-stakeholder-summary.md) | Discover | Documents stakeholder needs, concerns, and influence for a p... |
 | `/stakeholder-update` | [foundation-stakeholder-update](../skills/foundation/foundation-stakeholder-update.md) | Foundation | Produces async communication to stakeholders, primarily non-... |
+| `/tool-design-sprint-brief` | [tool-design-sprint-brief](../skills/tool/tool-design-sprint-brief.md) | tool | Pre-sprint brief that locks challenge, sprint questions, tea... |
+| `/tool-design-sprint-decide-and-storyboard` | [tool-design-sprint-decide-and-storyboard](../skills/tool/tool-design-sprint-decide-and-storyboard.md) | tool | Day 3 (Wednesday) move of a Design Sprint that runs the art ... |
+| `/tool-design-sprint-map-and-target` | [tool-design-sprint-map-and-target](../skills/tool/tool-design-sprint-map-and-target.md) | tool | Day 1 (Monday) move of a Design Sprint that produces the bun... |
+| `/tool-design-sprint-prototype-plan` | [tool-design-sprint-prototype-plan](../skills/tool/tool-design-sprint-prototype-plan.md) | tool | Day 4 (Thursday) move of a Design Sprint that produces the p... |
+| `/tool-design-sprint-readiness` | [tool-design-sprint-readiness](../skills/tool/tool-design-sprint-readiness.md) | tool | Pre-sprint diagnostic that determines whether a team should ... |
+| `/tool-design-sprint-sketch` | [tool-design-sprint-sketch](../skills/tool/tool-design-sprint-sketch.md) | tool | Day 2 (Tuesday) move of a Design Sprint that structures ligh... |
+| `/tool-design-sprint-test-and-score` | [tool-design-sprint-test-and-score](../skills/tool/tool-design-sprint-test-and-score.md) | tool | Day 5 (Friday) sprint-closing move of a Design Sprint that p... |
+| `/tool-foundation-sprint-approach-options` | [tool-foundation-sprint-approach-options](../skills/tool/tool-foundation-sprint-approach-options.md) | tool | Day 2 morning move of a Foundation Sprint. Forces generation... |
+| `/tool-foundation-sprint-basics` | [tool-foundation-sprint-basics](../skills/tool/tool-foundation-sprint-basics.md) | tool | Day 1 morning move of a Foundation Sprint. Forces explicit t... |
+| `/tool-foundation-sprint-brief` | [tool-foundation-sprint-brief](../skills/tool/tool-foundation-sprint-brief.md) | tool | Pre-sprint brief that locks scope, the decision the sprint m... |
+| `/tool-foundation-sprint-differentiation` | [tool-foundation-sprint-differentiation](../skills/tool/tool-foundation-sprint-differentiation.md) | tool | Day 1 afternoon move of a Foundation Sprint. Converts the mo... |
+| `/tool-foundation-sprint-founding-hypothesis` | [tool-foundation-sprint-founding-hypothesis](../skills/tool/tool-foundation-sprint-founding-hypothesis.md) | tool | Day 2 end capstone move of a Foundation Sprint. Compresses t... |
+| `/tool-foundation-sprint-magic-lenses` | [tool-foundation-sprint-magic-lenses](../skills/tool/tool-foundation-sprint-magic-lenses.md) | tool | Day 2 afternoon move of a Foundation Sprint. Evaluates the c... |
+| `/tool-foundation-sprint-readiness` | [tool-foundation-sprint-readiness](../skills/tool/tool-foundation-sprint-readiness.md) | tool | Pre-sprint diagnostic that determines whether a team should ... |
+| `/tool-note-and-vote` | [tool-note-and-vote](../skills/tool/tool-note-and-vote.md) | tool | Structured group-decision mechanic that captures silent idea... |
 | `/update-pm-skills` | [utility-update-pm-skills](../skills/utility/utility-update-pm-skills.md) | Utility | Checks for newer pm-skills releases, compares local vs. late... |
 | `/user-stories` | [deliver-user-stories](../skills/deliver/deliver-user-stories.md) | Deliver | Generates user stories with clear acceptance criteria from p... |
 | `/workflow-customer-discovery` | [Customer Discovery](../workflows/customer-discovery.md) | Workflow | Run the Customer Discovery workflow |

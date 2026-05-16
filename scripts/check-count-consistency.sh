@@ -137,7 +137,7 @@ check_resource() {
         rest = substr(line, RSTART + RLENGTH)
         is_subset = 0
         # Skip subset descriptors before the resource name.
-        if (rname == "skills" && rest ~ /^[ ]+(phase|foundation|utility|domain|shipped|embedded|test|sample|library|lines? )/) is_subset = 1
+        if (rname == "skills" && rest ~ /^[ ]+(phase|foundation|utility|tool|domain|shipped|embedded|test|sample|library|lines? )/) is_subset = 1
         if (rname == "commands" && rest ~ /^[ ]+(skill|workflow)[ -]/) is_subset = 1
         matched = 0
         if (!is_subset && rname == "skills" && rest ~ /^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills/) matched = 1
