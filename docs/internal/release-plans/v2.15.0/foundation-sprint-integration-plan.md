@@ -142,20 +142,20 @@ These decisions are locked. Re-litigation requires an explicit plan amendment, n
 - Modify: `scripts/lint-skills-frontmatter.sh`
 - Modify: `scripts/lint-skills-frontmatter.ps1`
 
-- [ ] **Step 1: Read current allowed classification values**
+- [x] **Step 1: Read current allowed classification values**
 
 Read `scripts/lint-skills-frontmatter.sh` and identify the classification enum check (currently `domain | foundation | utility`).
 
-- [ ] **Step 2: Add `tool` to the allowed set**
+- [x] **Step 2: Add `tool` to the allowed set**
 
 Patch both `.sh` and `.ps1` to include `tool` alongside existing values (`domain`, `foundation`, `utility`). Apply the same root vs phase rule as `foundation` and `utility`: when `classification: tool`, `phase` must be omitted.
 
-- [ ] **Step 3: Verify no regressions**
+- [x] **Step 3: Verify no regressions**
 
 Run: `bash scripts/lint-skills-frontmatter.sh`
 Expected: PASS on all existing skills; tool classification now accepted without warning.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scripts/lint-skills-frontmatter.sh scripts/lint-skills-frontmatter.ps1
@@ -168,19 +168,19 @@ git commit -m "chore(scripts): allow classification: tool in frontmatter linter"
 - Modify: `scripts/validate-agents-md.sh`
 - Modify: `scripts/validate-agents-md.ps1`
 
-- [ ] **Step 1: Read current directory scope in validate-agents-md**
+- [x] **Step 1: Read current directory scope in validate-agents-md**
 
 Identify where the validator enumerates skill directories. Confirm it currently only scans domain (phase-prefixed), foundation, and utility directories.
 
-- [ ] **Step 2: Add tool skill directory pattern**
+- [x] **Step 2: Add tool skill directory pattern**
 
 Extend the scanned pattern to include `skills/tool-*` directories. One glob covers all sprint skills (`tool-foundation-sprint-*`, `tool-design-sprint-*`) and standalone tool skills (`tool-note-and-vote`).
 
-- [ ] **Step 3: Run validator against current state**
+- [x] **Step 3: Run validator against current state**
 
 Expected: PASS (no tool skills exist yet, so no new warnings generated).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scripts/validate-agents-md.sh scripts/validate-agents-md.ps1
@@ -192,11 +192,11 @@ git commit -m "chore(scripts): extend agents-md validator to recognize tool skil
 **Files:**
 - Create: `scripts/validate-foundation-sprint-skills-family.sh`
 
-- [ ] **Step 1: Read meeting-skills validator as reference**
+- [x] **Step 1: Read meeting-skills validator as reference**
 
 Read `scripts/validate-meeting-skills-family.sh` for structural pattern.
 
-- [ ] **Step 2: Author the validator**
+- [x] **Step 2: Author the validator**
 
 Checks to implement (WARN mode initially; promote to FAIL in a follow-up once all skills are shipped):
 - Every `skills/tool-foundation-sprint-*` folder has SKILL.md + `references/TEMPLATE.md` + `references/EXAMPLE.md`
@@ -208,12 +208,12 @@ Checks to implement (WARN mode initially; promote to FAIL in a follow-up once al
 
 The DS family validator (shipped by the Design Sprint plan) handles `skills/tool-design-sprint-*` with parallel checks. `tool-note-and-vote` is NOT a family member; it is validated by the generic frontmatter linter and structural checks only.
 
-- [ ] **Step 3: Test against empty state**
+- [x] **Step 3: Test against empty state**
 
 Run: `bash scripts/validate-foundation-sprint-skills-family.sh`
 Expected: exits cleanly with no foundation-sprint family members present yet.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add scripts/validate-foundation-sprint-skills-family.sh
@@ -225,16 +225,16 @@ git commit -m "feat(scripts): validate-foundation-sprint-skills-family Bash vali
 **Files:**
 - Create: `scripts/validate-foundation-sprint-skills-family.ps1`
 
-- [ ] **Step 1: Port Bash validator to PowerShell**
+- [x] **Step 1: Port Bash validator to PowerShell**
 
 Match check parity 1:1 with `validate-foundation-sprint-skills-family.sh`. Use `validate-meeting-skills-family.ps1` as structural reference.
 
-- [ ] **Step 2: Test**
+- [x] **Step 2: Test**
 
 Run: `pwsh -File scripts/validate-foundation-sprint-skills-family.ps1`
 Expected: PASS with no foundation-sprint family members present.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add scripts/validate-foundation-sprint-skills-family.ps1
@@ -249,11 +249,11 @@ git commit -m "feat(scripts): validate-foundation-sprint-skills-family PowerShel
 
 Note: the `design-sprint-skills` family contract and its registry entry are owned by the Design Sprint plan, not this one. `tool-note-and-vote` is NOT registered as a family member of either family; it is a standalone tool, validated by the generic frontmatter linter only.
 
-- [ ] **Step 1: Read meeting-skills contract as reference**
+- [x] **Step 1: Read meeting-skills contract as reference**
 
 Read `docs/reference/skill-families/meeting-skills-contract.md` for structure and depth. Read `docs/reference/skill-families/_registry.yaml` to understand the registration schema.
 
-- [ ] **Step 2: Author the foundation-sprint-skills contract**
+- [x] **Step 2: Author the foundation-sprint-skills contract**
 
 Cover, with explicit root vs metadata-nested distinction:
 
@@ -297,7 +297,7 @@ Other content to cover in the contract doc:
 - Versioning policy: each member skill follows pm-skills SemVer (root `version:` field); family contract has its own version tracked in this doc's frontmatter
 - CI enforcement reference: link to `scripts/validate-foundation-sprint-skills-family.sh` and `scripts/validate-foundation-sprint-skills-family.ps1`, plus the generic `validate-skill-family-registration` script
 
-- [ ] **Step 3: Register the family in `_registry.yaml`**
+- [x] **Step 3: Register the family in `_registry.yaml`**
 
 Append a foundation-sprint-skills entry to `docs/reference/skill-families/_registry.yaml`:
 
@@ -316,7 +316,7 @@ Append a foundation-sprint-skills entry to `docs/reference/skill-families/_regis
 
 Note: registers all 7 FS family members up front. The `design-sprint-skills` family is registered by the Design Sprint plan; `tool-note-and-vote` is NOT a family member of either family (standalone tool).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add docs/reference/skill-families/foundation-sprint-skills-contract.md docs/reference/skill-families/_registry.yaml
@@ -334,7 +334,7 @@ git commit -m "docs(foundation-sprint-skills): family contract and registry entr
 
 Note: `tool-note-and-vote` is a standalone tool, NOT a member of either sprint family. The note-and-vote technique is a generic facilitation primitive that predates and outlives sprints; it can be invoked in any participatory decision context. The FS family validator does not enforce its presence; the DS plan does not re-author it.
 
-- [ ] **Step 1: Author SKILL.md**
+- [x] **Step 1: Author SKILL.md**
 
 Frontmatter:
 
@@ -361,20 +361,20 @@ Note: no `metadata.tool` field (this is not a sprint-family tool, it's a standal
 
 Body covers: when to use (any group decision requiring divergent-then-convergent input), when NOT to use (single-decider calls; uncontested choices), zero-friction execution flow, bundled output structure, common pitfalls, Decider Checkpoint protocol.
 
-- [ ] **Step 2: Author references/TEMPLATE.md**
+- [x] **Step 2: Author references/TEMPLATE.md**
 
 Skeleton with placeholders: decision question, silent contributions list, vote results table, discussion notes, decision record with Decider sign-off. End with Decider Checkpoint section.
 
-- [ ] **Step 3: Author references/EXAMPLE.md**
+- [x] **Step 3: Author references/EXAMPLE.md**
 
 Use Brainshelf book-catalog sprint context: a sprint decision about which target customer to prioritize. Realistic 3-option vote with Decider supervote.
 
-- [ ] **Step 4: Validate**
+- [x] **Step 4: Validate**
 
 Run: `bash scripts/lint-skills-frontmatter.sh`
 Expected: PASS for tool-note-and-vote (no family validator applies; this skill is standalone).
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add skills/tool-note-and-vote/
@@ -414,24 +414,24 @@ metadata:
 **Files:**
 - Create: `skills/tool-foundation-sprint-readiness/{SKILL.md, references/TEMPLATE.md, references/EXAMPLE.md}`
 
-- [ ] **Step 1: Author SKILL.md**
+- [x] **Step 1: Author SKILL.md**
 
 Use spec section "1. foundation-sprint-readiness". Frontmatter: `metadata.tool: foundation-sprint`, `metadata.move: readiness`, no prerequisites (entry point).
 
-- [ ] **Step 2: Author TEMPLATE.md**
+- [x] **Step 2: Author TEMPLATE.md**
 
 Output skeleton: readiness verdict (Go / Conditional Go / Wait), diagnosis section, recommended preconditions, attendee list, prep activities, Decider Checkpoint.
 
-- [ ] **Step 3: Author EXAMPLE.md**
+- [x] **Step 3: Author EXAMPLE.md**
 
 Brainshelf book-catalog sprint context: PM evaluating whether a Foundation Sprint is the right tool to clarify their consumer book-tracking product direction.
 
-- [ ] **Step 4: Validate**
+- [x] **Step 4: Validate**
 
 Run: `bash scripts/validate-foundation-sprint-skills-family.sh`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add skills/tool-foundation-sprint-readiness/
@@ -442,37 +442,37 @@ git commit -m "feat(foundation-sprint-skills): add tool-foundation-sprint-readin
 
 Follow Task 7 pattern. Spec section "2. foundation-sprint-brief". `metadata.move: brief`. Prerequisites: `tool-foundation-sprint-readiness`.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
 
 #### Task 9: Author tool-foundation-sprint-basics
 
 Follow Task 7 pattern. Spec section "3. foundation-sprint-basics". `metadata.move: basics`. Prerequisites: `tool-foundation-sprint-brief`. Bundled artifact has 4 sub-parts.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
 
 #### Task 10: Author tool-foundation-sprint-differentiation
 
 Follow Task 7 pattern. Spec section "4. foundation-sprint-differentiation". `metadata.move: differentiation`. Prerequisites: `tool-foundation-sprint-basics`. Includes 2x2 chart and mini-manifesto.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
 
 #### Task 11: Author tool-foundation-sprint-approach-options
 
 Follow Task 7 pattern. Spec section "5. foundation-sprint-approach-options". `metadata.move: approach-options`. Prerequisites: `tool-foundation-sprint-differentiation`.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
 
 #### Task 12: Author tool-foundation-sprint-magic-lenses
 
 Follow Task 7 pattern. Spec section "6. foundation-sprint-magic-lenses". `metadata.move: magic-lenses`. Prerequisites: `tool-foundation-sprint-approach-options`.
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
 
 #### Task 13: Author tool-foundation-sprint-founding-hypothesis
 
 Follow Task 7 pattern. Spec section "7. foundation-sprint-founding-hypothesis". `metadata.move: founding-hypothesis`. Prerequisites: `tool-foundation-sprint-magic-lenses`. Final Foundation Sprint output - produces the Founding Hypothesis that becomes the input to a Design Sprint via the narrative handoff in `_workflows/foundation-to-design.md` (no separate bridge skill).
 
-- [ ] Steps 1-5: same lifecycle.
+- [x] Steps 1-5: same lifecycle.
 
 ### Phase 4: Workflow and commands
 
@@ -481,13 +481,13 @@ Follow Task 7 pattern. Spec section "7. foundation-sprint-founding-hypothesis". 
 **Files:**
 - Create: `_workflows/foundation-sprint.md`
 
-- [ ] **Step 1: Author workflow doc**
+- [x] **Step 1: Author workflow doc**
 
 Use the workflow block from `foundation-sprint-design-spec.md` section "Workflow: foundation-sprint". Document: prep phase (readiness, brief), Day 1 morning (basics), Day 1 afternoon (differentiation), Day 2 morning (approach-options), Day 2 afternoon (magic-lenses), Day 2 closing (founding-hypothesis). Skill names are `tool-foundation-sprint-{move}` throughout.
 
 Handoff section at the end: describes the transition to a Design Sprint narratively (the Founding Hypothesis becomes the strategic context for a Design Sprint Map and Target Monday). Note that there is NO separate bridge skill; the full FS-to-DS arc lives in `_workflows/foundation-to-design.md` (authored by the Design Sprint plan).
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add _workflows/foundation-sprint.md
@@ -499,16 +499,16 @@ git commit -m "feat(foundation-sprint-skills): add foundation-sprint workflow"
 **Files:**
 - Create: 8 files in `commands/` (one per skill)
 
-- [ ] **Step 1: Author each command file**
+- [x] **Step 1: Author each command file**
 
 Pattern from existing `commands/*.md` files. Command body invokes the underlying skill. 8 new commands: 7 Foundation Sprint skills + tool-note-and-vote.
 
-- [ ] **Step 2: Validate commands**
+- [x] **Step 2: Validate commands**
 
 Run: `bash scripts/validate-commands.sh`
 Expected: all 8 new commands resolve.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add commands/tool-foundation-sprint-readiness.md commands/tool-foundation-sprint-brief.md commands/tool-foundation-sprint-basics.md commands/tool-foundation-sprint-differentiation.md commands/tool-foundation-sprint-approach-options.md commands/tool-foundation-sprint-magic-lenses.md commands/tool-foundation-sprint-founding-hypothesis.md commands/tool-note-and-vote.md
@@ -531,20 +531,20 @@ Each thread must tell a coherent story across all 8 skills - basics output feeds
 **Files:**
 - Create: 8 files in `library/skill-output-samples/{skill-name}/sample_{skill-name}_brainshelf_book-catalog.md`
 
-- [ ] **Step 1: Plan a coherent Brainshelf Foundation Sprint trace**
+- [x] **Step 1: Plan a coherent Brainshelf Foundation Sprint trace**
 
 Draft a narrative: Brainshelf runs a 2-day Foundation Sprint to decide whether to prioritize individual collectors or social readers. Each sample is one workshop-move output.
 
-- [ ] **Step 2: Author 8 samples**
+- [x] **Step 2: Author 8 samples**
 
 One per skill: readiness, brief, basics, differentiation, approach-options, magic-lenses, founding-hypothesis, plus a tool-note-and-vote sample from a key decision moment (e.g., choosing the target customer).
 
-- [ ] **Step 3: Validate**
+- [x] **Step 3: Validate**
 
 Run: `bash scripts/validate-foundation-sprint-skills-family.sh`
 Expected: PASS for all Brainshelf samples.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add library/skill-output-samples/tool-foundation-sprint-*/sample_*_brainshelf_book-catalog.md library/skill-output-samples/tool-note-and-vote/sample_tool-note-and-vote_brainshelf_book-catalog.md
@@ -570,11 +570,11 @@ Follow Task 16 pattern. Workbench context: developer tooling team running Founda
 **Files:**
 - Create: `docs/guides/using-foundation-sprint.md`
 
-- [ ] **Step 1: Author guide**
+- [x] **Step 1: Author guide**
 
 Cover: what a Foundation Sprint is and when to run one, how to use the 7 `tool-foundation-sprint-*` skills in sequence, the role of `tool-note-and-vote` (used at multiple decision moments), common pitfalls, and the handoff to a Design Sprint. The handoff section is the load-bearing replacement for the dropped bridge skill: it describes how the Founding Hypothesis output becomes the strategic context Day 1 of a Design Sprint needs (long-term goal framing, sprint questions, scorecard targets). Length target: 1,400-2,000 words (longer than originally estimated because the handoff section is now part of this guide rather than a separate bridge artifact). Include 1-2 mermaid diagrams (2-day flow, output-to-next-skill handoff chain, transition to Design Sprint).
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add docs/guides/using-foundation-sprint.md
@@ -591,7 +591,7 @@ Note: This file already exists on `origin/main`. The refresh updates skill-name 
 
 **Rationale:** The `docs/concepts/` section holds conceptual explainers (Agent Skill Anatomy, Triple Diamond Delivery Process). Foundation Sprint warrants the same treatment so users encountering the skill family understand the underlying framework before invoking any individual skill. Distinct from the `docs/guides/using-foundation-sprint.md` operational guide: the concepts doc explains the framework's reasoning, history, and design decisions; the guide explains how to use the pm-skills implementation.
 
-- [ ] **Step 1: Author concept doc**
+- [x] **Step 1: Author concept doc**
 
 Mirror the structure of `docs/concepts/triple-diamond-delivery-process.md`: executive summary; origins and canonical sources; conceptual model with one or more mermaid diagrams; two-day breakdown with per-block diagrams; core concepts (Founding Hypothesis, Mini Manifesto, Magic Lenses, Note-and-Vote); Foundation Sprint vs Design Sprint comparison; practical applications; variants (enterprise, startup, AI-era); common failure modes; how Foundation Sprint connects to pm-skills (skill family map); references and further reading.
 
@@ -604,11 +604,11 @@ Required source citations (in References section):
 
 Source spec for content authoring: `docs/internal/efforts/foundation-sprint-skills/foundation-sprint-detailed-guide-pm-skills.md` (the synthesized guide with confidence-tagged claims).
 
-- [ ] **Step 2: Add row to docs/concepts/index.md**
+- [x] **Step 2: Add row to docs/concepts/index.md**
 
 Append a row to the topic table for `[Foundation Sprint](foundation-sprint.md)` with a one-line description.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add docs/concepts/foundation-sprint.md docs/concepts/index.md
@@ -620,16 +620,16 @@ git commit -m "docs(concepts): Foundation Sprint framework explainer"
 **Files:**
 - Modify: `AGENTS.md`
 
-- [ ] **Step 1: Add tool-classification section**
+- [x] **Step 1: Add tool-classification section**
 
 Add a new section (after existing pm-skills domain/foundation/utility sections) titled "Tool" or "Tools (sprint methodologies + standalone)". List `tool-note-and-vote` plus 7 Foundation Sprint skills with brief descriptions. The DS plan extends this section in its Task 16 to add the 7 DS skills.
 
-- [ ] **Step 2: Validate AGENTS.md sync**
+- [x] **Step 2: Validate AGENTS.md sync**
 
 Run: `bash scripts/validate-agents-md.sh`
 Expected: PASS.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add AGENTS.md
