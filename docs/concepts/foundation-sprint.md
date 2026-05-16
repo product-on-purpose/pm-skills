@@ -427,12 +427,12 @@ These books inform the conceptual foundations of Foundation Sprint without being
 
 The following pm-skills cover adjacent practices that compose with or substitute for parts of Foundation Sprint:
 
-- **[`foundation-lean-canvas`](../skills/foundation-lean-canvas/SKILL.md)** - Ash Maurya's lean canvas. Less ritualized than Foundation Sprint Basics but covers similar territory in 60-90 min.
-- **[`foundation-persona`](../skills/foundation-persona/SKILL.md)** - canonical persona template. Composes with Foundation Sprint Basics target-customer work; can be used as input.
-- **[`foundation-okr-writer`](../skills/foundation-okr-writer/SKILL.md)** - outcome-based OKRs. The Founding Hypothesis is an upstream artifact OKRs flow from at the start of a cycle.
-- **[`define-jtbd-canvas`](../skills/define-jtbd-canvas/SKILL.md)** - JTBD canvas. Adjacent framing for important-problem work.
-- **[`define-hypothesis`](../skills/define-hypothesis/SKILL.md)** - lightweight hypothesis definition. The Founding Hypothesis is a heavier-weight ritualized version; this skill is the smaller-cycle counterpart.
-- **[`develop-spike-summary`](../skills/develop-spike-summary/SKILL.md)** - tech spike output. Useful when Foundation Sprint's recommended next test is a technical-feasibility investigation rather than a Design Sprint.
+- **[`foundation-lean-canvas`](../../skills/foundation-lean-canvas/SKILL.md)** - Ash Maurya's lean canvas. Less ritualized than Foundation Sprint Basics but covers similar territory in 60-90 min.
+- **[`foundation-persona`](../../skills/foundation-persona/SKILL.md)** - canonical persona template. Composes with Foundation Sprint Basics target-customer work; can be used as input.
+- **[`foundation-okr-writer`](../../skills/foundation-okr-writer/SKILL.md)** - outcome-based OKRs. The Founding Hypothesis is an upstream artifact OKRs flow from at the start of a cycle.
+- **[`define-jtbd-canvas`](../../skills/define-jtbd-canvas/SKILL.md)** - JTBD canvas. Adjacent framing for important-problem work.
+- **[`define-hypothesis`](../../skills/define-hypothesis/SKILL.md)** - lightweight hypothesis definition. The Founding Hypothesis is a heavier-weight ritualized version; this skill is the smaller-cycle counterpart.
+- **[`develop-spike-summary`](../../skills/develop-spike-summary/SKILL.md)** - tech spike output. Useful when Foundation Sprint's recommended next test is a technical-feasibility investigation rather than a Design Sprint.
 
 ---
 

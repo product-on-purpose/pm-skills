@@ -412,13 +412,13 @@ These books inform the conceptual foundations of Design Sprint without being dir
 
 The following pm-skills cover adjacent practices that compose with or substitute for parts of Design Sprint:
 
-- **[`measure-experiment-design`](../skills/measure-experiment-design/SKILL.md)** - smaller experiment design (fake-door, landing-page test, A/B test). Use when the assumption is testable with a lighter cycle than a full 5-day Design Sprint.
-- **[`discover-interview-synthesis`](../skills/discover-interview-synthesis/SKILL.md)** - customer interview synthesis. Use post-Friday to extend the Sprint Friday observations into a fuller research artifact.
-- **[`deliver-prd`](../skills/deliver-prd/SKILL.md)** - PRD authoring. Use when the Decider's Friday call is Build; the PRD references the Friday scorecard as load-bearing context.
-- **[`iterate-pivot-decision`](../skills/iterate-pivot-decision/SKILL.md)** - pivot rationale and plan. Use when the Decider's Friday call is Pivot.
-- **[`iterate-lessons-log`](../skills/iterate-lessons-log/SKILL.md)** - structured lessons capture. Use when the Decider's Friday call is Stop (or for retrospective on any sprint).
-- **[`foundation-stakeholder-update`](../skills/foundation-stakeholder-update/SKILL.md)** - async stakeholder update. Use to communicate the Friday Decider call to investors, board, or non-sprint stakeholders (per Ratified Decision 4).
-- **[`foundation-meeting-recap`](../skills/foundation-meeting-recap/SKILL.md)** - meeting recap. Use to document end-of-day check-ins and the Friday Decider review for the team's permanent record.
+- **[`measure-experiment-design`](../../skills/measure-experiment-design/SKILL.md)** - smaller experiment design (fake-door, landing-page test, A/B test). Use when the assumption is testable with a lighter cycle than a full 5-day Design Sprint.
+- **[`discover-interview-synthesis`](../../skills/discover-interview-synthesis/SKILL.md)** - customer interview synthesis. Use post-Friday to extend the Sprint Friday observations into a fuller research artifact.
+- **[`deliver-prd`](../../skills/deliver-prd/SKILL.md)** - PRD authoring. Use when the Decider's Friday call is Build; the PRD references the Friday scorecard as load-bearing context.
+- **[`iterate-pivot-decision`](../../skills/iterate-pivot-decision/SKILL.md)** - pivot rationale and plan. Use when the Decider's Friday call is Pivot.
+- **[`iterate-lessons-log`](../../skills/iterate-lessons-log/SKILL.md)** - structured lessons capture. Use when the Decider's Friday call is Stop (or for retrospective on any sprint).
+- **[`foundation-stakeholder-update`](../../skills/foundation-stakeholder-update/SKILL.md)** - async stakeholder update. Use to communicate the Friday Decider call to investors, board, or non-sprint stakeholders (per Ratified Decision 4).
+- **[`foundation-meeting-recap`](../../skills/foundation-meeting-recap/SKILL.md)** - meeting recap. Use to document end-of-day check-ins and the Friday Decider review for the team's permanent record.
 
 ---
 
