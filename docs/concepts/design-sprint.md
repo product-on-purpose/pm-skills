@@ -375,11 +375,50 @@ When a team has run a Foundation Sprint and produced a Founding Hypothesis, the 
 - AJ&Smart. **"Remote Design Sprint template."** [ajsmart.com/remote-design-sprint-template](https://www.ajsmart.com/remote-design-sprint-template)
 - IDEO. **"Tips for running a successful design sprint."** [ideo.com/blog/tips-for-running-a-successful-design-sprint](https://www.ideo.com/blog/tips-for-running-a-successful-design-sprint)
 
+### Adjacent Reading (Books)
+
+These books inform the conceptual foundations of Design Sprint without being directly canonical to the method. Useful for teams that want deeper background on the underlying ideas.
+
+- Nielsen, Jakob. ***Usability Engineering*** (Morgan Kaufmann, 1993). Classic reference; the "test with 5 users" rationale that the Friday cohort size canonicalizes comes from Nielsen's research on usability test power curves.
+- Norman, Don. ***The Design of Everyday Things*** (Basic Books, revised 2013). The canonical interaction-design book; useful background on the affordances and signifiers framing that informs Tuesday sketch evaluation.
+- Krug, Steve. ***Don't Make Me Think, Revisited*** (New Riders, 3rd edition 2014). Practical usability heuristics for evaluating prototypes; useful for Wednesday critique and Friday observation.
+- Brown, Tim. ***Change by Design*** (Harper Business, revised 2019). IDEO's design thinking framework; complementary to Sprint method and useful for stakeholders familiar with Brown's framing.
+- Liedtka, Jeanne; Ogilvie, Tim. ***Designing for Growth*** (Columbia Business School, 2011). Design-thinking-for-business framing; bridges the language gap when explaining Design Sprint to non-design audiences.
+- Ries, Eric. ***The Lean Startup*** (Crown Business, 2011). Build-Measure-Learn; Design Sprint is one structured tactic for the Build-Measure half of the cycle.
+- Maurya, Ash. ***Running Lean*** (O'Reilly, 3rd edition 2022). Customer-development practice; useful for the Tuesday expert-interview design and Friday Five-Act Interview script.
+- Knapp, Jake; Zeratsky, John. ***Make Time*** (Currency, 2018). The authors' productivity book; useful background on the focus-and-decision rhythm that informs Sprint's day-by-day discipline.
+- Courland, Jonathan; et al. ***The Workshopper Playbook*** (AJ and Smart, 2021). Workshop facilitation patterns from one of the leading Sprint training organizations; complementary to canonical sources.
+- Stickdorn, Marc; et al. ***This Is Service Design Doing*** (O'Reilly, 2018). Service-design methodology; useful when running Sprint for service products (vs digital products).
+- Buxton, Bill. ***Sketching User Experiences*** (Morgan Kaufmann, 2007). Sketching as design thinking tool; informs the Tuesday four-step sketch protocol.
+
+### Adjacent Reading (Articles + Talks)
+
+- Nielsen, Jakob. **"Why You Only Need to Test with 5 Users."** Nielsen Norman Group (2000). [nngroup.com/articles/why-you-only-need-to-test-with-5-users](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/). The canonical research underpinning the Friday cohort size; treat this as required reading for anyone customizing the Sprint method.
+- Nielsen, Jakob. **"How Many Test Users in a Usability Study?"** Nielsen Norman Group (2012). [nngroup.com/articles/how-many-test-users](https://www.nngroup.com/articles/how-many-test-users/). The follow-up that addresses N>5 cases (B2B with multiple personas; quantitative studies).
+- Knapp, Jake. Medium archive at [medium.com/@jakek](https://medium.com/@jakek). Various essays on Sprint methodology, design facilitation, and the GV-to-Character transition.
+- Banfield, Richard; Lombardo, C. Todd; Wax, Trace. ***Design Sprint: A Practical Guidebook for Building Great Digital Products*** (O'Reilly, 2015). Complementary practitioner guide; earlier Sprint-method articulation.
+- AJ and Smart blog at [ajsmart.com/blog](https://www.ajsmart.com/blog). Hundreds of articles on facilitating sprints, including remote and hybrid variants. Among the most active practitioner sources outside Character Capital.
+- IDEO. **"Tips for running a successful design sprint."** [ideo.com/blog/tips-for-running-a-successful-design-sprint](https://www.ideo.com/blog/tips-for-running-a-successful-design-sprint). IDEO's framing on Sprint as one design-thinking pattern among many.
+- Reforge. **"Discovery sprints"** and adjacent product-discovery articles. [reforge.com](https://www.reforge.com/). Reforge's framing on the broader product-discovery cadence Design Sprint fits into.
+- Service Design Network. **"Service Design Sprint"** variant. [service-design-network.org](https://www.service-design-network.org/). Methodology adaptation for service products and customer-experience journeys.
+
 ### Related pm-skills Concepts
 
 - [Foundation Sprint](foundation-sprint.md) - the upstream method that produces the Founding Hypothesis a Design Sprint can test
 - [The Triple Diamond Delivery Process](triple-diamond-delivery-process.md) - the framework organizing pm-skills' domain, foundation, and utility skills
 - [Agent Skill Anatomy](agent-skill-anatomy.md) - the structural pattern every pm-skill follows, including the `tool-design-sprint-*` family
+
+### Related pm-skills Adjacent Methods (in this repo)
+
+The following pm-skills cover adjacent practices that compose with or substitute for parts of Design Sprint:
+
+- **[`measure-experiment-design`](../skills/measure-experiment-design/SKILL.md)** - smaller experiment design (fake-door, landing-page test, A/B test). Use when the assumption is testable with a lighter cycle than a full 5-day Design Sprint.
+- **[`discover-interview-synthesis`](../skills/discover-interview-synthesis/SKILL.md)** - customer interview synthesis. Use post-Friday to extend the Sprint Friday observations into a fuller research artifact.
+- **[`deliver-prd`](../skills/deliver-prd/SKILL.md)** - PRD authoring. Use when the Decider's Friday call is Build; the PRD references the Friday scorecard as load-bearing context.
+- **[`iterate-pivot-decision`](../skills/iterate-pivot-decision/SKILL.md)** - pivot rationale and plan. Use when the Decider's Friday call is Pivot.
+- **[`iterate-lessons-log`](../skills/iterate-lessons-log/SKILL.md)** - structured lessons capture. Use when the Decider's Friday call is Stop (or for retrospective on any sprint).
+- **[`foundation-stakeholder-update`](../skills/foundation-stakeholder-update/SKILL.md)** - async stakeholder update. Use to communicate the Friday Decider call to investors, board, or non-sprint stakeholders (per Ratified Decision 4).
+- **[`foundation-meeting-recap`](../skills/foundation-meeting-recap/SKILL.md)** - meeting recap. Use to document end-of-day check-ins and the Friday Decider review for the team's permanent record.
 
 ---
 

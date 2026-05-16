@@ -392,11 +392,47 @@ Teams that have a Design Sprint scheduled but cannot clearly answer "what hypoth
 - Design Sprint Academy. **"Avoiding pitfalls: making Foundation Sprints work in large organizations."** [designsprint.academy/blog/avoiding-pitfalls-making-foundation-sprints-work-in-large-organizations](https://www.designsprint.academy/blog/avoiding-pitfalls-making-foundation-sprints-work-in-large-organizations)
 - Design Sprint Academy. **"Foundation Sprint workshop template."** [designsprint.academy/free-templates/the-foundation-sprint-workshop-template](https://www.designsprint.academy/free-templates/the-foundation-sprint-workshop-template)
 
+### Adjacent Reading (Books)
+
+These books inform the conceptual foundations of Foundation Sprint without being directly canonical to the method. Useful for teams that want deeper background on the underlying ideas.
+
+- Ries, Eric. ***The Lean Startup*** (Crown Business, 2011). Build-Measure-Learn cycle; hypothesis-driven product development. Foundation Sprint produces the testable hypothesis Lean Startup demands at the front end.
+- Blank, Steve. ***The Four Steps to the Epiphany*** (K&S Ranch, 2005 / second edition 2013). Customer-development methodology; problem-and-solution-fit framing that the Foundation Sprint Basics step formalizes.
+- Maurya, Ash. ***Running Lean*** (O'Reilly, 3rd edition 2022). Lean canvas + customer-development practice. Lean canvas overlaps with Foundation Sprint Basics but is less ritualized.
+- Osterwalder, Alexander; Pigneur, Yves. ***Business Model Generation*** (Wiley, 2010). The original BMC; differentiation work in Foundation Sprint borrows from BMC's value-proposition framing.
+- Osterwalder, Alexander; Pigneur, Yves; Bernarda, Greg; Smith, Alan. ***Value Proposition Design*** (Wiley, 2014). Customer-jobs + pains + gains analysis adjacent to Foundation Sprint's important-problem framing.
+- Torres, Teresa. ***Continuous Discovery Habits*** (Product Talk, 2021). Opportunity-solution tree; ongoing customer interviews. Pairs with Foundation Sprint as the post-FS validation cadence.
+- Ulwick, Anthony. ***Jobs to be Done: Theory to Practice*** (Idea Bite Press, 2016). Outcome-driven innovation; the JTBD framing that informs Foundation Sprint target-customer + important-problem work.
+- Cagan, Marty. ***Inspired*** (Wiley, 2nd edition 2018). Empowered product teams; provides the team-structure context Foundation Sprint assumes.
+- Duke, Annie. ***Thinking in Bets*** (Portfolio, 2018). Decision-making under uncertainty; useful framing for Magic Lenses scoring and Decider supervote work.
+- Kahneman, Daniel. ***Thinking, Fast and Slow*** (Farrar, Straus and Giroux, 2011). System 1 vs System 2; explains why structured-deliberation moments (like Magic Lenses) outperform informal team discussion.
+- Knapp, Jake; Zeratsky, John. ***Make Time*** (Currency, 2018). The authors' productivity book; useful background on the design-and-decision rhythm that informs Foundation Sprint's two-day discipline.
+
+### Adjacent Reading (Articles + Talks)
+
+- Brown, Tim. **"Design Thinking."** *Harvard Business Review* (June 2008). [hbr.org/2008/06/design-thinking](https://hbr.org/2008/06/design-thinking). The HBR article that popularized "design thinking" as an executive concept; useful context for explaining Foundation Sprint to design-thinking-familiar stakeholders.
+- Knapp, Jake. Medium archive at [medium.com/@jakek](https://medium.com/@jakek). Various essays on sprint methodology, design facilitation, and the Foundation Sprint origin story.
+- Zeratsky, John. Personal blog at [johnzeratsky.com](https://johnzeratsky.com/). Posts on the GV-to-Character transition and the rationale for the Foundation Sprint.
+- Reforge. **"How to validate a startup idea."** Various authors. [reforge.com](https://www.reforge.com/). Adjacent to Foundation Sprint's purpose; longer-cycle versions of the same validation question.
+- Silicon Valley Product Group (SVPG). **Product discovery articles** by Marty Cagan and team. [svpg.com](https://www.svpg.com/). Discovery-focused product practice; Foundation Sprint is one structured tactic within the broader discovery toolkit.
+- Center for Innovation at Mayo Clinic (Maggie Breslin, Christopher Murray, et al.). **Service design and prototyping work**; useful for teams running Foundation Sprint in healthcare or other regulated contexts.
+
 ### Related pm-skills Concepts
 
 - [The Triple Diamond Delivery Process](triple-diamond-delivery-process.md) - the framework organizing pm-skills' domain, foundation, and utility skills
 - [Design Sprint](design-sprint.md) - the downstream method that tests the Founding Hypothesis
 - [Agent Skill Anatomy](agent-skill-anatomy.md) - the structural pattern every pm-skill follows, including the `tool-foundation-sprint-*` family
+
+### Related pm-skills Adjacent Methods (in this repo)
+
+The following pm-skills cover adjacent practices that compose with or substitute for parts of Foundation Sprint:
+
+- **[`foundation-lean-canvas`](../skills/foundation-lean-canvas/SKILL.md)** - Ash Maurya's lean canvas. Less ritualized than Foundation Sprint Basics but covers similar territory in 60-90 min.
+- **[`foundation-persona`](../skills/foundation-persona/SKILL.md)** - canonical persona template. Composes with Foundation Sprint Basics target-customer work; can be used as input.
+- **[`foundation-okr-writer`](../skills/foundation-okr-writer/SKILL.md)** - outcome-based OKRs. The Founding Hypothesis is an upstream artifact OKRs flow from at the start of a cycle.
+- **[`define-jtbd-canvas`](../skills/define-jtbd-canvas/SKILL.md)** - JTBD canvas. Adjacent framing for important-problem work.
+- **[`define-hypothesis`](../skills/define-hypothesis/SKILL.md)** - lightweight hypothesis definition. The Founding Hypothesis is a heavier-weight ritualized version; this skill is the smaller-cycle counterpart.
+- **[`develop-spike-summary`](../skills/develop-spike-summary/SKILL.md)** - tech spike output. Useful when Foundation Sprint's recommended next test is a technical-feasibility investigation rather than a Design Sprint.
 
 ---
 
