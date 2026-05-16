@@ -21,7 +21,7 @@
 | Phase | Status |
 |---|---|
 | Phase 1: DS family contract + validator pair | COMPLETE (Tasks 1-3 shipped; both validators PASS in scaffolding state; FS family validator still 7/7 PASS, no regression; lint + agents-md both PASS at 48 skills) |
-| Phase 2: 7 DS family skills | NOT STARTED |
+| Phase 2: 7 DS family skills | IN PROGRESS (1 of 7 shipped: tool-design-sprint-readiness via Task 4; DS family validator now 1/7 enforcing; AGENTS.md DS section added with readiness entry) |
 | Phase 3: Workflow (`design-sprint.md`) + `foundation-to-design.md` end-to-end workflow | NOT STARTED |
 | Phase 4: 7 slash commands | NOT STARTED |
 | Phase 5: Library samples (21; 7 skills x 3 threads) | NOT STARTED |
@@ -40,7 +40,7 @@
 
 ### Immediate next action
 
-Phase 2 Task 4: author `skills/tool-design-sprint-readiness/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). The first DS family member. Estimated effort: ~1 to 1.5 hours. Following the FS pattern, the validator will flip from scaffolding-state NOTICE to enforcing-state OK once this skill lands. Use `skills/tool-foundation-sprint-readiness/SKILL.md` as the structural shape reference and `library/skill-output-samples/tool-foundation-sprint-readiness/sample_tool-foundation-sprint-readiness_brainshelf_book-catalog.md` as the sample-thread reference (the Brainshelf DS samples continue that same company arc).
+Phase 2 Task 5: author `skills/tool-design-sprint-brief/` (SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md). The second DS family member. Estimated effort: ~1 to 1.5 hours. Use `skills/tool-foundation-sprint-brief/SKILL.md` as the structural shape reference. DS brief is longer-timeboxed than FS brief (60-90 min vs 45-60 min) because it includes the customer recruiting plan dimension. Per the in-execution discovery during Task 4, also extend AGENTS.md Design Sprint Family section with the brief entry in-commit (the existing FS pattern was to bundle AGENTS.md updates per-skill).
 
 ## Prerequisites
 
@@ -251,29 +251,39 @@ metadata:
 **Files:**
 - Create: `skills/tool-design-sprint-readiness/{SKILL.md, references/TEMPLATE.md, references/EXAMPLE.md}`
 
-- [ ] **Step 1: Author SKILL.md**
+- [x] **Step 1: Author SKILL.md**
 
 Spec section "1. design-sprint-readiness". `metadata.tool: design-sprint`, `metadata.move: readiness`, no prerequisites (entry point; can accept Foundation Sprint output as optional input but does not require a separate bridge skill).
 
-- [ ] **Step 2: Author TEMPLATE.md**
+Result (2026-05-15): SKILL.md authored at v0.1.0. 8 canonical readiness checks synthesized from Sprint book Ch 2 + GV "Is Your Idea Sprint-Worthy?" + Character "When to Sprint" (DS-specific deltas from the FS 8-check pattern: customer access for Friday, prototype medium feasibility, 5-day clearable for all attendees). Frameworks: design-sprint + sprint + character-note-and-vote. References family contract path.
+
+- [x] **Step 2: Author TEMPLATE.md**
 
 Output skeleton: readiness verdict, diagnosis, recommended preconditions, attendee list, customer recruiting plan, prep checklist, Decider Checkpoint.
 
-- [ ] **Step 3: Author EXAMPLE.md**
+Result (2026-05-15): TEMPLATE.md authored with 6 output sections. Customer Recruiting Plan section is the unique-to-DS section (FS readiness template doesn't have it). Decider Checkpoint at line 97 of 108 (89.8% through file; well past 75% threshold).
+
+- [x] **Step 3: Author EXAMPLE.md**
 
 Brainshelf context: team is post-Foundation-Sprint, assessing Design Sprint fit using the FS Founding Hypothesis as input context (no bridge artifact required). Realistic readiness assessment with Go / Conditional Go verdict.
 
-- [ ] **Step 4: Validate**
+Result (2026-05-15): EXAMPLE.md authored with full FS-to-DS narrative continuity. Picks up from the Brainshelf FS founding-hypothesis sample (top bet sub-3-second camera-first capture; highest-risk assumption A1; DS scheduled May 26). Go verdict; customer recruiting plan locks Riley as recruiter with 7-day lead to 2026-05-23 deadline; honorarium USD 100 per slot; 6 slots target.
+
+- [x] **Step 4: Validate**
 
 Run: `bash scripts/validate-design-sprint-skills-family.sh`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+Result (2026-05-15): DS family validator PASS (1 of 7 enforcing; all 6 per-member checks OK; WARN on partial state as designed). `--strict` correctly FAILs on partial state (exit 1). FS family validator still 7/7 PASS (no regression). lint-skills-frontmatter PASS at 49 skills. validate-agents-md PASS at 49 paths after AGENTS.md updated with Design Sprint Family section + readiness entry.
+
+- [x] **Step 5: Commit**
 
 ```bash
-git add skills/tool-design-sprint-readiness/
+git add skills/tool-design-sprint-readiness/ AGENTS.md
 git commit -m "feat(design-sprint-skills): add tool-design-sprint-readiness"
 ```
+
+Note: AGENTS.md update is in-commit with the new skill (discovery during execution: `validate-agents-md.sh` is strict and would FAIL CI if AGENTS.md weren't updated in same commit as the skill directory; this contradicts the original plan which deferred AGENTS.md updates to Phase 6 Task 18). DS plan Phase 6 Task 18 should be re-scoped to "extend existing AGENTS.md DS section with the remaining 6 skills" rather than "add the DS section from scratch."
 
 #### Task 5: Author tool-design-sprint-brief
 

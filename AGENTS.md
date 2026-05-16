@@ -312,6 +312,15 @@ Day 2 afternoon move of a Foundation Sprint. Evaluates the candidate approach se
 
 Day 2 end capstone move of a Foundation Sprint. Compresses the sprint's full strategic frame into a single canonical sentence (the Founding Hypothesis) plus an assumption scorecard, why-we-believe, what-could-prove-us-wrong, and recommended next validation step.
 
+#### Design Sprint Family
+
+The 7 `tool-design-sprint-*` skills implement Knapp, Zeratsky, and Kowitz's five-day Design Sprint workshop. Family contract: `docs/reference/skill-families/design-sprint-skills-contract.md`. Workflow: `_workflows/design-sprint.md` (pending; ships with the Design Sprint plan). End-to-end FS-to-DS workflow: `_workflows/foundation-to-design.md` (pending; ships with the Design Sprint plan). User guide: `docs/guides/using-design-sprint.md` (pending; ships with the Design Sprint plan).
+
+##### tool-design-sprint-readiness
+**Path:** `skills/tool-design-sprint-readiness/SKILL.md`
+
+Pre-sprint diagnostic that determines whether a team should run a Design Sprint now, postpone it, or do prerequisite work first. Produces a Go / Conditional Go / Wait verdict with diagnosis, recommended preconditions, attendee list, customer recruiting plan, and pre-sprint activities. Use when a team is considering starting a Design Sprint and wants a fast yes/no diagnosis before committing five days of team time and customer recruiting cost.
+
 ---
 
 ## Workflows
