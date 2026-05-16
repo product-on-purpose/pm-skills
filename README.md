@@ -5,7 +5,7 @@
   <br>
 </h1>
 
-<h4 align=”center”>A curated collection of 40 best-practice, plug-and-play product management “agent skills” (26 phase skills + 8 foundation skills + 6 utility skills) plus templates and workflows for consistent, professional PM outputs.</h4>
+<h4 align=”center”>A curated collection of 55 best-practice, plug-and-play product management “agent skills” (26 phase skills + 8 foundation skills + 6 utility skills + 15 tool skills implementing canonical Foundation Sprint + Design Sprint methodologies) plus templates and workflows for consistent, professional PM outputs.</h4>
 
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills/issues/new?labels=bug">Report a Bug</a>
@@ -315,7 +315,7 @@ Every time you ask an AI to help with product management, you start from zero. G
 
 ### Key Features
 
-- ✅ **55 Production-Ready Skills** covering the complete product lifecycle (26 phase skills + 8 foundation skills + 6 utility skills)
+- ✅ **55 Production-Ready Skills** covering the complete product lifecycle (26 phase skills + 8 foundation skills + 6 utility skills + 15 tool skills for sprint methodologies)
 - ✅ **Triple Diamond Framework** organizing Discover, Define, Develop, Deliver, Measure, and Iterate phases
 - ✅ **9 Workflows** for common PM processes (Feature Kickoff, Lean Startup, Triple Diamond, and 6 more)
 - ✅ **Slash Commands** for Claude Code users-instant access to every skill
@@ -438,7 +438,7 @@ PM-Skills follows the **[Agent Skills Specification](https://agentskills.io/spec
 - Your tooling specifically requires the MCP transport (e.g., self-hosted MCP-only configurations)
 - The frozen 40-entry MCP catalog meets your scope (skills added to `pm-skills` after the v2.9.2 build are not embedded)
 
-The file-based install ships all 55 production-ready PM skills (26 phase skills + 8 foundation skills + 6 utility skills). The frozen v2.9.2 MCP build embeds the 40-entry catalog at the time of its publication, after which point only the file-based install receives new skills.
+The file-based install ships all 55 production-ready PM skills (26 phase skills + 8 foundation skills + 6 utility skills + 15 tool skills). The frozen v2.9.2 MCP build embeds the 40-entry catalog at the time of its publication (pre-tool classification), after which point only the file-based install receives new skills.
 
 See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
 

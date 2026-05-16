@@ -1,32 +1,41 @@
 # v2.15.0 Release Plan: Sprint Skills Launch + v2.14.x Cleanup
 
-**Status:** Execution in progress (FS family complete; DS family pending)
+**Status:** READY TO TAG (FS + DS families complete; all post-tag-prep doc batches A/B/C/D shipped)
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (scoping); 2026-05-12 (this master plan authored)
-**Updated:** 2026-05-15 (progress snapshot + post-audit cleanup)
+**Updated:** 2026-05-16 (post-D batch; ready to tag)
 
 ---
 
-## Where We Are (snapshot 2026-05-15, HEAD `7a0f517`)
+## Where We Are (snapshot 2026-05-16, HEAD `1f64427`)
 
-**Foundation Sprint track**: COMPLETE. All 21 plan tasks shipped on origin/main. Full 3-thread sample coverage (24 samples: Brainshelf + Storevine + Workbench); AI-era guide section added closing Codex F35; family contract amended for sample-coverage tiering. FS track exceeds v1.0.0 contract sample requirements; ready to ship with v2.15.0 release.
+**Foundation Sprint track**: COMPLETE. All 21 plan tasks shipped on origin/main. Full 3-thread sample coverage (24 samples: Brainshelf + Storevine + Workbench); AI-era guide section added closing Codex F35; family contract amended for sample-coverage tiering (v0.1.0 to v0.2.0 to v0.3.0 with Naming Discipline section added 2026-05-16). FS track exceeds v1.0.0 contract sample requirements.
 
-**Design Sprint track**: All 7 phases COMPLETE. DS family contract v0.1.0 + validator pair (Phase 1); all 7 `tool-design-sprint-*` skills (Phase 2); both workflows (Phase 3); 7 slash commands (Phase 4); 21 library samples across Brainshelf + Storevine + Workbench narrative threads (Phase 5); using-design-sprint guide ~2,100 words + concept doc + AGENTS.md (Phase 6); full validator sweep + pre-tag artifact prep (Phase 7). Codex adversarial review of Phase 2 returned 13 findings; combined with Claude self-audit (20 findings) and 21 unique items triaged 19 accept-fix-now / 1 defer to v2.16 / 1 investigate. All P1 closed pre-tag. DS family validator PASSES 7/7 with `--strict`; FS family validator now also runs in CI (gap closed during DS11). Internal link validator 0 broken links. Version consistency PASS at 2.15.0. Count consistency PASS at 55 skills / 62 commands / 12 workflows. AGENTS.md sync at 55 paths. **v2.15.0 ready to tag.**
+**Design Sprint track**: All 7 phases COMPLETE. DS family contract (v0.1.0 to v0.2.0 with Naming Discipline section added 2026-05-16) + validator pair (Phase 1); all 7 `tool-design-sprint-*` skills (Phase 2); both workflows (Phase 3); 7 slash commands (Phase 4); 21 library samples across Brainshelf + Storevine + Workbench narrative threads (Phase 5); using-design-sprint guide ~2,100 words + concept doc + AGENTS.md (Phase 6); full validator sweep + pre-tag artifact prep (Phase 7). Codex adversarial review of Phase 2 returned 13 findings; combined with Claude self-audit (20 findings) and 21 unique items triaged 19 accept-fix-now / 1 defer to v2.16 / 1 investigate. All P1 closed pre-tag.
 
-**v2.14.x cleanup track**: 2 of 3 tasks done. Task 1 (Node 22 bump on 3 workflows) shipped `0d9af62`; Task 3 (Dependabot bump - added mid-cycle) shipped `7a099b4`, closed 15 of 17 alerts. Task 2 (AGENTS/claude/CONTEXT.md per-phase tables refresh) sequenced for post-DS-ship.
+**Post-tag-prep doc batches (2026-05-16 afternoon)**: After Phase 7 closure this morning at `8bed7c2`, a final clarity pass shipped 4 commit batches addressing the workshop-sprint vs agile-sprint naming-collision risk:
+
+- **A1 (3 commits across `8bed7c2..4b8f779`)**: 3 disambiguation + reference docs (`workshop-sprints-vs-agile-sprints.md`, `sprint-methodology-glossary.md`, `workshop-method-comparison.md`); both family contracts bumped (FS v0.2.0 to v0.3.0; DS v0.1.0 to v0.2.0) with new Naming Discipline section; disambiguation callouts added to 7 sprint-related docs (using guides + concept docs + workflow files).
+- **B (commit `fc22d6b`)**: 8 sprint user guides (4 per family: FAQ, cheat sheet, case studies, recovery playbook) + 3 description-field hygiene fixes for over-300-char descriptions.
+- **C (commit `896af73`)**: 3 high-leverage mermaid diagrams (Note-and-Vote 5-step protocol in the canonical tool SKILL; "Should I run a Foundation Sprint?" 5-question decision tree in FS FAQ; "Should I run a Design Sprint?" 6-question decision tree in DS FAQ).
+- **D (commit `1f64427`)**: release-artifact refresh (CHANGELOG, docs/changelog mirror, Release_v2.15.0.md, skills-manifest.yaml contract-version pointers) + 2 YAML parse-error fixes in DS storyboard library samples (inner double-quote escaping).
+
+Final state: DS family validator PASSES 7/7 with `--strict`; FS family validator runs in CI; lint-skills-frontmatter PASS 0 failures (was 2 pre-D); internal link validator PASS 0 broken across 146 files; validate-docs-frontmatter PASS 54 docs; AGENTS.md sync at 55 paths. **v2.15.0 ready to tag.**
+
+**v2.14.x cleanup track**: 2 of 3 tasks done. Task 1 (Node 22 bump on 3 workflows) shipped `0d9af62`; Task 3 (Dependabot bump - added mid-cycle) shipped `7a099b4`, closed 15 of 17 alerts. Task 2 (AGENTS/claude/CONTEXT.md per-phase tables refresh) sequenced for post-tag (does not block).
 
 **Dependabot state**: 2 alerts open on origin/main (down from 17 pre-cycle). Both require Astro 6.x and are deferred to v2.16 per `plan_v2.16.0.md` DI3.
 
 ### What's next (by priority)
 
-1. **v2.15.0 tag + GitHub Release** (user-triggered): all 21 DS plan tasks shipped 2026-05-16 across continuous execution. Validators all PASS in --strict mode. Pre-tag artifacts ready (CHANGELOG.md + docs/changelog.md + Release_v2.15.0.md + README badges + plugin.json + marketplace.json + skills-manifest.yaml + .claude/pm-skills-for-claude.md + docs/releases/index.md + docs/index.mdx + stale-count consistency sweep across 13+ files). Annotated tag + GitHub Release commands documented in DS plan Immediate Next Action.
-2. **CONTEXT.md refresh**: AGENTS/claude/CONTEXT.md per-phase tables refresh to the final v2.15.0 catalog. Sequenced for after DS family ships so the refresh reflects all 55 skills in one pass. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
-3. **Pre-tag artifact pass**: CHANGELOG entry, plugin.json + marketplace.json version bumps, `docs/releases/Release_v2.15.0.md`, skills-manifest.yaml authoring, optional Codex adversarial review (pattern now established; FS track went through one this cycle), annotated tag, GitHub Release. See [Release-Time Checklist](#release-time-checklist) below for the full list. ~1-2 sessions.
+1. **v2.15.0 tag + GitHub Release** (user-triggered): `git tag -a v2.15.0 -m '<message>' 1f64427 && git push origin v2.15.0`. CI then publishes the GitHub Pages site at the new release URL. Manual step: author the GitHub Release UI body (typically copy from `Release_v2.15.0.md`).
+2. **CONTEXT.md refresh** (post-tag): `AGENTS/claude/CONTEXT.md` per-phase tables refresh to the final v2.15.0 catalog. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
+3. **v2.16.0 plan kickoff**: 2 Dependabot alerts + Astro 6.x upgrade + DS validator metadata-shape enforcement + tags-as-feature + URL slug normalization. See `plan_v2.16.0.md` for the running deferral list.
 
 ### Estimated remaining
 
-7-10 sessions to v2.15.0 tag. The Foundation Sprint track is complete (the bigger lift); DS family executes against a proven pattern.
+0 sessions to v2.15.0 tag (next action is the tag itself, which is user-triggered).
 
 ---
 
