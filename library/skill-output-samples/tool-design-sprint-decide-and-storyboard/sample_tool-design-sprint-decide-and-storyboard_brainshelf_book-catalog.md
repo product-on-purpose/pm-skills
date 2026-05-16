@@ -23,12 +23,14 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 
 **Sketches present (attribution stripped):**
 
-| Label | Sketch source (Tuesday) | Format |
-|---|---|---|
-| Sketch A | Tuesday Sketcher 4 (anonymized) | Figma frame 1170 x 2532 |
-| Sketch B | Tuesday Sketcher 1 (anonymized) | Figma frame 1170 x 2532 |
-| Sketch C | Tuesday Sketcher 3 (anonymized) | Figma frame 1170 x 2532 |
-| Sketch D | Tuesday Sketcher 2 (anonymized) | Figma frame 1170 x 2532 |
+| Label | Format |
+|---|---|
+| Sketch A | Figma frame 1170 x 2532 |
+| Sketch B | Figma frame 1170 x 2532 |
+| Sketch C | Figma frame 1170 x 2532 |
+| Sketch D | Figma frame 1170 x 2532 |
+
+(Sketcher attribution removed before this Wednesday heat-map per the family-contract blind-vote requirement; the team knew the mapping during Tuesday composition for completion verification but stripped it for Wednesday morning. Post-supervote, the mapping is recovered for the per-sketch critique discussion: Sketch A = Riley; Sketch B = Jamie; Sketch C = Sam; Sketch D = Alex.)
 
 ## Heat Map
 
