@@ -6,6 +6,8 @@ title: Foundation Sprint to Design Sprint
 
 > End-to-end 7-8 day arc that pairs a Foundation Sprint with a Design Sprint, including the narrative handoff that replaces the dropped bridge skill
 
+> **Note:** Both Foundation Sprint and Design Sprint are workshop methodologies (Knapp/Zeratsky/Kowitz), NOT agile / Scrum sprints. For the disambiguation, see [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../docs/concepts/workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning workflow, see [`sprint-planning.md`](sprint-planning.md).
+
 This is the canonical end-to-end workflow for teams running a Foundation Sprint followed by a Design Sprint as one connected arc. It chains [`foundation-sprint`](foundation-sprint.md) (2 days of strategic alignment) with [`design-sprint`](design-sprint.md) (5 days of prototype validation) through a brief narrative-only transition between them.
 
 There is **no bridge skill** in pm-skills. Canonical Knapp/Zeratsky methodology has no formal handoff move between Foundation Sprint and Design Sprint; pm-skills does not invent one. The handoff is described narratively in this workflow, in [`docs/guides/using-foundation-sprint.md`](../docs/guides/using-foundation-sprint.md), and in [`docs/guides/using-design-sprint.md`](../docs/guides/using-design-sprint.md). The Founding Hypothesis (Foundation Sprint output) is consumed as input context by the Design Sprint readiness and brief skills directly; no intermediate artifact is required.

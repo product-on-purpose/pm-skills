@@ -3,6 +3,8 @@ title: Foundation Sprint
 description: "The Foundation Sprint: a two-day strategic alignment workshop that converts fuzzy early-stage product beliefs into a single, testable Founding Hypothesis. Origins, two-day process, core concepts, and how Foundation Sprint relates to Design Sprint."
 ---
 
+> **Foundation Sprint is NOT an agile / Scrum sprint.** It is a 2-day workshop methodology from Knapp and Zeratsky (Character Capital). For the cross-method disambiguation, see [Workshop Sprints vs Agile Sprints](workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning content, see [`_workflows/sprint-planning.md`](../../_workflows/sprint-planning.md).
+
 ## Executive Summary
 
 A **Foundation Sprint** is a two-day workshop for aligning a small team at the beginning of a big project around six strategic questions: who is the target customer, what important problem are we solving, what advantage does this team have, who are the competitors and alternatives, how will the product differentiate, and which approach should be tested first.

@@ -6,6 +6,8 @@ title: Foundation Sprint
 
 > Two-day strategic alignment workshop that produces a testable Founding Hypothesis
 
+> **Note:** Foundation Sprint is a workshop methodology (Knapp/Zeratsky), NOT an agile / Scrum sprint. For the disambiguation, see [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../docs/concepts/workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning workflow, see [`sprint-planning.md`](sprint-planning.md).
+
 Foundation Sprint is a structured two-day workshop developed by Jake Knapp and John Zeratsky that converts fuzzy early-stage product beliefs into a single, testable strategic promise. The output is not a strategy deck or a roadmap; it is one canonical sentence (the Founding Hypothesis) plus an assumption scorecard the team can take into a Design Sprint, customer research, or a focused experiment.
 
 This workflow chains the 7 `tool-foundation-sprint-*` skills in their canonical sequence, with `tool-note-and-vote` invoked many times across the arc at decision moments.

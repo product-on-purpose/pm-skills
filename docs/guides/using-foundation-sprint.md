@@ -1,11 +1,13 @@
 ---
 title: "Using the Foundation Sprint Tools"
-description: "Operational guide for the tool-foundation-sprint-* family. Covers the 7 sprint skills, the role of tool-note-and-vote, the two-day arc, the Decider role, and the handoff to a Design Sprint."
+description: "Operational guide for the tool-foundation-sprint-* family. Covers the 7 Foundation Sprint skills, the role of tool-note-and-vote, the two-day arc, the Decider role, and the handoff to a Design Sprint."
 tags:
   - Guides
   - Foundation Sprint
   - Tool
 ---
+
+> **Foundation Sprint is NOT an agile / Scrum sprint.** Foundation Sprint is a 2-day strategic-alignment workshop methodology from Knapp and Zeratsky. Agile sprints are 1-4 week iteration cycles for software delivery. The word "sprint" is shared but the methodologies are unrelated. If you arrived here expecting agile sprint planning, see [`_workflows/sprint-planning.md`](../../_workflows/sprint-planning.md) instead. For the full disambiguation, see [Workshop Sprints vs Agile Sprints](../concepts/workshop-sprints-vs-agile-sprints.md).
 
 The Foundation Sprint is a two-day strategic alignment workshop developed by Jake Knapp and John Zeratsky. It converts fuzzy early-stage product beliefs into a single, testable Founding Hypothesis. This guide walks you through pm-skills' implementation: 7 `tool-foundation-sprint-*` skills, plus the standalone `tool-note-and-vote` decision tool used throughout.
 

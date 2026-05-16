@@ -3,6 +3,8 @@ title: Design Sprint
 description: "The Design Sprint: a timeboxed five-day workshop for testing a risky idea with a realistic prototype and target customers. Origins from GV and the Sprint book, day-by-day process, core mechanics, and how Design Sprint relates to Foundation Sprint."
 ---
 
+> **Design Sprint is NOT an agile / Scrum sprint.** It is a 5-day workshop methodology from Knapp, Zeratsky, and Kowitz (Sprint book, 2016). For the cross-method disambiguation, see [Workshop Sprints vs Agile Sprints](workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning content, see [`_workflows/sprint-planning.md`](../../_workflows/sprint-planning.md).
+
 ## Executive Summary
 
 A **Design Sprint** is a timeboxed five-day process for answering important business, product, or service questions by mapping a challenge, sketching solutions, choosing a direction, building a realistic prototype, and testing it with target customers. By Friday afternoon, the team has converted a high-risk idea into observable customer evidence and an explicit decision: build, iterate, run another sprint, or stop.

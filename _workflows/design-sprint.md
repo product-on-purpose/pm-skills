@@ -6,6 +6,8 @@ title: Design Sprint
 
 > Five-day workshop that turns a sharply-framed challenge into a tested prototype and a Decider call
 
+> **Note:** Design Sprint is a workshop methodology (Knapp/Zeratsky/Kowitz), NOT an agile / Scrum sprint. For the disambiguation, see [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../docs/concepts/workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning workflow, see [`sprint-planning.md`](sprint-planning.md).
+
 Design Sprint is a structured five-day workshop developed by Jake Knapp, John Zeratsky, and Braden Kowitz that takes a single challenge from blank-page Monday to validated-or-invalidated Friday. The output is not a finished product or a polished design; it is a Decider's call (build, iterate, pivot, or stop) grounded in five customer interviews against a one-day prototype.
 
 This workflow chains the 7 `tool-design-sprint-*` skills in their canonical sequence, with `tool-note-and-vote` invoked at decision moments throughout (specifically the Monday HMW heat-map, optional Monday target supervote, and Wednesday heat-map plus straw poll).

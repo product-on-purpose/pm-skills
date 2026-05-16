@@ -1,11 +1,13 @@
 ---
 title: "Using the Design Sprint Tools"
-description: "Operational guide for the tool-design-sprint-* family. Covers the 7 sprint skills, the role of tool-note-and-vote, the five-day arc, the Decider role, the FS-to-DS handoff (load-bearing replacement for the dropped bridge skill), and downstream handoffs to PRD / experiment / pivot."
+description: "Operational guide for the tool-design-sprint-* family. Covers the 7 Design Sprint skills, the role of tool-note-and-vote, the five-day arc, the Decider role, the FS-to-DS handoff (load-bearing replacement for the dropped bridge skill), and downstream handoffs to PRD / experiment / pivot."
 tags:
   - Guides
   - Design Sprint
   - Tool
 ---
+
+> **Design Sprint is NOT an agile / Scrum sprint.** Design Sprint is a 5-day prototype-and-test workshop methodology from Knapp, Zeratsky, and Kowitz (Sprint book, 2016). Agile sprints are 1-4 week iteration cycles for software delivery. The word "sprint" is shared but the methodologies are unrelated. If you arrived here expecting agile sprint planning, see [`_workflows/sprint-planning.md`](../../_workflows/sprint-planning.md) instead. For the full disambiguation, see [Workshop Sprints vs Agile Sprints](../concepts/workshop-sprints-vs-agile-sprints.md).
 
 The Design Sprint is a five-day workshop developed by Jake Knapp, John Zeratsky, and Braden Kowitz that takes a sharply-framed challenge from blank-page Monday to validated-or-invalidated Friday. The output is a Decider's call (build, iterate, pivot, or stop) grounded in five customer interviews against a one-day prototype. This guide walks you through pm-skills' implementation: 7 `tool-design-sprint-*` skills, plus the standalone `tool-note-and-vote` decision tool used at heat-map and straw-poll moments.
 

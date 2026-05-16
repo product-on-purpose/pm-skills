@@ -1,12 +1,15 @@
 ---
 title: Design Sprint Skills Contract
-description: Canonical v0.1.0 contract for the 7 tool-design-sprint-* skills. Shared frontmatter, naming convention, file anatomy, Decider Checkpoint requirement, library samples with version-tiered coverage, and enforcement rules validated by CI.
+description: Canonical v0.2.0 contract for the 7 tool-design-sprint-* skills. Shared frontmatter, naming convention, file anatomy, Decider Checkpoint requirement, library samples with version-tiered coverage, naming discipline (workshop sprints vs agile sprints), and enforcement rules validated by CI.
 ---
 
 **Status**: Canonical (enforced by CI)
-**Version**: 0.1.0
+**Version**: 0.2.0
 **Applies to**: `tool-design-sprint-readiness`, `tool-design-sprint-brief`, `tool-design-sprint-map-and-target`, `tool-design-sprint-sketch`, `tool-design-sprint-decide-and-storyboard`, `tool-design-sprint-prototype-plan`, `tool-design-sprint-test-and-score`
-**Last updated**: 2026-05-15
+**Last updated**: 2026-05-16
+
+**v0.2.0 changes from v0.1.0** (from 2026-05-16 user-clarified naming discipline):
+- Added Naming Discipline section codifying the qualified-naming style rule for "Design Sprint" vs bare "sprint" (which collides with agile / Scrum sprint terminology in PM contexts). Style guidance; not validator-enforced. Mirrors foundation-sprint-skills-contract.md v0.3.0.
 
 ---
 
@@ -97,6 +100,21 @@ metadata:
 ### Prerequisite semantics
 
 The `metadata.prerequisites` array lists recommended-but-not-required upstream skills. The family validator does NOT block invocation when prerequisites are missing. The skill body documents what happens when a prerequisite output is absent (typically: skill prompts the user to confirm equivalent context). Multi-prerequisite cases (e.g., `readiness` OR equivalent context, or a Foundation Sprint Founding Hypothesis as an OR-equivalent of an in-flight design challenge) are captured as an array of all valid upstream skill names; the skill body explains the OR logic in its "When to use" section.
+
+---
+
+## Naming discipline (workshop sprints vs agile sprints)
+
+The word "sprint" is overloaded in product management contexts. Most readers will assume "sprint" = agile / Scrum iteration cycle first; Foundation Sprint and Design Sprint are different methodologies (workshop sprints from Knapp/Zeratsky/Kowitz) that happen to share the word. To prevent reader confusion, this family contract codifies the following naming discipline for all pm-skills documentation that touches Design Sprint content:
+
+1. **Always include the full method name on first reference per document.** "Design Sprint" on first mention; "the Design Sprint" or "your Design Sprint week" thereafter is acceptable but qualified forms are preferred.
+2. **Prefer qualified terms over bare "sprint" in body prose.** "The Design Sprint week" beats "the sprint week"; "your Friday scorecard from the Design Sprint" beats "your scorecard from the sprint".
+3. **Reserve bare "sprint" for agile / Scrum iteration context only.** When discussing agile sprints in pm-skills documentation, prefer "agile sprint" or "Scrum sprint" if there is any chance the surrounding context could be confused with workshop sprints.
+4. **Cross-link to the disambiguation reference when reader confusion is likely.** Link to [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../../concepts/workshop-sprints-vs-agile-sprints.md) at the top of any doc that introduces Design Sprint to readers who may carry agile-sprint assumptions.
+
+Rationale: pm-skills audience is PMs who work in agile environments AND use Knapp methodology. The word "sprint" is overloaded in their mental model. The naming discipline prevents readers from carrying agile-sprint assumptions into workshop-methodology content.
+
+This rule is style guidance, NOT validator-enforced. Reviewers should flag bare "sprint" usage in PRs when context is ambiguous. The same discipline applies to the parallel [`foundation-sprint-skills-contract.md`](foundation-sprint-skills-contract.md) v0.3.0+.
 
 ---
 
@@ -265,3 +283,4 @@ Skill body content references these sources when explaining methodology choices.
 | Version | Date | Change |
 |---|---|---|
 | 0.1.0 | 2026-05-15 | Initial contract authored alongside Design Sprint family scaffolding (Phase 1 of v2.15.0 DS integration plan). Mirrors `foundation-sprint-skills-contract.md` v0.2.0 structure with DS-specific deltas: 7 DS moves (readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan, test-and-score); 5-day arc framing; canonical sources Sprint book plus GV Design Sprint guide plus Character DS guide plus Google Design Sprint Kit; `metadata.tool: design-sprint`; `frameworks` subset values updated for the Sprint book lineage. |
+| 0.2.0 | 2026-05-16 | Naming Discipline section added (workshop sprints vs agile sprints): codifies the qualified-naming style rule for "Design Sprint" vs bare "sprint" with explicit rationale tied to the agile-sprint cognitive collision. Style guidance only; not validator-enforced. Mirrored in foundation-sprint-skills-contract.md v0.3.0. |
