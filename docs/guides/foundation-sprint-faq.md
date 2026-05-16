@@ -9,6 +9,31 @@ This FAQ addresses common questions about running a Foundation Sprint using the 
 
 ## When to use a Foundation Sprint
 
+The decision tree below walks the canonical readiness signals in order. If you hit a red outcome, resolve that gap before scheduling the workshop. If you hit a yellow outcome, a lighter tool is the right fit. The green path is what the `tool-foundation-sprint-readiness` skill formalizes into its 8-check Go gate.
+
+```mermaid
+flowchart TD
+    Start([Considering Foundation Sprint?])
+    Start --> Q1{Significant new<br/>strategic initiative<br/>or major bet?}
+    Q1 -->|No| OutSmall[Use a lighter<br/>prioritization tool]
+    Q1 -->|Yes| Q2{Multiple plausible<br/>strategic directions<br/>on the table?}
+    Q2 -->|No, hypothesis is clear| OutDS[Skip to Design Sprint<br/>or direct experiment]
+    Q2 -->|Yes| Q3{Decider has authority<br/>to commit to one direction?}
+    Q3 -->|No| OutAuth[Resolve authority first;<br/>do not run FS]
+    Q3 -->|Yes| Q4{Team has existing<br/>customer + market knowledge<br/>to draw from?}
+    Q4 -->|No| OutResearch[Do customer research first;<br/>FS is not a substitute]
+    Q4 -->|Yes| Q5{Can you secure<br/>2 contiguous days<br/>with the right team?}
+    Q5 -->|No| OutTime[Reschedule;<br/>partial FS produces partial output]
+    Q5 -->|Yes| Go[Run Foundation Sprint<br/>after the readiness skill returns Go]
+
+    style Go fill:#e1ffe1
+    style OutSmall fill:#fff4e1
+    style OutDS fill:#fff4e1
+    style OutTime fill:#fff4e1
+    style OutAuth fill:#ffe1e1
+    style OutResearch fill:#ffe1e1
+```
+
 ### Q: When should we run a Foundation Sprint?
 
 When you're starting a significant new initiative and the strategic direction is unclear. The single most useful signal: your team has multiple plausible directions and the cost of picking the wrong one is high. Foundation Sprint forces a choice in 2 days that would otherwise drag for weeks in unstructured discussion.

@@ -9,6 +9,34 @@ This FAQ addresses common questions about running a Design Sprint using the pm-s
 
 ## When to use a Design Sprint
 
+The decision tree below walks the canonical readiness signals in order. Red outcomes mean cancel or postpone; yellow outcomes mean a smaller method is the right fit. The green path is what the `tool-design-sprint-readiness` skill formalizes into its 8-check Go gate.
+
+```mermaid
+flowchart TD
+    Start([Considering Design Sprint?])
+    Start --> Q1{Can you name<br/>'the question we'd answer on Friday'<br/>in one sentence?}
+    Q1 -->|No| OutBroad[Too broad - run problem framing<br/>or Foundation Sprint first]
+    Q1 -->|Yes| Q2{Is the challenge<br/>sprint-sized<br/>vs multi-month?}
+    Q2 -->|Too big| OutScope[Narrow scope<br/>or split into multiple sprints]
+    Q2 -->|Right size| Q3{Decider available for<br/>Mon AM, Wed AM, Fri PM<br/>load-bearing moments?}
+    Q3 -->|No| OutAuth[Resolve Decider availability first]
+    Q3 -->|Yes| Q4{Can you recruit<br/>5 target customers<br/>for Friday testing?}
+    Q4 -->|No realistic plan| OutCust[Postpone until customer access secured]
+    Q4 -->|Yes| Q5{Leadership open to<br/>build, iterate, pivot, OR stop<br/>based on Friday scorecard?}
+    Q5 -->|Decision already made| OutTheater[Cancel - the sprint would be theater]
+    Q5 -->|Yes| Q6{Stakes high enough<br/>to justify 5 days<br/>plus customer recruiting cost?}
+    Q6 -->|Low-stakes tweak| OutSmaller[Use measure-experiment-design<br/>for a cheaper cycle]
+    Q6 -->|Yes| Go[Run Design Sprint<br/>after the readiness skill returns Go]
+
+    style Go fill:#e1ffe1
+    style OutBroad fill:#fff4e1
+    style OutScope fill:#fff4e1
+    style OutSmaller fill:#fff4e1
+    style OutAuth fill:#ffe1e1
+    style OutCust fill:#ffe1e1
+    style OutTheater fill:#ffe1e1
+```
+
 ### Q: When should we run a Design Sprint?
 
 When you have a specific risky assumption that needs validation before committing to a build cycle, AND you can recruit 5 target customers for Friday testing. The single most useful signal: you can name "the question we'd answer on Friday" in one sentence, and that question can be answered through a customer's interaction with a 1-day prototype.

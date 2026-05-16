@@ -61,6 +61,29 @@ Run a structured group decision in 20-30 minutes. Silent contribution surfaces i
 
 Total: 12-25 minutes depending on time allocations. Default is 25 minutes for a non-trivial decision.
 
+```mermaid
+flowchart TB
+    Start([Decision needed])
+    Start --> S1[Step 1: Frame the question<br/>1-2 min, spoken]
+    S1 --> S2[Step 2: Silent ideation<br/>3-7 min, silent]
+    S2 --> S3[Step 3: Silent voting<br/>2-5 min, silent]
+    S3 --> S4[Step 4: Brief discussion<br/>5-10 min, spoken]
+    S4 --> S5{Step 5: Decider supervote<br/>1 min}
+    S5 -->|Most common| TopVote[Pick top vote-getter]
+    S5 -->|Sometimes| Override[Pick different option<br/>with stated rationale]
+    S5 -->|Rare| Revote[Call re-vote after re-framing]
+    TopVote --> Record[Decision recorded in artifact]
+    Override --> Record
+    Revote --> S2
+
+    style S2 fill:#e1f5ff
+    style S3 fill:#e1f5ff
+    style S5 fill:#fff4e1
+    style Record fill:#e1ffe1
+```
+
+Silent steps (blue) protect against anchoring. The Decider supervote (amber) has three legal outcomes; the loop back to silent ideation is the recovery path when the framing was wrong.
+
 ### Step 1: Frame the question
 
 Write the decision question on the board, one sentence, unambiguous. Examples:
