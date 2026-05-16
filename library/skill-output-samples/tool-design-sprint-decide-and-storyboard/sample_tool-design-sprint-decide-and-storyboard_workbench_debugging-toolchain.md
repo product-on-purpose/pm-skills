@@ -79,9 +79,7 @@ Shared Figma; 4 sketches A/B/C/D arrayed. Attribution stripped.
 
 **Decider:** Priya.
 
-**Supervote placement:** Jamie places all 3 supervote dots on Sketch A (Sprint book canonical 3-dot supervote). All-in-one (no rumble).
-
-Wait: correction - Decider is Priya, not Jamie. **Supervote placement:** Priya places all 3 supervote dots on Sketch A.
+**Supervote placement:** Priya places all 3 supervote dots on Sketch A (Sprint book canonical 3-dot supervote). All-in-one (no rumble).
 
 **Decider's rationale:** Sketch A answers both first-60-sec questions ("what is broken" via service-map blast-radius; "what to look at first" via ranked anomaly band) without conflicting metaphors. C1 won the heat map (5 of 12). The service-graph-required concern is a config issue Marcus can solve at onboarding-time; not a UX problem. Sketch B's inline drill-down is the best idea from the rumble alternatives and the team should consider incorporating it into Sketch A's anomaly drill-down (out of scope for this sprint storyboard).
 

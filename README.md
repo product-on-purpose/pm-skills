@@ -221,7 +221,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 - **Phase 0 Adversarial Review Loop** applied per the v2.11.0 codification. The grader's review took 3 rounds to converge (round 1 caught 1 HIGH plus 2 MEDIUM; round 2 caught 2 MEDIUM taxonomy-drift propagations introduced by round 1 fixes; round 3 returned 0 findings). Two release-state confirmation rounds caught additional rendered-doc count drift (homepage hero, mermaid phase cards, skill-anatomy frontmatter example, versioning concept page) that the count-consistency CI's regex could not detect.
 - **`docs/reference/README.md`** added as the canonical Reference section overview, wired into mkdocs nav. Indexes frontmatter schema, command catalog, category taxonomy, project structure, ecosystem comparison, and skill-family contracts.
 - **Internal builder cleanup** bundled silently: `utility-pm-skill-builder` Step 5 packet format reduced from 13 to 12 items (no downstream impact). Audit-history tree consolidated under `docs/internal/audit/_archived/`.
-- v2.12.0: Repo now ships 55 skills (26 phase + 8 foundation + 6 utility), 47 command docs, and 9 workflows.
+- v2.12.0: At v2.12.0 ship time, the repo carried 40 PM skills (26 phase + 8 foundation + 6 utility) plus 47 command docs and 9 workflows. (Current totals at v2.15.0: 55 skills, 62 commands, 12 workflows; see latest release notes for the post-v2.12 additions.)
 - Release note: [`docs/releases/Release_v2.12.0.md`](docs/releases/Release_v2.12.0.md).
 
 </details>
