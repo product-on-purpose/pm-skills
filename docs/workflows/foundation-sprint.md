@@ -6,7 +6,7 @@ source: scripts/generate-workflow-pages.py
 
 > Two-day strategic alignment workshop that produces a testable Founding Hypothesis
 
-> **Note:** Foundation Sprint is a workshop methodology (Knapp/Zeratsky), NOT an agile / Scrum sprint. For the disambiguation, see [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../docs/concepts/workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning workflow, see [`sprint-planning.md`](sprint-planning.md).
+> **Note:** Foundation Sprint is a workshop methodology (Knapp/Zeratsky), NOT an agile / Scrum sprint. For the disambiguation, see [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../concepts/workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning workflow, see [`sprint-planning.md`](sprint-planning.md).
 
 Foundation Sprint is a structured two-day workshop developed by Jake Knapp and John Zeratsky that converts fuzzy early-stage product beliefs into a single, testable strategic promise. The output is not a strategy deck or a roadmap; it is one canonical sentence (the Founding Hypothesis) plus an assumption scorecard the team can take into a Design Sprint, customer research, or a focused experiment.
 
@@ -288,7 +288,7 @@ The Founding Hypothesis's Assumption Scorecard names the highest-risk assumption
 - Knapp, J., and Zeratsky, J. "Introducing the Foundation Sprint." Lenny's Newsletter.
 - Design Sprint Academy. Foundation Sprint articles for enterprise adaptation.
 
-See also [`docs/concepts/foundation-sprint.md`](../docs/concepts/foundation-sprint.md) for the conceptual explainer and [`docs/guides/using-foundation-sprint.md`](../docs/guides/using-foundation-sprint.md) for the operational guide (ships in v2.15.0).
+See also [`docs/concepts/foundation-sprint.md`](../concepts/foundation-sprint.md) for the conceptual explainer and [`docs/guides/using-foundation-sprint.md`](../guides/using-foundation-sprint.md) for the operational guide (ships in v2.15.0).
 
 ---
 

@@ -6,7 +6,7 @@ source: scripts/generate-workflow-pages.py
 
 > Five-day workshop that turns a sharply-framed challenge into a tested prototype and a Decider call
 
-> **Note:** Design Sprint is a workshop methodology (Knapp/Zeratsky/Kowitz), NOT an agile / Scrum sprint. For the disambiguation, see [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../docs/concepts/workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning workflow, see [`sprint-planning.md`](sprint-planning.md).
+> **Note:** Design Sprint is a workshop methodology (Knapp/Zeratsky/Kowitz), NOT an agile / Scrum sprint. For the disambiguation, see [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../concepts/workshop-sprints-vs-agile-sprints.md). For pm-skills' agile sprint planning workflow, see [`sprint-planning.md`](sprint-planning.md).
 
 Design Sprint is a structured five-day workshop developed by Jake Knapp, John Zeratsky, and Braden Kowitz that takes a single challenge from blank-page Monday to validated-or-invalidated Friday. The output is not a finished product or a polished design; it is a Decider's call (build, iterate, pivot, or stop) grounded in five customer interviews against a one-day prototype.
 
@@ -274,7 +274,7 @@ Per Ratified Decision 4 of the Design Sprint integration plan, the Decider summa
 - AJ and Smart "Remote Design Sprint" template (for the remote and hybrid format adaptations).
 - Nielsen, J. (2000). "Why You Only Need to Test with 5 Users." Nielsen Norman Group. https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/ (canonical research for the 5-customer cohort size).
 
-See also [`docs/concepts/design-sprint.md`](../docs/concepts/design-sprint.md) for the conceptual explainer and [`docs/guides/using-design-sprint.md`](../docs/guides/using-design-sprint.md) for the operational guide (ships in v2.15.0).
+See also [`docs/concepts/design-sprint.md`](../concepts/design-sprint.md) for the conceptual explainer and [`docs/guides/using-design-sprint.md`](../guides/using-design-sprint.md) for the operational guide (ships in v2.15.0).
 
 ---
 

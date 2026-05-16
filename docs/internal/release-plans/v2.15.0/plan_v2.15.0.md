@@ -1,14 +1,14 @@
 # v2.15.0 Release Plan: Sprint Skills Launch + v2.14.x Cleanup
 
-**Status:** READY TO TAG (FS + DS families complete; all post-tag-prep doc batches A/B/C/D shipped)
+**Status:** TAGGED + POST-TAG REGEN SHIPPED (v2.15.0 tag at `a108301`; CI gap closed at `f03d94d` post-tag)
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (scoping); 2026-05-12 (this master plan authored)
-**Updated:** 2026-05-16 (post-D batch; ready to tag)
+**Updated:** 2026-05-16 (post-tag; post-F batch CI fix)
 
 ---
 
-## Where We Are (snapshot 2026-05-16, HEAD `1f64427`)
+## Where We Are (snapshot 2026-05-16, HEAD `f03d94d`; tag v2.15.0 at `a108301`)
 
 **Foundation Sprint track**: COMPLETE. All 21 plan tasks shipped on origin/main. Full 3-thread sample coverage (24 samples: Brainshelf + Storevine + Workbench); AI-era guide section added closing Codex F35; family contract amended for sample-coverage tiering (v0.1.0 to v0.2.0 to v0.3.0 with Naming Discipline section added 2026-05-16). FS track exceeds v1.0.0 contract sample requirements.
 
@@ -20,8 +20,11 @@
 - **B (commit `fc22d6b`)**: 8 sprint user guides (4 per family: FAQ, cheat sheet, case studies, recovery playbook) + 3 description-field hygiene fixes for over-300-char descriptions.
 - **C (commit `896af73`)**: 3 high-leverage mermaid diagrams (Note-and-Vote 5-step protocol in the canonical tool SKILL; "Should I run a Foundation Sprint?" 5-question decision tree in FS FAQ; "Should I run a Design Sprint?" 6-question decision tree in DS FAQ).
 - **D (commit `1f64427`)**: release-artifact refresh (CHANGELOG, docs/changelog mirror, Release_v2.15.0.md, skills-manifest.yaml contract-version pointers) + 2 YAML parse-error fixes in DS storyboard library samples (inner double-quote escaping).
+- **E (commit `a108301`; this is the v2.15.0 tag target)**: README count-breakdown fixes (3 lines at L8/L318/L441 added "+ 15 tool skills" to the breakdown) + master plan status refresh (READY TO TAG + A/B/C/D ledger).
+- **v2.15.0 tag CUT at `a108301`** 2026-05-16 ~15:13 PDT; pushed to origin; GitHub Release UI auto-published at https://github.com/product-on-purpose/pm-skills/releases/tag/v2.15.0.
+- **F (commit `f03d94d`; post-tag CI gap closure)**: generator regen for 15 new tool skills + 3 new workflows (creates `docs/skills/tool/` directory with 16 pages + 3 workflow pages + refreshed `docs/reference/commands.md`) closing the `check-generated-content-untouched` CI failure on the tag HEAD; `check-count-consistency.{sh,ps1}` validator patched to add `tool` to the skills subset-descriptor exclusion list, closing the false-positive failure on "15 tool skills" phrasing in README. The v2.15.0 tag itself is unchanged (still at `a108301`); the deployed docs site builds from main HEAD so the F batch refreshes the live nav with the tool section.
 
-Final state: DS family validator PASSES 7/7 with `--strict`; FS family validator runs in CI; lint-skills-frontmatter PASS 0 failures (was 2 pre-D); internal link validator PASS 0 broken across 146 files; validate-docs-frontmatter PASS 54 docs; AGENTS.md sync at 55 paths. **v2.15.0 ready to tag.**
+Final state on `f03d94d`: DS family validator PASSES 7/7 with `--strict`; FS family validator runs in CI; lint-skills-frontmatter PASS 0 failures; internal link validator PASS 0 broken across 146 files; validate-docs-frontmatter PASS 54 docs; AGENTS.md sync at 55 paths; **check-count-consistency PASS 0 stale; check-generated-content-untouched PASS 63 generated pages match.** v2.15.0 tag live + post-tag CI gap closed.
 
 **v2.14.x cleanup track**: 2 of 3 tasks done. Task 1 (Node 22 bump on 3 workflows) shipped `0d9af62`; Task 3 (Dependabot bump - added mid-cycle) shipped `7a099b4`, closed 15 of 17 alerts. Task 2 (AGENTS/claude/CONTEXT.md per-phase tables refresh) sequenced for post-tag (does not block).
 
@@ -29,13 +32,14 @@ Final state: DS family validator PASSES 7/7 with `--strict`; FS family validator
 
 ### What's next (by priority)
 
-1. **v2.15.0 tag + GitHub Release** (user-triggered): `git tag -a v2.15.0 -m '<message>' 1f64427 && git push origin v2.15.0`. CI then publishes the GitHub Pages site at the new release URL. Manual step: author the GitHub Release UI body (typically copy from `Release_v2.15.0.md`).
-2. **CONTEXT.md refresh** (post-tag): `AGENTS/claude/CONTEXT.md` per-phase tables refresh to the final v2.15.0 catalog. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
-3. **v2.16.0 plan kickoff**: 2 Dependabot alerts + Astro 6.x upgrade + DS validator metadata-shape enforcement + tags-as-feature + URL slug normalization. See `plan_v2.16.0.md` for the running deferral list.
+1. **GitHub Release UI body rewrite**: the auto-published Release at /releases/tag/v2.15.0 currently has the generic install-instruction template body, not the rich Release_v2.15.0.md content. Rewrite via `gh release edit v2.15.0 --notes-file docs/releases/Release_v2.15.0.md` (after stripping YAML frontmatter).
+2. **Optional v2.15.1 patch**: if same-day-patch precedent (v2.14.0 → v2.14.1 → v2.14.2) is desired, cut v2.15.1 pointing at `f03d94d` to include the F-batch CI gap closure in a release tag. Not load-bearing since the docs site already builds from main HEAD.
+3. **CONTEXT.md refresh** (post-tag): `AGENTS/claude/CONTEXT.md` per-phase tables refresh to the final v2.15.0 catalog. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
+4. **v2.16.0 plan kickoff**: 2 Dependabot alerts + Astro 6.x upgrade + DS validator metadata-shape enforcement + tags-as-feature + URL slug normalization. See `plan_v2.16.0.md` for the running deferral list.
 
 ### Estimated remaining
 
-0 sessions to v2.15.0 tag (next action is the tag itself, which is user-triggered).
+0 sessions to v2.15.0 ship arc (tag cut + post-tag CI gap closed). GitHub Release body rewrite + session log are this session's wrap.
 
 ---
 

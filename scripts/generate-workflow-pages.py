@@ -66,6 +66,19 @@ def rewrite_links(content: str) -> str:
         f"]({GITHUB_BASE}/README.md)",
     )
 
+    # Rewrite docs/ links: ../docs/X.md -> ../X.md
+    # Source _workflows/*.md uses ../docs/X.md for repo-relative reference
+    # (correct from _workflows/ location); when copied to docs/workflows/,
+    # the path needs to drop the docs/ segment so it resolves correctly
+    # from inside the docs tree. Closes a generator gap surfaced when
+    # v2.15.0 workflows introduced cross-references from _workflows/ into
+    # docs/concepts/ and docs/guides/.
+    content = re.sub(
+        r'(\]\()\.\.\/docs\/',
+        r'\1../',
+        content,
+    )
+
     return content
 
 

@@ -206,6 +206,21 @@ CI workflow now runs both family validators with `--strict` / `-Strict` on every
 
 ---
 
+## Post-tag closures (committed after the v2.15.0 tag at `a108301`)
+
+The v2.15.0 tag captures the canonical source state. Two CI gaps surfaced on the tag HEAD and were closed on `main` as commit `f03d94d`. The deployed docs site builds from `main` HEAD, so the closures take effect on the live site without requiring a tag move.
+
+| Gap | Closure | Why it surfaced post-tag |
+|---|---|---|
+| `check-generated-content-untouched` FAIL: 15 new tool skills + 3 new workflows missing their `docs/skills/tool/` and `docs/workflows/` doc-site pages | Re-ran `scripts/generate-skill-pages.py`, `scripts/generate-workflow-pages.py`, `scripts/generate-showcase.py`; committed 16 new tool skill pages + 3 new workflow pages + refreshed `docs/reference/commands.md` | Local pre-tag sweep ran the strict validators but not the generator regen step. The deployed site's sidebar uses `autogenerate: { directory: 'docs/skills/*' }`, so the missing tool subdirectory meant the entire Tool section was absent from the live nav until F batch shipped. |
+| `check-count-consistency` FAIL: false positive on "15 tool skills" phrasing in README L8 / L318 / L441 | Patched `scripts/check-count-consistency.{sh,ps1}` to add `tool` to the skills subset-descriptor exclusion list (parallel to existing `phase|foundation|utility|domain|...` exclusions) | The validator predates the v2.15.0 `tool` classification. Its subset-descriptor exclusion list was authored when only 3 classifications existed (`phase`, `foundation`, `utility`) and was not extended when `tool` was added. The pattern `15 tool skills` matched the generic `<N> ... skills` stale-count regex without a subset exemption. |
+
+No source SKILL.md, TEMPLATE.md, or EXAMPLE.md content changed in the F-batch closure. All 15 v2.15.0 skills are present at both `a108301` (tag) and `f03d94d` (current main HEAD) and behave identically.
+
+Optionally, a v2.15.1 patch tag could capture the F-batch state symmetrically with the v2.14.0 → v2.14.1 → v2.14.2 same-day patch pattern; deferred unless symmetry is judged valuable.
+
+---
+
 ## Migration notes
 
 ### For existing pm-skills users

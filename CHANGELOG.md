@@ -40,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Two adversarial-review cycles documented** in the v2.15.0 plan files (one per family track) with full triage tables: FS-track 35 findings (14 accept / 14 defer / 7 reject); DS-track 13 Codex findings + 20 Claude self-audit findings (19 accept-fix-now / 1 defer / dedup). All Codex P1 findings closed before tag; deferred items tracked for v2.16.
 - **Plan-update hygiene rule codified**: when shipping a task tracked in a release/integration plan, update plan status block + checkboxes in the same session. Codified in `feedback_update-plans-as-you-ship.md` memory.
+- **Post-tag CI gap closure (`f03d94d`, after v2.15.0 tag at `a108301`)**: re-ran the 3 doc-site generator scripts (`generate-skill-pages.py` + `generate-workflow-pages.py` + `generate-showcase.py`) to publish 16 new `docs/skills/tool/` pages, 3 new `docs/workflows/*-sprint*.md` pages, and refreshed `docs/reference/commands.md`. Patched `scripts/check-count-consistency.{sh,ps1}` to add `tool` to the skills subset-descriptor exclusion list (validator predated the v2.15.0 `tool` classification). The v2.15.0 tag itself is unchanged; the deployed docs site builds from main HEAD so the closure takes effect on the live nav without a tag move. Full detail in `docs/releases/Release_v2.15.0.md` "Post-tag closures" section.
 
 ### Known limitations (deferred to v2.16+)
 
