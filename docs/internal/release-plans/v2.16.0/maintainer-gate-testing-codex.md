@@ -36,7 +36,20 @@
 - Branch is neither `feat/v2.16-astro-6-spike` nor `main`
 - Working tree has uncommitted changes you did not introduce
 - Test 1 fails AND maintainer has not told you to continue to Test 2
-- Any shell command returns a permission-denied error or asks for credentials
+- A required command returns a permission-denied error preventing the test from completing OR asks for credentials
+
+### Benign shell artifacts (do NOT HALT on these)
+
+These are common in containerized / WSL / sandboxed environments and do NOT block test execution:
+
+- `mkdir /run/user/{uid}: permission denied` (bash login-shell trying to create systemd events dir)
+- `RunRoot is pointing to a path ... which is not writable` (podman/container runtime warnings)
+- `Most likely podman will fail` (advisory; not blocking)
+- Any session-init / shell-init / container-runtime message that appears BEFORE or AFTER your actual command output
+
+**Decision rule:** look at whether the command you needed to execute produced its expected output. If yes, the shell artifacts are benign; continue. If the command itself failed to produce output, that is a real HALT condition.
+
+**Workaround:** if these messages are noisy, invoke commands with plain `bash -c "..."` (no `-l` flag) to skip login-shell session-init entirely. The `-l` flag triggers systemd event-dir creation; plain `-c` does not.
 
 ---
 
@@ -227,9 +240,11 @@ ls -d skills/foundation-*/ | wc -l     # foundation skills
 ls -d skills/utility-*/ | wc -l        # utility skills (including dispatch)
 ls -d skills/tool-*/ | wc -l           # tool skills
 ls subagents/*.md | grep -vE '_|README' | wc -l   # sub-agents
-ls commands/*.md | wc -l               # commands
-ls _workflows/*.md | wc -l             # workflows
+ls commands/*.md | grep -vi readme | wc -l         # commands (exclude README)
+ls _workflows/*.md | grep -vi readme | wc -l       # workflows (exclude README)
 ```
+
+**Note on README exclusion:** `_workflows/` contains `README.md` alongside the 12 workflow definitions; `commands/` may also have README files. Always exclude README.md files from counter audits, or your count will be off by 1-N. If you forgot the grep filter and got `_workflows/*.md = 13` instead of 12, re-run with the `grep -vi readme` filter to correct.
 
 Compare to declared values in `AGENTS/claude/CONTEXT.md` (gitignored; skip if not present), `AGENTS.md`, `README.md`.
 
