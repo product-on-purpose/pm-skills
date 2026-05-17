@@ -206,18 +206,62 @@ def generate_index(workflow_files: list[tuple[str, dict]]) -> str:
             "skills": "Spike Summary -> ADR -> Design Rationale",
             "use_when": "Evaluating technical feasibility and architecture decisions",
         },
+        "foundation-sprint": {
+            "display": "Foundation Sprint",
+            "skills": "7 `tool-foundation-sprint-*` skills (readiness -> brief -> basics -> differentiation -> approach-options -> magic-lenses -> founding-hypothesis)",
+            "use_when": "2-day strategic-alignment workshop producing a testable Founding Hypothesis",
+        },
+        "design-sprint": {
+            "display": "Design Sprint",
+            "skills": "7 `tool-design-sprint-*` skills (readiness -> brief -> map-and-target -> sketch -> decide-and-storyboard -> prototype-plan -> test-and-score)",
+            "use_when": "5-day prototype-and-test workshop producing a Decider's build / iterate / pivot / stop call",
+        },
+        "foundation-to-design": {
+            "display": "Foundation to Design",
+            "skills": "Foundation Sprint family (7) -> narrative handoff conversation -> Design Sprint family (7)",
+            "use_when": "End-to-end FS + DS arc (7-8 working days across 2-3 calendar weeks)",
+        },
+        "sprint-planning": {
+            # Override: apply v2.15.0 naming-discipline rule on the workshop-sprint vs agile-sprint collision
+            "display": "Sprint Planning (agile)",
+            "skills": "Refinement Notes -> User Stories -> Edge Cases",
+            "use_when": "Preparing agile sprint-ready stories from a backlog (distinct from Foundation Sprint and Design Sprint)",
+        },
     }
 
-    # Ordered list: existing 3 first, then new 6
+    # Ordered list: canonical PM workflows first, then v2.15.0 sprint additions
     order = [
         "feature-kickoff", "lean-startup", "triple-diamond",
         "customer-discovery", "sprint-planning", "product-strategy",
         "post-launch-learning", "stakeholder-alignment", "technical-discovery",
+        "foundation-sprint", "design-sprint", "foundation-to-design",
     ]
+
+    # Safety net: every workflow in source must have a workflow_info entry.
+    # Surfaced after the v2.15.0 release where the generator silently dropped
+    # foundation-sprint, design-sprint, and foundation-to-design from the index
+    # because they lacked dict entries despite their pages being generated.
+    source_stems = {stem for stem, _ in workflow_files}
+    curated_stems = set(workflow_info.keys())
+    missing_from_curated = source_stems - curated_stems
+    if missing_from_curated:
+        raise SystemExit(
+            f"ERROR: workflow source files exist but lack workflow_info entries: "
+            f"{sorted(missing_from_curated)}. Add explicit entries (display, skills, use_when) "
+            f"to generate-workflow-pages.py:workflow_info and to the order list."
+        )
+    missing_from_order = curated_stems - set(order)
+    if missing_from_order:
+        raise SystemExit(
+            f"ERROR: workflow_info entries exist but are not in the order list: "
+            f"{sorted(missing_from_order)}. Add to the order list at "
+            f"generate-workflow-pages.py:order."
+        )
 
     for name in order:
         info = workflow_info.get(name, {})
-        display_name = name.replace("-", " ").title()
+        # Prefer explicit display override (e.g., "Sprint Planning (agile)"), else title-case fallback
+        display_name = info.get("display", name.replace("-", " ").title())
         skills = info.get("skills", "")
         use_when = info.get("use_when", "")
         lines.append(

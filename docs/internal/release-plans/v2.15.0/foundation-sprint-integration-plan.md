@@ -14,7 +14,7 @@
 
 ## Status
 
-**Plan COMPLETE.** All 21 tasks shipped on origin/main as of 2026-05-15. Tasks 17 + 18 (Storevine + Workbench library samples) landed in the end-of-session push following the Codex adversarial review cycle. The FS family is functionally complete, validator-confirmed, and exceeds even the v1.0.0 sample-coverage requirement (3 full thread arcs: Brainshelf + Storevine + Workbench = 24 samples across 8 skills, plus 1 AI-era guide section added closing F35). DS plan can begin executing immediately.
+**Plan COMPLETE + SHIPPED in v2.15.0 (tag `a108301`, 2026-05-16).** All 21 tasks shipped on origin/main as of 2026-05-15. Tasks 17 + 18 (Storevine + Workbench library samples) landed in the end-of-session push following the Codex adversarial review cycle. The FS family is functionally complete, validator-confirmed, and exceeds even the v1.0.0 sample-coverage requirement (3 full thread arcs: Brainshelf + Storevine + Workbench = 24 samples across 8 skills, plus 1 AI-era guide section added closing F35). DS plan can begin executing immediately.
 
 ### Where we are (snapshot 2026-05-15)
 

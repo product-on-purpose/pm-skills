@@ -1,10 +1,12 @@
 ---
-title: Sprint Planning
+title: Sprint Planning (agile)
 ---
 
 # Sprint Planning Workflow
 
 > **Turn a prioritized backlog into sprint-ready stories with comprehensive edge case coverage.**
+
+> **Note on naming.** This workflow refers to **agile / Scrum sprint planning** (the recurring 1-4 week iteration cadence). It is distinct from the **Foundation Sprint** (2-day strategic-alignment workshop, see [`foundation-sprint.md`](foundation-sprint.md)) and the **Design Sprint** (5-day prototype-and-test workshop, see [`design-sprint.md`](design-sprint.md)) introduced in v2.15.0. See [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](../docs/concepts/workshop-sprints-vs-agile-sprints.md) for a comparison of all three.
 
 ---
 

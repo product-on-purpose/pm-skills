@@ -14,7 +14,7 @@
 
 ## Status
 
-**Phases 1-7 COMPLETE. v2.15.0 ready to tag.** All 21 tasks shipped: Phase 1 contract+validators+registry; Phase 2 all 7 DS family skills + adversarial review; Phase 3 both workflows; Phase 4 all 7 slash commands; Phase 5 all 21 library samples (Brainshelf + Storevine + Workbench); Phase 6 user guide + concept doc + AGENTS.md; Phase 7 full validator sweep + pre-tag artifact prep (CHANGELOG.md + docs/changelog.md + Release_v2.15.0.md + README.md badges + plugin.json + marketplace.json + .claude/pm-skills-for-claude.md + skills-manifest.yaml + docs/releases/index.md + docs/index.mdx + stale-count sweep across 9+ files). Validators all PASS in --strict mode; check-internal-link-validity 0 broken links; validate-version-consistency 2.15.0; check-count-consistency PASS at 55 skills + 62 commands + 12 workflows.
+**Phases 1-7 COMPLETE + SHIPPED in v2.15.0 (tag `a108301`, 2026-05-16).** All 21 tasks shipped: Phase 1 contract+validators+registry; Phase 2 all 7 DS family skills + adversarial review; Phase 3 both workflows; Phase 4 all 7 slash commands; Phase 5 all 21 library samples (Brainshelf + Storevine + Workbench); Phase 6 user guide + concept doc + AGENTS.md; Phase 7 full validator sweep + pre-tag artifact prep (CHANGELOG.md + docs/changelog.md + Release_v2.15.0.md + README.md badges + plugin.json + marketplace.json + .claude/pm-skills-for-claude.md + skills-manifest.yaml + docs/releases/index.md + docs/index.mdx + stale-count sweep across 9+ files). Validators all PASS in --strict mode; check-internal-link-validity 0 broken links; validate-version-consistency 2.15.0; check-count-consistency PASS at 55 skills + 62 commands + 12 workflows.
 
 ### Where we are (snapshot 2026-05-15 evening)
 

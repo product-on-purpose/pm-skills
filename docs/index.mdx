@@ -1,15 +1,15 @@
 ---
 title: PM Skills
-description: 40 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more.
+description: 55 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more. Includes the v2.15.0 Sprint Skills launch (Foundation Sprint + Design Sprint families).
 tags:
   - Home
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-**40 best-practice product management skills for AI agents.**
+**55 best-practice product management skills for AI agents.**
 
-PM Skills teaches AI assistants how to produce professional PM artifacts - PRDs, user stories, acceptance criteria, experiment designs, and more. One command, consistent output, every time.
+PM Skills teaches AI assistants how to produce professional PM artifacts - PRDs, user stories, acceptance criteria, experiment designs, sprint outputs, and more. One command, consistent output, every time.
 
 ## The Triple Diamond
 
@@ -97,11 +97,17 @@ graph LR
 
     [Browse Utility](skills/utility/)
   </Card>
+
+  <Card title="Tool (15 skills)" icon="rocket">
+    Canonical sprint methodologies: Foundation Sprint (7) + Design Sprint (7) + tool-note-and-vote.
+
+    [Browse Tool](skills/tool/)
+  </Card>
 </CardGrid>
 
 ## Skills by Phase
 
-26 domain skills across 6 phases, plus foundation and utility:
+26 domain skills across 6 phases, plus 8 foundation, 6 utility, and 15 tool skills (Foundation Sprint + Design Sprint families):
 
 ```mermaid
 block-beta
@@ -161,7 +167,7 @@ block-beta
     style iterate fill:#ffe9ec,stroke:#c2255c,color:#5c0a25,stroke-width:2px
 ```
 
-**Plus:** `/lean-canvas` `/persona` `/okr-writer` `/meeting-agenda` `/meeting-brief` `/meeting-recap` `/meeting-synthesize` `/stakeholder-update` (Foundation - cross-cutting) · `/pm-skill-builder` `/pm-skill-validate` `/pm-skill-iterate` `/mermaid-diagrams` `/slideshow-creator` `/update-pm-skills` (Utility)
+**Plus:** `/lean-canvas` `/persona` `/okr-writer` `/meeting-agenda` `/meeting-brief` `/meeting-recap` `/meeting-synthesize` `/stakeholder-update` (Foundation - cross-cutting) · `/pm-skill-builder` `/pm-skill-validate` `/pm-skill-iterate` `/mermaid-diagrams` `/slideshow-creator` `/update-pm-skills` (Utility) · `/tool-foundation-sprint-readiness` `/tool-foundation-sprint-brief` `/tool-foundation-sprint-basics` `/tool-foundation-sprint-differentiation` `/tool-foundation-sprint-approach-options` `/tool-foundation-sprint-magic-lenses` `/tool-foundation-sprint-founding-hypothesis` (Foundation Sprint family) · `/tool-design-sprint-readiness` `/tool-design-sprint-brief` `/tool-design-sprint-map-and-target` `/tool-design-sprint-sketch` `/tool-design-sprint-decide-and-storyboard` `/tool-design-sprint-prototype-plan` `/tool-design-sprint-test-and-score` (Design Sprint family) · `/tool-note-and-vote` (standalone)
 
 ## The Skill Lifecycle
 
@@ -235,7 +241,7 @@ Follow three fictional companies through the complete product lifecycle - from d
 
 ## Workflows
 
-9 guided multi-skill workflows for common PM processes. Each chains skills in a recommended sequence with handoff guidance.
+12 guided multi-skill workflows for common PM processes. Each chains skills in a recommended sequence with handoff guidance.
 
 | Workflow | Best for | Skills |
 |----------|----------|--------|
@@ -243,11 +249,14 @@ Follow three fictional companies through the complete product lifecycle - from d
 | [Lean Startup](workflows/lean-startup.md) | Rapid validation | hypothesis, experiment-design, experiment-results, pivot-decision |
 | [Triple Diamond](workflows/triple-diamond.md) | Major initiatives | All 26 phase skills across 6 phases |
 | [Customer Discovery](workflows/customer-discovery.md) | Research to problem | interview-synthesis, jtbd-canvas, opportunity-tree, problem-statement |
-| [Sprint Planning](workflows/sprint-planning.md) | Sprint-ready stories | refinement-notes, user-stories, edge-cases |
+| [Sprint Planning (agile)](workflows/sprint-planning.md) | Agile sprint-ready stories | refinement-notes, user-stories, edge-cases |
 | [Product Strategy](workflows/product-strategy.md) | Strategic framing | competitive-analysis, stakeholder-summary, opportunity-tree, solution-brief, adr |
 | [Post-Launch Learning](workflows/post-launch-learning.md) | Ship to learn | instrumentation-spec, dashboard-requirements, experiment-results, retrospective, lessons-log |
 | [Stakeholder Alignment](workflows/stakeholder-alignment.md) | Leadership buy-in | stakeholder-summary, problem-statement, solution-brief, launch-checklist |
 | [Technical Discovery](workflows/technical-discovery.md) | Feasibility | spike-summary, adr, design-rationale |
+| [Foundation Sprint](workflows/foundation-sprint.md) | 2-day strategic alignment | 7 `tool-foundation-sprint-*` skills producing a testable Founding Hypothesis |
+| [Design Sprint](workflows/design-sprint.md) | 5-day prototype + test | 7 `tool-design-sprint-*` skills producing a Decider's build/iterate/pivot/stop call |
+| [Foundation to Design](workflows/foundation-to-design.md) | End-to-end FS + DS arc | Both families chained with a narrative handoff conversation |
 
 [All workflows](workflows/)
 
@@ -255,6 +264,7 @@ Follow three fictional companies through the complete product lifecycle - from d
 
 | Version | Date | Highlights |
 |---------|------|-----------|
+| **[v2.15.1](releases/Release_v2.15.1.md)** | 2026-05-16 | Post-Tag Audit Remediation + Preventive CI: same-day patch closing 18 v2.15.x audit findings (docs-site homepage, skills landing page, AGENTS.md command table, sample-library README, Sprint Planning naming-discipline) plus a workflow-generator bug fix and 4 new preventive CI validators (landing-page count assertion, workflow-generator coverage, AGENTS.md command-sync, pre-tag validator bundle orchestration). 55-skill catalog unchanged |
 | **[v2.15.0](releases/Release_v2.15.0.md)** | 2026-05-16 | Sprint Skills Launch: 15 new skills under the new `classification: tool` taxonomy (7 Foundation Sprint family + 7 Design Sprint family + 1 tool-note-and-vote standalone) implementing Knapp/Zeratsky/Kowitz canonical sprint methodologies. Skill catalog 40 to 55. Two family contracts with enforcing CI validators (each with --strict release mode). 3 new workflows including end-to-end FS-to-DS arc with narrative handoff conversation that replaces dropped bridge skill (12-row slot-mapping table + 3-question go/no-go checkpoint). 45 library samples across 3 narrative threads (Brainshelf, Storevine, Workbench). Two user guides + two concept docs. Two adversarial-review cycles documented (FS-track + DS-track; all P1 closed pre-tag) |
 | [v2.14.2](releases/Release_v2.14.2.md) | 2026-05-10 | Codex final review closure (cumulative docs hygiene patch). 0 P0, 1 P1, 11 P2, 1 P3 findings addressed. `validate-docs-frontmatter` scope expanded to .mdx (parity with V6); `check-no-body-h1` doc clarified with "what is NOT caught" framing; `validate-mcp-sync` guide refreshed for observe-mode default; `sync-agents-md.yml` workflow_dispatch hardened with two-layer defense (input gate + token gate); pm-skills-mcp README cross-repo update (5 "25 skills" residues to "40 skills"; v2.9.3 latest pointer); CONTRIBUTING.md workaround count corrected; release plan + Release_v2.14.0 deferral table reframed. 40-skill catalog unchanged |
 | [v2.14.1](releases/Release_v2.14.1.md) | 2026-05-10 | Polish + V15 regression fix: same-day patch for v2.14.0. Title duplication fixed across 62 hand-authored docs + 6 generator emission sites (Starlight title-vs-body-H1 migration regression); 63 generator pages cleaned of contributor-noise asides; 182 en-dashes swept across 45 library samples; Mermaid 3-layer beautification + canonical style guide; two validators promoted to truly enforcing + new check-no-body-h1 validator added (enforcing tier 11 to 14); MCP maintenance posture codified cross-repo |

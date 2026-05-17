@@ -10,6 +10,8 @@ sidebar:
 **Skill count**: 55 (was 40 at v2.14.x; +15)
 **Key theme**: Sprint Skills Launch
 
+> **Note: post-tag closures shipped on main HEAD.** Two CI gap closures landed after the v2.15.0 tag at `a108301` (commits `f03d94d` + `c8ea6d9`) and ship via the deployed docs site without a tag move. A subsequent self-audit (`docs/internal/release-plans/v2.15.x/audit_v2.15.x_post-tag-self-review.md`) surfaced 18 findings; the v2.15.1 patch ships their remediation including docs-site homepage updates, AGENTS.md command-table sync, library-sample README refresh, a workflow-generator bug fix that prevented new workflows from appearing in the index, and 4 new CI validators to prevent recurrence. See the v2.15.1 release notes for the complete remediation list.
+
 ---
 
 ## TL;DR

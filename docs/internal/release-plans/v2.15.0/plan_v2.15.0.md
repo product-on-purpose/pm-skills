@@ -1,10 +1,10 @@
 # v2.15.0 Release Plan: Sprint Skills Launch + v2.14.x Cleanup
 
-**Status:** TAGGED + POST-TAG REGEN SHIPPED (v2.15.0 tag at `a108301`; CI gap closed at `f03d94d` post-tag)
+**Status:** TAGGED + POST-TAG REGEN SHIPPED + v2.15.x AUDIT REMEDIATION IN PROGRESS (v2.15.0 tag at `a108301`; CI gap closed at `f03d94d` + `c8ea6d9` post-tag; v2.15.1 patch cycle remediating 18 audit findings; see `../v2.15.x/audit_v2.15.x_post-tag-self-review.md`)
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (scoping); 2026-05-12 (this master plan authored)
-**Updated:** 2026-05-16 (post-tag; post-F batch CI fix)
+**Updated:** 2026-05-16 evening (post-tag self-audit + v2.15.1 patch cycle)
 
 ---
 
@@ -32,10 +32,10 @@ Final state on `f03d94d`: DS family validator PASSES 7/7 with `--strict`; FS fam
 
 ### What's next (by priority)
 
-1. **GitHub Release UI body rewrite**: the auto-published Release at /releases/tag/v2.15.0 currently has the generic install-instruction template body, not the rich Release_v2.15.0.md content. Rewrite via `gh release edit v2.15.0 --notes-file docs/releases/Release_v2.15.0.md` (after stripping YAML frontmatter).
-2. **Optional v2.15.1 patch**: if same-day-patch precedent (v2.14.0 → v2.14.1 → v2.14.2) is desired, cut v2.15.1 pointing at `f03d94d` to include the F-batch CI gap closure in a release tag. Not load-bearing since the docs site already builds from main HEAD.
-3. **CONTEXT.md refresh** (post-tag): `AGENTS/claude/CONTEXT.md` per-phase tables refresh to the final v2.15.0 catalog. Tracked as Task 2 in [`v2.14.x-deferrals-cleanup-plan.md`](./v2.14.x-deferrals-cleanup-plan.md). ~1.5 hours.
-4. **v2.16.0 plan kickoff**: 2 Dependabot alerts + Astro 6.x upgrade + DS validator metadata-shape enforcement + tags-as-feature + URL slug normalization. See `plan_v2.16.0.md` for the running deferral list.
+1. **DONE - GitHub Release UI body rewrite**: published the rich content at /releases/tag/v2.15.0 from `docs/releases/Release_v2.15.0.md` body (no frontmatter).
+2. **IN PROGRESS - v2.15.1 patch cycle**: shipping remediation for 18 audit findings (P0/P1/P2/P3 + CI preventive validators) per `../v2.15.x/audit_v2.15.x_post-tag-self-review.md`. Includes docs/index.mdx homepage (A01), docs/skills/index.md (A02), workflow-generator bug fix (A03), AGENTS.md command-table sync (A04), sample-library README (A05), Sprint Planning (agile) naming-discipline (A09), CONTEXT.md refresh (A12), and 4 new CI validators. Cuts a v2.15.1 tag once batch lands.
+3. **CONTEXT.md refresh** (closing in v2.15.1 per A12): `AGENTS/claude/CONTEXT.md` per-phase tables refresh closes the v2.14.x Task 2 deferral.
+4. **v2.16.0 plan kickoff**: 2 Dependabot alerts + Astro 6.x upgrade + DS validator metadata-shape enforcement + tags-as-feature + URL slug normalization + count-consistency validator regex extension (per audit A06; closes issue #132 [M-20]). See `plan_v2.16.0.md` for the running deferral list.
 
 ### Estimated remaining
 

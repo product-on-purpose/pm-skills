@@ -1,6 +1,6 @@
 # pm-skills for Claude Code
 
-pm-skills supports two parallel install paths for Claude Code, plus a third path for tools outside the Claude Code ecosystem. All three are working as of v2.15.0; pick whichever fits your client and workflow.
+pm-skills supports two parallel install paths for Claude Code, plus a third path for tools outside the Claude Code ecosystem. All three are working as of v2.15.1; pick whichever fits your client and workflow.
 
 ## Install paths
 

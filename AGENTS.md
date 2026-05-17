@@ -396,7 +396,12 @@ Workflow links are repo-relative within this repository.
 | `/workflow-technical-discovery` | Run the Technical Discovery workflow |
 | `/launch-checklist` | Create a comprehensive pre-launch checklist |
 | `/lean-canvas` | Generate a one-page lean canvas with optional HTML output |
-| `/mermaid-diagrams` | utility-mermaid-diagrams |
+| `/meeting-agenda` | Generate an attendee-facing meeting agenda with time-boxed topics, type tags, owners, and attendee prep |
+| `/meeting-brief` | Generate a private strategic preparation document for a meeting (stakeholder reads, ranked outcomes, key messages, Q&A) |
+| `/meeting-recap` | Generate a topic-segmented post-meeting recap with decisions highlighted and actions captured inline |
+| `/meeting-synthesize` | Generate a cross-meeting synthesis surfacing patterns, trajectories, stalled threads, and contradictions |
+| `/mermaid-diagrams` | Create syntactically valid mermaid diagrams for product documentation |
+| `/stakeholder-update` | Generate an async stakeholder update from a meeting recap, tailored by channel and audience |
 | `/lessons-log` | Create a structured lessons learned entry |
 | `/okr-grader` | Score completed OKRs at cycle close with evidence-based interpretation and learning synthesis |
 | `/okr-writer` | Draft, review, rewrite, or coach OKRs with outcome-based KRs and quality audit |
@@ -417,6 +422,24 @@ Workflow links are repo-relative within this repository.
 | `/spike-summary` | Document the results of a technical or design spike |
 | `/stakeholder-summary` | Document stakeholder needs and influence |
 | `/user-stories` | Generate user stories with acceptance criteria |
+| `/workflow-foundation-sprint` | Run the Foundation Sprint workflow (2-day strategic-alignment arc producing a Founding Hypothesis) |
+| `/workflow-design-sprint` | Run the Design Sprint workflow (5-day prototype-and-test arc producing a Decider's build/iterate/pivot/stop call) |
+| `/workflow-foundation-to-design` | Run the end-to-end Foundation Sprint + Design Sprint workflow with narrative handoff |
+| `/tool-note-and-vote` | Run a structured group decision (silent ideation + heat-map voting + Decider supervote) |
+| `/tool-foundation-sprint-readiness` | Foundation Sprint: pre-sprint Go / Conditional Go / Wait diagnostic |
+| `/tool-foundation-sprint-brief` | Foundation Sprint: one-page scope contract before Day 1 |
+| `/tool-foundation-sprint-basics` | Foundation Sprint Day 1 AM: target customer + important problem + team advantage + competitor map |
+| `/tool-foundation-sprint-differentiation` | Foundation Sprint Day 1 PM: scored differentiators + 2x2 chart + decision principles + Mini Manifesto |
+| `/tool-foundation-sprint-approach-options` | Foundation Sprint Day 2 AM: 3-7 candidate approaches as one-page summaries |
+| `/tool-foundation-sprint-magic-lenses` | Foundation Sprint Day 2 PM: top bet + backup via 4 classic + 1 custom lens evaluation |
+| `/tool-foundation-sprint-founding-hypothesis` | Foundation Sprint Day 2 end: canonical hypothesis sentence + assumption scorecard + recommended next test |
+| `/tool-design-sprint-readiness` | Design Sprint: pre-sprint Go / Conditional Go / Wait diagnostic + customer recruiting plan |
+| `/tool-design-sprint-brief` | Design Sprint: two-page scope contract before Monday |
+| `/tool-design-sprint-map-and-target` | Design Sprint Monday: long-term goal + sprint questions + customer map + HMW board + target moment |
+| `/tool-design-sprint-sketch` | Design Sprint Tuesday: lightning demos + 4 independent solution sketches per team member |
+| `/tool-design-sprint-decide-and-storyboard` | Design Sprint Wednesday: heat map + Decider supervote + 5-15 panel storyboard |
+| `/tool-design-sprint-prototype-plan` | Design Sprint Thursday AM: 5-role plan + Five-Act interview script + trial-run checklist |
+| `/tool-design-sprint-test-and-score` | Design Sprint Friday: 5 customer interviews + scorecard + Decider's build / iterate / pivot / stop call |
 
 ---
 

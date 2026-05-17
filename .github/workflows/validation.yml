@@ -247,6 +247,31 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-references-cross-doc.ps1
 
+      # v2.15.1 preventive validators - close audit findings A01/A02/A03/A04
+      - name: Check landing-page counts (bash, enforcing, --strict)
+        if: always() && matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-landing-page-counts.sh --strict
+
+      - name: Check landing-page counts (pwsh, enforcing, -Strict)
+        if: always() && matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-landing-page-counts.ps1 -Strict
+
+      - name: Check workflow generator coverage (bash, enforcing)
+        if: always() && matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-workflow-generator-coverage.sh
+
+      - name: Check workflow generator coverage (pwsh, enforcing)
+        if: always() && matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-workflow-generator-coverage.ps1
+
+      - name: Check AGENTS.md command-sync (bash, enforcing)
+        if: always() && matrix.os == 'ubuntu-latest'
+        run: bash scripts/check-agents-md-command-sync.sh
+
+      - name: Check AGENTS.md command-sync (pwsh, enforcing)
+        if: always() && matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-agents-md-command-sync.ps1
+
       - name: Build site with Astro Starlight (enforcing)
         if: always()
         run: npm run build

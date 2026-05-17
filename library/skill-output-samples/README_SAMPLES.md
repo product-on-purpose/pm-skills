@@ -1,6 +1,6 @@
 ﻿# PM Skills Sample Library
 
-126 sample outputs across 40 PM skills, organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs. Meeting-family skills (foundation-meeting-*) have three samples per skill (one per thread) following the SAMPLE_CREATION.md thread standards. Certain phase skills carry additional legacy and orbit samples beyond the canonical thread trio for historical calibration.
+171 sample outputs across 55 PM skills, organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle plus the v2.15.0 Foundation Sprint and Design Sprint families. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs. Meeting-family skills (foundation-meeting-*) have three samples per skill (one per thread) following the SAMPLE_CREATION.md thread standards. Sprint-family skills (tool-foundation-sprint-* and tool-design-sprint-*) also have three samples per skill, with each thread carrying a coherent end-to-end FS+DS arc. Certain phase skills carry additional legacy and orbit samples beyond the canonical thread trio for historical calibration.
 
 ## Table of Contents
 
@@ -21,7 +21,9 @@
 
 ## What Is This?
 
-This folder contains 126 sample outputs:
+This folder contains 171 sample outputs (126 pre-v2.15.0 + 45 v2.15.0 Sprint Skills additions):
+
+**Pre-v2.15.0 (126 samples):**
 
 - **75 canonical-thread phase-skill samples** . 3 per thread (storevine / brainshelf / workbench) × 25 phase skills
 - **11 additional legacy / orbit / extra samples on select phase skills** . `discover-competitive-analysis`, `discover-interview-synthesis`, `discover-stakeholder-summary` carry 6 samples each (3 canonical + 3 legacy = 9 extras total); `deliver-prd` carries 5 samples (3 canonical + 2 orbit = 2 extras)
@@ -31,7 +33,13 @@ This folder contains 126 sample outputs:
 - **15 foundation-meeting-* family samples** . 3 per skill × 5 skills (agenda, brief, recap, synthesize, stakeholder-update), one per thread
 - **3 foundation-okr-writer samples** . 1 per thread (storevine, brainshelf, workbench), introduced in v2.12.0 as the first half of the OKR Skills set
 
-75 + 11 + 12 + 3 + 7 + 15 + 3 = 126.
+**v2.15.0 Sprint Skills additions (45 samples):**
+
+- **21 tool-foundation-sprint-* samples** . 3 per skill x 7 skills (readiness, brief, basics, differentiation, approach-options, magic-lenses, founding-hypothesis); each thread tells an end-to-end Foundation Sprint arc
+- **21 tool-design-sprint-* samples** . 3 per skill x 7 skills (readiness, brief, map-and-target, sketch, decide-and-storyboard, prototype-plan, test-and-score); each thread tells an end-to-end Design Sprint arc that continues from its Foundation Sprint
+- **3 tool-note-and-vote samples** . 1 per thread; demonstrates the standalone group-decision mechanic shared across both sprint families
+
+75 + 11 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 = 171.
 
 The samples serve two purposes:
 

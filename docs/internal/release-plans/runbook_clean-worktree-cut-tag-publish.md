@@ -2,9 +2,25 @@
 
 Status: Active  
 Owner: Maintainers  
-Last updated: 2026-03-04
+Last updated: 2026-05-16 (v2.15.1: added pre-tag validator bundle requirement)
 
 This runbook defines the canonical release lane for post-`v2.5.0` cuts.
+
+## 0) Pre-tag validator bundle (REQUIRED, added v2.15.1)
+
+Before any of the steps below, run the full enforcing-validator bundle:
+
+```bash
+bash scripts/pre-tag-validate.sh
+```
+
+```powershell
+pwsh scripts/pre-tag-validate.ps1
+```
+
+This codifies the `feedback_pre-tag-validator-bundle.md` memory rule (2026-05-16): every truly-enforcing validator (count-consistency + generated-content-untouched + family validators with --strict + the 4 v2.15.1 preventive validators) must pass before cutting a release tag. v2.15.0 surfaced two post-tag CI gaps that bundled validation would have caught pre-tag.
+
+**Do not proceed if the bundle reports ANY failure.** Resolve every failure first, re-run the bundle, and only then continue with the tag-cut steps below.
 
 ## 1) Current Baseline
 
