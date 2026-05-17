@@ -1,6 +1,6 @@
 ---
 title: "pm-release-conductor Dispatch Example: dry-run on Copilot CLI"
-description: Worked example of utility-pm-release-conductor dispatch skill execution on a non-Claude client (Copilot CLI). Demonstrates the "reference + execute inline" pattern for chain composition: auditor inlined at G0 and G2.5, curator inlined at G2. Dry-run flow walking all 6 gates.
+description: 'Worked example of utility-pm-release-conductor dispatch skill execution on a non-Claude client (Copilot CLI). Demonstrates the "reference + execute inline" pattern for chain composition: auditor inlined at G0 and G2.5, curator inlined at G2. Dry-run flow walking all 6 gates.'
 ---
 
 # Example: pm-release-conductor Dispatch on Copilot CLI
