@@ -1,6 +1,6 @@
 ---
 title: Adversarial Review with pm-critic
-description: How to invoke pm-critic, a Claude Code sub-agent that adversarially reviews PM artifacts (PRDs, OKR sets, personas, lean canvases, meeting recaps, interview syntheses, edge case catalogs, etc.) and returns P0/P1/P2/P3 findings with concrete fix suggestions. Covers proactive vs explicit invocation, severity grammar with examples, the skill-revise-recheck loop, cross-client paths (dispatch skill + optional codex-rescue), and the opt-out path for users who want to silence the proactive trigger.
+description: How to invoke pm-critic, a Claude Code sub-agent that adversarially reviews PM artifacts (PRDs, OKR sets, personas, meeting recaps, etc.) and returns P0/P1/P2/P3 findings with concrete fix suggestions. Covers proactive vs explicit invocation, cross-client paths, and the opt-out path.
 ---
 
 ## Table of Contents

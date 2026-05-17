@@ -1,6 +1,6 @@
 ---
 title: Sub-Agents
-description: What sub-agents are, how they differ from skills, and when to use one. Sub-agents are Claude Code plugin runtime components that the intent classifier matches against description frontmatter and dispatches to in isolated context windows. v2.16.0 introduces four pm-skills sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) plus dispatch skills for cross-client access.
+description: What sub-agents are, how they differ from skills, and when to use one. Sub-agents are Claude Code plugin runtime components dispatched to isolated context windows via intent classifier. v2.16.0 introduces four pm-skills sub-agents plus dispatch skills for cross-client access.
 ---
 
 ## Table of Contents

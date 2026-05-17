@@ -1,6 +1,6 @@
 ---
 title: Using Sub-Agents
-description: User-facing overview for invoking pm-skills sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor). Covers Claude Code native invocation (4 patterns), dispatch skill invocation on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI), maintainer operations subsection (auditor + curator + conductor standalone), and links to per-agent deep dives.
+description: User-facing overview for invoking pm-skills sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor). Covers Claude Code native invocation, dispatch skill invocation on non-Claude clients (Codex, Cursor, Windsurf, Copilot, Gemini), and maintainer operations.
 ---
 
 ## Table of Contents

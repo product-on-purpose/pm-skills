@@ -1,6 +1,6 @@
 ---
 title: Release Runbook
-description: Canonical pm-skills release runbook with 6 explicit gates (G0 Pre-tag readiness, G1 Adversarial review status, G2 Version bump + CHANGELOG prep, G2.5 Commit + re-verify, G3 Tag + push, G4 Post-tag hygiene). Used by the pm-release-conductor sub-agent at invocation time (referential discipline per master plan D12). Maintainers running releases by hand follow this same runbook; the conductor automates the discipline.
+description: 'Canonical pm-skills release runbook with 6 explicit gates: G0 Pre-tag readiness, G1 Adversarial review, G2 Version bump + CHANGELOG prep, G2.5 Commit + re-verify, G3 Tag + push, G4 Post-tag hygiene. Used by the pm-release-conductor sub-agent and by maintainers running releases by hand.'
 ---
 
 ## Table of Contents
