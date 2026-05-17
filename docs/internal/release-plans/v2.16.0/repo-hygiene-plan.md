@@ -12,16 +12,20 @@
 
 ## Status
 
-**Plan ACTIVE.** Not yet started. 8 tasks across 4 phases.
+**Plan DEFERRED to pre-tag artifact pass + v2.17 cleanup.** 8 tasks across 4 phases.
 
 ### Where we are
 
 | Phase | Status |
 |---|---|
-| Phase 1: CONTEXT.md refresh (carried from v2.14.x Task 2) | PENDING |
-| Phase 2: `_working/` archive sweep | PENDING |
-| Phase 3: DS validator metadata-shape strict + completed F-XX archive | PENDING |
-| Phase 4: Backlog refresh + TODO inventory | PENDING |
+| Phase 1: CONTEXT.md refresh | DEFERRED to pre-tag artifact pass (runs LAST per Codex R13 + master plan sequencing; refresh should reflect final v2.16.0 catalog state including 4 sub-agents + 4 dispatch skills + new commands) |
+| Phase 2: `_working/` archive sweep | DEFERRED to pre-tag artifact pass (2 subagent design docs + 2 May 8 backlog aggregates archive to `_working/_archived/v2.16.0/`; roadmap STAYS active per master plan D28) |
+| Phase 3: DS validator strict promotion + F-XX archive | DEFERRED to v2.17 (lower priority than v2.16 sub-agent ship; advisory-to-strict requires running validator against all 7 DS members and addressing failures in same commit) |
+| Phase 4: Backlog refresh + TODO inventory | DEFERRED to pre-tag pass (pairs with v2.17.0 stub creation at end of v2.16.0 cycle) |
+
+### Rationale for deferral
+
+This session prioritized the v2.16.0 strategic theme (active orchestration: 4 sub-agents + 4 dispatch skills + 4 commands + 12 library samples + 5 new public docs + 3 docs from integration plan + validator extension) over hygiene work. The hygiene plan items pair naturally with the pre-tag artifact pass where multiple surfaces refresh together for the new catalog state. CONTEXT.md refresh specifically runs LAST per Codex R13 + master plan sequencing so it reflects final v2.16.0 state.
 
 ### Estimated remaining
 
