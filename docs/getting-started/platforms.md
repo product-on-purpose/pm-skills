@@ -32,7 +32,7 @@ Two install paths, depending on your Claude Code version.
 /plugin install pm-skills@pm-skills-marketplace
 ```
 
-After install, all 55 skills resolve from any directory. Slash commands like `/prd`, `/opportunity-tree`, `/okr-writer`, `/agenda` work immediately. Verify with `/plugin list`.
+After install, all 59 skills resolve from any directory. Slash commands like `/prd`, `/opportunity-tree`, `/okr-writer`, `/agenda` work immediately. Verify with `/plugin list`.
 
 To track a local working copy instead of the published version (for forkers and contributors):
 
@@ -47,7 +47,7 @@ To track a local working copy instead of the published version (for forkers and 
 npx skills add product-on-purpose/pm-skills
 ```
 
-Installs all 55 skills into Claude Code's default skills directory. No clone, no sync. Works identically across most agents (see [Cursor](#cursor), [Copilot](#github-copilot), [Cline](#vs-code-cline--continue)).
+Installs all 59 skills into Claude Code's default skills directory. No clone, no sync. Works identically across most agents (see [Cursor](#cursor), [Copilot](#github-copilot), [Cline](#vs-code-cline--continue)).
 
 ### Older clients: manifest-direct fallback
 
@@ -86,7 +86,7 @@ Both use ZIP upload to Project Files.
     - **Claude Desktop**: Settings > Capabilities > Upload ZIP
 3. Use skills by name in your conversation: "Use the prd skill to create requirements for [your topic]"
 
-The ZIP contains all 55 skills, slash commands, workflows, library samples, and a `QUICKSTART.md` with detailed instructions.
+The ZIP contains all 59 skills, slash commands, workflows, library samples, and a `QUICKSTART.md` with detailed instructions.
 
 ---
 
@@ -102,7 +102,7 @@ git clone https://github.com/product-on-purpose/pm-skills.git
 git submodule add https://github.com/product-on-purpose/pm-skills.git
 ```
 
-Open Cursor with the workspace that includes `pm-skills`. Cursor's AI assistant will discover all 55 skills via `AGENTS.md`. Invoke by name:
+Open Cursor with the workspace that includes `pm-skills`. Cursor's AI assistant will discover all 59 skills via `AGENTS.md`. Invoke by name:
 
 > "Use the hypothesis skill to test my assumption about checkout abandonment."
 > "Use the opportunity-tree skill for our Q3 retention initiative."
@@ -119,7 +119,7 @@ Same pattern as Cursor. Windsurf auto-discovers via `AGENTS.md`.
 git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
-Open the folder in Windsurf. The AI assistant discovers and can invoke all 55 skills. No sync helper needed; Windsurf reads `AGENTS.md` directly.
+Open the folder in Windsurf. The AI assistant discovers and can invoke all 59 skills. No sync helper needed; Windsurf reads `AGENTS.md` directly.
 
 ---
 
@@ -213,7 +213,7 @@ Add to your MCP client config (typically `claude_desktop_config.json` or your cl
 }
 ```
 
-After restart, the MCP server's embedded catalog becomes available as programmatic MCP tools. The pm-skills-mcp catalog is frozen at the v2.9.2 build's 40-skill embedded set (plus 11 workflow tools and 8 server-utility tools, 59 tools total) per the 2026-05-04 maintenance-mode decision. The current pm-skills file-based catalog is 55 skills; the new v2.15.0 Foundation Sprint and Design Sprint families are NOT embedded in MCP, and the file-based install path is required for parity with the full current catalog. Some utility skills (for example `update-pm-skills`) are designed for file-system contexts and have reduced applicability via MCP transport.
+After restart, the MCP server's embedded catalog becomes available as programmatic MCP tools. The pm-skills-mcp catalog is frozen at the v2.9.2 build's 40-skill embedded set (plus 11 workflow tools and 8 server-utility tools, 59 tools total) per the 2026-05-04 maintenance-mode decision. The current pm-skills file-based catalog is 59 skills; the new v2.15.0 Foundation Sprint and Design Sprint families are NOT embedded in MCP, and the file-based install path is required for parity with the full current catalog. Some utility skills (for example `update-pm-skills`) are designed for file-system contexts and have reduced applicability via MCP transport.
 
 See the [pm-skills-mcp README](https://github.com/product-on-purpose/pm-skills-mcp#getting-started) for client-specific setup details.
 

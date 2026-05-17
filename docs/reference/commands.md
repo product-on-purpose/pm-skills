@@ -5,7 +5,7 @@ generated: true
 source: scripts/generate-skill-pages.py
 ---
 
-PM Skills ships 62 slash commands: 55 skill commands plus 7 workflow commands.
+PM Skills ships 66 slash commands: 55 skill commands plus 7 workflow commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|

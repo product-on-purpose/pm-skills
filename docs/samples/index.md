@@ -1,6 +1,6 @@
 ---
 title: Samples
-description: Browse 115 PM artifact samples spanning 55 skills and three product threads (Storevine, Brainshelf, Workbench).
+description: Browse 115 PM artifact samples spanning 59 skills and three product threads (Storevine, Brainshelf, Workbench).
 sidebar:
   order: 1
 ---
@@ -31,7 +31,7 @@ The threads exist so you can see how the same skill behaves under different prod
 
 ## How to browse
 
-- **By skill**: expand the **Samples** group in the left sidebar. Each of the 55 skills has its own subgroup with 2-3 samples (one per thread, in most cases).
+- **By skill**: expand the **Samples** group in the left sidebar. Each of the 59 skills has its own subgroup with 2-3 samples (one per thread, in most cases).
 - **By thread (narrative)**: see the [Showcase](../showcase/) section, which threads samples together into a complete product lifecycle journey for each company.
 - **By artifact type**: cross-reference the [Skills index](../skills/) to find skills by Triple Diamond phase, then jump to that skill's samples.
 
