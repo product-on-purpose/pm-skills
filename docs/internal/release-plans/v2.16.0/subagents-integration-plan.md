@@ -23,8 +23,8 @@
 | Phase | Status | Closing commit(s) |
 |---|---|---|
 | Phase 1: Foundation infrastructure | COMPLETE 2026-05-17 | 68bd5cc |
-| Phase 2: Ship pm-critic | COMPLETE 2026-05-17 (GATE B PENDING maintainer test) | _pending commit_ |
-| Phase 3: Ship pm-skill-auditor | PENDING | - |
+| Phase 2: Ship pm-critic | COMPLETE 2026-05-17 (GATE B PENDING maintainer test) | 00b3978 |
+| Phase 3: Ship pm-skill-auditor | COMPLETE 2026-05-17 (GATE B PENDING; mid-cycle audit run via sample) | _pending commit_ |
 | Phase 4: Ship pm-changelog-curator | PENDING | - |
 | Phase 5: Ship pm-release-conductor | PENDING | - |
 | Phase 6: Library samples | PENDING | - |
@@ -53,9 +53,18 @@
 - `docs/reference/runtime-components.md` pm-critic row populated with audience, trigger, lifetime, tool surface, composition, dispatch skill status
 - `AGENTS.md` Utility Skills section adds pm-critic dispatch skill entry; validate-agents-md passes 56 paths (was 55)
 
+### Phase 3 shipped artifacts (2026-05-17)
+
+- `subagents/pm-skill-auditor.md` authored per spec: explicit-only trigger (no proactive per D7), Bash + Read + Grep + Glob tool surface (Bash for validator invocation), referential 4-step audit flow (validators -> cross-cutting checks -> counter re-derivation -> layered output), refusal protocols, no Agent tool (chain depth 2 limit)
+- `commands/audit-repo.md` companion slash command with --scope and --severity-floor argument hints; validate-commands passes via dispatch skill reference
+- `library/sub-agent-samples/pm-skill-auditor/sample_pm-skill-auditor_brainshelf_pre-release.md` mid-cycle audit run sample (5 findings: 0 P0, 2 P1 forward-looking, 3 P2 in-cycle expected drift); demonstrates aggregate counter audit with expected mid-cycle declared-vs-derived mismatch
+- `skills/utility-pm-skill-auditor/{SKILL.md, references/TEMPLATE.md, references/EXAMPLE.md}` dispatch skill triplet per D30: detects runtime; dispatches to `@agent-pm-skill-auditor` on Claude Code; reads `subagents/pm-skill-auditor.md` and executes inline on non-Claude clients
+- `docs/reference/runtime-components.md` pm-skill-auditor row populated
+- `AGENTS.md` Utility Skills section adds pm-skill-auditor dispatch skill entry; validate-agents-md passes 57 paths (was 56)
+
 ### What's next
 
-Phase 3 Task 10: author `subagents/pm-skill-auditor.md` per `spec_pm-skill-auditor.md`.
+Phase 4 Task 14: author `subagents/pm-changelog-curator.md` per `spec_pm-changelog-curator.md`.
 
 ### GATE status (Phase 2 Task 9 spike)
 

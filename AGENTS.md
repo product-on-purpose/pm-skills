@@ -257,6 +257,13 @@ Cross-client dispatch wrapper for the `pm-critic` sub-agent (v2.16.0+). Runs adv
 
 ---
 
+#### pm-skill-auditor
+**Path:** `skills/utility-pm-skill-auditor/SKILL.md`
+
+Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent (v2.16.0+). Runs a repo-wide cross-cutting governance audit: invokes the full enforcing validator suite (via `scripts/pre-tag-validate.{sh,ps1}` as canonical orchestration entry point), aggregates results, runs cross-cutting checks no single validator catches alone (skill-without-command, sample gaps, family contract orphans, etc.), re-derives aggregate counters against declared values, and returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-skill-auditor`); on non-Claude clients reads `subagents/pm-skill-auditor.md` and executes inline. Use pre-release for governance check or for repo-health audits.
+
+---
+
 ### Tool Classification
 
 The `tool` classification represents named external methodologies composed of multiple skills working as a system. The first inhabitants are the Foundation Sprint and Design Sprint families plus a standalone decision tool.

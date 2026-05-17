@@ -39,7 +39,7 @@ v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents
 | Sub-agent | Audience | Trigger | Lifetime | Tool Surface | Composition | Dispatch Skill |
 |---|---|---|---|---|---|---|
 | `pm-critic` | User (PM authoring artifacts) | Proactive after PM-artifact-producing skills (Claude Code) + explicit `/critic` | Single turn | Read, Grep, Glob (no write; no Bash) | Skill-revise-recheck loop with deliver-prd, foundation-okr-writer, foundation-meeting-recap, foundation-persona, foundation-lean-canvas, discover-interview-synthesis, etc. | `skills/utility-pm-critic/` (GATE B PENDING maintainer test on non-Claude clients) |
-| `pm-skill-auditor` | _to be populated in Phase 3_ | _Phase 3_ | _Phase 3_ | _Phase 3_ | _Phase 3_ | _Phase 3 (conditional on GATE B)_ |
+| `pm-skill-auditor` | User + Maintainer (audience straddles) | Explicit only: `/audit-repo` or `@agent-pm-skill-auditor`; chained from `pm-release-conductor` at gate G0 | Multi-turn (may ask follow-up questions) | Bash, Read, Grep, Glob (no Edit; no Agent; detection-only) | Composes the enforcing validator suite via `scripts/pre-tag-validate.{sh,ps1}`; runs cross-cutting checks; re-derives aggregate counters | `skills/utility-pm-skill-auditor/` (PENDING GATE B maintainer test) |
 | `pm-changelog-curator` | _to be populated in Phase 4_ | _Phase 4_ | _Phase 4_ | _Phase 4_ | _Phase 4_ | _Phase 4 (conditional on GATE B)_ |
 | `pm-release-conductor` | _to be populated in Phase 5_ | _Phase 5_ | _Phase 5_ | _Phase 5_ | _Phase 5_ | _Phase 5 (conditional on GATE C)_ |
 
