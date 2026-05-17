@@ -113,7 +113,7 @@ These items belong to v2.18+ per the v2.16 strategic arc:
 Promote this stub to ACTIVE at end of v2.16.0 cycle by:
 
 1. Updating Status block to ACTIVE
-2. Picking a theme from the carry-forward items (likely CI hardening + Astro 6 + first pm-workflow-orchestrator sub-agent)
+2. Picking a theme from the carry-forward items (likely CI hardening + first pm-workflow-orchestrator sub-agent + dispatch skill GA ratification per GATE B + GATE C outcomes)
 3. Scoping into 2-4 sub-plans following the v2.16.0 pattern
 4. Identifying decision questions for maintainer review
 5. Authoring spec docs for any new sub-agents in scope
