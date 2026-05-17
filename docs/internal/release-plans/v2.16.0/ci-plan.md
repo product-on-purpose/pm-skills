@@ -12,16 +12,36 @@
 
 ## Status
 
-**Plan ACTIVE.** Not yet started. 10 tasks across 4 phases.
+**Plan PARTIAL.** Critical path shipped 2026-05-17; nice-to-have validators deferred to v2.17. 10 tasks across 4 phases.
 
 ### Where we are
 
-| Phase | Status |
-|---|---|
-| Phase 1: Validator decision (extend vs new) | PENDING |
-| Phase 2: Ship validators | PENDING |
-| Phase 3: Workflow integration | PENDING |
-| Phase 4: Documentation + cross-cutting | PENDING |
+| Phase | Status | Closing commit(s) |
+|---|---|---|
+| Phase 1: Validator decision (extend vs new) | COMPLETE 2026-05-17 (D19 ratified: EXTEND validate-agents-md; design wrinkle on NAME-vs-PATH-based check documented; symmetric extension to subagents/ scan feasible) | 68bd5cc (decision); 635bf24 (extension) |
+| Phase 2: Ship validators | PARTIAL 2026-05-17 (Task 1 validate-agents-md extension SHIPPED; Tasks 2-5 DEFERRED to v2.17 cleanup: check-runtime-components-sync, check-sub-agent-command-pair, check-em-dashes canonical, check-aggregate-counters extension) | 635bf24 |
+| Phase 3: Workflow integration | DEFERRED to v2.17 (no new validator scripts to invoke; existing validation.yml unchanged for v2.16) | - |
+| Phase 4: Documentation + cross-cutting | DEFERRED to v2.17 (ci-conventions.md doc and final audit pair with the deferred validators) | - |
+
+### Critical path shipped
+
+- D19 ratification: EXTEND validate-agents-md per master plan decision (closes SR-P0-01 contradiction)
+- `scripts/validate-agents-md.sh` + `.ps1` extended to enumerate `subagents/*.md` and verify each sub-agent name appears in AGENTS.md
+- Name-based check per D5 + D12 referential discipline (AGENTS.md references sub-agents by name; runtime-components.md is the canonical detail catalog)
+- Validator self-test: PASS 59 skill paths + 4 sub-agents at HEAD 635bf24
+- ASCII-only output (`OK:` / `FAIL:` prefixes) to avoid the em-dash-detection-hook false positive on unicode check-mark glyphs
+
+### Deferred to v2.17 (not blocking v2.16 release)
+
+1. `scripts/check-runtime-components-sync.{sh,ps1,md}`: verify each `subagents/*.md` entry has a corresponding row in `docs/reference/runtime-components.md`. Currently the runtime-components.md table is maintained by hand; drift would surface in audits via pm-skill-auditor cross-cutting checks
+2. `scripts/check-sub-agent-command-pair.{sh,ps1,md}`: verify each sub-agent has a companion slash command per `subagents/_pairing.yaml`. Currently enforced by the manual maintainer workflow and by the existing validate-commands check on the dispatch skill side
+3. `scripts/check-em-dashes.{sh,ps1,md}`: canonical script per D27. v2.16 used perl one-liners during authoring (caught 0 hits across Phase 1-6 new content); the canonical script is a v2.17 deliverable
+4. `scripts/check-aggregate-counters.{sh,ps1,md}` as extension of `check-landing-page-counts`: per ci-plan v2.15.1 carry-in reconciliation. Currently `check-landing-page-counts` covers landing-page surface; extending it to CONTEXT.md and AGENTS.md surfaces is v2.17 work
+5. Chain-permitted allowlist enforcement: verify `subagents/{name}.md` with `Agent` in `tools:` is listed in `_chain-permitted.yaml` per D21 HARD FAIL. The v2.16 allowlist contains only `pm-release-conductor`; manual maintainer check at pre-tag suffices
+6. `docs/contributing/ci-conventions.md`: documents the new validators (pairs with the v2.17 validator ships)
+7. validation.yml integration: invoke the new v2.17 validators in CI5 order with synthetic-failure tests
+
+These deferrals are documented in the v2.17.0 master plan stub (to be created at end of v2.16.0 cycle per master plan D18).
 
 ### Estimated remaining
 
