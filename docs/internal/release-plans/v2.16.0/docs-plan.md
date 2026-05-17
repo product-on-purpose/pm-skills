@@ -1,0 +1,399 @@
+# Documentation Plan
+
+> **For agentic workers:** Use superpowers:executing-plans. Tasks 3-7 in `subagents-integration-plan.md` already ship some of this plan's surface (runtime-components.md, adversarial-review.md, release-runbook.md). This plan adds the conceptual, usage, contributor, AGENTS.md, and README documentation that the integration plan does NOT cover.
+
+**Goal:** Ship complete documentation across four audience layers for the v2.16.0 sub-agent slate plus the Astro 6 upgrade.
+
+The four documentation layers:
+
+1. **Conceptual (human):** explainers that build mental models. "What is a sub-agent? When do I use one vs a skill?"
+2. **Informational (reference):** catalogs and contracts. "Where is the canonical list of sub-agents? What is the runtime-components surface?"
+3. **Usage (user-facing how-to):** step-by-step. "How do I run adversarial review on my PRD? How do I run a release?"
+4. **Agent-facing:** machine-readable surfaces. "What does AGENTS.md tell Codex/Cursor/Windsurf about the sub-agent component class?"
+
+**Architecture:** Most new docs render via the existing Astro Starlight site. The site's information architecture has four folder conventions: `docs/concepts/` (conceptual), `docs/reference/` (informational), `docs/guides/` (usage), `docs/contributing/` (contributor). AGENTS.md is repo-root; README.md is repo-root.
+
+**Cross-references:** Master plan at `plan_v2.16.0.md`. Integration plan at `subagents-integration-plan.md` ships 3 of the docs in this plan as part of its phases (runtime-components.md Phase 1, adversarial-review.md Phase 2, release-runbook.md Phase 5). This plan adds **5 more docs** (corrected per Codex R14: 5 new files in this plan + 3 from integration plan = 8 total public docs in v2.16.0) and tracks the cross-cutting consistency sweep across all of them.
+
+---
+
+## Status
+
+**Plan ACTIVE.** Not yet started. 11 tasks across 4 phases.
+
+### Where we are
+
+| Phase | Status |
+|---|---|
+| Phase 1: Conceptual docs | PENDING |
+| Phase 2: Usage docs (beyond what subagents plan ships) | PENDING |
+| Phase 3: Contributor docs | PENDING |
+| Phase 4: Agent-facing surfaces + cross-cutting consistency | PENDING |
+
+### Estimated remaining
+
+2-3 sessions. Most of this work pairs with the subagent track and can run interleaved with Phases 2-5 of `subagents-integration-plan.md`.
+
+---
+
+## Prerequisites
+
+- [x] v2.15.0 tagged (HEAD `a108301`)
+- [ ] `agents/` directory scaffolded (subagents Phase 1 Task 1)
+- [ ] `docs/reference/runtime-components.md` skeleton present (subagents Phase 1 Task 1)
+- [ ] `docs/guides/adversarial-review.md` shipped (subagents Phase 2 Task 7) - this plan extends, does not duplicate
+- [ ] `docs/contributing/release-runbook.md` shipped (subagents Phase 5 Task 20) - this plan extends, does not duplicate
+
+---
+
+## Scope
+
+This plan covers:
+
+- **Conceptual:** `docs/concepts/sub-agents.md` (new), `docs/concepts/active-orchestration.md` (new)
+- **Usage:** `docs/guides/using-sub-agents.md` (new, overview / pattern catalog), supplemental sections in adversarial-review.md and release-runbook.md
+- **Contributing:** `docs/contributing/authoring-sub-agents.md` (new), `docs/contributing/sub-agent-design-patterns.md` (new)
+- **Agent-facing:** AGENTS.md updates (Sub-Agents section + tooling notes for Codex/Cursor/Windsurf), README.md updates (What's New + component-class mention)
+- **Cross-cutting sweep:** verify all new and modified docs cross-link cleanly; add Starlight sidebar entries; verify Pagefind indexes new pages
+
+This plan does NOT cover:
+
+- Spec docs (`spec_pm-*.md` files; those are internal release-plan artifacts, not docs/)
+- Library samples (`library/sub-agent-samples/`; tracked in subagents integration plan)
+- Astro 6 upgrade documentation (covered in `doc-stack-modernization-plan.md`)
+- CHANGELOG + Release notes (covered in master plan Phase 8 pre-tag)
+
+---
+
+## Ratified Decisions
+
+| # | Decision area | Choice |
+|---|---|---|
+| **DC1** | **Concept-doc tier** | Two concept docs in v2.16: `sub-agents.md` (component class explainer) and `active-orchestration.md` (theme-level explainer). Both required; the active-orchestration doc sets the strategic frame, the sub-agents doc covers the mechanism. |
+| **DC2** | **Usage-doc surface (AMENDED 2026-05-16 for dispatch skills per D30)** | One overview at `docs/guides/using-sub-agents.md` covering both native Claude Code invocation AND dispatch skill invocation (the cross-client path). Plus per-agent depth in `adversarial-review.md` (pm-critic) and `release-runbook.md` (conductor). Auditor and curator usage documented in their dispatch skill SKILL.md + runtime-components.md row + slash command description. Maintainer Operations subsection in using-sub-agents.md covers auditor/curator/conductor standalone. |
+| **DC3** | **Contributor doc surface** | Two contributor docs: `authoring-sub-agents.md` (how to author a new sub-agent for the repo) and `sub-agent-design-patterns.md` (the 8 invocation patterns + 7 composition patterns from the strategy doc, distilled). |
+| **DC4** | **AGENTS.md depth** | AGENTS.md gets a Sub-Agents section pointing to `runtime-components.md` and listing the 4 agents inline (name + one-line description + slash command). NO per-agent expansion in AGENTS.md (the canonical detail lives in runtime-components.md). |
+| **DC5** | **README depth** | README gets one paragraph in What's New describing the sub-agent slate and one bullet in the component-class list. NO per-agent README mention. |
+| **DC6** | **Mermaid diagrams** | Each concept doc gets at least 1 mermaid diagram (component-class taxonomy, composition flow). Use `pm-skills:utility-mermaid-diagrams` skill conventions. |
+| **DC7** | **Cross-Client coverage (AMENDED 2026-05-16 per D11 amendment + D30)** | All user-facing docs document Claude Code native invocation AND dispatch skill invocation. The "Codex parity" framing is REMOVED; codex-rescue is documented as an optional shortcut for users with both tools, not a parity mechanism. Pattern established by Meeting Skills Family docs in v2.11.0; updated for single-tool user assumption. |
+| **DC8** | **Sidebar placement** | Sub-agents section added to Starlight sidebar between existing Workflows section and Reference section (or wherever the v2.15.0 sprint-skills sections live). Two entries: "Concepts > Sub-Agents", "Guides > Using Sub-Agents". |
+| **DC9** | **Reference cross-link rule** | Every spec doc (internal) cross-references the relevant public doc and vice versa. E.g., `spec_pm-critic.md` references `docs/guides/adversarial-review.md`; the adversarial-review guide references the runtime-components.md row for pm-critic. |
+| **DC10** | **Em-dash discipline** | All new docs follow the CLAUDE.md no-em-dash rule. Pre-commit em-dash sweep at master plan Phase 8 G0 catches any violations. |
+
+---
+
+## Documentation Surface Map
+
+```
+docs/
+  concepts/
+    sub-agents.md                              [NEW, Phase 1]
+    active-orchestration.md                    [NEW, Phase 1]
+  guides/
+    using-sub-agents.md                        [NEW, Phase 2]
+    adversarial-review.md                      [from subagents Phase 2 Task 7; this plan adds sections]
+  contributing/
+    authoring-sub-agents.md                    [NEW, Phase 3]
+    sub-agent-design-patterns.md               [NEW, Phase 3]
+    release-runbook.md                         [from subagents Phase 5 Task 20; this plan adds sections]
+  reference/
+    runtime-components.md                      [from subagents Phase 1 Task 1; this plan adds sections]
+
+AGENTS.md                                      [MODIFY, Phase 4]
+README.md                                      [MODIFY, Phase 4]
+```
+
+### Files to create (5 new)
+
+- `docs/concepts/sub-agents.md`
+- `docs/concepts/active-orchestration.md`
+- `docs/guides/using-sub-agents.md`
+- `docs/contributing/authoring-sub-agents.md`
+- `docs/contributing/sub-agent-design-patterns.md`
+
+### Files to modify
+
+- `AGENTS.md` (Sub-Agents section)
+- `README.md` (What's New + component-class list)
+- `docs/reference/runtime-components.md` (Composition Patterns section, cross-references)
+- `docs/guides/adversarial-review.md` (Codex parity expansion if not in subagents Phase 2)
+- `docs/contributing/release-runbook.md` (gate sub-check Codex parity if not in subagents Phase 5)
+- `astro.config.mjs` (sidebar entries for new pages)
+- `docs/internal/backlog-canonical.md` (mark documentation work as in-progress, then closed)
+
+---
+
+## Phase 1: Conceptual Docs (2 tasks)
+
+**Goal:** Ship the two concept docs that establish mental models for sub-agents and active orchestration.
+
+### Task 1: Author docs/concepts/sub-agents.md
+
+- [ ] Author the concept doc with the following structure:
+  - **What sub-agents are** (one paragraph definition; distinguish from skills, commands, workflows, hooks)
+  - **Why sub-agents exist** (the strategic gap the strategy doc identified; the "active layer" framing)
+  - **Skill vs sub-agent decision lens** (verb shape, output shape, state, tool surface, trigger pattern, stop condition; the 6-row table from the strategy doc Section 1)
+  - **Mermaid: decision tree** "is this a sub-agent?" (adapt from strategy doc Section 1)
+  - **The 4 sub-agents in v2.16.0** (one-paragraph each: pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor)
+  - **What sub-agents are NOT** (not a replacement for skills; not autonomous; bounded by plugin security ceiling)
+  - **References** (link to runtime-components.md, using-sub-agents.md, authoring-sub-agents.md, strategy doc archive)
+- [ ] Render check in Astro preview
+- [ ] Add sidebar entry
+- [ ] Verify internal links
+
+**Done when:** sub-agents.md renders; decision tree mermaid renders; cross-references resolve.
+
+### Task 2: Author docs/concepts/active-orchestration.md
+
+- [ ] Author the concept doc with the following structure:
+  - **What active orchestration means** (vs passive content libraries; the operating-system framing)
+  - **The current layer model** (skills + commands + workflows as content/authoring; sub-agents + hooks + MCP as orchestration/active; settings as configuration)
+  - **Mermaid: composition matrix** (adapt from strategy doc Section 4.8 composition diagram)
+  - **Why v2.16.0 ships sub-agents first** (lowest-blast-radius entry into active orchestration; hooks deferred to v2.17; MCP frozen)
+  - **The Theme A through Theme G framing** (one paragraph per theme from roadmap; positions sub-agents as Theme B)
+  - **What comes next** (v2.17 candidates: pm-workflow-orchestrator, hook infrastructure; v2.18+ horizons)
+  - **References**
+- [ ] Render check
+- [ ] Add sidebar entry
+- [ ] Verify mermaid renders
+
+**Done when:** active-orchestration.md renders; composition matrix mermaid renders; theme framing is coherent.
+
+---
+
+## Phase 2: Usage Docs (2 tasks)
+
+**Goal:** Ship the user-facing usage overview that the subagents integration plan does NOT cover. The integration plan ships per-agent depth in `adversarial-review.md` and `release-runbook.md`; this plan ships the top-level overview.
+
+### Task 3: Author docs/guides/using-sub-agents.md
+
+- [ ] Author the usage guide with the following structure:
+  - **Quick start** (5 lines: invoke `/critic` after producing a PM artifact; invoke `/audit-repo` before tagging; invoke `/release vX.Y.Z` when ready to ship; invoke `/draft-changelog` standalone or via conductor)
+  - **The 4 sub-agents at a glance** (table: name, slash command, audience, trigger, typical use case)
+  - **When to use which** (decision tree: am I authoring a PM artifact? am I auditing the repo? am I drafting a CHANGELOG? am I tagging a release?)
+  - **Mermaid: invocation flow** (adapt from strategy doc Section 3.1)
+  - **Proactive vs explicit invocation** (when pm-critic auto-fires; why the others don't; note that proactive only applies on Claude Code; dispatch skill on non-Claude clients is explicit-only)
+  - **Maintainer Operations** (added per SR-P2-01): one-example walkthrough each for `/audit-repo` standalone, `/draft-changelog` standalone, `/release` walkthrough. Closes the gap where these agents had only one-row references and no step-by-step.
+  - **Composition basics** (how the conductor chains to auditor + curator; the 2-level depth limit; on non-Claude clients, chain composition uses "reference + execute inline" pattern via dispatch skill)
+  - **Cross-Client compatibility** (AMENDED per D30: dispatch skills at `skills/utility-pm-{role}/` deliver the same intent to non-Claude clients via runtime detection; codex-rescue is an optional shortcut, NOT baseline)
+  - **Opt-out paths** (copy to .claude/agents/; override description; severity floor configuration in v2.17)
+  - **References to deep guides** (adversarial-review.md for pm-critic depth; release-runbook.md for conductor depth; runtime-components.md for catalog)
+- [ ] Render check
+- [ ] Add sidebar entry
+- [ ] Verify all cross-links
+
+**Done when:** using-sub-agents.md renders; flow mermaid renders; cross-references to depth guides work.
+
+### Task 4: Expand adversarial-review.md and release-runbook.md if subagents-integration-plan did not cover the expansion sections
+
+- [ ] Verify `docs/guides/adversarial-review.md` (from subagents Phase 2 Task 7) covers:
+  - When to invoke pm-critic (proactive + explicit)
+  - Severity grammar with examples
+  - Composition with skills (the deliver-prd to pm-critic to revise loop)
+  - Codex parity path
+  - Opt-out
+- [ ] If gaps exist, expand the guide
+- [ ] Verify `docs/contributing/release-runbook.md` (from subagents Phase 5 Task 20) covers:
+  - All 5 gates with sub-checks
+  - Chain composition (G0 to auditor, G2 to curator)
+  - em-dash sweep at G0 with allowlist convention
+  - Aggregate counter audit at G0
+  - Codex parity (runbook as manual reference)
+- [ ] If gaps exist, expand the doc
+
+**Done when:** both guides are complete per their respective spec docs; gap audit clean.
+
+---
+
+## Phase 3: Contributor Docs (2 tasks)
+
+**Goal:** Ship contributor-facing docs that let future maintainers author new sub-agents and recognize sub-agent design patterns.
+
+### Task 5: Author docs/contributing/authoring-sub-agents.md
+
+- [ ] Author the contributor guide with the following structure:
+  - **Decision: should this be a sub-agent?** (reference the decision lens from sub-agents.md concept doc)
+  - **File structure** (agents/{name}.md + commands/{verb}.md + library/sub-agent-samples/{name}/ + skills/utility-pm-{role}/SKILL.md (dispatch skill per D30) + references/ + runtime-components.md row + AGENTS.md mention + spec doc in release plan)
+  - **Frontmatter contract** (name, description, tools, model, memory fields with examples; tools is comma-separated scalar per D20)
+  - **System prompt discipline: referential, not duplicative** (D12 explanation; how to read canonical contract docs at invocation time)
+  - **Audience rubric: user-facing vs maintainer-facing** (D7 + D10 from strategy doc Insight 10; proactive vs explicit triggers)
+  - **Tool surface design** (when to include Bash, Read, Write, Edit, Grep, Glob, Agent; security ceiling reminders)
+  - **Composition design** (chain depth limit 2; Agent tool gating; when to chain vs not)
+  - **Severity grammar** (P0/P1/P2/P3 across all sub-agent outputs)
+  - **Refusal protocols** (when and how to refuse rather than rubber-stamp)
+  - **Codex parity** (every sub-agent ships with a codex-rescue prompt template)
+  - **Library sample requirements** (3 samples per agent at Tier 0; thread-aligned where applicable)
+  - **CI integration** (validate-agents-md sees the new agent; new validators if pattern grows)
+  - **Spec doc requirement** (every new sub-agent ships with a spec doc in the relevant release plan)
+  - **Walk-through: hypothetical pm-frontmatter-doctor** (v2.17 candidate; show what its files would look like)
+- [ ] Render check
+- [ ] Add sidebar entry
+
+**Done when:** authoring-sub-agents.md renders; covers all 12 sub-sections; hypothetical walk-through is concrete.
+
+### Task 6: Author docs/contributing/sub-agent-design-patterns.md
+
+- [ ] Author the design-patterns doc with the following structure:
+  - **The 8 invocation patterns** (slash command wrapper, @-mention, natural language, proactive, workflow-triggered, sub-agent chain, CLI session, hook-triggered)
+  - **Mermaid: invocation patterns** (adapt from strategy doc Section 3.1)
+  - **The 7 composition patterns** (sub-agent + slash command; sub-agent + skill; sub-agent + workflow; sub-agent + sub-agent chain; sub-agent + hook; sub-agent + MCP; sub-agent + user settings)
+  - **Mermaid: composition matrix** (adapt from strategy doc Section 4.8)
+  - **Anti-patterns** (don't ship 5 sub-agents at once; don't conflate user + maintainer rubrics; don't embed standards content; don't chain past 2 levels; don't auto-invoke utility agents; don't ship without companion command)
+  - **Cost model** (invocation cost compounds; chain depth multiplies; proactive triggers fire often; CLI sessions are amortized)
+  - **Cross-LLM design** (intent-layer parity is the right abstraction; mechanism-layer parity is brittle)
+- [ ] Render check
+- [ ] Add sidebar entry
+
+**Done when:** sub-agent-design-patterns.md renders; mermaid diagrams render; anti-patterns enumerated.
+
+---
+
+## Phase 4: Agent-Facing Surfaces + Cross-Cutting Consistency (5 tasks)
+
+**Goal:** Update AGENTS.md and README.md. Run cross-cutting consistency sweep across all new and modified docs.
+
+### Task 7: Update AGENTS.md
+
+- [ ] Add Sub-Agents section between existing skills section and any trailing notes:
+  ```markdown
+  ## Sub-Agents
+
+  pm-skills ships 4 plugin sub-agents in v2.16.0+ as the first members of a new component class. Sub-agents run in their own context window and serve work that is process-shaped rather than artifact-shaped (review, audit, orchestrate, conduct).
+
+  | Sub-agent | Slash command | Audience | Trigger | Use case |
+  |---|---|---|---|---|
+  | pm-critic | /critic | User | Proactive | Adversarial review of PM artifacts |
+  | pm-skill-auditor | /audit-repo | User + Maintainer | Explicit | Repo-level cross-cutting governance |
+  | pm-changelog-curator | /draft-changelog | Maintainer | Explicit | CHANGELOG drafter from git log |
+  | pm-release-conductor | /release | Maintainer | Explicit | Guided release runbook with 5 gates |
+
+  Canonical detail: `docs/reference/runtime-components.md`.
+  Concept: `docs/concepts/sub-agents.md`.
+  Usage: `docs/guides/using-sub-agents.md`.
+  Authoring: `docs/contributing/authoring-sub-agents.md`.
+
+  Codex / Cursor / Windsurf compatibility: sub-agents are a Claude Code plugin feature. The intent (adversarial review, audit, CHANGELOG draft, release runbook) is delivered to non-Claude-Code agents through documented prompt templates in the adversarial-review and release-runbook guides.
+  ```
+- [ ] Verify AGENTS.md sync validator (validate-agents-md) is OK with the new section
+- [ ] Verify no existing structure (heading levels, paths) is broken
+
+**Done when:** AGENTS.md has the Sub-Agents section; validator passes.
+
+### Task 8: Update README.md
+
+- [ ] Add bullet to the component-class list (wherever it appears; likely near the skill count badges):
+  ```markdown
+  - **4 sub-agents** (NEW in v2.16.0): pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor
+  ```
+- [ ] Add or update "What's New" section with v2.16.0 paragraph:
+  ```markdown
+  ### v2.16.0 (2026-MM-DD)
+
+  First sub-agent slate: pm-critic for adversarial review of PM artifacts (proactive),
+  plus pm-release-conductor, pm-changelog-curator, and pm-skill-auditor as the
+  maintainer-facing utility trio. Astro stack upgraded to 6.x (Node 22.12+),
+  closing the last 2 Dependabot alerts. Hygiene track refreshes CONTEXT.md to
+  v2.15.0 catalog state and archives superseded planning docs.
+
+  See: docs/concepts/sub-agents.md, docs/guides/using-sub-agents.md, CHANGELOG.md
+  ```
+- [ ] Update version badges if applicable
+
+**Done when:** README has v2.16.0 callout + component-class bullet; badges current.
+
+### Task 9: Cross-cutting consistency sweep
+
+- [ ] Verify all new docs link to runtime-components.md as the canonical catalog
+- [ ] Verify all new docs use the P0/P1/P2/P3 severity grammar uniformly
+- [ ] Verify all new docs document both Claude Code and Codex paths (DC7)
+- [ ] Verify spec doc cross-references (DC9): spec_pm-critic.md links to adversarial-review.md; spec_pm-release-conductor.md links to release-runbook.md; etc.
+- [ ] Verify all 4 sub-agent names use exact `pm-{role}` shape consistently across all docs
+- [ ] Verify all 4 slash commands use exact verb shape consistently (`/critic`, `/audit-repo`, `/draft-changelog`, `/release`)
+- [ ] Verify mermaid diagrams render correctly in Astro build (test 4: sub-agents.md decision tree, active-orchestration.md composition matrix, using-sub-agents.md invocation flow, sub-agent-design-patterns.md invocation + composition)
+- [ ] Run em-dash sweep across all new and modified files; zero hits required
+
+**Done when:** consistency sweep clean; no broken cross-references; mermaid renders; em-dash clean.
+
+### Task 10: Astro sidebar and Pagefind verification
+
+- [ ] Add new pages to `astro.config.mjs` sidebar configuration:
+  - Concepts: Sub-Agents, Active Orchestration
+  - Guides: Using Sub-Agents
+  - Contributing: Authoring Sub-Agents, Sub-Agent Design Patterns
+- [ ] Verify sidebar renders new entries
+- [ ] Verify Pagefind indexes new pages (search for "sub-agent" should return all 5+ new docs)
+- [ ] Verify internal link validator passes on all new docs
+
+**Done when:** sidebar entries visible; search works; link validator clean.
+
+### Task 11: Documentation final audit
+
+- [ ] Read every new doc once front-to-back; check for:
+  - Concept clarity (does a reader who didn't author this understand it?)
+  - Information density (no bloat; no thin sections)
+  - Cross-LLM coverage per DC7
+  - Em-dash compliance per DC10
+  - Mermaid renders per DC6
+- [ ] Run the integration plan's Phase 7 documentation consistency sweep against this plan's output
+- [ ] Update master plan "Where we are" snapshot with docs track marked COMPLETE
+- [ ] Update this plan's status block to COMPLETE
+
+**Done when:** final audit clean; master plan reflects track completion.
+
+---
+
+## Acceptance Criteria
+
+This plan closes when:
+
+- [ ] 5 new docs shipped: `sub-agents.md`, `active-orchestration.md`, `using-sub-agents.md`, `authoring-sub-agents.md`, `sub-agent-design-patterns.md`
+- [ ] AGENTS.md has Sub-Agents section
+- [ ] README.md has v2.16.0 What's New + component-class bullet
+- [ ] All 4 mermaid diagrams render correctly
+- [ ] All cross-references resolve (internal link validator clean)
+- [ ] Sidebar reflects 5 new pages
+- [ ] Pagefind indexes new pages (search verified)
+- [ ] Em-dash sweep clean across all new docs
+- [ ] All 24+ enforcing validators green on origin/main with new docs landed
+
+---
+
+## Risks
+
+| ID | Risk | Mitigation |
+|---|---|---|
+| **DC-R1** | **Concept docs drift from spec docs.** sub-agents.md says one thing; spec doc says another. | DC9 cross-reference rule: every public doc references the relevant spec doc and vice versa. Phase 4 Task 11 final audit cross-checks. |
+| **DC-R2** | **Usage guide outdates as sub-agent slate grows.** v2.17 ships pm-workflow-orchestrator; using-sub-agents.md becomes stale. | Document the slate-update discipline in `authoring-sub-agents.md`: every new sub-agent landing updates AGENTS.md, runtime-components.md, AND using-sub-agents.md in the same commit. |
+| **DC-R3** | **Mermaid renders on Astro 5 but breaks on Astro 6.** | Doc-stack modernization plan Phase 1 Task 3 verifies mermaid renders on Astro 6 before merge. If breakage, address in that plan before docs land. |
+| **DC-R4** | **Contributor guide reads as theory; practitioners need walk-throughs.** | Task 5 includes a hypothetical pm-frontmatter-doctor walk-through showing what every file looks like. Concrete > abstract. |
+| **DC-R5** | **AGENTS.md table goes stale.** New sub-agent ships in v2.17 but AGENTS.md table not updated. | DC2 explicit: every new sub-agent triggers a same-commit AGENTS.md update. Documented in authoring-sub-agents.md. |
+| **DC-R6** | **README "What's New" duplicates CHANGELOG.** | Convention: README What's New is a 3-line summary linking to CHANGELOG for detail. No duplication. |
+| **DC-R7** | **Codex parity sections become rote ("see codex-rescue").** | DC7 requires actual prompt template excerpts in user-facing guides, not just pointers. |
+
+---
+
+## Out of scope for this plan
+
+- Spec docs (internal release-plan artifacts; tracked in master plan)
+- Per-agent usage docs for pm-skill-auditor and pm-changelog-curator (their usage lives in command + runtime-components.md row per DC2)
+- Hooks docs (no hooks shipping in v2.16)
+- Output styles docs (no output styles shipping in v2.16)
+- pm-skills-mcp documentation (MCP in maintenance mode)
+- Knowledge OS docs (separated 2026-03-21)
+- Marketing copy / external blog posts
+- Video walkthroughs
+- Translated docs (multi-language deferred)
+
+---
+
+## Cross-References
+
+- Master plan: [`plan_v2.16.0.md`](./plan_v2.16.0.md)
+- Sibling plans: [`subagents-integration-plan.md`](./subagents-integration-plan.md), [`doc-stack-modernization-plan.md`](./doc-stack-modernization-plan.md), [`repo-hygiene-plan.md`](./repo-hygiene-plan.md), [`ci-plan.md`](./ci-plan.md)
+- Spec docs: [`spec_pm-critic.md`](./spec_pm-critic.md), [`spec_pm-skill-auditor.md`](./spec_pm-skill-auditor.md), [`spec_pm-changelog-curator.md`](./spec_pm-changelog-curator.md), [`spec_pm-release-conductor.md`](./spec_pm-release-conductor.md)
+- Strategy doc (concept-doc source material): [`../../_working/subagents/subagent-strategy_2026-05-07.md`](../../_working/subagents/subagent-strategy_2026-05-07.md)
+- Pattern reference for cross-LLM documentation: Meeting Skills Family docs in v2.11.0
+- Mermaid skill: `skills/utility-mermaid-diagrams/`
+- Astro Starlight config: `astro.config.mjs`
+- AGENTS.md sync validator: `scripts/validate-agents-md.{sh,ps1,md}`
+- Em-dash rule: `CLAUDE.md` + `feedback_no-em-dashes.md`
