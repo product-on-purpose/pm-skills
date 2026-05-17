@@ -32,10 +32,24 @@
 ## Prerequisites
 
 - [x] v2.15.0 tagged (HEAD `a108301`)
-- [x] Existing validator suite green on origin/main (24+ enforcing validators)
+- [x] v2.15.1 shipped (HEAD `6f89439`, 2026-05-17): adds 3 enforcing validators (`check-landing-page-counts`, `check-workflow-generator-coverage`, `check-agents-md-command-sync`) plus 1 orchestration script (`pre-tag-validate`); validator inventory grew from 24 to 27 enforcing
 - [x] `scripts/validate-agents-md.{sh,ps1,md}` exists and is the closest analogue for the extend-vs-new decision
 - [ ] `agents/` directory exists (subagents Phase 1 Task 1)
 - [ ] Per-agent frontmatter spec ratified (in each `spec_pm-*.md`)
+
+## v2.15.1 carry-in reconciliation (added in v2.15.2 closeout)
+
+Three validators shipped in v2.15.1 reduce the v2.16.0 ci-plan scope below:
+
+| v2.15.1 validator | Overlaps with v2.16.0 plan task | Reconciliation |
+|---|---|---|
+| `check-landing-page-counts.{sh,ps1,md}` (--strict) | Task 6 `check-aggregate-counters` | v2.16.0 plan needs decision: EXTEND v2.15.1 validator (add AGENTS.md / CONTEXT.md / README.md exact-count assertion to existing landing-page coverage) OR ship parallel stricter validator. Recommendation: EXTEND. The v2.15.1 validator already handles the 4 user-visible landing pages with flexible regex; the v2.16.0 work adds 3 internal-context surfaces with strict regex. Combine into one script with a `--mode=user|internal|all` flag. |
+| `check-workflow-generator-coverage.{sh,ps1,md}` | Not in v2.16.0 ci-plan; covers a different concern | Already enforcing in CI. No v2.16.0 action. |
+| `check-agents-md-command-sync.{sh,ps1,md}` | Not in v2.16.0 ci-plan; covers a different concern (commands/) | Already enforcing in CI. v2.16.0 Task 2 (extend validate-agents-md for sub-agents) will operate ALONGSIDE this validator, not replace it. |
+
+Plus the `scripts/pre-tag-validate.{sh,ps1,md}` orchestration script ships in v2.15.1. v2.16.0 new validators should be added to its `VALIDATORS` and `$Validators` arrays as they land, per the `pre-tag-validate.md` "Adding new validators to the bundle" section.
+
+**Net new v2.16.0 ci-plan scope:** 2 new validators (`check-em-dashes`, `check-aggregate-counters` as an extension of v2.15.1's `check-landing-page-counts`) + 1 extension of `validate-agents-md` for sub-agents + possible new dispatch-skill validators per D30. Down from the original "5 new validators" framing.
 
 ---
 

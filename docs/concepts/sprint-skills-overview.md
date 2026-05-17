@@ -5,7 +5,7 @@ sidebar:
   order: 1
 ---
 
-PM-Skills v2.15.0 introduced 15 skills under a new `classification: tool` taxonomy that implements two canonical Knapp / Zeratsky / Kowitz sprint methodologies plus one shared decision mechanic. This page is the front door to all of them: it explains what each piece is, when to reach for it, and how the pieces compose.
+PM-Skills v2.15.0 introduced 15 tool skills under a new `classification: tool` taxonomy that implements two canonical Knapp / Zeratsky / Kowitz sprint methodologies plus one shared decision mechanic. This page is the front door to all of them: it explains what each piece is, when to reach for it, and how the pieces compose.
 
 ## What "tool" classification means
 

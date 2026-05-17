@@ -13,7 +13,7 @@ Workflow-prefixed slash commands (`/workflow-*`) are recognized as aliases into 
 
 ## Why this validator exists
 
-v2.15.0 added a new "Tools" SECTION at the top of `AGENTS.md` covering 15 new sprint slash commands but never updated the command summary table at the bottom. Readers using `AGENTS.md` as the canonical agent-discovery doc saw the tools in the upper section but found an incomplete table at the bottom. AI assistants scraping the table to enumerate available commands reported 42 instead of 57.
+v2.15.0 added a new "Tools" SECTION at the top of `AGENTS.md` covering the new sprint tool commands but never updated the command summary table at the bottom. Readers using `AGENTS.md` as the canonical agent-discovery doc saw the tools in the upper section but found an incomplete table at the bottom. AI assistants scraping the table to enumerate available commands reported 42 instead of 57.
 
 Running this validator at v2.15.1 ship time also surfaced 5 pre-existing drift items from v2.11.0 (Meeting Skills Family commands and `/stakeholder-update`) that had never been added to the table either. This is the value of structural validators: they catch not only the release-cycle-immediate gap but legacy drift from older cycles.
 

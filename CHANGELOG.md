@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.15.2] - 2026-05-17
+
+**v2.15.x Cycle Closeout + v2.16.0 Plan Reconciliation.** Same-cycle closeout patch successor to v2.15.1. No source-code, no validator behavior, no catalog changes. Pure planning-doc hygiene that closes out the v2.15.x cycle and reconciles the v2.16.0 plan slate (authored 2026-05-16 before v2.15.1 shipped) against the v2.15.1 shipped state. The 55-skill catalog and 27 truly-enforcing validators are unchanged.
+
+### Changed
+
+- **v2.15.x audit doc status** (`docs/internal/release-plans/v2.15.x/audit_v2.15.x_post-tag-self-review.md`): frontmatter `status: DRAFT (no items closed yet)` to `REMEDIATION SHIPPED in v2.15.1 (a108301 -> 6f89439); v2.15.2 closeout shipped`. Added a "Closure summary" section mapping each of the 18 findings (3 P0 + 3 P1 + 4 P2 + 5 P3 + 3 INFO) to the v2.15.1 commit that closed it.
+- **v2.15.0 master plan "What's next" section** (`docs/internal/release-plans/v2.15.0/plan_v2.15.0.md`): item 2 status flipped from `IN PROGRESS - v2.15.1 patch cycle` to `DONE` with v2.15.1 tag SHA cross-reference. Added explicit `DONE - v2.15.2 closeout patch` row. Status block updated from `IN PROGRESS` to `TAGGED + POST-TAG CYCLE CLOSED`.
+- **v2.16.0 repo-hygiene-plan.md prereqs**: CONTEXT.md refresh checkbox flipped from `[ ]` to `[x]` with v2.15.1 audit A12 closure note. Added two new prereq lines for v2.15.1 + v2.15.2 shipped state. Phase 1 scope clarified as "re-refresh after all other v2.16.0 tracks land" per Codex R13.
+- **v2.16.0 ci-plan.md**: added a "v2.15.1 carry-in reconciliation" section explicitly mapping the 3 v2.15.1 validators (`check-landing-page-counts`, `check-workflow-generator-coverage`, `check-agents-md-command-sync`) against v2.16.0 planned tasks. Net-new v2.16.0 validator scope reduced from "5 new" to "2 new + 1 extension." Surfaces the design question of whether `check-aggregate-counters` extends `check-landing-page-counts` (recommended) or ships parallel.
+- **v2.16.0 master plan_v2.16.0.md "Where We Are" snapshot** refreshed from 2026-05-16 (HEAD `a108301`) to 2026-05-17 (post-v2.15.2 closeout). Validator inventory updated from 24 to 27 truly-enforcing. v2.15.1 carry-ins explicitly enumerated. `pre-tag-validate` orchestration script noted as required Section 0 of release runbook.
+- **`AGENTS/claude/CONTEXT.md` "Current State" block** refreshed from `v2.15.1 SHIPPED` to `v2.15.2 SHIPPED + v2.15.x cycle CLOSED` with cross-reference to the v2.16.0 active planning.
+- **Version surface bumps**: `README.md` badge `2.15.1` to `2.15.2`; `.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json` versions; `.claude/pm-skills-for-claude.md` "as of v2.15.2" narrative.
+
+### Process
+
+- **Issue #132 [M-20] comment posted** with v2.15.1 partial-close evidence (`check-landing-page-counts` validator addresses the immediate v2.15.0 docs-site drift) and explicit carry-forward to v2.16.0 ci-plan for the full count-consistency regex consolidation.
+- **v2.16.0 planning artifacts committed** (preceding commit) so the v2.15.2 reconciliation edits have a baseline. The v2.16.0 plan slate (5 sub-plans + 4 sub-agent spec docs + master plan + open-questions log + adversarial-review findings) was authored 2026-05-16 between the v2.15.0 tag and the v2.15.1 patch; it sat uncommitted in the working tree until this closeout cycle.
+
+### Known limitations (carry-forward to v2.16.0)
+
+Same as v2.15.1; no new deferrals:
+- A06 + A07 count-consistency regex consolidation (issue #132 [M-20]): v2.16.0 ci-plan Task 6
+- 2 open Dependabot alerts requiring Astro 6.x upgrade: v2.16.0 doc-stack-modernization-plan
+- DS family validator full metadata-shape strict promotion: v2.16.0 repo-hygiene-plan Phase 3
+
 ## [2.15.1] - 2026-05-16
 
 **v2.15.0 Post-Tag Audit Remediation + Preventive CI.** Same-day patch successor to v2.15.0. The 55-skill catalog is unchanged; day-to-day usage of `/prd`, `/hypothesis`, `/user-stories`, and the 15 v2.15.0 sprint commands is identical. What changes is documentation accuracy on the docs site, AGENTS.md command-table coverage, the sample-library README, a workflow-generator bug that silently dropped new workflows from the index, and 4 new preventive CI validators that close the structural gaps that allowed v2.15.0-class drift to slip through. Addresses every P0+P1+P2+P3 finding from the v2.15.x audit (see `docs/internal/release-plans/v2.15.x/audit_v2.15.x_post-tag-self-review.md`).

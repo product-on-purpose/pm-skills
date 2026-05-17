@@ -34,7 +34,9 @@
 - [x] v2.15.0 tagged (HEAD `a108301`)
 - [x] v2.14.x cleanup plan Task 1 (Node 22 bump) shipped (commit `0d9af62` in v2.15.0 cycle)
 - [x] v2.14.x cleanup plan Task 3 (Dependabot bump) shipped (commit `7a099b4` in v2.15.0 cycle)
-- [ ] v2.14.x cleanup plan Task 2 (CONTEXT.md refresh) - this plan absorbs it as Phase 1
+- [x] v2.14.x cleanup plan Task 2 (CONTEXT.md refresh) - **CLOSED in v2.15.1 audit A12 at tag `6f89439`**. Phase 1 of this plan is therefore no-op for the carry-forward; remaining Phase 1 scope is "re-refresh CONTEXT.md after all other v2.16.0 tracks land" per Codex R13.
+- [x] v2.15.1 patch shipped (HEAD `6f89439`, 2026-05-17): 4 new CI validators + workflow-generator bug fix + audit-finding remediation across 18 items
+- [x] v2.15.2 closeout shipped: v2.16.0 plan reconciliation + audit-doc status update
 
 ---
 

@@ -8,11 +8,20 @@
 
 ---
 
-## Where We Are (snapshot 2026-05-16, HEAD `a108301`)
+## Where We Are (snapshot 2026-05-17, HEAD post-v2.15.2 closeout)
 
-v2.15.0 tagged and pushed earlier today. Sprint Skills Launch shipped 15 new `classification: tool` skills across two families (Foundation Sprint + Design Sprint) plus `tool-note-and-vote` standalone. Total catalog at v2.15.0: **55 skills** (26 phase + 8 foundation + 6 utility + 15 tool).
+v2.15.0 tagged 2026-05-16 (Sprint Skills Launch: 15 new `classification: tool` skills). v2.15.1 patch shipped 2026-05-17 02:10 UTC at tag `6f89439` (post-tag audit remediation; 18 findings closed; 4 new preventive CI validators). v2.15.2 closeout shipped 2026-05-17 (audit-doc status update, plan continuity, v2.16.0 plan reconciliation). v2.15.x cycle CLOSED.
 
-v2.16.0 begins from this baseline. Two open Dependabot alerts on origin/main, both Astro 6.x dependent. Several deferred items from v2.14.x and v2.15.0 are now sequenced into v2.16.0 scope.
+Total catalog: **55 skills** (26 phase + 8 foundation + 6 utility + 15 tool). Unchanged across v2.15.0 / v2.15.1 / v2.15.2.
+
+**Validator inventory now:** 27 truly-enforcing (was 24 at v2.15.0 tag; +3 from v2.15.1: `check-landing-page-counts --strict`, `check-workflow-generator-coverage`, `check-agents-md-command-sync`). Plus 1 orchestration script `scripts/pre-tag-validate.{sh,ps1}` codifying the `feedback_pre-tag-validator-bundle` memory rule and required as Section 0 of the release runbook.
+
+v2.16.0 begins from this baseline. Two open Dependabot alerts on origin/main, both Astro 6.x dependent. The v2.15.1 audit (`../v2.15.x/audit_v2.15.x_post-tag-self-review.md`) explicitly deferred A06 / A07 (count-consistency regex consolidation; issue #132 [M-20]) to v2.16.0 per the ci-plan reconciliation.
+
+**v2.15.1 carry-ins reduce v2.16.0 scope:**
+
+- `repo-hygiene-plan.md` Phase 1 carry-forward (CONTEXT.md refresh from v2.14.x Task 2) is no-op: v2.15.1 audit A12 closed it. Phase 1 scope becomes re-refresh-after-all-tracks-land per Codex R13.
+- `ci-plan.md` net-new validators reduced from "5 new" to "2 new + 1 extension" (see ci-plan v2.15.1 carry-in reconciliation section).
 
 ### What's next (by priority, parallel-track sequencing)
 

@@ -1,10 +1,10 @@
 # v2.15.0 Release Plan: Sprint Skills Launch + v2.14.x Cleanup
 
-**Status:** TAGGED + POST-TAG REGEN SHIPPED + v2.15.x AUDIT REMEDIATION IN PROGRESS (v2.15.0 tag at `a108301`; CI gap closed at `f03d94d` + `c8ea6d9` post-tag; v2.15.1 patch cycle remediating 18 audit findings; see `../v2.15.x/audit_v2.15.x_post-tag-self-review.md`)
+**Status:** TAGGED + POST-TAG CYCLE CLOSED (v2.15.0 `a108301` -> v2.15.1 `6f89439` -> v2.15.2 closeout). All 18 audit findings shipped in v2.15.1 patch (2026-05-17); v2.15.2 ships closeout hygiene + v2.16.0 plan reconciliation. See `../v2.15.x/audit_v2.15.x_post-tag-self-review.md` for finding-by-finding closure detail.
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (scoping); 2026-05-12 (this master plan authored)
-**Updated:** 2026-05-16 evening (post-tag self-audit + v2.15.1 patch cycle)
+**Updated:** 2026-05-17 (v2.15.x cycle closed; v2.16.0 active)
 
 ---
 
@@ -32,10 +32,10 @@ Final state on `f03d94d`: DS family validator PASSES 7/7 with `--strict`; FS fam
 
 ### What's next (by priority)
 
-1. **DONE - GitHub Release UI body rewrite**: published the rich content at /releases/tag/v2.15.0 from `docs/releases/Release_v2.15.0.md` body (no frontmatter).
-2. **IN PROGRESS - v2.15.1 patch cycle**: shipping remediation for 18 audit findings (P0/P1/P2/P3 + CI preventive validators) per `../v2.15.x/audit_v2.15.x_post-tag-self-review.md`. Includes docs/index.mdx homepage (A01), docs/skills/index.md (A02), workflow-generator bug fix (A03), AGENTS.md command-table sync (A04), sample-library README (A05), Sprint Planning (agile) naming-discipline (A09), CONTEXT.md refresh (A12), and 4 new CI validators. Cuts a v2.15.1 tag once batch lands.
-3. **CONTEXT.md refresh** (closing in v2.15.1 per A12): `AGENTS/claude/CONTEXT.md` per-phase tables refresh closes the v2.14.x Task 2 deferral.
-4. **v2.16.0 plan kickoff**: 2 Dependabot alerts + Astro 6.x upgrade + DS validator metadata-shape enforcement + tags-as-feature + URL slug normalization + count-consistency validator regex extension (per audit A06; closes issue #132 [M-20]). See `plan_v2.16.0.md` for the running deferral list.
+1. **DONE - GitHub Release UI body rewrite**: published rich content at /releases/tag/v2.15.0 from `docs/releases/Release_v2.15.0.md` body (no frontmatter).
+2. **DONE - v2.15.1 patch cycle**: shipped 2026-05-17 at tag `6f89439`. Closed all 18 audit findings (P0/P1/P2/P3) + side-effect closure of 5 pre-v2.15.0 legacy drift items + 4 new preventive CI validators. See [`Release_v2.15.1.md`](../../releases/Release_v2.15.1.md).
+3. **DONE - v2.15.2 closeout patch**: shipped 2026-05-17 with audit-doc status update + plan continuity + v2.16.0 plan reconciliation + issue #132 evidence comment. See [`Release_v2.15.2.md`](../../releases/Release_v2.15.2.md). v2.15.x cycle CLOSED.
+4. **ACTIVE - v2.16.0 execution**: 5 sub-plans + 4 spec docs authored; 66 tasks, 14-22 sessions estimated. Theme: Active Orchestration (4 sub-agents) + Doc-Stack Modernization (Astro 6.x). See [`../v2.16.0/plan_v2.16.0.md`](../v2.16.0/plan_v2.16.0.md).
 
 ### Estimated remaining
 

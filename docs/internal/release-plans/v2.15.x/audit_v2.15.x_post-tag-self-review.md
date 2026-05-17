@@ -2,15 +2,31 @@
 title: v2.15.x Post-Tag Self-Review Audit
 description: Prioritized audit of v2.15.0 ship hygiene covering documentation drift, CI gaps, continuity issues, consistency regressions, and bug discoveries. Recommends a v2.15.1 / v2.15.2 patch phasing plus inputs to v2.16.0.
 type: audit / release plan
-status: DRAFT (authored 2026-05-16; no items closed yet)
+status: REMEDIATION SHIPPED in v2.15.1 (a108301 -> 6f89439); v2.15.2 closeout shipped
 owner: Maintainers
 created: 2026-05-16
-updated: 2026-05-16
+updated: 2026-05-16 evening (v2.15.2 closeout)
 ---
 
 # v2.15.x Post-Tag Self-Review Audit
 
-**Status:** DRAFT. Authored 2026-05-16 ~16:30 PDT after the v2.15.0 tag at `a108301` and the post-tag CI-gap closures at `f03d94d` + `c8ea6d9`. No remediation has been applied yet; every finding below is open.
+**Status:** REMEDIATION SHIPPED. Authored 2026-05-16 ~16:30 PDT after the v2.15.0 tag at `a108301`. All 18 findings (3 P0 + 3 P1 + 4 P2 + 5 P3 + 3 INFO) closed via v2.15.1 patch (tag at `6f89439`, 2026-05-17 02:10 UTC). v2.15.2 closeout commit ships this status update plus v2.16.0 plan reconciliation. See `Release_v2.15.1.md` and `Release_v2.15.2.md` for remediation detail.
+
+## Closure summary (added v2.15.2)
+
+| Bucket | Findings | Shipped in |
+|---|---|---|
+| P0 (user-visible breakage) | A01, A02, A03 | v2.15.1 |
+| P1 (important drift) | A04, A05, A06 (partial via new check-landing-page-counts; full M-20 deferred to v2.16) | v2.15.1 |
+| P2 (quality / process) | A07 (referenced; full M-20 in v2.16), A08, A09, A10 | v2.15.1 |
+| P3 (polish) | A11, A12, A13, A14, A15 | v2.15.1 |
+| INFO (no action) | A16, A17, A18 | n/a (informational) |
+
+Side-effect closure: the new `check-agents-md-command-sync` validator surfaced 5 pre-v2.15.0 missing rows from v2.11.0 (Meeting Skills Family + /stakeholder-update); those were also added in the v2.15.1 commit.
+
+Pre-tag validator bundle (`scripts/pre-tag-validate.sh`) green on the v2.15.1 candidate HEAD before tag; 14 validators PASS.
+
+v2.16.0 carry-forward: A06 / A07 full count-consistency regex consolidation (issue #132 [M-20]) deferred per audit recommendation.
 
 **Goal:** Surface every meaningful drift, gap, or follow-up the v2.15.0 release pipeline did not close before tag, prioritized by user impact and effort. Output is a phased remediation plan that maps to v2.15.1 / v2.15.2 same-day patches (per the v2.14.x precedent) plus inputs to v2.16.0.
 

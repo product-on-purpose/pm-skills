@@ -21,7 +21,7 @@ For each page, the validator scans for patterns like `<N> skills`, `<N> AI agent
 
 ## Why this validator exists
 
-v2.15.0 shipped with `docs/index.mdx` still claiming "40 AI agent skills" while the actual catalog grew to 55. The existing `check-count-consistency.sh` validator missed this because its regex did not match descriptive phrases with intervening adjective tokens. The audit at `docs/internal/release-plans/v2.15.x/audit_v2.15.x_post-tag-self-review.md` (findings A01 + A02 + A06) documented the gap; this validator closes it.
+v2.15.0 shipped with `docs/index.mdx` still claiming the prior 40-skill catalog size while the actual catalog grew to 55 entries. The existing `check-count-consistency.sh` validator missed this because its regex did not match descriptive phrases with intervening adjective tokens. The audit at `docs/internal/release-plans/v2.15.x/audit_v2.15.x_post-tag-self-review.md` (findings A01 + A02 + A06) documented the gap; this validator closes it.
 
 ## Usage
 
