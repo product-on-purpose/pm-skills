@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.15.2-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.16.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skills">
     <img src="https://img.shields.io/badge/skills-55-brightgreen.svg?style=flat-square" alt="Skills">
@@ -665,7 +665,7 @@ The skill content provides all the context the LLM needs to produce professional
 All releases are available on the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page:
 
 - **`pm-skills-vX.X.X.zip`** . Complete package with all skills, commands, workflows, and documentation
-- **Latest stable:** `v2.15.0` (Sprint Skills Launch: Foundation Sprint + Design Sprint families + tool-note-and-vote)
+- **Latest stable:** `v2.16.0` (Active Orchestration: first 4 sub-agents + dispatch skills for cross-client + 6-gate release runbook)
 - **Latest release notes:** [CHANGELOG.md](CHANGELOG.md#2150---2026-05-16)
 - **Published tag:** [`v2.15.0`](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.15.0)
 - **Documentation site:** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/)

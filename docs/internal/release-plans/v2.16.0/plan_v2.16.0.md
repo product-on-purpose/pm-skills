@@ -1,6 +1,6 @@
 # v2.16.0 Release Plan: Active Orchestration + Doc-Stack Modernization
 
-**Status:** ACTIVE (planning). Promoted from stub 2026-05-16 after v2.15.0 tag.
+**Status:** READY TO TAG (content-complete 2026-05-17; 16 commits 68bd5cc through 28ff92f + 2 pre-tag commits f0fd0b0+). Phase 0 Adversarial Review closed (7 findings; all addressed). Pre-tag artifact pass complete pending G2.5 commit gate. GATE B + GATE C pending maintainer cross-client tests per `maintainer-gate-testing.md`.
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (stub); promoted 2026-05-16 (this version)
