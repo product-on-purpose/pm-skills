@@ -1,6 +1,6 @@
 # v2.16.0 Release Plan: Active Orchestration + Doc-Stack Modernization
 
-**Status:** BLOCKED ON DOC-STACK MODERNIZATION. Active Orchestration track content-complete 2026-05-17 (16 commits 68bd5cc through 5a1ad61). Phase 0 Adversarial Review closed (7 findings; all addressed). Pre-tag artifact pass staged pending G2.5 commit gate. GATE B + GATE C pending maintainer cross-client tests per `maintainer-gate-testing.md`. **Tag delayed** per maintainer decision 2026-05-17 to include Astro 5.13.x to 6.x upgrade in v2.16.0 (closes 2 Dependabot alerts). Doc-stack modernization plan now ACTIVE in dedicated session; resumes per the continuation prompt in `AGENTS/SESSION-LOG/` and the task list in `doc-stack-modernization-plan.md`.
+**Status:** BLOCKED ON DOC-STACK MODERNIZATION (Phase 1 IN PROGRESS). Active Orchestration track content-complete 2026-05-17 (16 commits 68bd5cc through 5a1ad61). Phase 0 Adversarial Review closed (7 findings; all addressed). Pre-tag artifact pass staged pending G2.5 commit gate. GATE B + GATE C pending maintainer cross-client tests per `maintainer-gate-testing.md`. **Tag delayed** per maintainer decision 2026-05-17 to include Astro 5.13.x to 6.x upgrade in v2.16.0 (closes 2 Dependabot alerts). Doc-stack modernization spike opened 2026-05-17 as PR [#147](https://github.com/product-on-purpose/pm-skills/pull/147) (DRAFT); Node 22.12+ bump landed on spike (commit `ed3621b`); 2 mid-execution scope additions absorbed into spike branch per `doc-stack-modernization-plan.md` DM8 (YAML defect fix commit `3fcf7af`; Layer 1 MCP CI hygiene commit `6bceac5`); cross-repo Layer 2 in pm-skills-mcp PR [#50](https://github.com/product-on-purpose/pm-skills-mcp/pull/50). Astro 6 bump pending.
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (stub); promoted 2026-05-16 (this version)
@@ -87,7 +87,7 @@ This master plan orchestrates five sub-plans plus four sub-agent spec documents.
 | **Subagents Integration Plan** | [`subagents-integration-plan.md`](./subagents-integration-plan.md) | 4 sub-agents + 4 companion slash commands + subagents/ directory convention + runtime-components.md + adversarial-review.md guide + release-runbook.md guide + AGENTS.md sub-agent section + 12 library samples + CI updates | 28 (8 phases) | 6-9 sessions |
 | **Docs Plan** | [`docs-plan.md`](./docs-plan.md) | 5 new docs (sub-agents concept, active-orchestration concept, using-sub-agents guide, authoring-sub-agents contrib, sub-agent-design-patterns contrib) + AGENTS.md updates + README.md updates + cross-cutting consistency sweep + sidebar + Pagefind verification | 11 (4 phases) | 2-3 sessions |
 | **CI Plan** | [`ci-plan.md`](./ci-plan.md) | validate-sub-agents OR validate-agents-md extension + check-runtime-components-sync + check-sub-agent-command-pair + check-em-dashes + check-aggregate-counters + validation.yml integration + ci-conventions.md doc + subagents/_pairing.yaml manifest | 10 (4 phases) | 1-2 sessions |
-| **Doc-Stack Modernization Plan** | [`doc-stack-modernization-plan.md`](./doc-stack-modernization-plan.md) | Astro 5.13.x to 6.x upgrade + Node 22 to 22.12+ across 5 workflows + close 2 Dependabot alerts + verify astro-mermaid compatibility + custom CSS audit | 9 (3 phases) | 2-3 sessions |
+| **Doc-Stack Modernization Plan** | [`doc-stack-modernization-plan.md`](./doc-stack-modernization-plan.md) | Astro 5.13.x to 6.x upgrade + Node 22 to 22.12+ across 5 (reality-list, per DM7) workflows + close 2 Dependabot alerts + verify astro-mermaid compatibility + custom CSS audit. **2026-05-17 scope expansion per DM8:** absorbed P1 YAML defect fix + Layer 1 MCP CI hygiene + Layer 2 cross-repo pm-skills-mcp embed-script fix. | 9 + 3 mid-execution (3 phases) | 2-3 sessions (Phase 1 Task 1a + 1b + 1c DONE 2026-05-17 session; Astro bump pending) |
 | **Repo Hygiene Plan** | [`repo-hygiene-plan.md`](./repo-hygiene-plan.md) | CONTEXT.md per-phase tables refresh + `_working/` archive sweep + DS family validator metadata-shape strict + backlog-canonical refresh + completed F-XX effort docs archive + TODO/FIXME inventory | 8 (4 phases) | 2-3 sessions |
 
 | Spec doc | Path | Owns |
@@ -224,10 +224,16 @@ Re-litigation of any of these decisions requires an explicit plan amendment, not
 
 ### Doc-stack modernization
 
-- package.json: astro `^5.18.1` to `^6.x`; engines.node `>=22.0.0 <23` to `>=22.12.0`
-- 5 CI workflows: Node 22 to Node 22.12+ (Validation, Deploy to Pages, CodeQL, Validate Plugin, plus the 3 that v2.15.0 cleanup bumped to Node 22)
-- 2 Dependabot alerts closed: #10 (XSS in define:vars, patch 6.1.6), #16 (server-island replay, patch 6.1.10)
-- astro-mermaid 2.0.1 verified against Astro 6 (may require its own upgrade)
+- package.json: astro `^5.18.1` to `^6.x` (PENDING); engines.node `>=22.0.0 <23` to `>=22.12.0` (DONE commit `ed3621b`)
+- 5 CI workflows on Node 22.12+ (reality list per DM7): validation.yml, deploy-pages.yml, validate-plugin.yml, validate-mcp-sync.yml, create-issues-from-drafts.yml. DONE commit `ed3621b`. Plan-listed codeql.yml + sync-agents-md.yml vacated (no setup-node).
+- 2 Dependabot alerts closed: #10 (XSS in define:vars, patch 6.1.6), #16 (server-island replay, patch 6.1.10) — PENDING (closes after Astro bump merges)
+- astro-mermaid 2.0.1 verified against Astro 6 (may require its own upgrade) — PENDING
+
+**Mid-execution scope additions (DM8, 2026-05-17):**
+
+- P1 YAML defect fix: `skills/utility-pm-release-conductor/references/EXAMPLE.md` description value quoted. DONE commit `3fcf7af`. Closes a lint-skills-frontmatter failure that would otherwise block G0 gate at v2.16.0 tag time.
+- Layer 1 MCP CI hygiene: `validate-mcp-sync.yml` made fully advisory under M-22 posture (`continue-on-error: true` on both steps). DONE commit `6bceac5`. Closes a CI false-positive red on every push since v2.15.0.
+- Layer 2 cross-repo MCP fix: pm-skills-mcp `scripts/embed-skills.js` adds `'tool'` to SKILL_CLASSIFICATIONS + softens EMB-004 to warning for future unknown classifications. IN PROGRESS pm-skills-mcp PR [#50](https://github.com/product-on-purpose/pm-skills-mcp/pull/50). Breaks strict M-22 maintenance-only posture; maintainer explicitly opted in.
 
 ### Repo hygiene
 
@@ -550,6 +556,8 @@ Catalog of all 68+ ratified decisions across the v2.16.0 plan set. One row per d
 | DM4 | (same) | Spike branch convention |
 | DM5 | (same) | Dependabot alert closure verification |
 | DM6 | (same) | Workflow sync (5 workflows in spike branch, per R02 sequencing) |
+| DM7 | (same; added 2026-05-17 during Phase 1 Task 1a execution) | Workflow list correction (reality vs plan list) |
+| DM8 | (same; added 2026-05-17 during Phase 1 mid-execution) | Mid-execution scope additions (YAML defect fix + Layer 1 + Layer 2 MCP CI hygiene) |
 | HG1 | `repo-hygiene-plan.md` | CONTEXT.md scope |
 | HG2 | (same) | `_working/` archive destination |
 | HG3 | (same) | F-XX archive criteria |
@@ -557,7 +565,7 @@ Catalog of all 68+ ratified decisions across the v2.16.0 plan set. One row per d
 | HG5 | (same) | Backlog format |
 | HG6 | (same) | TODO disposition rules |
 
-**Total: 70 ratified decisions across 6 documents.** Master plan has 31; sub-plans have 39 (8 + 10 + 9 + 6 + 6). 7 of the 31 master plan decisions have open maintainer questions (Q1-Q6 + Q7); D31 was an execution-time amendment, not an open maintainer question.
+**Total: 72 ratified decisions across 6 documents.** Master plan has 31; sub-plans have 41 (8 + 10 + 9 + 8 + 6); doc-stack plan grew from 6 to 8 with DM7 + DM8 added 2026-05-17 during Phase 1 mid-execution. 7 of the 31 master plan decisions have open maintainer questions (Q1-Q6 + Q7); D31 was an execution-time amendment. DM7 and DM8 were also execution-time amendments (not open maintainer questions; ratified during the doc-stack session per maintainer approval through AskUserQuestion).
 
 ---
 
