@@ -240,7 +240,7 @@ memory: none
 
 ## System Prompt Structure
 
-Referential. Outline for `agents/pm-changelog-curator.md`:
+Referential. Outline for `subagents/pm-changelog-curator.md`:
 
 ```
 You are pm-changelog-curator. You draft CHANGELOG entries from git log
@@ -341,7 +341,7 @@ Three samples ship in v2.16.0:
 
 pm-changelog-curator is ready to ship when:
 
-- [ ] `agents/pm-changelog-curator.md` exists with frontmatter per this spec
+- [ ] `subagents/pm-changelog-curator.md` exists with frontmatter per this spec
 - [ ] System prompt is referential (reads CLAUDE.md at invocation time)
 - [ ] `commands/draft-changelog.md` resolves to pm-changelog-curator
 - [ ] Standalone invocation produces a draft against v2.15.0..HEAD range
@@ -372,7 +372,7 @@ If you are running in Claude Code with the pm-skills plugin:
   Invoke @agent-pm-changelog-curator with optional --since-tag and --target-version.
 
 If you are running in any other client:
-  Read agents/pm-changelog-curator.md as your operating system prompt.
+  Read subagents/pm-changelog-curator.md as your operating system prompt.
   Read CLAUDE.md for hygiene rules. Read git log --pretty=format:'%h %s' --name-only {since}..HEAD.
   Classify each commit per the rules in spec_pm-changelog-curator.md.
   Apply hygiene rewrites. Refuse on dirty working tree unless --committed-only.

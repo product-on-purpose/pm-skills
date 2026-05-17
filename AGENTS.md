@@ -443,6 +443,27 @@ Workflow links are repo-relative within this repository.
 
 ---
 
+## Sub-Agents
+
+pm-skills v2.16.0 introduces sub-agents as a new runtime-component class. Sub-agents are Claude Code plugin features that the intent classifier matches against `description:` frontmatter to delegate work; each runs in its own context window with an isolated tool budget.
+
+Four sub-agents ship in v2.16.0:
+
+- `pm-critic` - adversarial reviewer for PM artifacts (proactive trigger on Claude Code)
+- `pm-skill-auditor` - repo-level cross-cutting governance audits
+- `pm-changelog-curator` - CHANGELOG drafter from git log
+- `pm-release-conductor` - guided release runbook with 6 gates (G0, G1, G2, G2.5, G3, G4)
+
+The canonical sub-agents catalog with full audience, trigger, lifetime, tool surface, and composition data lives at [`docs/reference/runtime-components.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md). Sub-agent definition files live at `subagents/{name}.md` (path declared via `.claude-plugin/plugin.json` `agents` field per master plan D31; see runtime-components.md for the rationale on the non-default directory name).
+
+### Cross-client compatibility
+
+Sub-agents are a Claude Code plugin feature. Non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) access sub-agent intent via dispatch skills at `skills/utility-pm-{role}/`. Dispatch skills detect runtime and dispatch appropriately: native sub-agent on Claude Code, or "read agent definition and execute inline" on other clients. codex-rescue is an optional shortcut for users with both Claude Code and Codex CLI; it is NOT a baseline requirement.
+
+Dispatch skill availability in v2.16.0 is conditional on Phase 2 spike outcomes. See [`docs/reference/runtime-components.md#cross-client-compatibility`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md#cross-client-compatibility) for details.
+
+---
+
 ## License
 
 Apache-2.0

@@ -22,15 +22,20 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (40 total, flat)
-├── commands/                   # Slash command markdown files (47 total + .gitkeep)
-├── _workflows/                 # Workflows
+├── skills/                     # Core PM skills (55 total in v2.15.0, flat)
+├── commands/                   # Slash command markdown files
+├── _workflows/                 # Workflows source (12 in v2.15.0)
+├── subagents/                  # Sub-agent definitions (v2.16.0+; declared via .claude-plugin/plugin.json "agents" path)
+│   ├── _pairing.yaml           # Sub-agent + companion slash command pairings
+│   └── _chain-permitted.yaml   # Allowlist of sub-agents permitted to use Agent tool (D14 + D21)
 ├── docs/                       # Documentation (incl. templates)
 │   └── templates/              # Skill creation templates
-├── AGENTS/                     # AI agent session context
+├── AGENTS/                     # AI agent session context (separate from subagents/; per master plan D31)
 ├── .github/                    # GitHub configuration
 └── [root files]                # README, LICENSE, etc.
 ```
+
+Note on `subagents/` vs `AGENTS/`: these are distinct directories with different purposes. `subagents/` (lowercase) holds Claude Code plugin sub-agent definitions; `AGENTS/` (uppercase) holds agent-coordination context (session logs, claude/, codex/, DECISIONS.md). Per master plan D31, the sub-agents directory uses the custom name `subagents/` (declared in plugin.json) to avoid Windows NTFS / macOS APFS case-insensitivity collision with the existing AGENTS/ tracked directory.
 
 ---
 

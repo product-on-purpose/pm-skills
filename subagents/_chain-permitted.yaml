@@ -1,0 +1,13 @@
+# Sub-agents permitted to have `Agent` in their tools list.
+#
+# Per master plan D14 (chain depth limit = 2 levels max) and D21 (HARD FAIL
+# enforcement), sub-agents may not include `Agent` in their tools list unless
+# their name appears in this allowlist.
+#
+# Adding an entry here is a security-relevant change requiring maintainer review.
+# Validated by scripts/validate-agents-md.{sh,ps1} (extended per D19) per ci-plan
+# Phase 2 Task 2. Failure mode: build fails CI with explicit message naming the
+# offending sub-agent and the missing allowlist entry.
+
+chain_permitted:
+  - pm-release-conductor

@@ -21,5 +21,6 @@
     "design-thinking",
     "agent-skills",
     "agentskills-io"
-  ]
+  ],
+  "agents": ["./subagents/"]
 }

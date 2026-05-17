@@ -67,7 +67,7 @@ These are checks no single validator catches:
 | **Tool classification leak** | A skill claims `classification: tool` but is not registered under any `tool-*-skills` family AND is not listed as a standalone tool. |
 | **Frontmatter version drift** | A skill's `version:` field in SKILL.md differs from the version in its HISTORY.md (when HISTORY.md exists). |
 | **Deprecated reference** | A SKILL.md, command, workflow, or sample references a path / skill / command that has been deleted. |
-| **Sub-agent without companion command** | An entry in `agents/X.md` has no `commands/X-verb.md` companion (violates D6 from master plan). |
+| **Sub-agent without companion command** | An entry in `subagents/X.md` has no `commands/X-verb.md` companion (violates D6 from master plan). |
 
 The catalog grows as new cross-cutting bug classes are discovered. The audit report's "Cross-cutting findings" section is the durable home for net-new patterns.
 
@@ -255,7 +255,7 @@ memory: none
 
 ## System Prompt Structure
 
-Referential (D12). Outline for `agents/pm-skill-auditor.md`:
+Referential (D12). Outline for `subagents/pm-skill-auditor.md`:
 
 ```
 You are pm-skill-auditor. You audit the pm-skills repo for cross-cutting
@@ -347,7 +347,7 @@ Three samples ship in v2.16.0 (Tier 0 per SI5):
 
 pm-skill-auditor is ready to ship when:
 
-- [ ] `agents/pm-skill-auditor.md` exists with frontmatter per this spec
+- [ ] `subagents/pm-skill-auditor.md` exists with frontmatter per this spec
 - [ ] System prompt is referential
 - [ ] `commands/audit-repo.md` resolves to pm-skill-auditor
 - [ ] Explicit-only trigger verified (no proactive invocation in test session)
@@ -377,7 +377,7 @@ If you are running in Claude Code with the pm-skills plugin:
   Invoke @agent-pm-skill-auditor with optional --scope and --since-tag arguments.
 
 If you are running in any other client:
-  Read agents/pm-skill-auditor.md as your operating system prompt.
+  Read subagents/pm-skill-auditor.md as your operating system prompt.
   Run the enforcing validator suite via Bash, run cross-cutting checks
   per the catalog in spec_pm-skill-auditor.md, re-derive aggregate counters
   against AGENTS.md / CONTEXT.md / README.md, produce a structured audit

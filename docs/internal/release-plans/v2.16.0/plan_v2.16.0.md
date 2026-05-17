@@ -25,8 +25,8 @@ v2.16.0 begins from this baseline. Two open Dependabot alerts on origin/main, bo
 
 ### What's next (by priority, parallel-track sequencing)
 
-1. **Start subagent integration plan Phase 1** (agents/ directory + `_pairing.yaml` + `_chain-permitted.yaml` + runtime-components.md skeleton + AGENTS.md sub-agent section). Unblocks docs + CI tracks.
-2. **In parallel, start docs-plan Phase 1 + ci-plan Phase 1.** Concept docs reference the catalog skeleton; CI decision inspects the actual `agents/` directory.
+1. **Start subagent integration plan Phase 1** (subagents/ directory + `_pairing.yaml` + `_chain-permitted.yaml` + runtime-components.md skeleton + AGENTS.md sub-agent section). Unblocks docs + CI tracks.
+2. **In parallel, start docs-plan Phase 1 + ci-plan Phase 1.** Concept docs reference the catalog skeleton; CI decision inspects the actual `subagents/` directory.
 3. **Subagent Phase 2: ship pm-critic + in-cycle observation gate.** If signal-to-noise is poor on real artifacts, amend before Phases 3-5. Note: D3 collapses the original strategy-doc 2-week observation gate into this in-cycle gate; the entire slate ships in v2.16.0 not split across releases.
 4. **In parallel, start doc-stack modernization plan Phase 1.** Astro 6 spike branch with Node 22.12+ workflows landed BEFORE Astro 6 CI-green gate per Codex R02.
 5. **Subagent Phases 3-5: ship utility trio** (pm-skill-auditor, pm-changelog-curator, pm-release-conductor). Conductor validates G2.5 commit gate + chained Status envelope handoff with the other two.
@@ -84,9 +84,9 @@ This master plan orchestrates five sub-plans plus four sub-agent spec documents.
 
 | Sub-plan | Path | Scope | Tasks | Effort |
 |---|---|---|---|---|
-| **Subagents Integration Plan** | [`subagents-integration-plan.md`](./subagents-integration-plan.md) | 4 sub-agents + 4 companion slash commands + agents/ directory convention + runtime-components.md + adversarial-review.md guide + release-runbook.md guide + AGENTS.md sub-agent section + 12 library samples + CI updates | 28 (8 phases) | 6-9 sessions |
+| **Subagents Integration Plan** | [`subagents-integration-plan.md`](./subagents-integration-plan.md) | 4 sub-agents + 4 companion slash commands + subagents/ directory convention + runtime-components.md + adversarial-review.md guide + release-runbook.md guide + AGENTS.md sub-agent section + 12 library samples + CI updates | 28 (8 phases) | 6-9 sessions |
 | **Docs Plan** | [`docs-plan.md`](./docs-plan.md) | 5 new docs (sub-agents concept, active-orchestration concept, using-sub-agents guide, authoring-sub-agents contrib, sub-agent-design-patterns contrib) + AGENTS.md updates + README.md updates + cross-cutting consistency sweep + sidebar + Pagefind verification | 11 (4 phases) | 2-3 sessions |
-| **CI Plan** | [`ci-plan.md`](./ci-plan.md) | validate-sub-agents OR validate-agents-md extension + check-runtime-components-sync + check-sub-agent-command-pair + check-em-dashes + check-aggregate-counters + validation.yml integration + ci-conventions.md doc + agents/_pairing.yaml manifest | 10 (4 phases) | 1-2 sessions |
+| **CI Plan** | [`ci-plan.md`](./ci-plan.md) | validate-sub-agents OR validate-agents-md extension + check-runtime-components-sync + check-sub-agent-command-pair + check-em-dashes + check-aggregate-counters + validation.yml integration + ci-conventions.md doc + subagents/_pairing.yaml manifest | 10 (4 phases) | 1-2 sessions |
 | **Doc-Stack Modernization Plan** | [`doc-stack-modernization-plan.md`](./doc-stack-modernization-plan.md) | Astro 5.13.x to 6.x upgrade + Node 22 to 22.12+ across 5 workflows + close 2 Dependabot alerts + verify astro-mermaid compatibility + custom CSS audit | 9 (3 phases) | 2-3 sessions |
 | **Repo Hygiene Plan** | [`repo-hygiene-plan.md`](./repo-hygiene-plan.md) | CONTEXT.md per-phase tables refresh + `_working/` archive sweep + DS family validator metadata-shape strict + backlog-canonical refresh + completed F-XX effort docs archive + TODO/FIXME inventory | 8 (4 phases) | 2-3 sessions |
 
@@ -122,7 +122,7 @@ The strategy doc ends with 7 open questions for the maintainer (Section 9). The 
 | **D1** | **Version** | **v2.16.0** (minor). New plugin component class (sub-agents) = new capability. | Convention |
 | **D2** | **Slate scope** | Ship 4 sub-agents in v2.16.0: pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor. NOT in v2.16.0: pm-workflow-orchestrator (v2.17), pm-frontmatter-doctor (v2.17 opportunistic), pm-sample-curator (depends on F-34 THREAD_PROFILES.md), pm-cross-llm-handoff (spike before commit), pm-skill-curator (needs cross-session memory). | This plan; supersedes implementation-plan v2.15.0/v2.15.1 split |
 | **D3** | **2-week observation gate between pm-critic and the rest** | **DROPPED for v2.16.0 ship cadence.** All 4 sub-agents ship in the same tag. Rationale: the strategy doc's observation gate was sized for separate v2.15.0 + v2.15.1 releases; combining them into one tag removes the gate. Risk mitigation: pm-critic is the first sub-agent built (Phase 2), exercised against existing v2.15.0 PM artifacts before the utility trio (Phases 3-5) is authored. If pm-critic surfaces design issues, the slate is amended before Phases 3-5 begin. | This plan; explicit deviation from implementation-plan |
-| **D4** | **Sub-agent directory location** | `agents/` at repo root (Claude Code documented convention). Defer namespace question (`agents/pm-skills/` vs flat) until 6+ sub-agents exist. | Strategy doc Open Question 2 |
+| **D4** | **Sub-agent directory location (AMENDED 2026-05-17 per D31)** | Sub-agent files live at `subagents/` at repo root, declared in `.claude-plugin/plugin.json` via the custom `"agents"` path field. Original D4 prescribed lowercase `agents/` (Claude Code default convention), but Windows NTFS case-insensitivity collides with the existing tracked `AGENTS/` directory; resolved via plugin.json custom-path mechanism per D31. Defer namespace question (`subagents/pm-skills/` vs flat) until 6+ sub-agents exist. | Strategy doc Open Question 2; AMENDED per D31 |
 | **D5** | **Cataloging surface** | New file `docs/reference/runtime-components.md` catalogs all sub-agents. AGENTS.md gets a "Sub-Agents" section pointing to runtime-components.md but does not duplicate the per-agent detail. | Strategy doc Insight 6 + Open Question 6 |
 | **D6** | **Wrapper slash commands** | Every sub-agent ships with a companion slash command in `commands/`. Naming: `/critic`, `/audit-repo`, `/draft-changelog`, `/release`. | Strategy doc Insight 7 |
 | **D7** | **Proactive vs explicit triggers (clarified 2026-05-16 for cross-client)** | pm-critic: proactive (auto-fires after PM-artifact-producing skills via `description: use proactively`) on Claude Code. All 3 utility agents: explicit only. **Cross-client caveat per D30:** proactive triggering is a Claude Code plugin feature. On non-Claude clients accessing pm-critic via dispatch skill, invocation is explicit-only (user must invoke the skill). This is a functional gap on non-Claude clients but acceptable per single-tool user assumption. | Strategy doc Insight 8 + Insight 10 + Q7 clarification |
@@ -137,9 +137,9 @@ The strategy doc ends with 7 open questions for the maintainer (Section 9). The 
 | **D16** | **Astro 6.x upgrade in same release** | YES. Doc-stack modernization is a v2.16.0 secondary track. Closes 2 open Dependabot alerts. Node 22 to 22.12+ across all 5 CI workflows. | Carried-forward from v2.16.0 stub DI3 |
 | **D17** | **Tier 2 deferrals from stub (tags-as-feature, URL slugs, sync-agents-md rewrite)** | DEFER to v2.17.0. v2.16.0 is large enough with subagents + Astro 6 + hygiene. Tags + URL slugs are feature work, not infrastructure debt; can wait. | Scope discipline |
 | **D18** | **Bridge to v2.17.0** | v2.17.0 candidates already named: pm-workflow-orchestrator (Feature Kickoff scope), pm-frontmatter-doctor, AI-Native PM Pack (eval-suite-spec + prompt-spec + model-card + ai-failure-mode-catalog per roadmap R-01/R-02/R-03/R-14), tags-as-feature, URL slug normalization. v2.17.0 stub created at end of v2.16.0 cycle. | Forward planning |
-| **D19** | **Validator approach: extend vs new** (resolves SR-P0-01 contradiction between SI4 and CI1) | **EXTEND `validate-agents-md.{sh,ps1}` to recognize `agents/` directory and verify sub-agent invariants.** New dedicated `validate-sub-agents` validator DEFERRED to v2.17 if invariant set grows past `validate-agents-md`'s comfortable scope. Reasoning: cheaper path; preserves single-source-of-truth for agent-component sync; avoids splitting closely-related concerns. CI plan Phase 1 Task 1 inspects current scope and confirms feasibility before authoring. SI4 reads: ratified. CI1 reads: ratified (decision rule pre-resolved to extend; Phase 1 Task 1 confirms feasibility, does not re-decide). | Combined self-review SR-P0-01 + Codex R12 |
+| **D19** | **Validator approach: extend vs new** (resolves SR-P0-01 contradiction between SI4 and CI1) | **EXTEND `validate-agents-md.{sh,ps1}` to recognize `subagents/` directory and verify sub-agent invariants.** New dedicated `validate-sub-agents` validator DEFERRED to v2.17 if invariant set grows past `validate-agents-md`'s comfortable scope. Reasoning: cheaper path; preserves single-source-of-truth for agent-component sync; avoids splitting closely-related concerns. CI plan Phase 1 Task 1 inspects current scope and confirms feasibility before authoring. SI4 reads: ratified. CI1 reads: ratified (decision rule pre-resolved to extend; Phase 1 Task 1 confirms feasibility, does not re-decide). | Combined self-review SR-P0-01 + Codex R12 |
 | **D20** | **`tools:` frontmatter syntax** (resolves Codex R04) | **Comma-separated scalar** form: `tools: Read, Grep, Glob`. Matches Claude Code documented sub-agent frontmatter convention. CI plan Task 2 validates scalar form, not YAML list. Spec docs already use scalar form; no spec doc changes required. | Codex R04 |
-| **D21** | **Chain depth enforcement strength** (resolves Codex R03) | **HARD FAIL** if a sub-agent has `Agent` in `tools:` AND the agent name is not in the explicit allowlist `agents/_chain-permitted.yaml`. v2.16 allowlist contains exactly one entry: `pm-release-conductor`. Prevents accidental chain-depth-3 violations from utility agents gaining `Agent`. Supersedes the original "informational; not failure" framing in CI plan Phase 2 Task 2. | Codex R03 |
+| **D21** | **Chain depth enforcement strength** (resolves Codex R03) | **HARD FAIL** if a sub-agent has `Agent` in `tools:` AND the agent name is not in the explicit allowlist `subagents/_chain-permitted.yaml`. v2.16 allowlist contains exactly one entry: `pm-release-conductor`. Prevents accidental chain-depth-3 violations from utility agents gaining `Agent`. Supersedes the original "informational; not failure" framing in CI plan Phase 2 Task 2. | Codex R03 |
 | **D22** | **G2.5 commit gate** (resolves Codex R01) | **NEW gate G2.5 inserted between G2 and G3** in pm-release-conductor. G2.5 commits the G2 release-prep edits, verifies clean working tree, re-runs G0 sub-checks against the new HEAD, and pushes to origin to trigger fresh CI before G3 tags the new commit. Closes the gap where G3 could tag a HEAD that did not contain the release-prep edits. Adds one gate to the runbook (total now 6: G0, G1, G2, G2.5, G3, G4). | Codex R01 |
 | **D23** | **G4 blocking power** (resolves Codex R07) | G4 sub-checks now produce P0/P1/P2 incidents on failure. P0 failures (plugin install path broken) block the conductor's "Release complete" output. P1 failures (marketplace registration, Pages rebuild) surface as incidents but do not block. P2 are reminders. Rollback path: maintainer ships fast `v{patch}` rather than reverting tag. | Codex R07 |
 | **D24** | **`--skip-gates` argument** (resolves Codex R05) | **REMOVED from v2.16.** The original spec proposed `--skip-gates <list>` for advanced bypassing with warning logs. This contradicted the conductor's no-bypass safety contract. Maintainers who need to bypass a gate (e.g., G1 for a hotfix) must run that gate's verification manually and confirm at the gate prompt. v2.17+ may reintroduce restricted to non-release dry-run mode. | Codex R05 |
@@ -147,8 +147,9 @@ The strategy doc ends with 7 open questions for the maintainer (Section 9). The 
 | **D26** | **Chained handoff envelope** (resolves Codex R08; AMENDED 2026-05-16 for human context) | pm-skill-auditor and pm-changelog-curator outputs follow a **layered structure** for dual audience (maintainer reads; conductor parses): (1) full human-readable findings/draft content; (2) `## Status Summary` section in plain prose explaining what the child found and what the parent should do; (3) `## Status` block with machine-readable YAML for conductor parsing. The conductor parses (3) for advancement decisions; the maintainer reads (1) + (2). Prevents misreading a child refusal as success while keeping output human-friendly. | Codex R08 + Q6 reconsideration |
 | **D27** | **Em-dash sweep single source of truth** (resolves SR-P1-03 + Codex R10) | `scripts/check-em-dashes` is the canonical implementation. All plans that reference the sweep (master plan D9, ci-plan CI6, repo-hygiene plan, spec_pm-release-conductor G0) defer scope to that script. Scope: `*.md`, `*.mdx`, `*.txt`, `*.yml`, `*.yaml` per CI6. Allowlist file at `scripts/check-em-dashes.allowlist` carries the 4 known intentional instances (3 in spec_pm-release-conductor backticks, 1 each in ci-plan, repo-hygiene-plan) plus a `library/skill-output-samples/**` blanket exclusion for artifact samples that may quote em-dashes from source material. | SR-P1-03 + Codex R10 |
 | **D28** | **Roadmap archive disposition** (resolves Codex R11) | Roadmap `roadmap_opus-4.7-max_2026-05-14.md` STAYS in `_working/` (active for v2.16-v2.18 planning per hygiene plan HG3). The master plan's prior statement that the roadmap moves to archive is corrected. Only the 2 May 8 backlog aggregates archive in v2.16. | Codex R11 |
-| **D29** | **Pairing manifest ownership** (resolves Codex R12) | `agents/_pairing.yaml` is a shipping deliverable of subagents-integration-plan Phase 1 Task 1 (NOT ci-plan). The pairing manifest exists before any agent file lands. ci-plan Phase 2 Task 4 reads the manifest but does not author it. | Codex R12 |
-| **D30** | **Single-tool user assumption + dispatch skill strategy** (added 2026-05-16 from Q7 walkthrough) | Users pick ONE primary AI tool (Claude Code, Codex, Cursor, Windsurf, Copilot, Gemini CLI). pm-skills does NOT assume users run multiple tools simultaneously. Dispatch skills (`skills/utility-pm-{role}/`) deliver sub-agent functionality to non-Claude clients via runtime detection: Claude Code path invokes the native sub-agent; non-Claude path reads `agents/{name}.md` and executes the system prompt inline. Phase 2 spike validates dispatch reliability with pm-critic before shipping all 4 dispatch skills. Conductor dispatch uses "reference + execute inline" pattern to inline auditor + curator behaviors at G0 + G2 on non-Claude clients. Fallback: if spike fails, Option F (clean Claude-Code-only labeling) ships instead. | Q7 walkthrough; complements D11 amendment |
+| **D29** | **Pairing manifest ownership** (resolves Codex R12) | `subagents/_pairing.yaml` is a shipping deliverable of subagents-integration-plan Phase 1 Task 1 (NOT ci-plan). The pairing manifest exists before any agent file lands. ci-plan Phase 2 Task 4 reads the manifest but does not author it. | Codex R12 |
+| **D30** | **Single-tool user assumption + dispatch skill strategy** (added 2026-05-16 from Q7 walkthrough) | Users pick ONE primary AI tool (Claude Code, Codex, Cursor, Windsurf, Copilot, Gemini CLI). pm-skills does NOT assume users run multiple tools simultaneously. Dispatch skills (`skills/utility-pm-{role}/`) deliver sub-agent functionality to non-Claude clients via runtime detection: Claude Code path invokes the native sub-agent; non-Claude path reads `subagents/{name}.md` and executes the system prompt inline. Phase 2 spike validates dispatch reliability with pm-critic before shipping all 4 dispatch skills. Conductor dispatch uses "reference + execute inline" pattern to inline auditor + curator behaviors at G0 + G2 on non-Claude clients. Fallback: if spike fails, Option F (clean Claude-Code-only labeling) ships instead. | Q7 walkthrough; complements D11 amendment |
+| **D31** | **subagents/ directory rename (added 2026-05-17 during Phase 1 Task 1 execution)** | **AMENDS D4.** Original D4 prescribed `agents/` (lowercase) at repo root per Claude Code documented convention. Discovery at Phase 1 Task 1 execution time: on Windows NTFS (case-insensitive default; verified via `fsutil.exe file queryCaseSensitiveInfo`) and macOS APFS (default case-insensitive), lowercase `agents/` collides with the existing tracked `AGENTS/` directory (9 coordination files: `AGENTS/DECISIONS.md`, `AGENTS/claude/*`, `AGENTS/codex/*`). With `git config core.ignorecase=true` (Windows default), the collision is silent: file creates at `agents/foo.md` land in `AGENTS/foo.md` instead. Per Claude Code plugin docs at code.claude.com/docs/en/plugins-reference, the default `agents/` location is **conventional, NOT required**: plugin.json supports a custom `"agents"` array field that overrides the default location. RESOLUTION: ship sub-agent files at `subagents/` (matches narrative wording in subagents-integration-plan.md and Sub-Agents section names) and declare in plugin.json with `"agents": ["./subagents/"]`. Existing `AGENTS/` directory stays unchanged. Files: `subagents/pm-critic.md`, `subagents/pm-skill-auditor.md`, `subagents/pm-changelog-curator.md`, `subagents/pm-release-conductor.md`; manifests at `subagents/_pairing.yaml` + `subagents/_chain-permitted.yaml`. Cross-platform clean; no NTFS hackery; future contributors on Linux/Mac never encounter the issue. The original `agents/` historical references in this row are preserved verbatim. | Phase 1 Task 1 execution-time finding; plugin.json custom-path mechanism per Claude Code plugin docs |
 
 Re-litigation of any of these decisions requires an explicit plan amendment, not in-track drift.
 
@@ -213,12 +214,12 @@ Re-litigation of any of these decisions requires an explicit plan amendment, not
 
 - `scripts/validate-agents-md.{sh,ps1,md}` EXTENDED per D19 (sub-agent invariants + chain-permitted allowlist enforcement + AGENTS.md sub-agent section verification)
 - `scripts/check-runtime-components-sync.{sh,ps1,md}` NEW
-- `scripts/check-sub-agent-command-pair.{sh,ps1,md}` NEW (reads `agents/_pairing.yaml`)
+- `scripts/check-sub-agent-command-pair.{sh,ps1,md}` NEW (reads `subagents/_pairing.yaml`)
 - `scripts/check-em-dashes.{sh,ps1,md}` NEW (canonical em-dash sweep per D27)
 - `scripts/check-aggregate-counters.{sh,ps1,md}` NEW
 - `scripts/check-em-dashes.allowlist` NEW (manifest of intentional em-dash instances)
-- `agents/_pairing.yaml` NEW (sub-agent + command pairing manifest)
-- `agents/_chain-permitted.yaml` NEW (Agent-tool allowlist per D21)
+- `subagents/_pairing.yaml` NEW (sub-agent + command pairing manifest)
+- `subagents/_chain-permitted.yaml` NEW (Agent-tool allowlist per D21)
 - `.github/workflows/validation.yml` UPDATED (4-5 new validator invocations in CI5 order)
 
 ### Doc-stack modernization
@@ -258,7 +259,7 @@ Re-litigation of any of these decisions requires an explicit plan amendment, not
 | Reference docs | (current) | +1 (runtime-components.md) |
 | User guides | (current) | **+2** (adversarial-review.md, using-sub-agents.md) |
 | Contributing guides | (current) | **+3** (release-runbook.md, authoring-sub-agents.md, sub-agent-design-patterns.md) |
-| Manifest files | (current) | +2 (`agents/_pairing.yaml`, `agents/_chain-permitted.yaml`) |
+| Manifest files | (current) | +2 (`subagents/_pairing.yaml`, `subagents/_chain-permitted.yaml`) |
 
 **Note on dispatch skill conditionality:** the 4 dispatch skills are CONDITIONAL on Phase 2 spike success (per D30). If pm-critic dispatch fails on non-Claude clients, fall back to Option F (NO dispatch skills ship; total skills stays at 55). If pm-critic succeeds but conductor sub-spike fails, ship D-revised (3 dispatch skills; total 58).
 
@@ -272,7 +273,7 @@ v2.16.0 is ready to tag when:
 
 ### Primary track (subagents)
 
-- [ ] All 4 sub-agent definition files exist at `agents/{name}.md` and pass referential-prompt review (no duplicated standards content)
+- [ ] All 4 sub-agent definition files exist at `subagents/{name}.md` and pass referential-prompt review (no duplicated standards content)
 - [ ] All 4 companion slash commands exist in `commands/` and resolve to the correct sub-agent
 - [ ] `docs/reference/runtime-components.md` catalogs all 4 sub-agents with audience, trigger, lifetime, tool surface, composition notes
 - [ ] AGENTS.md has a Sub-Agents section listing all 4 agents and linking to runtime-components.md
@@ -324,7 +325,7 @@ v2.16.0 is ready to tag when:
 - [ ] 4 new validator triplets shipped (.sh + .ps1 + .md each): check-runtime-components-sync, check-sub-agent-command-pair, check-em-dashes, check-aggregate-counters
 - [ ] validation.yml invokes all new validators in CI5 order
 - [ ] CI runtime increment < 30 seconds per CI8
-- [ ] `agents/_pairing.yaml` and `agents/_chain-permitted.yaml` exist with all 4 sub-agent entries
+- [ ] `subagents/_pairing.yaml` and `subagents/_chain-permitted.yaml` exist with all 4 sub-agent entries
 - [ ] `scripts/check-em-dashes.allowlist` exists with the 4 known intentional instances
 - [ ] `docs/contributing/ci-conventions.md` documents new validators
 - [ ] Synthetic-failure tests pass for each new validator
@@ -350,9 +351,9 @@ v2.16.0 is ready to tag when:
 ```
 SUBAGENT TRACK (subagents-integration-plan.md):
   Phase 1: Subagent infrastructure foundation       [1 session]
-    -> agents/ directory + runtime-components.md skeleton + AGENTS.md section
+    -> subagents/ directory + runtime-components.md skeleton + AGENTS.md section
   Phase 2: Ship pm-critic                            [1-2 sessions]
-    -> agents/pm-critic.md + /critic + 1 sample + adversarial-review.md
+    -> subagents/pm-critic.md + /critic + 1 sample + adversarial-review.md
     -> GATE: exercise against >=3 v2.15.0 artifacts; amend if needed
   Phase 3: Ship pm-skill-auditor                     [1-2 sessions]
   Phase 4: Ship pm-changelog-curator                 [1 session]
@@ -392,7 +393,7 @@ PRE-TAG (master plan Phase 8 equivalent):
 
 **Sequencing notes:**
 - Subagent Phase 1 unblocks docs Phase 1 (concept docs can reference the catalog skeleton)
-- Subagent Phase 1 unblocks CI Phase 1 (CI decision can inspect the actual `agents/` directory)
+- Subagent Phase 1 unblocks CI Phase 1 (CI decision can inspect the actual `subagents/` directory)
 - Subagent Phase 2 (pm-critic ship) is the GATE: if observation fails, Phases 3-5 amend before authoring
 - Doc-stack modernization can run in parallel with the subagent track (independent code surface)
 - Hygiene track can run in parallel with everything except Phase 1 CONTEXT.md refresh which is best last (so it reflects final v2.16.0 state)
@@ -476,14 +477,14 @@ Execution can begin against current ratified decisions; maintainer review of Q1-
 
 Catalog of all 68+ ratified decisions across the v2.16.0 plan set. One row per decision. For each decision, see the owning file's Ratified Decisions section.
 
-### Master plan decisions (D1-D29)
+### Master plan decisions (D1-D31)
 
 | ID | Topic | Owning section |
 |---|---|---|
 | D1 | Version 2.16.0 (minor) | `plan_v2.16.0.md` Ratified Decisions |
 | D2 | Slate scope (4 sub-agents) | (same) |
 | D3 | Slate cadence (one tag, no 2-week observation gate) - **OPEN Q1** | (same) |
-| D4 | agents/ directory layout (flat) | (same) |
+| D4 | subagents/ directory layout (flat) | (same) |
 | D5 | Cataloging surface (`runtime-components.md`) | (same) |
 | D6 | Wrapper slash commands (every agent ships one) | (same) |
 | D7 | Proactive vs explicit triggers (pm-critic only proactive) | (same) |
@@ -510,12 +511,13 @@ Catalog of all 68+ ratified decisions across the v2.16.0 plan set. One row per d
 | D28 | Roadmap stays active in `_working/` (resolves R11) | (same; added from review) |
 | D29 | Pairing manifest ownership = subagents Phase 1 (resolves R12) | (same; added from review) |
 | D30 | Single-tool user assumption + dispatch skill strategy (Q7 walkthrough) - **OPEN Q7 RESOLVED** | (same; added 2026-05-16 from maintainer review) |
+| D31 | subagents/ directory rename (AMENDS D4 due to Windows NTFS case-collision with AGENTS/) | (same; added 2026-05-17 during Phase 1 Task 1 execution) |
 
 ### Sub-plan decisions
 
 | ID | Owning file | Topic |
 |---|---|---|
-| SI1 | `subagents-integration-plan.md` | agents/ directory layout (flat per D4) |
+| SI1 | `subagents-integration-plan.md` | subagents/ directory layout (flat per D4) |
 | SI2 | (same) | Sub-agent naming convention (`pm-{role}`) |
 | SI3 | (same) | Companion command naming (verb-shaped) |
 | SI4 | (same) | Sub-agent CI recognition (inherits D19) |
@@ -555,7 +557,7 @@ Catalog of all 68+ ratified decisions across the v2.16.0 plan set. One row per d
 | HG5 | (same) | Backlog format |
 | HG6 | (same) | TODO disposition rules |
 
-**Total: 68 ratified decisions across 6 documents.** Master plan has 29; sub-plans have 39 (8 + 10 + 9 + 6 + 6). 7 of the 29 master plan decisions have open maintainer questions (Q1-Q6 + Q7-new).
+**Total: 70 ratified decisions across 6 documents.** Master plan has 31; sub-plans have 39 (8 + 10 + 9 + 6 + 6). 7 of the 31 master plan decisions have open maintainer questions (Q1-Q6 + Q7); D31 was an execution-time amendment, not an open maintainer question.
 
 ---
 

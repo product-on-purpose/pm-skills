@@ -32,7 +32,7 @@ Authored by Claude after completing the initial 10-file plan set, before invokin
 **Status:** CLOSED. Resolved by master plan D19 ratifying "extend `validate-agents-md.{sh,ps1}`" (not new dedicated validator).
 
 **Description:**
-- `subagents-integration-plan.md` SI4 said: "Phase 1 extends `validate-agents-md.{sh,ps1}` to recognize `agents/` directory. New dedicated `validate-sub-agents.{sh,ps1}` deferred to v2.17 if pattern proves out."
+- `subagents-integration-plan.md` SI4 said: "Phase 1 extends `validate-agents-md.{sh,ps1}` to recognize `subagents/` directory. New dedicated `validate-sub-agents.{sh,ps1}` deferred to v2.17 if pattern proves out."
 - `ci-plan.md` CI1 said: "DEFER decision to Phase 1 Task 1 outcome. Default lean: ship dedicated `validate-sub-agents.{sh,ps1,md}` rather than extend `validate-agents-md`."
 - Opposing positions on the same decision.
 
@@ -68,7 +68,7 @@ Authored by Claude after completing the initial 10-file plan set, before invokin
 
 #### SR-P1-07: Pairing manifest naming conflict potential
 
-**Status:** CLOSED. Resolved by D29 designating `agents/_pairing.yaml` (matches existing `_registry.yaml` convention; ownership clarified to subagents Phase 1 Task 1, not ci-plan).
+**Status:** CLOSED. Resolved by D29 designating `subagents/_pairing.yaml` (matches existing `_registry.yaml` convention; ownership clarified to subagents Phase 1 Task 1, not ci-plan).
 
 ### P2 findings (self-review)
 
@@ -157,7 +157,7 @@ Generated 2026-05-16 via `codex:codex-rescue` adversarial review of the v2.16.0 
 
 **Codex risk:** "`pm-skill-auditor` or `pm-changelog-curator` could accidentally gain `Agent` and CI would still pass."
 
-**Resolution applied:** D21 added making Agent tool hard-fail outside `agents/_chain-permitted.yaml` allowlist. ci-plan Task 2 rewritten with hard-fail semantics + allowlist enforcement.
+**Resolution applied:** D21 added making Agent tool hard-fail outside `subagents/_chain-permitted.yaml` allowlist. ci-plan Task 2 rewritten with hard-fail semantics + allowlist enforcement.
 
 #### R04: The validator expects `tools:` to be a YAML list, while every spec defines it as a comma-separated scalar
 
@@ -235,12 +235,12 @@ Generated 2026-05-16 via `codex:codex-rescue` adversarial review of the v2.16.0 
 
 **Resolution applied:** Master plan corrected to "3 subagent docs + 2 backlog aggregates moved" (roadmap stays active).
 
-#### R12: `agents/_pairing.yaml` is required by CI but not owned by the integration plan
+#### R12: `subagents/_pairing.yaml` is required by CI but not owned by the integration plan
 
 **Severity:** P2
 **Status:** CLOSED. Resolved by master plan D29: pairing manifest is a subagents-integration-plan Phase 1 Task 1 deliverable (NOT ci-plan).
 
-**Resolution applied:** Subagents Phase 1 Task 1 expanded to ship `agents/_pairing.yaml` + `agents/_chain-permitted.yaml` alongside the directory scaffold. ci-plan Phase 2 Task 4 reads the manifests but does not author them.
+**Resolution applied:** Subagents Phase 1 Task 1 expanded to ship `subagents/_pairing.yaml` + `subagents/_chain-permitted.yaml` alongside the directory scaffold. ci-plan Phase 2 Task 4 reads the manifests but does not author them.
 
 #### R13: CONTEXT.md refresh sequencing is contradictory
 

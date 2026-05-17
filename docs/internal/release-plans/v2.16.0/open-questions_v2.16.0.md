@@ -127,7 +127,7 @@ Mitigation: v2.17 stub at end of v2.16 cycle captures these items with explicit 
 
 D14 in the master plan + D21 (added from Codex review R03) define chain depth limit at 2 levels: pm-release-conductor invokes pm-skill-auditor (G0) and pm-changelog-curator (G2); neither child chains further. The original ci-plan Phase 2 Task 2 had this as "informational; not failure" - a warning if a sub-agent had `Agent` in its tools. Codex flagged this as a P1 (R03): the CI claimed enforcing, but the validator only warned.
 
-The current fix (D21) hard-fails any agent that has `Agent` in `tools:` AND is not in `agents/_chain-permitted.yaml` (which contains only `pm-release-conductor` in v2.16).
+The current fix (D21) hard-fails any agent that has `Agent` in `tools:` AND is not in `subagents/_chain-permitted.yaml` (which contains only `pm-release-conductor` in v2.16).
 
 ### Why it matters
 
@@ -147,7 +147,7 @@ Conversely, a hard-fail is restrictive. If a legitimate use case emerges in v2.1
 
 ### Potential solutions
 
-**Option A: D21 as ratified (hard-fail with allowlist).** `Agent` tool in `tools:` is a CI failure unless the agent is in `agents/_chain-permitted.yaml`.
+**Option A: D21 as ratified (hard-fail with allowlist).** `Agent` tool in `tools:` is a CI failure unless the agent is in `subagents/_chain-permitted.yaml`.
 - Outcome: Structurally enforced. Allowlist update requires a deliberate PR. Contributors authoring new chain-capable sub-agents update the allowlist.
 
 **Option B: Warning only.** Original "informational; not failure" framing. CI warns but doesn't block.
@@ -165,9 +165,9 @@ Conversely, a hard-fail is restrictive. If a legitimate use case emerges in v2.1
 **Option A: Hard-fail with allowlist (chosen)**
 
 How it works:
-- One file: `agents/_chain-permitted.yaml` containing the list of agents allowed to have `Agent` in tools
+- One file: `subagents/_chain-permitted.yaml` containing the list of agents allowed to have `Agent` in tools
 - v2.16 contents: just `pm-release-conductor`
-- CI script: for every `agents/*.md`, if `Agent` is in tools AND name not in allowlist, build fails
+- CI script: for every `subagents/*.md`, if `Agent` is in tools AND name not in allowlist, build fails
 
 Day-to-day:
 - Author a new non-chaining agent (most agents): zero impact
@@ -175,8 +175,8 @@ Day-to-day:
 - Intentionally add a new chaining agent in v2.17: edit one line of YAML to add the name
 
 Real v2.17 example: pm-workflow-orchestrator chains to pm-critic. Steps:
-1. Author `agents/pm-workflow-orchestrator.md` with `tools: Read, Write, Agent`
-2. Edit `agents/_chain-permitted.yaml` to add one line: `- pm-workflow-orchestrator`
+1. Author `subagents/pm-workflow-orchestrator.md` with `tools: Read, Write, Agent`
+2. Edit `subagents/_chain-permitted.yaml` to add one line: `- pm-workflow-orchestrator`
 3. Done. PR review notices the allowlist change as a "security-relevant change requiring review" (D21 wording).
 
 **Option B: Warning only**
@@ -235,7 +235,7 @@ If Option C becomes appealing in v2.17 (3+ chain-capable agents), promote the al
 
 ### Maintainer feedback / decision
 
-**CONFIRMED 2026-05-16 (after expanded walkthrough): Option A (hard-fail with allowlist).** D21 stands. `agents/_chain-permitted.yaml` ships in subagents Phase 1 Task 1 containing one entry (`pm-release-conductor`). CI plan Task 2 hard-fails any agent with `Agent` in tools and name not in allowlist.
+**CONFIRMED 2026-05-16 (after expanded walkthrough): Option A (hard-fail with allowlist).** D21 stands. `subagents/_chain-permitted.yaml` ships in subagents Phase 1 Task 1 containing one entry (`pm-release-conductor`). CI plan Task 2 hard-fails any agent with `Agent` in tools and name not in allowlist.
 
 ---
 
@@ -523,7 +523,7 @@ pm-skills' stated audience includes non-Claude-Code users (the marketplace submi
 
 Specifically:
 
-- A Codex user who installs pm-skills v2.16 plugin sees `agents/*.md` files but Codex doesn't load them as sub-agents. They become inert files in a directory.
+- A Codex user who installs pm-skills v2.16 plugin sees `subagents/*.md` files but Codex doesn't load them as sub-agents. They become inert files in a directory.
 - A Cursor or Windsurf user with AGENTS.md parsing may see the new "Sub-Agents" section. If their parser doesn't understand the component class, it may produce confusing UX.
 - The slash commands (`/critic`, `/audit-repo`, `/draft-changelog`, `/release`) are Claude Code-specific. Codex commands look different.
 
@@ -602,7 +602,7 @@ as argument. Return the findings to the user.
 
 **If you are running in any other client** (Codex CLI, Cursor, Windsurf,
 Gemini CLI, Copilot, ChatGPT, etc.):
-Read the canonical agent definition at `agents/pm-critic.md`. Execute the
+Read the canonical agent definition at `subagents/pm-critic.md`. Execute the
 system prompt body in that file as your operating instructions for this
 turn. Read the target artifact. Return findings graded P0/P1/P2/P3 with
 concrete fix suggestions, formatted per the guide at
@@ -619,12 +619,12 @@ The AI reads this, identifies its runtime, takes the right path. No manual user 
 - `skills/utility-pm-changelog-curator/SKILL.md` + references/ + samples
 - `skills/utility-pm-release-conductor/SKILL.md` + references/ + samples (with "reference + execute inline" pattern for chain composition on non-Claude)
 
-Each dispatch skill is thin (~50 lines). References the canonical `agents/{name}.md` for the system prompt body (no duplication, no drift risk).
+Each dispatch skill is thin (~50 lines). References the canonical `subagents/{name}.md` for the system prompt body (no duplication, no drift risk).
 
 **Phase 2 spike protocol** (added to subagents-integration-plan.md):
 1. Ship pm-critic dispatch skill alongside pm-critic agent
 2. Test on Claude Code (verify @agent-pm-critic invocation works)
-3. Test on Codex CLI or Cursor (verify "read agents/pm-critic.md and execute" pattern works reliably)
+3. Test on Codex CLI or Cursor (verify "read subagents/pm-critic.md and execute" pattern works reliably)
 4. If reliable, ship dispatch skills for pm-skill-auditor, pm-changelog-curator, pm-release-conductor in Phases 3-5
 5. Sub-spike for conductor: test "reference + execute inline" pattern with pm-critic delegating to itself (simpler version of conductor's chain)
 6. If conductor sub-spike fails: ship D-revised (3 dispatch skills; conductor stays Claude-only)

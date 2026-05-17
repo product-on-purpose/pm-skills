@@ -913,20 +913,23 @@ For detailed skill documentation and examples, see the [skills/](skills/) direct
 ```
 pm-skills/
 ├── skills/                     # 55 PM skills (26 phase + 8 foundation + 6 utility + 15 tool)
-├── commands/                   # Slash commands (47) mapping to skills/workflows
-├── _workflows/                 # 9 workflows: feature-kickoff, lean-startup, triple-diamond, and 6 more
+├── commands/                   # Slash commands mapping to skills/workflows/sub-agents
+├── _workflows/                 # Workflows: feature-kickoff, lean-startup, triple-diamond, and more
+├── subagents/                  # Sub-agents (v2.16.0+; Claude Code plugin runtime components)
 ├── library/                    # Sample output library (skill-output-samples) and related corpus docs
 ├── scripts/                    # sync-claude.(sh|ps1), build-release.(sh|ps1), validate-commands.(sh|ps1)
 ├── .github/                    # CI workflows + automation scripts (validate-mcp-sync)
 ├── docs/                       # Documentation and guides
 │   ├── getting-started/        # Setup guides (index + quickstart)
 │   ├── guides/                 # How-to guides (using-skills.md, creating-pm-skills.md, mcp-integration.md)
-│   ├── reference/              # Technical specs (categories.md, ecosystem.md, project-structure.md)
+│   ├── reference/              # Technical specs (categories.md, ecosystem.md, project-structure.md, runtime-components.md)
 │   └── templates/              # Skill template (SKILL.md, TEMPLATE.md, EXAMPLE.md)
 ├── AGENTS.md                   # Universal agent discovery file
 ├── CONTRIBUTING.md             # Contribution guidelines
 └── CHANGELOG.md                # Version history
 ```
+
+**Component classes** (v2.16.0): skills (content), slash commands (verb-shaped invocation), workflows (multi-skill chains), and sub-agents (Claude Code plugin runtime components for active orchestration). Sub-agents are documented in [`docs/reference/runtime-components.md`](docs/reference/runtime-components.md).
 
 See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions.
 

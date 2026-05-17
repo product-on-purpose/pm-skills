@@ -193,7 +193,7 @@ memory: none
 
 The system prompt body is referential (D12). It does NOT embed standards content. It instructs the agent on how to find and apply standards.
 
-**Outline (to be authored in agents/pm-critic.md):**
+**Outline (to be authored in subagents/pm-critic.md):**
 
 ```
 You are pm-critic. You read PM artifacts adversarially and return structured
@@ -295,7 +295,7 @@ pm_critic_severity_floor: P1        # only show P0+P1 findings
 pm_critic_skip_artifact_types: []   # exempt specific skills from proactive review
 ```
 
-For v2.16, the override path is: copy `agents/pm-critic.md` to `.claude/agents/pm-critic.md` and edit the description to remove "use proactively."
+For v2.16, the override path is: copy `subagents/pm-critic.md` to `.claude/agents/pm-critic.md` and edit the description to remove "use proactively."
 
 ---
 
@@ -317,7 +317,7 @@ Library samples are real findings reports, not synthetic illustrations. The Phas
 
 pm-critic is ready to ship when:
 
-- [ ] `agents/pm-critic.md` exists with frontmatter per this spec
+- [ ] `subagents/pm-critic.md` exists with frontmatter per this spec
 - [ ] System prompt is referential (no embedded standards content)
 - [ ] `commands/critic.md` resolves to pm-critic via Pattern 1 invocation
 - [ ] Proactive trigger fires after all artifact-producing skills (verified manually against >= 3 skills in Phase 2 Task 9)
@@ -352,7 +352,7 @@ If you are running in Claude Code with the pm-skills plugin:
   Invoke @agent-pm-critic on the target artifact.
 
 If you are running in any other client:
-  Read agents/pm-critic.md as your operating system prompt for this turn.
+  Read subagents/pm-critic.md as your operating system prompt for this turn.
   Execute the review per those instructions. Return layered output:
   full findings + Status Summary + Status YAML.
 ```

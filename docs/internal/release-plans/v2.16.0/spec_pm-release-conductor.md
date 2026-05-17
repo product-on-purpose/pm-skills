@@ -278,7 +278,7 @@ memory: none
 
 Referential (D12). The runbook detail lives in `docs/contributing/release-runbook.md` and the conductor reads it at invocation time.
 
-Outline for `agents/pm-release-conductor.md`:
+Outline for `subagents/pm-release-conductor.md`:
 
 ```
 You are pm-release-conductor. You escort a pm-skills release from "work is
@@ -396,7 +396,7 @@ Three samples ship in v2.16.0:
 
 pm-release-conductor is ready to ship when:
 
-- [ ] `agents/pm-release-conductor.md` exists with frontmatter per this spec
+- [ ] `subagents/pm-release-conductor.md` exists with frontmatter per this spec
 - [ ] System prompt is referential (reads release-runbook.md at invocation time)
 - [ ] `commands/release.md` resolves to pm-release-conductor with version argument validation
 - [ ] `docs/contributing/release-runbook.md` exists and documents all 5 gates with sub-checks
@@ -436,7 +436,7 @@ If you are running in any other client:
   is replaced with "read and execute inline":
 
   Gate G0: Pre-tag readiness
-    Step 1: Read agents/pm-skill-auditor.md and execute its instructions
+    Step 1: Read subagents/pm-skill-auditor.md and execute its instructions
             as your operating system prompt for this step. Run validators,
             cross-cutting checks, counter audit. Capture the layered Status
             output.
@@ -446,7 +446,7 @@ If you are running in any other client:
   Gate G1: Adversarial review status (manual maintainer confirmation)
 
   Gate G2: Version bump + CHANGELOG prep
-    Step 1: Read agents/pm-changelog-curator.md and execute its instructions
+    Step 1: Read subagents/pm-changelog-curator.md and execute its instructions
             inline. Capture layered Status output.
     Step 2: Apply CHANGELOG draft + version bumps to relevant files.
 

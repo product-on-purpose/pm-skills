@@ -2,7 +2,7 @@
 
 > **For agentic workers:** Use superpowers:executing-plans. Tasks here interlock with `subagents-integration-plan.md` Task 4 (initial validate-agents-md decision) and `doc-stack-modernization-plan.md` Phase 1 Task 4 (validator suite re-run on Astro 6 spike).
 
-**Goal:** Extend CI to recognize the new `agents/` directory and the sub-agent component class. Decide between extending `validate-agents-md` or shipping a dedicated `validate-sub-agents` validator pair. Add CI checks for sub-agent invariants: companion command pairing, frontmatter shape, runtime-components.md sync, chain depth limit. Document every new or modified script per the existing `.md` companion convention.
+**Goal:** Extend CI to recognize the new `subagents/` directory and the sub-agent component class. Decide between extending `validate-agents-md` or shipping a dedicated `validate-sub-agents` validator pair. Add CI checks for sub-agent invariants: companion command pairing, frontmatter shape, runtime-components.md sync, chain depth limit. Document every new or modified script per the existing `.md` companion convention.
 
 **Architecture:** pm-skills CI ships validators as triplets: `scripts/{name}.sh` (Linux runners) + `scripts/{name}.ps1` (Windows runners) + `scripts/{name}.md` (human-facing documentation). Validators are invoked via `.github/workflows/validation.yml`. New validators land alongside existing 24+ validators; no new framework needed.
 
@@ -34,7 +34,7 @@
 - [x] v2.15.0 tagged (HEAD `a108301`)
 - [x] v2.15.1 shipped (HEAD `6f89439`, 2026-05-17): adds 3 enforcing validators (`check-landing-page-counts`, `check-workflow-generator-coverage`, `check-agents-md-command-sync`) plus 1 orchestration script (`pre-tag-validate`); validator inventory grew from 24 to 27 enforcing
 - [x] `scripts/validate-agents-md.{sh,ps1,md}` exists and is the closest analogue for the extend-vs-new decision
-- [ ] `agents/` directory exists (subagents Phase 1 Task 1)
+- [ ] `subagents/` directory exists (subagents Phase 1 Task 1)
 - [ ] Per-agent frontmatter spec ratified (in each `spec_pm-*.md`)
 
 ## v2.15.1 carry-in reconciliation (added in v2.15.2 closeout)
@@ -58,9 +58,9 @@ Plus the `scripts/pre-tag-validate.{sh,ps1,md}` orchestration script ships in v2
 This plan covers:
 
 - Decision: extend `validate-agents-md` per D19 (Phase 1 confirms feasibility)
-- Extension to `validate-agents-md.{sh,ps1}`: agents/ scan + frontmatter checks + chain-permitted allowlist enforcement (D21)
-- `check-runtime-components-sync.{sh,ps1,md}` (new; verifies `agents/` entries match `runtime-components.md` rows)
-- `check-sub-agent-command-pair.{sh,ps1,md}` (new; every agent has a companion command per `agents/_pairing.yaml`)
+- Extension to `validate-agents-md.{sh,ps1}`: subagents/ scan + frontmatter checks + chain-permitted allowlist enforcement (D21)
+- `check-runtime-components-sync.{sh,ps1,md}` (new; verifies `subagents/` entries match `runtime-components.md` rows)
+- `check-sub-agent-command-pair.{sh,ps1,md}` (new; every agent has a companion command per `subagents/_pairing.yaml`)
 - `check-em-dashes.{sh,ps1,md}` (new; codifies the canonical em-dash sweep per D27)
 - `check-aggregate-counters.{sh,ps1,md}` (new; codifies aggregate-counter re-derivation)
 - `validation.yml` workflow updates (Phase 3): add new validators in CI5 order
@@ -82,11 +82,11 @@ This plan does NOT cover:
 
 | # | Decision area | Choice |
 |---|---|---|
-| **CI1** | **Validator approach** | **RESOLVED per master plan D19: EXTEND `validate-agents-md.{sh,ps1}`** to recognize `agents/` directory and verify sub-agent invariants. Dedicated `validate-sub-agents.{sh,ps1,md}` DEFERRED to v2.17 if invariant set grows past comfortable scope. CI Phase 1 Task 1 now confirms feasibility (does not re-decide); if validate-agents-md cannot absorb the new checks without bloat, escalate to maintainer to amend D19. |
+| **CI1** | **Validator approach** | **RESOLVED per master plan D19: EXTEND `validate-agents-md.{sh,ps1}`** to recognize `subagents/` directory and verify sub-agent invariants. Dedicated `validate-sub-agents.{sh,ps1,md}` DEFERRED to v2.17 if invariant set grows past comfortable scope. CI Phase 1 Task 1 now confirms feasibility (does not re-decide); if validate-agents-md cannot absorb the new checks without bloat, escalate to maintainer to amend D19. |
 | **CI2** | **Validator triplet convention** | Every new validator ships `.sh` + `.ps1` + `.md`. The `.md` documents purpose, usage, exit codes, and examples per existing convention. |
 | **CI3** | **Enforcing vs advisory** | All new sub-agent validators ship as ENFORCING (fail-on-issue) from day one. No advisory grace period. Reasoning: the spec docs ratified the invariants; CI enforces them. |
 | **CI4** | **Strict mode flag** | New validators support `--strict` for the strictest interpretation; default behavior IS strict (CI3). The `--strict` flag exists for future-proofing only. |
-| **CI5** | **CI invocation order** | New sub-agent validators run AFTER the existing `validate-agents-md` and BEFORE `check-internal-link-validity`. Order matters because runtime-components.md sync depends on agents/ existing and on AGENTS.md being valid. |
+| **CI5** | **CI invocation order** | New sub-agent validators run AFTER the existing `validate-agents-md` and BEFORE `check-internal-link-validity`. Order matters because runtime-components.md sync depends on subagents/ existing and on AGENTS.md being valid. |
 | **CI6** | **`check-em-dashes` scope** | All tracked text files: `*.md`, `*.mdx`, `*.txt`, `*.yml`, `*.yaml`. NOT `*.json` (legitimate unicode in JSON strings). NOT `*.js`/`*.mjs`/`*.sh`/`*.ps1` (legitimate unicode in code comments handled by language-specific lints). Allowlist for documenting the rule itself (the 3 known instances in v2.16.0 specs). |
 | **CI7** | **`check-aggregate-counters` source-of-truth files** | AGENTS/claude/CONTEXT.md, AGENTS.md, README.md. Compares re-derived counts to declared counts in each. P0 finding if any divergence pre-release. |
 | **CI8** | **CI runtime budget** | New validators add < 30 seconds to the CI validation job. Measured in Phase 3. If exceeded, optimize via parallelization or skip cross-cutting checks in incremental scope. |
@@ -130,7 +130,7 @@ This plan does NOT cover:
   - Scans `commands/` similarly
   - Scans `_workflows/` similarly
 - [ ] Estimate cost of extension:
-  - Add `agents/` scan and AGENTS.md sub-agent section verification
+  - Add `subagents/` scan and AGENTS.md sub-agent section verification
   - Add per-agent frontmatter validation (name, description, tools, model, memory fields)
   - Add chain depth heuristic (does the agent have Agent tool? if so, warn)
 - [ ] Estimate cost of new validator:
@@ -152,8 +152,8 @@ This plan does NOT cover:
 
 Per master plan D19, this task EXTENDS `validate-agents-md`. The Route A (dedicated validator) option is removed.
 
-- [ ] Add `agents/` scan to `scripts/validate-agents-md.sh`:
-  - Iterate `agents/*.md` files (excluding `agents/_pairing.yaml`, `agents/_chain-permitted.yaml`, README placeholders)
+- [ ] Add `subagents/` scan to `scripts/validate-agents-md.sh`:
+  - Iterate `subagents/*.md` files (excluding `subagents/_pairing.yaml`, `subagents/_chain-permitted.yaml`, README placeholders)
   - For each agent file:
     - Validate frontmatter has required fields: `name`, `description`, `tools`, `model`, `memory`
     - Validate `name:` matches filename (`pm-critic.md` requires `name: pm-critic`)
@@ -161,10 +161,10 @@ Per master plan D19, this task EXTENDS `validate-agents-md`. The Route A (dedica
     - Validate `model:` is one of `sonnet|opus|haiku` (warn if other string)
     - Validate `memory:` is one of `none|project|user`
     - Validate `description:` is non-empty
-    - **Chain depth enforcement (HARD FAIL per master plan D21 + Codex R03):** if `Agent` appears in the `tools:` scalar AND the agent name is not present in `agents/_chain-permitted.yaml`, FAIL with message "Agent tool present in {name}.md but {name} is not in agents/_chain-permitted.yaml. This violates D21 chain-depth enforcement. Add to allowlist OR remove Agent from tools."
+    - **Chain depth enforcement (HARD FAIL per master plan D21 + Codex R03):** if `Agent` appears in the `tools:` scalar AND the agent name is not present in `subagents/_chain-permitted.yaml`, FAIL with message "Agent tool present in {name}.md but {name} is not in subagents/_chain-permitted.yaml. This violates D21 chain-depth enforcement. Add to allowlist OR remove Agent from tools."
 - [ ] Add sub-agent-section verification to AGENTS.md scan:
   - AGENTS.md has a Sub-Agents section
-  - Each `agents/*.md` file has a corresponding row in the AGENTS.md sub-agents table
+  - Each `subagents/*.md` file has a corresponding row in the AGENTS.md sub-agents table
   - Each row in AGENTS.md sub-agents table has a corresponding agent file
 - [ ] Mirror all extensions in `scripts/validate-agents-md.ps1`
 - [ ] Update `scripts/validate-agents-md.md` companion documenting:
@@ -172,14 +172,14 @@ Per master plan D19, this task EXTENDS `validate-agents-md`. The Route A (dedica
   - Chain-permitted allowlist enforcement
   - Tools syntax (comma-separated scalar)
   - Exit codes (unchanged: 0 success, 1 failure, 2 script error)
-- [ ] Run validator against current `agents/*.md` files; expect all 4 to pass with current frontmatter
+- [ ] Run validator against current `subagents/*.md` files; expect all 4 to pass with current frontmatter
 
 **Done when:** validate-agents-md extension shipped; runs green against all 4 sub-agent files; chain-permitted allowlist enforced (verified by deliberately adding `Agent` to pm-skill-auditor and confirming hard fail).
 
 ### Task 3: Ship check-runtime-components-sync.{sh,ps1,md}
 
 - [ ] Author `scripts/check-runtime-components-sync.sh`
-  - Iterates `agents/*.md` and extracts agent names
+  - Iterates `subagents/*.md` and extracts agent names
   - Reads `docs/reference/runtime-components.md` and parses the sub-agents table
   - Verifies every agent file has a corresponding row in runtime-components.md
   - Verifies every row in runtime-components.md has a corresponding agent file
@@ -193,12 +193,12 @@ Per master plan D19, this task EXTENDS `validate-agents-md`. The Route A (dedica
 ### Task 4: Ship check-sub-agent-command-pair.{sh,ps1,md}
 
 - [ ] Author `scripts/check-sub-agent-command-pair.sh`
-  - Iterates `agents/*.md` files
-  - For each agent `pm-{role}`, expects a `commands/{verb}.md` file based on the mapping defined in this plan's CI2 (or in a manifest file `agents/_pairing.yaml` for future extensibility)
+  - Iterates `subagents/*.md` files
+  - For each agent `pm-{role}`, expects a `commands/{verb}.md` file based on the mapping defined in this plan's CI2 (or in a manifest file `subagents/_pairing.yaml` for future extensibility)
   - Verifies the command exists
   - Verifies the command body references the agent name
   - Exit codes: 0 success, 1 failure
-- [ ] Pairing manifest format (proposal): `agents/_pairing.yaml` lists each agent and its companion command(s):
+- [ ] Pairing manifest format (proposal): `subagents/_pairing.yaml` lists each agent and its companion command(s):
   ```yaml
   pairings:
     pm-critic:
@@ -237,7 +237,7 @@ Per master plan D19, this task EXTENDS `validate-agents-md`. The Route A (dedica
 - [ ] Author `scripts/check-aggregate-counters.sh`
   - Re-derives skill counts: glob `skills/discover-* skills/define-* skills/develop-* skills/deliver-* skills/measure-* skills/iterate-*` for phase count; `skills/foundation-*` for foundation count; `skills/utility-*` for utility count; `skills/tool-*` for tool count; total = sum
   - Re-derives command count: glob `commands/*.md` (subtract any non-skill commands per allowlist)
-  - Re-derives sub-agent count: glob `agents/*.md`
+  - Re-derives sub-agent count: glob `subagents/*.md`
   - Reads declared counts from AGENTS.md, AGENTS/claude/CONTEXT.md, README.md
   - Compares; fails if any divergence
   - Exit codes: 0 success, 1 failure with file + declared vs derived mismatch
@@ -330,7 +330,7 @@ This plan closes when:
 - [ ] validation.yml invokes all new validators in CI5 order
 - [ ] CI runtime increment < 30 seconds (CI8)
 - [ ] All 29+ enforcing validators green on origin/main
-- [ ] `agents/_pairing.yaml` exists with all 4 sub-agent pairings
+- [ ] `subagents/_pairing.yaml` exists with all 4 sub-agent pairings
 - [ ] `scripts/check-em-dashes.allowlist` exists with 3 known intentional instances
 - [ ] `docs/contributing/ci-conventions.md` exists or is updated with new validators documented
 - [ ] All new validators support `--help` flag returning usage (existing convention)

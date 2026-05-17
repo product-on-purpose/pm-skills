@@ -41,7 +41,7 @@ The four documentation layers:
 - [x] v2.15.0 tagged (HEAD `a108301`)
 - [x] v2.15.1 shipped (HEAD `6f89439`, 2026-05-17): `docs/concepts/sprint-skills-overview.md` shipped as the prior-art template for `docs/concepts/sub-agents.md` (DC1) - same role (single front-door entry point for a new component class), same structure (taxonomy table + family / member tables + composition diagram + when-to-use guidance + naming-discipline note + where-to-go-next links). Model the new concept doc on it rather than authoring from scratch.
 - [x] v2.15.2 shipped: v2.16.0 plan reconciliation including this prerequisite addition
-- [ ] `agents/` directory scaffolded (subagents Phase 1 Task 1)
+- [ ] `subagents/` directory scaffolded (subagents Phase 1 Task 1)
 - [ ] `docs/reference/runtime-components.md` skeleton present (subagents Phase 1 Task 1)
 - [ ] `docs/guides/adversarial-review.md` shipped (subagents Phase 2 Task 7) - this plan extends, does not duplicate
 - [ ] `docs/contributing/release-runbook.md` shipped (subagents Phase 5 Task 20) - this plan extends, does not duplicate
@@ -215,7 +215,7 @@ README.md                                      [MODIFY, Phase 4]
 
 - [ ] Author the contributor guide with the following structure:
   - **Decision: should this be a sub-agent?** (reference the decision lens from sub-agents.md concept doc)
-  - **File structure** (agents/{name}.md + commands/{verb}.md + library/sub-agent-samples/{name}/ + skills/utility-pm-{role}/SKILL.md (dispatch skill per D30) + references/ + runtime-components.md row + AGENTS.md mention + spec doc in release plan)
+  - **File structure** (subagents/{name}.md + commands/{verb}.md + library/sub-agent-samples/{name}/ + skills/utility-pm-{role}/SKILL.md (dispatch skill per D30) + references/ + runtime-components.md row + AGENTS.md mention + spec doc in release plan)
   - **Frontmatter contract** (name, description, tools, model, memory fields with examples; tools is comma-separated scalar per D20)
   - **System prompt discipline: referential, not duplicative** (D12 explanation; how to read canonical contract docs at invocation time)
   - **Audience rubric: user-facing vs maintainer-facing** (D7 + D10 from strategy doc Insight 10; proactive vs explicit triggers)

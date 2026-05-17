@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Ship the first 4 plugin sub-agents for pm-skills under the new `agents/` directory: `pm-critic`, `pm-skill-auditor`, `pm-changelog-curator`, `pm-release-conductor`. Each ships with a companion slash command, library samples, supporting documentation, AND (per master plan D30, added 2026-05-16 from Q7 walkthrough) a **dispatch skill** at `skills/utility-pm-{role}/` for cross-client compatibility. The slate opens the active-orchestration layer for Claude Code users AND extends sub-agent intent to non-Claude clients via dispatch skills that detect runtime and dispatch appropriately.
+**Goal:** Ship the first 4 plugin sub-agents for pm-skills under the new `subagents/` directory: `pm-critic`, `pm-skill-auditor`, `pm-changelog-curator`, `pm-release-conductor`. Each ships with a companion slash command, library samples, supporting documentation, AND (per master plan D30, added 2026-05-16 from Q7 walkthrough) a **dispatch skill** at `skills/utility-pm-{role}/` for cross-client compatibility. The slate opens the active-orchestration layer for Claude Code users AND extends sub-agent intent to non-Claude clients via dispatch skills that detect runtime and dispatch appropriately.
 
-**Architecture:** Sub-agents are markdown files at `agents/{name}.md` with YAML frontmatter declaring `name`, `description`, `tools`, `model`, `memory`. The description field is what Claude's intent classifier matches on; it determines proactive auto-delegation behavior. Sub-agents run in their own context window with their own tool budget. They cannot self-set `hooks`, `mcpServers`, or `permissionMode` (plugin security ceiling); users who want autonomy copy the agent into `.claude/agents/`.
+**Architecture:** Sub-agents are markdown files at `subagents/{name}.md` with YAML frontmatter declaring `name`, `description`, `tools`, `model`, `memory`. The description field is what Claude's intent classifier matches on; it determines proactive auto-delegation behavior. Sub-agents run in their own context window with their own tool budget. They cannot self-set `hooks`, `mcpServers`, or `permissionMode` (plugin security ceiling); users who want autonomy copy the agent into `.claude/agents/`.
 
 **Companion slash commands** at `commands/{verb}.md` give the user a discoverable entry point. Body of each command is ~5 lines: "Use the pm-{name} agent to {do thing} on $ARGUMENTS."
 
@@ -16,13 +16,13 @@
 
 ## Status
 
-**Plan ACTIVE.** Not yet started. 28 tasks across 8 phases.
+**Plan ACTIVE.** Phase 1 COMPLETE 2026-05-17. 28 tasks across 8 phases.
 
 ### Where we are
 
 | Phase | Status | Closing commit(s) |
 |---|---|---|
-| Phase 1: Foundation infrastructure | PENDING | - |
+| Phase 1: Foundation infrastructure | COMPLETE 2026-05-17 | _pending commit_ |
 | Phase 2: Ship pm-critic | PENDING | - |
 | Phase 3: Ship pm-skill-auditor | PENDING | - |
 | Phase 4: Ship pm-changelog-curator | PENDING | - |
@@ -31,13 +31,25 @@
 | Phase 7: Documentation | PENDING | - |
 | Phase 8: Integration check | PENDING | - |
 
+### Phase 1 shipped artifacts (2026-05-17)
+
+- `subagents/` directory created at repo root (lowercase, distinct from existing `AGENTS/` uppercase) with README.md placeholder, `_pairing.yaml`, `_chain-permitted.yaml` per D29 + D21
+- `.claude-plugin/plugin.json` extended with `"agents": ["./subagents/"]` custom path declaration per master plan D31 (resolves Windows NTFS case-collision issue surfaced at execution time)
+- `docs/reference/runtime-components.md` skeleton authored with empty sub-agent catalog (rows populate as Phase 2-5 ship), Cross-Client Compatibility section per D11 amended + D30, Composition Patterns section
+- `docs/reference/project-structure.md` updated to list `subagents/` and explain the distinction from `AGENTS/`
+- `AGENTS.md` Sub-Agents section added with cross-client compat note pointing to runtime-components.md
+- `README.md` Project Structure tree updated to include subagents/ and runtime-components.md; component-class list updated to include sub-agents
+- Validator inspection (Task 4): EXTEND validate-agents-md per D19 (implementation deferred to ci-plan Phase 2 Task 1; design wrinkle around NAME-based vs PATH-based check documented)
+- Master plan D31 amendment authored (Ratified Decisions table + D4 amended + Decisions Index + count totals updated)
+- Plan-set sweep across all 11 v2.16.0 plan files: `agents/` -> `subagents/` (140 occurrences), `.claude/agents/` and `.agents/skills/` preserved
+
 ### What's next
 
-Phase 1 Task 1: scaffold the `agents/` directory and the runtime-components.md skeleton.
+Phase 2 Task 5: author `subagents/pm-critic.md` per `spec_pm-critic.md`.
 
 ### Estimated remaining
 
-6-9 sessions across 8 phases. Phase 2 is the critical-path observation point: if pm-critic doesn't behave well against real PM artifacts, Phases 3-5 amend before authoring.
+5-8 sessions across remaining 7 phases (Phase 1 complete; previously estimated 6-9 including Phase 1). Phase 2 is the critical-path observation point: if pm-critic doesn't behave well against real PM artifacts, Phases 3-5 amend before authoring.
 
 ---
 
@@ -58,14 +70,14 @@ Phase 1 Task 1: scaffold the `agents/` directory and the runtime-components.md s
 
 This plan covers:
 
-- New top-level `agents/` directory + Claude Code plugin sub-agent convention adoption
-- 4 sub-agent definition files (`agents/pm-critic.md`, `agents/pm-skill-auditor.md`, `agents/pm-changelog-curator.md`, `agents/pm-release-conductor.md`)
+- New top-level `subagents/` directory + Claude Code plugin sub-agent convention adoption
+- 4 sub-agent definition files (`subagents/pm-critic.md`, `subagents/pm-skill-auditor.md`, `subagents/pm-changelog-curator.md`, `subagents/pm-release-conductor.md`)
 - 4 companion slash commands (`commands/critic.md`, `commands/audit-repo.md`, `commands/draft-changelog.md`, `commands/release.md`)
 - 12 library samples (3 per sub-agent, thread-aligned where applicable)
 - New documentation surface: `docs/reference/runtime-components.md`, `docs/guides/adversarial-review.md`, `docs/contributing/release-runbook.md`
 - AGENTS.md Sub-Agents section
 - README.md What's New + Sub-Agents mention
-- CI updates: `validate-agents-md` recognition of `agents/` directory (or a new validator if needed)
+- CI updates: `validate-agents-md` recognition of `subagents/` directory (or a new validator if needed)
 - Optional: `validate-sub-agents.{sh,ps1}` validator pair if pattern proves out
 
 This plan does NOT cover:
@@ -84,10 +96,10 @@ These decisions are inherited from `plan_v2.16.0.md` D1-D18. Sub-plan-specific d
 
 | # | Decision area | Ratified decision | Authored into |
 |---|---|---|---|
-| **SI1** | **agents/ directory layout** | Flat: `agents/{name}.md`. No namespace prefix in v2.16. | Phase 1 Task 1 |
+| **SI1** | **subagents/ directory layout** | Flat: `subagents/{name}.md`. No namespace prefix in v2.16. | Phase 1 Task 1 |
 | **SI2** | **Sub-agent naming convention** | `pm-{role}` (matches existing `utility-pm-*` pattern). All 4 use `pm-` prefix. | Per spec docs |
 | **SI3** | **Companion command naming** | Verb-shaped: `/critic`, `/audit-repo`, `/draft-changelog`, `/release`. NOT `pm-` prefixed (commands stay verb-shaped per existing convention). | Phase 2-5 |
-| **SI4** | **Sub-agent CI recognition** | **Inherits master plan D19:** EXTEND `validate-agents-md.{sh,ps1}` to recognize `agents/` directory and verify sub-agent invariants. New dedicated `validate-sub-agents.{sh,ps1}` DEFERRED to v2.17 if invariant set grows past comfortable scope. CI plan Phase 1 Task 1 inspects current scope and confirms feasibility before authoring. | Phase 1 Task 4 + master plan D19 |
+| **SI4** | **Sub-agent CI recognition** | **Inherits master plan D19:** EXTEND `validate-agents-md.{sh,ps1}` to recognize `subagents/` directory and verify sub-agent invariants. New dedicated `validate-sub-agents.{sh,ps1}` DEFERRED to v2.17 if invariant set grows past comfortable scope. CI plan Phase 1 Task 1 inspects current scope and confirms feasibility before authoring. | Phase 1 Task 4 + master plan D19 |
 | **SI5** | **Sample-coverage tier for sub-agents** | Tier 0 (one per sub-agent against real artifacts) for v2.16.0 ship. Three samples per sub-agent ships in Phase 6 (thread-aligned where applicable). Tier 1+ deferred to v2.17. | Phase 6 |
 | **SI6** | **Adversarial review of integration plan** | Run Phase 0 review against this plan + spec docs after Phase 2 (post-pm-critic ship) AND at end of cycle. Two checkpoints. | Phase 2 + Phase 8 |
 | **SI7** | **Slash command frontmatter** | All 4 commands use the standard pm-skills command convention: `description:` field, optional `argument-hint:`. No new frontmatter fields. | Phase 2-5 |
@@ -100,10 +112,10 @@ These decisions are inherited from `plan_v2.16.0.md` D1-D18. Sub-plan-specific d
 ### Files to create (40+ new files; was 28 before Q7 added dispatch skills)
 
 **Sub-agents (4 files)**
-- `agents/pm-critic.md`
-- `agents/pm-skill-auditor.md`
-- `agents/pm-changelog-curator.md`
-- `agents/pm-release-conductor.md`
+- `subagents/pm-critic.md`
+- `subagents/pm-skill-auditor.md`
+- `subagents/pm-changelog-curator.md`
+- `subagents/pm-release-conductor.md`
 
 **Slash commands (4 files)**
 - `commands/critic.md`
@@ -153,20 +165,20 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 - `AGENTS.md` (add Sub-Agents section)
 - `README.md` (add What's New + Sub-Agents component class mention)
-- `scripts/validate-agents-md.sh` + `.ps1` (extend to recognize agents/ directory if it scans skill/command/workflow paths)
+- `scripts/validate-agents-md.sh` + `.ps1` (extend to recognize subagents/ directory if it scans skill/command/workflow paths)
 - `.claude-plugin/plugin.json` (no schema change; only if plugin manifest needs sub-agent declarations - verify against Claude Code plugin docs)
-- `docs/reference/project-structure.md` (add agents/ directory entry)
+- `docs/reference/project-structure.md` (add subagents/ directory entry)
 
 ---
 
 ## Phase 1: Foundation Infrastructure (4 tasks)
 
-**Goal:** Land the `agents/` directory convention, runtime-components.md skeleton, AGENTS.md Sub-Agents section, and CI recognition before any individual sub-agent ships. Phase 1 is intentionally bare metal: no sub-agent definitions yet, just the surface they will land into.
+**Goal:** Land the `subagents/` directory convention, runtime-components.md skeleton, AGENTS.md Sub-Agents section, and CI recognition before any individual sub-agent ships. Phase 1 is intentionally bare metal: no sub-agent definitions yet, just the surface they will land into.
 
-### Task 1: Scaffold agents/ directory, pairing manifest, chain-permitted allowlist, runtime-components.md skeleton
+### Task 1: Scaffold subagents/ directory, pairing manifest, chain-permitted allowlist, runtime-components.md skeleton
 
-- [ ] Create `agents/` directory at repo root (empty for now; `.gitkeep` or placeholder README)
-- [ ] Create `agents/_pairing.yaml` (added per Codex R12 + master plan D29) with the 4 sub-agent + slash command pairings:
+- [ ] Create `subagents/` directory at repo root (empty for now; `.gitkeep` or placeholder README)
+- [ ] Create `subagents/_pairing.yaml` (added per Codex R12 + master plan D29) with the 4 sub-agent + slash command pairings:
   ```yaml
   pairings:
     pm-critic:
@@ -178,7 +190,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
     pm-release-conductor:
       commands: [release]
   ```
-- [ ] Create `agents/_chain-permitted.yaml` (added per master plan D21) with the explicit Agent-tool allowlist:
+- [ ] Create `subagents/_chain-permitted.yaml` (added per master plan D21) with the explicit Agent-tool allowlist:
   ```yaml
   # Sub-agents permitted to have `Agent` in their tools list.
   # Adding an entry here is a security-relevant change requiring review.
@@ -194,9 +206,9 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
   - **Cross-Client Compatibility section (per D11 amended + D30):** documents single-tool user assumption; explains dispatch skill mechanism; clarifies codex-rescue is optional shortcut not baseline; lists which sub-agents have dispatch skills (post-Phase 2 spike)
   - Composition patterns (link to strategy doc; brief summary; note "reference + execute inline" pattern for conductor on non-Claude clients)
 - [ ] Add `docs/reference/runtime-components.md` to the Starlight sidebar config in `astro.config.mjs`
-- [ ] Update `docs/reference/project-structure.md` to mention `agents/` directory + `_pairing.yaml` + `_chain-permitted.yaml`
+- [ ] Update `docs/reference/project-structure.md` to mention `subagents/` directory + `_pairing.yaml` + `_chain-permitted.yaml`
 
-**Done when:** `agents/` exists in git with both YAML manifests; runtime-components.md renders in Astro build; sidebar entry visible; pairing + chain-permitted manifests cover all 4 v2.16 sub-agents.
+**Done when:** `subagents/` exists in git with both YAML manifests; runtime-components.md renders in Astro build; sidebar entry visible; pairing + chain-permitted manifests cover all 4 v2.16 sub-agents.
 
 ### Task 2: Add Sub-Agents section to AGENTS.md
 
@@ -214,15 +226,17 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Done when:** README mentions sub-agents as a v2.16.0-introduced component class.
 
-### Task 4: Decide and ship CI recognition for agents/
+### Task 4: Decide and ship CI recognition for subagents/
 
-- [ ] Inspect `scripts/validate-agents-md.{sh,ps1}` to determine whether it currently scans skill/command/workflow paths and whether agents/ should be added
-- [ ] Decision A: extend validate-agents-md.{sh,ps1} to scan agents/ and verify AGENTS.md references match
-- [ ] Decision B: create new `scripts/validate-sub-agents.{sh,ps1,md}` for sub-agent-specific checks (frontmatter fields, naming convention, tools-list-not-empty, etc.)
-- [ ] Default recommendation: extend validate-agents-md (cheaper); defer dedicated validator to v2.17 if pattern accumulates
-- [ ] Update `.github/workflows/validation.yml` if new validator added
+- [x] **Inspect `scripts/validate-agents-md.{sh,ps1}`** (2026-05-17): current validator scans `skills/*` directories and greps AGENTS.md for `skills/[a-z0-9-]+/SKILL\.md` patterns (60 lines, .sh + .ps1 mirrors). It currently does NOT scan workflows/, commands/, or subagents/. Extension to scan subagents/ is structurally symmetric to the existing skills/ scan: enumerate `subagents/*.md` files (excluding `_pairing.yaml`, `_chain-permitted.yaml`, README.md), grep AGENTS.md, check sync.
+- [x] **Decision (ratifies master plan D19):** EXTEND validate-agents-md per D19. Decision B (new dedicated validator) DEFERRED to v2.17 if invariant set grows past comfortable scope.
+- [x] **Design wrinkle identified for ci-plan implementation:** AGENTS.md references sub-agents by NAME (not path) per D5 + D12 (referential discipline; runtime-components.md is canonical catalog). The extension cannot clone the skills-path-grep pattern directly; it must either (a) grep AGENTS.md for sub-agent NAMES (e.g., `pm-critic`, `pm-skill-auditor`, etc. in the Sub-Agents section), OR (b) shift to grep runtime-components.md for path references. Design choice is captured in ci-plan Phase 2 Task 1 with current preference: (a) NAME-based check against AGENTS.md Sub-Agents section + path-based check against runtime-components.md table.
+- [x] **Phase 1 baseline current-state verification:** empty subagents/*.md (only manifests + README.md exist after Phase 1 Task 1) means validate-agents-md is currently a no-op for subagents/. Existing CI is green. The empty subagents/ baseline is preserved through Phase 1.
+- [DEFERRED to ci-plan Phase 2 Task 1] Actual extension code: scan subagents/*.md, verify AGENTS.md + runtime-components.md references match, chain-permitted allowlist enforcement (D21 HARD FAIL), `tools:` scalar form check (D20). Plus `.github/workflows/validation.yml` update if needed.
 
-**Done when:** CI catches an unreferenced agents/ entry; CI runs green on the empty agents/ directory baseline.
+**Done when:** CI catches an unreferenced subagents/ entry; CI runs green on the empty subagents/ directory baseline.
+
+**Phase 1 status (2026-05-17):** Decision ratified per D19; current CI baseline is green with empty subagents/ catalog; implementation of the extension itself is owned by ci-plan Phase 2 Task 1 and lands BEFORE Phase 2 ships pm-critic.md (so the first sub-agent file lands against an extended validator).
 
 ---
 
@@ -230,14 +244,14 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Goal:** First sub-agent. Single file plus companion slash command plus 1 library sample plus user-facing guide. Critical-path observation point: exercise pm-critic against real v2.15.0 PM artifacts before committing to Phases 3-5.
 
-### Task 5: Author agents/pm-critic.md
+### Task 5: Author subagents/pm-critic.md
 
-- [ ] Create `agents/pm-critic.md` with frontmatter per `spec_pm-critic.md` section "Frontmatter"
+- [ ] Create `subagents/pm-critic.md` with frontmatter per `spec_pm-critic.md` section "Frontmatter"
 - [ ] System prompt body authored per spec doc section "System Prompt Structure"
 - [ ] Verify referential-prompt discipline (no embedded standards content; reads canonical docs at invocation time)
 - [ ] Verify proactive trigger language: `description:` includes "use proactively after any PM-artifact-producing skill"
 
-**Done when:** agents/pm-critic.md exists; frontmatter validates; system prompt is referential.
+**Done when:** subagents/pm-critic.md exists; frontmatter validates; system prompt is referential.
 
 ### Task 6: Author commands/critic.md
 
@@ -296,7 +310,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
   **If you are running in any other client** (Codex CLI, Cursor, Windsurf,
   Gemini CLI, Copilot, ChatGPT, etc.):
-  Read the canonical agent definition at `agents/pm-critic.md`. Execute the
+  Read the canonical agent definition at `subagents/pm-critic.md`. Execute the
   system prompt body in that file as your operating instructions for this
   turn. Read the target artifact. Return findings graded P0/P1/P2/P3 with
   concrete fix suggestions, formatted per the guide at
@@ -306,7 +320,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
   ```
 - [ ] Author `references/TEMPLATE.md` and `references/EXAMPLE.md` for the dispatch skill (TEMPLATE describes the findings format; EXAMPLE shows a real dispatch run)
 - [ ] Test on Claude Code: invoke `/utility-pm-critic` or the equivalent skill invocation; verify it dispatches to `@agent-pm-critic` cleanly
-- [ ] Test on a non-Claude client (Codex CLI or Cursor or equivalent): invoke the skill; verify the AI reads `agents/pm-critic.md` and executes inline; verify findings are produced; verify the layered Status structure is present
+- [ ] Test on a non-Claude client (Codex CLI or Cursor or equivalent): invoke the skill; verify the AI reads `subagents/pm-critic.md` and executes inline; verify findings are produced; verify the layered Status structure is present
 - [ ] Record dispatch reliability observations: did the AI detect runtime correctly? Did it execute inline cleanly? Any drift or weirdness?
 
 **Combined update to runtime-components.md:**
@@ -328,14 +342,14 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Goal:** Repo-level cross-cutting governance sub-agent. Explicit-only. Foundation for the conductor's G0 audit gate.
 
-### Task 10: Author agents/pm-skill-auditor.md
+### Task 10: Author subagents/pm-skill-auditor.md
 
-- [ ] Create `agents/pm-skill-auditor.md` per `spec_pm-skill-auditor.md` section "Frontmatter" and "System Prompt Structure"
+- [ ] Create `subagents/pm-skill-auditor.md` per `spec_pm-skill-auditor.md` section "Frontmatter" and "System Prompt Structure"
 - [ ] Tools list: Bash (validator invocation), Read, Grep, Glob
 - [ ] Memory: none (default per D13)
 - [ ] No proactive trigger (explicit only per D7)
 
-**Done when:** agents/pm-skill-auditor.md exists; frontmatter validates; description is explicit-only.
+**Done when:** subagents/pm-skill-auditor.md exists; frontmatter validates; description is explicit-only.
 
 ### Task 11: Author commands/audit-repo.md
 
@@ -356,7 +370,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 - [ ] Run pm-skill-auditor (native invocation) against origin/main HEAD
 - [ ] Verify it surfaces at least 1 real cross-cutting issue or confirms clean state
-- [ ] **CONDITIONAL on Phase 2 GATE B success:** Author `skills/utility-pm-skill-auditor/SKILL.md` + references/ per dispatch skill pattern (mirroring `skills/utility-pm-critic/`). System prompt body references `agents/pm-skill-auditor.md`. Includes layered output structure (full audit findings + Status Summary + Status YAML).
+- [ ] **CONDITIONAL on Phase 2 GATE B success:** Author `skills/utility-pm-skill-auditor/SKILL.md` + references/ per dispatch skill pattern (mirroring `skills/utility-pm-critic/`). System prompt body references `subagents/pm-skill-auditor.md`. Includes layered output structure (full audit findings + Status Summary + Status YAML).
 - [ ] Test dispatch skill on Claude Code + at least one non-Claude client
 - [ ] Update runtime-components.md with pm-skill-auditor row + dispatch skill reference
 
@@ -368,9 +382,9 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Goal:** CHANGELOG drafter from git log. Pairs with conductor at G2. Encodes CLAUDE.md hygiene rules.
 
-### Task 14: Author agents/pm-changelog-curator.md
+### Task 14: Author subagents/pm-changelog-curator.md
 
-- [ ] Create `agents/pm-changelog-curator.md` per `spec_pm-changelog-curator.md`
+- [ ] Create `subagents/pm-changelog-curator.md` per `spec_pm-changelog-curator.md`
 - [ ] System prompt references `CLAUDE.md` CHANGELOG hygiene section (D12 referential discipline)
 - [ ] Tools: Bash (git log), Read, Grep
 
@@ -397,7 +411,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 - [ ] Verify output describes what changed (not where internal files are)
 - [ ] Verify dirty-tree refusal (added per Codex R06 / D25): deliberately introduce uncommitted changes and confirm curator refuses
 - [ ] Verify layered output structure (full draft + Status Summary + Status YAML) per Q6 reconsideration
-- [ ] **CONDITIONAL on Phase 2 GATE B success:** Author `skills/utility-pm-changelog-curator/SKILL.md` + references/ per dispatch skill pattern. System prompt body references `agents/pm-changelog-curator.md`.
+- [ ] **CONDITIONAL on Phase 2 GATE B success:** Author `skills/utility-pm-changelog-curator/SKILL.md` + references/ per dispatch skill pattern. System prompt body references `subagents/pm-changelog-curator.md`.
 - [ ] Test dispatch skill on Claude Code + at least one non-Claude client
 - [ ] Update runtime-components.md with pm-changelog-curator row + dispatch skill reference
 
@@ -409,9 +423,9 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Goal:** Guided release runbook with 5 gates. Chains to auditor + curator. Most complex sub-agent in the slate.
 
-### Task 18: Author agents/pm-release-conductor.md
+### Task 18: Author subagents/pm-release-conductor.md
 
-- [ ] Create `agents/pm-release-conductor.md` per `spec_pm-release-conductor.md`
+- [ ] Create `subagents/pm-release-conductor.md` per `spec_pm-release-conductor.md`
 - [ ] Tools: Bash, Read, Edit, Grep, Glob, Agent (Agent required for sub-agent chains)
 - [ ] System prompt encodes all 5 gates with explicit confirmation pauses
 - [ ] G0 gate references pm-skill-auditor; G2 gate references pm-changelog-curator (chain composition)
@@ -564,7 +578,7 @@ To be checked at Phase 8 Task 28:
 | **SR4** | **Library samples become stale.** Samples reference v2.15.0 artifacts; new versions arrive; samples mismatch. | Samples include a header noting which v2.X.Y of source artifacts they were generated against. v2.17 pm-sample-curator (deferred) closes this gap structurally. |
 | **SR5** | **Codex-side parity gap.** Sub-agents are Claude-only; Codex users lose access. | Each spec doc includes a Codex parity section. adversarial-review.md and release-runbook.md document the `codex:codex-rescue` prompt template path for Codex users. |
 | **SR6** | **Plugin sub-agent security ceiling surprises.** Sub-agents can't self-set hooks, mcpServers, permissionMode. | Documented in master plan and in each spec doc. Agents that benefit from autonomy (none in v2.16) get a documented copy-out path. |
-| **SR7** | **validate-agents-md may not recognize agents/ directory.** | Phase 1 Task 4 inspects current behavior and ships either extension or new validator before any agent file lands. |
+| **SR7** | **validate-agents-md may not recognize subagents/ directory.** | Phase 1 Task 4 inspects current behavior and ships either extension or new validator before any agent file lands. |
 
 ---
 
