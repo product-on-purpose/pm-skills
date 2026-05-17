@@ -44,7 +44,7 @@ v2.16.0 begins from this baseline. Two open Dependabot alerts on origin/main, bo
 
 **Active Orchestration + Doc-Stack Modernization.**
 
-The repo today is a strong **content library** (55 skills + 60+ commands + 9 workflows + 24 enforcing validators) with **zero active orchestration** (zero sub-agents, zero hooks, zero output styles). v2.16.0 opens the orchestration layer with the first sub-agents while paying down the most critical infrastructure debt from v2.14.x.
+The repo today is a strong **content library** (55 skills + 62 commands + 12 workflows + 27 enforcing validators) with **zero active orchestration** (zero sub-agents, zero hooks, zero output styles). v2.16.0 opens the orchestration layer with the first sub-agents while paying down the most critical infrastructure debt from v2.14.x.
 
 Theme breakdown:
 
@@ -72,7 +72,7 @@ This release commits the v2.16.0 scope from those drafts. The roadmap's v2.17.0 
 - [x] Sub-agent strategy + implementation plan authored in `_working/` (May 7-10)
 - [x] Phase 0 Adversarial Review pattern proven across 2 review cycles in v2.15.0
 - [x] CHANGELOG hygiene rules codified in `CLAUDE.md` (foundation for pm-changelog-curator)
-- [x] All 24 enforcing validators stable on origin/main (foundation for pm-skill-auditor)
+- [x] All 27 enforcing validators stable on origin/main (foundation for pm-skill-auditor; was 24 at v2.15.0 tag, +3 from v2.15.1: `check-landing-page-counts --strict`, `check-workflow-generator-coverage`, `check-agents-md-command-sync`)
 - [x] Release runbook conventions captured across recent release plans (foundation for pm-release-conductor)
 - [ ] GitHub Release UI body authored for v2.15.0 tag (post-tag follow-up; does not block v2.16.0)
 

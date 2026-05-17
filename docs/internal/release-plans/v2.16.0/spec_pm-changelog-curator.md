@@ -28,6 +28,8 @@ Read `git log` since the last tag and draft CHANGELOG entries applying the repo'
 
 Distinguishing a public-facing change from an internal-only change is judgment, not pattern matching. Applying the "what changed, not where" rule is rewriting, not extracting. That is why this is a sub-agent and not a script.
 
+**Canonical exemplars (v2.15.1 + v2.15.2 carry-in):** the v2.15.1 and v2.15.2 CHANGELOG entries (in root `CHANGELOG.md`) are the cleanest worked examples of the conventions this sub-agent applies: Keep-a-Changelog section headers (Added / Changed / Fixed / Documentation / Known limitations); per-item finding-ID cross-references back to source audit / plan docs; explicit "carry-forward to vN+1" subsections; no Claude attribution trailers; no em-dashes; no gitignored path references. The `docs/releases/Release_v2.15.1.md` and `docs/releases/Release_v2.15.2.md` files extend the same conventions to the longer-form Astro Starlight release notes that pair with the CHANGELOG entries. pm-changelog-curator drafts SHOULD model their structure on these exemplars.
+
 ---
 
 ## Behavior Contract

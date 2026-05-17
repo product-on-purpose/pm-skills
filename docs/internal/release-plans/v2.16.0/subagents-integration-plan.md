@@ -44,8 +44,10 @@ Phase 1 Task 1: scaffold the `agents/` directory and the runtime-components.md s
 ## Prerequisites
 
 - [x] v2.15.0 tagged and shipped (HEAD `a108301`)
+- [x] v2.15.1 patch shipped (HEAD `6f89439`, 2026-05-17): post-tag audit remediation; +3 enforcing validators + 1 orchestration script
+- [x] v2.15.2 closeout shipped: cycle closure + v2.16.0 plan reconciliation
 - [x] Sub-agent strategy + implementation plan authored in `_working/` (May 7-10)
-- [x] All 24 enforcing validators stable on origin/main
+- [x] All 27 enforcing validators stable on origin/main (was 24 at v2.15.0 tag; +3 from v2.15.1)
 - [x] Phase 0 Adversarial Review pattern proven across 2 v2.15.0 review cycles
 - [x] Master plan ratified decisions D1-D18 (see `plan_v2.16.0.md`)
 - [ ] All 4 spec docs reviewed (`spec_pm-critic.md`, `spec_pm-skill-auditor.md`, `spec_pm-changelog-curator.md`, `spec_pm-release-conductor.md`)

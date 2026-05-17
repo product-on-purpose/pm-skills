@@ -39,6 +39,8 @@ The four documentation layers:
 ## Prerequisites
 
 - [x] v2.15.0 tagged (HEAD `a108301`)
+- [x] v2.15.1 shipped (HEAD `6f89439`, 2026-05-17): `docs/concepts/sprint-skills-overview.md` shipped as the prior-art template for `docs/concepts/sub-agents.md` (DC1) - same role (single front-door entry point for a new component class), same structure (taxonomy table + family / member tables + composition diagram + when-to-use guidance + naming-discipline note + where-to-go-next links). Model the new concept doc on it rather than authoring from scratch.
+- [x] v2.15.2 shipped: v2.16.0 plan reconciliation including this prerequisite addition
 - [ ] `agents/` directory scaffolded (subagents Phase 1 Task 1)
 - [ ] `docs/reference/runtime-components.md` skeleton present (subagents Phase 1 Task 1)
 - [ ] `docs/guides/adversarial-review.md` shipped (subagents Phase 2 Task 7) - this plan extends, does not duplicate

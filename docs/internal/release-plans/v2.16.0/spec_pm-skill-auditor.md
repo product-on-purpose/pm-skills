@@ -34,7 +34,7 @@ Each validator catches its own narrow class of issue. **Nobody is currently swee
 
 ### What pm-skill-auditor does
 
-- Invokes the enforcing validator suite (lint-skills-frontmatter, validate-commands, validate-agents-md, check-mcp-impact, validate-meeting-skills-family, validate-foundation-sprint-skills-family, validate-design-sprint-skills-family, check-internal-link-validity, validate-docs-frontmatter, check-no-body-h1, check-count-consistency, check-version-references, check-context-currency, plus all others in `scripts/`)
+- Invokes the enforcing validator suite (lint-skills-frontmatter, validate-commands, validate-agents-md, check-mcp-impact, validate-meeting-skills-family, validate-foundation-sprint-skills-family, validate-design-sprint-skills-family, check-internal-link-validity, validate-docs-frontmatter, check-no-body-h1, check-count-consistency, check-version-references, check-context-currency, **check-landing-page-counts** (v2.15.1), **check-workflow-generator-coverage** (v2.15.1), **check-agents-md-command-sync** (v2.15.1), plus all others in `scripts/`). The auditor SHOULD invoke `scripts/pre-tag-validate.{sh,ps1}` as the canonical orchestration entry point when running the full bundle, rather than re-implementing the validator inventory.
 - Aggregates validator outputs into a single report
 - Runs cross-cutting checks that no validator does alone (see catalog below)
 - Re-derives aggregate counters (skill counts, command counts, sub-agent counts, validator counts) and compares to declared values in CONTEXT.md, AGENTS.md, README.md
@@ -139,7 +139,7 @@ pm-skill-auditor refuses to produce a clean audit when:
 | Utility skills | 6 | 6 | YES |
 | Tool skills | 15 | 15 | YES |
 | Sub-agents | 4 | 4 | YES |
-| Enforcing validators | 25 | 25 | YES |
+| Enforcing validators | 27 | 27 | YES |
 | Family contracts | 3 | 3 | YES |
 
 ## Disposition recommendations

@@ -63,12 +63,14 @@ This is the most complex sub-agent in the v2.16.0 slate. It has the largest tool
 
 #### G0: Pre-tag readiness
 
+**Implementation note (v2.15.1 carry-in):** the canonical implementation of sub-checks 2 + 4 + 5 is `scripts/pre-tag-validate.{sh,ps1}` (shipped v2.15.1; required Section 0 of `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`). The conductor SHOULD invoke that orchestration script rather than re-implement the 14-validator inventory inline. The script returns exit 0 only when every enforcing validator (including count-consistency, generated-content-untouched, all family validators with --strict, and the 3 v2.15.1 preventive validators) passes.
+
 **Sub-checks** (all must pass):
 
 1. **Working tree clean** - no uncommitted changes (`git status --porcelain` empty)
-2. **CI green on current HEAD** - all enforcing validators pass; latest GitHub Actions run for this SHA is success
+2. **Pre-tag validator bundle green** - run `bash scripts/pre-tag-validate.sh` (or pwsh equivalent); exit 0 required; combines CI-green-equivalent + landing-page count assertion + workflow-generator coverage + AGENTS.md command-sync into one signal
 3. **em-dash sweep clean** - run `scripts/check-em-dashes` (the canonical implementation per master plan D27); scope and allowlist owned by that script; zero non-allowlisted hits required
-4. **Aggregate counters match declared** - re-derive skill count, command count, sub-agent count, validator count, family count; compare to CONTEXT.md, AGENTS.md, README.md declared values; zero drift
+4. **Aggregate counters match declared** - re-derive skill count, command count, sub-agent count, validator count, family count; compare to CONTEXT.md, AGENTS.md, README.md declared values; zero drift. (Per v2.15.x carry-in reconciliation in ci-plan.md, this check should EXTEND `check-landing-page-counts` to cover the 3 internal-context surfaces, not ship a parallel `check-aggregate-counters` validator.)
 5. **Cross-cutting audit via pm-skill-auditor** - chain invocation; auditor returns its findings; zero P0 findings required to advance; P1+P2+P3 are surfaced for maintainer judgment
 6. **Required files exist** - `docs/internal/release-plans/v{target}/plan_v{target}.md` exists and is marked READY TO TAG (or equivalent status); release notes draft exists or is scheduled
 

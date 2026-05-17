@@ -30,6 +30,8 @@ Read any PM artifact adversarially and return structured findings graded P0/P1/P
 
 The defining property: pm-critic is invoked **after** an artifact exists. It is not a co-author; it is a reviewer with adversarial framing. A skill that self-reviews has a perverse incentive (pretend the output is good). A separate sub-agent does not.
 
+**Canonical exemplar (v2.15.1 carry-in):** [`docs/internal/release-plans/v2.15.x/audit_v2.15.x_post-tag-self-review.md`](../v2.15.x/audit_v2.15.x_post-tag-self-review.md) is the canonical example of the output shape pm-critic should produce when reviewing a release-state artifact: 18 findings across P0 / P1 / P2 / P3 / INFO buckets, each with a Decision Brief (what / why / outcomes / alternatives / recommendation / maintainer slot), a cross-cut category view, a recommended phasing plan, and explicit open questions for the maintainer. pm-critic working on PM artifacts (PRDs, OKR sets, personas) produces a narrower-scope but same-shape artifact.
+
 ---
 
 ## Behavior Contract
