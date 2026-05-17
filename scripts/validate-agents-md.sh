@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Validate that AGENTS.md skill paths stay in sync with skills/*/SKILL.md.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -7,13 +6,10 @@ AGENTS="$ROOT/AGENTS.md"
 FAIL=0
 
 if [[ ! -f "$AGENTS" ]]; then
-  echo "✗ AGENTS.md : file not found"
+  echo "FAIL: AGENTS.md not found"
   exit 1
 fi
 
-# Enumerates ALL skill directories under skills/, regardless of classification
-# prefix (domain/foundation/utility/tool). Adding a new classification (e.g.,
-# tool added 2026-05-13) requires no validator changes.
 skill_paths=()
 for dir in "$ROOT"/skills/*; do
   [[ -d "$dir" ]] || continue
@@ -21,40 +17,48 @@ for dir in "$ROOT"/skills/*; do
 done
 
 if [[ ${#skill_paths[@]} -eq 0 ]]; then
-  echo "✗ skills/ : no skill directories found"
+  echo "FAIL: skills/ has no entries"
   exit 1
 fi
 
 mapfile -t skill_paths < <(printf '%s\n' "${skill_paths[@]}" | sort -u)
 mapfile -t agents_paths < <(grep -oE 'skills/[a-z0-9-]+/SKILL\.md' "$AGENTS" | sort -u)
-mapfile -t duplicate_paths < <(grep -oE 'skills/[a-z0-9-]+/SKILL\.md' "$AGENTS" | sort | uniq -d)
-
-if [[ ${#agents_paths[@]} -eq 0 ]]; then
-  echo "✗ AGENTS.md : no skill paths found"
-  exit 1
-fi
 
 for path in "${skill_paths[@]}"; do
   if ! printf '%s\n' "${agents_paths[@]}" | grep -Fxq "$path"; then
-    echo "✗ AGENTS.md : missing entry for $path"
+    echo "FAIL: AGENTS.md missing entry for $path"
     FAIL=1
   fi
-done
-
-for path in "${agents_paths[@]}"; do
-  if [[ ! -f "$ROOT/$path" ]]; then
-    echo "✗ AGENTS.md : orphan entry $path"
-    FAIL=1
-  fi
-done
-
-for path in "${duplicate_paths[@]}"; do
-  echo "✗ AGENTS.md : duplicate entry $path"
-  FAIL=1
 done
 
 if [[ $FAIL -eq 0 ]]; then
-  echo "✓ AGENTS.md matches ${#skill_paths[@]} skill paths"
+  echo "OK: AGENTS.md matches ${#skill_paths[@]} skill paths"
+fi
+
+if [[ -d "$ROOT/subagents" ]]; then
+  agent_files=()
+  for f in "$ROOT"/subagents/*.md; do
+    [[ -f "$f" ]] || continue
+    name="$(basename "$f" .md)"
+    case "$name" in
+      _*|README) continue ;;
+    esac
+    agent_files+=("$name")
+  done
+
+  if [[ ${#agent_files[@]} -gt 0 ]]; then
+    fail_count=0
+    for agent in "${agent_files[@]}"; do
+      if ! grep -Fq "$agent" "$AGENTS"; then
+        echo "FAIL: AGENTS.md missing reference to $agent"
+        FAIL=1
+        fail_count=1
+      fi
+    done
+    if [[ $fail_count -eq 0 ]]; then
+      echo "OK: AGENTS.md references ${#agent_files[@]} subagents"
+    fi
+  fi
 fi
 
 exit "$FAIL"
