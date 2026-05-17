@@ -38,7 +38,7 @@ v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents
 
 | Sub-agent | Audience | Trigger | Lifetime | Tool Surface | Composition | Dispatch Skill |
 |---|---|---|---|---|---|---|
-| `pm-critic` | _to be populated in Phase 2_ | _Phase 2_ | _Phase 2_ | _Phase 2_ | _Phase 2_ | _Phase 2 GATE B_ |
+| `pm-critic` | User (PM authoring artifacts) | Proactive after PM-artifact-producing skills (Claude Code) + explicit `/critic` | Single turn | Read, Grep, Glob (no write; no Bash) | Skill-revise-recheck loop with deliver-prd, foundation-okr-writer, foundation-meeting-recap, foundation-persona, foundation-lean-canvas, discover-interview-synthesis, etc. | `skills/utility-pm-critic/` (GATE B PENDING maintainer test on non-Claude clients) |
 | `pm-skill-auditor` | _to be populated in Phase 3_ | _Phase 3_ | _Phase 3_ | _Phase 3_ | _Phase 3_ | _Phase 3 (conditional on GATE B)_ |
 | `pm-changelog-curator` | _to be populated in Phase 4_ | _Phase 4_ | _Phase 4_ | _Phase 4_ | _Phase 4_ | _Phase 4 (conditional on GATE B)_ |
 | `pm-release-conductor` | _to be populated in Phase 5_ | _Phase 5_ | _Phase 5_ | _Phase 5_ | _Phase 5_ | _Phase 5 (conditional on GATE C)_ |

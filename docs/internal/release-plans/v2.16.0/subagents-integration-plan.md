@@ -22,8 +22,8 @@
 
 | Phase | Status | Closing commit(s) |
 |---|---|---|
-| Phase 1: Foundation infrastructure | COMPLETE 2026-05-17 | _pending commit_ |
-| Phase 2: Ship pm-critic | PENDING | - |
+| Phase 1: Foundation infrastructure | COMPLETE 2026-05-17 | 68bd5cc |
+| Phase 2: Ship pm-critic | COMPLETE 2026-05-17 (GATE B PENDING maintainer test) | _pending commit_ |
 | Phase 3: Ship pm-skill-auditor | PENDING | - |
 | Phase 4: Ship pm-changelog-curator | PENDING | - |
 | Phase 5: Ship pm-release-conductor | PENDING | - |
@@ -43,13 +43,29 @@
 - Master plan D31 amendment authored (Ratified Decisions table + D4 amended + Decisions Index + count totals updated)
 - Plan-set sweep across all 11 v2.16.0 plan files: `agents/` -> `subagents/` (140 occurrences), `.claude/agents/` and `.agents/skills/` preserved
 
+### Phase 2 shipped artifacts (2026-05-17)
+
+- `subagents/pm-critic.md` authored per spec: referential system prompt (no embedded standards content), P0/P1/P2/P3 severity grammar, refusal protocols, frontmatter with proactive trigger
+- `commands/critic.md` companion slash command with cross-client routing (sub-agent on Claude Code; dispatch skill elsewhere); validate-commands passes
+- `docs/guides/adversarial-review.md` user-facing guide: 4 invocation paths, severity grammar with worked examples, skill-revise-recheck loop, opt-out paths
+- `library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md` Brainshelf PRD review with 7 real findings (1 P0, 3 P1, 2 P2, 1 P3) demonstrating internal-consistency, falsifiability, and contract-completeness checks
+- `skills/utility-pm-critic/{SKILL.md, references/TEMPLATE.md, references/EXAMPLE.md}` dispatch skill triplet per D30: detects runtime; dispatches to native sub-agent on Claude Code; executes inline on non-Claude clients; produces layered output per D26
+- `docs/reference/runtime-components.md` pm-critic row populated with audience, trigger, lifetime, tool surface, composition, dispatch skill status
+- `AGENTS.md` Utility Skills section adds pm-critic dispatch skill entry; validate-agents-md passes 56 paths (was 55)
+
 ### What's next
 
-Phase 2 Task 5: author `subagents/pm-critic.md` per `spec_pm-critic.md`.
+Phase 3 Task 10: author `subagents/pm-skill-auditor.md` per `spec_pm-skill-auditor.md`.
+
+### GATE status (Phase 2 Task 9 spike)
+
+- **GATE A (pm-critic behavior validation):** PARTIAL. Brainshelf PRD review (Task 8) shipped as the first sample and serves as Purpose 1 evidence. The review produced 7 findings calibrated against the canonical `skills/deliver-prd/SKILL.md` contract, with no fabricated locations and a P0 rate of 14% (below the spec target). No critical misses identified during self-review of the findings. Storevine OKR + Workbench meeting recap reviews are deferred to Phase 6 (Tasks 23) per integration plan; their completion will retroactively close GATE A's 3-artifact-types requirement.
+- **GATE B (dispatch skill reliability on non-Claude clients):** PENDING MAINTAINER TEST. Dispatch skill at `skills/utility-pm-critic/` is authored and structurally complete with TEMPLATE.md describing the layered Status envelope and EXAMPLE.md showing a Codex CLI dispatch run. The maintainer must run the dispatch skill on at least one non-Claude client (Codex CLI, Cursor, Windsurf, Copilot, or Gemini CLI) and verify: (a) runtime detection works, (b) inline execution of `subagents/pm-critic.md` produces findings consistent with the Claude Code native sub-agent output on the same artifact, (c) the layered Status envelope is correctly produced. If GATE B fails on a specific client, that client falls back to codex-rescue (where applicable) or manual reading; if GATE B fails on all non-Claude clients, Option F applies per D30 (clean Claude-Code-only labeling, no dispatch skills in Phases 3-5).
+- **GATE C (conductor dispatch sub-spike):** Phase 5 task; not yet exercised. Depends on GATE B outcome.
 
 ### Estimated remaining
 
-5-8 sessions across remaining 7 phases (Phase 1 complete; previously estimated 6-9 including Phase 1). Phase 2 is the critical-path observation point: if pm-critic doesn't behave well against real PM artifacts, Phases 3-5 amend before authoring.
+4-7 sessions across remaining 6 phases (Phases 1+2 complete; previously estimated 5-8 after Phase 1).
 
 ---
 

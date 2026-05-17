@@ -250,6 +250,13 @@ Checks for newer pm-skills releases, compares local vs. latest version, previews
 
 ---
 
+#### pm-critic
+**Path:** `skills/utility-pm-critic/SKILL.md`
+
+Cross-client dispatch wrapper for the `pm-critic` sub-agent (v2.16.0+). Runs adversarial review on a PM artifact and returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26. Dispatches natively on Claude Code with the pm-skills plugin (invokes `@agent-pm-critic`); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads `subagents/pm-critic.md` and executes the system prompt inline. Use to review PRDs, OKR sets, personas, lean canvases, meeting recaps, interview syntheses, edge case catalogs, or other PM artifacts.
+
+---
+
 ### Tool Classification
 
 The `tool` classification represents named external methodologies composed of multiple skills working as a system. The first inhabitants are the Foundation Sprint and Design Sprint families plus a standalone decision tool.
