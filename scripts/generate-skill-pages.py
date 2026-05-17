@@ -599,6 +599,14 @@ def generate_commands_reference(all_skills: list) -> None:
     skill_cmd_count = sum(1 for s in all_skills if s["command"])
     workflow_cmd_count = len(list(COMMANDS_DIR.glob("workflow-*.md")))
     other_cmd_count = total_cmd_count - skill_cmd_count - workflow_cmd_count
+    # Defensive guard: negative other_cmd_count signals an arithmetic bug
+    # (skill+workflow counts overcounted vs the filesystem total). Fail loud
+    # rather than silently emit internally inconsistent narrative.
+    assert other_cmd_count >= 0, (
+        f"other_cmd_count={other_cmd_count} is negative; "
+        f"total={total_cmd_count}, skill={skill_cmd_count}, workflow={workflow_cmd_count}. "
+        f"Check COMMANDS_DIR counting + workflow-*.md glob."
+    )
 
     lines = []
     lines.append("---")
