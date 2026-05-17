@@ -2,7 +2,7 @@
 
 Status: Active  
 Owner: Maintainers  
-Last updated: 2026-05-16 (v2.15.1: added pre-tag validator bundle requirement)
+Last updated: 2026-05-17 (v2.15.x trailing: added Section 10.5 external-surface sync requirement for major/minor releases)
 
 This runbook defines the canonical release lane for post-`v2.5.0` cuts.
 
@@ -160,6 +160,93 @@ Use this checklist immediately after cut:
 - [ ] `npm view pm-skills-mcp version` returns `$VERSION`.
 - [ ] `npm view pm-skills-mcp dist-tags --json` shows `"latest": "$VERSION"`.
 - [ ] `docs/releases/Release_v$VERSION.md` exists in both repos with final artifact links.
+
+## 10.5) External-Surface Sync (REQUIRED for major + minor releases; OPTIONAL for patches)
+
+Tracked-file description surfaces (README header, plugin.json, marketplace.json, docs/index.mdx, CHANGELOG, release notes, AGENTS.md, library samples README, CONTEXT.md) ship with every commit. **External-state surfaces do NOT**: they live in GitHub API state, external service caches, and cross-repo files. They must be synced explicitly after the tag pushes.
+
+For **major** (X.0.0) and **minor** (X.Y.0) releases: execute all sub-checks below. The qualitative description content has typically changed; external surfaces must catch up.
+
+For **patch** (X.Y.z) releases: skip if the description content is unchanged (verify with a quick READ pass). v2.15.1 / v2.15.2 are examples where the description was unchanged and these sub-checks were no-ops.
+
+### 10.5.1) GitHub repo About description
+
+```bash
+gh repo edit product-on-purpose/pm-skills \
+  --description "<paste current README.md <h4> byline; reformat to <=350 chars>"
+```
+
+Verify:
+
+```bash
+gh api repos/product-on-purpose/pm-skills --jq '.description'
+```
+
+Expected: matches the current README header byline modulo length truncation. The byline is the canonical source; the GitHub description is a derivative that must be re-synced manually.
+
+### 10.5.2) GitHub repo Topics
+
+If the release introduces a new methodology, family, or product surface that warrants a topic tag (e.g., v2.15.0 introduced `foundation-sprint` + `design-sprint`):
+
+```bash
+gh repo edit product-on-purpose/pm-skills --add-topic <new-topic>
+```
+
+To remove a stale topic:
+
+```bash
+gh repo edit product-on-purpose/pm-skills --remove-topic <stale-topic>
+```
+
+### 10.5.3) GitHub Pages homepage URL
+
+Verify:
+
+```bash
+gh api repos/product-on-purpose/pm-skills --jq '.homepage'
+```
+
+Expected: `https://product-on-purpose.github.io/pm-skills/`. This is stable across releases but worth confirming.
+
+### 10.5.4) Open Graph metadata on the deployed docs site
+
+Verify the deployed Astro Starlight site at `/pm-skills/` has the current frontmatter `description:` rendered in the `<meta property="og:description">` tag (a curl-and-grep is sufficient; the Astro build derives `og:description` from frontmatter automatically, but a manual check catches mis-builds):
+
+```bash
+curl -s https://product-on-purpose.github.io/pm-skills/ | grep -E "og:description|description"
+```
+
+Expected: contains the current `docs/index.mdx` frontmatter `description:` text.
+
+### 10.5.5) Cross-repo pm-skills-mcp surfaces
+
+`pm-skills-mcp` is in maintenance mode (per M-22). Catalog is frozen at v2.9.2 build. For major / minor pm-skills releases that change the catalog narrative or skill counts, the pm-skills-mcp cross-repo surfaces still need refresh:
+
+- `pm-skills-mcp/README.md` description / catalog-count references
+- `pm-skills-mcp/pm-skills-source.json` metadata (version pointer + catalog-frozen-at-vX note)
+
+This is a separate manual step (or a parallel commit in the pm-skills-mcp worktree). Mirror the v2.14.2 cross-repo pattern.
+
+### 10.5.6) skills.sh directory listing cache
+
+The external skills.sh directory at https://skills.sh/product-on-purpose/pm-skills may scrape README content on a delay. Verify after a few hours that the listing reflects the new version:
+
+```bash
+curl -s https://skills.sh/product-on-purpose/pm-skills 2>&1 | head -40
+```
+
+Expected: catalog count + version match the release. If stale beyond a day, file a refresh request with skills.sh.
+
+### Sub-check tracking
+
+- [ ] 10.5.1 GitHub About description matches README byline
+- [ ] 10.5.2 GitHub Topics current (add new methodology / family topics if applicable; remove stale ones)
+- [ ] 10.5.3 GitHub homepage URL verified
+- [ ] 10.5.4 Docs site og:description matches frontmatter
+- [ ] 10.5.5 pm-skills-mcp cross-repo description references current (if catalog narrative changed)
+- [ ] 10.5.6 skills.sh listing refreshed (verify within 24h)
+
+**Skip rationale for patch releases**: if Section 10.5 is skipped, note "no qualitative description change; external surfaces remain accurate at vX.Y.0 baseline" in the post-cut artifact summary.
 
 ## 11) Cleanup
 
