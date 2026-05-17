@@ -134,6 +134,6 @@ The cross-client consistency is the validation criterion for Phase 2 GATE B. If 
 ## Related Files
 
 - Canonical sub-agent: [`subagents/pm-critic.md`](../../../subagents/pm-critic.md)
-- Skill manifest: [`SKILL.md`](../SKILL.md)
-- Output template: [`TEMPLATE.md`](./TEMPLATE.md)
+- Skill manifest: `SKILL.md`
+- Output template: `TEMPLATE.md`
 - Native sub-agent sample: [`library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md`](../../../library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md)

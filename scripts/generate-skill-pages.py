@@ -589,10 +589,16 @@ def generate_commands_reference(all_skills: list) -> None:
     output_path = ROOT / "docs" / "reference" / "commands.md"
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Count actual commands dynamically
+    # Count actual commands dynamically. total_cmd_count derives from the
+    # filesystem so it stays accurate even when commands ship that do not
+    # 1-to-1 correspond to a skill (e.g., v2.16.0 added 4 sub-agent companion
+    # commands: /audit-repo, /critic, /draft-changelog, /release). The
+    # subtraction below isolates sub-agent (or other non-skill, non-workflow)
+    # commands so the narrative tracks each commit class.
+    total_cmd_count = len(list(COMMANDS_DIR.glob("*.md")))
     skill_cmd_count = sum(1 for s in all_skills if s["command"])
     workflow_cmd_count = len(list(COMMANDS_DIR.glob("workflow-*.md")))
-    total_cmd_count = skill_cmd_count + workflow_cmd_count
+    other_cmd_count = total_cmd_count - skill_cmd_count - workflow_cmd_count
 
     lines = []
     lines.append("---")
@@ -604,7 +610,14 @@ def generate_commands_reference(all_skills: list) -> None:
     lines.append("")
     # No body H1: Starlight renders frontmatter title (v2.14.x V15 fix).
     # Generated-content marker: frontmatter (set above). Visible aside removed in V10.
-    lines.append(f"PM Skills ships {total_cmd_count} slash commands: {skill_cmd_count} skill commands plus {workflow_cmd_count} workflow commands.")
+    if other_cmd_count > 0:
+        lines.append(
+            f"PM Skills ships {total_cmd_count} slash commands: "
+            f"{skill_cmd_count} skill commands, {workflow_cmd_count} workflow commands, "
+            f"and {other_cmd_count} sub-agent companion commands."
+        )
+    else:
+        lines.append(f"PM Skills ships {total_cmd_count} slash commands: {skill_cmd_count} skill commands plus {workflow_cmd_count} workflow commands.")
     lines.append("")
     lines.append("| Command | Skill | Phase | Description |")
     lines.append("|---------|-------|-------|-------------|")

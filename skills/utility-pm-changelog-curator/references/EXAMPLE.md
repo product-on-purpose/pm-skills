@@ -111,6 +111,6 @@ For the example's role: this is the canonical worked example for the dispatch sk
 ## Related Files
 
 - Canonical sub-agent: [`subagents/pm-changelog-curator.md`](../../../subagents/pm-changelog-curator.md)
-- Skill manifest: [`SKILL.md`](../SKILL.md)
-- Output template: [`TEMPLATE.md`](./TEMPLATE.md)
+- Skill manifest: `SKILL.md`
+- Output template: `TEMPLATE.md`
 - v2.15.1 + v2.15.2 CHANGELOG entries: `CHANGELOG.md` (root, canonical exemplars)

@@ -67,5 +67,5 @@ Most AI clients support all three. If any are unreliable on a specific client, t
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
 - Cross-cutting check catalog: `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md#cross-cutting-check-catalog`
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}`
-- Output template: [`references/TEMPLATE.md`](./references/TEMPLATE.md)
-- Worked example: [`references/EXAMPLE.md`](./references/EXAMPLE.md)
+- Output template: `references/TEMPLATE.md`
+- Worked example: `references/EXAMPLE.md`

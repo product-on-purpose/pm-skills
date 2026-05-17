@@ -165,5 +165,5 @@ For a release-prep audit (post-Phase 5 + pre-tag), the same auditor would re-run
 ## Related Files
 
 - Canonical sub-agent: [`subagents/pm-skill-auditor.md`](../../../subagents/pm-skill-auditor.md)
-- Skill manifest: [`SKILL.md`](../SKILL.md)
-- Output template: [`TEMPLATE.md`](./TEMPLATE.md)
+- Skill manifest: `SKILL.md`
+- Output template: `TEMPLATE.md`

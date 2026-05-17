@@ -80,5 +80,5 @@ If any of these are unreliable on a given client, that client cannot use this di
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-critic.md`](../../docs/internal/release-plans/v2.16.0/spec_pm-critic.md)
 - User-facing guide: [`docs/guides/adversarial-review.md`](../../docs/guides/adversarial-review.md)
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
-- Output template: [`references/TEMPLATE.md`](./references/TEMPLATE.md)
-- Worked example: [`references/EXAMPLE.md`](./references/EXAMPLE.md)
+- Output template: `references/TEMPLATE.md`
+- Worked example: `references/EXAMPLE.md`
