@@ -27,9 +27,9 @@
 | Phase 3: Ship pm-skill-auditor | COMPLETE 2026-05-17 (GATE B PENDING; mid-cycle audit run via sample) | 0a5fa4c |
 | Phase 4: Ship pm-changelog-curator | COMPLETE 2026-05-17 (GATE B PENDING; brainshelf minor-release draft sample shipped) | df8da5a |
 | Phase 5: Ship pm-release-conductor | COMPLETE 2026-05-17 (GATE C PENDING sub-spike; workbench chained-run dry-run sample shipped) | 07fe14e |
-| Phase 6: Library samples | COMPLETE 2026-05-17 (all 12 samples + catalog README shipped) | _pending commit_ |
-| Phase 7: Documentation | PENDING | - |
-| Phase 8: Integration check | PENDING | - |
+| Phase 6: Library samples | COMPLETE 2026-05-17 (all 12 samples + catalog README shipped) | 0766b00 |
+| Phase 7: Documentation | COMPLETE 2026-05-17 (integration-plan doc consistency check passed; broader sweep deferred to docs-plan Phase 4 Task 9) | _pending commit_ |
+| Phase 8: Integration check | COMPLETE 2026-05-17 (validators green; commands resolve; cross-references intact; em-dash clean; GATE B and GATE C remain PENDING for cross-client tests) | _pending commit_ |
 
 ### Phase 1 shipped artifacts (2026-05-17)
 
@@ -64,7 +64,23 @@
 
 ### What's next
 
-Phase 4 Task 14: author `subagents/pm-changelog-curator.md` per `spec_pm-changelog-curator.md`.
+Subagents-integration-plan ALL 8 PHASES COMPLETE. Remaining v2.16.0 work in other sub-plans:
+
+- **docs-plan.md** (11 tasks across 4 phases): 5 new public docs (sub-agents concept, active-orchestration concept, using-sub-agents guide, authoring-sub-agents contrib, sub-agent-design-patterns contrib) + AGENTS.md/README.md updates + cross-cutting consistency sweep + sidebar + Pagefind verification
+- **ci-plan.md** (10 tasks across 4 phases): validate-agents-md extension per D19 + check-runtime-components-sync + check-sub-agent-command-pair + check-em-dashes + check-aggregate-counters + validation.yml integration + ci-conventions.md doc
+- **repo-hygiene-plan.md** (8 tasks across 4 phases): CONTEXT.md refresh + _working/ archive sweep + DS family validator strict promotion + backlog refresh + F-XX archive + TODO/FIXME inventory
+- **doc-stack-modernization-plan.md** DEFERRED to dedicated session per maintainer scope decision: Astro 5.13.x to 6.x upgrade + Node 22.12+ + 2 Dependabot alert closures
+
+Plus pre-tag artifact pass: CHANGELOG via curator + release notes + version bumps + Phase 0 Adversarial Review + tag via conductor's 6-gate flow.
+
+### Phase 7 + 8 verification results (2026-05-17)
+
+- validate-agents-md.sh: PASS 59 skill paths
+- validate-commands.sh: PASS all 4 new sub-agent commands (`/critic`, `/audit-repo`, `/draft-changelog`, `/release`) resolve to their respective dispatch skills
+- Cross-references intact: all 4 spec docs referenced from corresponding sub-agent definitions; adversarial-review.md references pm-critic spec; release-runbook.md references pm-release-conductor spec
+- Em-dash sweep: 0 hits across all Phase 1-6 new content
+- GATE B (dispatch skill reliability on non-Claude clients): PENDING maintainer test
+- GATE C (conductor dispatch sub-spike): PENDING maintainer test
 
 ### GATE status (Phase 2 Task 9 spike)
 
