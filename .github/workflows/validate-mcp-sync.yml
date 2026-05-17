@@ -51,12 +51,21 @@ jobs:
         working-directory: pm-skills-mcp
         run: npm ci
 
+      # M-22 maintenance-mode posture: pm-skills-mcp catalog is frozen at
+      # v2.9.2. embed-skills.js hard-fails (EMB-004) on classifications
+      # added after the freeze (e.g., classification: tool added in v2.15.0).
+      # Both steps below are advisory under M-22: drift surfaces in logs
+      # but does not block PRs. Companion soft-fail at
+      # pm-skills-mcp/scripts/embed-skills.js (Layer 2 change shipped
+      # alongside this Layer 1 change in v2.16.0-doc-stack).
       - name: Embed skills snapshot in pm-skills-mcp for comparison
+        continue-on-error: true
         env:
           PM_INCLUDE_PERSONAS: "false"
         run: node pm-skills-mcp/scripts/embed-skills.js ./pm-skills/skills
 
       - name: Validate sync status (observe default; maintenance mode posture)
+        continue-on-error: true
         env:
           PM_SKILLS_PATH: ./pm-skills
           PM_SKILLS_MCP_PATH: ./pm-skills-mcp
@@ -65,5 +74,9 @@ jobs:
           # decision; v2.9.2 announcement). Drift is expected and accepted;
           # the validator reports it for visibility but does not fail CI.
           # See pm-skills CONTRIBUTING.md MCP Sync Guardrail section.
+          # 2026-05-17 (v2.16.0-doc-stack): added explicit continue-on-error
+          # to complete the maintenance-mode posture. Observe-mode was only
+          # on this validator step before; the upstream embed hard-fail
+          # prevented this validator from running on v2.15+ taxonomy.
           VALIDATE_MCP_SYNC_MODE: ${{ github.event.inputs.mode || 'observe' }}
         run: node pm-skills/.github/scripts/validate-mcp-sync.js
