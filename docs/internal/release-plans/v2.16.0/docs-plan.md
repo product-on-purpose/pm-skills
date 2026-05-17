@@ -196,7 +196,7 @@ README.md                                      [MODIFY, Phase 4]
   - Opt-out
 - [ ] If gaps exist, expand the guide
 - [ ] Verify `docs/contributing/release-runbook.md` (from subagents Phase 5 Task 20) covers:
-  - All 5 gates with sub-checks
+  - All 6 gates with sub-checks
   - Chain composition (G0 to auditor, G2 to curator)
   - em-dash sweep at G0 with allowlist convention
   - Aggregate counter audit at G0
@@ -267,7 +267,7 @@ README.md                                      [MODIFY, Phase 4]
   | pm-critic | /critic | User | Proactive | Adversarial review of PM artifacts |
   | pm-skill-auditor | /audit-repo | User + Maintainer | Explicit | Repo-level cross-cutting governance |
   | pm-changelog-curator | /draft-changelog | Maintainer | Explicit | CHANGELOG drafter from git log |
-  | pm-release-conductor | /release | Maintainer | Explicit | Guided release runbook with 5 gates |
+  | pm-release-conductor | /release | Maintainer | Explicit | Guided release runbook with 6 gates |
 
   Canonical detail: `docs/reference/runtime-components.md`.
   Concept: `docs/concepts/sub-agents.md`.

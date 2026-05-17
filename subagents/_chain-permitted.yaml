@@ -5,9 +5,21 @@
 # their name appears in this allowlist.
 #
 # Adding an entry here is a security-relevant change requiring maintainer review.
-# Validated by scripts/validate-agents-md.{sh,ps1} (extended per D19) per ci-plan
-# Phase 2 Task 2. Failure mode: build fails CI with explicit message naming the
-# offending sub-agent and the missing allowlist entry.
+#
+# Enforcement status (v2.16.0): MANUAL MAINTAINER CHECK at pre-tag pass. The
+# v2.16.0 validate-agents-md extension (per D19) verifies sub-agent name sync
+# with AGENTS.md but does NOT parse sub-agent frontmatter to detect `Agent` in
+# tools. The full enforcement check (parse subagents/*.md frontmatter; detect
+# `Agent` in tools; fail build if name not in this allowlist) is deferred to
+# v2.17 per ci-plan Phase 2 Task 2 (one of 5 deferred validator checks).
+#
+# Pre-tag manual check: maintainer greps each subagents/*.md for `Agent`
+# substring in the tools line; verifies any agent with Agent listed appears
+# in chain_permitted below.
+#
+# v2.17 will implement automated enforcement; until then, the manual pre-tag
+# check + this allowlist (read-but-not-enforced-mechanically) is the
+# security boundary.
 
 chain_permitted:
   - pm-release-conductor

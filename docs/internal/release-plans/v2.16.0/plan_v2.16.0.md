@@ -95,7 +95,7 @@ This master plan orchestrates five sub-plans plus four sub-agent spec documents.
 | **pm-critic** | [`spec_pm-critic.md`](./spec_pm-critic.md) | Adversarial PM-artifact reviewer; proactive trigger; P0/P1/P2/P3 grading; refusal protocols; composition with skills |
 | **pm-skill-auditor** | [`spec_pm-skill-auditor.md`](./spec_pm-skill-auditor.md) | Repo-level cross-cutting governance; validator aggregator; explicit trigger only; cross-cutting check catalog |
 | **pm-changelog-curator** | [`spec_pm-changelog-curator.md`](./spec_pm-changelog-curator.md) | CHANGELOG drafter from git log; CLAUDE.md hygiene enforcement; standalone or chained from conductor |
-| **pm-release-conductor** | [`spec_pm-release-conductor.md`](./spec_pm-release-conductor.md) | Guided release runbook with 5 gates (G0-G4); chains to auditor + curator; explicit trigger only; rollback semantics |
+| **pm-release-conductor** | [`spec_pm-release-conductor.md`](./spec_pm-release-conductor.md) | Guided release runbook with 6 gates (G0-G4); chains to auditor + curator; explicit trigger only; rollback semantics |
 
 Total executable scope: **66 tasks, 13-20 sessions** plus pre-tag artifact pass. Subagent integration plan executes first (delivers the primary theme); docs and CI plans run interleaved with the subagent track (docs Phase 1 docs are independent; CI Phase 1 decision is independent; later phases of both follow agent landings); doc-stack modernization and hygiene plans run in parallel where independent or after the subagent track where coupled.
 
@@ -278,12 +278,12 @@ v2.16.0 is ready to tag when:
 - [ ] `docs/reference/runtime-components.md` catalogs all 4 sub-agents with audience, trigger, lifetime, tool surface, composition notes
 - [ ] AGENTS.md has a Sub-Agents section listing all 4 agents and linking to runtime-components.md
 - [ ] `docs/guides/adversarial-review.md` exists and documents both Claude (pm-critic) and Codex (codex-rescue) invocation paths
-- [ ] `docs/contributing/release-runbook.md` exists and documents the 5 gates the conductor enforces
+- [ ] `docs/contributing/release-runbook.md` exists and documents the 6 gates the conductor enforces
 - [ ] 12 library samples shipped (3 per sub-agent) demonstrating real invocations
 - [ ] pm-critic exercised against at least 3 distinct PM-artifact types (PRD, OKR set, meeting recap) and produces P0-P3 findings correctly
 - [ ] pm-skill-auditor invoked against current repo state, surfaces at least 1 real cross-cutting issue
 - [ ] pm-changelog-curator drafts entries from a real git log range respecting CLAUDE.md hygiene rules
-- [ ] pm-release-conductor walks through a dry-run release flow with all 5 gates pausing correctly
+- [ ] pm-release-conductor walks through a dry-run release flow with all 6 gates pausing correctly
 - [ ] Sub-agent chain depth verified at 2 levels max (conductor invokes auditor and curator; neither child chains further)
 
 ### Secondary track (doc-stack modernization)

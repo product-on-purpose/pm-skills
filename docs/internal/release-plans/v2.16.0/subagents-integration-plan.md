@@ -462,13 +462,13 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 ## Phase 5: Ship pm-release-conductor (5 tasks)
 
-**Goal:** Guided release runbook with 5 gates. Chains to auditor + curator. Most complex sub-agent in the slate.
+**Goal:** Guided release runbook with 6 gates. Chains to auditor + curator. Most complex sub-agent in the slate.
 
 ### Task 18: Author subagents/pm-release-conductor.md
 
 - [ ] Create `subagents/pm-release-conductor.md` per `spec_pm-release-conductor.md`
 - [ ] Tools: Bash, Read, Edit, Grep, Glob, Agent (Agent required for sub-agent chains)
-- [ ] System prompt encodes all 5 gates with explicit confirmation pauses
+- [ ] System prompt encodes all 6 gates with explicit confirmation pauses
 - [ ] G0 gate references pm-skill-auditor; G2 gate references pm-changelog-curator (chain composition)
 - [ ] em-dash sweep enforced at G0 per D9
 
@@ -485,7 +485,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 ### Task 20: Author docs/contributing/release-runbook.md
 
 - [ ] Create the canonical release runbook that the conductor reads at invocation time (D12 referential discipline)
-- [ ] Document all 5 gates with what each verifies and what blocks advancement:
+- [ ] Document all 6 gates with what each verifies and what blocks advancement:
   - G0: Pre-tag readiness (validators, CI, em-dash, aggregate counters)
   - G1: Adversarial review status (Phase 0 complete; findings dispositioned)
   - G2: Version bump (plugin.json, CHANGELOG, release plan); chains to pm-changelog-curator
@@ -551,7 +551,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 ### Task 26: Ship pm-release-conductor samples 1 + 2 + README
 
-- [ ] Create `library/sub-agent-samples/pm-release-conductor/sample_pm-release-conductor_brainshelf_clean-run.md` (happy-path release; all 5 gates pass first try)
+- [ ] Create `library/sub-agent-samples/pm-release-conductor/sample_pm-release-conductor_brainshelf_clean-run.md` (happy-path release; all 6 gates pass first try)
 - [ ] Create `library/sub-agent-samples/pm-release-conductor/sample_pm-release-conductor_storevine_gate-failure.md` (G0 fails with aggregate-counter drift; conductor halts; maintainer fixes; conductor resumes)
 - [ ] Create `library/sub-agent-samples/README.md` cataloging all 12 samples with sub-agent + thread + scenario columns
 
@@ -567,7 +567,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 - [ ] Verify `docs/reference/runtime-components.md` has all 4 sub-agent rows with correct trigger / lifetime / tool surface / composition data
 - [ ] Verify `docs/guides/adversarial-review.md` cross-references pm-critic spec doc
-- [ ] Verify `docs/contributing/release-runbook.md` cross-references pm-release-conductor spec doc + the G0-G4 + new G2.5 gates match the conductor's system prompt exactly (the G2.5 commit gate is critical; verify content covers Codex R01 closure)
+- [ ] Verify `docs/contributing/release-runbook.md` cross-references pm-release-conductor spec doc + the G0-G4 + new G2.6 gates match the conductor's system prompt exactly (the G2.5 commit gate is critical; verify content covers Codex R01 closure)
 - [ ] Verify all 4 spec docs cross-reference each other where composition exists
 - [ ] DEFER full cross-cutting sweep to docs-plan Phase 4 Task 9 (broader scope including concept docs, usage docs, contributor docs)
 
@@ -584,7 +584,7 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 - [ ] Invoke `/critic` against a fresh PM artifact; verify proactive description + explicit slash command both invoke pm-critic correctly
 - [ ] Invoke `/audit-repo` against current repo state; verify auditor runs all enforcing validators and surfaces cross-cutting issues
 - [ ] Invoke `/draft-changelog --since-tag v2.15.0`; verify curator output respects CLAUDE.md hygiene
-- [ ] Invoke `/release v2.16.0 --dry-run` (or equivalent); verify conductor walks all 5 gates including 2 chained sub-agent calls
+- [ ] Invoke `/release v2.16.0 --dry-run` (or equivalent); verify conductor walks all 6 gates including 2 chained sub-agent calls
 - [ ] Verify Agent tool budget on conductor (chain to auditor + curator stays within reasonable token budget)
 - [ ] Verify `validate-agents-md` (or new validator) green on full slate
 - [ ] Verify `validate-commands` green on the 4 new commands

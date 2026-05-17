@@ -117,7 +117,7 @@ A markdown draft following the existing CHANGELOG.md format:
 ### Added
 - **Sub-agents** (new component class): pm-critic adversarial reviewer, pm-skill-auditor governance auditor, pm-changelog-curator CHANGELOG drafter, pm-release-conductor guided release runbook. See `docs/reference/runtime-components.md`.
 - **Adversarial review guide** at `docs/guides/adversarial-review.md` documenting Phase 0 review patterns and pm-critic invocation.
-- **Release runbook** at `docs/contributing/release-runbook.md` documenting the 5-gate release flow.
+- **Release runbook** at `docs/contributing/release-runbook.md` documenting the 6-gate release flow.
 
 ### Changed
 - **Astro 5.13.x to 6.x** doc-stack upgrade. Requires Node 22.12+. Closes 2 Dependabot alerts (CVE-2026-XXXX, CVE-2026-YYYY).

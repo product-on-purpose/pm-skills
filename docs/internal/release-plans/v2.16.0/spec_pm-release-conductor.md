@@ -38,7 +38,7 @@ This is the most complex sub-agent in the v2.16.0 slate. It has the largest tool
 
 - Accepts a target version (`/release v2.16.0`)
 - Validates the version shape (semver vN.M.P)
-- Walks 5 gates in order, pausing at each for explicit maintainer confirmation:
+- Walks 6 gates in order, pausing at each for explicit maintainer confirmation:
   - **G0** Pre-tag readiness (chains to pm-skill-auditor)
   - **G1** Adversarial review status (maintainer confirms Phase 0 done)
   - **G2** Version bump + CHANGELOG prep (chains to pm-changelog-curator)
@@ -282,7 +282,7 @@ Outline for `subagents/pm-release-conductor.md`:
 
 ```
 You are pm-release-conductor. You escort a pm-skills release from "work is
-done" to "tag is pushed and post-tag hygiene is clean." You walk 5 gates
+done" to "tag is pushed and post-tag hygiene is clean." You walk 6 gates
 in order, pausing at each for explicit maintainer confirmation. You refuse
 to advance past a failed gate. You roll back conservatively on failure
 (surface + pause; never auto-revert).
@@ -386,7 +386,7 @@ Three samples ship in v2.16.0:
 
 | Sample | Thread | Scenario | Demonstrates |
 |---|---|---|---|
-| sample_pm-release-conductor_brainshelf_clean-run.md | brainshelf | Happy-path v2.X.Y release; all 5 gates pass first try | Gate progression; chain output from auditor + curator; final post-tag checklist |
+| sample_pm-release-conductor_brainshelf_clean-run.md | brainshelf | Happy-path v2.X.Y release; all 6 gates pass first try | Gate progression; chain output from auditor + curator; final post-tag checklist |
 | sample_pm-release-conductor_storevine_gate-failure.md | storevine | G0 fails with synthetic aggregate-counter drift; conductor halts; maintainer fixes; conductor resumes | Refusal semantics; resume-from-failure pattern |
 | sample_pm-release-conductor_workbench_chained-run.md | workbench | Full chained run showing both auditor (G0) and curator (G2) invocations with their outputs surfaced inline | 2-level chain depth verification; total token budget acceptable |
 
@@ -399,8 +399,8 @@ pm-release-conductor is ready to ship when:
 - [ ] `subagents/pm-release-conductor.md` exists with frontmatter per this spec
 - [ ] System prompt is referential (reads release-runbook.md at invocation time)
 - [ ] `commands/release.md` resolves to pm-release-conductor with version argument validation
-- [ ] `docs/contributing/release-runbook.md` exists and documents all 5 gates with sub-checks
-- [ ] Dry-run mode walks all 5 gates without actual tag/push
+- [ ] `docs/contributing/release-runbook.md` exists and documents all 6 gates with sub-checks
+- [ ] Dry-run mode walks all 6 gates without actual tag/push
 - [ ] G0 chain to pm-skill-auditor verified end-to-end
 - [ ] G2 chain to pm-changelog-curator verified end-to-end
 - [ ] em-dash sweep at G0 catches synthetic em-dash insertions (test by inserting a `—` in a tracked file and confirming G0 fails)
@@ -471,7 +471,7 @@ If you are running in any other client:
 
 | ID | Risk | Mitigation |
 |---|---|---|
-| **RC1** | **Maintainer fatigue at 5 gates.** Long sessions; 30+ min; risk maintainer rubber-stamps confirmations. | Per-gate sub-check output is structured + scannable. Conductor explicitly states "Confirm with 'yes' or address findings" so the confirmation is intentional. |
+| **RC1** | **Maintainer fatigue at 6 gates.** Long sessions; 30+ min; risk maintainer rubber-stamps confirmations. | Per-gate sub-check output is structured + scannable. Conductor explicitly states "Confirm with 'yes' or address findings" so the confirmation is intentional. |
 | **RC2** | **Chain depth violation.** Auditor or curator accidentally gain Agent tool and start chaining. | Per spec docs: auditor + curator frontmatter forbids Agent tool. Phase 8 integration check verifies. |
 | **RC3** | **Token budget on full release run.** Conductor + auditor + curator + main session compound context cost across 30+ min. | Insight 9: chains run in fresh contexts; total budget is the sum. Audit incremental scope (--since-tag) keeps auditor's context small. Curator's range is also incremental. Real-world: estimated ~50-80K tokens across the slate, well within budget. |
 | **RC4** | **Gate skip via maintainer prompt manipulation.** Maintainer says "skip G0 and go to G1" mid-flow. | System prompt explicitly states: "You refuse to advance past a failed gate" + "Each gate must pass; maintainer cannot bypass via prompt." The --skip-gates argument exists with explicit warning logging for legitimate advanced cases. |
