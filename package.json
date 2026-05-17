@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Astro Starlight documentation site for pm-skills",
   "engines": {
-    "node": ">=22.0.0 <23"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
