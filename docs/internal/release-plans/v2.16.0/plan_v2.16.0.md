@@ -1,10 +1,10 @@
 # v2.16.0 Release Plan: Active Orchestration + Doc-Stack Modernization
 
-**Status:** BLOCKED ON DOC-STACK MODERNIZATION (Phase 1 IN PROGRESS). Active Orchestration track content-complete 2026-05-17 (16 commits 68bd5cc through 5a1ad61). Phase 0 Adversarial Review closed (7 findings; all addressed). Pre-tag artifact pass staged pending G2.5 commit gate. GATE B + GATE C pending maintainer cross-client tests per `maintainer-gate-testing.md`. **Tag delayed** per maintainer decision 2026-05-17 to include Astro 5.13.x to 6.x upgrade in v2.16.0 (closes 2 Dependabot alerts). Doc-stack modernization spike opened 2026-05-17 as PR [#147](https://github.com/product-on-purpose/pm-skills/pull/147) (DRAFT); Node 22.12+ bump landed on spike (commit `ed3621b`); 2 mid-execution scope additions absorbed into spike branch per `doc-stack-modernization-plan.md` DM8 (YAML defect fix commit `3fcf7af`; Layer 1 MCP CI hygiene commit `6bceac5`); cross-repo Layer 2 in pm-skills-mcp PR [#50](https://github.com/product-on-purpose/pm-skills-mcp/pull/50). Astro 6 bump pending.
+**Status:** PRE-MERGE (Phase 1 + DM7 + DM8 absorptions COMPLETE LOCALLY ON SPIKE). Active Orchestration track content-complete 2026-05-17 morning (16 commits 68bd5cc through 5a1ad61). Doc-Stack Modernization track content-complete 2026-05-17 evening: 13 commits on `feat/v2.16-astro-6-spike` (Node 22.12+ bump + YAML fix + Layer 1 MCP advisory + Astro 6.3.x + Starlight 0.39.x + 4 AO drift sweeps + bulk count update across 20 files + broken-link fix + generator hardening). pm-skills-mcp PR #50 (Layer 2 EMB-004 softening) MERGED at `6354b77`. All 27 enforcing validators PASS locally via `bash scripts/pre-tag-validate.sh`. Phase 0 Adversarial Review closed (7 findings; all addressed). Pre-tag artifact pass staged + extended this session for doc-stack scope (CHANGELOG.md, Release_v2.16.0.md, v2.17.0 stub, this plan, doc-stack-modernization-plan.md). GATE B + GATE C pending maintainer cross-client tests per `maintainer-gate-testing.md`. Spike PR [#147](https://github.com/product-on-purpose/pm-skills/pull/147) remains DRAFT pending Phase 2 rebase + merge to main + Phase 3 Dependabot verification.
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (stub); promoted 2026-05-16 (this version)
-**Updated:** 2026-05-16
+**Updated:** 2026-05-17 (doc-stack track absorbed + spike commits landed)
 
 ---
 

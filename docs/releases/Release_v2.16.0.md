@@ -1,15 +1,15 @@
 ---
-title: "Release v2.16.0. Active Orchestration: First Sub-Agents Ship"
-description: "pm-skills v2.16.0 opens the runtime-component layer with 4 Claude Code plugin sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) plus 4 dispatch skills for cross-client compatibility (EXPERIMENTAL pending GATE B + C tests). Codifies the Phase 0 Adversarial Review Loop and the 6-gate release runbook the maintainer ran manually through v2.15. New shipping unit is the sub-agent. 55-skill content catalog unchanged."
+title: "Release v2.16.0. Active Orchestration + Doc-Stack Modernization"
+description: "pm-skills v2.16.0 opens the runtime-component layer with 4 Claude Code plugin sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) plus 4 dispatch skills bringing the catalog to 59 skills. Codifies the Phase 0 Adversarial Review Loop and the 6-gate release runbook. Secondary track: Astro 5.13.x to 6.3.x upgrade plus Node 22.12+ across 5 CI workflows, closing 2 Dependabot alerts."
 sidebar:
   order: 0
 ---
 
 **Released**: 2026-05-17
-**Type**: Minor release (new component class: sub-agents)
-**Skill count**: 55 (unchanged from v2.15.0 / v2.15.1 / v2.15.2)
+**Type**: Minor release (new component class: sub-agents + Astro 6 doc-stack upgrade)
+**Skill count**: 59 (was 55 at v2.15.0; +4 dispatch skills under classification: utility)
 **New shipping unit**: sub-agent (Claude Code plugin component)
-**Key theme**: Active Orchestration. The first runtime-component layer alongside the content library.
+**Key themes**: Active Orchestration (first runtime-component layer) + Doc-Stack Modernization (Astro 6 + Node 22.12+ + Dependabot closure)
 
 ---
 
