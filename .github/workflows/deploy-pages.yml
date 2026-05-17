@@ -44,10 +44,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node 22.x
+      - name: Setup Node 22.12+
         uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '22.12'
 
       - name: Install dependencies
         run: npm ci
