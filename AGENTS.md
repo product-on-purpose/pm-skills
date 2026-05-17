@@ -264,6 +264,13 @@ Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent (v2.16.0+). R
 
 ---
 
+#### pm-changelog-curator
+**Path:** `skills/utility-pm-changelog-curator/SKILL.md`
+
+Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent (v2.16.0+). Drafts CHANGELOG entries from git log between two tags. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft with hidden justification comments + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-changelog-curator`); on non-Claude clients reads `subagents/pm-changelog-curator.md` and executes inline. Refuses on dirty working tree unless `--committed-only` passed. Use during release prep (gate G2 of the release runbook).
+
+---
+
 ### Tool Classification
 
 The `tool` classification represents named external methodologies composed of multiple skills working as a system. The first inhabitants are the Foundation Sprint and Design Sprint families plus a standalone decision tool.
