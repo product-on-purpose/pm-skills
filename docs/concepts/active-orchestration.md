@@ -1,6 +1,6 @@
 ---
 title: Active Orchestration
-description: Active orchestration is the v2.16.0 strategic theme - pm-skills opens its runtime layer with the first sub-agents. The repo evolves from a passive content library (55 skills + 62 commands + 12 workflows) into one that ALSO ships plugin runtime components that take action. This concept doc explains the strategic frame, what changes for users, and the v2.16-v2.18 roadmap arc.
+description: 'The v2.16.0 strategic theme: pm-skills evolves from a passive content library into one that also ships Claude Code plugin runtime components (sub-agents, hooks, output styles) that take action. Covers the strategic frame, user impact, and v2.16-v2.18 roadmap arc.'
 ---
 
 ## Table of Contents

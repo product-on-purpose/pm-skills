@@ -1,6 +1,6 @@
 ---
 title: Authoring Sub-Agents
-description: Contributor guide for authoring new pm-skills sub-agents. Covers the directory layout (subagents/ via plugin.json custom path per D31), frontmatter convention (name, description, tools, model, memory), referential discipline (no embedded standards), severity grammar (P0/P1/P2/P3), companion command pairing (D6), chain authorization (_chain-permitted.yaml per D21), dispatch skill pattern for cross-client compatibility (D30), and the file-structure conventions (TEMPLATE.md + EXAMPLE.md per dispatch skill).
+description: Contributor guide for authoring pm-skills sub-agents. Covers directory layout, frontmatter convention, referential discipline, severity grammar (P0/P1/P2/P3), companion command pairing, chain authorization, and the cross-client dispatch skill pattern.
 ---
 
 ## Table of Contents

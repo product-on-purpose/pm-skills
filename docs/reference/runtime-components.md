@@ -1,6 +1,6 @@
 ---
 title: Runtime Components
-description: Catalog of pm-skills runtime components - sub-agents, hooks, output styles - that extend the skills library with active orchestration behaviors. Sub-agents are Claude Code plugin features delivered via subagents/ directory; dispatch skills make sub-agent intent portable to non-Claude clients per the single-tool user assumption.
+description: Catalog of pm-skills runtime components (sub-agents, hooks, output styles) that extend the skills library with active orchestration behaviors. Sub-agents are Claude Code plugin features; dispatch skills make their intent portable to non-Claude clients.
 ---
 
 ## Table of Contents

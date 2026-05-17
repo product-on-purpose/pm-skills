@@ -1,6 +1,6 @@
 ---
 title: Sub-Agent Design Patterns
-description: Catalog of the 4 invocation patterns and 4 composition patterns for pm-skills sub-agents. Distilled from the strategy doc at docs/internal/_working/subagents/subagent-strategy_2026-05-07.md plus practical experience shipping the v2.16.0 slate. Use this guide when designing a new sub-agent to decide which patterns apply.
+description: Catalog of the 4 invocation patterns and 4 composition patterns for pm-skills sub-agents. Distilled from the subagent strategy doc plus practical experience shipping the v2.16.0 slate. Use this guide when designing a new sub-agent to decide which patterns apply.
 ---
 
 ## Table of Contents
