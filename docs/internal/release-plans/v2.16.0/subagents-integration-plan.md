@@ -26,8 +26,8 @@
 | Phase 2: Ship pm-critic | COMPLETE 2026-05-17 (GATE B PENDING maintainer test) | 00b3978 |
 | Phase 3: Ship pm-skill-auditor | COMPLETE 2026-05-17 (GATE B PENDING; mid-cycle audit run via sample) | 0a5fa4c |
 | Phase 4: Ship pm-changelog-curator | COMPLETE 2026-05-17 (GATE B PENDING; brainshelf minor-release draft sample shipped) | df8da5a |
-| Phase 5: Ship pm-release-conductor | COMPLETE 2026-05-17 (GATE C PENDING sub-spike; workbench chained-run dry-run sample shipped) | _pending commit_ |
-| Phase 6: Library samples | PENDING | - |
+| Phase 5: Ship pm-release-conductor | COMPLETE 2026-05-17 (GATE C PENDING sub-spike; workbench chained-run dry-run sample shipped) | 07fe14e |
+| Phase 6: Library samples | COMPLETE 2026-05-17 (all 12 samples + catalog README shipped) | _pending commit_ |
 | Phase 7: Documentation | PENDING | - |
 | Phase 8: Integration check | PENDING | - |
 
