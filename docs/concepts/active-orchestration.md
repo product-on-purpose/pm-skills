@@ -14,7 +14,7 @@ description: 'The v2.16.0 strategic theme: pm-skills evolves from a passive cont
 
 ## The Theme
 
-pm-skills started as a content library: skills that AI agents read at invocation time to produce PM artifacts with professional quality. Through v2.15.0, the catalog grew to 55 skills + 62 slash commands + 12 workflows + 27 enforcing CI validators. All of it is content. The AI reads it. The AI acts on it. The AI produces the output.
+pm-skills started as a content library: skills that AI agents read at invocation time to produce PM artifacts with professional quality. Through v2.15.0, the catalog grew to 59 skills + 66 slash commands + 12 workflows + 27 enforcing CI validators. All of it is content. The AI reads it. The AI acts on it. The AI produces the output.
 
 v2.16.0 opens a second layer: the **runtime layer**. Sub-agents are the first inhabitants. Hooks (v2.17+) and output styles (v2.18+) follow.
 
@@ -86,7 +86,7 @@ The v2.17 utility trio (orchestrator + frontmatter-doctor + AI-Native Pack) was 
 
 Despite the strategic shift, several invariants hold:
 
-- **Skills remain the bulk of pm-skills.** 55 skills at v2.15.0; still 55 at v2.16.0 (plus 4 dispatch skills, which are thin wrappers, not new content). The content library is the foundation; sub-agents extend its surface.
+- **Skills remain the bulk of pm-skills.** 59 skills at v2.15.0; still 55 at v2.16.0 (plus 4 dispatch skills, which are thin wrappers, not new content). The content library is the foundation; sub-agents extend its surface.
 - **Cross-client compatibility is preserved.** Dispatch skills mean Codex CLI, Cursor, Windsurf, Copilot, and Gemini CLI users get full functional access.
 - **agentskills.io specification compliance.** pm-skills continues to follow the spec for skills; sub-agents are an additive Claude Code plugin feature that does not change the skill contract.
 - **No-em-dash + no-Claude-attribution-trailer hygiene rules.** Both apply to sub-agent outputs; the curator enforces the CHANGELOG side; the conductor's G0 enforces the repo side.

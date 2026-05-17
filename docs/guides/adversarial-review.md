@@ -55,7 +55,7 @@ Use @-mention when you want guaranteed invocation in a context where the intent 
 
 ### Path 4: Workflow-triggered (future, v2.17+)
 
-Once `pm-workflow-orchestrator` ships in v2.17, workflow docs (`_workflows/feature-kickoff.md`, etc.) will explicitly call out pm-critic at quality-gate steps in a workflow chain. v2.16 workflows do not yet do this.
+Once `pm-workflow-orchestrator` ships in v2.17, workflow docs (`_workflows/feature-kickoff.md`, etc.) will explicitly call out pm-critic at quality-gate steps in a workflow chain. v2.12 workflows do not yet do this.
 
 ## Severity Grading (P0 / P1 / P2 / P3)
 
