@@ -34,15 +34,23 @@ Plus:
 7. **validation.yml integration** for the new v2.17 validators in CI5 order with synthetic-failure tests.
 8. **docs/contributing/ci-conventions.md** documents the new validators (pairs with the v2.17 validator ships).
 
-### Doc-stack modernization (deferred per maintainer scope decision in v2.16 session)
+### Doc-stack modernization (SHIPPED in v2.16.0 doc-stack spike, 2026-05-17)
 
-Per `../v2.16.0/doc-stack-modernization-plan.md`. The Astro 6 upgrade was deferred to a dedicated session per maintainer decision; v2.17 is the natural home:
+Originally deferred to v2.17 per maintainer scope decision. Re-promoted into v2.16.0 on 2026-05-17 ("v2.16 round 2" doc-stack session). All items below shipped on spike PR #147:
 
-- Astro 5.13.x to 6.x upgrade
-- Node 22.12+ across 5 CI workflows
-- astro-mermaid compatibility verification
-- Custom CSS audit + port
-- Closes 2 Dependabot alerts (CVE-2026-XXXX define:vars XSS; CVE-2026-YYYY server-island replay)
+- ~~Astro 5.13.x to 6.x upgrade~~ DONE (Astro 6.3.x; commit `15aaca8` + `fa5ed8b`)
+- ~~Node 22.12+ across 5 CI workflows~~ DONE (commit `ed3621b`; reality-list correction per DM7 swept create-issues-from-drafts + validate-mcp-sync IN, codeql + sync-agents-md OUT)
+- ~~astro-mermaid compatibility verification~~ DONE (2.0.1 verified compatible; all mermaid blocks transform cleanly under Astro 6)
+- ~~Custom CSS audit + port~~ DONE (no port needed; src/styles/custom.css renders unchanged)
+- ~~Closes 2 Dependabot alerts (define:vars XSS; server-island replay)~~ DONE (closes after spike merges to main)
+
+Mid-execution scope additions absorbed into spike per DM8 (also shipped, NOT carry-forward):
+- P1 YAML defect fix in utility-pm-release-conductor EXAMPLE.md description (commit `3fcf7af`)
+- Layer 1 MCP CI hygiene: validate-mcp-sync.yml fully advisory under M-22 (commit `6bceac5`)
+- Layer 2 cross-repo: pm-skills-mcp/scripts/embed-skills.js softens EMB-004 for unknown classifications (pm-skills-mcp PR #50, merged at 6354b77)
+- AO drift fixes: 4 separate commits (1073904 generator regen + e4c7953 AGENTS.md sync + 82df702 landing-page counts + 756df6c doc descriptions)
+- Bulk count sweep (197d352): 20 files updated from 55-skills/62-commands to 59/66
+- Broken link fix + generator hardening (80f549c): 12 broken links in dispatch pages converted to code spans + generator updated to count sub-agent companion commands
 
 ### Repo hygiene (deferred from v2.16 to pre-tag pass + v2.17)
 
@@ -93,7 +101,7 @@ These items belong to v2.18+ per the v2.16 strategic arc:
 
 - v2.16.0 master plan (predecessor): [`../v2.16.0/plan_v2.16.0.md`](../v2.16.0/plan_v2.16.0.md)
 - v2.16.0 ci-plan deferred items: [`../v2.16.0/ci-plan.md`](../v2.16.0/ci-plan.md)
-- v2.16.0 doc-stack-modernization-plan (deferred to dedicated session): [`../v2.16.0/doc-stack-modernization-plan.md`](../v2.16.0/doc-stack-modernization-plan.md)
+- v2.16.0 doc-stack-modernization-plan (SHIPPED in v2.16.0 doc-stack spike 2026-05-17): [`../v2.16.0/doc-stack-modernization-plan.md`](../v2.16.0/doc-stack-modernization-plan.md)
 - v2.16.0 hygiene plan: [`../v2.16.0/repo-hygiene-plan.md`](../v2.16.0/repo-hygiene-plan.md)
 - Strategic roadmap (source for v2.17 candidates): [`../../_working/roadmap_opus-4.7-max_2026-05-14.md`](../../_working/roadmap_opus-4.7-max_2026-05-14.md)
 - v2.17.0 dispatch skill GA criteria (GATE B + GATE C): records added in v2.16.0 post-tag pass + carried forward here when v2.17.0 promotes from STUB to ACTIVE

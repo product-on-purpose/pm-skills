@@ -12,28 +12,37 @@
 
 ## Status
 
-**Plan IN PROGRESS** (started 2026-05-17). 9 plan tasks + 3 mid-execution scope additions across 3 phases.
+**Plan PHASE 1 COMPLETE LOCALLY** (2026-05-17 evening). 9 plan tasks + 9 mid-execution scope additions per DM7 + DM8 absorbed into spike. 13 commits on spike branch + 1 cross-repo PR merged (pm-skills-mcp #50).
 
-Spike branch `feat/v2.16-astro-6-spike` open as PR [#147](https://github.com/product-on-purpose/pm-skills/pull/147) (DRAFT). 3 commits landed; Astro 6 bump pending.
+Spike branch `feat/v2.16-astro-6-spike` open as PR [#147](https://github.com/product-on-purpose/pm-skills/pull/147) (DRAFT until Phase 2 merge). All enforcing validators PASS locally on spike HEAD.
 
 ### Where we are
 
 | Phase | Status |
 |---|---|
-| Phase 1 Task 1a: Node bump 5 workflows + engines.node | DONE (commit `ed3621b` 2026-05-17) |
-| Phase 1 mid-execution: YAML defect fix in dispatch skill EXAMPLE.md | DONE (commit `3fcf7af` 2026-05-17; surfaced by spike CI) |
-| Phase 1 mid-execution: Layer 1 MCP CI hygiene | DONE (commit `6bceac5` 2026-05-17) |
-| Phase 1 mid-execution: Layer 2 cross-repo pm-skills-mcp fix | IN PROGRESS (pm-skills-mcp PR [#50](https://github.com/product-on-purpose/pm-skills-mcp/pull/50)) |
-| Phase 1 Task 1: Astro 6 bump + lockfile regeneration | PENDING |
-| Phase 1 Task 2: Inventory + fix breakage (mermaid, CSS, config) | PENDING |
-| Phase 1 Task 3: Verify site output (page count, mermaid, sidebar, search, redirects) | PENDING |
-| Phase 1 Task 4: Run pre-tag-validate bundle on spike branch | PENDING |
-| Phase 2: Merge spike to main | PENDING |
-| Phase 3: Verify Dependabot alerts closed + plan/backlog refresh | PENDING |
+| Phase 1 Task 1a: Node bump 5 workflows + engines.node | DONE (commit `ed3621b`) |
+| Phase 1 mid-execution: YAML defect fix in dispatch skill EXAMPLE.md | DONE (commit `3fcf7af`) |
+| Phase 1 mid-execution: Layer 1 MCP CI hygiene (validate-mcp-sync advisory) | DONE (commit `6bceac5`) |
+| Phase 1 mid-execution: Layer 2 cross-repo pm-skills-mcp fix | DONE (pm-skills-mcp PR [#50](https://github.com/product-on-purpose/pm-skills-mcp/pull/50) MERGED at `6354b77`) |
+| Phase 1 Task 1: Astro 6.3.x + Starlight 0.39.x bump + lockfile regeneration | DONE (commit `15aaca8`) |
+| Phase 1 Task 2: Inventory + fix breakage (sidebar wrapping per Starlight 0.39, SKILL.md description fix, regen) | DONE (commit `fa5ed8b`) |
+| Phase 1 mid-execution AO drift sweeps (4 commits + bulk count sweep + broken-link fix) | DONE (`1073904`, `e4c7953`, `82df702`, `756df6c`, `197d352`, `80f549c`) |
+| Phase 1 Task 3: Verify site output | DONE-PARTIAL (build clean locally: 341 pages, 354 HTML in Pagefind, mermaid transforms clean; PENDING `npm run preview` browser spot-check) |
+| Phase 1 Task 4: Run pre-tag-validate bundle on spike branch | DONE (all 27 enforcing validators PASS) |
+| Phase 2 Task 5: Pre-merge rebase + re-build + re-validate | PENDING |
+| Phase 2 Task 6: Merge spike PR #147 to main + CI green + deploy verified | PENDING |
+| Phase 3 Task 8: Verify 0 open Dependabot alerts on main (post-merge) | PENDING |
+| Phase 3 Task 9: Refresh backlog-canonical + finalize plan continuity | IN PROGRESS (CHANGELOG + Release notes + v2.17 stub + this plan updated 2026-05-17 evening; backlog refresh pending) |
 
 ### Estimated remaining
 
-1-2 sessions for Phase 1 completion (Astro 6 work + integration fixes). Phase 1 unexpectedly expanded mid-execution to absorb 3 pre-existing defects surfaced by the spike CI (YAML defect in v2.16.0 Active Orchestration content; M-22 CI hygiene gap; cross-repo embed-script fix). All 3 are bounded one-shot remediations; Astro 6 work proceeds on the same spike branch.
+Phase 1 COMPLETE locally on the spike branch as of 2026-05-17 evening. Remaining work:
+
+- Phase 2 Task 5 + Task 6: rebase spike on main, re-run validators, merge PR #147 (~0.5 session)
+- Phase 3 Task 8 + Task 9: verify 0 open Dependabot alerts post-merge; finish backlog-canonical refresh (~0.25 session)
+- Conductor dry-run rehearsal: `/release v2.16.0 --dry-run` once spike merged (per user briefing handoff)
+
+Phase 1 originally scoped at 1-2 sessions; actually consumed one dedicated session that absorbed 9 mid-execution defects per DM7 + DM8: workflow list correction; YAML defect; Layer 1 + Layer 2 MCP CI hygiene; 4 AO drift sweeps (generator regen, AGENTS.md sync, landing-page counts, doc descriptions truncation); bulk count update across 20 files; broken-link fix + generator hardening. All bounded one-shot remediations; no architectural blockers surfaced.
 
 ---
 
