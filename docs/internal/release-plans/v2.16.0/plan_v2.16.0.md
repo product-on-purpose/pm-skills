@@ -1,6 +1,6 @@
 # v2.16.0 Release Plan: Active Orchestration + Doc-Stack Modernization
 
-**Status:** READY TO TAG (content-complete 2026-05-17; 16 commits 68bd5cc through 28ff92f + 2 pre-tag commits f0fd0b0+). Phase 0 Adversarial Review closed (7 findings; all addressed). Pre-tag artifact pass complete pending G2.5 commit gate. GATE B + GATE C pending maintainer cross-client tests per `maintainer-gate-testing.md`.
+**Status:** BLOCKED ON DOC-STACK MODERNIZATION. Active Orchestration track content-complete 2026-05-17 (16 commits 68bd5cc through 5a1ad61). Phase 0 Adversarial Review closed (7 findings; all addressed). Pre-tag artifact pass staged pending G2.5 commit gate. GATE B + GATE C pending maintainer cross-client tests per `maintainer-gate-testing.md`. **Tag delayed** per maintainer decision 2026-05-17 to include Astro 5.13.x to 6.x upgrade in v2.16.0 (closes 2 Dependabot alerts). Doc-stack modernization plan now ACTIVE in dedicated session; resumes per the continuation prompt in `AGENTS/SESSION-LOG/` and the task list in `doc-stack-modernization-plan.md`.
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (stub); promoted 2026-05-16 (this version)
