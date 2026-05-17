@@ -156,7 +156,7 @@ The YAML block enables programmatic consumption: a parent sub-agent (e.g., `pm-r
 ## Related Files
 
 - Canonical sub-agent: [`subagents/pm-critic.md`](../../../subagents/pm-critic.md)
-- Worked example: [`EXAMPLE.md`](./EXAMPLE.md)
+- Worked example: `EXAMPLE.md`
 - User guide: [`docs/guides/adversarial-review.md`](../../../docs/guides/adversarial-review.md)
 
 ## Example Output
@@ -295,8 +295,8 @@ The cross-client consistency is the validation criterion for Phase 2 GATE B. If 
 ## Related Files
 
 - Canonical sub-agent: [`subagents/pm-critic.md`](../../../subagents/pm-critic.md)
-- Skill manifest: [`SKILL.md`](../SKILL.md)
-- Output template: [`TEMPLATE.md`](./TEMPLATE.md)
+- Skill manifest: `SKILL.md`
+- Output template: `TEMPLATE.md`
 - Native sub-agent sample: [`library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md`](../../../library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md)
 
 </details>

@@ -64,5 +64,5 @@ Per master plan D30, dispatch skill availability is CONDITIONAL on Phase 2 GATE 
 - CHANGELOG hygiene rules source: `CLAUDE.md` (repo root)
 - Existing CHANGELOG.md format: `CHANGELOG.md` (root); v2.15.1 + v2.15.2 entries are canonical exemplars
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
-- Output template: [`references/TEMPLATE.md`](./references/TEMPLATE.md)
-- Worked example: [`references/EXAMPLE.md`](./references/EXAMPLE.md)
+- Output template: `references/TEMPLATE.md`
+- Worked example: `references/EXAMPLE.md`

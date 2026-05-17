@@ -75,5 +75,5 @@ Because non-Claude clients cannot natively chain, the auditor and curator behavi
 - Chain child (inlined at G2): [`subagents/pm-changelog-curator.md`](../../subagents/pm-changelog-curator.md)
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}`
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
-- Output template: [`references/TEMPLATE.md`](./references/TEMPLATE.md)
-- Worked example: [`references/EXAMPLE.md`](./references/EXAMPLE.md)
+- Output template: `references/TEMPLATE.md`
+- Worked example: `references/EXAMPLE.md`
