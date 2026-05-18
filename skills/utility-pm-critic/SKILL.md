@@ -64,13 +64,7 @@ See `references/TEMPLATE.md` for the canonical output structure (with the layere
 
 ## Cross-Client Notes
 
-Per master plan D30, the dispatch skill mechanism was VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE B PASS; see [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](../../docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)). Client matrix as of v2.16.0 ship:
-
-- **Claude Code (with pm-skills plugin):** native sub-agent path; canonical reference for output shape
-- **Codex CLI 0.128.0:** VALIDATED 2026-05-17; produces output structurally consistent with Claude Code native sub-agent
-- **Cursor, Windsurf, Copilot CLI, Gemini CLI:** untested; expected to work but require manual verification by maintainers wanting to deploy on those clients
-
-Maintainers wanting cross-client confidence on a specific non-Claude client can re-run the [`maintainer-gate-testing-codex.md`](../../docs/internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md) harness on that client.
+See [Sub-Agent Compatibility Matrix](../../docs/reference/sub-agent-compatibility.md) for the canonical cross-client status of all 4 sub-agents + dispatch skills. Summary for this skill as of v2.16.0: PRODUCTION on Claude Code + Codex CLI; EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI. Maintainers wanting cross-client confidence on a non-Claude client can re-run the [`maintainer-gate-testing-codex.md`](../../docs/internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md) harness on that client.
 
 The "read and execute inline" pattern depends on the AI being able to:
 

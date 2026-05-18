@@ -5,6 +5,8 @@ description: "Which AI platforms support pm-skills and how: Claude Code plugin m
 
 PM-Skills works across the AI agent ecosystem. This page covers every supported platform with step-by-step setup instructions. For the README's quick-start summary, see [README.md](../../README.md#getting-started).
 
+> **Using v2.16.0 sub-agents on a non-Claude client?** All 4 sub-agents ship with dispatch skills (`skills/utility-pm-{role}/`) for cross-client access. The dispatch mechanism was validated on Codex CLI 2026-05-17; Cursor / Windsurf / Copilot CLI / Gemini CLI are EXPERIMENTAL at v2.16.0 ship. See the canonical [Sub-Agent Compatibility Matrix](../reference/sub-agent-compatibility.md) for per-client status before invoking pm-critic, pm-skill-auditor, pm-changelog-curator, or pm-release-conductor on a non-Claude platform.
+
 ## Quick reference
 
 | Platform | Native? | Recommended path |

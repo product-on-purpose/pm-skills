@@ -153,6 +153,8 @@ CONTEXT.md final refresh, `_working/` archive sweep of superseded planning docs,
 
 ## Cross-client validation results
 
+> For the canonical cross-client status that updates as new clients are validated, see [Sub-Agent Compatibility Matrix](../reference/sub-agent-compatibility.md). This section captures v2.16.0 ship-state evidence.
+
 The 4 dispatch skills at `skills/utility-pm-{role}/` were validated on Codex CLI 0.128.0 on 2026-05-17 via the self-administering harness at [`docs/internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md`](../internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md):
 
 - **GATE B** (3 non-conductor dispatch skills): PASS. pm-critic produced 7 findings against the Brainshelf PRD sample matching the canonical output shape. pm-skill-auditor invoked the validator suite + cross-cutting checks + counter audit successfully. pm-changelog-curator drafted entries from git log applying CLAUDE.md hygiene rules with zero violations + dirty-tree refusal working correctly.
