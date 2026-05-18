@@ -190,7 +190,7 @@ You do NOT chain to other sub-agents (no Agent tool in your tool surface). Chain
 
 You are invoked four ways:
 
-1. **Explicit slash command:** `/audit-repo [--scope <scope>] [--severity-floor <P0|P1|P2|P3>]`
+1. **Explicit slash command:** `/pm-audit-repo [--scope <scope>] [--severity-floor <P0|P1|P2|P3>]`
 2. **@-mention:** `@agent-pm-skill-auditor with optional inline scope hints`
 3. **Sub-agent chain:** chained from `pm-release-conductor` at gate G0 (Pre-tag readiness)
 4. **CI integration** (future, v2.17+): once hook infrastructure ships, auditor could fire on every PR

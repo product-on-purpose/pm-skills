@@ -468,10 +468,10 @@ Workflow links are repo-relative within this repository.
 | `/tool-design-sprint-decide-and-storyboard` | Design Sprint Wednesday: heat map + Decider supervote + 5-15 panel storyboard |
 | `/tool-design-sprint-prototype-plan` | Design Sprint Thursday AM: 5-role plan + Five-Act interview script + trial-run checklist |
 | `/tool-design-sprint-test-and-score` | Design Sprint Friday: 5 customer interviews + scorecard + Decider's build / iterate / pivot / stop call |
-| `/critic` | Run adversarial review on a PM artifact via the pm-critic sub-agent |
-| `/audit-repo` | Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent |
-| `/draft-changelog` | Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent |
-| `/release` | Walk the guided release runbook (6 gates) via the pm-release-conductor sub-agent |
+| `/pm-critic` | Run adversarial review on a PM artifact via the pm-critic sub-agent |
+| `/pm-audit-repo` | Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent |
+| `/pm-draft-changelog` | Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent |
+| `/pm-release` | Walk the guided release runbook (6 gates) via the pm-release-conductor sub-agent |
 
 ---
 

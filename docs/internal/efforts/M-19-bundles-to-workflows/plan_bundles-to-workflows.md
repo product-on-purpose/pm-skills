@@ -1,7 +1,7 @@
 # Rename Plan: `_bundles` → `_workflows` + `/workflow-` Command Prefix
 
 Status: Planning (post-review)
-Parent: [plan_v2.9.0.md](../../release-plans/v2.9.0/plan_v2.9.0.md)
+Parent: [plan_v2.9.0.md](../../pm-release-plans/v2.9.0/plan_v2.9.0.md)
 Scope: pm-skills (primary) + pm-skills-mcp (downstream)
 Reviewed by: Codex (GPT-5.4) . [review document](plan_bundles-to-workflows_reviewed-by-codex.md)
 

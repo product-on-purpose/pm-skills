@@ -1,4 +1,4 @@
-# [F-38] `/release` Utility Skill
+# [F-38] `/pm-release` Utility Skill
 
 Status: Backlog
 Milestone: v2.12.0 (candidate)
@@ -7,7 +7,7 @@ Agent: Claude Opus 4.7
 
 ## Scope
 
-Create `skills/utility-release/` with command `/release` that encodes the end-to-end release workflow currently executed manually each version. One invocation runs: pre-flight audits, em-dash sweep, stale-count reconciliation, mkdocs regeneration, CI validation, CHANGELOG + release notes + skills-manifest authoring, commit, tag, push, GitHub Release verification.
+Create `skills/utility-release/` with command `/pm-release` that encodes the end-to-end release workflow currently executed manually each version. One invocation runs: pre-flight audits, em-dash sweep, stale-count reconciliation, mkdocs regeneration, CI validation, CHANGELOG + release notes + skills-manifest authoring, commit, tag, push, GitHub Release verification.
 
 Surfaced by the 2026-04-23 `/insights` report which flagged the release workflow as repeated three times (v2.11.0, v2.11.1, jp-ai-review v1.1.0) with nearly identical steps, each time rediscovered from scratch.
 
@@ -29,7 +29,7 @@ Today this is roughly 2 to 4 hours of work that an agent re-derives from context
 - v2.11.1 (2026-04-22) repeated the same steps top-to-bottom, including a review pass that discovered pre-push gaps (missing What's New entry, "5 vs 8 references" wording)
 - Cross-session friction: the agent starts each release by re-learning the release plan template, re-reading CHANGELOG conventions, re-checking which files need version bumps
 
-A `/release` skill would turn this into: the agent already knows the template, the checklist, the order, the exemplar commit messages, the CI sequence.
+A `/pm-release` skill would turn this into: the agent already knows the template, the checklist, the order, the exemplar commit messages, the CI sequence.
 
 ## How It Works
 
@@ -37,9 +37,9 @@ A `/release` skill would turn this into: the agent already knows the template, t
 
 Three subcommand variants covering the typical slice of work:
 
-- `/release prep <version>` runs the audit + generator + CI phases, authoring the release plan + skills-manifest but not committing anything. Agent presents a review checkpoint before the user approves proceeding to ship.
-- `/release ship <version>` assumes prep is done and approved. Runs CHANGELOG + release notes authoring, version bumps, final CI, staged commit, tag, push. Pauses before push for user confirmation.
-- `/release verify <version>` runs post-push validation: `gh release view`, live CLI dry-run from clean env, GitHub Release body check (strips frontmatter if present), docs-site link check.
+- `/pm-release prep <version>` runs the audit + generator + CI phases, authoring the release plan + skills-manifest but not committing anything. Agent presents a review checkpoint before the user approves proceeding to ship.
+- `/pm-release ship <version>` assumes prep is done and approved. Runs CHANGELOG + release notes authoring, version bumps, final CI, staged commit, tag, push. Pauses before push for user confirmation.
+- `/pm-release verify <version>` runs post-push validation: `gh release view`, live CLI dry-run from clean env, GitHub Release body check (strips frontmatter if present), docs-site link check.
 
 ### Inputs
 
@@ -74,7 +74,7 @@ Sensible defaults drawn from the v2.11.1 release as the gold-standard exemplar:
 
 - Type: utility skill (automates repo-level workflow, not domain/phase work)
 - Directory: `skills/utility-release/`
-- Command: `/release` (with subcommands `prep`, `ship`, `verify`)
+- Command: `/pm-release` (with subcommands `prep`, `ship`, `verify`)
 - SKILL.md pattern: mirror of other utility skills (`utility-pm-skill-builder`, `utility-pm-skill-validate`, `utility-pm-skill-iterate`, `utility-update-pm-skills`)
 
 ## Exemplars
@@ -91,7 +91,7 @@ Sensible defaults drawn from the v2.11.1 release as the gold-standard exemplar:
 - `skills/utility-release/references/TEMPLATE.md` (release-plan template, pre-filled sections)
 - `skills/utility-release/references/EXAMPLE.md` (worked example reproducing the v2.11.1 release)
 - `skills/utility-release/references/CHECKLIST.md` (phase-by-phase checklist that the skill walks through)
-- `commands/release.md` (Claude Code slash command entry)
+- `commands/pm-release.md` (Claude Code slash command entry)
 - `AGENTS.md` (new entry for the skill)
 - `mkdocs.yml` (new nav entry)
 - `docs/skills/utility/utility-release.md` (auto-generated on first `generate-skill-pages.py` run after landing)
@@ -102,9 +102,9 @@ Sensible defaults drawn from the v2.11.1 release as the gold-standard exemplar:
 
 ### Dry-run test plan
 
-1. **Prep phase dry-run**: run `/release prep v2.11.2` against the current repo state. Expected: agent audits em-dashes (0 expected), runs generators (no changes expected since 2026-04-23), CI passes, authors draft plan in `docs/internal/release-plans/v2.11.2/`. Zero files committed. Agent presents checkpoint.
+1. **Prep phase dry-run**: run `/pm-release prep v2.11.2` against the current repo state. Expected: agent audits em-dashes (0 expected), runs generators (no changes expected since 2026-04-23), CI passes, authors draft plan in `docs/internal/release-plans/v2.11.2/`. Zero files committed. Agent presents checkpoint.
 2. **Ship phase dry-run**: decline the ship-phase checkpoint. Expected: no commits, no tag, no push. Clean abort.
-3. **End-to-end test**: intentionally create v2.11.2 for a trivial fix (e.g., typo correction). Run `/release prep v2.11.2`, approve, `/release ship v2.11.2`, `/release verify v2.11.2`. Expected: full cycle in under 15 minutes with minimal user interaction beyond the two approval checkpoints.
+3. **End-to-end test**: intentionally create v2.11.2 for a trivial fix (e.g., typo correction). Run `/pm-release prep v2.11.2`, approve, `/pm-release ship v2.11.2`, `/pm-release verify v2.11.2`. Expected: full cycle in under 15 minutes with minimal user interaction beyond the two approval checkpoints.
 
 ### Regression guards
 
@@ -114,11 +114,11 @@ Sensible defaults drawn from the v2.11.1 release as the gold-standard exemplar:
 
 ## Open Questions
 
-- **Skill scope: single repo or multi-repo?** pm-skills-mcp has its own release cycle. Should `/release` handle both via a configurable target, or is this pm-skills-only for v1.0.0? Proposal: pm-skills-only for v1.0.0; generalize in a later version once the pattern is proven.
+- **Skill scope: single repo or multi-repo?** pm-skills-mcp has its own release cycle. Should `/pm-release` handle both via a configurable target, or is this pm-skills-only for v1.0.0? Proposal: pm-skills-only for v1.0.0; generalize in a later version once the pattern is proven.
 - **How much of the release plan should the skill author vs. leave as user-input?** Proposal: skill generates 80% mechanical content (CI results, file lists, version bumps) and asks user for the 20% substantive content (release theme, decisions rationale, non-goals). The v2.11.1 plan's "Decisions" table and "Non-goals" section are examples of what should stay user-authored.
 - **Should this skill author the GitHub Release body?** Proposal: yes. strip frontmatter from the `Release_vX.Y.Z.md` file automatically (learned the hard way during v2.11.1). Use `gh release edit` not `gh release create` if a GitHub Action already auto-created the Release on tag push.
 - **Does this skill coexist with a pre-commit hook for em-dashes?** Proposal: yes, orthogonal. Hook blocks at edit-time; skill sweeps at release-time. The skill still runs a sweep as defense-in-depth in case hook is bypassed or a file slipped through.
-- **How to handle the observer-agent framework during /release?** Proposal: skill explicitly suppresses observer firing during the mechanical phases to reduce noise; re-enables at checkpoints.
+- **How to handle the observer-agent framework during /pm-release?** Proposal: skill explicitly suppresses observer firing during the mechanical phases to reduce noise; re-enables at checkpoints.
 
 ## Dependencies
 
@@ -130,7 +130,7 @@ Sensible defaults drawn from the v2.11.1 release as the gold-standard exemplar:
 
 The 2026-04-23 `/insights` report surfaced this as a top-3 suggestion with copyable prompt:
 
-> "You've shipped v2.11.0, v2.11.1, and jp-ai-review v1.1.0 with nearly identical steps. Encode this as a /release skill plus hooks."
+> "You've shipped v2.11.0, v2.11.1, and jp-ai-review v1.1.0 with nearly identical steps. Encode this as a /pm-release skill plus hooks."
 
 Session data backs this up: 29 commits across 46 analyzed sessions, a consistent release pattern, and 2 friction classes (em-dash leakage, stale-count drift) that reappear each cycle because the workflow is re-derived rather than codified.
 
@@ -138,7 +138,7 @@ Session data backs this up: 29 commits across 46 analyzed sessions, a consistent
 
 - **Backlog** (current, 2026-04-23)
 - **In Progress** when skill authoring begins
-- **Shipped** on first repo-tag that uses `/release` for its own release (self-hosting proof)
+- **Shipped** on first repo-tag that uses `/pm-release` for its own release (self-hosting proof)
 
 ## Detailed specification
 

@@ -40,7 +40,7 @@ Phase 1 COMPLETE locally on the spike branch as of 2026-05-17 evening. Remaining
 
 - Phase 2 Task 5 + Task 6: rebase spike on main, re-run validators, merge PR #147 (~0.5 session)
 - Phase 3 Task 8 + Task 9: verify 0 open Dependabot alerts post-merge; finish backlog-canonical refresh (~0.25 session)
-- Conductor dry-run rehearsal: `/release v2.16.0 --dry-run` once spike merged (per user briefing handoff)
+- Conductor dry-run rehearsal: `/pm-release v2.16.0 --dry-run` once spike merged (per user briefing handoff)
 
 Phase 1 originally scoped at 1-2 sessions; actually consumed one dedicated session that absorbed 9 mid-execution defects per DM7 + DM8: workflow list correction; YAML defect; Layer 1 + Layer 2 MCP CI hygiene; 4 AO drift sweeps (generator regen, AGENTS.md sync, landing-page counts, doc descriptions truncation); bulk count update across 20 files; broken-link fix + generator hardening. All bounded one-shot remediations; no architectural blockers surfaced.
 

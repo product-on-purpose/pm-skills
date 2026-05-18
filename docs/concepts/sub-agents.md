@@ -57,10 +57,10 @@ v2.16.0 introduces four sub-agents as the new component class:
 
 | Sub-agent | Mission | Audience | Trigger |
 |---|---|---|---|
-| `pm-critic` | Adversarial review of PM artifacts (PRDs, OKRs, personas, etc.). Finds weaknesses, not wins. | User (PM authoring artifacts) | **Proactive** (auto-fires after PM-artifact-producing skills) + explicit `/critic` |
-| `pm-skill-auditor` | Repo-level cross-cutting governance: validators + cross-cutting checks + counter audit | User + Maintainer | Explicit `/audit-repo` only |
-| `pm-changelog-curator` | Draft CHANGELOG entries from git log applying CLAUDE.md hygiene rules | Maintainer | Explicit `/draft-changelog` or chained from conductor |
-| `pm-release-conductor` | Walk the 6-gate release runbook with chain composition to auditor + curator | Maintainer | Explicit `/release v{X.Y.Z}` only |
+| `pm-critic` | Adversarial review of PM artifacts (PRDs, OKRs, personas, etc.). Finds weaknesses, not wins. | User (PM authoring artifacts) | **Proactive** (auto-fires after PM-artifact-producing skills) + explicit `/pm-critic` |
+| `pm-skill-auditor` | Repo-level cross-cutting governance: validators + cross-cutting checks + counter audit | User + Maintainer | Explicit `/pm-audit-repo` only |
+| `pm-changelog-curator` | Draft CHANGELOG entries from git log applying CLAUDE.md hygiene rules | Maintainer | Explicit `/pm-draft-changelog` or chained from conductor |
+| `pm-release-conductor` | Walk the 6-gate release runbook with chain composition to auditor + curator | Maintainer | Explicit `/pm-release v{X.Y.Z}` only |
 
 All four ship dispatch skills at `skills/utility-pm-{role}/` for non-Claude clients. The dispatch mechanism + conductor's "reference + execute inline" chain composition were VALIDATED on Codex CLI 0.128.0 on 2026-05-17 per [master plan D30](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/plan_v2.16.0.md) (GATE B + C PASS recorded at [`gate-test-results_2026-05-17_codex.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)). Additional clients (Cursor, Windsurf, Copilot, Gemini CLI) are untested but expected to work; the harness at `maintainer-gate-testing-codex.md` is re-runnable for cross-client verification.
 
@@ -69,7 +69,7 @@ All four ship dispatch skills at `skills/utility-pm-{role}/` for non-Claude clie
 Sub-agents compose in 4 patterns documented in [`docs/contributing/sub-agent-design-patterns.md`](../contributing/sub-agent-design-patterns.md):
 
 1. **Skill -> Sub-agent (proactive review loop):** `pm-critic` auto-fires after `/deliver-prd`, returns findings, user revises with `/deliver-prd` again, critic re-reviews
-2. **Slash command -> Sub-agent (explicit invocation):** `/critic`, `/audit-repo`, `/draft-changelog`, `/release` invoke their paired sub-agent
+2. **Slash command -> Sub-agent (explicit invocation):** `/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release` invoke their paired sub-agent
 3. **Sub-agent -> Sub-agent (chain composition, 2 levels max):** `pm-release-conductor` chains to `pm-skill-auditor` at G0 + G2.5 and `pm-changelog-curator` at G2
 4. **Dispatch skill -> Sub-agent or inline (cross-client):** dispatch skill detects runtime; invokes native sub-agent on Claude Code or executes inline on other clients
 

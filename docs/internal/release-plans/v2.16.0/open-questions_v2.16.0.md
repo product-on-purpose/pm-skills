@@ -278,14 +278,14 @@ The cost: one additional gate (6 vs 5), one additional confirmation pause, sligh
 **End-user impact of NOT having this gate (Option C scenario):**
 
 Concrete failure walkthrough:
-1. Maintainer types `/release v2.16.0`
+1. Maintainer types `/pm-release v2.16.0`
 2. Conductor walks G0-G2. G2 edits `plugin.json` (2.15.0 -> 2.16.0), CHANGELOG, etc. All in working tree, NOT committed.
 3. Maintainer says "yes proceed" at G2 prompt.
 4. G3 runs `git tag -a v2.16.0 -m "..." HEAD`. HEAD is still the pre-G2 commit.
 5. Tag pushed to origin. CI runs on the tagged commit. **plugin.json still says 2.15.0.**
 6. Astro deploy publishes docs site referencing v2.16.0 URL but rendering v2.15.0 content.
 7. Community installs the plugin from the v2.16.0 tag. They get version 2.15.0 in manifest. The 4 new sub-agents (in uncommitted files) are missing.
-8. `/critic` doesn't exist. CHANGELOG entry missing. **Release is broken downstream.**
+8. `/pm-critic` doesn't exist. CHANGELOG entry missing. **Release is broken downstream.**
 
 The tag is on git history forever. Recovery: tag deletion (destructive, controversial) or fast-follow v2.16.1.
 
@@ -525,7 +525,7 @@ Specifically:
 
 - A Codex user who installs pm-skills v2.16 plugin sees `subagents/*.md` files but Codex doesn't load them as sub-agents. They become inert files in a directory.
 - A Cursor or Windsurf user with AGENTS.md parsing may see the new "Sub-Agents" section. If their parser doesn't understand the component class, it may produce confusing UX.
-- The slash commands (`/critic`, `/audit-repo`, `/draft-changelog`, `/release`) are Claude Code-specific. Codex commands look different.
+- The slash commands (`/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`) are Claude Code-specific. Codex commands look different.
 
 The strategy doc's D11 (Codex parity via codex-rescue prompt templates) addresses #1 partially. Nothing explicit addresses #2 or #3.
 

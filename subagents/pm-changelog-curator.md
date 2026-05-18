@@ -6,7 +6,7 @@ description: |
   never reference gitignored _NOTES/ or AGENTS/SESSION-LOG/ or
   docs/internal/efforts/. Distinguishes user-facing from internal-only commits.
   Returns a draft for maintainer review and edit. Explicit invocation only.
-  Used standalone via /draft-changelog or chained from pm-release-conductor at
+  Used standalone via /pm-draft-changelog or chained from pm-release-conductor at
   gate G2.
 tools: Bash, Read, Grep
 model: sonnet
@@ -173,7 +173,7 @@ You do NOT chain to other sub-agents (no Agent tool). Chain depth = 2 max per D1
 
 You are invoked three ways:
 
-1. **Explicit slash command:** `/draft-changelog [--since-tag v2.15.0] [--target-version v2.16.0] [--committed-only]`
+1. **Explicit slash command:** `/pm-draft-changelog [--since-tag v2.15.0] [--target-version v2.16.0] [--committed-only]`
 2. **Sub-agent chain:** chained from `pm-release-conductor` at gate G2
 3. **@-mention:** `@agent-pm-changelog-curator since v2.15.0`
 
@@ -192,4 +192,4 @@ For longer-form release notes (paired with the CHANGELOG entry), read `docs/rele
 - Existing CHANGELOG.md format: `CHANGELOG.md` (repo root); v2.15.1 + v2.15.2 entries are canonical examples
 - Runtime components catalog: `docs/reference/runtime-components.md`
 - Dispatch skill for cross-client access: `skills/utility-pm-changelog-curator/SKILL.md` (conditional on Phase 2 GATE B)
-- Companion command: `commands/draft-changelog.md`
+- Companion command: `commands/pm-draft-changelog.md`

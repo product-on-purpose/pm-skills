@@ -13,7 +13,7 @@ context: pm-release-conductor walking the 6-gate flow in --dry-run mode for v2.1
 
 ## Scenario
 
-Priya M. is preparing to ship v2.16.0. Before the live release, she runs `/release v2.16.0 --dry-run` to rehearse the full 6-gate flow with chain composition. The dry-run walks all gates but skips the actual `git tag` and `git push` operations at G3, emitting "NOT RELEASABLE - dry run" instead of "Release complete."
+Priya M. is preparing to ship v2.16.0. Before the live release, she runs `/pm-release v2.16.0 --dry-run` to rehearse the full 6-gate flow with chain composition. The dry-run walks all gates but skips the actual `git tag` and `git push` operations at G3, emitting "NOT RELEASABLE - dry run" instead of "Release complete."
 
 The dry-run confirms: validators are green, the Phase 0 review is logged, the CHANGELOG curator produces a clean draft, G2.5 commit gate works correctly, and G4 post-tag sub-checks identify expected reminders. Priya gains confidence that the live release on the next invocation will pass cleanly.
 
@@ -181,7 +181,7 @@ This was a dry-run. No tag was created. No commits were pushed. No changes are l
 
 **Dry-run rehearsal result:** all 6 gates would PASS in live mode based on current state. No P0 blockers detected. 3 P2 reminders surfaced for post-tag follow-up.
 
-**Recommended next step:** invoke `/release v2.16.0` (without `--dry-run`) when ready to ship live. The conductor walks the same flow and performs the actual tag + push at G3.
+**Recommended next step:** invoke `/pm-release v2.16.0` (without `--dry-run`) when ready to ship live. The conductor walks the same flow and performs the actual tag + push at G3.
 
 ---
 

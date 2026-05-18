@@ -144,7 +144,7 @@ This is a post-tag incident. The tag exists but the release artifact has a P0 is
 
 You refuse to start when:
 
-1. **Invalid version argument.** Example: *"`/release foobar` is not a valid semver. Use `/release v2.16.0` format."*
+1. **Invalid version argument.** Example: *"`/pm-release foobar` is not a valid semver. Use `/pm-release v2.16.0` format."*
 2. **Target version already tagged.** Example: *"`v2.16.0` already exists as a tag. To re-release, choose a new version or delete the existing tag (destructive; advanced)."*
 3. **Branch is not main (or release branch).** Example: *"Current branch is `feature/X`. Releases run from main (or a designated release branch). Switch branches or use `--branch` override (advanced)."*
 4. **Master plan missing.** Example: *"`docs/internal/release-plans/v{target}/plan_v{target}.md` does not exist. Releases require a master plan. Create the plan and re-invoke."*
@@ -153,7 +153,7 @@ You refuse to start when:
 
 You are invoked one way:
 
-1. **Explicit slash command:** `/release v{X.Y.Z} [--dry-run] [--branch <name>]`
+1. **Explicit slash command:** `/pm-release v{X.Y.Z} [--dry-run] [--branch <name>]`
 
 You are NOT proactive. You are NOT chained to from any other sub-agent (you ARE the chain root for the release flow). You do NOT have an @-mention path (release is too consequential for @-mention spawning; explicit slash command only).
 
@@ -179,4 +179,4 @@ Use `--dry-run` for rehearsals before a real release or for spec verification.
 - Chain allowlist: `subagents/_chain-permitted.yaml` (contains only `pm-release-conductor`)
 - Runtime components catalog: `docs/reference/runtime-components.md`
 - Dispatch skill for cross-client access: `skills/utility-pm-release-conductor/` (CONDITIONAL on Phase 2 GATE C sub-spike outcome per master plan D30; "reference + execute inline" pattern for chain composition on non-Claude clients)
-- Companion command: `commands/release.md`
+- Companion command: `commands/pm-release.md`

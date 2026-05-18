@@ -19,10 +19,10 @@ pm-skills started as a content library: 55 skills + 62 slash commands + 12 workf
 
 v2.16.0 opens a second layer: **runtime components**. The first inhabitants are 4 Claude Code plugin sub-agents:
 
-- **`pm-critic`** runs adversarial review on PM artifacts proactively (auto-fires after `/deliver-prd`, `/foundation-okr-writer`, and 11 other artifact-producing skills). Returns P0/P1/P2/P3 findings with concrete fix suggestions. **You can now run `/critic` and get a real review in 30 seconds.**
-- **`pm-skill-auditor`** runs a repo-wide cross-cutting governance audit invoking the full enforcing validator suite via `scripts/pre-tag-validate.{sh,ps1}` plus 14 cross-cutting checks plus aggregate counter re-derivation. **You can now run `/audit-repo` for a pre-release governance check or repo-health audit.**
-- **`pm-changelog-curator`** drafts CHANGELOG entries from `git log` applying `CLAUDE.md` hygiene rules (no internal-notes references, no em-dashes, public paths only). **You can now run `/draft-changelog --since-tag vX.Y.Z` for a draft you can review and edit.**
-- **`pm-release-conductor`** walks 6 explicit gates (G0, G1, G2, G2.5, G3, G4) with chain composition to auditor at G0 + G2.5 and curator at G2. Refuses to advance past failed gates; refuses to tag any SHA other than the G2.5-captured one. **You can now run `/release v2.16.0` (or `--dry-run` to rehearse) for the full guided release flow.**
+- **`pm-critic`** runs adversarial review on PM artifacts proactively (auto-fires after `/deliver-prd`, `/foundation-okr-writer`, and 11 other artifact-producing skills). Returns P0/P1/P2/P3 findings with concrete fix suggestions. **You can now run `/pm-critic` and get a real review in 30 seconds.**
+- **`pm-skill-auditor`** runs a repo-wide cross-cutting governance audit invoking the full enforcing validator suite via `scripts/pre-tag-validate.{sh,ps1}` plus 14 cross-cutting checks plus aggregate counter re-derivation. **You can now run `/pm-audit-repo` for a pre-release governance check or repo-health audit.**
+- **`pm-changelog-curator`** drafts CHANGELOG entries from `git log` applying `CLAUDE.md` hygiene rules (no internal-notes references, no em-dashes, public paths only). **You can now run `/pm-draft-changelog --since-tag vX.Y.Z` for a draft you can review and edit.**
+- **`pm-release-conductor`** walks 6 explicit gates (G0, G1, G2, G2.5, G3, G4) with chain composition to auditor at G0 + G2.5 and curator at G2. Refuses to advance past failed gates; refuses to tag any SHA other than the G2.5-captured one. **You can now run `/pm-release v2.16.0` (or `--dry-run` to rehearse) for the full guided release flow.**
 
 Cross-client compatibility is delivered via dispatch skills at `skills/utility-pm-{role}/` per master plan D30. On Claude Code, the dispatch skill invokes the native sub-agent. On non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI), the dispatch skill reads the canonical sub-agent definition from `subagents/pm-{role}.md` and executes the system prompt inline.
 
@@ -40,10 +40,10 @@ The four sub-agents codify discipline the maintainer has been running manually s
 
 | Sub-agent | Audience | Trigger | Replaces (manual practice) |
 |---|---|---|---|
-| `pm-critic` | User (PM) | Proactive after artifact skills + explicit `/critic` | Phase 0 Adversarial Review Loop, run manually since v2.11.0; 2 review cycles in v2.15.0 (35 + 33 findings) |
-| `pm-skill-auditor` | User + Maintainer | Explicit `/audit-repo` | Pre-tag validator bundle + cross-cutting checks + counter audits, run manually each release cycle |
-| `pm-changelog-curator` | Maintainer | Explicit `/draft-changelog` or chained from conductor | CHANGELOG drafting by hand applying CLAUDE.md hygiene rules |
-| `pm-release-conductor` | Maintainer | Explicit `/release v{X.Y.Z}` | The full release runbook the maintainer follows each cycle |
+| `pm-critic` | User (PM) | Proactive after artifact skills + explicit `/pm-critic` | Phase 0 Adversarial Review Loop, run manually since v2.11.0; 2 review cycles in v2.15.0 (35 + 33 findings) |
+| `pm-skill-auditor` | User + Maintainer | Explicit `/pm-audit-repo` | Pre-tag validator bundle + cross-cutting checks + counter audits, run manually each release cycle |
+| `pm-changelog-curator` | Maintainer | Explicit `/pm-draft-changelog` or chained from conductor | CHANGELOG drafting by hand applying CLAUDE.md hygiene rules |
+| `pm-release-conductor` | Maintainer | Explicit `/pm-release v{X.Y.Z}` | The full release runbook the maintainer follows each cycle |
 
 Each sub-agent has a [behavioral spec doc](../internal/release-plans/v2.16.0/) (4 spec files) documenting the contract; the actual sub-agent definitions at [`subagents/`](https://github.com/product-on-purpose/pm-skills/tree/main/subagents) are referential (read canonical contract docs at invocation time per D12). Tools surface per agent:
 
@@ -171,7 +171,7 @@ Full evidence + per-test results: [`gate-test-results_2026-05-17_codex.md`](../i
 
 **Day-to-day usage is unchanged.** The 55-skill content catalog is identical to v2.15.2. All existing slash commands (`/prd`, `/hypothesis`, `/user-stories`, etc.) work exactly as before. Workflows unchanged.
 
-**New surface to discover:** 4 sub-agent slash commands (`/critic`, `/audit-repo`, `/draft-changelog`, `/release`) and 4 dispatch skills accessed via `/utility-pm-{role}` on non-Claude clients.
+**New surface to discover:** 4 sub-agent slash commands (`/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`) and 4 dispatch skills accessed via `/utility-pm-{role}` on non-Claude clients.
 
 **No breaking changes.** No removed skills, no removed commands, no removed validators. Existing CI workflows pass without changes.
 

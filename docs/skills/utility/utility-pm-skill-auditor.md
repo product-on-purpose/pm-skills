@@ -246,7 +246,7 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 #### F-01: Sub-agent without companion command (sub-agent integrity, violates D6)
 
 **Location:** `subagents/pm-release-conductor.md` (does not yet exist as of HEAD; expected per master plan Phase 5)
-**Issue:** Phase 5 plan ships `subagents/pm-release-conductor.md` paired with `commands/release.md`. As of HEAD, neither exists. Once authored, ensure the pair lands in the same commit per `subagents/_pairing.yaml`.
+**Issue:** Phase 5 plan ships `subagents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists. Once authored, ensure the pair lands in the same commit per `subagents/_pairing.yaml`.
 **Why it matters:** D6 requires every sub-agent to ship with a companion slash command. Missing the command makes the sub-agent harder for users to discover.
 **Fix:** This is a forward finding (Phase 5 work). Re-run audit after Phase 5 ships; finding should resolve.
 
@@ -283,7 +283,7 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 | Utility skills | 6 | 8 | NO (P2 - 2 dispatch skills added in v2.16 Phase 2-3) |
 | Tool skills | 15 | 15 | YES |
 | Sub-agents | 4 (planned) | 2 | EXPECTED (Phase 4-5 ship remaining 2) |
-| Commands | 62 | 64 | NO (P2 - 2 new commands /critic /audit-repo not in declared count) |
+| Commands | 62 | 64 | NO (P2 - 2 new commands /pm-critic /pm-audit-repo not in declared count) |
 | Workflows | 12 | 12 | YES |
 | Enforcing validators | 27 | 27 | YES |
 | Family contracts | 3 | 3 | YES |

@@ -9,10 +9,10 @@
 
 pairings:
   pm-critic:
-    commands: [critic]
+    commands: [pm-critic]
   pm-skill-auditor:
-    commands: [audit-repo]
+    commands: [pm-audit-repo]
   pm-changelog-curator:
-    commands: [draft-changelog]
+    commands: [pm-draft-changelog]
   pm-release-conductor:
-    commands: [release]
+    commands: [pm-release]

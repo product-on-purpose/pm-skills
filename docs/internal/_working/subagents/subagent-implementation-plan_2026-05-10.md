@@ -23,7 +23,7 @@ Three observations from the source doc shape the plan:
 
 | Cycle | Ship | Effort | Decision gate |
 |---|---|---|---|
-| v2.14.x late OR v2.15.0 | pm-critic plus `/critic` command plus `docs/guides/adversarial-review.md` | 1-3 days | After 2 weeks of real use, evaluate: false positives, missed findings, scope creep |
+| v2.14.x late OR v2.15.0 | pm-critic plus `/pm-critic` command plus `docs/guides/adversarial-review.md` | 1-3 days | After 2 weeks of real use, evaluate: false positives, missed findings, scope creep |
 | v2.15.1 | pm-release-conductor plus pm-changelog-curator plus pm-skill-auditor plus companion slash commands plus `docs/contributing/release-runbook.md` | 6-8 days | Conductor's release cycle observed end-to-end; auditor surfaces real cross-cutting drift |
 | v2.16.0 | pm-workflow-orchestrator (scoped to Feature Kickoff only) plus pm-sample-curator (if F-34 THREAD_PROFILES.md ships first) | 3-8 days depending on scope | One full workflow run end-to-end with the orchestrator; sample-curator catches real gaps |
 | v2.16.x or v2.17.0 | pm-frontmatter-doctor (if drift becomes measurable pain) plus pm-cross-llm-handoff (if the spike says yes) | 2-5 days | Each driven by real-pain signal, not anticipation |
@@ -39,7 +39,7 @@ Ship the first plugin sub-agent for pm-skills: pm-critic, an adversarial PM-arti
 ### Deliverables
 
 1. `agents/pm-critic.md` (the sub-agent definition)
-2. `commands/critic.md` (companion slash command for explicit invocation)
+2. `commands/pm-critic.md` (companion slash command for explicit invocation)
 3. `docs/guides/adversarial-review.md` (user-facing guide explaining when and how to invoke)
 4. AGENTS.md update listing the new component
 5. README.md update mentioning sub-agents as a new component class
@@ -69,7 +69,7 @@ The system prompt body draws from the source doc's "Concrete prompt scope" outli
 ### Invocation patterns enabled
 
 - **Proactive (Pattern 4):** auto-fires after artifact-producing skills via the `use proactively` description
-- **Slash command (Pattern 1):** `/critic [optional artifact path]` for explicit invocation
+- **Slash command (Pattern 1):** `/pm-critic [optional artifact path]` for explicit invocation
 - **@-mention (Pattern 2):** `@agent-pm-critic review this PRD`
 - **User override:** `.claude/pm-skills.local.md` can set `pm_critic_auto_invoke: false` if proactive invocation becomes noisy (this user-settings file may not exist yet; ship pm-critic with a documented intent for the override and add the settings file when it lands as part of broader runtime-leverage work)
 
@@ -117,7 +117,7 @@ Add the maintainer-facing utility sub-agents that directly improve the release p
 1. `agents/pm-release-conductor.md`
 2. `agents/pm-changelog-curator.md`
 3. `agents/pm-skill-auditor.md`
-4. Companion slash commands: `/release`, `/draft-changelog`, `/audit-repo`
+4. Companion slash commands: `/pm-release`, `/pm-draft-changelog`, `/pm-audit-repo`
 5. `docs/contributing/release-runbook.md` (the canonical runbook the conductor follows)
 6. Updates to `docs/reference/runtime-components.md` to catalog the four sub-agents that now exist
 7. CHANGELOG entry

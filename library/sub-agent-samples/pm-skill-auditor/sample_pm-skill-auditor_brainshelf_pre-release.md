@@ -13,7 +13,7 @@ context: Cross-cutting governance audit run during v2.16.0 Phase 3 development; 
 
 ## Scenario
 
-After authoring the pm-skill-auditor sub-agent in Phase 3, Priya M. ran `/audit-repo --scope full` to verify the repo is in a clean state before continuing to Phase 4 (pm-changelog-curator). The audit is a routine in-cycle health check: are validators green? Are there cross-cutting issues that have accumulated during fast-moving phase work? Do counters declared in CONTEXT.md / AGENTS.md / README.md still match the actual filesystem after dispatch skills were added in Phases 2-3?
+After authoring the pm-skill-auditor sub-agent in Phase 3, Priya M. ran `/pm-audit-repo --scope full` to verify the repo is in a clean state before continuing to Phase 4 (pm-changelog-curator). The audit is a routine in-cycle health check: are validators green? Are there cross-cutting issues that have accumulated during fast-moving phase work? Do counters declared in CONTEXT.md / AGENTS.md / README.md still match the actual filesystem after dispatch skills were added in Phases 2-3?
 
 The expected outcome: 0 P0 findings (we just committed; CI was green), some P1/P2 findings reflecting in-progress state (dispatch skills added but counters not yet reconciled until pre-tag pass). The audit confirms it's safe to continue Phase 4 authoring without introducing release-blocking issues.
 
@@ -54,7 +54,7 @@ The expected outcome: 0 P0 findings (we just committed; CI was green), some P1/P
 #### F-01: Sub-agents pm-changelog-curator and pm-release-conductor not yet authored (forward finding; Phase 4-5 will close)
 
 **Location:** `subagents/` directory; `subagents/_pairing.yaml` lists 4 sub-agents but only 2 (.md) files exist as of HEAD
-**Issue:** Phase 4 will ship `subagents/pm-changelog-curator.md` paired with `commands/draft-changelog.md`. Phase 5 will ship `subagents/pm-release-conductor.md` paired with `commands/release.md`. As of HEAD, neither exists.
+**Issue:** Phase 4 will ship `subagents/pm-changelog-curator.md` paired with `commands/pm-draft-changelog.md`. Phase 5 will ship `subagents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists.
 **Why it matters:** D6 requires every sub-agent to ship with a companion slash command. Currently `_pairing.yaml` declares pairings for sub-agents that do not yet exist; this is an expected mid-cycle state but would be a release-blocker if it persisted to tag.
 **Fix:** This is a forward finding (Phases 4-5). Re-run audit after Phase 5 ships; finding should resolve. NOT a blocker for Phase 4 work to continue.
 
@@ -84,7 +84,7 @@ The expected outcome: 0 P0 findings (we just committed; CI was green), some P1/P
 #### F-05: Aggregate counter drift in declared values (expected in-cycle)
 
 **Location:** `README.md` Project Structure tree (line 916), `AGENTS.md` skill listings, `AGENTS/claude/CONTEXT.md` per-phase tables
-**Issue:** Declared total skills = 55 across these files; re-derived from filesystem = 57 (added utility-pm-critic + utility-pm-skill-auditor in Phases 2-3). Declared commands = 62; re-derived = 64 (added /critic + /audit-repo).
+**Issue:** Declared total skills = 55 across these files; re-derived from filesystem = 57 (added utility-pm-critic + utility-pm-skill-auditor in Phases 2-3). Declared commands = 62; re-derived = 64 (added /pm-critic + /pm-audit-repo).
 **Why it matters:** At pre-tag scope this would be P0 because declared counts going to release notes must be correct. At mid-cycle scope, this is expected drift that pre-tag artifact pass reconciles.
 **Fix:** No action mid-cycle. The pre-tag artifact pass (master plan Phase 8 equivalent) refreshes all three surfaces to match final v2.16.0 catalog before tag.
 
@@ -98,7 +98,7 @@ The expected outcome: 0 P0 findings (we just committed; CI was green), some P1/P
 | Utility skills | 6 | 8 | NO (P2 - utility-pm-critic + utility-pm-skill-auditor added) |
 | Tool skills | 15 | 15 | YES |
 | Sub-agents | 4 (planned per Pairing manifest) | 2 (authored as of HEAD) | EXPECTED (Phases 4-5 ship remaining 2) |
-| Commands | 62 | 64 | NO (P2 - /critic + /audit-repo added) |
+| Commands | 62 | 64 | NO (P2 - /pm-critic + /pm-audit-repo added) |
 | Workflows | 12 | 12 | YES |
 | Enforcing validators | 27 | 27 | YES |
 | Family contracts | 3 | 3 | YES |

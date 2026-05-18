@@ -46,7 +46,7 @@
 ### Phase 2 shipped artifacts (2026-05-17)
 
 - `subagents/pm-critic.md` authored per spec: referential system prompt (no embedded standards content), P0/P1/P2/P3 severity grammar, refusal protocols, frontmatter with proactive trigger
-- `commands/critic.md` companion slash command with cross-client routing (sub-agent on Claude Code; dispatch skill elsewhere); validate-commands passes
+- `commands/pm-critic.md` companion slash command with cross-client routing (sub-agent on Claude Code; dispatch skill elsewhere); validate-commands passes
 - `docs/guides/adversarial-review.md` user-facing guide: 4 invocation paths, severity grammar with worked examples, skill-revise-recheck loop, opt-out paths
 - `library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md` Brainshelf PRD review with 7 real findings (1 P0, 3 P1, 2 P2, 1 P3) demonstrating internal-consistency, falsifiability, and contract-completeness checks
 - `skills/utility-pm-critic/{SKILL.md, references/TEMPLATE.md, references/EXAMPLE.md}` dispatch skill triplet per D30: detects runtime; dispatches to native sub-agent on Claude Code; executes inline on non-Claude clients; produces layered output per D26
@@ -56,7 +56,7 @@
 ### Phase 3 shipped artifacts (2026-05-17)
 
 - `subagents/pm-skill-auditor.md` authored per spec: explicit-only trigger (no proactive per D7), Bash + Read + Grep + Glob tool surface (Bash for validator invocation), referential 4-step audit flow (validators -> cross-cutting checks -> counter re-derivation -> layered output), refusal protocols, no Agent tool (chain depth 2 limit)
-- `commands/audit-repo.md` companion slash command with --scope and --severity-floor argument hints; validate-commands passes via dispatch skill reference
+- `commands/pm-audit-repo.md` companion slash command with --scope and --severity-floor argument hints; validate-commands passes via dispatch skill reference
 - `library/sub-agent-samples/pm-skill-auditor/sample_pm-skill-auditor_brainshelf_pre-release.md` mid-cycle audit run sample (5 findings: 0 P0, 2 P1 forward-looking, 3 P2 in-cycle expected drift); demonstrates aggregate counter audit with expected mid-cycle declared-vs-derived mismatch
 - `skills/utility-pm-skill-auditor/{SKILL.md, references/TEMPLATE.md, references/EXAMPLE.md}` dispatch skill triplet per D30: detects runtime; dispatches to `@agent-pm-skill-auditor` on Claude Code; reads `subagents/pm-skill-auditor.md` and executes inline on non-Claude clients
 - `docs/reference/runtime-components.md` pm-skill-auditor row populated
@@ -76,7 +76,7 @@ Plus pre-tag artifact pass: CHANGELOG via curator + release notes + version bump
 ### Phase 7 + 8 verification results (2026-05-17)
 
 - validate-agents-md.sh: PASS 59 skill paths
-- validate-commands.sh: PASS all 4 new sub-agent commands (`/critic`, `/audit-repo`, `/draft-changelog`, `/release`) resolve to their respective dispatch skills
+- validate-commands.sh: PASS all 4 new sub-agent commands (`/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`) resolve to their respective dispatch skills
 - Cross-references intact: all 4 spec docs referenced from corresponding sub-agent definitions; adversarial-review.md references pm-critic spec; release-runbook.md references pm-release-conductor spec
 - Em-dash sweep: 0 hits across all Phase 1-6 new content
 - GATE B (dispatch skill reliability on non-Claude clients): **VALIDATED on Codex CLI 0.128.0 2026-05-17.** All 3 non-conductor dispatch skills (pm-critic, pm-skill-auditor, pm-changelog-curator) PASSED individual tests with layered envelope output, hygiene rule compliance, and refusal protocols firing correctly. Evidence at `gate-test-results_2026-05-17_codex.md`. RATIFIED Option A; EXPERIMENTAL caveats removed from SKILL.md files.
@@ -113,7 +113,7 @@ This plan covers:
 
 - New top-level `subagents/` directory + Claude Code plugin sub-agent convention adoption
 - 4 sub-agent definition files (`subagents/pm-critic.md`, `subagents/pm-skill-auditor.md`, `subagents/pm-changelog-curator.md`, `subagents/pm-release-conductor.md`)
-- 4 companion slash commands (`commands/critic.md`, `commands/audit-repo.md`, `commands/draft-changelog.md`, `commands/release.md`)
+- 4 companion slash commands (`commands/pm-critic.md`, `commands/pm-audit-repo.md`, `commands/pm-draft-changelog.md`, `commands/pm-release.md`)
 - 12 library samples (3 per sub-agent, thread-aligned where applicable)
 - New documentation surface: `docs/reference/runtime-components.md`, `docs/guides/adversarial-review.md`, `docs/contributing/release-runbook.md`
 - AGENTS.md Sub-Agents section
@@ -139,7 +139,7 @@ These decisions are inherited from `plan_v2.16.0.md` D1-D18. Sub-plan-specific d
 |---|---|---|---|
 | **SI1** | **subagents/ directory layout** | Flat: `subagents/{name}.md`. No namespace prefix in v2.16. | Phase 1 Task 1 |
 | **SI2** | **Sub-agent naming convention** | `pm-{role}` (matches existing `utility-pm-*` pattern). All 4 use `pm-` prefix. | Per spec docs |
-| **SI3** | **Companion command naming** | Verb-shaped: `/critic`, `/audit-repo`, `/draft-changelog`, `/release`. NOT `pm-` prefixed (commands stay verb-shaped per existing convention). | Phase 2-5 |
+| **SI3** | **Companion command naming** | Verb-shaped: `/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`. NOT `pm-` prefixed (commands stay verb-shaped per existing convention). | Phase 2-5 |
 | **SI4** | **Sub-agent CI recognition** | **Inherits master plan D19:** EXTEND `validate-agents-md.{sh,ps1}` to recognize `subagents/` directory and verify sub-agent invariants. New dedicated `validate-sub-agents.{sh,ps1}` DEFERRED to v2.17 if invariant set grows past comfortable scope. CI plan Phase 1 Task 1 inspects current scope and confirms feasibility before authoring. | Phase 1 Task 4 + master plan D19 |
 | **SI5** | **Sample-coverage tier for sub-agents** | Tier 0 (one per sub-agent against real artifacts) for v2.16.0 ship. Three samples per sub-agent ships in Phase 6 (thread-aligned where applicable). Tier 1+ deferred to v2.17. | Phase 6 |
 | **SI6** | **Adversarial review of integration plan** | Run Phase 0 review against this plan + spec docs after Phase 2 (post-pm-critic ship) AND at end of cycle. Two checkpoints. | Phase 2 + Phase 8 |
@@ -159,10 +159,10 @@ These decisions are inherited from `plan_v2.16.0.md` D1-D18. Sub-plan-specific d
 - `subagents/pm-release-conductor.md`
 
 **Slash commands (4 files)**
-- `commands/critic.md`
-- `commands/audit-repo.md`
-- `commands/draft-changelog.md`
-- `commands/release.md`
+- `commands/pm-critic.md`
+- `commands/pm-audit-repo.md`
+- `commands/pm-draft-changelog.md`
+- `commands/pm-release.md`
 
 **Dispatch skills (12 files; added per Q7 / D30)**
 
@@ -294,13 +294,13 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Done when:** subagents/pm-critic.md exists; frontmatter validates; system prompt is referential.
 
-### Task 6: Author commands/critic.md
+### Task 6: Author commands/pm-critic.md
 
-- [ ] Create `commands/critic.md` with `description:` and `argument-hint:` fields per SI7
+- [ ] Create `commands/pm-critic.md` with `description:` and `argument-hint:` fields per SI7
 - [ ] Body: 3-5 lines invoking pm-critic with $ARGUMENTS (artifact path) or session-context fallback
 - [ ] Verify validate-commands passes
 
-**Done when:** /critic resolves to pm-critic on slash invocation.
+**Done when:** /pm-critic resolves to pm-critic on slash invocation.
 
 ### Task 7: Author docs/guides/adversarial-review.md
 
@@ -392,13 +392,13 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Done when:** subagents/pm-skill-auditor.md exists; frontmatter validates; description is explicit-only.
 
-### Task 11: Author commands/audit-repo.md
+### Task 11: Author commands/pm-audit-repo.md
 
-- [ ] Create `commands/audit-repo.md` with `description:` "Run repo-wide cross-cutting governance audit via pm-skill-auditor"
+- [ ] Create `commands/pm-audit-repo.md` with `description:` "Run repo-wide cross-cutting governance audit via pm-skill-auditor"
 - [ ] No arguments (or optional `--since-tag` argument for incremental audits)
 - [ ] Body invokes pm-skill-auditor
 
-**Done when:** /audit-repo resolves to pm-skill-auditor.
+**Done when:** /pm-audit-repo resolves to pm-skill-auditor.
 
 ### Task 12: Ship 1 library sample (additional 2 in Phase 6)
 
@@ -431,12 +431,12 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Done when:** agent definition exists; references CLAUDE.md hygiene rules.
 
-### Task 15: Author commands/draft-changelog.md
+### Task 15: Author commands/pm-draft-changelog.md
 
-- [ ] Create `commands/draft-changelog.md` with `description:` "Draft CHANGELOG entries from git log via pm-changelog-curator"
+- [ ] Create `commands/pm-draft-changelog.md` with `description:` "Draft CHANGELOG entries from git log via pm-changelog-curator"
 - [ ] Optional `since-tag` argument (default: most recent tag)
 
-**Done when:** /draft-changelog resolves.
+**Done when:** /pm-draft-changelog resolves.
 
 ### Task 16: Ship 1 library sample (additional 2 in Phase 6)
 
@@ -474,13 +474,13 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 **Done when:** agent definition exists; gates documented in system prompt.
 
-### Task 19: Author commands/release.md
+### Task 19: Author commands/pm-release.md
 
-- [ ] Create `commands/release.md` with `description:` "Guided release runbook via pm-release-conductor"
-- [ ] Required argument: target version (e.g., `/release v2.16.0`)
+- [ ] Create `commands/pm-release.md` with `description:` "Guided release runbook via pm-release-conductor"
+- [ ] Required argument: target version (e.g., `/pm-release v2.16.0`)
 - [ ] Validate argument shape (vN.M.P semver) before invoking
 
-**Done when:** /release v2.16.0 resolves; argument validation works.
+**Done when:** /pm-release v2.16.0 resolves; argument validation works.
 
 ### Task 20: Author docs/contributing/release-runbook.md
 
@@ -581,10 +581,10 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 
 ### Task 28: Full sub-agent slate integration check
 
-- [ ] Invoke `/critic` against a fresh PM artifact; verify proactive description + explicit slash command both invoke pm-critic correctly
-- [ ] Invoke `/audit-repo` against current repo state; verify auditor runs all enforcing validators and surfaces cross-cutting issues
-- [ ] Invoke `/draft-changelog --since-tag v2.15.0`; verify curator output respects CLAUDE.md hygiene
-- [ ] Invoke `/release v2.16.0 --dry-run` (or equivalent); verify conductor walks all 6 gates including 2 chained sub-agent calls
+- [ ] Invoke `/pm-critic` against a fresh PM artifact; verify proactive description + explicit slash command both invoke pm-critic correctly
+- [ ] Invoke `/pm-audit-repo` against current repo state; verify auditor runs all enforcing validators and surfaces cross-cutting issues
+- [ ] Invoke `/pm-draft-changelog --since-tag v2.15.0`; verify curator output respects CLAUDE.md hygiene
+- [ ] Invoke `/pm-release v2.16.0 --dry-run` (or equivalent); verify conductor walks all 6 gates including 2 chained sub-agent calls
 - [ ] Verify Agent tool budget on conductor (chain to auditor + curator stays within reasonable token budget)
 - [ ] Verify `validate-agents-md` (or new validator) green on full slate
 - [ ] Verify `validate-commands` green on the 4 new commands
@@ -600,8 +600,8 @@ Dispatch skill shipping is CONDITIONAL on Phase 2 spike success. If pm-critic di
 To be checked at Phase 8 Task 28:
 
 - [ ] **pm-critic proactive trigger fires** after deliver-prd, foundation-okr-writer, foundation-meeting-recap, foundation-persona, foundation-lean-canvas, discover-interview-synthesis (at minimum)
-- [ ] **pm-skill-auditor explicit-only**: no proactive trigger; only fires on /audit-repo or @-mention
-- [ ] **pm-changelog-curator works standalone** via /draft-changelog AND **chained** from conductor at G2
+- [ ] **pm-skill-auditor explicit-only**: no proactive trigger; only fires on /pm-audit-repo or @-mention
+- [ ] **pm-changelog-curator works standalone** via /pm-draft-changelog AND **chained** from conductor at G2
 - [ ] **pm-release-conductor chains correctly** to both children: G0 to auditor, G2 to curator; both children return output that the conductor surfaces to the maintainer
 - [ ] **Chain depth = 2 max** (auditor and curator do not chain further; verified by reading both children's system prompts)
 - [ ] **Severity grammar consistent** across all 4: P0/P1/P2/P3 used uniformly

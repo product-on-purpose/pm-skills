@@ -34,10 +34,10 @@ This is the default behavior. You see the findings inline after the artifact pro
 ### Path 2: Explicit slash command
 
 ```
-/critic [optional artifact path]
+/pm-critic [optional artifact path]
 ```
 
-Use `/critic` to:
+Use `/pm-critic` to:
 
 - Review an existing artifact that wasn't produced this session (e.g., an old PRD)
 - Re-review after revising an artifact (the proactive trigger only fires once per artifact production; re-reviews need an explicit invocation)
@@ -143,7 +143,7 @@ The canonical pattern is the skill-revise-recheck loop.
    - If 0 P0/P1 findings: ship
    - If P0/P1 findings exist: revise
 4. /deliver-prd <revised inputs>           # regenerates with fixes
-5. /critic                                 # explicit re-review on revised artifact
+5. /pm-critic                                 # explicit re-review on revised artifact
 6. Loop until P0/P1 cleared
 ```
 
@@ -234,4 +234,4 @@ Per Claude Code plugin convention, you can disable individual sub-agents. Refer 
 - Dispatch skill (cross-client): `skills/utility-pm-critic/SKILL.md` (VALIDATED on Codex CLI 2026-05-17)
 - Library samples: `library/sub-agent-samples/pm-critic/` (3 thread-aligned examples)
 - Phase 0 Adversarial Review pattern (manual predecessor): [`docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md)
-- Companion slash command: [`commands/critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/commands/critic.md)
+- Companion slash command: [`commands/pm-critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/commands/pm-critic.md)

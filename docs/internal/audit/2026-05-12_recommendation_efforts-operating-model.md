@@ -257,7 +257,7 @@ At the very end, §13 has a one-page decision table you can fill in.
 | `discoverability` | find-skills audit, description optimization, skills.sh |
 | `mcp` | pm-skills-mcp work |
 | `ci-validation` | CI scripts and validators |
-| `release-tooling` | /release skill, release-please, automation |
+| `release-tooling` | /pm-release skill, release-please, automation |
 
 **Value to you**:
 - One filter answers "what's the state of meeting-skills?".

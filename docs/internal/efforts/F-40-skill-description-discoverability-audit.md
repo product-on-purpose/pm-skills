@@ -122,7 +122,7 @@ If post-ship validation shows no lift or regression, the audit approach is wrong
 ## Dependencies
 
 - **Blocked by F-39** (we need the gap data before we can audit)
-- Complements F-38 (`/release` utility skill): the audit's description-improvement patterns could be encoded into a `/release` pre-check that flags obvious keyword gaps in new skills
+- Complements F-38 (`/pm-release` utility skill): the audit's description-improvement patterns could be encoded into a `/pm-release` pre-check that flags obvious keyword gaps in new skills
 
 ## Inspiration / Evidence
 

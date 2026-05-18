@@ -369,7 +369,7 @@ Plugin sub-agents in Claude Code support six in-band invocation patterns plus tw
 ```mermaid
 graph TB
     subgraph "User-initiated explicit"
-        I1[1. Slash command wrapper<br/>/critic]
+        I1[1. Slash command wrapper<br/>/pm-critic]
         I2[2. @-mention<br/>@agent-pm-critic review this]
         I3[3. Natural language<br/>'use the pm-critic agent']
     end
@@ -401,7 +401,7 @@ graph TB
 **Pattern 1. Slash command wrapper.** A companion slash command in `commands/` whose body says "use the pm-critic agent to review [args]". Lowest-friction discovery for users who already know the command surface.
 
 ```markdown
-<!-- commands/critic.md -->
+<!-- commands/pm-critic.md -->
 ---
 description: Run adversarial review on a PM artifact via the pm-critic agent
 ---
@@ -461,7 +461,7 @@ sequenceDiagram
     M->>U: Critic findings (collapsible)
 ```
 
-**Trigger:** Auto on PM-artifact production (Pattern 4) OR explicit `@agent-pm-critic` (Pattern 2) OR `/critic` slash command (Pattern 1).
+**Trigger:** Auto on PM-artifact production (Pattern 4) OR explicit `@agent-pm-critic` (Pattern 2) OR `/pm-critic` slash command (Pattern 1).
 **Lifetime:** Single turn. Returns findings and exits.
 **Memory:** None. Each invocation reads fresh.
 **Tool surface:** Read, Grep, Glob.
@@ -477,7 +477,7 @@ sequenceDiagram
     participant F as Files
 
     Note over M: Pre-release prep
-    M->>T: /audit-repo
+    M->>T: /pm-audit-repo
     T->>A: Invoke (Pattern 1 via slash command)
     A->>V: Run validate-meeting-skills-family
     A->>V: Run lint-skills-frontmatter
@@ -491,7 +491,7 @@ sequenceDiagram
     T->>M: Audit report (12 issues, 2 critical)
 ```
 
-**Trigger:** Explicit only (Pattern 2 or Pattern 1 via `/audit-repo`). No proactive trigger because audit work is heavy and shouldn't fire on every conversation.
+**Trigger:** Explicit only (Pattern 2 or Pattern 1 via `/pm-audit-repo`). No proactive trigger because audit work is heavy and shouldn't fire on every conversation.
 **Lifetime:** Multi-turn. May produce a multi-page report and ask the maintainer follow-up questions about ambiguous findings.
 **Memory:** Optional `memory: project` if we want to track audit history across sessions. Default: none.
 **Tool surface:** Bash (run validators), Read, Grep, Glob.
@@ -542,7 +542,7 @@ sequenceDiagram
     participant CL as pm-changelog-curator
     participant A as pm-skill-auditor
 
-    M->>T: /release v2.15.0
+    M->>T: /pm-release v2.15.0
     T->>C: Invoke (Pattern 1)
     C->>A: Gate 0 - run audit (Pattern 6 chain)
     A->>C: Audit clean
@@ -559,7 +559,7 @@ sequenceDiagram
     C->>M: Release complete. v2.15.0 pushed.
 ```
 
-**Trigger:** Explicit only. Slash command `/release` or `@agent-pm-release-conductor`.
+**Trigger:** Explicit only. Slash command `/pm-release` or `@agent-pm-release-conductor`.
 **Lifetime:** The full release flow (often 30+ minutes elapsed time across many turns).
 **Memory:** Within-session only. The release is a one-shot.
 **Tool surface:** Bash, Read, Edit, Grep, Glob, Agent.
@@ -591,12 +591,12 @@ This argues for shipping `pm-critic` with a default proactive trigger but a docu
 
 | Agent | Default trigger | Explicit options | Lifetime | Memory |
 |-------|-----------------|------------------|----------|--------|
-| `pm-critic` | Proactive (Pattern 4) | `/critic`, `@agent-pm-critic` | Single turn | None |
-| `pm-skill-auditor` | Explicit only | `/audit-repo`, `@agent-pm-skill-auditor` | Multi-turn | Optional project |
+| `pm-critic` | Proactive (Pattern 4) | `/pm-critic`, `@agent-pm-critic` | Single turn | None |
+| `pm-skill-auditor` | Explicit only | `/pm-audit-repo`, `@agent-pm-skill-auditor` | Multi-turn | Optional project |
 | `pm-workflow-orchestrator` | Explicit only | `/workflow-{name}` | Long chain | Within-session |
-| `pm-release-conductor` | Explicit only | `/release [version]` | Full release flow | Within-session |
+| `pm-release-conductor` | Explicit only | `/pm-release [version]` | Full release flow | Within-session |
 | `pm-frontmatter-doctor` | Explicit only | `/fix-frontmatter`, `@agent-pm-frontmatter-doctor` | Multi-turn batch | None |
-| `pm-changelog-curator` | Explicit (or chained from conductor) | `/draft-changelog`, `@agent-pm-changelog-curator` | Single turn or chained | None |
+| `pm-changelog-curator` | Explicit (or chained from conductor) | `/pm-draft-changelog`, `@agent-pm-changelog-curator` | Single turn or chained | None |
 | `pm-sample-curator` | Explicit only | `/audit-samples`, `/generate-samples` | Multi-turn | None |
 
 ---
@@ -610,12 +610,12 @@ Sub-agents don't live in isolation. They compose with skills, commands, workflow
 The simplest composition. A slash command wraps the sub-agent and gives it a discoverable name.
 
 ```
-/critic           -> invokes pm-critic on the most recent artifact
-/audit-repo       -> invokes pm-skill-auditor with full sweep
+/pm-critic           -> invokes pm-critic on the most recent artifact
+/pm-audit-repo       -> invokes pm-skill-auditor with full sweep
 /workflow-fk      -> invokes pm-workflow-orchestrator for Feature Kickoff
-/release          -> invokes pm-release-conductor for the next release tag
+/pm-release          -> invokes pm-release-conductor for the next release tag
 /fix-frontmatter  -> invokes pm-frontmatter-doctor across the repo
-/draft-changelog  -> invokes pm-changelog-curator since last tag
+/pm-draft-changelog  -> invokes pm-changelog-curator since last tag
 /audit-samples    -> invokes pm-sample-curator gap analysis
 ```
 
@@ -838,7 +838,7 @@ For every sub-agent, ship a companion slash command in `commands/`. The slash co
 
 - Users who think in commands (the majority who built mental models around `/deliver-prd`, `/foundation-okr-writer`) will find sub-agent capability via the command surface they already know.
 - Users who prefer `@-mentions` or natural-language can still use those.
-- The slash command becomes the canonical citation point in docs ("run `/critic` to review this artifact" reads better than "use the pm-critic agent").
+- The slash command becomes the canonical citation point in docs ("run `/pm-critic` to review this artifact" reads better than "use the pm-critic agent").
 
 This is the same logic that makes the existing 45+ commands valuable: command surface is a UI affordance independent of the underlying capability mechanism.
 
@@ -890,7 +890,7 @@ The exception: if the migration is shipped early (per the 6-9 day estimate), the
 
 ### v2.15.0 (first sub-agent cycle)
 
-1. **Ship `pm-critic`** as the first sub-agent. Single `agents/pm-critic.md` file. Ship companion `commands/critic.md` slash command per Insight 7. Document invocation in a new `docs/guides/adversarial-review.md`.
+1. **Ship `pm-critic`** as the first sub-agent. Single `agents/pm-critic.md` file. Ship companion `commands/pm-critic.md` slash command per Insight 7. Document invocation in a new `docs/guides/adversarial-review.md`.
 
 2. **Audit how `pm-critic` performs** for ~2 weeks of real PM-artifact production before adding more sub-agents. Watch for: false-positive findings, cases where the critic missed something the maintainer caught, scope-creep in the system prompt.
 
@@ -988,7 +988,7 @@ Plugin sub-agents can't self-define hooks, mcpServers, or permissionMode. Users 
 
 ### Co-shipping clusters
 
-- **First slate (v2.15.0):** pm-critic + companion `/critic` command + `docs/guides/adversarial-review.md`
+- **First slate (v2.15.0):** pm-critic + companion `/pm-critic` command + `docs/guides/adversarial-review.md`
 - **Release-cycle slate (v2.15.1):** pm-release-conductor + pm-changelog-curator + pm-skill-auditor + companion commands + `docs/contributing/release-runbook.md`
 - **Workflow slate (v2.16.0):** pm-workflow-orchestrator (Feature Kickoff first) + pm-sample-curator (after F-34)
 - **Maintenance slate (opportunistic):** pm-frontmatter-doctor when frontmatter drift becomes measurable pain

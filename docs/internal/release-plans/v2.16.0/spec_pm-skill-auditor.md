@@ -188,7 +188,7 @@ When invoked as a chained sub-agent (e.g., from `pm-release-conductor` at G0), a
 
 ### Pattern 1: Explicit slash command
 
-`/audit-repo` (no proactive trigger per D7; explicit only).
+`/pm-audit-repo` (no proactive trigger per D7; explicit only).
 
 ### Pattern 2: @-mention
 
@@ -349,7 +349,7 @@ pm-skill-auditor is ready to ship when:
 
 - [ ] `subagents/pm-skill-auditor.md` exists with frontmatter per this spec
 - [ ] System prompt is referential
-- [ ] `commands/audit-repo.md` resolves to pm-skill-auditor
+- [ ] `commands/pm-audit-repo.md` resolves to pm-skill-auditor
 - [ ] Explicit-only trigger verified (no proactive invocation in test session)
 - [ ] At least 1 real cross-cutting issue surfaced on a real repo run OR clean state confirmed
 - [ ] 3 library samples shipped demonstrating different scenarios
