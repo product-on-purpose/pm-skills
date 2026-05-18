@@ -5,7 +5,7 @@ generated: true
 source: scripts/generate-skill-pages.py
 ---
 
-PM Skills ships 66 slash commands: 56 skill commands, 7 workflow commands, and 3 sub-agent companion commands.
+PM Skills ships 67 slash commands: 57 skill commands, 7 workflow commands, and 3 sub-agent companion commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -24,6 +24,7 @@ PM Skills ships 66 slash commands: 56 skill commands, 7 workflow commands, and 3
 | `/launch-checklist` | [deliver-launch-checklist](../skills/deliver/deliver-launch-checklist.md) | Deliver | Creates a comprehensive pre-launch checklist covering engine... |
 | `/lean-canvas` | [foundation-lean-canvas](../skills/foundation/foundation-lean-canvas.md) | Foundation | Produces a one-page lean canvas across nine interlocking blo... |
 | `/lessons-log` | [iterate-lessons-log](../skills/iterate/iterate-lessons-log.md) | Iterate | Creates a structured lessons learned entry for organizationa... |
+| `/market-sizing` | [discover-market-sizing](../skills/discover/discover-market-sizing.md) | Discover | Creates a framework-driven market sizing artifact covering T... |
 | `/meeting-agenda` | [foundation-meeting-agenda](../skills/foundation/foundation-meeting-agenda.md) | Foundation | Produces an attendee-facing agenda that sets what will be di... |
 | `/meeting-brief` | [foundation-meeting-brief](../skills/foundation/foundation-meeting-brief.md) | Foundation | Produces a private strategic preparation document for the us... |
 | `/meeting-recap` | [foundation-meeting-recap](../skills/foundation/foundation-meeting-recap.md) | Foundation | Produces a topic-segmented post-meeting summary for attendee... |

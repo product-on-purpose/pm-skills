@@ -64,6 +64,11 @@ Creates a structured competitive analysis comparing features, positioning, and s
 
 Synthesizes user research interviews into actionable insights, patterns, and recommendations. Use after conducting user interviews, customer calls, or usability sessions to extract and communicate findings.
 
+#### market-sizing
+**Path:** `skills/discover-market-sizing/SKILL.md`
+
+Creates a framework-driven market sizing artifact covering TAM, SAM, and SOM with explicit bottoms-up and top-down estimates, an assumption ledger, and confidence ratings. Use when scoping a new product initiative, framing an investment case, evaluating market entry, or pressure-testing a strategic bet.
+
 #### stakeholder-summary
 **Path:** `skills/discover-stakeholder-summary/SKILL.md`
 
