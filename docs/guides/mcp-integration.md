@@ -4,12 +4,12 @@ description: "Status and recommended path for using PM-Skills via Model Context 
 ---
 
 :::caution[MCP server is in maintenance mode]
-The companion MCP server [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) entered maintenance mode on 2026-05-04. The current release in the v2.9.x maintenance line is [v2.9.3](https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.9.3) (security-patch follow-up to the v2.9.2 maintenance-mode announcement; cleared all open Dependabot advisories on 2026-05-05). The MCP-embedded catalog is frozen at the v2.9.2 build state (40 MCP-embedded PM entries + 11 workflow tools + 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the embedded catalog, and pm-skills v2.15.0's new Foundation Sprint and Design Sprint families plus tool-note-and-vote are NOT embedded in MCP. The pm-skills file-based catalog has since grown to 59 skills total. Active MCP development is paused pending demonstrated demand. Security patches and critical bug fixes will continue; new skill parity with this `pm-skills` library is on hold after the v2.9.2 build.
+The companion MCP server [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-mcp) entered maintenance mode on 2026-05-04. The current release in the v2.9.x maintenance line is [v2.9.3](https://github.com/product-on-purpose/pm-skills-mcp/releases/tag/v2.9.3) (security-patch follow-up to the v2.9.2 maintenance-mode announcement; cleared all open Dependabot advisories on 2026-05-05). The MCP-embedded catalog is frozen at the v2.9.2 build state (40 MCP-embedded PM entries + 11 workflow tools + 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the embedded catalog, and pm-skills v2.15.0's new Foundation Sprint and Design Sprint families plus tool-note-and-vote are NOT embedded in MCP. The pm-skills file-based catalog has since grown to 60 skills total. Active MCP development is paused pending demonstrated demand. Security patches and critical bug fixes will continue; new skill parity with this `pm-skills` library is on hold after the v2.9.2 build.
 :::
 
 ## Recommended path: file-based install
 
-For new users, the **file-based install path** is the recommended way to use PM-Skills. It is under active maintenance, ships the full current catalog of all 59 skills (including the v2.15.0 Foundation Sprint + Design Sprint families), and works with any agent supported by the open [`skills` CLI](https://github.com/vercel-labs/skills) or by Claude Code's slash-command system.
+For new users, the **file-based install path** is the recommended way to use PM-Skills. It is under active maintenance, ships the full current catalog of all 60 skills (including the v2.15.0 Foundation Sprint + Design Sprint families), and works with any agent supported by the open [`skills` CLI](https://github.com/vercel-labs/skills) or by Claude Code's slash-command system.
 
 - [Getting Started](../getting-started/index.md) for installation
 - [Skills catalog](../skills/index.md) for the full list
@@ -26,7 +26,7 @@ If your team has already adopted `pm-skills-mcp` or has a specific reason to use
 
 | | This `pm-skills` library | `pm-skills-mcp` v2.9.x maintenance line (frozen catalog) |
 |---|---|---|
-| Total skills | 40 (and growing) | 40 (frozen at v2.9.2 build) |
+| Total skills | 60 (and growing) | 40 (frozen at v2.9.2 build) |
 | Workflows | 9 | 11 (legacy names retained) |
 | Active maintenance | Yes | Maintenance mode |
 
