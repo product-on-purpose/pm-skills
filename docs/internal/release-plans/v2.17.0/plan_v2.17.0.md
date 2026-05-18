@@ -74,15 +74,36 @@ Per `../v2.16.0/repo-hygiene-plan.md`. Some items pair with v2.16 pre-tag; some 
 - **Hook infrastructure (Tier 2 candidate):** R-24 PostToolUse frontmatter hook; R-65 hook-triggered sub-agent invocation (depends on v2.16 sub-agents shipping cleanly first)
 - **User-settings infrastructure:** `.claude/pm-skills.local.md` parser per master plan D10 deferral (configurable pm-critic severity floor, auto-invoke behavior, skip-artifact-types per project)
 
-### v2.16.0 GATE B + GATE C outcomes determine dispatch skill scope
+### v2.16.0 GATE B + GATE C outcomes (CLOSED in v2.16.0 ship)
 
-Per `../v2.16.0/subagents-integration-plan.md` GATE B + GATE C status:
+Per `../v2.16.0/gate-test-results_2026-05-17_codex.md`:
 
-- **If GATE B passes** for pm-critic + auditor + curator dispatch skills: those skills are RATIFIED in v2.17 (move from EXPERIMENTAL to GA)
-- **If GATE C passes** for conductor dispatch: that skill is RATIFIED in v2.17
-- **If GATE C fails** (D-revised fallback): conductor dispatch skill removed from v2.17 catalog; conductor stays Claude-Code-only
+- **GATE B PASS** on Codex CLI 0.128.0 for pm-critic + pm-skill-auditor + pm-changelog-curator dispatch skills. All 3 PRODUCTION on Codex CLI as of v2.16.0 ship.
+- **GATE C PASS** on Codex CLI for conductor dispatch in `--dry-run` mode. Conductor DRY-RUN VALIDATED on Codex CLI; LIVE release on non-Claude clients remains EXPERIMENTAL.
 
-v2.17 release plan should capture the GATE B + GATE C results in its Where We Are section once recorded.
+v2.16.0 Codex P0 challenge review surfaced that proving the dispatch mechanism on Codex CLI does NOT prove it on Cursor / Windsurf / Copilot CLI / Gemini CLI. v2.17 expansion items captured below.
+
+### Cross-client validation expansion (NEW from v2.16.0 Codex P0 challenge review)
+
+The v2.16.0 Codex adversarial challenge review (2026-05-17, distinct from the 3 prior defect-hunting passes) flagged the following P0 + P1 items that ship as v2.17 entrance criteria:
+
+1. **P0 client expansion:** validate the dispatch skill mechanism on Cursor + Windsurf + Copilot CLI + Gemini CLI. Each client is distinct in instruction-following capability + Skill tool integration + context-window behavior. Promotion path: re-run [`../v2.16.0/maintainer-gate-testing-codex.md`](../v2.16.0/maintainer-gate-testing-codex.md) on each client; file evidence at `docs/internal/release-plans/v2.17.0/gate-test-results_{date}_{client}.md`; update [`docs/reference/sub-agent-compatibility.md`](../../reference/sub-agent-compatibility.md) matrix; promote status from EXPERIMENTAL to PRODUCTION per client + per sub-agent.
+
+2. **P1 LIVE-release validation on Codex CLI conductor:** the v2.16.0 conductor dispatch was DRY-RUN validated only; actual `git tag` + `git push` operations via the dispatch path were simulated. v2.17 should exercise a real (not test) release flow on Codex CLI with the conductor; promote conductor status on Codex CLI from DRY-RUN VALIDATED to PRODUCTION.
+
+3. **P1 multi-tool concurrency advisory:** the v2.16.0 release runbook + conductor assume a single maintainer running a single conductor at a time. Multi-tool users (e.g., maintainer with Claude Code + Codex CLI both open) could theoretically trigger concurrent release flows. Per Codex P1 challenge finding, v2.17 should add a lock-file convention OR explicit "one conductor at a time" advisory in the runbook with rationale; OR a check-conductor-lock script that detects an in-flight release.
+
+4. **P1 sub-agent v2.17 entrance criteria** (carried from Codex P1 in v2.16.0 challenge review): v2.17 hook infrastructure + pm-workflow-orchestrator design depend on v2.16 sub-agents being "battle-tested" but the v2.16 ship didn't define concrete pass/fail criteria for "battle-tested." v2.17 should specify: e.g., 30 days post-tag with zero P0 bug reports + zero refusal-protocol violations + at least N successful real-PM-artifact-review cycles documented.
+
+5. **P2 G2.5 invariant phrasing tightening** (from Codex P2 challenge review): the runbook's G2.5 commit-then-tag invariant prevents broken TAGS but doesn't eliminate broken STATES (a release-prep commit can land on origin and still be wrong; the only protection is that the tag won't be cut against the wrong state). v2.17 should consider phrasing tightening OR a sequel invariant (e.g., "release-prep commits get a designated marker that the conductor can verify before G3").
+
+### Validator-cleanup safety (NEW from v2.16.0 prep session)
+
+During v2.16.0 prep, `scripts/check-generated-content-untouched.sh` silently deleted `docs/skills/index.md` + `docs/skills/README.md` (tracked, hand-authored files) when running its temp-folder cleanup pass. Files were restored from HEAD without data loss, but the gotcha exists: the validator's cleanup doesn't have a `.gitignore`-aware safeguard. v2.17 should:
+
+- Add a check at the cleanup boundary that errors if any tracked-but-not-generated file is about to be deleted
+- OR scope the cleanup to a `.tmp_generated_check/` subdir only (never operates on the live `docs/` tree)
+- OR add a pre-flight `git diff --quiet docs/skills/` check that aborts cleanup if there are untracked or modified files in scope
 
 ---
 
