@@ -922,7 +922,7 @@ pm-skills/
 ├── docs/                       # Documentation and guides
 │   ├── getting-started/        # Setup guides (index + quickstart)
 │   ├── guides/                 # How-to guides (using-skills.md, creating-pm-skills.md, mcp-integration.md)
-│   ├── reference/              # Technical specs (categories.md, ecosystem.md, project-structure.md, runtime-components.md)
+│   ├── reference/              # Technical specs (categories.md, ecosystem.md, project-structure.md, runtime-components.md, sub-agent-compatibility.md)
 │   └── templates/              # Skill template (SKILL.md, TEMPLATE.md, EXAMPLE.md)
 ├── AGENTS.md                   # Universal agent discovery file
 ├── CONTRIBUTING.md             # Contribution guidelines

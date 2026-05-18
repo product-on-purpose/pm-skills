@@ -86,16 +86,18 @@ The pattern is portable per agentskills.io: skills sync to per-client home direc
 
 **The single-tool user assumption (master plan D30):** users pick ONE primary AI tool. pm-skills does NOT assume users run multiple tools simultaneously. The dispatch skill mechanism delivers full functional value to that one tool. codex-rescue is an optional shortcut for users with both Claude Code AND Codex CLI; it is NOT a baseline requirement.
 
-### 8 new public documentation files
+### 10 new public documentation files
 
 - [`docs/concepts/sub-agents.md`](../concepts/sub-agents.md) - what sub-agents are, how they differ from skills, the v2.16.0 slate, composition patterns, cross-client compatibility, when-to-use guidance
 - [`docs/concepts/active-orchestration.md`](../concepts/active-orchestration.md) - strategic theme explainer; what changes for users; v2.16-v2.18 roadmap arc with mermaid gantt diagram
 - [`docs/guides/using-sub-agents.md`](../guides/using-sub-agents.md) - quick reference, 4 invocation patterns, cross-client paths, maintainer operations, 4 common workflows, troubleshooting
-- [`docs/guides/adversarial-review.md`](../guides/adversarial-review.md) - pm-critic deep dive with severity grammar worked examples (PRD, OKR, recap, persona), skill-revise-recheck loop, 3 opt-out paths
-- [`docs/contributing/release-runbook.md`](../contributing/release-runbook.md) - canonical 6-gate runbook the conductor reads at invocation time; manual-mode usable
+- [`docs/guides/adversarial-review.md`](../guides/adversarial-review.md) - pm-critic deep dive with severity grammar worked examples (PRD, OKR, recap, persona), skill-revise-recheck loop with mermaid flowchart, 3 opt-out paths
+- [`docs/contributing/release-runbook.md`](../contributing/release-runbook.md) - canonical 6-gate runbook the conductor reads at invocation time; manual-mode usable; includes mermaid flowchart of 6-gate sequence with universal failure exit + bypass-refusal cycle
 - [`docs/contributing/authoring-sub-agents.md`](../contributing/authoring-sub-agents.md) - file structure + frontmatter convention + referential discipline + companion command pairing + dispatch skill pattern + 16-item validation checklist
 - [`docs/contributing/sub-agent-design-patterns.md`](../contributing/sub-agent-design-patterns.md) - 4 invocation patterns + 4 composition patterns with mermaid sequence and flowchart diagrams; decision tree for new sub-agents
+- [`docs/contributing/ci-overview.md`](../contributing/ci-overview.md) - map of all 9 GitHub Actions workflows + ~30 validator scripts; trigger -> workflow -> validator -> outcome flowchart; how-to-add-a-new-validator guide; failure-triage pointers
 - [`docs/reference/runtime-components.md`](../reference/runtime-components.md) - canonical catalog of sub-agents (rows populated for all 4) + hooks (empty; v2.17+) + output styles (empty; v2.18+) + Cross-Client Compatibility section
+- [`docs/reference/sub-agent-compatibility.md`](../reference/sub-agent-compatibility.md) - canonical cross-client compatibility matrix; Claude Code / Codex CLI / Cursor / Windsurf / Copilot CLI / Gemini CLI status per sub-agent; safe-usage matrix; v2.17 expansion plan; how-to-validate-a-new-client maintainer guide
 
 ### Library samples
 

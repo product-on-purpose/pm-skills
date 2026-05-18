@@ -38,6 +38,54 @@ Five `foundation-meeting-*` skills that together support the full meeting lifecy
 
 See the [family contract](meeting-skills-contract.md) for full details.
 
+### Foundation Sprint Skills Family
+
+Seven `tool-foundation-sprint-*` skills that together support a Two-Day Foundation Sprint per the Knapp playbook: pre-sprint readiness + brief, two days of structured moves (basics, differentiation, approach options, magic lenses), Founding Hypothesis capstone.
+
+**Contract**: [Foundation Sprint Skills Contract](foundation-sprint-skills-contract.md) (v0.1.0; shipped v2.15.0)
+
+**Member skills**:
+- [`tool-foundation-sprint-readiness`](../../skills/tool/tool-foundation-sprint-readiness.md) - pre-sprint diagnostic
+- [`tool-foundation-sprint-brief`](../../skills/tool/tool-foundation-sprint-brief.md) - pre-sprint scope-and-decision lock
+- [`tool-foundation-sprint-basics`](../../skills/tool/tool-foundation-sprint-basics.md) - Day 1 morning move
+- [`tool-foundation-sprint-differentiation`](../../skills/tool/tool-foundation-sprint-differentiation.md) - Day 1 afternoon move
+- [`tool-foundation-sprint-approach-options`](../../skills/tool/tool-foundation-sprint-approach-options.md) - Day 2 morning move
+- [`tool-foundation-sprint-magic-lenses`](../../skills/tool/tool-foundation-sprint-magic-lenses.md) - Day 2 afternoon move
+- [`tool-foundation-sprint-founding-hypothesis`](../../skills/tool/tool-foundation-sprint-founding-hypothesis.md) - Day 2 capstone
+
+**Shared characteristics**:
+- `classification: tool` (NEW taxonomy added in v2.15.0; skills represent a methodology, not a single artifact)
+- Customer-and-problem locking move (basics) drives every downstream move
+- Naming Discipline section: "Foundation Sprint" capitalized when referring to the Knapp methodology
+- 3-thread library sample coverage (brainshelf, storevine, workbench) at v2.15.0 ship
+- Enforced by `scripts/validate-foundation-sprint-skills-family.sh --strict` (runs on every PR touching family files)
+
+See the [family contract](foundation-sprint-skills-contract.md) for full details.
+
+### Design Sprint Skills Family
+
+Seven `tool-design-sprint-*` skills that together support a Five-Day Design Sprint per the Knapp playbook: pre-sprint readiness + brief, Monday (Map and Target), Tuesday (Sketch), Wednesday (Decide and Storyboard), Thursday (Prototype Plan), Friday (Test and Score).
+
+**Contract**: [Design Sprint Skills Contract](design-sprint-skills-contract.md) (v0.1.0; shipped v2.15.0)
+
+**Member skills**:
+- [`tool-design-sprint-readiness`](../../skills/tool/tool-design-sprint-readiness.md) - pre-sprint diagnostic
+- [`tool-design-sprint-brief`](../../skills/tool/tool-design-sprint-brief.md) - pre-sprint lock-in
+- [`tool-design-sprint-map-and-target`](../../skills/tool/tool-design-sprint-map-and-target.md) - Day 1 (Monday)
+- [`tool-design-sprint-sketch`](../../skills/tool/tool-design-sprint-sketch.md) - Day 2 (Tuesday)
+- [`tool-design-sprint-decide-and-storyboard`](../../skills/tool/tool-design-sprint-decide-and-storyboard.md) - Day 3 (Wednesday)
+- [`tool-design-sprint-prototype-plan`](../../skills/tool/tool-design-sprint-prototype-plan.md) - Day 4 (Thursday)
+- [`tool-design-sprint-test-and-score`](../../skills/tool/tool-design-sprint-test-and-score.md) - Day 5 (Friday)
+
+**Shared characteristics**:
+- `classification: tool` (same NEW taxonomy as FS)
+- Readiness gating (skill recommends GO/NO-GO before brief)
+- Prototype-realistic-but-fake constraint (no real code; structural realism only)
+- 3-thread library sample coverage (brainshelf, storevine, workbench) at v2.15.0 ship
+- Enforced by `scripts/validate-design-sprint-skills-family.sh --strict` (runs on every PR touching family files)
+
+See the [family contract](design-sprint-skills-contract.md) for full details.
+
 ## Why the skill-families pattern exists
 
 Individual skill authoring tends to drift: the same concept gets rendered differently across skills that should share behavior. Two recaps from different authors shouldn't disagree about where the shareable summary lives, what filename convention to follow, or whether to require an input-quality marker. A family contract pins these down and CI enforces them.
