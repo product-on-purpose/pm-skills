@@ -159,9 +159,15 @@ The 4 dispatch skills at `skills/utility-pm-{role}/` were validated on Codex CLI
 
 - **GATE C** (conductor dispatch sub-spike): PASS. The "reference + execute inline" pattern for chain composition held through all 6 gates (G0/G1/G2/G2.5/G3/G4) in a single Codex CLI context window. Inlined auditor + curator produced valid layered output. Context budget held. No-bypass refusal worked. Dry-run framing correct.
 
-**Outcome:** Option A (RATIFY all 4 dispatch skills). EXPERIMENTAL caveats removed from SKILL.md files. Master plan D30 updated to VALIDATED status.
+**Outcome:** Codex-scoped Option A. Dispatch mechanism validated on ONE non-Claude client (Codex CLI). Master plan D30 updated.
 
-**Additional clients (Cursor, Windsurf, Copilot, Gemini CLI):** may also work but have not been independently validated yet. Second-client validation is optional belt-and-suspenders work; deferred to v2.17 if useful. Maintainers wanting to verify on their preferred client can re-run the same harness; it is structured for autonomous Codex-style execution + one-paste result hand-off back to Claude.
+**Important scope caveats** (per the 2026-05-17 Codex adversarial pass that challenged premature ratification):
+
+- **Codex CLI dispatch:** validated in dry-run mode for all 4 dispatch skills. Production-ready for the 3 non-conductor dispatch skills (pm-critic, pm-skill-auditor, pm-changelog-curator). The conductor dispatch + LIVE release operations on Codex CLI is use-with-caution: the dry-run validated chain composition + gate logic, but actual `git tag` + `git push` operations via the dispatch path were simulated, not executed.
+- **Cursor / Windsurf / Copilot CLI / Gemini CLI:** UNTESTED in v2.16.0. The dispatch mechanism is expected to work based on agentskills.io portability claims (each client supports the file-read + treat-content-as-instructions pattern that the dispatch skill depends on), but no maintainer has independently confirmed. Treat as EXPERIMENTAL on these clients.
+- **Live release on any non-Claude client via the conductor:** the no-bypass + only-tag-G2.5-captured-SHA invariants apply, so the worst-case failure mode is bounded. Still, maintainers wanting belt-and-suspenders confidence should re-run the harness on their preferred client first.
+
+Maintainers wanting to add validation evidence for a specific non-Claude client can re-run the same harness at `maintainer-gate-testing-codex.md`; it is structured for autonomous execution + one-paste result hand-off back to Claude. Cross-client validation results land in v2.17 release notes as they accumulate.
 
 Full evidence + per-test results: [`gate-test-results_2026-05-17_codex.md`](../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md).
 
