@@ -162,7 +162,7 @@ flowchart LR
 - Runtime detection is a single conditional check at the start of the dispatch skill
 - The canonical system prompt lives in ONE place (`subagents/pm-{role}.md`); the dispatch skill references it without duplicating
 
-**Chain composition on non-Claude clients:** the conductor's dispatch skill uses an EXPANDED version of Pattern D called "reference + execute inline." Instead of native chaining at G0 + G2, the conductor's dispatch skill INLINES the auditor + curator behaviors in its own context window. This works on clients that have sufficient context budget and can read referenced files. Phase 2 GATE C sub-spike validates this on specific clients.
+**Chain composition on non-Claude clients:** the conductor's dispatch skill uses an EXPANDED version of Pattern D called "reference + execute inline." Instead of native chaining at G0 + G2, the conductor's dispatch skill INLINES the auditor + curator behaviors in its own context window. This works on clients that have sufficient context budget and can read referenced files. VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE C PASS; context budget held through all 6 gates in a single context window per [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)).
 
 ## Choosing Patterns for a New Sub-Agent
 

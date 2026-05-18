@@ -129,11 +129,7 @@ OK: AGENTS.md references 4 sub-agents
 
 ## What's deferred
 
-The v2.16.0 plan slate included three additional sub-plans that were scope-reduced or deferred to v2.17:
-
-### Doc-stack modernization (Astro 5.13.x to 6.x)
-
-Deferred to a dedicated v2.17 session per scope decision. The upgrade requires Node 22.12+ across 5 CI workflows and closes 2 deferred Dependabot alerts (define:vars XSS; server-island replay). Substantial verification work (spike-branch build pattern) that benefits from focused attention.
+The v2.16.0 plan slate included carry-forward items deferred to v2.17:
 
 ### 5 nice-to-have CI validators
 
