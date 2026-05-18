@@ -1,12 +1,12 @@
 # Codex Agent Context
 
-> **Currency marker: v2.12.0 (2026-05-03).** Required for `check-context-currency` CI; updated at each release-tag time alongside `AGENTS/claude/CONTEXT.md`.
+> **Currency marker: v2.16.0 (2026-05-17).** Required for `check-context-currency` CI; updated at each release-tag time alongside `AGENTS/claude/CONTEXT.md`. v2.16.0 currency-marker bump reflects CHANGELOG.md top-version-heading at content-complete state on spike branch `feat/v2.16-astro-6-spike` (release tag still pending maintainer push + conductor invocation). Previous markers: v2.12.0 (2026-05-03; never updated through v2.13.0 / v2.14.0 / v2.15.x cycles) -> v2.16.0 (this update).
 
 ## Status
 
-This file is intentionally minimal as of 2026-05-05 (v2.13.0 cycle, Bucket B.5).
+This file is intentionally minimal as of 2026-05-05 (v2.13.0 cycle, Bucket B.5). The minimal posture persisted through v2.14.x and v2.15.x; v2.16.0 retains this posture.
 
-Codex usage in this repo is now scoped to **Phase 0 adversarial review** (the cross-LLM review loop codified in v2.11.0 and operated via the `/jp-ai-review` skill). It is no longer used for primary execution work, so this file does not maintain a per-session execution snapshot.
+Codex usage in this repo is now scoped to **Phase 0 adversarial review** (the cross-LLM review loop codified in v2.11.0 and operated via the `codex:rescue` plugin in current cycles; the original `/jp-ai-review` skill is deprecated). Codex executed 4 adversarial review passes during v2.16.0 (plan-state review, ship-state review at 9cb81af, pre-tag defect pass at 19a213b, challenge review at 19a213b). Plus Codex CLI 0.128.0 self-administered the GATE B + GATE C cross-client harness at `docs/internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md` to validate the dispatch skill mechanism. Codex is not used for primary execution work, so this file does not maintain a per-session execution snapshot.
 
 For all current pm-skills state - active work, recent commits, decisions, validator inventory, release status - read **`AGENTS/claude/CONTEXT.md`** instead. That file is the canonical project context across both agents.
 
