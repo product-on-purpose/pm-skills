@@ -119,7 +119,7 @@ skills/{skill-name}/
 | `foundation-persona` | Evidence-calibrated product or marketing persona generation |
 | `foundation-stakeholder-update` | Async stakeholder communication for non-attendees |
 
-#### Utility (10 skills)
+#### Utility Skills (10 utility)
 
 | Skill | Purpose |
 |-------|---------|
