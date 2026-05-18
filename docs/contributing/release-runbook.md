@@ -27,6 +27,34 @@ Historically, the runbook lived in the maintainer's head plus partial release-pl
 
 The `pm-release-conductor` sub-agent (v2.16.0+) automates the discipline. It reads this runbook at invocation time and walks each gate with the maintainer. Maintainers running releases manually follow the same gates; the conductor reduces friction.
 
+```mermaid
+flowchart TD
+    Start([Maintainer invokes /pm-release vX.Y.Z<br/>or runs runbook by hand]) --> Pre[Prerequisites check]
+    Pre -->|missing| PreFail[Pause: prep prerequisites first]
+    Pre -->|complete| G0
+    G0[G0: Pre-tag readiness<br/>validators + em-dash + counters + governance]
+    G0 -->|fail any sub-check| GFail[Pause: fix; re-enter gate]
+    G0 -->|all pass| G1
+    G1[G1: Adversarial review<br/>Codex / cross-LLM review status]
+    G1 -->|no review or P0 open| GFail
+    G1 -->|review stable, P0 closed| G2
+    G2[G2: Version bump + CHANGELOG prep<br/>via pm-changelog-curator]
+    G2 -->|hygiene violations| GFail
+    G2 -->|draft clean| G25
+    G25[G2.5: Commit release-prep + re-verify<br/>capture commit SHA]
+    G25 -->|re-verify fails| GFail
+    G25 -->|all green, SHA captured| G3
+    G3[G3: Tag + push<br/>tag points at G2.5-captured SHA per D22]
+    G3 -->|push fails| GFail
+    G3 -->|tag pushed| G4
+    G4[G4: Post-tag hygiene<br/>GitHub Release UI + post-tag artifact sweep]
+    G4 --> Done([Release shipped])
+    GFail -.->|maintainer attempt bypass| Refuse[Conductor refuses bypass<br/>per D8 + no-bypass policy]
+    Refuse -.-> GFail
+```
+
+The flowchart shows the happy path (left-to-right vertical sequence) plus the universal failure exit. The conductor refuses any bypass attempt at any gate (per master plan D8); the dotted arrow indicates a refusal cycle. G2.5 is the architectural invariant that prevents broken tags: the tag at G3 points at the SHA captured at G2.5, not at a pre-edit HEAD.
+
 ## Prerequisites
 
 Before invoking the runbook (manually or via `/pm-release v{X.Y.Z}`):
