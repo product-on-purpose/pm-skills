@@ -62,7 +62,7 @@ v2.16.0 introduces four sub-agents as the new component class:
 | `pm-changelog-curator` | Draft CHANGELOG entries from git log applying CLAUDE.md hygiene rules | Maintainer | Explicit `/pm-draft-changelog` or chained from conductor |
 | `pm-release-conductor` | Walk the 6-gate release runbook with chain composition to auditor + curator | Maintainer | Explicit `/pm-release v{X.Y.Z}` only |
 
-All four ship dispatch skills at `skills/utility-pm-{role}/` for non-Claude clients. The dispatch mechanism + conductor's "reference + execute inline" chain composition were VALIDATED on Codex CLI 0.128.0 on 2026-05-17 per [master plan D30](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/plan_v2.16.0.md) (GATE B + C PASS recorded at [`gate-test-results_2026-05-17_codex.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)). Additional clients (Cursor, Windsurf, Copilot, Gemini CLI) are untested but expected to work; the harness at `maintainer-gate-testing-codex.md` is re-runnable for cross-client verification.
+All four ship dispatch skills at `skills/utility-pm-{role}/` for non-Claude clients. The dispatch mechanism + conductor's "reference + execute inline" chain composition were validated on Codex CLI 0.128.0 on 2026-05-17. Additional clients (Cursor, Windsurf, Copilot, Gemini CLI) are untested but expected to work. See [Sub-Agent Compatibility Matrix](../reference/sub-agent-compatibility.md) for the canonical per-sub-agent status, safe-usage guidance, and v2.17 expansion plan.
 
 ## Composition Patterns
 
@@ -95,7 +95,7 @@ flowchart LR
     D --> E
 ```
 
-See [`docs/reference/runtime-components.md`](../reference/runtime-components.md) section "Cross-Client Compatibility" for the full mechanism.
+See [`docs/reference/runtime-components.md`](../reference/runtime-components.md) section "Cross-Client Compatibility" for the full mechanism. The per-sub-agent cross-client status (which is PRODUCTION on which client; what's EXPERIMENTAL) lives in the [Sub-Agent Compatibility Matrix](../reference/sub-agent-compatibility.md).
 
 ## When to Use a Sub-Agent vs a Skill
 

@@ -14,18 +14,9 @@ tags:
 
 Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `subagents/pm-release-conductor.md` and inlines chain composition on non-Claude clients via "reference + execute inline" pattern.
 
-> **DRY-RUN VALIDATED on Codex CLI 2026-05-17. LIVE RELEASE ON NON-CLAUDE CLIENTS REMAINS EXPERIMENTAL.** Phase 2 GATE C sub-spike PASSED for the dry-run flow: the "reference + execute inline" pattern for chain composition (inlining auditor + curator behaviors at G0 + G2 + G2.5 instead of native sub-agent chaining) completed cleanly on Codex CLI 0.128.0 with context budget held through all 6 gates AND the dry-run G3 correctly skipped actual `git tag` + `git push`. See [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](../../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md). **What this does NOT validate:** (a) an actual LIVE tag operation via this dispatch path on Codex CLI - the GATE C test was `--dry-run` mode; live G3 was simulated, not executed. (b) ANY behavior on Cursor, Windsurf, Copilot CLI, or Gemini CLI - those clients are completely untested as of v2.16.0 ship.
-
-**Recommended safe usage:**
-
-1. **Claude Code (native sub-agent):** Production-ready. Use freely.
-2. **Codex CLI + `--dry-run`:** Production-ready for rehearsals. Validates gate logic + chain composition before committing to a live cut.
-3. **Codex CLI + live release (no `--dry-run`):** Use with caution. The dispatch mechanism worked in dry-run; the actual `git tag` + `git push` operations via this path have not been independently tested. The conductor's no-bypass + only-tag-G2.5-captured-SHA invariants apply, so the worst case is the same as on Claude Code.
-4. **Cursor / Windsurf / Copilot CLI / Gemini CLI (any mode):** UNTESTED in v2.16.0. The dispatch mechanism is expected to work based on agentskills.io portability claims but no maintainer has independently confirmed. Treat as EXPERIMENTAL.
-
-For any live release on a non-Claude client, the maintainer should ideally re-run the harness at [`maintainer-gate-testing-codex.md`](../../internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md) on that specific client first.
-
-**STATUS:** DRY-RUN VALIDATED on Codex CLI; LIVE VALIDATED only on Claude Code. Full cross-client live-release validation deferred to v2.17 (Codex review 2026-05-17 final pass).
+> **Status summary (v2.16.0):** PRODUCTION on Claude Code (native sub-agent path). DRY-RUN VALIDATED on Codex CLI 2026-05-17 per [`gate-test-results_2026-05-17_codex.md`](../../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md); LIVE release on Codex CLI is NOT independently exercised, so use with caution and run `--dry-run` first as a rehearsal. EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI (UNTESTED at v2.16.0 ship).
+>
+> See [Sub-Agent Compatibility Matrix](../../reference/sub-agent-compatibility.md) for the canonical safe-usage matrix + what-was-validated detail + v2.17 expansion plan. For live release on a non-Claude client, ideally re-run the harness at [`maintainer-gate-testing-codex.md`](../../internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md) on that specific client first.
 
 ## When to Use
 

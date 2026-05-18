@@ -646,6 +646,33 @@ def generate_commands_reference(all_skills: list) -> None:
     lines.append("| `/workflow-sprint-planning` | [Sprint Planning](../workflows/sprint-planning.md) | Workflow | Run the Sprint Planning workflow |")
     lines.append("| `/workflow-stakeholder-alignment` | [Stakeholder Alignment](../workflows/stakeholder-alignment.md) | Workflow | Run the Stakeholder Alignment workflow |")
     lines.append("| `/workflow-technical-discovery` | [Technical Discovery](../workflows/technical-discovery.md) | Workflow | Run the Technical Discovery workflow |")
+
+    # Add orphan commands (commands present on filesystem but not matched to a
+    # 1-1 skill via derive_command_name + find_command_file). v2.16.0 introduced
+    # verb-shaped sub-agent companion commands (/pm-audit-repo, /pm-draft-changelog,
+    # /pm-release) whose stems intentionally do not match their parent utility
+    # skills (utility-pm-skill-auditor, utility-pm-changelog-curator,
+    # utility-pm-release-conductor). The previous render path silently dropped
+    # these rows even though the narrative claimed "N sub-agent companion
+    # commands" via the subtraction count. This block surfaces them in the
+    # table so the count and rows agree, and stays robust for any future
+    # commands-without-1-1-skill-match.
+    if other_cmd_count > 0:
+        skill_command_names = {s["command"] for s in all_skills if s["command"]}
+        workflow_command_names = {p.stem for p in COMMANDS_DIR.glob("workflow-*.md")}
+        for cmd_path in sorted(COMMANDS_DIR.glob("*.md")):
+            cmd_name = cmd_path.stem
+            if cmd_name in skill_command_names or cmd_name in workflow_command_names:
+                continue
+            cmd_content = cmd_path.read_text(encoding="utf-8")
+            cmd_meta, _ = parse_frontmatter(cmd_content)
+            cmd_desc = cmd_meta.get("description", "")
+            if len(cmd_desc) > 60:
+                cmd_desc = cmd_desc[:60] + "..."
+            lines.append(
+                f"| `/{cmd_name}` | _([sub-agent companion](sub-agent-compatibility.md))_ | Utility | {cmd_desc} |"
+            )
+
     lines.append("")
 
     output_path.write_text("\n".join(lines), encoding="utf-8")

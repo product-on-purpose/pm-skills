@@ -492,7 +492,7 @@ The canonical sub-agents catalog with full audience, trigger, lifetime, tool sur
 
 Sub-agents are a Claude Code plugin feature. Non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) access sub-agent intent via dispatch skills at `skills/utility-pm-{role}/`. Dispatch skills detect runtime and dispatch appropriately: native sub-agent on Claude Code, or "read agent definition and execute inline" on other clients. codex-rescue is an optional shortcut for users with both Claude Code and Codex CLI; it is NOT a baseline requirement.
 
-Dispatch skill availability in v2.16.0 is conditional on Phase 2 spike outcomes. See [`docs/reference/runtime-components.md#cross-client-compatibility`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md#cross-client-compatibility) for details.
+All 4 dispatch skills shipped in v2.16.0 with Codex CLI VALIDATED 2026-05-17 (GATE B + C PASS). Cursor / Windsurf / Copilot CLI / Gemini CLI status is EXPERIMENTAL pending v2.17 cross-client expansion. See the canonical [Sub-Agent Compatibility Matrix](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/sub-agent-compatibility.md) for per-sub-agent + per-client status, safe-usage guidance, and how-to-validate-a-new-client maintainer guide. Mechanism details at [`docs/reference/runtime-components.md#cross-client-compatibility`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md#cross-client-compatibility).
 
 ---
 
