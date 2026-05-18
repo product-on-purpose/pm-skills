@@ -23,10 +23,10 @@
 | Phase | Status | Closing commit(s) |
 |---|---|---|
 | Phase 1: Foundation infrastructure | COMPLETE 2026-05-17 | 68bd5cc |
-| Phase 2: Ship pm-critic | COMPLETE 2026-05-17 (GATE B PENDING maintainer test) | 00b3978 |
-| Phase 3: Ship pm-skill-auditor | COMPLETE 2026-05-17 (GATE B PENDING; mid-cycle audit run via sample) | 0a5fa4c |
-| Phase 4: Ship pm-changelog-curator | COMPLETE 2026-05-17 (GATE B PENDING; brainshelf minor-release draft sample shipped) | df8da5a |
-| Phase 5: Ship pm-release-conductor | COMPLETE 2026-05-17 (GATE C PENDING sub-spike; workbench chained-run dry-run sample shipped) | 07fe14e |
+| Phase 2: Ship pm-critic | COMPLETE 2026-05-17 (GATE B VALIDATED on Codex CLI 2026-05-17) | 00b3978 |
+| Phase 3: Ship pm-skill-auditor | COMPLETE 2026-05-17 (GATE B VALIDATED on Codex CLI 2026-05-17) | 0a5fa4c |
+| Phase 4: Ship pm-changelog-curator | COMPLETE 2026-05-17 (GATE B VALIDATED on Codex CLI 2026-05-17) | df8da5a |
+| Phase 5: Ship pm-release-conductor | COMPLETE 2026-05-17 (GATE C VALIDATED on Codex CLI 2026-05-17 via "reference + execute inline" pattern) | 07fe14e |
 | Phase 6: Library samples | COMPLETE 2026-05-17 (all 12 samples + catalog README shipped) | 0766b00 |
 | Phase 7: Documentation | COMPLETE 2026-05-17 (integration-plan doc consistency check passed; broader sweep deferred to docs-plan Phase 4 Task 9) | _pending commit_ |
 | Phase 8: Integration check | COMPLETE 2026-05-17 (validators green; commands resolve; cross-references intact; em-dash clean; GATE B and GATE C remain PENDING for cross-client tests) | _pending commit_ |
@@ -79,8 +79,8 @@ Plus pre-tag artifact pass: CHANGELOG via curator + release notes + version bump
 - validate-commands.sh: PASS all 4 new sub-agent commands (`/critic`, `/audit-repo`, `/draft-changelog`, `/release`) resolve to their respective dispatch skills
 - Cross-references intact: all 4 spec docs referenced from corresponding sub-agent definitions; adversarial-review.md references pm-critic spec; release-runbook.md references pm-release-conductor spec
 - Em-dash sweep: 0 hits across all Phase 1-6 new content
-- GATE B (dispatch skill reliability on non-Claude clients): PENDING maintainer test
-- GATE C (conductor dispatch sub-spike): PENDING maintainer test
+- GATE B (dispatch skill reliability on non-Claude clients): **VALIDATED on Codex CLI 0.128.0 2026-05-17.** All 3 non-conductor dispatch skills (pm-critic, pm-skill-auditor, pm-changelog-curator) PASSED individual tests with layered envelope output, hygiene rule compliance, and refusal protocols firing correctly. Evidence at `gate-test-results_2026-05-17_codex.md`. RATIFIED Option A; EXPERIMENTAL caveats removed from SKILL.md files.
+- GATE C (conductor dispatch sub-spike): **VALIDATED on Codex CLI 0.128.0 2026-05-17.** The "reference + execute inline" pattern for chain composition held through all 6 gates (G0/G1/G2/G2.5/G3/G4) in a single Codex CLI context window. Inlined auditor at G0 + G2.5 + inlined curator at G2 produced valid layered output. Context budget held. No-bypass refusal worked. Dry-run framing correct at G3 (no actual tag operation). Evidence in same results file. D-revised fallback NOT applied; conductor dispatch RATIFIED in v2.16.0.
 
 ### GATE status (Phase 2 Task 9 spike)
 

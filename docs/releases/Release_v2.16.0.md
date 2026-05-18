@@ -26,7 +26,7 @@ v2.16.0 opens a second layer: **runtime components**. The first inhabitants are 
 
 Cross-client compatibility is delivered via dispatch skills at `skills/utility-pm-{role}/` per master plan D30. On Claude Code, the dispatch skill invokes the native sub-agent. On non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI), the dispatch skill reads the canonical sub-agent definition from `subagents/pm-{role}.md` and executes the system prompt inline.
 
-The 4 dispatch skills ship **EXPERIMENTAL** pending maintainer GATE B + GATE C validation on at least one non-Claude client. The Claude Code native sub-agent path is always safe; dispatch skill safety on non-Claude clients depends on the test outcomes documented in [`docs/internal/release-plans/v2.16.0/maintainer-gate-testing.md`](../internal/release-plans/v2.16.0/maintainer-gate-testing.md).
+The 4 dispatch skills ship **VALIDATED on Codex CLI 2026-05-17**: GATE B (3 non-conductor dispatch skills) and GATE C (conductor dispatch sub-spike with "reference + execute inline" chain composition) both PASSED. Evidence at [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md). Re-runnable harness at [`maintainer-gate-testing-codex.md`](../internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md) for users wanting to verify on a different non-Claude client.
 
 The 55-skill catalog is unchanged. No new content skills. The new shipping unit is the sub-agent.
 
@@ -155,20 +155,19 @@ CONTEXT.md final refresh, `_working/` archive sweep of superseded planning docs,
 
 ---
 
-## Maintainer testing gate (EXPERIMENTAL dispatch skill caveat)
+## Cross-client validation results
 
-The 4 dispatch skills at `skills/utility-pm-{role}/` ship in EXPERIMENTAL state pending maintainer GATE B (3 utility dispatch skills) + GATE C (conductor dispatch sub-spike) tests on at least one non-Claude client. The Claude Code path is always safe (dispatches to native sub-agent).
+The 4 dispatch skills at `skills/utility-pm-{role}/` were validated on Codex CLI 0.128.0 on 2026-05-17 via the self-administering harness at [`docs/internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md`](../internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md):
 
-**Safe usage today:**
+- **GATE B** (3 non-conductor dispatch skills): PASS. pm-critic produced 7 findings against the Brainshelf PRD sample matching the canonical output shape. pm-skill-auditor invoked the validator suite + cross-cutting checks + counter audit successfully. pm-changelog-curator drafted entries from git log applying CLAUDE.md hygiene rules with zero violations + dirty-tree refusal working correctly.
 
-1. Claude Code with pm-skills plugin: native sub-agent path; tested as the canonical reference for output shape
-2. Non-Claude clients + `--dry-run` flag on `/utility-pm-release-conductor`: rehearsal mode; skips tag + push
+- **GATE C** (conductor dispatch sub-spike): PASS. The "reference + execute inline" pattern for chain composition held through all 6 gates (G0/G1/G2/G2.5/G3/G4) in a single Codex CLI context window. Inlined auditor + curator produced valid layered output. Context budget held. No-bypass refusal worked. Dry-run framing correct.
 
-**UNSAFE until GATE C records PASS:**
+**Outcome:** Option A (RATIFY all 4 dispatch skills). EXPERIMENTAL caveats removed from SKILL.md files. Master plan D30 updated to VALIDATED status.
 
-- Live (non-dry-run) `/utility-pm-release-conductor v{X.Y.Z}` on non-Claude clients
+**Additional clients (Cursor, Windsurf, Copilot, Gemini CLI):** may also work but have not been independently validated yet. Second-client validation is optional belt-and-suspenders work; deferred to v2.17 if useful. Maintainers wanting to verify on their preferred client can re-run the same harness; it is structured for autonomous Codex-style execution + one-paste result hand-off back to Claude.
 
-Test protocol + decision rules at [`docs/internal/release-plans/v2.16.0/maintainer-gate-testing.md`](../internal/release-plans/v2.16.0/maintainer-gate-testing.md). Gate outcomes determine whether dispatch skills are RATIFIED in v2.16.1 patch or REMOVED per Option F fallback.
+Full evidence + per-test results: [`gate-test-results_2026-05-17_codex.md`](../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md).
 
 ---
 
