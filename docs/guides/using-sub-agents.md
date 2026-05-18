@@ -100,7 +100,7 @@ Output is structurally identical (layered output per master plan D26: full findi
 - **No proactive trigger.** The auto-fire after PM-artifact-producing skills is a Claude Code frontmatter feature. On non-Claude clients, invocation is explicit-only.
 - **No `.claude/agents/` override.** Per-user agent dir is Claude-Code-specific. Edit the dispatch skill SKILL.md locally instead.
 
-Dispatch skill availability is CONDITIONAL on Phase 2 GATE B + C spike outcomes per [master plan D30](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/plan_v2.16.0.md). If a specific client cannot reliably execute the inline pattern, fall back to either codex-rescue (for Claude Code + Codex CLI users) or manual reading of `subagents/{name}.md`.
+The dispatch mechanism was VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE B + C PASS per [master plan D30](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/plan_v2.16.0.md); evidence at [`gate-test-results_2026-05-17_codex.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)). Cursor, Windsurf, Copilot CLI, and Gemini CLI are untested but expected to work; the [`maintainer-gate-testing-codex.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md) harness is re-runnable on any client for cross-client verification. If a specific client cannot reliably execute the inline pattern, fall back to either codex-rescue (for Claude Code + Codex CLI users) or manual reading of `subagents/{name}.md`.
 
 ## Maintainer Operations
 

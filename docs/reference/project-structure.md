@@ -22,7 +22,7 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (55 total in v2.15.0, flat)
+├── skills/                     # Core PM skills (59 total in v2.16.0: 26 phase + 8 foundation + 10 utility + 15 tool; flat layout)
 ├── commands/                   # Slash command markdown files
 ├── _workflows/                 # Workflows source (12 in v2.15.0)
 ├── subagents/                  # Sub-agent definitions (v2.16.0+; declared via .claude-plugin/plugin.json "agents" path)
@@ -119,7 +119,7 @@ skills/{skill-name}/
 | `foundation-persona` | Evidence-calibrated product or marketing persona generation |
 | `foundation-stakeholder-update` | Async stakeholder communication for non-attendees |
 
-#### Utility (6 skills)
+#### Utility (10 skills)
 
 | Skill | Purpose |
 |-------|---------|
@@ -155,7 +155,7 @@ skills/{skill-name}/
 
 Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
 
-**Commands (62 total: 55 skill commands + 7 workflow commands)**
+**Commands (66 total: 59 skill commands + 7 workflow commands)**
 | Command | Target skill/workflow |
 | --- | --- |
 | `/competitive-analysis` | discover-competitive-analysis |

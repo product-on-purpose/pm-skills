@@ -162,7 +162,7 @@ For G3 failures AFTER push but BEFORE G4 P0 detection: the tag exists on origin.
 
 ## Cross-Client Notes
 
-The `pm-release-conductor` sub-agent is a Claude Code plugin feature. Non-Claude clients access conductor intent via the dispatch skill at `skills/utility-pm-release-conductor/SKILL.md` (CONDITIONAL on Phase 2 GATE C sub-spike outcome per master plan D30).
+The `pm-release-conductor` sub-agent is a Claude Code plugin feature. Non-Claude clients access conductor intent via the dispatch skill at `skills/utility-pm-release-conductor/SKILL.md` (VALIDATED on Codex CLI 0.128.0 on 2026-05-17 via the "reference + execute inline" chain composition pattern; evidence at [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)).
 
 The conductor's chain composition (G0 chain to auditor, G2 chain to curator) requires the Agent tool, which is only available in Claude Code's plugin sub-agent runtime. On non-Claude clients, the dispatch skill uses the "reference + execute inline" pattern: instead of chaining, it inlines the auditor + curator behaviors at G0 + G2.
 
@@ -172,7 +172,7 @@ The maintainer running this runbook BY HAND (without any sub-agent) follows the 
 
 - Sub-agent implementation: [`subagents/pm-release-conductor.md`](https://github.com/product-on-purpose/pm-skills/blob/main/subagents/pm-release-conductor.md) (referential prompt; reads this runbook at invocation time)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-release-conductor.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/spec_pm-release-conductor.md)
-- Dispatch skill (cross-client): [`skills/utility-pm-release-conductor/SKILL.md`](https://github.com/product-on-purpose/pm-skills/blob/main/skills/utility-pm-release-conductor/SKILL.md) (CONDITIONAL on Phase 2 GATE C)
+- Dispatch skill (cross-client): [`skills/utility-pm-release-conductor/SKILL.md`](https://github.com/product-on-purpose/pm-skills/blob/main/skills/utility-pm-release-conductor/SKILL.md) (VALIDATED on Codex CLI 2026-05-17)
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}` (G0 + G2.5 sub-check entry point)
 - Chain children: `subagents/pm-skill-auditor.md`, `subagents/pm-changelog-curator.md`
 - Chain allowlist: `subagents/_chain-permitted.yaml` (lists only `pm-release-conductor`)

@@ -55,7 +55,7 @@ The dispatch skill requires the AI client to:
 3. Read the canonical sub-agent definition file
 4. Treat the agent body as operating instructions
 
-Per master plan D30, dispatch skill availability is CONDITIONAL on Phase 2 GATE B spike outcomes. If any of the above is unreliable on a specific client, that client falls back to manual `git log` + manual CHANGELOG drafting (which negates most of the dispatch skill's value but at least gives the user the canonical hygiene-rule reference).
+Per master plan D30, the dispatch skill mechanism was VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE B PASS; see [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](../../docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)). Codex CLI successfully ran git log + read CLAUDE.md hygiene rules + drafted CHANGELOG entries with zero em-dashes, zero internal-notes references, zero Claude attribution trailers + correct dirty-tree refusal behavior. Additional clients (Cursor, Windsurf, Copilot, Gemini CLI) are untested but expected to work; if any of the above is unreliable on a specific client, that client falls back to manual `git log` + manual CHANGELOG drafting (which negates most of the dispatch skill's value but at least gives the user the canonical hygiene-rule reference).
 
 ## Reference Files
 

@@ -52,7 +52,9 @@ Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, or any other client without na
 
 ## Cross-Client Notes
 
-Per master plan D30, dispatch skill availability is CONDITIONAL on Phase 2 GATE B spike outcomes. The "read canonical agent definition and execute inline" pattern depends on the AI client being able to:
+Per master plan D30, the dispatch skill mechanism was VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE B PASS; see [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](../../docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)). Codex CLI successfully invoked the validator suite via Bash + ran cross-cutting checks + produced a layered audit report with re-derived aggregate counters. Additional clients (Cursor, Windsurf, Copilot, Gemini CLI) are untested but expected to work; maintainers can re-run the harness for cross-client validation.
+
+The "read canonical agent definition and execute inline" pattern depends on the AI client being able to:
 
 1. Read a referenced file path
 2. Execute Bash to invoke validator scripts

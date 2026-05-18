@@ -182,7 +182,7 @@ Functional differences on non-Claude clients (acceptable per single-tool user as
 - **No proactive trigger.** The auto-fire after PM-artifact-producing skills is a Claude Code frontmatter feature. On non-Claude clients, invocation is explicit-only.
 - **No `.claude/agents/` overrides.** The Claude Code per-user override directory has no portable equivalent. Edit the dispatch skill SKILL.md locally instead.
 
-Dispatch skill availability is conditional on Phase 2 GATE B spike outcomes. If the dispatch mechanism is unreliable on a specific client, fall back to the Codex-rescue path below or to reading `subagents/pm-critic.md` manually.
+The dispatch mechanism was VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE B PASS for pm-critic dispatch; 7 findings produced against the canonical Brainshelf PRD sample matching the expected output shape). Evidence at [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md). Cursor, Windsurf, Copilot CLI, and Gemini CLI are untested but expected to work. If a specific client cannot reliably execute the inline pattern, fall back to the Codex-rescue path below or to reading `subagents/pm-critic.md` manually.
 
 ### Codex-rescue path (optional shortcut)
 
@@ -231,7 +231,7 @@ Per Claude Code plugin convention, you can disable individual sub-agents. Refer 
 - Sub-agent definition: [`subagents/pm-critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/subagents/pm-critic.md)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/spec_pm-critic.md)
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../reference/runtime-components.md)
-- Dispatch skill (cross-client): `skills/utility-pm-critic/SKILL.md` (ships conditionally per Phase 2 GATE B)
+- Dispatch skill (cross-client): `skills/utility-pm-critic/SKILL.md` (VALIDATED on Codex CLI 2026-05-17)
 - Library samples: `library/sub-agent-samples/pm-critic/` (3 thread-aligned examples)
 - Phase 0 Adversarial Review pattern (manual predecessor): [`docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md)
 - Companion slash command: [`commands/critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/commands/critic.md)
