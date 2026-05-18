@@ -1,6 +1,6 @@
 ---
 title: Triple Diamond Delivery Process
-description: "The Triple Diamond product-delivery framework: three diamonds (Problem Space, Solution Space, Learning Space) covering six phases (Discover, Define, Develop, Deliver, Measure, Iterate) that organize the 40 pm-skills."
+description: "The Triple Diamond product-delivery framework: three diamonds (Problem Space, Solution Space, Learning Space) covering six phases (Discover, Define, Develop, Deliver, Measure, Iterate) that organize the 26 phase-classified pm-skills (of 59 total in v2.16.0)."
 ---
 
 ## Executive Summary

@@ -20,6 +20,37 @@ pm-skills CI has three layers:
 
 Most validators that fail in layer 2 would have caught the issue in layer 1 if run locally. Maintainers are encouraged to run `pre-tag-validate` before every release-prep commit.
 
+```mermaid
+flowchart TD
+    PushPR[Push to non-main branch<br/>or PR open/update] --> Validation[validation.yml<br/>ubuntu + windows]
+    PushPR --> Plugin[validate-plugin.yml]
+    PushPR --> CodeQL[codeql.yml]
+
+    PushMain[Push to main<br/>docs/ path filter] --> Pages[deploy-pages.yml]
+    PushMain --> Drafts[create-issues-from-drafts.yml]
+    PushMain --> McpSync[validate-mcp-sync.yml]
+
+    TagPush[Tag push v*.*.*] --> Release[release.yml]
+    TagPush --> Zips[release-zips.yml]
+
+    Manual[workflow_dispatch] --> SyncAgents[sync-agents-md.yml]
+
+    Validation --> Enforcing[~14 enforcing validators:<br/>lint-skills-frontmatter<br/>validate-agents-md<br/>validate-commands<br/>family validators<br/>check-internal-link-validity --strict<br/>validate-docs-frontmatter --strict<br/>check-no-body-h1 --strict<br/>check-count-consistency<br/>check-generated-content-untouched<br/>+ more]
+    Validation --> Advisory[Advisory validators:<br/>validate-mcp-sync<br/>check-context-currency<br/>check-frontmatter-yaml<br/>check-stale-bundle-refs<br/>check-version-references<br/>check-em-dashes]
+
+    Enforcing -->|all pass| Green[PR green; merge unblocked]
+    Enforcing -->|any fail| Red[PR red; fix + push again]
+    Advisory -.->|informational| Green
+
+    Pages --> Site[Astro 6.3.x build<br/>publish to GitHub Pages]
+    Release --> GH[Publish GitHub Release<br/>auto notes + manual edit]
+    Zips --> Artifacts[Attach zips to Release]
+
+    Local[Local pre-commit:<br/>pre-tag-validate.sh / .ps1] -.->|runs same enforcing set| Enforcing
+```
+
+The diagram shows the trigger -> workflow -> validator -> outcome flow. The dotted arrow from `pre-tag-validate` to the enforcing validators indicates the local-machine equivalent: running the bundle locally exercises the same checks the CI runner runs, so a green local run is strong predictor of a green PR check.
+
 ## GitHub Actions Workflows
 
 All 9 workflow files in `.github/workflows/`:

@@ -21,6 +21,28 @@ pm-skills has run the Phase 0 Adversarial Review Loop as a manual maintainer pra
 
 **Why adversarial framing matters.** A skill that self-reviews has a perverse incentive: the same context that produced the artifact judges whether the artifact is good. A separate sub-agent with a different system prompt (criticism, not authorship) breaks that incentive. The cost is one extra context window per artifact; the benefit is finding the issues that hand-off recipients would otherwise find later.
 
+```mermaid
+flowchart TD
+    Author[Author runs PM skill<br/>/deliver-prd, /foundation-okr-writer, etc.] --> Artifact[Artifact produced]
+    Artifact -->|Claude Code default| Proactive[pm-critic auto-fires<br/>Path 1: Proactive]
+    Artifact -->|Explicit re-review| Explicit[/pm-critic invoked<br/>Path 2 or 3]
+    Artifact -->|Non-Claude client| Dispatch[utility-pm-critic dispatch skill<br/>reads subagents/pm-critic.md inline]
+    Proactive --> Findings[P0 / P1 / P2 / P3 findings<br/>with concrete fix per finding]
+    Explicit --> Findings
+    Dispatch --> Findings
+    Findings -->|P0 present| FixP0[Revise to fix P0]
+    Findings -->|No P0; P1+ only| Decide{Ship or fix first?}
+    Decide -->|P1+ acceptable for this artifact| Ship[Accept findings; ship]
+    Decide -->|Fix first| FixP1[Revise to fix P1]
+    FixP0 --> Recheck[Re-run pm-critic on revised artifact]
+    FixP1 --> Recheck
+    Recheck -->|Findings unchanged or new P0| FixP0
+    Recheck -->|All P0 closed| Decide
+    Ship --> Done([Artifact reviewed + cleared])
+```
+
+The diagram shows the standard revise-recheck loop. The Phase 0 Adversarial Review Loop (used internally for pm-skills releases) is the same shape, scaled up to "release-prep artifacts" instead of "single PM artifact." Sub-agent severity grading (P0/P1/P2/P3) is the canonical priority dial; see the section below for definitions.
+
 ## When to Invoke pm-critic
 
 pm-critic has four invocation paths.

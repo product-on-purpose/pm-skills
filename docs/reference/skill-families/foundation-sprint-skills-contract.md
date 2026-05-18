@@ -193,7 +193,7 @@ Each family-member skill ships library samples in `library/skill-output-samples/
 
 **Coverage requirements by contract version:**
 
-- **v0.1.0 (current; v2.15.0 ship target):** Brainshelf thread REQUIRED for all 7 family members. Storevine and Workbench threads RECOMMENDED. This matches the v2.11.0 meeting-skills-family precedent where the 3-thread arc was introduced incrementally; "functionally shippable" means the canonical Brainshelf arc exists end-to-end.
+- **v0.1.0 (current; SHIPPED in v2.15.0):** Brainshelf thread REQUIRED for all 7 family members. Storevine and Workbench threads RECOMMENDED. This matches the v2.11.0 meeting-skills-family precedent where the 3-thread arc was introduced incrementally; "functionally shippable" means the canonical Brainshelf arc exists end-to-end. (Note: 3-thread coverage was authored in v2.15.0 Phase 5 alongside Brainshelf to match precedent, exceeding the v0.1.0 minimum.)
 - **v1.0.0 (future):** All 3 threads REQUIRED for all family members. Promote when both Storevine and Workbench arcs are authored and the family validator can enforce the 3-thread check.
 
 When a sample is authored, it MUST tell a coherent story across the 7-skill arc for its thread. The Brainshelf basics sample's customer becomes the Brainshelf differentiation sample's input; that differentiation becomes the Brainshelf magic-lenses input; and so on through the Founding Hypothesis. The same is true for Storevine and Workbench when those threads are completed.
