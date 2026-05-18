@@ -176,7 +176,7 @@ When invoked as a chained sub-agent (e.g., from `pm-release-conductor` at G2), a
 
 ### Pattern 1: Explicit slash command (standalone)
 
-`/draft-changelog [--since-tag v2.15.0]` - drafts entries between the tag and HEAD.
+`/pm-draft-changelog [--since-tag v2.15.0]` - drafts entries between the tag and HEAD.
 
 ### Pattern 2: Sub-agent chain (from conductor)
 
@@ -228,7 +228,7 @@ description: |
   never reference gitignored _NOTES/ or AGENTS/SESSION-LOG/ or
   docs/internal/efforts/. Distinguishes user-facing from internal-only commits.
   Returns a draft for maintainer review and edit. Explicit invocation only.
-  Used standalone via /draft-changelog or chained from pm-release-conductor at
+  Used standalone via /pm-draft-changelog or chained from pm-release-conductor at
   gate G2.
 tools: Bash, Read, Grep
 model: sonnet
@@ -343,7 +343,7 @@ pm-changelog-curator is ready to ship when:
 
 - [ ] `subagents/pm-changelog-curator.md` exists with frontmatter per this spec
 - [ ] System prompt is referential (reads CLAUDE.md at invocation time)
-- [ ] `commands/draft-changelog.md` resolves to pm-changelog-curator
+- [ ] `commands/pm-draft-changelog.md` resolves to pm-changelog-curator
 - [ ] Standalone invocation produces a draft against v2.15.0..HEAD range
 - [ ] Chained invocation (from conductor at G2) returns draft to conductor
 - [ ] Output respects all CLAUDE.md hygiene rules (no internal-notes refs, no em-dashes, no Claude attribution, public paths only)

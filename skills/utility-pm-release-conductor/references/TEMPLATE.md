@@ -74,7 +74,7 @@ This was a dry-run. No tag was created. No commits were pushed. No changes are l
 
 **Dry-run rehearsal result:** all 6 gates would PASS in live mode based on current state. {N} P0 blockers detected ({list} OR "none"). {M} P2 reminders surfaced for post-tag follow-up.
 
-**Recommended next step:** invoke `/release v{target}` (without `--dry-run`) when ready to ship live. The conductor walks the same flow and performs the actual tag + push at G3.
+**Recommended next step:** invoke `/pm-release v{target}` (without `--dry-run`) when ready to ship live. The conductor walks the same flow and performs the actual tag + push at G3.
 ````
 
 ## Status Summary Section (Per Gate or End of Flow)

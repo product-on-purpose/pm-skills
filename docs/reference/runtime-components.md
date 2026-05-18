@@ -38,10 +38,10 @@ v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents
 
 | Sub-agent | Audience | Trigger | Lifetime | Tool Surface | Composition | Dispatch Skill |
 |---|---|---|---|---|---|---|
-| `pm-critic` | User (PM authoring artifacts) | Proactive after PM-artifact-producing skills (Claude Code) + explicit `/critic` | Single turn | Read, Grep, Glob (no write; no Bash) | Skill-revise-recheck loop with deliver-prd, foundation-okr-writer, foundation-meeting-recap, foundation-persona, foundation-lean-canvas, discover-interview-synthesis, etc. | `skills/utility-pm-critic/` (VALIDATED on Codex CLI 2026-05-17) |
-| `pm-skill-auditor` | User + Maintainer (audience straddles) | Explicit only: `/audit-repo` or `@agent-pm-skill-auditor`; chained from `pm-release-conductor` at gate G0 | Multi-turn (may ask follow-up questions) | Bash, Read, Grep, Glob (no Edit; no Agent; detection-only) | Composes the enforcing validator suite via `scripts/pre-tag-validate.{sh,ps1}`; runs cross-cutting checks; re-derives aggregate counters | `skills/utility-pm-skill-auditor/` (VALIDATED on Codex CLI 2026-05-17) |
-| `pm-changelog-curator` | Maintainer | Explicit only: `/draft-changelog` or `@agent-pm-changelog-curator`; chained from `pm-release-conductor` at gate G2 | Single turn (standalone or chained) | Bash, Read, Grep (no Edit; no Agent) | Composes with git log + CLAUDE.md hygiene rules; chained from conductor at G2 | `skills/utility-pm-changelog-curator/` (VALIDATED on Codex CLI 2026-05-17) |
-| `pm-release-conductor` | Maintainer | Explicit only: `/release v{X.Y.Z}` (no @-mention; release too consequential for ambient spawn) | Full release flow (often 30+ minutes) | Bash, Read, Edit, Grep, Glob, **Agent** (chain-permitted per `_chain-permitted.yaml`) | Chains to `pm-skill-auditor` at G0 + G2.5 and to `pm-changelog-curator` at G2; reads `docs/contributing/release-runbook.md` for gate definitions | `skills/utility-pm-release-conductor/` (VALIDATED on Codex CLI 2026-05-17 via "reference + execute inline" pattern for chain composition; context budget held through 6-gate dry-run) |
+| `pm-critic` | User (PM authoring artifacts) | Proactive after PM-artifact-producing skills (Claude Code) + explicit `/pm-critic` | Single turn | Read, Grep, Glob (no write; no Bash) | Skill-revise-recheck loop with deliver-prd, foundation-okr-writer, foundation-meeting-recap, foundation-persona, foundation-lean-canvas, discover-interview-synthesis, etc. | `skills/utility-pm-critic/` (VALIDATED on Codex CLI 2026-05-17) |
+| `pm-skill-auditor` | User + Maintainer (audience straddles) | Explicit only: `/pm-audit-repo` or `@agent-pm-skill-auditor`; chained from `pm-release-conductor` at gate G0 | Multi-turn (may ask follow-up questions) | Bash, Read, Grep, Glob (no Edit; no Agent; detection-only) | Composes the enforcing validator suite via `scripts/pre-tag-validate.{sh,ps1}`; runs cross-cutting checks; re-derives aggregate counters | `skills/utility-pm-skill-auditor/` (VALIDATED on Codex CLI 2026-05-17) |
+| `pm-changelog-curator` | Maintainer | Explicit only: `/pm-draft-changelog` or `@agent-pm-changelog-curator`; chained from `pm-release-conductor` at gate G2 | Single turn (standalone or chained) | Bash, Read, Grep (no Edit; no Agent) | Composes with git log + CLAUDE.md hygiene rules; chained from conductor at G2 | `skills/utility-pm-changelog-curator/` (VALIDATED on Codex CLI 2026-05-17) |
+| `pm-release-conductor` | Maintainer | Explicit only: `/pm-release v{X.Y.Z}` (no @-mention; release too consequential for ambient spawn) | Full release flow (often 30+ minutes) | Bash, Read, Edit, Grep, Glob, **Agent** (chain-permitted per `_chain-permitted.yaml`) | Chains to `pm-skill-auditor` at G0 + G2.5 and to `pm-changelog-curator` at G2; reads `docs/contributing/release-runbook.md` for gate definitions | `skills/utility-pm-release-conductor/` (VALIDATED on Codex CLI 2026-05-17 via "reference + execute inline" pattern for chain composition; context budget held through 6-gate dry-run) |
 
 Rows fill in as each sub-agent ships in its respective phase of [`subagents-integration-plan.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/subagents-integration-plan.md). Behavioral contracts live in the corresponding `spec_pm-{name}.md` files alongside the integration plan.
 
@@ -95,16 +95,16 @@ Only `pm-critic` ships with a proactive trigger in v2.16.0 per master plan D7. T
 **Explicit (user invokes the companion slash command):**
 
 ```
-User: /critic docs/specs/my-prd.md
+User: /pm-critic docs/specs/my-prd.md
 Claude Code: [invokes pm-critic with the artifact path as $ARGUMENTS]
 ```
 
 Companion slash commands per `subagents/_pairing.yaml`:
 
-- `/critic [artifact path]` invokes `pm-critic`
-- `/audit-repo` invokes `pm-skill-auditor`
-- `/draft-changelog [since-tag]` invokes `pm-changelog-curator`
-- `/release [version]` invokes `pm-release-conductor`
+- `/pm-critic [artifact path]` invokes `pm-critic`
+- `/pm-audit-repo` invokes `pm-skill-auditor`
+- `/pm-draft-changelog [since-tag]` invokes `pm-changelog-curator`
+- `/pm-release [version]` invokes `pm-release-conductor`
 
 ### Dispatch skill path (non-Claude clients)
 
@@ -157,7 +157,7 @@ A PM-artifact-producing skill (deliver-prd, foundation-okr-writer, foundation-me
 
 ### Pattern 2: Slash command -> sub-agent (explicit invocation)
 
-User runs `/critic`, `/audit-repo`, `/draft-changelog`, or `/release`. The command invokes the paired sub-agent. Single-turn lifetime for critic and curator; multi-turn for auditor and conductor.
+User runs `/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, or `/pm-release`. The command invokes the paired sub-agent. Single-turn lifetime for critic and curator; multi-turn for auditor and conductor.
 
 ### Pattern 3: Sub-agent -> sub-agent (chain composition, 2 levels max)
 

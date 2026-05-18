@@ -170,12 +170,12 @@ README.md                                      [MODIFY, Phase 4]
 ### Task 3: Author docs/guides/using-sub-agents.md
 
 - [ ] Author the usage guide with the following structure:
-  - **Quick start** (5 lines: invoke `/critic` after producing a PM artifact; invoke `/audit-repo` before tagging; invoke `/release vX.Y.Z` when ready to ship; invoke `/draft-changelog` standalone or via conductor)
+  - **Quick start** (5 lines: invoke `/pm-critic` after producing a PM artifact; invoke `/pm-audit-repo` before tagging; invoke `/pm-release vX.Y.Z` when ready to ship; invoke `/pm-draft-changelog` standalone or via conductor)
   - **The 4 sub-agents at a glance** (table: name, slash command, audience, trigger, typical use case)
   - **When to use which** (decision tree: am I authoring a PM artifact? am I auditing the repo? am I drafting a CHANGELOG? am I tagging a release?)
   - **Mermaid: invocation flow** (adapt from strategy doc Section 3.1)
   - **Proactive vs explicit invocation** (when pm-critic auto-fires; why the others don't; note that proactive only applies on Claude Code; dispatch skill on non-Claude clients is explicit-only)
-  - **Maintainer Operations** (added per SR-P2-01): one-example walkthrough each for `/audit-repo` standalone, `/draft-changelog` standalone, `/release` walkthrough. Closes the gap where these agents had only one-row references and no step-by-step.
+  - **Maintainer Operations** (added per SR-P2-01): one-example walkthrough each for `/pm-audit-repo` standalone, `/pm-draft-changelog` standalone, `/pm-release` walkthrough. Closes the gap where these agents had only one-row references and no step-by-step.
   - **Composition basics** (how the conductor chains to auditor + curator; the 2-level depth limit; on non-Claude clients, chain composition uses "reference + execute inline" pattern via dispatch skill)
   - **Cross-Client compatibility** (AMENDED per D30: dispatch skills at `skills/utility-pm-{role}/` deliver the same intent to non-Claude clients via runtime detection; codex-rescue is an optional shortcut, NOT baseline)
   - **Opt-out paths** (copy to .claude/agents/; override description; severity floor configuration in v2.17)
@@ -264,10 +264,10 @@ README.md                                      [MODIFY, Phase 4]
 
   | Sub-agent | Slash command | Audience | Trigger | Use case |
   |---|---|---|---|---|
-  | pm-critic | /critic | User | Proactive | Adversarial review of PM artifacts |
-  | pm-skill-auditor | /audit-repo | User + Maintainer | Explicit | Repo-level cross-cutting governance |
-  | pm-changelog-curator | /draft-changelog | Maintainer | Explicit | CHANGELOG drafter from git log |
-  | pm-release-conductor | /release | Maintainer | Explicit | Guided release runbook with 6 gates |
+  | pm-critic | /pm-critic | User | Proactive | Adversarial review of PM artifacts |
+  | pm-skill-auditor | /pm-audit-repo | User + Maintainer | Explicit | Repo-level cross-cutting governance |
+  | pm-changelog-curator | /pm-draft-changelog | Maintainer | Explicit | CHANGELOG drafter from git log |
+  | pm-release-conductor | /pm-release | Maintainer | Explicit | Guided release runbook with 6 gates |
 
   Canonical detail: `docs/reference/runtime-components.md`.
   Concept: `docs/concepts/sub-agents.md`.
@@ -310,7 +310,7 @@ README.md                                      [MODIFY, Phase 4]
 - [ ] Verify all new docs document both Claude Code and Codex paths (DC7)
 - [ ] Verify spec doc cross-references (DC9): spec_pm-critic.md links to adversarial-review.md; spec_pm-release-conductor.md links to release-runbook.md; etc.
 - [ ] Verify all 4 sub-agent names use exact `pm-{role}` shape consistently across all docs
-- [ ] Verify all 4 slash commands use exact verb shape consistently (`/critic`, `/audit-repo`, `/draft-changelog`, `/release`)
+- [ ] Verify all 4 slash commands use exact verb shape consistently (`/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`)
 - [ ] Verify mermaid diagrams render correctly in Astro build (test 4: sub-agents.md decision tree, active-orchestration.md composition matrix, using-sub-agents.md invocation flow, sub-agent-design-patterns.md invocation + composition)
 - [ ] Run em-dash sweep across all new and modified files; zero hits required
 

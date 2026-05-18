@@ -1,6 +1,6 @@
 # F-38 Release Skill Working Folder
 
-This folder holds in-progress specs, plans, and working notes for the `/release` utility skill.
+This folder holds in-progress specs, plans, and working notes for the `/pm-release` utility skill.
 
 See the effort brief at [`../F-38-release-skill.md`](../F-38-release-skill.md).
 

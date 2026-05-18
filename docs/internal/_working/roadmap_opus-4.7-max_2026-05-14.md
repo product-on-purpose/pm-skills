@@ -155,7 +155,7 @@ One row per recommended item. Items ordered by priority within type. Effort is i
 | R-01 | `measure-eval-suite-spec` | NEW SKILL | A | 3-4 d | W |
 | R-02 | `develop-prompt-spec` (or `develop-prompt-rfc`) | NEW SKILL | A | 2-3 d | W |
 | R-03 | `develop-model-card` | NEW SKILL | A | 2-3 d | W |
-| R-04 | `pm-critic` sub-agent + `/critic` command + adversarial-review guide | SUB-AGENT | B | 2-4 d | A, I |
+| R-04 | `pm-critic` sub-agent + `/pm-critic` command + adversarial-review guide | SUB-AGENT | B | 2-4 d | A, I |
 | R-05 | Frontmatter metadata sweep (move proprietary fields under `metadata:`) | INFRA | F | 1-2 d | W |
 | R-06 | `discover-market-sizing` | NEW SKILL | content | 2-3 d | C, S, W |
 | R-07 | `define-prioritization-framework` | NEW SKILL | content | 2-3 d | C, S, W |
@@ -172,9 +172,9 @@ One row per recommended item. Items ordered by priority within type. Effort is i
 | R-13 | `develop-product-vision` + Strategy Canvas | NEW SKILL | content | 2-3 d | C, S, W |
 | R-14 | `develop-ai-failure-mode-catalog` | NEW SKILL | A | 1-2 d | W |
 | R-15 | `develop-rollout-plan` (feature-flag progressive rollout) | NEW SKILL | content | 2 d | W |
-| R-16 | `pm-release-conductor` sub-agent + `/release` + runbook doc | SUB-AGENT | B | 3-4 d | A, I |
-| R-17 | `pm-changelog-curator` sub-agent + `/draft-changelog` | SUB-AGENT | B | 1-2 d | A, I |
-| R-18 | `pm-skill-auditor` sub-agent + `/audit-repo` | SUB-AGENT | B | 2 d | A, I |
+| R-16 | `pm-release-conductor` sub-agent + `/pm-release` + runbook doc | SUB-AGENT | B | 3-4 d | A, I |
+| R-17 | `pm-changelog-curator` sub-agent + `/pm-draft-changelog` | SUB-AGENT | B | 1-2 d | A, I |
+| R-18 | `pm-skill-auditor` sub-agent + `/pm-audit-repo` | SUB-AGENT | B | 2 d | A, I |
 | R-19 | Generator+reviewer pairing for top 5 highest-stakes artifacts (PRD, OKR set, hypothesis, problem-statement, persona) | NEW SKILL pattern | C | 5-7 d | W |
 | R-20 | `utility-executive-summary-generator` | UTILITY | content | 1-2 d | C, S |
 | R-21 | `deliver-roadmap` (outcome-oriented) | NEW SKILL | content | 2-3 d | C, S, W |
@@ -295,7 +295,7 @@ One row per recommended item. Items ordered by priority within type. Effort is i
 
 ### R-04: `pm-critic` sub-agent
 
-**What.** Plugin sub-agent at `agents/pm-critic.md` with companion `commands/critic.md` slash command and `docs/guides/adversarial-review.md`. Runs adversarial review on any PM artifact and returns findings graded P0/P1/P2/P3 with concrete fix suggestions. Description includes "use proactively after PM-artifact-producing skills" so it auto-invokes.
+**What.** Plugin sub-agent at `agents/pm-critic.md` with companion `commands/pm-critic.md` slash command and `docs/guides/adversarial-review.md`. Runs adversarial review on any PM artifact and returns findings graded P0/P1/P2/P3 with concrete fix suggestions. Description includes "use proactively after PM-artifact-producing skills" so it auto-invokes.
 
 **Why P0.** The May 7-10 sub-agent docs already chart this in detail. Single file. 2-4 days. No companion infrastructure required. Highest leverage entry point into the active-orchestration layer (Theme B). Codifies the Phase 0 Adversarial Review Loop the maintainer already runs manually.
 
@@ -528,7 +528,7 @@ Theme: claim the 2026 AI-native PM differentiator and ship the first sub-agent.
 | R-01: `measure-eval-suite-spec` | 3-4 d |
 | R-02: `develop-prompt-spec` | 2-3 d |
 | R-03: `develop-model-card` | 2-3 d |
-| R-04: `pm-critic` sub-agent + `/critic` + adversarial-review guide | 2-4 d |
+| R-04: `pm-critic` sub-agent + `/pm-critic` + adversarial-review guide | 2-4 d |
 | R-05: Frontmatter metadata sweep | 1-2 d |
 | R-06: `discover-market-sizing` | 2-3 d |
 | R-07: `define-prioritization-framework` | 2-3 d |

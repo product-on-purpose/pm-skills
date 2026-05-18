@@ -5,7 +5,7 @@ generated: true
 source: scripts/generate-skill-pages.py
 ---
 
-PM Skills ships 66 slash commands: 55 skill commands, 7 workflow commands, and 4 sub-agent companion commands.
+PM Skills ships 66 slash commands: 56 skill commands, 7 workflow commands, and 3 sub-agent companion commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -34,6 +34,7 @@ PM Skills ships 66 slash commands: 55 skill commands, 7 workflow commands, and 4
 | `/opportunity-tree` | [define-opportunity-tree](../skills/define/define-opportunity-tree.md) | Define | Creates an opportunity solution tree mapping desired outcome... |
 | `/persona` | [foundation-persona](../skills/foundation/foundation-persona.md) | Foundation | Generates an evidence-calibrated product or marketing person... |
 | `/pivot-decision` | [iterate-pivot-decision](../skills/iterate/iterate-pivot-decision.md) | Iterate | Documents a strategic pivot or persevere decision with the e... |
+| `/pm-critic` | [utility-pm-critic](../skills/utility/utility-pm-critic.md) | Utility | Run adversarial review on a PM artifact via the pm-critic su... |
 | `/pm-skill-builder` | [utility-pm-skill-builder](../skills/utility/utility-pm-skill-builder.md) | Utility | Guides contributors from a PM skill idea to a complete Skill... |
 | `/pm-skill-iterate` | [utility-pm-skill-iterate](../skills/utility/utility-pm-skill-iterate.md) | Utility | Applies targeted improvements to an existing pm-skills skill... |
 | `/pm-skill-validate` | [utility-pm-skill-validate](../skills/utility/utility-pm-skill-validate.md) | Utility | Audits an existing pm-skills skill against structural conven... |

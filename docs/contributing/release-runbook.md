@@ -29,7 +29,7 @@ The `pm-release-conductor` sub-agent (v2.16.0+) automates the discipline. It rea
 
 ## Prerequisites
 
-Before invoking the runbook (manually or via `/release v{X.Y.Z}`):
+Before invoking the runbook (manually or via `/pm-release v{X.Y.Z}`):
 
 - [ ] Master plan exists at `docs/internal/release-plans/v{target}/plan_v{target}.md` with status block reflecting current state
 - [ ] Release notes drafted at `docs/releases/Release_v{target}.md` (or scheduled for G2)
@@ -150,7 +150,7 @@ v2.17+ may reintroduce `--skip-gates` restricted to non-release dry-run mode onl
 
 If a G4 P0 (plugin install path broken) cannot be resolved post-tag, the maintainer typically ships a fast v{next-patch} (e.g., v2.16.1) rather than reverting the tag. Tag reversion is destructive and not in v2.16 scope.
 
-The conductor surfaces the v{next-patch} path as a recommendation but does NOT initiate it. Initiating a patch ship requires a fresh `/release v{next-patch}` invocation with a new master plan stub.
+The conductor surfaces the v{next-patch} path as a recommendation but does NOT initiate it. Initiating a patch ship requires a fresh `/pm-release v{next-patch}` invocation with a new master plan stub.
 
 For pre-G3 failures up through G2 (gates G0, G1, G2 only): there is nothing to roll back at the git level. The working tree may have uncommitted G2 edits; see "G2 dirty-tree after partial edits" in the No Bypass Policy section above for recovery paths.
 
@@ -176,7 +176,7 @@ The maintainer running this runbook BY HAND (without any sub-agent) follows the 
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}` (G0 + G2.5 sub-check entry point)
 - Chain children: `subagents/pm-skill-auditor.md`, `subagents/pm-changelog-curator.md`
 - Chain allowlist: `subagents/_chain-permitted.yaml` (lists only `pm-release-conductor`)
-- Companion command: [`commands/release.md`](https://github.com/product-on-purpose/pm-skills/blob/main/commands/release.md)
+- Companion command: [`commands/pm-release.md`](https://github.com/product-on-purpose/pm-skills/blob/main/commands/pm-release.md)
 - v2.15.1 clean-worktree runbook (predecessor for the manual maintainer flow): `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`
 - Adversarial review user guide (G1 context): [`docs/guides/adversarial-review.md`](../guides/adversarial-review.md)
 - CHANGELOG hygiene rules (G2 context): `CLAUDE.md` (repo root)

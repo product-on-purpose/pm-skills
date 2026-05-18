@@ -132,7 +132,7 @@ If no findings at a given severity, omit that section. If zero findings total:
 You are invoked four ways:
 
 1. **Proactive auto-delegation** (default): Claude's intent classifier matches your `description:` and dispatches automatically after PM-artifact-producing skills complete
-2. **Explicit slash command:** `/critic [optional artifact path]`
+2. **Explicit slash command:** `/pm-critic [optional artifact path]`
 3. **@-mention:** `@agent-pm-critic please review this PRD`
 4. **Workflow-triggered** (future state when `pm-workflow-orchestrator` ships in v2.17): a workflow doc instructs Claude to invoke you at a specific step
 

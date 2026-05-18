@@ -124,7 +124,7 @@ The strategy doc ends with 7 open questions for the maintainer (Section 9). The 
 | **D3** | **2-week observation gate between pm-critic and the rest** | **DROPPED for v2.16.0 ship cadence.** All 4 sub-agents ship in the same tag. Rationale: the strategy doc's observation gate was sized for separate v2.15.0 + v2.15.1 releases; combining them into one tag removes the gate. Risk mitigation: pm-critic is the first sub-agent built (Phase 2), exercised against existing v2.15.0 PM artifacts before the utility trio (Phases 3-5) is authored. If pm-critic surfaces design issues, the slate is amended before Phases 3-5 begin. | This plan; explicit deviation from implementation-plan |
 | **D4** | **Sub-agent directory location (AMENDED 2026-05-17 per D31)** | Sub-agent files live at `subagents/` at repo root, declared in `.claude-plugin/plugin.json` via the custom `"agents"` path field. Original D4 prescribed lowercase `agents/` (Claude Code default convention), but Windows NTFS case-insensitivity collides with the existing tracked `AGENTS/` directory; resolved via plugin.json custom-path mechanism per D31. Defer namespace question (`subagents/pm-skills/` vs flat) until 6+ sub-agents exist. | Strategy doc Open Question 2; AMENDED per D31 |
 | **D5** | **Cataloging surface** | New file `docs/reference/runtime-components.md` catalogs all sub-agents. AGENTS.md gets a "Sub-Agents" section pointing to runtime-components.md but does not duplicate the per-agent detail. | Strategy doc Insight 6 + Open Question 6 |
-| **D6** | **Wrapper slash commands** | Every sub-agent ships with a companion slash command in `commands/`. Naming: `/critic`, `/audit-repo`, `/draft-changelog`, `/release`. | Strategy doc Insight 7 |
+| **D6** | **Wrapper slash commands** | Every sub-agent ships with a companion slash command in `commands/`. Naming: `/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`. | Strategy doc Insight 7 |
 | **D7** | **Proactive vs explicit triggers (clarified 2026-05-16 for cross-client)** | pm-critic: proactive (auto-fires after PM-artifact-producing skills via `description: use proactively`) on Claude Code. All 3 utility agents: explicit only. **Cross-client caveat per D30:** proactive triggering is a Claude Code plugin feature. On non-Claude clients accessing pm-critic via dispatch skill, invocation is explicit-only (user must invoke the skill). This is a functional gap on non-Claude clients but acceptable per single-tool user assumption. | Strategy doc Insight 8 + Insight 10 + Q7 clarification |
 | **D8** | **Family-steward design** | DEFER. No `pm-meeting-family-steward` in v2.16. Family-aware reasoning lives inside pm-critic. Revisit when a third family ships and cross-family logic genuinely diverges. | Strategy doc Open Question 3 |
 | **D9** | **em-dash sweep gate in pm-release-conductor** | **YES, enforce at G0.** Re-derive em-dash count via repo-wide grep; refuse to advance if non-zero hits found in tracked text files. | Strategy doc Open Question 4 |
@@ -162,16 +162,16 @@ Re-litigation of any of these decisions requires an explicit plan amendment, not
 | Agent | Audience | Trigger | Lifetime | Tools |
 |---|---|---|---|---|
 | `pm-critic` | User | Proactive (auto-fires after PM-artifact-producing skills) | Single turn | Read, Grep, Glob |
-| `pm-skill-auditor` | User + Maintainer | Explicit (`/audit-repo`) | Multi-turn | Bash, Read, Grep, Glob |
-| `pm-changelog-curator` | Maintainer | Explicit (`/draft-changelog`) or chained from conductor | Single turn or chained | Bash, Read, Grep |
-| `pm-release-conductor` | Maintainer | Explicit (`/release [version]`) | Full release flow | Bash, Read, Edit, Grep, Glob, Agent |
+| `pm-skill-auditor` | User + Maintainer | Explicit (`/pm-audit-repo`) | Multi-turn | Bash, Read, Grep, Glob |
+| `pm-changelog-curator` | Maintainer | Explicit (`/pm-draft-changelog`) or chained from conductor | Single turn or chained | Bash, Read, Grep |
+| `pm-release-conductor` | Maintainer | Explicit (`/pm-release [version]`) | Full release flow | Bash, Read, Edit, Grep, Glob, Agent |
 
 ### New slash commands (4)
 
-- `/critic [optional artifact path]`
-- `/audit-repo`
-- `/draft-changelog [optional since-tag]`
-- `/release [version]`
+- `/pm-critic [optional artifact path]`
+- `/pm-audit-repo`
+- `/pm-draft-changelog [optional since-tag]`
+- `/pm-release [version]`
 
 ### New documentation (3)
 
@@ -359,7 +359,7 @@ SUBAGENT TRACK (subagents-integration-plan.md):
   Phase 1: Subagent infrastructure foundation       [1 session]
     -> subagents/ directory + runtime-components.md skeleton + AGENTS.md section
   Phase 2: Ship pm-critic                            [1-2 sessions]
-    -> subagents/pm-critic.md + /critic + 1 sample + adversarial-review.md
+    -> subagents/pm-critic.md + /pm-critic + 1 sample + adversarial-review.md
     -> GATE: exercise against >=3 v2.15.0 artifacts; amend if needed
   Phase 3: Ship pm-skill-auditor                     [1-2 sessions]
   Phase 4: Ship pm-changelog-curator                 [1 session]

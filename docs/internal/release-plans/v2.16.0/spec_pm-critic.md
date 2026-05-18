@@ -130,7 +130,7 @@ If no findings at a given severity, omit the section. If zero findings total, ou
 
 ### Pattern 2: Explicit slash command
 
-`/critic [optional path]` - reviews the specified artifact, or the most recent artifact in session context.
+`/pm-critic [optional path]` - reviews the specified artifact, or the most recent artifact in session context.
 
 ### Pattern 3: @-mention
 
@@ -278,7 +278,7 @@ The canonical pattern: skill produces artifact, pm-critic reviews, user revises 
 
 ### Composition with commands
 
-- `/critic [path]` is the explicit invocation alias
+- `/pm-critic [path]` is the explicit invocation alias
 - All artifact-producing slash commands (deliver-prd, foundation-okr-writer, etc.) implicitly produce artifacts that pm-critic auto-reviews
 
 ### Composition with workflows
@@ -319,7 +319,7 @@ pm-critic is ready to ship when:
 
 - [ ] `subagents/pm-critic.md` exists with frontmatter per this spec
 - [ ] System prompt is referential (no embedded standards content)
-- [ ] `commands/critic.md` resolves to pm-critic via Pattern 1 invocation
+- [ ] `commands/pm-critic.md` resolves to pm-critic via Pattern 1 invocation
 - [ ] Proactive trigger fires after all artifact-producing skills (verified manually against >= 3 skills in Phase 2 Task 9)
 - [ ] Severity grammar P0/P1/P2/P3 used uniformly in outputs
 - [ ] Refusal protocols verified by deliberately providing incomplete / out-of-scope / below-threshold inputs

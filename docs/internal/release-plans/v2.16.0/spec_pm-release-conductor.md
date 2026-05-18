@@ -36,7 +36,7 @@ This is the most complex sub-agent in the v2.16.0 slate. It has the largest tool
 
 ### What pm-release-conductor does
 
-- Accepts a target version (`/release v2.16.0`)
+- Accepts a target version (`/pm-release v2.16.0`)
 - Validates the version shape (semver vN.M.P)
 - Walks 6 gates in order, pausing at each for explicit maintainer confirmation:
   - **G0** Pre-tag readiness (chains to pm-skill-auditor)
@@ -153,7 +153,7 @@ Each gate reports findings using P0/P1/P2/P3 (D15). P0 within a gate blocks the 
 
 The conductor refuses to start when:
 
-1. **Invalid version argument.** "`/release foobar` is not a valid semver. Use `/release v2.16.0` format."
+1. **Invalid version argument.** "`/pm-release foobar` is not a valid semver. Use `/pm-release v2.16.0` format."
 2. **Target version already tagged.** "`v2.16.0` already exists as a tag. To re-release, choose a new version or delete the existing tag (destructive)."
 3. **Branch is not main (or release branch).** "Current branch is `feature/X`. Releases run from main (or a designated release branch). Switch branches or use `--branch` override (advanced)."
 4. **Master plan missing.** "`docs/internal/release-plans/v{target}/plan_v{target}.md` does not exist. Releases require a master plan. Create the plan and re-invoke."
@@ -218,7 +218,7 @@ Next cycle stub: docs/internal/release-plans/v{next-minor}/plan_v{next-minor}.md
 
 ### Pattern 1: Explicit slash command (default)
 
-`/release v2.16.0` - invokes pm-release-conductor with the target version.
+`/pm-release v2.16.0` - invokes pm-release-conductor with the target version.
 
 ### Pattern 2: @-mention
 
@@ -265,7 +265,7 @@ description: |
   confirmation. Chains to pm-skill-auditor at G0 and pm-changelog-curator at G2.
   Re-derives aggregate counters and sweeps for em-dashes at G0. Refuses to
   advance past a failed gate. Explicit invocation only - never proactive.
-  Usage: /release v2.16.0
+  Usage: /pm-release v2.16.0
 tools: Bash, Read, Edit, Grep, Glob, Agent
 model: sonnet
 memory: none
@@ -398,7 +398,7 @@ pm-release-conductor is ready to ship when:
 
 - [ ] `subagents/pm-release-conductor.md` exists with frontmatter per this spec
 - [ ] System prompt is referential (reads release-runbook.md at invocation time)
-- [ ] `commands/release.md` resolves to pm-release-conductor with version argument validation
+- [ ] `commands/pm-release.md` resolves to pm-release-conductor with version argument validation
 - [ ] `docs/contributing/release-runbook.md` exists and documents all 6 gates with sub-checks
 - [ ] Dry-run mode walks all 6 gates without actual tag/push
 - [ ] G0 chain to pm-skill-auditor verified end-to-end

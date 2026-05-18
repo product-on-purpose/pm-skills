@@ -46,7 +46,7 @@ For strand-level work that has both analytical depth AND cycle-scoped execution,
 ### Example pair (v2.13)
 
 - **Audit:** [`ci-audit_2026-05-03.md`](ci-audit_2026-05-03.md) - 16 sections including inventory, patterns, findings, best practices, refactoring, standardization, cross-platform analysis, plan summary, impact analysis, **implementation specifications (Section 16)**, glossary
-- **Plan:** [`../release-plans/v2.13.0/plan_v2.13_ci-refactor.md`](../release-plans/v2.13.0/plan_v2.13_ci-refactor.md) - thin execution tracker with status, sequencing, CI workflow integration, decisions journal, pre-release verification
+- **Plan:** [`../pm-release-plans/v2.13.0/plan_v2.13_ci-refactor.md`](../pm-release-plans/v2.13.0/plan_v2.13_ci-refactor.md) - thin execution tracker with status, sequencing, CI workflow integration, decisions journal, pre-release verification
 
 ### When to use the pair
 
@@ -79,7 +79,7 @@ When the canonical convention is decided, update this section and rename existin
 
 ## Related conventions in this repo
 
-- **Release plans:** [`docs/internal/release-plans/vX.Y.Z/plan_vX.Y.Z.md`](../release-plans/) (release coordinator) plus optional strand docs (`plan_vX.Y_<strand>.md`)
+- **Release plans:** [`docs/internal/release-plans/vX.Y.Z/plan_vX.Y.Z.md`](../pm-release-plans/) (release coordinator) plus optional strand docs (`plan_vX.Y_<strand>.md`)
 - **Effort docs:** [`docs/internal/efforts/F-XX-name.md`](../efforts/) (per-effort planning surface). Reserve for genuinely complex efforts; refactor-cycle work goes in plan tables, not per-item effort docs.
 - **Session logs:** [`AGENTS/SESSION-LOG/`](../../../AGENTS/SESSION-LOG/) (shared, model encoded in filename: `<date>_<model>_<scope>.md`)
 - **Agent context:** [`AGENTS.md`](../../../AGENTS.md), [`AGENTS/claude/CONTEXT.md`](../../../AGENTS/claude/CONTEXT.md), [`AGENTS/codex/CONTEXT.md`](../../../AGENTS/codex/CONTEXT.md)

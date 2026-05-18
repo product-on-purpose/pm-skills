@@ -188,7 +188,7 @@ Generated 2026-05-16 via `codex:codex-rescue` adversarial review of the v2.16.0 
 
 **Codex evidence:** "Curator reads `git log {since}..HEAD` and refuses only for missing tag, empty range, or unreadable CLAUDE.md; auditor refuses when repo state has uncommitted changes and asks what scope to audit."
 
-**Codex risk:** "`/draft-changelog` can silently omit uncommitted release-prep or WIP changes."
+**Codex risk:** "`/pm-draft-changelog` can silently omit uncommitted release-prep or WIP changes."
 
 **Resolution applied:** Added dirty-tree refusal as 4th refusal protocol. New `--committed-only` argument acknowledges the scope and bypasses the refusal.
 

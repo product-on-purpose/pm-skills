@@ -12,6 +12,8 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** review | **License:** Apache-2.0
 :::
 
+**Try it:** `/pm-critic "Your context here"`
+
 This skill is a cross-client dispatch wrapper for the `pm-critic` sub-agent. It exists so that users on non-Claude clients can run adversarial review with the same intent as Claude Code users, without depending on native plugin sub-agent infrastructure.
 
 Per master plan D11 (amended) + D30, sub-agents are a Claude Code plugin feature. Non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) cannot natively load `subagents/pm-critic.md`. This skill bridges the gap.
@@ -28,6 +30,16 @@ Per master plan D11 (amended) + D30, sub-agents are a Claude Code plugin feature
 - You want to author an artifact (this skill only reviews) -> use the appropriate phase skill (deliver-prd, foundation-okr-writer, etc.)
 - You want code review -> use a code-review-specific tool (this skill is for PM artifacts)
 - You want to enforce style rules like em-dash sweep -> that is `pm-release-conductor`'s G0 gate, not this skill
+
+## How to Use
+
+Use the `/pm-critic` slash command:
+
+```
+/pm-critic "Your context here"
+```
+
+Or reference the skill file directly: `skills/utility-pm-critic/SKILL.md`
 
 ## Instructions
 

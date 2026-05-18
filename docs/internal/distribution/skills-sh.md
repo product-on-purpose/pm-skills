@@ -349,7 +349,7 @@ diff <(ls /path/to/pm-skills/skills/ | sort) discovered.txt
 
 Expected: empty diff.
 
-This is what `/release verify` in F-38 should automate.
+This is what `/pm-release verify` in F-38 should automate.
 
 ---
 
@@ -527,7 +527,7 @@ Full checklist for any future release that touches SKILL.md or skills.sh compati
 9. Confirm all skills discovered from the published state
 10. Monitor skills.sh install count for the first 72 hours
 
-This pattern will be codified as F-38 `/release` utility skill.
+This pattern will be codified as F-38 `/pm-release` utility skill.
 
 ---
 
@@ -536,10 +536,10 @@ This pattern will be codified as F-38 `/release` utility skill.
 ### Internal
 
 - [Dated execution plan](2026-04-22_skills-sh.md) for the v2.11.1 submission effort
-- [v2.11.1 release plan](../release-plans/v2.11.1/plan_v2.11.1.md)
+- [v2.11.1 release plan](../pm-release-plans/v2.11.1/plan_v2.11.1.md)
 - [v2.11.1 release notes](../../releases/Release_v2.11.1.md)
 - [Lint script documentation](../../../scripts/lint-skills-frontmatter.md)
-- [F-38 `/release` utility skill effort brief](../efforts/F-38-release-skill.md)
+- [F-38 `/pm-release` utility skill effort brief](../efforts/F-38-release-skill.md)
 
 ### External
 

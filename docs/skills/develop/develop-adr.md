@@ -218,7 +218,7 @@ CockroachDB offers PostgreSQL compatibility with built-in horizontal scaling. We
 ## References
 
 - Spike Summary: Database Options for Order Service (/spikes/order-db/summary.md)
-- PostgreSQL 16 Release Notes (https://www.postgresql.org/docs/16/release-16.html)
+- PostgreSQL 16 Release Notes (https://www.postgresql.org/docs/16/pm-release-16.html)
 - ADR-003: Use AWS RDS for managed databases (establishes RDS as our database platform)
 - Order Service Capacity Planning Document (/docs/order-service/capacity-planning.md)
 
