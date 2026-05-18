@@ -1,6 +1,22 @@
 # v2.16.0 Release Plan: Active Orchestration + Doc-Stack Modernization
 
-**Status:** READY TO TAG (GATE B + GATE C VALIDATED on Codex CLI 2026-05-17; Option A applied at commit 44e578c; final adversarial review remediation in progress). Active Orchestration track content-complete 2026-05-17 morning (16 commits 68bd5cc through 5a1ad61). Doc-Stack Modernization track content-complete 2026-05-17 evening: 13 commits on `feat/v2.16-astro-6-spike` (Node 22.12+ bump + YAML fix + Layer 1 MCP advisory + Astro 6.3.x + Starlight 0.39.x + 4 AO drift sweeps + bulk count update across 20 files + broken-link fix + generator hardening). pm-skills-mcp PR #50 (Layer 2 EMB-004 softening) MERGED at `6354b77`. All 27 enforcing validators PASS locally via `bash scripts/pre-tag-validate.sh`. Phase 0 Adversarial Review closed (7 findings; all addressed at commit 9cb81af). GATE B + GATE C cross-client tests PASSED on Codex CLI 0.128.0 2026-05-17 per [`gate-test-results_2026-05-17_codex.md`](./gate-test-results_2026-05-17_codex.md); all 4 dispatch skills RATIFIED Option A; EXPERIMENTAL caveats removed. Spike PR [#147](https://github.com/product-on-purpose/pm-skills/pull/147) is DRAFT pending Phase 2 rebase + merge to main + Phase 3 Dependabot verification + conductor live tag.
+**Status:** READY TO PUSH (content-complete; 13 commits ahead of `origin/feat/v2.16-astro-6-spike` as of post-prep state 2026-05-17 late evening; pending explicit maintainer approval to push). All work tracks closed:
+
+- **Active Orchestration track:** content-complete (16 commits `68bd5cc` through `5a1ad61` initial, plus 7 post-Option-A commits in this session).
+- **Doc-Stack Modernization track:** content-complete (13 commits on spike including Node 22.12+ bump, Astro 5 -> 6.3.x, Starlight 0.34 -> 0.39.x, mermaid + sidebar + custom CSS verification, MCP advisory hardening). pm-skills-mcp PR #50 (Layer 2 EMB-004 softening) MERGED at `6354b77`.
+- **Adversarial review cycles:** 4 Codex passes total. Phase 0 plan-state review (14 findings; 13 closed pre-exec; R15 deferred). Ship-state review at `9cb81af` (7 findings; 6 closed; FN-04 deferred). Pre-tag defect pass at `19a213b` (7 findings; all closed at `65a4f2e`). Challenge review at `19a213b` (1 P0 + 3 P1 + 2 P2; P0 closed at `16b88c5` via Codex-scoped reframing; 3 P1 documented as v2.17 entrance criteria).
+- **Late consolidation work** (this session, commits `4ae54bb` through `3f0ffe0`):
+  - `/pm-*` command rename across 4 dispatch commands (`4ae54bb`)
+  - Codex P0 reframing: dispatch ratification narrowed from "RATIFIED" to "Codex CLI VALIDATED; LIVE on non-Claude clients remains EXPERIMENTAL" (`16b88c5`)
+  - Testing summary doc capturing all 13 testing layers + 49 findings closure trail (`b50044d`)
+  - 2 canonical reference docs added: `docs/reference/sub-agent-compatibility.md` + `docs/contributing/ci-overview.md` (`247b47d`)
+  - Full 7-surface cross-client framing consolidation + commands.md generator orphan-row rendering fix + CONTRIBUTING.md D31 workaround #7 entry (`e16a694`)
+  - 3 stale-framing audit fixes + 3 mermaid diagrams in release-runbook + ci-overview + adversarial-review (`64ba259`)
+  - CHANGELOG + Release notes + docs/reference/index.md + skill-families landing + README finalized for v2.16.0 currency (`3f0ffe0`)
+- **Validators:** all 27 enforcing PASS locally via `bash scripts/pre-tag-validate.sh`. check-internal-link-validity --strict PASS (183 files; 0 broken). check-count-consistency PASS (0 stale). check-generated-content-untouched PASS (63 pages). validate-docs-frontmatter --strict PASS (65 docs). check-no-body-h1 --strict PASS (0 duplications). check-em-dashes: 0 violations.
+- **GATE B + GATE C cross-client tests:** PASSED on Codex CLI 0.128.0 2026-05-17 per [`gate-test-results_2026-05-17_codex.md`](./gate-test-results_2026-05-17_codex.md); 3 of 4 dispatch skills PRODUCTION on Codex CLI; conductor DRY-RUN VALIDATED on Codex CLI; canonical matrix at [`docs/reference/sub-agent-compatibility.md`](../../reference/sub-agent-compatibility.md).
+
+Spike PR [#147](https://github.com/product-on-purpose/pm-skills/pull/147) is DRAFT pending maintainer push approval -> PR ready conversion -> CI green confirmation -> merge -> conductor live tag.
 **Owner:** Maintainers
 **Type:** Feature release (minor)
 **Created:** 2026-05-11 (stub); promoted 2026-05-16 (this version)
@@ -23,20 +39,21 @@ v2.16.0 begins from this baseline. Two open Dependabot alerts on origin/main, bo
 - `repo-hygiene-plan.md` Phase 1 carry-forward (CONTEXT.md refresh from v2.14.x Task 2) is no-op: v2.15.1 audit A12 closed it. Phase 1 scope becomes re-refresh-after-all-tracks-land per Codex R13.
 - `ci-plan.md` net-new validators reduced from "5 new" to "2 new + 1 extension" (see ci-plan v2.15.1 carry-in reconciliation section).
 
-### What's next (by priority, parallel-track sequencing)
+### What's next (maintainer-gated; v2.16.0 prep is content-complete)
 
-1. **Start subagent integration plan Phase 1** (subagents/ directory + `_pairing.yaml` + `_chain-permitted.yaml` + runtime-components.md skeleton + AGENTS.md sub-agent section). Unblocks docs + CI tracks.
-2. **In parallel, start docs-plan Phase 1 + ci-plan Phase 1.** Concept docs reference the catalog skeleton; CI decision inspects the actual `subagents/` directory.
-3. **Subagent Phase 2: ship pm-critic + in-cycle observation gate.** If signal-to-noise is poor on real artifacts, amend before Phases 3-5. Note: D3 collapses the original strategy-doc 2-week observation gate into this in-cycle gate; the entire slate ships in v2.16.0 not split across releases.
-4. **In parallel, start doc-stack modernization plan Phase 1.** Astro 6 spike branch with Node 22.12+ workflows landed BEFORE Astro 6 CI-green gate per Codex R02.
-5. **Subagent Phases 3-5: ship utility trio** (pm-skill-auditor, pm-changelog-curator, pm-release-conductor). Conductor validates G2.5 commit gate + chained Status envelope handoff with the other two.
-6. **Subagent Phases 6-8 + docs Phases 2-4 + ci Phases 2-4: complete remaining sub-plan work.** Mostly mechanical; subagent Phase 8 integration check verifies all D19-D29 ratifications.
-7. **Hygiene plan Phases 2-4.** Run in parallel. CONTEXT.md refresh (Phase 1) saved for last per Codex R13.
-8. **Pre-tag artifact pass.** Phase 0 adversarial review + CHANGELOG via curator + release notes + tag via conductor's 6-gate flow.
+All sub-plans + adversarial review cycles + audit fixes + late consolidation work are content-complete on `feat/v2.16-astro-6-spike` (13 commits ahead of `origin/feat/v2.16-astro-6-spike` as of post-prep state). The remaining work is maintainer-gated release execution:
+
+1. **Push spike branch** (maintainer; needs explicit approval per session rule). `git push origin feat/v2.16-astro-6-spike`.
+2. **Convert PR #147 from DRAFT to ready** (maintainer; via GitHub UI or `gh pr ready 147`). CI will run on push: 6 checks (validation ubuntu + windows, validate-plugin, validate-mcp-sync, CodeQL, Astro 6 build via deploy-pages).
+3. **CI green-state confirmation** (auto). All 6 checks should PASS based on local validator run + targeted spot-checks; any unexpected failure triggers a fix-and-push cycle before merge.
+4. **Merge PR #147 to main** (maintainer; squash or merge per maintainer preference). Closes the v2.16.0 spike branch lifecycle.
+5. **Conductor live tag via `/pm-release v2.16.0`** (maintainer; Claude Code; conductor walks 6 gates G0 -> G1 -> G2 -> G2.5 -> G3 -> G4 with auditor inlined at G0 + G2.5 and curator inlined at G2). Confirms G2.5 commit gate captures SHA before G3 tag.
+6. **Post-tag GitHub Release UI body authoring** (maintainer). Auto-generated body from `release.yml` is install-instructions template; manual edit replaces it with the canonical Release_v2.16.0.md content via `gh release edit v2.16.0 --notes-file <path>`.
+7. **v2.17.0 stub promotes to ACTIVE** (maintainer; first post-tag session). Captures FN-04 + R15 + Codex P0 client-expansion + multi-tool concurrency advisory + validator-cleanup-safety items.
 
 ### Estimated remaining
 
-**14-22 sessions** across all 5 sub-plans (updated from 13-20 after Q7 added dispatch skill deliverables; reflects 66 tasks with expanded scope in subagent Phase 2 spike + dispatch skills in Phases 3-5). Subagent slate: 7-10 sessions (includes Phase 2 dispatch skill spike + 4 dispatch skills authored). Docs plan: 2-3 sessions. CI plan: 1-2 sessions. Doc-stack modernization: 2-3 sessions. Hygiene: 2-3 sessions. Pre-tag: 1 session.
+**Content-complete.** Remaining release-execution work is 30-60 minutes of maintainer-gated steps (push, merge, conductor invocation). No autonomous work remaining for /effort max.
 
 ---
 
