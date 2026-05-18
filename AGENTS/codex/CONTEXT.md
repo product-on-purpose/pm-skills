@@ -1,6 +1,6 @@
 # Codex Agent Context
 
-> **Currency marker: v2.16.0 (2026-05-17).** Required for `check-context-currency` CI; updated at each release-tag time alongside `AGENTS/claude/CONTEXT.md`. v2.16.0 currency-marker bump reflects CHANGELOG.md top-version-heading at content-complete state on spike branch `feat/v2.16-astro-6-spike` (release tag still pending maintainer push + conductor invocation). Previous markers: v2.12.0 (2026-05-03; never updated through v2.13.0 / v2.14.0 / v2.15.x cycles) -> v2.16.0 (this update).
+> **Currency marker: v2.16.0 (2026-05-18 SHIPPED).** Required for `check-context-currency` CI; updated at each release-tag time alongside `AGENTS/claude/CONTEXT.md`. v2.16.0 TAGGED + SHIPPED 2026-05-18T15:05:08Z (tag points at main HEAD `b4d5172`); GitHub Release published at https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.0. Previous markers: v2.12.0 (2026-05-03; never updated through v2.13.0 / v2.14.0 / v2.15.x cycles) -> v2.16.0 (this update; pre-tag ready state on 2026-05-17; tag-shipped state on 2026-05-18).
 
 ## Status
 

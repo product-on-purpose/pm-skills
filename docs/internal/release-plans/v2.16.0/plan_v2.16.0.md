@@ -1,6 +1,6 @@
 # v2.16.0 Release Plan: Active Orchestration + Doc-Stack Modernization
 
-**Status:** READY TO PUSH (content-complete; 13 commits ahead of `origin/feat/v2.16-astro-6-spike` as of post-prep state 2026-05-17 late evening; pending explicit maintainer approval to push). All work tracks closed:
+**Status:** SHIPPED 2026-05-18 (annotated tag `v2.16.0` at main HEAD `b4d5172`; tag pushed 2026-05-18T15:05:08Z; GitHub Release published at https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.0 with 195-line canonical body from `docs/releases/Release_v2.16.0.md`; pm-skills-v2.16.0.zip + sha256 + manifest.txt assets uploaded; all 5 CI workflows GREEN on tag SHA; doc site live at https://product-on-purpose.github.io/pm-skills/ Astro 6.3.x build verified; spike branch `feat/v2.16-astro-6-spike` merged via rebase + auto-deleted). All work tracks closed:
 
 - **Active Orchestration track:** content-complete (16 commits `68bd5cc` through `5a1ad61` initial, plus 7 post-Option-A commits in this session).
 - **Doc-Stack Modernization track:** content-complete (13 commits on spike including Node 22.12+ bump, Astro 5 -> 6.3.x, Starlight 0.34 -> 0.39.x, mermaid + sidebar + custom CSS verification, MCP advisory hardening). pm-skills-mcp PR #50 (Layer 2 EMB-004 softening) MERGED at `6354b77`.
