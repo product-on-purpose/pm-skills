@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.16.1] - 2026-05-18
+
+**Plugin Manifest Schema Patch.** v2.16.0 shipped with an invalid field in `.claude-plugin/plugin.json` (`"agents": ["./subagents/"]`) that caused `/plugin update pm-skills` to fail validation with `agents: Invalid input`. v2.16.1 removes the offending field. Same 59-skill catalog. Same dispatch skills. Day-to-day usage identical to v2.16.0.
+
+### Fixed
+
+- **Removed invalid `agents` field from `.claude-plugin/plugin.json`.** Claude Code's plugin schema does not include this field (verified against [code.claude.com/docs/en/plugins](https://code.claude.com/docs/en/plugins)). The v2.16.0 attempt to declare a custom sub-agent path via `"agents": ["./subagents/"]` was based on a schema assumption that does not hold. Removing the field allows the manifest to validate and `/plugin update` to succeed.
+- **Bumped plugin.json version** from `2.16.0` to `2.16.1`.
+- **Bumped marketplace.json pm-skills entry version** from `2.16.0` to `2.16.1` and refreshed the description to mention the patch.
+
+### Known limitations (carried forward to v2.17.0)
+
+- **Native Claude Code sub-agent registration is not active in v2.16.1.** Sub-agent definitions live in `subagents/` rather than Claude Code's canonical `agents/` directory. Auto-discovery only looks at `agents/`. Without the (invalid) `"agents": ["./subagents/"]` field, Claude Code does not register the 4 sub-agents at install time. The architectural fix requires renaming the existing tracked `AGENTS/` coordination directory (which collides with `agents/` on case-insensitive filesystems per master plan D31 amendment), then renaming `subagents/` to `agents/`. This is too large for a patch release and is deferred to v2.17.0.
+- **Dispatch skills continue to work.** The 4 dispatch skills at `skills/utility-pm-{role}/` include an inline-execution path that reads `subagents/pm-{role}.md` and runs the sub-agent's logic step-by-step on any client. This path was validated for Codex CLI on 2026-05-17 (v2.16.0 GATE B + GATE C PASS) and is the carry-over path used on Claude Code in v2.16.1 until native sub-agent registration ships in v2.17.0.
+
+### Not changed
+
+- Skill catalog count: 59 skills (26 phase + 8 foundation + 10 utility + 15 tool).
+- Workflows: 12. Slash commands: 66. Sub-agent definitions: 4.
+- Doc-stack: Astro 6.3.x + Starlight 0.39.x + Node 22.12+ (unchanged from v2.16.0).
+- All v2.15.0 Sprint Skills, v2.12.0 OKR Skills, v2.11.0 Meeting Skills Family content unchanged.
+
+### Affected files
+
+- `.claude-plugin/plugin.json`
+- `.claude-plugin/marketplace.json`
+- `CHANGELOG.md`
+- `docs/releases/Release_v2.16.1.md`
+
+No skill content, command content, workflow content, sub-agent definition content, docs site content, validator scripts, or CI workflows changed in v2.16.1.
+
 ## [2.16.0] - 2026-05-17
 
 **Active Orchestration + Doc-Stack Modernization.** Two complementary tracks ship in v2.16.0.
