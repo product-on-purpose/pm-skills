@@ -43,14 +43,24 @@ The v2.16.1 G4 P0 attestation completed 2026-05-19 with all 3 scenarios PASSING.
 
 ### Primary work items (committed to v2.16.2)
 
-| ID | Item | Effort |
-|---|---|---|
-| W1 | Update README badge from `version-2.16.0` to `version-2.16.1` | 5 min |
-| W2 | Refresh `AGENTS/claude/CONTEXT.md` Status block with v2.16.1 paragraph | 15 min |
-| W3 | Wire `scripts/check-version-references.{sh,ps1}` + `scripts/check-context-currency.{sh,ps1}` into `scripts/pre-tag-validate.{sh,ps1}` bundle | 30 min |
-| W4 | Release artifacts: plugin.json + marketplace.json version bumps + CHANGELOG.md entry + docs/releases/Release_v2.16.2.md | 30 min |
+**SCOPE REDUCED 2026-05-19** post-initial-scoping: README WIP is in active progress on the maintainer's working tree. W1 (README badge update) is deferred to whatever release ships the README refactor; W3 is reduced to `check-context-currency.sh` only (the `check-version-references.sh` wire would fail v2.16.2 G0 because the deferred W1 leaves the badge stale).
 
-**Total v2.16.2 effort: 1-2 hours.** Same-day ship from start.
+| ID | Item | Effort | Status |
+|---|---|---|---|
+| ~~W1~~ | ~~Update README badge from `version-2.16.0` to `version-2.16.1`~~ | ~~5 min~~ | DEFERRED to README-refactor-release per maintainer 2026-05-19; the active README refactor will handle the badge naturally |
+| W2 | Refresh `AGENTS/claude/CONTEXT.md` Status block with v2.16.2 paragraph (originally v2.16.1; now reflects v2.16.2 since we ship simultaneously) | 15 min | COMMITTED |
+| W3' | Wire `scripts/check-context-currency.{sh,ps1}` into `scripts/pre-tag-validate.{sh,ps1}` bundle (only half of original W3; `check-version-references.sh` wire defers until W1 lands) | 15 min | COMMITTED |
+| W4 | Release artifacts: plugin.json + marketplace.json version bumps + CHANGELOG.md entry + docs/releases/Release_v2.16.2.md | 30 min | COMMITTED |
+
+**Total v2.16.2 effort: 30-45 minutes** (was 1-2 hours pre-scope-reduction). Same-session ship from start.
+
+**Deferred items now stack:**
+
+- F-P1-01 (README badge): defers to README-refactor-release
+- F-P2-01 partial (`check-version-references.sh` wire): defers to same release as W1
+- F-P0-01 (validator portability): still v2.17.0 W3 secondary
+- F-P2-02 (CONTEXT.md Notes stale counts): still v2.17.0 doc-refresh
+- F-P2-03 (validator count framing): still v2.17.0
 
 ### Out of scope for v2.16.2 (deferrals)
 
@@ -174,10 +184,24 @@ Walk the 6-gate runbook via `/pm-release v2.16.2` (now natively dispatchable sin
 
 ## Status block
 
-- **Status:** ACTIVE (ready to execute; entrance criteria met)
-- **Pre-execution HEAD reference:** `126bfa4` (post-planning-docs commit; current main as of 2026-05-19)
+- **Status:** EXECUTING (G0 + G1 + G2 PASS; G2.5 in progress)
+- **Pre-execution HEAD reference:** `cc043a3` (post-audit-disposition commit; main as of 2026-05-19)
 - **Expected G2.5 commit SHA:** TBD
 - **Expected tag SHA:** equals G2.5 commit SHA per D22
+
+## Documented validator deviation (G0 sub-check)
+
+`check-count-consistency` validator FAILS on current working-tree state because:
+
+- `README.md:641` contains `Cross-Cutting Capability (18 skills)` as a subset-count label in a mermaid diagram (18 = Foundation 8 + Utility 10)
+- The validator pattern-matches "18 skills" and compares against the total catalog count (59), without distinguishing subset counts from total counts
+- This text exists in the maintainer's active README refactor WIP, which v2.16.2 explicitly defers per D3
+
+**Deviation rationale:** The validator failure reflects a known pre-existing WIP condition, not a v2.16.2 release-prep defect. v2.16.2 does not modify README.md (W1 deferred per scope reduction 2026-05-19). The conductor's no-bypass policy permits maintainer-confirmed deviations with documented rationale; deviation confirmed by maintainer 2026-05-19.
+
+**Deviation mechanism:** v2.16.2 G2.5 + G3 runs `scripts/pre-tag-validate.{sh,ps1} --skip check-count-consistency` instead of the full bundle. All other 14 validators (including the newly-wired check-context-currency) PASS without skip.
+
+**Closure path:** Resolves naturally when the README refactor lands (count-exempt markers added around the diagram OR the diagram restructured). No v2.16.2 carry-forward.
 
 ---
 

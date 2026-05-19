@@ -7,6 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.16.2] - 2026-05-19
+
+**Post-v2.16.1 Audit Hygiene Fast-Patch.** The v2.16.1 G4 P0 attestation step ran the pm-skill-auditor via the dispatch-skill pattern (`/pm-skills:pm-audit-repo` on macOS Claude Code). The auditor PASSED (proved cross-client dispatch works in production), AND surfaced 6 new findings on shipped v2.16.1 state. v2.16.2 closes the housekeeping subset (1 P1 + half of 1 P2). README badge update (F-P1-01) defers to whenever the active README refactor lands; validator portability fix (F-P0-01) and CONTEXT.md Notes refresh (F-P2-02) defer to v2.17.0. Same 59-skill catalog. No skill content changes.
+
+### Fixed
+
+- **Refreshed `AGENTS/claude/CONTEXT.md` Status block** to reflect v2.16.1 + v2.16.2 chain. Adds attestation status for v2.16.1 G4 P0 FULL PASS (cross-platform Claude Code verification with 3 scenarios attested 2026-05-19). Closes audit finding F-P1-02 from v2.16.1 G4 P0 audit.
+- **Wired `scripts/check-context-currency.{sh,ps1}`** into `scripts/pre-tag-validate.{sh,ps1}` bundle as a v2.15.1+ preventive validator. Catches future CONTEXT.md Status block drift at pre-tag time rather than via post-release audit. Closes half of audit finding F-P2-01.
+
+### Known limitations carried forward
+
+- **F-P1-01 (README badge stuck at v2.16.0)**: deferred to whatever release ships the active maintainer README refactor. The badge will be refreshed naturally as part of that refactor; v2.16.2 explicitly avoids touching README.md to prevent merge conflict with the WIP.
+- **F-P2-01 partial (`check-version-references.sh` wire)**: deferred to the same release as F-P1-01. Wiring this validator in v2.16.2 would fail the bundle because the README badge remains stale. Will wire alongside F-P1-01 close.
+- **F-P0-01 (validator portability on macOS bash 3.2 + non-git working tree)**: deferred to v2.17.0 W3. 6 of 14 validators in pre-tag-validate.sh use bash 4 features (mapfile, declare -A) or assume a git working tree; they syntax-error on macOS default bash 3.2.57. Rewriting them for bash-3.2 compat + non-git fallback is a 1-2 day effort, too large for a patch release.
+- **F-P2-02 (CONTEXT.md Notes section stale v2.13.0-era counts) + F-P2-03 (enforcing validator count framing)**: deferred to v2.17.0 doc-refresh, paired with the AGENTS rename which already touches CONTEXT.md.
+
+### Not changed
+
+- Skill catalog count: 59 skills (26 phase + 8 foundation + 10 utility + 15 tool). Unchanged from v2.16.0 + v2.16.1.
+- Workflows: 12. Slash commands: 66. Sub-agent definitions: 4.
+- Doc-stack: Astro 6.3.x + Starlight 0.39.x + Node 22.12+ (unchanged).
+- README.md (active maintainer WIP preserves the file state).
+- All previous release content unchanged.
+
+### Affected files
+
+- `.claude-plugin/plugin.json` (version bump + description refresh)
+- `.claude-plugin/marketplace.json` (version bump + description refresh)
+- `CHANGELOG.md` (this entry)
+- `docs/releases/Release_v2.16.2.md` (new release notes)
+- `AGENTS/claude/CONTEXT.md` (Status block refresh)
+- `scripts/pre-tag-validate.sh` (wire check-context-currency)
+- `scripts/pre-tag-validate.ps1` (PowerShell parity)
+- `docs/internal/release-plans/v2.16.1/plan_v2.16.1.md` (G4 status to FULL PASS)
+- `docs/internal/release-plans/v2.16.2/plan_v2.16.2.md` (new master plan)
+- `docs/internal/release-plans/v2.17.0/plan_v2.17.0.md` (audit finding absorption)
+
+No skill content, command content, workflow content, sub-agent definition content, docs site content (beyond CONTEXT.md), or CI workflow files changed in v2.16.2.
+
 ## [2.16.1] - 2026-05-18
 
 **Plugin Manifest Schema Patch.** v2.16.0 shipped with an invalid field in `.claude-plugin/plugin.json` (`"agents": ["./subagents/"]`) that caused `/plugin update pm-skills` to fail validation with `agents: Invalid input`. v2.16.1 removes the offending field. Same 59-skill catalog. Same dispatch skills. Day-to-day usage identical to v2.16.0.
