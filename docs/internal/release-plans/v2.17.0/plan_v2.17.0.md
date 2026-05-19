@@ -1,6 +1,6 @@
 # v2.17.0 Release Plan: Spec Compliance + Sub-Agent Native Registration
 
-**Status:** ACTIVE (scoped 2026-05-19; awaiting v2.16.1 G4 P0 attestation before execution)
+**Status:** ACTIVE (scoped 2026-05-19; v2.16.1 G4 P0 attestation FULL PASS 2026-05-19; v2.16.2 fast-patch scheduled BEFORE v2.17.0 execution per maintainer choice)
 **Owner:** Maintainers
 **Type:** Minor release
 **Theme:** Close two cross-cutting structural commitments shipped as deferred in v2.16.0 / v2.16.1: (1) move proprietary skill-frontmatter under `metadata:` for agentskills.io spec compliance, (2) rename `subagents/` to `agents/` to deliver native Claude Code sub-agent registration that v2.16.0 attempted and v2.16.1 documented as deferred.
@@ -34,10 +34,39 @@ The reframe applies the `feedback_no-effort-doc-bloat` memory rule (for refactor
 |---|---|---|---|---|
 | W1 | Frontmatter metadata sweep: move proprietary fields under `metadata:` block | INFRA | 2-3 d | [`spec_frontmatter-metadata-migration.md`](spec_frontmatter-metadata-migration.md) |
 | W2 | `AGENTS/` to `_AGENTS/` rename + `subagents/` to `agents/` rename for native Claude Code sub-agent registration | INFRA | 1-2 d | [`spec_agents-directory-rename.md`](spec_agents-directory-rename.md) |
+| W3 | Validator portability fix: rewrite 5 bash-4 validators for bash-3.2 compat + non-git-checkout fallback for check-count-consistency | INFRA | 1-2 d | (no separate spec; details below in W3 expansion) |
+| W4 | Doc-refresh: CONTEXT.md Notes section + enforcing-validator count framing | DOCS | 0.5 d | (absorbed into W2 reference sweep which already touches CONTEXT.md) |
 
-**Total v2.17.0 effort: 3-5 effort-days.**
+**Total v2.17.0 effort: 4.5-7.5 effort-days** (was 3-5 days pre-audit-findings).
 
-Both items are cross-cutting structural changes. Co-shipping them in one release minimizes surface-area churn for downstream consumers (`pm-skills-mcp` companion repo, doc-stack templates, third-party validators tracking pm-skills as a reference implementation).
+All four items are cross-cutting structural or documentation changes. Co-shipping them in one release minimizes surface-area churn for downstream consumers (`pm-skills-mcp` companion repo, doc-stack templates, third-party validators tracking pm-skills as a reference implementation).
+
+### W3 expansion: Validator portability fix
+
+**Origin:** v2.16.1 G4 P0 audit finding F-P0-01 (see `release-plans/v2.16.1/plan_v2.16.1.md` G4 status + `release-plans/v2.16.2/plan_v2.16.2.md` Context section).
+
+**Problem:** 5 of 14 validators in `scripts/pre-tag-validate.sh` use bash 4 features (`mapfile`, `declare -A`); they syntax-error on macOS default bash 3.2.57. A 6th validator (`check-count-consistency.sh`) assumes a git working tree and hard-fails under `set -euo pipefail` when run from a non-git directory (e.g., the unpacked install-cache shape).
+
+**Affected validators (per audit finding F-P0-01):**
+
+1. `scripts/validate-agents-md.sh:24` (mapfile)
+2. `scripts/validate-commands.sh:9` (mapfile)
+3. `scripts/validate-meeting-skills-family.sh:52` (mapfile + declare -A)
+4. `scripts/validate-foundation-sprint-skills-family.sh:42` (mapfile + declare -A)
+5. `scripts/validate-design-sprint-skills-family.sh:45` (mapfile + declare -A)
+6. `scripts/check-count-consistency.sh:14,73` (git -C + set -euo pipefail)
+
+**Fix approach (per audit disposition recommendation):**
+
+- Rewrite the 5 mapfile/declare-A validators to use `while read` + parallel arrays (bash-3.2 compatible). This is mechanical but tedious.
+- For `check-count-consistency.sh`: add non-git-repo detection at the top and fall back to `find` + `grep -r` when git isn't available.
+- Add a preamble check at the top of `pre-tag-validate.sh`: `if [ "${BASH_VERSINFO[0]:-0}" -lt 4 ] && [ -z "$ALLOW_BASH3" ]; then echo "WARNING: bash 4+ recommended; some validators may have reduced features" >&2; fi` (warn but don't block; the rewritten validators should work either way).
+
+**Acceptance criteria for W3:**
+
+- [ ] All 14 validators in pre-tag-validate.sh run cleanly on macOS bash 3.2 from a non-git working tree (the install-cache shape)
+- [ ] Validators continue to PASS on Linux bash 4+ from a git working tree (CI environment unchanged)
+- [ ] The dispatch skill `/pm-skills:pm-audit-repo` can run the full bundle from `~/.claude/plugins/cache/pm-skills-marketplace/pm-skills/{version}/` on macOS without bash-version errors
 
 ### Out of scope for v2.17.0 (deferrals)
 
@@ -91,7 +120,7 @@ The previous v2.17.0 stub listed several v2.16-carryover items. Per the TIGHT sc
 | D3 | AGENTS rename target | `AGENTS/` to `_AGENTS/` (underscore prefix) | Smallest rename diff (1-char prepend on all path refs). Fits repo's existing underscore convention (`_workflows/`, `_NOTES/`, `_LOCAL/`, `_staging/`). Resolves case-insensitive collision with `agents/` on Windows NTFS + macOS APFS. Preserves uppercase semantics signaling "this matters." |
 | D4 | Sub-agent rename direction | Path B1 (close the gap upward; `subagents/` to `agents/`) | Per concrete-behavior comparison 2026-05-19: dispatch skill descriptions already PROMISE `@agent-pm-critic` invocation on Claude Code; not delivering this is a divergence between description and runtime. Path A2 (retract promises by sweeping 10-15 docs) is comparable effort with permanent loss of proactive review + parallel sub-agent invocation. Path B1 is the lower-net-cost path that honors v2.16.1 release notes commitment. |
 | D5 | Frontmatter spec target | agentskills.io canonical: top-level keeps `name`, `description`, `license`, optional `compatibility`; everything else moves under `metadata:` block | Spec adoption is at 12+ tools as of 2026-05-14 (Codex CLI, Gemini CLI, Cursor, Windsurf, Cline, Copilot, etc.). Top-level proprietary fields are an emerging anti-pattern that silently break canonical validators. One-time sweep with permanent payoff. |
-| D6 | v2.17.0 entrance criteria | v2.16.1 G4 P0 attestation must PASS before v2.17.0 execution starts | Per v2.16.1 plan G4 status: P0 file-level verification PASS, runtime E2E DEFERRED. v2.17.0 PLANNING (this doc) can proceed now; v2.17.0 EXECUTION (sweep + rename) must wait. If v2.16.1 G4 P0 fails, v2.16.2 ships before v2.17.0. |
+| D6 | v2.17.0 entrance criteria | v2.16.1 G4 P0 attestation PASS (DONE 2026-05-19) + v2.16.2 hygiene patch ship (BEFORE v2.17.0 execution) | v2.16.1 G4 P0 FULL PASS 2026-05-19. v2.16.2 ships next as a 1-2 hour fast-patch closing 2 P1 + 1 P2 audit findings (README badge + CONTEXT.md Status + 2-validator bundle wire). v2.17.0 execution starts AFTER v2.16.2 ships. |
 | D7 | Adversarial review | Run claude-opus-4.7 G1 review pre-tag (per Phase 0 Adversarial Review Loop codified in v2.16.0). Codex review optional pending codex:codex-rescue tool-surface improvements (per v2.16.1 attempt). | Both W1 and W2 are mechanical/structural; primary risk is "did the sweep miss a file?" Adversarial review catches missed files better than the validator bundle (which only catches structural defects, not semantic completeness). |
 | D8 | Validator strategy | Full pre-tag-validate bundle + new spec-compliance validator | Per `feedback_pre-tag-validator-bundle` memory rule. v2.17.0 ADDS a validator that enforces the new metadata-nested frontmatter structure (per W1 spec). v2.17.0 also UPDATES validate-agents-md and validate-commands paths to point at `agents/` (per W2 spec). |
 | D9 | Branch strategy | Direct on main (matches v2.16.x precedent) | Both items are mechanical sweeps with full validator coverage. Worktree isolation adds friction without isolation benefit at this scope. |
