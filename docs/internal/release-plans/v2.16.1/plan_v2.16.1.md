@@ -114,7 +114,25 @@ This patch removes the offending field. The dispatch skills at `skills/utility-p
 
 ### G4: Post-tag hygiene
 
-**P0: Plugin install path smoke test (Claude Code).** This is the only sub-check that proves v2.16.1 delivers value. Run within 30 minutes of G3 push.
+**G4 status:** PARTIAL PASS. File-level verification PASS (3 of 3 structural checks). Runtime E2E attestation DEFERRED to follow-up session per maintainer choice.
+
+**File-level G4 P0 verification (executed 2026-05-19 by claude-opus-4.7):**
+
+| Check | Method | Result |
+|---|---|---|
+| Tag `v2.16.1` plugin.json has version `2.16.1` | `git show v2.16.1:.claude-plugin/plugin.json` | PASS |
+| Tag plugin.json has no `agents` field (the v2.16.0 defect field) | Same | PASS |
+| Published GitHub Release zip is well-formed | Downloaded pm-skills-v2.16.1.zip (2.8 MB); parsed JSON | PASS |
+| Zip plugin.json has version `2.16.1` and no `agents` field | Same | PASS |
+| Zip marketplace.json plugin version + owner identity | Same | PASS |
+
+This proves the v2.16.1 release artifact is structurally correct (the `agents` field is removed; manifests are valid JSON; tag + zip + cached versions match).
+
+**P0 runtime E2E attestation (DEFERRED to follow-up session by maintainer choice):**
+
+The 3-scenario Claude Code runtime test below remains pending. Cannot be invoked from Bash - requires Claude Code's plugin command parser. Maintainer will execute in follow-up session and update plan SHIPPED state accordingly. Until then, release status is "Release IN PROGRESS - awaiting maintainer P0 attestation" per conductor D23.
+
+**P0: Plugin install path smoke test (Claude Code).** Run within 30 minutes of G3 push.
 
 Three scenarios; all must pass:
 
@@ -161,7 +179,7 @@ The dispatch skills at `skills/utility-pm-{role}/` continue to provide the user-
 - **G2.5 commit SHA #2 (fix-forward):** `15ab561` (YAML colon-space fix; tag target per D22)
 - **Tag SHA:** `15ab561` (annotated tag `v2.16.1` pushed to origin 2026-05-19)
 - **GitHub Release:** https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.1 (published 2026-05-19T07:03:44Z; body replaced with rich content from Release_v2.16.1.md)
-- **G4 P0 smoke test:** PENDING maintainer execution on Claude Code (3 scenarios per G4 checklist above)
+- **G4 P0 smoke test:** PARTIAL PASS. File-level structural verification PASS (tag + zip + manifest checks); runtime E2E (Claude Code `/plugin update`) DEFERRED to follow-up session per maintainer choice 2026-05-19. Release status: "IN PROGRESS - awaiting maintainer P0 runtime attestation" per conductor D23.
 
 ## Related documentation
 
