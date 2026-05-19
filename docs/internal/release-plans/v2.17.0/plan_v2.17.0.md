@@ -1,10 +1,10 @@
 # v2.17.0 Release Plan (Stub)
 
-**Status:** STUB. Promoted to ACTIVE at end of v2.16.0 cycle.
+**Status:** STUB. Promoted to ACTIVE at end of v2.16.x cycle.
 **Owner:** Maintainers
-**Type:** Minor release (theme TBD post-v2.16.0)
+**Type:** Minor release. PRIMARY theme: sub-agent native registration on Claude Code (AGENTS/ directory rename + subagents/ to agents/ rename per v2.16.1 D31 amendment carry-over). Secondary themes: CI plan deferred validators, validator-cleanup safety.
 **Created:** 2026-05-17 (during v2.16.0 Phase 0 adversarial review; closes FN-06 finding on dangling link from docs/concepts/active-orchestration.md)
-**Updated:** 2026-05-17
+**Updated:** 2026-05-19 (post-v2.16.1 ship: added v2.16.1 carry-over section)
 
 ---
 
@@ -104,6 +104,35 @@ During v2.16.0 prep, `scripts/check-generated-content-untouched.sh` silently del
 - Add a check at the cleanup boundary that errors if any tracked-but-not-generated file is about to be deleted
 - OR scope the cleanup to a `.tmp_generated_check/` subdir only (never operates on the live `docs/` tree)
 - OR add a pre-flight `git diff --quiet docs/skills/` check that aborts cleanup if there are untracked or modified files in scope
+
+---
+
+### Carry-Forward Items from v2.16.1 (NEW post-v2.16.1 ship 2026-05-19)
+
+v2.16.1 was a 3-file manifest schema patch (removed invalid `agents` field from plugin.json that blocked `/plugin update` since v2.16.0). The patch deferred the actual sub-agent native-registration architectural fix here.
+
+**PRIMARY v2.17.0 work:**
+
+1. **AGENTS/ coordination directory rename.** The tracked `AGENTS/` directory (used for `AGENTS/DECISIONS.md`, `AGENTS/claude/CONTEXT.md`, `AGENTS/codex/CONTEXT.md`) collides with the canonical `agents/` directory Claude Code auto-discovers, on case-insensitive filesystems (Windows NTFS + macOS APFS). Rename target TBD; candidates per scoping doc: `_agent-coordination/`, `coordination/`, `agent-context/`, `_meta/`. **Phase 0 of v2.17 must resolve this rename target before any path-rewriting work begins.**
+2. **subagents/ to agents/ rename.** Once AGENTS/ is freed, rename `subagents/` to `agents/` so Claude Code auto-discovers the 4 sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) at install time.
+3. **Internal reference sweep.** Update path strings in scripts (`validate-agents-md.{sh,ps1}` currently scans `subagents/*.md`), docs (CONTRIBUTING.md, AGENTS.md the file, CLAUDE.md, internal CONTEXT.md files, all 4 dispatch skill SKILL.md files that read `subagents/pm-{role}.md`), CI workflows, `_chain-permitted.yaml`, `_pairing.yaml`.
+4. **Verification.** Install fresh, confirm all 4 sub-agents register natively under `agents/`. Update v2.16.1 Release_v2.16.1.md "Known limitations" cross-reference to mark this resolved.
+
+**Note-level findings from v2.16.1 G1 adversarial review** (see `docs/internal/release-plans/v2.16.1/plan_v2.16.1_reviewed-by-claude.md` for full context):
+
+- **Migration doc OQ4 alignment.** `docs/internal/marketplace-multi-plugin-migration_2026-05-18.md` Open Question 4 ("v3.0.0 or v2.17.0 for marketplace rename") is left TBD pending Phase 0. The scoping doc closes the question as v3.0.0. Update migration doc OQ4 to reference the scoping doc decision (1-line edit) or alternately re-open the scoping doc recommendation.
+- **V1 marketplace-rename behavior test effort estimate.** Scoping doc V1 ("stand up sacrificial test marketplace + change name + observe behavior") is unestimated. Real cost: ~2-4 hours including teardown. Add the estimate to the scoping doc before v3.0 scheduling.
+- **Dispatch skill verification on Claude Code.** v2.16.0 validation was for Codex CLI; v2.16.1 inherits that validation. v2.17 should explicitly verify a dispatch slash command (`/pm-audit-repo`) executes correctly on Claude Code post-AGENTS-rename, before declaring "native registration complete."
+- **plugin.json description forward-compatibility.** v2.16.1 updated plugin.json description to mention v2.16.1 patch context. Future patches will face the same description-vs-version sync question. Consider switching to forward-compatible phrasing ("Recent: ..." or "v2.16.x line: ...") in v2.17 to avoid repeated description rewrites.
+
+**Reference docs (now committed on main as part of v2.16.1):**
+
+- `docs/internal/release-scoping-v2.17-and-v3.0_2026-05-18.md`: full scoping analysis recommending the v2.17 vs v3.0 split (sub-agent native registration vs. marketplace identity rename)
+- `docs/internal/marketplace-multi-plugin-migration_2026-05-18.md`: v3.0 architecture target (multi-plugin marketplace under product-on-purpose identity)
+
+**v2.16.1 G4 P0 attestation status:**
+
+- The v2.16.1 G4 P0 smoke test (3-scenario Claude Code install path verification) was scoped in `docs/internal/release-plans/v2.16.1/plan_v2.16.1.md` G4 section. Attestation status as of v2.17 plan update: see v2.16.1 plan status block for current status. v2.17 work should not start path-rewriting until v2.16.1 G4 P0 is confirmed passing.
 
 ---
 

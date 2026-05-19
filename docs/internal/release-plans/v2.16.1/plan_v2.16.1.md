@@ -1,10 +1,10 @@
 # v2.16.1 Release Plan: Plugin Manifest Schema Patch
 
-**Status**: READY TO TAG
+**Status**: SHIPPED 2026-05-19 (tag `v2.16.1` at SHA `15ab561`)
 **Owner**: Maintainers
 **Type**: Patch release (3-file manifest schema correction)
 **Created**: 2026-05-18
-**Updated**: 2026-05-18
+**Updated**: 2026-05-19
 
 ## Release Theme
 
@@ -155,10 +155,13 @@ The dispatch skills at `skills/utility-pm-{role}/` continue to provide the user-
 
 ## Status block
 
-- **Status:** READY TO TAG
-- **Target SHA at plan-write time:** `0836672` (HEAD before G2.5 commit)
-- **Expected G2.5 commit SHA:** TBD (captured during G2.5 execution)
-- **Expected tag SHA:** equals G2.5 commit SHA per D22
+- **Status:** SHIPPED 2026-05-19
+- **Pre-G2.5 HEAD:** `0836672` (before release-prep commit)
+- **G2.5 commit SHA #1 (release-prep):** `e22f32e` (release-prep bundle - failed CI on Astro YAML parse)
+- **G2.5 commit SHA #2 (fix-forward):** `15ab561` (YAML colon-space fix; tag target per D22)
+- **Tag SHA:** `15ab561` (annotated tag `v2.16.1` pushed to origin 2026-05-19)
+- **GitHub Release:** https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.1 (published 2026-05-19T07:03:44Z; body replaced with rich content from Release_v2.16.1.md)
+- **G4 P0 smoke test:** PENDING maintainer execution on Claude Code (3 scenarios per G4 checklist above)
 
 ## Related documentation
 
