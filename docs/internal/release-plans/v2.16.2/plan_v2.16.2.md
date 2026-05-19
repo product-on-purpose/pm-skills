@@ -1,6 +1,6 @@
 # v2.16.2 Release Plan: Post-v2.16.1 Audit Hygiene Fast-Patch
 
-**Status**: ACTIVE (scoped 2026-05-19; ready to execute)
+**Status**: SHIPPED 2026-05-19 (tag `v2.16.2` at SHA `bb0424d`; pushed to origin; GitHub Release published at https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.2 with 6808-char rich body from Release_v2.16.2.md)
 **Owner**: Maintainers
 **Type**: Patch release (post-v2.16.1 hygiene; closes 2 P1 + 1 P2 from v2.16.1 G4 P0 audit)
 **Created**: 2026-05-19
@@ -184,10 +184,10 @@ Walk the 6-gate runbook via `/pm-release v2.16.2` (now natively dispatchable sin
 
 ## Status block
 
-- **Status:** EXECUTING (G0 + G1 + G2 PASS; G2.5 in progress)
+- **Status:** SHIPPED 2026-05-19. All gates PASS: G0 PASS (with documented --skip check-count-consistency deviation per WIP false-positive) / G1 PASS (waived per D5; 3-fix housekeeping scope) / G2 PASS / G2.5 PASS (commit `bb0424d`; all 4 CI workflows green: Validation + CodeQL + Validate Plugin Packaging + Deploy to GitHub Pages) / G3 PASS (tag `v2.16.2` pushed against `bb0424d` per D22) / G4 PARTIAL PASS (P1 Pages rebuild DONE; P2 GitHub Release UI body DONE with rich content; P0 runtime smoke test on Claude Code remains a maintainer follow-up but not blocking given v2.16.2 only changes CONTEXT.md + validator wire + release artifacts)
 - **Pre-execution HEAD reference:** `cc043a3` (post-audit-disposition commit; main as of 2026-05-19)
-- **Expected G2.5 commit SHA:** TBD
-- **Expected tag SHA:** equals G2.5 commit SHA per D22
+- **G2.5 captured SHA:** `bb0424d`
+- **Tag SHA:** `bb0424d` (equals G2.5 captured SHA per D22)
 
 ## Documented validator deviation (G0 sub-check)
 
