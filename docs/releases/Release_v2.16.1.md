@@ -1,6 +1,6 @@
 ---
 title: v2.16.1 Release Notes - Plugin Manifest Schema Patch
-description: v2.16.1 ships a targeted patch that removes the invalid `agents` field from `.claude-plugin/plugin.json`. Resolves the `agents: Invalid input` validation error that blocked `/plugin update pm-skills` for all users since v2.16.0. The dispatch skills continue to operate via inline execution; native Claude Code sub-agent invocation is deferred to v2.17.0 pending the AGENTS/ directory rename.
+description: 'v2.16.1 ships a targeted patch that removes the invalid `agents` field from `.claude-plugin/plugin.json`. Resolves the `agents: Invalid input` validation error that blocked `/plugin update pm-skills` for all users since v2.16.0. The dispatch skills continue to operate via inline execution; native Claude Code sub-agent invocation is deferred to v2.17.0 pending the AGENTS/ directory rename.'
 date: 2026-05-18
 status: SHIPPED
 type: patch

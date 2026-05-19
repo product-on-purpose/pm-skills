@@ -1,6 +1,6 @@
 ---
 title: Release Scoping. v2.17.0 (sub-agent native registration) vs v3.0.0 (marketplace identity rename)
-description: Backwards-compatibility analysis for two architectural changes deferred from v2.16.1. Recommends splitting them across two releases: v2.17.0 carries the additive sub-agent native-registration fix (low risk); v3.0.0 carries the marketplace identity rename and host-repo migration (real backwards-compat risk, requires verification work). Captures the SemVer rationale and the pre-v3.0.0 verification gaps that must close before scheduling.
+description: 'Backwards-compatibility analysis for two architectural changes deferred from v2.16.1. Recommends splitting them across two releases: v2.17.0 carries the additive sub-agent native-registration fix (low risk); v3.0.0 carries the marketplace identity rename and host-repo migration (real backwards-compat risk, requires verification work). Captures the SemVer rationale and the pre-v3.0.0 verification gaps that must close before scheduling.'
 date: 2026-05-18
 status: draft
 audience: pm-skills maintainers, v2.17 + v3.0 planners
