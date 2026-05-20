@@ -1,11 +1,11 @@
 ---
 name: tool-foundation-sprint-founding-hypothesis
 description: Day 2 end capstone move of a Foundation Sprint. Compresses the sprint's full strategic frame into a single canonical sentence (the Founding Hypothesis) plus an assumption scorecard, why-we-believe, what-could-prove-us-wrong, and recommended next validation step. Use after Magic Lenses is signed. Strict canonical template; paraphrase is not accepted in v0.1.0. The Founding Hypothesis is the spine artifact the sprint exists to produce.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-14
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-14
   tool: foundation-sprint
   move: founding-hypothesis
   category: problem-framing

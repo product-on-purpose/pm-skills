@@ -1,11 +1,11 @@
 ---
 name: iterate-pivot-decision
 description: Documents a strategic pivot or persevere decision with the evidence, analysis, and rationale. Use when evaluating whether to change direction on a product, feature, or strategy based on market feedback.
-phase: iterate
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: iterate
+  version: "2.0.0"
+  updated: 2026-01-26
   category: reflection
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

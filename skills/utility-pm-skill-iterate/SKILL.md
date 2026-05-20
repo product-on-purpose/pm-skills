@@ -1,11 +1,11 @@
 ---
 name: utility-pm-skill-iterate
 description: Applies targeted improvements to an existing pm-skills skill based on feedback, validation reports, or convention changes. Reads current files, previews proposed changes, writes on confirmation, and suggests a version bump. Use when improving a skill after validation or feedback.
-classification: utility
-version: "1.0.0"
-updated: 2026-04-03
 license: Apache-2.0
 metadata:
+  classification: utility
+  version: "1.0.0"
+  updated: 2026-04-03
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose

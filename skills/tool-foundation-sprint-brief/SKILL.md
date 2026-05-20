@@ -1,11 +1,11 @@
 ---
 name: tool-foundation-sprint-brief
 description: Pre-sprint brief that locks scope, the decision the sprint must unlock, team and role assignments, logistics, inputs to bring, and success criteria before Day 1 of a Foundation Sprint. Use after the readiness verdict is Go and before the sprint begins. Produces a one-page artifact the team and Decider sign off on as the contract for the next two days.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-14
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-14
   tool: foundation-sprint
   move: brief
   category: coordination

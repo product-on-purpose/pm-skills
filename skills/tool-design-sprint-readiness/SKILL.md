@@ -1,11 +1,11 @@
 ---
 name: tool-design-sprint-readiness
 description: Pre-sprint diagnostic that determines whether a team should run a Design Sprint now, postpone it, or do prerequisite work first. Produces a Go / Conditional Go / Wait verdict with diagnosis, recommended preconditions, attendee list, customer recruiting plan, and pre-sprint activities. Use when a team is considering starting a Design Sprint and wants a fast yes/no diagnosis before committing five days of team time and customer recruiting cost.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-15
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-15
   tool: design-sprint
   move: readiness
   category: coordination

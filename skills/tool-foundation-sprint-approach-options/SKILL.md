@@ -1,11 +1,11 @@
 ---
 name: tool-foundation-sprint-approach-options
 description: Day 2 morning move of a Foundation Sprint. Forces generation of 3 to 7 candidate approaches as one-page summaries before the team converges on a top bet. Use after Day 1 is signed and before Magic Lenses on Day 2 afternoon. Enforces a minimum of 3 approaches to prevent first-idea anchoring. Each approach summary names what it is, why it serves the differentiators, and includes a simple visual.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-14
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-14
   tool: foundation-sprint
   move: approach-options
   category: ideation

@@ -1,11 +1,11 @@
 ---
 name: tool-design-sprint-decide-and-storyboard
 description: Day 3 (Wednesday) move of a Design Sprint that runs the art museum layout, heat map, speed critique, straw poll, Decider supervote, rumble-vs-all-in-one decision, and the storyboard that drives Thursday's prototype build. The most decision-heavy day of the sprint. Use Wednesday morning and afternoon after Tuesday's sketches are collected and attribution-stripped. Produces the canonical 5-15 step storyboard that becomes the build spec.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-15
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-15
   tool: design-sprint
   move: decide-and-storyboard
   category: decision

@@ -154,10 +154,10 @@ foreach ($skill in $FamilySkills) {
         continue
     }
 
-    # Check 2: classification is tool
-    $classificationVal = Get-RootField -Frontmatter $Frontmatter -Field 'classification'
+    # Check 2: metadata.classification is tool (v2.17.0: moved under metadata)
+    $classificationVal = Get-MetadataField -Frontmatter $Frontmatter -Field 'classification'
     if ($classificationVal -ne 'tool') {
-        FailSkill $skill "classification='$classificationVal' (expected 'tool')"
+        FailSkill $skill "metadata.classification='$classificationVal' (expected 'tool')"
     } else {
         PassSkill $skill "classification: tool"
     }

@@ -1,11 +1,11 @@
 ---
 name: tool-foundation-sprint-basics
 description: Day 1 morning move of a Foundation Sprint. Forces explicit team choices on target customer, important problem, team advantage, and competitors and alternatives. Produces a single coherent strategic frame that becomes the input to Day 1 afternoon Differentiation. Use after the sprint brief is signed and Day 1 morning is scheduled. Bundled artifact, not four separate decisions.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-14
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-14
   tool: foundation-sprint
   move: basics
   category: problem-framing

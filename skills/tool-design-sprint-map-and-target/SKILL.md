@@ -1,11 +1,11 @@
 ---
 name: tool-design-sprint-map-and-target
 description: Day 1 (Monday) move of a Design Sprint that produces the bundled Monday artifact containing long-term goal, sprint questions (3-7 testable risks), customer or system map (5-15 step flow), expert interview notes, HMW (How Might We) cluster board, and the Decider's chosen target moment. Use Day 1 morning and afternoon after the sprint brief is locked. Sets the design target for Tuesday's sketches and Wednesday's storyboard.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-15
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-15
   tool: design-sprint
   move: map-and-target
   category: discovery

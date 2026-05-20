@@ -1,11 +1,11 @@
 ---
 name: deliver-edge-cases
 description: Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive coverage, or during QA planning to identify test scenarios.
-phase: deliver
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: deliver
+  version: "2.0.0"
+  updated: 2026-01-26
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

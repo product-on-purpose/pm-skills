@@ -1,11 +1,11 @@
 ---
 name: tool-design-sprint-sketch
 description: Day 2 (Tuesday) move of a Design Sprint that structures lightning demos and the four-step independent solution sketch protocol (Notes, Ideas, Crazy 8s, Solution Sketch). Each team member produces one solution sketch individually; the skill orchestrates the day but does not author the sketches themselves. Use Tuesday morning after Monday's target moment is locked. Output is the lightning demo board, sketch assignments, and the cohort of independent sketches that become Wednesday's heat-map material.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-15
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-15
   tool: design-sprint
   move: sketch
   category: discovery

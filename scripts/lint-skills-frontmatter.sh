@@ -15,6 +15,25 @@ frontmatter_value() {
   printf '%s\n' "$frontmatter" | sed -n "s/^${key}:[[:space:]]*//p" | head -1
 }
 
+# Read a value from the first indent level inside the metadata: block.
+# Matches "  key: value" (2-space or tab indent) within metadata:; ignores
+# deeper-nested keys and top-level keys.
+metadata_value() {
+  local key="$1"
+  printf '%s\n' "$frontmatter" | awk -v key="$key" '
+    /^metadata:[ \t]*$/ { inmeta=1; next }
+    inmeta==1 {
+      if ($0 !~ /^[ \t]/) { inmeta=0; next }
+      line=$0
+      if (line ~ ("^[ \t]+" key ":")) {
+        sub("^[ \t]+" key ":[ \t]*", "", line)
+        print line
+        exit
+      }
+    }
+  ' | head -1
+}
+
 for dir in "$ROOT"/skills/*; do
   [[ -d "$dir" ]] || continue
   skill="$dir/SKILL.md"
@@ -84,65 +103,56 @@ for dir in "$ROOT"/skills/*; do
     fi
   fi
 
-  for key in version updated license; do
-    if ! printf '%s\n' "$frontmatter" | grep -q "^${key}:"; then
-      echo "✗ $rel : missing $key"
+  # v2.17.0 spec migration: top-level keeps name/description/license only.
+  # version/updated/phase/classification move under metadata: per agentskills.io.
+  if ! printf '%s\n' "$frontmatter" | grep -q "^license:"; then
+    echo "✗ $rel : missing top-level license"
+    FAIL=1
+    skill_fail=1
+  fi
+
+  for key in version updated phase classification; do
+    if printf '%s\n' "$frontmatter" | grep -q "^${key}:"; then
+      echo "✗ $rel : top-level '$key' found (move under metadata: per v2.17.0 migration)"
       FAIL=1
       skill_fail=1
     fi
   done
 
-  phase_field="$(frontmatter_value phase)"
-  classification_field="$(frontmatter_value classification)"
-
-  if [[ -n "$phase_field" && ! "$phase_field" =~ ^(discover|define|develop|deliver|measure|iterate)$ ]]; then
-    echo "✗ $rel : invalid phase '$phase_field' (expected one of: discover, define, develop, deliver, measure, iterate)"
+  meta_version="$(metadata_value version)"
+  meta_updated="$(metadata_value updated)"
+  if [[ -z "$meta_version" ]]; then
+    echo "✗ $rel : missing metadata.version"
+    FAIL=1
+    skill_fail=1
+  fi
+  if [[ -z "$meta_updated" ]]; then
+    echo "✗ $rel : missing metadata.updated"
     FAIL=1
     skill_fail=1
   fi
 
-  if [[ -n "$classification_field" && ! "$classification_field" =~ ^(domain|foundation|utility|tool)$ ]]; then
-    echo "✗ $rel : invalid classification '$classification_field' (expected one of: domain, foundation, utility, tool)"
+  meta_phase="$(metadata_value phase)"
+  meta_classification="$(metadata_value classification)"
+
+  if [[ -n "$meta_phase" && ! "$meta_phase" =~ ^(discover|define|develop|deliver|measure|iterate)$ ]]; then
+    echo "✗ $rel : invalid metadata.phase '$meta_phase'"
     FAIL=1
     skill_fail=1
   fi
 
-  if [[ "$classification_field" == "foundation" || "$classification_field" == "utility" || "$classification_field" == "tool" ]]; then
-    if [[ -n "$phase_field" ]]; then
-      echo "✗ $rel : phase should be omitted for classification '$classification_field'"
-      FAIL=1
-      skill_fail=1
-    fi
-  elif [[ "$classification_field" == "domain" ]]; then
-    if [[ -z "$phase_field" ]]; then
-      echo "✗ $rel : missing phase for domain classification"
-      FAIL=1
-      skill_fail=1
-    fi
-  else
-    if [[ -z "$phase_field" ]]; then
-      echo "✗ $rel : missing phase (or set classification to foundation/utility/tool)"
-      FAIL=1
-      skill_fail=1
-    fi
-  fi
-
-  version_count=$(printf '%s\n' "$frontmatter" | grep -c '^version:')
-  if [[ $version_count -ne 1 ]]; then
-    echo "✗ $rel : expected exactly one root version (found $version_count)"
+  if [[ -n "$meta_classification" && ! "$meta_classification" =~ ^(foundation|utility|tool)$ ]]; then
+    echo "✗ $rel : invalid metadata.classification '$meta_classification'"
     FAIL=1
     skill_fail=1
   fi
 
-  if printf '%s\n' "$frontmatter" | awk '
-    /^metadata:[ \t]*$/ { inmeta=1; next }
-    inmeta==1 {
-      if ($0 !~ /^[ \t]/) { inmeta=0 }
-      else if ($0 ~ /^[ \t]+version:/) { found=1 }
-    }
-    END { if (found) exit 0; else exit 1 }
-  '; then
-    echo "✗ $rel : metadata.version present (remove nested version)"
+  if [[ -n "$meta_phase" && -n "$meta_classification" ]]; then
+    echo "✗ $rel : both metadata.phase and metadata.classification present (use one)"
+    FAIL=1
+    skill_fail=1
+  elif [[ -z "$meta_phase" && -z "$meta_classification" ]]; then
+    echo "✗ $rel : missing metadata.phase or metadata.classification"
     FAIL=1
     skill_fail=1
   fi

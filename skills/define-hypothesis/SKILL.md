@@ -1,11 +1,11 @@
 ---
 name: define-hypothesis
 description: Defines a testable hypothesis with clear success metrics and validation approach. Use when forming assumptions to test, designing experiments, or aligning team on what success looks like.
-phase: define
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: define
+  version: "2.0.0"
+  updated: 2026-01-26
   category: ideation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

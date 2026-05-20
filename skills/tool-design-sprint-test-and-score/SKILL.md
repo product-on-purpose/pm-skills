@@ -1,11 +1,11 @@
 ---
 name: tool-design-sprint-test-and-score
 description: Day 5 (Friday) sprint-closing move of a Design Sprint that produces the bundled Friday artifact covering per-customer interview observations, best quotes, scorecard grid (sprint questions by customers), observed patterns, hot takes from each team member, and the Decider summary (build, iterate, pivot, or stop, plus highest-confidence learning, most important revision, and next artifact). Use Friday after Thursday's prototype passes trial run and during/after the 5 customer interviews. The sprint's payoff artifact.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-15
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-15
   tool: design-sprint
   move: test-and-score
   category: discovery

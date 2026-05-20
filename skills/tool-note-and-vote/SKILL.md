@@ -1,11 +1,11 @@
 ---
 name: tool-note-and-vote
 description: Structured group-decision mechanic that captures silent ideation, voting summaries, and Decider sign-off in a single bundled artifact. Use when a small team needs to make a fast decision with diverse input, when groupthink is a risk, or when a workshop moment demands silent contribution before discussion. Applicable to Foundation Sprint, Design Sprint, and any participatory decision context.
-classification: tool
-version: "0.1.0"
-updated: 2026-05-14
 license: Apache-2.0
 metadata:
+  classification: tool
+  version: "0.1.0"
+  updated: 2026-05-14
   category: coordination
   frameworks:
     - character-note-and-vote

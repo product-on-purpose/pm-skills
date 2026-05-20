@@ -1,11 +1,11 @@
 ---
 name: develop-spike-summary
 description: Documents the results of a time-boxed technical or design exploration (spike). Use after completing a spike to capture learnings, findings, and recommendations for the team.
-phase: develop
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: develop
+  version: "2.0.0"
+  updated: 2026-01-26
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

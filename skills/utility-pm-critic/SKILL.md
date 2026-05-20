@@ -1,11 +1,11 @@
 ---
 name: utility-pm-critic
 description: Run adversarial review on a PM artifact via the pm-critic sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-critic); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads subagents/pm-critic.md and executes the system prompt inline. Returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26.
-classification: utility
-version: "1.0.0"
-updated: 2026-05-17
 license: Apache-2.0
 metadata:
+  classification: utility
+  version: "1.0.0"
+  updated: 2026-05-17
   category: review
   frameworks: [triple-diamond]
   author: product-on-purpose

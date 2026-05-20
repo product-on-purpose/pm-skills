@@ -1,11 +1,11 @@
 ---
 name: discover-stakeholder-summary
 description: Documents stakeholder needs, concerns, and influence for a project or initiative. Use when starting projects, managing complex stakeholder relationships, or ensuring alignment across organizational boundaries.
-phase: discover
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: discover
+  version: "2.0.0"
+  updated: 2026-01-26
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

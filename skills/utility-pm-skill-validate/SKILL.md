@@ -1,11 +1,11 @@
 ---
 name: utility-pm-skill-validate
 description: Audits an existing pm-skills skill against structural conventions and quality criteria. Produces a structured validation report with pass/fail checks, severity-graded findings, and actionable recommendations. Use when checking whether a skill meets repo standards before shipping or after making changes.
-classification: utility
-version: "1.0.0"
-updated: 2026-04-03
 license: Apache-2.0
 metadata:
+  classification: utility
+  version: "1.0.0"
+  updated: 2026-04-03
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose

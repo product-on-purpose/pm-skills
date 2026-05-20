@@ -1,11 +1,11 @@
 ---
 name: develop-solution-brief
 description: Creates a concise one-page solution overview that communicates the proposed approach, key decisions, and trade-offs. Use when pitching solutions to stakeholders, aligning teams on approach, or documenting solution intent before detailed specification.
-phase: develop
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: develop
+  version: "2.0.0"
+  updated: 2026-01-26
   category: ideation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

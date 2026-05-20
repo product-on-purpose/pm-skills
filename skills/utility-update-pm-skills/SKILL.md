@@ -1,11 +1,11 @@
 ---
 name: utility-update-pm-skills
 description: Checks for newer pm-skills releases, compares local vs. latest version, previews what would change, and updates local files after user confirmation. Generates a structured update report documenting changed files, new capabilities, and the value delta between versions. Use when you want to bring a local pm-skills installation up to date.
-classification: utility
-version: "1.0.0"
-updated: 2026-04-09
 license: Apache-2.0
 metadata:
+  classification: utility
+  version: "1.0.0"
+  updated: 2026-04-09
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose

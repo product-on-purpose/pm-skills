@@ -1,11 +1,11 @@
 ---
 name: foundation-meeting-synthesize
 description: Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes) over a period and surfaces patterns invisible in any single meeting. Shows how decisions evolved, who has been saying what, where threads are stalling, and where contradictions have emerged. Produces a plain-text timeline, themes with confidence markers, stakeholder position tracking, consolidated decision list, contradiction flags, open items, narrative summary, and prioritized follow-ups.
-classification: foundation
-version: "1.0.1"
-updated: 2026-04-22
 license: Apache-2.0
 metadata:
+  classification: foundation
+  version: "1.0.1"
+  updated: 2026-04-22
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose

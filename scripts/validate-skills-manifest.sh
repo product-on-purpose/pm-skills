@@ -134,7 +134,17 @@ for manifest in "${manifest_files[@]}"; do
         continue
       fi
 
-      current_version="$(frontmatter_value version)"
+      # v2.17.0: version moved under metadata: (fall back to top-level for transition)
+      current_version="$(printf '%s\n' "$frontmatter" | awk '
+        /^metadata:[ \t]*$/ { inmeta=1; next }
+        inmeta==1 {
+          if ($0 !~ /^[ \t]/) { inmeta=0 }
+          else if ($0 ~ /^[ \t]+version:/) { sub(/^[ \t]+version:[ \t]*/, ""); gsub(/["[:space:]]/, ""); print; exit }
+        }
+      ')"
+      if [[ -z "$current_version" ]]; then
+        current_version="$(frontmatter_value version)"
+      fi
       if [[ -z "$current_version" ]]; then
         echo "✗ $rel : skill '$name' is missing version in SKILL.md"
         FAIL=1

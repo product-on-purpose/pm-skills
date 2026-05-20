@@ -1,11 +1,11 @@
 ---
 name: define-opportunity-tree
 description: Creates an opportunity solution tree mapping desired outcomes to opportunities and potential solutions. Use for outcome-driven product discovery, prioritization, or communicating product strategy.
-phase: define
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: define
+  version: "2.0.0"
+  updated: 2026-01-26
   category: problem-framing
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

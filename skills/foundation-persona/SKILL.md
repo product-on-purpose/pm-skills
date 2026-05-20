@@ -1,11 +1,11 @@
 ---
 name: foundation-persona
 description: Generates an evidence-calibrated product or marketing persona using the canonical v2.5 output contract. Use when shaping artifact perspective, stress-testing decisions, or framing product and GTM strategy.
-classification: foundation
-version: "2.5.0"
-updated: 2026-03-02
 license: Apache-2.0
 metadata:
+  classification: foundation
+  version: "2.5.0"
+  updated: 2026-03-02
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

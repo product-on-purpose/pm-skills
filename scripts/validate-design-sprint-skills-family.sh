@@ -136,12 +136,18 @@ for skill in "${FAMILY_SKILLS[@]}"; do
     continue
   fi
 
-  # Check 2: classification is tool
-  classification_val=$(printf '%s\n' "$skill_frontmatter" | sed -n 's/^classification:[[:space:]]*//p' | head -1 | tr -d '[:space:]"')
+  # Check 2: metadata.classification is tool (v2.17.0: moved under metadata)
+  classification_val=$(printf '%s\n' "$skill_frontmatter" | awk '
+    /^metadata:[ \t]*$/ { inmeta=1; next }
+    inmeta==1 {
+      if ($0 !~ /^[ \t]/) { inmeta=0 }
+      else if ($0 ~ /^[ \t]+classification:/) { sub(/^[ \t]+classification:[ \t]*/, ""); gsub(/["[:space:]]/, ""); print; exit }
+    }
+  ')
   if [[ "$classification_val" != "tool" ]]; then
-    fail_skill "$skill" "classification='$classification_val' (expected 'tool')"
+    fail_skill "$skill" "metadata.classification='$classification_val' (expected 'tool')"
   else
-    pass_skill "$skill" "classification: tool"
+    pass_skill "$skill" "metadata.classification: tool"
   fi
 
   # Check 3: metadata.tool equals design-sprint

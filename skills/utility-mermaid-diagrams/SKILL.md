@@ -1,11 +1,11 @@
 ---
 name: utility-mermaid-diagrams
 description: Teaches PMs to create syntactically valid mermaid diagrams by selecting the right diagram type for their communication need, following syntax validity rules, and validating before shipping. Covers all 15 mermaid diagram types with PM-relevant examples and a dual-lens navigation system.
-version: "1.0.0"
-updated: 2026-04-07
 license: Apache-2.0
-classification: utility
 metadata:
+  classification: utility
+  version: "1.0.0"
+  updated: 2026-04-07
   category: documentation
   frameworks:
     - mermaid

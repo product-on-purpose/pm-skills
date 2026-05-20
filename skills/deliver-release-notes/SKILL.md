@@ -1,11 +1,11 @@
 ---
 name: deliver-release-notes
 description: Creates user-facing release notes that communicate new features, improvements, and fixes in clear, benefit-focused language. Use when shipping updates to communicate changes to users, customers, or stakeholders.
-phase: deliver
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: deliver
+  version: "2.0.0"
+  updated: 2026-01-26
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

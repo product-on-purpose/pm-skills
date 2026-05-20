@@ -150,12 +150,14 @@ def classify_skill(metadata: dict, dirname: str) -> tuple:
     """Determine phase/group and display name.
     Returns (group_key, display_name).
     """
-    if "phase" in metadata:
-        return metadata["phase"], PHASE_DISPLAY.get(metadata["phase"], metadata["phase"])
-    if "classification" in metadata:
-        return metadata["classification"], PHASE_DISPLAY.get(
-            metadata["classification"], metadata["classification"]
-        )
+    # v2.17.0: phase/classification live under metadata; fall back to top-level for transition.
+    meta = metadata.get("metadata", {}) if isinstance(metadata.get("metadata"), dict) else {}
+    phase = meta.get("phase") or metadata.get("phase")
+    classification = meta.get("classification") or metadata.get("classification")
+    if phase:
+        return phase, PHASE_DISPLAY.get(phase, phase)
+    if classification:
+        return classification, PHASE_DISPLAY.get(classification, classification)
     # Fallback: derive from directory name prefix
     for prefix in NAMESPACE_PREFIXES:
         if dirname.startswith(f"{prefix}-"):
@@ -324,10 +326,10 @@ def generate_skill_page(skill_dir: Path) -> dict | None:
     cmd = find_command_file(command_name)
     name = metadata.get("name", dirname)
     description = metadata.get("description", "")
-    version = metadata.get("version", "1.0.0")
-    category = ""
-    if isinstance(metadata.get("metadata"), dict):
-        category = metadata["metadata"].get("category", "")
+    # v2.17.0: version/category live under metadata; fall back to top-level for transition.
+    meta = metadata.get("metadata", {}) if isinstance(metadata.get("metadata"), dict) else {}
+    version = meta.get("version", metadata.get("version", "1.0.0"))
+    category = meta.get("category", "")
 
     # Compute display title from source SKILL.md H1 (Codex P2 fix:
     # was emitting `name` slug as title; now uses the proper H1).

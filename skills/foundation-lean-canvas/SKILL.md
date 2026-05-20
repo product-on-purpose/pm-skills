@@ -1,11 +1,11 @@
 ---
 name: foundation-lean-canvas
 description: Produces a one-page lean canvas across nine interlocking blocks (problem, customer, UVP, solution, channels, revenue, cost, metrics, unfair advantage) with optional inline HTML and SVG visual rendering. Use when framing a new product thesis, stress-testing an existing strategy, comparing strategic options side-by-side, or aligning a team on business-model assumptions. Works as a strategic hub that cross-links to deeper PM skills without duplicating them.
-classification: foundation
-version: "1.0.0"
-updated: 2026-04-15
 license: Apache-2.0
 metadata:
+  classification: foundation
+  version: "1.0.0"
+  updated: 2026-04-15
   category: problem-framing
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

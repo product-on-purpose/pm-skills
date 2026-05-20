@@ -1,11 +1,11 @@
 ---
 name: foundation-meeting-recap
 description: Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking.
-classification: foundation
-version: "1.0.0"
-updated: 2026-04-17
 license: Apache-2.0
 metadata:
+  classification: foundation
+  version: "1.0.0"
+  updated: 2026-04-17
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose

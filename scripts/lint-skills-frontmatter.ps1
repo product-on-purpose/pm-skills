@@ -17,6 +17,24 @@ function Get-FrontmatterValue {
     return ($line -split ':', 2)[1].Trim()
 }
 
+function Get-MetadataValue {
+    param(
+        [string[]]$Frontmatter,
+        [string]$Key
+    )
+
+    # Read a value from the first indent level inside the metadata: block.
+    $inMeta = $false
+    foreach ($line in $Frontmatter) {
+        if ($line -match '^metadata:\s*$') { $inMeta = $true; continue }
+        if ($inMeta) {
+            if ($line -notmatch '^\s') { $inMeta = $false; continue }
+            if ($line -match "^\s+${Key}:\s*(.*)$") { return $Matches[1].Trim() }
+        }
+    }
+    return $null
+}
+
 function Get-WordCount {
     param([string]$Text)
 
@@ -99,71 +117,60 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
         }
     }
 
-    foreach ($key in @('version','updated','license')) {
-        if (-not ($front | Where-Object { $_ -match "^${key}:" })) {
-            Write-Host "[FAIL] $rel : missing $key"
+    # v2.17.0 spec migration: top-level keeps name/description/license only.
+    # version/updated/phase/classification move under metadata: per agentskills.io.
+    if (-not ($front | Where-Object { $_ -match '^license:' })) {
+        Write-Host "[FAIL] $rel : missing top-level license"
+        $Fail = $true
+        $skillFail = $true
+    }
+
+    foreach ($key in @('version','updated','phase','classification')) {
+        if ($front | Where-Object { $_ -match "^${key}:" }) {
+            Write-Host "[FAIL] $rel : top-level '$key' found (move under metadata: per v2.17.0 migration)"
             $Fail = $true
             $skillFail = $true
         }
     }
 
-    $phaseValue = Get-FrontmatterValue -Frontmatter $front -Key 'phase'
-    $classificationValue = Get-FrontmatterValue -Frontmatter $front -Key 'classification'
+    $metaVersion = Get-MetadataValue -Frontmatter $front -Key 'version'
+    $metaUpdated = Get-MetadataValue -Frontmatter $front -Key 'updated'
+    if (-not $metaVersion) {
+        Write-Host "[FAIL] $rel : missing metadata.version"
+        $Fail = $true
+        $skillFail = $true
+    }
+    if (-not $metaUpdated) {
+        Write-Host "[FAIL] $rel : missing metadata.updated"
+        $Fail = $true
+        $skillFail = $true
+    }
+
+    $metaPhase = Get-MetadataValue -Frontmatter $front -Key 'phase'
+    $metaClassification = Get-MetadataValue -Frontmatter $front -Key 'classification'
 
     $validPhases = @('discover','define','develop','deliver','measure','iterate')
-    $validClassifications = @('domain','foundation','utility','tool')
+    $validClassifications = @('foundation','utility','tool')
 
-    if ($phaseValue -and ($validPhases -notcontains $phaseValue)) {
-        Write-Host "[FAIL] $rel : invalid phase '$phaseValue' (expected one of: $($validPhases -join ', '))"
+    if ($metaPhase -and ($validPhases -notcontains $metaPhase)) {
+        Write-Host "[FAIL] $rel : invalid metadata.phase '$metaPhase' (expected one of: $($validPhases -join ', '))"
         $Fail = $true
         $skillFail = $true
     }
 
-    if ($classificationValue -and ($validClassifications -notcontains $classificationValue)) {
-        Write-Host "[FAIL] $rel : invalid classification '$classificationValue' (expected one of: $($validClassifications -join ', '))"
+    if ($metaClassification -and ($validClassifications -notcontains $metaClassification)) {
+        Write-Host "[FAIL] $rel : invalid metadata.classification '$metaClassification' (expected one of: $($validClassifications -join ', '))"
         $Fail = $true
         $skillFail = $true
     }
 
-    if ($classificationValue -in @('foundation','utility','tool')) {
-        if ($phaseValue) {
-            Write-Host "[FAIL] $rel : phase should be omitted for classification '$classificationValue'"
-            $Fail = $true
-            $skillFail = $true
-        }
-    }
-    elseif ($classificationValue -eq 'domain') {
-        if (-not $phaseValue) {
-            Write-Host "[FAIL] $rel : missing phase for domain classification"
-            $Fail = $true
-            $skillFail = $true
-        }
-    }
-    else {
-        if (-not $phaseValue) {
-            Write-Host "[FAIL] $rel : missing phase (or set classification to foundation/utility/tool)"
-            $Fail = $true
-            $skillFail = $true
-        }
-    }
-
-    $rootVersionCount = ($front | Where-Object { $_ -match '^version:' }).Count
-    if ($rootVersionCount -ne 1) {
-        Write-Host "[FAIL] $rel : expected exactly one root version (found $rootVersionCount)"
+    if ($metaPhase -and $metaClassification) {
+        Write-Host "[FAIL] $rel : both metadata.phase and metadata.classification present (use exactly one)"
         $Fail = $true
         $skillFail = $true
     }
-
-    $inMeta = $false
-    $metaVersion = $false
-    foreach ($line in $front) {
-        $trim = $line.TrimEnd()
-        if ($trim -match '^metadata:\s*$') { $inMeta = $true; continue }
-        if ($inMeta -and ($trim -notmatch '^\s')) { $inMeta = $false }
-        if ($inMeta -and $trim -match '^\s+version:') { $metaVersion = $true }
-    }
-    if ($metaVersion) {
-        Write-Host "[FAIL] $rel : metadata.version present (remove nested version)"
+    elseif (-not $metaPhase -and -not $metaClassification) {
+        Write-Host "[FAIL] $rel : missing metadata.phase or metadata.classification (need exactly one)"
         $Fail = $true
         $skillFail = $true
     }

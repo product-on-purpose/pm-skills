@@ -1,11 +1,11 @@
 ---
 name: utility-pm-skill-builder
 description: Guides contributors from a PM skill idea to a complete Skill Implementation Packet aligned with pm-skills conventions. Runs gap analysis, validates through a Why Gate, classifies by type and phase, generates draft files, and writes to a staging area for review before promotion.
-classification: utility
-version: "1.0.0"
-updated: 2026-03-22
 license: Apache-2.0
 metadata:
+  classification: utility
+  version: "1.0.0"
+  updated: 2026-03-22
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose

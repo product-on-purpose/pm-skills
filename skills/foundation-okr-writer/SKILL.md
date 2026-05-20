@@ -1,11 +1,11 @@
 ---
 name: foundation-okr-writer
 description: Drafts, reviews, rewrites, and coaches outcome-based OKR sets across team, department, product, or company scopes. Supports five entry modes (Guided default, One-Shot via --oneshot, Sustained Coach, Audit Only, Rewrite). Diagnoses empowered-team context and adjusts framing; refuses to fabricate baselines or targets; refuses to use OKR scores for compensation; reframes feature-delivery KRs into outcome KRs. Use when planning quarterly OKRs, translating strategy into team outcomes, reviewing draft OKRs for quality, or converting roadmap-as-OKR drafts into proper OKR sets.
-classification: foundation
-version: "1.0.0"
-updated: 2026-04-30
 license: Apache-2.0
 metadata:
+  classification: foundation
+  version: "1.0.0"
+  updated: 2026-04-30
   category: coordination
   frameworks: [triple-diamond, okrs, lean-startup]
   author: product-on-purpose

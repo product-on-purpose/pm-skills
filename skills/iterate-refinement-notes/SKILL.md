@@ -1,11 +1,11 @@
 ---
 name: iterate-refinement-notes
 description: Documents backlog refinement session outcomes including stories refined, estimates, questions raised, and decisions made. Use during or after refinement to capture the results and share with absent team members.
-phase: iterate
-version: "2.0.0"
-updated: 2026-01-26
 license: Apache-2.0
 metadata:
+  phase: iterate
+  version: "2.0.0"
+  updated: 2026-01-26
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

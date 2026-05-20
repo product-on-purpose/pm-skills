@@ -1,11 +1,11 @@
 ---
 name: foundation-meeting-brief
 description: Produces a private strategic preparation document for the user before a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated questions with prepared responses, risks and tensions, specific asks, and success signals. Distinct from meeting-agenda because this artifact is not shared with attendees; it is the user's personal tactical prep for meetings where positioning matters.
-classification: foundation
-version: "1.0.0"
-updated: 2026-04-17
 license: Apache-2.0
 metadata:
+  classification: foundation
+  version: "1.0.0"
+  updated: 2026-04-17
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose

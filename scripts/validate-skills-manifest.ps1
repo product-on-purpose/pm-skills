@@ -174,7 +174,17 @@ foreach ($manifest in $manifestFiles) {
                 continue
             }
 
-            $currentVersion = Get-FrontmatterValue -Frontmatter $frontmatter -Key 'version'
+            # v2.17.0: version moved under metadata: (fall back to top-level for transition)
+            $currentVersion = $null
+            $inMeta = $false
+            foreach ($fl in $frontmatter) {
+                if ($fl -match '^metadata:\s*$') { $inMeta = $true; continue }
+                if ($inMeta -and ($fl -notmatch '^\s')) { $inMeta = $false }
+                if ($inMeta -and $fl -match '^\s+version:\s*(.+)$') { $currentVersion = $Matches[1].Trim().Trim('"').Trim("'"); break }
+            }
+            if (-not $currentVersion) {
+                $currentVersion = Get-FrontmatterValue -Frontmatter $frontmatter -Key 'version'
+            }
             if (-not $currentVersion) {
                 Write-Host "[FAIL] $rel : skill '$($entry.Name)' is missing version in SKILL.md"
                 $Fail = $true

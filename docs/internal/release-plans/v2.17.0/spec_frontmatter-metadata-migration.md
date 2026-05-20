@@ -1,400 +1,296 @@
 # Spec: Frontmatter Metadata Migration (W1)
 
-**Status:** READY FOR EXECUTION (pending v2.16.1 G4 P0 attestation per parent plan D6)
+**Status:** READY FOR EXECUTION (revised 2026-05-19 after spec verification + consumer mapping)
 **Parent plan:** [`plan_v2.17.0.md`](plan_v2.17.0.md)
 **Work item ID:** W1
-**Effort estimate:** 2-3 effort-days
-**Source:** Strategic roadmap R-05 (Section 5 of `../../_working/roadmap_opus-4.7-max_2026-05-14.md`)
+**Effort estimate:** 2-3 effort-days (REVISED UP from 1-2; blast radius is ~10 consumer scripts + cross-repo MCP, not just 59 files + 1 validator)
+**Source:** Strategic roadmap R-05
+
+> **VERIFICATION NOTE (2026-05-19):** This spec was rewritten after fetching the actual agentskills.io specification and mapping all downstream consumers. The original draft had three errors: (1) proposed a `compatibility:` list (spec says it's a STRING and "most skills do not need it"); (2) assumed nested `metadata.tool.*` structure (actual is flat `metadata.tool` + `metadata.move`); (3) underestimated blast radius (claimed 59 files + 1 validator; reality is ~10 consumer scripts + cross-repo pm-skills-mcp). All three corrected below.
 
 ---
 
-## 1. What changes
+## 1. Verified target (from agentskills.io specification)
 
-Move proprietary skill-frontmatter fields under a `metadata:` block to comply with the agentskills.io open specification (released 2025-12-18; adopted by 12+ tools including Codex CLI, Gemini CLI, Cursor, Windsurf, Cline, Copilot).
+The agentskills.io spec (fetched 2026-05-19 from https://agentskills.io/specification) defines exactly these frontmatter fields:
 
-Top-level frontmatter keeps only spec-canonical fields: `name`, `description`, `license`, and optional `compatibility`. All other current top-level proprietary fields (`classification`, `phase`, `version`, `updated`) move under `metadata:`.
+| Field | Required | Spec constraint |
+|---|---|---|
+| `name` | Yes | Max 64 chars; lowercase + hyphens; matches dir name |
+| `description` | Yes | Max 1024 chars; non-empty |
+| `license` | No | License name or reference |
+| `compatibility` | No | **STRING** max 500 chars; "Most skills do not need this field" |
+| `metadata` | No | "Arbitrary key-value mapping for additional metadata" / "store additional properties not defined by the spec" |
+| `allowed-tools` | No | Space-separated string; experimental |
 
-### 1.1 Before / after example (phase skill)
+The spec's own `metadata` example places `version` UNDER metadata:
 
-**BEFORE (current v2.16.x convention):**
+```yaml
+metadata:
+  author: example-org
+  version: "1.0"
+```
 
+**Conclusion:** `phase`, `classification`, `version`, `updated` are ALL proprietary fields not defined by the spec. Per spec intent, they belong under `metadata:`. The migration is spec-aligned.
+
+**Compatibility decision (RESOLVED):** Do NOT add a `compatibility:` field. The spec says it is a string (not a list), it is optional, and "most skills do not need it." pm-skills' skills are portable markdown prompts with no special environment requirements. Adding unverified per-platform claims would violate the no-fabrication principle the skills themselves enforce.
+
+---
+
+## 2. Target schema (post-v2.17.0)
+
+### Top-level (spec-recognized only)
+
+| Field | Required | Notes |
+|---|---|---|
+| `name` | Yes | Unchanged; matches dir |
+| `description` | Yes | Unchanged; 20-100 words per pm-skills convention (stricter than spec's 1024 chars) |
+| `license` | Yes (pm-skills convention) | Unchanged; `Apache-2.0` |
+
+### Under `metadata:` (proprietary)
+
+| Field | Required | Notes |
+|---|---|---|
+| `metadata.version` | Yes | MOVED from top-level |
+| `metadata.updated` | Yes | MOVED from top-level |
+| `metadata.phase` | When phase skill | MOVED from top-level; one of discover/define/develop/deliver/measure/iterate |
+| `metadata.classification` | When foundation/utility/tool | MOVED from top-level; one of foundation/utility/tool |
+| `metadata.*` (existing) | preserved | category, frameworks, author, tool, move, family, timebox_minutes, roles, prerequisites, inputs, outputs, etc. - all preserved as-is |
+
+### The phase-vs-classification asymmetry is PRESERVED
+
+The current contract (verified in lint-skills-frontmatter.sh): phase skills carry `phase:` and NO `classification:`; foundation/utility/tool skills carry `classification:` and NO `phase:`. The migration preserves this exactly, just relocated under metadata. It does NOT normalize to "every skill has metadata.classification" (that would be a separate, larger change touching the validator's enum and all consumers; out of scope for W1).
+
+### Before / after (phase skill - deliver-prd)
+
+**BEFORE:**
 ```yaml
 ---
 name: deliver-prd
-description: Create a Product Requirements Document with hypothesis, success criteria, scope, and acceptance criteria
-classification: phase
+description: Creates a comprehensive Product Requirements Document ...
 phase: deliver
-version: 1.0.0
-updated: 2026-04-18
+version: "2.0.0"
+updated: 2026-01-26
 license: Apache-2.0
 metadata:
-  subset_kind: phase
-  category: planning
-  frameworks: [triple-diamond]
+  category: specification
+  frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
 ---
 ```
 
-**AFTER (post-v2.17.0):**
-
+**AFTER:**
 ```yaml
 ---
 name: deliver-prd
-description: Create a Product Requirements Document with hypothesis, success criteria, scope, and acceptance criteria
+description: Creates a comprehensive Product Requirements Document ...
 license: Apache-2.0
-compatibility:
-  - claude-code
-  - codex-cli
-  - cursor
-  - windsurf
-  - copilot-cli
-  - gemini-cli
 metadata:
-  classification: phase
   phase: deliver
-  version: 1.0.0
-  updated: 2026-04-18
-  subset_kind: phase
-  category: planning
-  frameworks: [triple-diamond]
+  version: "2.0.0"
+  updated: 2026-01-26
+  category: specification
+  frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
 ---
 ```
 
-### 1.2 Before / after example (utility dispatch skill)
+### Before / after (tool skill - flat structure preserved)
 
 **BEFORE:**
-
-```yaml
----
-name: utility-pm-critic
-description: Run adversarial review on a PM artifact via the pm-critic sub-agent. ...
-classification: utility
-version: "1.0.0"
-updated: 2026-05-17
-license: Apache-2.0
-metadata:
-  category: review
-  frameworks: [triple-diamond]
-  author: product-on-purpose
----
-```
-
-**AFTER:**
-
-```yaml
----
-name: utility-pm-critic
-description: Run adversarial review on a PM artifact via the pm-critic sub-agent. ...
-license: Apache-2.0
-compatibility:
-  - claude-code
-  - codex-cli
-  - cursor
-  - windsurf
-  - copilot-cli
-  - gemini-cli
-metadata:
-  classification: utility
-  version: "1.0.0"
-  updated: 2026-05-17
-  category: review
-  frameworks: [triple-diamond]
-  author: product-on-purpose
----
-```
-
-### 1.3 Before / after example (tool sprint skill)
-
-**BEFORE:**
-
 ```yaml
 ---
 name: tool-foundation-sprint-basics
-description: Day 1 morning Foundation Sprint Basics; produces target customer, ...
+description: ...
 classification: tool
-version: 1.0.0
-updated: 2026-05-13
+version: "0.1.0"
+updated: 2026-05-14
 license: Apache-2.0
 metadata:
-  family: foundation-sprint-skills
-  tool:
-    family: foundation-sprint
-    day: 1
-    phase: morning
-    sequence: 1
-  move: foundation-sprint-basics
+  tool: foundation-sprint
+  move: basics
+  category: problem-framing
+  frameworks: [foundation-sprint, click, character-note-and-vote]
+  timebox_minutes: 105
+  roles: [facilitator, decider, pm, customer-expert]
+  prerequisites: [tool-foundation-sprint-brief]
+  inputs: [...]
+  outputs: [...]
+  author: product-on-purpose
 ---
 ```
 
 **AFTER:**
-
 ```yaml
 ---
 name: tool-foundation-sprint-basics
-description: Day 1 morning Foundation Sprint Basics; produces target customer, ...
+description: ...
 license: Apache-2.0
-compatibility:
-  - claude-code
-  - codex-cli
-  - cursor
-  - windsurf
-  - copilot-cli
-  - gemini-cli
 metadata:
   classification: tool
-  version: 1.0.0
-  updated: 2026-05-13
-  family: foundation-sprint-skills
-  tool:
-    family: foundation-sprint
-    day: 1
-    phase: morning
-    sequence: 1
-  move: foundation-sprint-basics
+  version: "0.1.0"
+  updated: 2026-05-14
+  tool: foundation-sprint
+  move: basics
+  category: problem-framing
+  frameworks: [foundation-sprint, click, character-note-and-vote]
+  timebox_minutes: 105
+  roles: [facilitator, decider, pm, customer-expert]
+  prerequisites: [tool-foundation-sprint-brief]
+  inputs: [...]
+  outputs: [...]
+  author: product-on-purpose
 ---
 ```
 
+Note: `metadata.tool` and `metadata.move` are FLAT string values (not nested objects). Preserved as-is.
+
 ---
 
-## 2. Schema definition (canonical, post-v2.17.0)
+## 3. Current-state survey (verified 2026-05-19)
 
-### 2.1 Required top-level fields
+All 59 skills:
+- 59 have top-level `version`, `updated`, `name`, `metadata`, `license`, `description`
+- 33 have top-level `classification` (foundation 8 + utility 10 + tool 15)
+- 26 have top-level `phase` (no classification)
 
-| Field | Type | Description |
+So the migration touches all 59 files; the field set moved differs by skill type (phase skills move `phase`; others move `classification`; all move `version` + `updated`).
+
+---
+
+## 4. Consumer map (what reads top-level fields; what breaks)
+
+### SAFE (structure-agnostic; no change needed)
+
+| Consumer | Why safe |
+|---|---|
+| `scripts/check-frontmatter-yaml.mjs` | Only runs `yaml.load()` for parse-validity; field-agnostic |
+| `scripts/check-no-body-h1.{sh,ps1}` | Reads title vs body-H1; doesn't read version/phase/classification |
+| `scripts/check-internal-link-validity.{sh,ps1}` | Link checking; field-agnostic |
+
+### BREAKS - must update to read `metadata.*`
+
+| Consumer | Current read | Fix |
 |---|---|---|
-| `name` | string | Skill name; matches directory name and slash command (per agentskills.io spec) |
-| `description` | string | One-line description (max 1024 chars per spec) used by skill discovery |
-| `license` | string | SPDX license identifier (e.g., `Apache-2.0`) |
+| `scripts/lint-skills-frontmatter.{sh,ps1}` | requires top-level version/updated/license; FORBIDS metadata.version; reads top-level phase/classification | Flip: require metadata.version/updated; require metadata.phase OR metadata.classification; keep top-level name/description/license; remove top-level version/phase/classification expectations |
+| `scripts/generate-skill-pages.py` | `classify_skill()` reads `metadata["phase"]` (top-level via flattened parser) | Read nested `metadata["metadata"]["phase"]` and `["classification"]` |
+| `scripts/generate-showcase.py` | likely reads phase/classification | Audit + update to nested |
+| `scripts/build-release.{sh,ps1}` | reads top-level version | Read metadata.version |
+| `scripts/validate-skills-manifest.{sh,ps1}` | skills-manifest.yaml version cross-check | Read metadata.version |
+| `scripts/validate-skill-history.{sh,ps1}` | HISTORY.md version tooling | Read metadata.version |
+| `scripts/validate-meeting-skills-family.{sh,ps1}` | reads classification/version | Read metadata.classification/version |
+| `scripts/validate-foundation-sprint-skills-family.{sh,ps1}` | reads classification/version | Same |
+| `scripts/validate-design-sprint-skills-family.{sh,ps1}` | reads classification/version | Same |
+| `scripts/check-version-references.{sh,ps1}` | reads version | Read metadata.version |
+| `scripts/inject-doc-titles.mjs` | reads frontmatter | Audit + update if reads moved fields |
+| `pm-skills-mcp/scripts/embed-skills.js` (CROSS-REPO) | `frontmatter.phase`, `frontmatter.classification`, `frontmatter.version` (lines 126-129) | Read `frontmatter.metadata.phase/classification/version`; coordinate cross-repo per M-22 |
 
-### 2.2 Optional top-level fields
-
-| Field | Type | Description |
-|---|---|---|
-| `compatibility` | list of strings | Platforms the skill is verified on. Standard list for pm-skills: `[claude-code, codex-cli, cursor, windsurf, copilot-cli, gemini-cli]`. Reduce list if skill uses platform-specific features. |
-
-### 2.3 Required `metadata:` block fields
-
-| Field | Type | Description |
-|---|---|---|
-| `metadata.classification` | string | One of: `phase`, `foundation`, `utility`, `tool` |
-| `metadata.version` | string | SemVer version of the skill itself (independent of repo version) |
-| `metadata.updated` | string | ISO date YYYY-MM-DD of last meaningful update |
-
-### 2.4 Conditional `metadata:` block fields
-
-| Field | Type | When required | Description |
-|---|---|---|---|
-| `metadata.phase` | string | when `classification: phase` | One of: `discover`, `define`, `develop`, `deliver`, `measure`, `iterate` |
-| `metadata.family` | string | when skill is a family member | Family identifier (e.g., `meeting-skills`, `foundation-sprint-skills`, `design-sprint-skills`) |
-| `metadata.subset_kind` | string | when skill belongs to a discovery subset | Matches `family` or `classification` for grouping in discovery |
-| `metadata.tool.*` | object | when `classification: tool` | Tool-specific metadata (per existing tool skill convention; family, day, phase, sequence) |
-| `metadata.move` | string | when `classification: tool` (sprint family member) | Move name (e.g., `foundation-sprint-basics`) |
-
-### 2.5 Free-form `metadata:` block fields (allowed)
-
-| Field | Notes |
-|---|---|
-| `metadata.category` | Subject category (free string) |
-| `metadata.frameworks` | List of methodology references (e.g., `[triple-diamond, lean-startup]`) |
-| `metadata.author` | Origin attribution (e.g., `product-on-purpose`) |
-| Other `metadata.*` | Allowed if not in the reserved list above (extensibility) |
-
-### 2.6 Disallowed top-level fields (must move to `metadata:`)
-
-These fields appear at top-level in v2.16.x skills and MUST move to `metadata:` in v2.17.0:
-
-- `classification`
-- `phase`
-- `version`
-- `updated`
-
-### 2.7 Disallowed everywhere (now and after)
-
-- `claude_code:` block (pm-skills doesn't use plugin-specific extensions today; if added later, must nest under `metadata.claude_code:` per spec Risk 7)
+**~10 logical consumers (counting .sh+.ps1 pairs as one) + 1 cross-repo consumer.**
 
 ---
 
-## 3. File inventory (what changes)
+## 5. Execution plan (revised)
 
-### 3.1 Skill files (59 SKILL.md files)
+### Phase 1: Update lint-skills-frontmatter validator (0.5 day)
 
-All 59 SKILL.md files migrate to the new structure:
+Add a migration-aware mode so the validator can verify BOTH old + new during transition:
 
-- 26 phase skills under `skills/{phase}-{name}/SKILL.md`
-- 8 foundation skills under `skills/foundation-{name}/SKILL.md`
-- 10 utility skills under `skills/utility-{name}/SKILL.md`
-- 15 tool skills under `skills/tool-{name}/SKILL.md`
+1. Rewrite `lint-skills-frontmatter.sh` + `.ps1`:
+   - Require top-level: `name`, `description`, `license`
+   - Require `metadata.version` (currently FORBIDDEN; flip it)
+   - Require `metadata.updated`
+   - Require `metadata.phase` (one of 6 phases) OR `metadata.classification` (one of foundation/utility/tool), not both
+   - Remove top-level version/updated/phase/classification expectations
+   - Keep: name matches dir, description 20-100 words, description colon-quoting, TEMPLATE.md 3+ headers, references byte-0 checks, YAML parse-validity
+2. Update `lint-skills-frontmatter.md` doc
+3. Hand-craft 2 test skills in new structure; verify validator PASSES new + FAILS old
 
-Plus their accompanying TEMPLATE.md and EXAMPLE.md files where frontmatter is present:
+### Phase 2: Update all consumer scripts (1 day)
 
-- TEMPLATE.md files generally have no frontmatter (just markdown templates); verify
-- EXAMPLE.md files in some skills have frontmatter (e.g., `utility-pm-release-conductor/EXAMPLE.md`); migrate where present
+Update each BREAKS consumer (Section 4) to read `metadata.*`. Order:
 
-### 3.2 Validator scripts
+1. Python generators (generate-skill-pages.py, generate-showcase.py) - update `classify_skill` + any version reads
+2. Bash/pwsh validators (validate-skills-manifest, validate-skill-history, 3 family validators, check-version-references)
+3. build-release.{sh,ps1}
+4. inject-doc-titles.mjs (audit first)
 
-| File | Change |
-|---|---|
-| `scripts/lint-skills-frontmatter.sh` | Update to enforce: (a) required top-level `name`, `description`, `license`; (b) required `metadata:` block; (c) required `metadata.classification`, `metadata.version`, `metadata.updated`; (d) conditional fields per classification; (e) REJECTS top-level `classification`, `phase`, `version`, `updated` |
-| `scripts/lint-skills-frontmatter.ps1` | PowerShell parity |
-| `scripts/lint-skills-frontmatter.md` | Documentation triplet update |
-| `scripts/check-frontmatter-yaml.mjs` | Update YAML schema check to new structure (if separate from lint-skills-frontmatter) |
+After each, do NOT run against skills yet (skills still old-structure). Just verify the script's parse logic targets metadata.*.
 
-### 3.3 Skill-builder + skill-iterate templates
+### Phase 3: Migration script + sweep (0.5 day)
 
-| File | Change |
-|---|---|
-| `skills/utility-pm-skill-builder/SKILL.md` | Update skill prompt to generate skills in new structure |
-| `skills/utility-pm-skill-builder/TEMPLATE.md` | Update frontmatter template |
-| `skills/utility-pm-skill-iterate/SKILL.md` | Add migration logic: detect old-style frontmatter, propose new-structure rewrite |
-| `skills/utility-pm-skill-validate/SKILL.md` | Update validation rubric to expect new structure |
+1. Write `scripts/migrate-skills-frontmatter.mjs` modeled on `sweep-frontmatter.mjs` (reuse: CRLF detection, fence detection, idempotency, deterministic transforms):
+   - Parse frontmatter; detect top-level phase/classification/version/updated
+   - Move them under metadata (insert at TOP of metadata block, before existing metadata keys)
+   - Preserve all existing metadata sub-structure verbatim
+   - Idempotent: skip if already migrated (no top-level version)
+   - Log per-file
+2. Preview on 2 skills (1 phase + 1 tool); manually verify
+3. Run on all 59; spot-check 5-10 across classifications
+4. Run `lint-skills-frontmatter` (new) - should PASS all 59
+5. Run `check-frontmatter-yaml.mjs` - YAML parse-validity PASS
 
-### 3.4 Documentation
+### Phase 4: Regenerate generated docs (0.5 day)
 
-| File | Change |
-|---|---|
-| `docs/contributing/skill-authoring.md` (if exists) | Document new structure |
-| `docs/reference/skill-anatomy.md` | Document new structure with annotated example |
-| `docs/reference/pm-skill-anatomy.md` (if exists) | Same |
-| `docs/concepts/*.md` (any that reference frontmatter shape) | Update examples to new structure |
-| `CHANGELOG.md` | v2.17.0 entry under Changed (structural) with migration note |
-| `docs/releases/Release_v2.17.0.md` | New release notes; include migration guide section for contributors |
+1. Run generate-skill-pages.py (now reading metadata.*) - regenerate docs/skills/
+2. Run generate-showcase.py if applicable
+3. Verify check-generated-content-untouched PASSES (or re-baseline if generated output legitimately changed)
+4. Astro build locally - verify doc-stack builds
 
-### 3.5 Companion repo impact (pm-skills-mcp)
+### Phase 5: pm-skills-mcp cross-repo update (parallel; 1-2 hours)
 
-The companion `pm-skills-mcp` repo parses pm-skills frontmatter via `scripts/embed-skills.js`. v2.17.0 frontmatter restructure requires coordinated update. Per project_mcp-maintenance-mode memory rule (M-22), pm-skills-mcp is in maintenance mode; cross-repo update can be deferred OR shipped same-day as v2.17.0.
+1. Update `pm-skills-mcp/scripts/embed-skills.js` lines 126-129 to read `frontmatter.metadata.phase/classification/version`
+2. Add backward-compat: read metadata.* with fallback to top-level (handles transition window)
+3. Schedule merge same-day as pm-skills v2.17.0 G3 tag (M-22 maintenance mode = flexible timing)
 
-**Recommendation:** Author pm-skills-mcp PR same-day as v2.17.0 G3 tag. PR draft prepared during v2.17.0 G2 prep, ships within 24 hours of v2.17.0 tag. Defer if maintainer chooses; document as "v2.17.0 known consumer break" if so.
+### Phase 6: Pre-tag validator bundle (0.5 day)
 
----
-
-## 4. Execution steps
-
-### 4.1 Phase 1: Validator update (1 day)
-
-1. Update `scripts/lint-skills-frontmatter.{sh,ps1,md}` to enforce new structure
-2. Add migration mode: validator can run in "expect old structure" mode to verify current state PRE-sweep, then switch to "expect new structure" mode POST-sweep
-3. Add `--migration-mode {pre,post}` flag (transient; removed in v2.17.1)
-4. Test validator against current state (PRE) - should PASS
-5. Test validator against new structure (POST) - hand-craft 3 example skills, verify validator passes
-
-### 4.2 Phase 2: Skill sweep (1-2 days)
-
-Use a deterministic migration script (NEW; ships in v2.17.0 release but is one-time-use):
-
-1. Author `scripts/migrate-skills-frontmatter.{sh,ps1}` that:
-   - Parses each `skills/*/SKILL.md` frontmatter
-   - Detects old structure (top-level `classification`, `phase`, `version`, `updated`)
-   - Rewrites frontmatter into new structure preserving all field values
-   - Adds `compatibility:` block with the standard 6-platform list (unless skill already has reduced list)
-   - Writes back to the same file
-   - Logs per-file change to `migration-log.txt`
-2. Run script against all 59 skills + applicable EXAMPLE.md files
-3. Manually spot-check 5-10 skills across all classifications for correctness
-4. Run lint-skills-frontmatter in POST mode - should PASS
-5. Commit migration as a single commit: `refactor(v2.17.0): migrate all skill frontmatter to metadata-nested structure`
-
-### 4.3 Phase 3: Template + builder update (0.5 day)
-
-1. Update `skills/utility-pm-skill-builder/TEMPLATE.md` frontmatter template
-2. Update `skills/utility-pm-skill-builder/SKILL.md` to author skills in new structure
-3. Update `skills/utility-pm-skill-iterate/SKILL.md` to detect + migrate old-structure skills
-4. Update `skills/utility-pm-skill-validate/SKILL.md` validation rubric
-5. Test by running pm-skill-builder to generate a hypothetical new skill; verify output uses new structure
-
-### 4.4 Phase 4: Documentation sweep (0.5 day)
-
-1. Update `docs/reference/skill-anatomy.md` (or equivalent) with new structure example
-2. Update any `docs/contributing/*.md` that shows frontmatter examples
-3. Update any `docs/concepts/*.md` that shows frontmatter examples
-4. Search for `classification: phase`, `classification: foundation`, etc. in `docs/` and update example references
-
-### 4.5 Phase 5: pm-skills-mcp coordination (parallel; 1-2 hours)
-
-1. Draft PR in companion repo updating `scripts/embed-skills.js` to parse new structure
-2. Update README + manifests in pm-skills-mcp to mention v2.17.0 compatibility
-3. Schedule merge for same-day as pm-skills v2.17.0 G3 tag
-
-### 4.6 Phase 6: Pre-tag validator bundle (0.5 day)
-
-Per `feedback_pre-tag-validator-bundle`:
-
-1. Run `scripts/pre-tag-validate.{sh,ps1}` - all 14 enforcing validators PASS
-2. Em-dash sweep clean
-3. Aggregate counters unchanged (59 skills total)
-4. Cross-cutting audit via pm-skill-auditor (chain or inline)
+1. Run full `pre-tag-validate.{sh,ps1}` (with --skip check-count-consistency if README WIP still present, OR clean if README landed)
+2. All validators PASS against new structure
+3. Em-dash sweep, aggregate counters, cross-cutting audit
 
 ---
 
-## 5. Acceptance criteria
+## 6. Acceptance criteria
 
-### 5.1 Functional
-
-- [ ] All 59 SKILL.md files use new metadata-nested structure
-- [ ] `scripts/lint-skills-frontmatter` (without `--migration-mode` flag) PASSES against new structure
-- [ ] `scripts/lint-skills-frontmatter` REJECTS a hand-crafted skill with top-level `classification:` field
-- [ ] `pm-skill-builder` slash command generates new skills in new structure (verified by test invocation)
-- [ ] `pm-skill-iterate` detects + migrates old-structure skills (verified against synthetic old-structure skill)
-- [ ] Astro doc-stack builds cleanly (Pages deploys without YAML parse failures)
+### Functional
+- [ ] All 59 SKILL.md files: top-level limited to name/description/license; version/updated/phase/classification under metadata
+- [ ] lint-skills-frontmatter (new) PASSES all 59; REJECTS a hand-crafted old-structure skill
+- [ ] All ~10 consumer scripts read metadata.* correctly
+- [ ] generate-skill-pages.py produces correct phase-grouped pages from metadata.phase
+- [ ] check-frontmatter-yaml.mjs PASSES (YAML parse-validity)
+- [ ] Astro doc-stack builds cleanly
 - [ ] check-internal-link-validity --strict PASSES
+- [ ] pm-skills-mcp embed-skills.js reads new structure (cross-repo PR drafted)
 
-### 5.2 Spec compliance
+### Spec compliance
+- [ ] Top-level fields limited to spec-recognized: name, description, license (+ optional compatibility which we omit)
+- [ ] All proprietary fields under metadata
+- [ ] No compatibility: field added (per spec "most skills do not need it")
+- [ ] Optionally: run `skills-ref validate` on a sample skill to confirm agentskills.io conformance
 
-- [ ] Top-level fields in every SKILL.md are limited to: `name`, `description`, `license`, optional `compatibility`
-- [ ] Every SKILL.md has `metadata:` block
-- [ ] Every SKILL.md has `metadata.classification`, `metadata.version`, `metadata.updated`
-- [ ] Phase skills have `metadata.phase`
-- [ ] Tool sprint skills have `metadata.family`, `metadata.tool.*`, `metadata.move`
-- [ ] Foundation, utility, and other classifications conform to Section 2 schema
-
-### 5.3 Documentation
-
-- [ ] Release_v2.17.0.md migration guide section authored
-- [ ] CHANGELOG.md v2.17.0 entry describes the structural change
-- [ ] Skill-authoring documentation reflects new structure
-- [ ] At least one before/after example in public-facing docs
-
-### 5.4 Companion repo
-
-- [ ] pm-skills-mcp PR drafted (merged same-day as v2.17.0 G3 tag OR documented as carry-over per maintainer choice)
+### No regression
+- [ ] Aggregate counters unchanged (59 skills)
+- [ ] All family contracts still validate
+- [ ] skills-manifest.yaml still cross-checks
 
 ---
 
-## 6. Risks specific to W1
+## 7. Risks (revised)
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
-| Migration script malforms YAML on some skills | Medium | High | Run script on test branch first; spot-check 5-10 skills; lint-skills-frontmatter catches; G1 adversarial review |
-| `compatibility:` block addition breaks some skill that has platform-specific behavior we missed | Low | Medium | Default to 6-platform list; if skill has known platform restriction (e.g., Claude Code-only sub-agent integration), set explicitly |
-| Astro/Starlight schema chokes on new structure | Low | High | Test against doc-stack BEFORE migrating production skills; new structure aligns with Starlight schema (which uses YAML frontmatter compatible with new shape) |
-| pm-skills-mcp parser breaks downstream | Medium | Medium | Companion PR drafted in parallel; M-22 maintenance mode means timing is flexible |
-| Third-party validators (agentskills.io canonical, etc.) reject the new structure | Low | Low | New structure aligns WITH agentskills.io spec; risk is lower than current state |
-| Maintainer notices structural inconsistency post-migration (e.g., one skill kept top-level `version:` somehow) | Medium | Low | Migration log captures every change; spot-check protocol; validator catches |
+| A consumer script missed in the map breaks silently | Medium | High | Section 4 map is from a grep sweep; G1 adversarial review re-greps; CI catches most |
+| pm-skills-mcp breaks until cross-repo PR merges | High | Medium | Add top-level fallback in embed-skills.js for transition window; M-22 flexible timing |
+| generate-skill-pages.py regeneration changes generated output, tripping check-generated-content-untouched | High | Medium | Expected; re-baseline the generated fingerprint as part of W1 (the generated CONTENT shouldn't change, only the source-read path) |
+| Migration script malforms YAML on edge-case skill | Medium | High | Model on proven sweep-frontmatter.mjs; preview on 2; lint + yaml-parse catches; spot-check 5-10 |
+| skills-ref validate still rejects something we missed | Low | Medium | Run skills-ref on a sample post-migration to confirm |
+| README WIP check-count-consistency still failing during W1 dev | High | Low | --skip documented (same as v2.16.2); resolves when README lands |
 
 ---
 
-## 7. Rollback plan
+## 8. Rollback
 
-If W1 ships and a defect surfaces post-tag (e.g., pm-skills-mcp can't parse; Astro build breaks; an unknown consumer breaks):
-
-- Ship v2.17.1 with a `--legacy-frontmatter` mode in the validator that accepts BOTH structures temporarily
-- Document the defect and the rollback path in v2.17.1 release notes
-- Do NOT revert v2.17.0 tag (per runbook Rollback Semantics)
-
-For a critical defect that requires full revert:
-
-- Run `scripts/migrate-skills-frontmatter.{sh,ps1} --reverse` to migrate skills back to old structure
-- Ship v2.17.1 with reversed migration + post-mortem in release notes
-- Treat the defect as a v2.18.0 prerequisite to fix before re-attempting
-
----
-
-## 8. Sources
-
-- Strategic roadmap R-05: `../../_working/roadmap_opus-4.7-max_2026-05-14.md` Section 5
-- agentskills.io spec: https://agentskills.io/specification (referenced 2026-05-14)
-- Web research on 12+ tool adoption: per roadmap citation pattern
-- Repo convention review: existing `skills/utility-pm-critic/SKILL.md` frontmatter is the test case for utility dispatch pattern; existing `skills/tool-foundation-sprint-basics/SKILL.md` is the test case for tool sprint pattern; existing `skills/deliver-prd/SKILL.md` is the test case for phase pattern
+Migration script is idempotent + reversible. Write `--reverse` mode that moves metadata.version/updated/phase/classification back to top-level. If a critical consumer breaks post-tag, ship v2.17.1 with reversed migration + consumer fix.
 
 ---
 
@@ -402,6 +298,16 @@ For a critical defect that requires full revert:
 
 - Parent plan: [`plan_v2.17.0.md`](plan_v2.17.0.md)
 - Companion spec (W2): [`spec_agents-directory-rename.md`](spec_agents-directory-rename.md)
-- Strategic roadmap: [`../../_working/roadmap_opus-4.7-max_2026-05-14.md`](../../_working/roadmap_opus-4.7-max_2026-05-14.md)
-- Roadmap delta: [`../../_working/roadmap_opus-4.7-max_2026-05-14_issues-conflicts.md`](../../_working/roadmap_opus-4.7-max_2026-05-14_issues-conflicts.md)
-- Memory rule (load-bearing): `feedback_yaml-parse-validity-in-sweeps` (codified 2026-05-08 after W3.5 19-file regression; YAML parse-validity checks must accompany structural placement checks in any frontmatter sweep)
+- agentskills.io spec (verified 2026-05-19): https://agentskills.io/specification
+- Migration script model: `scripts/sweep-frontmatter.mjs` (W3.5 byte-0 sweep; reuse fence/CRLF/idempotency patterns)
+- Memory rule: `feedback_yaml-parse-validity-in-sweeps` (parse-validity checks must accompany structural placement checks)
+- Cross-repo consumer: `pm-skills-mcp/scripts/embed-skills.js` (M-22 maintenance mode; coordinate timing)
+
+---
+
+## 10. Change log
+
+| Date | Author | Change |
+|---|---|---|
+| 2026-05-19 (initial) | claude-opus-4.7 | Initial spec from roadmap R-05 |
+| 2026-05-19 (revised) | claude-opus-4.7 | Rewrote after agentskills.io spec fetch + consumer mapping. Corrected: compatibility (string not list; omit entirely); tool metadata (flat not nested); blast radius (~10 consumers + cross-repo MCP, not 59 files + 1 validator); effort (2-3 days not 1-2). Added verified consumer map (SAFE vs BREAKS), 6-phase execution plan, per-consumer fix table. |
