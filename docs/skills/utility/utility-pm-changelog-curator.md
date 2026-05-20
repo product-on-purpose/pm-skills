@@ -1,6 +1,6 @@
 ---
 title: "PM Changelog Curator (Dispatch Skill)"
-description: "Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-changelog-curator); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads subagents/pm-changelog-curator.md and executes the system prompt inline. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft + Status Summary prose + Status YAML envelope per master plan D26) with hidden justification comments for maintainer audit. Refuses on dirty working tree unless --committed-only is passed."
+description: "Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-changelog-curator); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-changelog-curator.md and executes the system prompt inline. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft + Status Summary prose + Status YAML envelope per master plan D26) with hidden justification comments for maintainer audit. Refuses on dirty working tree unless --committed-only is passed."
 generated: true
 source: scripts/generate-skill-pages.py
 tags:
@@ -12,7 +12,7 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** release | **License:** Apache-2.0
 :::
 
-Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `subagents/pm-changelog-curator.md` and executes inline on non-Claude clients.
+Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `agents/pm-changelog-curator.md` and executes inline on non-Claude clients.
 
 ## When to Use
 
@@ -39,7 +39,7 @@ Invoke `@agent-pm-changelog-curator` with the user's arguments. Pass `--since-ta
 
 Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, or any other client without native pm-skills plugin sub-agent support:
 
-1. Read the canonical sub-agent definition at `subagents/pm-changelog-curator.md`
+1. Read the canonical sub-agent definition at `agents/pm-changelog-curator.md`
 2. Execute the system prompt body in that file as your operating instructions
 3. Run the 8-step drafting flow documented in the sub-agent definition (establish range -> read hygiene rules -> check working tree -> enumerate commits -> classify -> group -> rewrite -> determine target version -> emit draft)
 4. Apply `--since-tag`, `--target-version`, and `--committed-only` arguments from `$ARGUMENTS`
@@ -146,7 +146,7 @@ When invoked from `pm-release-conductor` at gate G2 (Version bump + CHANGELOG pr
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-changelog-curator.md`](../../../subagents/pm-changelog-curator.md)
+- Canonical sub-agent: [`agents/pm-changelog-curator.md`](../../../agents/pm-changelog-curator.md)
 - Worked example: `EXAMPLE.md`
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md`](../../../docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md)
 
@@ -157,7 +157,7 @@ When invoked from `pm-release-conductor` at gate G2 (Version bump + CHANGELOG pr
 
 # Example: pm-changelog-curator Dispatch on Windsurf
 
-This example shows `utility-pm-changelog-curator` execution on a non-Claude client (Windsurf). The dispatch skill reads `subagents/pm-changelog-curator.md` and executes the 8-step drafting flow inline.
+This example shows `utility-pm-changelog-curator` execution on a non-Claude client (Windsurf). The dispatch skill reads `agents/pm-changelog-curator.md` and executes the 8-step drafting flow inline.
 
 ## Invocation
 
@@ -168,7 +168,7 @@ windsurf> /utility-pm-changelog-curator --since-tag v2.15.2 --target-version v2.
 ## Skill behavior
 
 1. **Runtime detection.** Detects Windsurf (not Claude Code with pm-skills plugin); takes non-Claude branch.
-2. **Reads canonical sub-agent definition.** Loads `subagents/pm-changelog-curator.md` as operating instructions.
+2. **Reads canonical sub-agent definition.** Loads `agents/pm-changelog-curator.md` as operating instructions.
 3. **Step 1 of agent flow: establish range.** Honors `--since-tag v2.15.2` and `--target-version v2.16.0` from arguments.
 4. **Step 2: read hygiene rules.** Reads CLAUDE.md "CHANGELOG Best Practices" section.
 5. **Step 3: check working tree.** Working tree clean (no uncommitted changes); proceeds.
@@ -184,7 +184,7 @@ windsurf> /utility-pm-changelog-curator --since-tag v2.15.2 --target-version v2.
 
 ### Added
 
-- **Sub-agents** (new component class): four Claude Code plugin sub-agents at `subagents/` plus matching dispatch skills at `skills/utility-pm-{role}/` for cross-client access. `pm-critic` runs adversarial review proactively after PM-artifact-producing skills; `pm-skill-auditor` runs repo-wide cross-cutting governance audits; `pm-changelog-curator` drafts CHANGELOG entries from git log applying hygiene rules; `pm-release-conductor` walks a 6-gate guided release runbook with chain composition. See `docs/reference/runtime-components.md`. <!-- justification: feat(v2.16.0-phase-{1,2,3,4,5}) commits; user-facing per "feat: -> Added" classification rule; sub-agents are a new component class -->
+- **Sub-agents** (new component class): four Claude Code plugin sub-agents at `agents/` plus matching dispatch skills at `skills/utility-pm-{role}/` for cross-client access. `pm-critic` runs adversarial review proactively after PM-artifact-producing skills; `pm-skill-auditor` runs repo-wide cross-cutting governance audits; `pm-changelog-curator` drafts CHANGELOG entries from git log applying hygiene rules; `pm-release-conductor` walks a 6-gate guided release runbook with chain composition. See `docs/reference/runtime-components.md`. <!-- justification: feat(v2.16.0-phase-{1,2,3,4,5}) commits; user-facing per "feat: -> Added" classification rule; sub-agents are a new component class -->
 
 - **Adversarial review user guide** at `docs/guides/adversarial-review.md` with severity grammar examples and skill-revise-recheck loop documentation. <!-- justification: docs commit touching docs/guides/ surface; user-facing -->
 
@@ -262,7 +262,7 @@ For the example's role: this is the canonical worked example for the dispatch sk
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-changelog-curator.md`](../../../subagents/pm-changelog-curator.md)
+- Canonical sub-agent: [`agents/pm-changelog-curator.md`](../../../agents/pm-changelog-curator.md)
 - Skill manifest: `SKILL.md`
 - Output template: `TEMPLATE.md`
 - v2.15.1 + v2.15.2 CHANGELOG entries: `CHANGELOG.md` (root, canonical exemplars)

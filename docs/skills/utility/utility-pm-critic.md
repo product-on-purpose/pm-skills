@@ -1,6 +1,6 @@
 ---
 title: "PM Critic (Dispatch Skill)"
-description: "Run adversarial review on a PM artifact via the pm-critic sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-critic); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads subagents/pm-critic.md and executes the system prompt inline. Returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26."
+description: "Run adversarial review on a PM artifact via the pm-critic sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-critic); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-critic.md and executes the system prompt inline. Returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26."
 generated: true
 source: scripts/generate-skill-pages.py
 tags:
@@ -16,7 +16,7 @@ tags:
 
 This skill is a cross-client dispatch wrapper for the `pm-critic` sub-agent. It exists so that users on non-Claude clients can run adversarial review with the same intent as Claude Code users, without depending on native plugin sub-agent infrastructure.
 
-Per master plan D11 (amended) + D30, sub-agents are a Claude Code plugin feature. Non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) cannot natively load `subagents/pm-critic.md`. This skill bridges the gap.
+Per master plan D11 (amended) + D30, sub-agents are a Claude Code plugin feature. Non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) cannot natively load `agents/pm-critic.md`. This skill bridges the gap.
 
 ## When to Use
 
@@ -53,7 +53,7 @@ Invoke `@agent-pm-critic` on the target artifact. Pass the artifact path as argu
 
 Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, ChatGPT, or any other client without native pm-skills plugin sub-agent support:
 
-1. Read the canonical sub-agent definition at `subagents/pm-critic.md`
+1. Read the canonical sub-agent definition at `agents/pm-critic.md`
 2. Execute the system prompt body in that file as your operating instructions for this turn
 3. Read the target PM artifact specified by the user (path from `$ARGUMENTS`, or most recently produced artifact in session)
 4. Read the canonical standards docs referenced by the pm-critic system prompt for the artifact type (e.g., `skills/foundation-okr-writer/SKILL.md` for OKR sets, `skills/deliver-prd/SKILL.md` for PRDs)
@@ -103,7 +103,7 @@ When `utility-pm-critic` produces output (either via native sub-agent dispatch o
 (same per-finding structure as P0; one-line findings acceptable)
 ```
 
-If no findings at a severity, omit that section heading. If zero findings total, output the canonical "passes adversarial review" line per `subagents/pm-critic.md`.
+If no findings at a severity, omit that section heading. If zero findings total, output the canonical "passes adversarial review" line per `agents/pm-critic.md`.
 
 ## Section 2: Status Summary (Prose, for Human Readers)
 
@@ -116,7 +116,7 @@ The {artifact type} review returned N findings: {P0: X, P1: Y, P2: Z, P3: W}.
 
 **Recommended next action:** {explicit recommendation - revise with producing skill, defer to maintainer judgment, accept all P2/P3 and ship, etc.}
 
-**Refusal triggered:** {yes/no. If yes, explain why. Refusal protocols are in subagents/pm-critic.md.}
+**Refusal triggered:** {yes/no. If yes, explain why. Refusal protocols are in agents/pm-critic.md.}
 ```
 
 This section is for the human reader (PM or maintainer). It captures the "what does this mean" in prose so the reader does not have to interpret the findings table to make a decision.
@@ -167,7 +167,7 @@ The YAML block enables programmatic consumption: a parent sub-agent (e.g., `pm-r
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-critic.md`](../../../subagents/pm-critic.md)
+- Canonical sub-agent: [`agents/pm-critic.md`](../../../agents/pm-critic.md)
 - Worked example: `EXAMPLE.md`
 - User guide: [`docs/guides/adversarial-review.md`](../../../docs/guides/adversarial-review.md)
 
@@ -178,7 +178,7 @@ The YAML block enables programmatic consumption: a parent sub-agent (e.g., `pm-r
 
 # Example: pm-critic Dispatch on Codex CLI
 
-This example shows what `utility-pm-critic` produces when invoked on a non-Claude client (here, Codex CLI). The dispatch skill reads `subagents/pm-critic.md` as its operating instructions for the turn and executes the review inline.
+This example shows what `utility-pm-critic` produces when invoked on a non-Claude client (here, Codex CLI). The dispatch skill reads `agents/pm-critic.md` as its operating instructions for the turn and executes the review inline.
 
 ## Invocation
 
@@ -189,7 +189,7 @@ codex> /utility-pm-critic library/skill-output-samples/deliver-prd/sample_delive
 ## Skill behavior
 
 1. **Runtime detection.** The skill detects it is running in Codex CLI (not Claude Code with pm-skills plugin), so it takes the non-Claude branch.
-2. **Reads canonical sub-agent definition.** Loads `subagents/pm-critic.md` as the operating system prompt for this turn.
+2. **Reads canonical sub-agent definition.** Loads `agents/pm-critic.md` as the operating system prompt for this turn.
 3. **Reads target artifact.** Loads the Brainshelf Resurface PRD at the supplied path.
 4. **Reads standards docs.** Per the pm-critic system prompt's referential discipline, reads `skills/deliver-prd/SKILL.md` (PRD contract), `skills/deliver-edge-cases/SKILL.md` (edge case completeness), and `skills/define-hypothesis/SKILL.md` (hypothesis-PRD coherence).
 5. **Produces findings.** Returns the three-section layered output below.
@@ -306,7 +306,7 @@ The cross-client consistency is the validation criterion for Phase 2 GATE B. If 
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-critic.md`](../../../subagents/pm-critic.md)
+- Canonical sub-agent: [`agents/pm-critic.md`](../../../agents/pm-critic.md)
 - Skill manifest: `SKILL.md`
 - Output template: `TEMPLATE.md`
 - Native sub-agent sample: [`library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md`](../../../library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md)

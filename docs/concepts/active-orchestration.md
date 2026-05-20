@@ -36,7 +36,7 @@ Functionally:
 
 Structurally:
 
-- The repo has a new `subagents/` directory containing 4 sub-agent definitions (paths declared via plugin.json's custom `agents` field per master plan D31; see [`docs/concepts/sub-agents.md`](./sub-agents.md) for the rationale on the non-default directory name)
+- The repo has an `agents/` directory containing 4 sub-agent definitions (auto-discovered by Claude Code's plugin runtime at the fixed `agents/` path; see [`docs/concepts/sub-agents.md`](./sub-agents.md) for details)
 - 4 new dispatch skills at `skills/utility-pm-{role}/`
 - 4 new slash commands (`/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`)
 - 12 new library samples (3 per sub-agent across the brainshelf / storevine / workbench narrative threads)

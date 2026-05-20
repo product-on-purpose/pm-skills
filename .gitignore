@@ -66,11 +66,11 @@ docs/internal/milestones/**/_archived/
 # Planning persistence policy: docs/internal/planning-persistence-policy.md
 # Durable files are tracked; high-churn working logs and drafts are ignored.
 # Note: SESSION-LOG/ is matched by the top-level rule above.
-AGENTS/*/TODO.md
-AGENTS/*/PLANNING/
-!AGENTS/*/CONTEXT.md
-!AGENTS/*/DECISIONS.md
-!AGENTS/DECISIONS.md
+_agent-context/*/TODO.md
+_agent-context/*/PLANNING/
+!_agent-context/*/CONTEXT.md
+!_agent-context/*/DECISIONS.md
+!_agent-context/DECISIONS.md
 .github/scripts/node_modules/
 
 # Local state (update reports, backups)

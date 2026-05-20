@@ -5,7 +5,7 @@ description: Worked example of utility-pm-skill-auditor dispatch skill execution
 
 # Example: pm-skill-auditor Dispatch on Cursor
 
-This example shows what `utility-pm-skill-auditor` produces when invoked on a non-Claude client (here, Cursor). The dispatch skill reads `subagents/pm-skill-auditor.md` as its operating instructions and executes the four-step audit inline.
+This example shows what `utility-pm-skill-auditor` produces when invoked on a non-Claude client (here, Cursor). The dispatch skill reads `agents/pm-skill-auditor.md` as its operating instructions and executes the four-step audit inline.
 
 ## Invocation
 
@@ -16,7 +16,7 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 ## Skill behavior
 
 1. **Runtime detection.** The skill detects it is running in Cursor (not Claude Code with pm-skills plugin), so it takes the non-Claude branch.
-2. **Reads canonical sub-agent definition.** Loads `subagents/pm-skill-auditor.md` as the operating system prompt.
+2. **Reads canonical sub-agent definition.** Loads `agents/pm-skill-auditor.md` as the operating system prompt.
 3. **Step 1 of agent flow: invoke validators.** Runs `bash scripts/pre-tag-validate.sh` (canonical orchestration entry point). Captures output.
 4. **Step 2: run cross-cutting checks.** Reads catalog from `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md#cross-cutting-check-catalog`. Runs each check against current repo state.
 5. **Step 3: re-derive aggregate counters.** Counts skill directories by classification prefix; counts commands; counts sub-agents; compares to declared values.
@@ -58,8 +58,8 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 #### F-01: Sub-agent without companion command (sub-agent integrity, violates D6)
 
-**Location:** `subagents/pm-release-conductor.md` (does not yet exist as of HEAD; expected per master plan Phase 5)
-**Issue:** Phase 5 plan ships `subagents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists. Once authored, ensure the pair lands in the same commit per `subagents/_pairing.yaml`.
+**Location:** `agents/pm-release-conductor.md` (does not yet exist as of HEAD; expected per master plan Phase 5)
+**Issue:** Phase 5 plan ships `agents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists. Once authored, ensure the pair lands in the same commit per `agents/_pairing.yaml`.
 **Why it matters:** D6 requires every sub-agent to ship with a companion slash command. Missing the command makes the sub-agent harder for users to discover.
 **Fix:** This is a forward finding (Phase 5 work). Re-run audit after Phase 5 ships; finding should resolve.
 
@@ -164,6 +164,6 @@ For a release-prep audit (post-Phase 5 + pre-tag), the same auditor would re-run
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-skill-auditor.md`](../../../subagents/pm-skill-auditor.md)
+- Canonical sub-agent: [`agents/pm-skill-auditor.md`](../../../agents/pm-skill-auditor.md)
 - Skill manifest: `SKILL.md`
 - Output template: `TEMPLATE.md`

@@ -101,7 +101,7 @@ pm-skills/
 │   ├── validation.yml    # Runs on Ubuntu + Windows
 │   ├── release.yml       # Create releases on tag
 │   └── release-zips.yml  # Package ZIP artifacts
-├── AGENTS/               # AI agent session continuity
+├── _agent-context/       # AI agent session continuity
 │   ├── SESSION-LOG/      # Shared session logs (model encoded in filename: <date>_<model>_<scope>.md)
 │   └── claude/
 │       ├── CONTEXT.md    # Project state (this file)

@@ -5,7 +5,7 @@ description: Worked example of utility-pm-changelog-curator dispatch skill execu
 
 # Example: pm-changelog-curator Dispatch on Windsurf
 
-This example shows `utility-pm-changelog-curator` execution on a non-Claude client (Windsurf). The dispatch skill reads `subagents/pm-changelog-curator.md` and executes the 8-step drafting flow inline.
+This example shows `utility-pm-changelog-curator` execution on a non-Claude client (Windsurf). The dispatch skill reads `agents/pm-changelog-curator.md` and executes the 8-step drafting flow inline.
 
 ## Invocation
 
@@ -16,7 +16,7 @@ windsurf> /utility-pm-changelog-curator --since-tag v2.15.2 --target-version v2.
 ## Skill behavior
 
 1. **Runtime detection.** Detects Windsurf (not Claude Code with pm-skills plugin); takes non-Claude branch.
-2. **Reads canonical sub-agent definition.** Loads `subagents/pm-changelog-curator.md` as operating instructions.
+2. **Reads canonical sub-agent definition.** Loads `agents/pm-changelog-curator.md` as operating instructions.
 3. **Step 1 of agent flow: establish range.** Honors `--since-tag v2.15.2` and `--target-version v2.16.0` from arguments.
 4. **Step 2: read hygiene rules.** Reads CLAUDE.md "CHANGELOG Best Practices" section.
 5. **Step 3: check working tree.** Working tree clean (no uncommitted changes); proceeds.
@@ -32,7 +32,7 @@ windsurf> /utility-pm-changelog-curator --since-tag v2.15.2 --target-version v2.
 
 ### Added
 
-- **Sub-agents** (new component class): four Claude Code plugin sub-agents at `subagents/` plus matching dispatch skills at `skills/utility-pm-{role}/` for cross-client access. `pm-critic` runs adversarial review proactively after PM-artifact-producing skills; `pm-skill-auditor` runs repo-wide cross-cutting governance audits; `pm-changelog-curator` drafts CHANGELOG entries from git log applying hygiene rules; `pm-release-conductor` walks a 6-gate guided release runbook with chain composition. See `docs/reference/runtime-components.md`. <!-- justification: feat(v2.16.0-phase-{1,2,3,4,5}) commits; user-facing per "feat: -> Added" classification rule; sub-agents are a new component class -->
+- **Sub-agents** (new component class): four Claude Code plugin sub-agents at `agents/` plus matching dispatch skills at `skills/utility-pm-{role}/` for cross-client access. `pm-critic` runs adversarial review proactively after PM-artifact-producing skills; `pm-skill-auditor` runs repo-wide cross-cutting governance audits; `pm-changelog-curator` drafts CHANGELOG entries from git log applying hygiene rules; `pm-release-conductor` walks a 6-gate guided release runbook with chain composition. See `docs/reference/runtime-components.md`. <!-- justification: feat(v2.16.0-phase-{1,2,3,4,5}) commits; user-facing per "feat: -> Added" classification rule; sub-agents are a new component class -->
 
 - **Adversarial review user guide** at `docs/guides/adversarial-review.md` with severity grammar examples and skill-revise-recheck loop documentation. <!-- justification: docs commit touching docs/guides/ surface; user-facing -->
 
@@ -110,7 +110,7 @@ For the example's role: this is the canonical worked example for the dispatch sk
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-changelog-curator.md`](../../../subagents/pm-changelog-curator.md)
+- Canonical sub-agent: [`agents/pm-changelog-curator.md`](../../../agents/pm-changelog-curator.md)
 - Skill manifest: `SKILL.md`
 - Output template: `TEMPLATE.md`
 - v2.15.1 + v2.15.2 CHANGELOG entries: `CHANGELOG.md` (root, canonical exemplars)

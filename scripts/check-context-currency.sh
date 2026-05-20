@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Check that all AGENTS/*/CONTEXT.md files reference the current CHANGELOG version.
+# Check that all _agent-context/*/CONTEXT.md files reference the current CHANGELOG version.
 # Exits 1 if any file is stale; 0 if all are current.
 set -euo pipefail
 
@@ -14,9 +14,9 @@ if [[ -z "$changelog_raw" ]]; then
 fi
 changelog_version="v$(echo "$changelog_raw" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')"
 
-# Check each AGENTS/*/CONTEXT.md
+# Check each _agent-context/*/CONTEXT.md
 found_any=0
-for ctx in "$ROOT"/AGENTS/*/CONTEXT.md; do
+for ctx in "$ROOT"/_agent-context/*/CONTEXT.md; do
   [[ -f "$ctx" ]] || continue
   found_any=1
   rel="${ctx#$ROOT/}"
@@ -38,7 +38,7 @@ for ctx in "$ROOT"/AGENTS/*/CONTEXT.md; do
 done
 
 if [[ $found_any -eq 0 ]]; then
-  echo "✗ No AGENTS/*/CONTEXT.md files found"
+  echo "✗ No _agent-context/*/CONTEXT.md files found"
   exit 1
 fi
 

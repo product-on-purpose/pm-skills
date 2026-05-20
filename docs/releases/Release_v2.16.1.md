@@ -63,6 +63,8 @@ This rename is **deferred to v2.17.0** because:
 
 Tracking: see master plan D31 amendment in [`docs/internal/release-plans/v2.16.0/plan_v2.16.0.md`](../internal/release-plans/v2.16.0/plan_v2.16.0.md) and the v2.17.0 plan stub at [`docs/internal/release-plans/v2.17.0/plan_v2.17.0.md`](../internal/release-plans/v2.17.0/plan_v2.17.0.md).
 
+> **Update (v2.17.0):** The rename shipped in v2.17.0 (W2). `AGENTS/` is now `_agent-context/` and `subagents/` is now `agents/`, which structurally enables native sub-agent auto-discovery on Claude Code. Final `@-mention` confirmation via fresh install is pending; see the [Sub-Agent Compatibility Matrix](../reference/sub-agent-compatibility.md) for current status.
+
 ### What does NOT change in v2.16.1
 
 - Skill catalog (59 skills: 26 phase + 8 foundation + 10 utility + 15 tool) is unchanged.

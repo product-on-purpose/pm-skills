@@ -969,7 +969,7 @@ pm-skills/
 ├── skills/                  # 59 PM skills (26 phase, 8 foundation, 10 utility, 15 tool)
 ├── commands/                # Slash commands mapping to skills, workflows, and sub-agents
 ├── _workflows/              # Workflow chains: feature-kickoff, lean-startup, triple-diamond, and more
-├── subagents/               # Sub-agent definitions (v2.16.0+, Claude Code plugin runtime)
+├── agents/                  # Sub-agent definitions (v2.16.0+, Claude Code plugin runtime)
 ├── library/                 # Sample output library (95+ real skill outputs)
 ├── scripts/                 # sync-claude, build-release, validate-commands, and CI scripts
 ├── .github/                 # CI workflows and automation

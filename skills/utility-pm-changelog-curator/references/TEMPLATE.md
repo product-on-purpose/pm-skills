@@ -102,6 +102,6 @@ When invoked from `pm-release-conductor` at gate G2 (Version bump + CHANGELOG pr
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-changelog-curator.md`](../../../subagents/pm-changelog-curator.md)
+- Canonical sub-agent: [`agents/pm-changelog-curator.md`](../../../agents/pm-changelog-curator.md)
 - Worked example: `EXAMPLE.md`
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md`](../../../docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md)

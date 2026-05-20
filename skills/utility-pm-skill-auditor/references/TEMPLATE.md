@@ -133,6 +133,6 @@ When invoked from `pm-release-conductor` at gate G0:
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-skill-auditor.md`](../../../subagents/pm-skill-auditor.md)
+- Canonical sub-agent: [`agents/pm-skill-auditor.md`](../../../agents/pm-skill-auditor.md)
 - Worked example: `EXAMPLE.md`
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md`](../../../docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md)

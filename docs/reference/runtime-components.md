@@ -34,7 +34,7 @@ The distinction matters because skills are portable across clients (any client t
 
 ## Sub-Agents Catalog
 
-v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents ship in this release. Each definition lives at `subagents/{name}.md` (path declared in `.claude-plugin/plugin.json` per master plan D31).
+v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents ship in this release. Each definition lives at `agents/{name}.md`, the fixed path Claude Code's plugin runtime auto-discovers (the directory was named `subagents/` through v2.16.x and renamed to `agents/` in v2.17.0 W2; see [project structure](./project-structure.md)).
 
 | Sub-agent | Audience | Trigger | Lifetime | Tool Surface | Composition | Dispatch Skill |
 |---|---|---|---|---|---|---|
@@ -49,10 +49,10 @@ For per-sub-agent cross-client status (Claude Code / Codex CLI / Cursor / Windsu
 
 These invariants hold for every sub-agent in this catalog (enforced by `scripts/validate-agents-md.{sh,ps1}` extended per master plan D19):
 
-- Definition file at `subagents/{name}.md` with YAML frontmatter declaring `name`, `description`, `tools`, `model`, `memory`
-- Companion slash command at `commands/{verb}.md` per master plan D6, paired in `subagents/_pairing.yaml`
+- Definition file at `agents/{name}.md` with YAML frontmatter declaring `name`, `description`, `tools`, `model`, `memory`
+- Companion slash command at `commands/{verb}.md` per master plan D6, paired in `agents/_pairing.yaml`
 - `tools:` frontmatter is a comma-separated scalar (per D20), e.g. `tools: Read, Grep, Glob`
-- `Agent` in `tools:` requires entry in `subagents/_chain-permitted.yaml` per D21 (HARD FAIL otherwise)
+- `Agent` in `tools:` requires entry in `agents/_chain-permitted.yaml` per D21 (HARD FAIL otherwise)
 - Chain depth capped at 2 levels (D14)
 - Severity grammar P0 / P1 / P2 / P3 across all findings output (D15)
 - System prompt is referential, not duplicative (D12)
@@ -99,7 +99,7 @@ User: /pm-critic docs/specs/my-prd.md
 Claude Code: [invokes pm-critic with the artifact path as $ARGUMENTS]
 ```
 
-Companion slash commands per `subagents/_pairing.yaml`:
+Companion slash commands per `agents/_pairing.yaml`:
 
 - `/pm-critic [artifact path]` invokes `pm-critic`
 - `/pm-audit-repo` invokes `pm-skill-auditor`
@@ -111,7 +111,7 @@ Companion slash commands per `subagents/_pairing.yaml`:
 On non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI), sub-agents are not natively available. Users invoke the dispatch skill at `skills/utility-pm-{role}/` which provides the same intent. The dispatch skill SKILL.md detects runtime and either:
 
 1. (Claude Code path) invokes the native sub-agent via `@agent-pm-{role}` syntax, OR
-2. (Non-Claude path) reads `subagents/pm-{role}.md` and executes its system prompt inline
+2. (Non-Claude path) reads `agents/pm-{role}.md` and executes its system prompt inline
 
 See [Cross-Client Compatibility](#cross-client-compatibility) for details. Dispatch skill availability is conditional on Phase 2 spike outcomes; see the integration plan.
 
@@ -123,8 +123,8 @@ Per master plan D11 (amended) + D30:
 
 | Client | Skills access | Sub-agent access |
 |---|---|---|
-| Claude Code | Native plugin install; auto-discovery | Native plugin sub-agent at `subagents/{name}.md` |
-| Codex CLI | Sync to `~/.codex/skills/` per agentskills.io | Dispatch skill at `skills/utility-pm-{role}/` reads `subagents/{name}.md` inline |
+| Claude Code | Native plugin install; auto-discovery | Native plugin sub-agent at `agents/{name}.md` |
+| Codex CLI | Sync to `~/.codex/skills/` per agentskills.io | Dispatch skill at `skills/utility-pm-{role}/` reads `agents/{name}.md` inline |
 | Cursor | Sync to `.cursor/skills/` | Same dispatch pattern |
 | Windsurf | Sync to `.windsurf/skills/` | Same dispatch pattern |
 | Copilot | Sync to `.copilot/skills/` | Same dispatch pattern |
@@ -133,9 +133,9 @@ Per master plan D11 (amended) + D30:
 **Dispatch skill mechanism.** Each dispatch skill is a thin pm-skills utility skill (~50 lines of SKILL.md) that contains conditional instructions:
 
 > If you are running in Claude Code with the pm-skills plugin: invoke `@agent-pm-critic` (or equivalent) on the target.
-> If you are running in any other client: read the canonical agent definition at `subagents/pm-{name}.md` and execute the system prompt body as your operating instructions for this turn.
+> If you are running in any other client: read the canonical agent definition at `agents/pm-{name}.md` and execute the system prompt body as your operating instructions for this turn.
 
-The dispatch skill is portable per agentskills.io. The sub-agent definition file (`subagents/{name}.md`) is portable as plain markdown - any AI that can read a file can execute its prompt body inline. There is no drift risk: the canonical system prompt lives in ONE place (the sub-agent definition), and the dispatch skill references it.
+The dispatch skill is portable per agentskills.io. The sub-agent definition file (`agents/{name}.md`) is portable as plain markdown - any AI that can read a file can execute its prompt body inline. There is no drift risk: the canonical system prompt lives in ONE place (the sub-agent definition), and the dispatch skill references it.
 
 **codex-rescue is NOT a baseline.** Prior framing (pre-amendment) assumed users had Claude Code AND Codex CLI AND the codex-rescue plugin. None of these are universal. codex-rescue is an optional shortcut for the minority of users running both Claude Code and Codex CLI; it is not part of the dispatch path.
 
@@ -167,7 +167,7 @@ pm-release-conductor chains to children at specific gates:
 - G2 (CHANGELOG prep): chains to pm-changelog-curator; receives draft via layered Status envelope per D26
 - G2.5 (commit + re-verify): re-runs G0 chain after committing release-prep edits per D22
 
-Neither child (auditor, curator) chains further. Chain depth = 2 is enforced via `subagents/_chain-permitted.yaml` allowlist + `validate-agents-md` (D21 HARD FAIL).
+Neither child (auditor, curator) chains further. Chain depth = 2 is enforced via `agents/_chain-permitted.yaml` allowlist + `validate-agents-md` (D21 HARD FAIL).
 
 ### Pattern 4: Dispatch skill -> sub-agent or inline execution (cross-client)
 
@@ -181,6 +181,6 @@ For pm-release-conductor specifically (most complex sub-agent), the dispatch ski
 - Subagents integration plan: [`docs/internal/release-plans/v2.16.0/subagents-integration-plan.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/subagents-integration-plan.md)
 - Adversarial review user guide: `docs/guides/adversarial-review.md` (ships in Phase 2)
 - Release runbook contributor guide: `docs/contributing/release-runbook.md` (ships in Phase 5)
-- Pairing manifest: [`subagents/_pairing.yaml`](https://github.com/product-on-purpose/pm-skills/blob/main/subagents/_pairing.yaml)
-- Chain allowlist: [`subagents/_chain-permitted.yaml`](https://github.com/product-on-purpose/pm-skills/blob/main/subagents/_chain-permitted.yaml)
+- Pairing manifest: [`agents/_pairing.yaml`](https://github.com/product-on-purpose/pm-skills/blob/main/agents/_pairing.yaml)
+- Chain allowlist: [`agents/_chain-permitted.yaml`](https://github.com/product-on-purpose/pm-skills/blob/main/agents/_chain-permitted.yaml)
 - Strategy source: `docs/internal/_working/subagents/subagent-strategy_2026-05-07.md`

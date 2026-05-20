@@ -16,7 +16,7 @@ description: What sub-agents are, how they differ from skills, and when to use o
 
 A sub-agent is a Claude Code plugin component that:
 
-1. Lives as a markdown file with YAML frontmatter at the plugin's sub-agents directory (`subagents/{name}.md` in pm-skills, declared via plugin.json's custom `agents` field)
+1. Lives as a markdown file with YAML frontmatter in the plugin's `agents/` directory (`agents/{name}.md` in pm-skills, auto-discovered by Claude Code at the fixed `agents/` path)
 2. Has a `description:` field that Claude Code's intent classifier matches on when delegating work
 3. Runs in its OWN context window with its OWN tool budget when invoked
 4. Returns its output to the parent context (the main conversation, or another sub-agent if chained)
@@ -40,7 +40,7 @@ graph TB
 
 | Dimension | Skill | Sub-agent |
 |---|---|---|
-| **Where it lives** | `skills/{name}/SKILL.md` | `subagents/{name}.md` |
+| **Where it lives** | `skills/{name}/SKILL.md` | `agents/{name}.md` |
 | **What it is** | Reference content the AI reads inline | Separate AI invocation in isolated context |
 | **How it activates** | User invokes via `/skill-name`; AI reads SKILL.md as in-context guidance | Claude Code's intent classifier matches description; OR explicit `/command-name` invocation; OR `@agent-{name}` mention |
 | **Context isolation** | None (runs in main context) | Isolated context window; isolated tool budget |
@@ -73,16 +73,16 @@ Sub-agents compose in 4 patterns documented in [`docs/contributing/sub-agent-des
 3. **Sub-agent -> Sub-agent (chain composition, 2 levels max):** `pm-release-conductor` chains to `pm-skill-auditor` at G0 + G2.5 and `pm-changelog-curator` at G2
 4. **Dispatch skill -> Sub-agent or inline (cross-client):** dispatch skill detects runtime; invokes native sub-agent on Claude Code or executes inline on other clients
 
-The chain-depth-2 limit (per master plan D14) is enforced via `subagents/_chain-permitted.yaml` which lists only the conductor. Auditor + curator system prompts do not include the Agent tool, so they cannot chain further. This caps chain depth at 2 structurally.
+The chain-depth-2 limit (per master plan D14) is enforced via `agents/_chain-permitted.yaml` which lists only the conductor. Auditor + curator system prompts do not include the Agent tool, so they cannot chain further. This caps chain depth at 2 structurally.
 
 ## Cross-Client Compatibility
 
-Sub-agents are a Claude Code plugin feature. Other AI clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) cannot natively load `subagents/{name}.md` files.
+Sub-agents are a Claude Code plugin feature. Other AI clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) cannot natively load `agents/{name}.md` files.
 
 Per master plan D11 (amended) + D30, pm-skills delivers sub-agent intent to non-Claude clients via **dispatch skills** at `skills/utility-pm-{role}/`. The dispatch skill detects runtime:
 
 - **Claude Code path:** invokes the native sub-agent via `@agent-pm-{role}` syntax
-- **Non-Claude path:** reads `subagents/pm-{role}.md` and executes the system prompt inline
+- **Non-Claude path:** reads `agents/pm-{role}.md` and executes the system prompt inline
 
 This pattern is portable per the agentskills.io specification. The single-tool user assumption (D30) means a user typically picks ONE primary AI client; pm-skills delivers full functionality to that client.
 
@@ -90,7 +90,7 @@ This pattern is portable per the agentskills.io specification. The single-tool u
 flowchart LR
     A[User invokes /utility-pm-critic] --> B{Runtime?}
     B -->|Claude Code| C[Dispatch to @agent-pm-critic native sub-agent]
-    B -->|Codex / Cursor / Windsurf / Copilot / Gemini| D[Read subagents/pm-critic.md; execute inline]
+    B -->|Codex / Cursor / Windsurf / Copilot / Gemini| D[Read agents/pm-critic.md; execute inline]
     C --> E[Layered output: findings + Status Summary + Status YAML]
     D --> E
 ```

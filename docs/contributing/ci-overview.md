@@ -84,7 +84,7 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | Validator | What It Catches |
 |---|---|
 | `lint-skills-frontmatter` | Skill YAML frontmatter consistency (name, classification, version, license, metadata, phase when applicable) |
-| `validate-agents-md` | AGENTS.md skill paths + sub-agent names in sync with `skills/` and `subagents/` directories (extended in v2.16 to recognize sub-agent directory) |
+| `validate-agents-md` | AGENTS.md skill paths + sub-agent names in sync with `skills/` and `agents/` directories (extended in v2.16 to recognize sub-agent directory) |
 | `validate-commands` | Each command file under `commands/` references a valid `skills/*/SKILL.md` path |
 | `validate-meeting-skills-family` | Meeting Skills Family contract enforcement (5 members; v2.11.0) |
 | `validate-foundation-sprint-skills-family --strict` | Foundation Sprint Family contract enforcement (7 members; v2.15.0) |

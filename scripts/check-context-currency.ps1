@@ -12,13 +12,13 @@ if (-not $changelogMatch.Success) {
 }
 $changelogVersion = "v$($changelogMatch.Groups[1].Value)"
 
-# Check each AGENTS/*/CONTEXT.md
-$agentsDir = Join-Path $Root "AGENTS"
+# Check each _agent-context/*/CONTEXT.md
+$agentsDir = Join-Path $Root "_agent-context"
 $contextFiles = Get-ChildItem -Path $agentsDir -Recurse -Depth 2 -Filter "CONTEXT.md" |
-    Where-Object { $_.FullName -match 'AGENTS[\\/][^\\/]+[\\/]CONTEXT\.md$' }
+    Where-Object { $_.FullName -match '_agent-context[\\/][^\\/]+[\\/]CONTEXT\.md$' }
 
 if ($contextFiles.Count -eq 0) {
-    Write-Host "[FAIL] No AGENTS/*/CONTEXT.md files found"
+    Write-Host "[FAIL] No _agent-context/*/CONTEXT.md files found"
     exit 1
 }
 

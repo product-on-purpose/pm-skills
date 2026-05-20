@@ -42,7 +42,7 @@ The same sub-agent produces structurally identical output across threads (P0/P1/
 
 ## Cross-References
 
-- Sub-agent definitions: [`subagents/`](../../subagents/)
+- Sub-agent definitions: [`agents/`](../../agents/)
 - Dispatch skills (cross-client): [`skills/utility-pm-{role}/`](../../skills/)
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
 - Adversarial review user guide (pm-critic): [`docs/guides/adversarial-review.md`](../../docs/guides/adversarial-review.md)

@@ -1,6 +1,6 @@
 ---
 name: utility-pm-changelog-curator
-description: Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-changelog-curator); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads subagents/pm-changelog-curator.md and executes the system prompt inline. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft + Status Summary prose + Status YAML envelope per master plan D26) with hidden justification comments for maintainer audit. Refuses on dirty working tree unless --committed-only is passed.
+description: Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-changelog-curator); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-changelog-curator.md and executes the system prompt inline. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft + Status Summary prose + Status YAML envelope per master plan D26) with hidden justification comments for maintainer audit. Refuses on dirty working tree unless --committed-only is passed.
 license: Apache-2.0
 metadata:
   classification: utility
@@ -13,7 +13,7 @@ metadata:
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # PM Changelog Curator (Dispatch Skill)
 
-Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `subagents/pm-changelog-curator.md` and executes inline on non-Claude clients.
+Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `agents/pm-changelog-curator.md` and executes inline on non-Claude clients.
 
 ## When to Use
 
@@ -40,7 +40,7 @@ Invoke `@agent-pm-changelog-curator` with the user's arguments. Pass `--since-ta
 
 Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, or any other client without native pm-skills plugin sub-agent support:
 
-1. Read the canonical sub-agent definition at `subagents/pm-changelog-curator.md`
+1. Read the canonical sub-agent definition at `agents/pm-changelog-curator.md`
 2. Execute the system prompt body in that file as your operating instructions
 3. Run the 8-step drafting flow documented in the sub-agent definition (establish range -> read hygiene rules -> check working tree -> enumerate commits -> classify -> group -> rewrite -> determine target version -> emit draft)
 4. Apply `--since-tag`, `--target-version`, and `--committed-only` arguments from `$ARGUMENTS`
@@ -59,7 +59,7 @@ See [Sub-Agent Compatibility Matrix](../../docs/reference/sub-agent-compatibilit
 
 ## Reference Files
 
-- Canonical sub-agent definition: [`subagents/pm-changelog-curator.md`](../../subagents/pm-changelog-curator.md)
+- Canonical sub-agent definition: [`agents/pm-changelog-curator.md`](../../agents/pm-changelog-curator.md)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md`](../../docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md)
 - CHANGELOG hygiene rules source: `CLAUDE.md` (repo root)
 - Existing CHANGELOG.md format: `CHANGELOG.md` (root); v2.15.1 + v2.15.2 entries are canonical exemplars

@@ -5,7 +5,7 @@ description: Worked example of utility-pm-critic dispatch skill execution on a n
 
 # Example: pm-critic Dispatch on Codex CLI
 
-This example shows what `utility-pm-critic` produces when invoked on a non-Claude client (here, Codex CLI). The dispatch skill reads `subagents/pm-critic.md` as its operating instructions for the turn and executes the review inline.
+This example shows what `utility-pm-critic` produces when invoked on a non-Claude client (here, Codex CLI). The dispatch skill reads `agents/pm-critic.md` as its operating instructions for the turn and executes the review inline.
 
 ## Invocation
 
@@ -16,7 +16,7 @@ codex> /utility-pm-critic library/skill-output-samples/deliver-prd/sample_delive
 ## Skill behavior
 
 1. **Runtime detection.** The skill detects it is running in Codex CLI (not Claude Code with pm-skills plugin), so it takes the non-Claude branch.
-2. **Reads canonical sub-agent definition.** Loads `subagents/pm-critic.md` as the operating system prompt for this turn.
+2. **Reads canonical sub-agent definition.** Loads `agents/pm-critic.md` as the operating system prompt for this turn.
 3. **Reads target artifact.** Loads the Brainshelf Resurface PRD at the supplied path.
 4. **Reads standards docs.** Per the pm-critic system prompt's referential discipline, reads `skills/deliver-prd/SKILL.md` (PRD contract), `skills/deliver-edge-cases/SKILL.md` (edge case completeness), and `skills/define-hypothesis/SKILL.md` (hypothesis-PRD coherence).
 5. **Produces findings.** Returns the three-section layered output below.
@@ -133,7 +133,7 @@ The cross-client consistency is the validation criterion for Phase 2 GATE B. If 
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-critic.md`](../../../subagents/pm-critic.md)
+- Canonical sub-agent: [`agents/pm-critic.md`](../../../agents/pm-critic.md)
 - Skill manifest: `SKILL.md`
 - Output template: `TEMPLATE.md`
 - Native sub-agent sample: [`library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md`](../../../library/sub-agent-samples/pm-critic/sample_pm-critic_brainshelf_prd-review.md)

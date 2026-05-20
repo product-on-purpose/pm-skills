@@ -1,6 +1,6 @@
 ---
 title: Project Structure
-description: High-level walkthrough of the pm-skills repository layout - skills/, commands/, _workflows/, docs/, AGENTS/, .github/ - explaining which folder serves which purpose at the repo level for contributors.
+description: High-level walkthrough of the pm-skills repository layout - skills/, commands/, _workflows/, docs/, _agent-context/, .github/ - explaining which folder serves which purpose at the repo level for contributors.
 ---
 
 ## Table of Contents
@@ -10,7 +10,7 @@ description: High-level walkthrough of the pm-skills repository layout - skills/
 - [/workflows/ . Workflows](#workflows--workflows)
 - [/docs/ . Documentation](#docs--documentation)
 - [/templates/ . Skill Templates](#templates--skill-templates)
-- [/AGENTS/ . AI Agent Context](#agents--ai-agent-context)
+- [/_agent-context/ . AI Agent Context](#_agent-context--ai-agent-context)
 - [/.github/ . GitHub Configuration](#github--github-configuration)
 - [Root Files](#root-files)
 - [File Naming Conventions](#file-naming-conventions)
@@ -25,17 +25,17 @@ pm-skills/
 ├── skills/                     # Core PM skills (59 total in v2.16.0: 26 phase + 8 foundation + 10 utility + 15 tool; flat layout)
 ├── commands/                   # Slash command markdown files
 ├── _workflows/                 # Workflows source (12 in v2.15.0)
-├── subagents/                  # Sub-agent definitions (v2.16.0+; declared via .claude-plugin/plugin.json "agents" path)
+├── agents/                     # Sub-agent definitions (v2.16.0+; auto-discovered by Claude Code's plugin runtime)
 │   ├── _pairing.yaml           # Sub-agent + companion slash command pairings
 │   └── _chain-permitted.yaml   # Allowlist of sub-agents permitted to use Agent tool (D14 + D21)
 ├── docs/                       # Documentation (incl. templates)
 │   └── templates/              # Skill creation templates
-├── AGENTS/                     # AI agent session context (separate from subagents/; per master plan D31)
+├── _agent-context/             # AI agent session context (separate from agents/; coordination + session logs)
 ├── .github/                    # GitHub configuration
 └── [root files]                # README, LICENSE, etc.
 ```
 
-Note on `subagents/` vs `AGENTS/`: these are distinct directories with different purposes. `subagents/` (lowercase) holds Claude Code plugin sub-agent definitions; `AGENTS/` (uppercase) holds agent-coordination context (session logs, claude/, codex/, DECISIONS.md). Per master plan D31, the sub-agents directory uses the custom name `subagents/` (declared in plugin.json) to avoid Windows NTFS / macOS APFS case-insensitivity collision with the existing AGENTS/ tracked directory.
+Note on `agents/` vs `_agent-context/`: these are distinct directories with different purposes. `agents/` holds Claude Code plugin sub-agent definitions (auto-discovered at the fixed `agents/` path); `_agent-context/` holds agent-coordination context (session logs, claude/, codex/, DECISIONS.md). The coordination directory was named `AGENTS/` through v2.16.x; v2.17.0 (W2) renamed it to `_agent-context/` so the lowercase `agents/` name no longer collides with it on case-insensitive filesystems (Windows NTFS, macOS APFS), freeing `agents/` for native sub-agent discovery.
 
 ---
 
@@ -268,12 +268,12 @@ Use these templates when contributing a new skill. See [creating-pm-skills.md](.
 
 ---
 
-## `/AGENTS/` . AI Agent Context
+## `/_agent-context/` . AI Agent Context
 
 Session continuity for AI coding assistants. Contains context, decisions, and session logs.
 
 ```
-AGENTS/
+_agent-context/
 ├── DECISIONS.md              # Shared cross-agent decisions
 ├── SESSION-LOG/              # Shared session logs (model encoded in filename:
 │                             #   <date>[_<HH-MM>]_<model>_<scope>.md)

@@ -76,7 +76,7 @@ Before invoking the runbook (manually or via `/pm-release v{X.Y.Z}`):
 1. **Working tree clean** - `git status --porcelain` empty (no uncommitted changes)
 2. **Pre-tag validator bundle green** - run `bash scripts/pre-tag-validate.sh` (Linux/macOS) or `pwsh scripts/pre-tag-validate.ps1` (Windows); exit 0 required. This canonical orchestration script runs the full enforcing validator inventory: lint-skills-frontmatter, validate-commands, validate-agents-md, family validators (Meeting + FS + DS) all in --strict mode, check-internal-link-validity --strict, validate-docs-frontmatter --strict, check-no-body-h1 --strict, check-count-consistency --strict, check-landing-page-counts --strict, check-workflow-generator-coverage, check-agents-md-command-sync, check-generated-content-untouched, validate-mcp-sync, check-mcp-impact. Codified per the `feedback_pre-tag-validator-bundle` memory rule established 2026-05-16.
 3. **Em-dash sweep clean** - run `scripts/check-em-dashes` (canonical implementation per master plan D27); scope and allowlist owned by that script; zero non-allowlisted hits required
-4. **Aggregate counters match declared** - re-derive skill count, command count, sub-agent count, validator count, family count; compare to declared values in `AGENTS/claude/CONTEXT.md`, `AGENTS.md`, `README.md`. Zero drift. Implementation EXTENDS `check-landing-page-counts` to cover internal-context surfaces per ci-plan v2.15.1 carry-in reconciliation.
+4. **Aggregate counters match declared** - re-derive skill count, command count, sub-agent count, validator count, family count; compare to declared values in `_agent-context/claude/CONTEXT.md`, `AGENTS.md`, `README.md`. Zero drift. Implementation EXTENDS `check-landing-page-counts` to cover internal-context surfaces per ci-plan v2.15.1 carry-in reconciliation.
 5. **Cross-cutting audit clean** - chain to `pm-skill-auditor` for the full audit. Auditor returns layered output (full findings + Status Summary + Status YAML). Zero P0 findings required. P1+P2+P3 surfaced for maintainer judgment.
 6. **Required files exist** - master plan at `docs/internal/release-plans/v{target}/plan_v{target}.md` exists and is marked READY TO TAG (or equivalent status); release notes draft exists or scheduled for G2
 
@@ -198,12 +198,12 @@ The maintainer running this runbook BY HAND (without any sub-agent) follows the 
 
 ## Related Documentation
 
-- Sub-agent implementation: [`subagents/pm-release-conductor.md`](https://github.com/product-on-purpose/pm-skills/blob/main/subagents/pm-release-conductor.md) (referential prompt; reads this runbook at invocation time)
+- Sub-agent implementation: [`agents/pm-release-conductor.md`](https://github.com/product-on-purpose/pm-skills/blob/main/agents/pm-release-conductor.md) (referential prompt; reads this runbook at invocation time)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-release-conductor.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/spec_pm-release-conductor.md)
 - Dispatch skill (cross-client): [`skills/utility-pm-release-conductor/SKILL.md`](https://github.com/product-on-purpose/pm-skills/blob/main/skills/utility-pm-release-conductor/SKILL.md) (VALIDATED on Codex CLI 2026-05-17)
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}` (G0 + G2.5 sub-check entry point)
-- Chain children: `subagents/pm-skill-auditor.md`, `subagents/pm-changelog-curator.md`
-- Chain allowlist: `subagents/_chain-permitted.yaml` (lists only `pm-release-conductor`)
+- Chain children: `agents/pm-skill-auditor.md`, `agents/pm-changelog-curator.md`
+- Chain allowlist: `agents/_chain-permitted.yaml` (lists only `pm-release-conductor`)
 - Companion command: [`commands/pm-release.md`](https://github.com/product-on-purpose/pm-skills/blob/main/commands/pm-release.md)
 - v2.15.1 clean-worktree runbook (predecessor for the manual maintainer flow): `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`
 - Adversarial review user guide (G1 context): [`docs/guides/adversarial-review.md`](../guides/adversarial-review.md)

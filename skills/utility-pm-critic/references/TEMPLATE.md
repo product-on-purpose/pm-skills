@@ -41,7 +41,7 @@ When `utility-pm-critic` produces output (either via native sub-agent dispatch o
 (same per-finding structure as P0; one-line findings acceptable)
 ```
 
-If no findings at a severity, omit that section heading. If zero findings total, output the canonical "passes adversarial review" line per `subagents/pm-critic.md`.
+If no findings at a severity, omit that section heading. If zero findings total, output the canonical "passes adversarial review" line per `agents/pm-critic.md`.
 
 ## Section 2: Status Summary (Prose, for Human Readers)
 
@@ -54,7 +54,7 @@ The {artifact type} review returned N findings: {P0: X, P1: Y, P2: Z, P3: W}.
 
 **Recommended next action:** {explicit recommendation - revise with producing skill, defer to maintainer judgment, accept all P2/P3 and ship, etc.}
 
-**Refusal triggered:** {yes/no. If yes, explain why. Refusal protocols are in subagents/pm-critic.md.}
+**Refusal triggered:** {yes/no. If yes, explain why. Refusal protocols are in agents/pm-critic.md.}
 ```
 
 This section is for the human reader (PM or maintainer). It captures the "what does this mean" in prose so the reader does not have to interpret the findings table to make a decision.
@@ -105,6 +105,6 @@ The YAML block enables programmatic consumption: a parent sub-agent (e.g., `pm-r
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-critic.md`](../../../subagents/pm-critic.md)
+- Canonical sub-agent: [`agents/pm-critic.md`](../../../agents/pm-critic.md)
 - Worked example: `EXAMPLE.md`
 - User guide: [`docs/guides/adversarial-review.md`](../../../docs/guides/adversarial-review.md)

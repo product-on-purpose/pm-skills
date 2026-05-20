@@ -1,6 +1,6 @@
 ---
 name: utility-pm-release-conductor
-description: Walk the guided release runbook (6 gates G0/G1/G2/G2.5/G3/G4) via the pm-release-conductor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-release-conductor with native chain composition to pm-skill-auditor at G0 and pm-changelog-curator at G2); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads subagents/pm-release-conductor.md and inlines auditor + curator behaviors at G0 + G2 via reference-and-execute-inline pattern (because non-Claude clients cannot natively chain to other sub-agents). Returns gate-by-gate output with explicit confirmation pauses, refuses bypass attempts, tags only the G2.5-captured SHA per master plan D22.
+description: Walk the guided release runbook (6 gates G0/G1/G2/G2.5/G3/G4) via the pm-release-conductor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-release-conductor with native chain composition to pm-skill-auditor at G0 and pm-changelog-curator at G2); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-release-conductor.md and inlines auditor + curator behaviors at G0 + G2 via reference-and-execute-inline pattern (because non-Claude clients cannot natively chain to other sub-agents). Returns gate-by-gate output with explicit confirmation pauses, refuses bypass attempts, tags only the G2.5-captured SHA per master plan D22.
 license: Apache-2.0
 metadata:
   classification: utility
@@ -13,7 +13,7 @@ metadata:
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # PM Release Conductor (Dispatch Skill)
 
-Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `subagents/pm-release-conductor.md` and inlines chain composition on non-Claude clients via "reference + execute inline" pattern.
+Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `agents/pm-release-conductor.md` and inlines chain composition on non-Claude clients via "reference + execute inline" pattern.
 
 > **Status summary (v2.16.0):** PRODUCTION on Claude Code (native sub-agent path). DRY-RUN VALIDATED on Codex CLI 2026-05-17 per [`gate-test-results_2026-05-17_codex.md`](../../docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md); LIVE release on Codex CLI is NOT independently exercised, so use with caution and run `--dry-run` first as a rehearsal. EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI (UNTESTED at v2.16.0 ship).
 >
@@ -44,12 +44,12 @@ Invoke `@agent-pm-release-conductor` with the user's target version + optional f
 
 Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, or any other client without native pm-skills plugin sub-agent support:
 
-1. Read the canonical sub-agent definition at `subagents/pm-release-conductor.md`
+1. Read the canonical sub-agent definition at `agents/pm-release-conductor.md`
 2. Read the canonical runbook at `docs/contributing/release-runbook.md` (the conductor's referential source for gate definitions)
 3. Execute the system prompt body as your operating instructions
 4. Walk the 6 gates inline. At gates that require chain composition:
-   - **G0 (Pre-tag readiness):** instead of chaining to pm-skill-auditor, read `subagents/pm-skill-auditor.md` and execute the auditor's 4-step audit flow inline. Capture the layered output (full findings + Status Summary + Status YAML). Treat the Status YAML as your G0 sub-check 5 input.
-   - **G2 (Version bump + CHANGELOG prep):** instead of chaining to pm-changelog-curator, read `subagents/pm-changelog-curator.md` and execute the curator's 8-step drafting flow inline. Capture the layered output. Treat the Status YAML as your G2 sub-check 3 input.
+   - **G0 (Pre-tag readiness):** instead of chaining to pm-skill-auditor, read `agents/pm-skill-auditor.md` and execute the auditor's 4-step audit flow inline. Capture the layered output (full findings + Status Summary + Status YAML). Treat the Status YAML as your G0 sub-check 5 input.
+   - **G2 (Version bump + CHANGELOG prep):** instead of chaining to pm-changelog-curator, read `agents/pm-changelog-curator.md` and execute the curator's 8-step drafting flow inline. Capture the layered output. Treat the Status YAML as your G2 sub-check 3 input.
    - **G2.5 (Re-verify):** re-execute the inlined auditor at sub-check 5 against the new HEAD.
 5. Pause at each gate boundary for explicit maintainer confirmation
 6. Refuse bypass attempts; respect refusal protocols
@@ -68,11 +68,11 @@ Because non-Claude clients cannot natively chain, the auditor and curator behavi
 
 ## Reference Files
 
-- Canonical sub-agent definition: [`subagents/pm-release-conductor.md`](../../subagents/pm-release-conductor.md)
+- Canonical sub-agent definition: [`agents/pm-release-conductor.md`](../../agents/pm-release-conductor.md)
 - Canonical runbook: [`docs/contributing/release-runbook.md`](../../docs/contributing/release-runbook.md)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-release-conductor.md`](../../docs/internal/release-plans/v2.16.0/spec_pm-release-conductor.md)
-- Chain child (inlined at G0 + G2.5): [`subagents/pm-skill-auditor.md`](../../subagents/pm-skill-auditor.md)
-- Chain child (inlined at G2): [`subagents/pm-changelog-curator.md`](../../subagents/pm-changelog-curator.md)
+- Chain child (inlined at G0 + G2.5): [`agents/pm-skill-auditor.md`](../../agents/pm-skill-auditor.md)
+- Chain child (inlined at G2): [`agents/pm-changelog-curator.md`](../../agents/pm-changelog-curator.md)
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}`
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
 - Output template: `references/TEMPLATE.md`

@@ -58,14 +58,14 @@ if (-not $Fail) {
 }
 
 # Sub-agent recognition extension (v2.16.0 per master plan D19).
-# Enumerates subagents/*.md files (excluding _pairing.yaml, _chain-permitted.yaml,
+# Enumerates agents/*.md files (excluding _pairing.yaml, _chain-permitted.yaml,
 # README.md) and verifies each agent NAME appears at least once in AGENTS.md.
 # Design wrinkle per D5 + D12: AGENTS.md references sub-agents by NAME (not path),
 # with runtime-components.md as canonical catalog. So this check is name-based,
 # not path-based like the skills/ scan above.
-$subagentsDir = Join-Path $Root "subagents"
-if (Test-Path $subagentsDir -PathType Container) {
-    $agentFiles = Get-ChildItem -Path $subagentsDir -Filter "*.md" -File |
+$agentsDir = Join-Path $Root "agents"
+if (Test-Path $agentsDir -PathType Container) {
+    $agentFiles = Get-ChildItem -Path $agentsDir -Filter "*.md" -File |
         Where-Object { $_.BaseName -notmatch '^_' -and $_.BaseName -ne 'README' } |
         ForEach-Object { $_.BaseName }
 
@@ -73,13 +73,13 @@ if (Test-Path $subagentsDir -PathType Container) {
         $subagentFail = $false
         foreach ($agent in $agentFiles) {
             if ($agentsContent -notmatch [regex]::Escape($agent)) {
-                Write-Host "[FAIL] AGENTS.md : missing reference to sub-agent $agent (file: subagents/$agent.md)"
+                Write-Host "[FAIL] AGENTS.md : missing reference to sub-agent $agent (file: agents/$agent.md)"
                 $Fail = $true
                 $subagentFail = $true
             }
         }
         if (-not $subagentFail) {
-            Write-Host "[OK] AGENTS.md references $($agentFiles.Count) sub-agents from subagents/ directory"
+            Write-Host "[OK] AGENTS.md references $($agentFiles.Count) sub-agents from agents/ directory"
         }
     }
 }

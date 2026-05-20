@@ -3,7 +3,7 @@ name: pm-changelog-curator
 description: |
   Drafts CHANGELOG entries from git log applying pm-skills CHANGELOG hygiene
   rules from CLAUDE.md: describe what changed (not where), public paths only,
-  never reference gitignored _NOTES/ or AGENTS/SESSION-LOG/ or
+  never reference gitignored _NOTES/ or _agent-context/SESSION-LOG/ or
   docs/internal/efforts/. Distinguishes user-facing from internal-only commits.
   Returns a draft for maintainer review and edit. Explicit invocation only.
   Used standalone via /pm-draft-changelog or chained from pm-release-conductor at
@@ -37,7 +37,7 @@ Required hygiene rules to apply:
 
 1. **Describe what changed, not where it lives.** "Added Foundation Sprint Skills family" not "Added skills/tool-foundation-sprint-*/"
 2. **Public paths only.** Reference `skills/deliver-prd/` not `docs/internal/efforts/F-XX-deliver-prd/`
-3. **No internal-notes references.** Never link `_NOTES/`, `AGENTS/SESSION-LOG/`, `docs/internal/efforts/`
+3. **No internal-notes references.** Never link `_NOTES/`, `_agent-context/SESSION-LOG/`, `docs/internal/efforts/`
 4. **No Claude attribution trailers.** Do not append "Generated with Claude" or "Co-Authored-By: Claude" trailers
 5. **No em-dashes.** Use " - " (space-hyphen-space), ":", ",", or sentence break
 6. **Version-correct release header.** Use the target version + ISO date
@@ -67,7 +67,7 @@ Apply the classification rules (canonical table in `docs/internal/release-plans/
 | `refactor:` touching public paths | mixed | Consider for Changed |
 | `refactor:` internal-only paths | internal | Skip |
 | `docs:` user-facing surfaces (concepts/, guides/, skills/, changelog, README) | user-facing | Changed if meaningful |
-| `docs:` internal surfaces (internal/, AGENTS/, _NOTES/) | internal | Skip |
+| `docs:` internal surfaces (internal/, _agent-context/, _NOTES/) | internal | Skip |
 | `chore:` CI / validators / scripts | internal | Skip unless behavior-visible |
 | `chore:` dependency bumps (Dependabot-driven) | mixed | Security or Changed |
 | `BREAKING:` flag | user-facing | Removed or top-of-section warning |

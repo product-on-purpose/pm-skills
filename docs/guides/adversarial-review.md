@@ -26,7 +26,7 @@ flowchart TD
     Author[Author runs PM skill<br/>/deliver-prd, /foundation-okr-writer, etc.] --> Artifact[Artifact produced]
     Artifact -->|Claude Code default| Proactive[pm-critic auto-fires<br/>Path 1: Proactive]
     Artifact -->|Explicit re-review| Explicit[/pm-critic invoked<br/>Path 2 or 3]
-    Artifact -->|Non-Claude client| Dispatch[utility-pm-critic dispatch skill<br/>reads subagents/pm-critic.md inline]
+    Artifact -->|Non-Claude client| Dispatch[utility-pm-critic dispatch skill<br/>reads agents/pm-critic.md inline]
     Proactive --> Findings[P0 / P1 / P2 / P3 findings<br/>with concrete fix per finding]
     Explicit --> Findings
     Dispatch --> Findings
@@ -197,14 +197,14 @@ The dispatch skill at `skills/utility-pm-critic/SKILL.md` provides the same inte
 /utility-pm-critic [optional path]
 ```
 
-The dispatch skill detects it is running on a non-Claude client, reads `subagents/pm-critic.md` as its operating system prompt for the turn, executes the review inline, and returns findings in the same P0/P1/P2/P3 format. No native sub-agent infrastructure required.
+The dispatch skill detects it is running on a non-Claude client, reads `agents/pm-critic.md` as its operating system prompt for the turn, executes the review inline, and returns findings in the same P0/P1/P2/P3 format. No native sub-agent infrastructure required.
 
 Functional differences on non-Claude clients (acceptable per single-tool user assumption):
 
 - **No proactive trigger.** The auto-fire after PM-artifact-producing skills is a Claude Code frontmatter feature. On non-Claude clients, invocation is explicit-only.
 - **No `.claude/agents/` overrides.** The Claude Code per-user override directory has no portable equivalent. Edit the dispatch skill SKILL.md locally instead.
 
-The dispatch mechanism was VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE B PASS for pm-critic dispatch; 7 findings produced against the canonical Brainshelf PRD sample matching the expected output shape). Evidence at [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md). Cursor, Windsurf, Copilot CLI, and Gemini CLI are untested but expected to work. If a specific client cannot reliably execute the inline pattern, fall back to the Codex-rescue path below or to reading `subagents/pm-critic.md` manually.
+The dispatch mechanism was VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE B PASS for pm-critic dispatch; 7 findings produced against the canonical Brainshelf PRD sample matching the expected output shape). Evidence at [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md). Cursor, Windsurf, Copilot CLI, and Gemini CLI are untested but expected to work. If a specific client cannot reliably execute the inline pattern, fall back to the Codex-rescue path below or to reading `agents/pm-critic.md` manually.
 
 ### Codex-rescue path (optional shortcut)
 
@@ -238,7 +238,7 @@ Copy the agent definition to your per-user Claude Code agent dir and edit:
 
 ```bash
 mkdir -p ~/.claude/agents
-cp subagents/pm-critic.md ~/.claude/agents/pm-critic.md
+cp agents/pm-critic.md ~/.claude/agents/pm-critic.md
 # Edit ~/.claude/agents/pm-critic.md to remove "use proactively after any..." from the description
 ```
 
@@ -250,7 +250,7 @@ Per Claude Code plugin convention, you can disable individual sub-agents. Refer 
 
 ## Related Documentation
 
-- Sub-agent definition: [`subagents/pm-critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/subagents/pm-critic.md)
+- Sub-agent definition: [`agents/pm-critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/agents/pm-critic.md)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/spec_pm-critic.md)
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../reference/runtime-components.md)
 - Dispatch skill (cross-client): `skills/utility-pm-critic/SKILL.md` (VALIDATED on Codex CLI 2026-05-17)

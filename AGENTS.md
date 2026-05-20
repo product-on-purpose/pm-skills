@@ -253,21 +253,21 @@ Checks for newer pm-skills releases, compares local vs. latest version, previews
 #### pm-critic
 **Path:** `skills/utility-pm-critic/SKILL.md`
 
-Cross-client dispatch wrapper for the `pm-critic` sub-agent (v2.16.0+). Runs adversarial review on a PM artifact and returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26. Dispatches natively on Claude Code with the pm-skills plugin (invokes `@agent-pm-critic`); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads `subagents/pm-critic.md` and executes the system prompt inline. Use to review PRDs, OKR sets, personas, lean canvases, meeting recaps, interview syntheses, edge case catalogs, or other PM artifacts.
+Cross-client dispatch wrapper for the `pm-critic` sub-agent (v2.16.0+). Runs adversarial review on a PM artifact and returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26. Dispatches natively on Claude Code with the pm-skills plugin (invokes `@agent-pm-critic`); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads `agents/pm-critic.md` and executes the system prompt inline. Use to review PRDs, OKR sets, personas, lean canvases, meeting recaps, interview syntheses, edge case catalogs, or other PM artifacts.
 
 ---
 
 #### pm-skill-auditor
 **Path:** `skills/utility-pm-skill-auditor/SKILL.md`
 
-Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent (v2.16.0+). Runs a repo-wide cross-cutting governance audit: invokes the full enforcing validator suite (via `scripts/pre-tag-validate.{sh,ps1}` as canonical orchestration entry point), aggregates results, runs cross-cutting checks no single validator catches alone (skill-without-command, sample gaps, family contract orphans, etc.), re-derives aggregate counters against declared values, and returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-skill-auditor`); on non-Claude clients reads `subagents/pm-skill-auditor.md` and executes inline. Use pre-release for governance check or for repo-health audits.
+Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent (v2.16.0+). Runs a repo-wide cross-cutting governance audit: invokes the full enforcing validator suite (via `scripts/pre-tag-validate.{sh,ps1}` as canonical orchestration entry point), aggregates results, runs cross-cutting checks no single validator catches alone (skill-without-command, sample gaps, family contract orphans, etc.), re-derives aggregate counters against declared values, and returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-skill-auditor`); on non-Claude clients reads `agents/pm-skill-auditor.md` and executes inline. Use pre-release for governance check or for repo-health audits.
 
 ---
 
 #### pm-changelog-curator
 **Path:** `skills/utility-pm-changelog-curator/SKILL.md`
 
-Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent (v2.16.0+). Drafts CHANGELOG entries from git log between two tags. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft with hidden justification comments + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-changelog-curator`); on non-Claude clients reads `subagents/pm-changelog-curator.md` and executes inline. Refuses on dirty working tree unless `--committed-only` passed. Use during release prep (gate G2 of the release runbook).
+Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent (v2.16.0+). Drafts CHANGELOG entries from git log between two tags. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft with hidden justification comments + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-changelog-curator`); on non-Claude clients reads `agents/pm-changelog-curator.md` and executes inline. Refuses on dirty working tree unless `--committed-only` passed. Use during release prep (gate G2 of the release runbook).
 
 ---
 
@@ -486,7 +486,7 @@ Four sub-agents ship in v2.16.0:
 - `pm-changelog-curator` - CHANGELOG drafter from git log
 - `pm-release-conductor` - guided release runbook with 6 gates (G0, G1, G2, G2.5, G3, G4)
 
-The canonical sub-agents catalog with full audience, trigger, lifetime, tool surface, and composition data lives at [`docs/reference/runtime-components.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md). Sub-agent definition files live at `subagents/{name}.md` (path declared via `.claude-plugin/plugin.json` `agents` field per master plan D31; see runtime-components.md for the rationale on the non-default directory name).
+The canonical sub-agents catalog with full audience, trigger, lifetime, tool surface, and composition data lives at [`docs/reference/runtime-components.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md). Sub-agent definition files live at `agents/{name}.md`, the fixed path Claude Code's plugin runtime auto-discovers (renamed from `subagents/` in v2.17.0 W2).
 
 ### Cross-client compatibility
 

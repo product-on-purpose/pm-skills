@@ -1,6 +1,6 @@
 ---
 name: utility-pm-critic
-description: Run adversarial review on a PM artifact via the pm-critic sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-critic); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads subagents/pm-critic.md and executes the system prompt inline. Returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26.
+description: Run adversarial review on a PM artifact via the pm-critic sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-critic); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-critic.md and executes the system prompt inline. Returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26.
 license: Apache-2.0
 metadata:
   classification: utility
@@ -15,7 +15,7 @@ metadata:
 
 This skill is a cross-client dispatch wrapper for the `pm-critic` sub-agent. It exists so that users on non-Claude clients can run adversarial review with the same intent as Claude Code users, without depending on native plugin sub-agent infrastructure.
 
-Per master plan D11 (amended) + D30, sub-agents are a Claude Code plugin feature. Non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) cannot natively load `subagents/pm-critic.md`. This skill bridges the gap.
+Per master plan D11 (amended) + D30, sub-agents are a Claude Code plugin feature. Non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) cannot natively load `agents/pm-critic.md`. This skill bridges the gap.
 
 ## When to Use
 
@@ -42,7 +42,7 @@ Invoke `@agent-pm-critic` on the target artifact. Pass the artifact path as argu
 
 Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, ChatGPT, or any other client without native pm-skills plugin sub-agent support:
 
-1. Read the canonical sub-agent definition at `subagents/pm-critic.md`
+1. Read the canonical sub-agent definition at `agents/pm-critic.md`
 2. Execute the system prompt body in that file as your operating instructions for this turn
 3. Read the target PM artifact specified by the user (path from `$ARGUMENTS`, or most recently produced artifact in session)
 4. Read the canonical standards docs referenced by the pm-critic system prompt for the artifact type (e.g., `skills/foundation-okr-writer/SKILL.md` for OKR sets, `skills/deliver-prd/SKILL.md` for PRDs)
@@ -76,7 +76,7 @@ If any of these are unreliable on a given client, that client cannot use this di
 
 ## Reference Files
 
-- Canonical sub-agent definition: [`subagents/pm-critic.md`](../../subagents/pm-critic.md)
+- Canonical sub-agent definition: [`agents/pm-critic.md`](../../agents/pm-critic.md)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-critic.md`](../../docs/internal/release-plans/v2.16.0/spec_pm-critic.md)
 - User-facing guide: [`docs/guides/adversarial-review.md`](../../docs/guides/adversarial-review.md)
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)

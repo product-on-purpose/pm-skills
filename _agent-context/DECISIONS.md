@@ -1,6 +1,6 @@
 # Shared Decisions
 
-Purpose: cross-LLM decision log for pm-skills. Per-agent details remain in `AGENTS/<agent>/DECISIONS.md`; this file holds the canonical summary and pointers.
+Purpose: cross-LLM decision log for pm-skills. Per-agent details remain in `_agent-context/<agent>/DECISIONS.md`; this file holds the canonical summary and pointers.
 
 ## 2026-03-22: Internal docs stay tracked but do not ship in release ZIPs
 **Status:** Accepted  
@@ -28,9 +28,9 @@ Purpose: cross-LLM decision log for pm-skills. Per-agent details remain in `AGEN
 
 ## 2026-03-15: First-class agent continuity surfaces
 **Status:** Accepted  
-**Summary:** Keep both `AGENTS/claude/` and `AGENTS/codex/` first-class continuity surfaces; do not introduce a central `AGENTS/CONTEXT.md`.  
+**Summary:** Keep both `_agent-context/claude/` and `_agent-context/codex/` first-class continuity surfaces; do not introduce a central `_agent-context/CONTEXT.md`.  
 **Applies to:** Claude, Codex, continuity docs, future guardrail work.  
-**Consequences:** Shared decisions live in `AGENTS/DECISIONS.md`; agent-local state and rationale stay under each agent directory.
+**Consequences:** Shared decisions live in `_agent-context/DECISIONS.md`; agent-local state and rationale stay under each agent directory.
 
 ## 2026-03-15: Shipped Claude-facing tracked surface
 **Status:** Accepted  

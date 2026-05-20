@@ -141,7 +141,7 @@ sequenceDiagram
 **Critical constraints:**
 
 - Chain depth = 2 max per master plan D14. The conductor (parent) chains to children (auditor + curator); neither child chains further.
-- The Agent tool is required for chain composition. Listed in `tools:` frontmatter. Authorized via `subagents/_chain-permitted.yaml` per D21 (HARD FAIL if not in allowlist).
+- The Agent tool is required for chain composition. Listed in `tools:` frontmatter. Authorized via `agents/_chain-permitted.yaml` per D21 (HARD FAIL if not in allowlist).
 - Children must produce layered output per D26 (full content + Status Summary + Status YAML) so the parent can both surface human context AND parse YAML for advancement decisions.
 
 ### Pattern D: Dispatch Skill -> Native or Inline (Cross-Client)
@@ -152,7 +152,7 @@ The cross-client mechanism per master plan D30:
 flowchart LR
     A[User: /utility-pm-critic] --> B{Runtime?}
     B -->|Claude Code| C[Read SKILL.md; invoke @agent-pm-critic native]
-    B -->|Codex / Cursor / Windsurf / Copilot / Gemini| D[Read SKILL.md; read subagents/pm-critic.md inline; execute system prompt]
+    B -->|Codex / Cursor / Windsurf / Copilot / Gemini| D[Read SKILL.md; read agents/pm-critic.md inline; execute system prompt]
     C --> E[Layered output to user]
     D --> E
 ```
@@ -161,7 +161,7 @@ flowchart LR
 
 - Skills are portable per agentskills.io spec; sub-agent definitions are markdown that any AI can read and execute inline
 - Runtime detection is a single conditional check at the start of the dispatch skill
-- The canonical system prompt lives in ONE place (`subagents/pm-{role}.md`); the dispatch skill references it without duplicating
+- The canonical system prompt lives in ONE place (`agents/pm-{role}.md`); the dispatch skill references it without duplicating
 
 **Chain composition on non-Claude clients:** the conductor's dispatch skill uses an EXPANDED version of Pattern D called "reference + execute inline." Instead of native chaining at G0 + G2, the conductor's dispatch skill INLINES the auditor + curator behaviors in its own context window. This works on clients that have sufficient context budget and can read referenced files. VALIDATED on Codex CLI 0.128.0 on 2026-05-17 (GATE C PASS; context budget held through all 6 gates in a single context window per [`docs/internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md`](../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md)).
 
@@ -202,5 +202,5 @@ flowchart TD
 - User-facing usage: [`docs/guides/using-sub-agents.md`](../guides/using-sub-agents.md)
 - Reference catalog: [`docs/reference/runtime-components.md`](../reference/runtime-components.md)
 - Strategy doc (source material): `docs/internal/_working/subagents/subagent-strategy_2026-05-07.md`
-- Canonical sub-agents (4 in v2.16): [`subagents/`](https://github.com/product-on-purpose/pm-skills/tree/main/subagents)
+- Canonical sub-agents (4 in v2.16): [`agents/`](https://github.com/product-on-purpose/pm-skills/tree/main/subagents)
 - Library samples demonstrating patterns: [`library/sub-agent-samples/README.md`](https://github.com/product-on-purpose/pm-skills/blob/main/library/sub-agent-samples/README.md)

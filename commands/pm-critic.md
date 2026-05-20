@@ -5,7 +5,7 @@ argument-hint: "[optional artifact path]"
 
 Run adversarial review on a PM artifact.
 
-**On Claude Code with the pm-skills plugin:** invoke the `pm-critic` sub-agent (definition at `subagents/pm-critic.md`). The sub-agent fires in its own context window with Read/Grep/Glob tools.
+**On Claude Code with the pm-skills plugin:** invoke the `pm-critic` sub-agent (definition at `agents/pm-critic.md`). The sub-agent fires in its own context window with Read/Grep/Glob tools.
 
 **On other AI clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI):** invoke the dispatch skill at `skills/utility-pm-critic/SKILL.md`. The dispatch skill reads the canonical sub-agent definition inline and produces equivalent findings.
 

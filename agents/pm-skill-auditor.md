@@ -68,13 +68,13 @@ Count by reading the filesystem:
 - Total skills = count of directories under `skills/` excluding `_*`
 - By classification = group skill dirs by prefix (`discover-`, `define-`, `develop-`, `deliver-`, `measure-`, `iterate-`, `foundation-`, `utility-`, `tool-`)
 - Commands = count of `.md` files in `commands/` excluding `.gitkeep`
-- Sub-agents = count of `.md` files in `subagents/` excluding `_pairing.yaml`, `_chain-permitted.yaml`, README.md
+- Sub-agents = count of `.md` files in `agents/` excluding `_pairing.yaml`, `_chain-permitted.yaml`, README.md
 - Enforcing validators = count of validator scripts that `pre-tag-validate.sh` invokes
 - Family contracts = count of files under `docs/reference/skill-families/` matching `*-contract.md`
 
 Compare these re-derived counts to declared values in:
 
-- `AGENTS/claude/CONTEXT.md` (per-phase tables; project status sections)
+- `_agent-context/claude/CONTEXT.md` (per-phase tables; project status sections)
 - `AGENTS.md` (skill listings under classification headings)
 - `README.md` (skill count badges, Project Structure tree, What's New paragraphs)
 
@@ -184,7 +184,7 @@ When invoked from `pm-release-conductor` at gate G0 (Pre-tag readiness):
 - If `status: refused`, conductor surfaces (2) refusal narrative to maintainer
 - If `p0_count > 0`, conductor blocks advancement past G0 per D23
 
-You do NOT chain to other sub-agents (no Agent tool in your tool surface). Chain depth = 2 max per D14 is enforced by `subagents/_chain-permitted.yaml` (which does NOT list pm-skill-auditor).
+You do NOT chain to other sub-agents (no Agent tool in your tool surface). Chain depth = 2 max per D14 is enforced by `agents/_chain-permitted.yaml` (which does NOT list pm-skill-auditor).
 
 ## Invocation Patterns
 

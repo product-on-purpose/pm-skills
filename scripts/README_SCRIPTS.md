@@ -222,7 +222,7 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 **Outputs:** Pass if all pages are fresh, or fail listing stale pages.
 
 ### check-context-currency.sh / check-context-currency.ps1
-**Purpose:** Verify `AGENTS/*/CONTEXT.md` files reference the current CHANGELOG release version.
+**Purpose:** Verify `_agent-context/*/CONTEXT.md` files reference the current CHANGELOG release version.
 
 **Why:** Agent context files should reflect the latest release so agents have accurate repo context.
 

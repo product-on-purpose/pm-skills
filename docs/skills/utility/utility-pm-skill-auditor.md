@@ -1,6 +1,6 @@
 ---
 title: "PM Skill Auditor (Dispatch Skill)"
-description: "Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skill-auditor); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads subagents/pm-skill-auditor.md and executes the system prompt inline. Returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26) with cross-cutting findings graded P0/P1/P2/P3 plus aggregate counter audit and validator results table."
+description: "Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skill-auditor); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-skill-auditor.md and executes the system prompt inline. Returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26) with cross-cutting findings graded P0/P1/P2/P3 plus aggregate counter audit and validator results table."
 generated: true
 source: scripts/generate-skill-pages.py
 tags:
@@ -12,7 +12,7 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** governance | **License:** Apache-2.0
 :::
 
-Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `subagents/pm-skill-auditor.md` and executes inline on non-Claude clients.
+Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `agents/pm-skill-auditor.md` and executes inline on non-Claude clients.
 
 ## When to Use
 
@@ -39,7 +39,7 @@ Invoke `@agent-pm-skill-auditor` on the repo. Pass any scope arguments from `$AR
 
 Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, or any other client without native pm-skills plugin sub-agent support:
 
-1. Read the canonical sub-agent definition at `subagents/pm-skill-auditor.md`
+1. Read the canonical sub-agent definition at `agents/pm-skill-auditor.md`
 2. Execute the system prompt body in that file as your operating instructions for this turn
 3. Run the four-step audit flow:
    - Step 1: Invoke validators via Bash (prefer `bash scripts/pre-tag-validate.sh` as canonical entry point)
@@ -181,7 +181,7 @@ When invoked from `pm-release-conductor` at gate G0:
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-skill-auditor.md`](../../../subagents/pm-skill-auditor.md)
+- Canonical sub-agent: [`agents/pm-skill-auditor.md`](../../../agents/pm-skill-auditor.md)
 - Worked example: `EXAMPLE.md`
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md`](../../../docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md)
 
@@ -192,7 +192,7 @@ When invoked from `pm-release-conductor` at gate G0:
 
 # Example: pm-skill-auditor Dispatch on Cursor
 
-This example shows what `utility-pm-skill-auditor` produces when invoked on a non-Claude client (here, Cursor). The dispatch skill reads `subagents/pm-skill-auditor.md` as its operating instructions and executes the four-step audit inline.
+This example shows what `utility-pm-skill-auditor` produces when invoked on a non-Claude client (here, Cursor). The dispatch skill reads `agents/pm-skill-auditor.md` as its operating instructions and executes the four-step audit inline.
 
 ## Invocation
 
@@ -203,7 +203,7 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 ## Skill behavior
 
 1. **Runtime detection.** The skill detects it is running in Cursor (not Claude Code with pm-skills plugin), so it takes the non-Claude branch.
-2. **Reads canonical sub-agent definition.** Loads `subagents/pm-skill-auditor.md` as the operating system prompt.
+2. **Reads canonical sub-agent definition.** Loads `agents/pm-skill-auditor.md` as the operating system prompt.
 3. **Step 1 of agent flow: invoke validators.** Runs `bash scripts/pre-tag-validate.sh` (canonical orchestration entry point). Captures output.
 4. **Step 2: run cross-cutting checks.** Reads catalog from `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md#cross-cutting-check-catalog`. Runs each check against current repo state.
 5. **Step 3: re-derive aggregate counters.** Counts skill directories by classification prefix; counts commands; counts sub-agents; compares to declared values.
@@ -245,8 +245,8 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 #### F-01: Sub-agent without companion command (sub-agent integrity, violates D6)
 
-**Location:** `subagents/pm-release-conductor.md` (does not yet exist as of HEAD; expected per master plan Phase 5)
-**Issue:** Phase 5 plan ships `subagents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists. Once authored, ensure the pair lands in the same commit per `subagents/_pairing.yaml`.
+**Location:** `agents/pm-release-conductor.md` (does not yet exist as of HEAD; expected per master plan Phase 5)
+**Issue:** Phase 5 plan ships `agents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists. Once authored, ensure the pair lands in the same commit per `agents/_pairing.yaml`.
 **Why it matters:** D6 requires every sub-agent to ship with a companion slash command. Missing the command makes the sub-agent harder for users to discover.
 **Fix:** This is a forward finding (Phase 5 work). Re-run audit after Phase 5 ships; finding should resolve.
 
@@ -351,7 +351,7 @@ For a release-prep audit (post-Phase 5 + pre-tag), the same auditor would re-run
 
 ## Related Files
 
-- Canonical sub-agent: [`subagents/pm-skill-auditor.md`](../../../subagents/pm-skill-auditor.md)
+- Canonical sub-agent: [`agents/pm-skill-auditor.md`](../../../agents/pm-skill-auditor.md)
 - Skill manifest: `SKILL.md`
 - Output template: `TEMPLATE.md`
 

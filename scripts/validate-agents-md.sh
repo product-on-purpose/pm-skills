@@ -35,9 +35,9 @@ if [[ $FAIL -eq 0 ]]; then
   echo "OK: AGENTS.md matches ${#skill_paths[@]} skill paths"
 fi
 
-if [[ -d "$ROOT/subagents" ]]; then
+if [[ -d "$ROOT/agents" ]]; then
   agent_files=()
-  for f in "$ROOT"/subagents/*.md; do
+  for f in "$ROOT"/agents/*.md; do
     [[ -f "$f" ]] || continue
     name="$(basename "$f" .md)"
     case "$name" in
@@ -56,7 +56,7 @@ if [[ -d "$ROOT/subagents" ]]; then
       fi
     done
     if [[ $fail_count -eq 0 ]]; then
-      echo "OK: AGENTS.md references ${#agent_files[@]} subagents"
+      echo "OK: AGENTS.md references ${#agent_files[@]} sub-agents from agents/ directory"
     fi
   fi
 fi

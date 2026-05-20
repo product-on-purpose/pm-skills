@@ -35,11 +35,13 @@ When validation status changes (a new client passes; an existing client regresse
 
 ### Claude Code (native sub-agent path)
 
-All 4 sub-agents are PRODUCTION on Claude Code. The native chain composition mechanism is exercised regularly: pm-release-conductor chains to pm-skill-auditor at G0 + G2.5 and to pm-changelog-curator at G2 via the Agent tool. Tag operations via `/pm-release v{X.Y.Z}` on Claude Code are the canonical release path and have been used to ship every v2.16.0 candidate commit on the spike branch.
+As of v2.17.0, the sub-agent definitions live in the fixed `agents/` directory that Claude Code's plugin runtime auto-discovers. The v2.17.0 W2 rename freed the `agents/` name by moving the coordination directory to `_agent-context/`, which structurally enables native registration: `@-mention` dispatch (`@pm-critic`, etc.) and chain composition (pm-release-conductor chains to pm-skill-auditor at G0 + G2.5 and to pm-changelog-curator at G2 via the Agent tool).
+
+> **Verification status (v2.17.0):** native `@-mention` auto-discovery is structurally enabled by the rename but pending a fresh-install confirmation on Claude Code (install the plugin, confirm `@pm-critic` auto-completes and spawns). Until that is attested, the dispatch-skill inline-execution path provides the same capability on every client, including Claude Code. This note flips to PRODUCTION once the fresh-install test passes.
 
 ### Codex CLI (dispatch skill + inlined chain composition)
 
-3 of 4 sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator) are PRODUCTION on Codex CLI 0.128.0. Codex executes the dispatch skill, the dispatch skill instructs Codex to read the sub-agent definition file under `subagents/{name}.md` and execute the system prompt body as its operating instructions. Codex maintains the same analytical discipline, the same layered output envelope, and the same refusal protocols that the native sub-agents enforce on Claude Code.
+3 of 4 sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator) are PRODUCTION on Codex CLI 0.128.0. Codex executes the dispatch skill, the dispatch skill instructs Codex to read the sub-agent definition file under `agents/{name}.md` and execute the system prompt body as its operating instructions. Codex maintains the same analytical discipline, the same layered output envelope, and the same refusal protocols that the native sub-agents enforce on Claude Code.
 
 The 4th sub-agent (pm-release-conductor) is DRY-RUN VALIDATED only on Codex CLI. The dispatch-mechanism portion works: GATE C of the maintainer test harness exercised all 6 gates (G0/G1/G2/G2.5/G3/G4) with auditor inlined at G0 + G2.5 and curator inlined at G2; the context budget held; the no-bypass + only-tag-G2.5-captured-SHA invariants worked; the dry-run G3 correctly skipped actual git operations. **What was NOT exercised:** an actual `git tag` + `git push` operation on Codex CLI; that path has only been exercised on Claude Code.
 
@@ -105,7 +107,7 @@ If you are a maintainer or downstream user testing on a not-yet-validated client
 
 ## Reference Links
 
-- Canonical sub-agent definitions: [`subagents/`](../../subagents/)
+- Canonical sub-agent definitions: [`agents/`](../../agents/)
 - Dispatch skill definitions: [`skills/utility-pm-{role}/`](../../skills/)
 - Runbook: [`docs/contributing/release-runbook.md`](../contributing/release-runbook.md)
 - Runtime components catalog: [`docs/reference/runtime-components.md`](./runtime-components.md)

@@ -32,8 +32,8 @@ Before authoring a new sub-agent:
 ```
 pm-skills/
 +-- .claude-plugin/
-|   +-- plugin.json                       # Declares "agents": ["./subagents/"] per D31
-+-- subagents/
+|   +-- plugin.json                       # Plugin manifest
++-- agents/
 |   +-- _pairing.yaml                      # Sub-agent + companion command pairings
 |   +-- _chain-permitted.yaml              # Allowlist for agents that may use Agent tool
 |   +-- pm-your-new-agent.md               # NEW: your sub-agent definition
@@ -59,7 +59,7 @@ pm-skills/
 +-- AGENTS.md                              # ADD: utility-pm-your-new-agent dispatch skill entry
 ```
 
-The lowercase `subagents/` directory name (not the Claude Code default `agents/`) was chosen per master plan D31 to avoid Windows NTFS / macOS APFS case-insensitivity collision with the existing tracked `AGENTS/` directory at repo root. The path is declared via plugin.json's custom `agents` field.
+Sub-agent definitions live in the fixed `agents/` directory at the plugin root, which Claude Code's plugin runtime auto-discovers. There is no plugin.json field for a custom path. The directory was named `subagents/` through v2.16.x to avoid a case-insensitivity collision with the then-uppercase `AGENTS/` coordination directory; v2.17.0 (W2) renamed that coordination directory to `_agent-context/`, freeing `agents/` for native discovery.
 
 ## Frontmatter Convention
 
@@ -81,13 +81,13 @@ memory: none
 
 **Field discipline:**
 
-- `name:` must match the filename (`subagents/pm-your-new-agent.md` -> `name: pm-your-new-agent`)
+- `name:` must match the filename (`agents/pm-your-new-agent.md` -> `name: pm-your-new-agent`)
 - `description:` is the intent-classifier match surface; write for discoverability
 - `tools:` is a comma-separated scalar (D20). Common: `Read`, `Grep`, `Glob`, `Bash`, `Edit`, `Agent` (chain composition only)
 - `model:` typically `sonnet`; use `opus` for high-reasoning critical paths if justified
 - `memory:` default `none`; escalate to `project` only with 3+ runs of evidence
 
-**Tools restriction:** if you include `Agent` in `tools:` (for chain composition), you MUST add your sub-agent name to `subagents/_chain-permitted.yaml` per master plan D21. Otherwise validate-agents-md fails CI with HARD FAIL.
+**Tools restriction:** if you include `Agent` in `tools:` (for chain composition), you MUST add your sub-agent name to `agents/_chain-permitted.yaml` per master plan D21. Otherwise validate-agents-md fails CI with HARD FAIL.
 
 ## Referential Discipline
 
@@ -138,7 +138,7 @@ Per master plan D6, every sub-agent ships with a companion slash command in `com
 
 - Sub-agent name: `pm-{role}` (e.g., `pm-critic`)
 - Command name: verb-shaped (e.g., `/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`)
-- Declare the pairing in `subagents/_pairing.yaml`
+- Declare the pairing in `agents/_pairing.yaml`
 
 Command body (`commands/your-verb.md`) follows the standard pm-skills command convention:
 
@@ -164,7 +164,7 @@ The command body MUST reference a `skills/[a-z0-9-]+/SKILL.md` path for `scripts
 If your sub-agent needs to invoke another sub-agent (Pattern 3 from `docs/contributing/sub-agent-design-patterns.md`):
 
 1. Include `Agent` in `tools:` frontmatter
-2. Add your sub-agent name to `subagents/_chain-permitted.yaml`
+2. Add your sub-agent name to `agents/_chain-permitted.yaml`
 3. Verify chain depth stays at 2 max (per D14): if your child can also chain, you would have a 3-level chain; remove `Agent` from the child's tools
 
 The only chain-permitted sub-agent in v2.16.0 is `pm-release-conductor`. Adding a new chain-permitted agent is security-relevant and requires maintainer review.
@@ -201,7 +201,7 @@ Invoke `@agent-pm-{role}` on the target with `$ARGUMENTS`. Return findings.
 
 ### If you are running in any other AI client
 
-1. Read the canonical sub-agent definition at `subagents/pm-{role}.md`
+1. Read the canonical sub-agent definition at `agents/pm-{role}.md`
 2. Execute the system prompt body as your operating instructions
 3. {agent-specific steps}
 4. Return the layered output per master plan D26 (full findings + Status Summary + Status YAML)
@@ -249,10 +249,10 @@ The 4 v2.16 spec docs at `docs/internal/release-plans/v2.16.0/spec_pm-{critic,sk
 
 Before merging a new sub-agent:
 
-- [ ] `subagents/pm-{role}.md` exists with valid frontmatter
+- [ ] `agents/pm-{role}.md` exists with valid frontmatter
 - [ ] `commands/{verb}.md` exists and references the dispatch skill path
-- [ ] `subagents/_pairing.yaml` lists the new pair
-- [ ] If `Agent` is in tools, `subagents/_chain-permitted.yaml` lists the new agent
+- [ ] `agents/_pairing.yaml` lists the new pair
+- [ ] If `Agent` is in tools, `agents/_chain-permitted.yaml` lists the new agent
 - [ ] `skills/utility-pm-{role}/` exists with SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md (or rationale documented for skipping if intentional)
 - [ ] `docs/reference/runtime-components.md` has the new row populated
 - [ ] `AGENTS.md` has the new dispatch skill entry in Utility Skills section
@@ -273,5 +273,5 @@ Before merging a new sub-agent:
 - Using Sub-Agents (user-facing): [`docs/guides/using-sub-agents.md`](../guides/using-sub-agents.md)
 - Runtime Components Catalog: [`docs/reference/runtime-components.md`](../reference/runtime-components.md)
 - v2.16.0 master plan + D-rules: [`docs/internal/release-plans/v2.16.0/plan_v2.16.0.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/plan_v2.16.0.md)
-- Canonical example sub-agents (4 in v2.16): [`subagents/`](https://github.com/product-on-purpose/pm-skills/tree/main/subagents)
+- Canonical example sub-agents (4 in v2.16): [`agents/`](https://github.com/product-on-purpose/pm-skills/tree/main/subagents)
 - Canonical example spec docs: [`docs/internal/release-plans/v2.16.0/spec_pm-*.md`](https://github.com/product-on-purpose/pm-skills/tree/main/docs/internal/release-plans/v2.16.0)

@@ -1,6 +1,6 @@
 ---
 name: utility-pm-skill-auditor
-description: Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skill-auditor); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads subagents/pm-skill-auditor.md and executes the system prompt inline. Returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26) with cross-cutting findings graded P0/P1/P2/P3 plus aggregate counter audit and validator results table.
+description: Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skill-auditor); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-skill-auditor.md and executes the system prompt inline. Returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26) with cross-cutting findings graded P0/P1/P2/P3 plus aggregate counter audit and validator results table.
 license: Apache-2.0
 metadata:
   classification: utility
@@ -13,7 +13,7 @@ metadata:
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # PM Skill Auditor (Dispatch Skill)
 
-Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `subagents/pm-skill-auditor.md` and executes inline on non-Claude clients.
+Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `agents/pm-skill-auditor.md` and executes inline on non-Claude clients.
 
 ## When to Use
 
@@ -40,7 +40,7 @@ Invoke `@agent-pm-skill-auditor` on the repo. Pass any scope arguments from `$AR
 
 Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, or any other client without native pm-skills plugin sub-agent support:
 
-1. Read the canonical sub-agent definition at `subagents/pm-skill-auditor.md`
+1. Read the canonical sub-agent definition at `agents/pm-skill-auditor.md`
 2. Execute the system prompt body in that file as your operating instructions for this turn
 3. Run the four-step audit flow:
    - Step 1: Invoke validators via Bash (prefer `bash scripts/pre-tag-validate.sh` as canonical entry point)
@@ -64,7 +64,7 @@ Most AI clients support all three. If any are unreliable on a specific client, t
 
 ## Reference Files
 
-- Canonical sub-agent definition: [`subagents/pm-skill-auditor.md`](../../subagents/pm-skill-auditor.md)
+- Canonical sub-agent definition: [`agents/pm-skill-auditor.md`](../../agents/pm-skill-auditor.md)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md`](../../docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md)
 - Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
 - Cross-cutting check catalog: `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md#cross-cutting-check-catalog`

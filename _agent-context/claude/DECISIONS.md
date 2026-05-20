@@ -50,12 +50,12 @@ Use Apache License 2.0 for the project.
 Need a location for collaboration artifacts like plan reviews, drafts, and analysis documents that are working products of AI-human collaboration.
 
 **Decision:**
-Add `PLANNING/` folder to `AGENTS/claude/` structure for storing collaboration artifacts.
+Add `PLANNING/` folder to `_agent-context/claude/` structure for storing collaboration artifacts.
 
 **Alternatives Considered:**
 - Put in `(internal-notes)/` alongside source docs . Mixes working artifacts with reference docs
 - Put alongside source (e.g., `plan-v1-review.md` next to `plan-v1.md`) . Clutters source folders
-- Put in `AGENTS/claude/PLANNING/` . Keeps session artifacts together
+- Put in `_agent-context/claude/PLANNING/` . Keeps session artifacts together
 
 **Consequences:**
 - Clear separation of working documents from source documents

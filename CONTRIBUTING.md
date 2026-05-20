@@ -127,15 +127,15 @@ All three generators (`generate-skill-pages.py`, `generate-workflow-pages.py`, `
 
 If you are authoring new hand-authored docs or adding generator paths: rely on frontmatter `title:` as the page heading; do not add a `# Heading` line below the closing `---`. The page content should start with a paragraph or the first `## Section` heading.
 
-### 7. Sub-agent definitions live under `subagents/` (custom path), not the default `agents/`
+### 7. Sub-agent definitions live in `agents/`; coordination context lives in `_agent-context/`
 
-The Claude Code plugin convention is to place sub-agent definition files under an `agents/` directory at the plugin root. pm-skills uses a custom `subagents/` directory instead, declared via the `"agents": ["./subagents/"]` field in `.claude-plugin/plugin.json`.
+Sub-agent definition files live in the fixed `agents/` directory at the plugin root, which Claude Code's plugin runtime auto-discovers. There is no plugin.json field for a custom sub-agent path.
 
-The reason: Windows NTFS is case-insensitive by default. pm-skills already has an `AGENTS/` directory (uppercase) for cross-tool agent context per the AGENTS.md convention. Adding a lowercase `agents/` directory next to it would resolve to the same NTFS inode on case-insensitive Windows filesystems, causing the two directories to alias. The plugin.json custom path field is the supported override per the plugin manifest spec and avoids the collision entirely.
+Through v2.16.x the directory was named `subagents/` to dodge a case-insensitivity collision: pm-skills also had an uppercase `AGENTS/` coordination directory, and on case-insensitive filesystems (Windows NTFS, macOS APFS) a lowercase `agents/` next to it would alias to the same inode. v2.17.0 (W2) resolved this by renaming the coordination directory to `_agent-context/`, which freed the `agents/` name for native discovery.
 
-Validation: `scripts/validate-agents-md.{sh,ps1}` was extended in v2.16.0 to recognize `subagents/` (per v2.16.0 master plan D19 + D31 amendment). If you are adding a new Claude Code plugin to pm-skills or are tempted to "fix" the directory name to match Anthropic's default, leave the `subagents/` layout as-is and verify the plugin.json `agents` field is still pointing at it.
+Validation: `scripts/validate-agents-md.{sh,ps1}` enumerates `agents/*.md` and verifies each sub-agent name appears in `AGENTS.md`. If you add a new Claude Code plugin sub-agent, place its definition in `agents/`; do not reintroduce a `subagents/` directory or a plugin.json custom-path field.
 
-Origin: caught during v2.16.0 Phase 1 execution; D31 amendment in `docs/internal/release-plans/v2.16.0/plan_v2.16.0.md`.
+Origin: case-collision caught during v2.16.0 Phase 1 execution (D31 amendment); resolved by the v2.17.0 directory rename in `docs/internal/release-plans/v2.17.0/spec_agents-directory-rename.md`.
 
 ## Code of Conduct
 

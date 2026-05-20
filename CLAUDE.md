@@ -26,7 +26,7 @@ This rule was codified 2026-04-13 and re-applied through multiple em-dash sweeps
   - CONTRIBUTING.md
   - Any file a user cloning the repo would read
 - If content from internal notes needs to be public, move it to a tracked location first
-- Agent context files (`AGENTS/`) may reference internal notes for coordination
+- Agent context files (`_agent-context/`) may reference internal notes for coordination
 
 ### CHANGELOG Best Practices
 
