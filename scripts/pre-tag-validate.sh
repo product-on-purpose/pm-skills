@@ -59,6 +59,7 @@ OPTIONAL_VALIDATORS=(
   "check-landing-page-counts|bash $ROOT/scripts/check-landing-page-counts.sh"
   "check-workflow-generator-coverage|bash $ROOT/scripts/check-workflow-generator-coverage.sh"
   "check-agents-md-command-sync|bash $ROOT/scripts/check-agents-md-command-sync.sh"
+  "check-context-currency|bash $ROOT/scripts/check-context-currency.sh"
 )
 
 # Parse --skip flag(s)

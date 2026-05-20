@@ -179,7 +179,8 @@ The dispatch skills at `skills/utility-pm-{role}/` continue to provide the user-
 - **G2.5 commit SHA #2 (fix-forward):** `15ab561` (YAML colon-space fix; tag target per D22)
 - **Tag SHA:** `15ab561` (annotated tag `v2.16.1` pushed to origin 2026-05-19)
 - **GitHub Release:** https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.1 (published 2026-05-19T07:03:44Z; body replaced with rich content from Release_v2.16.1.md)
-- **G4 P0 smoke test:** PARTIAL PASS. File-level structural verification PASS (tag + zip + manifest checks); runtime E2E (Claude Code `/plugin update`) DEFERRED to follow-up session per maintainer choice 2026-05-19. Release status: "IN PROGRESS - awaiting maintainer P0 runtime attestation" per conductor D23.
+- **G4 P0 smoke test: FULL PASS - SHIPPED 2026-05-19**. All 3 scenarios cleared: (1) `/plugin marketplace update` + `/plugin update pm-skills` succeeded on existing Windows install (no `agents: Invalid input` error); (2) `/plugin marketplace add product-on-purpose/pm-skills` succeeded on fresh macOS install (remote-marketplace registration validated v2.16.1 manifest); (3) `/pm-skills:pm-audit-repo` dispatched the pm-skill-auditor on macOS Claude Code, ran a complete 11-minute repo-wide governance audit, produced structured findings without runtime errors. Cross-client dispatch pattern validated in production across two operating systems. Release status: **"Release complete: v2.16.1"** per conductor D23.
+- **Audit follow-up findings (NEW; not v2.16.1 defects):** The pm-skill-auditor invocation that proved G4 P0 also surfaced 6 new findings on shipped v2.16.1 state (1 P0 validator-portability + 2 P1 stale-doc + 3 P2 process-improvement). These are post-release follow-ups dispositioned to v2.16.2 (housekeeping fast-patch) and v2.17.0 (validator portability + doc refresh). See [`../v2.16.2/plan_v2.16.2.md`](../v2.16.2/plan_v2.16.2.md) for the v2.16.2 scope.
 
 ## Related documentation
 
