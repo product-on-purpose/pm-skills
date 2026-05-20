@@ -1,0 +1,34 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "product-on-purpose",
+  "owner": {
+    "name": "Product on Purpose",
+    "url": "https://github.com/product-on-purpose"
+  },
+  "metadata": {
+    "description": "Product on Purpose: thematic AI agent skill and tool collections for product work",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "pm-skills",
+      "source": {
+        "source": "github",
+        "repo": "product-on-purpose/pm-skills"
+      },
+      "description": "Product management skills, sub-agents, and sprint tools across the full product lifecycle. Follows the agentskills.io specification.",
+      "version": "3.0.0",
+      "strict": true
+    },
+    {
+      "name": "thinking-tools",
+      "source": {
+        "source": "github",
+        "repo": "product-on-purpose/thinking-tools"
+      },
+      "description": "PLACEHOLDER ENTRY (illustrates how to add the next plugin; remove or replace when the real repo exists). Canonical thinking and reasoning frameworks for AI agents: SCQA, MECE, Pyramid Principle, First Principles, OODA, and more.",
+      "version": "0.1.0",
+      "strict": true
+    }
+  ]
+}
