@@ -22,7 +22,7 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (59 total in v2.16.0: 26 phase + 8 foundation + 10 utility + 15 tool; flat layout)
+├── skills/                     # Core PM skills (60 total: 27 phase + 8 foundation + 10 utility + 15 tool; flat layout)
 ├── commands/                   # Slash command markdown files
 ├── _workflows/                 # Workflows source (12 in v2.15.0)
 ├── subagents/                  # Sub-agent definitions (v2.16.0+; declared via .claude-plugin/plugin.json "agents" path)
@@ -39,7 +39,7 @@ Note on `subagents/` vs `AGENTS/`: these are distinct directories with different
 
 ---
 
-## `/skills/` . The 59 PM Skills (flat)
+## `/skills/` . The 60 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 
@@ -216,7 +216,7 @@ Workflows chain multiple skills together into guided, end-to-end sequences.
 |----------|---------|-----------------|
 | `feature-kickoff.md` | New feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | `lean-startup.md` | Rapid validation cycle | hypothesis → experiment-design → experiment-results → pivot-decision |
-| `triple-diamond.md` | Complete product development | All 26 phase skills across 6 phases |
+| `triple-diamond.md` | Complete product development | All 27 phase skills across 6 phases |
 | `customer-discovery.md` | Transform raw research into a validated problem | interview-synthesis → stakeholder-summary → problem-statement → hypothesis |
 | `sprint-planning.md` | Prepare sprint-ready stories from a backlog | user-stories → acceptance-criteria → edge-cases |
 | `product-strategy.md` | Frame a major strategic initiative | competitive-analysis → opportunity-tree → problem-statement → solution-brief |
