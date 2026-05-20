@@ -1,6 +1,6 @@
 # Spec: AGENTS/ and subagents/ Directory Rename (W2)
 
-**Status:** READY FOR EXECUTION (pending v2.16.1 G4 P0 attestation per parent plan D6)
+**Status:** SHIPPED 2026-05-20 (`3691b77`). Mechanical rename + reference sweep + lockstep validators complete; full pre-tag bundle 15/15 PASS; Astro build 345 pages 0 errors. Native `@-mention` auto-discovery (AC 4.2 / Phase 6) is structurally enabled but pending a fresh-install verification on Claude Code; the LIVE/RESOLVED status-doc claims flip after that test passes.
 **Parent plan:** [`plan_v2.17.0.md`](plan_v2.17.0.md)
 **Work item ID:** W2
 **Effort estimate:** 1-2 effort-days

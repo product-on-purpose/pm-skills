@@ -39,6 +39,13 @@ The reframe applies the `feedback_no-effort-doc-bloat` memory rule (for refactor
 
 **Total v2.17.0 effort: 4.5-7.5 effort-days** (was 3-5 days pre-audit-findings).
 
+**Execution status (2026-05-20):**
+- **W1 - SHIPPED** (`be1352b`): frontmatter metadata migration across 59 skills + consumers; CI green.
+- **W2 - SHIPPED** (`3691b77`): `AGENTS/` to `_agent-context/` + `subagents/` to `agents/` renames, lockstep validators, reference sweep, status pointers. Full pre-tag bundle 15/15 PASS; Astro build 345 pages 0 errors. NOTE: native `@-mention` auto-discovery on Claude Code is structurally enabled but pending a fresh-install verification (spec AC 4.2); the LIVE/RESOLVED doc claims flip after that test passes.
+- **W4 - SHIPPED with W2** (`3691b77`): coordination-file pointers + project-structure section updated. The deeper `_agent-context/claude/CONTEXT.md` current-state refresh (version/status block) remains for the v2.17.0 release-prep pass.
+- **W3 - PENDING**: bash-3.2 validator portability; needs macOS to verify; candidate to defer to v2.17.1.
+- **F-P2-01 (second half) - PENDING**: wire `check-version-references` into the pre-tag bundle (README now current).
+
 All four items are cross-cutting structural or documentation changes. Co-shipping them in one release minimizes surface-area churn for downstream consumers (`pm-skills-mcp` companion repo, doc-stack templates, third-party validators tracking pm-skills as a reference implementation).
 
 ### W3 expansion: Validator portability fix
