@@ -13,7 +13,7 @@
 
 Two coordinated directory renames at the pm-skills plugin root:
 
-1. **`AGENTS/`** (coordination directory) **renames to `_AGENTS/`** (underscore prefix). Same content; just renamed to free up the `agents/` name on case-insensitive filesystems.
+1. **`AGENTS/`** (coordination directory) **renames to `_agent-context/`** (underscore-prefixed descriptive name; see 2.0 for the target-name rationale). Same content; just renamed to free up the `agents/` name on case-insensitive filesystems.
 
 2. **`subagents/`** (sub-agent definitions directory) **renames to `agents/`**. Same content; just renamed so Claude Code's native plugin auto-discovery scans it.
 
@@ -45,7 +45,7 @@ pm-skills/
 
 ```
 pm-skills/
-├── _AGENTS/                         ← coordination dir (renamed; underscore prefix)
+├── _agent-context/                         ← coordination dir (renamed; underscore prefix)
 │   ├── claude/CONTEXT.md
 │   ├── codex/CONTEXT.md
 │   ├── DECISIONS.md
@@ -61,7 +61,7 @@ pm-skills/
 └── ...
 ```
 
-**Filesystem behavior:** On Windows NTFS and macOS APFS (case-insensitive), `_AGENTS/` and `agents/` are distinct directory names (the underscore is a separate character even after case-folding). The previous collision between `AGENTS/` and `agents/` is resolved.
+**Filesystem behavior:** On Windows NTFS and macOS APFS (case-insensitive), `_agent-context/` and `agents/` are distinct directory names (the underscore is a separate character even after case-folding). The previous collision between `AGENTS/` and `agents/` is resolved.
 
 ### 1.2 What this delivers
 
@@ -79,28 +79,53 @@ This makes the dispatch skill descriptions (`utility-pm-critic/SKILL.md`, etc.) 
 
 ## 2. Files affected
 
+### 2.0 Scoping principle: functional vs. frozen (VERIFIED 2026-05-20)
+
+A raw grep finds **203 files** referencing `AGENTS/`. Do NOT sweep all 203. The breakdown:
+
+| Bucket | Count | Disposition |
+|---|---|---|
+| `AGENTS/SESSION-LOG/*` | 84 | GITIGNORED (not tracked). Skip entirely. |
+| Frozen historical docs (`docs/internal/release-plans/v2.x/`, `audit/`, `milestones/`, `efforts/`, `AGENTS/{claude,codex}/PLANNING/`, `_archive/`) | ~90 | LEAVE FROZEN. These record what was true when written; rewriting them revises history. |
+| Gitignored tool caches (`.memsearch/`, `.obsidian/`, `.playwright-mcp/`) | ~6 | Skip (gitignored). |
+| **FUNCTIONAL (tracked, active, tooling-relevant)** | **~20** | **UPDATE - this is the real sweep.** |
+
+The functional ~20 are enumerated in 2.1-2.7 below. The historical/frozen set is explicitly listed in 2.13 as "do not touch." This makes W2 a ~20-file mechanical change, not a 203-file rewrite.
+
+**Rename target decision (Phase 0 RESOLVED 2026-05-20):** `AGENTS/` to `_agent-context/`. Chosen over `_AGENTS/` (minimal-diff but shouty, near-collides visually with the `AGENTS.md` discovery file) and `_agent-coordination/` (accurate but longer). `_agent-context/` is descriptive (the load-bearing content is the `claude/CONTEXT.md` + `codex/CONTEXT.md` files the conductor/auditor read at G0), underscore-prefixed (fits the `_workflows/`, `_NOTES/`, `_LOCAL/` convention), and resolves the case-insensitive collision with `agents/`.
+
 ### 2.1 Directory operations (the renames themselves)
 
 | Operation | Source | Target |
 |---|---|---|
-| `git mv` (or filesystem rename) | `AGENTS/` | `_AGENTS/` |
+| `git mv` (or filesystem rename) | `AGENTS/` | `_agent-context/` |
 | `git mv` (or filesystem rename) | `subagents/` | `agents/` |
 
-### 2.2 Scripts referencing the directories
+### 2.2 Scripts referencing the directories (VERIFIED 2026-05-20 via grep)
 
-| File | Change |
-|---|---|
-| `scripts/validate-agents-md.sh` | Update path scan `subagents/*.md` to `agents/*.md` |
-| `scripts/validate-agents-md.ps1` | Same |
-| `scripts/validate-agents-md.md` | Documentation triplet update |
-| `scripts/check-mcp-impact.sh` | If scoped to detect changes in `subagents/` or `AGENTS/`, update path globs |
-| `scripts/check-mcp-impact.ps1` | Same |
-| `scripts/pre-tag-validate.sh` | Verify no path references to old locations |
-| `scripts/pre-tag-validate.ps1` | Same |
-| `scripts/check-generated-content-untouched.sh` | Update if it touches these paths |
-| `scripts/check-generated-content-untouched.ps1` | Same |
-| `scripts/validate-mcp-sync.sh` | If references `subagents/`, update |
-| `scripts/validate-mcp-sync.ps1` | Same |
+The two renames touch DIFFERENT scripts. Verified by grepping the live `scripts/` tree, not guessed.
+
+**Scripts touching `AGENTS/` (the dir renaming to `_agent-context/`) - 3 logical, 9 files:**
+
+| File | Reference type | Change | CRITICALITY |
+|---|---|---|---|
+| `scripts/check-context-currency.{sh,ps1,md}` | LIVE GLOB: `for ctx in "$ROOT"/AGENTS/*/CONTEXT.md` | Update glob to `_agent-context/*/CONTEXT.md` | If missed: FALSE-GREEN (scans nothing, passes silently) |
+| `scripts/check-count-consistency.{sh,ps1,md}` | EXCLUDE PATTERNS: `:!AGENTS/claude/CONTEXT.md`, `:!AGENTS/claude/DECISIONS.md`, `:!AGENTS/SESSION-LOG/` | Update all exclude patterns to `_agent-context/...` | If missed: moved CONTEXT.md/DECISIONS.md LOSE count-exemption to start FAILING (they contain historical counts) |
+| `scripts/check-version-references.{sh,ps1,md}` | EXCLUDE PATTERNS: `:!AGENTS/SESSION-LOG/`, `:!AGENTS/{claude,codex}/SESSION-LOG/` | Update all exclude patterns to `_agent-context/...` | If missed: moved files lose version-exemption to start FAILING |
+
+> **LOCKSTEP REQUIREMENT (load-bearing):** The `git mv AGENTS/ _agent-context/` and these three scripts' path/exclusion updates MUST land in the same commit. The exclude-list scripts are especially dangerous: they don't error on a stale pattern, they just stop excluding the moved files, so `check-count-consistency` and `check-version-references` begin FAILING on the historical counts/versions inside the relocated CONTEXT.md / DECISIONS.md. This is the W2 analog of W1's atomic validator+data coupling.
+
+**Scripts touching `subagents/` (the dir renaming to `agents/`) - separate concern, already covered in W1's family-validator work but listed for completeness:**
+
+| File | Reference type | Change |
+|---|---|---|
+| `scripts/validate-agents-md.{sh,ps1,md}` | Scans `subagents/*.md` for the sub-agent-name cross-check against AGENTS.md | Update path scan `subagents/*.md` to `agents/*.md` |
+| `scripts/check-mcp-impact.{sh,ps1}` | If scoped to detect changes in `subagents/`, update path globs (verify; may not reference) | Update path globs if present |
+| `scripts/validate-mcp-sync.{sh,ps1}` | Verify whether it references `subagents/`; update if so | Conditional |
+
+**Scripts NOT affected (verified clean):** `pre-tag-validate.{sh,ps1}` (invokes validators by name, no `AGENTS/` paths), `check-generated-content-untouched.{sh,ps1}` (no `AGENTS/` path scan), `lint-skills-frontmatter`, `generate-skill-pages.py` (all confirmed to not glob `AGENTS/`).
+
+**`README_SCRIPTS.md`**: doc mention of `check-context-currency` purpose - update the `AGENTS/*/CONTEXT.md` reference.
 
 ### 2.3 Sub-agent and pairing manifests (inside the renamed dir)
 
@@ -112,7 +137,7 @@ This makes the dispatch skill descriptions (`utility-pm-critic/SKILL.md`, etc.) 
 | `agents/pm-critic.md` | Update Cross-References section path (`docs/internal/release-plans/v2.16.0/spec_pm-critic.md` references etc.) |
 | `agents/pm-skill-auditor.md` | Same |
 | `agents/pm-changelog-curator.md` | Same |
-| `agents/pm-release-conductor.md` | Same; also update referent to `_AGENTS/` if present |
+| `agents/pm-release-conductor.md` | Same; also update referent to `_agent-context/` if present |
 
 ### 2.4 Dispatch skills and commands
 
@@ -135,26 +160,26 @@ This makes the dispatch skill descriptions (`utility-pm-critic/SKILL.md`, etc.) 
 
 | File | Change |
 |---|---|
-| `CLAUDE.md` (repo root) | Update references to `AGENTS/` (→ `_AGENTS/`) and `subagents/` (→ `agents/`) |
+| `CLAUDE.md` (repo root) | Update references to `AGENTS/` (→ `_agent-context/`) and `subagents/` (→ `agents/`) |
 | `CONTRIBUTING.md` | Same |
 | `AGENTS.md` (singular file; UNCHANGED structure; content edits only) | Update directory references inside the file. The file ITSELF stays named `AGENTS.md` per agentskills.io spec convention. |
 | `README.md` | If contains directory references, update |
 
-### 2.6 Coordination directory contents (now under `_AGENTS/`)
+### 2.6 Coordination directory contents (now under `_agent-context/`)
 
 | File (new path) | Change |
 |---|---|
-| `_AGENTS/claude/CONTEXT.md` | Update any internal references to `AGENTS/` or `subagents/` |
-| `_AGENTS/codex/CONTEXT.md` | Same |
-| `_AGENTS/DECISIONS.md` | Same |
-| `_AGENTS/SESSION-LOG/*.md` | Update if any reference these paths (most are gitignored archive notes) |
+| `_agent-context/claude/CONTEXT.md` | Update any internal references to `AGENTS/` or `subagents/` |
+| `_agent-context/codex/CONTEXT.md` | Same |
+| `_agent-context/DECISIONS.md` | Same |
+| `_agent-context/SESSION-LOG/*.md` | Update if any reference these paths (most are gitignored archive notes) |
 
 ### 2.7 Astro doc-stack content (under `docs/`)
 
 | File | Change |
 |---|---|
 | `docs/contributing/release-runbook.md` | Update `subagents/pm-release-conductor.md` → `agents/pm-release-conductor.md` |
-| `docs/contributing/authoring-sub-agents.md` | Update all `subagents/` references to `agents/`; update `AGENTS/` to `_AGENTS/` |
+| `docs/contributing/authoring-sub-agents.md` | Update all `subagents/` references to `agents/`; update `AGENTS/` to `_agent-context/` |
 | `docs/contributing/sub-agent-design-patterns.md` | Same |
 | `docs/contributing/ci-overview.md` | Same |
 | `docs/concepts/sub-agents.md` | Update all references |
@@ -206,15 +231,31 @@ This makes the dispatch skill descriptions (`utility-pm-critic/SKILL.md`, etc.) 
 
 | File | Change |
 |---|---|
-| `MEMORY.md` (user's auto-memory at `C:\Users\jpris\.claude\projects\E--Projects-product-on-purpose-pm-skills\memory\MEMORY.md`) | Update Project Identity block: references to `AGENTS/` → `_AGENTS/`; `subagents/` → `agents/`. Scheduled in G4 P2 reminder per parent plan. Not part of the commit; user memory edited separately. |
+| `MEMORY.md` (user's auto-memory at `C:\Users\jpris\.claude\projects\E--Projects-product-on-purpose-pm-skills\memory\MEMORY.md`) | Update Project Identity block: references to `AGENTS/` → `_agent-context/`; `subagents/` → `agents/`. Scheduled in G4 P2 reminder per parent plan. Not part of the commit; user memory edited separately. |
 
 ### 2.12 Companion repo (pm-skills-mcp)
 
 | File | Change |
 |---|---|
-| `pm-skills-mcp/scripts/embed-skills.js` | If parses sub-agent metadata from `subagents/`, update to `agents/`. Likely no impact since MCP focuses on skill manifests. |
+| `pm-skills-mcp/scripts/embed-skills.js` | If parses sub-agent metadata from `subagents/`, update to `agents/`. Likely no impact since MCP focuses on skill manifests. (Note: already updated in W1 for the metadata.* frontmatter read; check whether it also references `subagents/` paths.) |
 | `pm-skills-mcp/pm-skills-source.json` | If references sub-agent paths, update |
 | `pm-skills-mcp/README.md` | If documents the sub-agent location, update |
+
+### 2.13 FROZEN - do NOT touch (historical records)
+
+Per the 2.0 scoping principle, these reference `AGENTS/` but are frozen history. Rewriting them revises the record and is explicitly out of W2 scope:
+
+| Path glob | Why frozen |
+|---|---|
+| `AGENTS/SESSION-LOG/**` | Gitignored; per-session logs reference the path active at session time |
+| `AGENTS/{claude,codex}/PLANNING/**`, `**/_archive/**`, `**/_archived/**` | Archived planning; frozen |
+| `docs/internal/release-plans/v2.{2..16}.*/**` | Shipped-cycle plans; record state at ship time |
+| `docs/internal/audit/**` (except active README) | Frozen audit records |
+| `docs/internal/milestones/**` | Frozen milestone execution records |
+| `docs/internal/efforts/**/_archive/**` and completed effort plans | Frozen effort records |
+| `.memsearch/**`, `.obsidian/**`, `.playwright-mcp/**` | Gitignored tool caches |
+
+**Exception within 2.9:** the ACTIVE forward-references DO update - specifically the v2.16.0 master-plan D31 amendment status (mark RESOLVED) and the v2.16.1 Known-Limitations cross-reference (mark RESOLVED). Those are not historical narrative; they are live status pointers that W2 closes. Everything else in `release-plans/` stays frozen.
 
 ---
 
@@ -223,7 +264,7 @@ This makes the dispatch skill descriptions (`utility-pm-critic/SKILL.md`, etc.) 
 ### 3.1 Phase 1: Pre-flight verification (15 min)
 
 1. Verify case-insensitive collision is current state: `ls agents/` should return same files as `ls AGENTS/` on Windows NTFS / macOS APFS
-2. Verify no existing local-only files in `_AGENTS/` (the target path) - should be empty / non-existent
+2. Verify no existing local-only files in `_agent-context/` (the target path) - should be empty / non-existent
 3. Verify v2.16.1 G4 P0 attestation PASSING (per parent plan D6 entrance criteria) - if not, BLOCK
 4. Verify W1 (frontmatter sweep) is committed before starting W2 OR confirm parallel execution is safe (recommendation: serialize W1 first, W2 second to keep commits readable; alternatively, both in one commit but spec is intricate)
 
@@ -231,35 +272,35 @@ This makes the dispatch skill descriptions (`utility-pm-critic/SKILL.md`, etc.) 
 
 ```bash
 # Step 1: rename coordination directory
-git mv AGENTS _AGENTS
-# (Verify): ls _AGENTS shows the same content; AGENTS no longer exists
+git mv AGENTS _agent-context
+# (Verify): ls _agent-context shows the same content; AGENTS no longer exists
 
 # Step 2: rename sub-agent directory
 git mv subagents agents
 # (Verify): ls agents shows the same content; subagents no longer exists
 
-# Step 3: verify on Windows that _AGENTS/ and agents/ are now distinct
-ls _AGENTS agents
+# Step 3: verify on Windows that _agent-context/ and agents/ are now distinct
+ls _agent-context agents
 # Should show two distinct directories with different contents
 ```
 
-**Caveat:** On Windows, `git mv` is case-insensitive. `git mv AGENTS _AGENTS` may fail or no-op if Git interprets the target as the same path. Use a two-step rename if needed:
+**Caveat:** On Windows, `git mv` is case-insensitive. `git mv AGENTS _agent-context` may fail or no-op if Git interprets the target as the same path. Use a two-step rename if needed:
 
 ```bash
 # Two-step rename to force the case-sensitive operation
 git mv AGENTS AGENTS_TMP_RENAME
-git mv AGENTS_TMP_RENAME _AGENTS
+git mv AGENTS_TMP_RENAME _agent-context
 ```
 
-Alternatively use the explicit case-folding flag: `git mv -f AGENTS _AGENTS` (some Git versions).
+Alternatively use the explicit case-folding flag: `git mv -f AGENTS _agent-context` (some Git versions).
 
 ### 3.3 Phase 3: Reference sweep (1 day)
 
 Run a sed-style sweep against every file listed in Section 2:
 
 ```bash
-# Sweep AGENTS/ to _AGENTS/ (case-sensitive)
-grep -rl --include='*.md' --include='*.yml' --include='*.sh' --include='*.ps1' --include='*.json' 'AGENTS/' . | xargs sed -i 's|AGENTS/|_AGENTS/|g'
+# Sweep AGENTS/ to _agent-context/ (case-sensitive)
+grep -rl --include='*.md' --include='*.yml' --include='*.sh' --include='*.ps1' --include='*.json' 'AGENTS/' . | xargs sed -i 's|AGENTS/|_agent-context/|g'
 
 # Sweep subagents/ to agents/ (case-sensitive)
 grep -rl --include='*.md' --include='*.yml' --include='*.sh' --include='*.ps1' --include='*.json' 'subagents/' . | xargs sed -i 's|subagents/|agents/|g'
@@ -300,14 +341,14 @@ If any of these fail, the rename architecture has a deeper issue. BLOCK release.
 
 ### 3.7 Phase 7: Companion repo (parallel; 1-2 hours)
 
-1. Draft pm-skills-mcp PR updating any path references to `agents/` and `_AGENTS/`
+1. Draft pm-skills-mcp PR updating any path references to `agents/` and `_agent-context/`
 2. Schedule merge for same-day as pm-skills v2.17.0 G3 tag
 
 ### 3.8 Phase 8: Memory snapshot refresh (G4 P2)
 
 After v2.17.0 ships, update user-level memory:
 
-1. Edit `MEMORY.md` Project Identity block: `AGENTS/` → `_AGENTS/`; `subagents/` → `agents/`
+1. Edit `MEMORY.md` Project Identity block: `AGENTS/` → `_agent-context/`; `subagents/` → `agents/`
 2. Update "Latest tagged version" to v2.17.0
 3. Update repo counts (unchanged at 59 + 4 + 12 + 66)
 4. Add note: "Native Claude Code sub-agent registration LIVE since v2.17.0"
@@ -318,10 +359,10 @@ After v2.17.0 ships, update user-level memory:
 
 ### 4.1 Functional
 
-- [ ] `AGENTS/` directory no longer exists; replaced by `_AGENTS/`
+- [ ] `AGENTS/` directory no longer exists; replaced by `_agent-context/`
 - [ ] `subagents/` directory no longer exists; replaced by `agents/`
 - [ ] `agents/*.md` files (4 sub-agent definitions + 2 yaml + README) accessible at new path
-- [ ] `_AGENTS/` directory contents (claude/, codex/, DECISIONS.md, SESSION-LOG/) intact at new path
+- [ ] `_agent-context/` directory contents (claude/, codex/, DECISIONS.md, SESSION-LOG/) intact at new path
 - [ ] All 30-40 file references swept to new paths
 - [ ] `scripts/validate-agents-md.{sh,ps1}` PASSES (now scans `agents/`)
 - [ ] Full pre-tag-validate bundle PASSES
@@ -357,10 +398,10 @@ After v2.17.0 ships, update user-level memory:
 | Reference sweep misses a file in non-standard location | Medium | Medium | check-internal-link-validity --strict catches broken refs; G1 adversarial review catches missed semantic refs |
 | Claude Code's auto-discovery doesn't actually fire for `agents/` | Low | Critical | G4 P0 scenario 2 explicitly tests this; if fails, ship v2.17.1 reverting the rename OR documenting as unresolved gap |
 | Proactive invocation triggers too aggressively (every skill fires pm-critic) | Medium | Medium | pm-critic description is scoped to "PM-artifact-producing skills" but Claude Code's interpretation may differ; observe behavior; tighten description if needed |
-| `_AGENTS/` underscore prefix interpreted as "ignore" by some tool | Low | Low | Documented tracked-file behavior in existing `_workflows/` pattern; same convention |
+| `_agent-context/` underscore prefix interpreted as "ignore" by some tool | Low | Low | Documented tracked-file behavior in existing `_workflows/` pattern; same convention |
 | pm-skills-mcp breaks because of subagents/ path change | Low | Low | Manifest parser in pm-skills-mcp focuses on skill metadata, not sub-agent paths; verify and update if needed |
 | Memory file references go stale | High | Low | G4 P2 schedules memory refresh; not blocking |
-| Some session log file under _AGENTS/SESSION-LOG/ has hardcoded absolute paths to AGENTS/ | Low | Low | Session logs are gitignored archive notes; not load-bearing |
+| Some session log file under _agent-context/SESSION-LOG/ has hardcoded absolute paths to AGENTS/ | Low | Low | Session logs are gitignored archive notes; not load-bearing |
 
 ---
 

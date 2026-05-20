@@ -33,7 +33,7 @@ The reframe applies the `feedback_no-effort-doc-bloat` memory rule (for refactor
 | ID | Item | Type | Effort | Spec |
 |---|---|---|---|---|
 | W1 | Frontmatter metadata sweep: move proprietary fields under `metadata:` block | INFRA | 2-3 d | [`spec_frontmatter-metadata-migration.md`](spec_frontmatter-metadata-migration.md) |
-| W2 | `AGENTS/` to `_AGENTS/` rename + `subagents/` to `agents/` rename for native Claude Code sub-agent registration | INFRA | 1-2 d | [`spec_agents-directory-rename.md`](spec_agents-directory-rename.md) |
+| W2 | `AGENTS/` to `_agent-context/` rename + `subagents/` to `agents/` rename for native Claude Code sub-agent registration | INFRA | 1-2 d | [`spec_agents-directory-rename.md`](spec_agents-directory-rename.md) |
 | W3 | Validator portability fix: rewrite 5 bash-4 validators for bash-3.2 compat + non-git-checkout fallback for check-count-consistency | INFRA | 1-2 d | (no separate spec; details below in W3 expansion) |
 | W4 | Doc-refresh: CONTEXT.md Notes section + enforcing-validator count framing | DOCS | 0.5 d | (absorbed into W2 reference sweep which already touches CONTEXT.md) |
 
@@ -117,7 +117,7 @@ The previous v2.17.0 stub listed several v2.16-carryover items. Per the TIGHT sc
 |---|---|---|---|
 | D1 | Release type | v2.17.0 (minor) | Frontmatter sweep is structural but additive (no skill content removed). AGENTS rename is internal restructure with new affordance (native sub-agent registration). Both qualify as MINOR per SemVer. |
 | D2 | Co-ship vs. sequence | Co-ship both W1 + W2 in v2.17.0 | Both are cross-cutting structural; bundling minimizes consumer-update cycles. Co-shipping = 1.5x effort vs. 2x audit value. |
-| D3 | AGENTS rename target | `AGENTS/` to `_AGENTS/` (underscore prefix) | Smallest rename diff (1-char prepend on all path refs). Fits repo's existing underscore convention (`_workflows/`, `_NOTES/`, `_LOCAL/`, `_staging/`). Resolves case-insensitive collision with `agents/` on Windows NTFS + macOS APFS. Preserves uppercase semantics signaling "this matters." |
+| D3 | AGENTS rename target | `AGENTS/` to `_agent-context/` (RESOLVED 2026-05-20; was tentatively `_AGENTS/`) | Descriptive name beats minimal-diff `_AGENTS/`: the load-bearing content is the `claude/CONTEXT.md` + `codex/CONTEXT.md` files the conductor/auditor read at G0, so `_agent-context/` says what it is. Fits the repo's underscore convention (`_workflows/`, `_NOTES/`, `_LOCAL/`, `_staging/`). Resolves the case-insensitive collision with `agents/`. Avoids the `_AGENTS/` vs `AGENTS.md` visual near-collision. Considered `_agent-coordination/` (captures decisions+logs too) but `context` is the most-referenced content and reads cleaner. Sweep is mechanical either way (~20 functional files; see spec 2.0). |
 | D4 | Sub-agent rename direction | Path B1 (close the gap upward; `subagents/` to `agents/`) | Per concrete-behavior comparison 2026-05-19: dispatch skill descriptions already PROMISE `@agent-pm-critic` invocation on Claude Code; not delivering this is a divergence between description and runtime. Path A2 (retract promises by sweeping 10-15 docs) is comparable effort with permanent loss of proactive review + parallel sub-agent invocation. Path B1 is the lower-net-cost path that honors v2.16.1 release notes commitment. |
 | D5 | Frontmatter spec target | agentskills.io canonical: top-level keeps `name`, `description`, `license`, optional `compatibility`; everything else moves under `metadata:` block | Spec adoption is at 12+ tools as of 2026-05-14 (Codex CLI, Gemini CLI, Cursor, Windsurf, Cline, Copilot, etc.). Top-level proprietary fields are an emerging anti-pattern that silently break canonical validators. One-time sweep with permanent payoff. |
 | D6 | v2.17.0 entrance criteria | v2.16.1 G4 P0 attestation PASS (DONE 2026-05-19) + v2.16.2 hygiene patch ship (BEFORE v2.17.0 execution) | v2.16.1 G4 P0 FULL PASS 2026-05-19. v2.16.2 ships next as a 1-2 hour fast-patch closing 2 P1 + 1 P2 audit findings (README badge + CONTEXT.md Status + 2-validator bundle wire). v2.17.0 execution starts AFTER v2.16.2 ships. |
@@ -156,10 +156,10 @@ Per [`spec_agents-directory-rename.md`](spec_agents-directory-rename.md). Summar
 
 | File / Operation | Change |
 |---|---|
-| `AGENTS/` directory | Rename to `_AGENTS/` |
+| `AGENTS/` directory | Rename to `_agent-context/` |
 | `subagents/` directory | Rename to `agents/` |
 | `scripts/validate-agents-md.{sh,ps1}` | Update path scan to `agents/*.md` (was `subagents/*.md`) |
-| `scripts/check-mcp-impact.{sh,ps1}` | Update path detection to include `agents/` and `_AGENTS/` (if scoped) |
+| `scripts/check-mcp-impact.{sh,ps1}` | Update path detection to include `agents/` and `_agent-context/` (if scoped) |
 | `scripts/pre-tag-validate.{sh,ps1}` | Verify no path references to old locations |
 | `agents/_pairing.yaml` (moved from subagents/) | Path references inside file unchanged (sub-agent names don't change) |
 | `agents/_chain-permitted.yaml` (moved from subagents/) | Same |
@@ -168,10 +168,10 @@ Per [`spec_agents-directory-rename.md`](spec_agents-directory-rename.md). Summar
 | `commands/pm-critic.md` (and 3 other paired commands) | Update path reference if present |
 | `CLAUDE.md` (repo root) | Update references to `AGENTS/` and `subagents/` |
 | `CONTRIBUTING.md` | Same |
-| `AGENTS.md` (singular file at root; UNCHANGED structure but content edits) | Update any `AGENTS/` path references to `_AGENTS/`; update `subagents/` references to `agents/` |
-| `_AGENTS/claude/CONTEXT.md` | Update path references; update directory-name references |
-| `_AGENTS/codex/CONTEXT.md` | Same |
-| `_AGENTS/DECISIONS.md` | Update path references |
+| `AGENTS.md` (singular file at root; UNCHANGED structure but content edits) | Update any `AGENTS/` path references to `_agent-context/`; update `subagents/` references to `agents/` |
+| `_agent-context/claude/CONTEXT.md` | Update path references; update directory-name references |
+| `_agent-context/codex/CONTEXT.md` | Same |
+| `_agent-context/DECISIONS.md` | Update path references |
 | `docs/contributing/release-runbook.md` | Update `subagents/pm-release-conductor.md` to `agents/pm-release-conductor.md` |
 | `docs/contributing/authoring-sub-agents.md` | Update all path references |
 | `docs/contributing/sub-agent-design-patterns.md` | Same |
@@ -296,7 +296,7 @@ Per Release_v2.17.0.md (will be authored during G2):
 
 - New skills authored after v2.17.0 use the metadata-nested frontmatter structure
 - Existing skills sweep automatically via the W1 migration (no manual contributor action)
-- The `_AGENTS/` directory replaces the old `AGENTS/` directory; old paths in scripts will need update if you have local forks
+- The `_agent-context/` directory replaces the old `AGENTS/` directory; old paths in scripts will need update if you have local forks
 - The `agents/` directory contains sub-agent definitions (was `subagents/`); slash commands (`/pm-critic`, `/pm-audit-repo`, etc.) work identically
 
 ### For pm-skills-mcp (companion repo)
