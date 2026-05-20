@@ -48,13 +48,20 @@ REQUIRED_SOURCES_SUBSECTIONS=(
   "### Generation context"
 )
 
-# Allowed artifact_type values per skill
-declare -A ALLOWED_ARTIFACT_TYPE
-ALLOWED_ARTIFACT_TYPE["foundation-meeting-agenda"]="meeting-agenda"
-ALLOWED_ARTIFACT_TYPE["foundation-meeting-brief"]="meeting-brief"
-ALLOWED_ARTIFACT_TYPE["foundation-meeting-recap"]="meeting-recap"
-ALLOWED_ARTIFACT_TYPE["foundation-meeting-synthesize"]="meeting-synthesis"
-ALLOWED_ARTIFACT_TYPE["foundation-stakeholder-update"]="stakeholder-update"
+# Allowed artifact_type values per skill.
+# bash 3.2 compatible: case-function lookup (associative arrays are bash 4+;
+# macOS default bash is 3.2). Note foundation-meeting-synthesize maps to the
+# irregular "meeting-synthesis" (not "-synthesize"); preserved verbatim.
+expected_artifact_type_for() {
+  case "$1" in
+    foundation-meeting-agenda) printf '%s' "meeting-agenda" ;;
+    foundation-meeting-brief) printf '%s' "meeting-brief" ;;
+    foundation-meeting-recap) printf '%s' "meeting-recap" ;;
+    foundation-meeting-synthesize) printf '%s' "meeting-synthesis" ;;
+    foundation-stakeholder-update) printf '%s' "stakeholder-update" ;;
+    *) printf '%s' "" ;;
+  esac
+}
 
 is_in() {
   local needle="$1"; shift
@@ -141,7 +148,7 @@ for skill in "${FAMILY_SKILLS[@]}"; do
 
     # Check 4b: artifact_type matches expected value
     actual_artifact_type=$(printf '%s\n' "$template_frontmatter" | sed -n 's/^artifact_type:[[:space:]]*//p' | head -1 | tr -d '[:space:]"' )
-    expected_artifact_type="${ALLOWED_ARTIFACT_TYPE[$skill]}"
+    expected_artifact_type="$(expected_artifact_type_for "$skill")"
     if [[ -n "$actual_artifact_type" && "$actual_artifact_type" != "$expected_artifact_type" ]]; then
       fail_skill "$skill" "TEMPLATE.md artifact_type='$actual_artifact_type' does not match expected '$expected_artifact_type'"
     fi

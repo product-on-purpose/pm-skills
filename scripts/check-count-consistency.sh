@@ -19,6 +19,18 @@ ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 echo "=== Count Consistency Check ==="
 echo ""
 
+# Non-git fallback: the stale-count scan below relies on `git grep` over tracked
+# files. In a non-git working tree (e.g. the unpacked plugin install cache on
+# macOS), git is unavailable and `git grep` would exit 128 and abort under
+# `set -euo pipefail`. Skip the scan with a NOTICE rather than hard-failing.
+# Count drift only matters in the authoring/release context, which is always a
+# git work tree (CI + pre-tag), so this check is a no-op outside it.
+if ! git -C "$ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "[NOTICE] not a git work tree; the stale-count scan requires git and is skipped here."
+  echo "[NOTICE] count-consistency is enforced in the git-based CI + pre-tag context."
+  exit 0
+fi
+
 # --- Count actual resources ---
 
 SKILL_COUNT=$(find "$ROOT/skills" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')

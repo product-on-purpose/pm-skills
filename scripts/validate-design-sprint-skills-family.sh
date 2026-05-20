@@ -41,15 +41,21 @@ FAMILY_SKILLS=(
   "tool-design-sprint-test-and-score"
 )
 
-# Expected metadata.move per skill (kebab-case, derived from skill slug)
-declare -A EXPECTED_MOVE
-EXPECTED_MOVE["tool-design-sprint-readiness"]="readiness"
-EXPECTED_MOVE["tool-design-sprint-brief"]="brief"
-EXPECTED_MOVE["tool-design-sprint-map-and-target"]="map-and-target"
-EXPECTED_MOVE["tool-design-sprint-sketch"]="sketch"
-EXPECTED_MOVE["tool-design-sprint-decide-and-storyboard"]="decide-and-storyboard"
-EXPECTED_MOVE["tool-design-sprint-prototype-plan"]="prototype-plan"
-EXPECTED_MOVE["tool-design-sprint-test-and-score"]="test-and-score"
+# Expected metadata.move per skill (kebab-case, derived from skill slug).
+# bash 3.2 compatible: case-function lookup (associative arrays are bash 4+;
+# macOS default bash is 3.2).
+expected_move_for() {
+  case "$1" in
+    tool-design-sprint-readiness) printf '%s' "readiness" ;;
+    tool-design-sprint-brief) printf '%s' "brief" ;;
+    tool-design-sprint-map-and-target) printf '%s' "map-and-target" ;;
+    tool-design-sprint-sketch) printf '%s' "sketch" ;;
+    tool-design-sprint-decide-and-storyboard) printf '%s' "decide-and-storyboard" ;;
+    tool-design-sprint-prototype-plan) printf '%s' "prototype-plan" ;;
+    tool-design-sprint-test-and-score) printf '%s' "test-and-score" ;;
+    *) printf '%s' "" ;;
+  esac
+}
 
 fail_skill() {
   local skill="$1"; local msg="$2"
@@ -172,7 +178,7 @@ for skill in "${FAMILY_SKILLS[@]}"; do
       else if ($0 ~ /^[ \t]+move:/) { sub(/^[ \t]+move:[ \t]*/, ""); gsub(/["[:space:]]/, ""); print; exit }
     }
   ')
-  expected_move="${EXPECTED_MOVE[$skill]}"
+  expected_move="$(expected_move_for "$skill")"
   if [[ "$meta_move" != "$expected_move" ]]; then
     fail_skill "$skill" "metadata.move='$meta_move' (expected '$expected_move')"
   else

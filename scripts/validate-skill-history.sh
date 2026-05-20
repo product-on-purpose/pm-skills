@@ -82,7 +82,9 @@ for dir in "$ROOT"/skills/*; do
     continue
   fi
 
-  mapfile -t table_versions < <(history_table_versions "$history")
+  # bash 3.2 compatible (mapfile/readarray are bash 4+; macOS default bash is 3.2)
+  table_versions=()
+  while IFS= read -r _line; do table_versions+=("$_line"); done < <(history_table_versions "$history")
   if [[ ${#table_versions[@]} -eq 0 ]]; then
     echo "✗ $rel : no version entries found in the summary table"
     FAIL=1

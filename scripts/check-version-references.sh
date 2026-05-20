@@ -67,6 +67,8 @@ EXCLUDES=(
   ':!.github/issues-drafts/'
   ':!.github/.created-issues.json'
   ':!.github/scripts/'
+  ':!.claude-plugin/'
+  ':!.claude/'
   ':(exclude)_agent-context/SESSION-LOG/'
   ':(exclude)_agent-context/claude/SESSION-LOG/'
   ':(exclude)_agent-context/codex/SESSION-LOG/'
@@ -85,11 +87,44 @@ EXCLUDES=(
 # Find all version refs in non-excluded tracked files
 RAW_MATCHES=$(git -C "$ROOT" grep -inE 'v[0-9]+\.[0-9]+\.[0-9]+' -- '*.md' '*.json' "${EXCLUDES[@]}" 2>/dev/null || true)
 
+# Build exempt line-range table from HTML-comment markers. Honors BOTH
+# count-exempt (already used by check-count-consistency to mark historical
+# sections) AND version-exempt (a version-only exemption that does NOT suppress
+# count checks). A flagged line inside any such range is treated as intentional
+# historical provenance, not drift. Format per row: <file><TAB><start><TAB><end>
+EXEMPT_RANGES="$(mktemp)"
+trap 'rm -f "$EXEMPT_RANGES"' EXIT
+_marker_files="$(git -C "$ROOT" grep -lE '<!-- (count|version)-exempt:start -->' -- '*.md' "${EXCLUDES[@]}" 2>/dev/null || true)"
+if [[ -n "$_marker_files" ]]; then
+  while IFS= read -r f; do
+    [[ -z "$f" ]] && continue
+    awk -v file="$f" '
+      /<!-- (count|version)-exempt:start -->/ { start = NR; next }
+      /<!-- (count|version)-exempt:end -->/   { if (start) { print file "\t" start "\t" NR; start = 0 } }
+    ' "$ROOT/$f"
+  done <<< "$_marker_files" >> "$EXEMPT_RANGES"
+fi
+
+is_exempt() {
+  # args: <file> <lineno> ; return 0 if the line falls within an exempt range
+  local ef="$1" eln="$2" rf rs re
+  while IFS=$'\t' read -r rf rs re; do
+    [[ -z "$rf" ]] && continue
+    if [[ "$rf" == "$ef" && "$eln" -ge "$rs" && "$eln" -le "$re" ]]; then
+      return 0
+    fi
+  done < "$EXEMPT_RANGES"
+  return 1
+}
+
 # Filter for drift (any version ref on the line that isn't current)
 DRIFT_LINES=""
 DRIFT_COUNT=0
 while IFS= read -r line; do
   [[ -z "$line" ]] && continue
+  # Skip lines inside count-exempt / version-exempt ranges (historical provenance)
+  _ef="${line%%:*}"; _rest="${line#*:}"; _eln="${_rest%%:*}"
+  if is_exempt "$_ef" "$_eln"; then continue; fi
   # Extract version refs from the line content portion
   found_versions=$(echo "$line" | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sort -u)
   has_drift=false

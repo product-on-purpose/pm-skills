@@ -6,7 +6,9 @@ FAIL=0
 
 for cmd in "$ROOT"/commands/*.md; do
   name="$(basename "$cmd")"
-  mapfile -t paths < <(grep -oE 'skills/[a-z0-9-]+/SKILL.md' "$cmd" || true)
+  # bash 3.2 compatible (mapfile/readarray are bash 4+; macOS default bash is 3.2)
+  paths=()
+  while IFS= read -r _line; do paths+=("$_line"); done < <(grep -oE 'skills/[a-z0-9-]+/SKILL.md' "$cmd" || true)
   if [[ "${#paths[@]}" -eq 0 ]]; then
     echo "✗ $name : no skill path found"
     FAIL=1

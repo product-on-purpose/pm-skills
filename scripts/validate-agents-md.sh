@@ -21,8 +21,12 @@ if [[ ${#skill_paths[@]} -eq 0 ]]; then
   exit 1
 fi
 
-mapfile -t skill_paths < <(printf '%s\n' "${skill_paths[@]}" | sort -u)
-mapfile -t agents_paths < <(grep -oE 'skills/[a-z0-9-]+/SKILL\.md' "$AGENTS" | sort -u)
+# bash 3.2 compatible (mapfile/readarray are bash 4+; macOS default bash is 3.2)
+_sorted=()
+while IFS= read -r _line; do _sorted+=("$_line"); done < <(printf '%s\n' "${skill_paths[@]}" | sort -u)
+skill_paths=("${_sorted[@]}")
+agents_paths=()
+while IFS= read -r _line; do agents_paths+=("$_line"); done < <(grep -oE 'skills/[a-z0-9-]+/SKILL\.md' "$AGENTS" | sort -u)
 
 for path in "${skill_paths[@]}"; do
   if ! printf '%s\n' "${agents_paths[@]}" | grep -Fxq "$path"; then

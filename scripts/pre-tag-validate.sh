@@ -19,6 +19,14 @@
 
 set -uo pipefail  # NOTE: intentionally NOT -e; we want every validator to run so the operator sees the full picture
 
+# Bash-version advisory (W3, v2.17.0). The bundled validators were rewritten to
+# be bash-3.2 compatible (macOS default bash) - no mapfile/readarray, no
+# associative arrays. This is a non-blocking heads-up; the validators run either
+# way. Set ALLOW_BASH3=1 to silence.
+if [ "${BASH_VERSINFO[0]:-0}" -lt 4 ] && [ -z "${ALLOW_BASH3:-}" ]; then
+  echo "NOTE: running on bash ${BASH_VERSION:-<3}; validators are bash-3.2 safe. Set ALLOW_BASH3=1 to silence." >&2
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
@@ -60,6 +68,17 @@ OPTIONAL_VALIDATORS=(
   "check-workflow-generator-coverage|bash $ROOT/scripts/check-workflow-generator-coverage.sh"
   "check-agents-md-command-sync|bash $ROOT/scripts/check-agents-md-command-sync.sh"
   "check-context-currency|bash $ROOT/scripts/check-context-currency.sh"
+)
+
+# Advisory validators: run for visibility but NEVER block the bundle. They
+# surface useful signal that is too noisy to enforce strictly today.
+# F-P2-01 (v2.17.0): check-version-references runs advisory here. Its heuristic
+# (flag any non-current vX.Y.Z) matches ~1000+ legitimate provenance refs
+# repo-wide with zero real drift, so strict enforcement is deferred to v2.17.1
+# pending a precise current-version-claim heuristic. Running it advisory still
+# surfaces the drift count at pre-tag time.
+ADVISORY_VALIDATORS=(
+  "check-version-references (advisory)|bash $ROOT/scripts/check-version-references.sh"
 )
 
 # Parse --skip flag(s)
@@ -122,6 +141,27 @@ run_validator() {
   fi
 }
 
+# Advisory runner: runs the validator for visibility, surfaces only its summary
+# verdict line, and NEVER affects the bundle exit status.
+run_advisory() {
+  local entry="$1"
+  local name="${entry%%|*}"
+  local cmd="${entry#*|}"
+  local script_file
+  script_file=$(echo "$cmd" | awk '{print $2}')
+  if [ ! -f "$script_file" ]; then
+    printf "${YELLOW}SKIP${RESET} (advisory, not present): %s\n" "$name"
+    return 0
+  fi
+  printf "${BLUE}RUN${RESET}  %s ... " "$name"
+  local output verdict
+  output=$(eval "$cmd" 2>&1) || true
+  verdict=$(printf '%s\n' "$output" | grep -iE 'PASS:|WARN:|Found [0-9]+ line' | tail -1)
+  printf "${YELLOW}ADVISORY${RESET}\n"
+  [ -n "$verdict" ] && echo "    ${verdict# }"
+  return 0
+}
+
 echo "=== pm-skills pre-tag validator bundle ==="
 echo ""
 echo "Running the full enforcing-validator suite. Every validator that"
@@ -138,6 +178,12 @@ echo ""
 echo "--- v2.15.1+ preventive validators ---"
 for v in "${OPTIONAL_VALIDATORS[@]}"; do
   run_validator "$v" optional || FAIL=1
+done
+
+echo ""
+echo "--- advisory (non-blocking; informational only) ---"
+for v in "${ADVISORY_VALIDATORS[@]}"; do
+  run_advisory "$v"
 done
 
 echo ""

@@ -45,7 +45,9 @@ FINDINGS=()
 # ---------------------------------------------------------------
 
 # Walk all .md files in docs/reference/ (including skill-families/ subdir)
-mapfile -t REF_FILES < <(find "$REFERENCE_DIR" -name "*.md" -type f | sort)
+# bash 3.2 compatible (mapfile/readarray are bash 4+; macOS default bash is 3.2)
+REF_FILES=()
+while IFS= read -r _line; do REF_FILES+=("$_line"); done < <(find "$REFERENCE_DIR" -name "*.md" -type f | sort)
 
 for src_file in "${REF_FILES[@]}"; do
   src_dir="$(dirname "$src_file")"
@@ -109,7 +111,9 @@ CATEGORIES_FILE="$REFERENCE_DIR/categories.md"
 
 if [[ -f "$CATEGORIES_FILE" ]]; then
   # Build canonical command-name set: strip phase prefix from skills/ directory names.
-  declare -A KNOWN_SKILLS
+  # bash 3.2 compatible: newline-delimited string used as a set (associative
+  # arrays are bash 4+; macOS default bash is 3.2). Membership via grep -Fxq.
+  KNOWN_SKILLS=""
   for skill_dir in "$SKILLS_DIR"/*/; do
     [[ -d "$skill_dir" ]] || continue
     name=$(basename "$skill_dir")
@@ -121,9 +125,9 @@ if [[ -f "$CATEGORIES_FILE" ]]; then
         break
       fi
     done
-    KNOWN_SKILLS["$stripped"]=1
+    KNOWN_SKILLS+="$stripped"$'\n'
     # Also accept the full prefixed form so direct mentions don't false-positive
-    KNOWN_SKILLS["$name"]=1
+    KNOWN_SKILLS+="$name"$'\n'
   done
 
   # Extract the Category Distribution table block (lines after "## Category Distribution"
@@ -162,7 +166,7 @@ if [[ -f "$CATEGORIES_FILE" ]]; then
       [[ "$name" = "**" ]] && continue
       [[ "$name" = "**"*"**" ]] && continue
 
-      if [[ -z "${KNOWN_SKILLS[$name]:-}" ]]; then
+      if ! grep -Fxq "$name" <<<"$KNOWN_SKILLS"; then
         FAIL=1
         FINDINGS+=("UNKNOWN-SKILL: docs/reference/categories.md -> '$name' has no matching skill in skills/")
       fi

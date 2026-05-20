@@ -38,15 +38,21 @@ FAMILY_SKILLS=(
   "tool-foundation-sprint-founding-hypothesis"
 )
 
-# Expected metadata.move per skill (kebab-case, derived from skill slug)
-declare -A EXPECTED_MOVE
-EXPECTED_MOVE["tool-foundation-sprint-readiness"]="readiness"
-EXPECTED_MOVE["tool-foundation-sprint-brief"]="brief"
-EXPECTED_MOVE["tool-foundation-sprint-basics"]="basics"
-EXPECTED_MOVE["tool-foundation-sprint-differentiation"]="differentiation"
-EXPECTED_MOVE["tool-foundation-sprint-approach-options"]="approach-options"
-EXPECTED_MOVE["tool-foundation-sprint-magic-lenses"]="magic-lenses"
-EXPECTED_MOVE["tool-foundation-sprint-founding-hypothesis"]="founding-hypothesis"
+# Expected metadata.move per skill (kebab-case, derived from skill slug).
+# bash 3.2 compatible: case-function lookup (associative arrays are bash 4+;
+# macOS default bash is 3.2).
+expected_move_for() {
+  case "$1" in
+    tool-foundation-sprint-readiness) printf '%s' "readiness" ;;
+    tool-foundation-sprint-brief) printf '%s' "brief" ;;
+    tool-foundation-sprint-basics) printf '%s' "basics" ;;
+    tool-foundation-sprint-differentiation) printf '%s' "differentiation" ;;
+    tool-foundation-sprint-approach-options) printf '%s' "approach-options" ;;
+    tool-foundation-sprint-magic-lenses) printf '%s' "magic-lenses" ;;
+    tool-foundation-sprint-founding-hypothesis) printf '%s' "founding-hypothesis" ;;
+    *) printf '%s' "" ;;
+  esac
+}
 
 fail_skill() {
   local skill="$1"; local msg="$2"
@@ -169,7 +175,7 @@ for skill in "${FAMILY_SKILLS[@]}"; do
       else if ($0 ~ /^[ \t]+move:/) { sub(/^[ \t]+move:[ \t]*/, ""); gsub(/["[:space:]]/, ""); print; exit }
     }
   ')
-  expected_move="${EXPECTED_MOVE[$skill]}"
+  expected_move="$(expected_move_for "$skill")"
   if [[ "$meta_move" != "$expected_move" ]]; then
     fail_skill "$skill" "metadata.move='$meta_move' (expected '$expected_move')"
   else
