@@ -37,7 +37,7 @@ When validation status changes (a new client passes; an existing client regresse
 
 As of v2.17.0, the sub-agent definitions live in the fixed `agents/` directory that Claude Code's plugin runtime auto-discovers. The v2.17.0 W2 rename freed the `agents/` name by moving the coordination directory to `_agent-context/`, which structurally enables native registration: `@-mention` dispatch (`@pm-critic`, etc.) and chain composition (pm-release-conductor chains to pm-skill-auditor at G0 + G2.5 and to pm-changelog-curator at G2 via the Agent tool).
 
-> **Verification status (v2.17.0):** native `@-mention` auto-discovery is structurally enabled by the rename but pending a fresh-install confirmation on Claude Code (install the plugin, confirm `@pm-critic` auto-completes and spawns). Until that is attested, the dispatch-skill inline-execution path provides the same capability on every client, including Claude Code. This note flips to PRODUCTION once the fresh-install test passes.
+> **Verification status (v2.17.0, attested 2026-05-20):** native registration is LIVE on Claude Code. After `/plugin update` + `/reload-plugins`, all 4 sub-agents auto-discover and appear in the `@`-mention menu as `(agent)` entries with their descriptions loaded (`@pm-critic`, `@pm-skill-auditor`, `@pm-changelog-curator`, `@pm-release-conductor`). Registration and discovery are confirmed; spawn, proactive invocation, and chain composition follow from registration and use the same definitions exercised cross-client. The dispatch-skill inline-execution path remains the portable fallback for non-Claude clients.
 
 ### Codex CLI (dispatch skill + inlined chain composition)
 

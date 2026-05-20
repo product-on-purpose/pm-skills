@@ -1,6 +1,6 @@
 # Spec: AGENTS/ and subagents/ Directory Rename (W2)
 
-**Status:** SHIPPED 2026-05-20 (`3691b77`). Mechanical rename + reference sweep + lockstep validators complete; full pre-tag bundle 15/15 PASS; Astro build 345 pages 0 errors. Native `@-mention` auto-discovery (AC 4.2 / Phase 6) is structurally enabled but pending a fresh-install verification on Claude Code; the LIVE/RESOLVED status-doc claims flip after that test passes.
+**Status:** SHIPPED + VERIFIED 2026-05-20 (`3691b77`). Mechanical rename + reference sweep + lockstep validators complete; full pre-tag bundle 15/15 PASS; Astro build 345 pages 0 errors. Native registration ATTESTED 2026-05-20 (AC 4.2 / Phase 6): after `/plugin update` + `/reload-plugins` all 4 sub-agents auto-discover in the Claude Code `@`-mention menu with descriptions loaded. Follow-up: removed `agents/README.md` to avoid a phantom `pm-skills:README` agent (Claude Code scans every `.md` in `agents/`).
 **Parent plan:** [`plan_v2.17.0.md`](plan_v2.17.0.md)
 **Work item ID:** W2
 **Effort estimate:** 1-2 effort-days

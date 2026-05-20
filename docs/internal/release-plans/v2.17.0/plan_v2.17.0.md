@@ -41,7 +41,7 @@ The reframe applies the `feedback_no-effort-doc-bloat` memory rule (for refactor
 
 **Execution status (2026-05-20):**
 - **W1 - SHIPPED** (`be1352b`): frontmatter metadata migration across 59 skills + consumers; CI green.
-- **W2 - SHIPPED** (`3691b77`): `AGENTS/` to `_agent-context/` + `subagents/` to `agents/` renames, lockstep validators, reference sweep, status pointers. Full pre-tag bundle 15/15 PASS; Astro build 345 pages 0 errors. NOTE: native `@-mention` auto-discovery on Claude Code is structurally enabled but pending a fresh-install verification (spec AC 4.2); the LIVE/RESOLVED doc claims flip after that test passes.
+- **W2 - SHIPPED + VERIFIED** (`3691b77`): `AGENTS/` to `_agent-context/` + `subagents/` to `agents/` renames, lockstep validators, reference sweep, status pointers. Full pre-tag bundle 15/15 PASS; Astro build 345 pages 0 errors. Native registration ATTESTED 2026-05-20: after `/plugin update` + `/reload-plugins` all 4 sub-agents auto-discover in the Claude Code `@`-mention menu (AC 4.2 first item confirmed). Follow-up fix: removed `agents/README.md` (Claude Code scans every `.md` in `agents/` as an agent, so the carried-over README registered as a phantom `pm-skills:README` agent).
 - **W4 - SHIPPED with W2** (`3691b77`): coordination-file pointers + project-structure section updated. The deeper `_agent-context/claude/CONTEXT.md` current-state refresh (version/status block) remains for the v2.17.0 release-prep pass.
 - **W3 - PENDING**: bash-3.2 validator portability; needs macOS to verify; candidate to defer to v2.17.1.
 - **F-P2-01 (second half) - PENDING**: wire `check-version-references` into the pre-tag bundle (README now current).
