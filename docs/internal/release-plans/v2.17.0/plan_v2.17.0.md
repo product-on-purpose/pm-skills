@@ -1,6 +1,6 @@
 # v2.17.0 Release Plan: Spec Compliance + Sub-Agent Native Registration
 
-**Status:** ACTIVE (scoped 2026-05-19; v2.16.1 G4 P0 attestation FULL PASS 2026-05-19; v2.16.2 fast-patch scheduled BEFORE v2.17.0 execution per maintainer choice)
+**Status:** SHIPPED 2026-05-20 (annotated tag `v2.17.0` at `b6ff373`; GitHub Release published; tag CI green). Shipped via `/pm-release v2.17.0` 6-gate conductor run (G0-G4 all PASS). All work items W1-W4 + F-P2-01 delivered.
 **Owner:** Maintainers
 **Type:** Minor release
 **Theme:** Close two cross-cutting structural commitments shipped as deferred in v2.16.0 / v2.16.1: (1) move proprietary skill-frontmatter under `metadata:` for agentskills.io spec compliance, (2) rename `subagents/` to `agents/` to deliver native Claude Code sub-agent registration that v2.16.0 attempted and v2.16.1 documented as deferred.
