@@ -133,7 +133,7 @@ npx skills add product-on-purpose/pm-skills
 git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
-[![Download Latest](https://img.shields.io/github/v/release/product-on-purpose/pm-skills?style=for-the-badge&label=Download&color=brightgreen)](https://github.com/product-on-purpose/pm-skills/releases/latest)
+[![Download Latest](https://img.shields.io/github/v/release/product-on-purpose/pm-skills?style=for-the-badge&label=Download&color=brightgreen)](https://github.com/product-on-purpose/pm-skills/tags)
 
 **More resources:**
 
@@ -298,11 +298,11 @@ flowchart LR
     classDef ship fill:#166534,stroke:#14532d,color:#fff,font-weight:bold
     classDef iterate fill:#7c3aed,stroke:#6d28d9,color:#fff,font-weight:bold
 
-    Create["/pm-skill-builder\nCreate new skill\nfrom an idea"]:::create
-    Validate["/pm-skill-validate\nAudit structure\nand quality"]:::validate
+    Create["/pm-skill-builder<br/>Create new skill<br/>from an idea"]:::create
+    Validate["/pm-skill-validate<br/>Audit structure<br/>and quality"]:::validate
     Decision{"Findings?"}:::decision
-    Ship["Ship\nto library"]:::ship
-    Iterate["/pm-skill-iterate\nApply targeted\nimprovements"]:::iterate
+    Ship["Ship<br/>to library"]:::ship
+    Iterate["/pm-skill-iterate<br/>Apply targeted<br/>improvements"]:::iterate
 
     Create --> Validate
     Validate --> Decision
@@ -508,12 +508,12 @@ flowchart TB
 
     subgraph PHASE["Triple Diamond Phase Skills (26)"]
         direction LR
-        DI["Discover\n3 skills"]:::discover
-        DE["Define\n4 skills"]:::define
-        DEV["Develop\n4 skills"]:::develop
-        DEL["Deliver\n6 skills"]:::deliver
-        ME["Measure\n5 skills"]:::measure
-        IT["Iterate\n4 skills"]:::iterate
+        DI["Discover<br/>3 skills"]:::discover
+        DE["Define<br/>4 skills"]:::define
+        DEV["Develop<br/>4 skills"]:::develop
+        DEL["Deliver<br/>6 skills"]:::deliver
+        ME["Measure<br/>5 skills"]:::measure
+        IT["Iterate<br/>4 skills"]:::iterate
 
         DI --> DE --> DEV --> DEL --> ME --> IT
         IT -."feedback loop".-> DI
@@ -521,16 +521,16 @@ flowchart TB
 
     subgraph WORKSHOP["Workshop Tool Families (15 skills)"]
         direction LR
-        FS["Foundation Sprint\n7 skills\n2-day strategic alignment"]:::tool
-        DS["Design Sprint\n7 skills\n5-day prototype-and-test"]:::tool
-        NV["note-and-vote\n1 skill\nstandalone mechanic"]:::tool
+        FS["Foundation Sprint<br/>7 skills<br/>2-day strategic alignment"]:::tool
+        DS["Design Sprint<br/>7 skills<br/>5-day prototype-and-test"]:::tool
+        NV["note-and-vote<br/>1 skill<br/>standalone mechanic"]:::tool
         FS --> DS
     end
 
     subgraph SUPPORT["Cross-Cutting Capabilities (18 skills)"]
         direction LR
-        FOUND["Foundation\n8 skills\npersona, lean-canvas,\nOKRs, meetings"]:::foundation
-        UTIL["Utility\n10 skills\nmeta-tooling"]:::utility
+        FOUND["Foundation<br/>8 skills<br/>persona, lean-canvas,<br/>OKRs, meetings"]:::foundation
+        UTIL["Utility<br/>10 skills<br/>meta-tooling"]:::utility
     end
 
     PHASE -.uses.-> SUPPORT
@@ -644,13 +644,13 @@ flowchart LR
     classDef sprint fill:#0284c7,stroke:#0369a1,color:#fff,font-weight:bold
     classDef gate fill:#1d4ed8,stroke:#1e40af,color:#fff,font-weight:bold
 
-    R["1. Readiness\nGo / No-Go check"]:::gate
-    B["2. Basics\nCustomer + Problem + Competition"]:::sprint
-    Di["3. Differentiation\n2x2 advantage map"]:::sprint
-    A["4. Approach Options\n3-5 high-level paths"]:::sprint
-    M["5. Magic Lenses\nScore approaches"]:::sprint
-    H["6. Founding Hypothesis\nSynthesize direction"]:::sprint
-    Br["7. Brief\nOne-page output"]:::gate
+    R["1. Readiness<br/>Go / No-Go check"]:::gate
+    B["2. Basics<br/>Customer + Problem + Competition"]:::sprint
+    Di["3. Differentiation<br/>2x2 advantage map"]:::sprint
+    A["4. Approach Options<br/>3-5 high-level paths"]:::sprint
+    M["5. Magic Lenses<br/>Score approaches"]:::sprint
+    H["6. Founding Hypothesis<br/>Synthesize direction"]:::sprint
+    Br["7. Brief<br/>One-page output"]:::gate
 
     R --> B --> Di --> A --> M --> H --> Br
 ```
@@ -691,13 +691,13 @@ flowchart LR
     classDef gate fill:#581c87,stroke:#3b0764,color:#fff,font-weight:bold
     classDef day fill:#6d28d9,stroke:#5b21b6,color:#fff
 
-    R["Readiness\nGo / No-Go"]:::gate
-    Br["Brief\nGoal + Questions"]:::sprint
-    M["Day 1\nMap and Target"]:::day
-    S["Day 2\nSketch"]:::day
-    D["Day 3\nDecide and Storyboard"]:::day
-    P["Day 4\nPrototype Plan"]:::day
-    T["Day 5\nTest and Score"]:::gate
+    R["Readiness<br/>Go / No-Go"]:::gate
+    Br["Brief<br/>Goal + Questions"]:::sprint
+    M["Day 1<br/>Map and Target"]:::day
+    S["Day 2<br/>Sketch"]:::day
+    D["Day 3<br/>Decide and Storyboard"]:::day
+    P["Day 4<br/>Prototype Plan"]:::day
+    T["Day 5<br/>Test and Score"]:::gate
 
     R --> Br --> M --> S --> D --> P --> T
 ```
@@ -768,14 +768,14 @@ flowchart LR
     classDef catalog fill:#7c3aed,stroke:#5b21b6,color:#fff
     classDef output fill:#166534,stroke:#14532d,color:#fff,font-weight:bold
 
-    O["Your Claude Code session\n(orchestrator)"]:::orchestrator
+    O["Your Claude Code session<br/>(orchestrator)"]:::orchestrator
     subgraph SA["Sub-Agent (spawned instance)"]
         direction LR
         Agent["Specialist agent"]:::subagent
         Cat["Skills catalog"]:::catalog
         Agent -- reads --> Cat
     end
-    Out["Focused output\nreturned to session"]:::output
+    Out["Focused output<br/>returned to session"]:::output
 
     O -- "spawns" --> SA
     SA --> Out
