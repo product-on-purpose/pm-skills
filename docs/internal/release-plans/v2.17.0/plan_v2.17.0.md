@@ -39,14 +39,16 @@ The reframe applies the `feedback_no-effort-doc-bloat` memory rule (for refactor
 
 **Total v2.17.0 effort: 4.5-7.5 effort-days** (was 3-5 days pre-audit-findings).
 
-**Execution status (2026-05-20):**
+**Execution status (2026-05-20): ALL WORK ITEMS COMPLETE; release-prep STAGED; only the git tag remains.**
 - **W1 - SHIPPED** (`be1352b`): frontmatter metadata migration across 59 skills + consumers; CI green.
-- **W2 - SHIPPED + VERIFIED** (`3691b77`): `AGENTS/` to `_agent-context/` + `subagents/` to `agents/` renames, lockstep validators, reference sweep, status pointers. Full pre-tag bundle 15/15 PASS; Astro build 345 pages 0 errors. Native registration ATTESTED 2026-05-20: after `/plugin update` + `/reload-plugins` all 4 sub-agents auto-discover in the Claude Code `@`-mention menu (AC 4.2 first item confirmed). Follow-up fix: removed `agents/README.md` (Claude Code scans every `.md` in `agents/` as an agent, so the carried-over README registered as a phantom `pm-skills:README` agent).
-- **W4 - SHIPPED with W2** (`3691b77`): coordination-file pointers + project-structure section updated. The deeper `_agent-context/claude/CONTEXT.md` current-state refresh (version/status block) remains for the v2.17.0 release-prep pass.
-- **W3 - PENDING**: bash-3.2 validator portability; needs macOS to verify; candidate to defer to v2.17.1.
-- **F-P2-01 (second half) - PENDING**: wire `check-version-references` into the pre-tag bundle (README now current).
+- **W2 - SHIPPED + VERIFIED** (`3691b77`, `e162ae0`): `AGENTS/` to `_agent-context/` + `subagents/` to `agents/` renames. Native registration ATTESTED 2026-05-20 (all 4 sub-agents auto-discover in the Claude Code `@`-mention menu after `/plugin update`); phantom `agents/README.md` removed.
+- **W3 - SHIPPED** (`6b097b9`): bash-3.2 portability across 8 validators (the original F-P0-01 finding listed 6; 2 more surfaced via grep) + check-count-consistency non-git fallback + pre-tag bash-version preamble. Verified behavior-preserving on bash 5.2 + Ubuntu CI PASS.
+- **F-P2-01 - SHIPPED** (`6b097b9`): `check-version-references` wired into the pre-tag bundle as a non-blocking ADVISORY tier (the validator flags ~1145 legitimate provenance refs repo-wide; strict heuristic + .ps1 parity deferred to v2.17.1).
+- **W4 - SHIPPED** (`76acddd`): `_agent-context/claude/CONTEXT.md` current-state refresh + F-P2-02 stale-count + F-P2-03 validator framing.
+- **Release-prep STAGED** (uncommitted at time of writing, then committed): version bumped to 2.17.0 (plugin.json + marketplace.json + README badge), descriptions rewritten, CHANGELOG v2.17.0 entry, Release_v2.17.0.md, CONTEXT currency markers bumped to v2.17.0. Full pre-tag bundle 15/15 enforcing PASS; Astro build 346 pages 0 errors.
+- **REMAINING:** `git tag v2.17.0` + push + GitHub Release (via `/pm-release v2.17.0` or manual). Post-tag: pm-skills-mcp embed-skills.js merge; user MEMORY.md project-block update to v2.17.0.
 
-All four items are cross-cutting structural or documentation changes. Co-shipping them in one release minimizes surface-area churn for downstream consumers (`pm-skills-mcp` companion repo, doc-stack templates, third-party validators tracking pm-skills as a reference implementation).
+All work items are cross-cutting structural or documentation changes. Co-shipping them in one release minimizes surface-area churn for downstream consumers (`pm-skills-mcp` companion repo, doc-stack templates, third-party validators tracking pm-skills as a reference implementation).
 
 ### W3 expansion: Validator portability fix
 

@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.17.0] - 2026-05-20
+
+**Native Claude Code Sub-Agent Registration + Frontmatter Spec Alignment.** The 4 sub-agents (`pm-critic`, `pm-skill-auditor`, `pm-changelog-curator`, `pm-release-conductor`) now register natively on Claude Code: their definitions live in the canonical `agents/` directory, so they auto-discover and dispatch via `@`-mention (`@pm-critic`, etc.). To free the `agents/` name on case-insensitive filesystems (Windows NTFS, macOS APFS), the agent-coordination directory was renamed from `AGENTS/` to `_agent-context/`. Skill frontmatter also migrated to the metadata-nested structure per the [agentskills.io specification](https://agentskills.io/specification), and the CI validators were made bash-3.2 portable (macOS default bash). The 59-skill catalog is unchanged; cross-client clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) keep full functionality via the dispatch skills.
+
+### Changed
+
+- **Renamed `subagents/` to `agents/`** so Claude Code's plugin runtime auto-discovers the 4 sub-agent definitions at the canonical path. The invalid `plugin.json` custom-path field was already removed in v2.16.1; this rename makes native discovery work without it. Native `@`-mention registration verified live on 2026-05-20 (all 4 sub-agents appear in the `@`-mention menu after `/plugin update` + `/reload-plugins`).
+- **Renamed the agent-coordination directory `AGENTS/` to `_agent-context/`** (underscore-prefixed, matching the `_workflows/`/`_NOTES/` convention) to resolve the case-insensitive collision with the lowercase `agents/` directory. The singular `AGENTS.md` discovery file at repo root is unchanged.
+- **Migrated skill frontmatter to the metadata-nested structure** across all 59 skills: `phase`, `classification`, `version`, and `updated` moved under the `metadata:` block, leaving only spec-recognized top-level fields (`name`, `description`, `license`, `metadata`). Validators and the doc-stack generators updated to read the nested structure.
+- **`check-version-references` wired into the pre-tag bundle** as a non-blocking advisory step (F-P2-01). It surfaces version-reference drift for visibility without failing the bundle; strict enforcement awaits a precise current-version-claim heuristic (deferred to v2.17.1).
+
+### Fixed
+
+- **8 CI validators made bash-3.2 compatible** (audit finding F-P0-01): replaced `mapfile`/`readarray` with `while read` loops and `declare -A` associative arrays with `case`-function lookups or `grep -Fxq` set membership. Affected: `validate-agents-md`, `validate-commands`, `validate-meeting-skills-family`, `validate-foundation-sprint-skills-family`, `validate-design-sprint-skills-family`, `validate-references-cross-doc`, `validate-skill-history`. Added a non-git-work-tree fallback to `check-count-consistency` (graceful skip instead of a hard `git` error in the unpacked install cache) and a bash-version advisory preamble to `pre-tag-validate`.
+- **Removed a phantom `pm-skills:README` sub-agent**: Claude Code scans every `.md` in `agents/` as a sub-agent, so the carried-over `agents/README.md` registered as a spurious agent. Removed it; the directory's purpose is documented in the doc-stack.
+
+### Documentation
+
+- Sub-agent docs updated for native discovery (concepts, contributing guides, reference, project structure), replacing the obsolete custom-path/NTFS-collision rationale. `sub-agent-compatibility.md` marks native `@`-mention registration LIVE; `Release_v2.16.1.md` Known Limitations and the v2.16.0 D31 amendment marked RESOLVED.
+- `_agent-context/claude/CONTEXT.md` current-state refreshed (W4); fixed stale `subagents/` reference and validator-count framing (F-P2-02, F-P2-03).
+
+### Not changed
+
+- Skill catalog: 59 skills (26 phase + 8 foundation + 10 utility + 15 tool). Workflows: 12. Slash commands: 66. Sub-agent definitions: 4.
+- Doc-stack: Astro 6.3.x + Starlight 0.39.x + Node 22.12+.
+- Cross-client dispatch behavior (validated on Codex CLI at v2.16.0) is unchanged.
+
 ## [2.16.2] - 2026-05-19
 
 **Post-v2.16.1 Audit Hygiene Fast-Patch.** The v2.16.1 G4 P0 attestation step ran the pm-skill-auditor via the dispatch-skill pattern (`/pm-skills:pm-audit-repo` on macOS Claude Code). The auditor PASSED (proved cross-client dispatch works in production), AND surfaced 6 new findings on shipped v2.16.1 state. v2.16.2 closes the housekeeping subset (1 P1 + half of 1 P2). README badge update (F-P1-01) defers to whenever the active README refactor lands; validator portability fix (F-P0-01) and CONTEXT.md Notes refresh (F-P2-02) defer to v2.17.0. Same 59-skill catalog. No skill content changes.

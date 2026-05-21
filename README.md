@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.16.2-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.17.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-59-brightgreen.svg?style=flat-square" alt="Skills">
@@ -162,6 +162,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.17.0 - Native Sub-Agent Registration</strong></summary>
+
+**What changed.** The 4 sub-agents now register natively on Claude Code: their definitions moved to the canonical `agents/` directory, so `@pm-critic` (and the other three) auto-discover and dispatch via `@`-mention. To free the `agents/` name on case-insensitive filesystems, the agent-coordination directory was renamed from `AGENTS/` to `_agent-context/`. Skill frontmatter also migrated to the metadata-nested structure per the agentskills.io spec, and the CI validators are now bash-3.2 portable. The 59-skill catalog is unchanged; cross-client clients keep working via the dispatch skills.
+
+**Get started.** [`docs/releases/Release_v2.17.0.md`](docs/releases/Release_v2.17.0.md)
+
+</details>
 
 <details>
 <summary><strong>v2.16.2 - Release Hygiene and GitHub Release Body Update</strong></summary>
@@ -953,7 +962,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.16.2](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.2)           |
+| **Current version** | [v2.17.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.17.0)           |
 | **Skill count**     | 59 (26 phase + 8 foundation + 10 utility + 15 tool)                                       |
 | **Sub-agents**      | 4 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor)               |
 | **Workflows**       | 12                                                                                        |
@@ -1009,6 +1018,7 @@ pm-skills/
 
 | Version    | Highlights                                                                                           |
 | ---------- | ---------------------------------------------------------------------------------------------------- |
+| [**2.17.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.17.0) | Native Claude Code sub-agent registration: sub-agent definitions moved to the canonical `agents/` directory (coordination directory renamed `AGENTS/` to `_agent-context/`), so all 4 sub-agents auto-discover via `@`-mention. Skill frontmatter migrated to the metadata-nested agentskills.io structure; CI validators made bash-3.2 portable. 59-skill catalog unchanged. |
 | [**2.16.2**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.2) | Post-tag hygiene: plan documents updated to SHIPPED state and the GitHub Release body corrected after the v2.16.1 patch cycle. Keeps planning artifacts and the public Release UI synchronized. |
 | [**2.16.1**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.1) | Removed the invalid `agents` field from `plugin.json` that blocked `/plugin update pm-skills` with an "Invalid input" error since v2.16.0. If you saw that error after updating, this patch resolves it. |
 | [**2.16.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.0) | First 4 active-orchestration sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) ship with 4 dispatch skills that extend sub-agent workflows to Codex, Cursor, Windsurf, Copilot, and Gemini CLI. Foundation work for chained PM workflows that run without manual handoffs between steps. |
