@@ -1,6 +1,6 @@
 # v2.18.0 Release Plan: Highest-Consensus PM Skill Gaps
 
-**Status:** ACTIVE (scoped 2026-05-19; awaiting v2.17.0 ship before execution)
+**Status:** ACTIVE - v2.17.0 SHIPPED 2026-05-20; entrance criteria met; strategy briefs complete 2026-05-21; execution ready
 **Owner:** Maintainers
 **Type:** Minor release
 **Theme:** Close the four highest-consensus PM-skill gaps surfaced across the 2026-05-08 backlog aggregations (Codex + Claude Sonnet) and the 2026-05-14 web research synthesis. Ship 4 content skills as a coherent slate.
@@ -249,8 +249,9 @@ The 4 new skills compose naturally with existing ones:
 
 ## Status block
 
-- **Status:** ACTIVE (scoped; awaiting v2.17.0 ship before execution start)
-- **Entrance criteria:** v2.17.0 SHIPPED with G4 P0 attestation PASS
+- **Status:** ACTIVE - execution ready
+- **Entrance criteria:** v2.17.0 SHIPPED with G4 P0 attestation PASS - CONFIRMED 2026-05-20
+- **Strategy briefs:** complete 2026-05-21; all 16 decisions locked (see `docs/internal/skills-ideas/*/strategy-brief.md`)
 - **Expected G2.5 commit SHA:** TBD
 - **Expected tag SHA:** equals G2.5 commit SHA per D22
 
@@ -275,3 +276,4 @@ The 4 new skills compose naturally with existing ones:
 | Date | Author | Change |
 |---|---|---|
 | 2026-05-19 | claude-opus-4.7 (v2.17/v2.18 scoping session) | Initial v2.18.0 plan created per maintainer 2026-05-19 directive. 4 highest-consensus skills locked: discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis. AI-Native Pack and other strategic initiatives explicitly deferred to v2.20+. |
+| 2026-05-21 | claude-sonnet-4.6 (v2.18.0 planning session) | Strategy briefs complete for all 4 skills; all 16 decisions locked. Specs reconciled: W1+W2 reframed as multi-framework meta-analysis (not single-method/single-framework selection); W3 scope corrected (funnel-as-UX-lens in scope; mermaid master+sectional); W4 raw-rows primary contract + qualitative-labels-only for stats. Entrance criteria confirmed met (v2.17.0 shipped 2026-05-20). |

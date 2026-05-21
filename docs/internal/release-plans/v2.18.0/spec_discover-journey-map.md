@@ -1,6 +1,6 @@
 # Spec: `discover-journey-map` (W3)
 
-**Status:** READY FOR EXECUTION (pending v2.17.0 ship)
+**Status:** READY FOR EXECUTION - decisions locked 2026-05-21 (see `docs/internal/skills-ideas/discover-journey-map/strategy-brief.md`)
 **Parent plan:** [`plan_v2.18.0.md`](plan_v2.18.0.md)
 **Work item ID:** W3
 **Effort estimate:** 2-3 effort-days
@@ -143,11 +143,17 @@ Format:
 | Considers | Reduce pricing confusion | Add comparison table on landing page | Small |
 | Tries | Accelerate aha moment | Onboarding tour with quick win | Medium |
 
-### 9. Visual (optional mermaid block)
+### 9. Visual (mermaid diagrams)
 
-A mermaid `timeline` or `flowchart` showing the journey. Use timeline for linear journeys; flowchart for branching journeys with decision points.
+Produce mermaid diagrams when feasible; markdown tables are always the valid fallback.
 
-Example mermaid:
+**Master diagram:** a mermaid `timeline` or `flowchart` covering the full journey. Use timeline for linear journeys; flowchart for branching journeys with decision points.
+
+**Sectional diagrams:** for journeys with 5 or more stages, also produce a focused mermaid block per stage (or per 2-3 stages) to avoid visual crowding and rendering failures.
+
+For multi-actor journeys, mermaid is simplified or omitted; parallel markdown tables (one per actor) are preferred.
+
+Example master diagram:
 
 ```
 timeline
@@ -170,7 +176,7 @@ You refuse to produce a journey map without minimum input quality. Specifically:
 
 2. **Fabricate emotional data without research.** If user asks "what does the customer feel here?" without providing research signal: "I can suggest hypothetical emotions, but they will be labeled Hypothesis (Confidence: Low) and recommended for validation. Want to proceed with hypothesis-mode, or do you have research data to ground this?"
 
-3. **Conflate journey with funnel.** A funnel is a quantitative drop-off chart per stage. A journey is qualitative experience per stage. If user asks for "the conversion funnel": "That's a funnel, not a journey. Different artifact. I produce journeys with qualitative depth and emotional signal. Funnels are in analytics dashboards (skill: `measure-dashboard-requirements`). Want a journey or a funnel?"
+3. **Service blueprint or architecture diagram request.** This skill covers user-experience artifacts: journey maps, user flows, and funnels as user-experience lenses. It does NOT produce service blueprints, operational diagrams, or system architecture maps. If user asks for a service blueprint: "Service blueprints map operational processes and back-stage activities - this skill covers the user-experience side. For a service blueprint, use a diagramming tool directly. Want to continue with a user journey map instead?" Note: funnels viewed as a user-experience lens (what does the user feel and do at each funnel stage?) ARE within scope.
 
 4. **Excessive scope.** End-to-end journey for a long-lifecycle product (e.g., 5 years of B2B SaaS engagement) is too coarse to be useful. Refuse: "End-to-end over 5 years is too coarse. Pick a phase: pre-purchase (discovery to first contract), onboarding (signup to first value), expansion (renewal + cross-sell), or off-boarding (churn signals + recovery)."
 
@@ -186,9 +192,11 @@ Single sequence: Stage 1, Stage 2, Stage 3, etc. Customer moves from start to en
 
 Recurring loop. Customer returns to a stage on a cadence. Use for renewal cycles, engagement loops, recurring task workflows (e.g., monthly QBR cycle for B2B customer).
 
-### Multi-actor journey
+### Multi-actor journey (advanced)
 
-Multiple personas with intersecting journeys (e.g., buyer + influencer + user in B2B). Show parallel tracks with intersection points. Use sparingly; complex to maintain.
+Multiple personas with intersecting journeys (e.g., buyer + influencer + user in B2B). Show parallel tracks with intersection points.
+
+**This is an advanced pattern.** Use sparingly; complex to maintain. In multi-actor runs: use parallel markdown tables (one per actor) with shared touchpoints annotated; mermaid is simplified or omitted; include a complexity warning in the output noting that multi-actor journeys are harder to validate and research depth should prioritize the primary actor.
 
 ## Cross-skill composition
 

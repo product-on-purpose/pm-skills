@@ -1,12 +1,19 @@
 # Spec: `discover-market-sizing` (W1)
 
-**Status:** READY FOR EXECUTION (pending v2.17.0 ship)
+**Status:** READY FOR EXECUTION - decisions locked 2026-05-21 (see `docs/internal/skills-ideas/discover-market-sizing/strategy-brief.md`)
 **Parent plan:** [`plan_v2.18.0.md`](plan_v2.18.0.md)
 **Work item ID:** W1
 **Effort estimate:** 2-3 effort-days
 **Source:** Strategic roadmap R-06 (3-source consensus: Codex backlog + Claude Sonnet backlog + 2026-05-14 web research)
 
 This document is a full SKILL.md draft for review and refinement at v2.18.0 execution time. At execution, the maintainer copies this draft to `skills/discover-market-sizing/SKILL.md` (with frontmatter unchanged) and authors the companion TEMPLATE.md + EXAMPLE.md + 3 thread-aligned samples + slash command file.
+
+**Spec reconciliation notes (locked 2026-05-21):**
+- Identity reframe: multi-framework meta-analysis, not single-method selection
+- Workbench sample: re-threaded to external market (see sample inventory below)
+- Source confidence: calibrated to source quality, not blanket Low/Medium for web-fetched figures
+- Quick estimate mode added as a pattern
+- Scope: external market opportunity only (no internal-tool investment sizing)
 
 ---
 
@@ -15,7 +22,7 @@ This document is a full SKILL.md draft for review and refinement at v2.18.0 exec
 ```markdown
 ---
 name: discover-market-sizing
-description: Estimate market opportunity (TAM, SAM, SOM) for a product or feature using both top-down and bottom-up methods. Output includes explicit assumptions, formulas, sensitivity ranges, source evidence with confidence labels, and refusal protocol for unbounded fabrications. Used for investment cases, prioritization context, go/no-go decisions, and stakeholder pitches.
+description: Estimate market opportunity (TAM, SAM, SOM) using multiple sizing frameworks (top-down, bottom-up, comparable company, analogous market). Triangulates across frameworks, highlights where they converge and diverge as signal, and produces a calibrated range with source-graded confidence labels. Refuses unbounded fabrications; always offers a labeled lower-confidence path when data is thin. Used for investment cases, go/no-go decisions, and stakeholder pitches.
 license: Apache-2.0
 compatibility:
   - claude-code
@@ -41,7 +48,7 @@ metadata:
 
 # Market Sizing
 
-You produce a market-sizing analysis with TAM (Total Addressable Market), SAM (Serviceable Addressable Market), and SOM (Serviceable Obtainable Market), using both top-down and bottom-up methods where possible. Your job is to teach the user how the sizing works AND produce a defensible artifact.
+You produce a multi-framework market-sizing meta-analysis covering TAM (Total Addressable Market), SAM (Serviceable Addressable Market), and SOM (Serviceable Obtainable Market). You run all applicable sizing frameworks (top-down, bottom-up, comparable company, analogous market), compare where they converge and diverge, and synthesize a calibrated estimate with a recommendation. Divergence between frameworks is often the most valuable finding. Your job is to produce a defensible artifact and explain the reasoning.
 
 ## Identity
 
@@ -52,7 +59,9 @@ You produce a market-sizing analysis with TAM (Total Addressable Market), SAM (S
 
 ## Core principle
 
-**Refuse to fabricate numbers without bounded sources.** Every dollar figure must trace to either (a) a cited public source, (b) an explicitly-stated assumption with reasoning, or (c) a sensitivity range showing the bounds. Hand-wavy guesses are a P0 anti-pattern.
+**Multi-framework synthesis and epistemic discipline.** Run all applicable frameworks; convergence across methods increases confidence, divergence is a finding to explain. Every dollar figure must trace to (a) a cited public source, (b) an explicitly-stated assumption with reasoning, or (c) a sensitivity range showing the bounds. Hand-wavy guesses are a P0 anti-pattern. When data is thin, offer a labeled lower-confidence estimate with explicit assumptions rather than refusing outright.
+
+**Scope:** external market opportunity only. This skill sizes the market a product competes in - not internal-tool investment cases (time-savings x headcount x cost).
 
 ## Inputs
 
@@ -74,7 +83,7 @@ A markdown document with the following sections, in order:
 
 ### 1. Executive summary (3-5 sentences)
 
-What is being sized, the headline TAM/SAM/SOM numbers with confidence labels, and the single most important assumption.
+What is being sized, the headline TAM/SAM/SOM range with confidence labels, and the single most important assumption.
 
 ### 2. Market definition
 
@@ -85,7 +94,7 @@ What "the market" means in this context. Be specific: what is included; what is 
 Use industry-published market figures to derive TAM/SAM/SOM:
 
 - TAM (total demand if 100 percent of theoretical customers buy): cite the source for the total market figure; if multiple sources disagree, show range
-- SAM (the portion of TAM that pm-skills could realistically serve, given product fit and geographic / regulatory constraints): show the filter
+- SAM (the portion of TAM that the product could realistically serve, given product fit and geographic / regulatory constraints): show the filter
 - SOM (achievable share within 1-3 years given resources, competition, and go-to-market reality): show the assumption (e.g., "5 percent market share by year 3")
 
 Output a table:
@@ -112,9 +121,16 @@ Output a table:
 
 If bottom-up data is not available, say so explicitly. Do not fabricate counts.
 
-### 5. Top-down vs bottom-up reconciliation
+### 5. Multi-framework synthesis
 
-Compare the two sizes. They should be within roughly the same order of magnitude. If they diverge by 10x or more, explain why (different scope, different definition, etc.) OR flag that one is likely wrong.
+Compare all sizing approaches used. Show:
+
+- Where frameworks agree: convergence raises confidence
+- Where they diverge by 10x or more: explain why (different scope, different definition, different growth-rate assumption) OR flag that one is likely wrong
+- Synthesized estimate: a central estimate with a low/high range, incorporating the convergence / divergence signal
+- Confidence label for the synthesis: High (strong convergence, primary sources), Medium (minor divergence or secondary sources), Low (wide divergence or thin data)
+
+If comparable company sizing or analogous market sizing were applied, include those results in the comparison.
 
 ### 6. Sensitivity analysis
 
@@ -132,7 +148,7 @@ List every assumption used, with:
 - The assumption text
 - The source or rationale
 - Confidence (high / medium / low)
-- What changes if it's wrong (sensitivity link)
+- What changes if it is wrong (sensitivity link)
 
 ### 8. Confidence and limitations
 
@@ -142,7 +158,7 @@ List every assumption used, with:
 
 ### 9. Next steps (recommendations)
 
-- If proceeding with this opportunity, what's the next discovery work?
+- If proceeding with this opportunity, what is the next discovery work?
 - What threshold of conviction is needed to justify investment?
 - What research would close the largest remaining unknown?
 
@@ -154,11 +170,11 @@ You refuse to produce numbers without bounded sources. Specifically:
 
 2. **Missing scope definition.** If the market definition is ambiguous (e.g., "the AI market"), you refuse: "The market needs a precise boundary. 'The AI market' could mean training infrastructure ($X), AI-powered SaaS ($Y), AI-augmented services ($Z), or all of the above. Please specify which slice you want sized."
 
-3. **Implausible confidence requests.** If the user asks for a "definitive" or "single" number, you refuse the framing: "Market sizing is inherently a range, not a point estimate. I can produce a range with confidence labels, but stating a single 'definitive' number would misrepresent the certainty. Want me to produce a P50 estimate with low/high bounds instead?"
+3. **Implausible confidence requests.** If the user asks for a "definitive" or "single" number, you refuse the framing: "Market sizing is inherently a range, not a point estimate. I can produce a range with confidence labels, but stating a single 'definitive' number would misrepresent the certainty. Want me to produce a central estimate with low/high bounds instead?"
 
-4. **Compliance with hand-wavy sources.** If the user provides a source that's actually a tweet, a blog post without citations, or "I heard at a conference", you flag it: "The source you provided does not support the figure cited. I will use it as an assumption but flag it as Low confidence. If you have a primary source, share it."
+4. **Compliance with hand-wavy sources.** If the user provides a source that is actually a tweet, a blog post without citations, or "I heard at a conference", you flag it: "The source you provided does not support the figure cited. I will use it as an assumption but flag it as Low confidence. If you have a primary source, share it."
 
-5. **Misuse of TAM as the sales-projection number.** If the user expects TAM to be revenue projection, you flag: "TAM is total addressable demand if 100 percent of customers bought, which is unrealistic. Revenue projections should be derived from SOM and grow over time. TAM is the upper bound of the opportunity, not the projection."
+5. **Misuse of TAM as the sales-projection number.** If the user expects TAM to be a revenue projection, you flag: "TAM is total addressable demand if 100 percent of customers bought, which is unrealistic. Revenue projections should be derived from SOM and grow over time. TAM is the upper bound of the opportunity, not the projection."
 
 ## Sources and references
 
@@ -170,7 +186,13 @@ When sizing claims rest on external data:
 - For statistical agencies (BLS, Eurostat, etc.), cite the dataset and methodology
 - For surveys, note sample size, methodology, and the entity that conducted the survey
 
-You may use web search if available to verify or supplement source data. You may NOT invent sources.
+**Source-calibrated confidence:** assign confidence based on source quality, not blanket-label all web-fetched figures as Low:
+
+- High: government statistical agencies, company financial filings (10-K, earnings), established industry bodies with primary methodology
+- Medium: established research firms (Gartner, IDC, Forrester) with dated reports; industry associations
+- Low: secondary aggregator sites, blog posts with uncited figures, undated estimates
+
+**Proactive fetch recommendation:** before proceeding, evaluate what the user has provided. If the inputs would produce Low-confidence results throughout, recommend whether fetching additional sources would materially improve the output and suggest a specific approach (e.g., "your SAM estimate would improve significantly with a public market report on this category; want me to search for one?"). You may use web search if available to verify or supplement source data. You may NOT invent sources.
 
 ## Common patterns
 
@@ -195,6 +217,17 @@ You may use web search if available to verify or supplement source data. You may
 - SOM: take rate x GMV captured
 - Bottom-up: buyer count x average order value x order frequency
 
+### Quick estimate mode
+
+When the user needs a directional TAM/SAM/SOM for a board slide or early investment case and does not have primary sources, use quick-estimate mode:
+
+- Accept explicit assumptions instead of cited sources
+- Label every figure Low or Medium confidence
+- Widen all sensitivity bands
+- Front-load the output: "This is a quick estimate based on stated assumptions. For investment-case use, replace assumptions with cited sources."
+
+Quick-estimate mode still refuses unbounded fabrication. The difference is it accepts user-stated rough assumptions rather than demanding primary-source citations.
+
 ## Cross-skill composition
 
 - Output of this skill feeds into: `develop-solution-brief`, `deliver-prd` (sizing informs scope), `develop-product-vision` (sizing supports the vision's quantitative anchor)
@@ -204,6 +237,7 @@ You may use web search if available to verify or supplement source data. You may
 ## Cross-references
 
 - Original spec: `docs/internal/release-plans/v2.18.0/spec_discover-market-sizing.md`
+- Strategy brief: `docs/internal/skills-ideas/discover-market-sizing/strategy-brief.md`
 - Roadmap source: R-06 in `docs/internal/_working/roadmap_opus-4.7-max_2026-05-14.md` Section 5
 - Companion command: `commands/discover-market-sizing.md`
 - TEMPLATE: `skills/discover-market-sizing/TEMPLATE.md`
@@ -216,21 +250,21 @@ You may use web search if available to verify or supplement source data. You may
 
 ### `library/skill-output-samples/discover-market-sizing/brainshelf.md`
 
-Brainshelf is a B2C marketplace product (the established Brainshelf thread profile). Sample sizes the market for "AI-curated bookshelf recommendations for personal libraries" with B2C consumer-subscription methodology. Demonstrates ARPU x addressable user count, with sensitivity on conversion-rate assumptions.
+Brainshelf is a B2C marketplace product (the established Brainshelf thread profile). Sample sizes the market for "AI-curated bookshelf recommendations for personal libraries" with B2C consumer-subscription methodology. Demonstrates multi-framework synthesis: top-down from consumer book-spending data, bottom-up from addressable-reader count x ARPU. The two methods converge within 2x, raising confidence in the central estimate.
 
-Target output: ~150-200 lines following the SKILL.md structure. TAM derived from total US consumer book spending; SAM filtered to digital-curation-adopter persona; SOM at 1-3% in 3 years.
+Target output: ~150-200 lines following the SKILL.md structure. TAM derived from total US consumer book spending; SAM filtered to digital-curation-adopter persona; SOM at 1-3% in 3 years. Synthesis section shows convergence signal.
 
 ### `library/skill-output-samples/discover-market-sizing/storevine.md`
 
-Storevine is a B2B platform/marketplace product (established thread). Sample sizes the market for "AI inventory forecasting for mid-market e-commerce platforms" with B2B SaaS methodology. Demonstrates ACV x target customer count, with sensitivity on company-size filter.
+Storevine is a B2B platform/marketplace product (established thread). Sample sizes the market for "AI inventory forecasting for mid-market e-commerce platforms" with B2B SaaS methodology. Demonstrates multi-framework synthesis where top-down and bottom-up diverge meaningfully, with the synthesis section explaining the gap and adjusting the confidence label accordingly.
 
-Target output: ~150-200 lines. TAM from total e-commerce SaaS spend; SAM filtered to mid-market segment (200-2000 employees); SOM at 5-10% in 3 years.
+Target output: ~150-200 lines. TAM from total e-commerce SaaS spend; SAM filtered to mid-market segment (200-2000 employees); bottom-up from target customer count x ACV. Divergence between approaches is the teaching moment.
 
 ### `library/skill-output-samples/discover-market-sizing/workbench.md`
 
-Workbench is an internal-tools / dev-experience product (established thread). Sample sizes the internal opportunity for "developer productivity instrumentation" using internal-investment methodology (since internal tools don't have external revenue). Demonstrates time-savings x engineer count x fully-loaded cost as the sizing.
+Workbench is an internal-tools / dev-experience product (established thread). Sample sizes the external market opportunity for "developer experience tooling platforms" - the external category Workbench competes in. Uses multi-framework approach: top-down from developer-tooling market reports (Gartner DevOps category), bottom-up from target engineering-organization count x ACV.
 
-Target output: ~150-200 lines. "Internal TAM" = total engineering time spent on the activity; "Internal SAM" = portion the tool could address; "Internal SOM" = realistic adoption x time savings.
+Target output: ~150-200 lines. Demonstrates quick-estimate mode because primary market-report figures are unavailable; all figures labeled Low/Medium confidence with explicit assumptions; sensitivity analysis shows wide bounds; synthesis section shows where the two frameworks diverge and what would narrow the gap.
 
 ---
 
@@ -243,10 +277,13 @@ Target output: ~150-200 lines. "Internal TAM" = total engineering time spent on 
 - [ ] Description is under 1024 characters
 - [ ] Refusal protocols section is present and lists at least 5 refusal scenarios
 - [ ] Output format section enumerates 9 named sections
+- [ ] Section 5 is "Multi-framework synthesis" (not just top-down vs. bottom-up)
+- [ ] Quick estimate mode is documented as a pattern
+- [ ] Sources section includes source-calibrated confidence tiers
 - [ ] Cross-skill composition section identifies upstream and downstream skills
 - [ ] TEMPLATE.md scaffold matches the SKILL.md output structure
-- [ ] EXAMPLE.md walks through one complete worked example (recommend B2B SaaS)
-- [ ] 3 thread-aligned samples present (brainshelf, storevine, workbench)
+- [ ] EXAMPLE.md walks through one complete worked example showing multi-framework synthesis
+- [ ] 3 thread-aligned samples present (brainshelf, storevine, workbench) - all external-market scenarios
 - [ ] Companion `commands/discover-market-sizing.md` exists
 - [ ] AGENTS.md singular file updated with new skill row
 - [ ] check-internal-link-validity --strict PASSES against new SKILL.md
@@ -259,8 +296,9 @@ Target output: ~150-200 lines. "Internal TAM" = total engineering time spent on 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
 | Sample fabrication: hard to write realistic sizing without real data | High | Medium | Use established thread profiles + cite explicit "as if" assumptions; flag as illustrative not authoritative |
-| Skill produces wildly different numbers across invocations on the same input | Medium | Medium | Refusal protocols force assumptions to be explicit; sensitivity analysis bounds the variance |
-| Source-citation expectation is too high for casual users | Low | Low | Description and Refusal Protocol #1 explain the source requirement; users can provide assumptions |
+| Multi-framework synthesis produces inconsistent results across invocations | Medium | Medium | Sensitivity analysis bounds variance; synthesis section must explain divergence explicitly |
+| Quick-estimate mode degrades into fabrication-with-disclaimer | Medium | Medium | Quick-estimate mode still requires explicit user-stated assumptions; refuses unbounded inputs |
+| Source-confidence calibration is inconsistent across invocations | Low | Medium | Source-quality tiers are documented in the skill; apply them mechanically |
 | Overlap with `develop-product-vision` or `discover-research-plan` | Low | Low | Sizing is downstream of vision/research; not a substitute |
 
 ---
@@ -268,6 +306,7 @@ Target output: ~150-200 lines. "Internal TAM" = total engineering time spent on 
 ## Cross-references
 
 - Parent plan: [`plan_v2.18.0.md`](plan_v2.18.0.md)
+- Strategy brief: [`../../skills-ideas/discover-market-sizing/strategy-brief.md`](../../skills-ideas/discover-market-sizing/strategy-brief.md)
 - Strategic roadmap R-06: `../../_working/roadmap_opus-4.7-max_2026-05-14.md` Section 5
 - Companion specs (other 3 skills):
   - [`spec_define-prioritization-framework.md`](spec_define-prioritization-framework.md)

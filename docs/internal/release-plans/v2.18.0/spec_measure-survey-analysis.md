@@ -1,6 +1,6 @@
 # Spec: `measure-survey-analysis` (W4)
 
-**Status:** READY FOR EXECUTION (pending v2.17.0 ship)
+**Status:** READY FOR EXECUTION - decisions locked 2026-05-21 (see `docs/internal/skills-ideas/measure-survey-analysis/strategy-brief.md`)
 **Parent plan:** [`plan_v2.18.0.md`](plan_v2.18.0.md)
 **Work item ID:** W4
 **Effort estimate:** 2-3 effort-days
@@ -60,7 +60,7 @@ A 90-percent confidence claim from 47 responses on a 5-question survey with a le
 
 Required:
 
-- Survey results (the responses themselves, or a summary including: question text, response counts per option, response distribution, open-text excerpts)
+- Survey results: raw response rows (preferred) or a pre-aggregated summary (question text, response counts per option, response distribution, open-text excerpts). Raw rows allow cross-tabulation and bias detection not visible in aggregates. **Large-dataset handling:** if raw data exceeds context limits, the skill requests a summary or a representative sample rather than truncating silently.
 - Survey design context: what hypothesis or question motivated the survey; what audience was targeted; how respondents were recruited
 
 Optional but improves quality:
@@ -93,7 +93,7 @@ State explicitly: "These methodology choices affect what conclusions can be draw
 For each question:
 
 - Response distribution (counts and percentages)
-- Statistical confidence (with sample size + reasonable confidence interval)
+- Statistical confidence (qualitative label based on sample size: n < 100 = direction only; n < 30 per segment = too small for segment claims; rough margin-of-error bracket for reference only, e.g., "+/- ~7% at n=200, 95%", labeled approximate - do not imply computed precision)
 - Interpretation: what the data shows
 - Caveats: what it does NOT show
 - Segmented breakdown (if segment data is available)
@@ -113,8 +113,9 @@ If the survey captured persona-relevant attributes (role, company size, usage fr
 If the survey includes open-text responses:
 
 - Cluster responses into themes (3-7 themes typically)
-- Per theme: representative quotes (2-3); count of mentions; emotional valence
+- Per theme: representative quotes (2-3, drawn only from provided excerpts - never invented); count of mentions (labeled approximate); emotional valence
 - Identify themes that contradict the quantitative pattern (this is often the most valuable signal)
+- Flag clustering as AI-assisted; clustering reflects the provided excerpts, not a complete count of all responses
 - Flag if thematic analysis is hand-coded vs. AI-assisted vs. structured (each has different validity)
 
 ### 6. Hypothesis validation
