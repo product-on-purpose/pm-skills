@@ -152,7 +152,7 @@ You refuse to produce a journey map without minimum input quality. Specifically:
 
 4. **Excessive scope.** End-to-end journey for a long-lifecycle product (e.g., 5 years of B2B SaaS engagement) is too coarse to be useful. Refuse: "End-to-end over 5 years is too coarse. Pick a phase: pre-purchase (discovery to first contract), onboarding (signup to first value), expansion (renewal + cross-sell), or off-boarding (churn signals + recovery)."
 
-5. **Single touchpoint as the whole journey.** If user provides only one touchpoint (e.g., "checkout"): "A single touchpoint isn't a journey. Either expand to the surrounding stages (e.g., browse + add-to-cart + checkout + post-purchase) OR switch to a different artifact like `define-edge-cases` for the checkout flow specifically."
+5. **Single touchpoint as the whole journey.** If user provides only one touchpoint (e.g., "checkout"): "A single touchpoint isn't a journey. Either expand to the surrounding stages (e.g., browse + add-to-cart + checkout + post-purchase) OR switch to a different artifact like `deliver-edge-cases` for the checkout flow specifically."
 
 ## Patterns
 

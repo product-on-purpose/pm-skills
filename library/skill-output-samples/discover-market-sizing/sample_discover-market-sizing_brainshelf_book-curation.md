@@ -47,7 +47,7 @@ show me where the two methods agree.
 
 ## Executive Summary
 
-We size the US market for an AI book-curation consumer subscription at ~$8/month. Top-down (a slice of US consumer book spend redirected to curation) and bottom-up (addressable avid readers x annual subscription revenue) both land near a $1.5-2.5B TAM, converging within ~1.7x, which raises confidence. SAM (US avid readers who adopt digital curation tools) is ~$420M [fictional]; a 3-year SOM at 2% share is ~$8.4M [fictional]. The most important assumption is the share of avid readers willing to pay for curation (assumed 8%). Confidence: Medium.
+We size the US market for an AI book-curation consumer subscription at ~$8/month. Top-down (a slice of US consumer book spend) puts TAM near $2.0B. The serviceable market converges from two directions: a top-down filter to digital-curation adopters and a bottom-up build from willing-to-pay avid readers both land near ~$230M SAM [fictional]. A 3-year SOM at 2% share is ~$4.6M [fictional]. The most important assumption is the share of avid readers willing to pay for curation (assumed 8%). Confidence: Medium.
 
 ## Market Definition
 
@@ -60,8 +60,8 @@ We size the US market for an AI book-curation consumer subscription at ~$8/month
 | Layer | Number | Method | Source / Assumption | Confidence |
 |---|---|---|---|---|
 | TAM | ~$2.0B | Slice of consumer book spend | US consumer book market ~$28B [fictional, replace with AAP StatShot] x ~7% redirectable to a curation/discovery service | Low |
-| SAM | ~$420M | Filter to digital-curation adopters | ~30M US avid readers [fictional] x 8% curation-payer rate x $8/mo x 12 | Medium |
-| SOM | ~$8.4M | Market-share assumption | 2% of SAM by year 3 | Low |
+| SAM | ~$230M | Filter to digital-curation adopters | ~30M US avid readers [fictional] x 8% curation-payer rate x $8/mo x 12 | Medium |
+| SOM | ~$4.6M | Market-share assumption | 2% of SAM by year 3 | Low |
 
 ## Bottom-Up Sizing
 
@@ -74,17 +74,17 @@ Bottom-up addressable revenue at full adoption of the willing-to-pay segment is 
 
 ## Multi-Framework Synthesis
 
-- **Where they agree:** Top-down SAM (~$420M) and bottom-up addressable (~$230-410M) overlap. The methods are within ~1.7x, which is good convergence for a consumer category.
+- **Where they agree:** Top-down SAM (~$230M) and the bottom-up build (~$230-410M) converge at the low end: both put the serviceable market near $230M at the 8% willing-to-pay base. Good convergence for a consumer category.
 - **Where they diverge:** Top-down TAM ($2.0B) is much larger than bottom-up, because TAM counts a redirectable slice of all book spend while bottom-up counts only willing-to-pay avid readers. This is expected: TAM is the ceiling, bottom-up is the realistic serviceable base. They are answering different questions.
-- **Synthesized estimate:** TAM ~$2.0B, SAM ~$420M, SOM ~$8.4M at 2% in 3 years. Low/high TAM band: $1.2B / $2.8B.
+- **Synthesized estimate:** TAM ~$2.0B, SAM ~$230M, SOM ~$4.6M at 2% in 3 years. Low/high TAM band: $1.2B / $2.8B.
 - **Synthesis confidence:** Medium. Convergence of the SAM-level numbers is reassuring; the willing-to-pay rate is the soft spot.
 
 ## Sensitivity Analysis
 
 | Assumption varied | Low | Mid | High |
 |---|---|---|---|
-| Curation willing-to-pay rate | 4% (SAM = $210M) | 8% (SAM = $420M) | 15% (SAM = $790M) |
-| Year-3 market share | 1% (SOM = $4.2M) | 2% (SOM = $8.4M) | 5% (SOM = $21M) |
+| Curation willing-to-pay rate | 4% (SAM = $115M) | 8% (SAM = $230M) | 15% (SAM = $432M) |
+| Year-3 market share | 1% (SOM = $2.3M) | 2% (SOM = $4.6M) | 5% (SOM = $11.5M) |
 
 ## Key Assumptions
 
@@ -106,4 +106,4 @@ Bottom-up addressable revenue at full adoption of the willing-to-pay segment is 
 
 - Run a willing-to-pay survey with avid readers to replace the 8% assumption
 - Pull comparable subscriber economics from any public reading-app or curation competitor
-- Conviction threshold: a SAM near $400M with a believable 2% share is generally enough to justify a seed raise for a consumer subscription; validate willingness-to-pay first
+- Conviction threshold: a SAM near $230M with a believable 2% share is generally enough to justify a seed raise for a consumer subscription; validate willingness-to-pay first

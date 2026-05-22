@@ -103,7 +103,7 @@ Eight Q3 candidates with PM-supplied estimates (illustrative `[fictional]`). Rea
 | Rec algorithm v2 | 2 | 4 | Must | Strong |
 | Mobile app | 3 | 6 | Could | Divergent |
 | Export to Goodreads | 4 | 1 | Should | Close |
-| Social follow-friends | 5 | 8 | Won't | Agree (defer) |
+| Social follow-friends | 5 | 8 | Won't | Mostly agree (RICE 5th, borderline) |
 | Audiobook recs | 6 | 5 | Could | Close |
 | Family plan | 7 | 2 | Should | Divergent |
 | Public profiles | 8 | 7 | Won't | Agree (defer) |
@@ -114,7 +114,7 @@ Eight Q3 candidates with PM-supplied estimates (illustrative `[fictional]`). Rea
 
 ## Executive Summary with Recommendation
 
-Fund **Rec algorithm v2** and **Reading streaks**: both score high across frameworks and fit the budget. Add the two cheap, high-confidence items - **Export to Goodreads** (1 week) and **Family plan** (4 weeks) - the latter despite a low RICE rank, because RICE undervalues its concentrated revenue impact. That fills ~13 of 14 eng-weeks. **Defer Mobile app** to a quarter with capacity for a 12-week build, and **drop Social + Public profiles** this cycle (all frameworks agree). The one judgment call is Family plan: if new revenue is not a Q3 goal, swap it for Audiobook recs.
+Fund **Rec algorithm v2** and **Reading streaks**: both score high across frameworks and fit the budget. Add the two cheap, high-confidence items - **Export to Goodreads** (1 week) and **Family plan** (4 weeks) - the latter despite a low RICE rank, because RICE undervalues its concentrated revenue impact. That fills ~13 of 14 eng-weeks. **Defer Mobile app** to a quarter with capacity for a 12-week build, and **drop Public profiles** (all three frameworks agree) and **Social follow-friends** (ICE and MoSCoW both defer it; RICE ranks it a borderline 5th) this cycle. The one judgment call is Family plan: if new revenue is not a Q3 goal, swap it for Audiobook recs.
 
 ## Sensitivity / What Changes the Ranking
 

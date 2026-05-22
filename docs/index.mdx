@@ -1,13 +1,13 @@
 ---
 title: PM Skills
-description: 59 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more. Includes the v2.15.0 Sprint Skills launch (Foundation Sprint + Design Sprint families) and the v2.16.0 Active Orchestration sub-agent dispatch slate.
+description: 63 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more. Includes the v2.15.0 Sprint Skills launch (Foundation Sprint + Design Sprint families) and the v2.16.0 Active Orchestration sub-agent dispatch slate.
 tags:
   - Home
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-**59 best-practice product management skills for AI agents.**
+**63 best-practice product management skills for AI agents.**
 
 PM Skills teaches AI assistants how to produce professional PM artifacts - PRDs, user stories, acceptance criteria, experiment designs, sprint outputs, and more. One command, consistent output, every time.
 
@@ -18,13 +18,13 @@ Skills are organized across 6 phases of the Triple Diamond framework - three dia
 ```mermaid
 graph LR
     subgraph "Problem Space"
-        D1["Discover<br/>3 skills"] --> D2["Define<br/>4 skills"]
+        D1["Discover<br/>5 skills"] --> D2["Define<br/>5 skills"]
     end
     subgraph "Solution Space"
         D3["Develop<br/>4 skills"] --> D4["Deliver<br/>6 skills"]
     end
     subgraph "Learning Space"
-        D5["Measure<br/>5 skills"] --> D6["Iterate<br/>4 skills"]
+        D5["Measure<br/>6 skills"] --> D6["Iterate<br/>4 skills"]
     end
     D2 --> D3
     D4 --> D5
@@ -50,13 +50,13 @@ graph LR
 ## The Skills
 
 <CardGrid>
-  <Card title="Discover (3 skills)" icon="magnifier">
+  <Card title="Discover (5 skills)" icon="magnifier">
     Research, competitive analysis, stakeholder mapping.
 
     [Browse Discover](skills/discover/)
   </Card>
 
-  <Card title="Define (4 skills)" icon="puzzle">
+  <Card title="Define (5 skills)" icon="puzzle">
     Problem framing, hypotheses, opportunity trees, JTBD.
 
     [Browse Define](skills/define/)
@@ -74,7 +74,7 @@ graph LR
     [Browse Deliver](skills/deliver/)
   </Card>
 
-  <Card title="Measure (5 skills)" icon="bars">
+  <Card title="Measure (6 skills)" icon="bars">
     Experiments, instrumentation, dashboards, results, OKR grading.
 
     [Browse Measure](skills/measure/)
@@ -107,7 +107,7 @@ graph LR
 
 ## Skills by Phase
 
-26 domain skills across 6 phases, plus 8 foundation, 10 utility, and 15 tool skills (Foundation Sprint + Design Sprint families + v2.16.0 sub-agent dispatch slate):
+30 domain skills across 6 phases, plus 8 foundation, 10 utility, and 15 tool skills (Foundation Sprint + Design Sprint families + v2.16.0 sub-agent dispatch slate):
 
 ```mermaid
 block-beta
@@ -117,6 +117,8 @@ block-beta
         d1["/competitive-analysis"]
         d2["/interview-synthesis"]
         d3["/stakeholder-summary"]
+        d4["/journey-map"]
+        d5["/market-sizing"]
     end
 
     block:define["Define"]:1
@@ -124,6 +126,7 @@ block-beta
         f2["/hypothesis"]
         f3["/opportunity-tree"]
         f4["/jtbd-canvas"]
+        f5["/prioritization-framework"]
     end
 
     block:develop["Develop"]:1
@@ -148,6 +151,7 @@ block-beta
         m3["/dashboard-requirements"]
         m4["/experiment-results"]
         m5["/okr-grader"]
+        m6["/survey-analysis"]
     end
 
     block:iterate["Iterate"]:1
@@ -247,7 +251,7 @@ Follow three fictional companies through the complete product lifecycle - from d
 |----------|----------|--------|
 | [Feature Kickoff](workflows/feature-kickoff.md) | New features | problem-statement, hypothesis, prd, user-stories, launch-checklist |
 | [Lean Startup](workflows/lean-startup.md) | Rapid validation | hypothesis, experiment-design, experiment-results, pivot-decision |
-| [Triple Diamond](workflows/triple-diamond.md) | Major initiatives | All 26 phase skills across 6 phases |
+| [Triple Diamond](workflows/triple-diamond.md) | Major initiatives | All 30 phase skills across 6 phases |
 | [Customer Discovery](workflows/customer-discovery.md) | Research to problem | interview-synthesis, jtbd-canvas, opportunity-tree, problem-statement |
 | [Sprint Planning (agile)](workflows/sprint-planning.md) | Agile sprint-ready stories | refinement-notes, user-stories, edge-cases |
 | [Product Strategy](workflows/product-strategy.md) | Strategic framing | competitive-analysis, stakeholder-summary, opportunity-tree, solution-brief, adr |
@@ -264,6 +268,8 @@ Follow three fictional companies through the complete product lifecycle - from d
 
 | Version | Date | Highlights |
 |---------|------|-----------|
+| **[v2.18.0](releases/Release_v2.18.0.md)** | 2026-05-21 | Highest-consensus PM skill gaps: 4 new phase skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis), each with a companion command and 3 thread samples. Catalog 59 to 63 (phase 26 to 30); commands 66 to 70. |
+| **[v2.17.0](releases/Release_v2.17.0.md)** | 2026-05-20 | Native Claude Code sub-agent registration (definitions moved to the canonical agents/ directory; coordination dir renamed AGENTS/ to _agent-context/); frontmatter metadata-nested migration; bash-3.2 validator portability. 59-skill catalog unchanged. |
 | **[v2.16.0](releases/Release_v2.16.0.md)** | 2026-05-17 | Active Orchestration + Doc-Stack Modernization: 4 plugin sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) codify the Phase 0 Adversarial Review Loop + 6-gate release runbook including the new G2.5 commit gate. 4 dispatch skills at `skills/utility-pm-{role}/` deliver cross-client compatibility (VALIDATED on Codex CLI 2026-05-17 per GATE B + C). Astro 5.13.x to 6.3.x upgrade + Starlight 0.39.x + Node 22.12+ across 5 CI workflows; closes 2 deferred Dependabot alerts. 10 new public docs (concepts, guides, reference, contributing - including the canonical sub-agent compatibility matrix and CI overview) + 12 sub-agent library samples across 3 narrative threads. Content catalog 55 to 59 with the 4 utility dispatch skills; new shipping unit is the sub-agent |
 | **[v2.15.2](releases/Release_v2.15.2.md)** | 2026-05-17 | v2.15.x Cycle Closeout + v2.16.0 Plan Reconciliation: closeout patch successor to v2.15.1. No source-code, validator behavior, or catalog changes. Planning-doc hygiene only: audit doc status flipped from DRAFT to REMEDIATION SHIPPED with finding-by-finding closure table; v2.15.0 master plan continuity updated; v2.16.0 plan slate reconciled against v2.15.1 shipped reality (CONTEXT.md prereq marked DONE; ci-plan validator scope reduced via carry-in reconciliation section); CONTEXT.md refreshed; version surfaces bumped |
 | **[v2.15.1](releases/Release_v2.15.1.md)** | 2026-05-16 | Post-Tag Audit Remediation + Preventive CI: same-day patch closing 18 v2.15.x audit findings (docs-site homepage, skills landing page, AGENTS.md command table, sample-library README, Sprint Planning naming-discipline) plus a workflow-generator bug fix and 4 new preventive CI validators (landing-page count assertion, workflow-generator coverage, AGENTS.md command-sync, pre-tag validator bundle orchestration). 55-skill catalog unchanged |
