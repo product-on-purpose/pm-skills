@@ -103,18 +103,18 @@ The side-by-side rank positions are consolidated in the Cross-Framework Comparis
 
 | Item | ICE rank | Weighted rank | Agreement |
 |---|---|---|---|
-| Better build error messages | 1 | 4 (tie) | Strong |
-| PR template + checks | 2 | 4 (tie) | Strong |
+| Better build error messages | 1 | 5 (tie) | Strong |
+| PR template + checks | 2 | 5 (tie) | Strong |
 | Flaky-test detection | 3 | 1 (tie) | Strong |
 | One-command dev env | 4 | 1 (tie) | Strong |
-| Onboarding golden path | 5 | 7 | Close |
-| Dep-upgrade bot | 6 | 3 | Divergent (up) |
-| Local secrets management | 7 | 8 | Close |
+| Onboarding golden path | 5 | 8 | Close |
+| Dep-upgrade bot | 6 | 4 | Divergent (up) |
+| Local secrets management | 7 | 7 | Strong |
 | Faster CI pipeline | 8 | 1 (tie) | Divergent (up) |
 
 **Strong top-5 agreement:** Both frameworks put One-command dev env, Better build error messages, PR template + checks, and Flaky-test detection in the top tier. The fifth slot is contested.
 
-**Divergent - Dep-upgrade bot (ICE 6th, Weighted 3rd) and Faster CI (ICE 8th, Weighted top tie):** ICE penalizes their lower Ease, but Weighted Scoring rewards their high tech-debt reduction and developer velocity. Driver: the criteria you chose explicitly value tech-debt and velocity, which a raw ICE Ease score discounts. This is why running both helped.
+**Divergent - Dep-upgrade bot (ICE 6th, Weighted 4th) and Faster CI (ICE 8th, Weighted top tie):** ICE penalizes their lower Ease, but Weighted Scoring rewards their high tech-debt reduction and developer velocity. Driver: the criteria you chose explicitly value tech-debt and velocity, which a raw ICE Ease score discounts. This is why running both helped.
 
 ## Executive Summary with Recommendation
 

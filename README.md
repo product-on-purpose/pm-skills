@@ -164,6 +164,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 <!-- count-exempt:start -->
 
 <details>
+<summary><strong>v2.18.0 - Highest-Consensus PM Skill Gaps</strong></summary>
+
+**What changed.** Four new phase skills close the highest-consensus PM gaps: `market-sizing` (TAM/SAM/SOM via multi-framework triangulation), `prioritization-framework` (RICE, ICE, MoSCoW, Weighted Scoring, and Kano run in parallel with a cross-framework comparison), `journey-map` (stages, touchpoints, emotional curve, and moments of truth), and `survey-analysis` (honest analysis with explicit limitation warnings). The catalog grows from 59 to 63 skills; each new skill refuses to fabricate data and labels confidence honestly.
+
+**Get started.** [`docs/releases/Release_v2.18.0.md`](docs/releases/Release_v2.18.0.md)
+
+</details>
+
+<details>
 <summary><strong>v2.17.0 - Native Sub-Agent Registration</strong></summary>
 
 **What changed.** The 4 sub-agents now register natively on Claude Code: their definitions moved to the canonical `agents/` directory, so `@pm-critic` (and the other three) auto-discover and dispatch via `@`-mention. To free the `agents/` name on case-insensitive filesystems, the agent-coordination directory was renamed from `AGENTS/` to `_agent-context/`. Skill frontmatter also migrated to the metadata-nested structure per the agentskills.io spec, and the CI validators are now bash-3.2 portable. The 59-skill catalog is unchanged; cross-client clients keep working via the dispatch skills.
@@ -541,7 +550,7 @@ flowchart TB
 
 | Classification                       | Count | What's in it                                                                                         |
 | ------------------------------------ | ----: | ---------------------------------------------------------------------------------------------------- |
-| **Phase** (Triple Diamond)           | 26    | One skill per major PM activity across Discover, Define, Develop, Deliver, Measure, and Iterate      |
+| **Phase** (Triple Diamond)           | 30    | One skill per major PM activity across Discover, Define, Develop, Deliver, Measure, and Iterate      |
 | **Foundation** (cross-cutting)       | 8     | Persona, lean canvas, OKRs, and the full meeting skills family                                       |
 | **Utility** (meta-tooling)           | 10    | pm-skill-builder, pm-skill-validate, pm-skill-iterate, mermaid-diagrams, slideshow-creator, update-pm-skills, and helpers |
 | **Tool Families** (workshop methods) | 15    | Foundation Sprint family (7) + Design Sprint family (7) + note-and-vote (1)                          |
@@ -1048,7 +1057,7 @@ pm-skills/
 | [**2.0.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.0.0)   | Major structural reset: flat `skills/{phase-skill}/` directory layout, sync helper scripts, build scripts, and docs refresh. Established the layout convention the repo uses today. |
 | [**1.2.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.2.0)   | Security policy, CodeQL scanning, Dependabot configuration, and issue/PR templates.                  |
 | [**1.1.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.1.0)   | Documentation overhaul: README redesign, FAQ section, and collapsible table of contents.             |
-| [**1.0.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.0.0)   | First stable Triple Diamond baseline: 26 phase skills across 6 phases, workflows, and AGENTS.md for agent discovery. The canonical starting point the rest of the repo builds from. |
+| [**1.0.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v1.0.0)   | First stable Triple Diamond baseline: 24 PM skills across 6 phases, workflows, and AGENTS.md for agent discovery. The canonical starting point the rest of the repo builds from. |
 | [**0.1.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v0.1.0)   | Initial project structure and foundation infrastructure.                                             |
 
 <!-- count-exempt:end -->
