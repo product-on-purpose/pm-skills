@@ -54,7 +54,7 @@ The four skills compose naturally with the existing catalog:
 
 - `discover-market-sizing` feeds `develop-solution-brief` then `deliver-prd` (sizing informs scope).
 - `discover-journey-map` feeds `define-problem-statement` and `define-hypothesis` (each pain point or moment of truth can become a problem statement).
-- `discover-research-plan` feeds `measure-survey-analysis` (design the survey, then analyze it); `discover-interview-synthesis` is its qualitative complement.
+- `measure-survey-analysis` pairs with `discover-interview-synthesis` as the quantitative-to-qualitative complement (the two should agree, or the disagreement is itself a finding).
 - `define-prioritization-framework` consumes `define-opportunity-tree` and `define-hypothesis` output and feeds sprint-planning workflows.
 - All four pair with `pm-critic` for adversarial review of assumptions, confidence labels, and sample realism.
 

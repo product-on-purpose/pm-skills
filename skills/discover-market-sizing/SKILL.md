@@ -195,8 +195,8 @@ Quick-estimate mode still refuses unbounded fabrication. The difference is it ac
 
 ## Cross-skill composition
 
-- Output of this skill feeds into: `develop-solution-brief`, `deliver-prd` (sizing informs scope), `develop-product-vision` (sizing supports the vision's quantitative anchor)
-- Inputs to this skill often come from: `discover-research-plan` (research that gathered the source data), `discover-interview-synthesis` (qualitative signal that informs sizing assumptions)
+- Output of this skill feeds into: `develop-solution-brief` and `deliver-prd` (sizing informs scope and the investment case)
+- Inputs to this skill often come from: `discover-competitive-analysis` (market and competitor context) and `discover-interview-synthesis` (qualitative signal that informs sizing assumptions)
 - Adversarial review via: `pm-critic` (use proactively to challenge assumptions, source quality, and confidence labels)
 
 ## Output format
