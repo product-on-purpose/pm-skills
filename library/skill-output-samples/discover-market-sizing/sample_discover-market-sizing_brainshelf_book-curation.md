@@ -65,16 +65,16 @@ We size the US market for an AI book-curation consumer subscription at ~$8/month
 
 ## Bottom-Up Sizing
 
-| Segment | # Customers | Revenue / Customer (ARPU) | Sub-total | Method | Source |
+| Scenario | # Payers | ARPU | Estimate | Method | Basis |
 |---|---|---|---|---|---|
-| Avid readers, curation-payers | ~2.4M [fictional] | $96/yr ($8/mo) | ~$230M | Bottom-up | 30M avid readers x 8% willing-to-pay |
-| Heavy readers (25+ books/yr) | ~1.9M [fictional] | $96/yr | ~$182M | Bottom-up | Subset assumed more likely to pay |
+| Base (8% of avid readers pay) | ~2.4M [fictional] | $96/yr ($8/mo) | ~$230M | Bottom-up | 30M avid readers x 8% willing-to-pay |
+| High (15% pay) | ~4.5M [fictional] | $96/yr | ~$432M | Bottom-up (alternate) | Higher willing-to-pay rate on the same population |
 
-Bottom-up addressable revenue at full adoption of the willing-to-pay segment is ~$230M-$410M depending on how wide the willing-to-pay definition is drawn.
+The two rows are alternate willing-to-pay rates on the same avid-reader population, not additive segments. Heavy readers (25+ books/yr) are a subset of avid readers and are the likeliest to convert, so they sit inside these figures rather than adding to them. Bottom-up range: ~$230M (base) to ~$432M (high).
 
 ## Multi-Framework Synthesis
 
-- **Where they agree:** Top-down SAM (~$230M) and the bottom-up build (~$230-410M) converge at the low end: both put the serviceable market near $230M at the 8% willing-to-pay base. Good convergence for a consumer category.
+- **Where they agree:** Top-down SAM (~$230M) and the bottom-up base (~$230M) converge tightly at the 8% willing-to-pay rate; the bottom-up high case (~$432M at 15% pay) lines up with the sensitivity range. Good convergence for a consumer category.
 - **Where they diverge:** Top-down TAM ($2.0B) is much larger than bottom-up, because TAM counts a redirectable slice of all book spend while bottom-up counts only willing-to-pay avid readers. This is expected: TAM is the ceiling, bottom-up is the realistic serviceable base. They are answering different questions.
 - **Synthesized estimate:** TAM ~$2.0B, SAM ~$230M, SOM ~$4.6M at 2% in 3 years. Low/high TAM band: $1.2B / $2.8B.
 - **Synthesis confidence:** Medium. Convergence of the SAM-level numbers is reassuring; the willing-to-pay rate is the soft spot.

@@ -92,7 +92,12 @@ Criteria scored 1-10: Developer velocity, Adoption likelihood (inverse of adopti
 
 ## Per-Framework Ranking Output
 
-Each scoring table above is sorted high to low, so the per-framework ranking is the row order shown (top item first, lowest last). The side-by-side rank positions, and the items where the frameworks disagree, are consolidated in the Cross-Framework Comparison below.
+The ICE and Weighted Scoring tables above are listed in contender order, not score order. Sorted high to low:
+
+- **ICE:** Better build error messages (504) > PR template + checks (486) > Flaky-test detection (384) > One-command dev env (360) > Onboarding golden path / Dep-upgrade bot (336, tie) > Local secrets management (294) > Faster CI pipeline (252) > Standard logging library / Auto-generated API docs (210, tie) > Service catalog (168) > Incident runbook automation (144).
+- **Weighted Scoring:** One-command dev env / Flaky-test detection / Faster CI pipeline (7.3, tie) > Dep-upgrade bot (7.0) > Better build error messages / PR template + checks (6.7, tie) > Local secrets management (6.3) > Onboarding golden path (6.0).
+
+The side-by-side rank positions are consolidated in the Cross-Framework Comparison below.
 
 ## Cross-Framework Comparison
 

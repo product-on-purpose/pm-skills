@@ -86,11 +86,11 @@
 - [How Agent Skills Work](#how-agent-skills-work)
 - [The Skill Library](#the-skill-library)
     - [Foundation Skills](#foundation-skills---cross-cutting-capability-8)
-    - [Discover Phase Skills](#discover---find-and-assess-the-right-problem-3)
-    - [Define Phase Skills](#define---frame-the-problem-4)
+    - [Discover Phase Skills](#discover---find-and-assess-the-right-problem-5)
+    - [Define Phase Skills](#define---frame-the-problem-5)
     - [Develop Phase Skills](#develop---explore-solutions-4)
     - [Deliver Phase Skills](#deliver---ship-it-6)
-    - [Measure Phase Skills](#measure---validate-with-data-5)
+    - [Measure Phase Skills](#measure---validate-with-data-6)
     - [Iterate Phase Skills](#iterate---learn-and-improve-4)
     - [Tool Family: Foundation Sprint](#tool-family-foundation-sprint)
     - [Tool Family: Design Sprint](#tool-family-design-sprint)
@@ -483,7 +483,7 @@ When you run `/prd "topic"`, the agent loads the skill, mirrors the example, fil
 ## The Skill Library
 
 <p>
-  <img src="https://img.shields.io/badge/Phase-26_skills-7c3aed?style=for-the-badge" alt="Phase Skills: 26">
+  <img src="https://img.shields.io/badge/Phase-30_skills-7c3aed?style=for-the-badge" alt="Phase Skills: 30">
   <img src="https://img.shields.io/badge/Foundation-8_skills-059669?style=for-the-badge" alt="Foundation Skills: 8">
   <img src="https://img.shields.io/badge/Tool_Families-15_skills-0284c7?style=for-the-badge" alt="Tool Family Skills: 15">
   <img src="https://img.shields.io/badge/Utility-10_skills-ea580c?style=for-the-badge" alt="Utility Skills: 10">
@@ -791,9 +791,9 @@ For other platforms (Codex, Cursor, Windsurf, Copilot, Gemini CLI), each sub-age
 | Sub-Agent | Command | What it does |
 | --------- | ------- | ------------ |
 | **pm-critic** | `/pm-critic` | Adversarial quality reviewer. Reads a PM artifact and produces a severity-graded findings report covering gaps, weak assumptions, and missing sections. Use it to stress-test a PRD, hypothesis, or opportunity tree before sharing with stakeholders. |
-| **pm-skill-auditor** | `/pm-skill-auditor` | Cross-skill catalog auditor. Checks a skill against structural conventions, frontmatter requirements, and quality criteria. Use it before contributing a new skill or after making changes to an existing one. |
-| **pm-changelog-curator** | `/pm-changelog-curator` | CHANGELOG manager. Drafts and formats changelog entries from git history and release context, following conventional commit classification rules and the repo's established CHANGELOG format. |
-| **pm-release-conductor** | `/pm-release-conductor` | Release orchestrator. Walks through the 6-gate pre-tag release runbook: pre-tag readiness, adversarial review, version bumps, tagging, artifact verification, and post-tag hygiene. |
+| **pm-skill-auditor** | `/pm-audit-repo` | Cross-skill catalog auditor. Checks a skill against structural conventions, frontmatter requirements, and quality criteria. Use it before contributing a new skill or after making changes to an existing one. |
+| **pm-changelog-curator** | `/pm-draft-changelog` | CHANGELOG manager. Drafts and formats changelog entries from git history and release context, following conventional commit classification rules and the repo's established CHANGELOG format. |
+| **pm-release-conductor** | `/pm-release` | Release orchestrator. Walks through the 6-gate pre-tag release runbook: pre-tag readiness, adversarial review, version bumps, tagging, artifact verification, and post-tag hygiene. |
 
 🔗 **More resources:**
 
