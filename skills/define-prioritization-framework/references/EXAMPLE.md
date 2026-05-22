@@ -55,6 +55,10 @@ Six Q3 candidate features with PM-supplied estimates. Reach is measured in affec
 | Mobile offline mode | Could | Valuable but 8 eng-weeks | Mobile users wait another quarter |
 | AI task suggestions | Won't (this time) | Low confidence, 10 eng-weeks | Defer until validated |
 
+## Per-Framework Ranking Output
+
+Each scoring table above is sorted high to low, so the per-framework ranking is the row order shown (top item first, lowest last). The side-by-side rank positions, and the items where the frameworks disagree, are consolidated in the Cross-Framework Comparison below.
+
 ## Cross-Framework Comparison
 
 | Item | RICE rank | ICE rank | MoSCoW bucket | Agreement |

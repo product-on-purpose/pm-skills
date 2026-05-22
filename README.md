@@ -565,15 +565,17 @@ flowchart TB
 
 ### Phase Skills: Triple Diamond
 
-#### Discover - Find and assess the right problem (3)
+#### Discover - Find and assess the right problem (5)
 
 | Skill                    | What it does                                                                       |
 | ------------------------ | ---------------------------------------------------------------------------------- |
 | **interview-synthesis**  | Turn raw user research into actionable insights, patterns, and design implications |
 | **competitive-analysis** | Map the competitive landscape and identify gaps and differentiation opportunities  |
 | **stakeholder-summary**  | Understand who the key stakeholders are, what they need, and how to engage them    |
+| **journey-map**          | Map the customer journey: stages, touchpoints, emotional curve, pain points, and moments of truth |
+| **market-sizing**        | Estimate market opportunity (TAM/SAM/SOM) with multiple frameworks and source-graded confidence |
 
-#### Define - Frame the problem (4)
+#### Define - Frame the problem (5)
 
 | Skill                 | What it does                                                           |
 | --------------------- | ---------------------------------------------------------------------- |
@@ -581,6 +583,7 @@ flowchart TB
 | **hypothesis**        | Testable assumptions with measurable success conditions                |
 | **opportunity-tree**  | Teresa Torres-style outcome-driven opportunity mapping                 |
 | **jtbd-canvas**       | Jobs to be Done framework for understanding customer motivation        |
+| **prioritization-framework** | Run RICE, ICE, MoSCoW, Weighted Scoring, and Kano in parallel with a cross-framework comparison |
 
 #### Develop - Explore solutions (4)
 
@@ -602,7 +605,7 @@ flowchart TB
 | **launch-checklist**    | End-to-end launch checklist so nothing gets missed                                                  |
 | **release-notes**       | User-facing release communication                                                                   |
 
-#### Measure - Validate with data (5)
+#### Measure - Validate with data (6)
 
 | Skill                      | What it does                                                                         |
 | -------------------------- | ------------------------------------------------------------------------------------ |
@@ -611,6 +614,7 @@ flowchart TB
 | **dashboard-requirements** | Analytics dashboard specifications                                                   |
 | **experiment-results**     | Document and synthesize learnings from completed experiments                         |
 | **okr-grader**             | Score completed OKR sets at cycle close with KR-level scoring and learning synthesis |
+| **survey-analysis**        | Analyze survey results into persona segments, validated hypotheses, and honest limitation warnings |
 
 #### Iterate - Learn and improve (4)
 
@@ -975,7 +979,7 @@ The Design Sprint tool family ships with five companion guides:
 
 ```
 pm-skills/
-├── skills/                  # 63 PM skills (26 phase, 8 foundation, 10 utility, 15 tool)
+├── skills/                  # 63 PM skills (30 phase, 8 foundation, 10 utility, 15 tool)
 ├── commands/                # Slash commands mapping to skills, workflows, and sub-agents
 ├── _workflows/              # Workflow chains: feature-kickoff, lean-startup, triple-diamond, and more
 ├── agents/                  # Sub-agent definitions (v2.16.0+, Claude Code plugin runtime)

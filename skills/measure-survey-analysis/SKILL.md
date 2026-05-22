@@ -181,7 +181,7 @@ Survey is a recurring instrument. Analysis focuses on:
 
 - Output of this skill feeds into: `define-problem-statement`, `define-hypothesis`, `deliver-prd`, `iterate-lessons-log`
 - Inputs to this skill often come from: live survey results (raw rows or a pre-aggregated summary) plus the survey's original design context
-- Adversarial review via: `pm-critic` (challenges over-confident conclusions and missed limitations)
+- Adversarial review via: `/pm-critic` (challenges over-confident conclusions and missed limitations)
 - Complement to qualitative: `discover-interview-synthesis` covers qualitative; this skill covers quantitative; they should agree or the disagreement is itself a finding
 
 ## Output format

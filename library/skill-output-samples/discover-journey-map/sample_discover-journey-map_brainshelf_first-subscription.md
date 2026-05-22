@@ -110,7 +110,7 @@ Avid reader, 30-50, reads 2-4 books per month [fictional], active on Goodreads b
 | Considers | "Why is this better than free Goodreads?" | 4 | 5 of 8 asked this unprompted [fictional] | The value prop must beat free, fast and concretely |
 | Tries | The first non-obvious great recommendation | Moment of Truth (5) | Readers who got a "wow" pick described the product completely differently [fictional] | Engineer this moment; do not leave it to chance |
 | Tries | Obvious or generic first picks | 5 | 3 of 8 got picks they had already seen [fictional] | A weak first rec wastes the only first impression |
-| Engages | Week 3-4 quality slump | 4 | Several said they would churn fast if recs got generic [fictional] | Quality must hold past the honeymoon |
+| Engages | Week 3-4 quality test (does quality hold past the honeymoon?) | Moment of Truth (4) | Several said they would churn fast if recs got generic [fictional] | Sustained quality compounds into a habit; a slump collapses the subscription |
 | Decides | Paywall arrives before trust is built | 3 | 2 interviewees felt rushed [fictional] | Time the paywall to fire after the "wow", not before |
 
 ## Opportunities

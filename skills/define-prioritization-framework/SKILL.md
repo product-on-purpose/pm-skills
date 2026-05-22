@@ -197,7 +197,7 @@ Requires customer-research input (survey or interview) to populate categories de
 
 - Output of this skill feeds into: `deliver-roadmap` (when shipped; rank, then sequence), `deliver-launch-checklist` (Must-Have items become launch criteria), sprint-planning workflows
 - Inputs to this skill often come from: `develop-solution-brief`, `define-opportunity-tree`, `define-hypothesis`, `discover-interview-synthesis`
-- Adversarial review via: `pm-critic` (challenges assumed inputs, framework applicability, and divergence explanations)
+- Adversarial review via: `/pm-critic` (challenges assumed inputs, framework applicability, and divergence explanations)
 
 ## Output format
 

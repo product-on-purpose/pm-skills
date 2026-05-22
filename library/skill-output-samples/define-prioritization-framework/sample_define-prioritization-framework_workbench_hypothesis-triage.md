@@ -90,6 +90,10 @@ Criteria scored 1-10: Developer velocity, Adoption likelihood (inverse of adopti
 | Faster CI pipeline | 9 | 8 | 5 | 7.3 |
 | Local secrets management | 6 | 7 | 6 | 6.3 |
 
+## Per-Framework Ranking Output
+
+Each scoring table above is sorted high to low, so the per-framework ranking is the row order shown (top item first, lowest last). The side-by-side rank positions, and the items where the frameworks disagree, are consolidated in the Cross-Framework Comparison below.
+
 ## Cross-Framework Comparison
 
 | Item | ICE rank | Weighted rank | Agreement |

@@ -95,6 +95,10 @@ Eight Q3 candidates with PM-supplied estimates (illustrative `[fictional]`). Rea
 | Social follow-friends | Won't (this time) | Low confidence | Defer until validated |
 | Public reading profiles | Won't (this time) | Low impact | None |
 
+## Per-Framework Ranking Output
+
+Each scoring table above is sorted high to low, so the per-framework ranking is the row order shown (top item first, lowest last). The side-by-side rank positions, and the items where the frameworks disagree, are consolidated in the Cross-Framework Comparison below.
+
 ## Cross-Framework Comparison
 
 | Item | RICE rank | ICE rank | MoSCoW | Agreement |

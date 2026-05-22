@@ -93,6 +93,10 @@ Twelve MVP candidates, no quantitative reach/effort data. ICE scored on coarse 1
 | Multi-warehouse | Won't (this time) | Heavy build, niche at launch | Single-warehouse customers only |
 | Mobile view | Won't (this time) | Low priority for a desktop B2B workflow | Desktop-only |
 
+## Per-Framework Ranking Output
+
+Each scoring table above is sorted high to low, so the per-framework ranking is the row order shown (top item first, lowest last). The side-by-side rank positions, and the items where the frameworks disagree, are consolidated in the Cross-Framework Comparison below.
+
 ## Cross-Framework Comparison
 
 | Item | ICE rank | MoSCoW | Agreement |

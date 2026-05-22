@@ -103,11 +103,11 @@ Convergence note: CI is both the lowest likert score (Q2) and the most-mentioned
 | # | Recommendation | Evidence | Confidence | Counter-evidence | Research that would strengthen it |
 |---|---|---|---|---|---|
 | 1 | Investigate CI flakiness with telemetry before funding a fix | Convergent top theme | Low-Medium | Self-selected sample | CI build-time and flake-rate data |
-| 2 | Run a larger pulse to make this decision-grade | N=65 is direction-only | High (on the method) | Costs time | A census or randomized survey, target n=300 |
+| 2 | Run a larger pulse to make this decision-grade | N=65 is direction-only | High (on the method) | Costs time | A near-census of the ~280-engineer org (target n approx 200, ~70% response) |
 | 3 | Do NOT reallocate headcount on this survey alone | Sample size | High | Pressure to act fast | Combine survey + telemetry |
 
 ## Next Steps
 
 - Pull CI telemetry now (build times, flake rates) - behavioral data will confirm or deny the survey signal at far higher confidence than 65 self-reports
-- Run a follow-up quarterly dev-experience survey targeting n=300 (org census) so segment cuts and a full friction ranking become possible
+- Run a follow-up quarterly dev-experience survey as a near-census of the ~280-engineer org (target n approx 200, ~70% response) so segment cuts and a full friction ranking become possible
 - This analysis can tell you where to look (CI); it explicitly cannot justify capital allocation or headcount on its own
