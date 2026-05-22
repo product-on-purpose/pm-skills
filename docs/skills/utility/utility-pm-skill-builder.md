@@ -431,7 +431,7 @@ what changed, why it matters, and what they need to do differently.
 
 ### Existing skills checked
 
-All 59 skills reviewed. Closest matches:
+All 63 skills reviewed. Closest matches:
 
 - `deliver-release-notes` . produces external-facing release announcements
 - `deliver-launch-checklist` . tracks cross-functional launch readiness

@@ -24,4 +24,5 @@ flowchart LR
 | [define-hypothesis](define-hypothesis.md) | Defines a testable hypothesis with clear success metrics and validation approach... | `/hypothesis` |
 | [define-jtbd-canvas](define-jtbd-canvas.md) | Creates a Jobs to be Done canvas capturing the functional, emotional, and social... | `/jtbd-canvas` |
 | [define-opportunity-tree](define-opportunity-tree.md) | Creates an opportunity solution tree mapping desired outcomes to opportunities a... | `/opportunity-tree` |
+| [define-prioritization-framework](define-prioritization-framework.md) | Run applicable prioritization frameworks (RICE, ICE, MoSCoW, Weighted Scoring, K... | `/prioritization-framework` |
 | [define-problem-statement](define-problem-statement.md) | Creates a clear problem framing document with user impact, business context, and... | `/problem-statement` |

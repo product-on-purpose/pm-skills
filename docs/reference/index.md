@@ -28,7 +28,7 @@ This folder is for lookup, not learning. New contributors should start with [`do
 
 | File | Purpose | When to read it |
 |------|---------|-----------------|
-| [`commands.md`](commands.md) | Complete table of every slash command shipped, mapped to its target skill or workflow and phase. 66 commands as of v2.16.0: 56 skill commands + 7 workflow commands + 3 sub-agent companion commands. | When the user asks "what commands exist?" or you need the canonical command-to-skill mapping. |
+| [`commands.md`](commands.md) | Complete table of every slash command shipped, mapped to its target skill or workflow and phase. 70 commands as of v2.16.0: 56 skill commands + 7 workflow commands + 3 sub-agent companion commands. | When the user asks "what commands exist?" or you need the canonical command-to-skill mapping. |
 | [`categories.md`](categories.md) | The 7-category taxonomy (`research`, `problem-framing`, `ideation`, `specification`, `validation`, `reflection`, `coordination`) with skill mappings, framework mapping (Triple Diamond, Lean Startup, Design Thinking), and category selection guide. | When choosing `metadata.category` for a new skill, or when explaining how skills relate to PM methodologies. |
 
 ### Architecture and ecosystem

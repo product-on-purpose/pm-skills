@@ -22,4 +22,6 @@ flowchart LR
 |-------|-------------|---------|
 | [discover-competitive-analysis](discover-competitive-analysis.md) | Creates a structured competitive analysis comparing features, positioning, and s... | `/competitive-analysis` |
 | [discover-interview-synthesis](discover-interview-synthesis.md) | Synthesizes user research interviews into actionable insights, patterns, and rec... | `/interview-synthesis` |
+| [discover-journey-map](discover-journey-map.md) | Produce a customer journey map covering stages, touchpoints, emotional curve, pa... | `/journey-map` |
+| [discover-market-sizing](discover-market-sizing.md) | Estimate market opportunity (TAM, SAM, SOM) using multiple sizing frameworks (to... | `/market-sizing` |
 | [discover-stakeholder-summary](discover-stakeholder-summary.md) | Documents stakeholder needs, concerns, and influence for a project or initiative... | `/stakeholder-summary` |

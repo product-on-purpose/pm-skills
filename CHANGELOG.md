@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.18.0] - 2026-05-21
+
+**Highest-Consensus PM Skill Gaps: 4 New Content Skills.** v2.18.0 ships the four highest-consensus PM-skill gaps as a coherent slate: `discover-market-sizing`, `define-prioritization-framework`, `discover-journey-map`, and `measure-survey-analysis`. The catalog grows from 59 to 63 skills (phase skills 26 to 30). Each ships with a SKILL.md, a TEMPLATE, an EXAMPLE, a companion slash command, and 3 thread-aligned samples (Brainshelf / Storevine / Workbench). Each skill leads with epistemic discipline: it refuses to fabricate data and labels confidence honestly.
+
+### Added
+
+- **`discover-market-sizing`** - estimates market opportunity (TAM, SAM, SOM) by running multiple sizing frameworks (top-down, bottom-up, comparable company, analogous market), triangulating where they converge and diverge, and producing a calibrated range with source-graded confidence labels. Includes a quick-estimate mode and refuses unbounded fabrication. Companion command `/market-sizing`.
+- **`define-prioritization-framework`** - runs the applicable prioritization frameworks (RICE, ICE, MoSCoW, Weighted Scoring, Kano) against a candidate list, filtered by data availability, then surfaces where the rankings agree and diverge plus an executive recommendation. Kano is gated on customer research; missing inputs produce an estimation scaffold rather than fabricated scores. Companion command `/prioritization-framework`.
+- **`discover-journey-map`** - produces a customer journey map covering stages, touchpoints, an emotional curve, pain points, moments of truth, and opportunity annotations. Supports linear and cyclical journeys plus an optional mermaid timeline or flowchart. Refuses to fabricate emotional data without research input. Companion command `/journey-map`.
+- **`measure-survey-analysis`** - analyzes survey results into persona segmentation, hypothesis validation, open-text thematic clustering, qualitative confidence labels, and prioritized recommendations, with explicit "what the data does NOT show" warnings. Refuses to overstate significance from weak samples or biased instruments. Companion command `/survey-analysis`.
+- 4 companion slash commands (`/market-sizing`, `/prioritization-framework`, `/journey-map`, `/survey-analysis`) and 12 thread-aligned library samples (3 per skill across Brainshelf, Storevine, and Workbench).
+
+### Changed
+
+- Skill catalog grows from 59 to 63 (phase skills 26 to 30: discover 3 to 5, define 4 to 5, measure 5 to 6). Slash commands 66 to 70. Aggregate counts refreshed across the README, AGENTS.md, generated skill pages, the plugin manifests, and the docs site.
+
+### Fixed
+
+- Corrected a factually wrong README "What's New" entry that attributed these four skills to v2.10.0. Git history and the CHANGELOG confirm v2.10.0 was the utility-skill expansion (mermaid-diagrams, slideshow-creator, update-pm-skills); the four content skills are new in v2.18.0.
+
+### Not changed
+
+- Workflows: 12. Sub-agent definitions: 4. Doc-stack: Astro 6.3.x + Starlight 0.39.x. No changes to existing skills, the metadata-nested frontmatter structure (v2.17.0), or cross-client dispatch behavior.
+
 ## [2.17.0] - 2026-05-20
 
 **Native Claude Code Sub-Agent Registration + Frontmatter Spec Alignment.** The 4 sub-agents (`pm-critic`, `pm-skill-auditor`, `pm-changelog-curator`, `pm-release-conductor`) now register natively on Claude Code: their definitions live in the canonical `agents/` directory, so they auto-discover and dispatch via `@`-mention (`@pm-critic`, etc.). To free the `agents/` name on case-insensitive filesystems (Windows NTFS, macOS APFS), the agent-coordination directory was renamed from `AGENTS/` to `_agent-context/`. Skill frontmatter also migrated to the metadata-nested structure per the [agentskills.io specification](https://agentskills.io/specification), and the CI validators were made bash-3.2 portable (macOS default bash). The 59-skill catalog is unchanged; cross-client clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) keep full functionality via the dispatch skills.

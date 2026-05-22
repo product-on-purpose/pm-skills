@@ -1,17 +1,17 @@
 ---
 title: Skills
-description: Browse all 59 PM skills organized by the Triple Diamond framework plus foundation, utility, and tool classifications.
+description: Browse all 63 PM skills organized by the Triple Diamond framework plus foundation, utility, and tool classifications.
 ---
 
-PM Skills ships 59 production-ready skills organized by the Triple Diamond framework plus foundation, utility, and tool classifications.
+PM Skills ships 63 production-ready skills organized by the Triple Diamond framework plus foundation, utility, and tool classifications.
 
 | Phase | Skills | Focus |
 |-------|--------|-------|
-| [Discover](discover/) | 3 | Research, competitive analysis, stakeholder mapping |
-| [Define](define/) | 4 | Problem framing, hypotheses, opportunity trees, JTBD |
+| [Discover](discover/) | 5 | Research, competitive analysis, stakeholder mapping |
+| [Define](define/) | 5 | Problem framing, hypotheses, opportunity trees, JTBD |
 | [Develop](develop/) | 4 | Solution briefs, ADRs, design rationale, spikes |
 | [Deliver](deliver/) | 6 | PRDs, user stories, acceptance criteria, edge cases, launch, release notes |
-| [Measure](measure/) | 5 | Experiments, instrumentation, dashboards, results, OKR grading |
+| [Measure](measure/) | 6 | Experiments, instrumentation, dashboards, results, OKR grading |
 | [Iterate](iterate/) | 4 | Retrospectives, lessons, refinement, pivot decisions |
 | [Foundation](foundation/) | 8 | Cross-cutting skills (persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update) |
 | [Utility](utility/) | 10 | Skill lifecycle tools (builder, validator, iterator, mermaid diagrams, slideshow creator, updater) + v2.16.0 sub-agent dispatch skills (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) |

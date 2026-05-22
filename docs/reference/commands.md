@@ -5,7 +5,7 @@ generated: true
 source: scripts/generate-skill-pages.py
 ---
 
-PM Skills ships 66 slash commands: 56 skill commands, 7 workflow commands, and 3 sub-agent companion commands.
+PM Skills ships 70 slash commands: 60 skill commands, 7 workflow commands, and 3 sub-agent companion commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -20,10 +20,12 @@ PM Skills ships 66 slash commands: 56 skill commands, 7 workflow commands, and 3
 | `/hypothesis` | [define-hypothesis](../skills/define/define-hypothesis.md) | Define | Defines a testable hypothesis with clear success metrics and... |
 | `/instrumentation-spec` | [measure-instrumentation-spec](../skills/measure/measure-instrumentation-spec.md) | Measure | Specifies event tracking and analytics instrumentation requi... |
 | `/interview-synthesis` | [discover-interview-synthesis](../skills/discover/discover-interview-synthesis.md) | Discover | Synthesizes user research interviews into actionable insight... |
+| `/journey-map` | [discover-journey-map](../skills/discover/discover-journey-map.md) | Discover | Produce a customer journey map covering stages, touchpoints,... |
 | `/jtbd-canvas` | [define-jtbd-canvas](../skills/define/define-jtbd-canvas.md) | Define | Creates a Jobs to be Done canvas capturing the functional, e... |
 | `/launch-checklist` | [deliver-launch-checklist](../skills/deliver/deliver-launch-checklist.md) | Deliver | Creates a comprehensive pre-launch checklist covering engine... |
 | `/lean-canvas` | [foundation-lean-canvas](../skills/foundation/foundation-lean-canvas.md) | Foundation | Produces a one-page lean canvas across nine interlocking blo... |
 | `/lessons-log` | [iterate-lessons-log](../skills/iterate/iterate-lessons-log.md) | Iterate | Creates a structured lessons learned entry for organizationa... |
+| `/market-sizing` | [discover-market-sizing](../skills/discover/discover-market-sizing.md) | Discover | Estimate market opportunity (TAM, SAM, SOM) using multiple s... |
 | `/meeting-agenda` | [foundation-meeting-agenda](../skills/foundation/foundation-meeting-agenda.md) | Foundation | Produces an attendee-facing agenda that sets what will be di... |
 | `/meeting-brief` | [foundation-meeting-brief](../skills/foundation/foundation-meeting-brief.md) | Foundation | Produces a private strategic preparation document for the us... |
 | `/meeting-recap` | [foundation-meeting-recap](../skills/foundation/foundation-meeting-recap.md) | Foundation | Produces a topic-segmented post-meeting summary for attendee... |
@@ -39,6 +41,7 @@ PM Skills ships 66 slash commands: 56 skill commands, 7 workflow commands, and 3
 | `/pm-skill-iterate` | [utility-pm-skill-iterate](../skills/utility/utility-pm-skill-iterate.md) | Utility | Applies targeted improvements to an existing pm-skills skill... |
 | `/pm-skill-validate` | [utility-pm-skill-validate](../skills/utility/utility-pm-skill-validate.md) | Utility | Audits an existing pm-skills skill against structural conven... |
 | `/prd` | [deliver-prd](../skills/deliver/deliver-prd.md) | Deliver | Creates a comprehensive Product Requirements Document that a... |
+| `/prioritization-framework` | [define-prioritization-framework](../skills/define/define-prioritization-framework.md) | Define | Run applicable prioritization frameworks (RICE, ICE, MoSCoW,... |
 | `/problem-statement` | [define-problem-statement](../skills/define/define-problem-statement.md) | Define | Creates a clear problem framing document with user impact, b... |
 | `/refinement-notes` | [iterate-refinement-notes](../skills/iterate/iterate-refinement-notes.md) | Iterate | Documents backlog refinement session outcomes including stor... |
 | `/release-notes` | [deliver-release-notes](../skills/deliver/deliver-release-notes.md) | Deliver | Creates user-facing release notes that communicate new featu... |
@@ -48,6 +51,7 @@ PM Skills ships 66 slash commands: 56 skill commands, 7 workflow commands, and 3
 | `/spike-summary` | [develop-spike-summary](../skills/develop/develop-spike-summary.md) | Develop | Documents the results of a time-boxed technical or design ex... |
 | `/stakeholder-summary` | [discover-stakeholder-summary](../skills/discover/discover-stakeholder-summary.md) | Discover | Documents stakeholder needs, concerns, and influence for a p... |
 | `/stakeholder-update` | [foundation-stakeholder-update](../skills/foundation/foundation-stakeholder-update.md) | Foundation | Produces async communication to stakeholders, primarily non-... |
+| `/survey-analysis` | [measure-survey-analysis](../skills/measure/measure-survey-analysis.md) | Measure | Analyze survey results into actionable PM insights. Produces... |
 | `/tool-design-sprint-brief` | [tool-design-sprint-brief](../skills/tool/tool-design-sprint-brief.md) | tool | Pre-sprint brief that locks challenge, sprint questions, tea... |
 | `/tool-design-sprint-decide-and-storyboard` | [tool-design-sprint-decide-and-storyboard](../skills/tool/tool-design-sprint-decide-and-storyboard.md) | tool | Day 3 (Wednesday) move of a Design Sprint that runs the art ... |
 | `/tool-design-sprint-map-and-target` | [tool-design-sprint-map-and-target](../skills/tool/tool-design-sprint-map-and-target.md) | tool | Day 1 (Monday) move of a Design Sprint that produces the bun... |

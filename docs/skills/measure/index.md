@@ -25,3 +25,4 @@ flowchart LR
 | [measure-experiment-results](measure-experiment-results.md) | Documents the results of a completed experiment or A/B test with statistical ana... | `/experiment-results` |
 | [measure-instrumentation-spec](measure-instrumentation-spec.md) | Specifies event tracking and analytics instrumentation requirements for a featur... | `/instrumentation-spec` |
 | [measure-okr-grader](measure-okr-grader.md) | Scores completed OKR sets at cycle close with KR-level scoring per the canonical... | `/okr-grader` |
+| [measure-survey-analysis](measure-survey-analysis.md) | Analyze survey results into actionable PM insights. Produces persona segmentatio... | `/survey-analysis` |

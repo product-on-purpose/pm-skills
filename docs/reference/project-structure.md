@@ -39,7 +39,7 @@ Note on `agents/` vs `_agent-context/`: these are distinct directories with diff
 
 ---
 
-## `/skills/` . The 59 PM Skills (flat)
+## `/skills/` . The 63 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 

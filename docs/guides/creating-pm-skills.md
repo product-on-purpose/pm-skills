@@ -60,7 +60,7 @@ commands/<skill-name>.md  # Slash command definition
 
 ### 1. Check If It Already Exists
 
-Review the existing repo catalog before opening a new skill proposal. The current repo contains 59 skills in `skills/` (26 phase, 8 foundation, 6 utility, and 15 newly-added tool entries covering Foundation Sprint plus Design Sprint families plus the tool-note-and-vote standalone, all introduced in v2.15.0), while `AGENTS.md` lists the currently registered/discoverable subset.
+Review the existing repo catalog before opening a new skill proposal. The current repo contains 63 skills in `skills/` (26 phase, 8 foundation, 6 utility, and 15 newly-added tool entries covering Foundation Sprint plus Design Sprint families plus the tool-note-and-vote standalone, all introduced in v2.15.0), while `AGENTS.md` lists the currently registered/discoverable subset.
 
 | Category | Existing Skills |
 |----------|-----------------|

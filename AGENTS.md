@@ -64,6 +64,16 @@ Creates a structured competitive analysis comparing features, positioning, and s
 
 Synthesizes user research interviews into actionable insights, patterns, and recommendations. Use after conducting user interviews, customer calls, or usability sessions to extract and communicate findings.
 
+#### journey-map
+**Path:** `skills/discover-journey-map/SKILL.md`
+
+Produces a customer journey map with stages, touchpoints, an emotional curve, pain points, moments of truth, and opportunity annotations. Use after research to surface where the customer experience breaks down and where the product can intervene. Supports linear and cyclical journeys; renders an optional mermaid timeline or flowchart.
+
+#### market-sizing
+**Path:** `skills/discover-market-sizing/SKILL.md`
+
+Estimates market opportunity (TAM, SAM, SOM) using multiple sizing frameworks (top-down, bottom-up, comparable company, analogous market), triangulating where they converge and diverge. Use for investment cases, go/no-go decisions, and stakeholder pitches. Produces a calibrated range with source-graded confidence labels.
+
 #### stakeholder-summary
 **Path:** `skills/discover-stakeholder-summary/SKILL.md`
 
@@ -87,6 +97,11 @@ Creates a Jobs to be Done canvas capturing the functional, emotional, and social
 **Path:** `skills/define-opportunity-tree/SKILL.md`
 
 Creates an opportunity solution tree mapping desired outcomes to opportunities and potential solutions. Use for outcome-driven product discovery, prioritization, or communicating product strategy.
+
+#### prioritization-framework
+**Path:** `skills/define-prioritization-framework/SKILL.md`
+
+Runs applicable prioritization frameworks (RICE, ICE, MoSCoW, Weighted Scoring, Kano) against a candidate list, then surfaces where the rankings agree and diverge plus an executive recommendation. Use for roadmap selection, MVP scope cuts, or backlog triage. Filters frameworks by data availability; Kano is gated on customer research.
 
 #### problem-statement
 **Path:** `skills/define-problem-statement/SKILL.md`
@@ -179,6 +194,11 @@ Specifies event tracking and analytics instrumentation requirements for a featur
 **Path:** `skills/measure-okr-grader/SKILL.md`
 
 Scores completed OKR sets at cycle close with KR-level scoring, committed-vs-aspirational interpretation, evidence quality assessment, learning synthesis, and next-cycle recommendations. Refuses to retroactively change targets, average away failed guardrails, treat 0.7 as success for committed or compliance KRs, equate effort with impact, or use scores as individual performance ratings. Hands off learnings to /lessons-log, team-process work to /retrospective, assumption tests to /hypothesis, measurement gaps to /dashboard-requirements or /instrumentation-spec, and next-cycle drafting to /okr-writer. Member of the OKR Skills set (companion: `foundation-okr-writer`).
+
+#### survey-analysis
+**Path:** `skills/measure-survey-analysis/SKILL.md`
+
+Analyzes survey results into actionable PM insights: persona segmentation, hypothesis validation, thematic clustering of open-text, qualitative confidence labels, prioritized recommendations, and explicit what-NOT-to-conclude warnings. Use after a survey closes. Refuses to overstate significance from weak samples or biased instruments.
 
 ---
 
@@ -415,6 +435,10 @@ Workflow links are repo-relative within this repository.
 | `/instrumentation-spec` | Specify event tracking and analytics instrumentation |
 | `/interview-synthesis` | Synthesize user research interviews into insights |
 | `/jtbd-canvas` | Create a Jobs to be Done canvas |
+| `/journey-map` | Map a customer journey with touchpoints and emotional curve |
+| `/market-sizing` | Size a market (TAM/SAM/SOM) with multiple frameworks |
+| `/prioritization-framework` | Rank items across multiple prioritization frameworks |
+| `/survey-analysis` | Analyze survey results into honest, actionable insights |
 | `/workflow-feature-kickoff` | Run the Feature Kickoff workflow (problem → hypothesis → PRD → stories) |
 | `/workflow-customer-discovery` | Run the Customer Discovery workflow |
 | `/workflow-sprint-planning` | Run the Sprint Planning workflow |
