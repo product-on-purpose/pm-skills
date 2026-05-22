@@ -249,11 +249,11 @@ The 4 new skills compose naturally with existing ones:
 
 ## Status block
 
-- **Status:** ACTIVE - execution ready
+- **Status:** SHIPPED 2026-05-22 (annotated tag v2.18.0 -> daf720e; GitHub Release Latest; tag CI green)
 - **Entrance criteria:** v2.17.0 SHIPPED with G4 P0 attestation PASS - CONFIRMED 2026-05-20
 - **Strategy briefs:** complete 2026-05-21; all 16 decisions locked (see `docs/internal/skills-ideas/*/strategy-brief.md`)
-- **Expected G2.5 commit SHA:** TBD
-- **Expected tag SHA:** equals G2.5 commit SHA per D22
+- **G2.5 commit SHA:** daf720e (final, after G1 pm-critic + 4 Codex adversarial passes + deep internal verification; ~26 findings resolved across c763ba3..daf720e)
+- **Tag SHA:** daf720e (per D22; tag = the CI-verified SHA)
 
 ---
 
