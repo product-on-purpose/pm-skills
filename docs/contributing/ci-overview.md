@@ -96,6 +96,7 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | `check-landing-page-counts --strict` | Landing-page total count claims (`docs/index.mdx`, `docs/skills/index.md`, etc.) match filesystem state |
 | `check-workflow-generator-coverage` | Every workflow source has both an individual page and an index-table row |
 | `check-agents-md-command-sync` | AGENTS.md command table is in sync with `commands/` directory |
+| `validate-script-docs` | Every `scripts/*.sh` + `*.ps1` pair has a companion `*.md` doc (promoted to enforcing v2.19.0, FU-8) |
 
 ### Advisory Validators (informational; do not block)
 

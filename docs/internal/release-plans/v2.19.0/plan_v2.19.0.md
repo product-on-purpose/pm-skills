@@ -1,6 +1,6 @@
 # v2.19.0 Release Plan - Pre-Promotion Hardening
 
-**Status:** EXECUTING - Phase 1 COMPLETE (FU-1, FU-2, FU-3, FU-5 shipped 2026-05-22; FU-3 also absorbed PR-2's README internal-link sweep). Phase 2 in progress: FU-4, FU-6, FU-7 shipped 2026-05-23. Remaining: FU-8, FU-9, then Phase 3 (PR-1..PR-5), Phase 4 (release).
+**Status:** EXECUTING - Phase 1 COMPLETE (FU-1, FU-2, FU-3, FU-5 shipped 2026-05-22; FU-3 also absorbed PR-2's README internal-link sweep). Phase 2 in progress: FU-4, FU-6, FU-7, FU-8 shipped 2026-05-23. Remaining: FU-9, then Phase 3 (PR-1..PR-5), Phase 4 (release).
 **Created:** 2026-05-22 (during v2.18.0 G4 post-tag hygiene); expanded to full plan 2026-05-22.
 **Predecessor:** [v2.18.0](../v2.18.0/plan_v2.18.0.md) SHIPPED 2026-05-22 (tag `daf720e`; 63 skills).
 **Type:** MINOR (2.18.0 -> 2.19.0). No skill behavior changes; adds governance tooling (new/extended validators), CI hygiene, and public-surface polish. Repo version is independent of individual skill versions.
@@ -109,6 +109,7 @@ Execution order respects dependencies: harden the validators first (so later edi
 - Goal: `validate-script-docs` fails because `validate-design-sprint-skills-family.md` and `validate-foundation-sprint-skills-family.md` are absent (verified).
 - Approach: author both companion docs to match the existing script-doc template; then apply D-FU8.
 - Acceptance: `validate-script-docs` passes; its status (enforcing vs allowlisted-advisory) is set per D-FU8.
+- **DONE (2026-05-23).** Authored the 2 missing companion docs (`scripts/validate-foundation-sprint-skills-family.md` + `scripts/validate-design-sprint-skills-family.md`), modeled on `validate-meeting-skills-family.md` and grounded in the actual validators (member lists; the 6 per-skill checks: required files present, `metadata.classification=tool`, `metadata.tool`, `metadata.move`, SKILL.md contract reference, `Decider Checkpoint` at end; plus scaffolding + partial-state behavior). `validate-script-docs` now PASSES (32/32 script pairs documented; `.sh`/`.ps1` agree). Per **D-FU8 (option A)**: flipped `validate-script-docs` to ENFORCING in `validation.yml` (dropped `continue-on-error` on both OS) and added it to the pre-tag bundle (`pre-tag-validate.sh`). Catalogued it in `ci-overview.md`'s enforcing table.
 
 **FU-9 - Advisory noise reduction.** (Approach: see D-FU9.)
 - Goal: `check-stale-bundle-refs` (460 matches) and `check-version-references` (1153 matches) are too noisy to be decision-useful; most matches are legitimate history.

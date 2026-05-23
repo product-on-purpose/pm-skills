@@ -151,15 +151,13 @@ jobs:
         run: pwsh -File scripts/validate-gitignore-pm-skills.ps1
         continue-on-error: true
 
-      - name: Validate script documentation (bash)
+      - name: Validate script documentation (bash, enforcing)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-script-docs.sh
-        continue-on-error: true
 
-      - name: Validate script documentation (pwsh)
+      - name: Validate script documentation (pwsh, enforcing)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-script-docs.ps1
-        continue-on-error: true
 
       - name: Check workflow coverage (bash)
         if: matrix.os == 'ubuntu-latest'
