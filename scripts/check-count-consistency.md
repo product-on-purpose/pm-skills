@@ -22,9 +22,19 @@ powershell -ExecutionPolicy Bypass -File .\scripts\check-count-consistency.ps1
    - Skills: directories in `skills/`
    - Commands: `.md` files in `commands/`
    - Workflows: `.md` files in `_workflows/` (excluding `README.md`)
-2. Scans all tracked `.md` and `.json` files (including `plugin.json` and `marketplace.json`) for patterns like `{N} skills`, `{N} commands`, `{N} workflows` with up to 3 alpha-word interstitials (e.g., `{N} AI agent skills`, `{N} best-practice product management skills`)
-3. Compares found numbers against actual counts
-4. Reports mismatches with file path and line number
+2. Scans all tracked `.md`, `.mdx`, and `.json` files (including `plugin.json` and `marketplace.json`) for patterns like `{N} skills`, `{N} commands`, `{N} workflows` with up to 3 alpha-word interstitials (e.g., `{N} AI agent skills`, `{N} best-practice product management skills`)
+3. Also scans for the shields.io badge form `badge/skills-{N}` (the number comes *after* the resource word, so the prose pattern misses it) and asserts it matches the skill count (FU-5)
+4. Compares found numbers against actual counts
+5. Reports mismatches with file path and line number
+
+### Count-surface coverage and the two count checkers (FU-5)
+
+The catalog count appears on many README/docs surfaces (badge, prose, At-a-Glance "facts" table, skills landing page). Two checkers divide responsibility - **do not add a third**:
+
+- **`check-count-consistency`** (this script) is the **strict, broad total-count guard.** It scans every tracked `.md`/`.mdx`/`.json` (outside the excludes/exempt ranges) for any stale `{N} skills`/`commands`/`workflows` claim above the threshold, plus the `badge/skills-{N}` form. It is blocking in the pre-tag bundle and CI. A stale total on any prose surface, the badge, the At-a-Glance row (phrased `63 skills (...)` so it matches), or a landing page (`docs/index.mdx`, `docs/skills/index.md`) fails here.
+- **`check-landing-page-counts`** is a **complementary positive-assertion** that the specific landing pages claim the correct total at all, with a historical-context escape hatch (a stale number passes if the correct count also appears, to tolerate legitimate "grew from 59 to 63" mentions). The escape hatch is intentionally NOT tightened: the strict guarantee for landing-page totals already comes from this script (which applies the threshold + subset exclusion the hatch would otherwise have to duplicate, violating the no-duplication rule).
+
+Subset counts (per-phase, per-classification: "30 phase", "10 utility", badge `Phase-30_skills`) are hand-maintained and intentionally NOT validated against the total here; they are excluded as subset descriptors or sit in exempt ranges.
 
 **Regex behavior (v2.13.0 update):** the historical 3-token interstitial allowance (`[0-9]+ ([a-zA-Z][a-zA-Z-]*[ ]+){0,3}skills`) is retained, but two additional layers of exemption now apply:
 

@@ -167,10 +167,54 @@ check_resource() {
     }' || true
 }
 
+# Badge counts (FU-5). shields.io encodes the total skill count as
+# 'badge/skills-<N>' - the number comes AFTER the resource word, so the prose
+# 'N skills' pattern above misses it. Likewise the README At-a-Glance table is
+# phrased '63 skills (...)' so the prose pattern covers it. This dedicated scan
+# closes the badge surface; it honors the same exempt ranges.
+check_badge() {
+  local actual_count="$1"
+  git -C "$ROOT" grep -inE 'badge/skills-[0-9]+' -- '*.md' '*.mdx' '*.json' "${EXCLUDES[@]}" 2>/dev/null | \
+    awk -F: -v actual="$actual_count" -v ranges_file="$EXEMPT_RANGES" '
+    BEGIN {
+      while ((getline line < ranges_file) > 0) {
+        nf = split(line, parts, "\t")
+        if (nf < 3) continue
+        f = parts[1]
+        idx = exempt_count[f]++
+        exempt_start[f, idx] = parts[2] + 0
+        exempt_end[f, idx]   = parts[3] + 0
+      }
+      close(ranges_file)
+    }
+    {
+      file = $1
+      linenum = $2 + 0
+      content = ""
+      for (i = 3; i <= NF; i++) content = content (i > 3 ? ":" : "") $i
+      if (file in exempt_count) {
+        for (i = 0; i < exempt_count[file]; i++) {
+          if (linenum >= exempt_start[file, i] && linenum <= exempt_end[file, i]) next
+        }
+      }
+      s = content
+      while (match(s, /badge\/skills-[0-9]+/)) {
+        tok = substr(s, RSTART, RLENGTH)
+        sub(/badge\/skills-/, "", tok)
+        num = tok + 0
+        if (num != actual) {
+          printf "  %s:%s: found badge \x27skills-%d\x27 (actual: %d)\n", file, linenum, num, actual
+        }
+        s = substr(s, RSTART + RLENGTH)
+      }
+    }' || true
+}
+
 MISMATCHES=""
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}skills' "skills" "$SKILL_COUNT")
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}commands' "commands" "$COMMAND_COUNT")
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}workflows' "workflows" "$WORKFLOW_COUNT")
+MISMATCHES+=$(check_badge "$SKILL_COUNT")
 
 if [[ -z "$MISMATCHES" ]]; then
   echo "PASS: No stale counts found in tracked .md or .json files."

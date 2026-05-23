@@ -161,6 +161,16 @@ foreach ($file in $filesToCheck) {
                 }
             }
         }
+
+        # Badge counts (FU-5): shields.io encodes the total as 'badge/skills-<N>'
+        # (number after the resource word), which the prose patterns above miss.
+        foreach ($bm in [regex]::Matches($line, 'badge/skills-(\d+)')) {
+            $bnum = [int]$bm.Groups[1].Value
+            if ($bnum -ne $SkillCount) {
+                $mismatches += "  ${file}:${lineNum}: found badge 'skills-$bnum' (actual: $SkillCount)"
+                $Fail = $true
+            }
+        }
     }
 }
 

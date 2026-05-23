@@ -65,7 +65,7 @@ VALIDATORS=(
 # v2.15.1 additions (landing-page + generator coverage + AGENTS.md command-table sync).
 # These run only if the script exists locally (graceful degradation for older trees).
 OPTIONAL_VALIDATORS=(
-  "check-landing-page-counts|bash $ROOT/scripts/check-landing-page-counts.sh"
+  "check-landing-page-counts --strict|bash $ROOT/scripts/check-landing-page-counts.sh --strict"
   "check-workflow-generator-coverage|bash $ROOT/scripts/check-workflow-generator-coverage.sh"
   "check-agents-md-command-sync|bash $ROOT/scripts/check-agents-md-command-sync.sh"
   "check-context-currency|bash $ROOT/scripts/check-context-currency.sh"
