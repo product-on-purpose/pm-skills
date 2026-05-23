@@ -35,7 +35,7 @@
 ## Overview
 The `scripts/` folder contains small utilities to keep the repo consistent, reproducible, and discoverable across AI tools. They are safe to run locally; `build-release` writes to `dist/` and refreshes `.claude/` via `sync-claude`.
 
-CI-only automation scripts live in `.github/scripts/` (for example, `validate-mcp-sync.js`).
+CI-only automation scripts live in `.github/scripts/` (for example, `create-issues.js`).
 
 ## Script Catalog
 
@@ -320,7 +320,6 @@ CI-only automation scripts live in `.github/scripts/` (for example, `validate-mc
 - **Pre-release:** All validation scripts → `validate-version-consistency` → `check-count-consistency` → `build-release`.
 - **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`, `validate-skill-family-registration`.
 - **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`, `check-version-references`, `validate-docs-frontmatter`, `check-internal-link-validity`.
-- **Cross-repo drift:** `.github/workflows/validate-mcp-sync.yml` (observe first, block later).
 
 ## FAQ
 **Q: Do I need `.claude/` populated?**  

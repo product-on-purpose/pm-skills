@@ -15,7 +15,7 @@ This document maps every GitHub Actions workflow + every validator script in pm-
 pm-skills CI has three layers:
 
 1. **Local pre-commit / pre-push** (developer machine; optional). Run via individual script invocation or the `scripts/pre-tag-validate.{sh,ps1}` orchestration bundle.
-2. **GitHub Actions on PR** (automatic; every push to a non-default branch + every PR open/update). The 9 workflow files in [.github/workflows/](../../.github/workflows/).
+2. **GitHub Actions on PR** (automatic; every push to a non-default branch + every PR open/update). The 8 workflow files in [.github/workflows/](../../.github/workflows/).
 3. **GitHub Actions on main + tag** (automatic on push to main + tag push). Same workflow definitions; some have additional triggers like `release: created` for the doc-deploy + release-zips paths.
 
 Most validators that fail in layer 2 would have caught the issue in layer 1 if run locally. Maintainers are encouraged to run `pre-tag-validate` before every release-prep commit.
@@ -28,15 +28,14 @@ flowchart TD
 
     PushMain[Push to main<br/>docs/ path filter] --> Pages[deploy-pages.yml]
     PushMain --> Drafts[create-issues-from-drafts.yml]
-    PushMain --> McpSync[validate-mcp-sync.yml]
 
     TagPush[Tag push v*.*.*] --> Release[release.yml]
     TagPush --> Zips[release-zips.yml]
 
     Manual[workflow_dispatch] --> SyncAgents[sync-agents-md.yml]
 
-    Validation --> Enforcing[~14 enforcing validators:<br/>lint-skills-frontmatter<br/>validate-agents-md<br/>validate-commands<br/>family validators<br/>check-internal-link-validity --strict<br/>validate-docs-frontmatter --strict<br/>check-no-body-h1 --strict<br/>check-count-consistency<br/>check-generated-content-untouched<br/>+ more]
-    Validation --> Advisory[Advisory validators:<br/>validate-mcp-sync<br/>check-context-currency<br/>check-frontmatter-yaml<br/>check-stale-bundle-refs<br/>check-version-references<br/>check-em-dashes]
+    Validation --> Enforcing[~15 enforcing validators:<br/>lint-skills-frontmatter<br/>validate-agents-md<br/>validate-commands<br/>family validators<br/>check-internal-link-validity --strict<br/>validate-docs-frontmatter --strict<br/>check-no-body-h1 --strict<br/>check-count-consistency<br/>check-skill-cross-references<br/>check-generated-content-untouched<br/>+ more]
+    Validation --> Advisory[Advisory validators:<br/>check-context-currency<br/>check-frontmatter-yaml<br/>check-stale-bundle-refs<br/>check-version-references<br/>check-em-dashes]
 
     Enforcing -->|all pass| Green[PR green; merge unblocked]
     Enforcing -->|any fail| Red[PR red; fix + push again]
@@ -46,20 +45,19 @@ flowchart TD
     Release --> GH[Publish GitHub Release<br/>auto notes + manual edit]
     Zips --> Artifacts[Attach zips to Release]
 
-    Local[Local pre-commit:<br/>pre-tag-validate.sh / .ps1] -.->|runs same enforcing set| Enforcing
+    Local[Local pre-commit:<br/>pre-tag-validate.sh / .ps1] -.->|runs the validator scripts| Enforcing
 ```
 
-The diagram shows the trigger -> workflow -> validator -> outcome flow. The dotted arrow from `pre-tag-validate` to the enforcing validators indicates the local-machine equivalent: running the bundle locally exercises the same checks the CI runner runs, so a green local run is strong predictor of a green PR check.
+The diagram shows the trigger -> workflow -> validator -> outcome flow. The dotted arrow from `pre-tag-validate` to the enforcing validators indicates the local-machine equivalent: running the bundle locally exercises the same validator scripts the CI runner runs. The bundle does NOT run the Astro build (`deploy-pages.yml`), plugin-install validation (`validate-plugin.yml`), edit-link verification, or cross-doc reference checks, so a green local bundle is a strong - but not complete - predictor of a green PR check.
 
 ## GitHub Actions Workflows
 
-All 9 workflow files in `.github/workflows/`:
+All 8 workflow files in `.github/workflows/`:
 
 | Workflow | Trigger | What It Does |
 |---|---|---|
 | `validation.yml` | Push to any branch + PR open/update | Runs the full enforcing validator suite on ubuntu-latest + windows-latest. This is the primary CI gate. |
 | `validate-plugin.yml` | Push + PR + workflow_dispatch | Validates the plugin manifest at `.claude-plugin/plugin.json` + the marketplace manifest at `.claude-plugin/marketplace.json` + commands + skill structure. |
-| `validate-mcp-sync.yml` | Push to main + workflow_dispatch | Advisory check: detects when pm-skills changes might require pm-skills-mcp updates (maintenance-mode-aware per M-22). |
 | `sync-agents-md.yml` | Workflow_dispatch only | Manual maintainer trigger to regenerate AGENTS.md from skill directory state. Hardened with two-layer defense (apply:true input gate + contents:read token gate). |
 | `codeql.yml` | Push + PR + schedule | CodeQL static analysis for security + code quality. |
 | `create-issues-from-drafts.yml` | Push to main (issue-draft path filter) + workflow_dispatch | Auto-creates GitHub issues from `docs/internal/issue-drafts/` when they merge to main. |
@@ -89,12 +87,13 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | `validate-meeting-skills-family` | Meeting Skills Family contract enforcement (5 members; v2.11.0) |
 | `validate-foundation-sprint-skills-family --strict` | Foundation Sprint Family contract enforcement (7 members; v2.15.0) |
 | `validate-design-sprint-skills-family --strict` | Design Sprint Family contract enforcement (7 members; v2.15.0) |
-| `check-internal-link-validity --strict` | All internal markdown links resolve to actual files (no dangling) |
+| `check-internal-link-validity --strict` | All internal markdown links resolve to actual files, and same-page `#anchor` links resolve to real GitHub-style heading slugs; fileset covers `docs/` plus root `README.md` + `AGENTS.md` (anchor resolution + root fileset added v2.19.0) |
 | `validate-docs-frontmatter --strict` | Astro Starlight frontmatter shape on all docs in `docs/` |
 | `check-no-body-h1 --strict` | No body H1 duplications (Starlight derives H1 from `title` frontmatter; body H1 would duplicate) |
-| `check-count-consistency` | Skill/command/workflow counts in tracked .md and .json match filesystem state |
+| `check-count-consistency` | Skill/command/workflow counts in tracked .md, .mdx, and .json match filesystem state, including the `badge/skills-<N>` shields-badge form (.mdx + badge added v2.19.0) |
+| `check-skill-cross-references` | Backtick skill-name references in `skills/*/SKILL.md` resolve to a real `skills/*/` directory; intentional forward-refs are allowlisted (v2.19.0) |
 | `check-generated-content-untouched` | Generated landing pages match the output of `scripts/generate-skill-pages.py` (no hand-edit drift) |
-| `check-landing-page-counts --strict` | Per-phase count claims on generated landing pages match filesystem state |
+| `check-landing-page-counts --strict` | Landing-page total count claims (`docs/index.mdx`, `docs/skills/index.md`, etc.) match filesystem state |
 | `check-workflow-generator-coverage` | Every workflow source has both an individual page and an index-table row |
 | `check-agents-md-command-sync` | AGENTS.md command table is in sync with `commands/` directory |
 
@@ -102,8 +101,7 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 
 | Validator | What It Surfaces |
 |---|---|
-| `validate-mcp-sync` | pm-skills changes that may require pm-skills-mcp companion updates (M-22 maintenance mode posture; never blocking) |
-| `check-mcp-impact` | Same scope as validate-mcp-sync, run differently |
+| `check-mcp-impact` | Detects pm-skills changes that may require pm-skills-mcp companion updates (M-22 maintenance-mode posture; never blocking) |
 | `check-context-currency` | Context-staleness detector for internal notes |
 | `check-frontmatter-yaml` | YAML parse validity in frontmatter (sibling to lint-skills-frontmatter; finer-grained on YAML errors) |
 | `check-generated-freshness` | Generation-timestamp recency check |

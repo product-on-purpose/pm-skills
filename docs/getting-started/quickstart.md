@@ -8,7 +8,6 @@ description: Five-minute pm-skills install + first skill invocation. Pick an ins
 - **40 shipped PM skills in `skills/`** (26 phase skills across 6 phases, 8 foundation skills, 6 utility skills)
 - **47 slash-command docs in `commands/`** (40 skill commands plus 7 workflow commands)
 - **9 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 6 more)
-- **MCP sync guardrail** via GitHub Actions (`validate-mcp-sync`, observe-first rollout)
 
 ## Installation
 

@@ -85,14 +85,6 @@ Per agentskills.io specification:
    - Link to the approved issue (for new skills)
    - Confirmation that you've tested the skill
 
-## MCP Sync Guardrail
-
-This repo uses `.github/workflows/validate-mcp-sync.yml` to detect drift between `pm-skills` and `pm-skills-mcp`.
-
-- Default rollout is `observe` mode (reports mismatch without failing CI).
-- Blocking mode is enabled after MCP alignment closure work is complete.
-- If drift is reported, follow `docs/guides/validate-mcp-sync.md`.
-
 ## Code of Conduct
 
 Please read and follow our [Code of Conduct](code-of-conduct.md) before contributing. We are committed to providing a welcoming and inclusive environment for everyone.

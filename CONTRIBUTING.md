@@ -82,15 +82,6 @@ Per agentskills.io specification:
    - Link to the approved issue (for new skills)
    - Confirmation that you've tested the skill
 
-## MCP Sync Guardrail
-
-This repo uses `.github/workflows/validate-mcp-sync.yml` to detect drift between `pm-skills` and `pm-skills-mcp`.
-
-- Default mode is `observe` (reports mismatch without failing CI).
-- The MCP companion server entered maintenance mode 2026-05-04 (M-22 decision; pm-skills-mcp v2.9.2 announcement). Catalog frozen at v2.9.2 build (40 skill tools + 11 workflow tools + 8 utility tools); subsequent pm-skills releases do not re-embed. Drift is therefore expected and accepted; the observe-only posture surfaces drift for visibility without breaking CI.
-- If you need blocking validation (e.g., when revisiting maintenance-mode policy or preparing an MCP catalog refresh), pass `mode: block` via `workflow_dispatch`.
-- For drift triage, follow `docs/guides/validate-mcp-sync.md`. Source-of-truth metadata is `pm-skills-mcp/pm-skills-source.json` (`pmSkillsVersion`, `outputContractVersion`, `configContractVersion`, and `maintenance: true` flag indicate the maintenance posture).
-
 ## Maintainer notes: architectural workarounds
 
 Seven workarounds in the codebase look like odd code but exist for specific reasons. If you are tempted to "clean these up," read the inline comment in the source file first. Each one has a real reason that is non-obvious from the syntax alone.

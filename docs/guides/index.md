@@ -18,4 +18,3 @@ How-to guides for specific tasks with PM Skills.
 | [PM-Skill Comparisons](pm-skill-comparisons.md) | How to choose between similar skills |
 | [Updating PM Skills](updating-pm-skills.md) | How to check for updates and keep your pm-skills installation current |
 | [MCP Integration](mcp-integration.md) | Status and recommended path for using PM Skills via the Model Context Protocol (MCP server in maintenance mode as of 2026-05-04) |
-| [MCP Sync Validation](validate-mcp-sync.md) | How MCP sync checking works |
