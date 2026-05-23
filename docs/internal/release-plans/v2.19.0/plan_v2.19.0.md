@@ -1,37 +1,264 @@
-# v2.19.0 Release Plan (STUB)
+# v2.19.0 Release Plan - Pre-Promotion Hardening
 
-**Status:** STUB - next-cycle capture
-**Created:** 2026-05-22 (during v2.18.0 G4 post-tag hygiene)
-**Predecessor:** [v2.18.0](../v2.18.0/plan_v2.18.0.md) SHIPPED 2026-05-22 (tag daf720e; 63 skills)
+**Status:** PLANNED - all 5 decision briefs locked 2026-05-22; ready to execute Phase 1.
+**Created:** 2026-05-22 (during v2.18.0 G4 post-tag hygiene); expanded to full plan 2026-05-22.
+**Predecessor:** [v2.18.0](../v2.18.0/plan_v2.18.0.md) SHIPPED 2026-05-22 (tag `daf720e`; 63 skills).
+**Type:** MINOR (2.18.0 -> 2.19.0). No skill behavior changes; adds governance tooling (new/extended validators), CI hygiene, and public-surface polish. Repo version is independent of individual skill versions.
+
+**Theme:** Close the validator blind spots the v2.18.0 deep-verification arc exposed, fix CI and script hygiene, and make the repo's public surfaces clean before the next release becomes the first actively promoted one.
+
+**Provenance:** Work items are sourced from (a) the v2.18.0 deep-verification arc (FU-1..FU-5), and (b) the 2026-05-21 Codex audit + Claude review (FU-6..FU-9, PR-1..PR-5). See [`docs/internal/audit/2026-05-21_codex-v3prep.md`](../../audit/2026-05-21_codex-v3prep.md) and [`..._reviewed-by-claude.md`](../../audit/2026-05-21_codex-v3prep_reviewed-by-claude.md).
 
 ---
 
-## Carry-in: validator + hygiene gaps surfaced by the v2.18.0 deep verification
+## Why this release exists now
 
-The v2.18.0 release went through G1 pm-critic + four Codex adversarial passes + deep internal verification (~26 findings). Several findings exposed gaps in the automated gates that let issues reach review instead of being caught by CI. These are the highest-value carry-ins:
+The v2.18.0 release passed every automated gate and still needed four Codex passes plus internal cross-check to catch ~26 findings, roughly half of which sat in validator blind spots. The lesson: any defect class found by a human/LLM that a script could have caught should become a script. Separately, the next release will be the first time the repo is actively promoted, which raises the bar on public surfaces (links, community-health files, install instructions, the docs site). v2.19.0 does the hardening so the promotion release can focus on its own headline rather than on cleanup.
 
-| # | Follow-up | Why (what it would have caught in v2.18.0) | Effort |
+The marketplace switchover itself, and any install-path migration, are **out of scope** here and tracked in their own planning area. This plan does not change the marketplace identity or install commands.
+
+---
+
+## Scope
+
+### In scope
+
+- **Validator and count hardening** (FU-1, FU-2, FU-3, FU-5): make the gates catch what they missed in v2.18.0.
+- **CI and script hygiene** (FU-4, FU-6, FU-7, FU-8, FU-9): fix the gate's own correctness, portability, and signal-to-noise.
+- **Promotion-readiness** (PR-1..PR-5): public-facing first impressions.
+
+### Out of scope (deferred, with destination)
+
+- Marketplace switchover + install-path migration: tracked separately as the next-major effort; not this release.
+- New content skills (R-12 `develop-pre-mortem`, R-13 `develop-product-vision`, R-01 AI-Native Pack, R-19/R-24/R-42 etc.): roadmap, post-v2.19.0.
+- Consolidated `scripts/release-validate.{ps1,sh}` gate: deferred (see D-FU6); the doc-claim correction lands now, the script later.
+- pm-skills-mcp revival or embed-branch merge: maintenance-mode cadence, independent of this tag.
+
+---
+
+## Phases
+
+Execution order respects dependencies: harden the validators first (so later edits are checked by the stronger gates), then fix CI/script hygiene, then polish public surfaces using the hardened validators, then release.
+
+### Phase 1 - Validator and count hardening
+
+| Item | Goal | Decision | Effort |
 |---|---|---|---|
-| FU-1 | Add `*.mdx` to `check-count-consistency.sh` / `.ps1` glob | `docs/index.mdx` (the docs homepage) escaped the `*.md`/`*.json`-only scan and shipped stale "59 skills" until Codex caught it | Small (1-line glob + .ps1 parity) |
-| FU-2 | New `check-skill-cross-references` validator | Backtick skill references that point at non-existent skills (`define-edge-cases`, `develop-product-vision`, `discover-research-plan`) passed every gate; only a name-vs-`skills/`-dir diff caught them | Medium |
-| FU-3 | Extend `check-internal-link-validity` to in-page `#anchors` | Renumbering README headings orphaned the Table-of-Contents anchors; the validator only checks file links | Medium |
-| FU-4 | Remove vestigial `validate-mcp-sync.yml` + `.github/scripts/validate-mcp-sync.js` | MCP is in maintenance mode (M-22); the workflow is observe-only (continue-on-error) and cannot block, but still clones pm-skills-mcp on every skills/commands push | Small |
-| FU-5 | Consider a single generated README stats block | The catalog count lives in ~9 README surfaces (two badges, two mermaid diagrams, cards, per-phase tables, At-a-Glance table, facts table); each release risks missing one | Medium |
+| FU-1 | Close `.mdx` count gap; reconcile the 2 count checkers | - | Small-Med |
+| FU-2 | New `check-skill-cross-references` validator | D-FU2 | Medium |
+| FU-3 | In-page `#anchor` link validity (+ root README/AGENTS fileset) | - | Med-Large |
+| FU-5 | End count-surface drift | D-FU5 | Medium |
 
-## Carry-in: pre-existing hygiene (not a v2.18.0 regression)
+**FU-1 - Close the `.mdx` count gap (reconcile the two count checkers).**
+- Goal: `docs/index.mdx` (the docs homepage) shipped a stale "59 skills" count in v2.18.0 until Codex caught it - despite both the `*.md`/`*.json`-only glob in `check-count-consistency` AND the existence of `check-landing-page-counts.sh`, which was added in v2.15.1 specifically to assert the `docs/index.mdx` homepage count after an earlier "40 vs 55" drift.
+- Diagnosis (now grounded in the script - Codex F-04): `check-landing-page-counts.sh` DOES target `docs/index.mdx` (line 111), but it can miss a stale count two ways: (1) the historical-context escape hatch - if the correct count appears anywhere else in the file, stale counts are passed as "historical" (lines 91-97); (2) the count-claim grep only matches "`<N> ... skills`" phrasings within 0-4 tokens (line 67), so a differently-phrased stale number is invisible. The `.mdx` glob gap is separately in `check-count-consistency` (scans `.md`/`.json` only). Fix at whichever gap actually let v2.18.0 through (most likely the escape hatch).
+- Approach: extend the file glob in `scripts/check-count-consistency.{sh,ps1}` to include `*.mdx` so the general stale-number scan covers `.mdx`, AND/OR extend `check-landing-page-counts` to assert the surface that drifted. Coordinate with FU-5 so the two checkers divide responsibility rather than duplicate. Verify `.ps1` parity.
+- Acceptance: a deliberately wrong count planted in `docs/index.mdx` fails CI (via whichever checker owns it); removed after verification; `.ps1` parity confirmed.
 
-- CHANGELOG historical entries (v2.16.x and earlier) reference `docs/internal/...` planning paths, against the "public paths only" CLAUDE.md guideline. Decide whether to sweep historical entries or accept as frozen history.
-- README "Quick Release History" and the prominent "Recent Updates / What's New" section are two separate release-summary surfaces that must both be updated each release; consider consolidating.
+**FU-2 - New `check-skill-cross-references` validator.** (Design: see D-FU2.)
+- Goal: backtick skill references that point at non-existent skills (`define-edge-cases`, `develop-product-vision`, `discover-research-plan`) passed every v2.18.0 gate; only a manual name-vs-`skills/`-dir diff caught them.
+- Approach: new `scripts/check-skill-cross-references.{sh,ps1}` + companion `.md`. Parse backtick-wrapped tokens matching the skill-name pattern (`{phase|foundation|utility|tool}-...` and the bare command forms) inside the scoped fileset; assert each resolves to a `skills/*/` directory; allow an explicit forward-reference allowlist for intentional "when shipped" pointers (e.g., `deliver-roadmap`).
+- Acceptance: reintroducing a broken ref fails the check; the hedged `deliver-roadmap` forward-ref passes via the allowlist; the validator passes on the current tree once the allowlist is seeded with the known forward-ref(s), and any pre-existing broken refs it surfaces are fixed as part of FU-2; `.sh` and `.ps1` agree on the same fileset; added to the pre-tag bundle.
 
-## Roadmap candidates (deferred from v2.18.0)
+**FU-3 - In-page anchor link validity.** (Codex F-01: larger than first scoped.)
+- Goal: renumbering README headings orphaned the Table-of-Contents anchors; `check-internal-link-validity` does not catch them, for two reasons verified by reading the script.
+- Current behavior to change: (1) it scans `docs/**` only (`find "$ROOT/docs" ...`, line 86), so root `README.md` and `AGENTS.md` are NOT in its fileset; (2) it explicitly skips pure same-page anchors (`if [[ "$link" =~ ^# ]]; then continue`, line 113), so `#anchor` targets are never resolved. It already handles `.mdx` and is already ENFORCING (v2.14.0+).
+- Approach: (a) replace the `^#` skip with a resolver that checks same-page `#anchor` targets against GitHub-style heading slugs in the source file; (b) extend the fileset to include root `README.md` and `AGENTS.md` (a second base path beyond `docs/`), since those carry the nav anchors the acceptance names; (c) `.ps1` parity. Cross-file `path#anchor` is a stretch goal, not required.
+- Acceptance: a broken `#anchor` in `README.md` fails under `--strict`/CI; all current README + AGENTS nav anchors resolve; `.sh` and `.ps1` agree.
 
-Per the 2026-05-14 strategic roadmap + the v2.18.0 lock (4 skills only):
+**FU-5 - End count-surface drift.** (Approach: see D-FU5.)
+- Goal: the catalog count lives in ~9 README surfaces (two badges, two mermaid diagrams, cards, per-phase tables, At-a-Glance table, facts table). v2.18.0 needed a sweep + four Codex passes to catch them all.
+- Reconcile, do not duplicate: two count checkers already exist - `check-count-consistency` (scans tracked files for stale hardcoded numbers) and `check-landing-page-counts` (asserts specific landing pages match the filesystem). FU-5 extends whichever is the right owner per surface and documents the split; it must not add a third overlapping checker.
+- Escape-hatch tradeoff (Codex F-04): `check-landing-page-counts` currently PASSES a page that has a stale count if the correct count also appears in the same file (treats the stale number as historical context, lines 91-97). For D-FU5's "a single wrong count fails" to hold on landing pages, this hatch must be tightened - but tightening risks failing legitimate historical mentions (e.g., "grew from 59 to 63"). Resolve per surface during execution: strict on the true landing pages (`index.mdx`, `skills/index.md`), keep the hatch where historical mentions are legitimate. Tracked as the D-FU5 sub-decision.
+- Note: v2.19.0 adds no skills, so the catalog count does not change this release. FU-1 and FU-5 are preventive guardrails for the next count-changing release; validate them by planting a wrong count and confirming CI fails, not by fixing real drift.
+- Acceptance: per D-FU5 - a single wrong count on any of the ~9 surfaces fails CI rather than relying on a human sweep; the responsibility split between the two checkers is documented.
 
-- R-12 `develop-pre-mortem`, R-13 `develop-product-vision` (multi-source consensus, not three-source)
-- R-01 AI-Native Pack (`measure-eval-suite-spec`, `develop-prompt-spec`, `develop-model-card`) - pending competitive-risk reassessment (roadmap delta Section 4.10)
-- R-19 paired-reviewer pattern; R-24/R-65 hook infrastructure; R-42/R-43 workflow orchestration
+### Phase 2 - CI and script hygiene
+
+| Item | Goal | Decision | Effort |
+|---|---|---|---|
+| FU-4 | Remove vestigial `validate-mcp-sync` | - | Small |
+| FU-6 | Correct the release-gate doc claim | - | Small |
+| FU-7 | Add `.gitattributes`; normalize shell scripts | - | Small |
+| FU-8 | Add 2 missing script docs; set policy | D-FU8 | Small |
+| FU-9 | Reduce advisory noise | D-FU9 | Medium |
+
+**FU-4 - Remove vestigial `validate-mcp-sync`.**
+- Goal: MCP is in maintenance mode (M-22); the workflow is observe-only (`continue-on-error`) and cannot block, yet still clones pm-skills-mcp on every skills/commands push.
+- Approach: remove `.github/workflows/validate-mcp-sync.yml` and `.github/scripts/validate-mcp-sync.js`; confirm nothing else references them; update `ci-overview.md` to drop the MCP-sync job from its CI-job list (coordinate with FU-6, which edits the same file).
+- Acceptance: CI run list no longer shows the MCP-sync job; no dangling references.
+
+**FU-6 - Correct the release-gate documentation claim.**
+- Goal: `release-runbook.md`, `ci-overview.md`, and `pm-skill-auditor.md` imply the local pre-tag bundle equals CI. It does not (CI also enforces build, edit-link, plugin-install, cross-doc).
+- Approach: tighten the wording to "the pre-tag bundle covers validator scripts; the full release gate additionally requires `npm run build`, edit-link verification, `validate-plugin-install`, and cross-doc checks." Do NOT build a consolidated script this release (see D-FU6 note).
+- Acceptance: the three docs no longer claim local-equals-CI; reviewers can read the true gate surface.
+
+**FU-7 - `.gitattributes` + shell-script normalization.**
+- Goal: no `.gitattributes` exists; `core.autocrlf=true` mutates `.sh` line endings on Windows worktrees, producing local Bash false-reds that do not reproduce Ubuntu CI.
+- Approach: add `.gitattributes` (`*.sh eol=lf`, `*.ps1 eol=crlf`, `*.mjs`/`*.js`/`*.json eol=lf`, `*.md text`); renormalize affected scripts in a dedicated commit; document the Windows node-PATH gotcha in `ci-overview.md`.
+- Acceptance: `git ls-files --eol scripts/*.sh` shows `i/lf w/lf`; a clean checkout on Windows runs `bash scripts/pre-tag-validate.sh` without CRLF failures (node-PATH caveat documented).
+
+**FU-8 - Missing script docs + policy.** (Policy: see D-FU8.)
+- Goal: `validate-script-docs` fails because `validate-design-sprint-skills-family.md` and `validate-foundation-sprint-skills-family.md` are absent (verified).
+- Approach: author both companion docs to match the existing script-doc template; then apply D-FU8.
+- Acceptance: `validate-script-docs` passes; its status (enforcing vs allowlisted-advisory) is set per D-FU8.
+
+**FU-9 - Advisory noise reduction.** (Approach: see D-FU9.)
+- Goal: `check-stale-bundle-refs` (460 matches) and `check-version-references` (1153 matches) are too noisy to be decision-useful; most matches are legitimate history.
+- Grounded corrections (Codex F-02, F-03, from reading the scripts):
+  - `check-version-references.sh` already EXCLUDES `.claude-plugin/` (it is the version source of truth) and both `_agent-context/.../CONTEXT.md` files (lines 49-81). Those surfaces are owned by `validate-version-consistency` (manifests) and `check-context-currency` (CONTEXT), so FU-9 must NOT re-include them here. Scope = README + current docs; leave CONTEXT and manifests to their owning checks.
+  - An in-file exempt-range mechanism already exists (`<!-- version-exempt:start -->` / `count-exempt`, lines ~90-97). Reuse/extend it for legitimate current-surface exceptions instead of inventing a new allowlist file.
+  - `.sh`/`.ps1` parity drift already exists in this area (the `.ps1` does not exclude `.claude-plugin/`); fix it as part of FU-9.
+  - Posture (F-03): both checks run in CI with `continue-on-error: true` and exit 0 in non-strict mode. For "planting a stale current claim fails CI" to be true, the scoped check must be flipped to enforcing (run with `--strict` / drop `continue-on-error`) once its scope is clean. Without that flip the acceptance below is unmet.
+- Acceptance: planting a stale version string in a current surface (README or current docs) fails CI; the same string in CHANGELOG history, a session log, an excluded manifest/CONTEXT, or an exempt-marked range does not; baseline output is small enough to scan.
+
+### Phase 3 - Promotion-readiness
+
+| Item | Goal | Decision | Effort |
+|---|---|---|---|
+| PR-1 | Community-health files complete | - | Small |
+| PR-2 | All public links resolve | - | Small-Med |
+| PR-3 | Public-doc path hygiene | D-PR3 | Medium |
+| PR-4 | README newcomer pass + install smoke | - | Medium |
+| PR-5 | Docs-site landing polish + resolve 404 | - | Medium |
+
+**PR-1 - Community-health files.**
+- Goal: LICENSE and issue/PR templates are present, but root `CODE_OF_CONDUCT.md` and `SECURITY.md` are absent, and the README badge links to `CONTRIBUTING.md` with no root file to resolve to (verified gap).
+- Approach: confirm where `CONTRIBUTING.md` resolves; add a root `CONTRIBUTING.md` (or fix the README link to the correct path); add `CODE_OF_CONDUCT.md` (Contributor Covenant) and `SECURITY.md` (disclosure contact + supported versions).
+- Acceptance: GitHub community-profile complete; every README community link resolves.
+
+**PR-2 - Link integrity sweep.**
+- Goal: broken links during a promotion push are the most visible first-impression defect.
+- Scope corrections (Codex F-05, F-06):
+  - FU-2 only covers `skills/**/SKILL.md` (per D-FU2), so it does NOT catch broken skill-name references in README, CONTRIBUTING, or docs prose. Those are out of FU-2's automated scope; PR-2 covers them with a one-time manual sweep, not by reusing FU-2. FU-3 (anchors) does apply, once its fileset includes README/AGENTS.
+  - External links (skills.sh, agentskills.io, MCP repo, releases, discussions) have NO existing validator - `check-internal-link-validity` explicitly excludes external links. PR-2's external check is a one-time manual verification for v2.19.0, or wire a network link-checker (e.g. `lychee`) as a separate, possibly non-blocking CI step (deferred decision).
+- Approach: run FU-3 (in-page anchors, once README/AGENTS are in its fileset) plus a manual pass over README/CONTRIBUTING/docs-landing badges, internal links, and external links.
+- Acceptance: no dead internal links or anchors in README, CONTRIBUTING, or the docs landing page; external links manually verified once; the external-link automation decision is recorded.
+
+**PR-3 - Public-doc path hygiene.** (Decision: see D-PR3.)
+- Goal: public files (README, CHANGELOG, CONTRIBUTING) should not reference gitignored `docs/internal/...` paths, per the repo's own "public paths only" rule.
+- Approach: sweep current public files for internal-path references and gitignored-path leaks; apply D-PR3 to historical CHANGELOG entries.
+- Acceptance: no internal-path references in current public-facing content; historical policy decided and applied.
+
+**PR-4 - README newcomer pass + evergreen install verification.**
+- Goal: a first-time visitor should grasp the value prop, install in one step, and see a first win above the fold; a failed install command during promotion backfires.
+- Approach: deliberate first-time-reader pass on the README top; verify the install paths that do NOT change in the switchover (file-based clone-and-reference, skills.sh) end-to-end from a clean state.
+- Acceptance: the 60-second arc reads cleanly; both evergreen install paths verified working.
+
+**PR-5 - Docs-site landing polish + resolve P2-07.**
+- Goal: the Astro/Starlight site is a primary promotion surface; the build emits an unexplained `Entry docs -> 404 was not found` message that should not be normalized.
+- Approach: investigate and resolve (or explain and downgrade to a labeled warning) the 404 message; give the landing page a promotion read.
+- Acceptance: build message resolved or explained; landing page reviewed.
+
+### Phase 4 - Release
+
+1. Run the full pre-tag bundle, now including the new/extended validators (FU-1, FU-2, FU-3) and a clean `validate-script-docs` (FU-8).
+2. Run the CI-only release checks locally (build, edit-link, plugin-install, cross-doc) per the corrected gate (FU-6).
+3. Version bumps: `plugin.json`, `marketplace.json`, README badge + facts, both CONTEXT.md currency markers.
+4. CHANGELOG `[2.19.0]` entry (public paths only) + `docs/releases/Release_v2.19.0.md`.
+5. Tag the CI-verified SHA only (D22); publish GitHub Release as Latest; verify no orphan draft.
+6. G4 post-tag hygiene: flip this plan + both CONTEXT.md to SHIPPED; create v2.20.0 stub; refresh MEMORY.md.
+
+---
+
+## Decisions (Decision Briefs)
+
+Each decision uses the 6-part brief (what / why / outcomes / alternatives / recommendation / maintainer slot). Options are labeled for easy reference.
+
+### D-FU2 - Scope of `check-skill-cross-references`
+
+- **What:** which files the validator scans, and how it treats intentional forward-references.
+- **Why:** too narrow misses real broken refs; too broad generates false positives on prose that merely mentions a hyphenated phrase. Forward-refs ("when shipped") are legitimate and must not fail the build.
+- **Outcomes if unresolved:** the validator either ships noisy (eroding trust like the advisories in FU-9) or toothless (missing the exact class it was built for).
+- **Alternatives:**
+  - A) Scan `skills/**/SKILL.md` only; flag backtick tokens matching the skill-name shape that do not resolve to a `skills/*/` dir; explicit forward-ref allowlist.
+  - B) A plus `commands/`, `AGENTS.md`, and `docs/skills/`.
+  - C) All tracked `.md`.
+- **Recommendation:** A for v2.19.0 (highest signal, lowest false-positive risk, smallest surface to tune), with a documented allowlist mechanism for forward-refs; widen to B in a later release if real misses appear. Define "skill reference" as a backtick-wrapped token matching the known classification-prefix pattern, not arbitrary prose.
+- **Maintainer decision:** **A** (decided 2026-05-22). Scan `skills/**/SKILL.md` only; flag backtick skill-name tokens that do not resolve to a `skills/*/` dir; maintain an explicit forward-ref allowlist for intentional "planned" pointers. Widen scope only if real misses surface later.
+
+### D-FU5 - How to end count-surface drift
+
+- **What:** the mechanism that prevents one of ~9 README count surfaces from going stale.
+- **Why:** manual sweeps demonstrably miss surfaces (four Codex passes were needed in v2.18.0).
+- **Outcomes if unresolved:** every future release keeps risking a visible wrong count on the most-read public file, now under promotion scrutiny.
+- **Alternatives:**
+  - A) Build-time generated stats block: a script regenerates a marked region in README from filesystem counts; CI checks freshness.
+  - B) Single source-of-truth counts file (e.g., `counts.json`) that surfaces reference.
+  - C) Extend `check-count-consistency` to assert that ALL count surfaces (badges, mermaid, tables, At-a-Glance, facts, plus `.mdx` per FU-1) agree, leaving the README hand-edited.
+- **Recommendation:** C. It is the lowest-risk and reuses the validator investment FU-1 already touches; README stays a normal static file (generators on a GitHub-rendered README add fragile machinery). Treat A as a deferred nice-to-have if hand-editing proves painful.
+- **Maintainer decision:** **C** (decided 2026-05-22). Extend the count checkers to assert every count surface agrees (badges, mermaid diagrams, cards, per-phase tables, At-a-Glance, facts, plus `.mdx` per FU-1), coordinating `check-count-consistency` and the existing `check-landing-page-counts` so the two divide responsibility (no duplicate third checker); README stays hand-edited so a missed surface fails CI loudly. Generated block (A) deferred. Sub-decision (Codex F-04, resolve during execution): tighten `check-landing-page-counts`'s historical-context escape hatch for the true landing pages (`index.mdx`, `skills/index.md`) so a stale count there fails even when the correct count is also present; keep the hatch for prose pages where historical mentions are legitimate.
+
+### D-FU8 - `validate-script-docs`: enforcing or advisory-with-allowlist
+
+- **What:** the check's status after the two missing docs are authored.
+- **Why:** advisory-only let a known defect persist on core family validators; fully enforcing could nag when a new throwaway script lacks a doc.
+- **Outcomes if unresolved:** the check stays permanently red-but-ignored, the worst of both worlds.
+- **Alternatives:**
+  - A) Make it enforcing (CI fails if any script lacks a companion `.md`).
+  - B) Keep advisory but add a tracked allowlist (empty after FU-8) so any NEW gap surfaces immediately.
+  - C) Leave advisory as-is.
+- **Recommendation:** A. Companion docs are part of this repo's validator-discoverability contract and are cheap to maintain; once the two gaps are closed, enforcing keeps the contract honest. Fall back to B only if there is a legitimate doc-less script class.
+- **Maintainer decision:** **A** (decided 2026-05-22). After authoring the two companion docs, make `validate-script-docs` enforcing in CI; a script lacking a companion `.md` fails the gate. Fall back to B only if a legitimate doc-less script class later emerges.
+
+### D-FU9 - Advisory noise reduction approach
+
+- **What:** how to make the two noisy advisories actionable.
+- **Why:** 460 + 1153 matches train maintainers to ignore warnings.
+- **Outcomes if unresolved:** a real future drift hides in the noise and ships.
+- **Alternatives:**
+  - A) Allowlist file of known/historical matches; fail only on NEW matches.
+  - B) "Current-claims-only" heuristic: scan only current-version surfaces; skip provenance/history (CHANGELOG history, session logs, release-plan archives).
+  - C) Summary-only output (count + delta vs last run), no per-match dump.
+- **Recommendation:** B as the root-cause fix (most matches are legitimate history, not drift), with a small A-style allowlist only for residue B cannot scope out. C alone hides signal. This consolidates the carried-over v2.17.1 `check-version-references` strict-heuristic note.
+- **Maintainer decision:** **B** (decided 2026-05-22; surface list corrected per Codex F-02/F-03). Scope `check-version-references` and `check-stale-bundle-refs` to current-claim surfaces (README + current docs); leave CONTEXT to `check-context-currency` and manifests to `validate-version-consistency` (both already own those, and `check-version-references` already excludes them - do not re-include or duplicate). Reuse the existing `<!-- version-exempt -->` / `count-exempt` markers for legitimate exceptions rather than a new allowlist. Fix the `.sh`/`.ps1` `.claude-plugin` exclude parity. Once scoped, flip the scoped check to enforcing so a stale current claim blocks CI (it is currently advisory). Consolidates the v2.17.1 strict-heuristic item.
+
+### D-PR3 - CHANGELOG historical-path hygiene
+
+- **What:** what to do about pre-v2.19 CHANGELOG entries that reference `docs/internal/...` paths.
+- **Why:** the "public paths only" rule applies to public files, but rewriting shipped history is itself a smell.
+- **Outcomes if unresolved:** either the rule is silently violated, or history gets rewritten and the record is altered.
+- **Alternatives:**
+  - A) Sweep all historical entries to remove/rephrase internal-path references.
+  - B) Accept pre-v2.19 entries as frozen history; enforce the rule on new entries only.
+  - C) B plus a one-time note atop CHANGELOG that early entries may reference internal planning paths.
+- **Recommendation:** C. Preserves the historical record, enforces going forward, and is transparent to a reader. A risks altering shipped release records for marginal benefit.
+- **Maintainer decision:** **C** (decided 2026-05-22). Keep pre-v2.19 CHANGELOG entries as frozen history; add a one-time note atop CHANGELOG that early entries may reference internal planning paths; enforce public-paths-only on all new entries. (Current public content is still swept under PR-3.)
+
+### Note on D-FU6 (release-validate script)
+
+Not a full brief: the recommendation is to **fix the doc claim now** (FU-6) and **defer** any consolidated `scripts/release-validate.{ps1,sh}` until the marketplace switchover makes install-path validation load-bearing. The conductor's gates already run the extra checks manually, so the gap today is documentation accuracy, not missing capability.
+
+---
+
+## Release-level acceptance criteria
+
+- Full pre-tag bundle PASS, including the new `check-skill-cross-references` (FU-2), `.mdx`-aware count checks (FU-1), anchor validity (FU-3), and a clean `validate-script-docs` (FU-8).
+- Astro build PASS with the P2-07 message resolved or explained (PR-5).
+- All count surfaces agree under the chosen D-FU5 mechanism.
+- Community-health files complete and every public link resolves (PR-1, PR-2).
+- No internal-path references in current public-facing content (PR-3).
+- Both evergreen install paths verified working from a clean state (PR-4).
+- `.gitattributes` present; `bash scripts/pre-tag-validate.sh` reproducible on a clean Windows checkout (FU-7).
+- CI green on every pushed commit and on the tag; GitHub Release Latest; no orphan draft.
+
+---
+
+## Deferred / roadmap (carried from the stub)
+
+- **Content skills:** R-12 `develop-pre-mortem`, R-13 `develop-product-vision` (multi-source consensus); R-01 AI-Native Pack (`measure-eval-suite-spec`, `develop-prompt-spec`, `develop-model-card`) pending competitive-risk reassessment; R-19 paired-reviewer pattern; R-24/R-65 hook infrastructure; R-42/R-43 workflow orchestration.
+- **pm-skills-mcp:** `embed-skills.js` branch `fix/embed-add-tool-classification-soften-unknown` unmerged (maintenance-mode cadence).
+- **v2.17.1 fast-follow candidate:** `check-version-references` strict heuristic + `.ps1` parity (now folded into D-FU9); macOS bash-3.2 attestation of the W3 validators.
+- **Pre-existing README hygiene:** "Quick Release History" and "Recent Updates / What's New" are two separate release-summary surfaces that must both be updated each release; consider consolidating (relates to D-FU5).
+
+---
 
 ## Notes
 
-- pm-skills-mcp `embed-skills.js` branch `fix/embed-add-tool-classification-soften-unknown` still unmerged to MCP main (maintenance-mode cadence).
-- v2.17.1 fast-follow candidate (carried from v2.17.0): `check-version-references` strict heuristic + `.ps1` parity; macOS bash-3.2 attestation of the W3 validators.
+- This is a hardening release: per the repo convention against per-item effort docs on refactor/maintenance cycles, all work items live as rows/subsections in this single plan. If any item (most likely FU-2) grows enough to warrant a standalone implementation spec, split it out then.
+- Sequencing rationale: Phase 1 hardens the gates before Phases 2-3 edit content, so the stronger validators check that work. Phase 4 releases only after the bundle and CI-only checks are green on the tag SHA.
+
+## Review history
+
+- **Claude self-review (2026-05-22):** verified all referenced script names exist; reconciled FU-1/FU-5 against the two count checkers; sharpened FU-2/FU-9 acceptance; added the FU-4/FU-6 `ci-overview.md` coordination note.
+- **Codex adversarial pass (2026-05-22, retry after a stalled first dispatch):** 6 findings (0 P0, 3 P1, 2 P2, 1 P3), all incorporated above. F-01 (FU-3 scans `docs/**` only and skips `^#` anchors, so it needs a root README/AGENTS fileset + an anchor resolver); F-02 (FU-9: `check-version-references` excludes CONTEXT + manifests by design and has an existing exempt-marker mechanism + a `.ps1` parity gap); F-03 (FU-9: checks are advisory `continue-on-error`, so the acceptance needs a posture flip to enforcing); F-04 (FU-1 diagnosis + FU-5 escape-hatch tradeoff in `check-landing-page-counts`); F-05 (PR-2 overclaimed FU-2's coverage); F-06 (PR-2 external links have no validator). All three script-behavior claims independently verified by reading the scripts before encoding.
