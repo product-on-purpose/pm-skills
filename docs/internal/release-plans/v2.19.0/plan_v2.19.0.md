@@ -1,6 +1,6 @@
 # v2.19.0 Release Plan - Pre-Promotion Hardening
 
-**Status:** EXECUTING - Phase 1 COMPLETE (FU-1, FU-2, FU-3, FU-5 shipped 2026-05-22; FU-3 also absorbed PR-2's README internal-link sweep). Phase 2 in progress: FU-4 + FU-6 shipped 2026-05-23. Remaining: FU-7, FU-8, FU-9, then Phase 3 (PR-1..PR-5), Phase 4 (release).
+**Status:** EXECUTING - Phase 1 COMPLETE (FU-1, FU-2, FU-3, FU-5 shipped 2026-05-22; FU-3 also absorbed PR-2's README internal-link sweep). Phase 2 in progress: FU-4, FU-6, FU-7 shipped 2026-05-23. Remaining: FU-8, FU-9, then Phase 3 (PR-1..PR-5), Phase 4 (release).
 **Created:** 2026-05-22 (during v2.18.0 G4 post-tag hygiene); expanded to full plan 2026-05-22.
 **Predecessor:** [v2.18.0](../v2.18.0/plan_v2.18.0.md) SHIPPED 2026-05-22 (tag `daf720e`; 63 skills).
 **Type:** MINOR (2.18.0 -> 2.19.0). No skill behavior changes; adds governance tooling (new/extended validators), CI hygiene, and public-surface polish. Repo version is independent of individual skill versions.
@@ -103,6 +103,7 @@ Execution order respects dependencies: harden the validators first (so later edi
 - Goal: no `.gitattributes` exists; `core.autocrlf=true` mutates `.sh` line endings on Windows worktrees, producing local Bash false-reds that do not reproduce Ubuntu CI.
 - Approach: add `.gitattributes` (`*.sh eol=lf`, `*.ps1 eol=crlf`, `*.mjs`/`*.js`/`*.json eol=lf`, `*.md text`); renormalize affected scripts in a dedicated commit; document the Windows node-PATH gotcha in `ci-overview.md`.
 - Acceptance: `git ls-files --eol scripts/*.sh` shows `i/lf w/lf`; a clean checkout on Windows runs `bash scripts/pre-tag-validate.sh` without CRLF failures (node-PATH caveat documented).
+- **DONE (2026-05-23).** Added `.gitattributes` pinning `*.sh eol=lf`, `*.ps1 eol=crlf`, `*.mjs`/`*.js`/`*.json eol=lf`, `*.md text` (`core.autocrlf` was `true`, the source of the perpetual "LF will be replaced by CRLF" warnings + the `.sh` CRLF risk). `git add --renormalize .` re-staged ONLY `.gitattributes` itself - every existing file was already LF in the index (autocrlf had been normalizing on commit), so zero content churn; the attributes just convert that implicit per-developer behavior into an explicit committed contract. `.sh` files now report `attr/text eol=lf`. Documented the Windows node-PATH gotcha + the line-ending contract in `ci-overview.md`. Acceptance met: `git ls-files --eol scripts/*.sh` shows `i/lf w/lf` with the attribute applied.
 
 **FU-8 - Missing script docs + policy.** (Policy: see D-FU8.)
 - Goal: `validate-script-docs` fails because `validate-design-sprint-skills-family.md` and `validate-foundation-sprint-skills-family.md` are absent (verified).

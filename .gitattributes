@@ -1,0 +1,21 @@
+# Line-ending normalization (v2.19.0, FU-7).
+#
+# core.autocrlf=true was mutating .sh line endings on Windows worktrees,
+# producing local Bash false-reds (CRLF in the shebang / heredocs) that did
+# not reproduce on Ubuntu CI. These rules make line endings deterministic
+# regardless of a contributor's autocrlf setting.
+
+# Shell scripts: always LF. They run under bash on Ubuntu CI and locally via
+# Git Bash; a CRLF here breaks the shebang and `set -e` heredocs.
+*.sh    text eol=lf
+
+# PowerShell scripts: CRLF (Windows-native).
+*.ps1   text eol=crlf
+
+# Node tooling + JSON: LF.
+*.mjs   text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+
+# Markdown: normalized to LF in the repository; checked out per-platform.
+*.md    text

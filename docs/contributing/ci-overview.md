@@ -127,6 +127,11 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | `deploy-pages.yml` | `npm run build` (Astro production build) |
 | Others | Manually inspect the workflow_dispatch trigger inputs; some have no local equivalent |
 
+**Windows local-run notes:**
+
+- **Node on PATH.** In Git Bash on Windows, Node is not always on `PATH`. If `npm run build` or the node-based checks (`verify-edit-links.mjs`, `post-build-strip-md-links.mjs`) fail with `node: command not found`, prepend Node for the session: `export PATH="/c/nvm4w/nodejs:$PATH"` (Node 22.12+). The bash validator scripts do not need Node; only the build + edit-link steps do.
+- **Line endings.** `.gitattributes` (added v2.19.0) pins `*.sh` to LF so Git Bash runs them without CRLF false-reds, regardless of your `core.autocrlf` setting. `*.ps1` is checked out as CRLF; `*.mjs`/`*.js`/`*.json` as LF.
+
 ## How to Add a New Validator
 
 When adding a new validator script:
