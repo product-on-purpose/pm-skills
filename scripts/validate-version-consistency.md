@@ -2,10 +2,15 @@
 
 ## Purpose
 
-Ensure `.claude-plugin/plugin.json` and `marketplace.json` report the same
-version. Prevents drift between version sources that would confuse the
-`/update-pm-skills` skill's version detection and mislead users about which
-version they have installed.
+Ensure the repo's version-CLAIM surfaces all agree: `.claude-plugin/plugin.json`
+and `marketplace.json` report the same version, and the README version badge plus
+the At-a-Glance "Current version" row match it. Prevents drift between version
+sources that would confuse the `/update-pm-skills` skill's version detection and
+mislead users about which version they have installed. (v2.19.0, FU-9: the README
+surfaces were folded in here because they are version *claims*; `check-version-references`
+stays advisory for version *provenance* mentions, and the badge form `version-X.Y.Z`
+is not matched by that script's `vX.Y.Z` regex anyway, so it would otherwise slip
+every gate.)
 
 ## Usage
 
@@ -19,10 +24,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\validate-version-consistency.
 
 ## What It Does
 
-1. Reads the `version` field from `.claude-plugin/plugin.json`
-2. Reads the `plugins[0].version` field from `marketplace.json`
-3. Compares the two strings
-4. Reports pass (matching) or fail (mismatch) with both values
+1. Reads the `version` field from `.claude-plugin/plugin.json` (the source of truth)
+2. Reads the `plugins[0].version` field from `marketplace.json`; fails on mismatch
+3. Reads the README version badge (`badge/version-X.Y.Z`) and the At-a-Glance "Current version" row; fails if either is present and does not match plugin.json
+4. Reports pass (all surfaces agree) or fail with the offending value
 
 ## Exit Codes
 

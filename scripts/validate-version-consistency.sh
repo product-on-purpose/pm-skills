@@ -30,4 +30,23 @@ if [[ "$PLUGIN_VER" != "$MARKET_VER" ]]; then
   exit 1
 fi
 
-echo "PASS: Versions consistent ($PLUGIN_VER)"
+# README current-version-claim surfaces must match plugin.json (FU-9, v2.19.0).
+# This validator owns version-CLAIM surfaces; check-version-references stays
+# advisory for provenance refs ("since vX.Y.Z"). The README badge form
+# "version-X.Y.Z" is NOT matched by check-version-references' vX.Y.Z regex,
+# so a stale badge would otherwise slip every gate; assert it here.
+README_FILE="README.md"
+if [[ -f "$README_FILE" ]]; then
+  BADGE_VER=$(grep -oE 'badge/version-[0-9]+\.[0-9]+\.[0-9]+' "$README_FILE" | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' || true)
+  if [[ -n "$BADGE_VER" && "$BADGE_VER" != "$PLUGIN_VER" ]]; then
+    echo "FAIL: README version badge ($BADGE_VER) does not match plugin.json ($PLUGIN_VER)"
+    exit 1
+  fi
+  ATAGLANCE_VER=$(grep -E '\*\*Current version\*\*' "$README_FILE" | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1 | sed 's/^v//' || true)
+  if [[ -n "$ATAGLANCE_VER" && "$ATAGLANCE_VER" != "$PLUGIN_VER" ]]; then
+    echo "FAIL: README 'Current version' row ($ATAGLANCE_VER) does not match plugin.json ($PLUGIN_VER)"
+    exit 1
+  fi
+fi
+
+echo "PASS: Versions consistent ($PLUGIN_VER); README badge + Current-version row match"

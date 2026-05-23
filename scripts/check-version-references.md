@@ -32,14 +32,11 @@ Pairs with `validate-version-consistency.{sh,ps1}` (sibling enforcing check that
 | `0`  | No drift OR advisory mode (default; reports drift but doesn't fail) |
 | `1`  | Drift found AND `--strict` (bash) or `-Strict` (pwsh) was passed |
 
-## Posture (v2.13.0)
+## Posture
 
-**Advisory.** This script ships advisory in v2.13.0 because:
+**Advisory by design (decided v2.19.0, FU-9).** This script broad-scans tracked `.md`/`.json` for any `vX.Y.Z` that differs from the current version. The overwhelming majority of matches are legitimate *provenance* ("added in v2.11.0", "since v2.9.0") in current docs, which cannot be distinguished from genuine drift by version number alone. It therefore stays advisory: it surfaces a drift count at pre-tag time without blocking.
 
-- Pre-existing drift may exist that needs separate cleanup
-- Some legitimate version refs may be in unexcluded paths and need triage (expand exclusions OR update the ref)
-
-**Promotion plan:** review v2.13.0 advisory output during cycle. If false-positive rate is acceptable AND remaining drift is fixed, promote to enforcing (`--strict` in `validation.yml`) in v2.14.0+.
+The enforcing job of catching a stale current-version *claim* lives in `validate-version-consistency` (FU-9), which asserts the README version badge + At-a-Glance "Current version" row match `plugin.json`. That is where a stale current-version surface fails CI. This script honors `<!-- count-exempt -->` / `<!-- version-exempt -->` ranges so a legitimate historical mention can be marked when one lands in an unexcluded current surface.
 
 ## Exclusions
 
@@ -69,7 +66,7 @@ Paths NOT scanned for drift (historical version refs are correct):
 
 - After a release tag (catches files that didn't get the version bump)
 - Before tagging a new release (catches drift introduced during the cycle)
-- In CI on push/PR (advisory in v2.13; enforcing in v2.14+)
+- In CI on push/PR (advisory by design; the enforcing current-version-claim check is `validate-version-consistency`)
 
 ## Example Output
 

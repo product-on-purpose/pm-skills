@@ -32,4 +32,26 @@ if ($pluginVer -ne $marketVer) {
     exit 1
 }
 
-Write-Host "PASS: Versions consistent ($pluginVer)"
+# README current-version-claim surfaces must match plugin.json (FU-9, v2.19.0).
+# This validator owns version-CLAIM surfaces; check-version-references stays
+# advisory for provenance refs. The README badge form "version-X.Y.Z" is NOT
+# matched by check-version-references' vX.Y.Z regex, so assert it here.
+$readmeFile = "README.md"
+if (Test-Path $readmeFile) {
+    $readme = Get-Content $readmeFile -Raw
+    $badgeMatch = [regex]::Match($readme, 'badge/version-(\d+\.\d+\.\d+)')
+    if ($badgeMatch.Success -and $badgeMatch.Groups[1].Value -ne $pluginVer) {
+        Write-Host "FAIL: README version badge ($($badgeMatch.Groups[1].Value)) does not match plugin.json ($pluginVer)"
+        exit 1
+    }
+    $cvLine = ($readme -split "`n" | Where-Object { $_ -match '\*\*Current version\*\*' } | Select-Object -First 1)
+    if ($cvLine) {
+        $cvMatch = [regex]::Match($cvLine, 'v(\d+\.\d+\.\d+)')
+        if ($cvMatch.Success -and $cvMatch.Groups[1].Value -ne $pluginVer) {
+            Write-Host "FAIL: README 'Current version' row ($($cvMatch.Groups[1].Value)) does not match plugin.json ($pluginVer)"
+            exit 1
+        }
+    }
+}
+
+Write-Host "PASS: Versions consistent ($pluginVer); README badge + Current-version row match"

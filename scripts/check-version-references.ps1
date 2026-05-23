@@ -73,6 +73,9 @@ $ExcludePatterns = @(
     '^_agent-context/claude/PLANNING/',
     '^_agent-context/codex/CONTEXT\.md$',
     '^_agent-context/codex/DECISIONS\.md$',
+    '^_agent-context/codex/_archived/',
+    '^\.claude-plugin/',
+    '^\.claude/',
     '^library/',
     '^skills/[^/]+/HISTORY\.md$',
     '^scripts/check-version-references\.'
@@ -103,8 +106,15 @@ foreach ($file in $filesToCheck) {
     if ($null -eq $lines) { continue }
 
     $lineNum = 0
+    $inExempt = $false
     foreach ($line in $lines) {
         $lineNum++
+        # Honor count-exempt / version-exempt HTML-comment ranges (parity with .sh):
+        # a flagged line inside such a range is intentional historical provenance.
+        if ($line -match '<!-- (count|version)-exempt:start -->') { $inExempt = $true; continue }
+        if ($line -match '<!-- (count|version)-exempt:end -->') { $inExempt = $false; continue }
+        if ($inExempt) { continue }
+
         $regexMatches = [regex]::Matches($line, 'v[0-9]+\.[0-9]+\.[0-9]+')
         if ($regexMatches.Count -eq 0) { continue }
 
@@ -143,8 +153,8 @@ if ($Strict) {
     Write-Host "FAIL (-Strict): $DriftCount version reference drift line(s) found."
     exit 1
 } else {
-    Write-Host "WARN: $DriftCount version reference drift line(s) found (advisory mode)."
-    Write-Host "  Triage: confirm each is intentional historical reference, OR update to current."
-    Write-Host "  Promote to enforcing (-Strict in CI) in v2.14.0+ after one clean cycle."
+    Write-Host "WARN: $DriftCount version reference drift line(s) found (advisory by design)."
+    Write-Host "  Most are legitimate provenance ('since vX.Y.Z'); confirm none is a stale current claim."
+    Write-Host "  Current-version CLAIM drift (README badge + At-a-Glance) is enforced by validate-version-consistency."
     exit 0
 }

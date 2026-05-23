@@ -77,6 +77,7 @@ EXCLUDES=(
   ':(exclude)_agent-context/claude/PLANNING/'
   ':(exclude)_agent-context/codex/CONTEXT.md'
   ':(exclude)_agent-context/codex/DECISIONS.md'
+  ':(exclude)_agent-context/codex/_archived/'
   ':!library/'
   ':!skills/*/HISTORY.md'
   ':!scripts/check-version-references.sh'
@@ -125,8 +126,11 @@ while IFS= read -r line; do
   # Skip lines inside count-exempt / version-exempt ranges (historical provenance)
   _ef="${line%%:*}"; _rest="${line#*:}"; _eln="${_rest%%:*}"
   if is_exempt "$_ef" "$_eln"; then continue; fi
-  # Extract version refs from the line content portion
-  found_versions=$(echo "$line" | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sort -u)
+  # Extract version refs from the line CONTENT only (strip the file:lineno: prefix
+  # so a version-like path segment, e.g. .../v2.18.0/..., is not miscounted as drift;
+  # this also matches the .ps1, which scans content only).
+  _content="${_rest#*:}"
+  found_versions=$(printf '%s' "$_content" | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | sort -u)
   has_drift=false
   while IFS= read -r ver; do
     [[ -z "$ver" ]] && continue
@@ -150,7 +154,10 @@ fi
 echo "Found $DRIFT_COUNT line(s) with version reference drift:"
 echo ""
 # Limit output to first 50 lines to avoid wall-of-text
-echo "$DRIFT_LINES" | head -50
+# `|| true` guards against SIGPIPE (141) when head closes the pipe early under
+# `set -e -o pipefail` (>50 drift lines), which would otherwise abort this
+# advisory script before its exit-0 path.
+echo "$DRIFT_LINES" | head -50 || true
 TRUNCATED=$(echo "$DRIFT_LINES" | tail -n +51 | grep -c . || true)
 if [[ $TRUNCATED -gt 0 ]]; then
   echo ""
@@ -162,8 +169,8 @@ if [[ "$STRICT" == "true" ]]; then
   echo "FAIL (--strict): $DRIFT_COUNT version reference drift line(s) found."
   exit 1
 else
-  echo "WARN: $DRIFT_COUNT version reference drift line(s) found (advisory mode)."
-  echo "  Triage: confirm each is intentional historical reference, OR update to current."
-  echo "  Promote to enforcing (--strict in CI) in v2.14.0+ after one clean cycle."
+  echo "WARN: $DRIFT_COUNT version reference drift line(s) found (advisory by design)."
+  echo "  Most are legitimate provenance ('since vX.Y.Z'); confirm none is a stale current claim."
+  echo "  Current-version CLAIM drift (README badge + At-a-Glance) is enforced by validate-version-consistency."
   exit 0
 fi
