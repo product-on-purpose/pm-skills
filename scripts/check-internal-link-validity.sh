@@ -108,6 +108,11 @@ heading_slugs() {
       if (n[s] == 1) print s; else print s "-" (n[s] - 1)
     }
   ' "$1"
+  # GitHub also honors explicit id/name anchors on <a> tags (e.g. the README
+  # "back to top" target <a id="readme-top">); add them to the slug set verbatim
+  # (lowercased) so a same-page link to them resolves. (FU-3 / Codex P2.)
+  grep -oE '<a[[:space:]]+[^>]*(id|name)="[^"]+"' "$1" 2>/dev/null \
+    | sed -E 's/.*(id|name)="([^"]+)".*/\2/' | tr '[:upper:]' '[:lower:]' || true
 }
 
 # Build the work list as TAB-separated "<full_path>\t<display>\t<abs_base>".

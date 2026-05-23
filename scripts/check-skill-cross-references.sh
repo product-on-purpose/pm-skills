@@ -42,8 +42,9 @@ ALLOWLIST="deliver-change-communication
 deliver-roadmap
 foundation-sprint-skills"
 
-# Valid skill directory names, one per line.
-VALID="$(find skills -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)"
+# Valid skill names = directories that actually contain a SKILL.md (a bare/stale
+# dir without SKILL.md is not a usable skill, so a reference to it should fail).
+VALID="$(find skills -mindepth 2 -maxdepth 2 -name SKILL.md 2>/dev/null | sed -E 's#^skills/([^/]+)/SKILL\.md$#\1#' | sort)"
 
 BROKEN=""
 COUNT=0

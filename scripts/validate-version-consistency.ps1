@@ -39,7 +39,7 @@ if ($pluginVer -ne $marketVer) {
 $readmeFile = "README.md"
 if (Test-Path $readmeFile) {
     $readme = Get-Content $readmeFile -Raw
-    $badgeMatch = [regex]::Match($readme, 'badge/version-(\d+\.\d+\.\d+)')
+    $badgeMatch = [regex]::Match($readme, 'badge/version-v?(\d+\.\d+\.\d+)')
     if ($badgeMatch.Success -and $badgeMatch.Groups[1].Value -ne $pluginVer) {
         Write-Host "FAIL: README version badge ($($badgeMatch.Groups[1].Value)) does not match plugin.json ($pluginVer)"
         exit 1

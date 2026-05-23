@@ -26,11 +26,13 @@ $Validators = @(
   @{ Name = 'validate-docs-frontmatter -Strict';             Script = 'validate-docs-frontmatter.ps1';                     Args = @('-Strict') }
   @{ Name = 'check-no-body-h1 -Strict';                      Script = 'check-no-body-h1.ps1';                              Args = @('-Strict') }
   @{ Name = 'check-count-consistency';                       Script = 'check-count-consistency.ps1';                       Args = @() }
+  @{ Name = 'check-skill-cross-references';                  Script = 'check-skill-cross-references.ps1';                  Args = @() }
   @{ Name = 'check-generated-content-untouched';             Script = 'check-generated-content-untouched.ps1';             Args = @() }
+  @{ Name = 'validate-script-docs';                          Script = 'validate-script-docs.ps1';                          Args = @() }
 )
 
 $OptionalValidators = @(
-  @{ Name = 'check-landing-page-counts';                     Script = 'check-landing-page-counts.ps1';                     Args = @() }
+  @{ Name = 'check-landing-page-counts -Strict';            Script = 'check-landing-page-counts.ps1';                     Args = @('-Strict') }
   @{ Name = 'check-workflow-generator-coverage';             Script = 'check-workflow-generator-coverage.ps1';             Args = @() }
   @{ Name = 'check-agents-md-command-sync';                  Script = 'check-agents-md-command-sync.ps1';                  Args = @() }
   @{ Name = 'check-context-currency';                        Script = 'check-context-currency.ps1';                        Args = @() }

@@ -99,6 +99,12 @@ function Get-HeadingSlugs {
                 $set["$s-$($counts[$s] - 1)"] = $true
             }
         }
+        # GitHub also honors explicit id/name anchors on <a> tags (e.g. the README
+        # "back to top" target); add them verbatim (lowercased) so a same-page link
+        # to them resolves. (Codex P2.)
+        foreach ($am in [regex]::Matches($line, '<a\s+[^>]*(?:id|name)="([^"]+)"')) {
+            $set[$am.Groups[1].Value.ToLower()] = $true
+        }
     }
     return $set
 }

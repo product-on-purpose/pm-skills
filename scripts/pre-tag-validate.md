@@ -22,13 +22,20 @@ Required (must pass; will exit 1 on failure):
 8. `validate-docs-frontmatter --strict`
 9. `check-no-body-h1 --strict`
 10. `check-count-consistency`
-11. `check-generated-content-untouched`
+11. `check-skill-cross-references` (v2.19.0)
+12. `check-generated-content-untouched`
+13. `validate-script-docs` (enforcing as of v2.19.0)
 
-Optional (v2.15.1+ preventive validators; run if present):
+Optional (preventive validators; run if present):
 
-12. `check-landing-page-counts`
-13. `check-workflow-generator-coverage`
-14. `check-agents-md-command-sync`
+14. `check-landing-page-counts --strict`
+15. `check-workflow-generator-coverage`
+16. `check-agents-md-command-sync`
+17. `check-context-currency`
+
+Advisory (non-blocking; informational only):
+
+18. `check-version-references` (advisory by design; the enforcing version-claim check is `validate-version-consistency`)
 
 ## When to run
 

@@ -37,7 +37,7 @@ fi
 # so a stale badge would otherwise slip every gate; assert it here.
 README_FILE="README.md"
 if [[ -f "$README_FILE" ]]; then
-  BADGE_VER=$(grep -oE 'badge/version-[0-9]+\.[0-9]+\.[0-9]+' "$README_FILE" | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' || true)
+  BADGE_VER=$(grep -oE 'badge/version-v?[0-9]+\.[0-9]+\.[0-9]+' "$README_FILE" | head -1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' || true)
   if [[ -n "$BADGE_VER" && "$BADGE_VER" != "$PLUGIN_VER" ]]; then
     echo "FAIL: README version badge ($BADGE_VER) does not match plugin.json ($PLUGIN_VER)"
     exit 1

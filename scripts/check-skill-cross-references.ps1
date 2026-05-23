@@ -36,8 +36,12 @@ $pattern = "$bt(?:$prefixRe)-[a-z0-9-]+$bt"
 
 $skillsDir = Join-Path $Root 'skills'
 
+# Valid skill names = directories that actually contain a SKILL.md (a bare/stale
+# dir without SKILL.md is not a usable skill, so a reference to it should fail).
 $valid = @{}
-Get-ChildItem -Path $skillsDir -Directory | ForEach-Object { $valid[$_.Name] = $true }
+Get-ChildItem -Path $skillsDir -Directory |
+    Where-Object { Test-Path (Join-Path $_.FullName 'SKILL.md') -PathType Leaf } |
+    ForEach-Object { $valid[$_.Name] = $true }
 
 $broken = @()
 
