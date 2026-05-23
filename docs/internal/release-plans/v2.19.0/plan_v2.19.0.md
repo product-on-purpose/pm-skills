@@ -1,6 +1,6 @@
 # v2.19.0 Release Plan - Pre-Promotion Hardening
 
-**Status:** EXECUTING - Phase 1 in progress. FU-1 shipped 2026-05-22 (see FU-1 subsection for outcome). Remaining: FU-2, FU-3, FU-5, then Phases 2-4.
+**Status:** EXECUTING - Phase 1 in progress. FU-1, FU-2 shipped 2026-05-22 (see their subsections for outcomes). Remaining: FU-3, FU-5, then Phases 2-4.
 **Created:** 2026-05-22 (during v2.18.0 G4 post-tag hygiene); expanded to full plan 2026-05-22.
 **Predecessor:** [v2.18.0](../v2.18.0/plan_v2.18.0.md) SHIPPED 2026-05-22 (tag `daf720e`; 63 skills).
 **Type:** MINOR (2.18.0 -> 2.19.0). No skill behavior changes; adds governance tooling (new/extended validators), CI hygiene, and public-surface polish. Repo version is independent of individual skill versions.
@@ -60,6 +60,7 @@ Execution order respects dependencies: harden the validators first (so later edi
 - Goal: backtick skill references that point at non-existent skills (`define-edge-cases`, `develop-product-vision`, `discover-research-plan`) passed every v2.18.0 gate; only a manual name-vs-`skills/`-dir diff caught them.
 - Approach: new `scripts/check-skill-cross-references.{sh,ps1}` + companion `.md`. Parse backtick-wrapped tokens matching the skill-name pattern (`{phase|foundation|utility|tool}-...` and the bare command forms) inside the scoped fileset; assert each resolves to a `skills/*/` directory; allow an explicit forward-reference allowlist for intentional "when shipped" pointers (e.g., `deliver-roadmap`).
 - Acceptance: reintroducing a broken ref fails the check; the hedged `deliver-roadmap` forward-ref passes via the allowlist; the validator passes on the current tree once the allowlist is seeded with the known forward-ref(s), and any pre-existing broken refs it surfaces are fixed as part of FU-2; `.sh` and `.ps1` agree on the same fileset; added to the pre-tag bundle.
+- **DONE (2026-05-22).** Created `scripts/check-skill-cross-references.{sh,ps1,md}`. Survey of the current tree: 41 referenced classification-prefixed tokens, 38 resolve to a `skills/<name>/` dir, 3 intentional non-resolving tokens seeded into the allowlist - `deliver-roadmap` (forward-ref "when shipped"), `deliver-change-communication` (illustrative naming example in `utility-pm-skill-builder`), `foundation-sprint-skills` (skill-family identifier, not a dir). No pre-existing broken refs remained (v2.18.0's three were already fixed by `3055962`). Verified: both scripts PASS clean with identical output; a planted `define-edge-cases` ref FAILS on both at the same `file:line`. Wired into the pre-tag bundle (`pre-tag-validate.sh`) and `.github/workflows/validation.yml` as an enforcing pair (Ubuntu + Windows). `validate-script-docs` recognizes the companion doc (only the 2 FU-8 docs remain missing).
 
 **FU-3 - In-page anchor link validity.** (Codex F-01: larger than first scoped.)
 - Goal: renumbering README headings orphaned the Table-of-Contents anchors; `check-internal-link-validity` does not catch them, for two reasons verified by reading the script.

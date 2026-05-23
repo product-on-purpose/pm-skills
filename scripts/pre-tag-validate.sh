@@ -58,6 +58,7 @@ VALIDATORS=(
   "validate-docs-frontmatter --strict|bash $ROOT/scripts/validate-docs-frontmatter.sh --strict"
   "check-no-body-h1 --strict|bash $ROOT/scripts/check-no-body-h1.sh --strict"
   "check-count-consistency|bash $ROOT/scripts/check-count-consistency.sh"
+  "check-skill-cross-references|bash $ROOT/scripts/check-skill-cross-references.sh"
   "check-generated-content-untouched|bash $ROOT/scripts/check-generated-content-untouched.sh"
 )
 
