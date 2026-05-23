@@ -138,6 +138,7 @@ Execution order respects dependencies: harden the validators first (so later edi
 - Goal: LICENSE and issue/PR templates are present, but root `CODE_OF_CONDUCT.md` and `SECURITY.md` are absent, and the README badge links to `CONTRIBUTING.md` with no root file to resolve to (verified gap).
 - Approach: confirm where `CONTRIBUTING.md` resolves; add a root `CONTRIBUTING.md` (or fix the README link to the correct path); add `CODE_OF_CONDUCT.md` (Contributor Covenant) and `SECURITY.md` (disclosure contact + supported versions).
 - Acceptance: GitHub community-profile complete; every README community link resolves.
+- **DONE (2026-05-23; already satisfied - the "absent" premise was stale).** Re-verified current state: `CODE_OF_CONDUCT.md` (Contributor Covenant), `SECURITY.md` (evergreen "2.x" supported range + GitHub Private Vulnerability Reporting disclosure channel + 2-business-day response target), `CONTRIBUTING.md`, and `LICENSE` all exist at root; `.github/` has issue templates (bug/feature/task/config) + PR template. GitHub community profile is complete; README community links (CONTRIBUTING at lines 34, 1096) resolve. No changes required.
 
 **PR-2 - Link integrity sweep.**
 - Goal: broken links during a promotion push are the most visible first-impression defect.
@@ -146,11 +147,13 @@ Execution order respects dependencies: harden the validators first (so later edi
   - External links (skills.sh, agentskills.io, MCP repo, releases, discussions) have NO existing validator - `check-internal-link-validity` explicitly excludes external links. PR-2's external check is a one-time manual verification for v2.19.0, or wire a network link-checker (e.g. `lychee`) as a separate, possibly non-blocking CI step (deferred decision).
 - Approach: run FU-3 (in-page anchors, once README/AGENTS are in its fileset) plus a manual pass over README/CONTRIBUTING/docs-landing badges, internal links, and external links.
 - Acceptance: no dead internal links or anchors in README, CONTRIBUTING, or the docs landing page; external links manually verified once; the external-link automation decision is recorded.
+- **DONE (2026-05-23).** Internal links + same-page anchors are covered by FU-3 (enforcing, green). External links verified once: all 7 distinct non-tag destinations (`agentskills.io/specification`, repo root, `pm-skills-mcp`, `releases/latest`, `discussions`, `skills.sh/product-on-purpose/pm-skills`, `adr.github.io`) return HTTP 200, and all README release-tag URLs (v0.1.0 through v2.18.0) return 200 (0 non-200). CONTRIBUTING resolution confirmed (PR-1). **External-link automation decision:** a network link-checker (lychee) is DEFERRED - a one-time manual verification suffices for v2.19.0, and a network-dependent CI step adds flakiness for little gain at the current external-link volume; revisit if external links proliferate. No repo changes needed.
 
 **PR-3 - Public-doc path hygiene.** (Decision: see D-PR3.)
 - Goal: public files (README, CHANGELOG, CONTRIBUTING) should not reference gitignored `docs/internal/...` paths, per the repo's own "public paths only" rule.
 - Approach: sweep current public files for internal-path references and gitignored-path leaks; apply D-PR3 to historical CHANGELOG entries.
 - Acceptance: no internal-path references in current public-facing content; historical policy decided and applied.
+- **DONE (2026-05-23).** Swept current public files: NO truly-gitignored-path leaks (`_NOTES/`, `_LOCAL/`, `SESSION-LOG/`, `_agent-context/*/PLANNING|TODO`) in README/CONTRIBUTING/QUICKSTART. Clarification: `docs/internal/` is TRACKED (not gitignored), so the README/CONTRIBUTING prose mentions of `_agent-context/`, `agents/`, and one `docs/internal/release-plans/...` spec reference point at accessible tracked paths, not leaks - left as-is (they provide genuine provenance). Per **D-PR3 (option C):** added a one-time note atop `CHANGELOG.md` stating pre-v2.19.0 entries (71 `docs/internal/` references) are frozen history preserved as written, with public-paths-only enforced from v2.19.0 onward (review-time discipline; CHANGELOG is outside the link validator + count checker).
 
 **PR-4 - README newcomer pass + evergreen install verification.**
 - Goal: a first-time visitor should grasp the value prop, install in one step, and see a first win above the fold; a failed install command during promotion backfires.
