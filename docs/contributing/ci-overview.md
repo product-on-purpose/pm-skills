@@ -34,8 +34,8 @@ flowchart TD
 
     Manual[workflow_dispatch] --> SyncAgents[sync-agents-md.yml]
 
-    Validation --> Enforcing[~15 enforcing validators:<br/>lint-skills-frontmatter<br/>validate-agents-md<br/>validate-commands<br/>family validators<br/>check-internal-link-validity --strict<br/>validate-docs-frontmatter --strict<br/>check-no-body-h1 --strict<br/>check-count-consistency<br/>check-skill-cross-references<br/>check-generated-content-untouched<br/>+ more]
-    Validation --> Advisory[Advisory validators:<br/>check-context-currency<br/>check-frontmatter-yaml<br/>check-stale-bundle-refs<br/>check-version-references<br/>check-em-dashes]
+    Validation --> Enforcing[~18 enforcing validators:<br/>lint-skills-frontmatter<br/>validate-agents-md<br/>validate-commands<br/>family validators<br/>check-internal-link-validity --strict<br/>validate-docs-frontmatter --strict<br/>check-no-body-h1 --strict<br/>check-count-consistency<br/>check-skill-cross-references<br/>check-generated-content-untouched<br/>+ more]
+    Validation --> Advisory[Advisory validators:<br/>check-context-currency<br/>check-frontmatter-yaml<br/>check-stale-bundle-refs<br/>check-version-references]
 
     Enforcing -->|all pass| Green[PR green; merge unblocked]
     Enforcing -->|any fail| Red[PR red; fix + push again]

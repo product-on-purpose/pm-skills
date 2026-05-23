@@ -58,7 +58,7 @@ When the ratio of unassigned actions to total actions exceeds **0.3** (30%), OR 
 
 The shareable summary also leads with this flag when triggered: `⚠ Ownership reconciliation required: N of M actions lack owners.`
 
-The `unassigned_action_ratio` frontmatter field (float 0.0–1.0) records the ratio for downstream tools.
+The `unassigned_action_ratio` frontmatter field (float 0.0-1.0) records the ratio for downstream tools.
 
 Rationale: a recap with 60% ownerless actions is "non-fabricated" (per the prohibition above) but operationally broken. a pile of broken tickets. The threshold makes this visible instead of silently shipping.
 

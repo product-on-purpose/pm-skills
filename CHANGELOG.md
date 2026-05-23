@@ -9,6 +9,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.19.0] - 2026-05-23
+
+**Pre-Promotion Hardening: the validator gate now catches the v2.18.0 defect classes automatically.** v2.19.0 ships no new skills (catalog stays at 63) and is entirely focused on closing the blind spots the v2.18.0 verification arc exposed: stale counts slipping past CI, broken skill references passing every gate, dead internal links accumulating undetected, and script docs out of sync with their validators. After this release, the gate itself enforces what was previously caught only by manual review. Public surfaces (README, QUICKSTART, docs site) were also polished for the upcoming first actively promoted release.
+
+### Added
+
+- **`scripts/check-skill-cross-references`** (new enforcing validator, Ubuntu + Windows): scans for backtick-wrapped skill references and asserts every referenced skill resolves to an actual `skills/<name>/` directory, with an allowlist for intentional forward-references. Closes the v2.18.0 defect class where references to non-existent skills passed every gate and were caught only by manual inspection. Wired into the pre-tag bundle and `validation.yml`.
+- **`scripts/validate-foundation-sprint-skills-family.md` and `scripts/validate-design-sprint-skills-family.md`** (new companion docs): the two sprint-family validators shipped in v2.15.0 without companion documentation. Both are now authored, modeled on the meeting-family pattern, covering member lists, per-skill checks, and scaffolding behavior. This let `validate-script-docs` flip to enforcing (see Changed).
+- **`.gitattributes`**: pins line-ending behavior across the repo - `.sh` to LF, `.ps1` to CRLF, `.mjs`/`.js`/`.json` to LF, `.md` normalized to LF in-repo. Eliminates the "LF will be replaced by CRLF" warnings on Windows worktrees and removes a latent CRLF-shebang risk for Ubuntu CI.
+- **Custom docs-site 404 page** (`docs/404.md`): replaces the bare Starlight default with a branded 404 page that includes section-root navigation links, and resolves a benign "Entry docs -> 404 was not found" message that appeared on every `astro build` run.
+
+### Changed
+
+- **`scripts/check-count-consistency` now scans `.mdx` files**: the `docs/index.mdx` homepage migrated to MDX in v2.14.0 but was not in the checker's file globs, which let v2.18.0 ship a stale "59 skills" headline on the docs landing page. The glob now covers `.mdx`, and the exempt-marker detector recognizes both HTML-comment and MDX-comment syntax. The README shields.io count badge is also now asserted.
+- **`scripts/check-internal-link-validity` now resolves same-page `#anchor` targets and covers `README.md` and `AGENTS.md`**: previously it skipped same-page anchors entirely; it now runs a GitHub-style heading-slug resolver (code-fence aware, with duplicate-heading suffixes) and checks every `#fragment` against the resolved slugs. Root `README.md` and `AGENTS.md` are now in the fileset, and HTML `<a id>` / `<a name>` anchors are extracted into the valid-slug set.
+- **`scripts/validate-script-docs` flipped to enforcing**: previously an advisory (`continue-on-error`) CI step. Now enforcing on both Ubuntu and Windows and part of the pre-tag bundle. The flip was gated on the two missing sprint-family docs (see Added).
+- **`scripts/validate-version-consistency` now enforces the README version badge and the At-a-Glance "Current version" row**: previously it checked only the two plugin manifests against each other. It now also asserts that the README `badge/version-X.Y.Z` string and the At-a-Glance "Current version" cell match `plugin.json`, so a partial version bump fails CI. It is now also wired into the local pre-tag bundle on both shells, closing a gap where the bundle did not run it even though CI did; the bundle now runs 18 enforcing validators.
+- **`scripts/pre-tag-validate.ps1` brought to parity with the bash bundle**: the PowerShell pre-tag script was missing `check-skill-cross-references`, `validate-script-docs`, and the `--strict` flag on `check-landing-page-counts`, so a Windows local pre-tag run could false-green past the new v2.19.0 gates. Now at full parity with the bash bundle.
+- **Removed the `validate-mcp-sync` CI workflow and its script**: MCP is in maintenance mode; the workflow was observe-only (could not block merges) yet cloned the `pm-skills-mcp` repo on every push. The script, the workflow, and the companion guide are removed, and all live documentation references updated. Frozen history in past CHANGELOG and release-notes entries is preserved as-is.
+
+### Fixed
+
+- **23 pre-existing broken links and anchors corrected** across `docs/`, `README.md`, and `AGENTS.md`: latent before v2.19.0 because the link checker skipped same-page anchors and did not cover the repo-root files. Turning anchor resolution on surfaced 8 stale table-of-contents and nav anchors (count drift, leading-underscore slugs, merged-path slugs) and 11 broken README file links (sample paths missing the `tool-` prefix or filename suffixes; stale `getting-started-by-platform.md` and `getting-started-guide.md` paths).
+- **Stale skill, command, and workflow counts corrected in `QUICKSTART.md` and `docs/getting-started/quickstart.md`**: counts were v2.14-era (40 skills, 47 commands, 9 workflows); corrected to 63 skills, 70 commands, 12 workflows.
+- **Corrected an overclaim in contributor documentation** stating the local pre-tag bundle equals the full CI gate. The bundle runs the validator scripts only; the full CI gate also enforces `npm run build`, plugin-install checks, edit-link checks, and cross-doc checks. References in `docs/contributing/ci-overview.md`, `docs/contributing/release-runbook.md`, and the `pm-skill-auditor` agent definition were corrected.
+
+### Not changed
+
+- Skill catalog: 63 skills (30 phase + 8 foundation + 10 utility + 15 tool). No skill behavior changes.
+- Slash commands: 70. Sub-agent definitions: 4. Workflows: 12.
+- Doc-stack: Astro 6.3.x + Starlight 0.39.x. No changes to the agentskills.io frontmatter structure or cross-client dispatch behavior.
+
 ## [2.18.0] - 2026-05-21
 
 **Highest-Consensus PM Skill Gaps: 4 New Content Skills.** v2.18.0 ships the four highest-consensus PM-skill gaps as a coherent slate: `discover-market-sizing`, `define-prioritization-framework`, `discover-journey-map`, and `measure-survey-analysis`. The catalog grows from 59 to 63 skills (phase skills 26 to 30). Each ships with a SKILL.md, a TEMPLATE, an EXAMPLE, a companion slash command, and 3 thread-aligned samples (Brainshelf / Storevine / Workbench). Each skill leads with epistemic discipline: it refuses to fabricate data and labels confidence honestly.

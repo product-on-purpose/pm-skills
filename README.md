@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.18.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.19.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-63-brightgreen.svg?style=flat-square" alt="Skills">
@@ -162,6 +162,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.19.0 - Pre-Promotion Hardening</strong></summary>
+
+**What changed.** Nothing you use behaves differently - no new skills, no changed commands, the catalog stays at 63. What improved is trust. The library's automated checks now catch the defect classes that slipped past CI in v2.18.0 and previously needed a human to spot: stale counts on the docs site, references to skills that do not exist, and dead internal links. Under the hood that means a new cross-reference validator, `.mdx` count scanning, same-page anchor validation (23 pre-existing breaks fixed), an enforced version badge, pinned line endings, an honestly-scoped local validator bundle, and a branded 404 page. This is the hardening pass before pm-skills is actively promoted, so anyone adopting it can rely on the catalog staying internally consistent.
+
+**Get started.** [`docs/releases/Release_v2.19.0.md`](docs/releases/Release_v2.19.0.md)
+
+</details>
 
 <details>
 <summary><strong>v2.18.0 - Highest-Consensus PM Skill Gaps</strong></summary>
@@ -975,7 +984,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.18.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.18.0)           |
+| **Current version** | [v2.19.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.19.0)           |
 | **Skill count**     | 63 skills (30 phase + 8 foundation + 10 utility + 15 tool)                                |
 | **Sub-agents**      | 4 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor)               |
 | **Workflows**       | 12                                                                                        |
@@ -1031,6 +1040,7 @@ pm-skills/
 
 | Version    | Highlights                                                                                           |
 | ---------- | ---------------------------------------------------------------------------------------------------- |
+| [**2.19.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.19.0) | Pre-promotion hardening: the release-validation gate now polices the library itself, automatically catching the v2.18.0 defect classes - stale counts (`.mdx` now scanned), broken skill cross-references (new validator), and dead in-page anchors (23 fixed). Enforces the README current-version claim, pins line endings via `.gitattributes`, removes the vestigial `validate-mcp-sync` workflow, and ships a branded docs-site 404. No new skills; catalog stays 63. |
 | [**2.18.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.18.0) | Four highest-consensus content skills: `market-sizing` (TAM/SAM/SOM via multi-framework triangulation), `prioritization-framework` (RICE, ICE, MoSCoW, Weighted Scoring, Kano run in parallel with a cross-framework comparison), `journey-map` (touchpoints, emotional curve, moments of truth), and `survey-analysis` (honest analysis with explicit limitation warnings). Catalog grows from 59 to 63 skills; each new skill refuses to fabricate data and labels confidence honestly. |
 | [**2.17.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.17.0) | Native Claude Code sub-agent registration: sub-agent definitions moved to the canonical `agents/` directory (coordination directory renamed `AGENTS/` to `_agent-context/`), so all 4 sub-agents auto-discover via `@`-mention. Skill frontmatter migrated to the metadata-nested agentskills.io structure; CI validators made bash-3.2 portable. 59-skill catalog unchanged. |
 | [**2.16.2**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.2) | Post-tag hygiene: plan documents updated to SHIPPED state and the GitHub Release body corrected after the v2.16.1 patch cycle. Keeps planning artifacts and the public Release UI synchronized. |

@@ -61,6 +61,7 @@ VALIDATORS=(
   "check-skill-cross-references|bash $ROOT/scripts/check-skill-cross-references.sh"
   "check-generated-content-untouched|bash $ROOT/scripts/check-generated-content-untouched.sh"
   "validate-script-docs|bash $ROOT/scripts/validate-script-docs.sh"
+  "validate-version-consistency|bash $ROOT/scripts/validate-version-consistency.sh"
 )
 
 # v2.15.1 additions (landing-page + generator coverage + AGENTS.md command-table sync).

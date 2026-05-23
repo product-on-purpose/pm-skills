@@ -25,17 +25,18 @@ Required (must pass; will exit 1 on failure):
 11. `check-skill-cross-references` (v2.19.0)
 12. `check-generated-content-untouched`
 13. `validate-script-docs` (enforcing as of v2.19.0)
+14. `validate-version-consistency` (enforcing version-claim check: README badge + At-a-Glance row vs plugin.json; added to the bundle in v2.19.0)
 
 Optional (preventive validators; run if present):
 
-14. `check-landing-page-counts --strict`
-15. `check-workflow-generator-coverage`
-16. `check-agents-md-command-sync`
-17. `check-context-currency`
+15. `check-landing-page-counts --strict`
+16. `check-workflow-generator-coverage`
+17. `check-agents-md-command-sync`
+18. `check-context-currency`
 
 Advisory (non-blocking; informational only):
 
-18. `check-version-references` (advisory by design; the enforcing version-claim check is `validate-version-consistency`)
+19. `check-version-references` (advisory by design)
 
 ## When to run
 

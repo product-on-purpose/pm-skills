@@ -29,6 +29,7 @@ $Validators = @(
   @{ Name = 'check-skill-cross-references';                  Script = 'check-skill-cross-references.ps1';                  Args = @() }
   @{ Name = 'check-generated-content-untouched';             Script = 'check-generated-content-untouched.ps1';             Args = @() }
   @{ Name = 'validate-script-docs';                          Script = 'validate-script-docs.ps1';                          Args = @() }
+  @{ Name = 'validate-version-consistency';                  Script = 'validate-version-consistency.ps1';                  Args = @() }
 )
 
 $OptionalValidators = @(
