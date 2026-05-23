@@ -1,6 +1,6 @@
 # v2.19.0 Release Plan - Pre-Promotion Hardening
 
-**Status:** EXECUTING - Phase 1 COMPLETE (FU-1, FU-2, FU-3, FU-5 shipped 2026-05-22; FU-3 also absorbed PR-2's README internal-link sweep). **Phase 2 COMPLETE** (FU-4, FU-6, FU-7, FU-8, FU-9 shipped 2026-05-23; FU-9 done as "targeted enforcing + trim" - see its subsection). Remaining: Phase 3 (PR-1..PR-5), Phase 4 (release).
+**Status:** EXECUTING - **Phases 1, 2, 3 COMPLETE** (all 14 work items FU-1..FU-9 + PR-1..PR-5 shipped 2026-05-22/23; full pre-tag bundle PASS; Phases 1-2 CI-green on the matrix). FU-3 absorbed PR-2's README internal-link sweep; FU-9 done as "targeted enforcing + trim"; PR-1 was already satisfied (stale "absent" premise). **Remaining: Phase 4 (release) ONLY** - version bumps, CHANGELOG `[2.19.0]`, Release notes, tag the CI-verified SHA, GitHub Release, G4 hygiene. Phase 4 NOT started (paused before the release per maintainer direction).
 **Created:** 2026-05-22 (during v2.18.0 G4 post-tag hygiene); expanded to full plan 2026-05-22.
 **Predecessor:** [v2.18.0](../v2.18.0/plan_v2.18.0.md) SHIPPED 2026-05-22 (tag `daf720e`; 63 skills).
 **Type:** MINOR (2.18.0 -> 2.19.0). No skill behavior changes; adds governance tooling (new/extended validators), CI hygiene, and public-surface polish. Repo version is independent of individual skill versions.
@@ -165,6 +165,7 @@ Execution order respects dependencies: harden the validators first (so later edi
 - Goal: the Astro/Starlight site is a primary promotion surface; the build emits an unexplained `Entry docs -> 404 was not found` message that should not be normalized.
 - Approach: investigate and resolve (or explain and downgrade to a labeled warning) the 404 message; give the landing page a promotion read.
 - Acceptance: build message resolved or explained; landing page reviewed.
+- **DONE (2026-05-23).** Diagnosed: `/404.html` emitted `Entry docs -> 404 was not found` because Starlight's 404 route calls `getEntry('docs', '404')` and found no custom 404 content (a benign fallback - the page still built). **Resolved** by adding a custom `docs/404.md` (title + description frontmatter; no body H1; section-root links `/`, `/skills/`, `/guides/`, `/workflows/` chosen so they resolve both in the browser-with-base and against the link validator's filesystem check). Rebuild: `/404.html` now builds with NO message; build exit 0. The full pre-tag bundle PASSES including `check-internal-link-validity --strict` (new 404 links resolve), `validate-docs-frontmatter --strict`, and `check-no-body-h1 --strict`. Landing-page read: the docs homepage `docs/index.mdx` was already reviewed + corrected in FU-1 (current 63-count, clean structure, build-clean) - no further changes. Bonus: visitors now get a branded 404 with navigation instead of the bare default.
 
 ### Phase 4 - Release
 
