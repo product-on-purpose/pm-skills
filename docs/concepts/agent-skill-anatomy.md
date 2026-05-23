@@ -25,7 +25,7 @@ A comprehensive reference for understanding the structure, components, and stand
 - [Progressive Disclosure Model](#progressive-disclosure-model)
 - [Cross-Platform Portability](#cross-platform-portability)
 - [Practical Examples](#practical-examples)
-  - [Simple Skill: problem-statement](#simple-skill-problem-statement)
+  - [Simple Skill: problem-statement](#simple-skill-define-problem-statement)
   - [Complex Skill: prd](#complex-skill-prd)
   - [Template: The Canonical Template](#template-the-canonical-template)
 - [Authoring Checklist](#authoring-checklist)

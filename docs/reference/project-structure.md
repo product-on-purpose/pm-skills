@@ -5,11 +5,11 @@ description: High-level walkthrough of the pm-skills repository layout - skills/
 
 ## Table of Contents
 - [Directory Overview](#directory-overview)
-- [/skills/ . Skills](#skills--the-40-pm-skills-flat)
+- [/skills/ . Skills](#skills--the-63-pm-skills-flat)
 - [/commands/ . Slash Commands](#commands--slash-commands)
-- [/workflows/ . Workflows](#workflows--workflows)
+- [/workflows/ . Workflows](#_workflows--workflows)
 - [/docs/ . Documentation](#docs--documentation)
-- [/templates/ . Skill Templates](#templates--skill-templates)
+- [/templates/ . Skill Templates](#docstemplates--skill-templates)
 - [/_agent-context/ . AI Agent Context](#_agent-context--ai-agent-context)
 - [/.github/ . GitHub Configuration](#github--github-configuration)
 - [Root Files](#root-files)

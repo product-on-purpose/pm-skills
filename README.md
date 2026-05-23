@@ -92,12 +92,12 @@
     - [Deliver Phase Skills](#deliver---ship-it-6)
     - [Measure Phase Skills](#measure---validate-with-data-6)
     - [Iterate Phase Skills](#iterate---learn-and-improve-4)
-    - [Tool Family: Foundation Sprint](#tool-family-foundation-sprint)
-    - [Tool Family: Design Sprint](#tool-family-design-sprint)
+    - [Tool Family: Foundation Sprint](#tool-family-foundation-sprint-7)
+    - [Tool Family: Design Sprint](#tool-family-design-sprint-7)
     - [Standalone Tool Skill](#standalone-tool-skill)
     - [Utility Skills](#utility-skills---meta-tooling-10)
     - [Sub-Agents](#sub-agents)
-    - [Workflows](#workflows)
+    - [Workflows](#workflows-skill-chaining)
 - [Library Examples](#library-examples)
 - [Learning and Resources](#learning-and-resources)
 - [Project Status](#project-status)
@@ -137,8 +137,8 @@ git clone https://github.com/product-on-purpose/pm-skills.git
 
 **More resources:**
 
-- [Getting Started Guide](docs/getting-started/getting-started-guide.md) - Detailed walkthrough for new users covering clone, sync helper, and first skill run. The path to take if any of the quick start steps above leave gaps.
-- [Setup by Platform](docs/getting-started/getting-started-by-platform.md) - Step-by-step install for Claude.ai, Codex, Cursor, Windsurf, GitHub Copilot, VS Code extensions, and ChatGPT.
+- [Getting Started Guide](docs/getting-started/index.md) - Detailed walkthrough for new users covering clone, sync helper, and first skill run. The path to take if any of the quick start steps above leave gaps.
+- [Setup by Platform](docs/getting-started/platforms.md) - Step-by-step install for Claude.ai, Codex, Cursor, Windsurf, GitHub Copilot, VS Code extensions, and ChatGPT.
 - [Quickstart Reference](docs/getting-started/quickstart.md) - Short-form reference card for users who just need the commands.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -409,21 +409,21 @@ Optional: after cloning, run `./scripts/sync-claude.sh` (macOS/Linux) or `./scri
 
 ### Additional Install Methods
 
-For Claude.ai, MCP clients, OpenCode, Windsurf, and ChatGPT, see the full [Platform Setup Guide](docs/getting-started/getting-started-by-platform.md) for step-by-step instructions.
+For Claude.ai, MCP clients, OpenCode, Windsurf, and ChatGPT, see the full [Platform Setup Guide](docs/getting-started/platforms.md) for step-by-step instructions.
 
 | Platform                    | How                                 | Guide                                                                                          |
 | --------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Claude.ai / Claude Desktop  | ZIP upload to Project Files         | [Platform guide](docs/getting-started/getting-started-by-platform.md#claudeai--claude-desktop) |
+| Claude.ai / Claude Desktop  | ZIP upload to Project Files         | [Platform guide](docs/getting-started/platforms.md#claudeai--claude-desktop) |
 | MCP Server (any MCP client) | `npx pm-skills-mcp`                 | [pm-skills-mcp repo](https://github.com/product-on-purpose/pm-skills-mcp)                      |
-| GitHub Copilot              | AGENTS.md auto-discovery from clone | [Platform guide](docs/getting-started/getting-started-by-platform.md#github-copilot)           |
-| OpenCode                    | Direct skill loading from clone     | [Platform guide](docs/getting-started/getting-started-by-platform.md#opencode)                 |
-| Cursor / Windsurf           | AGENTS.md auto-discovery            | [Platform guide](docs/getting-started/getting-started-by-platform.md#cursor--windsurf)         |
-| VS Code (Cline / Continue)  | AGENTS.md auto-discovery            | [Platform guide](docs/getting-started/getting-started-by-platform.md#vs-code-cline--continue)  |
-| ChatGPT / other LLMs        | Copy SKILL.md into conversation     | [Platform guide](docs/getting-started/getting-started-by-platform.md#chatgpt--other-llms)      |
+| GitHub Copilot              | AGENTS.md auto-discovery from clone | [Platform guide](docs/getting-started/platforms.md#github-copilot)           |
+| OpenCode                    | Direct skill loading from clone     | [Platform guide](docs/getting-started/platforms.md#opencode)                 |
+| Cursor / Windsurf           | AGENTS.md auto-discovery            | [Platform guide](docs/getting-started/platforms.md#cursor)         |
+| VS Code (Cline / Continue)  | AGENTS.md auto-discovery            | [Platform guide](docs/getting-started/platforms.md#vs-code-cline--continue)  |
+| ChatGPT / other LLMs        | Copy SKILL.md into conversation     | [Platform guide](docs/getting-started/platforms.md#chatgpt--other-llms)      |
 
 **More resources:**
 
-- [**Getting Started Guide**](docs/getting-started/getting-started-guide.md) - Detailed walkthrough for new users covering all install methods, the sync helper script, and your first skill run end-to-end.
+- [**Getting Started Guide**](docs/getting-started/index.md) - Detailed walkthrough for new users covering all install methods, the sync helper script, and your first skill run end-to-end.
 - [**Quickstart Reference**](docs/getting-started/quickstart.md) - Short-form reference card with just the essential commands.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -868,19 +868,19 @@ The library isn't a random collection of samples. It's organized around three fi
 
 - **The company:** Brainshelf builds a personal knowledge product - a tool for people who capture notes, articles, and ideas across too many apps and an never find them later. Think early-stage B2C, one PM who is also the founder, zero product-market fit certainty.
 - **Why this thread exists:** Early-stage PM work looks different. Hypotheses are looser. Personas aren't validated by a research team. Foundation Sprints and lean canvases matter more than full PRDs. The Brainshelf samples show how to use PM skills when you have more questions than answers.
-- **Best samples to start with:** [define-hypothesis](library/skill-output-samples/define-hypothesis/sample_define-hypothesis_brainshelf_resurface.md), [foundation-sprint-basics](library/skill-output-samples/foundation-sprint-basics/sample_foundation-sprint-basics_brainshelf_resurface.md), [discover-interview-synthesis](library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_brainshelf_resurface.md), [foundation-sprint-founding-hypothesis](library/skill-output-samples/foundation-sprint-founding-hypothesis/sample_foundation-sprint-founding-hypothesis_brainshelf_resurface.md)
+- **Best samples to start with:** [define-hypothesis](library/skill-output-samples/define-hypothesis/sample_define-hypothesis_brainshelf_resurface.md), [tool-foundation-sprint-basics](library/skill-output-samples/tool-foundation-sprint-basics/sample_tool-foundation-sprint-basics_brainshelf_book-catalog.md), [discover-interview-synthesis](library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_brainshelf_resurface.md), [tool-foundation-sprint-founding-hypothesis](library/skill-output-samples/tool-foundation-sprint-founding-hypothesis/sample_tool-foundation-sprint-founding-hypothesis_brainshelf_book-catalog.md)
 
 #### Storevine - Mid-Stage E-Commerce PM
 
 * **The company:** Storevine is a mid-market e-commerce SaaS platform. The PM running the checkout-conversion program is three years into the role, works with an engineering team of six, and is accountable to experiment velocity and revenue-per-visit metrics.
 * **Why this thread exists:** Most PM skill work happens in the middle: running experiments, measuring results, writing PRDs for known problems, aligning stakeholders on tradeoffs. The Storevine samples represent the bread-and-butter PM output at a company with enough scale to run rigorous tests but without so much bureaucracy that every artifact becomes a political battle.
-* **Best samples to start with:**  [deliver-prd](library/skill-output-samples/deliver-prd/sample_deliver-prd_storevine_campaigns.md), [measure-experiment-design](library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_storevine_campaigns.md), [measure-okr-grader](library/skill-output-samples/measure-okr-grader/sample_measure-okr-grader_storevine_campaigns.md), [define-opportunity-tree](library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_storevine_campaigns.md)
+* **Best samples to start with:**  [deliver-prd](library/skill-output-samples/deliver-prd/sample_deliver-prd_storevine_campaigns.md), [measure-experiment-design](library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_storevine_campaigns.md), [measure-okr-grader](library/skill-output-samples/measure-okr-grader/sample_measure-okr-grader_storevine_campaigns-q3.md), [define-opportunity-tree](library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_storevine_campaigns.md)
 
 #### Workbench - Internal-Tools PM at a Growing Org
 
 - **The company:** Workbench is the internal tooling and platform team at a 200-person organization moving from startup to scale. The PM's "users" are internal employees and the "product" is the internal tooling layer - blueprints, automation, integrations.
 - **Why this thread exists:** Internal-tools PM is its own discipline. Stakeholders are your co-workers. The cost of ignoring feedback is high because users are captive. ADRs matter more than press releases. Stakeholder updates go to department heads who have opinions. This thread shows PM skills applied to the least-glamorous-but-often-most-impactful area of product work.
-- **Best samples to start with:**  [develop-adr](library/skill-output-samples/develop-adr/sample_develop-adr_workbench_blueprints.md), [foundation-stakeholder-update](library/skill-output-samples/foundation-stakeholder-update/sample_foundation-stakeholder-update_workbench_blueprints.md), [foundation-meeting-recap](library/skill-output-samples/foundation-meeting-recap/sample_foundation-meeting-recap_workbench_blueprints.md), [iterate-retrospective](library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_workbench_blueprints.md)
+- **Best samples to start with:**  [develop-adr](library/skill-output-samples/develop-adr/sample_develop-adr_workbench_blueprints.md), [foundation-stakeholder-update](library/skill-output-samples/foundation-stakeholder-update/sample_foundation-stakeholder-update_workbench_blueprints-notion-enterprise-cs.md), [foundation-meeting-recap](library/skill-output-samples/foundation-meeting-recap/sample_foundation-meeting-recap_workbench_blueprints-customer-feedback.md), [iterate-retrospective](library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_workbench_blueprints.md)
 
 ### Browse the Library
 

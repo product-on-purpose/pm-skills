@@ -8,7 +8,7 @@ description: Catalog of the 4 invocation patterns and 4 composition patterns for
 - [Invocation Patterns](#invocation-patterns)
   - [Pattern 1: Proactive Auto-Delegation](#pattern-1-proactive-auto-delegation)
   - [Pattern 2: Explicit Slash Command](#pattern-2-explicit-slash-command)
-  - [Pattern 3: @-Mention](#pattern-3-mention)
+  - [Pattern 3: @-Mention](#pattern-3--mention)
   - [Pattern 4: Workflow-Triggered (Future)](#pattern-4-workflow-triggered-future)
 - [Composition Patterns](#composition-patterns)
   - [Pattern A: Skill -> Sub-Agent (Review Loop)](#pattern-a-skill---sub-agent-review-loop)

@@ -1,26 +1,32 @@
 #!/usr/bin/env bash
-# check-internal-link-validity.sh - Validate internal links in rendered docs.
+# check-internal-link-validity.sh - Validate internal links and anchors in docs.
 #
-# Walks docs/**/*.md (excluding docs/internal/ and a hardcoded list mirroring
-# src/content.config.ts glob excludes), extracts markdown links of the form
-# [text](path), filters to internal-only (relative paths and same-file anchors;
-# skips http://, https://, mailto:), resolves each target relative to the
-# source file, and verifies existence.
+# Walks docs/**/*.{md,mdx} (excluding docs/internal/ and a hardcoded list
+# mirroring src/content.config.ts glob excludes) PLUS the repo-root README.md
+# and AGENTS.md, extracts markdown links of the form [text](path), and:
+#   - resolves relative/absolute file targets and verifies existence
+#   - resolves same-page #anchor targets against the source file's GitHub-style
+#     heading slugs (FU-3, v2.19.0)
+# Skips external links (http(s), mailto, etc.) and template placeholders.
+#
+# Cross-file path#anchor targets verify the path only (the anchor fragment is
+# not resolved across files); same-page #anchor targets are fully resolved.
 #
 # Closes audit gap G4 (link checking in docs).
 #
 # Posture: ENFORCING in v2.14.0+ (W10-promoted from advisory). Source-of-truth
 # for excluded paths migrated from mkdocs.yml exclude_docs to a hardcoded
 # array here (W12 Material deprecation). If src/content.config.ts changes its
-# glob excludes, update EXCLUDE_PATHS below to match.
+# glob excludes, update EXCLUDE_PATHS below to match. README.md + AGENTS.md
+# added to the fileset and same-page anchor resolution added in v2.19.0 (FU-3).
 #
 # External link validation is NOT done by this script. Per audit Section 16.6,
 # external links use a different flow (lychee or similar) that requires network
-# access and tolerates flakiness. v2.14 may add an external-link CI step.
+# access and tolerates flakiness.
 #
 # Exit codes:
-#   0 - All internal links resolve OR advisory mode (default)
-#   1 - Broken links found AND --strict was passed
+#   0 - All internal links/anchors resolve OR advisory mode (default)
+#   1 - Broken links/anchors found AND --strict was passed
 #
 # Usage:
 #   ./scripts/check-internal-link-validity.sh
@@ -78,39 +84,75 @@ is_excluded() {
   return 1
 }
 
-# Collect docs files. Includes both .md and .mdx (v2.14.x V6 scope
-# expansion per Codex P2.1: src/content.config.ts mounts both extensions).
-# Library samples (library/skill-output-samples/sample_*.md) are NOT
-# scanned here; their internal-link pattern differs and they are
-# deferred to v2.15+ once the validator supports multiple base paths.
-FS_FILES=$(find "$ROOT/docs" \( -name "*.md" -o -name "*.mdx" \) -type f \
-  | grep -v "/docs/internal/" \
-  | sed "s|$ROOT/docs/||" \
-  | sort)
+# Print the GitHub-style heading-slug set for a markdown file, one slug per
+# line, with -N suffixes for duplicate headings (matching GitHub's behavior).
+# Fenced code blocks are skipped so a '# comment' line inside a fence is not
+# mistaken for a heading. Inline code backticks and [text](url) link syntax
+# are reduced to their text before slugging.
+heading_slugs() {
+  awk '
+    /^(```|~~~)/ { infence = !infence; next }
+    infence { next }
+    /^#{1,6}[ \t]/ {
+      h = $0
+      sub(/^#{1,6}[ \t]+/, "", h)        # strip leading hashes + space
+      sub(/[ \t]+#+[ \t]*$/, "", h)      # strip closing ATX hashes
+      s = tolower(h)
+      gsub(/`/, "", s)                   # inline-code backticks
+      gsub(/\]\([^)]*\)/, "", s)         # ](url) of a markdown link
+      gsub(/[][]/, "", s)                # leftover [ ]
+      gsub(/[^a-z0-9 _-]/, "", s)        # drop remaining punctuation (ASCII)
+      gsub(/ /, "-", s)                  # spaces -> hyphens
+      if (s == "") next
+      n[s]++
+      if (n[s] == 1) print s; else print s "-" (n[s] - 1)
+    }
+  ' "$1"
+}
+
+# Build the work list as TAB-separated "<full_path>\t<display>\t<abs_base>".
+# docs files resolve absolute (/foo) links against docs/; the root README.md
+# and AGENTS.md resolve them against the repo root.
+WORK="$(mktemp)"
+trap 'rm -f "$WORK"' EXIT
+
+while IFS= read -r p; do
+  [[ -z "$p" ]] && continue
+  rel="${p#"$ROOT/docs/"}"
+  is_excluded "$rel" && continue
+  printf '%s\t%s\t%s\n' "$p" "docs/$rel" "$ROOT/docs" >> "$WORK"
+done < <(find "$ROOT/docs" \( -name "*.md" -o -name "*.mdx" \) -type f | grep -v "/docs/internal/" | sort)
+
+for rf in README.md AGENTS.md; do
+  [[ -f "$ROOT/$rf" ]] && printf '%s\t%s\t%s\n' "$ROOT/$rf" "$rf" "$ROOT" >> "$WORK"
+done
 
 CHECKED=0
 BROKEN_LINKS=()
 
-while IFS= read -r fs_file; do
-  [[ -z "$fs_file" ]] && continue
-  if is_excluded "$fs_file"; then continue; fi
-
-  full_path="$ROOT/docs/$fs_file"
+while IFS=$'\t' read -r full_path display abs_base; do
+  [[ -z "$full_path" ]] && continue
   source_dir=$(dirname "$full_path")
   CHECKED=$((CHECKED + 1))
+  SLUGS="$(heading_slugs "$full_path")"
 
-  # Extract all markdown links: [text](path)
-  # Use grep -oP for Perl-compatible regex; capture only the path inside parens
+  # Extract all markdown links: [text](path). grep -oP captures the path only.
   while IFS= read -r link; do
     [[ -z "$link" ]] && continue
 
-    # Skip external (http://, https://, mailto:, ftp://, ws://, wss://, file://, javascript:)
+    # Skip external (http://, https://, mailto:, ftp://, ws://, wss://, file://, javascript:, tel:, data:)
     if [[ "$link" =~ ^(https?:|mailto:|ftp:|wss?:|file:|javascript:|tel:|data:) ]]; then
       continue
     fi
 
-    # Skip pure same-page anchors (e.g., "#section")
+    # Same-page anchor (e.g., "#section"): resolve against this file's headings.
     if [[ "$link" =~ ^# ]]; then
+      anchor="${link#\#}"
+      anchor="$(printf '%s' "$anchor" | tr '[:upper:]' '[:lower:]')"
+      [[ -z "$anchor" ]] && continue   # bare "#" targets the page top
+      if ! printf '%s\n' "$SLUGS" | grep -qxF -- "$anchor"; then
+        BROKEN_LINKS+=("$display: broken anchor ($link) -> no heading slug '#$anchor'")
+      fi
       continue
     fi
 
@@ -128,9 +170,8 @@ while IFS= read -r fs_file; do
 
     # Resolve target
     if [[ "$link_path" == /* ]]; then
-      # Absolute path (rooted at repo for docs use; or absolute filesystem)
-      # In MkDocs, leading / typically means "from docs/ root"
-      target="$ROOT/docs${link_path}"
+      # Absolute path: docs files are rooted at docs/, root files at repo root.
+      target="$abs_base${link_path}"
     else
       # Relative to source file's directory
       target="$source_dir/$link_path"
@@ -145,24 +186,24 @@ while IFS= read -r fs_file; do
 
     # Verify existence (file or directory)
     if [[ ! -e "$resolved" ]]; then
-      BROKEN_LINKS+=("docs/${fs_file}: broken link [...]($link) -> $link_path")
+      BROKEN_LINKS+=("$display: broken link ($link) -> $link_path")
     fi
   done < <(grep -oP '\]\(\K[^)]+(?=\))' "$full_path" 2>/dev/null || true)
 
-done <<< "$FS_FILES"
+done < "$WORK"
 
 BROKEN_COUNT=${#BROKEN_LINKS[@]}
 
 echo "Files checked: $CHECKED"
-echo "Broken internal links: $BROKEN_COUNT"
+echo "Broken internal links/anchors: $BROKEN_COUNT"
 echo ""
 
 if [[ $BROKEN_COUNT -eq 0 ]]; then
-  echo "PASS: All internal links resolve."
+  echo "PASS: All internal links and same-page anchors resolve."
   exit 0
 fi
 
-echo "Broken internal links found:"
+echo "Broken internal links/anchors found:"
 echo ""
 for link in "${BROKEN_LINKS[@]:0:50}"; do
   echo "  $link"
@@ -174,11 +215,11 @@ fi
 echo ""
 
 if [[ "$STRICT" == "true" ]]; then
-  echo "FAIL (--strict): $BROKEN_COUNT broken internal link(s)."
+  echo "FAIL (--strict): $BROKEN_COUNT broken internal link(s)/anchor(s)."
   exit 1
 else
-  echo "WARN: $BROKEN_COUNT broken internal link(s) (advisory mode)."
-  echo "  Triage: each is either a typo'd link or a renamed/moved target."
-  echo "  CI runs this script without --strict; pass --strict for enforcing local runs."
+  echo "WARN: $BROKEN_COUNT broken internal link(s)/anchor(s) (advisory mode)."
+  echo "  Triage: each is a typo'd link/anchor or a renamed/moved target/heading."
+  echo "  CI runs this script with --strict; pass --strict for enforcing local runs."
   exit 0
 fi
