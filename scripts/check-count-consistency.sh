@@ -68,10 +68,14 @@ EXCLUDES=(
 
 # --- Pre-compute count-exempt line ranges per file ---
 #
-# Files can mark sections as historical/exempt with HTML-comment markers:
-#   <!-- count-exempt:start -->
-#   ... historical content (e.g., What's New release entries) ...
-#   <!-- count-exempt:end -->
+# Files can mark sections as historical/exempt with comment markers. Two
+# comment styles are recognized so the same mechanism works in Markdown and
+# MDX (Astro rejects HTML comments in .mdx, so .mdx files use the JSX form):
+#   .md  : <!-- count-exempt:start --> ... <!-- count-exempt:end -->
+#   .mdx : {/* count-exempt:start */} ... {/* count-exempt:end */}
+# Detection matches the bare `count-exempt:start`/`count-exempt:end` token, so
+# either wrapper works; prose mentions live only in excluded files (CHANGELOG,
+# docs/releases, docs/internal).
 #
 # This is the canonical mechanism for "this section is historical, do not
 # check counts here". Replaces the prior `v[0-9]+\.` substring exemption,
@@ -82,10 +86,10 @@ EXCLUDES=(
 EXEMPT_RANGES=$(mktemp)
 trap 'rm -f "$EXEMPT_RANGES"' EXIT
 
-git -C "$ROOT" grep -lE '<!-- count-exempt:start -->' -- '*.md' '*.json' "${EXCLUDES[@]}" 2>/dev/null | while read -r f; do
+git -C "$ROOT" grep -lE 'count-exempt:start' -- '*.md' '*.mdx' '*.json' "${EXCLUDES[@]}" 2>/dev/null | while read -r f; do
   awk -v file="$f" '
-    /<!-- count-exempt:start -->/ { start = NR; next }
-    /<!-- count-exempt:end -->/   { if (start) { print file "\t" start "\t" NR; start = 0 } }
+    /count-exempt:start/ { start = NR; next }
+    /count-exempt:end/   { if (start) { print file "\t" start "\t" NR; start = 0 } }
   ' "$ROOT/$f"
 done > "$EXEMPT_RANGES"
 
@@ -99,7 +103,7 @@ check_resource() {
   local resource_name="$2"
   local actual_count="$3"
 
-  git -C "$ROOT" grep -inE "$grep_pattern" -- '*.md' '*.json' "${EXCLUDES[@]}" 2>/dev/null | \
+  git -C "$ROOT" grep -inE "$grep_pattern" -- '*.md' '*.mdx' '*.json' "${EXCLUDES[@]}" 2>/dev/null | \
     awk -F: -v actual="$actual_count" -v rname="$resource_name" -v min_t="$MIN_THRESHOLD" -v ranges_file="$EXEMPT_RANGES" '
     BEGIN {
       # Load count-exempt line ranges from the pre-computed table.

@@ -35,7 +35,7 @@ Write-Host ""
 
 # --- Scan tracked .md files for hardcoded counts ---
 
-$trackedFiles = git -C $Root ls-files "*.md" "*.json" | Where-Object { $_ -ne '' }
+$trackedFiles = git -C $Root ls-files "*.md" "*.mdx" "*.json" | Where-Object { $_ -ne '' }
 
 # Exclusion patterns . files where counts are historical or structural
 $excludePatterns = @(
@@ -74,10 +74,12 @@ $MinThreshold = 10
 
 # --- Pre-compute count-exempt line ranges per file ---
 #
-# Files can mark sections as historical/exempt with HTML-comment markers:
-#   <!-- count-exempt:start -->
-#   ... historical content ...
-#   <!-- count-exempt:end -->
+# Files can mark sections as historical/exempt with comment markers. Two
+# comment styles are recognized so the same mechanism works in Markdown and
+# MDX (Astro rejects HTML comments in .mdx, so .mdx files use the JSX form):
+#   .md  : <!-- count-exempt:start --> ... <!-- count-exempt:end -->
+#   .mdx : {/* count-exempt:start */} ... {/* count-exempt:end */}
+# Detection matches the bare 'count-exempt:start'/'count-exempt:end' token.
 #
 # This replaces the prior 'v[0-9]+\.' substring exemption with a principled
 # section-aware mechanism.
@@ -92,8 +94,8 @@ foreach ($file in $filesToCheck) {
     $ranges = @()
     for ($i = 0; $i -lt $lines.Count; $i++) {
         $ln = $i + 1
-        if ($lines[$i] -match '<!-- count-exempt:start -->') { $start = $ln; continue }
-        if ($lines[$i] -match '<!-- count-exempt:end -->') {
+        if ($lines[$i] -match 'count-exempt:start') { $start = $ln; continue }
+        if ($lines[$i] -match 'count-exempt:end') {
             if ($start -gt 0) { $ranges += @{ Start = $start; End = $ln }; $start = 0 }
         }
     }
