@@ -83,7 +83,6 @@ Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, or any other client without na
 | check-workflow-generator-coverage | PASS / FAIL | {count} |
 | check-agents-md-command-sync | PASS / FAIL | {count} |
 | check-generated-content-untouched | PASS / FAIL | {count} |
-| validate-mcp-sync | PASS / FAIL | {count} |
 | check-mcp-impact | PASS / FAIL | {count} |
 | (additional validators in pre-tag-validate.sh) | | |
 
