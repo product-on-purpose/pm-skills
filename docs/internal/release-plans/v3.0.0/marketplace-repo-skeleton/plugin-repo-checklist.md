@@ -1,4 +1,4 @@
-> **DRAFT.** Staged in pm-skills planning. Destined for the `product-on-purpose/plugins` repo (as `CONTRIBUTING.md` or `docs/plugin-repo-checklist.md`). This is the baseline a new plugin repo builds against.
+> **SUPERSEDED (2026-05-23).** Draft, retained for provenance. The live `product-on-purpose/agent-plugins` repo already carries its own `CONTRIBUTING.md` (host path changed `plugins` -> `agent-plugins`). Refine the listing contract there, not here. See the v3.0.0 plan: [`../plan_v3.0.0.md`](../plan_v3.0.0.md).
 
 # Plugin Repo Checklist
 

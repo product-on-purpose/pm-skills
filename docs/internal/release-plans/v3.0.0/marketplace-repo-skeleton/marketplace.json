@@ -1,4 +1,5 @@
 {
+  "_superseded": "SUPERSEDED 2026-05-23. Draft only, retained for provenance. The live registry is product-on-purpose/agent-plugins (host path changed plugins -> agent-plugins). This draft's unpinned entry and thinking-tools placeholder do not reflect the live repo, which is pinned and lists only pm-skills. See ../plan_v3.0.0.md.",
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "product-on-purpose",
   "owner": {
