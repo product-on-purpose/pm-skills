@@ -648,6 +648,9 @@ def generate_commands_reference(all_skills: list) -> None:
     lines.append("| `/workflow-sprint-planning` | [Sprint Planning](../workflows/sprint-planning.md) | Workflow | Run the Sprint Planning workflow |")
     lines.append("| `/workflow-stakeholder-alignment` | [Stakeholder Alignment](../workflows/stakeholder-alignment.md) | Workflow | Run the Stakeholder Alignment workflow |")
     lines.append("| `/workflow-technical-discovery` | [Technical Discovery](../workflows/technical-discovery.md) | Workflow | Run the Technical Discovery workflow |")
+    lines.append("| `/workflow-foundation-sprint` | [Foundation Sprint](../workflows/foundation-sprint.md) | Workflow | Run the Foundation Sprint workflow |")
+    lines.append("| `/workflow-design-sprint` | [Design Sprint](../workflows/design-sprint.md) | Workflow | Run the Design Sprint workflow |")
+    lines.append("| `/workflow-foundation-to-design` | [Foundation to Design](../workflows/foundation-to-design.md) | Workflow | Run the Foundation Sprint to Design Sprint workflow |")
 
     # Add orphan commands (commands present on filesystem but not matched to a
     # 1-1 skill via derive_command_name + find_command_file). v2.16.0 introduced

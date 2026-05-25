@@ -58,12 +58,17 @@ foreach ($cmd in $tableCommands) {
   $cmdFile = Join-Path $CommandsDir "$cmd.md"
   if (-not (Test-Path $cmdFile)) {
     if ($cmd -like 'workflow-*') {
+      # A /workflow- table row advertises a slash command resolved from commands/<cmd>.md.
+      # We are already inside the "command file missing" branch, so require the command
+      # file (v2.20.0 hardening); the _workflows/<stem>.md source alone is not sufficient.
       $wfStem = $cmd -replace '^workflow-', ''
       $wfFile = Join-Path $Root "_workflows/$wfStem.md"
-      if (-not (Test-Path $wfFile) -and -not (Test-Path $cmdFile)) {
-        $orphaned.Add("$cmd (workflow alias; no matching _workflows/$wfStem.md)") | Out-Null
-        $fail = $true
+      if (Test-Path $wfFile) {
+        $orphaned.Add("$cmd (workflow command advertised in table but commands/$cmd.md is missing)") | Out-Null
+      } else {
+        $orphaned.Add("$cmd (workflow row: missing BOTH commands/$cmd.md AND _workflows/$wfStem.md)") | Out-Null
       }
+      $fail = $true
     } else {
       $orphaned.Add($cmd) | Out-Null
       $fail = $true

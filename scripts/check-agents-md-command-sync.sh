@@ -75,12 +75,17 @@ while IFS= read -r cmd; do
     # Allow workflow- prefix commands which map to _workflows/ rather than commands/
     case "$cmd" in
       workflow-*)
-        # These map to _workflows/<stem>.md where stem is the part after workflow-
+        # A /workflow- table row advertises a slash command, which Claude Code resolves
+        # from commands/<cmd>.md. We are already inside the "command file missing" branch,
+        # so the advertised command is non-functional. Require the command file (v2.20.0
+        # hardening); the _workflows/<stem>.md source alone is no longer sufficient.
         wf_stem="${cmd#workflow-}"
-        if [ ! -f "$ROOT/_workflows/$wf_stem.md" ] && [ ! -f "$COMMANDS_DIR/$cmd.md" ]; then
-          ORPHANED_IN_TABLE+=("$cmd (workflow alias; no matching _workflows/${wf_stem}.md)")
-          FAIL=1
+        if [ -f "$ROOT/_workflows/$wf_stem.md" ]; then
+          ORPHANED_IN_TABLE+=("$cmd (workflow command advertised in table but commands/${cmd}.md is missing)")
+        else
+          ORPHANED_IN_TABLE+=("$cmd (workflow row: missing BOTH commands/${cmd}.md AND _workflows/${wf_stem}.md)")
         fi
+        FAIL=1
         ;;
       *)
         ORPHANED_IN_TABLE+=("$cmd")

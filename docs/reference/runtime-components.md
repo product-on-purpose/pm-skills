@@ -17,7 +17,7 @@ description: Catalog of pm-skills runtime components (sub-agents, hooks, output 
 
 pm-skills ships two layers of capability:
 
-**Content library (the bulk of the repo):** 63 skills, 70 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
+**Content library (the bulk of the repo):** 63 skills, 73 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
 
 **Runtime components (this catalog):** Plugin features that take action. Sub-agents are dispatched by Claude Code's intent classifier and run in their own context window. Hooks fire on lifecycle events (PreToolUse, PostToolUse, Stop). Output styles transform how Claude formats responses.
 

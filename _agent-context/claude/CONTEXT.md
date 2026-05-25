@@ -82,7 +82,7 @@ pm-skills/
 │   ├── deliver-user-stories/
 │   └── ...               # 40 skills total: {phase/classification}-{skill}/
 ├── _workflows/           # 9 Workflows (triple-diamond, lean-startup, feature-kickoff, and 6 more)
-├── commands/             # Claude Code slash commands (47 total: 40 skill + 7 workflow)
+├── commands/             # Claude Code slash commands (73 total, including 10 workflow commands)
 ├── docs/                 # Documentation (Diataxis: concepts, guides, reference, plus generated skills/workflows/showcase)
 │   ├── concepts/         # Conceptual orientation (triple-diamond-delivery-process, ...)
 │   ├── guides/           # How-to guides

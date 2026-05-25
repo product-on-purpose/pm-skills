@@ -9,7 +9,7 @@ Drift between the canonical command source (`commands/*.md`) and the agent-disco
 - **Missing rows**: a `commands/<name>.md` file exists but the table has no `| \`/<name>\` |` row
 - **Orphaned rows**: a `| \`/<name>\` |` table row exists but `commands/<name>.md` is gone (e.g., renamed or deleted command)
 
-Workflow-prefixed slash commands (`/workflow-*`) are recognized as aliases into `_workflows/` and validated against that directory.
+Workflow-prefixed slash commands (`/workflow-*`) must have a `commands/workflow-<stem>.md` file (so the slash command resolves in Claude Code) in addition to their `_workflows/<stem>.md` source. As of v2.20.0, a `/workflow-*` table row whose `commands/` file is missing is reported as orphaned, even if `_workflows/<stem>.md` exists. This closes the gap where an advertised `/workflow-*` command could be non-functional (a table row + a `_workflows/` source but no command file, so typing the slash command did nothing). Workflows that are intentionally reference-only (no slash command) simply have no `/workflow-*` row in the table.
 
 ## Why this validator exists
 

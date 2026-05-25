@@ -5,7 +5,7 @@ generated: true
 source: scripts/generate-skill-pages.py
 ---
 
-PM Skills ships 70 slash commands: 60 skill commands, 7 workflow commands, and 3 sub-agent companion commands.
+PM Skills ships 73 slash commands: 60 skill commands, 10 workflow commands, and 3 sub-agent companion commands.
 
 | Command | Skill | Phase | Description |
 |---------|-------|-------|-------------|
@@ -76,6 +76,9 @@ PM Skills ships 70 slash commands: 60 skill commands, 7 workflow commands, and 3
 | `/workflow-sprint-planning` | [Sprint Planning](../workflows/sprint-planning.md) | Workflow | Run the Sprint Planning workflow |
 | `/workflow-stakeholder-alignment` | [Stakeholder Alignment](../workflows/stakeholder-alignment.md) | Workflow | Run the Stakeholder Alignment workflow |
 | `/workflow-technical-discovery` | [Technical Discovery](../workflows/technical-discovery.md) | Workflow | Run the Technical Discovery workflow |
+| `/workflow-foundation-sprint` | [Foundation Sprint](../workflows/foundation-sprint.md) | Workflow | Run the Foundation Sprint workflow |
+| `/workflow-design-sprint` | [Design Sprint](../workflows/design-sprint.md) | Workflow | Run the Design Sprint workflow |
+| `/workflow-foundation-to-design` | [Foundation to Design](../workflows/foundation-to-design.md) | Workflow | Run the Foundation Sprint to Design Sprint workflow |
 | `/pm-audit-repo` | _([sub-agent companion](sub-agent-compatibility.md))_ | Utility | Run a repo-wide cross-cutting governance audit via the pm-sk... |
 | `/pm-draft-changelog` | _([sub-agent companion](sub-agent-compatibility.md))_ | Utility | Draft CHANGELOG entries from git log via the pm-changelog-cu... |
 | `/pm-release` | _([sub-agent companion](sub-agent-compatibility.md))_ | Utility | Walk the guided release runbook (6 gates) via the pm-release... |
