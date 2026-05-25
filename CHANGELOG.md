@@ -9,6 +9,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.20.0] - 2026-05-25
+
+**Sprint Workflow Commands + Validation/Doc Hardening.** v2.20.0 makes the three workshop methodologies runnable as single slash commands and tightens the documentation-count validators so stale counts cannot hide in table, parenthetical, or "N command files" phrasings. No new skills (catalog stays 63); slash commands grow from 70 to 73.
+
+### Added
+
+- **3 sprint `/workflow-` commands** - `/workflow-foundation-sprint`, `/workflow-design-sprint`, and `/workflow-foundation-to-design` chain their per-day `tool-*-sprint-*` skills end-to-end, so the Foundation Sprint, Design Sprint, and the end-to-end arc are each invocable as one command (previously only the per-day tool commands existed). Slash commands 70 to 73.
+- **Number-after and singular-noun coverage in `check-count-consistency`** - the count validator now catches stale counts phrased as facts-table rows (`| Slash commands | 73 |`), parenthetical labels (`Commands (73)`), and singular-resource-plus-count-noun (`63 skill directories`, `73 command docs`), not just `N commands` prose. Both shells.
+
+### Changed
+
+- **`check-agents-md-command-sync` now requires a command file for every `/workflow-` row** - an AGENTS.md `/workflow-*` table row must be backed by a real `commands/workflow-<stem>.md` file (previously a `_workflows/` source alone satisfied the check), closing a gap where an advertised workflow command could be non-functional.
+- **Removed the vestigial `check-stale-bundle-refs` validator** - a v2.9.0 bundles-to-workflows terminology guard made permanently unenforceable by the later "validator bundle" terminology; deleted with its CI steps and docs. Historical references are preserved.
+
+### Fixed
+
+- **Stale catalog counts corrected across reference docs** - `docs/reference/ecosystem.md` (a neglected v2.12-era doc), `docs/reference/runtime-components.md`, `QUICKSTART.md`, and `docs/getting-started/{index,quickstart}.md` claimed outdated skill/command counts (40 skills; 47/39 commands); all corrected to 63 skills and 73 commands. Surfaced by the new validator coverage above.
+
+### Not changed
+
+- Skill catalog: 63 skills (30 phase + 8 foundation + 10 utility + 15 tool). No skill behavior changes.
+- Sub-agent definitions: 4. Workflows: 12 (the 3 sprint workflows already existed as `_workflows/` files; v2.20.0 adds their slash commands).
+- Doc-stack: Astro 6.3.x + Starlight 0.39.x.
+
 ## [2.19.0] - 2026-05-23
 
 **Pre-Promotion Hardening: the validator gate now catches the v2.18.0 defect classes automatically.** v2.19.0 ships no new skills (catalog stays at 63) and is entirely focused on closing the blind spots the v2.18.0 verification arc exposed: stale counts slipping past CI, broken skill references passing every gate, dead internal links accumulating undetected, and script docs out of sync with their validators. After this release, the gate itself enforces what was previously caught only by manual review. Public surfaces (README, QUICKSTART, docs site) were also polished for the upcoming first actively promoted release.
