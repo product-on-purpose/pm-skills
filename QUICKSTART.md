@@ -3,7 +3,7 @@
 ## What's Included
 
 - **63 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 8 foundation skills, 10 utility skills, 15 tool skills)
-- **70 slash-command docs in `commands/`** (63 skill commands plus 7 workflow commands)
+- **73 slash-command docs in `commands/`** (60 skill commands + 10 workflow commands + 3 sub-agent companion commands)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 
 ## Installation
