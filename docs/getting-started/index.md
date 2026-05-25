@@ -223,7 +223,7 @@ Claude Code discovers the registered skill set via `AGENTS.md` and command defin
 
 #### Available Commands
 
-The repo currently ships 47 command markdown files: 40 skill commands plus 7 workflow commands.
+The repo currently ships 73 command markdown files: 60 skill commands, 10 workflow commands, and 3 sub-agent companion commands.
 
 | Phase | Commands |
 |-------|----------|

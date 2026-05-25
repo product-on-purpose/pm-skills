@@ -221,7 +221,7 @@ check_badge() {
 # excluded via $EXCLUDES; count-exempt ranges are honored. Subset rows like
 # "| Phase skills | 30 |" do not match (the label cell must be the bare resource).
 check_count_suffix() {
-  git -C "$ROOT" grep -inE '(\| *\*{0,2}(slash )?(skills?|commands?|workflows?)\*{0,2} *\| *[0-9]+|(skills?|commands?|workflows?) \([0-9]+\))' -- '*.md' '*.mdx' "${EXCLUDES[@]}" 2>/dev/null | \
+  git -C "$ROOT" grep -inE '(\| *\*{0,2}(slash )?(skills?|commands?|workflows?)\*{0,2} *\| *[0-9]+|(skills?|commands?|workflows?) \([0-9]+\))' -- '*.md' '*.mdx' '*.json' "${EXCLUDES[@]}" 2>/dev/null | \
     awk -F: -v sc="$SKILL_COUNT" -v cc="$COMMAND_COUNT" -v wc="$WORKFLOW_COUNT" -v min_t="$MIN_THRESHOLD" -v ranges_file="$EXEMPT_RANGES" '
     BEGIN {
       while ((getline line < ranges_file) > 0) {
@@ -257,7 +257,8 @@ check_count_suffix() {
       # Form 2: parenthetical "<resource> (N)"
       ls = line
       while (match(ls, /([a-z][a-z-]* )?(skill|command|workflow)s? \([0-9]+\)/)) {
-        seg = substr(ls, RSTART, RLENGTH)
+        mstart = RSTART; mlen = RLENGTH
+        seg = substr(ls, mstart, mlen)
         r = (seg ~ /command/) ? "commands" : (seg ~ /workflow/) ? "workflows" : "skills"
         # Subset-descriptor exclusion (mirrors check_resource): "phase skills (30)",
         # "domain skills (26)", "skill commands (60)" describe SUBSETS, not the total.
@@ -265,11 +266,55 @@ check_count_suffix() {
         if (r == "skills" && seg ~ /^(phase|foundation|utility|tool|domain|shipped|embedded|test|sample|library) /) is_subset = 1
         if (r == "commands" && seg ~ /^(skill|workflow) /) is_subset = 1
         if (!is_subset) {
-          match(seg, /[0-9]+/); num = substr(seg, RSTART, RLENGTH) + 0
+          if (match(seg, /[0-9]+/)) num = substr(seg, RSTART, RLENGTH) + 0
           actual = (r == "commands") ? cc : (r == "workflows") ? wc : sc
           if (num != actual && num >= min_t) printf "  %s:%s: found \x27%s (%d)\x27 (actual: %d)\n", file, linenum, r, num, actual
         }
-        ls = substr(ls, RSTART + RLENGTH)
+        ls = substr(ls, mstart + mlen)
+      }
+    }' || true
+}
+
+# Singular-resource + count-noun coverage (v2.20.0). check_resource matches only
+# the PLURAL resource word ("N commands"). Forms that use the SINGULAR resource as
+# an adjective before a count-noun - "N skill directories", "N skill files",
+# "N command markdown files", "N command docs" - were missed, which let
+# docs/reference/ecosystem.md ship "40 skill directories" and "47 command docs".
+# Anchored to count-nouns (directory/file/doc) so it does NOT match "command line"
+# or "skill level". Honors $EXCLUDES and count-exempt ranges.
+check_singular_noun() {
+  git -C "$ROOT" grep -inE '[0-9]+ (skill|command)s? (markdown )?(director(y|ies)|files?|docs?)' -- '*.md' '*.mdx' '*.json' "${EXCLUDES[@]}" 2>/dev/null | \
+    awk -F: -v sc="$SKILL_COUNT" -v cc="$COMMAND_COUNT" -v min_t="$MIN_THRESHOLD" -v ranges_file="$EXEMPT_RANGES" '
+    BEGIN {
+      while ((getline line < ranges_file) > 0) {
+        nf = split(line, parts, "\t")
+        if (nf < 3) continue
+        f = parts[1]
+        idx = exempt_count[f]++
+        exempt_start[f, idx] = parts[2] + 0
+        exempt_end[f, idx]   = parts[3] + 0
+      }
+      close(ranges_file)
+    }
+    {
+      file = $1
+      linenum = $2 + 0
+      content = ""
+      for (i = 3; i <= NF; i++) content = content (i > 3 ? ":" : "") $i
+      if (file in exempt_count) {
+        for (i = 0; i < exempt_count[file]; i++) {
+          if (linenum >= exempt_start[file, i] && linenum <= exempt_end[file, i]) next
+        }
+      }
+      s = tolower(content)
+      while (match(s, /[0-9]+ (skill|command)s? (markdown )?(director(y|ies)|files?|docs?)/)) {
+        mstart = RSTART; mlen = RLENGTH
+        seg = substr(s, mstart, mlen)
+        r = (seg ~ /command/) ? "commands" : "skills"
+        if (match(seg, /[0-9]+/)) num = substr(seg, RSTART, RLENGTH) + 0
+        actual = (r == "commands") ? cc : sc
+        if (num != actual && num >= min_t) printf "  %s:%s: found \x27%s\x27 (actual: %d)\n", file, linenum, seg, actual
+        s = substr(s, mstart + mlen)
       }
     }' || true
 }
@@ -280,6 +325,7 @@ MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}commands' "comman
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}workflows' "workflows" "$WORKFLOW_COUNT")
 MISMATCHES+=$(check_badge "$SKILL_COUNT")
 MISMATCHES+=$(check_count_suffix)
+MISMATCHES+=$(check_singular_noun)
 
 if [[ -z "$MISMATCHES" ]]; then
   echo "PASS: No stale counts found in tracked .md or .json files."

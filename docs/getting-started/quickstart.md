@@ -75,7 +75,7 @@ See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
 
 ```
 skills/            # All 40 skill definitions (26 phase + 8 foundation + 6 utility, flat)
-commands/          # 39 command markdown files (+ .gitkeep)
+commands/          # 73 command markdown files
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
 .claude/pm-skills-for-claude.md  # instructions for Claude Code users

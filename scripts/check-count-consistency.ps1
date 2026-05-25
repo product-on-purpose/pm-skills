@@ -207,6 +207,21 @@ foreach ($file in $filesToCheck) {
                 }
             }
         }
+
+        # Singular-resource + count-noun coverage (v2.20.0): "N skill directories",
+        # "N command markdown files", "N command docs" - the singular resource used as
+        # an adjective before a count-noun, missed by the plural prose patterns. Anchored
+        # to count-nouns (directory/file/doc) to avoid "command line" / "skill level".
+        foreach ($sn in [regex]::Matches($line, '(\d+)\s+(skill|command)s?\s+(?:markdown\s+)?(?:director(?:y|ies)|files?|docs?)', 'IgnoreCase')) {
+            $rWord = $sn.Groups[2].Value.ToLower()
+            $r = if ($rWord -eq 'command') { 'commands' } else { 'skills' }
+            $snum = [int]$sn.Groups[1].Value
+            $sactual = if ($r -eq 'commands') { $CommandCount } else { $SkillCount }
+            if ($snum -ne $sactual -and $snum -ge $MinThreshold) {
+                $mismatches += "  ${file}:${lineNum}: found '$($sn.Value)' (actual: $sactual)"
+                $Fail = $true
+            }
+        }
     }
 }
 
