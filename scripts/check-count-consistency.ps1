@@ -53,6 +53,8 @@ $excludePatterns = @(
     '^_agent-context/claude/SESSION-LOG/',
     '^_agent-context/codex/SESSION-LOG/',
     '^library/',
+    '^skills/utility-pm-skill-auditor/references/',
+    '^docs/skills/utility/utility-pm-skill-auditor\.md$',
     '^scripts/check-count-consistency\.'
 )
 
@@ -169,6 +171,40 @@ foreach ($file in $filesToCheck) {
             if ($bnum -ne $SkillCount) {
                 $mismatches += "  ${file}:${lineNum}: found badge 'skills-$bnum' (actual: $SkillCount)"
                 $Fail = $true
+            }
+        }
+
+        # Number-AFTER-resource coverage (v2.20.0): facts-table rows
+        # ("| Slash commands | 73 |", "| Skills | 63 |") and parenthetical forms
+        # ("Commands (73)") put the number AFTER the resource word; the prose
+        # patterns above only match number-before. Subset-qualified parentheticals
+        # ("domain skills (26)") are excluded, matching check_resource.
+        $tbl = [regex]::Match($line, '\|\s*\*{0,2}(?:slash )?(skill|command|workflow)s?\*{0,2}\s*\|\s*(\d+)', 'IgnoreCase')
+        if ($tbl.Success) {
+            $rWord = $tbl.Groups[1].Value.ToLower()
+            $r = if ($rWord -eq 'command') { 'commands' } elseif ($rWord -eq 'workflow') { 'workflows' } else { 'skills' }
+            $tnum = [int]$tbl.Groups[2].Value
+            $tactual = if ($r -eq 'commands') { $CommandCount } elseif ($r -eq 'workflows') { $WorkflowCount } else { $SkillCount }
+            if ($tnum -ne $tactual -and $tnum -ge $MinThreshold) {
+                $mismatches += "  ${file}:${lineNum}: found table '$r = $tnum' (actual: $tactual)"
+                $Fail = $true
+            }
+        }
+
+        foreach ($pm in [regex]::Matches($line, '(?:[a-z][a-z-]*\s)?(skill|command|workflow)s?\s\((\d+)\)', 'IgnoreCase')) {
+            $seg = $pm.Value.ToLower()
+            $rWord = $pm.Groups[1].Value.ToLower()
+            $r = if ($rWord -eq 'command') { 'commands' } elseif ($rWord -eq 'workflow') { 'workflows' } else { 'skills' }
+            $isSubset = $false
+            if ($r -eq 'skills' -and $seg -match '^(phase|foundation|utility|tool|domain|shipped|embedded|test|sample|library)\s') { $isSubset = $true }
+            if ($r -eq 'commands' -and $seg -match '^(skill|workflow)\s') { $isSubset = $true }
+            if (-not $isSubset) {
+                $pnum = [int]$pm.Groups[2].Value
+                $pactual = if ($r -eq 'commands') { $CommandCount } elseif ($r -eq 'workflows') { $WorkflowCount } else { $SkillCount }
+                if ($pnum -ne $pactual -and $pnum -ge $MinThreshold) {
+                    $mismatches += "  ${file}:${lineNum}: found '$r ($pnum)' (actual: $pactual)"
+                    $Fail = $true
+                }
             }
         }
     }

@@ -1,6 +1,6 @@
 # v2.20.0 Release Plan (stub)
 
-**Status:** PLANNING. **Item 1 (workflow-command coverage) + validator hardening (1c) EXECUTED on main 2026-05-24** (pre-tag, untagged): created 3 sprint `/workflow-` commands (foundation-sprint, design-sprint, foundation-to-design); confirmed triple-diamond + lean-startup are intentionally reference-only; hardened `check-agents-md-command-sync` to require a command file per `/workflow-` row; command count 70 -> 73. Remaining items below are open. (Stub created 2026-05-23 during v2.19.0 G4; backlog corrected + detailed 2026-05-24.)
+**Status:** PLANNING. **Item 1 (workflow-command coverage) + validator hardening (1c) EXECUTED on main 2026-05-24** (pre-tag, untagged): created 3 sprint `/workflow-` commands (foundation-sprint, design-sprint, foundation-to-design); confirmed triple-diamond + lean-startup are intentionally reference-only; hardened `check-agents-md-command-sync` to require a command file per `/workflow-` row; command count 70 -> 73. **All backlog/residual items below RESOLVED 2026-05-24:** added number-after count-coverage to `check-count-consistency` (.sh + .ps1), which caught and fixed further stale counts in `ecosystem.md` (Skills 40, Commands 62) and `runtime-components.md` (Skills 59, Commands 66); removed the vestigial `check-stale-bundle-refs` validator; accepted the count-consistency subset-exclusion as correct-by-design; and reframed the MCP item as an intentional documented freeze (not a drift). v2.20.0 remains untagged on main. (Stub created 2026-05-23 during v2.19.0 G4; backlog corrected + detailed 2026-05-24.)
 **Type:** TBD
 **Predecessor:** v2.19.0 SHIPPED 2026-05-23 (tag `a18e4d5`; pre-promotion hardening; catalog 63; pre-tag bundle now 18 enforcing validators).
 
@@ -38,16 +38,13 @@ Placeholder for the next release cycle. v2.19.0 was the pre-promotion hardening 
 
 ---
 
-## Item 2: pm-skills-mcp skill-count drift
+## Item 2: pm-skills-mcp posture - NOT a this-repo drift (re-assessed 2026-05-24)
 
-**Ground truth (verified 2026-05-24):** the separate `pm-skills-mcp` repo currently references **24 skills**, not 40 and not 63 (its `AGENTS/claude/CONTEXT.md`: "36 MCP Tools = 24 skills + 5 workflows + 7 utilities"; its README drafts say "all 24 PM skills"). The source catalog is **63**. The "40 skills" figure used in earlier notes is itself stale.
+**This is not a drift to fix.** This repo documents `pm-skills-mcp` accurately: a maintenance-mode badge + a "MCP Server: Maintenance Mode (effective 2026-05-04)" section in the README, and `docs/changelog.md` records the MCP catalog as **intentionally frozen at the v2.9.2 build** (40-skill era; total tools 59 = 40 skill + 11 workflow + 8 utility) per the M-22 freeze. This repo nowhere claims the MCP tracks the live 63-skill catalog, so there is no stale over-claim here to correct.
 
-**This is not a this-repo fix.** It lives in `pm-skills-mcp`, which is in maintenance mode (file-based install is the recommended path). "Completing" it is the v3.0.0 **retire-vs-rearchitect decision**, one of:
-- (a) Retire `pm-skills-mcp` (archive; point users to file-based install);
-- (b) Re-sync it to the full 63 skills (and decide whether the MCP exposes all 63 or an intentional curated subset);
-- (c) Accept the lag and explicitly document the MCP as a frozen subset.
+The earlier "24-vs-63 drift" framing in this stub was wrong: the "24 skills" figure appears only in the MCP repo's own internal planning drafts and is not this repo's concern, and the `validate-mcp-sync` *validator* was already removed from this repo in v2.19.0.
 
-Tracked under `docs/internal/release-plans/v3.0.0/`. **Out of scope for v2.20.0** except to record that the decision is pending. Note: the `validate-mcp-sync` *validator* (this repo) was already removed in v2.19.0; that is separate from the MCP repo's own skill-count sync.
+**The genuine open item is strategic, not a fix:** whether to keep the MCP frozen (the current, documented state), unfreeze and re-sync to 63, or retire it. That call is a v3.0.0 / promotion-prep decision tracked under `docs/internal/release-plans/v3.0.0/`; it does not belong to v2.20.0 and requires no change in this repo. **No action for v2.20.0.**
 
 ---
 
@@ -55,8 +52,8 @@ Tracked under `docs/internal/release-plans/v3.0.0/`. **Out of scope for v2.20.0*
 
 - **validate-mcp-sync sample row - RESOLVED (no further action).** Per decision (memory 5561, 2026-05-23): "preserve historical audit samples, clean only the forward-looking template." `3c68f82` cleaned `references/TEMPLATE.md`; `references/EXAMPLE.md` (and the page generated from it) intentionally KEEP the `validate-mcp-sync` row as a point-in-time v2.16-era audit snapshot. Do not scrub it - a worked example is dated evidence, not a current claim.
 - **CONTEXT.md stale command count - FIXED 2026-05-24.** `_agent-context/claude/CONTEXT.md` line ~85 (the repo-structure tree comment) now reads "(73 total, including 10 workflow commands)"; it previously carried the v2.14-era "(47 total: 40 skill + 7 workflow)".
-- **`check-stale-bundle-refs` is near-vestigial.** The "validator bundle" terminology collision means it cannot be enforced without false-failing several hundred legitimate references. Decide: rework the heuristic or remove the validator. **CI impact:** it is wired in `validation.yml` as an advisory (`continue-on-error`) step on both shells (bash + pwsh); removing it means deleting those steps, reworking means editing the script (it stays wired).
-- **`check-count-consistency` "shipped" subset-exclusion can mask a stale total.** The subset-descriptor exemption could let a stale aggregate total slip through. Tighten if a real case appears.
+- **`check-stale-bundle-refs` - REMOVED 2026-05-24.** It was a v2.9.0 terminology guard (the bundles -> workflows rename) made permanently unenforceable by the "validator bundle" collision (497 false matches per memory 5378). Deleted the `.sh`/`.ps1`/`.md` triplet, the 2 advisory CI steps in `validation.yml`, and all live doc references (ci-overview advisory node + table, README_SCRIPTS ToC/section/lists). Historical mentions in CHANGELOG, release notes, and internal docs are left as frozen records.
+- **`check-count-consistency` subset-exclusion - ACCEPTED as-is (2026-05-24).** Investigated: the subset-descriptor exemption (script lines ~154-161) only skips subset phrases like "8 foundation skills" / "10 workflow commands"; the AGGREGATE total ("63 skills", "73 commands") is still validated independently via the non-subset branch, so a stale aggregate is NOT masked. No real masking case has surfaced and the script comment documents the rationale. Keeping as-is.
 
 ---
 

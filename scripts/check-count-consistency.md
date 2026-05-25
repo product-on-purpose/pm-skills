@@ -23,7 +23,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\check-count-consistency.ps1
    - Commands: `.md` files in `commands/`
    - Workflows: `.md` files in `_workflows/` (excluding `README.md`)
 2. Scans all tracked `.md`, `.mdx`, and `.json` files (including `plugin.json` and `marketplace.json`) for patterns like `{N} skills`, `{N} commands`, `{N} workflows` with up to 3 alpha-word interstitials (e.g., `{N} AI agent skills`, `{N} best-practice product management skills`)
-3. Also scans for the shields.io badge form `badge/skills-{N}` (the number comes *after* the resource word, so the prose pattern misses it) and asserts it matches the skill count (FU-5)
+3. Also scans for **number-after-resource** forms that the prose pattern misses because the digit comes *after* the resource word: the shields.io badge `badge/skills-{N}` (FU-5), facts-table rows (`| Slash commands | 73 |`, `| Skills | 63 |`), and parenthetical labels (`Commands (73)`, `Skills (63)`). Added v2.20.0 after a review found stale number-after counts (`Skills (59)`, `Commands (66)`, `Slash Commands | 62`) slipping past the number-before check. Subset-qualified parentheticals (`domain skills (26)`) are excluded, mirroring the prose subset rule.
 4. Compares found numbers against actual counts
 5. Reports mismatches with file path and line number
 
@@ -56,6 +56,7 @@ Exclusions (not flagged as stale):
 - `CHANGELOG.md` . historical entries are correct for their time
 - `docs/releases/` . same reason
 - `docs/internal/` . planning docs may reference future counts
+- `skills/utility-pm-skill-auditor/references/` and the generated `docs/skills/utility/utility-pm-skill-auditor.md` . the pm-skill-auditor worked example contains an illustrative sample audit with point-in-time count tables (preserved as a historical sample); excluded so the number-after scan does not flag the sample's dated counts
 - `.github/.created-issues.json` and `.github/scripts/` . tooling state and npm manifests, not docs
 - `AGENTS/claude/CONTEXT.md`, `AGENTS/claude/DECISIONS.md`, `AGENTS/SESSION-LOG/` (and legacy `AGENTS/claude/SESSION-LOG/`, `AGENTS/codex/SESSION-LOG/`) . agent-internal context that legitimately references historical states
 - Lines inside `<!-- count-exempt:start --> ... <!-- count-exempt:end -->` blocks

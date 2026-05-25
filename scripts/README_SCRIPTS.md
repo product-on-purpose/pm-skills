@@ -18,7 +18,6 @@
   - [check-count-consistency.sh / check-count-consistency.ps1](#check-count-consistencysh--check-count-consistencyps1)
   - [check-generated-freshness.sh / check-generated-freshness.ps1](#check-generated-freshnesssh--check-generated-freshnessps1)
   - [check-context-currency.sh / check-context-currency.ps1](#check-context-currencysh--check-context-currencyps1)
-  - [check-stale-bundle-refs.sh / check-stale-bundle-refs.ps1](#check-stale-bundle-refssh--check-stale-bundle-refsps1)
   - [check-nav-completeness.sh / check-nav-completeness.ps1](#check-nav-completenesssh--check-nav-completenessps1)
   - [check-version-references.sh / check-version-references.ps1](#check-version-referencessh--check-version-referencesps1)
   - [validate-docs-frontmatter.sh / validate-docs-frontmatter.ps1](#validate-docs-frontmattersh--validate-docs-frontmatterps1)
@@ -234,19 +233,6 @@ CI-only automation scripts live in `.github/scripts/` (for example, `create-issu
 
 **Outputs:** Pass/fail per CONTEXT.md file with version comparison.
 
-### check-stale-bundle-refs.sh / check-stale-bundle-refs.ps1
-**Purpose:** Terminology guard for the bundles → workflows rename (v2.9.0).
-
-**Why:** Catches stale "bundle" references that should now say "workflow" after the v2.9.0 rename.
-
-**Use when:** After editing docs; in CI (advisory, `--strict` for hard-fail).
-
-**Commands:**
-- Bash: `./scripts/check-stale-bundle-refs.sh` (advisory) or `--strict` (hard-fail)
-- PowerShell: `./scripts/check-stale-bundle-refs.ps1` or `-Strict`
-
-**Outputs:** Warning-only in default mode; hard-fail in strict mode.
-
 ### check-nav-completeness.sh / check-nav-completeness.ps1
 **Purpose:** Verify every `docs/**/*.md` file (excluding `docs/internal/`) is in `mkdocs.yml` `nav:` or `exclude_docs:` (or matches an `AUTO_INCLUDE_PATTERNS` entry for transitively-reachable content like release notes and templates).
 
@@ -319,7 +305,7 @@ CI-only automation scripts live in `.github/scripts/` (for example, `create-issu
 - **After adding a script:** `validate-script-docs` (ensure companion `.md` exists).
 - **Pre-release:** All validation scripts → `validate-version-consistency` → `check-count-consistency` → `build-release`.
 - **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`, `validate-skill-family-registration`.
-- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-stale-bundle-refs`, `check-version-references`, `validate-docs-frontmatter`, `check-internal-link-validity`.
+- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-version-references`, `validate-docs-frontmatter`, `check-internal-link-validity`.
 
 ## FAQ
 **Q: Do I need `.claude/` populated?**  
@@ -367,7 +353,6 @@ Each script has a dedicated documentation file with full usage details, options,
 | `check-count-consistency.sh` / `.ps1` | [check-count-consistency.md](check-count-consistency.md) |
 | `check-generated-freshness.sh` / `.ps1` | [check-generated-freshness.md](check-generated-freshness.md) |
 | `check-context-currency.sh` / `.ps1` | [check-context-currency.md](check-context-currency.md) |
-| `check-stale-bundle-refs.sh` / `.ps1` | [check-stale-bundle-refs.md](check-stale-bundle-refs.md) |
 | `check-nav-completeness.sh` / `.ps1` | [check-nav-completeness.md](check-nav-completeness.md) |
 | `check-version-references.sh` / `.ps1` | [check-version-references.md](check-version-references.md) |
 | `validate-docs-frontmatter.sh` / `.ps1` | [validate-docs-frontmatter.md](validate-docs-frontmatter.md) |

@@ -61,6 +61,8 @@ EXCLUDES=(
   ':(exclude)_agent-context/claude/SESSION-LOG/'
   ':(exclude)_agent-context/codex/SESSION-LOG/'
   ':!library/'
+  ':!skills/utility-pm-skill-auditor/references/'
+  ':!docs/skills/utility/utility-pm-skill-auditor.md'
   ':!scripts/check-count-consistency.sh'
   ':!scripts/check-count-consistency.ps1'
   ':!scripts/check-count-consistency.md'
@@ -210,11 +212,74 @@ check_badge() {
     }' || true
 }
 
+# Number-AFTER-resource coverage (v2.20.0). check_resource above matches only
+# "N <resource>" (number BEFORE the word). Facts-table rows ("| Slash commands |
+# 73 |", "| Skills | 63 |") and parenthetical forms ("Commands (73)") put the
+# number AFTER the resource word and were previously unvalidated - which let stale
+# totals slip into docs/reference/ecosystem.md (Skills 40, Commands 62) and
+# docs/reference/runtime-components.md (Commands 66). Historical surfaces are
+# excluded via $EXCLUDES; count-exempt ranges are honored. Subset rows like
+# "| Phase skills | 30 |" do not match (the label cell must be the bare resource).
+check_count_suffix() {
+  git -C "$ROOT" grep -inE '(\| *\*{0,2}(slash )?(skills?|commands?|workflows?)\*{0,2} *\| *[0-9]+|(skills?|commands?|workflows?) \([0-9]+\))' -- '*.md' '*.mdx' "${EXCLUDES[@]}" 2>/dev/null | \
+    awk -F: -v sc="$SKILL_COUNT" -v cc="$COMMAND_COUNT" -v wc="$WORKFLOW_COUNT" -v min_t="$MIN_THRESHOLD" -v ranges_file="$EXEMPT_RANGES" '
+    BEGIN {
+      while ((getline line < ranges_file) > 0) {
+        nf = split(line, parts, "\t")
+        if (nf < 3) continue
+        f = parts[1]
+        idx = exempt_count[f]++
+        exempt_start[f, idx] = parts[2] + 0
+        exempt_end[f, idx]   = parts[3] + 0
+      }
+      close(ranges_file)
+    }
+    {
+      file = $1
+      linenum = $2 + 0
+      content = ""
+      for (i = 3; i <= NF; i++) content = content (i > 3 ? ":" : "") $i
+      if (file in exempt_count) {
+        for (i = 0; i < exempt_count[file]; i++) {
+          if (linenum >= exempt_start[file, i] && linenum <= exempt_end[file, i]) next
+        }
+      }
+      line = tolower(content)
+      # Form 1: facts-table row "| <resource> | N |"
+      if (match(line, /\| *\*{0,2}(slash )?(skill|command|workflow)s?\*{0,2} *\| *[0-9]+/)) {
+        seg = substr(line, RSTART, RLENGTH)
+        r = (seg ~ /command/) ? "commands" : (seg ~ /workflow/) ? "workflows" : "skills"
+        n = seg; num = -1
+        while (match(n, /[0-9]+/)) { num = substr(n, RSTART, RLENGTH) + 0; n = substr(n, RSTART + RLENGTH) }
+        actual = (r == "commands") ? cc : (r == "workflows") ? wc : sc
+        if (num != actual && num >= min_t) printf "  %s:%s: found table \x27%s = %d\x27 (actual: %d)\n", file, linenum, r, num, actual
+      }
+      # Form 2: parenthetical "<resource> (N)"
+      ls = line
+      while (match(ls, /([a-z][a-z-]* )?(skill|command|workflow)s? \([0-9]+\)/)) {
+        seg = substr(ls, RSTART, RLENGTH)
+        r = (seg ~ /command/) ? "commands" : (seg ~ /workflow/) ? "workflows" : "skills"
+        # Subset-descriptor exclusion (mirrors check_resource): "phase skills (30)",
+        # "domain skills (26)", "skill commands (60)" describe SUBSETS, not the total.
+        is_subset = 0
+        if (r == "skills" && seg ~ /^(phase|foundation|utility|tool|domain|shipped|embedded|test|sample|library) /) is_subset = 1
+        if (r == "commands" && seg ~ /^(skill|workflow) /) is_subset = 1
+        if (!is_subset) {
+          match(seg, /[0-9]+/); num = substr(seg, RSTART, RLENGTH) + 0
+          actual = (r == "commands") ? cc : (r == "workflows") ? wc : sc
+          if (num != actual && num >= min_t) printf "  %s:%s: found \x27%s (%d)\x27 (actual: %d)\n", file, linenum, r, num, actual
+        }
+        ls = substr(ls, RSTART + RLENGTH)
+      }
+    }' || true
+}
+
 MISMATCHES=""
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}skills' "skills" "$SKILL_COUNT")
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}commands' "commands" "$COMMAND_COUNT")
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}workflows' "workflows" "$WORKFLOW_COUNT")
 MISMATCHES+=$(check_badge "$SKILL_COUNT")
+MISMATCHES+=$(check_count_suffix)
 
 if [[ -z "$MISMATCHES" ]]; then
   echo "PASS: No stale counts found in tracked .md or .json files."
