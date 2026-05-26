@@ -76,4 +76,4 @@
 ## Exit criteria
 
 - **Private gate (Phase 4):** S1-S5 PASS; S6 reproduces the duplication as documented; S7 proves recovery to a single clean install. Confirmed `/plugin` syntax written back into the migration guide + release notes. Results archived. Only then proceed to the public flip (D-V3-3).
-- **Public gate (Phase 5):** after the flip, **S8 PASSES** from a non-org-authenticated client before the Release is published or the launch announced. If S8 fails, hold and diagnose; do not announce.
+- **Public gate (Phase 5):** after the flip, **S8 PASSES** from a non-org-authenticated client before the Release is published or the launch announced. If S8 fails, **immediately flip the `agent-plugins` repo back to private** so no public user hits the broken listing, then hold and diagnose; re-flip public and re-run S8 only once the cause is fixed. Do not publish the Release or announce until S8 passes. (Nothing dangles: the Release and README repoint are later steps, per `plan_v2.21.0.md` Phase 5.)
