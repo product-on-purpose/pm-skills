@@ -6,6 +6,7 @@
 > - **Done - Phase 1 (pm-skills, commit `1065c3e`, all CI green):** M2 version bump 2.20.0 -> 2.21.0 (plugin.json + self-hosted marketplace.json + README badge/At-a-Glance + both CONTEXT.md currency markers); M3 CHANGELOG `[2.21.0]` + `docs/releases/Release_v2.21.0.md` + README What's New/release-history. The release-prep HEAD is CI-verified (Validation + CodeQL + Plugin Packaging + Pages all green), satisfying Phase 4 step 1.
 > - **Done - Phase 2 staging (agent-plugins, commit `af9c220`, validate-registry CI green in Actions):** M5 `scripts/validate-registry.mjs` + `.github/workflows/validate-registry.yml` (7 enforcing checks, verified passing on the valid registry and failing a broken sha); plus `docs/internal/registry-maintenance.md` and `CHANGELOG.md`.
 > - **Done - Phase 4 steps 1-3:** tag `v2.21.0` created at `1065c3e` and **pushed**; registry pinned to that commit with `metadata.version` 1.0.0 and entry `version` 2.21.0 (agent-plugins commit `78ac33b`, still **private**); validate-registry CI green against the new pin (sha-on-tag resolves the pushed tag). Release-prep HEAD is full-CI-green (Phase 4 step 1).
+> - **Smoke S1 finding (fixed 2026-05-26):** the first fresh-install attempt failed - Claude Code resolves a `github` shorthand source to an **SSH** clone (`git@github.com:`), which breaks any HTTPS-only user (most users of a public plugin). Fixed registry-side: source switched to an explicit https `url` form (agent-plugins `452a2f6`); `validate-registry.mjs`, the plan M4 JSON, and `registry-ci-spec.md` updated to accept/prefer `url`. Re-test S1 after `/plugin marketplace update`.
 > - **Held (M1 sequencing guard):** the install-block repoint is captured apply-ready in [`m1-repoint.md`](m1-repoint.md) - a full-repo scrape found exactly 4 live install blocks (README x2, `docs/getting-started/platforms.md` x2); it lands as a single Phase 5 commit after the public flip.
 > - **M6 pre-check done:** agent-plugins secret scan clean (heuristic over full history; tracked files benign; `_LOCAL/`/`.memsearch/` gitignored). Definitive gitleaks/GitHub-secret-scanning run still listed for go-live.
 > - **Remaining (gates, maintainer-run):** Phase 4 step 4 = private smoke **S1-S7** (interactive `/plugin` installs; the gate Claude cannot run); then fold confirmed `/plugin` syntax into the guide + release notes. Phase 5 = remaining go-public hardening (M6 README de-Preview + branch protection) + flip public + **S8** + GitHub Release + M1 repoint (apply `m1-repoint.md`) + announce; then post-tag hygiene.
@@ -117,7 +118,7 @@ Execution spine: **prep -> tag -> pin -> smoke (private) -> public -> announce.*
   "plugins": [
     {
       "name": "pm-skills",
-      "source": { "source": "github", "repo": "product-on-purpose/pm-skills", "sha": "<v2.21.0 tag SHA>" }, // was b6ff373 (v2.17.0)
+      "source": { "source": "url", "url": "https://github.com/product-on-purpose/pm-skills.git", "sha": "<v2.21.0 tag SHA>" }, // url (https) not github shorthand: github shorthand clones over SSH and breaks HTTPS-only users (smoke S1 finding)
       "description": "Product management skills, sub-agents, and sprint tools across the full product lifecycle. Follows the agentskills.io specification.",
       "version": "2.21.0",                        // was 2.17.0
       "strict": true

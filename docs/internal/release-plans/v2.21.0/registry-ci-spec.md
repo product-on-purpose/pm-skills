@@ -23,7 +23,7 @@ A GitHub Actions workflow in `product-on-purpose/agent-plugins` at `.github/work
 | 1 | **JSON parse** | `marketplace.json` is not valid JSON | Enforcing |
 | 2 | **Schema** | `$schema` / `name` / `owner` / `plugins` missing or wrong type | Enforcing |
 | 3 | **Per-entry required fields** | any `plugins[]` lacks `name`, `source`, `version`, or `description` | Enforcing |
-| 4 | **`source` shape + pinned `sha`** | `source.source != "github"`, `source.repo` not in `owner/repo` form, or `source.sha` missing / not a 40-char hex commit hash | Enforcing |
+| 4 | **`source` shape + pinned `sha`** | `source.source` not `github`/`url`; a `github` source's `repo` not `owner/repo`; a `url` source's `url` not https; or `source.sha` missing / not a 40-char hex commit hash | Enforcing |
 | 5 | **`sha` is a release-tag target** | the `sha` does not resolve in the target repo, or is not the commit a release tag points at | Enforcing |
 | 6 | **No placeholder in production** | an entry is a placeholder, or is `strict: true` without a real, pinned, installable plugin | Enforcing |
 | 7 | **Installability smoke** | the pinned commit's `.claude-plugin/plugin.json` is missing/invalid (or, if a harness exists, a fresh install fails) | Enforcing at launch (advisory fallback only if flaky) |
@@ -45,6 +45,6 @@ A GitHub Actions workflow in `product-on-purpose/agent-plugins` at `.github/work
 ## Resolved decisions (were open)
 
 - **"On a tag" strictness - LOCKED to tag-target only.** The entry `sha` must be the exact commit a release tag points at, not merely reachable from one (check 5 above). Rationale: pinning is meant to freeze a *released* version; an ancestor-reachable commit could be unreleased WIP.
-- **`source` shape - now explicitly validated** (check 4): `source.source == "github"`, `source.repo` in `owner/repo` form, `source.sha` a 40-char hex hash. Closes the gap where a malformed source with a valid-looking SHA could pass.
+- **`source` shape - now explicitly validated** (check 4): `source.source` is `github` or `url`; a `github` source has `repo` in `owner/repo` form; a `url` source has an https `url`; `source.sha` is a 40-char hex hash. Closes the gap where a malformed source with a valid-looking SHA could pass. **Launch uses the `url` https form** because Claude Code clones a `github` shorthand source over SSH, breaking HTTPS-only users (smoke S1 finding); the GitHub-API checks (5, 7) derive owner/repo from an https github url.
 - **Check 7 ships ENFORCING at launch.** The launch implementation is the deterministic form (fetch the pinned commit's `plugin.json`; assert it parses and has `name`/`version`/`description`/`license`), which is not network-flaky in the way a full end-to-end install would be. The D-V3-4 demotion-to-advisory path remains available only if this specific check proves flaky in practice; it does not at launch.
 - **`metadata.version` monotonicity - ADVISORY (not blocking) at launch.** Lint that the registry's own `metadata.version` never decreases, but warn rather than fail; a single-maintainer registry does not need a hard gate here, and a false positive should not block a listing. Revisit if multiple contributors edit the registry.
