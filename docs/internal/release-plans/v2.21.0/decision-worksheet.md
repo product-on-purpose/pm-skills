@@ -30,6 +30,8 @@
 
 ## The five decisions, in plain language
 
+> **Historical (provenance).** The subsections below are written in the present tense as they were when the calls were open. They are **not** current guidance - read every "we will / flip it / after v3" as "this is how it was reasoned at the time." The authoritative current state is the Status-at-a-glance table above and `plan_v2.21.0.md`. In particular: the version is a MINOR (v2.21.0), not 3.0.0; retirement is trigger-gated, not release-boxed.
+
 ### 1. What happens to pm-skills's own built-in marketplace? (the keystone)
 
 Today pm-skills carries a marketplace *inside its own repo*. After v3 the real marketplace lives in a separate repo. So: keep, delete, or rebrand the built-in one?
