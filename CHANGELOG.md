@@ -9,6 +9,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.21.0] - 2026-05-26
+
+**Marketplace Launch (additive).** pm-skills is now published through the new `product-on-purpose` marketplace, a single home for multiple Product on Purpose plugins. This is a distribution change only: the skill catalog (63), commands (73), sub-agents (4), and all behavior are unchanged. The existing self-hosted install path keeps working, so no existing user has to act; the new marketplace is the recommended home going forward. Shipped as a MINOR because the launch is backward-compatible (nothing was removed) - the eventual old-path retirement is the breaking step and is reserved for a future major.
+
+### Added
+
+- **New canonical install path via the `product-on-purpose` marketplace** - `/plugin marketplace add product-on-purpose/agent-plugins` then `/plugin install pm-skills@product-on-purpose`. The marketplace is a thin registry repo that lists plugins and holds no plugin code; the pm-skills entry is pinned to the v2.21.0 tag.
+
+### Changed
+
+- **The recommended install path is now the `product-on-purpose` marketplace.** README and docs install instructions lead with it. The previous `pm-skills-marketplace` (self-hosted) path is retained and continues to work; existing installs are unaffected and update as before.
+
+### Not changed
+
+- Skill catalog: 63 skills (30 phase + 8 foundation + 10 utility + 15 tool). No skill behavior changes. Slash commands: 73. Sub-agents: 4. Workflows: 12.
+- The `npx skills add` and `git clone` paths are unaffected (they do not use the marketplace).
+- Doc-stack: Astro 6.3.x + Starlight 0.39.x.
+
 ## [2.20.0] - 2026-05-25
 
 **Sprint Workflow Commands + Validation/Doc Hardening.** v2.20.0 makes the three workshop methodologies runnable as single slash commands and tightens the documentation-count validators so stale counts cannot hide in table, parenthetical, or "N command files" phrasings. No new skills (catalog stays 63); slash commands grow from 70 to 73.

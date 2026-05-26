@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.20.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.21.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-63-brightgreen.svg?style=flat-square" alt="Skills">
@@ -162,6 +162,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.21.0 - Marketplace Launch (additive)</strong></summary>
+
+**What changed.** pm-skills is now published through the new `product-on-purpose` marketplace, a single home for multiple Product on Purpose plugins. This is a distribution change only: your skills, commands, and their behavior are identical (catalog stays 63; 73 commands). The previous install path keeps working, so existing installs need no action; the new marketplace is simply the recommended home going forward. Shipped as a minor because nothing you rely on was removed.
+
+**Get started.** [`docs/releases/Release_v2.21.0.md`](docs/releases/Release_v2.21.0.md)
+
+</details>
 
 <details>
 <summary><strong>v2.20.0 - Sprint Workflow Commands + Validation Hardening</strong></summary>
@@ -993,7 +1002,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.20.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.20.0)           |
+| **Current version** | [v2.21.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.21.0)           |
 | **Skill count**     | 63 skills (30 phase + 8 foundation + 10 utility + 15 tool)                                |
 | **Sub-agents**      | 4 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor)               |
 | **Workflows**       | 12                                                                                        |
@@ -1049,6 +1058,7 @@ pm-skills/
 
 | Version    | Highlights                                                                                           |
 | ---------- | ---------------------------------------------------------------------------------------------------- |
+| [**2.21.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.21.0) | Marketplace launch (additive): pm-skills is now published through the new `product-on-purpose` marketplace, the recommended home for multiple Product on Purpose plugins. Distribution change only - the skill catalog (63) and commands (73) are unchanged, and the existing install path keeps working, so no existing user has to act. Shipped as a minor because nothing was removed; the eventual old-path retirement is reserved for a future major. |
 | [**2.20.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.20.0) | Sprint workflow commands + validation hardening: the 3 workshop methodologies (Foundation Sprint, Design Sprint, Foundation-to-Design) are now runnable as single `/workflow-` commands (slash commands 70 to 73). The count-consistency validator now catches stale counts in any phrasing (table, parenthetical, count-noun), and the command-sync validator requires every advertised `/workflow-` command to have a real file; the vestigial `check-stale-bundle-refs` validator was removed. No new skills; catalog stays 63. |
 | [**2.19.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.19.0) | Pre-promotion hardening: the release-validation gate now polices the library itself, automatically catching the v2.18.0 defect classes - stale counts (`.mdx` now scanned), broken skill cross-references (new validator), and dead in-page anchors (23 fixed). Enforces the README current-version claim, pins line endings via `.gitattributes`, removes the vestigial `validate-mcp-sync` workflow, and ships a branded docs-site 404. No new skills; catalog stays 63. |
 | [**2.18.0**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.18.0) | Four highest-consensus content skills: `market-sizing` (TAM/SAM/SOM via multi-framework triangulation), `prioritization-framework` (RICE, ICE, MoSCoW, Weighted Scoring, Kano run in parallel with a cross-framework comparison), `journey-map` (touchpoints, emotional curve, moments of truth), and `survey-analysis` (honest analysis with explicit limitation warnings). Catalog grows from 59 to 63 skills; each new skill refuses to fabricate data and labels confidence honestly. |
