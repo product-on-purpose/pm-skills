@@ -1,4 +1,4 @@
-> **SUPERSEDED (2026-05-23).** Draft, retained for provenance. The live `product-on-purpose/agent-plugins` repo already carries its own `CONTRIBUTING.md` (host path changed `plugins` -> `agent-plugins`). Refine the listing contract there, not here. See the v3.0.0 plan: [`../plan_v3.0.0.md`](../plan_v3.0.0.md).
+> **SUPERSEDED (2026-05-23).** Draft, retained for provenance. The live `product-on-purpose/agent-plugins` repo already carries its own `CONTRIBUTING.md` (host path changed `plugins` -> `agent-plugins`). Refine the listing contract there, not here. See the marketplace plan: [`../plan_v2.21.0.md`](../plan_v2.21.0.md).
 
 # Plugin Repo Checklist
 

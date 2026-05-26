@@ -1,6 +1,6 @@
-# v3.0.0 Install + Upgrade Smoke-Test Matrix
+# v2.21.0 Install + Upgrade Smoke-Test Matrix
 
-> **Purpose.** The executable verification gate for the marketplace launch (audit finding P2-06). Run from a clean Claude Code state before announcing the launch. Companion to [`plan_v3.0.0.md`](plan_v3.0.0.md) (the Phase 4 gate) and [`launch-and-notification-playbook.md`](launch-and-notification-playbook.md). **Last updated 2026-05-23.**
+> **Purpose.** The executable verification gate for the marketplace launch (audit finding P2-06). Run from a clean Claude Code state before announcing the launch. Companion to [`plan_v2.21.0.md`](plan_v2.21.0.md) (the Phase 4 gate) and [`launch-and-notification-playbook.md`](launch-and-notification-playbook.md). **Last updated 2026-05-25** (renumbered from v3.0.0; the tag the registry pins is now the v2.21.0 tag).
 
 ---
 

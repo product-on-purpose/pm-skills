@@ -1,6 +1,8 @@
-# v3.0.0 Decision Worksheet (plain-language tracker)
+# v2.21.0 Decision Worksheet (plain-language tracker)
 
-> **Purpose.** A revisit-friendly companion to [`plan_v3.0.0.md`](plan_v3.0.0.md). The plan holds the formal 6-part Decision Briefs; this file is the plain-language status tracker, the open questions, the one verified constraint, and the deprecation toolbox - written so you can pick it up cold without decoding letters and numbers. **Last updated 2026-05-23.**
+> **RESOLVED 2026-05-25.** All decisions are now LOCKED in [`plan_v2.21.0.md`](plan_v2.21.0.md): Approach B (additive soft-migration), shipped as the MINOR v2.21.0; old-path retirement is trigger-gated and reserved for the v3.0.0 convergence. This worksheet is retained as provenance for how the call was reasoned. The sequencing question (Option X/Y) is moot: v2.20.0 shipped, and the marketplace launch is the next cut.
+>
+> **Purpose.** A revisit-friendly companion to [`plan_v2.21.0.md`](plan_v2.21.0.md). The plan holds the formal 6-part Decision Briefs; this file is the plain-language status tracker, the open questions, the one verified constraint, and the deprecation toolbox. **Last updated 2026-05-25** (renumbered from v3.0.0; decisions resolved).
 
 ## How to read this
 

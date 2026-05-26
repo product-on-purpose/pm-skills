@@ -1,6 +1,8 @@
-# v3.0.0 Marketplace Launch + User-Notification Playbook
+# v2.21.0 Marketplace Launch + User-Notification Playbook
 
-> **Purpose.** The comprehensive options reference for *how* to launch the `product-on-purpose` marketplace, whether and how to move existing pm-skills users onto it, and every channel available to notify users. Includes recommendations and best practices. Companion to [`plan_v3.0.0.md`](plan_v3.0.0.md) (the plan) and [`decision-worksheet.md`](decision-worksheet.md) (the decision tracker); this doc expands the worksheet's brief "deprecation toolbox" into a full reference and adds the launch-approach spectrum. **Last updated 2026-05-23.**
+> **DECIDED 2026-05-25: Approach B (additive soft-migration), shipped as the MINOR v2.21.0.** The old path stays alive; retirement is trigger-gated (plugin #2) and reserved for the [v3.0.0](../v3.0.0/plan_v3.0.0.md) convergence major, along with the heavy comms stack and the tombstone retirement mechanic. The analysis below (Approach A/B/C spectrum, channel inventory) stands as the rationale and the future-retirement reference. In-body references to a "major (3.0.0)" now correctly point to that convergence.
+>
+> **Purpose.** The comprehensive options reference for *how* to launch the `product-on-purpose` marketplace, whether and how to move existing pm-skills users onto it, and every channel available to notify users. Includes recommendations and best practices. Companion to [`plan_v2.21.0.md`](plan_v2.21.0.md) (the plan) and [`decision-worksheet.md`](decision-worksheet.md) (the decision tracker). **Last updated 2026-05-25** (renumbered from v3.0.0; Approach B locked).
 
 ---
 

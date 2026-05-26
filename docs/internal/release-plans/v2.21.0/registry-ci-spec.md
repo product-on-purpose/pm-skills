@@ -1,6 +1,6 @@
-# v3.0.0 Registry Validation CI - Specification
+# v2.21.0 Registry Validation CI - Specification
 
-> **Purpose.** Specification for the CI that validates the `product-on-purpose` marketplace registry. Destined for the `product-on-purpose/agent-plugins` repo (`.github/workflows/`), staged here per the v3.0.0 authoring boundary (the live repo is not mutated this pass). Implements decision **D-V3-4** (enforcing). Companion to [`plan_v3.0.0.md`](plan_v3.0.0.md). **Last updated 2026-05-23.**
+> **Purpose.** Specification for the CI that validates the `product-on-purpose` marketplace registry. Destined for the `product-on-purpose/agent-plugins` repo (`.github/workflows/`), staged here per the authoring boundary (the live repo is not mutated this pass). Implements decision **D-V3-4** (enforcing). Companion to [`plan_v2.21.0.md`](plan_v2.21.0.md). **Last updated 2026-05-25** (renumbered from v3.0.0).
 
 ---
 

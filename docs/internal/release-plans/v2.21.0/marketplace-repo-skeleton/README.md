@@ -1,4 +1,4 @@
-> **SUPERSEDED (2026-05-23).** This was a draft skeleton for a future marketplace repo, drafted when the host repo path was tentatively `product-on-purpose/plugins`. The real registry now exists and is authoritative at **`product-on-purpose/agent-plugins`** (host path changed `plugins` -> `agent-plugins`; the second plugin was renamed `thinking-tools` -> `thinking-framework-skills`). This file is retained for provenance only. See the v3.0.0 plan: [`../plan_v3.0.0.md`](../plan_v3.0.0.md).
+> **SUPERSEDED (2026-05-23).** This was a draft skeleton for a future marketplace repo, drafted when the host repo path was tentatively `product-on-purpose/plugins`. The real registry now exists and is authoritative at **`product-on-purpose/agent-plugins`** (host path changed `plugins` -> `agent-plugins`; the second plugin was renamed `thinking-tools` -> `thinking-framework-skills`). This file is retained for provenance only. See the marketplace plan: [`../plan_v2.21.0.md`](../plan_v2.21.0.md).
 
 # Product on Purpose
 

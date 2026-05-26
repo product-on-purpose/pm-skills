@@ -1,6 +1,6 @@
-# v3.0.0 Migration Guide (draft)
+# v2.21.0 Marketplace Migration Guide (draft)
 
-> **Purpose.** The user-facing migration content. Feeds `docs/releases/Release_v3.0.0.md` and the `agent-plugins` README "Migration during transition" section. This is the distilled, publishable version; the internal strategy and full options live in [`launch-and-notification-playbook.md`](launch-and-notification-playbook.md). **Framed around the recommended Approach B** (additive: the old path keeps working, the new path is canonical, moving is encouraged not forced). Bracketed `[Approach C]` notes mark what changes under a hard migration. **Last updated 2026-05-23.**
+> **Purpose.** The user-facing migration content. Feeds `docs/releases/Release_v2.21.0.md` and the `agent-plugins` README "Migration during transition" section. This is the distilled, publishable version; the internal strategy and full options live in [`launch-and-notification-playbook.md`](launch-and-notification-playbook.md). **Approach B (additive) is LOCKED** (2026-05-25): the old path keeps working, the new path is canonical, moving is encouraged not forced. The hard-migration (Approach C) alternative was rejected; its end-of-window retirement is reserved for the [v3.0.0](../v3.0.0/plan_v3.0.0.md) convergence. **Last updated 2026-05-25.**
 >
 > Draft note: confirm exact `/plugin` command spellings against current Claude Code syntax before publishing.
 
@@ -10,9 +10,7 @@
 
 pm-skills is now available through the **`product-on-purpose` marketplace**, a single home for multiple Product on Purpose plugins. This is a **distribution change** - how you install and update pm-skills. Your skills, commands, and their behavior are unchanged: the same catalog, just a cleaner front door built for more than one plugin.
 
-**[Approach B]** The previous install path still works. You do not have to do anything. The new path is simply the recommended home going forward, and where future plugins will live.
-
-> **[Approach C]** Under a hard migration, replace the line above with: "The previous path will be retired after `<window>`. Please move to the new path by then to keep receiving updates."
+The previous install path still works. You do not have to do anything. The new path is simply the recommended home going forward, and where future plugins will live.
 
 ## Which situation are you in?
 
@@ -52,15 +50,11 @@ You have two options:
 
 ## Why the version number
 
-> **[Approach C]** v3.0.0 is a **major** version because the install path - part of how you consume the library - changed, even though no skills changed.
-
-**[Approach B]** This is an additive marketplace launch. Your existing install is unaffected, so there is no breaking change to your setup.
+This is an additive marketplace launch shipped as a **minor** (v2.21.0). Your existing install is unaffected, so there is no breaking change to your setup. (The version reflects compatibility, not significance: nothing you rely on was removed.)
 
 ## Timeline
 
-**[Approach B]** The old path remains supported. If it is ever retired, we will announce it well ahead of time, tied to the marketplace's growth (for example, when a second plugin makes the new home clearly worth moving to).
-
-> **[Approach C]** The old path will be retired after the next 2 releases. A reminder will appear in each release until then, and the old listing will end with a notice pointing here.
+The old path remains supported. If it is ever retired, we will announce it well ahead of time, tied to the marketplace's growth (for example, when a second plugin makes the new home clearly worth moving to).
 
 ## Verify it worked
 
