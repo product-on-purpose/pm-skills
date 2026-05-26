@@ -165,8 +165,10 @@ Confirmed via the claude-code-guide agent against `code.claude.com/docs` on 2026
 
 ---
 
-## 6. Open decisions this playbook informs
+## 6. Decisions this playbook informed (all RESOLVED 2026-05-25; historical)
 
-1. **Launch approach (A / B / C).** Recommended: **B**, behaving as A until plugin #2 nears. Feeds plan_v3.0.0 D-V3-1, D-V3-2, D-V3-5.
-2. **Which notification channels to commit to** for the launch vs the eventual retirement (see the Part 4 stack).
-3. **Whether the launch is a minor or major bump** - which follows directly from the approach (A/B launch = minor; C or the eventual retirement = major). This reopens D-V3-5.
+> These were open when this playbook was the working analysis. They are now locked in [`plan_v2.21.0.md`](plan_v2.21.0.md) (Decision Briefs D-V3-1..5). Retained as provenance for how each was reasoned.
+
+1. **Launch approach (A / B / C).** RESOLVED: **B** (additive soft-migration), behaving as A until plugin #2 nears. Locked in plan D-V3-1, D-V3-2, D-V3-5.
+2. **Which notification channels to commit to** for the launch vs the eventual retirement. RESOLVED: the **light comms stack** for this additive launch (see Part 4 / plan Phase 5); the heavy stack is reserved for the convergence retirement.
+3. **Whether the launch is a minor or major bump.** RESOLVED: **MINOR (v2.21.0)** - the additive launch removes nothing (plan D-V3-5). The major is reserved for the eventual retirement/convergence ([v3.0.0](../v3.0.0/plan_v3.0.0.md)). This is settled, not reopened.

@@ -8,7 +8,7 @@
 
 - **Decisions** = forks that need your call. Each has a short name, the real choices described in words, a recommendation, and a status.
 - **Constraints** = things that are simply true (verified against the Claude Code docs) and must be handled. Not a choice.
-- **Open question** = the one thing still genuinely unresolved (sequencing).
+- **Open question** = what *was* the one genuinely unresolved item (sequencing) when this was the live tracker. It is now RESOLVED (v2.20.0 shipped first); the section below is historical.
 - The letters `(A)/(B)/(C)` appear only in parentheses to cross-reference the formal briefs in the plan. Ignore them if they add noise - the words are what matter.
 
 ---
@@ -81,9 +81,11 @@ They never refer to the same date. One closes the old door; the other opens the 
 
 ---
 
-## The open question: sequencing (this is what "pending version decision" meant)
+## The (former) open question: sequencing - RESOLVED
 
-Decision 3's "pending" was really pointing here. The fork is **what ships next**, and it also decides where the small backlog cleanup goes.
+> **RESOLVED 2026-05-25:** Option X was taken - v2.20.0 shipped first as a hygiene release, and the marketplace launch is the next cut (v2.21.0). The analysis below is historical, kept to show the reasoning.
+
+Decision 3's "pending" was really pointing here. The fork was **what ships next**, and it also decided where the small backlog cleanup went.
 
 ### Option X (recommended): a small v2.20.0 hygiene release first, then v3.0.0
 

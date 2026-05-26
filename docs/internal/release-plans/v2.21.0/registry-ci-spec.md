@@ -26,7 +26,7 @@ A GitHub Actions workflow in `product-on-purpose/agent-plugins` at `.github/work
 | 4 | **`source` shape + pinned `sha`** | `source.source != "github"`, `source.repo` not in `owner/repo` form, or `source.sha` missing / not a 40-char hex commit hash | Enforcing |
 | 5 | **`sha` is a release-tag target** | the `sha` does not resolve in the target repo, or is not the commit a release tag points at | Enforcing |
 | 6 | **No placeholder in production** | an entry is a placeholder, or is `strict: true` without a real, pinned, installable plugin | Enforcing |
-| 7 | **Installability smoke** | the pinned commit's `.claude-plugin/plugin.json` is missing/invalid (or, if a harness exists, a fresh install fails) | Tiered |
+| 7 | **Installability smoke** | the pinned commit's `.claude-plugin/plugin.json` is missing/invalid (or, if a harness exists, a fresh install fails) | Enforcing at launch (advisory fallback only if flaky) |
 
 ## Implementation notes
 

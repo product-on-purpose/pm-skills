@@ -50,7 +50,7 @@ Decided 2026-05-25. Stand up `product-on-purpose` as the canonical, promoted pat
 - **Registry finalization** (Phase 2): the agent-plugins `marketplace.json` target (sha + version); a registry validation CI spec; go-public preparation.
 - **Migration safety** (Phase 3): the migration guide (for users who choose to move); the dual-home mechanics.
 - **Verification** (Phases 4-5): the 8-scenario install/upgrade smoke matrix - private S1-S7 at Phase 4, post-flip public S8 at Phase 5.
-- **Launch + hygiene** (Phase 5): tag, pin, flip the registry public, publish the Release, announce, post-tag hygiene.
+- **Launch + hygiene** (Phase 5): flip the registry public, post-flip public smoke (S8), publish the Release, announce, post-tag hygiene. (The tag + registry pin happen in Phase 4.)
 
 ### Out of scope (deferred, with destination)
 - **The old-path retirement + the breaking convergence**: reserved for [v3.0.0](../v3.0.0/plan_v3.0.0.md), triggered by plugin #2. This release only *launches* the new path; it removes nothing.
@@ -146,15 +146,15 @@ Go-public + hardening checklist (all boxes green before the Phase 5 flip):
 
 ### Phase 4 - Tag, pin, verify (private)
 1. Run the full pre-tag validator bundle + Astro build on the release-prep HEAD; CI green.
-2. Tag pm-skills `v2.21.0` at the CI-verified SHA (tag only the SHA whose full CI is green). Keep the tag **local until private smoke passes** (step 4); push it only after the registry is staged and verified.
-3. Fill the staged registry `sha` (M4) with the v2.21.0 tag commit; apply to the agent-plugins registry (still private).
+2. Push the release-prep commit to pm-skills `main`, then tag `v2.21.0` at the CI-verified SHA (tag only the SHA whose full CI is green) **and push the tag**. The tag must be public *before* the registry is staged: the registry's `sha`-on-tag check (`registry-ci-spec.md` check 5) needs the tag ref to resolve remotely, and the private smoke installs the plugin by that `sha`. The tag is safe to move at this point - no public Release and no public registry reference it yet (see step 5).
+3. Fill the staged registry `sha` (M4) with the v2.21.0 tag commit; apply to the agent-plugins registry (still private). The registry `validate-registry` CI runs here, and check 5 (`sha` is a release-tag target) passes against the tag pushed in step 2.
 4. Run the private smoke scenarios (authed, while private) per [`upgrade-smoke-test-matrix.md`](upgrade-smoke-test-matrix.md): S1-S5 pass; S6 reproduces the documented duplicate-install footgun; S7 confirms recovery from the duplicated state. Archive results as release evidence, and **update the migration guide + release notes with the exact `/plugin` command syntax confirmed during smoke** (the guide and matrix currently carry representative spellings) before anything is published.
-5. **If private smoke fails (abort/rollback):** do not push the tag, do not flip the registry public, and do not publish or repoint public surfaces. The maintainer decides patch-forward vs re-tag. If the tag is still local, delete and reissue it at the corrected SHA. If it was already pushed, it is still safe to delete and reissue while no public Release and no public registry point at it (which is why steps 2 and Phase 5 hold those until smoke is green). Resolve, then re-enter Phase 4 from step 1.
+5. **If private smoke fails (abort/rollback):** do not flip the registry public, do not publish the Release, and do not repoint public surfaces. The maintainer decides patch-forward vs re-tag. The `v2.21.0` tag is already public (step 2), but it is still safe to delete and re-push it at the corrected SHA while the registry stays private and no public Release references it. Resolve, then re-enter Phase 4 from step 1.
 
 ### Phase 5 - Launch + hygiene
 1. Flip the agent-plugins repo public (D-V3-3), once the M6 go-public + hardening checklist is fully green.
 2. **Post-flip public smoke (gate before Release):** from a clean Claude Code profile that is **not** authenticated to the `product-on-purpose` org (or a logged-out client), run **S8** - `/plugin marketplace add product-on-purpose/agent-plugins` then `/plugin install pm-skills@product-on-purpose`, and confirm commands resolve. This is the only step that proves a *normal public user* can install; Phase 4's authed-private smoke does not. If S8 fails, the repo is reachable but not installable (visibility scope, pin, or registry CI): hold the Release and the announce, diagnose, and do not proceed until S8 passes.
-3. Publish the pm-skills `v2.21.0` GitHub Release as Latest with the `Release_v2.21.0.md` body; push the v2.21.0 tag if not already pushed; verify no orphan draft.
+3. Publish the pm-skills `v2.21.0` GitHub Release as Latest with the `Release_v2.21.0.md` body (the tag was pushed in Phase 4 step 2); verify no orphan draft.
 4. **Make the public README/docs repoint (M1) the user-visible default now that the registry is public**, per the Phase 1 / sequencing guard, so repo visitors are never sent to a still-private registry.
 5. Announce the launch (link the migration guide) on the channels the README points at. Use the **light comms stack** (additive launch): README repoint, release notes, and a gentle "also available via product-on-purpose" line on the old listing. The heavy stack (skill banner, tombstone) is reserved for the convergence retirement.
 6. Post-tag hygiene: flip this plan + both CONTEXT.md to SHIPPED; refresh MEMORY.md; confirm the next-version stubs.
