@@ -1,6 +1,12 @@
 # v2.21.0 Release Plan - Marketplace Launch (additive)
 
-**Status:** PLANNED - design + decisions LOCKED 2026-05-25 (Approach B, additive soft-migration). Ready to execute once the maintainer schedules the cut. Decision briefs D-V3-1..D-V3-5 are DECIDED (below).
+**Status:** IN EXECUTION (2026-05-26) - design + decisions LOCKED 2026-05-25 (Approach B); Codex-reviewed clean through 6 passes. Phase 1 + Phase 2 staging shipped; the cross-repo gates (smoke, flip, Release, announce) remain. Decision briefs D-V3-1..D-V3-5 are DECIDED (below).
+
+> **Execution log (2026-05-26).**
+> - **Done - Phase 1 (pm-skills, commit `1065c3e`, all CI green):** M2 version bump 2.20.0 -> 2.21.0 (plugin.json + self-hosted marketplace.json + README badge/At-a-Glance + both CONTEXT.md currency markers); M3 CHANGELOG `[2.21.0]` + `docs/releases/Release_v2.21.0.md` + README What's New/release-history. The release-prep HEAD is CI-verified (Validation + CodeQL + Plugin Packaging + Pages all green), satisfying Phase 4 step 1.
+> - **Done - Phase 2 staging (agent-plugins, commit `af9c220`, validate-registry CI green in Actions):** M5 `scripts/validate-registry.mjs` + `.github/workflows/validate-registry.yml` (7 enforcing checks, verified passing on the valid registry and failing a broken sha); plus `docs/internal/registry-maintenance.md` and `CHANGELOG.md` (registry 0.1.0 line). M4 registry stays pinned at the v2.17.0 preview (the v2.21.0 SHA does not exist until the tag).
+> - **Held (M1 sequencing guard):** the README install-block repoint is authored-but-not-on-main; it lands as a separate Phase 5 commit after the public flip.
+> - **Remaining (gates, maintainer-run):** Phase 4 tag + push + fill registry SHA/1.0.0 + private smoke S1-S7; Phase 5 go-public hardening (M6 README de-Preview + branch protection + secret scan) + flip + S8 + Release + M1 repoint + announce; post-tag hygiene.
 **Created:** 2026-05-23 as the v3.0.0 "marketplace migration" plan; **renumbered to v2.21.0 and reframed as a MINOR on 2026-05-25** after the launch approach was locked to additive (Approach B). The breaking convergence is reserved as the real [v3.0.0](../v3.0.0/plan_v3.0.0.md).
 **Predecessor:** [v2.20.0](../v2.20.0/) SHIPPED 2026-05-25 (tag `e1db5ec`; Sprint Workflow Commands + validator/doc hardening; catalog 63; 73 commands).
 **Type:** **MINOR** (2.20.0 -> 2.21.0). The marketplace launch is **additive**: the new `product-on-purpose` marketplace becomes the promoted canonical path, the existing self-hosted path keeps working, and **no existing user has to change anything for their install to keep working**. That single test (does an existing user have to act? no) is what makes this a minor, not a major. See D-V3-5.
