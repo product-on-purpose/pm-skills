@@ -88,8 +88,8 @@ Channels are grouped by where they reach the user. For each: the mechanic, who i
 
 | Channel | Mechanic | Reaches | Reach | Key caveat |
 |---|---|---|---|---|
-| **Release notes** (`Release_v3.0.0.md` + GitHub Release body) | Lead with the marketplace change; link the migration steps | Release watchers, visitors | Medium | Only people who read releases |
-| **CHANGELOG `[3.0.0]`** (or `[2.x]` if additive) | Record the change under "Changed"; public paths only | Changelog readers | Low-Medium | Record, not an alert |
+| **Release notes** (`Release_v2.21.0.md` + GitHub Release body) | Lead with the marketplace change; link the migration steps | Release watchers, visitors | Medium | Only people who read releases |
+| **CHANGELOG `[2.21.0]`** | Record the change under "Added" (new path) / "Changed" (recommended path); public paths only | Changelog readers | Low-Medium | Record, not an alert |
 | **README install-section repoint + banner** | Make the new path primary; add an "Already installed the old way?" pointer to the migration steps | Anyone landing on the repo | High (for visitors) | Does not reach already-installed users who never revisit |
 | **README "What's New" / "Recent Updates" row** | One-line entry pointing at the migration | Repo visitors | Low-Medium | Same limit |
 | **New marketplace README "Migration during transition" section** | Already present in the live `agent-plugins` repo; keep it accurate | New-path users | Medium | Reaches people who read the marketplace repo |

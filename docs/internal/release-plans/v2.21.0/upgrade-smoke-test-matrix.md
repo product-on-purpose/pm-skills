@@ -7,9 +7,10 @@
 ## How to run
 
 - Use a **clean Claude Code profile** (no pm-skills marketplaces added) so results are not polluted by existing state. For scenarios that start from an existing install, set that up first as the precondition.
-- The registry may stay **private during testing** if you are authenticated to the org; flip it public only after S1-S5 pass (decision D-V3-3).
+- **Test the real launch config:** stage the registry with `strict: true` already set (the launch value) before running S1-S7, so smoke exercises the configuration users will actually get, not an interim one.
+- **Two phases:** S1-S7 run while the registry is **private** (authenticated to the org). **S8 runs only after the public flip**, from a client that is *not* org-authenticated - it is the gate that proves a normal public user can install (D-V3-3). Do not treat private S1-S7 as proof of public installability.
 - Record **PASS / FAIL + notes** per scenario; archive the results as release evidence.
-- **Command spellings:** the steps below use representative `/plugin` forms; confirm the exact current Claude Code syntax at run time (some `/plugin update` behavior is undocumented).
+- **Command spellings:** the steps below use representative `/plugin` forms. Confirm the exact current Claude Code syntax at run time (some `/plugin update`/`uninstall` behavior is undocumented), and **write the confirmed syntax back into the migration guide and release notes before publishing** - the duplicate-avoidance ordering depends on exact spellings, so unconfirmed commands must not ship.
 
 ## The matrix
 
@@ -21,6 +22,8 @@
 | S4 | Direct repo install (one-plugin fallback) | still works | pm-skills installs from the direct repo path |
 | S5 | Pinned `sha` integrity | installed commit matches the pin | commit == registry `sha` exactly |
 | S6 | NEGATIVE: both marketplaces added | duplication / conflict (documented footgun) | reproduces the duplication; captured for the guide |
+| S7 | RECOVERY: clean up from the duplicated state | back to exactly one install | from S6's duplicated state, the documented recovery yields exactly one set of commands |
+| S8 | PUBLIC (post-flip): unauthenticated user installs | new-path install works for the public | from a non-org-authed client, add + install succeeds; commands resolve |
 
 ### S1 - Fresh install from the new marketplace
 - **Pre:** clean state.
@@ -56,9 +59,21 @@
 - **Pre:** pm-skills installed via the old path.
 - **Steps:** WITHOUT removing the old, also `/plugin marketplace add product-on-purpose/agent-plugins` and `/plugin install pm-skills@product-on-purpose`.
 - **Expected:** **duplicate / conflicting** pm-skills commands (the documented footgun).
-- **Purpose:** confirm and document exactly what a careless user sees, so the migration guide's "remove first" warning is concrete. Clean up afterward.
+- **Purpose:** confirm and document exactly what a careless user sees, so the migration guide's "remove first" warning is concrete. Recovery is S7 (do not just "clean up" ad hoc - prove the documented path works).
+
+### S7 - RECOVERY: clean up from the duplicated state
+- **Pre:** the duplicated state produced by S6 (both marketplaces added, pm-skills installed from each).
+- **Steps:** follow the migration guide's recovery path and record the **exact** commands. The likely path: `/plugin uninstall pm-skills` (note whether this is ambiguous when two installs share the name - if so, capture the marketplace-qualified form, e.g. `pm-skills@pm-skills-marketplace`, or the manual cleanup under `~/.claude/plugins/`), then `/plugin marketplace remove pm-skills-marketplace`, leaving the single `@product-on-purpose` install.
+- **Expected:** exactly one set of pm-skills commands remains, from `@product-on-purpose`; no duplicates.
+- **Pass:** single clean install; the recovery commands are confirmed and written back into the migration guide's "Need help?" section. If `/plugin uninstall pm-skills` proves ambiguous, the disambiguation is documented.
+
+### S8 - PUBLIC (post-flip): unauthenticated user installs
+- **Pre:** the registry is **public** (the Phase 5 flip has happened); use a client that is **not** authenticated to the `product-on-purpose` org (logged out, or a different account with no access).
+- **Steps:** `/plugin marketplace add product-on-purpose/agent-plugins` then `/plugin install pm-skills@product-on-purpose`.
+- **Expected:** the add and install both succeed for a user with no special access; commands resolve.
+- **Pass:** public install works end to end. This is the gate before publishing the Release and announcing - private S1-S7 do not prove it.
 
 ## Exit criteria
 
-- **S1-S5 PASS**; **S6 reproduces** the duplication as documented (feeds the migration guide).
-- Results archived. Only then flip the registry public and announce (D-V3-3).
+- **Private gate (Phase 4):** S1-S5 PASS; S6 reproduces the duplication as documented; S7 proves recovery to a single clean install. Confirmed `/plugin` syntax written back into the migration guide + release notes. Results archived. Only then proceed to the public flip (D-V3-3).
+- **Public gate (Phase 5):** after the flip, **S8 PASSES** from a non-org-authenticated client before the Release is published or the launch announced. If S8 fails, hold and diagnose; do not announce.

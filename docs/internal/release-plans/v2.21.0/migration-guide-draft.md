@@ -66,4 +66,4 @@ After installing from the new path:
 
 ## Need help?
 
-Open a discussion or issue on the [pm-skills repo](https://github.com/product-on-purpose/pm-skills). If you see duplicate commands, you likely have both marketplaces added: uninstall pm-skills, remove the old `pm-skills-marketplace`, and reinstall from `@product-on-purpose`.
+Open a discussion or issue on the [pm-skills repo](https://github.com/product-on-purpose/pm-skills). If you see duplicate commands, it means pm-skills is **installed from both identities** at once (not merely that both marketplaces are added). To recover: uninstall pm-skills, remove the old `pm-skills-marketplace`, and reinstall from `@product-on-purpose` - leaving a single install.

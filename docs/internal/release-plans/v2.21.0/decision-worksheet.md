@@ -15,14 +15,16 @@
 
 ## Status at a glance
 
-| Short name | What you said | Recommendation | Status |
+> **Final status (reconciled to the locked plan 2026-05-26).** The "Status" column below now reflects the decisions as LOCKED in [`plan_v2.21.0.md`](plan_v2.21.0.md). The plain-language reasoning further down is kept as **provenance** - it shows how the call was originally reasoned (including the earlier "major" framing that was later reversed). Where the prose still says "3.0.0" or "release-boxed," read it as historical: the plan and its Decision Briefs (D-V3-1..5) are authoritative.
+
+| Short name | What you said | Final decision | Status |
 |---|---|---|---|
-| 1. Fate of the built-in marketplace | "definitely A" | Keep both during a window | **LOCKED: keep** |
-| 2. How/when the OLD path retires | "B or C, want to monitor" | Retire after the next 2 releases | Leaning locked: release-boxed (see note) |
-| 3. When the NEW registry goes public | "A or B, pending sequencing" | Public at launch | Pending the sequencing question below |
-| 4. Does the registry CI block bad listings | "follow your rec" | Yes, enforcing | **LOCKED: enforcing** |
-| 5. Why 3.0.0 with no new skills | "A" | Major (install contract changed) | **LOCKED: major** |
-| Sequencing (the real open question) | not yet decided | v2.20.0 hygiene first, then v3 | **OPEN** |
+| 1. Fate of the built-in marketplace | "definitely A" | Keep both during a window | **LOCKED: keep** (D-V3-1) |
+| 2. How/when the OLD path retires | "B or C, want to monitor" | Trigger-gated (plugin #2), deferred to the v3.0.0 convergence | **LOCKED: trigger-based** (D-V3-2) - supersedes the "release-boxed" prose below |
+| 3. When the NEW registry goes public | "A or B, pending sequencing" | Public at launch, after the real-tag pin | **LOCKED: at launch** (D-V3-3) |
+| 4. Does the registry CI block bad listings | "follow your rec" | Yes, enforcing | **LOCKED: enforcing** (D-V3-4) |
+| 5. Version designation | "A" (was "major") | **MINOR (v2.21.0)** - additive launch breaks nothing; the breaking convergence is the reserved v3.0.0 | **LOCKED: minor** (D-V3-5) - REVERSES the "major" prose below |
+| Sequencing (was the open question) | resolved | v2.20.0 shipped (2026-05-25); the marketplace launch is the next cut | **RESOLVED** |
 
 ---
 
@@ -169,8 +171,10 @@ Confirmed via the claude-code-guide agent against `code.claude.com/docs` on 2026
 
 ## Decisions still needed from you
 
-1. **Sequencing:** Option X (v2.20.0 hygiene first, then v3) or Option Y (v3 next)? Everything else is effectively settled.
-2. **Confirm decision 2 = release-boxed** (retire the old path after the next 2 releases, announced one release ahead). You leaned "B or C"; the analytics finding rules out C.
-3. (Later, not now) the exact end-of-window retirement mechanic (tombstone vs delist).
+> **All resolved as of 2026-05-25/26.** Nothing here is open. Retained to show what was outstanding when this worksheet was the live tracker.
 
-Once 1 and 2 are set, the plan gets the verified mechanics folded in and the three companion docs get written (migration guide, smoke matrix, registry CI spec).
+1. ~~**Sequencing:** Option X or Y?~~ **RESOLVED:** v2.20.0 shipped first (2026-05-25); the marketplace launch is the next cut.
+2. ~~**Confirm decision 2 = release-boxed.**~~ **REVERSED to trigger-based:** retirement is gated on plugin #2 and deferred to the v3.0.0 convergence (D-V3-2), not a fixed release count. The analytics finding still rules out usage-threshold (C) as the *measure*; the trigger is plugin #2 shipping, not a measured decline.
+3. (Still later, not now) the exact end-of-window retirement mechanic (tombstone vs delist) - chosen at the convergence, per the plan.
+
+The plan now folds in the verified mechanics and all three companion docs are written (migration guide, smoke matrix, registry CI spec).

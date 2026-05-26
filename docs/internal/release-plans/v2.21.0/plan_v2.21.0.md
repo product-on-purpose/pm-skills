@@ -49,7 +49,7 @@ Decided 2026-05-25. Stand up `product-on-purpose` as the canonical, promoted pat
 - **Install-identity launch** (Phase 1): repoint README + docs-site install instructions to the new marketplace as canonical, framed as additive dual-home; version bump to 2.21.0; CHANGELOG; release notes.
 - **Registry finalization** (Phase 2): the agent-plugins `marketplace.json` target (sha + version); a registry validation CI spec; go-public preparation.
 - **Migration safety** (Phase 3): the migration guide (for users who choose to move); the dual-home mechanics.
-- **Verification** (Phase 4): the 6-scenario install/upgrade smoke matrix from clean state.
+- **Verification** (Phases 4-5): the 8-scenario install/upgrade smoke matrix - private S1-S7 at Phase 4, post-flip public S8 at Phase 5.
 - **Launch + hygiene** (Phase 5): tag, pin, flip the registry public, publish the Release, announce, post-tag hygiene.
 
 ### Out of scope (deferred, with destination)
@@ -77,7 +77,8 @@ Execution spine: **prep -> tag -> pin -> smoke (private) -> public -> announce.*
 | M3 | CHANGELOG + Release notes framed as an additive distribution launch | D-V3-5 | Small-Med |
 
 **M1 - Repoint install instructions (additive dual-home).** README + docs-site install blocks lead with the new path (`marketplace add product-on-purpose/agent-plugins` + `install pm-skills@product-on-purpose`); add a short "Already installed the old way? It keeps working; to move, see the migration guide" pointer. Leave evergreen `npx skills add` and `git clone` untouched. Keep pm-skills's own self-hosted `marketplace.json` alive per D-V3-1.
-- Acceptance: install blocks lead with the new path; the old path is present and labeled as still-working; evergreen paths unchanged; enforcing link/anchor checks stay green.
+- **Sequencing guard:** the new path is a dead end until the registry is public, so the repoint must **not** become the user-visible default on `main` before the Phase 5 public flip. Author it during release-prep, but gate its appearance to repo visitors on the flip (it goes live in Phase 5 step 4). Until then, the repo keeps showing a working install path.
+- Acceptance: install blocks lead with the new path; the old path is present and labeled as still-working; evergreen paths unchanged; enforcing link/anchor checks stay green; the repoint is not the public default before the registry is public.
 
 **M2 - Version bump to 2.21.0.** Bump `plugin.json`, the self-hosted `.claude-plugin/marketplace.json` plugin entry, README version badge + At-a-Glance row, both `_agent-context/*/CONTEXT.md` currency tokens.
 - Acceptance: `validate-version-consistency` PASS at 2.21.0; `check-context-currency` PASS; bundle green.
@@ -93,24 +94,30 @@ Execution spine: **prep -> tag -> pin -> smoke (private) -> public -> announce.*
 | M5 | Registry validation CI spec | D-V3-4 | Medium |
 | M6 | Go-public preparation + repo hardening | D-V3-3 | Small-Med |
 
-**M4 - Stage the registry target.** Bump the `pm-skills` entry `sha` to the v2.21.0 tag commit, `version` to `2.21.0`, and the registry's own `metadata.version` to its launch version (e.g., `1.0.0`). Hold `strict: true` only after the install smoke passes.
+**M4 - Stage the registry target.** Use the complete `marketplace.json` below as the executable source of truth: it carries every field the registry CI enforces (`registry-ci-spec.md` checks 2-3 require `$schema`, `name`, `owner`, `plugins`; and per-entry `name`, `source`, `version`, `description`), so the documented target passes its own gate. Only the commented fields change from the live v2.17.0 file. Bump the `pm-skills` entry `sha` to the v2.21.0 tag commit, `version` to `2.21.0`, and the registry's own `metadata.version` to its launch version (e.g., `1.0.0`). **Keep `strict: true` set for the smoke run** so S1-S5 exercise the real launch configuration; it is already the live setting and the documented default, and it is not a "passed validation" badge (see the playbook appendix), so there is no reason to defer it.
 
 ```jsonc
-// product-on-purpose/agent-plugins .claude-plugin/marketplace.json (target at launch)
+// product-on-purpose/agent-plugins .claude-plugin/marketplace.json (complete launch target)
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "product-on-purpose",
-  "metadata": { "version": "1.0.0" },           // was 0.1.0
+  "owner": { "name": "Product on Purpose", "url": "https://github.com/product-on-purpose" },
+  "metadata": {
+    "description": "Product on Purpose: thematic AI agent skill and tool collections for product work.",
+    "version": "1.0.0"                            // was 0.1.0
+  },
   "plugins": [
     {
       "name": "pm-skills",
       "source": { "source": "github", "repo": "product-on-purpose/pm-skills", "sha": "<v2.21.0 tag SHA>" }, // was b6ff373 (v2.17.0)
+      "description": "Product management skills, sub-agents, and sprint tools across the full product lifecycle. Follows the agentskills.io specification.",
       "version": "2.21.0",                        // was 2.17.0
-      "strict": true                              // hold true only after install smoke passes
+      "strict": true
     }
   ]
 }
 ```
-- Acceptance: the staged target is unambiguous; the SHA slot is marked "fill at Phase 4 after the tag exists."
+- Acceptance: the staged target is the complete file (every CI-enforced field present, so it passes `validate-registry` as written); the SHA slot is marked "fill at Phase 4 after the tag exists."
 
 **M5 - Registry validation CI spec.** Spec only; the workflow lives in agent-plugins. See [`registry-ci-spec.md`](registry-ci-spec.md). Enforcement per D-V3-4.
 
@@ -120,7 +127,7 @@ Go-public + hardening checklist (all boxes green before the Phase 5 flip):
 - [ ] **README review + update** (update, not create - it exists): refresh for a public audience. Remove the Preview banner; correct the stale pin reference (v2.17.0 -> v2.21.0); state plainly that this is a thin registry that holds **no plugin code**; give the canonical install commands (`marketplace add product-on-purpose/agent-plugins` + `install pm-skills@product-on-purpose`); keep the "Migration during transition" section accurate.
 - [ ] **LICENSE confirm**: Apache 2.0 already present; confirm it matches pm-skills.
 - [ ] **CONTRIBUTING confirm**: already present; confirm it points at the right repos and the registry-only contribution scope.
-- [ ] **Secret scan**: no tokens/secrets in the tree or git history; `.gitignore` excludes local-only paths (`_LOCAL/`, `.memsearch/`).
+- [ ] **Secret scan**: run `gitleaks detect --no-banner` (or GitHub secret-scanning / push protection if enabled on the org) over the working tree **and full git history**; archive the run output showing zero findings as launch evidence; confirm `.gitignore` excludes local-only paths (`_LOCAL/`, `.memsearch/`).
 - [ ] **CI green**: the registry validation workflow (M5) is committed and passing on `main`.
 - [ ] **Branch protection**: protect `main` and require the validate-registry check, set at or before go-public.
 - [ ] **Repo metadata**: GitHub About description + topics point at the canonical install.
@@ -137,17 +144,20 @@ Go-public + hardening checklist (all boxes green before the Phase 5 flip):
 
 **M8 - Dual-home mechanics.** Keep the pm-skills self-hosted `marketplace.json` alive and version-bumped during the transition; both homes serve the same plugin. The retirement trigger + end-of-window mechanic are deferred to the convergence release (D-V3-2).
 
-### Phase 4 - Tag, pin, verify
+### Phase 4 - Tag, pin, verify (private)
 1. Run the full pre-tag validator bundle + Astro build on the release-prep HEAD; CI green.
-2. Tag pm-skills `v2.21.0` at the CI-verified SHA (tag only the SHA whose full CI is green).
+2. Tag pm-skills `v2.21.0` at the CI-verified SHA (tag only the SHA whose full CI is green). Keep the tag **local until private smoke passes** (step 4); push it only after the registry is staged and verified.
 3. Fill the staged registry `sha` (M4) with the v2.21.0 tag commit; apply to the agent-plugins registry (still private).
-4. Run the 6-scenario smoke matrix (authed, while private) per [`upgrade-smoke-test-matrix.md`](upgrade-smoke-test-matrix.md). S1-S5 pass; S6 reproduces the documented duplicate-install footgun.
+4. Run the private smoke scenarios (authed, while private) per [`upgrade-smoke-test-matrix.md`](upgrade-smoke-test-matrix.md): S1-S5 pass; S6 reproduces the documented duplicate-install footgun; S7 confirms recovery from the duplicated state. Archive results as release evidence, and **update the migration guide + release notes with the exact `/plugin` command syntax confirmed during smoke** (the guide and matrix currently carry representative spellings) before anything is published.
+5. **If private smoke fails (abort/rollback):** do not push the tag, do not flip the registry public, and do not publish or repoint public surfaces. The maintainer decides patch-forward vs re-tag. If the tag is still local, delete and reissue it at the corrected SHA. If it was already pushed, it is still safe to delete and reissue while no public Release and no public registry point at it (which is why steps 2 and Phase 5 hold those until smoke is green). Resolve, then re-enter Phase 4 from step 1.
 
 ### Phase 5 - Launch + hygiene
 1. Flip the agent-plugins repo public (D-V3-3), once the M6 go-public + hardening checklist is fully green.
-2. Publish the pm-skills `v2.21.0` GitHub Release as Latest with the `Release_v2.21.0.md` body; verify no orphan draft.
-3. Announce the launch (link the migration guide) on the channels the README points at. Use the **light comms stack** (additive launch): README repoint, release notes, and a gentle "also available via product-on-purpose" line on the old listing. The heavy stack (skill banner, tombstone) is reserved for the convergence retirement.
-4. Post-tag hygiene: flip this plan + both CONTEXT.md to SHIPPED; refresh MEMORY.md; confirm the next-version stubs.
+2. **Post-flip public smoke (gate before Release):** from a clean Claude Code profile that is **not** authenticated to the `product-on-purpose` org (or a logged-out client), run **S8** - `/plugin marketplace add product-on-purpose/agent-plugins` then `/plugin install pm-skills@product-on-purpose`, and confirm commands resolve. This is the only step that proves a *normal public user* can install; Phase 4's authed-private smoke does not. If S8 fails, the repo is reachable but not installable (visibility scope, pin, or registry CI): hold the Release and the announce, diagnose, and do not proceed until S8 passes.
+3. Publish the pm-skills `v2.21.0` GitHub Release as Latest with the `Release_v2.21.0.md` body; push the v2.21.0 tag if not already pushed; verify no orphan draft.
+4. **Make the public README/docs repoint (M1) the user-visible default now that the registry is public**, per the Phase 1 / sequencing guard, so repo visitors are never sent to a still-private registry.
+5. Announce the launch (link the migration guide) on the channels the README points at. Use the **light comms stack** (additive launch): README repoint, release notes, and a gentle "also available via product-on-purpose" line on the old listing. The heavy stack (skill banner, tombstone) is reserved for the convergence retirement.
+6. Post-tag hygiene: flip this plan + both CONTEXT.md to SHIPPED; refresh MEMORY.md; confirm the next-version stubs.
 
 ---
 
@@ -190,8 +200,11 @@ Each brief uses the 6-part format; the maintainer slot is now filled. Options la
 - The registry `pm-skills` entry is pinned to the v2.21.0 tag SHA at `version 2.21.0`.
 - Fresh install from the new marketplace installs pm-skills at v2.21.0 (smoke S1).
 - An existing `pm-skills@pm-skills-marketplace` install keeps working (smoke S2) and has a documented, working move path (smoke S3).
-- Remove-old-then-add-new leaves no duplicate commands (smoke S3); both-added reproduces the footgun (smoke S6, documented).
+- Remove-old-then-add-new leaves no duplicate commands (smoke S3); both-added reproduces the footgun (smoke S6, documented); recovery from the duplicated state is verified (smoke S7).
 - Direct install from `product-on-purpose/pm-skills` still works (smoke S4); installed commit matches the registry `sha` (smoke S5).
+- After the public flip, a clean **non-org-authenticated** client installs pm-skills from the public marketplace (smoke S8) before the Release is published.
+- The migration guide and release notes carry the **exact `/plugin` command syntax confirmed during smoke** - no "representative" or "confirm later" placeholders remain at publish.
+- A failed smoke run has a defined abort path (tag not pushed, registry not flipped, public surfaces not repointed) per Phase 4 step 5.
 - Registry CI validates schema, required fields, pinned-SHA-on-a-tag, and installability per D-V3-4.
 - The agent-plugins repo is hardened before the visibility flip: README updated for a public audience (no Preview banner, pin corrected to v2.21.0, thin-registry scope stated), LICENSE + CONTRIBUTING confirmed, no secrets, branch protection on `main`, and the registry CI green (M6 checklist fully green).
 - Release notes explain the launch as **additive** (new path added; old path unaffected; nothing removed).
@@ -210,8 +223,20 @@ Folded in from the prior v2.21.0 content stub; these are not marketplace work an
 ## Dependencies and sequencing
 
 - **Hard dependency (met):** pre-promotion hardening, shipped through v2.20.0.
-- **Cross-repo coordination:** spans two repos. pm-skills-side work (Phases 1, 3, 4 tag, 5 Release) is authored and committed here. agent-plugins-side work (Phases 2, 4 pin, 5 go-public) is staged here as drafts and hand-applied to the live registry at execution. The registry `sha` can only be finalized after the pm-skills tag exists (Phase 4).
+- **Cross-repo coordination:** spans two repos. pm-skills-side work (Phases 1, 3, 4 tag, 5 Release) is authored and committed here. agent-plugins-side work (Phases 2, 4 pin, 5 go-public) is staged here as drafts and hand-applied to the live registry at execution. The registry `sha` can only be finalized after the pm-skills tag exists (Phase 4). The cross-repo handoffs are enumerated below so none is dropped at execution.
 - **Relationship to v2.22.0 (naming):** independent and additive; either order works, though shipping the marketplace first keeps the promoted launch's "your skills did not change" message clean.
+
+### Cross-repo execution checklist
+
+Every row is launch-blocking: if a `product-on-purpose/agent-plugins` row cannot be completed (permissions, CI), the launch holds rather than going public half-configured.
+
+| Repo | Work | Owner / permission | Branch / PR | Expected commit(s) | Evidence | Gate |
+|---|---|---|---|---|---|---|
+| `product-on-purpose/pm-skills` | M1 repoint, M2 version bump, M3 CHANGELOG/release notes, tag | maintainer (write) | release-prep branch -> `main` | version-bump + docs commit; annotated tag `v2.21.0` | green pre-tag bundle + Astro build | Phase 1, 4 |
+| `product-on-purpose/agent-plugins` | M4 `marketplace.json` (complete target, real SHA), M5 `validate-registry.yml`, M6 README/hardening | maintainer needs **admin** on agent-plugins (for branch protection + visibility flip), not just write | `launch-prep` PR -> `main` | registry-update commit; CI workflow commit; README update commit | CI run link; branch-protection screenshot; secret-scan output | Phase 2, 5 |
+| `product-on-purpose/agent-plugins` | go-public visibility flip | maintainer with **admin** | repo settings (not a commit) | n/a (settings change) | post-flip public S8 evidence | Phase 5 |
+
+- **Permission pre-check (do at Phase 0):** confirm the executor actually holds **admin** on `agent-plugins` (branch protection and the visibility flip both require it). A write-only collaborator can stage `marketplace.json` and CI but cannot complete M6 or the flip - discover that before tag day, not during launch.
 
 ---
 
@@ -220,7 +245,7 @@ Folded in from the prior v2.21.0 content stub; these are not marketplace work an
 | File | Purpose |
 |---|---|
 | [`migration-guide-draft.md`](migration-guide-draft.md) | User-facing migration content (3 user situations, exact commands), finalized to Approach B |
-| [`upgrade-smoke-test-matrix.md`](upgrade-smoke-test-matrix.md) | The 6-scenario install/upgrade smoke runbook (the Phase 4 gate) |
+| [`upgrade-smoke-test-matrix.md`](upgrade-smoke-test-matrix.md) | The 8-scenario install/upgrade smoke runbook (Phase 4 private gate S1-S7 + Phase 5 public gate S8) |
 | [`registry-ci-spec.md`](registry-ci-spec.md) | Spec for the agent-plugins registry validation workflow |
 | [`launch-and-notification-playbook.md`](launch-and-notification-playbook.md) | Launch-approach options + notification channel inventory + best practices (Approach B locked) |
 | [`decision-worksheet.md`](decision-worksheet.md) | Plain-language decision tracker + verified Claude Code facts (now resolved) |
