@@ -117,9 +117,11 @@ After installing, you'll have 73 slash commands available (like `/prd`, `/hypoth
 **Claude Code (recommended):**
 
 ```bash
-/plugin marketplace add product-on-purpose/pm-skills
-/plugin install pm-skills@pm-skills-marketplace
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
 ```
+
+> Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](docs/releases/Release_v2.21.0.md).
 
 **Cross-agent (Cursor, Copilot, Cline, and others via the open [skills CLI](https://github.com/vercel-labs/skills)):**
 
@@ -407,9 +409,11 @@ flowchart LR
 **Claude Code - Plugin Marketplace (recommended)**
 
 ```bash
-/plugin marketplace add product-on-purpose/pm-skills
-/plugin install pm-skills@pm-skills-marketplace
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
 ```
+
+> Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](docs/releases/Release_v2.21.0.md).
 
 All 63 skills and their slash commands become available immediately. No clone required.
 

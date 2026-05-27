@@ -30,9 +30,11 @@ Two install paths, depending on your Claude Code version.
 ### Modern Claude Code: plugin marketplace (recommended)
 
 ```
-/plugin marketplace add product-on-purpose/pm-skills
-/plugin install pm-skills@pm-skills-marketplace
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
 ```
+
+> Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](../releases/Release_v2.21.0.md).
 
 After install, all 63 skills resolve from any directory. Slash commands like `/prd`, `/opportunity-tree`, `/okr-writer`, `/agenda` work immediately. Verify with `/plugin list`.
 
@@ -260,8 +262,8 @@ If you see schema errors during `/plugin marketplace add`, you are likely on a p
 ```bash
 git -C /path/to/pm-skills pull
 /plugin marketplace remove pm-skills-marketplace
-/plugin marketplace add product-on-purpose/pm-skills
-/plugin install pm-skills@pm-skills-marketplace
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
 ```
 
 ### Skill output quality is low
