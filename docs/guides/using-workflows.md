@@ -254,7 +254,7 @@ For full details on each workflow -- skill sequences, step-by-step guides, examp
 | [Stakeholder Alignment](../workflows/stakeholder-alignment.md) | stakeholder-summary, problem-statement, solution-brief, launch-checklist |
 | [Lean Startup](../workflows/lean-startup.md) | hypothesis, experiment-design, experiment-results, pivot-decision |
 | [Technical Discovery](../workflows/technical-discovery.md) | spike-summary, adr, design-rationale |
-| [Triple Diamond](../workflows/triple-diamond.md) | All 26 phase skills across 6 phases |
+| [Triple Diamond](../workflows/triple-diamond.md) | All 30 phase skills across 6 phases |
 
 ---
 

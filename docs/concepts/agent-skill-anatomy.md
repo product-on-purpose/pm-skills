@@ -1029,7 +1029,7 @@ AI follows SKILL.md instructions
 ### Why This Matters
 
 **Context window efficiency**:
-- Discovery: ~7KB (40 skill names + descriptions)
+- Discovery: ~11KB (63 skill names + descriptions)
 - Invocation: ~15KB (1 full SKILL.md + template + example)
 - Without progressive loading: ~500KB (all 63 skills fully loaded)
 

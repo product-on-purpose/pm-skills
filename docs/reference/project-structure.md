@@ -22,7 +22,7 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (59 total in v2.16.0: 26 phase + 8 foundation + 10 utility + 15 tool; flat layout)
+├── skills/                     # Core PM skills (63 total: 30 phase + 8 foundation + 10 utility + 15 tool; flat layout)
 ├── commands/                   # Slash command markdown files
 ├── _workflows/                 # Workflows source (12 in v2.15.0)
 ├── agents/                     # Sub-agent definitions (v2.16.0+; auto-discovered by Claude Code's plugin runtime)
@@ -155,7 +155,7 @@ skills/{skill-name}/
 
 Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
 
-**Commands (66 total: 59 skill commands + 7 workflow commands)**
+**Commands (73 total: 59 skill commands + 10 workflow commands + 4 sub-agent commands)**
 | Command | Target skill/workflow |
 | --- | --- |
 | `/competitive-analysis` | discover-competitive-analysis |
@@ -216,7 +216,7 @@ Workflows chain multiple skills together into guided, end-to-end sequences.
 |----------|---------|-----------------|
 | `feature-kickoff.md` | New feature development | problem-statement → hypothesis → prd → user-stories → launch-checklist |
 | `lean-startup.md` | Rapid validation cycle | hypothesis → experiment-design → experiment-results → pivot-decision |
-| `triple-diamond.md` | Complete product development | All 26 phase skills across 6 phases |
+| `triple-diamond.md` | Complete product development | All 30 phase skills across 6 phases |
 | `customer-discovery.md` | Transform raw research into a validated problem | interview-synthesis → stakeholder-summary → problem-statement → hypothesis |
 | `sprint-planning.md` | Prepare sprint-ready stories from a backlog | user-stories → acceptance-criteria → edge-cases |
 | `product-strategy.md` | Frame a major strategic initiative | competitive-analysis → opportunity-tree → problem-statement → solution-brief |
