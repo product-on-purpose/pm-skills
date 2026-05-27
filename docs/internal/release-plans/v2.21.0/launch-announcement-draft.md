@@ -2,7 +2,7 @@
 
 > **Held until Phase 5** (post public-flip + S8 pass - both done). Internal draft for review; publish verbatim (or edited) at announce time. Matches the locked **light comms stack** for an additive launch: release watchers + a gentle pointer, no skill-output banner. Channels: the GitHub Release body (already in `docs/releases/Release_v2.21.0.md`) + a pinned GitHub Discussion + the org `.github` profile if desired.
 >
-> **Maintainer to verify before posting:** the upcoming-plugin names + descriptions in "What's coming" are drafted from inference - confirm the names (the sibling dir is `agent-skill-toolkit` singular; this draft uses your `agent-skills-toolkit`) and that each scope is accurate.
+> **Maintainer to verify before posting:** `agent-skills-toolkit` (plural) name + scope confirmed. Still confirm the names + scopes for `thinking-framework-skills` and `agent-config-toolkit` (drafted from inference).
 
 ## Pinned GitHub Discussion (or Release highlight)
 
@@ -41,7 +41,7 @@ The marketplace exists because pm-skills is the first of several plugins. On the
 
 - **`thinking-framework-skills`** - canonical thinking and reasoning frameworks as agent skills (SCQA, MECE, the Pyramid Principle, First Principles, OODA, and more), so your agent structures analysis the way a sharp strategist would.
 - **`agent-config-toolkit`** - a toolkit for configuring AI coding agents: settings, hooks, permissions, and project scaffolding, to standardize how a team sets up its agents.
-- **`agent-skills-toolkit`** - meta-tooling for building and maintaining your own agent skills (scaffolding, validation, authoring helpers) - the kind of machinery behind a library like pm-skills.
+- **`agent-skills-toolkit`** - the toolkit for building and leveling up advanced Claude Code plugins, end to end. Not just authoring skills (plenty of tools already do that) - it helps you evaluate and improve existing plugins and compose advanced ones from the full palette: skills, hooks, sub-agents, commands, templates, and more.
 
 (Names and scope are still firming up - watch the marketplace for releases.)
 
