@@ -78,6 +78,12 @@ The decisive design input is how each runtime actually lets a user reach a capab
 - **R-A3.** The Claude Code command wrapper is **dropped**. Skills accept the same `$ARGUMENTS` / `$1` / named-argument substitution as commands (verified 2026-05-25), and commands are merged into skills in current Claude Code, so the short skill `name` plus `$ARGUMENTS` in the `SKILL.md` fully replaces the wrapper. No generator is needed for the Claude Code surface.
 - **R-A4.** `workflow-*` commands keep their `workflow-` prefix as a deliberate, documented exception: they orchestrate multiple skills, have no skill twin, and the prefix is a meaningful kind-namespace.
 - **R-A5.** Every skill `description` meets the rubric in section 5.
+- **R-A6.** The `pm-` prefix is **not** a phase token and is **not** a generic vendor stamp. It is retained on a skill `name` only where it carries real meaning in that specific name, decided per skill, never by blanket rule:
+  - **system-tooling** - the skill operates on the pm-skills library itself: `pm-skill-builder`, `pm-skill-validate`, `pm-skill-iterate`, `pm-skill-auditor`, `pm-release-conductor`, `update-pm-skills`.
+  - **domain word** - "PM" names the subject the skill acts on, and the bare name would be hopelessly generic: `pm-critic` (bare `critic` is meaningless).
+  - **sub-agent alignment** - the name must match a sub-agent the skill dispatches to: `pm-changelog-curator` (matches `@agent-pm-changelog-curator`).
+
+  General-purpose utilities that meet none of these correctly omit it (`mermaid-diagrams`, `slideshow-creator`), and content skills (PRD, persona, OKR-writer, etc.) never carry it. Do not add `pm-` to a content skill for branding or collision-avoidance, and do not strip it from a name where it is meaningful. (The Codex flat-namespace collision risk this avoids exposing the bare content names to is an accepted, documented tradeoff - see `naming-impact-analysis.md` sections 0 and 2; it is mitigated through the description rubric in section 5, not through the name.)
 
 ### Rule-set B (REJECTED alternative, retained for rationale: keep prefixed names)
 
@@ -142,7 +148,7 @@ Because the wrapper layer is dropped (D-V31-2=A), there is nothing to generate; 
 | 6 | **Description floor** (D-V31-5) | a `description` is below the length floor, lacks trigger phrasing, or is name-dependent | Enforcing (heuristic) |
 
 ### Notes
-- Check 1's token list is the authoritative phase set; keep it in sync with `metadata.classification` values.
+- Check 1's token list is the authoritative phase set; keep it in sync with `metadata.classification` values. `pm-` is deliberately **not** in this list: it is a meaningful name component (see R-A6), not a banned prefix, and must never be added to the banned set.
 - Check 4 encodes R-A4: the only legitimate `commands/*.md` are the 10 `workflow-*` orchestrators.
 - Check 5 is dropped at the [v3.0.0](../v3.0.0/plan_v3.0.0.md) convergence when the aliases are removed.
 - Check 6 is a floor, not a full quality judgment; human review (per Section 5) carries the rest.
