@@ -112,7 +112,7 @@
 
 ## Quick Start
 
-After installing, you'll have 73 slash commands available (like `/prd`, `/hypothesis`, `/user-stories`) plus access to templates, workflows, sub-agents, and 95+ sample outputs.
+After installing, you'll have 63 slash commands available (like `/prd`, `/hypothesis`, `/user-stories`) plus access to templates, workflows, sub-agents, and 95+ sample outputs.
 
 **Claude Code (recommended):**
 
