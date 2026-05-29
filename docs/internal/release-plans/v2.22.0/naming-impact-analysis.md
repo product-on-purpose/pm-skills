@@ -30,13 +30,13 @@ This is the opposite of Claude Code, where every plugin skill is forced into `/p
 
 Using `foundation-okr-writer` as the worked example.
 
-| Surface | Today (v2.21.0) | After v2.22.0 (short name + alias) | After v3.0.0 (alias removed) |
-|---|---|---|---|
-| Claude Code `/` menu | `/pm-skills:foundation-okr-writer` **and** `/okr-writer` (command wrapper) | `/pm-skills:okr-writer` (+ `/pm-skills:foundation-okr-writer` alias, deprecated) | `/pm-skills:okr-writer` only |
-| Claude Code palette rows | ~2 per capability (~136 total for 63) | ~2 per capability during alias window (skill + deprecated alias) | ~1 per capability (~63) |
-| Codex typed | `$foundation-okr-writer` | `$okr-writer` (+ `$foundation-okr-writer` alias) | `$okr-writer` only |
-| Codex implicit (description) | unchanged | unchanged | unchanged |
-| Marketplace listing | the skill | the skill (short name) | the skill (short name) |
+| Surface | Today (v2.21.0) | After v2.22.0 (hard rename) |
+|---|---|---|
+| Claude Code `/` menu | `/pm-skills:foundation-okr-writer` **and** `/okr-writer` (command wrapper) | `/pm-skills:okr-writer` only (old name removed) |
+| Claude Code palette rows | ~2 per capability (~136 total for 63) | ~1 per capability (~63) |
+| Codex typed | `$foundation-okr-writer` (and the plugin surfaced no skills) | `$okr-writer` only; skills now discoverable via `.codex-plugin/plugin.json` |
+| Codex implicit (description) | unchanged | unchanged |
+| Marketplace listing | the skill | the skill (short name) |
 
 Key reads:
 - The **command wrapper** (`/okr-writer` with no namespace) disappears entirely - it was Claude-Code-only legacy. Its short-name ergonomics move onto the skill `name`.
@@ -73,18 +73,18 @@ That risk (section 0) is real and is **accepted as a documented tradeoff**, not 
 
 ## 3. End-user impact - who breaks, where, when
 
-| User / surface | v2.22.0 (this release) | v3.0.0 (convergence) |
+| User / surface | v2.22.0 (this release) | What to do |
 |---|---|---|
-| Claude Code user typing the short command wrapper (`/okr-writer`) | **Breaks now.** The un-namespaced wrapper is deleted this release. Mitigation: the namespaced skill `/pm-skills:okr-writer` is the replacement; the old prefixed name resolves as a deprecated alias. | n/a (already gone) |
-| Claude Code user typing the namespaced prefixed skill (`/pm-skills:foundation-okr-writer`) | Still works (deprecated alias). | **Breaks** - alias removed. Must switch to short name. |
-| Codex user typing `$foundation-okr-writer` | Still works (deprecated alias). | **Breaks** - alias removed. Must switch to `$<short>`. |
-| Codex user relying on implicit (description) invocation | No change at any version (descriptions are held to a higher bar, not renamed). | No change. |
-| Marketplace install (pinned to v2.21.0 commit `1065c3e`) | **No effect** - the pin is a SHA; the rename lands in a later tag. (OQ-3.) | No effect on the pin; new installs get short names. |
-| New user discovering via description / `/skills` browse | Improved (cleaner names, enforced description floor). | Improved. |
+| Claude Code user typing the short command wrapper (`/okr-writer`) | **Removed.** The un-namespaced wrapper is deleted. | Use the namespaced skill `/pm-skills:okr-writer`. |
+| Claude Code user typing the namespaced prefixed skill (`/pm-skills:foundation-okr-writer`) | **Removed** (hard rename, no alias). | Switch to `/pm-skills:okr-writer` (see `naming-map.md`). |
+| Codex user typing `$foundation-okr-writer` | **Removed** (hard rename, no alias). | Switch to `$okr-writer` (see `naming-map.md`). |
+| Codex user relying on implicit (description) invocation | No change (descriptions are held to a higher bar, not renamed). | Nothing. |
+| Marketplace install (pinned to v2.21.0 commit `1065c3e`) | **No effect** - the pin is a SHA; the rename lands in a later tag. (OQ-3.) | Nothing until you update the pin. |
+| New user discovering via description / `/skills` browse | Improved (cleaner names, enforced description floor, Codex package now discoverable). | Nothing. |
 
-Headline: **nothing a user invokes silently misbehaves in v2.22.0** except the deleted Claude command wrapper, which has a same-release namespaced replacement. The genuine breaking moment is v3.0.0 (alias removal), and it is signposted a full release ahead. This is what keeps v2.22.0 an additive minor.
+Headline: the old phase-prefixed names stop resolving in v2.22.0 (hard rename). Under D-V31-6 this ships as a MINOR because skill invocation names are declared outside the SemVer-governed surface, not because nothing changed; the `naming-map.md` old -> new table is the migration aid. The un-namespaced Claude command wrapper is also removed, with a same-release namespaced replacement.
 
-The one residual cross-runtime risk the alias window does **not** cover: on Codex a short name could collide with a *different vendor's* skill the moment it ships (not a deprecation issue, a namespace-sharing issue). That risk is **accepted as a documented tradeoff** (section 2): there is no clean prefix that mitigates it without overloading the meaningful `pm-`, so it is paid down through the description bar rather than the name.
+One residual cross-runtime risk (independent of the rename mechanics): on Codex a short name could collide with a *different vendor's* skill the moment it ships (a namespace-sharing issue). That risk is **accepted as a documented tradeoff** (section 2): there is no clean prefix that mitigates it without overloading the meaningful `pm-`, so it is paid down through the description bar rather than the name.
 
 ---
 
@@ -95,18 +95,19 @@ Live inventory (2026-05-27): a reference scan for phase-prefixed skill tokens fo
 | Class | Approx files | Action | Notes |
 |---|---|---|---|
 | Skill directories + `name:` fields | 63 dirs | **Rename** (dir + frontmatter `name`), verify `metadata.classification` present | The core mechanical change |
-| Deprecated alias skills | +63 new | **Create** | Each: stub resolving to canonical, `metadata.deprecated: true`, one-line note |
+| Codex manifest + PRIVACY.md | +2 new | **Create** | `.codex-plugin/plugin.json` (`skills: ./skills/`) + one-paragraph `PRIVACY.md`. No alias stubs are created (hard rename). |
+| Name-keyed sample library | `library/skill-output-samples/<skill>/`, `library/sub-agent-samples/<skill>/` | **Rename** dirs + `sample_<skill>_*` files | The generator looks samples up by skill-dir name; a rename without this silently drops them from the docs |
 | Command wrappers `commands/*.md` | 63 of 73 | **Delete** | Keep the 10 `workflow-*` |
 | `workflow-*` command bodies | 10 | **Rewrite** internal skill references to short names | Kept, but they name the skills they orchestrate |
 | Workflow docs (`_workflows/` + mirror `docs/workflows/`) | ~13 x2 | **Rewrite** skill references | High-density refs (e.g. `triple-diamond.md` 24, `lean-startup.md` 26) |
 | `AGENTS.md` | 1 | **Rewrite** | Densest single file (76 occurrences) |
-| Current-state docs (`docs/guides/`, `docs/getting-started/`, `docs/index.mdx`, `docs/changelog.md`) | ~25 | **Rewrite** current references; add a deprecation/rename note | |
+| Current-state docs (`docs/guides/`, `docs/getting-started/`, `docs/index.mdx`, `docs/changelog.md`) | ~25 | **Rewrite** current references; add a rename/migration note | |
 | Agent context (`_agent-context/*/CONTEXT.md`) | ~2 active | **Rewrite** | Archived context: leave |
 | Tooling (`.github/workflows/validation.yml`, `src/content.config.ts`, plugin/marketplace JSON) | ~4 | **Audit** - confirm nothing keys off the prefixed name | Risk of silent breakage if a glob/path assumes the prefix |
 | **Historical release notes** (`docs/releases/Release_v2.x.md`, `docs/changelog.md` past entries) | ~12 | **DO NOT rewrite** | Frozen record; rewriting would falsify what shipped under the old names |
-| **Library sample directories** (`library/skill-output-samples/<skill>/`, `library/sub-agent-samples/<skill>/`) | ~120 files | **Separate decision** | Dir names mirror skill names. Renaming is cosmetic and high-volume; recommend a follow-up, not gating v2.22.0. The sample *content* references old names as historical artifacts. |
+| **Library sample directories** (`library/skill-output-samples/<skill>/`, `library/sub-agent-samples/<skill>/`) | ~120 files | **Rename (in scope, gating; D3=rename)** | NOT cosmetic: `generate-skill-pages.py` looks samples up by skill-dir name (`sample_<skill>_<thread>_*.md`), so a rename without this silently drops samples from the docs. Sample *content* that references old names as historical narrative stays. |
 
-`★ Takeaway:` the **must-rewrite-or-break** set is far smaller than 250 - it is roughly the 63 renames + 63 new aliases + 63 wrapper deletes + ~50 cross-reference files (workflows, AGENTS.md, current docs, tooling audit). The ~130 frozen/sample files are explicitly out of the gating rewrite. **The exact enumerated checklist now exists** as [`implementation-plan.md`](implementation-plan.md) (created 2026-05-27); this section is the sizing rationale, the impl-plan is the executor's checklist.
+`★ Takeaway:` the **must-rewrite-or-break** set is far smaller than 250 - roughly the 63 renames + 63 wrapper deletes + the name-keyed sample-library rename + ~50 cross-reference files (workflows, AGENTS.md, current docs, tooling audit) + the regenerated doc pages. No alias stubs are created (hard rename). **The exact enumerated checklist** is [`implementation-plan.md`](implementation-plan.md); this section is the sizing rationale, the impl-plan is the executor's checklist.
 
 Two hazards this size implies, both already known from v2.21.0:
 1. **Echo-miss drift** (fix doc A, miss its mirror in doc B): `_workflows/` and `docs/workflows/` are parallel copies - any rewrite must hit both. This is exactly the failure mode that needed 6 Codex passes on v2.21.0.
@@ -116,11 +117,11 @@ Two hazards this size implies, both already known from v2.21.0:
 
 ## 5. What this means for the plan
 
-- The locked decisions (drop wrappers, deprecated aliases, validator-only, additive minor) are unaffected and sound. This analysis does not reopen them.
+- The locked decisions (drop wrappers, hard rename, validator-only, minor) are unaffected and sound. This analysis does not reopen them.
 - **The `pm-` question is settled (section 2):** keep the locked map's names - bare for content skills, `pm-` retained only where meaningful per skill, no universal prefix. The Codex collision exposure on bare names is an accepted, documented tradeoff mitigated by the description bar. The per-skill rule is codified in the naming standard (R-A6).
 - **Two open questions should be promoted/added:**
   - Promote the Codex flat-namespace fact from a buried assumption to an explicit, citation-backed open item (sibling of OQ-2).
-  - Add the library-sample-directory rename as a non-gating follow-up decision.
+  - The library-sample-directory rename is in scope and gating (D3=rename): `generate-skill-pages.py` looks samples up by skill-dir name, so skipping it silently drops samples from the docs.
 - **Sequencing nudge:** land the `check-count-consistency` sub-count hardening *before* the rename, so the breakdown churn is CI-guarded during the highest-churn release in the line.
 
 ---
