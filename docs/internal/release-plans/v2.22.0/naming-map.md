@@ -2,7 +2,7 @@
 
 > The v2.22.0 Phase 1 artifact (resolves OQ-4). Old phase-prefixed name -> proposed short canonical name.
 > Rule (from [`command-skill-naming-standard.md`](command-skill-naming-standard.md) R-A1): strip the leading phase/classification token (`define-`, `deliver-`, `develop-`, `discover-`, `foundation-`, `iterate-`, `measure-`, `tool-`, `utility-`); phase moves to `metadata.classification` (already present).
-> Old names are retained as deprecated aliases for v2.22.0 (D-V31-4=B); removed at the [v3.0.0](../v3.0.0/plan_v3.0.0.md) convergence.
+> Old names are removed in v2.22.0 (hard rename, D-V31-4=A); this map doubles as the user migration table (old -> new). No deprecated aliases are created.
 > Drafted 2026-05-25. **Collision check: PASS - all 63 short names are unique** (see bottom).
 
 ## define (5)

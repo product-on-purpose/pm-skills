@@ -59,7 +59,7 @@ The decisive design input is how each runtime actually lets a user reach a capab
 1. **Single source of truth.** The skill (`SKILL.md` per the agentskills.io spec) is canonical and portable. Any per-runtime invocation surface (a Claude command, a future Codex/Gemini wrapper) is a **projection** of the skill, generated from it, never hand-maintained in parallel. Hand-maintained fan-out is exactly what produced the current inconsistency.
 2. **The canonical name is a stable identifier; ergonomics ride the name itself.** A canonical identifier does not need to be short to be good, but because the *same* identifier is what users type on non-Claude runtimes, short and memorable is the ergonomic win. Taxonomy (the Triple Diamond phase) is metadata, not part of the typed identifier; it already lives in `metadata.classification`.
 3. **The description is the real interface; hold it to a bar.** Every skill must be selectable from natural language without relying on its name. This is enforced as a quality bar, not left to chance.
-4. **Graceful, signposted deprecation, never a silent break.** A rename is a breaking change to the invocation contract. Handle it with an alias/deprecation window and a version signal, the same philosophy the v2.21.0 marketplace launch uses for the install contract.
+4. **A rename to the invocation surface is signposted, with a migration aid.** Renaming a skill changes how it is invoked. v2.22.0 handles this with a hard rename plus a published old -> new migration table (`naming-map.md`), not a resolving-alias window, on the recorded stance that skill names are not part of the SemVer-governed contract (the install path is). A deprecation/alias window remains the right tool when the renamed surface IS a stability-guaranteed contract (as v2.21.0 used for the marketplace install path).
 5. **Make the failure structurally impossible, then also detectable.** Prefer generation (the wrapper cannot be misnamed because no human names it) backed by a CI freshness gate; fall back to a validator when no wrapper layer survives.
 
 ### Supporting precedent
@@ -140,15 +140,15 @@ Because the wrapper layer is dropped (D-V31-2=A), there is nothing to generate; 
 
 | # | Check | Fails when | Tier |
 |---|---|---|---|
-| 1 | **Short canonical name** | a skill `name` begins with a phase/classification token (`define-`, `deliver-`, `develop-`, `discover-`, `foundation-`, `iterate-`, `measure-`, `tool-`, `utility-`) | Enforcing |
+| 1 | **Short canonical name** | a skill `name` begins with a phase/classification token (`define-`, `deliver-`, `develop-`, `discover-`, `foundation-`, `iterate-`, `measure-`, `tool-`, `utility-`), EXCEPT the descriptive methodology stems `foundation-sprint-*` and `design-sprint-*` (kept names, not phase prefixes) and the meaningful `pm-` names (R-A6) | Enforcing |
 | 2 | **Name uniqueness** | two skills share a `name` (or a skill `name` collides with a retained `workflow-*` command) | Enforcing |
 | 3 | **Classification present** | a skill lacks `metadata.classification` (phase must live here, not in the name) | Enforcing |
 | 4 | **No stray command wrappers** | a `commands/*.md` exists that is not a `workflow-*` orchestrator | Enforcing |
-| 5 | **Deprecated-alias integrity** (v2.22.0 only) | a deprecated alias skill lacks `metadata.deprecated: true` or does not point to a real canonical skill | Enforcing |
+| 5 | **Codex manifest present** | `.codex-plugin/plugin.json` is missing, does not parse, its `skills` value does not begin with `./` or does not resolve to `skills/`, or required identity fields are absent | Enforcing |
 | 6 | **Description floor** (D-V31-5) | a `description` is below the length floor, lacks trigger phrasing, or is name-dependent | Enforcing (heuristic) |
 
 ### Notes
-- Check 1's token list is the authoritative phase set; keep it in sync with `metadata.classification` values. `pm-` is deliberately **not** in this list: it is a meaningful name component (see R-A6), not a banned prefix, and must never be added to the banned set.
+- Check 1's token list is the authoritative phase set; keep it in sync with `metadata.classification` values. `pm-` is deliberately **not** in this list (a meaningful name component per R-A6, never a banned prefix), and `foundation-sprint-*` / `design-sprint-*` are exempt (descriptive methodology stems, not phase prefixes).
 - Check 4 encodes R-A4: the only legitimate `commands/*.md` are the 10 `workflow-*` orchestrators.
-- Check 5 is dropped at the [v3.0.0](../v3.0.0/plan_v3.0.0.md) convergence when the aliases are removed.
+- Check 5 guards the Codex-native packaging added in v2.22.0; it pairs with `validate-version-consistency`, which includes `.codex-plugin/plugin.json` in the version lockstep. (No deprecated-alias check exists: the hard rename creates no aliases.)
 - Check 6 is a floor, not a full quality judgment; human review (per Section 5) carries the rest.

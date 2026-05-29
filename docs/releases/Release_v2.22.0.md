@@ -1,16 +1,16 @@
 ---
-title: v2.22.0 Release Notes - Command/Skill Naming Standardization (additive)
-description: 'v2.22.0 cleans up the way pm-skills capabilities are named and shown. Each of the 63 skills gets one short canonical name (`okr-writer` instead of `foundation-okr-writer`), and the duplicate menu entries created by hand-maintained command wrappers go away. Old names keep working for one full release as deprecated aliases, so no skill a user invokes today silently stops working. Shipped as a minor because the skill surface stays backward-compatible; the only signposted break is the un-namespaced Claude command wrapper (e.g. `/okr-writer`), replaced same-release by the namespaced skill (`/pm-skills:okr-writer`). The eventual removal of the deprecated aliases is reserved for v3.0.0.'
+title: v2.22.0 Release Notes - Command/Skill Naming Standardization
+description: 'v2.22.0 gives each of the 63 skills one short canonical name (`okr-writer` instead of `foundation-okr-writer`), removes the duplicate menu entries created by hand-maintained command wrappers, and adds a Codex-native plugin manifest so the skills are discoverable on Codex. This is a hard rename: the old phase-prefixed names are removed in the same release, with an old -> new migration table as the lookup. Shipped as a minor under the stance that skill invocation names are not part of the SemVer-governed surface (the install path and plugin identity are). Skill behavior is unchanged.'
 date: TBD
 status: DRAFT
 type: minor
 ---
 
-> **DRAFT.** Polished and finalized at tag time. Tracking the work in [`docs/internal/release-plans/v2.22.0/`](../internal/release-plans/v2.22.0/plan_v2.22.0.md).
+> **DRAFT.** Polished and finalized at tag time. The internal planning docs that track this work live in the repo (they are not published to the public docs site).
 
 **Released:** TBD
-**Type:** Minor (additive at the skill-name level; one small Claude-only command-wrapper break)
-**Day-to-day usage:** mostly unchanged. Every skill produces the same artifacts and behaves the same way as in v2.21.0. The visible difference is in the menu and the names you type, not in what the skills do.
+**Type:** Minor (skill invocation names are declared outside the SemVer-governed surface; the install path and plugin identity are the governed contract)
+**Day-to-day usage:** the skills produce the same artifacts and behave the same way as in v2.21.0. The visible difference is in the menu and the names you type, not in what the skills do.
 
 ## TL;DR (the plain-language version)
 
@@ -19,93 +19,129 @@ Today, when you open the `/` menu in Claude Code, every pm-skills capability sho
 v2.22.0 cleans this up:
 
 - **Each capability now has one canonical short name** (`okr-writer`, `prd`, `persona`, etc.).
-- **The duplicate menu entries go away.** Where you saw two rows for `okr-writer`, you now see one.
-- **The same short name works in Codex, Cursor, Gemini, and other AI tools too**, not just Claude Code.
-- **The old long names keep working for this release** as clearly-marked "deprecated" aliases, so anything you have set up today continues to work. They will be removed in v3.0.0, with plenty of notice.
-- **What the skills produce, and how to use them, is unchanged.** This release is about names, not behavior.
+- **The duplicate menu entries go away.** The menu halves immediately.
+- **The same short name works on Codex too**, not just Claude Code, and pm-skills now ships a Codex-native manifest so Codex can actually see its skills. (Cursor, Gemini, and Copilot read the same skill standard and are expected to benefit; the packaged manifests this release adds are Claude and Codex.)
+- **The old long names are removed this release** (a hard rename, no deprecation window). If you have an old name memorized or in a script, the [migration table](#migration-old-name-to-new-name) maps every old name to its new one.
+- **What the skills produce, and how to use them, is unchanged.** This release is about names and packaging, not behavior.
 
-If you do not type slash commands directly, or if you mostly invoke skills by describing what you want in plain English, **you will probably not notice this release at all** except that the menu is half as long.
+If you invoke skills by describing what you want in plain English rather than typing exact names, **you will mostly not notice this release** except that the menu is half as long.
 
 ## Why we made this change
 
-Pm-skills has been growing for a while, and two things drifted along the way:
+Two things drifted as pm-skills grew:
 
 1. **The menu got cluttered.** Each of 63 capabilities had two entries: a short command (`/okr-writer`) and the skill it wrapped (`/pm-skills:foundation-okr-writer`). That is roughly 136 menu rows for 63 real things, and because the two entries were named differently, it was not obvious they were the same skill.
-2. **The names were inconsistent.** Some skills got the phase prefix (`foundation-`, `tool-`, etc.), some did not, and there was no written rule. That is the kind of thing that creeps in slowly and gets harder to fix the longer you wait.
+2. **The names were inconsistent.** Some skills carried a phase prefix (`foundation-`, `tool-`, etc.), some did not, and there was no written rule.
 
-We picked **after the marketplace launch** as the right moment to clean it up: the library is small enough that renaming is cheap, and getting the names right *before* lots of new users learn the old ones is a one-time win.
+We picked **after the marketplace launch** as the moment to fix it: the library is small enough that the rename is achievable (a live scan found ~1,457 prefixed-name occurrences across ~250 files, bounded and mostly mechanical), and getting the names right before lots of new users learn the old ones is a one-time win.
 
-There is also a cross-runtime story. Pm-skills now runs on Codex CLI, Cursor, Gemini CLI, and Copilot CLI in addition to Claude Code. The skill *name* is what users type on those other runtimes. A long phase-prefixed name like `$foundation-okr-writer` was extra friction every time. A short name like `$okr-writer` is the same word a Claude user already knew, just without the menu-prefix dressing.
+There is also a cross-runtime story. The skill *name* is what users type on Codex CLI and other non-Claude runtimes, where a long `$foundation-okr-writer` is friction on every call. And a separate gap surfaced during this cycle: pm-skills shipped only a Claude manifest, so Codex's marketplace listed the plugin but reported "No plugin skills." v2.22.0 adds the Codex-native `.codex-plugin/plugin.json` so the skills are discoverable there.
 
 ## What changes for you
 
 ### If you use the skills in Claude Code
 
-- The `/` menu shows roughly half as many rows.
+- The `/` menu shows roughly half as many rows, immediately.
 - You will see `/pm-skills:okr-writer` (and the other short names) instead of `/pm-skills:foundation-okr-writer`.
-- The long names still resolve this release. You will see them marked **deprecated** in the menu; switch to the short name when you have a moment.
-- The one thing that goes away in v2.22.0 is the *un-namespaced* short command form (e.g. just `/okr-writer` with no `pm-skills:` prefix). The namespaced short skill (`/pm-skills:okr-writer`) replaces it the same release. If you had `/okr-writer` bookmarked or in a script, update it to `/pm-skills:okr-writer`.
+- The old long names are **removed** this release. If you had `/pm-skills:foundation-okr-writer` in a snippet or project instruction, update it using the [migration table](#migration-old-name-to-new-name).
+- The un-namespaced short command form (e.g. just `/okr-writer`) is also gone; the namespaced short skill (`/pm-skills:okr-writer`) replaces it.
 
-### If you use the skills on Codex CLI, Cursor, Gemini CLI, or Copilot CLI
+### If you use the skills on Codex CLI (or another non-Claude runtime)
 
 - You type the short name now: `$okr-writer` instead of `$foundation-okr-writer`.
-- The long name still resolves this release (deprecated alias). It is removed in v3.0.0.
-- If you invoke skills by describing what you want in plain language (rather than typing a name), **nothing changes**. The descriptions are unchanged.
+- On Codex, pm-skills now carries a native manifest, so its skills show up as a packaged plugin (previously they did not). The packaged manifests this release adds are **Claude and Codex only**. Cursor, Gemini, and Copilot can use the skills wherever they read the agentskills.io standard, but dedicated per-runtime packaging for them is separate, later work.
+- The old long name is **removed** this release; the [migration table](#migration-old-name-to-new-name) maps it to the new one.
+- If you invoke skills by describing what you want in plain language, **nothing changes**; the descriptions are not renamed (some are sharpened to meet a new quality floor).
 
 ### If you contribute skills
 
-- A new naming rule is written down ([`command-skill-naming-standard.md`](../internal/release-plans/v2.22.0/command-skill-naming-standard.md)) and enforced by CI.
-- The 63 hand-maintained command wrapper files (one per skill) are gone. The skill is now the single source of truth and accepts user input directly via `$ARGUMENTS`.
-- Adding a new skill is now simpler: write the skill, and the naming validator tells you if the name does not conform. No parallel wrapper to maintain.
+- A naming rule is written down and enforced by CI.
+- The hand-maintained command wrapper files are gone. The skill is the single source of truth and accepts user input directly via `$ARGUMENTS`.
+- The validator suite gained a naming check, a Codex-manifest check, and a 3-manifest version-lockstep check, so the inconsistency cannot quietly creep back.
 
 ## What does NOT change in v2.22.0
 
-- **Skill behavior, templates, and outputs** are identical. This is a naming change.
+- **Skill behavior, templates, and outputs** are identical. This is a naming and packaging change.
 - **The catalog count** stays at 63 skills.
 - **Existing marketplace installs** pinned to the v2.21.0 commit are unaffected; the rename lands in a later tag.
-- **The Triple Diamond taxonomy** is preserved. The phase (define, deliver, develop, etc.) now lives in `metadata.classification` and the directory grouping instead of being baked into the typed name.
-- **Skills whose name genuinely contains "pm"** (`pm-skill-builder`, `pm-critic`, `pm-changelog-curator`, and others that operate on the pm-skills library itself) keep the `pm-` prefix. It is part of their real name, not a generic stamp.
-- **The 10 `workflow-*` commands** stay as they are. They orchestrate multiple skills; they are not duplicates of anything.
-- **The marketplace install path and the old self-hosted path** are both untouched. This release does not affect distribution.
+- **The Triple Diamond taxonomy** is preserved. The phase (define, deliver, develop, etc.) lives in `metadata.classification` and the directory grouping instead of the typed name.
+- **Skills whose name genuinely contains "pm"** (`pm-skill-builder`, `pm-critic`, `pm-changelog-curator`, and the other library-tooling skills) keep the `pm-` prefix. It is part of their real name, not a generic stamp.
+- **The 10 `workflow-*` commands** stay as they are.
+- **The marketplace install path and the old self-hosted path** are both untouched. Distribution is unchanged.
 
-## The one small break in v2.22.0
+## Migration (old name to new name)
 
-The un-namespaced Claude command wrapper (e.g. `/okr-writer` without the `pm-skills:` prefix) is removed this release. The replacement is the namespaced short-name skill (`/pm-skills:okr-writer`), which lands the same release.
+Because this is a hard rename with no alias window, anyone who learned an old name needs the lookup. The rule is simple: drop the leading phase/classification token (`define-`, `deliver-`, `develop-`, `discover-`, `foundation-`, `iterate-`, `measure-`, `tool-`, `utility-`). The full mapping for all 63 skills:
 
-If you have `/okr-writer`-style bookmarks, snippets, or project instructions, update them to the namespaced form. This is a signposted change, not a silent one, and it is the only thing that goes away in v2.22.0. The removal of the deprecated long names (e.g. `foundation-okr-writer`) is reserved for v3.0.0, with its own notice a full release ahead.
+**Discover:** `discover-competitive-analysis` -> `competitive-analysis` | `discover-interview-synthesis` -> `interview-synthesis` | `discover-journey-map` -> `journey-map` | `discover-market-sizing` -> `market-sizing` | `discover-stakeholder-summary` -> `stakeholder-summary`
+
+**Define:** `define-hypothesis` -> `hypothesis` | `define-jtbd-canvas` -> `jtbd-canvas` | `define-opportunity-tree` -> `opportunity-tree` | `define-prioritization-framework` -> `prioritization-framework` | `define-problem-statement` -> `problem-statement`
+
+**Develop:** `develop-adr` -> `adr` | `develop-design-rationale` -> `design-rationale` | `develop-solution-brief` -> `solution-brief` | `develop-spike-summary` -> `spike-summary`
+
+**Deliver:** `deliver-acceptance-criteria` -> `acceptance-criteria` | `deliver-edge-cases` -> `edge-cases` | `deliver-launch-checklist` -> `launch-checklist` | `deliver-prd` -> `prd` | `deliver-release-notes` -> `release-notes` | `deliver-user-stories` -> `user-stories`
+
+**Measure:** `measure-dashboard-requirements` -> `dashboard-requirements` | `measure-experiment-design` -> `experiment-design` | `measure-experiment-results` -> `experiment-results` | `measure-instrumentation-spec` -> `instrumentation-spec` | `measure-okr-grader` -> `okr-grader` | `measure-survey-analysis` -> `survey-analysis`
+
+**Iterate:** `iterate-lessons-log` -> `lessons-log` | `iterate-pivot-decision` -> `pivot-decision` | `iterate-refinement-notes` -> `refinement-notes` | `iterate-retrospective` -> `retrospective`
+
+**Foundation:** `foundation-lean-canvas` -> `lean-canvas` | `foundation-meeting-agenda` -> `meeting-agenda` | `foundation-meeting-brief` -> `meeting-brief` | `foundation-meeting-recap` -> `meeting-recap` | `foundation-meeting-synthesize` -> `meeting-synthesize` | `foundation-okr-writer` -> `okr-writer` | `foundation-persona` -> `persona` | `foundation-stakeholder-update` -> `stakeholder-update`
+
+**Tool (sprint families keep their methodology stem; only `tool-` drops):** `tool-design-sprint-brief` -> `design-sprint-brief` (and the other six `tool-design-sprint-*` -> `design-sprint-*`) | `tool-foundation-sprint-basics` -> `foundation-sprint-basics` (and the other six `tool-foundation-sprint-*` -> `foundation-sprint-*`) | `tool-note-and-vote` -> `note-and-vote`
+
+**Utility (the library-tooling skills keep `pm-`):** `utility-mermaid-diagrams` -> `mermaid-diagrams` | `utility-slideshow-creator` -> `slideshow-creator` | `utility-pm-skill-builder` -> `pm-skill-builder` | `utility-pm-skill-iterate` -> `pm-skill-iterate` | `utility-pm-skill-validate` -> `pm-skill-validate` | `utility-pm-skill-auditor` -> `pm-skill-auditor` | `utility-pm-critic` -> `pm-critic` | `utility-pm-changelog-curator` -> `pm-changelog-curator` | `utility-pm-release-conductor` -> `pm-release-conductor` | `utility-update-pm-skills` -> `update-pm-skills`
+
+**Removed Claude command verbs (reach the skill instead):** `/pm-audit-repo` -> `/pm-skills:pm-skill-auditor` | `/pm-draft-changelog` -> `/pm-skills:pm-changelog-curator` | `/pm-release` -> `/pm-skills:pm-release-conductor`
 
 ## Why a minor, not a major?
 
-By the SemVer compatibility test (does an existing user have to act on a skill they invoke today? no), this release is **additive at the skill level**. The skills you call still work, because the old names resolve as deprecated aliases. The one small wrapper-removal is Claude-only and signposted, with a same-release replacement. The genuine breaking step (removing the deprecated aliases) is the convergence major **v3.0.0**, bundled with the marketplace old-path retirement.
+A hard rename removes the old names, which could read as a breaking change. We ship it as a **minor** under an explicit, recorded stance: **skill invocation names are not part of pm-skills' SemVer-governed public API.** The governed contract is the install path and the plugin identity, both unchanged here: the plugin still installs and works, and every capability is still present. Individual skill names are convenience handles, not a stability guarantee, which is a defensible position for a library at this stage. The one genuine breaking removal on the roadmap, retiring the old self-hosted marketplace path, is reserved for v3.0.0.
 
 ## Timeline
 
-- **v2.22.0 (this release):** short names ship; old names still work (deprecated); the un-namespaced Claude command wrappers are removed.
-- **v2.22.0 -> v3.0.0 window:** deprecation period. We monitor for any cross-tool name clashes. If any are reproduced, we extend the deprecation window.
-- **v3.0.0:** the deprecated long names are removed, along with the old marketplace path. This is the breaking release, with its own notice well ahead of time.
+- **v2.22.0 (this release):** short names ship; old names are removed (migration table provided); the un-namespaced Claude command wrappers are removed; the Codex manifest is added.
+- **v3.0.0 (trigger-gated on a second plugin):** the old self-hosted marketplace path is retired. This is the breaking release, with its own notice ahead of time. (There is no skill-name alias removal at v3.0.0; the hard rename completed the naming change here.)
 
 ## Affected areas
 
 | Area | Change |
 |---|---|
-| Skill directories (`skills/<name>/`) | All 63 renamed from `<phase>-<name>` to `<short-name>`; the phase moves to `metadata.classification` (already present). Old names live as deprecated alias skills for one release. |
-| Command wrappers (`commands/*.md`) | The 63 hand-maintained wrappers are removed; the 10 `workflow-*` orchestrator commands stay. |
-| Internal cross-references | Workflows, guides, getting-started, agent-context, and the public reference at `docs/reference/runtime-components.md` are rewritten to use the short names. |
-| Validation | A new naming validator (6 enforcing checks) joins the pre-tag bundle and CI, so the inconsistency cannot quietly creep back. |
-| `README.md` / docs site | Examples and install instructions use the short names; the deprecation is noted. |
-| `.claude-plugin/plugin.json` + `marketplace.json` | Version 2.21.0 to 2.22.0. |
-| Historical files | Past release notes, past CHANGELOG entries, and library sample directories are **not** rewritten; they remain accurate records of what shipped under the old names. |
+| Skill directories (`skills/<name>/`) | All 63 renamed from `<phase>-<name>` to the short name; the phase moves to `metadata.classification`. Old names are removed (no alias stubs). |
+| Command wrappers (`commands/*.md`) | The hand-maintained wrappers are removed; the 10 `workflow-*` orchestrator commands stay. |
+| Generated docs | `docs/skills/` and `docs/workflows/` are regenerated from the renamed sources; doc-site redirects map old skill URLs to new. |
+| Sample library | `library/skill-output-samples/` and `library/sub-agent-samples/` are renamed to match the new skill names. |
+| Cross-references | Workflows, guides, getting-started, agent context, `AGENTS.md`, `README.md`, and `docs/reference/runtime-components.md` are rewritten to the short names. |
+| Packaging | New `.codex-plugin/plugin.json` (Codex-native manifest) and `PRIVACY.md`. |
+| Validation | A naming check, a Codex-manifest check, and a version-lockstep check join the pre-tag bundle and CI. |
+| Manifests | `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, and `.codex-plugin/plugin.json` bumped to 2.22.0 in lockstep. |
+| Historical files | Past release notes and CHANGELOG entries are **not** rewritten; they remain accurate records of what shipped under the old names. |
 
 ## For the curious: the deeper why
 
-If you want the technical reasoning, three things drove the design:
+Three things drove the design:
 
-1. **Single source of truth.** Hand-maintained parallel wrappers are exactly what produced the naming drift. Removing them and keeping the skill as the canonical artifact is the structural fix.
-2. **The skill name is the cross-runtime typed identifier.** On Codex CLI and other non-Claude runtimes, the user types `$<skill-name>` directly. There is no menu-prefix dressing to make a long name feel shorter. So short-name ergonomics belong on the skill `name`, not on a Claude-only wrapper.
-3. **The description is the real invocation interface.** Both Claude Code and Codex CLI can select a skill from natural-language descriptions. A user who never learns the name still reaches the skill if the description is well-written, and v2.22.0 introduces a CI-enforced floor for description quality.
+1. **Single source of truth.** Hand-maintained parallel wrappers produced the naming drift. Removing them and keeping the skill canonical is the structural fix.
+2. **The skill name is the cross-runtime typed identifier.** On non-Claude runtimes the user types `$<skill-name>` directly, with no menu-prefix dressing, so short-name ergonomics belong on the skill `name`.
+3. **Cross-runtime means cross-packaging, not only cross-naming.** Each runtime reads its own manifest, which is why the Codex `.codex-plugin/plugin.json` is part of this release.
 
-The full reasoning, the locked decision briefs, the validator spec, the cross-runtime collision analysis, and the per-skill name map are in [`docs/internal/release-plans/v2.22.0/`](../internal/release-plans/v2.22.0/plan_v2.22.0.md).
+The full reasoning, decision briefs, validator spec, cross-runtime collision analysis, and per-skill name map are tracked in the repo's internal release-plan docs (not published to the public site).
+
+## FAQ
+
+**Will my skills stop working?** No. Every skill is still here and behaves identically. Only the name you type changed (shorter), and on Claude Code the menu now shows one entry per skill instead of two.
+
+**I have `/pm-skills:foundation-okr-writer` (or `$foundation-okr-writer`) in a script or saved prompt. What do I do?** Update it to the short name (`okr-writer`) using the migration table above. The old prefixed name does not resolve after this release; this is a hard rename with no alias period.
+
+**Why no deprecation or alias window?** The goal was one name per capability. A temporary alias would mean two working names for the same skill during the window, a faint return of the duplication we set out to remove. At this adoption level a migration table is a cleaner answer than carrying aliases.
+
+**Why is a rename only a minor version?** pm-skills treats skill invocation names as not-yet-frozen: the install path and plugin identity are the stability contract; individual skill names are convenience handles. Renaming them is not a breaking-API event under that stance. The one breaking change on the roadmap, retiring the old self-hosted marketplace path, is reserved for v3.0.0.
+
+**Does this break my marketplace install?** No. Installs pinned to the v2.21.0 commit are unaffected; the rename lands in a later tag. Updating to v2.22.0 gives you the short names.
+
+**Is the Triple Diamond taxonomy gone?** No. The phase still lives in `metadata.classification`, the docs are grouped by phase, and the sprint and meeting families keep their descriptive stems. It is just no longer baked into every typed name.
+
+**What changed for Codex specifically?** pm-skills now ships a Codex-native manifest (`.codex-plugin/plugin.json`), so its skills are discoverable as a packaged plugin on Codex (previously they were not), and you type the short name (`$okr-writer`).
 
 ## Questions or problems?
 
-If you hit anything unexpected (a renamed skill behaving differently, a deprecated alias not resolving, a workflow that lost its target), please open an issue at [github.com/product-on-purpose/pm-skills/issues](https://github.com/product-on-purpose/pm-skills/issues). The rollback path is real and we will fix point regressions in v2.22.x patches.
+If you hit anything unexpected (a renamed skill behaving differently, a workflow that lost its target, a Codex install not surfacing skills), please open an issue at [github.com/product-on-purpose/pm-skills/issues](https://github.com/product-on-purpose/pm-skills/issues). We will fix point regressions in v2.22.x patches.
