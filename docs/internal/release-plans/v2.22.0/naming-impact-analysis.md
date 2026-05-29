@@ -94,8 +94,8 @@ Live inventory (2026-05-27): a reference scan for phase-prefixed skill tokens fo
 
 | Class | Approx files | Action | Notes |
 |---|---|---|---|
-| Skill directories + `name:` fields | 63 dirs | **Rename** (dir + frontmatter `name`), verify `metadata.classification` present | The core mechanical change |
-| Codex manifest + PRIVACY.md | +2 new | **Create** | `.codex-plugin/plugin.json` (`skills: ./skills/`) + one-paragraph `PRIVACY.md`. No alias stubs are created (hard rename). |
+| Skill directories + `name:` fields | 63 dirs | **Rename** (dir + frontmatter `name`), verify `metadata.phase` or `metadata.classification` present (two-field model kept, D4) + bump `metadata.version` (§2a) | The core mechanical change |
+| Codex manifest (PRIVACY.md already exists) | +1 new (`.codex-plugin/`) | **Create manifest only** | `.codex-plugin/plugin.json` (`skills: ./skills/`); point `privacyPolicyURL` at the EXISTING root `PRIVACY.md` (do NOT recreate). No alias stubs (hard rename). |
 | Name-keyed sample library | `library/skill-output-samples/<skill>/`, `library/sub-agent-samples/<skill>/` | **Rename** dirs + `sample_<skill>_*` files | The generator looks samples up by skill-dir name; a rename without this silently drops them from the docs |
 | Command wrappers `commands/*.md` | 63 of 73 | **Delete** | Keep the 10 `workflow-*` |
 | `workflow-*` command bodies | 10 | **Rewrite** internal skill references to short names | Kept, but they name the skills they orchestrate |
@@ -105,7 +105,7 @@ Live inventory (2026-05-27): a reference scan for phase-prefixed skill tokens fo
 | Agent context (`_agent-context/*/CONTEXT.md`) | ~2 active | **Rewrite** | Archived context: leave |
 | Tooling (`.github/workflows/validation.yml`, `src/content.config.ts`, plugin/marketplace JSON) | ~4 | **Audit** - confirm nothing keys off the prefixed name | Risk of silent breakage if a glob/path assumes the prefix |
 | **Historical release notes** (`docs/releases/Release_v2.x.md`, `docs/changelog.md` past entries) | ~12 | **DO NOT rewrite** | Frozen record; rewriting would falsify what shipped under the old names |
-| **Library sample directories** (`library/skill-output-samples/<skill>/`, `library/sub-agent-samples/<skill>/`) | ~120 files | **Rename (in scope, gating; D3=rename)** | NOT cosmetic: `generate-skill-pages.py` looks samples up by skill-dir name (`sample_<skill>_<thread>_*.md`), so a rename without this silently drops samples from the docs. Sample *content* that references old names as historical narrative stays. |
+| **Library sample directories** (`library/skill-output-samples/<skill>/`, `library/sub-agent-samples/<skill>/`) | ~186 files in 59 dirs | **Rename (in scope, gating; D3=rename)** | NOT cosmetic: `generate-skill-pages.py` looks samples up by skill-dir name (`sample_<skill>_<thread>_*.md`), so a rename without this silently drops samples from the docs. Sample *content* that references old names as historical narrative stays. |
 
 `★ Takeaway:` the **must-rewrite-or-break** set is far smaller than 250 - roughly the 63 renames + 63 wrapper deletes + the name-keyed sample-library rename + ~50 cross-reference files (workflows, AGENTS.md, current docs, tooling audit) + the regenerated doc pages. No alias stubs are created (hard rename). **The exact enumerated checklist** is [`implementation-plan.md`](implementation-plan.md); this section is the sizing rationale, the impl-plan is the executor's checklist.
 
