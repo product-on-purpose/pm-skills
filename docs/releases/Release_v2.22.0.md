@@ -24,7 +24,7 @@ Two improvements, both about tidiness and reach, neither changing what the skill
 
 - **Every skill keeps its name.** `foundation-okr-writer`, `deliver-prd`, `discover-journey-map` - all unchanged. Nothing was renamed.
 - **What the skills produce, and how you use them, is identical.** This release is about removing a redundant layer and adding packaging, not about behavior.
-- Skill pages, templates, examples, and the sample library are unchanged.
+- Skill content, templates, examples, and the sample library are unchanged. (The one-line invocation snippet shown on each skill page updates from the old short command to the skill's `/pm-skills:<name>` form.)
 
 ## Do I need to do anything?
 
@@ -40,6 +40,15 @@ The rule: the skill's full name is the short command name with its category pref
 | `/pm-skills:note-and-vote` | `/pm-skills:tool-note-and-vote` |
 
 The full table for all 63 is generated at release. Either way, every skill is right there in the `/pm-skills:` menu.
+
+A few removed commands were verb-named helpers for the maintainer sub-agents; they map to their utility skills rather than by prefix:
+
+| Removed command | Use the skill |
+|---|---|
+| `/pm-skills:pm-critic` | `/pm-skills:utility-pm-critic` |
+| `/pm-skills:pm-audit-repo` | `/pm-skills:utility-pm-skill-auditor` |
+| `/pm-skills:pm-draft-changelog` | `/pm-skills:utility-pm-changelog-curator` |
+| `/pm-skills:pm-release` | `/pm-skills:utility-pm-release-conductor` |
 
 ## FAQ
 

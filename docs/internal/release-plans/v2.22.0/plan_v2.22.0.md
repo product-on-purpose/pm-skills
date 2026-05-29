@@ -30,7 +30,7 @@ This release fixes both, with deliberately minimal blast radius:
 ### What does NOT change (the point of this release)
 - **Skill names** - all 63 keep their current names. No renames.
 - **Skill behavior, output, templates** - unchanged.
-- **Doc pages, the sample library, the doc generators, skill frontmatter** - untouched, because nothing is renamed.
+- **The sample library and skill frontmatter** - untouched, because nothing is renamed. Skill content, templates, and examples are unchanged; the generated *invocation snippet* on each skill page updates (from the wrapper command to `/pm-skills:<name>`) via the one edit to `generate-skill-pages.py`. The other two doc generators are untouched.
 - The 10 `workflow-*` orchestrator commands stay.
 
 ## The genuine change, and the SemVer stance
@@ -48,20 +48,34 @@ Skill name + description are the portable surface across clients; the command wr
 - **Alternatives:** A) **This (wrapper deletion).** B) Hard-rename all 63 skills to short names and delete wrappers (the heavier path). C) Leave the duplication.
 - **Why A:** B solves the same duplication but at ~10x the blast radius (~250 files, 3 doc generators, ~186 sample files, full doc regeneration), almost all of which serves a *naming preference*, not the duplication fix. A fixes the actual problem with a fraction of the risk and is trivially reversible. The fully-planned, audit-hardened B is preserved at `docs/internal/release-plans/_deferred/2026-05-29_skills-short-rename/` and can be revived as its own future release if short names are wanted.
 
-### D2 - The 3 verb commands (`pm-audit-repo`, `pm-draft-changelog`, `pm-release`)
-- **Decision:** Retire them with the other wrappers (they shadow sub-agent skills). Document the verb loss in the migration note.
-- **Alternative:** Keep these 3 as Claude-only stubs if the verbs are valued. (Default: retire, for a clean one-entry-per-capability result.)
+### D2 - The sub-agent companion commands (`pm-critic`, `pm-audit-repo`, `pm-draft-changelog`, `pm-release`)
+- **Decision (LOCKED 2026-05-29):** Retire all **four** with the other wrappers (the executability review corrected the earlier "3 verb commands" count: `pm-critic` is a fourth sub-agent companion). Each is a Claude-only alias over a three-layer capability (canonical sub-agent in `agents/` + a `utility-pm-*` dispatch skill); the alias is the only layer removed. The capability survives on the uniform dispatch-skill path (`/pm-skills:utility-pm-*`, untouched) and the sub-agent path (the four sub-agents stay in `agents/` and are @-mentionable on Claude Code; plugin form `@agent-pm-skills:<name>`). Retiring these four also retires master-plan **D6** (see D5).
+- **Rationale:** These are internal `classification: utility` tooling, not user-facing content. Retiring keeps one uniform invocation model (every capability is a skill, invoked the same way), holds the release thesis (only `workflow-*` commands remain), and avoids a CI special-case. Typing convenience is not lost: Claude Code's slash picker substring-matches the skill name, and the fragments a maintainer types (`critic`, `audit`, `changelog`, `release`) are each substrings of the surviving skill names, so `/release` still surfaces `utility-pm-release-conductor` with no command in place. Confirmed via the Claude Code docs (2026-05-29, `claude-code-guide`): skills receive `$ARGUMENTS` exactly like commands, and every registered sub-agent is @-mentionable by default (no frontmatter gate), so deleting the commands costs no capability.
+- **Migration (non-mechanical - spell out in the notes):** `/pm-critic` -> `/pm-skills:utility-pm-critic`; `/pm-audit-repo` -> `/pm-skills:utility-pm-skill-auditor`; `/pm-draft-changelog` -> `/pm-skills:utility-pm-changelog-curator`; `/pm-release` -> `/pm-skills:utility-pm-release-conductor`.
 
 ### D3 - Version designation
 - **Decision:** **MINOR (v2.22.0).** Removing a redundant convenience layer + adding a manifest, with skills unchanged.
 
 ### D4 - Codex manifest
 - **Decision:** Add `.codex-plugin/plugin.json` (`skills: "./skills/"` + interface metadata). `PRIVACY.md` already exists at repo root; point `privacyPolicyURL` at it (do not recreate). Rename-agnostic and additive.
+- **URL form (LOCKED 2026-05-29):** absolute `https://` URLs, matching every real first-party Codex plugin (`latex`/`documents`/`presentations` all use absolute policy URLs; none use repo-relative). `privacyPolicyURL` -> `https://github.com/product-on-purpose/pm-skills/blob/main/PRIVACY.md`; `termsOfServiceURL` -> `.../blob/main/LICENSE` (the Apache-2.0 license is the de facto terms for this OSS plugin). Verify both files are on `main` so the blobs resolve (Phase 4).
+- **Required-field set (LOCKED):** `validate-codex-manifest` asserts only load-bearing identity: file parses; `name == "pm-skills"`; `version` is valid semver; `skills` begins with `./` and resolves to `skills/`; `interface` is an object. Version *equality* across the four manifests stays with `validate-version-consistency`. Cosmetic fields (`brandColor`, `screenshots`, `defaultPrompt`, `logo`, `composerIcon`, `capabilities`, `category`) are NOT required - real plugins vary (`latex` ships no `composerIcon`).
+- **Logo:** ship logo-less for v2.22.0 (the manifest is valid without it; Codex falls back to a default). Confirm clean ingest at the Phase 4 Codex reinstall; add a brand asset later only if Codex requires one.
+- **Version:** the staged draft is stamped `2.21.0`; bump to `2.22.0` in the Phase 5 lockstep.
 
-## Open questions
-- D2: retire vs keep the 3 verb commands (default: retire).
-- Codex manifest URL form (`privacyPolicyURL`/`termsOfServiceURL`: absolute https vs repo-relative) - pin against a known-good Codex plugin.
-- Codex manifest required-field set - so `validate-codex-manifest` is crisply testable.
+### D5 - Retire D6 (sub-agent companion-command contract) + reconcile the conductor's invocation
+- **Decision (LOCKED 2026-05-29):** Retiring the four companion commands (D2) consciously retires master-plan **D6** ("every sub-agent ships with a companion slash command in `commands/`," `plan_v2.16.0.md:144`). Post-deletion, the four sub-agents are reached via their dispatch skill (`/pm-skills:utility-pm-*`, uniform) and native @-mention (`@agent-pm-skills:<name>`).
+- **Why it is safe:** no validator enforces D6 - `check-sub-agent-command-pair` was specced in `ci-plan.md` but never built, and `validate-agents-md` validates agent files, not pairings - so deletion does not redden `pre-tag-validate`. Capability is preserved per the Claude Code docs confirmation (skills receive `$ARGUMENTS`; all sub-agents @-mentionable by default; skill->sub-agent dispatch works via the Agent tool independent of @-mention).
+- **Conductor reconciliation:** `agents/pm-release-conductor.md` carries stale v2.16.0 prose ("no @-mention path; explicit slash command only," ~line 158) that (a) is contradicted by the v2.17.0 "all 4 sub-agents @-mention on Claude Code" registration and (b) keys on the `/pm-release` command being deleted. Update that prose and the `/pm-release ...` refusal/invocation examples to name the new surface (`@agent-pm-skills:pm-release-conductor` and/or `/pm-skills:utility-pm-release-conductor`). The 6-gate refusals/dry-run/SHA-pin protections are invocation-independent and the conductor is not proactive (D7), so explicit @-mention introduces no ambient-spawn risk.
+- **Gate (Phase 4) confirms empirically:** all four dispatch skills accept trailing args, and the conductor runs via both `@agent-pm-skills:pm-release-conductor` and `/pm-skills:utility-pm-release-conductor v2.22.0 --dry-run`. Fallback if a path fails: keep `/pm-release` as the lone exception.
+
+## Pre-execution rulings (RESOLVED 2026-05-29)
+All execution-gating rulings are decided; detail in D2, D4, and D5 above.
+- D2 (retire vs keep the sub-agent companion commands) -> **retire all four** (`pm-critic` + the 3 verbs); uniform skill invocation; capability preserved via dispatch skill + @-mention.
+- D5 (retire D6 + conductor invocation) -> **retire D6**; reach sub-agents via skill + `@agent-pm-skills:<name>`; reconcile the conductor's stale @-mention prose.
+- Codex manifest URL form -> **absolute https** (`PRIVACY.md` blob; ToS -> `LICENSE`).
+- Codex manifest required-field set -> **load-bearing identity only** (`name`/`version`/`skills`/`interface` + parse + skills-resolves); cosmetics not asserted.
+- Skill `$ARGUMENTS` + sub-agent @-mention -> **CONFIRMED via Claude Code docs (2026-05-29)**: skills receive `$ARGUMENTS` like commands; all sub-agents @-mentionable by default. The live gate re-confirms empirically.
 
 ## Phases
 See [`implementation-plan.md`](implementation-plan.md) for the executor's checklist. In brief:
