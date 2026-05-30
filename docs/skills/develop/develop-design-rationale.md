@@ -12,7 +12,7 @@ tags:
 **Phase:** Develop | **Version:** 2.0.0 | **Category:** specification | **License:** Apache-2.0
 :::
 
-**Try it:** `/design-rationale "Your context here"`
+**Try it:** `/pm-skills:develop-design-rationale "Your context here"`
 
 A design rationale document captures the "why" behind design decisions.the context, constraints, alternatives considered, and reasoning that led to a particular solution. While designs themselves show what was built, rationale documents preserve institutional knowledge about why it was built that way.
 
@@ -27,10 +27,10 @@ A design rationale document captures the "why" behind design decisions.the conte
 
 ## How to Use
 
-Use the `/design-rationale` slash command:
+Invoke the skill by name (`/pm-skills:develop-design-rationale` on Claude Code, `$develop-design-rationale` on Codex):
 
 ```
-/design-rationale "Your context here"
+/pm-skills:develop-design-rationale "Your context here"
 ```
 
 Or reference the skill file directly: `skills/develop-design-rationale/SKILL.md`
@@ -517,7 +517,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/design-rationale
+develop-design-rationale
 
 Project: Campaigns . native email marketing for Storevine merchants
 Decision: Audience selection UX for the campaign creation flow
@@ -553,7 +553,7 @@ Decision makers: Design Lead, Growth PM, Engineering Lead.
 **Prompt:**
 
 ```
-/design-rationale
+develop-design-rationale
 
 digest email layout for resurface. dan showed three options:
 
@@ -589,7 +589,7 @@ going with B. need the rationale written up.
 **Prompt:**
 
 ```
-/design-rationale
+develop-design-rationale
 
 Decision: Blueprint creation flow -- guided wizard vs. blank canvas
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)

@@ -12,7 +12,7 @@ tags:
 **Phase:** Define | **Version:** 2.0.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::
 
-**Try it:** `/jtbd-canvas "Your context here"`
+**Try it:** `/pm-skills:define-jtbd-canvas "Your context here"`
 
 A Jobs to be Done (JTBD) canvas captures the complete picture of why customers "hire" products to make progress in their lives. Based on Clayton Christensen's framework, JTBD goes beyond features and demographics to understand the underlying motivations.functional, emotional, and social.that drive customer behavior.
 
@@ -27,10 +27,10 @@ A Jobs to be Done (JTBD) canvas captures the complete picture of why customers "
 
 ## How to Use
 
-Use the `/jtbd-canvas` slash command:
+Invoke the skill by name (`/pm-skills:define-jtbd-canvas` on Claude Code, `$define-jtbd-canvas` on Codex):
 
 ```
-/jtbd-canvas "Your context here"
+/pm-skills:define-jtbd-canvas "Your context here"
 ```
 
 Or reference the skill file directly: `skills/define-jtbd-canvas/SKILL.md`
@@ -538,7 +538,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Pre-PRD, grounding feature scope in JTBD framework before
@@ -577,7 +577,7 @@ inform v1 feature prioritization and GA messaging strategy.
 **Prompt:**
 
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 the core job for the resurface feature. users save stuff to brainshelf
 with the intent to read it later, but the act of saving satisfies the
@@ -607,7 +607,7 @@ doing nothing (guilt pile grows), raindrop.io (organize but no resurface).
 **Prompt:**
 
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
 Stage: Define phase, post-discovery interviews

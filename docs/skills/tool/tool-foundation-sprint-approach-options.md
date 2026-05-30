@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** ideation | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-foundation-sprint-approach-options "Your context here"`
+**Try it:** `/pm-skills:tool-foundation-sprint-approach-options "Your context here"`
 
 Day 2 morning of a Foundation Sprint. The team forces itself to generate multiple plausible approaches before committing to one. The skill enforces a minimum of 3 approaches; anchoring on a single approach is the most common Day 2 failure mode.
 
@@ -32,10 +32,10 @@ Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contra
 
 ## How to Use
 
-Use the `/tool-foundation-sprint-approach-options` slash command:
+Invoke the skill by name (`/pm-skills:tool-foundation-sprint-approach-options` on Claude Code, `$tool-foundation-sprint-approach-options` on Codex):
 
 ```
-/tool-foundation-sprint-approach-options "Your context here"
+/pm-skills:tool-foundation-sprint-approach-options "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-foundation-sprint-approach-options/SKILL.md`

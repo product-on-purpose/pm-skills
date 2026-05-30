@@ -12,7 +12,7 @@ tags:
 **Phase:** Discover | **Version:** 2.0.0 | **Category:** research | **License:** Apache-2.0
 :::
 
-**Try it:** `/interview-synthesis "Your context here"`
+**Try it:** `/pm-skills:discover-interview-synthesis "Your context here"`
 
 An interview synthesis transforms raw user research data into structured insights that drive product decisions. Rather than simply listing what participants said, a good synthesis identifies patterns across conversations, connects observations to underlying user needs, and translates findings into actionable recommendations.
 
@@ -26,10 +26,10 @@ An interview synthesis transforms raw user research data into structured insight
 
 ## How to Use
 
-Use the `/interview-synthesis` slash command:
+Invoke the skill by name (`/pm-skills:discover-interview-synthesis` on Claude Code, `$discover-interview-synthesis` on Codex):
 
 ```
-/interview-synthesis "Your context here"
+/pm-skills:discover-interview-synthesis "Your context here"
 ```
 
 Or reference the skill file directly: `skills/discover-interview-synthesis/SKILL.md`
@@ -359,7 +359,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 Research topic: Why do Storevine merchants use external email tools instead
 of Storevine's built-in email features?
@@ -393,7 +393,7 @@ Interviewer: UX researcher + growth PM
 **Prompt:**
 
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 ran 7 user interviews over the past 2 weeks about why people save stuff
 to brainshelf but never go back to read it. need to synthesize the findings.
@@ -425,7 +425,7 @@ building the hypothesis doc for resurface.
 **Prompt:**
 
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 Research project: Blueprints discovery interviews -- documentation consistency and governance in enterprise teams
 Product: Workbench (enterprise collaboration platform, Series B, ~500 enterprise customers [fictional])

@@ -12,16 +12,16 @@ tags:
 **Phase:** Discover | **Version:** 1.0.0 | **Category:** research | **License:** Apache-2.0
 :::
 
-**Try it:** `/journey-map "Your context here"`
+**Try it:** `/pm-skills:discover-journey-map "Your context here"`
 
 You produce a customer journey map that captures stages, touchpoints, emotional curve, pain points, and opportunities. Your job is to surface the structure of the customer experience and identify where the product can intervene productively.
 
 ## How to Use
 
-Use the `/journey-map` slash command:
+Invoke the skill by name (`/pm-skills:discover-journey-map` on Claude Code, `$discover-journey-map` on Codex):
 
 ```
-/journey-map "Your context here"
+/pm-skills:discover-journey-map "Your context here"
 ```
 
 Or reference the skill file directly: `skills/discover-journey-map/SKILL.md`
@@ -225,7 +225,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/journey-map
+discover-journey-map
 
 map the full procure-to-renew journey for storevine (B2B AI inventory
 forecasting, sold to mid-market e-commerce, 200-2000 employees).
@@ -263,7 +263,7 @@ are cyclical.
 **Prompt:**
 
 ```
-/journey-map
+discover-journey-map
 
 map the first-time subscriber journey for brainshelf. it's an AI book
 recommendation subscription for serious readers who hate generic amazon/
@@ -295,7 +295,7 @@ the weekly-use part is a recurring loop. include a mermaid timeline.
 **Prompt:**
 
 ```
-/journey-map
+discover-journey-map
 
 map the new-engineer onboarding journey so we can decide where to invest
 dev-experience effort. persona is a newly hired software engineer.

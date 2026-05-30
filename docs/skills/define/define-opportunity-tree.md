@@ -12,7 +12,7 @@ tags:
 **Phase:** Define | **Version:** 2.0.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::
 
-**Try it:** `/opportunity-tree "Your context here"`
+**Try it:** `/pm-skills:define-opportunity-tree "Your context here"`
 
 An Opportunity Solution Tree (OST) is a visual framework for product discovery that connects business outcomes to customer opportunities and potential solutions. Developed by Teresa Torres, it prevents the common trap of jumping straight to solutions by ensuring every feature idea traces back to a customer need and measurable outcome.
 
@@ -27,10 +27,10 @@ An Opportunity Solution Tree (OST) is a visual framework for product discovery t
 
 ## How to Use
 
-Use the `/opportunity-tree` slash command:
+Invoke the skill by name (`/pm-skills:define-opportunity-tree` on Claude Code, `$define-opportunity-tree` on Codex):
 
 ```
-/opportunity-tree "Your context here"
+/pm-skills:define-opportunity-tree "Your context here"
 ```
 
 Or reference the skill file directly: `skills/define-opportunity-tree/SKILL.md`
@@ -452,7 +452,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/opportunity-tree
+define-opportunity-tree
 
 Project: Campaigns . and broader platform churn reduction strategy
 Stage: Pre-Q2 sprint planning . framing the opportunity space before
@@ -492,7 +492,7 @@ branch, prioritization, and experiments backlog for Q2 planning.
 **Prompt:**
 
 ```
-/opportunity-tree
+define-opportunity-tree
 
 outcome: increase 7-day return rate from 18% to 25% [fictional]
 by end of Q2 2026.
@@ -526,7 +526,7 @@ want to prioritize opp 1 / email digest based on competitive analysis
 **Prompt:**
 
 ```
-/opportunity-tree
+define-opportunity-tree
 
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
 Stage: Define phase, post-discovery and problem statement

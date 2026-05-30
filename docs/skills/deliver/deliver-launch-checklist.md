@@ -12,7 +12,7 @@ tags:
 **Phase:** Deliver | **Version:** 2.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/launch-checklist "Your context here"`
+**Try it:** `/pm-skills:deliver-launch-checklist "Your context here"`
 
 A launch checklist is a comprehensive verification document that ensures all functions are ready before releasing a feature or product. It coordinates across engineering, QA, design, marketing, support, legal, and operations to prevent launch-day surprises. Good launch checklists surface blockers early and create shared accountability for launch readiness.
 
@@ -26,10 +26,10 @@ A launch checklist is a comprehensive verification document that ensures all fun
 
 ## How to Use
 
-Use the `/launch-checklist` slash command:
+Invoke the skill by name (`/pm-skills:deliver-launch-checklist` on Claude Code, `$deliver-launch-checklist` on Codex):
 
 ```
-/launch-checklist "Your context here"
+/pm-skills:deliver-launch-checklist "Your context here"
 ```
 
 Or reference the skill file directly: `skills/deliver-launch-checklist/SKILL.md`
@@ -426,7 +426,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/launch-checklist
+deliver-launch-checklist
 
 Feature: Campaigns v1.0 . native email marketing for Storevine merchants
 Launch date: April 28, 2026
@@ -470,7 +470,7 @@ and check-in schedule.
 **Prompt:**
 
 ```
-/launch-checklist
+deliver-launch-checklist
 
 resurface launch checklist. shipping at end of sprint 8 (feb 14-16).
 this is our first email feature so dns, deliverability, and compliance
@@ -498,7 +498,7 @@ opt-in enrollment starts mar 2. a/b test starts mar 9.
 **Prompt:**
 
 ```
-/launch-checklist
+deliver-launch-checklist
 
 I need a comprehensive launch checklist for Blueprints v1 GA. Here's the context:
 

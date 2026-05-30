@@ -30,6 +30,20 @@ if [[ "$PLUGIN_VER" != "$MARKET_VER" ]]; then
   exit 1
 fi
 
+# .codex-plugin/plugin.json is the fourth version surface (v2.22.0 D4).
+CODEX_FILE=".codex-plugin/plugin.json"
+if [[ -f "$CODEX_FILE" ]]; then
+  CODEX_VER=$(node -p "JSON.parse(require('fs').readFileSync('$CODEX_FILE','utf8')).version")
+  if [[ "$CODEX_VER" != "$PLUGIN_VER" ]]; then
+    echo "FAIL: Version mismatch"
+    echo "  $PLUGIN_FILE:  $PLUGIN_VER"
+    echo "  $CODEX_FILE: $CODEX_VER"
+    echo ""
+    echo "  All manifests must report the same version."
+    exit 1
+  fi
+fi
+
 # README current-version-claim surfaces must match plugin.json (FU-9, v2.19.0).
 # This validator owns version-CLAIM surfaces; check-version-references stays
 # advisory for provenance refs ("since vX.Y.Z"). The README badge form

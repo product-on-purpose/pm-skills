@@ -12,16 +12,16 @@ tags:
 **Phase:** Discover | **Version:** 1.0.0 | **Category:** strategy | **License:** Apache-2.0
 :::
 
-**Try it:** `/market-sizing "Your context here"`
+**Try it:** `/pm-skills:discover-market-sizing "Your context here"`
 
 You produce a multi-framework market-sizing meta-analysis covering TAM (Total Addressable Market), SAM (Serviceable Addressable Market), and SOM (Serviceable Obtainable Market). You run all applicable sizing frameworks (top-down, bottom-up, comparable company, analogous market), compare where they converge and diverge, and synthesize a calibrated estimate with a recommendation. Divergence between frameworks is often the most valuable finding. Your job is to produce a defensible artifact and explain the reasoning.
 
 ## How to Use
 
-Use the `/market-sizing` slash command:
+Invoke the skill by name (`/pm-skills:discover-market-sizing` on Claude Code, `$discover-market-sizing` on Codex):
 
 ```
-/market-sizing "Your context here"
+/pm-skills:discover-market-sizing "Your context here"
 ```
 
 Or reference the skill file directly: `skills/discover-market-sizing/SKILL.md`
@@ -176,7 +176,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/market-sizing
+discover-market-sizing
 
 size the market for storevine's AI inventory forecasting. B2B SaaS, sold to
 mid-market e-commerce companies (200-2000 employees). ACV around $40k.
@@ -202,7 +202,7 @@ walk me through reconciling them.
 **Prompt:**
 
 ```
-/market-sizing
+discover-market-sizing
 
 size the US market for brainshelf - an AI book-recommendation subscription
 for avid readers. consumer subscription, ~$8/month. need it for a seed deck.
@@ -228,7 +228,7 @@ show me where the two methods agree.
 **Prompt:**
 
 ```
-/market-sizing
+discover-market-sizing
 
 we're thinking about commercializing workbench (our internal dev-experience
 platform). size the external market for DevEx tooling platforms. sold per-seat

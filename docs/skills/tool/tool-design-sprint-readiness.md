@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-design-sprint-readiness "Your context here"`
+**Try it:** `/pm-skills:tool-design-sprint-readiness "Your context here"`
 
 Assess whether a Design Sprint fits the team's current situation. Design Sprint failure modes are expensive: five consecutive days of a 4-7 person team, plus customer recruiting cost (typically 5 strangers paid honoraria), plus the prototype build. A 30-45 minute readiness diagnostic catches the failure modes before that commitment is made.
 
@@ -35,10 +35,10 @@ Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.m
 
 ## How to Use
 
-Use the `/tool-design-sprint-readiness` slash command:
+Invoke the skill by name (`/pm-skills:tool-design-sprint-readiness` on Claude Code, `$tool-design-sprint-readiness` on Codex):
 
 ```
-/tool-design-sprint-readiness "Your context here"
+/pm-skills:tool-design-sprint-readiness "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-design-sprint-readiness/SKILL.md`

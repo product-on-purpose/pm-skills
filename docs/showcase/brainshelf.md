@@ -20,7 +20,7 @@ tags:
 
 :::note[Prompt]
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 marketing persona for newsletter creator acquisition channel.
 
@@ -51,7 +51,7 @@ keep it brief but actionable for growth experiments.
 
 :::note[Prompt]
 ```text
-/persona marketing detailed
+foundation-persona marketing detailed
 
 need a marketing persona for the Resurface premium conversion funnel.
 
@@ -89,7 +89,7 @@ evidence trail.
 
 :::note[Prompt]
 ```text
-/persona product brief
+foundation-persona product brief
 
 Need a concise story-first product persona for Brainshelf Resurface activation work.
 
@@ -124,7 +124,7 @@ Please include:
 
 :::note[Prompt]
 ```text
-/persona product detailed
+foundation-persona product detailed
 
 detailed persona for Brainshelf Resurface power curator segment.
 
@@ -162,7 +162,7 @@ include full decision model, workflow friction, and evidence trail.
 
 :::note[Prompt]
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 pkm and read-later market, focusing on resurfacing and re-engagement
 features. brainshelf is planning a resurface feature (morning email digest
@@ -196,7 +196,7 @@ and where the white space is for us.
 
 :::note[Prompt]
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 ran 7 user interviews over the past 2 weeks about why people save stuff
 to brainshelf but never go back to read it. need to synthesize the findings.
@@ -232,7 +232,7 @@ building the hypothesis doc for resurface.
 
 :::note[Prompt]
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 need to map the internal stakeholders for the resurface feature before
 we kick off the build. brainshelf is a ~20 person startup so this is
@@ -268,7 +268,7 @@ want a proper stakeholder map with communication plan.
 
 :::note[Prompt]
 ```
-/problem-statement
+define-problem-statement
 
 the guilt pile problem. users save a ton of stuff to brainshelf but
 never come back to read it. interview data says 5/7 users described
@@ -298,7 +298,7 @@ building the resurface hypothesis.
 
 :::note[Prompt]
 ```
-/hypothesis
+define-hypothesis
 
 trying to figure out if a morning digest email will actually get people to re-read
 their saved stuff. context: brainshelf pkm app, 22k MAU [fictional]. users save
@@ -331,7 +331,7 @@ guardrail: don't tank unsubscribe rate.
 
 :::note[Prompt]
 ```
-/opportunity-tree
+define-opportunity-tree
 
 outcome: increase 7-day return rate from 18% to 25% [fictional]
 by end of Q2 2026.
@@ -369,7 +369,7 @@ want to prioritize opp 1 / email digest based on competitive analysis
 
 :::note[Prompt]
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 the core job for the resurface feature. users save stuff to brainshelf
 with the intent to read it later, but the act of saving satisfies the
@@ -405,7 +405,7 @@ doing nothing (guilt pile grows), raindrop.io (organize but no resurface).
 
 :::note[Prompt]
 ```
-/solution-brief
+develop-solution-brief
 
 resurface one-pager for the team. need to get everyone on the same
 page before sprint 8 starts. marco wants to see it too.
@@ -444,7 +444,7 @@ doing topic matching instead).
 
 :::note[Prompt]
 ```
-/spike-summary
+develop-spike-summary
 
 topic matching spike for resurface. alex spent 3 days on it last
 week. question: can we build something that picks saved items relevant
@@ -487,7 +487,7 @@ feature sticks.
 
 :::note[Prompt]
 ```
-/adr
+develop-adr
 
 email sending infra for resurface. we don't have any email sending
 today . everything is in-app or firebase push. need to pick a provider
@@ -523,7 +523,7 @@ written up before sprint 8 starts.
 
 :::note[Prompt]
 ```
-/design-rationale
+develop-design-rationale
 
 digest email layout for resurface. dan showed three options:
 
@@ -565,7 +565,7 @@ going with B. need the rationale written up.
 
 :::note[Prompt]
 ```
-/prd
+deliver-prd
 
 resurface prd for sprint 8. pulling everything together: solution brief,
 adr (resend), design rationale (text layout), spike (tfidf).
@@ -606,7 +606,7 @@ a/b test (mar 9 - apr 5), decision (apr 11).
 
 :::note[Prompt]
 ```
-/user-stories
+deliver-user-stories
 
 resurface stories for sprint 8. need the full set with acceptance
 criteria.
@@ -639,7 +639,7 @@ keep them tight. alex and jess need to estimate on monday.
 
 :::note[Prompt]
 ```
-/edge-cases
+deliver-edge-cases
 
 resurface edge cases for sprint 8. need to cover:
 - what happens when the user's library is too small
@@ -672,7 +672,7 @@ alex wants this documented so QA can build the test plan from it.
 
 :::note[Prompt]
 ```
-/launch-checklist
+deliver-launch-checklist
 
 resurface launch checklist. shipping at end of sprint 8 (feb 14-16).
 this is our first email feature so dns, deliverability, and compliance
@@ -704,7 +704,7 @@ opt-in enrollment starts mar 2. a/b test starts mar 9.
 
 :::note[Prompt]
 ```
-/release-notes
+deliver-release-notes
 
 resurface release notes. feature shipped feb 16 behind flag. opt-in
 enrollment starts mar 2. writing for the in-app changelog and blog.
@@ -744,7 +744,7 @@ articles (better fallback to article metadata).
 
 :::note[Prompt]
 ```
-/experiment-design
+measure-experiment-design
 
 resurface a/b test. feature is shipped behind a flag. need the full
 experiment design for chloe to set up in amplitude.
@@ -782,7 +782,7 @@ want to have the design doc locked before the setup week (mar 2-8).
 
 :::note[Prompt]
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 resurface analytics events for amplitude. need the full spec before
 sprint 8 starts so alex and jess can instrument during the build.
@@ -820,7 +820,7 @@ keep it tight. chloe wants to review before sprint planning on monday.
 
 :::note[Prompt]
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 resurface experiment dashboard for amplitude. need it ready before
 the a/b test starts (mar 9).
@@ -865,7 +865,7 @@ filters: date range, experiment variant, library size segment.
 
 :::note[Prompt]
 ```
-/experiment-results
+measure-experiment-results
 
 resurface a/b test results. test ran mar 9 - apr 5 (4 weeks).
 800 users, 50/50 split [fictional].
@@ -918,7 +918,7 @@ recommendation: ship to all eligible users.
 
 :::note[Prompt]
 ```
-/retrospective
+iterate-retrospective
 
 sprint 8 retro . resurface launch sprint. need to write this up.
 
@@ -953,7 +953,7 @@ contributed to the bug), (3) weekly eng/pm sync . IN PROGRESS.
 
 :::note[Prompt]
 ```
-/lessons-log
+iterate-lessons-log
 
 lesson from: timezone bug at resurface launch
 what happened: ~340 UK/EU users got their digest at 7:30 UTC instead
@@ -990,7 +990,7 @@ timezone string and the server's IANA database.
 
 :::note[Prompt]
 ```
-/refinement-notes
+iterate-refinement-notes
 
 sprint 9 refinement for resurface v2. session was april 15, 2026.
 45 minutes. priya facilitated.
@@ -1030,7 +1030,7 @@ duplicate).
 
 :::note[Prompt]
 ```
-/pivot-decision
+iterate-pivot-decision
 
 post-experiment pivot decision for resurface. a/b test showed +5.3pp
 lift in 7-day return rate, p=0.008 [fictional]. all guardrails passed.

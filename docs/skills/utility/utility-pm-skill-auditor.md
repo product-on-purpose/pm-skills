@@ -12,6 +12,8 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** governance | **License:** Apache-2.0
 :::
 
+**Try it:** `/pm-skills:utility-pm-skill-auditor "Your context here"`
+
 Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `agents/pm-skill-auditor.md` and executes inline on non-Claude clients.
 
 ## When to Use
@@ -26,6 +28,16 @@ Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent. Detects runt
 - You want to draft a CHANGELOG entry -> use `utility-pm-changelog-curator` (ships in Phase 4)
 - You want to ship a release -> use `utility-pm-release-conductor` (ships in Phase 5)
 - You want to FIX issues found in an audit -> the auditor is detection-only; remediation is maintainer judgment or future `pm-frontmatter-doctor` (v2.17+)
+
+## How to Use
+
+Invoke the skill by name (`/pm-skills:utility-pm-skill-auditor` on Claude Code, `$utility-pm-skill-auditor` on Codex):
+
+```
+/pm-skills:utility-pm-skill-auditor "Your context here"
+```
+
+Or reference the skill file directly: `skills/utility-pm-skill-auditor/SKILL.md`
 
 ## Instructions
 
@@ -242,12 +254,12 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 ### P1 findings
 
-#### F-01: Sub-agent without companion command (sub-agent integrity, violates D6)
+#### F-01: Deprecated reference to a removed skill path (deprecation tracking)
 
-**Location:** `agents/pm-release-conductor.md` (does not yet exist as of HEAD; expected per master plan Phase 5)
-**Issue:** Phase 5 plan ships `agents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists. Once authored, ensure the pair lands in the same commit per `agents/_pairing.yaml`.
-**Why it matters:** D6 requires every sub-agent to ship with a companion slash command. Missing the command makes the sub-agent harder for users to discover.
-**Fix:** This is a forward finding (Phase 5 work). Re-run audit after Phase 5 ships; finding should resolve.
+**Location:** `library/skill-output-samples/develop-feature-spike/` (illustrative)
+**Issue:** A sample references `skills/develop-feature-spike/SKILL.md`, a skill directory deleted in a prior cycle. The path no longer resolves.
+**Why it matters:** Dead references break the docs link-validity gate and mislead users about the catalog.
+**Fix:** Repoint the sample to the surviving skill (`develop-spike-summary`), or delete the orphaned sample. Re-run `check-internal-link-validity --strict`.
 
 #### F-02: Sample gap on dispatch skill utility-pm-skill-auditor
 
@@ -282,7 +294,7 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 | Utility skills | 6 | 8 | NO (P2 - 2 dispatch skills added in v2.16 Phase 2-3) |
 | Tool skills | 15 | 15 | YES |
 | Sub-agents | 4 (planned) | 2 | EXPECTED (Phase 4-5 ship remaining 2) |
-| Commands | 62 | 64 | NO (P2 - 2 new commands /pm-critic /pm-audit-repo not in declared count) |
+| Commands | 62 | 64 | NO (P2 - 2 new commands utility-pm-critic utility-pm-skill-auditor not in declared count) |
 | Workflows | 12 | 12 | YES |
 | Enforcing validators | 27 | 27 | YES |
 | Family contracts | 3 | 3 | YES |

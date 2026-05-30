@@ -12,7 +12,7 @@ tags:
 **Phase:** Measure | **Version:** 2.0.0 | **Category:** validation | **License:** Apache-2.0
 :::
 
-**Try it:** `/experiment-design "Your context here"`
+**Try it:** `/pm-skills:measure-experiment-design "Your context here"`
 
 An experiment design document defines all parameters needed to run a rigorous A/B test or controlled experiment. It ensures the team aligns on what you're testing, how you'll measure success, and how long to run the test before drawing conclusions. Good experiment design prevents common pitfalls: underpowered tests, unclear success criteria, and decisions based on noise rather than signal.
 
@@ -26,10 +26,10 @@ An experiment design document defines all parameters needed to run a rigorous A/
 
 ## How to Use
 
-Use the `/experiment-design` slash command:
+Invoke the skill by name (`/pm-skills:measure-experiment-design` on Claude Code, `$measure-experiment-design` on Codex):
 
 ```
-/experiment-design "Your context here"
+/pm-skills:measure-experiment-design "Your context here"
 ```
 
 Or reference the skill file directly: `skills/measure-experiment-design/SKILL.md`
@@ -434,7 +434,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/experiment-design
+measure-experiment-design
 
 Project: Campaigns . Campaigns guided first-campaign flow
 Experiment: Does the guided first-campaign flow increase first-send rate
@@ -474,7 +474,7 @@ criteria, risks, and implementation notes.
 **Prompt:**
 
 ```
-/experiment-design
+measure-experiment-design
 
 resurface a/b test. feature is shipped behind a flag. need the full
 experiment design for chloe to set up in amplitude.
@@ -508,7 +508,7 @@ want to have the design doc locked before the setup week (mar 2-8).
 **Prompt:**
 
 ```
-/experiment-design
+measure-experiment-design
 
 Experiment: Required vs. optional Blueprint sections
 Product: Workbench Blueprints (enterprise doc templates with approval gates)

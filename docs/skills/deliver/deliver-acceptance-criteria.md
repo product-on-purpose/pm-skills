@@ -12,7 +12,7 @@ tags:
 **Phase:** Deliver | **Version:** 1.0.0 | **Category:** specification | **License:** Apache-2.0
 :::
 
-**Try it:** `/acceptance-criteria "Your context here"`
+**Try it:** `/pm-skills:deliver-acceptance-criteria "Your context here"`
 
 Acceptance criteria define the observable behavior that must be true for a story or feature to be considered done. This skill turns feature context into concise, testable Given/When/Then scenarios that engineers and QA can verify without guessing intent.
 
@@ -25,10 +25,10 @@ Acceptance criteria define the observable behavior that must be true for a story
 
 ## How to Use
 
-Use the `/acceptance-criteria` slash command:
+Invoke the skill by name (`/pm-skills:deliver-acceptance-criteria` on Claude Code, `$deliver-acceptance-criteria` on Codex):
 
 ```
-/acceptance-criteria "Your context here"
+/pm-skills:deliver-acceptance-criteria "Your context here"
 ```
 
 Or reference the skill file directly: `skills/deliver-acceptance-criteria/SKILL.md`
@@ -231,7 +231,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/acceptance-criteria
+deliver-acceptance-criteria
 
 Feature: Campaigns . email template builder
 The template builder lets merchants drag-and-drop content blocks (text, image, button, divider, product card) onto a canvas, customize styling, preview on desktop and mobile, and save templates for reuse across campaigns. Templates are stored per-merchant and can be duplicated.

@@ -12,7 +12,7 @@ tags:
 **Phase:** Define | **Version:** 2.0.0 | **Category:** ideation | **License:** Apache-2.0
 :::
 
-**Try it:** `/hypothesis "Your context here"`
+**Try it:** `/pm-skills:define-hypothesis "Your context here"`
 
 A hypothesis is a testable prediction about how a change will affect user behavior or business outcomes. It transforms assumptions into explicit statements that can be validated or invalidated through experimentation. Well-formed hypotheses prevent teams from building features based on untested beliefs and create shared understanding of what success looks like.
 
@@ -26,10 +26,10 @@ A hypothesis is a testable prediction about how a change will affect user behavi
 
 ## How to Use
 
-Use the `/hypothesis` slash command:
+Invoke the skill by name (`/pm-skills:define-hypothesis` on Claude Code, `$define-hypothesis` on Codex):
 
 ```
-/hypothesis "Your context here"
+/pm-skills:define-hypothesis "Your context here"
 ```
 
 Or reference the skill file directly: `skills/define-hypothesis/SKILL.md`
@@ -319,7 +319,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/hypothesis
+define-hypothesis
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Post-discovery, pre-PRD finalization
@@ -359,7 +359,7 @@ pass/fail criteria, and risks. Will attach to PRD as primary testable belief.
 **Prompt:**
 
 ```
-/hypothesis
+define-hypothesis
 
 trying to figure out if a morning digest email will actually get people to re-read
 their saved stuff. context: brainshelf pkm app, 22k MAU [fictional]. users save
@@ -388,7 +388,7 @@ guardrail: don't tank unsubscribe rate.
 **Prompt:**
 
 ```
-/hypothesis
+define-hypothesis
 
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
 Stage: Define phase, post-discovery interviews and problem statement

@@ -12,7 +12,7 @@ tags:
 **Classification:** Foundation | **Version:** 1.0.1 | **Category:** meeting | **License:** Apache-2.0
 :::
 
-**Try it:** `/meeting-synthesize "Your context here"`
+**Try it:** `/pm-skills:foundation-meeting-synthesize "Your context here"`
 
 Meeting synthesis is the archaeology skill for multi-meeting initiatives. It consumes a set of meeting recaps (and optionally raw notes) over a period, and surfaces patterns that no single meeting reveals: how decisions evolved, how stakeholder positions shifted, where threads are stalling, where contradictions have emerged.
 
@@ -31,16 +31,16 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 ## When NOT to Use
 
-- Single-meeting summary. Use `/meeting-recap` instead.
-- Communicating outcomes outward. Use `/stakeholder-update`.
+- Single-meeting summary. Use `foundation-meeting-recap` instead.
+- Communicating outcomes outward. Use `foundation-stakeholder-update`.
 - User research conversation synthesis. Use `/discover-interview-synthesis`.
 
 ## How to Use
 
-Use the `/meeting-synthesize` slash command:
+Invoke the skill by name (`/pm-skills:foundation-meeting-synthesize` on Claude Code, `$foundation-meeting-synthesize` on Codex):
 
 ```
-/meeting-synthesize "Your context here"
+/pm-skills:foundation-meeting-synthesize "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-meeting-synthesize/SKILL.md`
@@ -495,7 +495,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/meeting-synthesize --format=retro-input --quarter=2026-Q1 @recap*.md
+foundation-meeting-synthesize --format=retro-input --quarter=2026-Q1 @recap*.md
 ```
 
 **Output:**
@@ -542,7 +542,7 @@ status: draft
 **Prompt:**
 
 ```
-/meeting-synthesize @resurface-*.md
+foundation-meeting-synthesize @resurface-*.md
 ```
 
 **Output:**
@@ -590,7 +590,7 @@ status: draft
 **Prompt:**
 
 ```
-/meeting-synthesize --format=board-prep --quarter=2026-Q1 @blueprints-*.md
+foundation-meeting-synthesize --format=board-prep --quarter=2026-Q1 @blueprints-*.md
 ```
 
 **Output:**

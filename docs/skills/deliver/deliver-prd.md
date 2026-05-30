@@ -12,7 +12,7 @@ tags:
 **Phase:** Deliver | **Version:** 2.0.0 | **Category:** specification | **License:** Apache-2.0
 :::
 
-**Try it:** `/prd "Your context here"`
+**Try it:** `/pm-skills:deliver-prd "Your context here"`
 
 A Product Requirements Document is the primary specification artifact that communicates what to build and why. It bridges the gap between problem understanding and engineering implementation by providing clear requirements, success criteria, and scope boundaries. A good PRD enables engineering to build the right thing while maintaining flexibility on implementation details.
 
@@ -26,10 +26,10 @@ A Product Requirements Document is the primary specification artifact that commu
 
 ## How to Use
 
-Use the `/prd` slash command:
+Invoke the skill by name (`/pm-skills:deliver-prd` on Claude Code, `$deliver-prd` on Codex):
 
 ```
-/prd "Your context here"
+/pm-skills:deliver-prd "Your context here"
 ```
 
 Or reference the skill file directly: `skills/deliver-prd/SKILL.md`
@@ -451,7 +451,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/prd
+deliver-prd
 
 Feature: Campaigns . native email marketing for Storevine merchants
 
@@ -499,7 +499,7 @@ Legal (needs to review compliance section), Marketing (will dog-food).
 **Prompt:**
 
 ```
-/prd
+deliver-prd
 
 resurface prd for sprint 8. pulling everything together: solution brief,
 adr (resend), design rationale (text layout), spike (tfidf).
@@ -536,7 +536,7 @@ a/b test (mar 9 - apr 5), decision (apr 11).
 **Prompt:**
 
 ```
-/prd
+deliver-prd
 
 Here is the structured brief for the Blueprints v1 PRD.
 

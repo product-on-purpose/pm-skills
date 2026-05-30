@@ -12,7 +12,7 @@ tags:
 **Phase:** Discover | **Version:** 2.0.0 | **Category:** research | **License:** Apache-2.0
 :::
 
-**Try it:** `/competitive-analysis "Your context here"`
+**Try it:** `/pm-skills:discover-competitive-analysis "Your context here"`
 
 A competitive analysis provides structured insight into the competitive landscape, helping product teams understand where they stand relative to alternatives and identify opportunities for differentiation. Rather than exhaustively cataloging every competitor, an effective analysis focuses on actionable insights that inform product strategy.
 
@@ -27,10 +27,10 @@ A competitive analysis provides structured insight into the competitive landscap
 
 ## How to Use
 
-Use the `/competitive-analysis` slash command:
+Invoke the skill by name (`/pm-skills:discover-competitive-analysis` on Claude Code, `$discover-competitive-analysis` on Codex):
 
 ```
-/competitive-analysis "Your context here"
+/pm-skills:discover-competitive-analysis "Your context here"
 ```
 
 Or reference the skill file directly: `skills/discover-competitive-analysis/SKILL.md`
@@ -506,7 +506,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 Scope: Email marketing tools available to ecommerce merchants . built-in vs.
 third-party positioning. Informing Campaigns v1 scope and feature prioritization.
@@ -555,7 +555,7 @@ References: problem-statement (Q4 discovery), exit survey analysis.
 **Prompt:**
 
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 pkm and read-later market, focusing on resurfacing and re-engagement
 features. brainshelf is planning a resurface feature (morning email digest
@@ -585,7 +585,7 @@ and where the white space is for us.
 **Prompt:**
 
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 Scope: Enterprise documentation and knowledge management -- template governance and approval workflow capabilities. Informing Blueprints GA positioning.
 

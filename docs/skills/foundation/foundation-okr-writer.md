@@ -12,7 +12,7 @@ tags:
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/okr-writer "Your context here"`
+**Try it:** `/pm-skills:foundation-okr-writer "Your context here"`
 
 An OKR (Objectives and Key Results) set is a quarterly artifact that translates strategy into measurable outcomes a team commits to drive. OKRs are a focus and learning system, not a project plan, KPI dashboard, performance review device, or roadmap wrapper. Done well, they make priorities explicit, force tradeoffs, enable cross-team alignment, and create visible evidence of progress. Done poorly, they generate roadmap theater, compensation gaming, and false precision.
 
@@ -29,19 +29,19 @@ This skill is a coach, not a template filler. It drafts, reviews, rewrites, and 
 
 ## When NOT to Use
 
-- You only need a dashboard spec . use `/dashboard-requirements`
-- You only need event tracking . use `/instrumentation-spec`
-- You only need an experiment . use `/experiment-design`
-- You only need a hypothesis . use `/hypothesis`
-- The cycle has ended and you need formal scoring with evidence and learning synthesis . use `/okr-grader`
+- You only need a dashboard spec . use `measure-dashboard-requirements`
+- You only need event tracking . use `measure-instrumentation-spec`
+- You only need an experiment . use `measure-experiment-design`
+- You only need a hypothesis . use `define-hypothesis`
+- The cycle has ended and you need formal scoring with evidence and learning synthesis . use `measure-okr-grader`
 - The team is purely business-as-usual and needs steady-state KPIs, not stretch outcomes . OKRs are the wrong artifact
 
 ## How to Use
 
-Use the `/okr-writer` slash command:
+Invoke the skill by name (`/pm-skills:foundation-okr-writer` on Claude Code, `$foundation-okr-writer` on Codex):
 
 ```
-/okr-writer "Your context here"
+/pm-skills:foundation-okr-writer "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-okr-writer/SKILL.md`
@@ -220,7 +220,7 @@ Storevine's Campaigns team shipped the guided first-campaign flow in May 2026 an
 
 For Q3 2026, the Campaigns growth-pm needs to set OKRs that move from "we activated more merchants" to "merchants use Campaigns as a sustained marketing channel." The forcing function is a company-level OKR to reduce 12-month merchant churn from 18% to 14% [fictional] by year-end. Engagement with Campaigns is one of the strongest leading indicators for merchant retention.
 
-The growth-pm runs `/okr-writer` in Guided mode (default).
+The growth-pm runs `foundation-okr-writer` in Guided mode (default).
 
 **Source Notes:**
 
@@ -232,7 +232,7 @@ The growth-pm runs `/okr-writer` in Guided mode (default).
 ## Prompt
 
 ```
-/okr-writer
+foundation-okr-writer
 
 Scope: Campaigns team, Storevine
 Cycle: Q3 2026 (July 1 to September 30)
@@ -459,7 +459,7 @@ behavior, not just usage frequency.)
 
 ## Suggested Next Step
 
-Run `/okr-writer` again in Audit Only mode with this set after the
+Run `foundation-okr-writer` again in Audit Only mode with this set after the
 cross-team Q3 planning workshop. Specifically check that the KR2 cohort
 boundary question (Open Question 1) is resolved and that the Onboarding
 team's KR confirmation does not invalidate KR1's denominator.
@@ -477,7 +477,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/okr-writer
+foundation-okr-writer
 
 Scope: Campaigns team, Storevine
 Cycle: Q3 2026 (July 1 to September 30)
@@ -525,7 +525,7 @@ go/okrs-q3-2026-campaigns
 **Prompt:**
 
 ```
-/okr-writer
+foundation-okr-writer
 
 Scope: Resurface team, Brainshelf
 Cycle: Q3 2026 (July 1 to September 30)
@@ -572,7 +572,7 @@ Source of truth: company OKR doc in Linear at L-OKR-Q3-Resurface
 **Prompt:**
 
 ```
-/okr-writer
+foundation-okr-writer
 
 Scope: Blueprints team, Workbench
 Cycle: Q3 2026 (July 1 to September 30)

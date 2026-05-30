@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-foundation-sprint-differentiation "Your context here"`
+**Try it:** `/pm-skills:tool-foundation-sprint-differentiation "Your context here"`
 
 Day 1 afternoon of a Foundation Sprint. The team converts the morning's Basics frame (customer, problem, advantage, competitors) into a defensible strategic position. The output is a one-page Mini Manifesto that the team and Decider sign as the Day 1 strategic summary.
 
@@ -33,10 +33,10 @@ Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contra
 
 ## How to Use
 
-Use the `/tool-foundation-sprint-differentiation` slash command:
+Invoke the skill by name (`/pm-skills:tool-foundation-sprint-differentiation` on Claude Code, `$tool-foundation-sprint-differentiation` on Codex):
 
 ```
-/tool-foundation-sprint-differentiation "Your context here"
+/pm-skills:tool-foundation-sprint-differentiation "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-foundation-sprint-differentiation/SKILL.md`

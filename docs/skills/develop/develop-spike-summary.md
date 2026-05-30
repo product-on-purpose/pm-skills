@@ -12,7 +12,7 @@ tags:
 **Phase:** Develop | **Version:** 2.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/spike-summary "Your context here"`
+**Try it:** `/pm-skills:develop-spike-summary "Your context here"`
 
 A spike summary documents the results of a time-boxed exploration . a focused investigation to reduce uncertainty before committing to implementation. Spikes answer specific questions like "Can we integrate with this API?" or "Is this technology viable for our use case?" The summary captures findings so the team can make informed decisions without the spike participants needing to repeat explanations.
 
@@ -26,10 +26,10 @@ A spike summary documents the results of a time-boxed exploration . a focused in
 
 ## How to Use
 
-Use the `/spike-summary` slash command:
+Invoke the skill by name (`/pm-skills:develop-spike-summary` on Claude Code, `$develop-spike-summary` on Codex):
 
 ```
-/spike-summary "Your context here"
+/pm-skills:develop-spike-summary "Your context here"
 ```
 
 Or reference the skill file directly: `skills/develop-spike-summary/SKILL.md`
@@ -300,7 +300,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/spike-summary
+develop-spike-summary
 
 Spike: Revenue attribution feasibility . can SendGrid open/click webhooks
 be linked to Storevine purchase events within v1 timeline?
@@ -335,7 +335,7 @@ items. Will share with PM and Engineering Lead to unblock sprint planning.
 **Prompt:**
 
 ```
-/spike-summary
+develop-spike-summary
 
 topic matching spike for resurface. alex spent 3 days on it last
 week. question: can we build something that picks saved items relevant
@@ -374,7 +374,7 @@ feature sticks.
 **Prompt:**
 
 ```
-/spike-summary
+develop-spike-summary
 
 Spike: CRDT library evaluation for Blueprints real-time co-editing
 Product: Workbench (enterprise collaboration platform)

@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** discovery | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-design-sprint-sketch "Your context here"`
+**Try it:** `/pm-skills:tool-design-sprint-sketch "Your context here"`
 
 Structure Tuesday's solo-but-together work. Each team member, working independently and silently, produces lightning demos in the morning and a four-step solution sketch in the afternoon. The skill structures the activity; the humans produce the sketches. Wednesday's heat-map orientation depends on having a cohort of independent sketches that did NOT contaminate each other through group brainstorming.
 
@@ -34,10 +34,10 @@ Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.m
 
 ## How to Use
 
-Use the `/tool-design-sprint-sketch` slash command:
+Invoke the skill by name (`/pm-skills:tool-design-sprint-sketch` on Claude Code, `$tool-design-sprint-sketch` on Codex):
 
 ```
-/tool-design-sprint-sketch "Your context here"
+/pm-skills:tool-design-sprint-sketch "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-design-sprint-sketch/SKILL.md`

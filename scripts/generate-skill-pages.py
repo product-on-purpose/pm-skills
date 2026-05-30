@@ -370,10 +370,10 @@ def generate_skill_page(skill_dir: Path) -> dict | None:
     lines.append(':::')
     lines.append("")
 
-    # Quick-try snippet (E-03; .md-button attr_list dropped per W5.5; renders as inline code link)
-    if cmd:
-        lines.append(f"**Try it:** `/{cmd} \"Your context here\"`")
-        lines.append("")
+    # Quick-try snippet. v2.22.0: per-skill command wrappers were removed; skills
+    # are invoked directly by name. Emit unconditionally from metadata.name.
+    lines.append(f"**Try it:** `/pm-skills:{name} \"Your context here\"`")
+    lines.append("")
 
     # Intro paragraph (skip the title line)
     intro_lines = sections.get("_intro", "").split("\n")
@@ -396,18 +396,17 @@ def generate_skill_page(skill_dir: Path) -> dict | None:
         lines.append(sections["When NOT to Use"])
         lines.append("")
 
-    # How to Use
-    if cmd:
-        lines.append("## How to Use")
-        lines.append("")
-        lines.append(f"Use the `/{cmd}` slash command:")
-        lines.append("")
-        lines.append("```")
-        lines.append(f'/{cmd} "Your context here"')
-        lines.append("```")
-        lines.append("")
-        lines.append(f"Or reference the skill file directly: `skills/{dirname}/SKILL.md`")
-        lines.append("")
+    # How to Use. v2.22.0: invoke the skill by name (no command wrapper).
+    lines.append("## How to Use")
+    lines.append("")
+    lines.append(f"Invoke the skill by name (`/pm-skills:{name}` on Claude Code, `${name}` on Codex):")
+    lines.append("")
+    lines.append("```")
+    lines.append(f'/pm-skills:{name} "Your context here"')
+    lines.append("```")
+    lines.append("")
+    lines.append(f"Or reference the skill file directly: `skills/{dirname}/SKILL.md`")
+    lines.append("")
 
     # Instructions
     if "Instructions" in sections:
@@ -626,8 +625,13 @@ def generate_commands_reference(all_skills: list) -> None:
             f"{skill_cmd_count} skill commands, {workflow_cmd_count} workflow commands, "
             f"and {other_cmd_count} sub-agent companion commands."
         )
-    else:
+    elif skill_cmd_count > 0:
         lines.append(f"PM Skills ships {total_cmd_count} slash commands: {skill_cmd_count} skill commands plus {workflow_cmd_count} workflow commands.")
+    else:
+        lines.append(
+            f"PM Skills ships {total_cmd_count} slash commands: the {workflow_cmd_count} `/workflow-*` orchestrator commands. "
+            f"Every skill is invoked directly by name (`/pm-skills:<skill-name>` on Claude Code, `$<skill-name>` on Codex)."
+        )
     lines.append("")
     lines.append("| Command | Skill | Phase | Description |")
     lines.append("|---------|-------|-------|-------------|")

@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-design-sprint-brief "Your context here"`
+**Try it:** `/pm-skills:tool-design-sprint-brief "Your context here"`
 
 Produce the brief that aligns the team on challenge, sprint questions, participants, customer recruiting, prototype medium, interview format, logistics, and success criteria before Monday begins. A well-built brief prevents Monday morning from opening with re-litigation of "what are we testing this week?"; a missing or vague brief almost guarantees it.
 
@@ -34,10 +34,10 @@ Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.m
 
 ## How to Use
 
-Use the `/tool-design-sprint-brief` slash command:
+Invoke the skill by name (`/pm-skills:tool-design-sprint-brief` on Claude Code, `$tool-design-sprint-brief` on Codex):
 
 ```
-/tool-design-sprint-brief "Your context here"
+/pm-skills:tool-design-sprint-brief "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-design-sprint-brief/SKILL.md`

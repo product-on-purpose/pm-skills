@@ -12,11 +12,11 @@ tags:
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 :::
 
-**Try it:** `/stakeholder-update "Your context here"`
+**Try it:** `/pm-skills:foundation-stakeholder-update "Your context here"`
 
 A stakeholder update is async communication to readers who need to know the outcomes of a meeting. Primary audience is non-attendees; secondary audience is some attendees who want a reference version (came in late, stepped out, need something to forward).
 
-Distinct from `/meeting-recap` in audience, format, and purpose: the recap is a summary of what happened for people who were in the room; the stakeholder-update is a translation of outcomes into what-it-means for readers (tailored to their role, with technical-to-business translation where the audience warrants it).
+Distinct from `foundation-meeting-recap` in audience, format, and purpose: the recap is a summary of what happened for people who were in the room; the stakeholder-update is a translation of outcomes into what-it-means for readers (tailored to their role, with technical-to-business translation where the audience warrants it).
 
 Distinct from `/discover-stakeholder-summary`: that skill is about understanding stakeholders (input to the user's work). This skill is about communicating to stakeholders (output from the user's work).
 
@@ -31,16 +31,16 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 ## When NOT to Use
 
-- Summarizing what happened for attendees. Use `/meeting-recap`.
+- Summarizing what happened for attendees. Use `foundation-meeting-recap`.
 - Broadcasting status with no specific audience tailoring. A plain Slack message is sufficient; the skill adds value when translation or CTA framing matters.
 - Communicating research findings to stakeholders. Use `/discover-interview-synthesis` plus targeted comms.
 
 ## How to Use
 
-Use the `/stakeholder-update` slash command:
+Invoke the skill by name (`/pm-skills:foundation-stakeholder-update` on Claude Code, `$foundation-stakeholder-update` on Codex):
 
 ```
-/stakeholder-update "Your context here"
+/pm-skills:foundation-stakeholder-update "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-stakeholder-update/SKILL.md`
@@ -407,7 +407,7 @@ status: draft
 **Prompt:**
 
 ```
-/stakeholder-update @2026-03-17_11-00PST_resurface-algo-v1_recap.md --channel=email --audience=customer-facing --cta="FYI-only" "email to ~500 beta users, thank them for feedback, signal shipment of algo v1 improvements"
+foundation-stakeholder-update @2026-03-17_11-00PST_resurface-algo-v1_recap.md --channel=email --audience=customer-facing --cta="FYI-only" "email to ~500 beta users, thank them for feedback, signal shipment of algo v1 improvements"
 ```
 
 **Output:**
@@ -450,7 +450,7 @@ status: draft
 **Prompt:**
 
 ```
-/stakeholder-update @2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_recap.md --channel=notion --audience=customer-facing --cta="review and confirm CS playbook alignment by 2026-05-20"
+foundation-stakeholder-update @2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_recap.md --channel=notion --audience=customer-facing --cta="review and confirm CS playbook alignment by 2026-05-20"
 ```
 
 **Output:**

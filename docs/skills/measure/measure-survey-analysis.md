@@ -12,16 +12,16 @@ tags:
 **Phase:** Measure | **Version:** 1.0.0 | **Category:** research | **License:** Apache-2.0
 :::
 
-**Try it:** `/survey-analysis "Your context here"`
+**Try it:** `/pm-skills:measure-survey-analysis "Your context here"`
 
 You analyze survey results into actionable PM insights. Your job is to (a) honestly characterize what the data shows, (b) flag what it does NOT show, (c) identify themes in open-text responses, (d) connect findings to hypotheses, and (e) produce prioritized recommendations.
 
 ## How to Use
 
-Use the `/survey-analysis` slash command:
+Invoke the skill by name (`/pm-skills:measure-survey-analysis` on Claude Code, `$measure-survey-analysis` on Codex):
 
 ```
-/survey-analysis "Your context here"
+/pm-skills:measure-survey-analysis "Your context here"
 ```
 
 Or reference the skill file directly: `skills/measure-survey-analysis/SKILL.md`
@@ -189,7 +189,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/survey-analysis
+measure-survey-analysis
 
 analyze our storevine feature-prioritization survey. 180 customer admins
 responded. we asked them to rate 5 candidate features by importance and pick
@@ -216,7 +216,7 @@ segment by company size (we captured it). tell us what to build next.
 **Prompt:**
 
 ```
-/survey-analysis
+measure-survey-analysis
 
 analyze our Q2 brainshelf NPS survey. 1200 subscribers responded. standard
 NPS question (0-10) plus an open text "what's the one thing you'd change?"
@@ -237,7 +237,7 @@ last quarter's NPS was 18. mine the open text for what we should build next.
 **Prompt:**
 
 ```
-/survey-analysis
+measure-survey-analysis
 
 analyze our dev-experience pulse survey. 65 engineers responded out of ~280.
 mix of likert questions (rate your dev experience 1-5 across a few areas)

@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** discovery | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-design-sprint-map-and-target "Your context here"`
+**Try it:** `/pm-skills:tool-design-sprint-map-and-target "Your context here"`
 
 Produce Monday's bundled artifact: the long-term goal that names success in 1-5 years; 3-7 sprint questions converting team fears into testable risks; a 5-15 step customer or system map from key player to outcome; expert interview notes from cameo experts run in parallel; HMW (How Might We) clusters synthesized from the team; and the Decider's chosen target moment. Monday's output becomes Tuesday's design target.
 
@@ -34,10 +34,10 @@ Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.m
 
 ## How to Use
 
-Use the `/tool-design-sprint-map-and-target` slash command:
+Invoke the skill by name (`/pm-skills:tool-design-sprint-map-and-target` on Claude Code, `$tool-design-sprint-map-and-target` on Codex):
 
 ```
-/tool-design-sprint-map-and-target "Your context here"
+/pm-skills:tool-design-sprint-map-and-target "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-design-sprint-map-and-target/SKILL.md`

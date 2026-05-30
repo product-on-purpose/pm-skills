@@ -12,7 +12,7 @@ tags:
 **Phase:** Iterate | **Version:** 2.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/refinement-notes "Your context here"`
+**Try it:** `/pm-skills:iterate-refinement-notes "Your context here"`
 
 Refinement notes capture the outcomes of backlog refinement (grooming) sessions.what was discussed, what was estimated, and what decisions were made. They serve as a quick reference for team members who missed the session and a historical record of how stories evolved from idea to ready-for-sprint.
 
@@ -26,10 +26,10 @@ Refinement notes capture the outcomes of backlog refinement (grooming) sessions.
 
 ## How to Use
 
-Use the `/refinement-notes` slash command:
+Invoke the skill by name (`/pm-skills:iterate-refinement-notes` on Claude Code, `$iterate-refinement-notes` on Codex):
 
 ```
-/refinement-notes "Your context here"
+/pm-skills:iterate-refinement-notes "Your context here"
 ```
 
 Or reference the skill file directly: `skills/iterate-refinement-notes/SKILL.md`
@@ -487,7 +487,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/refinement-notes
+iterate-refinement-notes
 
 Session: Campaigns v1.1 refinement
 Date: July 22, 2026, 10:00 AM, 60 minutes
@@ -523,7 +523,7 @@ Need: full refinement notes for Sprint 12 planning.
 **Prompt:**
 
 ```
-/refinement-notes
+iterate-refinement-notes
 
 sprint 9 refinement for resurface v2. session was april 15, 2026.
 45 minutes. priya facilitated.
@@ -559,7 +559,7 @@ duplicate).
 **Prompt:**
 
 ```
-/refinement-notes
+iterate-refinement-notes
 
 I just ran the v1.1 refinement session. Here are the details:
 

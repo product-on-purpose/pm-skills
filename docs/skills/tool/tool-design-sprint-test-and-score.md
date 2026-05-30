@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** discovery | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-design-sprint-test-and-score "Your context here"`
+**Try it:** `/pm-skills:tool-design-sprint-test-and-score "Your context here"`
 
 Friday is the sprint's payoff. 5 target-profile customers run the prototype while the team observes; the team synthesizes observations into a scorecard against the sprint questions; the Decider makes the build / iterate / pivot / stop call by end-of-day. The week's 35-40 person-days plus customer recruiting cost converts into one actionable decision.
 
@@ -34,10 +34,10 @@ Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.m
 
 ## How to Use
 
-Use the `/tool-design-sprint-test-and-score` slash command:
+Invoke the skill by name (`/pm-skills:tool-design-sprint-test-and-score` on Claude Code, `$tool-design-sprint-test-and-score` on Codex):
 
 ```
-/tool-design-sprint-test-and-score "Your context here"
+/pm-skills:tool-design-sprint-test-and-score "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-design-sprint-test-and-score/SKILL.md`

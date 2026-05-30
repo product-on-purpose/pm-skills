@@ -20,7 +20,7 @@ tags:
 
 :::note[Prompt]
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 Quick marketing persona for Storevine Campaigns SMB acquisition.
 
@@ -55,7 +55,7 @@ Keep it brief, focused on acquisition messaging and objection handling.
 
 :::note[Prompt]
 ```text
-/persona marketing detailed
+foundation-persona marketing detailed
 
 Build a story-first marketing persona for Storevine Campaigns launch planning.
 
@@ -91,7 +91,7 @@ Need output to include:
 
 :::note[Prompt]
 ```text
-/persona product brief
+foundation-persona product brief
 
 Build a concise product persona for Storevine Campaigns first-send onboarding.
 
@@ -128,7 +128,7 @@ Output:
 
 :::note[Prompt]
 ```text
-/persona product detailed
+foundation-persona product detailed
 
 Build a detailed product persona for Storevine Campaigns multi-location merchant workflows.
 
@@ -168,7 +168,7 @@ Output requirements:
 
 :::note[Prompt]
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 Scope: Email marketing tools available to ecommerce merchants . built-in vs.
 third-party positioning. Informing Campaigns v1 scope and feature prioritization.
@@ -221,7 +221,7 @@ References: problem-statement (Q4 discovery), exit survey analysis.
 
 :::note[Prompt]
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 Research topic: Why do Storevine merchants use external email tools instead
 of Storevine's built-in email features?
@@ -259,7 +259,7 @@ Interviewer: UX researcher + growth PM
 
 :::note[Prompt]
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: PRD complete, moving to engineering kickoff
@@ -305,7 +305,7 @@ plan, and risk mitigation for Klaviyo and resistant stakeholders.
 
 :::note[Prompt]
 ```
-/problem-statement
+define-problem-statement
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Define . establishing shared problem framing before PRD draft
@@ -348,7 +348,7 @@ design, legal, and head of product before PRD review.
 
 :::note[Prompt]
 ```
-/hypothesis
+define-hypothesis
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Post-discovery, pre-PRD finalization
@@ -392,7 +392,7 @@ pass/fail criteria, and risks. Will attach to PRD as primary testable belief.
 
 :::note[Prompt]
 ```
-/opportunity-tree
+define-opportunity-tree
 
 Project: Campaigns . and broader platform churn reduction strategy
 Stage: Pre-Q2 sprint planning . framing the opportunity space before
@@ -436,7 +436,7 @@ branch, prioritization, and experiments backlog for Q2 planning.
 
 :::note[Prompt]
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Pre-PRD, grounding feature scope in JTBD framework before
@@ -481,7 +481,7 @@ inform v1 feature prioritization and GA messaging strategy.
 
 :::note[Prompt]
 ```
-/solution-brief
+develop-solution-brief
 
 Project: Campaigns . native email marketing for Storevine merchants
 
@@ -525,7 +525,7 @@ Success metrics, trade-offs (what we're NOT building), and top risks.
 
 :::note[Prompt]
 ```
-/spike-summary
+develop-spike-summary
 
 Spike: Revenue attribution feasibility . can SendGrid open/click webhooks
 be linked to Storevine purchase events within v1 timeline?
@@ -564,7 +564,7 @@ items. Will share with PM and Engineering Lead to unblock sprint planning.
 
 :::note[Prompt]
 ```
-/adr
+develop-adr
 
 ADR for email sending infrastructure choice for Campaigns v1. We need to pick
 the vendor before we start the backend build.
@@ -606,7 +606,7 @@ Eng lead and growth PM are the deciders.
 
 :::note[Prompt]
 ```
-/design-rationale
+develop-design-rationale
 
 Project: Campaigns . native email marketing for Storevine merchants
 Decision: Audience selection UX for the campaign creation flow
@@ -648,7 +648,7 @@ Decision makers: Design Lead, Growth PM, Engineering Lead.
 
 :::note[Prompt]
 ```
-/prd
+deliver-prd
 
 Feature: Campaigns . native email marketing for Storevine merchants
 
@@ -700,7 +700,7 @@ Legal (needs to review compliance section), Marketing (will dog-food).
 
 :::note[Prompt]
 ```
-/user-stories
+deliver-user-stories
 
 Project: Campaigns . native email marketing for Storevine merchants
 Sprint: Q2 2026 Campaigns build (kickoff Mar 3, GA Apr 28)
@@ -743,7 +743,7 @@ design notes, technical notes, and dependencies. P0 priority.
 
 :::note[Prompt]
 ```
-/edge-cases
+deliver-edge-cases
 
 Feature: Campaigns . campaign creation and send flow
 Sprint: Q2 2026 Campaigns build (GA Apr 28, 2026)
@@ -783,7 +783,7 @@ QA test scenarios (P1/P2/P3).
 
 :::note[Prompt]
 ```
-/launch-checklist
+deliver-launch-checklist
 
 Feature: Campaigns v1.0 . native email marketing for Storevine merchants
 Launch date: April 28, 2026
@@ -831,7 +831,7 @@ and check-in schedule.
 
 :::note[Prompt]
 ```
-/release-notes
+deliver-release-notes
 
 Product: Storevine
 Release: Campaigns v1.0 . native email marketing, GA on Apr 28, 2026
@@ -876,7 +876,7 @@ Audience is small-business owners, not developers.
 
 :::note[Prompt]
 ```
-/experiment-design
+measure-experiment-design
 
 Project: Campaigns . Campaigns guided first-campaign flow
 Experiment: Does the guided first-campaign flow increase first-send rate
@@ -920,7 +920,7 @@ criteria, risks, and implementation notes.
 
 :::note[Prompt]
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 Feature: Campaigns . campaign send flow + guided first-campaign flow
 Analytics platform: Amplitude
@@ -963,7 +963,7 @@ PII handling, implementation notes, and QA testing checklist.
 
 :::note[Prompt]
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 Dashboard: Campaigns adoption and revenue . post-GA monitoring
 Audience: Growth PM (daily), Merchant Success (weekly), Head of Product
@@ -1008,7 +1008,7 @@ visualizations, filters, data sources, and acceptance criteria.
 
 :::note[Prompt]
 ```
-/experiment-results
+measure-experiment-results
 
 Experiment: Campaigns guided first-campaign flow A/B test
 Ran: April 28  -  June 27, 2026 (60 days from GA)
@@ -1052,7 +1052,7 @@ for stakeholder review and decision record.
 
 :::note[Prompt]
 ```
-/retrospective
+iterate-retrospective
 
 Sprint: Campaigns v1.0 build sprint + GA week
 Period: February 3  -  May 5, 2026 [fictional]
@@ -1103,7 +1103,7 @@ Need: full sprint retrospective with action items.
 
 :::note[Prompt]
 ```
-/lessons-log
+iterate-lessons-log
 
 Lesson from: Campaigns guided first-campaign flow A/B test
 Experiment ran: April 28  -  June 27, 2026 (60 days from GA)
@@ -1143,7 +1143,7 @@ Need: structured lessons log entry for the team knowledge base.
 
 :::note[Prompt]
 ```
-/refinement-notes
+iterate-refinement-notes
 
 Session: Campaigns v1.1 refinement
 Date: July 22, 2026, 10:00 AM, 60 minutes
@@ -1183,7 +1183,7 @@ Need: full refinement notes for Sprint 12 planning.
 
 :::note[Prompt]
 ```
-/pivot-decision
+iterate-pivot-decision
 
 Product: Campaigns . post-GA persevere/pivot evaluation
 Evaluation date: July 22, 2026 (12 weeks post-GA)

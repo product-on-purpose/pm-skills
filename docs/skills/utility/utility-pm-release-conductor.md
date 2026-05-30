@@ -12,6 +12,8 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** release | **License:** Apache-2.0
 :::
 
+**Try it:** `/pm-skills:utility-pm-release-conductor "Your context here"`
+
 Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `agents/pm-release-conductor.md` and inlines chain composition on non-Claude clients via "reference + execute inline" pattern.
 
 > **Status summary (v2.16.0):** PRODUCTION on Claude Code (native sub-agent path). DRY-RUN VALIDATED on Codex CLI 2026-05-17 per [`gate-test-results_2026-05-17_codex.md`](../../internal/release-plans/v2.16.0/gate-test-results_2026-05-17_codex.md); LIVE release on Codex CLI is NOT independently exercised, so use with caution and run `--dry-run` first as a rehearsal. EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI (UNTESTED at v2.16.0 ship).
@@ -30,6 +32,16 @@ Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent. Detects 
 - You only need a governance audit (not a release) -> use `utility-pm-skill-auditor`
 - You only need a CHANGELOG draft (not a release) -> use `utility-pm-changelog-curator`
 - You want to perform release operations WITHOUT explicit gate confirmation -> the conductor refuses bypass; manual release outside the conductor is the right path
+
+## How to Use
+
+Invoke the skill by name (`/pm-skills:utility-pm-release-conductor` on Claude Code, `$utility-pm-release-conductor` on Codex):
+
+```
+/pm-skills:utility-pm-release-conductor "Your context here"
+```
+
+Or reference the skill file directly: `skills/utility-pm-release-conductor/SKILL.md`
 
 ## Instructions
 
@@ -130,7 +142,7 @@ This was a dry-run. No tag was created. No commits were pushed. No changes are l
 
 **Dry-run rehearsal result:** all 6 gates would PASS in live mode based on current state. {N} P0 blockers detected ({list} OR "none"). {M} P2 reminders surfaced for post-tag follow-up.
 
-**Recommended next step:** invoke `/pm-release v{target}` (without `--dry-run`) when ready to ship live. The conductor walks the same flow and performs the actual tag + push at G3.
+**Recommended next step:** invoke `utility-pm-release-conductor v{target}` (without `--dry-run`) when ready to ship live. The conductor walks the same flow and performs the actual tag + push at G3.
 ````
 
 ## Status Summary Section (Per Gate or End of Flow)

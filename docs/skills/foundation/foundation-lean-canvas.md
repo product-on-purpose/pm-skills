@@ -12,11 +12,11 @@ tags:
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::
 
-**Try it:** `/lean-canvas "Your context here"`
+**Try it:** `/pm-skills:foundation-lean-canvas "Your context here"`
 
 A lean canvas is a one-page business thesis that makes your assumptions about problem, customer, solution, and viability explicit and testable. Developed by Ash Maurya from Alex Osterwalder's Business Model Canvas, it is specifically adapted for startups and product teams operating under uncertainty. Nine interlocking blocks force you to articulate the whole picture at once so that changing one block's assumptions surfaces the ripple effect on the others.
 
-This skill is a strategic hub, not a specialist tool. It produces the integrated one-page artifact and cross-links to deeper PM skills (`/problem-statement`, `/persona`, `/jtbd-canvas`, `/solution-brief`, `/competitive-analysis`, `/experiment-design`) for single-block depth when needed.
+This skill is a strategic hub, not a specialist tool. It produces the integrated one-page artifact and cross-links to deeper PM skills (`define-problem-statement`, `foundation-persona`, `define-jtbd-canvas`, `develop-solution-brief`, `discover-competitive-analysis`, `measure-experiment-design`) for single-block depth when needed.
 
 ## When to Use
 
@@ -25,21 +25,21 @@ This skill is a strategic hub, not a specialist tool. It produces the integrated
 - Comparing two or more strategic options side-by-side (run the skill once per option, then diff)
 - Onboarding new team members into the strategic thesis in a single artifact
 - Mid-phase reality check: does the thesis still hold given what we have learned?
-- Pairing with `/experiment-design` to prioritize which block assumptions to test first
+- Pairing with `measure-experiment-design` to prioritize which block assumptions to test first
 
 ## When NOT to Use
 
-- You need deep research on a single block (persona detail, problem framing, competitive landscape). Use the specialist skill (`/persona`, `/problem-statement`, `/competitive-analysis`) instead.
-- You are drafting a PRD, user stories, or acceptance criteria. Use `/prd`, `/user-stories`, `/acceptance-criteria`; lean canvas is strategy, not specification.
-- You want to brainstorm solutions without a customer-problem anchor. Start with `/problem-statement` or `/jtbd-canvas` and return to lean canvas once the problem is framed.
+- You need deep research on a single block (persona detail, problem framing, competitive landscape). Use the specialist skill (`foundation-persona`, `define-problem-statement`, `discover-competitive-analysis`) instead.
+- You are drafting a PRD, user stories, or acceptance criteria. Use `deliver-prd`, `deliver-user-stories`, `deliver-acceptance-criteria`; lean canvas is strategy, not specification.
+- You want to brainstorm solutions without a customer-problem anchor. Start with `define-problem-statement` or `define-jtbd-canvas` and return to lean canvas once the problem is framed.
 - You need a Business Model Canvas for an established enterprise with known customers and channels. Maurya designed lean canvas specifically for high-uncertainty early-stage ventures; a BMC is a better fit for steady-state analysis.
 
 ## How to Use
 
-Use the `/lean-canvas` slash command:
+Invoke the skill by name (`/pm-skills:foundation-lean-canvas` on Claude Code, `$foundation-lean-canvas` on Codex):
 
 ```
-/lean-canvas "Your context here"
+/pm-skills:foundation-lean-canvas "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-lean-canvas/SKILL.md`
@@ -466,7 +466,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```text
-/lean-canvas
+foundation-lean-canvas
 
 Build a lean canvas for Storevine Campaigns (built-in email + SMS re-engagement) ahead of v1 leadership review.
 
@@ -475,7 +475,7 @@ Context:
 - ~38% of merchants currently juggle Klaviyo or Mailchimp as a second tool [fictional]
 - Win-loss interviews (Jan 2026, n=14): 6/14 wins cited "too many tools"; 4/9 losses said "Klaviyo is good enough" [fictional]
 - Competitive landscape already mapped (see discover-competitive-analysis from Feb 2026)
-- Initial persona for self-serve SMB merchant already drafted via /persona
+- Initial persona for self-serve SMB merchant already drafted via foundation-persona
 - Need: lean canvas for leadership review, content mode is fine, confidence-honest
 
 The canvas should feed directly into the v1 PRD so be concrete on revenue math and key metrics.
@@ -503,7 +503,7 @@ The canvas should feed directly into the v1 PRD so be concrete on revenue math a
 **Prompt:**
 
 ```text
-/lean-canvas
+foundation-lean-canvas
 
 quick lean canvas for Resurface (morning email digest of saved stuff).
 

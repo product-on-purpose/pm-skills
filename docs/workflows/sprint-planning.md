@@ -37,7 +37,7 @@ Use the Sprint Planning workflow when:
 
 - You do not yet have a defined solution (use [Customer Discovery](customer-discovery.md) or [Feature Kickoff](feature-kickoff.md) first)
 - You need to validate whether you should build this at all (use [Lean Startup](lean-startup.md) instead)
-- You need to define requirements from scratch (use the `/prd` skill directly)
+- You need to define requirements from scratch (use the `deliver-prd` skill directly)
 
 ---
 
@@ -46,7 +46,6 @@ Use the Sprint Planning workflow when:
 ### Step 1: Refinement Notes
 
 **Skill:** [`refinement-notes`](../skills/iterate/iterate-refinement-notes.md)
-**Command:** `/refinement-notes`
 
 **What you do:**
 
@@ -66,7 +65,6 @@ Review the backlog items, PRD, or solution brief and capture refinement outcomes
 ### Step 2: User Stories
 
 **Skill:** [`user-stories`](../skills/deliver/deliver-user-stories.md)
-**Command:** `/user-stories`
 
 **What you do:**
 
@@ -87,7 +85,6 @@ Generate INVEST-compliant user stories for the in-scope items from Step 1. Each 
 ### Step 3: Edge Cases
 
 **Skill:** [`edge-cases`](../skills/deliver/deliver-edge-cases.md)
-**Command:** `/edge-cases`
 
 **What you do:**
 
@@ -135,7 +132,7 @@ graph LR
 
 **Lightweight version:** If your backlog is already well-refined, skip Step 1 and jump directly from your existing backlog items to user stories.
 
-**Enhanced version:** Add `/instrumentation-spec` as a Step 4 to ensure every story includes event tracking requirements. This prevents the common problem of shipping features without analytics.
+**Enhanced version:** Add the `measure-instrumentation-spec` skill as a Step 4 to ensure every story includes event tracking requirements. This prevents the common problem of shipping features without analytics.
 
 **Team collaboration:** Run Step 1 as a live team exercise (refinement meeting), then use Steps 2-3 asynchronously to produce the written artifacts. Share the edge cases document with engineering for review before sprint commitment.
 

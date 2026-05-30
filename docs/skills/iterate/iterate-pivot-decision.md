@@ -12,7 +12,7 @@ tags:
 **Phase:** Iterate | **Version:** 2.0.0 | **Category:** reflection | **License:** Apache-2.0
 :::
 
-**Try it:** `/pivot-decision "Your context here"`
+**Try it:** `/pm-skills:iterate-pivot-decision "Your context here"`
 
 A pivot decision document captures the analysis and rationale behind a strategic direction change.or the decision to stay the course. Based on the Lean Startup concept of "pivot or persevere," this artifact ensures major strategic decisions are made with evidence, communicated clearly, and preserved for organizational learning.
 
@@ -26,10 +26,10 @@ A pivot decision document captures the analysis and rationale behind a strategic
 
 ## How to Use
 
-Use the `/pivot-decision` slash command:
+Invoke the skill by name (`/pm-skills:iterate-pivot-decision` on Claude Code, `$iterate-pivot-decision` on Codex):
 
 ```
-/pivot-decision "Your context here"
+/pm-skills:iterate-pivot-decision "Your context here"
 ```
 
 Or reference the skill file directly: `skills/iterate-pivot-decision/SKILL.md`
@@ -724,7 +724,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/pivot-decision
+iterate-pivot-decision
 
 Product: Campaigns . post-GA persevere/pivot evaluation
 Evaluation date: July 22, 2026 (12 weeks post-GA)
@@ -763,7 +763,7 @@ Need: full pivot decision document with analysis and rationale.
 **Prompt:**
 
 ```
-/pivot-decision
+iterate-pivot-decision
 
 post-experiment pivot decision for resurface. a/b test showed +5.3pp
 lift in 7-day return rate, p=0.008 [fictional]. all guardrails passed.
@@ -794,7 +794,7 @@ need the formal decision doc for marco. decision date: april 11, 2026.
 **Prompt:**
 
 ```
-/pivot-decision
+iterate-pivot-decision
 
 I need a formal pivot-decision document for the exec team. Here's the situation:
 

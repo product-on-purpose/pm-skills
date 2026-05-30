@@ -45,7 +45,6 @@ Use the Customer Discovery workflow when:
 ### Step 1: Interview Synthesis
 
 **Skill:** [`interview-synthesis`](../skills/discover/discover-interview-synthesis.md)
-**Command:** `/interview-synthesis`
 
 **What you do:**
 
@@ -65,7 +64,6 @@ Provide your raw research inputs: interview transcripts, survey responses, suppo
 ### Step 2: Jobs to Be Done Canvas
 
 **Skill:** [`jtbd-canvas`](../skills/define/define-jtbd-canvas.md)
-**Command:** `/jtbd-canvas`
 
 **What you do:**
 
@@ -85,7 +83,6 @@ Using the themes and patterns from Step 1, frame the customer's underlying jobs,
 ### Step 3: Opportunity Tree
 
 **Skill:** [`opportunity-tree`](../skills/define/define-opportunity-tree.md)
-**Command:** `/opportunity-tree`
 
 **What you do:**
 
@@ -105,7 +102,6 @@ Organize the jobs and desired outcomes from Step 2 into a Teresa Torres-style op
 ### Step 4: Problem Statement
 
 **Skill:** [`problem-statement`](../skills/define/define-problem-statement.md)
-**Command:** `/problem-statement`
 
 **What you do:**
 

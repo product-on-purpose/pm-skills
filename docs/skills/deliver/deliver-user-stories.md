@@ -12,7 +12,7 @@ tags:
 **Phase:** Deliver | **Version:** 2.0.0 | **Category:** specification | **License:** Apache-2.0
 :::
 
-**Try it:** `/user-stories "Your context here"`
+**Try it:** `/pm-skills:deliver-user-stories "Your context here"`
 
 User stories are concise descriptions of functionality from the user's perspective. They capture who needs something, what they need, and why . without prescribing how to build it. Good user stories enable teams to break large features into estimable, deliverable increments while maintaining focus on user value.
 
@@ -26,10 +26,10 @@ User stories are concise descriptions of functionality from the user's perspecti
 
 ## How to Use
 
-Use the `/user-stories` slash command:
+Invoke the skill by name (`/pm-skills:deliver-user-stories` on Claude Code, `$deliver-user-stories` on Codex):
 
 ```
-/user-stories "Your context here"
+/pm-skills:deliver-user-stories "Your context here"
 ```
 
 Or reference the skill file directly: `skills/deliver-user-stories/SKILL.md`
@@ -530,7 +530,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/user-stories
+deliver-user-stories
 
 Project: Campaigns . native email marketing for Storevine merchants
 Sprint: Q2 2026 Campaigns build (kickoff Mar 3, GA Apr 28)
@@ -569,7 +569,7 @@ design notes, technical notes, and dependencies. P0 priority.
 **Prompt:**
 
 ```
-/user-stories
+deliver-user-stories
 
 resurface stories for sprint 8. need the full set with acceptance
 criteria.
@@ -598,7 +598,7 @@ keep them tight. alex and jess need to estimate on monday.
 **Prompt:**
 
 ```
-/user-stories
+deliver-user-stories
 
 I need two user stories for the Blueprints v1 sprint backlog. These are the two highest-priority stories for the first sprint.
 

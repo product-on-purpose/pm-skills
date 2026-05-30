@@ -12,7 +12,7 @@ tags:
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 :::
 
-**Try it:** `/meeting-brief "Your context here"`
+**Try it:** `/pm-skills:foundation-meeting-brief "Your context here"`
 
 A meeting brief is the user's private strategic preparation document for a meeting where context, stakes, or positioning matter. It captures what the user needs to know, what they want to accomplish, who they are engaging with, and how to navigate the conversation. This is strategic prep, not meeting structure, which keeps it distinct from a meeting agenda.
 
@@ -27,16 +27,16 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 ## When NOT to Use
 
-- Preparing the agenda attendees will see. Use `/meeting-agenda` instead.
-- Post-meeting summarization. Use `/meeting-recap`.
+- Preparing the agenda attendees will see. Use `foundation-meeting-agenda` instead.
+- Post-meeting summarization. Use `foundation-meeting-recap`.
 - The meeting is low-stakes and well-trodden (recurring team sync, standup). A brief is overhead for these; the agenda alone is sufficient.
 
 ## How to Use
 
-Use the `/meeting-brief` slash command:
+Invoke the skill by name (`/pm-skills:foundation-meeting-brief` on Claude Code, `$foundation-meeting-brief` on Codex):
 
 ```
-/meeting-brief "Your context here"
+/pm-skills:foundation-meeting-brief "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-meeting-brief/SKILL.md`
@@ -351,7 +351,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/meeting-brief "Tomorrow 9am exec briefing, 30 min with priya-ceo and rachel-vp. Campaigns Q2 commitment. Priya pushed back on capacity in Q1 exec review (I have the recap). Rachel privately supports."
+foundation-meeting-brief "Tomorrow 9am exec briefing, 30 min with priya-ceo and rachel-vp. Campaigns Q2 commitment. Priya pushed back on capacity in Q1 exec review (I have the recap). Rachel privately supports."
 ```
 
 **Output:**
@@ -407,7 +407,7 @@ status: draft
 **Prompt:**
 
 ```
-/meeting-brief "weekly product mtg tomorrow, pitching curator tier to leo and noor, leo prob skeptical noor open, 30 min"
+foundation-meeting-brief "weekly product mtg tomorrow, pitching curator tier to leo and noor, leo prob skeptical noor open, 30 min"
 ```
 
 **Output:**
@@ -464,7 +464,7 @@ status: draft
 **Prompt:**
 
 ```
-/meeting-brief "VP Ops briefing Monday 2pm EST 45 min, david-pm briefing carlos-vp-ops on Blueprints ROI case. Carlos pushed back on Blueprints Q1 investment (see 2026-02-05_14-00EST_q1-investment-review_recap.md). New evidence just landed: 6 healthcare customer interviews with strong positive signal (@customer-interview-synthesis.md). Goal: get carlos behind the Blueprints expansion case ahead of Tuesday CEO review. Include 2026-03-15_14-00EST_compliance-investment-case_recap.md as prior context."
+foundation-meeting-brief "VP Ops briefing Monday 2pm EST 45 min, david-pm briefing carlos-vp-ops on Blueprints ROI case. Carlos pushed back on Blueprints Q1 investment (see 2026-02-05_14-00EST_q1-investment-review_recap.md). New evidence just landed: 6 healthcare customer interviews with strong positive signal (@customer-interview-synthesis.md). Goal: get carlos behind the Blueprints expansion case ahead of Tuesday CEO review. Include 2026-03-15_14-00EST_compliance-investment-case_recap.md as prior context."
 ```
 
 **Output:**

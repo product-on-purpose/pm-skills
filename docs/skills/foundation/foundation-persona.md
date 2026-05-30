@@ -12,7 +12,7 @@ tags:
 **Classification:** Foundation | **Version:** 2.5.0 | **Category:** research | **License:** Apache-2.0
 :::
 
-**Try it:** `/persona "Your context here"`
+**Try it:** `/pm-skills:foundation-persona "Your context here"`
 
 This skill produces decision-usable personas from one canonical template pack.
 
@@ -25,10 +25,10 @@ This skill produces decision-usable personas from one canonical template pack.
 
 ## How to Use
 
-Use the `/persona` slash command:
+Invoke the skill by name (`/pm-skills:foundation-persona` on Claude Code, `$foundation-persona` on Codex):
 
 ```
-/persona "Your context here"
+/pm-skills:foundation-persona "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-persona/SKILL.md`
@@ -77,8 +77,8 @@ When asked to generate a persona, follow these steps:
 # Persona Output Templates (v2.5.0)
 
 Use exactly one template per output:
-- `Product Persona Template` for `/persona product`
-- `Marketing Persona Template` for `/persona marketing` (and `/persona buyer` alias)
+- `Product Persona Template` for `foundation-persona product`
+- `Marketing Persona Template` for `foundation-persona marketing` (and `foundation-persona buyer` alias)
 
 Do not mix sections from both templates in one output.
 
@@ -687,7 +687,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 Quick marketing persona for Storevine Campaigns SMB acquisition.
 
@@ -718,7 +718,7 @@ Keep it brief, focused on acquisition messaging and objection handling.
 **Prompt:**
 
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 marketing persona for newsletter creator acquisition channel.
 
@@ -745,7 +745,7 @@ keep it brief but actionable for growth experiments.
 **Prompt:**
 
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 Sandra V. to PM Skills agent:
 

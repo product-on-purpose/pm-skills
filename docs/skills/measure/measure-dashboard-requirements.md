@@ -12,7 +12,7 @@ tags:
 **Phase:** Measure | **Version:** 2.0.0 | **Category:** validation | **License:** Apache-2.0
 :::
 
-**Try it:** `/dashboard-requirements "Your context here"`
+**Try it:** `/pm-skills:measure-dashboard-requirements "Your context here"`
 
 A dashboard requirements document specifies what questions a dashboard should answer, what metrics it displays, and how data should be visualized. Clear requirements help data teams build dashboards that actually inform decisions rather than just displaying numbers.
 
@@ -26,10 +26,10 @@ A dashboard requirements document specifies what questions a dashboard should an
 
 ## How to Use
 
-Use the `/dashboard-requirements` slash command:
+Invoke the skill by name (`/pm-skills:measure-dashboard-requirements` on Claude Code, `$measure-dashboard-requirements` on Codex):
 
 ```
-/dashboard-requirements "Your context here"
+/pm-skills:measure-dashboard-requirements "Your context here"
 ```
 
 Or reference the skill file directly: `skills/measure-dashboard-requirements/SKILL.md`
@@ -718,7 +718,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 Dashboard: Campaigns adoption and revenue . post-GA monitoring
 Audience: Growth PM (daily), Merchant Success (weekly), Head of Product
@@ -759,7 +759,7 @@ visualizations, filters, data sources, and acceptance criteria.
 **Prompt:**
 
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 resurface experiment dashboard for amplitude. need it ready before
 the a/b test starts (mar 9).
@@ -800,7 +800,7 @@ filters: date range, experiment variant, library size segment.
 **Prompt:**
 
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 I need dashboard requirements for the Blueprints post-launch monitoring dashboard. Here's the context:
 

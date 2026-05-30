@@ -12,7 +12,7 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** documentation | **License:** Apache-2.0
 :::
 
-**Try it:** `/mermaid-diagrams "Your context here"`
+**Try it:** `/pm-skills:utility-mermaid-diagrams "Your context here"`
 
 Create effective, syntactically valid mermaid diagrams for product documents.
 
@@ -31,10 +31,10 @@ Create effective, syntactically valid mermaid diagrams for product documents.
 
 ## How to Use
 
-Use the `/mermaid-diagrams` slash command:
+Invoke the skill by name (`/pm-skills:utility-mermaid-diagrams` on Claude Code, `$utility-mermaid-diagrams` on Codex):
 
 ```
-/mermaid-diagrams "Your context here"
+/pm-skills:utility-mermaid-diagrams "Your context here"
 ```
 
 Or reference the skill file directly: `skills/utility-mermaid-diagrams/SKILL.md`
@@ -402,7 +402,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/mermaid-diagrams
+utility-mermaid-diagrams
 
 I need a flowchart showing the Campaigns email send approval workflow. When a merchant clicks "Schedule Send," the campaign goes through content validation, compliance checks (CAN-SPAM), optional manager approval (for merchants on the Enterprise plan), and then queues for send. If any check fails, the merchant gets sent back to the editor with specific errors. I want to show this in the Campaigns PRD.
 ```

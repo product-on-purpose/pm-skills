@@ -12,7 +12,7 @@ tags:
 **Phase:** Discover | **Version:** 2.0.0 | **Category:** research | **License:** Apache-2.0
 :::
 
-**Try it:** `/stakeholder-summary "Your context here"`
+**Try it:** `/pm-skills:discover-stakeholder-summary "Your context here"`
 
 A stakeholder summary documents the people and groups who have interest in or influence over a project, capturing their needs, concerns, and relationships. Effective stakeholder management often determines project success more than technical execution, making this document essential for navigating organizational complexity.
 
@@ -27,10 +27,10 @@ A stakeholder summary documents the people and groups who have interest in or in
 
 ## How to Use
 
-Use the `/stakeholder-summary` slash command:
+Invoke the skill by name (`/pm-skills:discover-stakeholder-summary` on Claude Code, `$discover-stakeholder-summary` on Codex):
 
 ```
-/stakeholder-summary "Your context here"
+/pm-skills:discover-stakeholder-summary "Your context here"
 ```
 
 Or reference the skill file directly: `skills/discover-stakeholder-summary/SKILL.md`
@@ -548,7 +548,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: PRD complete, moving to engineering kickoff
@@ -588,7 +588,7 @@ plan, and risk mitigation for Klaviyo and resistant stakeholders.
 **Prompt:**
 
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 need to map the internal stakeholders for the resurface feature before
 we kick off the build. brainshelf is a ~20 person startup so this is
@@ -618,7 +618,7 @@ want a proper stakeholder map with communication plan.
 **Prompt:**
 
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 Project: Workbench Blueprints -- reusable document templates with required sections and role-based approval gates
 Product: Workbench (enterprise collaboration platform, Series B, ~200 employees, ~500 enterprise customers [fictional])

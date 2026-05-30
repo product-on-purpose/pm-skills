@@ -20,7 +20,7 @@ tags:
 
 :::note[Prompt]
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 Sandra V. to PM Skills agent:
 
@@ -57,7 +57,7 @@ Sandra V. to PM Skills agent:
 
 :::note[Prompt]
 ```text
-/persona marketing detailed
+foundation-persona marketing detailed
 
 Rachel V. to PM Skills agent:
 
@@ -96,7 +96,7 @@ Rachel V. to PM Skills agent:
 
 :::note[Prompt]
 ```text
-/persona product brief
+foundation-persona product brief
 
 Rachel V. to PM Skills agent:
 
@@ -131,7 +131,7 @@ Rachel V. to PM Skills agent:
 
 :::note[Prompt]
 ```text
-/persona product detailed
+foundation-persona product detailed
 
 Create a story-first persona for Workbench Blueprints approval governance.
 
@@ -170,7 +170,7 @@ Output requirements:
 
 :::note[Prompt]
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 Scope: Enterprise documentation and knowledge management -- template governance and approval workflow capabilities. Informing Blueprints GA positioning.
 
@@ -213,7 +213,7 @@ Audience: Head of Product, Head of Marketing, Enterprise Sales Lead.
 
 :::note[Prompt]
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 Research project: Blueprints discovery interviews -- documentation consistency and governance in enterprise teams
 Product: Workbench (enterprise collaboration platform, Series B, ~500 enterprise customers [fictional])
@@ -260,7 +260,7 @@ Stakeholders: Sandra C. (Head of Product), Derek H. (Head of Marketing), Mei-Lin
 
 :::note[Prompt]
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 Project: Workbench Blueprints -- reusable document templates with required sections and role-based approval gates
 Product: Workbench (enterprise collaboration platform, Series B, ~200 employees, ~500 enterprise customers [fictional])
@@ -303,7 +303,7 @@ Format: Full stakeholder summary with influence/interest map, detailed profiles,
 
 :::note[Prompt]
 ```
-/problem-statement
+define-problem-statement
 
 Product: Workbench (enterprise collaboration platform, Series B, ~500 enterprise customers [fictional])
 Feature area: Document templates and approval workflows (Blueprints)
@@ -345,7 +345,7 @@ Stakeholders: Sandra C. (Head of Product), Mei-Lin T. (Enterprise Sales Lead)
 
 :::note[Prompt]
 ```
-/hypothesis
+define-hypothesis
 
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
 Stage: Define phase, post-discovery interviews and problem statement
@@ -386,7 +386,7 @@ Stakeholders: Sandra C. (Head of Product), Karen L. (Eng Lead), Leo M. (Data Ana
 
 :::note[Prompt]
 ```
-/opportunity-tree
+define-opportunity-tree
 
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
 Stage: Define phase, post-discovery and problem statement
@@ -429,7 +429,7 @@ Stakeholders: Sandra C. (Head of Product), Karen L. (Eng Lead), Mei-Lin T. (Ente
 
 :::note[Prompt]
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
 Stage: Define phase, post-discovery interviews
@@ -474,7 +474,7 @@ Stakeholders: Sandra C. (Head of Product), Tomás G. (Design Lead)
 
 :::note[Prompt]
 ```
-/solution-brief
+develop-solution-brief
 
 Product: Workbench Blueprints -- reusable document templates with required sections and role-based approval gates
 Stage: Pre-PRD; consolidating decisions from discovery, define, and develop phases into a one-pager
@@ -531,7 +531,7 @@ Stakeholders: Sandra C. (Head of Product), Derek H. (Head of Marketing), Mei-Lin
 
 :::note[Prompt]
 ```
-/spike-summary
+develop-spike-summary
 
 Spike: CRDT library evaluation for Blueprints real-time co-editing
 Product: Workbench (enterprise collaboration platform)
@@ -575,7 +575,7 @@ Stakeholders: Karen L. (Eng Lead), James W. (VP Engineering)
 
 :::note[Prompt]
 ```
-/adr
+develop-adr
 
 ADR: Use Yjs CRDTs for Blueprints real-time co-editing
 Product: Workbench Blueprints
@@ -618,7 +618,7 @@ Stakeholders: James W. (VP Engineering), Karen L. (Eng Lead), Nate P. (Backend E
 
 :::note[Prompt]
 ```
-/design-rationale
+develop-design-rationale
 
 Decision: Blueprint creation flow -- guided wizard vs. blank canvas
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
@@ -662,7 +662,7 @@ Stakeholders: Sandra C. (Head of Product), Karen L. (Eng Lead), Tomas G. (Design
 
 :::note[Prompt]
 ```
-/prd
+deliver-prd
 
 Here is the structured brief for the Blueprints v1 PRD.
 
@@ -709,7 +709,7 @@ Please generate a complete PRD following the standard template.
 
 :::note[Prompt]
 ```
-/user-stories
+deliver-user-stories
 
 I need two user stories for the Blueprints v1 sprint backlog. These are the two highest-priority stories for the first sprint.
 
@@ -745,7 +745,7 @@ For each story, include full acceptance criteria, design notes, technical notes,
 
 :::note[Prompt]
 ```
-/edge-cases
+deliver-edge-cases
 
 I need a comprehensive edge-case analysis for Blueprints v1 covering the three highest-risk areas: required-section enforcement boundaries, approval-gate state transitions, and real-time co-editing conflicts.
 
@@ -780,7 +780,7 @@ Please be thorough -- Karen's team will use this directly for test planning.
 
 :::note[Prompt]
 ```
-/launch-checklist
+deliver-launch-checklist
 
 I need a comprehensive launch checklist for Blueprints v1 GA. Here's the context:
 
@@ -821,7 +821,7 @@ Please generate the full launch checklist with go/no-go criteria and a rollback 
 
 :::note[Prompt]
 ```
-/release-notes
+deliver-release-notes
 
 I need customer-facing release notes for Workbench 3.5, which ships Blueprints GA.
 
@@ -877,7 +877,7 @@ Tone: professional, clear, no hype. Enterprise audience.
 
 :::note[Prompt]
 ```
-/experiment-design
+measure-experiment-design
 
 Experiment: Required vs. optional Blueprint sections
 Product: Workbench Blueprints (enterprise doc templates with approval gates)
@@ -920,7 +920,7 @@ Stakeholders: Head of Product, Data Science, Engineering Lead (Blueprints)
 
 :::note[Prompt]
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 I need the instrumentation spec for Blueprints v1 GA. Here are the events I've identified from the PRD and experiment results:
 
@@ -966,7 +966,7 @@ Please generate the full instrumentation spec with testing checklist.
 
 :::note[Prompt]
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 I need dashboard requirements for the Blueprints post-launch monitoring dashboard. Here's the context:
 
@@ -1013,7 +1013,7 @@ Please generate the full dashboard requirements including layout, filters, alert
 
 :::note[Prompt]
 ```
-/experiment-results
+measure-experiment-results
 
 Leo M. just finished the A/B test analysis. I need a full experiment-results document for the April 14 ship-decision meeting. Here are the results:
 
@@ -1069,7 +1069,7 @@ Please generate the full experiment-results document for the ship-decision meeti
 
 :::note[Prompt]
 ```
-/retrospective
+iterate-retrospective
 
 I'm facilitating the Blueprints post-GA retrospective. Here's the context:
 
@@ -1119,7 +1119,7 @@ Please generate the full retrospective document.
 
 :::note[Prompt]
 ```
-/lessons-log
+iterate-lessons-log
 
 I need to document a lesson learned from the Blueprints launch. Here's the context:
 
@@ -1159,7 +1159,7 @@ Please generate the full lessons-log entry.
 
 :::note[Prompt]
 ```
-/refinement-notes
+iterate-refinement-notes
 
 I just ran the v1.1 refinement session. Here are the details:
 
@@ -1225,7 +1225,7 @@ Please generate the full refinement notes.
 
 :::note[Prompt]
 ```
-/pivot-decision
+iterate-pivot-decision
 
 I need a formal pivot-decision document for the exec team. Here's the situation:
 

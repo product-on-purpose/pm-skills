@@ -12,7 +12,7 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** review | **License:** Apache-2.0
 :::
 
-**Try it:** `/pm-critic "Your context here"`
+**Try it:** `/pm-skills:utility-pm-critic "Your context here"`
 
 This skill is a cross-client dispatch wrapper for the `pm-critic` sub-agent. It exists so that users on non-Claude clients can run adversarial review with the same intent as Claude Code users, without depending on native plugin sub-agent infrastructure.
 
@@ -33,10 +33,10 @@ Per master plan D11 (amended) + D30, sub-agents are a Claude Code plugin feature
 
 ## How to Use
 
-Use the `/pm-critic` slash command:
+Invoke the skill by name (`/pm-skills:utility-pm-critic` on Claude Code, `$utility-pm-critic` on Codex):
 
 ```
-/pm-critic "Your context here"
+/pm-skills:utility-pm-critic "Your context here"
 ```
 
 Or reference the skill file directly: `skills/utility-pm-critic/SKILL.md`

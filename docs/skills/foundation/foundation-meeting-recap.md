@@ -12,7 +12,7 @@ tags:
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 :::
 
-**Try it:** `/meeting-recap "Your context here"`
+**Try it:** `/pm-skills:foundation-meeting-recap "Your context here"`
 
 A meeting recap is a post-meeting topic-segmented summary produced for attendees and light distribution. It organizes content by topic rather than chronology, highlights decisions visually, and captures actions inline (with owner, due date, dependencies) per topic segment, plus a consolidated actions view at the end for scannability.
 
@@ -23,22 +23,22 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 ## When to Use
 
 - After any internal meeting that produces decisions or actions affecting attendees
-- When a sibling `/meeting-agenda` exists and needs reconciliation (planned vs. actual topics)
+- When a sibling `foundation-meeting-agenda` exists and needs reconciliation (planned vs. actual topics)
 - When the team needs a topic-organized reference rather than a chronological transcript dump
 - When inputs include a transcript (Zoom, Meet, Otter, Fireflies, Krisp MCP) or mixed notes and transcript
 
 ## When NOT to Use
 
-- Communicating outcomes to non-attendees. Use `/stakeholder-update`. recap assumes reader context; stakeholder-update translates to readers without it.
-- Cross-meeting synthesis (patterns across multiple meetings). Use `/meeting-synthesize`.
+- Communicating outcomes to non-attendees. Use `foundation-stakeholder-update`. recap assumes reader context; stakeholder-update translates to readers without it.
+- Cross-meeting synthesis (patterns across multiple meetings). Use `foundation-meeting-synthesize`.
 - Live meeting note-taking. This skill consumes finished inputs; it does not transcribe live.
 
 ## How to Use
 
-Use the `/meeting-recap` slash command:
+Invoke the skill by name (`/pm-skills:foundation-meeting-recap` on Claude Code, `$foundation-meeting-recap` on Codex):
 
 ```
-/meeting-recap "Your context here"
+/pm-skills:foundation-meeting-recap "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-meeting-recap/SKILL.md`
@@ -407,7 +407,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/meeting-recap @campaigns-pricing-decision-transcript.txt @jonathan-live-notes.md
+foundation-meeting-recap @campaigns-pricing-decision-transcript.txt @jonathan-live-notes.md
 ```
 
 **Output:**
@@ -475,7 +475,7 @@ status: draft
 **Prompt:**
 
 ```
-/meeting-recap @priya-notes.md
+foundation-meeting-recap @priya-notes.md
 ```
 
 **Output:**
@@ -540,7 +540,7 @@ status: draft
 **Prompt:**
 
 ```
-/meeting-recap @zoom-transcript.txt @anna-customer-feedback-notes.md
+foundation-meeting-recap @zoom-transcript.txt @anna-customer-feedback-notes.md
 ```
 
 **Output:**

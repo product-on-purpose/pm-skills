@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** validation | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-foundation-sprint-magic-lenses "Your context here"`
+**Try it:** `/pm-skills:tool-foundation-sprint-magic-lenses "Your context here"`
 
 Day 2 afternoon of a Foundation Sprint. The team evaluates each candidate approach from multiple perspectives, surfaces contradictions, and produces a top bet plus a backup plan. The Decider names both; without an explicit backup, invalidation of the top bet sends the team back to ambiguous debate.
 
@@ -32,10 +32,10 @@ Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contra
 
 ## How to Use
 
-Use the `/tool-foundation-sprint-magic-lenses` slash command:
+Invoke the skill by name (`/pm-skills:tool-foundation-sprint-magic-lenses` on Claude Code, `$tool-foundation-sprint-magic-lenses` on Codex):
 
 ```
-/tool-foundation-sprint-magic-lenses "Your context here"
+/pm-skills:tool-foundation-sprint-magic-lenses "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-foundation-sprint-magic-lenses/SKILL.md`

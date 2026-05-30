@@ -12,7 +12,7 @@ tags:
 **Classification:** Foundation | **Version:** 1.0.0 | **Category:** meeting | **License:** Apache-2.0
 :::
 
-**Try it:** `/meeting-agenda "Your context here"`
+**Try it:** `/pm-skills:foundation-meeting-agenda "Your context here"`
 
 A meeting agenda is the attendee-facing structural document that sets expectations before a meeting. It answers "what will we discuss, who owns each topic, how will we spend the time, and what does done look like?" Distinct from a meeting brief, which is the user's private strategic prep; the agenda is shared with participants and focused on structure and flow.
 
@@ -27,16 +27,16 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 ## When NOT to Use
 
-- The user's preparation is private and tactical (positioning, stakeholder reads, asks). Use `/meeting-brief` instead.
-- The meeting has already happened. Use `/meeting-recap` for post-meeting summarization.
-- The user wants to communicate outcomes to non-attendees. Use `/stakeholder-update` after the meeting.
+- The user's preparation is private and tactical (positioning, stakeholder reads, asks). Use `foundation-meeting-brief` instead.
+- The meeting has already happened. Use `foundation-meeting-recap` for post-meeting summarization.
+- The user wants to communicate outcomes to non-attendees. Use `foundation-stakeholder-update` after the meeting.
 
 ## How to Use
 
-Use the `/meeting-agenda` slash command:
+Invoke the skill by name (`/pm-skills:foundation-meeting-agenda` on Claude Code, `$foundation-meeting-agenda` on Codex):
 
 ```
-/meeting-agenda "Your context here"
+/pm-skills:foundation-meeting-agenda "Your context here"
 ```
 
 Or reference the skill file directly: `skills/foundation-meeting-agenda/SKILL.md`
@@ -338,7 +338,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/meeting-agenda "Campaigns feature launch kickoff; Thursday 2pm EST; 60 min; scope, capacity, launch target. Attendees: jonathan (PM), maria (eng lead), alex (marketing lead), sam (data analyst). Pre-read: scope doc and capacity model."
+foundation-meeting-agenda "Campaigns feature launch kickoff; Thursday 2pm EST; 60 min; scope, capacity, launch target. Attendees: jonathan (PM), maria (eng lead), alex (marketing lead), sam (data analyst). Pre-read: scope doc and capacity model."
 ```
 
 **Output:**
@@ -394,7 +394,7 @@ status: draft
 **Prompt:**
 
 ```
-/meeting-agenda "resurface algo review this Wed 11am PT 45 min, me + elena (algo) + mia (design), need to pick direction for next sprint between 2 options"
+foundation-meeting-agenda "resurface algo review this Wed 11am PT 45 min, me + elena (algo) + mia (design), need to pick direction for next sprint between 2 options"
 ```
 
 **Output:**
@@ -449,7 +449,7 @@ status: draft
 **Prompt:**
 
 ```
-/meeting-agenda "Blueprints approval-gate design working session, Monday 2026-04-28 at 2pm EST, 60 min. Attendees: me (david-pm), sasha (lead designer), raj (eng manager), linda (compliance). Goal: co-design the approval-gate UX for Blueprints v1.1 that satisfies HIPAA workflow requirements without adding more than 2 minutes to typical doc creation. Pre-read: [regulatory requirements summary](https://notion.example/blueprints-regs), [customer interview synthesis: 6 healthcare customers](https://notion.example/blueprints-customer-interviews). Working session format, not presentation."
+foundation-meeting-agenda "Blueprints approval-gate design working session, Monday 2026-04-28 at 2pm EST, 60 min. Attendees: me (david-pm), sasha (lead designer), raj (eng manager), linda (compliance). Goal: co-design the approval-gate UX for Blueprints v1.1 that satisfies HIPAA workflow requirements without adding more than 2 minutes to typical doc creation. Pre-read: [regulatory requirements summary](https://notion.example/blueprints-regs), [customer interview synthesis: 6 healthcare customers](https://notion.example/blueprints-customer-interviews). Working session format, not presentation."
 ```
 
 **Output:**

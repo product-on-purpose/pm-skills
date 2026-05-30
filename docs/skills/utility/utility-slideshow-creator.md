@@ -12,7 +12,7 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** communication | **License:** Apache-2.0
 :::
 
-**Try it:** `/slideshow-creator "Your context here"`
+**Try it:** `/pm-skills:utility-slideshow-creator "Your context here"`
 
 Generate professional presentations (.pptx and .pdf) from a JSON deck specification. Zero design decisions at generation time . Claude selects slide types and fills content slots; all visual properties are pre-decided by the theme.
 
@@ -31,10 +31,10 @@ Generate professional presentations (.pptx and .pdf) from a JSON deck specificat
 
 ## How to Use
 
-Use the `/slideshow-creator` slash command:
+Invoke the skill by name (`/pm-skills:utility-slideshow-creator` on Claude Code, `$utility-slideshow-creator` on Codex):
 
 ```
-/slideshow-creator "Your context here"
+/pm-skills:utility-slideshow-creator "Your context here"
 ```
 
 Or reference the skill file directly: `skills/utility-slideshow-creator/SKILL.md`

@@ -12,7 +12,7 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/update-pm-skills "Your context here"`
+**Try it:** `/pm-skills:utility-update-pm-skills "Your context here"`
 
 This skill updates a local pm-skills installation to the latest public
 release. It validates connectivity, compares versions, previews changes,
@@ -28,17 +28,17 @@ new capabilities are available.
 
 ## When NOT to Use
 
-- To create or edit individual skills -> use `/pm-skill-builder` or `/pm-skill-iterate`
-- To validate skills against conventions -> use `/pm-skill-validate`
+- To create or edit individual skills -> use `utility-pm-skill-builder` or `utility-pm-skill-iterate`
+- To validate skills against conventions -> use `utility-pm-skill-validate`
 - If you are a maintainer working directly on the pm-skills repo (use git)
 - To pin a specific older version (this skill always targets the latest release)
 
 ## How to Use
 
-Use the `/update-pm-skills` slash command:
+Invoke the skill by name (`/pm-skills:utility-update-pm-skills` on Claude Code, `$utility-update-pm-skills` on Codex):
 
 ```
-/update-pm-skills "Your context here"
+/pm-skills:utility-update-pm-skills "Your context here"
 ```
 
 Or reference the skill file directly: `skills/utility-update-pm-skills/SKILL.md`
@@ -194,7 +194,7 @@ Execute the update using validated-before-copy with backup:
      auto-rollback. Provide recovery guidance:
      - **Version mismatch**: "Run the update again, or manually edit
        {file} to set the version to {expected}."
-     - **Missing files**: "Re-run `/update-pm-skills` to re-download,
+     - **Missing files**: "Re-run `utility-update-pm-skills` to re-download,
        or restore from backup: `cp -r _pm-skills/backups/{dir}/* .`"
      - **If backup exists**: Always remind the user of the backup
        location and restore command.
@@ -224,7 +224,7 @@ Execute the update using validated-before-copy with backup:
    ```
    Next Steps:
    - Review the update report at _pm-skills/updates/{report-file}
-   - Run /pm-skill-validate --all to verify skill integrity
+   - Run utility-pm-skill-validate --all to verify skill integrity
    - Run local CI: bash scripts/lint-skills-frontmatter.sh
    - Check release notes: {release-url}
    ```
@@ -237,7 +237,7 @@ Execute the update using validated-before-copy with backup:
 
 <!-- For report-only mode, include this banner: -->
 > **Report only . update was not applied.**
-> Run `/update-pm-skills` to apply this update.
+> Run `utility-update-pm-skills` to apply this update.
 
 <!-- For completion mode, include this banner: -->
 > **Update complete.** pm-skills has been updated to v{latest-version}.
@@ -312,15 +312,15 @@ communication platform." -->
 
 {2-3 sentences describing what the user can now do that they couldn't before.
 Ground suggestions in detected skills and workflows . reference actual new
-capabilities by name with their slash commands (e.g., "Try `/mermaid-diagrams`
+capabilities by name with their slash commands (e.g., "Try `utility-mermaid-diagrams`
 on your next PRD"). Label speculative pairings as suggestions. Link workflows
 to their component skills.}
 
-<!-- Example: "With the new `/slideshow-creator` skill, you can now go from a
+<!-- Example: "With the new `utility-slideshow-creator` skill, you can now go from a
 PRD directly to a stakeholder presentation without leaving Claude. Try
-pairing it with `/persona` to create audience-tailored decks. The new
-discover-to-present workflow chains `/interview-synthesis` → `/problem-statement`
-→ `/solution-brief` → `/slideshow-creator` into a single flow." -->
+pairing it with `foundation-persona` to create audience-tailored decks. The new
+discover-to-present workflow chains `discover-interview-synthesis` → `define-problem-statement`
+→ `develop-solution-brief` → `utility-slideshow-creator` into a single flow." -->
 
 ## Files {Written / That Would Be Written}
 
@@ -362,10 +362,10 @@ No backup was created (user opted out).
 <!-- Adjust based on report mode and results. -->
 
 - Review this report for a summary of what changed
-- Run `/pm-skill-validate --all` to verify skill integrity
+- Run `utility-pm-skill-validate --all` to verify skill integrity
 - Run local CI: `bash scripts/lint-skills-frontmatter.sh`
 - Check release notes for migration steps: {release-url}
-- {For report-only: "Run `/update-pm-skills` to apply this update"}
+- {For report-only: "Run `utility-update-pm-skills` to apply this update"}
 - {For completion with MCP: "Update pm-skills-mcp: `cd ../pm-skills-mcp && npm run embed-skills && npm run build`"}
 
 ## Example Output
@@ -414,7 +414,7 @@ were available since v2.9.1.
 
 | Skill | What It Enables |
 |-------|-----------------|
-| utility-update-pm-skills | Check for updates, preview changes, and update your local pm-skills with `/update-pm-skills`. Supports `--status` for a quick version check and `--report-only` for a preview without writing files. |
+| utility-update-pm-skills | Check for updates, preview changes, and update your local pm-skills with `utility-update-pm-skills`. Supports `--status` for a quick version check and `--report-only` for a preview without writing files. |
 
 ### Updated Skills
 
@@ -428,13 +428,13 @@ No new workflows in this update.
 
 - New CI scripts: `validate-version-consistency` (hard-fail), `validate-gitignore-pm-skills` (advisory), `validate-script-docs` (advisory)
 - `_pm-skills/` local state directory convention (gitignored)
-- `/update-pm-skills` slash command with `--status` and `--report-only` flags
+- `utility-update-pm-skills` slash command with `--status` and `--report-only` flags
 - User-facing guide at `docs/guides/updating-pm-skills.md`
 
 ### Opportunities
 
-With `/update-pm-skills --status` you can quickly check whether you're
-current without committing to an update. Try `/update-pm-skills --report-only`
+With `utility-update-pm-skills --status` you can quickly check whether you're
+current without committing to an update. Try `utility-update-pm-skills --report-only`
 before updating to see exactly what files will change and what new
 capabilities are available. The self-updater means you no longer need to
 manually download releases . future updates are one command away.
@@ -466,23 +466,23 @@ To restore: `cp -r _pm-skills/backups/v2.9.1_2026-04-11_143022/* .`
 ## Next Steps
 
 - Review this report for a summary of what changed
-- Run `/pm-skill-validate --all` to verify skill integrity
+- Run `utility-pm-skill-validate --all` to verify skill integrity
 - Run local CI: `bash scripts/lint-skills-frontmatter.sh`
 - Check release notes: [v2.10.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.10.0)
-- Try `/update-pm-skills --status` to confirm you're current
+- Try `utility-update-pm-skills --status` to confirm you're current
 
 ---
 
 # Report-Only Example
 
-Below is what `/update-pm-skills --report-only` produces for the same update.
+Below is what `utility-update-pm-skills --report-only` produces for the same update.
 
 ---
 
 # PM Skills Update Report
 
 > **Report only . update was not applied.**
-> Run `/update-pm-skills` to apply this update.
+> Run `utility-update-pm-skills` to apply this update.
 
 ---
 
@@ -531,12 +531,12 @@ No new workflows.
 
 ### Other Changes
 
-- 3 new CI scripts, `/update-pm-skills` command, user-facing update guide
+- 3 new CI scripts, `utility-update-pm-skills` command, user-facing update guide
 
 ### Opportunities
 
 The self-updater means future releases are one command away. Try
-`/update-pm-skills --status` anytime to check if you're current.
+`utility-update-pm-skills --status` anytime to check if you're current.
 
 ## Files That Would Be Written
 
@@ -550,7 +550,7 @@ The self-updater means future releases are one command away. Try
 
 ## Next Steps
 
-- Run `/update-pm-skills` to apply this update
+- Run `utility-update-pm-skills` to apply this update
 - Review the release notes: [v2.10.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.10.0)
 
 </details>
@@ -560,12 +560,12 @@ The self-updater means future releases are one command away. Try
 See this skill applied to three different product contexts:
 
 <details>
-<summary>Storevine (B2B): Storevine PM running /update-pm-skills to update from v2.9.1 to v2.10.0</summary>
+<summary>Storevine (B2B): Storevine PM running utility-update-pm-skills to update from v2.9.1 to v2.10.0</summary>
 
 **Prompt:**
 
 ```
-/update-pm-skills
+utility-update-pm-skills
 ```
 
 ---

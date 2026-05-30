@@ -12,7 +12,7 @@ tags:
 **Phase:** Measure | **Version:** 1.0.0 | **Category:** reflection | **License:** Apache-2.0
 :::
 
-**Try it:** `/okr-grader "Your context here"`
+**Try it:** `/pm-skills:measure-okr-grader "Your context here"`
 
 An OKR Cycle Review is a backward-looking artifact that closes the loop on a completed OKR set. It scores each KR against its baseline and target, separates committed from aspirational interpretation, surfaces what evidence does and does not support, names what the team learned, and prepares input for next-cycle drafting. Done well, a cycle review protects the integrity of the OKR operating system by refusing to dress up missed commitments as aspirational stretch, refusing to celebrate effort over outcome, and refusing to let scoring carry weight it cannot bear.
 
@@ -29,19 +29,19 @@ This skill is an evidence interpreter, not an arithmetic engine. Its job is to r
 
 ## When NOT to Use
 
-- You are still drafting OKRs . use `/okr-writer`
-- You want a generic team retro . use `/retrospective`
-- You are reporting a single experiment result . use `/experiment-results`
-- You need a stakeholder progress update without scoring . use `/stakeholder-update`
-- The OKR set was never agreed on or never tracked . scoring requires an authored set; backfill via `/okr-writer` first
+- You are still drafting OKRs . use `foundation-okr-writer`
+- You want a generic team retro . use `iterate-retrospective`
+- You are reporting a single experiment result . use `measure-experiment-results`
+- You need a stakeholder progress update without scoring . use `foundation-stakeholder-update`
+- The OKR set was never agreed on or never tracked . scoring requires an authored set; backfill via `foundation-okr-writer` first
 - You want to use scores to evaluate individuals . the skill refuses this
 
 ## How to Use
 
-Use the `/okr-grader` slash command:
+Invoke the skill by name (`/pm-skills:measure-okr-grader` on Claude Code, `$measure-okr-grader` on Codex):
 
 ```
-/okr-grader "Your context here"
+/pm-skills:measure-okr-grader "Your context here"
 ```
 
 Or reference the skill file directly: `skills/measure-okr-grader/SKILL.md`
@@ -77,10 +77,10 @@ When asked to score completed OKRs, follow these steps:
    For each initiative the team ran, name which KR it was expected to move, whether it shipped, what its apparent contribution was, and whether the evidence supports continuing, retiring, or reworking it. Use Castro's "initiatives are bets, not commitments" framing. Separate ship-status from KR-impact; an initiative that shipped on time but did not move its KR is not a partial win.
 
 7. **Synthesize learning**
-   Capture validated assumptions, invalidated assumptions, surprises, and decision implications. Distinguish between learnings about the customer or product (carry forward), learnings about team process (hand to `/retrospective`), and learnings about measurement (hand to `/instrumentation-spec` or `/dashboard-requirements`).
+   Capture validated assumptions, invalidated assumptions, surprises, and decision implications. Distinguish between learnings about the customer or product (carry forward), learnings about team process (hand to `iterate-retrospective`), and learnings about measurement (hand to `measure-instrumentation-spec` or `measure-dashboard-requirements`).
 
 8. **Prepare next-cycle recommendations**
-   For each objective: continue, revise, retire, or escalate. Suggest candidate next-cycle OKRs or open questions for `/okr-writer`. Hand-off measurement gaps to `/dashboard-requirements` or `/instrumentation-spec`. Hand-off assumption tests to `/hypothesis`. Hand-off team-process work to `/retrospective`. Hand-off organizational memory to `/lessons-log`. Hand-off next-cycle drafting to `/okr-writer`.
+   For each objective: continue, revise, retire, or escalate. Suggest candidate next-cycle OKRs or open questions for `foundation-okr-writer`. Hand-off measurement gaps to `measure-dashboard-requirements` or `measure-instrumentation-spec`. Hand-off assumption tests to `define-hypothesis`. Hand-off team-process work to `iterate-retrospective`. Hand-off organizational memory to `iterate-lessons-log`. Hand-off next-cycle drafting to `foundation-okr-writer`.
 
 9. **Surface risks in interpretation**
    Make explicit any places the score could mislead a reader: forced numeric scores on KRs that are not yet observable, confounded initiative results, stakeholder framings that under-state evidence, single-cycle results that need a second cycle of confirmation.
@@ -174,11 +174,11 @@ When asked to score completed OKRs, follow these steps:
 2. {recommendation}
 3. {recommendation}
 4. Hand-off:
-   - `/lessons-log` for {what learning needs organizational memory}
-   - `/retrospective` for {what team-process work needs reflection}
-   - `/hypothesis` for {what assumption needs an explicit test}
-   - `/instrumentation-spec` or `/dashboard-requirements` for {what measurement gap needs filling}
-   - `/okr-writer` for {next-cycle drafting note}
+   - `iterate-lessons-log` for {what learning needs organizational memory}
+   - `iterate-retrospective` for {what team-process work needs reflection}
+   - `define-hypothesis` for {what assumption needs an explicit test}
+   - `measure-instrumentation-spec` or `measure-dashboard-requirements` for {what measurement gap needs filling}
+   - `foundation-okr-writer` for {next-cycle drafting note}
 
 ## Risks in Interpretation
 
@@ -202,9 +202,9 @@ When asked to score completed OKRs, follow these steps:
 
 ## Scenario
 
-Storevine's Campaigns team is closing the Q3 2026 cycle. The OKR set was authored in late June using `/okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3.md`). The cycle ended September 30. Final values are now in for KR1 and KR3; KR2's 90-day cohorts are partially complete (the 60-day intermediate is available, the 90-day final is not yet observable).
+Storevine's Campaigns team is closing the Q3 2026 cycle. The OKR set was authored in late June using `foundation-okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3.md`). The cycle ended September 30. Final values are now in for KR1 and KR3; KR2's 90-day cohorts are partially complete (the 60-day intermediate is available, the 90-day final is not yet observable).
 
-The team wants a cycle review they can take to the Q4 planning workshop. The growth-pm runs `/okr-grader` with the original OKR set, the final and interim KR values, the cycle's narrative, and the initiative status.
+The team wants a cycle review they can take to the Q4 planning workshop. The growth-pm runs `measure-okr-grader` with the original OKR set, the final and interim KR values, the cycle's narrative, and the initiative status.
 
 The cycle had a mixed result. KR1 hit hard. KR2 trended below projection. KR3 guardrail held. Initiative 2 (Templates v2) underperformed expectations and the team needs to decide whether to retire the thesis or carry it.
 
@@ -219,7 +219,7 @@ The cycle had a mixed result. KR1 hit hard. KR2 trended below projection. KR3 gu
 ## Prompt
 
 ```
-/okr-grader
+measure-okr-grader
 
 Original OKR: see sample_foundation-okr-writer_storevine_campaigns-q3.md
 Cycle: Q3 2026 (July 1 to September 30, 2026)
@@ -360,7 +360,7 @@ independent read.
   is a projection until late December.
   - Impact: cannot give a confident final score this cycle. Forcing a
     numeric score now would mislead readers.
-  - Recommended fix: in next cycle's `/okr-writer` run, either
+  - Recommended fix: in next cycle's `foundation-okr-writer` run, either
     (a) reframe KR2 as a 30-day or 60-day intermediate metric, or
     (b) accept that retention KRs are graded one quarter in arrears and
     document the convention explicitly. Choosing (b) is cleaner if the
@@ -401,9 +401,9 @@ independent read.
     effect in the Q3 cohort. Even at full ship, the underlying thesis is
     not supported by the partial evidence.
   - Recommendation: retire the current framing. If the team wants to
-    revisit, run `/hypothesis` first to sharpen the sub-thesis
+    revisit, run `define-hypothesis` first to sharpen the sub-thesis
     (which segment, which template type, which trigger), and validate via
-    `/experiment-design` before baking into a KR.
+    `measure-experiment-design` before baking into a KR.
 
 - Initiative 3 (Campaign performance feedback loop):
   - Linked to: KR2 primarily.
@@ -464,15 +464,15 @@ independent read.
    belief is wrong and the team's strategy needs to change.
 
 5. Hand-off:
-   - `/lessons-log` for the Templates v2 invalidation (organizational
+   - `iterate-lessons-log` for the Templates v2 invalidation (organizational
      memory).
-   - `/retrospective` for the team-process learning on designer capacity
+   - `iterate-retrospective` for the team-process learning on designer capacity
      estimation.
-   - `/hypothesis` for "Campaigns engagement causally affects 12-month
+   - `define-hypothesis` for "Campaigns engagement causally affects 12-month
      merchant retention" with a defined invalidation criterion.
-   - `/instrumentation-spec` for the `triggered_email_dedup_failures`
+   - `measure-instrumentation-spec` for the `triggered_email_dedup_failures`
      event.
-   - `/okr-writer` for next-cycle drafting once KR2 measurement boundary
+   - `foundation-okr-writer` for next-cycle drafting once KR2 measurement boundary
      is resolved.
 
 ## Risks in Interpretation
@@ -515,7 +515,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/okr-grader
+measure-okr-grader
 
 Original OKR: see sample_foundation-okr-writer_storevine_campaigns-q3.md
 Cycle: Q3 2026 (July 1 to September 30, 2026)
@@ -571,7 +571,7 @@ independent read.
 **Prompt:**
 
 ```
-/okr-grader
+measure-okr-grader
 
 Original OKR: see sample_foundation-okr-writer_brainshelf_resurface-q3.md
 Cycle: Q3 2026 (July 1 to September 30, 2026)
@@ -629,7 +629,7 @@ hypothesis should be retired or carried forward.
 **Prompt:**
 
 ```
-/okr-grader
+measure-okr-grader
 
 Original OKR: see sample_foundation-okr-writer_workbench_blueprints-q3.md
 Cycle: Q3 2026 (July 1 to September 30, 2026)

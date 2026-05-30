@@ -12,7 +12,7 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/pm-skill-builder "Your context here"`
+**Try it:** `/pm-skills:utility-pm-skill-builder "Your context here"`
 
 This skill creates new PM skills for the pm-skills library. It produces a
 Skill Implementation Packet . a complete design document with draft files .
@@ -33,10 +33,10 @@ in a staging area for review before promotion to canonical locations.
 
 ## How to Use
 
-Use the `/pm-skill-builder` slash command:
+Invoke the skill by name (`/pm-skills:utility-pm-skill-builder` on Claude Code, `$utility-pm-skill-builder` on Codex):
 
 ```
-/pm-skill-builder "Your context here"
+/pm-skills:utility-pm-skill-builder "Your context here"
 ```
 
 Or reference the skill file directly: `skills/utility-pm-skill-builder/SKILL.md`
@@ -687,7 +687,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/pm-skill-builder
+utility-pm-skill-builder
 
 Idea: A skill for defining email campaign measurement frameworks -- funnel metrics (sent > delivered > opened > clicked > converted), cohort comparison, and revenue attribution. Existing measure skills handle dashboards and event tracking but not campaign-specific analytics frameworks.
 ```

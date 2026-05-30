@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-foundation-sprint-basics "Your context here"`
+**Try it:** `/pm-skills:tool-foundation-sprint-basics "Your context here"`
 
 Day 1 morning of a Foundation Sprint. The team makes four foundational choices explicit: who the product is for, what important problem it solves, why this team has a right to win, and what customers do today instead. The output is one coherent strategic frame, not four separable decisions.
 
@@ -33,10 +33,10 @@ Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contra
 
 ## How to Use
 
-Use the `/tool-foundation-sprint-basics` slash command:
+Invoke the skill by name (`/pm-skills:tool-foundation-sprint-basics` on Claude Code, `$tool-foundation-sprint-basics` on Codex):
 
 ```
-/tool-foundation-sprint-basics "Your context here"
+/pm-skills:tool-foundation-sprint-basics "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-foundation-sprint-basics/SKILL.md`

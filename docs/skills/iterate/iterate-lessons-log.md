@@ -12,7 +12,7 @@ tags:
 **Phase:** Iterate | **Version:** 2.0.0 | **Category:** reflection | **License:** Apache-2.0
 :::
 
-**Try it:** `/lessons-log "Your context here"`
+**Try it:** `/pm-skills:iterate-lessons-log "Your context here"`
 
 A lessons log entry captures significant learning from projects, incidents, or experiences in a format that's useful to future teams who weren't there. Unlike retrospectives (which focus on team improvement), lessons logs focus on organizational knowledge that transcends individual teams.patterns, anti-patterns, and hard-won wisdom.
 
@@ -27,10 +27,10 @@ A lessons log entry captures significant learning from projects, incidents, or e
 
 ## How to Use
 
-Use the `/lessons-log` slash command:
+Invoke the skill by name (`/pm-skills:iterate-lessons-log` on Claude Code, `$iterate-lessons-log` on Codex):
 
 ```
-/lessons-log "Your context here"
+/pm-skills:iterate-lessons-log "Your context here"
 ```
 
 Or reference the skill file directly: `skills/iterate-lessons-log/SKILL.md`
@@ -506,7 +506,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/lessons-log
+iterate-lessons-log
 
 Lesson from: Campaigns guided first-campaign flow A/B test
 Experiment ran: April 28  -  June 27, 2026 (60 days from GA)
@@ -542,7 +542,7 @@ Need: structured lessons log entry for the team knowledge base.
 **Prompt:**
 
 ```
-/lessons-log
+iterate-lessons-log
 
 lesson from: timezone bug at resurface launch
 what happened: ~340 UK/EU users got their digest at 7:30 UTC instead
@@ -575,7 +575,7 @@ timezone string and the server's IANA database.
 **Prompt:**
 
 ```
-/lessons-log
+iterate-lessons-log
 
 I need to document a lesson learned from the Blueprints launch. Here's the context:
 

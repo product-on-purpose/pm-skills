@@ -30,6 +30,7 @@ $Validators = @(
   @{ Name = 'check-generated-content-untouched';             Script = 'check-generated-content-untouched.ps1';             Args = @() }
   @{ Name = 'validate-script-docs';                          Script = 'validate-script-docs.ps1';                          Args = @() }
   @{ Name = 'validate-version-consistency';                  Script = 'validate-version-consistency.ps1';                  Args = @() }
+  @{ Name = 'validate-codex-manifest';                       Script = 'validate-codex-manifest.ps1';                       Args = @() }
 )
 
 $OptionalValidators = @(

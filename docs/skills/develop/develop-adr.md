@@ -12,7 +12,7 @@ tags:
 **Phase:** Develop | **Version:** 2.0.0 | **Category:** specification | **License:** Apache-2.0
 :::
 
-**Try it:** `/adr "Your context here"`
+**Try it:** `/pm-skills:develop-adr "Your context here"`
 
 An Architecture Decision Record documents a significant technical decision along with its context and consequences. ADRs capture the "why" behind architectural choices so future team members understand the reasoning . especially important when they question why something was done a particular way. This skill follows Michael Nygard's lightweight ADR format.
 
@@ -26,10 +26,10 @@ An Architecture Decision Record documents a significant technical decision along
 
 ## How to Use
 
-Use the `/adr` slash command:
+Invoke the skill by name (`/pm-skills:develop-adr` on Claude Code, `$develop-adr` on Codex):
 
 ```
-/adr "Your context here"
+/pm-skills:develop-adr "Your context here"
 ```
 
 Or reference the skill file directly: `skills/develop-adr/SKILL.md`
@@ -234,7 +234,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/adr
+develop-adr
 
 ADR for email sending infrastructure choice for Campaigns v1. We need to pick
 the vendor before we start the backend build.
@@ -272,7 +272,7 @@ Eng lead and growth PM are the deciders.
 **Prompt:**
 
 ```
-/adr
+develop-adr
 
 email sending infra for resurface. we don't have any email sending
 today . everything is in-app or firebase push. need to pick a provider
@@ -304,7 +304,7 @@ written up before sprint 8 starts.
 **Prompt:**
 
 ```
-/adr
+develop-adr
 
 ADR: Use Yjs CRDTs for Blueprints real-time co-editing
 Product: Workbench Blueprints

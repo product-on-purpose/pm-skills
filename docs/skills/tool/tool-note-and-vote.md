@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-note-and-vote "Your context here"`
+**Try it:** `/pm-skills:tool-note-and-vote "Your context here"`
 
 Run a structured group decision in 20-30 minutes. Silent contribution surfaces independent thinking before group dynamics narrow the option space; explicit Decider supervote closes the choice. Produces a written audit trail of the decision and the alternatives considered.
 
@@ -34,10 +34,10 @@ Run a structured group decision in 20-30 minutes. Silent contribution surfaces i
 
 ## How to Use
 
-Use the `/tool-note-and-vote` slash command:
+Invoke the skill by name (`/pm-skills:tool-note-and-vote` on Claude Code, `$tool-note-and-vote` on Codex):
 
 ```
-/tool-note-and-vote "Your context here"
+/pm-skills:tool-note-and-vote "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-note-and-vote/SKILL.md`

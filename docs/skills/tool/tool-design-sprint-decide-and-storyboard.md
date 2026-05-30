@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** decision | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-design-sprint-decide-and-storyboard "Your context here"`
+**Try it:** `/pm-skills:tool-design-sprint-decide-and-storyboard "Your context here"`
 
 Wednesday is the most decision-heavy day of the Design Sprint. The skill runs the art museum layout (sketches posted anonymously on the wall), heat map (silent dot-vote stickers on promising parts), speed critique (3 minutes per sketch summarizing what the team sees), straw poll (each team member's top choice), and the Decider's supervote (the call that triggers the storyboard). Then the team decides whether to rumble (storyboard two sketches as competing prototypes) or all-in-one (storyboard one). The day ends with a 5-15 step storyboard that drives Thursday's build.
 
@@ -34,10 +34,10 @@ Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.m
 
 ## How to Use
 
-Use the `/tool-design-sprint-decide-and-storyboard` slash command:
+Invoke the skill by name (`/pm-skills:tool-design-sprint-decide-and-storyboard` on Claude Code, `$tool-design-sprint-decide-and-storyboard` on Codex):
 
 ```
-/tool-design-sprint-decide-and-storyboard "Your context here"
+/pm-skills:tool-design-sprint-decide-and-storyboard "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-design-sprint-decide-and-storyboard/SKILL.md`

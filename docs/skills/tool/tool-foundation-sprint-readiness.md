@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-foundation-sprint-readiness "Your context here"`
+**Try it:** `/pm-skills:tool-foundation-sprint-readiness "Your context here"`
 
 Assess whether a Foundation Sprint fits the team's current situation. Most sprints that fail were sprints that should not have been run. A 30-45 minute readiness diagnostic catches that failure mode before two days of facilitated work are spent.
 
@@ -34,10 +34,10 @@ Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contra
 
 ## How to Use
 
-Use the `/tool-foundation-sprint-readiness` slash command:
+Invoke the skill by name (`/pm-skills:tool-foundation-sprint-readiness` on Claude Code, `$tool-foundation-sprint-readiness` on Codex):
 
 ```
-/tool-foundation-sprint-readiness "Your context here"
+/pm-skills:tool-foundation-sprint-readiness "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-foundation-sprint-readiness/SKILL.md`

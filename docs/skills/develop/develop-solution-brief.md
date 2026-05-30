@@ -12,7 +12,7 @@ tags:
 **Phase:** Develop | **Version:** 2.0.0 | **Category:** ideation | **License:** Apache-2.0
 :::
 
-**Try it:** `/solution-brief "Your context here"`
+**Try it:** `/pm-skills:develop-solution-brief "Your context here"`
 
 A solution brief is a concise, one-page document that communicates the proposed solution to a problem. It serves as the bridge between problem understanding and detailed specification, providing enough context for stakeholders to align on the approach without getting lost in implementation details. The one-page constraint forces clarity and prioritization.
 
@@ -26,10 +26,10 @@ A solution brief is a concise, one-page document that communicates the proposed 
 
 ## How to Use
 
-Use the `/solution-brief` slash command:
+Invoke the skill by name (`/pm-skills:develop-solution-brief` on Claude Code, `$develop-solution-brief` on Codex):
 
 ```
-/solution-brief "Your context here"
+/pm-skills:develop-solution-brief "Your context here"
 ```
 
 Or reference the skill file directly: `skills/develop-solution-brief/SKILL.md`
@@ -191,7 +191,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/solution-brief
+develop-solution-brief
 
 Project: Campaigns . native email marketing for Storevine merchants
 
@@ -231,7 +231,7 @@ Success metrics, trade-offs (what we're NOT building), and top risks.
 **Prompt:**
 
 ```
-/solution-brief
+develop-solution-brief
 
 resurface one-pager for the team. need to get everyone on the same
 page before sprint 8 starts. marco wants to see it too.
@@ -266,7 +266,7 @@ doing topic matching instead).
 **Prompt:**
 
 ```
-/solution-brief
+develop-solution-brief
 
 Product: Workbench Blueprints -- reusable document templates with required sections and role-based approval gates
 Stage: Pre-PRD; consolidating decisions from discovery, define, and develop phases into a one-pager

@@ -12,6 +12,8 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** release | **License:** Apache-2.0
 :::
 
+**Try it:** `/pm-skills:utility-pm-changelog-curator "Your context here"`
+
 Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent. Detects runtime; dispatches to the native sub-agent on Claude Code; reads `agents/pm-changelog-curator.md` and executes inline on non-Claude clients.
 
 ## When to Use
@@ -26,6 +28,16 @@ Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent. Detects 
 - You want to review a PM artifact -> use `utility-pm-critic` instead
 - You want a repo-wide governance audit -> use `utility-pm-skill-auditor`
 - You want a full guided release flow -> use `utility-pm-release-conductor` (which chains to this skill at gate G2)
+
+## How to Use
+
+Invoke the skill by name (`/pm-skills:utility-pm-changelog-curator` on Claude Code, `$utility-pm-changelog-curator` on Codex):
+
+```
+/pm-skills:utility-pm-changelog-curator "Your context here"
+```
+
+Or reference the skill file directly: `skills/utility-pm-changelog-curator/SKILL.md`
 
 ## Instructions
 

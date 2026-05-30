@@ -12,7 +12,7 @@ tags:
 **Phase:** Define | **Version:** 2.0.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::
 
-**Try it:** `/problem-statement "Your context here"`
+**Try it:** `/pm-skills:define-problem-statement "Your context here"`
 
 A problem statement is a concise document that frames the problem you're solving, articulates the impact on users and the business, and defines clear success criteria. It serves as the foundation for all subsequent product work by ensuring alignment on *what* problem to solve before jumping to *how* to solve it.
 
@@ -26,10 +26,10 @@ A problem statement is a concise document that frames the problem you're solving
 
 ## How to Use
 
-Use the `/problem-statement` slash command:
+Invoke the skill by name (`/pm-skills:define-problem-statement` on Claude Code, `$define-problem-statement` on Codex):
 
 ```
-/problem-statement "Your context here"
+/pm-skills:define-problem-statement "Your context here"
 ```
 
 Or reference the skill file directly: `skills/define-problem-statement/SKILL.md`
@@ -216,7 +216,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/problem-statement
+define-problem-statement
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Define . establishing shared problem framing before PRD draft
@@ -255,7 +255,7 @@ design, legal, and head of product before PRD review.
 **Prompt:**
 
 ```
-/problem-statement
+define-problem-statement
 
 the guilt pile problem. users save a ton of stuff to brainshelf but
 never come back to read it. interview data says 5/7 users described
@@ -281,7 +281,7 @@ building the resurface hypothesis.
 **Prompt:**
 
 ```
-/problem-statement
+define-problem-statement
 
 Product: Workbench (enterprise collaboration platform, Series B, ~500 enterprise customers [fictional])
 Feature area: Document templates and approval workflows (Blueprints)

@@ -12,7 +12,7 @@ tags:
 **Phase:** Measure | **Version:** 2.0.0 | **Category:** validation | **License:** Apache-2.0
 :::
 
-**Try it:** `/instrumentation-spec "Your context here"`
+**Try it:** `/pm-skills:measure-instrumentation-spec "Your context here"`
 
 An instrumentation spec defines what analytics events to track, when to fire them, and what properties to include. It serves as a contract between product and engineering, ensuring consistent data collection that enables accurate measurement. Good instrumentation specs prevent the "we can't answer that question because we didn't track it" problem.
 
@@ -26,10 +26,10 @@ An instrumentation spec defines what analytics events to track, when to fire the
 
 ## How to Use
 
-Use the `/instrumentation-spec` slash command:
+Invoke the skill by name (`/pm-skills:measure-instrumentation-spec` on Claude Code, `$measure-instrumentation-spec` on Codex):
 
 ```
-/instrumentation-spec "Your context here"
+/pm-skills:measure-instrumentation-spec "Your context here"
 ```
 
 Or reference the skill file directly: `skills/measure-instrumentation-spec/SKILL.md`
@@ -446,7 +446,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 Feature: Campaigns . campaign send flow + guided first-campaign flow
 Analytics platform: Amplitude
@@ -485,7 +485,7 @@ PII handling, implementation notes, and QA testing checklist.
 **Prompt:**
 
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 resurface analytics events for amplitude. need the full spec before
 sprint 8 starts so alex and jess can instrument during the build.
@@ -519,7 +519,7 @@ keep it tight. chloe wants to review before sprint planning on monday.
 **Prompt:**
 
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 I need the instrumentation spec for Blueprints v1 GA. Here are the events I've identified from the PRD and experiment results:
 

@@ -12,7 +12,7 @@ tags:
 **Phase:** Deliver | **Version:** 2.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/release-notes "Your context here"`
+**Try it:** `/pm-skills:deliver-release-notes "Your context here"`
 
 Release notes communicate product changes to users in a way that highlights value and builds excitement. Unlike changelogs (which document what changed technically), release notes translate changes into user benefits. Good release notes help users discover new capabilities, understand improvements, and trust that issues are being addressed.
 
@@ -26,10 +26,10 @@ Release notes communicate product changes to users in a way that highlights valu
 
 ## How to Use
 
-Use the `/release-notes` slash command:
+Invoke the skill by name (`/pm-skills:deliver-release-notes` on Claude Code, `$deliver-release-notes` on Codex):
 
 ```
-/release-notes "Your context here"
+/pm-skills:deliver-release-notes "Your context here"
 ```
 
 Or reference the skill file directly: `skills/deliver-release-notes/SKILL.md`
@@ -208,7 +208,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/release-notes
+deliver-release-notes
 
 Product: Storevine
 Release: Campaigns v1.0 . native email marketing, GA on Apr 28, 2026
@@ -247,7 +247,7 @@ Audience is small-business owners, not developers.
 **Prompt:**
 
 ```
-/release-notes
+deliver-release-notes
 
 resurface release notes. feature shipped feb 16 behind flag. opt-in
 enrollment starts mar 2. writing for the in-app changelog and blog.
@@ -281,7 +281,7 @@ articles (better fallback to article metadata).
 **Prompt:**
 
 ```
-/release-notes
+deliver-release-notes
 
 I need customer-facing release notes for Workbench 3.5, which ships Blueprints GA.
 

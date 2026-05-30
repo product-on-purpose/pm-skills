@@ -12,16 +12,16 @@ tags:
 **Phase:** Define | **Version:** 1.0.0 | **Category:** planning | **License:** Apache-2.0
 :::
 
-**Try it:** `/prioritization-framework "Your context here"`
+**Try it:** `/pm-skills:define-prioritization-framework "Your context here"`
 
 You run all applicable prioritization frameworks against a candidate list of work items. Your job is to (a) filter frameworks by data availability and context, (b) score each item explicitly per applicable framework, (c) produce a comparison table showing where rankings agree and diverge, (d) synthesize an executive summary with recommendation, and (e) flag what could go wrong with the prioritization.
 
 ## How to Use
 
-Use the `/prioritization-framework` slash command:
+Invoke the skill by name (`/pm-skills:define-prioritization-framework` on Claude Code, `$define-prioritization-framework` on Codex):
 
 ```
-/prioritization-framework "Your context here"
+/pm-skills:define-prioritization-framework "Your context here"
 ```
 
 Or reference the skill file directly: `skills/define-prioritization-framework/SKILL.md`
@@ -210,7 +210,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/prioritization-framework
+define-prioritization-framework
 
 we need to cut our storevine MVP from 12 features to 8 to hit the launch
 date. it's a B2B inventory forecasting platform. i don't have reach numbers
@@ -239,7 +239,7 @@ what should we cut?
 **Prompt:**
 
 ```
-/prioritization-framework
+define-prioritization-framework
 
 prioritize our Q3 candidate features for brainshelf (AI book-curation
 subscription). decision context: Q3 roadmap, ~14 eng-weeks of capacity.
@@ -266,7 +266,7 @@ run whatever frameworks apply and show me where they disagree.
 **Prompt:**
 
 ```
-/prioritization-framework
+define-prioritization-framework
 
 triage our dev-experience backlog and help us pick 5 for next sprint. we have
 ~30 ideas, no hard data per item. our team cares about three things:

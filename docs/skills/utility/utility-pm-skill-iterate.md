@@ -12,7 +12,7 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/pm-skill-iterate "Your context here"`
+**Try it:** `/pm-skills:utility-pm-skill-iterate "Your context here"`
 
 This skill improves an existing pm-skills skill by applying targeted changes
 based on input you provide. It reads the current skill files, proposes
@@ -21,14 +21,14 @@ confirmation. After applying changes, it suggests a version bump class and
 offers to update HISTORY.md.
 
 The iterator accepts any of these as input:
-- A validation report from `/pm-skill-validate`
+- A validation report from `utility-pm-skill-validate`
 - Direct feedback ("the template is missing section X")
 - A convention change ("all skills now need a Limitations section")
 - A general improvement request ("make the example more realistic")
 
 ## When to Use
 
-- After running `/pm-skill-validate` and getting a report with findings
+- After running `utility-pm-skill-validate` and getting a report with findings
 - When you have specific feedback on a skill and want to apply it
 - When a repo convention changes and a skill needs to conform
 - When a skill's example, template, or instructions need improvement
@@ -36,16 +36,16 @@ The iterator accepts any of these as input:
 
 ## When NOT to Use
 
-- To create a new skill from scratch -> use `/pm-skill-builder`
-- To audit a skill before making changes -> use `/pm-skill-validate` first
-- To make bulk convention changes across many skills -> run `/pm-skill-validate --all` first to triage, then iterate one skill at a time
+- To create a new skill from scratch -> use `utility-pm-skill-builder`
+- To audit a skill before making changes -> use `utility-pm-skill-validate` first
+- To make bulk convention changes across many skills -> run `utility-pm-skill-validate --all` first to triage, then iterate one skill at a time
 
 ## How to Use
 
-Use the `/pm-skill-iterate` slash command:
+Invoke the skill by name (`/pm-skills:utility-pm-skill-iterate` on Claude Code, `$utility-pm-skill-iterate` on Codex):
 
 ```
-/pm-skill-iterate "Your context here"
+/pm-skills:utility-pm-skill-iterate "Your context here"
 ```
 
 Or reference the skill file directly: `skills/utility-pm-skill-iterate/SKILL.md`
@@ -59,12 +59,12 @@ When asked to iterate on a skill, follow these steps:
 Accept the skill name in any form:
 - Directory name: `deliver-prd`
 - Full path: `skills/deliver-prd/SKILL.md`
-- Slash command: `/prd`
+- Slash command: `deliver-prd`
 
 Resolve to the canonical directory path: `skills/{name}/`.
 
 If the skill directory does not exist, stop and report: "Skill directory
-`skills/{name}/` does not exist. Use `/pm-skill-builder` to create it."
+`skills/{name}/` does not exist. Use `utility-pm-skill-builder` to create it."
 
 ### Step 2: Read Current Skill Files
 
@@ -89,7 +89,7 @@ Regardless of input type, extract a structured list of intended changes
 before generating any edits. This normalization step is what makes the
 unified flow work consistently across all input types.
 
-**If the input is a validation report** (from `/pm-skill-validate`):
+**If the input is a validation report** (from `utility-pm-skill-validate`):
 - Check for `Report schema: v1` in the header. If absent or a different
   schema version, warn: "This report uses an unrecognized schema. I'll
   do my best but may miss structured fields."
@@ -312,7 +312,7 @@ The input is the WARN finding from the F-10 validation report example
 ## Step 1: Identify the Target Skill
 
 Target: `skills/deliver-prd/`
-Resolved from user input: `/pm-skill-iterate deliver-prd`
+Resolved from user input: `utility-pm-skill-iterate deliver-prd`
 
 ## Step 2: Read Current Skill Files
 
@@ -324,7 +324,7 @@ Read and recorded:
 
 ## Step 3: Normalize Input into Intended Changes
 
-Input: validation report from `/pm-skill-validate deliver-prd`
+Input: validation report from `utility-pm-skill-validate deliver-prd`
 
 Parsed `## Recommendations` section (Report schema: v1):
 
@@ -442,7 +442,7 @@ the current skill structure with frontmatter, instructions, output contract,
 and quality checklist.
 
 ### Contract established
-- Command: /prd
+- Command: deliver-prd
 - Phase: deliver
 - Output: Product Requirements Document following TEMPLATE.md structure
 ```
@@ -460,7 +460,7 @@ and quality checklist.
 **HISTORY.md:** created
 
 **Next steps:**
-- Run `/pm-skill-validate deliver-prd` to verify the changes pass
+- Run `utility-pm-skill-validate deliver-prd` to verify the changes pass
 - Run local CI: `bash scripts/lint-skills-frontmatter.sh`
 - If satisfied, commit the changes
 ```
@@ -471,7 +471,7 @@ and quality checklist.
 
 This example demonstrates:
 - **Validation-report-driven iteration**: the input is a structured report
-  from `/pm-skill-validate`, parsed by `## Recommendations` and pipe-delimited fields
+  from `utility-pm-skill-validate`, parsed by `## Recommendations` and pipe-delimited fields
 - **INFO findings excluded by default**: the `when-not-to-use` INFO was not
   included in the intended changes because the user did not request it
 - **Before/after preview**: the Output Format section shown in full before
@@ -499,7 +499,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/pm-skill-iterate
+utility-pm-skill-iterate
 
 Skill: campaign-analytics
 Path: skills/measure-campaign-analytics/

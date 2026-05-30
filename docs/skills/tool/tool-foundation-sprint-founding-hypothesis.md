@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** problem-framing | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-foundation-sprint-founding-hypothesis "Your context here"`
+**Try it:** `/pm-skills:tool-foundation-sprint-founding-hypothesis "Your context here"`
 
 Day 2 end of a Foundation Sprint. The team compresses the full sprint output into a single canonical sentence plus a testable scorecard. This is the artifact the sprint exists to produce; everything before this skill was preparation. Without a ratifiable Founding Hypothesis, the sprint failed.
 
@@ -32,10 +32,10 @@ Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contra
 
 ## How to Use
 
-Use the `/tool-foundation-sprint-founding-hypothesis` slash command:
+Invoke the skill by name (`/pm-skills:tool-foundation-sprint-founding-hypothesis` on Claude Code, `$tool-foundation-sprint-founding-hypothesis` on Codex):
 
 ```
-/tool-foundation-sprint-founding-hypothesis "Your context here"
+/pm-skills:tool-foundation-sprint-founding-hypothesis "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-foundation-sprint-founding-hypothesis/SKILL.md`

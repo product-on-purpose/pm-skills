@@ -12,7 +12,7 @@ tags:
 **Phase:** Iterate | **Version:** 2.0.0 | **Category:** reflection | **License:** Apache-2.0
 :::
 
-**Try it:** `/retrospective "Your context here"`
+**Try it:** `/pm-skills:iterate-retrospective "Your context here"`
 
 A retrospective is a structured reflection that helps teams learn from their experiences and continuously improve. By regularly examining what went well, what didn't, and what to change, teams build a culture of learning and adaptation. The value isn't just in the discussion.it's in the documented actions and follow-through.
 
@@ -27,10 +27,10 @@ A retrospective is a structured reflection that helps teams learn from their exp
 
 ## How to Use
 
-Use the `/retrospective` slash command:
+Invoke the skill by name (`/pm-skills:iterate-retrospective` on Claude Code, `$iterate-retrospective` on Codex):
 
 ```
-/retrospective "Your context here"
+/pm-skills:iterate-retrospective "Your context here"
 ```
 
 Or reference the skill file directly: `skills/iterate-retrospective/SKILL.md`
@@ -477,7 +477,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/retrospective
+iterate-retrospective
 
 Sprint: Campaigns v1.0 build sprint + GA week
 Period: February 3  -  May 5, 2026 [fictional]
@@ -524,7 +524,7 @@ Need: full sprint retrospective with action items.
 **Prompt:**
 
 ```
-/retrospective
+iterate-retrospective
 
 sprint 8 retro . resurface launch sprint. need to write this up.
 
@@ -555,7 +555,7 @@ contributed to the bug), (3) weekly eng/pm sync . IN PROGRESS.
 **Prompt:**
 
 ```
-/retrospective
+iterate-retrospective
 
 I'm facilitating the Blueprints post-GA retrospective. Here's the context:
 

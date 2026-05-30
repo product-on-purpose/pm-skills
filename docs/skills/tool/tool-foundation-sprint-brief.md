@@ -12,7 +12,7 @@ tags:
 **Classification:** tool | **Version:** 0.1.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/tool-foundation-sprint-brief "Your context here"`
+**Try it:** `/pm-skills:tool-foundation-sprint-brief "Your context here"`
 
 Produce the one-page brief that aligns the team on scope, decision target, participants, logistics, and success criteria before Day 1 begins. A well-built brief prevents Day 1 from opening with re-litigation of why-are-we-here; a missing or vague brief almost guarantees it.
 
@@ -34,10 +34,10 @@ Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contra
 
 ## How to Use
 
-Use the `/tool-foundation-sprint-brief` slash command:
+Invoke the skill by name (`/pm-skills:tool-foundation-sprint-brief` on Claude Code, `$tool-foundation-sprint-brief` on Codex):
 
 ```
-/tool-foundation-sprint-brief "Your context here"
+/pm-skills:tool-foundation-sprint-brief "Your context here"
 ```
 
 Or reference the skill file directly: `skills/tool-foundation-sprint-brief/SKILL.md`

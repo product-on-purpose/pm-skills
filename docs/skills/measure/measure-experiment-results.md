@@ -12,7 +12,7 @@ tags:
 **Phase:** Measure | **Version:** 2.0.0 | **Category:** reflection | **License:** Apache-2.0
 :::
 
-**Try it:** `/experiment-results "Your context here"`
+**Try it:** `/pm-skills:measure-experiment-results "Your context here"`
 
 An experiment results document captures what happened when you tested a hypothesis, including statistical outcomes, segment analysis, learnings, and clear recommendations. Good results documentation turns individual experiments into organizational knowledge that improves future decision-making.
 
@@ -26,10 +26,10 @@ An experiment results document captures what happened when you tested a hypothes
 
 ## How to Use
 
-Use the `/experiment-results` slash command:
+Invoke the skill by name (`/pm-skills:measure-experiment-results` on Claude Code, `$measure-experiment-results` on Codex):
 
 ```
-/experiment-results "Your context here"
+/pm-skills:measure-experiment-results "Your context here"
 ```
 
 Or reference the skill file directly: `skills/measure-experiment-results/SKILL.md`
@@ -505,7 +505,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/experiment-results
+measure-experiment-results
 
 Experiment: Campaigns guided first-campaign flow A/B test
 Ran: April 28  -  June 27, 2026 (60 days from GA)
@@ -543,7 +543,7 @@ for stakeholder review and decision record.
 **Prompt:**
 
 ```
-/experiment-results
+measure-experiment-results
 
 resurface a/b test results. test ran mar 9 - apr 5 (4 weeks).
 800 users, 50/50 split [fictional].
@@ -590,7 +590,7 @@ recommendation: ship to all eligible users.
 **Prompt:**
 
 ```
-/experiment-results
+measure-experiment-results
 
 Leo M. just finished the A/B test analysis. I need a full experiment-results document for the April 14 ship-decision meeting. Here are the results:
 

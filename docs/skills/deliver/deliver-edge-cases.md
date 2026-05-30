@@ -12,7 +12,7 @@ tags:
 **Phase:** Deliver | **Version:** 2.0.0 | **Category:** specification | **License:** Apache-2.0
 :::
 
-**Try it:** `/edge-cases "Your context here"`
+**Try it:** `/pm-skills:deliver-edge-cases "Your context here"`
 
 An edge cases document systematically catalogs the unusual, boundary, and error scenarios for a feature. While happy-path flows are typically well-specified, edge cases often get discovered in production . causing bugs, poor user experience, and support burden. Documenting edge cases upfront ensures engineering handles them intentionally and QA knows what to test.
 
@@ -26,10 +26,10 @@ An edge cases document systematically catalogs the unusual, boundary, and error 
 
 ## How to Use
 
-Use the `/edge-cases` slash command:
+Invoke the skill by name (`/pm-skills:deliver-edge-cases` on Claude Code, `$deliver-edge-cases` on Codex):
 
 ```
-/edge-cases "Your context here"
+/pm-skills:deliver-edge-cases "Your context here"
 ```
 
 Or reference the skill file directly: `skills/deliver-edge-cases/SKILL.md`
@@ -332,7 +332,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/edge-cases
+deliver-edge-cases
 
 Feature: Campaigns . campaign creation and send flow
 Sprint: Q2 2026 Campaigns build (GA Apr 28, 2026)
@@ -368,7 +368,7 @@ QA test scenarios (P1/P2/P3).
 **Prompt:**
 
 ```
-/edge-cases
+deliver-edge-cases
 
 resurface edge cases for sprint 8. need to cover:
 - what happens when the user's library is too small
@@ -397,7 +397,7 @@ alex wants this documented so QA can build the test plan from it.
 **Prompt:**
 
 ```
-/edge-cases
+deliver-edge-cases
 
 I need a comprehensive edge-case analysis for Blueprints v1 covering the three highest-risk areas: required-section enforcement boundaries, approval-gate state transitions, and real-time co-editing conflicts.
 

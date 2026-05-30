@@ -12,11 +12,11 @@ tags:
 **Classification:** Utility | **Version:** 1.0.0 | **Category:** coordination | **License:** Apache-2.0
 :::
 
-**Try it:** `/pm-skill-validate "Your context here"`
+**Try it:** `/pm-skills:utility-pm-skill-validate "Your context here"`
 
 This skill audits an existing pm-skills skill against the repo's structural
 conventions and quality criteria. It produces a validation report that a
-human can scan and that `/pm-skill-iterate` can consume as input.
+human can scan and that `utility-pm-skill-iterate` can consume as input.
 
 The validator checks two tiers:
 - **Tier 1 (Structural)** . deterministic checks that mirror CI: frontmatter,
@@ -27,25 +27,25 @@ The validator checks two tiers:
 
 ## When to Use
 
-- After creating a skill with `/pm-skill-builder`, before shipping
+- After creating a skill with `utility-pm-skill-builder`, before shipping
 - After manually editing a skill, to confirm it still passes conventions
-- Before running `/pm-skill-iterate`, to identify what needs improvement
+- Before running `utility-pm-skill-iterate`, to identify what needs improvement
 - When a convention changes, to audit which skills need updating (batch mode)
 - When reviewing a contributed skill for quality and completeness
 
 ## When NOT to Use
 
-- To create a new skill from scratch -> use `/pm-skill-builder`
-- To fix or improve a skill -> use `/pm-skill-iterate` (feed it this report)
+- To create a new skill from scratch -> use `utility-pm-skill-builder`
+- To fix or improve a skill -> use `utility-pm-skill-iterate` (feed it this report)
 - To run CI checks in a pipeline -> use `scripts/lint-skills-frontmatter.sh`
   (this skill is for interactive, deeper-than-CI validation)
 
 ## How to Use
 
-Use the `/pm-skill-validate` slash command:
+Invoke the skill by name (`/pm-skills:utility-pm-skill-validate` on Claude Code, `$utility-pm-skill-validate` on Codex):
 
 ```
-/pm-skill-validate "Your context here"
+/pm-skills:utility-pm-skill-validate "Your context here"
 ```
 
 Or reference the skill file directly: `skills/utility-pm-skill-validate/SKILL.md`
@@ -59,7 +59,7 @@ When asked to validate a skill, follow these steps:
 Accept the skill name in any form:
 - Directory name: `deliver-prd`
 - Full path: `skills/deliver-prd/SKILL.md`
-- Slash command: `/prd`
+- Slash command: `deliver-prd`
 
 Resolve to the canonical directory path: `skills/{name}/`.
 
@@ -133,12 +133,12 @@ line. Tier 2 findings are capped at `WARN` unless objectively grounded
 **Quality standard framing:** These checks validate against current library
 conventions . what the shipped library actually does today. Findings graded
 WARN or INFO represent the v2.8 quality standard that newer skills (built
-with `/pm-skill-builder`) meet. Older skills may legitimately receive these
+with `utility-pm-skill-builder`) meet. Older skills may legitimately receive these
 findings until iterated through the lifecycle.
 
 ### Step 5: Produce the Validation Report
 
-Assemble the report using this exact structure. F-11 (`/pm-skill-iterate`)
+Assemble the report using this exact structure. F-11 (`utility-pm-skill-iterate`)
 parses this report by section headings and pipe-delimited fields.
 
 ```
@@ -272,7 +272,7 @@ See this skill applied to three different product contexts:
 **Prompt:**
 
 ```
-/pm-skill-validate
+utility-pm-skill-validate
 
 Skill: campaign-analytics
 Path: skills/measure-campaign-analytics/
