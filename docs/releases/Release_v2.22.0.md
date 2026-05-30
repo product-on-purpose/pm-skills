@@ -3,8 +3,6 @@ title: Release v2.22.0
 description: One menu entry per skill, and native Codex support
 ---
 
-# v2.22.0 - One entry per skill, plus Codex support
-
 > Draft. Finalized at tag time (Phase 5). The complete short-command -> skill mapping table is generated during finalization.
 
 ## The short version
