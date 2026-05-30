@@ -19,22 +19,40 @@
 // if it already resolves to a real page we leave it untouched; only if it 404s
 // AND resolving it against the SOURCE-FILE directory (the page URL minus its
 // own leaf segment) hits a real page do we rewrite it to that base-absolute
-// URL. Links whose target does not exist either way (e.g. references to
-// non-published source paths like _workflows/, raw SKILL.md, .github/) are
-// left exactly as authored. Source markdown is never touched, so the
-// filesystem-based link validator stays green.
+// URL. Source markdown is never touched, so the filesystem-based link
+// validator stays green.
+//
+// PASS 3 (cross-target relative-link fix): some body links point at repo paths
+// that exist on GitHub (where docs/, skills/, _workflows/, library/ are sibling
+// dirs) but have no meaning under the site URL space, so they survive pass 2
+// still broken. These come in two flavors:
+//   (a) the target IS published, just at a different route - workflows
+//       (`_workflows/<n>.md` -> /workflows/<n>/), skills (`skills/<s>/SKILL.md`
+//       -> /skills/<phase>/<s>/), and library samples
+//       (`library/skill-output-samples/<r>.md` -> /samples/<r>/). We re-route to
+//       the in-site page, verified against dist before use.
+//   (b) the target is a repo source file the site never publishes (docs/internal,
+//       agents/, scripts/, .github/, *.yaml schema). We rewrite to an absolute
+//       GitHub source URL (blob for files, tree for dirs) so the reference still
+//       resolves for a site reader.
+// As with pass 2, a link is only rewritten if it is broken as-authored; working
+// links are never touched, and source markdown is untouched (validator green).
 
 import fs from 'node:fs';
 import path from 'node:path';
 
 const DIST = path.resolve('dist');
+const REPO = path.resolve('.');
 const BASE = '/pm-skills';
+const GH = 'https://github.com/product-on-purpose/pm-skills';
 const PRESERVE_RE = /(?:^|\/)(?:README|CHANGELOG|CONTRIBUTING|LICENSE|AGENTS)\.md(?:#|$)/;
 
 let totalStripped = 0;
 let filesStripped = 0;
 let totalCorrected = 0;
 let filesCorrected = 0;
+let totalRetargeted = 0;
+let filesRetargeted = 0;
 
 function walk(dir, fn) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -69,6 +87,63 @@ function existsInDist(urlPath) {
 
 function resolvePath(baseUrlPath, href) {
   return new URL(href, 'https://x' + baseUrlPath).pathname;
+}
+
+// Is a repo-relative path a file, a directory, or absent on disk?
+function repoKind(relPath) {
+  const full = path.join(REPO, relPath);
+  if (!fs.existsSync(full)) return null;
+  return fs.statSync(full).isDirectory() ? 'dir' : 'file';
+}
+
+// Reverse-map a built HTML file to the repo directory of its SOURCE markdown,
+// so author-relative links can be resolved into repo space.
+function sourceRepoDir(filepath) {
+  let slug = path.relative(DIST, filepath).split(path.sep).join('/')
+    .replace(/\/index\.html$/, '').replace(/\.html$/, '');
+  if (slug === '' || slug === 'index') return 'docs';
+  const dirOf = (s) => (s.includes('/') ? s.slice(0, s.lastIndexOf('/')) : '');
+  if (slug.startsWith('samples/')) {
+    const inner = slug.slice('samples/'.length);
+    const base = 'library/skill-output-samples/' + inner;
+    if (repoKind(base + '.md') === 'file' || repoKind(base + '.mdx') === 'file') {
+      return ('library/skill-output-samples/' + dirOf(inner)).replace(/\/$/, '');
+    }
+    return base;
+  }
+  if (repoKind('docs/' + slug + '.md') === 'file' || repoKind('docs/' + slug + '.mdx') === 'file') {
+    return ('docs/' + dirOf(slug)).replace(/\/$/, '');
+  }
+  return 'docs/' + slug;
+}
+
+// Map a repo-relative target (post-.md-strip, no trailing slash) to its
+// canonical site URL (if published) or a GitHub source URL (if not).
+function mapCrossTarget(t) {
+  let m;
+  if ((m = t.match(/^_workflows\/([^/]+)$/))) {
+    const cand = `${BASE}/workflows/${m[1]}/`;
+    if (existsInDist(cand)) return cand;
+  }
+  if ((m = t.match(/^skills\/([^/]+)(?:\/SKILL)?$/))) {
+    const phase = m[1].split('-')[0];
+    const cand = `${BASE}/skills/${phase}/${m[1]}/`;
+    if (existsInDist(cand)) return cand;
+  }
+  if ((m = t.match(/^library\/skill-output-samples(?:\/(.*))?$/))) {
+    const cand = m[1] ? `${BASE}/samples/${m[1]}/` : `${BASE}/samples/`;
+    if (existsInDist(cand)) return cand;
+  }
+  if ((m = t.match(/^docs\/(.+)$/))) {
+    const cand = `${BASE}/${m[1]}/`;
+    if (existsInDist(cand)) return cand;
+  }
+  // GitHub source fallback (target not published as a site page)
+  for (const cand of [t, t + '.md', t + '.mdx']) {
+    if (repoKind(cand) === 'file') return `${GH}/blob/main/${cand}`;
+  }
+  if (repoKind(t) === 'dir') return `${GH}/tree/main/${t}/`;
+  return null; // cannot map safely; leave as-authored
 }
 
 // PASS 1: strip .md/.mdx
@@ -117,6 +192,38 @@ function fixRelativeLinks(filepath) {
   }
 }
 
+// PASS 3: re-target cross-target relative links still broken after pass 2
+function fixCrossTargetLinks(filepath) {
+  let content = fs.readFileSync(filepath, 'utf8');
+  const pageUrl = urlOf(filepath);
+  const parentBase = pageUrl.replace(/[^/]+\/$/, '');
+  const srcDir = sourceRepoDir(filepath);
+  let count = 0;
+  content = content.replace(/href="((?:\.\.?\/)[^"]*)"/g, (match, href) => {
+    const hashIdx = href.indexOf('#');
+    const clean = hashIdx === -1 ? href : href.slice(0, hashIdx);
+    const frag = hashIdx === -1 ? '' : href.slice(hashIdx);
+    if (!clean) return match;
+    // Skip anything that already resolves (working, or fixed by pass 2).
+    let direct;
+    try { direct = resolvePath(pageUrl, clean); } catch { return match; }
+    if (existsInDist(direct)) return match;
+    try { if (existsInDist(resolvePath(parentBase, clean))) return match; } catch {}
+    // Resolve into repo space using the source-file directory.
+    const repoTarget = path.posix.normalize(srcDir + '/' + clean).replace(/\/$/, '');
+    if (repoTarget.startsWith('..')) return match; // escapes repo root; leave it
+    const mapped = mapCrossTarget(repoTarget);
+    if (!mapped) return match;
+    count++;
+    return `href="${mapped}${frag}"`;
+  });
+  if (count > 0) {
+    fs.writeFileSync(filepath, content);
+    totalRetargeted += count;
+    filesRetargeted++;
+  }
+}
+
 if (!fs.existsSync(DIST)) {
   console.error('dist/ not found; run `npm run build` first');
   process.exit(1);
@@ -124,5 +231,7 @@ if (!fs.existsSync(DIST)) {
 
 walk(DIST, stripMdLinks);
 walk(DIST, fixRelativeLinks);
+walk(DIST, fixCrossTargetLinks);
 console.log(`[strip-md-links] stripped ${totalStripped} .md link(s) across ${filesStripped} file(s)`);
 console.log(`[strip-md-links] corrected ${totalCorrected} trailing-slash relative link(s) across ${filesCorrected} file(s)`);
+console.log(`[strip-md-links] re-targeted ${totalRetargeted} cross-target link(s) across ${filesRetargeted} file(s)`);

@@ -304,3 +304,7 @@ jobs:
       - name: Verify edit-link resolution (enforcing)
         if: always()
         run: node scripts/verify-edit-links.mjs dist .
+
+      - name: Check rendered link resolution (enforcing)
+        if: always()
+        run: node scripts/check-rendered-links.mjs dist
