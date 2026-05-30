@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - ".claude-plugin/**"
+      - ".codex-plugin/**"
       - "skills/**"
       - "commands/**"
       - "scripts/build-release.sh"
@@ -17,6 +18,7 @@ on:
       - "v*"
     paths:
       - ".claude-plugin/**"
+      - ".codex-plugin/**"
       - "skills/**"
       - "commands/**"
       - "scripts/build-release.sh"
@@ -117,6 +119,7 @@ jobs:
         run: |
           set -euo pipefail
           grep -n "\.claude-plugin" scripts/build-release.sh scripts/build-release.ps1
+          grep -n "\.codex-plugin" scripts/build-release.sh scripts/build-release.ps1
           grep -n "plugin.json" scripts/build-release.sh scripts/build-release.ps1
 
       - name: Ensure tag and plugin version match
@@ -127,5 +130,10 @@ jobs:
           MANIFEST_VERSION="$(node -p "JSON.parse(require('fs').readFileSync('.claude-plugin/plugin.json', 'utf8')).version")"
           if [[ "$TAG_VERSION" != "$MANIFEST_VERSION" ]]; then
             echo "::error::Tag version ($TAG_VERSION) does not match .claude-plugin/plugin.json version ($MANIFEST_VERSION)"
+            exit 1
+          fi
+          CODEX_VERSION="$(node -p "JSON.parse(require('fs').readFileSync('.codex-plugin/plugin.json', 'utf8')).version")"
+          if [[ "$TAG_VERSION" != "$CODEX_VERSION" ]]; then
+            echo "::error::Tag version ($TAG_VERSION) does not match .codex-plugin/plugin.json version ($CODEX_VERSION)"
             exit 1
           fi

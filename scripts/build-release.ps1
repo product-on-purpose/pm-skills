@@ -33,6 +33,7 @@ $toCopy = @(
   "skills","commands","_workflows","scripts",
   "library",
   ".claude-plugin",
+  ".codex-plugin",
   ".claude/pm-skills-for-claude.md",
   "README.md","QUICKSTART.md","AGENTS.md","CHANGELOG.md","docs"
 )

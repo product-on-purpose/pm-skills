@@ -42,6 +42,7 @@ if command -v rsync >/dev/null 2>&1; then
     "$ROOT/library" \
     "$ROOT/scripts" \
     "$ROOT/.claude-plugin" \
+    "$ROOT/.codex-plugin" \
     "$ROOT/.claude/pm-skills-for-claude.md" \
     "$ROOT/README.md" "$ROOT/QUICKSTART.md" "$ROOT/AGENTS.md" "$ROOT/CHANGELOG.md" "$ROOT/docs" \
     "$STAGE/"
@@ -54,6 +55,7 @@ else
     "$ROOT/library" \
     "$ROOT/scripts" \
     "$ROOT/.claude-plugin" \
+    "$ROOT/.codex-plugin" \
     "$ROOT/.claude/pm-skills-for-claude.md" \
     "$ROOT/README.md" "$ROOT/QUICKSTART.md" "$ROOT/AGENTS.md" "$ROOT/CHANGELOG.md" "$ROOT/docs" \
     "$STAGE/"
