@@ -1,6 +1,6 @@
 ---
 title: PM Skills
-description: 63 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more. Includes the v2.15.0 Sprint Skills launch (Foundation Sprint + Design Sprint families) and the v2.16.0 Active Orchestration sub-agent dispatch slate.
+description: 63 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more. Turn any AI assistant into a PM that ships professional PRDs, user stories, experiment designs, and workshop outputs on demand.
 tags:
   - Home
 ---
@@ -109,7 +109,7 @@ graph LR
 
 ## Skills by Phase
 
-30 domain skills across 6 phases, plus 8 foundation, 10 utility (including the v2.16.0 sub-agent dispatch slate), and 15 tool skills (Foundation Sprint + Design Sprint families + note-and-vote):
+Each box below is a skill you invoke by name. The six phases trace a product from first research through to post-launch learning, so you can pick the one that matches where your work is right now.
 
 ```mermaid
 block-beta
@@ -173,7 +173,11 @@ block-beta
     style iterate fill:#ffe9ec,stroke:#c2255c,color:#5c0a25,stroke-width:2px
 ```
 
-**Plus:** `foundation-lean-canvas` `foundation-persona` `foundation-okr-writer` `foundation-meeting-agenda` `foundation-meeting-brief` `foundation-meeting-recap` `foundation-meeting-synthesize` `foundation-stakeholder-update` (Foundation - cross-cutting) · `utility-pm-skill-builder` `utility-pm-skill-validate` `utility-pm-skill-iterate` `utility-mermaid-diagrams` `utility-slideshow-creator` `utility-update-pm-skills` `utility-pm-critic` `utility-pm-skill-auditor` `utility-pm-changelog-curator` `utility-pm-release-conductor` (Utility incl. v2.16.0 sub-agent dispatch slate) · `tool-foundation-sprint-readiness` `tool-foundation-sprint-brief` `tool-foundation-sprint-basics` `tool-foundation-sprint-differentiation` `tool-foundation-sprint-approach-options` `tool-foundation-sprint-magic-lenses` `tool-foundation-sprint-founding-hypothesis` (Foundation Sprint family) · `tool-design-sprint-readiness` `tool-design-sprint-brief` `tool-design-sprint-map-and-target` `tool-design-sprint-sketch` `tool-design-sprint-decide-and-storyboard` `tool-design-sprint-prototype-plan` `tool-design-sprint-test-and-score` (Design Sprint family) · `tool-note-and-vote` (standalone)
+**Beyond the six phases**, three cross-cutting families support the work at every stage:
+
+- **Foundation (8)** - reusable building blocks for any initiative: `foundation-persona`, `foundation-lean-canvas`, `foundation-okr-writer`, `foundation-stakeholder-update`, and the four meeting skills (agenda, brief, recap, and cross-meeting synthesis).
+- **Workshop tools (15)** - run a facilitated session with your agent: the 7-skill **Foundation Sprint** family for 2-day strategic alignment, the 7-skill **Design Sprint** family for a 5-day prototype-and-test cycle, and the standalone `tool-note-and-vote` decision mechanic.
+- **Utility (10)** - meta-tooling that builds, validates, and maintains the library itself, plus the sub-agents that run adversarial review, catalog auditing, changelog curation, and release orchestration.
 
 ## The Skill Lifecycle
 
@@ -196,12 +200,21 @@ The lifecycle tools are what keep the library consistent as it grows - the valid
 
 ## Quick Start
 
+**Claude Code** - install from the plugin marketplace:
+
 ```bash
-git clone https://github.com/product-on-purpose/pm-skills.git
-cd pm-skills
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
 ```
 
-Then use any skill:
+**Any other agent** - add via the open skills CLI, or clone the repo:
+
+```bash
+npx skills add product-on-purpose/pm-skills
+# or: git clone https://github.com/product-on-purpose/pm-skills.git
+```
+
+Then invoke any skill by name:
 
 ```
 deliver-prd "Search feature for e-commerce platform"
@@ -271,22 +284,16 @@ Follow three fictional companies through the complete product lifecycle - from d
 {/* count-exempt:start */}
 | Version | Date | Highlights |
 |---------|------|-----------|
-| **[v2.18.0](releases/Release_v2.18.0.md)** | 2026-05-21 | Highest-consensus PM skill gaps: 4 new phase skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis), each with a companion command and 3 thread samples. Catalog 59 to 63 (phase 26 to 30); commands 66 to 70. |
-| **[v2.17.0](releases/Release_v2.17.0.md)** | 2026-05-20 | Native Claude Code sub-agent registration (definitions moved to the canonical agents/ directory; coordination dir renamed AGENTS/ to _agent-context/); frontmatter metadata-nested migration; bash-3.2 validator portability. 59-skill catalog unchanged. |
-| **[v2.16.0](releases/Release_v2.16.0.md)** | 2026-05-17 | Active Orchestration + Doc-Stack Modernization: 4 plugin sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) codify the Phase 0 Adversarial Review Loop + 6-gate release runbook including the new G2.5 commit gate. 4 dispatch skills at `skills/utility-pm-{role}/` deliver cross-client compatibility (VALIDATED on Codex CLI 2026-05-17 per GATE B + C). Astro 5.13.x to 6.3.x upgrade + Starlight 0.39.x + Node 22.12+ across 5 CI workflows; closes 2 deferred Dependabot alerts. 10 new public docs (concepts, guides, reference, contributing - including the canonical sub-agent compatibility matrix and CI overview) + 12 sub-agent library samples across 3 narrative threads. Content catalog 55 to 59 with the 4 utility dispatch skills; new shipping unit is the sub-agent |
-| **[v2.15.2](releases/Release_v2.15.2.md)** | 2026-05-17 | v2.15.x Cycle Closeout + v2.16.0 Plan Reconciliation: closeout patch successor to v2.15.1. No source-code, validator behavior, or catalog changes. Planning-doc hygiene only: audit doc status flipped from DRAFT to REMEDIATION SHIPPED with finding-by-finding closure table; v2.15.0 master plan continuity updated; v2.16.0 plan slate reconciled against v2.15.1 shipped reality (CONTEXT.md prereq marked DONE; ci-plan validator scope reduced via carry-in reconciliation section); CONTEXT.md refreshed; version surfaces bumped |
-| **[v2.15.1](releases/Release_v2.15.1.md)** | 2026-05-16 | Post-Tag Audit Remediation + Preventive CI: same-day patch closing 18 v2.15.x audit findings (docs-site homepage, skills landing page, AGENTS.md command table, sample-library README, Sprint Planning naming-discipline) plus a workflow-generator bug fix and 4 new preventive CI validators (landing-page count assertion, workflow-generator coverage, AGENTS.md command-sync, pre-tag validator bundle orchestration). 55-skill catalog unchanged |
-| **[v2.15.0](releases/Release_v2.15.0.md)** | 2026-05-16 | Sprint Skills Launch: 15 new skills under the new `classification: tool` taxonomy (7 Foundation Sprint family + 7 Design Sprint family + 1 tool-note-and-vote standalone) implementing Knapp/Zeratsky/Kowitz canonical sprint methodologies. Skill catalog 40 to 55. Two family contracts with enforcing CI validators (each with --strict release mode). 3 new workflows including end-to-end FS-to-DS arc with narrative handoff conversation that replaces dropped bridge skill (12-row slot-mapping table + 3-question go/no-go checkpoint). 45 library samples across 3 narrative threads (Brainshelf, Storevine, Workbench). Two user guides + two concept docs. Two adversarial-review cycles documented (FS-track + DS-track; all P1 closed pre-tag) |
-| [v2.14.2](releases/Release_v2.14.2.md) | 2026-05-10 | Codex final review closure (cumulative docs hygiene patch). 0 P0, 1 P1, 11 P2, 1 P3 findings addressed. `validate-docs-frontmatter` scope expanded to .mdx (parity with V6); `check-no-body-h1` doc clarified with "what is NOT caught" framing; `validate-mcp-sync` guide refreshed for observe-mode default; `sync-agents-md.yml` workflow_dispatch hardened with two-layer defense (input gate + token gate); pm-skills-mcp README cross-repo update (5 "25 skills" residues to "40 skills"; v2.9.3 latest pointer); CONTRIBUTING.md workaround count corrected; release plan + Release_v2.14.0 deferral table reframed. 40-skill catalog unchanged |
-| [v2.14.1](releases/Release_v2.14.1.md) | 2026-05-10 | Polish + V15 regression fix: same-day patch for v2.14.0. Title duplication fixed across 62 hand-authored docs + 6 generator emission sites (Starlight title-vs-body-H1 migration regression); 63 generator pages cleaned of contributor-noise asides; 182 en-dashes swept across 45 library samples; Mermaid 3-layer beautification + canonical style guide; two validators promoted to truly enforcing + new check-no-body-h1 validator added (enforcing tier 11 to 14); MCP maintenance posture codified cross-repo |
-| [v2.14.0](releases/Release_v2.14.0.md) | 2026-05-10 | Doc Stack Migration: MkDocs Material to Astro Starlight: doc-stack migration release with zero new skills (40 unchanged); 4 phases / 13 workstreams; production cutover via GitHub Pages source flip to Actions; Starlight-native asides + MDX details replace pymdownx admonitions; client-side Mermaid via astro-mermaid 2.0.1; 115 library samples mounted under /samples/; 12 redirect entries preserved with /pm-skills/ base path; Phase 0 Adversarial Review Loop via codex:rescue against trunk |
-| [v2.13.0](releases/Release_v2.13.0.md) | 2026-05-05 | Foundation Hardening + Doc Stack Decision: maintenance and quality release with zero new skills; 7 new CI gates that catch doc drift on PRs (validator inventory 15 to 22; enforcing tier 5 to 10); Diataxis-aligned docs with `pm-skill-*` filename prefix; Pattern 5C generated-content marker; out-of-cycle pm-skills-mcp v2.9.3 security patch |
-| **[v2.12.0](releases/Release_v2.12.0.md)** | 2026-05-03 | OKR Skills Launch: `foundation-okr-writer` + `measure-okr-grader` with canonical type and indicator-class enums; 38 to 40 skills |
-| [v2.11.1](releases/Release_v2.11.1.md) | 2026-04-22 | skills.sh CLI compatibility patch: unblocks `npx skills add product-on-purpose/pm-skills`; lint hardening; em-dash sweep completion |
-| **[v2.11.0](releases/Release_v2.11.0.md)** | 2026-04-18 | Meeting Skills Family: 5 foundation skills + canonical contract + enforcing CI; lean-canvas; 32 to 38 skills |
-| [v2.10.0](releases/Release_v2.10.0.md) | 2026-04-11 | Utility skill expansion: `utility-mermaid-diagrams`, `utility-slideshow-creator`, `utility-update-pm-skills`. (v2.10.1 and v2.10.2 patches followed; see CHANGELOG.md for details.) |
-| [v2.9.1](releases/Release_v2.9.1.md) | 2026-04-10 | Workflows guide + docs count consistency CI |
-| [v2.9.0](releases/Release_v2.9.0.md) | 2026-04-06 | Workflows: rename bundles to workflows, expand 3 to 9, 7 `/workflow-*` commands |
+| **[v2.22.0](releases/Release_v2.22.0.md)** | 2026-05-30 | One menu entry per skill: the 63 duplicate command wrappers are gone, so each capability shows once. Native Codex support added via a `.codex-plugin` manifest. All 63 skills unchanged. |
+| **[v2.21.0](releases/Release_v2.21.0.md)** | 2026-05-26 | Marketplace launch: pm-skills now installs from the `product-on-purpose` plugin marketplace. The previous install path keeps working, so existing setups need no change. |
+| **[v2.20.0](releases/Release_v2.20.0.md)** | 2026-05-25 | Each workshop methodology is now a single command: `/workflow-foundation-sprint`, `/workflow-design-sprint`, and `/workflow-foundation-to-design` chain their per-day skills end to end. |
+| **[v2.19.0](releases/Release_v2.19.0.md)** | 2026-05-23 | Pre-promotion hardening: new validators catch stale counts, dead links, and references to skills that do not exist before they can ship. Nothing you use behaves differently. |
+| **[v2.18.0](releases/Release_v2.18.0.md)** | 2026-05-21 | Four new phase skills close the highest-consensus PM gaps: market-sizing, prioritization-framework, journey-map, and survey-analysis. Catalog grows 59 to 63. |
+| **[v2.17.0](releases/Release_v2.17.0.md)** | 2026-05-20 | Native Claude Code sub-agent registration: `@pm-critic` and the other three auto-discover and dispatch by @-mention. |
+| **[v2.16.0](releases/Release_v2.16.0.md)** | 2026-05-17 | Active Orchestration: 4 sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) plus the modernized Astro Starlight docs stack with full-text search. |
+| **[v2.15.0](releases/Release_v2.15.0.md)** | 2026-05-16 | Sprint Skills launch: 15 workshop-methodology skills (Foundation Sprint + Design Sprint families + note-and-vote). Catalog grows 40 to 55. |
+| [v2.14.0](releases/Release_v2.14.0.md) | 2026-05-10 | Docs stack migration from MkDocs Material to Astro Starlight: full-text search and native dark mode. |
+| **[v2.12.0](releases/Release_v2.12.0.md)** | 2026-05-03 | OKR skills: `foundation-okr-writer` and `measure-okr-grader` for the full quarterly write-and-score cycle. |
 
 [All releases](releases/) · [Full changelog](changelog.md)
 {/* count-exempt:end */}

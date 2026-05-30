@@ -3,21 +3,33 @@ title: Getting Started
 description: "First-steps guide for new pm-skills users: install paths, your first skill invocation, and where to go next for deeper guides, reference material, and the full skill catalog."
 ---
 
-**Fastest path (one command)**
+**Claude Code (recommended)**
+
+```bash
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
+```
+
+All 63 skills become available immediately, no clone required. Invoke any skill by name, like `/pm-skills:deliver-prd "Feature description"`. Already installed via the old `pm-skills-marketplace`? It keeps working, no action needed - see [Setup by Platform](platforms.md) to move to the new home.
+
+**Cross-agent (Cursor, GitHub Copilot, Cline, and others)**
 
 ```bash
 npx skills add product-on-purpose/pm-skills
 ```
 
-Installs all 63 skills into your agent's default skills directory. Works with Claude Code, Cursor, GitHub Copilot, Cline, and any agent supported by the open [`skills` CLI](https://github.com/vercel-labs/skills). Shipped in v2.11.1 and now the recommended install path.
+Installs all 63 skills into your agent's default skills directory via the open [`skills` CLI](https://github.com/vercel-labs/skills). No clone, no sync.
 
-**Alternative: Clone-based Quick Start (3 steps)**
+**Clone or download**
 
-1) Clone or download the latest ZIP: `git clone https://github.com/product-on-purpose/pm-skills.git` (or get the ZIP from Releases).  
-2) (Claude Code/openskills only) Run the sync helper to populate `.claude/skills` and `.claude/commands`:  
-   - macOS/Linux: `./scripts/sync-claude.sh`  
-   - Windows: `./scripts/sync-claude.ps1`  
-3) Use a slash command: `/pm-skills:deliver-prd "Feature description"` or `/pm-skills:define-hypothesis "Assumption to test"`.
+```bash
+git clone https://github.com/product-on-purpose/pm-skills.git
+```
+
+Gives you the full repo: skill files, the sample library, and workflows. Claude Code users can then run the sync helper to populate `.claude/skills`:
+
+- macOS/Linux: `./scripts/sync-claude.sh`
+- Windows: `./scripts/sync-claude.ps1`
 
 Prefer the full walkthrough? Read on.
 
@@ -48,7 +60,7 @@ Welcome to PM-Skills! This guide will help you understand what this repository o
 
 ## What is PM-Skills?
 
-**PM-Skills** is an open-source collection of 63 product management skills that teach AI assistants how to create professional PM documents. The current repo includes 30 phase skills, 8 foundation skills, 10 utility skills, plus the v2.15.0 tool classification (Foundation Sprint family of 7, Design Sprint family of 7, and the tool-note-and-vote standalone - 15 tool skills). Think of it as a playbook that transforms generic AI responses into polished, consistent PM artifacts.
+**PM-Skills** is an open-source collection of 63 product management skills that teach AI assistants how to create professional PM documents. The catalog spans 30 phase skills, 8 foundation skills, 10 utility skills, and 15 tool skills for structured workshops (the Foundation Sprint family of 7, the Design Sprint family of 7, and the tool-note-and-vote standalone). Think of it as a playbook that transforms generic AI responses into polished, consistent PM artifacts.
 
 ### The Problem It Solves
 
@@ -62,7 +74,7 @@ With PM-Skills:
 ```
 You: "Write me a PRD"
 AI: *Produces a comprehensive PRD with problem statement, success metrics,
-    user stories, scope boundaries, technical considerations.all in a
+    user stories, scope boundaries, technical considerations, all in a
     professional, consistent format*
 ```
 
@@ -221,11 +233,11 @@ Claude Code discovers the registered skill set via `AGENTS.md` and command defin
 /pm-skills:deliver-prd "based on the hypothesis above"
 ```
 
-#### Available Commands
+#### Available Skills and Commands
 
-The repo currently ships 10 command markdown files: the 10 `/workflow-*` orchestrator commands.
+Every skill is invocable by name as `/pm-skills:<skill-name>` (examples below). Separately, the repo ships 10 `/workflow-*` orchestrator command files that chain several skills into one end-to-end process.
 
-| Phase | Commands |
+| Phase | Invoke the skill by name |
 |-------|----------|
 | Discover | `/pm-skills:discover-interview-synthesis`, `/pm-skills:discover-competitive-analysis`, `/pm-skills:discover-stakeholder-summary` |
 | Define | `/pm-skills:define-problem-statement`, `/pm-skills:define-hypothesis`, `/pm-skills:define-opportunity-tree`, `/pm-skills:define-jtbd-canvas` |
@@ -236,7 +248,7 @@ The repo currently ships 10 command markdown files: the 10 `/workflow-*` orchest
 | Utility | `/pm-skills:utility-pm-skill-builder`, `/pm-skills:utility-pm-skill-validate`, `/pm-skills:utility-pm-skill-iterate`, `/pm-skills:utility-mermaid-diagrams`, `/pm-skills:utility-slideshow-creator`, `/pm-skills:utility-update-pm-skills` |
 | Foundation | `/pm-skills:foundation-persona`, `/pm-skills:foundation-lean-canvas`, `/pm-skills:foundation-okr-writer`, `/pm-skills:foundation-stakeholder-update`, `/pm-skills:foundation-meeting-agenda`, `/pm-skills:foundation-meeting-brief`, `/pm-skills:foundation-meeting-recap`, `/pm-skills:foundation-meeting-synthesize` |
 
-Plus workflows: `/workflow-feature-kickoff`, `/workflow-customer-discovery`, `/workflow-sprint-planning`, `/workflow-product-strategy`, `/workflow-post-launch-learning`, `/workflow-stakeholder-alignment`, `/workflow-technical-discovery`
+Plus 10 workflow commands: `/workflow-feature-kickoff`, `/workflow-customer-discovery`, `/workflow-sprint-planning`, `/workflow-product-strategy`, `/workflow-post-launch-learning`, `/workflow-stakeholder-alignment`, `/workflow-technical-discovery`, `/workflow-foundation-sprint`, `/workflow-design-sprint`, `/workflow-foundation-to-design`
 
 ---
 
@@ -374,7 +386,7 @@ Claude: *Reads the skill files and produces a structured PRD*
 
 ### For Non-Technical Users
 
-This method works with any AI.no setup required.
+This method works with any AI. No setup required.
 
 1. **Find the skill you need:**
    - Go to [github.com/product-on-purpose/pm-skills](https://github.com/product-on-purpose/pm-skills)
@@ -694,9 +706,9 @@ See `_workflows/` directory for detailed workflow documentation.
 
 ### Learn More
 
-- [Categories Reference](../reference/categories.md) . Understand skill organization
-- [Frontmatter Schema](../reference/frontmatter-schema.yaml) . Technical skill structure
-- [Triple Diamond Framework](../concepts/triple-diamond-delivery-process.md) . The organizing methodology
+- [Categories Reference](../reference/categories.md) - understand skill organization
+- [Frontmatter Schema](../reference/frontmatter-schema.yaml) - technical skill structure
+- [Triple Diamond Framework](../concepts/triple-diamond-delivery-process.md) - the organizing methodology
 
 ### Explore Skills
 

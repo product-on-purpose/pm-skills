@@ -11,27 +11,40 @@ description: Five-minute pm-skills install + first skill invocation. Pick an ins
 
 ## Installation
 
+### Claude Code (recommended)
+
+Install from the plugin marketplace, no clone required:
+
+```bash
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
+```
+
+All 63 skills are available immediately. Invoke any by name, for example `/pm-skills:deliver-prd`. Already on the old `pm-skills-marketplace`? It keeps working; see [Setup by Platform](platforms.md) to switch homes.
+
+### Cross-agent (Cursor, GitHub Copilot, Cline, and others)
+
+```bash
+npx skills add product-on-purpose/pm-skills
+```
+
+Installs all 63 skills into your agent's default skills directory via the open [skills CLI](https://github.com/vercel-labs/skills). No clone, no sync.
+
 ### Claude.ai / Claude Desktop
 
 1. Go to **Settings > Capabilities** (Desktop) or **Project Settings > Add Files** (Claude.ai)
-2. Upload the latest release ZIP (`pm-skills-vX.X.X.zip`) from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
+2. Upload the latest release ZIP from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
 3. Skills are now available in your conversations
 
-### Claude Code
-
-Clone or copy to your project:
+### Clone or download (everything included)
 
 ```bash
 git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
-Or download and extract the latest ZIP from [Releases](https://github.com/product-on-purpose/pm-skills/releases) to your project root.
+Or download and extract the latest ZIP from [Releases](https://github.com/product-on-purpose/pm-skills/releases). Point any other agent to `AGENTS.md` for skill discovery; each skill is self-contained in `skills/{skill-name}/SKILL.md` (for example `skills/deliver-prd/SKILL.md`).
 
-### Other AI Agents
-
-Point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{skill-name}/SKILL.md` (e.g., `skills/deliver-prd/SKILL.md`).
-
-More detail: see `docs/getting-started/index.md` for the long-form guide.
+More detail: see the [full getting-started guide](index.md) for the long-form walkthrough.
 
 ## Usage
 
