@@ -16,7 +16,7 @@ This guide walks you through creating new PM skills for submission to the pm-ski
 - [Writing SKILL.md](#writing-skillmd)
 - [Creating TEMPLATE.md](#creating-templatemd)
 - [Writing EXAMPLE.md](#writing-examplemd)
-- [Creating the Slash Command](#creating-the-slash-command)
+- [Invoking Your Skill](#invoking-your-skill)
 - [Testing Your Skill](#testing-your-skill)
 - [Quality Checklist](#quality-checklist)
 - [Submission Process](#submission-process)
@@ -49,10 +49,7 @@ skills/<skill-name>/
     └── EXAMPLE.md        # Completed example
 ```
 
-Plus an optional slash command:
-```
-commands/<skill-name>.md  # Slash command definition
-```
+Skills are invoked directly by name; there is no per-skill command wrapper (see [Invoking Your Skill](#invoking-your-skill)).
 
 ---
 
@@ -179,7 +176,6 @@ Once approved, create your skill following this guide.
 
 Open a PR with:
 - The three required files
-- The slash command file
 - Updates to AGENTS.md (skill listing)
 - Confirmation that you've tested the skill
 
@@ -634,15 +630,22 @@ Your example should demonstrate:
 
 ---
 
-## Creating the Slash Command
+## Invoking Your Skill
 
-Slash commands provide quick invocation in Claude Code.
+In v2.22.0+ there are no per-skill command wrappers; a skill is invoked directly by its name on every client:
 
-### Command Structure
+- **Claude Code:** `/pm-skills:<skill-name> "your context"`
+- **Codex:** `$<skill-name> "your context"`
+- **Cursor / Windsurf / Copilot / Gemini CLI:** discovered via AGENTS.md and invoked by name
 
-Create `commands/<skill-name>.md`:
+### The $ARGUMENTS Variable
 
-```markdown
+`$ARGUMENTS` captures everything the user types after the skill name:
+
+```
+/pm-skills:deliver-prd search feature for e-commerce
+```
+
 ---
 description: <Brief description for command discovery>
 ---
@@ -694,7 +697,7 @@ Before submitting, thoroughly test your skill.
 - [ ] **Template is followed** . Output matches template structure
 - [ ] **Example quality is matched** . Output quality similar to example
 - [ ] **Different contexts work** . Try 3+ different scenarios
-- [ ] **Slash command works** . (If created)
+- [ ] **Direct-name invocation works** . `/pm-skills:<name>` on Claude Code or `$<name>` on Codex
 - [ ] **Chains with other skills** . Works as input/output with related skills
 
 ### Testing Methods
@@ -706,10 +709,10 @@ Read skills/deliver-my-skill/SKILL.md and use it to create
 [artifact] for [your test scenario].
 ```
 
-#### Method 2: Slash Command
+#### Method 2: Direct invocation by name
 
 ```
-/my-skill "test scenario context"
+/pm-skills:<skill-name> "test scenario context"
 ```
 
 #### Method 3: Natural Language
@@ -752,7 +755,6 @@ Before submitting your PR, verify:
 - [ ] Contains `SKILL.md`
 - [ ] Contains `references/TEMPLATE.md`
 - [ ] Contains `references/EXAMPLE.md`
-- [ ] Slash command at `commands/<skill-name>.md`
 
 ### Frontmatter
 - [ ] `name` matches directory name exactly
@@ -786,7 +788,7 @@ Before submitting your PR, verify:
 - [ ] Tested with 3+ scenarios
 - [ ] Output matches template
 - [ ] Quality matches example
-- [ ] Slash command works
+- [ ] Invocation by name works
 
 ---
 
@@ -814,8 +816,6 @@ skills/<skill-name>/
 └── references/
     ├── TEMPLATE.md
     └── EXAMPLE.md
-
-commands/<skill-name>.md
 ```
 
 ### 4. Update AGENTS.md
@@ -865,7 +865,6 @@ Include in your PR description:
 - [ ] SKILL.md complete with valid frontmatter
 - [ ] TEMPLATE.md provides clear structure
 - [ ] EXAMPLE.md is complete and realistic
-- [ ] Slash command created
 - [ ] AGENTS.md updated
 - [ ] Tested with multiple scenarios
 ```
@@ -1015,10 +1014,9 @@ Ready to create a skill? Here's the fast path:
 3. [ ] Write SKILL.md with frontmatter, instructions, checklist
 4. [ ] Create TEMPLATE.md matching your instruction steps
 5. [ ] Write complete EXAMPLE.md (no placeholders!)
-6. [ ] Create `commands/<name>.md` slash command
-7. [ ] Test with 3+ scenarios
-8. [ ] Update AGENTS.md
-9. [ ] Submit PR with checklist complete
+6. [ ] Test with 3+ scenarios
+7. [ ] Update AGENTS.md
+8. [ ] Submit PR with checklist complete
 
 ---
 

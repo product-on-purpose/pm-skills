@@ -228,7 +228,7 @@ Before merging a new sub-agent:
 - [ ] System prompt is referential (no embedded standards content)
 - [ ] Severity grammar uses P0/P1/P2/P3 uniformly
 - [ ] `validate-agents-md.sh` passes
-- [ ] `validate-commands.sh` passes for the new command
+- [ ] `validate-commands.sh` passes (it validates the 10 workflow commands; a sub-agent ships a dispatch skill, not a per-sub-agent command)
 - [ ] `lint-skills-frontmatter.sh` passes for the dispatch skill
 - [ ] Em-dash sweep clean across all new files
 

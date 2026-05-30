@@ -152,51 +152,11 @@ skills/{skill-name}/
 
 ## `/commands/` . Slash Commands
 
-Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
+Contains the 10 `/workflow-*` orchestrator commands. Each `commands/workflow-*.md` chains multiple skills into a guided lifecycle sequence. Individual skills are invoked directly by name in v2.22.0+ (`/pm-skills:<name>` on Claude Code, `$<name>` on Codex), not via per-skill command wrappers.
 
 **Commands (10 total: 10 workflow commands)**
-| Command | Target skill/workflow |
+| Command | Target workflow |
 | --- | --- |
-| `discover-competitive-analysis` | discover-competitive-analysis |
-| `discover-interview-synthesis` | discover-interview-synthesis |
-| `discover-stakeholder-summary` | discover-stakeholder-summary |
-| `define-problem-statement` | define-problem-statement |
-| `define-hypothesis` | define-hypothesis |
-| `define-opportunity-tree` | define-opportunity-tree |
-| `define-jtbd-canvas` | define-jtbd-canvas |
-| `develop-adr` | develop-adr |
-| `develop-design-rationale` | develop-design-rationale |
-| `develop-solution-brief` | develop-solution-brief |
-| `develop-spike-summary` | develop-spike-summary |
-| `deliver-acceptance-criteria` | deliver-acceptance-criteria |
-| `deliver-prd` | deliver-prd |
-| `deliver-user-stories` | deliver-user-stories |
-| `deliver-edge-cases` | deliver-edge-cases |
-| `deliver-launch-checklist` | deliver-launch-checklist |
-| `deliver-release-notes` | deliver-release-notes |
-| `measure-dashboard-requirements` | measure-dashboard-requirements |
-| `measure-experiment-design` | measure-experiment-design |
-| `measure-experiment-results` | measure-experiment-results |
-| `measure-instrumentation-spec` | measure-instrumentation-spec |
-| `measure-okr-grader` | measure-okr-grader |
-| `iterate-lessons-log` | iterate-lessons-log |
-| `iterate-pivot-decision` | iterate-pivot-decision |
-| `iterate-refinement-notes` | iterate-refinement-notes |
-| `iterate-retrospective` | iterate-retrospective |
-| `foundation-lean-canvas` | foundation-lean-canvas |
-| `foundation-meeting-agenda` | foundation-meeting-agenda |
-| `foundation-meeting-brief` | foundation-meeting-brief |
-| `foundation-meeting-recap` | foundation-meeting-recap |
-| `foundation-meeting-synthesize` | foundation-meeting-synthesize |
-| `foundation-okr-writer` | foundation-okr-writer |
-| `foundation-persona` | foundation-persona |
-| `foundation-stakeholder-update` | foundation-stakeholder-update |
-| `utility-pm-skill-iterate` | utility-pm-skill-iterate |
-| `utility-pm-skill-validate` | utility-pm-skill-validate |
-| `utility-mermaid-diagrams` | utility-mermaid-diagrams |
-| `utility-pm-skill-builder` | utility-pm-skill-builder |
-| `utility-slideshow-creator` | utility-slideshow-creator |
-| `utility-update-pm-skills` | utility-update-pm-skills |
 | `/workflow-feature-kickoff` | feature-kickoff workflow |
 | `/workflow-customer-discovery` | customer-discovery workflow |
 | `/workflow-sprint-planning` | sprint-planning workflow |
@@ -204,6 +164,9 @@ Contains Claude Code slash command definitions. Each `.md` maps a `/command` to 
 | `/workflow-post-launch-learning` | post-launch-learning workflow |
 | `/workflow-stakeholder-alignment` | stakeholder-alignment workflow |
 | `/workflow-technical-discovery` | technical-discovery workflow |
+| `/workflow-foundation-sprint` | foundation-sprint workflow |
+| `/workflow-design-sprint` | design-sprint workflow |
+| `/workflow-foundation-to-design` | foundation-to-design workflow |
 
 ---
 

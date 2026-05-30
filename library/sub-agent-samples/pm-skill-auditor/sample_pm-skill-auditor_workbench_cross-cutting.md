@@ -47,7 +47,7 @@ All 16 enforcing validators PASS. The new skill has valid frontmatter; the orpha
 
 **Location:** `skills/develop-platform-spike-summary/SKILL.md` exists but no `commands/platform-spike-summary.md` exists
 **Issue:** Per pm-skill-auditor cross-cutting check "Skill without command", the new skill is undiscoverable via slash commands. Users can read the skill file but cannot invoke it via the standard `/{skill-name}` UX.
-**Why it matters:** Discoverability gap. Per master plan D6 (every sub-agent has a companion command; analogous discipline applies to skills via convention SI3 verb-shaped commands).
+**Why it matters:** Discoverability gap. Per the then-current master plan D6, retired in v2.22.0 (every sub-agent then shipped a companion command, with analogous discipline for skills).
 **Fix:** Author `commands/platform-spike-summary.md` following the standard pattern (description frontmatter + body referencing `skills/develop-platform-spike-summary/SKILL.md`).
 
 ### P2 findings

@@ -73,7 +73,7 @@ flowchart LR
     classDef exampleFile fill:#059669,stroke:#047857,color:#fff
     classDef output fill:#166534,stroke:#14532d,color:#fff,font-weight:bold
 
-    User["You<br/>/prd 'topic'"]:::user
+    User["You<br/>/pm-skills:deliver-prd 'topic'"]:::user
     Agent["Your Agent"]:::agent
     SKILL["SKILL.md<br/>the method"]:::skillFile
     TEMPLATE["TEMPLATE.md<br/>the structure"]:::templateFile
@@ -104,7 +104,7 @@ flowchart LR
     classDef exampleFile fill:#059669,stroke:#047857,color:#fff
     classDef output fill:#166534,stroke:#14532d,color:#fff,font-weight:bold
 
-    User["You<br/>/prd 'topic'"]:::user
+    User["You<br/>/pm-skills:deliver-prd 'topic'"]:::user
     Agent["Your Agent"]:::agent
     subgraph Files["Skill Package (loaded at runtime)"]
         direction TB
@@ -133,7 +133,7 @@ flowchart TD
     classDef exampleFile fill:#059669,stroke:#047857,color:#fff
     classDef output fill:#166534,stroke:#14532d,color:#fff,font-weight:bold
 
-    User["You: /prd 'topic'"]:::user
+    User["You: /pm-skills:deliver-prd 'topic'"]:::user
     Agent["Your Agent"]:::agent
     subgraph Files["Skill Package"]
         direction LR
