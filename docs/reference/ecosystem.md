@@ -75,7 +75,7 @@ PM-Skills is the **source skill library**.a collection of markdown files contain
 | Component | Count | Description |
 |-----------|-------|-------------|
 | Skills | 63 | Complete PM artifacts (30 phase skills + 8 foundation skills + 10 utility skills + 15 tool skills) |
-| Slash Commands | 73 | Command markdown files (60 skill commands + 10 workflow commands + 3 sub-agent companion commands) |
+| Slash Commands | 10 | Command markdown files (the 10 `/workflow-*` orchestrator commands) |
 | Workflows | 12 | Multi-skill workflows (Feature Kickoff, Lean Startup, Triple Diamond, foundation-sprint, design-sprint, foundation-to-design, and 6 more) |
 | Documentation | ~10 files | Guides, references, and framework explanations |
 
@@ -92,7 +92,7 @@ pm-skills/
 │   ├── deliver-prd/
 │   ├── measure-experiment-design/
 │   └── iterate-retrospective/
-├── commands/             # 73 command markdown files for Claude Code
+├── commands/             # 10 command markdown files for Claude Code
 ├── _workflows/           # Workflows
 ├── docs/                 # Documentation
 └── AGENTS.md             # Universal agent discovery
@@ -198,7 +198,7 @@ Use this matrix to choose between the file-based skill library and the MCP serve
 |---------|-----------|---------------|
 | **Shipped PM-Skills catalog** | ✅ | ✅ |
 | **Workflows** | ✅ Manual | ✅ Tool-based |
-| **Slash Commands** | ✅ 73 command docs | ❌ (use tools) |
+| **Slash Commands** | ✅ 10 command docs | ❌ (use tools) |
 | **MCP Tools** | ❌ | ✅ Release-specific tool set |
 | **MCP Resources** | ❌ | ✅ Release-specific resource set |
 | **MCP Prompts** | ❌ | ✅ Release-specific prompt set |

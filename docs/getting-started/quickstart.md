@@ -6,7 +6,7 @@ description: Five-minute pm-skills install + first skill invocation. Pick an ins
 ## What's Included
 
 - **63 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 8 foundation skills, 10 utility skills, 15 tool skills)
-- **73 slash-command docs in `commands/`** (60 skill commands + 10 workflow commands + 3 sub-agent companion commands)
+- **10 slash-command docs in `commands/`** (the 10 `/workflow-*` orchestrator commands)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 
 ## Installation
@@ -75,7 +75,7 @@ See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
 
 ```
 skills/            # All 63 skill definitions (30 phase + 8 foundation + 10 utility + 15 tool, flat)
-commands/          # 73 command markdown files
+commands/          # 10 command markdown files
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
 .claude/pm-skills-for-claude.md  # instructions for Claude Code users

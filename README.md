@@ -112,7 +112,7 @@
 
 ## Quick Start
 
-After installing, you'll have 73 slash commands available (like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus access to templates, workflows, sub-agents, and 95+ sample outputs.
+After installing, you'll have all 63 skills available (invoke any by name, like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus 10 `/workflow-*` orchestrator commands, templates, sub-agents, and 95+ sample outputs.
 
 **Claude Code (recommended):**
 
@@ -318,7 +318,7 @@ PM-Skills gives your AI instant access to professional frameworks refined across
 - ✅ **Tool Families** for the Foundation Sprint (2-day strategic alignment) and Design Sprint (5-day prototype-and-test) workshop methodologies
 - ✅ **4 Active Orchestration Sub-Agents** (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) for Claude Code, with dispatch skills extending the pattern to Codex, Cursor, Windsurf, Copilot, and Gemini CLI
 - ✅ **12 Workflows** for common PM processes including Feature Kickoff, Lean Startup, Triple Diamond, and foundation-to-design end-to-end arc
-- ✅ **73 Slash Commands** for Claude Code users - instant access to every skill, workflow, and sub-agent
+- ✅ **10 Workflow Commands** for Claude Code users - plus every skill invocable directly by name
 - ✅ **Auto-Discovery** via AGENTS.md in GitHub Copilot, Cursor, and Windsurf
 - ✅ **Agent Skills Spec** compliant - works across AI assistants
 - ✅ **Apache 2.0 Licensed** for commercial and personal use
@@ -394,7 +394,7 @@ flowchart LR
 
 | Platform                       | Native Skills? | Notes                                    |
 | ------------------------------ | :------------: | ---------------------------------------- |
-| **Claude Code**                | ✅ Yes         | Plugin marketplace + 73 slash commands   |
+| **Claude Code**                | ✅ Yes         | Plugin marketplace + 10 workflow commands   |
 | **GitHub Copilot**             | ✅ Yes         | AGENTS.md auto-discovery from clone      |
 | **Cursor**                     | ✅ Yes         | AGENTS.md auto-discovery from clone      |
 | **Windsurf**                   | ✅ Yes         | AGENTS.md auto-discovery from clone      |
@@ -1010,7 +1010,7 @@ The Design Sprint tool family ships with five companion guides:
 | **Skill count**     | 63 skills (30 phase + 8 foundation + 10 utility + 15 tool)                                |
 | **Sub-agents**      | 4 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor)               |
 | **Workflows**       | 12                                                                                        |
-| **Slash commands**  | 73                                                                                        |
+| **Slash commands**  | 10                                                                                        |
 | **Spec**            | [agentskills.io](https://agentskills.io/specification)                                    |
 | **License**         | [Apache 2.0](LICENSE)                                                                     |
 | **Docs site**       | [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/) |
