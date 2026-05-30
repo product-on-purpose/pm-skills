@@ -30,7 +30,7 @@ This release fixes both, with deliberately minimal blast radius:
 ### What does NOT change (the point of this release)
 - **Skill names** - all 63 keep their current names. No renames.
 - **Skill behavior, output, templates** - unchanged.
-- **The sample library and skill frontmatter** - untouched, because nothing is renamed. Skill content, templates, and examples are unchanged; the generated *invocation snippet* on each skill page updates (from the wrapper command to `/pm-skills:<name>`) via the one edit to `generate-skill-pages.py`. The other two doc generators are untouched.
+- **Skill NAMES, frontmatter, and behavior** - unchanged (nothing is renamed). What DOES change: cross-reference lines inside some skills, samples, and `_workflows/` sources that pointed at the deleted `/command` wrappers are rewritten to the portable form (bare skill name in prose; concrete client syntax only in client-specific docs). Two generators run (`generate-skill-pages.py` + `generate-workflow-pages.py`). The complete, categorized edit-list is [`deletion-sweep-findings.md`](deletion-sweep-findings.md).
 - The 10 `workflow-*` orchestrator commands stay.
 
 ## The genuine change, and the SemVer stance
@@ -87,7 +87,8 @@ See [`implementation-plan.md`](implementation-plan.md) for the executor's checkl
 
 ## Release-level acceptance criteria
 - The 63 hand-maintained command wrappers are removed; only `workflow-*` commands remain (`ls commands/*.md | grep -v workflow-` is empty).
-- All 63 skills are unchanged (names, frontmatter, docs, samples) and each remains invocable as `/pm-skills:<name>`.
+- All 63 skill **names, frontmatter, and behavior** are unchanged; cross-reference lines inside some skills/samples/`_workflows` sources are updated to the portable invocation form. Each skill remains invocable by name (`/pm-skills:<name>` on Claude Code, `$<name>` on Codex).
+- **No live reference to a deleted command remains** (repo-wide grep clean), no bare `@agent-pm-*` remains, and `check-internal-link-validity --strict` passes (no dead links to deleted `commands/*.md` or `agents/_pairing.yaml`). The complete edit-list + invocation standard live in [`deletion-sweep-findings.md`](deletion-sweep-findings.md).
 - `.codex-plugin/plugin.json` ships and Codex discovers the skills as a packaged plugin.
 - The AGENTS.md command table lists exactly the 10 `workflow-*` rows; all counts (commands 73 -> 10) are re-derived and CI-consistent.
 - The full `pre-tag-validate` bundle + Astro build are green on the tagged SHA.

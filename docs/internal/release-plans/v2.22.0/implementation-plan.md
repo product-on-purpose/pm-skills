@@ -33,6 +33,8 @@ Mirror the existing `.sh` + `.ps1` + `.md` triplet convention; wire enforcing on
 
 ## 3. Execution
 
+> **Authoritative edit-list:** [`deletion-sweep-findings.md`](deletion-sweep-findings.md) (discovery-workflow output, 2026-05-29) is the complete, categorized list of every file the deletion touches: the full cross-reference sweep (D1), the validated invocation standard (bare skill name in shared content; concrete client syntax only in client-specific docs; `@agent-pm-skills:<name>` not bare `@agent-pm-*`), the auditor D6-check removal (agent + spec note, D4), the `_workflows/` sources + `generate-workflow-pages.py`, `.github/workflows/release.yml`, and the 3 dead-link CI hard-fails. Re-grep each file immediately before editing.
+
 ### 3a - Delete the wrappers
 - Delete every non-`workflow-*` file in `commands/` (63: 59 skill-backed short wrappers + the 4 sub-agent companion commands `pm-critic`/`pm-audit-repo`/`pm-draft-changelog`/`pm-release` per D2/D5). Keep the 10 `workflow-*`.
 - Validation: `ls commands/*.md | grep -v workflow-` returns empty.
@@ -67,7 +69,8 @@ Per D5, deleting all four companion commands retires master-plan D6:
 - [ ] Live install spot-check (Claude Code): several content skills resolve as `/pm-skills:<name>` and receive trailing arguments; **all four utility dispatch skills** (`utility-pm-critic`/`utility-pm-skill-auditor`/`utility-pm-changelog-curator`/`utility-pm-release-conductor`) accept args; the conductor runs via BOTH `@agent-pm-skills:pm-release-conductor` and `/pm-skills:utility-pm-release-conductor v2.22.0 --dry-run`; the deleted short commands no longer appear. (Docs already confirm `$ARGUMENTS` + @-mention; this is empirical belt-and-suspenders. Fallback if a conductor path fails: keep `/pm-release`.)
 - [ ] Codex manifest parses + `skills` resolves; reinstall in a fresh Codex thread surfaces the skills.
 - [ ] `bun astro build` (or repo equivalent) green.
-- [ ] Repo-wide grep: no live references to the deleted short commands outside historical/frozen paths.
+- [ ] **Zero-residual gate:** repo-wide grep finds NO live reference to any deleted command or the D6 contract outside historical/frozen paths (the completeness gate per `deletion-sweep-findings.md`); no bare `@agent-pm-*` remains (all scoped to `@agent-pm-skills:*`).
+- [ ] `check-internal-link-validity --strict` passes (no dead links to deleted `commands/*.md` or `agents/_pairing.yaml`); the auditor's D6 check no longer fires (no false "sub-agent without companion command" findings).
 
 ## 5. Tag + hygiene
 - [ ] Bump all THREE manifests `2.21.0` -> `2.22.0` in lockstep: `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.codex-plugin/plugin.json`.

@@ -24,7 +24,7 @@ Two improvements, both about tidiness and reach, neither changing what the skill
 
 - **Every skill keeps its name.** `foundation-okr-writer`, `deliver-prd`, `discover-journey-map` - all unchanged. Nothing was renamed.
 - **What the skills produce, and how you use them, is identical.** This release is about removing a redundant layer and adding packaging, not about behavior.
-- Skill content, templates, examples, and the sample library are unchanged. (The one-line invocation snippet shown on each skill page updates from the old short command to the skill's `/pm-skills:<name>` form.)
+- Skill **names and behavior** are unchanged. A handful of cross-reference lines inside some skills and samples that pointed at the old short commands are updated to reference skills by name (the portable form across clients). The generated invocation snippet on each skill page updates to `/pm-skills:<name>` on Claude Code (`$<name>` on Codex).
 
 ## Do I need to do anything?
 
