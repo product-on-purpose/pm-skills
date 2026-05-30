@@ -10,6 +10,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.22.0] - 2026-05-30
+
+**Wrapper deletion (one menu entry per skill) + native Codex support.** The 63 hand-maintained short command wrappers are removed, so each capability appears once in the `/` menu as the skill; only the 10 `/workflow-*` orchestrator commands remain (commands 73 to 10). A native `.codex-plugin/plugin.json` is added so Codex discovers the skills. All 63 skill names and behavior are unchanged; master-plan D6 (the sub-agent companion-command contract) is retired. MINOR. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2220---2026-05-30) and [`docs/releases/Release_v2.22.0.md`](releases/Release_v2.22.0.md).
+
+## [2.21.0] - 2026-05-26
+
+**Marketplace Launch (additive).** pm-skills is now published through the new `product-on-purpose` marketplace, a single home for multiple Product on Purpose plugins. Distribution change only: catalog (63), commands (73), sub-agents (4), and behavior are unchanged; the existing self-hosted path keeps working, so no user has to act. MINOR (backward-compatible). Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2210---2026-05-26) and [`docs/releases/Release_v2.21.0.md`](releases/Release_v2.21.0.md).
+
+## [2.20.0] - 2026-05-25
+
+**Sprint Workflow Commands + Validation/Doc Hardening.** The three workshop methodologies become single slash commands (`/workflow-foundation-sprint`, `/workflow-design-sprint`, `/workflow-foundation-to-design`; slash commands 70 to 73), and `check-count-consistency` is tightened to catch stale counts in table, parenthetical, and singular-noun phrasings. No new skills (catalog stays 63). Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2200---2026-05-25) and [`docs/releases/Release_v2.20.0.md`](releases/Release_v2.20.0.md).
+
+## [2.19.0] - 2026-05-23
+
+**Pre-Promotion Hardening.** No new skills (catalog stays 63); the release closes the blind spots the v2.18.0 arc exposed: a new `check-skill-cross-references` validator, `.mdx` count scanning, same-page anchor link validation, `validate-script-docs` flipped to enforcing, and `.gitattributes` line-ending pinning. 23 pre-existing broken links/anchors fixed. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2190---2026-05-23) and [`docs/releases/Release_v2.19.0.md`](releases/Release_v2.19.0.md).
+
+## [2.18.0] - 2026-05-21
+
+**Highest-Consensus PM Skill Gaps: 4 New Content Skills.** `discover-market-sizing`, `define-prioritization-framework`, `discover-journey-map`, and `measure-survey-analysis` ship as a slate (catalog 59 to 63; phase skills 26 to 30). Each ships with a TEMPLATE, EXAMPLE, companion command, and 3 thread-aligned samples, and each leads with epistemic discipline (refuses to fabricate data). Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2180---2026-05-21) and [`docs/releases/Release_v2.18.0.md`](releases/Release_v2.18.0.md).
+
+## [2.17.0] - 2026-05-20
+
+**Native Claude Code Sub-Agent Registration + Frontmatter Spec Alignment.** The 4 sub-agents now register natively (definitions moved to the canonical `agents/` directory, auto-discovered via `@`-mention); the coordination directory was renamed `AGENTS/` to `_agent-context/` to free the name. Skill frontmatter migrated to the metadata-nested structure per the agentskills.io specification, and the CI validators were made bash-3.2 portable. Catalog unchanged at 59. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2170---2026-05-20) and [`docs/releases/Release_v2.17.0.md`](releases/Release_v2.17.0.md).
+
+## [2.16.2] - 2026-05-19
+
+**Post-v2.16.1 Audit Hygiene Fast-Patch.** Refreshed the `_agent-context/claude/CONTEXT.md` Status block and wired `check-context-currency` into the pre-tag bundle so future CONTEXT.md drift is caught at pre-tag time. Same 59-skill catalog; no skill content changes. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2162---2026-05-19) and [`docs/releases/Release_v2.16.2.md`](releases/Release_v2.16.2.md).
+
+## [2.16.1] - 2026-05-18
+
+**Plugin Manifest Schema Patch.** Removed an invalid `agents` field from `.claude-plugin/plugin.json` that caused `/plugin update pm-skills` to fail validation. Same 59-skill catalog; dispatch skills unchanged; day-to-day usage identical to v2.16.0. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2161---2026-05-18) and [`docs/releases/Release_v2.16.1.md`](releases/Release_v2.16.1.md).
+
+## [2.16.0] - 2026-05-17
+
+**Active Orchestration + Doc-Stack Modernization.** Four Claude Code plugin sub-agents (`pm-critic`, `pm-skill-auditor`, `pm-changelog-curator`, `pm-release-conductor`) codify the adversarial-review loop and the 6-gate release runbook (with the G2.5 commit gate that prevents broken tags); cross-client access via dispatch skills brings the catalog to 59. The doc-stack upgrades to Astro 6.3.x + Starlight 0.39.x + Node 22.12+, closing 2 Dependabot alerts. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2160---2026-05-17) and [`docs/releases/Release_v2.16.0.md`](releases/Release_v2.16.0.md).
+
 ## [2.15.2] - 2026-05-17
 
 **v2.15.x Cycle Closeout + v2.16.0 Plan Reconciliation.** Same-cycle closeout patch successor to v2.15.1. No source-code, validator behavior, or catalog changes. Pure planning-doc hygiene: v2.15.x audit doc status flipped from DRAFT to REMEDIATION SHIPPED with finding-by-finding closure table; v2.15.0 master plan "What's next" updated with v2.15.1 + v2.15.2 DONE rows; v2.16.0 plan slate reconciled against v2.15.1 shipped reality (repo-hygiene CONTEXT.md prereq marked DONE; ci-plan validator scope reduced from "5 new" to "2 new + 1 extension" with carry-in reconciliation section); AGENTS/claude/CONTEXT.md refreshed to v2.15.2 SHIPPED state; issue #132 [M-20] comment with v2.15.1 partial-close evidence. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2152---2026-05-17) and [`docs/releases/Release_v2.15.2.md`](releases/Release_v2.15.2.md).
