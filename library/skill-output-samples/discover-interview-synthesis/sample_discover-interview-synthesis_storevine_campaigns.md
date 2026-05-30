@@ -27,7 +27,7 @@ Storevine's growth PM and UX researcher conducted eight merchant interviews to u
 ## Prompt
 
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 Research topic: Why do Storevine merchants use external email tools instead
 of Storevine's built-in email features?

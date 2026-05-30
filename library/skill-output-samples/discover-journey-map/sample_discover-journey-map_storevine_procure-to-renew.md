@@ -29,7 +29,7 @@ Storevine sells AI inventory forecasting to mid-market e-commerce companies (200
 ## Prompt
 
 ```
-/journey-map
+discover-journey-map
 
 map the full procure-to-renew journey for storevine (B2B AI inventory
 forecasting, sold to mid-market e-commerce, 200-2000 employees).

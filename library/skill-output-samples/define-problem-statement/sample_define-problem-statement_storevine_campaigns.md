@@ -27,7 +27,7 @@ Following Q4 exit survey data that identified email marketing gaps as a top-thre
 ## Prompt
 
 ```
-/problem-statement
+define-problem-statement
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Define . establishing shared problem framing before PRD draft

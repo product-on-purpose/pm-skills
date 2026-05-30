@@ -24,7 +24,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-recap @priya-notes.md
+foundation-meeting-recap @priya-notes.md
 ```
 
 ## Output

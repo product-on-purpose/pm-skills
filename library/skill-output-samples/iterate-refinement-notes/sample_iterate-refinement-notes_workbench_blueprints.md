@@ -27,7 +27,7 @@ This is the first refinement session after the pivot decision, so the team is al
 ## Prompt
 
 ```
-/refinement-notes
+iterate-refinement-notes
 
 I just ran the v1.1 refinement session. Here are the details:
 

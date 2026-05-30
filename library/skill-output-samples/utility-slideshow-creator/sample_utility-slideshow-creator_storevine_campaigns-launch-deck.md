@@ -21,7 +21,7 @@ Storevine's growth PM is presenting the Campaigns feature to leadership and cros
 ## Prompt
 
 ```
-/slideshow-creator
+utility-slideshow-creator
 
 Create a stakeholder presentation for Storevine's Campaigns feature launch.
 

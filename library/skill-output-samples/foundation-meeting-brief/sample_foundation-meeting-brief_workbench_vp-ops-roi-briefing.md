@@ -24,7 +24,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-brief "VP Ops briefing Monday 2pm EST 45 min, david-pm briefing carlos-vp-ops on Blueprints ROI case. Carlos pushed back on Blueprints Q1 investment (see 2026-02-05_14-00EST_q1-investment-review_recap.md). New evidence just landed: 6 healthcare customer interviews with strong positive signal (@customer-interview-synthesis.md). Goal: get carlos behind the Blueprints expansion case ahead of Tuesday CEO review. Include 2026-03-15_14-00EST_compliance-investment-case_recap.md as prior context."
+foundation-meeting-brief "VP Ops briefing Monday 2pm EST 45 min, david-pm briefing carlos-vp-ops on Blueprints ROI case. Carlos pushed back on Blueprints Q1 investment (see 2026-02-05_14-00EST_q1-investment-review_recap.md). New evidence just landed: 6 healthcare customer interviews with strong positive signal (@customer-interview-synthesis.md). Goal: get carlos behind the Blueprints expansion case ahead of Tuesday CEO review. Include 2026-03-15_14-00EST_compliance-investment-case_recap.md as prior context."
 ```
 
 ## Output

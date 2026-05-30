@@ -32,7 +32,7 @@ Orbit is a B2B async workspace platform at Series B, scaling from SMB to mid-mar
 ## Prompt
 
 ```
-/prd
+deliver-prd
 
 Need to write the PRD for Orbit Digest. Sprint planning is Thursday so want to get
 this to Maya's team before then.

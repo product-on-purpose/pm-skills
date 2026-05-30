@@ -17,13 +17,13 @@ Read the [Foundation Sprint concept doc](../concepts/foundation-sprint.md) if yo
 
 ```mermaid
 flowchart LR
-    R[/tool-foundation-sprint-readiness<br/>Go / Conditional / Wait?/]
-    B[/tool-foundation-sprint-brief<br/>Pre-sprint scope contract/]
-    BA[/tool-foundation-sprint-basics<br/>Customer + problem + advantage + competitors/]
-    D[/tool-foundation-sprint-differentiation<br/>2x2 + principles + Mini Manifesto/]
-    AO[/tool-foundation-sprint-approach-options<br/>3-7 candidate approaches/]
-    ML[/tool-foundation-sprint-magic-lenses<br/>Top bet + backup/]
-    FH[/tool-foundation-sprint-founding-hypothesis<br/>Single testable promise/]
+    R[tool-foundation-sprint-readiness<br/>Go / Conditional / Wait?/]
+    B[tool-foundation-sprint-brief<br/>Pre-sprint scope contract/]
+    BA[tool-foundation-sprint-basics<br/>Customer + problem + advantage + competitors/]
+    D[tool-foundation-sprint-differentiation<br/>2x2 + principles + Mini Manifesto/]
+    AO[tool-foundation-sprint-approach-options<br/>3-7 candidate approaches/]
+    ML[tool-foundation-sprint-magic-lenses<br/>Top bet + backup/]
+    FH[tool-foundation-sprint-founding-hypothesis<br/>Single testable promise/]
     NV[tool-note-and-vote<br/>Used at decision moments]
 
     R --> B --> BA --> D --> AO --> ML --> FH
@@ -44,14 +44,14 @@ flowchart LR
 
 | Skill | When | Output |
 |-------|------|--------|
-| `/tool-foundation-sprint-readiness` | Before scheduling | Go, Conditional Go, or Wait recommendation |
-| `/tool-foundation-sprint-brief` | Prep day | One-page scope, team, logistics, success criteria |
-| `/tool-foundation-sprint-basics` | Day 1 AM | Target customer, important problem, team advantage, competitor map |
-| `/tool-foundation-sprint-differentiation` | Day 1 PM | Scored differentiators, 2x2 chart, decision principles, Mini Manifesto |
-| `/tool-foundation-sprint-approach-options` | Day 2 AM | 3 to 7 candidate approaches as one-page summaries |
-| `/tool-foundation-sprint-magic-lenses` | Day 2 PM | Approaches scored through 4 classic plus 1+ custom lens; top bet + backup |
-| `/tool-foundation-sprint-founding-hypothesis` | Day 2 end | Canonical hypothesis sentence, assumption scorecard, recommended next test |
-| `/tool-note-and-vote` | Decision moments throughout | 20-30 min structured group decision |
+| `/pm-skills:tool-foundation-sprint-readiness` | Before scheduling | Go, Conditional Go, or Wait recommendation |
+| `/pm-skills:tool-foundation-sprint-brief` | Prep day | One-page scope, team, logistics, success criteria |
+| `/pm-skills:tool-foundation-sprint-basics` | Day 1 AM | Target customer, important problem, team advantage, competitor map |
+| `/pm-skills:tool-foundation-sprint-differentiation` | Day 1 PM | Scored differentiators, 2x2 chart, decision principles, Mini Manifesto |
+| `/pm-skills:tool-foundation-sprint-approach-options` | Day 2 AM | 3 to 7 candidate approaches as one-page summaries |
+| `/pm-skills:tool-foundation-sprint-magic-lenses` | Day 2 PM | Approaches scored through 4 classic plus 1+ custom lens; top bet + backup |
+| `/pm-skills:tool-foundation-sprint-founding-hypothesis` | Day 2 end | Canonical hypothesis sentence, assumption scorecard, recommended next test |
+| `/pm-skills:tool-note-and-vote` | Decision moments throughout | 20-30 min structured group decision |
 
 ## Your first Foundation Sprint
 
@@ -60,7 +60,7 @@ Imagine you are about to start a significant new product bet. The team has stron
 ### Step 0. Readiness check (30-45 minutes, days before)
 
 ```bash
-/tool-foundation-sprint-readiness "We're starting a B2B retail analytics product; team of 4; founder available; no Decider named yet"
+/pm-skills:tool-foundation-sprint-readiness "We're starting a B2B retail analytics product; team of 4; founder available; no Decider named yet"
 ```
 
 The skill returns Go, Conditional Go (with prerequisites), or Wait. Common Wait verdicts: no Decider available, no concrete project yet, or the team lacks even baseline customer knowledge. A Conditional Go often surfaces a missing prerequisite like "name your Decider" or "do 3 customer interviews first" before the sprint can be productive.
@@ -70,7 +70,7 @@ If the verdict is Wait, do not run the sprint. Re-run readiness after addressing
 ### Step 1. Write the brief (45-60 minutes, prep day)
 
 ```bash
-/tool-foundation-sprint-brief "B2B retail analytics; founders + PM + design + eng; Decider is founder; goal is Founding Hypothesis to feed a Design Sprint two weeks later"
+/pm-skills:tool-foundation-sprint-brief "B2B retail analytics; founders + PM + design + eng; Decider is founder; goal is Founding Hypothesis to feed a Design Sprint two weeks later"
 ```
 
 The brief locks scope, team, Decider, facilitator, dates, location, and success criteria before the sprint starts. Distribute the one-page output to participants 2-3 days ahead. Anyone who disagrees with the scope or team list raises it now, not Day 1 morning.
@@ -78,27 +78,27 @@ The brief locks scope, team, Decider, facilitator, dates, location, and success 
 ### Step 2. Day 1 morning - Basics (90-120 minutes)
 
 ```bash
-/tool-foundation-sprint-basics @brief.md
+/pm-skills:tool-foundation-sprint-basics @brief.md
 ```
 
 The skill produces a coherent first-day artifact: who the target customer is, what important problem you are solving, what unique advantage this team has, and which competitors and alternatives the customer might consider. This is the strategic frame the rest of the sprint builds on. Force specificity: "small-to-mid US specialty retailers with 5-50 stores" beats "retail businesses."
 
-Use `/tool-note-and-vote` if the team is split between two target customer framings. Twenty minutes of silent ideation plus voting plus a Decider supervote is faster than a 90-minute argument.
+Use `/pm-skills:tool-note-and-vote` if the team is split between two target customer framings. Twenty minutes of silent ideation plus voting plus a Decider supervote is faster than a 90-minute argument.
 
 ### Step 3. Day 1 afternoon - Differentiation (120-180 minutes)
 
 ```bash
-/tool-foundation-sprint-differentiation @basics-output.md
+/pm-skills:tool-foundation-sprint-differentiation @basics-output.md
 ```
 
 The team scores differentiators against competitors on a 2x2 chart, names the decision principles that the product will live by, and writes a Mini Manifesto: a one-page strategic summary including a "what this product is" paragraph and an explicit "what this product is NOT" paragraph. The Mini Manifesto becomes a sanity-check artifact: every later decision in the sprint can be evaluated against it.
 
-`/tool-note-and-vote` is the typical mechanism for selecting the final 2 axes of the 2x2 chart.
+`/pm-skills:tool-note-and-vote` is the typical mechanism for selecting the final 2 axes of the 2x2 chart.
 
 ### Step 4. Day 2 morning - Approach Options (60-90 minutes)
 
 ```bash
-/tool-foundation-sprint-approach-options @manifesto.md
+/pm-skills:tool-foundation-sprint-approach-options @manifesto.md
 ```
 
 The team generates 3 to 7 candidate approaches as one-page summaries. The minimum-3 floor is anti-anchoring discipline: the most common Day 2 failure is the team converging on a single approach without generating alternatives. The maximum-7 ceiling protects the afternoon Magic Lenses block from blowing up.
@@ -108,17 +108,17 @@ If the team only generates 2 ideas, push back into ideation to force at least on
 ### Step 5. Day 2 afternoon - Magic Lenses (90-120 minutes)
 
 ```bash
-/tool-foundation-sprint-magic-lenses @approach-options.md
+/pm-skills:tool-foundation-sprint-magic-lenses @approach-options.md
 ```
 
 Each approach is evaluated through 4 classic lenses (customer, pragmatic, growth, money) plus at least 1 custom lens specific to the team's situation. The custom lens captures team-specific constraints or opportunities the 4 classic lenses miss; this is a ratified requirement of the skill. The output names the top bet and a backup.
 
-`/tool-note-and-vote` runs at the end to consolidate scoring into a single top-bet supervote.
+`/pm-skills:tool-note-and-vote` runs at the end to consolidate scoring into a single top-bet supervote.
 
 ### Step 6. Day 2 end - Founding Hypothesis (30-45 minutes)
 
 ```bash
-/tool-foundation-sprint-founding-hypothesis @magic-lenses.md
+/pm-skills:tool-foundation-sprint-founding-hypothesis @magic-lenses.md
 ```
 
 The capstone skill writes the canonical Founding Hypothesis: a single sentence in the form "If we help [target customer] solve [important problem] with [approach], they will choose it over [competitors or alternatives] because our solution is [differentiators]." The skill enforces this exact structure strictly; paraphrase is rejected. Strictness forces every slot to be filled specifically, which is the whole point.
@@ -198,7 +198,7 @@ The pm-skills implementation makes AI a first-class participant in the sprint, b
 
 | Sprint moment | AI usage pattern | Why it works |
 |---|---|---|
-| Pre-sprint prep | Draft the brief from a paragraph of context (`/tool-foundation-sprint-brief @notes.md`) | Removes the "blank page" friction; the team edits a draft instead of starting cold |
+| Pre-sprint prep | Draft the brief from a paragraph of context (`/pm-skills:tool-foundation-sprint-brief @notes.md`) | Removes the "blank page" friction; the team edits a draft instead of starting cold |
 | Day 1 AM Basics | Generate competitor map and "do nothing" alternatives | AI sweeps faster than the team can recall; humans curate |
 | Day 1 PM Differentiation | Draft Mini Manifesto from the scored 2x2 + principles | First-draft language is faster to react to than to compose |
 | Day 2 AM Approach Options | Generate the 3rd-7th candidate approaches when the team is anchored on 1-2 | Anti-anchoring discipline gets easier with a generative collaborator |
@@ -220,10 +220,10 @@ The pm-skills implementation makes AI a first-class participant in the sprint, b
 
 When the team is using Claude Code with pm-skills loaded, a few patterns produce consistently better results:
 
-1. **Pass the prior artifact explicitly**: `/tool-foundation-sprint-differentiation @basics-output.md`. Skills auto-discover related artifacts but the explicit pass is faster and avoids ambiguity when multiple Basics artifacts exist.
+1. **Pass the prior artifact explicitly**: `/pm-skills:tool-foundation-sprint-differentiation @basics-output.md`. Skills auto-discover related artifacts but the explicit pass is faster and avoids ambiguity when multiple Basics artifacts exist.
 2. **Tell the skill what's missing**: "Decider unavailable Day 2 AM; will sign at Day 2 end" surfaces it as inference and the Decider Checkpoint flags the gap rather than silently passing.
 3. **Re-run when the Founding Hypothesis is vague**: the strictness check is the point; re-run with sharper inputs rather than accepting the vague draft.
-4. **Use `/tool-note-and-vote` for any moment the team would otherwise spend 60+ minutes debating**: 20-30 minutes silent ideation + voting + Decider supervote is dramatically faster than open discussion.
+4. **Use `/pm-skills:tool-note-and-vote` for any moment the team would otherwise spend 60+ minutes debating**: 20-30 minutes silent ideation + voting + Decider supervote is dramatically faster than open discussion.
 
 ### The "AI co-facilitator" pattern
 

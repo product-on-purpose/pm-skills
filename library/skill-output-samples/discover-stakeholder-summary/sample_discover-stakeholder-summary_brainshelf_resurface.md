@@ -27,7 +27,7 @@ Before committing engineering resources to the Resurface feature (morning email 
 ## Prompt
 
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 need to map the internal stakeholders for the resurface feature before
 we kick off the build. brainshelf is a ~20 person startup so this is

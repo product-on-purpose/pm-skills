@@ -28,11 +28,11 @@ This skill is an evidence interpreter, not an arithmetic engine. Its job is to r
 
 ## When NOT to Use
 
-- You are still drafting OKRs . use `/okr-writer`
-- You want a generic team retro . use `/retrospective`
-- You are reporting a single experiment result . use `/experiment-results`
-- You need a stakeholder progress update without scoring . use `/stakeholder-update`
-- The OKR set was never agreed on or never tracked . scoring requires an authored set; backfill via `/okr-writer` first
+- You are still drafting OKRs . use `foundation-okr-writer`
+- You want a generic team retro . use `iterate-retrospective`
+- You are reporting a single experiment result . use `measure-experiment-results`
+- You need a stakeholder progress update without scoring . use `foundation-stakeholder-update`
+- The OKR set was never agreed on or never tracked . scoring requires an authored set; backfill via `foundation-okr-writer` first
 - You want to use scores to evaluate individuals . the skill refuses this
 
 ## Instructions
@@ -66,10 +66,10 @@ When asked to score completed OKRs, follow these steps:
    For each initiative the team ran, name which KR it was expected to move, whether it shipped, what its apparent contribution was, and whether the evidence supports continuing, retiring, or reworking it. Use Castro's "initiatives are bets, not commitments" framing. Separate ship-status from KR-impact; an initiative that shipped on time but did not move its KR is not a partial win.
 
 7. **Synthesize learning**
-   Capture validated assumptions, invalidated assumptions, surprises, and decision implications. Distinguish between learnings about the customer or product (carry forward), learnings about team process (hand to `/retrospective`), and learnings about measurement (hand to `/instrumentation-spec` or `/dashboard-requirements`).
+   Capture validated assumptions, invalidated assumptions, surprises, and decision implications. Distinguish between learnings about the customer or product (carry forward), learnings about team process (hand to `iterate-retrospective`), and learnings about measurement (hand to `measure-instrumentation-spec` or `measure-dashboard-requirements`).
 
 8. **Prepare next-cycle recommendations**
-   For each objective: continue, revise, retire, or escalate. Suggest candidate next-cycle OKRs or open questions for `/okr-writer`. Hand-off measurement gaps to `/dashboard-requirements` or `/instrumentation-spec`. Hand-off assumption tests to `/hypothesis`. Hand-off team-process work to `/retrospective`. Hand-off organizational memory to `/lessons-log`. Hand-off next-cycle drafting to `/okr-writer`.
+   For each objective: continue, revise, retire, or escalate. Suggest candidate next-cycle OKRs or open questions for `foundation-okr-writer`. Hand-off measurement gaps to `measure-dashboard-requirements` or `measure-instrumentation-spec`. Hand-off assumption tests to `define-hypothesis`. Hand-off team-process work to `iterate-retrospective`. Hand-off organizational memory to `iterate-lessons-log`. Hand-off next-cycle drafting to `foundation-okr-writer`.
 
 9. **Surface risks in interpretation**
    Make explicit any places the score could mislead a reader: forced numeric scores on KRs that are not yet observable, confounded initiative results, stakeholder framings that under-state evidence, single-cycle results that need a second cycle of confirmation.

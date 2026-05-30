@@ -26,7 +26,7 @@ Brainshelf has ~85,000 registered users and ~22,000 MAU [fictional]. User interv
 ## Prompt
 
 ```
-/hypothesis
+define-hypothesis
 
 trying to figure out if a morning digest email will actually get people to re-read
 their saved stuff. context: brainshelf pkm app, 22k MAU [fictional]. users save

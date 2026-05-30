@@ -27,7 +27,7 @@ Workbench is preparing the GA hardening pass for Blueprints approval gates after
 ## Prompt
 
 ```text
-/persona product detailed
+foundation-persona product detailed
 
 Create a story-first persona for Workbench Blueprints approval governance.
 

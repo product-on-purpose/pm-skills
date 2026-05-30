@@ -26,7 +26,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-agenda "Blueprints approval-gate design working session, Monday 2026-04-28 at 2pm EST, 60 min. Attendees: me (david-pm), sasha (lead designer), raj (eng manager), linda (compliance). Goal: co-design the approval-gate UX for Blueprints v1.1 that satisfies HIPAA workflow requirements without adding more than 2 minutes to typical doc creation. Pre-read: [regulatory requirements summary](https://notion.example/blueprints-regs), [customer interview synthesis: 6 healthcare customers](https://notion.example/blueprints-customer-interviews). Working session format, not presentation."
+foundation-meeting-agenda "Blueprints approval-gate design working session, Monday 2026-04-28 at 2pm EST, 60 min. Attendees: me (david-pm), sasha (lead designer), raj (eng manager), linda (compliance). Goal: co-design the approval-gate UX for Blueprints v1.1 that satisfies HIPAA workflow requirements without adding more than 2 minutes to typical doc creation. Pre-read: [regulatory requirements summary](https://notion.example/blueprints-regs), [customer interview synthesis: 6 healthcare customers](https://notion.example/blueprints-customer-interviews). Working session format, not presentation."
 ```
 
 ## Output

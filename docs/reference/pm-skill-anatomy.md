@@ -231,7 +231,7 @@ PowerShell equivalents: replace `bash scripts/` with `pwsh -File scripts/` and `
 
 ## Creating a New Skill
 
-Use `/pm-skill-builder` to create new skills interactively. The builder:
+Use `utility-pm-skill-builder` to create new skills interactively. The builder:
 
 1. Understands your skill idea (problem-first or skill-first entry)
 2. Runs gap analysis against all existing skills

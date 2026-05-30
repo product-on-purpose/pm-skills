@@ -25,7 +25,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-recap @zoom-transcript.txt @anna-customer-feedback-notes.md
+foundation-meeting-recap @zoom-transcript.txt @anna-customer-feedback-notes.md
 ```
 
 ## Output

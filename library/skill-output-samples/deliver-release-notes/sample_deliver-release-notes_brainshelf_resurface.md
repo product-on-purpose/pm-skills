@@ -27,7 +27,7 @@ When the Resurface feature shipped behind a feature flag on February 16, 2026, J
 ## Prompt
 
 ```
-/release-notes
+deliver-release-notes
 
 resurface release notes. feature shipped feb 16 behind flag. opt-in
 enrollment starts mar 2. writing for the in-app changelog and blog.

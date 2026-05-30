@@ -28,8 +28,8 @@ new capabilities are available.
 
 ## When NOT to Use
 
-- To create or edit individual skills -> use `/pm-skill-builder` or `/pm-skill-iterate`
-- To validate skills against conventions -> use `/pm-skill-validate`
+- To create or edit individual skills -> use `utility-pm-skill-builder` or `utility-pm-skill-iterate`
+- To validate skills against conventions -> use `utility-pm-skill-validate`
 - If you are a maintainer working directly on the pm-skills repo (use git)
 - To pin a specific older version (this skill always targets the latest release)
 
@@ -50,7 +50,7 @@ pm-skills v{local} (installed, from {source})
 pm-skills v{latest} (latest, released {date})
 {Status: up to date | update available ({type})}
 
-Run /update-pm-skills for details, or /update-pm-skills --report-only for a preview.
+Run utility-update-pm-skills for details, or utility-update-pm-skills --report-only for a preview.
 ```
 
 No report file is generated. No files are written.
@@ -206,7 +206,7 @@ Execute the update using validated-before-copy with backup:
      auto-rollback. Provide recovery guidance:
      - **Version mismatch**: "Run the update again, or manually edit
        {file} to set the version to {expected}."
-     - **Missing files**: "Re-run `/update-pm-skills` to re-download,
+     - **Missing files**: "Re-run `utility-update-pm-skills` to re-download,
        or restore from backup: `cp -r _pm-skills/backups/{dir}/* .`"
      - **If backup exists**: Always remind the user of the backup
        location and restore command.
@@ -236,7 +236,7 @@ Execute the update using validated-before-copy with backup:
    ```
    Next Steps:
    - Review the update report at _pm-skills/updates/{report-file}
-   - Run /pm-skill-validate --all to verify skill integrity
+   - Run utility-pm-skill-validate --all to verify skill integrity
    - Run local CI: bash scripts/lint-skills-frontmatter.sh
    - Check release notes: {release-url}
    ```
@@ -340,7 +340,7 @@ restore tracked files to their last committed state.
 **The update failed partway through. What do I do?**
 The skill validates before copying (download to temp, check, then write),
 so partial failures are rare. If it does happen: restore from backup if
-available, or re-run `/update-pm-skills` to retry.
+available, or re-run `utility-update-pm-skills` to retry.
 
 ## Further Reading
 

@@ -96,7 +96,7 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 | Utility skills | 6 | 8 | NO (P2 - 2 dispatch skills added in v2.16 Phase 2-3) |
 | Tool skills | 15 | 15 | YES |
 | Sub-agents | 4 (planned) | 2 | EXPECTED (Phase 4-5 ship remaining 2) |
-| Commands | 62 | 64 | NO (P2 - 2 new commands /pm-critic /pm-audit-repo not in declared count) |
+| Commands | 62 | 64 | NO (P2 - 2 new commands utility-pm-critic utility-pm-skill-auditor not in declared count) |
 | Workflows | 12 | 12 | YES |
 | Enforcing validators | 27 | 27 | YES |
 | Family contracts | 3 | 3 | YES |

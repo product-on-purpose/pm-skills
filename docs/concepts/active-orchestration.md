@@ -26,11 +26,11 @@ The shipping unit shifts from "the skill" (content) to "the runtime component" (
 
 Functionally:
 
-- **You can now run `/pm-critic` and get a real adversarial review of your PRD or OKR set in 30 seconds.** `pm-critic` reads the artifact, consults the canonical contract docs, and returns P0/P1/P2/P3 findings with concrete fix suggestions. The proactive trigger means it auto-fires after PM-artifact-producing skills - you do not need to remember to invoke it.
+- **You can now run `utility-pm-critic` and get a real adversarial review of your PRD or OKR set in 30 seconds.** `pm-critic` reads the artifact, consults the canonical contract docs, and returns P0/P1/P2/P3 findings with concrete fix suggestions. The proactive trigger means it auto-fires after PM-artifact-producing skills - you do not need to remember to invoke it.
 
-- **You can now run `/pm-release v{X.Y.Z}` and get a 6-gate guided release flow.** `pm-release-conductor` walks the maintainer through Pre-tag readiness, Adversarial review attestation, Version bump + CHANGELOG prep, Commit + re-verify, Tag + push, Post-tag hygiene. It refuses to advance past failed gates. It tags only the SHA captured at G2.5 (preventing the broken-tag class of bug that v2.13.1 surfaced).
+- **You can now run `utility-pm-release-conductor v{X.Y.Z}` and get a 6-gate guided release flow.** `pm-release-conductor` walks the maintainer through Pre-tag readiness, Adversarial review attestation, Version bump + CHANGELOG prep, Commit + re-verify, Tag + push, Post-tag hygiene. It refuses to advance past failed gates. It tags only the SHA captured at G2.5 (preventing the broken-tag class of bug that v2.13.1 surfaced).
 
-- **You can now run `/pm-audit-repo` and `/pm-draft-changelog` as standalone utility commands** or let the conductor chain to them at the relevant gates.
+- **You can now run `utility-pm-skill-auditor` and `utility-pm-changelog-curator` as standalone utility commands** or let the conductor chain to them at the relevant gates.
 
 - **On non-Claude clients** (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI), you get the same intent via **dispatch skills** at `skills/utility-pm-{role}/`. The dispatch skills detect runtime and either invoke the native sub-agent (Claude Code) or execute the agent definition inline (other clients). Functionally equivalent except for proactive triggering, which is Claude Code only.
 
@@ -38,7 +38,7 @@ Structurally:
 
 - The repo has an `agents/` directory containing 4 sub-agent definitions (auto-discovered by Claude Code's plugin runtime at the fixed `agents/` path; see [`docs/concepts/sub-agents.md`](./sub-agents.md) for details)
 - 4 new dispatch skills at `skills/utility-pm-{role}/`
-- 4 new slash commands (`/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`)
+- 4 new slash commands (`utility-pm-critic`, `utility-pm-skill-auditor`, `utility-pm-changelog-curator`, `utility-pm-release-conductor`)
 - 12 new library samples (3 per sub-agent across the brainshelf / storevine / workbench narrative threads)
 - 5 new public docs (this one plus sub-agents.md, using-sub-agents.md, authoring-sub-agents.md, sub-agent-design-patterns.md)
 - 3 new contributor-facing reference docs (runtime-components.md catalog, adversarial-review.md user guide, release-runbook.md contributor guide)

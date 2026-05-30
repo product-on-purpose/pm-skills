@@ -27,7 +27,7 @@ Leo is working from the PRD's success metrics (time-to-approved, empty-section r
 ## Prompt
 
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 I need the instrumentation spec for Blueprints v1 GA. Here are the events I've identified from the PRD and experiment results:
 

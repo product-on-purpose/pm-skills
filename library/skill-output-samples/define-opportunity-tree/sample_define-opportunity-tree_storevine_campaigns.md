@@ -27,7 +27,7 @@ With the merchant interview synthesis and competitive analysis complete, Storevi
 ## Prompt
 
 ```
-/opportunity-tree
+define-opportunity-tree
 
 Project: Campaigns . and broader platform churn reduction strategy
 Stage: Pre-Q2 sprint planning . framing the opportunity space before

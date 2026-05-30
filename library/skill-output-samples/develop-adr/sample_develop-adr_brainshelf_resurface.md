@@ -27,7 +27,7 @@ When the Resurface feature moved from hypothesis to build planning, the team rea
 ## Prompt
 
 ```
-/adr
+develop-adr
 
 email sending infra for resurface. we don't have any email sending
 today . everything is in-app or firebase push. need to pick a provider

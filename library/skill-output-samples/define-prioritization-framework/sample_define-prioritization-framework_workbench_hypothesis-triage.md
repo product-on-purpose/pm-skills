@@ -27,7 +27,7 @@ Workbench is an internal developer-experience platform. The team has 30 backlog 
 ## Prompt
 
 ```
-/prioritization-framework
+define-prioritization-framework
 
 triage our dev-experience backlog and help us pick 5 for next sprint. we have
 ~30 ideas, no hard data per item. our team cares about three things:

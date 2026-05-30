@@ -26,7 +26,7 @@ Brainshelf runs a quarterly NPS survey. This quarter, 1,200 subscribers responde
 ## Prompt
 
 ```
-/survey-analysis
+measure-survey-analysis
 
 analyze our Q2 brainshelf NPS survey. 1200 subscribers responded. standard
 NPS question (0-10) plus an open text "what's the one thing you'd change?"

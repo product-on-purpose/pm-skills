@@ -76,7 +76,7 @@ flowchart LR
     DS3 --> DS4[Thursday: Prototype Plan]
     DS4 --> DS5[Friday: Test + Score]
     DS5 --> DEC{Decider's call}
-    DEC -->|Build| PRD[/prd]
+    DEC -->|Build| PRD[deliver-prd]
     DEC -->|Iterate| EXP[/measure-experiment-design]
     DEC -->|Pivot| PIV[/iterate-pivot-decision]
     DEC -->|Stop| LL[/iterate-lessons-log]
@@ -116,7 +116,7 @@ See [`docs/concepts/workshop-sprints-vs-agile-sprints.md`](workshop-sprints-vs-a
 
 - New to Foundation Sprint? [Using Foundation Sprint](../guides/using-foundation-sprint.md) (operational guide).
 - New to Design Sprint? [Using Design Sprint](../guides/using-design-sprint.md) (operational guide).
-- Planning a sprint? Start with the per-family FAQ and readiness skill: [`/tool-foundation-sprint-readiness`](../skills/tool/tool-foundation-sprint-readiness.md) or [`/tool-design-sprint-readiness`](../skills/tool/tool-design-sprint-readiness.md).
+- Planning a sprint? Start with the per-family FAQ and readiness skill: [`tool-foundation-sprint-readiness`](../skills/tool/tool-foundation-sprint-readiness.md) or [`tool-design-sprint-readiness`](../skills/tool/tool-design-sprint-readiness.md).
 - Looking for end-to-end examples? [Foundation Sprint case studies](../guides/foundation-sprint-case-studies.md) and [Design Sprint case studies](../guides/design-sprint-case-studies.md) walk through the Brainshelf, Storevine, and Workbench narrative threads.
 - Need a glossary? [Sprint methodology glossary](../reference/sprint-methodology-glossary.md) covers 40 FS-specific + DS-specific + shared terms.
 - Comparing workshop methods? [Workshop method comparison](../reference/workshop-method-comparison.md) puts Foundation Sprint and Design Sprint alongside 6 other workshop formats.

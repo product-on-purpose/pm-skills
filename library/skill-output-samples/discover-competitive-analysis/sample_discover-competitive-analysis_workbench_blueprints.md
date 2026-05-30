@@ -28,7 +28,7 @@ Workbench is preparing to launch Blueprints, reusable document templates with re
 ## Prompt
 
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 Scope: Enterprise documentation and knowledge management -- template governance and approval workflow capabilities. Informing Blueprints GA positioning.
 

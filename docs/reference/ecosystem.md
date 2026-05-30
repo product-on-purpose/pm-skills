@@ -102,7 +102,7 @@ pm-skills/
 
 1. **Git Clone** . Full access to all files
 2. **ZIP Download** . Upload to Claude.ai, Claude Desktop, etc.
-3. **Slash Commands** . Direct invocation in Claude Code (`/prd`)
+3. **Slash Commands** . Direct invocation in Claude Code (`deliver-prd`)
 4. **AGENTS.md Discovery** . Auto-discovery in Copilot, Cursor, Windsurf
 
 #### Best For
@@ -179,7 +179,7 @@ Use this matrix to choose between the file-based skill library and the MCP serve
 
 | Scenario | Recommended | Reason |
 |----------|-------------|--------|
-| **Using Claude Code CLI** | PM-Skills | Native slash commands (`/prd`) |
+| **Using Claude Code CLI** | PM-Skills | Native slash commands (`deliver-prd`) |
 | **Using Claude Desktop** | PM-Skills MCP | MCP provides seamless tool access |
 | **Using Cursor** | Either | Both work; MCP for less file clutter |
 | **Want to customize skills** | PM-Skills | Fork and modify skill files |
@@ -382,7 +382,7 @@ git merge upstream/main
 |--------|---------|
 | Install | `git clone https://github.com/product-on-purpose/pm-skills.git` |
 | Update | `git pull origin main` |
-| Use skill | `/prd` or "Create a PRD for..." |
+| Use skill | `deliver-prd` or "Create a PRD for..." |
 | Browse skills | `ls skills/` |
 
 ### PM-Skills MCP

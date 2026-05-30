@@ -27,7 +27,7 @@ Before the Campaigns build sprint begins, Storevine's growth PM and the Engineer
 ## Prompt
 
 ```
-/edge-cases
+deliver-edge-cases
 
 Feature: Campaigns . campaign creation and send flow
 Sprint: Q2 2026 Campaigns build (GA Apr 28, 2026)

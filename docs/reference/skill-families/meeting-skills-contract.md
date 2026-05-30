@@ -28,11 +28,11 @@ Meeting skills share enough cross-cutting structure. shareable summaries for cha
 
 | Skill | Phase in meeting lifecycle | Primary audience | Command |
 |-------|---------------------------|------------------|---------|
-| `foundation-meeting-agenda` | Pre-meeting | Attendees | `/meeting-agenda` |
-| `foundation-meeting-brief` | Pre-meeting | User (private prep) | `/meeting-brief` |
-| `foundation-meeting-recap` | Post-meeting | Attendees (actions inline) | `/meeting-recap` |
-| `foundation-meeting-synthesize` | Cross-meeting | User / leadership | `/meeting-synthesize` |
-| `foundation-stakeholder-update` | Post-meeting | Primarily non-attendees; secondarily some attendees | `/stakeholder-update` |
+| `foundation-meeting-agenda` | Pre-meeting | Attendees | `foundation-meeting-agenda` |
+| `foundation-meeting-brief` | Pre-meeting | User (private prep) | `foundation-meeting-brief` |
+| `foundation-meeting-recap` | Post-meeting | Attendees (actions inline) | `foundation-meeting-recap` |
+| `foundation-meeting-synthesize` | Cross-meeting | User / leadership | `foundation-meeting-synthesize` |
+| `foundation-stakeholder-update` | Post-meeting | Primarily non-attendees; secondarily some attendees | `foundation-stakeholder-update` |
 
 All 5 are classified under the `foundation` phase (cross-cutting lifecycle tooling), consistent with `foundation-persona` and `foundation-lean-canvas`.
 
@@ -70,7 +70,7 @@ The skill never blocks on interrogation. When invoked, it reads whatever input i
 
 **Default flow**:
 
-1. User invokes: `/meeting-agenda @topic-doc.md @attendee-list.md`
+1. User invokes: `foundation-meeting-agenda @topic-doc.md @attendee-list.md`
 2. Skill reads inputs, runs inference pass
 3. Skill presents a brief inference summary:
    > Inferred:
@@ -83,9 +83,9 @@ The skill never blocks on interrogation. When invoked, it reads whatever input i
 4. User says `go` → skill produces output; or user corrects any subset → skill re-infers and re-summarizes
 5. Output's `Generation context` section notes every inference that made it into the final artifact
 
-**Explicit go-mode**: `/meeting-agenda --go @topic-doc.md`. skips the checkpoint, uses defaults, produces output in one shot. User reviews `Generation context` to see what was defaulted.
+**Explicit go-mode**: `foundation-meeting-agenda --go @topic-doc.md`. skips the checkpoint, uses defaults, produces output in one shot. User reviews `Generation context` to see what was defaulted.
 
-**Fully-specified**: `/meeting-agenda --type=decision-making --duration=60 --topic="..." @attendees.md`. skill uses provided values as authoritative; no checkpoint because nothing is ambiguous.
+**Fully-specified**: `foundation-meeting-agenda --type=decision-making --duration=60 --topic="..." @attendees.md`. skill uses provided values as authoritative; no checkpoint because nothing is ambiguous.
 
 **Blocking questions** are permitted only when inference confidence is actively low on a load-bearing input AND no reasonable default exists. This should be rare. When asking, the skill must state the default it will apply if the user does not answer.
 

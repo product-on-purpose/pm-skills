@@ -20,7 +20,7 @@ Workbench's Blueprints team launched v1.1 on 2026-06-15 (per the existing `found
 
 For Q3 2026, the company-level forcing function is enterprise Net Revenue Retention above 110% [fictional] for FY2026. Blueprints is the largest single feature investment in service of that NRR target.
 
-This is a mixed-empowerment context: the team controls the product surface and HOW to drive outcomes, but the WHICH (which accounts onboard, on which timelines) is dictated by signed contracts. The PM runs `/okr-writer` in Guided mode (default) and the empowered-team diagnostic surfaces the mixed signal, triggering a Disclosure section in the artifact.
+This is a mixed-empowerment context: the team controls the product surface and HOW to drive outcomes, but the WHICH (which accounts onboard, on which timelines) is dictated by signed contracts. The PM runs `foundation-okr-writer` in Guided mode (default) and the empowered-team diagnostic surfaces the mixed signal, triggering a Disclosure section in the artifact.
 
 **Source Notes:**
 
@@ -33,7 +33,7 @@ This is a mixed-empowerment context: the team controls the product surface and H
 ## Prompt
 
 ```
-/okr-writer
+foundation-okr-writer
 
 Scope: Blueprints team, Workbench
 Cycle: Q3 2026 (July 1 to September 30)
@@ -299,7 +299,7 @@ planning if the engagement thesis is invalidated.
 
 ## Suggested Next Step
 
-Run `/okr-writer` again in Audit Only mode after the cross-team Q3
+Run `foundation-okr-writer` again in Audit Only mode after the cross-team Q3
 planning workshop. Specifically check Open Question 1's healthcare
 fallback with the Compliance team and Open Question 2's benchmark
 threshold with company leadership. Confirm Initiative 3 dependency

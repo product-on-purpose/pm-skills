@@ -9,7 +9,7 @@ The input is the WARN finding from the F-10 validation report example
 ## Step 1: Identify the Target Skill
 
 Target: `skills/deliver-prd/`
-Resolved from user input: `/pm-skill-iterate deliver-prd`
+Resolved from user input: `utility-pm-skill-iterate deliver-prd`
 
 ## Step 2: Read Current Skill Files
 
@@ -21,7 +21,7 @@ Read and recorded:
 
 ## Step 3: Normalize Input into Intended Changes
 
-Input: validation report from `/pm-skill-validate deliver-prd`
+Input: validation report from `utility-pm-skill-validate deliver-prd`
 
 Parsed `## Recommendations` section (Report schema: v1):
 
@@ -139,7 +139,7 @@ the current skill structure with frontmatter, instructions, output contract,
 and quality checklist.
 
 ### Contract established
-- Command: /prd
+- Command: deliver-prd
 - Phase: deliver
 - Output: Product Requirements Document following TEMPLATE.md structure
 ```
@@ -157,7 +157,7 @@ and quality checklist.
 **HISTORY.md:** created
 
 **Next steps:**
-- Run `/pm-skill-validate deliver-prd` to verify the changes pass
+- Run `utility-pm-skill-validate deliver-prd` to verify the changes pass
 - Run local CI: `bash scripts/lint-skills-frontmatter.sh`
 - If satisfied, commit the changes
 ```
@@ -168,7 +168,7 @@ and quality checklist.
 
 This example demonstrates:
 - **Validation-report-driven iteration**: the input is a structured report
-  from `/pm-skill-validate`, parsed by `## Recommendations` and pipe-delimited fields
+  from `utility-pm-skill-validate`, parsed by `## Recommendations` and pipe-delimited fields
 - **INFO findings excluded by default**: the `when-not-to-use` INFO was not
   included in the intended changes because the user did not request it
 - **Before/after preview**: the Output Format section shown in full before

@@ -29,7 +29,7 @@ The journey is primarily linear (Discovers through Decides) with a cyclical enga
 ## Prompt
 
 ```
-/journey-map
+discover-journey-map
 
 map the first-time subscriber journey for brainshelf. it's an AI book
 recommendation subscription for serious readers who hate generic amazon/

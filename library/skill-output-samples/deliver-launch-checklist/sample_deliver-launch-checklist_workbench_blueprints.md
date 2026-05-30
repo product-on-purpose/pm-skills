@@ -33,7 +33,7 @@ Key launch risks include: SAML SSO certification timing, Confluence migration me
 ## Prompt
 
 ```
-/launch-checklist
+deliver-launch-checklist
 
 I need a comprehensive launch checklist for Blueprints v1 GA. Here's the context:
 

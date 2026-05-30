@@ -27,7 +27,7 @@ Before the A/B test began, Priya M. asked Chloe B. to build the Resurface experi
 ## Prompt
 
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 resurface experiment dashboard for amplitude. need it ready before
 the a/b test starts (mar 9).

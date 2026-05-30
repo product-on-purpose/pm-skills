@@ -16,9 +16,9 @@ context: Brainshelf prosumer knowledge tool. Resurface team Q3 2026 cycle review
 
 ## Scenario
 
-Brainshelf's Resurface team is closing the Q3 2026 cycle. The OKR set was authored in late June using `/okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_brainshelf_resurface-q3.md`). The cycle ended September 30. Final values are now in for KR1, KR2, and KR3.
+Brainshelf's Resurface team is closing the Q3 2026 cycle. The OKR set was authored in late June using `foundation-okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_brainshelf_resurface-q3.md`). The cycle ended September 30. Final values are now in for KR1, KR2, and KR3.
 
-The team wants a cycle review they can take to the Q4 strategy review with company leadership. The Resurface PM priya-pm runs `/okr-grader` with the original OKR set, the final KR values, the cycle's narrative, and the initiative status.
+The team wants a cycle review they can take to the Q4 strategy review with company leadership. The Resurface PM priya-pm runs `measure-okr-grader` with the original OKR set, the final KR values, the cycle's narrative, and the initiative status.
 
 The cycle had a mixed result. KR1 (weekly Resurface engagement) landed in the aspirational sweet spot. KR2 (30-day retention) trailed badly, suggesting that the 3.4x retention multiplier observed in the 500-user beta did NOT scale to the broader population. KR3 (relevance guardrail) held. The team needs to decide whether to keep retention as a primary KR or pivot the strategy.
 
@@ -34,7 +34,7 @@ The cycle had a mixed result. KR1 (weekly Resurface engagement) landed in the as
 ## Prompt
 
 ```
-/okr-grader
+measure-okr-grader
 
 Original OKR: see sample_foundation-okr-writer_brainshelf_resurface-q3.md
 Cycle: Q3 2026 (July 1 to September 30, 2026)
@@ -190,7 +190,7 @@ hypothesis should be retired or carried forward.
     without other levers contributing more.
   - Recommended fix: treat the 1.6x multiplier as the planning baseline
     going forward. Update the company-level OKR forecasting model.
-    Run `/hypothesis` to specify what would have to be true for
+    Run `define-hypothesis` to specify what would have to be true for
     the multiplier to grow with longer-horizon engagement.
 
 - Issue 2: KR2's 30-day window for Q3 cohorts closed cleanly, but the
@@ -199,7 +199,7 @@ hypothesis should be retired or carried forward.
   the v1.5 phased rollout).
   - Impact: medium. The aggregate KR2 score is reliable; the per-segment
     breakdown needed to interpret the multiplier is noisier than ideal.
-  - Recommended fix: in next cycle's `/instrumentation-spec`, add a
+  - Recommended fix: in next cycle's `measure-instrumentation-spec`, add a
     cohort-tenure dimension to the retention dashboard so per-segment
     multipliers are visible.
 
@@ -282,8 +282,8 @@ hypothesis should be retired or carried forward.
 
 1. Reframe KR2 from "Resurface drives retention" to a learning-OKR
    structure that explicitly tests retention causality. Use
-   `/hypothesis` to specify the test (which segment, which
-   measurement window, what would invalidate). Then `/okr-writer`
+   `define-hypothesis` to specify the test (which segment, which
+   measurement window, what would invalidate). Then `foundation-okr-writer`
    in Rewrite mode.
 
 2. Carry KR1 forward but reset the target. Set Q4 KR1 baseline at
@@ -300,17 +300,17 @@ hypothesis should be retired or carried forward.
    keep, refine, or retire Initiative 3.
 
 5. Hand-off:
-   - `/lessons-log` for the multiplier-at-scale finding (this is a
+   - `iterate-lessons-log` for the multiplier-at-scale finding (this is a
      cross-cycle learning the team and the company both need to
      remember in FY planning).
-   - `/retrospective` for the team-process learning on Initiative 3's
+   - `iterate-retrospective` for the team-process learning on Initiative 3's
      late ship and the cross-team capacity dependency.
-   - `/hypothesis` for "Resurface engagement causally affects 30-day
+   - `define-hypothesis` for "Resurface engagement causally affects 30-day
      retention with a multiplier of at least 1.6x at scale" with an
      explicit invalidation criterion.
-   - `/instrumentation-spec` for the per-segment retention cohort
+   - `measure-instrumentation-spec` for the per-segment retention cohort
      dimension (Issue 2).
-   - `/okr-writer` for next-cycle drafting once the retention hypothesis
+   - `foundation-okr-writer` for next-cycle drafting once the retention hypothesis
      is sharpened.
 
 ## Risks in Interpretation

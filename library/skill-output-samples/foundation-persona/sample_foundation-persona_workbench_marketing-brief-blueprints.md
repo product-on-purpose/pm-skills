@@ -27,7 +27,7 @@ Workbench is building the enterprise sales playbook for Blueprints after three p
 ## Prompt
 
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 Sandra V. to PM Skills agent:
 

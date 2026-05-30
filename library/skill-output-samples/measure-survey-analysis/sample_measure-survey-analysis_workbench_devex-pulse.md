@@ -26,7 +26,7 @@ The Workbench platform team ran a dev-experience pulse survey and got 65 respons
 ## Prompt
 
 ```
-/survey-analysis
+measure-survey-analysis
 
 analyze our dev-experience pulse survey. 65 engineers responded out of ~280.
 mix of likert questions (rate your dev experience 1-5 across a few areas)

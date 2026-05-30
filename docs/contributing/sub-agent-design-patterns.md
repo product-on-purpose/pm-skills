@@ -44,7 +44,7 @@ The sub-agent's `description:` includes "use proactively" language. Claude Code'
 
 Every sub-agent ships with a companion slash command in `commands/{verb}.md` per master plan D6. The command body invokes the sub-agent (or its dispatch skill).
 
-**Canonical examples:** `/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release` invoke pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor respectively.
+**Canonical examples:** `utility-pm-critic`, `utility-pm-skill-auditor`, `utility-pm-changelog-curator`, `utility-pm-release-conductor` invoke pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor respectively.
 
 **When to use:**
 
@@ -55,9 +55,9 @@ Every sub-agent ships with a companion slash command in `commands/{verb}.md` per
 **Command naming convention (v2.16.0+):**
 
 - `pm-` prefixed to reduce slash-command namespace collision with other plugins
-- Verb-shaped suffix where natural (`/pm-release`, `/pm-audit-repo`, `/pm-draft-changelog`)
+- Verb-shaped suffix where natural (`utility-pm-release-conductor`, `utility-pm-skill-auditor`, `utility-pm-changelog-curator`)
 - One command per sub-agent (no multi-command pairings for v2.16)
-- The `pm-` prefix convention applies to NEW sub-agent companion commands; existing pm-skills skill commands (e.g., `/prd`, `/hypothesis`, `/okr-writer`) keep their bare names as historical artifact since they predate the convention
+- The `pm-` prefix convention applies to NEW sub-agent companion commands; existing pm-skills skill commands (e.g., `deliver-prd`, `define-hypothesis`, `foundation-okr-writer`) keep their bare names as historical artifact since they predate the convention
 
 ### Pattern 3: @-Mention
 
@@ -75,7 +75,7 @@ Users can directly invoke a sub-agent via `@agent-pm-{role}` in their prompt:
 
 **When NOT to use:**
 
-- For sub-agents with destructive or high-stakes operations. **Example:** `pm-release-conductor` does NOT support @-mention. The conductor's `/pm-release v{X.Y.Z}` requires explicit semver argument; @-mention spawning is too consequential.
+- For sub-agents with destructive or high-stakes operations. **Example:** `pm-release-conductor` does NOT support @-mention. The conductor's `utility-pm-release-conductor v{X.Y.Z}` requires explicit semver argument; @-mention spawning is too consequential.
 
 ### Pattern 4: Workflow-Triggered (Future)
 
@@ -108,10 +108,10 @@ sequenceDiagram
 Standalone invocation:
 
 ```
-/pm-critic docs/specs/my-prd.md
-/pm-audit-repo --scope changed
-/pm-draft-changelog --since-tag v2.15.0
-/pm-release v2.16.0 --dry-run
+utility-pm-critic docs/specs/my-prd.md
+utility-pm-skill-auditor --scope changed
+utility-pm-changelog-curator --since-tag v2.15.0
+utility-pm-release-conductor v2.16.0 --dry-run
 ```
 
 **Why this works:** the user explicitly opts in. No ambient spawning. The sub-agent's intent is unambiguous.
@@ -122,7 +122,7 @@ The conductor chains to children at specific gates:
 
 ```mermaid
 sequenceDiagram
-    User->>Conductor: /pm-release v2.16.0
+    User->>Conductor: utility-pm-release-conductor v2.16.0
     Conductor->>Conductor: G0 sub-checks
     Conductor->>Auditor: chain at G0 (Agent tool)
     Auditor->>Conductor: layered output (findings + Status YAML)

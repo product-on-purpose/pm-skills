@@ -24,7 +24,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-synthesize @resurface-*.md
+foundation-meeting-synthesize @resurface-*.md
 ```
 
 ## Output

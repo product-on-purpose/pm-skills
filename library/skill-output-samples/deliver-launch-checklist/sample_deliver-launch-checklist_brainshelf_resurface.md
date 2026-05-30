@@ -27,7 +27,7 @@ As Sprint 8 approached its final days, Priya M. created the Resurface launch che
 ## Prompt
 
 ```
-/launch-checklist
+deliver-launch-checklist
 
 resurface launch checklist. shipping at end of sprint 8 (feb 14-16).
 this is our first email feature so dns, deliverability, and compliance

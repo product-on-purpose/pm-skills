@@ -13,7 +13,7 @@ context: Release attempt with G0 failure surface and maintainer recovery; subseq
 
 ## Scenario
 
-The Storevine analytics team attempts to ship a release but G0 catches an aggregate-counter drift (CONTEXT.md declares 12 tools; filesystem has 14). The conductor REFUSES to advance to G1. The maintainer fixes the count in CONTEXT.md, commits, and re-invokes `/pm-release`. The second run passes G0 and the remaining gates.
+The Storevine analytics team attempts to ship a release but G0 catches an aggregate-counter drift (CONTEXT.md declares 12 tools; filesystem has 14). The conductor REFUSES to advance to G1. The maintainer fixes the count in CONTEXT.md, commits, and re-invokes `utility-pm-release-conductor`. The second run passes G0 and the remaining gates.
 
 ## Output (Attempt 1: G0 Failure)
 
@@ -37,7 +37,7 @@ The Storevine analytics team attempts to ship a release but G0 catches an aggreg
 **Blocker:** Aggregate counter drift in CONTEXT.md. Resolve before re-invoking:
 - Update `AGENTS/claude/CONTEXT.md` "Active Tools" count from 12 to 14
 - Re-run pm-skill-auditor manually to verify
-- Re-invoke `/pm-release v2.16.0` once resolved
+- Re-invoke `utility-pm-release-conductor v2.16.0` once resolved
 
 ---
 
@@ -80,7 +80,7 @@ This sample demonstrates the failure-recovery loop:
 
 1. **G0 failure pauses release.** The conductor refuses to advance to G1 when sub-check 4 fails. No bypass option per master plan D24.
 2. **Maintainer fixes the underlying issue.** The right path is to reconcile CONTEXT.md, not to skip the gate.
-3. **G0 idempotency.** Re-invoking `/pm-release` re-runs G0 from the top. The conductor does not cache prior sub-check results; each invocation is a fresh full audit.
+3. **G0 idempotency.** Re-invoking `utility-pm-release-conductor` re-runs G0 from the top. The conductor does not cache prior sub-check results; each invocation is a fresh full audit.
 4. **No bypass attempted.** The maintainer did not try `--skip-gates` (removed in v2.16); the fix-and-retry pattern is the canonical recovery path.
 
 The defect class (aggregate-counter drift) is the canonical case documented in memory `feedback_stale-aggregate-counter` from the v2.12.0 release-state drift. The conductor's role at G0 sub-check 4 is to catch it BEFORE release notes ship.

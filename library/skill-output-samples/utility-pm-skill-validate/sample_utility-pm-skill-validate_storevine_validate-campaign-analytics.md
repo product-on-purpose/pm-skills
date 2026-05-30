@@ -14,14 +14,14 @@ context: Storevine B2B ecommerce platform . validating the campaign-analytics sk
 
 ## Scenario
 
-After generating the campaign-analytics skill with `/pm-skill-builder`, the contributor runs validation to check whether the skill meets pm-skills structural conventions and quality criteria before opening a PR. The validator finds two warnings: the EXAMPLE.md is slightly under the recommended line count and the SKILL.md is missing a "When NOT to Use" section. All structural (Tier 1) checks pass. [fictional]
+After generating the campaign-analytics skill with `utility-pm-skill-builder`, the contributor runs validation to check whether the skill meets pm-skills structural conventions and quality criteria before opening a PR. The validator finds two warnings: the EXAMPLE.md is slightly under the recommended line count and the SKILL.md is missing a "When NOT to Use" section. All structural (Tier 1) checks pass. [fictional]
 
 ---
 
 ## Prompt
 
 ```
-/pm-skill-validate
+utility-pm-skill-validate
 
 Skill: campaign-analytics
 Path: skills/measure-campaign-analytics/
@@ -76,4 +76,4 @@ Errors: 0 | Warnings: 2 | Info: 1
    Action: Expand the Attribution Model section with a worked calculation showing first-touch vs. multi-touch comparison. This would add approximately 20 lines and bring the example above the 150-line minimum. [fictional]
 
 2. WARN | Q-04 | Target: `skills/measure-campaign-analytics/SKILL.md`
-   Action: Add a "When NOT to Use" section clarifying that this skill is not for A/B test design (use `/experiment-design`) or event schema definition (use `/instrumentation-spec`). This helps users select the right skill and reduces overlap confusion. [fictional]
+   Action: Add a "When NOT to Use" section clarifying that this skill is not for A/B test design (use `measure-experiment-design`) or event schema definition (use `measure-instrumentation-spec`). This helps users select the right skill and reduces overlap confusion. [fictional]

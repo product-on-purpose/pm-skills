@@ -21,7 +21,7 @@ Storevine's growth PM needed a visual for the PRD showing how a merchant's email
 ## Prompt
 
 ```
-/mermaid-diagrams
+utility-mermaid-diagrams
 
 I need a flowchart showing the Campaigns email send approval workflow. When a merchant clicks "Schedule Send," the campaign goes through content validation, compliance checks (CAN-SPAM), optional manager approval (for merchants on the Enterprise plan), and then queues for send. If any check fails, the merchant gets sent back to the editor with specific errors. I want to show this in the Campaigns PRD.
 ```

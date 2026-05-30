@@ -27,7 +27,7 @@ Workbench is a Series B enterprise collaboration platform (~200 employees, ~500 
 ## Prompt
 
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)
 Stage: Define phase, post-discovery interviews

@@ -27,7 +27,7 @@ Workbench is a Series B enterprise collaboration platform (~200 employees, ~500 
 ## Prompt
 
 ```
-/spike-summary
+develop-spike-summary
 
 Spike: CRDT library evaluation for Blueprints real-time co-editing
 Product: Workbench (enterprise collaboration platform)

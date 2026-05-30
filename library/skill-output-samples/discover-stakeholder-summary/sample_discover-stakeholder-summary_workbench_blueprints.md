@@ -27,7 +27,7 @@ Workbench is preparing to build and launch Blueprints, reusable document templat
 ## Prompt
 
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 Project: Workbench Blueprints -- reusable document templates with required sections and role-based approval gates
 Product: Workbench (enterprise collaboration platform, Series B, ~200 employees, ~500 enterprise customers [fictional])

@@ -27,7 +27,7 @@ Workbench is a Series B enterprise collaboration platform (~200 employees, ~500 
 ## Prompt
 
 ```
-/problem-statement
+define-problem-statement
 
 Product: Workbench (enterprise collaboration platform, Series B, ~500 enterprise customers [fictional])
 Feature area: Document templates and approval workflows (Blueprints)

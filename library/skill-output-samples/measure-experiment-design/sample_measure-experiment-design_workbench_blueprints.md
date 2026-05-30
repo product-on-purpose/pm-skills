@@ -26,7 +26,7 @@ Workbench shipped Blueprints to a closed beta of 80 enterprise customers [fictio
 ## Prompt
 
 ```
-/experiment-design
+measure-experiment-design
 
 Experiment: Required vs. optional Blueprint sections
 Product: Workbench Blueprints (enterprise doc templates with approval gates)

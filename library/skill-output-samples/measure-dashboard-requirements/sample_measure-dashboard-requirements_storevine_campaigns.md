@@ -27,7 +27,7 @@ After Campaigns GA, Storevine's growth PM defined the requirements for the Campa
 ## Prompt
 
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 Dashboard: Campaigns adoption and revenue . post-GA monitoring
 Audience: Growth PM (daily), Merchant Success (weekly), Head of Product

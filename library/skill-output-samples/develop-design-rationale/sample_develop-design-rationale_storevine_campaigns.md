@@ -27,7 +27,7 @@ During the Campaigns pre-sprint design review, the design team and growth PM deb
 ## Prompt
 
 ```
-/design-rationale
+develop-design-rationale
 
 Project: Campaigns . native email marketing for Storevine merchants
 Decision: Audience selection UX for the campaign creation flow

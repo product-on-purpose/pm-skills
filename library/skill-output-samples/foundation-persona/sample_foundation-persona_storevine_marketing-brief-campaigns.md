@@ -27,7 +27,7 @@ Storevine's growth team is building acquisition messaging for Campaigns targetin
 ## Prompt
 
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 Quick marketing persona for Storevine Campaigns SMB acquisition.
 

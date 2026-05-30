@@ -21,7 +21,7 @@ Storevine's Campaigns feature includes an email template builder that lets merch
 ## Prompt
 
 ```
-/acceptance-criteria
+deliver-acceptance-criteria
 
 Feature: Campaigns . email template builder
 The template builder lets merchants drag-and-drop content blocks (text, image, button, divider, product card) onto a canvas, customize styling, preview on desktop and mobile, and save templates for reuse across campaigns. Templates are stored per-merchant and can be duplicated.

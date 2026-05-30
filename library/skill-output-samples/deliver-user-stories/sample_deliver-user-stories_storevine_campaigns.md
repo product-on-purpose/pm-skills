@@ -27,7 +27,7 @@ With the Campaigns PRD and Figma specs finalized, Storevine's growth PM worked w
 ## Prompt
 
 ```
-/user-stories
+deliver-user-stories
 
 Project: Campaigns . native email marketing for Storevine merchants
 Sprint: Q2 2026 Campaigns build (kickoff Mar 3, GA Apr 28)

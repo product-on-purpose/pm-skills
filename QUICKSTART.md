@@ -35,11 +35,11 @@ More detail: see `docs/getting-started/index.md` for the long-form guide.
 ### Slash Commands
 
 ```
-/prd "Feature description"
-/hypothesis "Assumption to test"
-/acceptance-criteria "Story or feature slice"
-/user-stories "PRD or feature context"
-/competitive-analysis "Market or product area"
+/pm-skills:deliver-prd "Feature description"
+/pm-skills:define-hypothesis "Assumption to test"
+/pm-skills:deliver-acceptance-criteria "Story or feature slice"
+/pm-skills:deliver-user-stories "PRD or feature context"
+/pm-skills:discover-competitive-analysis "Market or product area"
 ```
 
 See `AGENTS.md` for the complete command list.
@@ -60,9 +60,9 @@ Three utility skills manage the skill library itself:
 
 ```mermaid
 flowchart LR
-    Create["/pm-skill-builder\nCreate"] --> Validate["/pm-skill-validate\nValidate"]
+    Create["utility-pm-skill-builder\nCreate"] --> Validate["utility-pm-skill-validate\nValidate"]
     Validate -- "PASS" --> Ship["Ship"]
-    Validate -- "Findings" --> Iterate["/pm-skill-iterate\nIterate"]
+    Validate -- "Findings" --> Iterate["utility-pm-skill-iterate\nIterate"]
     Iterate --> Validate
 ```
 

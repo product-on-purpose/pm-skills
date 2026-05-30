@@ -1,6 +1,6 @@
 ---
 title: "Utility Update PM Skills: Storevine Update Report"
-description: "Storevine PM running /update-pm-skills to update from v2.9.1 to v2.10.0."
+description: "Storevine PM running utility-update-pm-skills to update from v2.9.1 to v2.10.0."
 artifact: update-report
 version: "1.0"
 repo_version: "2.10.0"
@@ -8,20 +8,20 @@ skill_version: "1.0.0"
 created: 2026-04-11
 status: sample
 thread: storevine
-context: Storevine PM running /update-pm-skills to update from v2.9.1 to v2.10.0
+context: Storevine PM running utility-update-pm-skills to update from v2.9.1 to v2.10.0
 ---
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
 ## Scenario
 
-A PM on the Storevine team has been using pm-skills at v2.9.1 as a Claude Code plugin. They run `/update-pm-skills` to check for updates and find that v2.10.0 is available with new skills for mermaid diagramming, slideshow creation, and the self-updater. They apply the update and receive a completion report. [fictional]
+A PM on the Storevine team has been using pm-skills at v2.9.1 as a Claude Code plugin. They run `utility-update-pm-skills` to check for updates and find that v2.10.0 is available with new skills for mermaid diagramming, slideshow creation, and the self-updater. They apply the update and receive a completion report. [fictional]
 
 ---
 
 ## Prompt
 
 ```
-/update-pm-skills
+utility-update-pm-skills
 ```
 
 ---
@@ -65,9 +65,9 @@ This update adds mermaid diagramming, slideshow creation, and a self-updater ski
 
 | Skill | What It Enables |
 |-------|-----------------|
-| utility-mermaid-diagrams | Create flowcharts, sequence diagrams, Gantt charts, and other mermaid visuals for PRDs, specs, and decks with `/mermaid-diagrams`. Includes a planning worksheet to prevent wasted diagram effort. |
-| utility-slideshow-creator | Generate JSON deck specifications for stakeholder presentations with `/slideshow-creator`. Supports 17 slide types with dark/light variants and speaker notes. |
-| utility-update-pm-skills | Check for updates and update your local pm-skills installation with `/update-pm-skills`. Supports `--status` for quick checks and `--report-only` for previews. |
+| utility-mermaid-diagrams | Create flowcharts, sequence diagrams, Gantt charts, and other mermaid visuals for PRDs, specs, and decks with `utility-mermaid-diagrams`. Includes a planning worksheet to prevent wasted diagram effort. |
+| utility-slideshow-creator | Generate JSON deck specifications for stakeholder presentations with `utility-slideshow-creator`. Supports 17 slide types with dark/light variants and speaker notes. |
+| utility-update-pm-skills | Check for updates and update your local pm-skills installation with `utility-update-pm-skills`. Supports `--status` for quick checks and `--report-only` for previews. |
 
 ### Updated Skills
 
@@ -85,7 +85,7 @@ No new workflows in this update.
 
 ### Opportunities
 
-With `/mermaid-diagrams` you can add flowcharts and sequence diagrams directly into your PRDs -- try it on the Campaigns send approval workflow. The `/slideshow-creator` skill pairs well with any existing deliverable: generate a PRD with `/prd`, then create a stakeholder deck from the same context with `/slideshow-creator`. Use `/update-pm-skills --status` anytime to check whether you are current.
+With `utility-mermaid-diagrams` you can add flowcharts and sequence diagrams directly into your PRDs -- try it on the Campaigns send approval workflow. The `utility-slideshow-creator` skill pairs well with any existing deliverable: generate a PRD with `deliver-prd`, then create a stakeholder deck from the same context with `utility-slideshow-creator`. Use `utility-update-pm-skills --status` anytime to check whether you are current.
 
 ## Files Written
 
@@ -114,8 +114,8 @@ To restore: `cp -r _pm-skills/backups/v2.9.1_2026-04-11_091544/* .`
 ## Next Steps
 
 - Review this report for a summary of what changed
-- Run `/pm-skill-validate --all` to verify skill integrity
+- Run `utility-pm-skill-validate --all` to verify skill integrity
 - Run local CI: `bash scripts/lint-skills-frontmatter.sh`
 - Check release notes: [v2.10.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.10.0)
-- Try `/mermaid-diagrams` on your next PRD or spec
+- Try `utility-mermaid-diagrams` on your next PRD or spec
 - Update pm-skills-mcp: `cd ../pm-skills-mcp && npm run embed-skills && npm run build`

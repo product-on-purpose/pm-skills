@@ -27,7 +27,7 @@ During Sprint 8 planning, Priya M. and Alex R. mapped the edge cases for the Res
 ## Prompt
 
 ```
-/edge-cases
+deliver-edge-cases
 
 resurface edge cases for sprint 8. need to cover:
 - what happens when the user's library is too small

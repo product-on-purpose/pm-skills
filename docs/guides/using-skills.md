@@ -106,7 +106,7 @@ for adding search to our e-commerce platform
 The fastest method if you're using Claude Code:
 
 ```
-/prd search feature for e-commerce platform
+/pm-skills:deliver-prd search feature for e-commerce platform
 ```
 
 ### What Happens Behind the Scenes
@@ -161,17 +161,17 @@ Use this checklist to provide complete context:
 
 **Bad (vague):**
 ```
-/prd search feature
+/pm-skills:deliver-prd search feature
 ```
 
 **Better (some context):**
 ```
-/prd search feature for our e-commerce site
+/pm-skills:deliver-prd search feature for our e-commerce site
 ```
 
 **Good (SPICE context):**
 ```
-/prd
+/pm-skills:deliver-prd
 
 We need a search feature for our e-commerce platform (50k daily users).
 
@@ -324,7 +324,7 @@ problem-statement → hypothesis → prd → user-stories
 
 ```
 Step 1:
-/problem-statement "checkout abandonment issue"
+/pm-skills:define-problem-statement "checkout abandonment issue"
 
 [AI produces problem statement]
 
@@ -339,12 +339,12 @@ to create a testable hypothesis.
 
 ```
 Step 1:
-/problem-statement "checkout abandonment issue"
+/pm-skills:define-problem-statement "checkout abandonment issue"
 
 [Save or note the output]
 
 Step 2:
-/hypothesis
+/pm-skills:define-hypothesis
 
 Use this problem statement as context:
 [Paste key points from previous output]
@@ -355,7 +355,7 @@ Use this problem statement as context:
 Keep everything in one conversation thread:
 
 ```
-You: /problem-statement "checkout abandonment"
+You: /pm-skills:define-problem-statement "checkout abandonment"
 AI: [produces problem statement]
 
 You: Now create a hypothesis from this
@@ -419,7 +419,7 @@ For detailed guidance on choosing, invoking, customizing, and building workflows
 
 **More detail:**
 ```
-/prd "search feature"
+/pm-skills:deliver-prd "search feature"
 
 Make this PRD comprehensive.we need detailed requirements
 for a large engineering team and external stakeholders.
@@ -427,7 +427,7 @@ for a large engineering team and external stakeholders.
 
 **Less detail:**
 ```
-/prd "search feature"
+/pm-skills:deliver-prd "search feature"
 
 Keep this PRD lightweight.it's a small feature and
 we need to move fast. Focus on essentials only.
@@ -437,7 +437,7 @@ we need to move fast. Focus on essentials only.
 
 **For different audiences:**
 ```
-/prd "search feature"
+/pm-skills:deliver-prd "search feature"
 
 Format the output for:
 1. Executive summary (1 paragraph) at the top
@@ -446,7 +446,7 @@ Format the output for:
 
 **For different tools:**
 ```
-/user-stories "from the PRD above"
+/pm-skills:deliver-user-stories "from the PRD above"
 
 Format stories for Jira import with these fields:
 - Summary (title)
@@ -457,7 +457,7 @@ Format stories for Jira import with these fields:
 ### Adding Custom Sections
 
 ```
-/prd "search feature"
+/pm-skills:deliver-prd "search feature"
 
 Add a section called "Competitive Context" that compares
 our approach to how competitors handle search.
@@ -466,7 +466,7 @@ our approach to how competitors handle search.
 ### Using Your Templates
 
 ```
-/prd "search feature"
+/pm-skills:deliver-prd "search feature"
 
 Use this custom template structure instead of the default:
 
@@ -625,7 +625,7 @@ marking which stories are new, modified, or removed.
 If you have existing templates, use them:
 
 ```
-/prd "search feature"
+/pm-skills:deliver-prd "search feature"
 
 We use a custom PRD template at our company.
 Generate content following OUR template structure:
@@ -640,7 +640,7 @@ for what content belongs in each section.
 
 **For Jira/Linear:**
 ```
-/user-stories "from PRD above"
+/pm-skills:deliver-user-stories "from PRD above"
 
 Format for bulk import to Jira:
 - CSV format
@@ -650,7 +650,7 @@ Format for bulk import to Jira:
 
 **For Notion/Confluence:**
 ```
-/prd "search feature"
+/pm-skills:deliver-prd "search feature"
 
 Format with:
 - Notion-compatible markdown
@@ -661,7 +661,7 @@ Format with:
 
 **For Slides:**
 ```
-/problem-statement "checkout abandonment"
+/pm-skills:define-problem-statement "checkout abandonment"
 
 Also create a 3-slide summary:
 1. The Problem (with key stat)
@@ -678,7 +678,7 @@ Also create a 3-slide summary:
 Before starting any skill, gather context:
 
 ```
-Before I run /prd, help me prepare:
+Before I run /pm-skills:deliver-prd, help me prepare:
 
 1. What information do you need from me?
 2. What questions should I answer upfront?
@@ -828,11 +828,11 @@ This is our "Feature One-Pager" format.
 
 **Daily workflow:**
 ```
-Monday:    /refinement-notes (capture planning outcomes)
-Tuesday:   /user-stories (prepare for sprint)
-Wednesday: /prd (spec new features)
-Thursday:  /experiment-results (review test outcomes)
-Friday:    /retrospective (team reflection)
+Monday:    /pm-skills:iterate-refinement-notes (capture planning outcomes)
+Tuesday:   /pm-skills:deliver-user-stories (prepare for sprint)
+Wednesday: /pm-skills:deliver-prd (spec new features)
+Thursday:  /pm-skills:measure-experiment-results (review test outcomes)
+Friday:    /pm-skills:iterate-retrospective (team reflection)
 ```
 
 **Key chains:**
@@ -849,9 +849,9 @@ Friday:    /retrospective (team reflection)
 
 **Common workflow:**
 ```
-/spike-summary "evaluate new database options"
-/adr "based on spike findings, recommend PostgreSQL"
-/edge-cases "for the migration plan"
+/pm-skills:develop-spike-summary "evaluate new database options"
+/pm-skills:develop-adr "based on spike findings, recommend PostgreSQL"
+/pm-skills:deliver-edge-cases "for the migration plan"
 ```
 
 ### Designer
@@ -863,9 +863,9 @@ Friday:    /retrospective (team reflection)
 
 **Common workflow:**
 ```
-/interview-synthesis "from last week's user sessions"
-/jtbd-canvas "for the checkout flow"
-/design-rationale "for one-page checkout decision"
+/pm-skills:discover-interview-synthesis "from last week's user sessions"
+/pm-skills:define-jtbd-canvas "for the checkout flow"
+/pm-skills:develop-design-rationale "for one-page checkout decision"
 ```
 
 ### Data/Analytics
@@ -878,11 +878,11 @@ Friday:    /retrospective (team reflection)
 
 **Common workflow:**
 ```
-/experiment-design "test new pricing page"
-/instrumentation-spec "for pricing experiment"
-/dashboard-requirements "pricing experiment monitoring"
+/pm-skills:measure-experiment-design "test new pricing page"
+/pm-skills:measure-instrumentation-spec "for pricing experiment"
+/pm-skills:measure-dashboard-requirements "pricing experiment monitoring"
 [after test]
-/experiment-results "pricing experiment concluded"
+/pm-skills:measure-experiment-results "pricing experiment concluded"
 ```
 
 ---

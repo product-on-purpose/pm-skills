@@ -26,7 +26,7 @@ Storevine sells AI inventory forecasting to mid-market e-commerce companies. The
 ## Prompt
 
 ```
-/market-sizing
+discover-market-sizing
 
 size the market for storevine's AI inventory forecasting. B2B SaaS, sold to
 mid-market e-commerce companies (200-2000 employees). ACV around $40k.

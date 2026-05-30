@@ -18,68 +18,68 @@ flowchart TD
     A -- "Measure\nresults" --> MEASURE
     A -- "Learn and\nimprove" --> ITERATE
 
-    DISCOVER{"Discover"} -- "Analyze competitors" --> S1["/competitive-analysis"]
-    DISCOVER -- "Synthesize interviews" --> S2["/interview-synthesis"]
-    DISCOVER -- "Map stakeholders" --> S3["/stakeholder-summary"]
+    DISCOVER{"Discover"} -- "Analyze competitors" --> S1["discover-competitive-analysis"]
+    DISCOVER -- "Synthesize interviews" --> S2["discover-interview-synthesis"]
+    DISCOVER -- "Map stakeholders" --> S3["discover-stakeholder-summary"]
 
-    DEFINE{"Define"} -- "State the problem" --> S4["/problem-statement"]
-    DEFINE -- "Form a hypothesis" --> S5["/hypothesis"]
-    DEFINE -- "Map opportunities" --> S6["/opportunity-tree"]
-    DEFINE -- "Understand jobs-to-be-done" --> S7["/jtbd-canvas"]
+    DEFINE{"Define"} -- "State the problem" --> S4["define-problem-statement"]
+    DEFINE -- "Form a hypothesis" --> S5["define-hypothesis"]
+    DEFINE -- "Map opportunities" --> S6["define-opportunity-tree"]
+    DEFINE -- "Understand jobs-to-be-done" --> S7["define-jtbd-canvas"]
 
-    DEVELOP{"Develop"} -- "Propose a solution" --> S8["/solution-brief"]
-    DEVELOP -- "Record a tech spike" --> S9["/spike-summary"]
-    DEVELOP -- "Document a decision" --> S10["/adr"]
-    DEVELOP -- "Explain design rationale" --> S11["/design-rationale"]
+    DEVELOP{"Develop"} -- "Propose a solution" --> S8["develop-solution-brief"]
+    DEVELOP -- "Record a tech spike" --> S9["develop-spike-summary"]
+    DEVELOP -- "Document a decision" --> S10["develop-adr"]
+    DEVELOP -- "Explain design rationale" --> S11["develop-design-rationale"]
 
-    DELIVER{"Deliver"} -- "Write requirements" --> S12["/prd"]
-    DELIVER -- "Write user stories" --> S13["/user-stories"]
-    DELIVER -- "Define acceptance criteria" --> S14["/acceptance-criteria"]
-    DELIVER -- "Document edge cases" --> S15["/edge-cases"]
-    DELIVER -- "Prepare for launch" --> S16["/launch-checklist"]
-    DELIVER -- "Announce the release" --> S17["/release-notes"]
+    DELIVER{"Deliver"} -- "Write requirements" --> S12["deliver-prd"]
+    DELIVER -- "Write user stories" --> S13["deliver-user-stories"]
+    DELIVER -- "Define acceptance criteria" --> S14["deliver-acceptance-criteria"]
+    DELIVER -- "Document edge cases" --> S15["deliver-edge-cases"]
+    DELIVER -- "Prepare for launch" --> S16["deliver-launch-checklist"]
+    DELIVER -- "Announce the release" --> S17["deliver-release-notes"]
 
-    MEASURE{"Measure"} -- "Design an experiment" --> S18["/experiment-design"]
-    MEASURE -- "Specify tracking" --> S19["/instrumentation-spec"]
-    MEASURE -- "Define a dashboard" --> S20["/dashboard-requirements"]
-    MEASURE -- "Analyze results" --> S21["/experiment-results"]
+    MEASURE{"Measure"} -- "Design an experiment" --> S18["measure-experiment-design"]
+    MEASURE -- "Specify tracking" --> S19["measure-instrumentation-spec"]
+    MEASURE -- "Define a dashboard" --> S20["measure-dashboard-requirements"]
+    MEASURE -- "Analyze results" --> S21["measure-experiment-results"]
 
-    ITERATE{"Iterate"} -- "Run a retrospective" --> S22["/retrospective"]
-    ITERATE -- "Log a lesson" --> S23["/lessons-log"]
-    ITERATE -- "Refine the backlog" --> S24["/refinement-notes"]
-    ITERATE -- "Decide: pivot or persevere" --> S25["/pivot-decision"]
+    ITERATE{"Iterate"} -- "Run a retrospective" --> S22["iterate-retrospective"]
+    ITERATE -- "Log a lesson" --> S23["iterate-lessons-log"]
+    ITERATE -- "Refine the backlog" --> S24["iterate-refinement-notes"]
+    ITERATE -- "Decide: pivot or persevere" --> S25["iterate-pivot-decision"]
 ```
 
 ## By artifact type
 
 | I need a... | Use | Phase |
 |------------|-----|-------|
-| Architecture Decision Record | `/adr` | Develop |
-| Acceptance criteria | `/acceptance-criteria` | Deliver |
-| Backlog refinement notes | `/refinement-notes` | Iterate |
-| Competitive analysis | `/competitive-analysis` | Discover |
-| Dashboard requirements | `/dashboard-requirements` | Measure |
-| Design rationale | `/design-rationale` | Develop |
-| Edge cases document | `/edge-cases` | Deliver |
-| Experiment design | `/experiment-design` | Measure |
-| Experiment results | `/experiment-results` | Measure |
-| Hypothesis | `/hypothesis` | Define |
-| Instrumentation spec | `/instrumentation-spec` | Measure |
-| Interview synthesis | `/interview-synthesis` | Discover |
-| JTBD canvas | `/jtbd-canvas` | Define |
-| Launch checklist | `/launch-checklist` | Deliver |
-| Lessons learned | `/lessons-log` | Iterate |
-| Opportunity tree | `/opportunity-tree` | Define |
-| Persona | `/persona` | Foundation |
-| Pivot/persevere decision | `/pivot-decision` | Iterate |
-| PRD | `/prd` | Deliver |
-| Problem statement | `/problem-statement` | Define |
-| Release notes | `/release-notes` | Deliver |
-| Retrospective | `/retrospective` | Iterate |
-| Solution brief | `/solution-brief` | Develop |
-| Spike summary | `/spike-summary` | Develop |
-| Stakeholder summary | `/stakeholder-summary` | Discover |
-| User stories | `/user-stories` | Deliver |
+| Architecture Decision Record | `/pm-skills:develop-adr` | Develop |
+| Acceptance criteria | `/pm-skills:deliver-acceptance-criteria` | Deliver |
+| Backlog refinement notes | `/pm-skills:iterate-refinement-notes` | Iterate |
+| Competitive analysis | `/pm-skills:discover-competitive-analysis` | Discover |
+| Dashboard requirements | `/pm-skills:measure-dashboard-requirements` | Measure |
+| Design rationale | `/pm-skills:develop-design-rationale` | Develop |
+| Edge cases document | `/pm-skills:deliver-edge-cases` | Deliver |
+| Experiment design | `/pm-skills:measure-experiment-design` | Measure |
+| Experiment results | `/pm-skills:measure-experiment-results` | Measure |
+| Hypothesis | `/pm-skills:define-hypothesis` | Define |
+| Instrumentation spec | `/pm-skills:measure-instrumentation-spec` | Measure |
+| Interview synthesis | `/pm-skills:discover-interview-synthesis` | Discover |
+| JTBD canvas | `/pm-skills:define-jtbd-canvas` | Define |
+| Launch checklist | `/pm-skills:deliver-launch-checklist` | Deliver |
+| Lessons learned | `/pm-skills:iterate-lessons-log` | Iterate |
+| Opportunity tree | `/pm-skills:define-opportunity-tree` | Define |
+| Persona | `/pm-skills:foundation-persona` | Foundation |
+| Pivot/persevere decision | `/pm-skills:iterate-pivot-decision` | Iterate |
+| PRD | `/pm-skills:deliver-prd` | Deliver |
+| Problem statement | `/pm-skills:define-problem-statement` | Define |
+| Release notes | `/pm-skills:deliver-release-notes` | Deliver |
+| Retrospective | `/pm-skills:iterate-retrospective` | Iterate |
+| Solution brief | `/pm-skills:develop-solution-brief` | Develop |
+| Spike summary | `/pm-skills:develop-spike-summary` | Develop |
+| Stakeholder summary | `/pm-skills:discover-stakeholder-summary` | Discover |
+| User stories | `/pm-skills:deliver-user-stories` | Deliver |
 
 ## By phase
 

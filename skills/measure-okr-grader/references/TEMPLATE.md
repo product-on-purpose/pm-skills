@@ -79,11 +79,11 @@
 2. {recommendation}
 3. {recommendation}
 4. Hand-off:
-   - `/lessons-log` for {what learning needs organizational memory}
-   - `/retrospective` for {what team-process work needs reflection}
-   - `/hypothesis` for {what assumption needs an explicit test}
-   - `/instrumentation-spec` or `/dashboard-requirements` for {what measurement gap needs filling}
-   - `/okr-writer` for {next-cycle drafting note}
+   - `iterate-lessons-log` for {what learning needs organizational memory}
+   - `iterate-retrospective` for {what team-process work needs reflection}
+   - `define-hypothesis` for {what assumption needs an explicit test}
+   - `measure-instrumentation-spec` or `measure-dashboard-requirements` for {what measurement gap needs filling}
+   - `foundation-okr-writer` for {next-cycle drafting note}
 
 ## Risks in Interpretation
 

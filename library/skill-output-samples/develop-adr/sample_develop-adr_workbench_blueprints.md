@@ -27,7 +27,7 @@ Workbench is a Series B enterprise collaboration platform (~200 employees, ~500 
 ## Prompt
 
 ```
-/adr
+develop-adr
 
 ADR: Use Yjs CRDTs for Blueprints real-time co-editing
 Product: Workbench Blueprints

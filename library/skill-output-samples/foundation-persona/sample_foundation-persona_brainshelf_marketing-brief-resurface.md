@@ -27,7 +27,7 @@ Brainshelf is exploring a growth channel through newsletter creators who use rea
 ## Prompt
 
 ```text
-/persona marketing brief
+foundation-persona marketing brief
 
 marketing persona for newsletter creator acquisition channel.
 

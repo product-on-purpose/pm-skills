@@ -21,7 +21,7 @@ A contributor runs the skill builder to create a "campaign-analytics" skill for 
 ## Prompt
 
 ```
-/pm-skill-builder
+utility-pm-skill-builder
 
 Idea: A skill for defining email campaign measurement frameworks -- funnel metrics (sent > delivered > opened > clicked > converted), cohort comparison, and revenue attribution. Existing measure skills handle dashboards and event tracking but not campaign-specific analytics frameworks.
 ```
@@ -40,7 +40,7 @@ Idea: A skill for defining email campaign measurement frameworks -- funnel metri
 
 Create new skill.
 
-Why Gate evidence: (1) `/dashboard-requirements` produced a dashboard spec but skipped funnel definition and attribution; (2) `/instrumentation-spec` produced event schemas but not the analytical framework connecting events to outcomes; (3) `/experiment-design` assumed A/B test structure rather than ongoing measurement. [fictional]
+Why Gate evidence: (1) `measure-dashboard-requirements` produced a dashboard spec but skipped funnel definition and attribution; (2) `measure-instrumentation-spec` produced event schemas but not the analytical framework connecting events to outcomes; (3) `measure-experiment-design` assumed A/B test structure rather than ongoing measurement. [fictional]
 
 ## Classification
 
@@ -98,4 +98,4 @@ All 9 CI checks pass (name, description, version, updated, license, phase consis
 
 1. Review the packet and flag changes needed.
 2. Run `bash scripts/lint-skills-frontmatter.sh` after promotion.
-3. Test `/campaign-analytics` with a realistic scenario, then use `/pm-skill-iterate` to refine.
+3. Test `/campaign-analytics` with a realistic scenario, then use `utility-pm-skill-iterate` to refine.

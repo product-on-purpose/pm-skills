@@ -13,7 +13,7 @@ context: Draft of CHANGELOG entries for v2.16.0 from the in-progress commit rang
 
 ## Scenario
 
-Priya M. is preparing v2.16.0 for tag. She runs `/pm-draft-changelog --since-tag v2.15.2 --target-version v2.16.0` to get a draft of CHANGELOG entries for review before commit. The working tree is clean (post-Phase-5 commit; pre-tag artifact pass).
+Priya M. is preparing v2.16.0 for tag. She runs `utility-pm-changelog-curator --since-tag v2.15.2 --target-version v2.16.0` to get a draft of CHANGELOG entries for review before commit. The working tree is clean (post-Phase-5 commit; pre-tag artifact pass).
 
 The curator reads `CLAUDE.md` hygiene rules fresh, runs `git log v2.15.2..HEAD --pretty=format:'%h %s' --name-only`, classifies each commit, and produces a draft. Hidden HTML comments capture the curator's classification reasoning so Priya can audit + adjust before committing the entry.
 

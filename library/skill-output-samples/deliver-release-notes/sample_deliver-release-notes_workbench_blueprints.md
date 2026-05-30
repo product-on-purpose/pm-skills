@@ -33,7 +33,7 @@ The version number (Workbench 3.5) is the platform release; Blueprints v1 is the
 ## Prompt
 
 ```
-/release-notes
+deliver-release-notes
 
 I need customer-facing release notes for Workbench 3.5, which ships Blueprints GA.
 

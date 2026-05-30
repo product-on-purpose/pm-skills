@@ -16,7 +16,7 @@ The updater runs in one of three modes depending on the flag you pass.
 ### Quick status check
 
 ```
-/update-pm-skills --status
+/pm-skills:utility-update-pm-skills --status
 ```
 
 Prints your current version, the latest available version, and whether an update is available. No files are read or written beyond the version check.
@@ -24,7 +24,7 @@ Prints your current version, the latest available version, and whether an update
 ### Preview (report only)
 
 ```
-/update-pm-skills --report-only
+/pm-skills:utility-update-pm-skills --report-only
 ```
 
 Runs the full comparison -- version delta, value summary, file manifest -- and saves a report to `_pm-skills/updates/`, but does **not** write any skill files. Use this when you want to see what changed before committing to an update.
@@ -32,7 +32,7 @@ Runs the full comparison -- version delta, value summary, file manifest -- and s
 ### Full update (default)
 
 ```
-/update-pm-skills
+/pm-skills:utility-update-pm-skills
 ```
 
 Walks through the complete flow: pre-flight checks, preview, confirmation prompt, optional backup, file update, smoke test, and completion report.

@@ -24,7 +24,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-synthesize --format=retro-input --quarter=2026-Q1 @recap*.md
+foundation-meeting-synthesize --format=retro-input --quarter=2026-Q1 @recap*.md
 ```
 
 ## Output

@@ -116,51 +116,51 @@ block-beta
     columns 6
 
     block:discover["Discover"]:1
-        d1["/competitive-analysis"]
-        d2["/interview-synthesis"]
-        d3["/stakeholder-summary"]
-        d4["/journey-map"]
-        d5["/market-sizing"]
+        d1["discover-competitive-analysis"]
+        d2["discover-interview-synthesis"]
+        d3["discover-stakeholder-summary"]
+        d4["discover-journey-map"]
+        d5["discover-market-sizing"]
     end
 
     block:define["Define"]:1
-        f1["/problem-statement"]
-        f2["/hypothesis"]
-        f3["/opportunity-tree"]
-        f4["/jtbd-canvas"]
-        f5["/prioritization-framework"]
+        f1["define-problem-statement"]
+        f2["define-hypothesis"]
+        f3["define-opportunity-tree"]
+        f4["define-jtbd-canvas"]
+        f5["define-prioritization-framework"]
     end
 
     block:develop["Develop"]:1
-        v1["/solution-brief"]
-        v2["/spike-summary"]
-        v3["/adr"]
-        v4["/design-rationale"]
+        v1["develop-solution-brief"]
+        v2["develop-spike-summary"]
+        v3["develop-adr"]
+        v4["develop-design-rationale"]
     end
 
     block:deliver["Deliver"]:1
-        l1["/prd"]
-        l2["/user-stories"]
-        l3["/acceptance-criteria"]
-        l4["/edge-cases"]
-        l5["/launch-checklist"]
-        l6["/release-notes"]
+        l1["deliver-prd"]
+        l2["deliver-user-stories"]
+        l3["deliver-acceptance-criteria"]
+        l4["deliver-edge-cases"]
+        l5["deliver-launch-checklist"]
+        l6["deliver-release-notes"]
     end
 
     block:measure["Measure"]:1
-        m1["/experiment-design"]
-        m2["/instrumentation-spec"]
-        m3["/dashboard-requirements"]
-        m4["/experiment-results"]
-        m5["/okr-grader"]
-        m6["/survey-analysis"]
+        m1["measure-experiment-design"]
+        m2["measure-instrumentation-spec"]
+        m3["measure-dashboard-requirements"]
+        m4["measure-experiment-results"]
+        m5["measure-okr-grader"]
+        m6["measure-survey-analysis"]
     end
 
     block:iterate["Iterate"]:1
-        i1["/retrospective"]
-        i2["/lessons-log"]
-        i3["/refinement-notes"]
-        i4["/pivot-decision"]
+        i1["iterate-retrospective"]
+        i2["iterate-lessons-log"]
+        i3["iterate-refinement-notes"]
+        i4["iterate-pivot-decision"]
     end
 
     discover --> define --> develop --> deliver --> measure --> iterate
@@ -173,7 +173,7 @@ block-beta
     style iterate fill:#ffe9ec,stroke:#c2255c,color:#5c0a25,stroke-width:2px
 ```
 
-**Plus:** `/lean-canvas` `/persona` `/okr-writer` `/meeting-agenda` `/meeting-brief` `/meeting-recap` `/meeting-synthesize` `/stakeholder-update` (Foundation - cross-cutting) · `/pm-skill-builder` `/pm-skill-validate` `/pm-skill-iterate` `/mermaid-diagrams` `/slideshow-creator` `/update-pm-skills` `/pm-critic` `/pm-audit-repo` `/pm-draft-changelog` `/pm-release` (Utility incl. v2.16.0 sub-agent dispatch slate) · `/tool-foundation-sprint-readiness` `/tool-foundation-sprint-brief` `/tool-foundation-sprint-basics` `/tool-foundation-sprint-differentiation` `/tool-foundation-sprint-approach-options` `/tool-foundation-sprint-magic-lenses` `/tool-foundation-sprint-founding-hypothesis` (Foundation Sprint family) · `/tool-design-sprint-readiness` `/tool-design-sprint-brief` `/tool-design-sprint-map-and-target` `/tool-design-sprint-sketch` `/tool-design-sprint-decide-and-storyboard` `/tool-design-sprint-prototype-plan` `/tool-design-sprint-test-and-score` (Design Sprint family) · `/tool-note-and-vote` (standalone)
+**Plus:** `foundation-lean-canvas` `foundation-persona` `foundation-okr-writer` `foundation-meeting-agenda` `foundation-meeting-brief` `foundation-meeting-recap` `foundation-meeting-synthesize` `foundation-stakeholder-update` (Foundation - cross-cutting) · `utility-pm-skill-builder` `utility-pm-skill-validate` `utility-pm-skill-iterate` `utility-mermaid-diagrams` `utility-slideshow-creator` `utility-update-pm-skills` `utility-pm-critic` `utility-pm-skill-auditor` `utility-pm-changelog-curator` `utility-pm-release-conductor` (Utility incl. v2.16.0 sub-agent dispatch slate) · `tool-foundation-sprint-readiness` `tool-foundation-sprint-brief` `tool-foundation-sprint-basics` `tool-foundation-sprint-differentiation` `tool-foundation-sprint-approach-options` `tool-foundation-sprint-magic-lenses` `tool-foundation-sprint-founding-hypothesis` (Foundation Sprint family) · `tool-design-sprint-readiness` `tool-design-sprint-brief` `tool-design-sprint-map-and-target` `tool-design-sprint-sketch` `tool-design-sprint-decide-and-storyboard` `tool-design-sprint-prototype-plan` `tool-design-sprint-test-and-score` (Design Sprint family) · `tool-note-and-vote` (standalone)
 
 ## The Skill Lifecycle
 
@@ -181,10 +181,10 @@ Three utility skills form a self-reinforcing quality loop for managing the skill
 
 ```mermaid
 flowchart LR
-    Create["/pm-skill-builder<br/>Create"] --> Validate["/pm-skill-validate<br/>Validate"]
+    Create["utility-pm-skill-builder<br/>Create"] --> Validate["utility-pm-skill-validate<br/>Validate"]
     Validate --> Decision{Findings?}
     Decision -- "PASS" --> Ship["Ship"]
-    Decision -- "WARN / FAIL" --> Iterate["/pm-skill-iterate<br/>Iterate"]
+    Decision -- "WARN / FAIL" --> Iterate["utility-pm-skill-iterate<br/>Iterate"]
     Iterate --> Validate
 ```
 
@@ -204,9 +204,9 @@ cd pm-skills
 Then use any skill:
 
 ```
-/prd "Search feature for e-commerce platform"
-/hypothesis "Will one-page checkout increase conversion?"
-/acceptance-criteria "User can reset password via email"
+deliver-prd "Search feature for e-commerce platform"
+define-hypothesis "Will one-page checkout increase conversion?"
+deliver-acceptance-criteria "User can reset password via email"
 ```
 
 [Full setup guide](getting-started/) · [Find the right skill](guides/skill-finder.md) · [Recipes](guides/recipes.md)
@@ -239,7 +239,7 @@ Follow three fictional companies through the complete product lifecycle - from d
 
 | Platform | Method |
 |----------|--------|
-| **Claude Code** | Slash commands (`/prd`, `/hypothesis`, etc.) |
+| **Claude Code** | Slash commands (`deliver-prd`, `define-hypothesis`, etc.) |
 | **GitHub Copilot** | AGENTS.md auto-discovery |
 | **Cursor / Windsurf** | AGENTS.md or [MCP server](https://github.com/product-on-purpose/pm-skills-mcp) |
 | **Claude.ai / Desktop** | ZIP upload or MCP |
@@ -284,7 +284,7 @@ Follow three fictional companies through the complete product lifecycle - from d
 | **[v2.12.0](releases/Release_v2.12.0.md)** | 2026-05-03 | OKR Skills Launch: `foundation-okr-writer` + `measure-okr-grader` with canonical type and indicator-class enums; 38 to 40 skills |
 | [v2.11.1](releases/Release_v2.11.1.md) | 2026-04-22 | skills.sh CLI compatibility patch: unblocks `npx skills add product-on-purpose/pm-skills`; lint hardening; em-dash sweep completion |
 | **[v2.11.0](releases/Release_v2.11.0.md)** | 2026-04-18 | Meeting Skills Family: 5 foundation skills + canonical contract + enforcing CI; lean-canvas; 32 to 38 skills |
-| [v2.10.0](releases/Release_v2.10.0.md) | 2026-04-11 | Utility skill expansion: `/mermaid-diagrams`, `/slideshow-creator`, `/update-pm-skills`. (v2.10.1 and v2.10.2 patches followed; see CHANGELOG.md for details.) |
+| [v2.10.0](releases/Release_v2.10.0.md) | 2026-04-11 | Utility skill expansion: `utility-mermaid-diagrams`, `utility-slideshow-creator`, `utility-update-pm-skills`. (v2.10.1 and v2.10.2 patches followed; see CHANGELOG.md for details.) |
 | [v2.9.1](releases/Release_v2.9.1.md) | 2026-04-10 | Workflows guide + docs count consistency CI |
 | [v2.9.0](releases/Release_v2.9.0.md) | 2026-04-06 | Workflows: rename bundles to workflows, expand 3 to 9, 7 `/workflow-*` commands |
 

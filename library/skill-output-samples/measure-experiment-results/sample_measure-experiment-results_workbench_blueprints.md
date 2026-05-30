@@ -27,7 +27,7 @@ The experiment tested whether making Blueprint sections required (submit button 
 ## Prompt
 
 ```
-/experiment-results
+measure-experiment-results
 
 Leo M. just finished the A/B test analysis. I need a full experiment-results document for the April 14 ship-decision meeting. Here are the results:
 

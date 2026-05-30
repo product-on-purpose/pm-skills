@@ -26,7 +26,7 @@ Workbench is an internal developer-experience platform, but the team is explorin
 ## Prompt
 
 ```
-/market-sizing
+discover-market-sizing
 
 we're thinking about commercializing workbench (our internal dev-experience
 platform). size the external market for DevEx tooling platforms. sold per-seat

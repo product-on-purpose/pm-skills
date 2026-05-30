@@ -112,7 +112,7 @@
 
 ## Quick Start
 
-After installing, you'll have 63 slash commands available (like `/prd`, `/hypothesis`, `/user-stories`) plus access to templates, workflows, sub-agents, and 95+ sample outputs.
+After installing, you'll have 73 slash commands available (like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus access to templates, workflows, sub-agents, and 95+ sample outputs.
 
 **Claude Code (recommended):**
 
@@ -336,11 +336,11 @@ flowchart LR
     classDef ship fill:#166534,stroke:#14532d,color:#fff,font-weight:bold
     classDef iterate fill:#7c3aed,stroke:#6d28d9,color:#fff,font-weight:bold
 
-    Create["/pm-skill-builder<br/>Create new skill<br/>from an idea"]:::create
-    Validate["/pm-skill-validate<br/>Audit structure<br/>and quality"]:::validate
+    Create["utility-pm-skill-builder<br/>Create new skill<br/>from an idea"]:::create
+    Validate["utility-pm-skill-validate<br/>Audit structure<br/>and quality"]:::validate
     Decision{"Findings?"}:::decision
     Ship["Ship<br/>to library"]:::ship
-    Iterate["/pm-skill-iterate<br/>Apply targeted<br/>improvements"]:::iterate
+    Iterate["utility-pm-skill-iterate<br/>Apply targeted<br/>improvements"]:::iterate
 
     Create --> Validate
     Validate --> Decision
@@ -353,9 +353,9 @@ flowchart LR
 
 | Tool & Command                      | What it does                                                                                         |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Builder:** `/pm-skill-builder`    | Creates a new skill from an idea. Runs gap analysis against existing skills, classifies by type and phase, generates draft files to a staging area, and promotes on confirmation. |
-| **Validator:** `/pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria. Produces a report with severity-graded findings and actionable recommendations. |
-| **Iterator:** `/pm-skill-iterate`   | Applies targeted improvements to a skill based on feedback or a validation report. Previews changes, writes on confirmation, and suggests a version bump. |
+| **Builder:** `/pm-skills:utility-pm-skill-builder`    | Creates a new skill from an idea. Runs gap analysis against existing skills, classifies by type and phase, generates draft files to a staging area, and promotes on confirmation. |
+| **Validator:** `/pm-skills:utility-pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria. Produces a report with severity-graded findings and actionable recommendations. |
+| **Iterator:** `/pm-skills:utility-pm-skill-iterate`   | Applies targeted improvements to a skill based on feedback or a validation report. Previews changes, writes on confirmation, and suggests a version bump. |
 
 🔗 **More resources:**
 
@@ -475,7 +475,7 @@ flowchart LR
     classDef exampleFile fill:#059669,stroke:#047857,color:#fff
     classDef output fill:#166534,stroke:#14532d,color:#fff,font-weight:bold
 
-    User["You<br/>/prd 'topic'"]:::user
+    User["You<br/>deliver-prd 'topic'"]:::user
     Agent["Your Agent"]:::agent
     SKILL["SKILL.md<br/>the method"]:::skillFile
     TEMPLATE["TEMPLATE.md<br/>the structure"]:::templateFile
@@ -499,7 +499,7 @@ skills/deliver-prd/
     EXAMPLE.md              # the worked example that anchors quality
 ```
 
-When you run `/prd "topic"`, the agent loads the skill, mirrors the example, fills the template, and produces a complete PRD. No prompt engineering required.
+When you run `/pm-skills:deliver-prd "topic"`, the agent loads the skill, mirrors the example, fills the template, and produces a complete PRD. No prompt engineering required.
 
 | Property                    | What it gives you                                                              |
 | --------------------------- | ------------------------------------------------------------------------------ |
@@ -830,10 +830,10 @@ For other platforms (Codex, Cursor, Windsurf, Copilot, Gemini CLI), each sub-age
 
 | Sub-Agent | Command | What it does |
 | --------- | ------- | ------------ |
-| **pm-critic** | `/pm-critic` | Adversarial quality reviewer. Reads a PM artifact and produces a severity-graded findings report covering gaps, weak assumptions, and missing sections. Use it to stress-test a PRD, hypothesis, or opportunity tree before sharing with stakeholders. |
-| **pm-skill-auditor** | `/pm-audit-repo` | Cross-skill catalog auditor. Checks a skill against structural conventions, frontmatter requirements, and quality criteria. Use it before contributing a new skill or after making changes to an existing one. |
-| **pm-changelog-curator** | `/pm-draft-changelog` | CHANGELOG manager. Drafts and formats changelog entries from git history and release context, following conventional commit classification rules and the repo's established CHANGELOG format. |
-| **pm-release-conductor** | `/pm-release` | Release orchestrator. Walks through the 6-gate pre-tag release runbook: pre-tag readiness, adversarial review, version bumps, tagging, artifact verification, and post-tag hygiene. |
+| **pm-critic** | `/pm-skills:utility-pm-critic` | Adversarial quality reviewer. Reads a PM artifact and produces a severity-graded findings report covering gaps, weak assumptions, and missing sections. Use it to stress-test a PRD, hypothesis, or opportunity tree before sharing with stakeholders. |
+| **pm-skill-auditor** | `/pm-skills:utility-pm-skill-auditor` | Cross-skill catalog auditor. Checks a skill against structural conventions, frontmatter requirements, and quality criteria. Use it before contributing a new skill or after making changes to an existing one. |
+| **pm-changelog-curator** | `/pm-skills:utility-pm-changelog-curator` | CHANGELOG manager. Drafts and formats changelog entries from git history and release context, following conventional commit classification rules and the repo's established CHANGELOG format. |
+| **pm-release-conductor** | `/pm-skills:utility-pm-release-conductor` | Release orchestrator. Walks through the 6-gate pre-tag release runbook: pre-tag readiness, adversarial review, version bumps, tagging, artifact verification, and post-tag hygiene. |
 
 🔗 **More resources:**
 
@@ -1232,7 +1232,7 @@ Sub-agents are currently Claude Code-only. For other platforms, the same four ca
 <details>
 <summary><strong>How do I stay up to date with new skills?</strong></summary>
 
-Watch the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page for new versions, or use the `/update-pm-skills` slash command from within your agent to check for and apply updates. Major releases are summarized in the [Recent Updates](#recent-updates) section above.
+Watch the [GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases) page for new versions, or use the `/pm-skills:utility-update-pm-skills` slash command from within your agent to check for and apply updates. Major releases are summarized in the [Recent Updates](#recent-updates) section above.
 
 </details>
 
@@ -1253,7 +1253,7 @@ Yes. Read the [authoring guide](docs/guides/creating-pm-skills.md) for the full 
 <details>
 <summary><strong>How do slash commands work in Claude Code?</strong></summary>
 
-Slash commands (like `/prd` or `/hypothesis`) are shortcuts that invoke the corresponding skill. When you type `/prd "my feature"`, Claude Code reads the skill instructions from `skills/deliver-prd/SKILL.md` and generates output following the template. No additional setup required after install; the commands are defined in the `commands/` directory.
+Slash commands (like `/pm-skills:deliver-prd` or `/pm-skills:define-hypothesis`) are shortcuts that invoke the corresponding skill. When you type `/pm-skills:deliver-prd "my feature"`, Claude Code reads the skill instructions from `skills/deliver-prd/SKILL.md` and generates output following the template. No additional setup required after install; the commands are defined in the `commands/` directory.
 
 </details>
 

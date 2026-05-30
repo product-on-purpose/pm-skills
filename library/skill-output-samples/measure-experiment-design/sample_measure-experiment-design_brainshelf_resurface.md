@@ -27,7 +27,7 @@ With the Resurface feature shipped behind a feature flag, Priya M. and Chloe B. 
 ## Prompt
 
 ```
-/experiment-design
+measure-experiment-design
 
 resurface a/b test. feature is shipped behind a flag. need the full
 experiment design for chloe to set up in amplitude.

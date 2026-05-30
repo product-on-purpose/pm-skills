@@ -20,7 +20,7 @@ Brainshelf's Resurface team shipped algo v1 in March 2026 and validated it with 
 
 For Q3 2026, the Resurface PM priya-pm needs OKRs that move from "we proved Resurface works for early adopters" to "Resurface is the habit-forming reason members come back each week." The forcing function is a company-level OKR to increase 30-day member retention from 31% to 42% [fictional] by year-end.
 
-The PM runs `/okr-writer` in Guided mode (default).
+The PM runs `foundation-okr-writer` in Guided mode (default).
 
 **Source Notes:**
 
@@ -32,7 +32,7 @@ The PM runs `/okr-writer` in Guided mode (default).
 ## Prompt
 
 ```
-/okr-writer
+foundation-okr-writer
 
 Scope: Resurface team, Brainshelf
 Cycle: Q3 2026 (July 1 to September 30)
@@ -247,7 +247,7 @@ specific cadence.)
 
 ## Suggested Next Step
 
-Run `/okr-writer` again in Audit Only mode after the cross-team Q3
+Run `foundation-okr-writer` again in Audit Only mode after the cross-team Q3
 planning workshop. Specifically check that the Sharing team's KR
 confirmation does not invalidate KR1's assumption that surface-able
 content pool stays roughly stable. Also confirm Open Question 1's

@@ -17,7 +17,7 @@ Installs all 63 skills into your agent's default skills directory. Works with Cl
 2) (Claude Code/openskills only) Run the sync helper to populate `.claude/skills` and `.claude/commands`:  
    - macOS/Linux: `./scripts/sync-claude.sh`  
    - Windows: `./scripts/sync-claude.ps1`  
-3) Use a slash command: `/prd "Feature description"` or `/hypothesis "Assumption to test"`.
+3) Use a slash command: `/pm-skills:deliver-prd "Feature description"` or `/pm-skills:define-hypothesis "Assumption to test"`.
 
 Prefer the full walkthrough? Read on.
 
@@ -121,7 +121,7 @@ Instead of typing:
 > "Please use the PRD skill to create a product requirements document for a search feature"
 
 You can simply type:
-> `/prd search feature for e-commerce platform`
+> `/pm-skills:deliver-prd search feature for e-commerce platform`
 
 The slash (`/`) tells the AI "use this skill" and everything after is your context.
 
@@ -151,7 +151,7 @@ The `$ARGUMENTS` variable captures everything typed after the command name.
 
 ```mermaid
 flowchart TD
-    A["/prd 'search feature'\nSlash Command"] --> C["SKILL.md\nInstructions"]
+    A["deliver-prd 'search feature'\nSlash Command"] --> C["SKILL.md\nInstructions"]
     B["'Use the prd skill for...'\nNatural Language"] --> C
     C --> D["TEMPLATE.md\nStructure"]
     C --> E["EXAMPLE.md\nQuality Reference"]
@@ -186,7 +186,7 @@ flowchart TD
 If you're using Claude Code, skills work automatically. Just type a slash command:
 
 ```
-/prd "Search feature for our e-commerce platform"
+/pm-skills:deliver-prd "Search feature for our e-commerce platform"
 ```
 
 That's it! Claude will create a full PRD using the skill.
@@ -206,19 +206,19 @@ Claude Code discovers the registered skill set via `AGENTS.md` and command defin
 
 ```bash
 # Basic usage
-/prd "feature description"
+/pm-skills:deliver-prd "feature description"
 
 # With more context
-/prd "We need a search feature for our e-commerce platform.
+/pm-skills:deliver-prd "We need a search feature for our e-commerce platform.
       Users currently can't find products easily.
       Target: 20% improvement in product discovery."
 
 # Chain skills
-/problem-statement "checkout abandonment issue"
+/pm-skills:define-problem-statement "checkout abandonment issue"
 # ... review output ...
-/hypothesis "from the problem statement above"
+/pm-skills:define-hypothesis "from the problem statement above"
 # ... review output ...
-/prd "based on the hypothesis above"
+/pm-skills:deliver-prd "based on the hypothesis above"
 ```
 
 #### Available Commands
@@ -227,14 +227,14 @@ The repo currently ships 73 command markdown files: 60 skill commands, 10 workfl
 
 | Phase | Commands |
 |-------|----------|
-| Discover | `/interview-synthesis`, `/competitive-analysis`, `/stakeholder-summary` |
-| Define | `/problem-statement`, `/hypothesis`, `/opportunity-tree`, `/jtbd-canvas` |
-| Develop | `/solution-brief`, `/spike-summary`, `/adr`, `/design-rationale` |
-| Deliver | `/prd`, `/user-stories`, `/acceptance-criteria`, `/edge-cases`, `/launch-checklist`, `/release-notes` |
-| Measure | `/experiment-design`, `/instrumentation-spec`, `/dashboard-requirements`, `/experiment-results`, `/okr-grader` |
-| Iterate | `/retrospective`, `/lessons-log`, `/refinement-notes`, `/pivot-decision` |
-| Utility | `/pm-skill-builder`, `/pm-skill-validate`, `/pm-skill-iterate`, `/mermaid-diagrams`, `/slideshow-creator`, `/update-pm-skills` |
-| Foundation | `/persona`, `/lean-canvas`, `/okr-writer`, `/stakeholder-update`, `/meeting-agenda`, `/meeting-brief`, `/meeting-recap`, `/meeting-synthesize` |
+| Discover | `/pm-skills:discover-interview-synthesis`, `/pm-skills:discover-competitive-analysis`, `/pm-skills:discover-stakeholder-summary` |
+| Define | `/pm-skills:define-problem-statement`, `/pm-skills:define-hypothesis`, `/pm-skills:define-opportunity-tree`, `/pm-skills:define-jtbd-canvas` |
+| Develop | `/pm-skills:develop-solution-brief`, `/pm-skills:develop-spike-summary`, `/pm-skills:develop-adr`, `/pm-skills:develop-design-rationale` |
+| Deliver | `/pm-skills:deliver-prd`, `/pm-skills:deliver-user-stories`, `/pm-skills:deliver-acceptance-criteria`, `/pm-skills:deliver-edge-cases`, `/pm-skills:deliver-launch-checklist`, `/pm-skills:deliver-release-notes` |
+| Measure | `/pm-skills:measure-experiment-design`, `/pm-skills:measure-instrumentation-spec`, `/pm-skills:measure-dashboard-requirements`, `/pm-skills:measure-experiment-results`, `/pm-skills:measure-okr-grader` |
+| Iterate | `/pm-skills:iterate-retrospective`, `/pm-skills:iterate-lessons-log`, `/pm-skills:iterate-refinement-notes`, `/pm-skills:iterate-pivot-decision` |
+| Utility | `/pm-skills:utility-pm-skill-builder`, `/pm-skills:utility-pm-skill-validate`, `/pm-skills:utility-pm-skill-iterate`, `/pm-skills:utility-mermaid-diagrams`, `/pm-skills:utility-slideshow-creator`, `/pm-skills:utility-update-pm-skills` |
+| Foundation | `/pm-skills:foundation-persona`, `/pm-skills:foundation-lean-canvas`, `/pm-skills:foundation-okr-writer`, `/pm-skills:foundation-stakeholder-update`, `/pm-skills:foundation-meeting-agenda`, `/pm-skills:foundation-meeting-brief`, `/pm-skills:foundation-meeting-recap`, `/pm-skills:foundation-meeting-synthesize` |
 
 Plus workflows: `/workflow-feature-kickoff`, `/workflow-customer-discovery`, `/workflow-sprint-planning`, `/workflow-product-strategy`, `/workflow-post-launch-learning`, `/workflow-stakeholder-alignment`, `/workflow-technical-discovery`
 
@@ -547,7 +547,7 @@ Pick the method that matches your setup (see above).
 
 **Claude Code:**
 ```
-/problem-statement "Users are abandoning checkout because the process
+/pm-skills:define-problem-statement "Users are abandoning checkout because the process
 is too long. We lose about $50k/month in abandoned carts."
 ```
 
@@ -732,11 +732,11 @@ Have ideas for new skills or improvements?
 
 | Need | Skill | Command |
 |------|-------|---------|
-| Define the problem | problem-statement | `/problem-statement` |
-| Write requirements | prd | `/prd` |
-| Create user stories | user-stories | `/user-stories` |
-| Plan an experiment | experiment-design | `/experiment-design` |
-| Prepare for launch | launch-checklist | `/launch-checklist` |
+| Define the problem | problem-statement | `/pm-skills:define-problem-statement` |
+| Write requirements | prd | `/pm-skills:deliver-prd` |
+| Create user stories | user-stories | `/pm-skills:deliver-user-stories` |
+| Plan an experiment | experiment-design | `/pm-skills:measure-experiment-design` |
+| Prepare for launch | launch-checklist | `/pm-skills:deliver-launch-checklist` |
 
 ### Skill → Output Mapping
 

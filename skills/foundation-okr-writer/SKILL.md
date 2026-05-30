@@ -38,11 +38,11 @@ Five entry modes support different engagement levels. Mode is detected from user
 
 ## When NOT to Use
 
-- You only need a dashboard spec . use `/dashboard-requirements`
-- You only need event tracking . use `/instrumentation-spec`
-- You only need an experiment . use `/experiment-design`
-- You only need a hypothesis . use `/hypothesis`
-- The cycle has ended and you need formal scoring with evidence and learning synthesis . use `/okr-grader`
+- You only need a dashboard spec . use `measure-dashboard-requirements`
+- You only need event tracking . use `measure-instrumentation-spec`
+- You only need an experiment . use `measure-experiment-design`
+- You only need a hypothesis . use `define-hypothesis`
+- The cycle has ended and you need formal scoring with evidence and learning synthesis . use `measure-okr-grader`
 - The team is purely business-as-usual and needs steady-state KPIs, not stretch outcomes . OKRs are the wrong artifact
 
 ## Instructions

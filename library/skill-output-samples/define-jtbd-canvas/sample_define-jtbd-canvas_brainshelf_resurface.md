@@ -27,7 +27,7 @@ During the Define phase for the Resurface feature, Brainshelf's PM created a Job
 ## Prompt
 
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 the core job for the resurface feature. users save stuff to brainshelf
 with the intent to read it later, but the act of saving satisfies the

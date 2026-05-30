@@ -137,7 +137,7 @@ Every finding MUST include a concrete fix suggestion. "This is unclear" is NOT a
 Per master plan D6, every sub-agent ships with a companion slash command in `commands/`. Convention:
 
 - Sub-agent name: `pm-{role}` (e.g., `pm-critic`)
-- Command name: verb-shaped (e.g., `/pm-critic`, `/pm-audit-repo`, `/pm-draft-changelog`, `/pm-release`)
+- Command name: verb-shaped (e.g., `utility-pm-critic`, `utility-pm-skill-auditor`, `utility-pm-changelog-curator`, `utility-pm-release-conductor`)
 - Declare the pairing in `agents/_pairing.yaml`
 
 Command body (`commands/your-verb.md`) follows the standard pm-skills command convention:

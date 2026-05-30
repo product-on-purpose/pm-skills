@@ -27,7 +27,7 @@ The retrospective covers the full journey from closed beta through GA, with a fo
 ## Prompt
 
 ```
-/retrospective
+iterate-retrospective
 
 I'm facilitating the Blueprints post-GA retrospective. Here's the context:
 

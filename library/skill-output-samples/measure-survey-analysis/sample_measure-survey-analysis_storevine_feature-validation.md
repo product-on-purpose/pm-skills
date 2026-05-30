@@ -26,7 +26,7 @@ Storevine surveyed 180 customer admins to decide which forecasting feature to bu
 ## Prompt
 
 ```
-/survey-analysis
+measure-survey-analysis
 
 analyze our storevine feature-prioritization survey. 180 customer admins
 responded. we asked them to rate 5 candidate features by importance and pick

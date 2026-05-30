@@ -24,7 +24,7 @@ Source Notes:
 ## Prompt
 
 ```
-/stakeholder-update @2026-03-17_11-00PST_resurface-algo-v1_recap.md --channel=email --audience=customer-facing --cta="FYI-only" "email to ~500 beta users, thank them for feedback, signal shipment of algo v1 improvements"
+foundation-stakeholder-update @2026-03-17_11-00PST_resurface-algo-v1_recap.md --channel=email --audience=customer-facing --cta="FYI-only" "email to ~500 beta users, thank them for feedback, signal shipment of algo v1 improvements"
 ```
 
 ## Output

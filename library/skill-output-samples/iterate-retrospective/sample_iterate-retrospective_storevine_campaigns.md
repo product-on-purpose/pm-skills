@@ -27,7 +27,7 @@ Nine days after Campaigns GA (April 28, 2026), Storevine's growth PM facilitated
 ## Prompt
 
 ```
-/retrospective
+iterate-retrospective
 
 Sprint: Campaigns v1.0 build sprint + GA week
 Period: February 3  -  May 5, 2026 [fictional]

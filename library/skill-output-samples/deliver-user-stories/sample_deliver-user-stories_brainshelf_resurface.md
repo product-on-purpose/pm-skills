@@ -27,7 +27,7 @@ After finalizing the Resurface PRD, Priya M. wrote the Sprint 8 user stories wit
 ## Prompt
 
 ```
-/user-stories
+deliver-user-stories
 
 resurface stories for sprint 8. need the full set with acceptance
 criteria.

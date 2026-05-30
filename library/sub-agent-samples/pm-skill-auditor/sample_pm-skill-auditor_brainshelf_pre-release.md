@@ -13,7 +13,7 @@ context: Cross-cutting governance audit run during v2.16.0 Phase 3 development; 
 
 ## Scenario
 
-After authoring the pm-skill-auditor sub-agent in Phase 3, Priya M. ran `/pm-audit-repo --scope full` to verify the repo is in a clean state before continuing to Phase 4 (pm-changelog-curator). The audit is a routine in-cycle health check: are validators green? Are there cross-cutting issues that have accumulated during fast-moving phase work? Do counters declared in CONTEXT.md / AGENTS.md / README.md still match the actual filesystem after dispatch skills were added in Phases 2-3?
+After authoring the pm-skill-auditor sub-agent in Phase 3, Priya M. ran `utility-pm-skill-auditor --scope full` to verify the repo is in a clean state before continuing to Phase 4 (pm-changelog-curator). The audit is a routine in-cycle health check: are validators green? Are there cross-cutting issues that have accumulated during fast-moving phase work? Do counters declared in CONTEXT.md / AGENTS.md / README.md still match the actual filesystem after dispatch skills were added in Phases 2-3?
 
 The expected outcome: 0 P0 findings (we just committed; CI was green), some P1/P2 findings reflecting in-progress state (dispatch skills added but counters not yet reconciled until pre-tag pass). The audit confirms it's safe to continue Phase 4 authoring without introducing release-blocking issues.
 
@@ -84,7 +84,7 @@ The expected outcome: 0 P0 findings (we just committed; CI was green), some P1/P
 #### F-05: Aggregate counter drift in declared values (expected in-cycle)
 
 **Location:** `README.md` Project Structure tree (line 916), `AGENTS.md` skill listings, `AGENTS/claude/CONTEXT.md` per-phase tables
-**Issue:** Declared total skills = 55 across these files; re-derived from filesystem = 57 (added utility-pm-critic + utility-pm-skill-auditor in Phases 2-3). Declared commands = 62; re-derived = 64 (added /pm-critic + /pm-audit-repo).
+**Issue:** Declared total skills = 55 across these files; re-derived from filesystem = 57 (added utility-pm-critic + utility-pm-skill-auditor in Phases 2-3). Declared commands = 62; re-derived = 64 (added utility-pm-critic + utility-pm-skill-auditor).
 **Why it matters:** At pre-tag scope this would be P0 because declared counts going to release notes must be correct. At mid-cycle scope, this is expected drift that pre-tag artifact pass reconciles.
 **Fix:** No action mid-cycle. The pre-tag artifact pass (master plan Phase 8 equivalent) refreshes all three surfaces to match final v2.16.0 catalog before tag.
 
@@ -98,7 +98,7 @@ The expected outcome: 0 P0 findings (we just committed; CI was green), some P1/P
 | Utility skills | 6 | 8 | NO (P2 - utility-pm-critic + utility-pm-skill-auditor added) |
 | Tool skills | 15 | 15 | YES |
 | Sub-agents | 4 (planned per Pairing manifest) | 2 (authored as of HEAD) | EXPECTED (Phases 4-5 ship remaining 2) |
-| Commands | 62 | 64 | NO (P2 - /pm-critic + /pm-audit-repo added) |
+| Commands | 62 | 64 | NO (P2 - utility-pm-critic + utility-pm-skill-auditor added) |
 | Workflows | 12 | 12 | YES |
 | Enforcing validators | 27 | 27 | YES |
 | Family contracts | 3 | 3 | YES |

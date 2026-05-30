@@ -15,7 +15,7 @@ metadata:
 
 A lean canvas is a one-page business thesis that makes your assumptions about problem, customer, solution, and viability explicit and testable. Developed by Ash Maurya from Alex Osterwalder's Business Model Canvas, it is specifically adapted for startups and product teams operating under uncertainty. Nine interlocking blocks force you to articulate the whole picture at once so that changing one block's assumptions surfaces the ripple effect on the others.
 
-This skill is a strategic hub, not a specialist tool. It produces the integrated one-page artifact and cross-links to deeper PM skills (`/problem-statement`, `/persona`, `/jtbd-canvas`, `/solution-brief`, `/competitive-analysis`, `/experiment-design`) for single-block depth when needed.
+This skill is a strategic hub, not a specialist tool. It produces the integrated one-page artifact and cross-links to deeper PM skills (`define-problem-statement`, `foundation-persona`, `define-jtbd-canvas`, `develop-solution-brief`, `discover-competitive-analysis`, `measure-experiment-design`) for single-block depth when needed.
 
 ## Supported Modes
 
@@ -31,13 +31,13 @@ If mode is omitted, default to `content` and state that fallback explicitly.
 - Comparing two or more strategic options side-by-side (run the skill once per option, then diff)
 - Onboarding new team members into the strategic thesis in a single artifact
 - Mid-phase reality check: does the thesis still hold given what we have learned?
-- Pairing with `/experiment-design` to prioritize which block assumptions to test first
+- Pairing with `measure-experiment-design` to prioritize which block assumptions to test first
 
 ## When NOT to Use
 
-- You need deep research on a single block (persona detail, problem framing, competitive landscape). Use the specialist skill (`/persona`, `/problem-statement`, `/competitive-analysis`) instead.
-- You are drafting a PRD, user stories, or acceptance criteria. Use `/prd`, `/user-stories`, `/acceptance-criteria`; lean canvas is strategy, not specification.
-- You want to brainstorm solutions without a customer-problem anchor. Start with `/problem-statement` or `/jtbd-canvas` and return to lean canvas once the problem is framed.
+- You need deep research on a single block (persona detail, problem framing, competitive landscape). Use the specialist skill (`foundation-persona`, `define-problem-statement`, `discover-competitive-analysis`) instead.
+- You are drafting a PRD, user stories, or acceptance criteria. Use `deliver-prd`, `deliver-user-stories`, `deliver-acceptance-criteria`; lean canvas is strategy, not specification.
+- You want to brainstorm solutions without a customer-problem anchor. Start with `define-problem-statement` or `define-jtbd-canvas` and return to lean canvas once the problem is framed.
 - You need a Business Model Canvas for an established enterprise with known customers and channels. Maurya designed lean canvas specifically for high-uncertainty early-stage ventures; a BMC is a better fit for steady-state analysis.
 
 ## Instructions

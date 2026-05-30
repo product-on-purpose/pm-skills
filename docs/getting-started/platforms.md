@@ -36,7 +36,7 @@ Two install paths, depending on your Claude Code version.
 
 > Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](../releases/Release_v2.21.0.md).
 
-After install, all 63 skills resolve from any directory. Slash commands like `/prd`, `/opportunity-tree`, `/okr-writer`, `/agenda` work immediately. Verify with `/plugin list`.
+After install, all 63 skills resolve from any directory. Slash commands like `/pm-skills:deliver-prd`, `/pm-skills:define-opportunity-tree`, `/pm-skills:foundation-okr-writer`, `/agenda` work immediately. Verify with `/plugin list`.
 
 To track a local working copy instead of the published version (for forkers and contributors):
 
@@ -72,7 +72,7 @@ cd pm-skills
 Test with a real skill:
 
 ```
-/prd "Search feature for our e-commerce platform"
+/pm-skills:deliver-prd "Search feature for our e-commerce platform"
 ```
 
 You should see a complete PRD with problem statement, success metrics, user stories, scope, and technical considerations.

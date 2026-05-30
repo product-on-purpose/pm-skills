@@ -27,7 +27,7 @@ On April 11, 2026, Priya M. presented the Resurface A/B test results to Marco S.
 ## Prompt
 
 ```
-/pivot-decision
+iterate-pivot-decision
 
 post-experiment pivot decision for resurface. a/b test showed +5.3pp
 lift in 7-day return rate, p=0.008 [fictional]. all guardrails passed.

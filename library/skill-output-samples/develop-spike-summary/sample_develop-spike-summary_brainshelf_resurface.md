@@ -27,7 +27,7 @@ Before Sprint 8 planning, Priya M. asked Alex R. to run a 3-day spike to determi
 ## Prompt
 
 ```
-/spike-summary
+develop-spike-summary
 
 topic matching spike for resurface. alex spent 3 days on it last
 week. question: can we build something that picks saved items relevant

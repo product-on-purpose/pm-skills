@@ -16,9 +16,9 @@ context: Workbench enterprise B2B platform. Blueprints team Q3 2026 cycle review
 
 ## Scenario
 
-Workbench's Blueprints team is closing the Q3 2026 cycle. The OKR set was authored in late June using `/okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_workbench_blueprints-q3.md`). The cycle ended September 30. Final values are now in for KR1, KR2, KR3, and KR4.
+Workbench's Blueprints team is closing the Q3 2026 cycle. The OKR set was authored in late June using `foundation-okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_workbench_blueprints-q3.md`). The cycle ended September 30. Final values are now in for KR1, KR2, KR3, and KR4.
 
-The team wants a cycle review they can take to the Q4 enterprise customer business review. The Blueprints PM david-pm runs `/okr-grader` with the original OKR set, the final KR values, the cycle's narrative, and the initiative status.
+The team wants a cycle review they can take to the Q4 enterprise customer business review. The Blueprints PM david-pm runs `measure-okr-grader` with the original OKR set, the final KR values, the cycle's narrative, and the initiative status.
 
 The cycle had a complex result. Of the 12 contracted tier-1 enterprise onboardings (KR1, committed), 10 completed by September 30. Two healthcare accounts slipped to Q4 due to extended HIPAA security review timelines. Engagement among onboarded accounts (KR2, aspirational) landed in the aspirational sweet spot. The compliance_or_safety KR (KR3) is not-yet-fully-observable: only 1 of 3 committed healthcare audits completed in Q3 (zero critical findings on that one), with the other 2 deferred to Q4 alongside their delayed onboardings. KR4 (committed with guardrail indicator class) held. The Disclosure section in the original OKR set anticipated this kind of mixed result.
 
@@ -36,7 +36,7 @@ This sample exercises three scoring conventions the storevine and brainshelf sam
 ## Prompt
 
 ```
-/okr-grader
+measure-okr-grader
 
 Original OKR: see sample_foundation-okr-writer_workbench_blueprints-q3.md
 Cycle: Q3 2026 (July 1 to September 30, 2026)
@@ -240,7 +240,7 @@ the committed-KR miss should be treated as a postmortem trigger.
   - Impact: the committed KR target was set without contingency for
     HIPAA review variance. Future enterprise OKRs that include
     healthcare accounts must budget for this.
-  - Recommended fix: in next cycle's `/okr-writer` runs that include
+  - Recommended fix: in next cycle's `foundation-okr-writer` runs that include
     healthcare accounts, structure the committed-onboarding target as
     "X non-healthcare plus best-effort on healthcare" with explicit
     fallback per the original OKR's Open Question 1. Treat the
@@ -366,17 +366,17 @@ the committed-KR miss should be treated as a postmortem trigger.
    an explicit cross-team capacity commitment from data engineering.
 
 5. Hand-off:
-   - `/lessons-log` for the HIPAA review timing finding (this is a
+   - `iterate-lessons-log` for the HIPAA review timing finding (this is a
      structural FY-planning input that affects every future enterprise
      OKR with healthcare accounts).
-   - `/retrospective` for the team-process learning on cross-team
+   - `iterate-retrospective` for the team-process learning on cross-team
      capacity dependencies (Initiative 3's slip).
-   - `/hypothesis` for "vertical templates drive discoverability,
+   - `define-hypothesis` for "vertical templates drive discoverability,
      not just blank-canvas friction reduction" with an explicit test
      design for Q4.
-   - `/dashboard-requirements` for the customer-health dashboard if
+   - `measure-dashboard-requirements` for the customer-health dashboard if
      Initiative 3 is reaffirmed.
-   - `/okr-writer` for next-cycle drafting once the healthcare
+   - `foundation-okr-writer` for next-cycle drafting once the healthcare
      onboarding fallback structure and CS capacity decision are
      resolved.
 

@@ -26,7 +26,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-recap @campaigns-pricing-decision-transcript.txt @jonathan-live-notes.md
+foundation-meeting-recap @campaigns-pricing-decision-transcript.txt @jonathan-live-notes.md
 ```
 
 ## Output

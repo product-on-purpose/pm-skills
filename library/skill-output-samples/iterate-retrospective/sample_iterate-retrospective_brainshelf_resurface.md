@@ -26,7 +26,7 @@ Brainshelf shipped Resurface . a morning email digest resurfacing saved content 
 ## Prompt
 
 ```
-/retrospective
+iterate-retrospective
 
 sprint 8 retro . resurface launch sprint. need to write this up.
 

@@ -27,7 +27,7 @@ Two days after the Resurface feature shipped on February 16, 2026, Alex R. disco
 ## Prompt
 
 ```
-/lessons-log
+iterate-lessons-log
 
 lesson from: timezone bug at resurface launch
 what happened: ~340 UK/EU users got their digest at 7:30 UTC instead

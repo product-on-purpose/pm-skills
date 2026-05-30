@@ -27,7 +27,7 @@ After completing discovery interviews and a competitive analysis that surfaced s
 ## Prompt
 
 ```
-/jtbd-canvas
+define-jtbd-canvas
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Pre-PRD, grounding feature scope in JTBD framework before

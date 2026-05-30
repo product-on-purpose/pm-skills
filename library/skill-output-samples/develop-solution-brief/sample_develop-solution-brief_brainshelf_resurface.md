@@ -27,7 +27,7 @@ After the opportunity tree and JTBD canvas confirmed the re-engagement trigger g
 ## Prompt
 
 ```
-/solution-brief
+develop-solution-brief
 
 resurface one-pager for the team. need to get everyone on the same
 page before sprint 8 starts. marco wants to see it too.

@@ -25,7 +25,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-agenda "Campaigns feature launch kickoff; Thursday 2pm EST; 60 min; scope, capacity, launch target. Attendees: jonathan (PM), maria (eng lead), alex (marketing lead), sam (data analyst). Pre-read: scope doc and capacity model."
+foundation-meeting-agenda "Campaigns feature launch kickoff; Thursday 2pm EST; 60 min; scope, capacity, launch target. Attendees: jonathan (PM), maria (eng lead), alex (marketing lead), sam (data analyst). Pre-read: scope doc and capacity model."
 ```
 
 ## Output

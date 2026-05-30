@@ -27,7 +27,7 @@ Before Sprint 8 began, Chloe B. wrote the instrumentation spec for the Resurface
 ## Prompt
 
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 resurface analytics events for amplitude. need the full spec before
 sprint 8 starts so alex and jess can instrument during the build.

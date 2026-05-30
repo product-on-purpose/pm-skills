@@ -43,7 +43,7 @@ v1 to engineering.
 ## Prompt
 
 ```
-/prd
+deliver-prd
 
 Feature: Campaigns . native email marketing for Storevine merchants
 

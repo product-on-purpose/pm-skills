@@ -28,7 +28,7 @@ Storevine uses SendGrid for transactional emails (order confirmations, password 
 ## Prompt
 
 ```
-/adr
+develop-adr
 
 ADR for email sending infrastructure choice for Campaigns v1. We need to pick
 the vendor before we start the backend build.

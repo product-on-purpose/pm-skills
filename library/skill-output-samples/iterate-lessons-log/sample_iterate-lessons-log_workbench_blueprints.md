@@ -27,7 +27,7 @@ This lesson connects the full arc of the Blueprints narrative, from the problem 
 ## Prompt
 
 ```
-/lessons-log
+iterate-lessons-log
 
 I need to document a lesson learned from the Blueprints launch. Here's the context:
 

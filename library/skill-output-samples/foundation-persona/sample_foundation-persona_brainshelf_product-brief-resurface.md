@@ -27,7 +27,7 @@ Brainshelf is refining Resurface onboarding after launch-week analytics showed m
 ## Prompt
 
 ```text
-/persona product brief
+foundation-persona product brief
 
 Need a concise story-first product persona for Brainshelf Resurface activation work.
 

@@ -20,7 +20,7 @@ Storevine's Campaigns team shipped the guided first-campaign flow in May 2026 an
 
 For Q3 2026, the Campaigns growth-pm needs to set OKRs that move from "we activated more merchants" to "merchants use Campaigns as a sustained marketing channel." The forcing function is a company-level OKR to reduce 12-month merchant churn from 18% to 14% [fictional] by year-end. Engagement with Campaigns is one of the strongest leading indicators for merchant retention.
 
-The growth-pm runs `/okr-writer` in Guided mode (default).
+The growth-pm runs `foundation-okr-writer` in Guided mode (default).
 
 **Source Notes:**
 
@@ -34,7 +34,7 @@ The growth-pm runs `/okr-writer` in Guided mode (default).
 ## Prompt
 
 ```
-/okr-writer
+foundation-okr-writer
 
 Scope: Campaigns team, Storevine
 Cycle: Q3 2026 (July 1 to September 30)
@@ -253,7 +253,7 @@ just usage frequency.)
 
 ## Suggested Next Step
 
-Run `/okr-writer` again in Audit Only mode with this set after the cross-
+Run `foundation-okr-writer` again in Audit Only mode with this set after the cross-
 team Q3 planning workshop. Specifically check that the KR2 cohort
 boundary question (Open Question 1) is resolved and that the Onboarding
 team's KR confirmation does not invalidate KR1's denominator.

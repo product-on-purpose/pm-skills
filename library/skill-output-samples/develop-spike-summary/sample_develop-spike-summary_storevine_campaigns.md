@@ -27,7 +27,7 @@ After the opportunity tree identified revenue attribution as a launch-gate requi
 ## Prompt
 
 ```
-/spike-summary
+develop-spike-summary
 
 Spike: Revenue attribution feasibility . can SendGrid open/click webhooks
 be linked to Storevine purchase events within v1 timeline?

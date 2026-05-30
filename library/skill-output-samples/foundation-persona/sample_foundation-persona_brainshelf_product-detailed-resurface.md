@@ -27,7 +27,7 @@ Brainshelf's Resurface digest is driving strong early retention for casual users
 ## Prompt
 
 ```text
-/persona product detailed
+foundation-persona product detailed
 
 detailed persona for Brainshelf Resurface power curator segment.
 

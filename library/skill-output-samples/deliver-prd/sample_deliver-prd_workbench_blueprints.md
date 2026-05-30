@@ -33,7 +33,7 @@ The PRD synthesizes months of prior work: six enterprise team-lead interviews re
 ## Prompt
 
 ```
-/prd
+deliver-prd
 
 Here is the structured brief for the Blueprints v1 PRD.
 

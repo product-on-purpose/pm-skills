@@ -27,7 +27,7 @@ Workbench is a Series B enterprise collaboration platform (~200 employees, ~500 
 ## Prompt
 
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 Research project: Blueprints discovery interviews -- documentation consistency and governance in enterprise teams
 Product: Workbench (enterprise collaboration platform, Series B, ~500 enterprise customers [fictional])

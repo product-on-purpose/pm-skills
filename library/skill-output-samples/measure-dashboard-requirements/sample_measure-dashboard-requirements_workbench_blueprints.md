@@ -27,7 +27,7 @@ The dashboard draws from the instrumentation spec events (blueprint_created, sec
 ## Prompt
 
 ```
-/dashboard-requirements
+measure-dashboard-requirements
 
 I need dashboard requirements for the Blueprints post-launch monitoring dashboard. Here's the context:
 

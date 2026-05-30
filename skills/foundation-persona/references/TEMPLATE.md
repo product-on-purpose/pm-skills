@@ -1,8 +1,8 @@
 # Persona Output Templates (v2.5.0)
 
 Use exactly one template per output:
-- `Product Persona Template` for `/persona product`
-- `Marketing Persona Template` for `/persona marketing` (and `/persona buyer` alias)
+- `Product Persona Template` for `foundation-persona product`
+- `Marketing Persona Template` for `foundation-persona marketing` (and `foundation-persona buyer` alias)
 
 Do not mix sections from both templates in one output.
 

@@ -26,7 +26,7 @@ Storevine is a B2B inventory-forecasting platform heading to its first launch. T
 ## Prompt
 
 ```
-/prioritization-framework
+define-prioritization-framework
 
 we need to cut our storevine MVP from 12 features to 8 to hit the launch
 date. it's a B2B inventory forecasting platform. i don't have reach numbers

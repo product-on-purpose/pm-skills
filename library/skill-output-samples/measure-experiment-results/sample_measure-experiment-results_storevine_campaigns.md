@@ -27,7 +27,7 @@ Sixty days after the Campaigns GA, Storevine's growth PM documented the results 
 ## Prompt
 
 ```
-/experiment-results
+measure-experiment-results
 
 Experiment: Campaigns guided first-campaign flow A/B test
 Ran: April 28  -  June 27, 2026 (60 days from GA)

@@ -27,7 +27,7 @@ Storevine is preparing the GTM package for Campaigns, its built-in email and SMS
 ## Prompt
 
 ```text
-/persona marketing detailed
+foundation-persona marketing detailed
 
 Build a story-first marketing persona for Storevine Campaigns launch planning.
 

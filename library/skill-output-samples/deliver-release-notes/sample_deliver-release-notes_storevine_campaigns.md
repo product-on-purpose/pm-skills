@@ -27,7 +27,7 @@ As Campaigns approaches its April 28, 2026 GA, Storevine's growth PM worked with
 ## Prompt
 
 ```
-/release-notes
+deliver-release-notes
 
 Product: Storevine
 Release: Campaigns v1.0 . native email marketing, GA on Apr 28, 2026

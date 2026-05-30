@@ -27,7 +27,7 @@ Storevine launched Campaigns to general availability, but activation data reveal
 ## Prompt
 
 ```text
-/persona product brief
+foundation-persona product brief
 
 Build a concise product persona for Storevine Campaigns first-send onboarding.
 

@@ -26,8 +26,8 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 ## When NOT to Use
 
-- Preparing the agenda attendees will see. Use `/meeting-agenda` instead.
-- Post-meeting summarization. Use `/meeting-recap`.
+- Preparing the agenda attendees will see. Use `foundation-meeting-agenda` instead.
+- Post-meeting summarization. Use `foundation-meeting-recap`.
 - The meeting is low-stakes and well-trodden (recurring team sync, standup). A brief is overhead for these; the agenda alone is sufficient.
 
 ## Zero-friction execution
@@ -46,7 +46,7 @@ The skill runs on inferred stakeholder positions with low-confidence flags when 
 
 ## Anti-meeting check
 
-This skill opens with the shared anti-meeting check. see [`/meeting-agenda`](../foundation-meeting-agenda/SKILL.md) for the full check.
+This skill opens with the shared anti-meeting check. see [`foundation-meeting-agenda`](../foundation-meeting-agenda/SKILL.md) for the full check.
 
 **v1.1.0**: the check requires a positive synchronous-value statement (tradeoff to discuss, conflict to resolve, co-creation, relationship-building, or blocker escalation). Brief-prep scenarios most often pass because they typically involve navigating stakeholder positions or negotiation dynamics. which qualify as "conflict to resolve" or "relationship-building." But the check still runs, and if no synchronous value is named, the skill recommends the async alternative before producing a brief.
 
@@ -121,5 +121,5 @@ When asked to create a meeting brief, follow these steps:
 ## See also
 
 - [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md)
-- [`/meeting-agenda`](../foundation-meeting-agenda/SKILL.md). shares the anti-meeting check
+- [`foundation-meeting-agenda`](../foundation-meeting-agenda/SKILL.md). shares the anti-meeting check
 - [`/discover-stakeholder-summary`](../discover-stakeholder-summary/SKILL.md). upstream input source for stakeholder positions

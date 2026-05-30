@@ -17,13 +17,13 @@ Read the [Design Sprint concept doc](../concepts/design-sprint.md) for the frame
 
 ```mermaid
 flowchart LR
-    R[/tool-design-sprint-readiness<br/>Go / Conditional / Wait?/]
-    B[/tool-design-sprint-brief<br/>Pre-sprint scope contract/]
-    MT[/tool-design-sprint-map-and-target<br/>Long-term goal + sprint questions + target moment/]
-    SK[/tool-design-sprint-sketch<br/>Lightning demos + 4-step independent sketches/]
-    DS[/tool-design-sprint-decide-and-storyboard<br/>Heat map + supervote + storyboard/]
-    PP[/tool-design-sprint-prototype-plan<br/>Role plan + interview script + trial-run/]
-    TS[/tool-design-sprint-test-and-score<br/>5 interviews + scorecard + Decider call/]
+    R[tool-design-sprint-readiness<br/>Go / Conditional / Wait?/]
+    B[tool-design-sprint-brief<br/>Pre-sprint scope contract/]
+    MT[tool-design-sprint-map-and-target<br/>Long-term goal + sprint questions + target moment/]
+    SK[tool-design-sprint-sketch<br/>Lightning demos + 4-step independent sketches/]
+    DS[tool-design-sprint-decide-and-storyboard<br/>Heat map + supervote + storyboard/]
+    PP[tool-design-sprint-prototype-plan<br/>Role plan + interview script + trial-run/]
+    TS[tool-design-sprint-test-and-score<br/>5 interviews + scorecard + Decider call/]
     NV[tool-note-and-vote<br/>Mon HMW heat-map + Wed straw poll]
 
     R --> B --> MT --> SK --> DS --> PP --> TS
@@ -42,14 +42,14 @@ flowchart LR
 
 | Skill | When | Output |
 |-------|------|--------|
-| `/tool-design-sprint-readiness` | Before scheduling | Go, Conditional Go, or Wait recommendation + customer recruiting plan |
-| `/tool-design-sprint-brief` | Prep week | Two-page scope: challenge, sprint questions, team, recruiting, prototype medium, success criteria |
-| `/tool-design-sprint-map-and-target` | Monday | Long-term goal, sprint questions, customer/system map, HMW board, Decider's target moment |
-| `/tool-design-sprint-sketch` | Tuesday | Lightning demos + 4 independent solution sketches per team member |
-| `/tool-design-sprint-decide-and-storyboard` | Wednesday | Heat map, supervote, rumble-vs-all-in-one call, 5-15 panel storyboard |
-| `/tool-design-sprint-prototype-plan` | Thursday morning | Role plan, Five-Act interview script, trial-run checklist |
-| `/tool-design-sprint-test-and-score` | Friday | 5 customer interviews, scorecard, Decider's build/iterate/pivot/stop call |
-| `/tool-note-and-vote` | Monday HMW + Wednesday straw poll | Structured group decision moments |
+| `/pm-skills:tool-design-sprint-readiness` | Before scheduling | Go, Conditional Go, or Wait recommendation + customer recruiting plan |
+| `/pm-skills:tool-design-sprint-brief` | Prep week | Two-page scope: challenge, sprint questions, team, recruiting, prototype medium, success criteria |
+| `/pm-skills:tool-design-sprint-map-and-target` | Monday | Long-term goal, sprint questions, customer/system map, HMW board, Decider's target moment |
+| `/pm-skills:tool-design-sprint-sketch` | Tuesday | Lightning demos + 4 independent solution sketches per team member |
+| `/pm-skills:tool-design-sprint-decide-and-storyboard` | Wednesday | Heat map, supervote, rumble-vs-all-in-one call, 5-15 panel storyboard |
+| `/pm-skills:tool-design-sprint-prototype-plan` | Thursday morning | Role plan, Five-Act interview script, trial-run checklist |
+| `/pm-skills:tool-design-sprint-test-and-score` | Friday | 5 customer interviews, scorecard, Decider's build/iterate/pivot/stop call |
+| `/pm-skills:tool-note-and-vote` | Monday HMW + Wednesday straw poll | Structured group decision moments |
 
 ## Your first Design Sprint
 
@@ -58,7 +58,7 @@ Imagine you have a specific product question that needs validation before commit
 ### Step 0. Readiness check (30-45 minutes, 1-2 weeks before)
 
 ```bash
-/tool-design-sprint-readiness "We want to test [challenge]. Decider is [name]. Customer access via [source]."
+/pm-skills:tool-design-sprint-readiness "We want to test [challenge]. Decider is [name]. Customer access via [source]."
 ```
 
 This produces a Go / Conditional Go / Wait verdict against 8 canonical readiness criteria: challenge sprint-worthiness, stakes, Decider availability, team size (4-7), 5-day clearable, customer access for Friday, prototype medium feasibility, and downstream path. The most common failure mode is starting a sprint that should not have been started; this skill catches that before you burn 35-40 person-days plus customer-recruiting cost.
@@ -68,7 +68,7 @@ If the verdict is Go, the skill also produces a customer recruiting plan with ta
 ### Step 1. Brief (60-90 minutes, prep week)
 
 ```bash
-/tool-design-sprint-brief "Continuing from readiness verdict. Recruiting closed. Lock the brief."
+/pm-skills:tool-design-sprint-brief "Continuing from readiness verdict. Recruiting closed. Lock the brief."
 ```
 
 The brief is the contract for the next five days. It locks the challenge statement, 2-4 sprint questions (the lead question is usually the highest-risk assumption from a prior Foundation Sprint), Decider attendance windows (Mon AM + Wed AM + Fri PM at minimum), team roster per day, customer recruiting plan, prototype medium choice (clickable / slideware / role-play / paper / physical mock), interview format (live / remote / moderated), logistics, and success criteria. Two pages maximum.
@@ -76,17 +76,17 @@ The brief is the contract for the next five days. It locks the challenge stateme
 ### Step 2. Monday: Map and Target (90-120 min facilitated + expert interviews + HMW)
 
 ```bash
-/tool-design-sprint-map-and-target "Monday workshop, target customer is [X], we want to test [Y]."
+/pm-skills:tool-design-sprint-map-and-target "Monday workshop, target customer is [X], we want to test [Y]."
 ```
 
-Monday produces a long-term goal (1-5 years out, aspirational), 3-7 refined sprint questions (converting team fears into testable risks), a 5-15 step customer or system map, expert interview notes from 2-4 cameo experts, an HMW (How Might We) cluster board with 30-100+ HMWs in 4-8 themes (heat-mapped via `/tool-note-and-vote`), and the Decider's target moment selection.
+Monday produces a long-term goal (1-5 years out, aspirational), 3-7 refined sprint questions (converting team fears into testable risks), a 5-15 step customer or system map, expert interview notes from 2-4 cameo experts, an HMW (How Might We) cluster board with 30-100+ HMWs in 4-8 themes (heat-mapped via `/pm-skills:tool-note-and-vote`), and the Decider's target moment selection.
 
 The target moment is the load-bearing choice of Monday. Tuesday's sketches and Wednesday's storyboard both begin from this single point. If the Decider cannot pick a target moment by 17:00 Monday, Tuesday's work disperses with no shared direction.
 
 ### Step 3. Tuesday: Sketch (~7 hours including silent independent work)
 
 ```bash
-/tool-design-sprint-sketch "Tuesday workshop, target moment locked. Run lightning demos + 4-step protocol."
+/pm-skills:tool-design-sprint-sketch "Tuesday workshop, target moment locked. Run lightning demos + 4-step protocol."
 ```
 
 Tuesday's skill ORCHESTRATES the day but does not author the sketches themselves. Each team member presents 3 lightning demos in the morning (Facilitator extracts a reusable pattern from each), then runs the four-step protocol INDIVIDUALLY and SILENTLY: Notes (20 min reviewing) + Ideas (20 min rough doodles) + Crazy 8s (8 min with 8 variations) + Solution Sketch (30-90 min final 3-panel storyboard-style sketch).
@@ -98,7 +98,7 @@ End of Tuesday: sketches collected, attribution stripped (Wednesday's heat-map i
 ### Step 4. Wednesday: Decide and Storyboard (180-240 min; the most decision-heavy day)
 
 ```bash
-/tool-design-sprint-decide-and-storyboard "Wednesday workshop. 4 sketches anonymized as A/B/C/D in shared workspace."
+/pm-skills:tool-design-sprint-decide-and-storyboard "Wednesday workshop. 4 sketches anonymized as A/B/C/D in shared workspace."
 ```
 
 Wednesday runs the art museum layout (sketches posted anonymously on a wall or shared Figma board), the heat map (silent dot-vote stickers on compelling parts), speed critique (3 min per sketch; sketcher silent during own critique), straw poll (1 dot per voter; non-binding), Decider supervote (Sprint book canonical 3 dots placed by the Decider), rumble-vs-all-in-one decision (default all-in-one for v0.1 sprints), and the 5-15 panel storyboard that drives Thursday's prototype build.
@@ -110,7 +110,7 @@ The storyboard must be specific enough that Thursday's builders can begin withou
 ### Step 5. Thursday: Prototype Plan + Craft Build (90 min planning + rest-of-day building)
 
 ```bash
-/tool-design-sprint-prototype-plan "Thursday morning. Storyboard locked. Assign roles + draft script + define trial-run."
+/pm-skills:tool-design-sprint-prototype-plan "Thursday morning. Storyboard locked. Assign roles + draft script + define trial-run."
 ```
 
 Thursday morning produces the planning artifact: the 5 canonical Sprint book roles assigned (Maker, Stitcher, Writer, Asset Collector, Interviewer), prototype brief (what to build, fidelity bar, time allocation, explicitly NOT being built), the Five-Act Interview script (Welcome, Context, Intro, Tasks, Debrief; Tasks act is team-supplied wording from the storyboard, others are mostly canonical), trial-run checklist, and Friday participant confirmation tracker.
@@ -120,7 +120,7 @@ The build itself is craft activity outside the skill's invocation surface. Figma
 ### Step 6. Friday: Test and Score (~9 hours; the sprint's payoff)
 
 ```bash
-/tool-design-sprint-test-and-score "Friday testing day. 5 customers scheduled. Run interviews + scorecard + Decider review."
+/pm-skills:tool-design-sprint-test-and-score "Friday testing day. 5 customers scheduled. Run interviews + scorecard + Decider review."
 ```
 
 Friday is the longest day: 5 customer interviews starting 09:00, ending ~16:30, plus synthesis through ~17:30 for the Decider call. Each interview follows the Five-Act script; the team observes from a breakout room and captures observations continuously.

@@ -17,10 +17,10 @@ description: User-facing overview for invoking pm-skills sub-agents (pm-critic, 
 
 | Sub-agent | Slash command | When to use |
 |---|---|---|
-| `pm-critic` | `/pm-critic [optional path]` | After producing a PM artifact (PRD, OKR set, persona, etc.) - get adversarial review with P0/P1/P2/P3 findings |
-| `pm-skill-auditor` | `/pm-audit-repo [--scope] [--severity-floor]` | Pre-release governance audit or repo-health check |
-| `pm-changelog-curator` | `/pm-draft-changelog [--since-tag] [--target-version]` | Release prep: draft CHANGELOG from git log |
-| `pm-release-conductor` | `/pm-release v{X.Y.Z} [--dry-run]` | Walk the full 6-gate release runbook |
+| `pm-critic` | `/pm-skills:utility-pm-critic [optional path]` | After producing a PM artifact (PRD, OKR set, persona, etc.) - get adversarial review with P0/P1/P2/P3 findings |
+| `pm-skill-auditor` | `/pm-skills:utility-pm-skill-auditor [--scope] [--severity-floor]` | Pre-release governance audit or repo-health check |
+| `pm-changelog-curator` | `/pm-skills:utility-pm-changelog-curator [--since-tag] [--target-version]` | Release prep: draft CHANGELOG from git log |
+| `pm-release-conductor` | `/pm-skills:utility-pm-release-conductor v{X.Y.Z} [--dry-run]` | Walk the full 6-gate release runbook |
 
 All four are documented in [`docs/reference/runtime-components.md`](../reference/runtime-components.md) catalog with full metadata.
 
@@ -45,14 +45,14 @@ The proactive trigger fires after: deliver-prd, foundation-meeting-recap, founda
 Each sub-agent has a companion slash command:
 
 ```
-/pm-critic                            # Reviews the most recent artifact in session context
-/pm-critic docs/specs/my-prd.md       # Reviews the specified artifact
-/pm-audit-repo                        # Runs the full repo audit
-/pm-audit-repo --scope changed        # Audit only working-tree-changed files
-/pm-draft-changelog                   # Drafts entries since the most recent tag
-/pm-draft-changelog --since-tag v2.15.0 --target-version v2.16.0
-/pm-release v2.16.0 --dry-run         # Rehearse the release flow
-/pm-release v2.16.0                   # Live release
+/pm-skills:utility-pm-critic                            # Reviews the most recent artifact in session context
+/pm-skills:utility-pm-critic docs/specs/my-prd.md       # Reviews the specified artifact
+/pm-skills:utility-pm-skill-auditor                        # Runs the full repo audit
+/pm-skills:utility-pm-skill-auditor --scope changed        # Audit only working-tree-changed files
+/pm-skills:utility-pm-changelog-curator                   # Drafts entries since the most recent tag
+/pm-skills:utility-pm-changelog-curator --since-tag v2.15.0 --target-version v2.16.0
+/pm-skills:utility-pm-release-conductor v2.16.0 --dry-run         # Rehearse the release flow
+/pm-skills:utility-pm-release-conductor v2.16.0                   # Live release
 ```
 
 ### Pattern 3: @-mention (3 sub-agents; not conductor)
@@ -65,7 +65,7 @@ Each sub-agent has a companion slash command:
 @agent-pm-changelog-curator draft since v2.15.0
 ```
 
-The conductor (`pm-release-conductor`) does NOT support @-mention because release operations are too consequential for ambient spawning. Explicit `/pm-release v{X.Y.Z}` is required.
+The conductor (`pm-release-conductor`) does NOT support @-mention because release operations are too consequential for ambient spawning. Explicit `/pm-skills:utility-pm-release-conductor v{X.Y.Z}` is required.
 
 ### Pattern 4: Sub-agent chain (conductor -> auditor + curator)
 
@@ -111,7 +111,7 @@ Three sub-agents are maintainer-focused:
 Run pre-release for a governance check, or anytime for repo health:
 
 ```
-/pm-audit-repo
+/pm-skills:utility-pm-skill-auditor
 ```
 
 Output: full findings report + aggregate counter audit + Status Summary + Status YAML. P0 findings are release-blockers; P1+ are surfaced for judgment. The audit invokes the full validator suite via `scripts/pre-tag-validate.{sh,ps1}` plus the 14-check cross-cutting catalog.
@@ -121,7 +121,7 @@ Output: full findings report + aggregate counter audit + Status Summary + Status
 Run during release prep to draft CHANGELOG entries:
 
 ```
-/pm-draft-changelog --since-tag v2.15.0 --target-version v2.16.0
+/pm-skills:utility-pm-changelog-curator --since-tag v2.15.0 --target-version v2.16.0
 ```
 
 Refuses on dirty working tree unless `--committed-only` is passed (acknowledges uncommitted release-prep changes will be silently omitted). Output: layered CHANGELOG draft with hidden justification comments for maintainer audit.
@@ -131,8 +131,8 @@ Refuses on dirty working tree unless `--committed-only` is passed (acknowledges 
 The conductor IS the release flow; standalone invocation is the only path:
 
 ```
-/pm-release v2.16.0           # Live
-/pm-release v2.16.0 --dry-run # Rehearse without tag + push
+/pm-skills:utility-pm-release-conductor v2.16.0           # Live
+/pm-skills:utility-pm-release-conductor v2.16.0 --dry-run # Rehearse without tag + push
 ```
 
 Walks 6 gates with chain composition. Refuses bypass attempts. Refuses to tag any SHA other than the one G2.5 captured (prevents broken-tag class of bug per master plan D22).
@@ -155,18 +155,18 @@ Claude: [pm-critic auto-fires again]
 ### Workflow 2: Pre-release governance audit
 
 ```
-You: /pm-audit-repo --severity-floor P1
+You: /pm-skills:utility-pm-skill-auditor --severity-floor P1
 Claude: [pm-skill-auditor runs full audit]
         [returns layered output with findings + aggregate counter audit]
 You: [resolve any P0 findings; defer P1/P2/P3 as appropriate]
-You: /pm-audit-repo --severity-floor P1
+You: /pm-skills:utility-pm-skill-auditor --severity-floor P1
 [Re-run until clean]
 ```
 
 ### Workflow 3: Full release with chain composition
 
 ```
-You: /pm-release v2.16.0
+You: /pm-skills:utility-pm-release-conductor v2.16.0
 Claude: [pm-release-conductor starts G0]
         [chains to pm-skill-auditor; returns audit Status YAML]
         [G0 PASS - proceed?]
@@ -182,7 +182,7 @@ Claude: Release complete: v2.16.0
 ### Workflow 4: Dry-run release rehearsal
 
 ```
-You: /pm-release v2.16.0 --dry-run
+You: /pm-skills:utility-pm-release-conductor v2.16.0 --dry-run
 Claude: [walks all 6 gates without actual tag + push at G3]
 Claude: NOT RELEASABLE - dry run
         All 6 gates would PASS in live mode.
@@ -210,12 +210,12 @@ Claude: NOT RELEASABLE - dry run
 **Solution:** either commit your WIP first, OR pass `--committed-only` to acknowledge the scope:
 
 ```
-/pm-draft-changelog --committed-only --since-tag v2.15.0
+/pm-skills:utility-pm-changelog-curator --committed-only --since-tag v2.15.0
 ```
 
 ### Problem: pm-release-conductor fails G0
 
-**Solution:** fix the underlying issue and re-invoke `/pm-release`. The conductor refuses bypass; G0 is idempotent (re-runs from scratch on each invocation).
+**Solution:** fix the underlying issue and re-invoke `/pm-skills:utility-pm-release-conductor`. The conductor refuses bypass; G0 is idempotent (re-runs from scratch on each invocation).
 
 ### Problem: pm-release-conductor refuses to tag a different SHA
 

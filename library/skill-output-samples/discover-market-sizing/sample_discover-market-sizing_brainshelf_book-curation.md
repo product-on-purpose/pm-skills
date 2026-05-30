@@ -27,7 +27,7 @@ Brainshelf is a B2C subscription that uses AI to curate personalized book recomm
 ## Prompt
 
 ```
-/market-sizing
+discover-market-sizing
 
 size the US market for brainshelf - an AI book-recommendation subscription
 for avid readers. consumer subscription, ~$8/month. need it for a seed deck.

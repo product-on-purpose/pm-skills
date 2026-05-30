@@ -26,7 +26,7 @@ Brainshelf is a post-seed consumer read-later and PKM app, about 20 people, with
 ## Prompt
 
 ```text
-/lean-canvas
+foundation-lean-canvas
 
 quick lean canvas for Resurface (morning email digest of saved stuff).
 

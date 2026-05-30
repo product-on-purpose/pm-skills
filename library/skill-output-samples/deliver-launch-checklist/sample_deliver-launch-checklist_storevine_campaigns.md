@@ -27,7 +27,7 @@ Four weeks before the Campaigns GA date of April 28, 2026, Storevine's growth PM
 ## Prompt
 
 ```
-/launch-checklist
+deliver-launch-checklist
 
 Feature: Campaigns v1.0 . native email marketing for Storevine merchants
 Launch date: April 28, 2026

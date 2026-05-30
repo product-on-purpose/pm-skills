@@ -27,7 +27,7 @@ After completing eight merchant interviews that identified setup complexity as t
 ## Prompt
 
 ```
-/hypothesis
+define-hypothesis
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Post-discovery, pre-PRD finalization

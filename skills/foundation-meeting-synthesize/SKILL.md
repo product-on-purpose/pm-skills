@@ -30,8 +30,8 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 ## When NOT to Use
 
-- Single-meeting summary. Use `/meeting-recap` instead.
-- Communicating outcomes outward. Use `/stakeholder-update`.
+- Single-meeting summary. Use `foundation-meeting-recap` instead.
+- Communicating outcomes outward. Use `foundation-stakeholder-update`.
 - User research conversation synthesis. Use `/discover-interview-synthesis`.
 
 ## Zero-friction execution
@@ -128,5 +128,5 @@ When asked to create a meeting synthesis, follow these steps:
 ## See also
 
 - [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md)
-- [`/meeting-recap`](../foundation-meeting-recap/SKILL.md). upstream: primary input source
+- [`foundation-meeting-recap`](../foundation-meeting-recap/SKILL.md). upstream: primary input source
 - [`/discover-interview-synthesis`](../discover-interview-synthesis/SKILL.md). sibling pattern for user-research conversations (different domain)

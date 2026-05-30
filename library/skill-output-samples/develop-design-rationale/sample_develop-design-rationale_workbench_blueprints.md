@@ -27,7 +27,7 @@ Workbench is a Series B enterprise collaboration platform (~200 employees, ~500 
 ## Prompt
 
 ```
-/design-rationale
+develop-design-rationale
 
 Decision: Blueprint creation flow -- guided wizard vs. blank canvas
 Product: Workbench Blueprints (enterprise doc templates with required sections and approval gates)

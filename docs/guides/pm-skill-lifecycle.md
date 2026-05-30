@@ -17,27 +17,27 @@ PM skills evolve along two axes:
 ```mermaid
 flowchart LR
     subgraph Author["Author axis . evolve the library"]
-        Create["/pm-skill-builder<br/>Create"] --> Validate["/pm-skill-validate<br/>Validate"]
+        Create["utility-pm-skill-builder<br/>Create"] --> Validate["utility-pm-skill-validate<br/>Validate"]
         Validate --> Decision{Findings?}
         Decision -- "PASS" --> Ship["Ship to repo"]
-        Decision -- "WARN / FAIL" --> Iterate["/pm-skill-iterate<br/>Iterate"]
+        Decision -- "WARN / FAIL" --> Iterate["utility-pm-skill-iterate<br/>Iterate"]
         Iterate --> Validate
     end
 
     Ship --> Release[(pm-skills<br/>release)]
 
     subgraph Consumer["Consumer axis . stay current"]
-        Release --> Update["/update-pm-skills<br/>Update"]
+        Release --> Update["utility-update-pm-skills<br/>Update"]
         Update --> Local[(Local<br/>installation)]
     end
 ```
 
 | Tool | Axis | Command | What it does |
 |------|------|---------|-------------|
-| **Builder** | Author | `/pm-skill-builder` | Creates a new skill from an idea . gap analysis, classification, draft files, staging, promotion |
-| **Validator** | Author | `/pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria . produces a report |
-| **Iterator** | Author | `/pm-skill-iterate` | Applies targeted improvements to an existing skill . previews changes, writes on confirmation |
-| **Updater** | Consumer | `/update-pm-skills` | Checks for newer pm-skills releases, previews changes, and applies the update with confirmation |
+| **Builder** | Author | `/pm-skills:utility-pm-skill-builder` | Creates a new skill from an idea . gap analysis, classification, draft files, staging, promotion |
+| **Validator** | Author | `/pm-skills:utility-pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria . produces a report |
+| **Iterator** | Author | `/pm-skills:utility-pm-skill-iterate` | Applies targeted improvements to an existing skill . previews changes, writes on confirmation |
+| **Updater** | Consumer | `/pm-skills:utility-update-pm-skills` | Checks for newer pm-skills releases, previews changes, and applies the update with confirmation |
 
 ### Why four tools instead of one?
 
@@ -58,12 +58,12 @@ The updater is used after the authoring loop has shipped a new release. It answe
 
 ```mermaid
 flowchart LR
-    Status["/update-pm-skills --status<br/>quick version check"] --> Decision{Newer<br/>release?}
+    Status["utility-update-pm-skills --status<br/>quick version check"] --> Decision{Newer<br/>release?}
     Decision -- "No" --> Done["Up to date"]
-    Decision -- "Yes" --> Preview["/update-pm-skills --report-only<br/>preview changes"]
+    Decision -- "Yes" --> Preview["utility-update-pm-skills --report-only<br/>preview changes"]
     Preview --> Apply{"Apply?"}
     Apply -- "No" --> Keep["Keep current version"]
-    Apply -- "Yes" --> Run["/update-pm-skills<br/>full update"]
+    Apply -- "Yes" --> Run["utility-update-pm-skills<br/>full update"]
     Run --> Smoke["Post-update smoke test +<br/>value-delta report"]
 ```
 
@@ -75,15 +75,15 @@ Key safety properties: validated-before-copy, optional backup, value-delta repor
 
 | I want to... | Use |
 |-------------|-----|
-| Create a new PM skill from an idea | `/pm-skill-builder` |
-| Check if a skill meets repo conventions | `/pm-skill-validate {skill}` |
-| Audit all skills after a convention change | `/pm-skill-validate --all` |
-| Fix issues found by the validator | `/pm-skill-iterate {skill}` with the validation report |
-| Apply specific feedback to a skill | `/pm-skill-iterate {skill} "feedback"` |
-| Improve a skill's example or template | `/pm-skill-iterate {skill} "make the example more realistic"` |
-| Check if my local pm-skills is out of date | `/update-pm-skills --status` |
-| Preview what an update would change | `/update-pm-skills --report-only` |
-| Apply the latest pm-skills release locally | `/update-pm-skills` |
+| Create a new PM skill from an idea | `/pm-skills:utility-pm-skill-builder` |
+| Check if a skill meets repo conventions | `/pm-skills:utility-pm-skill-validate {skill}` |
+| Audit all skills after a convention change | `/pm-skills:utility-pm-skill-validate --all` |
+| Fix issues found by the validator | `/pm-skills:utility-pm-skill-iterate {skill}` with the validation report |
+| Apply specific feedback to a skill | `/pm-skills:utility-pm-skill-iterate {skill} "feedback"` |
+| Improve a skill's example or template | `/pm-skills:utility-pm-skill-iterate {skill} "make the example more realistic"` |
+| Check if my local pm-skills is out of date | `/pm-skills:utility-update-pm-skills --status` |
+| Preview what an update would change | `/pm-skills:utility-update-pm-skills --report-only` |
+| Apply the latest pm-skills release locally | `/pm-skills:utility-update-pm-skills` |
 
 ---
 
@@ -94,13 +94,13 @@ Key safety properties: validated-before-copy, optional backup, value-delta repor
 Create a skill from scratch, validate it, fix any issues, and ship.
 
 ```
-/pm-skill-builder "A skill for creating stakeholder update emails"
+/pm-skills:utility-pm-skill-builder "A skill for creating stakeholder update emails"
   → Builder runs gap analysis, classifies, generates draft files
   → Promotes files to canonical locations
 
-/pm-skill-validate stakeholder-update-email
+/pm-skills:utility-pm-skill-validate stakeholder-update-email
   → Produces validation report (should be mostly PASS for builder output)
-  → Fix any findings manually or with /pm-skill-iterate
+  → Fix any findings manually or with /pm-skills:utility-pm-skill-iterate
 
 commit and ship
 ```
@@ -112,16 +112,16 @@ commit and ship
 Validate first to identify what needs work, then iterate to fix it.
 
 ```
-/pm-skill-validate deliver-prd
+/pm-skills:utility-pm-skill-validate deliver-prd
   → Report shows: WARN on output-contract-coverage, INFO on when-not-to-use
 
-/pm-skill-iterate deliver-prd
+/pm-skills:utility-pm-skill-iterate deliver-prd
   → Paste or reference the validation report
   → Iterator normalizes findings into intended changes
   → Preview → confirm → apply
   → Suggests version bump (patch for clarifications, minor for new sections)
 
-/pm-skill-validate deliver-prd
+/pm-skills:utility-pm-skill-validate deliver-prd
   → Confirm the issues are resolved
 
 commit and ship
@@ -134,14 +134,14 @@ commit and ship
 A repo convention changed (e.g., "all skills must have a Limitations section"). Audit all skills to see which need updating, then iterate each one.
 
 ```
-/pm-skill-validate --all
+/pm-skills:utility-pm-skill-validate --all
   → Batch summary table shows which skills fail the new convention
   → Identify the affected skills
 
-/pm-skill-validate deliver-prd
+/pm-skills:utility-pm-skill-validate deliver-prd
   → Detailed report for one affected skill
 
-/pm-skill-iterate deliver-prd
+/pm-skills:utility-pm-skill-iterate deliver-prd
   → "Add a Limitations section per the new convention"
   → Preview → confirm → apply
 
@@ -157,12 +157,12 @@ commit and ship
 You received feedback on a skill (from a user, a review, or your own testing). Apply it directly, then validate.
 
 ```
-/pm-skill-iterate deliver-prd "The example uses a B2C scenario but most users are B2B . rewrite with a SaaS enterprise example"
+/pm-skills:utility-pm-skill-iterate deliver-prd "The example uses a B2C scenario but most users are B2B . rewrite with a SaaS enterprise example"
   → Iterator reads current files
   → Normalizes feedback into intended changes (EXAMPLE.md rewrite)
   → Preview → confirm → apply
 
-/pm-skill-validate deliver-prd
+/pm-skills:utility-pm-skill-validate deliver-prd
   → Confirm the skill still passes after the change
 
 commit and ship
@@ -194,12 +194,12 @@ For the full versioning governance, see `docs/internal/skill-versioning.md`.
 
 The repo has CI scripts that run on every push and PR (see `.github/workflows/validation.yml`). The validator goes deeper:
 
-| | CI Scripts | `/pm-skill-validate` |
+| | CI Scripts | `/pm-skills:utility-pm-skill-validate` |
 |-|-----------|---------------------|
 | **What it checks** | Structure: frontmatter fields, file presence, naming, word count | Structure (same as CI) + quality: output contract coverage, example completeness, checklist verifiability, placeholder leakage |
 | **How it runs** | Automated on push/PR | Interactive, on demand |
 | **Output** | Pass/fail per file | Structured report with severity levels, check IDs, target file paths, and actionable recommendations |
-| **Who consumes it** | GitHub Actions | You, or `/pm-skill-iterate` |
+| **Who consumes it** | GitHub Actions | You, or `/pm-skills:utility-pm-skill-iterate` |
 | **When to use** | Always (runs automatically) | Before shipping a new or modified skill, or when auditing quality |
 
 **Rule of thumb:** If CI passes, the skill is *structurally valid*. If the validator passes, the skill is *structurally valid and quality-checked*.
@@ -212,7 +212,7 @@ The validator checks skills against two standards:
 
 1. **Current library conventions** . what the shipped library actually does today. These are the checks that matter for structural compliance. Failures here mean something is genuinely wrong.
 
-2. **The v2.8 standard** . what newly-built skills (created with `/pm-skill-builder`) meet. These are surfaced as WARN or INFO findings on older skills.
+2. **The v2.8 standard** . what newly-built skills (created with `/pm-skills:utility-pm-skill-builder`) meet. These are surfaced as WARN or INFO findings on older skills.
 
 This means **older skills may legitimately receive quality findings** when validated. That's expected . the library converges toward the higher standard over time through the lifecycle, not retroactively. Each iteration brings a skill closer to the current standard.
 
@@ -231,10 +231,10 @@ flowchart LR
 
 | Action | Command |
 |--------|---------|
-| Create a new skill | `/pm-skill-builder "description"` |
-| Validate one skill | `/pm-skill-validate {skill-name}` |
-| Validate all skills (structural only) | `/pm-skill-validate --all` |
-| Iterate with validation report | `/pm-skill-iterate {skill-name}` + paste report |
-| Iterate with feedback | `/pm-skill-iterate {skill-name} "feedback"` |
+| Create a new skill | `/pm-skills:utility-pm-skill-builder "description"` |
+| Validate one skill | `/pm-skills:utility-pm-skill-validate {skill-name}` |
+| Validate all skills (structural only) | `/pm-skills:utility-pm-skill-validate --all` |
+| Iterate with validation report | `/pm-skills:utility-pm-skill-iterate {skill-name}` + paste report |
+| Iterate with feedback | `/pm-skills:utility-pm-skill-iterate {skill-name} "feedback"` |
 | Check skill structure (anatomy) | See [PM-Skill Anatomy](../reference/pm-skill-anatomy.md) |
 | Check versioning rules | See `docs/internal/skill-versioning.md` |

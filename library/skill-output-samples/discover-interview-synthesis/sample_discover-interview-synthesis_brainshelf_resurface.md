@@ -27,7 +27,7 @@ In January 2026, Brainshelf's PM conducted 7 semi-structured user interviews ove
 ## Prompt
 
 ```
-/interview-synthesis
+discover-interview-synthesis
 
 ran 7 user interviews over the past 2 weeks about why people save stuff
 to brainshelf but never go back to read it. need to synthesize the findings.

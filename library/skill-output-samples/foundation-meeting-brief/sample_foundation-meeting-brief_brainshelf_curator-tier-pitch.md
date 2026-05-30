@@ -24,7 +24,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-brief "weekly product mtg tomorrow, pitching curator tier to leo and noor, leo prob skeptical noor open, 30 min"
+foundation-meeting-brief "weekly product mtg tomorrow, pitching curator tier to leo and noor, leo prob skeptical noor open, 30 min"
 ```
 
 ## Output

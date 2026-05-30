@@ -15,7 +15,7 @@ metadata:
 
 A stakeholder update is async communication to readers who need to know the outcomes of a meeting. Primary audience is non-attendees; secondary audience is some attendees who want a reference version (came in late, stepped out, need something to forward).
 
-Distinct from `/meeting-recap` in audience, format, and purpose: the recap is a summary of what happened for people who were in the room; the stakeholder-update is a translation of outcomes into what-it-means for readers (tailored to their role, with technical-to-business translation where the audience warrants it).
+Distinct from `foundation-meeting-recap` in audience, format, and purpose: the recap is a summary of what happened for people who were in the room; the stakeholder-update is a translation of outcomes into what-it-means for readers (tailored to their role, with technical-to-business translation where the audience warrants it).
 
 Distinct from `/discover-stakeholder-summary`: that skill is about understanding stakeholders (input to the user's work). This skill is about communicating to stakeholders (output from the user's work).
 
@@ -30,7 +30,7 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 ## When NOT to Use
 
-- Summarizing what happened for attendees. Use `/meeting-recap`.
+- Summarizing what happened for attendees. Use `foundation-meeting-recap`.
 - Broadcasting status with no specific audience tailoring. A plain Slack message is sufficient; the skill adds value when translation or CTA framing matters.
 - Communicating research findings to stakeholders. Use `/discover-interview-synthesis` plus targeted comms.
 
@@ -101,5 +101,5 @@ When asked to create a stakeholder update, follow these steps:
 ## See also
 
 - [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md)
-- [`/meeting-recap`](../foundation-meeting-recap/SKILL.md). upstream: primary input source
+- [`foundation-meeting-recap`](../foundation-meeting-recap/SKILL.md). upstream: primary input source
 - [`/discover-stakeholder-summary`](../discover-stakeholder-summary/SKILL.md). distinct purpose (understanding stakeholders, not communicating to them)

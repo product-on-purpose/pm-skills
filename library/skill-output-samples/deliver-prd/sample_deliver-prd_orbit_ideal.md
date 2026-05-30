@@ -27,7 +27,7 @@ Orbit is a B2B async workspace platform at Series B, scaling from SMB to mid-mar
 ## Prompt
 
 ```
-/prd
+deliver-prd
 
 Feature: Orbit Digest
 Phase: Deliver . ready for engineering handoff

@@ -27,7 +27,7 @@ With the PRD finalized and the engineering ADR signed off, Storevine's growth PM
 ## Prompt
 
 ```
-/solution-brief
+develop-solution-brief
 
 Project: Campaigns . native email marketing for Storevine merchants
 

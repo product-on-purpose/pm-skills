@@ -27,7 +27,7 @@ Brainshelf's PM built an opportunity solution tree mapping three user-facing opp
 ## Prompt
 
 ```
-/opportunity-tree
+define-opportunity-tree
 
 outcome: increase 7-day return rate from 18% to 25% [fictional]
 by end of Q2 2026.

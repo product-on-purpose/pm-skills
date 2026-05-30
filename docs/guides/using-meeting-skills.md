@@ -15,12 +15,12 @@ Read the [family contract](../reference/skill-families/meeting-skills-contract.m
 
 ```mermaid
 graph LR
-    Brief[/meeting-brief<br/>private strategic prep/]
-    Agenda[/meeting-agenda<br/>attendee-facing structure/]
+    Brief[foundation-meeting-brief<br/>private strategic prep/]
+    Agenda[foundation-meeting-agenda<br/>attendee-facing structure/]
     Meeting[The meeting happens]
-    Recap[/meeting-recap<br/>post-meeting summary/]
-    Update[/stakeholder-update<br/>async comms/]
-    Synthesize[/meeting-synthesize<br/>cross-meeting analysis/]
+    Recap[foundation-meeting-recap<br/>post-meeting summary/]
+    Update[foundation-stakeholder-update<br/>async comms/]
+    Synthesize[foundation-meeting-synthesize<br/>cross-meeting analysis/]
 
     Brief --> Meeting
     Agenda --> Meeting
@@ -38,11 +38,11 @@ graph LR
 
 | Skill | Phase | Audience | Key output |
 |-------|-------|----------|-----------|
-| `/meeting-agenda` | Pre-meeting | Attendees | Time-boxed topics, owners, prep |
-| `/meeting-brief` | Pre-meeting | You (private) | Stakeholder reads, messages, asks |
-| `/meeting-recap` | Post-meeting | Attendees | Topic summary, decisions, actions |
-| `/meeting-synthesize` | Cross-meeting | You / leadership | Themes, contradictions, follow-ups |
-| `/stakeholder-update` | Post-meeting | Non-attendees | Channel-tailored outward comms |
+| `/pm-skills:foundation-meeting-agenda` | Pre-meeting | Attendees | Time-boxed topics, owners, prep |
+| `/pm-skills:foundation-meeting-brief` | Pre-meeting | You (private) | Stakeholder reads, messages, asks |
+| `/pm-skills:foundation-meeting-recap` | Post-meeting | Attendees | Topic summary, decisions, actions |
+| `/pm-skills:foundation-meeting-synthesize` | Cross-meeting | You / leadership | Themes, contradictions, follow-ups |
+| `/pm-skills:foundation-stakeholder-update` | Post-meeting | Non-attendees | Channel-tailored outward comms |
 
 ## Your first meeting with pm-skills
 
@@ -51,7 +51,7 @@ Imagine you have a cross-functional decision meeting Thursday afternoon. Four at
 ### Step 1. Write the agenda (2 minutes of your time)
 
 ```bash
-/meeting-agenda "Thursday 2pm EST cross-functional sync on Q2 scope; 4 attendees; 45 min"
+/pm-skills:foundation-meeting-agenda "Thursday 2pm EST cross-functional sync on Q2 scope; 4 attendees; 45 min"
 ```
 
 The skill will:
@@ -67,7 +67,7 @@ Copy the shareable summary at the top of the output into your meeting invite. Do
 For the CFO-is-present decision meeting, you want private tactical prep. Run:
 
 ```bash
-/meeting-brief @notes.md @prior-recap.md "Q2 scope meeting; CFO will push on capacity"
+/pm-skills:foundation-meeting-brief @notes.md @prior-recap.md "Q2 scope meeting; CFO will push on capacity"
 ```
 
 The skill reads your context, pulls in related prior recaps (auto-discovered via filename-chaining when available), and produces a brief with:
@@ -87,7 +87,7 @@ Run the meeting. Take live notes or let a transcription tool (Krisp, Otter, Fire
 ### Step 4. Recap the meeting (5 minutes of your time)
 
 ```bash
-/meeting-recap @transcript.txt
+/pm-skills:foundation-meeting-recap @transcript.txt
 ```
 
 The skill:
@@ -107,13 +107,13 @@ Copy the shareable summary into Slack for the attendees. Post the full recap to 
 For non-attendees (engineering leads, leadership) who need to know outcomes:
 
 ```bash
-/stakeholder-update @recap.md --channel=slack --audience=engineering
+/pm-skills:foundation-stakeholder-update @recap.md --channel=slack --audience=engineering
 ```
 
 Or:
 
 ```bash
-/stakeholder-update @recap.md --channel=email --audience=leadership --cta="confirm capacity impact by Friday"
+/pm-skills:foundation-stakeholder-update @recap.md --channel=email --audience=leadership --cta="confirm capacity impact by Friday"
 ```
 
 The skill:
@@ -128,13 +128,13 @@ The skill:
 After your Q2 initiative has spanned 5-8 meetings over a few months, run:
 
 ```bash
-/meeting-synthesize @recap1.md @recap2.md @recap3.md @recap4.md @recap5.md
+/pm-skills:foundation-meeting-synthesize @recap1.md @recap2.md @recap3.md @recap4.md @recap5.md
 ```
 
 Or narrow by filter:
 
 ```bash
-/meeting-synthesize --quarter=2026-Q2 --format=board-prep
+/pm-skills:foundation-meeting-synthesize --quarter=2026-Q2 --format=board-prep
 ```
 
 Produces a cross-meeting artifact with:
@@ -190,27 +190,27 @@ sequenceDiagram
     participant Update as stakeholder-update
     participant Sync as meeting-synthesize
 
-    You->>Agenda: /meeting-agenda "Q2 scope"
+    You->>Agenda: foundation-meeting-agenda "Q2 scope"
     Agenda-->>You: 2026-04-17_14-00EST_q2-scope_agenda.md
 
-    You->>Brief: /meeting-brief @prior-recap.md
+    You->>Brief: foundation-meeting-brief @prior-recap.md
     Brief-->>You: 2026-04-17_14-00EST_q2-scope_brief.md
 
     Note over You: meeting happens
 
-    You->>Recap: /meeting-recap @transcript.txt
+    You->>Recap: foundation-meeting-recap @transcript.txt
     Recap->>Agenda: auto-discover agenda
     Agenda-->>Recap: topic skeleton + desired outcomes
     Recap-->>You: 2026-04-17_14-00EST_q2-scope_recap.md
 
-    You->>Update: /stakeholder-update @recap.md --channel=slack
+    You->>Update: foundation-stakeholder-update @recap.md --channel=slack
     Update->>Recap: read outcomes
     Recap-->>Update: decisions, actions
     Update-->>You: 2026-04-17_14-00EST_q2-scope_stakeholder-update-slack-engineering.md
 
     Note over You: months later, after 5+ meetings
 
-    You->>Sync: /meeting-synthesize @recap*.md
+    You->>Sync: foundation-meeting-synthesize @recap*.md
     Sync-->>You: 2026-Q2_q2-scope_synthesis.md
 ```
 
@@ -258,5 +258,5 @@ The `## Shareable update` section (v1.1.0) marks the copy-safe boundary explicit
 
 - [Family contract](../reference/skill-families/meeting-skills-contract.md). formal specification
 - [Foundation skills](../skills/foundation/). all foundation-phase skills including the meeting family
-- Individual skill docs. [`/meeting-agenda`](../skills/foundation/foundation-meeting-agenda.md), [`/meeting-brief`](../skills/foundation/foundation-meeting-brief.md), [`/meeting-recap`](../skills/foundation/foundation-meeting-recap.md), [`/meeting-synthesize`](../skills/foundation/foundation-meeting-synthesize.md), [`/stakeholder-update`](../skills/foundation/foundation-stakeholder-update.md)
+- Individual skill docs. [`/pm-skills:foundation-meeting-agenda`](../skills/foundation/foundation-meeting-agenda.md), [`/pm-skills:foundation-meeting-brief`](../skills/foundation/foundation-meeting-brief.md), [`/pm-skills:foundation-meeting-recap`](../skills/foundation/foundation-meeting-recap.md), [`/pm-skills:foundation-meeting-synthesize`](../skills/foundation/foundation-meeting-synthesize.md), [`/pm-skills:foundation-stakeholder-update`](../skills/foundation/foundation-stakeholder-update.md)
 - Sample outputs. [`library/skill-output-samples/foundation-meeting-*/`](https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples)

@@ -4,7 +4,7 @@
 
 <!-- For report-only mode, include this banner: -->
 > **Report only . update was not applied.**
-> Run `/update-pm-skills` to apply this update.
+> Run `utility-update-pm-skills` to apply this update.
 
 <!-- For completion mode, include this banner: -->
 > **Update complete.** pm-skills has been updated to v{latest-version}.
@@ -79,15 +79,15 @@ communication platform." -->
 
 {2-3 sentences describing what the user can now do that they couldn't before.
 Ground suggestions in detected skills and workflows . reference actual new
-capabilities by name with their slash commands (e.g., "Try `/mermaid-diagrams`
+capabilities by name with their slash commands (e.g., "Try `utility-mermaid-diagrams`
 on your next PRD"). Label speculative pairings as suggestions. Link workflows
 to their component skills.}
 
-<!-- Example: "With the new `/slideshow-creator` skill, you can now go from a
+<!-- Example: "With the new `utility-slideshow-creator` skill, you can now go from a
 PRD directly to a stakeholder presentation without leaving Claude. Try
-pairing it with `/persona` to create audience-tailored decks. The new
-discover-to-present workflow chains `/interview-synthesis` → `/problem-statement`
-→ `/solution-brief` → `/slideshow-creator` into a single flow." -->
+pairing it with `foundation-persona` to create audience-tailored decks. The new
+discover-to-present workflow chains `discover-interview-synthesis` → `define-problem-statement`
+→ `develop-solution-brief` → `utility-slideshow-creator` into a single flow." -->
 
 ## Files {Written / That Would Be Written}
 
@@ -129,8 +129,8 @@ No backup was created (user opted out).
 <!-- Adjust based on report mode and results. -->
 
 - Review this report for a summary of what changed
-- Run `/pm-skill-validate --all` to verify skill integrity
+- Run `utility-pm-skill-validate --all` to verify skill integrity
 - Run local CI: `bash scripts/lint-skills-frontmatter.sh`
 - Check release notes for migration steps: {release-url}
-- {For report-only: "Run `/update-pm-skills` to apply this update"}
+- {For report-only: "Run `utility-update-pm-skills` to apply this update"}
 - {For completion with MCP: "Update pm-skills-mcp: `cd ../pm-skills-mcp && npm run embed-skills && npm run build`"}

@@ -26,9 +26,9 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 ## When NOT to Use
 
-- The user's preparation is private and tactical (positioning, stakeholder reads, asks). Use `/meeting-brief` instead.
-- The meeting has already happened. Use `/meeting-recap` for post-meeting summarization.
-- The user wants to communicate outcomes to non-attendees. Use `/stakeholder-update` after the meeting.
+- The user's preparation is private and tactical (positioning, stakeholder reads, asks). Use `foundation-meeting-brief` instead.
+- The meeting has already happened. Use `foundation-meeting-recap` for post-meeting summarization.
+- The user wants to communicate outcomes to non-attendees. Use `foundation-stakeholder-update` after the meeting.
 
 ## Zero-friction execution
 
@@ -59,7 +59,7 @@ If none apply, the skill recommends the async alternative (written update, doc r
 
 The v1.0.0 version of this check ("single-owner decision with no tradeoffs", "pure information broadcast", "status-only sync with >5 people") was bypassed too easily. users would stay at five attendees or add "decision" to the topic. The stricter v1.1.0 biases toward async; users can still override.
 
-This check is shared with `/meeting-brief` and not run by the post-meeting skills (recap, synthesize, stakeholder-update).
+This check is shared with `foundation-meeting-brief` and not run by the post-meeting skills (recap, synthesize, stakeholder-update).
 
 ## Instructions
 
@@ -146,6 +146,6 @@ Before delivering the agenda, verify:
 ## See also
 
 - [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md). shared behavioral and structural requirements
-- [`/meeting-brief`](../foundation-meeting-brief/SKILL.md). user's private prep (shares anti-meeting check)
-- [`/meeting-recap`](../foundation-meeting-recap/SKILL.md). downstream: recap auto-populates from this agenda's topic list
-- [`/stakeholder-update`](../foundation-stakeholder-update/SKILL.md). downstream: translates meeting outcomes to non-attendees
+- [`foundation-meeting-brief`](../foundation-meeting-brief/SKILL.md). user's private prep (shares anti-meeting check)
+- [`foundation-meeting-recap`](../foundation-meeting-recap/SKILL.md). downstream: recap auto-populates from this agenda's topic list
+- [`foundation-stakeholder-update`](../foundation-stakeholder-update/SKILL.md). downstream: translates meeting outcomes to non-attendees

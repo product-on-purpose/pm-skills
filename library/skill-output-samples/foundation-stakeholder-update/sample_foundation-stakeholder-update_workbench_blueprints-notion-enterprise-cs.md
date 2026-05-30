@@ -25,7 +25,7 @@ Source Notes:
 ## Prompt
 
 ```
-/stakeholder-update @2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_recap.md --channel=notion --audience=customer-facing --cta="review and confirm CS playbook alignment by 2026-05-20"
+foundation-stakeholder-update @2026-04-25_13-00EST_blueprints-v1-1-customer-feedback-review_recap.md --channel=notion --audience=customer-facing --cta="review and confirm CS playbook alignment by 2026-05-20"
 ```
 
 ## Output

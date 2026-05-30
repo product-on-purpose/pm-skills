@@ -33,7 +33,7 @@ The stories reference decisions made earlier in the product lifecycle: the hybri
 ## Prompt
 
 ```
-/user-stories
+deliver-user-stories
 
 I need two user stories for the Blueprints v1 sprint backlog. These are the two highest-priority stories for the first sprint.
 

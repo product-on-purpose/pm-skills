@@ -27,7 +27,7 @@ Brainshelf is preparing the freemium-to-paid conversion strategy for Resurface P
 ## Prompt
 
 ```text
-/persona marketing detailed
+foundation-persona marketing detailed
 
 need a marketing persona for the Resurface premium conversion funnel.
 

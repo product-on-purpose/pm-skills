@@ -27,7 +27,7 @@ After synthesizing the January 2026 user interviews, Brainshelf's PM formalized 
 ## Prompt
 
 ```
-/problem-statement
+define-problem-statement
 
 the guilt pile problem. users save a ton of stuff to brainshelf but
 never come back to read it. interview data says 5/7 users described

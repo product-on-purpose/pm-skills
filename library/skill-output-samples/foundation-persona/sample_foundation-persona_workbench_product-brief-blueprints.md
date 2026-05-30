@@ -27,7 +27,7 @@ Workbench shipped Blueprints with required sections and approval gates, but post
 ## Prompt
 
 ```text
-/persona product brief
+foundation-persona product brief
 
 Rachel V. to PM Skills agent:
 

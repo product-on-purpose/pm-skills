@@ -27,7 +27,7 @@ Before the Campaigns build sprint begins, Storevine's growth PM and backend engi
 ## Prompt
 
 ```
-/instrumentation-spec
+measure-instrumentation-spec
 
 Feature: Campaigns . campaign send flow + guided first-campaign flow
 Analytics platform: Amplitude

@@ -27,7 +27,7 @@ Workbench is an internal developer-experience platform. The platform team wants 
 ## Prompt
 
 ```
-/journey-map
+discover-journey-map
 
 map the new-engineer onboarding journey so we can decide where to invest
 dev-experience effort. persona is a newly hired software engineer.

@@ -33,7 +33,7 @@ The three riskiest interaction surfaces are: (1) state changes that straddle the
 ## Prompt
 
 ```
-/edge-cases
+deliver-edge-cases
 
 I need a comprehensive edge-case analysis for Blueprints v1 covering the three highest-risk areas: required-section enforcement boundaries, approval-gate state transitions, and real-time co-editing conflicts.
 

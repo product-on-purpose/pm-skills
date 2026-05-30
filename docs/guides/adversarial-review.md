@@ -25,7 +25,7 @@ pm-skills has run the Phase 0 Adversarial Review Loop as a manual maintainer pra
 flowchart TD
     Author[Author runs PM skill<br/>/deliver-prd, /foundation-okr-writer, etc.] --> Artifact[Artifact produced]
     Artifact -->|Claude Code default| Proactive[pm-critic auto-fires<br/>Path 1: Proactive]
-    Artifact -->|Explicit re-review| Explicit[/pm-critic invoked<br/>Path 2 or 3]
+    Artifact -->|Explicit re-review| Explicit[utility-pm-critic invoked<br/>Path 2 or 3]
     Artifact -->|Non-Claude client| Dispatch[utility-pm-critic dispatch skill<br/>reads agents/pm-critic.md inline]
     Proactive --> Findings[P0 / P1 / P2 / P3 findings<br/>with concrete fix per finding]
     Explicit --> Findings
@@ -56,10 +56,10 @@ This is the default behavior. You see the findings inline after the artifact pro
 ### Path 2: Explicit slash command
 
 ```
-/pm-critic [optional artifact path]
+/pm-skills:utility-pm-critic [optional artifact path]
 ```
 
-Use `/pm-critic` to:
+Use `/pm-skills:utility-pm-critic` to:
 
 - Review an existing artifact that wasn't produced this session (e.g., an old PRD)
 - Re-review after revising an artifact (the proactive trigger only fires once per artifact production; re-reviews need an explicit invocation)
@@ -165,7 +165,7 @@ The canonical pattern is the skill-revise-recheck loop.
    - If 0 P0/P1 findings: ship
    - If P0/P1 findings exist: revise
 4. /deliver-prd <revised inputs>           # regenerates with fixes
-5. /pm-critic                                 # explicit re-review on revised artifact
+5. /pm-skills:utility-pm-critic                                 # explicit re-review on revised artifact
 6. Loop until P0/P1 cleared
 ```
 

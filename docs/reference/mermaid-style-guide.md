@@ -155,33 +155,33 @@ block-beta
     columns 6
 
     block:discover["Discover"]:1
-        d1["/competitive-analysis"]
-        d2["/interview-synthesis"]
+        d1["discover-competitive-analysis"]
+        d2["discover-interview-synthesis"]
     end
 
     block:define["Define"]:1
-        f1["/problem-statement"]
-        f2["/hypothesis"]
+        f1["define-problem-statement"]
+        f2["define-hypothesis"]
     end
 
     block:develop["Develop"]:1
-        v1["/solution-brief"]
-        v2["/adr"]
+        v1["develop-solution-brief"]
+        v2["develop-adr"]
     end
 
     block:deliver["Deliver"]:1
-        l1["/prd"]
-        l2["/user-stories"]
+        l1["deliver-prd"]
+        l2["deliver-user-stories"]
     end
 
     block:measure["Measure"]:1
-        m1["/experiment-design"]
-        m2["/okr-grader"]
+        m1["measure-experiment-design"]
+        m2["measure-okr-grader"]
     end
 
     block:iterate["Iterate"]:1
-        i1["/retrospective"]
-        i2["/lessons-log"]
+        i1["iterate-retrospective"]
+        i2["iterate-lessons-log"]
     end
 
     discover --> define --> develop --> deliver --> measure --> iterate
@@ -232,9 +232,9 @@ Use when showing back-and-forth between named participants. Limited styling; kee
 ```mermaid
 sequenceDiagram
     participant You
-    participant Brief as /meeting-brief
-    participant Agenda as /meeting-agenda
-    participant Recap as /meeting-recap
+    participant Brief as foundation-meeting-brief
+    participant Agenda as foundation-meeting-agenda
+    participant Recap as foundation-meeting-recap
 
     You->>Brief: Schedule strategic meeting
     Brief-->>You: Stakeholder reads + asks

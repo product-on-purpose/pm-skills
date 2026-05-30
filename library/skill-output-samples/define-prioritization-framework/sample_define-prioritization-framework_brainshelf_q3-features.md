@@ -27,7 +27,7 @@ Brainshelf is a B2C AI book-curation subscription. The PM has 8 candidate featur
 ## Prompt
 
 ```
-/prioritization-framework
+define-prioritization-framework
 
 prioritize our Q3 candidate features for brainshelf (AI book-curation
 subscription). decision context: Q3 roadmap, ~14 eng-weeks of capacity.

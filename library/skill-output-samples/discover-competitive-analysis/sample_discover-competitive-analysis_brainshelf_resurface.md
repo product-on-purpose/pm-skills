@@ -27,7 +27,7 @@ In late 2025, Brainshelf's PM conducted a competitive analysis of the PKM and re
 ## Prompt
 
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 pkm and read-later market, focusing on resurfacing and re-engagement
 features. brainshelf is planning a resurface feature (morning email digest

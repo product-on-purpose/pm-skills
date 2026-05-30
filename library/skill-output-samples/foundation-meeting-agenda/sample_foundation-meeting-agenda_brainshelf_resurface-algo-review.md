@@ -25,7 +25,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-agenda "resurface algo review this Wed 11am PT 45 min, me + elena (algo) + mia (design), need to pick direction for next sprint between 2 options"
+foundation-meeting-agenda "resurface algo review this Wed 11am PT 45 min, me + elena (algo) + mia (design), need to pick direction for next sprint between 2 options"
 ```
 
 ## Output

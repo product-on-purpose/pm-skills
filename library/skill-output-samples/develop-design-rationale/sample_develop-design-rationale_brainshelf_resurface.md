@@ -27,7 +27,7 @@ Before Sprint 8 began, Dan K. presented three layout directions for the Resurfac
 ## Prompt
 
 ```
-/design-rationale
+develop-design-rationale
 
 digest email layout for resurface. dan showed three options:
 

@@ -254,7 +254,7 @@ Users report frustration with:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Skill Invocation: /problem-statement "checkout issues"    │
+│  Skill Invocation: define-problem-statement "checkout issues"    │
 └────────────────────────┬────────────────────────────────────┘
                          │
         ┌────────────────┼────────────────┐
@@ -1077,9 +1077,9 @@ The agentskills.io specification defines:
 **Example**: The same `prd` skill works identically on:
 
 ```
-Claude Code:       /prd "search feature"
+Claude Code:       deliver-prd "search feature"
 GitHub Copilot:    "Use the prd skill for search feature"
-Cursor:            /prd "search feature"
+Cursor:            deliver-prd "search feature"
 VS Code:           Agent: "Use prd skill for search feature"
 ChatGPT:           [Paste SKILL.md] "Create PRD for search feature"
 ```

@@ -80,8 +80,8 @@ This answers: "Which skill versions shipped in release X?"
 
 The [lifecycle tools](../guides/pm-skill-lifecycle.md) integrate with versioning:
 
-- **`/pm-skill-validate`** . reports the current skill version in the validation report header
-- **`/pm-skill-iterate`** . suggests a version bump class (patch/minor/major) after applying changes, updates the `version` and `updated` fields on confirmation, and offers to create or update HISTORY.md
+- **`utility-pm-skill-validate`** . reports the current skill version in the validation report header
+- **`utility-pm-skill-iterate`** . suggests a version bump class (patch/minor/major) after applying changes, updates the `version` and `updated` fields on confirmation, and offers to create or update HISTORY.md
 
 ## Current Skill Versions
 

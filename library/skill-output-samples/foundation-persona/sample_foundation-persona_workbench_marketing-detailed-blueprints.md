@@ -27,7 +27,7 @@ Workbench is advancing three pilot-to-enterprise conversations simultaneously, a
 ## Prompt
 
 ```text
-/persona marketing detailed
+foundation-persona marketing detailed
 
 Rachel V. to PM Skills agent:
 

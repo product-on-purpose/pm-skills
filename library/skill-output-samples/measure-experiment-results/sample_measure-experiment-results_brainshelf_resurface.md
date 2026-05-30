@@ -27,7 +27,7 @@ On April 6, 2026, the 4-week Resurface A/B test concluded and Chloe B. analyzed 
 ## Prompt
 
 ```
-/experiment-results
+measure-experiment-results
 
 resurface a/b test results. test ran mar 9 - apr 5 (4 weeks).
 800 users, 50/50 split [fictional].

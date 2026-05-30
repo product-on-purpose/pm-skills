@@ -27,7 +27,7 @@ Rachel V. must decide whether to persevere with the horizontal strategy or pivot
 ## Prompt
 
 ```
-/pivot-decision
+iterate-pivot-decision
 
 I need a formal pivot-decision document for the exec team. Here's the situation:
 

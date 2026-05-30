@@ -25,7 +25,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-synthesize --format=board-prep --quarter=2026-Q1 @blueprints-*.md
+foundation-meeting-synthesize --format=board-prep --quarter=2026-Q1 @blueprints-*.md
 ```
 
 ## Output

@@ -27,7 +27,7 @@ Four weeks before the Campaigns GA date, Storevine's growth PM formalized the A/
 ## Prompt
 
 ```
-/experiment-design
+measure-experiment-design
 
 Project: Campaigns . Campaigns guided first-campaign flow
 Experiment: Does the guided first-campaign flow increase first-send rate

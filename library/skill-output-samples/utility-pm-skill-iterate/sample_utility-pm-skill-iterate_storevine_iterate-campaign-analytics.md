@@ -14,14 +14,14 @@ context: Storevine B2B ecommerce platform . iterating on campaign-analytics skil
 
 ## Scenario
 
-After running `/pm-skill-validate` on the campaign-analytics skill, the contributor received two warnings: (1) EXAMPLE.md is 142 lines, below the 150-line recommendation, and (2) SKILL.md is missing a "When NOT to Use" section. The contributor uses `/pm-skill-iterate` to apply both fixes based on the validation report. [fictional]
+After running `utility-pm-skill-validate` on the campaign-analytics skill, the contributor received two warnings: (1) EXAMPLE.md is 142 lines, below the 150-line recommendation, and (2) SKILL.md is missing a "When NOT to Use" section. The contributor uses `utility-pm-skill-iterate` to apply both fixes based on the validation report. [fictional]
 
 ---
 
 ## Prompt
 
 ```
-/pm-skill-iterate
+utility-pm-skill-iterate
 
 Skill: campaign-analytics
 Path: skills/measure-campaign-analytics/
@@ -89,9 +89,9 @@ Apply fixes from validation report:
 **When NOT to Use -- after:**
 > ## When NOT to Use
 >
-> - **A/B test design**: If you need to design a controlled experiment comparing two campaign variants, use `/experiment-design` instead. This skill defines the measurement framework, not the experimental protocol.
-> - **Event tracking schemas**: If you need to specify the exact event payloads and tracking implementation for engineering, use `/instrumentation-spec`. This skill defines what to measure, not how to instrument it.
-> - **Dashboard layout**: If you already know your KPIs and need to specify the dashboard UI, use `/dashboard-requirements`. This skill produces the analytical inputs that feed into a dashboard spec.
+> - **A/B test design**: If you need to design a controlled experiment comparing two campaign variants, use `measure-experiment-design` instead. This skill defines the measurement framework, not the experimental protocol.
+> - **Event tracking schemas**: If you need to specify the exact event payloads and tracking implementation for engineering, use `measure-instrumentation-spec`. This skill defines what to measure, not how to instrument it.
+> - **Dashboard layout**: If you already know your KPIs and need to specify the dashboard UI, use `measure-dashboard-requirements`. This skill produces the analytical inputs that feed into a dashboard spec.
 
 ## Applied Changes
 

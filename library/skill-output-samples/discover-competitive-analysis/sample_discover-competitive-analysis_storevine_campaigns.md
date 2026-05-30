@@ -28,7 +28,7 @@ Storevine is preparing to build Campaigns . a native email marketing feature for
 ## Prompt
 
 ```
-/competitive-analysis
+discover-competitive-analysis
 
 Scope: Email marketing tools available to ecommerce merchants . built-in vs.
 third-party positioning. Informing Campaigns v1 scope and feature prioritization.

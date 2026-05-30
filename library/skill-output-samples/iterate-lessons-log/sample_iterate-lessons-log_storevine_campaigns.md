@@ -27,7 +27,7 @@ Two weeks after the Campaigns A/B test concluded on June 27, 2026, Storevine's g
 ## Prompt
 
 ```
-/lessons-log
+iterate-lessons-log
 
 Lesson from: Campaigns guided first-campaign flow A/B test
 Experiment ran: April 28  -  June 27, 2026 (60 days from GA)

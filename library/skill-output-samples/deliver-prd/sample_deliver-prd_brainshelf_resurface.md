@@ -27,7 +27,7 @@ With the solution brief approved and the spike complete, Priya M. wrote the full
 ## Prompt
 
 ```
-/prd
+deliver-prd
 
 resurface prd for sprint 8. pulling everything together: solution brief,
 adr (resend), design rationale (text layout), spike (tfidf).

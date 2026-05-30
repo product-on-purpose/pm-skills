@@ -27,7 +27,7 @@ Storevine's Campaigns feature is gaining traction with single-store merchants, b
 ## Prompt
 
 ```text
-/persona product detailed
+foundation-persona product detailed
 
 Build a detailed product persona for Storevine Campaigns multi-location merchant workflows.
 

@@ -27,7 +27,7 @@ Two weeks after the guided first-campaign flow shipped as default (July 10, 2026
 ## Prompt
 
 ```
-/refinement-notes
+iterate-refinement-notes
 
 Session: Campaigns v1.1 refinement
 Date: July 22, 2026, 10:00 AM, 60 minutes

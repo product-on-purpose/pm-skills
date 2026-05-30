@@ -23,7 +23,7 @@ Learn how to write effective prompts by studying real examples from the [sample 
 ### Organized (Storevine)
 
 ```
-/prd
+/pm-skills:deliver-prd
 
 Feature: Campaigns . native email marketing for Storevine merchants
 
@@ -42,7 +42,7 @@ Scope for v1:
 ### Casual (Brainshelf)
 
 ```
-/prd
+/pm-skills:deliver-prd
 
 resurface prd for sprint 8. pulling everything together: solution brief,
 adr (resend), design rationale (text layout), spike (tfidf).
@@ -54,7 +54,7 @@ to reading patterns. 85k registered, 22k MAU [fictional].
 ### Enterprise (Workbench)
 
 ```
-/prd
+/pm-skills:deliver-prd
 
 Here is the structured brief for the Blueprints v1 PRD.
 
@@ -78,7 +78,7 @@ and role-based approval gates.
 ### Organized (Storevine)
 
 ```
-/hypothesis
+/pm-skills:define-hypothesis
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: Post-discovery, pre-PRD finalization
@@ -93,7 +93,7 @@ Hypothesis I want to define:
 ### Casual (Brainshelf)
 
 ```
-/hypothesis
+/pm-skills:define-hypothesis
 
 trying to figure out if a morning digest email will actually get people to
 re-read their saved stuff. context: brainshelf pkm app, 22k MAU [fictional].
@@ -103,7 +103,7 @@ users save ~47 items/month but revisit fewer than 9% within 30 days.
 ### Enterprise (Workbench)
 
 ```
-/hypothesis
+/pm-skills:define-hypothesis
 
 Blueprints required-section feature. We believe that enforcing required
 sections in document templates will reduce time-to-approved-doc from
@@ -120,7 +120,7 @@ split across new Blueprint creations for 4 weeks.
 ### Organized (Storevine)
 
 ```
-/competitive-analysis
+/pm-skills:discover-competitive-analysis
 
 Scope: Email marketing tools available to ecommerce merchants . built-in
 vs. third-party positioning. Informing Campaigns v1 scope and feature
@@ -135,7 +135,7 @@ Wix Ascend, Klaviyo, Mailchimp, Drip
 ### Casual (Brainshelf)
 
 ```
-/competitive-analysis
+/pm-skills:discover-competitive-analysis
 
 read-later / pkm space, focusing on who does resurfacing or spaced
 repetition. readwise is the main one. also raindrop, omnivore,
@@ -149,7 +149,7 @@ instapaper, pocket. we're brainshelf, 22k MAU consumer pkm app.
 ### Organized (Storevine)
 
 ```
-/experiment-design
+/pm-skills:measure-experiment-design
 
 Project: Campaigns guided first-campaign flow
 Experiment: Does the guided flow increase first-send rate for non-adopter

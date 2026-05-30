@@ -26,7 +26,7 @@ Storevine's growth PM is preparing to hand the Campaigns PRD to engineering and 
 ## Prompt
 
 ```
-/stakeholder-summary
+discover-stakeholder-summary
 
 Project: Campaigns . native email marketing for Storevine merchants
 Stage: PRD complete, moving to engineering kickoff

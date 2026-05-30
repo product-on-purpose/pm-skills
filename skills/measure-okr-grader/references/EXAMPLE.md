@@ -16,9 +16,9 @@ context: Storevine B2B ecommerce platform. Campaigns team Q3 2026 cycle review a
 
 ## Scenario
 
-Storevine's Campaigns team is closing the Q3 2026 cycle. The OKR set was authored in late June using `/okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3.md`). The cycle ended September 30. Final values are now in for KR1 and KR3; KR2's 90-day cohorts are partially complete (the 60-day intermediate is available, the 90-day final is not yet observable).
+Storevine's Campaigns team is closing the Q3 2026 cycle. The OKR set was authored in late June using `foundation-okr-writer` (see the corresponding writer sample at `library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3.md`). The cycle ended September 30. Final values are now in for KR1 and KR3; KR2's 90-day cohorts are partially complete (the 60-day intermediate is available, the 90-day final is not yet observable).
 
-The team wants a cycle review they can take to the Q4 planning workshop. The growth-pm runs `/okr-grader` with the original OKR set, the final and interim KR values, the cycle's narrative, and the initiative status.
+The team wants a cycle review they can take to the Q4 planning workshop. The growth-pm runs `measure-okr-grader` with the original OKR set, the final and interim KR values, the cycle's narrative, and the initiative status.
 
 The cycle had a mixed result. KR1 hit hard. KR2 trended below projection. KR3 guardrail held. Initiative 2 (Templates v2) underperformed expectations and the team needs to decide whether to retire the thesis or carry it.
 
@@ -33,7 +33,7 @@ The cycle had a mixed result. KR1 hit hard. KR2 trended below projection. KR3 gu
 ## Prompt
 
 ```
-/okr-grader
+measure-okr-grader
 
 Original OKR: see sample_foundation-okr-writer_storevine_campaigns-q3.md
 Cycle: Q3 2026 (July 1 to September 30, 2026)
@@ -174,7 +174,7 @@ independent read.
   is a projection until late December.
   - Impact: cannot give a confident final score this cycle. Forcing a
     numeric score now would mislead readers.
-  - Recommended fix: in next cycle's `/okr-writer` run, either
+  - Recommended fix: in next cycle's `foundation-okr-writer` run, either
     (a) reframe KR2 as a 30-day or 60-day intermediate metric, or
     (b) accept that retention KRs are graded one quarter in arrears and
     document the convention explicitly. Choosing (b) is cleaner if the
@@ -215,9 +215,9 @@ independent read.
     effect in the Q3 cohort. Even at full ship, the underlying thesis is
     not supported by the partial evidence.
   - Recommendation: retire the current framing. If the team wants to
-    revisit, run `/hypothesis` first to sharpen the sub-thesis
+    revisit, run `define-hypothesis` first to sharpen the sub-thesis
     (which segment, which template type, which trigger), and validate via
-    `/experiment-design` before baking into a KR.
+    `measure-experiment-design` before baking into a KR.
 
 - Initiative 3 (Campaign performance feedback loop):
   - Linked to: KR2 primarily.
@@ -278,15 +278,15 @@ independent read.
    belief is wrong and the team's strategy needs to change.
 
 5. Hand-off:
-   - `/lessons-log` for the Templates v2 invalidation (organizational
+   - `iterate-lessons-log` for the Templates v2 invalidation (organizational
      memory).
-   - `/retrospective` for the team-process learning on designer capacity
+   - `iterate-retrospective` for the team-process learning on designer capacity
      estimation.
-   - `/hypothesis` for "Campaigns engagement causally affects 12-month
+   - `define-hypothesis` for "Campaigns engagement causally affects 12-month
      merchant retention" with a defined invalidation criterion.
-   - `/instrumentation-spec` for the `triggered_email_dedup_failures`
+   - `measure-instrumentation-spec` for the `triggered_email_dedup_failures`
      event.
-   - `/okr-writer` for next-cycle drafting once KR2 measurement boundary
+   - `foundation-okr-writer` for next-cycle drafting once KR2 measurement boundary
      is resolved.
 
 ## Risks in Interpretation

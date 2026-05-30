@@ -24,7 +24,7 @@ Source Notes:
 ## Prompt
 
 ```
-/meeting-brief "Tomorrow 9am exec briefing, 30 min with priya-ceo and rachel-vp. Campaigns Q2 commitment. Priya pushed back on capacity in Q1 exec review (I have the recap). Rachel privately supports."
+foundation-meeting-brief "Tomorrow 9am exec briefing, 30 min with priya-ceo and rachel-vp. Campaigns Q2 commitment. Priya pushed back on capacity in Q1 exec review (I have the recap). Rachel privately supports."
 ```
 
 ## Output

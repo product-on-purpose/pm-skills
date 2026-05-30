@@ -22,14 +22,14 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 ## When to Use
 
 - After any internal meeting that produces decisions or actions affecting attendees
-- When a sibling `/meeting-agenda` exists and needs reconciliation (planned vs. actual topics)
+- When a sibling `foundation-meeting-agenda` exists and needs reconciliation (planned vs. actual topics)
 - When the team needs a topic-organized reference rather than a chronological transcript dump
 - When inputs include a transcript (Zoom, Meet, Otter, Fireflies, Krisp MCP) or mixed notes and transcript
 
 ## When NOT to Use
 
-- Communicating outcomes to non-attendees. Use `/stakeholder-update`. recap assumes reader context; stakeholder-update translates to readers without it.
-- Cross-meeting synthesis (patterns across multiple meetings). Use `/meeting-synthesize`.
+- Communicating outcomes to non-attendees. Use `foundation-stakeholder-update`. recap assumes reader context; stakeholder-update translates to readers without it.
+- Cross-meeting synthesis (patterns across multiple meetings). Use `foundation-meeting-synthesize`.
 - Live meeting note-taking. This skill consumes finished inputs; it does not transcribe live.
 
 ## Zero-friction execution
@@ -123,6 +123,6 @@ When asked to create a meeting recap, follow these steps:
 ## See also
 
 - [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md)
-- [`/meeting-agenda`](../foundation-meeting-agenda/SKILL.md). upstream: provides topic skeleton and desired-outcomes
-- [`/meeting-synthesize`](../foundation-meeting-synthesize/SKILL.md). downstream: consumes recaps for cross-meeting synthesis
-- [`/stakeholder-update`](../foundation-stakeholder-update/SKILL.md). downstream: translates recap outcomes to non-attendees
+- [`foundation-meeting-agenda`](../foundation-meeting-agenda/SKILL.md). upstream: provides topic skeleton and desired-outcomes
+- [`foundation-meeting-synthesize`](../foundation-meeting-synthesize/SKILL.md). downstream: consumes recaps for cross-meeting synthesis
+- [`foundation-stakeholder-update`](../foundation-stakeholder-update/SKILL.md). downstream: translates recap outcomes to non-attendees

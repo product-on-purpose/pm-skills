@@ -27,7 +27,7 @@ Workbench is a Series B enterprise collaboration platform (~200 employees, ~500 
 ## Prompt
 
 ```
-/solution-brief
+develop-solution-brief
 
 Product: Workbench Blueprints -- reusable document templates with required sections and role-based approval gates
 Stage: Pre-PRD; consolidating decisions from discovery, define, and develop phases into a one-pager

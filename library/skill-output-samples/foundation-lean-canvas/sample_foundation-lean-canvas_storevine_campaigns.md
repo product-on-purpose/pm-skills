@@ -27,7 +27,7 @@ Storevine is preparing to launch Campaigns, a built-in email and SMS re-engageme
 ## Prompt
 
 ```text
-/lean-canvas
+foundation-lean-canvas
 
 Build a lean canvas for Storevine Campaigns (built-in email + SMS re-engagement) ahead of v1 leadership review.
 
@@ -36,7 +36,7 @@ Context:
 - ~38% of merchants currently juggle Klaviyo or Mailchimp as a second tool [fictional]
 - Win-loss interviews (Jan 2026, n=14): 6/14 wins cited "too many tools"; 4/9 losses said "Klaviyo is good enough" [fictional]
 - Competitive landscape already mapped (see discover-competitive-analysis from Feb 2026)
-- Initial persona for self-serve SMB merchant already drafted via /persona
+- Initial persona for self-serve SMB merchant already drafted via foundation-persona
 - Need: lean canvas for leadership review, content mode is fine, confidence-honest
 
 The canvas should feed directly into the v1 PRD so be concrete on revenue math and key metrics.

@@ -22,7 +22,7 @@ The two most common "spec" documents . but they serve different purposes at diff
 
 **Rule of thumb:** If engineering could start building from it, it's a PRD. If you're still deciding *what* to build, it's a solution brief.
 
-**Flow:** `/solution-brief` → align → `/prd` → build
+**Flow:** `/pm-skills:develop-solution-brief` → align → `/pm-skills:deliver-prd` → build
 
 ---
 
@@ -40,7 +40,7 @@ Both frame the "why" . but one is testable and one is descriptive.
 
 **Rule of thumb:** A problem statement says "this is broken." A hypothesis says "I bet this specific fix will move this specific number."
 
-**Flow:** `/problem-statement` → `/hypothesis` → `/experiment-design`
+**Flow:** `/pm-skills:define-problem-statement` → `/pm-skills:define-hypothesis` → `/pm-skills:measure-experiment-design`
 
 ---
 
@@ -74,7 +74,7 @@ Both define expected behavior . but at different levels.
 
 **Rule of thumb:** Acceptance criteria say "the feature works when..." Edge cases say "the feature doesn't break when..."
 
-**Flow:** `/user-stories` → `/acceptance-criteria` → `/edge-cases`
+**Flow:** `/pm-skills:deliver-user-stories` → `/pm-skills:deliver-acceptance-criteria` → `/pm-skills:deliver-edge-cases`
 
 ---
 
@@ -92,7 +92,7 @@ Both involve measurement . but at different levels.
 
 **Rule of thumb:** Experiment design answers "what are we testing?" Instrumentation spec answers "how do we capture the data?"
 
-**Flow:** `/experiment-design` → `/instrumentation-spec` → build → `/experiment-results`
+**Flow:** `/pm-skills:measure-experiment-design` → `/pm-skills:measure-instrumentation-spec` → build → `/pm-skills:measure-experiment-results`
 
 ---
 

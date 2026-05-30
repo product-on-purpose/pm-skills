@@ -27,7 +27,7 @@ With the Resurface A/B test validated and the ship decision approved, Priya M. f
 ## Prompt
 
 ```
-/refinement-notes
+iterate-refinement-notes
 
 sprint 9 refinement for resurface v2. session was april 15, 2026.
 45 minutes. priya facilitated.

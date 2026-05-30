@@ -27,7 +27,7 @@ Three weeks after the Campaigns A/B test concluded and the guided first-campaign
 ## Prompt
 
 ```
-/pivot-decision
+iterate-pivot-decision
 
 Product: Campaigns . post-GA persevere/pivot evaluation
 Evaluation date: July 22, 2026 (12 weeks post-GA)

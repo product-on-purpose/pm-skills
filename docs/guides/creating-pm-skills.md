@@ -677,7 +677,7 @@ Context from user: $ARGUMENTS
 `$ARGUMENTS` captures everything the user types after the command:
 
 ```
-/prd search feature for e-commerce
+/pm-skills:deliver-prd search feature for e-commerce
      ↑____________________________↑
               $ARGUMENTS
 ```
