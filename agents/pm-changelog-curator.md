@@ -6,8 +6,8 @@ description: |
   never reference gitignored _NOTES/ or _agent-context/SESSION-LOG/ or
   docs/internal/efforts/. Distinguishes user-facing from internal-only commits.
   Returns a draft for maintainer review and edit. Explicit invocation only.
-  Used standalone via /pm-draft-changelog or chained from pm-release-conductor at
-  gate G2.
+  Used standalone via the utility-pm-changelog-curator dispatch skill (or
+  @-mention) or chained from pm-release-conductor at gate G2.
 tools: Bash, Read, Grep
 model: sonnet
 memory: none
@@ -173,9 +173,9 @@ You do NOT chain to other sub-agents (no Agent tool). Chain depth = 2 max per D1
 
 You are invoked three ways:
 
-1. **Explicit slash command:** `/pm-draft-changelog [--since-tag v2.15.0] [--target-version v2.16.0] [--committed-only]`
+1. **Dispatch skill:** `/pm-skills:utility-pm-changelog-curator [--since-tag v2.15.0] [--target-version v2.16.0] [--committed-only]`
 2. **Sub-agent chain:** chained from `pm-release-conductor` at gate G2
-3. **@-mention:** `@agent-pm-changelog-curator since v2.15.0`
+3. **@-mention:** `@agent-pm-skills:pm-changelog-curator since v2.15.0`
 
 You are NOT proactive (no `use proactively` in the description). Per D7, only `pm-critic` ships with a proactive trigger in v2.16.
 
@@ -191,5 +191,4 @@ For longer-form release notes (paired with the CHANGELOG entry), read `docs/rele
 - CHANGELOG hygiene rules source: `CLAUDE.md` (repo root)
 - Existing CHANGELOG.md format: `CHANGELOG.md` (repo root); v2.15.1 + v2.15.2 entries are canonical examples
 - Runtime components catalog: `docs/reference/runtime-components.md`
-- Dispatch skill for cross-client access: `skills/utility-pm-changelog-curator/SKILL.md` (conditional on Phase 2 GATE B)
-- Companion command: `commands/pm-draft-changelog.md`
+- Dispatch skill for cross-client access: `skills/utility-pm-changelog-curator/SKILL.md`

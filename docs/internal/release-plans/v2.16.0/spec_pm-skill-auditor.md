@@ -54,8 +54,7 @@ These are checks no single validator catches:
 
 | Check | Why it matters |
 |---|---|
-| **Skill without command** | A skill exists at `skills/X/SKILL.md` but no matching `commands/X.md`. Skill is undiscoverable. |
-| **Command without skill** | A `commands/X.md` exists but `skills/X/SKILL.md` does not. Command is dead. |
+| **Workflow command references a missing skill** | A `commands/workflow-X.md` body references a skill dir that does not exist in `skills/`. Only `workflow-*` commands remain post-v2.22.0 (`validate-commands` enforces this deterministically). |
 | **Sample gap** | A skill has zero library samples (in `library/skill-output-samples/X/` or `library/sub-agent-samples/X/`). |
 | **Thread imbalance** | A skill's samples are concentrated in one narrative thread (e.g., 5 brainshelf samples, 0 storevine/workbench). |
 | **Workflow references renamed skill** | A workflow doc in `_workflows/` references a skill name that no longer exists in `skills/`. |
@@ -67,7 +66,8 @@ These are checks no single validator catches:
 | **Tool classification leak** | A skill claims `classification: tool` but is not registered under any `tool-*-skills` family AND is not listed as a standalone tool. |
 | **Frontmatter version drift** | A skill's `version:` field in SKILL.md differs from the version in its HISTORY.md (when HISTORY.md exists). |
 | **Deprecated reference** | A SKILL.md, command, workflow, or sample references a path / skill / command that has been deleted. |
-| **Sub-agent without companion command** | An entry in `subagents/X.md` has no `commands/X-verb.md` companion (violates D6 from master plan). |
+
+> **v2.22.0:** the skill/command 1:1 symmetry checks (*skill-without-command*, *sub-agent without companion command*) were retired with the command-wrapper deletion (master-plan **D6** retired). Skills are invoked directly by name on every client (`/pm-skills:<name>` on Claude Code, `$<name>` on Codex); only the 10 `workflow-*` orchestrator commands remain, validated by `validate-commands`. The **Deprecated reference** check above still catches any dead command / skill / path reference.
 
 The catalog grows as new cross-cutting bug classes are discovered. The audit report's "Cross-cutting findings" section is the durable home for net-new patterns.
 

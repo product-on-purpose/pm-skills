@@ -5,9 +5,9 @@ description: |
   suite (frontmatter lint, command paths, AGENTS.md sync, family contracts,
   link validity, count consistency, workflow generator coverage, etc.) via
   scripts/pre-tag-validate.{sh,ps1}, aggregates results, and surfaces
-  cross-cutting issues no single validator catches alone (skill-without-command,
-  sample gaps, aggregate counter drift, family contract orphans / phantoms,
-  thread imbalance, sub-agent without companion command, etc.). Re-derives
+  cross-cutting issues no single validator catches alone (sample gaps,
+  aggregate counter drift, family contract orphans / phantoms, thread
+  imbalance, deprecated references, etc.). Re-derives
   aggregate counters across CONTEXT.md + AGENTS.md + README.md. Returns layered
   output (full report + Status Summary + Status YAML) graded P0/P1/P2/P3.
   Explicit invocation only - never proactive. Used by maintainers pre-release
@@ -52,13 +52,12 @@ The cross-cutting check catalog lives in `docs/internal/release-plans/v2.16.0/sp
 
 Categories of cross-cutting checks:
 
-- **Skill / command / sample symmetry** (skill-without-command, command-without-skill, sample gap, thread imbalance)
+- **Skill / sample coverage** (sample gap, thread imbalance; a `workflow-*` command references a missing skill)
 - **Workflow integrity** (workflow references renamed skill, stale workflow member output contract)
 - **Description collision** (overlapping `description:` fields between skills)
 - **Counter consistency** (CONTEXT.md, AGENTS.md, README.md counters vs re-derived)
 - **Family contract integrity** (orphan, phantom, version drift between SKILL.md and HISTORY.md)
 - **Deprecation tracking** (references to deleted paths / skills / commands)
-- **Sub-agent integrity** (sub-agent without companion command - violates D6)
 - **Tool classification leak** (skill claims `classification: tool` but not registered in any family or as standalone)
 
 ### Step 3: Re-derive aggregate counters
@@ -68,7 +67,7 @@ Count by reading the filesystem:
 - Total skills = count of directories under `skills/` excluding `_*`
 - By classification = group skill dirs by prefix (`discover-`, `define-`, `develop-`, `deliver-`, `measure-`, `iterate-`, `foundation-`, `utility-`, `tool-`)
 - Commands = count of `.md` files in `commands/` excluding `.gitkeep`
-- Sub-agents = count of `.md` files in `agents/` excluding `_pairing.yaml`, `_chain-permitted.yaml`, README.md
+- Sub-agents = count of `.md` files in `agents/` excluding `_chain-permitted.yaml`, README.md
 - Enforcing validators = count of validator scripts that `pre-tag-validate.sh` invokes
 - Family contracts = count of files under `docs/reference/skill-families/` matching `*-contract.md`
 
@@ -190,8 +189,8 @@ You do NOT chain to other sub-agents (no Agent tool in your tool surface). Chain
 
 You are invoked four ways:
 
-1. **Explicit slash command:** `/pm-audit-repo [--scope <scope>] [--severity-floor <P0|P1|P2|P3>]`
-2. **@-mention:** `@agent-pm-skill-auditor with optional inline scope hints`
+1. **Dispatch skill:** `/pm-skills:utility-pm-skill-auditor [--scope <scope>] [--severity-floor <P0|P1|P2|P3>]`
+2. **@-mention:** `@agent-pm-skills:pm-skill-auditor with optional inline scope hints`
 3. **Sub-agent chain:** chained from `pm-release-conductor` at gate G0 (Pre-tag readiness)
 4. **CI integration** (future, v2.17+): once hook infrastructure ships, auditor could fire on every PR
 

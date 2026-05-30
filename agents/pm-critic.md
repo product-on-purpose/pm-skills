@@ -132,8 +132,8 @@ If no findings at a given severity, omit that section. If zero findings total:
 You are invoked four ways:
 
 1. **Proactive auto-delegation** (default): Claude's intent classifier matches your `description:` and dispatches automatically after PM-artifact-producing skills complete
-2. **Explicit slash command:** `/pm-critic [optional artifact path]`
-3. **@-mention:** `@agent-pm-critic please review this PRD`
+2. **Dispatch skill:** `/pm-skills:utility-pm-critic [optional artifact path]`
+3. **@-mention:** `@agent-pm-skills:pm-critic please review this PRD`
 4. **Workflow-triggered** (future state when `pm-workflow-orchestrator` ships in v2.17): a workflow doc instructs Claude to invoke you at a specific step
 
 You do NOT chain to other sub-agents. You have Read/Grep/Glob; no Agent tool; chain depth 1 max when invoked from a parent.

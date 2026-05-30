@@ -58,8 +58,9 @@ if (-not $Fail) {
 }
 
 # Sub-agent recognition extension (v2.16.0 per master plan D19).
-# Enumerates agents/*.md files (excluding _pairing.yaml, _chain-permitted.yaml,
-# README.md) and verifies each agent NAME appears at least once in AGENTS.md.
+# Enumerates agents/*.md files (excluding _-prefixed files like
+# _chain-permitted.yaml, and README.md) and verifies each agent NAME appears
+# at least once in AGENTS.md.
 # Design wrinkle per D5 + D12: AGENTS.md references sub-agents by NAME (not path),
 # with runtime-components.md as canonical catalog. So this check is name-based,
 # not path-based like the skills/ scan above.
