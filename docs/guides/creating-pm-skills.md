@@ -647,45 +647,6 @@ In v2.22.0+ there are no per-skill command wrappers; a skill is invoked directly
 ```
 
 ---
-description: <Brief description for command discovery>
----
-
-Use the `<skill-name>` skill to <what it creates>.
-
-Read the skill instructions from `skills/<skill-name>/SKILL.md` and follow them to create <artifact>.
-
-Use `skills/<skill-name>/references/TEMPLATE.md` as the output format.
-
-Context from user: $ARGUMENTS
-```
-
-### Example: PRD Command
-
-```markdown
----
-description: Create a Product Requirements Document
----
-
-Use the `prd` skill to create a comprehensive Product Requirements Document.
-
-Read the skill instructions from `skills/deliver-prd/SKILL.md` and follow them to create a PRD.
-
-Use `skills/deliver-prd/references/TEMPLATE.md` as the output format.
-
-Context from user: $ARGUMENTS
-```
-
-### The $ARGUMENTS Variable
-
-`$ARGUMENTS` captures everything the user types after the command:
-
-```
-/pm-skills:deliver-prd search feature for e-commerce
-     ↑____________________________↑
-              $ARGUMENTS
-```
-
----
 
 ## Testing Your Skill
 
