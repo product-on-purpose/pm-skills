@@ -46,7 +46,6 @@ Use the Stakeholder Alignment workflow when:
 ### Step 1: Stakeholder Summary
 
 **Skill:** [`stakeholder-summary`](../skills/discover-stakeholder-summary/SKILL.md)
-**Command:** `/stakeholder-summary`
 
 **What you do:**
 
@@ -67,7 +66,6 @@ Map every stakeholder who has influence over or is affected by this initiative. 
 ### Step 2: Problem Statement
 
 **Skill:** [`problem-statement`](../skills/define-problem-statement/SKILL.md)
-**Command:** `/problem-statement`
 
 **What you do:**
 
@@ -88,7 +86,6 @@ Frame the problem in terms that resonate with your stakeholder audience. This is
 ### Step 3: Solution Brief
 
 **Skill:** [`solution-brief`](../skills/develop-solution-brief/SKILL.md)
-**Command:** `/solution-brief`
 
 **What you do:**
 
@@ -109,7 +106,6 @@ Propose a solution in a concise, executive-ready format. The brief should answer
 ### Step 4: Launch Checklist
 
 **Skill:** [`launch-checklist`](../skills/deliver-launch-checklist/SKILL.md)
-**Command:** `/launch-checklist`
 
 **What you do:**
 

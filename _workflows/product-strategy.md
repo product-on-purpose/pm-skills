@@ -46,7 +46,6 @@ Use the Product Strategy workflow when:
 ### Step 1: Competitive Analysis
 
 **Skill:** [`competitive-analysis`](../skills/discover-competitive-analysis/SKILL.md)
-**Command:** `/competitive-analysis`
 
 **What you do:**
 
@@ -67,7 +66,6 @@ Map the competitive landscape relevant to your initiative. Identify direct compe
 ### Step 2: Stakeholder Summary
 
 **Skill:** [`stakeholder-summary`](../skills/discover-stakeholder-summary/SKILL.md)
-**Command:** `/stakeholder-summary`
 
 **What you do:**
 
@@ -88,7 +86,6 @@ Map the stakeholder landscape for this initiative. Identify who has influence, w
 ### Step 3: Opportunity Tree
 
 **Skill:** [`opportunity-tree`](../skills/define-opportunity-tree/SKILL.md)
-**Command:** `/opportunity-tree`
 
 **What you do:**
 
@@ -109,7 +106,6 @@ Build a Teresa Torres-style opportunity tree anchored to the strategic outcome t
 ### Step 4: Solution Brief
 
 **Skill:** [`solution-brief`](../skills/develop-solution-brief/SKILL.md)
-**Command:** `/solution-brief`
 
 **What you do:**
 
@@ -130,7 +126,6 @@ Create a concise, one-page solution pitch for the selected opportunity. The brie
 ### Step 5: Architecture Decision Record
 
 **Skill:** [`adr`](../skills/develop-adr/SKILL.md)
-**Command:** `/adr`
 
 **What you do:**
 

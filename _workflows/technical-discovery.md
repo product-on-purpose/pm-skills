@@ -45,7 +45,6 @@ Use the Technical Discovery workflow when:
 ### Step 1: Spike Summary
 
 **Skill:** [`spike-summary`](../skills/develop-spike-summary/SKILL.md)
-**Command:** `/spike-summary`
 
 **What you do:**
 
@@ -66,7 +65,6 @@ Document the findings from a technical exploration (spike). This could be a proo
 ### Step 2: Architecture Decision Record
 
 **Skill:** [`adr`](../skills/develop-adr/SKILL.md)
-**Command:** `/adr`
 
 **What you do:**
 
@@ -87,7 +85,6 @@ Formalize the architectural decision using the Nygard ADR format. Document the c
 ### Step 3: Design Rationale
 
 **Skill:** [`design-rationale`](../skills/develop-design-rationale/SKILL.md)
-**Command:** `/design-rationale`
 
 **What you do:**
 

@@ -45,7 +45,6 @@ Use the Post-Launch Learning workflow when:
 ### Step 1: Instrumentation Spec (Pre-Launch or Immediately Post-Launch)
 
 **Skill:** [`instrumentation-spec`](../skills/measure-instrumentation-spec/SKILL.md)
-**Command:** `/instrumentation-spec`
 
 **What you do:**
 
@@ -66,7 +65,6 @@ Define the events, properties, and tracking requirements needed to measure this 
 ### Step 2: Dashboard Requirements
 
 **Skill:** [`dashboard-requirements`](../skills/measure-dashboard-requirements/SKILL.md)
-**Command:** `/dashboard-requirements`
 
 **What you do:**
 
@@ -87,7 +85,6 @@ Define the analytics dashboard that will let you monitor the feature's performan
 ### Step 3: Experiment Results
 
 **Skill:** [`experiment-results`](../skills/measure-experiment-results/SKILL.md)
-**Command:** `/experiment-results`
 
 **What you do:**
 
@@ -108,7 +105,6 @@ Evaluate the feature's performance against the success metrics defined in your P
 ### Step 4: Retrospective
 
 **Skill:** [`retrospective`](../skills/iterate-retrospective/SKILL.md)
-**Command:** `/retrospective`
 
 **What you do:**
 
@@ -129,7 +125,6 @@ Facilitate a team retrospective covering the entire lifecycle of this feature: f
 ### Step 5: Lessons Log
 
 **Skill:** [`lessons-log`](../skills/iterate-lessons-log/SKILL.md)
-**Command:** `/lessons-log`
 
 **What you do:**
 
