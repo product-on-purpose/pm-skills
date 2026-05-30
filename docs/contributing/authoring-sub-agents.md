@@ -219,8 +219,6 @@ The 4 v2.16 spec docs at `docs/internal/release-plans/v2.16.0/spec_pm-{critic,sk
 Before merging a new sub-agent:
 
 - [ ] `agents/pm-{role}.md` exists with valid frontmatter
-- [ ] `commands/{verb}.md` exists and references the dispatch skill path
-- [ ] `agents/_pairing.yaml` lists the new pair
 - [ ] If `Agent` is in tools, `agents/_chain-permitted.yaml` lists the new agent
 - [ ] `skills/utility-pm-{role}/` exists with SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md (or rationale documented for skipping if intentional)
 - [ ] `docs/reference/runtime-components.md` has the new row populated

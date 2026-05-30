@@ -56,12 +56,12 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 ### P1 findings
 
-#### F-01: Sub-agent without companion command (sub-agent integrity, violates D6)
+#### F-01: Deprecated reference to a removed skill path (deprecation tracking)
 
-**Location:** `agents/pm-release-conductor.md` (does not yet exist as of HEAD; expected per master plan Phase 5)
-**Issue:** Phase 5 plan ships `agents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists. Once authored, ensure the pair lands in the same commit per `agents/_pairing.yaml`.
-**Why it matters:** D6 requires every sub-agent to ship with a companion slash command. Missing the command makes the sub-agent harder for users to discover.
-**Fix:** This is a forward finding (Phase 5 work). Re-run audit after Phase 5 ships; finding should resolve.
+**Location:** `library/skill-output-samples/develop-feature-spike/` (illustrative)
+**Issue:** A sample references `skills/develop-feature-spike/SKILL.md`, a skill directory deleted in a prior cycle. The path no longer resolves.
+**Why it matters:** Dead references break the docs link-validity gate and mislead users about the catalog.
+**Fix:** Repoint the sample to the surviving skill (`develop-spike-summary`), or delete the orphaned sample. Re-run `check-internal-link-validity --strict`.
 
 #### F-02: Sample gap on dispatch skill utility-pm-skill-auditor
 

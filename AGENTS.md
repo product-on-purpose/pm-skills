@@ -193,7 +193,7 @@ Specifies event tracking and analytics instrumentation requirements for a featur
 #### okr-grader
 **Path:** `skills/measure-okr-grader/SKILL.md`
 
-Scores completed OKR sets at cycle close with KR-level scoring, committed-vs-aspirational interpretation, evidence quality assessment, learning synthesis, and next-cycle recommendations. Refuses to retroactively change targets, average away failed guardrails, treat 0.7 as success for committed or compliance KRs, equate effort with impact, or use scores as individual performance ratings. Hands off learnings to /lessons-log, team-process work to /retrospective, assumption tests to /hypothesis, measurement gaps to /dashboard-requirements or /instrumentation-spec, and next-cycle drafting to /okr-writer. Member of the OKR Skills set (companion: `foundation-okr-writer`).
+Scores completed OKR sets at cycle close with KR-level scoring, committed-vs-aspirational interpretation, evidence quality assessment, learning synthesis, and next-cycle recommendations. Refuses to retroactively change targets, average away failed guardrails, treat 0.7 as success for committed or compliance KRs, equate effort with impact, or use scores as individual performance ratings. Hands off learnings to iterate-lessons-log, team-process work to iterate-retrospective, assumption tests to define-hypothesis, measurement gaps to measure-dashboard-requirements or measure-instrumentation-spec, and next-cycle drafting to foundation-okr-writer. Member of the OKR Skills set (companion: `foundation-okr-writer`).
 
 #### survey-analysis
 **Path:** `skills/measure-survey-analysis/SKILL.md`

@@ -51,12 +51,12 @@ The expected outcome: 0 P0 findings (we just committed; CI was green), some P1/P
 
 ### P1 findings
 
-#### F-01: Sub-agents pm-changelog-curator and pm-release-conductor not yet authored (forward finding; Phase 4-5 will close)
+#### F-01: Deprecated reference to a removed path (deprecation tracking)
 
-**Location:** `subagents/` directory; `subagents/_pairing.yaml` lists 4 sub-agents but only 2 (.md) files exist as of HEAD
-**Issue:** Phase 4 will ship `subagents/pm-changelog-curator.md` paired with `commands/pm-draft-changelog.md`. Phase 5 will ship `subagents/pm-release-conductor.md` paired with `commands/pm-release.md`. As of HEAD, neither exists.
-**Why it matters:** D6 requires every sub-agent to ship with a companion slash command. Currently `_pairing.yaml` declares pairings for sub-agents that do not yet exist; this is an expected mid-cycle state but would be a release-blocker if it persisted to tag.
-**Fix:** This is a forward finding (Phases 4-5). Re-run audit after Phase 5 ships; finding should resolve. NOT a blocker for Phase 4 work to continue.
+**Location:** `docs/reference/runtime-components.md` (illustrative)
+**Issue:** A reference doc links a sample path that was renamed in a prior cycle; the link no longer resolves.
+**Why it matters:** Dead cross-references break the docs link-validity gate and mislead readers about the catalog.
+**Fix:** Repoint each link to its current path, or remove it. Re-run the link-validity gate to confirm zero dead links.
 
 #### F-02: Library samples missing for pm-skill-auditor dispatch skill in skill-output-samples
 

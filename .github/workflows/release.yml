@@ -35,7 +35,7 @@ jobs:
 
           - **PM skills library** (flat `skills/{phase-skill}/` + foundation capabilities)
           - **Sample output library** (`library/skill-output-samples/` with README and canonical sample corpus)
-          - **Slash commands** (`/prd`, `/hypothesis`, `/workflow-feature-kickoff`, etc.)
+          - **Slash commands** (10 `/workflow-*` orchestrators; every skill invocable by name)
           - **Workflows** (Triple Diamond, Lean Startup, Feature Kickoff)
           - **Claude plugin manifest** (`.claude-plugin/plugin.json`)
           - **Claude/openskills discovery** via sync helper (`scripts/sync-claude.sh` / `.ps1`)
@@ -65,8 +65,8 @@ jobs:
           ## Quick Usage
 
           ```
-          /prd "Your feature description"
-          /hypothesis "Your assumption to test"
+          /pm-skills:deliver-prd "Your feature description"
+          /pm-skills:define-hypothesis "Your assumption to test"
           /workflow-feature-kickoff "Feature name"
           ```
 

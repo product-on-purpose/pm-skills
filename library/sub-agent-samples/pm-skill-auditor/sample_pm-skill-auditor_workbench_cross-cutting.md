@@ -11,6 +11,8 @@ thread: workbench
 context: Mid-cycle audit catching cross-cutting issues during Workbench platform team development
 ---
 
+> **Historical sample (v2.16 development).** The skill/command symmetry check demonstrated here was retired in v2.22.0 when the per-skill command-wrapper layer was removed. The auditor's surviving cross-cutting checks (deprecated-reference, sample-gap, counter-drift, family-contract integrity, tool-classification leak) are catalogued in `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md`.
+
 ## Scenario
 
 The Workbench platform team added a new skill `develop-platform-spike-summary` for tracking platform-level technical spike work, but did not ship the matching `commands/platform-spike-summary.md`. They also deleted a deprecated skill `develop-feature-spike` but left `commands/feature-spike.md` orphaned. Both issues pass individual validators (the new skill's frontmatter is valid; the orphaned command has valid frontmatter), but the cross-cutting symmetry check catches both.
