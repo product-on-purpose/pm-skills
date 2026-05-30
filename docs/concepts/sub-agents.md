@@ -81,7 +81,7 @@ Sub-agents are a Claude Code plugin feature. Other AI clients (Codex CLI, Cursor
 
 Per master plan D11 (amended) + D30, pm-skills delivers sub-agent intent to non-Claude clients via **dispatch skills** at `skills/utility-pm-{role}/`. The dispatch skill detects runtime:
 
-- **Claude Code path:** invokes the native sub-agent via `@agent-pm-{role}` syntax
+- **Claude Code path:** invokes the native sub-agent via `@agent-pm-skills:pm-{role}` syntax
 - **Non-Claude path:** reads `agents/pm-{role}.md` and executes the system prompt inline
 
 This pattern is portable per the agentskills.io specification. The single-tool user assumption (D30) means a user typically picks ONE primary AI client; pm-skills delivers full functionality to that client.
@@ -89,7 +89,7 @@ This pattern is portable per the agentskills.io specification. The single-tool u
 ```mermaid
 flowchart LR
     A[User invokes /utility-pm-critic] --> B{Runtime?}
-    B -->|Claude Code| C[Dispatch to @agent-pm-critic native sub-agent]
+    B -->|Claude Code| C[Dispatch to @agent-pm-skills:pm-critic native sub-agent]
     B -->|Codex / Cursor / Windsurf / Copilot / Gemini| D[Read agents/pm-critic.md; execute inline]
     C --> E[Layered output: findings + Status Summary + Status YAML]
     D --> E

@@ -42,30 +42,30 @@ The sub-agent's `description:` includes "use proactively" language. Claude Code'
 
 ### Pattern 2: Explicit Slash Command
 
-Every sub-agent ships with a companion slash command in `commands/{verb}.md` per master plan D6. The command body invokes the sub-agent (or its dispatch skill).
+Every sub-agent has a dispatch skill at `skills/utility-pm-{role}/`, invoked as `/pm-skills:utility-pm-{role}`. (The legacy `commands/` wrappers were removed in v2.22.0 when master plan D6 was retired.)
 
 **Canonical examples:** `utility-pm-critic`, `utility-pm-skill-auditor`, `utility-pm-changelog-curator`, `utility-pm-release-conductor` invoke pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor respectively.
 
 **When to use:**
 
-- Always (every sub-agent has a companion command per D6)
+- Always (every sub-agent has a dispatch skill)
 - As the primary invocation for utility-tier sub-agents (explicit-only)
 - For user-tier sub-agents that ALSO have proactive triggers (the slash command is the manual fallback)
 
-**Command naming convention (v2.16.0+):**
+**Dispatch skill naming convention:**
 
-- `pm-` prefixed to reduce slash-command namespace collision with other plugins
+- `utility-pm-` prefixed to group sub-agent dispatch skills and reduce namespace collision
 - Verb-shaped suffix where natural (`utility-pm-release-conductor`, `utility-pm-skill-auditor`, `utility-pm-changelog-curator`)
-- One command per sub-agent (no multi-command pairings for v2.16)
-- The `pm-` prefix convention applies to NEW sub-agent companion commands; existing pm-skills skill commands (e.g., `deliver-prd`, `define-hypothesis`, `foundation-okr-writer`) keep their bare names as historical artifact since they predate the convention
+- One dispatch skill per sub-agent
+- Content skills (e.g., `deliver-prd`, `define-hypothesis`, `foundation-okr-writer`) are invoked by their bare names; only the sub-agent dispatch skills carry the `utility-pm-` prefix
 
 ### Pattern 3: @-Mention
 
-Users can directly invoke a sub-agent via `@agent-pm-{role}` in their prompt:
+Users can directly invoke a sub-agent via `@agent-pm-skills:pm-{role}` in their prompt:
 
 ```
-@agent-pm-critic please review this PRD
-@agent-pm-skill-auditor audit since v2.15.0
+@agent-pm-skills:pm-critic please review this PRD
+@agent-pm-skills:pm-skill-auditor audit since v2.15.0
 ```
 
 **When to use:**
@@ -151,7 +151,7 @@ The cross-client mechanism per master plan D30:
 ```mermaid
 flowchart LR
     A[User: /utility-pm-critic] --> B{Runtime?}
-    B -->|Claude Code| C[Read SKILL.md; invoke @agent-pm-critic native]
+    B -->|Claude Code| C[Read SKILL.md; invoke @agent-pm-skills:pm-critic native]
     B -->|Codex / Cursor / Windsurf / Copilot / Gemini| D[Read SKILL.md; read agents/pm-critic.md inline; execute system prompt]
     C --> E[Layered output to user]
     D --> E

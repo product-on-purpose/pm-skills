@@ -1,6 +1,6 @@
 ---
 title: Authoring Sub-Agents
-description: Contributor guide for authoring pm-skills sub-agents. Covers directory layout, frontmatter convention, referential discipline, severity grammar (P0/P1/P2/P3), companion command pairing, chain authorization, and the cross-client dispatch skill pattern.
+description: Contributor guide for authoring pm-skills sub-agents. Covers directory layout, frontmatter convention, referential discipline, severity grammar (P0/P1/P2/P3), chain authorization, and the cross-client dispatch skill pattern.
 ---
 
 ## Table of Contents
@@ -10,7 +10,6 @@ description: Contributor guide for authoring pm-skills sub-agents. Covers direct
 - [Frontmatter Convention](#frontmatter-convention)
 - [Referential Discipline](#referential-discipline)
 - [Severity Grammar](#severity-grammar)
-- [Companion Command Pairing](#companion-command-pairing)
 - [Chain Composition (Advanced)](#chain-composition-advanced)
 - [Dispatch Skill (for Cross-Client Access)](#dispatch-skill-for-cross-client-access)
 - [Library Samples (3 per Sub-Agent)](#library-samples-3-per-sub-agent)
@@ -34,11 +33,8 @@ pm-skills/
 +-- .claude-plugin/
 |   +-- plugin.json                       # Plugin manifest
 +-- agents/
-|   +-- _pairing.yaml                      # Sub-agent + companion command pairings
 |   +-- _chain-permitted.yaml              # Allowlist for agents that may use Agent tool
 |   +-- pm-your-new-agent.md               # NEW: your sub-agent definition
-+-- commands/
-|   +-- your-verb.md                       # NEW: companion slash command (verb-shaped)
 +-- skills/
 |   +-- utility-pm-your-new-agent/         # NEW: dispatch skill (conditional on cross-client support)
 |       +-- SKILL.md
@@ -132,33 +128,6 @@ All sub-agents producing findings use **P0 / P1 / P2 / P3** uniformly (master pl
 
 Every finding MUST include a concrete fix suggestion. "This is unclear" is NOT a finding; "Rewrite as X to address Y" IS a finding.
 
-## Companion Command Pairing
-
-Per master plan D6, every sub-agent ships with a companion slash command in `commands/`. Convention:
-
-- Sub-agent name: `pm-{role}` (e.g., `pm-critic`)
-- Command name: verb-shaped (e.g., `utility-pm-critic`, `utility-pm-skill-auditor`, `utility-pm-changelog-curator`, `utility-pm-release-conductor`)
-- Declare the pairing in `agents/_pairing.yaml`
-
-Command body (`commands/your-verb.md`) follows the standard pm-skills command convention:
-
-```markdown
----
-description: One-line description of what the command does
-argument-hint: "[optional argument shape]"
----
-
-Use the `pm-{role}` sub-agent to {do the thing}.
-
-If `$ARGUMENTS` contains a {specific input shape}, use that. Otherwise {fallback behavior}.
-
-[Brief explanation of what the sub-agent does and where the canonical docs live]
-
-Context from user: $ARGUMENTS
-```
-
-The command body MUST reference a `skills/[a-z0-9-]+/SKILL.md` path for `scripts/validate-commands.sh` to pass. Reference the dispatch skill path (`skills/utility-pm-{role}/SKILL.md`).
-
 ## Chain Composition (Advanced)
 
 If your sub-agent needs to invoke another sub-agent (Pattern 3 from `docs/contributing/sub-agent-design-patterns.md`):
@@ -197,7 +166,7 @@ metadata:
 
 ### If you are running in Claude Code with the pm-skills plugin installed
 
-Invoke `@agent-pm-{role}` on the target with `$ARGUMENTS`. Return findings.
+Invoke `@agent-pm-skills:pm-{role}` on the target with `$ARGUMENTS`. Return findings.
 
 ### If you are running in any other AI client
 

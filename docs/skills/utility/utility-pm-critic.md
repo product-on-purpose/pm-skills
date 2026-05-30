@@ -1,6 +1,6 @@
 ---
 title: "PM Critic (Dispatch Skill)"
-description: "Run adversarial review on a PM artifact via the pm-critic sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-critic); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-critic.md and executes the system prompt inline. Returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26."
+description: "Run adversarial review on a PM artifact via the pm-critic sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skills:pm-critic); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-critic.md and executes the system prompt inline. Returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26."
 generated: true
 source: scripts/generate-skill-pages.py
 tags:
@@ -47,7 +47,7 @@ Or reference the skill file directly: `skills/utility-pm-critic/SKILL.md`
 
 ### If you are running in Claude Code with the pm-skills plugin installed
 
-Invoke `@agent-pm-critic` on the target artifact. Pass the artifact path as argument (or the most recent artifact in session context if no argument is provided). Return the sub-agent's findings to the user. No further action needed from this skill - the sub-agent handles the review natively in its own context window.
+Invoke `@agent-pm-skills:pm-critic` on the target artifact. Pass the artifact path as argument (or the most recent artifact in session context if no argument is provided). Return the sub-agent's findings to the user. No further action needed from this skill - the sub-agent handles the review natively in its own context window.
 
 ### If you are running in any other AI client
 

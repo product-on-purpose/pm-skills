@@ -218,6 +218,5 @@ Before finalizing, verify:
 
 ## Cross-references
 
-- Companion command: `commands/prioritization-framework.md`
 - Template: `references/TEMPLATE.md`
 - Examples: `references/EXAMPLE.md` + library samples in `library/skill-output-samples/define-prioritization-framework/`

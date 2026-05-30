@@ -217,6 +217,5 @@ Before finalizing, verify:
 
 ## Cross-references
 
-- Companion command: `commands/market-sizing.md`
 - Template: `references/TEMPLATE.md`
 - Examples: `references/EXAMPLE.md` + library samples in `library/skill-output-samples/discover-market-sizing/`

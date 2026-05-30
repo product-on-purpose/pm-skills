@@ -204,7 +204,6 @@ The maintainer running this runbook BY HAND (without any sub-agent) follows the 
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}` (G0 + G2.5 sub-check entry point)
 - Chain children: `agents/pm-skill-auditor.md`, `agents/pm-changelog-curator.md`
 - Chain allowlist: `agents/_chain-permitted.yaml` (lists only `pm-release-conductor`)
-- Companion command: [`commands/pm-release.md`](https://github.com/product-on-purpose/pm-skills/blob/main/commands/pm-release.md)
 - v2.15.1 clean-worktree runbook (predecessor for the manual maintainer flow): `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`
 - Adversarial review user guide (G1 context): [`docs/guides/adversarial-review.md`](../guides/adversarial-review.md)
 - CHANGELOG hygiene rules (G2 context): `CLAUDE.md` (repo root)

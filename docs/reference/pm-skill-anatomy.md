@@ -170,14 +170,14 @@ Foundation and utility skills sit outside the phase model . they serve all phase
 
 Skills don't work in isolation. Three mechanisms connect them to users and agents:
 
-### Commands (`commands/*.md`)
+### Commands (`commands/workflow-*.md`)
 
-Slash commands that invoke skills. Each command file has `description:` frontmatter and a prose body that tells the agent which skill to read and follow.
+The 10 `/workflow-*` orchestrator commands chain skills into end-to-end sequences. Individual skills are invoked directly by name (`/pm-skills:<skill-name>` on Claude Code, `$<skill-name>` on Codex); the per-skill command wrappers were removed in v2.22.0.
 
 ```
-commands/prd.md          → invokes skills/deliver-prd/SKILL.md
-commands/persona.md      → invokes skills/foundation-persona/SKILL.md
-commands/pm-skill-builder.md → invokes skills/utility-pm-skill-builder/SKILL.md
+commands/workflow-feature-kickoff.md    chains the Feature Kickoff skill sequence
+commands/workflow-customer-discovery.md chains the Customer Discovery skill sequence
+(individual skills invoked directly: /pm-skills:deliver-prd on Claude Code, $deliver-prd on Codex)
 ```
 
 ### AGENTS.md

@@ -1,6 +1,6 @@
 ---
 title: "PM Release Conductor (Dispatch Skill)"
-description: "Walk the guided release runbook (6 gates G0/G1/G2/G2.5/G3/G4) via the pm-release-conductor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-release-conductor with native chain composition to pm-skill-auditor at G0 and pm-changelog-curator at G2); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-release-conductor.md and inlines auditor + curator behaviors at G0 + G2 via reference-and-execute-inline pattern (because non-Claude clients cannot natively chain to other sub-agents). Returns gate-by-gate output with explicit confirmation pauses, refuses bypass attempts, tags only the G2.5-captured SHA per master plan D22."
+description: "Walk the guided release runbook (6 gates G0/G1/G2/G2.5/G3/G4) via the pm-release-conductor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skills:pm-release-conductor with native chain composition to pm-skill-auditor at G0 and pm-changelog-curator at G2); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-release-conductor.md and inlines auditor + curator behaviors at G0 + G2 via reference-and-execute-inline pattern (because non-Claude clients cannot natively chain to other sub-agents). Returns gate-by-gate output with explicit confirmation pauses, refuses bypass attempts, tags only the G2.5-captured SHA per master plan D22."
 generated: true
 source: scripts/generate-skill-pages.py
 tags:
@@ -37,7 +37,7 @@ Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent. Detects 
 
 ### If you are running in Claude Code with the pm-skills plugin installed
 
-Invoke `@agent-pm-release-conductor` with the user's target version + optional flags from `$ARGUMENTS`. The native sub-agent walks the 6 gates and natively chains to `pm-skill-auditor` (G0, G2.5) and `pm-changelog-curator` (G2) via the Agent tool. Return the conductor's gate-by-gate output to the user.
+Invoke `@agent-pm-skills:pm-release-conductor` with the user's target version + optional flags from `$ARGUMENTS`. The native sub-agent walks the 6 gates and natively chains to `pm-skill-auditor` (G0, G2.5) and `pm-changelog-curator` (G2) via the Agent tool. Return the conductor's gate-by-gate output to the user.
 
 ### If you are running in any other AI client
 

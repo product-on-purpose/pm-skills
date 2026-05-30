@@ -42,7 +42,7 @@ The proactive trigger fires after: deliver-prd, foundation-meeting-recap, founda
 
 ### Pattern 2: Explicit slash command (all 4 sub-agents)
 
-Each sub-agent has a companion slash command:
+Each sub-agent has a dispatch skill, invoked as a slash command:
 
 ```
 /pm-skills:utility-pm-critic                            # Reviews the most recent artifact in session context
@@ -55,17 +55,18 @@ Each sub-agent has a companion slash command:
 /pm-skills:utility-pm-release-conductor v2.16.0                   # Live release
 ```
 
-### Pattern 3: @-mention (3 sub-agents; not conductor)
+### Pattern 3: @-mention (all 4 sub-agents)
 
 @-mention guarantees invocation:
 
 ```
-@agent-pm-critic please review this PRD
-@agent-pm-skill-auditor audit since v2.15.0
-@agent-pm-changelog-curator draft since v2.15.0
+@agent-pm-skills:pm-critic please review this PRD
+@agent-pm-skills:pm-skill-auditor audit since v2.15.0
+@agent-pm-skills:pm-changelog-curator draft since v2.15.0
+@agent-pm-skills:pm-release-conductor v2.16.0 --dry-run
 ```
 
-The conductor (`pm-release-conductor`) does NOT support @-mention because release operations are too consequential for ambient spawning. Explicit `/pm-skills:utility-pm-release-conductor v{X.Y.Z}` is required.
+All four sub-agents are @-mentionable. The conductor is not proactive (it never self-triggers); its safety comes from the 6-gate runbook, which pauses for confirmation regardless of how it was invoked, not from restricting the invocation path.
 
 ### Pattern 4: Sub-agent chain (conductor -> auditor + curator)
 
@@ -90,7 +91,7 @@ On non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI), invoke
 
 The dispatch skill detects runtime:
 
-- **Claude Code:** dispatches to the native sub-agent via `@agent-pm-{role}` syntax
+- **Claude Code:** dispatches to the native sub-agent via `@agent-pm-skills:pm-{role}` syntax
 - **Non-Claude clients:** reads `agents/pm-{role}.md` and executes the system prompt inline
 
 Output is structurally identical (layered output per master plan D26: full findings/draft + Status Summary prose + Status YAML block).

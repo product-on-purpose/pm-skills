@@ -17,7 +17,7 @@ description: Catalog of pm-skills runtime components (sub-agents, hooks, output 
 
 pm-skills ships two layers of capability:
 
-**Content library (the bulk of the repo):** 63 skills, 73 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
+**Content library (the bulk of the repo):** 63 skills, 10 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
 
 **Runtime components (this catalog):** Plugin features that take action. Sub-agents are dispatched by Claude Code's intent classifier and run in their own context window. Hooks fire on lifecycle events (PreToolUse, PostToolUse, Stop). Output styles transform how Claude formats responses.
 
@@ -26,9 +26,9 @@ The distinction matters because skills are portable across clients (any client t
 | Layer | What it is | How AI uses it | Cross-client portable? |
 |---|---|---|---|
 | Skills (63) | Reference content with frontmatter, templates, examples | AI reads SKILL.md at invocation time | Yes (per agentskills.io spec) |
-| Commands (73) | Slash command wrappers that invoke skills with arguments | User types `/skill-name`, AI executes the linked skill | Claude Code native; portable conceptually |
+| Commands (10) | The `/workflow-*` orchestrators that chain skills into lifecycle sequences | User types `/workflow-name`, AI walks the skill sequence | Claude Code native |
 | Workflows (12) | Multi-skill chains for full lifecycle moments | AI walks ordered skill invocations | Native; portable conceptually |
-| Sub-agents (4 in v2.16) | Plugin components matched via `description:` and run in isolated context | Claude Code's intent classifier delegates; OR user invokes companion slash command | Claude Code only; dispatch skills provide cross-client parity |
+| Sub-agents (4 in v2.16) | Plugin components matched via `description:` and run in isolated context | Claude Code's intent classifier delegates; OR user invokes the dispatch skill (`/pm-skills:utility-pm-{role}`) or @-mentions `@agent-pm-skills:pm-{role}` | Claude Code only; dispatch skills provide cross-client parity |
 | Hooks (0; v2.17+ scope) | Lifecycle event handlers (PreToolUse, PostToolUse, Stop, etc.) | Claude Code fires automatically on configured events | Claude Code only |
 | Output styles (0; v2.18+ scope) | Response formatting transforms | Claude applies when style is active | Claude Code only |
 
@@ -39,9 +39,9 @@ v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents
 | Sub-agent | Audience | Trigger | Lifetime | Tool Surface | Composition | Dispatch Skill |
 |---|---|---|---|---|---|---|
 | `pm-critic` | User (PM authoring artifacts) | Proactive after PM-artifact-producing skills (Claude Code) + explicit `utility-pm-critic` | Single turn | Read, Grep, Glob (no write; no Bash) | Skill-revise-recheck loop with deliver-prd, foundation-okr-writer, foundation-meeting-recap, foundation-persona, foundation-lean-canvas, discover-interview-synthesis, etc. | `skills/utility-pm-critic/` |
-| `pm-skill-auditor` | User + Maintainer (audience straddles) | Explicit only: `utility-pm-skill-auditor` or `@agent-pm-skill-auditor`; chained from `pm-release-conductor` at gate G0 | Multi-turn (may ask follow-up questions) | Bash, Read, Grep, Glob (no Edit; no Agent; detection-only) | Composes the enforcing validator suite via `scripts/pre-tag-validate.{sh,ps1}`; runs cross-cutting checks; re-derives aggregate counters | `skills/utility-pm-skill-auditor/` |
-| `pm-changelog-curator` | Maintainer | Explicit only: `utility-pm-changelog-curator` or `@agent-pm-changelog-curator`; chained from `pm-release-conductor` at gate G2 | Single turn (standalone or chained) | Bash, Read, Grep (no Edit; no Agent) | Composes with git log + CLAUDE.md hygiene rules; chained from conductor at G2 | `skills/utility-pm-changelog-curator/` |
-| `pm-release-conductor` | Maintainer | Explicit only: `utility-pm-release-conductor v{X.Y.Z}` (no @-mention; release too consequential for ambient spawn) | Full release flow (often 30+ minutes) | Bash, Read, Edit, Grep, Glob, **Agent** (chain-permitted per `_chain-permitted.yaml`) | Chains to `pm-skill-auditor` at G0 + G2.5 and to `pm-changelog-curator` at G2; reads `docs/contributing/release-runbook.md` for gate definitions | `skills/utility-pm-release-conductor/` |
+| `pm-skill-auditor` | User + Maintainer (audience straddles) | Explicit only: `utility-pm-skill-auditor` or `@agent-pm-skills:pm-skill-auditor`; chained from `pm-release-conductor` at gate G0 | Multi-turn (may ask follow-up questions) | Bash, Read, Grep, Glob (no Edit; no Agent; detection-only) | Composes the enforcing validator suite via `scripts/pre-tag-validate.{sh,ps1}`; runs cross-cutting checks; re-derives aggregate counters | `skills/utility-pm-skill-auditor/` |
+| `pm-changelog-curator` | Maintainer | Explicit only: `utility-pm-changelog-curator` or `@agent-pm-skills:pm-changelog-curator`; chained from `pm-release-conductor` at gate G2 | Single turn (standalone or chained) | Bash, Read, Grep (no Edit; no Agent) | Composes with git log + CLAUDE.md hygiene rules; chained from conductor at G2 | `skills/utility-pm-changelog-curator/` |
+| `pm-release-conductor` | Maintainer | Explicit only: `/pm-skills:utility-pm-release-conductor v{X.Y.Z}` or `@agent-pm-skills:pm-release-conductor` (not proactive; safety from the 6 gates, not the invocation path) | Full release flow (often 30+ minutes) | Bash, Read, Edit, Grep, Glob, **Agent** (chain-permitted per `_chain-permitted.yaml`) | Chains to `pm-skill-auditor` at G0 + G2.5 and to `pm-changelog-curator` at G2; reads `docs/contributing/release-runbook.md` for gate definitions | `skills/utility-pm-release-conductor/` |
 
 For per-sub-agent cross-client status (Claude Code / Codex CLI / Cursor / Windsurf / Copilot CLI / Gemini CLI), see the canonical [Sub-Agent Compatibility Matrix](./sub-agent-compatibility.md). Rows fill in as each sub-agent ships in its respective phase of [`subagents-integration-plan.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/subagents-integration-plan.md). Behavioral contracts live in the corresponding `spec_pm-{name}.md` files alongside the integration plan.
 
@@ -50,7 +50,7 @@ For per-sub-agent cross-client status (Claude Code / Codex CLI / Cursor / Windsu
 These invariants hold for every sub-agent in this catalog (enforced by `scripts/validate-agents-md.{sh,ps1}` extended per master plan D19):
 
 - Definition file at `agents/{name}.md` with YAML frontmatter declaring `name`, `description`, `tools`, `model`, `memory`
-- Companion slash command at `commands/{verb}.md` per master plan D6, paired in `agents/_pairing.yaml`
+- Dispatch skill at `skills/utility-pm-{role}/` for cross-client access (the v2.16 companion-command pairing was retired in v2.22.0)
 - `tools:` frontmatter is a comma-separated scalar (per D20), e.g. `tools: Read, Grep, Glob`
 - `Agent` in `tools:` requires entry in `agents/_chain-permitted.yaml` per D21 (HARD FAIL otherwise)
 - Chain depth capped at 2 levels (D14)
@@ -92,14 +92,14 @@ Claude: "I've reviewed your PRD. Three P1 findings to address..."
 
 Only `pm-critic` ships with a proactive trigger in v2.16.0 per master plan D7. The 3 utility sub-agents (pm-skill-auditor, pm-changelog-curator, pm-release-conductor) are explicit-only.
 
-**Explicit (user invokes the companion slash command):**
+**Explicit (user invokes the dispatch skill):**
 
 ```
 User: utility-pm-critic docs/specs/my-prd.md
 Claude Code: [invokes pm-critic with the artifact path as $ARGUMENTS]
 ```
 
-Companion slash commands per `agents/_pairing.yaml`:
+Dispatch skills (one per sub-agent):
 
 - `utility-pm-critic [artifact path]` invokes `pm-critic`
 - `utility-pm-skill-auditor` invokes `pm-skill-auditor`
@@ -110,7 +110,7 @@ Companion slash commands per `agents/_pairing.yaml`:
 
 On non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI), sub-agents are not natively available. Users invoke the dispatch skill at `skills/utility-pm-{role}/` which provides the same intent. The dispatch skill SKILL.md detects runtime and either:
 
-1. (Claude Code path) invokes the native sub-agent via `@agent-pm-{role}` syntax, OR
+1. (Claude Code path) invokes the native sub-agent via `@agent-pm-skills:pm-{role}` syntax, OR
 2. (Non-Claude path) reads `agents/pm-{role}.md` and executes its system prompt inline
 
 See [Cross-Client Compatibility](#cross-client-compatibility) for details. Dispatch skill availability is conditional on Phase 2 spike outcomes; see the integration plan.
@@ -132,7 +132,7 @@ Per master plan D11 (amended) + D30:
 
 **Dispatch skill mechanism.** Each dispatch skill is a thin pm-skills utility skill (~50 lines of SKILL.md) that contains conditional instructions:
 
-> If you are running in Claude Code with the pm-skills plugin: invoke `@agent-pm-critic` (or equivalent) on the target.
+> If you are running in Claude Code with the pm-skills plugin: invoke `@agent-pm-skills:pm-critic` (or equivalent) on the target.
 > If you are running in any other client: read the canonical agent definition at `agents/pm-{name}.md` and execute the system prompt body as your operating instructions for this turn.
 
 The dispatch skill is portable per agentskills.io. The sub-agent definition file (`agents/{name}.md`) is portable as plain markdown - any AI that can read a file can execute its prompt body inline. There is no drift risk: the canonical system prompt lives in ONE place (the sub-agent definition), and the dispatch skill references it.
@@ -181,6 +181,5 @@ For pm-release-conductor specifically (most complex sub-agent), the dispatch ski
 - Subagents integration plan: [`docs/internal/release-plans/v2.16.0/subagents-integration-plan.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/subagents-integration-plan.md)
 - Adversarial review user guide: `docs/guides/adversarial-review.md` (ships in Phase 2)
 - Release runbook contributor guide: `docs/contributing/release-runbook.md` (ships in Phase 5)
-- Pairing manifest: [`agents/_pairing.yaml`](https://github.com/product-on-purpose/pm-skills/blob/main/agents/_pairing.yaml)
 - Chain allowlist: [`agents/_chain-permitted.yaml`](https://github.com/product-on-purpose/pm-skills/blob/main/agents/_chain-permitted.yaml)
 - Strategy source: `docs/internal/_working/subagents/subagent-strategy_2026-05-07.md`

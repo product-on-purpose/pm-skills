@@ -23,10 +23,9 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 ```
 pm-skills/
 ├── skills/                     # Core PM skills (63 total: 30 phase + 8 foundation + 10 utility + 15 tool; flat layout)
-├── commands/                   # Slash command markdown files
+├── commands/                   # The 10 /workflow-* orchestrator commands
 ├── _workflows/                 # Workflows source (12 in v2.15.0)
 ├── agents/                     # Sub-agent definitions (v2.16.0+; auto-discovered by Claude Code's plugin runtime)
-│   ├── _pairing.yaml           # Sub-agent + companion slash command pairings
 │   └── _chain-permitted.yaml   # Allowlist of sub-agents permitted to use Agent tool (D14 + D21)
 ├── docs/                       # Documentation (incl. templates)
 │   └── templates/              # Skill creation templates
@@ -155,7 +154,7 @@ skills/{skill-name}/
 
 Contains Claude Code slash command definitions. Each `.md` maps a `/command` to its skill (or workflow).
 
-**Commands (73 total: 59 skill commands + 10 workflow commands + 4 sub-agent commands)**
+**Commands (10 total: 10 workflow commands)**
 | Command | Target skill/workflow |
 | --- | --- |
 | `discover-competitive-analysis` | discover-competitive-analysis |

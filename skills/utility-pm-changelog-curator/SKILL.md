@@ -1,6 +1,6 @@
 ---
 name: utility-pm-changelog-curator
-description: Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-changelog-curator); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-changelog-curator.md and executes the system prompt inline. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft + Status Summary prose + Status YAML envelope per master plan D26) with hidden justification comments for maintainer audit. Refuses on dirty working tree unless --committed-only is passed.
+description: Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skills:pm-changelog-curator); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-changelog-curator.md and executes the system prompt inline. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft + Status Summary prose + Status YAML envelope per master plan D26) with hidden justification comments for maintainer audit. Refuses on dirty working tree unless --committed-only is passed.
 license: Apache-2.0
 metadata:
   classification: utility
@@ -34,7 +34,7 @@ Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent. Detects 
 
 ### If you are running in Claude Code with the pm-skills plugin installed
 
-Invoke `@agent-pm-changelog-curator` with the user's arguments. Pass `--since-tag`, `--target-version`, `--committed-only` from `$ARGUMENTS` if present. Return the sub-agent's draft to the user.
+Invoke `@agent-pm-skills:pm-changelog-curator` with the user's arguments. Pass `--since-tag`, `--target-version`, `--committed-only` from `$ARGUMENTS` if present. Return the sub-agent's draft to the user.
 
 ### If you are running in any other AI client
 

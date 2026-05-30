@@ -70,7 +70,7 @@ If `$ARGUMENTS` is empty, pm-critic reviews the most recently produced artifact 
 ### Path 3: @-mention
 
 ```
-@agent-pm-critic please review this PRD
+@agent-pm-skills:pm-critic please review this PRD
 ```
 
 Use @-mention when you want guaranteed invocation in a context where the intent classifier might not fire (e.g., a long-running session where the proactive trigger already fired but you want a second pass after edits).
@@ -256,4 +256,3 @@ Per Claude Code plugin convention, you can disable individual sub-agents. Refer 
 - Dispatch skill (cross-client): `skills/utility-pm-critic/SKILL.md` (VALIDATED on Codex CLI 2026-05-17)
 - Library samples: `library/sub-agent-samples/pm-critic/` (3 thread-aligned examples)
 - Phase 0 Adversarial Review pattern (manual predecessor): [`docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.11.0/plan_v2.11_pre-release-checklist.md)
-- Companion slash command: [`commands/pm-critic.md`](https://github.com/product-on-purpose/pm-skills/blob/main/commands/pm-critic.md)

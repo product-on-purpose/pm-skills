@@ -273,28 +273,28 @@ Checks for newer pm-skills releases, compares local vs. latest version, previews
 #### pm-critic
 **Path:** `skills/utility-pm-critic/SKILL.md`
 
-Cross-client dispatch wrapper for the `pm-critic` sub-agent (v2.16.0+). Runs adversarial review on a PM artifact and returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26. Dispatches natively on Claude Code with the pm-skills plugin (invokes `@agent-pm-critic`); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads `agents/pm-critic.md` and executes the system prompt inline. Use to review PRDs, OKR sets, personas, lean canvases, meeting recaps, interview syntheses, edge case catalogs, or other PM artifacts.
+Cross-client dispatch wrapper for the `pm-critic` sub-agent (v2.16.0+). Runs adversarial review on a PM artifact and returns findings graded P0/P1/P2/P3 with concrete fix suggestions per finding, plus a layered Status Summary section and machine-readable Status YAML block per master plan D26. Dispatches natively on Claude Code with the pm-skills plugin (invokes `@agent-pm-skills:pm-critic`); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads `agents/pm-critic.md` and executes the system prompt inline. Use to review PRDs, OKR sets, personas, lean canvases, meeting recaps, interview syntheses, edge case catalogs, or other PM artifacts.
 
 ---
 
 #### pm-skill-auditor
 **Path:** `skills/utility-pm-skill-auditor/SKILL.md`
 
-Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent (v2.16.0+). Runs a repo-wide cross-cutting governance audit: invokes the full enforcing validator suite (via `scripts/pre-tag-validate.{sh,ps1}` as canonical orchestration entry point), aggregates results, runs cross-cutting checks no single validator catches alone (skill-without-command, sample gaps, family contract orphans, etc.), re-derives aggregate counters against declared values, and returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-skill-auditor`); on non-Claude clients reads `agents/pm-skill-auditor.md` and executes inline. Use pre-release for governance check or for repo-health audits.
+Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent (v2.16.0+). Runs a repo-wide cross-cutting governance audit: invokes the full enforcing validator suite (via `scripts/pre-tag-validate.{sh,ps1}` as canonical orchestration entry point), aggregates results, runs cross-cutting checks no single validator catches alone (skill-without-command, sample gaps, family contract orphans, etc.), re-derives aggregate counters against declared values, and returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-skills:pm-skill-auditor`); on non-Claude clients reads `agents/pm-skill-auditor.md` and executes inline. Use pre-release for governance check or for repo-health audits.
 
 ---
 
 #### pm-changelog-curator
 **Path:** `skills/utility-pm-changelog-curator/SKILL.md`
 
-Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent (v2.16.0+). Drafts CHANGELOG entries from git log between two tags. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft with hidden justification comments + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-changelog-curator`); on non-Claude clients reads `agents/pm-changelog-curator.md` and executes inline. Refuses on dirty working tree unless `--committed-only` passed. Use during release prep (gate G2 of the release runbook).
+Cross-client dispatch wrapper for the `pm-changelog-curator` sub-agent (v2.16.0+). Drafts CHANGELOG entries from git log between two tags. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft with hidden justification comments + Status Summary prose + Status YAML envelope per master plan D26). Dispatches natively on Claude Code (invokes `@agent-pm-skills:pm-changelog-curator`); on non-Claude clients reads `agents/pm-changelog-curator.md` and executes inline. Refuses on dirty working tree unless `--committed-only` passed. Use during release prep (gate G2 of the release runbook).
 
 ---
 
 #### pm-release-conductor
 **Path:** `skills/utility-pm-release-conductor/SKILL.md`
 
-Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent (v2.16.0+). Walks the guided release runbook with 6 explicit gates (G0 Pre-tag readiness, G1 Adversarial review status, G2 Version bump + CHANGELOG prep, G2.5 Commit + re-verify, G3 Tag + push, G4 Post-tag hygiene). Chains to `pm-skill-auditor` at G0 + G2.5 and to `pm-changelog-curator` at G2 on Claude Code (native sub-agent chain); on non-Claude clients uses the reference-and-execute-inline pattern to inline auditor + curator behaviors at the relevant gates. Refuses to advance past failed gates; tags only the G2.5-captured SHA per master plan D22 (prevents broken-tag bug). G4 P0 sub-checks block "Release complete" output per D23. No bypass possible (--skip-gates removed per D24). **Status: dispatch skill CONDITIONAL on Phase 2 GATE C sub-spike outcome.** If GATE C fails, conductor stays Claude-Code-only (D-revised path).
+Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent (v2.16.0+). Walks the guided release runbook with 6 explicit gates (G0 Pre-tag readiness, G1 Adversarial review status, G2 Version bump + CHANGELOG prep, G2.5 Commit + re-verify, G3 Tag + push, G4 Post-tag hygiene). Chains to `pm-skill-auditor` at G0 + G2.5 and to `pm-changelog-curator` at G2 on Claude Code (native sub-agent chain); on non-Claude clients uses the reference-and-execute-inline pattern to inline auditor + curator behaviors at the relevant gates. Refuses to advance past failed gates; tags only the G2.5-captured SHA per master plan D22 (prevents broken-tag bug). G4 P0 sub-checks block "Release complete" output per D23. No bypass possible (--skip-gates removed per D24).
 
 ---
 
@@ -421,81 +421,20 @@ Workflow links are repo-relative within this repository.
 
 ## Commands
 
+The 10 `/workflow-*` orchestrator commands chain multiple skills into end-to-end sequences. Each individual skill is invoked directly by name (`/pm-skills:<skill-name>` on Claude Code, `$<skill-name>` on Codex); the per-skill command wrappers were removed in v2.22.0.
+
 | Command | Description |
 |---------|-------------|
-| `/acceptance-criteria` | Generate acceptance criteria with Given/When/Then |
-| `/adr` | Create an Architecture Decision Record |
-| `/competitive-analysis` | Create a structured competitive analysis |
-| `/dashboard-requirements` | Specify requirements for an analytics dashboard |
-| `/design-rationale` | Document the reasoning behind design decisions |
-| `/edge-cases` | Document edge cases and error states for a feature |
-| `/experiment-design` | Design an A/B test or experiment |
-| `/experiment-results` | Document experiment results and learnings |
-| `/hypothesis` | Define a testable hypothesis with success metrics |
-| `/instrumentation-spec` | Specify event tracking and analytics instrumentation |
-| `/interview-synthesis` | Synthesize user research interviews into insights |
-| `/jtbd-canvas` | Create a Jobs to be Done canvas |
-| `/journey-map` | Map a customer journey with touchpoints and emotional curve |
-| `/market-sizing` | Size a market (TAM/SAM/SOM) with multiple frameworks |
-| `/prioritization-framework` | Rank items across multiple prioritization frameworks |
-| `/survey-analysis` | Analyze survey results into honest, actionable insights |
-| `/workflow-feature-kickoff` | Run the Feature Kickoff workflow (problem → hypothesis → PRD → stories) |
+| `/workflow-feature-kickoff` | Run the Feature Kickoff workflow (problem -> hypothesis -> PRD -> stories) |
 | `/workflow-customer-discovery` | Run the Customer Discovery workflow |
 | `/workflow-sprint-planning` | Run the Sprint Planning workflow |
 | `/workflow-product-strategy` | Run the Product Strategy workflow |
 | `/workflow-post-launch-learning` | Run the Post-Launch Learning workflow |
 | `/workflow-stakeholder-alignment` | Run the Stakeholder Alignment workflow |
 | `/workflow-technical-discovery` | Run the Technical Discovery workflow |
-| `/launch-checklist` | Create a comprehensive pre-launch checklist |
-| `/lean-canvas` | Generate a one-page lean canvas with optional HTML output |
-| `/meeting-agenda` | Generate an attendee-facing meeting agenda with time-boxed topics, type tags, owners, and attendee prep |
-| `/meeting-brief` | Generate a private strategic preparation document for a meeting (stakeholder reads, ranked outcomes, key messages, Q&A) |
-| `/meeting-recap` | Generate a topic-segmented post-meeting recap with decisions highlighted and actions captured inline |
-| `/meeting-synthesize` | Generate a cross-meeting synthesis surfacing patterns, trajectories, stalled threads, and contradictions |
-| `/mermaid-diagrams` | Create syntactically valid mermaid diagrams for product documentation |
-| `/stakeholder-update` | Generate an async stakeholder update from a meeting recap, tailored by channel and audience |
-| `/lessons-log` | Create a structured lessons learned entry |
-| `/okr-grader` | Score completed OKRs at cycle close with evidence-based interpretation and learning synthesis |
-| `/okr-writer` | Draft, review, rewrite, or coach OKRs with outcome-based KRs and quality audit |
-| `/opportunity-tree` | Create an opportunity solution tree |
-| `/persona` | Generate a product or marketing persona |
-| `/pivot-decision` | Document a pivot or persevere decision |
-| `/pm-skill-builder` | Create a new PM skill with gap analysis and a Skill Implementation Packet |
-| `/pm-skill-iterate` | Apply targeted improvements to a skill from feedback or validation reports |
-| `/pm-skill-validate` | Audit a skill against structural conventions and quality criteria |
-| `/prd` | Create a Product Requirements Document |
-| `/problem-statement` | Create a clear problem statement with success criteria |
-| `/refinement-notes` | Document backlog refinement session outcomes |
-| `/release-notes` | Create user-facing release notes |
-| `/retrospective` | Facilitate and document a team retrospective |
-| `/slideshow-creator` | Generate professional presentations from JSON deck specs |
-| `/update-pm-skills` | Check for updates and update local pm-skills installation |
-| `/solution-brief` | Create a one-page solution overview |
-| `/spike-summary` | Document the results of a technical or design spike |
-| `/stakeholder-summary` | Document stakeholder needs and influence |
-| `/user-stories` | Generate user stories with acceptance criteria |
 | `/workflow-foundation-sprint` | Run the Foundation Sprint workflow (2-day strategic-alignment arc producing a Founding Hypothesis) |
 | `/workflow-design-sprint` | Run the Design Sprint workflow (5-day prototype-and-test arc producing a Decider's build/iterate/pivot/stop call) |
 | `/workflow-foundation-to-design` | Run the end-to-end Foundation Sprint + Design Sprint workflow with narrative handoff |
-| `/tool-note-and-vote` | Run a structured group decision (silent ideation + heat-map voting + Decider supervote) |
-| `/tool-foundation-sprint-readiness` | Foundation Sprint: pre-sprint Go / Conditional Go / Wait diagnostic |
-| `/tool-foundation-sprint-brief` | Foundation Sprint: one-page scope contract before Day 1 |
-| `/tool-foundation-sprint-basics` | Foundation Sprint Day 1 AM: target customer + important problem + team advantage + competitor map |
-| `/tool-foundation-sprint-differentiation` | Foundation Sprint Day 1 PM: scored differentiators + 2x2 chart + decision principles + Mini Manifesto |
-| `/tool-foundation-sprint-approach-options` | Foundation Sprint Day 2 AM: 3-7 candidate approaches as one-page summaries |
-| `/tool-foundation-sprint-magic-lenses` | Foundation Sprint Day 2 PM: top bet + backup via 4 classic + 1 custom lens evaluation |
-| `/tool-foundation-sprint-founding-hypothesis` | Foundation Sprint Day 2 end: canonical hypothesis sentence + assumption scorecard + recommended next test |
-| `/tool-design-sprint-readiness` | Design Sprint: pre-sprint Go / Conditional Go / Wait diagnostic + customer recruiting plan |
-| `/tool-design-sprint-brief` | Design Sprint: two-page scope contract before Monday |
-| `/tool-design-sprint-map-and-target` | Design Sprint Monday: long-term goal + sprint questions + customer map + HMW board + target moment |
-| `/tool-design-sprint-sketch` | Design Sprint Tuesday: lightning demos + 4 independent solution sketches per team member |
-| `/tool-design-sprint-decide-and-storyboard` | Design Sprint Wednesday: heat map + Decider supervote + 5-15 panel storyboard |
-| `/tool-design-sprint-prototype-plan` | Design Sprint Thursday AM: 5-role plan + Five-Act interview script + trial-run checklist |
-| `/tool-design-sprint-test-and-score` | Design Sprint Friday: 5 customer interviews + scorecard + Decider's build / iterate / pivot / stop call |
-| `/pm-critic` | Run adversarial review on a PM artifact via the pm-critic sub-agent |
-| `/pm-audit-repo` | Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent |
-| `/pm-draft-changelog` | Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent |
-| `/pm-release` | Walk the guided release runbook (6 gates) via the pm-release-conductor sub-agent |
 
 ---
 

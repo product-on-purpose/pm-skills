@@ -1,6 +1,6 @@
 ---
 name: utility-pm-skill-auditor
-description: Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skill-auditor); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-skill-auditor.md and executes the system prompt inline. Returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26) with cross-cutting findings graded P0/P1/P2/P3 plus aggregate counter audit and validator results table.
+description: Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skills:pm-skill-auditor); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-skill-auditor.md and executes the system prompt inline. Returns a layered audit report (full findings + Status Summary prose + Status YAML envelope per master plan D26) with cross-cutting findings graded P0/P1/P2/P3 plus aggregate counter audit and validator results table.
 license: Apache-2.0
 metadata:
   classification: utility
@@ -34,7 +34,7 @@ Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent. Detects runt
 
 ### If you are running in Claude Code with the pm-skills plugin installed
 
-Invoke `@agent-pm-skill-auditor` on the repo. Pass any scope arguments from `$ARGUMENTS` (e.g., `--scope changed`, `--since-tag v2.15.0`, `--severity-floor P1`). Return the sub-agent's audit report to the user.
+Invoke `@agent-pm-skills:pm-skill-auditor` on the repo. Pass any scope arguments from `$ARGUMENTS` (e.g., `--scope changed`, `--since-tag v2.15.0`, `--severity-floor P1`). Return the sub-agent's audit report to the user.
 
 ### If you are running in any other AI client
 
