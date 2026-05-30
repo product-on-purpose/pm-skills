@@ -1,0 +1,48 @@
+{
+  "name": "pm-skills",
+  "version": "2.21.0",
+  "description": "Product management skills for AI agents across discovery, definition, delivery, measurement, iteration, foundation artifacts, and workshop tools.",
+  "author": {
+    "name": "product-on-purpose",
+    "url": "https://github.com/product-on-purpose"
+  },
+  "homepage": "https://github.com/product-on-purpose/pm-skills",
+  "repository": "https://github.com/product-on-purpose/pm-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "product-management",
+    "pm",
+    "prd",
+    "user-stories",
+    "acceptance-criteria",
+    "okrs",
+    "triple-diamond",
+    "lean-startup",
+    "design-thinking",
+    "agent-skills",
+    "agentskills-io"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PM Skills",
+    "shortDescription": "Product management skills for AI agents",
+    "longDescription": "63 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, and pm-skills lifecycle utilities.",
+    "developerName": "Product on Purpose",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/product-on-purpose/pm-skills",
+    "privacyPolicyURL": "https://github.com/product-on-purpose/pm-skills/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/product-on-purpose/pm-skills/blob/main/LICENSE",
+    "defaultPrompt": [
+      "Create a PRD for this feature",
+      "Turn this into user stories",
+      "Build a lean canvas for this idea"
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}
