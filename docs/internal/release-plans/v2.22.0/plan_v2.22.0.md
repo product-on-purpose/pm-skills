@@ -1,6 +1,6 @@
 # v2.22.0 - Remove the command/skill duplication (keep skill names)
 
-**Status:** EXECUTION COMPLETE - release-prep done; full pre-tag validator bundle + Astro build GREEN at version 2.22.0 (branch `release/v2.22.0`, local, unpushed). Awaiting maintainer tag + push + `product-on-purpose/agent-plugins` registry re-pin. Executed 2026-05-30 (Phases 2-5 release-prep): 63 wrappers deleted (commands 73 -> 10), D6 retired, Codex manifest + `validate-codex-manifest` added, ~950-ref doc sweep, 3 generators regenerated, adversarial verification pass.
+**Status:** SHIPPED 2026-05-30. Tag `v2.22.0` at commit `be1e400` (main + tag pushed; linear history). The `product-on-purpose/agent-plugins` registry was re-pinned to it (`36c237f`). All CI green: pm-skills Validation + Validate Plugin Packaging + Release + Deploy Pages + CodeQL; registry validate-registry. GitHub Release published. Delivered (Phases 2-5): 63 wrappers deleted (commands 73 -> 10), D6 retired (+ `agents/_pairing.yaml`), Codex `.codex-plugin/plugin.json` + enforcing `validate-codex-manifest` added, ~950-ref doc sweep, 3 generators regenerated, adversarial + tag-readiness verification (the latter caught + fixed a release-ZIP P0: build scripts now ship `.codex-plugin`). The origin/main divergence (`b7ea8bf`) was reconciled via rebase to keep main's linear history.
 **Created:** 2026-05-29, when the heavier short-name rename was deferred (see below).
 **Type:** **MINOR.** Additive + a removal of a redundant convenience layer; the skills and their names are unchanged.
 
