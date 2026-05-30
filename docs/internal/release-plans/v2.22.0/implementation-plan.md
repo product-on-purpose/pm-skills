@@ -2,12 +2,41 @@
 
 > Companion to [`plan_v2.22.0.md`](plan_v2.22.0.md).
 > Scope (2026-05-29): delete the 63 hand-maintained command wrappers, keep all 63 skill names, add the Codex manifest. The heavier short-name rename was deferred to [`../_deferred/2026-05-29_skills-short-rename/`](../_deferred/2026-05-29_skills-short-rename/).
+>
+> **Document roles (how to use these during execution):** THIS is the **procedural runbook** - work it phase by phase (1-5), follow the "Execution discipline" section, and verify + commit at each phase exit. The granular per-file edit-list is [`deletion-sweep-findings.md`](deletion-sweep-findings.md) (Phase 3's reference). Decisions / acceptance / rollback are in [`plan_v2.22.0.md`](plan_v2.22.0.md). **Live progress tracking is a TaskWrite ledger** (created at session start per "Execution discipline"), NOT edits to these docs on every step; the docs get checkbox/status updates at milestones and the commits are the durable checkpoints.
 
 ---
 
 ## 0. Why this is small
 
 Nothing is renamed. Because the skills keep their names, the doc generators' routing, the sample library, skill frontmatter, and every cross-reference to a skill *name* stay valid and untouched. The only things that change are: the wrapper files (deleted), the few surfaces that reference the short *command* names, the command count, and one generator's "Try it" line (see Phase 2). This is the entire reason this path was chosen over the rename.
+
+## Execution discipline (long, resumable, verification-driven session)
+
+This is a 60+-file release on one branch (`release/v2.22.0`). Run it to verify incrementally and survive context compaction:
+
+- **Task ledger first.** Create a TaskWrite checklist at session start: one item per phase (2-5) plus one per editList group in [`deletion-sweep-findings.md`](deletion-sweep-findings.md). Mark done as you go - this is the resume anchor if context compacts.
+- **Work phase by phase; COMMIT at each phase exit.** Never let a phase's edits sit uncommitted across a break. Committed state + the ledger = where you are.
+- **Re-grep each file before editing it** (some findings-doc line maps are marked "verify"; line numbers drift as edits land).
+- **Gate-failure rule: a RED gate stops the line.** Fix the cause, re-run the gate, then proceed. Never advance a phase or tag on a red gate.
+
+**The authoritative gate set is `.github/workflows/validation.yml`, NOT `scripts/README_SCRIPTS.md`** (the README catalog is STALE, verified 2026-05-29: it lists `check-internal-link-validity` and `validate-docs-frontmatter` as "advisory" but `validation.yml` runs them `--strict` enforcing). The ENFORCING (hard-fail) steps you must pass include:
+- `check-internal-link-validity.sh --strict` (validation.yml:206) - the 3 dead links to deleted files fail HERE. CONFIRMED enforcing.
+- `check-generated-content-untouched` - re-runs all three generators and diffs, so the regenerated `docs/skills/*`, `docs/reference/commands.md`, and `docs/workflows/*` MUST be committed or this fails.
+- `check-landing-page-counts.sh --strict`, `check-no-body-h1.sh --strict`, `validate-docs-frontmatter.sh --strict`, `validate-foundation-sprint-skills-family --strict`, `validate-design-sprint-skills-family --strict`, `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`, `validate-skill-family-registration`, plus the new `validate-codex-manifest`.
+- (Advisory / `continue-on-error` in CI, but still worth green: `check-count-consistency`, `check-generated-freshness`, `check-version-references`, `check-mcp-impact`, etc.)
+
+**Phase exit gates (verify before advancing):**
+- After Phase 2 (CI): the updated/new validators run without script error (some will FAIL against the current tree until Phase 3 deletes the wrappers - expected; note which).
+- After Phase 3 (delete + sweep + regen, all committed): `ls commands/*.md | grep -v workflow-` is empty; the zero-residual grep is clean; the regenerated docs are committed.
+- Phase 4: the full enforcing set above is GREEN locally (or pushed and green in CI); the Astro/Starlight doc build is green; `pm-skill-auditor` no longer emits a "sub-agent without companion command" finding.
+
+**Exact verification commands** (bash; `.ps1` / `-Strict` equivalents exist):
+- Zero-residual (deleted commands): `git grep -nE '/(pm-critic|pm-audit-repo|pm-draft-changelog|pm-release)' -- skills agents docs README.md AGENTS.md QUICKSTART.md _workflows library ':(exclude)docs/internal/release-plans' ':(exclude)docs/internal/release-plans/_deferred'` (expect zero; use git pathspec long-form `:(exclude)...` for the underscore path per the known quirk).
+- Bare @agent: `git grep -n '@agent-pm-' | grep -v '@agent-pm-skills:'` (expect zero).
+- Link validity: `bash scripts/check-internal-link-validity.sh --strict`.
+- Generators (after regen + commit): `bash scripts/check-generated-content-untouched.sh` and `bash scripts/check-generated-freshness.sh`.
+- Local bundle: `bash scripts/pre-tag-validate.sh` (exists; orchestrates the enforcing set - not listed in README_SCRIPTS.md, but present). Doc build: confirm the Astro/Starlight build command in `package.json` (doc-stack is Astro 6.3 + Starlight; README_SCRIPTS.md's mkdocs references are stale).
 
 ## 1. Pre-execution gate
 - [ ] On `release/v2.22.0`, not main.
