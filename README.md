@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.21.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.22.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-63-brightgreen.svg?style=flat-square" alt="Skills">
@@ -164,6 +164,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.22.0 - One menu entry per skill + native Codex support</strong></summary>
+
+**What changed.** Each skill used to appear twice in the `/` menu (its full name plus a short command wrapper). The 63 wrappers are removed, so each capability now appears once, as the skill. Separately, a native `.codex-plugin/plugin.json` is added so Codex discovers the skills (it previously reported "No plugin skills"). All 63 skills are unchanged; only the redundant wrapper layer is gone (commands 73 to 10, keeping the 10 `/workflow-*`). If you saved a short command like `/pm-skills:okr-writer`, use the skill's full name (`/pm-skills:foundation-okr-writer`). Shipped as a minor.
+
+**Get started.** [`docs/releases/Release_v2.22.0.md`](docs/releases/Release_v2.22.0.md)
+
+</details>
 
 <details>
 <summary><strong>v2.21.0 - Marketplace Launch (additive)</strong></summary>
@@ -1006,7 +1015,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.21.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.21.0)           |
+| **Current version** | [v2.22.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.22.0)           |
 | **Skill count**     | 63 skills (30 phase + 8 foundation + 10 utility + 15 tool)                                |
 | **Sub-agents**      | 4 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor)               |
 | **Workflows**       | 12                                                                                        |

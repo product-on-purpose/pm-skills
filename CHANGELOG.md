@@ -9,6 +9,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.22.0] - 2026-05-30
+
+**Wrapper deletion (one menu entry per skill) + native Codex support.** Each skill used to appear twice in the `/` menu: once under its full name and once as a short command wrapper. The 63 hand-maintained wrappers are removed, so each capability now appears once, as the skill. Separately, Codex listed the plugin but reported "No plugin skills" because the repo shipped only a Claude manifest; this release adds a Codex-native `.codex-plugin/plugin.json`. All 63 skills, their names, and their behavior are unchanged. Ships as a MINOR: a redundant convenience layer is removed and a manifest is added; the governed capability surface (the skills) is unchanged.
+
+### Added
+
+- **Native Codex plugin support** - `.codex-plugin/plugin.json` so Codex packages and discovers the 63 skills the same way Claude Code does. Guarded by a new enforcing `validate-codex-manifest` CI check (identity fields: `name`, semver `version`, `skills: ./skills/`, `interface` object).
+
+### Removed
+
+- **The 63 hand-maintained command wrappers** in `commands/` (59 skill-backed short wrappers plus the 4 sub-agent companion commands `pm-critic`, `pm-audit-repo`, `pm-draft-changelog`, `pm-release`). Only the 10 `/workflow-*` orchestrator commands remain (73 commands down to 10). Each skill is now invoked directly by name: `/pm-skills:<skill-name>` on Claude Code, `$<skill-name>` on Codex.
+- **Master-plan D6** (the contract that every sub-agent ships a companion slash command) and its `agents/_pairing.yaml` manifest. The four sub-agents are reached via their dispatch skill (`/pm-skills:utility-pm-*`) and native @-mention (`@agent-pm-skills:<name>`).
+
+### Changed
+
+- Cross-reference lines inside skills, samples, `_workflows/` sources, and docs that pointed at the deleted `/command` wrappers are rewritten to the portable form (bare skill name in shared content; `/pm-skills:<name>` in Claude Code usage docs). The command count is re-derived to 10 across all live surfaces.
+
+### Migration
+
+The short command was the skill's name with its phase prefix stripped; invoke the full skill name instead. The 10 `/workflow-*` commands are unchanged. Examples:
+
+| Removed command | Invoke instead |
+| --- | --- |
+| `/pm-skills:okr-writer` | `/pm-skills:foundation-okr-writer` |
+| `/pm-skills:prd` | `/pm-skills:deliver-prd` |
+| `/pm-skills:hypothesis` | `/pm-skills:define-hypothesis` |
+| `/pm-critic` | `/pm-skills:utility-pm-critic` (or `@agent-pm-skills:pm-critic`) |
+| `/pm-audit-repo` | `/pm-skills:utility-pm-skill-auditor` |
+| `/pm-draft-changelog` | `/pm-skills:utility-pm-changelog-curator` |
+| `/pm-release` | `/pm-skills:utility-pm-release-conductor` |
+
 ## [2.21.0] - 2026-05-26
 
 **Marketplace Launch (additive).** pm-skills is now published through the new `product-on-purpose` marketplace, a single home for multiple Product on Purpose plugins. This is a distribution change only: the skill catalog (63), commands (73), sub-agents (4), and all behavior are unchanged. The existing self-hosted install path keeps working, so no existing user has to act; the new marketplace is the recommended home going forward. Shipped as a MINOR because the launch is backward-compatible (nothing was removed) - the eventual old-path retirement is the breaking step and is reserved for a future major.

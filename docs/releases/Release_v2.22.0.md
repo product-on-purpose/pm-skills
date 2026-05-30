@@ -3,8 +3,6 @@ title: Release v2.22.0
 description: One menu entry per skill, and native Codex support
 ---
 
-> Draft. Finalized at tag time (Phase 5). The complete short-command -> skill mapping table is generated during finalization.
-
 ## The short version
 
 Two improvements, both about tidiness and reach, neither changing what the skills do:
@@ -37,7 +35,7 @@ The rule: the skill's full name is the short command name with its category pref
 | `/pm-skills:journey-map` | `/pm-skills:discover-journey-map` |
 | `/pm-skills:note-and-vote` | `/pm-skills:tool-note-and-vote` |
 
-The full table for all 63 is generated at release. Either way, every skill is right there in the `/pm-skills:` menu.
+The pattern above covers all 63 skills; either way, every skill is right there in the `/pm-skills:` menu under its full name.
 
 A few removed commands were verb-named helpers for the maintainer sub-agents; they map to their utility skills rather than by prefix:
 
