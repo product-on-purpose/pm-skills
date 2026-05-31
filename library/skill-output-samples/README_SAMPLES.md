@@ -1,6 +1,6 @@
 ﻿# PM Skills Sample Library
 
-183 sample outputs across 59 PM skills (of the 63-skill v2.18.0 catalog; the 4 sub-agent dispatch skills have their samples at `library/sub-agent-samples/` instead of here). v2.18.0 added 12 samples across the 4 new phase skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis). Organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle plus the v2.15.0 Foundation Sprint and Design Sprint families. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs. Meeting-family skills (foundation-meeting-*) have three samples per skill (one per thread) following the SAMPLE_CREATION.md thread standards. Sprint-family skills (tool-foundation-sprint-* and tool-design-sprint-*) also have three samples per skill, with each thread carrying a coherent end-to-end FS+DS arc. Certain phase skills carry additional legacy and orbit samples beyond the canonical thread trio for historical calibration.
+186 sample outputs across 60 PM skills of the current 64-skill catalog. The 4 sub-agent dispatch skills have their samples at `library/sub-agent-samples/` instead of here. v2.18.0 added 12 samples across the 4 new phase skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis). Organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle plus the v2.15.0 Foundation Sprint and Design Sprint families. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs. Meeting-family skills (foundation-meeting-*) have three samples per skill (one per thread) following the SAMPLE_CREATION.md thread standards. Sprint-family skills (tool-foundation-sprint-* and tool-design-sprint-*) also have three samples per skill, with each thread carrying a coherent end-to-end FS+DS arc. Certain phase skills carry additional legacy and orbit samples beyond the canonical thread trio for historical calibration.
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@
 
 ## What Is This?
 
-This folder contains 183 sample outputs (126 pre-v2.15.0 + 45 v2.15.0 Sprint Skills additions + 12 v2.18.0 content-skill additions):
+This folder contains 186 sample outputs (126 pre-v2.15.0 + 45 v2.15.0 Sprint Skills additions + 12 v2.18.0 content-skill additions + 3 v2.23.0 foundation addition):
 
 **Pre-v2.15.0 (126 samples):**
 
@@ -43,7 +43,11 @@ This folder contains 183 sample outputs (126 pre-v2.15.0 + 45 v2.15.0 Sprint Ski
 
 - **12 phase-skill samples** - 3 per thread (storevine / brainshelf / workbench) x 4 new skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis)
 
-75 + 11 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 + 12 = 183.
+**v2.23.0 foundation addition (3 samples):**
+
+- **3 foundation-prioritized-action-plan samples** - 1 per thread (storevine Campaigns second-send stall, brainshelf Resurface bimodal engagement, workbench Blueprints approval-gate stall); each shows the Theory of Constraints + Cynefin plan, with the brainshelf case classified Complex (probe-based, no High markers)
+
+75 + 11 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 + 12 + 3 = 186.
 
 The samples serve two purposes:
 
@@ -135,6 +139,7 @@ Each row links to three sample outputs for the same skill, one per thread. The f
 | Foundation | meeting-synthesize | Cross-meeting archaeology surfacing patterns and contradictions | [storevine](foundation-meeting-synthesize/sample_foundation-meeting-synthesize_storevine_q1-campaigns-retro.md) | [brainshelf](foundation-meeting-synthesize/sample_foundation-meeting-synthesize_brainshelf_resurface-design-iteration.md) | [workbench](foundation-meeting-synthesize/sample_foundation-meeting-synthesize_workbench_blueprints-board-prep.md) |
 | Foundation | stakeholder-update | Async comms from a meeting recap with channel and audience variants | [storevine](foundation-stakeholder-update/sample_foundation-stakeholder-update_storevine_campaigns-slack-support.md) | [brainshelf](foundation-stakeholder-update/sample_foundation-stakeholder-update_brainshelf_resurface-email-beta-users.md) | [workbench](foundation-stakeholder-update/sample_foundation-stakeholder-update_workbench_blueprints-notion-enterprise-cs.md) |
 | Foundation | okr-writer | Drafts, reviews, rewrites, or coaches outcome-based OKR sets with empowered-team diagnostic, anti-pattern catalog, and Quality Audit Rubric | [storevine](foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3.md) | [brainshelf](foundation-okr-writer/sample_foundation-okr-writer_brainshelf_resurface-q3.md) | [workbench](foundation-okr-writer/sample_foundation-okr-writer_workbench_blueprints-q3.md) |
+| Foundation | prioritized-action-plan | Evidence-grounded prioritized action plan (Theory of Constraints + Cynefin) from any PM input; refuses High-confidence plans for Complex or Chaotic situations | [storevine](foundation-prioritized-action-plan/sample_foundation-prioritized-action-plan_storevine_campaigns.md) | [brainshelf](foundation-prioritized-action-plan/sample_foundation-prioritized-action-plan_brainshelf_resurface.md) | [workbench](foundation-prioritized-action-plan/sample_foundation-prioritized-action-plan_workbench_blueprints.md) |
 | Discover | competitive-analysis | Structured competitor landscape with feature matrix and positioning map | [storevine](discover-competitive-analysis/sample_discover-competitive-analysis_storevine_campaigns.md) | [brainshelf](discover-competitive-analysis/sample_discover-competitive-analysis_brainshelf_resurface.md) | [workbench](discover-competitive-analysis/sample_discover-competitive-analysis_workbench_blueprints.md) |
 | Discover | interview-synthesis | Thematic synthesis of user research interviews with quotes and recommendations | [storevine](discover-interview-synthesis/sample_discover-interview-synthesis_storevine_campaigns.md) | [brainshelf](discover-interview-synthesis/sample_discover-interview-synthesis_brainshelf_resurface.md) | [workbench](discover-interview-synthesis/sample_discover-interview-synthesis_workbench_blueprints.md) |
 | Discover | stakeholder-summary | Influence/interest map with detailed profiles and communication plan | [storevine](discover-stakeholder-summary/sample_discover-stakeholder-summary_storevine_campaigns.md) | [brainshelf](discover-stakeholder-summary/sample_discover-stakeholder-summary_brainshelf_resurface.md) | [workbench](discover-stakeholder-summary/sample_discover-stakeholder-summary_workbench_blueprints.md) |

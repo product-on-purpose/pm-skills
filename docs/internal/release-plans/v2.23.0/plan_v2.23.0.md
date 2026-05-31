@@ -1,11 +1,11 @@
 # v2.23.0 Release Plan: `prioritized-action-plan` (new foundation skill, additive)
 
-**Status:** PLANNING - spec + implementation plan complete and Codex-reviewed (2 rounds, 0 unresolved Blocker/Major). HARD-gated on [v2.22.0](../v2.22.0/plan_v2.22.0.md) shipping first.
+**Status:** IN PROGRESS - entrance gate cleared (v2.22.0 SHIPPED 2026-05-30). Phase 1 (SKILL.md) authored 2026-05-31 in the live foundation convention. Spec + implementation plan Codex-reviewed (2 rounds, 0 unresolved Blocker/Major) and reconciled to post-v2.22.0 reality (skill renamed `foundation-prioritized-action-plan`; see the spec's reconciliation note).
 **Owner:** Maintainers
 **Type:** **MINOR** (additive: one new skill, no behavior change to existing skills)
 **Theme:** Ship one new foundation skill, `prioritized-action-plan`, that turns any PM input into an evidence-grounded, prioritized action plan: the critical next effort, why, what, how, with confidence markers and copy/paste prompts for the next downstream skills.
 **Created:** 2026-05-28
-**Updated:** 2026-05-28
+**Updated:** 2026-05-31
 
 ---
 
@@ -27,13 +27,13 @@ This release ships that one skill. It deliberately does NOT open any broader orc
 
 ## Entrance criteria (HARD gate)
 
-This release cannot begin build work until ALL of the following hold:
+This release cannot begin build work until ALL of the following hold. **All three are now satisfied: the gate cleared 2026-05-30 when v2.22.0 shipped, and build is in progress.**
 
 1. **[v2.22.0](../v2.22.0/plan_v2.22.0.md) (naming standardization) is SHIPPED and tagged.** This is a hard gate, not a courtesy. The skill's Section 7 recommends downstream skills by exact name and ships a build-time skill catalog; both must target the final post-v2.22.0 names, or every recommended prompt and the embedded fallback list are born stale.
 2. Spec design forks locked (DONE 2026-05-28).
 3. Spec cleared Codex adversarial review with no unresolved Blocker/Major (DONE 2026-05-28, 2 rounds).
 
-Until criterion 1 is met, this plan stays in PLANNING.
+Criterion 1 was met when v2.22.0 shipped on 2026-05-30. Build is now in progress (Phase 1 done).
 
 ---
 
@@ -43,7 +43,8 @@ Until criterion 1 is met, this plan stays in PLANNING.
 
 | ID | Item | Type | Classification | Category | Effort | Spec |
 |---|---|---|---|---|---|---|
-| W1 | `prioritized-action-plan` | NEW SKILL | foundation | planning | 3-4 d (Phase 0 done) | [`spec_prioritized-action-plan.md`](spec_prioritized-action-plan.md) |
+| W1 | `foundation-prioritized-action-plan` | NEW SKILL | foundation | planning | 3-4 d (Phase 0 + 1 done) | [`spec_prioritized-action-plan.md`](spec_prioritized-action-plan.md) |
+| W2 | `check-skill-sample-coverage` validator | NEW CI GATE | tooling | release-hygiene | 0.5 d (DONE 2026-05-31) | [`spec_check-skill-sample-coverage.md`](spec_check-skill-sample-coverage.md) |
 
 **Total v2.23.0 effort: 3-4 effort-days of remaining build work** (Phase 0 spec review already complete).
 
@@ -58,20 +59,20 @@ A foundation skill that accepts any PM input (notes, transcripts, a draft PRD, a
 - **Honesty mechanism:** Step 0 source ledger before analysis; inline `Source:` fields; exact-substring quote checking; inferred-only evidence banned for the binding constraint and P1.
 - **Routing:** a 3-tier recommendable model (Tier 1 always, Tier 2 conditional, Tier 3 = library machinery never recommended) with hybrid breadth and a name-safe fallback (never name a skill not in the catalog or the embedded exact-name list).
 - **Classification:** foundation (a saved, reusable working-document).
-- **Name:** `prioritized-action-plan`, already in post-v2.22.0 house style (short, no phase prefix, no `pm-` prefix since it is user-facing PM work, not library tooling).
+- **Name:** `foundation-prioritized-action-plan` (maintainer decision 2026-05-31). The earlier bare-name rationale assumed v2.22.0 would strip the phase/classification prefixes; it did not (the short-name rename was deferred), so the skill takes the kept `foundation-` prefix to stay consistent with the other 8 foundation skills and to keep the lower Codex flat-namespace collision risk of a longer name.
 
 ### What the skill ships with
 
-- `skills/prioritized-action-plan/SKILL.md` (canonical prompt + frontmatter, post-v2.22.0 metadata-nested structure)
-- `skills/prioritized-action-plan/TEMPLATE.md` (Step 0 ledger + 9-section scaffold + effort/prompt blocks)
-- `skills/prioritized-action-plan/EXAMPLE.md` (one fully worked case, Complicated domain)
-- `skills/prioritized-action-plan/examples/` (02 interview transcript = Complex; 03 executive ask = Complex)
-- `skills/prioritized-action-plan/references/frameworks.md` (TOC + Cynefin primer; no OODA)
-- `skills/prioritized-action-plan/references/recommendable-tiers.md` (the Tier 1/2/3 exact-name lists + routing rules)
-- `skills/prioritized-action-plan/references/skill-catalog.md` (regenerated at build time, Tier-filtered)
-- `skills/prioritized-action-plan/eval/fixtures/` (labeled Cynefin fixture set for the discrimination AC)
-- `commands/prioritized-action-plan.md` (slash command wrapper, per the post-v2.22.0 command convention)
-- `HISTORY.md` (per skill versioning governance)
+- `skills/foundation-prioritized-action-plan/SKILL.md` (DONE Phase 1: live-convention behavioral body + numbered Steps + `references/TEMPLATE.md` reference)
+- `skills/foundation-prioritized-action-plan/references/TEMPLATE.md` (Step 0 ledger + 9-section scaffold + effort/prompt blocks)
+- `skills/foundation-prioritized-action-plan/references/EXAMPLE.md` (one fully worked case, Complicated domain)
+- `skills/foundation-prioritized-action-plan/examples/` (02 interview transcript = Complex; 03 executive ask = Complex)
+- `skills/foundation-prioritized-action-plan/references/frameworks.md` (TOC + Cynefin primer; no OODA)
+- `skills/foundation-prioritized-action-plan/references/recommendable-tiers.md` (the Tier 1/2/3 exact-name lists + routing rules)
+- `skills/foundation-prioritized-action-plan/references/skill-catalog.md` (regenerated at build time, Tier-filtered)
+- `skills/foundation-prioritized-action-plan/eval/fixtures/` (labeled Cynefin fixture set for the discrimination AC)
+- No command wrapper. Per the v2.22.0 wrapper-deletion decision, new skills are invoked directly (`/pm-skills:foundation-prioritized-action-plan` on Claude Code, `$foundation-prioritized-action-plan` on Codex); no per-skill `commands/` file is created. (This supersedes the original plan, written before the v2.22.0 reframe.)
+- No `HISTORY.md` at launch. Per `docs/internal/skill-versioning.md`, a skill's `HISTORY.md` is created on its first iteration (1.0.0 -> 1.0.1+), not at birth; all current skills follow this, so a new 1.0.0 skill ships without one.
 - One build-time script: `scripts/build-skill-catalog.py` (reads `skills/*/SKILL.md` frontmatter, emits the Tier-filtered catalog)
 
 ### Explicitly out of scope
@@ -92,17 +93,17 @@ The full 11-phase build is in [`implementation-plan.md`](implementation-plan.md)
 | Phase | What | Status |
 |---|---|---|
 | 0 | Spec adversarial review (Codex, 2 rounds) | COMPLETE 2026-05-28 |
-| 1 | SKILL.md authoring | gated on v2.22.0 |
-| 2 | TEMPLATE.md | gated |
-| 3 | EXAMPLE.md (1 worked case) | gated |
-| 4 | 2 more examples | gated |
-| 5 | References (frameworks, tiers), catalog script, Cynefin fixtures | gated |
-| 6 | Slash command | gated |
-| 7 | Local eval pass (mechanical AC + fixture scoring) | gated |
-| 8 | Cross-client smoke test (Claude Code + Codex CLI) | gated |
-| 9 | Pre-tag validator bundle (`--strict`) | gated |
-| 10 | Release prep (changelog, counts, release notes) | gated |
-| 11 | Tag and ship | gated |
+| 1 | SKILL.md authoring | DONE 2026-05-31 |
+| 2 | TEMPLATE.md (`references/`) | DONE 2026-05-31 |
+| 3 | EXAMPLE.md (`references/`, Complicated) | DONE 2026-05-31 |
+| 4 | 2 more examples (`examples/`, Complex x2) | DONE 2026-05-31 |
+| 5 | References (frameworks, tiers), catalog script + generated catalog, Cynefin fixtures | DONE 2026-05-31 |
+| 6 | Slash command | N/A - no per-skill commands post-v2.22.0 (wrapper deletion) |
+| 7 | Local eval pass (mechanical AC + fixture scoring) | PARTIAL - structural/mechanical checks green; runtime fixture scoring not yet executed |
+| 8 | Cross-client smoke test (Claude Code + Codex CLI) | PENDING - needs live run |
+| 9 | Pre-tag validator bundle (`--strict`) | PARTIAL - count-consistency + structural validators green; full bundle pending |
+| 10 | Release prep (changelog, counts, release notes, manifests) | DONE 2026-05-31 |
+| 11 | Tag and ship | PENDING - awaiting maintainer go |
 
 ---
 
@@ -149,7 +150,7 @@ Note: v2.22.0 renames the existing skills but does not change the count or the c
 
 | ID | Decision | Value |
 |---|---|---|
-| D1 | Name | `prioritized-action-plan` |
+| D1 | Name | `foundation-prioritized-action-plan` (reconciled 2026-05-31; bare name assumed the deferred short-name rename) |
 | D2 | Shape | Single skill (not a family) |
 | D3 | Classification | foundation, category `planning` |
 | D4 | Engine | TOC + Cynefin (OODA cut) |

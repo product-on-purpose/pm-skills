@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.23.0] - 2026-05-31
+
+**New foundation skill: `foundation-prioritized-action-plan`.** Turns any PM input (notes, transcripts, drafts, executive asks, raw situations) into one evidence-grounded, prioritized action plan: the critical next effort plus follow-ons, each with why, what, how, confidence, and source. It applies Theory of Constraints to rank by the single binding constraint and Cynefin to cap plan confidence (safe-to-fail probes for Complex situations, stabilization for Chaotic). Evidence is structural: a source ledger is built before analysis and every load-bearing claim cites an exact input quote, so the skill refuses to manufacture High-confidence plans for Complex or Chaotic situations. The catalog grows from 63 to 64 skills (foundation 8 to 9). Additive MINOR: no existing skill changes.
+
+### Added
+
+- **`skills/foundation-prioritized-action-plan/`** - the new foundation skill. Ships `SKILL.md`, `references/TEMPLATE.md`, `references/EXAMPLE.md` (a worked Complicated case), two more worked examples under `examples/` (a Complex interview transcript and a Complex executive ask, both probe-based with no High-confidence markers), `references/frameworks.md` (Theory of Constraints and Cynefin primer), `references/recommendable-tiers.md` plus the generated `references/skill-catalog.md` (the bounded, tiered set of downstream skills it may recommend), and a labeled Cynefin fixture set under `eval/fixtures/` for discrimination testing.
+- **`scripts/build-skill-catalog.py`** - regenerates the tier-filtered catalog the new skill recommends from, reading skill frontmatter so it stays correct as the library grows.
+- **`scripts/check-skill-sample-coverage.{sh,ps1}`** (+ companion `.md`) - a new enforcing CI gate (wired into `pre-tag-validate` and `validation.yml`) that fails the build if any phase, foundation, or tool skill is missing a `storevine`, `brainshelf`, or `workbench` library thread sample. Closes the gap where a new skill could ship with no `library/skill-output-samples/` entries (utility skills and the documented `deliver-acceptance-criteria` single-thread case are exempt).
+
+### Changed
+
+- Skill counts re-derived from 63 to 64 (foundation 8 to 9) across `README.md`, the docs site, `AGENTS.md`, and the plugin manifests, per the count-consistency guard.
+
 ## [2.22.0] - 2026-05-30
 
 **Wrapper deletion (one menu entry per skill) + native Codex support.** Each skill used to appear twice in the `/` menu: once under its full name and once as a short command wrapper. The 63 hand-maintained wrappers are removed, so each capability now appears once, as the skill. Separately, Codex listed the plugin but reported "No plugin skills" because the repo shipped only a Claude manifest; this release adds a Codex-native `.codex-plugin/plugin.json`. All 63 skills, their names, and their behavior are unchanged. Ships as a MINOR: a redundant convenience layer is removed and a manifest is added; the governed capability surface (the skills) is unchanged.

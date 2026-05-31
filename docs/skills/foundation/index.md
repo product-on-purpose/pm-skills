@@ -18,4 +18,5 @@ tags:
 | [foundation-meeting-synthesize](foundation-meeting-synthesize.md) | Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes)... | . |
 | [foundation-okr-writer](foundation-okr-writer.md) | Drafts, reviews, rewrites, and coaches outcome-based OKR sets across team, depar... | . |
 | [foundation-persona](foundation-persona.md) | Generates an evidence-calibrated product or marketing persona using the canonica... | . |
+| [foundation-prioritized-action-plan](foundation-prioritized-action-plan.md) | Produce a comprehensive, evidence-grounded prioritized action plan from any PM i... | . |
 | [foundation-stakeholder-update](foundation-stakeholder-update.md) | Produces async communication to stakeholders, primarily non-attendees and second... | . |

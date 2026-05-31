@@ -5,7 +5,7 @@ description: High-level walkthrough of the pm-skills repository layout - skills/
 
 ## Table of Contents
 - [Directory Overview](#directory-overview)
-- [/skills/ . Skills](#skills--the-63-pm-skills-flat)
+- [/skills/ . Skills](#skills--the-64-pm-skills-flat)
 - [/commands/ . Slash Commands](#commands--slash-commands)
 - [/workflows/ . Workflows](#_workflows--workflows)
 - [/docs/ . Documentation](#docs--documentation)
@@ -22,7 +22,7 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (63 total: 30 phase + 8 foundation + 10 utility + 15 tool; flat layout)
+├── skills/                     # Core PM skills (63 total: 30 phase + 9 foundation + 10 utility + 15 tool; flat layout)
 ├── commands/                   # The 10 /workflow-* orchestrator commands
 ├── _workflows/                 # Workflows source (12 in v2.15.0)
 ├── agents/                     # Sub-agent definitions (v2.16.0+; auto-discovered by Claude Code's plugin runtime)
@@ -38,7 +38,7 @@ Note on `agents/` vs `_agent-context/`: these are distinct directories with diff
 
 ---
 
-## `/skills/` . The 63 PM Skills (flat)
+## `/skills/` . The 64 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 

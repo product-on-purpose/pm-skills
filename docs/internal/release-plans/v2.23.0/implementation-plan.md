@@ -1,6 +1,8 @@
 # Implementation Plan: `prioritized-action-plan` (foundation skill)
 
-**Status:** READY - Phase 0 (spec adversarial review) complete; build phases gated on v2.22.0 shipping
+**Status:** IN PROGRESS - Phase 0 (spec review) + Phase 1 (SKILL.md) complete. v2.22.0 gate cleared 2026-05-30.
+
+> **Reconciliation banner (2026-05-31):** The skill was renamed `prioritized-action-plan` -> `foundation-prioritized-action-plan` (v2.22.0 kept the name prefixes). Read every bare `prioritized-action-plan` skill name, `/prioritized-action-plan` command, and `$prioritized-action-plan` invocation below as the `foundation-` form. Companion files live in `references/` (`references/TEMPLATE.md`, `references/EXAMPLE.md`), not the skill root. Existing doc PATHS that contain the old token (this plan's filename, `spec_prioritized-action-plan.md`, and `skills-ideas/prioritized-action-plan/`) are unchanged. See the spec's "Post-v2.22.0 reconciliation" table.
 **Date:** 2026-05-27 (updated 2026-05-28)
 **Parent:** [`spec_prioritized-action-plan.md`](spec_prioritized-action-plan.md) (same folder); [`strategy-brief.md`](../../skills-ideas/prioritized-action-plan/strategy-brief.md) (discovery)
 **Master plan:** [`plan_v2.23.0.md`](plan_v2.23.0.md)
@@ -15,7 +17,7 @@ This plan executes the spec. Phase 0 (Codex adversarial review) is complete; the
 
 Before starting Phase 1, the following must be true:
 
-- [ ] v2.22.0 (naming standardization) has shipped and is tagged. Why: the Recommended Prompts section of the new skill targets pm-skill names; if those names are mid-rename, every prompt is born stale.
+- [x] v2.22.0 has shipped and is tagged (SHIPPED 2026-05-30, tag `v2.22.0`). It KEPT the prefixed skill names, so the Recommended Prompts target the current, now-stable names (`foundation-persona`, etc.).
 - [ ] Strategy brief decisions are locked (already done 2026-05-27)
 - [x] Spec has cleared Codex adversarial pass (Phase 0 complete 2026-05-28)
 - [ ] No higher-priority work has displaced v2.23.0 from the slate
@@ -50,7 +52,7 @@ If any pre-flight item is unchecked, stop and resolve before continuing.
 
 ## Phase 1: Skill body authoring
 
-**Goal:** Produce `skills/prioritized-action-plan/SKILL.md` matching the spec's SKILL.md draft.
+**Status:** DONE 2026-05-31. **Goal:** Produce `skills/foundation-prioritized-action-plan/SKILL.md`. Authored in the live foundation convention (behavioral body + numbered Steps + `references/TEMPLATE.md` reference) rather than the spec's self-contained inline draft, per the 2026-05-31 reconciliation; the draft's inline section definitions become `references/TEMPLATE.md` in Phase 2. Frontmatter reconciled: no `compatibility:` field, quoted version, inline `frameworks`, 96-word description.
 
 **Tasks:**
 
@@ -170,7 +172,7 @@ If any pre-flight item is unchecked, stop and resolve before continuing.
 
 ## Phase 6: Slash command
 
-**Goal:** Produce `commands/prioritized-action-plan.md` for Claude Code invocation.
+**Status:** N/A - SKIPPED 2026-05-31. **Original goal:** produce a `commands/` wrapper. This is invalid after v2.22.0, which deleted all per-skill command wrappers (73 -> 10, keeping only `workflow-*`). Creating one would re-introduce exactly the duplication v2.22.0 removed. New skills are invoked directly: `/pm-skills:foundation-prioritized-action-plan` (Claude Code) or `$foundation-prioritized-action-plan` (Codex). The `commands/` directory holds only the 10 workflow orchestrators.
 
 **Tasks:**
 

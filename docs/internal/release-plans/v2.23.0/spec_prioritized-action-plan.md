@@ -1,6 +1,6 @@
 # Spec: `prioritized-action-plan` (foundation)
 
-**Status:** REVISED post-Codex review 2026-05-28 - design forks locked, ready for build when v2.22.0 ships
+**Status:** BUILD STARTED 2026-05-31 - Phase 1 (SKILL.md) authored. Design forks locked post-Codex 2026-05-28. Reconciled to post-v2.22.0 reality on 2026-05-31 (see "Post-v2.22.0 reconciliation" below).
 **Date:** 2026-05-27 (revised 2026-05-28)
 **Parent:** [`strategy-brief.md`](../../skills-ideas/prioritized-action-plan/strategy-brief.md) (discovery doc in skills-ideas)
 **Master plan:** [`plan_v2.23.0.md`](plan_v2.23.0.md)
@@ -9,7 +9,22 @@
 **Effort estimate:** 3-4 effort-days (skill body + template + 3 examples + eval pass)
 **Frameworks:** Theory of Constraints (Goldratt) for prioritization, Cynefin (Snowden) for confidence calibration. OODA was cut after review (it was structural branding without a real section mapping).
 
-This spec is a full SKILL.md draft plus structural notes. At execution time the maintainer copies the SKILL.md draft to `skills/prioritized-action-plan/SKILL.md` and authors the companion `TEMPLATE.md`, `EXAMPLE.md`, and 3 example outputs.
+This spec is a full SKILL.md draft plus structural notes. The shipped skill lives at `skills/foundation-prioritized-action-plan/SKILL.md` and follows the live foundation convention (behavioral body + numbered Steps that reference `references/TEMPLATE.md`), not the self-contained inline form of the draft below. The draft's inline section definitions remain the content source for `references/TEMPLATE.md` (Phase 2). The companion files are `references/TEMPLATE.md`, `references/EXAMPLE.md`, and the `references/`/`examples/`/`eval/` trees listed at the end.
+
+## Post-v2.22.0 reconciliation (2026-05-31)
+
+This spec was written 2026-05-28, one day before v2.22.0 was reframed (2026-05-29) from the short-name rename to the lighter wrapper-deletion. v2.22.0 shipped 2026-05-30 and deliberately KEPT all skill-name prefixes. That invalidated several assumptions baked into the draft below. The shipped Phase 1 file reflects these corrections; the draft text is left intact for review provenance, with this note as the override of record:
+
+| # | Draft said | Corrected to | Why |
+|---|---|---|---|
+| 1 | name `prioritized-action-plan` (bare) | `foundation-prioritized-action-plan` | v2.22.0 kept the `foundation-` prefix on all 8 foundation skills; a bare name would be the lone exception. Maintainer decision 2026-05-31. |
+| 2 | `compatibility:` block in frontmatter | removed | No shipped skill carries `compatibility:` in frontmatter; cross-client scope lives in body prose. |
+| 3 | unquoted `version: 1.0.0`, block `frameworks:` list | `version: "1.0.0"`, inline `frameworks: [...]` | Matches the canonical frontmatter schema. |
+| 4 | description ~130 words | trimmed to 96 words | Validator `description-length` check requires 20-100 words. |
+| 5 | `TEMPLATE.md` / `EXAMPLE.md` at skill root | `references/TEMPLATE.md`, `references/EXAMPLE.md` | Validator `template-exists` / `example-exists` look in `references/`. |
+| 6 | name "already in post-v2.22.0 house style (short)" | premise dropped | That short-name house style never shipped; it was deferred. |
+
+All inline references to the old bare name, the root-level companion paths, the `compatibility:` block, and the self-exclusion entry are superseded by this table and the shipped SKILL.md.
 
 ## What changed in the 2026-05-28 revision (post-Codex)
 
@@ -91,25 +106,15 @@ Both frameworks are cited in the SKILL.md body so the skill's reasoning is audit
 
 ```markdown
 ---
-name: prioritized-action-plan
-description: Produce a comprehensive, evidence-grounded prioritized action plan from any PM input (notes, transcripts, drafts, executive asks, raw situations). Outputs a saveable document with executive summary, input mirror, situation classification (Cynefin), the binding constraint (Theory of Constraints), prioritized questions and open decisions, the action plan (1 critical effort plus 2-4 follow-ons, each with why/what/how/confidence/source/expected outcome/effort/dependencies), risks and pre-mortem, copy/paste prompts for a bounded set of downstream pm-skills, and an evidence map. Phase-agnostic across the Triple Diamond. Builds a source ledger before analysis and cites exact input quotes; refuses to manufacture High-confidence plans for Complex or Chaotic situations. Use when the user wants the critical next effort and how to execute it. Not for critiquing a finished artifact (use pm-critic) or broad strategic exploration (use a strategy brief).
+name: foundation-prioritized-action-plan
+description: Produce a comprehensive, evidence-grounded prioritized action plan from any PM input: notes, transcripts, drafts, executive asks, Slack threads, or a raw situation. Outputs one saveable document: executive summary, input mirror, situation classification (Cynefin), the binding constraint (Theory of Constraints), prioritized questions and open decisions, a ranked action plan with the critical effort plus follow-ons, risks and pre-mortem, copy/paste prompts for downstream pm-skills, and an evidence map. Builds a source ledger and cites exact input quotes; refuses High-confidence plans for Complex or Chaotic situations. Use when you want the critical next effort and how to execute it.
 license: Apache-2.0
-compatibility:
-  - claude-code
-  - codex-cli
-  - cursor
-  - windsurf
-  - copilot-cli
-  - gemini-cli
 metadata:
   classification: foundation
-  version: 1.0.0
-  updated: 2026-05-28
+  version: "1.0.0"
+  updated: 2026-05-31
   category: planning
-  frameworks:
-    - triple-diamond
-    - theory-of-constraints
-    - cynefin
+  frameworks: [triple-diamond, theory-of-constraints, cynefin]
   author: product-on-purpose
 ---
 
@@ -358,7 +363,7 @@ The skill ships when all of the following pass. Each is an objective check, not 
 4. **Evidence grounding.** Every `Source:` quote in the evidence map is an exact substring of the normalized input. "Normalized input" = the pasted text PLUS the text of any file the skill was given access to and read (the test harness captures both before checking). The binding constraint and P1 each cite at least one non-Inferred source. Automated substring check.
 5. **Source cross-reference integrity.** Every effort (Section 5), risk (Section 6), and prompt (Section 7) contains a non-empty `Source:` field; every inline source ID referenced anywhere resolves to an entry in the Section 8 map (no undefined IDs); the Section 2 classification cites valid ledger IDs. Automated cross-reference check.
 6. **No placeholders.** Output contains zero unfilled tokens (`[`, `TODO`, `<placeholder>`, `...`). Regex check.
-7. **Skill-name validity.** Every skill named in Section 7 exists in `references/skill-catalog.md` or the embedded exact-name Tier 1 list, AND none is a Tier 3 skill or `prioritized-action-plan` itself. Name-list check against both the allowlist and the exclusion set (catches hallucinated names, not just excluded ones).
+7. **Skill-name validity.** Every skill named in Section 7 exists in `references/skill-catalog.md` or the embedded exact-name Tier 1 list, AND none is a Tier 3 skill or `foundation-prioritized-action-plan` itself. Name-list check against both the allowlist and the exclusion set (catches hallucinated names, not just excluded ones).
 8. **Cynefin discrimination (fixture-scored).** A fixture set of >= 6 inputs with pre-assigned expected domains (mixing Clear / Complicated / Complex / Chaotic) is run; the skill matches the expected domain on >= 5 of 6. For every Complex output the plan contains probe language and no High marker; for every Chaotic output the plan contains stabilization language. The fixtures are NOT the same inputs used as shipped examples (prevents teaching-to-the-test).
 9. **Confidence ceiling respected.** No output marks overall or P1 confidence "High" when the classification is Complex or Chaotic. Automated check.
 10. **Word backstop respected.** Output does not exceed the hard max for its complexity tier (1,500 / 2,200 / 3,000). Word count check (recorded; a single overage is a warning, repeated overage across the eval set is a fail).
@@ -389,18 +394,18 @@ The skill ships when all of the following pass. Each is an objective check, not 
 
 ## Companion files to author at build time
 
-- `skills/prioritized-action-plan/SKILL.md` (the body above)
-- `skills/prioritized-action-plan/TEMPLATE.md` (the 9-section skeleton + Step 0 ledger + effort/prompt blocks)
-- `skills/prioritized-action-plan/EXAMPLE.md` (one fully worked case, Complicated domain)
-- `skills/prioritized-action-plan/examples/01-prd-draft.md`
-- `skills/prioritized-action-plan/examples/02-interview-transcript.md` (Complex domain, probe-based plan)
-- `skills/prioritized-action-plan/examples/03-executive-ask.md` (Complex domain, discovery-heavy plan)
-- `skills/prioritized-action-plan/references/frameworks.md` (TOC + Cynefin one-page primer; no OODA)
-- `skills/prioritized-action-plan/references/recommendable-tiers.md` (the Tier 1/2/3 lists + rules)
-- `skills/prioritized-action-plan/references/skill-catalog.md` (regenerated at build time, Tier-filtered)
-- `skills/prioritized-action-plan/eval/fixtures/` (the labeled Cynefin fixture set for AC #7)
-- `commands/prioritized-action-plan.md` (slash command wrapper for Claude Code)
-- `HISTORY.md` (per versioning governance)
+- `skills/foundation-prioritized-action-plan/SKILL.md` (DONE Phase 1: live-convention body + numbered Steps + template reference)
+- `skills/foundation-prioritized-action-plan/references/TEMPLATE.md` (the 9-section skeleton + Step 0 ledger + effort/prompt blocks)
+- `skills/foundation-prioritized-action-plan/references/EXAMPLE.md` (one fully worked case, Complicated domain)
+- `skills/foundation-prioritized-action-plan/examples/01-prd-draft.md`
+- `skills/foundation-prioritized-action-plan/examples/02-interview-transcript.md` (Complex domain, probe-based plan)
+- `skills/foundation-prioritized-action-plan/examples/03-executive-ask.md` (Complex domain, discovery-heavy plan)
+- `skills/foundation-prioritized-action-plan/references/frameworks.md` (TOC + Cynefin one-page primer; no OODA)
+- `skills/foundation-prioritized-action-plan/references/recommendable-tiers.md` (the Tier 1/2/3 lists + rules)
+- `skills/foundation-prioritized-action-plan/references/skill-catalog.md` (regenerated at build time, Tier-filtered)
+- `skills/foundation-prioritized-action-plan/eval/fixtures/` (the labeled Cynefin fixture set for AC #8)
+- ~~`commands/foundation-prioritized-action-plan.md`~~ NOT created: per the v2.22.0 wrapper-deletion decision, new skills have no per-skill command file; invoke directly as `/pm-skills:foundation-prioritized-action-plan` or `$foundation-prioritized-action-plan`.
+- ~~`HISTORY.md`~~ NOT created at launch: per `docs/internal/skill-versioning.md`, HISTORY.md is created on a skill's first iteration (1.0.0 -> 1.0.1+), not at birth.
 
 ## Dependencies
 
