@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.23.0] - 2026-05-31
+
+**New foundation skill: `foundation-prioritized-action-plan`.** Turns any PM input (notes, transcripts, drafts, executive asks, raw situations) into one evidence-grounded, prioritized action plan: the critical next effort plus follow-ons, each with why, what, how, confidence, and source. Theory of Constraints ranks by the single binding constraint; Cynefin caps plan confidence (probes for Complex, stabilization for Chaotic). A source ledger is built before analysis and every load-bearing claim cites an exact input quote, so the skill refuses High-confidence plans for Complex or Chaotic situations. Catalog grows 63 to 64 (foundation 8 to 9). Additive MINOR. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2230---2026-05-31) and [`docs/releases/Release_v2.23.0.md`](releases/Release_v2.23.0.md).
+
 ## [2.22.0] - 2026-05-30
 
 **Wrapper deletion (one menu entry per skill) + native Codex support.** The 63 hand-maintained short command wrappers are removed, so each capability appears once in the `/` menu as the skill; only the 10 `/workflow-*` orchestrator commands remain (commands 73 to 10). A native `.codex-plugin/plugin.json` is added so Codex discovers the skills. All 63 skill names and behavior are unchanged; master-plan D6 (the sub-agent companion-command contract) is retired. MINOR. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2220---2026-05-30) and [`docs/releases/Release_v2.22.0.md`](releases/Release_v2.22.0.md).

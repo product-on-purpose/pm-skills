@@ -23,6 +23,11 @@ Generates a context-appropriate persona for product or marketing workflows with 
 
 Drafts, reviews, rewrites, and coaches outcome-based OKR sets. Supports five entry modes (Guided default, One-Shot via --oneshot, Sustained Coach, Audit Only, Rewrite). Diagnoses empowered-team context, refuses to fabricate baselines, refuses compensation coupling, and reframes feature-delivery KRs into outcome KRs. Member of the OKR Skills set (companion: `measure-okr-grader`).
 
+#### prioritized-action-plan
+**Path:** `skills/foundation-prioritized-action-plan/SKILL.md`
+
+Produces an evidence-grounded prioritized action plan from any PM input (notes, transcripts, drafts, executive asks, raw situations). Uses Theory of Constraints to name the one binding constraint and make it P1, and Cynefin to cap plan confidence (probes for Complex, stabilization for Chaotic). Builds a source ledger before analysis and cites exact input quotes; refuses High-confidence plans for Complex or Chaotic situations. Recommends a bounded, tiered set of downstream pm-skills via copy/paste prompts.
+
 #### meeting-agenda
 **Path:** `skills/foundation-meeting-agenda/SKILL.md`
 

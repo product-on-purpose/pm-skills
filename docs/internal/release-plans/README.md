@@ -16,8 +16,8 @@ This directory is the canonical tracked home for internal release-governance art
 
 1. `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`
 2. `docs/internal/release-plans/v2.21.0/plan_v2.21.0.md` (PLANNED; marketplace launch, additive MINOR; Approach B locked)
-3. `docs/internal/release-plans/v2.22.0/plan_v2.22.0.md` (PLANNING; remove the command/skill duplication by deleting the 63 wrappers + add the Codex manifest, MINOR; skill names UNCHANGED. The heavier short-name rename was deferred 2026-05-29 to `_deferred/2026-05-29_skills-short-rename/`.)
-4. `docs/internal/release-plans/v2.23.0/plan_v2.23.0.md` (PLANNING; new `prioritized-action-plan` foundation skill, additive MINOR; spec Codex-reviewed; hard-gated on v2.22.0 shipping)
+3. `docs/internal/release-plans/v2.22.0/plan_v2.22.0.md` (SHIPPED 2026-05-30, tag `v2.22.0` at `be1e400`; removed the command/skill duplication by deleting the 63 wrappers + added the Codex manifest, MINOR; skill names UNCHANGED. The heavier short-name rename was deferred 2026-05-29 to `_deferred/2026-05-29_skills-short-rename/`.)
+4. `docs/internal/release-plans/v2.23.0/plan_v2.23.0.md` (IN PROGRESS; new `prioritized-action-plan` foundation skill, additive MINOR; spec Codex-reviewed; entrance gate cleared now that v2.22.0 has shipped)
 5. `docs/internal/release-plans/v3.0.0/plan_v3.0.0.md` (RESERVED; convergence MAJOR - retire old marketplace path; trigger-gated by plugin #2)
 6. `docs/internal/release-plans/v2.20.0/` and earlier (archived release context; see git tags for the latest shipped release)
 7. `docs/internal/release-plans/_deferred/2026-05-29_skills-short-rename/` (DEFERRED; the fully-planned, audit-hardened hard rename of all 63 skills to short names; parked 2026-05-29 in favor of the lighter v2.22.0; revivable - see its `README.md`, git tag `archive/short-name-rename`)

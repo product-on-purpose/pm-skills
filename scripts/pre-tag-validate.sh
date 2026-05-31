@@ -63,6 +63,7 @@ VALIDATORS=(
   "validate-script-docs|bash $ROOT/scripts/validate-script-docs.sh"
   "validate-version-consistency|bash $ROOT/scripts/validate-version-consistency.sh"
   "validate-codex-manifest|bash $ROOT/scripts/validate-codex-manifest.sh"
+  "check-skill-sample-coverage|bash $ROOT/scripts/check-skill-sample-coverage.sh"
 )
 
 # v2.15.1 additions (landing-page + generator coverage + AGENTS.md command-table sync).

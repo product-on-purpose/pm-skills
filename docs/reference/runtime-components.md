@@ -17,7 +17,7 @@ description: Catalog of pm-skills runtime components (sub-agents, hooks, output 
 
 pm-skills ships two layers of capability:
 
-**Content library (the bulk of the repo):** 63 skills, 10 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
+**Content library (the bulk of the repo):** 64 skills, 10 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
 
 **Runtime components (this catalog):** Plugin features that take action. Sub-agents are dispatched by Claude Code's intent classifier and run in their own context window. Hooks fire on lifecycle events (PreToolUse, PostToolUse, Stop). Output styles transform how Claude formats responses.
 
@@ -25,7 +25,7 @@ The distinction matters because skills are portable across clients (any client t
 
 | Layer | What it is | How AI uses it | Cross-client portable? |
 |---|---|---|---|
-| Skills (63) | Reference content with frontmatter, templates, examples | AI reads SKILL.md at invocation time | Yes (per agentskills.io spec) |
+| Skills (64) | Reference content with frontmatter, templates, examples | AI reads SKILL.md at invocation time | Yes (per agentskills.io spec) |
 | Commands (10) | The `/workflow-*` orchestrators that chain skills into lifecycle sequences | User types `/workflow-name`, AI walks the skill sequence | Claude Code native |
 | Workflows (12) | Multi-skill chains for full lifecycle moments | AI walks ordered skill invocations | Native; portable conceptually |
 | Sub-agents (4 in v2.16) | Plugin components matched via `description:` and run in isolated context | Claude Code's intent classifier delegates; OR user invokes the dispatch skill (`/pm-skills:utility-pm-{role}`) or @-mentions `@agent-pm-skills:pm-{role}` | Claude Code only; dispatch skills provide cross-client parity |
