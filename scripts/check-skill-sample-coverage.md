@@ -46,8 +46,10 @@ Exemptions are constants in the script, so adding one is an auditable change rat
 
 ## Example Output
 
+<!-- count-exempt:start -->
+
 ```text
-Checked 54 in-scope skills (phase / foundation / tool, minus exemptions).
+Checked 53 in-scope skills (phase / foundation / tool, minus exemptions).
 PASS: all in-scope skills have storevine + brainshelf + workbench thread samples.
 ```
 
@@ -55,6 +57,8 @@ PASS: all in-scope skills have storevine + brainshelf + workbench thread samples
 FAIL: foundation-prioritized-action-plan (foundation) is missing a 'brainshelf' thread sample (expected library/skill-output-samples/foundation-prioritized-action-plan/sample_foundation-prioritized-action-plan_brainshelf_*.md)
 FAIL: one or more in-scope skills are missing required thread samples.
 ```
+
+<!-- count-exempt:end -->
 
 ## Safety
 
