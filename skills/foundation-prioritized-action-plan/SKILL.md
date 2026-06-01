@@ -182,7 +182,7 @@ The build-time catalog generator emits Tier 1 and Tier 2 (with a conditional fla
 
 ## Output destination
 
-Chat output by default. Optional disk write to `_output-pm-skills/foundation-prioritized-action-plan/<slug>-<YYYY-MM-DD>.md` when the user passes `--out` or says "save this."
+Chat output by default. Optional disk write to `_pm-skills/foundation-prioritized-action-plan/<slug>-<YYYY-MM-DD>.md` when the user passes `--out` or says "save this."
 
 ## Quality Checklist
 
