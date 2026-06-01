@@ -75,6 +75,8 @@ Sub-agents compose in 4 patterns documented in [`docs/contributing/sub-agent-des
 
 The chain-depth-2 limit (per master plan D14) is enforced via `agents/_chain-permitted.yaml` which lists only the conductor. Auditor + curator system prompts do not include the Agent tool, so they cannot chain further. This caps chain depth at 2 structurally.
 
+`pm-workflow-orchestrator` (shipped v2.24.0) is the first repo sub-agent to invoke skills directly via the `Skill` tool rather than spawning sub-agents via the `Agent` tool. It runs an ordered sequence of pm-skills against a plan, pausing for go/no-go at each step. Because it delegates to skills and never spawns a sub-agent, it needs no `_chain-permitted.yaml` entry and adds zero chain depth; sub-agent-backed steps (only `pm-critic` today) are handled by inlining the leaf agent, never by nesting its dispatch skill. This `Skill`-from-sub-agent path is EXPERIMENTAL until a live smoke test confirms it; see the [Sub-Agent Compatibility Matrix](../reference/sub-agent-compatibility.md).
+
 ## Cross-Client Compatibility
 
 Sub-agents are a Claude Code plugin feature. Other AI clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) cannot natively load `agents/{name}.md` files.

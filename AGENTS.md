@@ -303,6 +303,13 @@ Cross-client dispatch wrapper for the `pm-release-conductor` sub-agent (v2.16.0+
 
 ---
 
+#### pm-workflow-orchestrator
+**Path:** `skills/utility-pm-workflow-orchestrator/SKILL.md`
+
+Cross-client dispatch skill for the `pm-workflow-orchestrator` sub-agent (v2.24.0+). Runs an ordered sequence of pm-skills against a saved `foundation-prioritized-action-plan` (Mode A) or a user-named chain (Mode B), pausing for human go/no-go by default and refusing to advance past a failed or empty step. Dispatches natively on Claude Code (invokes `@agent-pm-skills:pm-workflow-orchestrator`); on non-Claude clients reads `agents/pm-workflow-orchestrator.md` and executes inline. Ships EXPERIMENTAL on all clients at v2.24.0; run `--dry-run` first.
+
+---
+
 ### Tool Classification
 
 The `tool` classification represents named external methodologies composed of multiple skills working as a system. The first inhabitants are the Foundation Sprint and Design Sprint families plus a standalone decision tool.
@@ -453,6 +460,10 @@ Four sub-agents ship in v2.16.0:
 - `pm-skill-auditor` - repo-level cross-cutting governance audits
 - `pm-changelog-curator` - CHANGELOG drafter from git log
 - `pm-release-conductor` - guided release runbook with 6 gates (G0, G1, G2, G2.5, G3, G4)
+
+v2.24.0 adds a fifth sub-agent:
+
+- `pm-workflow-orchestrator` - governed multi-skill runner that walks an ordered step list (a saved `foundation-prioritized-action-plan` or a user-named chain), pausing for human go/no-go by default and refusing to advance past a failed or empty step. The first repo agent to declare the `Skill` tool to delegate downstream skills (it adds no chain-permission entry and spawns no sub-agents). Ships EXPERIMENTAL on all clients.
 
 The canonical sub-agents catalog with full audience, trigger, lifetime, tool surface, and composition data lives at [`docs/reference/runtime-components.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md). Sub-agent definition files live at `agents/{name}.md`, the fixed path Claude Code's plugin runtime auto-discovers (renamed from `subagents/` in v2.17.0 W2).
 

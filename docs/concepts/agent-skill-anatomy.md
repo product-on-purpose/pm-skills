@@ -913,7 +913,7 @@ Discovery Phase                  Invocation Phase
      │                                │ - Example reference
      ▼                                ▼
 ┌──────────────────┐           ┌──────────────────┐
-│ AI sees 64 skills│           │ AI loads 1 skill │
+│ AI sees 65 skills│           │ AI loads 1 skill │
 │ (~6KB metadata)  │           │ (full content)   │
 └──────────────────┘           └──────────────────┘
                                        │
@@ -932,7 +932,7 @@ Discovery Phase                  Invocation Phase
 
 **Where from**: `AGENTS.md` file at repository root or `SKILL.md` frontmatter during skill indexing
 
-**Current repo note**: `AGENTS.md` registers all 64 skills in `skills/`, including domain, foundation, and utility classifications.
+**Current repo note**: `AGENTS.md` registers all 65 skills in `skills/`, including domain, foundation, and utility classifications.
 
 **Purpose**: Allow AI to scan all available skills quickly and select the appropriate one
 
@@ -968,7 +968,7 @@ AI scans AGENTS.md:
 
 **Purpose**: Provide complete instructions, quality criteria, and references
 
-**Benefit**: Context-appropriate loading.only the selected skill loads, not all 64 skills
+**Benefit**: Context-appropriate loading.only the selected skill loads, not all 65 skills
 
 **What the AI reads**:
 
@@ -1029,9 +1029,9 @@ AI follows SKILL.md instructions
 ### Why This Matters
 
 **Context window efficiency**:
-- Discovery: ~11KB (64 skill names + descriptions)
+- Discovery: ~11KB (65 skill names + descriptions)
 - Invocation: ~15KB (1 full SKILL.md + template + example)
-- Without progressive loading: ~500KB (all 64 skills fully loaded)
+- Without progressive loading: ~500KB (all 65 skills fully loaded)
 
 **Faster agent response**:
 - Skill selection happens instantly (minimal data to parse)

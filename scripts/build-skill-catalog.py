@@ -35,6 +35,7 @@ TIER3 = {
     "utility-pm-skill-iterate",
     "utility-pm-release-conductor",
     "utility-pm-changelog-curator",
+    "utility-pm-workflow-orchestrator",
     "utility-update-pm-skills",
 }
 SELF = "foundation-prioritized-action-plan"

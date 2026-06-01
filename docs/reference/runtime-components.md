@@ -17,7 +17,7 @@ description: Catalog of pm-skills runtime components (sub-agents, hooks, output 
 
 pm-skills ships two layers of capability:
 
-**Content library (the bulk of the repo):** 64 skills, 10 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
+**Content library (the bulk of the repo):** 65 skills, 10 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
 
 **Runtime components (this catalog):** Plugin features that take action. Sub-agents are dispatched by Claude Code's intent classifier and run in their own context window. Hooks fire on lifecycle events (PreToolUse, PostToolUse, Stop). Output styles transform how Claude formats responses.
 
@@ -25,16 +25,16 @@ The distinction matters because skills are portable across clients (any client t
 
 | Layer | What it is | How AI uses it | Cross-client portable? |
 |---|---|---|---|
-| Skills (64) | Reference content with frontmatter, templates, examples | AI reads SKILL.md at invocation time | Yes (per agentskills.io spec) |
+| Skills (65) | Reference content with frontmatter, templates, examples | AI reads SKILL.md at invocation time | Yes (per agentskills.io spec) |
 | Commands (10) | The `/workflow-*` orchestrators that chain skills into lifecycle sequences | User types `/workflow-name`, AI walks the skill sequence | Claude Code native |
 | Workflows (12) | Multi-skill chains for full lifecycle moments | AI walks ordered skill invocations | Native; portable conceptually |
-| Sub-agents (4 in v2.16) | Plugin components matched via `description:` and run in isolated context | Claude Code's intent classifier delegates; OR user invokes the dispatch skill (`/pm-skills:utility-pm-{role}`) or @-mentions `@agent-pm-skills:pm-{role}` | Claude Code only; dispatch skills provide cross-client parity |
+| Sub-agents (5; the v2.16 slate of 4 plus `pm-workflow-orchestrator` added v2.24.0) | Plugin components matched via `description:` and run in isolated context | Claude Code's intent classifier delegates; OR user invokes the dispatch skill (`/pm-skills:utility-pm-{role}`) or @-mentions `@agent-pm-skills:pm-{role}` | Claude Code only; dispatch skills provide cross-client parity |
 | Hooks (0; v2.17+ scope) | Lifecycle event handlers (PreToolUse, PostToolUse, Stop, etc.) | Claude Code fires automatically on configured events | Claude Code only |
 | Output styles (0; v2.18+ scope) | Response formatting transforms | Claude applies when style is active | Claude Code only |
 
 ## Sub-Agents Catalog
 
-v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents ship in this release. Each definition lives at `agents/{name}.md`, the fixed path Claude Code's plugin runtime auto-discovers (the directory was named `subagents/` through v2.16.x and renamed to `agents/` in v2.17.0 W2; see [project structure](./project-structure.md)).
+v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents ship in this release. v2.24.0 adds a fifth, `pm-workflow-orchestrator`, so the catalog below now lists 5 sub-agents. Each definition lives at `agents/{name}.md`, the fixed path Claude Code's plugin runtime auto-discovers (the directory was named `subagents/` through v2.16.x and renamed to `agents/` in v2.17.0 W2; see [project structure](./project-structure.md)).
 
 | Sub-agent | Audience | Trigger | Lifetime | Tool Surface | Composition | Dispatch Skill |
 |---|---|---|---|---|---|---|
@@ -42,6 +42,7 @@ v2.16.0 introduces sub-agents as the first runtime-component class. 4 sub-agents
 | `pm-skill-auditor` | User + Maintainer (audience straddles) | Explicit only: `utility-pm-skill-auditor` or `@agent-pm-skills:pm-skill-auditor`; chained from `pm-release-conductor` at gate G0 | Multi-turn (may ask follow-up questions) | Bash, Read, Grep, Glob (no Edit; no Agent; detection-only) | Composes the enforcing validator suite via `scripts/pre-tag-validate.{sh,ps1}`; runs cross-cutting checks; re-derives aggregate counters | `skills/utility-pm-skill-auditor/` |
 | `pm-changelog-curator` | Maintainer | Explicit only: `utility-pm-changelog-curator` or `@agent-pm-skills:pm-changelog-curator`; chained from `pm-release-conductor` at gate G2 | Single turn (standalone or chained) | Bash, Read, Grep (no Edit; no Agent) | Composes with git log + CLAUDE.md hygiene rules; chained from conductor at G2 | `skills/utility-pm-changelog-curator/` |
 | `pm-release-conductor` | Maintainer | Explicit only: `/pm-skills:utility-pm-release-conductor v{X.Y.Z}` or `@agent-pm-skills:pm-release-conductor` (not proactive; safety from the 6 gates, not the invocation path) | Full release flow (often 30+ minutes) | Bash, Read, Edit, Grep, Glob, **Agent** (chain-permitted per `_chain-permitted.yaml`) | Chains to `pm-skill-auditor` at G0 + G2.5 and to `pm-changelog-curator` at G2; reads `docs/contributing/release-runbook.md` for gate definitions | `skills/utility-pm-release-conductor/` |
+| `pm-workflow-orchestrator` | User + Maintainer | Explicit only: `/pm-skills:utility-pm-workflow-orchestrator` or `@agent-pm-skills:pm-workflow-orchestrator` (not proactive; safety from the per-step checkpoints, not the invocation path) | Multi-step run (pauses at each step for go/no-go) | **Skill**, Read, Grep, Glob, Bash, Edit (NO Agent; delegates to skills, not sub-agents; not chain-permitted) | Runs an ordered sequence of pm-skills against a saved `foundation-prioritized-action-plan` (Mode A) or a user-named chain (Mode B); inlines `pm-critic`'s leaf agent rather than nesting its dispatch skill | `skills/utility-pm-workflow-orchestrator/` |
 
 For per-sub-agent cross-client status (Claude Code / Codex CLI / Cursor / Windsurf / Copilot CLI / Gemini CLI), see the canonical [Sub-Agent Compatibility Matrix](./sub-agent-compatibility.md). Rows fill in as each sub-agent ships in its respective phase of [`subagents-integration-plan.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.16.0/subagents-integration-plan.md). Behavioral contracts live in the corresponding `spec_pm-{name}.md` files alongside the integration plan.
 
@@ -105,6 +106,16 @@ Dispatch skills (one per sub-agent):
 - `utility-pm-skill-auditor` invokes `pm-skill-auditor`
 - `utility-pm-changelog-curator [since-tag]` invokes `pm-changelog-curator`
 - `utility-pm-release-conductor [version]` invokes `pm-release-conductor`
+- `utility-pm-workflow-orchestrator [plan path] [--auto] [--force-auto] [--dry-run]` invokes `pm-workflow-orchestrator` (added v2.24.0)
+
+The orchestrator's explicit @-mention form, mirroring the others:
+
+```
+User: @agent-pm-skills:pm-workflow-orchestrator _pm-skills/plans/storevine-q3.md
+Claude Code: [invokes pm-workflow-orchestrator with the plan path as $ARGUMENTS]
+             [parses Section 7 runnable blocks, runs them one at a time]
+             [pauses for go/no-go before each step; stops on a failed or empty step]
+```
 
 ### Dispatch skill path (non-Claude clients)
 

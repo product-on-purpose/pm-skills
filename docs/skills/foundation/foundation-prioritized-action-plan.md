@@ -9,7 +9,7 @@ tags:
 ---
 
 :::note[Quick facts]
-**Classification:** Foundation | **Version:** 1.0.0 | **Category:** planning | **License:** Apache-2.0
+**Classification:** Foundation | **Version:** 1.1.0 | **Category:** planning | **License:** Apache-2.0
 :::
 
 **Try it:** `/pm-skills:foundation-prioritized-action-plan "Your context here"`

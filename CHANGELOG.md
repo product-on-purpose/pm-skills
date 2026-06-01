@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.24.0] - 2026-06-01
+
+**Plan orchestrator: the `pm-workflow-orchestrator` sub-agent + `utility-pm-workflow-orchestrator` dispatch skill, plus a `--run` handoff from `foundation-prioritized-action-plan`.** This ships the orchestrator promised on the public roadmap (originally pencilled for v2.17): a governed runner that takes one input - a saved `foundation-prioritized-action-plan` or a user-named chain of skills - and runs an ordered sequence of pm-skills against it, pausing for human go/no-go by default and refusing to advance past a failed or empty step. The plan skill iterates to v1.1.0 so it can offer to run its own runnable Section 7 prompts through the orchestrator. The catalog grows from 64 to 65 skills (utility 10 to 11; foundation unchanged at 9); sub-agents grow from 4 to 5. The orchestrator ships EXPERIMENTAL on all non-Claude clients, and the native sub-agent-to-skill (`Skill` tool) path ships EXPERIMENTAL until a live smoke test closes it. Additive MINOR: no existing skill loses behavior.
+
+### Added
+
+- **`agents/pm-workflow-orchestrator.md`** - the new engine sub-agent (the fifth sub-agent), the first repo agent to declare the `Skill` tool. It walks a step list, self-classifies each step PRODUCED / EMPTY / FAILED, runs CHECKPOINTED (default) or GUARDED AUTO (`--auto`), and hard-stops on a failed or empty step. It delegates to downstream skills via the `Skill` tool only - never the `Agent` tool - so it adds no chain-permission entry and spawns zero sub-agents.
+- **`skills/utility-pm-workflow-orchestrator/`** - the new utility dispatch skill (the fifth `utility-pm-{role}` control panel, after critic, auditor, curator, and conductor). On Claude Code it @-mentions the engine sub-agent; on other clients it runs the same loop inline after a tool-capability pre-flight. Ships `SKILL.md`, `references/TEMPLATE.md`, `references/EXAMPLE.md`, `references/PARSE-CONTRACT.md` (the parse + step-status contract shared with the engine), and a worked library sample. `--dry-run` walks the step list without invoking consequential skills and is the recommended first run on any EXPERIMENTAL client.
+
+### Changed
+
+- **`skills/foundation-prioritized-action-plan/` 1.0.0 to 1.1.0** - gains an optional handoff: after Section 8, when Section 7 produced at least one runnable prompt, it offers to run those prompts through `utility-pm-workflow-orchestrator` in CHECKPOINTED mode. A `--run` flag produces the plan and hands it off in one invocation. The plan skill still never executes work-skills inline; it only ever causes execution through one explicit confirmation into the governed orchestrator. Ships the skill's first `HISTORY.md`.
+- Skill counts re-derived from 64 to 65 (utility 10 to 11; foundation unchanged at 9) and sub-agent counts from 4 to 5 across `README.md`, the docs site, `AGENTS.md`, and the plugin manifests, per the count-consistency guard.
+
 ## [2.23.0] - 2026-05-31
 
 **New foundation skill: `foundation-prioritized-action-plan`.** Turns any PM input (notes, transcripts, drafts, executive asks, raw situations) into one evidence-grounded, prioritized action plan: the critical next effort plus follow-ons, each with why, what, how, confidence, and source. It applies Theory of Constraints to rank by the single binding constraint and Cynefin to cap plan confidence (safe-to-fail probes for Complex situations, stabilization for Chaotic). Evidence is structural: a source ledger is built before analysis and every load-bearing claim cites an exact input quote, so the skill refuses to manufacture High-confidence plans for Complex or Chaotic situations. The catalog grows from 63 to 64 skills (foundation 8 to 9). Additive MINOR: no existing skill changes.

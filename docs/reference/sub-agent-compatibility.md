@@ -30,6 +30,7 @@ When validation status changes (a new client passes; an existing client regresse
 | pm-skill-auditor | utility-pm-skill-auditor | PRODUCTION | PRODUCTION | EXPERIMENTAL |
 | pm-changelog-curator | utility-pm-changelog-curator | PRODUCTION | PRODUCTION | EXPERIMENTAL |
 | pm-release-conductor | utility-pm-release-conductor | PRODUCTION | DRY-RUN VALIDATED (live UNTESTED) | EXPERIMENTAL |
+| pm-workflow-orchestrator (added v2.24.0) | utility-pm-workflow-orchestrator | EXPERIMENTAL (native `Skill`-from-sub-agent path UNTESTED until smoke test) | EXPERIMENTAL | EXPERIMENTAL |
 
 ## What Each Status Cell Means
 
@@ -56,6 +57,12 @@ All 4 sub-agents are EXPERIMENTAL on these clients. The dispatch skill mechanism
 
 For any high-stakes operation on an EXPERIMENTAL client (e.g., a live release conducted by pm-release-conductor on Windsurf), strongly consider running on Claude Code or Codex CLI dry-run first as a parallel sanity check.
 
+### pm-workflow-orchestrator (added v2.24.0): EXPERIMENTAL on every client
+
+`pm-workflow-orchestrator` ships EXPERIMENTAL on ALL clients, including the native Claude Code path. It is the first repo sub-agent to declare the `Skill` tool, so the native sub-agent-to-skill delegation path has no prior validated use to inherit from; it stays EXPERIMENTAL until a live smoke test confirms both that the engine can invoke a downstream skill via `Skill` in the installed plugin and whether that skill runs inline or isolated in the engine's context. The non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot CLI, Gemini CLI) ship EXPERIMENTAL too, not "DRY-RUN VALIDATED by inheritance," because the orchestrator writes multiple full PM artifacts and may thread state, which is strictly harder than the conductor's inline path and has never been live-validated off Claude Code. On any client, run `--dry-run` first: it walks the step list (parse, checkpoint, stop-on-fail, tool-capability pre-flight) without invoking consequential skills. Moving any client from EXPERIMENTAL to PRODUCTION requires a dedicated maintainer-gate test exercising a real multi-artifact inline WRITE run.
+
+This is a present-tense status added at v2.24.0; it does NOT amend the v2.16.0-attested GATE prose below, which describes a test that exercised the four v2.16.0 sub-agents only.
+
 ## Safe-Usage Matrix (Quick Reference)
 
 | Operation | Claude Code | Codex CLI | Other clients |
@@ -65,6 +72,7 @@ For any high-stakes operation on an EXPERIMENTAL client (e.g., a live release co
 | Draft CHANGELOG with pm-changelog-curator | Production | Production | Experimental |
 | Walk release runbook dry-run with pm-release-conductor | Production | Production | Experimental |
 | Walk release runbook with actual tag + push | Production | Use with caution (run dry-run first) | Strongly recommend running on Claude Code |
+| Run a plan through pm-workflow-orchestrator | Experimental (run `--dry-run` first) | Experimental (run `--dry-run` first) | Experimental (run `--dry-run` first) |
 
 ## What Was Validated for v2.16.0 Ship
 

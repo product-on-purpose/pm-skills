@@ -1,6 +1,6 @@
 # Sub-Agent Library Samples
 
-Real example outputs from each pm-skills sub-agent demonstrating the canonical patterns each sub-agent produces. Three samples per sub-agent across the three narrative threads (Brainshelf, Storevine, Workbench).
+Real example outputs from each of the 5 pm-skills sub-agents demonstrating the canonical patterns each sub-agent produces. The four content-and-release sub-agents (`pm-critic`, `pm-skill-auditor`, `pm-changelog-curator`, `pm-release-conductor`) carry three samples each, one per narrative thread (Brainshelf, Storevine, Workbench). The fifth, `pm-workflow-orchestrator`, ships a single thread-aligned sample because its `utility` classification is exempt from the three-thread requirement.
 
 ## Catalog
 
@@ -18,6 +18,7 @@ Real example outputs from each pm-skills sub-agent demonstrating the canonical p
 | `pm-release-conductor` | brainshelf | v2.15.2 clean run (all 6 gates PASS first try; baseline shape) | [`pm-release-conductor/sample_pm-release-conductor_brainshelf_clean-run.md`](pm-release-conductor/sample_pm-release-conductor_brainshelf_clean-run.md) |
 | `pm-release-conductor` | storevine | G0 aggregate-counter-drift failure + maintainer recovery (failure-recovery loop; no bypass; G0 idempotency) | [`pm-release-conductor/sample_pm-release-conductor_storevine_gate-failure.md`](pm-release-conductor/sample_pm-release-conductor_storevine_gate-failure.md) |
 | `pm-release-conductor` | workbench | Chained dry-run for v2.16.0 (auditor at G0 + G2.5; curator at G2; layered Status envelope) | [`pm-release-conductor/sample_pm-release-conductor_workbench_chained-run.md`](pm-release-conductor/sample_pm-release-conductor_workbench_chained-run.md) |
+| `pm-workflow-orchestrator` | storevine | Checkpointed Mode A run over a saved Storevine prioritized-action-plan on Claude Code native dispatch (3 runnable Section 7 prompts approved at each checkpoint, 1 MANUAL Foundation Sprint surfaced not nested, ending in Plan run complete) | [`pm-workflow-orchestrator/sample_pm-workflow-orchestrator_storevine_checkpointed-run.md`](pm-workflow-orchestrator/sample_pm-workflow-orchestrator_storevine_checkpointed-run.md) |
 
 ## Sample Conventions
 

@@ -14,7 +14,7 @@ description: 'The v2.16.0 strategic theme: pm-skills evolves from a passive cont
 
 ## The Theme
 
-pm-skills started as a content library: skills that AI agents read at invocation time to produce PM artifacts with professional quality. Through v2.15.0, the catalog grew to 64 skills, 12 workflows, and 27 enforcing CI validators. All of it is content. The AI reads it. The AI acts on it. The AI produces the output.
+pm-skills started as a content library: skills that AI agents read at invocation time to produce PM artifacts with professional quality. Through several releases, the catalog grew to 65 skills, 12 workflows, and 27 enforcing CI validators. All of it is content. The AI reads it. The AI acts on it. The AI produces the output.
 
 v2.16.0 opens a second layer: the **runtime layer**. Sub-agents are the first inhabitants. Hooks (v2.17+) and output styles (v2.18+) follow.
 
@@ -53,7 +53,7 @@ gantt
 
     section Sub-agents
     v2.16 4-agent slate (pm-critic + utility trio)   :v216, 2026-05, 30d
-    v2.17 pm-workflow-orchestrator + AI-Native Pack  :v217, after v216, 60d
+    AI-Native Pack (orchestrator slipped to v2.24.0)  :v217, after v216, 60d
     v2.18 family-steward + curator                    :v218, after v217, 90d
 
     section Hooks
@@ -66,7 +66,7 @@ gantt
 
 **v2.16.0:** sub-agents land. 4 in the slate. Foundational pattern: proactive review, explicit utility trio, dispatch skills for cross-client.
 
-**v2.17.0:** `pm-workflow-orchestrator` joins (coordinates multi-skill workflows with quality gates). Hook infrastructure (PostToolUse validating frontmatter on every Edit/Write; hook-triggered sub-agent invocation). User-settings parser (`.claude/pm-skills.local.md` for per-project pm-critic severity floors and auto-invoke configuration). The AI-Native PM Pack adds eval-suite-spec, prompt-spec, model-card, and ai-failure-mode-catalog skills for AI-product PMs.
+**v2.17.0:** Hook infrastructure (PostToolUse validating frontmatter on every Edit/Write; hook-triggered sub-agent invocation). User-settings parser (`.claude/pm-skills.local.md` for per-project pm-critic severity floors and auto-invoke configuration). The AI-Native PM Pack adds eval-suite-spec, prompt-spec, model-card, and ai-failure-mode-catalog skills for AI-product PMs. Note: `pm-workflow-orchestrator` (a governed multi-skill runner with quality gates) was originally scoped here; it slipped and shipped in v2.24.0.
 
 **v2.18.0+:** family-steward sub-agent design (currently folded into pm-critic per master plan D8; revisits when a third skill family ships and cross-family logic diverges). PM Voice output style. Multi-reviewer critique board (3 critics with consensus filtering).
 
@@ -86,7 +86,7 @@ The v2.17 utility trio (orchestrator + frontmatter-doctor + AI-Native Pack) was 
 
 Despite the strategic shift, several invariants hold:
 
-- **Skills remain the bulk of pm-skills.** 64 skills at v2.15.0; still 55 at v2.16.0 (plus 4 dispatch skills, which are thin wrappers, not new content). The content library is the foundation; sub-agents extend its surface.
+- **Skills remain the bulk of pm-skills.** The content library is the foundation; the dispatch skills (now 5) are thin wrappers, not new content, and the sub-agents extend its surface.
 - **Cross-client compatibility is preserved.** Dispatch skills mean Codex CLI, Cursor, Windsurf, Copilot, and Gemini CLI users get full functional access.
 - **agentskills.io specification compliance.** pm-skills continues to follow the spec for skills; sub-agents are an additive Claude Code plugin feature that does not change the skill contract.
 - **No-em-dash + no-Claude-attribution-trailer hygiene rules.** Both apply to sub-agent outputs; the curator enforces the CHANGELOG side; the conductor's G0 enforces the repo side.
