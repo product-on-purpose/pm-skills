@@ -36,6 +36,10 @@ temp/
 *.tmp
 *.temp
 
+# Python bytecode cache (build-skill-catalog.py and other scripts)
+__pycache__/
+*.py[cod]
+
 # Archives
 *.zip
 *.tar.gz

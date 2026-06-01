@@ -4,8 +4,8 @@ description: Produce a comprehensive, evidence-grounded prioritized action plan 
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.0"
-  updated: 2026-05-31
+  version: "1.1.0"
+  updated: 2026-06-01
   category: planning
   frameworks: [triple-diamond, theory-of-constraints, cynefin]
   author: product-on-purpose
@@ -20,7 +20,7 @@ You produce a comprehensive, evidence-grounded action plan from PM input the use
 - Foundation skill; produces a reusable PM working-document the user saves and reuses
 - Single-turn; one action plan per invocation
 - Read-only tools (Read, Grep); produces markdown output
-- Recommends a bounded, tiered set of downstream pm-skills (see "Recommendable skill tiers"); never invokes them inline
+- Recommends a bounded, tiered set of downstream pm-skills (see "Recommendable skill tiers") and never invokes them inline; on explicit confirmation it can hand the plan to `utility-pm-workflow-orchestrator`, which runs them behind its own per-step checkpoints (see "Handoff to the orchestrator")
 
 ## Core principle
 
@@ -178,11 +178,59 @@ The build-time catalog generator emits Tier 1 and Tier 2 (with a conditional fla
 4. **Mirror first, plan second.** The user must be able to confirm the mirror before the plan carries weight.
 5. **Prompts are filled, not templated.** A prompt with unfilled placeholders is unfinished work.
 6. **Defer is half the value.** Pre-commit to non-action; do not leave an open-ended list.
-7. **One skill, one document.** Recommend downstream skills; never invoke them inline. The plan is the artifact.
+7. **One skill, one document.** Recommend downstream skills; never invoke them inline. The plan is the artifact. The only execution path is an explicit one-confirmation handoff (or `--run`) to `utility-pm-workflow-orchestrator`, which runs the steps behind its own checkpoints; you never execute a work-skill yourself.
 
 ## Output destination
 
 Chat output by default. Optional disk write to `_pm-skills/foundation-prioritized-action-plan/<slug>-<YYYY-MM-DD>.md` when the user passes `--out` or says "save this."
+
+## Handoff to the orchestrator (optional)
+
+After you produce the plan, you may offer to run its runnable Section 7 prompts
+through `utility-pm-workflow-orchestrator`, the governed plan orchestrator. This
+is an offer, never an auto-run, and it never relaxes the orchestrator's
+guardrails. You still do no inline execution of work-skills yourself.
+
+**When to offer.** Make the offer ONLY when Section 7 produced at least one
+runnable block (a prompt carrying a resolvable `**Skill:** \`name\`` line). If
+Section 7 is all-manual or empty, do not dangle an offer you cannot fulfill: say
+there is nothing runnable to hand off, or say nothing.
+
+**The closing offer.** When at least one runnable block exists, append one short
+closing line after Section 8 (not a new numbered section): note that you can run
+the plan's runnable Section 7 prompts through `utility-pm-workflow-orchestrator`
+in CHECKPOINTED mode (one go/no-go per step), and ask whether to proceed.
+
+**On one confirmation.** On a single explicit yes, hand the plan you just
+produced to `utility-pm-workflow-orchestrator` in CHECKPOINTED mode. Do not
+re-prompt, re-classify, or add your own gate: the handoff is the boundary, and
+every pause after it belongs to the orchestrator's per-step checkpoints. The
+orchestrator parses Section 7 in document order and pauses for go/no-go after
+each step.
+
+**`--run`.** Produce the plan AND hand it off in one invocation, still
+CHECKPOINTED by default. If the produced Section 7 has zero runnable blocks,
+`--run` degrades to the no-op offer state: report that there is nothing to run
+rather than starting an empty run.
+
+**`--force-auto`.** Forward this flag to `utility-pm-workflow-orchestrator`
+unchanged. You never interpret or relax it. It suppresses per-step pauses for
+unambiguously-produced steps only, and it never bypasses the orchestrator's
+stop-on-failed/empty guardrail or its Cynefin floor (Complex and Chaotic plans
+stay checkpointed unless the orchestrator's own override conditions are met).
+The domain comes from the plan's own Section 2.
+
+**You never run work-skills inline.** The offer and flags only route to the
+separate, governed orchestrator. Recommending downstream skills in Section 7 and
+handing the plan to the orchestrator are the only ways this skill causes
+execution, and the second one always passes through one explicit confirmation
+(or the `--run` flag) into a skill that checkpoints every step.
+
+**Self-reference safety.** The handoff pointer always targets
+`utility-pm-workflow-orchestrator` and never names this skill or itself as a
+runnable step. Section 7's Tier-3 and name-safety rules already forbid
+recommending this skill itself, and the orchestrator refuses any Section 7 that
+names this skill or the orchestrator, so neither side can loop.
 
 ## Quality Checklist
 

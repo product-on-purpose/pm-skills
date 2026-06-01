@@ -43,4 +43,4 @@ The 30 phase skills plus the 4 core foundation artifacts. This is the embedded f
 
 Library-maintenance machinery and this skill itself. These are not PM work products.
 
-`utility-pm-skill-builder`, `utility-pm-skill-auditor`, `utility-pm-skill-validate`, `utility-pm-skill-iterate`, `utility-pm-release-conductor`, `utility-pm-changelog-curator`, `utility-update-pm-skills`, and `foundation-prioritized-action-plan` (self).
+`utility-pm-skill-builder`, `utility-pm-skill-auditor`, `utility-pm-skill-validate`, `utility-pm-skill-iterate`, `utility-pm-release-conductor`, `utility-pm-changelog-curator`, `utility-pm-workflow-orchestrator`, `utility-update-pm-skills`, and `foundation-prioritized-action-plan` (self).

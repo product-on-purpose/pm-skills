@@ -60,7 +60,7 @@ See `references/TEMPLATE.md` for the canonical output structure (with the layere
 
 - **Skills:** This dispatch skill composes with all PM-artifact-producing skills (deliver-prd, foundation-okr-writer, foundation-meeting-recap, foundation-persona, foundation-lean-canvas, discover-interview-synthesis, etc.). Run any of those, then run this skill on the produced artifact.
 - **Sub-agents:** On Claude Code, this skill dispatches to `pm-critic` sub-agent. On non-Claude, this skill IS the inline execution; no further dispatch.
-- **Workflows:** Once `pm-workflow-orchestrator` (v2.17) ships, workflows can invoke this skill at quality-gate steps for cross-client compatibility.
+- **Workflows:** `pm-workflow-orchestrator` (shipped v2.24.0) can invoke this skill at quality-gate steps for cross-client compatibility.
 
 ## Cross-Client Notes
 

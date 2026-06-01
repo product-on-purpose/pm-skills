@@ -1,6 +1,6 @@
 {
   "name": "pm-skills",
-  "version": "2.23.0",
+  "version": "2.24.0",
   "description": "Product management skills for AI agents across discovery, definition, delivery, measurement, iteration, foundation artifacts, and workshop tools.",
   "author": {
     "name": "product-on-purpose",
@@ -26,7 +26,7 @@
   "interface": {
     "displayName": "PM Skills",
     "shortDescription": "Product management skills for AI agents",
-    "longDescription": "64 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, and pm-skills lifecycle utilities.",
+    "longDescription": "65 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, and pm-skills lifecycle utilities.",
     "developerName": "Product on Purpose",
     "category": "Productivity",
     "capabilities": [

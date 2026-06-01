@@ -87,7 +87,7 @@ The [lifecycle tools](../guides/pm-skill-lifecycle.md) integrate with versioning
 
 Skill versions are tracked individually in each `skills/{name}/SKILL.md` frontmatter and aggregated per release in `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml`. The frontmatter is the source of truth; this section is summary.
 
-As of v2.15.0 (64 skills total):
+As of v2.15.0 (65 skills total):
 
 - **24 domain skills at 2.0.0**: lifted during the v2.0 flat-structure restructure.
 - **2 domain skills at 1.0.0**: `deliver-acceptance-criteria` (shipped in v2.7.0) and `measure-okr-grader` (shipped in v2.12.0).

@@ -5,7 +5,7 @@ description: Five-minute pm-skills install + first skill invocation. Pick an ins
 
 ## What's Included
 
-- **64 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 9 foundation skills, 10 utility skills, 15 tool skills)
+- **65 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 9 foundation skills, 10 utility skills, 15 tool skills)
 - **10 slash-command docs in `commands/`** (the 10 `/workflow-*` orchestrator commands)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 
@@ -20,7 +20,7 @@ Install from the plugin marketplace, no clone required:
 /plugin install pm-skills@product-on-purpose
 ```
 
-All 64 skills are available immediately. Invoke any by name, for example `/pm-skills:deliver-prd`. Already on the old `pm-skills-marketplace`? It keeps working; see [Setup by Platform](platforms.md) to switch homes.
+All 65 skills are available immediately. Invoke any by name, for example `/pm-skills:deliver-prd`. Already on the old `pm-skills-marketplace`? It keeps working; see [Setup by Platform](platforms.md) to switch homes.
 
 ### Cross-agent (Cursor, GitHub Copilot, Cline, and others)
 
@@ -28,7 +28,7 @@ All 64 skills are available immediately. Invoke any by name, for example `/pm-sk
 npx skills add product-on-purpose/pm-skills
 ```
 
-Installs all 64 skills into your agent's default skills directory via the open [skills CLI](https://github.com/vercel-labs/skills). No clone, no sync.
+Installs all 65 skills into your agent's default skills directory via the open [skills CLI](https://github.com/vercel-labs/skills). No clone, no sync.
 
 ### Claude.ai / Claude Desktop
 
@@ -87,7 +87,7 @@ See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
 ## File Structure
 
 ```
-skills/            # All 64 skill definitions (30 phase + 9 foundation + 10 utility + 15 tool, flat)
+skills/            # All 65 skill definitions (30 phase + 9 foundation + 10 utility + 15 tool, flat)
 commands/          # 10 command markdown files
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
