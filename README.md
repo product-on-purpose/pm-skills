@@ -255,7 +255,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 </details>
 
-<details open>
+<details>
 <summary><strong>v2.16.0 - Active Orchestration with Sub-Agents</strong></summary>
 
 **What changed.** First 4 active-orchestration sub-agents shipped (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor), giving Claude Code a stable interface for spawning sub-tasks against the catalog. 4 dispatch skills extend sub-agent-shaped flows to Codex, Cursor, Windsurf, Copilot, and Gemini CLI. The 6-gate pre-tag release runbook is now written down.
