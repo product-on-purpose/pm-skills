@@ -44,3 +44,5 @@ Per AC #14, the native EXPERIMENTAL label is removed only after a recorded PASS 
 ## Net
 
 The architectural premise is sound: the orchestrator can delegate via `Skill`, adds zero chain depth, needs no `_chain-permitted` entry, and runs downstream skills inline (so the documented context-budget mitigation governs). Residual question 1 is resolved to INLINE. The release ships with the native path EXPERIMENTAL by design, not by uncertainty about whether the mechanism works.
+
+The remaining half - driving the REAL `pm-workflow-orchestrator` agent on an installed build, which is what flips the native path to PRODUCTION - is specified step by step in [`post-install-smoke.md`](./post-install-smoke.md).
