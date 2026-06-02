@@ -43,7 +43,7 @@ AGENTS="$ROOT/AGENTS.md"
 
 for slug in "${SLUGS[@]}"; do
   # 1. Check docs/workflows/{slug}.md exists
-  if [[ ! -f "$ROOT/docs/workflows/${slug}.md" ]]; then
+  if [[ ! -f "$ROOT/site/src/content/docs/workflows/${slug}.md" ]]; then
     echo "✗ Missing generated page: docs/workflows/${slug}.md"
     FAIL=1
   fi

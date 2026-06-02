@@ -12,7 +12,7 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Root = Split-Path -Parent $ScriptDir
 
 $WorkflowsSrc = Join-Path $Root '_workflows'
-$WorkflowsOut = Join-Path $Root 'docs/workflows'
+$WorkflowsOut = Join-Path $Root 'site/src/content/docs/workflows'
 $WorkflowsIndex = Join-Path $WorkflowsOut 'index.md'
 
 Write-Host "=== Workflow Generator Coverage Check ==="

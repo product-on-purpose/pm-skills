@@ -69,9 +69,9 @@ function Test-LandingPage {
 }
 
 Write-Host "Checking landing pages:"
-Test-LandingPage (Join-Path $Root 'docs/index.mdx') $skillCount 'skills' 'Docs site homepage'
-Test-LandingPage (Join-Path $Root 'docs/skills/index.md') $skillCount 'skills' 'Skills landing page'
-Test-LandingPage (Join-Path $Root 'docs/workflows/index.md') $workflowCount 'workflows' 'Workflows landing page'
+Test-LandingPage (Join-Path $Root 'site/src/content/docs/index.mdx') $skillCount 'skills' 'Docs site homepage'
+Test-LandingPage (Join-Path $Root 'site/src/content/docs/skills/index.md') $skillCount 'skills' 'Skills landing page'
+Test-LandingPage (Join-Path $Root 'site/src/content/docs/workflows/index.md') $workflowCount 'workflows' 'Workflows landing page'
 Test-LandingPage (Join-Path $Root 'library/skill-output-samples/README_SAMPLES.md') $skillCount 'skills' 'Samples library README'
 
 Write-Host ""

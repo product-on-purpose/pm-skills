@@ -42,6 +42,10 @@ echo ""
 # means "exact file".
 EXCLUDE_PATHS=(
   "templates/"
+  # Generated library samples are verbatim artifacts that legitimately carry their
+  # own body H1; they were never in this validator's scope before the Pattern S move
+  # (they lived in library/, outside docs/).
+  "samples/"
   # GitHub-directory landing pages (excluded from Astro build via
   # docs/**/README.md glob in src/content.config.ts)
   "workflows/README.md"
@@ -69,9 +73,9 @@ is_excluded() {
 }
 
 # Collect docs files. Includes both .md and .mdx (mirrors v2.14.x V6 scope).
-FS_FILES=$(find "$ROOT/docs" \( -name "*.md" -o -name "*.mdx" \) -type f \
+FS_FILES=$(find "$ROOT/site/src/content/docs" \( -name "*.md" -o -name "*.mdx" \) -type f \
   | grep -v "/docs/internal/" \
-  | sed "s|$ROOT/docs/||" \
+  | sed "s|$ROOT/site/src/content/docs/||" \
   | sort)
 
 CHECKED=0
@@ -81,7 +85,7 @@ while IFS= read -r fs_file; do
   [[ -z "$fs_file" ]] && continue
   if is_excluded "$fs_file"; then continue; fi
 
-  full_path="$ROOT/docs/$fs_file"
+  full_path="$ROOT/site/src/content/docs/$fs_file"
   CHECKED=$((CHECKED + 1))
 
   # Use awk to find: presence of frontmatter title + first non-blank,

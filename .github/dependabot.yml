@@ -20,3 +20,13 @@ updates:
       - "dependencies"
     commit-message:
       prefix: "chore(deps)"
+
+  # npm (Astro Starlight docs site; relocated under site/ in the Pattern S move)
+  - package-ecosystem: "npm"
+    directory: "/site"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore(deps)"

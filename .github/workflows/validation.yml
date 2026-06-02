@@ -19,13 +19,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node 22.12+
+      - name: Setup Node (pin from .nvmrc)
         uses: actions/setup-node@v5
         with:
-          node-version: '22.12'
+          node-version-file: .nvmrc
 
       - name: Install Astro/Starlight dependencies
+        working-directory: site
         run: npm ci
+
+      - name: Generate site content
+        # Generated content is gitignored and rebuilt each build, so it is absent
+        # on a fresh checkout. Generate it here (zero-dependency Node, no node_modules
+        # needed) so the content-scanning validators below see the full tree.
+        run: node scripts/gen-site.mjs
 
       - name: Validate commands (bash)
         if: matrix.os == 'ubuntu-latest'
@@ -182,16 +189,6 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-count-consistency.ps1
 
-      - name: Check generated freshness (bash)
-        if: matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-generated-freshness.sh
-        continue-on-error: true
-
-      - name: Check generated freshness (pwsh)
-        if: matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-generated-freshness.ps1
-        continue-on-error: true
-
       - name: Check version references (bash)
         if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-version-references.sh
@@ -218,13 +215,13 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-skill-family-registration.ps1
 
-      - name: Check internal link validity (bash, enforcing)
-        if: always() && matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-internal-link-validity.sh --strict
-
-      - name: Check internal link validity (pwsh, enforcing)
-        if: always() && matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-internal-link-validity.ps1 -Strict
+      # Filesystem link validators (check-internal-link-validity,
+      # validate-references-cross-doc) were retired in the Pattern S migration:
+      # they resolve .md links on disk, which cannot represent the cross-target
+      # links (../../skills/SKILL.md, ../internal/, _workflows/) that now resolve
+      # only at build time via scripts/remark-resolve-links.mjs. The build-aware
+      # "Check rendered link resolution" step below validates the real dist and is
+      # a strict superset.
 
       - name: Check no body H1 duplication (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
@@ -234,14 +231,6 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-no-body-h1.ps1 -Strict
 
-      - name: Check generated content untouched (bash, enforcing)
-        if: always() && matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-generated-content-untouched.sh
-
-      - name: Check generated content untouched (pwsh, enforcing)
-        if: always() && matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-generated-content-untouched.ps1
-
       - name: Check skill cross-references (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/check-skill-cross-references.sh
@@ -249,14 +238,6 @@ jobs:
       - name: Check skill cross-references (pwsh, enforcing)
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-skill-cross-references.ps1
-
-      - name: Validate cross-doc references (bash, enforcing)
-        if: always() && matrix.os == 'ubuntu-latest'
-        run: bash scripts/validate-references-cross-doc.sh
-
-      - name: Validate cross-doc references (pwsh, enforcing)
-        if: always() && matrix.os == 'windows-latest'
-        run: pwsh -File scripts/validate-references-cross-doc.ps1
 
       # v2.15.1 preventive validators - close audit findings A01/A02/A03/A04
       - name: Check landing-page counts (bash, enforcing, --strict)
@@ -285,34 +266,35 @@ jobs:
 
       - name: Build site with Astro Starlight (enforcing)
         if: always()
+        working-directory: site
         run: npm run build
 
       - name: Check internal/ exclusion from dist (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
         run: |
-          leaks=$(find dist/ -path '*internal*' -type f 2>/dev/null)
+          leaks=$(find site/dist/ -path '*internal*' -type f 2>/dev/null)
           if [ -n "$leaks" ]; then
-            echo "FAIL: internal/ paths leaked into dist/:"
+            echo "FAIL: internal/ paths leaked into site/dist/:"
             echo "$leaks" | head -10
             exit 1
           fi
-          echo "PASS: no internal/ paths in dist/"
+          echo "PASS: no internal/ paths in site/dist/"
 
       - name: Check internal/ exclusion from dist (pwsh, enforcing)
         if: always() && matrix.os == 'windows-latest'
         run: |
-          $leaks = Get-ChildItem -Path dist -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.FullName -match 'internal' }
+          $leaks = Get-ChildItem -Path site/dist -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.FullName -match 'internal' }
           if ($leaks.Count -gt 0) {
-            Write-Output "FAIL: internal/ paths leaked into dist/: $($leaks.Count) files"
+            Write-Output "FAIL: internal/ paths leaked into site/dist/: $($leaks.Count) files"
             $leaks | Select-Object -First 10 | ForEach-Object { Write-Output $_.FullName }
             exit 1
           }
-          Write-Output "PASS: no internal/ paths in dist/"
+          Write-Output "PASS: no internal/ paths in site/dist/"
 
       - name: Verify edit-link resolution (enforcing)
         if: always()
-        run: node scripts/verify-edit-links.mjs dist .
+        run: node scripts/verify-edit-links.mjs site/dist .
 
       - name: Check rendered link resolution (enforcing)
         if: always()
-        run: node scripts/check-rendered-links.mjs dist
+        run: node scripts/check-rendered-links.mjs site/dist

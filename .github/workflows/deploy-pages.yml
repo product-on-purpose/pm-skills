@@ -5,13 +5,12 @@ name: Deploy to GitHub Pages
 # Settings > Pages. After the flip, this workflow's last successful
 # deployment IS production.
 #
-# DM-2 deviation: plan recommended the all-in-one withastro/action,
-# but our npm run build chains a Phase 2 post-build sweep
-# (scripts/post-build-strip-md-links.mjs, the Codex P0 fix) that the
-# all-in-one action would skip because it runs astro build directly
-# with no custom-script hook. Composable steps (setup-node + npm ci +
-# npm run build + upload-pages-artifact + deploy-pages) preserve the
-# chain.
+# Composable steps (not the all-in-one withastro/action) because the build
+# runs a Node generator before astro build: `npm run build` chains
+# `node ../scripts/gen-site.mjs && astro build` (the generator emits the
+# Starlight content into site/src/content/docs/, then Astro builds it). The
+# all-in-one action runs astro build directly with no pre-build hook, so it
+# would skip the generator.
 #
 # Triggers: push to main (auto-deploy) and workflow_dispatch (manual).
 # Concurrency group "pages" with cancel-in-progress: false so a slower
@@ -38,27 +37,30 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Setup Node 22.12+
+      - name: Setup Node (pin from .nvmrc)
         uses: actions/setup-node@v5
         with:
-          node-version: '22.12'
+          node-version-file: .nvmrc
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build site (Astro Starlight + Phase 2 post-build sweep)
+      - name: Build site (generator + Astro Starlight)
         run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: ./dist
+          path: ./site/dist
 
   deploy:
     needs: build

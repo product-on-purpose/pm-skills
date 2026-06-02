@@ -84,41 +84,29 @@ Per agentskills.io specification:
 
 ## Maintainer notes: architectural workarounds
 
-Seven workarounds in the codebase look like odd code but exist for specific reasons. If you are tempted to "clean these up," read the inline comment in the source file first. Each one has a real reason that is non-obvious from the syntax alone.
+A few things in the codebase look like odd code but exist for specific reasons. If you are tempted to "clean these up," read the inline comment in the source file first. Each one has a real reason that is non-obvious from the syntax alone.
 
-### 1. Autogenerate paths prefixed with `docs/` in `astro.config.mjs`
+### 1. The docs site lives in `site/` (Pattern S); generated content is gitignored
 
-```js
-{ label: 'Skills', items: [{ label: 'Discover', autogenerate: { directory: 'docs/skills/discover' } }] }
-```
+The Astro Starlight project lives entirely under `site/`. Rendered content lives in `site/src/content/docs/` and is read by the stock Starlight `docsLoader()` (no custom loader, no `docs/` prefix in sidebar `autogenerate` directories). Reference pages (skills, workflows, showcase, commands, and the library samples) are emitted by `scripts/gen-site.mjs` into that tree and are **gitignored and rebuilt each build** (`site/src/content/docs/{skills,workflows,showcase,samples}/` and `reference/commands.md`). The hand-authored `skills/index.md` and `samples/index.md` overviews sit at the root of those dirs and stay tracked. Repo-root `docs/` holds only governance/human docs (`docs/internal/`), never built by Astro.
 
-The `directory` value includes the `docs/` prefix. This is required because of our D2 Option B custom glob loader in `src/content.config.ts` that mounts `docs/` in-place; entry `filePath` retains the prefix, so Starlight's autogenerate must match against it. Removing the prefix breaks the sidebar.
+### 2. `scripts/gen-site.mjs` is the single content generator
 
-### 2. `scripts/post-build-strip-md-links.mjs` runs after `astro build`
+One zero-dependency Node generator reads `skills/`, `_workflows/`, `commands/`, and `library/skill-output-samples/` and emits Starlight content. It replaced three Python generators. It rewrites source `../../docs/` links to `../../` at the copy boundary (source SKILL.md paths are correct from their source location; the generator translates at the boundary, so do not "consolidate" by changing source paths).
 
-Astro's `markdown.remarkPlugins` did not invoke our custom plugin in the Starlight + custom-glob-loader setup. We solved the `.md` link issue (Codex P0 finding from v2.14 Phase 2 review) by running a post-build HTML rewrite instead. Do not "fix" by moving back to a remark plugin without verifying the plugin actually runs.
+### 3. `scripts/remark-resolve-links.mjs` resolves relative links at build time
 
-### 3. `EXCLUDE_PATHS` hardcoded arrays in 4 validator scripts mirror `src/content.config.ts` glob excludes
+Relative `.md` links resolve to Starlight slug URLs via a remark (mdast) transform, not a post-build HTML rewrite. It fires because the stock `docsLoader()` uses Astro's standard markdown pipeline (the previous custom glob loader prevented remark plugins from running, which is why an HTML rewriter was needed before; that rewriter is now retired). Cross-target links (`../../skills/.../SKILL.md`, `_workflows/`, `../internal/`) map to in-site slugs or GitHub source URLs. `scripts/check-rendered-links.mjs` is the build-aware regression gate (must report 0 broken); it supersedes the retired filesystem link validators.
 
-`scripts/check-internal-link-validity.{sh,ps1}` and `scripts/validate-docs-frontmatter.{sh,ps1}` have hardcoded `EXCLUDE_PATHS` arrays listing `workflows/README.md`, `reference/README.md`, etc. These mirror the glob excludes in `src/content.config.ts`. If those globs change (new docs section, new exclusion), update the EXCLUDE_PATHS arrays to match. The bash scripts do not parse the TypeScript config; mirroring by hand is a deliberate simplicity trade-off.
+### 4. Validators skip generated content
 
-### 4. `scripts/generate-skill-pages.py` rewrite_internal_paths() helper
+`scripts/validate-docs-frontmatter.{sh,ps1}` and `scripts/check-no-body-h1.{sh,ps1}` scan `site/src/content/docs/` but auto-skip the generated subtrees (`skills/`, `workflows/`, `showcase/`, `samples/`, `reference/commands.md`): generated pages and verbatim library samples have their own frontmatter/heading conventions. `git grep`-based validators (e.g. `check-count-consistency`) never see generated content because it is gitignored; their `:!site/src/content/docs/changelog.md` / `releases/` exclusions cover the hand-authored historical pages.
 
-Source `skills/{name}/SKILL.md` files use paths like `../../docs/reference/skill-families/meeting-skills-contract.md` which resolve correctly from the source location (going up 2 dirs to repo root, then into docs/). When the generator copies that content to `docs/skills/{phase}/{skill}.md`, the same relative path doubles up (`docs/docs/reference/...` which does not exist). The `rewrite_internal_paths()` helper translates `../../docs/` to `../../` at the generator boundary. Do not "consolidate" by changing source SKILL.md paths because the source paths are CORRECT from their source location; the generator just needs the translation step at the copy boundary.
+### 5. Generated pages do NOT emit a body `# Heading` matching the frontmatter title
 
-### 5. `scripts/check-internal-link-validity.sh` LC_ALL=C.UTF-8 prepend
+Starlight renders the frontmatter `title:` field as the page heading. If a markdown body ALSO starts with `# Heading` matching that title, both render and the heading appears twice. `gen-site.mjs` omits the body H1 on generated pages and strips the leading `# ` line from `_workflows/*.md` at the copy boundary (`rest.replace(/^#[ \t]+.+\r?\n+/m, '')`). Source `_workflows/*.md` files keep their H1 for standalone-on-GitHub readability. When authoring hand-authored docs: rely on frontmatter `title:` as the page heading; do not add a `# Heading` line below the closing `---`.
 
-The script's `grep -P` (Perl regex) requires a UTF-8 locale. On Windows Git Bash with empty default `LANG`/`LC_ALL`, `grep -P` silently fails with "supports only unibyte and UTF-8 locales" and returns no matches; the validator then reports 0 broken links because link extraction never ran. CI Linux runners use `C.UTF-8` by default and work fine. The script prepends `export LC_ALL=${LC_ALL:-C.UTF-8}` so Windows Git Bash testing surfaces the same findings as CI Linux. Defense-in-depth; do not remove.
-
-### 6. Generators do NOT emit a body `# Heading` matching the frontmatter title
-
-Starlight automatically renders the frontmatter `title:` field as the page heading. If a markdown body ALSO starts with `# Heading` matching that title, both render and the heading appears twice. (This was a regression from the MkDocs Material to Astro Starlight migration; Material did not auto-render the frontmatter title, so the body H1 was the only heading.)
-
-All three generators (`generate-skill-pages.py`, `generate-workflow-pages.py`, `generate-showcase.py`) explicitly do NOT emit a body H1 after the frontmatter block. The workflow generator additionally strips the source `# Workflow Name` H1 from `_workflows/*.md` files at the copy boundary via a regex pass (`re.sub(r'^#\s+.+?\n+', '', rest, count=1, flags=re.MULTILINE)`). Source `_workflows/*.md` files keep their H1 for standalone-on-GitHub readability; the stripping happens only in the docs/workflows/ output.
-
-If you are authoring new hand-authored docs or adding generator paths: rely on frontmatter `title:` as the page heading; do not add a `# Heading` line below the closing `---`. The page content should start with a paragraph or the first `## Section` heading.
-
-### 7. Sub-agent definitions live in `agents/`; coordination context lives in `_agent-context/`
+### 6. Sub-agent definitions live in `agents/`; coordination context lives in `_agent-context/`
 
 Sub-agent definition files live in the fixed `agents/` directory at the plugin root, which Claude Code's plugin runtime auto-discovers. There is no plugin.json field for a custom sub-agent path.
 

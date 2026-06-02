@@ -40,10 +40,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: '22.12'
+          node-version-file: .nvmrc
 
-      - name: Install dependencies
-        run: npm ci
+      # No npm ci: the manifest-shape check below uses only Node built-ins, and
+      # after the Pattern S move the repo root has no package.json (it lives in site/).
 
       - name: Validate plugin manifest shape
         run: |

@@ -4,8 +4,21 @@ SESSION-LOG/
 .understand-anything
 
 
-# MkDocs build output
-site/
+# Astro Starlight site (project lives in site/). Source under site/ is tracked;
+# build output, caches, deps, and generated content are ignored. The depth-agnostic
+# dist/ .astro/ node_modules/ rules below also match these; explicit entries make intent clear.
+site/dist/
+site/.astro/
+site/node_modules/
+# Generated site content: rebuilt every build by scripts/gen-site.mjs, never committed
+# (gitignored-and-rebuilt model). The hand-authored overviews skills/index.md and
+# samples/index.md sit at the root of their dirs and stay tracked (the */ globs below
+# match only the generated SUBdirectories).
+site/src/content/docs/skills/*/
+site/src/content/docs/workflows/
+site/src/content/docs/showcase/
+site/src/content/docs/samples/*/
+site/src/content/docs/reference/commands.md
 
 # OS generated files
 .DS_Store

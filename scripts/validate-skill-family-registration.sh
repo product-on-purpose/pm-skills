@@ -27,7 +27,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-REGISTRY="$ROOT/docs/reference/skill-families/_registry.yaml"
+REGISTRY="$ROOT/site/src/content/docs/reference/skill-families/_registry.yaml"
 
 echo "=== Skill Family Registration Validation ==="
 echo ""
@@ -92,7 +92,9 @@ while IFS= read -r family; do
     continue
   fi
 
-  contract_full="$ROOT/$contract"
+  # The registry declares contract paths relative to the historical docs content
+  # root, which moved to site/src/content/docs/ in the Pattern S migration.
+  contract_full="$ROOT/site/src/content/$contract"
   if [[ ! -f "$contract_full" ]]; then
     echo "  FAIL: contract file does not exist at $contract"
     FAIL=1

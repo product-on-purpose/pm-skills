@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Documentation-site internal reorg to the Product on Purpose family layout (Pattern S). No skill behavior change and no published URL change: every page slug and the redirect map are preserved (route parity verified before and after the move). This is an untagged maintenance change.
+
+### Changed
+
+- The Astro Starlight project now lives entirely under `site/`, with rendered content in `site/src/content/docs/` read by the stock Starlight `docsLoader()`. Repo-root `docs/` is now governance and human documentation only, never built by Astro.
+- Reference content (per-skill, per-workflow, showcase, commands reference, and the library samples) is now produced by one zero-dependency Node generator, `scripts/gen-site.mjs`, replacing the three Python generators. Generated content is gitignored and rebuilt on each build.
+- Relative documentation links now resolve at build time via a remark transform (`scripts/remark-resolve-links.mjs`), replacing the post-build HTML link rewriter.
+- `.nvmrc` bumped to Node `24` (Active LTS); CI pins Node from `.nvmrc` via `node-version-file`. The site `package.json` keeps `engines.node >=22.12.0` (Astro 6's floor).
+- Dependabot now tracks the relocated site dependencies (added a `/site` npm block).
+
+### Removed
+
+- The three Python page generators, the post-build HTML link rewriter, and the interim base-path constant module, all superseded by `scripts/gen-site.mjs` plus `scripts/remark-resolve-links.mjs` (the base path is now single-sourced in `site/astro.config.mjs`).
+- The committed-generated-content drift guard and the generated-freshness check: generated content is now gitignored and rebuilt each build, so there is no committed drift surface to guard.
+- Two filesystem-based internal-link validators, superseded by the build-aware rendered-link check (`scripts/check-rendered-links.mjs`) that validates the built site for zero broken links.
+- The dead gitignored MkDocs build fossil under `site/` (the directory is now the live Astro project home).
+
 ## [2.24.0] - 2026-06-01
 
 **Plan orchestrator: the `pm-workflow-orchestrator` sub-agent + `utility-pm-workflow-orchestrator` dispatch skill, plus a `--run` handoff from `foundation-prioritized-action-plan`.** This ships the orchestrator promised on the public roadmap (originally pencilled for v2.17): a governed runner that takes one input - a saved `foundation-prioritized-action-plan` or a user-named chain of skills - and runs an ordered sequence of pm-skills against it, pausing for human go/no-go by default and refusing to advance past a failed or empty step. The plan skill iterates to v1.1.0 so it can offer to run its own runnable Section 7 prompts through the orchestrator. The catalog grows from 64 to 65 skills (utility 10 to 11; foundation unchanged at 9); sub-agents grow from 4 to 5. The orchestrator ships EXPERIMENTAL on all non-Claude clients, and the native sub-agent-to-skill (`Skill` tool) path ships EXPERIMENTAL until a live smoke test closes it. Additive MINOR: no existing skill loses behavior.

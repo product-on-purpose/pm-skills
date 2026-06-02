@@ -108,9 +108,9 @@ check_landing_page() {
 }
 
 echo "Checking landing pages:"
-check_landing_page "$ROOT/docs/index.mdx" "$SKILL_COUNT" "skills" "Docs site homepage"
-check_landing_page "$ROOT/docs/skills/index.md" "$SKILL_COUNT" "skills" "Skills landing page"
-check_landing_page "$ROOT/docs/workflows/index.md" "$WORKFLOW_COUNT" "workflows" "Workflows landing page"
+check_landing_page "$ROOT/site/src/content/docs/index.mdx" "$SKILL_COUNT" "skills" "Docs site homepage"
+check_landing_page "$ROOT/site/src/content/docs/skills/index.md" "$SKILL_COUNT" "skills" "Skills landing page"
+check_landing_page "$ROOT/site/src/content/docs/workflows/index.md" "$WORKFLOW_COUNT" "workflows" "Workflows landing page"
 check_landing_page "$ROOT/library/skill-output-samples/README_SAMPLES.md" "$SKILL_COUNT" "skills" "Samples library README"
 
 echo ""
