@@ -38,6 +38,9 @@ Write-Host ""
 # means "exact file".
 $excludePaths = @(
     "templates/"
+    # Generated library samples are verbatim artifacts that carry their own body H1;
+    # never in scope before the Pattern S move (they lived in library/, outside docs/).
+    "samples/"
     "workflows/README.md"
     "reference/README.md"
     "skills/README.md"
@@ -61,7 +64,7 @@ function Test-Excluded {
     return $false
 }
 
-$docsDir = Join-Path -Path $Root -ChildPath "docs"
+$docsDir = Join-Path -Path $Root -ChildPath "site/src/content/docs"
 $fsFiles = Get-ChildItem -Path $docsDir -Recurse -File |
     Where-Object {
         ($_.Extension -eq ".md" -or $_.Extension -eq ".mdx") -and

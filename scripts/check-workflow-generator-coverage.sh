@@ -32,7 +32,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 WORKFLOWS_SRC="$ROOT/_workflows"
-WORKFLOWS_OUT="$ROOT/docs/workflows"
+WORKFLOWS_OUT="$ROOT/site/src/content/docs/workflows"
 WORKFLOWS_INDEX="$WORKFLOWS_OUT/index.md"
 
 echo "=== Workflow Generator Coverage Check ==="

@@ -54,6 +54,7 @@ $AutoSkipPatterns = @(
     "skills/*"
     "workflows/*"
     "showcase/*"
+    "samples/*"
     "reference/commands.md"
     "releases/Release_v*.md"
 )
@@ -76,7 +77,7 @@ function Test-Excluded {
 # Collect docs files. Includes both .md and .mdx (v2.14.2 scope expansion per
 # Codex P2: src/content.config.ts mounts both extensions, and docs/index.mdx
 # is the Starlight homepage; mirrors check-internal-link-validity.ps1).
-$docsDir = Join-Path -Path $Root -ChildPath "docs"
+$docsDir = Join-Path -Path $Root -ChildPath "site/src/content/docs"
 $fsFiles = Get-ChildItem -Path $docsDir -Recurse -File |
     Where-Object {
         ($_.Extension -eq ".md" -or $_.Extension -eq ".mdx") -and

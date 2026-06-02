@@ -40,9 +40,9 @@ $trackedFiles = git -C $Root ls-files "*.md" "*.mdx" "*.json" | Where-Object { $
 # Exclusion patterns . files where counts are historical or structural
 $excludePatterns = @(
     '^CHANGELOG\.md$',
-    '^docs/releases/',
+    '^site/src/content/docs/releases/',
     '^docs/internal/',
-    '^docs/changelog\.md$',
+    '^site/src/content/docs/changelog\.md$',
     '^\.github/issues-archive/',
     '^\.github/issues-drafts/',
     '^\.github/\.created-issues\.json$',
@@ -54,7 +54,7 @@ $excludePatterns = @(
     '^_agent-context/codex/SESSION-LOG/',
     '^library/',
     '^skills/utility-pm-skill-auditor/references/',
-    '^docs/skills/utility/utility-pm-skill-auditor\.md$',
+    '^site/src/content/docs/skills/utility/utility-pm-skill-auditor\.md$',
     '^scripts/check-count-consistency\.'
 )
 

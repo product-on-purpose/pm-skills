@@ -40,9 +40,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: '22.12'
+          node-version-file: .nvmrc
 
-      - name: Install dependencies
+      - name: Install validator-tooling dependencies (root)
+        # The manifest-shape check uses only Node built-ins, but the skill-frontmatter
+        # validation step runs lint-skills-frontmatter, which needs js-yaml from the
+        # root tooling package. The docs-site deps (astro) are not needed here.
         run: npm ci
 
       - name: Validate plugin manifest shape

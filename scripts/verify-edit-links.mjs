@@ -8,18 +8,18 @@
  * source tree.
  *
  * Why this script exists (Codex S5.M1, W10.4):
- *   Starlight constructs editLink URLs from each entry's filePath. With
- *   our D2 Option B custom glob loader (src/content.config.ts, base: '.'),
- *   filePaths retain the docs/ or library/ prefix and should match real
- *   repo paths. This validator ships as a CI guard so that any future
- *   loader / filePath drift surfaces as a build failure rather than as
- *   404s on GitHub when users click "Edit page".
+ *   Starlight constructs editLink URLs from each entry's filePath. Under Pattern S
+ *   (stock docsLoader over site/src/content/docs/), the editLink.baseUrl carries
+ *   the /site/ segment so baseUrl + filePath reaches the real repo path
+ *   (site/src/content/docs/...). This validator ships as a CI guard so that any
+ *   future loader / filePath / baseUrl drift surfaces as a build failure rather
+ *   than as 404s on GitHub when users click "Edit page".
  *
  * Usage:
  *   node scripts/verify-edit-links.mjs [distDir] [repoRoot]
  *
  * Defaults:
- *   distDir  = dist
+ *   distDir  = site/dist
  *   repoRoot = .
  *
  * Exit codes:
@@ -47,7 +47,7 @@ import { join, relative, resolve } from 'node:path';
 const EDIT_BASE_URL = 'https://github.com/product-on-purpose/pm-skills/edit/main/';
 const MIN_EDIT_LINKS = Number.parseInt(process.env.MIN_EDIT_LINKS ?? '100', 10);
 
-const distDir = resolve(process.argv[2] ?? 'dist');
+const distDir = resolve(process.argv[2] ?? 'site/dist');
 const repoRoot = resolve(process.argv[3] ?? '.');
 
 function* walk(dir) {

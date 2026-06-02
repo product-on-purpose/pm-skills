@@ -16,7 +16,7 @@ $ErrorActionPreference = "Stop"
 
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Root = Split-Path -Parent $ScriptDir
-$Registry = Join-Path -Path $Root -ChildPath "docs/reference/skill-families/_registry.yaml"
+$Registry = Join-Path -Path $Root -ChildPath "site/src/content/docs/reference/skill-families/_registry.yaml"
 
 Write-Host "=== Skill Family Registration Validation ==="
 Write-Host ""
@@ -99,7 +99,9 @@ foreach ($familyName in $families.Keys) {
         continue
     }
 
-    $contractFull = Join-Path -Path $Root -ChildPath $family.contract
+    # Registry contract paths are relative to the historical docs content root,
+    # which moved to site/src/content/docs/ (Pattern S migration).
+    $contractFull = Join-Path -Path $Root -ChildPath "site/src/content/$($family.contract)"
     if (-not (Test-Path $contractFull)) {
         Write-Host "  FAIL: contract file does not exist at $($family.contract)"
         $Fail = $true

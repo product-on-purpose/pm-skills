@@ -20,4 +20,4 @@ This makes them directly usable by AI agents (Copilot, Cursor, Windsurf) and rep
 
 ## Editing
 
-Edit workflow content here. Do **not** edit `docs/workflows/` directly . those files are generated from this directory by `scripts/generate-workflow-pages.py`.
+Edit workflow content here. Do **not** edit the generated workflow pages directly . those files are emitted into `site/src/content/docs/workflows/` (gitignored, rebuilt each build) from this directory by `scripts/gen-site.mjs`.

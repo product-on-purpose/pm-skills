@@ -8,22 +8,25 @@
 // source file - so a filesystem-correct relative link can still 404 in the
 // browser (the trailing-slash bug), and links to repo paths the site never
 // publishes (raw SKILL.md, _workflows/, docs/internal/) resolve on GitHub but
-// not on the site. post-build-strip-md-links.mjs fixes both classes at build
-// time; this check is the regression guard that keeps them fixed.
+// not on the site. scripts/remark-resolve-links.mjs resolves these at build time
+// (an mdast transform); this check is the regression guard that keeps them fixed.
 //
 // It resolves every intra-site href (relative or /pm-skills-absolute) against
 // the page's REAL URL and asserts the target exists in dist. External links
 // (http/https/mailto/...) and pure #anchors are skipped - they are out of scope
 // here (the site links to GitHub source on purpose). Run after `npm run build`.
 //
-// Usage:  node scripts/check-rendered-links.mjs [distDir]   (default: dist)
+// Usage:  node scripts/check-rendered-links.mjs [distDir]   (default: site/dist)
 // Exit:   0 = all internal links resolve; 1 = one or more 404 in the browser.
 
 import fs from 'node:fs';
 import path from 'node:path';
 
-const DIST = path.resolve(process.argv[2] || 'dist');
+// Published base path, mirrors site/astro.config.mjs (the single source). A CI
+// link checker needs the literal to resolve base-absolute hrefs; keep it in sync.
 const BASE = '/pm-skills';
+
+const DIST = path.resolve(process.argv[2] || 'site/dist');
 
 if (!fs.existsSync(DIST)) {
   console.error(`check-rendered-links: dist dir not found at ${DIST}; run \`npm run build\` first`);
@@ -69,7 +72,11 @@ for (const file of walk(DIST)) {
     if (SKIP.test(raw)) continue;
     const isRel = raw.startsWith('./') || raw.startsWith('../');
     const isBaseAbs = raw.startsWith(BASE + '/') || raw === BASE || raw === BASE + '/';
-    if (!isRel && !isBaseAbs) continue;
+    // Host-root in-site links (start with / but not the base, not protocol-relative
+    // //) are missing the base path. Flag them: they resolve outside BASE and fail
+    // existsInDist. This is the "Site not found" class the base path guards against.
+    const isHostRoot = raw.startsWith('/') && !raw.startsWith('//') && !isBaseAbs;
+    if (!isRel && !isBaseAbs && !isHostRoot) continue;
     const clean = raw.split('#')[0].split('?')[0];
     if (!clean) continue;
     let resolved;
@@ -94,5 +101,5 @@ for (const pg of Object.keys(byPage).sort()) {
 }
 console.log('\nFAIL: browser-broken internal links found.');
 console.log('Fix by routing to a published page or a GitHub source URL; the');
-console.log('post-build-strip-md-links.mjs passes handle the common cases.');
+console.log('scripts/remark-resolve-links.mjs resolver handles the common cases.');
 process.exit(1);

@@ -40,7 +40,7 @@ $agentsContent = if (Test-Path $AgentsPath) { Get-Content $AgentsPath -Raw } els
 
 foreach ($slug in $slugs) {
     # 1. Check docs/workflows/{slug}.md exists
-    $docsPage = Join-Path -Path $Root -ChildPath "docs/workflows/$slug.md"
+    $docsPage = Join-Path -Path $Root -ChildPath "site/src/content/docs/workflows/$slug.md"
     if (-not (Test-Path $docsPage)) {
         Write-Host "[FAIL] Missing generated page: docs/workflows/$slug.md"
         $Fail = $true
