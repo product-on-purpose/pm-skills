@@ -12,7 +12,7 @@ $Root = Split-Path -Parent $PSScriptRoot
 $Fail = 0
 
 $ContractPath = "docs/reference/skill-families/meeting-skills-contract.md"
-$ContractFile = Join-Path $Root $ContractPath
+$ContractFile = Join-Path $Root "site/src/content/$ContractPath"
 
 $FamilySkills = @(
     "foundation-meeting-agenda",

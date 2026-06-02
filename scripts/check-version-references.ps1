@@ -46,8 +46,8 @@ Write-Host ""
 # Path patterns to exclude (historical refs are expected)
 $ExcludePatterns = @(
     '^CHANGELOG\.md$',
-    '^docs/changelog\.md$',
-    '^docs/releases/',
+    '^site/src/content/docs/changelog\.md$',
+    '^site/src/content/docs/releases/',
     '^docs/internal/release-plans/',
     '^docs/internal/audit/_archived/',
     '^docs/internal/audit/branches-pr_2026-05-03\.md$',

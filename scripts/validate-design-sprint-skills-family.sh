@@ -29,7 +29,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FAIL=0
 
 CONTRACT_PATH="docs/reference/skill-families/design-sprint-skills-contract.md"
-CONTRACT_FILE="$ROOT/$CONTRACT_PATH"
+CONTRACT_FILE="$ROOT/site/src/content/$CONTRACT_PATH"
 
 FAMILY_SKILLS=(
   "tool-design-sprint-readiness"

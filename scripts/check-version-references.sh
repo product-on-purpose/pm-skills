@@ -48,8 +48,8 @@ echo ""
 # Paths where historical version refs are expected and correct
 EXCLUDES=(
   ':!CHANGELOG.md'
-  ':!docs/changelog.md'
-  ':!docs/releases/'
+  ':!site/src/content/docs/changelog.md'
+  ':!site/src/content/docs/releases/'
   ':!docs/internal/release-plans/'
   ':!docs/internal/audit/_archived/'
   ':!docs/internal/audit/branches-pr_2026-05-03.md'
