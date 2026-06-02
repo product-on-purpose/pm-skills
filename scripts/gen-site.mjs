@@ -45,6 +45,12 @@ const WORKFLOWS_SRC = join(ROOT, '_workflows');
 const SAMPLES_DIR = join(ROOT, 'library', 'skill-output-samples');
 const DOCS = join(ROOT, 'site', 'src', 'content', 'docs');
 const GITHUB_BASE = 'https://github.com/product-on-purpose/pm-skills/blob/main';
+// Per-page editUrl base: generated pages point "Edit this page" at their real
+// editable SOURCE (the SKILL.md / _workflows file / library sample), not at the
+// gitignored generated output. Starts with edit/main/ so verify-edit-links.mjs
+// validates the target exists. Aggregate pages (indices, showcase, commands) set
+// editUrl: false since they have no single source.
+const GH_EDIT = 'https://github.com/product-on-purpose/pm-skills/edit/main';
 
 // --- phase / classification metadata (ported from generate-skill-pages.py) ---
 const PHASE_ORDER = [
@@ -295,6 +301,7 @@ function generateSkillPage(skillDirName) {
   out.push(`description: "${description}"`);
   out.push('generated: true');
   out.push('source: scripts/gen-site.mjs');
+  out.push(`editUrl: ${GH_EDIT}/skills/${skillDirName}/SKILL.md`);
   out.push('tags:');
   out.push(`  - ${groupDisplay}`);
   if (category) out.push(`  - ${category}`);
@@ -398,6 +405,7 @@ function generatePhaseIndex(group, skills) {
   out.push(`description: "PM skills in the ${display} phase."`);
   out.push('generated: true');
   out.push('source: scripts/gen-site.mjs');
+  out.push('editUrl: false');
   out.push('tags:');
   out.push(`  - ${display}`);
   out.push('---');
@@ -450,6 +458,7 @@ function generateCommandsReference(allSkills) {
   out.push('description: "All slash commands available in PM Skills."');
   out.push('generated: true');
   out.push('source: scripts/gen-site.mjs');
+  out.push('editUrl: false');
   out.push('---');
   out.push('');
   if (otherCmd > 0) {
@@ -504,22 +513,24 @@ function rewriteWorkflowLinks(content) {
   content = content.replace(/(\]\()\.\.\/docs\//g, '$1../');
   return content;
 }
-function injectGeneratedMarker(content) {
+function injectGeneratedMarker(content, srcName) {
   if (content.includes('generated: true')) return content;
   const generator = 'scripts/gen-site.mjs';
+  const editUrl = `${GH_EDIT}/_workflows/${srcName}`;
   let newFm;
   let rest;
   const fm = content.match(/^(---\s*\n)([\s\S]*?)(\n---\s*\n)/);
   if (fm) {
-    newFm = fm[1] + fm[2] + `\ngenerated: true\nsource: ${generator}` + fm[3];
+    newFm = fm[1] + fm[2] + `\ngenerated: true\nsource: ${generator}\neditUrl: ${editUrl}` + fm[3];
     rest = content.slice(fm[0].length);
   } else {
-    newFm = `---\ngenerated: true\nsource: ${generator}\n---\n\n`;
+    newFm = `---\ngenerated: true\nsource: ${generator}\neditUrl: ${editUrl}\n---\n\n`;
     rest = content;
   }
   // Strip the leading body H1 (Starlight renders the frontmatter title). The m
-  // flag matches the first H1 line even when a blank line follows the frontmatter.
-  rest = rest.replace(/^#[ \t]+.+\r?\n+/m, '');
+  // flag matches the first H1 line even when a blank line follows the frontmatter;
+  // the (\r?\n+|$) tail also covers an H1 on the final line with no trailing newline.
+  rest = rest.replace(/^#[ \t]+.+(?:\r?\n+|$)/m, '');
   return newFm + rest;
 }
 const WORKFLOW_INFO = {
@@ -558,6 +569,7 @@ function generateWorkflowIndex(sourceStems) {
     'description: Multi-skill workflows that chain PM skills together for common product management processes.',
     'generated: true',
     'source: scripts/gen-site.mjs',
+    'editUrl: false',
     '---',
     '',
     'Workflows chain multiple skills into end-to-end sequences. Each workflow defines a sequence of skills to run in order.',
@@ -592,7 +604,7 @@ function generateWorkflows() {
     : [];
   for (const f of srcFiles) {
     const content = readFileSync(join(WORKFLOWS_SRC, f), 'utf8');
-    const marked = injectGeneratedMarker(rewriteWorkflowLinks(content));
+    const marked = injectGeneratedMarker(rewriteWorkflowLinks(content), f);
     writeOut(join(DOCS, 'workflows', f), marked);
   }
   const stems = srcFiles.map((f) => f.replace(/\.md$/, ''));
@@ -641,6 +653,7 @@ function generateShowcaseThread(threadKey) {
   out.push(`description: "Follow ${thread.display} through the complete PM lifecycle, from discovery to pivot decision."`);
   out.push('generated: true');
   out.push('source: scripts/gen-site.mjs');
+  out.push('editUrl: false');
   out.push('tags:');
   out.push('  - Showcase');
   out.push(`  - ${thread.display}`);
@@ -700,6 +713,7 @@ function generateShowcaseIndex() {
   out.push('description: "See PM Skills in action: follow three fictional companies through the complete product lifecycle."');
   out.push('generated: true');
   out.push('source: scripts/gen-site.mjs');
+  out.push('editUrl: false');
   out.push('tags:');
   out.push('  - Showcase');
   out.push('---');
@@ -759,7 +773,14 @@ function generateSamples() {
     for (const f of readdirSync(dir).filter((x) => /^sample_.*\.md$/.test(x)).sort()) {
       if (SAMPLE_EXCLUDE.some((re) => re.test(f))) continue;
       const content = readFileSync(join(dir, f), 'utf8');
-      writeOut(join(DOCS, 'samples', skill, f), content);
+      // Point "Edit this page" at the library source (the sample is verbatim from
+      // there). Insert editUrl after the frontmatter opener (which may follow a
+      // leading HTML comment). No-op if a sample somehow lacks frontmatter.
+      const withEdit = content.replace(
+        /^((?:\s*<!--[\s\S]*?-->\s*)?---\r?\n)/,
+        `$1editUrl: ${GH_EDIT}/library/skill-output-samples/${skill}/${f}\n`,
+      );
+      writeOut(join(DOCS, 'samples', skill, f), withEdit);
       count++;
     }
   }

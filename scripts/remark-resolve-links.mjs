@@ -34,7 +34,7 @@ const PHASE_PREFIXES = [
   'discover', 'define', 'develop', 'deliver', 'measure', 'iterate', 'foundation', 'utility',
 ];
 
-const SKIP = /^(?:[a-z][a-z0-9+.-]*:|#|\/)/i; // scheme, anchor, or site-absolute
+const SKIP = /^(?:[a-z][a-z0-9+.-]*:|#|\/\/)/i; // scheme, anchor, or protocol-relative
 const POSIX = (p) => p.split(/[\\/]+/).filter((s) => s !== '.').join('/');
 
 function normalizePosix(p) {
@@ -117,9 +117,16 @@ function resolveUrl(base, fileDirRel, url) {
   const clean = hashIdx === -1 ? url : url.slice(0, hashIdx);
   const frag = hashIdx === -1 ? '' : url.slice(hashIdx);
   if (!clean || SKIP.test(clean)) return null;
+  // Already base-absolute and correct: leave it.
+  if (clean === base || clean.startsWith(`${base}/`)) return null;
 
-  // Resolve relative to the current file's content-root-relative directory.
-  const targetRel = normalizePosix(`${fileDirRel}/${clean}`);
+  // A host-root in-site link (e.g. /skills/ or /guides/foo.md) means the site
+  // root, which is the base path: resolve it against the content root so it
+  // gets the base prepended (otherwise it ships missing /pm-skills, the exact
+  // "Site not found" class). Everything else is relative to the current file.
+  const targetRel = clean.startsWith('/')
+    ? normalizePosix(clean.slice(1))
+    : normalizePosix(`${fileDirRel}/${clean}`);
 
   // Intra-content: stays under content root and resolves to a real page.
   if (!targetRel.startsWith('..')) {
@@ -136,8 +143,8 @@ function resolveUrl(base, fileDirRel, url) {
     }
   }
 
-  // Cross-target: strip leading ../ and ./ and pattern-map the tail.
-  const tail = clean.replace(/^(?:\.\.?\/)+/, '').replace(/\/$/, '');
+  // Cross-target: strip a leading / (host-root) and ../ ./ and pattern-map the tail.
+  const tail = clean.replace(/^\//, '').replace(/^(?:\.\.?\/)+/, '').replace(/\/$/, '');
   const mapped = mapCrossTarget(base, tail);
   if (mapped) return mapped + frag;
 

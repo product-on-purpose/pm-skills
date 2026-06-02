@@ -72,7 +72,11 @@ for (const file of walk(DIST)) {
     if (SKIP.test(raw)) continue;
     const isRel = raw.startsWith('./') || raw.startsWith('../');
     const isBaseAbs = raw.startsWith(BASE + '/') || raw === BASE || raw === BASE + '/';
-    if (!isRel && !isBaseAbs) continue;
+    // Host-root in-site links (start with / but not the base, not protocol-relative
+    // //) are missing the base path. Flag them: they resolve outside BASE and fail
+    // existsInDist. This is the "Site not found" class the base path guards against.
+    const isHostRoot = raw.startsWith('/') && !raw.startsWith('//') && !isBaseAbs;
+    if (!isRel && !isBaseAbs && !isHostRoot) continue;
     const clean = raw.split('#')[0].split('?')[0];
     if (!clean) continue;
     let resolved;
