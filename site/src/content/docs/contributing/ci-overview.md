@@ -34,7 +34,7 @@ flowchart TD
 
     Manual[workflow_dispatch] --> SyncAgents[sync-agents-md.yml]
 
-    Validation --> Enforcing[enforcing validators:<br/>lint-skills-frontmatter<br/>validate-agents-md<br/>validate-commands<br/>family validators<br/>validate-docs-frontmatter --strict<br/>check-no-body-h1 --strict<br/>check-count-consistency<br/>check-skill-cross-references<br/>gen + astro build<br/>check-rendered-links<br/>+ more]
+    Validation --> Enforcing[enforcing validators:<br/>lint-skills-frontmatter<br/>validate-agents-md<br/>validate-commands<br/>family validators<br/>validate-docs-frontmatter --strict<br/>check-no-body-h1 --strict<br/>check-count-consistency<br/>check-skill-cross-references<br/>gen + astro build<br/>check-rendered-links + anchors<br/>check-route-parity<br/>+ more]
     Validation --> Advisory[Advisory validators:<br/>check-context-currency<br/>check-frontmatter-yaml<br/>check-version-references]
 
     Enforcing -->|all pass| Green[PR green; merge unblocked]
@@ -87,7 +87,8 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | `validate-meeting-skills-family` | Meeting Skills Family contract enforcement (5 members; v2.11.0) |
 | `validate-foundation-sprint-skills-family --strict` | Foundation Sprint Family contract enforcement (7 members; v2.15.0) |
 | `validate-design-sprint-skills-family --strict` | Design Sprint Family contract enforcement (7 members; v2.15.0) |
-| `check-rendered-links` (post-build) | Every internal link in the BUILT site (`site/dist/`) resolves to a real route. The build-aware successor to the retired filesystem link validators: `scripts/remark-resolve-links.mjs` emits Starlight slug links + GitHub source URLs at build, and this gate proves zero are broken |
+| `check-rendered-links` (post-build) | Every internal link in the BUILT site (`site/dist/`) resolves to a real route, and every `#fragment` resolves to a real element id (anchors enforced via `STRICT_ANCHORS=1` in CI; advisory otherwise). The build-aware successor to the retired filesystem link validators: `scripts/remark-resolve-links.mjs` emits Starlight slug links + GitHub source URLs at build, and this gate proves zero are broken |
+| `check-route-parity` (post-build) | No published URL silently disappears. Compares the built route set (`site/dist/**/*.html`) against the committed baseline `scripts/route-manifest.txt` and fails if any baseline route is missing (a removed/renamed URL is a "Site not found" for existing links/bookmarks). Added routes are allowed. After an intentional route change, add a redirect (keeps the route present) or regenerate the baseline with `node scripts/check-route-parity.mjs --update` and commit it with a reason |
 | `validate-docs-frontmatter --strict` | Astro Starlight frontmatter shape on hand-authored docs in `site/src/content/docs/` (generated subtrees auto-skipped) |
 | `check-no-body-h1 --strict` | No body H1 duplications (Starlight derives H1 from `title` frontmatter; body H1 would duplicate) |
 | `check-count-consistency` | Skill/command/workflow counts in tracked .md, .mdx, and .json match filesystem state, including the `badge/skills-<N>` shields-badge form (.mdx + badge added v2.19.0) |
@@ -149,7 +150,8 @@ When adding a new validator script:
 | validation.yml red, ubuntu-latest only | Linux-specific shell-script issue (e.g., bash version, line ending) |
 | validation.yml red, windows-latest only | PowerShell-specific issue (e.g., encoding, CRLF parsing, `-p` flag) |
 | validate-plugin.yml red | Plugin manifest schema; check `.claude-plugin/plugin.json` validity + commands paths |
-| `check-rendered-links` red | A link in the built site does not resolve; check the source link and how `scripts/remark-resolve-links.mjs` maps it (in-site slug vs GitHub source URL) |
+| `check-rendered-links` red | A link in the built site does not resolve; check the source link and how `scripts/remark-resolve-links.mjs` maps it (in-site slug vs GitHub source URL). If it names a broken `#anchor`, the heading id moved or the fragment is stale |
+| `check-route-parity` red | A previously-published URL is gone from the build; restore it, add an Astro redirect (keeps the route present), or - if the removal is intentional - run `node scripts/check-route-parity.mjs --update` and commit the new `scripts/route-manifest.txt` with a reason |
 | `validate-docs-frontmatter --strict` red | Astro Starlight schema requires `title:` + ASCII colons in description; check the offending doc |
 | `check-no-body-h1 --strict` red | A body `# Header` line exists in a hand-authored page; remove or convert to `##` |
 | `npm run build` red (generator) | `scripts/gen-site.mjs` failed or emitted invalid frontmatter; run `cd site && npm run build` locally and read the Astro error |

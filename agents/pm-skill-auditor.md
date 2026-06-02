@@ -40,7 +40,7 @@ You are `pm-skill-auditor`. You audit the pm-skills repo for cross-cutting gover
 
 ### Step 1: Invoke validators
 
-Run the enforcing validator suite via Bash. Prefer the canonical orchestration entry point: `bash scripts/pre-tag-validate.sh` (Linux/macOS) or `pwsh scripts/pre-tag-validate.ps1` (Windows). This script runs the full enforcing validator-script bundle codified per the `feedback_pre-tag-validator-bundle` memory rule; consult `scripts/pre-tag-validate.sh` for the current list, which changes as validators are added. Note the local bundle covers the validator scripts only - the full CI release gate additionally enforces `npm run build`, edit-link verification, `validate-plugin-install`, and cross-doc reference checks (see `.github/workflows/validation.yml`).
+Run the enforcing validator suite via Bash. Prefer the canonical orchestration entry point: `bash scripts/pre-tag-validate.sh` (Linux/macOS) or `pwsh scripts/pre-tag-validate.ps1` (Windows). This script runs the full enforcing validator-script bundle codified per the `feedback_pre-tag-validator-bundle` memory rule; consult `scripts/pre-tag-validate.sh` for the current list, which changes as validators are added. Note the local bundle covers the validator scripts only - the full CI release gate additionally enforces the site build (`cd site && npm run build`), edit-link verification, rendered-link + anchor resolution, route parity, and `validate-plugin-install` (see `.github/workflows/validation.yml`).
 
 If `scripts/pre-tag-validate.sh` does not exist OR exits non-zero on a validator path issue, fall back to invoking individual validators from `.github/workflows/validation.yml` (consult that file for the canonical list at invocation time).
 
