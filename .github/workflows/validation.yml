@@ -24,6 +24,11 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Install validator-tooling dependencies (root)
+        # Root package.json provides js-yaml for scripts/check-frontmatter-yaml.mjs
+        # (used by lint-skills-frontmatter). The docs-site deps install separately in site/.
+        run: npm ci
+
       - name: Install Astro/Starlight dependencies
         working-directory: site
         run: npm ci

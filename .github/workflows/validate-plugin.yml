@@ -42,8 +42,11 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      # No npm ci: the manifest-shape check below uses only Node built-ins, and
-      # after the Pattern S move the repo root has no package.json (it lives in site/).
+      - name: Install validator-tooling dependencies (root)
+        # The manifest-shape check uses only Node built-ins, but the skill-frontmatter
+        # validation step runs lint-skills-frontmatter, which needs js-yaml from the
+        # root tooling package. The docs-site deps (astro) are not needed here.
+        run: npm ci
 
       - name: Validate plugin manifest shape
         run: |

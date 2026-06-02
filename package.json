@@ -1,0 +1,9 @@
+{
+  "name": "pm-skills-tooling",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Repo validator-tooling dependencies. NOT the documentation site (that lives in site/ as its own package). Provides js-yaml for scripts/check-frontmatter-yaml.mjs (YAML parse-validity in the frontmatter lint). Installed at the repo root in CI before the validator steps.",
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
