@@ -300,6 +300,12 @@ jobs:
         if: always()
         run: node scripts/verify-edit-links.mjs site/dist .
 
-      - name: Check rendered link resolution (enforcing)
+      - name: Check rendered link resolution + anchors (enforcing)
         if: always()
+        env:
+          STRICT_ANCHORS: '1'
         run: node scripts/check-rendered-links.mjs site/dist
+
+      - name: Check route parity (enforcing; no published URL removed without a redirect)
+        if: always()
+        run: node scripts/check-route-parity.mjs site/dist

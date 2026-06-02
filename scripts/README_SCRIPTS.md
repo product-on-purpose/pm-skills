@@ -16,13 +16,11 @@
   - [validate-script-docs.sh / validate-script-docs.ps1](#validate-script-docssh--validate-script-docsps1)
   - [check-workflow-coverage.sh / check-workflow-coverage.ps1](#check-workflow-coveragesh--check-workflow-coverageps1)
   - [check-count-consistency.sh / check-count-consistency.ps1](#check-count-consistencysh--check-count-consistencyps1)
-  - [check-generated-freshness.sh / check-generated-freshness.ps1](#check-generated-freshnesssh--check-generated-freshnessps1)
   - [check-context-currency.sh / check-context-currency.ps1](#check-context-currencysh--check-context-currencyps1)
   - [check-nav-completeness.sh / check-nav-completeness.ps1](#check-nav-completenesssh--check-nav-completenessps1)
   - [check-version-references.sh / check-version-references.ps1](#check-version-referencessh--check-version-referencesps1)
   - [validate-docs-frontmatter.sh / validate-docs-frontmatter.ps1](#validate-docs-frontmattersh--validate-docs-frontmatterps1)
   - [validate-skill-family-registration.sh / validate-skill-family-registration.ps1](#validate-skill-family-registrationsh--validate-skill-family-registrationps1)
-  - [check-internal-link-validity.sh / check-internal-link-validity.ps1](#check-internal-link-validitysh--check-internal-link-validityps1)
 - [When to use what](#when-to-use-what)
 - [FAQ](#faq)
 - [Tips](#tips)
@@ -207,19 +205,6 @@ CI-only automation scripts live in `.github/scripts/` (for example, `create-issu
 
 **Outputs:** Pass if all counts match, or fail with file path, line number, and expected vs. found count. Excludes CHANGELOG and release notes (historical counts are correct for their time).
 
-### check-generated-freshness.sh / check-generated-freshness.ps1
-**Purpose:** Verify generated workflow pages in `docs/workflows/` match their sources in `_workflows/`.
-
-**Why:** Generated pages can drift if workflows are edited but the generator isn't re-run.
-
-**Use when:** After editing `_workflows/` files; before release; in CI (advisory).
-
-**Commands:**
-- Bash: `./scripts/check-generated-freshness.sh`
-- PowerShell: `./scripts/check-generated-freshness.ps1`
-
-**Outputs:** Pass if all pages are fresh, or fail listing stale pages.
-
 ### check-context-currency.sh / check-context-currency.ps1
 **Purpose:** Verify `_agent-context/*/CONTEXT.md` files reference the current CHANGELOG release version.
 
@@ -285,27 +270,15 @@ CI-only automation scripts live in `.github/scripts/` (for example, `create-issu
 
 **Outputs:** Per-family pass/fail with member-by-member status. Summary count of families validated.
 
-### check-internal-link-validity.sh / check-internal-link-validity.ps1
-**Purpose:** Validate internal links in rendered docs. Walks `docs/**/*.md` (excluding internal/ and exclude_docs), extracts markdown links, filters to internal-only (skips http/https/mailto/etc.), and verifies each target exists.
-
-**Why:** Catches broken internal links at PR time. Closes audit gap G4. Pure-bash + grep regex implementation; no external tooling (lychee) required.
-
-**Use when:** After authoring docs with cross-references; before tagging a release; in CI (advisory in v2.13.0; promote to enforcing in v2.14.0+).
-
-**Commands:**
-- Bash: `./scripts/check-internal-link-validity.sh` (advisory) or `--strict` (hard-fail)
-- PowerShell: `./scripts/check-internal-link-validity.ps1` or `-Strict`
-
-**Outputs:** Files-checked count, broken-link count, per-finding source-file + broken link path. External URL validation NOT done (out of scope; v2.14 may add via lychee).
-
 ## When to use what
 - **Day-to-day:** No scripts needed unless using openskills/Claude Code → run `sync-claude`.
 - **After adding a skill:** `validate-commands` → `lint-skills-frontmatter` → `validate-agents-md` → `check-mcp-impact` → `check-count-consistency`.
-- **After adding a workflow:** `check-workflow-coverage` → `check-count-consistency` → `check-generated-freshness`.
+- **After adding a workflow:** `check-workflow-coverage` → `check-count-consistency` → `check-workflow-generator-coverage`.
 - **After adding a script:** `validate-script-docs` (ensure companion `.md` exists).
 - **Pre-release:** All validation scripts → `validate-version-consistency` → `check-count-consistency` → `build-release`.
 - **CI (hard-fail):** `validate-commands`, `lint-skills-frontmatter`, `validate-agents-md`, `validate-version-consistency`, `check-nav-completeness`, `validate-skill-family-registration`.
-- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-generated-freshness`, `check-context-currency`, `check-version-references`, `validate-docs-frontmatter`, `check-internal-link-validity`.
+- **CI (advisory):** `check-mcp-impact`, `validate-skill-history`, `validate-skills-manifest`, `validate-gitignore-pm-skills`, `validate-script-docs`, `check-workflow-coverage`, `check-count-consistency`, `check-context-currency`, `check-version-references`.
+- **CI (after build, enforcing):** `verify-edit-links.mjs`, `check-rendered-links.mjs` (with `STRICT_ANCHORS=1`), `check-route-parity.mjs`. These are zero-dependency Node `.mjs` scripts (no `.sh`/`.ps1`/`.md` trio) run against `site/dist`. Content is generated by `gen-site.mjs` and links resolved by the `remark-resolve-links.mjs` build plugin.
 
 ## FAQ
 **Q: Do I need `.claude/` populated?**  
@@ -351,10 +324,8 @@ Each script has a dedicated documentation file with full usage details, options,
 | `validate-script-docs.sh` / `.ps1` | [validate-script-docs.md](validate-script-docs.md) |
 | `check-workflow-coverage.sh` / `.ps1` | [check-workflow-coverage.md](check-workflow-coverage.md) |
 | `check-count-consistency.sh` / `.ps1` | [check-count-consistency.md](check-count-consistency.md) |
-| `check-generated-freshness.sh` / `.ps1` | [check-generated-freshness.md](check-generated-freshness.md) |
 | `check-context-currency.sh` / `.ps1` | [check-context-currency.md](check-context-currency.md) |
 | `check-nav-completeness.sh` / `.ps1` | [check-nav-completeness.md](check-nav-completeness.md) |
 | `check-version-references.sh` / `.ps1` | [check-version-references.md](check-version-references.md) |
 | `validate-docs-frontmatter.sh` / `.ps1` | [validate-docs-frontmatter.md](validate-docs-frontmatter.md) |
 | `validate-skill-family-registration.sh` / `.ps1` | [validate-skill-family-registration.md](validate-skill-family-registration.md) |
-| `check-internal-link-validity.sh` / `.ps1` | [check-internal-link-validity.md](check-internal-link-validity.md) |

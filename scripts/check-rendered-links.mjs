@@ -13,8 +13,9 @@
 //
 // It resolves every intra-site href (relative or /pm-skills-absolute) against
 // the page's REAL URL and asserts the target exists in dist. External links
-// (http/https/mailto/...) and pure #anchors are skipped - they are out of scope
-// here (the site links to GitHub source on purpose). Run after `npm run build`.
+// (http/https/mailto/...) are skipped. #anchors are validated against the target
+// page's element ids (advisory by default; set STRICT_ANCHORS=1 to enforce).
+// Run after `npm run build`.
 //
 // Usage:  node scripts/check-rendered-links.mjs [distDir]   (default: site/dist)
 // Exit:   0 = all internal links resolve; 1 = one or more 404 in the browser.
@@ -33,7 +34,9 @@ if (!fs.existsSync(DIST)) {
   process.exit(1);
 }
 
-const SKIP = /^(https?:|mailto:|tel:|ftp:|ws:|wss:|data:|javascript:|#)/i;
+// Scheme / protocol-relative links are out of scope. Pure #anchors are NOT skipped
+// here (handled below as same-page anchor checks).
+const SKIP = /^(https?:|mailto:|tel:|ftp:|ws:|wss:|data:|javascript:|\/\/)/i;
 
 function walk(dir, acc = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -63,13 +66,71 @@ function existsInDist(urlPath) {
   return false;
 }
 
+// --- #anchor validation ----------------------------------------------------
+// Extract element ids from a built page so links with a #fragment can be checked
+// against real heading/element ids (the retired check-internal-link-validity did
+// this filesystem-style; here it is build-aware). Cached per file.
+const idCache = new Map();
+function idsOfFile(distFile) {
+  if (idCache.has(distFile)) return idCache.get(distFile);
+  const set = new Set();
+  try {
+    // Accept both quote styles. Starlight emits double-quoted ids today, but a
+    // future rehype/markdown plugin could emit single-quoted ids; matching both
+    // keeps a real (browser-honored) anchor from being flagged broken under
+    // STRICT_ANCHORS. (name="..." is deliberately NOT matched: <meta name=...>
+    // would flood the id set and mask genuinely broken anchors.)
+    for (const m of fs.readFileSync(distFile, 'utf8').matchAll(/\sid=(?:"([^"]+)"|'([^']+)')/g)) set.add(m[1] ?? m[2]);
+  } catch { /* unreadable: leave empty */ }
+  idCache.set(distFile, set);
+  return set;
+}
+// Reverse of urlOf: map a base-absolute URL path to its dist file.
+function distFileFor(urlPath) {
+  if (!urlPath.startsWith(BASE + '/')) return null;
+  const rel = urlPath.slice((BASE + '/').length).replace(/\/$/, '');
+  const cands = rel === ''
+    ? [path.join(DIST, 'index.html')]
+    : [path.join(DIST, rel, 'index.html'), path.join(DIST, rel), path.join(DIST, rel + '.html')];
+  for (const c of cands) if (fs.existsSync(c) && fs.statSync(c).isFile()) return c;
+  return null;
+}
+
 const broken = [];
-for (const file of walk(DIST)) {
+const brokenAnchors = [];
+// Anchor checks are advisory by default (a broken anchor scrolls to top, it does
+// not 404). Set STRICT_ANCHORS=1 to make them fail the build.
+const STRICT_ANCHORS = process.env.STRICT_ANCHORS === '1';
+// A built site is never empty. An existing-but-empty dist is the state Astro leaves
+// when a build crashes after emptying outDir; scanning zero pages would otherwise
+// PASS silently and show a misleading green next to a red build. Fail loudly, the
+// same way check-route-parity.mjs does on the identical state (keep them symmetric).
+const pages = walk(DIST);
+if (pages.length === 0) {
+  console.error(`check-rendered-links: ${DIST} exists but has no .html pages - the build likely failed and emptied outDir. Failing (a built site is never empty).`);
+  process.exit(1);
+}
+for (const file of pages) {
   const html = fs.readFileSync(file, 'utf8');
   const pageUrl = urlOf(file);
   for (const m of html.matchAll(/href="([^"]+)"/g)) {
     const raw = m[1];
     if (SKIP.test(raw)) continue;
+    const hashIdx = raw.indexOf('#');
+    let frag = '';
+    if (hashIdx !== -1) {
+      const rawFrag = raw.slice(hashIdx + 1).split('?')[0];
+      // A literal '%' that is not a valid percent-escape (e.g. #50%-off) makes
+      // decodeURIComponent throw URIError; fall back to the undecoded fragment so a
+      // single hand-authored anchor cannot crash the whole link check (the throw
+      // would also kill the non-anchor browser-broken-link pass in this same loop).
+      try { frag = decodeURIComponent(rawFrag); } catch { frag = rawFrag; }
+    }
+    // Same-page anchor (#frag): validate against this page's element ids.
+    if (raw.startsWith('#')) {
+      if (frag && !idsOfFile(file).has(frag)) brokenAnchors.push({ page: pageUrl, href: raw });
+      continue;
+    }
     const isRel = raw.startsWith('./') || raw.startsWith('../');
     const isBaseAbs = raw.startsWith(BASE + '/') || raw === BASE || raw === BASE + '/';
     // Host-root in-site links (start with / but not the base, not protocol-relative
@@ -81,25 +142,57 @@ for (const file of walk(DIST)) {
     if (!clean) continue;
     let resolved;
     try { resolved = new URL(clean, 'https://x' + pageUrl).pathname; } catch { continue; }
-    if (!existsInDist(resolved)) broken.push({ page: pageUrl, href: raw, resolved });
+    if (!existsInDist(resolved)) { broken.push({ page: pageUrl, href: raw, resolved }); continue; }
+    // Page exists: if the link targets a #anchor, validate it against the target page.
+    if (frag) {
+      const tf = distFileFor(resolved);
+      if (tf && !idsOfFile(tf).has(frag)) brokenAnchors.push({ page: pageUrl, href: raw });
+    }
   }
 }
 
 console.log('=== Rendered Link Resolution Check ===');
-console.log(`Pages scanned: ${walk(DIST).length}`);
+console.log(`Pages scanned: ${pages.length}`);
 console.log(`Browser-broken internal links: ${broken.length}`);
-if (broken.length === 0) {
-  console.log('\nPASS: all internal links resolve in the browser.');
+console.log(`Broken #anchors (${STRICT_ANCHORS ? 'enforcing' : 'advisory'}): ${brokenAnchors.length}`);
+
+if (broken.length) {
+  console.log('\nBroken internal links (resolved against the page URL):');
+  const byPage = {};
+  for (const b of broken) (byPage[b.page] ||= []).push(b);
+  for (const pg of Object.keys(byPage).sort()) {
+    console.log(`  ${pg}`);
+    for (const b of byPage[pg]) console.log(`     ${b.href}  ->  ${b.resolved}`);
+  }
+}
+
+if (brokenAnchors.length) {
+  console.log(`\n${STRICT_ANCHORS ? 'Broken' : 'Advisory: broken'} #anchor link(s) (target page exists, fragment id does not):`);
+  const byPage = {};
+  for (const b of brokenAnchors) (byPage[b.page] ||= []).push(b);
+  const pages = Object.keys(byPage).sort();
+  for (const pg of pages.slice(0, 40)) {
+    console.log(`  ${pg}`);
+    for (const b of byPage[pg]) console.log(`     ${b.href}`);
+  }
+  if (pages.length > 40) console.log(`  ... and ${pages.length - 40} more page(s)`);
+}
+
+const fail = broken.length > 0 || (STRICT_ANCHORS && brokenAnchors.length > 0);
+if (!fail) {
+  const note = brokenAnchors.length ? ` (${brokenAnchors.length} advisory #anchor warning(s); set STRICT_ANCHORS=1 to enforce)` : '';
+  console.log(`\nPASS: all internal links resolve in the browser${note}.`);
   process.exit(0);
 }
-console.log('\nBroken internal links (resolved against the page URL):');
-const byPage = {};
-for (const b of broken) (byPage[b.page] ||= []).push(b);
-for (const pg of Object.keys(byPage).sort()) {
-  console.log(`  ${pg}`);
-  for (const b of byPage[pg]) console.log(`     ${b.href}  ->  ${b.resolved}`);
+const parts = [];
+if (broken.length) parts.push(`${broken.length} browser-broken link(s)`);
+if (STRICT_ANCHORS && brokenAnchors.length) parts.push(`${brokenAnchors.length} broken #anchor(s)`);
+console.log(`\nFAIL: ${parts.join(' + ')}.`);
+if (broken.length) {
+  console.log('Fix broken links by routing to a published page or a GitHub source URL;');
+  console.log('scripts/remark-resolve-links.mjs resolves the common cases.');
 }
-console.log('\nFAIL: browser-broken internal links found.');
-console.log('Fix by routing to a published page or a GitHub source URL; the');
-console.log('scripts/remark-resolve-links.mjs resolver handles the common cases.');
+if (STRICT_ANCHORS && brokenAnchors.length) {
+  console.log('Fix broken #anchors: a heading id was renamed/removed, or the fragment is stale.');
+}
 process.exit(1);
