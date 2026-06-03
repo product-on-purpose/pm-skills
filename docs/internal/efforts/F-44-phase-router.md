@@ -28,7 +28,7 @@ A strong signal resolves one phase. No strong signal emits NOTHING.
 
 ### Output
 
-When confident, inject `additionalContext` (the channel `start-stamp.py` uses) naming the phase and the top few skills for it. The phase-to-skills map is built by reading the `phase:` field from `skills/*/SKILL.md` frontmatter directly (via `js-yaml`), NOT from `build-skill-catalog.py` output - the Node hook cannot run Python at runtime, and the frontmatter is the authoritative classification (values: discover, define, develop, deliver, measure, iterate). Claude weaves it into the session; it is not a user-facing banner in the MVP.
+When confident, inject `additionalContext` (the channel `start-stamp.py` uses) naming the phase and the top few skills for it. The phase-to-skills map is built by reading `name:` and `phase:` from `${CLAUDE_PLUGIN_ROOT}/skills/*/SKILL.md` frontmatter directly (a minimal dependency-free field reader, NOT `js-yaml` - an installed-plugin hook has no `node_modules`), NOT from `build-skill-catalog.py` output - the Node hook cannot run Python at runtime, and the frontmatter is the authoritative classification (values: discover, define, develop, deliver, measure, iterate). Claude weaves it into the session; it is not a user-facing banner in the MVP.
 
 ### Fail-safe
 

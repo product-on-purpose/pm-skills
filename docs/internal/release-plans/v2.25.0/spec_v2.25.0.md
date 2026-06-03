@@ -16,7 +16,7 @@ All five new executables (two hooks, one shared lib, three validators) are Node 
 
 - **Hooks must be portable.** A `PreToolUse` / `SessionStart` hook runs on the installer's machine. Python is not guaranteed there; Node is (Claude Code ships on Node). A Python hook silently no-ops or errors where Python is absent.
 - **Single-source cross-platform.** The repo's newer validators are already `.mjs` (`check-rendered-links.mjs`, `check-route-parity.mjs`), avoiding the `.sh` + `.ps1` dual-maintenance the older trio requires. Aligning the eval validators with the hooks keeps one idiom.
-- **`js-yaml` is already a root tooling dependency** (added in the Astro convergence), so the `.local.md` frontmatter parse needs no new dependency.
+- **The hooks are dependency-free at runtime.** An installed plugin's hooks run via `node ${CLAUDE_PLUGIN_ROOT}/hooks/...` WITHOUT the repo's `node_modules`, so they cannot `import 'js-yaml'`. The `.local.md` and SKILL.md frontmatter reads use a minimal, self-contained field extractor (the schemas are a handful of flat keys). `js-yaml` stays available to the eval validators (section 4), which run in the repo / CI context where root `node_modules` is installed.
 
 ### 0.2 Component map
 
@@ -56,7 +56,7 @@ phase_router: auto        # auto | off | verbose
 ---
 ```
 
-`local-config.mjs` contract: locate `.claude/pm-skills.local.md` from the project root, parse the frontmatter with `js-yaml`, return a plain object (or `{}` on absence / parse error). It NEVER throws to its callers; a parse error returns `{}` so the hooks fail open.
+`local-config.mjs` contract: locate `.claude/pm-skills.local.md` from the project root, parse the frontmatter with a minimal dependency-free field reader (NO `js-yaml` at runtime), return a plain object (or `{}` on absence / parse error). It NEVER throws to its callers; a parse error returns `{}` so the hooks fail open. The reader handles only the flat keys the schema uses: a boolean (`guardrails`), an inline string array (`guardrail_checks: [a, b]`), and a scalar string (`phase_router`).
 
 ### 0.4 Build-time confirmations (do BEFORE coding the hooks)
 
@@ -135,7 +135,7 @@ Employer-specific-context detection is explicitly NOT a hook check; it is deferr
 
 A `SessionStart` hook (rule-based MVP). Gathers cheap signals, maps a STRONG signal to one Triple Diamond phase, looks up that phase's skills, and injects an `additionalContext` nudge. No strong signal emits nothing.
 
-**Data source:** the hook derives the phase-to-skills map by reading the `phase:` field from `skills/*/SKILL.md` frontmatter directly (via `js-yaml`), NOT from `build-skill-catalog.py` output. Rationale: the Node hook cannot invoke a Python script at runtime, and that script emits a filtered markdown doc scoped to one skill's recommendation tiers, not a phase map. The `phase:` frontmatter is the authoritative classification the Python script itself parses; the six valid values are `discover`, `define`, `develop`, `deliver`, `measure`, `iterate` (30 skills carry one).
+**Data source:** the hook derives the phase-to-skills map by reading the `name:` and `phase:` fields from `${CLAUDE_PLUGIN_ROOT}/skills/*/SKILL.md` frontmatter directly (a minimal dependency-free field extractor, NOT `js-yaml`, since the installed-plugin hook has no `node_modules`), NOT from `build-skill-catalog.py` output. Rationale: the Node hook cannot invoke a Python script at runtime, and that script emits a filtered markdown doc scoped to one skill's recommendation tiers, not a phase map. The `phase:` frontmatter is the authoritative classification the Python script itself parses; the six valid values are `discover`, `define`, `develop`, `deliver`, `measure`, `iterate` (30 skills carry one).
 
 ```mermaid
 flowchart TD
@@ -161,7 +161,7 @@ flowchart TD
 | | an OKR / dashboard-spec file | Measure |
 | No strong signal | a generic repo, no phase branch, no artifact | NONE (silent) |
 
-The phase-to-skills shortlist is built by globbing `skills/*/SKILL.md`, parsing the `phase:` frontmatter with `js-yaml`, grouping by phase, and naming the top few skills for the resolved phase. No Python, no committed-catalog dependency.
+The phase-to-skills shortlist is built by globbing `${CLAUDE_PLUGIN_ROOT}/skills/*/SKILL.md`, extracting `name:` and `phase:` from each frontmatter block with the minimal field reader, grouping by phase, and naming the top few skills for the resolved phase. No Python, no committed-catalog dependency, no `js-yaml`.
 
 ### 3.3 ACs
 

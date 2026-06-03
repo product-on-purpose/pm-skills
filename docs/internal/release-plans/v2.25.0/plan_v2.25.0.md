@@ -17,7 +17,7 @@ The `docs/internal/roadmap.md` strategic frame argues pm-skills has "won the con
 - **F-44** ships the flagship SessionStart phase router: it inspects cheap repo signals and, *only when confident*, nudges Claude toward the right phase's skills. The roadmap called this "the single highest-leverage item."
 - **M-30** ships Phase 1 of the output-eval harness (`docs/internal/release-plans/_unreleased/output-eval-harness.md`): deterministic quality invariants over the existing recorded samples, wired advisory. It closes the gap the v2.23.0 retro surfaced - CI verifies structure exhaustively but output quality not at all.
 
-All three are authored on ONE runtime (Node `.mjs`) so the two hooks and the validators share idioms and the `.local.md` parse reuses the repo's `js-yaml` tooling dependency.
+All three are authored on ONE runtime (Node `.mjs`) so the two hooks and the validators share idioms. The hooks are dependency-free at runtime (an installed plugin's hooks have no `node_modules`, so they parse the few flat frontmatter keys they need with a minimal field reader, not `js-yaml`); `js-yaml` stays available to the eval validators, which run in the repo / CI context.
 
 **Companion docs (this release directory):**
 
@@ -65,7 +65,7 @@ A `SessionStart` hook (rule-based for the MVP), authored in Node. Locked decisio
 
 - **Posture LOCKED: ON by default, silent unless confident.** Default-on because a *discovery* feature gated behind opt-in helps no one (the newcomers who most need routing will not have found the switch). Confident-only because every wrong nudge erodes trust in the right ones (calibrated silence). The asymmetry with F-43 is deliberate: a *block* needs consent; a *nudge* only needs to be right.
 - **Confidence signals (MVP):** (1) git branch name matching a phase prefix; (2) a recognized PM artifact present (a PRD / OKR / persona file by filename or output-dir pattern). A strong signal maps to one Triple Diamond phase; absence of any strong signal emits NOTHING.
-- **Output:** when confident, inject `additionalContext` (the same channel `start-stamp.py` uses) naming the detected phase and a short curated skill shortlist for that phase. The shortlist is built by reading the `phase:` field from `skills/*/SKILL.md` frontmatter directly (via `js-yaml`), NOT from `build-skill-catalog.py` output (a Node hook cannot run Python at runtime; the frontmatter is the authoritative classification). Claude weaves it into the conversation; it is not a user-facing banner in the MVP (a visible variant is a deferred toggle).
+- **Output:** when confident, inject `additionalContext` (the same channel `start-stamp.py` uses) naming the detected phase and a short curated skill shortlist for that phase. The shortlist is built by reading `name:` and `phase:` from `${CLAUDE_PLUGIN_ROOT}/skills/*/SKILL.md` frontmatter directly (a minimal dependency-free field reader, NOT `js-yaml`, since the installed-plugin hook has no `node_modules`), NOT from `build-skill-catalog.py` output (a Node hook cannot run Python at runtime; the frontmatter is the authoritative classification). Claude weaves it into the conversation; it is not a user-facing banner in the MVP (a visible variant is a deferred toggle).
 - **`.local.md` override (additive, optional):** the F-43 reader can later force-on/off or tune verbosity per project. Not required for the MVP behavior.
 - **Cost discipline:** the nudge is paid only when it fires (confident), so the unconditional session-start token cost is a single cheap signal check, not an injected block every session.
 
