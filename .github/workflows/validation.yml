@@ -308,6 +308,34 @@ jobs:
         if: always()
         run: node --test scripts/check-rendered-links.test.mjs
 
+      - name: Test hooks + eval validators (unit; enforcing)
+        # F-43/F-44 hook units (dependency-free) and M-30 eval invariants. Pure
+        # node builtins + temp fixtures; cross-OS. These MUST pass.
+        if: always()
+        run: |
+          node --test hooks/lib/frontmatter.test.mjs hooks/lib/local-config.test.mjs hooks/lib/phase-map.test.mjs hooks/lib/signals.test.mjs hooks/guardrails.test.mjs hooks/phase-router.test.mjs
+          node --test scripts/check-sample-no-placeholders.test.mjs scripts/check-sample-exact-quote-sourcing.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
+
+      - name: Eval - no placeholders in samples (advisory)
+        # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
+        # corpus is currently clean for this invariant (enforcing candidate).
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-sample-no-placeholders.mjs
+
+      - name: Eval - exact-quote sourcing (advisory)
+        # Scoped to foundation-prioritized-action-plan (known-clean as of v2.23.0).
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-sample-exact-quote-sourcing.mjs
+
+      - name: Eval - no fabricated metrics (advisory, heuristic)
+        # Flags percentages in output not traceable to input. Heuristic; stays
+        # advisory (never enforcing soon). Surfaces ~260 findings for human review.
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-sample-no-fabricated-metrics.mjs
+
       - name: Check rendered link resolution + anchors (enforcing)
         if: always()
         env:
