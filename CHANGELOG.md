@@ -9,19 +9,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Documentation-site internal reorg to the Product on Purpose family layout (Pattern S). No skill behavior change and no published URL change: every page slug and the redirect map are preserved (route parity verified before and after the move). This is an untagged maintenance change.
+Documentation-site internal reorg to the Product on Purpose family layout (Pattern S), plus full conformance with the family Astro site standard (clauses 14.7-14.9). No skill behavior change and no published URL change: every page slug and the redirect map are preserved (route parity verified before and after, 386 routes). This is an untagged maintenance change.
+
+### Added
+
+- `scripts/site-base.mjs`: the single source of truth for the published base path (`/pm-skills`), in a durable form. The family Astro site standard (14.7) forbids declaring the base a second time; `site/astro.config.mjs` and `scripts/check-rendered-links.mjs` both consume it. A regression test (`scripts/check-rendered-links.test.mjs`, run in CI on both OS legs) proves a wrong base FAILS the rendered-link check rather than passing silently while the live site 404s.
+- `site/public/robots.txt` pointing at the sitemap (14.9).
+- The `#5C7CFA` family brand accent (`--sl-color-accent`, with per-mode low/high companions) in the site custom CSS (previously the Starlight default).
 
 ### Changed
 
 - The Astro Starlight project now lives entirely under `site/`, with rendered content in `site/src/content/docs/` read by the stock Starlight `docsLoader()`. Repo-root `docs/` is now governance and human documentation only, never built by Astro.
 - Reference content (per-skill, per-workflow, showcase, commands reference, and the library samples) is now produced by one zero-dependency Node generator, `scripts/gen-site.mjs`, replacing the three Python generators. Generated content is gitignored and rebuilt on each build.
 - Relative documentation links now resolve at build time via a remark transform (`scripts/remark-resolve-links.mjs`), replacing the post-build HTML link rewriter.
-- `.nvmrc` bumped to Node `24` (Active LTS); CI pins Node from `.nvmrc` via `node-version-file`. The site `package.json` keeps `engines.node >=22.12.0` (Astro 6's floor).
+- `scripts/check-rendered-links.mjs`: the core link resolver now takes the base path as a parameter (default from `scripts/site-base.mjs`) with a guarded CLI entry, so the base is testable and never redeclared. Behavior is otherwise unchanged.
+- Astro pinned to the family-shared `6.4.2` (was `6.3.3`); the committed lockfile resolves it for reproducible, family-aligned builds (14.8).
+- `.nvmrc` bumped to Node `24` (Active LTS); CI pins Node from `.nvmrc` via `node-version-file`. `.github/workflows/create-issues-from-drafts.yml` now reads its Node version the same way instead of a hardcoded `22.12`. The site `package.json` keeps `engines.node >=22.12.0` (Astro 6's floor).
 - Dependabot now tracks the relocated site dependencies (added a `/site` npm block).
 
 ### Removed
 
-- The three Python page generators, the post-build HTML link rewriter, and the interim base-path constant module, all superseded by `scripts/gen-site.mjs` plus `scripts/remark-resolve-links.mjs` (the base path is now single-sourced in `site/astro.config.mjs`).
+- The three Python page generators and the post-build HTML link rewriter, superseded by `scripts/gen-site.mjs` plus `scripts/remark-resolve-links.mjs`.
 - The committed-generated-content drift guard and the generated-freshness check: generated content is now gitignored and rebuilt each build, so there is no committed drift surface to guard.
 - Two filesystem-based internal-link validators, superseded by the build-aware rendered-link check (`scripts/check-rendered-links.mjs`) that validates the built site for zero broken links.
 - The dead gitignored MkDocs build fossil under `site/` (the directory is now the live Astro project home).

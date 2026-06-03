@@ -23,9 +23,12 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Node.js
+        # Read the committed Node pin rather than a hardcoded literal, so this
+        # non-site workflow tracks the same version as the site CI (.nvmrc = 24;
+        # family Astro site standard 14.8 uses node-version-file, not a literal).
         uses: actions/setup-node@v6
         with:
-          node-version: '22.12'
+          node-version-file: .nvmrc
 
       - name: Install dependencies
         working-directory: .github/scripts

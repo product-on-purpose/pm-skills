@@ -300,6 +300,14 @@ jobs:
         if: always()
         run: node scripts/verify-edit-links.mjs site/dist .
 
+      - name: Test build-aware validators (unit; base single-source)
+        # Proves the rendered-link checker consumes the base path it is given (a
+        # wrong base must FAIL, not pass silently) and that the default wires
+        # through to scripts/site-base.mjs - the regression guard for the 14.7
+        # single-source fix. Pure node builtins + a temp fixture; runs on both OS.
+        if: always()
+        run: node --test scripts/check-rendered-links.test.mjs
+
       - name: Check rendered link resolution + anchors (enforcing)
         if: always()
         env:
