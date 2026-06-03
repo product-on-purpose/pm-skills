@@ -29,6 +29,14 @@ test('artifactPhase maps a PRD-like filename to deliver', () => {
   rmSync(root, { recursive: true, force: true });
 });
 
+test('artifactPhase returns null when artifacts conflict (ambiguous -> silent)', () => {
+  const root = mkdtempSync(join(tmpdir(), 'sig-'));
+  writeFileSync(join(root, 'prd-checkout.md'), '# PRD');       // -> deliver
+  writeFileSync(join(root, 'dashboard-spec.md'), '# Dashboard'); // -> measure
+  assert.equal(artifactPhase(root), null);
+  rmSync(root, { recursive: true, force: true });
+});
+
 test('resolvePhase prefers a branch signal over artifact', () => {
   assert.equal(resolvePhase('discover', 'deliver'), 'discover');
   assert.equal(resolvePhase(null, 'deliver'), 'deliver');

@@ -20,7 +20,7 @@ export function evaluateGuardrail(payloadText, config) {
   try {
     const payload = JSON.parse(payloadText);
     const ti = payload.tool_input || {};
-    const parts = [ti.new_string, ti.content, ti.new_source];
+    const parts = [ti.new_string, ti.content, ti.new_source, ti.plan]; // ti.plan = ExitPlanMode
     if (Array.isArray(ti.edits)) for (const e of ti.edits) parts.push(e && e.new_string); // MultiEdit
     text = parts.filter((s) => typeof s === 'string').join('\n');
   } catch {

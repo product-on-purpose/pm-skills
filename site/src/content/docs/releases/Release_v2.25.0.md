@@ -31,7 +31,7 @@ With it on, em-dash and en-dash are blocked at the moment Claude tries to write 
 
 ```mermaid
 flowchart TD
-    A[Claude calls Write / Edit / NotebookEdit] --> B[PreToolUse hook]
+    A[Claude calls Write / Edit / MultiEdit / NotebookEdit / ExitPlanMode] --> B[PreToolUse hook]
     B --> C{payload parses?}
     C -->|no| ALLOW[allow - fail open]
     C -->|yes| D[read .claude/pm-skills.local.md]

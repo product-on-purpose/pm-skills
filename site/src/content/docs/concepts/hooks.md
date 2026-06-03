@@ -27,7 +27,7 @@ A `PreToolUse` hook that runs the moment Claude is about to write a file. It is 
 
 ```mermaid
 flowchart TD
-    A[Claude calls Write / Edit / MultiEdit / NotebookEdit] --> B[PreToolUse hook]
+    A[Claude calls Write / Edit / MultiEdit / NotebookEdit / ExitPlanMode] --> B[PreToolUse hook]
     B --> C{payload parses?}
     C -->|no| ALLOW[allow - fail open]
     C -->|yes| D[read .claude/pm-skills.local.md]
@@ -40,7 +40,7 @@ flowchart TD
     G -->|clean| ALLOW
 ```
 
-The hook fires on Claude's tool calls, not on what you type by hand, so it only ever gates writes Claude is about to make.
+The hook fires on Claude's tool calls, not on what you type by hand, so it only ever gates writes Claude is about to make. It also scans the plan text when Claude exits plan mode (`ExitPlanMode`), so a banned character cannot slip in through a plan that is presented but not yet a normal file write.
 
 ## Configuring guardrails
 
@@ -62,7 +62,7 @@ Only `em-dash` ever blocks a write; `placeholder` and `fabricated-metric` emit a
 
 ## Phase router (on, confident-only)
 
-A `SessionStart` hook that suggests the right Triple Diamond skills for where you are. It reads two cheap signals: a phase-named git branch (`discover/...`, `define/...`, `develop/...`, `deliver/...`, `measure/...`, `iterate/...`), or a recognized PM artifact present in the repo. On a **strong** signal it injects a short note naming the phase and a few relevant skills (read straight from each skill's `phase:` frontmatter). With no strong signal it stays completely silent, so it never becomes noise.
+A `SessionStart` hook that suggests the right Triple Diamond skills for where you are. It reads two cheap signals: a phase-named git branch (`discover/...`, `define/...`, `develop/...`, `deliver/...`, `measure/...`, `iterate/...`), or a recognized PM artifact present in the repo. On a **strong** signal it injects a short note naming the phase and a few relevant skills (read straight from each skill's `phase:` frontmatter). With no strong signal it stays completely silent, so it never becomes noise. If recognized artifacts point to *different* phases (say a PRD and a dashboard spec in the same repo), that is treated as ambiguous and the router stays silent rather than guessing by file order; a phase-named branch still resolves it.
 
 ```mermaid
 flowchart TD

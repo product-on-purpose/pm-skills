@@ -34,6 +34,12 @@ test('MultiEdit edits[] are scanned (no bypass)', () => {
   assert.equal(d.hookSpecificOutput.permissionDecision, 'deny');
 });
 
+test('ExitPlanMode plan content is scanned (no plan-mode bypass)', () => {
+  const p = JSON.stringify({ tool_input: { plan: 'Step 1 ' + EM + ' Step 2' } });
+  const d = evaluateGuardrail(p, { guardrails: true });
+  assert.equal(d.hookSpecificOutput.permissionDecision, 'deny');
+});
+
 test('quoted guardrail_checks still enable the check', () => {
   const d = evaluateGuardrail(payload({ content: 'a' + EM + 'b' }), { guardrails: true, guardrail_checks: ['em-dash'] });
   assert.equal(d.hookSpecificOutput.permissionDecision, 'deny');

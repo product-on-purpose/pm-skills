@@ -35,7 +35,7 @@ hooks/
 - **PreToolUse deny:** print `{"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "deny", "permissionDecisionReason": "..."}}`, exit 0.
 - **PreToolUse advisory:** print `{"hookSpecificOutput": {"hookEventName": "PreToolUse", "additionalContext": "..."}}`, exit 0.
 - **SessionStart context:** print `{"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "..."}}`, exit 0. Silent path: print nothing, exit 0.
-- The guardrail matcher covers `Write|Edit|MultiEdit|NotebookEdit`; the evaluator flattens `tool_input.edits[].new_string` so `MultiEdit` cannot bypass it.
+- The guardrail matcher covers `Write|Edit|MultiEdit|NotebookEdit|ExitPlanMode`; the evaluator flattens `tool_input.edits[].new_string` (so `MultiEdit` cannot bypass it) and scans `tool_input.plan` (so an em-dash cannot slip in through a plan-mode plan). Note: if Claude Code writes a plan file *before* the `ExitPlanMode` call, the deny triggers a corrected rewrite rather than un-writing the file.
 
 ## The `.claude/pm-skills.local.md` config
 
@@ -49,7 +49,7 @@ Gitignored, per-project. Guardrails are off unless `guardrails: true`. Keys: `gu
 
 ## Phase signals
 
-`signals.mjs` reads `.git/HEAD` directly (no git binary). It follows `gitdir:` when `.git` is a file (worktrees). `artifactPhase` only considers `.md` filenames to avoid matching ordinary source directories. Detached HEAD (no `ref:` line) yields no signal (silent), which is correct.
+`signals.mjs` reads `.git/HEAD` directly (no git binary). It follows `gitdir:` when `.git` is a file (worktrees). `artifactPhase` only considers `.md` filenames (to avoid matching ordinary source directories) and is **ambiguity-aware**: it collects the distinct phases all recognized artifacts point to and returns one only when they agree; 0 or conflicting (>1) phases yield no signal (silent), so file-order never decides the phase. Detached HEAD (no `ref:` line) also yields no signal, which is correct.
 
 ## Testing
 

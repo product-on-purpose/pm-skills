@@ -39,13 +39,18 @@ export function artifactPhase(cwd) {
   } catch {
     return null;
   }
+  // Collect the distinct phases all recognized artifacts point to. Returning the
+  // FIRST match would let readdirSync order decide between, say, prd.md (deliver)
+  // and dashboard.md (measure) - a false "confident" signal. Only a single agreed
+  // phase is confident; 0 or conflicting (>1) artifacts -> null (silent).
+  const phases = new Set();
   for (const name of names) {
     if (!name.toLowerCase().endsWith('.md')) continue; // artifacts are .md docs; skip source dirs
     for (const [re, phase] of ARTIFACT_KEYWORDS) {
-      if (re.test(name)) return phase;
+      if (re.test(name)) { phases.add(phase); break; } // one phase per file
     }
   }
-  return null;
+  return phases.size === 1 ? [...phases][0] : null;
 }
 
 export function resolvePhase(branch, artifact) {
