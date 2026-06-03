@@ -18,7 +18,7 @@
   "dependencies": {
     "@astrojs/starlight": "~0.39.0",
     "astro": "^6.4.2",
-    "astro-mermaid": "~2.0.1",
+    "astro-mermaid": "~2.0.2",
     "sharp": "^0.34.5"
   },
   "overrides": {
