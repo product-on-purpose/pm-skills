@@ -2,7 +2,7 @@
 
 **Purpose:** the single, reconciled list of every artifact this release created or changed, plus the deviations from the original plan. Answers "what supporting documentation exists for this work, and does it match the plan?"
 
-**Branch:** `release/v2.25.0` (draft PR #161). **Status as of 2026-06-03:** all artifacts below are committed except the CONTEXT.md currency fix (in progress). 36 files, +2604 / -7.
+**Branch:** `release/v2.25.0` (draft PR #161). **Status as of 2026-06-03:** all artifacts below committed on the branch; the full pre-tag bundle + site build pass; Codex adversarial review applied and its findings fixed. Only the manual integration smoke remains before merge.
 
 ---
 
@@ -74,9 +74,11 @@
 
 2. **CONTEXT.md timing.** The plan listed the `_agent-context/*/CONTEXT.md` bump as post-tag; the `check-context-currency` gate enforces it pre-tag. Corrected: bumped during release-prep.
 
-3. **`no-fabricated-metrics` scope narrowed.** The spec described "a number/percentage not traceable to input." The corpus run forced a calibration: bare integers (dates, counts) produced ~4030 false positives, so Phase 1 flags **percentages only** (~260 advisory). Recorded in the validator's own comments and the release note.
+3. **`no-fabricated-metrics` scope narrowed.** The spec described "a number/percentage not traceable to input." The corpus run forced a calibration: bare integers (dates, counts) produced ~4030 false positives, so Phase 1 flags **percentages only** (~320 advisory). Recorded in the validator's own comments and the release note.
+
+4. **exact-quote-sourcing was a false pass (Codex P2), now fixed.** The first cut matched `Source: "..."`, but the real samples use an `S1: "quote" (origin:)` ledger and `**Source:** S2, S3` references S-ids. Rewrote to the ledger pattern; it now checks 21 real quotes (0 unsourced = genuinely clean), so the "enforcing candidate" claim is now true rather than hollow.
 
 ## Review status (what has and has NOT been done)
 
-- DONE: 34 unit tests; full pre-tag enforcing-validator bundle; site build (387 routes, 0 broken links/anchors, route parity); version/count/frontmatter gates.
-- PENDING before merge: manual integration smoke (hooks firing in a live session); Codex adversarial review; a structured content-accuracy pass over README/CHANGELOG/release note.
+- DONE: 41 unit tests; full pre-tag enforcing-validator bundle (caught + fixed a `check-context-currency` failure I had deferred); site build (387 routes, 0 broken links/anchors, route parity); version/count/frontmatter gates; Codex adversarial review (P1 MultiEdit bypass, P2 quoted-array / false-pass validator / inputRegion self-validation / git-worktree signal, P3 link + keyword breadth - all fixed, +7 regression tests); content-accuracy pass over README/CHANGELOG/release note.
+- PENDING before merge: the manual integration smoke (hooks firing in a live Claude Code session) - the one gate that requires a human.
