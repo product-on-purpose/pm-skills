@@ -59,7 +59,7 @@ Effort key: S (hours-day), M (days), L (week+), XL (multi-week).
 - **Feature:** `hooks/hooks.json` PreToolUse(Write|Edit) can block a tool call (exit code 2).
 - **Why:** ship the maintainer's own editorial discipline as a *distributable* artifact: reject em-dash/en-dash on write, flag fabricated metrics and employer-specific context. **No other PM plugin ships authored-prose linting.** This packages the repo's hardest-won house rules as a feature.
 - **Do:** port the existing `~/.claude/hooks/no-em-dashes.py` logic into a plugin hook; gate optional checks behind a `.local.md` flag.
-- **Tracking:** candidate `F-43`. Strong differentiator at S effort - prioritize.
+- **Tracking:** `F-43`. **SHIPPED v2.25.0** as the opt-in `PreToolUse` house-rule guardrails (gated by `.claude/pm-skills.local.md`).
 
 ### 3.5 `${CLAUDE_PLUGIN_DATA}` cache `[table-stakes, S]`
 - **Feature:** a per-plugin persistent dir that survives updates.
@@ -71,7 +71,7 @@ Effort key: S (hours-day), M (days), L (week+), XL (multi-week).
 - **Why:** **directly attacks the #1 discovery problem.** On session start, inspect the repo/cwd (git branch, presence of a PRD/OKR/persona artifact, recent files) and inject a short nudge: "You appear to be in the Discover phase - relevant pm-skills: `define-problem-statement`, `discover-interview-synthesis`, `discover-journey-map`..." This turns 64 flat skills into a phase-routed guide so the user invokes the *right* skill without memorizing the catalog.
 - **MVP scope:** start rule-based (branch-name + artifact-presence heuristics -> phase -> a curated skill shortlist from `build-skill-catalog.py`). Promote to a prompt hook (LLM-evaluated) later. Cache state in `${CLAUDE_PLUGIN_DATA}`.
 - **Dependencies:** the catalog generator (exists); benefits from `.local.md` project state (3.10) but does not require it for the MVP.
-- **Tracking:** candidate `F-44`. **The single highest-leverage item on this roadmap.** Lead with it.
+- **Tracking:** `F-44`. **SHIPPED v2.25.0** as the confident-only `SessionStart` phase router (silent unless a phase-named branch or a single unambiguous artifact resolves a phase).
 
 ---
 

@@ -1,6 +1,6 @@
 # Idea: Output Eval Harness
 
-**Status:** UNRELEASED / idea (not scheduled, not specced to build-grade)
+**Status:** Phase 1 (Tier 1) SHIPPED in v2.25.0 as M-30 - three deterministic advisory invariant validators (`scripts/check-sample-{no-placeholders,exact-quote-sourcing,no-fabricated-metrics}.mjs`) over the recorded samples, wired advisory in CI. Tiers 2-3 (LLM-judged rubric / live-run) remain UNRELEASED / idea.
 **Created:** 2026-05-31
 **Owner:** Maintainers
 **Type:** infrastructure (cross-cutting, advisory-first)
