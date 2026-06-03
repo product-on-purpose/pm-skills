@@ -1,6 +1,6 @@
 # [F-43] House-rule guardrails (opt-in PreToolUse hook)
 
-Status: Planned (v2.25.0)
+Status: Shipped (v2.25.0, 2026-06-03)
 Milestone: v2.25.0
 Issue: TBD (provisional ID; confirm against GitHub issues + backlog-canonical before promotion)
 Agent: Claude Opus 4.8

@@ -1,6 +1,6 @@
 # [M-30] Output eval harness - Phase 1 (deterministic invariants)
 
-Status: Planned (v2.25.0)
+Status: Shipped (v2.25.0, 2026-06-03)
 Milestone: v2.25.0
 Issue: TBD (provisional ID; sits clear of the roadmap's M-25..M-29 candidate band; confirm against GitHub issues + backlog-canonical before promotion)
 Agent: Claude Opus 4.8 or Codex (scriptable; single-source `.mjs`)

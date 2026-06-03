@@ -2,7 +2,7 @@
 
 **Purpose:** the single, reconciled list of every artifact this release created or changed, plus the deviations from the original plan. Answers "what supporting documentation exists for this work, and does it match the plan?"
 
-**Branch:** `release/v2.25.0` (draft PR #161). **Status as of 2026-06-03:** all artifacts below committed on the branch; the full pre-tag bundle + site build pass; Codex adversarial review applied and its findings fixed. Only the manual integration smoke remains before merge.
+**Branch:** `release/v2.25.0` -> SHIPPED to main (squash-merged PR #161, `23e65da`; tag `v2.25.0`; GitHub Release Latest; site deployed). **Status as of 2026-06-03:** all artifacts committed; full pre-tag bundle + site build pass; two Codex reviews applied and findings fixed. Post-tag verification: the live integration smoke.
 
 ---
 

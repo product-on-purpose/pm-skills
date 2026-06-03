@@ -1,6 +1,6 @@
 # v2.25.0 Release Plan: Activation and Trust Layer (guardrails + phase router + eval harness)
 
-**Status:** PLANNED (design approved via brainstorming 2026-06-03; specs in this directory pending maintainer review before the implementation plan).
+**Status:** SHIPPED 2026-06-03 (tag `v2.25.0` at `23e65da`; GitHub Release Latest; squash-merged PR #161; site deployed). Two Codex reviews (rescue + adversarial challenge) applied and findings fixed; 43 unit tests + full pre-tag bundle + site build green. Post-tag verification: the live integration smoke.
 **Owner:** Maintainers
 **Type:** **MINOR** (additive: the plugin's first hooks, a new advisory CI tier, new docs; nothing removed; the skill and sub-agent catalog counts do NOT change).
 **Theme:** Wire the existing 65 skills into the Claude Code platform's activation and trust primitives instead of adding more content. Three efforts: a write-time house-rule guardrail (F-43), a session-time phase router (F-44), and a CI-time output-quality eval harness (M-30). The roadmap's thesis in practice: a library this size compounds when the platform routes, guards, and verifies it, rather than relying on the user to remember the catalog.
