@@ -99,6 +99,7 @@
 /releases/Release_v2.22.0/index.html
 /releases/Release_v2.23.0/index.html
 /releases/Release_v2.24.0/index.html
+/releases/Release_v2.25.0/index.html
 /releases/Release_v2.3/index.html
 /releases/Release_v2.4.1/index.html
 /releases/Release_v2.4.2/index.html
