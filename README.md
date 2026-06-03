@@ -170,7 +170,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** Adds the plugin's first hooks plus an advisory output-quality CI tier; no new skills (catalog stays 65). **Opt-in house-rule guardrails** (F-43): a `PreToolUse` hook that blocks em-dash and en-dash characters when you enable `guardrails: true` in `.claude/pm-skills.local.md` (placeholder and metric checks warn, never block). **Confident-only phase router** (F-44): a `SessionStart` hook that, only when a repo signal is strong (a phase-named branch or a recognized artifact), suggests the right Triple Diamond skills for where you are; it stays silent otherwise. **Output-quality eval harness** (M-30): three deterministic invariant validators over the recorded samples (no placeholders, exact-quote sourcing, no fabricated metrics), wired advisory in CI. The hooks are dependency-free and fail open. Additive minor; nothing existing was removed.
 
-**Get started.** [`docs/releases/Release_v2.25.0.md`](docs/releases/Release_v2.25.0.md)
+**Get started.** [`site/src/content/docs/releases/Release_v2.25.0.md`](site/src/content/docs/releases/Release_v2.25.0.md)
 
 </details>
 

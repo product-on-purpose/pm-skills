@@ -31,3 +31,8 @@ test('getList parses an inline array', () => {
 test('getList returns [] when absent', () => {
   assert.deepEqual(getList('guardrails: true', 'guardrail_checks'), []);
 });
+
+test('getList strips quotes on items (quoted-array YAML style)', () => {
+  assert.deepEqual(getList('guardrail_checks: ["em-dash", "placeholder"]', 'guardrail_checks'), ['em-dash', 'placeholder']);
+  assert.deepEqual(getList("guardrail_checks: ['em-dash']", 'guardrail_checks'), ['em-dash']);
+});

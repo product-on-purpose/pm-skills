@@ -7,20 +7,28 @@ import { dirname, join, basename } from 'node:path';
 
 const SCOPE = ['foundation-prioritized-action-plan'];
 
-/** Return the list of Source: quotes not found verbatim in `input`. */
+/** Return the list of source-ledger quotes not found verbatim in `input`.
+ *  The real ledger format is `S1: "quote" (origin: ...)`, one per line; the quote
+ *  may contain nested double-quotes, so capture greedily up to the closing
+ *  `" (origin:`. (`**Source:** S2, S3` references S-ids, not quotes - not checked.) */
 export function unsourcedQuotes(sampleText, input) {
   const out = [];
-  for (const m of sampleText.matchAll(/Source:\s*"([^"]+)"/g)) {
+  for (const m of sampleText.matchAll(/^S\d+:\s*"(.+)"\s*\(origin:/gm)) {
     if (!input.includes(m[1])) out.push(m[1]);
   }
   return out;
 }
 
-/** Split a sample into its Prompt/input region (everything the model was given). */
+/** The text the model was given: from the first Scenario/Prompt/Input heading up
+ *  to the Output section. Returns '' when that structure is absent, so a malformed
+ *  sample's quotes are REPORTED as unsourced rather than self-validated against the
+ *  whole file (including the Output and the ledger itself). */
 export function inputRegion(sampleText) {
-  // Heuristic: text under a "## Prompt" / "## Input" / "Scenario" heading up to "## Output".
-  const m = /(##\s*(Prompt|Input|Scenario)[\s\S]*?)(?:\n##\s*Output|\n#\s|$)/i.exec(sampleText);
-  return m ? m[1] : sampleText;
+  const start = /##\s*(Scenario|Prompt|Input)\b/i.exec(sampleText);
+  if (!start) return '';
+  const rest = sampleText.slice(start.index);
+  const end = /\n##\s*Output\b/i.exec(rest);
+  return end ? rest.slice(0, end.index) : '';
 }
 
 function main() {

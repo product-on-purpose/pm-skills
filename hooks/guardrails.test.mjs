@@ -28,6 +28,17 @@ test('placeholder warns (not denies) when enabled', () => {
   assert.match(d.hookSpecificOutput.additionalContext, /placeholder/i);
 });
 
+test('MultiEdit edits[] are scanned (no bypass)', () => {
+  const p = JSON.stringify({ tool_input: { edits: [{ new_string: 'clean' }, { new_string: 'a' + EM + 'b' }] } });
+  const d = evaluateGuardrail(p, { guardrails: true });
+  assert.equal(d.hookSpecificOutput.permissionDecision, 'deny');
+});
+
+test('quoted guardrail_checks still enable the check', () => {
+  const d = evaluateGuardrail(payload({ content: 'a' + EM + 'b' }), { guardrails: true, guardrail_checks: ['em-dash'] });
+  assert.equal(d.hookSpecificOutput.permissionDecision, 'deny');
+});
+
 test('malformed payload fails open (allow)', () => {
   assert.equal(evaluateGuardrail('not json', { guardrails: true }), null);
 });
