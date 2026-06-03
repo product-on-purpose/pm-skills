@@ -1,0 +1,13 @@
+{
+  "description": "pm-skills hooks: opt-in house-rule guardrails (PreToolUse) + confident-only phase router (SessionStart)",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          { "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/guardrails.mjs\"", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}
