@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.24.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.25.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-65-brightgreen.svg?style=flat-square" alt="Skills">
@@ -164,6 +164,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.25.0 - Activation and trust layer: the plugin's first hooks</strong></summary>
+
+**What changed.** Adds the plugin's first hooks plus an advisory output-quality CI tier; no new skills (catalog stays 65). **Opt-in house-rule guardrails** (F-43): a `PreToolUse` hook that blocks em-dash and en-dash characters when you enable `guardrails: true` in `.claude/pm-skills.local.md` (placeholder and metric checks warn, never block). **Confident-only phase router** (F-44): a `SessionStart` hook that, only when a repo signal is strong (a phase-named branch or a recognized artifact), suggests the right Triple Diamond skills for where you are; it stays silent otherwise. **Output-quality eval harness** (M-30): three deterministic invariant validators over the recorded samples (no placeholders, exact-quote sourcing, no fabricated metrics), wired advisory in CI. The hooks are dependency-free and fail open. Additive minor; nothing existing was removed.
+
+**Get started.** [`docs/releases/Release_v2.25.0.md`](docs/releases/Release_v2.25.0.md)
+
+</details>
 
 <details>
 <summary><strong>v2.24.0 - Plan orchestrator: run a prioritized action plan end to end</strong></summary>
@@ -1036,7 +1045,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.24.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.24.0)           |
+| **Current version** | [v2.25.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.0)           |
 | **Skill count**     | 65 skills (30 phase + 9 foundation + 11 utility + 15 tool)                                |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |

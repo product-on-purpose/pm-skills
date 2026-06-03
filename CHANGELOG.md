@@ -34,6 +34,22 @@ Documentation-site internal reorg to the Product on Purpose family layout (Patte
 - Two filesystem-based internal-link validators, superseded by the build-aware rendered-link check (`scripts/check-rendered-links.mjs`) that validates the built site for zero broken links.
 - The dead gitignored MkDocs build fossil under `site/` (the directory is now the live Astro project home).
 
+## [2.25.0] - 2026-06-03
+
+**Activation and trust layer: the plugin's first hooks, plus an advisory output-quality CI tier.** Wires the existing 65 skills into Claude Code's platform primitives rather than adding content. No new skills (catalog stays 65; sub-agents stay 5). Additive MINOR.
+
+### Added
+
+- **`hooks/guardrails.mjs` (F-43)** - the plugin's first `PreToolUse` hook: opt-in house-rule guardrails. Inert until a project sets `guardrails: true` in `.claude/pm-skills.local.md`; then it blocks any `Write`/`Edit`/`NotebookEdit` that would introduce an em-dash or en-dash character (the substitution reminder is returned to the model), and warns (never blocks) on unfilled placeholders and unsourced numeric metrics. Authored in Node and dependency-free so it runs on any installer's machine; fails open on every error path. Backed by `hooks/lib/local-config.mjs` (a `.local.md` reader) and `hooks/lib/frontmatter.mjs` (a minimal, dependency-free frontmatter reader).
+- **`hooks/phase-router.mjs` (F-44)** - a `SessionStart` hook that routes by Triple Diamond phase. It reads cheap repo signals (a phase-named git branch, or a recognized PM artifact present) and, only when a signal is strong, injects a short context note naming the phase and a few relevant pm-skills for it. With no strong signal it stays completely silent. The phase-to-skills map is read directly from `skills/*/SKILL.md` `phase:` frontmatter (dependency-free); it fails safe to silence on any error.
+- **`hooks/hooks.json`** - registers both hooks (the plugin's first hooks file).
+- **M-30 output-quality eval harness (Tier 1)** - three deterministic invariant validators over the recorded `library/skill-output-samples/`: `scripts/check-sample-no-placeholders.mjs` (bracket/angle placeholder markers; corpus clean), `scripts/check-sample-exact-quote-sourcing.mjs` (every `Source:` quote is an exact substring of the sample input; scoped to `foundation-prioritized-action-plan`; corpus clean), and `scripts/check-sample-no-fabricated-metrics.mjs` (a percentage in output not traceable to input; heuristic, ~260 advisory findings). Wired advisory (`continue-on-error`) into `validation.yml`; the hook and validator unit tests run enforcing.
+
+### Notes
+
+- Hooks are a Claude Code primitive; the Codex manifest carries the version bump only.
+- F-43 ships OFF by default (opt-in), so installing the plugin changes nothing about Claude's writing until a project opts in. F-44 ships ON but silent unless a repo signal is strong.
+
 ## [2.24.0] - 2026-06-01
 
 **Plan orchestrator: the `pm-workflow-orchestrator` sub-agent + `utility-pm-workflow-orchestrator` dispatch skill, plus a `--run` handoff from `foundation-prioritized-action-plan`.** This ships the orchestrator promised on the public roadmap (originally pencilled for v2.17): a governed runner that takes one input - a saved `foundation-prioritized-action-plan` or a user-named chain of skills - and runs an ordered sequence of pm-skills against it, pausing for human go/no-go by default and refusing to advance past a failed or empty step. The plan skill iterates to v1.1.0 so it can offer to run its own runnable Section 7 prompts through the orchestrator. The catalog grows from 64 to 65 skills (utility 10 to 11; foundation unchanged at 9); sub-agents grow from 4 to 5. The orchestrator ships EXPERIMENTAL on all non-Claude clients, and the native sub-agent-to-skill (`Skill` tool) path ships EXPERIMENTAL until a live smoke test closes it. Additive MINOR: no existing skill loses behavior.
