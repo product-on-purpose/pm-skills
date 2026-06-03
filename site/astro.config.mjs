@@ -2,12 +2,14 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
 import remarkResolveLinks from '../scripts/remark-resolve-links.mjs';
+import { BASE } from '../scripts/site-base.mjs';
 
-// Single source of truth for the published base path (the GitHub Pages project
-// subpath). Used for `base`, the base-derived redirect destinations, and the
-// remark link resolver. The base MUST NOT be hardcoded a second time elsewhere
-// (family Astro site standard 14.7).
-const BASE = '/pm-skills';
+// The published base path (the GitHub Pages project subpath) is the single source
+// of truth in scripts/site-base.mjs. Used here for `base`, the base-derived
+// redirect destinations, and the remark link resolver; also imported by
+// scripts/check-rendered-links.mjs so the build and the link check can never
+// disagree. The base MUST NOT be hardcoded a second time anywhere (family Astro
+// site standard 14.7).
 
 export default defineConfig({
   site: 'https://product-on-purpose.github.io',

@@ -3,6 +3,23 @@
 /* Retired selectors: .md-grid, .md-button, .md-tags .md-tag, details.example. */
 /* See plan_v2.14_starlight-migration.md W5 section for inventory + dispositions. */
 
+/* Family brand accent (#5C7CFA). Interim per-site values until the shared
+   @product-on-purpose/astro-docs-preset accent.css owns the triplet (family
+   Astro site standard 14.9 / decision A-2). The mid accent is the normative
+   #5C7CFA; the low/high companions are tuned per color mode (low = subtle
+   background tint, high = high-contrast text on accent). Pairs with the branded
+   mermaid lineColor #5C7CFA set in astro.config.mjs. */
+:root {
+  --sl-color-accent-low: #1e2a5e;
+  --sl-color-accent: #5C7CFA;
+  --sl-color-accent-high: #c5d0fb;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #dfe4fe;
+  --sl-color-accent: #5C7CFA;
+  --sl-color-accent-high: #1c2654;
+}
+
 /* Mermaid diagram width (paired with W6 mermaid integration). */
 .mermaid {
   max-width: 100%;
