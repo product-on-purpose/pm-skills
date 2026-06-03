@@ -57,6 +57,8 @@
 | `site/src/content/docs/changelog.md` | `## [2.25.0]` mirror entry |
 | `CHANGELOG.md` | Root `## [2.25.0]` entry |
 | `README.md` | Version badge, At-a-Glance current-version row, "What's New" v2.25.0 block |
+| `site/src/content/docs/concepts/hooks.md` | NEW durable concept page (user-facing): both hooks + eval + the `.local.md` schema, 3 mermaid diagrams; auto-listed in the Concepts nav |
+| `hooks/README.md` | NEW code-adjacent contributor doc (architecture, design rules, how to add a check); matches the `README_SCRIPTS.md` / `README_SAMPLES.md` convention |
 
 ## 7. Version + currency surfaces
 
@@ -70,7 +72,7 @@
 
 ## Deviations from the plan (recorded honestly)
 
-1. **Reference pages folded, not separate.** The plan (`plan_v2.25.0.md` line 125, `implementation-plan.md` Task D2) called for **three separate user-facing reference/concept pages**, one per feature, each with its mermaid diagram, plus a dedicated `.local.md` schema reference page. **What shipped instead:** all three mermaid diagrams and the `.local.md` schema live in the **release note** (`Release_v2.25.0.md`) and the **spec**. Decision: for this release the release note + spec are the supporting documentation; **dedicated durable concept/reference pages are a deferred follow-up** (the release note is point-in-time, so a `concepts/hooks.md` page is worth adding later). This was a budget-driven simplification, not an oversight, and is now recorded rather than left implicit.
+1. **Reference pages: folded, then broken out (RESOLVED).** The plan (`plan_v2.25.0.md` line 125, `implementation-plan.md` Task D2) called for three separate reference pages. They were initially folded into the release note + spec (a budget shortcut), then **broken out per review** into a single combined durable concept page `site/src/content/docs/concepts/hooks.md` (option A: guardrails + router + eval + the `.local.md` schema, all three mermaid diagrams; auto-listed in the Concepts nav) plus a code-adjacent `hooks/README.md` (contributor architecture). Deviation closed; the release note keeps the same diagrams as an announcement.
 
 2. **CONTEXT.md timing.** The plan listed the `_agent-context/*/CONTEXT.md` bump as post-tag; the `check-context-currency` gate enforces it pre-tag. Corrected: bumped during release-prep.
 

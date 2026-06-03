@@ -9,6 +9,7 @@
 /concepts/comparisons/index.html
 /concepts/design-sprint/index.html
 /concepts/foundation-sprint/index.html
+/concepts/hooks/index.html
 /concepts/index.html
 /concepts/skill-anatomy/index.html
 /concepts/skill-lifecycle/index.html
