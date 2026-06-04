@@ -345,3 +345,14 @@ jobs:
       - name: Check route parity (enforcing; no published URL removed without a redirect)
         if: always()
         run: node scripts/check-route-parity.mjs site/dist
+
+      - name: Check root doc links (enforcing; README/CHANGELOG relative + deployed-site URLs)
+        # Root markdown (README, CHANGELOG, ...) is rendered by GitHub, not Astro, so
+        # the build-aware link guards above never see it. This closes that blind spot:
+        # relative links must resolve in the repo and deployed-site URLs must map to a
+        # real route in scripts/route-manifest.txt. Reads the committed repo + manifest
+        # (no site/dist dependency). Pure node builtins; cross-OS.
+        if: always()
+        run: |
+          node --test scripts/check-root-doc-links.test.mjs
+          node scripts/check-root-doc-links.mjs

@@ -121,7 +121,7 @@ After installing, you'll have all 65 skills available (invoke any by name, like 
 /plugin install pm-skills@product-on-purpose
 ```
 
-> Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](docs/releases/Release_v2.21.0.md).
+> Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.21.0).
 
 **Cross-agent (Cursor, Copilot, Cline, and others via the open [skills CLI](https://github.com/vercel-labs/skills)):**
 
@@ -139,9 +139,9 @@ git clone https://github.com/product-on-purpose/pm-skills.git
 
 **More resources:**
 
-- [Getting Started Guide](docs/getting-started/index.md) - Detailed walkthrough for new users covering clone, sync helper, and first skill run. The path to take if any of the quick start steps above leave gaps.
-- [Setup by Platform](docs/getting-started/platforms.md) - Step-by-step install for Claude.ai, Codex, Cursor, Windsurf, GitHub Copilot, VS Code extensions, and ChatGPT.
-- [Quickstart Reference](docs/getting-started/quickstart.md) - Short-form reference card for users who just need the commands.
+- [Getting Started Guide](https://product-on-purpose.github.io/pm-skills/getting-started/) - Detailed walkthrough for new users covering clone, sync helper, and first skill run. The path to take if any of the quick start steps above leave gaps.
+- [Setup by Platform](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/) - Step-by-step install for Claude.ai, Codex, Cursor, Windsurf, GitHub Copilot, VS Code extensions, and ChatGPT.
+- [Quickstart Reference](https://product-on-purpose.github.io/pm-skills/getting-started/quickstart/) - Short-form reference card for users who just need the commands.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -170,7 +170,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** Adds the plugin's first hooks plus an advisory output-quality CI tier; no new skills (catalog stays 65). **Opt-in house-rule guardrails** (F-43): a `PreToolUse` hook that blocks em-dash and en-dash characters when you enable `guardrails: true` in `.claude/pm-skills.local.md` (placeholder and metric checks warn, never block). **Confident-only phase router** (F-44): a `SessionStart` hook that, only when a repo signal is strong (a phase-named branch or a recognized artifact), suggests the right Triple Diamond skills for where you are; it stays silent otherwise. **Output-quality eval harness** (M-30): three deterministic invariant validators over the recorded samples (no placeholders, exact-quote sourcing, no fabricated metrics), wired advisory in CI. The hooks are dependency-free and fail open. Additive minor; nothing existing was removed.
 
-**Get started.** [`site/src/content/docs/releases/Release_v2.25.0.md`](site/src/content/docs/releases/Release_v2.25.0.md)
+**Get started.** [v2.25.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.0)
 
 </details>
 
@@ -179,7 +179,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** Ships the `pm-workflow-orchestrator` sub-agent (the fifth) and its cross-client dispatch skill `utility-pm-workflow-orchestrator` (utility): a governed runner that takes a saved `foundation-prioritized-action-plan` (or a user-named chain) and runs an ordered sequence of pm-skills against it, pausing for human go/no-go by default and refusing to advance past a failed or empty step. The plan skill `foundation-prioritized-action-plan` moves to v1.1.0, gaining an optional `--run` handoff that offers to run its own runnable prompts through the orchestrator. The catalog grows to 65 skills (utility 10 to 11; foundation unchanged at 9); sub-agents go 4 to 5. The orchestrator ships EXPERIMENTAL on all non-Claude clients, and the native sub-agent-to-skill path ships EXPERIMENTAL until a live smoke test. Additive minor; nothing existing was removed.
 
-**Get started.** [`docs/releases/Release_v2.24.0.md`](docs/releases/Release_v2.24.0.md)
+**Get started.** [v2.24.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.24.0)
 
 </details>
 
@@ -188,7 +188,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** One new foundation skill, `foundation-prioritized-action-plan`, turns any PM input (notes, transcripts, drafts, executive asks, raw situations) into one evidence-grounded prioritized action plan: the critical next effort plus follow-ons, each with why, what, how, confidence, and source. Theory of Constraints ranks by the single binding constraint; Cynefin caps plan confidence (probes for Complex, stabilization for Chaotic). A source ledger is built before analysis and every claim cites an exact input quote, so it refuses High-confidence plans for uncertain situations. The catalog grows to 64 skills; additive minor, nothing existing changed.
 
-**Get started.** [`docs/releases/Release_v2.23.0.md`](docs/releases/Release_v2.23.0.md)
+**Get started.** [v2.23.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.23.0)
 
 </details>
 
@@ -197,7 +197,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** Each skill used to appear twice in the `/` menu (its full name plus a short command wrapper). The 63 wrappers are removed, so each capability now appears once, as the skill. Separately, a native `.codex-plugin/plugin.json` is added so Codex discovers the skills (it previously reported "No plugin skills"). All 63 skills are unchanged; only the redundant wrapper layer is gone (commands 73 to 10, keeping the 10 `/workflow-*`). If you saved a short command like `/pm-skills:okr-writer`, use the skill's full name (`/pm-skills:foundation-okr-writer`). Shipped as a minor.
 
-**Get started.** [`docs/releases/Release_v2.22.0.md`](docs/releases/Release_v2.22.0.md)
+**Get started.** [v2.22.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.22.0)
 
 </details>
 
@@ -206,7 +206,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** pm-skills is now published through the new `product-on-purpose` marketplace, a single home for multiple Product on Purpose plugins. This is a distribution change only: your skills, commands, and their behavior are identical (catalog stays 63; 73 commands). The previous install path keeps working, so existing installs need no action; the new marketplace is simply the recommended home going forward. Shipped as a minor because nothing you rely on was removed.
 
-**Get started.** [`docs/releases/Release_v2.21.0.md`](docs/releases/Release_v2.21.0.md)
+**Get started.** [v2.21.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.21.0)
 
 </details>
 
@@ -215,7 +215,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** The three workshop methodologies are now single slash commands: `/workflow-foundation-sprint`, `/workflow-design-sprint`, and `/workflow-foundation-to-design` chain their per-day sprint skills end-to-end (slash commands 70 to 73; no new skills, catalog stays 63). Under the hood the gate got stricter: the command-sync validator now requires every advertised `/workflow-` command to have a real file, and the count-consistency validator now catches stale counts in table, parenthetical, and "N command files" phrasings (not just "N commands") - which surfaced and fixed count drift across several reference docs. The near-vestigial bundle-terminology validator was removed.
 
-**Get started.** [`docs/releases/Release_v2.20.0.md`](docs/releases/Release_v2.20.0.md)
+**Get started.** [v2.20.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.20.0)
 
 </details>
 
@@ -224,7 +224,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** Nothing you use behaves differently - no new skills, no changed commands, the catalog stays at 63. What improved is trust. The library's automated checks now catch the defect classes that slipped past CI in v2.18.0 and previously needed a human to spot: stale counts on the docs site, references to skills that do not exist, and dead internal links. Under the hood that means a new cross-reference validator, `.mdx` count scanning, same-page anchor validation (23 pre-existing breaks fixed), an enforced version badge, pinned line endings, an honestly-scoped local validator bundle, and a branded 404 page. This is the hardening pass before pm-skills is actively promoted, so anyone adopting it can rely on the catalog staying internally consistent.
 
-**Get started.** [`docs/releases/Release_v2.19.0.md`](docs/releases/Release_v2.19.0.md)
+**Get started.** [v2.19.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.19.0)
 
 </details>
 
@@ -233,7 +233,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** Four new phase skills close the highest-consensus PM gaps: `market-sizing` (TAM/SAM/SOM via multi-framework triangulation), `prioritization-framework` (RICE, ICE, MoSCoW, Weighted Scoring, and Kano run in parallel with a cross-framework comparison), `journey-map` (stages, touchpoints, emotional curve, and moments of truth), and `survey-analysis` (honest analysis with explicit limitation warnings). The catalog grows from 59 to 63 skills; each new skill refuses to fabricate data and labels confidence honestly.
 
-**Get started.** [`docs/releases/Release_v2.18.0.md`](docs/releases/Release_v2.18.0.md)
+**Get started.** [v2.18.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.18.0)
 
 </details>
 
@@ -242,7 +242,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** The 4 sub-agents now register natively on Claude Code: their definitions moved to the canonical `agents/` directory, so `@pm-critic` (and the other three) auto-discover and dispatch via `@`-mention. To free the `agents/` name on case-insensitive filesystems, the agent-coordination directory was renamed from `AGENTS/` to `_agent-context/`. Skill frontmatter also migrated to the metadata-nested structure per the agentskills.io spec, and the CI validators are now bash-3.2 portable. The 59-skill catalog is unchanged; cross-client clients keep working via the dispatch skills.
 
-**Get started.** [`docs/releases/Release_v2.17.0.md`](docs/releases/Release_v2.17.0.md)
+**Get started.** [v2.17.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.17.0)
 
 </details>
 
@@ -251,7 +251,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** Post-tag plan SHIPPED state updates and GitHub Release body corrections following the v2.16.1 patch cycle.
 
-**Get started.** [`docs/releases/Release_v2.16.2.md`](docs/releases/Release_v2.16.2.md)
+**Get started.** [v2.16.2 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.2)
 
 </details>
 
@@ -260,7 +260,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **What changed.** Removed the invalid `agents` field from `plugin.json` that was causing `/plugin update pm-skills` to fail with an "Invalid input" error since v2.16.0. If you ran into that error, update to this version.
 
-**Get started.** [`docs/releases/Release_v2.16.1.md`](docs/releases/Release_v2.16.1.md)
+**Get started.** [v2.16.1 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.1)
 
 </details>
 
@@ -271,7 +271,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **Why it matters.** Foundation work for chained workflows that don't need a human in the handoff loop.
 
-**Get started.** [`docs/reference/runtime-components.md`](docs/reference/runtime-components.md) - [`docs/releases/Release_v2.16.0.md`](docs/releases/Release_v2.16.0.md)
+**Get started.** [Runtime components](https://product-on-purpose.github.io/pm-skills/reference/runtime-components/) - [v2.16.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.0)
 
 </details>
 
@@ -282,7 +282,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **Why it matters.** If you run structured workshop sessions, the agent runs the workshop with you using canonical moves; outputs are workshop artifacts.
 
-**Get started.** [`docs/concepts/foundation-sprint.md`](docs/concepts/foundation-sprint.md) - [`docs/concepts/design-sprint.md`](docs/concepts/design-sprint.md) - [`docs/releases/Release_v2.15.0.md`](docs/releases/Release_v2.15.0.md)
+**Get started.** [Foundation sprint](https://product-on-purpose.github.io/pm-skills/concepts/foundation-sprint/) - [Design sprint](https://product-on-purpose.github.io/pm-skills/concepts/design-sprint/) - [v2.15.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.15.0)
 
 </details>
 
@@ -293,7 +293,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **Why it matters.** Search works (full-text, instant). Forkers: Node 22.x is now required, not Python pip.
 
-**Get started.** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/) - [`docs/releases/Release_v2.14.0.md`](docs/releases/Release_v2.14.0.md)
+**Get started.** [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/) - [v2.14.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.14.0)
 
 </details>
 
@@ -304,7 +304,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **Why it matters.** Before v2.13.1, the marketplace install failed silently. After v2.13.1, it is the recommended Claude Code path.
 
-**Get started.** [`docs/releases/Release_v2.13.1.md`](docs/releases/Release_v2.13.1.md)
+**Get started.** [v2.13.1 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.13.1)
 
 </details>
 
@@ -315,7 +315,7 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 **Why it matters.** OKR structure, KR quality bar, and grading rubric are encoded as skills your agent runs consistently across cycles.
 
-**Get started.** [`docs/releases/Release_v2.12.0.md`](docs/releases/Release_v2.12.0.md)
+**Get started.** [v2.12.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.12.0)
 
 </details>
 
@@ -395,8 +395,8 @@ flowchart LR
 
 🔗 **More resources:**
 
-- [**PM Skill Lifecycle Guide**](docs/guides/pm-skill-lifecycle.md) - Full workflow for creating, validating, and iterating skills, including the builder-validator-iterator cycle with worked examples.
-- [**Creating PM Skills**](docs/guides/creating-pm-skills.md) - Authoring guide for contributing new skills to the library.
+- [**PM Skill Lifecycle Guide**](https://product-on-purpose.github.io/pm-skills/guides/pm-skill-lifecycle/) - Full workflow for creating, validating, and iterating skills, including the builder-validator-iterator cycle with worked examples.
+- [**Creating PM Skills**](https://product-on-purpose.github.io/pm-skills/guides/creating-pm-skills/) - Authoring guide for contributing new skills to the library.
 - [**Skill Template**](docs/templates/skill-template/) - The canonical three-file template every skill must follow; copy this as your starting point.
 
 ### Founded On
@@ -449,7 +449,7 @@ flowchart LR
 /plugin install pm-skills@product-on-purpose
 ```
 
-> Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](docs/releases/Release_v2.21.0.md).
+> Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.21.0).
 
 All 65 skills and their slash commands become available immediately. No clone required.
 
@@ -476,22 +476,22 @@ Optional: after cloning, run `./scripts/sync-claude.sh` (macOS/Linux) or `./scri
 
 ### Additional Install Methods
 
-For Claude.ai, MCP clients, OpenCode, Windsurf, and ChatGPT, see the full [Platform Setup Guide](docs/getting-started/platforms.md) for step-by-step instructions.
+For Claude.ai, MCP clients, OpenCode, Windsurf, and ChatGPT, see the full [Platform Setup Guide](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/) for step-by-step instructions.
 
 | Platform                    | How                                 | Guide                                                                                          |
 | --------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Claude.ai / Claude Desktop  | ZIP upload to Project Files         | [Platform guide](docs/getting-started/platforms.md#claudeai--claude-desktop) |
+| Claude.ai / Claude Desktop  | ZIP upload to Project Files         | [Platform guide](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/#claudeai--claude-desktop) |
 | MCP Server (any MCP client) | `npx pm-skills-mcp`                 | [pm-skills-mcp repo](https://github.com/product-on-purpose/pm-skills-mcp)                      |
-| GitHub Copilot              | AGENTS.md auto-discovery from clone | [Platform guide](docs/getting-started/platforms.md#github-copilot)           |
-| OpenCode                    | Direct skill loading from clone     | [Platform guide](docs/getting-started/platforms.md#opencode)                 |
-| Cursor / Windsurf           | AGENTS.md auto-discovery            | [Platform guide](docs/getting-started/platforms.md#cursor)         |
-| VS Code (Cline / Continue)  | AGENTS.md auto-discovery            | [Platform guide](docs/getting-started/platforms.md#vs-code-cline--continue)  |
-| ChatGPT / other LLMs        | Copy SKILL.md into conversation     | [Platform guide](docs/getting-started/platforms.md#chatgpt--other-llms)      |
+| GitHub Copilot              | AGENTS.md auto-discovery from clone | [Platform guide](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/#github-copilot)           |
+| OpenCode                    | Direct skill loading from clone     | [Platform guide](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/#opencode)                 |
+| Cursor / Windsurf           | AGENTS.md auto-discovery            | [Platform guide](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/#cursor)         |
+| VS Code (Cline / Continue)  | AGENTS.md auto-discovery            | [Platform guide](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/#vs-code-cline--continue)  |
+| ChatGPT / other LLMs        | Copy SKILL.md into conversation     | [Platform guide](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/#chatgpt--other-llms)      |
 
 **More resources:**
 
-- [**Getting Started Guide**](docs/getting-started/index.md) - Detailed walkthrough for new users covering all install methods, the sync helper script, and your first skill run end-to-end.
-- [**Quickstart Reference**](docs/getting-started/quickstart.md) - Short-form reference card with just the essential commands.
+- [**Getting Started Guide**](https://product-on-purpose.github.io/pm-skills/getting-started/) - Detailed walkthrough for new users covering all install methods, the sync helper script, and your first skill run end-to-end.
+- [**Quickstart Reference**](https://product-on-purpose.github.io/pm-skills/getting-started/quickstart/) - Short-form reference card with just the essential commands.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -545,9 +545,9 @@ When you run `/pm-skills:deliver-prd "topic"`, the agent loads the skill, mirror
 
 🔗 **More resources:**
 
-- **[PM Skill Anatomy](docs/reference/pm-skill-anatomy.md)** - Deep dive into the three-file structure (SKILL.md, TEMPLATE.md, EXAMPLE.md) and what each file contributes to output quality. Essential reading before authoring your first skill.
-- **[Skill Finder](docs/guides/skill-finder.md)** - Decision guide for choosing the right skill when you know the outcome you need but aren't sure which skill produces it.
-- [**PM Skill Comparisons**](docs/guides/pm-skill-comparisons.md) - Side-by-side comparison of overlapping skills. Prevents the common mistake of reaching for `problem-statement` when `opportunity-tree` is the right fit.
+- **[PM Skill Anatomy](https://product-on-purpose.github.io/pm-skills/reference/pm-skill-anatomy/)** - Deep dive into the three-file structure (SKILL.md, TEMPLATE.md, EXAMPLE.md) and what each file contributes to output quality. Essential reading before authoring your first skill.
+- **[Skill Finder](https://product-on-purpose.github.io/pm-skills/guides/skill-finder/)** - Decision guide for choosing the right skill when you know the outcome you need but aren't sure which skill produces it.
+- [**PM Skill Comparisons**](https://product-on-purpose.github.io/pm-skills/guides/pm-skill-comparisons/) - Side-by-side comparison of overlapping skills. Prevents the common mistake of reaching for `problem-statement` when `opportunity-tree` is the right fit.
 - [**Sub-Agents**](#sub-agents) - Claude Code also supports spawnable specialist agents for tasks that benefit from a dedicated agent context: adversarial review, catalog auditing, changelog curation, and release orchestration.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -704,10 +704,10 @@ flowchart TB
 
 🔗 **More resources:**
 
-- [Using Skills Guide](docs/guides/using-skills.md) - Practical guide to invoking skills across different agents, passing context effectively, and getting consistent outputs session to session.
-- [Using Workflows Guide](docs/guides/using-workflows.md) - How to run multi-skill chains, handle handoffs between skills, and adapt workflows to your team's process.
-- [Recipes](docs/guides/recipes.md) - Curated patterns for common PM scenarios: solo feature launch, quarterly OKR cycle, research-to-delivery arc.
-- [Prompt Gallery](docs/guides/prompt-gallery.md) - Real prompts that produce excellent skill outputs, annotated with what makes each one effective.
+- [Using Skills Guide](https://product-on-purpose.github.io/pm-skills/guides/using-skills/) - Practical guide to invoking skills across different agents, passing context effectively, and getting consistent outputs session to session.
+- [Using Workflows Guide](https://product-on-purpose.github.io/pm-skills/guides/using-workflows/) - How to run multi-skill chains, handle handoffs between skills, and adapt workflows to your team's process.
+- [Recipes](https://product-on-purpose.github.io/pm-skills/guides/recipes/) - Curated patterns for common PM scenarios: solo feature launch, quarterly OKR cycle, research-to-delivery arc.
+- [Prompt Gallery](https://product-on-purpose.github.io/pm-skills/guides/prompt-gallery/) - Real prompts that produce excellent skill outputs, annotated with what makes each one effective.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -748,12 +748,12 @@ flowchart LR
 
 🔗 **More resources:**
 
-- [**Foundation Sprint Concept Primer**](docs/concepts/foundation-sprint.md) - A Foundation Sprint is a 2-day structured workshop methodology developed by Jake Knapp and John Zeratsky. This primer explains what it is, when to use it, the 7-step sequence, and how it compares to a Design Sprint.
-- [**Using Foundation Sprint**](docs/guides/using-foundation-sprint.md) - Operational guide for running the 7-skill Foundation Sprint sequence with an agent, including facilitation notes and output expectations for each step.
-- [**Foundation Sprint FAQ**](docs/guides/foundation-sprint-faq.md) - Answers to common questions about the methodology: how long it takes, who should be in the room, what to do with the brief output, and when not to run it.
-- [**Foundation Sprint Cheat Sheet**](docs/guides/foundation-sprint-cheat-sheet.md) - One-page quick reference for the day-arc, skill sequence, and key outputs.
-- [**Foundation Sprint Case Studies**](docs/guides/foundation-sprint-case-studies.md) - Three fictional scenarios showing how different teams used the Foundation Sprint methodology at different stages.
-- [**Foundation Sprint Recovery**](docs/guides/foundation-sprint-recovery.md) - What to do when a sprint produces a confusing founding hypothesis, the team disagrees on direction, or you want to redo a step.
+- [**Foundation Sprint Concept Primer**](https://product-on-purpose.github.io/pm-skills/concepts/foundation-sprint/) - A Foundation Sprint is a 2-day structured workshop methodology developed by Jake Knapp and John Zeratsky. This primer explains what it is, when to use it, the 7-step sequence, and how it compares to a Design Sprint.
+- [**Using Foundation Sprint**](https://product-on-purpose.github.io/pm-skills/guides/using-foundation-sprint/) - Operational guide for running the 7-skill Foundation Sprint sequence with an agent, including facilitation notes and output expectations for each step.
+- [**Foundation Sprint FAQ**](https://product-on-purpose.github.io/pm-skills/guides/foundation-sprint-faq/) - Answers to common questions about the methodology: how long it takes, who should be in the room, what to do with the brief output, and when not to run it.
+- [**Foundation Sprint Cheat Sheet**](https://product-on-purpose.github.io/pm-skills/guides/foundation-sprint-cheat-sheet/) - One-page quick reference for the day-arc, skill sequence, and key outputs.
+- [**Foundation Sprint Case Studies**](https://product-on-purpose.github.io/pm-skills/guides/foundation-sprint-case-studies/) - Three fictional scenarios showing how different teams used the Foundation Sprint methodology at different stages.
+- [**Foundation Sprint Recovery**](https://product-on-purpose.github.io/pm-skills/guides/foundation-sprint-recovery/) - What to do when a sprint produces a confusing founding hypothesis, the team disagrees on direction, or you want to redo a step.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -795,14 +795,14 @@ flowchart LR
 
 🔗 **More resources:**
 
-- [**Design Sprint Concept Primer**](docs/concepts/design-sprint.md) - A Design Sprint is a 5-day structured workshop methodology developed at Google Ventures by Jake Knapp, John Zeratsky, and Braden Kowitz. This primer covers the methodology's heritage, the 5-day arc as implemented in this skill family, and how it differs from a physical in-person workshop.
-- [**Using Design Sprint**](docs/guides/using-design-sprint.md) - Operational guide for running the 7-skill Design Sprint sequence with an agent, including what "realistic-enough" means for the prototype step and how to recruit for test day.
-- [**Design Sprint FAQ**](docs/guides/design-sprint-faq.md) - Questions about prototype fidelity, user recruitment, scoring results, and what to do if no clear winner emerges after testing.
-- [**Design Sprint Cheat Sheet**](docs/guides/design-sprint-cheat-sheet.md) - One-page quick reference for the 5-day arc, skill sequence, and key outputs.
-- [**Design Sprint Case Studies**](docs/guides/design-sprint-case-studies.md) - Fictional scenarios applying the Design Sprint to B2C, B2B, and internal-tools product challenges.
-- [**Design Sprint Recovery**](docs/guides/design-sprint-recovery.md) - What to do when prototype testing produces inconclusive results, the test fails entirely, or the team needs to iterate on the storyboard.
-- **[Workshop Sprints vs Agile Sprints](docs/concepts/workshop-sprints-vs-agile-sprints.md)** - The disambiguation every Scrum team needs before running their first Design Sprint. Two completely different processes, one unfortunately shared word.
-- **[Workshop Method Comparison](docs/reference/workshop-method-comparison.md)** - When to use Foundation Sprint vs Design Sprint vs other structured workshop approaches; includes a decision matrix.
+- [**Design Sprint Concept Primer**](https://product-on-purpose.github.io/pm-skills/concepts/design-sprint/) - A Design Sprint is a 5-day structured workshop methodology developed at Google Ventures by Jake Knapp, John Zeratsky, and Braden Kowitz. This primer covers the methodology's heritage, the 5-day arc as implemented in this skill family, and how it differs from a physical in-person workshop.
+- [**Using Design Sprint**](https://product-on-purpose.github.io/pm-skills/guides/using-design-sprint/) - Operational guide for running the 7-skill Design Sprint sequence with an agent, including what "realistic-enough" means for the prototype step and how to recruit for test day.
+- [**Design Sprint FAQ**](https://product-on-purpose.github.io/pm-skills/guides/design-sprint-faq/) - Questions about prototype fidelity, user recruitment, scoring results, and what to do if no clear winner emerges after testing.
+- [**Design Sprint Cheat Sheet**](https://product-on-purpose.github.io/pm-skills/guides/design-sprint-cheat-sheet/) - One-page quick reference for the 5-day arc, skill sequence, and key outputs.
+- [**Design Sprint Case Studies**](https://product-on-purpose.github.io/pm-skills/guides/design-sprint-case-studies/) - Fictional scenarios applying the Design Sprint to B2C, B2B, and internal-tools product challenges.
+- [**Design Sprint Recovery**](https://product-on-purpose.github.io/pm-skills/guides/design-sprint-recovery/) - What to do when prototype testing produces inconclusive results, the test fails entirely, or the team needs to iterate on the storyboard.
+- **[Workshop Sprints vs Agile Sprints](https://product-on-purpose.github.io/pm-skills/concepts/workshop-sprints-vs-agile-sprints/)** - The disambiguation every Scrum team needs before running their first Design Sprint. Two completely different processes, one unfortunately shared word.
+- **[Workshop Method Comparison](https://product-on-purpose.github.io/pm-skills/reference/workshop-method-comparison/)** - When to use Foundation Sprint vs Design Sprint vs other structured workshop approaches; includes a decision matrix.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -876,8 +876,8 @@ For other platforms (Codex, Cursor, Windsurf, Copilot, Gemini CLI), each sub-age
 
 🔗 **More resources:**
 
-- [**Active Orchestration Guide**](docs/reference/runtime-components.md) - What sub-agents are, how Claude Code spawns them, the dispatch skill pattern for other platforms, and invocation examples for all five sub-agents.
-- [**v2.16.0 Release Notes**](docs/releases/Release_v2.16.0.md) - The release that introduced active orchestration, including the rationale for the sub-agent model and how it connects to the broader skill ecosystem.
+- [**Active Orchestration Guide**](https://product-on-purpose.github.io/pm-skills/reference/runtime-components/) - What sub-agents are, how Claude Code spawns them, the dispatch skill pattern for other platforms, and invocation examples for all five sub-agents.
+- [**v2.16.0 Release Notes**](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.16.0) - The release that introduced active orchestration, including the rationale for the sub-agent model and how it connects to the broader skill ecosystem.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -970,7 +970,7 @@ Since product management is all about context, there  are several ways for you t
 **More resources:**
 
 - [**Skill Output Samples**](library/skill-output-samples/) - All 95+ sample outputs organized by skill name. Browse to calibrate expectations before running a skill.
-- [**Prompt Gallery**](docs/guides/prompt-gallery.md) - The prompts that generated many of the best library samples, annotated with what makes each one effective. A useful companion when you want to improve your own invocation patterns.
+- [**Prompt Gallery**](https://product-on-purpose.github.io/pm-skills/guides/prompt-gallery/) - The prompts that generated many of the best library samples, annotated with what makes each one effective. A useful companion when you want to improve your own invocation patterns.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -992,48 +992,48 @@ Since product management is all about context, there  are several ways for you t
 
 These guides explain the *why* behind the workshop frameworks and PM practices this library encodes:
 
-- [**Foundation Sprint concept primer**](docs/concepts/foundation-sprint.md) - A Foundation Sprint is a structured 2-day workshop methodology developed by Jake Knapp and John Zeratsky for aligning early-stage teams before design begins. This primer explains what it is, when to run one, how the 7 skills fit together, and how it relates to the Design Sprint.
-- [**Design Sprint concept primer**](docs/concepts/design-sprint.md) - A Design Sprint is a structured 5-day process for understanding a problem, sketching solutions, building a prototype, and testing with real users. This primer covers the Google Ventures heritage, the 5-day arc as implemented in this skill family, and how it differs from running a physical workshop.
-- [**Sprint skills overview**](docs/concepts/sprint-skills-overview.md) - An orientation to both workshop tool families: how Foundation Sprint and Design Sprint relate to each other, to the Triple Diamond framework, and to the rest of the PM-Skills catalog. Start here if you are new to either methodology.
-- [**Workshop sprints vs agile sprints**](docs/concepts/workshop-sprints-vs-agile-sprints.md) - If your team runs Scrum or any other agile framework, read this before running either workshop methodology. The word "sprint" means two completely different things in these two contexts, and confusing them is the most common source of friction for new users.
+- [**Foundation Sprint concept primer**](https://product-on-purpose.github.io/pm-skills/concepts/foundation-sprint/) - A Foundation Sprint is a structured 2-day workshop methodology developed by Jake Knapp and John Zeratsky for aligning early-stage teams before design begins. This primer explains what it is, when to run one, how the 7 skills fit together, and how it relates to the Design Sprint.
+- [**Design Sprint concept primer**](https://product-on-purpose.github.io/pm-skills/concepts/design-sprint/) - A Design Sprint is a structured 5-day process for understanding a problem, sketching solutions, building a prototype, and testing with real users. This primer covers the Google Ventures heritage, the 5-day arc as implemented in this skill family, and how it differs from running a physical workshop.
+- [**Sprint skills overview**](https://product-on-purpose.github.io/pm-skills/concepts/sprint-skills-overview/) - An orientation to both workshop tool families: how Foundation Sprint and Design Sprint relate to each other, to the Triple Diamond framework, and to the rest of the PM-Skills catalog. Start here if you are new to either methodology.
+- [**Workshop sprints vs agile sprints**](https://product-on-purpose.github.io/pm-skills/concepts/workshop-sprints-vs-agile-sprints/) - If your team runs Scrum or any other agile framework, read this before running either workshop methodology. The word "sprint" means two completely different things in these two contexts, and confusing them is the most common source of friction for new users.
 
 ### Use Skills Effectively
 
-- [**Using skills guide**](docs/guides/using-skills.md) - Foundational guide to invoking skills across different agents, passing context effectively, and getting consistent outputs. Covers invocation patterns, context blocks, and how to recover from incomplete outputs.
-- **[Using workflows](docs/guides/using-workflows.md)** - How to run multi-skill chains, handle handoffs between skills so context flows correctly, and adapt workflow sequences to your team's specific process.
-- [**Skill finder**](docs/guides/skill-finder.md) - Decision guide for finding the right skill when you know the outcome you need but not which skill to reach for. Organized by PM activity and phase.
-- [**Skill comparisons**](docs/guides/pm-skill-comparisons.md) - Side-by-side comparison of skills with overlapping scope: when to use `problem-statement` vs `hypothesis` vs `opportunity-tree`, and similar questions that come up repeatedly.
-- [**Recipes**](docs/guides/recipes.md) - Common patterns and skill combinations for real PM scenarios: solo feature launch, quarterly OKR cycle, research-to-delivery arc, and more.
-- **[Prompt gallery](docs/guides/prompt-gallery.md)** - Real prompts that produce excellent skill outputs, annotated with what makes each one work. A practical reference for getting better results immediately.
+- [**Using skills guide**](https://product-on-purpose.github.io/pm-skills/guides/using-skills/) - Foundational guide to invoking skills across different agents, passing context effectively, and getting consistent outputs. Covers invocation patterns, context blocks, and how to recover from incomplete outputs.
+- **[Using workflows](https://product-on-purpose.github.io/pm-skills/guides/using-workflows/)** - How to run multi-skill chains, handle handoffs between skills so context flows correctly, and adapt workflow sequences to your team's specific process.
+- [**Skill finder**](https://product-on-purpose.github.io/pm-skills/guides/skill-finder/) - Decision guide for finding the right skill when you know the outcome you need but not which skill to reach for. Organized by PM activity and phase.
+- [**Skill comparisons**](https://product-on-purpose.github.io/pm-skills/guides/pm-skill-comparisons/) - Side-by-side comparison of skills with overlapping scope: when to use `problem-statement` vs `hypothesis` vs `opportunity-tree`, and similar questions that come up repeatedly.
+- [**Recipes**](https://product-on-purpose.github.io/pm-skills/guides/recipes/) - Common patterns and skill combinations for real PM scenarios: solo feature launch, quarterly OKR cycle, research-to-delivery arc, and more.
+- **[Prompt gallery](https://product-on-purpose.github.io/pm-skills/guides/prompt-gallery/)** - Real prompts that produce excellent skill outputs, annotated with what makes each one work. A practical reference for getting better results immediately.
 
 ### Foundation Sprint Resources
 
 The Foundation Sprint tool family ships with five companion guides covering every stage of use:
 
-- **[Using Foundation Sprint](docs/guides/using-foundation-sprint.md)** - Operational guide for running the complete 7-skill Foundation Sprint sequence with an agent. Covers facilitation patterns, what to do between steps, and output quality expectations for each skill.
-- [**Foundation Sprint FAQ**](docs/guides/foundation-sprint-faq.md) - Answers to the most common questions about the Foundation Sprint workshop methodology: who should be in the room, how long each step takes, what the founding hypothesis output looks like, and what to do with the brief.
-- [**Foundation Sprint Cheat Sheet**](docs/guides/foundation-sprint-cheat-sheet.md) - One-page quick reference for the Foundation Sprint arc: skill sequence, key questions, and outputs. Print it or keep it open during a session.
-- [**Foundation Sprint Case Studies**](docs/guides/foundation-sprint-case-studies.md) - Three fictional scenarios (early-stage B2C, mid-market SaaS, internal tools) showing how different teams applied the Foundation Sprint at different stages and under different constraints.
-- [**Foundation Sprint Recovery**](docs/guides/foundation-sprint-recovery.md) - What to do when a sprint goes sideways: confusing founding hypothesis, team disagreement on direction, a step that needs to be redone, or a situation where the readiness check was wrong.
+- **[Using Foundation Sprint](https://product-on-purpose.github.io/pm-skills/guides/using-foundation-sprint/)** - Operational guide for running the complete 7-skill Foundation Sprint sequence with an agent. Covers facilitation patterns, what to do between steps, and output quality expectations for each skill.
+- [**Foundation Sprint FAQ**](https://product-on-purpose.github.io/pm-skills/guides/foundation-sprint-faq/) - Answers to the most common questions about the Foundation Sprint workshop methodology: who should be in the room, how long each step takes, what the founding hypothesis output looks like, and what to do with the brief.
+- [**Foundation Sprint Cheat Sheet**](https://product-on-purpose.github.io/pm-skills/guides/foundation-sprint-cheat-sheet/) - One-page quick reference for the Foundation Sprint arc: skill sequence, key questions, and outputs. Print it or keep it open during a session.
+- [**Foundation Sprint Case Studies**](https://product-on-purpose.github.io/pm-skills/guides/foundation-sprint-case-studies/) - Three fictional scenarios (early-stage B2C, mid-market SaaS, internal tools) showing how different teams applied the Foundation Sprint at different stages and under different constraints.
+- [**Foundation Sprint Recovery**](https://product-on-purpose.github.io/pm-skills/guides/foundation-sprint-recovery/) - What to do when a sprint goes sideways: confusing founding hypothesis, team disagreement on direction, a step that needs to be redone, or a situation where the readiness check was wrong.
 
 ### Design Sprint Resources
 
 The Design Sprint tool family ships with five companion guides:
 
-- [**Using Design Sprint**](docs/guides/using-design-sprint.md) - Operational guide for running the 7-skill Design Sprint sequence with an agent. Covers what "realistic-enough" means for the prototype step, how to structure test-day interview sessions, and how to score results.
-- [**Design Sprint FAQ**](docs/guides/design-sprint-faq.md) - Questions about prototype fidelity, participant recruitment for test day, scoring criteria, and what to do when no clear winner emerges from testing.
-- [**Design Sprint Cheat Sheet**](docs/guides/design-sprint-cheat-sheet.md) - One-page quick reference for the 5-day arc: skill sequence, daily outputs, and decision points.
-- [**Design Sprint Case Studies**](docs/guides/design-sprint-case-studies.md) - Fictional scenarios applying the Design Sprint to B2C product discovery, B2B feature validation, and an internal-tools redesign challenge.
-- [**Design Sprint Recovery**](docs/guides/design-sprint-recovery.md) - What to do when prototype testing is inconclusive, the test fails entirely, the team wants to revisit the storyboard, or time constraints force adjustments.
+- [**Using Design Sprint**](https://product-on-purpose.github.io/pm-skills/guides/using-design-sprint/) - Operational guide for running the 7-skill Design Sprint sequence with an agent. Covers what "realistic-enough" means for the prototype step, how to structure test-day interview sessions, and how to score results.
+- [**Design Sprint FAQ**](https://product-on-purpose.github.io/pm-skills/guides/design-sprint-faq/) - Questions about prototype fidelity, participant recruitment for test day, scoring criteria, and what to do when no clear winner emerges from testing.
+- [**Design Sprint Cheat Sheet**](https://product-on-purpose.github.io/pm-skills/guides/design-sprint-cheat-sheet/) - One-page quick reference for the 5-day arc: skill sequence, daily outputs, and decision points.
+- [**Design Sprint Case Studies**](https://product-on-purpose.github.io/pm-skills/guides/design-sprint-case-studies/) - Fictional scenarios applying the Design Sprint to B2C product discovery, B2B feature validation, and an internal-tools redesign challenge.
+- [**Design Sprint Recovery**](https://product-on-purpose.github.io/pm-skills/guides/design-sprint-recovery/) - What to do when prototype testing is inconclusive, the test fails entirely, the team wants to revisit the storyboard, or time constraints force adjustments.
 
 ### Reference
 
-- [**PM skill anatomy**](docs/reference/pm-skill-anatomy.md) - The three-file structure every skill follows (SKILL.md, TEMPLATE.md, EXAMPLE.md) and what each file contributes to output quality. Essential before authoring a new skill.
-- [**Agent skill anatomy**](docs/concepts/agent-skill-anatomy.md) - The general Agent Skills Specification anatomy that PM-Skills is built on. Useful context for understanding how skills work across the broader AI ecosystem.
-- [**Mermaid style guide**](docs/reference/mermaid-style-guide.md) - Using the mermaid-diagrams skill to create consistent, on-brand diagrams. Includes the color palette, classDef patterns, and guidance on when to use LR vs TD layout.
-- [**Sprint methodology glossary**](docs/reference/sprint-methodology-glossary.md) - Definitions for terms used across Foundation Sprint and Design Sprint skills. A useful reference when the meaning of a skill output or workshop term isn't clear.
-- [**Workshop method comparison**](docs/reference/workshop-method-comparison.md) - Decision matrix for when to use Foundation Sprint vs Design Sprint vs other structured workshop approaches.
-- [**Ecosystem overview**](docs/reference/ecosystem.md) - How pm-skills, pm-skills-mcp, and the skills CLI relate to each other; which to use for which client and workflow.
+- [**PM skill anatomy**](https://product-on-purpose.github.io/pm-skills/reference/pm-skill-anatomy/) - The three-file structure every skill follows (SKILL.md, TEMPLATE.md, EXAMPLE.md) and what each file contributes to output quality. Essential before authoring a new skill.
+- [**Agent skill anatomy**](https://product-on-purpose.github.io/pm-skills/concepts/agent-skill-anatomy/) - The general Agent Skills Specification anatomy that PM-Skills is built on. Useful context for understanding how skills work across the broader AI ecosystem.
+- [**Mermaid style guide**](https://product-on-purpose.github.io/pm-skills/reference/mermaid-style-guide/) - Using the mermaid-diagrams skill to create consistent, on-brand diagrams. Includes the color palette, classDef patterns, and guidance on when to use LR vs TD layout.
+- [**Sprint methodology glossary**](https://product-on-purpose.github.io/pm-skills/reference/sprint-methodology-glossary/) - Definitions for terms used across Foundation Sprint and Design Sprint skills. A useful reference when the meaning of a skill output or workshop term isn't clear.
+- [**Workshop method comparison**](https://product-on-purpose.github.io/pm-skills/reference/workshop-method-comparison/) - Decision matrix for when to use Foundation Sprint vs Design Sprint vs other structured workshop approaches.
+- [**Ecosystem overview**](https://product-on-purpose.github.io/pm-skills/reference/ecosystem/) - How pm-skills, pm-skills-mcp, and the skills CLI relate to each other; which to use for which client and workflow.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -1062,15 +1062,14 @@ pm-skills/
 ├── commands/                # Slash commands mapping to skills, workflows, and sub-agents
 ├── _workflows/              # Workflow chains: feature-kickoff, lean-startup, triple-diamond, and more
 ├── agents/                  # Sub-agent definitions (v2.16.0+, Claude Code plugin runtime)
+├── hooks/                   # Claude Code hooks: house-rule guardrails + phase router (v2.25.0+)
 ├── library/                 # Sample output library (95+ real skill outputs)
 ├── scripts/                 # sync-claude, build-release, validate-commands, and CI scripts
 ├── .github/                 # CI workflows and automation
+├── site/                    # Astro docs site, published to product-on-purpose.github.io/pm-skills
+│   └── src/content/docs/    # getting-started, concepts, guides, reference, releases
 ├── docs/
-│   ├── getting-started/     # Setup guides
-│   ├── concepts/            # Methodology primers and conceptual guides
-│   ├── guides/              # How-to guides and operational references
-│   ├── reference/           # Technical specs and skill anatomy
-│   └── releases/            # Release notes for each version
+│   └── templates/           # Canonical skill template (copy to author a new skill)
 ├── AGENTS.md                # Universal agent discovery file
 ├── CONTRIBUTING.md          # Contribution guidelines
 └── CHANGELOG.md             # Version history
@@ -1084,11 +1083,11 @@ pm-skills/
 | [`commands/`](commands/)                                         | Slash command definitions for Claude Code                                             |
 | [`_workflows/`](_workflows/)                                     | Multi-skill workflow chains with handoff guidance                                     |
 | [`library/skill-output-samples/`](library/skill-output-samples/) | 95+ real sample outputs organized by skill name                                       |
-| [`docs/guides/`](docs/guides/)                                   | How-to guides and operational references                                              |
-| [`docs/concepts/`](docs/concepts/)                               | Methodology primers and conceptual explanations                                       |
-| [`docs/reference/`](docs/reference/)                             | Technical reference: skill anatomy, ecosystem, runtime components                     |
+| [`site/src/content/docs/guides/`](site/src/content/docs/guides/)                                   | How-to guides and operational references                                              |
+| [`site/src/content/docs/concepts/`](site/src/content/docs/concepts/)                               | Methodology primers and conceptual explanations                                       |
+| [`site/src/content/docs/reference/`](site/src/content/docs/reference/)                             | Technical reference: skill anatomy, ecosystem, runtime components                     |
 
-**See [docs/reference/project-structure.md](docs/reference/project-structure.md) for detailed descriptions of every directory.**
+**See [project structure reference](https://product-on-purpose.github.io/pm-skills/reference/project-structure/) for detailed descriptions of every directory.**
 
 ### Changelog
 
@@ -1176,7 +1175,7 @@ Contributions are what make the open-source community such a meaningful place to
 
 **Resources:**
 
-- [Creating PM Skills](docs/guides/creating-pm-skills.md) - Authoring guide for new skills
+- [Creating PM Skills](https://product-on-purpose.github.io/pm-skills/guides/creating-pm-skills/) - Authoring guide for new skills
 - [Skill Template](docs/templates/skill-template/) - The expected three-file structure
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -1225,7 +1224,7 @@ Have ideas for making PM-Skills better? Here are ways to contribute and connect:
 
 Run a Foundation Sprint first if you don't have strong conviction on the problem space. Run a Design Sprint when you have the problem defined and need to validate a solution approach. Neither of these is an agile iteration sprint.
 
-See [Foundation Sprint vs Design Sprint](docs/concepts/sprint-skills-overview.md) and [Workshop Sprints vs Agile Sprints](docs/concepts/workshop-sprints-vs-agile-sprints.md) for detailed comparisons.
+See [Foundation Sprint vs Design Sprint](https://product-on-purpose.github.io/pm-skills/concepts/sprint-skills-overview/) and [Workshop Sprints vs Agile Sprints](https://product-on-purpose.github.io/pm-skills/concepts/workshop-sprints-vs-agile-sprints/) for detailed comparisons.
 
 </details>
 
@@ -1285,7 +1284,7 @@ The openskills CLI discovers skills in `.claude/skills/` directories. PM-Skills 
 <details>
 <summary><strong>Can I contribute new skills?</strong></summary>
 
-Yes. Read the [authoring guide](docs/guides/creating-pm-skills.md) for the full process. Submit a proposal via GitHub issue first, then create your skill following the template structure. All contributions are reviewed for quality and alignment with PM best practices.
+Yes. Read the [authoring guide](https://product-on-purpose.github.io/pm-skills/guides/creating-pm-skills/) for the full process. Submit a proposal via GitHub issue first, then create your skill following the template structure. All contributions are reviewed for quality and alignment with PM best practices.
 
 </details>
 
@@ -1303,7 +1302,7 @@ Slash commands (like `/pm-skills:deliver-prd` or `/pm-skills:define-hypothesis`)
 
 **pm-skills-mcp** wraps the same skills in an MCP server for programmatic access. Best for Claude Desktop, Cursor, and any MCP-compatible client when you want tool-based invocation rather than slash commands.
 
-Both give you access to the same skills; choose based on your preferred client and workflow. See the [Ecosystem Overview](docs/reference/ecosystem.md) for a detailed comparison.
+Both give you access to the same skills; choose based on your preferred client and workflow. See the [Ecosystem Overview](https://product-on-purpose.github.io/pm-skills/reference/ecosystem/) for a detailed comparison.
 
 </details>
 
