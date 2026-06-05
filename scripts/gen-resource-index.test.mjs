@@ -1,7 +1,9 @@
 // scripts/gen-resource-index.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseManifest, toRoute, scenarioLabel, cell, repoLink } from './gen-resource-index.mjs';
+import { parseManifest, toRoute, scenarioLabel, cell, repoLink, buildModel, collectSources, ROOT } from './gen-resource-index.mjs';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 
 test('parseManifest strips index.html and keeps trailing slash', () => {
   const routes = parseManifest('/index.html\n/guides/prompt-gallery/index.html\n/404.html\n\n');
@@ -44,4 +46,36 @@ test('toRoute is case-insensitive on the extension', () => {
 
 test('repoLink normalizes Windows backslashes', () => {
   assert.equal(repoLink('skills\\deliver-prd\\SKILL.md'), '../skills/deliver-prd/SKILL.md');
+});
+
+test('buildModel: every live route exists in the manifest', () => {
+  const model = buildModel(ROOT);
+  const allRows = [
+    ...model.docs.flatMap((s) => s.rows),
+    ...model.skills.flatMap((g) => g.rows),
+    ...model.workflows,
+    ...model.samples.flatMap((s) => s.rows),
+    ...model.showcase,
+  ];
+  assert.ok(allRows.length > 50, `expected many rows, got ${allRows.length}`);
+  for (const r of allRows) assert.ok(model.routes.has(r.route), `route missing from manifest: ${r.route}`);
+});
+
+test('buildModel: every repo source is a tracked file that exists on disk', () => {
+  const model = buildModel(ROOT);
+  for (const src of collectSources(model)) {
+    assert.ok(existsSync(join(ROOT, src)), `repo source missing on disk: ${src}`);
+    assert.ok(!src.startsWith('site/src/content/docs/samples/'), `must not link gitignored mirror: ${src}`);
+    assert.ok(!src.startsWith('site/src/content/docs/skills/'), `must not link gitignored mirror: ${src}`);
+  }
+});
+
+test('buildModel: skills are grouped and deliver-prd resolves to its nested route', () => {
+  const model = buildModel(ROOT);
+  const deliver = model.skills.find((g) => g.group === 'deliver');
+  assert.ok(deliver, 'deliver group present');
+  const prd = deliver.rows.find((r) => r.name === 'deliver-prd');
+  assert.ok(prd, 'deliver-prd present');
+  assert.equal(prd.route, '/skills/deliver/deliver-prd/');
+  assert.equal(prd.source, 'skills/deliver-prd/SKILL.md');
 });

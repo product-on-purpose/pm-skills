@@ -94,3 +94,152 @@ function walkMd(dir) {
   }
   return out;
 }
+
+// Hand-authored doc categories, in reading order.
+const DOC_CATEGORIES = [
+  ['getting-started', 'Getting Started'],
+  ['concepts', 'Concepts'],
+  ['guides', 'Guides'],
+  ['reference', 'Reference'],
+  ['contributing', 'Contributing'],
+];
+
+// Skill group order (lifecycle) + display names. Groups come from the manifest
+// route segment, which gen-site derives from each SKILL.md phase/classification.
+const GROUP_ORDER = [
+  ['foundation', 'Foundation'],
+  ['discover', 'Discover'],
+  ['define', 'Define'],
+  ['develop', 'Develop'],
+  ['deliver', 'Deliver'],
+  ['measure', 'Measure'],
+  ['iterate', 'Iterate'],
+  ['tool', 'Tool families'],
+  ['utility', 'Utility'],
+];
+
+export function enumerateDocs(root, routes) {
+  const DOCS = join(root, 'site', 'src', 'content', 'docs');
+  const out = [];
+  for (const [cat, label] of DOC_CATEGORIES) {
+    const dir = join(DOCS, cat);
+    if (!existsSync(dir)) continue;
+    const rows = [];
+    for (const file of walkMd(dir)) {
+      const relFromDocs = relative(DOCS, file).replace(/\\/g, '/');
+      const route = toRoute(relFromDocs);
+      if (!routes.has(route)) continue;
+      const meta = readMeta(file);
+      rows.push({
+        name: meta.title || relFromDocs.replace(/\.(md|mdx)$/i, '').split('/').pop(),
+        description: meta.description || '',
+        route,
+        source: `site/src/content/docs/${relFromDocs}`,
+      });
+    }
+    rows.sort((a, b) => a.route.localeCompare(b.route));
+    if (rows.length) out.push({ label, rows });
+  }
+  return out;
+}
+
+export function enumerateSkills(root, routes) {
+  const SKILLS = join(root, 'skills');
+  const byName = {};
+  for (const r of routes) {
+    const m = r.match(/^\/skills\/([^/]+)\/([^/]+)\/$/);
+    if (m) byName[m[2]] = { group: m[1], route: r };
+  }
+  const groups = {};
+  for (const dir of listDirs(SKILLS)) {
+    const skillMd = join(SKILLS, dir, 'SKILL.md');
+    if (!existsSync(skillMd)) continue;
+    const info = byName[dir];
+    if (!info) continue;
+    const meta = readMeta(skillMd);
+    (groups[info.group] ||= []).push({
+      name: dir,
+      description: meta.description || '',
+      route: info.route,
+      source: `skills/${dir}/SKILL.md`,
+    });
+  }
+  const ordered = [];
+  for (const [group, label] of GROUP_ORDER) {
+    if (!groups[group]) continue;
+    groups[group].sort((a, b) => a.name.localeCompare(b.name));
+    ordered.push({ group, label, rows: groups[group] });
+  }
+  // Any unexpected group not in GROUP_ORDER, appended alphabetically.
+  for (const group of Object.keys(groups).sort()) {
+    if (GROUP_ORDER.some(([g]) => g === group)) continue;
+    groups[group].sort((a, b) => a.name.localeCompare(b.name));
+    ordered.push({ group, label: group, rows: groups[group] });
+  }
+  return ordered;
+}
+
+export function enumerateWorkflows(root, routes) {
+  const WF = join(root, '_workflows');
+  const rows = [];
+  if (!existsSync(WF)) return rows;
+  for (const f of readdirSync(WF).filter((f) => f.endsWith('.md') && f !== 'README.md').sort()) {
+    const name = f.replace(/\.md$/, '');
+    const route = `/workflows/${name}/`;
+    if (!routes.has(route)) continue;
+    const meta = readMeta(join(WF, f));
+    rows.push({ name, description: meta.description || meta.title || '', route, source: `_workflows/${f}` });
+  }
+  return rows;
+}
+
+export function enumerateSamples(root, routes) {
+  const SAMPLES = join(root, 'library', 'skill-output-samples');
+  const out = [];
+  for (const skill of listDirs(SAMPLES)) {
+    const dir = join(SAMPLES, skill);
+    const rows = [];
+    for (const f of readdirSync(dir).filter((f) => f.startsWith('sample_') && f.endsWith('.md')).sort()) {
+      const stem = f.replace(/\.md$/, '');
+      const route = `/samples/${skill}/${stem}/`;
+      if (!routes.has(route)) continue;
+      rows.push({ scenario: scenarioLabel(stem, skill), route, source: `library/skill-output-samples/${skill}/${f}` });
+    }
+    if (rows.length) out.push({ skill, sourceDir: `library/skill-output-samples/${skill}/`, rows });
+  }
+  return out;
+}
+
+export function enumerateShowcase(root, routes) {
+  const rows = [];
+  for (const r of [...routes].sort()) {
+    const m = r.match(/^\/showcase\/([^/]+)\/$/);
+    if (m) rows.push({ thread: m[1], route: r });
+  }
+  return rows;
+}
+
+export function buildModel(root) {
+  const routes = parseManifest(readFileSync(join(root, 'scripts', 'route-manifest.txt'), 'utf8'));
+  return {
+    routes,
+    docs: enumerateDocs(root, routes),
+    skills: enumerateSkills(root, routes),
+    workflows: enumerateWorkflows(root, routes),
+    samples: enumerateSamples(root, routes),
+    showcase: enumerateShowcase(root, routes),
+  };
+}
+
+// Every repo source path the index links (used by the disk-existence guard).
+export function collectSources(model) {
+  const out = [];
+  for (const s of model.docs) for (const r of s.rows) out.push(r.source);
+  for (const g of model.skills) for (const r of g.rows) out.push(r.source);
+  for (const r of model.workflows) out.push(r.source);
+  for (const s of model.samples) {
+    out.push(s.sourceDir.replace(/\/$/, ''));
+    for (const r of s.rows) out.push(r.source);
+  }
+  return out;
+}
