@@ -1,6 +1,6 @@
 ---
 title: Skill Finder
-description: Find the right PM skill for your task . browse by need, artifact type, or phase.
+description: Find the right PM skill for your task - browse by need, artifact type, or phase.
 tags:
   - Guides
 ---
