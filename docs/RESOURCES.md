@@ -223,7 +223,7 @@ Every entry links the published page on the docs site and the file in this repo 
 
 Grouped by skill. Source library: [library/skill-output-samples/](../library/skill-output-samples/)
 
-### define-hypothesis  (source: [library/skill-output-samples/define-hypothesis/](../library/skill-output-samples/define-hypothesis/))
+### define-hypothesis (source: [library/skill-output-samples/define-hypothesis/](../library/skill-output-samples/define-hypothesis/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -231,7 +231,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/define-hypothesis/sample_define-hypothesis_storevine_campaigns/) | [.md](../library/skill-output-samples/define-hypothesis/sample_define-hypothesis_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/define-hypothesis/sample_define-hypothesis_workbench_blueprints/) | [.md](../library/skill-output-samples/define-hypothesis/sample_define-hypothesis_workbench_blueprints.md) |
 
-### define-jtbd-canvas  (source: [library/skill-output-samples/define-jtbd-canvas/](../library/skill-output-samples/define-jtbd-canvas/))
+### define-jtbd-canvas (source: [library/skill-output-samples/define-jtbd-canvas/](../library/skill-output-samples/define-jtbd-canvas/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -239,7 +239,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/define-jtbd-canvas/sample_define-jtbd-canvas_storevine_campaigns/) | [.md](../library/skill-output-samples/define-jtbd-canvas/sample_define-jtbd-canvas_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/define-jtbd-canvas/sample_define-jtbd-canvas_workbench_blueprints/) | [.md](../library/skill-output-samples/define-jtbd-canvas/sample_define-jtbd-canvas_workbench_blueprints.md) |
 
-### define-opportunity-tree  (source: [library/skill-output-samples/define-opportunity-tree/](../library/skill-output-samples/define-opportunity-tree/))
+### define-opportunity-tree (source: [library/skill-output-samples/define-opportunity-tree/](../library/skill-output-samples/define-opportunity-tree/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -247,7 +247,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/define-opportunity-tree/sample_define-opportunity-tree_storevine_campaigns/) | [.md](../library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/define-opportunity-tree/sample_define-opportunity-tree_workbench_blueprints/) | [.md](../library/skill-output-samples/define-opportunity-tree/sample_define-opportunity-tree_workbench_blueprints.md) |
 
-### define-prioritization-framework  (source: [library/skill-output-samples/define-prioritization-framework/](../library/skill-output-samples/define-prioritization-framework/))
+### define-prioritization-framework (source: [library/skill-output-samples/define-prioritization-framework/](../library/skill-output-samples/define-prioritization-framework/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -255,7 +255,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / mvp-scope | [page](https://product-on-purpose.github.io/pm-skills/samples/define-prioritization-framework/sample_define-prioritization-framework_storevine_mvp-scope/) | [.md](../library/skill-output-samples/define-prioritization-framework/sample_define-prioritization-framework_storevine_mvp-scope.md) |
 | workbench / hypothesis-triage | [page](https://product-on-purpose.github.io/pm-skills/samples/define-prioritization-framework/sample_define-prioritization-framework_workbench_hypothesis-triage/) | [.md](../library/skill-output-samples/define-prioritization-framework/sample_define-prioritization-framework_workbench_hypothesis-triage.md) |
 
-### define-problem-statement  (source: [library/skill-output-samples/define-problem-statement/](../library/skill-output-samples/define-problem-statement/))
+### define-problem-statement (source: [library/skill-output-samples/define-problem-statement/](../library/skill-output-samples/define-problem-statement/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -263,13 +263,13 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/define-problem-statement/sample_define-problem-statement_storevine_campaigns/) | [.md](../library/skill-output-samples/define-problem-statement/sample_define-problem-statement_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/define-problem-statement/sample_define-problem-statement_workbench_blueprints/) | [.md](../library/skill-output-samples/define-problem-statement/sample_define-problem-statement_workbench_blueprints.md) |
 
-### deliver-acceptance-criteria  (source: [library/skill-output-samples/deliver-acceptance-criteria/](../library/skill-output-samples/deliver-acceptance-criteria/))
+### deliver-acceptance-criteria (source: [library/skill-output-samples/deliver-acceptance-criteria/](../library/skill-output-samples/deliver-acceptance-criteria/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
 | storevine / campaigns-email-builder | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-acceptance-criteria/sample_deliver-acceptance-criteria_storevine_campaigns-email-builder/) | [.md](../library/skill-output-samples/deliver-acceptance-criteria/sample_deliver-acceptance-criteria_storevine_campaigns-email-builder.md) |
 
-### deliver-edge-cases  (source: [library/skill-output-samples/deliver-edge-cases/](../library/skill-output-samples/deliver-edge-cases/))
+### deliver-edge-cases (source: [library/skill-output-samples/deliver-edge-cases/](../library/skill-output-samples/deliver-edge-cases/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -277,7 +277,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-edge-cases/sample_deliver-edge-cases_storevine_campaigns/) | [.md](../library/skill-output-samples/deliver-edge-cases/sample_deliver-edge-cases_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-edge-cases/sample_deliver-edge-cases_workbench_blueprints/) | [.md](../library/skill-output-samples/deliver-edge-cases/sample_deliver-edge-cases_workbench_blueprints.md) |
 
-### deliver-launch-checklist  (source: [library/skill-output-samples/deliver-launch-checklist/](../library/skill-output-samples/deliver-launch-checklist/))
+### deliver-launch-checklist (source: [library/skill-output-samples/deliver-launch-checklist/](../library/skill-output-samples/deliver-launch-checklist/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -285,7 +285,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-launch-checklist/sample_deliver-launch-checklist_storevine_campaigns/) | [.md](../library/skill-output-samples/deliver-launch-checklist/sample_deliver-launch-checklist_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-launch-checklist/sample_deliver-launch-checklist_workbench_blueprints/) | [.md](../library/skill-output-samples/deliver-launch-checklist/sample_deliver-launch-checklist_workbench_blueprints.md) |
 
-### deliver-prd  (source: [library/skill-output-samples/deliver-prd/](../library/skill-output-samples/deliver-prd/))
+### deliver-prd (source: [library/skill-output-samples/deliver-prd/](../library/skill-output-samples/deliver-prd/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -293,7 +293,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-prd/sample_deliver-prd_storevine_campaigns/) | [.md](../library/skill-output-samples/deliver-prd/sample_deliver-prd_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-prd/sample_deliver-prd_workbench_blueprints/) | [.md](../library/skill-output-samples/deliver-prd/sample_deliver-prd_workbench_blueprints.md) |
 
-### deliver-release-notes  (source: [library/skill-output-samples/deliver-release-notes/](../library/skill-output-samples/deliver-release-notes/))
+### deliver-release-notes (source: [library/skill-output-samples/deliver-release-notes/](../library/skill-output-samples/deliver-release-notes/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -301,7 +301,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-release-notes/sample_deliver-release-notes_storevine_campaigns/) | [.md](../library/skill-output-samples/deliver-release-notes/sample_deliver-release-notes_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-release-notes/sample_deliver-release-notes_workbench_blueprints/) | [.md](../library/skill-output-samples/deliver-release-notes/sample_deliver-release-notes_workbench_blueprints.md) |
 
-### deliver-user-stories  (source: [library/skill-output-samples/deliver-user-stories/](../library/skill-output-samples/deliver-user-stories/))
+### deliver-user-stories (source: [library/skill-output-samples/deliver-user-stories/](../library/skill-output-samples/deliver-user-stories/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -309,7 +309,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-user-stories/sample_deliver-user-stories_storevine_campaigns/) | [.md](../library/skill-output-samples/deliver-user-stories/sample_deliver-user-stories_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/deliver-user-stories/sample_deliver-user-stories_workbench_blueprints/) | [.md](../library/skill-output-samples/deliver-user-stories/sample_deliver-user-stories_workbench_blueprints.md) |
 
-### develop-adr  (source: [library/skill-output-samples/develop-adr/](../library/skill-output-samples/develop-adr/))
+### develop-adr (source: [library/skill-output-samples/develop-adr/](../library/skill-output-samples/develop-adr/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -317,7 +317,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/develop-adr/sample_develop-adr_storevine_campaigns/) | [.md](../library/skill-output-samples/develop-adr/sample_develop-adr_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/develop-adr/sample_develop-adr_workbench_blueprints/) | [.md](../library/skill-output-samples/develop-adr/sample_develop-adr_workbench_blueprints.md) |
 
-### develop-design-rationale  (source: [library/skill-output-samples/develop-design-rationale/](../library/skill-output-samples/develop-design-rationale/))
+### develop-design-rationale (source: [library/skill-output-samples/develop-design-rationale/](../library/skill-output-samples/develop-design-rationale/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -325,7 +325,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/develop-design-rationale/sample_develop-design-rationale_storevine_campaigns/) | [.md](../library/skill-output-samples/develop-design-rationale/sample_develop-design-rationale_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/develop-design-rationale/sample_develop-design-rationale_workbench_blueprints/) | [.md](../library/skill-output-samples/develop-design-rationale/sample_develop-design-rationale_workbench_blueprints.md) |
 
-### develop-solution-brief  (source: [library/skill-output-samples/develop-solution-brief/](../library/skill-output-samples/develop-solution-brief/))
+### develop-solution-brief (source: [library/skill-output-samples/develop-solution-brief/](../library/skill-output-samples/develop-solution-brief/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -333,7 +333,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/develop-solution-brief/sample_develop-solution-brief_storevine_campaigns/) | [.md](../library/skill-output-samples/develop-solution-brief/sample_develop-solution-brief_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/develop-solution-brief/sample_develop-solution-brief_workbench_blueprints/) | [.md](../library/skill-output-samples/develop-solution-brief/sample_develop-solution-brief_workbench_blueprints.md) |
 
-### develop-spike-summary  (source: [library/skill-output-samples/develop-spike-summary/](../library/skill-output-samples/develop-spike-summary/))
+### develop-spike-summary (source: [library/skill-output-samples/develop-spike-summary/](../library/skill-output-samples/develop-spike-summary/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -341,7 +341,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/develop-spike-summary/sample_develop-spike-summary_storevine_campaigns/) | [.md](../library/skill-output-samples/develop-spike-summary/sample_develop-spike-summary_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/develop-spike-summary/sample_develop-spike-summary_workbench_blueprints/) | [.md](../library/skill-output-samples/develop-spike-summary/sample_develop-spike-summary_workbench_blueprints.md) |
 
-### discover-competitive-analysis  (source: [library/skill-output-samples/discover-competitive-analysis/](../library/skill-output-samples/discover-competitive-analysis/))
+### discover-competitive-analysis (source: [library/skill-output-samples/discover-competitive-analysis/](../library/skill-output-samples/discover-competitive-analysis/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -349,7 +349,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-competitive-analysis/sample_discover-competitive-analysis_storevine_campaigns/) | [.md](../library/skill-output-samples/discover-competitive-analysis/sample_discover-competitive-analysis_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-competitive-analysis/sample_discover-competitive-analysis_workbench_blueprints/) | [.md](../library/skill-output-samples/discover-competitive-analysis/sample_discover-competitive-analysis_workbench_blueprints.md) |
 
-### discover-interview-synthesis  (source: [library/skill-output-samples/discover-interview-synthesis/](../library/skill-output-samples/discover-interview-synthesis/))
+### discover-interview-synthesis (source: [library/skill-output-samples/discover-interview-synthesis/](../library/skill-output-samples/discover-interview-synthesis/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -357,7 +357,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-interview-synthesis/sample_discover-interview-synthesis_storevine_campaigns/) | [.md](../library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-interview-synthesis/sample_discover-interview-synthesis_workbench_blueprints/) | [.md](../library/skill-output-samples/discover-interview-synthesis/sample_discover-interview-synthesis_workbench_blueprints.md) |
 
-### discover-journey-map  (source: [library/skill-output-samples/discover-journey-map/](../library/skill-output-samples/discover-journey-map/))
+### discover-journey-map (source: [library/skill-output-samples/discover-journey-map/](../library/skill-output-samples/discover-journey-map/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -365,7 +365,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / procure-to-renew | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-journey-map/sample_discover-journey-map_storevine_procure-to-renew/) | [.md](../library/skill-output-samples/discover-journey-map/sample_discover-journey-map_storevine_procure-to-renew.md) |
 | workbench / dev-onboarding | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-journey-map/sample_discover-journey-map_workbench_dev-onboarding/) | [.md](../library/skill-output-samples/discover-journey-map/sample_discover-journey-map_workbench_dev-onboarding.md) |
 
-### discover-market-sizing  (source: [library/skill-output-samples/discover-market-sizing/](../library/skill-output-samples/discover-market-sizing/))
+### discover-market-sizing (source: [library/skill-output-samples/discover-market-sizing/](../library/skill-output-samples/discover-market-sizing/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -373,7 +373,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / inventory-forecasting | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-market-sizing/sample_discover-market-sizing_storevine_inventory-forecasting/) | [.md](../library/skill-output-samples/discover-market-sizing/sample_discover-market-sizing_storevine_inventory-forecasting.md) |
 | workbench / devex-tooling | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-market-sizing/sample_discover-market-sizing_workbench_devex-tooling/) | [.md](../library/skill-output-samples/discover-market-sizing/sample_discover-market-sizing_workbench_devex-tooling.md) |
 
-### discover-stakeholder-summary  (source: [library/skill-output-samples/discover-stakeholder-summary/](../library/skill-output-samples/discover-stakeholder-summary/))
+### discover-stakeholder-summary (source: [library/skill-output-samples/discover-stakeholder-summary/](../library/skill-output-samples/discover-stakeholder-summary/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -381,7 +381,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_storevine_campaigns/) | [.md](../library/skill-output-samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_workbench_blueprints/) | [.md](../library/skill-output-samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_workbench_blueprints.md) |
 
-### foundation-lean-canvas  (source: [library/skill-output-samples/foundation-lean-canvas/](../library/skill-output-samples/foundation-lean-canvas/))
+### foundation-lean-canvas (source: [library/skill-output-samples/foundation-lean-canvas/](../library/skill-output-samples/foundation-lean-canvas/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -389,7 +389,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-lean-canvas/sample_foundation-lean-canvas_storevine_campaigns/) | [.md](../library/skill-output-samples/foundation-lean-canvas/sample_foundation-lean-canvas_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-lean-canvas/sample_foundation-lean-canvas_workbench_blueprints/) | [.md](../library/skill-output-samples/foundation-lean-canvas/sample_foundation-lean-canvas_workbench_blueprints.md) |
 
-### foundation-meeting-agenda  (source: [library/skill-output-samples/foundation-meeting-agenda/](../library/skill-output-samples/foundation-meeting-agenda/))
+### foundation-meeting-agenda (source: [library/skill-output-samples/foundation-meeting-agenda/](../library/skill-output-samples/foundation-meeting-agenda/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -397,7 +397,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns-kickoff | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-meeting-agenda/sample_foundation-meeting-agenda_storevine_campaigns-kickoff/) | [.md](../library/skill-output-samples/foundation-meeting-agenda/sample_foundation-meeting-agenda_storevine_campaigns-kickoff.md) |
 | workbench / blueprints-approval-design | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-meeting-agenda/sample_foundation-meeting-agenda_workbench_blueprints-approval-design/) | [.md](../library/skill-output-samples/foundation-meeting-agenda/sample_foundation-meeting-agenda_workbench_blueprints-approval-design.md) |
 
-### foundation-meeting-brief  (source: [library/skill-output-samples/foundation-meeting-brief/](../library/skill-output-samples/foundation-meeting-brief/))
+### foundation-meeting-brief (source: [library/skill-output-samples/foundation-meeting-brief/](../library/skill-output-samples/foundation-meeting-brief/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -405,7 +405,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns-exec-briefing | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-meeting-brief/sample_foundation-meeting-brief_storevine_campaigns-exec-briefing/) | [.md](../library/skill-output-samples/foundation-meeting-brief/sample_foundation-meeting-brief_storevine_campaigns-exec-briefing.md) |
 | workbench / vp-ops-roi-briefing | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-meeting-brief/sample_foundation-meeting-brief_workbench_vp-ops-roi-briefing/) | [.md](../library/skill-output-samples/foundation-meeting-brief/sample_foundation-meeting-brief_workbench_vp-ops-roi-briefing.md) |
 
-### foundation-meeting-recap  (source: [library/skill-output-samples/foundation-meeting-recap/](../library/skill-output-samples/foundation-meeting-recap/))
+### foundation-meeting-recap (source: [library/skill-output-samples/foundation-meeting-recap/](../library/skill-output-samples/foundation-meeting-recap/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -413,7 +413,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns-pricing-decision | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-meeting-recap/sample_foundation-meeting-recap_storevine_campaigns-pricing-decision/) | [.md](../library/skill-output-samples/foundation-meeting-recap/sample_foundation-meeting-recap_storevine_campaigns-pricing-decision.md) |
 | workbench / blueprints-customer-feedback | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-meeting-recap/sample_foundation-meeting-recap_workbench_blueprints-customer-feedback/) | [.md](../library/skill-output-samples/foundation-meeting-recap/sample_foundation-meeting-recap_workbench_blueprints-customer-feedback.md) |
 
-### foundation-meeting-synthesize  (source: [library/skill-output-samples/foundation-meeting-synthesize/](../library/skill-output-samples/foundation-meeting-synthesize/))
+### foundation-meeting-synthesize (source: [library/skill-output-samples/foundation-meeting-synthesize/](../library/skill-output-samples/foundation-meeting-synthesize/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -421,7 +421,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / q1-campaigns-retro | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-meeting-synthesize/sample_foundation-meeting-synthesize_storevine_q1-campaigns-retro/) | [.md](../library/skill-output-samples/foundation-meeting-synthesize/sample_foundation-meeting-synthesize_storevine_q1-campaigns-retro.md) |
 | workbench / blueprints-board-prep | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-meeting-synthesize/sample_foundation-meeting-synthesize_workbench_blueprints-board-prep/) | [.md](../library/skill-output-samples/foundation-meeting-synthesize/sample_foundation-meeting-synthesize_workbench_blueprints-board-prep.md) |
 
-### foundation-okr-writer  (source: [library/skill-output-samples/foundation-okr-writer/](../library/skill-output-samples/foundation-okr-writer/))
+### foundation-okr-writer (source: [library/skill-output-samples/foundation-okr-writer/](../library/skill-output-samples/foundation-okr-writer/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -429,7 +429,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns-q3 | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3/) | [.md](../library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_storevine_campaigns-q3.md) |
 | workbench / blueprints-q3 | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-okr-writer/sample_foundation-okr-writer_workbench_blueprints-q3/) | [.md](../library/skill-output-samples/foundation-okr-writer/sample_foundation-okr-writer_workbench_blueprints-q3.md) |
 
-### foundation-persona  (source: [library/skill-output-samples/foundation-persona/](../library/skill-output-samples/foundation-persona/))
+### foundation-persona (source: [library/skill-output-samples/foundation-persona/](../library/skill-output-samples/foundation-persona/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -446,7 +446,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | workbench / product-brief-blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-persona/sample_foundation-persona_workbench_product-brief-blueprints/) | [.md](../library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_product-brief-blueprints.md) |
 | workbench / product-detailed-blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-persona/sample_foundation-persona_workbench_product-detailed-blueprints/) | [.md](../library/skill-output-samples/foundation-persona/sample_foundation-persona_workbench_product-detailed-blueprints.md) |
 
-### foundation-prioritized-action-plan  (source: [library/skill-output-samples/foundation-prioritized-action-plan/](../library/skill-output-samples/foundation-prioritized-action-plan/))
+### foundation-prioritized-action-plan (source: [library/skill-output-samples/foundation-prioritized-action-plan/](../library/skill-output-samples/foundation-prioritized-action-plan/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -454,7 +454,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-prioritized-action-plan/sample_foundation-prioritized-action-plan_storevine_campaigns/) | [.md](../library/skill-output-samples/foundation-prioritized-action-plan/sample_foundation-prioritized-action-plan_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-prioritized-action-plan/sample_foundation-prioritized-action-plan_workbench_blueprints/) | [.md](../library/skill-output-samples/foundation-prioritized-action-plan/sample_foundation-prioritized-action-plan_workbench_blueprints.md) |
 
-### foundation-stakeholder-update  (source: [library/skill-output-samples/foundation-stakeholder-update/](../library/skill-output-samples/foundation-stakeholder-update/))
+### foundation-stakeholder-update (source: [library/skill-output-samples/foundation-stakeholder-update/](../library/skill-output-samples/foundation-stakeholder-update/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -462,7 +462,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns-slack-support | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-stakeholder-update/sample_foundation-stakeholder-update_storevine_campaigns-slack-support/) | [.md](../library/skill-output-samples/foundation-stakeholder-update/sample_foundation-stakeholder-update_storevine_campaigns-slack-support.md) |
 | workbench / blueprints-notion-enterprise-cs | [page](https://product-on-purpose.github.io/pm-skills/samples/foundation-stakeholder-update/sample_foundation-stakeholder-update_workbench_blueprints-notion-enterprise-cs/) | [.md](../library/skill-output-samples/foundation-stakeholder-update/sample_foundation-stakeholder-update_workbench_blueprints-notion-enterprise-cs.md) |
 
-### iterate-lessons-log  (source: [library/skill-output-samples/iterate-lessons-log/](../library/skill-output-samples/iterate-lessons-log/))
+### iterate-lessons-log (source: [library/skill-output-samples/iterate-lessons-log/](../library/skill-output-samples/iterate-lessons-log/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -470,7 +470,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/iterate-lessons-log/sample_iterate-lessons-log_storevine_campaigns/) | [.md](../library/skill-output-samples/iterate-lessons-log/sample_iterate-lessons-log_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/iterate-lessons-log/sample_iterate-lessons-log_workbench_blueprints/) | [.md](../library/skill-output-samples/iterate-lessons-log/sample_iterate-lessons-log_workbench_blueprints.md) |
 
-### iterate-pivot-decision  (source: [library/skill-output-samples/iterate-pivot-decision/](../library/skill-output-samples/iterate-pivot-decision/))
+### iterate-pivot-decision (source: [library/skill-output-samples/iterate-pivot-decision/](../library/skill-output-samples/iterate-pivot-decision/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -478,7 +478,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/iterate-pivot-decision/sample_iterate-pivot-decision_storevine_campaigns/) | [.md](../library/skill-output-samples/iterate-pivot-decision/sample_iterate-pivot-decision_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/iterate-pivot-decision/sample_iterate-pivot-decision_workbench_blueprints/) | [.md](../library/skill-output-samples/iterate-pivot-decision/sample_iterate-pivot-decision_workbench_blueprints.md) |
 
-### iterate-refinement-notes  (source: [library/skill-output-samples/iterate-refinement-notes/](../library/skill-output-samples/iterate-refinement-notes/))
+### iterate-refinement-notes (source: [library/skill-output-samples/iterate-refinement-notes/](../library/skill-output-samples/iterate-refinement-notes/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -486,7 +486,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/iterate-refinement-notes/sample_iterate-refinement-notes_storevine_campaigns/) | [.md](../library/skill-output-samples/iterate-refinement-notes/sample_iterate-refinement-notes_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/iterate-refinement-notes/sample_iterate-refinement-notes_workbench_blueprints/) | [.md](../library/skill-output-samples/iterate-refinement-notes/sample_iterate-refinement-notes_workbench_blueprints.md) |
 
-### iterate-retrospective  (source: [library/skill-output-samples/iterate-retrospective/](../library/skill-output-samples/iterate-retrospective/))
+### iterate-retrospective (source: [library/skill-output-samples/iterate-retrospective/](../library/skill-output-samples/iterate-retrospective/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -494,7 +494,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/iterate-retrospective/sample_iterate-retrospective_storevine_campaigns/) | [.md](../library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/iterate-retrospective/sample_iterate-retrospective_workbench_blueprints/) | [.md](../library/skill-output-samples/iterate-retrospective/sample_iterate-retrospective_workbench_blueprints.md) |
 
-### measure-dashboard-requirements  (source: [library/skill-output-samples/measure-dashboard-requirements/](../library/skill-output-samples/measure-dashboard-requirements/))
+### measure-dashboard-requirements (source: [library/skill-output-samples/measure-dashboard-requirements/](../library/skill-output-samples/measure-dashboard-requirements/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -502,7 +502,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_storevine_campaigns/) | [.md](../library/skill-output-samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_workbench_blueprints/) | [.md](../library/skill-output-samples/measure-dashboard-requirements/sample_measure-dashboard-requirements_workbench_blueprints.md) |
 
-### measure-experiment-design  (source: [library/skill-output-samples/measure-experiment-design/](../library/skill-output-samples/measure-experiment-design/))
+### measure-experiment-design (source: [library/skill-output-samples/measure-experiment-design/](../library/skill-output-samples/measure-experiment-design/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -510,7 +510,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-experiment-design/sample_measure-experiment-design_storevine_campaigns/) | [.md](../library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-experiment-design/sample_measure-experiment-design_workbench_blueprints/) | [.md](../library/skill-output-samples/measure-experiment-design/sample_measure-experiment-design_workbench_blueprints.md) |
 
-### measure-experiment-results  (source: [library/skill-output-samples/measure-experiment-results/](../library/skill-output-samples/measure-experiment-results/))
+### measure-experiment-results (source: [library/skill-output-samples/measure-experiment-results/](../library/skill-output-samples/measure-experiment-results/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -518,7 +518,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-experiment-results/sample_measure-experiment-results_storevine_campaigns/) | [.md](../library/skill-output-samples/measure-experiment-results/sample_measure-experiment-results_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-experiment-results/sample_measure-experiment-results_workbench_blueprints/) | [.md](../library/skill-output-samples/measure-experiment-results/sample_measure-experiment-results_workbench_blueprints.md) |
 
-### measure-instrumentation-spec  (source: [library/skill-output-samples/measure-instrumentation-spec/](../library/skill-output-samples/measure-instrumentation-spec/))
+### measure-instrumentation-spec (source: [library/skill-output-samples/measure-instrumentation-spec/](../library/skill-output-samples/measure-instrumentation-spec/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -526,7 +526,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_storevine_campaigns/) | [.md](../library/skill-output-samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_storevine_campaigns.md) |
 | workbench / blueprints | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_workbench_blueprints/) | [.md](../library/skill-output-samples/measure-instrumentation-spec/sample_measure-instrumentation-spec_workbench_blueprints.md) |
 
-### measure-okr-grader  (source: [library/skill-output-samples/measure-okr-grader/](../library/skill-output-samples/measure-okr-grader/))
+### measure-okr-grader (source: [library/skill-output-samples/measure-okr-grader/](../library/skill-output-samples/measure-okr-grader/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -534,7 +534,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / campaigns-q3 | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-okr-grader/sample_measure-okr-grader_storevine_campaigns-q3/) | [.md](../library/skill-output-samples/measure-okr-grader/sample_measure-okr-grader_storevine_campaigns-q3.md) |
 | workbench / blueprints-q3 | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-okr-grader/sample_measure-okr-grader_workbench_blueprints-q3/) | [.md](../library/skill-output-samples/measure-okr-grader/sample_measure-okr-grader_workbench_blueprints-q3.md) |
 
-### measure-survey-analysis  (source: [library/skill-output-samples/measure-survey-analysis/](../library/skill-output-samples/measure-survey-analysis/))
+### measure-survey-analysis (source: [library/skill-output-samples/measure-survey-analysis/](../library/skill-output-samples/measure-survey-analysis/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -542,7 +542,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / feature-validation | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-survey-analysis/sample_measure-survey-analysis_storevine_feature-validation/) | [.md](../library/skill-output-samples/measure-survey-analysis/sample_measure-survey-analysis_storevine_feature-validation.md) |
 | workbench / devex-pulse | [page](https://product-on-purpose.github.io/pm-skills/samples/measure-survey-analysis/sample_measure-survey-analysis_workbench_devex-pulse/) | [.md](../library/skill-output-samples/measure-survey-analysis/sample_measure-survey-analysis_workbench_devex-pulse.md) |
 
-### tool-design-sprint-brief  (source: [library/skill-output-samples/tool-design-sprint-brief/](../library/skill-output-samples/tool-design-sprint-brief/))
+### tool-design-sprint-brief (source: [library/skill-output-samples/tool-design-sprint-brief/](../library/skill-output-samples/tool-design-sprint-brief/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -550,7 +550,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-brief/sample_tool-design-sprint-brief_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-design-sprint-brief/sample_tool-design-sprint-brief_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-brief/sample_tool-design-sprint-brief_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-design-sprint-brief/sample_tool-design-sprint-brief_workbench_debugging-toolchain.md) |
 
-### tool-design-sprint-decide-and-storyboard  (source: [library/skill-output-samples/tool-design-sprint-decide-and-storyboard/](../library/skill-output-samples/tool-design-sprint-decide-and-storyboard/))
+### tool-design-sprint-decide-and-storyboard (source: [library/skill-output-samples/tool-design-sprint-decide-and-storyboard/](../library/skill-output-samples/tool-design-sprint-decide-and-storyboard/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -558,7 +558,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-decide-and-storyboard/sample_tool-design-sprint-decide-and-storyboard_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-design-sprint-decide-and-storyboard/sample_tool-design-sprint-decide-and-storyboard_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-decide-and-storyboard/sample_tool-design-sprint-decide-and-storyboard_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-design-sprint-decide-and-storyboard/sample_tool-design-sprint-decide-and-storyboard_workbench_debugging-toolchain.md) |
 
-### tool-design-sprint-map-and-target  (source: [library/skill-output-samples/tool-design-sprint-map-and-target/](../library/skill-output-samples/tool-design-sprint-map-and-target/))
+### tool-design-sprint-map-and-target (source: [library/skill-output-samples/tool-design-sprint-map-and-target/](../library/skill-output-samples/tool-design-sprint-map-and-target/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -566,7 +566,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-map-and-target/sample_tool-design-sprint-map-and-target_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-design-sprint-map-and-target/sample_tool-design-sprint-map-and-target_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-map-and-target/sample_tool-design-sprint-map-and-target_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-design-sprint-map-and-target/sample_tool-design-sprint-map-and-target_workbench_debugging-toolchain.md) |
 
-### tool-design-sprint-prototype-plan  (source: [library/skill-output-samples/tool-design-sprint-prototype-plan/](../library/skill-output-samples/tool-design-sprint-prototype-plan/))
+### tool-design-sprint-prototype-plan (source: [library/skill-output-samples/tool-design-sprint-prototype-plan/](../library/skill-output-samples/tool-design-sprint-prototype-plan/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -574,7 +574,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-prototype-plan/sample_tool-design-sprint-prototype-plan_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-design-sprint-prototype-plan/sample_tool-design-sprint-prototype-plan_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-prototype-plan/sample_tool-design-sprint-prototype-plan_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-design-sprint-prototype-plan/sample_tool-design-sprint-prototype-plan_workbench_debugging-toolchain.md) |
 
-### tool-design-sprint-readiness  (source: [library/skill-output-samples/tool-design-sprint-readiness/](../library/skill-output-samples/tool-design-sprint-readiness/))
+### tool-design-sprint-readiness (source: [library/skill-output-samples/tool-design-sprint-readiness/](../library/skill-output-samples/tool-design-sprint-readiness/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -582,7 +582,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-readiness/sample_tool-design-sprint-readiness_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-design-sprint-readiness/sample_tool-design-sprint-readiness_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-readiness/sample_tool-design-sprint-readiness_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-design-sprint-readiness/sample_tool-design-sprint-readiness_workbench_debugging-toolchain.md) |
 
-### tool-design-sprint-sketch  (source: [library/skill-output-samples/tool-design-sprint-sketch/](../library/skill-output-samples/tool-design-sprint-sketch/))
+### tool-design-sprint-sketch (source: [library/skill-output-samples/tool-design-sprint-sketch/](../library/skill-output-samples/tool-design-sprint-sketch/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -590,7 +590,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-sketch/sample_tool-design-sprint-sketch_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-design-sprint-sketch/sample_tool-design-sprint-sketch_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-sketch/sample_tool-design-sprint-sketch_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-design-sprint-sketch/sample_tool-design-sprint-sketch_workbench_debugging-toolchain.md) |
 
-### tool-design-sprint-test-and-score  (source: [library/skill-output-samples/tool-design-sprint-test-and-score/](../library/skill-output-samples/tool-design-sprint-test-and-score/))
+### tool-design-sprint-test-and-score (source: [library/skill-output-samples/tool-design-sprint-test-and-score/](../library/skill-output-samples/tool-design-sprint-test-and-score/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -598,7 +598,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-test-and-score/sample_tool-design-sprint-test-and-score_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-design-sprint-test-and-score/sample_tool-design-sprint-test-and-score_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-design-sprint-test-and-score/sample_tool-design-sprint-test-and-score_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-design-sprint-test-and-score/sample_tool-design-sprint-test-and-score_workbench_debugging-toolchain.md) |
 
-### tool-foundation-sprint-approach-options  (source: [library/skill-output-samples/tool-foundation-sprint-approach-options/](../library/skill-output-samples/tool-foundation-sprint-approach-options/))
+### tool-foundation-sprint-approach-options (source: [library/skill-output-samples/tool-foundation-sprint-approach-options/](../library/skill-output-samples/tool-foundation-sprint-approach-options/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -606,7 +606,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-approach-options/sample_tool-foundation-sprint-approach-options_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-foundation-sprint-approach-options/sample_tool-foundation-sprint-approach-options_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-approach-options/sample_tool-foundation-sprint-approach-options_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-foundation-sprint-approach-options/sample_tool-foundation-sprint-approach-options_workbench_debugging-toolchain.md) |
 
-### tool-foundation-sprint-basics  (source: [library/skill-output-samples/tool-foundation-sprint-basics/](../library/skill-output-samples/tool-foundation-sprint-basics/))
+### tool-foundation-sprint-basics (source: [library/skill-output-samples/tool-foundation-sprint-basics/](../library/skill-output-samples/tool-foundation-sprint-basics/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -614,7 +614,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-basics/sample_tool-foundation-sprint-basics_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-foundation-sprint-basics/sample_tool-foundation-sprint-basics_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-basics/sample_tool-foundation-sprint-basics_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-foundation-sprint-basics/sample_tool-foundation-sprint-basics_workbench_debugging-toolchain.md) |
 
-### tool-foundation-sprint-brief  (source: [library/skill-output-samples/tool-foundation-sprint-brief/](../library/skill-output-samples/tool-foundation-sprint-brief/))
+### tool-foundation-sprint-brief (source: [library/skill-output-samples/tool-foundation-sprint-brief/](../library/skill-output-samples/tool-foundation-sprint-brief/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -622,7 +622,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-brief/sample_tool-foundation-sprint-brief_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-foundation-sprint-brief/sample_tool-foundation-sprint-brief_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-brief/sample_tool-foundation-sprint-brief_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-foundation-sprint-brief/sample_tool-foundation-sprint-brief_workbench_debugging-toolchain.md) |
 
-### tool-foundation-sprint-differentiation  (source: [library/skill-output-samples/tool-foundation-sprint-differentiation/](../library/skill-output-samples/tool-foundation-sprint-differentiation/))
+### tool-foundation-sprint-differentiation (source: [library/skill-output-samples/tool-foundation-sprint-differentiation/](../library/skill-output-samples/tool-foundation-sprint-differentiation/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -630,7 +630,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-differentiation/sample_tool-foundation-sprint-differentiation_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-foundation-sprint-differentiation/sample_tool-foundation-sprint-differentiation_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-differentiation/sample_tool-foundation-sprint-differentiation_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-foundation-sprint-differentiation/sample_tool-foundation-sprint-differentiation_workbench_debugging-toolchain.md) |
 
-### tool-foundation-sprint-founding-hypothesis  (source: [library/skill-output-samples/tool-foundation-sprint-founding-hypothesis/](../library/skill-output-samples/tool-foundation-sprint-founding-hypothesis/))
+### tool-foundation-sprint-founding-hypothesis (source: [library/skill-output-samples/tool-foundation-sprint-founding-hypothesis/](../library/skill-output-samples/tool-foundation-sprint-founding-hypothesis/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -638,7 +638,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-founding-hypothesis/sample_tool-foundation-sprint-founding-hypothesis_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-foundation-sprint-founding-hypothesis/sample_tool-foundation-sprint-founding-hypothesis_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-founding-hypothesis/sample_tool-foundation-sprint-founding-hypothesis_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-foundation-sprint-founding-hypothesis/sample_tool-foundation-sprint-founding-hypothesis_workbench_debugging-toolchain.md) |
 
-### tool-foundation-sprint-magic-lenses  (source: [library/skill-output-samples/tool-foundation-sprint-magic-lenses/](../library/skill-output-samples/tool-foundation-sprint-magic-lenses/))
+### tool-foundation-sprint-magic-lenses (source: [library/skill-output-samples/tool-foundation-sprint-magic-lenses/](../library/skill-output-samples/tool-foundation-sprint-magic-lenses/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -646,7 +646,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-magic-lenses/sample_tool-foundation-sprint-magic-lenses_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-foundation-sprint-magic-lenses/sample_tool-foundation-sprint-magic-lenses_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-magic-lenses/sample_tool-foundation-sprint-magic-lenses_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-foundation-sprint-magic-lenses/sample_tool-foundation-sprint-magic-lenses_workbench_debugging-toolchain.md) |
 
-### tool-foundation-sprint-readiness  (source: [library/skill-output-samples/tool-foundation-sprint-readiness/](../library/skill-output-samples/tool-foundation-sprint-readiness/))
+### tool-foundation-sprint-readiness (source: [library/skill-output-samples/tool-foundation-sprint-readiness/](../library/skill-output-samples/tool-foundation-sprint-readiness/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -654,7 +654,7 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-readiness/sample_tool-foundation-sprint-readiness_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-foundation-sprint-readiness/sample_tool-foundation-sprint-readiness_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-foundation-sprint-readiness/sample_tool-foundation-sprint-readiness_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-foundation-sprint-readiness/sample_tool-foundation-sprint-readiness_workbench_debugging-toolchain.md) |
 
-### tool-note-and-vote  (source: [library/skill-output-samples/tool-note-and-vote/](../library/skill-output-samples/tool-note-and-vote/))
+### tool-note-and-vote (source: [library/skill-output-samples/tool-note-and-vote/](../library/skill-output-samples/tool-note-and-vote/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
@@ -662,37 +662,37 @@ Grouped by skill. Source library: [library/skill-output-samples/](../library/ski
 | storevine / retail-direction | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-note-and-vote/sample_tool-note-and-vote_storevine_retail-direction/) | [.md](../library/skill-output-samples/tool-note-and-vote/sample_tool-note-and-vote_storevine_retail-direction.md) |
 | workbench / debugging-toolchain | [page](https://product-on-purpose.github.io/pm-skills/samples/tool-note-and-vote/sample_tool-note-and-vote_workbench_debugging-toolchain/) | [.md](../library/skill-output-samples/tool-note-and-vote/sample_tool-note-and-vote_workbench_debugging-toolchain.md) |
 
-### utility-mermaid-diagrams  (source: [library/skill-output-samples/utility-mermaid-diagrams/](../library/skill-output-samples/utility-mermaid-diagrams/))
+### utility-mermaid-diagrams (source: [library/skill-output-samples/utility-mermaid-diagrams/](../library/skill-output-samples/utility-mermaid-diagrams/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
 | storevine / campaign-flow | [page](https://product-on-purpose.github.io/pm-skills/samples/utility-mermaid-diagrams/sample_utility-mermaid-diagrams_storevine_campaign-flow/) | [.md](../library/skill-output-samples/utility-mermaid-diagrams/sample_utility-mermaid-diagrams_storevine_campaign-flow.md) |
 
-### utility-pm-skill-builder  (source: [library/skill-output-samples/utility-pm-skill-builder/](../library/skill-output-samples/utility-pm-skill-builder/))
+### utility-pm-skill-builder (source: [library/skill-output-samples/utility-pm-skill-builder/](../library/skill-output-samples/utility-pm-skill-builder/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
 | storevine / campaign-analytics-skill | [page](https://product-on-purpose.github.io/pm-skills/samples/utility-pm-skill-builder/sample_utility-pm-skill-builder_storevine_campaign-analytics-skill/) | [.md](../library/skill-output-samples/utility-pm-skill-builder/sample_utility-pm-skill-builder_storevine_campaign-analytics-skill.md) |
 
-### utility-pm-skill-iterate  (source: [library/skill-output-samples/utility-pm-skill-iterate/](../library/skill-output-samples/utility-pm-skill-iterate/))
+### utility-pm-skill-iterate (source: [library/skill-output-samples/utility-pm-skill-iterate/](../library/skill-output-samples/utility-pm-skill-iterate/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
 | storevine / iterate-campaign-analytics | [page](https://product-on-purpose.github.io/pm-skills/samples/utility-pm-skill-iterate/sample_utility-pm-skill-iterate_storevine_iterate-campaign-analytics/) | [.md](../library/skill-output-samples/utility-pm-skill-iterate/sample_utility-pm-skill-iterate_storevine_iterate-campaign-analytics.md) |
 
-### utility-pm-skill-validate  (source: [library/skill-output-samples/utility-pm-skill-validate/](../library/skill-output-samples/utility-pm-skill-validate/))
+### utility-pm-skill-validate (source: [library/skill-output-samples/utility-pm-skill-validate/](../library/skill-output-samples/utility-pm-skill-validate/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
 | storevine / validate-campaign-analytics | [page](https://product-on-purpose.github.io/pm-skills/samples/utility-pm-skill-validate/sample_utility-pm-skill-validate_storevine_validate-campaign-analytics/) | [.md](../library/skill-output-samples/utility-pm-skill-validate/sample_utility-pm-skill-validate_storevine_validate-campaign-analytics.md) |
 
-### utility-slideshow-creator  (source: [library/skill-output-samples/utility-slideshow-creator/](../library/skill-output-samples/utility-slideshow-creator/))
+### utility-slideshow-creator (source: [library/skill-output-samples/utility-slideshow-creator/](../library/skill-output-samples/utility-slideshow-creator/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|
 | storevine / campaigns-launch-deck | [page](https://product-on-purpose.github.io/pm-skills/samples/utility-slideshow-creator/sample_utility-slideshow-creator_storevine_campaigns-launch-deck/) | [.md](../library/skill-output-samples/utility-slideshow-creator/sample_utility-slideshow-creator_storevine_campaigns-launch-deck.md) |
 
-### utility-update-pm-skills  (source: [library/skill-output-samples/utility-update-pm-skills/](../library/skill-output-samples/utility-update-pm-skills/))
+### utility-update-pm-skills (source: [library/skill-output-samples/utility-update-pm-skills/](../library/skill-output-samples/utility-update-pm-skills/))
 
 | Scenario | Live page | Repo .md |
 |---|---|---|

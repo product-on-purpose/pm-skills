@@ -183,7 +183,11 @@ export function enumerateWorkflows(root, routes) {
   const WF = join(root, '_workflows');
   const rows = [];
   if (!existsSync(WF)) return rows;
-  for (const f of readdirSync(WF).filter((f) => f.endsWith('.md') && f !== 'README.md').sort()) {
+  const wfNames = readdirSync(WF, { withFileTypes: true })
+    .filter((e) => e.isFile() && e.name.endsWith('.md') && e.name !== 'README.md')
+    .map((e) => e.name)
+    .sort();
+  for (const f of wfNames) {
     const name = f.replace(/\.md$/, '');
     const route = `/workflows/${name}/`;
     if (!routes.has(route)) continue;
@@ -288,7 +292,7 @@ export function renderIndex(model) {
   L.push('## Samples', '');
   L.push('Grouped by skill. Source library: [library/skill-output-samples/](../library/skill-output-samples/)', '');
   for (const s of model.samples) {
-    L.push(`### ${s.skill}  (source: [${s.sourceDir}](${repoLink(s.sourceDir)}))`, '');
+    L.push(`### ${s.skill} (source: [${s.sourceDir}](${repoLink(s.sourceDir)}))`, '');
     L.push('| Scenario | Live page | Repo .md |', '|---|---|---|');
     for (const r of s.rows) {
       L.push(`| ${cell(r.scenario)} | [page](${SITE}${r.route}) | [.md](${repoLink(r.source)}) |`);

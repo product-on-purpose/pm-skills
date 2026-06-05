@@ -57,7 +57,7 @@ test('buildModel: every live route exists in the manifest', () => {
     ...model.samples.flatMap((s) => s.rows),
     ...model.showcase,
   ];
-  assert.ok(allRows.length > 50, `expected many rows, got ${allRows.length}`);
+  assert.ok(allRows.length > 200, `expected 300+ rows, got ${allRows.length}`);
   for (const r of allRows) assert.ok(model.routes.has(r.route), `route missing from manifest: ${r.route}`);
 });
 
@@ -85,7 +85,7 @@ import { renderIndex } from './gen-resource-index.mjs';
 test('renderIndex emits banner, sections, and correct link columns', () => {
   const model = {
     routes: new Set(),
-    docs: [{ label: 'Guides', rows: [{ name: 'Prompt Gallery', description: 'Real prompts', route: '/guides/prompt-gallery/', source: 'site/src/content/docs/guides/prompt-gallery.md' }] }],
+    docs: [{ label: 'Guides', rows: [{ name: 'Prompt Gallery', description: 'Real | prompts', route: '/guides/prompt-gallery/', source: 'site/src/content/docs/guides/prompt-gallery.md' }] }],
     skills: [{ group: 'deliver', label: 'Deliver', rows: [{ name: 'deliver-prd', description: 'PRD skill', route: '/skills/deliver/deliver-prd/', source: 'skills/deliver-prd/SKILL.md' }] }],
     workflows: [{ name: 'feature-kickoff', description: 'Kickoff', route: '/workflows/feature-kickoff/', source: '_workflows/feature-kickoff.md' }],
     samples: [{ skill: 'deliver-prd', sourceDir: 'library/skill-output-samples/deliver-prd/', rows: [{ scenario: 'storevine / campaigns', route: '/samples/deliver-prd/sample_deliver-prd_storevine_campaigns/', source: 'library/skill-output-samples/deliver-prd/sample_deliver-prd_storevine_campaigns.md' }] }],
@@ -97,6 +97,9 @@ test('renderIndex emits banner, sections, and correct link columns', () => {
   assert.match(md, /\[page\]\(https:\/\/product-on-purpose\.github\.io\/pm-skills\/guides\/prompt-gallery\/\)/);
   assert.match(md, /\[SKILL\.md\]\(\.\.\/skills\/deliver-prd\/SKILL\.md\)/);
   assert.match(md, /\.\.\/library\/skill-output-samples\/deliver-prd\/sample_deliver-prd_storevine_campaigns\.md/);
+  assert.match(md, /## Workflows/);
+  assert.match(md, /## Showcase/);
+  assert.match(md, /Real \\\| prompts/);
   assert.ok(md.endsWith('\n'));
   const EMDASH = String.fromCharCode(0x2014);
   assert.equal(md.includes(EMDASH), false, 'renderer emits no em-dashes');
