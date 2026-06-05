@@ -14,7 +14,7 @@ sidebar:
 
 v2.7.0 is the largest pm-skills release since the v2.0 restructure. It ships **two new skills**, introduces the **utility skill classification**, hardens the **CI pipeline**, cleans up **release packaging**, and delivers a comprehensive **documentation refresh** across the entire public surface.
 
-The headline feature is the **PM Skill Builder** (`/pm-skill-builder`) . the first utility-classified skill, which guides contributors through creating new PM skills interactively. This closes the loop on the skill creation workflow: instead of reverse-engineering existing skills, contributors now have a structured builder with gap analysis, classification guidance, and draft file generation.
+The headline feature is the **PM Skill Builder** (`/pm-skill-builder`) - the first utility-classified skill, which guides contributors through creating new PM skills interactively. This closes the loop on the skill creation workflow: instead of reverse-engineering existing skills, contributors now have a structured builder with gap analysis, classification guidance, and draft file generation.
 
 **By the numbers:**
 - **27 skills** (up from 25): 25 domain + 1 foundation + 1 utility
@@ -30,7 +30,7 @@ The headline feature is the **PM Skill Builder** (`/pm-skill-builder`) . the fir
 
 **What**: A Deliver-phase skill that generates structured Given/When/Then acceptance criteria for user stories or feature slices. Covers happy path, edge cases, error states, and non-functional expectations.
 
-**Why it matters**: Acceptance criteria are the handoff contract between PM and engineering. Vague criteria lead to rework. This skill produces testable, unambiguous scenarios that QA can verify without guessing intent . reducing back-and-forth during sprint execution.
+**Why it matters**: Acceptance criteria are the handoff contract between PM and engineering. Vague criteria lead to rework. This skill produces testable, unambiguous scenarios that QA can verify without guessing intent - reducing back-and-forth during sprint execution.
 
 **Use it**: `/acceptance-criteria "User can reset password via email"`
 
@@ -40,7 +40,7 @@ The headline feature is the **PM Skill Builder** (`/pm-skill-builder`) . the fir
 
 ### New Skill: `utility-pm-skill-builder` (F-05)
 
-**What**: The first utility-classified skill. An interactive builder that guides contributors from a PM skill idea to a complete Skill Implementation Packet . including gap analysis, a Why Gate to prevent duplicates, classification, exemplar-driven drafting, and a staging-to-promotion workflow.
+**What**: The first utility-classified skill. An interactive builder that guides contributors from a PM skill idea to a complete Skill Implementation Packet - including gap analysis, a Why Gate to prevent duplicates, classification, exemplar-driven drafting, and a staging-to-promotion workflow.
 
 **Why it matters**: Before the builder, creating a new PM skill required reverse-engineering existing skills and manually assembling 5+ files across 3 directories. The builder encodes all conventions, runs overlap detection against all 27 existing skills, and produces CI-compliant drafts. It reduces the skill creation process from hours of convention-hunting to a guided conversation.
 
@@ -61,10 +61,10 @@ The headline feature is the **PM Skill Builder** (`/pm-skill-builder`) . the fir
 ### Enhanced CI Validation (M-12)
 
 **What**: Extended the frontmatter linter and added three new validation scripts:
-- `lint-skills-frontmatter` . now checks description word count (20-100) and TEMPLATE.md header count (>=3)
-- `validate-agents-md` . verifies AGENTS.md paths match actual skill directories
-- `validate-commands` . verifies command files reference valid skill paths
-- `check-mcp-impact` . advisory detection of skill changes that may affect the MCP server
+- `lint-skills-frontmatter` - now checks description word count (20-100) and TEMPLATE.md header count (>=3)
+- `validate-agents-md` - verifies AGENTS.md paths match actual skill directories
+- `validate-commands` - verifies command files reference valid skill paths
+- `check-mcp-impact` - advisory detection of skill changes that may affect the MCP server
 
 **Why it matters**: As the skill library grows, manual validation doesn't scale. These scripts catch naming mismatches, orphaned entries, and structural drift before they ship. Every new skill committed in this release passed all four validators on both bash and PowerShell.
 
@@ -85,19 +85,19 @@ The headline feature is the **PM Skill Builder** (`/pm-skill-builder`) . the fir
 ### Utility Skill Classification
 
 **What**: Skills now have three classifications:
-- **Domain** (25 skills) . phase-specific PM activities (discover, define, develop, deliver, measure, iterate)
-- **Foundation** (1 skill) . cross-cutting capabilities that apply across phases
-- **Utility** (1 skill) . meta-skills that operate on the repository, workflow, or other skills
+- **Domain** (25 skills) - phase-specific PM activities (discover, define, develop, deliver, measure, iterate)
+- **Foundation** (1 skill) - cross-cutting capabilities that apply across phases
+- **Utility** (1 skill) - meta-skills that operate on the repository, workflow, or other skills
 
-**Why it matters**: The original two-tier model (domain + foundation) couldn't cleanly accommodate tooling skills like the builder. Utility skills don't produce PM artifacts . they produce *other skills*. The three-tier model is more expressive and sets up the planned Create (F-05) -> Validate (F-10) -> Iterate (F-11) lifecycle.
+**Why it matters**: The original two-tier model (domain + foundation) couldn't cleanly accommodate tooling skills like the builder. Utility skills don't produce PM artifacts - they produce *other skills*. The three-tier model is more expressive and sets up the planned Create (F-05) -> Validate (F-10) -> Iterate (F-11) lifecycle.
 
 ---
 
 ### Documentation Refresh (D-01, D-02)
 
 **What**:
-- **D-01**: New `docs/pm-skill-anatomy.md` . practical guide to pm-skills structure covering directory layout, the three-file model, classification types, frontmatter rules, Triple Diamond phases, the wiring layer, and CI validation.
-- **D-02**: Updated 14 public-facing docs for v2.7.0 accuracy . skill counts, command counts, M-12 script documentation, classification model, skill template modernization, and frontmatter schema with utility examples.
+- **D-01**: New `docs/pm-skill-anatomy.md` - practical guide to pm-skills structure covering directory layout, the three-file model, classification types, frontmatter rules, Triple Diamond phases, the wiring layer, and CI validation.
+- **D-02**: Updated 14 public-facing docs for v2.7.0 accuracy - skill counts, command counts, M-12 script documentation, classification model, skill template modernization, and frontmatter schema with utility examples.
 
 **Why it matters**: Public docs were showing stale counts (25 skills instead of 27), missing the new CI scripts, and had no explanation of utility skills. The new anatomy guide gives contributors a single starting point for understanding how skills work, complementing the spec-level `agent-skill-anatomy.md`.
 
@@ -114,9 +114,9 @@ None. All existing skills, commands, templates, and bundles are unchanged.
 The companion MCP server ([pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)) is release-pinned and requires a re-embed to pick up v2.7.0 changes:
 
 - **`deliver-acceptance-criteria`** → add as `pm_acceptance_criteria` (standard domain skill)
-- **`utility-pm-skill-builder`** → add as `pm_pm_skill_builder` (strip `utility-` prefix, convert hyphens to underscores, prepend `pm_`). The double `pm_` is intentional . it preserves the skill name intact and stays consistent with the future `pm_agent_skill_builder` (F-09). The builder produces the Skill Implementation Packet as text content; file writing is client-dependent.
+- **`utility-pm-skill-builder`** → add as `pm_pm_skill_builder` (strip `utility-` prefix, convert hyphens to underscores, prepend `pm_`). The double `pm_` is intentional - it preserves the skill name intact and stays consistent with the future `pm_agent_skill_builder` (F-09). The builder produces the Skill Implementation Packet as text content; file writing is client-dependent.
 
-**MCP naming convention update**: the `embed-skills.js` naming function should strip classification prefixes (`foundation-`, `utility-`) in addition to phase prefixes. No prefix deduplication . let skill names pass through intact.
+**MCP naming convention update**: the `embed-skills.js` naming function should strip classification prefixes (`foundation-`, `utility-`) in addition to phase prefixes. No prefix deduplication - let skill names pass through intact.
 
 A matching pm-skills-mcp release should follow to pick up both new skills.
 
@@ -162,8 +162,8 @@ All validators pass on both bash and PowerShell:
 
 ## Canonical References
 
-- `CHANGELOG.md` . version history
-- `docs/releases/Release_v2.7.0.md` . this document
-- `docs/internal/release-plans/v2.7.0/README.md` . internal release governance
-- `docs/internal/release-plans/v2.7.0/decisions.md` . key decisions log
+- `CHANGELOG.md` - version history
+- `docs/releases/Release_v2.7.0.md` - this document
+- `docs/internal/release-plans/v2.7.0/README.md` - internal release governance
+- `docs/internal/release-plans/v2.7.0/decisions.md` - key decisions log
 - Effort briefs: `docs/internal/efforts/` (M-12, M-16, F-05, F-06)

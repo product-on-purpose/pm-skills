@@ -7,13 +7,13 @@ sidebar:
 
 **Date**: 2026-04-04
 **Status**: Released
-**Type**: Documentation release . no skill or command behavior changes
+**Type**: Documentation release - no skill or command behavior changes
 
 ---
 
 ## Executive Summary
 
-v2.8.1 launches the **PM Skills documentation site** at [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/). Built with MkDocs Material, the site provides a searchable, navigable, mobile-friendly interface to the entire PM Skills library . including 29 skill pages, 3 interactive "Follow the Product" showcase journeys with 84 real sample outputs, workflow recipes, a skill finder, prompt gallery, and skill comparisons.
+v2.8.1 launches the **PM Skills documentation site** at [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/). Built with MkDocs Material, the site provides a searchable, navigable, mobile-friendly interface to the entire PM Skills library - including 29 skill pages, 3 interactive "Follow the Product" showcase journeys with 84 real sample outputs, workflow recipes, a skill finder, prompt gallery, and skill comparisons.
 
 This is a documentation-only release. No PM skills, slash commands, or MCP tools were changed. No `pm-skills-mcp` update is required.
 
@@ -39,11 +39,11 @@ The site at `product-on-purpose.github.io/pm-skills/` features:
 
 ### Showcase: Follow the Product
 
-Three interactive story pages where readers follow a fictional company through the complete PM lifecycle . from discovery research to pivot decisions. Each step shows the actual prompt and the full artifact output.
+Three interactive story pages where readers follow a fictional company through the complete PM lifecycle - from discovery research to pivot decisions. Each step shows the actual prompt and the full artifact output.
 
-- **Storevine** (B2B ecommerce) . organized prompt style
-- **Brainshelf** (consumer PKM app) . casual prompt style
-- **Workbench** (enterprise collaboration) . structured prompt style
+- **Storevine** (B2B ecommerce) - organized prompt style
+- **Brainshelf** (consumer PKM app) - casual prompt style
+- **Workbench** (enterprise collaboration) - structured prompt style
 
 ### Skill Pages Enhanced
 
@@ -54,25 +54,25 @@ Every skill page now includes:
 
 ### New Guide Pages
 
-- **Skill Finder** . interactive decision tree for choosing the right skill
-- **Recipes** . 7 end-to-end workflows (Pitch a Feature, Run an Experiment, etc.)
-- **Prompt Gallery** . curated prompts in 3 styles with commentary
-- **Skill Comparisons** . PRD vs Solution Brief, Hypothesis vs Problem Statement, etc.
-- **MCP Setup** . user-facing guide for installing and using pm-skills-mcp
+- **Skill Finder** - interactive decision tree for choosing the right skill
+- **Recipes** - 7 end-to-end workflows (Pitch a Feature, Run an Experiment, etc.)
+- **Prompt Gallery** - curated prompts in 3 styles with commentary
+- **Skill Comparisons** - PRD vs Solution Brief, Hypothesis vs Problem Statement, etc.
+- **MCP Setup** - user-facing guide for installing and using pm-skills-mcp
 
 ### Generation Scripts
 
 Two Python scripts keep the site in sync with skill source files:
-- `scripts/generate-skill-pages.py` . generates 29 skill pages + phase indexes + commands reference
-- `scripts/generate-showcase.py` . generates 3 showcase journeys from the sample library
+- `scripts/generate-skill-pages.py` - generates 29 skill pages + phase indexes + commands reference
+- `scripts/generate-showcase.py` - generates 3 showcase journeys from the sample library
 
 ---
 
 ## Infrastructure
 
-- `.github/workflows/deploy-docs.yml` . automated deployment on push
-- `mkdocs.yml` . site configuration with Material theme, plugins (search, privacy, social, tags), and full nav tree
-- `requirements-docs.txt` . Python dependencies (mkdocs-material, pillow, cairosvg)
+- `.github/workflows/deploy-docs.yml` - automated deployment on push
+- `mkdocs.yml` - site configuration with Material theme, plugins (search, privacy, social, tags), and full nav tree
+- `requirements-docs.txt` - Python dependencies (mkdocs-material, pillow, cairosvg)
 
 ---
 

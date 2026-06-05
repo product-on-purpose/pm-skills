@@ -48,7 +48,7 @@ flowchart LR
 | 2 | `/pm-skills:measure-experiment-design` | A/B test design with variants, metrics, and sample size |
 | 3 | `/pm-skills:measure-instrumentation-spec` | Event tracking spec for your analytics platform |
 | 4 | `/pm-skills:measure-experiment-results` | Statistical analysis with segments and learnings |
-| 5 | `/pm-skills:iterate-pivot-decision` | Ship, iterate, or kill . with evidence |
+| 5 | `/pm-skills:iterate-pivot-decision` | Ship, iterate, or kill - with evidence |
 
 **When to use:** You want to validate an assumption with data before building the full feature.
 
@@ -136,7 +136,7 @@ flowchart LR
 | 2 | `/pm-skills:iterate-lessons-log` | Structured lesson with root cause and recommendations |
 | 3 | `/pm-skills:iterate-refinement-notes` | Next sprint's stories, decisions, and blockers |
 
-**When to use:** End of a sprint or milestone . reflect, learn, and plan.
+**When to use:** End of a sprint or milestone - reflect, learn, and plan.
 
 ---
 

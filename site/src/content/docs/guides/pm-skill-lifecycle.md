@@ -11,12 +11,12 @@ A practical guide to creating, validating, iterating, and updating PM skills. Fo
 
 PM skills evolve along two axes:
 
-- **Author axis** . how maintainers create and improve skills in the library (builder → validator → iterator).
-- **Consumer axis** . how users keep their local installation current with the upstream library (updater).
+- **Author axis** - how maintainers create and improve skills in the library (builder → validator → iterator).
+- **Consumer axis** - how users keep their local installation current with the upstream library (updater).
 
 ```mermaid
 flowchart LR
-    subgraph Author["Author axis . evolve the library"]
+    subgraph Author["Author axis - evolve the library"]
         Create["utility-pm-skill-builder<br/>Create"] --> Validate["utility-pm-skill-validate<br/>Validate"]
         Validate --> Decision{Findings?}
         Decision -- "PASS" --> Ship["Ship to repo"]
@@ -26,7 +26,7 @@ flowchart LR
 
     Ship --> Release[(pm-skills<br/>release)]
 
-    subgraph Consumer["Consumer axis . stay current"]
+    subgraph Consumer["Consumer axis - stay current"]
         Release --> Update["utility-update-pm-skills<br/>Update"]
         Update --> Local[(Local<br/>installation)]
     end
@@ -34,9 +34,9 @@ flowchart LR
 
 | Tool | Axis | Command | What it does |
 |------|------|---------|-------------|
-| **Builder** | Author | `/pm-skills:utility-pm-skill-builder` | Creates a new skill from an idea . gap analysis, classification, draft files, staging, promotion |
-| **Validator** | Author | `/pm-skills:utility-pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria . produces a report |
-| **Iterator** | Author | `/pm-skills:utility-pm-skill-iterate` | Applies targeted improvements to an existing skill . previews changes, writes on confirmation |
+| **Builder** | Author | `/pm-skills:utility-pm-skill-builder` | Creates a new skill from an idea - gap analysis, classification, draft files, staging, promotion |
+| **Validator** | Author | `/pm-skills:utility-pm-skill-validate` | Audits an existing skill against structural conventions and quality criteria - produces a report |
+| **Iterator** | Author | `/pm-skills:utility-pm-skill-iterate` | Applies targeted improvements to an existing skill - previews changes, writes on confirmation |
 | **Updater** | Consumer | `/pm-skills:utility-update-pm-skills` | Checks for newer pm-skills releases, previews changes, and applies the update with confirmation |
 
 ### Why four tools instead of one?
@@ -46,7 +46,7 @@ Each tool has a single job. This keeps them focused, independently testable, and
 - The **builder** knows how to create files from scratch but doesn't know how to audit them.
 - The **validator** knows how to assess quality but doesn't modify anything.
 - The **iterator** knows how to apply changes but relies on the validator (or user feedback) to say *what* to change.
-- The **updater** is consumer-side . it doesn't author skills, it propagates upstream changes into a local installation safely (preview, backup, validated copy, value-delta report).
+- The **updater** is consumer-side - it doesn't author skills, it propagates upstream changes into a local installation safely (preview, backup, validated copy, value-delta report).
 
 You can use any tool independently or chain them together.
 
@@ -127,7 +127,7 @@ Validate first to identify what needs work, then iterate to fix it.
 commit and ship
 ```
 
-**When to use:** A skill exists and works but could be better . unclear output contract, incomplete example, vague checklist items.
+**When to use:** A skill exists and works but could be better - unclear output contract, incomplete example, vague checklist items.
 
 ### Pattern 3: Convention Change Rollout
 
@@ -157,7 +157,7 @@ commit and ship
 You received feedback on a skill (from a user, a review, or your own testing). Apply it directly, then validate.
 
 ```
-/pm-skills:utility-pm-skill-iterate deliver-prd "The example uses a B2C scenario but most users are B2B . rewrite with a SaaS enterprise example"
+/pm-skills:utility-pm-skill-iterate deliver-prd "The example uses a B2C scenario but most users are B2B - rewrite with a SaaS enterprise example"
   → Iterator reads current files
   → Normalizes feedback into intended changes (EXAMPLE.md rewrite)
   → Preview → confirm → apply
@@ -168,7 +168,7 @@ You received feedback on a skill (from a user, a review, or your own testing). A
 commit and ship
 ```
 
-**When to use:** You have specific feedback and don't need to audit first . you already know what to change.
+**When to use:** You have specific feedback and don't need to audit first - you already know what to change.
 
 ---
 
@@ -184,7 +184,7 @@ Each skill has its own independent version in its `SKILL.md` frontmatter, follow
 
 **The iterator suggests version bumps** based on what it changed, but doesn't write the version number until you confirm. This prevents compounding bumps when you iterate multiple times before releasing.
 
-**HISTORY.md** is created when a skill ships its second version. It connects versions to efforts and releases. The iterator offers to create or update HISTORY.md at the right moment . you don't need to manage it manually.
+**HISTORY.md** is created when a skill ships its second version. It connects versions to efforts and releases. The iterator offers to create or update HISTORY.md at the right moment - you don't need to manage it manually.
 
 For the full versioning governance, see `docs/internal/skill-versioning.md`.
 
@@ -210,11 +210,11 @@ The repo has CI scripts that run on every push and PR (see `.github/workflows/va
 
 The validator checks skills against two standards:
 
-1. **Current library conventions** . what the shipped library actually does today. These are the checks that matter for structural compliance. Failures here mean something is genuinely wrong.
+1. **Current library conventions** - what the shipped library actually does today. These are the checks that matter for structural compliance. Failures here mean something is genuinely wrong.
 
-2. **The v2.8 standard** . what newly-built skills (created with `/pm-skills:utility-pm-skill-builder`) meet. These are surfaced as WARN or INFO findings on older skills.
+2. **The v2.8 standard** - what newly-built skills (created with `/pm-skills:utility-pm-skill-builder`) meet. These are surfaced as WARN or INFO findings on older skills.
 
-This means **older skills may legitimately receive quality findings** when validated. That's expected . the library converges toward the higher standard over time through the lifecycle, not retroactively. Each iteration brings a skill closer to the current standard.
+This means **older skills may legitimately receive quality findings** when validated. That's expected - the library converges toward the higher standard over time through the lifecycle, not retroactively. Each iteration brings a skill closer to the current standard.
 
 ```mermaid
 flowchart LR

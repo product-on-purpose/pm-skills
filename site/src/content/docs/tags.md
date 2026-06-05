@@ -1,6 +1,6 @@
 ---
 title: Tags
-description: Browse PM skills by tag . phase, category, and classification.
+description: Browse PM skills by tag - phase, category, and classification.
 draft: true
 ---
 

@@ -31,11 +31,11 @@ This guide walks you through creating new PM skills for submission to the pm-ski
 
 A good PM skill:
 
-1. **Solves a real problem** . PMs actually need this artifact regularly
-2. **Produces consistent output** . Same quality every time
-3. **Works across contexts** . Useful for different products, teams, industries
-4. **Is well-documented** . Clear instructions, useful template, realistic example
-5. **Integrates with workflows** . Chains naturally with other skills
+1. **Solves a real problem** - PMs actually need this artifact regularly
+2. **Produces consistent output** - Same quality every time
+3. **Works across contexts** - Useful for different products, teams, industries
+4. **Is well-documented** - Clear instructions, useful template, realistic example
+5. **Integrates with workflows** - Chains naturally with other skills
 
 ### The Three Files
 
@@ -163,10 +163,10 @@ Before writing any code, open a "Request a Skill" issue with:
 ### Step 2: Wait for Approval
 
 Maintainers will review your proposal and may:
-- **Approve** . You're cleared to build
-- **Request changes** . Adjust the scope or approach
-- **Suggest alternatives** . An existing skill might work
-- **Decline** . The skill doesn't fit the project
+- **Approve** - You're cleared to build
+- **Request changes** - Adjust the scope or approach
+- **Suggest alternatives** - An existing skill might work
+- **Decline** - The skill doesn't fit the project
 
 ### Step 3: Build the Skill
 
@@ -344,10 +344,10 @@ Valid values: `domain`, `foundation`, `utility`
 
 Before you open a PR, run the repo validators that correspond to your change:
 
-- `./scripts/lint-skills-frontmatter.sh` or `.ps1` . skill frontmatter, description length, template structure
-- `./scripts/validate-commands.sh` or `.ps1` . command file path references
-- `./scripts/validate-agents-md.sh` or `.ps1` . `AGENTS.md` path sync for discoverable skills
-- `./scripts/check-mcp-impact.sh` or `.ps1` . advisory only, but useful when adding or renaming skills
+- `./scripts/lint-skills-frontmatter.sh` or `.ps1` - skill frontmatter, description length, template structure
+- `./scripts/validate-commands.sh` or `.ps1` - command file path references
+- `./scripts/validate-agents-md.sh` or `.ps1` - `AGENTS.md` path sync for discoverable skills
+- `./scripts/check-mcp-impact.sh` or `.ps1` - advisory only, but useful when adding or renaming skills
 
 #### version
 
@@ -410,9 +410,9 @@ List 4-6 specific situations. Be concrete:
 
 Instructions are step-by-step directions the AI follows. Each step should:
 
-1. **Have a clear action title** . What to do
-2. **Explain the purpose** . Why it matters
-3. **Provide guidance** . How to do it well
+1. **Have a clear action title** - What to do
+2. **Explain the purpose** - Why it matters
+3. **Provide guidance** - How to do it well
 
 **Example:**
 ```markdown
@@ -496,10 +496,10 @@ status: draft
 
 ### Template Principles
 
-1. **Use clear section headings** . Match the sections in your instructions
-2. **Include HTML comments** . Guide the AI on what each section needs
-3. **Provide structure hints** . Tables, lists, or prose as appropriate
-4. **Keep it flexible** . Don't over-constrain
+1. **Use clear section headings** - Match the sections in your instructions
+2. **Include HTML comments** - Guide the AI on what each section needs
+3. **Provide structure hints** - Tables, lists, or prose as appropriate
+4. **Keep it flexible** - Don't over-constrain
 
 ### Example: PRD Template (excerpt)
 
@@ -568,10 +568,10 @@ The example shows what a great output looks like. This is crucial for quality ca
 
 ### Example Requirements
 
-1. **Complete** . No placeholders, fully filled out
-2. **Realistic** . Based on a believable scenario
-3. **High quality** . Demonstrates what "good" looks like
-4. **Appropriately detailed** . Not too sparse, not bloated
+1. **Complete** - No placeholders, fully filled out
+2. **Realistic** - Based on a believable scenario
+3. **High quality** - Demonstrates what "good" looks like
+4. **Appropriately detailed** - Not too sparse, not bloated
 
 ### Example Structure
 
@@ -602,10 +602,10 @@ report spending 2+ hours per week on this manual work...
 
 Pick a scenario that is:
 
-- **Relatable** . Most PMs understand it
-- **Representative** . Shows typical complexity
-- **Complete** . Has enough depth to fill all sections
-- **Generic** . Not specific to one industry or company
+- **Relatable** - Most PMs understand it
+- **Representative** - Shows typical complexity
+- **Complete** - Has enough depth to fill all sections
+- **Generic** - Not specific to one industry or company
 
 **Good scenarios:**
 - E-commerce: Search, checkout, wishlist features
@@ -654,12 +654,12 @@ Before submitting, thoroughly test your skill.
 
 ### Test Checklist
 
-- [ ] **Basic invocation works** . Skill produces reasonable output
-- [ ] **Template is followed** . Output matches template structure
-- [ ] **Example quality is matched** . Output quality similar to example
-- [ ] **Different contexts work** . Try 3+ different scenarios
-- [ ] **Direct-name invocation works** . `/pm-skills:<name>` on Claude Code or `$<name>` on Codex
-- [ ] **Chains with other skills** . Works as input/output with related skills
+- [ ] **Basic invocation works** - Skill produces reasonable output
+- [ ] **Template is followed** - Output matches template structure
+- [ ] **Example quality is matched** - Output quality similar to example
+- [ ] **Different contexts work** - Try 3+ different scenarios
+- [ ] **Direct-name invocation works** - `/pm-skills:<name>` on Claude Code or `$<name>` on Codex
+- [ ] **Chains with other skills** - Works as input/output with related skills
 
 ### Testing Methods
 
@@ -686,10 +686,10 @@ Use the my-skill skill to create [artifact] for [scenario].
 
 Test with at least:
 
-1. **Minimal context** . Just the basic request
-2. **Rich context** . Detailed background information
-3. **Edge case** . Unusual or challenging scenario
-4. **Different domain** . Another industry or product type
+1. **Minimal context** - Just the basic request
+2. **Rich context** - Detailed background information
+3. **Edge case** - Unusual or challenging scenario
+4. **Different domain** - Another industry or product type
 
 ### What to Look For
 
@@ -953,10 +953,10 @@ docs/templates/skill-template/
 
 ### References
 
-- [Frontmatter Schema](../reference/frontmatter-schema.yaml) . Detailed field documentation
-- [Categories Reference](../reference/categories.md) . Category definitions
-- [agentskills.io Specification](https://agentskills.io/specification) . Base specification
-- [Existing Skills](https://github.com/product-on-purpose/pm-skills/blob/main/AGENTS.md) . See how others are structured
+- [Frontmatter Schema](../reference/frontmatter-schema.yaml) - Detailed field documentation
+- [Categories Reference](../reference/categories.md) - Category definitions
+- [agentskills.io Specification](https://agentskills.io/specification) - Base specification
+- [Existing Skills](https://github.com/product-on-purpose/pm-skills/blob/main/AGENTS.md) - See how others are structured
 
 ### Getting Help
 
@@ -981,4 +981,4 @@ Ready to create a skill? Here's the fast path:
 
 ---
 
-*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) . Open source Product Management skills for AI agents*
+*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) - Open source Product Management skills for AI agents*

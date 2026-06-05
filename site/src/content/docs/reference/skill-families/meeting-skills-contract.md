@@ -205,9 +205,9 @@ attendees:
 ### Input quality levels
 
 ```
-high     . structured notes with clear topics, complete attendee list, explicit decisions and actions captured
-medium   . partial notes, some gaps, requires moderate inference
-low      . fragmentary input, significant inference required, multiple gaps
+high     - structured notes with clear topics, complete attendee list, explicit decisions and actions captured
+medium   - partial notes, some gaps, requires moderate inference
+low      - fragmentary input, significant inference required, multiple gaps
 ```
 
 **Frontmatter field**: `input_quality` (required).
@@ -217,9 +217,9 @@ low      . fragmentary input, significant inference required, multiple gaps
 Same enum used for overall confidence (frontmatter `confidence`) and inline per-section markers:
 
 ```
-high   . directly supported by input
-medium . inferred from multiple contextual cues
-low    . tentative, verify before sharing
+high   - directly supported by input
+medium - inferred from multiple contextual cues
+low    - tentative, verify before sharing
 ```
 
 ### Artifact types

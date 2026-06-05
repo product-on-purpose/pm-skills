@@ -533,5 +533,5 @@ Summary of skills across categories:
 
 ## See Also
 
-- [Frontmatter Schema](./frontmatter-schema.yaml) . How to specify categories in skill metadata
-- [Triple Diamond Framework](../concepts/triple-diamond-delivery-process.md) . The primary framework organizing pm-skills
+- [Frontmatter Schema](./frontmatter-schema.yaml) - How to specify categories in skill metadata
+- [Triple Diamond Framework](../concepts/triple-diamond-delivery-process.md) - The primary framework organizing pm-skills

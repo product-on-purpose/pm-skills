@@ -5,13 +5,13 @@ description: High-level walkthrough of the pm-skills repository layout - skills/
 
 ## Table of Contents
 - [Directory Overview](#directory-overview)
-- [/skills/ . Skills](#skills--the-65-pm-skills-flat)
-- [/commands/ . Slash Commands](#commands--slash-commands)
-- [/workflows/ . Workflows](#_workflows--workflows)
-- [/docs/ . Documentation](#docs--documentation)
-- [/templates/ . Skill Templates](#docstemplates--skill-templates)
-- [/_agent-context/ . AI Agent Context](#_agent-context--ai-agent-context)
-- [/.github/ . GitHub Configuration](#github--github-configuration)
+- [/skills/ - Skills](#skills---the-65-pm-skills-flat)
+- [/commands/ - Slash Commands](#commands---slash-commands)
+- [/workflows/ - Workflows](#_workflows---workflows)
+- [/docs/ - Documentation](#docs---documentation)
+- [/templates/ - Skill Templates](#docstemplates---skill-templates)
+- [/_agent-context/ - AI Agent Context](#_agent-context---ai-agent-context)
+- [/.github/ - GitHub Configuration](#github---github-configuration)
 - [Root Files](#root-files)
 - [File Naming Conventions](#file-naming-conventions)
 - [Related Documentation](#related-documentation)
@@ -38,7 +38,7 @@ Note on `agents/` vs `_agent-context/`: these are distinct directories with diff
 
 ---
 
-## `/skills/` . The 65 PM Skills (flat)
+## `/skills/` - The 65 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 
@@ -150,7 +150,7 @@ skills/{skill-name}/
 
 ---
 
-## `/commands/` . Slash Commands
+## `/commands/` - Slash Commands
 
 Contains the 10 `/workflow-*` orchestrator commands. Each `commands/workflow-*.md` chains multiple skills into a guided lifecycle sequence. Individual skills are invoked directly by name in v2.22.0+ (`/pm-skills:<name>` on Claude Code, `$<name>` on Codex), not via per-skill command wrappers.
 
@@ -170,7 +170,7 @@ Contains the 10 `/workflow-*` orchestrator commands. Each `commands/workflow-*.m
 
 ---
 
-## `/_workflows/` . Workflows
+## `/_workflows/` - Workflows
 
 Workflows chain multiple skills together into guided, end-to-end sequences.
 
@@ -188,7 +188,7 @@ Workflows chain multiple skills together into guided, end-to-end sequences.
 
 ---
 
-## `/docs/` . Documentation
+## `/docs/` - Documentation
 
 ```
 docs/
@@ -214,7 +214,7 @@ The `docs/frameworks/` folder was retired in v2.13.0 (Bucket A.1); the canonical
 
 ---
 
-## `/docs/templates/` . Skill Templates
+## `/docs/templates/` - Skill Templates
 
 Starter templates for creating new skills.
 
@@ -230,7 +230,7 @@ Use these templates when contributing a new skill. See [creating-pm-skills.md](.
 
 ---
 
-## `/_agent-context/` . AI Agent Context
+## `/_agent-context/` - AI Agent Context
 
 Session continuity for AI coding assistants. Contains context, decisions, and session logs.
 
@@ -254,7 +254,7 @@ This directory helps AI assistants maintain context across sessions. Not require
 
 ---
 
-## `/.github/` . GitHub Configuration
+## `/.github/` - GitHub Configuration
 
 ```
 .github/
