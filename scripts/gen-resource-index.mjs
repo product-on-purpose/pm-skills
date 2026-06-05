@@ -308,3 +308,54 @@ export function renderIndex(model) {
 
   return L.join('\n').replace(/\n+$/, '\n');
 }
+
+export function normalizeEol(s) {
+  return s.replace(/\r\n/g, '\n');
+}
+
+function runCli(argv) {
+  const check = argv.includes('--check');
+  const model = buildModel(ROOT);
+
+  const missing = collectSources(model).filter((p) => !existsSync(join(ROOT, p)));
+  if (missing.length) {
+    console.error('gen-resource-index: repo sources missing on disk:\n  ' + missing.join('\n  '));
+    process.exit(1);
+  }
+
+  const rendered = renderIndex(model);
+  const outPath = join(ROOT, OUT_REL);
+
+  if (check) {
+    const current = existsSync(outPath) ? normalizeEol(readFileSync(outPath, 'utf8')) : '';
+    if (normalizeEol(rendered) !== current) {
+      console.error(
+        'gen-resource-index: docs/RESOURCES.md is out of date.\n' +
+        'Run `node scripts/gen-resource-index.mjs` and commit the result.',
+      );
+      process.exit(1);
+    }
+    console.log('gen-resource-index: docs/RESOURCES.md is current.');
+    return;
+  }
+
+  writeFileSync(outPath, rendered, 'utf8');
+  const counts = {
+    docs: model.docs.reduce((n, s) => n + s.rows.length, 0),
+    skills: model.skills.reduce((n, g) => n + g.rows.length, 0),
+    workflows: model.workflows.length,
+    samples: model.samples.reduce((n, s) => n + s.rows.length, 0),
+    showcase: model.showcase.length,
+  };
+  console.log(
+    `gen-resource-index: wrote ${OUT_REL} ` +
+    `(${counts.docs} docs, ${counts.skills} skills, ${counts.workflows} workflows, ` +
+    `${counts.samples} samples, ${counts.showcase} showcase).`,
+  );
+}
+
+// CLI guard: only run when executed directly, never when imported by the test.
+// process.argv[1] presence is checked to avoid pathToFileURL(undefined).
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  runCli(process.argv.slice(2));
+}

@@ -101,3 +101,9 @@ test('renderIndex emits banner, sections, and correct link columns', () => {
   const EMDASH = String.fromCharCode(0x2014);
   assert.equal(md.includes(EMDASH), false, 'renderer emits no em-dashes');
 });
+
+import { normalizeEol } from './gen-resource-index.mjs';
+
+test('normalizeEol converts CRLF to LF', () => {
+  assert.equal(normalizeEol('a\r\nb\r\n'), 'a\nb\n');
+});
