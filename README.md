@@ -403,8 +403,8 @@ flowchart LR
 
 - **[Triple Diamond Framework](https://medium.com/zendesk-creative-blog/the-zendesk-triple-diamond-process-fd857a11c179)** - Six-phase product cycle (extends Design Council's Double Diamond): Discover, Define, Develop, Deliver, Measure, Iterate
 - **[Opportunity Solution Trees](https://www.producttalk.org/opportunity-solution-tree/) (Teresa Torres)** - Outcome-driven discovery
-- **[Jobs to be Done Framework](https://jtbd.info/)** - Customer motivation framework
-- **[Foundation Sprint](https://www.jakeknapp.com/foundation-sprint) (Knapp/Zeratsky)** - 2-day structured workshop methodology for early-stage strategic alignment: basics, differentiation, approach options, magic lenses, founding hypothesis, brief
+- **[Jobs to be Done Framework](https://strategyn.com/jobs-to-be-done/)** - Customer motivation framework
+- **[Foundation Sprint](https://thefoundationsprint.com/) (Knapp/Zeratsky)** - 2-day structured workshop methodology for early-stage strategic alignment: basics, differentiation, approach options, magic lenses, founding hypothesis, brief
 - **[Design Sprint](https://www.thesprintbook.com/) (Knapp/Zeratsky/Kowitz)** - 5-day structured workshop methodology for prototype-and-test cycles: map-and-target, sketch, decide-and-storyboard, prototype-plan, test-and-score
 - **[Architecture Decision Records](https://adr.github.io/) (Michael Nygard format)** - Technical decision documentation
 
