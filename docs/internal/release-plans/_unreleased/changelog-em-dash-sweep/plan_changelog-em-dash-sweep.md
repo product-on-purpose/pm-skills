@@ -1,6 +1,7 @@
 # Plan: CHANGELOG (and doc-body) em-dash-sweep scar cleanup
 
 Status: deferred / backlog (not started)
+Tracking issue: #167 (canonical backlog entry; this doc is the scope artifact)
 Date: 2026-06-05
 Trigger: surfaced during the resource-index work (PRs #164/#165)
 
