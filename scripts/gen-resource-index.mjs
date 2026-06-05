@@ -43,9 +43,11 @@ export function scenarioLabel(stem, skill) {
   return stem.replace(new RegExp(`^sample_${escaped}_`), '').replace(/_/g, ' / ');
 }
 
-// Markdown table cell: collapse newlines, escape pipes.
+// Markdown table cell: collapse newlines, then escape backslashes BEFORE pipes.
+// Backslash must be escaped first; otherwise an existing backslash in the input
+// would combine with the backslash added for a pipe and corrupt the escaping.
 export function cell(s) {
-  return String(s ?? '').replace(/\r?\n/g, ' ').replace(/\|/g, '\\|').trim();
+  return String(s ?? '').replace(/\r?\n/g, ' ').replace(/\\/g, '\\\\').replace(/\|/g, '\\|').trim();
 }
 
 // Relative link from docs/RESOURCES.md (which lives in docs/) to a repo path.

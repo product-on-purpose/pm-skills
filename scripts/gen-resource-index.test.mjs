@@ -31,6 +31,10 @@ test('cell escapes pipes and collapses newlines', () => {
   assert.equal(cell('a | b\nc'), 'a \\| b c');
 });
 
+test('cell escapes backslashes before pipes (complete escaping)', () => {
+  assert.equal(cell('a\\b|c'), 'a\\\\b\\|c');
+});
+
 test('repoLink prefixes ../ and normalizes separators', () => {
   assert.equal(repoLink('skills/deliver-prd/SKILL.md'), '../skills/deliver-prd/SKILL.md');
 });
