@@ -19,15 +19,15 @@ A repo release packages many skills. A skill can iterate across multiple repo re
 
 ## How Skill Versions Work
 
-Each skill follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html). The "public API" of a skill is its shipped contract . the command name, required output sections, interaction pattern, and output guarantees.
+Each skill follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html). The "public API" of a skill is its shipped contract - the command name, required output sections, interaction pattern, and output guarantees.
 
 ### What triggers each bump
 
 | Bump | When | Examples |
 |------|------|---------|
-| **Major** (X.0.0) | Required contract changed . existing usage breaks | Command renamed, required section removed, interaction pattern changed |
-| **Minor** (x.Y.0) | New optional capability . existing usage still works | New optional output section, handles more scenarios |
-| **Patch** (x.y.Z) | Clarification only . same requirements, better expression | Wording improved, example rewritten, checklist item rephrased |
+| **Major** (X.0.0) | Required contract changed - existing usage breaks | Command renamed, required section removed, interaction pattern changed |
+| **Minor** (x.Y.0) | New optional capability - existing usage still works | New optional output section, handles more scenarios |
+| **Patch** (x.y.Z) | Clarification only - same requirements, better expression | Wording improved, example rewritten, checklist item rephrased |
 
 ### The tie-breaker rule
 
@@ -50,7 +50,7 @@ skills/deliver-prd/
 
 HISTORY.md includes a summary table (newest first) and a section per version describing what changed and why.
 
-Skills on their first version don't need HISTORY.md . the effort brief and skills manifest cover the initial release.
+Skills on their first version don't need HISTORY.md - the effort brief and skills manifest cover the initial release.
 
 ## Skills Manifest
 
@@ -80,8 +80,8 @@ This answers: "Which skill versions shipped in release X?"
 
 The [lifecycle tools](../guides/pm-skill-lifecycle.md) integrate with versioning:
 
-- **`utility-pm-skill-validate`** . reports the current skill version in the validation report header
-- **`utility-pm-skill-iterate`** . suggests a version bump class (patch/minor/major) after applying changes, updates the `version` and `updated` fields on confirmation, and offers to create or update HISTORY.md
+- **`utility-pm-skill-validate`** - reports the current skill version in the validation report header
+- **`utility-pm-skill-iterate`** - suggests a version bump class (patch/minor/major) after applying changes, updates the `version` and `updated` fields on confirmation, and offers to create or update HISTORY.md
 
 ## Current Skill Versions
 

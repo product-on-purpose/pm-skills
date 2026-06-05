@@ -21,16 +21,16 @@ The Double Diamond's elegance lies in its simplicity: two diamonds representing 
 
 The original four phases are:
 
-1. **Discover** . Understand the issue through research and user engagement
-2. **Define** . Synthesize insights into a clear problem statement
-3. **Develop** . Generate and explore potential solutions
-4. **Deliver** . Test, refine, and implement the chosen solution
+1. **Discover** - Understand the issue through research and user engagement
+2. **Define** - Synthesize insights into a clear problem statement
+3. **Develop** - Generate and explore potential solutions
+4. **Deliver** - Test, refine, and implement the chosen solution
 
 ### Why a Third Diamond?
 
 When Zendesk's product design team set out to document their design process, they turned naturally to the Double Diamond as their starting point. However, rather than adopting it wholesale, they used it as a conversation starter that revealed critical gaps in the model.
 
-The team identified a fundamental limitation: the Double Diamond is too design-centric. As Mike Chen from Zendesk's design team articulated, the model creates an expectation that designs are "completed and handed off for implementation by engineers" . a simplification that doesn't reflect modern product development reality.
+The team identified a fundamental limitation: the Double Diamond is too design-centric. As Mike Chen from Zendesk's design team articulated, the model creates an expectation that designs are "completed and handed off for implementation by engineers" - a simplification that doesn't reflect modern product development reality.
 
 For Zendesk, "Ship" was oversimplified. The journey from validated design concept to commercially available product involves multiple internal milestones, cross-functional coordination, and iterative refinement that the Double Diamond framework doesn't capture.
 
@@ -40,7 +40,7 @@ This realization led to the creation of the Triple Diamond, which adds a third d
 
 ## The Triple Diamond Framework
 
-The Triple Diamond extends the original model by acknowledging that user experience is not solely the designers' responsibility . it's a collaborative effort involving designers, engineers, product managers, QA teams, localization specialists, documentation writers, customer advocacy teams, and go-to-market functions.
+The Triple Diamond extends the original model by acknowledging that user experience is not solely the designers' responsibility - it's a collaborative effort involving designers, engineers, product managers, QA teams, localization specialists, documentation writers, customer advocacy teams, and go-to-market functions.
 
 ### The Three Diamonds at a Glance
 
@@ -107,7 +107,7 @@ Selected concepts are refined and validated with users:
 - **Iteration**: Refining designs based on feedback
 - **Design Specification**: Creating detailed design documentation for implementation
 
-The output is a validated design concept . not a final design, but a solution that has been tested with users and stakeholders and is ready for engineering collaboration.
+The output is a validated design concept - not a final design, but a solution that has been tested with users and stakeholders and is ready for engineering collaboration.
 
 ### Diamond 3: Validation & Delivery
 
@@ -115,7 +115,7 @@ The third diamond represents Zendesk's most significant contribution to design p
 
 #### Key Insight: Design as Concept, Not Handoff
 
-In the Triple Diamond framework, designs that emerge from the second diamond are treated as **concepts that have been validated** . not finished artifacts to be handed off. The team is confident it's the right solution, but it needs further refinement through the engineering and delivery process.
+In the Triple Diamond framework, designs that emerge from the second diamond are treated as **concepts that have been validated** - not finished artifacts to be handed off. The team is confident it's the right solution, but it needs further refinement through the engineering and delivery process.
 
 This reframing has profound implications for how designers and engineers collaborate.
 
@@ -126,7 +126,7 @@ The third diamond marks the start of the iterative Agile development cycle, wher
 - **Engineers investigate technical solutions** while designers continue creating prototypes and conducting usability tests
 - **Research and design happen throughout** the development cycle, not just before it
 - **Uncertainty decreases over time** as the team learns from implementation and user feedback
-- **Flexibility for change decreases progressively** . larger changes happen early, fine-tuning happens later
+- **Flexibility for change decreases progressively** - larger changes happen early, fine-tuning happens later
 
 #### Delivery Milestones
 
@@ -154,7 +154,7 @@ Understanding user perspectives drives meaningful solutions. Teams should put th
 
 ### 2. Cross-Functional Collaboration
 
-User experience is everyone's responsibility. The Triple Diamond explicitly includes engineers, product managers, marketers, support teams, and other stakeholders in the process . not just designers. Different perspectives enrich solutions and identify potential issues early.
+User experience is everyone's responsibility. The Triple Diamond explicitly includes engineers, product managers, marketers, support teams, and other stakeholders in the process - not just designers. Different perspectives enrich solutions and identify potential issues early.
 
 ### 3. Embrace Change Throughout
 
@@ -190,7 +190,7 @@ The visual representation enables clear communication of project progress to sta
 
 ### Process Improvement
 
-The Triple Diamond serves as a starting point for teams to reflect on their own processes. As Zendesk discovered, the value isn't just in the diagram . it's in the conversations it sparks about how work actually gets done.
+The Triple Diamond serves as a starting point for teams to reflect on their own processes. As Zendesk discovered, the value isn't just in the diagram - it's in the conversations it sparks about how work actually gets done.
 
 ---
 
@@ -294,7 +294,7 @@ The Triple Diamond represents a meaningful evolution in how product teams think 
 
 The framework's true value lies not in rigid adherence to its structure, but in the conversations it enables about how work gets done. It provides a common language for designers, engineers, product managers, and go-to-market teams to collaborate effectively across the full product lifecycle.
 
-As you consider adopting the Triple Diamond, remember that it should be adapted to your context. Use it as a starting point, not a prescription. The goal is to create a process that helps your team deliver exceptional user experiences . and the Triple Diamond provides a proven foundation for building that process.
+As you consider adopting the Triple Diamond, remember that it should be adapted to your context. Use it as a starting point, not a prescription. The goal is to create a process that helps your team deliver exceptional user experiences - and the Triple Diamond provides a proven foundation for building that process.
 
 ---
 

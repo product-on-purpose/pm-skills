@@ -63,12 +63,12 @@ These join the 3 existing workflows (Feature Kickoff, Lean Startup, Triple Diamo
 
 ## Added
 
-- `scripts/generate-workflow-pages.py` . generates `docs/workflows/` from `_workflows/` with link rewriting
-- `_workflows/README.md` and `docs/workflows/README.md` . directory purpose documentation
+- `scripts/generate-workflow-pages.py` - generates `docs/workflows/` from `_workflows/` with link rewriting
+- `_workflows/README.md` and `docs/workflows/README.md` - directory purpose documentation
 
 ## Migration Guide
 
 1. **Path references:** Replace `_bundles/` with `_workflows/` in any custom scripts or integrations
 2. **Command usage:** Replace `/kickoff` with `/workflow-feature-kickoff`
 3. **Documentation links:** Old `/bundles/*` URLs redirect automatically; update bookmarks when convenient
-4. **MCP server:** No changes needed . MCP tool names (`pm_workflow_*`) were already correct
+4. **MCP server:** No changes needed - MCP tool names (`pm_workflow_*`) were already correct

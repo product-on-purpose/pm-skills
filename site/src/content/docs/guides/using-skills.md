@@ -39,7 +39,7 @@ This guide takes you from basic skill invocation to advanced workflows and power
 
 Every skill has three components that work together:
 
-### 1. SKILL.md . The Instructions
+### 1. SKILL.md - The Instructions
 
 This file tells the AI:
 - **What** to create (the artifact type)
@@ -60,7 +60,7 @@ When asked to create a PRD, follow these steps:
    Articulate what success looks like...
 ```
 
-### 2. TEMPLATE.md . The Structure
+### 2. TEMPLATE.md - The Structure
 
 This file provides the exact format for the output:
 - Section headings
@@ -69,7 +69,7 @@ This file provides the exact format for the output:
 
 The AI uses this to ensure consistent, complete outputs.
 
-### 3. EXAMPLE.md . The Quality Benchmark
+### 3. EXAMPLE.md - The Quality Benchmark
 
 A real-world example showing what good looks like:
 - Proper tone and detail level
@@ -842,10 +842,10 @@ Friday:    /pm-skills:iterate-retrospective (team reflection)
 ### Engineering Lead
 
 **Key skills:**
-- `adr` . Document architecture decisions
-- `spike-summary` . Capture exploration findings
-- `edge-cases` . Ensure comprehensive coverage
-- `instrumentation-spec` . Define tracking requirements
+- `adr` - Document architecture decisions
+- `spike-summary` - Capture exploration findings
+- `edge-cases` - Ensure comprehensive coverage
+- `instrumentation-spec` - Define tracking requirements
 
 **Common workflow:**
 ```
@@ -857,9 +857,9 @@ Friday:    /pm-skills:iterate-retrospective (team reflection)
 ### Designer
 
 **Key skills:**
-- `design-rationale` . Document design decisions
-- `jtbd-canvas` . Understand user motivations
-- `interview-synthesis` . Process user research
+- `design-rationale` - Document design decisions
+- `jtbd-canvas` - Understand user motivations
+- `interview-synthesis` - Process user research
 
 **Common workflow:**
 ```
@@ -871,10 +871,10 @@ Friday:    /pm-skills:iterate-retrospective (team reflection)
 ### Data/Analytics
 
 **Key skills:**
-- `experiment-design` . Plan rigorous tests
-- `instrumentation-spec` . Define event tracking
-- `dashboard-requirements` . Specify reporting needs
-- `experiment-results` . Document findings
+- `experiment-design` - Plan rigorous tests
+- `instrumentation-spec` - Define event tracking
+- `dashboard-requirements` - Specify reporting needs
+- `experiment-results` - Document findings
 
 **Common workflow:**
 ```
@@ -914,10 +914,10 @@ Friday:    /pm-skills:iterate-retrospective (team reflection)
 
 ## See Also
 
-- [Getting Started](../getting-started/index.md) . Installation and setup
-- [Categories Reference](../reference/categories.md) . Skill organization
-- [Workflows](../../_workflows/) . Pre-built workflows
+- [Getting Started](../getting-started/index.md) - Installation and setup
+- [Categories Reference](../reference/categories.md) - Skill organization
+- [Workflows](../../_workflows/) - Pre-built workflows
 
 ---
 
-*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) . Open source Product Management skills for AI agents*
+*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) - Open source Product Management skills for AI agents*

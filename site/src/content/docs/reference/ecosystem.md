@@ -100,10 +100,10 @@ pm-skills/
 
 #### Access Methods
 
-1. **Git Clone** . Full access to all files
-2. **ZIP Download** . Upload to Claude.ai, Claude Desktop, etc.
-3. **Slash Commands** . Direct invocation in Claude Code (`deliver-prd`)
-4. **AGENTS.md Discovery** . Auto-discovery in Copilot, Cursor, Windsurf
+1. **Git Clone** - Full access to all files
+2. **ZIP Download** - Upload to Claude.ai, Claude Desktop, etc.
+3. **Slash Commands** - Direct invocation in Claude Code (`deliver-prd`)
+4. **AGENTS.md Discovery** - Auto-discovery in Copilot, Cursor, Windsurf
 
 #### Best For
 
@@ -136,11 +136,11 @@ PM-Skills MCP is an **MCP server** that wraps the skill library, exposing skills
 
 #### Key Capabilities
 
-- **Programmatic Access** . AI invokes tools directly via MCP protocol
-- **Zero Configuration** . Skills are embedded; just install and run
-- **Universal** . Works with any MCP-compatible client
-- **Parameterized** . Tools accept `topic`, `context`, `format`, and `includeExample`
-- **Discoverable** . `pm_list_skills`, `pm_search_skills` for skill exploration
+- **Programmatic Access** - AI invokes tools directly via MCP protocol
+- **Zero Configuration** - Skills are embedded; just install and run
+- **Universal** - Works with any MCP-compatible client
+- **Parameterized** - Tools accept `topic`, `context`, `format`, and `includeExample`
+- **Discoverable** - `pm_list_skills`, `pm_search_skills` for skill exploration
 
 #### Installation
 
@@ -355,9 +355,9 @@ git merge upstream/main
 
 | PM-Skills Version | PM-Skills MCP Version | Compatibility |
 |-------------------|----------------------|---------------|
-| v2.4.x | v2.4.x | **Direct version tracking** . release versions align 1:1 across repos |
-| v2.1.x to v2.3.x | v2.1.x to v2.3.x | **Full alignment** . flat structure, frontmatter-based phase |
-| v2.0.x | v1.1.0 | Partial . nested MCP, flat pm-skills |
+| v2.4.x | v2.4.x | **Direct version tracking** - release versions align 1:1 across repos |
+| v2.1.x to v2.3.x | v2.1.x to v2.3.x | **Full alignment** - flat structure, frontmatter-based phase |
+| v2.0.x | v1.1.0 | Partial - nested MCP, flat pm-skills |
 | v1.2.x | v1.0.x | Legacy stable |
 | v1.1.x | v1.0.x | Legacy compatible |
 | v1.0.x | v1.0.x | Legacy compatible |

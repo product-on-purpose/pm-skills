@@ -12,7 +12,7 @@ sidebar:
 
 ## Executive Summary
 
-v2.8.0 completes the **PM skill lifecycle**: **Create → Validate → Iterate**. Building on the PM Skill Builder shipped in v2.7.0, this release adds two companion utility skills . a validator that audits skills against conventions and quality criteria, and an iterator that applies targeted improvements. Together, the three tools form a self-reinforcing system for skill quality.
+v2.8.0 completes the **PM skill lifecycle**: **Create → Validate → Iterate**. Building on the PM Skill Builder shipped in v2.7.0, this release adds two companion utility skills - a validator that audits skills against conventions and quality criteria, and an iterator that applies targeted improvements. Together, the three tools form a self-reinforcing system for skill quality.
 
 The release also introduces **skill versioning governance** (SemVer rules, HISTORY.md, skills-manifest.yaml), **advisory CI** for version tracking, and a **lifecycle guide** documenting workflow patterns.
 
@@ -30,11 +30,11 @@ The release also introduces **skill versioning governance** (SemVer rules, HISTO
 
 **What**: A utility skill that audits an existing pm-skills skill against structural conventions (mirroring CI) and LLM-assessed quality criteria.
 
-**Why it matters**: CI catches structural issues (missing files, bad frontmatter), but can't assess quality . is the output contract complete? Does the example fill all template sections? Are checklist items testable? The validator goes deeper, producing a structured report with severity-graded findings and actionable recommendations that the iterator can consume.
+**Why it matters**: CI catches structural issues (missing files, bad frontmatter), but can't assess quality - is the output contract complete? Does the example fill all template sections? Are checklist items testable? The validator goes deeper, producing a structured report with severity-graded findings and actionable recommendations that the iterator can consume.
 
 **Key design decisions** (informed by Codex review):
 - Pipe-delimited report format (`STATUS | TIER | CHECK-ID | message`) with `Report schema: v1` for forward compatibility
-- Two-tier assessment rebaselined against actual shipped library . validates *current conventions* and surfaces the *v2.8 standard* as suggestions
+- Two-tier assessment rebaselined against actual shipped library - validates *current conventions* and surfaces the *v2.8 standard* as suggestions
 - Tier 2 findings capped at WARN (except placeholder leakage which is objectively grounded)
 - Single-skill detailed mode + batch Tier-1-only summary
 
@@ -52,7 +52,7 @@ The release also introduces **skill versioning governance** (SemVer rules, HISTO
 
 **Key design decisions** (informed by Codex review):
 - Before/after preview with stale-preview guard (re-reads files before writing)
-- Version bump class suggested but not auto-written . prevents compounding across multiple iterations
+- Version bump class suggested but not auto-written - prevents compounding across multiple iterations
 - HISTORY.md creation offered at the second-version trigger point; format validated before append
 - Unified flow with explicit input normalization step
 
@@ -64,7 +64,7 @@ The release also introduces **skill versioning governance** (SemVer rules, HISTO
 
 ### Lifecycle Guide (D-03)
 
-**What**: `docs/pm-skill-lifecycle.md` . a public guide explaining the Create → Validate → Iterate lifecycle.
+**What**: `docs/pm-skill-lifecycle.md` - a public guide explaining the Create → Validate → Iterate lifecycle.
 
 **Why it matters**: Three independent tools need a guide that explains how they work as a system. The guide includes four workflow patterns (new skill, improve existing, convention change, feedback loop), a CI vs validator comparison, and the quality standard model.
 
@@ -76,13 +76,13 @@ The release also introduces **skill versioning governance** (SemVer rules, HISTO
 
 **Why it matters**: As skills iterate through the lifecycle, version history (HISTORY.md) and release manifests (skills-manifest.yaml) need to stay in sync with frontmatter. These scripts catch drift automatically.
 
-Both run with `continue-on-error: true` . advisory for now, blocking once adoption grows.
+Both run with `continue-on-error: true` - advisory for now, blocking once adoption grows.
 
 ---
 
 ### Skill Versioning Governance
 
-**What**: `docs/internal/skill-versioning.md` . defines how skill versions are tracked independently of repo versions.
+**What**: `docs/internal/skill-versioning.md` - defines how skill versions are tracked independently of repo versions.
 
 **Key concepts**:
 - Each skill has its own SemVer version in frontmatter, decoupled from the repo version
@@ -110,8 +110,8 @@ See `docs/pm-skill-lifecycle.md` for detailed workflow patterns.
 ## Infrastructure
 
 - `docs/internal/releases/` renamed to `docs/internal/release-plans/` for clarity (34 files updated)
-- `docs/internal/release-plans/v2.7.0/skills-manifest.yaml` . retroactive first use of manifest convention
-- `docs/internal/release-plans/v2.8.0/` . full release governance with phased execution plan and Codex design review
+- `docs/internal/release-plans/v2.7.0/skills-manifest.yaml` - retroactive first use of manifest convention
+- `docs/internal/release-plans/v2.8.0/` - full release governance with phased execution plan and Codex design review
 - `docs/internal/backlog-canonical.md` updated with v2.8.0 assignments
 
 ---
@@ -122,4 +122,4 @@ See `docs/pm-skill-lifecycle.md` for detailed workflow patterns.
 - Re-embed skills: `scripts/embed-skills.js` against the v2.8.0 tag
 - New tools: `pm_pm_skill_validate`, `pm_pm_skill_iterate`
 - Verify `utility-` prefix stripping produces correct tool names
-- Both new skills read existing skill directories . verify MCP embedded content is sufficient
+- Both new skills read existing skill directories - verify MCP embedded content is sufficient
