@@ -20,9 +20,7 @@ The four pm-skills classifications are:
 
 A `tool` family has a fixed canonical sequence, named decision moments, an established external source (book / official guide), and skills that compose into a workflow recognizable as the methodology. The Foundation Sprint and Design Sprint families are the first inhabitants.
 
-## The three pieces of v2.15.0
-
-### Foundation Sprint family (7 skills)
+## Foundation Sprint family (7 skills)
 
 A 2-day strategic-alignment workshop that produces a testable Founding Hypothesis. Source: Knapp + Zeratsky, *Click: How to Make What People Want* (sequel to *Sprint*).
 
@@ -38,7 +36,7 @@ A 2-day strategic-alignment workshop that produces a testable Founding Hypothesi
 
 Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contract.md`](../reference/skill-families/foundation-sprint-skills-contract.md). User guide: [`docs/guides/using-foundation-sprint.md`](../guides/using-foundation-sprint.md). Concept doc: [`docs/concepts/foundation-sprint.md`](foundation-sprint.md).
 
-### Design Sprint family (7 skills)
+## Design Sprint family (7 skills)
 
 A 5-day prototype-and-test workshop that produces a Decider's build / iterate / pivot / stop call grounded in 5 customer interviews. Source: Knapp + Zeratsky + Kowitz, *Sprint*.
 
