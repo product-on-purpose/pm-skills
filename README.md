@@ -1086,6 +1086,7 @@ pm-skills/
 | [`site/src/content/docs/guides/`](site/src/content/docs/guides/)                                   | How-to guides and operational references                                              |
 | [`site/src/content/docs/concepts/`](site/src/content/docs/concepts/)                               | Methodology primers and conceptual explanations                                       |
 | [`site/src/content/docs/reference/`](site/src/content/docs/reference/)                             | Technical reference: skill anatomy, ecosystem, runtime components                     |
+| [`docs/RESOURCES.md`](docs/RESOURCES.md)                         | Browsable index of every resource, linking each live page to its repo source          |
 
 **See [project structure reference](https://product-on-purpose.github.io/pm-skills/reference/project-structure/) for detailed descriptions of every directory.**
 
