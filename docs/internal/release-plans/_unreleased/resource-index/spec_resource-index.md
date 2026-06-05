@@ -179,6 +179,13 @@ site itself is validated against. CI invokes `node scripts/gen-resource-index.mj
 --check` directly on both OS legs (Node is cross-platform), which also exercises
 CRLF-vs-LF handling for free.
 
+Upstream trigger: staleness is anchored to `scripts/route-manifest.txt`. Because the
+index only emits routes present in the manifest, a brand-new resource becomes visible
+to this gate once the manifest is regenerated (which happens whenever the site is
+rebuilt for a route change and is itself guarded by `check-route-parity.mjs`). The
+"cannot go stale" guarantee is therefore relative to the manifest: keep the manifest
+current and the index follows.
+
 ## README link fixes (from the URL sweep)
 
 The full README sweep (2026-06-05) found all repo-relative paths, all 34

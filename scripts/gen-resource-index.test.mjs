@@ -57,7 +57,7 @@ test('buildModel: every live route exists in the manifest', () => {
     ...model.samples.flatMap((s) => s.rows),
     ...model.showcase,
   ];
-  assert.ok(allRows.length > 200, `expected 300+ rows, got ${allRows.length}`);
+  assert.ok(allRows.length > 200, `expected 200+ rows, got ${allRows.length}`);
   for (const r of allRows) assert.ok(model.routes.has(r.route), `route missing from manifest: ${r.route}`);
 });
 
