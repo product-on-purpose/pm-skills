@@ -31,13 +31,16 @@ export function parseManifest(text) {
 // Map a path relative to site/src/content/docs to its published route.
 export function toRoute(relFromDocs) {
   let p = relFromDocs.replace(/\\/g, '/').replace(/\.(md|mdx)$/i, '');
-  p = p.replace(/(^|\/)index$/i, '$1').replace(/\/$/, '');
+  p = p.replace(/\/index$/i, '').replace(/^index$/i, '').replace(/\/$/, '');
   return p ? `/${p}/` : '/';
 }
 
 // "sample_deliver-prd_storevine_campaigns" -> "storevine / campaigns".
+// The skill name is escaped before being placed in a RegExp so a name containing
+// a regex metacharacter cannot corrupt the match.
 export function scenarioLabel(stem, skill) {
-  return stem.replace(new RegExp(`^sample_${skill}_`), '').replace(/_/g, ' / ');
+  const escaped = skill.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return stem.replace(new RegExp(`^sample_${escaped}_`), '').replace(/_/g, ' / ');
 }
 
 // Markdown table cell: collapse newlines, escape pipes.
@@ -78,7 +81,7 @@ function listDirs(dir) {
   return readdirSync(dir, { withFileTypes: true })
     .filter((e) => e.isDirectory())
     .map((e) => e.name)
-    .sort();
+    .sort((a, b) => a.localeCompare(b));
 }
 
 function walkMd(dir) {

@@ -32,3 +32,16 @@ test('cell escapes pipes and collapses newlines', () => {
 test('repoLink prefixes ../ and normalizes separators', () => {
   assert.equal(repoLink('skills/deliver-prd/SKILL.md'), '../skills/deliver-prd/SKILL.md');
 });
+
+test('scenarioLabel treats a regex-metachar skill name literally', () => {
+  assert.equal(scenarioLabel('sample_a.b_x', 'a.b'), 'x');
+  assert.equal(scenarioLabel('sample_axb_x', 'a.b'), 'sample / axb / x');
+});
+
+test('toRoute is case-insensitive on the extension', () => {
+  assert.equal(toRoute('reference/THING.MD'), '/reference/THING/');
+});
+
+test('repoLink normalizes Windows backslashes', () => {
+  assert.equal(repoLink('skills\\deliver-prd\\SKILL.md'), '../skills/deliver-prd/SKILL.md');
+});
