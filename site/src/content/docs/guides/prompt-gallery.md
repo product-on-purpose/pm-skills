@@ -1,19 +1,19 @@
 ---
 title: Prompt Gallery
-description: Real prompts from the PM Skills sample library . learn by example across three prompt styles.
+description: Real prompts from the PM Skills sample library - learn by example across three prompt styles.
 tags:
   - Guides
   - Prompts
 ---
 
-Learn how to write effective prompts by studying real examples from the [sample library](../showcase/). Three fictional companies demonstrate three different prompting styles . all produce equally thorough outputs.
+Learn how to write effective prompts by studying real examples from the [sample library](../showcase/). Three fictional companies demonstrate three different prompting styles - all produce equally thorough outputs.
 
 ## The Three Styles
 
 | Style | Company | Who it's for |
 |-------|---------|-------------|
 | **Organized** | Storevine (B2B) | PMs who prepare structured notes and reference prior artifacts |
-| **Casual** | Brainshelf (Consumer) | Lean teams moving fast . bullet points, shorthand, enough context to work |
+| **Casual** | Brainshelf (Consumer) | Lean teams moving fast - bullet points, shorthand, enough context to work |
 | **Enterprise** | Workbench (Enterprise) | High-documentation environments with stakeholder scrutiny |
 
 ---
@@ -25,7 +25,7 @@ Learn how to write effective prompts by studying real examples from the [sample 
 ```
 /pm-skills:deliver-prd
 
-Feature: Campaigns . native email marketing for Storevine merchants
+Feature: Campaigns - native email marketing for Storevine merchants
 
 Context: Storevine all-in-one ecommerce + web builder, ~18k active merchants
 [fictional]. See: competitive-analysis (filed last week), problem-statement
@@ -67,7 +67,7 @@ Here is the structured brief for the Blueprints v1 PRD.
 **Problem:** 60% of enterprise projects lack an approved kickoff doc at
 handoff [fictional]. Teams use ad-hoc templates that miss required sections.
 
-**Solution:** Blueprints . reusable document templates with required sections
+**Solution:** Blueprints - reusable document templates with required sections
 and role-based approval gates.
 ```
 
@@ -80,7 +80,7 @@ and role-based approval gates.
 ```
 /pm-skills:define-hypothesis
 
-Project: Campaigns . native email marketing for Storevine merchants
+Project: Campaigns - native email marketing for Storevine merchants
 Stage: Post-discovery, pre-PRD finalization
 
 Hypothesis I want to define:
@@ -122,11 +122,11 @@ split across new Blueprint creations for 4 weeks.
 ```
 /pm-skills:discover-competitive-analysis
 
-Scope: Email marketing tools available to ecommerce merchants . built-in
+Scope: Email marketing tools available to ecommerce merchants - built-in
 vs. third-party positioning. Informing Campaigns v1 scope and feature
 prioritization.
 
-Our product: Storevine . B2B all-in-one ecommerce + web platform, Series A,
+Our product: Storevine - B2B all-in-one ecommerce + web platform, Series A,
 ~18k active merchants [fictional].
 Competitors to evaluate: Shopify Email, Squarespace Email Campaigns,
 Wix Ascend, Klaviyo, Mailchimp, Drip
