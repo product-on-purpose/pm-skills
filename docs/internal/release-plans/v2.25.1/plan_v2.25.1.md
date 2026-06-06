@@ -1,6 +1,6 @@
 # v2.25.1 Release Plan: Maintenance patch (bank the accumulated [Unreleased])
 
-**Status:** IN PROGRESS 2026-06-06 (release-prep). Pre-tag bundle green (bash + pwsh parity restored in #174). No catalog change.
+**Status:** SHIPPED 2026-06-06 (tag `v2.25.1` at `2b5044a`; GitHub Release Latest; squash-merged PR #175; `agent-plugins` registry re-pinned, metadata 1.9.0, PR #17; all tag + main CI green on both OS legs + CodeQL + Pages deploy). Pre-tag bundle green (bash + pwsh parity restored in #174). No catalog change.
 **Owner:** Maintainers
 **Type:** **PATCH** (maintenance only: no consumable-surface change; catalog stays 30 phase + 9 foundation + 11 utility + 15 tool = 65 skills and 5 sub-agents; sole version bump is for the accumulated maintenance, not a capability delta).
 **Theme:** Bank the backlog of untagged maintenance that accumulated since v2.25.0 under one versioned GitHub Release. No new skills, no behavior change.
@@ -45,12 +45,12 @@ The CHANGELOG `[Unreleased]` section already drafts the Pattern S site reorg + t
 
 ## Gate ledger
 
-- [ ] G0 Pre-tag readiness (validators green, em-dash sweep, counters unchanged at 65/5, governance audit, required files)
-- [ ] G1 Adversarial review attestation (maintenance patch of already-merged, already-CI-green work; the 2026-06-06 Codex audit + its verified review cover the release-shaping read)
-- [ ] G2 Version bump + CHANGELOG prep (curator)
-- [ ] G2.5 Commit release-prep + push branch + PR + CI green + capture SHA
-- [ ] G3 Tag + push (annotated tag on post-squash-merge main SHA) - IRREVERSIBLE, maintainer confirmation
-- [ ] G4 Post-tag hygiene (GitHub Release, marketplace/registry re-pin, Pages, next-cycle stub)
+- [x] G0 Pre-tag readiness (validators green, em-dash sweep, counters unchanged at 65/5, governance audit 0 P0, required files)
+- [x] G1 Adversarial review attestation (maintenance patch of already-merged, already-CI-green work; the 2026-06-06 Codex audit + its verified review cover the release-shaping read; its one release blocker P0-01 fixed in #174)
+- [x] G2 Version bump + CHANGELOG prep (curator; leak check clean; version-consistency + context-currency PASS)
+- [x] G2.5 Commit release-prep (`a35e28b`) + PR #175 + CI green both OS legs + CodeQL + validate-plugin; squash-merged to main `2b5044a`
+- [x] G3 Tag + push (annotated tag `v2.25.1` on post-squash-merge main SHA `2b5044a`)
+- [x] G4 Post-tag hygiene (GitHub Release Latest; `agent-plugins` re-pinned metadata 1.9.0 PR #17; Pages deploy green; next-cycle stub = P2 reminder, not yet created)
 
 ## Notes / known runbook drift to fix later
 
