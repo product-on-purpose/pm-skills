@@ -46,6 +46,13 @@ jobs:
         # Cross-platform Node script: runs on both OS legs (also exercises CRLF/LF).
         run: node scripts/gen-resource-index.mjs --check
 
+      - name: Validate site doc frontmatter YAML (enforcing)
+        # Parse-checks frontmatter in tracked Astro doc bodies (skills front matter
+        # is covered separately by lint-skills-frontmatter). Catches the unquoted
+        # colon-in-value defect early with a clear message, instead of a cryptic
+        # Astro build crash. Cross-platform Node; runs on both OS legs.
+        run: node scripts/check-frontmatter-yaml.mjs --site-docs
+
       - name: Run resource-index unit tests
         run: node --test scripts/gen-resource-index.test.mjs scripts/check-emdash-scars.test.mjs
 
