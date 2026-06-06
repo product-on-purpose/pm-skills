@@ -720,6 +720,12 @@ function generateShowcaseIndex() {
   out.push('');
   out.push("import { Card, CardGrid } from '@astrojs/starlight/components';");
   out.push('');
+  out.push('<style>{`');
+  out.push('  .card-grid {');
+  out.push('    grid-template-columns: 1fr;');
+  out.push('  }');
+  out.push('`}</style>');
+  out.push('');
   out.push('See every PM skill in action. Three fictional companies, three different prompt styles,');
   out.push('one complete lifecycle each, from discovery research through pivot decisions.');
   out.push('');
