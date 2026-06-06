@@ -11,10 +11,10 @@ Updated: 2026-04-09
 
 A utility skill that lets any pm-skills user check for updates and pull
 the latest release with a single slash command. The workflow is
-intentionally simple . a short pre-flight checklist, a clear preview of
+intentionally simple - a short pre-flight checklist, a clear preview of
 what will change, user confirmation, then execution with a completion
-report. Reports emphasize the *value delta* . what new capabilities the
-update delivers . not just a file list.
+report. Reports emphasize the *value delta* - what new capabilities the
+update delivers - not just a file list.
 
 ### Original prompt
 
@@ -163,7 +163,7 @@ _pm-skills/updates/
 - Directory: `_pm-skills/updates/` (inside the pm-skills root)
 - Completion report: `update-report_v{from}-to-v{to}_{date}.md`
 - Report-only: `update-report_v{to}_report-only_{date}.md`
-- `_pm-skills/` is added to `.gitignore` . local state, not repo content
+- `_pm-skills/` is added to `.gitignore` - local state, not repo content
 
 **Why `_pm-skills/`?** Underscore-prefix directories are visible by
 default in file explorers on macOS and Windows (unlike dot-prefix dirs
@@ -179,21 +179,21 @@ The value delta section is the centerpiece of every report. It answers
 
 **Structure:**
 
-1. **Headline** . 1-2 sentence narrative summarizing the update's value
+1. **Headline** - 1-2 sentence narrative summarizing the update's value
    > "This update adds meeting synthesis and slideshow creation, expanding
    > pm-skills from a planning toolkit into a presentation and communication
    > platform."
 
-2. **New Skills** . table with skill name and what it *enables* (not just
-   description . the capability it unlocks for the user)
+2. **New Skills** - table with skill name and what it *enables* (not just
+   description - the capability it unlocks for the user)
 
-3. **Updated Skills** . what improved and why it matters
+3. **Updated Skills** - what improved and why it matters
 
-4. **New Workflows** . what they connect and what workflows they unlock
+4. **New Workflows** - what they connect and what workflows they unlock
 
-5. **Other Changes** . notable changes to commands, docs, infrastructure
+5. **Other Changes** - notable changes to commands, docs, infrastructure
 
-6. **Opportunities** . 2-3 sentences on what the user can now do that
+6. **Opportunities** - 2-3 sentences on what the user can now do that
    they couldn't before, framed as actionable next steps
 
 **Source material for deriving the value delta:**
@@ -214,9 +214,9 @@ The value delta section is the centerpiece of every report. It answers
 | D4 | Version source | Highest-priority source, first match wins, no cross-check. |
 | D5 | Backup strategy | User-optional at confirmation time. Stored in `_pm-skills/backups/v{ver}_{date}/`. |
 | D6 | Milestone | v2.10.0 |
-| D7 | Quality checklist | Included . 12-item internal verification gate. |
-| D8 | Degraded mode | Included (simplified) . no-network path only. Provides manual instructions + stops. |
-| D9 | Atomic updates | Included . download to temp → validate → copy. |
+| D7 | Quality checklist | Included - 12-item internal verification gate. |
+| D8 | Degraded mode | Included (simplified) - no-network path only. Provides manual instructions + stops. |
+| D9 | Atomic updates | Included - download to temp → validate → copy. |
 | D10 | Major version handling | Prominent warning + require explicit "yes" (not just y). |
 | D11 | Local state directory | `_pm-skills/` (underscore prefix, visible on macOS/Windows). Added to `.gitignore`. |
 | D12 | Report-only gitignore | Add `_pm-skills/` to repo `.gitignore` so all users inherit the convention. |
@@ -515,7 +515,7 @@ validated by the existing CI pipeline on every push/PR to main:
 | `validate-agents-md` | `AGENTS.md` includes an entry for `utility-update-pm-skills` | `validation.yml` |
 | `check-mcp-impact` | Detects that a new skill was added and flags MCP embed needed (advisory) | `validation.yml` |
 | `validate-plugin` | `plugin.json` shape is valid, version is semver | `validate-plugin.yml` |
-| `validate-skill-history` | HISTORY.md format (not needed for v1.0.0 . only created at v1.1.0+) | `validation.yml` |
+| `validate-skill-history` | HISTORY.md format (not needed for v1.0.0 - only created at v1.1.0+) | `validation.yml` |
 | `validate-skills-manifest` | Release manifest includes this skill with correct metadata | `validation.yml` |
 
 ### New CI needed
@@ -610,7 +610,7 @@ limits traditional automated testing, but several aspects are testable:
 | AGENTS.md sync | `validate-agents-md` (existing) | Yes, already in CI |
 | `.gitignore` entry | `validate-gitignore-pm-skills` (new) | Yes |
 | Template structure | `validate-update-report-template` (new) | Yes |
-| File scope table accuracy | Compare the File Scope table in SKILL.md against the actual repo structure . flag if new top-level dirs appear that aren't listed | Possible as advisory CI |
+| File scope table accuracy | Compare the File Scope table in SKILL.md against the actual repo structure - flag if new top-level dirs appear that aren't listed | Possible as advisory CI |
 | Report output quality | Run `/update-pm-skills --report-only` and check the output matches TEMPLATE.md structure | Manual (requires Claude execution) |
 | End-to-end update flow | Create a test fixture with an older version, run the skill, verify files are updated | Manual (requires Claude + network) |
 | Version detection accuracy | Check that `plugin.json`, `marketplace.json`, `CHANGELOG.md` all return the same version | Possible as CI check (related to P1 prerequisite) |
@@ -641,7 +641,7 @@ fi
 echo "PASS: Versions consistent ($PLUGIN_VER)"
 ```
 
-This would be a hard-fail check in `validation.yml` . it directly supports
+This would be a hard-fail check in `validation.yml` - it directly supports
 the update skill's version detection logic (D4: use first match) by ensuring
 the sources agree.
 
@@ -720,11 +720,11 @@ P1, P2 (prerequisites, can be done together)
 
 | # | Issue | Severity | Notes |
 |---|-------|----------|-------|
-| I1 | **Version mismatch already exists** . `plugin.json` (2.9.0) vs `marketplace.json` (2.8.2) | Medium | Fix as prerequisite P1 |
-| I2 | **"New capabilities" derivation underspecified** . need to define exactly how to extract skill/workflow deltas from release notes | Medium | CHANGELOG + release notes API + directory diff for v1 |
-| I3 | **File scope needs to be explicit** . without an explicit list the skill has to guess which files are pm-skills vs. user additions | Medium | File scope table in SKILL.md is the contract |
-| I4 | **Multi-version jumps** . user on v2.7.0 updating to v2.10.0 needs aggregated capabilities across 3 releases | Low | Aggregate CHANGELOG entries between versions |
-| I5 | **`_pm-skills/` directory doesn't exist yet** . needs to be created by the skill on first run | Low | Skill creates it; `.gitignore` entry ships with the repo |
+| I1 | **Version mismatch already exists** - `plugin.json` (2.9.0) vs `marketplace.json` (2.8.2) | Medium | Fix as prerequisite P1 |
+| I2 | **"New capabilities" derivation underspecified** - need to define exactly how to extract skill/workflow deltas from release notes | Medium | CHANGELOG + release notes API + directory diff for v1 |
+| I3 | **File scope needs to be explicit** - without an explicit list the skill has to guess which files are pm-skills vs. user additions | Medium | File scope table in SKILL.md is the contract |
+| I4 | **Multi-version jumps** - user on v2.7.0 updating to v2.10.0 needs aggregated capabilities across 3 releases | Low | Aggregate CHANGELOG entries between versions |
+| I5 | **`_pm-skills/` directory doesn't exist yet** - needs to be created by the skill on first run | Low | Skill creates it; `.gitignore` entry ships with the repo |
 
 ### Risks
 

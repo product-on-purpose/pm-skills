@@ -1,7 +1,7 @@
 # [M-18] CI: Skill History and Manifest Validation
 Status: Shipped (v2.8.0)
 Release: v2.8.0
-Phase: 1 (parallel with F-10 SKILL.md . no content dependency)
+Phase: 1 (parallel with F-10 SKILL.md - no content dependency)
 Issue: TBD
 Agent: Codex / GPT-5.4
 
@@ -9,15 +9,15 @@ Agent: Codex / GPT-5.4
 
 Add two new advisory CI validation scripts that support the skill versioning governance introduced alongside v2.8.0:
 
-1. **HISTORY.md consistency** . when a skill has a HISTORY.md, verify it includes an entry matching the current SKILL.md frontmatter `version`
-2. **skills-manifest.yaml validity** . when a release folder has a `skills-manifest.yaml`, verify that listed skill names exist in `skills/` and listed versions match frontmatter
+1. **HISTORY.md consistency** - when a skill has a HISTORY.md, verify it includes an entry matching the current SKILL.md frontmatter `version`
+2. **skills-manifest.yaml validity** - when a release folder has a `skills-manifest.yaml`, verify that listed skill names exist in `skills/` and listed versions match frontmatter
 
 Both are advisory (`continue-on-error: true`) initially. Can be promoted to blocking once adoption is widespread.
 
 ## Key Decisions
 
 - Follow existing `.sh` + `.ps1` + `.md` script convention (per M-12 pattern)
-- Advisory, not blocking . the HISTORY.md convention is opt-in until a skill iterates
+- Advisory, not blocking - the HISTORY.md convention is opt-in until a skill iterates
 - Added to `.github/workflows/validation.yml` alongside existing validators
 - Scope is limited to format/consistency checks, not content quality
 
@@ -51,8 +51,8 @@ For each `docs/internal/release-plans/*/skills-manifest.yaml`:
 
 ## Dependencies
 
-- `docs/internal/skill-versioning.md` . defines the HISTORY.md and skills-manifest.yaml contracts
-- M-12 (#112) . establishes the script convention these follow
+- `docs/internal/skill-versioning.md` - defines the HISTORY.md and skills-manifest.yaml contracts
+- M-12 (#112) - establishes the script convention these follow
 
 ## PRs
 

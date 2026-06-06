@@ -10,7 +10,7 @@ Extend the existing CI validation pipeline (`lint-skills-frontmatter.sh`, `valid
 
 ## Key Decisions
 
-- Extend existing scripts, not replace . existing CI already covers ~70% of validation needs.
+- Extend existing scripts, not replace - existing CI already covers ~70% of validation needs.
 - Follow `.sh + .ps1 + .md` convention (no `.js` scripts).
 - AGENTS.md check is blocking; MCP impact advisory is non-blocking.
 

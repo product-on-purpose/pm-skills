@@ -11,7 +11,7 @@ Create issue templates, PR templates, and CONTRIBUTING.md updates that make it e
 ## Key Decisions
 
 - Depends on M-12 (CI validates contributions automatically).
-- Require issue approval before PR (prevents wasted effort) . human decision pending.
+- Require issue approval before PR (prevents wasted effort) - human decision pending.
 
 ## Artifacts Produced
 

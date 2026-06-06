@@ -2,7 +2,7 @@
 
 ## Overview
 
-A discover-phase skill that guides PMs through structured market sizing using both top-down (TAM/SAM/SOM) and bottoms-up estimation approaches. Produces a market sizing analysis with explicit assumptions, confidence levels, sensitivity ranges, and a clear recommendation on market attractiveness. Fills a gap in the Discover phase . no existing skill covers quantitative market analysis.
+A discover-phase skill that guides PMs through structured market sizing using both top-down (TAM/SAM/SOM) and bottoms-up estimation approaches. Produces a market sizing analysis with explicit assumptions, confidence levels, sensitivity ranges, and a clear recommendation on market attractiveness. Fills a gap in the Discover phase - no existing skill covers quantitative market analysis.
 
 ## Skill Identity
 
@@ -20,7 +20,7 @@ A discover-phase skill that guides PMs through structured market sizing using bo
 Market sizing is only as credible as its assumptions. Every figure in the analysis must trace to an explicit assumption with a stated source (data, estimate, or inference). Unsourced numbers are flagged.
 
 ### 2. Two Approaches, One Answer
-Top-down (TAM/SAM/SOM) and bottoms-up estimation should converge. If they diverge significantly, that's a signal . either the assumptions differ or the market definition is inconsistent. The skill requires both approaches and surfaces the gap.
+Top-down (TAM/SAM/SOM) and bottoms-up estimation should converge. If they diverge significantly, that's a signal - either the assumptions differ or the market definition is inconsistent. The skill requires both approaches and surfaces the gap.
 
 ### 3. Confidence Levels Prevent False Precision
 A $500M TAM with a confidence range of $200M-$1.2B tells a very different story than $500M stated as fact. Every estimate gets a confidence level (high/medium/low) and a sensitivity range.
@@ -82,23 +82,23 @@ metadata:
    - When the market is well-established and published sizing data is readily available (just cite the source)
 
 3. **Key Concepts** (~20 lines)
-   - **TAM (Total Addressable Market)** . The total revenue opportunity if you captured 100% of the market. Theoretical ceiling. Defined by the broadest relevant market boundary.
-   - **SAM (Serviceable Addressable Market)** . The portion of TAM you can actually reach with your product, distribution, and go-to-market. Narrowed by geography, segment, and product fit.
-   - **SOM (Serviceable Obtainable Market)** . The realistic share of SAM you can capture in a defined time frame (typically 3-5 years). Narrowed by competition, resources, and execution capability.
-   - **Bottoms-Up Estimation** . Building the market size from unit economics: (number of potential customers) x (average revenue per customer) x (realistic capture rate). The grounding check against top-down.
-   - **Assumption Table** . Every number traces to a source. Sources are classified as: data (published research, internal analytics), estimate (industry expert, analogous market), or inference (logical derivation from other assumptions).
+   - **TAM (Total Addressable Market)** - The total revenue opportunity if you captured 100% of the market. Theoretical ceiling. Defined by the broadest relevant market boundary.
+   - **SAM (Serviceable Addressable Market)** - The portion of TAM you can actually reach with your product, distribution, and go-to-market. Narrowed by geography, segment, and product fit.
+   - **SOM (Serviceable Obtainable Market)** - The realistic share of SAM you can capture in a defined time frame (typically 3-5 years). Narrowed by competition, resources, and execution capability.
+   - **Bottoms-Up Estimation** - Building the market size from unit economics: (number of potential customers) x (average revenue per customer) x (realistic capture rate). The grounding check against top-down.
+   - **Assumption Table** - Every number traces to a source. Sources are classified as: data (published research, internal analytics), estimate (industry expert, analogous market), or inference (logical derivation from other assumptions).
 
 4. **Instructions** (~40 lines, numbered steps)
-   1. **Define the market boundary** . What product category, customer segment, and geography? Be specific. "The project management software market" is too broad; "cloud-based project management for mid-market B2B SaaS companies in North America" is actionable.
-   2. **Gather data sources** . Identify available data: industry reports, analyst estimates, public company filings, internal analytics, analogous markets. Document each source.
-   3. **Calculate TAM (top-down)** . Start with the broadest relevant market figure. Document: source, year, methodology, and any adjustments made.
-   4. **Narrow to SAM** . Apply filters: geography, segment, product type, distribution reach. Each filter is an assumption . document it.
-   5. **Estimate SOM** . Apply realistic capture assumptions: competitive position, go-to-market resources, time frame. Document market share assumption and rationale.
-   6. **Build bottoms-up estimate** . Calculate: (addressable customer count) x (average deal size) x (realistic penetration rate). Each factor is an explicit assumption.
-   7. **Compare top-down and bottoms-up** . If they converge (within 2x), confidence increases. If they diverge (>3x), investigate: which assumptions differ? Reconcile or explain the gap.
-   8. **Assign confidence levels** . Rate each estimate (TAM, SAM, SOM, bottoms-up) as high/medium/low confidence. Add sensitivity ranges (optimistic/base/pessimistic).
-   9. **Build the assumption table** . Compile all assumptions with source type and confidence. This is the most reviewable artifact . stakeholders can challenge specific assumptions.
-   10. **Write the recommendation** . "Is this market attractive enough to pursue?" Answer with: market size (SOM or bottoms-up), confidence level, key risks, and a go/no-go/investigate-further recommendation.
+   1. **Define the market boundary** - What product category, customer segment, and geography? Be specific. "The project management software market" is too broad; "cloud-based project management for mid-market B2B SaaS companies in North America" is actionable.
+   2. **Gather data sources** - Identify available data: industry reports, analyst estimates, public company filings, internal analytics, analogous markets. Document each source.
+   3. **Calculate TAM (top-down)** - Start with the broadest relevant market figure. Document: source, year, methodology, and any adjustments made.
+   4. **Narrow to SAM** - Apply filters: geography, segment, product type, distribution reach. Each filter is an assumption - document it.
+   5. **Estimate SOM** - Apply realistic capture assumptions: competitive position, go-to-market resources, time frame. Document market share assumption and rationale.
+   6. **Build bottoms-up estimate** - Calculate: (addressable customer count) x (average deal size) x (realistic penetration rate). Each factor is an explicit assumption.
+   7. **Compare top-down and bottoms-up** - If they converge (within 2x), confidence increases. If they diverge (>3x), investigate: which assumptions differ? Reconcile or explain the gap.
+   8. **Assign confidence levels** - Rate each estimate (TAM, SAM, SOM, bottoms-up) as high/medium/low confidence. Add sensitivity ranges (optimistic/base/pessimistic).
+   9. **Build the assumption table** - Compile all assumptions with source type and confidence. This is the most reviewable artifact - stakeholders can challenge specific assumptions.
+   10. **Write the recommendation** - "Is this market attractive enough to pursue?" Answer with: market size (SOM or bottoms-up), confidence level, key risks, and a go/no-go/investigate-further recommendation.
 
 5. **Output Contract** (~5 lines)
    - References TEMPLATE.md as the output artifact
@@ -120,18 +120,18 @@ metadata:
 
 A reusable market sizing template. Sections:
 
-1. **Frontmatter** . artifact name, version, created date, status
-2. **Market Definition** . Product category, customer segment, geography, time frame, boundary justification
-3. **Data Sources** . Table: source name, type (report/filing/internal/estimate), year, relevance notes
+1. **Frontmatter** - artifact name, version, created date, status
+2. **Market Definition** - Product category, customer segment, geography, time frame, boundary justification
+3. **Data Sources** - Table: source name, type (report/filing/internal/estimate), year, relevance notes
 4. **Top-Down Analysis**
-   - **TAM** . Figure, source, methodology, adjustments
-   - **SAM** . Figure, filters applied (each an explicit assumption), resulting estimate
-   - **SOM** . Figure, capture rate assumption, time frame, competitive context
-5. **Bottoms-Up Analysis** . Customer count assumption, average revenue assumption, penetration rate assumption, resulting estimate
-6. **Convergence Analysis** . Top-down vs. bottoms-up comparison, gap magnitude, explanation of divergence (if any)
-7. **Assumption Table** . Table: assumption, value, source type (data/estimate/inference), confidence (high/medium/low), sensitivity impact
-8. **Sensitivity Analysis** . Table: scenario (optimistic/base/pessimistic), TAM, SAM, SOM, bottoms-up, key driver of variation
-9. **Recommendation** . Market attractiveness assessment, go/no-go/investigate, key risks, next steps
+   - **TAM** - Figure, source, methodology, adjustments
+   - **SAM** - Figure, filters applied (each an explicit assumption), resulting estimate
+   - **SOM** - Figure, capture rate assumption, time frame, competitive context
+5. **Bottoms-Up Analysis** - Customer count assumption, average revenue assumption, penetration rate assumption, resulting estimate
+6. **Convergence Analysis** - Top-down vs. bottoms-up comparison, gap magnitude, explanation of divergence (if any)
+7. **Assumption Table** - Table: assumption, value, source type (data/estimate/inference), confidence (high/medium/low), sensitivity impact
+8. **Sensitivity Analysis** - Table: scenario (optimistic/base/pessimistic), TAM, SAM, SOM, bottoms-up, key driver of variation
+9. **Recommendation** - Market attractiveness assessment, go/no-go/investigate, key risks, next steps
 
 ---
 
@@ -156,7 +156,7 @@ Demonstrates:
    - Shows each factor as an explicit assumption
 
 4. **Convergence analysis**
-   - Top-down SOM: $45M; Bottoms-up: $38M . within 1.2x, good convergence
+   - Top-down SOM: $45M; Bottoms-up: $38M - within 1.2x, good convergence
    - Notes that both estimates rely on the same penetration rate assumption
 
 5. **Assumption table**
@@ -167,7 +167,7 @@ Demonstrates:
    - Optimistic/base/pessimistic table showing how the estimate shifts when the top 2 assumptions vary
 
 7. **Recommendation**
-   - "Investigate further" . market is attractive ($38-45M SOM) but penetration rate assumption needs validation through customer interviews
+   - "Investigate further" - market is attractive ($38-45M SOM) but penetration rate assumption needs validation through customer interviews
    - Specific next steps to increase confidence
 
 ---

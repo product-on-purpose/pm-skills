@@ -47,19 +47,19 @@ None of these conditions exist today.
 |----------|--------|-----------|
 | Freeze vs delete MCP repo | **Freeze** | Preserving working code for future use is free. Deleting loses the implementation. |
 | Remove from release gating | **Yes** | MCP alignment is not a prerequisite for any pm-skills release. |
-| Remove `check-mcp-impact` from CI | **No . keep as advisory** | Still useful to flag when a new skill *would* need MCP work, even if we're not acting on it. |
+| Remove `check-mcp-impact` from CI | **No - keep as advisory** | Still useful to flag when a new skill *would* need MCP work, even if we're not acting on it. |
 | Update MCP README | **Yes** | Add clear status: frozen, not actively maintained, use plugin for latest skills. |
 
 ## Artifacts Produced
 
-- Updated `pm-skills-mcp/README.md` . frozen status notice
-- Updated pm-skills release plan template . remove MCP alignment as prerequisite
-- Updated `docs/internal/backlog-canonical.md` . M-22 entry
+- Updated `pm-skills-mcp/README.md` - frozen status notice
+- Updated pm-skills release plan template - remove MCP alignment as prerequisite
+- Updated `docs/internal/backlog-canonical.md` - M-22 entry
 - This effort brief and plan
 
 ## Dependencies
 
-None . purely subtractive (removing process, not adding code).
+None - purely subtractive (removing process, not adding code).
 
 ## PRs
 

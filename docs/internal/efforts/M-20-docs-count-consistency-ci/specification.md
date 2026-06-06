@@ -35,7 +35,7 @@ them automatically.
 
 **Exit codes:** 0 = all covered, 1 = missing entries
 
-**Mode:** Advisory (`continue-on-error: true`) . some workflows may
+**Mode:** Advisory (`continue-on-error: true`) - some workflows may
 intentionally lack commands.
 
 ### 2. check-count-consistency.sh / .ps1
@@ -54,10 +54,10 @@ intentionally lack commands.
 4. Report mismatches with file path and line number
 
 **Exclusions** (don't flag stale counts in):
-- `CHANGELOG.md` . historical entries are correct for their time
-- `docs/releases/Release_*.md` . same
-- `docs/internal/` . planning docs may reference future counts
-- Lines containing "v2." or version references . likely historical context
+- `CHANGELOG.md` - historical entries are correct for their time
+- `docs/releases/Release_*.md` - same
+- `docs/internal/` - planning docs may reference future counts
+- Lines containing "v2." or version references - likely historical context
 
 **Exit codes:** 0 = consistent, 1 = stale counts found
 

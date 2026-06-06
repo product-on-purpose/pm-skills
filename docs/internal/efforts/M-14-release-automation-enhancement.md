@@ -10,7 +10,7 @@ Extend the existing release workflow (`.github/workflows/release.yml`) with tag-
 
 ## Key Decisions
 
-- Enhance existing `release.yml`, not replace . tag-triggered release packaging and GitHub Release creation already work.
+- Enhance existing `release.yml`, not replace - tag-triggered release packaging and GitHub Release creation already work.
 - Manual tag push + enhancement chosen over Release Please (simpler, matches current flow).
 - MCP sync dispatch needs PAT secret for cross-repo workflow dispatch (human decision pending).
 - `plugin.json` located at `.claude-plugin/plugin.json`.

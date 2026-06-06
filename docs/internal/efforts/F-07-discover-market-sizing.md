@@ -6,7 +6,7 @@ Agent: Claude Opus 4.6
 
 ## Scope
 
-New domain skill (`discover-market-sizing`) providing framework-driven market sizing (TAM/SAM/SOM + bottoms-up estimation). Fills a gap in the Discover phase . no existing skill covers quantitative market analysis.
+New domain skill (`discover-market-sizing`) providing framework-driven market sizing (TAM/SAM/SOM + bottoms-up estimation). Fills a gap in the Discover phase - no existing skill covers quantitative market analysis.
 
 ## Key Decisions
 

@@ -27,7 +27,7 @@ The `--report-only` flag exists for users who want information without action.
 
 ### 2. Value-Forward Reporting
 
-Reports don't just list files . they summarize the *value delta* between
+Reports don't just list files - they summarize the *value delta* between
 versions. What new skills were added? What capabilities improved? What
 workflows are now available? The report tells a user why the update matters,
 not just what it touches.
@@ -96,7 +96,7 @@ metadata:
 
 1. **When to Use** / **When NOT to Use**
 
-2. **Flags** . `--status` (lightweight version check), `--report-only`
+2. **Flags** - `--status` (lightweight version check), `--report-only`
    (preview without writing), default (full update flow)
 
 3. **Instructions** (6-step flow with guardrails)
@@ -122,7 +122,7 @@ metadata:
      from release notes (derived from CHANGELOG + GitHub release notes)
    - Show list of files and folders that will be written, with counts per
      directory
-   - If `--report-only` → generate report with banner "Report only . update
+   - If `--report-only` → generate report with banner "Report only - update
      not applied" → save to `_pm-skills/updates/` → STOP
 
    **Step 4: Confirmation**
@@ -233,10 +233,10 @@ metadata:
    - [ ] Next steps were presented
    - [ ] Summary line displayed
 
-9. **FAQ** . Common questions: contributor vs. end user, version pinning,
+9. **FAQ** - Common questions: contributor vs. end user, version pinning,
    local file safety, user-added files, undo/restore, partial failure
 
-10. **Further Reading** . Link to `docs/guides/updating-pm-skills.md`
+10. **Further Reading** - Link to `docs/guides/updating-pm-skills.md`
 
 ---
 
@@ -262,36 +262,36 @@ The update report output template. Supports two modes via a conditional banner.
 
 1. **Banner** (conditional)
    - Completion: none (or "Update complete")
-   - Report-only: "⚠ Report only . update was not applied. Run
+   - Report-only: "⚠ Report only - update was not applied. Run
      `/update-pm-skills` to apply."
 
-2. **Update Summary** . table with date, versions, update type, source
+2. **Update Summary** - table with date, versions, update type, source
 
-3. **Pre-Flight Results** . table with pass/fail for each check
+3. **Pre-Flight Results** - table with pass/fail for each check
 
-4. **What's New (Value Delta)** . the centerpiece section, organized as:
+4. **What's New (Value Delta)** - the centerpiece section, organized as:
    - **Headline**: 1-2 sentence summary of the update's value
      (e.g., "This update adds meeting synthesis and slideshow creation,
      expanding pm-skills from a planning toolkit into a presentation and
      communication platform.")
    - **New Skills**: table with skill name, what it enables (not just
-     description . the *capability* it unlocks)
+     description - the *capability* it unlocks)
    - **Updated Skills**: table with skill name, what improved, why it matters
    - **New Workflows**: table with workflow name, what it connects
    - **Other Changes**: bullet list of notable changes (commands, docs,
      infrastructure, breaking changes if any)
    - **Opportunities**: 2-3 sentences on what the user can now do that they
-     couldn't before . framed as actionable next steps
+     couldn't before - framed as actionable next steps
 
-5. **Files Written / Files That Would Be Written** . grouped by directory
+5. **Files Written / Files That Would Be Written** - grouped by directory
    with counts
 
-6. **Backup** (completion only) . location of backup if created
+6. **Backup** (completion only) - location of backup if created
 
-7. **Post-Update Validation** (completion only) . version consistency,
+7. **Post-Update Validation** (completion only) - version consistency,
    file integrity, skill count delta
 
-8. **Next Steps** . actionable items
+8. **Next Steps** - actionable items
 
 ---
 
@@ -397,7 +397,7 @@ and reports:
     cd ../pm-skills-mcp && npm run embed-skills && npm run build
 ```
 
-This is advisory only . no automated MCP updates in v1.
+This is advisory only - no automated MCP updates in v1.
 
 ---
 

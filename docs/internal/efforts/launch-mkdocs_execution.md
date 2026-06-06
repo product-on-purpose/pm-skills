@@ -18,7 +18,7 @@ MkDocs Material v9.7.0 unlocked all Insiders features for free. The goal: zero t
 | Skill count | 27 | 29 (25 domain + 1 foundation + 3 utility) |
 | Command count | 28 | 30 |
 | SKILL.md sections | Purpose, Key Concepts, Application, Common Pitfalls, References | When to Use, Instructions, Output Format, Quality Checklist, Examples |
-| Install tabs | `claude install`, `codex install` | These commands don't exist . git clone / ZIP download |
+| Install tabs | `claude install`, `codex install` | These commands don't exist - git clone / ZIP download |
 | Related skills grid | Hardcodes nonexistent skill names | Omit for v1 |
 | Missing from migration | `pm-skill-lifecycle.md`, `agent-skill-anatomy.md` | Must include |
 | Blog for releases | Primary approach | Defer; simple releases section for v1 |
@@ -29,7 +29,7 @@ MkDocs Material v9.7.0 unlocked all Insiders features for free. The goal: zero t
 
 ### Files to create
 
-**`mkdocs.yml`** . Based on effort brief config with these changes:
+**`mkdocs.yml`** - Based on effort brief config with these changes:
 - Fix description: "29" not "27+"
 - Remove `blog` plugin (defer to Phase 2)
 - Remove `git-revision-date-localized` plugin (adds CI complexity; defer)
@@ -37,19 +37,19 @@ MkDocs Material v9.7.0 unlocked all Insiders features for free. The goal: zero t
 - Remove `mkdocs-rss-plugin` and `mkdocs-glightbox` from requirements
 - Start with minimal nav referencing only files that exist
 
-**`requirements-docs.txt`** . Minimal:
+**`requirements-docs.txt`** - Minimal:
 ```
 mkdocs-material>=9.6.0
 pillow>=10.0.0
 cairosvg>=2.7.0
 ```
 
-**`.github/workflows/deploy-docs.yml`** . Simplified:
+**`.github/workflows/deploy-docs.yml`** - Simplified:
 - Remove cairo system deps for first deploy (social cards disabled locally)
 - Use `mkdocs gh-deploy --force`
 - Trigger on: push to main (docs/**, mkdocs.yml, requirements-docs.txt, skills/**/SKILL.md)
 
-**`docs/index.md`** . Stub landing page
+**`docs/index.md`** - Stub landing page
 
 ### Verify
 ```bash
@@ -63,7 +63,7 @@ mkdocs serve
 
 ### Copy (not move) existing files
 
-Source files stay in place . consumed by skills, commands, AGENTS.md, Claude plugin.
+Source files stay in place - consumed by skills, commands, AGENTS.md, Claude plugin.
 
 | Source | Destination |
 |--------|-------------|
@@ -159,8 +159,8 @@ tags:
 **Edge cases:**
 - Utility skills: include When NOT to Use, preserve interactive workflow structure
 - HTML comment before frontmatter (`<!-- PM-Skills | ... -->`)
-- TEMPLATE.md has its own frontmatter . preserve as content, don't parse as MkDocs frontmatter
-- EXAMPLE.md sizes range from 58 to 367 lines . collapsible admonition handles all
+- TEMPLATE.md has its own frontmatter - preserve as content, don't parse as MkDocs frontmatter
+- EXAMPLE.md sizes range from 58 to 367 lines - collapsible admonition handles all
 
 **Run in CI:** Execute in `deploy-docs.yml` before `mkdocs build`. Generated pages not checked into git.
 
@@ -177,13 +177,13 @@ tags:
 
 ## Key Design Decisions
 
-1. **Copy, not move** . source files stay in place for backward compatibility
-2. **Generate skill pages** . 29 x 3 files is too much manual work; script keeps them in sync
-3. **Run generator in CI** . no generated files in git
-4. **Simple releases section** . avoid blog plugin complexity for v1
-5. **No fake install tabs** . pm-skills is git clone / ZIP, not a package manager install
-6. **No related skills grid** . effort brief hardcodes nonexistent names; omit for v1
-7. **Minimal requirements** . only mkdocs-material + pillow + cairosvg for v1
+1. **Copy, not move** - source files stay in place for backward compatibility
+2. **Generate skill pages** - 29 x 3 files is too much manual work; script keeps them in sync
+3. **Run generator in CI** - no generated files in git
+4. **Simple releases section** - avoid blog plugin complexity for v1
+5. **No fake install tabs** - pm-skills is git clone / ZIP, not a package manager install
+6. **No related skills grid** - effort brief hardcodes nonexistent names; omit for v1
+7. **Minimal requirements** - only mkdocs-material + pillow + cairosvg for v1
 
 ## Session Breakdown
 

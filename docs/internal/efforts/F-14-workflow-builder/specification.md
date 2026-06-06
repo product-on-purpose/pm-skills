@@ -2,7 +2,7 @@
 
 ## Overview
 
-A utility skill that guides users through creating a new workflow file . the workflow equivalent of `utility-pm-skill-builder`. Produces a complete `_workflows/*.md` file with all required sections, a matching `commands/workflow-*.md` slash command, and a checklist of cross-cutting updates. Includes overlap analysis against existing workflows to prevent duplication.
+A utility skill that guides users through creating a new workflow file - the workflow equivalent of `utility-pm-skill-builder`. Produces a complete `_workflows/*.md` file with all required sections, a matching `commands/workflow-*.md` slash command, and a checklist of cross-cutting updates. Includes overlap analysis against existing workflows to prevent duplication.
 
 ## Skill Identity
 
@@ -23,7 +23,7 @@ The skill follows the same four-step flow as `utility-pm-skill-builder`: underst
 With 9+ existing workflows, creating a duplicate is a real risk. The 70% overlap threshold (same as pm-skill-builder) gates workflow creation: if an existing workflow covers most of the need, the skill recommends customizing it instead.
 
 ### 3. Skill Sequencing Is the Core Value
-The hardest part of workflow authoring is selecting the right skills, ordering them correctly, and defining handoff points. The skill makes this interactive . presenting candidates, suggesting order, and generating handoff guidance.
+The hardest part of workflow authoring is selecting the right skills, ordering them correctly, and defining handoff points. The skill makes this interactive - presenting candidates, suggesting order, and generating handoff guidance.
 
 ### 4. Draft for Review, Never Direct Write
 Workflows are higher-stakes than individual skills (they chain multiple tools). All output goes to a staging area for human review before promotion to canonical locations.
@@ -113,8 +113,8 @@ metadata:
 
    **Step 4: Generate Files** (~15 lines)
    - Produce a Workflow Implementation Packet in the staging area:
-     1. `_workflows/{name}.md` . Complete workflow file with: metadata table, When to Use, Steps (with handoff guidance per step), Context Flow Diagram (mermaid), Tips, Quality Checklist, See Also
-     2. `commands/workflow-{name}.md` . Matching slash command
+     1. `_workflows/{name}.md` - Complete workflow file with: metadata table, When to Use, Steps (with handoff guidance per step), Context Flow Diagram (mermaid), Tips, Quality Checklist, See Also
+     2. `commands/workflow-{name}.md` - Matching slash command
      3. Cross-cutting update checklist: AGENTS.md entry, mkdocs.yml nav, README workflow count, docs/workflows page
 
 4. **Workflow File Convention Reference** (~15 lines)
@@ -146,13 +146,13 @@ metadata:
 
 A template for the Workflow Implementation Packet. Sections:
 
-1. **Workflow Idea** . Problem/process description, trigger, target audience, end artifact
-2. **Overlap Analysis** . Table: existing workflow, overlap %, differentiation notes
-3. **Skill Sequence** . Ordered table: step number, skill name, input, output, handoff guidance
-4. **Context Flow Diagram** . Mermaid code block (placeholder for auto-generation)
-5. **Draft Workflow File** . Complete `_workflows/*.md` content following conventions
-6. **Draft Command File** . Complete `commands/workflow-*.md` content
-7. **Cross-Cutting Checklist** . Checkbox list of files to update
+1. **Workflow Idea** - Problem/process description, trigger, target audience, end artifact
+2. **Overlap Analysis** - Table: existing workflow, overlap %, differentiation notes
+3. **Skill Sequence** - Ordered table: step number, skill name, input, output, handoff guidance
+4. **Context Flow Diagram** - Mermaid code block (placeholder for auto-generation)
+5. **Draft Workflow File** - Complete `_workflows/*.md` content following conventions
+6. **Draft Command File** - Complete `commands/workflow-*.md` content
+7. **Cross-Cutting Checklist** - Checkbox list of files to update
 
 ---
 
@@ -168,7 +168,7 @@ Demonstrates:
 
 2. **Overlap analysis**
    - Checks against existing workflows (Feature Kickoff, Sprint Closure, etc.)
-   - Finds 30% overlap with Sprint Closure (both use experiment-results) . below threshold, proceed
+   - Finds 30% overlap with Sprint Closure (both use experiment-results) - below threshold, proceed
    - Documents the differentiation
 
 3. **Skill selection and sequencing**

@@ -101,18 +101,18 @@ metadata:
    - Initial context is passed to the first skill; subsequent skills receive conversation context
 
 4. **Instructions** (~25 lines, numbered steps)
-   1. **Parse the chain** . Extract the ordered list of skill names and the initial context.
-   2. **Validate all skills** . Check every skill name against the skill library. If any name is unrecognized, fail immediately with suggestions for similar names.
-   3. **Display the execution plan** . Show the user: "I will run: 1. problem-statement -> 2. hypothesis -> 3. prd. Context: [initial context]. Proceed?"
-   4. **Execute sequentially** . For each skill:
+   1. **Parse the chain** - Extract the ordered list of skill names and the initial context.
+   2. **Validate all skills** - Check every skill name against the skill library. If any name is unrecognized, fail immediately with suggestions for similar names.
+   3. **Display the execution plan** - Show the user: "I will run: 1. problem-statement -> 2. hypothesis -> 3. prd. Context: [initial context]. Proceed?"
+   4. **Execute sequentially** - For each skill:
       - Print a step marker: `--- Step N of M: {skill-name} ---`
       - Invoke the skill with accumulated context
       - Capture the output as context for the next step
-   5. **Present combined output** . All step outputs with clear boundaries and a summary header.
-   6. **Suggest promotion** . If this chain (or a similar one) has been run before, suggest: "You've run this chain before. Consider creating a workflow: `/workflow-builder`"
+   5. **Present combined output** - All step outputs with clear boundaries and a summary header.
+   6. **Suggest promotion** - If this chain (or a similar one) has been run before, suggest: "You've run this chain before. Consider creating a workflow: `/workflow-builder`"
 
 5. **Context Passing** (~10 lines)
-   - **v1 approach**: Implicit . the AI's conversation context naturally carries output forward
+   - **v1 approach**: Implicit - the AI's conversation context naturally carries output forward
    - Each step's output is visible to subsequent steps via the conversation
    - Step markers ensure the AI can distinguish between step outputs
    - No explicit schema or structured handoff in v1 (future enhancement)
@@ -121,7 +121,7 @@ metadata:
    - A combined document with:
      - Chain summary header (skills run, initial context)
      - Step-by-step outputs with markers
-     - No separate artifact file . output lives in the conversation
+     - No separate artifact file - output lives in the conversation
 
 7. **Quality Checklist** (~6 lines)
    - [ ] All skill names validated before execution
@@ -136,9 +136,9 @@ metadata:
 
 A lightweight template for the chain output format (used internally by the skill, not filled by the user). Sections:
 
-1. **Chain Summary** . Skills in order, initial context, total steps
-2. **Step Output Block** (repeated per step) . Step marker, skill name, output content
-3. **Chain Complete** . Summary of what was produced, promotion suggestion if applicable
+1. **Chain Summary** - Skills in order, initial context, total steps
+2. **Step Output Block** (repeated per step) - Step marker, skill name, output content
+3. **Chain Complete** - Summary of what was produced, promotion suggestion if applicable
 
 ---
 
@@ -149,14 +149,14 @@ A worked example: **PM exploring a new feature idea through a 3-skill chain**.
 Demonstrates:
 
 1. **Invocation**
-   - `/chain "problem-statement, hypothesis, prd" "Mobile checkout abandonment is 68% . users cite too many steps"`
+   - `/chain "problem-statement, hypothesis, prd" "Mobile checkout abandonment is 68% - users cite too many steps"`
    - Shows the validation step (all 3 skills recognized)
    - Shows the execution plan confirmation
 
 2. **Step-by-step execution**
-   - **Step 1: problem-statement** . Produces a problem framing document focused on checkout friction
-   - **Step 2: hypothesis** . Takes the problem statement as context, produces a testable hypothesis about reducing steps
-   - **Step 3: prd** . Takes both prior outputs as context, produces a PRD for a streamlined checkout flow
+   - **Step 1: problem-statement** - Produces a problem framing document focused on checkout friction
+   - **Step 2: hypothesis** - Takes the problem statement as context, produces a testable hypothesis about reducing steps
+   - **Step 3: prd** - Takes both prior outputs as context, produces a PRD for a streamlined checkout flow
    - Each step shows the marker, abbreviated output, and how context carried forward
 
 3. **Promotion suggestion**

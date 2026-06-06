@@ -1,6 +1,6 @@
 # v2.7.0 Internal Release Governance
 
-Status: Ready for tag . all gating criteria met
+Status: Ready for tag - all gating criteria met
 Owner: Maintainers
 Last updated: 2026-03-22
 
@@ -10,12 +10,12 @@ This directory is the tracked internal release-governance home for the `v2.7.0` 
 
 | Effort | Type | Description | Agent | Status | Issue |
 |--------|------|-------------|-------|--------|-------|
-| M-12 | Infrastructure | CI validation enhancement . extended linter, AGENTS.md sync validator, MCP impact check | Codex | **Committed** | [#112](https://github.com/product-on-purpose/pm-skills/issues/112) |
-| F-06 | New skill | `deliver-acceptance-criteria` . Given/When/Then acceptance criteria skill | Codex | **Committed** | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
+| M-12 | Infrastructure | CI validation enhancement - extended linter, AGENTS.md sync validator, MCP impact check | Codex | **Committed** | [#112](https://github.com/product-on-purpose/pm-skills/issues/112) |
+| F-06 | New skill | `deliver-acceptance-criteria` - Given/When/Then acceptance criteria skill | Codex | **Committed** | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
 | M-16 | Infrastructure | Exclude `docs/internal/**` from the published ZIP while keeping internal governance docs tracked in-repo | Codex | **Committed** (`0c2e637`) | [#123](https://github.com/product-on-purpose/pm-skills/issues/123) |
-| F-05 | New skill | PM Skill Builder (`/pm-skill-builder`) . interactive utility skill for creating new PM skills | Claude | **Committed** (`3c50108`, `df794a1`, `a67f144`) | [#113](https://github.com/product-on-purpose/pm-skills/issues/113) |
-| D-01 | Documentation | Create `docs/pm-skill-anatomy.md` . architecture and anatomy of a pm-skills skill (extends agentskills.io spec) | Claude | **Committed** | . |
-| D-02 | Documentation | Review and update public-facing docs for v2.7.0 accuracy | Codex + Claude | **Committed** (`12a30a9`) | . |
+| F-05 | New skill | PM Skill Builder (`/pm-skill-builder`) - interactive utility skill for creating new PM skills | Claude | **Committed** (`3c50108`, `df794a1`, `a67f144`) | [#113](https://github.com/product-on-purpose/pm-skills/issues/113) |
+| D-01 | Documentation | Create `docs/pm-skill-anatomy.md` - architecture and anatomy of a pm-skills skill (extends agentskills.io spec) | Claude | **Committed** | - |
+| D-02 | Documentation | Review and update public-facing docs for v2.7.0 accuracy | Codex + Claude | **Committed** (`12a30a9`) | - |
 
 ## Release Theme
 
@@ -47,14 +47,14 @@ Infrastructure hardening (M-12) + release packaging hygiene (M-16) + first new s
 ## Canonical Artifacts
 
 1. `docs/internal/release-plans/v2.7.0/README.md` (this file)
-2. `docs/releases/Release_v2.7.0.md` (public release notes . create at tag time)
+2. `docs/releases/Release_v2.7.0.md` (public release notes - create at tag time)
 3. Effort briefs: `M-12`, `M-16`, `F-05`, `F-06` in `docs/internal/efforts/`
 
 ## Documentation Tasks (D-01, D-02)
 
 ### D-01: Skill Anatomy Document
 
-Create `docs/pm-skill-anatomy.md` . a public-facing guide explaining the architecture and anatomy of a pm-skills skill. Should cover:
+Create `docs/pm-skill-anatomy.md` - a public-facing guide explaining the architecture and anatomy of a pm-skills skill. Should cover:
 - Directory structure (`skills/{phase}-{name}/SKILL.md` + `references/`)
 - Frontmatter schema and field meanings
 - SKILL.md section structure (Instructions, Output Contract, Quality Checklist)
@@ -98,6 +98,6 @@ After tagging v2.7.0, `pm-skills-mcp` needs a corresponding update:
 |--------|--------|
 | Re-embed skills | Run `scripts/embed-skills.js` against the v2.7.0 tag |
 | Add F-06 tool | `deliver-acceptance-criteria` → `pm_acceptance_criteria` |
-| Add F-05 tool | `utility-pm-skill-builder` → `pm_pm_skill_builder` (double `pm_` intentional . consistent with future `pm_agent_skill_builder` from F-09) |
+| Add F-05 tool | `utility-pm-skill-builder` → `pm_pm_skill_builder` (double `pm_` intentional - consistent with future `pm_agent_skill_builder` from F-09) |
 | Update naming function | `embed-skills.js` should strip classification prefixes (`foundation-`, `utility-`) in addition to phase prefixes; no prefix deduplication |
 | Note | The builder produces packet content as text; file writing is client-dependent (works in Cursor/Claude Code, not Claude Desktop) |

@@ -8,8 +8,8 @@ Created: 2026-03-31
 
 This repo tracks versions at two levels:
 
-- **Repo version** . the plugin release (e.g., `v2.7.0`), tracked in git tags, `CHANGELOG.md`, `.claude-plugin/plugin.json`, and `docs/releases/`.
-- **Skill version** . each skill's independent contract version (e.g., `1.0.0`), tracked in the skill's SKILL.md frontmatter `version` field.
+- **Repo version** - the plugin release (e.g., `v2.7.0`), tracked in git tags, `CHANGELOG.md`, `.claude-plugin/plugin.json`, and `docs/releases/`.
+- **Skill version** - each skill's independent contract version (e.g., `1.0.0`), tracked in the skill's SKILL.md frontmatter `version` field.
 
 These are intentionally decoupled. A repo release packages many skills; a skill can iterate across multiple repo releases.
 
@@ -95,7 +95,7 @@ The key question is: *does existing usage break?*
 | `/pm-skill-builder` renamed to `/skill-builder` | Major | Command name is part of the contract; existing prompts break |
 | Required section removed from output contract | Major | Existing outputs that included it are fine, but consumers expecting it break |
 | New required checklist item added | Major | Existing skill outputs that passed the old checklist now fail the new one |
-| Output contract wording tightened . what "done" means changes | Major | Narrows what's compliant; some previously-valid outputs no longer pass |
+| Output contract wording tightened - what "done" means changes | Major | Narrows what's compliant; some previously-valid outputs no longer pass |
 | Builder adds optional release-manifest drafting step | Minor | New capability, existing flow unchanged |
 | New optional section in output contract | Minor | Users can ignore it; existing outputs still comply |
 | Validator adds a new optional quality check | Minor | More coverage, no existing behavior changes |
@@ -110,7 +110,7 @@ A per-skill changelog that connects versions to efforts and releases.
 
 **Location:** `skills/{name}/HISTORY.md`
 
-**When to create:** When a skill ships its **second** version. A skill at 1.0.0 with no iteration history doesn't need one . the effort brief and skills manifest cover it. Once a skill bumps to 1.1.0 or 2.0.0, create HISTORY.md with entries for all versions.
+**When to create:** When a skill ships its **second** version. A skill at 1.0.0 with no iteration history doesn't need one - the effort brief and skills manifest cover it. Once a skill bumps to 1.1.0 or 2.0.0, create HISTORY.md with entries for all versions.
 
 ### Format
 

@@ -6,7 +6,7 @@ Type: Patch release
 
 ## Release Theme
 
-**Documentation quality and CI guardrails** . dedicated workflow guide, documentation count consistency CI, script documentation enforcement, and cleanup from v2.9.0.
+**Documentation quality and CI guardrails** - dedicated workflow guide, documentation count consistency CI, script documentation enforcement, and cleanup from v2.9.0.
 
 ---
 
@@ -15,7 +15,7 @@ Type: Patch release
 v2.9.0 shipped 9 workflows successfully, but manual review revealed:
 - No dedicated guide for choosing and using workflows (guidance scattered across 3 files)
 - Several docs pages had stale counts (3 instead of 9) because no CI catches hardcoded numbers
-- These were fixed manually but the underlying problem . no automated detection . remains
+- These were fixed manually but the underlying problem - no automated detection - remains
 
 This patch release adds the guide, the count CI, and a new script-docs
 enforcement CI that ensures every script ships with documentation.
@@ -91,9 +91,9 @@ enforcement CI that ensures every script ships with documentation.
 
 | Workflow | Checks | Notes |
 |----------|--------|-------|
-| `lint-skills-frontmatter` | No new skills . existing check still runs | Must pass |
-| `validate-commands` | No new commands . existing check still runs | Must pass |
-| `validate-agents-md` | No new skills . existing check still runs | Must pass |
+| `lint-skills-frontmatter` | No new skills - existing check still runs | Must pass |
+| `validate-commands` | No new commands - existing check still runs | Must pass |
+| `validate-agents-md` | No new skills - existing check still runs | Must pass |
 | `validate-version-consistency` | plugin.json == marketplace.json | Must pass |
 | `validate-gitignore-pm-skills` | `_pm-skills/` in `.gitignore` | Advisory |
 | `validate-script-docs` (new) | Every script pair has companion `.md` | Advisory initially |
@@ -152,5 +152,5 @@ D-05, M-20, and script-docs CI are independent and can be done in parallel.
 1. **Should `validate-script-docs` be advisory or hard-fail?** Recommendation:
    advisory in v2.9.1, promote to hard-fail in v2.10.0 after one cycle.
 2. **Should `check-count-consistency` check README.md counts?** README has
-   many count references . could be noisy. May need an exclusion pattern for
+   many count references - could be noisy. May need an exclusion pattern for
    counts inside badges or historical context.

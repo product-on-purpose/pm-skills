@@ -10,7 +10,7 @@ This directory is the tracked internal release-governance home for the `v2.8.0` 
 
 **Complete the PM skill lifecycle: Create → Validate → Iterate.**
 
-v2.7.0 shipped the PM Skill Builder (`/pm-skill-builder`), giving contributors a guided path to *create* new skills. v2.8.0 closes the loop with two companion utility skills . Validate audits an existing skill against conventions and quality criteria, and Iterate applies feedback to improve an existing skill. Together, the three tools form a self-reinforcing lifecycle for skill quality.
+v2.7.0 shipped the PM Skill Builder (`/pm-skill-builder`), giving contributors a guided path to *create* new skills. v2.8.0 closes the loop with two companion utility skills - Validate audits an existing skill against conventions and quality criteria, and Iterate applies feedback to improve an existing skill. Together, the three tools form a self-reinforcing lifecycle for skill quality.
 
 Secondary: lifecycle documentation, skill versioning governance, and CI to support skill evolution.
 
@@ -18,14 +18,14 @@ Secondary: lifecycle documentation, skill versioning governance, and CI to suppo
 
 | Effort | Type | Description | Agent | Status | Issue |
 |--------|------|-------------|-------|--------|-------|
-| . | Governance | `skill-versioning.md` tie-breaker rule update | Claude | **Done** | . |
-| F-10 | New skill | `utility-pm-skill-validate` (`/pm-skill-validate`) . SKILL.md | Claude | **Done** (`1398835`) | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
-| F-10 | New skill | `utility-pm-skill-validate` . TEMPLATE.md + EXAMPLE.md + command | Claude | **Done** (included in SKILL.md commit) | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
-| F-11 | New skill | `utility-pm-skill-iterate` (`/pm-skill-iterate`) . SKILL.md | Claude | **Done** (`2f6577e`) | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
-| F-11 | New skill | `utility-pm-skill-iterate` . TEMPLATE.md + EXAMPLE.md + command | Claude | **Done** (included in SKILL.md commit) | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
-| D-03 | Documentation | PM skill lifecycle guide . how Create, Validate, and Iterate work together | Claude | **Done** (`f678344`) | . |
-| M-18 | Infrastructure | CI: validate HISTORY.md consistency and `skills-manifest.yaml` | Codex | **Done** | . |
-| D-04 | Documentation | Public docs refresh for v2.8.0 . counts, lifecycle references | Claude | **Done** | . |
+| - | Governance | `skill-versioning.md` tie-breaker rule update | Claude | **Done** | - |
+| F-10 | New skill | `utility-pm-skill-validate` (`/pm-skill-validate`) - SKILL.md | Claude | **Done** (`1398835`) | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
+| F-10 | New skill | `utility-pm-skill-validate` - TEMPLATE.md + EXAMPLE.md + command | Claude | **Done** (included in SKILL.md commit) | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
+| F-11 | New skill | `utility-pm-skill-iterate` (`/pm-skill-iterate`) - SKILL.md | Claude | **Done** (`2f6577e`) | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
+| F-11 | New skill | `utility-pm-skill-iterate` - TEMPLATE.md + EXAMPLE.md + command | Claude | **Done** (included in SKILL.md commit) | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
+| D-03 | Documentation | PM skill lifecycle guide - how Create, Validate, and Iterate work together | Claude | **Done** (`f678344`) | - |
+| M-18 | Infrastructure | CI: validate HISTORY.md consistency and `skills-manifest.yaml` | Codex | **Done** | - |
+| D-04 | Documentation | Public docs refresh for v2.8.0 - counts, lifecycle references | Claude | **Done** | - |
 
 ## Dependency Chain and Execution Phases
 
@@ -56,7 +56,7 @@ Phase 5:  Release prep (CHANGELOG, skills-manifest, version bumps) ─┘
 
 - **F-10 SKILL.md is the keystone.** It defines the report format (`Report schema: v1`) that F-11 consumes and that the F-10 example must demonstrate. Everything downstream depends on it.
 - **F-10 EXAMPLE.md and F-11 SKILL.md can run in parallel** (Phase 2) because they depend on *different outputs* of Phase 1: F-11 needs the report format spec; the F-10 example needs the validation instructions.
-- **M-18 is fully parallel** with the skill work . it depends on `skill-versioning.md` format contracts (already written), not on skill content.
+- **M-18 is fully parallel** with the skill work - it depends on `skill-versioning.md` format contracts (already written), not on skill content.
 - **D-03 can overlap with F-11 EXAMPLE.md** (Phase 3) because the lifecycle guide needs both SKILL.md files (Phases 1-2) but not the examples.
 - **D-04 is last** because it needs final file paths, counts, and command names.
 
@@ -70,12 +70,12 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 
 | Phase | Claude track | Codex track | Blocked by |
 |-------|-------------|-------------|------------|
-| 0 | `skill-versioning.md` tie-breaker rule (**done**) | . | Nothing |
+| 0 | `skill-versioning.md` tie-breaker rule (**done**) | - | Nothing |
 | 1 | F-10 SKILL.md (**done**) | M-18 CI scripts (**done**) | Phase 0 |
-| 2 | F-11 SKILL.md (**done**) | F-10 TEMPLATE+EXAMPLE (**done** . Claude wrote with SKILL.md) | Phase 1 |
-| 3 | D-03 lifecycle guide (**done**) | F-11 TEMPLATE+EXAMPLE (**done** . Claude wrote with SKILL.md) | Phase 2 |
-| 4 | . | D-04 docs refresh (**done** . Claude) | Phase 3 |
-| 5 | Release prep (CHANGELOG, skills-manifest, version bumps) | . | Phase 4 |
+| 2 | F-11 SKILL.md (**done**) | F-10 TEMPLATE+EXAMPLE (**done** - Claude wrote with SKILL.md) | Phase 1 |
+| 3 | D-03 lifecycle guide (**done**) | F-11 TEMPLATE+EXAMPLE (**done** - Claude wrote with SKILL.md) | Phase 2 |
+| 4 | - | D-04 docs refresh (**done** - Claude) | Phase 3 |
+| 5 | Release prep (CHANGELOG, skills-manifest, version bumps) | - | Phase 4 |
 
 ## Gating Criteria
 
@@ -85,7 +85,7 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 - [x] D-03: lifecycle guide created at `docs/pm-skill-lifecycle.md` (`f678344`)
 - [x] M-18: CI scripts created (`.sh` + `.ps1` + `.md` convention) and added to `validation.yml`
 - [x] D-04: public docs refreshed (skill count 29, command count 30, lifecycle references, M-18 script docs)
-- [x] MCP impact evaluated . 2 new tools needed (`pm_pm_skill_validate`, `pm_pm_skill_iterate`), no renames, pm-skills-mcp release required post-tag
+- [x] MCP impact evaluated - 2 new tools needed (`pm_pm_skill_validate`, `pm_pm_skill_iterate`), no renames, pm-skills-mcp release required post-tag
 - [x] CHANGELOG.md updated with v2.8.0 section
 - [x] `skills-manifest.yaml` finalized (date: 2026-04-03)
 - [x] Local enhanced validation passes for 29 skills, 30 command docs (verified by Codex pre-release review)
@@ -113,16 +113,16 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 3. **Single skill default, batch summary available.** Primary: `/pm-skill-validate deliver-prd` → detailed report (Tier 1 + Tier 2). Batch: `/pm-skill-validate --all` → **Tier 1 structural checks only** with summary table. Single-skill mode is the deep-assessment and F-11 integration path.
 
 4. **Two-tier assessment (rebaselined against shipped library):**
-   - **Tier 1 (Structural):** Mirrors CI checks . frontmatter, naming, file presence, description word count. Deterministic.
+   - **Tier 1 (Structural):** Mirrors CI checks - frontmatter, naming, file presence, description word count. Deterministic.
    - **Tier 2 (Quality):** LLM-assessed, calibrated to current library conventions:
-     - **Output Contract** . WARN only if template is not referenced at all; accept "use the template" as valid
-     - **Quality Checklist verifiability** . are items testable, not vague?
-     - **Example completeness** . all template sections filled, no placeholder scaffolding; line count is informational, not a gate
-     - **Template-Example alignment** . EXAMPLE.md follows TEMPLATE.md section structure
-     - **Description actionability** . includes trigger phrase ("Use when...")
-     - **Instruction clarity** . steps are numbered and imperative
-     - **Placeholder/scaffolding leakage** (new) . flags `[Feature Name]`, `<!-- ... -->`, leftover guidance blockquotes
-     - **When NOT to Use** . INFO only (present in 1/27 shipped skills, not yet a convention)
+     - **Output Contract** - WARN only if template is not referenced at all; accept "use the template" as valid
+     - **Quality Checklist verifiability** - are items testable, not vague?
+     - **Example completeness** - all template sections filled, no placeholder scaffolding; line count is informational, not a gate
+     - **Template-Example alignment** - EXAMPLE.md follows TEMPLATE.md section structure
+     - **Description actionability** - includes trigger phrase ("Use when...")
+     - **Instruction clarity** - steps are numbered and imperative
+     - **Placeholder/scaffolding leakage** (new) - flags `[Feature Name]`, `<!-- ... -->`, leftover guidance blockquotes
+     - **When NOT to Use** - INFO only (present in 1/27 shipped skills, not yet a convention)
    - Explicitly excludes: writing style, domain accuracy, framework coverage
 
 5. **Quality standard framing:** F-10 validates against *current library conventions* (what exists today) and surfaces the *v2.8 standard* (what the builder produces) as suggestions. Older skills may legitimately receive WARNs/INFOs until iterated. This is evolutionary, not retroactive.
@@ -145,9 +145,9 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 
 **Design decisions (resolved, updated post-Codex review 2026-04-02):**
 
-1. **Proposed changes preview, then direct write.** No staging area . the iterator modifies existing files, not creating from scratch. Shows proposed changes as before/after blocks grouped per file, user confirms all-or-nothing, changes are written. Git is the safety net. **Stale-preview guard:** before writing, re-read each target file and compare to the content used for the preview. If any target file has changed since the preview was generated, abort the write and regenerate.
+1. **Proposed changes preview, then direct write.** No staging area - the iterator modifies existing files, not creating from scratch. Shows proposed changes as before/after blocks grouped per file, user confirms all-or-nothing, changes are written. Git is the safety net. **Stale-preview guard:** before writing, re-read each target file and compare to the content used for the preview. If any target file has changed since the preview was generated, abort the write and regenerate.
 
-2. **Suggest version bump class, don't auto-write the number.** After applying changes, the iterator classifies the change (wording fix → patch, new section → minor, contract restructure → major) and suggests the bump class per `skill-versioning.md` rules. The `updated` date is written immediately (tracks file modification time). The `version` number is only written on explicit user confirmation . this prevents compounding bumps across multiple iterations before release. Uses the tie-breaker rule: new compliance requirement = major, additive/optional = minor, clarification only = patch.
+2. **Suggest version bump class, don't auto-write the number.** After applying changes, the iterator classifies the change (wording fix → patch, new section → minor, contract restructure → major) and suggests the bump class per `skill-versioning.md` rules. The `updated` date is written immediately (tracks file modification time). The `version` number is only written on explicit user confirmation - this prevents compounding bumps across multiple iterations before release. Uses the tie-breaker rule: new compliance requirement = major, additive/optional = minor, clarification only = patch.
 
 3. **Offer to update HISTORY.md (create at trigger point).** If HISTORY.md exists: offer to append after validating its format. If HISTORY.md does not exist but this iteration creates the skill's second version: offer to *create* it with entries for both versions (this is the governance trigger point per `skill-versioning.md`). If format validation fails on an existing HISTORY.md: warn and show proposed content without writing.
 
@@ -210,12 +210,12 @@ The Claude track is the bottleneck. Codex track runs alongside without blocking.
 **Script 1: `validate-skill-history.sh` / `.ps1`**
 - For any skill with a HISTORY.md: check that the table includes an entry matching the SKILL.md frontmatter `version`
 - Check that HISTORY.md follows the expected format (summary table + version sections)
-- Advisory (non-blocking) for now . becomes blocking once HISTORY.md is more widely adopted
+- Advisory (non-blocking) for now - becomes blocking once HISTORY.md is more widely adopted
 
 **Script 2: `validate-skills-manifest.sh` / `.ps1`**
 - For any release folder with a `skills-manifest.yaml`: check that listed skill names exist in `skills/`
 - Check that listed versions match the current SKILL.md frontmatter (for the latest release only)
-- Advisory (non-blocking) . catches stale manifests
+- Advisory (non-blocking) - catches stale manifests
 
 **Added to:** `.github/workflows/validation.yml`
 
@@ -236,11 +236,11 @@ Same pattern as v2.7.0's D-02. Review and update:
 
 1. `skill-versioning.md` tie-breaker rule update (Phase 0)
 2. F-10 SKILL.md (Phase 1, Claude)
-3. M-18 CI scripts (Phase 1, Codex . can land same time as #2)
+3. M-18 CI scripts (Phase 1, Codex - can land same time as #2)
 4. F-10 TEMPLATE.md + EXAMPLE.md + command + AGENTS.md entry (Phase 2, Codex)
-5. F-11 SKILL.md (Phase 2, Claude . can land same time as #4)
+5. F-11 SKILL.md (Phase 2, Claude - can land same time as #4)
 6. F-11 TEMPLATE.md + EXAMPLE.md + command + AGENTS.md entry (Phase 3, Codex)
-7. D-03 lifecycle guide (Phase 3, Claude . can land same time as #6)
+7. D-03 lifecycle guide (Phase 3, Claude - can land same time as #6)
 8. D-04 public docs refresh (Phase 4, Codex)
 9. Release prep: CHANGELOG, `skills-manifest.yaml`, version bumps (Phase 5)
 10. Tag and release
@@ -260,11 +260,11 @@ Same pattern as v2.7.0's D-02. Review and update:
 
 | Question | Answer |
 |----------|--------|
-| Do new skills need MCP tool registration? | Yes . F-10 and F-11 each need a tool |
+| Do new skills need MCP tool registration? | Yes - F-10 and F-11 each need a tool |
 | Do existing MCP tools change? | No |
-| Does `embed-skills.js` naming handle the new skills? | Needs verification . `utility-` prefix stripping was added for F-05, should work for F-10/F-11 |
-| Do the new skills require file-read capabilities? | Yes . both read existing skill directories. MCP versions need embedded content or read access |
-| Is a pm-skills-mcp release required? | Yes . new tools must be registered |
+| Does `embed-skills.js` naming handle the new skills? | Needs verification - `utility-` prefix stripping was added for F-05, should work for F-10/F-11 |
+| Do the new skills require file-read capabilities? | Yes - both read existing skill directories. MCP versions need embedded content or read access |
+| Is a pm-skills-mcp release required? | Yes - new tools must be registered |
 
 ### Post-tag: MCP Update Required
 
@@ -276,7 +276,7 @@ After tagging v2.8.0, `pm-skills-mcp` needs a corresponding update:
 | Add F-10 tool | `utility-pm-skill-validate` → `pm_pm_skill_validate` |
 | Add F-11 tool | `utility-pm-skill-iterate` → `pm_pm_skill_iterate` |
 | Verify naming | Confirm `utility-` prefix stripping produces correct tool names |
-| Test read access | Both tools need to read skill directories . verify MCP embedded content includes enough context |
+| Test read access | Both tools need to read skill directories - verify MCP embedded content includes enough context |
 | MCP version bump | Bump `pm-skills-mcp` version to match or follow v2.8.0 |
 
 ## Canonical Artifacts
@@ -320,19 +320,19 @@ bash scripts/validate-skill-history.sh
 bash scripts/validate-skills-manifest.sh
 ```
 
-Report any inconsistencies found. Be specific . cite the file, line content, and what's wrong.
+Report any inconsistencies found. Be specific - cite the file, line content, and what's wrong.
 
 ### Codex Findings (2026-04-03)
 
 **Issues found:**
 
-1. `README.md` line 24: stale version badge `version-2.7.0` . should be `2.8.0` (plugin.json and release docs already on 2.8.0)
-2. `README.md` line 653: Utility skill inventory table only lists `pm-skill-builder` . missing `pm-skill-validate` and `pm-skill-iterate`
+1. `README.md` line 24: stale version badge `version-2.7.0` - should be `2.8.0` (plugin.json and release docs already on 2.8.0)
+2. `README.md` line 653: Utility skill inventory table only lists `pm-skill-builder` - missing `pm-skill-validate` and `pm-skill-iterate`
 3. `AGENTS.md` line 224: Commands table missing `/pm-skill-validate` and `/pm-skill-iterate` rows (skill path entries are present at lines 176/183)
-4. `docs/getting-started.md` lines 224/226: contradictory . line 224 correctly lists all 3 utility commands, line 226 re-adds a stale builder-only row
+4. `docs/getting-started.md` lines 224/226: contradictory - line 224 correctly lists all 3 utility commands, line 226 re-adds a stale builder-only row
 5. `QUICKSTART.md` line 76: says "29 command markdown files" but should be 30 (matches file structure comment, contradicts "30 slash-command docs" at top)
 6. `plan_v2.8.0.md` line 91: "Local enhanced validation passes" still unchecked despite all validators passing
-7. `plan_v2.8.0.md` lines 285-286: stale future-tense ("draft, finalize at release prep" / "create at tag time") . both already done
+7. `plan_v2.8.0.md` lines 285-286: stale future-tense ("draft, finalize at release prep" / "create at tag time") - both already done
 8. `skills-manifest.yaml` lines 1-2: duplicate comment `# Skills changed in this release`
 
 **Checked clean:** Live repo counts (29 skills, 30 commands, 3 utility), CHANGELOG consistency, Release_v2.8.0.md, plugin.json, command files, scripts/README_SCRIPTS.md. All 5 validators passed.
@@ -341,9 +341,9 @@ Report any inconsistencies found. Be specific . cite the file, line content, and
 
 > **Author: Claude Opus 4.6**
 
-All 8 findings are valid. This is exactly the kind of drift that accumulates across a multi-commit session . counts get updated in some files but not others, tables get a new row but miss a related table in the same file.
+All 8 findings are valid. This is exactly the kind of drift that accumulates across a multi-commit session - counts get updated in some files but not others, tables get a new row but miss a related table in the same file.
 
-**Finding 1** (README badge): Missed during the count sweep . I updated text references to 29 skills but not the badge URL. Clear oversight.
+**Finding 1** (README badge): Missed during the count sweep - I updated text references to 29 skills but not the badge URL. Clear oversight.
 
 **Finding 2** (README utility table): I added the Skill Lifecycle Tools section but didn't update the separate skill inventory table lower in the README. Both need the new skills.
 

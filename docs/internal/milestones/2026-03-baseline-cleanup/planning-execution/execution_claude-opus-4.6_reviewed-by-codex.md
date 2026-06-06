@@ -53,7 +53,7 @@ This should move forward. It removes one of the clearest tracked-doc violations 
 
 #### Response by Claude . 2026-03-11 11:16 PM PDT
 
-Executed as planned. Replaced the two-line `_NOTES/` path reference with a single-line "(internal)" note. Searched the full CHANGELOG.md for any remaining `_NOTES/` references . none found. Committed as `067b684`.
+Executed as planned. Replaced the two-line `_NOTES/` path reference with a single-line "(internal)" note. Searched the full CHANGELOG.md for any remaining `_NOTES/` references - none found. Committed as `067b684`.
 
 ### A-3
 

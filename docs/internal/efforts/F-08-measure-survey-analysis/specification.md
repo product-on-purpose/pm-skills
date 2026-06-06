@@ -2,7 +2,7 @@
 
 ## Overview
 
-A measure-phase skill that guides PMs through structured analysis of survey results . from raw response data to segmented insights, hypothesis validation, statistical interpretation, and prioritized recommendations. Fills the gap between `measure-experiment-results` (A/B test focused) and the broader world of customer surveys, NPS studies, feature-request polls, and satisfaction benchmarks.
+A measure-phase skill that guides PMs through structured analysis of survey results - from raw response data to segmented insights, hypothesis validation, statistical interpretation, and prioritized recommendations. Fills the gap between `measure-experiment-results` (A/B test focused) and the broader world of customer surveys, NPS studies, feature-request polls, and satisfaction benchmarks.
 
 ## Skill Identity
 
@@ -24,7 +24,7 @@ Top-line averages hide the story. Every analysis must segment responses by at le
 Surveys without pre-stated hypotheses produce trivia, not insight. The skill requires the PM to articulate what they expected to learn before diving into the data. Results are then framed as hypothesis validation (confirmed, refuted, or inconclusive) rather than undirected exploration.
 
 ### 3. Statistical Honesty
-PMs are not statisticians, but they must know when a result is noise vs. signal. The skill provides accessible guidance on confidence levels, sample size adequacy, and margin of error . using plain language and decision rules rather than formulas.
+PMs are not statisticians, but they must know when a result is noise vs. signal. The skill provides accessible guidance on confidence levels, sample size adequacy, and margin of error - using plain language and decision rules rather than formulas.
 
 ### 4. Recommendations Over Reports
 The output is not a data dump. Every analysis culminates in prioritized, actionable recommendations tied to specific findings. "Here's what the data says" is necessary; "here's what we should do" is the point.
@@ -75,29 +75,29 @@ metadata:
    - Translating survey findings into product decisions
 
 2. **When NOT to Use** (~8 lines)
-   - Designing the survey itself (out of scope . this skill analyzes results, not instruments)
+   - Designing the survey itself (out of scope - this skill analyzes results, not instruments)
    - Analyzing A/B test or experiment results (use `measure-experiment-results`)
    - Processing interview transcripts (use `discover-interview-synthesis`)
    - Statistical modeling or advanced regression (requires specialized tools)
 
 3. **Core Concepts** (~25 lines)
-   - **Hypothesis-driven analysis** . state what you expected, then compare to actuals
-   - **Segmentation dimensions** . persona, tenure, plan tier, geography, behavior cohort
-   - **Statistical adequacy** . sample size thresholds, confidence levels in plain language
-   - **Response bias awareness** . non-response bias, self-selection, recency bias, acquiescence bias
-   - **Qualitative coding** . extracting themes from open-ended responses
+   - **Hypothesis-driven analysis** - state what you expected, then compare to actuals
+   - **Segmentation dimensions** - persona, tenure, plan tier, geography, behavior cohort
+   - **Statistical adequacy** - sample size thresholds, confidence levels in plain language
+   - **Response bias awareness** - non-response bias, self-selection, recency bias, acquiescence bias
+   - **Qualitative coding** - extracting themes from open-ended responses
 
 4. **Instructions** (~35 lines, numbered steps)
-   1. State the survey context . what was asked, who was surveyed, when, response rate
-   2. Declare hypotheses . 2-5 things you expected to learn or validate
-   3. Assess data quality . sample size adequacy, response rate, potential biases
-   4. Segment the data . break responses by at least one meaningful dimension
-   5. Analyze quantitative results . distributions, cross-tabs, significance assessment
-   6. Code qualitative responses . theme extraction from open-ended answers
-   7. Validate hypotheses . confirmed / refuted / inconclusive for each
-   8. Synthesize findings . 3-5 key insights, each grounded in specific data
-   9. Prioritize recommendations . actions ranked by confidence level and expected impact
-   10. Document limitations . what the survey cannot tell you
+   1. State the survey context - what was asked, who was surveyed, when, response rate
+   2. Declare hypotheses - 2-5 things you expected to learn or validate
+   3. Assess data quality - sample size adequacy, response rate, potential biases
+   4. Segment the data - break responses by at least one meaningful dimension
+   5. Analyze quantitative results - distributions, cross-tabs, significance assessment
+   6. Code qualitative responses - theme extraction from open-ended answers
+   7. Validate hypotheses - confirmed / refuted / inconclusive for each
+   8. Synthesize findings - 3-5 key insights, each grounded in specific data
+   9. Prioritize recommendations - actions ranked by confidence level and expected impact
+   10. Document limitations - what the survey cannot tell you
 
 5. **Output Contract** (~10 lines)
    - References TEMPLATE.md as the deliverable format
@@ -115,10 +115,10 @@ metadata:
    - [ ] No claims beyond what the sample supports
 
 7. **Companion Skills** (~5 lines)
-   - `measure-experiment-results` . for controlled A/B tests
-   - `discover-interview-synthesis` . for qualitative interview data
-   - `foundation-persona` . for persona-based segmentation dimensions
-   - `measure-dashboard-requirements` . for ongoing metric tracking from survey insights
+   - `measure-experiment-results` - for controlled A/B tests
+   - `discover-interview-synthesis` - for qualitative interview data
+   - `foundation-persona` - for persona-based segmentation dimensions
+   - `measure-dashboard-requirements` - for ongoing metric tracking from survey insights
 
 ---
 
@@ -126,15 +126,15 @@ metadata:
 
 A structured survey analysis report template. Sections:
 
-1. **Survey Context** . Survey name, objective, audience, distribution method, date range, total responses, response rate
-2. **Hypotheses** . Numbered list of pre-stated expectations (H1, H2, ...) with rationale
-3. **Data Quality Assessment** . Sample size adequacy table (segment / n / adequate?), response rate evaluation, identified biases
-4. **Segmented Findings** . For each segment: key metrics, notable distributions, cross-tabulations. Table format preferred.
-5. **Qualitative Theme Analysis** . Themes extracted from open-ended responses with frequency counts and representative quotes
-6. **Hypothesis Validation** . Table: hypothesis / verdict (confirmed/refuted/inconclusive) / supporting evidence / confidence level
-7. **Key Insights** . 3-5 synthesized insights, each with: the insight statement, supporting data points, affected segments
-8. **Prioritized Recommendations** . Ranked list: recommendation / confidence / expected impact / effort / linked insight
-9. **Limitations & Open Questions** . What the survey cannot answer, suggested follow-up research
+1. **Survey Context** - Survey name, objective, audience, distribution method, date range, total responses, response rate
+2. **Hypotheses** - Numbered list of pre-stated expectations (H1, H2, ...) with rationale
+3. **Data Quality Assessment** - Sample size adequacy table (segment / n / adequate?), response rate evaluation, identified biases
+4. **Segmented Findings** - For each segment: key metrics, notable distributions, cross-tabulations. Table format preferred.
+5. **Qualitative Theme Analysis** - Themes extracted from open-ended responses with frequency counts and representative quotes
+6. **Hypothesis Validation** - Table: hypothesis / verdict (confirmed/refuted/inconclusive) / supporting evidence / confidence level
+7. **Key Insights** - 3-5 synthesized insights, each with: the insight statement, supporting data points, affected segments
+8. **Prioritized Recommendations** - Ranked list: recommendation / confidence / expected impact / effort / linked insight
+9. **Limitations & Open Questions** - What the survey cannot answer, suggested follow-up research
 
 ---
 
@@ -144,14 +144,14 @@ A worked example: **PM analyzing a post-launch NPS survey for a B2B SaaS feature
 
 Demonstrates the full TEMPLATE workflow:
 
-1. **Context** . NPS survey sent to 2,000 active users 30 days after a dashboard redesign launch; 412 responses (20.6% response rate)
-2. **Hypotheses** . H1: NPS will increase vs. pre-launch baseline; H2: Power users (daily login) will rate higher than casual users; H3: Mobile users will report lower satisfaction due to known responsive issues
-3. **Data Quality** . Adequate sample overall, but mobile segment (n=47) is underpowered for standalone conclusions
-4. **Segmented Findings** . Breaks results by usage frequency (daily/weekly/monthly), platform (desktop/mobile), and plan tier (free/pro/enterprise). Shows cross-tab tables.
-5. **Qualitative Themes** . Codes 89 open-ended responses into 5 themes: navigation improvement (34%), missing feature complaints (22%), performance praise (19%), onboarding confusion (15%), other (10%)
-6. **Hypothesis Validation** . H1 confirmed (NPS +8), H2 confirmed (power users +12 vs casual +3), H3 inconclusive (small sample)
-7. **Recommendations** . Prioritized: (1) Invest in onboarding flow for new dashboard, (2) Address top 3 missing feature complaints, (3) Expand mobile sample for follow-up survey
-8. **Limitations** . Self-selection bias in respondents, mobile segment underpowered, no pre-launch qualitative baseline
+1. **Context** - NPS survey sent to 2,000 active users 30 days after a dashboard redesign launch; 412 responses (20.6% response rate)
+2. **Hypotheses** - H1: NPS will increase vs. pre-launch baseline; H2: Power users (daily login) will rate higher than casual users; H3: Mobile users will report lower satisfaction due to known responsive issues
+3. **Data Quality** - Adequate sample overall, but mobile segment (n=47) is underpowered for standalone conclusions
+4. **Segmented Findings** - Breaks results by usage frequency (daily/weekly/monthly), platform (desktop/mobile), and plan tier (free/pro/enterprise). Shows cross-tab tables.
+5. **Qualitative Themes** - Codes 89 open-ended responses into 5 themes: navigation improvement (34%), missing feature complaints (22%), performance praise (19%), onboarding confusion (15%), other (10%)
+6. **Hypothesis Validation** - H1 confirmed (NPS +8), H2 confirmed (power users +12 vs casual +3), H3 inconclusive (small sample)
+7. **Recommendations** - Prioritized: (1) Invest in onboarding flow for new dashboard, (2) Address top 3 missing feature complaints, (3) Expand mobile sample for follow-up survey
+8. **Limitations** - Self-selection bias in respondents, mobile segment underpowered, no pre-launch qualitative baseline
 
 Each section shows the filled template with realistic data and explains the analytical reasoning.
 

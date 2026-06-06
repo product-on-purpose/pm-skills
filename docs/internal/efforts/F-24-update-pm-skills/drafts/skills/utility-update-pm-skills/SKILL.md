@@ -44,7 +44,7 @@ new capabilities are available.
 |------|----------|
 | *(none)* | Full update flow: pre-flight → preview → confirm → update → report |
 | `--report-only` | Pre-flight → preview → report (no files written) |
-| `--status` | Lightweight version check . prints current and latest version, then stops |
+| `--status` | Lightweight version check - prints current and latest version, then stops |
 
 ### --status behavior
 
@@ -152,7 +152,7 @@ Show the user what the update includes:
    ```
 
 **If `--report-only`:** Generate the report using `references/TEMPLATE.md`
-with the banner "Report only . update was not applied." Save to
+with the banner "Report only - update was not applied." Save to
 `_pm-skills/updates/update-report_v{latest}_report-only_{YYYY-MM-DD_HHMMSS}.md`. Stop
 execution.
 
@@ -178,7 +178,7 @@ Execute the update using validated-before-copy with backup:
 
 1. **Download**: Fetch the release ZIP asset (`pm-skills-vX.Y.Z.zip`)
    from the GitHub Release page to a temporary directory. This is the
-   curated build artifact produced by `build-release.sh` . it includes
+   curated build artifact produced by `build-release.sh` - it includes
    only user-facing content and excludes `docs/internal/`.
 
 2. **Validate**: Confirm the extracted archive contains `skills/`,
@@ -251,7 +251,7 @@ Execute the update using validated-before-copy with backup:
 The updater writes only files present in the release ZIP asset
 (`pm-skills-vX.Y.Z.zip`), which is the curated build produced by
 `build-release.sh`. The ZIP excludes `docs/internal/` and other
-non-user-facing content . no exclusion logic is needed at copy time.
+non-user-facing content - no exclusion logic is needed at copy time.
 
 **Files included in the release ZIP (updated):**
 
@@ -334,7 +334,7 @@ They are never touched. The skill explicitly excludes `docs/internal/`,
 
 **What happens to files I added that aren't in the upstream release?**
 They are left untouched. The skill only overwrites files that exist in
-the new release . it never deletes local files.
+the new release - it never deletes local files.
 
 **How do I undo an update?**
 If you created a backup (the default offer), restore it:

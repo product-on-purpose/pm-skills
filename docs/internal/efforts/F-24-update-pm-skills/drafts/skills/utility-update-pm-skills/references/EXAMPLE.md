@@ -31,7 +31,7 @@
 
 This update adds a self-updater skill that lets you check for new
 pm-skills releases, preview what's changed, and update your local
-installation . all from a single slash command. It also formally
+installation - all from a single slash command. It also formally
 releases the mermaid diagramming and slideshow creation skills that
 were available since v2.9.1.
 
@@ -62,7 +62,7 @@ With `/update-pm-skills --status` you can quickly check whether you're
 current without committing to an update. Try `/update-pm-skills --report-only`
 before updating to see exactly what files will change and what new
 capabilities are available. The self-updater means you no longer need to
-manually download releases . future updates are one command away.
+manually download releases - future updates are one command away.
 
 ## Files Written
 
@@ -106,7 +106,7 @@ Below is what `/update-pm-skills --report-only` produces for the same update.
 
 # PM Skills Update Report
 
-> **Report only . update was not applied.**
+> **Report only - update was not applied.**
 > Run `/update-pm-skills` to apply this update.
 
 ---

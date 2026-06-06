@@ -14,12 +14,12 @@ The rename also introduces a `/workflow-` command prefix for namespace protectio
 
 - **Directory rename:** `_bundles/` → `_workflows/`, `docs/bundles/` → `docs/workflows/`
 - **Command prefix:** `/workflow-{name}` for all workflow commands
-- **`/kickoff` deleted** . only `/workflow-feature-kickoff` exists. Breaking change documented in release notes. Low adoption mitigates impact.
-- **MCP tool names unchanged** . already use `pm_workflow_*`, no user-facing API break
-- **MCP source-level API refactor** . `WorkflowBundle` → `Workflow`, `WORKFLOW_BUNDLES` → `WORKFLOWS`, etc. No user-facing MCP tool-name break.
-- **URL redirects required** . `mkdocs-redirects` plugin for old `bundles/*` doc site URLs
-- **Historical docs unchanged** . release notes and CHANGELOG entries prior to v2.9.0 keep original "bundle" wording
-- **Single atomic commit** . all renames and reference updates land together to avoid intermediate CI breakage
+- **`/kickoff` deleted** - only `/workflow-feature-kickoff` exists. Breaking change documented in release notes. Low adoption mitigates impact.
+- **MCP tool names unchanged** - already use `pm_workflow_*`, no user-facing API break
+- **MCP source-level API refactor** - `WorkflowBundle` → `Workflow`, `WORKFLOW_BUNDLES` → `WORKFLOWS`, etc. No user-facing MCP tool-name break.
+- **URL redirects required** - `mkdocs-redirects` plugin for old `bundles/*` doc site URLs
+- **Historical docs unchanged** - release notes and CHANGELOG entries prior to v2.9.0 keep original "bundle" wording
+- **Single atomic commit** - all renames and reference updates land together to avoid intermediate CI breakage
 
 ## Detailed Plan
 
@@ -38,13 +38,13 @@ Full impact inventory, implementation sequence, and acceptance tests:
 ## Artifacts Produced
 
 - `_workflows/` directory (renamed from `_bundles/`)
-- `_workflows/README.md` . clarifies source-of-truth role, repo-relative links, do-not-edit-docs guidance
+- `_workflows/README.md` - clarifies source-of-truth role, repo-relative links, do-not-edit-docs guidance
 - `docs/workflows/` directory (renamed from `docs/bundles/`)
-- `docs/workflows/README.md` . "Generated files . do not edit directly"
+- `docs/workflows/README.md` - "Generated files - do not edit directly"
 - `scripts/check-stale-bundle-refs.sh` + `.ps1` (terminology guard)
 - Updated CI workflow triggers in `.github/workflows/`
 - `mkdocs-redirects` configuration for old URLs
 
 ## PRs
 
-- TBD . rename commit within v2.9.0 release branch
+- TBD - rename commit within v2.9.0 release branch

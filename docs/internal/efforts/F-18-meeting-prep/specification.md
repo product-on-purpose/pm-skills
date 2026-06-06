@@ -2,7 +2,7 @@
 
 ## Overview
 
-A develop-phase skill that helps PMs prepare structured, effective meeting plans. Produces an agenda with clear objectives, stakeholder context, time allocations, desired outcomes, and pre-read materials. Begins with an anti-meeting check . if the objective can be met asynchronously, the skill recommends that instead. Shares a six-type meeting taxonomy with F-17 (meeting-synthesis).
+A develop-phase skill that helps PMs prepare structured, effective meeting plans. Produces an agenda with clear objectives, stakeholder context, time allocations, desired outcomes, and pre-read materials. Begins with an anti-meeting check - if the objective can be met asynchronously, the skill recommends that instead. Shares a six-type meeting taxonomy with F-17 (meeting-synthesis).
 
 ## Skill Identity
 
@@ -23,7 +23,7 @@ The most valuable meeting prep is sometimes "don't have this meeting." Before an
 A meeting with a clear objective stays on track. A meeting with a vague objective drifts. The skill enforces a single-sentence objective that answers: "What specific outcome will this meeting produce?"
 
 ### 3. Time Boxes Create Accountability
-Every agenda item gets a time allocation. The sum of time boxes must equal the meeting duration (minus a buffer). This forces prioritization: if your agenda doesn't fit the time, cut items . don't extend the meeting.
+Every agenda item gets a time allocation. The sum of time boxes must equal the meeting duration (minus a buffer). This forces prioritization: if your agenda doesn't fit the time, cut items - don't extend the meeting.
 
 ### 4. Right People, Right Roles
 Too many attendees kills decisions. Missing a decision-maker defers them. The skill uses a simplified DICO role model (Decision-maker, Informed, Contributor, Optional) to ensure the right people are in the room with clear expectations.
@@ -106,25 +106,25 @@ metadata:
 
 4. **Meeting Type Taxonomy** (~15 lines)
    - Table of six types with definition and prep emphasis (from shared taxonomy above)
-   - Guidance: "Select the meeting type that matches your objective . it determines the agenda structure"
+   - Guidance: "Select the meeting type that matches your objective - it determines the agenda structure"
 
 5. **DICO Role Model** (~12 lines)
-   - **D . Decision-maker**: The person who will make or approve the decision. Every decision meeting needs exactly one. If no one has this role, the meeting will defer.
-   - **I . Informed**: People who need to know the outcome but don't need to speak. Consider: should they attend, or just receive the synthesis?
-   - **C . Contributor**: People whose input is needed during the meeting. They speak; they don't decide.
-   - **O . Optional**: People who may benefit from attending but whose absence won't block the meeting.
+   - **D - Decision-maker**: The person who will make or approve the decision. Every decision meeting needs exactly one. If no one has this role, the meeting will defer.
+   - **I - Informed**: People who need to know the outcome but don't need to speak. Consider: should they attend, or just receive the synthesis?
+   - **C - Contributor**: People whose input is needed during the meeting. They speak; they don't decide.
+   - **O - Optional**: People who may benefit from attending but whose absence won't block the meeting.
 
 6. **Instructions** (~35 lines, numbered steps)
-   1. **State the objective** . Write one sentence: "By the end of this meeting, we will have [specific outcome]."
-   2. **Run the anti-meeting check** . If the objective doesn't require synchronous multi-person time, recommend an async alternative and stop.
-   3. **Select meeting type** . Classify using the taxonomy.
-   4. **Assign attendee roles** . Map each person to DICO. Ensure at least one D for decision meetings.
-   5. **Design the agenda** . Create time-boxed sections. Each section has: topic, owner, duration, purpose (inform / discuss / decide).
-   6. **Define success criteria** . 1-3 statements describing what a successful meeting produces.
-   7. **Prepare context materials** . Identify pre-reads, background docs, or data needed. Specify what each attendee should review.
-   8. **List key questions** . The questions this meeting must answer, prioritized.
-   9. **Set up parking lot** . Explicitly note topics that are out of scope for this meeting.
-   10. **Review and send** . Check: does the agenda fit the time? Are the right people invited? Is the pre-read ready?
+   1. **State the objective** - Write one sentence: "By the end of this meeting, we will have [specific outcome]."
+   2. **Run the anti-meeting check** - If the objective doesn't require synchronous multi-person time, recommend an async alternative and stop.
+   3. **Select meeting type** - Classify using the taxonomy.
+   4. **Assign attendee roles** - Map each person to DICO. Ensure at least one D for decision meetings.
+   5. **Design the agenda** - Create time-boxed sections. Each section has: topic, owner, duration, purpose (inform / discuss / decide).
+   6. **Define success criteria** - 1-3 statements describing what a successful meeting produces.
+   7. **Prepare context materials** - Identify pre-reads, background docs, or data needed. Specify what each attendee should review.
+   8. **List key questions** - The questions this meeting must answer, prioritized.
+   9. **Set up parking lot** - Explicitly note topics that are out of scope for this meeting.
+   10. **Review and send** - Check: does the agenda fit the time? Are the right people invited? Is the pre-read ready?
 
 7. **Output Contract** (~5 lines)
    - References TEMPLATE.md as the output artifact
@@ -145,17 +145,17 @@ metadata:
 
 A reusable meeting preparation template. Sections:
 
-1. **Frontmatter** . artifact name, version, created date, status
-2. **Meeting Metadata** . Title, date/time, duration, location/link, meeting type (from taxonomy)
-3. **Objective** . One sentence: "By the end of this meeting, we will have [outcome]."
-4. **Anti-Meeting Check** . Checkbox: "This objective requires synchronous, multi-person dialogue because: [reason]"
-5. **Success Criteria** . 1-3 bullet points defining what a successful meeting produces
-6. **Attendees & Roles** . Table: name, DICO role, what they should prepare
-7. **Agenda** . Table: time, topic, owner, purpose (inform/discuss/decide), notes
-8. **Context & Background** . Key facts, prior decisions, constraints, relevant links
-9. **Key Questions** . Prioritized list of questions this meeting must answer
-10. **Pre-Read Materials** . What to review beforehand, with links and expected prep time
-11. **Parking Lot** . Topics explicitly deferred from this meeting
+1. **Frontmatter** - artifact name, version, created date, status
+2. **Meeting Metadata** - Title, date/time, duration, location/link, meeting type (from taxonomy)
+3. **Objective** - One sentence: "By the end of this meeting, we will have [outcome]."
+4. **Anti-Meeting Check** - Checkbox: "This objective requires synchronous, multi-person dialogue because: [reason]"
+5. **Success Criteria** - 1-3 bullet points defining what a successful meeting produces
+6. **Attendees & Roles** - Table: name, DICO role, what they should prepare
+7. **Agenda** - Table: time, topic, owner, purpose (inform/discuss/decide), notes
+8. **Context & Background** - Key facts, prior decisions, constraints, relevant links
+9. **Key Questions** - Prioritized list of questions this meeting must answer
+10. **Pre-Read Materials** - What to review beforehand, with links and expected prep time
+11. **Parking Lot** - Topics explicitly deferred from this meeting
 
 ---
 
@@ -167,7 +167,7 @@ Demonstrates:
 
 1. **Anti-meeting check (passed)**
    - Objective: "Decide which 3 features from the backlog to commit to for Q3"
-   - Check: requires real-time debate among engineering, design, and product leads . async won't resolve competing priorities
+   - Check: requires real-time debate among engineering, design, and product leads - async won't resolve competing priorities
    - Shows the reasoning for why this passes the gate
 
 2. **Full prep document (Decision type)**
@@ -178,7 +178,7 @@ Demonstrates:
      - Key questions prioritized
      - Success criteria: "We leave with 3 committed features and owners for each"
 
-3. **Anti-meeting check (failed) . async alternative**
+3. **Anti-meeting check (failed) - async alternative**
    - Objective: "Share the Q2 metrics dashboard with the team"
    - Check fails: this is information transfer, not dialogue
    - Shows the recommended async alternative (email with dashboard link + optional 15-min Q&A office hours)

@@ -3,7 +3,7 @@
 <!-- MODE BANNER (choose one, delete the other) -->
 
 <!-- For report-only mode, include this banner: -->
-> **Report only . update was not applied.**
+> **Report only - update was not applied.**
 > Run `/update-pm-skills` to apply this update.
 
 <!-- For completion mode, include this banner: -->
@@ -78,7 +78,7 @@ communication platform." -->
 ### Opportunities
 
 {2-3 sentences describing what the user can now do that they couldn't before.
-Ground suggestions in detected skills and workflows . reference actual new
+Ground suggestions in detected skills and workflows - reference actual new
 capabilities by name with their slash commands (e.g., "Try `/mermaid-diagrams`
 on your next PRD"). Label speculative pairings as suggestions. Link workflows
 to their component skills.}

@@ -59,15 +59,15 @@ Each effort is assigned to the best-fit execution model based on the work type:
 **When assigning**: If the effort has a clear spec, existing patterns to follow, and minimal ambiguity → Codex. If it requires judgment, creativity, user collaboration, or PM domain knowledge → Claude.
 
 **For Codex issues**: Add a "Codex Execution Context" comment with:
-1. **Read these files first** . file paths to understand patterns
-2. **Convention to follow** . explicit style/naming rules
-3. **Constraints** . what NOT to do
+1. **Read these files first** - file paths to understand patterns
+2. **Convention to follow** - explicit style/naming rules
+3. **Constraints** - what NOT to do
 
 ## Operating Rules
 
 1. Create a brief when an effort is first planned or discovered.
 2. Update the brief when scope, decisions, or status change.
-3. Include `Agent:` field in the header . apply matching `agent:*` label to the GitHub issue.
+3. Include `Agent:` field in the header - apply matching `agent:*` label to the GitHub issue.
 4. When an effort ships, set status to `Shipped` and close the GitHub issue.
 5. Do not duplicate content from `_NOTES/` -- summarize and link instead.
 6. Public-facing files (README, CHANGELOG) must not reference briefs in this directory; these are internal tracking artifacts.

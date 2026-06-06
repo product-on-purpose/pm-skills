@@ -57,9 +57,9 @@ For MCP users, a `pm_chain_skills` tool that accepts a skill array and runs them
 
 ### Context Passing
 The key challenge is **how output from skill N becomes input to skill N+1**. Options:
-1. **Implicit** . The AI maintains conversation context; each skill naturally sees prior outputs
-2. **Explicit** . The chain tool extracts key outputs and formats them as input for the next skill
-3. **Hybrid** . Implicit context + a "handoff summary" injected between steps
+1. **Implicit** - The AI maintains conversation context; each skill naturally sees prior outputs
+2. **Explicit** - The chain tool extracts key outputs and formats them as input for the next skill
+3. **Hybrid** - Implicit context + a "handoff summary" injected between steps
 
 Recommendation: **Implicit** for v1. The AI's conversation context already handles this well. Explicit handoff summaries can be added later.
 
@@ -79,20 +79,20 @@ The **promotion path** is key: if a user finds themselves running the same chain
 ### Overlap with Existing Behavior
 
 Users can already say "run problem-statement then hypothesis" in natural language and AI agents will do it. The chain tool adds:
-1. **Explicit sequencing** . guaranteed order, no drift
-2. **Validation** . checks skill names exist before starting
-3. **Structure** . clear step markers in output
-4. **Repeatability** . a defined chain is easier to re-run than a prose instruction
+1. **Explicit sequencing** - guaranteed order, no drift
+2. **Validation** - checks skill names exist before starting
+3. **Structure** - clear step markers in output
+4. **Repeatability** - a defined chain is easier to re-run than a prose instruction
 
 ## Key Decisions (to resolve)
 
 | Decision | Options | Leaning |
 |----------|---------|---------|
-| Implementation form | Command / Skill / Both | Command (`/chain`) . lowest friction |
+| Implementation form | Command / Skill / Both | Command (`/chain`) - lowest friction |
 | Context passing | Implicit / Explicit / Hybrid | Implicit for v1 |
-| MCP support | Yes / Later | Later . ship file-based first |
-| Promotion to workflow | Built-in / Separate | Built-in suggestion ("You've run this chain 3 times . create a workflow?") |
-| Validation | Strict (fail on unknown skill) / Lenient (warn) | Strict . fail fast |
+| MCP support | Yes / Later | Later - ship file-based first |
+| Promotion to workflow | Built-in / Separate | Built-in suggestion ("You've run this chain 3 times - create a workflow?") |
+| Validation | Strict (fail on unknown skill) / Lenient (warn) | Strict - fail fast |
 
 ## Dependencies
 
@@ -101,20 +101,20 @@ Users can already say "run problem-statement then hypothesis" in natural languag
 
 ## Artifacts Produced
 
-- `commands/chain.md` . slash command definition
+- `commands/chain.md` - slash command definition
 - Optionally: `skills/utility-skill-chain/SKILL.md` if implemented as a skill
 
 ## Estimated Complexity
 
-Low-Medium . the core logic is simple (validate + sequence). The context passing question is the main design challenge.
+Low-Medium - the core logic is simple (validate + sequence). The context passing question is the main design challenge.
 
 ## Open Questions
 
-1. **Should chains support branching?** E.g., "if experiment-results show negative, run pivot-decision; if positive, run launch-checklist." This is workflow territory . probably out of scope for v1.
+1. **Should chains support branching?** E.g., "if experiment-results show negative, run pivot-decision; if positive, run launch-checklist." This is workflow territory - probably out of scope for v1.
 
-2. **Should chains support parallelism?** E.g., "run competitive-analysis and stakeholder-summary in parallel, then opportunity-tree." Interesting but complex . defer.
+2. **Should chains support parallelism?** E.g., "run competitive-analysis and stakeholder-summary in parallel, then opportunity-tree." Interesting but complex - defer.
 
-3. **Should chains be saveable?** E.g., `/chain save "my-research-flow" interview-synthesis,jtbd-canvas,problem-statement`. This blurs the line with workflows . the promotion path (F-14) is cleaner.
+3. **Should chains be saveable?** E.g., `/chain save "my-research-flow" interview-synthesis,jtbd-canvas,problem-statement`. This blurs the line with workflows - the promotion path (F-14) is cleaner.
 
 ## PRs
 

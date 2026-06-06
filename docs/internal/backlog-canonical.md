@@ -19,25 +19,25 @@ Marketplace submission (Effort 0) is a human-only action, not an effort ID.
 
 | ID | Effort | Type | Release | Status | Issue |
 |----|--------|------|---------|--------|-------|
-| . | Anthropic marketplace submission | Quick win | . | Submitted (2026-03-22), awaiting review | . |
+| - | Anthropic marketplace submission | Quick win | - | Submitted (2026-03-22), awaiting review | - |
 | M-12 | CI validation enhancement | Infrastructure | **v2.7.0** | Shipped | [#112](https://github.com/product-on-purpose/pm-skills/issues/112) |
 | F-06 | `deliver-acceptance-criteria` | New skill | **v2.7.0** | Shipped | [#114](https://github.com/product-on-purpose/pm-skills/issues/114) |
 | M-16 | Exclude `docs/internal/**` from release ZIP | Infrastructure | **v2.7.0** | Shipped | [#123](https://github.com/product-on-purpose/pm-skills/issues/123) |
 | F-05 | PM Skill Builder (`/pm-skill-builder`) | New skill | **v2.7.0** | Shipped | [#113](https://github.com/product-on-purpose/pm-skills/issues/113) |
 | F-10 | PM Skill Validate (`/pm-skill-validate`) | New skill | **v2.8.0** | Shipped | [#121](https://github.com/product-on-purpose/pm-skills/issues/121) |
 | F-11 | PM Skill Iterate (`/pm-skill-iterate`) | New skill | **v2.8.0** | Shipped | [#122](https://github.com/product-on-purpose/pm-skills/issues/122) |
-| D-03 | PM Skill Lifecycle Guide | Documentation | **v2.8.0** | Shipped | . |
-| M-18 | CI: HISTORY.md + skills-manifest validation | Infrastructure | **v2.8.0** | Shipped | . |
-| D-04 | Public docs refresh for v2.8.0 | Documentation | **v2.8.0** | Shipped | . |
-| M-13 | Convention alignment pass | Quality | . | Complete (all skills pass CI, 2026-04-04) | [#115](https://github.com/product-on-purpose/pm-skills/issues/115) |
-| M-17 | GitHub Pages documentation site | Ecosystem | **v2.8.1** | Shipped | . |
-| M-19 | Rename bundles → workflows | Infrastructure | **v2.9.0** | Shipped | . |
-| F-13 | Workflow expansion (3 → 9) | Feature | **v2.9.0** | Shipped | . |
-| F-16 | `utility-mermaid-diagrams` | New skill | **v2.10.0** | Shipped | . |
+| D-03 | PM Skill Lifecycle Guide | Documentation | **v2.8.0** | Shipped | - |
+| M-18 | CI: HISTORY.md + skills-manifest validation | Infrastructure | **v2.8.0** | Shipped | - |
+| D-04 | Public docs refresh for v2.8.0 | Documentation | **v2.8.0** | Shipped | - |
+| M-13 | Convention alignment pass | Quality | - | Complete (all skills pass CI, 2026-04-04) | [#115](https://github.com/product-on-purpose/pm-skills/issues/115) |
+| M-17 | GitHub Pages documentation site | Ecosystem | **v2.8.1** | Shipped | - |
+| M-19 | Rename bundles → workflows | Infrastructure | **v2.9.0** | Shipped | - |
+| F-13 | Workflow expansion (3 → 9) | Feature | **v2.9.0** | Shipped | - |
+| F-16 | `utility-mermaid-diagrams` | New skill | **v2.10.0** | Shipped | - |
 | D-05 | Dedicated workflows guide | Documentation | **v2.9.1** | Shipped | [#131](https://github.com/product-on-purpose/pm-skills/issues/131) |
 | M-20 | Docs count consistency CI | Infrastructure | **v2.9.1** | Shipped | [#132](https://github.com/product-on-purpose/pm-skills/issues/132) |
-| F-19 | `utility-slideshow-creator` | New skill | **v2.10.0** | Shipped | . |
-| F-24 | `utility-update-pm-skills` | New skill | **v2.10.0** | Shipped | . |
+| F-19 | `utility-slideshow-creator` | New skill | **v2.10.0** | Shipped | - |
+| F-24 | `utility-update-pm-skills` | New skill | **v2.10.0** | Shipped | - |
 
 ### Active Backlog (priority order)
 

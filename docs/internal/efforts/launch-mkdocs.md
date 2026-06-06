@@ -1,18 +1,18 @@
 # Launching a MkDocs Material docs site for pm-skills
 
-**The pm-skills repo (27 AI agent skills for product managers) has rich content but no documentation site.** Every skill already ships with structured SKILL.md, TEMPLATE.md, and EXAMPLE.md files [GitHub](https://github.com/product-on-purpose/pm-skills) using YAML frontmatter . making automated migration to MkDocs Material straightforward. MkDocs Material v9.7.0 (its final feature release) has unlocked all previously paid Insiders features for free, [MkDocs Material](https://squidfunk.github.io/mkdocs-material/changelog/) meaning the full suite of social cards, privacy controls, tags, blog, and navigation features are available at zero cost. This plan covers repo analysis, complete configuration, deployment workflow, information architecture, content migration, SEO, and analytics . everything needed to go from zero to production in a single sprint.
+**The pm-skills repo (27 AI agent skills for product managers) has rich content but no documentation site.** Every skill already ships with structured SKILL.md, TEMPLATE.md, and EXAMPLE.md files [GitHub](https://github.com/product-on-purpose/pm-skills) using YAML frontmatter - making automated migration to MkDocs Material straightforward. MkDocs Material v9.7.0 (its final feature release) has unlocked all previously paid Insiders features for free, [MkDocs Material](https://squidfunk.github.io/mkdocs-material/changelog/) meaning the full suite of social cards, privacy controls, tags, blog, and navigation features are available at zero cost. This plan covers repo analysis, complete configuration, deployment workflow, information architecture, content migration, SEO, and analytics - everything needed to go from zero to production in a single sprint.
 
 ---
 
 ## What the repo already gives you to work with
 
-The repo at `github.com/product-on-purpose/pm-skills` contains **no existing mkdocs.yml** . documentation lives as standalone Markdown files rendered by GitHub. The good news: there's substantial, well-structured content ready for migration.
+The repo at `github.com/product-on-purpose/pm-skills` contains **no existing mkdocs.yml** - documentation lives as standalone Markdown files rendered by GitHub. The good news: there's substantial, well-structured content ready for migration.
 
 **Repository structure at a glance:**
 
 | Directory/File | Content | Migration Effort |
 |---|---|---|
-| `skills/` (27 directories) | Each skill has `SKILL.md` + `TEMPLATE.md` + `EXAMPLE.md` | Medium . merge into single tabbed pages |
+| `skills/` (27 directories) | Each skill has `SKILL.md` + `TEMPLATE.md` + `EXAMPLE.md` | Medium - merge into single tabbed pages |
 | `README.md` | Comprehensive (~2000+ words) covering features, compatibility, installation, skill tables | Split into 4-5 pages |
 | `QUICKSTART.md` | Quick-start guide | Direct migration |
 | `docs/getting-started.md` | Long-form onboarding guide | Direct migration |
@@ -23,13 +23,13 @@ The repo at `github.com/product-on-purpose/pm-skills` contains **no existing mkd
 | `docs/releases/Release_v*.md` | Per-version release notes | Blog or releases section |
 | `docs/internal/` | Internal planning docs | **Do NOT migrate** |
 
-Each skill follows a strict naming convention . `{phase}-{skill-name}` . across six Triple Diamond phases (discover, define, develop, deliver, measure, iterate) plus foundation and utility categories. [GitHub](https://github.com/product-on-purpose/pm-skills) Every SKILL.md contains YAML frontmatter with `name`, `description`, `license`, and `metadata.version`, [Agentskills](https://agentskills.io/specification) followed by six consistent sections: Purpose, Key Concepts, Application, Examples, Common Pitfalls, and References. [GitHub](https://github.com/deanpeters/Product-Manager-Skills/blob/main/docs/Using%20PM%20Skills%20with%20Claude.md) This consistency is a gift for templated migration.
+Each skill follows a strict naming convention - `{phase}-{skill-name}` - across six Triple Diamond phases (discover, define, develop, deliver, measure, iterate) plus foundation and utility categories. [GitHub](https://github.com/product-on-purpose/pm-skills) Every SKILL.md contains YAML frontmatter with `name`, `description`, `license`, and `metadata.version`, [Agentskills](https://agentskills.io/specification) followed by six consistent sections: Purpose, Key Concepts, Application, Examples, Common Pitfalls, and References. [GitHub](https://github.com/deanpeters/Product-Manager-Skills/blob/main/docs/Using%20PM%20Skills%20with%20Claude.md) This consistency is a gift for templated migration.
 
 ---
 
 ## The complete mkdocs.yml configuration
 
-MkDocs Material **9.7.0 is the final feature release** . the team has shifted to building Zensical, a next-gen static site generator. All previously Insiders-only features (social cards customization, privacy plugin, tags, blog, navigation.path breadcrumbs) are now free. [lecody](https://andrew.lecody.com/guides/mkdocs-material-insider-github-pages-action/) [MkDocs Material](https://squidfunk.github.io/mkdocs-material/blog/2025/11/11/insiders-now-free-for-everyone/) Maintenance and security updates are guaranteed through at least November 2026. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/changelog/)
+MkDocs Material **9.7.0 is the final feature release** - the team has shifted to building Zensical, a next-gen static site generator. All previously Insiders-only features (social cards customization, privacy plugin, tags, blog, navigation.path breadcrumbs) are now free. [lecody](https://andrew.lecody.com/guides/mkdocs-material-insider-github-pages-action/) [MkDocs Material](https://squidfunk.github.io/mkdocs-material/blog/2025/11/11/insiders-now-free-for-everyone/) Maintenance and security updates are guaranteed through at least November 2026. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/changelog/)
 
 Here is the production-ready configuration file:
 
@@ -284,7 +284,7 @@ nav:
     - blog/index.md
 ```
 
-**Critical gotchas to avoid:** You must explicitly list `- search` under plugins (it's not auto-included once you define any plugins). The `pymdownx.tabbed` extension requires `alternate_style: true` or tabs render incorrectly. The Mermaid custom fence under `pymdownx.superfences` is mandatory for diagram rendering. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/) The palette must be a YAML list (not a single dict) for the dark/light toggle to appear. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/) The `site_url` must be set . social cards, sitemap, instant navigation, and canonical URLs all depend on it. [MkDocs Material +2](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/)
+**Critical gotchas to avoid:** You must explicitly list `- search` under plugins (it's not auto-included once you define any plugins). The `pymdownx.tabbed` extension requires `alternate_style: true` or tabs render incorrectly. The Mermaid custom fence under `pymdownx.superfences` is mandatory for diagram rendering. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/) The palette must be a YAML list (not a single dict) for the dark/light toggle to appear. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/) The `site_url` must be set - social cards, sitemap, instant navigation, and canonical URLs all depend on it. [MkDocs Material +2](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/)
 
 ---
 
@@ -369,18 +369,18 @@ The navigation structure maps the **Diataxis framework** (tutorials, how-to guid
 
 | Tab | Diataxis Type | Content |
 |---|---|---|
-| **Home** | . | Landing page hero, key features, compatibility grid |
+| **Home** | - | Landing page hero, key features, compatibility grid |
 | **Getting Started** | Tutorials | Learning-oriented walkthroughs from zero to working |
-| **Skills** | Reference | The browsable catalog . one page per skill |
+| **Skills** | Reference | The browsable catalog - one page per skill |
 | **Workflows** | Reference | The 3 workflows with linked skills |
 | **Guides** | How-to | Task-oriented guides for specific goals |
 | **Concepts** | Explanation | Understanding-oriented content about the "why" |
 | **Contributing** | How-to | Contributor onboarding and templates |
-| **Blog** | . | Releases, announcements, changelog posts |
+| **Blog** | - | Releases, announcements, changelog posts |
 
 The skills catalog uses `navigation.indexes` so each phase folder (`skills/discover/`, `skills/deliver/`, etc.) has an `index.md` landing page displaying grid cards for all skills in that phase. The `.meta.yml` file in each phase directory auto-applies phase tags to all pages within it, eliminating repetitive frontmatter. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/plugins/meta/)
 
-**Per-skill page template** . each skill page merges SKILL.md, TEMPLATE.md, and EXAMPLE.md into a single page with content tabs:
+**Per-skill page template** - each skill page merges SKILL.md, TEMPLATE.md, and EXAMPLE.md into a single page with content tabs:
 
 ```markdown
 ---
@@ -455,7 +455,7 @@ Short description of what this skill does and when to use it.
 </div>
 ```
 
-The **`content.tabs.link`** feature ensures that when a user selects "Cursor" on one skill page, every other skill page remembers that selection . critical for a multi-platform catalog. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/) [Diataxis](https://diataxis.fr/) Use **identical tab labels** across all pages (`"Claude Code"`, `"Cursor"`, `"Codex CLI"`, `"GitHub Copilot"`, `"Manual"`) since linking is label-based. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/)
+The **`content.tabs.link`** feature ensures that when a user selects "Cursor" on one skill page, every other skill page remembers that selection - critical for a multi-platform catalog. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/) [Diataxis](https://diataxis.fr/) Use **identical tab labels** across all pages (`"Claude Code"`, `"Cursor"`, `"Codex CLI"`, `"GitHub Copilot"`, `"Manual"`) since linking is label-based. [MkDocs Material](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/)
 
 ---
 
@@ -463,7 +463,7 @@ The **`content.tabs.link`** feature ensures that when a user selects "Cursor" on
 
 The migration has three tiers of effort. **Tier 1 (direct copy)** involves files that need only minor path adjustments. **Tier 2 (restructure)** requires splitting or merging. **Tier 3 (create new)** requires writing new content to fill the Diataxis framework.
 
-**Tier 1 . Direct migration (Day 1-2):**
+**Tier 1 - Direct migration (Day 1-2):**
 
 - `QUICKSTART.md` → `docs/getting-started/quickstart.md`
 - `docs/getting-started.md` → `docs/getting-started/index.md`
@@ -476,16 +476,16 @@ The migration has three tiers of effort. **Tier 1 (direct copy)** involves files
 - `docs/templates/skill-template/` → `docs/contributing/template.md`
 - `docs/releases/Release_v*.md` → `docs/blog/posts/` (as blog posts)
 
-**Tier 2 . Merge/split (Day 2-3):**
+**Tier 2 - Merge/split (Day 2-3):**
 
 - **Split README.md** into: `docs/index.md` (hero + features + compatibility), `docs/guides/faq.md` (FAQ section), `docs/concepts/platforms.md` (platform compatibility table), `docs/concepts/skills-vs-mcp.md` (comparison section)
-- **Merge per-skill triplets**: For each of the 27 skills, combine `SKILL.md` + `TEMPLATE.md` + `EXAMPLE.md` into a single tabbed page using the template above. This is the most labor-intensive step but is highly scriptable . a Python script can read the YAML frontmatter, extract sections by heading, and generate the merged page.
+- **Merge per-skill triplets**: For each of the 27 skills, combine `SKILL.md` + `TEMPLATE.md` + `EXAMPLE.md` into a single tabbed page using the template above. This is the most labor-intensive step but is highly scriptable - a Python script can read the YAML frontmatter, extract sections by heading, and generate the merged page.
 - **Commands**: Evaluate whether the ~28 command files warrant individual pages or a single reference table. A reference table with expandable details is likely more useful than 28 thin pages.
 
-**Tier 3 . New content (Day 3-5):**
+**Tier 3 - New content (Day 3-5):**
 
-- Category index pages (`skills/{phase}/index.md`) with grid cards . 8 new pages
+- Category index pages (`skills/{phase}/index.md`) with grid cards - 8 new pages
 - `docs/index.md` landing page with hero section and feature highlights
-- `docs/guides/installation.md` . consolidated cross-platform installation guide
-- `docs/guides/customization.md` . how to modify skill behavior
-- `docs/guides/team-setup.md` . set
+- `docs/guides/installation.md` - consolidated cross-platform installation guide
+- `docs/guides/customization.md` - how to modify skill behavior
+- `docs/guides/team-setup.md` - set
