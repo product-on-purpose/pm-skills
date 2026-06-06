@@ -3,15 +3,15 @@
 Status: Planning (post-review)
 Parent: [plan_v2.9.0.md](../../pm-release-plans/v2.9.0/plan_v2.9.0.md)
 Scope: pm-skills (primary) + pm-skills-mcp (downstream)
-Reviewed by: Codex (GPT-5.4) . [review document](plan_bundles-to-workflows_reviewed-by-codex.md)
+Reviewed by: Codex (GPT-5.4) - [review document](plan_bundles-to-workflows_reviewed-by-codex.md)
 
 ## Context
 
-The term "bundle" is a packaging metaphor (webpack, npm). What the repo actually describes is a **process** . a guided, sequenced, multi-step workflow with handoffs and context flow. Every user-facing explanation in the repo already reaches for "workflow" to describe the concept. The pm-skills-mcp server already uses `pm_workflow_` as its tool name prefix.
+The term "bundle" is a packaging metaphor (webpack, npm). What the repo actually describes is a **process** - a guided, sequenced, multi-step workflow with handoffs and context flow. Every user-facing explanation in the repo already reaches for "workflow" to describe the concept. The pm-skills-mcp server already uses `pm_workflow_` as its tool name prefix.
 
 This rename aligns terminology with:
 - The repo's own documentation (which says "Workflow Bundles" everywhere)
-- The broader agent/automation ecosystem (GitHub Actions, n8n, Zapier, Temporal . all use "workflow")
+- The broader agent/automation ecosystem (GitHub Actions, n8n, Zapier, Temporal - all use "workflow")
 - The MCP server's existing public API (`pm_workflow_feature_kickoff`, etc.)
 
 **Scope of change:** Approximately 400 references across ~100 files in pm-skills, ~14 files in pm-skills-mcp. Reference counts are approximate from a session-time grep (2026-04-06); re-verify from live tree before execution.
@@ -24,13 +24,13 @@ This rename aligns terminology with:
 |----------|--------|-----------|
 | Directory rename | `_bundles/` → `_workflows/` | Matches concept name |
 | Docs directory | `docs/bundles/` → `docs/workflows/` | Follows source directory |
-| Internal efforts dir | Already reorganized to `F-13-workflow-expansion/` | Done . draft files keep `bundle_` prefix as historical artifacts |
+| Internal efforts dir | Already reorganized to `F-13-workflow-expansion/` | Done - draft files keep `bundle_` prefix as historical artifacts |
 | Command prefix | `/workflow-{name}` | Namespace protection, signals multi-step process |
 | `/kickoff` handling | **Delete `commands/kickoff.md`**. Only `/workflow-feature-kickoff` exists. | Low adoption; avoids alias complexity and validator conflicts. Breaking change documented in release notes. |
-| MCP tool names | No change . already `pm_workflow_*` | Already correct |
-| MCP type renames | `WorkflowBundle` → `Workflow` etc. . **source-level API refactor**, not cosmetic | Exported TypeScript symbols change. No user-facing MCP tool-name break. |
+| MCP tool names | No change - already `pm_workflow_*` | Already correct |
+| MCP type renames | `WorkflowBundle` → `Workflow` etc. - **source-level API refactor**, not cosmetic | Exported TypeScript symbols change. No user-facing MCP tool-name break. |
 | Nav section name | "Bundles" → "Workflows" | Matches concept |
-| Timing | Part of v2.9.0 (Commit 1 per parent release plan) | Cheapest time . already touching every file for expansion |
+| Timing | Part of v2.9.0 (Commit 1 per parent release plan) | Cheapest time - already touching every file for expansion |
 | Terminology guard | Advisory (WARN) during transition; **promote to FAIL after v2.9.0 ships** | Prevents regression once exception list is stable |
 
 ---
@@ -50,10 +50,10 @@ This rename aligns terminology with:
 | `docs/bundles/feature-kickoff.md` | `docs/workflows/feature-kickoff.md` | Moved with directory |
 | `docs/bundles/lean-startup.md` | `docs/workflows/lean-startup.md` | Moved with directory |
 | `docs/bundles/triple-diamond.md` | `docs/workflows/triple-diamond.md` | Moved with directory |
-| ~~`docs/internal/efforts/bundles/`~~ | Reorganized to `F-13-workflow-expansion/` | Already done . see [F-13](../F-13-workflow-expansion.md) |
+| ~~`docs/internal/efforts/bundles/`~~ | Reorganized to `F-13-workflow-expansion/` | Already done - see [F-13](../F-13-workflow-expansion.md) |
 | `commands/kickoff.md` | `commands/workflow-feature-kickoff.md` | Rename (old file deleted, not aliased) |
 | (new) | `_workflows/README.md` | Clarifies source-of-truth role, repo-relative links, do not edit `docs/workflows/` |
-| (new) | `docs/workflows/README.md` | "Generated . do not edit directly. Run `scripts/generate-workflow-pages.py`." |
+| (new) | `docs/workflows/README.md` | "Generated - do not edit directly. Run `scripts/generate-workflow-pages.py`." |
 
 ### B. Command File Changes (M-19 scope: rename only)
 
@@ -62,11 +62,11 @@ M-19 renames the existing command. The 6 new workflow commands are created in F-
 | File | Command | Action |
 |------|---------|--------|
 | `commands/workflow-feature-kickoff.md` | `/workflow-feature-kickoff` | Rename from `kickoff.md`, update internal `_bundles/` → `_workflows/` references |
-| `commands/kickoff.md` | `/kickoff` | **Deleted** . breaking change, documented in release notes |
+| `commands/kickoff.md` | `/kickoff` | **Deleted** - breaking change, documented in release notes |
 
 ### C. Critical File Updates (pm-skills)
 
-Files grouped by impact severity. Reference counts are approximate . re-verify before execution.
+Files grouped by impact severity. Reference counts are approximate - re-verify before execution.
 
 #### Tier 1 . Structural (breaks CI or packaging if missed)
 
@@ -113,7 +113,7 @@ Files grouped by impact severity. Reference counts are approximate . re-verify b
 | `docs/showcase/workbench.md` | 2 | Showcase narrative |
 | `docs/pm-skill-anatomy.md` | 2 | Bundle section |
 | Various `docs/skills/*.md` | ~6 | Incidental bundle references |
-| Various `docs/releases/Release_v*.md` | ~8 | Historical . update only v2.9.0 notes; leave older releases as-is |
+| Various `docs/releases/Release_v*.md` | ~8 | Historical - update only v2.9.0 notes; leave older releases as-is |
 
 #### Tier 4 . Internal docs (low risk, update for consistency)
 
@@ -126,7 +126,7 @@ Files grouped by impact severity. Reference counts are approximate . re-verify b
 | `docs/internal/skill-library-evaluation-anthropic-guide.md` | 3 | Evaluation criteria |
 | Various other internal docs | ~30 | Effort briefs, milestone plans, working docs |
 
-Note: Draft files in `docs/internal/efforts/F-13-workflow-expansion/` keep their `bundle_` prefix as historical artifacts . not updated by M-19.
+Note: Draft files in `docs/internal/efforts/F-13-workflow-expansion/` keep their `bundle_` prefix as historical artifacts - not updated by M-19.
 
 #### Tier 5 . Agent context files
 
@@ -141,17 +141,17 @@ Note: Draft files in `docs/internal/efforts/F-13-workflow-expansion/` keep their
 | File | Refs | Why Skip |
 |------|------|----------|
 | `library/skill-output-samples/*.md` | ~6 | "bundle" appears in product example content (e.g., "JavaScript bundle size"), not workflow references |
-| `.github/issues-archive/*.md` | ~10 | Historical issue snapshots . leave as-is |
-| `docs/releases/Release_v2.0.md` through `v2.8.x` | ~8 | Historical release notes . document what was true at that time |
-| `docs/internal/_working/distilled/_archived/*.md` | ~15 | Archived working docs . leave as-is |
+| `.github/issues-archive/*.md` | ~10 | Historical issue snapshots - leave as-is |
+| `docs/releases/Release_v2.0.md` through `v2.8.x` | ~8 | Historical release notes - document what was true at that time |
+| `docs/internal/_working/distilled/_archived/*.md` | ~15 | Archived working docs - leave as-is |
 | `scripts/README_SCRIPTS.md` | 1 | "release bundle" is generic usage, not a workflow reference |
-| `docs/internal/efforts/F-13-workflow-expansion/bundle_*.md` | ~60 | Historical draft files . keep `bundle_` prefix |
+| `docs/internal/efforts/F-13-workflow-expansion/bundle_*.md` | ~60 | Historical draft files - keep `bundle_` prefix |
 
 ---
 
 ## pm-skills-mcp Impact
 
-**The MCP server is already 90% aligned.** The public tool names (`pm_workflow_*`), the listing tool (`pm_list_workflows`), and the source directory (`src/workflows/`) all use "workflow" already. The rename is a **source-level API refactor** inside the MCP repo . exported TypeScript symbols (`WorkflowBundle`, `WORKFLOW_BUNDLES`, `listWorkflowBundles()`, `getWorkflowBundle()`) change, but no user-facing MCP tool names or IDs change.
+**The MCP server is already 90% aligned.** The public tool names (`pm_workflow_*`), the listing tool (`pm_list_workflows`), and the source directory (`src/workflows/`) all use "workflow" already. The rename is a **source-level API refactor** inside the MCP repo - exported TypeScript symbols (`WorkflowBundle`, `WORKFLOW_BUNDLES`, `listWorkflowBundles()`, `getWorkflowBundle()`) change, but no user-facing MCP tool names or IDs change.
 
 ### Files to Update
 
@@ -174,16 +174,16 @@ Note: Draft files in `docs/internal/efforts/F-13-workflow-expansion/` keep their
 
 | Item | Current | Stays the Same |
 |------|---------|---------------|
-| Tool name prefix | `pm_workflow_` | Yes . already correct |
-| Tool IDs | `feature-kickoff`, `lean-startup`, etc. | Yes . no "bundle" in IDs |
-| Listing tool | `pm_list_workflows` | Yes . already correct |
-| Module directory | `src/workflows/` | Yes . already correct |
-| Resource URIs | `pm-skills://skills/*` | Yes . workflows aren't exposed as resources |
-| `tests/resources.test.ts` | Asserts `pm-skills://bundles/feature-kickoff` returns null | Yes . keep existing rejection test as-is |
+| Tool name prefix | `pm_workflow_` | Yes - already correct |
+| Tool IDs | `feature-kickoff`, `lean-startup`, etc. | Yes - no "bundle" in IDs |
+| Listing tool | `pm_list_workflows` | Yes - already correct |
+| Module directory | `src/workflows/` | Yes - already correct |
+| Resource URIs | `pm-skills://skills/*` | Yes - workflows aren't exposed as resources |
+| `tests/resources.test.ts` | Asserts `pm-skills://bundles/feature-kickoff` returns null | Yes - keep existing rejection test as-is |
 
 ### MCP Coordination Timing
 
-The MCP rename is **non-breaking** for tool consumers . no public tool names change. It can ship as:
+The MCP rename is **non-breaking** for tool consumers - no public tool names change. It can ship as:
 - A patch release (`pm-skills-mcp v2.x.y`) for the source refactor
 - Bundled with the release that adds 6 new workflow tools
 
@@ -251,7 +251,7 @@ paths:
 
 ## Implementation Sequence
 
-M-19 ships as **Commit 1** in the v2.9.0 release (per the parent release plan's two-commit strategy). The "single atomic commit" recommendation means all M-19 rename work lands in one commit . not that all of v2.9.0 is one commit.
+M-19 ships as **Commit 1** in the v2.9.0 release (per the parent release plan's two-commit strategy). The "single atomic commit" recommendation means all M-19 rename work lands in one commit - not that all of v2.9.0 is one commit.
 
 ### Single Atomic Commit for M-19
 
@@ -260,7 +260,7 @@ One commit that performs all directory renames, file renames, reference updates,
 **Pros:** No intermediate broken state, clean git history
 **Cons:** Large diff, harder to review
 
-This is appropriate because the rename is mechanical . find-and-replace with targeted exceptions per the "What NOT to Change" section.
+This is appropriate because the rename is mechanical - find-and-replace with targeted exceptions per the "What NOT to Change" section.
 
 ---
 
@@ -308,7 +308,7 @@ These tests verify M-19 is complete as a standalone effort. They reference only 
 
 #### AT-6: README
 
-- [ ] No occurrence of "workflow bundles" . now "workflows"
+- [ ] No occurrence of "workflow bundles" - now "workflows"
 - [ ] Feature badge says "Workflows" not "Workflow Bundles"
 - [ ] Workflow table lists 3 with correct `_workflows/` links
 - [ ] Directory tree shows `_workflows/` not `_bundles/`
@@ -341,7 +341,7 @@ These tests verify M-19 is complete as a standalone effort. They reference only 
 #### AT-10: CHANGELOG & Release Artifacts
 
 - [ ] `CHANGELOG.md` v2.9.0 entry uses "workflows" terminology
-- [ ] `docs/changelog.md` v2.9.0 entry uses "workflows" terminology (updated independently . separate file)
+- [ ] `docs/changelog.md` v2.9.0 entry uses "workflows" terminology (updated independently - separate file)
 - [ ] Historical release notes (v2.0 through v2.8.x) unchanged
 - [ ] `docs/releases/Release_v2.9.0.md` includes breaking-change callout for `/kickoff` removal and `_bundles/` → `_workflows/` path rename
 
@@ -380,7 +380,7 @@ These tests verify the complete v2.9.0 release state after both Commit 1 (M-19) 
 - [ ] `pm_list_workflows` tool still works
 - [ ] Internal type `WorkflowBundle` renamed to `Workflow` in source
 - [ ] `WORKFLOW_BUNDLES` constant renamed to `WORKFLOWS`
-- [ ] `tests/resources.test.ts` unchanged . existing `pm-skills://bundles/` rejection test kept as-is
+- [ ] `tests/resources.test.ts` unchanged - existing `pm-skills://bundles/` rejection test kept as-is
 - [ ] All tests pass: `npm test` in pm-skills-mcp
 - [ ] New workflow IDs added matching `_workflows/` filenames
 
@@ -391,15 +391,15 @@ These tests verify the complete v2.9.0 release state after both Commit 1 (M-19) 
 | Category | Reason |
 |----------|--------|
 | Historical release notes (`docs/releases/Release_v2.0.md` through `v2.8.x`) | Document what was true at release time |
-| Historical CHANGELOG entries (pre-v2.9.0) | Same . historical record |
+| Historical CHANGELOG entries (pre-v2.9.0) | Same - historical record |
 | Archived working docs (`docs/internal/_working/distilled/_archived/`) | Dead documents, not worth the churn |
 | Issue archive (`.github/issues-archive/`) | External snapshots |
 | Sample library content (`library/skill-output-samples/`) | "bundle" in product context (e.g., JS bundle size), not workflow references |
 | `scripts/README_SCRIPTS.md` | "release bundle" is generic usage, not a workflow reference |
-| F-13 draft files (`docs/internal/efforts/F-13-workflow-expansion/bundle_*`) | Historical drafts . keep original terminology |
-| MCP tool names (`pm_workflow_*`) | Already correct . no user-facing change |
+| F-13 draft files (`docs/internal/efforts/F-13-workflow-expansion/bundle_*`) | Historical drafts - keep original terminology |
+| MCP tool names (`pm_workflow_*`) | Already correct - no user-facing change |
 | MCP tool IDs (`feature-kickoff`, etc.) | Already correct |
-| MCP resource test (`tests/resources.test.ts`) | Tests URI rejection, not support . keep as-is |
+| MCP resource test (`tests/resources.test.ts`) | Tests URI rejection, not support - keep as-is |
 
 ---
 
@@ -412,24 +412,24 @@ These tests verify the complete v2.9.0 release state after both Commit 1 (M-19) 
 | CI path triggers stale | High | AT-4 explicitly verifies new triggers fire |
 | AGENTS.md sync workflow broken | Medium | AT-5 + manual check of sync-agents-md.yml output |
 | MCP source API break | Low | No user-facing tool names change; TypeScript export renames are internal to pm-skills-mcp |
-| Docs site URL breakage | **High** | `mkdocs-redirects` plugin . see URL Redirect Plan below |
+| Docs site URL breakage | **High** | `mkdocs-redirects` plugin - see URL Redirect Plan below |
 | Repo-path breakage (external consumers) | Medium | Breaking-change callout in v2.9.0 release notes. Low adoption mitigates impact. |
 | Release packaging misses `_workflows/` | Medium | AT-9 verifies build scripts updated |
 | `/kickoff` removal | Low | Documented in release notes. Low adoption. |
 
 ### URL Redirect Plan (required)
 
-The docs site is public and indexed . old `bundles/*` URLs will 404 after the rename unless redirects are in place.
+The docs site is public and indexed - old `bundles/*` URLs will 404 after the rename unless redirects are in place.
 
 **Solution: `mkdocs-redirects` plugin.** The repo already manages MkDocs plugins via `requirements-docs.txt`, so adding one more is trivial.
 
-**Step 1 . Install:**
+**Step 1 - Install:**
 ```
 # Add to requirements-docs.txt
 mkdocs-redirects
 ```
 
-**Step 2 . Configure in `mkdocs.yml`:**
+**Step 2 - Configure in `mkdocs.yml`:**
 ```yaml
 plugins:
   - redirects:
@@ -441,12 +441,12 @@ plugins:
         # New workflows don't need redirects . they never had bundle URLs
 ```
 
-**Step 3 . Verify:** AT-11.
+**Step 3 - Verify:** AT-11.
 
 This handles:
 - Direct bookmarks to bundle pages
 - Search engine cached URLs
 - External sites linking to the docs
-- Zero maintenance . the plugin generates static redirect HTML files
+- Zero maintenance - the plugin generates static redirect HTML files
 
 **Note:** URL redirects only cover the docs site. GitHub repo-path links to `_bundles/` will break. This is documented as a breaking change in the v2.9.0 release notes.

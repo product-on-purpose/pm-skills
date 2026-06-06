@@ -97,19 +97,19 @@ metadata:
 
 3. **Meeting Type Taxonomy** (~20 lines)
    - Table of six types with definition and synthesis emphasis (from shared taxonomy above)
-   - Guidance: "Identify the meeting type first . it determines which output sections are mandatory"
+   - Guidance: "Identify the meeting type first - it determines which output sections are mandatory"
 
 4. **Instructions** (~40 lines, numbered steps)
-   1. **Collect raw input** . Gather notes, transcript, or recording. Note meeting metadata (title, date, attendees, duration, stated purpose).
-   2. **Identify meeting type** . Classify using the taxonomy. Mixed-type meetings use the dominant type's emphasis.
-   3. **Extract decisions** . Pull out every decision, explicit or implicit. Document rationale and any dissent.
-   4. **Extract action items** . Every action item gets: description, owner, due date, status. Flag items missing owner or date.
-   5. **Capture open questions** . Questions raised but not resolved. Note who needs to answer and by when.
-   6. **Summarize key discussion points** . Major topics discussed, positions taken, outcomes reached.
-   7. **Identify follow-ups** . Topics deferred to next meeting or async channels.
-   8. **Connect to context** . Link outcomes to related projects, initiatives, prior meetings, or OKRs.
-   9. **Write executive summary** . 2-3 sentences capturing the meeting's most important outcomes.
-   10. **Generate audience variants** (optional) . If needed, produce abbreviated summaries for leadership or stakeholders.
+   1. **Collect raw input** - Gather notes, transcript, or recording. Note meeting metadata (title, date, attendees, duration, stated purpose).
+   2. **Identify meeting type** - Classify using the taxonomy. Mixed-type meetings use the dominant type's emphasis.
+   3. **Extract decisions** - Pull out every decision, explicit or implicit. Document rationale and any dissent.
+   4. **Extract action items** - Every action item gets: description, owner, due date, status. Flag items missing owner or date.
+   5. **Capture open questions** - Questions raised but not resolved. Note who needs to answer and by when.
+   6. **Summarize key discussion points** - Major topics discussed, positions taken, outcomes reached.
+   7. **Identify follow-ups** - Topics deferred to next meeting or async channels.
+   8. **Connect to context** - Link outcomes to related projects, initiatives, prior meetings, or OKRs.
+   9. **Write executive summary** - 2-3 sentences capturing the meeting's most important outcomes.
+   10. **Generate audience variants** (optional) - If needed, produce abbreviated summaries for leadership or stakeholders.
 
 5. **Multi-Meeting Synthesis** (~15 lines)
    - When synthesizing 2+ meetings on the same topic:
@@ -136,18 +136,18 @@ metadata:
 
 A reusable meeting synthesis template. Sections:
 
-1. **Frontmatter** . artifact name, version, created date, status
-2. **Meeting Metadata** . Title, date, duration, location/link, attendees (name + role), meeting type (from taxonomy), stated purpose
-3. **Executive Summary** . 2-3 sentences (the "if you read nothing else" section)
-4. **Decisions Made** . Numbered list; each with: decision statement, rationale, dissenting views (if any)
-5. **Action Items** . Table: description, owner, due date, status, notes
-6. **Open Questions** . Table: question, who needs to answer, target date, context
-7. **Key Discussion Points** . Per topic: topic title, summary of discussion, positions taken, outcome
-8. **Follow-Up Topics** . Items deferred; note where they'll be addressed (next meeting, async, specific channel)
-9. **Related Context** . Links to projects, initiatives, prior meeting syntheses, OKRs
-10. **Multi-Meeting Tracker** (optional) . Cumulative view across a meeting series: decision log, action item status, scope evolution
-11. **Audience Variant: Leadership** (optional) . Abbreviated version: decisions + risks + timeline only
-12. **Audience Variant: Stakeholders** (optional) . Abbreviated version: outcomes + next steps only
+1. **Frontmatter** - artifact name, version, created date, status
+2. **Meeting Metadata** - Title, date, duration, location/link, attendees (name + role), meeting type (from taxonomy), stated purpose
+3. **Executive Summary** - 2-3 sentences (the "if you read nothing else" section)
+4. **Decisions Made** - Numbered list; each with: decision statement, rationale, dissenting views (if any)
+5. **Action Items** - Table: description, owner, due date, status, notes
+6. **Open Questions** - Table: question, who needs to answer, target date, context
+7. **Key Discussion Points** - Per topic: topic title, summary of discussion, positions taken, outcome
+8. **Follow-Up Topics** - Items deferred; note where they'll be addressed (next meeting, async, specific channel)
+9. **Related Context** - Links to projects, initiatives, prior meeting syntheses, OKRs
+10. **Multi-Meeting Tracker** (optional) - Cumulative view across a meeting series: decision log, action item status, scope evolution
+11. **Audience Variant: Leadership** (optional) - Abbreviated version: decisions + risks + timeline only
+12. **Audience Variant: Stakeholders** (optional) - Abbreviated version: outcomes + next steps only
 
 ---
 
@@ -204,6 +204,6 @@ Body: brief instruction to invoke the skill with the user's meeting notes, trans
 
 3. **Given** three standup notes from the same week, **when** multi-meeting synthesis is requested, **then** the output includes a cumulative action item tracker showing status changes across the series.
 
-4. **Given** a completed single-meeting synthesis, **when** a leadership audience variant is requested, **then** the variant contains only decisions, risks, and timeline . no discussion detail.
+4. **Given** a completed single-meeting synthesis, **when** a leadership audience variant is requested, **then** the variant contains only decisions, risks, and timeline - no discussion detail.
 
 5. **Given** meeting notes with no stated purpose, **when** the skill classifies the meeting type, **then** it infers the type from content patterns and explains the inference.

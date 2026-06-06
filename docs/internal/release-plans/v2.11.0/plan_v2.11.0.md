@@ -16,7 +16,7 @@ On 2026-04-15, F-26 (foundation-lean-canvas) landed on main via an ad-hoc `/pm-s
 
 On 2026-04-17, the meeting-skills scope expanded from 2 skills to 5 after a family-design session produced two `_NOTES/` documents articulating a complete pre-meeting / in-meeting / post-meeting / cross-meeting / outward-comms skill family with shared behavioral and structural contracts. F-17 and F-18 were archived and rewritten; F-25, F-27, and F-28 were created. All 5 classified as `foundation-*` (cross-cutting tooling), matching `foundation-persona` and `foundation-lean-canvas` precedent.
 
-The 5 meeting skills share cross-skill CI enforcement (new `validate-meeting-skills-family.sh/.ps1`) that checks contract conformance . family-specific requirements like the Zero-friction execution section, Sources & References structure, and universal frontmatter fields. This is the first family-level CI check in the repo; establishes `docs/reference/skill-families/` as a future-extensible pattern for cross-cutting skill contracts.
+The 5 meeting skills share cross-skill CI enforcement (new `validate-meeting-skills-family.sh/.ps1`) that checks contract conformance - family-specific requirements like the Zero-friction execution section, Sources & References structure, and universal frontmatter fields. This is the first family-level CI check in the repo; establishes `docs/reference/skill-families/` as a future-extensible pattern for cross-cutting skill contracts.
 
 ### Prerequisites
 
@@ -53,7 +53,7 @@ The 5 meeting skills share cross-skill CI enforcement (new `validate-meeting-ski
 | **Family CI posture** | Enforcing from day one via `validate-meeting-skills-family.sh/.ps1` | All 5 skills authored together against the contract; no retroactive cleanup phase needed. |
 | **Go-mode behavioral contract** | Infer → present brief summary → accept `go` or corrections. `--go` flag opts out of the checkpoint. Fully-specified invocations skip the checkpoint. | Zero-friction execution per family contract. Blocking questions permitted only when inference confidence is actively low on load-bearing inputs and no reasonable default exists. |
 | **Default meeting duration** | 30 min (not 60) | Matches internal-meeting norms; 60 min is aspirational. |
-| **Meeting type and RACI frontmatter** | Optional, inferred when absent. Enums defined in family contract. CI validates schema shape and enum values (when present); does not require population. | Adaptive Executor pattern . skills run on variable-quality input. |
+| **Meeting type and RACI frontmatter** | Optional, inferred when absent. Enums defined in family contract. CI validates schema shape and enum values (when present); does not require population. | Adaptive Executor pattern - skills run on variable-quality input. |
 | **Skill count after** | **38 skills** | Baseline pre-v2.11.0: 32 skills at v2.10.2. F-26 shipped mid-plan to main (not yet released) = 33. 5 meeting skills add 5 more = 38. Breakdown: 25 phase + 7 foundation (persona, lean-canvas, 5 meeting) + 6 utility = 38. Verified via check-count-consistency after updates. |
 | **MCP decoupling** | **Freeze pm-skills-mcp, remove from release gating** | MCP server has no active users. See M-22. |
 | **Additional efforts** | None beyond F-26 + 5 meeting skills + M-22 | Slate finalized; additional backlog items (F-20, F-21, F-14) defer to v2.12.0+. |
@@ -126,7 +126,7 @@ See [F-26 effort brief](../../efforts/F-26-lean-canvas.md). Shipped to main 2026
 | File | Description | Status |
 |------|------------|--------|
 | `skills/foundation-stakeholder-update/SKILL.md` | Post-meeting async comms skill (channel + audience variants) | Not started |
-| `skills/foundation-stakeholder-update/references/TEMPLATE.md` | Update template (no separate shareable-summary . entire output is shareable) | Not started |
+| `skills/foundation-stakeholder-update/references/TEMPLATE.md` | Update template (no separate shareable-summary - entire output is shareable) | Not started |
 | `skills/foundation-stakeholder-update/references/EXAMPLE.md` | Worked example (engineering update on search-feature) | Not started |
 | `commands/stakeholder-update.md` | Slash command | Not started |
 | `library/skill-output-samples/foundation-stakeholder-update/sample_*.md` (3) | Samples: slack-to-engineering, email-to-leadership, notion-to-mixed | Not started |
@@ -167,10 +167,10 @@ See [F-26 effort brief](../../efforts/F-26-lean-canvas.md). Shipped to main 2026
 | `lint-skills-frontmatter` | Frontmatter for 5 new meeting skills | Must pass |
 | `validate-commands` | 5 new command files reference valid skills | Must pass |
 | `validate-agents-md` | AGENTS.md includes 5 new entries | Must pass |
-| **`validate-meeting-skills-family`** (new) | Family contract conformance: contract reference link, Zero-friction execution section, TEMPLATE.md frontmatter shape, Sources & References structure, artifact_type matches skill | **Must pass . enforcing from day one** |
+| **`validate-meeting-skills-family`** (new) | Family contract conformance: contract reference link, Zero-friction execution section, TEMPLATE.md frontmatter shape, Sources & References structure, artifact_type matches skill | **Must pass - enforcing from day one** |
 | `validate-version-consistency` | plugin.json == marketplace.json | Must pass |
 | `check-count-consistency` | Skill/command counts updated across docs | Advisory |
-| `check-mcp-impact` | Advisory . MCP frozen per M-22, no new MCP tools needed | Advisory |
+| `check-mcp-impact` | Advisory - MCP frozen per M-22, no new MCP tools needed | Advisory |
 | `validate-script-docs` | New `validate-meeting-skills-family.md` matches script conventions | Must pass |
 
 ---
@@ -179,18 +179,18 @@ See [F-26 effort brief](../../efforts/F-26-lean-canvas.md). Shipped to main 2026
 
 | Question | Answer |
 |----------|--------|
-| New MCP tools needed? | **No** . MCP is being decoupled from pm-skills release cycle (M-22). |
-| Separate MCP release required? | **No** . pm-skills-mcp is frozen until team adoption creates demand. |
-| MCP decoupling effort | **M-22** . freeze MCP repo, remove from release gating, archive alignment steps. See [effort brief](../../efforts/M-22-mcp-decoupling.md). |
+| New MCP tools needed? | **No** - MCP is being decoupled from pm-skills release cycle (M-22). |
+| Separate MCP release required? | **No** - pm-skills-mcp is frozen until team adoption creates demand. |
+| MCP decoupling effort | **M-22** - freeze MCP repo, remove from release gating, archive alignment steps. See [effort brief](../../efforts/M-22-mcp-decoupling.md). |
 
 ---
 
 ## Open Questions
 
 1. ~~**Final slate scope**~~ **Resolved 2026-04-17**: v2.11.0 ships F-26 + 5 foundation-meeting skills (F-18 agenda, F-25 brief, F-27 recap, F-17 synthesize, F-28 stakeholder-update) + M-22.
-2. **Workflow opportunity**: Should the 5 meeting skills ship with a `meeting-lifecycle` workflow (brief + agenda → recap → stakeholder-update)? Deferred to v2.12.0+ . workflows are additive and can land after the skills have real-world usage.
+2. **Workflow opportunity**: Should the 5 meeting skills ship with a `meeting-lifecycle` workflow (brief + agenda → recap → stakeholder-update)? Deferred to v2.12.0+ - workflows are additive and can land after the skills have real-world usage.
 3. **Krisp MCP integration depth**: Skills explicitly mention Krisp MCP as an input source in the contract's Adaptive Executor pattern. Should per-skill SKILL.md files include explicit Krisp MCP invocation examples, or keep it generic across transcript sources?
-4. **Sample count per skill**: Current plan is 3 samples per skill (matching F-26 precedent) = 15 new samples. Verify this is appropriate during per-skill authoring . may reduce if authoring overhead outweighs sample value.
+4. **Sample count per skill**: Current plan is 3 samples per skill (matching F-26 precedent) = 15 new samples. Verify this is appropriate during per-skill authoring - may reduce if authoring overhead outweighs sample value.
 5. **MCP revival criteria**: M-22 freezes the MCP server. What conditions would trigger unfreezing (e.g., 3+ team users, non-Claude-Code tool adoption, enterprise demand)?
 6. **F-26 + family Codex review**: F-26 and the new family contract + 5 effort packets have not been reviewed by Codex. Consider requesting a Codex review of the family contract + 1-2 representative skills prior to release.
 7. **Public skill doc generation**: F-26 brief references `scripts/generate-skill-pages.py`; its availability needs to be verified during per-skill authoring. Hand-authoring is the fallback.

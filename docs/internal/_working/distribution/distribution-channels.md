@@ -27,21 +27,21 @@
 
 | # | Channel | Type | Stars/Size | pm-skills Listed? | pm-skills-mcp Listed? | Priority | Action |
 |---|---------|------|-----------|-------------------|----------------------|----------|--------|
-| 1 | [Claude Plugin Directory](#anthropicsclaude-plugins-official) | Official | 14K stars | No | . | **P0** | Submit via form |
-| 2 | [anthropics/skills](#anthropicsskills) | Official | 100K stars | No | . | **P1** | Open PR (low merge rate) |
-| 3 | [Official MCP Registry](#official-mcp-registry) | Official | 6.5K stars | . | No | **P1** | Publish via mcp-publisher CLI |
-| 4 | [ComposioHQ/awesome-claude-skills](#composiohqawesome-claude-skills) | Community | 47K stars | No (PR #62 closed) | . | **P2** | Resubmit PR |
-| 5 | [hesreallyhim/awesome-claude-code](#hesreallyhimawesome-claude-code) | Community | 30K stars | No | . | **P2** | Open PR |
-| 6 | [github/awesome-copilot](#githubawesome-copilot) | Community | 27K stars | No | . | **P2** | Open PR |
-| 7 | [PulseMCP](#pulsemcp) | MCP directory | 12K+ servers | . | No | **P2** | Submit via form |
-| 8 | [skills.sh (Vercel)](#skillssh-vercel) | Registry | 11K stars | Partial (3/27 skills) | . | **P3** | Investigate indexing gap |
-| 9 | [travisvn/awesome-claude-skills](#travisvnawesome-claude-skills) | Community | 9.5K stars | No | . | **P3** | Open PR |
-| 10 | [numman-ali/openskills](#openskills) | CLI tool | 9K stars | No | . | **P3** | Submit to n-skills |
-| 11 | [numman-ali/n-skills](#n-skills) | Marketplace | 941 stars | No (Issue #6 open) | . | **P3** | Follow up on issue |
-| 12 | [Smithery.ai](#smitheryai) | MCP directory | 6K+ servers | . | No | **P3** | Submit |
-| 13 | [Glama.ai](#glamaai) | MCP directory | Thousands | . | No | **P3** | Submit |
-| 14 | [Self-hosted marketplace](#6-self-hosted-marketplace) | Own | . | Not created | . | **P3** | Add marketplace.json |
-| 15 | [npm](#npm) | Package | . | . | Yes (v2.7.0) | **Done** | Keep current |
+| 1 | [Claude Plugin Directory](#anthropicsclaude-plugins-official) | Official | 14K stars | No | - | **P0** | Submit via form |
+| 2 | [anthropics/skills](#anthropicsskills) | Official | 100K stars | No | - | **P1** | Open PR (low merge rate) |
+| 3 | [Official MCP Registry](#official-mcp-registry) | Official | 6.5K stars | - | No | **P1** | Publish via mcp-publisher CLI |
+| 4 | [ComposioHQ/awesome-claude-skills](#composiohqawesome-claude-skills) | Community | 47K stars | No (PR #62 closed) | - | **P2** | Resubmit PR |
+| 5 | [hesreallyhim/awesome-claude-code](#hesreallyhimawesome-claude-code) | Community | 30K stars | No | - | **P2** | Open PR |
+| 6 | [github/awesome-copilot](#githubawesome-copilot) | Community | 27K stars | No | - | **P2** | Open PR |
+| 7 | [PulseMCP](#pulsemcp) | MCP directory | 12K+ servers | - | No | **P2** | Submit via form |
+| 8 | [skills.sh (Vercel)](#skillssh-vercel) | Registry | 11K stars | Partial (3/27 skills) | - | **P3** | Investigate indexing gap |
+| 9 | [travisvn/awesome-claude-skills](#travisvnawesome-claude-skills) | Community | 9.5K stars | No | - | **P3** | Open PR |
+| 10 | [numman-ali/openskills](#openskills) | CLI tool | 9K stars | No | - | **P3** | Submit to n-skills |
+| 11 | [numman-ali/n-skills](#n-skills) | Marketplace | 941 stars | No (Issue #6 open) | - | **P3** | Follow up on issue |
+| 12 | [Smithery.ai](#smitheryai) | MCP directory | 6K+ servers | - | No | **P3** | Submit |
+| 13 | [Glama.ai](#glamaai) | MCP directory | Thousands | - | No | **P3** | Submit |
+| 14 | [Self-hosted marketplace](#6-self-hosted-marketplace) | Own | - | Not created | - | **P3** | Add marketplace.json |
+| 15 | [npm](#npm) | Package | - | - | Yes (v2.7.0) | **Done** | Keep current |
 
 **Current presence: 2 of 15 channels** (npm published, skills.sh auto-indexed with gaps).
 
@@ -53,7 +53,7 @@
 
 #### anthropics/claude-plugins-official
 
-The curated first-party plugin directory. Highest visibility . top plugins have 100K+ installs.
+The curated first-party plugin directory. Highest visibility - top plugins have 100K+ installs.
 
 | Field | Value |
 |-------|-------|
@@ -65,11 +65,11 @@ The curated first-party plugin directory. Highest visibility . top plugins have 
 | User install | `/plugin install pm-skills` (from Discover browser) |
 
 **What you need:**
-- `.claude-plugin/plugin.json` . already exists, updated to v2.7.0
+- `.claude-plugin/plugin.json` - already exists, updated to v2.7.0
 - Repository URL: `https://github.com/product-on-purpose/pm-skills`
 - Fill out the submission form
 
-**Next step:** Submit via the form. No PR needed . Anthropic handles listing.
+**Next step:** Submit via the form. No PR needed - Anthropic handles listing.
 
 ---
 
@@ -103,8 +103,8 @@ The largest community-curated list of Claude skills.
 |-------|-------|
 | URL | https://github.com/ComposioHQ/awesome-claude-skills |
 | Stars | 46,997 |
-| Previous submission | PR #62 . closed without merge (2026-02-16, no reviewer comments) |
-| Current merge rate | Low . recent closed PRs show "not merged" pattern |
+| Previous submission | PR #62 - closed without merge (2026-02-16, no reviewer comments) |
+| Current merge rate | Low - recent closed PRs show "not merged" pattern |
 
 **What happened to PR #62:** Closed without merge or comments on 2026-02-16. Likely a bulk close or stale-bot cleanup. The PR described 24 skills (now 27).
 
@@ -326,8 +326,8 @@ Users install with:
 | Competitor | Stars | Skills | Overlap |
 |-----------|-------|--------|---------|
 | **phuryn/pm-skills** | 7,961 | "100+ agentic skills" | **Same name, same space.** Different project but occupies identical namespace. |
-| **@mondaydotcomorg/product-hub** | . (npm) | PM skills for Claude Code + Cursor | monday.com's PM skills . discovery, strategy, execution, UX research |
-| **nautilus-kit** | . (npm) | Hypothesis-driven discovery | Narrow overlap (hypothesis, PRD creation) |
+| **@mondaydotcomorg/product-hub** | - (npm) | PM skills for Claude Code + Cursor | monday.com's PM skills - discovery, strategy, execution, UX research |
+| **nautilus-kit** | - (npm) | Hypothesis-driven discovery | Narrow overlap (hypothesis, PRD creation) |
 
 **Key risk:** `phuryn/pm-skills` uses the exact same repo name with 8K stars. In directory listings, name collision could cause confusion. The `product-on-purpose` org name differentiates, but worth monitoring.
 
@@ -369,7 +369,7 @@ Users install with:
 ## Submission Content Templates
 
 ### Short Description (1 line)
-27 open-source product management skills for AI agents . PRDs, user stories, acceptance criteria, experiments, retrospectives, and more. Follows the agentskills.io specification.
+27 open-source product management skills for AI agents - PRDs, user stories, acceptance criteria, experiments, retrospectives, and more. Follows the agentskills.io specification.
 
 ### Medium Description (paragraph)
 PM-Skills is an open-source collection of 27 product management skills for AI agents, organized by the Triple Diamond framework. Each skill includes structured instructions (SKILL.md), an output template (TEMPLATE.md), and a real-world example (EXAMPLE.md). Covers the full PM lifecycle: discovery, definition, development, delivery, measurement, and iteration. Includes 3 workflows, 28 slash commands, an interactive skill builder, and a companion MCP server. Apache 2.0 licensed.

@@ -15,7 +15,7 @@ Parent: [plan_v2.9.0.md](plan_v2.9.0.md)
 
 ### What Codex does best here
 
-M-19 is predominantly **mechanical rename work** . find `_bundles` replace with `_workflows`, find "Workflow Bundles" replace with "Workflows", update path references. This is exactly Codex's strength: a well-specified, bounded, pattern-following task across many files. Codex can:
+M-19 is predominantly **mechanical rename work** - find `_bundles` replace with `_workflows`, find "Workflow Bundles" replace with "Workflows", update path references. This is exactly Codex's strength: a well-specified, bounded, pattern-following task across many files. Codex can:
 - Execute the ~400-reference rename across ~100 files without fatigue or drift
 - Create the terminology guard script from the pseudocode spec
 - Update CI workflow YAML files (exact path changes specified)
@@ -24,7 +24,7 @@ M-19 is predominantly **mechanical rename work** . find `_bundles` replace with 
 
 ### What Claude does best here
 
-F-13 requires **authoring new workflow content** . adapting the `bundle_*` drafts into production `_workflows/*.md` files that match the established format (header block, When to Use, Workflow Steps, Context Flow, Tips and Variations). This requires:
+F-13 requires **authoring new workflow content** - adapting the `bundle_*` drafts into production `_workflows/*.md` files that match the established format (header block, When to Use, Workflow Steps, Context Flow, Tips and Variations). This requires:
 - PM domain judgment about workflow guidance quality
 - Contextual adaptation of draft content to match existing workflow style
 - Writing the generation script (`generate-workflow-pages.py`) with understanding of the dual-file pattern
@@ -76,7 +76,7 @@ F-13 requires **authoring new workflow content** . adapting the `bundle_*` draft
 **Can start:** Immediately
 **Blocked by:** Nothing
 
-All of M-19 except edge-case review. This is the critical path bottleneck . ~100 files, ~400 references.
+All of M-19 except edge-case review. This is the critical path bottleneck - ~100 files, ~400 references.
 
 | # | Task | Files | Notes |
 |---|------|-------|-------|
@@ -91,7 +91,7 @@ All of M-19 except edge-case review. This is the critical path bottleneck . ~100
 | 1.9 | Docs site pages | ~15 files in `docs/` (getting-started, concepts, guides, reference, showcase, skills) | Contextual find-replace per tier tables |
 | 1.10 | Internal docs | `docs/internal/` files (release plans, mkdocs config, skill-versioning, etc.) | Bundle terminology → workflow |
 | 1.11 | Agent context | `AGENTS/claude/CONTEXT.md`, `AGENTS/codex/CONTEXT.md`, `AGENTS/DECISIONS.md` | Structure listing, feature set |
-| 1.12 | `docs/changelog.md` | Separate from `CHANGELOG.md` . update v2.9.0 entry independently | Both files need independent updates |
+| 1.12 | `docs/changelog.md` | Separate from `CHANGELOG.md` - update v2.9.0 entry independently | Both files need independent updates |
 | 1.13 | Create terminology guard | `scripts/check-stale-bundle-refs.sh` + `.ps1` | From pseudocode spec in M-19 plan |
 | 1.14 | Wire guard into CI | `.github/workflows/validation.yml` | Add advisory job/step |
 | 1.15 | Directory READMEs | `_workflows/README.md`, `docs/workflows/README.md` | From spec in plan |
@@ -112,7 +112,7 @@ Quick review pass for contextual judgment calls that mechanical rename may get w
 | # | Task | Why Claude |
 |---|------|-----------|
 | 1.16 | Review Codex's diff for false positives | "bundled with", "bundle of", or product-context "bundle" that shouldn't become "workflow" |
-| 1.17 | Verify `docs/workflows/index.md` content quality | Title, description, table formatting . not just string replacement |
+| 1.17 | Verify `docs/workflows/index.md` content quality | Title, description, table formatting - not just string replacement |
 | 1.18 | Verify `sync-agents-md.yml` table renders correctly | Hardcoded heredoc is fragile |
 | 1.19 | Run AT-1 through AT-11 and report results | Judgment on edge cases |
 
@@ -133,14 +133,14 @@ Quick review pass for contextual judgment calls that mechanical rename may get w
 **Can start:** After Phase 1C (Commit 1 landed)
 **Blocked by:** Commit 1
 
-This is the creative work . adapting the F-13 draft files into production workflows.
+This is the creative work - adapting the F-13 draft files into production workflows.
 
 | # | Task | Why Claude |
 |---|------|-----------|
 | 2.1 | Author `_workflows/customer-discovery.md` | Adapt from `bundle_customer-discovery.md`, match existing workflow format, PM domain judgment |
 | 2.2 | Author `_workflows/sprint-planning.md` | Same |
-| 2.3 | Author `_workflows/product-strategy.md` | Same . longest/most complex workflow (5 skills) |
-| 2.4 | Author `_workflows/post-launch-learning.md` | Same . spans pre-launch and post-launch |
+| 2.3 | Author `_workflows/product-strategy.md` | Same - longest/most complex workflow (5 skills) |
+| 2.4 | Author `_workflows/post-launch-learning.md` | Same - spans pre-launch and post-launch |
 | 2.5 | Author `_workflows/stakeholder-alignment.md` | Same |
 | 2.6 | Author `_workflows/technical-discovery.md` | Same |
 
@@ -185,12 +185,12 @@ This is the creative work . adapting the F-13 draft files into production workfl
 | 2.18 | Update `.github/workflows/sync-agents-md.yml` | Add 6 new workflow rows to hardcoded table |
 | 2.19 | Bump `.claude-plugin/plugin.json` version to 2.9.0 | Mechanical |
 | 2.20 | Update `CHANGELOG.md` v2.9.0 entry | Add F-13 items, finalize breaking-change callout |
-| 2.21 | Update `docs/changelog.md` v2.9.0 entry | Same . independent file |
+| 2.21 | Update `docs/changelog.md` v2.9.0 entry | Same - independent file |
 
 **Codex Execution Context:**
 - **Read first:** `commands/workflow-feature-kickoff.md` (command format), `AGENTS.md` (current table), `README.md` (current workflow table)
 - **Convention:** Command filename = `workflow-{workflow-name}.md`. Command references `_workflows/{name}.md` for skill paths.
-- **Constraints:** Only add rows . do not restructure existing tables.
+- **Constraints:** Only add rows - do not restructure existing tables.
 
 ---
 
@@ -231,7 +231,7 @@ Critical path: 1A → 1B → 1C → 2A → 2C → 3
 
 ### Files touched by both agents
 
-These files are modified in Phase 1 (M-19, Codex) AND Phase 2 (F-13, Codex/Claude). Since Commit 1 lands before Phase 2 starts, there is no concurrent edit conflict . Phase 2 works on the post-Commit-1 state.
+These files are modified in Phase 1 (M-19, Codex) AND Phase 2 (F-13, Codex/Claude). Since Commit 1 lands before Phase 2 starts, there is no concurrent edit conflict - Phase 2 works on the post-Commit-1 state.
 
 | File | Phase 1 (M-19) | Phase 2 (F-13) |
 |------|----------------|----------------|
@@ -248,16 +248,16 @@ These files are modified in Phase 1 (M-19, Codex) AND Phase 2 (F-13, Codex/Claud
 
 **No concurrent conflict** because:
 1. Commit 1 (M-19) lands and is pushed before Phase 2 begins
-2. Phase 2A (Claude: authoring) touches only `_workflows/*.md` . no overlap with Phase 2C (Codex: cross-cutting)
-3. Phase 2B (Codex: script) touches only `scripts/generate-workflow-pages.py` . no overlap with 2A or 2C
+2. Phase 2A (Claude: authoring) touches only `_workflows/*.md` - no overlap with Phase 2C (Codex: cross-cutting)
+3. Phase 2B (Codex: script) touches only `scripts/generate-workflow-pages.py` - no overlap with 2A or 2C
 4. Phase 2C (Codex: commands + updates) starts after 2A, so no concurrent edits
 
 ### Git worktree consideration
 
 If using worktrees for isolation:
 - **Phase 1A (Codex):** Can run in a worktree branched from `main`
-- **Phase 2B (Codex):** Can run in a separate worktree branched from Commit 1 . no file overlap with Phase 2A
-- **Phase 2A (Claude) + 2C (Codex):** Must be sequential on the same branch . 2C depends on 2A's output
+- **Phase 2B (Codex):** Can run in a separate worktree branched from Commit 1 - no file overlap with Phase 2A
+- **Phase 2A (Claude) + 2C (Codex):** Must be sequential on the same branch - 2C depends on 2A's output
 
 ---
 
@@ -267,7 +267,7 @@ If using worktrees for isolation:
 
 | # | Task | Agent | Parallel? | Depends on |
 |---|------|-------|-----------|------------|
-| 1.1 | Directory renames | Codex | . | . |
+| 1.1 | Directory renames | Codex | - | - |
 | 1.2 | CI path triggers | Codex | 1.1 | 1.1 |
 | 1.3 | Build scripts | Codex | ∥ 1.2 | 1.1 |
 | 1.4 | Command rename + delete | Codex | ∥ 1.2 | 1.1 |
@@ -279,7 +279,7 @@ If using worktrees for isolation:
 | 1.10 | Internal docs | Codex | ∥ 1.2 | 1.1 |
 | 1.11 | Agent context files | Codex | ∥ 1.2 | 1.1 |
 | 1.12 | docs/changelog.md | Codex | ∥ 1.2 | 1.1 |
-| 1.13 | Create terminology guard | Codex | ∥ 1.2 | . |
+| 1.13 | Create terminology guard | Codex | ∥ 1.2 | - |
 | 1.14 | Wire guard into CI | Codex | after 1.13 | 1.13 |
 | 1.15 | Directory READMEs | Codex | ∥ 1.2 | 1.1 |
 | 1.16 | Review diff for false positives | **Claude** | after 1.1-1.15 | All 1.x |

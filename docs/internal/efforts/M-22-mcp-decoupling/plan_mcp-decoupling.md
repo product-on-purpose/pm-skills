@@ -11,7 +11,7 @@ Created: 2026-04-11
 The pm-skills-mcp server was built for a future where multiple people
 use pm-skills through different LLM tools. That future hasn't arrived.
 The only active user (jprisant) uses Claude Code, which reads skills
-directly via the plugin system . no MCP server needed.
+directly via the plugin system - no MCP server needed.
 
 Meanwhile, the MCP server creates overhead in every release:
 
@@ -38,11 +38,11 @@ Freezing the MCP repo is not deleting it. It means:
 | Embed new skills | No |
 | Publish new npm versions | No |
 | Respond to security issues | Yes (patch and publish if needed) |
-| Delete the repo | No . keep it for future activation |
-| Reference in docs | Yes . but with "frozen" status noted |
+| Delete the repo | No - keep it for future activation |
+| Reference in docs | Yes - but with "frozen" status noted |
 
 The repo stays on GitHub, accessible, with its last working state.
-Anyone who cloned it still has a functional MCP server . it just
+Anyone who cloned it still has a functional MCP server - it just
 serves an older skill set.
 
 ---
@@ -68,7 +68,7 @@ MCP server is frozen (M-22). No MCP alignment needed for this release.
 ### CI
 
 **Keep `check-mcp-impact`** as advisory. It still has value as a
-signal . when a new skill is added, the advisory reminds us that the
+signal - when a new skill is added, the advisory reminds us that the
 MCP server would need an update *if it were active*. This makes
 unfreezing easier (we'll know exactly what's behind).
 
@@ -147,7 +147,7 @@ The original motivation for the MCP server was:
 > Hosting it across a team so individuals don't have to worry about
 > skill updating.
 
-This is a valid use case . but it requires:
+This is a valid use case - but it requires:
 
 ```
 Team scenario (future):
@@ -216,4 +216,4 @@ to modify the v2.10.0 plan further.
 | Someone discovers pm-skills via MCP and finds stale skills | Low (no known MCP users) | Low | Frozen notice in README explains the situation |
 | Unfreezing later requires catching up on many releases | Medium | Low | `check-mcp-impact` advisory CI keeps a running tally of what's behind |
 | Monorepo migration becomes harder the longer repos are separate | Low | Low | The MCP server is small (~10 files). Migration is simple whenever done. |
-| Team adoption happens faster than expected, need to rush unfreeze | Low | Medium | Server already works . unfreeze is embed + build + deploy, not a rebuild |
+| Team adoption happens faster than expected, need to rush unfreeze | Low | Medium | Server already works - unfreeze is embed + build + deploy, not a rebuild |

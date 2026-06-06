@@ -6,7 +6,7 @@ Type: Feature release (minor)
 
 ## Release Theme
 
-**Skill expansion + self-service** . new utility and domain skills expanding
+**Skill expansion + self-service** - new utility and domain skills expanding
 the pm-skills library beyond 30 skills, plus a self-update skill that lets
 users keep their installation current.
 
@@ -40,8 +40,8 @@ F-17 (Meeting Synthesis) and F-18 (Meeting Prep) deferred to v2.11.0.
 | Decision | Answer | Rationale |
 |----------|--------|-----------|
 | **Version** | **v2.10.0** (minor) | New user-facing skills = new capability. Follows SemVer convention. |
-| **Dependency on v2.9.1** | **Satisfied** . v2.9.1 shipped 2026-04-10 | D-05 (workflows guide) and M-20 (docs count CI) are in place. Count consistency CI now validates this release. |
-| **F-16 skill classification** | **utility** (no phase) | Mermaid diagrams are cross-cutting . PMs use them at every phase. Not tied to a specific Triple Diamond stage. |
+| **Dependency on v2.9.1** | **Satisfied** - v2.9.1 shipped 2026-04-10 | D-05 (workflows guide) and M-20 (docs count CI) are in place. Count consistency CI now validates this release. |
+| **F-16 skill classification** | **utility** (no phase) | Mermaid diagrams are cross-cutting - PMs use them at every phase. Not tied to a specific Triple Diamond stage. |
 | **F-24 skill classification** | **utility** (no phase) | Self-update is cross-cutting infrastructure, not tied to a Triple Diamond stage. |
 | **F-24 local state directory** | **`_pm-skills/`** (underscore prefix) | Visible on macOS/Windows (unlike dot-prefix). Consistent with `_workflows/`, `_NOTES/` conventions. Added to `.gitignore`. |
 | **Skill count after all efforts** | **32 skills** | F-16 (shipped) + F-19 (shipped) + F-24 (ready) = 32. |
@@ -174,7 +174,7 @@ Drafts at: `docs/internal/efforts/F-24-update-pm-skills/drafts/`
 | `lint-skills-frontmatter` | Frontmatter consistency for new skills | Must pass |
 | `validate-commands` | Command file references valid skill | Must pass |
 | `validate-agents-md` | AGENTS.md ↔ skill directory sync | Must pass |
-| `check-mcp-impact` | Advisory . flags MCP-relevant changes | Advisory only |
+| `check-mcp-impact` | Advisory - flags MCP-relevant changes | Advisory only |
 | `docs-count-consistency` (M-20) | Skill counts match across README, getting-started, AGENTS.md | Must pass (ships in v2.9.1) |
 | `validate-version-consistency` (new, F-24) | `plugin.json` and `marketplace.json` versions match | Must pass |
 | `validate-gitignore-pm-skills` (new, F-24) | `_pm-skills/` in `.gitignore` | Advisory initially |
@@ -185,16 +185,16 @@ Drafts at: `docs/internal/efforts/F-24-update-pm-skills/drafts/`
 
 | Question | Answer |
 |----------|--------|
-| User-facing API changes? | **Yes** . 2-3 new MCP tools from shipped/ready skills |
-| New MCP tools needed? | **Yes** . `pm_mermaid_diagrams` (F-16), `pm_slideshow_creator` (F-19). F-24 (`pm_update_pm_skills`) TBD . may not be suitable for MCP (requires network + file writes). |
-| Separate MCP release required? | **Yes** . pm-skills-mcp needs embed + build + publish |
-| Code changes needed? | **Minimal** . update `src/config.ts` description count only. Skill loading, tool registration, and resource URIs are all auto-discovered. |
+| User-facing API changes? | **Yes** - 2-3 new MCP tools from shipped/ready skills |
+| New MCP tools needed? | **Yes** - `pm_mermaid_diagrams` (F-16), `pm_slideshow_creator` (F-19). F-24 (`pm_update_pm_skills`) TBD - may not be suitable for MCP (requires network + file writes). |
+| Separate MCP release required? | **Yes** - pm-skills-mcp needs embed + build + publish |
+| Code changes needed? | **Minimal** - update `src/config.ts` description count only. Skill loading, tool registration, and resource URIs are all auto-discovered. |
 
 ### MCP Alignment Steps (future session)
 
 1. Run `npm run embed-skills` in pm-skills-mcp to copy new skills from pm-skills repo
 2. Update `src/config.ts` description: skill count 27 → current total
-3. Decide whether to include `utility-update-pm-skills` in MCP embed (may exclude . requires network + file writes)
+3. Decide whether to include `utility-update-pm-skills` in MCP embed (may exclude - requires network + file writes)
 4. `npm run build` and verify new tools appear
 5. Version bump pm-skills-mcp package.json
 6. Publish / deploy
@@ -225,13 +225,13 @@ Drafts at: `docs/internal/efforts/F-24-update-pm-skills/drafts/`
 | `a14510a` | F-19–F-23 effort briefs + backlog update | Merged (2026-04-08) |
 | `363b5eb` | F-19 specification | Merged (2026-04-08) |
 | `eabd78d` | F-19 skill content + cross-cutting updates | Merged (2026-04-08) |
-| *(TBD)* | F-24 prerequisites (version mismatch + gitignore) | . |
-| *(TBD)* | F-24 skill content (SKILL.md, TEMPLATE.md, EXAMPLE.md, command, guide) | . |
-| *(TBD)* | F-24 cross-cutting (AGENTS.md, README, docs counts, mkdocs) | . |
-| *(TBD)* | F-24 CI (gitignore validation + report template validation) | . |
-| *(TBD)* | Additional effort commits | . |
-| *(TBD)* | MCP alignment (embed + build + publish) | . |
-| Final | Release artifacts: CHANGELOG, skills-manifest, release tag | . |
+| *(TBD)* | F-24 prerequisites (version mismatch + gitignore) | - |
+| *(TBD)* | F-24 skill content (SKILL.md, TEMPLATE.md, EXAMPLE.md, command, guide) | - |
+| *(TBD)* | F-24 cross-cutting (AGENTS.md, README, docs counts, mkdocs) | - |
+| *(TBD)* | F-24 CI (gitignore validation + report template validation) | - |
+| *(TBD)* | Additional effort commits | - |
+| *(TBD)* | MCP alignment (embed + build + publish) | - |
+| Final | Release artifacts: CHANGELOG, skills-manifest, release tag | - |
 
 ---
 
@@ -266,7 +266,7 @@ scripts/validate-gitignore-pm-skills.ps1  # _pm-skills/ in .gitignore (new)
 ### Before tagging
 
 - [ ] All CI checks pass
-- [ ] `mkdocs build --strict` . zero warnings
+- [ ] `mkdocs build --strict` - zero warnings
 - [ ] Skill counts consistent across all files
 - [ ] CHANGELOG entry written
 - [ ] `_pm-skills/` in `.gitignore`
@@ -278,7 +278,7 @@ scripts/validate-gitignore-pm-skills.ps1  # _pm-skills/ in .gitignore (new)
 
 ## Open Questions
 
-1. ~~Additional efforts~~ . **Resolved**: F-17/F-18 deferred to v2.11.0. v2.10.0 scope is F-16 + F-19 + F-24.
-2. **MCP for F-24** . Does `pm_update_pm_skills` make sense as an MCP tool? Requires network + file writes which MCP may not support. May need to be excluded from embed.
-3. **User-facing guide** . Should `docs/guides/updating-pm-skills.md` ship with the skill or be deferred?
-4. **Final skill count** . Depends on which additional efforts land.
+1. ~~Additional efforts~~ - **Resolved**: F-17/F-18 deferred to v2.11.0. v2.10.0 scope is F-16 + F-19 + F-24.
+2. **MCP for F-24** - Does `pm_update_pm_skills` make sense as an MCP tool? Requires network + file writes which MCP may not support. May need to be excluded from embed.
+3. **User-facing guide** - Should `docs/guides/updating-pm-skills.md` ship with the skill or be deferred?
+4. **Final skill count** - Depends on which additional efforts land.

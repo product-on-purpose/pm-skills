@@ -17,7 +17,7 @@ There are three distinct things in the Anthropic ecosystem. Only the first is re
 | Claude Marketplace (Enterprise) | Limited preview (B2B procurement platform) | No |
 | Community/third-party marketplaces | Anyone can create | Optional (parallel path) |
 
-**Target: The Claude Code Plugin Directory** . the curated directory at [claude.com/plugins](https://claude.com/plugins), accessible via `/plugin > Discover` in Claude Code. Currently lists ~30 plugins with install counts in the hundreds of thousands.
+**Target: The Claude Code Plugin Directory** - the curated directory at [claude.com/plugins](https://claude.com/plugins), accessible via `/plugin > Discover` in Claude Code. Currently lists ~30 plugins with install counts in the hundreds of thousands.
 
 ---
 
@@ -129,7 +129,7 @@ If accepted, the plugin appears in:
 
 ### Step 4: Potential "Anthropic Verified" Badge
 
-Plugins that pass additional manual quality/safety review receive an "Anthropic Verified" badge. This is a separate, deeper review . not guaranteed on initial submission.
+Plugins that pass additional manual quality/safety review receive an "Anthropic Verified" badge. This is a separate, deeper review - not guaranteed on initial submission.
 
 ---
 
@@ -178,13 +178,13 @@ Users install with:
 
 | Factor | Assessment |
 |--------|-----------|
-| License | **Strong** . Apache 2.0 is permissive and widely accepted |
-| Quality | **Strong** . 27 skills with templates, examples, CI validation |
-| Uniqueness | **Strong** . no existing PM-focused skill pack in the directory |
-| Maintenance | **Strong** . active development, recent v2.7.0 release |
-| Spec compliance | **Strong** . follows agentskills.io specification |
-| Size/scope | **Moderate risk** . 27 skills is large; reviewers may flag install footprint |
-| MCP companion | **Differentiator** . pm-skills-mcp shows ecosystem maturity |
+| License | **Strong** - Apache 2.0 is permissive and widely accepted |
+| Quality | **Strong** - 27 skills with templates, examples, CI validation |
+| Uniqueness | **Strong** - no existing PM-focused skill pack in the directory |
+| Maintenance | **Strong** - active development, recent v2.7.0 release |
+| Spec compliance | **Strong** - follows agentskills.io specification |
+| Size/scope | **Moderate risk** - 27 skills is large; reviewers may flag install footprint |
+| MCP companion | **Differentiator** - pm-skills-mcp shows ecosystem maturity |
 
 **Overall assessment:** High likelihood of acceptance. pm-skills is well-maintained, uniquely positioned (no competing PM skill packs), follows the official spec, and has professional documentation.
 
@@ -200,7 +200,7 @@ Users install with:
 
 5. **No npm package for the skill library.** The MCP server is on npm, but the skill library itself is git-clone/ZIP only. This is fine for the plugin directory (which uses git repos), but limits discoverability outside the Claude ecosystem.
 
-6. **Utility skill in plugin context.** `pm-skill-builder` writes to `_staging/` . this works in Claude Code but the behavior in other plugin contexts (if plugins expand beyond Claude Code) is undefined. Not a blocker for submission.
+6. **Utility skill in plugin context.** `pm-skill-builder` writes to `_staging/` - this works in Claude Code but the behavior in other plugin contexts (if plugins expand beyond Claude Code) is undefined. Not a blocker for submission.
 
 ### What Reviewers Probably Look For
 
@@ -219,10 +219,10 @@ pm-skills passes all of these.
 ## Post-Acceptance Tasks
 
 1. **Update README** with install badge/instructions for plugin directory
-2. **Update backlog** . mark Effort 0 as complete
-3. **Announce** . GitHub release note, any community channels
+2. **Update backlog** - mark Effort 0 as complete
+3. **Announce** - GitHub release note, any community channels
 4. **Monitor** install counts and user feedback via GitHub issues
-5. **Keep plugin.json in sync** . add version bump to release checklist
+5. **Keep plugin.json in sync** - add version bump to release checklist
 
 ---
 

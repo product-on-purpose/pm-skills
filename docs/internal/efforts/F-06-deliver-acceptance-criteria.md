@@ -10,7 +10,7 @@ New domain skill (`deliver-acceptance-criteria`) that generates detailed Given/W
 
 ## Key Decisions
 
-- Independent of other efforts . can be built in parallel with anything.
+- Independent of other efforts - can be built in parallel with anything.
 - Quick community-visible win that demonstrates continued domain content investment.
 - Also serves as test case for enhanced CI (M-12).
 

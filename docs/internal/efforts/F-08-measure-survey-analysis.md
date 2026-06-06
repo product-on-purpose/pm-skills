@@ -6,7 +6,7 @@ Agent: Claude Opus 4.6
 
 ## Scope
 
-New domain skill (`measure-survey-analysis`) for survey results analysis with persona segmentation, hypothesis validation, and prioritized recommendations. Fills a gap in the Measure phase . complements `measure-experiment-results` (which is A/B focused) with broader survey/research analysis.
+New domain skill (`measure-survey-analysis`) for survey results analysis with persona segmentation, hypothesis validation, and prioritized recommendations. Fills a gap in the Measure phase - complements `measure-experiment-results` (which is A/B focused) with broader survey/research analysis.
 
 ## Key Decisions
 

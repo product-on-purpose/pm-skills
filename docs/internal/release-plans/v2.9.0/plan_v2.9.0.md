@@ -6,7 +6,7 @@ Type: Feature release (minor)
 
 ## Release Theme
 
-**Workflows** . rename "bundles" to "workflows" and expand from 3 to 9 guided multi-skill workflows, doubling coverage across the Triple Diamond framework.
+**Workflows** - rename "bundles" to "workflows" and expand from 3 to 9 guided multi-skill workflows, doubling coverage across the Triple Diamond framework.
 
 ---
 
@@ -32,7 +32,7 @@ The pm-skills repo ships multi-skill workflow guides under the name "bundles," b
 | **Version** | **v2.9.0** (minor) | 6 new workflows = new user-facing capability. Doubles workflow count 3 → 9. New slash commands. |
 | **Rollout** | **Single release** | All 6 are drafted. No reason to incur 3x release overhead for phased rollout. |
 | **Terminology** | **"Workflows"** not "bundles" | Aligns with MCP API, user-facing docs, ecosystem convention. See [M-19](../../efforts/M-19-bundles-to-workflows.md). |
-| **Command prefix** | **`/workflow-{name}`** | Namespace protection . prevents collision with skill commands (e.g., `/stakeholder-alignment` vs `/stakeholder-summary`). |
+| **Command prefix** | **`/workflow-{name}`** | Namespace protection - prevents collision with skill commands (e.g., `/stakeholder-alignment` vs `/stakeholder-summary`). |
 | **`_workflows/` vs `docs/workflows/`** | **Generate docs from source** | New `generate-workflow-pages.py` script eliminates manual duplication. |
 | **Workflow versioning** | **Skip** | Workflows chain existing versioned skills. No independent SemVer needed. |
 | **MCP parity** | **Deferred** | Ship workflows in pm-skills first; pm-skills-mcp tool additions + cleanup in a follow-up release. |
@@ -50,7 +50,7 @@ The pm-skills repo ships multi-skill workflow guides under the name "bundles," b
 | `_workflows/*.md` | Source of truth | Repo-relative: `../skills/define-hypothesis/SKILL.md` | Agents (Copilot, Cursor, Windsurf), repo browsers |
 | `docs/workflows/*.md` | MkDocs-served copy | Docs-relative: `../skills/define/define-hypothesis.md` | Documentation site readers |
 
-The files are **manually maintained copies** with ~30-40 link rewrites per file. No generation script exists . unlike skills, which have `scripts/generate-skill-pages.py`.
+The files are **manually maintained copies** with ~30-40 link rewrites per file. No generation script exists - unlike skills, which have `scripts/generate-skill-pages.py`.
 
 ### The problem at scale
 
@@ -75,7 +75,7 @@ Both directories should include a README clarifying their purpose:
 
 | File | Content |
 |------|---------|
-| `_workflows/README.md` | Source of truth for workflow definitions. Links use repo-relative paths for agent/repo consumers. Do not edit `docs/workflows/` directly . run `scripts/generate-workflow-pages.py` to regenerate. |
+| `_workflows/README.md` | Source of truth for workflow definitions. Links use repo-relative paths for agent/repo consumers. Do not edit `docs/workflows/` directly - run `scripts/generate-workflow-pages.py` to regenerate. |
 | `docs/workflows/README.md` | **Do not edit directly.** Source of truth is `_workflows/`. These files are maintained via `scripts/generate-workflow-pages.py` (added alongside new workflow content in F-13). Edit the source files in `_workflows/` instead. |
 
 ---
@@ -138,7 +138,7 @@ Both directories should include a README clarifying their purpose:
 | File | Notes |
 |------|-------|
 | `scripts/generate-workflow-pages.py` | Generates `docs/workflows/` from `_workflows/` with link rewriting |
-| `scripts/check-stale-bundle-refs.sh` + `.ps1` | Terminology guard . catches any remaining "bundle" references |
+| `scripts/check-stale-bundle-refs.sh` + `.ps1` | Terminology guard - catches any remaining "bundle" references |
 
 ### Cross-cutting updates (summary . see Master Execution Checklist for authoritative inventory)
 
@@ -183,11 +183,11 @@ Both directories should include a README clarifying their purpose:
 | `validate-docs.yml` | `_workflows/**`, `docs/**`, `mkdocs.yml` | `mkdocs build --strict` + nav page existence |
 | `deploy-docs.yml` | Push to main (same paths) | Auto-deploy to GitHub Pages |
 | Main `validation.yml` | `commands/**` | `validate-commands.sh/ps1`, `validate-agents-md.sh/ps1` |
-| **New:** terminology guard | `docs/**`, `_workflows/**` | `check-stale-bundle-refs.sh` . advisory |
+| **New:** terminology guard | `docs/**`, `_workflows/**` | `check-stale-bundle-refs.sh` - advisory |
 
 ### CI Ordering Constraint
 
-`mkdocs build --strict` itself succeeds even without `docs/workflows/` files . it just silently skips them. It's the *second* check in `validate-docs.yml` (the nav page existence verifier, lines 47-82) that fails by checking whether every `mkdocs.yml` nav entry produced a corresponding HTML file in `site/`. A single commit containing all changes works fine. But **incremental commits during development** will break CI if nav entries land before generated docs.
+`mkdocs build --strict` itself succeeds even without `docs/workflows/` files - it just silently skips them. It's the *second* check in `validate-docs.yml` (the nav page existence verifier, lines 47-82) that fails by checking whether every `mkdocs.yml` nav entry produced a corresponding HTML file in `site/`. A single commit containing all changes works fine. But **incremental commits during development** will break CI if nav entries land before generated docs.
 
 **Rule:** `docs/workflows/*.md` files must exist before `mkdocs.yml` nav entries are added.
 
@@ -199,7 +199,7 @@ Both directories should include a README clarifying their purpose:
 
 | Commit | Effort | What | Why separate |
 |--------|--------|------|-------------|
-| **Commit 1** | M-19 | Rename `_bundles` → `_workflows`, update all references, add redirects, add terminology guard | Pure rename . no new content. Clean, reviewable diff. |
+| **Commit 1** | M-19 | Rename `_bundles` → `_workflows`, update all references, add redirects, add terminology guard | Pure rename - no new content. Clean, reviewable diff. |
 | **Commit 2** | F-13 | Add 6 new workflows + commands + generation script + cross-cutting updates | New content lands on clean "workflows" foundation. |
 
 ### Commit 1 . Rename (M-19)
@@ -253,9 +253,9 @@ Commit 2: F-13 Expansion
 
 ## MCP Impact
 
-**The MCP server is already 90% aligned.** The public tool names (`pm_workflow_*`), the listing tool (`pm_list_workflows`), and the source directory (`src/workflows/`) all use "workflow" already. The rename is a **source-level API refactor** inside the MCP repo . exported TypeScript symbols change (`WorkflowBundle` → `Workflow`, `WORKFLOW_BUNDLES` → `WORKFLOWS`, etc.), but no user-facing MCP tool names or IDs change.
+**The MCP server is already 90% aligned.** The public tool names (`pm_workflow_*`), the listing tool (`pm_list_workflows`), and the source directory (`src/workflows/`) all use "workflow" already. The rename is a **source-level API refactor** inside the MCP repo - exported TypeScript symbols change (`WorkflowBundle` → `Workflow`, `WORKFLOW_BUNDLES` → `WORKFLOWS`, etc.), but no user-facing MCP tool names or IDs change.
 
-MCP changes ship as a **separate pm-skills-mcp release** after pm-skills v2.9.0, combined with the 6 new workflow tool additions. The MCP source refactor is **not gated** against v2.9.0 . it is tracked in a companion MCP release plan (to be created).
+MCP changes ship as a **separate pm-skills-mcp release** after pm-skills v2.9.0, combined with the 6 new workflow tool additions. The MCP source refactor is **not gated** against v2.9.0 - it is tracked in a companion MCP release plan (to be created).
 
 See [plan_bundles-to-workflows.md](../../efforts/M-19-bundles-to-workflows/plan_bundles-to-workflows.md) § "pm-skills-mcp Impact" for the full file inventory.
 
@@ -276,7 +276,7 @@ See [plan_bundles-to-workflows.md](../../efforts/M-19-bundles-to-workflows/plan_
 | File | Description | Effort | Status |
 |------|------------|--------|--------|
 | `_workflows/README.md` | Source-of-truth directory README | M-19 | [ ] |
-| `docs/workflows/README.md` | "Generated . do not edit" README | M-19 | [ ] |
+| `docs/workflows/README.md` | "Generated - do not edit" README | M-19 | [ ] |
 | `scripts/check-stale-bundle-refs.sh` | Terminology guard (bash) | M-19 | [ ] |
 | `scripts/check-stale-bundle-refs.ps1` | Terminology guard (PowerShell) | M-19 | [ ] |
 | `commands/workflow-feature-kickoff.md` | Rename of `kickoff.md` with updated refs | M-19 | [ ] |
@@ -310,7 +310,7 @@ See [plan_bundles-to-workflows.md](../../efforts/M-19-bundles-to-workflows/plan_
 
 ### Generated Files (produced by `generate-workflow-pages.py`)
 
-Once the generation script exists (F-13), all workflow doc pages become generated artifacts . including the 3 existing workflows that were previously manual copies.
+Once the generation script exists (F-13), all workflow doc pages become generated artifacts - including the 3 existing workflows that were previously manual copies.
 
 | File | Source | Effort | Status |
 |------|--------|--------|--------|
@@ -379,11 +379,11 @@ Once the generation script exists (F-13), all workflow doc pages become generate
 | Various `docs/skills/*.md` | ~6 incidental bundle references | M-19 | [ ] |
 | **Other** | | | |
 | `docs/pm-skill-anatomy.md` | Bundle section → Workflows | M-19 | [ ] |
-| `docs/changelog.md` | **Commit 1:** start v2.9.0 entry (**separate file** from `CHANGELOG.md` . update independently) | M-19 | [ ] |
+| `docs/changelog.md` | **Commit 1:** start v2.9.0 entry (**separate file** from `CHANGELOG.md` - update independently) | M-19 | [ ] |
 | `docs/changelog.md` | **Commit 2:** expand v2.9.0 entry with F-13 content | F-13 | [ ] |
 | **Releases** | | | |
-| `docs/releases/Release_v2.9.0.md` | New . public release notes with breaking-change callout | Release | [ ] |
-| `docs/releases/Release_v2.0.md` – `v2.8.x` | **No change** . historical record | . | N/A |
+| `docs/releases/Release_v2.9.0.md` | New - public release notes with breaking-change callout | Release | [ ] |
+| `docs/releases/Release_v2.0.md` – `v2.8.x` | **No change** - historical record | - | N/A |
 
 ### Existing Document Updates . `docs/internal/`
 
@@ -395,7 +395,7 @@ Once the generation script exists (F-13), all workflow doc pages become generate
 | `docs/internal/skill-versioning.md` | Bundle versioning notes → workflow | M-19 | [ ] |
 | `docs/internal/skill-library-evaluation-anthropic-guide.md` | Evaluation criteria | M-19 | [ ] |
 | Various other internal effort briefs | Incidental bundle references | M-19 | [ ] |
-| `docs/internal/efforts/F-13-workflow-expansion/bundle_*.md` | **No change** . historical drafts | . | N/A |
+| `docs/internal/efforts/F-13-workflow-expansion/bundle_*.md` | **No change** - historical drafts | - | N/A |
 
 ### Existing Document Updates . CI & Scripts
 
@@ -434,7 +434,7 @@ Once the generation script exists (F-13), all workflow doc pages become generate
 | `scripts/README_SCRIPTS.md` | "release bundle" is generic usage |
 | F-13 draft files (`docs/internal/efforts/F-13-workflow-expansion/bundle_*`) | Historical drafts |
 | MCP tool names (`pm_workflow_*`) and IDs | Already correct |
-| MCP resource test (`tests/resources.test.ts`) | Tests URI rejection . keep as-is |
+| MCP resource test (`tests/resources.test.ts`) | Tests URI rejection - keep as-is |
 
 ---
 

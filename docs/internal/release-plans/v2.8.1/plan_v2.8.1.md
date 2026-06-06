@@ -6,7 +6,7 @@ Type: Documentation release (patch)
 
 ## Release Theme
 
-**Documentation site launch** . MkDocs Material site with showcase, enhanced skill pages, and new guide content.
+**Documentation site launch** - MkDocs Material site with showcase, enhanced skill pages, and new guide content.
 
 ## Contents
 

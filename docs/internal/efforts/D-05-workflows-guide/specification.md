@@ -10,7 +10,7 @@ files.
 ## Problem
 
 With 9+ workflows, users need structured navigation. The current state:
-- `using-skills.md` has one section written for 3 workflows . doesn't scale
+- `using-skills.md` has one section written for 3 workflows - doesn't scale
 - `docs/workflows/index.md` is a minimal table with no decision guidance
 - Individual workflow files describe themselves but don't help users *choose*
 
@@ -18,7 +18,7 @@ With 9+ workflows, users need structured navigation. The current state:
 
 ### 1. Decision-first
 
-The guide opens with "Which workflow should I use?" . not "What is a
+The guide opens with "Which workflow should I use?" - not "What is a
 workflow?" Users arrive knowing they want a workflow; they need help
 picking the right one.
 
@@ -30,7 +30,7 @@ customization patterns. Users stop reading when they have what they need.
 ### 3. No duplication
 
 The guide links to individual workflow files for detailed steps. It
-doesn't repeat per-workflow instructions . it provides the *selection*
+doesn't repeat per-workflow instructions - it provides the *selection*
 layer that individual files can't.
 
 ## File Architecture

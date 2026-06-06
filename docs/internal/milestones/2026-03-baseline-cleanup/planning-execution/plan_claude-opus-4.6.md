@@ -3,7 +3,7 @@
 **Author:** Claude Opus 4.6
 **Date:** 2026-03-09
 **Scope:** pm-skills repository (`E:\Projects\product-on-purpose\pm-skills`)
-**Status:** Draft . awaiting owner review
+**Status:** Draft - awaiting owner review
 
 ---
 
@@ -22,7 +22,7 @@
 
 ## 1. Executive Recommendation
 
-The pm-skills repo architecture is sound. The 3-tier persistence policy, skill structure, command mappings, and docs organization are all well-designed and internally consistent. **The problem is not structural . it is maintenance discipline on tracked files during releases.**
+The pm-skills repo architecture is sound. The 3-tier persistence policy, skill structure, command mappings, and docs organization are all well-designed and internally consistent. **The problem is not structural - it is maintenance discipline on tracked files during releases.**
 
 Three critical issues need immediate attention:
 
@@ -46,7 +46,7 @@ No new skills, no structural reorganization, no new tooling. Just fix what's bro
 | ---------------- | ---------------------------------------------------------------------------------------------------- |
 | **File**         | `AGENTS/claude/CONTEXT.md`                                                                           |
 | **What's wrong** | Header says `v2.3.0 shipped` (2026-02-14). Repo is at `v2.6.1` (2026-03-04).                         |
-| **Impact**       | Any new session reading CONTEXT.md gets a project picture that's ~7 releases behind. Session continuity . the primary purpose of CONTEXT.md . is broken. |
+| **Impact**       | Any new session reading CONTEXT.md gets a project picture that's ~7 releases behind. Session continuity - the primary purpose of CONTEXT.md - is broken. |
 | **Evidence**     | Line 5: `**Status:** v2.3.0 shipped`; CHANGELOG.md line 13: `## [2.6.1] - 2026-03-04`                |
 
 #### C-2. CHANGELOG.md references a gitignored path
@@ -202,7 +202,7 @@ When building a new feature (e.g., persona library, contract-lock), use this pla
 | **Research & exploration** | `_NOTES/efforts/{effort-id}/prep/`               | 3    | Raw research, competitor notes, brainstorm outputs        |
 | **Planning & design**      | `_NOTES/efforts/{effort-id}/planning/`           | 3    | Draft plans, option analyses, scope explorations          |
 | **Final spec**             | `_NOTES/efforts/{effort-id}/final-spec/`         | 3    | Working spec that drives implementation                   |
-| **Blocking decision**      | `docs/internal/delivery-plan/`                   | 1    | Decision that affects release behavior . **promote here** |
+| **Blocking decision**      | `docs/internal/delivery-plan/`                   | 1    | Decision that affects release behavior - **promote here** |
 | **Release checklist**      | `docs/internal/release-planning/checklist_v*.md` | 1    | Forward-looking execution plan                            |
 | **Shipped artifact**       | `docs/releases/Release_v*.md`                    | 1    | Post-ship release notes                                   |
 
@@ -428,14 +428,14 @@ git commit -m "feat(wrap-session): add CONTEXT.md currency check to prevent stal
 **Risk:** None
 
 <details>
-<summary><strong>Execution steps . Part 1: Backfill shared decisions</strong></summary>
+<summary><strong>Execution steps - Part 1: Backfill shared decisions</strong></summary>
 
 **Use this prompt:**
 
 > Read `AGENTS/claude/DECISIONS.md` and `AGENTS/DECISIONS.md`. Identify decisions in the Claude-specific log that affect multiple agents or external contributors. Add concise summary entries to `AGENTS/DECISIONS.md` for:
 >
 > - Apache 2.0 license choice (affects all contributors)
-> - MCP Sync Automation . Validation-Only approach (affects CI and MCP repo)
+> - MCP Sync Automation - Validation-Only approach (affects CI and MCP repo)
 > - Make validate-mcp-sync blocking (affects CI)
 >
 > Use the existing format in AGENTS/DECISIONS.md. Keep entries to 3-4 lines each.
@@ -450,7 +450,7 @@ git commit -m "docs(agents): backfill shared DECISIONS.md with cross-agent decis
 </details>
 
 <details>
-<summary><strong>Execution steps . Part 2: Mark shipped checklists</strong></summary>
+<summary><strong>Execution steps - Part 2: Mark shipped checklists</strong></summary>
 
 For each of these files:
 
@@ -503,15 +503,15 @@ Add a section after the phase explanation:
 >
 > Skills that span the entire product lifecycle (like persona management) use `classification:` instead of `phase:` in their frontmatter. The values are:
 >
-> - `foundation` . skills that support all phases (e.g., persona)
-> - `utility` . helper skills (e.g., wrap-session)
-> - `domain` . domain-specific skills not tied to a phase
+> - `foundation` - skills that support all phases (e.g., persona)
+> - `utility` - helper skills (e.g., wrap-session)
+> - `domain` - domain-specific skills not tied to a phase
 >
 > The `phase` and `classification` fields are mutually exclusive. The lint script (`scripts/lint-skills-frontmatter.sh`) enforces this.
 
 **3. Update `docs/agent-skill-anatomy.md`:**
 
-Add a note that not all skills have a `phase:` . some use `classification:` for cross-phase skills.
+Add a note that not all skills have a `phase:` - some use `classification:` for cross-phase skills.
 
 **Commit:**
 
@@ -540,7 +540,7 @@ The script should:
 1. Find all `AGENTS/*/CONTEXT.md` files
 2. Extract the version from the `Status:` line (regex: `v[0-9]+\.[0-9]+\.[0-9]+`)
 3. Extract the latest version from `CHANGELOG.md` (first `## [vX.Y.Z]` heading)
-4. Compare . if they differ, print a warning and exit with code 1
+4. Compare - if they differ, print a warning and exit with code 1
 5. If all match, exit 0
 
 **Key design choices:**
@@ -568,7 +568,7 @@ git commit -m "feat(scripts): add CONTEXT.md currency check for CI and local use
 
 **Why:** Surfaces CONTEXT.md staleness as a visible warning on PRs, without blocking merges.
 **Effort:** 15 minutes
-**Risk:** Low (advisory only . cannot break existing CI)
+**Risk:** Low (advisory only - cannot break existing CI)
 **Depends on:** A-8 (the script must exist first)
 
 <details>
@@ -675,9 +675,9 @@ git rm -r docs/internal/release-planning/  # after moving all checklists
 git rm -r docs/internal/delivery-plan/      # after moving all decisions
 ```
 
-Note: preserve any README.md files in the old directories if they contain useful policy content . fold that into the new `docs/internal/release-plans/README.md`.
+Note: preserve any README.md files in the old directories if they contain useful policy content - fold that into the new `docs/internal/release-plans/README.md`.
 
-**6. Update planning-persistence-policy.md** . change Tier 1 references from `docs/internal/release-planning/*.md` and `docs/internal/delivery-plan/*.md` to `docs/internal/release-plans/**/*.md`.
+**6. Update planning-persistence-policy.md** - change Tier 1 references from `docs/internal/release-planning/*.md` and `docs/internal/delivery-plan/*.md` to `docs/internal/release-plans/**/*.md`.
 
 **Commit:**
 
@@ -708,9 +708,9 @@ mkdir -p docs/internal/efforts
 
 Create brief files for shipped and active efforts:
 
-- `F-02-persona-brief.md` . Status: Shipped, Milestone: v2.5.0
-- `F-03-persona-library-brief.md` . Status: Active, Milestone: v2.7.0
-- `M-10-sample-library-brief.md` . Status: Shipped, Milestone: v2.6.1
+- `F-02-persona-brief.md` - Status: Shipped, Milestone: v2.5.0
+- `F-03-persona-library-brief.md` - Status: Active, Milestone: v2.7.0
+- `M-10-sample-library-brief.md` - Status: Shipped, Milestone: v2.6.1
 
 Use the brief template from Q-3 (scope, key decisions, artifacts produced, PR links).
 
@@ -784,7 +784,7 @@ Suggested execution order: A-1 → A-2 → A-3 → A-4 → A-6 → A-7 → A-5 �
 | **Access to**    | `_NOTES/` (local), all repo files, shell, `gh` CLI                                                   | Clean checkout only (no `_NOTES/`), tracked files, `gh` CLI                                          |
 | **Risk profile** | Can iterate and self-correct locally                                                                 | Runs in sandbox; good for isolated, well-scoped tasks                                                |
 
-**Claude Code (Opus 4.6) . 8 actions:**
+**Claude Code (Opus 4.6) - 8 actions:**
 
 | Action                                        | Why Claude                                                                                           |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -797,11 +797,11 @@ Suggested execution order: A-1 → A-2 → A-3 → A-4 → A-6 → A-7 → A-5 �
 | **A-9** Add CI advisory step                  | YAML workflow edit that depends on A-8 script. Same session as A-8 for coherence.                    |
 | **A-11** Set up effort tracking               | Requires `gh` CLI for Issue/label/milestone creation + writing brief files informed by `_NOTES/efforts/` content (which only Claude can see). |
 
-**Codex (GPT-5.4 Extra High) . 3 actions:**
+**Codex (GPT-5.4 Extra High) - 3 actions:**
 
 | Action                                          | Why Codex                                                                                            |
 | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **A-6** Backfill DECISIONS.md + mark checklists | Well-scoped cross-file consistency task. Read agent-specific DECISIONS.md files, extract entries that belong in the shared log, write summaries. Add status headers to 4 checklist files. No `_NOTES/` access needed . all source files are tracked. |
+| **A-6** Backfill DECISIONS.md + mark checklists | Well-scoped cross-file consistency task. Read agent-specific DECISIONS.md files, extract entries that belong in the shared log, write summaries. Add status headers to 4 checklist files. No `_NOTES/` access needed - all source files are tracked. |
 | **A-7** Backfill classification documentation   | Structured documentation generation across 3 files (frontmatter-schema.yaml, authoring guide, anatomy doc). All inputs are in tracked files. Clear pattern to apply. |
 | **A-10** Consolidate release governance         | Bulk file moves + directory restructuring + README creation. Well-suited to Codex's strength at following explicit file-operation instructions across many files. All source files are tracked. |
 
@@ -829,9 +829,9 @@ Legend: **RESOLVED** = decision made, ready to execute | **AGREED** = direction 
 
 **Actions (new A-7):** Update these files (~20-30 min total):
 
-1. `docs/reference/frontmatter-schema.yaml` . Add `classification` field definition with enum values (`domain`, `foundation`, `utility`) and the mutual-exclusion rule with `phase`
-2. `docs/guides/authoring-pm-skills.md` . Add a "Phase vs Classification" section explaining when to use each
-3. `docs/agent-skill-anatomy.md` . Add a note on foundation skill structure differences
+1. `docs/reference/frontmatter-schema.yaml` - Add `classification` field definition with enum values (`domain`, `foundation`, `utility`) and the mutual-exclusion rule with `phase`
+2. `docs/guides/authoring-pm-skills.md` - Add a "Phase vs Classification" section explaining when to use each
+3. `docs/agent-skill-anatomy.md` - Add a note on foundation skill structure differences
 
 <details>
 <summary>Discussion history</summary>
@@ -962,7 +962,7 @@ _NOTES/delivery-plan/releases/v2.7.0/
 
 ### Q-3. Where should effort tracking live? . AGREED
 
-**Decision: Approach D . GitHub Issue + one tracked brief per effort.**
+**Decision: Approach D - GitHub Issue + one tracked brief per effort.**
 
 Three layers, each doing one job:
 
@@ -976,10 +976,10 @@ Three layers, each doing one job:
 
 The owner's feedback identified two gaps the previous approaches all had:
 
-1. GitHub Issues alone are too thin . can't hold discovery, specs, or be collaborated on with agents
-2. `_NOTES/` is gitignored . cloud agents (Codex) and collaborators on other machines can't see it
+1. GitHub Issues alone are too thin - can't hold discovery, specs, or be collaborated on with agents
+2. `_NOTES/` is gitignored - cloud agents (Codex) and collaborators on other machines can't see it
 
-The tracked brief file bridges that gap. It's small enough to avoid drift (one file per effort, ~20-50 lines, updated at start and end only) but rich enough that any agent . local or cloud . can understand the effort's scope and decisions.
+The tracked brief file bridges that gap. It's small enough to avoid drift (one file per effort, ~20-50 lines, updated at start and end only) but rich enough that any agent - local or cloud - can understand the effort's scope and decisions.
 
 **What the brief file contains:**
 
@@ -1005,7 +1005,7 @@ One-paragraph description of what this effort delivers.
 - #41 . library scaffolding
 ```
 
-**What `_NOTES/efforts/` looks like (unchanged . no deletions):**
+**What `_NOTES/efforts/` looks like (unchanged - no deletions):**
 
 ```
 _NOTES/                                    <- Personal scratch + working space
@@ -1053,7 +1053,7 @@ docs/internal/efforts/
 
 **Key insight:** The real gap was agent accessibility. `_NOTES/` is invisible to cloud agents (Codex). Issues are too thin for specs. Need a tracked bridge file. Led to Approach D (GitHub Issue + tracked brief + `_NOTES/` working space).
 
-**Also considered Approach E** (effort section in CONTEXT.md instead of separate brief files) . rejected because it overloads CONTEXT.md and briefs are too thin when embedded as 2-3 lines.
+**Also considered Approach E** (effort section in CONTEXT.md instead of separate brief files) - rejected because it overloads CONTEXT.md and briefs are too thin when embedded as 2-3 lines.
 
 </details>
 
@@ -1061,16 +1061,16 @@ docs/internal/efforts/
 
 ### Q-4. CONTEXT.md staleness prevention . AGREED (details being refined)
 
-**Decision:** Two layers: CI advisory check (non-blocking) + wrap-session skill update. Defer the Stop hook . owner had a bad experience with hooks previously and wants to start simpler.
+**Decision:** Two layers: CI advisory check (non-blocking) + wrap-session skill update. Defer the Stop hook - owner had a bad experience with hooks previously and wants to start simpler.
 
-**Scope:** Both `AGENTS/claude/CONTEXT.md` and `AGENTS/codex/CONTEXT.md`. No centralized `AGENTS/CONTEXT.md` (agreed . would just be a third place to maintain).
+**Scope:** Both `AGENTS/claude/CONTEXT.md` and `AGENTS/codex/CONTEXT.md`. No centralized `AGENTS/CONTEXT.md` (agreed - would just be a third place to maintain).
 
 **What we agreed on:**
 
 - No auto-updating CONTEXT.md in CI (narrative content needs human/agent judgment)
 - No centralized `AGENTS/CONTEXT.md` (shared facts already in CHANGELOG.md and README.md)
-- The `check-context-currency.sh` script checks ALL `AGENTS/*/CONTEXT.md` files . agent-agnostic, works for both Claude and Codex
-- CI check should be **advisory** (warning annotation, not blocking) . best practice for documentation checks
+- The `check-context-currency.sh` script checks ALL `AGENTS/*/CONTEXT.md` files - agent-agnostic, works for both Claude and Codex
+- CI check should be **advisory** (warning annotation, not blocking) - best practice for documentation checks
 
 **Answers to owner follow-up questions:**
 
@@ -1080,13 +1080,13 @@ No. They're sibling files in the same `AGENTS/{agent}/` directory, maintained in
 
 **2. Is check-context-currency.sh for Codex too?**
 
-Yes. The script would check every `AGENTS/*/CONTEXT.md` it finds . it's not Claude-specific. If `AGENTS/codex/CONTEXT.md` exists and has a version in its Status line, the script checks that too. This means it catches drift for any current or future agent.
+Yes. The script would check every `AGENTS/*/CONTEXT.md` it finds - it's not Claude-specific. If `AGENTS/codex/CONTEXT.md` exists and has a version in its Status line, the script checks that too. This means it catches drift for any current or future agent.
 
 **3. Bad experience with hooks**
 
 Understood. The Stop hook is deferred. The two-layer approach (CI advisory + wrap-session skill) gives you drift detection without the complexity of hooks. If drift persists after a few release cycles, you can revisit adding a hook later.
 
-**4. CI advisory vs blocking . best practice reasoning:**
+**4. CI advisory vs blocking - best practice reasoning:**
 
 Advisory is the right starting point because:
 
@@ -1103,7 +1103,7 @@ Advisory is the right starting point because:
 | A-8 | Create `scripts/check-context-currency.sh` + `.ps1` | Compares CONTEXT.md version vs CHANGELOG for all agents   | ~20 min |
 | A-9 | Add CI step to `.github/workflows/validation.yml`   | Runs check-context-currency as advisory annotation on PRs | ~15 min |
 
-**Remaining sub-questions . resolved with guidance:**
+**Remaining sub-questions - resolved with guidance:**
 
 **1. CI annotation vs PR comment?**
 
@@ -1113,7 +1113,7 @@ Here's what each looks like in practice:
 
 | Option         | What you see on a PR                                                                                 | Complexity                                       |
 | -------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| **Annotation** | A yellow warning icon next to the "Checks" section. You see `⚠ CONTEXT.md is behind CHANGELOG (v2.3.0 vs v2.6.1)`. Must click into the check details to see it. | Simple . just the script exit code + message     |
+| **Annotation** | A yellow warning icon next to the "Checks" section. You see `⚠ CONTEXT.md is behind CHANGELOG (v2.3.0 vs v2.6.1)`. Must click into the check details to see it. | Simple - just the script exit code + message     |
 | **PR comment** | A bot comment posted directly in the PR conversation: "CONTEXT.md shows v2.3.0 but CHANGELOG is at v2.6.1. Please update AGENTS/claude/CONTEXT.md and AGENTS/codex/CONTEXT.md before merging." | Needs `github-script` action + write permissions |
 
 **My call: Start with annotation only.** It's simpler to implement, doesn't require extra permissions, and is visible enough. If you find yourself missing the warnings (because they're tucked in the Checks tab), upgrade to PR comments later. This is a 5-minute change if needed.
@@ -1126,10 +1126,10 @@ Here's why this is different from CONTEXT.md:
 
 | File             | Staleness signal                                         | Can a script detect it?                                                                              |
 | ---------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **CONTEXT.md**   | Version number in "Status:" line doesn't match CHANGELOG | **Yes** . compare two strings                                                                        |
-| **DECISIONS.md** | Missing entries that should have been added              | **No** . there's no version number to compare. You'd need AI judgment to know "this release had decisions that weren't logged." |
+| **CONTEXT.md**   | Version number in "Status:" line doesn't match CHANGELOG | **Yes** - compare two strings                                                                        |
+| **DECISIONS.md** | Missing entries that should have been added              | **No** - there's no version number to compare. You'd need AI judgment to know "this release had decisions that weren't logged." |
 
-**My call: CONTEXT.md only for now.** A version check is objective and automatable. DECISIONS.md staleness is subjective . the script can't know what *should* be there. Instead, the wrap-session skill update (A-5) already includes a DECISIONS.md review step. That's the right layer for decisions.
+**My call: CONTEXT.md only for now.** A version check is objective and automatable. DECISIONS.md staleness is subjective - the script can't know what *should* be there. Instead, the wrap-session skill update (A-5) already includes a DECISIONS.md review step. That's the right layer for decisions.
 
 **Both sub-questions are now resolved. No further input needed on Q-4.**
 

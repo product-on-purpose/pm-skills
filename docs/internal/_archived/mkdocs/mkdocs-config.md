@@ -7,7 +7,7 @@ Last updated: 2026-04-04
 
 ## Overview
 
-The pm-skills documentation site is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and deployed to GitHub Pages. This document explains how everything fits together . from the source files in the repo to the live site at `https://product-on-purpose.github.io/pm-skills/`.
+The pm-skills documentation site is built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and deployed to GitHub Pages. This document explains how everything fits together - from the source files in the repo to the live site at `https://product-on-purpose.github.io/pm-skills/`.
 
 ## How MkDocs Works
 
@@ -47,13 +47,13 @@ MkDocs is a static site generator. It takes markdown files as input and produces
 ### What happens when you push to main
 
 1. **Trigger check**: The `deploy-docs.yml` workflow checks if the push changed any of these paths:
-   - `docs/**` . any documentation file
-   - `mkdocs.yml` . site configuration
-   - `requirements-docs.txt` . Python dependencies
-   - `skills/**/SKILL.md`, `skills/**/TEMPLATE.md`, `skills/**/EXAMPLE.md` . skill source files
-   - `_workflows/**` . workflow files
+   - `docs/**` - any documentation file
+   - `mkdocs.yml` - site configuration
+   - `requirements-docs.txt` - Python dependencies
+   - `skills/**/SKILL.md`, `skills/**/TEMPLATE.md`, `skills/**/EXAMPLE.md` - skill source files
+   - `_workflows/**` - workflow files
 
-2. **Checkout**: Full git history is checked out (`fetch-depth: 0`) . this is needed if the `git-revision-date-localized` plugin is ever enabled (currently deferred).
+2. **Checkout**: Full git history is checked out (`fetch-depth: 0`) - this is needed if the `git-revision-date-localized` plugin is ever enabled (currently deferred).
 
 3. **Python setup**: Installs Python 3.x and the dependencies from `requirements-docs.txt`.
 
@@ -80,7 +80,7 @@ git push --force          # Force push (history doesn't matter for builds)
 git checkout main         # Switch back to main
 ```
 
-The `--force` flag ensures a clean deployment every time. The `gh-pages` branch has no meaningful history . each deploy replaces the entire content.
+The `--force` flag ensures a clean deployment every time. The `gh-pages` branch has no meaningful history - each deploy replaces the entire content.
 
 ### Running locally
 
@@ -123,7 +123,7 @@ repo_url: https://github.com/product-on-purpose/pm-skills
 edit_uri: edit/main/docs/
 ```
 
-- `site_url` is critical . social cards, sitemap, canonical URLs, and the privacy plugin all depend on it. Without it, many features silently break.
+- `site_url` is critical - social cards, sitemap, canonical URLs, and the privacy plugin all depend on it. Without it, many features silently break.
 - `edit_uri` enables the "edit this page" pencil icon on every page, linking directly to the source file on GitHub.
 - `repo_url` adds a GitHub link/icon in the header.
 
@@ -143,7 +143,7 @@ theme:
 
 | Feature | What it does |
 |---------|-------------|
-| `navigation.instant` | Single-page-app behavior . clicks don't reload the page |
+| `navigation.instant` | Single-page-app behavior - clicks don't reload the page |
 | `navigation.tabs` | Top-level nav items render as tabs (Home, Skills, Guides, etc.) |
 | `navigation.tabs.sticky` | Tabs stay visible when scrolling |
 | `navigation.sections` | Groups nav items under section headers in the sidebar |
@@ -155,7 +155,7 @@ theme:
 | `search.suggest` | Search autocomplete |
 | `search.highlight` | Highlights search terms on the target page |
 | `content.code.copy` | Copy button on code blocks |
-| `content.tabs.link` | Linked tabs . selecting "Claude Code" on one page remembers it everywhere |
+| `content.tabs.link` | Linked tabs - selecting "Claude Code" on one page remembers it everywhere |
 | `content.action.edit` | "Edit this page" button linking to GitHub |
 
 ### Plugins
@@ -236,8 +236,8 @@ exclude_docs: |
   guides/authoring-pm-skills.md
 ```
 
-- `internal/` . governance docs that should never appear on the public site
-- The individual files . these are the **originals** that have **copies** in the MkDocs tree (e.g., `docs/pm-skill-anatomy.md` is copied to `docs/concepts/skill-anatomy.md`). Without excluding the originals, MkDocs would build both, causing duplicate content and broken-link warnings.
+- `internal/` - governance docs that should never appear on the public site
+- The individual files - these are the **originals** that have **copies** in the MkDocs tree (e.g., `docs/pm-skill-anatomy.md` is copied to `docs/concepts/skill-anatomy.md`). Without excluding the originals, MkDocs would build both, causing duplicate content and broken-link warnings.
 
 ## Skill Page Generation
 
@@ -258,14 +258,14 @@ Output: docs/skills/{phase}/{phase}-{name}.md (one merged page per skill)
 
 **Per-skill page structure:**
 
-1. **Frontmatter** . title, description, tags (for future tagging)
-2. **Quick facts admonition** . phase, version, category, license
+1. **Frontmatter** - title, description, tags (for future tagging)
+2. **Quick facts admonition** - phase, version, category, license
 3. **When to Use** section (from SKILL.md)
 4. **When NOT to Use** section (utility skills only, from SKILL.md)
-5. **How to Use** . slash command invocation
+5. **How to Use** - slash command invocation
 6. **Instructions** (from SKILL.md)
-7. **Output Template** . full TEMPLATE.md content inline
-8. **Example Output** . full EXAMPLE.md in a collapsible `??? example` admonition
+7. **Output Template** - full TEMPLATE.md content inline
+8. **Example Output** - full EXAMPLE.md in a collapsible `??? example` admonition
 9. **Quality Checklist** (from SKILL.md)
 
 ### Running the script
@@ -375,7 +375,7 @@ main branch                              gh-pages branch
 └────────────────────────────┘
 ```
 
-**The source `skills/` directory** (at repo root) contains the canonical skill files consumed by AI agents. The **generated `docs/skills/` pages** are derived copies for the documentation site. Both coexist . the source files are the single source of truth.
+**The source `skills/` directory** (at repo root) contains the canonical skill files consumed by AI agents. The **generated `docs/skills/` pages** are derived copies for the documentation site. Both coexist - the source files are the single source of truth.
 
 ## Common Tasks
 

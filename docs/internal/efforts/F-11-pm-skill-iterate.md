@@ -7,7 +7,7 @@ Last updated: 2026-04-03
 
 ## Scope
 
-Create `utility-pm-skill-iterate` . a utility skill that takes feedback, learnings, or convention changes and applies targeted improvements to an existing pm-skills skill. Reads the current skill files, proposes changes as before/after blocks grouped by file, and on confirmation writes the updates directly with a change summary and version bump suggestion.
+Create `utility-pm-skill-iterate` - a utility skill that takes feedback, learnings, or convention changes and applies targeted improvements to an existing pm-skills skill. Reads the current skill files, proposes changes as before/after blocks grouped by file, and on confirmation writes the updates directly with a change summary and version bump suggestion.
 
 ## Relationship
 
@@ -23,7 +23,7 @@ The builder creates, the validator audits, the iterator improves. Each is indepe
 
 No staging area. The iterator shows proposed changes as before/after blocks grouped per file, the user confirms (all-or-nothing), and changes are written directly to skill files.
 
-**Why not staging (like the builder)?** The builder creates 4+ files from scratch . staging makes sense as a review gate before promoting new content into canonical locations. The iterator modifies 1-3 existing files with targeted edits. Git serves as the safety net: if applied changes are wrong, `git checkout -- skills/{name}/` reverts them.
+**Why not staging (like the builder)?** The builder creates 4+ files from scratch - staging makes sense as a review gate before promoting new content into canonical locations. The iterator modifies 1-3 existing files with targeted edits. Git serves as the safety net: if applied changes are wrong, `git checkout -- skills/{name}/` reverts them.
 
 **Stale-preview guard:** Before writing, the iterator must re-read each target file and compare it to the content used to generate the preview. If any target file has changed since the preview was generated (e.g., user made a manual edit), abort the write and regenerate the preview. This prevents silent overwrites of concurrent edits. Note: for an LLM skill, this is a behavioral instruction ("re-read before writing"), not a programmatic hash check.
 
@@ -56,11 +56,11 @@ Presented as: "Suggested bump: patch (wording improvements). Current version: 2.
 
 After changes are applied, the iterator produces a change summary.
 
-**If HISTORY.md exists:** Validate its format against the contract in `skill-versioning.md` (summary table + newest-first ordering + per-version sections). If valid, offer to append: "Would you like me to add this to HISTORY.md? [yes / no]". If format is invalid (e.g., manually edited into a non-standard shape), warn and show the proposed content without writing: "HISTORY.md doesn't follow the expected format. Here's what I would add . you can paste it manually."
+**If HISTORY.md exists:** Validate its format against the contract in `skill-versioning.md` (summary table + newest-first ordering + per-version sections). If valid, offer to append: "Would you like me to add this to HISTORY.md? [yes / no]". If format is invalid (e.g., manually edited into a non-standard shape), warn and show the proposed content without writing: "HISTORY.md doesn't follow the expected format. Here's what I would add - you can paste it manually."
 
 **If HISTORY.md does not exist AND this iteration creates the skill's second version:** Offer to *create* HISTORY.md with entries for both the original version (1.0.0) and the new version. This is the governance trigger point per `skill-versioning.md` ("created when a skill ships its second version").
 
-**If HISTORY.md does not exist AND the skill is still on its first version:** No offer. The iterator is applying changes but the user hasn't bumped the version yet . HISTORY.md is premature.
+**If HISTORY.md does not exist AND the skill is still on its first version:** No offer. The iterator is applying changes but the user hasn't bumped the version yet - HISTORY.md is premature.
 
 ### 5. One unified flow with input normalization (v1)
 
@@ -90,7 +90,7 @@ No explicit modes or flags in v1. **Future consideration:** If usage patterns re
 
 ### 6. MCP-safe behavior
 
-Validation-report-driven iteration is the MCP-portable path . the report carries the context. For free-text iteration, file system access is required to read current skill files. In degraded environments (MCP/embedded where file system access is unavailable), require the user to provide relevant file excerpts before proposing changes. The skill instructions should include a "Degraded mode" section documenting this.
+Validation-report-driven iteration is the MCP-portable path - the report carries the context. For free-text iteration, file system access is required to read current skill files. In degraded environments (MCP/embedded where file system access is unavailable), require the user to provide relevant file excerpts before proposing changes. The skill instructions should include a "Degraded mode" section documenting this.
 
 ## Interaction Contract
 
@@ -126,8 +126,8 @@ Iterator:
 
 ## Dependencies
 
-- F-05 (#113) . establishes the skill structure the iterator modifies
-- F-10 (#121) . validation report is one input type; report format (`Report schema: v1`) defines what the iterator can parse
+- F-05 (#113) - establishes the skill structure the iterator modifies
+- F-10 (#121) - validation report is one input type; report format (`Report schema: v1`) defines what the iterator can parse
 
 ## Artifacts Produced
 
@@ -139,14 +139,14 @@ Iterator:
 | `commands/pm-skill-iterate.md` | Codex / GPT-5.4 | Phase 3 |
 | AGENTS.md entry | Codex / GPT-5.4 | Phase 3 |
 
-**Why the split:** SKILL.md encodes complex logic (stale-preview guard, version bump class suggestion, HISTORY.md creation/validation, input normalization). Extended thinking helps hold all constraints coherently. EXAMPLE.md should show a real iteration of a real skill . Codex reads the before-state, applies a change, and produces the worked example with before/after blocks.
+**Why the split:** SKILL.md encodes complex logic (stale-preview guard, version bump class suggestion, HISTORY.md creation/validation, input normalization). Extended thinking helps hold all constraints coherently. EXAMPLE.md should show a real iteration of a real skill - Codex reads the before-state, applies a change, and produces the worked example with before/after blocks.
 
 ## Codex Review
 
 Reviewed 2026-04-02. See `docs/internal/release-plans/v2.8.0/_archived/plan_v2.8.0_original_reviewed-by-codex.md` for full findings and evaluations. Key changes from review:
 - Preview format changed from "diff" to "before/after blocks" (Finding 3.2)
-- Added stale-preview guard . re-read before writing (Finding 3.3)
-- Version bump changed to suggest-only . don't auto-write number (Finding 4.2)
+- Added stale-preview guard - re-read before writing (Finding 3.3)
+- Version bump changed to suggest-only - don't auto-write number (Finding 4.2)
 - HISTORY.md creation allowed at second-version trigger point (Finding 4.3)
 - HISTORY.md format validation before append (Finding 4.4)
 - Added input normalization as explicit first step (Finding 5.2)

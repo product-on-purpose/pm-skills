@@ -7,7 +7,7 @@ Last updated: 2026-04-03
 
 ## Scope
 
-Create `utility-pm-skill-validate` . a utility skill that audits an existing pm-skills skill against current conventions, CI rules, and quality criteria. Produces a structured validation report with pass/fail on structural correctness plus LLM-assessed quality checks. The report format is designed to be consumed by F-11 (`/pm-skill-iterate`) as an input.
+Create `utility-pm-skill-validate` - a utility skill that audits an existing pm-skills skill against current conventions, CI rules, and quality criteria. Produces a structured validation report with pass/fail on structural correctness plus LLM-assessed quality checks. The report format is designed to be consumed by F-11 (`/pm-skill-iterate`) as an input.
 
 ## Relationship
 
@@ -21,7 +21,7 @@ One skill, one job. The builder creates; the validator audits. This keeps each s
 
 ### 2. LLM skill, not a script
 
-CI scripts (`lint-skills-frontmatter.sh`) check structure via regex and field presence. The validator goes deeper . it reads SKILL.md, TEMPLATE.md, and EXAMPLE.md and assesses whether they are *coherent* with each other: does the output contract cover all template sections? Is the example a complete artifact or just an outline? Are checklist items testable? These require reading comprehension.
+CI scripts (`lint-skills-frontmatter.sh`) check structure via regex and field presence. The validator goes deeper - it reads SKILL.md, TEMPLATE.md, and EXAMPLE.md and assesses whether they are *coherent* with each other: does the output contract cover all template sections? Is the example a complete artifact or just an outline? Are checklist items testable? These require reading comprehension.
 
 ### 3. Output format: Structured Markdown with pipe-delimited check lines
 
@@ -61,7 +61,7 @@ Errors: {n} | Warnings: {n} | Info: {n}
    Action: Add reference to template in Output Contract section
 ```
 
-**Why pipe-delimited over checkbox markers:** Checkbox-like markers (`[x]`, `[!]`, `[ ]`) are ambiguous . `[ ]` renders as an unchecked task box, `[!]` is not valid Markdown. Pipe-delimited fields are unambiguous, positionally parseable (F-11 splits on `|`), and still human-scannable.
+**Why pipe-delimited over checkbox markers:** Checkbox-like markers (`[x]`, `[!]`, `[ ]`) are ambiguous - `[ ]` renders as an unchecked task box, `[!]` is not valid Markdown. Pipe-delimited fields are unambiguous, positionally parseable (F-11 splits on `|`), and still human-scannable.
 
 **Why `Report schema: v1`:** Separates report format versioning from validator tool versioning. F-11 keys compatibility to the schema version, not the validator release number. A validator patch can keep the same schema; a schema change is what F-11 cares about.
 
@@ -71,17 +71,17 @@ Errors: {n} | Warnings: {n} | Info: {n}
 
 | Level | Meaning | F-11 behavior | Tier 2 constraint |
 |-------|---------|---------------|-------------------|
-| **FAIL** | Violates convention or CI rule . must fix | F-11 treats as required change | Only for objectively grounded failures (missing sections, placeholder leakage) |
-| **WARN** | Below quality bar, not a rule violation . should fix | F-11 treats as recommended change | Default cap for Tier 2 heuristic findings |
-| **INFO** | Suggestion for improvement . nice to have | F-11 presents as optional | Used for v2.8 standard suggestions on older skills |
+| **FAIL** | Violates convention or CI rule - must fix | F-11 treats as required change | Only for objectively grounded failures (missing sections, placeholder leakage) |
+| **WARN** | Below quality bar, not a rule violation - should fix | F-11 treats as recommended change | Default cap for Tier 2 heuristic findings |
+| **INFO** | Suggestion for improvement - nice to have | F-11 presents as optional | Used for v2.8 standard suggestions on older skills |
 
 Overall result = worst severity: any FAIL → `FAIL`, else any WARN → `WARN`, else `PASS`.
 
 ### 5. Single skill default, batch summary available
 
-**Primary mode:** `/pm-skill-validate deliver-prd` . one skill, detailed report (Tier 1 + Tier 2). This is the F-11 integration path.
+**Primary mode:** `/pm-skill-validate deliver-prd` - one skill, detailed report (Tier 1 + Tier 2). This is the F-11 integration path.
 
-**Batch mode:** `/pm-skill-validate --all` . **Tier 1 structural checks only** with summary table:
+**Batch mode:** `/pm-skill-validate --all` - **Tier 1 structural checks only** with summary table:
 
 ```markdown
 # Batch Validation Summary
@@ -92,13 +92,13 @@ Overall result = worst severity: any FAIL → `FAIL`, else any WARN → `WARN`, 
 Run `/pm-skill-validate {skill}` for details.
 ```
 
-Batch produces a triage table with structural checks only . no Tier 2 depth across 27+ skills. Useful for convention change rollouts. Single-skill mode is the deep-assessment path.
+Batch produces a triage table with structural checks only - no Tier 2 depth across 27+ skills. Useful for convention change rollouts. Single-skill mode is the deep-assessment path.
 
 ### 6. Two-tier assessment (rebaselined against shipped library)
 
 **Quality standard framing:** F-10 validates against *current library conventions* (what exists today) and surfaces the *v2.8 standard* (what the builder produces) as suggestions. Older skills may legitimately receive WARNs/INFOs until iterated through the lifecycle. This is evolutionary, not retroactive.
 
-**Tier 1 . Structural (deterministic, mirrors CI):**
+**Tier 1 - Structural (deterministic, mirrors CI):**
 Re-runs CI checks locally so the user gets one unified report:
 - Frontmatter fields present and valid (name, description, version, updated, license)
 - Name matches directory
@@ -109,7 +109,7 @@ Re-runs CI checks locally so the user gets one unified report:
 - Command file references correct path
 - AGENTS.md entry exists and matches
 
-**Tier 2 . Quality (LLM-assessed, calibrated to current library):**
+**Tier 2 - Quality (LLM-assessed, calibrated to current library):**
 
 | Check ID | What it assesses | How | Max severity |
 |----------|-----------------|-----|-------------|
@@ -120,7 +120,7 @@ Re-runs CI checks locally so the user gets one unified report:
 | `description-actionability` | Description tells *when* to use, not just *what* | Check for trigger phrase ("Use when...") | WARN |
 | `instruction-clarity` | Steps are numbered and imperative | Check for `### Step` or numbered list pattern | WARN |
 | `placeholder-leakage` | No leftover scaffolding in shipped files | Flag `[Placeholder]`, `<!-- ... -->`, template guidance blockquotes, authoring notes | FAIL (objectively grounded) |
-| `when-not-to-use` | "When NOT to Use" section present | INFO only . present in 1/27 shipped skills, not yet a convention | INFO |
+| `when-not-to-use` | "When NOT to Use" section present | INFO only - present in 1/27 shipped skills, not yet a convention | INFO |
 
 **Explicitly out of scope:**
 - Writing quality / prose style (too subjective)
@@ -133,8 +133,8 @@ Single-skill mode is the MCP-portable path. Both modes require reading skill fil
 
 ## Dependencies
 
-- F-05 (#113) . establishes the conventions the validator checks against
-- M-12 (#112) . CI rules that the validator mirrors at a deeper level
+- F-05 (#113) - establishes the conventions the validator checks against
+- M-12 (#112) - CI rules that the validator mirrors at a deeper level
 
 ## Artifacts Produced
 
@@ -146,14 +146,14 @@ Single-skill mode is the MCP-portable path. Both modes require reading skill fil
 | `commands/pm-skill-validate.md` | Codex / GPT-5.4 | Phase 2 |
 | AGENTS.md entry | Codex / GPT-5.4 | Phase 2 |
 
-**Why the split:** SKILL.md encodes complex multi-constraint logic (two-tier checks, pipe-delimited format, quality standard framing, degraded mode). Extended thinking helps hold all constraints coherently. TEMPLATE.md, EXAMPLE.md, and command are evidence-grounded artifacts . EXAMPLE.md should be a real validation report run against a shipped skill (e.g., `deliver-prd`). Codex is strong at reading multiple files and producing concrete, evidence-grounded output.
+**Why the split:** SKILL.md encodes complex multi-constraint logic (two-tier checks, pipe-delimited format, quality standard framing, degraded mode). Extended thinking helps hold all constraints coherently. TEMPLATE.md, EXAMPLE.md, and command are evidence-grounded artifacts - EXAMPLE.md should be a real validation report run against a shipped skill (e.g., `deliver-prd`). Codex is strong at reading multiple files and producing concrete, evidence-grounded output.
 
 ## Codex Review
 
 Reviewed 2026-04-02. See `docs/internal/release-plans/v2.8.0/_archived/plan_v2.8.0_original_reviewed-by-codex.md` for full findings and evaluations. Key changes from review:
 - Report format changed from checkbox markers to pipe-delimited (Finding 1.1)
 - Added `Report schema: v1` header and check IDs (Findings 1.3, 1.4)
-- Tier 2 rebaselined against shipped library . example completeness by section-fill not line count, output contract accepts "use the template," When NOT to Use → INFO (Finding 2.1)
+- Tier 2 rebaselined against shipped library - example completeness by section-fill not line count, output contract accepts "use the template," When NOT to Use → INFO (Finding 2.1)
 - Added placeholder/scaffolding leakage check (Finding 2.3)
 - Tier 2 findings capped at WARN with caveat line (Finding 2.4)
 - Batch mode limited to Tier 1 structural checks (Finding 5.1)

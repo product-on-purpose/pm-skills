@@ -1,6 +1,6 @@
 # Shared Execution Coordinator . Claude + Codex
 
-Last updated: 2026-03-20 (baseline cleanup complete . all lanes merged to main)
+Last updated: 2026-03-20 (baseline cleanup complete - all lanes merged to main)
 Purpose: one thin control plane for the baseline-cleanup workstreams
 
 ## Source Plans
@@ -52,7 +52,7 @@ Baseline cleanup lane complete. No remaining Codex tasks in this lane.
 
 ### Claude lane
 
-All unblocked tasks complete. Only `A-5` remains (deferred . wrap-session effort, separate lane).
+All unblocked tasks complete. Only `A-5` remains (deferred - wrap-session effort, separate lane).
 
 ### Explicit hold
 

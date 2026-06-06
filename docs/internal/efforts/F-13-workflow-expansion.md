@@ -8,7 +8,7 @@ Agent: Claude Opus 4.6
 
 Add 6 new multi-skill workflows to pm-skills, expanding from 3 to 9. Each workflow chains existing skills into a guided, end-to-end process with clear handoff points and context flow between steps. This effort covers authoring the workflow content, creating slash commands, generating docs pages, and updating all cross-cutting references.
 
-**Depends on:** [M-19 . Rename Bundles to Workflows](M-19-bundles-to-workflows.md). The rename must land first (Commit 1 in v2.9.0) so that new content is authored directly into the `_workflows/` structure.
+**Depends on:** [M-19 - Rename Bundles to Workflows](M-19-bundles-to-workflows.md). The rename must land first (Commit 1 in v2.9.0) so that new content is authored directly into the `_workflows/` structure.
 
 ## New Workflows
 
@@ -23,10 +23,10 @@ Add 6 new multi-skill workflows to pm-skills, expanding from 3 to 9. Each workfl
 
 ## Key Decisions
 
-- **Command prefix:** `/workflow-{name}` . namespace protection, consistent with M-19 rename
+- **Command prefix:** `/workflow-{name}` - namespace protection, consistent with M-19 rename
 - **Content source:** Draft content in `F-13-workflow-expansion/bundle_*.md` (authored under "bundle" terminology, adapted to "workflow" during implementation)
 - **Generation script:** New `scripts/generate-workflow-pages.py` eliminates manual duplication between `_workflows/` and `docs/workflows/`
-- **Single release:** All 6 ship together in v2.9.0 . no phased rollout
+- **Single release:** All 6 ship together in v2.9.0 - no phased rollout
 
 ## Draft Content
 
@@ -55,4 +55,4 @@ Working drafts authored before the M-19 rename decision. These use "bundle" term
 
 ## PRs
 
-- TBD . expansion commit within v2.9.0 release branch (Commit 2, after M-19)
+- TBD - expansion commit within v2.9.0 release branch (Commit 2, after M-19)

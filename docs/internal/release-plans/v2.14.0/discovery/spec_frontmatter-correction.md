@@ -343,7 +343,7 @@ This is the canonical authoring spec; making it correct prevents the bug class f
 
 ### `skills/utility-pm-skill-builder/SKILL.md`
 
-**Current state**: Step 5 generates a "Draft Frontmatter . complete, valid YAML block" but does not enforce byte-0 placement in the output instructions. Step 6 writes drafts to `_staging/`. Step 7 promotes to canonical paths.
+**Current state**: Step 5 generates a "Draft Frontmatter - complete, valid YAML block" but does not enforce byte-0 placement in the output instructions. Step 6 writes drafts to `_staging/`. Step 7 promotes to canonical paths.
 
 **Change**: 
 

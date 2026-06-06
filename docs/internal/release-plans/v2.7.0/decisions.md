@@ -9,10 +9,10 @@ This document captures important design and architecture decisions made during v
 
 | ID | Decision | Category |
 |----|----------|----------|
-| D-1 | [Staging and promotion model . discard PACKET.md after promotion](#d-1-pm-skill-builder-staging-and-promotion-model) | F-05 Design |
-| D-2 | [Builder naming . `/pm-skill-builder` vs `/agent-skill-builder`](#d-2-builder-naming--pm-skill-builder-vs-agent-skill-builder) | F-05 Design |
-| D-3 | [PM Skill lifecycle . three separate skills (Create/Validate/Iterate)](#d-3-pm-skill-lifecycle--three-separate-skills) | F-05 Design |
-| D-4 | [CI validation split . enforced vs advisory](#d-4-ci-validation-split--enforced-vs-advisory) | F-05 Design |
+| D-1 | [Staging and promotion model - discard PACKET.md after promotion](#d-1-pm-skill-builder-staging-and-promotion-model) | F-05 Design |
+| D-2 | [Builder naming - `/pm-skill-builder` vs `/agent-skill-builder`](#d-2-builder-naming--pm-skill-builder-vs-agent-skill-builder) | F-05 Design |
+| D-3 | [PM Skill lifecycle - three separate skills (Create/Validate/Iterate)](#d-3-pm-skill-lifecycle--three-separate-skills) | F-05 Design |
+| D-4 | [CI validation split - enforced vs advisory](#d-4-ci-validation-split--enforced-vs-advisory) | F-05 Design |
 | D-5 | [Exclude `docs/internal/**` from release ZIP (M-16)](#d-5-exclude-docsinternal-from-release-zip-m-16) | Infrastructure |
 | D-6 | [Efforts are atoms, releases are molecules](#d-6-efforts-are-atoms-releases-are-molecules) | Process |
 | D-7 | [Agent assignment framework](#d-7-agent-assignment-framework) | Process |
@@ -26,10 +26,10 @@ This document captures important design and architecture decisions made during v
 **Decision**: Drafts go to `_staging/pm-skill-builder/{skill-name}/` (gitignored). On approval, only SKILL.md, TEMPLATE.md, EXAMPLE.md, command file, and AGENTS.md entry are promoted. Staging folder is discarded after promotion. No permanent PACKET.md.
 
 **Why**:
-- Drafts are scaffolding . they should never ship to users or clutter the repo.
+- Drafts are scaffolding - they should never ship to users or clutter the repo.
 - PACKET.md (design rationale) is maintainer-facing, not part of the skill's public contract.
 - Keeping PACKET.md next to shipped skills mixes authoring history with product artifacts and makes every skill directory heavier forever.
-- If a specific design rationale is important long-term, capture it intentionally in the issue, PR, or effort brief . don't make every generated skill carry a permanent packet by default.
+- If a specific design rationale is important long-term, capture it intentionally in the issue, PR, or effort brief - don't make every generated skill carry a permanent packet by default.
 
 **Impact**: Skill directories remain clean (SKILL.md + references/ only). The builder is a scaffolding tool, not a documentation generator.
 
@@ -40,8 +40,8 @@ This document captures important design and architecture decisions made during v
 ## D-2: Builder naming . `/pm-skill-builder` vs `/agent-skill-builder`
 
 **Decision**: Two separate skills, both in pm-skills repo.
-- `/pm-skill-builder` (F-05) . repo-specific, creates skills aligned with pm-skills architecture
-- `/agent-skill-builder` (F-09) . general PM capability for creating agent skills in any context
+- `/pm-skill-builder` (F-05) - repo-specific, creates skills aligned with pm-skills architecture
+- `/agent-skill-builder` (F-09) - general PM capability for creating agent skills in any context
 
 **Why**: Creating agent skills IS a modern PM capability. Both belong in pm-skills. Clear scope separation: one is repo-specific tooling, the other is a transferable PM skill.
 
@@ -73,7 +73,7 @@ This document captures important design and architecture decisions made during v
 
 **Decision**: Modify both release packagers (`build-release.sh` and `build-release.ps1`) to exclude `docs/internal/**` from the published ZIP artifact while keeping internal governance docs tracked in the repo.
 
-**Why**: Internal release governance, effort briefs, and planning documents are maintainer-facing. Users downloading the ZIP should get skills, commands, bundles, and public docs . not internal planning artifacts.
+**Why**: Internal release governance, effort briefs, and planning documents are maintainer-facing. Users downloading the ZIP should get skills, commands, bundles, and public docs - not internal planning artifacts.
 
 **Impact**: Reduces ZIP size. Internal docs remain in the repo for maintainers but don't ship to users. This also resolves any future concern about staging area content accidentally shipping.
 
@@ -108,7 +108,7 @@ This document captures important design and architecture decisions made during v
 **Why**:
 - They're release prep tasks, not standalone work items that persist beyond v2.7.0
 - No design decisions, dependencies, or multi-session complexity
-- The effort system (M-xx, F-xx) is for work that needs design review cycles . these are straightforward writing tasks
+- The effort system (M-xx, F-xx) is for work that needs design review cycles - these are straightforward writing tasks
 - Adding effort overhead to simple tasks creates busywork without improving tracking
 
 **How to apply**: Track D-xx tasks in the release governance README only. If a documentation task turns out to be complex enough to need design (e.g., D-01 reveals architectural questions), promote it to an effort at that point.
@@ -121,12 +121,12 @@ This document captures important design and architecture decisions made during v
 
 | Task | Agent | Status | Rationale |
 |------|-------|--------|-----------|
-| F-05 implementation | Claude | Done (`3c50108`, `df794a1`, `a67f144`) | Creative content writing . SKILL.md instructions, EXAMPLE.md narrative, quality judgment on gap analysis language. This is the kind of work where design taste matters. |
+| F-05 implementation | Claude | Done (`3c50108`, `df794a1`, `a67f144`) | Creative content writing - SKILL.md instructions, EXAMPLE.md narrative, quality judgment on gap analysis language. This is the kind of work where design taste matters. |
 | D-01: skill anatomy doc | Claude | Planned | New explanatory document requiring architectural understanding and clear writing for contributors who are new to the project. Claude's strength. |
 | D-02: public docs review | Codex | Follow-up needed | Systematic comparison of existing docs against current repo state. Well-defined scope, concrete checks (skill counts, script names, command lists, builder wiring). Codex excels at verification against ground truth. |
 | M-16 commit | Codex | Done (`0c2e637`) | Packaging/verification work was already implemented by Codex and then committed. |
-| CHANGELOG v2.7.0 | Claude | Pending | Release notes require narrative judgment . what matters to users, how to frame changes. |
-| Release tag | Human | Pending | Manual decision point . confirm everything is ready, push the tag. |
+| CHANGELOG v2.7.0 | Claude | Pending | Release notes require narrative judgment - what matters to users, how to frame changes. |
+| Release tag | Human | Pending | Manual decision point - confirm everything is ready, push the tag. |
 
 **Pattern**: Claude gets writing/design tasks. Codex gets verification/implementation tasks. Human gets external-facing decisions.
 

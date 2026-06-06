@@ -6,7 +6,7 @@ Agent: Claude Opus 4.6 or Codex
 
 ## Scope
 
-Add CI validation scripts that detect stale hardcoded counts and missing cross-references across documentation. When workflows, skills, or commands are added/removed, many files reference counts like "29 skills", "36 commands", "9 workflows" . these go stale silently.
+Add CI validation scripts that detect stale hardcoded counts and missing cross-references across documentation. When workflows, skills, or commands are added/removed, many files reference counts like "29 skills", "36 commands", "9 workflows" - these go stale silently.
 
 ## Problem
 
@@ -62,12 +62,12 @@ Trigger on: `_workflows/**`, `commands/**`, `skills/**`, `docs/**` changes.
 - `scripts/check-workflow-coverage.sh` + `.ps1`
 - `scripts/check-count-consistency.sh` + `.ps1`
 - `scripts/check-generated-freshness.sh` + `.ps1`
-- Updated `.github/workflows/validation.yml` . 3 new advisory checks
-- Updated `scripts/README_SCRIPTS.md` . document new scripts
+- Updated `.github/workflows/validation.yml` - 3 new advisory checks
+- Updated `scripts/README_SCRIPTS.md` - document new scripts
 
 ## Dependencies
 
-None . purely additive CI.
+None - purely additive CI.
 
 ## PRs
 
