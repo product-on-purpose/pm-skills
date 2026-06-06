@@ -3,10 +3,27 @@
 // Reads file paths from argv. Files without frontmatter are skipped (not failed).
 // This catches the unquoted-colon-in-value defect class that github's frontmatter
 // renderer rejects (the byte-0 lint check is structural; this is parse-validity).
+//
+// Pass `--site-docs` to also scan the tracked hand-authored Astro doc bodies
+// (`git ls-files site/src/content/docs`, .md/.mdx). Generated content is
+// gitignored, so it is excluded automatically. This catches the same defect in
+// site pages, which otherwise only surfaces as a cryptic Astro build crash.
 import { readFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
 import yaml from 'js-yaml';
 
-const files = process.argv.slice(2);
+const files = process.argv.slice(2).filter((a) => a !== '--site-docs');
+if (process.argv.includes('--site-docs')) {
+  try {
+    const tracked = execSync('git ls-files site/src/content/docs', { encoding: 'utf8' })
+      .split('\n')
+      .filter((f) => /\.(md|mdx)$/i.test(f));
+    files.push(...tracked);
+  } catch (err) {
+    console.log(`x --site-docs : could not list site docs - ${String(err.message || err).split('\n')[0]}`);
+    process.exit(1);
+  }
+}
 const failures = [];
 
 for (const file of files) {
