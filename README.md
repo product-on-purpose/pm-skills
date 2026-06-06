@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.25.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.25.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-65-brightgreen.svg?style=flat-square" alt="Skills">
@@ -164,6 +164,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.25.1 - Maintenance: docs-site Pattern S, resource index, em-dash-scar cleanup + CI guards</strong></summary>
+
+**What changed.** A maintenance patch that banks accumulated untagged work since v2.25.0; no new skills (catalog stays 65). The documentation site moved to the Product on Purpose family layout (Pattern S) with full family-standard conformance; a generated, CI-gated **resource index** (`docs/RESOURCES.md`) now links every published page to its source; root-document links left by the relocation were repaired and an enforcing CI guard added; residual em-dash-sweep ` . ` scars were swept to ` - ` across user-facing and internal prose, with new advisory and enforcing guards to keep them out; three site dependencies were bumped; and the PowerShell pre-tag validator bundle was reconciled with the bash and CI inventory. No behavior change and no published-URL change.
+
+**Get started.** [v2.25.1 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.1)
+
+</details>
 
 <details>
 <summary><strong>v2.25.0 - Activation and trust layer: the plugin's first hooks</strong></summary>
@@ -1045,7 +1054,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.25.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.0)           |
+| **Current version** | [v2.25.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.1)           |
 | **Skill count**     | 65 skills (30 phase + 9 foundation + 11 utility + 15 tool)                                |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |
