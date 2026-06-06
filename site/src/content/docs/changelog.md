@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.25.1] - 2026-06-06
+
+**Maintenance patch: banks accumulated untagged work since v2.25.0.** Reorganizes the documentation site to the Product on Purpose family layout (Pattern S) with full family-standard conformance, adds a generated CI-gated resource index (`docs/RESOURCES.md`) and a `docs/` front door, repairs root-document links left by the relocation and adds an enforcing CI guard for them, sweeps residual em-dash-sweep ` . ` scars to ` - ` across user-facing and internal prose with new advisory and enforcing guards to keep them out, bumps three site dependencies (`@astrojs/starlight`, `dompurify`, `astro-mermaid`), and fixes the PowerShell pre-tag validator bundle to match the bash and CI inventory. No skill behavior change and no published-URL change (route parity verified). Catalog stays 65 skills / 5 sub-agents. PATCH. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2251---2026-06-06) and [`docs/releases/Release_v2.25.1.md`](releases/Release_v2.25.1.md).
+
 ## [2.25.0] - 2026-06-03
 
 **Activation and trust layer: the plugin's first hooks, plus an advisory output-quality CI tier.** Adds opt-in house-rule guardrails (a `PreToolUse` hook that blocks em-dash and en-dash characters when `guardrails: true` is set in `.claude/pm-skills.local.md`; placeholder and metric checks warn) and a confident-only phase router (a `SessionStart` hook that suggests the right Triple Diamond skills only when a repo signal is strong, and stays silent otherwise). Adds M-30, an advisory output-quality CI tier: three deterministic invariant validators over the recorded samples (no placeholders, exact-quote sourcing, no fabricated metrics). The hooks are dependency-free and fail open; hooks are a Claude Code primitive. No new skills (catalog stays 65; sub-agents stay 5). Additive MINOR. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2250---2026-06-03) and [`docs/releases/Release_v2.25.0.md`](releases/Release_v2.25.0.md).
