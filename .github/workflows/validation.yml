@@ -47,7 +47,16 @@ jobs:
         run: node scripts/gen-resource-index.mjs --check
 
       - name: Run resource-index unit tests
-        run: node --test scripts/gen-resource-index.test.mjs
+        run: node --test scripts/gen-resource-index.test.mjs scripts/check-emdash-scars.test.mjs
+
+      - name: Check for em-dash-sweep scars in user-facing prose (advisory)
+        # Flags the " . " (space-period-space) scar that an earlier em-dash sweep
+        # (commit 8ab0f81) left behind. The no-em-dashes hook blocks em-dash
+        # characters but not this swept-to-period residue. Advisory: warns, does
+        # not block. Scope is tracked hand-authored prose; generated + internal
+        # docs are excluded. Cross-platform Node; runs on both OS legs.
+        continue-on-error: true
+        run: node scripts/check-emdash-scars.mjs
 
       - name: Validate commands (bash)
         if: matrix.os == 'ubuntu-latest'
