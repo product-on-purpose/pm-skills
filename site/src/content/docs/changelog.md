@@ -1,6 +1,6 @@
 ---
 title: Changelog
-description: Keep-a-Changelog-formatted release history for the pm-skills repo. Mirrors the root CHANGELOG.md as a navigable docs-site page.
+description: Release history for the pm-skills repo: a condensed per-release summary linking to the full root CHANGELOG.md and the per-release notes pages.
 ---
 
 All notable changes to this project will be documented in this file.
