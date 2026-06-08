@@ -60,7 +60,7 @@ The flowchart shows the happy path (left-to-right vertical sequence) plus the un
 Before invoking the runbook (manually or via `utility-pm-release-conductor v{X.Y.Z}`):
 
 - [ ] Master plan exists at `docs/internal/release-plans/v{target}/plan_v{target}.md` with status block reflecting current state
-- [ ] Release notes drafted at `docs/releases/Release_v{target}.md` (or scheduled for G2)
+- [ ] Release notes drafted at `site/src/content/docs/releases/Release_v{target}.md` (or scheduled for G2)
 - [ ] Phase 0 Adversarial Review completed (Codex or alternate cross-LLM review run against the release-prep state)
 - [ ] Current branch is `main` (or designated release branch)
 - [ ] Local repo is up to date with `origin/main`
@@ -106,7 +106,7 @@ Before invoking the runbook (manually or via `utility-pm-release-conductor v{X.Y
 4. **docs/changelog mirror** - update Astro-rendered changelog mirror to match
 5. **README badges** - version badges in `README.md` updated to target version
 6. **Release plan status** - `plan_v{target}.md` status block updated to `SHIPPED YYYY-MM-DD`
-7. **Release notes** - `docs/releases/Release_v{target}.md` exists; conductor reads it; maintainer confirms quality
+7. **Release notes** - `site/src/content/docs/releases/Release_v{target}.md` exists; conductor reads it; maintainer confirms quality
 8. **Hidden-comment leak check** - grep CHANGELOG.md for `<!-- justification:` (pm-changelog-curator debug comments). Fail if any remain; these are intended for maintainer audit only, not for committed CHANGELOG content.
 
 **Blocker:** any sub-check failure pauses G2.

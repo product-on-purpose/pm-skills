@@ -69,7 +69,7 @@ Count by reading the filesystem:
 - Commands = count of `.md` files in `commands/` excluding `.gitkeep`
 - Sub-agents = count of `.md` files in `agents/` excluding `_chain-permitted.yaml`, README.md
 - Enforcing validators = count of validator scripts that `pre-tag-validate.sh` invokes
-- Family contracts = count of files under `docs/reference/skill-families/` matching `*-contract.md`
+- Family contracts = count of files under `site/src/content/docs/reference/skill-families/` matching `*-contract.md`
 
 Compare these re-derived counts to declared values in:
 
@@ -198,9 +198,9 @@ You are NOT proactive (no `use proactively` in the description). Per D7, only `p
 
 ## Cross-References
 
-- User guide: TBD (no dedicated user guide in Phase 3; see `docs/contributing/release-runbook.md` for chained invocation context)
+- User guide: TBD (no dedicated user guide in Phase 3; see `site/src/content/docs/contributing/release-runbook.md` for chained invocation context)
 - Spec doc: `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md` (canonical behavioral contract; this file is the implementation)
 - Cross-cutting check catalog: `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md#cross-cutting-check-catalog`
-- Runtime components catalog: `docs/reference/runtime-components.md`
+- Runtime components catalog: `site/src/content/docs/reference/runtime-components.md`
 - Dispatch skill for cross-client access: `skills/utility-pm-skill-auditor/SKILL.md` (conditional on Phase 2 GATE B per master plan D30)
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}` (canonical orchestration entry point)

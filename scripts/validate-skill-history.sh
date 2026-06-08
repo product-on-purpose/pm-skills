@@ -15,6 +15,24 @@ frontmatter_value() {
     sed -E 's/[[:space:]]+#.*$//; s/^["'"'"']//; s/["'"'"']$//'
 }
 
+skill_version() {
+  # Resolve the skill version from either shape: prefer a metadata.version nested
+  # under a `metadata:` block (the v2.17+ metadata-nested frontmatter), and fall
+  # back to a top-level version. frontmatter_value only matched a column-0
+  # `version:`, so it false-negatived nested metadata (Codex audit P1-03).
+  local meta top
+  meta="$(printf '%s\n' "$frontmatter" | awk '
+    /^metadata:[[:space:]]*$/ { inmeta=1; next }
+    inmeta && /^[[:space:]]+version:[[:space:]]*/ {
+      sub(/^[[:space:]]+version:[[:space:]]*/, ""); print; exit
+    }
+    inmeta && /^[^[:space:]]/ { inmeta=0 }
+  ')"
+  top="$(printf '%s\n' "$frontmatter" | sed -n 's/^version:[[:space:]]*//p' | head -1)"
+  local v="${meta:-$top}"
+  printf '%s' "$v" | sed -E 's/[[:space:]]+#.*$//; s/^["'"'"']//; s/["'"'"']$//'
+}
+
 history_table_versions() {
   local file="$1"
 
@@ -75,7 +93,7 @@ for dir in "$ROOT"/skills/*; do
     continue
   fi
 
-  current_version="$(frontmatter_value version)"
+  current_version="$(skill_version)"
   if [[ -z "$current_version" ]]; then
     echo "✗ $rel : sibling SKILL.md is missing version"
     FAIL=1

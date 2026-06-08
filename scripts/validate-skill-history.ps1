@@ -46,6 +46,40 @@ function Get-FrontmatterValue {
     return $value.Trim('"').Trim("'")
 }
 
+function Get-SkillVersion {
+    param([string[]]$Frontmatter)
+
+    # Resolve the skill version from either shape: prefer a metadata.version nested
+    # under a `metadata:` block (the v2.17+ metadata-nested frontmatter), and fall
+    # back to a top-level `version:`. The older Get-FrontmatterValue only matched a
+    # column-0 `version:`, so it false-negatived nested metadata (Codex audit P1-03).
+    $topVersion = $null
+    $metadataVersion = $null
+    $inMetadata = $false
+
+    foreach ($line in $Frontmatter) {
+        if ($line -match '^version:\s*(.*)$') {
+            if ($null -eq $topVersion) { $topVersion = $matches[1] }
+            $inMetadata = $false
+            continue
+        }
+        if ($line -match '^metadata:\s*$') { $inMetadata = $true; continue }
+        if ($inMetadata) {
+            if ($line -match '^\s+version:\s*(.*)$') {
+                if ($null -eq $metadataVersion) { $metadataVersion = $matches[1] }
+            }
+            elseif ($line -match '^\S') {
+                $inMetadata = $false
+            }
+        }
+    }
+
+    $value = if ($metadataVersion) { $metadataVersion } else { $topVersion }
+    if (-not $value) { return $null }
+    $value = ($value -replace '\s+#.*$', '').Trim()
+    return $value.Trim('"').Trim("'")
+}
+
 function Get-HistoryTableVersions {
     param([string]$Path)
 
@@ -119,7 +153,7 @@ Get-ChildItem -Path (Join-Path $Root "skills") -Directory | ForEach-Object {
         return
     }
 
-    $currentVersion = Get-FrontmatterValue -Frontmatter $frontmatter -Key 'version'
+    $currentVersion = Get-SkillVersion -Frontmatter $frontmatter
     if (-not $currentVersion) {
         Write-Host "[FAIL] $rel : sibling SKILL.md is missing version"
         $Fail = $true
