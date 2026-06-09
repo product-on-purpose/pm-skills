@@ -1,5 +1,7 @@
 # Resource Index Implementation Plan
 
+**Status:** SHIPPED in v2.25.1 (PR #164). Retained for historical reference; see `docs/internal/release-plans/v2.25.1/plan_v2.25.1.md` and the `[2.25.1]` CHANGELOG section.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Add a generated, CI-gated `docs/RESOURCES.md` catalog that links every project resource to both its published page and its source-of-truth file in the repo, plus a hand-authored `docs/README.md` front door, so the docs are browsable on GitHub at a stable path and can never silently go stale.

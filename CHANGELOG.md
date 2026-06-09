@@ -14,9 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `scripts/validation-manifest.yaml`: a single source of truth for the release-gate shell-validator inventory. Declares every `scripts/*.sh` + `*.ps1` validator once with its local pre-tag tier, CI level, and per-shell flags.
 - `scripts/check-validator-parity.mjs` (+ unit tests), wired enforcing in CI on both OS legs: a referee that fails the build if the bash bundle (`scripts/pre-tag-validate.sh`), the PowerShell bundle (`scripts/pre-tag-validate.ps1`), or `.github/workflows/validation.yml` drifts from the manifest. The two local pre-tag bundles can no longer list different validator sets, and CI cannot add or drop a shell validator without updating the manifest. Pure Node builtins plus `js-yaml` (the existing root tooling dependency).
 
+### Changed
+
+- `scripts/check-root-doc-links.mjs` now also scans the source surfaces (`skills/**`, `agents/**`, `_workflows/**`, `commands/**`; 245 files) in addition to repo-root markdown, with a documented Pattern S relocation alias (`docs/<tail>` resolves to `site/src/content/docs/<tail>`) and a brace-placeholder skip for template tokens. Closes the class where source links to the retired `docs/reference/...` paths rotted after the Pattern S relocation while staying invisible to GitHub source readers.
+
 ### Fixed
 
 - Reconciled live drift between the local pre-tag bundles and CI: `validate-skill-family-registration` and `validate-plugin-install` were enforcing in `.github/workflows/validation.yml` but absent from both `scripts/pre-tag-validate.sh` and `scripts/pre-tag-validate.ps1`, so a local "ALL CHECKS PASSED" could still meet a red CI leg on a release PR. Both validators are now in the required tier of both bundles, and the new parity referee prevents the gap from recurring.
+- `scripts/validate-skill-history.{sh,ps1}` now read the nested `metadata.version` (with a top-level fallback), so per-skill `HISTORY.md` validation runs against the current skill-frontmatter shape instead of silently passing.
+- Repointed the release conductor and auditor agents and the release runbook from the retired `docs/{contributing,reference,releases}/` paths to their live `site/src/content/docs/...` locations, resolving the runbook-path drift noted while shipping v2.25.1.
 
 ## [2.25.1] - 2026-06-06
 
