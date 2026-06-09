@@ -1,0 +1,173 @@
+# validation-manifest.yaml - the single source of truth for the release-gate
+# SHELL validator inventory (audit Spec A, P0-02).
+#
+# WHY: three inventories must agree about which shell validators run and how:
+#   - scripts/pre-tag-validate.sh   (bash local pre-tag bundle)
+#   - scripts/pre-tag-validate.ps1  (PowerShell local pre-tag bundle)
+#   - .github/workflows/validation.yml  (CI)
+# They drifted before (P0-01, P0-02). This file declares each shell validator
+# ONCE; scripts/check-validator-parity.mjs (run in CI) FAILS the build if any of
+# the three inventories drifts from it. So bash and pwsh can no longer list
+# different sets, and CI cannot add or drop a shell validator without updating
+# this file.
+#
+# SCOPE: shell validators only (scripts/*.sh + scripts/*.ps1). The two local
+# bundles are the cross-platform, dual-maintained surface where drift bit us.
+# Node (.mjs) checks (gen-resource-index --check, check-frontmatter-yaml,
+# check-rendered-links, check-route-parity, check-root-doc-links, verify-edit-links),
+# the Astro site build, and the unit-test steps run ONCE cross-platform in CI with
+# no two-shell duplication, so they are out of this manifest's parity remit by
+# design. They live in validation.yml only.
+#
+# FIELDS per entry:
+#   id       stable validator name (the scripts/<id>.sh + scripts/<id>.ps1 pair)
+#   pre_tag  local-bundle tier: required | optional | advisory. OMITTED for
+#            validators that run in CI only (not in the local pre-tag bundle).
+#              required = always run, must pass (blocks the bundle)
+#              optional = run if the script is present (graceful degradation for
+#                         older checkouts), then must pass
+#              advisory = run for visibility, never blocks
+#   ci       CI level: enforcing | advisory (advisory == continue-on-error in
+#            validation.yml). OMIT if the validator is not run in CI.
+#   bash     { script, args } as invoked by bash (flags use the --flag form)
+#   pwsh     { script, args } as invoked by pwsh (flags use the -Flag form)
+#
+# When you add, retire, or re-flag a shell validator, edit THIS file and the
+# matching inventory; the parity referee proves they agree.
+
+# === Required: local pre-tag (blocking) + enforcing in CI ===
+- id: lint-skills-frontmatter
+  pre_tag: required
+  ci: enforcing
+  bash: { script: lint-skills-frontmatter.sh, args: [] }
+  pwsh: { script: lint-skills-frontmatter.ps1, args: [] }
+- id: validate-agents-md
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-agents-md.sh, args: [] }
+  pwsh: { script: validate-agents-md.ps1, args: [] }
+- id: validate-commands
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-commands.sh, args: [] }
+  pwsh: { script: validate-commands.ps1, args: [] }
+- id: validate-meeting-skills-family
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-meeting-skills-family.sh, args: [] }
+  pwsh: { script: validate-meeting-skills-family.ps1, args: [] }
+- id: validate-foundation-sprint-skills-family
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-foundation-sprint-skills-family.sh, args: ['--strict'] }
+  pwsh: { script: validate-foundation-sprint-skills-family.ps1, args: ['-Strict'] }
+- id: validate-design-sprint-skills-family
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-design-sprint-skills-family.sh, args: ['--strict'] }
+  pwsh: { script: validate-design-sprint-skills-family.ps1, args: ['-Strict'] }
+- id: validate-docs-frontmatter
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-docs-frontmatter.sh, args: ['--strict'] }
+  pwsh: { script: validate-docs-frontmatter.ps1, args: ['-Strict'] }
+- id: check-no-body-h1
+  pre_tag: required
+  ci: enforcing
+  bash: { script: check-no-body-h1.sh, args: ['--strict'] }
+  pwsh: { script: check-no-body-h1.ps1, args: ['-Strict'] }
+- id: check-count-consistency
+  pre_tag: required
+  ci: enforcing
+  bash: { script: check-count-consistency.sh, args: [] }
+  pwsh: { script: check-count-consistency.ps1, args: [] }
+- id: check-skill-cross-references
+  pre_tag: required
+  ci: enforcing
+  bash: { script: check-skill-cross-references.sh, args: [] }
+  pwsh: { script: check-skill-cross-references.ps1, args: [] }
+- id: validate-script-docs
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-script-docs.sh, args: [] }
+  pwsh: { script: validate-script-docs.ps1, args: [] }
+- id: validate-version-consistency
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-version-consistency.sh, args: [] }
+  pwsh: { script: validate-version-consistency.ps1, args: [] }
+- id: validate-codex-manifest
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-codex-manifest.sh, args: [] }
+  pwsh: { script: validate-codex-manifest.ps1, args: [] }
+- id: check-skill-sample-coverage
+  pre_tag: required
+  ci: enforcing
+  bash: { script: check-skill-sample-coverage.sh, args: [] }
+  pwsh: { script: check-skill-sample-coverage.ps1, args: [] }
+# Added in the Spec A reconciliation: enforcing in CI, previously absent from both
+# local bundles (the live drift P0-02 warned about, surfaced after #174).
+- id: validate-skill-family-registration
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-skill-family-registration.sh, args: [] }
+  pwsh: { script: validate-skill-family-registration.ps1, args: [] }
+- id: validate-plugin-install
+  pre_tag: required
+  ci: enforcing
+  bash: { script: validate-plugin-install.sh, args: [] }
+  pwsh: { script: validate-plugin-install.ps1, args: [] }
+
+# === Optional: local pre-tag (graceful degradation) ===
+- id: check-landing-page-counts
+  pre_tag: optional
+  ci: enforcing
+  bash: { script: check-landing-page-counts.sh, args: ['--strict'] }
+  pwsh: { script: check-landing-page-counts.ps1, args: ['-Strict'] }
+- id: check-workflow-generator-coverage
+  pre_tag: optional
+  ci: enforcing
+  bash: { script: check-workflow-generator-coverage.sh, args: [] }
+  pwsh: { script: check-workflow-generator-coverage.ps1, args: [] }
+- id: check-agents-md-command-sync
+  pre_tag: optional
+  ci: enforcing
+  bash: { script: check-agents-md-command-sync.sh, args: [] }
+  pwsh: { script: check-agents-md-command-sync.ps1, args: [] }
+# Optional locally but advisory (continue-on-error) in CI: a pre-existing
+# asymmetry, faithfully recorded rather than silently "fixed" here.
+- id: check-context-currency
+  pre_tag: optional
+  ci: advisory
+  bash: { script: check-context-currency.sh, args: [] }
+  pwsh: { script: check-context-currency.ps1, args: [] }
+
+# === Advisory: local pre-tag (never blocks) + advisory in CI ===
+- id: check-version-references
+  pre_tag: advisory
+  ci: advisory
+  bash: { script: check-version-references.sh, args: [] }
+  pwsh: { script: check-version-references.ps1, args: [] }
+
+# === CI-only: advisory in CI, intentionally NOT in the local pre-tag bundle ===
+- id: check-mcp-impact
+  ci: advisory
+  bash: { script: check-mcp-impact.sh, args: [] }
+  pwsh: { script: check-mcp-impact.ps1, args: [] }
+- id: validate-skill-history
+  ci: advisory
+  bash: { script: validate-skill-history.sh, args: [] }
+  pwsh: { script: validate-skill-history.ps1, args: [] }
+- id: validate-skills-manifest
+  ci: advisory
+  bash: { script: validate-skills-manifest.sh, args: [] }
+  pwsh: { script: validate-skills-manifest.ps1, args: [] }
+- id: validate-gitignore-pm-skills
+  ci: advisory
+  bash: { script: validate-gitignore-pm-skills.sh, args: [] }
+  pwsh: { script: validate-gitignore-pm-skills.ps1, args: [] }
+- id: check-workflow-coverage
+  ci: advisory
+  bash: { script: check-workflow-coverage.sh, args: [] }
+  pwsh: { script: check-workflow-coverage.ps1, args: [] }

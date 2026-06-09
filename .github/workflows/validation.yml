@@ -382,3 +382,16 @@ jobs:
         run: |
           node --test scripts/check-root-doc-links.test.mjs
           node scripts/check-root-doc-links.mjs
+
+      - name: Check validator-inventory parity (enforcing; bash/pwsh/CI vs manifest)
+        # The release gate has three hand-maintained SHELL-validator inventories:
+        # pre-tag-validate.sh, pre-tag-validate.ps1, and this workflow. They drifted
+        # before (P0-01/P0-02). scripts/validation-manifest.yaml is now the single
+        # source of truth; this referee FAILS if any inventory drifts from it, so the
+        # bash and pwsh bundles cannot list different sets and CI cannot add or drop a
+        # shell validator without updating the manifest. Pure node builtins + js-yaml
+        # (root dep, installed above); cross-OS.
+        if: always()
+        run: |
+          node --test scripts/check-validator-parity.test.mjs
+          node scripts/check-validator-parity.mjs

@@ -27,7 +27,7 @@ The single most decision-relevant output was a collision between the audit and t
 | Finding | Verdict | Disposition |
 |---|---|---|
 | **P0-01** ps1 pre-tag references 2 missing required scripts | CONFIRMED | FIXED in PR #174; banked in v2.25.1 |
-| **P0-02** bash/ps1/CI inventories diverge | CONFIRMED | Reconciled by hand in #174; single-manifest (Spec A) still a follow-up |
+| **P0-02** bash/ps1/CI inventories diverge | CONFIRMED | Reconciled by hand in #174; single-manifest (Spec A) SHIPPED 2026-06-09: `scripts/validation-manifest.yaml` + `scripts/check-validator-parity.mjs` (CI drift-gate) |
 | **P1-01** broken `docs/reference` source links (41 files / 128 matches) | CONFIRMED + refined | Open follow-up: extend `check-root-doc-links.mjs` scope |
 | **P1-02** `pm-skill-auditor.md:72` stale path | CONFIRMED | Open follow-up |
 | **P1-03** `validate-skill-history` misses `metadata.version` (both .ps1 and .sh) | CONFIRMED (live run) | Open follow-up; muted today (continue-on-error, not in pre-tag bundle) |
@@ -73,4 +73,4 @@ The "Academic work" section cites four arXiv IDs with future-dated `YYMM` prefix
 3. Update `agents/pm-skill-auditor.md:72` and the release runbook/conductor to the `site/src/content/docs/...` paths (P1-02 plus the live runbook-path drift this review surfaced).
 4. Correct the CLAUDE.md/MEMORY "internal notes are gitignored" claim.
 5. Consider the static Skill Finder + `skill-manifest.json` and optional output schemas as next-minor (v2.26.0) candidates; treat broad connectors as out of scope per MCP-maintenance-mode.
-6. Unify the validator inventory into a single manifest (audit Spec A) so bash/ps1/CI cannot drift again.
+6. **DONE (2026-06-09):** Unified the validator inventory into a single manifest (audit Spec A) so bash/ps1/CI cannot drift again: `scripts/validation-manifest.yaml` (source of truth) + `scripts/check-validator-parity.mjs` (referee, enforcing in CI). Reconciled the two validators (`validate-skill-family-registration`, `validate-plugin-install`) that were enforcing in CI but absent from both local bundles.
