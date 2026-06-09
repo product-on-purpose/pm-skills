@@ -1,6 +1,6 @@
 # Plan: CHANGELOG (and doc-body) em-dash-sweep scar cleanup
 
-Status: deferred / backlog (not started)
+Status: PARTIALLY SHIPPED in v2.25.1. The CHANGELOG, site-doc-body, and internal-prose safe-subset sweeps shipped (PRs #168/#169/#170; advisory guard `check-emdash-scars.mjs` in #171). The remainder (roughly 120 internal heading scars + 295 in-fence cases needing per-case judgment) is deferred/optional. See the v2.25.1 CHANGELOG and `docs/internal/release-plans/v2.25.1/plan_v2.25.1.md`.
 Tracking issue: #167 (canonical backlog entry; this doc is the scope artifact)
 Date: 2026-06-05
 Trigger: surfaced during the resource-index work (PRs #164/#165)
