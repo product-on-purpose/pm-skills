@@ -20,6 +20,8 @@ $Root = Split-Path -Parent $ScriptDir
 # referenced two retired validators, check-internal-link-validity and
 # check-generated-content-untouched, that no longer exist, and omitted
 # check-skill-sample-coverage that bash and CI both enforce).
+# Source of truth: scripts/validation-manifest.yaml; scripts/check-validator-parity.mjs
+# (CI) fails on any drift between this list, pre-tag-validate.sh, the manifest, and CI.
 $Validators = @(
   @{ Name = 'lint-skills-frontmatter';                       Script = 'lint-skills-frontmatter.ps1';                       Args = @() }
   @{ Name = 'validate-agents-md';                            Script = 'validate-agents-md.ps1';                            Args = @() }
@@ -35,6 +37,8 @@ $Validators = @(
   @{ Name = 'validate-version-consistency';                  Script = 'validate-version-consistency.ps1';                  Args = @() }
   @{ Name = 'validate-codex-manifest';                       Script = 'validate-codex-manifest.ps1';                       Args = @() }
   @{ Name = 'check-skill-sample-coverage';                   Script = 'check-skill-sample-coverage.ps1';                   Args = @() }
+  @{ Name = 'validate-skill-family-registration';            Script = 'validate-skill-family-registration.ps1';            Args = @() }
+  @{ Name = 'validate-plugin-install';                       Script = 'validate-plugin-install.ps1';                       Args = @() }
 )
 
 $OptionalValidators = @(

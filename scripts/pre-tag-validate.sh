@@ -47,6 +47,8 @@ fi
 
 # Truly-enforcing validator inventory. Update when adding new enforcing validators.
 # Each entry is "<display name>|<command>".
+# Single source of truth: scripts/validation-manifest.yaml. scripts/check-validator-parity.mjs
+# (run in CI) fails if this list drifts from the manifest or from pre-tag-validate.ps1.
 VALIDATORS=(
   "lint-skills-frontmatter|bash $ROOT/scripts/lint-skills-frontmatter.sh"
   "validate-agents-md|bash $ROOT/scripts/validate-agents-md.sh"
@@ -62,6 +64,8 @@ VALIDATORS=(
   "validate-version-consistency|bash $ROOT/scripts/validate-version-consistency.sh"
   "validate-codex-manifest|bash $ROOT/scripts/validate-codex-manifest.sh"
   "check-skill-sample-coverage|bash $ROOT/scripts/check-skill-sample-coverage.sh"
+  "validate-skill-family-registration|bash $ROOT/scripts/validate-skill-family-registration.sh"
+  "validate-plugin-install|bash $ROOT/scripts/validate-plugin-install.sh"
 )
 
 # v2.15.1 additions (landing-page + generator coverage + AGENTS.md command-table sync).

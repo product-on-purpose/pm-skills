@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `scripts/validation-manifest.yaml`: a single source of truth for the release-gate shell-validator inventory. Declares every `scripts/*.sh` + `*.ps1` validator once with its local pre-tag tier, CI level, and per-shell flags.
+- `scripts/check-validator-parity.mjs` (+ unit tests), wired enforcing in CI on both OS legs: a referee that fails the build if the bash bundle (`scripts/pre-tag-validate.sh`), the PowerShell bundle (`scripts/pre-tag-validate.ps1`), or `.github/workflows/validation.yml` drifts from the manifest. The two local pre-tag bundles can no longer list different validator sets, and CI cannot add or drop a shell validator without updating the manifest. Pure Node builtins plus `js-yaml` (the existing root tooling dependency).
+
+### Fixed
+
+- Reconciled live drift between the local pre-tag bundles and CI: `validate-skill-family-registration` and `validate-plugin-install` were enforcing in `.github/workflows/validation.yml` but absent from both `scripts/pre-tag-validate.sh` and `scripts/pre-tag-validate.ps1`, so a local "ALL CHECKS PASSED" could still meet a red CI leg on a release PR. Both validators are now in the required tier of both bundles, and the new parity referee prevents the gap from recurring.
+
 ## [2.25.1] - 2026-06-06
 
 **Maintenance patch: banks accumulated untagged work since v2.25.0.** A documentation-site internal reorg to the Product on Purpose family layout (Pattern S) with full family-standard conformance, a generated resource index and `docs/` front door, repaired root-document links plus a CI guard, an em-dash-sweep scar cleanup across user-facing and internal prose with new advisory and enforcing guards to keep them out, three site dependency bumps, and a pre-tag validator parity fix. No skill behavior change and no published-URL change: every page slug and the redirect map are preserved (route parity verified before and after). The catalog stays 65 skills / 5 sub-agents. PATCH.
