@@ -17,12 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - `scripts/check-root-doc-links.mjs` now also scans the source surfaces (`skills/**`, `agents/**`, `_workflows/**`, `commands/**`; 245 files) in addition to repo-root markdown, with a documented Pattern S relocation alias (`docs/<tail>` resolves to `site/src/content/docs/<tail>`) and a brace-placeholder skip for template tokens. Closes the class where source links to the retired `docs/reference/...` paths rotted after the Pattern S relocation while staying invisible to GitHub source readers.
+- `scripts/check-emdash-scars.mjs` is now **enforcing** in CI (previously advisory) and skips inline-code spans in addition to fenced blocks, so prose that quotes the ` . ` scar as a literal example (as the release notes do) is no longer flagged. The user-facing prose corpus is clean, so any newly introduced spaced-period scar now fails the build.
 
 ### Fixed
 
 - Reconciled live drift between the local pre-tag bundles and CI: `validate-skill-family-registration` and `validate-plugin-install` were enforcing in `.github/workflows/validation.yml` but absent from both `scripts/pre-tag-validate.sh` and `scripts/pre-tag-validate.ps1`, so a local "ALL CHECKS PASSED" could still meet a red CI leg on a release PR. Both validators are now in the required tier of both bundles, and the new parity referee prevents the gap from recurring.
 - `scripts/validate-skill-history.{sh,ps1}` now read the nested `metadata.version` (with a top-level fallback), so per-skill `HISTORY.md` validation runs against the current skill-frontmatter shape instead of silently passing.
 - Repointed the release conductor and auditor agents and the release runbook from the retired `docs/{contributing,reference,releases}/` paths to their live `site/src/content/docs/...` locations, resolving the runbook-path drift noted while shipping v2.25.1.
+- Corrected the project `CLAUDE.md` claim that internal notes are gitignored: `docs/internal/` is tracked and visible to anyone browsing the repo (only `_NOTES/` and `_LOCAL/` are gitignored). Closes the 2026-06-06 Codex audit's remaining correction item.
 
 ## [2.25.1] - 2026-06-06
 

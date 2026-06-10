@@ -13,7 +13,10 @@
 // so `git ls-files` excludes it automatically. docs/internal is intentionally out
 // of scope (it retains some legitimate in-code-fence periods and heading scars).
 // Fence-aware: lines inside ``` code blocks are skipped, because legitimate code
-// can contain a spaced period (for example `cp -r x . `).
+// can contain a spaced period (for example `cp -r x . `). Inline-code spans
+// (single backticks) are also stripped before the check, so prose that quotes the
+// scar itself as an example (the ` . ` token, as the release notes do) is not
+// flagged. This makes the check clean enough to run enforcing.
 import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
@@ -43,7 +46,13 @@ export function findScars(text) {
     const line = lines[i];
     if (/^\s*```/.test(line)) { inFence = !inFence; continue; }
     if (inFence) continue;
-    if (/ \. /.test(line)) hits.push({ line: i + 1, text: line.trim() });
+    // Replace inline-code spans with a single non-space placeholder before
+    // testing: release notes legitimately quote the scar itself (the ` . ` token)
+    // and code spans can hold a real spaced period. The placeholder (not empty
+    // string) preserves boundaries, so a normal `code`. sentence period does NOT
+    // collapse into a phantom " . "; a real scar OUTSIDE the span still survives.
+    const stripped = line.replace(/`[^`]*`/g, 'x');
+    if (/ \. /.test(stripped)) hits.push({ line: i + 1, text: line.trim() });
   }
   return hits;
 }

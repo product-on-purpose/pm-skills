@@ -28,3 +28,18 @@ test('findScars catches a scar outside a fence but not inside', () => {
   assert.equal(hits.length, 1);
   assert.equal(hits[0].line, 1);
 });
+
+test('findScars ignores a spaced period inside an inline code span', () => {
+  // Release notes legitimately quote the scar as an example: the ` . ` token.
+  assert.equal(findScars('the residual ` . ` scar is described here').length, 0);
+});
+
+test('findScars still flags a real scar outside an inline code span on the same line', () => {
+  const hits = findScars('the `code` token . and a real scar');
+  assert.equal(hits.length, 1);
+});
+
+test('findScars does not manufacture a scar from a code span followed by a sentence period', () => {
+  // `code`. Next must NOT collapse into a phantom " . " when the span is stripped.
+  assert.equal(findScars('read by the `docsLoader()`. Repo-root is governance docs').length, 0);
+});
