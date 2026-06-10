@@ -12,12 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `scripts/validation-manifest.yaml`: a single source of truth for the release-gate shell-validator inventory. Declares every `scripts/*.sh` + `*.ps1` validator once with its local pre-tag tier, CI level, and per-shell flags.
-- `scripts/check-validator-parity.mjs` (+ unit tests), wired enforcing in CI on both OS legs: a referee that fails the build if the bash bundle (`scripts/pre-tag-validate.sh`), the PowerShell bundle (`scripts/pre-tag-validate.ps1`), or `.github/workflows/validation.yml` drifts from the manifest. The two local pre-tag bundles can no longer list different validator sets, and CI cannot add or drop a shell validator without updating the manifest. Pure Node builtins plus `js-yaml` (the existing root tooling dependency).
+- `scripts/check-validator-parity.mjs` (+ unit tests), wired enforcing in CI on both OS legs: a referee that fails the build if the bash bundle (`scripts/pre-tag-validate.sh`), the PowerShell bundle (`scripts/pre-tag-validate.ps1`), or `.github/workflows/validation.yml` drifts from the manifest. The two local pre-tag bundles can no longer list different validator sets, and CI cannot add, drop, re-flag, or change the per-OS enforcement of a shell validator without updating the manifest (the referee compares each OS leg's args and enforcing level, not just presence). Pure Node builtins plus `js-yaml` (the existing root tooling dependency).
 
 ### Changed
 
 - `scripts/check-root-doc-links.mjs` now also scans the source surfaces (`skills/**`, `agents/**`, `_workflows/**`, `commands/**`; 245 files) in addition to repo-root markdown, with a documented Pattern S relocation alias (`docs/<tail>` resolves to `site/src/content/docs/<tail>`) and a brace-placeholder skip for template tokens. Closes the class where source links to the retired `docs/reference/...` paths rotted after the Pattern S relocation while staying invisible to GitHub source readers.
-- `scripts/check-emdash-scars.mjs` is now **enforcing** in CI (previously advisory) and skips inline-code spans in addition to fenced blocks, so prose that quotes the ` . ` scar as a literal example (as the release notes do) is no longer flagged. The user-facing prose corpus is clean, so any newly introduced spaced-period scar now fails the build.
+- `scripts/check-emdash-scars.mjs` is now **enforcing** in CI (previously advisory) and skips inline-code spans (including multi-backtick spans) in addition to fenced blocks, so prose that quotes the ` . ` scar as a literal example (as the release notes do) is no longer flagged. The user-facing prose corpus is clean, so any newly introduced spaced-period scar now fails the build.
 
 ### Fixed
 

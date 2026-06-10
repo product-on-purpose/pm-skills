@@ -42,17 +42,37 @@ $AdvisoryValidators = @(
 )
 `;
 
+// Each shell validator runs as a per-OS leg (bash on ubuntu, pwsh on windows),
+// matching the real validation.yml matrix shape. The referee must compare each leg
+// independently (args + enforcing), so the fixture carries both legs.
 const CI_FIXTURE = `
       - name: Lint skills front matter (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/lint-skills-frontmatter.sh
+      - name: Lint skills front matter (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/lint-skills-frontmatter.ps1
       - name: Validate docs frontmatter (bash, enforcing)
+        if: matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-docs-frontmatter.sh --strict
+      - name: Validate docs frontmatter (pwsh, enforcing)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/validate-docs-frontmatter.ps1 -Strict
       - name: Check CONTEXT.md currency (bash)
+        if: matrix.os == 'ubuntu-latest'
         run: bash scripts/check-context-currency.sh
         continue-on-error: true
+      - name: Check CONTEXT.md currency (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-context-currency.ps1
+        continue-on-error: true
       - name: Check version references (bash)
+        if: matrix.os == 'ubuntu-latest'
         run: bash scripts/check-version-references.sh
+        continue-on-error: true
+      - name: Check version references (pwsh)
+        if: matrix.os == 'windows-latest'
+        run: pwsh -File scripts/check-version-references.ps1
         continue-on-error: true
       - name: Generate site content
         run: node scripts/gen-site.mjs
@@ -66,6 +86,8 @@ const MANIFEST_FIXTURE = [
   { id: 'check-version-references', bash: { args: [] }, pwsh: { args: [] }, pre_tag: 'advisory', ci: 'advisory' },
 ];
 
+const leg = (ci, id, shell) => ci.find((l) => l.id === id && l.shell === shell);
+
 // --- parseBashBundle ---
 
 test('parseBashBundle extracts ids per tier from the script path', () => {
@@ -77,10 +99,8 @@ test('parseBashBundle extracts ids per tier from the script path', () => {
 
 test('parseBashBundle captures trailing flags as args', () => {
   const b = parseBashBundle(BASH_FIXTURE);
-  const strict = b.required.find((e) => e.id === 'validate-docs-frontmatter');
-  assert.deepEqual(strict.args, ['--strict']);
-  const plain = b.required.find((e) => e.id === 'lint-skills-frontmatter');
-  assert.deepEqual(plain.args, []);
+  assert.deepEqual(b.required.find((e) => e.id === 'validate-docs-frontmatter').args, ['--strict']);
+  assert.deepEqual(b.required.find((e) => e.id === 'lint-skills-frontmatter').args, []);
 });
 
 // --- parsePwshBundle ---
@@ -94,85 +114,92 @@ test('parsePwshBundle extracts ids per tier from the Script field', () => {
 
 test('parsePwshBundle captures the PowerShell Args array', () => {
   const p = parsePwshBundle(PWSH_FIXTURE);
-  const strict = p.required.find((e) => e.id === 'validate-docs-frontmatter');
-  assert.deepEqual(strict.args, ['-Strict']);
+  assert.deepEqual(p.required.find((e) => e.id === 'validate-docs-frontmatter').args, ['-Strict']);
 });
 
-// --- parseCiWorkflow ---
+// --- parseCiWorkflow (per-leg) ---
 
-test('parseCiWorkflow lists shell validators and ignores node steps', () => {
+test('parseCiWorkflow returns one record per OS leg and ignores node steps', () => {
   const ci = parseCiWorkflow(CI_FIXTURE);
-  const ids = ci.map((e) => e.id).sort();
-  assert.deepEqual(ids, [
-    'check-context-currency',
-    'check-version-references',
-    'lint-skills-frontmatter',
-    'validate-docs-frontmatter',
-  ]);
+  assert.equal(ci.length, 8); // 4 validators x 2 legs; the node step is ignored
+  assert.deepEqual(
+    [...new Set(ci.map((l) => l.id))].sort(),
+    ['check-context-currency', 'check-version-references', 'lint-skills-frontmatter', 'validate-docs-frontmatter']
+  );
 });
 
-test('parseCiWorkflow marks continue-on-error steps as advisory', () => {
+test('parseCiWorkflow captures per-leg args (bash --strict vs pwsh -Strict)', () => {
   const ci = parseCiWorkflow(CI_FIXTURE);
-  assert.equal(ci.find((e) => e.id === 'check-context-currency').enforcing, false);
-  assert.equal(ci.find((e) => e.id === 'lint-skills-frontmatter').enforcing, true);
+  assert.deepEqual(leg(ci, 'validate-docs-frontmatter', 'bash').args, ['--strict']);
+  assert.deepEqual(leg(ci, 'validate-docs-frontmatter', 'pwsh').args, ['-Strict']);
+});
+
+test('parseCiWorkflow marks continue-on-error legs as advisory, per leg', () => {
+  const ci = parseCiWorkflow(CI_FIXTURE);
+  assert.equal(leg(ci, 'check-context-currency', 'bash').enforcing, false);
+  assert.equal(leg(ci, 'lint-skills-frontmatter', 'pwsh').enforcing, true);
 });
 
 // --- computeParity: the referee verdict ---
 
+const parityArgs = (overrides = {}) => ({
+  manifest: MANIFEST_FIXTURE,
+  bash: parseBashBundle(BASH_FIXTURE),
+  pwsh: parsePwshBundle(PWSH_FIXTURE),
+  ci: parseCiWorkflow(CI_FIXTURE),
+  ...overrides,
+});
+
 test('computeParity returns no findings when all three inventories match the manifest', () => {
-  const findings = computeParity({
-    manifest: MANIFEST_FIXTURE,
-    bash: parseBashBundle(BASH_FIXTURE),
-    pwsh: parsePwshBundle(PWSH_FIXTURE),
-    ci: parseCiWorkflow(CI_FIXTURE),
-  });
-  assert.deepEqual(findings, []);
+  assert.deepEqual(computeParity(parityArgs()), []);
 });
 
 test('computeParity flags a manifest required validator missing from the bash bundle', () => {
   const bash = parseBashBundle(BASH_FIXTURE);
   bash.required = bash.required.filter((e) => e.id !== 'validate-docs-frontmatter');
-  const findings = computeParity({
-    manifest: MANIFEST_FIXTURE,
-    bash,
-    pwsh: parsePwshBundle(PWSH_FIXTURE),
-    ci: parseCiWorkflow(CI_FIXTURE),
-  });
+  const findings = computeParity(parityArgs({ bash }));
   assert.ok(findings.some((f) => /validate-docs-frontmatter/.test(f) && /bash/.test(f)));
 });
 
 test('computeParity flags a CI shell validator absent from the manifest', () => {
   const ci = parseCiWorkflow(CI_FIXTURE);
-  ci.push({ id: 'rogue-validator', enforcing: true });
-  const findings = computeParity({
-    manifest: MANIFEST_FIXTURE,
-    bash: parseBashBundle(BASH_FIXTURE),
-    pwsh: parsePwshBundle(PWSH_FIXTURE),
-    ci,
-  });
+  ci.push({ id: 'rogue-validator', shell: 'bash', args: [], enforcing: true });
+  const findings = computeParity(parityArgs({ ci }));
   assert.ok(findings.some((f) => /rogue-validator/.test(f) && /manifest/i.test(f)));
 });
 
 test('computeParity flags a flag/arg drift between a bundle and the manifest', () => {
   const bash = parseBashBundle(BASH_FIXTURE);
-  bash.required.find((e) => e.id === 'validate-docs-frontmatter').args = []; // dropped --strict
-  const findings = computeParity({
-    manifest: MANIFEST_FIXTURE,
-    bash,
-    pwsh: parsePwshBundle(PWSH_FIXTURE),
-    ci: parseCiWorkflow(CI_FIXTURE),
-  });
+  bash.required.find((e) => e.id === 'validate-docs-frontmatter').args = []; // dropped --strict locally
+  const findings = computeParity(parityArgs({ bash }));
   assert.ok(findings.some((f) => /validate-docs-frontmatter/.test(f) && /arg/i.test(f)));
 });
 
-test('computeParity flags a CI enforcing-level mismatch against the manifest', () => {
+// --- P1 regression: CI per-leg coverage (args + per-OS enforcement) ---
+
+test('computeParity flags CI arg drift when a flag is dropped from one CI leg', () => {
   const ci = parseCiWorkflow(CI_FIXTURE);
-  ci.find((e) => e.id === 'check-context-currency').enforcing = true; // manifest says advisory
-  const findings = computeParity({
-    manifest: MANIFEST_FIXTURE,
-    bash: parseBashBundle(BASH_FIXTURE),
-    pwsh: parsePwshBundle(PWSH_FIXTURE),
-    ci,
-  });
-  assert.ok(findings.some((f) => /check-context-currency/.test(f) && /enforc/i.test(f)));
+  leg(ci, 'validate-docs-frontmatter', 'bash').args = []; // CI silently dropped --strict
+  const findings = computeParity(parityArgs({ ci }));
+  assert.ok(findings.some((f) => /validate-docs-frontmatter/.test(f) && /bash/.test(f) && /CI arg drift/.test(f)));
+});
+
+test('computeParity flags per-OS CI enforcement asymmetry (one leg made advisory)', () => {
+  const ci = parseCiWorkflow(CI_FIXTURE);
+  leg(ci, 'validate-docs-frontmatter', 'pwsh').enforcing = false; // windows leg -> continue-on-error
+  const findings = computeParity(parityArgs({ ci }));
+  assert.ok(findings.some((f) => /validate-docs-frontmatter/.test(f) && /pwsh/.test(f) && /enforc/i.test(f)));
+});
+
+test('computeParity flags a manifest CI validator whose OS leg is missing entirely', () => {
+  const ci = parseCiWorkflow(CI_FIXTURE).filter((l) => !(l.id === 'validate-docs-frontmatter' && l.shell === 'pwsh'));
+  const findings = computeParity(parityArgs({ ci }));
+  assert.ok(findings.some((f) => /validate-docs-frontmatter/.test(f) && /pwsh/.test(f)));
+});
+
+test('computeParity flags a CI leg whose enforcing level disagrees with the manifest', () => {
+  const ci = parseCiWorkflow(CI_FIXTURE);
+  leg(ci, 'check-context-currency', 'bash').enforcing = true; // manifest says advisory
+  const findings = computeParity(parityArgs({ ci }));
+  assert.ok(findings.some((f) => /check-context-currency/.test(f) && /bash/.test(f) && /enforc/i.test(f)));
 });

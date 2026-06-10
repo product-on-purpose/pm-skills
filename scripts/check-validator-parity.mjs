@@ -102,27 +102,31 @@ export function parsePwshBundle(text) {
   };
 }
 
-// Split validation.yml into `- name:` step blocks. A validator is advisory in CI
-// when its step carries `continue-on-error: true`. A validator runs on two legs
-// (bash + pwsh) in separate blocks; it is treated as enforcing if any leg enforces.
+// Split validation.yml into `- name:` step blocks and return ONE record per OS leg
+// (a validator runs as a bash step on ubuntu and a pwsh step on windows). Each leg
+// captures its shell, its args, and whether it enforces (a step carrying
+// `continue-on-error: true` is advisory). Per-leg granularity is required so the
+// referee catches CI drift the bundles cannot have: a flag dropped from one leg, or
+// one OS leg silently made advisory while the other still enforces.
 export function parseCiWorkflow(text) {
   const blocks = text.split(/\n[ \t]*- name:/).slice(1);
-  const byId = new Map();
+  const legs = [];
   for (const block of blocks) {
     const enforcing = !/continue-on-error:\s*true/.test(block);
     for (const raw of block.split('\n')) {
       const line = raw.trim();
       if (line.startsWith('#')) continue; // skip comments referencing script paths
-      const re = /scripts\/([\w-]+)\.(?:sh|ps1)\b/g;
-      let m;
-      while ((m = re.exec(line))) {
-        const id = m[1];
-        const prev = byId.get(id);
-        byId.set(id, { id, enforcing: (prev ? prev.enforcing : false) || enforcing });
-      }
+      let m = line.match(/\bbash\s+scripts\/([\w-]+)\.sh\b(.*)$/);
+      if (m) { legs.push({ id: m[1], shell: 'bash', args: tokenizeArgs(m[2]), enforcing }); continue; }
+      m = line.match(/\bpwsh\s+-File\s+scripts\/([\w-]+)\.ps1\b(.*)$/);
+      if (m) { legs.push({ id: m[1], shell: 'pwsh', args: tokenizeArgs(m[2]), enforcing }); }
     }
   }
-  return [...byId.values()];
+  return legs;
+}
+
+function tokenizeArgs(s) {
+  return s.trim().split(/\s+/).filter(Boolean);
 }
 
 // --- the verdict ---------------------------------------------------------
@@ -166,22 +170,34 @@ export function computeParity({ manifest, bash, pwsh, ci }) {
     }
   }
 
-  const ciById = new Map(ci.map((e) => [e.id, e]));
+  // CI: per-leg parity. Each manifest entry with a ci level must have BOTH OS legs in
+  // validation.yml, and each leg's args + enforcing must match the manifest (the bash
+  // leg vs manifest.bash.args, the pwsh leg vs manifest.pwsh.args). This closes the
+  // gap where CI could drop a flag from one leg, or make a single OS leg advisory,
+  // and still pass.
+  const ciByKey = new Map(ci.map((l) => [`${l.id}:${l.shell}`, l]));
   for (const e of manifest) {
     if (!e.ci) continue;
-    if (!ciById.has(e.id)) {
-      findings.push(`manifest declares ci: ${e.ci} for "${e.id}" but no matching shell step exists in validation.yml`);
-      continue;
-    }
-    const actual = ciById.get(e.id).enforcing ? 'enforcing' : 'advisory';
-    if (actual !== e.ci) {
-      findings.push(`"${e.id}" is ${actual} in validation.yml but the manifest declares ci: ${e.ci} (enforcing-level drift)`);
+    for (const shell of ['bash', 'pwsh']) {
+      const l = ciByKey.get(`${e.id}:${shell}`);
+      if (!l) {
+        findings.push(`manifest declares ci: ${e.ci} for "${e.id}" but no ${shell} step exists in validation.yml`);
+        continue;
+      }
+      const expectedArgs = (e[shell] && e[shell].args) || [];
+      if (JSON.stringify(expectedArgs) !== JSON.stringify(l.args)) {
+        findings.push(`validation.yml ${shell} step for "${e.id}" runs args [${l.args.join(' ')}] but the manifest declares [${expectedArgs.join(' ')}] (CI arg drift)`);
+      }
+      const actual = l.enforcing ? 'enforcing' : 'advisory';
+      if (actual !== e.ci) {
+        findings.push(`validation.yml ${shell} step for "${e.id}" is ${actual} but the manifest declares ci: ${e.ci} (CI enforcing-level drift)`);
+      }
     }
   }
-  for (const e of ci) {
-    const m = mById.get(e.id);
+  for (const l of ci) {
+    const m = mById.get(l.id);
     if (!m || !m.ci) {
-      findings.push(`validation.yml runs shell validator "${e.id}" but it is not declared (with a ci: level) in the manifest`);
+      findings.push(`validation.yml runs the ${l.shell} shell validator "${l.id}" but it is not declared (with a ci: level) in the manifest`);
     }
   }
 

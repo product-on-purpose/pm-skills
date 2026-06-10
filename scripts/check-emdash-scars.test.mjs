@@ -43,3 +43,14 @@ test('findScars does not manufacture a scar from a code span followed by a sente
   // `code`. Next must NOT collapse into a phantom " . " when the span is stripped.
   assert.equal(findScars('read by the `docsLoader()`. Repo-root is governance docs').length, 0);
 });
+
+test('findScars ignores a spaced period inside a multi-backtick code span', () => {
+  // CommonMark allows N-backtick spans (used when the content itself holds backticks).
+  // A double-backtick span quoting the scar must not be flagged now that the guard enforces.
+  assert.equal(findScars('the `` . `` token is a literal example').length, 0);
+});
+
+test('findScars still flags a real scar outside a multi-backtick span', () => {
+  const hits = findScars('see ``a `nested` b`` then x . y');
+  assert.equal(hits.length, 1);
+});
