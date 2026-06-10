@@ -4,7 +4,7 @@ description: Defines a testable hypothesis with clear success metrics and a vali
 license: Apache-2.0
 metadata:
   phase: define
-  version: "2.0.1"
+  version: "2.1.0"
   updated: 2026-06-10
   category: ideation
   frameworks: [triple-diamond, lean-startup, design-thinking]
@@ -22,6 +22,13 @@ A hypothesis is a testable prediction about how a change will affect user behavi
 - When team members have differing assumptions about user behavior
 - Before investing significant engineering resources in a feature
 - When pivoting direction and need to validate the new approach
+
+## When NOT to Use
+
+- You are ready to design the actual A/B test (variants, sample size, duration) -> use `measure-experiment-design`; this skill frames what to test, not how
+- The problem itself is still unframed -> use `define-problem-statement` first
+- You want to organize many assumptions and ideas into a discovery structure -> use `define-opportunity-tree`
+- The team needs the full business-model picture, not one testable claim -> use `foundation-lean-canvas`
 
 ## Instructions
 
@@ -47,7 +54,7 @@ When asked to create a hypothesis, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete hypothesis document fills every template section: Hypothesis Statement; Background & Rationale; Target User Segment; Success Metrics; Validation Approach; Risks & Assumptions; and Timeline.
 
 ## Quality Checklist
 

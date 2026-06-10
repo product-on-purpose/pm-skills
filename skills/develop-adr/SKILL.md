@@ -4,8 +4,8 @@ description: Creates an Architecture Decision Record following the Nygard format
 license: Apache-2.0
 metadata:
   phase: develop
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ An Architecture Decision Record documents a significant technical decision along
 - Establishing patterns that future development should follow
 - Documenting the rationale for constraints or non-obvious approaches
 - Preserving institutional knowledge about past decisions
+
+## When NOT to Use
+
+- The decision is a product or UX design choice, not architecture or technology -> use `develop-design-rationale`
+- You are still exploring whether an approach is feasible -> time-box the exploration and record it with `develop-spike-summary` first
+- You need to pitch a solution to stakeholders -> use `develop-solution-brief`; an ADR records a decision, it does not sell one
+- Nothing is actually being decided (the status quo continues unchanged): an ADR without a decision is noise; wait until there is one
 
 ## Instructions
 
@@ -44,7 +51,7 @@ When asked to create an ADR, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete ADR fills every template section: Status; Context; Decision; Consequences; Alternatives Considered; and References.
 
 ## Quality Checklist
 

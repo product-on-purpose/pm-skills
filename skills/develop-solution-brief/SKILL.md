@@ -4,8 +4,8 @@ description: Creates a concise one-page solution overview that communicates the 
 license: Apache-2.0
 metadata:
   phase: develop
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: ideation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ A solution brief is a concise, one-page document that communicates the proposed 
 - Documenting solution intent before detailed PRD writing
 - Comparing multiple solution options at a high level
 - Communicating product direction to leadership
+
+## When NOT to Use
+
+- Stakeholders are aligned and engineering needs the full specification -> use `deliver-prd`; the brief pitches, the PRD specifies
+- The problem is not yet framed or agreed -> use `define-problem-statement` first
+- You are recording a decision already made -> use `develop-adr` (technical) or `develop-design-rationale` (design)
+- You need to compare strategic options across the whole business model -> use `foundation-lean-canvas`
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to create a solution brief, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete brief fills every template section: Problem Recap; Proposed Solution; Key Features; Success Metrics; Trade-offs Considered; Risks & Mitigations; and Next Steps.
 
 ## Quality Checklist
 
