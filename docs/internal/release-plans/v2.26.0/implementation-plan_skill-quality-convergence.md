@@ -18,7 +18,7 @@
 
 ### Task 0: Branch
 
-- [ ] **Step 0.1:** Confirm clean main, `git pull --ff-only`, then `git switch -c chore/v2.26.0-f12-batch0`
+- [x] **Step 0.1:** Confirm clean main, `git pull --ff-only`, then `git switch -c chore/v2.26.0-f12-batch0`
 
 ### Task 1: Batch 0a - description rewrites (14 skills)
 
@@ -26,10 +26,10 @@
 `skills/deliver-user-stories/SKILL.md`, `skills/deliver-acceptance-criteria/SKILL.md`, `skills/deliver-edge-cases/SKILL.md`, `skills/define-hypothesis/SKILL.md`, `skills/measure-experiment-design/SKILL.md`, `skills/discover-interview-synthesis/SKILL.md`, `skills/foundation-meeting-recap/SKILL.md` (append one sentence only), `skills/iterate-lessons-log/SKILL.md`, `skills/iterate-retrospective/SKILL.md`, `skills/utility-slideshow-creator/SKILL.md`, `skills/utility-pm-critic/SKILL.md`, `skills/utility-pm-changelog-curator/SKILL.md`, `skills/utility-pm-release-conductor/SKILL.md`, `skills/utility-pm-skill-auditor/SKILL.md`.
 Create: `HISTORY.md` in each of those skill directories (none has one today).
 
-- [ ] **Step 1.1:** Apply the spec section 3.1-3.3 description texts VERBATIM. Patch-bump each skill's `metadata.version` (2.0.0 -> 2.0.1 for the v2.0-era cohort; 1.0.0 -> 1.0.1 for deliver-acceptance-criteria, foundation-meeting-recap, and the four dispatch + slideshow utilities) and set `metadata.updated` to the merge date.
-- [ ] **Step 1.2 (slideshow truth check, spec 3.2):** Read `skills/utility-slideshow-creator/references/` (`slide-types.md`, `decision-logic.md`, `platform-rules.md`). If a real custom-theming mechanism is documented, append one truthful clause to the new description; otherwise ship the spec text as-is. Record which way it went in the PR description.
-- [ ] **Step 1.3 (dispatch-body check, spec 3.3):** For the four dispatch skills, confirm the SKILL.md body still documents the client-routing instructions that just left the description (all four do today; if any does not, move the removed mechanics into its body under the existing runtime-detection section).
-- [ ] **Step 1.4:** Create each `HISTORY.md` from this shape (adjust versions per skill; date = merge date):
+- [x] **Step 1.1:** Apply the spec section 3.1-3.3 description texts VERBATIM. Patch-bump each skill's `metadata.version` (2.0.0 -> 2.0.1 for the v2.0-era cohort; 1.0.0 -> 1.0.1 for deliver-acceptance-criteria, foundation-meeting-recap, and the four dispatch + slideshow utilities) and set `metadata.updated` to the merge date.
+- [x] **Step 1.2 (slideshow truth check, spec 3.2):** Read `skills/utility-slideshow-creator/references/` (`slide-types.md`, `decision-logic.md`, `platform-rules.md`). If a real custom-theming mechanism is documented, append one truthful clause to the new description; otherwise ship the spec text as-is. Record which way it went in the PR description.
+- [x] **Step 1.3 (dispatch-body check, spec 3.3):** For the four dispatch skills, confirm the SKILL.md body still documents the client-routing instructions that just left the description (all four do today; if any does not, move the removed mechanics into its body under the existing runtime-detection section).
+- [x] **Step 1.4:** Create each `HISTORY.md` from this shape (adjust versions per skill; date = merge date):
 
 ```markdown
 # <skill-name> - History
@@ -40,33 +40,33 @@ Create: `HISTORY.md` in each of those skill directories (none has one today).
 | <old> | <old-updated-date> | baseline | Prior published version |
 ```
 
-- [ ] **Step 1.5: Verify.** Run, expecting pass: `bash scripts/lint-skills-frontmatter.sh` (word counts 20-100, no unquoted ": ", all structural checks); `bash scripts/validate-skill-history.sh` (every new HISTORY.md summary table carries the current version); manual AC-Q2 check: every skill name mentioned inside a new description exists under `skills/` (`ls skills/<name>` for each pointer).
-- [ ] **Step 1.6: Commit.** `git add skills && git commit -m "fix(descriptions): de-collide trigger surfaces + remove phantom themer ref (F-12 Batch 0a)"` (explicit add: the 14 HISTORY.md files are NEW; `commit -am` would silently drop every one of them and break AC-Q4)
+- [x] **Step 1.5: Verify.** Run, expecting pass: `bash scripts/lint-skills-frontmatter.sh` (word counts 20-100, no unquoted ": ", all structural checks); `bash scripts/validate-skill-history.sh` (every new HISTORY.md summary table carries the current version); manual AC-Q2 check: every skill name mentioned inside a new description exists under `skills/` (`ls skills/<name>` for each pointer).
+- [x] **Step 1.6: Commit.** `git add skills && git commit -m "fix(descriptions): de-collide trigger surfaces + remove phantom themer ref (F-12 Batch 0a)"` (explicit add: the 14 HISTORY.md files are NEW; `commit -am` would silently drop every one of them and break AC-Q4)
 
 ### Task 2: Batch 0b - scar sweep under skills/
 
 **Files:** Modify every file matched by the detection grep (16 SKILL.md bodies, ~37 files including references/).
 
-- [ ] **Step 2.1:** Detect: `grep -rEn '[a-z] \. [a-z]' skills/ --include="*.md"`. For each hit, replace the mid-sentence " . " with " - " (or restructure the sentence when that reads better). Do not touch legitimate sentence-period boundaries; the pattern targets lowercase-period-lowercase only - eyeball each hit.
-- [ ] **Step 2.2:** Per spec D-2, files whose ONLY change is the sweep get NO version bump. Skills already bumped in Task 1 need nothing extra.
-- [ ] **Step 2.3: Verify.** The detection grep returns zero matches. `bash scripts/lint-skills-frontmatter.sh` still green.
-- [ ] **Step 2.4: Commit.** `git add skills && git commit -m "style(skills): sweep em-dash-sweep scars from skill bodies and references (F-12 Batch 0b)"`
+- [x] **Step 2.1:** Detect: `grep -rEn '[a-z] \. [a-z]' skills/ --include="*.md"`. For each hit, replace the mid-sentence " . " with " - " (or restructure the sentence when that reads better). Do not touch legitimate sentence-period boundaries; the pattern targets lowercase-period-lowercase only - eyeball each hit.
+- [x] **Step 2.2:** Per spec D-2, files whose ONLY change is the sweep get NO version bump. Skills already bumped in Task 1 need nothing extra.
+- [x] **Step 2.3: Verify.** The detection grep returns zero matches. `bash scripts/lint-skills-frontmatter.sh` still green.
+- [x] **Step 2.4: Commit.** `git add skills && git commit -m "style(skills): sweep em-dash-sweep scars from skill bodies and references (F-12 Batch 0b)"`
 
 ### Task 3: Batch 0c - extend the scar guard to skills/** (TDD)
 
 **Files:** Modify: `scripts/check-emdash-scars.mjs`, `scripts/check-emdash-scars.test.mjs`.
 
-- [ ] **Step 3.1:** Read both files first; reuse their existing temp-fixture helper and test idiom (node:test, pure builtins).
-- [ ] **Step 3.2: Write the failing test.** Add a case asserting that a scar inside a fixture `skills/<x>/SKILL.md` IS reported, and a clean skills file is not. Run: `node --test scripts/check-emdash-scars.test.mjs`. Expected: the new case FAILS (skills/ is outside scope today).
-- [ ] **Step 3.3: Implement.** Add `skills/**` hand-authored markdown to the guard's scanned scope (keeping its existing fence-awareness and multi-backtick span handling from PR #183 intact).
-- [ ] **Step 3.4:** Re-run the test file: all cases PASS. Then run the guard against the real tree: `node scripts/check-emdash-scars.mjs`. Expected: zero findings (Task 2 cleaned the corpus; this guard is ENFORCING in CI, so scope extension and sweep must be in the same PR).
-- [ ] **Step 3.5: Commit.** `git add scripts/check-emdash-scars.mjs scripts/check-emdash-scars.test.mjs && git commit -m "feat(ci): scar guard now covers skills/** (test-first; F-12 Batch 0c)"`
+- [x] **Step 3.1:** Read both files first; reuse their existing temp-fixture helper and test idiom (node:test, pure builtins).
+- [x] **Step 3.2: Write the failing test.** Add a case asserting that a scar inside a fixture `skills/<x>/SKILL.md` IS reported, and a clean skills file is not. Run: `node --test scripts/check-emdash-scars.test.mjs`. Expected: the new case FAILS (skills/ is outside scope today).
+- [x] **Step 3.3: Implement.** Add `skills/**` hand-authored markdown to the guard's scanned scope (keeping its existing fence-awareness and multi-backtick span handling from PR #183 intact).
+- [x] **Step 3.4:** Re-run the test file: all cases PASS. Then run the guard against the real tree: `node scripts/check-emdash-scars.mjs`. Expected: zero findings (Task 2 cleaned the corpus; this guard is ENFORCING in CI, so scope extension and sweep must be in the same PR).
+- [x] **Step 3.5: Commit.** `git add scripts/check-emdash-scars.mjs scripts/check-emdash-scars.test.mjs && git commit -m "feat(ci): scar guard now covers skills/** (test-first; F-12 Batch 0c)"`
 
 ### Task 4: Batch 0 PR
 
-- [ ] **Step 4.1:** `CHANGELOG.md` `[Unreleased]`: Fixed - description collision pairs de-embedded with boundary pointers across 9 skills; phantom utility-slideshow-themer reference removed; dispatch-skill descriptions trimmed to triggers (mechanics stay in bodies). Changed - em-dash scar sweep across `skills/`; scar guard scope extended to `skills/**`. Public paths only; reference issue #135 and the 2026-06-09 audit by date, not by gitignored path.
-- [ ] **Step 4.2:** Full bundle both shells: `bash scripts/pre-tag-validate.sh` and `pwsh -File scripts/pre-tag-validate.ps1` - ALL CHECKS PASSED twice.
-- [ ] **Step 4.3:** Push, `gh pr create --title "fix: F-12 Batch 0 - description integrity + scar hygiene (#135)"`, verify ACTUAL CI conclusions (`gh pr checks`; never the watcher exit code), squash-merge, sync main.
+- [x] **Step 4.1:** `CHANGELOG.md` `[Unreleased]`: Fixed - description collision pairs de-embedded with boundary pointers across 9 skills; phantom utility-slideshow-themer reference removed; dispatch-skill descriptions trimmed to triggers (mechanics stay in bodies). Changed - em-dash scar sweep across `skills/`; scar guard scope extended to `skills/**`. Public paths only; reference issue #135 and the 2026-06-09 audit by date, not by gitignored path.
+- [x] **Step 4.2:** Full bundle both shells: `bash scripts/pre-tag-validate.sh` and `pwsh -File scripts/pre-tag-validate.ps1` - ALL CHECKS PASSED twice.
+- [x] **Step 4.3:** Push, `gh pr create --title "fix: F-12 Batch 0 - description integrity + scar hygiene (#135)"`, verify ACTUAL CI conclusions (`gh pr checks`; never the watcher exit code), squash-merge, sync main.
 
 ### Task 5: Batch 1 - Deliver cohort convergence (in v2.26.0)
 
