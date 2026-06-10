@@ -112,7 +112,7 @@
 
 ## Quick Start
 
-After installing, you'll have all 65 skills available (invoke any by name, like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus 10 `/workflow-*` orchestrator commands, templates, sub-agents, and 95+ sample outputs.
+After installing, you'll have all 65 skills available (invoke any by name, like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus 10 `/workflow-*` orchestrator commands and the `/chain` ad-hoc runner, templates, sub-agents, and 95+ sample outputs.
 
 **Claude Code (recommended):**
 
@@ -917,6 +917,8 @@ Workflows combine multiple skills into guided, end-to-end processes that mirror 
 | **[Triple Diamond](_workflows/triple-diamond.md)**             | Major initiatives                                      | Full 30 phase-skill flow across 6 phases                           |
 | **[Customer Discovery](_workflows/customer-discovery.md)**     | Research synthesis                                     | Raw research into a validated problem statement                    |
 | **[Sprint Planning](_workflows/sprint-planning.md)**           | Sprint prep                                            | Sprint-ready stories from a backlog                                |
+
+**Ad-hoc chains and building your own.** When no curated workflow fits, `/chain` runs any ordered sequence of skills against shared context (ephemeral, checkpointed by default; it routes to the `pm-workflow-orchestrator` engine). If a chain proves reusable, `utility-pm-workflow-builder` guides you from that chain (or a fresh idea) to a complete draft workflow packet, staged for review before anything lands in the repo.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

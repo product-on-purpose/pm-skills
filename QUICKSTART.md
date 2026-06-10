@@ -3,7 +3,7 @@
 ## What's Included
 
 - **65 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 9 foundation skills, 11 utility skills, 15 tool skills)
-- **10 slash-command docs in `commands/`** (the 10 `/workflow-*` orchestrator commands)
+- **11 slash-command docs in `commands/`** (the 10 `/workflow-*` orchestrator commands plus `/chain`)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 
 ## Installation
@@ -83,7 +83,7 @@ See the [PM Skill Lifecycle guide](https://product-on-purpose.github.io/pm-skill
 
 ```
 skills/            # All 65 skill definitions (30 phase + 9 foundation + 11 utility + 15 tool, flat)
-commands/          # 10 command markdown files (10 workflow)
+commands/          # 11 command markdown files (10 workflow + /chain)
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
 .claude/pm-skills-for-claude.md  # instructions for Claude Code users

@@ -35,7 +35,7 @@ jobs:
 
           - **PM skills library** (flat `skills/{phase-skill}/` + foundation capabilities)
           - **Sample output library** (`library/skill-output-samples/` with README and canonical sample corpus)
-          - **Slash commands** (10 `/workflow-*` orchestrators; every skill invocable by name)
+          - **Slash commands** (10 `/workflow-*` orchestrators plus the `/chain` ad-hoc runner; every skill invocable by name)
           - **Workflows** (Triple Diamond, Lean Startup, Feature Kickoff)
           - **Claude plugin manifest** (`.claude-plugin/plugin.json`)
           - **Claude/openskills discovery** via sync helper (`scripts/sync-claude.sh` / `.ps1`)
@@ -43,7 +43,7 @@ jobs:
 
           ## Download
 
-          **`pm-skills-v${{ steps.version.outputs.version }}.zip`** . Complete package for all platforms
+          **`pm-skills-v${{ steps.version.outputs.version }}.zip`** - Complete package for all platforms
 
           ## Installation
 

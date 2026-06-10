@@ -433,10 +433,11 @@ Workflow links are repo-relative within this repository.
 
 ## Commands
 
-The 10 `/workflow-*` orchestrator commands chain multiple skills into end-to-end sequences. Each individual skill is invoked directly by name (`/pm-skills:<skill-name>` on Claude Code, `$<skill-name>` on Codex); the per-skill command wrappers were removed in v2.22.0.
+The 10 `/workflow-*` orchestrator commands chain multiple skills into end-to-end sequences, and `/chain` runs an ad-hoc ordered chain of skills (routing to the orchestrator's Mode B). Each individual skill is invoked directly by name (`/pm-skills:<skill-name>` on Claude Code, `$<skill-name>` on Codex); the per-skill command wrappers were removed in v2.22.0.
 
 | Command | Description |
 |---------|-------------|
+| `/chain` | Run an ad-hoc ordered chain of skills with shared context; routes to the orchestrator's Mode B |
 | `/workflow-feature-kickoff` | Run the Feature Kickoff workflow (problem -> hypothesis -> PRD -> stories) |
 | `/workflow-customer-discovery` | Run the Customer Discovery workflow |
 | `/workflow-sprint-planning` | Run the Sprint Planning workflow |
