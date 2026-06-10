@@ -8,15 +8,14 @@
 
 ## Installation
 
-### Claude.ai / Claude Desktop
+### Claude Code (recommended: plugin marketplace)
 
-1. Go to **Settings > Capabilities** (Desktop) or **Project Settings > Add Files** (Claude.ai)
-2. Upload the latest release ZIP (`pm-skills-vX.X.X.zip`) from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
-3. Skills are now available in your conversations
+```
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
+```
 
-### Claude Code
-
-Clone or copy to your project:
+Prefer a file-based install? Clone or copy to your project:
 
 ```bash
 git clone https://github.com/product-on-purpose/pm-skills.git
@@ -24,11 +23,23 @@ git clone https://github.com/product-on-purpose/pm-skills.git
 
 Or download and extract the latest ZIP from [Releases](https://github.com/product-on-purpose/pm-skills/releases) to your project root.
 
+### Claude.ai / Claude Desktop
+
+1. Go to **Settings > Capabilities** (Desktop) or **Project Settings > Add Files** (Claude.ai)
+2. Upload the latest release ZIP (`pm-skills-vX.X.X.zip`) from [Releases](https://github.com/product-on-purpose/pm-skills/releases)
+3. Skills are now available in your conversations
+
 ### Other AI Agents
 
-Point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{skill-name}/SKILL.md` (e.g., `skills/deliver-prd/SKILL.md`).
+Add via the open skills CLI:
 
-More detail: see `docs/getting-started/index.md` for the long-form guide.
+```bash
+npx skills add product-on-purpose/pm-skills
+```
+
+Or point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{skill-name}/SKILL.md` (e.g., `skills/deliver-prd/SKILL.md`).
+
+More detail: see the [Getting Started guide](https://product-on-purpose.github.io/pm-skills/getting-started/) for the long-form walkthrough.
 
 ## Usage
 
@@ -66,7 +77,7 @@ flowchart LR
     Iterate --> Validate
 ```
 
-See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
+See the [PM Skill Lifecycle guide](https://product-on-purpose.github.io/pm-skills/guides/pm-skill-lifecycle/) for detailed workflow patterns.
 
 ## File Structure
 
@@ -83,7 +94,8 @@ For Claude Code discovery, run `./scripts/sync-claude.sh` (or `.ps1`) to populat
 
 ## Learn More
 
-- Full documentation: https://github.com/product-on-purpose/pm-skills
+- Full documentation: https://product-on-purpose.github.io/pm-skills/
+- GitHub repository: https://github.com/product-on-purpose/pm-skills
 - Skill specification: https://agentskills.io/specification
 
 ---
