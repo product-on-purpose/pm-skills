@@ -20,7 +20,7 @@ Install from the plugin marketplace, no clone required:
 /plugin install pm-skills@product-on-purpose
 ```
 
-All 65 skills are available immediately. Invoke any by name, for example `/pm-skills:deliver-prd`. Already on the old `pm-skills-marketplace`? It keeps working; see [Setup by Platform](platforms.md) to switch homes.
+All 66 skills are available immediately. Invoke any by name, for example `/pm-skills:deliver-prd`. Already on the old `pm-skills-marketplace`? It keeps working; see [Setup by Platform](platforms.md) to switch homes.
 
 ### Cross-agent (Cursor, GitHub Copilot, Cline, and others)
 
@@ -28,7 +28,7 @@ All 65 skills are available immediately. Invoke any by name, for example `/pm-sk
 npx skills add product-on-purpose/pm-skills
 ```
 
-Installs all 65 skills into your agent's default skills directory via the open [skills CLI](https://github.com/vercel-labs/skills). No clone, no sync.
+Installs all 66 skills into your agent's default skills directory via the open [skills CLI](https://github.com/vercel-labs/skills). No clone, no sync.
 
 ### Claude.ai / Claude Desktop
 
@@ -87,8 +87,8 @@ See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
 ## File Structure
 
 ```
-skills/            # All 65 skill definitions (30 phase + 9 foundation + 10 utility + 15 tool, flat)
-commands/          # 10 command markdown files
+skills/            # All 65 skill definitions (30 phase + 9 foundation + 12 utility + 15 tool, flat)
+commands/          # 11 command markdown files
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
 .claude/pm-skills-for-claude.md  # instructions for Claude Code users

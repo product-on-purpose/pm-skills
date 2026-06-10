@@ -238,6 +238,11 @@ Facilitates and documents a team retrospective capturing what went well, what to
 
 Guides contributors from a PM skill idea to a complete Skill Implementation Packet with gap analysis, classification, and draft files. Use when creating new domain, foundation, or utility skills for the pm-skills library.
 
+#### pm-workflow-builder
+**Path:** `skills/utility-pm-workflow-builder/SKILL.md`
+
+Guides a contributor from a workflow idea (or a promoted /chain expression) to a complete Workflow Implementation Packet: draft workflow file, draft workflow command, and cross-cutting update checklist, staged under `_staging/` for review. Runs overlap analysis against the existing workflows with a Why Gate; refuses Tier-3 maintenance skills, dispatch skills, and workflows as steps. The builder authors only; it never runs a chain and never promotes its own output.
+
 ---
 
 #### pm-skill-validate
@@ -429,14 +434,17 @@ Day 5 (Friday) sprint-closing move of a Design Sprint that produces the bundled 
 
 Workflow links are repo-relative within this repository.
 
+How these compose: run a sequence once with `/chain` (the orchestrator's Mode B; ephemeral, nothing committed). When a chain proves reusable, the orchestrator's completion output suggests promoting it; `utility-pm-workflow-builder` turns that chain (or a fresh idea) into a staged draft workflow packet, and after human review the draft lands as a new `_workflows/` file plus `workflow-*` command, joining the curated set above.
+
 ---
 
 ## Commands
 
-The 10 `/workflow-*` orchestrator commands chain multiple skills into end-to-end sequences. Each individual skill is invoked directly by name (`/pm-skills:<skill-name>` on Claude Code, `$<skill-name>` on Codex); the per-skill command wrappers were removed in v2.22.0.
+The 10 `/workflow-*` orchestrator commands chain multiple skills into end-to-end sequences, and `/chain` runs an ad-hoc ordered chain of skills (routing to the orchestrator's Mode B). Each individual skill is invoked directly by name (`/pm-skills:<skill-name>` on Claude Code, `$<skill-name>` on Codex); the per-skill command wrappers were removed in v2.22.0.
 
 | Command | Description |
 |---------|-------------|
+| `/chain` | Run an ad-hoc ordered chain of skills with shared context; routes to the orchestrator's Mode B |
 | `/workflow-feature-kickoff` | Run the Feature Kickoff workflow (problem -> hypothesis -> PRD -> stories) |
 | `/workflow-customer-discovery` | Run the Customer Discovery workflow |
 | `/workflow-sprint-planning` | Run the Sprint Planning workflow |

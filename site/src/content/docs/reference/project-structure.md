@@ -5,7 +5,7 @@ description: High-level walkthrough of the pm-skills repository layout - skills/
 
 ## Table of Contents
 - [Directory Overview](#directory-overview)
-- [/skills/ - Skills](#skills---the-65-pm-skills-flat)
+- [/skills/ - Skills](#skills---the-66-pm-skills-flat)
 - [/commands/ - Slash Commands](#commands---slash-commands)
 - [/workflows/ - Workflows](#_workflows---workflows)
 - [/docs/ - Documentation](#docs---documentation)
@@ -38,7 +38,7 @@ Note on `agents/` vs `_agent-context/`: these are distinct directories with diff
 
 ---
 
-## `/skills/` - The 65 PM Skills (flat)
+## `/skills/` - The 66 PM Skills (flat)
 
 Skills are the core of PM-Skills. Each skill teaches AI assistants how to produce a specific PM artifact with professional quality.
 

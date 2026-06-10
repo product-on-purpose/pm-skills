@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `/chain` command (F-15, issue #134): a terse front door to the `pm-workflow-orchestrator` engine's Mode B. Takes an ordered chain expression (`deliver-prd -> deliver-user-stories <context>`; `,` and `->` equivalent) plus flags (`--auto`, `--force-auto`, `--dry-run`, `--thread`), parses only the separator-driven boundary, and hands everything to the engine, which validates every name pre-flight and owns all run rules. The grammar is written down once as the Mode B Chain Expression Contract in `skills/utility-pm-workflow-orchestrator/references/PARSE-CONTRACT.md`. No new engine and no new skill; command files go 10 to 11.
+- `utility-pm-workflow-builder` skill (F-14, issue #133): guided authoring from a workflow idea, a named skill list, or a promoted `/chain` expression to a complete Workflow Implementation Packet (draft `_workflows/` file, draft `workflow-*` command, cross-cutting update checklist including the validator-blind `release.yml` release-note surface) staged under `_staging/workflows/` for human review. Runs overlap analysis with a Why Gate and a >70% kill gate; refuses Tier-3 maintenance skills, dispatch skills, and workflows as steps. Ships with 3-thread library samples. Catalog grows 65 to 66 (utility 11 to 12).
+
+### Changed
+
+- `utility-pm-workflow-orchestrator` 1.1.0: the user-declared dependency flag is now named `--thread`, the completion output suggests promoting a reusable 2+ step chain to the builder, and the always-loaded description is rewritten to lead with triggers and boundaries (client-routing mechanics stay in the body). First `HISTORY.md` added.
+
 ### Fixed
 
 - Description collision pairs de-embedded across 9 skills with explicit boundary pointers (the deliver user-stories / acceptance-criteria / edge-cases trio, define-hypothesis vs measure-experiment-design, discover-interview-synthesis vs foundation-meeting-recap, iterate-lessons-log vs iterate-retrospective); the phantom `utility-slideshow-themer` reference removed from `utility-slideshow-creator`; the four sub-agent dispatch skill descriptions trimmed to their trigger surface (client-routing mechanics stay documented in the bodies). Each touched skill takes a patch bump and gains its first `HISTORY.md` (14 skills). From the 2026-06-09 repo audit; issue #135 (F-12 Batch 0).

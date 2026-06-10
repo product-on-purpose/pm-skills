@@ -4,7 +4,7 @@
   <a href="https://github.com/product-on-purpose/pm-skills">PM-Skills</a>
 </h1>
 
-<h4 align="center">A curated library of 65 best-practice, plug-and-play product management skills covering the complete product lifecycle - plus templates, workflows, and 95+ real-world sample outputs that set the quality bar.</h4>
+<h4 align="center">A curated library of 66 best-practice, plug-and-play product management skills covering the complete product lifecycle - plus templates, workflows, and 95+ real-world sample outputs that set the quality bar.</h4>
 
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills/issues/new?labels=bug">Report a Bug</a>
@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/badge/version-2.25.2-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
-    <img src="https://img.shields.io/badge/skills-65-brightgreen.svg?style=flat-square" alt="Skills">
+    <img src="https://img.shields.io/badge/skills-66-brightgreen.svg?style=flat-square" alt="Skills">
   </a>
   <a href="https://agentskills.io/specification">
     <img src="https://img.shields.io/badge/spec-agentskills.io-orange.svg?style=flat-square" alt="Agent Skills Spec">
@@ -112,7 +112,7 @@
 
 ## Quick Start
 
-After installing, you'll have all 65 skills available (invoke any by name, like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus 10 `/workflow-*` orchestrator commands, templates, sub-agents, and 95+ sample outputs.
+After installing, you'll have all 66 skills available (invoke any by name, like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus 10 `/workflow-*` orchestrator commands and the `/chain` ad-hoc runner, templates, sub-agents, and 95+ sample outputs.
 
 **Claude Code (recommended):**
 
@@ -367,7 +367,7 @@ PM-Skills gives your AI instant access to professional frameworks refined across
 
 ### Key Features
 
-- ✅ **65 Production-Ready Skills** covering the complete product lifecycle (30 phase skills + 9 foundation skills + 11 utility skills + 15 tool skills for structured workshop methodologies)
+- ✅ **66 Production-Ready Skills** covering the complete product lifecycle (30 phase skills + 9 foundation skills + 12 utility skills + 15 tool skills for structured workshop methodologies)
 - ✅ **Triple Diamond Framework** organizing Discover, Define, Develop, Deliver, Measure, and Iterate phases
 - ✅ **Tool Families** for the Foundation Sprint (2-day strategic alignment) and Design Sprint (5-day prototype-and-test) workshop methodologies
 - ✅ **5 Active Orchestration Sub-Agents** (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) for Claude Code, with dispatch skills extending the pattern to Codex, Cursor, Windsurf, Copilot, and Gemini CLI
@@ -469,7 +469,7 @@ flowchart LR
 
 > Already installed via the old `pm-skills-marketplace`? It keeps working - no action needed. To move to the new home, see the [v2.21.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.21.0).
 
-All 65 skills and their slash commands become available immediately. No clone required.
+All 66 skills and their slash commands become available immediately. No clone required.
 
 **Cross-Agent via skills CLI (Cursor, Copilot, Cline, and others)**
 
@@ -477,7 +477,7 @@ All 65 skills and their slash commands become available immediately. No clone re
 npx skills add product-on-purpose/pm-skills
 ```
 
-The open [skills CLI](https://github.com/vercel-labs/skills) from Vercel Labs scans the `skills/` directory and installs all 65 skills into your agent's default skills directory. Works with Claude Code, Cursor, GitHub Copilot, Cline, and any other agent that supports the skills ecosystem. Discoverable via [skills.sh/product-on-purpose/pm-skills](https://skills.sh/product-on-purpose/pm-skills).
+The open [skills CLI](https://github.com/vercel-labs/skills) from Vercel Labs scans the `skills/` directory and installs all 66 skills into your agent's default skills directory. Works with Claude Code, Cursor, GitHub Copilot, Cline, and any other agent that supports the skills ecosystem. Discoverable via [skills.sh/product-on-purpose/pm-skills](https://skills.sh/product-on-purpose/pm-skills).
 
 Telemetry is anonymous and opt-out via `DISABLE_TELEMETRY=1` or `DO_NOT_TRACK=1`.
 
@@ -918,6 +918,8 @@ Workflows combine multiple skills into guided, end-to-end processes that mirror 
 | **[Customer Discovery](_workflows/customer-discovery.md)**     | Research synthesis                                     | Raw research into a validated problem statement                    |
 | **[Sprint Planning](_workflows/sprint-planning.md)**           | Sprint prep                                            | Sprint-ready stories from a backlog                                |
 
+**Ad-hoc chains and building your own.** When no curated workflow fits, `/chain` runs any ordered sequence of skills against shared context (ephemeral, checkpointed by default; it routes to the `pm-workflow-orchestrator` engine). If a chain proves reusable, `utility-pm-workflow-builder` guides you from that chain (or a fresh idea) to a complete draft workflow packet, staged for review before anything lands in the repo.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
@@ -1064,10 +1066,10 @@ The Design Sprint tool family ships with five companion guides:
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
 | **Current version** | [v2.25.2](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.2)           |
-| **Skill count**     | 65 skills (30 phase + 9 foundation + 11 utility + 15 tool)                                |
+| **Skill count**     | 66 skills (30 phase + 9 foundation + 12 utility + 15 tool)                                |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |
-| **Slash commands**  | 10                                                                                        |
+| **Slash commands**  | 11                                                                                        |
 | **Spec**            | [agentskills.io](https://agentskills.io/specification)                                    |
 | **License**         | [Apache 2.0](LICENSE)                                                                     |
 | **Docs site**       | [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/) |
@@ -1076,7 +1078,7 @@ The Design Sprint tool family ships with five companion guides:
 
 ```
 pm-skills/
-├── skills/                  # 65 PM skills (30 phase, 9 foundation, 11 utility, 15 tool)
+├── skills/                  # 66 PM skills (30 phase, 9 foundation, 12 utility, 15 tool)
 ├── commands/                # Slash commands mapping to skills, workflows, and sub-agents
 ├── _workflows/              # Workflow chains: feature-kickoff, lean-startup, triple-diamond, and more
 ├── agents/                  # Sub-agent definitions (v2.16.0+, Claude Code plugin runtime)
@@ -1097,7 +1099,7 @@ pm-skills/
 
 | Path                                                             | What's in it                                                                          |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| [`skills/`](skills/)                                             | All 65 PM skills, each with SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md |
+| [`skills/`](skills/)                                             | All 66 PM skills, each with SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md |
 | [`commands/`](commands/)                                         | Slash command definitions for Claude Code                                             |
 | [`_workflows/`](_workflows/)                                     | Multi-skill workflow chains with handoff guidance                                     |
 | [`library/skill-output-samples/`](library/skill-output-samples/) | 95+ real sample outputs organized by skill name                                       |
@@ -1248,7 +1250,7 @@ See [Foundation Sprint vs Design Sprint](https://product-on-purpose.github.io/pm
 </details>
 
 <details>
-<summary><strong>Do I need to install all 65 skills?</strong></summary>
+<summary><strong>Do I need to install all 66 skills?</strong></summary>
 
 No. You can use individual skills as needed. Each skill is self-contained and works independently. If you only need PRDs, just reference `skills/deliver-prd/`. The workflows are optional guides, not requirements.
 
@@ -1317,7 +1319,7 @@ Slash commands (like `/pm-skills:deliver-prd` or `/pm-skills:define-hypothesis`)
 <details>
 <summary><strong>What's the difference between pm-skills and pm-skills-mcp?</strong></summary>
 
-**pm-skills** (this repo) is the source skill library with all 65 PM skills as markdown files. Best for Claude Code slash commands, file browsing, and customization.
+**pm-skills** (this repo) is the source skill library with all 66 PM skills as markdown files. Best for Claude Code slash commands, file browsing, and customization.
 
 **pm-skills-mcp** wraps the same skills in an MCP server for programmatic access. Best for Claude Desktop, Cursor, and any MCP-compatible client when you want tool-based invocation rather than slash commands.
 

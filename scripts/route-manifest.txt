@@ -101,6 +101,8 @@
 /releases/Release_v2.23.0/index.html
 /releases/Release_v2.24.0/index.html
 /releases/Release_v2.25.0/index.html
+/releases/Release_v2.25.1/index.html
+/releases/Release_v2.25.2/index.html
 /releases/Release_v2.3/index.html
 /releases/Release_v2.4.1/index.html
 /releases/Release_v2.4.2/index.html
@@ -292,6 +294,9 @@
 /samples/utility-pm-skill-builder/sample_utility-pm-skill-builder_storevine_campaign-analytics-skill/index.html
 /samples/utility-pm-skill-iterate/sample_utility-pm-skill-iterate_storevine_iterate-campaign-analytics/index.html
 /samples/utility-pm-skill-validate/sample_utility-pm-skill-validate_storevine_validate-campaign-analytics/index.html
+/samples/utility-pm-workflow-builder/sample_utility-pm-workflow-builder_brainshelf_digest-experiment-loop/index.html
+/samples/utility-pm-workflow-builder/sample_utility-pm-workflow-builder_storevine_campaign-launch-workflow/index.html
+/samples/utility-pm-workflow-builder/sample_utility-pm-workflow-builder_workbench_enterprise-rollout-review/index.html
 /samples/utility-slideshow-creator/sample_utility-slideshow-creator_storevine_campaigns-launch-deck/index.html
 /samples/utility-update-pm-skills/sample_utility-update-pm-skills_storevine_update-report/index.html
 /showcase/brainshelf/index.html
@@ -370,6 +375,7 @@
 /skills/utility/utility-pm-skill-builder/index.html
 /skills/utility/utility-pm-skill-iterate/index.html
 /skills/utility/utility-pm-skill-validate/index.html
+/skills/utility/utility-pm-workflow-builder/index.html
 /skills/utility/utility-pm-workflow-orchestrator/index.html
 /skills/utility/utility-slideshow-creator/index.html
 /skills/utility/utility-update-pm-skills/index.html

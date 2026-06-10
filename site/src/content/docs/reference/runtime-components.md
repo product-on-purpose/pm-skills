@@ -17,7 +17,7 @@ description: Catalog of pm-skills runtime components (sub-agents, hooks, output 
 
 pm-skills ships two layers of capability:
 
-**Content library (the bulk of the repo):** 65 skills, 10 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
+**Content library (the bulk of the repo):** 66 skills, 11 slash commands, 12 workflows, 27 enforcing CI validators. Skills are content - reference material an AI reads at invocation time. They do not execute logic on their own.
 
 **Runtime components (this catalog):** Plugin features that take action. Sub-agents are dispatched by Claude Code's intent classifier and run in their own context window. Hooks fire on lifecycle events (PreToolUse, PostToolUse, Stop). Output styles transform how Claude formats responses.
 
@@ -25,8 +25,8 @@ The distinction matters because skills are portable across clients (any client t
 
 | Layer | What it is | How AI uses it | Cross-client portable? |
 |---|---|---|---|
-| Skills (65) | Reference content with frontmatter, templates, examples | AI reads SKILL.md at invocation time | Yes (per agentskills.io spec) |
-| Commands (10) | The `/workflow-*` orchestrators that chain skills into lifecycle sequences | User types `/workflow-name`, AI walks the skill sequence | Claude Code native |
+| Skills (66) | Reference content with frontmatter, templates, examples | AI reads SKILL.md at invocation time | Yes (per agentskills.io spec) |
+| Commands (11) | The `/workflow-*` orchestrators plus the `/chain` ad-hoc runner | User types `/workflow-name` or `/chain`, AI walks the skill sequence | Claude Code native |
 | Workflows (12) | Multi-skill chains for full lifecycle moments | AI walks ordered skill invocations | Native; portable conceptually |
 | Sub-agents (5; the v2.16 slate of 4 plus `pm-workflow-orchestrator` added v2.24.0) | Plugin components matched via `description:` and run in isolated context | Claude Code's intent classifier delegates; OR user invokes the dispatch skill (`/pm-skills:utility-pm-{role}`) or @-mentions `@agent-pm-skills:pm-{role}` | Claude Code only; dispatch skills provide cross-client parity |
 | Hooks (0; v2.17+ scope) | Lifecycle event handlers (PreToolUse, PostToolUse, Stop, etc.) | Claude Code fires automatically on configured events | Claude Code only |
@@ -185,6 +185,21 @@ Neither child (auditor, curator) chains further. Chain depth = 2 is enforced via
 Dispatch skill detects runtime and either invokes native sub-agent (Claude Code path) or reads + executes the agent definition inline (non-Claude path). The "reference + execute inline" pattern enables non-Claude clients to consume sub-agent intent without losing functional access.
 
 For pm-release-conductor specifically (most complex sub-agent), the dispatch skill uses an expanded "reference + execute inline" pattern that inlines auditor + curator behaviors at G0 + G2 on non-Claude clients (instead of chaining; chain composition is Claude Code only). This pattern is validated by Phase 2 GATE C sub-spike before shipping the conductor dispatch skill.
+
+### Pattern 5: /chain -> orchestrator Mode B -> builder (ad-hoc to durable, v2.26.0)
+
+`/chain` is a thin front door to `pm-workflow-orchestrator` Mode B: it parses only the separator-driven chain-expression boundary (grammar in `skills/utility-pm-workflow-orchestrator/references/PARSE-CONTRACT.md`, Mode B Chain Expression Contract) and hands the steps, flags, and context to the engine, which validates every name pre-flight and owns all run rules. A completed 2+ step chain's terminal output suggests promotion; `utility-pm-workflow-builder` turns the chain expression into a staged Workflow Implementation Packet (draft `_workflows/` file, draft command, cross-cutting checklist) that a human reviews and promotes. The loop: try a sequence ad hoc, discover it is reusable, make it durable, and from then on run the curated `workflow-*` command.
+
+Who runs what, pinned (the orchestrator boundary table):
+
+| Surface | Persistence | Who executes | Validation source |
+|---|---|---|---|
+| `/chain` | Ephemeral; nothing committed | `pm-workflow-orchestrator` Mode B (native sub-agent on Claude Code; dispatch skill inline branch elsewhere) | Chain-expression contract in PARSE-CONTRACT.md |
+| `utility-pm-workflow-orchestrator` Mode B direct | Ephemeral | Same engine | Same contract |
+| `workflow-*` commands | Durable, curated, hand-authored | Main agent reads each skill inline (NOT the orchestrator) | Author judgment + repo validators |
+| `utility-pm-workflow-builder` | Authors durable files via `_staging/` | Not an executor; writes a packet only | Same contract, applied at authoring time |
+
+The boundary rules carried over unchanged from v2.24.0: the orchestrator never nests a workflow (Category 3 steps surface as MANUAL), never spawns a sub-agent (leaf-inlining for Category 2; no `Agent` tool; no `_chain-permitted.yaml` entry), and Mode A / Mode B threading semantics are unchanged apart from the now-named `--thread` flag for user-declared linear dependency.
 
 ## Cross-References
 

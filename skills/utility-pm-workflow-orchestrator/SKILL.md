@@ -1,11 +1,11 @@
 ---
 name: utility-pm-workflow-orchestrator
-description: Run an ordered sequence of pm-skills against one input via the pm-workflow-orchestrator sub-agent, pausing for go/no-go and stopping on a failed or empty step. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skills:pm-workflow-orchestrator, which delegates each step through the Skill tool); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-workflow-orchestrator.md and walks the loop inline after a tool-capability pre-flight. Explicit invocation only; never fires proactively. EXPERIMENTAL on all non-Claude clients and on the native path until smoke-tested; run --dry-run first.
+description: Run an ordered sequence of pm-skills against one input, pausing for go/no-go and stopping on a failed or empty step. Accepts a saved prioritized action plan (Mode A) or an ad-hoc named chain (Mode B; the chain command routes here). Explicit invocation only; run --dry-run first while the native path is EXPERIMENTAL. To author a durable workflow instead, use utility-pm-workflow-builder.
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.0"
-  updated: 2026-06-01
+  version: "1.1.0"
+  updated: 2026-06-10
   category: workflow
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -24,13 +24,15 @@ Cross-client dispatch wrapper for the `pm-workflow-orchestrator` sub-agent. Dete
 ## When to Use
 
 - You produced a `foundation-prioritized-action-plan` and want to run its runnable Section 7 prompts in order, pausing for go/no-go (Mode A).
-- You want to run an ad-hoc, user-named chain of pm-skills against shared context (Mode B), for example `deliver-prd` then `deliver-user-stories`.
+- You want to run an ad-hoc, user-named chain of pm-skills against shared context (Mode B), for example `deliver-prd` then `deliver-user-stories`. On Claude Code, the /chain command is the terse front door for this mode.
 - You want a generic runner for a dynamic chain that is NOT a pre-curated `workflow-*` command.
 
 Run modes (orthogonal to client):
 
 - **CHECKPOINTED (default):** pause after each OK step for approve / edit / skip / redo.
 - **GUARDED AUTO (`--auto`, opt-in):** run without pausing on clean steps; still stop on failed, pause on empty, and stay checkpointed for Complex / Chaotic plans unless `--force-auto`.
+
+`--thread` declares a linear dependency so each step receives the prior step's confirmed artifact; see the Mode B Chain Expression Contract in `references/PARSE-CONTRACT.md`.
 
 ## When NOT to Use
 
