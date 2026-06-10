@@ -1,11 +1,11 @@
 # v2.25.2 Release Plan: Maintenance patch (bank post-v2.25.1 accumulation)
 
-**Status:** PLANNED (pre-staged 2026-06-09; NOT yet cut). Banked work is merged and CI-green on `main`; this plan is ready to run through the release runbook on command. Cut trigger: when more maintenance accumulates, or on request.
+**Status:** RELEASE-PREP IN FLIGHT (cutting 2026-06-10 via the 6-gate runbook; G0 + G1 passed; release-prep PR being cut now). Flips to SHIPPED with the tag SHA at G4.
 **Owner:** Maintainers
 **Type:** **PATCH** (maintenance only: no consumable-surface change; catalog stays 30 phase + 9 foundation + 11 utility + 15 tool = 65 skills and 5 sub-agents; the sole version bump banks accumulated maintenance, not a capability delta).
 **Theme:** Bank the maintenance accumulated since v2.25.1 (the final Codex-audit follow-ups) under one versioned GitHub Release. No new skills, no behavior change.
 **Created:** 2026-06-09
-**Updated:** 2026-06-09
+**Updated:** 2026-06-10
 
 ---
 

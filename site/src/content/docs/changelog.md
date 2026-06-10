@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.25.2] - 2026-06-10
+
+**Maintenance patch: resolves the remaining 2026-06-06 Codex audit items and hardens the release gate.** Unifies the bash/PowerShell/CI validator inventory behind a single manifest (`scripts/validation-manifest.yaml`) with an enforcing CI parity referee (`scripts/check-validator-parity.mjs`) that compares each OS leg's args and enforcement and caught a live drift it then reconciled; extends the root-document link checker to source files; promotes the em-dash-scar guard to enforcing (now multi-backtick aware); and corrects the `CLAUDE.md` "internal notes are gitignored" claim. A Codex adversarial review of the release ran first and its findings were resolved before tagging. No skill behavior change. Catalog stays 65 skills / 5 sub-agents. PATCH. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2252---2026-06-10) and [`docs/releases/Release_v2.25.2.md`](releases/Release_v2.25.2.md).
+
 ## [2.25.1] - 2026-06-06
 
 **Maintenance patch: banks accumulated untagged work since v2.25.0.** Reorganizes the documentation site to the Product on Purpose family layout (Pattern S) with full family-standard conformance, adds a generated CI-gated resource index (`docs/RESOURCES.md`) and a `docs/` front door, repairs root-document links left by the relocation and adds an enforcing CI guard for them, sweeps residual em-dash-sweep ` . ` scars to ` - ` across user-facing and internal prose with new advisory and enforcing guards to keep them out, bumps three site dependencies (`@astrojs/starlight`, `dompurify`, `astro-mermaid`), and fixes the PowerShell pre-tag validator bundle to match the bash and CI inventory. No skill behavior change and no published-URL change (route parity verified). Catalog stays 65 skills / 5 sub-agents. PATCH. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2251---2026-06-06) and [`docs/releases/Release_v2.25.1.md`](releases/Release_v2.25.1.md).
