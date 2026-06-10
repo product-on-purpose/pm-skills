@@ -19,7 +19,7 @@ This rule was codified 2026-04-13 and re-applied through multiple em-dash sweeps
 
 ### Public vs Private Files
 
-- Internal notes are gitignored . external readers cannot access those paths
+- Some internal working material is gitignored (for example `_NOTES/`, `_LOCAL/`), so external readers cannot access those paths. Note that `docs/internal/` is TRACKED, not gitignored: it is visible to anyone browsing the repo, so treat it as maintainer-facing rather than private.
 - Never reference gitignored internal notes in public-facing files:
   - README.md
   - CHANGELOG.md

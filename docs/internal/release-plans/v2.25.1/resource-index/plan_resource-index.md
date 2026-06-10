@@ -10,7 +10,7 @@
 
 **Tech Stack:** Node 24 (ESM, `node:fs`/`node:path`/`node:url`), `js-yaml` (already a root devDependency) for frontmatter, `node --test` for unit tests, GitHub Actions (`validation.yml`).
 
-**Spec:** `docs/internal/release-plans/_unreleased/resource-index/spec_resource-index.md`
+**Spec:** `docs/internal/release-plans/v2.25.1/resource-index/spec_resource-index.md`
 
 ---
 
@@ -92,7 +92,7 @@ Expected: FAIL with "Cannot find module './gen-resource-index.mjs'" (or export-n
 // Generates docs/RESOURCES.md: a catalog linking each project resource to its
 // published page (validated against scripts/route-manifest.txt) and its
 // source-of-truth file in this repo. Spec:
-// docs/internal/release-plans/_unreleased/resource-index/spec_resource-index.md
+// docs/internal/release-plans/v2.25.1/resource-index/spec_resource-index.md
 //
 // Two committed sources are joined: the filesystem (repo sources) and the route
 // manifest (published routes). Generated/gitignored site content is never read,
