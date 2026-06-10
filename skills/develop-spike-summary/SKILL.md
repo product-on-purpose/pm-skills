@@ -4,8 +4,8 @@ description: Documents the results of a time-boxed technical or design explorati
 license: Apache-2.0
 metadata:
   phase: develop
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ A spike summary documents the results of a time-boxed exploration - a focused in
 - After proof-of-concept work that needs to inform team decisions
 - When investigating feasibility of a proposed solution
 - Before committing engineering resources to a new approach
+
+## When NOT to Use
+
+- You are recording the resulting architecture decision itself -> use `develop-adr`; the spike informs, the ADR decides
+- The exploration was user research, not technical or design feasibility -> use `discover-interview-synthesis`
+- You want to propose the solution the spike pointed to -> use `develop-solution-brief`
+- The spike has not happened yet: this skill documents results; time-box and run the exploration first
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to document a spike, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete spike summary fills every template section: Overview; Background; Approach; Findings; Recommendation; Artifacts; Open Questions; and Follow-up Items.
 
 ## Quality Checklist
 

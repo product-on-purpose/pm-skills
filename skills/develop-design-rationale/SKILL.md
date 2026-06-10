@@ -4,8 +4,8 @@ description: Documents the reasoning behind design decisions including alternati
 license: Apache-2.0
 metadata:
   phase: develop
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -23,6 +23,13 @@ A design rationale document captures the "why" behind design decisions.the conte
 - To onboard new team members to existing design decisions
 - When revisiting past decisions to understand original reasoning
 - During design system evolution to document pattern choices
+
+## When NOT to Use
+
+- The decision is architectural or a technology selection -> use `develop-adr` (Nygard format)
+- You need stakeholder alignment on the overall solution direction -> use `develop-solution-brief`
+- You are documenting exploration findings rather than a decision -> use `develop-spike-summary`
+- The decision is trivially reversible and low-stakes: a rationale document adds ceremony; record the reasoning in the PR or ticket instead
 
 ## Instructions
 
@@ -51,7 +58,7 @@ When asked to document design rationale, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete rationale fills every template section: Decision Summary; Context; Options Considered; Evaluation; Decision Rationale; Trade-offs Accepted; Reversibility; Follow-up Considerations; Supporting Materials; and Decision History.
 
 ## Quality Checklist
 
@@ -63,7 +70,7 @@ Before finalizing, verify:
 - [ ] Evaluation criteria are explicit
 - [ ] Reasoning addresses why chosen option beats alternatives
 - [ ] Trade-offs are honestly acknowledged
-- [ ] Document is useful to someone inheriting this design
+- [ ] A reader who inherits this design can reconstruct why the chosen option won without asking anyone
 
 ## Examples
 

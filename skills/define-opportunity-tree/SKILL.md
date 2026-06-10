@@ -4,8 +4,8 @@ description: Creates an opportunity solution tree mapping desired outcomes to op
 license: Apache-2.0
 metadata:
   phase: define
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: problem-framing
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -23,6 +23,13 @@ An Opportunity Solution Tree (OST) is a visual framework for product discovery t
 - When you have too many feature ideas and need structure
 - After user research to connect insights to action
 - When aligning team on what outcomes matter most
+
+## When NOT to Use
+
+- You need to score and rank a flat list of known candidates -> use `define-prioritization-framework`; the tree structures discovery, not a ranking exercise
+- You have one specific problem to frame for a team -> use `define-problem-statement`
+- You are ready to test a single assumption -> use `define-hypothesis`, then `measure-experiment-design`
+- The outcome you want to drive is not yet agreed -> set it first with `foundation-okr-writer`; a tree without an agreed outcome decorates opinions
 
 ## Instructions
 
@@ -51,7 +58,7 @@ When asked to create an opportunity solution tree, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete tree fills every template section: Desired Outcome; Visual Tree; Opportunity Branches; Prioritization; Experiments Backlog; Learning Log; and Next Steps.
 
 ## Quality Checklist
 

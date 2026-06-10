@@ -4,8 +4,8 @@ description: Creates a Jobs to be Done canvas capturing the functional, emotiona
 license: Apache-2.0
 metadata:
   phase: define
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: problem-framing
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -23,6 +23,13 @@ A Jobs to be Done (JTBD) canvas captures the complete picture of why customers "
 - During competitive analysis to identify why customers switch
 - When designing marketing messages that resonate
 - To align team on who the customer really is and what they need
+
+## When NOT to Use
+
+- You need a person-shaped artifact (goals, behaviors, quotes) for design or marketing work -> use `foundation-persona`; the canvas captures the job, the persona captures the person
+- You have no customer research yet -> synthesize interviews first with `discover-interview-synthesis`; the canvas's insights must trace to research, not assumptions
+- You are framing one specific problem to solve now -> use `define-problem-statement`
+- You need to map opportunities to a measurable outcome for prioritization -> use `define-opportunity-tree`
 
 ## Instructions
 
@@ -54,7 +61,7 @@ When asked to create a JTBD canvas, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete canvas fills every template section: Job Overview; Job Performer; The Circumstance; Job Statement; Functional Job; Emotional Job; Social Job; Competing Solutions; Hiring Criteria; Insights and Implications; Supporting Quotes; and Questions for Further Research.
 
 ## Quality Checklist
 
