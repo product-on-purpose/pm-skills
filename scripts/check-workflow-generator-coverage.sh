@@ -11,13 +11,17 @@
 # source-of-truth (correctness).
 #
 # This validator asserts a stronger contract: every workflow source file in
-# _workflows/*.md must appear as a row in docs/workflows/index.md AND have
-# a corresponding individual page in docs/workflows/.
+# _workflows/*.md must appear as a row in the generated
+# site/src/content/docs/workflows/index.md AND have a corresponding generated
+# page in site/src/content/docs/workflows/ (output of scripts/gen-site.mjs,
+# gitignored, rebuilt per build).
 #
-# Note: the generator script itself was also hardened in v2.15.1 to raise
-# SystemExit when a workflow source exists without a workflow_info entry.
-# This validator is the CI-side fence; the generator hardening is the
-# author-side fence. Defense in depth.
+# Note: the Python generator with the hardcoded dict was retired in the
+# Pattern S reorg (v2.25.1); scripts/gen-site.mjs now derives both the pages
+# and the index dynamically from _workflows/*.md, so the original silent-drop
+# mechanism is structurally gone. This validator remains the CI-side fence
+# against the surviving failure modes: a stale generated tree (generator not
+# re-run) or a generator regression that drops output.
 #
 # Exit codes:
 #   0 - All source workflows are covered by the index and have individual pages
@@ -57,9 +61,9 @@ SOURCE_WORKFLOWS=$(find "$WORKFLOWS_SRC" -maxdepth 1 -name '*.md' -type f ! -nam
 echo "Checking individual generated pages:"
 for stem in $SOURCE_WORKFLOWS; do
   if [ -f "$WORKFLOWS_OUT/$stem.md" ]; then
-    echo "  OK:   $stem.md present in docs/workflows/"
+    echo "  OK:   $stem.md present in site/src/content/docs/workflows/"
   else
-    echo "  FAIL: $stem.md missing from docs/workflows/ (source exists but no generated page)"
+    echo "  FAIL: $stem.md missing from site/src/content/docs/workflows/ (source exists but no generated page)"
     FAIL=1
   fi
 done
@@ -73,7 +77,7 @@ for stem in $SOURCE_WORKFLOWS; do
   if grep -qE "\]\(${stem}\.md\)" "$WORKFLOWS_INDEX"; then
     echo "  OK:   $stem.md linked from index"
   else
-    echo "  FAIL: $stem.md NOT linked from $WORKFLOWS_INDEX (silent drop; run generator + add to workflow_info dict)"
+    echo "  FAIL: $stem.md NOT linked from $WORKFLOWS_INDEX (stale or incomplete generated index; re-run the generator)"
     FAIL=1
   fi
 done
@@ -103,7 +107,6 @@ if [ "$FAIL" -eq 0 ]; then
   exit 0
 else
   echo "FAIL: workflow generator coverage gap detected."
-  echo "Fix: run 'python scripts/generate-workflow-pages.py' AND add any missing"
-  echo "workflow_info entries (plus matching order list entries) in the generator."
+  echo "Fix: re-run 'node scripts/gen-site.mjs' to rebuild the generated site content."
   exit 1
 fi

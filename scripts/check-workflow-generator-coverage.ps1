@@ -41,9 +41,9 @@ Write-Host "Checking individual generated pages:"
 foreach ($stem in $sourceStems) {
   $pagePath = Join-Path $WorkflowsOut "$stem.md"
   if (Test-Path $pagePath) {
-    Write-Host "  OK:   $stem.md present in docs/workflows/"
+    Write-Host "  OK:   $stem.md present in site/src/content/docs/workflows/"
   } else {
-    Write-Host "  FAIL: $stem.md missing from docs/workflows/ (source exists but no generated page)"
+    Write-Host "  FAIL: $stem.md missing from site/src/content/docs/workflows/ (source exists but no generated page)"
     $fail = $true
   }
 }
@@ -55,7 +55,7 @@ foreach ($stem in $sourceStems) {
   if ($indexContent -match $linkPattern) {
     Write-Host "  OK:   $stem.md linked from index"
   } else {
-    Write-Host "  FAIL: $stem.md NOT linked from $WorkflowsIndex (silent drop; run generator + add to workflow_info dict)"
+    Write-Host "  FAIL: $stem.md NOT linked from $WorkflowsIndex (stale or incomplete generated index; re-run the generator)"
     $fail = $true
   }
 }
@@ -85,7 +85,6 @@ if (-not $fail) {
   exit 0
 } else {
   Write-Host "FAIL: workflow generator coverage gap detected."
-  Write-Host "Fix: run 'python scripts/generate-workflow-pages.py' AND add any missing"
-  Write-Host "workflow_info entries (plus matching order list entries) in the generator."
+  Write-Host "Fix: re-run 'node scripts/gen-site.mjs' to rebuild the generated site content."
   exit 1
 }
