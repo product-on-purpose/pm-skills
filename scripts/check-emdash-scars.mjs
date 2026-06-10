@@ -48,10 +48,12 @@ export function findScars(text) {
     if (inFence) continue;
     // Replace inline-code spans with a single non-space placeholder before
     // testing: release notes legitimately quote the scar itself (the ` . ` token)
-    // and code spans can hold a real spaced period. The placeholder (not empty
-    // string) preserves boundaries, so a normal `code`. sentence period does NOT
-    // collapse into a phantom " . "; a real scar OUTSIDE the span still survives.
-    const stripped = line.replace(/`[^`]*`/g, 'x');
+    // and code spans can hold a real spaced period. `(`+)(.*?)\1` matches a
+    // CommonMark backtick run of any length N closed by the same run, so multi-
+    // backtick spans (`` . ``) are handled too. The placeholder (not empty string)
+    // preserves boundaries, so a normal `code`. sentence period does NOT collapse
+    // into a phantom " . "; a real scar OUTSIDE the span still survives.
+    const stripped = line.replace(/(`+)(.*?)\1/g, 'x');
     if (/ \. /.test(stripped)) hits.push({ line: i + 1, text: line.trim() });
   }
   return hits;

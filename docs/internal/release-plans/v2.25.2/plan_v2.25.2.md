@@ -39,8 +39,8 @@ When cut, G2 (via `pm-changelog-curator`) confirms `[Unreleased]` is complete, t
 
 ## Gate ledger (to run at cut time)
 
-- [ ] G0 Pre-tag readiness (the pre-tag bundle is now manifest-checked by `check-validator-parity.mjs`; counters unchanged at 65/5; governance audit 0 P0)
-- [ ] G1 Adversarial review attestation (maintenance patch of already-merged, already-CI-green work; the Spec A change carried its own 11-test referee + green PR #180)
+- [ ] G0 Pre-tag readiness (the pre-tag bundle runs the enforcing validators; bash/pwsh/CI inventory parity is checked by `check-validator-parity.mjs` in CI, NOT by the local bundle, so confirm it from the validation workflow on the release PR; counters unchanged at 65/5; governance audit 0 P0)
+- [ ] G1 Adversarial review attestation (a Codex adversarial review of the `v2.25.1..HEAD` diff was run 2026-06-10 via `codex:adversarial-review`; it found 1 P1 + 2 P2, all resolved before cut: the parity referee now does per-leg CI checks (args + per-OS enforcement), the scar guard handles multi-backtick spans, and this G0 wording was corrected; the referee + scar guard carry 15 + 10 unit tests)
 - [ ] G2 Version bump + CHANGELOG move (curator; leak check; version-consistency + context-currency PASS)
 - [ ] G2.5 Commit release-prep + PR + CI green both OS legs + CodeQL; squash-merge to main
 - [ ] G3 Annotated tag `v2.25.2` on the post-squash-merge main SHA + push
