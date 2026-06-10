@@ -1,6 +1,6 @@
 # v2.26.0 Release Plan: Authoring + quality layer (workflow builder, ad-hoc chaining, skill-quality convergence)
 
-**Status:** SPECCED (2026-06-10). Scope was staged 2026-06-10; the per-item specs and implementation plans are now WRITTEN and await maintainer review. Build has NOT started; nothing in this milestone is committed beyond planning docs. Review order: this plan, then the two specs, then the implementation plans.
+**Status:** BUILT, tag pending (2026-06-10). The build executed in plan order and is merged to main: WS-A1 (#187), WS-A2 (#188), WS-A3 (#189), F-12 Batch 0 (#190), F-14+F-15 (#191, closes #133 + #134), F-12 Batch 1 (#192). Catalog on main: 66 skills / 5 sub-agents / 11 commands / 12 workflows. Outstanding before the tag: the Task 9 native-path smoke gate (P-G; must RUN and be RECORDED on an installed plugin; could not run in the build session, see the F-14/F-15 implementation plan's Task 9 note) and the 6-gate runbook itself. WS-A4 (skills-ref lane, agent:codex) deliberately remains open in-window or as early v2.26.x; WS-A5 is with the maintainer.
 **Owner:** Maintainers
 **Type:** **MINOR** (additive: F-14 adds the `utility-pm-workflow-builder` skill, catalog 65 -> 66; F-15 adds the `/chain` command and a 1.1.0 bump of the orchestrator dispatch skill; F-12 is a quality pass with per-skill bumps and no new skills.)
 **Theme:** Close the authoring + quality gap. After v2.25.x hardened the release gate and activation layer, v2.26.0 turns to the contributor/user authoring experience (build workflows, chain skills ad hoc) and a deliberate quality-convergence pass over the existing catalog, folding in the 2026-06-09 repo audit's triggering-surface and front-door fixes.
@@ -42,12 +42,12 @@ Audit items NOT here because they live elsewhere: description collisions + phant
 
 ## Sequencing + dependencies
 
-1. **WS-A1..A3** - independent small PRs, land first (A1 must precede the F-14 count sweep: the Utility card goes 10 -> 11 here, then 11 -> 12 with the builder).
-2. **F-12 Batch 0** (`implementation-plan_skill-quality-convergence.md` Tasks 0-4) - one PR; excludes the orchestrator skill by design.
-3. **F-14 + F-15** (`implementation-plan_workflow-builder-and-chaining.md`) - ONE branch + squash-merge PR (the two features cross-reference by name; atomic landing avoids a phantom reference in either direction). Includes the native-path smoke test (release EVIDENCE gate, decision P-G: must run and be recorded before the tag).
-4. **F-12 Batch 1** (Deliver cohort) - one PR.
-5. **WS-A4** - any time inside the window; advisory first.
-6. **Tag v2.26.0** via the 6-gate runbook (`site/src/content/docs/contributing/release-runbook.md`); catalog claims at tag time: 66 skills (30 phase + 9 foundation + 12 utility + 15 tool), 5 sub-agents, 11 command files, 12 workflows.
+1. **WS-A1..A3** - DONE (#187, #188, #189; A1 preceded the F-14 count sweep as required).
+2. **F-12 Batch 0** - DONE (#190; orchestrator excluded by design).
+3. **F-14 + F-15** - DONE (#191, one squash PR, closes #133 + #134). The native-path smoke test (release EVIDENCE gate, decision P-G) could NOT run in the build session and is scheduled against main BEFORE the tag; see the implementation plan's Task 9 status note and the compatibility matrix.
+4. **F-12 Batch 1** (Deliver cohort) - DONE (#192).
+5. **WS-A4** - OPEN (agent:codex; any time inside the window or early v2.26.x; advisory first).
+6. **Tag v2.26.0** via the 6-gate runbook (`site/src/content/docs/contributing/release-runbook.md`); catalog claims at tag time: 66 skills (30 phase + 9 foundation + 12 utility + 15 tool), 5 sub-agents, 11 command files, 12 workflows. BLOCKED only on the Task 9 smoke run + the runbook itself.
 7. **Post-tag:** F-12 Batches 2-4 ride v2.26.x patches; deferred items go to v2.27.0 planning.
 
 Prerequisite notes: M-13 (Convention Alignment) is Complete (2026-04-04) and continuously enforced by CI since; F-12's prerequisite is satisfied (spec section 0). The F-12 brief's "25 domain skills / v2.8 standard" framing is superseded by the spec's 26-skill cohort.
