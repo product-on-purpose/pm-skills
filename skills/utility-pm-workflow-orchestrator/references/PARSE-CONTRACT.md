@@ -61,6 +61,36 @@ A SKIPPED-MANUAL block is not an executed step and is not run through this rubri
 
 A Mode A plan or a Mode B chain that names `utility-pm-workflow-orchestrator` or `foundation-prioritized-action-plan` as a step is REFUSED. The orchestrator does not run itself, and it does not run its own producer as a step (the producer hands plans IN; it is not a step the orchestrator runs OUT). Report the refusal at the offending step's boundary; do not silently drop the step.
 
+## Mode B Chain Expression Contract
+
+A Mode B chain may arrive as prose ("run deliver-prd then deliver-user-stories") or as a chain
+expression (the `/chain` command's input form). The expression grammar:
+
+- **Steps:** an ordered list of skill names separated by `,` or `->`. The two separators are
+  equivalent and may be mixed. Order on the line is execution order.
+- **Boundary (separator-driven):** the chain expression is exactly the separator-joined list:
+  it ends after the first step token that is NOT followed by a separator. Everything after that
+  is the shared context, even when the context words look like skill names (the boundary comes
+  from separators, never from token shape). A separator PROMISES another step: a trailing
+  separator with nothing resolvable after it is a parse refusal, surfaced plainly, never
+  guessed around.
+- **Flags:** `--auto`, `--force-auto`, `--dry-run`, and `--thread` may appear anywhere in the
+  input; extract them before parsing steps and apply them per the engine's run-mode rules.
+- **Context:** everything after the chain expression (per the boundary rule above) is the shared context handed to every step.
+- **Name resolution:** each step must exactly match an installed skill
+  (`skills/<name>/SKILL.md`). Name-safety applies: never approximate or auto-correct. On any
+  miss, refuse the WHOLE run pre-flight and OFFER the closest real names (for example `prd` ->
+  "did you mean `deliver-prd`?"). A suggestion is an offer, never a substitution.
+- **`--thread` (user-declared linear dependency):** opt-in. With `--thread`, step N+1 receives a
+  reference to step N's confirmed artifact, per the engine's user-declared dependency rule.
+  Without it, every step is self-sufficient given the shared context. `--thread` covers the
+  whole chain; per-step threading granularity does not exist in v1.
+- **Unchanged rules (cross-references, not duplicates):** the self-reference refusal above and
+  the engine's Tier-3 maintenance refusal; Mode B skill resolution and the Category 1/2/3
+  routing rule in `agents/pm-workflow-orchestrator.md`; no top-3 cap in Mode B, with the
+  context-budget warning past 3 steps; GUARDED AUTO degrades to CHECKPOINTED for Mode B unless
+  `--force-auto`.
+
 ## Reference Files
 
 - Canonical sub-agent: [`agents/pm-workflow-orchestrator.md`](../../../agents/pm-workflow-orchestrator.md)
