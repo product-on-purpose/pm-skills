@@ -4,8 +4,8 @@ description: Creates a comprehensive pre-launch checklist covering engineering, 
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ A launch checklist is a comprehensive verification document that ensures all fun
 - When coordinating cross-functional releases
 - Before major version releases or feature rollouts
 - After incidents to improve launch processes
+
+## When NOT to Use
+
+- You are validating whether to ship at all via an experiment -> use `measure-experiment-design`
+- You need the customer-facing announcement of what shipped -> use `deliver-release-notes`
+- The launch already happened and you want results or reflection -> use `measure-experiment-results` or `iterate-retrospective`
+- The change is small and single-team with no cross-functional surface: a launch checklist adds ceremony without value; track it in the sprint instead
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to create a launch checklist, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete checklist fills every template section: Launch Overview; Engineering Readiness; QA & Testing; Design & UX; Marketing & Communications; Customer Support; Legal & Compliance; Operations & Infrastructure; Analytics & Monitoring; Go/No-Go Criteria; Rollback Plan; Check-in Schedule; and Open Issues.
 
 ## Quality Checklist
 

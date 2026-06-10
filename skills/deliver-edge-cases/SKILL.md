@@ -4,7 +4,7 @@ description: Documents edge cases, error states, boundary conditions, and recove
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.0.1"
+  version: "2.1.0"
   updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
@@ -22,6 +22,13 @@ An edge cases document systematically catalogs the unusual, boundary, and error 
 - After discovering production bugs to prevent similar issues
 - When reviewing PRDs or user stories for completeness
 - Before launch to ensure error states have been designed
+
+## When NOT to Use
+
+- You need story-scoped Given/When/Then checks for handoff -> use `deliver-acceptance-criteria`; this skill catalogs the whole feature's failure surface
+- The feature is not specified enough to enumerate inputs, states, and limits -> use `deliver-prd` first
+- A production incident already happened and you want the learning banked -> use `iterate-lessons-log`, then update this catalog with the new case
+- You need readiness coordination for a launch, not failure analysis -> use `deliver-launch-checklist`
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to document edge cases, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete edge-case catalog fills every template section: Feature Overview; Edge Case Categories; Error Messages; Recovery Paths; and Test Scenarios.
 
 ## Quality Checklist
 

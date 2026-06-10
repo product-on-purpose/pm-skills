@@ -4,7 +4,7 @@ description: Generates user stories in the standard persona, action, benefit sto
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.0.1"
+  version: "2.1.0"
   updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
@@ -22,6 +22,13 @@ User stories are concise descriptions of functionality from the user's perspecti
 - When writing tickets for engineering teams
 - When communicating requirements to stakeholders in accessible terms
 - When prioritizing a backlog based on user value
+
+## When NOT to Use
+
+- You need deeper, QA-ready Given/When/Then coverage for a single story or slice -> use `deliver-acceptance-criteria`
+- You need the feature-wide catalog of boundary conditions and failure scenarios -> use `deliver-edge-cases`
+- The feature itself is not yet specified -> use `deliver-prd` first; stories should trace back to documented requirements
+- You want refinement-session outcomes (estimates, scope decisions, open questions) -> use `iterate-refinement-notes`
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to create user stories, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete output carries, per story: Story Header; User Story Statement; Context & Background; Acceptance Criteria; Design Notes; Technical Notes; Dependencies; Out of Scope; and Open Questions where any remain. Multi-story documents nest these sections under one heading per story, as the example shows.
 
 ## Quality Checklist
 

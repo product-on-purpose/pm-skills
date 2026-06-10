@@ -72,14 +72,14 @@ Create: `HISTORY.md` in each of those skill directories (none has one today).
 
 **Files:** `skills/{deliver-prd,deliver-user-stories,deliver-acceptance-criteria,deliver-edge-cases,deliver-launch-checklist,deliver-release-notes}/` (SKILL.md, references/TEMPLATE.md, references/EXAMPLE.md, HISTORY.md as needed). Branch: `chore/v2.26.0-f12-batch1`.
 
-- [ ] **Step 5.1 (triage calibration):** Run `utility-pm-skill-validate` on the five spec-named representative skills (deliver-prd, define-hypothesis, discover-competitive-analysis, measure-experiment-design, iterate-retrospective). First confirm the validate skill's CURRENT check list from its own SKILL.md (the brief's eight-check table may have drifted). Produce the triage table: per finding type, fix / skip / defer per the spec section 2 bar. Save the table into the PR description (not committed as a file).
-- [ ] **Step 5.2 (the per-skill loop, run for each of the 6 Deliver skills):**
+- [x] **Step 5.1 (triage calibration):** Run `utility-pm-skill-validate` on the five spec-named representative skills (deliver-prd, define-hypothesis, discover-competitive-analysis, measure-experiment-design, iterate-retrospective). First confirm the validate skill's CURRENT check list from its own SKILL.md (the brief's eight-check table may have drifted). Produce the triage table: per finding type, fix / skip / defer per the spec section 2 bar. Save the table into the PR description (not committed as a file).
+- [x] **Step 5.2 (the per-skill loop, run for each of the 6 Deliver skills):**
   1. `utility-pm-skill-validate <skill>` - capture findings.
   2. `utility-pm-skill-iterate <skill>` with the report - apply only section-2-bar fixes: add `## When NOT to Use` (with real boundary content, not boilerplate), enumerate template sections in the output contract, rewrite untestable checklist items, fill thin EXAMPLE sections.
   3. Bump `metadata.version` MINOR (2.0.1 -> 2.1.0 for Batch 0-touched skills; 2.0.0 -> 2.1.0 otherwise; deliver-acceptance-criteria 1.0.1 -> 1.1.0) + `metadata.updated`; add the HISTORY.md row (`minor | Quality convergence: When NOT to Use + output-contract tightening (F-12 Batch 1)`).
   4. Re-run `utility-pm-skill-validate <skill>` - zero FAIL, zero high-value WARN (AC-Q5).
-- [ ] **Step 5.3: Verify batch-wide.** `bash scripts/lint-skills-frontmatter.sh`; `bash scripts/validate-skill-history.sh`; `node scripts/check-emdash-scars.mjs`; `bash scripts/check-skill-cross-references.sh`; `bash scripts/check-count-consistency.sh` (counts unchanged, AC-Q6).
-- [ ] **Step 5.4:** CHANGELOG `[Unreleased]` entry (per-skill minor bumps named); push; PR `"feat: F-12 Batch 1 - Deliver cohort quality convergence (#135)"`; CI actual-conclusions check; squash-merge.
+- [x] **Step 5.3: Verify batch-wide.** `bash scripts/lint-skills-frontmatter.sh`; `bash scripts/validate-skill-history.sh`; `node scripts/check-emdash-scars.mjs`; `bash scripts/check-skill-cross-references.sh`; `bash scripts/check-count-consistency.sh` (counts unchanged, AC-Q6).
+- [x] **Step 5.4:** CHANGELOG `[Unreleased]` entry (per-skill minor bumps named); push; PR `"feat: F-12 Batch 1 - Deliver cohort quality convergence (#135)"`; CI actual-conclusions check; squash-merge.
 
 ### Tasks 6-8: Batches 2-4 (v2.26.x, after the v2.26.0 tag)
 
