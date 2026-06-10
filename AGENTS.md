@@ -53,7 +53,7 @@ Cross-meeting archaeology skill. Consumes multiple meeting recaps over a period 
 
 Produces async communication to stakeholders from a meeting recap. Supports five channel variants (slack, teams, email, notion, exec-memo) and five audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces primary CTA up front, logs technical-to-business translations, detects thread continuation. Member of the Meeting Skills Family.
 
-> Meeting skills share a contract at `docs/reference/skill-families/meeting-skills-contract.md` governing frontmatter, file naming, go-mode behavior, and universal output requirements. Enforced by `scripts/validate-meeting-skills-family.sh`.
+> Meeting skills share a contract at [meeting-skills-contract](https://product-on-purpose.github.io/pm-skills/reference/skill-families/meeting-skills-contract/) governing frontmatter, file naming, go-mode behavior, and universal output requirements. Enforced by `scripts/validate-meeting-skills-family.sh`.
 
 ---
 
@@ -323,7 +323,7 @@ Structured group-decision mechanic that captures silent ideation, voting summari
 
 #### Foundation Sprint Family
 
-The 7 `tool-foundation-sprint-*` skills implement Knapp and Zeratsky's two-day Foundation Sprint workshop. Family contract: `docs/reference/skill-families/foundation-sprint-skills-contract.md`. Workflow: `_workflows/foundation-sprint.md`.
+The 7 `tool-foundation-sprint-*` skills implement Knapp and Zeratsky's two-day Foundation Sprint workshop. Family contract: [foundation-sprint-skills-contract](https://product-on-purpose.github.io/pm-skills/reference/skill-families/foundation-sprint-skills-contract/). Workflow: `_workflows/foundation-sprint.md`.
 
 ##### tool-foundation-sprint-readiness
 **Path:** `skills/tool-foundation-sprint-readiness/SKILL.md`
@@ -374,7 +374,7 @@ Day 2 end capstone move of a Foundation Sprint. Compresses the sprint's full str
 
 #### Design Sprint Family
 
-The 7 `tool-design-sprint-*` skills implement Knapp, Zeratsky, and Kowitz's five-day Design Sprint workshop. Family contract: `docs/reference/skill-families/design-sprint-skills-contract.md`. Workflow: `_workflows/design-sprint.md`. End-to-end FS-to-DS workflow: `_workflows/foundation-to-design.md`. User guide: `docs/guides/using-design-sprint.md`. Concept doc: `docs/concepts/design-sprint.md`.
+The 7 `tool-design-sprint-*` skills implement Knapp, Zeratsky, and Kowitz's five-day Design Sprint workshop. Family contract: [design-sprint-skills-contract](https://product-on-purpose.github.io/pm-skills/reference/skill-families/design-sprint-skills-contract/). Workflow: `_workflows/design-sprint.md`. End-to-end FS-to-DS workflow: `_workflows/foundation-to-design.md`. User guide: [using-design-sprint](https://product-on-purpose.github.io/pm-skills/guides/using-design-sprint/). Concept doc: [design-sprint](https://product-on-purpose.github.io/pm-skills/concepts/design-sprint/).
 
 ##### tool-design-sprint-readiness
 **Path:** `skills/tool-design-sprint-readiness/SKILL.md`
@@ -465,13 +465,13 @@ v2.24.0 adds a fifth sub-agent:
 
 - `pm-workflow-orchestrator` - governed multi-skill runner that walks an ordered step list (a saved `foundation-prioritized-action-plan` or a user-named chain), pausing for human go/no-go by default and refusing to advance past a failed or empty step. The first repo agent to declare the `Skill` tool to delegate downstream skills (it adds no chain-permission entry and spawns no sub-agents). Ships EXPERIMENTAL on all clients.
 
-The canonical sub-agents catalog with full audience, trigger, lifetime, tool surface, and composition data lives at [`docs/reference/runtime-components.md`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md). Sub-agent definition files live at `agents/{name}.md`, the fixed path Claude Code's plugin runtime auto-discovers (renamed from `subagents/` in v2.17.0 W2).
+The canonical sub-agents catalog with full audience, trigger, lifetime, tool surface, and composition data lives at the [runtime components reference](https://product-on-purpose.github.io/pm-skills/reference/runtime-components/). Sub-agent definition files live at `agents/{name}.md`, the fixed path Claude Code's plugin runtime auto-discovers (renamed from `subagents/` in v2.17.0 W2).
 
 ### Cross-client compatibility
 
 Sub-agents are a Claude Code plugin feature. Non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) access sub-agent intent via dispatch skills at `skills/utility-pm-{role}/`. Dispatch skills detect runtime and dispatch appropriately: native sub-agent on Claude Code, or "read agent definition and execute inline" on other clients. codex-rescue is an optional shortcut for users with both Claude Code and Codex CLI; it is NOT a baseline requirement.
 
-All 4 dispatch skills shipped in v2.16.0 with Codex CLI VALIDATED 2026-05-17 (GATE B + C PASS). Cursor / Windsurf / Copilot CLI / Gemini CLI status is EXPERIMENTAL pending v2.17 cross-client expansion. See the canonical [Sub-Agent Compatibility Matrix](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/sub-agent-compatibility.md) for per-sub-agent + per-client status, safe-usage guidance, and how-to-validate-a-new-client maintainer guide. Mechanism details at [`docs/reference/runtime-components.md#cross-client-compatibility`](https://github.com/product-on-purpose/pm-skills/blob/main/docs/reference/runtime-components.md#cross-client-compatibility).
+All 4 dispatch skills shipped in v2.16.0 with Codex CLI VALIDATED 2026-05-17 (GATE B + C PASS). Cursor / Windsurf / Copilot CLI / Gemini CLI status is EXPERIMENTAL pending v2.17 cross-client expansion. See the canonical [Sub-Agent Compatibility Matrix](https://product-on-purpose.github.io/pm-skills/reference/sub-agent-compatibility/) for per-sub-agent + per-client status, safe-usage guidance, and how-to-validate-a-new-client maintainer guide. Mechanism details at [runtime components: cross-client compatibility](https://product-on-purpose.github.io/pm-skills/reference/runtime-components/#cross-client-compatibility).
 
 ---
 
