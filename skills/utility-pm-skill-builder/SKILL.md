@@ -14,7 +14,7 @@ metadata:
 # PM Skill Builder
 
 This skill creates new PM skills for the pm-skills library. It produces a
-Skill Implementation Packet - a complete design document with draft files .
+Skill Implementation Packet - a complete design document with draft files
 in a staging area for review before promotion to canonical locations.
 
 ## When to Use

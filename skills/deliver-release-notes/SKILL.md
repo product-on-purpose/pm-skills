@@ -4,8 +4,8 @@ description: Creates user-facing release notes that communicate new features, im
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ Release notes communicate product changes to users in a way that highlights valu
 - Preparing app store update descriptions
 - Writing customer-facing email announcements
 - Documenting changes for support and sales teams
+
+## When NOT to Use
+
+- You are updating internal stakeholders on progress rather than announcing shipped changes -> use `foundation-stakeholder-update`
+- You need the technical record of changes for developers -> keep the engineering changelog; this skill translates changes into user benefits
+- You are coordinating launch readiness rather than communicating the ship -> use `deliver-launch-checklist`
+- Nothing user-visible shipped (a pure internal refactor): release notes that stretch to find a benefit erode trust; skip the cycle or fold it into the next one
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to create release notes, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. Complete release notes fill the template sections: Highlights; New Features; Improvements; Bug Fixes; Known Issues; Coming Soon (optional); and Feedback.
 
 ## Quality Checklist
 
@@ -61,7 +68,7 @@ Before finalizing, verify:
 - [ ] Language is jargon-free and accessible to all users
 - [ ] Items are concise (1-2 sentences each)
 - [ ] Bug fixes mention the problem that was solved
-- [ ] Tone is positive and professional
+- [ ] No internal jargon, ticket IDs, or code names leak through; every line reads as customer-facing
 
 ## Examples
 

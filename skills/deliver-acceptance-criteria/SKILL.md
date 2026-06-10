@@ -4,7 +4,7 @@ description: Generates structured Given/When/Then acceptance criteria for a user
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "1.0.1"
+  version: "1.1.0"
   updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
@@ -21,6 +21,13 @@ Acceptance criteria define the observable behavior that must be true for a story
 - When a team needs clear pass/fail conditions for implementation
 - When writing QA-ready criteria for sprint planning or handoff
 - When a story has edge cases, error paths, or non-functional expectations that should be explicit
+
+## When NOT to Use
+
+- You need the user stories themselves -> use `deliver-user-stories`; this skill deepens a story that already exists
+- You need systematic failure coverage across a whole feature -> use `deliver-edge-cases`; this skill stays story-scoped
+- There is no story or slice to bind criteria to yet -> use `deliver-prd` or `deliver-user-stories` first
+- You are defining success metrics for an experiment, not done-ness for a story -> use `measure-experiment-design`
 
 ## Instructions
 
