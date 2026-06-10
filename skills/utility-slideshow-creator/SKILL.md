@@ -1,11 +1,11 @@
 ---
 name: utility-slideshow-creator
-description: Generates professional presentations from a JSON deck specification using 18 slide types with dark/light variants, content-to-layout decision logic, and calibrated character limits. Ships with a default professional theme and supports custom themes via utility-slideshow-themer.
+description: Generates professional presentations from a JSON deck specification using 18 slide types with dark/light variants, content-to-layout decision logic, and calibrated character limits. Ships with a default professional theme.
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.0"
-  updated: 2026-04-08
+  version: "1.0.1"
+  updated: 2026-06-10
   category: communication
   frameworks:
     - pptxgenjs

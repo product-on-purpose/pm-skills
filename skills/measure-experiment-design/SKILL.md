@@ -1,11 +1,11 @@
 ---
 name: measure-experiment-design
-description: Designs an A/B test or experiment with clear hypothesis, variants, success metrics, sample size, and duration. Use when planning experiments to validate product changes or test hypotheses.
+description: Designs an A/B test or experiment with variants, success metrics, sample size, and duration for an existing hypothesis. Use when planning an experiment to validate a product change or test an assumption you have already framed. To articulate the hypothesis itself first, use define-hypothesis.
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.0.1"
+  updated: 2026-06-10
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

@@ -1,11 +1,11 @@
 ---
 name: deliver-user-stories
-description: Generates user stories with clear acceptance criteria from product requirements or feature descriptions. Use when breaking down features for sprint planning, writing tickets, or communicating requirements to engineering.
+description: Generates user stories in the standard persona, action, benefit story format from product requirements or feature descriptions. Use when breaking a feature into stories for sprint planning, writing tickets, or communicating scope to engineering. For testable Given/When/Then acceptance criteria on a story, use deliver-acceptance-criteria; for boundary and failure scenarios, use deliver-edge-cases.
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.0.1"
+  updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

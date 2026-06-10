@@ -1,11 +1,11 @@
 ---
 name: discover-interview-synthesis
-description: Synthesizes user research interviews into actionable insights, patterns, and recommendations. Use after conducting user interviews, customer calls, or usability sessions to extract and communicate findings.
+description: Synthesizes user research interviews into actionable insights, patterns, and recommendations. Use after conducting user interviews, customer calls, or usability sessions to extract and communicate findings across participants. Distinct from foundation-meeting-recap, which summarizes one internal meeting for its attendees; this skill aggregates research conversations into evidence-backed findings.
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.0.1"
+  updated: 2026-06-10
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

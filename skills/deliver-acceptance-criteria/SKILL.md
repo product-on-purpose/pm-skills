@@ -1,11 +1,11 @@
 ---
 name: deliver-acceptance-criteria
-description: Generates structured Given/When/Then acceptance criteria for a user story or feature slice. Use when translating product requirements into testable scenarios that cover the happy path, edge cases, error states, and non-functional expectations for engineering handoff and QA.
+description: Generates structured Given/When/Then acceptance criteria for a user story or feature slice, covering the happy path, key failure scenarios, and non-functional expectations in testable form. Use when turning requirements into verifiable scenarios for engineering handoff and QA sign-off. For a dedicated catalog of boundary conditions, error states, and recovery paths across a feature, use deliver-edge-cases; to write the stories themselves, use deliver-user-stories.
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "1.0.0"
-  updated: 2026-03-22
+  version: "1.0.1"
+  updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
