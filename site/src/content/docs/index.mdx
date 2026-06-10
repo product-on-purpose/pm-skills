@@ -49,7 +49,7 @@ graph LR
 
 ## The Skills
 
-{/* count-exempt:start */}
+{/* count-exempt:start - per-family subset counts; the total-count scan would misread them as stale totals. Each card's number IS enforced: check-landing-page-counts verifies every card against skills/<family>-* and requires the cards to sum to the catalog total. */}
 <CardGrid>
   <Card title="Discover (5 skills)" icon="magnifier">
     Research, competitive analysis, stakeholder mapping.
@@ -87,14 +87,14 @@ graph LR
     [Browse Iterate](skills/iterate/)
   </Card>
 
-  <Card title="Foundation (8 skills)" icon="open-book">
-    Cross-cutting skills: persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update.
+  <Card title="Foundation (9 skills)" icon="open-book">
+    Cross-cutting skills: persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update, prioritized action plan.
 
     [Browse Foundation](skills/foundation/)
   </Card>
 
-  <Card title="Utility (10 skills)" icon="pencil">
-    Create, validate, iterate skills, generate diagrams and presentations, and update the library.
+  <Card title="Utility (11 skills)" icon="pencil">
+    Create, validate, iterate skills, run governed multi-skill workflows, generate diagrams and presentations, and update the library.
 
     [Browse Utility](skills/utility/)
   </Card>
@@ -175,9 +175,9 @@ block-beta
 
 **Beyond the six phases**, three cross-cutting families support the work at every stage:
 
-- **Foundation (8)** - reusable building blocks for any initiative: `foundation-persona`, `foundation-lean-canvas`, `foundation-okr-writer`, `foundation-stakeholder-update`, and the four meeting skills (agenda, brief, recap, and cross-meeting synthesis).
+- **Foundation (9)** - reusable building blocks for any initiative: `foundation-persona`, `foundation-lean-canvas`, `foundation-okr-writer`, `foundation-stakeholder-update`, `foundation-prioritized-action-plan`, and the four meeting skills (agenda, brief, recap, and cross-meeting synthesis).
 - **Workshop tools (15)** - run a facilitated session with your agent: the 7-skill **Foundation Sprint** family for 2-day strategic alignment, the 7-skill **Design Sprint** family for a 5-day prototype-and-test cycle, and the standalone `tool-note-and-vote` decision mechanic.
-- **Utility (10)** - meta-tooling that builds, validates, and maintains the library itself, plus the sub-agents that run adversarial review, catalog auditing, changelog curation, and release orchestration.
+- **Utility (11)** - meta-tooling that builds, validates, and maintains the library itself, plus `utility-pm-workflow-orchestrator` for governed multi-skill runs and the sub-agents that handle adversarial review, catalog auditing, changelog curation, and release orchestration.
 
 ## The Skill Lifecycle
 
@@ -284,16 +284,16 @@ Follow three fictional companies through the complete product lifecycle - from d
 {/* count-exempt:start */}
 | Version | Date | Highlights |
 |---------|------|-----------|
+| **[v2.25.2](releases/Release_v2.25.2.md)** | 2026-06-10 | Maintenance patch: a single manifest now declares every release-gate validator, with an enforcing CI parity referee so the bash, PowerShell, and CI inventories cannot drift. Closes the 2026-06-06 audit. |
+| **[v2.25.1](releases/Release_v2.25.1.md)** | 2026-06-06 | Maintenance patch: docs site moves to the family `site/` layout (Pattern S), a generated CI-gated resource index, root-link repair with an enforcing guard, and an em-dash-scar cleanup. |
+| **[v2.25.0](releases/Release_v2.25.0.md)** | 2026-06-03 | The plugin's first hooks: opt-in house-rule guardrails and a confident-only phase router, plus an advisory output-quality CI tier. No new skills. |
+| **[v2.24.0](releases/Release_v2.24.0.md)** | 2026-06-01 | `utility-pm-workflow-orchestrator` runs a prioritized action plan through its recommended pm-skills with go/no-go checkpoints. Ships EXPERIMENTAL. Catalog grows 64 to 65. |
+| **[v2.23.0](releases/Release_v2.23.0.md)** | 2026-05-31 | `foundation-prioritized-action-plan` turns rough notes, transcripts, or a vague ask into one prioritized action plan with honest confidence levels. Catalog grows 63 to 64. |
 | **[v2.22.0](releases/Release_v2.22.0.md)** | 2026-05-30 | One menu entry per skill: the 63 duplicate command wrappers are gone, so each capability shows once. Native Codex support added via a `.codex-plugin` manifest. All 65 skills unchanged. |
 | **[v2.21.0](releases/Release_v2.21.0.md)** | 2026-05-26 | Marketplace launch: pm-skills now installs from the `product-on-purpose` plugin marketplace. The previous install path keeps working, so existing setups need no change. |
 | **[v2.20.0](releases/Release_v2.20.0.md)** | 2026-05-25 | Each workshop methodology is now a single command: `/workflow-foundation-sprint`, `/workflow-design-sprint`, and `/workflow-foundation-to-design` chain their per-day skills end to end. |
 | **[v2.19.0](releases/Release_v2.19.0.md)** | 2026-05-23 | Pre-promotion hardening: new validators catch stale counts, dead links, and references to skills that do not exist before they can ship. Nothing you use behaves differently. |
 | **[v2.18.0](releases/Release_v2.18.0.md)** | 2026-05-21 | Four new phase skills close the highest-consensus PM gaps: market-sizing, prioritization-framework, journey-map, and survey-analysis. Catalog grows 59 to 63. |
-| **[v2.17.0](releases/Release_v2.17.0.md)** | 2026-05-20 | Native Claude Code sub-agent registration: `@pm-critic` and the other three auto-discover and dispatch by @-mention. |
-| **[v2.16.0](releases/Release_v2.16.0.md)** | 2026-05-17 | Active Orchestration: 4 sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor) plus the modernized Astro Starlight docs stack with full-text search. |
-| **[v2.15.0](releases/Release_v2.15.0.md)** | 2026-05-16 | Sprint Skills launch: 15 workshop-methodology skills (Foundation Sprint + Design Sprint families + note-and-vote). Catalog grows 40 to 55. |
-| [v2.14.0](releases/Release_v2.14.0.md) | 2026-05-10 | Docs stack migration from MkDocs Material to Astro Starlight: full-text search and native dark mode. |
-| **[v2.12.0](releases/Release_v2.12.0.md)** | 2026-05-03 | OKR skills: `foundation-okr-writer` and `measure-okr-grader` for the full quarterly write-and-score cycle. |
 
 [All releases](releases/) · [Full changelog](changelog.md)
 {/* count-exempt:end */}
