@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.25.1-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.25.2-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-65-brightgreen.svg?style=flat-square" alt="Skills">
@@ -164,6 +164,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.25.2 - Maintenance: validator-inventory manifest + parity gate, closes the Codex audit</strong></summary>
+
+**What changed.** A maintenance patch that resolves the remaining 2026-06-06 Codex audit items and hardens the release gate; no new skills (catalog stays 65). Adds a single **validator-inventory manifest** (`scripts/validation-manifest.yaml`) and an enforcing CI **parity referee** (`scripts/check-validator-parity.mjs`), so the bash, PowerShell, and CI validator inventories can no longer drift; reconciles a live drift it caught (two validators enforcing in CI but missing from both local bundles); extends the root-doc-link checker to source files; promotes the em-dash-scar guard to enforcing (now multi-backtick aware); and corrects the `CLAUDE.md` "internal notes are gitignored" claim. A Codex adversarial review of the release ran first; its findings were resolved before tagging.
+
+**Get started.** [v2.25.2 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.2)
+
+</details>
 
 <details>
 <summary><strong>v2.25.1 - Maintenance: docs-site Pattern S, resource index, em-dash-scar cleanup + CI guards</strong></summary>
@@ -1054,7 +1063,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.25.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.1)           |
+| **Current version** | [v2.25.2](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.2)           |
 | **Skill count**     | 65 skills (30 phase + 9 foundation + 11 utility + 15 tool)                                |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |

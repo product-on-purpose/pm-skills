@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.25.2] - 2026-06-10
+
+**Maintenance patch: resolves the remaining 2026-06-06 Codex audit items and hardens the release gate.** Unifies the bash/PowerShell/CI validator inventory behind a single manifest with an enforcing CI parity referee (which caught and reconciled a live drift), extends the root-document link checker to source files, promotes the em-dash-scar guard to enforcing (now multi-backtick aware), and corrects the `CLAUDE.md` "internal notes are gitignored" claim. A Codex adversarial review of the release ran first; its findings (per-leg CI parity, multi-backtick handling, a plan-wording fix) were resolved before tagging. No skill behavior change; the catalog stays 65 skills / 5 sub-agents. PATCH.
+
 ### Added
 
 - `scripts/validation-manifest.yaml`: a single source of truth for the release-gate shell-validator inventory. Declares every `scripts/*.sh` + `*.ps1` validator once with its local pre-tag tier, CI level, and per-shell flags.
