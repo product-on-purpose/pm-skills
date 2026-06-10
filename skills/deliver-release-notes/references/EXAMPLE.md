@@ -24,11 +24,11 @@ Work comfortably in low-light environments with full dark mode support. Your eye
 
 ## New Features
 
-- **Export to PDF:** Share professional project reports with stakeholders who don't use TaskFlow. Export any project view . including Gantt charts . as a formatted PDF with your company logo.
+- **Export to PDF:** Share professional project reports with stakeholders who don't use TaskFlow. Export any project view - including Gantt charts - as a formatted PDF with your company logo.
 
 - **Keyboard Shortcuts:** Power users, rejoice. Navigate TaskFlow without touching your mouse. Press `?` anywhere to see the full shortcut list, or use `Cmd+K` (Mac) / `Ctrl+K` (Windows) to open the command palette.
 
-- **Recurring Task Templates:** Set up tasks that repeat on a schedule . daily standups, weekly reviews, monthly reports. Create once, and TaskFlow handles the rest.
+- **Recurring Task Templates:** Set up tasks that repeat on a schedule - daily standups, weekly reviews, monthly reports. Create once, and TaskFlow handles the rest.
 
 ## Improvements
 
@@ -62,7 +62,7 @@ Work comfortably in low-light environments with full dark mode support. Your eye
 
 ## Coming Soon
 
-We're putting the finishing touches on **AI-powered task suggestions** . TaskFlow will learn from your completed projects and suggest task breakdowns for new projects. Plus, **time tracking** is in beta testing and launching next month.
+We're putting the finishing touches on **AI-powered task suggestions** - TaskFlow will learn from your completed projects and suggest task breakdowns for new projects. Plus, **time tracking** is in beta testing and launching next month.
 
 ---
 

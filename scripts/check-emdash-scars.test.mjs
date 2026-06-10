@@ -1,7 +1,7 @@
 // scripts/check-emdash-scars.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { findScars } from './check-emdash-scars.mjs';
+import { findScars, ROOTS, trackedProse } from './check-emdash-scars.mjs';
 
 test('findScars flags a spaced-period scar in prose', () => {
   const hits = findScars('Discover . 3 skills in this phase');
@@ -53,4 +53,20 @@ test('findScars ignores a spaced period inside a multi-backtick code span', () =
 test('findScars still flags a real scar outside a multi-backtick span', () => {
   const hits = findScars('see ``a `nested` b`` then x . y');
   assert.equal(hits.length, 1);
+});
+
+// F-12 Batch 0c: the guard's scope covers skills/** hand-authored prose, so a
+// scar inside a skill SKILL.md or references/*.md is reported by the real run.
+test('guard scope includes skills/ (F-12 Batch 0c)', () => {
+  assert.ok(ROOTS.includes('skills'), 'ROOTS must include skills/ so skill prose is guarded');
+});
+
+test('trackedProse enumerates skill markdown files', () => {
+  const files = trackedProse();
+  assert.ok(
+    files.some((f) => /^skills\/[^/]+\/SKILL\.md$/.test(f)),
+    'expected skills/<name>/SKILL.md files in the scanned scope'
+  );
+  // and a scar planted in skill-shaped prose is still detected by findScars
+  assert.equal(findScars('Use this skill . it catalogs edge cases').length, 1);
 });

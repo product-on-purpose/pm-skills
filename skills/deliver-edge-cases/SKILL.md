@@ -1,11 +1,11 @@
 ---
 name: deliver-edge-cases
-description: Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive coverage, or during QA planning to identify test scenarios.
+description: Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive failure coverage, or during QA planning to identify test scenarios. Distinct from deliver-acceptance-criteria, which writes story-level Given/When/Then checks; this skill produces the systematic edge-case catalog for the whole feature.
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.0.1"
+  updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -13,7 +13,7 @@ metadata:
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # Edge Cases
 
-An edge cases document systematically catalogs the unusual, boundary, and error scenarios for a feature. While happy-path flows are typically well-specified, edge cases often get discovered in production . causing bugs, poor user experience, and support burden. Documenting edge cases upfront ensures engineering handles them intentionally and QA knows what to test.
+An edge cases document systematically catalogs the unusual, boundary, and error scenarios for a feature. While happy-path flows are typically well-specified, edge cases often get discovered in production - causing bugs, poor user experience, and support burden. Documenting edge cases upfront ensures engineering handles them intentionally and QA knows what to test.
 
 ## When to Use
 
@@ -28,7 +28,7 @@ An edge cases document systematically catalogs the unusual, boundary, and error 
 When asked to document edge cases, follow these steps:
 
 1. **Define the Feature Scope**
-   Clearly describe what feature or flow you're analyzing. Edge cases are specific to context . the same input might be valid in one feature and invalid in another.
+   Clearly describe what feature or flow you're analyzing. Edge cases are specific to context - the same input might be valid in one feature and invalid in another.
 
 2. **Walk Through Input Validation**
    Consider every user input: What if it's empty? Too long? Wrong format? Contains special characters? What are the minimum and maximum valid values?

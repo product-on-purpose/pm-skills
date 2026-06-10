@@ -1,11 +1,11 @@
 ---
 name: iterate-lessons-log
-description: Creates a structured lessons learned entry for organizational memory. Use after projects, incidents, or significant learnings to capture knowledge for future teams and initiatives.
+description: Creates a structured lessons learned entry for organizational memory. Use after an incident, a completed project, or a significant learning to record knowledge for future teams and initiatives. Distinct from iterate-retrospective, which facilitates the team ceremony; this skill writes the durable lessons entry that outlives it.
 license: Apache-2.0
 metadata:
   phase: iterate
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.0.1"
+  updated: 2026-06-10
   category: reflection
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

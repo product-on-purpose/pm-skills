@@ -44,7 +44,7 @@ Our new e-commerce platform needs payment processing capabilities. We currently 
 
 ### Finding 1: Stripe has significantly better developer experience
 
-Stripe's documentation is more comprehensive and includes more working examples. The sandbox environment required no setup . we were processing test payments within 15 minutes. Adyen required account manager approval and took 2 days to get sandbox access.
+Stripe's documentation is more comprehensive and includes more working examples. The sandbox environment required no setup - we were processing test payments within 15 minutes. Adyen required account manager approval and took 2 days to get sandbox access.
 
 **Evidence:**
 - Time to first successful test payment: Stripe (15 min), Adyen (2 days including access wait)

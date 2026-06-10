@@ -30,14 +30,14 @@ Errors: 0 | Warnings: 1 | Info: 1
 - PASS | structural | agents-entry | AGENTS.md entry found with matching path
 
 ## Quality Checks
-- WARN | quality | output-contract-coverage | Output Format section says "Use the template in `references/TEMPLATE.md` to structure the output" but does not enumerate template sections explicitly. Accepted as valid . this is the current library convention.
+- WARN | quality | output-contract-coverage | Output Format section says "Use the template in `references/TEMPLATE.md` to structure the output" but does not enumerate template sections explicitly. Accepted as valid - this is the current library convention.
 - PASS | quality | checklist-verifiability | all 7 checklist items are specific and testable (e.g., "Success metrics are specific and measurable", "Document is readable in under 15 minutes")
 - PASS | quality | example-completeness | EXAMPLE.md fills all 10 template sections with concrete content. No placeholder scaffolding detected. Line count: 212 (informational).
 - PASS | quality | template-example-alignment | EXAMPLE.md section headers match TEMPLATE.md in order and naming
 - PASS | quality | description-actionability | description includes trigger phrase: "Use when specifying features, epics, or product initiatives for engineering handoff"
 - PASS | quality | instruction-clarity | 8 numbered steps with imperative verbs (Summarize, Define, Outline, Detail, Define, Address, Identify, Propose)
 - PASS | quality | placeholder-leakage | no unresolved placeholders, HTML comments (except license header), or authoring notes found
-- INFO | quality | when-not-to-use | no "When NOT to Use" section present (optional . present in 1/27 shipped skills)
+- INFO | quality | when-not-to-use | no "When NOT to Use" section present (optional - present in 1/27 shipped skills)
 
 ## Recommendations
 1. WARN | output-contract-coverage | Target: skills/deliver-prd/SKILL.md
@@ -52,7 +52,7 @@ Errors: 0 | Warnings: 1 | Info: 1
 This report demonstrates:
 - All 12 Tier 1 structural checks passing (common for shipped skills)
 - Tier 2 quality checks surfacing one WARN and one INFO against a well-established skill
-- The WARN for `output-contract-coverage` illustrates the "current conventions vs. v2.8 standard" framing . the skill is valid by current standards, but the validator surfaces the higher standard as a suggestion
+- The WARN for `output-contract-coverage` illustrates the "current conventions vs. v2.8 standard" framing - the skill is valid by current standards, but the validator surfaces the higher standard as a suggestion
 - The INFO for `when-not-to-use` illustrates a finding that is purely optional guidance
 - Recommendations include target file paths and specific actions for each finding
 - The overall Result is WARN (worst severity found), not FAIL

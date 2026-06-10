@@ -74,9 +74,9 @@ status: draft
 ### Customer/User Feedback
 
 **What Users Are Saying:**
-- "[Quote 1]" . [Source]
-- "[Quote 2]" . [Source]
-- "[Quote 3]" . [Source]
+- "[Quote 1]" - [Source]
+- "[Quote 2]" - [Source]
+- "[Quote 3]" - [Source]
 
 **User Behavior Patterns:**
 - [Behavioral observation 1]
@@ -133,7 +133,7 @@ status: draft
 
 ---
 
-### Option 2: [Pivot Type . e.g., Customer Segment Pivot]
+### Option 2: [Pivot Type - e.g., Customer Segment Pivot]
 
 **Description:** [What this pivot looks like]
 
@@ -153,7 +153,7 @@ status: draft
 
 ---
 
-### Option 3: [Pivot Type . e.g., Platform Pivot]
+### Option 3: [Pivot Type - e.g., Platform Pivot]
 
 **Description:** [What this pivot looks like]
 

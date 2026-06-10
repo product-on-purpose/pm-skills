@@ -68,7 +68,7 @@ Mobile-first commerce is a key pillar of our 2026 strategy. The executive team h
 
 - Payment provider contract limits changes to payment form UI until March
 - Must maintain PCI compliance for any checkout modifications
-- iOS and Android apps share checkout webview . changes affect both platforms
+- iOS and Android apps share checkout webview - changes affect both platforms
 - Engineering capacity: 2 engineers available, 6-week runway before feature freeze
 - Cannot remove guest checkout option (legal requirement in EU markets)
 - Must preserve existing promo code functionality for marketing campaigns

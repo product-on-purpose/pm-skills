@@ -1,11 +1,11 @@
 ---
 name: utility-pm-release-conductor
-description: Walk the guided release runbook (6 gates G0/G1/G2/G2.5/G3/G4) via the pm-release-conductor sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skills:pm-release-conductor with native chain composition to pm-skill-auditor at G0 and pm-changelog-curator at G2); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-release-conductor.md and inlines auditor + curator behaviors at G0 + G2 via reference-and-execute-inline pattern (because non-Claude clients cannot natively chain to other sub-agents). Returns gate-by-gate output with explicit confirmation pauses, refuses bypass attempts, tags only the G2.5-captured SHA per master plan D22.
+description: Walk the guided 6-gate release runbook (G0 readiness, G1 adversarial review, G2 version bump and CHANGELOG, G2.5 commit and re-verify, G3 tag and push, G4 post-tag hygiene) via the pm-release-conductor sub-agent. Refuses gate bypasses and tags only the re-verified SHA. Use when cutting a pm-skills release.
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.0"
-  updated: 2026-05-17
+  version: "1.0.1"
+  updated: 2026-06-10
   category: release
   frameworks: [triple-diamond]
   author: product-on-purpose

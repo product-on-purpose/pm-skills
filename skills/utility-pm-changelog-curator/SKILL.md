@@ -1,11 +1,11 @@
 ---
 name: utility-pm-changelog-curator
-description: Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent. Dispatches natively on Claude Code with the pm-skills plugin (invokes @agent-pm-skills:pm-changelog-curator); on non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI) reads agents/pm-changelog-curator.md and executes the system prompt inline. Applies CLAUDE.md hygiene rules (no internal-notes references, no em-dashes, no Claude attribution trailers, public paths only). Returns a layered draft (full CHANGELOG draft + Status Summary prose + Status YAML envelope per master plan D26) with hidden justification comments for maintainer audit. Refuses on dirty working tree unless --committed-only is passed.
+description: Draft CHANGELOG entries from git log via the pm-changelog-curator sub-agent, applying the repo hygiene rules (describe what changed, public paths only, no attribution trailers). Returns a layered draft with a status summary for maintainer review; refuses a dirty working tree unless --committed-only is passed. Use when banking unreleased changes or preparing a release.
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.0"
-  updated: 2026-05-17
+  version: "1.0.1"
+  updated: 2026-06-10
   category: release
   frameworks: [triple-diamond]
   author: product-on-purpose

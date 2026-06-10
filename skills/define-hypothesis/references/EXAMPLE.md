@@ -22,7 +22,7 @@ context: SaaS product with low onboarding completion rates testing simplified fl
 
 ### Problem Context
 
-Our SaaS product has a 34% onboarding completion rate . meaning 66% of new signups never finish setup and experience the core value proposition. User research indicates the current 7-step onboarding feels overwhelming, with significant drop-off occurring at steps 4 and 5 (team invitation and integration setup). Users who don't complete onboarding are 4x more likely to churn within 14 days.
+Our SaaS product has a 34% onboarding completion rate - meaning 66% of new signups never finish setup and experience the core value proposition. User research indicates the current 7-step onboarding feels overwhelming, with significant drop-off occurring at steps 4 and 5 (team invitation and integration setup). Users who don't complete onboarding are 4x more likely to churn within 14 days.
 
 ### Supporting Evidence
 
@@ -34,9 +34,9 @@ Our SaaS product has a 34% onboarding completion rate . meaning 66% of new signu
 
 ### Alternative Hypotheses Considered
 
-- **Progress indicators:** Adding a progress bar might reduce anxiety without changing steps . rejected because underlying issue is step count, not visibility
-- **Tooltips/guidance:** More help content might reduce confusion . rejected because it adds more cognitive load
-- **Optional steps:** Making steps skippable might work . considered as fallback if simplification fails
+- **Progress indicators:** Adding a progress bar might reduce anxiety without changing steps - rejected because underlying issue is step count, not visibility
+- **Tooltips/guidance:** More help content might reduce confusion - rejected because it adds more cognitive load
+- **Optional steps:** Making steps skippable might work - considered as fallback if simplification fails
 
 ## Target User Segment
 
@@ -108,7 +108,7 @@ Deferred steps (team invitation, integrations) will be prompted via in-app messa
 
 - **Validated if:** Onboarding completion increases by ≥10% relative (34% → 37.4%+) with 95% confidence AND guardrail metrics stay within acceptable range
 - **Invalidated if:** Onboarding completion shows no significant change or decreases, OR guardrail metrics breach acceptable range
-- **Inconclusive if:** Results don't reach statistical significance within test window . extend test or increase sample
+- **Inconclusive if:** Results don't reach statistical significance within test window - extend test or increase sample
 
 ## Risks & Assumptions
 
@@ -134,4 +134,4 @@ Deferred steps (team invitation, integrations) will be prompted via in-app messa
 | Test running | Jan 18-31, 2026 | 14 days |
 | Observation window | Feb 1-7, 2026 | 7 days |
 | Analysis | Feb 8-10, 2026 | 3 days |
-| Decision | Feb 11, 2026 | . |
+| Decision | Feb 11, 2026 | - |

@@ -56,15 +56,15 @@ When asked to create a lean canvas, follow these steps:
 3. **Fill the nine blocks in recommended order**
    Fill in this order because each block's answer constrains the next. Do not skip ahead.
 
-   a. **Problem** . Top 3 problems, ranked by pain intensity and frequency. Include Existing Alternatives (what customers do today, including workarounds and non-consumption, not just direct competitors).
-   b. **Customer Segments** . Who has these problems most acutely? Name Early Adopters as a distinct subset you will reach first. Early Adopters are more painful, more reachable, and more willing to try a new solution than the broader segment.
-   c. **Unique Value Proposition (UVP)** . One sentence that makes a clear, testable promise. Include a High-Level Concept ("X for Y" analogy) that accelerates understanding for busy readers.
-   d. **Solution** . Top 3 features that address the top 3 problems. Map 1:1 to the Problem block. Keep it concrete but do not over-engineer; this is a hypothesis, not a spec.
-   e. **Channels** . Free and paid paths to your early adopters. Distinguish compounding channels (content, SEO, community) from traction-demonstrating channels (outbound, paid ads).
-   f. **Revenue Streams** . Model (subscription, transaction, freemium, services), price point, expected volume, and LTV. Show the math so the revenue thesis is inspectable.
-   g. **Cost Structure** . CAC, fixed vs variable, and the cost driver that shapes the growth curve.
-   h. **Key Metrics** . The 3 to 5 leading indicators that signal whether the model is working. AARRR (Acquisition, Activation, Retention, Revenue, Referral) is a useful default frame.
-   i. **Unfair Advantage** . What cannot be easily copied or bought. Empty is acceptable if framed as an open question; never fabricate a moat.
+   a. **Problem** - Top 3 problems, ranked by pain intensity and frequency. Include Existing Alternatives (what customers do today, including workarounds and non-consumption, not just direct competitors).
+   b. **Customer Segments** - Who has these problems most acutely? Name Early Adopters as a distinct subset you will reach first. Early Adopters are more painful, more reachable, and more willing to try a new solution than the broader segment.
+   c. **Unique Value Proposition (UVP)** - One sentence that makes a clear, testable promise. Include a High-Level Concept ("X for Y" analogy) that accelerates understanding for busy readers.
+   d. **Solution** - Top 3 features that address the top 3 problems. Map 1:1 to the Problem block. Keep it concrete but do not over-engineer; this is a hypothesis, not a spec.
+   e. **Channels** - Free and paid paths to your early adopters. Distinguish compounding channels (content, SEO, community) from traction-demonstrating channels (outbound, paid ads).
+   f. **Revenue Streams** - Model (subscription, transaction, freemium, services), price point, expected volume, and LTV. Show the math so the revenue thesis is inspectable.
+   g. **Cost Structure** - CAC, fixed vs variable, and the cost driver that shapes the growth curve.
+   h. **Key Metrics** - The 3 to 5 leading indicators that signal whether the model is working. AARRR (Acquisition, Activation, Retention, Revenue, Referral) is a useful default frame.
+   i. **Unfair Advantage** - What cannot be easily copied or bought. Empty is acceptable if framed as an open question; never fabricate a moat.
 
 4. **Apply evidence and confidence policy**
    Tag each block with `High`, `Medium`, or `Low` confidence plus a one-line rationale.

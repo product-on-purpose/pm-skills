@@ -205,11 +205,11 @@ status: draft
 
 <!-- Verbatim quotes from research that illustrate the job -->
 
-> "[Quote 1]" . [Source]
+> "[Quote 1]" - [Source]
 
-> "[Quote 2]" . [Source]
+> "[Quote 2]" - [Source]
 
-> "[Quote 3]" . [Source]
+> "[Quote 3]" - [Source]
 
 ---
 

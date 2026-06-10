@@ -1,17 +1,18 @@
 #!/usr/bin/env node
-// Advisory guard against the " . " (space-period-space) em-dash-sweep scar in
-// USER-FACING hand-authored prose.
+// Guard against the " . " (space-period-space) em-dash-sweep scar in
+// USER-FACING hand-authored prose. ENFORCING in CI since v2.25.2 (PR #182).
 //
 // Origin: commit 8ab0f81 (2026-04-22, "em-dash sweep completion") replaced
 // em-dash characters with a spaced period instead of a hyphen, leaving a lone
 // spaced period used as a separator. The no-em-dashes PreToolUse hook blocks the
 // root cause (U+2014 / U+2013 characters) but NOT this swept-to-period residue,
-// so this check catches a regression at CI time. It is advisory by design
-// (wired with continue-on-error): a finding warns, it does not block.
+// so this check catches a regression at CI time.
 //
-// Scope: tracked hand-authored prose only. Generated site content is gitignored,
-// so `git ls-files` excludes it automatically. docs/internal is intentionally out
-// of scope (it retains some legitimate in-code-fence periods and heading scars).
+// Scope: tracked hand-authored prose only, including skills/** (SKILL.md and
+// references/, added v2.26.0 F-12 Batch 0c after the corpus sweep). Generated
+// site content is gitignored, so `git ls-files` excludes it automatically.
+// docs/internal is intentionally out of scope (it retains some legitimate
+// in-code-fence periods and heading scars).
 // Fence-aware: lines inside ``` code blocks are skipped, because legitimate code
 // can contain a spaced period (for example `cp -r x . `). Inline-code spans
 // (single backticks) are also stripped before the check, so prose that quotes the
@@ -21,9 +22,9 @@ import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
-const ROOTS = ['CHANGELOG.md', 'README.md', 'CONTRIBUTING.md', 'site/src/content/docs'];
+export const ROOTS = ['CHANGELOG.md', 'README.md', 'CONTRIBUTING.md', 'site/src/content/docs', 'skills'];
 
-function trackedProse() {
+export function trackedProse() {
   let out;
   try {
     out = execSync(`git ls-files ${ROOTS.join(' ')}`, { encoding: 'utf8' });

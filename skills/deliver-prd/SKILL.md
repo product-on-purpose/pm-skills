@@ -37,7 +37,7 @@ When asked to create a PRD, follow these steps:
    Describe the proposed solution at a high level. Focus on user-facing functionality and key capabilities. Include enough detail for stakeholders to evaluate the approach without over-specifying implementation.
 
 4. **Detail Functional Requirements**
-   Break down what the system must do. Use user stories or requirement statements. Each requirement should be testable . someone should be able to verify if it's met.
+   Break down what the system must do. Use user stories or requirement statements. Each requirement should be testable - someone should be able to verify if it's met.
 
 5. **Define Scope Boundaries**
    Explicitly state what's in scope, out of scope, and deferred to future iterations. Clear scope prevents scope creep and sets realistic expectations.

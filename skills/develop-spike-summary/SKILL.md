@@ -13,7 +13,7 @@ metadata:
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 # Spike Summary
 
-A spike summary documents the results of a time-boxed exploration . a focused investigation to reduce uncertainty before committing to implementation. Spikes answer specific questions like "Can we integrate with this API?" or "Is this technology viable for our use case?" The summary captures findings so the team can make informed decisions without the spike participants needing to repeat explanations.
+A spike summary documents the results of a time-boxed exploration - a focused investigation to reduce uncertainty before committing to implementation. Spikes answer specific questions like "Can we integrate with this API?" or "Is this technology viable for our use case?" The summary captures findings so the team can make informed decisions without the spike participants needing to repeat explanations.
 
 ## When to Use
 
@@ -37,10 +37,10 @@ When asked to document a spike, follow these steps:
    Explain what was tried, in what order, and why. This helps future readers understand the methodology and whether alternative approaches were considered.
 
 4. **Present Findings with Evidence**
-   Document what was learned, supported by concrete evidence . code samples, performance benchmarks, screenshots, or API responses. Distinguish between verified findings and hypotheses that need more testing.
+   Document what was learned, supported by concrete evidence - code samples, performance benchmarks, screenshots, or API responses. Distinguish between verified findings and hypotheses that need more testing.
 
 5. **Make a Clear Recommendation**
-   Answer the original question directly: proceed, do not proceed, or proceed with conditions. Avoid hedging . the team needs actionable guidance.
+   Answer the original question directly: proceed, do not proceed, or proceed with conditions. Avoid hedging - the team needs actionable guidance.
 
 6. **Document Artifacts**
    Link to any code, prototypes, diagrams, or documentation created during the spike. These artifacts often have ongoing value beyond the summary.

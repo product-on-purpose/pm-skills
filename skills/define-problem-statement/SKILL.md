@@ -28,7 +28,7 @@ A problem statement is a concise document that frames the problem you're solving
 When asked to create a problem statement, follow these steps:
 
 1. **Identify the User Segment**
-   Ask who is experiencing this problem. Get specific about the user persona, role, or segment. Avoid vague descriptions like "users" . instead target "mobile shoppers completing checkout" or "enterprise admins managing 50+ users."
+   Ask who is experiencing this problem. Get specific about the user persona, role, or segment. Avoid vague descriptions like "users" - instead target "mobile shoppers completing checkout" or "enterprise admins managing 50+ users."
 
 2. **Understand the Pain Points**
    Explore what friction, frustration, or unmet need the user experiences. Ask probing questions to understand the severity and frequency of the problem. Look for evidence from user research, support tickets, or behavioral data.

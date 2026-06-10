@@ -180,7 +180,7 @@ status: draft
 
 <!-- Relevant quotes from team members or stakeholders -->
 
-> "[Quote]" . [Attribution]
+> "[Quote]" - [Attribution]
 
 ### Artifacts
 

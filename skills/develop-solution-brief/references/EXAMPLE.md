@@ -55,8 +55,8 @@ We will redesign mobile checkout as a single-page experience with progressive di
 
 ## Next Steps
 
-1. Finalize UI mockups and get stakeholder approval . Design Lead, Jan 20
-2. Scope technical requirements with engineering . PM + Tech Lead, Jan 22
-3. Begin Apple Pay sandbox integration . iOS Engineer, Jan 25
-4. Plan A/B test framework and success criteria . PM + Data, Jan 27
-5. Draft user communication for checkout change . Marketing, Feb 1
+1. Finalize UI mockups and get stakeholder approval - Design Lead, Jan 20
+2. Scope technical requirements with engineering - PM + Tech Lead, Jan 22
+3. Begin Apple Pay sandbox integration - iOS Engineer, Jan 25
+4. Plan A/B test framework and success criteria - PM + Data, Jan 27
+5. Draft user communication for checkout change - Marketing, Feb 1

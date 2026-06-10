@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Description collision pairs de-embedded across 9 skills with explicit boundary pointers (the deliver user-stories / acceptance-criteria / edge-cases trio, define-hypothesis vs measure-experiment-design, discover-interview-synthesis vs foundation-meeting-recap, iterate-lessons-log vs iterate-retrospective); the phantom `utility-slideshow-themer` reference removed from `utility-slideshow-creator`; the four sub-agent dispatch skill descriptions trimmed to their trigger surface (client-routing mechanics stay documented in the bodies). Each touched skill takes a patch bump and gains its first `HISTORY.md` (14 skills). From the 2026-06-09 repo audit; issue #135 (F-12 Batch 0).
+- Docs-site landing page de-rotted: the Foundation and Utility cards now claim 9 and 11 skills (the nine cards sum to the 65-skill catalog), the cross-cutting family prose lists include `foundation-prioritized-action-plan` and `utility-pm-workflow-orchestrator`, and the Recent Releases table runs through v2.25.2.
+- `AGENTS.md` and `QUICKSTART.md` entry-doc refresh: 8 stale references into the retired `docs/` tree converted to live deployed-site links; QUICKSTART now leads with the plugin-marketplace install and adds the open skills CLI path.
+
+### Changed
+
+- Em-dash-sweep scar cleanup across `skills/**` (56 files): every spaced-period scar in skill bodies and references swept to ` - ` or restructured; scar-only files take no version bump.
+- `check-emdash-scars` (enforcing) now also scans `skills/**` hand-authored prose, so the swept corpus cannot regress (test-first scope extension).
+- `check-landing-page-counts` now enforces the homepage per-family card counts (every card's claim must match the filesystem and the cards must sum to the catalog total) and the three bold family prose claims; a parse miss is itself a failure, so a homepage rewrite cannot silently disable the check.
+- `check-workflow-generator-coverage` doc header, comments, and operator-facing fix messages updated from the retired Python generator to `scripts/gen-site.mjs` (text-only; the validator logic was already Pattern S correct).
+
 ## [2.25.2] - 2026-06-10
 
 **Maintenance patch: resolves the remaining 2026-06-06 Codex audit items and hardens the release gate.** Unifies the bash/PowerShell/CI validator inventory behind a single manifest with an enforcing CI parity referee (which caught and reconciled a live drift), extends the root-document link checker to source files, promotes the em-dash-scar guard to enforcing (now multi-backtick aware), and corrects the `CLAUDE.md` "internal notes are gitignored" claim. A Codex adversarial review of the release ran first; its findings (per-leg CI parity, multi-backtick handling, a plan-wording fix) were resolved before tagging. No skill behavior change; the catalog stays 65 skills / 5 sub-agents. PATCH.
