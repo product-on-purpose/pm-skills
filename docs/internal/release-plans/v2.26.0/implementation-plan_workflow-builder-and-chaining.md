@@ -18,14 +18,14 @@
 
 ### Task 0: Branch
 
-- [ ] **Step 0.1:** `git -C E:\Projects\product-on-purpose\pm-skills status` - expect clean on main. `git pull --ff-only`, confirm `v2.25.2` is the latest tag (`git describe --tags --abbrev=0`).
-- [ ] **Step 0.2:** `git switch -c feat/v2.26.0-workflow-builder-and-chain`
+- [x] **Step 0.1:** `git -C E:\Projects\product-on-purpose\pm-skills status` - expect clean on main. `git pull --ff-only`, confirm `v2.25.2` is the latest tag (`git describe --tags --abbrev=0`).
+- [x] **Step 0.2:** `git switch -c feat/v2.26.0-workflow-builder-and-chain`
 
 ### Task 1: Chain-expression contract (PARSE-CONTRACT.md)
 
 **Files:** Modify: `skills/utility-pm-workflow-orchestrator/references/PARSE-CONTRACT.md` (insert a new H2 after "## Mode A Section 7 Parse Contract" block ends, before "## Top-3 Runnable Cap" is acceptable; preferred placement: after the "## Overall Plan Confidence Extraction (Mode A)" section so Mode A material stays contiguous).
 
-- [ ] **Step 1.1: Add the section.** Insert exactly this content (it cross-references rather than restates existing rules, per AC-C7's single-source requirement):
+- [x] **Step 1.1: Add the section.** Insert exactly this content (it cross-references rather than restates existing rules, per AC-C7's single-source requirement):
 
 ```markdown
 ## Mode B Chain Expression Contract
@@ -58,34 +58,34 @@ expression (the `/chain` command's input form). The expression grammar:
   past 3 steps; GUARDED AUTO degrades to CHECKPOINTED for Mode B unless `--force-auto`.
 ```
 
-- [ ] **Step 1.2: Verify.** Run: `node scripts/check-frontmatter-yaml.mjs --site-docs` and `node scripts/check-emdash-scars.mjs`. Expected: both pass (the new text contains no scar patterns, no dash characters).
-- [ ] **Step 1.3: Commit.** `git add -A && git commit -m "feat(orchestrator): add Mode B chain expression contract (F-15)"`
+- [x] **Step 1.2: Verify.** Run: `node scripts/check-frontmatter-yaml.mjs --site-docs` and `node scripts/check-emdash-scars.mjs`. Expected: both pass (the new text contains no scar patterns, no dash characters).
+- [x] **Step 1.3: Commit.** `git add -A && git commit -m "feat(orchestrator): add Mode B chain expression contract (F-15)"`
 
 ### Task 2: Engine edits (`agents/pm-workflow-orchestrator.md`)
 
 **Files:** Modify: `agents/pm-workflow-orchestrator.md` (two precise edits; nothing else changes).
 
-- [ ] **Step 2.1: Name the threading flag.** In the "State passing and disk-write" section, replace the sentence fragment `they request it explicitly (a flag or chain syntax); you then pass the prior artifact as a reference.` with `they request it explicitly with the --thread flag (see the Mode B Chain Expression Contract in PARSE-CONTRACT.md); you then pass the prior artifact as a reference.`
-- [ ] **Step 2.2: Promotion suggestion.** In the "Terminal outputs" full-completion block, inside `**Next steps:**`, add this bullet after the `utility-pm-critic` line:
+- [x] **Step 2.1: Name the threading flag.** In the "State passing and disk-write" section, replace the sentence fragment `they request it explicitly (a flag or chain syntax); you then pass the prior artifact as a reference.` with `they request it explicitly with the --thread flag (see the Mode B Chain Expression Contract in PARSE-CONTRACT.md); you then pass the prior artifact as a reference.`
+- [x] **Step 2.2: Promotion suggestion.** In the "Terminal outputs" full-completion block, inside `**Next steps:**`, add this bullet after the `utility-pm-critic` line:
 
 ```markdown
 - Mode B chains of 2+ steps: reusable? Promote it to a durable workflow with `utility-pm-workflow-builder` (hand it this exact chain: {the chain expression})
 ```
 
-- [ ] **Step 2.3: Verify + commit.** Run `node scripts/check-emdash-scars.mjs` (pass) and `bash scripts/check-skill-cross-references.sh` (pass; `utility-pm-workflow-builder` is backticked in an agents/ file, which the validator does not scan, and the skill lands in Task 5 within the same PR regardless). Commit: `git add agents/pm-workflow-orchestrator.md && git commit -m "feat(orchestrator): name --thread and add chain promotion suggestion (F-15)"`
+- [x] **Step 2.3: Verify + commit.** Run `node scripts/check-emdash-scars.mjs` (pass) and `bash scripts/check-skill-cross-references.sh` (pass; `utility-pm-workflow-builder` is backticked in an agents/ file, which the validator does not scan, and the skill lands in Task 5 within the same PR regardless). Commit: `git add agents/pm-workflow-orchestrator.md && git commit -m "feat(orchestrator): name --thread and add chain promotion suggestion (F-15)"`
 
 ### Task 3: Dispatch skill bump (`utility-pm-workflow-orchestrator` 1.0.0 -> 1.1.0)
 
 **Files:** Modify: `skills/utility-pm-workflow-orchestrator/SKILL.md`. Create: `skills/utility-pm-workflow-orchestrator/HISTORY.md`.
 
-- [ ] **Step 3.1: Frontmatter.** Set `metadata.version: "1.1.0"` and `metadata.updated: 2026-06-<merge-date>`. Replace the description with this exact text (owned here, NOT by F-12 Batch 0, to avoid a double bump; spec 1.4):
+- [x] **Step 3.1: Frontmatter.** Set `metadata.version: "1.1.0"` and `metadata.updated: 2026-06-<merge-date>`. Replace the description with this exact text (owned here, NOT by F-12 Batch 0, to avoid a double bump; spec 1.4):
 
 ```text
 Run an ordered sequence of pm-skills against one input, pausing for go/no-go and stopping on a failed or empty step. Accepts a saved prioritized action plan (Mode A) or an ad-hoc named chain (Mode B; the chain command routes here). Explicit invocation only; run --dry-run first while the native path is EXPERIMENTAL. To author a durable workflow instead, use utility-pm-workflow-builder.
 ```
 
-- [ ] **Step 3.2: Body.** In "When to Use," extend the Mode B bullet with: `On Claude Code, the /chain command is the terse front door for this mode.` In the run-modes prose, add one sentence after the GUARDED AUTO paragraph: `--thread declares a linear dependency so each step receives the prior step's confirmed artifact; see the Mode B Chain Expression Contract in references/PARSE-CONTRACT.md.` Keep the client-routing mechanics in the body (they move OUT of the description only).
-- [ ] **Step 3.3: HISTORY.md.** Create with a summary table and two version sections:
+- [x] **Step 3.2: Body.** In "When to Use," extend the Mode B bullet with: `On Claude Code, the /chain command is the terse front door for this mode.` In the run-modes prose, add one sentence after the GUARDED AUTO paragraph: `--thread declares a linear dependency so each step receives the prior step's confirmed artifact; see the Mode B Chain Expression Contract in references/PARSE-CONTRACT.md.` Keep the client-routing mechanics in the body (they move OUT of the description only).
+- [x] **Step 3.3: HISTORY.md.** Create with a summary table and two version sections:
 
 ```markdown
 # utility-pm-workflow-orchestrator - History
@@ -107,14 +107,14 @@ Run an ordered sequence of pm-skills against one input, pausing for go/no-go and
 - Initial release with v2.24.0: cross-client dispatch for Mode A (saved prioritized action plan) and Mode B (user-named chain) runs.
 ```
 
-- [ ] **Step 3.4: Verify.** Run: `bash scripts/lint-skills-frontmatter.sh` (expect `✓ skills/utility-pm-workflow-orchestrator/SKILL.md`; description is 20-100 words with no unquoted ": ") and `bash scripts/validate-skill-history.sh` (expect `✓ ... current version 1.1.0 found in the summary table`).
-- [ ] **Step 3.5: Commit.** `git add skills/utility-pm-workflow-orchestrator && git commit -m "feat(orchestrator): bump dispatch skill to 1.1.0 with chain front door + HISTORY"` (explicit add: HISTORY.md is a NEW file; `commit -am` would silently drop it)
+- [x] **Step 3.4: Verify.** Run: `bash scripts/lint-skills-frontmatter.sh` (expect `✓ skills/utility-pm-workflow-orchestrator/SKILL.md`; description is 20-100 words with no unquoted ": ") and `bash scripts/validate-skill-history.sh` (expect `✓ ... current version 1.1.0 found in the summary table`).
+- [x] **Step 3.5: Commit.** `git add skills/utility-pm-workflow-orchestrator && git commit -m "feat(orchestrator): bump dispatch skill to 1.1.0 with chain front door + HISTORY"` (explicit add: HISTORY.md is a NEW file; `commit -am` would silently drop it)
 
 ### Task 4: `/chain` command
 
 **Files:** Create: `commands/chain.md`. Modify: `AGENTS.md` (command list), `QUICKSTART.md` (command count), `README.md` (one introduction sentence), `site/src/content/docs/reference/runtime-components.md` (command count), `.github/workflows/release.yml` (release-note template).
 
-- [ ] **Step 4.1: Create `commands/chain.md`** with exactly:
+- [x] **Step 4.1: Create `commands/chain.md`** with exactly:
 
 ```markdown
 ---
@@ -144,16 +144,16 @@ Nothing is persisted beyond the engine's own gitignored run artifacts. To make a
 Context from user: $ARGUMENTS
 ```
 
-- [ ] **Step 4.2: AGENTS.md.** Add `/chain` to the commands list with one line ("ad-hoc ordered chain of skills; routes to the orchestrator's Mode B"), keeping the existing list format.
-- [ ] **Step 4.3: Count-claim sweep (commands 10 -> 11 files).** `QUICKSTART.md` line "10 slash-command docs in `commands/` (the 10 `/workflow-*` orchestrator commands)" becomes "11 slash-command docs in `commands/` (the 10 `/workflow-*` orchestrator commands plus `/chain`)". `site/src/content/docs/reference/runtime-components.md` line ~20 ("65 skills, 10 slash commands, ...") gets its command count updated to 11 HERE, in the same commit that adds the command, so `check-count-consistency` is green at this gate rather than waiting for Task 8 (CR-5). README phrasings that say "10 `/workflow-*` orchestrator commands" remain TRUE and stay; append "and the `/chain` ad-hoc runner" where the Quick Start enumerates what an install provides (README line ~115). Add one short README paragraph in the Workflows section introducing `/chain` + the builder (spec section 3). VALIDATOR-BLIND SURFACE (review CR-8): `.github/workflows/release.yml` line ~38 generates the public GitHub release notes and its "Slash commands (10 `/workflow-*` orchestrators; every skill invocable by name)" bullet would silently omit `/chain`; `check-count-consistency` scans `.md`/`.mdx`/`.json` only, so no validator catches YAML. Update that bullet to "(10 `/workflow-*` orchestrators plus the `/chain` ad-hoc runner; every skill invocable by name)" in this same commit, and fix the " . " scar on its ZIP line while in the file.
-- [ ] **Step 4.4: Verify.** Run, expecting pass on each: `bash scripts/validate-commands.sh`; `bash scripts/check-agents-md-command-sync.sh`; `bash scripts/check-count-consistency.sh` (command count now 11; any stale "10 command" claim it flags gets fixed before proceeding); `node scripts/check-root-doc-links.mjs`.
-- [ ] **Step 4.5: Commit.** `git add commands/chain.md AGENTS.md QUICKSTART.md README.md site/src/content/docs/reference/runtime-components.md .github/workflows/release.yml && git commit -m "feat(chain): add /chain command routing to orchestrator Mode B (F-15, #134)"` (explicit add: chain.md is NEW)
+- [x] **Step 4.2: AGENTS.md.** Add `/chain` to the commands list with one line ("ad-hoc ordered chain of skills; routes to the orchestrator's Mode B"), keeping the existing list format.
+- [x] **Step 4.3: Count-claim sweep (commands 10 -> 11 files).** `QUICKSTART.md` line "10 slash-command docs in `commands/` (the 10 `/workflow-*` orchestrator commands)" becomes "11 slash-command docs in `commands/` (the 10 `/workflow-*` orchestrator commands plus `/chain`)". `site/src/content/docs/reference/runtime-components.md` line ~20 ("65 skills, 10 slash commands, ...") gets its command count updated to 11 HERE, in the same commit that adds the command, so `check-count-consistency` is green at this gate rather than waiting for Task 8 (CR-5). README phrasings that say "10 `/workflow-*` orchestrator commands" remain TRUE and stay; append "and the `/chain` ad-hoc runner" where the Quick Start enumerates what an install provides (README line ~115). Add one short README paragraph in the Workflows section introducing `/chain` + the builder (spec section 3). VALIDATOR-BLIND SURFACE (review CR-8): `.github/workflows/release.yml` line ~38 generates the public GitHub release notes and its "Slash commands (10 `/workflow-*` orchestrators; every skill invocable by name)" bullet would silently omit `/chain`; `check-count-consistency` scans `.md`/`.mdx`/`.json` only, so no validator catches YAML. Update that bullet to "(10 `/workflow-*` orchestrators plus the `/chain` ad-hoc runner; every skill invocable by name)" in this same commit, and fix the " . " scar on its ZIP line while in the file.
+- [x] **Step 4.4: Verify.** Run, expecting pass on each: `bash scripts/validate-commands.sh`; `bash scripts/check-agents-md-command-sync.sh`; `bash scripts/check-count-consistency.sh` (command count now 11; any stale "10 command" claim it flags gets fixed before proceeding); `node scripts/check-root-doc-links.mjs`.
+- [x] **Step 4.5: Commit.** `git add commands/chain.md AGENTS.md QUICKSTART.md README.md site/src/content/docs/reference/runtime-components.md .github/workflows/release.yml && git commit -m "feat(chain): add /chain command routing to orchestrator Mode B (F-15, #134)"` (explicit add: chain.md is NEW)
 
 ### Task 5: Builder skill (`utility-pm-workflow-builder`)
 
 **Files:** Create: `skills/utility-pm-workflow-builder/SKILL.md`, `skills/utility-pm-workflow-builder/references/TEMPLATE.md`, `skills/utility-pm-workflow-builder/references/EXAMPLE.md`.
 
-- [ ] **Step 5.1: SKILL.md frontmatter** exactly:
+- [x] **Step 5.1: SKILL.md frontmatter** exactly:
 
 ```yaml
 ---
@@ -170,37 +170,39 @@ metadata:
 ---
 ```
 
-- [ ] **Step 5.2: SKILL.md body.** Author to spec sections 2.2 (five-step flow with the Why Gate and >70% kill gate verbatim), 2.3 (generated-file contract), 2.4 (cross-cutting checklist table, reproduced as the packet's checklist source). Required H2 inventory: `When to Use`, `When NOT to Use`, `Instructions` (Steps 1-5 as H3s), `Output Format` (points to references/TEMPLATE.md), `Quality Checklist`, `Reference Files`. Binding behaviors that must appear verbatim or equivalent: staging-only writes (`_staging/workflows/<name>/`, never canonical paths); overlap scan reads the `_workflows/` directory at run time (never a hardcoded count or list); step validation refuses Tier-3 maintenance skills, dispatch skills, and workflows as steps (Category 1 content skills only) and applies exact-match name-safety with suggestions; chain-promotion entry accepts a literal chain expression; mermaid context-flow auto-derived from the final sequence; the builder never edits cross-cutting files itself (checklist only). Body line target under 300 (lint has no cap, but spec guidance applies).
-- [ ] **Step 5.3: references/TEMPLATE.md** = the Workflow Implementation Packet template. Required H2s (lint needs 3+): `## Decision` (recommendation + Why Gate evidence), `## Overlap Analysis`, `## Workflow Draft` (embedding the full `_workflows/<name>.md` skeleton from spec 2.3: title frontmatter, H1, tagline blockquote, Workflow Metadata table with the seven fields, When to Use / Do NOT use, per-step Skill link + What you do + Input requirements + Output, mermaid context flow, Tips, Quality Checklist, See Also), `## Command Draft` (the `commands/workflow-<name>.md` skeleton mirroring `commands/workflow-sprint-planning.md`), `## Cross-Cutting Checklist` (the spec 2.4 table IN FULL, explicitly including the `.github/workflows/release.yml` release-note row: that surface is validator-blind, so the emitted checklist is the only control that keeps generated release notes truthful when a workflow command is promoted; review CR-9), `## Promotion Steps`.
-- [ ] **Step 5.4: references/EXAMPLE.md** = one complete worked packet for the scenario in spec 2.3 (a `quarterly-business-review` workflow). Completeness bar: every TEMPLATE section filled with realistic content, zero bracketed scaffolding (the engine's EMPTY rubric is the inspiration: an example with unfilled `[ guidance ]` would be a defect), the workflow draft showing a real 4-step sequence with authored handoffs and a real mermaid block.
-- [ ] **Step 5.5: Verify.** Run: `bash scripts/lint-skills-frontmatter.sh` (expect `✓ skills/utility-pm-workflow-builder/SKILL.md`; confirms description word count, license, metadata nesting, TEMPLATE 3+ H2s, EXAMPLE present, byte-0); `bash scripts/check-skill-cross-references.sh` (all backticked skill names in the new files resolve); `node scripts/check-root-doc-links.mjs` (relative links from the new SKILL.md resolve); `node scripts/check-emdash-scars.mjs`.
-- [ ] **Step 5.6: Commit.** `git add skills/utility-pm-workflow-builder && git commit -m "feat(builder): add utility-pm-workflow-builder skill (F-14, #133)"` (explicit add: the whole directory is NEW)
+- [x] **Step 5.2: SKILL.md body.** Author to spec sections 2.2 (five-step flow with the Why Gate and >70% kill gate verbatim), 2.3 (generated-file contract), 2.4 (cross-cutting checklist table, reproduced as the packet's checklist source). Required H2 inventory: `When to Use`, `When NOT to Use`, `Instructions` (Steps 1-5 as H3s), `Output Format` (points to references/TEMPLATE.md), `Quality Checklist`, `Reference Files`. Binding behaviors that must appear verbatim or equivalent: staging-only writes (`_staging/workflows/<name>/`, never canonical paths); overlap scan reads the `_workflows/` directory at run time (never a hardcoded count or list); step validation refuses Tier-3 maintenance skills, dispatch skills, and workflows as steps (Category 1 content skills only) and applies exact-match name-safety with suggestions; chain-promotion entry accepts a literal chain expression; mermaid context-flow auto-derived from the final sequence; the builder never edits cross-cutting files itself (checklist only). Body line target under 300 (lint has no cap, but spec guidance applies).
+- [x] **Step 5.3: references/TEMPLATE.md** = the Workflow Implementation Packet template. Required H2s (lint needs 3+): `## Decision` (recommendation + Why Gate evidence), `## Overlap Analysis`, `## Workflow Draft` (embedding the full `_workflows/<name>.md` skeleton from spec 2.3: title frontmatter, H1, tagline blockquote, Workflow Metadata table with the seven fields, When to Use / Do NOT use, per-step Skill link + What you do + Input requirements + Output, mermaid context flow, Tips, Quality Checklist, See Also), `## Command Draft` (the `commands/workflow-<name>.md` skeleton mirroring `commands/workflow-sprint-planning.md`), `## Cross-Cutting Checklist` (the spec 2.4 table IN FULL, explicitly including the `.github/workflows/release.yml` release-note row: that surface is validator-blind, so the emitted checklist is the only control that keeps generated release notes truthful when a workflow command is promoted; review CR-9), `## Promotion Steps`.
+- [x] **Step 5.4: references/EXAMPLE.md** = one complete worked packet for the scenario in spec 2.3 (a `quarterly-business-review` workflow). Completeness bar: every TEMPLATE section filled with realistic content, zero bracketed scaffolding (the engine's EMPTY rubric is the inspiration: an example with unfilled `[ guidance ]` would be a defect), the workflow draft showing a real 4-step sequence with authored handoffs and a real mermaid block.
+- [x] **Step 5.5: Verify.** Run: `bash scripts/lint-skills-frontmatter.sh` (expect `✓ skills/utility-pm-workflow-builder/SKILL.md`; confirms description word count, license, metadata nesting, TEMPLATE 3+ H2s, EXAMPLE present, byte-0); `bash scripts/check-skill-cross-references.sh` (all backticked skill names in the new files resolve); `node scripts/check-root-doc-links.mjs` (relative links from the new SKILL.md resolve); `node scripts/check-emdash-scars.mjs`.
+- [x] **Step 5.6: Commit.** `git add skills/utility-pm-workflow-builder && git commit -m "feat(builder): add utility-pm-workflow-builder skill (F-14, #133)"` (explicit add: the whole directory is NEW)
 
 ### Task 6: Builder library samples (3 threads)
 
 **Files:** Create three samples under `library/skill-output-samples/utility-pm-workflow-builder/` following the existing per-skill directory pattern (check `library/skill-output-samples/utility-pm-skill-builder/` first and mirror its file naming exactly; the three threads are storevine, brainshelf, workbench per `library/skill-output-samples/THREAD_PROFILES.md`).
 
-- [ ] **Step 6.1:** Author one Workflow Implementation Packet per thread (Storevine: an email-campaign-launch workflow; Brainshelf: a digest-experiment-loop workflow; Workbench: an enterprise-rollout-review workflow), each consistent with its thread profile and complete per the EXAMPLE bar.
-- [ ] **Step 6.2: Verify.** Run: `bash scripts/check-skill-sample-coverage.sh` (pass; utility class is exempt so this cannot fail, but the samples must not break the sample-side byte-0 lint in `lint-skills-frontmatter.sh` W3.5) and `node scripts/check-sample-no-placeholders.mjs` (advisory; expect zero findings for the new files).
-- [ ] **Step 6.3: Commit.** `git add library/skill-output-samples/utility-pm-workflow-builder && git commit -m "docs(samples): 3-thread samples for utility-pm-workflow-builder"` (explicit add: new directory)
+- [x] **Step 6.1:** Author one Workflow Implementation Packet per thread (Storevine: an email-campaign-launch workflow; Brainshelf: a digest-experiment-loop workflow; Workbench: an enterprise-rollout-review workflow), each consistent with its thread profile and complete per the EXAMPLE bar.
+- [x] **Step 6.2: Verify.** Run: `bash scripts/check-skill-sample-coverage.sh` (pass; utility class is exempt so this cannot fail, but the samples must not break the sample-side byte-0 lint in `lint-skills-frontmatter.sh` W3.5) and `node scripts/check-sample-no-placeholders.mjs` (advisory; expect zero findings for the new files).
+- [x] **Step 6.3: Commit.** `git add library/skill-output-samples/utility-pm-workflow-builder && git commit -m "docs(samples): 3-thread samples for utility-pm-workflow-builder"` (explicit add: new directory)
 
 ### Task 7: Catalog count sweep (65 -> 66, utility 11 -> 12)
 
 **Files:** Modify: `README.md` (headline line 7, badge line 26, Quick Start line 115, library section line ~361, install lines ~463/471, project-status lines ~1058/1070), `QUICKSTART.md` (lines 5 and 74), `CLAUDE.md` (Project Context), `.claude-plugin/plugin.json` (description lead), `.claude-plugin/marketplace.json` (plugin description lead), `.codex-plugin/plugin.json` (`interface.longDescription`), `site/src/content/docs/index.mdx` (headline, description frontmatter, Utility card, "Utility (10)" prose line - which workstream WS-A has already corrected to 11 before this branch; this task takes it to 12 and appends `utility-pm-workflow-builder` to the utility blurb), `AGENTS.md` (utility section entry + any utility-count phrasing), `site/src/content/docs/reference/runtime-components.md` (the "65 skills" claim on its content-library line goes to 66; its command count was already updated in Task 4).
 
-- [ ] **Step 7.1:** Apply the sweep. Every "65" catalog claim becomes 66; every "11 utility" becomes 12; breakdowns read "30 phase + 9 foundation + 12 utility + 15 tool".
-- [ ] **Step 7.2: Verify.** Run, expecting pass: `bash scripts/check-count-consistency.sh`; `bash scripts/check-landing-page-counts.sh --strict`; `bash scripts/validate-agents-md.sh`; `bash scripts/validate-codex-manifest.sh`.
-- [ ] **Step 7.3: Commit.** `git add README.md QUICKSTART.md CLAUDE.md AGENTS.md .claude-plugin .codex-plugin site/src/content/docs/index.mdx site/src/content/docs/reference/runtime-components.md && git commit -m "docs(catalog): count sweep 65 -> 66 for utility-pm-workflow-builder"`
+- [x] **Step 7.1:** Apply the sweep. Every "65" catalog claim becomes 66; every "11 utility" becomes 12; breakdowns read "30 phase + 9 foundation + 12 utility + 15 tool".
+- [x] **Step 7.2: Verify.** Run, expecting pass: `bash scripts/check-count-consistency.sh`; `bash scripts/check-landing-page-counts.sh --strict`; `bash scripts/validate-agents-md.sh`; `bash scripts/validate-codex-manifest.sh`.
+- [x] **Step 7.3: Commit.** `git add README.md QUICKSTART.md CLAUDE.md AGENTS.md .claude-plugin .codex-plugin site/src/content/docs/index.mdx site/src/content/docs/reference/runtime-components.md && git commit -m "docs(catalog): count sweep 65 -> 66 for utility-pm-workflow-builder"`
 
 ### Task 8: Runtime-component + reference docs
 
 **Files:** Modify: `site/src/content/docs/reference/runtime-components.md` (add `/chain` and builder rows + the spec 0.3 boundary table), `site/src/content/docs/reference/sub-agent-compatibility.md` (placeholder row note pending Task 9's result).
 
-- [ ] **Step 8.1:** Apply the spec section 3 doc updates.
-- [ ] **Step 8.2: Verify.** `node scripts/check-frontmatter-yaml.mjs --site-docs` (pass); `npm --prefix site run build` locally if feasible (CI builds it regardless; remember the lesson that only CI fully proves rendered links).
-- [ ] **Step 8.3: Commit.** `git add site/src/content/docs/reference && git commit -m "docs(reference): runtime components + compatibility rows for chain and builder"`
+- [x] **Step 8.1:** Apply the spec section 3 doc updates.
+- [x] **Step 8.2: Verify.** `node scripts/check-frontmatter-yaml.mjs --site-docs` (pass); `npm --prefix site run build` locally if feasible (CI builds it regardless; remember the lesson that only CI fully proves rendered links).
+- [x] **Step 8.3: Commit.** `git add site/src/content/docs/reference && git commit -m "docs(reference): runtime components + compatibility rows for chain and builder"`
 
 ### Task 9: Smoke gate (D-D; human + Claude)
+
+> **Status (2026-06-10):** could not run inside the build session (plugin sub-agents are not registered under workspace discovery; installing the branch build needs the interactive /plugin flow). Scheduled against main after the F-14/F-15 merge, BEFORE the v2.26.0 tag, per P-G: only an UNRUN test blocks the tag. The compat matrix and dispatch-skill status block carry the same note.
 
 **Files:** Modify (with results): `site/src/content/docs/reference/sub-agent-compatibility.md`, `skills/utility-pm-workflow-orchestrator/SKILL.md` (status block).
 
