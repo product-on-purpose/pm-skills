@@ -37,23 +37,23 @@ context: Enterprise platform migration affecting multiple departments
 ### Quadrant Placement
 
 **Manage Closely (High Influence, High Interest):**
-- Marcus Wong, CTO . Executive sponsor, budget authority
-- Diana Reyes, VP Engineering . Technical decision maker, team impact
-- James Liu, IT Director . Infrastructure owner, operations impact
-- Priya Sharma, Security Lead . Compliance gatekeeper
+- Marcus Wong, CTO - Executive sponsor, budget authority
+- Diana Reyes, VP Engineering - Technical decision maker, team impact
+- James Liu, IT Director - Infrastructure owner, operations impact
+- Priya Sharma, Security Lead - Compliance gatekeeper
 
 **Keep Satisfied (High Influence, Low Interest):**
-- Michael Torres, CFO . Budget approval, cost concerns
-- Jennifer Adams, Legal Counsel . Contract and compliance review
+- Michael Torres, CFO - Budget approval, cost concerns
+- Jennifer Adams, Legal Counsel - Contract and compliance review
 
 **Keep Informed (Low Influence, High Interest):**
-- Engineering Team Leads . Affected by changes, need to plan
-- Customer Success Team . Potential customer-facing impact
-- Sales Team . Need confidence to reassure customers
+- Engineering Team Leads - Affected by changes, need to plan
+- Customer Success Team - Potential customer-facing impact
+- Sales Team - Need confidence to reassure customers
 
 **Monitor (Low Influence, Low Interest):**
-- HR Department . Minor process updates needed
-- Marketing Team . Minimal direct impact
+- HR Department - Minor process updates needed
+- Marketing Team - Minimal direct impact
 
 ## Stakeholder Profiles
 
@@ -71,8 +71,8 @@ context: Enterprise platform migration affecting multiple departments
 ### Marcus Wong, CTO
 
 **Role:** Chief Technology Officer, Executive Sponsor
-**Influence Level:** High . Budget authority, final technical decisions
-**Interest Level:** High . Strategic initiative tied to his objectives
+**Influence Level:** High - Budget authority, final technical decisions
+**Interest Level:** High - Strategic initiative tied to his objectives
 **Current Alignment:** Supportive
 
 **Needs:**
@@ -100,8 +100,8 @@ context: Enterprise platform migration affecting multiple departments
 ### Diana Reyes, VP Engineering
 
 **Role:** VP Engineering, 60 engineers across 8 teams
-**Influence Level:** High . Controls engineering resources and priorities
-**Interest Level:** High . Her teams are directly affected
+**Influence Level:** High - Controls engineering resources and priorities
+**Interest Level:** High - Her teams are directly affected
 **Current Alignment:** Supportive
 
 **Needs:**
@@ -129,8 +129,8 @@ context: Enterprise platform migration affecting multiple departments
 ### James Liu, IT Director
 
 **Role:** IT Director, manages infrastructure and operations team of 12
-**Influence Level:** High . Owns current infrastructure, critical for transition
-**Interest Level:** High . Directly affects his team's role and processes
+**Influence Level:** High - Owns current infrastructure, critical for transition
+**Interest Level:** High - Directly affects his team's role and processes
 **Current Alignment:** Neutral (previously resistant)
 
 **Needs:**
@@ -158,8 +158,8 @@ context: Enterprise platform migration affecting multiple departments
 ### Priya Sharma, Security Lead
 
 **Role:** Head of Information Security, compliance owner
-**Influence Level:** High . Can block migration with security concerns
-**Interest Level:** High . Major changes to security perimeter
+**Influence Level:** High - Can block migration with security concerns
+**Interest Level:** High - Major changes to security perimeter
 **Current Alignment:** Resistant
 
 **Needs:**
@@ -187,8 +187,8 @@ context: Enterprise platform migration affecting multiple departments
 ### Michael Torres, CFO
 
 **Role:** Chief Financial Officer, budget authority
-**Influence Level:** High . Controls funding approval
-**Interest Level:** Medium . Cares about cost, not technical details
+**Influence Level:** High - Controls funding approval
+**Interest Level:** Medium - Cares about cost, not technical details
 **Current Alignment:** Neutral
 
 **Needs:**

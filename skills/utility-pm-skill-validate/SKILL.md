@@ -17,9 +17,9 @@ conventions and quality criteria. It produces a validation report that a
 human can scan and that `utility-pm-skill-iterate` can consume as input.
 
 The validator checks two tiers:
-- **Tier 1 (Structural)** . deterministic checks that mirror CI: frontmatter,
+- **Tier 1 (Structural)** - deterministic checks that mirror CI: frontmatter,
   naming, file presence, description word count.
-- **Tier 2 (Quality)** . LLM-assessed coherence checks: does the output
+- **Tier 2 (Quality)** - LLM-assessed coherence checks: does the output
   contract reference the template? Is the example complete? Are checklist
   items testable?
 
@@ -81,7 +81,7 @@ Also read:
 If reading files is not possible (MCP/embedded environment), ask the user
 to paste the content of each file before proceeding (see Degraded Mode).
 
-### Step 3: Run Tier 1 . Structural Checks
+### Step 3: Run Tier 1 - Structural Checks
 
 Run these deterministic checks. Each produces a `PASS` or `FAIL` line.
 
@@ -101,25 +101,25 @@ Run these deterministic checks. Each produces a `PASS` or `FAIL` line.
 | `command-exists` | Command file exists in `commands/` | File present and references correct skill path |
 | `agents-entry` | AGENTS.md has an entry for this skill | Entry exists with matching `**Path:**` |
 
-### Step 4: Run Tier 2 . Quality Checks
+### Step 4: Run Tier 2 - Quality Checks
 
 Run these LLM-assessed checks. Each produces a `PASS`, `WARN`, or `INFO`
 line. Tier 2 findings are capped at `WARN` unless objectively grounded
-(placeholder leakage is the exception . it can `FAIL`).
+(placeholder leakage is the exception - it can `FAIL`).
 
 | Check ID | What to assess | How to assess | Max severity |
 |----------|---------------|---------------|-------------|
 | `output-contract-coverage` | SKILL.md references the template | Check for explicit reference to `references/TEMPLATE.md` or "use the template" in an Output section. Accept either pattern as valid. WARN only if template is not referenced at all. | WARN |
 | `checklist-verifiability` | Quality checklist items are testable | Read each checklist item. Flag items that are vague ("is good quality") vs. specific ("metrics are measurable"). WARN if ≥2 items are vague. | WARN |
-| `example-completeness` | EXAMPLE.md fills all template sections | Compare `##` headers in TEMPLATE.md against `##` headers in EXAMPLE.md. WARN if EXAMPLE.md is missing sections that appear in the template. Also check for unresolved placeholders. Line count is informational only . report it but do not gate on it. | WARN |
+| `example-completeness` | EXAMPLE.md fills all template sections | Compare `##` headers in TEMPLATE.md against `##` headers in EXAMPLE.md. WARN if EXAMPLE.md is missing sections that appear in the template. Also check for unresolved placeholders. Line count is informational only - report it but do not gate on it. | WARN |
 | `template-example-alignment` | EXAMPLE.md follows TEMPLATE.md structure | Compare section header ordering. WARN if EXAMPLE.md has sections in a different order or uses different header names than TEMPLATE.md. | WARN |
 | `description-actionability` | Description tells *when* to use the skill | Check for a trigger phrase like "Use when..." or "Use for..." in the frontmatter description. WARN if the description only says *what* the skill does without indicating *when* to use it. | WARN |
 | `instruction-clarity` | Instructions are numbered and imperative | Check for `### Step` headings or a numbered list pattern in the Instructions section. WARN if instructions are prose paragraphs without clear step structure. | WARN |
-| `placeholder-leakage` | No leftover scaffolding in any shipped file | Scan SKILL.md, TEMPLATE.md, and EXAMPLE.md for: `[Placeholder]` or `[Feature Name]` patterns, `<!-- ... -->` HTML comments (except the license header), template guidance blockquotes that should have been removed, and authoring notes like "TODO" or "FIXME". FAIL if any are found . this is objectively grounded. | FAIL |
-| `when-not-to-use` | "When NOT to Use" section present in SKILL.md | Check for a section with "When NOT to Use" or similar heading. INFO only . this is present in 1/27 shipped skills and is not yet a convention. | INFO |
+| `placeholder-leakage` | No leftover scaffolding in any shipped file | Scan SKILL.md, TEMPLATE.md, and EXAMPLE.md for: `[Placeholder]` or `[Feature Name]` patterns, `<!-- ... -->` HTML comments (except the license header), template guidance blockquotes that should have been removed, and authoring notes like "TODO" or "FIXME". FAIL if any are found - this is objectively grounded. | FAIL |
+| `when-not-to-use` | "When NOT to Use" section present in SKILL.md | Check for a section with "When NOT to Use" or similar heading. INFO only - this is present in 1/27 shipped skills and is not yet a convention. | INFO |
 
 **Quality standard framing:** These checks validate against current library
-conventions . what the shipped library actually does today. Findings graded
+conventions - what the shipped library actually does today. Findings graded
 WARN or INFO represent the v2.8 quality standard that newer skills (built
 with `utility-pm-skill-builder`) meet. Older skills may legitimately receive these
 findings until iterated through the lifecycle.
@@ -169,7 +169,7 @@ Errors: {n} | Warnings: {n} | Info: {n}
 - **Recommendations**: only include checks that did NOT pass. Each recommendation
   includes the check ID, the target file path, and a specific action.
 - If all checks pass, the Recommendations section should say: "No issues found."
-- Omit passing checks from Recommendations . only list findings that need action.
+- Omit passing checks from Recommendations - only list findings that need action.
 
 **Batch mode output** (when input is `--all`):
 
@@ -204,7 +204,7 @@ embedded environment without file system access):
    - `skills/{name}/references/EXAMPLE.md`
 2. Run all checks against the provided content.
 3. Note in the report: "Validated from user-provided content (file system not available)."
-4. Batch mode is not available in degraded mode . single skill only.
+4. Batch mode is not available in degraded mode - single skill only.
 
 ## Output Contract
 
@@ -224,7 +224,7 @@ The report:
 Before delivering the report, verify:
 
 - [ ] All Tier 1 structural checks were run (not skipped)
-- [ ] All Tier 2 quality checks were run (not skipped) . single skill mode only
+- [ ] All Tier 2 quality checks were run (not skipped) - single skill mode only
 - [ ] Report follows the exact section and line format from Step 5
 - [ ] Every non-passing check appears in Recommendations with a target file path
 - [ ] Result field reflects the worst severity found

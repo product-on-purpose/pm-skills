@@ -49,9 +49,9 @@ BULLETS (dark) > HIGHLIGHT (light) > CLOSING (dark)
 ```
 
 **Override the defaults when:**
-- Two consecutive slides would have the same variant . flip one
-- A stat or highlight needs extra emphasis . use the non-default variant
-- The deck is short (< 6 slides) . defaults are usually fine as-is
+- Two consecutive slides would have the same variant - flip one
+- A stat or highlight needs extra emphasis - use the non-default variant
+- The deck is short (< 6 slides) - defaults are usually fine as-is
 
 ## Deck Length Guidelines
 

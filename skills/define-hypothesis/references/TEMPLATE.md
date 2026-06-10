@@ -117,4 +117,4 @@ status: draft
 | Setup & instrumentation | [Dates] | [Duration] |
 | Test running | [Dates] | [Duration] |
 | Analysis | [Dates] | [Duration] |
-| Decision | [Date] | . |
+| Decision | [Date] | - |

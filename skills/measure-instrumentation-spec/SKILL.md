@@ -43,7 +43,7 @@ When asked to create an instrumentation spec, follow these steps:
    Identify persistent user-level attributes that should be associated with all events (e.g., subscription tier, account creation date). These enable segmentation in analysis.
 
 6. **Address PII and Privacy**
-   Flag any properties that contain personally identifiable information. Document how PII should be handled . hashing, encryption, or exclusion.
+   Flag any properties that contain personally identifiable information. Document how PII should be handled - hashing, encryption, or exclusion.
 
 7. **Create Testing Checklist**
    Define how QA should verify that tracking is implemented correctly. Include steps to validate events fire at the right times with correct properties.

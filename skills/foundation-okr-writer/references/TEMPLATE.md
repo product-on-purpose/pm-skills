@@ -77,17 +77,17 @@ This OKR set frames pre-committed work as outcome bets. If the metrics do not mo
 
 > Apply the rubric. Each criterion gets pass | risk | fail with a one-line rationale.
 
-- Strategic fit: {pass | risk | fail} . {rationale}
-- Objective quality: {pass | risk | fail} . {rationale}
-- KR outcome quality: {pass | risk | fail} . {rationale}
-- Measurement quality: {pass | risk | fail} . {rationale}
-- Product influence: {pass | risk | fail} . {rationale}
-- Focus: {pass | risk | fail} . {rationale}
-- Guardrails: {pass | risk | fail} . {rationale}
-- Alignment: {pass | risk | fail} . {rationale}
-- Operating rhythm: {pass | risk | fail} . {rationale}
-- Integrity: {pass | risk | fail} . {rationale}
-- Empowered-team Disclosure: {pass | not-applicable} . {rationale}
+- Strategic fit: {pass | risk | fail} - {rationale}
+- Objective quality: {pass | risk | fail} - {rationale}
+- KR outcome quality: {pass | risk | fail} - {rationale}
+- Measurement quality: {pass | risk | fail} - {rationale}
+- Product influence: {pass | risk | fail} - {rationale}
+- Focus: {pass | risk | fail} - {rationale}
+- Guardrails: {pass | risk | fail} - {rationale}
+- Alignment: {pass | risk | fail} - {rationale}
+- Operating rhythm: {pass | risk | fail} - {rationale}
+- Integrity: {pass | risk | fail} - {rationale}
+- Empowered-team Disclosure: {pass | not-applicable} - {rationale}
 
 ## Open Questions
 

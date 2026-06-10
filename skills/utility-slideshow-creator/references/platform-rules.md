@@ -10,7 +10,7 @@ pptxgenjs technical requirements and Google Slides compatibility constraints. Vi
 
 3. **Never reuse option objects across addShape/addText calls.** pptxgenjs mutates option objects internally. Always create fresh objects for each call.
 
-4. **Use `bullet: true`** for bullet points. Never use unicode bullet characters like `\u2022` . that creates double bullets.
+4. **Use `bullet: true`** for bullet points. Never use unicode bullet characters like `\u2022` - that creates double bullets.
 
 5. **Use `breakLine: true`** between items in text arrays to force line breaks between entries.
 
@@ -54,7 +54,7 @@ PDF rendering uses Puppeteer (headless Chromium) with the theme font loaded from
 node scripts/export-pdf.mjs deck-spec.json output.pdf
 ```
 
-If no output path is given, the PDF is written alongside the spec file. Puppeteer is an optional dependency . the .pptx generation works without it.
+If no output path is given, the PDF is written alongside the spec file. Puppeteer is an optional dependency - the .pptx generation works without it.
 
 ## Node.js Requirements
 

@@ -21,11 +21,11 @@ This skill is a coach, not a template filler. It drafts, reviews, rewrites, and 
 
 Five entry modes support different engagement levels. Mode is detected from user phrasing; default to Guided when ambiguous. State the detected mode at the start of the response.
 
-- `Guided` (default, moderate engagement) . brief diagnostic, draft, score against rubric, surface issues, ask user to confirm. Selected by phrasing like "help me write OKRs for X."
-- `One-Shot` (low engagement) . produces a complete OKR set in one pass with all assumptions labeled. Selected by `--oneshot` flag or phrasing like "just draft OKRs from this context."
-- `Sustained Coach` (high engagement) . iterative loop, one component at a time, re-scored each turn until quality threshold met. Selected by "coach me through OKRs for X."
-- `Audit Only` . user pastes existing OKRs, skill scores and critiques, no new drafts unless user asks. Selected by "review these OKRs."
-- `Rewrite` . convert flawed OKRs, feature lists, or roadmap items into outcome-shaped OKRs. Selected by "fix these OKRs" or "convert this roadmap to OKRs."
+- `Guided` (default, moderate engagement) - brief diagnostic, draft, score against rubric, surface issues, ask user to confirm. Selected by phrasing like "help me write OKRs for X."
+- `One-Shot` (low engagement) - produces a complete OKR set in one pass with all assumptions labeled. Selected by `--oneshot` flag or phrasing like "just draft OKRs from this context."
+- `Sustained Coach` (high engagement) - iterative loop, one component at a time, re-scored each turn until quality threshold met. Selected by "coach me through OKRs for X."
+- `Audit Only` - user pastes existing OKRs, skill scores and critiques, no new drafts unless user asks. Selected by "review these OKRs."
+- `Rewrite` - convert flawed OKRs, feature lists, or roadmap items into outcome-shaped OKRs. Selected by "fix these OKRs" or "convert this roadmap to OKRs."
 
 ## When to Use
 
@@ -38,12 +38,12 @@ Five entry modes support different engagement levels. Mode is detected from user
 
 ## When NOT to Use
 
-- You only need a dashboard spec . use `measure-dashboard-requirements`
-- You only need event tracking . use `measure-instrumentation-spec`
-- You only need an experiment . use `measure-experiment-design`
-- You only need a hypothesis . use `define-hypothesis`
-- The cycle has ended and you need formal scoring with evidence and learning synthesis . use `measure-okr-grader`
-- The team is purely business-as-usual and needs steady-state KPIs, not stretch outcomes . OKRs are the wrong artifact
+- You only need a dashboard spec - use `measure-dashboard-requirements`
+- You only need event tracking - use `measure-instrumentation-spec`
+- You only need an experiment - use `measure-experiment-design`
+- You only need a hypothesis - use `define-hypothesis`
+- The cycle has ended and you need formal scoring with evidence and learning synthesis - use `measure-okr-grader`
+- The team is purely business-as-usual and needs steady-state KPIs, not stretch outcomes - OKRs are the wrong artifact
 
 ## Instructions
 
@@ -131,22 +131,22 @@ The skill applies this rubric to every OKR set it drafts or reviews. Each criter
 
 The skill scans for these and either refuses, reframes, or surfaces them with a `fail` audit rating:
 
-- Feature-delivery KR ("Launch X" instead of "Increase Y from A to B") . reframe into outcome KR; move feature to Initiatives
-- Task-count KR ("Complete 10 interviews" without a learning outcome) . reframe or move to evidence-generation type
-- Vanity metric KR (metric improves without customer or business value) . flag and propose alternative
-- Activity objective (objective describes work, not change) . reframe
-- Metric-stuffed objective (objective is just KPIs glued together) . reframe
-- Too many OKRs (more than 3 objectives, more than 4 KRs per objective) . force ranking
-- Cascading theater (parent KR copied locally without ownership logic) . rewrite as networked alignment
-- Roadmap wrapper (OKRs reformat the roadmap) . full Rewrite mode
-- Missing baseline (target uninterpretable) . mark `recommended-to-measure`
-- Missing evidence source (no one knows where the score will come from) . mark `not-enough-evidence`
-- Lag-only product OKR (team owns revenue without product outcome) . add a leading product-outcome KR
-- No guardrail (optimization may damage quality, trust, retention) . add guardrail KR
-- Compensation coupling (people will sandbag or hide learning) . refuse and explain
-- Individual OKR default . default to team OKRs; warn if individual OKRs are requested
-- Unsupported benchmark (universal target without evidence) . flag and ask for source
-- Pre-PMF over-metricization (false quantitative precision when learning is the real objective) . reframe as learning OKR
+- Feature-delivery KR ("Launch X" instead of "Increase Y from A to B") - reframe into outcome KR; move feature to Initiatives
+- Task-count KR ("Complete 10 interviews" without a learning outcome) - reframe or move to evidence-generation type
+- Vanity metric KR (metric improves without customer or business value) - flag and propose alternative
+- Activity objective (objective describes work, not change) - reframe
+- Metric-stuffed objective (objective is just KPIs glued together) - reframe
+- Too many OKRs (more than 3 objectives, more than 4 KRs per objective) - force ranking
+- Cascading theater (parent KR copied locally without ownership logic) - rewrite as networked alignment
+- Roadmap wrapper (OKRs reformat the roadmap) - full Rewrite mode
+- Missing baseline (target uninterpretable) - mark `recommended-to-measure`
+- Missing evidence source (no one knows where the score will come from) - mark `not-enough-evidence`
+- Lag-only product OKR (team owns revenue without product outcome) - add a leading product-outcome KR
+- No guardrail (optimization may damage quality, trust, retention) - add guardrail KR
+- Compensation coupling (people will sandbag or hide learning) - refuse and explain
+- Individual OKR default - default to team OKRs; warn if individual OKRs are requested
+- Unsupported benchmark (universal target without evidence) - flag and ask for source
+- Pre-PMF over-metricization (false quantitative precision when learning is the real objective) - reframe as learning OKR
 
 ## Output Contract (v1.0.0)
 
@@ -171,13 +171,13 @@ Before finalizing, verify:
 - [ ] Every KR has metric, baseline (or placeholder), target, deadline, evidence source, indicator class, confidence
 - [ ] At least one guardrail KR for any optimization primary KR
 - [ ] Source-of-truth note present
-- [ ] No fabricated baselines or targets . missing values explicitly marked
+- [ ] No fabricated baselines or targets - missing values explicitly marked
 - [ ] No compensation-coupled framing
 - [ ] Quality Audit applied with explicit pass / risk / fail ratings
-- [ ] Anti-pattern catalog scanned . detected anti-patterns flagged or reframed
+- [ ] Anti-pattern catalog scanned - detected anti-patterns flagged or reframed
 - [ ] OKR type classified (committed | aspirational | learning | operational_health | compliance_or_safety)
 - [ ] Skill instruction commentary removed from final artifact
-- [ ] Markdown only . no JSON output
+- [ ] Markdown only - no JSON output
 
 ## Examples
 

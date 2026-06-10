@@ -6,7 +6,7 @@ status: complete
 context: Sprint 14 retrospective after payment feature launch
 ---
 
-# Retrospective: Sprint 14 . Payment Feature Launch
+# Retrospective: Sprint 14 - Payment Feature Launch
 
 ## Overview
 

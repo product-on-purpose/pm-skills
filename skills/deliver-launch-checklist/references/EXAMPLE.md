@@ -12,7 +12,7 @@ context: Mobile app v3.0 major release with new navigation and recurring tasks f
 
 | Field | Value |
 |-------|-------|
-| What | TaskFlow Mobile v3.0 . New navigation + Recurring Tasks |
+| What | TaskFlow Mobile v3.0 - New navigation + Recurring Tasks |
 | Launch Date | March 10, 2026 |
 | Launch Type | Major Release |
 | Launch Owner | Sarah Chen (Product) |
@@ -157,7 +157,7 @@ context: Mobile app v3.0 major release with new navigation and recurring tasks f
 
 ### Rollback Owner
 
-David Park . david@taskflow.io . +1-555-0123
+David Park - david@taskflow.io - +1-555-0123
 
 ### Rollback Time Estimate
 

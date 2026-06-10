@@ -135,8 +135,8 @@ Conversion Rate by Day
 | Step | Control Drop-off | Treatment Drop-off | Improvement |
 |------|------------------|-------------------|-------------|
 | Cart → Checkout | 21.8% | 20.9% | +0.9% |
-| Shipping info | 8.4% | N/A (combined) | . |
-| Payment info | 5.2% | N/A (combined) | . |
+| Shipping info | 8.4% | N/A (combined) | - |
+| Payment info | 5.2% | N/A (combined) | - |
 | Review → Purchase | 4.1% | 3.5% | +0.6% |
 | **Total checkout drop** | 37.6% | 34.4% | **+3.2%** |
 

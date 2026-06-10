@@ -121,7 +121,7 @@ context: Weekly refinement session preparing for Sprint 15
 
 | Attribute | Value |
 |-----------|-------|
-| **Points** | . |
+| **Points** | - |
 | **Status** | Needs Work |
 | **Assignee** | TBD |
 
@@ -145,7 +145,7 @@ context: Weekly refinement session preparing for Sprint 15
 
 | Attribute | Value |
 |-----------|-------|
-| **Points** | . |
+| **Points** | - |
 | **Status** | Blocked |
 | **Assignee** | TBD |
 
@@ -166,8 +166,8 @@ context: Weekly refinement session preparing for Sprint 15
 | USER-342 | CSV Export for Reports | 3 | Ready | Excel export moved to future |
 | USER-345 | Password Reset Rate Limiting | 5 | Ready | Security team approved |
 | USER-347 | Profile Page Performance | 5 | Ready | Added perf test criterion |
-| USER-348 | User Settings Redesign | . | Needs Work | Splitting into 3 stories |
-| USER-350 | Dark Mode Toggle | . | Blocked | Waiting on design specs |
+| USER-348 | User Settings Redesign | - | Needs Work | Splitting into 3 stories |
+| USER-350 | Dark Mode Toggle | - | Blocked | Waiting on design specs |
 
 ---
 

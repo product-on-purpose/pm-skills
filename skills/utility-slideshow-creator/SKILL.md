@@ -16,7 +16,7 @@ metadata:
 
 # Slideshow Creator
 
-Generate professional presentations (.pptx and .pdf) from a JSON deck specification. Zero design decisions at generation time . Claude selects slide types and fills content slots; all visual properties are pre-decided by the theme.
+Generate professional presentations (.pptx and .pdf) from a JSON deck specification. Zero design decisions at generation time - Claude selects slide types and fills content slots; all visual properties are pre-decided by the theme.
 
 ## When to Use
 
@@ -35,8 +35,8 @@ Generate professional presentations (.pptx and .pdf) from a JSON deck specificat
 
 **Two-phase architecture:**
 
-1. **Spec phase (Claude)** . Read the content brief, select slide types using decision logic, write a JSON deck specification. Content slots have character limits calibrated to prevent overflow. This is the only phase that costs tokens.
-2. **Generation phase (Local script)** . Run `node scripts/generate-deck.js deck-spec.json` to produce .pptx. Optionally run `node scripts/export-pdf.mjs deck-spec.json` for PDF. Deterministic rendering, zero token cost.
+1. **Spec phase (Claude)** - Read the content brief, select slide types using decision logic, write a JSON deck specification. Content slots have character limits calibrated to prevent overflow. This is the only phase that costs tokens.
+2. **Generation phase (Local script)** - Run `node scripts/generate-deck.js deck-spec.json` to produce .pptx. Optionally run `node scripts/export-pdf.mjs deck-spec.json` for PDF. Deterministic rendering, zero token cost.
 
 Both outputs come from the same JSON spec, so .pptx and .pdf always match.
 
@@ -112,12 +112,12 @@ Full schema and workflow: `references/TEMPLATE.md` and `references/platform-rule
 
 ## Instructions
 
-1. **Read the content brief** . Understand topic, audience, length, specific requirements
-2. **Plan the deck** . Select slide types using the decision logic table. Assign dark/light variants for visual rhythm (alternate to avoid monotony).
-3. **Write the JSON deck specification** . Fill content slots, respecting character limits from `references/slide-types.md`
-4. **Run the generation script** . `node scripts/generate-deck.js deck-spec.json`
-5. **Optionally export PDF** . `node scripts/export-pdf.mjs deck-spec.json output.pdf`
-6. **Report the output** . Tell the user where the file(s) are
+1. **Read the content brief** - Understand topic, audience, length, specific requirements
+2. **Plan the deck** - Select slide types using the decision logic table. Assign dark/light variants for visual rhythm (alternate to avoid monotony).
+3. **Write the JSON deck specification** - Fill content slots, respecting character limits from `references/slide-types.md`
+4. **Run the generation script** - `node scripts/generate-deck.js deck-spec.json`
+5. **Optionally export PDF** - `node scripts/export-pdf.mjs deck-spec.json output.pdf`
+6. **Report the output** - Tell the user where the file(s) are
 
 ## Output Contract
 

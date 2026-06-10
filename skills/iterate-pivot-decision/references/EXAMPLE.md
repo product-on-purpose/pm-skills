@@ -81,13 +81,13 @@ FitTrack is a B2C mobile app that helps individuals track workouts, nutrition, a
 ### Customer/User Feedback
 
 **What Users Are Saying:**
-- "I'd use this more if my company offered it as a benefit" . User interview, P7
-- "My HR team is always looking for wellness solutions. You should talk to them." . User interview, P12
-- "The app is good, but I have too many fitness apps already. If work paid for it, that'd change things." . User interview, P3
+- "I'd use this more if my company offered it as a benefit" - User interview, P7
+- "My HR team is always looking for wellness solutions. You should talk to them." - User interview, P12
+- "The app is good, but I have too many fitness apps already. If work paid for it, that'd change things." - User interview, P3
 
 **What Enterprise Buyers Are Saying:**
-- "We spend $400/employee on wellness benefits and have no idea if they work. Your analytics could show ROI." . Inbound inquiry, HR Director at 800-person company
-- "Our current vendor is enterprise software from 2010. Your UX is 10 years better." . Inbound inquiry, Wellness Coordinator
+- "We spend $400/employee on wellness benefits and have no idea if they work. Your analytics could show ROI." - Inbound inquiry, HR Director at 800-person company
+- "Our current vendor is enterprise software from 2010. Your UX is 10 years better." - Inbound inquiry, Wellness Coordinator
 
 **User Behavior Patterns:**
 - Power users (top 10%) often share app to colleagues.word of mouth within companies

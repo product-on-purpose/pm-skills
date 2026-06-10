@@ -153,7 +153,7 @@ status: draft
 
 ### Rollback Owner
 
-[Name] . [Contact]
+[Name] - [Contact]
 
 ### Rollback Time Estimate
 

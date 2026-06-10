@@ -121,7 +121,7 @@ We're running for 14 days despite reaching sample size in 2 days to:
 ### Inclusion Criteria
 
 - Logged-in or guest users
-- Mobile web (not native apps . app experiment runs separately)
+- Mobile web (not native apps - app experiment runs separately)
 - Users in US and Canada (payment methods configured)
 - Cart value >= $10 (exclude micro-purchases)
 
@@ -194,5 +194,5 @@ Primary metric change is between -5% and +5% relative and not statistically sign
 
 - Hypothesis Document: Mobile Checkout Improvement (internal doc link)
 - Design Mockups (Figma link)
-- Previous Experiment: Guest Checkout (results/guest-checkout-q3-2025.md) . 3% lift, informed this design
+- Previous Experiment: Guest Checkout (results/guest-checkout-q3-2025.md) - 3% lift, informed this design
 - User Research: Checkout Friction Study (research PDF)

@@ -28,7 +28,7 @@ An experiment design document defines all parameters needed to run a rigorous A/
 When asked to design an experiment, follow these steps:
 
 1. **Articulate the Hypothesis**
-   Write a clear, testable hypothesis in the format: "We believe [change] for [users] will [outcome] as measured by [metric]." One hypothesis per experiment . if you're testing multiple things, run multiple experiments.
+   Write a clear, testable hypothesis in the format: "We believe [change] for [users] will [outcome] as measured by [metric]." One hypothesis per experiment - if you're testing multiple things, run multiple experiments.
 
 2. **Define the Variants**
    Describe the control (current experience) and treatment (new experience) in sufficient detail. Include screenshots, mockups, or precise descriptions so anyone can understand what users will see.
@@ -40,7 +40,7 @@ When asked to design an experiment, follow these steps:
    Determine how many users you need per variant to detect your minimum detectable effect (MDE) with statistical significance. Specify your significance level (typically 0.05) and power (typically 0.80).
 
 5. **Estimate Duration**
-   Based on sample size and available traffic, calculate how long the experiment needs to run. Account for weekly patterns . avoid ending mid-week if behavior varies by day.
+   Based on sample size and available traffic, calculate how long the experiment needs to run. Account for weekly patterns - avoid ending mid-week if behavior varies by day.
 
 6. **Define Targeting and Allocation**
    Specify which users are eligible for the experiment and how traffic is split between variants. Document any exclusions (e.g., employees, specific segments).

@@ -28,12 +28,12 @@ This skill is an evidence interpreter, not an arithmetic engine. Its job is to r
 
 ## When NOT to Use
 
-- You are still drafting OKRs . use `foundation-okr-writer`
-- You want a generic team retro . use `iterate-retrospective`
-- You are reporting a single experiment result . use `measure-experiment-results`
-- You need a stakeholder progress update without scoring . use `foundation-stakeholder-update`
-- The OKR set was never agreed on or never tracked . scoring requires an authored set; backfill via `foundation-okr-writer` first
-- You want to use scores to evaluate individuals . the skill refuses this
+- You are still drafting OKRs - use `foundation-okr-writer`
+- You want a generic team retro - use `iterate-retrospective`
+- You are reporting a single experiment result - use `measure-experiment-results`
+- You need a stakeholder progress update without scoring - use `foundation-stakeholder-update`
+- The OKR set was never agreed on or never tracked - scoring requires an authored set; backfill via `foundation-okr-writer` first
+- You want to use scores to evaluate individuals - the skill refuses this
 
 ## Instructions
 
@@ -121,19 +121,19 @@ Special states:
 
 The skill scans for these and either flags or refuses:
 
-- Retroactive target adjustment (we hit it because we changed the target) . document the change; grade against both definitions
-- Retroactive scope shrinkage on a `committed` or `compliance_or_safety` KR (committed to 3 healthcare audits, 1 audit completed, scored as "pass on in-scope") . refuse and mark not-yet-fully-observable
-- Average-the-guardrail-away (a failed guardrail dissolved into a high primary score) . separate the guardrail signal
-- Aspirational-grading-of-committed (treating 0.7 as success on a committed KR) . refuse and explain
-- Effort-equals-impact (initiative shipped, score did not move, scored as partial win) . separate ship-status from KR-impact
-- Compensation coupling (using the score for performance reviews) . refuse and explain
-- Missed-committed-as-stretch (we did not quite hit the contractual deadline but the team really tried) . refuse the framing
-- Sandbagged target (consistently scoring above 0.85 on aspirational targets) . flag for next-cycle target recalibration
-- Forced score on not-yet-observable (giving a numeric score to a KR whose 90-day window has not closed) . mark deferred
-- Initiative-as-cause-without-evidence (claiming Initiative X drove KR Y when timing or instrumentation cannot support it) . separate apparent contribution from causal claim
-- Hidden low-confidence (precise numeric scores with weak evidence) . surface confidence; do not let precision mask uncertainty
-- Stakeholder narrative override (a leader's preferred framing taking precedence over the evidence) . the grader's read is independent of stakeholder framing
-- Single-cycle confirmation (treating one cycle's signal as proof) . recommend a second cycle when the evidence is suggestive but not robust
+- Retroactive target adjustment (we hit it because we changed the target) - document the change; grade against both definitions
+- Retroactive scope shrinkage on a `committed` or `compliance_or_safety` KR (committed to 3 healthcare audits, 1 audit completed, scored as "pass on in-scope") - refuse and mark not-yet-fully-observable
+- Average-the-guardrail-away (a failed guardrail dissolved into a high primary score) - separate the guardrail signal
+- Aspirational-grading-of-committed (treating 0.7 as success on a committed KR) - refuse and explain
+- Effort-equals-impact (initiative shipped, score did not move, scored as partial win) - separate ship-status from KR-impact
+- Compensation coupling (using the score for performance reviews) - refuse and explain
+- Missed-committed-as-stretch (we did not quite hit the contractual deadline but the team really tried) - refuse the framing
+- Sandbagged target (consistently scoring above 0.85 on aspirational targets) - flag for next-cycle target recalibration
+- Forced score on not-yet-observable (giving a numeric score to a KR whose 90-day window has not closed) - mark deferred
+- Initiative-as-cause-without-evidence (claiming Initiative X drove KR Y when timing or instrumentation cannot support it) - separate apparent contribution from causal claim
+- Hidden low-confidence (precise numeric scores with weak evidence) - surface confidence; do not let precision mask uncertainty
+- Stakeholder narrative override (a leader's preferred framing taking precedence over the evidence) - the grader's read is independent of stakeholder framing
+- Single-cycle confirmation (treating one cycle's signal as proof) - recommend a second cycle when the evidence is suggestive but not robust
 
 ## Output Contract (v1.0.0)
 
@@ -165,7 +165,7 @@ Before finalizing, verify:
 - [ ] Hand-off section names specific downstream skills with rationale
 - [ ] Source-of-truth note present
 - [ ] Skill instruction commentary removed from final artifact
-- [ ] Markdown only . no JSON output
+- [ ] Markdown only - no JSON output
 
 ## Examples
 

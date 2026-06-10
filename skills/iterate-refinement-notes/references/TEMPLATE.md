@@ -102,8 +102,8 @@ status: draft
 |-------|-------|--------|--------|-------|
 | [STORY-XXX] | [Title] | [X] | Ready | [Brief note] |
 | [STORY-XXX] | [Title] | [X] | Ready | [Brief note] |
-| [STORY-XXX] | [Title] | . | Needs Work | [What's needed] |
-| [STORY-XXX] | [Title] | . | Blocked | [Blocker] |
+| [STORY-XXX] | [Title] | - | Needs Work | [What's needed] |
+| [STORY-XXX] | [Title] | - | Blocked | [Blocker] |
 
 ---
 

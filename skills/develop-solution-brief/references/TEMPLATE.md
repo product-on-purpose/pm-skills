@@ -59,6 +59,6 @@ status: draft
 
 <!-- 3-5 immediate actions. Be specific about who does what. -->
 
-1. [Action] . [Owner], [Timeline]
-2. [Action] . [Owner], [Timeline]
-3. [Action] . [Owner], [Timeline]
+1. [Action] - [Owner], [Timeline]
+2. [Action] - [Owner], [Timeline]
+3. [Action] - [Owner], [Timeline]

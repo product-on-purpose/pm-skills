@@ -65,8 +65,8 @@ status: draft
 ### [Stakeholder Name 1]
 
 **Role:** [Title and function]
-**Influence Level:** [High/Medium/Low] . [Why]
-**Interest Level:** [High/Medium/Low] . [Why]
+**Influence Level:** [High/Medium/Low] - [Why]
+**Interest Level:** [High/Medium/Low] - [Why]
 **Current Alignment:** [Supportive/Neutral/Resistant]
 
 **Needs:**
@@ -90,8 +90,8 @@ status: draft
 ### [Stakeholder Name 2]
 
 **Role:** [Title and function]
-**Influence Level:** [High/Medium/Low] . [Why]
-**Interest Level:** [High/Medium/Low] . [Why]
+**Influence Level:** [High/Medium/Low] - [Why]
+**Interest Level:** [High/Medium/Low] - [Why]
 **Current Alignment:** [Supportive/Neutral/Resistant]
 
 **Needs:**
@@ -115,8 +115,8 @@ status: draft
 ### [Stakeholder Name 3]
 
 **Role:** [Title and function]
-**Influence Level:** [High/Medium/Low] . [Why]
-**Interest Level:** [High/Medium/Low] . [Why]
+**Influence Level:** [High/Medium/Low] - [Why]
+**Interest Level:** [High/Medium/Low] - [Why]
 **Current Alignment:** [Supportive/Neutral/Resistant]
 
 **Needs:**

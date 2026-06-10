@@ -77,26 +77,21 @@ Understand why only 34% of new users complete onboarding and identify friction p
 
 ## Notable Quotes
 
-> "I logged in and just stared at the screen. There were like fifteen buttons and I had no idea which one to click first."
-> . P1, Marketing Manager, Day 3 of trial
+> "I logged in and just stared at the screen. There were like fifteen buttons and I had no idea which one to click first." - P1, Marketing Manager, Day 3 of trial
 
-> "If I can't see value in 10 minutes, I'm moving on. I have 30 tools fighting for my attention."
-> . P5, Product Manager who churned
+> "If I can't see value in 10 minutes, I'm moving on. I have 30 tools fighting for my attention." - P5, Product Manager who churned
 
-> "What kept me going was when I finally created a project and invited my teammate. That 5-minute demo with her sold me on the tool."
-> . P3, Team Admin who completed onboarding
+> "What kept me going was when I finally created a project and invited my teammate. That 5-minute demo with her sold me on the tool." - P3, Team Admin who completed onboarding
 
-> "There's a tutorial that shows you where to click, but not why. I need to know if this will save me time before I invest effort setting it up."
-> . P4, Operations Director
+> "There's a tutorial that shows you where to click, but not why. I need to know if this will save me time before I invest effort setting it up." - P4, Operations Director
 
-> "I'm pretty tech-savvy and even I was confused. If I can't figure it out quickly, my team definitely won't."
-> . P5, Product Manager who churned
+> "I'm pretty tech-savvy and even I was confused. If I can't figure it out quickly, my team definitely won't." - P5, Product Manager who churned
 
 ## Insights
 
 ### Insight 1: Users need guided first steps, not feature tours
 
-Users don't want to learn about all features . they want to accomplish their first goal. The current onboarding treats all features equally, overwhelming users with options. Successful users found their path by ignoring most of the interface and focusing on one task. We need to guide users to that first success rather than showing them everything.
+Users don't want to learn about all features - they want to accomplish their first goal. The current onboarding treats all features equally, overwhelming users with options. Successful users found their path by ignoring most of the interface and focusing on one task. We need to guide users to that first success rather than showing them everything.
 
 **Implication:** Replace the current feature tour with a goal-oriented wizard that asks users what they want to accomplish and guides them to that specific outcome.
 

@@ -73,17 +73,17 @@ See [User Stories Document](#) for full acceptance criteria.
 
 ### Out of Scope
 
-- Custom recurrence patterns (e.g., "every 3rd Tuesday") . v2
-- Calendar sync (Google Calendar, Outlook) . v2
-- Task assignment rotation . future consideration
-- Recurring subtasks . future consideration
+- Custom recurrence patterns (e.g., "every 3rd Tuesday") - v2
+- Calendar sync (Google Calendar, Outlook) - v2
+- Task assignment rotation - future consideration
+- Recurring subtasks - future consideration
 - Bulk operations on multiple recurring series
 
 ### Future Considerations
 
-- **Custom patterns (v2):** Complex scheduling like "first Monday of each month" or "every 2 weeks" . deferred due to UI complexity; standard patterns cover 85% of use cases
-- **Calendar sync (v2):** Two-way sync with external calendars . deferred due to integration complexity and scope
-- **Assignment rotation:** Auto-rotate assignee for team tasks . requires additional UX research to understand use cases
+- **Custom patterns (v2):** Complex scheduling like "first Monday of each month" or "every 2 weeks" - deferred due to UI complexity; standard patterns cover 85% of use cases
+- **Calendar sync (v2):** Two-way sync with external calendars - deferred due to integration complexity and scope
+- **Assignment rotation:** Auto-rotate assignee for team tasks - requires additional UX research to understand use cases
 
 ## Solution Design
 
@@ -189,10 +189,10 @@ See [Figma Design Specs](#) for detailed mockups.
 
 ## Open Questions
 
-- [x] Should we support "business days only" recurrence? . **Decision: No, defer to v2**
-- [ ] How do we handle recurring tasks when user loses access to project? . Owner: Product
-- [ ] Should paused series auto-resume after X time? . Owner: Product
-- [ ] What's the right default reminder time for recurring tasks? . Owner: Design
+- [x] Should we support "business days only" recurrence? - **Decision: No, defer to v2**
+- [ ] How do we handle recurring tasks when user loses access to project? - Owner: Product
+- [ ] Should paused series auto-resume after X time? - Owner: Product
+- [ ] What's the right default reminder time for recurring tasks? - Owner: Design
 
 ## Appendix
 

@@ -193,9 +193,9 @@ Load testing is expensive and time-consuming. If we're going to invest in it, we
 
 ### Quotes
 
-> "The load test results looked great. We hit 10x traffic with no issues. What we didn't realize is that we were testing a fantasy version of 10x traffic." . Sarah Chen, Platform Engineering
+> "The load test results looked great. We hit 10x traffic with no issues. What we didn't realize is that we were testing a fantasy version of 10x traffic." - Sarah Chen, Platform Engineering
 
-> "In retrospect, of course flash sales create burst patterns. We just didn't think to simulate it." . Mike Johnson, Payment Service Owner
+> "In retrospect, of course flash sales create burst patterns. We just didn't think to simulate it." - Mike Johnson, Payment Service Owner
 
 ### Artifacts
 

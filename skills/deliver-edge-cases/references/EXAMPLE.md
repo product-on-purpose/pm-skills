@@ -108,7 +108,7 @@ Users can upload documents (PDF, Word, images) to their workspace. Files are sto
 2. Click "Upgrade plan" for more space
 3. Cancel upload, files not uploaded
 
-**Data preservation:** No partial upload . check happens before transfer starts.
+**Data preservation:** No partial upload - check happens before transfer starts.
 
 ### Session Expired During Long Upload
 
@@ -125,25 +125,25 @@ Users can upload documents (PDF, Word, images) to their workspace. Files are sto
 
 ### Must Test (P1)
 
-- [ ] Upload file exactly 100MB . should succeed
-- [ ] Upload file 100MB + 1KB . should fail with size error
-- [ ] Upload 50 files at once . should succeed
-- [ ] Upload 51 files at once . should fail with batch limit error
-- [ ] Disconnect network mid-upload . should pause and recover
-- [ ] Upload .exe disguised as .pdf . should be rejected (MIME check)
-- [ ] Double-click upload button . should only upload once
+- [ ] Upload file exactly 100MB - should succeed
+- [ ] Upload file 100MB + 1KB - should fail with size error
+- [ ] Upload 50 files at once - should succeed
+- [ ] Upload 51 files at once - should fail with batch limit error
+- [ ] Disconnect network mid-upload - should pause and recover
+- [ ] Upload .exe disguised as .pdf - should be rejected (MIME check)
+- [ ] Double-click upload button - should only upload once
 
 ### Should Test (P2)
 
-- [ ] Upload file with unicode filename . should sanitize
-- [ ] Upload file with 300-character name . should truncate
-- [ ] Upload 0-byte file . should fail
-- [ ] Upload duplicate filename . should auto-rename
-- [ ] Navigate away during upload . should show warning
-- [ ] Storage 99% full, upload 2% of quota . should fail
+- [ ] Upload file with unicode filename - should sanitize
+- [ ] Upload file with 300-character name - should truncate
+- [ ] Upload 0-byte file - should fail
+- [ ] Upload duplicate filename - should auto-rename
+- [ ] Navigate away during upload - should show warning
+- [ ] Storage 99% full, upload 2% of quota - should fail
 
 ### Nice to Test (P3)
 
-- [ ] Upload when thumbnail service down . should succeed with generic icon
-- [ ] Two users upload same file simultaneously . both should succeed
-- [ ] Upload file with only extension (.pdf) . should fail
+- [ ] Upload when thumbnail service down - should succeed with generic icon
+- [ ] Two users upload same file simultaneously - both should succeed
+- [ ] Upload file with only extension (.pdf) - should fail

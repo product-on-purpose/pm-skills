@@ -12,15 +12,15 @@ This guide helps you find the right diagram type by starting from what you're tr
 | 4 | Tracking work stages | Kanban | State |
 | 5 | Planning a release or sprint timeline | Gantt | Timeline |
 | 6 | Documenting version history or milestones | Timeline | Gantt |
-| 7 | Prioritizing backlog items (2D) | Quadrant | . |
+| 7 | Prioritizing backlog items (2D) | Quadrant | - |
 | 8 | Showing allocation or composition | Pie | Treemap |
-| 9 | Decomposing a problem or brainstorming | Mindmap | . |
+| 9 | Decomposing a problem or brainstorming | Mindmap | - |
 | 10 | Documenting domain models or data relationships | ER | Class |
 | 11 | Mapping API or object contracts | Class | ER |
 | 12 | Showing system topology or infrastructure | Architecture | Flowchart |
 | 13 | Visualizing flow quantities or budget allocation | Sankey | Pie |
 | 14 | Showing hierarchical proportional data | Treemap | Pie |
-| 15 | Displaying trends or time-series metrics | XY-Chart | . |
+| 15 | Displaying trends or time-series metrics | XY-Chart | - |
 
 ---
 
@@ -30,7 +30,7 @@ This guide helps you find the right diagram type by starting from what you're tr
 
 A flowchart naturally maps to how PMs think about approval gates: requests come in, conditions are evaluated, and outcomes branch. The diamond decision nodes make branching logic visible in a way that prose obscures.
 
-**Example:** Feature request triage . an incoming request flows through feasibility check and priority assessment, then gets approved, deferred, or rejected.
+**Example:** Feature request triage - an incoming request flows through feasibility check and priority assessment, then gets approved, deferred, or rejected.
 
 ```mermaid
 flowchart TD
@@ -184,7 +184,7 @@ gantt
         Full rollout            :milestone, after launch1, 0d
 ```
 
-**When to use the alternative instead:** Use a Timeline when you need a simpler, milestone-focused view without task durations or dependencies . for example, a quarterly roadmap for executives.
+**When to use the alternative instead:** Use a Timeline when you need a simpler, milestone-focused view without task durations or dependencies - for example, a quarterly roadmap for executives.
 
 > See `diagram-catalog.md#gantt` for full syntax reference.
 
@@ -288,7 +288,7 @@ pie title Engineering Time Allocation . Q1 2026
 
 Mindmaps radiate outward from a central topic, making them natural for brainstorming and problem decomposition. They show hierarchy without implying sequence or flow.
 
-**Example:** User onboarding improvement . branches for key improvement areas with sub-items.
+**Example:** User onboarding improvement - branches for key improvement areas with sub-items.
 
 ```mermaid
 mindmap
@@ -368,7 +368,7 @@ erDiagram
 
 **Best diagram type:** Class | **Alternative:** ER
 
-Class diagrams show objects with their attributes, methods, and relationships (inheritance, composition). Use them when you need to communicate behavioral contracts . not just "what data exists" but "what operations are available."
+Class diagrams show objects with their attributes, methods, and relationships (inheritance, composition). Use them when you need to communicate behavioral contracts - not just "what data exists" but "what operations are available."
 
 **Example:** Notification service API contracts showing services, templates, channels, and delivery status.
 
@@ -526,7 +526,7 @@ treemap-beta
 
 > **Note:** XY-Chart is **experimental** (Mermaid v10.0.0+). Verify support in your rendering environment before using.
 
-XY-Charts display data points on x and y axes, supporting bar and line charts. They are the right choice for showing metrics over time . adoption curves, revenue trends, or sprint velocity.
+XY-Charts display data points on x and y axes, supporting bar and line charts. They are the right choice for showing metrics over time - adoption curves, revenue trends, or sprint velocity.
 
 **Example:** Weekly active users over 8 weeks post-launch for two product cohorts.
 

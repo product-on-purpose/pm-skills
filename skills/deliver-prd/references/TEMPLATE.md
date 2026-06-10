@@ -76,8 +76,8 @@ See [link to detailed user stories] for full acceptance criteria.
 ### Future Considerations
 <!-- Items deferred to future iterations -->
 
-- [Future item 1] . [Rationale for deferral]
-- [Future item 2] . [Rationale for deferral]
+- [Future item 1] - [Rationale for deferral]
+- [Future item 2] - [Rationale for deferral]
 
 ## Solution Design
 
@@ -153,16 +153,16 @@ See [link to detailed user stories] for full acceptance criteria.
 
 <!-- Unresolved questions that need answers before or during development -->
 
-- [ ] [Question 1] . Owner: [Name]
-- [ ] [Question 2] . Owner: [Name]
+- [ ] [Question 1] - Owner: [Name]
+- [ ] [Question 2] - Owner: [Name]
 
 ## Appendix
 
 ### Related Documents
-- Problem Statement . add link or path
-- User Research . add link or path
-- Design Specs . add link or path
-- Technical Design . add link or path
+- Problem Statement - add link or path
+- User Research - add link or path
+- Design Specs - add link or path
+- Technical Design - add link or path
 
 ### Revision History
 

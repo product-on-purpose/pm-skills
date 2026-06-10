@@ -37,10 +37,10 @@ what changed, why it matters, and what they need to do differently.
 
 All 65 skills reviewed. Closest matches:
 
-- `deliver-release-notes` . produces external-facing release announcements
-- `deliver-launch-checklist` . tracks cross-functional launch readiness
-- `deliver-user-stories` . defines implementation requirements
-- `discover-stakeholder-summary` . maps stakeholder needs and influence
+- `deliver-release-notes` - produces external-facing release announcements
+- `deliver-launch-checklist` - tracks cross-functional launch readiness
+- `deliver-user-stories` - defines implementation requirements
+- `discover-stakeholder-summary` - maps stakeholder needs and influence
 
 ### Findings
 
@@ -55,7 +55,7 @@ for different audiences, or how to sequence rollout messaging.
 
 ### Why this skill is still needed
 
-No existing skill produces the actual communication artifact . the email, Slack
+No existing skill produces the actual communication artifact - the email, Slack
 message, or internal knowledge-base update that tells affected users what
 changed, what they need to do differently, and where to get help. This is a
 distinct coordination artifact in the Deliver phase.
@@ -66,8 +66,8 @@ distinct coordination artifact in the Deliver phase.
 
 | Skill | Why selected |
 |-------|-------------|
-| deliver-release-notes | Same phase (deliver), same category (coordination), closest artifact type . both produce written communications about product changes |
-| deliver-launch-checklist | Same phase (deliver), different category . shows how to structure a multi-audience coordination artifact with checkpoints |
+| deliver-release-notes | Same phase (deliver), same category (coordination), closest artifact type - both produce written communications about product changes |
+| deliver-launch-checklist | Same phase (deliver), different category - shows how to structure a multi-audience coordination artifact with checkpoints |
 
 ---
 
@@ -201,7 +201,7 @@ See `references/EXAMPLE.md` for a completed example.
 ## Draft EXAMPLE.md
 
 A complete example would demonstrate a change communication package for a
-realistic SaaS scenario . such as migrating a dashboard reporting interface
+realistic SaaS scenario - such as migrating a dashboard reporting interface
 from a legacy layout to a new design system. It would fill every template
 section with concrete content: three audience segments (power users, casual
 viewers, account administrators), before/after workflow descriptions, drafted
@@ -246,7 +246,7 @@ Creates targeted change management communications for feature launches that alte
 ### CI Validation
 
 - [x] `name` matches directory name (`deliver-change-communication`)
-- [x] `description` is 20-100 words (single-line) . 33 words
+- [x] `description` is 20-100 words (single-line) - 33 words
 - [x] `version` present (`"1.0.0"`)
 - [x] `updated` present (`2026-03-22`)
 - [x] `license` present (`Apache-2.0`)
@@ -265,7 +265,7 @@ Creates targeted change management communications for feature launches that alte
 - [x] Output contract present in draft SKILL.md
 - [x] Quality checklist present in draft SKILL.md
 - [x] Gap analysis checked all 27 existing skills
-- [x] Why Gate not triggered (no high overlap . release-notes and launch-checklist serve different purposes)
+- [x] Why Gate not triggered (no high overlap - release-notes and launch-checklist serve different purposes)
 <!-- count-exempt:end -->
 
 ---

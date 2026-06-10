@@ -223,13 +223,13 @@ Identify a dinner option, ensure ingredients are available or obtainable, and pr
 
 ## Supporting Quotes
 
-> "By 5pm, I literally cannot make another decision. I've made 400 decisions at work. Don't show me 50 recipes.just tell me what to make." . P4, working mom of 2
+> "By 5pm, I literally cannot make another decision. I've made 400 decisions at work. Don't show me 50 recipes - just tell me what to make." - P4, working mom of 2
 
-> "I'll open the meal planning app on Sunday with great intentions. By Tuesday, everything's gone off-script and I'm back to 'what's for dinner?'" . P7, dad of 3
+> "I'll open the meal planning app on Sunday with great intentions. By Tuesday, everything's gone off-script and I'm back to 'what's for dinner?'" - P7, dad of 3
 
-> "I know I should meal plan, but when I actually look at those apps, I just feel worse about myself. Like I can't even do this basic adult thing." . P11, working mom of 1
+> "I know I should meal plan, but when I actually look at those apps, I just feel worse about myself. Like I can't even do this basic adult thing." - P11, working mom of 1
 
-> "The best nights are when I don't have to think. Someone just says 'we're having this' and I make it." . P2, stay-at-home dad of 2
+> "The best nights are when I don't have to think. Someone just says 'we're having this' and I make it." - P2, stay-at-home dad of 2
 
 ---
 

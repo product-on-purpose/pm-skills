@@ -96,7 +96,7 @@ Team leads manage ongoing operational tasks like weekly status reports, monthly 
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| None | . | Ready |
+| None | - | Ready |
 
 ### Out of Scope
 
@@ -128,7 +128,7 @@ Team leads manage ongoing operational tasks like weekly status reports, monthly 
 
 ### Context & Background
 
-Recurring tasks often need instance-level modifications . a weekly report might have a different deadline one week due to a holiday, or a recurring meeting might have different agenda items. Users need flexibility to modify individual instances without disrupting the overall pattern.
+Recurring tasks often need instance-level modifications - a weekly report might have a different deadline one week due to a holiday, or a recurring meeting might have different agenda items. Users need flexibility to modify individual instances without disrupting the overall pattern.
 
 ### Acceptance Criteria
 
@@ -296,7 +296,7 @@ Visibility into future recurring instances helps users plan their time effective
 
 ### Context & Background
 
-Teams often need to temporarily halt recurring tasks . during holiday periods, team transitions, or project pauses. Deleting and recreating the series is cumbersome. A pause mechanism preserves the configuration while stopping new instance generation.
+Teams often need to temporarily halt recurring tasks - during holiday periods, team transitions, or project pauses. Deleting and recreating the series is cumbersome. A pause mechanism preserves the configuration while stopping new instance generation.
 
 ### Acceptance Criteria
 

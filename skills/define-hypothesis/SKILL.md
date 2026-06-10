@@ -28,7 +28,7 @@ A hypothesis is a testable prediction about how a change will affect user behavi
 When asked to create a hypothesis, follow these steps:
 
 1. **State the Belief**
-   Articulate what you believe will happen. Use the structured format: "We believe that [action/change] for [target user] will [expected outcome]." Be specific about the intervention . vague hypotheses can't be tested.
+   Articulate what you believe will happen. Use the structured format: "We believe that [action/change] for [target user] will [expected outcome]." Be specific about the intervention - vague hypotheses can't be tested.
 
 2. **Identify the Target User**
    Define who this hypothesis applies to. A hypothesis about "users" is too broad. Specify the segment: new users in their first week, power users with 10+ sessions, churned users returning, etc.

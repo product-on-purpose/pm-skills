@@ -71,14 +71,11 @@ status: draft
 
 <!-- 5-8 particularly powerful or illustrative quotes -->
 
-> "[Quote that captures a key insight]"
-> . P[X], [Context]
+> "[Quote that captures a key insight]" - P[X], [Context]
 
-> "[Quote that captures a key insight]"
-> . P[X], [Context]
+> "[Quote that captures a key insight]" - P[X], [Context]
 
-> "[Quote that captures a key insight]"
-> . P[X], [Context]
+> "[Quote that captures a key insight]" - P[X], [Context]
 
 ## Insights
 
