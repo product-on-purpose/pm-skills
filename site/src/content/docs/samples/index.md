@@ -1,18 +1,18 @@
 ---
 title: Samples
-description: Browse 127 PM artifact samples spanning 65 skills and three product threads (Storevine, Brainshelf, Workbench).
+description: Browse 189 PM artifact samples spanning 61 of the catalog's 66 skills and three product threads (Storevine, Brainshelf, Workbench).
 sidebar:
   order: 1
 ---
 
-The samples corpus contains **127 real PM artifacts** produced by the pm-skills commands, organized by skill and by product thread. Use this section as a "what does the output actually look like?" reference when picking which skill to run, when tuning your prompt style, or when comparing how the same skill behaves across different product contexts.
+The samples corpus contains **189 real PM artifacts** produced by the pm-skills commands, organized by skill and by product thread. Use this section as a "what does the output actually look like?" reference when picking which skill to run, when tuning your prompt style, or when comparing how the same skill behaves across different product contexts.
 
 ## What lives here
 
 | Coverage | Count |
 |----------|-------|
-| Total samples | 127 |
-| Skills with samples | 44 |
+| Total samples | 189 |
+| Skills with samples | 61 |
 | Product threads | 3 (Storevine, Brainshelf, Workbench) |
 
 Each sample includes the scenario context, the exact prompt that produced it, and the full artifact output. Fictional metrics are marked with `[fictional]`; competitor names are real.
@@ -25,13 +25,13 @@ Each sample includes the scenario context, the exact prompt that produced it, an
 | **Brainshelf** | Consumer PKM app building Resurface (contextual morning digest) | Post-seed, ~20 employees | Casual: bullet points, shorthand, enough context to work |
 | **Workbench** | Enterprise collaboration building Blueprints (document templates with approval gates) | Series B, ~200 employees | Enterprise: full stakeholder lists, quantified baselines, explicit metrics |
 
-Per-thread sample distribution: Storevine 47, Brainshelf 40, Workbench 40.
+Per-thread sample distribution: Storevine 64, Brainshelf 57, Workbench 57, plus 11 legacy and orbit samples outside the thread trio.
 
 The threads exist so you can see how the same skill behaves under different product contexts. A `define-hypothesis` sample under Storevine reads differently than one under Workbench, because the scenario inputs (team, scale, prior artifacts, decision tempo) differ. Reading three threads of the same skill is the fastest way to internalize the variation surface of any skill.
 
 ## How to browse
 
-- **By skill**: expand the **Samples** group in the left sidebar. Each of the 65 skills has its own subgroup with 2-3 samples (one per thread, in most cases).
+- **By skill**: expand the **Samples** group in the left sidebar. Each sampled skill has its own subgroup with 2-3 samples (one per thread, in most cases).
 - **By thread (narrative)**: see the [Showcase](../showcase/) section, which threads samples together into a complete product lifecycle journey for each company.
 - **By artifact type**: cross-reference the [Skills index](../skills/) to find skills by Triple Diamond phase, then jump to that skill's samples.
 

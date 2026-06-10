@@ -10,7 +10,7 @@ description: "First-steps guide for new pm-skills users: install paths, your fir
 /plugin install pm-skills@product-on-purpose
 ```
 
-All 65 skills become available immediately, no clone required. Invoke any skill by name, like `/pm-skills:deliver-prd "Feature description"`. Already installed via the old `pm-skills-marketplace`? It keeps working, no action needed - see [Setup by Platform](platforms.md) to move to the new home.
+All 66 skills become available immediately, no clone required. Invoke any skill by name, like `/pm-skills:deliver-prd "Feature description"`. Already installed via the old `pm-skills-marketplace`? It keeps working, no action needed - see [Setup by Platform](platforms.md) to move to the new home.
 
 **Cross-agent (Cursor, GitHub Copilot, Cline, and others)**
 
@@ -18,7 +18,7 @@ All 65 skills become available immediately, no clone required. Invoke any skill 
 npx skills add product-on-purpose/pm-skills
 ```
 
-Installs all 65 skills into your agent's default skills directory via the open [`skills` CLI](https://github.com/vercel-labs/skills). No clone, no sync.
+Installs all 66 skills into your agent's default skills directory via the open [`skills` CLI](https://github.com/vercel-labs/skills). No clone, no sync.
 
 **Clone or download**
 
@@ -60,7 +60,7 @@ Welcome to PM-Skills! This guide will help you understand what this repository o
 
 ## What is PM-Skills?
 
-**PM-Skills** is an open-source collection of 65 product management skills that teach AI assistants how to create professional PM documents. The catalog spans 30 phase skills, 9 foundation skills, 10 utility skills, and 15 tool skills for structured workshops (the Foundation Sprint family of 7, the Design Sprint family of 7, and the tool-note-and-vote standalone). Think of it as a playbook that transforms generic AI responses into polished, consistent PM artifacts.
+**PM-Skills** is an open-source collection of 66 product management skills that teach AI assistants how to create professional PM documents. The catalog spans 30 phase skills, 9 foundation skills, 12 utility skills, and 15 tool skills for structured workshops (the Foundation Sprint family of 7, the Design Sprint family of 7, and the tool-note-and-vote standalone). Think of it as a playbook that transforms generic AI responses into polished, consistent PM artifacts.
 
 ### The Problem It Solves
 
@@ -80,7 +80,7 @@ AI: *Produces a comprehensive PRD with problem statement, success metrics,
 
 ### What You Get
 
-- **65 skills in `skills/`** covering the PM lifecycle (30 phase + 9 foundation + 10 utility + 15 tool)
+- **66 skills in `skills/`** covering the PM lifecycle (30 phase + 9 foundation + 12 utility + 15 tool)
 - **Professional templates** based on industry best practices
 - **Real-world examples** showing what good looks like
 - **Works with any AI assistant** (Claude, ChatGPT, Copilot, etc.)
@@ -287,7 +287,7 @@ git submodule add https://github.com/product-on-purpose/pm-skills.git .pm-skills
 #### How It Works
 
 Modern AI coding assistants discover skills through the `AGENTS.md` file at the repository root. This file:
-- Lists all 65 registered skills with paths and descriptions
+- Lists all 66 registered skills with paths and descriptions
 - Provides workflows
 - Documents available commands
 

@@ -26,7 +26,7 @@
   "interface": {
     "displayName": "PM Skills",
     "shortDescription": "Product management skills for AI agents",
-    "longDescription": "65 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, and pm-skills lifecycle utilities.",
+    "longDescription": "66 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, workflow authoring and ad-hoc chaining, and pm-skills lifecycle utilities.",
     "developerName": "Product on Purpose",
     "category": "Productivity",
     "capabilities": [
