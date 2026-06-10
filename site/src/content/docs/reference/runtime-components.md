@@ -26,7 +26,7 @@ The distinction matters because skills are portable across clients (any client t
 | Layer | What it is | How AI uses it | Cross-client portable? |
 |---|---|---|---|
 | Skills (65) | Reference content with frontmatter, templates, examples | AI reads SKILL.md at invocation time | Yes (per agentskills.io spec) |
-| Commands (10) | The `/workflow-*` orchestrators that chain skills into lifecycle sequences | User types `/workflow-name`, AI walks the skill sequence | Claude Code native |
+| Commands (11) | The `/workflow-*` orchestrators plus the `/chain` ad-hoc runner | User types `/workflow-name` or `/chain`, AI walks the skill sequence | Claude Code native |
 | Workflows (12) | Multi-skill chains for full lifecycle moments | AI walks ordered skill invocations | Native; portable conceptually |
 | Sub-agents (5; the v2.16 slate of 4 plus `pm-workflow-orchestrator` added v2.24.0) | Plugin components matched via `description:` and run in isolated context | Claude Code's intent classifier delegates; OR user invokes the dispatch skill (`/pm-skills:utility-pm-{role}`) or @-mentions `@agent-pm-skills:pm-{role}` | Claude Code only; dispatch skills provide cross-client parity |
 | Hooks (0; v2.17+ scope) | Lifecycle event handlers (PreToolUse, PostToolUse, Stop, etc.) | Claude Code fires automatically on configured events | Claude Code only |
