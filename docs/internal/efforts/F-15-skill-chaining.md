@@ -1,8 +1,10 @@
 # [F-15] Ad-Hoc Skill Chaining
-Status: Backlog
-Milestone: TBD
-Issue: TBD
-Agent: Claude Opus 4.6
+Status: Specced for v2.26.0 (2026-06-10)
+Milestone: v2.26.0
+Issue: #134
+Agent: Claude
+
+> **Staleness banner (2026-06-10):** this brief predates `pm-workflow-orchestrator` (v2.24.0), whose Mode B already implements the runtime proposed here. The effort is specced as Mode B PRODUCTIZATION: a `/chain` command front door, a written chain-expression contract, a `--thread` flag, and a promotion path into the workflow builder; no new skill and no new engine. Authoritative design: `docs/internal/release-plans/v2.26.0/spec_workflow-builder-and-chaining.md`.
 
 ## Scope
 

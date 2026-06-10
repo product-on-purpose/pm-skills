@@ -1,8 +1,10 @@
 # [F-14] Workflow Builder
-Status: Backlog
-Milestone: TBD
-Issue: TBD
-Agent: Claude Opus 4.6
+Status: Specced for v2.26.0 (2026-06-10)
+Milestone: v2.26.0
+Issue: #133
+Agent: Claude
+
+> **Staleness banner (2026-06-10):** this brief's numbers and mechanics are historical ("29-skill library", "9 existing workflows", `generate-workflow-pages.py`, mkdocs.yml nav; the catalog is 65 with 12 workflows, and Pattern S generates site pages via `scripts/gen-site.mjs`). The authoritative design, including the decided name `utility-pm-workflow-builder` and the chain-promotion entry point, lives in `docs/internal/release-plans/v2.26.0/spec_workflow-builder-and-chaining.md`.
 
 ## Scope
 
