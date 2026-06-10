@@ -1,8 +1,10 @@
 # [F-12] Skill Quality Convergence
-Status: Draft
-Release: TBD
-Issue: TBD
-Agent: Claude Opus 4.6 + Human (judgment calls)
+Status: Specced for v2.26.0 (2026-06-10)
+Release: v2.26.0 (Batch 0 + Batch 1) + v2.26.x patches (Batches 2-4)
+Issue: #135
+Agent: Claude (content) + Human (judgment calls)
+
+> **Staleness banner (2026-06-10):** this brief predates the current catalog; its "25 domain skills" and "v2.8 standard" framing is historical. The authoritative re-scope (26-skill cohort, current validator tiers, the audit-driven Batch 0 description-integrity pass, and the release-vehicle split) lives in `docs/internal/release-plans/v2.26.0/spec_skill-quality-convergence.md`. The M-13 prerequisite is RESOLVED (Complete 2026-04-04 and continuously CI-enforced since).
 
 ## Scope
 
