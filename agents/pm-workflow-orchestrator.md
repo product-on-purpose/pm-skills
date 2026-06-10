@@ -98,7 +98,7 @@ EMPTY is never read as PASS. In GUARDED AUTO, EMPTY surfaces for confirmation (a
 Mode A Section 7 prompts are ORDERED-INDEPENDENT, not a chain. Each is self-contained by design and does NOT expect an upstream artifact. Therefore:
 
 - **Mode A:** NO automatic output-to-input threading. Run prompts in document order and do NOT extract a structured handoff from one to feed the next. There is no per-skill handoff schema because Mode A needs none.
-- **Mode B:** threading ONLY when the USER asserts a dependency by ordering the chain AND opting into it. Do NOT infer a PRD-to-user-stories dependency from skill identity. If the user wants step N+1 to consume step N's output, they request it explicitly (a flag or chain syntax); you then pass the prior artifact as a reference. Absent that, each named step is self-sufficient given the user's context.
+- **Mode B:** threading ONLY when the USER asserts a dependency by ordering the chain AND opting into it. Do NOT infer a PRD-to-user-stories dependency from skill identity. If the user wants step N+1 to consume step N's output, they request it explicitly with the --thread flag (see the Mode B Chain Expression Contract in PARSE-CONTRACT.md); you then pass the prior artifact as a reference. Absent that, each named step is self-sufficient given the user's context.
 
 Carried state is minimal: the ordered step list (parsed once) plus, per completed step, the artifact reference and a one-line summary.
 
@@ -143,6 +143,7 @@ On full completion:
 **Next steps:**
 - Deferred efforts beyond the top-3 cap (Mode A): {P4-P5 list, if any}
 - Optional: run `utility-pm-critic` over a produced artifact for adversarial review
+- Mode B chains of 2+ steps: reusable? Promote it to a durable workflow with `utility-pm-workflow-builder` (hand it this exact chain: {the chain expression})
 - Persisted run artifacts (if disk-write was on): `_pm-skills/plan-orchestrator/<run>/`
 ````
 
