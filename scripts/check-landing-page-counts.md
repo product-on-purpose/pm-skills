@@ -13,6 +13,19 @@ Stale count claims on user-facing landing pages:
 
 For each page, the validator scans for patterns like `<N> skills`, `<N> AI agent skills`, `<N> production-ready skills` (allowing 0-4 adjective tokens between the number and the resource word), and asserts that every detected count either matches the source-of-truth filesystem count OR appears alongside the source-of-truth count somewhere in the file (in which case stale numbers are treated as historical context).
 
+### Homepage per-family checks (WS-A1, v2.26.0)
+
+<!-- count-exempt:start - illustrative per-family subset numbers, not total-count claims -->
+The homepage CardGrid claims a per-family count in every card title (`Discover (5 skills)`, `Utility (11 skills)`, ...) and the cross-cutting prose list claims three more (`**Foundation (9)**`, `**Utility (11)**`, `**Workshop tools (15)**`). Those lines sit inside or beside a `count-exempt` block because `check-count-consistency` would misread the subset numbers as stale totals; the 2026-06-09 audit found that carve-out had let the cards rot silently (Foundation 8 vs 9, Utility 10 vs 11, cards summing 63 under a 65 headline) - the per-page check above was satisfied because the correct total also appears in the file (the "historical context" escape hatch).
+<!-- count-exempt:end -->
+
+The per-family checks close that class:
+
+- Every parsed card title `Family (N skills)` must match the count of `skills/<family>-*` directories.
+- The card counts must sum to the total catalog count (catches a missing or extra card).
+- The three bold prose family claims must match their family counts (`Workshop tools` maps to the `tool-` prefix).
+- A parse miss is itself a FAIL: zero cards parsed, or a missing prose pattern, fails the check rather than silently skipping it. If you restructure the homepage markup or reword the family prose, update the patterns in both script twins in the same change.
+
 ## What it does NOT catch (by design)
 
 - Counts inside `CHANGELOG.md`, `docs/changelog.md`, `docs/releases/`, or `docs/internal/` (these are historical archives by convention)

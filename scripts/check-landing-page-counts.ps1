@@ -68,11 +68,103 @@ function Test-LandingPage {
   }
 }
 
+# --- Per-family checks on the docs homepage (WS-A1, v2.26.0) ---
+# Parity with check-landing-page-counts.sh: every homepage card title
+# ("Family (N skills)") and the three bold prose family claims must match the
+# skills/<prefix>-* filesystem count; the cards must sum to the catalog total;
+# a parse miss is itself a FAIL so a markup rewrite cannot silently disable
+# the check. See the .sh twin for the full rationale (2026-06-09 audit).
+
+function Get-FamilySkillCount {
+  param([string]$Prefix)
+  return (Get-ChildItem -Path (Join-Path $Root 'skills') -Directory -Filter "$Prefix-*").Count
+}
+
+function Test-HomepageCards {
+  $file = Join-Path $Root 'site/src/content/docs/index.mdx'
+  $label = 'Homepage cards'
+
+  if (-not (Test-Path $file)) {
+    Write-Host "  SKIP: $file (not present)"
+    return
+  }
+
+  $content = Get-Content -Path $file -Raw -Encoding UTF8
+  $cards = [regex]::Matches($content, '<Card title="([A-Za-z]+) \((\d+) skills?\)"')
+
+  if ($cards.Count -eq 0) {
+    Write-Host "  FAIL: $label - no '<Card title=`"Family (N skills)`">' patterns parsed; homepage markup changed?"
+    $failures.Add("$file`: per-card check parsed zero cards; update check-landing-page-counts alongside the markup") | Out-Null
+    return
+  }
+
+  $sum = 0
+  foreach ($m in $cards) {
+    $family = $m.Groups[1].Value
+    $n = [int]$m.Groups[2].Value
+    $prefix = $family.ToLower()
+    $actual = Get-FamilySkillCount $prefix
+    $sum += $n
+    if ($actual -eq 0) {
+      Write-Host "  FAIL: $label - card family '$family' matches no skills/$prefix-* directories"
+      $failures.Add("$file`: card family '$family' has no matching skill directories") | Out-Null
+    } elseif ($n -ne $actual) {
+      Write-Host "  FAIL: $label - '$family ($n skills)' but skills/$prefix-* has $actual"
+      $failures.Add("$file`: card '$family' claims $n; actual $actual") | Out-Null
+    } else {
+      Write-Host "  OK:   $label - $family ($n skills) matches filesystem"
+    }
+  }
+
+  if ($sum -ne $skillCount) {
+    Write-Host "  FAIL: $label - cards sum to $sum but the catalog has $skillCount skills (missing or extra card?)"
+    $failures.Add("$file`: card sum $sum != catalog total $skillCount") | Out-Null
+  } else {
+    Write-Host "  OK:   $label - cards sum to catalog total $skillCount"
+  }
+}
+
+function Test-HomepageProseFamily {
+  param([string]$Display, [string]$Prefix)
+  $file = Join-Path $Root 'site/src/content/docs/index.mdx'
+  $label = 'Homepage family prose'
+
+  if (-not (Test-Path $file)) {
+    Write-Host "  SKIP: $file (not present)"
+    return
+  }
+
+  $content = Get-Content -Path $file -Raw -Encoding UTF8
+  $m = [regex]::Match($content, "\*\*$([regex]::Escape($Display)) \((\d+)\)\*\*")
+
+  if (-not $m.Success) {
+    Write-Host "  FAIL: $label - pattern '**$Display (N)**' not found; homepage prose changed?"
+    $failures.Add("$file`: prose family '$Display' not parsed; update check-landing-page-counts alongside the prose") | Out-Null
+    return
+  }
+
+  $claim = [int]$m.Groups[1].Value
+  $actual = Get-FamilySkillCount $Prefix
+  if ($claim -ne $actual) {
+    Write-Host "  FAIL: $label - '**$Display ($claim)**' but skills/$Prefix-* has $actual"
+    $failures.Add("$file`: prose '$Display' claims $claim; actual $actual") | Out-Null
+  } else {
+    Write-Host "  OK:   $label - $Display ($claim) matches filesystem"
+  }
+}
+
 Write-Host "Checking landing pages:"
 Test-LandingPage (Join-Path $Root 'site/src/content/docs/index.mdx') $skillCount 'skills' 'Docs site homepage'
 Test-LandingPage (Join-Path $Root 'site/src/content/docs/skills/index.md') $skillCount 'skills' 'Skills landing page'
 Test-LandingPage (Join-Path $Root 'site/src/content/docs/workflows/index.md') $workflowCount 'workflows' 'Workflows landing page'
 Test-LandingPage (Join-Path $Root 'library/skill-output-samples/README_SAMPLES.md') $skillCount 'skills' 'Samples library README'
+
+Write-Host ""
+Write-Host "Checking homepage per-family counts:"
+Test-HomepageCards
+Test-HomepageProseFamily 'Foundation' 'foundation'
+Test-HomepageProseFamily 'Utility' 'utility'
+Test-HomepageProseFamily 'Workshop tools' 'tool'
 
 Write-Host ""
 
