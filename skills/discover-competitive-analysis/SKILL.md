@@ -4,8 +4,8 @@ description: Creates a structured competitive analysis comparing features, posit
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -23,6 +23,13 @@ A competitive analysis provides structured insight into the competitive landscap
 - When evaluating build vs. buy decisions
 - After losing deals to understand competitive positioning
 - When onboarding new product team members to the market context
+
+## When NOT to Use
+
+- You need market size rather than competitor positioning -> use `discover-market-sizing`
+- You are stress-testing strategic differentiation across the whole business model -> use `foundation-lean-canvas`, or `tool-foundation-sprint-differentiation` inside a Foundation Sprint
+- You want to understand why customers switch products -> use `define-jtbd-canvas`; it examines competing solutions through the job lens
+- The landscape is already mapped and you need the problem framed -> use `define-problem-statement`
 
 ## Instructions
 
@@ -51,7 +58,7 @@ When asked to create a competitive analysis, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete analysis fills every template section: Overview; Market Context; Competitors Analyzed; Feature Comparison Matrix; Pricing Comparison; Positioning Map; Competitor Deep Dives; Competitive Gaps and Opportunities; Strategic Recommendations; Sources and Confidence; and Next Steps.
 
 ## Quality Checklist
 
