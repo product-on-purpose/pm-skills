@@ -9,10 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.26.0] - 2026-06-10
+
+**The authoring and quality release.** Two new authoring surfaces close the try-then-keep loop: the `/chain` command runs any ad-hoc ordered skill sequence through the existing `pm-workflow-orchestrator` engine (no new engine, no new skill), and the new `utility-pm-workflow-builder` skill turns a proven chain (or a fresh idea) into a staged draft workflow packet for human review. The quality-convergence effort (F-12, issue #135) completed across all batches in this release: all 26 original-generation skills gained "When NOT to Use" boundary pointers and enumerated output contracts, with zero instruction rewrites and zero template or example changes. The orchestrator's native `Skill`-tool delegation path was live smoke-tested on the installed plugin before tagging (recorded PASS; downstream skills execute inline), and the procedure is now a repeatable runbook. Catalog grows 65 to 66 skills (utility 11 to 12); command files 10 to 11; sub-agents stay 5; workflows stay 12. MINOR.
+
 ### Added
 
 - `/chain` command (F-15, issue #134): a terse front door to the `pm-workflow-orchestrator` engine's Mode B. Takes an ordered chain expression (`deliver-prd -> deliver-user-stories <context>`; `,` and `->` equivalent) plus flags (`--auto`, `--force-auto`, `--dry-run`, `--thread`), parses only the separator-driven boundary, and hands everything to the engine, which validates every name pre-flight and owns all run rules. The grammar is written down once as the Mode B Chain Expression Contract in `skills/utility-pm-workflow-orchestrator/references/PARSE-CONTRACT.md`. No new engine and no new skill; command files go 10 to 11.
 - `utility-pm-workflow-builder` skill (F-14, issue #133): guided authoring from a workflow idea, a named skill list, or a promoted `/chain` expression to a complete Workflow Implementation Packet (draft `_workflows/` file, draft `workflow-*` command, cross-cutting update checklist including the validator-blind `release.yml` release-note surface) staged under `_staging/workflows/` for human review. Runs overlap analysis with a Why Gate and a >70% kill gate; refuses Tier-3 maintenance skills, dispatch skills, and workflows as steps. Ships with 3-thread library samples. Catalog grows 65 to 66 (utility 11 to 12).
+- Agentic smoke-test runbook (`site/src/content/docs/contributing/agentic-smoke-runbook.md`): the repeatable procedure for running installed-plugin smoke tests headlessly via the Claude Code CLI (marketplace install, dry-run leg, live leg with checkpoint resume, pass/fail rubric, recording rule, known environment quirks). Documents why this tier is a recorded runbook gate rather than CI (per-run LLM cost, credentials, non-determinism, per-release cadence). First executed as the v2.26.0 orchestrator native-path evidence gate, which PASSED and is recorded in the Sub-Agent Compatibility Matrix.
 
 ### Changed
 

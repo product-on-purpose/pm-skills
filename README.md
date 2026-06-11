@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.25.2-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.26.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-66-brightgreen.svg?style=flat-square" alt="Skills">
@@ -95,7 +95,7 @@
     - [Tool Family: Foundation Sprint](#tool-family-foundation-sprint-7)
     - [Tool Family: Design Sprint](#tool-family-design-sprint-7)
     - [Standalone Tool Skill](#standalone-tool-skill)
-    - [Utility Skills](#utility-skills---meta-tooling-11)
+    - [Utility Skills](#utility-skills---meta-tooling-12)
     - [Sub-Agents](#sub-agents)
     - [Workflows](#workflows-skill-chaining)
 - [Library Examples](#library-examples)
@@ -164,6 +164,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.26.0 - Authoring + quality: /chain ad-hoc runner, workflow builder, 26-skill convergence</strong></summary>
+
+**What changed.** Two new authoring surfaces close the try-then-keep loop. The **`/chain` command** runs any ad-hoc ordered skill sequence (`/chain deliver-prd -> deliver-user-stories <context>`) through the existing `pm-workflow-orchestrator` engine, checkpointed by default, with the grammar written once as the Mode B Chain Expression Contract; no new engine, no new skill. The new **`utility-pm-workflow-builder`** skill (catalog 65 to 66) turns a proven chain or a fresh idea into a staged draft workflow packet (workflow file + command + promotion checklist) for human review. The **quality-convergence effort completed**: all 26 original-generation skills now carry "When NOT to Use" boundary pointers and enumerated output contracts, with zero instruction rewrites and zero template changes. The orchestrator's native delegation path was **live smoke-tested on the installed plugin before tagging** (recorded PASS; the procedure is now a repeatable runbook).
+
+**Get started.** [v2.26.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.26.0)
+
+</details>
 
 <details>
 <summary><strong>v2.25.2 - Maintenance: validator-inventory manifest + parity gate, closes the Codex audit</strong></summary>
@@ -580,7 +589,7 @@ When you run `/pm-skills:deliver-prd "topic"`, the agent loads the skill, mirror
   <img src="https://img.shields.io/badge/Phase-30_skills-7c3aed?style=for-the-badge" alt="Phase Skills: 30">
   <img src="https://img.shields.io/badge/Foundation-9_skills-059669?style=for-the-badge" alt="Foundation Skills: 9">
   <img src="https://img.shields.io/badge/Tool_Families-15_skills-0284c7?style=for-the-badge" alt="Tool Family Skills: 15">
-  <img src="https://img.shields.io/badge/Utility-11_skills-ea580c?style=for-the-badge" alt="Utility Skills: 11">
+  <img src="https://img.shields.io/badge/Utility-12_skills-ea580c?style=for-the-badge" alt="Utility Skills: 12">
 </p>
 
 ### At a Glance
@@ -621,10 +630,10 @@ flowchart TB
         FS --> DS
     end
 
-    subgraph SUPPORT["Cross-Cutting Capabilities (20 skills)"]
+    subgraph SUPPORT["Cross-Cutting Capabilities (21 skills)"]
         direction LR
         FOUND["Foundation<br/>9 skills<br/>persona, lean-canvas,<br/>OKRs, meetings"]:::foundation
-        UTIL["Utility<br/>11 skills<br/>meta-tooling"]:::utility
+        UTIL["Utility<br/>12 skills<br/>meta-tooling"]:::utility
     end
 
     PHASE -.uses.-> SUPPORT
@@ -637,7 +646,7 @@ flowchart TB
 | ------------------------------------ | ----: | ---------------------------------------------------------------------------------------------------- |
 | **Phase** (Triple Diamond)           | 30    | One skill per major PM activity across Discover, Define, Develop, Deliver, Measure, and Iterate      |
 | **Foundation** (cross-cutting)       | 9     | Persona, lean canvas, OKRs, prioritized action plan, and the full meeting skills family              |
-| **Utility** (meta-tooling)           | 11    | pm-skill-builder, pm-skill-validate, pm-skill-iterate, mermaid-diagrams, slideshow-creator, update-pm-skills, pm-workflow-orchestrator, and helpers |
+| **Utility** (meta-tooling)           | 12    | pm-skill-builder, pm-skill-validate, pm-skill-iterate, pm-workflow-builder, pm-workflow-orchestrator, mermaid-diagrams, slideshow-creator, update-pm-skills, and helpers |
 | **Tool Families** (workshop methods) | 15    | Foundation Sprint family (7) + Design Sprint family (7) + note-and-vote (1)                          |
 
 ---
@@ -834,13 +843,14 @@ flowchart LR
 
 ---
 
-### Utility Skills - Meta-tooling (11)
+### Utility Skills - Meta-tooling (12)
 
 | Skill                      | What it does                                                                                                   |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | **pm-skill-builder**       | Create new PM skills with gap analysis, classification, and guided drafting                                    |
 | **pm-skill-validate**      | Audit a skill against structural conventions and quality criteria                                              |
 | **pm-skill-iterate**       | Apply targeted improvements from feedback or validation reports                                                |
+| **pm-workflow-builder**    | Author a new multi-skill workflow (or promote a proven `/chain`) into a staged draft packet for review         |
 | **mermaid-diagrams**       | Create syntactically valid mermaid diagrams for product documents                                              |
 | **slideshow-creator**      | Generate professional presentations from JSON deck specifications                                              |
 | **update-pm-skills**       | Check for and apply updates to a local PM-Skills installation                                                  |
@@ -1065,7 +1075,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.25.2](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.25.2)           |
+| **Current version** | [v2.26.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.26.0)           |
 | **Skill count**     | 66 skills (30 phase + 9 foundation + 12 utility + 15 tool)                                |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |
