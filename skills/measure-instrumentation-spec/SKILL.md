@@ -4,8 +4,8 @@ description: Specifies event tracking and analytics instrumentation requirements
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ An instrumentation spec defines what analytics events to track, when to fire the
 - When auditing existing tracking for gaps or inconsistencies
 - When onboarding a new analytics tool
 - Before launch to ensure measurement is in place
+
+## When NOT to Use
+
+- You are specifying the dashboard built on top of the events -> use `measure-dashboard-requirements`
+- You need experiment-specific metrics and variants, not product-wide tracking -> use `measure-experiment-design`
+- The feature itself is not yet specified (no flows to instrument) -> use `deliver-prd` first
+- You are analyzing data you already collect -> use `measure-experiment-results` or `measure-survey-analysis`
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to create an instrumentation spec, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete spec fills every template section: Overview; Event Inventory; User Properties; PII & Privacy Considerations; Implementation Notes; and Testing Checklist.
 
 ## Quality Checklist
 

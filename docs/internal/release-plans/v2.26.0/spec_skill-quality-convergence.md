@@ -120,6 +120,8 @@ First at-scale use of the `utility-pm-skill-validate` -> `utility-pm-skill-itera
 
 **D-4 (release vehicle split):** Batch 0 + Batch 1 ship inside v2.26.0 (the minor's "quality" theme is honest: every collision fixed, the most-installed cohort converged - deliver-acceptance-criteria is the most-installed skill on skills.sh). Batches 2-4 ride v2.26.x patches, one PR per batch, so the minor is never blocked on a long sweep. Per-skill versions are decoupled from the repo version, so nothing about this split is user-visible except earlier shipping.
 
+> **D-4 AMENDED (2026-06-10, maintainer instruction):** with the build finishing ahead of the tag, the maintainer directed Batches 2-4 to land pre-tag, folding the entire convergence effort into v2.26.0 (PRs #194 Batch 2, #195 Batch 3, #196 Batch 4). The original split's rationale (never block the minor) no longer applied because nothing was waiting. Issue #135 closes when Batch 4 merges instead of after a v2.26.x line.
+
 Batch 1 starts with the brief's triage step, updated: confirm `utility-pm-skill-validate`'s current check list against its SKILL.md (v1.0.0) before relying on the brief's eight-check table, which may have drifted.
 
 ## 5. Acceptance criteria

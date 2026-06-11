@@ -4,8 +4,8 @@ description: Specifies requirements for an analytics dashboard including metrics
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ A dashboard requirements document specifies what questions a dashboard should an
 - When formalizing ad-hoc reporting into a persistent dashboard
 - Before quarterly planning to specify what visibility you need
 - When onboarding stakeholders who need self-serve analytics
+
+## When NOT to Use
+
+- You need the event tracking that feeds dashboards -> use `measure-instrumentation-spec`; instrument first, visualize second
+- You are designing an experiment readout, not a standing dashboard -> use `measure-experiment-design` and `measure-experiment-results`
+- You want OKR progress scored at cycle close -> use `measure-okr-grader`
+- The questions the dashboard should answer are not yet agreed -> frame outcomes first with `foundation-okr-writer` or `define-problem-statement`
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to specify dashboard requirements, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete spec fills every template section: Overview; Purpose and Questions; Audience; Key Metrics; Visualization Specifications; Filters and Segments; Data Sources; Access and Permissions; Alerts and Thresholds; Acceptance Criteria; Open Questions; and Appendix.
 
 ## Quality Checklist
 

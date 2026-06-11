@@ -4,8 +4,8 @@ description: Documents the results of a completed experiment or A/B test with st
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: reflection
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ An experiment results document captures what happened when you tested a hypothes
 - To communicate findings to stakeholders who weren't involved
 - During decision-making about whether to ship, iterate, or kill a feature
 - To build a repository of learnings that inform future experiments
+
+## When NOT to Use
+
+- The experiment is not designed or run yet -> use `measure-experiment-design`
+- The results demand a direction decision -> use `iterate-pivot-decision`; this skill reports the evidence, that one decides
+- You want the transferable learning banked for the organization -> follow up with `iterate-lessons-log`
+- Your data is survey responses, not a controlled experiment -> use `measure-survey-analysis`
 
 ## Instructions
 
@@ -53,7 +60,7 @@ When asked to document experiment results, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete readout fills every template section: Summary; Hypothesis Recap; Results; Segment Analysis; Visualization; Learnings; Recommendation; Next Steps; and Appendix.
 
 ## Quality Checklist
 

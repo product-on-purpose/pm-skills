@@ -4,7 +4,7 @@ description: Designs an A/B test or experiment with variants, success metrics, s
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "2.0.1"
+  version: "2.1.0"
   updated: 2026-06-10
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
@@ -22,6 +22,13 @@ An experiment design document defines all parameters needed to run a rigorous A/
 - After solution design to validate assumptions before full rollout
 - When stakeholders want data-driven evidence for a decision
 - To establish a culture of experimentation and learning
+
+## When NOT to Use
+
+- The hypothesis itself is not yet articulated -> use `define-hypothesis` first; this skill designs the test for a claim you already have
+- You are analyzing a completed experiment -> use `measure-experiment-results`
+- You need the event tracking that will measure the experiment -> use `measure-instrumentation-spec`
+- You are gathering opinions rather than running a controlled test -> use `measure-survey-analysis`
 
 ## Instructions
 
@@ -53,7 +60,7 @@ When asked to design an experiment, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete design fills every template section: Overview; Hypothesis; Background; Variants; Metrics; Sample Size & Duration; Audience Targeting; Success Criteria; Risks & Mitigations; Implementation Notes; and References.
 
 ## Quality Checklist
 
