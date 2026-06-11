@@ -1,6 +1,6 @@
 # v2.26.0 Release Plan: Authoring + quality layer (workflow builder, ad-hoc chaining, skill-quality convergence)
 
-**Status:** BUILT + smoke-recorded, ready to tag (2026-06-10). The build executed in plan order and is merged to main: WS-A1 (#187), WS-A2 (#188), WS-A3 (#189), F-12 Batch 0 (#190), F-14+F-15 (#191, closes #133 + #134), F-12 Batch 1 (#192), and per the amended D-4, F-12 Batches 2-4 (#194, #195, #196; closes #135). Catalog on main: 66 skills / 5 sub-agents / 11 commands / 12 workflows. The Task 9 native-path smoke gate (P-G) RAN and RECORDED PASS on 2026-06-10 against the installed plugin (see the compatibility matrix record). Outstanding before the tag: ONLY the 6-gate runbook. WS-A4 (skills-ref lane, agent:codex) deliberately remains open in-window or as early v2.26.x; WS-A5 is with the maintainer.
+**Status:** SHIPPED (tag `v2.26.0` at `c11de12`, 2026-06-10; GitHub Release Latest; release-prep PR #198; post-tag install smoke PASS). The build executed in plan order and is merged to main: WS-A1 (#187), WS-A2 (#188), WS-A3 (#189), F-12 Batch 0 (#190), F-14+F-15 (#191, closes #133 + #134), F-12 Batch 1 (#192), and per the amended D-4, F-12 Batches 2-4 (#194, #195, #196; closes #135). Catalog on main: 66 skills / 5 sub-agents / 11 commands / 12 workflows. The Task 9 native-path smoke gate (P-G) RAN and RECORDED PASS on 2026-06-10 against the installed plugin (see the compatibility matrix record). Outstanding before the tag: ONLY the 6-gate runbook. WS-A4 (skills-ref lane, agent:codex) deliberately remains open in-window or as early v2.26.x; WS-A5 is with the maintainer.
 **Owner:** Maintainers
 **Type:** **MINOR** (additive: F-14 adds the `utility-pm-workflow-builder` skill, catalog 65 -> 66; F-15 adds the `/chain` command and a 1.1.0 bump of the orchestrator dispatch skill; F-12 is a quality pass with per-skill bumps and no new skills.)
 **Theme:** Close the authoring + quality gap. After v2.25.x hardened the release gate and activation layer, v2.26.0 turns to the contributor/user authoring experience (build workflows, chain skills ad hoc) and a deliberate quality-convergence pass over the existing catalog, folding in the 2026-06-09 repo audit's triggering-surface and front-door fixes.
@@ -76,7 +76,7 @@ Prerequisite notes: M-13 (Convention Alignment) is Complete (2026-04-04) and con
 
 ## Gate ledger (at cut time)
 
-- [ ] G0 Pre-tag readiness  - [ ] G1 Adversarial review  - [ ] G2 Version bump + CHANGELOG  - [ ] G2.5 Commit + re-verify  - [ ] G3 Tag + push  - [ ] G4 Post-tag hygiene
+- [x] G0 Pre-tag readiness (bundles green both shells through the build)  - [x] G1 Adversarial review (codex adversarial 4 findings fixed, #198)  - [x] G2 Version bump + CHANGELOG (#198)  - [x] G2.5 Commit + re-verify (SHA `c11de12` captured; bundles re-run both shells; main CI green)  - [x] G3 Tag + push (annotated `v2.26.0`)  - [x] G4 Post-tag hygiene (tag CI green; Release Latest w/ rich body + ZIP; install smoke PASS 2.25.2 -> 2.26.0; v2.27.0 stub created)
 
 ## Notes
 
