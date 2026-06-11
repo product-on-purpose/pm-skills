@@ -4,8 +4,8 @@ description: Documents a strategic pivot or persevere decision with the evidence
 license: Apache-2.0
 metadata:
   phase: iterate
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: reflection
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ A pivot decision document captures the analysis and rationale behind a strategic
 - When key hypotheses have been invalidated by market feedback
 - During strategy reviews when considering major direction changes
 - When stakeholders are debating whether to change course
+
+## When NOT to Use
+
+- You are reporting experiment results without a direction decision attached -> use `measure-experiment-results`
+- The decision is technical or architectural rather than directional -> use `develop-adr`
+- You want to explore candidate directions before deciding anything -> use `define-opportunity-tree`
+- The team needs the period-end reflection ceremony -> use `iterate-retrospective`; a pivot call is a decision document, not a retro
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to document a pivot decision, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete decision document fills every template section: Overview; Executive Summary; Current State; Evidence Summary; Hypothesis Review; Options Considered; Analysis; Decision; Implementation Plan; Communication Plan; and Appendix.
 
 ## Quality Checklist
 

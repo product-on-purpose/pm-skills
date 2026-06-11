@@ -4,8 +4,8 @@ description: Documents stakeholder needs, concerns, and influence for a project 
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -23,6 +23,13 @@ A stakeholder summary documents the people and groups who have interest in or in
 - When experiencing resistance or misalignment mid-project
 - During organizational changes that shift stakeholder dynamics
 - When preparing communication strategies for launches or changes
+
+## When NOT to Use
+
+- You need the async update you will SEND to stakeholders -> use `foundation-stakeholder-update`; this skill maps them, that one talks to them
+- You are preparing for one specific high-stakes meeting -> use `foundation-meeting-brief`
+- You need customer research synthesis rather than an influence map -> use `discover-interview-synthesis`
+- You want a persona to design or market against -> use `foundation-persona`
 
 ## Instructions
 
@@ -51,7 +58,7 @@ When asked to create a stakeholder summary, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. A complete summary fills every template section: Overview; Stakeholder Map; Stakeholder Profiles; Detailed Stakeholder Analysis; Key Relationships; Communication Plan; Risk Mitigation; Action Items; and Document History.
 
 ## Quality Checklist
 

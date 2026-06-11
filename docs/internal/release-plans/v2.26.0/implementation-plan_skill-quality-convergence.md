@@ -86,7 +86,7 @@ Create: `HISTORY.md` in each of those skill directories (none has one today).
 Same per-skill loop and verification as Task 5, one branch + PR each:
 
 - [x] **Task 6 / Batch 2:** define-hypothesis, define-jtbd-canvas, define-opportunity-tree, define-problem-statement, develop-adr, develop-design-rationale, develop-solution-brief, develop-spike-summary (8).
-- [ ] **Task 7 / Batch 3:** discover-competitive-analysis, discover-interview-synthesis, discover-stakeholder-summary, iterate-lessons-log, iterate-pivot-decision, iterate-refinement-notes, iterate-retrospective (7).
+- [x] **Task 7 / Batch 3:** discover-competitive-analysis, discover-interview-synthesis, discover-stakeholder-summary, iterate-lessons-log, iterate-pivot-decision, iterate-refinement-notes, iterate-retrospective (7).
 - [ ] **Task 8 / Batch 4:** measure-dashboard-requirements, measure-experiment-design, measure-experiment-results, measure-instrumentation-spec, foundation-persona (5).
 - [ ] **Step 8.x (close-out):** when Batch 4 merges, update issue #135 with the final convergence table (26/26), flip the effort brief and `plan_v2.26.0.md` rows to SHIPPED, and decide whether the v2.26.x patch in flight tags immediately or banks.
 

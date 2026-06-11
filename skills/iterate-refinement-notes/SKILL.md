@@ -4,8 +4,8 @@ description: Documents backlog refinement session outcomes including stories ref
 license: Apache-2.0
 metadata:
   phase: iterate
-  version: "2.0.0"
-  updated: 2026-01-26
+  version: "2.1.0"
+  updated: 2026-06-10
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -22,6 +22,13 @@ Refinement notes capture the outcomes of backlog refinement (grooming) sessions.
 - When onboarding new team members to explain backlog context
 - Before sprint planning to review what's been refined
 - When stories need re-refinement due to time elapsed
+
+## When NOT to Use
+
+- You need the stories themselves written -> use `deliver-user-stories`
+- You need a general meeting summary, not a backlog-refinement record -> use `foundation-meeting-recap`
+- You are running the retrospective ceremony -> use `iterate-retrospective`
+- Refined stories need their failure scenarios enumerated -> use `deliver-edge-cases`
 
 ## Instructions
 
@@ -50,7 +57,7 @@ When asked to document refinement notes, follow these steps:
 
 ## Output Format
 
-Use the template in `references/TEMPLATE.md` to structure the output.
+Use the template in `references/TEMPLATE.md` to structure the output. Complete notes fill every template section: Session Info; Summary; Stories Refined; Stories Summary Table; Questions Raised; Decisions Made; Action Items; Blocked Stories; Parking Lot; and Next Session.
 
 ## Quality Checklist
 
@@ -60,7 +67,7 @@ Before finalizing, verify:
 - [ ] Open questions have owners assigned
 - [ ] Decisions are captured with enough context
 - [ ] Blocked stories are clearly flagged
-- [ ] Notes are understandable to someone who wasn't there
+- [ ] A reader who missed the session can tell each story's outcome and what happens next without asking
 
 ## Examples
 
