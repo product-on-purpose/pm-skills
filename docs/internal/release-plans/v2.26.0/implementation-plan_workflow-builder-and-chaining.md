@@ -202,14 +202,14 @@ metadata:
 
 ### Task 9: Smoke gate (D-D; human + Claude)
 
-> **Status (2026-06-10):** could not run inside the build session (plugin sub-agents are not registered under workspace discovery; installing the branch build needs the interactive /plugin flow). Scheduled against main after the F-14/F-15 merge, BEFORE the v2.26.0 tag, per P-G: only an UNRUN test blocks the tag. The compat matrix and dispatch-skill status block carry the same note.
+> **Status (2026-06-10, later same day): RUN AND RECORDED, PASS.** Executed headlessly against the installed plugin (pm-skills@pm-skills-marketplace tracking main) from a scratch directory: dry-run PASS, live 2-step run PASS with both artifacts PRODUCED, Skill-tool delegation confirmed, downstream skills execute INLINE in the engine context. Full record + caveats in the compatibility matrix. Steps 10.4-10.5 of this plan completed at PR #191; the smoke record landed in its own follow-up PR.
 
 **Files:** Modify (with results): `site/src/content/docs/reference/sub-agent-compatibility.md`, `skills/utility-pm-workflow-orchestrator/SKILL.md` (status block).
 
-- [ ] **Step 9.1:** In a Claude Code session with the pm-skills plugin installed from this branch (local marketplace add pointing at the working tree, or `/plugin install` after pushing the branch), run: `/chain define-problem-statement -> define-hypothesis --dry-run <toy context>`. Expected: two "NOT EXECUTED - dry run" step blocks via the native sub-agent.
-- [ ] **Step 9.2:** Run the same chain live (no `--dry-run`). Record: did the engine invoke downstream skills via the `Skill` tool; did steps run inline or isolated; artifacts produced.
-- [ ] **Step 9.3:** Record the outcome in the compatibility matrix row and the dispatch skill's status block. On PASS: remove the native-path EXPERIMENTAL caveat for Mode B chains (keep non-Claude EXPERIMENTAL). On FAIL: keep EXPERIMENTAL, record the failure mode verbatim, and ship anyway (spec section 4 risk posture).
-- [ ] **Step 9.4: Commit.** `git add site/src/content/docs/reference/sub-agent-compatibility.md skills/utility-pm-workflow-orchestrator/SKILL.md && git commit -m "docs(compat): record orchestrator native-path smoke result"`
+- [x] **Step 9.1:** In a Claude Code session with the pm-skills plugin installed from this branch (local marketplace add pointing at the working tree, or `/plugin install` after pushing the branch), run: `/chain define-problem-statement -> define-hypothesis --dry-run <toy context>`. Expected: two "NOT EXECUTED - dry run" step blocks via the native sub-agent.
+- [x] **Step 9.2:** Run the same chain live (no `--dry-run`). Record: did the engine invoke downstream skills via the `Skill` tool; did steps run inline or isolated; artifacts produced.
+- [x] **Step 9.3:** Record the outcome in the compatibility matrix row and the dispatch skill's status block. On PASS: remove the native-path EXPERIMENTAL caveat for Mode B chains (keep non-Claude EXPERIMENTAL). On FAIL: keep EXPERIMENTAL, record the failure mode verbatim, and ship anyway (spec section 4 risk posture).
+- [x] **Step 9.4: Commit.** `git add site/src/content/docs/reference/sub-agent-compatibility.md skills/utility-pm-workflow-orchestrator/SKILL.md && git commit -m "docs(compat): record orchestrator native-path smoke result"`
 
 ### Task 10: Full gauntlet, PR, merge
 
