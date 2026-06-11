@@ -24,7 +24,7 @@ Two inputs sharpened the scope since staging:
 |---|---|---|---|---|
 | **F-14 Workflow Builder** (`utility-pm-workflow-builder`) | #133 | [`spec_workflow-builder-and-chaining.md`](spec_workflow-builder-and-chaining.md) | Guided authoring from "I want a workflow for X" (or a promoted chain) to a staged Workflow Implementation Packet: draft `_workflows/` file, draft command, cross-cutting checklist. Catalog 65 -> 66 | v2.26.0 |
 | **F-15 Ad-Hoc Skill Chaining** (`/chain`) | #134 | same joint spec | Terse front door to orchestrator Mode B: chain expression grammar in PARSE-CONTRACT, `--thread`, promotion suggestion, native-path smoke gate. No new skill, no new engine | v2.26.0 |
-| **F-12 Skill Quality Convergence** | #135 | [`spec_skill-quality-convergence.md`](spec_skill-quality-convergence.md) | 26-skill cohort (re-scoped from the stale brief). Batch 0: description integrity (audit collision pairs, phantom ref, dispatch trims) + scar hygiene + scar-guard scope extension. Batch 1: Deliver-cohort convergence via validate -> iterate | Batch 0 + Batch 1 in v2.26.0; Batches 2-4 as v2.26.x patches |
+| **F-12 Skill Quality Convergence** | #135 | [`spec_skill-quality-convergence.md`](spec_skill-quality-convergence.md) | 26-skill cohort (re-scoped from the stale brief). Batch 0: description integrity (audit collision pairs, phantom ref, dispatch trims) + scar hygiene + scar-guard scope extension. Batch 1: Deliver-cohort convergence via validate -> iterate | ALL batches in v2.26.0 (D-4 amended 2026-06-10 by maintainer instruction: Batches 2-4 landed pre-tag, PRs #194 #195 #196) |
 
 ## Workstream WS-A: 2026-06-09 audit maintenance (ship-first; plan rows, not new effort briefs)
 
@@ -48,7 +48,7 @@ Audit items NOT here because they live elsewhere: description collisions + phant
 4. **F-12 Batch 1** (Deliver cohort) - DONE (#192).
 5. **WS-A4** - OPEN (agent:codex; any time inside the window or early v2.26.x; advisory first).
 6. **Tag v2.26.0** via the 6-gate runbook (`site/src/content/docs/contributing/release-runbook.md`); catalog claims at tag time: 66 skills (30 phase + 9 foundation + 12 utility + 15 tool), 5 sub-agents, 11 command files, 12 workflows. BLOCKED only on the Task 9 smoke run + the runbook itself.
-7. **Post-tag:** F-12 Batches 2-4 ride v2.26.x patches; deferred items go to v2.27.0 planning.
+7. **Post-tag:** deferred items go to v2.27.0 planning. (F-12 Batches 2-4 originally rode here; D-4 was amended 2026-06-10 by maintainer instruction and they landed pre-tag as #194 #195 #196, so the whole convergence effort ships in v2.26.0 and #135 closes at Batch 4.)
 
 Prerequisite notes: M-13 (Convention Alignment) is Complete (2026-04-04) and continuously enforced by CI since; F-12's prerequisite is satisfied (spec section 0). The F-12 brief's "25 domain skills / v2.8 standard" framing is superseded by the spec's 26-skill cohort.
 
@@ -59,7 +59,7 @@ Prerequisite notes: M-13 (Convention Alignment) is Complete (2026-04-04) and con
 | P-A | F-14 + F-15 specced JOINTLY; the "shared engine" is a shared chain-expression CONTRACT (PARSE-CONTRACT.md section), not new code | joint spec 0.1-0.2 |
 | P-B | F-15 ships NO new skill and NO new engine: `/chain` command + Mode B contract + promotion path (rejects the brief's chain-skill and MCP options) | joint spec D-A |
 | P-C | Builder named `utility-pm-workflow-builder` (not the brief's `utility-workflow-builder`) | joint spec D-B |
-| P-D | F-12 splits: Batch 0 + Batch 1 inside v2.26.0; Batches 2-4 as v2.26.x patches (the minor never blocks on the long sweep) | F-12 spec D-4 |
+| P-D | F-12 splits: Batch 0 + Batch 1 inside v2.26.0; Batches 2-4 as v2.26.x patches (the minor never blocks on the long sweep). AMENDED 2026-06-10: maintainer directed Batches 2-4 to land pre-tag; the whole effort ships in v2.26.0 | F-12 spec D-4 (amended) |
 | P-E | Audit follow-up #5 (static Skill Finder + skill-manifest.json + output schemas) DEFERRED to v2.27.0 | deferred section below |
 | P-F | Audit quick wins enter as WS-A plan rows, not new F-XX effort docs (no-effort-doc-bloat convention) | WS-A above |
 | P-G | The v2.24.0 orchestrator native-path smoke test becomes a v2.26.0 release EVIDENCE gate: it must RUN and be RECORDED before the tag; a recorded FAIL keeps the EXPERIMENTAL label and is disclosed in release notes rather than blocking the ship (only an unrun test blocks). Natural moment: `/chain` rides that path. (Reworded R1 per review CR-6; the earlier "acceptance gate" phrasing contradicted the ship-anyway posture in the implementation plan) | joint spec D-D |

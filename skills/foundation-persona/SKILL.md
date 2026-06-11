@@ -4,8 +4,8 @@ description: Generates an evidence-calibrated product or marketing persona using
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "2.5.0"
-  updated: 2026-03-02
+  version: "2.6.0"
+  updated: 2026-06-10
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -30,6 +30,13 @@ If the user asks for `agent`, ask them to choose `product` or `marketing`.
 - When teams disagree on priorities and need behavior-grounded tradeoff framing
 - When assumptions and confidence levels must be explicit for decision review
 - When tailoring downstream work (PRD, stories, launch, messaging, enablement) to a specific user or buyer profile
+
+## When NOT to Use
+
+- You need the job context rather than the person -> use `define-jtbd-canvas`; the canvas captures what customers hire products to do, the persona captures who they are
+- You are mapping internal stakeholders, not customers -> use `discover-stakeholder-summary`
+- You have raw interviews to synthesize first -> use `discover-interview-synthesis`; a persona built on unsynthesized notes inherits their noise
+- No evidence exists at all and a real decision rides on the persona: gather research first; the skill labels assumptions honestly but cannot substitute for evidence
 
 ## Instructions
 
