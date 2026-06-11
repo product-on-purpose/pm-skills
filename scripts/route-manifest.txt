@@ -19,6 +19,7 @@
 /concepts/triple-diamond/index.html
 /concepts/versioning/index.html
 /concepts/workshop-sprints-vs-agile-sprints/index.html
+/contributing/agentic-smoke-runbook/index.html
 /contributing/authoring-sub-agents/index.html
 /contributing/ci-overview/index.html
 /contributing/code-of-conduct/index.html
@@ -103,6 +104,7 @@
 /releases/Release_v2.25.0/index.html
 /releases/Release_v2.25.1/index.html
 /releases/Release_v2.25.2/index.html
+/releases/Release_v2.26.0/index.html
 /releases/Release_v2.3/index.html
 /releases/Release_v2.4.1/index.html
 /releases/Release_v2.4.2/index.html
