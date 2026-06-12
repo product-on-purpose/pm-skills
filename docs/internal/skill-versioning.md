@@ -76,6 +76,7 @@ Each skill uses [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html)
 | **Major** (`X.0.0`) | Command name changes, required output sections restructured, interaction pattern breaks existing usage |
 | **Minor** (`x.Y.0`) | New optional capability, new optional output sections, handles more scenarios without breaking existing expectations |
 | **Patch** (`x.y.Z`) | Wording clarified, examples improved, typos fixed, internal heuristics tuned without changing required behavior |
+| **No bump** | Tooling-only files added beside the skill that do not change its behavior or contract: eval fixtures (`evals/trigger-fixtures.json`), test artifacts. Decided 2026-06-12 (v2.27.0 plan decision Q-C / trigger-evals spec T-B). If a fixture-driven finding later changes SKILL.md, THAT change bumps normally |
 
 ### Tie-breaker rule
 

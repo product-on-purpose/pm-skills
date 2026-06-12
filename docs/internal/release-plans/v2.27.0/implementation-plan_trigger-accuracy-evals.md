@@ -5,14 +5,14 @@
 
 | Task | Status |
 |---|---|
-| 1. Fixture schema constants + validator | TODO |
-| 2. Advisory CI wiring | TODO |
+| 1. Fixture schema constants + validator | DONE (2026-06-12: `check-trigger-fixtures.mjs` + 10-case `.test.mjs` green; live run reports the expected 29 missing roster files) |
+| 2. Advisory CI wiring | DONE (2026-06-12: unit test joined the enforcing `node --test` step; advisory step added after the M-30 evals; shell bundles + parity manifest untouched by design) |
 | 3. Fixtures: collision batch (9 skills) | TODO |
 | 4. Fixtures: remainder of roster (20 skills) | TODO |
 | 5. Harness | TODO |
 | 6. workflow_dispatch lane | TODO |
 | 7. Baseline run + triage record | TODO |
-| 8. Docs + hygiene sync | TODO |
+| 8. Docs + hygiene sync | PARTIAL (2026-06-12: skill-versioning T-B no-bump rule recorded; CHANGELOG Unreleased entry added; contributor doc + brief flip remain) |
 
 ---
 

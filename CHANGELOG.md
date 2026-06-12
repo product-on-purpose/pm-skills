@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Trigger-fixture structure validator (`scripts/check-trigger-fixtures.mjs` + unit tests), the first slice of the v2.27.0 trigger-accuracy eval harness (M-31): validates per-skill `evals/trigger-fixtures.json` files against the published agentskills.io trigger-eval methodology (composition minimums, 60/40 train/validation split, collision-pair near-miss requirements, Phase 1 roster completeness). Wired as an advisory CI step; its unit tests run enforcing. Fixture files land in a follow-up batch; until then the advisory step reports the expected missing-roster findings.
+
+### Changed
+
+- Skill versioning policy: tooling-only files added beside a skill (eval fixtures, test artifacts) do not bump the skill's version; recorded in the versioning guide's bump table.
+
 ## [2.26.0] - 2026-06-10
 
 **The authoring and quality release.** Two new authoring surfaces close the try-then-keep loop: the `/chain` command runs any ad-hoc ordered skill sequence through the existing `pm-workflow-orchestrator` engine (no new engine, no new skill), and the new `utility-pm-workflow-builder` skill turns a proven chain (or a fresh idea) into a staged draft workflow packet for human review. The quality-convergence effort (F-12, issue #135) completed across all batches in this release: all 26 original-generation skills gained "When NOT to Use" boundary pointers and enumerated output contracts, with zero instruction rewrites and zero template or example changes. The orchestrator's native `Skill`-tool delegation path was live smoke-tested on the installed plugin before tagging (recorded PASS; downstream skills execute inline), and the procedure is now a repeatable runbook. Catalog grows 65 to 66 skills (utility 11 to 12); command files 10 to 11; sub-agents stay 5; workflows stay 12. MINOR.

@@ -342,6 +342,7 @@ jobs:
         run: |
           node --test hooks/lib/frontmatter.test.mjs hooks/lib/local-config.test.mjs hooks/lib/phase-map.test.mjs hooks/lib/signals.test.mjs hooks/guardrails.test.mjs hooks/phase-router.test.mjs
           node --test scripts/check-sample-no-placeholders.test.mjs scripts/check-sample-exact-quote-sourcing.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
+          node --test scripts/check-trigger-fixtures.test.mjs
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
@@ -362,6 +363,14 @@ jobs:
         if: always()
         continue-on-error: true
         run: node scripts/check-sample-no-fabricated-metrics.mjs
+
+      - name: Eval - trigger-fixture structure (advisory)
+        # M-31 Phase 1 (spec_trigger-accuracy-evals.md section 3): schema, composition
+        # minimums, 60/40 split, collision near-misses, roster completeness. Advisory
+        # until the 29-file fixture corpus lands; promotion is a later deliberate step.
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-trigger-fixtures.mjs
 
       - name: Check rendered link resolution + anchors (enforcing)
         if: always()
