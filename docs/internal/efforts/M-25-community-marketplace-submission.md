@@ -2,7 +2,7 @@
 
 Status: Planned (v2.27.0)
 Milestone: v2.27.0
-Issue: TBD (ID reserved by `docs/internal/roadmap.md` since 2026-05-31; verified NOT filed and NOT done on 2026-06-09: no marketplace issue exists, no Discover-tab listing recorded anywhere)
+Issue: #202 (filed 2026-06-12; milestone v2.27.0. ID reserved by `docs/internal/roadmap.md` since 2026-05-31; verified NOT done as of 2026-06-09: no Discover-tab listing recorded anywhere)
 Agent: human (submission is an external account action) + claude (validation prep, docs, verification)
 
 ## Scope

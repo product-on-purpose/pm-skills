@@ -2,7 +2,7 @@
 
 Status: Planned (v2.27.0)
 Milestone: v2.27.0
-Issue: TBD (provisional ID; next free after M-30; confirm against GitHub issues + any backlog-canonical remnants before promotion)
+Issue: #200 (filed 2026-06-12; milestone v2.27.0)
 Agent: claude (fixture authoring requires PM judgment) + codex (harness + validator are scriptable)
 
 ## Scope

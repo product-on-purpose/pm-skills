@@ -1,7 +1,7 @@
 # v2.27.0 Spec: Trigger-Accuracy Eval Harness, Phase 1 (M-31)
 
 **Status:** DRAFT R0 (specced 2026-06-12). Maintainer pre-authorized build start the same day; the adversarial review loop still runs before tag per the G1 gate, and findings fold back into this spec.
-**Covers:** Trigger-Accuracy Evals (M-31, issue TBD). Implements the published agentskills.io trigger-eval methodology over the F-12 converged cohort.
+**Covers:** Trigger-Accuracy Evals (M-31, issue #200). Implements the published agentskills.io trigger-eval methodology over the F-12 converged cohort.
 **Companion:** [`plan_v2.27.0.md`](plan_v2.27.0.md) | [`implementation-plan_trigger-accuracy-evals.md`](implementation-plan_trigger-accuracy-evals.md) | effort brief [`M-31-trigger-accuracy-evals.md`](../../efforts/M-31-trigger-accuracy-evals.md)
 **Methodology source:** https://agentskills.io/skill-creation/optimizing-descriptions.md (accessed 2026-06-12): ~20 labeled queries per skill, near-miss negatives, 3 runs per query, 0.5 trigger-rate threshold, 60/40 train/validation split.
 

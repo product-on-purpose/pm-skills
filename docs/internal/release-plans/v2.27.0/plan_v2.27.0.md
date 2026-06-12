@@ -20,9 +20,9 @@
 
 | Item | Issue | One-line intent | Agent |
 |---|---|---|---|
-| **Trigger-accuracy eval harness, Phase 1 (M-31)** | TBD (file via effort template) | Trigger fixtures for the F-12 cohort + collision partners (29 files) in the published format; local + cost-gated CI harness; deterministic fixture validator wired ADVISORY; recorded baseline | claude (fixtures) + codex (harness/validator) |
-| **Derived surfaces, Phase 1 (M-32)** | TBD (closes #87, open since January) | `skill-manifest.json` generated from frontmatter + AGENTS.md catalog section generated between markers, both behind ENFORCING `--check` staleness gates; retires the disabled `sync-agents-md.yml` | codex or claude |
-| **Community-marketplace submission (M-25)** | TBD (file via effort template) | `claude plugin validate`, submit to Anthropic's community marketplace, verify Discover-tab listing + install smoke; self-hosted path unchanged | human (submission) + claude (prep/verification) |
+| **Trigger-accuracy eval harness, Phase 1 (M-31)** | #200 | Trigger fixtures for the F-12 cohort + collision partners (29 files) in the published format; local + cost-gated CI harness; deterministic fixture validator wired ADVISORY (Tasks 1-2 LANDED 2026-06-12); recorded baseline | claude (fixtures) + codex (harness/validator) |
+| **Derived surfaces, Phase 1 (M-32)** | #201 (closes #87, open since January, on ship) | `skill-manifest.json` generated from frontmatter + AGENTS.md catalog section generated between markers, both behind ENFORCING `--check` staleness gates; retires the disabled `sync-agents-md.yml` | codex or claude |
+| **Community-marketplace submission (M-25)** | #202 | `claude plugin validate`, submit to Anthropic's community marketplace, verify Discover-tab listing + install smoke; self-hosted path unchanged | human (submission) + claude (prep/verification) |
 
 ## Workstream WS-B: release hygiene + command polish (plan rows, not effort briefs, per the v2.26.0 P-F precedent)
 
@@ -49,7 +49,7 @@ Standing principle (applies to everything above and all future work): durable CI
 
 ## Sequencing + dependencies
 
-1. **File the three issues** (effort template: ID, Type, Agent, milestone v2.27.0); confirm the provisional IDs for trigger evals (M-31) and derived surfaces (M-32) are free against the live issue list + `backlog-canonical.md` remnants before use.
+1. **File the three issues: DONE 2026-06-12** (#200 trigger evals / #201 derived surfaces / #202 marketplace submission; IDs verified free; `v2.27.0` milestone created as milestone 5).
 2. **Marketplace submission prep (M-25)** (S): `claude plugin validate`; fix anything flagged; submit. External review latency is outside our control, so start first; listing verification is an evidence gate, not a build step.
 3. **Specs: DONE 2026-06-12** (both spec + implementation-plan pairs in this directory). Build pre-authorized; G1 adversarial review still runs before tag and findings fold back into the specs.
 4. **Trigger evals (M-31) build** per its implementation plan: validator + advisory wiring -> collision-batch fixtures -> remaining fixtures -> harness + dispatch lane -> recorded baseline + triage.

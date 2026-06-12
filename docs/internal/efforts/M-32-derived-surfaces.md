@@ -2,7 +2,7 @@
 
 Status: Planned (v2.27.0)
 Milestone: v2.27.0
-Issue: TBD (provisional ID, next after M-31 trigger-accuracy evals; closes long-open #87 "Auto-generated AGENTS.md header from skill inventory"; confirm ID is free against GitHub issues before promotion)
+Issue: #201 (filed 2026-06-12; milestone v2.27.0; supersedes and closes long-open #87 "Auto-generated AGENTS.md header from skill inventory" on ship)
 Agent: codex or claude (deterministic Node generator work; mirrors gen-resource-index conventions)
 
 ## Scope

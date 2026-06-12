@@ -1,7 +1,7 @@
 # v2.27.0 Spec: Derived Surfaces, Phase 1 (M-32: skill manifest + generated AGENTS.md catalog)
 
 **Status:** DRAFT R0 (specced 2026-06-12). Maintainer pre-authorized build start the same day; adversarial review still runs before tag per G1, findings fold back here.
-**Covers:** Derived Surfaces Phase 1 (M-32, issue TBD; closes #87). Generates the skill catalog's machine-readable manifest and the AGENTS.md catalog section from frontmatter instead of hand-syncing.
+**Covers:** Derived Surfaces Phase 1 (M-32, issue #201; closes #87 on ship). Generates the skill catalog's machine-readable manifest and the AGENTS.md catalog section from frontmatter instead of hand-syncing.
 **Companion:** [`plan_v2.27.0.md`](plan_v2.27.0.md) | [`implementation-plan_derived-surfaces.md`](implementation-plan_derived-surfaces.md) | effort brief [`M-32-derived-surfaces.md`](../../efforts/M-32-derived-surfaces.md)
 
 ---
