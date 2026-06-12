@@ -1,11 +1,12 @@
-# v2.27.0 Release Plan: Prove + reach (trigger-accuracy evals, community-marketplace submission)
+# v2.27.0 Release Plan: Prove + industrialize (trigger evals, derived surfaces, marketplace reach, hygiene)
 
-**Status:** PROPOSED R1 (promoted from STUB 2026-06-12 by maintainer instruction: commit M-31 + M-25; all other stub candidates remain candidates, not committed). Spec work not started; convert each committed item via the standard pipeline (issue -> spec -> implementation plan -> review loop) before build.
+**Status:** PROPOSED R2 (R1 promoted the stub and committed trigger evals + marketplace submission; R2 same day expands scope per maintainer instruction "expand with the most valuable items": derived surfaces committed, hygiene workstream + command polish added, specs + implementation plans written). Maintainer pre-authorized build start 2026-06-12; the adversarial review loop still runs before tag per G1.
 **Owner:** Maintainers
-**Type:** MINOR (M-31 adds a new advisory CI capability + per-skill eval fixtures; no new skills, no catalog count change; M-25 is a distribution action with no code). Re-evaluate if additional candidates join the scope.
-**Theme:** After v2.26.0 closed the authoring + quality-convergence gap, v2.27.0 starts converting the repo's quality claims into verifiable properties (the first lane of the published per-skill eval standard) and fixes the cheapest distribution defect (absence from the in-app Discover tab).
-**Created:** 2026-06-10 (stub at v2.26.0 G4) | **Updated:** 2026-06-12 R1 (scope partially committed)
-**Effort briefs:** [M-31 trigger-accuracy evals](../../efforts/M-31-trigger-accuracy-evals.md) | [M-25 community-marketplace submission](../../efforts/M-25-community-marketplace-submission.md)
+**Type:** MINOR (new advisory CI capability + eval fixtures + a generated manifest + AGENTS.md generation; no new skills, no catalog count change; the marketplace submission is a distribution action with no code).
+**Theme:** Prove + industrialize. After v2.26.0 closed the authoring + quality-convergence gap, v2.27.0 converts quality claims into verifiable properties (the first lane of the published per-skill eval standard), kills the hand-sync drift class before the catalog grows again (derived surfaces), and fixes the cheapest distribution defect (absence from the in-app Discover tab).
+**Created:** 2026-06-10 (stub at v2.26.0 G4) | **Updated:** 2026-06-12 R2
+**Companion docs (this directory):** [`spec_trigger-accuracy-evals.md`](spec_trigger-accuracy-evals.md) + [`implementation-plan_trigger-accuracy-evals.md`](implementation-plan_trigger-accuracy-evals.md) | [`spec_derived-surfaces.md`](spec_derived-surfaces.md) + [`implementation-plan_derived-surfaces.md`](implementation-plan_derived-surfaces.md)
+**Effort briefs:** [M-31 trigger-accuracy evals](../../efforts/M-31-trigger-accuracy-evals.md) | [M-32 derived surfaces](../../efforts/M-32-derived-surfaces.md) | [M-25 community-marketplace submission](../../efforts/M-25-community-marketplace-submission.md)
 
 ---
 
@@ -19,17 +20,27 @@
 
 | Item | Issue | One-line intent | Agent |
 |---|---|---|---|
-| **M-31 Trigger-accuracy eval harness, Phase 1** | TBD (file via effort template) | Per-skill trigger fixtures for the F-12 26-skill cohort in the published format; local + cost-gated CI harness; deterministic fixture-structure validator wired ADVISORY | claude (fixtures) + codex (harness/validator) |
-| **M-25 Community-marketplace submission** | TBD (file via effort template) | `claude plugin validate`, submit to Anthropic's community marketplace, verify Discover-tab listing + install smoke; self-hosted path unchanged | human (submission) + claude (prep/verification) |
+| **Trigger-accuracy eval harness, Phase 1 (M-31)** | TBD (file via effort template) | Trigger fixtures for the F-12 cohort + collision partners (29 files) in the published format; local + cost-gated CI harness; deterministic fixture validator wired ADVISORY; recorded baseline | claude (fixtures) + codex (harness/validator) |
+| **Derived surfaces, Phase 1 (M-32)** | TBD (closes #87, open since January) | `skill-manifest.json` generated from frontmatter + AGENTS.md catalog section generated between markers, both behind ENFORCING `--check` staleness gates; retires the disabled `sync-agents-md.yml` | codex or claude |
+| **Community-marketplace submission (M-25)** | TBD (file via effort template) | `claude plugin validate`, submit to Anthropic's community marketplace, verify Discover-tab listing + install smoke; self-hosted path unchanged | human (submission) + claude (prep/verification) |
 
-Standing principle (applies to both and to all future work): durable CI is core. New artifact classes ship with their validator in the same release, advisory first, promoted per-invariant after a triage pass (the M-30 ladder); anything CI cannot run (LLM-judged lanes, external listings) gets a recording rule, and the record is the gate.
+## Workstream WS-B: release hygiene + command polish (plan rows, not effort briefs, per the v2.26.0 P-F precedent)
+
+| ID | Work | Detail | Agent |
+|---|---|---|---|
+| WS-B1 | `_workflows/` scar sweep + guard scope | Sweep the spaced-period scars in `_workflows/*.md` (carried stub item) and extend the scar guard's ROOTS to cover `_workflows/` so they cannot return | codex |
+| WS-B2 | validate-skill command-exists drift | Align `utility-pm-skill-validate`'s Tier-1 `command-exists` check with post-v2.22.0 conventions (carried stub item from F-12 Batch 1 triage) | claude |
+| WS-B3 | Command polish: argument-hint + allowed-tools (M-27 candidate from the operating-layer roadmap) | Add `argument-hint` to the 10 `/workflow-*` commands + `/chain`; pre-approve Read/Write via `allowed-tools` where chains stall on prompts | claude |
+| WS-B4 | displayName + context-cost measurement (M-26 candidate from the operating-layer roadmap) | Add `displayName` to the plugin manifest; run + record `claude plugin details` token cost (the number that later drives the plugin-split decision) | claude |
+
+Standing principle (applies to everything above and all future work): durable CI is core. New artifact classes ship with their validator in the same release, advisory first, promoted per-invariant after a triage pass (the M-30 ladder), with deliberate, recorded exceptions for deterministic gates over brand-new artifacts (spec_derived-surfaces D-C); anything CI cannot run (LLM-judged lanes, external listings) gets a recording rule, and the record is the gate.
 
 ## Candidate scope (recorded, NOT committed; carried from the 2026-06-10 stub)
 
 | Candidate | Origin | One-line intent |
 |---|---|---|
-| **Derived-surfaces theme** | v2.26.0 plan deferred section; audit follow-up #5 + issue #87 (open since January) | Generate the hand-synced surfaces (AGENTS.md catalog section, landing cards, skill-manifest.json, static Skill Finder, optional output schemas) from the resource index instead of hand-syncing; structurally kills the WS-A1/A2 drift class (~20 surfaces found in the v2.26.0 count sweeps) |
-| **WS-A4: skills-ref CI lane (closes #97)** | v2.26.0 WS-A row, deliberately left open (agent:codex, M-sized) | Normalize skill `metadata` typing toward the agentskills.io string-map rule, then wire `skills-ref validate` over `skills/*` as advisory CI; promote when green |
+| **Derived-surfaces later phases** | Spec D-D deferrals (M-32 Phase 1 is committed above) | Landing-card + README-number generation, static Skill Finder, per-skill output schemas, `build-skill-catalog.py` consolidation onto the manifest |
+| **WS-A4: skills-ref CI lane (closes #97)** | v2.26.0 WS-A row, deliberately left open (agent:codex, M-sized) | Normalize skill `metadata` typing toward the agentskills.io string-map rule, then wire `skills-ref validate` over `skills/*` as advisory CI; promote when green. If picked up in-window, sequence before M-32 Task 1 (soft preference, not a dependency) |
 | **Smoke-runbook CI wrapper (advisory)** | v2.26.0 agentic-smoke-runbook "why not CI" section | Optional `workflow_dispatch` lane automating the runbook (ANTHROPIC_API_KEY secret, LLM-judged); automates the procedure, never replaces the recording rule. Note: M-31's cost-gated lane shares this mechanism; build once if both land |
 | **Orchestrator Mode A native smoke + interactive multi-checkpoint run** | v2.26.0 smoke-gate caveats | Mode B headless PASS is recorded; Mode A native and a continuous interactive engine across checkpoints remain unexercised |
 | **validate-skill commands drift** | F-12 Batch 1 triage note (PR #192) | Align `utility-pm-skill-validate`'s Tier-1 `command-exists` check with post-v2.22.0 conventions |
@@ -38,11 +49,13 @@ Standing principle (applies to both and to all future work): durable CI is core.
 
 ## Sequencing + dependencies
 
-1. **File the two issues** (effort template: ID, Type, Agent, milestone v2.27.0) and confirm the M-31 provisional ID is free against the live issue list + `backlog-canonical.md` remnants before use.
-2. **M-25 prep** (S): `claude plugin validate` against the marketplace manifest; fix anything it flags; submit. External review latency is outside our control, so start first; the listing verification is an evidence gate, not a build step.
-3. **M-31 spec** (joint fixture-schema + harness spec; decide fixture location/naming relative to the future `evals/evals.json` output-eval lane so the directory layout is settled once).
-4. **M-31 build:** fixture-structure validator (advisory, free, lands immediately) -> cohort fixtures -> harness -> baseline run recorded.
-5. **Tag v2.27.0** via the 6-gate runbook once both evidence gates are recorded (M-31 baseline report; M-25 submission record, with the listing itself allowed to trail the tag if Anthropic review is pending: record the submission, disclose the pending state in release notes).
+1. **File the three issues** (effort template: ID, Type, Agent, milestone v2.27.0); confirm the provisional IDs for trigger evals (M-31) and derived surfaces (M-32) are free against the live issue list + `backlog-canonical.md` remnants before use.
+2. **Marketplace submission prep (M-25)** (S): `claude plugin validate`; fix anything flagged; submit. External review latency is outside our control, so start first; listing verification is an evidence gate, not a build step.
+3. **Specs: DONE 2026-06-12** (both spec + implementation-plan pairs in this directory). Build pre-authorized; G1 adversarial review still runs before tag and findings fold back into the specs.
+4. **Trigger evals (M-31) build** per its implementation plan: validator + advisory wiring -> collision-batch fixtures -> remaining fixtures -> harness + dispatch lane -> recorded baseline + triage.
+5. **Derived surfaces (M-32) build** per its implementation plan, in parallel with item 4 (independent): generator + manifest + gate -> AGENTS.md markers + first-generation diff triage + gate + sync-workflow retirement.
+6. **WS-B hygiene + polish rows** land as small independent PRs any time in the window; WS-B1 (scar sweep) before any new `_workflows` content is authored.
+7. **Tag v2.27.0** via the 6-gate runbook once the evidence gates are recorded (trigger-eval baseline report; marketplace submission record, with the listing itself allowed to trail the tag if Anthropic review is pending: record the submission, disclose in release notes). Keep this plan's scope table and the two implementation-plan task tables current as PRs land (update-plans-as-you-ship).
 
 ## Decisions (lettered for review)
 
@@ -53,6 +66,10 @@ Standing principle (applies to both and to all future work): durable CI is core.
 | Q-C | Adding fixtures does NOT bump skill versions (no behavior change); record in skill-versioning doc | Keeps HISTORY.md signal about behavior, not tooling; revisit if fixtures ever alter SKILL.md content |
 | Q-D | M-25 ships with the self-hosted marketplace path unchanged (dual rail) | Zero-risk addition; the v3.0.0 old-path retirement decision is untouched |
 | Q-E | The LLM-run trigger lane is cost-gated `workflow_dispatch`, advisory, recording-rule-governed; only the deterministic fixture-structure validator enters `validation.yml` | Mirrors the M-30 ladder and the smoke-runbook cost decision |
+| Q-F | Derived surfaces (M-32) joins committed scope, Phase 1 boundary = manifest + AGENTS.md catalog only (landing cards, Finder, schemas deferred) | Highest-value remaining candidate; must land before any catalog-growing release so growth never re-pays the hand-sync tax; boundary detail in spec D-D |
+| Q-G | The marketplace submission (M-25) gets NO separate spec; its effort brief is the spec | External action, not a build; the brief already carries scope, steps, validation, and open questions |
+| Q-H | Hygiene + polish items enter as WS-B plan rows, not effort briefs | The v2.26.0 P-F no-effort-doc-bloat precedent |
+| Q-I | The two M-26/M-27 operating-layer candidates ride this release as WS-B3/WS-B4 plan rows under their roadmap names (command argument hints; displayName + context-cost measurement) | S-sized, immediate UX gain, and WS-B4's measured token cost is the input the plugin-split decision needs |
 
 ## How each item ships (standard pipeline)
 
