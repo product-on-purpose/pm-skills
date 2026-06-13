@@ -81,6 +81,25 @@ Triage rule (decision T-F): a failing query is resolved one of two ways and logg
   on the user-default model first (Haiku is the strict grader). Nothing blocks; this is recall tuning.
 - Report artifact: `trigger-eval-run-20260613-collision-deliver.md`
 
+### Run 3 - 2026-06-13 (batch: collision-define-measure, 120 calls)
+
+- Model: claude-haiku-4-5 | scratch dir; subscription; completed clean. Timing: 13.2 + 12.9 s/call
+  (the ~40s/call seen mid-session was a transient throttle that cleared; ~13s/call is the steady rate,
+  dominated by per-call `claude -p` cold-start loading the full plugin/MCP environment).
+- Results (validation = headline):
+  - define-hypothesis: 92% train / **63%** val (4 misses) <- recall finding
+  - measure-experiment-design: 100% / **100%** (0 misses) <- perfect
+- **Collision verdict: CLEAN again.** All failures are "expected trigger, fired 0-1x" misses; ZERO
+  false-fires on the partner's near-misses. The define-hypothesis <> measure-experiment-design
+  collision the audit flagged is NOT recurring; experiment-design is flawless and hypothesis does not
+  bleed into it.
+- define-hypothesis UNDER-triggers on hypothesis-intent phrasing without the word "hypothesis":
+  "We believe that X for Y will Z" (the literal hypothesis format!), "turn this into a testable
+  prediction with a numeric target", "what we expect this change to do before anyone designs a test",
+  "articulate what success looks like to validate the direction". Same class as deliver-edge-cases:
+  a `When to Use` synonym expansion candidate (F-12 mechanism), confirm on user-default model first.
+- Report artifact: `trigger-eval-run-20260613-collision-define-measure.md`
+
 ### (remaining skills: run as named batches, collision pairs first)
 
 <!-- Copy this block per run:
