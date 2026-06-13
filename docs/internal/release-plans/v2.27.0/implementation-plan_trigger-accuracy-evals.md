@@ -9,10 +9,42 @@
 | 2. Advisory CI wiring | DONE (2026-06-12: unit test joined the enforcing `node --test` step; advisory step added after the M-30 evals; shell bundles + parity manifest untouched by design) |
 | 3. Fixtures: collision batch | DONE (2026-06-12: all 11 collision-involved skills incl. the watch pair; 3 partner-aimed near-misses each, both splits) |
 | 4. Fixtures: remainder of roster | DONE (2026-06-12: remaining 18 roster skills; full 29-file roster validates clean; near-miss targets annotated beyond the mandate to enrich the future --collision sweep) |
-| 5. Harness | DONE + HARDENED (2026-06-12 base; 2026-06-13 amended: added `--batch`/`--list-batches` with 10 named batches partitioning the roster, `extractUsage` in `--probe`; FIXED two bugs the first live proof surfaced - stdin prompt passing (Windows shell-quoting) and absolute `--report` paths; 9-case test green incl. batch-partition test; verified 3/3 probes fire post-fix) |
+| 5. Harness | DONE + HARDENED (2026-06-12 base; 2026-06-13 hardened through real-load failures: `--batch`/`--list-batches`, `--probe` usage, `--concurrency` (async pool), progress logging; FIXES - stdin prompt (Windows shell-quoting), absolute `--report` paths, abort-not-fabricate on API error, retry+backoff on transient throttle (credit/auth/usage-cap = hard abort). 13-case test green) |
 | 6. workflow_dispatch lane | DONE (2026-06-12: `.github/workflows/trigger-evals.yml`; dry_run defaults TRUE, fixture validator is a hard gate in-lane, report uploads as artifact; needs the ANTHROPIC_API_KEY secret for live legs) |
-| 7. Baseline run + triage record | IN PROGRESS (2026-06-13: harness verified end-to-end in a scratch dir on Haiku; batched-execution plan written for subscription use, no API key needed; first real deliver-prd slice recording. Remaining 28 skills run as named batches, ~1 per 5-hour window) |
-| 8. Docs + hygiene sync | PARTIAL (2026-06-12: skill-versioning T-B no-bump rule recorded; CHANGELOG Unreleased entry added; contributor doc + brief flip remain) |
+| 7. Baseline run + triage record | PARTIAL / PAUSED (2026-06-13: 21 skills measured - Runs 1-5 in `records/trigger-eval-baseline.md`; 4/6 collision pairs CLEAN; deliver-edge-cases recall gap confirmed on Sonnet; define-hypothesis confirmed Haiku-artifact. PAUSED on sustained server throttling; ~13 skills deferred with a documented resume path in the baseline record) |
+| 8. Docs + hygiene sync | PARTIAL (2026-06-12: skill-versioning T-B rule + CHANGELOG done; explainer doc `trigger-evals-explained.md` added 2026-06-13; contributor how-to page + effort-brief status flip remain) |
+
+## Open items (consolidated pending list, 2026-06-13)
+
+The single place to see what is left for this effort. Authoritative lifecycle tracker is GitHub issue
+#200 (M-31 trigger-accuracy evals); detail and resume commands live in `records/trigger-eval-baseline.md`.
+
+**A. Complete the baseline (deferred on server throttling, no code changes needed)**
+- A1. Run the remaining ~13 skills, one named batch per calm 5-hour window on the subscription
+  (Haiku): collision-research, collision-iterate, rest-define-discover (discover-* only),
+  rest-measure, rest-iterate-foundation, and develop (spike-summary). Resume commands in the record.
+- A2. Sonnet confirmation for the Haiku-only recall scorers that are still flagged
+  (foundation-okr-writer 75, measure-okr-grader 63) - re-run those on `claude-sonnet-4-6` to confirm
+  real-vs-artifact before any edit. (deliver-edge-cases and define-hypothesis already confirmed.)
+
+**B. Act on findings (the payoff; a NEW follow-up batch, F-12 mechanism)**
+- B1. `deliver-edge-cases`: add intent-synonyms to "When to Use" ("failure modes / what can go wrong /
+  race conditions / boundary and limit scenarios"). Confirmed real on both models. Per-skill patch
+  bump + HISTORY; re-run its fixtures to verify the lift.
+- B2. Re-evaluate `deliver-prd` ("spec / requirements doc") and any B-list skills surfaced by A1/A2;
+  apply the same synonym pass only where confirmed on the user-default model.
+
+**C. Tooling / docs follow-ups**
+- C1. Task 8 remainder: contributor how-to page for fixture authoring + harness usage (site page;
+  needs route-manifest + resource-index regen); flip the M-31 effort brief Status when it ships.
+- C2. Optional: explicit `--collision` sweep for the OKR writer-vs-grader boundary flagged in Run 4.
+- C3. Later: promote the fixture-structure validator from advisory to enforcing (M-30 ladder), once
+  the full 29-file corpus is stable.
+- C4. Optional efficiency: a direct Messages-API harness (cached catalog injection) for a fast, cheap,
+  CI-able per-release gate - deferred; needs an API key and a fidelity-validation pass.
+
+**Done and not pending:** fixtures (29 files), validator + advisory CI lane, the harness (built +
+hardened), the dispatch lane, the explainer doc, and the partial baseline (Runs 1-5).
 
 ---
 
