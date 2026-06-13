@@ -1,0 +1,56 @@
+// scripts/run-trigger-evals.test.mjs - detection + aggregation + report on canned
+// transcripts only (no API calls; see the harness --probe mode for live shape checks).
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { parseEvents, skillFired, aggregate, renderReport } from './run-trigger-evals.mjs';
+
+test('parseEvents reads stream-json lines and ignores noise', () => {
+  const out = 'starting up\n{"type":"system","subtype":"init"}\n{"type":"assistant","message":{"content":[{"type":"tool_use","name":"Skill","input":{"skill":"deliver-prd"}}]}}\nnot json\n';
+  const events = parseEvents(out);
+  assert.equal(events.length, 2);
+});
+
+test('skillFired detects a nested Skill tool_use for the target skill only', () => {
+  const events = parseEvents('{"type":"assistant","message":{"content":[{"type":"tool_use","name":"Skill","input":{"skill":"deliver-prd","args":"checkout flow"}}]}}');
+  assert.equal(skillFired(events, 'deliver-prd'), true);
+  assert.equal(skillFired(events, 'deliver-user-stories'), false);
+});
+
+test('skillFired tolerates casing variants of the tool name and other tools', () => {
+  const events = parseEvents('{"content":[{"type":"tool_use","name":"skill","input":{"command":"deliver-prd"}},{"type":"tool_use","name":"Read","input":{"file_path":"deliver-user-stories"}}]}');
+  assert.equal(skillFired(events, 'deliver-prd'), true);
+  // a non-Skill tool mentioning the name must NOT count
+  assert.equal(skillFired(events, 'deliver-user-stories'), false);
+});
+
+test('aggregate computes split pass rates', () => {
+  const agg = aggregate([
+    { split: 'train', pass: true }, { split: 'train', pass: false },
+    { split: 'validation', pass: true }, { split: 'validation', pass: true },
+  ]);
+  assert.equal(agg.trainRate, 0.5);
+  assert.equal(agg.validationRate, 1);
+});
+
+test('renderReport lists failures and collision false-fires', () => {
+  const report = renderReport([{
+    skill: 'deliver-prd',
+    results: [
+      { q: 'good', expect: 'trigger', split: 'train', fired: 3, pass: true },
+      { q: 'missed ask', expect: 'trigger', split: 'validation', fired: 0, pass: false },
+    ],
+    agg: aggregate([{ split: 'train', pass: true }, { split: 'validation', pass: false }]),
+    falseFires: [{ q: 'story ask', partner: 'deliver-user-stories' }],
+  }]);
+  assert.ok(report.includes('| deliver-prd | 100% | 0% | 1 |'));
+  assert.ok(report.includes('expected trigger, fired 0x: "missed ask"'));
+  assert.ok(report.includes('COLLISION false-fire on deliver-user-stories'));
+});
+
+test('renderReport shows none when everything passes', () => {
+  const report = renderReport([{
+    skill: 'x', results: [{ q: 'a', expect: 'trigger', split: 'train', fired: 3, pass: true }],
+    agg: aggregate([{ split: 'train', pass: true }]), falseFires: [],
+  }]);
+  assert.ok(report.includes('- none'));
+});

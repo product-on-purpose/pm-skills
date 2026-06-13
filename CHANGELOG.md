@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Trigger-fixture structure validator (`scripts/check-trigger-fixtures.mjs` + unit tests), the first slice of the v2.27.0 trigger-accuracy eval harness (M-31): validates per-skill `evals/trigger-fixtures.json` files against the published agentskills.io trigger-eval methodology (composition minimums, 60/40 train/validation split, collision-pair near-miss requirements, Phase 1 roster completeness). Wired as an advisory CI step; its unit tests run enforcing.
 - Trigger-eval fixtures for the full Phase 1 roster: 29 skills (the 26-skill quality-convergence cohort plus 3 collision partners) each carry `evals/trigger-fixtures.json` with 20 labeled queries (10 should-trigger, 10 should-not, 60/40 train/validation split) including near-miss negatives aimed at known description-collision partners. 580 labeled queries total; the advisory fixture gate is fully green. Per the versioning policy below, fixture files do not bump skill versions.
+- Trigger-eval harness (`scripts/run-trigger-evals.mjs` + unit tests) and a cost-gated `workflow_dispatch` lane (`.github/workflows/trigger-evals.yml`): runs fixture queries through headless Claude Code, detects Skill-tool firing, scores trigger rates against each query's label (3 runs, 0.5 threshold), reports train and validation pass rates separately, and supports a cross-skill collision false-fire sweep. The CI lane defaults to dry-run and never gates a release; the recorded baseline report is the evidence gate.
 
 ### Changed
 

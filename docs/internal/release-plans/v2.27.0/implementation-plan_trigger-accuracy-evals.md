@@ -9,8 +9,8 @@
 | 2. Advisory CI wiring | DONE (2026-06-12: unit test joined the enforcing `node --test` step; advisory step added after the M-30 evals; shell bundles + parity manifest untouched by design) |
 | 3. Fixtures: collision batch | DONE (2026-06-12: all 11 collision-involved skills incl. the watch pair; 3 partner-aimed near-misses each, both splits) |
 | 4. Fixtures: remainder of roster | DONE (2026-06-12: remaining 18 roster skills; full 29-file roster validates clean; near-miss targets annotated beyond the mandate to enrich the future --collision sweep) |
-| 5. Harness | TODO |
-| 6. workflow_dispatch lane | TODO |
+| 5. Harness | DONE (2026-06-12: `run-trigger-evals.mjs` + 6-case test; detection/aggregation/report pure functions unit-tested on canned transcripts; `--probe` mode added for the live transcript-shape check the spec risk note requires; dry-run math matches the spec estimate, 1,740 invocations full roster) |
+| 6. workflow_dispatch lane | DONE (2026-06-12: `.github/workflows/trigger-evals.yml`; dry_run defaults TRUE, fixture validator is a hard gate in-lane, report uploads as artifact; needs the ANTHROPIC_API_KEY secret for live legs) |
 | 7. Baseline run + triage record | TODO |
 | 8. Docs + hygiene sync | PARTIAL (2026-06-12: skill-versioning T-B no-bump rule recorded; CHANGELOG Unreleased entry added; contributor doc + brief flip remain) |
 

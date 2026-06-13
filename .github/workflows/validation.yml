@@ -357,6 +357,7 @@ jobs:
           node --test scripts/check-sample-no-placeholders.test.mjs scripts/check-sample-exact-quote-sourcing.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
           node --test scripts/check-trigger-fixtures.test.mjs
           node --test scripts/gen-skill-manifest.test.mjs
+          node --test scripts/run-trigger-evals.test.mjs
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the

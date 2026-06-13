@@ -1,0 +1,72 @@
+name: Trigger evals (advisory, cost-gated)
+
+# M-31 (issue #200): the LLM-run trigger-accuracy lane. Advisory by definition and
+# NEVER part of the enforcing pre-tag bundle; the recording rule is the gate (the
+# accepted baseline report is committed under the release-plan records path).
+# Spec: docs/internal/release-plans/v2.27.0/spec_trigger-accuracy-evals.md section 5.
+# Cost note: the full 29-skill roster is ~1,740 headless invocations; dry_run
+# defaults to TRUE so a dispatch without explicit intent never spends tokens.
+
+on:
+  workflow_dispatch:
+    inputs:
+      skills:
+        description: 'Comma-separated skill filter (empty = full Phase 1 roster)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Validate fixtures + print the run plan only; no API calls'
+        required: false
+        type: boolean
+        default: true
+      collision:
+        description: 'Also run the cross-skill collision false-fire sweep'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  trigger-evals:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+
+      - name: Validate fixtures (hard gate here, advisory in validation.yml)
+        # No point spending tokens on a malformed corpus: in THIS lane the
+        # structure validator fails the job.
+        run: node scripts/check-trigger-fixtures.mjs
+
+      - name: Harness unit tests
+        run: node --test scripts/run-trigger-evals.test.mjs
+
+      - name: Dry-run plan
+        run: node scripts/run-trigger-evals.mjs --dry-run ${{ inputs.skills != '' && format('--skills {0}', inputs.skills) || '' }} ${{ inputs.collision && '--collision' || '' }}
+
+      - name: Install Claude Code CLI
+        if: ${{ !inputs.dry_run }}
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run trigger evals
+        if: ${{ !inputs.dry_run }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        # First live use should be a --probe on one skill to verify the transcript
+        # shape (spec risk note); the report artifact is the recording-rule input.
+        run: node scripts/run-trigger-evals.mjs --report trigger-eval-report.md ${{ inputs.skills != '' && format('--skills {0}', inputs.skills) || '' }} ${{ inputs.collision && '--collision' || '' }}
+
+      - name: Upload report artifact
+        if: ${{ !inputs.dry_run && always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: trigger-eval-report
+          path: trigger-eval-report.md
+          if-no-files-found: ignore
