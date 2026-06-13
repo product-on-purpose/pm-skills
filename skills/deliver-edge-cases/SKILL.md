@@ -1,11 +1,11 @@
 ---
 name: deliver-edge-cases
-description: Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive failure coverage, or during QA planning to identify test scenarios. Distinct from deliver-acceptance-criteria, which writes story-level Given/When/Then checks; this skill produces the systematic edge-case catalog for the whole feature.
+description: Documents edge cases, error states, boundary conditions, race conditions, and recovery paths for a feature - the systematic catalog of what can go wrong and the failure modes to design for. Use during specification to map the failure surface and ensure comprehensive coverage, or during QA planning to identify boundary and limit scenarios to test. Distinct from deliver-acceptance-criteria, which writes story-level Given/When/Then checks; this skill produces the whole-feature edge-case catalog.
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.1.1"
+  updated: 2026-06-13
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -17,6 +17,7 @@ An edge cases document systematically catalogs the unusual, boundary, and error 
 
 ## When to Use
 
+- When you need to enumerate failure modes, race conditions, timeouts, and boundary or limit scenarios - everything that can go wrong - and define a recovery path for each
 - During feature specification before engineering begins
 - When preparing QA test plans
 - After discovering production bugs to prevent similar issues

@@ -150,7 +150,7 @@ Generates structured Given/When/Then acceptance criteria for a user story or fea
 #### edge-cases
 **Path:** `skills/deliver-edge-cases/SKILL.md`
 
-Documents edge cases, error states, boundary conditions, and recovery paths for a feature. Use during specification to ensure comprehensive failure coverage, or during QA planning to identify test scenarios. Distinct from deliver-acceptance-criteria, which writes story-level Given/When/Then checks; this skill produces the systematic edge-case catalog for the whole feature.
+Documents edge cases, error states, boundary conditions, race conditions, and recovery paths for a feature - the systematic catalog of what can go wrong and the failure modes to design for. Use during specification to map the failure surface and ensure comprehensive coverage, or during QA planning to identify boundary and limit scenarios to test. Distinct from deliver-acceptance-criteria, which writes story-level Given/When/Then checks; this skill produces the whole-feature edge-case catalog.
 
 #### launch-checklist
 **Path:** `skills/deliver-launch-checklist/SKILL.md`
