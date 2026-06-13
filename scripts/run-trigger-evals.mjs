@@ -246,9 +246,14 @@ function main() {
   const evaluated = [];
   let aborted = null;
   for (const f of fixtures) {
+    const t0 = Date.now();
     console.log(`running ${f.skill} ...`);
     try {
-      evaluated.push(evalSkill(f, { collision: flag('--collision') }));
+      const r = evalSkill(f, { collision: flag('--collision') });
+      const secs = Math.round((Date.now() - t0) / 1000);
+      const calls = f.queries.length * f.runs_per_query;
+      console.log(`  ${f.skill} done: ${secs}s / ${calls} calls (${(secs / calls).toFixed(1)}s/call)`);
+      evaluated.push(r);
     } catch (e) {
       if (e.rateLimited) { aborted = e.rateLimited; break; }
       throw e;
