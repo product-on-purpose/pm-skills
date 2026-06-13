@@ -19,11 +19,29 @@
 // injected via TRIGGER_EVAL_CLAUDE_ARGS (space-separated) if the environment needs them.
 import { readFileSync, writeFileSync, globSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, isAbsolute } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { partnersOf } from './check-trigger-fixtures.mjs';
 
 const RUN_TIMEOUT_MS = 120_000;
+
+// Named execution batches (M-31 Phase 1) sized for a Pro/Max subscription's
+// 5-hour rolling rate window: run ONE batch per window, collision-critical first.
+// Each batch = N skills x 20 queries x 3 runs = N*60 calls. The 10 batches cover
+// all 29 roster skills exactly once and sum to 1,740 calls. See the implementation
+// plan's "Batched execution on a subscription" section.
+export const BATCHES = {
+  'collision-deliver': ['deliver-user-stories', 'deliver-acceptance-criteria', 'deliver-edge-cases'],
+  'collision-define-measure': ['define-hypothesis', 'measure-experiment-design'],
+  'collision-okr': ['foundation-okr-writer', 'measure-okr-grader'],
+  'collision-research': ['discover-interview-synthesis', 'foundation-meeting-recap'],
+  'collision-iterate': ['iterate-lessons-log', 'iterate-retrospective'],
+  'rest-define-discover': ['define-jtbd-canvas', 'define-opportunity-tree', 'define-problem-statement', 'discover-competitive-analysis', 'discover-stakeholder-summary'],
+  'rest-deliver': ['deliver-prd', 'deliver-launch-checklist', 'deliver-release-notes'],
+  'develop': ['develop-adr', 'develop-design-rationale', 'develop-solution-brief', 'develop-spike-summary'],
+  'rest-measure': ['measure-dashboard-requirements', 'measure-experiment-results', 'measure-instrumentation-spec'],
+  'rest-iterate-foundation': ['iterate-pivot-decision', 'iterate-refinement-notes', 'foundation-persona'],
+};
 
 /** Parse headless output (stream-json lines or a single JSON document) into events. */
 export function parseEvents(stdout) {
@@ -86,8 +104,12 @@ export function aggregate(results) {
 
 function runOnce(query) {
   const extra = (process.env.TRIGGER_EVAL_CLAUDE_ARGS ?? '').split(' ').filter(Boolean);
-  const args = ['-p', query, '--output-format', 'stream-json', '--verbose', '--max-turns', '1', ...extra];
-  const res = spawnSync('claude', args, { encoding: 'utf8', timeout: RUN_TIMEOUT_MS, shell: process.platform === 'win32' });
+  // Prompt goes on STDIN, never as a positional arg. On Windows spawnSync needs
+  // shell:true (claude is a .cmd shim) and does NOT quote array args, so a
+  // multi-word query passed positionally is split by the shell and the real
+  // prompt never reaches the model (it then never triggers, a false 0% rate).
+  const args = ['-p', '--output-format', 'stream-json', '--verbose', '--max-turns', '1', ...extra];
+  const res = spawnSync('claude', args, { encoding: 'utf8', timeout: RUN_TIMEOUT_MS, shell: process.platform === 'win32', input: query });
   if (res.error) throw new Error(`claude CLI failed: ${res.error.message}`);
   return parseEvents(`${res.stdout ?? ''}\n${res.stderr ?? ''}`);
 }
@@ -148,7 +170,22 @@ function main() {
   const args = process.argv.slice(2);
   const flag = (name) => args.includes(name);
   const value = (name) => { const i = args.indexOf(name); return i === -1 ? null : args[i + 1]; };
-  const filter = (value('--skills') ?? '').split(',').map((s) => s.trim()).filter(Boolean);
+
+  if (flag('--list-batches')) {
+    for (const [name, skills] of Object.entries(BATCHES)) {
+      console.log(`${name.padEnd(24)} ${skills.length} skills, ${skills.length * 60} calls : ${skills.join(', ')}`);
+    }
+    return;
+  }
+
+  const batchName = value('--batch');
+  if (batchName && !BATCHES[batchName]) {
+    console.error(`unknown batch "${batchName}". Known: ${Object.keys(BATCHES).join(', ')}`);
+    process.exit(1);
+  }
+  const filter = batchName
+    ? BATCHES[batchName]
+    : (value('--skills') ?? '').split(',').map((s) => s.trim()).filter(Boolean);
   const fixtures = loadFixtures(repo, filter);
   if (!fixtures.length) { console.error('no fixtures matched'); process.exit(1); }
 
@@ -193,7 +230,7 @@ function main() {
   const report = renderReport(evaluated);
   console.log(`\n${report}`);
   const out = value('--report');
-  if (out) { writeFileSync(join(repo, out), report); console.log(`report written: ${out}`); }
+  if (out) { const target = isAbsolute(out) ? out : join(repo, out); writeFileSync(target, report); console.log(`report written: ${target}`); }
   const failures = evaluated.some((e) => e.results.some((r) => !r.pass) || e.falseFires.length);
   process.exit(failures ? 1 : 0);
 }

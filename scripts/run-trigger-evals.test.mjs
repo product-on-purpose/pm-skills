@@ -2,7 +2,8 @@
 // transcripts only (no API calls; see the harness --probe mode for live shape checks).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseEvents, skillFired, aggregate, renderReport, extractUsage } from './run-trigger-evals.mjs';
+import { parseEvents, skillFired, aggregate, renderReport, extractUsage, BATCHES } from './run-trigger-evals.mjs';
+import { ROSTER } from './check-trigger-fixtures.mjs';
 
 test('parseEvents reads stream-json lines and ignores noise', () => {
   const out = 'starting up\n{"type":"system","subtype":"init"}\n{"type":"assistant","message":{"content":[{"type":"tool_use","name":"Skill","input":{"skill":"deliver-prd"}}]}}\nnot json\n';
@@ -57,6 +58,13 @@ test('extractUsage reads the result event usage + cost', () => {
 
 test('extractUsage returns null when no usage block is present', () => {
   assert.equal(extractUsage(parseEvents('{"type":"system","subtype":"init"}')), null);
+});
+
+test('BATCHES partition the full 29-skill roster exactly once', () => {
+  const flat = Object.values(BATCHES).flat();
+  assert.equal(flat.length, ROSTER.length, 'batch skill count == roster size');
+  assert.equal(new Set(flat).size, flat.length, 'no skill appears in two batches');
+  assert.deepEqual([...flat].sort(), [...ROSTER].sort(), 'batches cover exactly the roster');
 });
 
 test('renderReport shows none when everything passes', () => {

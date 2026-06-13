@@ -9,9 +9,9 @@
 | 2. Advisory CI wiring | DONE (2026-06-12: unit test joined the enforcing `node --test` step; advisory step added after the M-30 evals; shell bundles + parity manifest untouched by design) |
 | 3. Fixtures: collision batch | DONE (2026-06-12: all 11 collision-involved skills incl. the watch pair; 3 partner-aimed near-misses each, both splits) |
 | 4. Fixtures: remainder of roster | DONE (2026-06-12: remaining 18 roster skills; full 29-file roster validates clean; near-miss targets annotated beyond the mandate to enrich the future --collision sweep) |
-| 5. Harness | DONE (2026-06-12: `run-trigger-evals.mjs` + 6-case test; detection/aggregation/report pure functions unit-tested on canned transcripts; `--probe` mode added for the live transcript-shape check the spec risk note requires; dry-run math matches the spec estimate, 1,740 invocations full roster) |
+| 5. Harness | DONE + HARDENED (2026-06-12 base; 2026-06-13 amended: added `--batch`/`--list-batches` with 10 named batches partitioning the roster, `extractUsage` in `--probe`; FIXED two bugs the first live proof surfaced - stdin prompt passing (Windows shell-quoting) and absolute `--report` paths; 9-case test green incl. batch-partition test; verified 3/3 probes fire post-fix) |
 | 6. workflow_dispatch lane | DONE (2026-06-12: `.github/workflows/trigger-evals.yml`; dry_run defaults TRUE, fixture validator is a hard gate in-lane, report uploads as artifact; needs the ANTHROPIC_API_KEY secret for live legs) |
-| 7. Baseline run + triage record | READY TO RUN (record resource `records/trigger-eval-baseline.md` created 2026-06-13 with run-log template + how-to; probe now reports real per-call token usage. Needs: run in a scratch dir where the plugin is enabled, on Haiku, preferably via API key. NOT yet executed) |
+| 7. Baseline run + triage record | IN PROGRESS (2026-06-13: harness verified end-to-end in a scratch dir on Haiku; batched-execution plan written for subscription use, no API key needed; first real deliver-prd slice recording. Remaining 28 skills run as named batches, ~1 per 5-hour window) |
 | 8. Docs + hygiene sync | PARTIAL (2026-06-12: skill-versioning T-B no-bump rule recorded; CHANGELOG Unreleased entry added; contributor doc + brief flip remain) |
 
 ---
@@ -53,7 +53,7 @@ Files: the remaining roster skills (rest of the 26-skill cohort).
 
 Files: `scripts/run-trigger-evals.mjs`, `scripts/run-trigger-evals.test.mjs`.
 
-- Pure detection function over a `claude -p --output-format json` transcript (Skill tool fired for target skill?); runner loop (3 runs per query, rate vs threshold, pass/fail vs `expect`); per-skill and aggregate reporting (train and validation separated, validation headline); `--skills` filter; `--collision` sweep; `--report <path>` markdown output; `--dry-run` prints the plan + invocation count.
+- Pure detection function over a `claude -p --output-format stream-json` transcript (Skill tool fired for target skill?); runner loop (3 runs per query, rate vs threshold, pass/fail vs `expect`); per-skill and aggregate reporting (train and validation separated, validation headline); `--skills` filter; `--batch <name>` / `--list-batches` (10 named batches partitioning the roster); `--collision` sweep; `--report <path>` markdown output; `--dry-run` prints the plan + invocation count; `--probe <skill>` prints transcript shape + real per-call token usage. Prompt is sent on STDIN (Windows shell-quoting fix, see Task 7).
 - Before batch-running: ONE live probe invocation to confirm transcript shape and headless skill discovery (reuse the agentic-smoke-runbook's install-at-user-scope pattern; watch its recorded plugin-cache Glob quirk). The probe now also prints a real per-call token-usage line (`extractUsage`); multiply by 1740 (full) / ~600 (collision batch) for a grounded cost estimate. NOTE from a 2026-06-13 probe run inside the repo: the call succeeded but `skillFired=false` because the plugin is local-disabled in the repo cwd, and per-call input was ~56k tokens because this dev box has many other plugins loaded. Both confounders vanish in a clean scratch dir with only pm-skills installed (lower context, plugin discoverable) - run the real baseline there.
 - `.test.mjs` covers detection + report math on canned transcripts only (no API in CI).
 - Validation: unit tests green; a real single-skill run produces a correct report.
@@ -67,9 +67,49 @@ File: `.github/workflows/trigger-evals.yml`.
 
 ## Task 7: Baseline + triage (M, evidence gate)
 
-- Run the full roster (staged batches acceptable per spec risk note); commit the accepted report to `docs/internal/release-plans/v2.27.0/records/trigger-eval-baseline.md`.
+- Run the roster in NAMED BATCHES (see "Batched execution on a subscription" below); commit the accepted per-batch reports + roll the summary into `records/trigger-eval-baseline.md`.
 - Triage every failed query per decision T-F: description follow-up (F-12-mechanism batch, separate PR, per-skill patch bumps + HISTORY.md) or fixture correction with rationale logged in the record.
 - Validation: record committed; zero untriaged failures; AC 31-6 met.
+
+### Batched execution on a subscription (no API key required)
+
+A Pro/Max subscription has a 5-hour ROLLING usage window (overage may be org-disabled), so the
+1,740-call roster cannot run in one shot - but it runs fine split into small batches, one (or two)
+per window, with the highest-signal collision pairs first. No API key, zero dollar cost; the only
+cost is plan-usage quota, so leave headroom for real work.
+
+- The harness ships 10 named batches (`node scripts/run-trigger-evals.mjs --list-batches`), 2-5
+  skills each (120-300 calls), covering all 29 roster skills exactly once (unit-tested partition).
+- Run one batch per window from a scratch dir where pm-skills is enabled at user scope (it is
+  local-disabled inside the repo, so the repo cwd will not fire skills):
+  ```bash
+  cd /scratch/dir   # outside the repo
+  TRIGGER_EVAL_CLAUDE_ARGS="--model claude-haiku-4-5" \
+    node E:/.../scripts/run-trigger-evals.mjs --batch collision-deliver \
+    --report E:/.../records/trigger-eval-run-<date>-collision-deliver.md
+  ```
+- Recommended order (collision pairs first, since they test the audit's description collisions):
+  collision-deliver, collision-define-measure, collision-okr, collision-research, collision-iterate,
+  then rest-define-discover, rest-deliver, develop, rest-measure, rest-iterate-foundation.
+- Cadence: ~1 batch per 5-hour window (2 if the window has headroom). Full roster completes across
+  ~6-10 windows (a few days of incidental running) at no dollar cost. An API key removes the window
+  limit if you want it done in one sitting (~$15-35 on Haiku once cache warms).
+- Per-call economics (measured 2026-06-13, Haiku, scratch dir): ~38k input tokens/call, but caching
+  makes steady-state calls mostly cache-reads at ~$0.008-0.03 each. First call in a window pays the
+  cache-write; subsequent calls in the same window ride the cache.
+- After each batch: paste its report summary + triage into `records/trigger-eval-baseline.md`.
+
+### Harness bugs found + fixed by the first proof run (2026-06-13)
+
+The proof slice (deliver-prd, 60 calls) returned a FALSE "0% trigger rate" that the verify step
+caught (a hand-run of the same query fired the skill). Root causes, both fixed in `run-trigger-evals.mjs`:
+1. Windows `spawnSync(..., {shell:true})` did not quote the multi-word query passed as a positional
+   arg, so the prompt was split and never reached the model -> never triggered. Fixed: prompt now
+   goes on STDIN (`input: query`), no positional. Post-fix: 3/3 verification probes fire.
+2. `--report` with an absolute path was `join(repo, out)`-ed -> doubled path -> ENOENT crash after
+   computing results. Fixed: `isAbsolute(out) ? out : join(repo, out)`.
+Lesson recorded: this is exactly why Task 7 is a recorded human-run gate with a proof slice first,
+not a blind full-roster batch.
 
 ## Task 8: Docs + hygiene sync (S)
 

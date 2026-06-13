@@ -13,10 +13,19 @@ How to produce a run:
   pattern). Read the USAGE line, multiply by 1740 (full roster) or ~600 (collision batch).
 - Model selection: set `TRIGGER_EVAL_CLAUDE_ARGS="--model claude-haiku-4-5"` for the conservative
   baseline. Haiku is the hardest grader to trigger; passing on Haiku implies passing on Sonnet/Opus.
-- Batch run: `node scripts/run-trigger-evals.mjs --skills <a,b,...> --report docs/internal/release-plans/v2.27.0/records/trigger-eval-run-YYYYMMDD.md`
-  (paste the report summary into a run block here; keep the full report alongside).
-- Cost note: prefer an API key (`ANTHROPIC_API_KEY`) over a Pro/Max subscription for the full batch
-  so the ~1,740 calls do not draw down the subscription usage allowance. The probe is fine on either.
+- Named batches (run ONE per 5-hour window on a subscription; `--list-batches` to see all 10):
+  `node scripts/run-trigger-evals.mjs --batch collision-deliver --report docs/internal/release-plans/v2.27.0/records/trigger-eval-run-YYYYMMDD-collision-deliver.md`
+  Order: collision-deliver, collision-define-measure, collision-okr, collision-research,
+  collision-iterate, rest-define-discover, rest-deliver, develop, rest-measure, rest-iterate-foundation.
+- Subscription vs API key: the 10 named batches exist so a Pro/Max subscription works without an API
+  key - one batch per 5-hour rolling window, collision pairs first. No dollar cost, only plan quota;
+  leave headroom for real work. An API key removes the window limit (~$15-35 full roster on Haiku
+  once cache warms) if you want it in one sitting. The probe is fine on either.
+- Run from a scratch dir OUTSIDE the repo (the plugin is local-disabled in the repo cwd, so skills
+  will not fire there; user-scope pm-skills@pm-skills-marketplace v2.26.0 is enabled everywhere else).
+- HARNESS NOTE (2026-06-13): the prompt is sent on stdin and `--report` honors absolute paths after
+  two bugs were found+fixed on the first proof run (see the implementation plan, Task 7). A pre-fix
+  run that reports ~0% trigger is a harness artifact, not a real result - re-run post-fix.
 
 Triage rule (decision T-F): a failing query is resolved one of two ways and logged in the run block:
 1. Real description problem -> queue an F-12-mechanism description fix (separate PR, per-skill patch
