@@ -100,6 +100,22 @@ Triage rule (decision T-F): a failing query is resolved one of two ways and logg
   a `When to Use` synonym expansion candidate (F-12 mechanism), confirm on user-default model first.
 - Report artifact: `trigger-eval-run-20260613-collision-define-measure.md`
 
+### Run 4 - 2026-06-13 (batch: collision-okr, 120 calls) - the audit's WATCH pair
+
+- Model: claude-haiku-4-5 | scratch dir; subscription; clean. Timing: 13.8 + 13.3 s/call.
+- Results: foundation-okr-writer 92% train / **75%** val (3 misses); measure-okr-grader 83% / **63%** (5 misses).
+- **Collision verdict: CLEAN.** No "expected no-trigger" false-fires; the draft-write vs cycle-grade
+  boundary (audit watch-item D6) holds - neither poaches the other on the recorded queries.
+- Same UNDER-triggering pattern, now on both OKR skills:
+  - okr-writer misses its Audit-Only/draft-review intent: "review these draft OKRs", "critique this
+    OKR draft: are objectives inspiring and KRs measurable?" (the writer owns draft critique).
+  - okr-grader misses cycle-close intent without "grade/score": "produce the cycle review with
+    learning synthesis", "honest scoring pass", "turn KR actuals into a review", "evaluate the
+    completed OKR set". 63% is the weakest grader recall so far.
+- One boundary worth a future `--collision` sweep: okr-writer's "critique this OKR draft / are KRs
+  measurable" could be where writer-vs-grader blurs; no false-fire recorded, but it's the spot to watch.
+- Report: `trigger-eval-run-20260613-collision-okr.md`
+
 ### (remaining skills: run as named batches, collision pairs first)
 
 <!-- Copy this block per run:
