@@ -37,7 +37,28 @@ Triage rule (decision T-F): a failing query is resolved one of two ways and logg
 
 ## Run log
 
-### (no runs recorded yet)
+### Run 1 - 2026-06-13 (harness validation + first real slice)
+
+- Model: claude-haiku-4-5 (subprocess) | Harness host: local, scratch dir E:/tmp/trigger-eval-scratch
+- Scope: deliver-prd only (20 queries x 3 = 60 calls); proves the corrected end-to-end pipeline
+- Auth: Pro/Max subscription (no API key); rate_limit_event showed five_hour window "allowed" throughout
+- Per-call usage (probe): ~38k input tokens; steady-state mostly cache-read at ~$0.008-0.03/call
+- Result: **train pass 83%, validation pass 88%** (headline = validation 88%)
+- Failures (all 3 are "spec / requirements doc" phrasings WITHOUT the keyword "PRD"):
+  - [train] fired 1x: "Help me spec out the requirements for our Q3 epic so design, backend, and mobile are all working from the same source"
+  - [train] fired 1x: "Stakeholders want to approve scope before we invest two quarters; draft the spec doc they can sign off on"
+  - [validation] fired 0x: "We're kicking off the offline mode initiative; create the spec that covers requirements, out-of-scope items, dependencies, and risks"
+- Triage: DEFERRED pending the full collision-batch context. Reading: deliver-prd fires reliably on
+  explicit "PRD" intent; the 3 misses are "spec"/"requirements doc" phrasings where Haiku is less
+  confident (1x/0x fires = at/below the 0.5 threshold). Candidate actions, decide after more skills run:
+  (a) escalate these 3 to the user-default model (Sonnet/Opus) to confirm real-vs-Haiku-strictness
+  before any change; (b) if real, a small `When to Use` tweak adding "spec / requirements doc"
+  synonyms via the F-12 mechanism (per-skill patch bump). NOT a blocker; 88% validation is a pass.
+- IMPORTANT: a FIRST proof run before the harness fix reported deliver-prd at "0% trigger" - that was
+  a harness bug (prompt not reaching the model), now fixed. This Run 1 is the valid one.
+- Report artifact: `trigger-eval-run-20260613-deliver-prd.md` (this directory)
+
+### (remaining 28 skills: run as named batches, collision pairs first)
 
 <!-- Copy this block per run:
 
