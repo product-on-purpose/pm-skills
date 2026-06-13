@@ -58,7 +58,30 @@ Triage rule (decision T-F): a failing query is resolved one of two ways and logg
   a harness bug (prompt not reaching the model), now fixed. This Run 1 is the valid one.
 - Report artifact: `trigger-eval-run-20260613-deliver-prd.md` (this directory)
 
-### (remaining 28 skills: run as named batches, collision pairs first)
+### Run 2 - 2026-06-13 (batch: collision-deliver, 180 calls)
+
+- Model: claude-haiku-4-5 | scratch dir; subscription; completed clean (no rate-limit abort)
+- Results (validation = headline):
+  - deliver-acceptance-criteria: 92% train / **88%** val (2 borderline misses)
+  - deliver-edge-cases: 67% train / **50%** val (8 misses) <- WEAK, real finding
+  - deliver-user-stories: 92% train / **75%** val (3 misses)
+- **Collision verdict: CLEAN.** Every failure is an "expected trigger, fired 0-1x" miss; ZERO
+  "expected no-trigger" false-fires. None of the three skills fired on a partner's near-miss
+  queries, so the audit's deliver-cohort collisions (user-stories/acceptance-criteria/edge-cases)
+  are NOT recurring - the v2.26.0 (F-12) description rewrites separated them successfully.
+- The real problem is the opposite of collision - UNDER-triggering on non-keyword phrasings:
+  - **deliver-edge-cases** misses "what can go wrong / failure surface / failure modes / boundary
+    & limit scenarios / race conditions / enumerate failures" when the words "edge case" are absent.
+    Its description leads with "edge cases, error states, boundary conditions"; Haiku is not bridging
+    the common synonyms. Strong candidate for a `When to Use` synonym expansion (F-12 mechanism).
+  - **deliver-user-stories** misses story-SPLITTING phrasings ("slice into shippable increments /
+    break into ticket-sized pieces / split into estimable work items"). Milder; same class.
+  - acceptance-criteria solid.
+- Triage: DEFER edits until the full collision set is in, then batch the description tweaks. Confirm
+  on the user-default model first (Haiku is the strict grader). Nothing blocks; this is recall tuning.
+- Report artifact: `trigger-eval-run-20260613-collision-deliver.md`
+
+### (remaining skills: run as named batches, collision pairs first)
 
 <!-- Copy this block per run:
 
