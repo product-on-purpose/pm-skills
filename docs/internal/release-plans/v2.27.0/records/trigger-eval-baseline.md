@@ -116,6 +116,33 @@ Triage rule (decision T-F): a failing query is resolved one of two ways and logg
   measurable" could be where writer-vs-grader blurs; no false-fire recorded, but it's the spot to watch.
 - Report: `trigger-eval-run-20260613-collision-okr.md`
 
+### Run 5 - 2026-06-13 (Sonnet 4.6, API key, concurrency 4) - PARTIAL: key ran out of credit mid-run
+
+- Setup: representative baseline on `claude-sonnet-4-6` via API key (off subscription, no throttle),
+  harness concurrency 4. The key's **credit balance ran out partway through** ("Credit balance is
+  too low", HTTP 400). The harness (pre-fix) recorded the post-exhaustion calls as 50% / 10-miss
+  artifacts; those 16 skills are INVALID and discarded. Harness now aborts on API error (fixed,
+  committed) so this cannot recur. Report `trigger-eval-sonnet-full-20260613.md` annotated as partial.
+- **VALID Sonnet results (the 13 skills that ran before exhaustion):**
+  - define-hypothesis: **100% / 100%** (Haiku was 92/63) <- the Haiku recall "gap" was a HAIKU ARTIFACT
+  - define-jtbd-canvas 100/100; define-opportunity-tree 92/100; define-problem-statement 100/100
+  - deliver-acceptance-criteria 100/88; deliver-launch-checklist 100/100; develop-adr 100/100
+  - deliver-release-notes 92/88; deliver-user-stories 92/88 (Haiku 75, improved on Sonnet)
+  - develop-design-rationale 83/100; develop-solution-brief 83/100 (near the credit boundary; trust loosely)
+  - **deliver-edge-cases: 92% / 63%** (Haiku 50) <- recall gap PERSISTS on Sonnet = a REAL gap
+  - **deliver-prd: 75% / 88%** <- "spec / requirements doc" misses persist on Sonnet = REAL, milder
+- **Key cross-model conclusions (the whole point of running Sonnet):**
+  1. `define-hypothesis` Haiku 63 -> Sonnet 100: a Haiku-strictness artifact, NOT a real-user problem.
+     Validates the "escalate before editing" rule - we would have wrongly edited it off Haiku alone.
+  2. `deliver-edge-cases` is the one CONFIRMED real recall gap (low on both models): the "failure
+     modes / what can go wrong / race conditions / boundary & limit" misses are real for Sonnet users.
+     This is the strongest candidate for a `When to Use` synonym expansion (F-12 mechanism).
+  3. Most define/deliver/develop skills sit 88-100% on Sonnet = excellent triggering for real users.
+- INVALID (credit-exhausted, re-run needed): develop-spike-summary, all discover-*, foundation-*,
+  iterate-*, and all measure-* (16 skills). These need a re-run once the key has credit, or on the
+  subscription (Haiku, then escalate any low scorers to Sonnet).
+- Report artifact: `trigger-eval-sonnet-full-20260613.md` (partial; 50% rows are credit-failure, not real).
+
 ### (remaining skills: run as named batches, collision pairs first)
 
 <!-- Copy this block per run:
