@@ -116,14 +116,29 @@ export function apiError(events) {
   return null;
 }
 
-/** A run is "blocked" (abort + save partial) on a subscription rate-limit OR an
- *  API error. Either way, recording it as a trigger-miss would fabricate results. */
-function runBlock(events) {
-  return rateLimitBlocked(events) || apiError(events);
+// Errors that no retry can fix: stop the run, save partial, resume later.
+const HARD_ERR = /credit balance|authentication|invalid x-api-key|permission|invalid_request/i;
+const MAX_TRIES = 6;
+
+/** Classify a transcript: null = success; {hard} = abort now (credit/auth/5-hour
+ *  usage cap - waiting will not help); {retry} = transient (server overloaded /
+ *  temporarily limiting / rate limited) - back off and retry to ride it out. This
+ *  is what lets a subscription run absorb transient throttles instead of aborting. */
+export function classifyRun(events) {
+  const rl = rateLimitBlocked(events);
+  if (rl) return { hard: `usage-window:${rl}` };
+  const e = apiError(events);
+  if (!e) return null;
+  if (HARD_ERR.test(e)) return { hard: e };
+  return { retry: e };
 }
 
+/** Synchronous sleep (for the sequential runOnce retry backoff). */
+function sleepSync(ms) { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); }
+const backoffMs = (attempt) => Math.min(2000 * 2 ** (attempt - 1), 30_000);
+
 class RateLimitAbort extends Error {
-  constructor(status) { super(`run blocked: ${status}`); this.rateLimited = status; }
+  constructor(status) { super(`run aborted: ${status}`); this.rateLimited = status; }
 }
 
 /** Aggregate one skill's per-query outcomes into split-level pass rates. */
@@ -137,25 +152,22 @@ export function aggregate(results) {
   return { ...agg, trainRate: rate(agg.train), validationRate: rate(agg.validation) };
 }
 
-function runOnce(query) {
-  const extra = (process.env.TRIGGER_EVAL_CLAUDE_ARGS ?? '').split(' ').filter(Boolean);
-  // Prompt goes on STDIN, never as a positional arg. On Windows spawnSync needs
-  // shell:true (claude is a .cmd shim) and does NOT quote array args, so a
-  // multi-word query passed positionally is split by the shell and the real
-  // prompt never reaches the model (it then never triggers, a false 0% rate).
-  const args = ['-p', '--output-format', 'stream-json', '--verbose', '--max-turns', '1', ...extra];
-  const res = spawnSync('claude', args, { encoding: 'utf8', timeout: RUN_TIMEOUT_MS, shell: process.platform === 'win32', input: query });
+// One headless claude -p invocation. Prompt on STDIN, never a positional arg: on
+// Windows spawnSync needs shell:true (claude is a .cmd shim) and does NOT quote
+// array args, so a multi-word query passed positionally is split by the shell and
+// the real prompt never reaches the model (a false 0% rate).
+const CLAUDE_ARGS = () => ['-p', '--output-format', 'stream-json', '--verbose', '--max-turns', '1',
+  ...(process.env.TRIGGER_EVAL_CLAUDE_ARGS ?? '').split(' ').filter(Boolean)];
+
+function spawnOnce(query) {
+  const res = spawnSync('claude', CLAUDE_ARGS(), { encoding: 'utf8', timeout: RUN_TIMEOUT_MS, shell: process.platform === 'win32', input: query });
   if (res.error) throw new Error(`claude CLI failed: ${res.error.message}`);
   return parseEvents(`${res.stdout ?? ''}\n${res.stderr ?? ''}`);
 }
 
-/** Async sibling of runOnce (prompt on stdin) for concurrent dispatch. Resolves to
- *  parsed events; never rejects (errors return whatever transcript was captured). */
-function runOnceAsync(query) {
+function spawnOnceAsync(query) {
   return new Promise((resolve) => {
-    const extra = (process.env.TRIGGER_EVAL_CLAUDE_ARGS ?? '').split(' ').filter(Boolean);
-    const args = ['-p', '--output-format', 'stream-json', '--verbose', '--max-turns', '1', ...extra];
-    const child = spawn('claude', args, { shell: process.platform === 'win32' });
+    const child = spawn('claude', CLAUDE_ARGS(), { shell: process.platform === 'win32' });
     let out = ''; let err = '';
     const timer = setTimeout(() => child.kill(), RUN_TIMEOUT_MS);
     child.stdout.on('data', (d) => { out += d; });
@@ -165,6 +177,32 @@ function runOnceAsync(query) {
     child.stdin.on('error', () => {});
     child.stdin.write(query); child.stdin.end();
   });
+}
+
+/** runOnce + retry: rides out transient throttles (server overload / rate limited)
+ *  with exponential backoff; throws RateLimitAbort only on a hard stop (credit/auth/
+ *  usage cap) or when retries are exhausted. Returns a successful transcript. */
+function runOnce(query) {
+  for (let attempt = 1; attempt <= MAX_TRIES; attempt++) {
+    const events = spawnOnce(query);
+    const c = classifyRun(events);
+    if (!c) return events;
+    if (c.hard) throw new RateLimitAbort(c.hard);
+    if (attempt === MAX_TRIES) throw new RateLimitAbort(`retries exhausted: ${c.retry}`);
+    console.log(`  transient throttle (${c.retry}); retry ${attempt}/${MAX_TRIES - 1} after ${backoffMs(attempt) / 1000}s`);
+    sleepSync(backoffMs(attempt));
+  }
+}
+
+async function runOnceAsync(query) {
+  for (let attempt = 1; attempt <= MAX_TRIES; attempt++) {
+    const events = await spawnOnceAsync(query);
+    const c = classifyRun(events);
+    if (!c) return events;
+    if (c.hard) throw new RateLimitAbort(c.hard);
+    if (attempt === MAX_TRIES) throw new RateLimitAbort(`retries exhausted: ${c.retry}`);
+    await new Promise((r) => setTimeout(r, backoffMs(attempt)));
+  }
 }
 
 /** Run fn over items with at most `n` concurrent. Order-preserving results. */
@@ -193,11 +231,13 @@ async function evalConcurrent(fixtures, concurrency) {
   const perTask = await mapPool(tasks, concurrency, async ({ f, q }) => {
     if (aborted) return null;
     let fired = 0;
-    for (let i = 0; i < f.runs_per_query; i++) {
-      const events = await runOnceAsync(q.q);
-      const blocked = runBlock(events);
-      if (blocked) { aborted = aborted ?? blocked; return null; }
-      if (skillFired(events, f.skill)) fired += 1;
+    try {
+      for (let i = 0; i < f.runs_per_query; i++) {
+        if (skillFired(await runOnceAsync(q.q), f.skill)) fired += 1;
+      }
+    } catch (e) {
+      if (e.rateLimited) { aborted = aborted ?? e.rateLimited; return null; }
+      throw e;
     }
     done += 1;
     if (done % 20 === 0 || done === total) console.log(`  progress: ${done}/${total} queries`);
@@ -223,10 +263,8 @@ function evalSkill(fixture, { collision }) {
   for (const q of fixture.queries) {
     let fired = 0;
     for (let i = 0; i < fixture.runs_per_query; i++) {
-      const events = runOnce(q.q);
-      const blocked = runBlock(events);
-      if (blocked) throw new RateLimitAbort(blocked);
-      if (skillFired(events, fixture.skill)) fired += 1;
+      // runOnce retries transient throttles; throws RateLimitAbort only on hard stop
+      if (skillFired(runOnce(q.q), fixture.skill)) fired += 1;
     }
     const triggered = fired / fixture.runs_per_query >= fixture.trigger_threshold;
     results.push({ q: q.q, expect: q.expect, split: q.split, fired, triggered, pass: triggered === (q.expect === 'trigger') });

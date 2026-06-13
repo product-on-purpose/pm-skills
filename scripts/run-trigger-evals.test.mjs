@@ -2,7 +2,7 @@
 // transcripts only (no API calls; see the harness --probe mode for live shape checks).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseEvents, skillFired, aggregate, renderReport, extractUsage, BATCHES, rateLimitBlocked, mapPool, apiError } from './run-trigger-evals.mjs';
+import { parseEvents, skillFired, aggregate, renderReport, extractUsage, BATCHES, rateLimitBlocked, mapPool, apiError, classifyRun } from './run-trigger-evals.mjs';
 import { ROSTER } from './check-trigger-fixtures.mjs';
 
 test('parseEvents reads stream-json lines and ignores noise', () => {
@@ -65,6 +65,18 @@ test('apiError catches a failed result event (e.g. credit exhausted), passes a s
   assert.equal(apiError(bad), 'Credit balance is too low');
   const ok = parseEvents('{"type":"result","subtype":"success","is_error":false,"result":"done"}');
   assert.equal(apiError(ok), null);
+});
+
+test('classifyRun: success / transient-retry / hard-abort', () => {
+  assert.equal(classifyRun(parseEvents('{"type":"result","is_error":false,"result":"ok"}')), null);
+  // transient server throttle -> retry
+  assert.deepEqual(
+    classifyRun(parseEvents('{"type":"result","is_error":true,"result":"Server is temporarily limiting requests · Rate limited"}')),
+    { retry: 'Server is temporarily limiting requests · Rate limited' },
+  );
+  // credit / usage cap -> hard abort
+  assert.ok(classifyRun(parseEvents('{"type":"result","is_error":true,"result":"Credit balance is too low"}')).hard);
+  assert.ok(classifyRun(parseEvents('{"type":"rate_limit_event","rate_limit_info":{"status":"rejected"}}')).hard);
 });
 
 test('mapPool preserves order and bounds concurrency', async () => {
