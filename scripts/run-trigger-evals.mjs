@@ -170,6 +170,8 @@ async function evalConcurrent(fixtures, concurrency) {
   const tasks = [];
   for (const f of fixtures) for (const q of f.queries) tasks.push({ f, q });
   let aborted = null;
+  let done = 0;
+  const total = tasks.length;
   const perTask = await mapPool(tasks, concurrency, async ({ f, q }) => {
     if (aborted) return null;
     let fired = 0;
@@ -179,6 +181,8 @@ async function evalConcurrent(fixtures, concurrency) {
       if (blocked) { aborted = aborted ?? blocked; return null; }
       if (skillFired(events, f.skill)) fired += 1;
     }
+    done += 1;
+    if (done % 20 === 0 || done === total) console.log(`  progress: ${done}/${total} queries`);
     const triggered = fired / f.runs_per_query >= f.trigger_threshold;
     return { skill: f.skill, q: q.q, expect: q.expect, split: q.split, fired, triggered, pass: triggered === (q.expect === 'trigger') };
   });
