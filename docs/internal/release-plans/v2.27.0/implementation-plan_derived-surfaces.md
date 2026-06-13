@@ -9,7 +9,7 @@
 | 2. Manifest staleness gate | DONE (2026-06-12: enforcing step after the resource-index check; unit test in the enforcing `node --test` list) |
 | 3. AGENTS.md markers + first generation | DONE (2026-06-12: markers inserted; first generation 81 ins / 113 del, idempotent; diff classes observed = (a) stale descriptions resynced to frontmatter incl. F-12 boundary pointers AGENTS.md never received and dispatch-wrapper texts replaced by the trimmed canonical descriptions, (c) normalization = entry separators removed, foundation entries alphabetized; no out-of-marker content touched; maintainer diff review = the commit itself, flagged in session report) |
 | 4. AGENTS.md staleness gate + workflow retirement | DONE (2026-06-12: enforcing `--agents --check` step; `sync-agents-md.yml` deleted; living-doc grep showed only historical audit/effort docs which stay as records) |
-| 5. Docs + hygiene sync | PARTIAL (2026-06-12: CHANGELOG done; remaining = contributor add-a-skill regen note, close #87 on ship) |
+| 5. Docs + hygiene sync | PARTIAL (2026-06-12: CHANGELOG done; CONTRIBUTING.md PR-process step 5 now carries the regeneration commands + marker rule; remaining = close #87 on ship) |
 
 ---
 

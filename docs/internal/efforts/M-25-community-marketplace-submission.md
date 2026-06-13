@@ -36,7 +36,7 @@ Do not conflate with closed efforts #117 (M-15 community contribution setup) or 
 
 ## Deliverables
 
-- `claude plugin validate` clean run (record)
+- `claude plugin validate` clean run (record): **DONE 2026-06-12, "Validation passed" against `.claude-plugin/marketplace.json` at the post-v2.26.0 tree (local main `bcbf0478` era)**
 - Submission completed (record with date)
 - Discover-tab listing verified + install smoke from the community listing (record; may trail the tag, disclosed if so)
 - Install docs updated (README + site install page) with the Discover path

@@ -77,7 +77,13 @@ Per agentskills.io specification:
 2. Create a branch: `skill/<skill-name>` or `fix/<description>`
 3. Make your changes following the structure above
 4. Test your skill by using it with an AI assistant
-5. Submit a PR with:
+5. If you added a skill or changed any skill's frontmatter (name, description, version, metadata), regenerate the derived catalog surfaces and commit the results:
+   ```bash
+   node scripts/gen-skill-manifest.mjs
+   node scripts/gen-skill-manifest.mjs --agents
+   ```
+   This rewrites `skill-manifest.json` and the generated block in `AGENTS.md`. CI enforces both with staleness checks, so a skipped regeneration fails the build. Never hand-edit inside the `skills-catalog` markers in AGENTS.md; edit the skill's frontmatter instead.
+6. Submit a PR with:
    - Clear description of the skill or change
    - Link to the approved issue (for new skills)
    - Confirmation that you've tested the skill
