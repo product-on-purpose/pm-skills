@@ -11,11 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `skill-manifest.json`: a generated, committed, machine-readable catalog of all 66 skills (name, verbatim description, version, group, family, references, sample path, plus aggregate counts) built from skill frontmatter by `scripts/gen-skill-manifest.mjs`. Two new enforcing CI gates keep it and the AGENTS.md skills catalog from going stale (the same generate-plus-check pattern as the resource index). First slice of the derived-surfaces effort (M-32, issue #201).
+
 - Trigger-fixture structure validator (`scripts/check-trigger-fixtures.mjs` + unit tests), the first slice of the v2.27.0 trigger-accuracy eval harness (M-31): validates per-skill `evals/trigger-fixtures.json` files against the published agentskills.io trigger-eval methodology (composition minimums, 60/40 train/validation split, collision-pair near-miss requirements, Phase 1 roster completeness). Wired as an advisory CI step; its unit tests run enforcing. Fixture files land in a follow-up batch; until then the advisory step reports the expected missing-roster findings.
 
 ### Changed
 
+- AGENTS.md skills catalog is now generated between markers from skill frontmatter (run `node scripts/gen-skill-manifest.mjs --agents` after changing a skill). First generation resynced descriptions that had drifted from frontmatter, including the v2.26.0 boundary-pointer rewrites the hand-maintained catalog never received; entry formatting normalized (uniform separators, alphabetical order, sprint families in workshop sequence).
 - Skill versioning policy: tooling-only files added beside a skill (eval fixtures, test artifacts) do not bump the skill's version; recorded in the versioning guide's bump table.
+
+### Removed
+
+- `.github/workflows/sync-agents-md.yml`: the disabled nested-layout AGENTS.md sync workflow (dead since v2.14.x), superseded by the marker-based generator and its enforcing staleness gate.
 
 ## [2.26.0] - 2026-06-10
 

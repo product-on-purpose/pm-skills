@@ -5,11 +5,11 @@
 
 | Task | Status |
 |---|---|
-| 1. Generator + manifest | TODO |
-| 2. Manifest staleness gate | TODO |
-| 3. AGENTS.md markers + first generation | TODO |
-| 4. AGENTS.md staleness gate + workflow retirement | TODO |
-| 5. Docs + hygiene sync | TODO |
+| 1. Generator + manifest | DONE (2026-06-12: `gen-skill-manifest.mjs` + 10-case test; manifest counts match the count validators exactly: 66/30/9/12/15, 5 agents, 11 commands, 12 workflows) |
+| 2. Manifest staleness gate | DONE (2026-06-12: enforcing step after the resource-index check; unit test in the enforcing `node --test` list) |
+| 3. AGENTS.md markers + first generation | DONE (2026-06-12: markers inserted; first generation 81 ins / 113 del, idempotent; diff classes observed = (a) stale descriptions resynced to frontmatter incl. F-12 boundary pointers AGENTS.md never received and dispatch-wrapper texts replaced by the trimmed canonical descriptions, (c) normalization = entry separators removed, foundation entries alphabetized; no out-of-marker content touched; maintainer diff review = the commit itself, flagged in session report) |
+| 4. AGENTS.md staleness gate + workflow retirement | DONE (2026-06-12: enforcing `--agents --check` step; `sync-agents-md.yml` deleted; living-doc grep showed only historical audit/effort docs which stay as records) |
+| 5. Docs + hygiene sync | PARTIAL (2026-06-12: CHANGELOG done; remaining = contributor add-a-skill regen note, close #87 on ship) |
 
 ---
 

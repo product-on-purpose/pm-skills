@@ -46,6 +46,19 @@ jobs:
         # Cross-platform Node script: runs on both OS legs (also exercises CRLF/LF).
         run: node scripts/gen-resource-index.mjs --check
 
+      - name: Check skill manifest is current (enforcing)
+        # skill-manifest.json is generated from skills/*/SKILL.md frontmatter by
+        # scripts/gen-skill-manifest.mjs and committed (M-32, spec_derived-surfaces).
+        # Enforcing from day one: deterministic, brand-new artifact, resource-index
+        # precedent (spec decision D-C). Needs root js-yaml (npm ci above).
+        run: node scripts/gen-skill-manifest.mjs --check
+
+      - name: Check AGENTS.md skills catalog is current (enforcing)
+        # The block between the skills-catalog markers in AGENTS.md is generated
+        # from the same manifest data (--agents). A frontmatter description edit
+        # without regeneration fails here; hand edits inside the markers fail here.
+        run: node scripts/gen-skill-manifest.mjs --agents --check
+
       - name: Validate site doc frontmatter YAML (enforcing)
         # Parse-checks frontmatter in tracked Astro doc bodies (skills front matter
         # is covered separately by lint-skills-frontmatter). Catches the unquoted
@@ -343,6 +356,7 @@ jobs:
           node --test hooks/lib/frontmatter.test.mjs hooks/lib/local-config.test.mjs hooks/lib/phase-map.test.mjs hooks/lib/signals.test.mjs hooks/guardrails.test.mjs hooks/phase-router.test.mjs
           node --test scripts/check-sample-no-placeholders.test.mjs scripts/check-sample-exact-quote-sourcing.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
           node --test scripts/check-trigger-fixtures.test.mjs
+          node --test scripts/gen-skill-manifest.test.mjs
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
