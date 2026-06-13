@@ -161,6 +161,42 @@ Triage rule (decision T-F): a failing query is resolved one of two ways and logg
   measured, the one real recall gap (deliver-edge-cases) confirmed on Sonnet, the define-hypothesis
   false-alarm caught. See Runs 1-5 above and `trigger-evals-explained.md`.
 
+### CORRECTION 2026-06-13 PM - the "throttling" pause was a misdiagnosis; the headless numbers are not reliable
+
+A follow-up session investigated the paused run and overturned the diagnosis. Full writeup in
+`../trigger-evals-explained.md` (the "CORRECTION AND CURRENT UNDERSTANDING" section). Summary:
+
+- **Not server throttling.** The abort was `error_max_turns`: the `superpowers` plugin's SessionStart
+  hook auto-launches `using-superpowers`, consuming the one turn the harness allows (`--max-turns 1`).
+  The harness misclassifies that error as a transient throttle, retries six times, and aborts as "RATE
+  LIMITED". Servers were allowing requests throughout (`rate_limit_event status: allowed`).
+- **The headless eval is environment-dominated.** Firing depends on the superpowers nudge, extended
+  thinking (`effortLevel: xhigh`), and the turn budget, not the skill description. With superpowers off,
+  representative queries fire ~0% (the model answers in prose). The same query that scored 88% in the
+  morning scored 0% in the afternoon. **Runs 1-5 above reflect an environment that no longer reproduces;
+  treat their absolute pass rates as not reliable.**
+- **Still valid:** the 29 fixture files (reusable), the B1 `deliver-edge-cases` fix (committed
+  `01716da0`, harmless), and the collision/precision read (more robust than recall under the confound).
+
+### Run 6 - 2026-06-13 PM (controlled router eval, workflow `b1-router-eval`, subscription, no API key)
+
+- Method: NOT headless `claude -p`. A workflow of subagents, each shown the full 66-skill description
+  catalog + one query, asked "which single skill best fits, or none?". Strips the plugin/nudge/turn
+  confounds; runs on the Pro/Max subscription via subagents (126 agents, 1.69M tokens, 34s wall).
+- **Calibration: 6/6** obvious queries routed correctly (PRD->deliver-prd, "what can go wrong + recovery"
+  ->deliver-edge-cases, GWT->deliver-acceptance-criteria, competitive analysis->discover-competitive-
+  analysis, SQL->none, gift->none). The controlled instrument is VALIDATED.
+- **B1 before/after: INVALID this run.** Bursting 126 subagents in 34s tripped GENUINE server-side rate
+  limiting ("Server is temporarily limiting requests"); ~96 calls failed and returned null (scored as
+  `none`). Reported `newRecall = 0%` is a throttle artifact, NOT a regression - the NEW arm mostly did
+  not execute. Do not record this as "B1 made it worse."
+- **Hint (not a conclusion):** the 7 OLD-arm queries that ran before the throttle all routed correctly
+  to deliver-edge-cases, including intent-only phrasings. Suggests the original under-triggering finding
+  may be a headless artifact too. Needs a throttle-controlled re-run (concurrency ~2-3 + backoff) to
+  settle. Report: workflow result captured in the session log + explainer; raw JSON in the task output.
+- RESUME PLAN: re-run the controlled eval with throttle control for a clean B1 before/after and a
+  re-baseline on a sound instrument; the burst approach trips the rate limiter on the subscription.
+
 <!-- Copy this block per run:
 
 ### Run N - YYYY-MM-DD

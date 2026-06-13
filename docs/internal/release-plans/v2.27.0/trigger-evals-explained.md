@@ -7,6 +7,95 @@ Candidate to adapt for the public comparison docs later (it is the "provable qua
 
 ---
 
+## CORRECTION AND CURRENT UNDERSTANDING (2026-06-13 PM) - read this first
+
+> This section supersedes the cost, throttling, and recall claims in Parts 1 and 2 below. The
+> earlier text is kept verbatim as the historical record of what we believed at the time. The
+> numbers in the metrics table (e.g. deliver-edge-cases 50%) are now considered **not reliable**
+> for the reason explained here.
+
+**1. The "sustained server throttling" that paused the 2026-06-13 morning run was a misdiagnosis.**
+Servers were fine (`rate_limit_event` reported `status: allowed`; calls completed in ~10s with real
+cost). The real failure was `error_max_turns`: the `superpowers` plugin's `SessionStart` hook
+auto-launches its `using-superpowers` skill on every headless session, which consumes the single turn
+the harness allows via `--max-turns 1`, so the model errors out before it can reach the query. The
+harness's `classifyRun()` does not recognize `error_max_turns`, classifies it as a transient throttle,
+retries six times, and aborts as "RATE LIMITED". That cascade produced the false throttling story.
+
+**2. The deeper problem: the headless `claude -p` eval measures the environment, not the description.**
+Whether a skill fires in headless mode is dominated by confounds that have nothing to do with the skill:
+- **The superpowers nudge.** With `superpowers` enabled, its "you MUST invoke a relevant skill" rule
+  drives firing. With it disabled, the thinking-enabled model (global `effortLevel: xhigh`) just answers
+  in prose and the skill fires ~0%. Directly observed: `deliver-prd` on "Write a PRD..." fired 0/3 with
+  superpowers off (model wrote clarifying questions instead), and fired reliably with superpowers on +
+  `--max-turns 6`.
+- **Turn budget.** superpowers-on + `--max-turns 1` always errors (the nudge eats the turn). It needs
+  `>= ~6` turns for the nudge-launch and the skill fire to both fit.
+- **Reproducibility failure.** The exact query that scored 88% on the morning run scored 0% the same
+  afternoon. Same skill, same words, different environment. The recorded baseline (Runs 1-5) reflects an
+  environment that no longer reproduces, so its absolute numbers cannot be trusted or compared against.
+
+**3. What is still valid and not thrown away.**
+- The **fixtures** (29 files, 580 labeled queries) are the expensive, reusable asset. They feed any
+  measurement method unchanged.
+- **B1 (the `deliver-edge-cases` description fix, committed `01716da0`)** is harmless and an honest
+  readability improvement, though see point 6: its *premise* is now in question.
+- The **collision / precision** read ("skills do not poach each other") is more robust than the recall
+  numbers, because the nudge inflates firing generally, so "did not false-fire" survives the confound
+  better than "did fire".
+
+**4. The cost reality (the numbers).**
+- Headless `claude -p`: ~38,000 tokens per call (it boots the whole Claude Code engine + every installed
+  plugin), ~13s/call. The one partial Sonnet run cost ~$30 via API key. This is the expensive,
+  confounded path.
+- Controlled router call (see point 5): ~2,000 tokens per call (catalog of descriptions + one query),
+  and the catalog **prompt-caches**, so steady-state calls are mostly cache-reads. Full roster
+  (29 x 20 x 3 = 1,740 calls) is **under $1 on Haiku**, ~$1-2 on Sonnet, repeatable. A $10 API budget is
+  roughly 10x headroom for the whole roster on both models several times over. The earlier "$5" estimate
+  missed by 6x because it priced the controlled method but the run used the 19x-heavier headless method.
+
+**5. The right instrument: a controlled router eval.** Instead of launching a whole agent per query,
+ask one controlled question: show the model a catalog of skill descriptions and one user request, and
+ask "which single skill best fits, or none?". No plugins, no nudge, no turn budget, no thinking-budget
+noise - it isolates the one variable that matters, the description text. Three ways to run it:
+- **Raw Messages API** - cheapest, fastest, deterministic, CI-able. Needs a funded API key (the
+  subscription cannot make raw API calls). This is the long-term per-release regression gate.
+- **`claude -p --bare`** - `--bare` skips hooks and plugins; runs on the subscription, no key, but slow
+  (~13s/call) and bound by the 5-hour window.
+- **A workflow of subagents** - runs on the subscription (no API key), parallelized, fast. Each subagent
+  is a clean Claude given only the catalog + query.
+
+  **Correction to Part 2's claim that this "needs an API key":** only the *CI-automation* convenience
+  needs a key. Getting the answer (does this description route correctly, did B1 help) is fully doable on
+  a Pro/Max subscription via subagents or `--bare`.
+
+**6. First controlled run (workflow `b1-router-eval`, 2026-06-13 PM, subscription, 126 subagents, 34s).**
+- **Calibration: 6/6.** The router correctly routed "Write a PRD" -> deliver-prd, "everything that can go
+  wrong... recovery path" -> deliver-edge-cases, GWT -> deliver-acceptance-criteria, competitive analysis
+  -> discover-competitive-analysis, and both junk queries -> none. **The instrument is validated.**
+- **B1 before/after: INVALID this run.** Firing 126 subagents in a 34s burst tripped *genuine*
+  server-side rate limiting ("Server is temporarily limiting requests"). ~96 calls failed and returned
+  null (scored as `none`). The reported `newRecall = 0%` is a throttle artifact, **not** a regression:
+  almost the entire NEW arm failed to execute. Do not read it as "B1 made triggering worse."
+- **Operational lesson:** bursting subagents on a subscription trips server rate-limiting. The clean run
+  needs throttle control (low concurrency + backoff or request spacing), not raw fan-out.
+- **A hint, not a conclusion:** of the 7 OLD-arm queries that ran before the throttle hit, all 7 routed
+  correctly to deliver-edge-cases (including intent-only phrasings like "map the failure surface"). This
+  faintly suggests the original "under-triggering" gap may itself have been a headless artifact - the old
+  description routes fine in a clean test. Not concluded on 7 contaminated points; needs a
+  throttle-controlled re-run to settle. If confirmed, B1 fixed a non-problem (harmlessly).
+
+**7. What is next (revised).**
+- Re-run the controlled router eval with throttle control (concurrency ~2-3 + backoff, or `--bare`
+  sequential) to get a clean B1 before/after and re-baseline the roster on a sound instrument.
+- Fix the harness bug: `classifyRun()` should treat `error_max_turns` as a hard, clearly-labeled failure
+  ("a SessionStart skill likely consumed the turn; raise --max-turns or disable interfering plugins"),
+  not a retryable throttle.
+- Decide the long-term engine: subscription workflow (no key, throttle-limited) vs funded API key (cheap,
+  fast, CI-able). The fixtures are ready for either.
+
+---
+
 ## Part 1: In plain terms (no engineering needed)
 
 **One sentence:** we are measuring, with real data, whether each PM skill actually *activates* when

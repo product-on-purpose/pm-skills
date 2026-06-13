@@ -19,6 +19,19 @@
 The single place to see what is left for this effort. Authoritative lifecycle tracker is GitHub issue
 #200 (M-31 trigger-accuracy evals); detail and resume commands live in `records/trigger-eval-baseline.md`.
 
+> **METHODOLOGY CORRECTION (2026-06-13 PM) - read before resuming.** The headless `claude -p` harness
+> is environment-confounded: skill-firing is driven by the `superpowers` nudge, extended thinking, and
+> the `--max-turns 1` budget, not the skill description. The morning "throttling" pause was actually
+> `error_max_turns` (superpowers' SessionStart hook eating the single turn), misclassified by the
+> harness as a rate limit. The recorded baseline (Runs 1-5) is not reproducible and its absolute numbers
+> are not reliable. Full writeup: `trigger-evals-explained.md` -> "CORRECTION AND CURRENT UNDERSTANDING".
+> **Items A1, A2, B2 below are superseded:** do not "finish the baseline" on the headless harness. The
+> path forward is the controlled router eval (catalog + query -> which skill fits), which validated
+> 6/6 on obvious cases and runs on the subscription via subagents with no API key. B1 stays committed.
+> New top item: re-run the controlled router eval with throttle control (concurrency ~2-3 + backoff) for
+> a clean B1 before/after and a re-baseline; and fix `classifyRun()` to treat `error_max_turns` as a
+> hard, labeled failure rather than a retryable throttle.
+
 **A. Complete the baseline (deferred on server throttling, no code changes needed)**
 - A1. Run the remaining ~13 skills, one named batch per calm 5-hour window on the subscription
   (Haiku): collision-research, collision-iterate, rest-define-discover (discover-* only),
