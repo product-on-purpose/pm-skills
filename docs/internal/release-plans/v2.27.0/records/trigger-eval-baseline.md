@@ -143,7 +143,23 @@ Triage rule (decision T-F): a failing query is resolved one of two ways and logg
   subscription (Haiku, then escalate any low scorers to Sonnet).
 - Report artifact: `trigger-eval-sonnet-full-20260613.md` (partial; 50% rows are credit-failure, not real).
 
-### (remaining skills: run as named batches, collision pairs first)
+### STATUS 2026-06-13: paused - sustained server-side throttling
+
+- After the credit-exhausted Sonnet run, a subscription (Haiku) re-run of collision-research hit
+  SUSTAINED transient server throttling ("Server is temporarily limiting requests, not your usage
+  limit"). The hardened harness retried 6x (2s->30s backoff) and still got throttled every call, then
+  aborted cleanly with zero fabricated data. This is an Anthropic-server load condition, not our quota
+  and not fixable from our side; it clears on its own timeline.
+- DECISION: stop here. The remaining ~13 skills (develop-spike-summary, all discover-*, foundation-
+  meeting-recap/persona, all iterate-*, all measure-* except those with Haiku data) are deferred.
+- RESUME (any calmer window, no code changes needed): from a scratch dir with the plugin enabled,
+  subscription auth (no ANTHROPIC_API_KEY), one batch per fresh 5-hour window:
+  `TRIGGER_EVAL_CLAUDE_ARGS="--model claude-haiku-4-5" node scripts/run-trigger-evals.mjs --batch collision-research --report <records-path>`
+  then collision-iterate, rest-define-discover (discover-* only), rest-measure, rest-iterate-foundation,
+  and develop (spike-summary). The harness now rides transient throttles and aborts only on a hard stop.
+- The CORE RESULT is already in hand and does not need these: 4/6 collision pairs clean, 21 skills
+  measured, the one real recall gap (deliver-edge-cases) confirmed on Sonnet, the define-hypothesis
+  false-alarm caught. See Runs 1-5 above and `trigger-evals-explained.md`.
 
 <!-- Copy this block per run:
 
