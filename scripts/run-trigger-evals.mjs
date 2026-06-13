@@ -91,6 +91,23 @@ export function extractUsage(events) {
   return usage ? { ...usage, total_cost_usd: costUsd } : null;
 }
 
+/** Returns the blocking status string if any rate_limit_event shows the window is
+ *  NOT allowed (so we abort instead of recording rate-limited calls as false
+ *  trigger-failures); null when clear. */
+export function rateLimitBlocked(events) {
+  for (const e of events) {
+    if (e && e.type === 'rate_limit_event') {
+      const s = e.rate_limit_info?.status;
+      if (s && s !== 'allowed') return s;
+    }
+  }
+  return null;
+}
+
+class RateLimitAbort extends Error {
+  constructor(status) { super(`rate limit: ${status}`); this.rateLimited = status; }
+}
+
 /** Aggregate one skill's per-query outcomes into split-level pass rates. */
 export function aggregate(results) {
   const agg = { train: { pass: 0, total: 0 }, validation: { pass: 0, total: 0 } };
@@ -126,7 +143,10 @@ function evalSkill(fixture, { collision }) {
   for (const q of fixture.queries) {
     let fired = 0;
     for (let i = 0; i < fixture.runs_per_query; i++) {
-      if (skillFired(runOnce(q.q), fixture.skill)) fired += 1;
+      const events = runOnce(q.q);
+      const blocked = rateLimitBlocked(events);
+      if (blocked) throw new RateLimitAbort(blocked);
+      if (skillFired(events, fixture.skill)) fired += 1;
     }
     const triggered = fired / fixture.runs_per_query >= fixture.trigger_threshold;
     results.push({ q: q.q, expect: q.expect, split: q.split, fired, triggered, pass: triggered === (q.expect === 'trigger') });
@@ -223,14 +243,23 @@ function main() {
   console.log(`plan: ${fixtures.length} skill(s), ${queries} queries, ${invocations} claude invocations${flag('--collision') ? ' (incl. collision sweep)' : ''}`);
   if (flag('--dry-run')) return;
 
-  const evaluated = fixtures.map((f) => {
+  const evaluated = [];
+  let aborted = null;
+  for (const f of fixtures) {
     console.log(`running ${f.skill} ...`);
-    return evalSkill(f, { collision: flag('--collision') });
-  });
-  const report = renderReport(evaluated);
+    try {
+      evaluated.push(evalSkill(f, { collision: flag('--collision') }));
+    } catch (e) {
+      if (e.rateLimited) { aborted = e.rateLimited; break; }
+      throw e;
+    }
+  }
+  const report = renderReport(evaluated)
+    + (aborted ? `\n> ABORTED on rate limit (${aborted}) after ${evaluated.length}/${fixtures.length} skills. Partial results above; resume the rest in a fresh 5-hour window.\n` : '');
   console.log(`\n${report}`);
   const out = value('--report');
   if (out) { const target = isAbsolute(out) ? out : join(repo, out); writeFileSync(target, report); console.log(`report written: ${target}`); }
+  if (aborted) { console.error(`RATE LIMITED (${aborted}); partial results saved (${evaluated.length}/${fixtures.length} skills).`); process.exit(2); }
   const failures = evaluated.some((e) => e.results.some((r) => !r.pass) || e.falseFires.length);
   process.exit(failures ? 1 : 0);
 }
