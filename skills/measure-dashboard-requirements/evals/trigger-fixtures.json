@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "skill": "measure-dashboard-requirements",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write dashboard requirements for tracking activation funnel health for the growth team",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The data team asked what we actually need on the new retention dashboard. Spec the metrics, charts, and filters.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I keep pulling the same ad-hoc numbers every Monday. Turn this into requirements for a persistent self-serve dashboard.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Define the KPI tracking view for the checkout redesign: which metrics, definitions, breakdowns, and refresh cadence",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Spec out an executive dashboard that answers whether the marketplace is healthy, before quarterly planning",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document the reporting needs for support leadership: ticket volume trends, segment drill-downs, and who gets access",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Our analytics team needs a requirements doc for the subscription revenue dashboard, including data sources and known quality issues",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Put together what the mobile team's daily standup board should show: crash rate, DAU, release adoption, with drill-downs",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I want stakeholders to self-serve product usage numbers instead of pinging me. Specify the dashboard they need.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Define requirements for a North Star metric dashboard with supporting input metrics and segment filters",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Define which events and properties we need to start tracking in the checkout flow so we can measure it later",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-instrumentation-spec",
+      "notes": "Event tracking feeds dashboards; instrument first, visualize second"
+    },
+    {
+      "q": "Score our Q2 OKRs now that the quarter closed and tell me which key results actually landed",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-okr-grader",
+      "notes": "OKR scoring at cycle close, not standing visibility"
+    },
+    {
+      "q": "Design an A/B test for the new onboarding checklist with sample size and duration",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Why is my Grafana panel showing 'No data' for this Prometheus query?",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Analyze the NPS survey responses we collected last month and pull out the themes",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write OKRs for the data platform team for next quarter",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Engineering is about to build the referral feature. Document the analytics events contract they should implement.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-instrumentation-spec",
+      "notes": "Implementation-side tracking contract, not the dashboard layer"
+    },
+    {
+      "q": "The pricing experiment just finished. Write the readout with significance and a ship recommendation.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-experiment-results",
+      "notes": "Experiment readout, not a standing dashboard"
+    },
+    {
+      "q": "Order new monitors for the analytics team's war room",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Frame the problem statement for why nobody trusts our metrics before we build anything",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

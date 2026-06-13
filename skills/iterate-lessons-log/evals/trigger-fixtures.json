@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "skill": "iterate-lessons-log",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write a lessons learned entry from the payment outage so future teams can find it",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The migration project just wrapped; bank what we learned for organizational memory",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document the lesson from our failed marketplace launch in a searchable format",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Our staff engineer leaves next month; capture her hard-won knowledge about the billing system before she goes",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Knowledge capture on departure, an explicit use case"
+    },
+    {
+      "q": "This is the third vendor integration that slipped for the same reason; record the pattern so other teams stop hitting it",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, recurring-pattern trigger"
+    },
+    {
+      "q": "Turn the post-mortem findings from the data loss incident into a durable knowledge entry with applicability guidance",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Capture what we learned about feature flags during the rollout so the platform team can reuse it",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We keep relearning the same lesson about scope creep on agency projects; write it down once, properly",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Create an organizational memory entry for the lesson on launching in regulated markets",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "After the retro, I want the one big learning preserved somewhere future teams will actually find it",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Downstream of a retro; the durable entry is this skill's job"
+    },
+    {
+      "q": "Facilitate a Start/Stop/Continue retro for the team at the end of this sprint",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-retrospective",
+      "notes": "The team ceremony itself is the partner's job"
+    },
+    {
+      "q": "We just hit the milestone; structure the team session where everyone shares what worked and what did not",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-retrospective",
+      "notes": "Facilitated team reflection, not a durable knowledge entry"
+    },
+    {
+      "q": "Run our end-of-quarter team reflection covering what went well and what to improve, with action items and owners",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "iterate-retrospective",
+      "notes": "Retro format with team action items, not organizational memory"
+    },
+    {
+      "q": "Based on the experiment results, should we pivot or persevere on this product direction?",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-pivot-decision",
+      "notes": "Direction decision, not learning capture"
+    },
+    {
+      "q": "Write up the readout of the completed A/B test with statistical interpretation",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-results",
+      "notes": "Experiment readout comes first; the transferable lesson gets banked after"
+    },
+    {
+      "q": "Update stakeholders on what the team accomplished and learned this quarter",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-stakeholder-update"
+    },
+    {
+      "q": "Score our Q3 OKRs now that the cycle has closed",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-okr-grader"
+    },
+    {
+      "q": "Help me debug a segfault in this C program",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query summarizing incidents by severity per month",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Plan a two week road trip along the Pacific Coast Highway",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

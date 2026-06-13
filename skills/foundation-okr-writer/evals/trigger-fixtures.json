@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "skill": "foundation-okr-writer",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Help me write Q3 OKRs for the growth team",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Review these draft OKRs and tell me where the key results are really just features",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Audit Only mode; draft review belongs to the writer, not the grader"
+    },
+    {
+      "q": "Translate the company strategy pillar on retention into measurable team outcomes for next quarter",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no OKR keyword"
+    },
+    {
+      "q": "Convert this roadmap list into proper outcome-based OKRs",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Rewrite mode"
+    },
+    {
+      "q": "Coach me through drafting an objective and key results for the platform team, one piece at a time",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Our KRs all say launch X by some date; rewrite them so they measure behavior change instead",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Just draft a complete OKR set from this product context in one pass and label your assumptions",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "One-Shot mode"
+    },
+    {
+      "q": "Leadership handed us a parent objective; turn it into department OKRs we can actually commit to",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I need quarterly objectives with baselines, targets, and guardrail metrics before the planning offsite",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Critique this OKR draft: are the objectives inspiring and the key results measurable?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The quarter is over; score each KR against its target and tell us what we learned",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-okr-grader",
+      "notes": "Cycle has ended; formal scoring with learning synthesis is the partner's job"
+    },
+    {
+      "q": "Cycle close is Friday; produce the scorecard with evidence confidence for every key result",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-okr-grader",
+      "notes": "End-of-cycle scoring, not drafting or reviewing drafts"
+    },
+    {
+      "q": "Grade our completed Q1 OKR set, separating committed from aspirational interpretation",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-okr-grader",
+      "notes": "Grading a completed set belongs to the grader"
+    },
+    {
+      "q": "Spec the dashboard we need to track our north star metric",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-dashboard-requirements",
+      "notes": "Only a dashboard spec is needed"
+    },
+    {
+      "q": "Write a testable hypothesis with success metrics for the onboarding change",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-hypothesis",
+      "notes": "Only a hypothesis is needed"
+    },
+    {
+      "q": "Design the A/B test that will validate our activation assumption",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "Only an experiment is needed"
+    },
+    {
+      "q": "Define the event tracking plan for the new checkout funnel",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-instrumentation-spec"
+    },
+    {
+      "q": "Fix this TypeScript error: property does not exist on type unknown",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query that returns weekly active teams by region",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Help me draft a wedding toast for my best friend",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

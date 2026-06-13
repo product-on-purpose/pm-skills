@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "skill": "iterate-pivot-decision",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Document whether we should pivot or persevere on the SMB self-serve motion after the MVP numbers",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Three of our core hypotheses got invalidated by the beta. Put together the direction decision with the evidence and options.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're at the planned post-launch checkpoint. Write the pivot-or-persevere analysis for the marketplace bet.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Stakeholders are split on abandoning the consumer app to chase enterprise. Build the decision document with the data on both sides.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Six months in, traction is flat. Lay out persevere plus at least two pivot options and recommend one.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Market feedback says our wedge feature isn't a wedge. Document the strategic direction change with rationale and an implementation plan.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Make the case, with evidence, for whether to change course on the freemium pricing strategy or stay put",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "After the failed launch, the founders want a structured pivot analysis: what we invested, what we learned, what the options are",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We're debating shifting from a horizontal platform to a vertical healthcare focus. Capture the decision and the dissenting views.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write up yesterday's strategy review outcome: we are staying the course, and I want the persevere rationale preserved",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The pricing experiment concluded. Write the readout with the stats and learnings, no strategy call attached.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-results",
+      "notes": "Evidence report without a direction decision"
+    },
+    {
+      "q": "Run the end-of-quarter team reflection on what went well and what to change about how we work",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-retrospective",
+      "notes": "Period-end ceremony, not a direction decision"
+    },
+    {
+      "q": "Map our desired outcome to candidate opportunities and solutions before we commit to any direction",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-opportunity-tree",
+      "notes": "Exploring candidate directions, nothing being decided yet"
+    },
+    {
+      "q": "Document why we're switching from REST to gRPC for internal services",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me debug why the churn model's predictions drifted last week",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Summarize the A/B test on annual-plan messaging: control versus treatment, significance, and what we learned",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-results",
+      "notes": "Experiment readout; the evidence, not the call"
+    },
+    {
+      "q": "Record the decision to migrate the monolith to services, with context and consequences",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "develop-adr",
+      "notes": "Technical or architectural, not directional"
+    },
+    {
+      "q": "Draft the board update email summarizing this quarter's progress",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Find me a venue for the company offsite in March",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write a problem statement for why activation is stuck at 20%",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

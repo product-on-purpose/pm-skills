@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "skill": "discover-interview-synthesis",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Synthesize these 8 user interviews into themes and recommendations",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We finished a round of customer discovery calls; pull out the patterns across participants",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Turn these usability session notes into evidence-backed insights for the team",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I have transcripts from 6 churned-customer interviews; what are users actually telling us?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no synthesis keyword"
+    },
+    {
+      "q": "Aggregate the findings from this week's research sprint into something stakeholders can act on",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Identify recurring themes and pull supporting quotes from these interview notes",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before our ideation workshop, consolidate what we heard across the 10 discovery interviews",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Sales logged feedback calls with 12 prospects; extract the cross-cutting insights with confidence levels",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Summarize what we learned from the usability tests, with participant-attributed quotes and limitations",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Help me get from a pile of raw research notes to prioritized recommendations grounded in evidence",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Write up yesterday's sprint planning meeting for the attendees, decisions and action items included",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "One internal meeting summarized for its attendees is the partner's job"
+    },
+    {
+      "q": "Recap the stakeholder sync from this morning so everyone who was there has the decisions in writing",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "Single-meeting recap, not cross-participant research aggregation"
+    },
+    {
+      "q": "Turn this Zoom transcript of our internal roadmap review into a topic-by-topic summary with owners on each action",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "Transcript input tempts this skill, but it is one internal meeting for attendees"
+    },
+    {
+      "q": "Find the patterns across our last six weekly team meetings",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-synthesize",
+      "notes": "Cross-meeting synthesis over time, not research interviews"
+    },
+    {
+      "q": "Analyze these 400 NPS survey responses for themes",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-survey-analysis",
+      "notes": "Survey data, not interview data"
+    },
+    {
+      "q": "The research is synthesized; now frame the problem statement for leadership",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-problem-statement"
+    },
+    {
+      "q": "Map the customer journey for first-time buyers from discovery to checkout",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-journey-map"
+    },
+    {
+      "q": "Refactor this Node script to use async/await",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query counting interviews per recruiter this quarter",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated; interview keyword but a SQL task"
+    },
+    {
+      "q": "What should I cook for a dinner party of six with one vegan guest?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "skill": "develop-adr",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write an ADR for moving our order service to event sourcing",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We picked Postgres over DynamoDB last sprint and I want the reasoning written down before people forget",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document the decision to adopt gRPC for service-to-service communication, including what it costs us",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The team finally agreed to standardize on Kafka for async messaging. Capture the context and consequences so new hires understand why.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Create a decision record for choosing a monorepo over polyrepo, Nygard style",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We are dropping self-hosted deployments and going cloud-only. I need that architectural decision and its trade-offs on paper.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me record why we chose React Native instead of building two separate native apps",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Draft ADR-014: use LaunchDarkly for feature flags instead of our homegrown toggles",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Leadership keeps asking why we run our own auth instead of using Auth0. Get the original decision, its context, and consequences formally documented.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We standardized on Terraform for infra provisioning two quarters ago but never wrote it up. Backfill the decision record.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Document why we went with a single-page checkout instead of the multi-step wizard, including the usability trade-offs we weighed",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-design-rationale",
+      "notes": "UX design decision, not architecture or technology selection"
+    },
+    {
+      "q": "We just finished a three-day investigation into whether GraphQL federation can handle our gateway load. Write up what we learned.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-spike-summary",
+      "notes": "Exploration findings, no decision recorded yet"
+    },
+    {
+      "q": "I need a one-pager that sells the event-sourcing approach to the VP of Engineering before we commit",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-solution-brief",
+      "notes": "Pitching a solution, not recording a decision"
+    },
+    {
+      "q": "Break the event sourcing migration into user stories for the next two sprints",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Debug this NullPointerException in our payment service",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Summarize stakeholder concerns about the platform rewrite and who has influence over the budget",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Capture the reasoning behind our new empty-state design pattern for the design system docs",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "develop-design-rationale",
+      "notes": "Design-pattern reasoning belongs to design rationale"
+    },
+    {
+      "q": "Write the PRD for the new notifications center",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Book me a flight to Berlin for the architecture summit next month",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Should we pivot the developer-tools product to target enterprise instead of indie devs? Lay out the evidence.",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

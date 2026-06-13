@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "skill": "define-hypothesis",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Help me write a testable hypothesis for why onboarding completion is low",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We believe shortening signup will boost activation; turn that hunch into a falsifiable statement with success metrics",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The team disagrees about whether power users actually want dark mode; frame the assumption so we can test it",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no hypothesis keyword"
+    },
+    {
+      "q": "Before we invest a quarter building the recommendation engine, what exactly are we betting is true?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Draft a hypothesis statement with primary and guardrail metrics for the new pricing page",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We are pivoting to SMB customers; help articulate what success looks like so we can validate the new direction",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Form a clear assumption to test about why trial users churn in their first week",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write the We believe that X for Y will Z statement for the referral incentive idea",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I need to align the team on what we expect this notification change to do before anyone designs a test",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing; explicitly upstream of test design"
+    },
+    {
+      "q": "Turn this problem statement about cart abandonment into a testable prediction with a numeric target",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Design the A/B test for our checkout hypothesis: variants, sample size, and duration",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "Hypothesis exists; designing the test itself is the partner's job"
+    },
+    {
+      "q": "Plan the experiment targeting and traffic split to validate the onboarding change we framed last week",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "How to test, not what to test"
+    },
+    {
+      "q": "We already know what we believe; now calculate how many users per variant and how long to run the test",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "Sample size and duration are experiment design parameters"
+    },
+    {
+      "q": "Analyze the results of the completed pricing experiment and tell me whether it won",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-results"
+    },
+    {
+      "q": "Frame the problem statement for declining engagement before we jump to solutions",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-problem-statement",
+      "notes": "Problem still unframed; that comes before any hypothesis"
+    },
+    {
+      "q": "Organize all our assumptions and ideas about retention into an opportunity solution tree",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-opportunity-tree",
+      "notes": "Many assumptions in a discovery structure, not one testable claim"
+    },
+    {
+      "q": "Sketch the full business model for this product idea on a lean canvas",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-lean-canvas"
+    },
+    {
+      "q": "Why does my React component re-render twice in strict mode?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL window function to compute 7 day rolling retention",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Help me plan a surprise anniversary dinner",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

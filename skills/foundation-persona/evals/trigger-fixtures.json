@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "skill": "foundation-persona",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Create a product persona for our power users in the analytics module",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Design and engineering keep arguing about who we're building for; produce a behavior-grounded profile we can put in front of every tradeoff discussion",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask; tradeoff framing is a listed use case"
+    },
+    {
+      "q": "Generate a marketing persona for the mid-market buyer of our security platform",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Build a buyer persona for the GTM team, with assumptions and confidence levels labeled so we can review them",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before I draft the PRD I want the user profile nailed down: goals, behaviors, frustrations, and real quotes",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Turn last quarter's research into an evidence-calibrated persona for the onboarding squad",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Make a persona for first-time admins setting up our workspace product",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Marketing needs a persona to aim the launch messaging at; ground it in the survey data we already have",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Stress-test our pricing decision against a realistic profile of our typical small-team customer",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask; stress-testing decisions is a listed use case"
+    },
+    {
+      "q": "I need a persona artifact for the design sprint next week, product mode, with explicit assumptions",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I care less about who the customer is and more about what they're hiring the product to do; map the job, not the person",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-jtbd-canvas",
+      "notes": "Job context rather than the person, per When NOT to Use"
+    },
+    {
+      "q": "Profile the internal stakeholders on this project: who they are, their influence, and their concerns",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-stakeholder-summary",
+      "notes": "Internal stakeholders, not customers, per When NOT to Use"
+    },
+    {
+      "q": "Synthesize these twelve user interview transcripts into themes before we do anything else",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Raw interviews need synthesis first; discover-interview-synthesis territory"
+    },
+    {
+      "q": "Write the problem statement for why trial users churn in week one",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Draft the PRD for the team-permissions feature",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Build an opportunity solution tree under our activation outcome",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Debug this CSS grid layout that breaks only on Safari",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Write a SQL query segmenting users by feature adoption",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Book travel for the user-research field visits in Denver",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "Run a competitive analysis of persona-building tools on the market",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Contains 'persona' but is a discover-phase research ask"
+    }
+  ]
+}

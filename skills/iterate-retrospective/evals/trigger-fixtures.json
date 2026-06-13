@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "skill": "iterate-retrospective",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Run a retrospective for sprint 42",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Facilitate a Mad/Sad/Glad retro after the rough release week and document the action items",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The project just shipped; help the team reflect on what went well and what to change next time",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no retro keyword"
+    },
+    {
+      "q": "Team morale feels off; structure a session where we examine how we are working together",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, team-dynamics trigger"
+    },
+    {
+      "q": "Prepare a 4Ls retrospective for the platform migration milestone, including a review of last retro's actions",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document our end-of-sprint reflection: wins, pain points, and the top three improvements with owners",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Run the post-incident team retro for last Tuesday's outage and capture the follow-ups",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We finished the quarter; lead the team through a structured look back with prioritized action items",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Set up a sailboat-format retro for the design system squad and write up the outcomes",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our retros keep producing vague actions; facilitate this one so every item has an owner and a due date",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write the durable lessons learned entry from the checkout outage for future teams",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-lessons-log",
+      "notes": "The durable entry that outlives the ceremony is the partner's job"
+    },
+    {
+      "q": "Our departing tech lead knows things nobody else does; record that knowledge before she leaves",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-lessons-log",
+      "notes": "Knowledge capture for the organization, not a team ceremony"
+    },
+    {
+      "q": "Bank the one big learning from this project into organizational memory, searchable by future teams",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "iterate-lessons-log",
+      "notes": "Organizational memory entry, not team reflection"
+    },
+    {
+      "q": "Score the team's Q2 OKRs now that the cycle has ended",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-okr-grader",
+      "notes": "OKR cycle scoring at close, explicitly excluded from retro"
+    },
+    {
+      "q": "Decide whether to pivot or persevere based on this quarter's results",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-pivot-decision",
+      "notes": "Reflection that must end in a directional call"
+    },
+    {
+      "q": "Write a recap of Monday's roadmap meeting for the people who attended",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "General meeting recap, not a retro"
+    },
+    {
+      "q": "Capture the estimates and scope decisions from today's backlog refinement",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-refinement-notes"
+    },
+    {
+      "q": "Why is my Kubernetes pod stuck in CrashLoopBackOff?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query for average cycle time per sprint from this table",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated; sprint keyword but a SQL task"
+    },
+    {
+      "q": "Suggest a 12 week marathon training plan",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

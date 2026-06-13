@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "skill": "discover-competitive-analysis",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Do a competitive analysis of the top five project-management tools before we enter that market",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We keep losing enterprise deals to two rivals; break down their features, pricing, and positioning against ours",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask; losing deals is a listed use case"
+    },
+    {
+      "q": "Map the competitive landscape for AI meeting assistants: direct, indirect, and potential disruptors",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Leadership wants to know where we can differentiate; compare our product against the main alternatives on features and strategy",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're weighing build versus buy for analytics; analyze the vendor landscape so we understand the alternatives",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Put together the market-landscape section for our annual planning review, comparing positioning across our top competitors",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Create a competitive analysis of Figma, Sketch, and Penpot for our design-tool strategy",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "A well-funded startup just entered our space; assess how their offering stacks up and where we're exposed",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask, no artifact keyword"
+    },
+    {
+      "q": "Onboard our new PM with a structured overview of who we compete with and how we win",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "What are the feature gaps between us and the category leader, and where should we differentiate?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "How big is the addressable market for B2B expense tools? Give me TAM, SAM, and SOM",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-market-sizing",
+      "notes": "Market size rather than competitor positioning, per When NOT to Use"
+    },
+    {
+      "q": "I want to understand why customers switch from competitors to us, in terms of the progress they're trying to make",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-jtbd-canvas",
+      "notes": "Switching examined through the job lens, per When NOT to Use"
+    },
+    {
+      "q": "Stress-test our differentiation across the whole business model on a lean canvas",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Whole-business-model differentiation; foundation-lean-canvas territory"
+    },
+    {
+      "q": "The landscape is already mapped; now frame the problem we're going after as a problem statement",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Synthesize the win-loss interview notes from the deals we lost last quarter",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Draft the PRD for the comparison-table feature on our pricing page",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Contains comparison language but is a specification ask"
+    },
+    {
+      "q": "Debug why this Express endpoint returns a 500 only in production",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Write a SQL query joining accounts and subscriptions to find expansion revenue",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Book a rental car and hotel for my trip to the trade show in Las Vegas",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "Build a persona for the economic buyer in our mid-market accounts",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

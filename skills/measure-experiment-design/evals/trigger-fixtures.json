@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "skill": "measure-experiment-design",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Design an A/B test for the new checkout button placement",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We have a hypothesis about onboarding emails; spec the experiment with variants, sample size, and duration",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "How many users per variant do we need to detect a 2 percent lift in conversion, and how long should we run it?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing centered on sample size and duration"
+    },
+    {
+      "q": "Stakeholders want data before we roll out the redesign; set up a controlled test plan",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Write the experiment plan for testing free shipping thresholds, including guardrail metrics and success criteria",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Define control and treatment, traffic allocation, and exclusions for the search ranking test",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me design a rigorous experiment to validate the assumption we already framed about trial-to-paid conversion",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Plan the A/B test so we do not call it early on noise: significance level, power, and stopping rules",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our hypothesis doc is approved; turn it into a runnable test design before engineering builds the variants",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Set up an experiment comparing two paywall designs with a single primary metric",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Help me articulate what we actually believe about churn before we design any test",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-hypothesis",
+      "notes": "The claim itself is not articulated yet; framing it is the partner's job"
+    },
+    {
+      "q": "We have not framed what to test yet; write the We believe X for Y will Z claim for the referral idea",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-hypothesis",
+      "notes": "Hypothesis statement comes before experiment design"
+    },
+    {
+      "q": "Turn the team's competing assumptions about power users into one falsifiable statement with success metrics",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-hypothesis",
+      "notes": "Aligning on the assumption, not designing the test"
+    },
+    {
+      "q": "The experiment finished yesterday; analyze whether the treatment won",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-results",
+      "notes": "Completed experiment analysis, not design"
+    },
+    {
+      "q": "Spec the event tracking we need before any experiment can be measured",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-instrumentation-spec"
+    },
+    {
+      "q": "Draft a survey to gather user opinions on the new dashboard and analyze the responses",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-survey-analysis",
+      "notes": "Gathering opinions, not running a controlled test"
+    },
+    {
+      "q": "Define the dashboard requirements for our growth metrics",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-dashboard-requirements"
+    },
+    {
+      "q": "My Docker container exits with code 137; help me debug it",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query for daily active users by platform",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Plan a three day hiking itinerary in the Dolomites",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

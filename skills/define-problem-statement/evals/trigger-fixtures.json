@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "skill": "define-problem-statement",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write a problem statement for the drop-off we're seeing in mobile checkout",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "This project has drifted so far that nobody remembers what we set out to fix; help me re-anchor it in the original problem",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask; realigning a drifted project"
+    },
+    {
+      "q": "I need to explain to leadership why activation matters before they'll fund the work; frame the problem with user impact and success criteria",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Frame the support-ticket backlog issue as a crisp problem doc the team can align on before we discuss solutions",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "New engineers keep jumping to solutions; create the document that establishes what problem we're solving and how we'll know it's solved",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Kick off the retention initiative with a clear problem framing: who is affected, what it costs us, and what success looks like",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Draft a problem statement for enterprise admins struggling with user provisioning",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before we commit a team to this, I want one page that nails the problem, the impact, and the success criteria",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our VP asked what problem we are actually solving here and I didn't have a good answer; help me write it down properly",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask, no artifact keyword"
+    },
+    {
+      "q": "Someone proposed a chatbot but I'm not convinced it addresses the real issue; help me articulate the core problem first",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Evaluating whether a proposed solution addresses the core problem"
+    },
+    {
+      "q": "The problem is agreed and funded; write the full requirements doc so engineering can start building",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-prd",
+      "notes": "Agreed problem plus spec ask belongs to the PRD, per When NOT to Use"
+    },
+    {
+      "q": "We think onboarding emails will lift activation by 10 percent; turn that assumption into something testable with success metrics",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-hypothesis",
+      "notes": "An unvalidated assumption to test, not a problem to frame, per When NOT to Use"
+    },
+    {
+      "q": "Compare three solution approaches for the latency issue in a one-page brief for stakeholders",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Proposing and comparing solutions; develop-solution-brief territory"
+    },
+    {
+      "q": "Build a JTBD canvas for why customers hire our scheduling product",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Map our desired retention outcome to opportunities and solution ideas in a discovery tree",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Create a persona for our power-user segment based on last quarter's research",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Debug this null pointer exception showing up in our checkout service logs",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Write a regex that extracts order IDs from these log lines",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Find me a good hotel near the conference center in Berlin for next week",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "Run RICE and MoSCoW over this feature list and tell me where they disagree",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

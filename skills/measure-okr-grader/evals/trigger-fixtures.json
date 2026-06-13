@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "skill": "measure-okr-grader",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Score our Q2 OKRs now that the cycle has closed",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Here are the final KR values, baselines, and targets; produce the cycle review with learning synthesis",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The quarter ended and leadership wants to know which key results we actually hit and what the evidence says",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no scoring keyword"
+    },
+    {
+      "q": "Grade this completed OKR set, treating committed and aspirational KRs differently",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We disagree about whether 0.7 on that KR is good or bad; do an honest scoring pass",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Close out the half-year OKR cycle: scorecard, evidence quality, and next-cycle recommendations",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The cycle ended early because of the reorg; do a partial-close scoring of our OKRs with interim values",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Assess our finished OKRs: did the guardrail hold, and what should we carry into next quarter?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Turn these end-of-quarter KR actuals into a review the team can learn from, with no sugarcoating of misses",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Evaluate the completed OKR set and flag any KRs whose measurement window has not closed yet",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Help the team draft next quarter's OKRs with outcome-shaped key results",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-okr-writer",
+      "notes": "Still drafting; the writer owns drafting and coaching"
+    },
+    {
+      "q": "Convert our roadmap items into proper OKRs for the upcoming cycle",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-okr-writer",
+      "notes": "Rewrite of a roadmap into OKRs is the writer's Rewrite mode"
+    },
+    {
+      "q": "Review this draft OKR set before planning locks: are the KRs measurable and outcome-based?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-okr-writer",
+      "notes": "Pre-cycle draft review is the writer's Audit Only mode, not cycle-close scoring"
+    },
+    {
+      "q": "Run the team retrospective for the quarter that just ended",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-retrospective",
+      "notes": "Generic team retro, not OKR scoring"
+    },
+    {
+      "q": "Analyze the completed pricing experiment and report whether the treatment won",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-results",
+      "notes": "Single experiment result, not an OKR cycle"
+    },
+    {
+      "q": "Write a stakeholder progress update on our OKRs at mid-quarter, no scoring needed",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "Progress update without scoring is explicitly excluded"
+    },
+    {
+      "q": "Bank the big lesson from this OKR cycle into organizational memory",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-lessons-log"
+    },
+    {
+      "q": "Debug why this cron job runs twice every hour",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query computing percent-to-target for each KR row in this table",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated; KR keyword but a SQL task"
+    },
+    {
+      "q": "Plan a kid-friendly weekend in Chicago",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

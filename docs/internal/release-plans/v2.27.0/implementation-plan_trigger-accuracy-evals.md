@@ -7,8 +7,8 @@
 |---|---|
 | 1. Fixture schema constants + validator | DONE (2026-06-12: `check-trigger-fixtures.mjs` + 10-case `.test.mjs` green; live run reports the expected 29 missing roster files) |
 | 2. Advisory CI wiring | DONE (2026-06-12: unit test joined the enforcing `node --test` step; advisory step added after the M-30 evals; shell bundles + parity manifest untouched by design) |
-| 3. Fixtures: collision batch (9 skills) | TODO |
-| 4. Fixtures: remainder of roster (20 skills) | TODO |
+| 3. Fixtures: collision batch | DONE (2026-06-12: all 11 collision-involved skills incl. the watch pair; 3 partner-aimed near-misses each, both splits) |
+| 4. Fixtures: remainder of roster | DONE (2026-06-12: remaining 18 roster skills; full 29-file roster validates clean; near-miss targets annotated beyond the mandate to enrich the future --collision sweep) |
 | 5. Harness | TODO |
 | 6. workflow_dispatch lane | TODO |
 | 7. Baseline run + triage record | TODO |

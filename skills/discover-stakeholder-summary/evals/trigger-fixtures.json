@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "skill": "discover-stakeholder-summary",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Create a stakeholder summary for the data-platform migration project",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I'm taking over this initiative from another PM and don't know who actually has influence; map the people and the politics for me",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask; taking over a project is a listed use case"
+    },
+    {
+      "q": "Document who cares about the billing rewrite, what each group needs, and where their interests conflict",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're hitting resistance from ops mid-project; map stakeholder concerns and influence so I can navigate it",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before the big architecture decision I need cross-functional buy-in; lay out every stakeholder, their stake, and their stance",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The reorg shuffled who owns what; redo the stakeholder map for the personalization program",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Map the stakeholders for our compliance initiative, including needs, concerns, and influence levels",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Three departments touch this launch and they're not aligned; document who they are and what each one needs from us",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask, no artifact keyword"
+    },
+    {
+      "q": "New project kickoff next week: who has a stake, who can block us, and what does each of them care about?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Build the influence-and-interest summary for the API deprecation so our comms can be targeted properly",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write this week's status update email to stakeholders on the migration progress",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "The update you SEND to stakeholders, not the map of them, per When NOT to Use"
+    },
+    {
+      "q": "I have a high-stakes steering-committee meeting Thursday; prep my private brief with positions, asks, and likely objections",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-brief",
+      "notes": "Prep for one specific meeting, per When NOT to Use"
+    },
+    {
+      "q": "Synthesize the ten customer discovery interviews into themes and insights",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Customer research synthesis, not an influence map"
+    },
+    {
+      "q": "Create a persona for our target buyer in healthcare accounts",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Customer persona, not internal stakeholders"
+    },
+    {
+      "q": "Draft the agenda for the cross-team kickoff meeting next Tuesday",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write the problem statement for the onboarding drop-off initiative",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me fix a flaky Playwright test that fails only in CI",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Write a SQL query listing the top 20 accounts by support ticket volume",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Find flights to Singapore for the regional stakeholder roadshow",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Contains 'stakeholder' but is a travel-booking ask"
+    },
+    {
+      "q": "Run a retrospective on how stakeholder communication went last quarter",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

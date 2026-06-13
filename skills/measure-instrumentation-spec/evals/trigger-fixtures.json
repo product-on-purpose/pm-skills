@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "skill": "measure-instrumentation-spec",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write an instrumentation spec for the new onboarding checklist before engineering starts building",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Define the analytics events, triggers, and properties for the checkout redesign",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We keep finding questions we can't answer because nothing was tracked. Audit the signup flow tracking and spec what's missing.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Engineering needs a tracking contract for the referral feature: event names, when they fire, what properties, and PII handling",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We are migrating to Amplitude. Document the event taxonomy and user properties the new tool should receive.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before launch, make sure measurement is in place: spec the events for the collaboration feature with a QA checklist",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Draft the event tracking requirements for the mobile app's push notification opt-in flow",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Spell out exactly which user actions in the editor we should log, with property types and example values",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Product analytics for the trial flow are inconsistent across platforms. Write the spec that makes web and mobile fire the same events.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I need a data collection plan engineering can implement for the new search experience, including which properties count as PII",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The events already exist. Now spec the dashboard the growth team will use to watch the funnel.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-dashboard-requirements",
+      "notes": "Visualization layer on top of existing events"
+    },
+    {
+      "q": "Define the variants, primary metric, and sample size for the onboarding experiment",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "Experiment-specific metrics and variants, not product-wide tracking"
+    },
+    {
+      "q": "The feature isn't specified yet. Write the requirements doc for the collaboration feature so we know what flows even exist.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-prd",
+      "notes": "No flows to instrument until the feature is specified"
+    },
+    {
+      "q": "Analyze last quarter's funnel data and tell me where users drop off",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Our Segment integration is throwing 400 errors in production, help me debug it",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write the experiment readout for the tracking-consent banner test",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document what the exec KPI dashboard needs to display, with filters and who can access it",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-dashboard-requirements",
+      "notes": "Dashboard requirements, not the event contract beneath it"
+    },
+    {
+      "q": "Summarize the survey results about feature discoverability into themes",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Plan the catering for the data team offsite",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Enumerate the edge cases and error states for the file sync feature ahead of QA planning",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

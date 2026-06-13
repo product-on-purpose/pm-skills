@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "skill": "deliver-acceptance-criteria",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write acceptance criteria for the upload story",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Give me Given/When/Then scenarios for the saved-search slice, including error states",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I need to make sure QA knows exactly when this story counts as done",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no artifact keyword"
+    },
+    {
+      "q": "Turn this PRD section on two-factor login into testable pass/fail conditions for engineering handoff",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Engineering keeps interpreting the coupon story differently; pin down the observable behavior that means it is complete",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Add non-functional criteria for performance and accessibility to the checkout story before sprint handoff",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "What are the verifiable done conditions for the story where users export their billing history?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Draft GWT acceptance criteria covering the happy path plus validation failures for the profile editing slice",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our QA lead wants unambiguous scenarios she can pass or fail for the notification preferences work",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Spell out what done means for this feature slice so the contractor team cannot misread it",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Break the loyalty program feature into user stories for sprint planning",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-user-stories",
+      "notes": "Writing the stories themselves is the partner's job; this skill deepens an existing story"
+    },
+    {
+      "q": "Catalog all the boundary conditions, error states, and recovery paths across the entire import feature",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-edge-cases",
+      "notes": "Feature-wide systematic failure coverage; this skill stays story-scoped"
+    },
+    {
+      "q": "We need a systematic sweep of everything that can go wrong in the payments flow before QA writes the test plan",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-edge-cases",
+      "notes": "Whole-feature failure surface, not story-level GWT checks"
+    },
+    {
+      "q": "Define the success metric, sample size, and duration for our pricing A/B test",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "Experiment success metrics, not done-ness for a story"
+    },
+    {
+      "q": "Write the PRD for the referral program so we know what we are building",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-prd",
+      "notes": "No story or slice exists yet to bind criteria to"
+    },
+    {
+      "q": "Create the pre-launch readiness checklist for the mobile release",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-launch-checklist"
+    },
+    {
+      "q": "Summarize what changed in this release for our customers",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-release-notes"
+    },
+    {
+      "q": "Help me center a div with CSS grid",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query to find duplicate email addresses in the users table",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Recommend a strength training plan for a beginner",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

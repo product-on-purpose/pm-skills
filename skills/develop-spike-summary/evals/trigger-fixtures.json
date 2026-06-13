@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "skill": "develop-spike-summary",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write up the results of our three-day spike on integrating with the Stripe Billing API",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We time-boxed two days to see if WebSockets can handle 50k concurrent connections on our stack. Document what we found and whether to proceed.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Summarize the proof-of-concept we ran on the vector database options before the team meeting",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The feasibility investigation into server-side PDF generation is done. Capture the approach, findings, and recommendation.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document the outcome of our exploration into replacing the legacy search with Typesense, including the benchmarks we collected",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I spent a week prototyping the offline sync engine. Turn my scratch notes into a structured summary the team can act on.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write a spike summary for the LLM summarization experiment: what we tried, the evidence, and the open questions",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our designer time-boxed an exploration of canvas-based editing versus DOM-based. Capture the findings and a clear go or no-go.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before we commit engineers to the migration, document what the proof of concept on zero-downtime schema changes actually showed",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The team finished investigating whether the vendor SDK supports our SSO requirements. Get the learnings on paper so nobody has to repeat the explanation.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The spike settled it: we are adopting Typesense. Write the formal decision record with context and consequences.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-adr",
+      "notes": "The spike informed; recording the decision itself is ADR work"
+    },
+    {
+      "q": "We ran eight exploratory user interviews about the sync feature last week. Pull out the patterns and insights.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-interview-synthesis",
+      "notes": "User research exploration, not technical or design feasibility"
+    },
+    {
+      "q": "Based on what the prototype showed, draft a one-page proposal to get stakeholders behind the offline-first approach",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-solution-brief",
+      "notes": "Proposing the solution the spike pointed to"
+    },
+    {
+      "q": "Help us scope the investigation into edge caching: what question should the spike answer and how long should we time-box it?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Spike has not happened yet; this skill documents results"
+    },
+    {
+      "q": "My Docker build keeps failing on the M1 runner, help me fix it",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write the retro doc for the sprint that just ended, what went well and what didn't",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Capture our decision to standardize on the vendor SDK for SSO, including the trade-offs we accepted",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "develop-adr",
+      "notes": "Decision record, not exploration findings"
+    },
+    {
+      "q": "Draft an instrumentation spec for the new sync feature so we can measure adoption",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Recommend a good hotel near the Austin office for my onsite next week",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Document edge cases and error states for the file upload flow before QA planning",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

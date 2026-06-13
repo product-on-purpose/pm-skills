@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "skill": "define-opportunity-tree",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Create an opportunity solution tree for increasing 30-day retention from 40% to 55%",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We have forty feature ideas and no structure; help me connect them back to customer opportunities and the outcome we care about",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask; too many ideas needing structure is a listed use case"
+    },
+    {
+      "q": "Map our activation outcome down to the opportunities from last month's research and candidate solutions for each",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I want to show stakeholders how our roadmap traces from business outcome to customer needs; build the discovery tree",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Organize what we learned in continuous discovery this quarter into an outcome-opportunity-solution structure",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The team keeps jumping straight to solutions; build the tree that forces every idea to trace to a customer opportunity",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Build an opportunity tree for reducing churn in our SMB segment",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "After the user research wrap-up, connect the insights to our north-star outcome and lay out solution options per opportunity",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Teresa Torres style: outcome at the top, opportunities underneath, solutions at the leaves, for our checkout conversion goal",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Help me decide which opportunity spaces to pursue next quarter by structuring them under our engagement outcome",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I have a flat list of 12 candidate features; score and rank them with RICE and weighted scoring",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-prioritization-framework",
+      "notes": "Ranking a flat list of known candidates, per When NOT to Use"
+    },
+    {
+      "q": "We haven't agreed what outcome to drive next quarter; help me write the OKRs first",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-okr-writer",
+      "notes": "The outcome must be set before a tree, per When NOT to Use"
+    },
+    {
+      "q": "Frame the one problem we're tackling this sprint as a problem statement",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "One specific problem to frame; define-problem-statement territory"
+    },
+    {
+      "q": "We're ready to test the freemium assumption; write a testable hypothesis with success metrics",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Build a JTBD canvas for why ops teams hire our monitoring product",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Draw a customer journey map for the trial-to-paid experience",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Why is my git rebase hitting conflicts on every commit? Walk me through fixing it",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Write a Python script to scrape pricing pages from competitor sites",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated scripting ask"
+    },
+    {
+      "q": "Plan my travel itinerary for the product conference in Amsterdam",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "Create the launch checklist for next month's platform release",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

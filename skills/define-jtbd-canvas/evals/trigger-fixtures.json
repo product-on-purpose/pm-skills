@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "skill": "define-jtbd-canvas",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Build a Jobs to be Done canvas for freelancers using our invoicing product",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Our personas feel like demographic cardboard; I want to understand what customers are actually trying to accomplish when they hire us",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask; personas too surface-level is a listed use case"
+    },
+    {
+      "q": "Map the functional, emotional, and social dimensions of the job our meal-kit subscribers are hiring us for",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Customers keep switching from spreadsheets to our tool and I want to capture the underlying progress they're seeking",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're repositioning the product around customer progress instead of features; create the JTBD canvas to anchor that work",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Use the interview synthesis we finished last week to build a jobs-to-be-done canvas for the onboarding segment",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Create a JTBD canvas for small-business owners managing payroll",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Marketing wants messaging that resonates; help me articulate the job, the struggle, and the emotional stakes our buyers experience",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask, no canvas keyword"
+    },
+    {
+      "q": "Why do customers fire their current analytics tool and hire ours? Frame it with the jobs framework",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Capture the circumstances, motivations, and desired outcomes behind why teams adopt our API product",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Design needs a person-shaped artifact with goals, behaviors, and quotes for the new dashboard work; build that profile",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-persona",
+      "notes": "Person-shaped artifact for design belongs to the persona skill, per When NOT to Use"
+    },
+    {
+      "q": "I have 15 raw customer interview transcripts; pull out the patterns and insights first",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-interview-synthesis",
+      "notes": "Raw research must be synthesized before a canvas, per When NOT to Use"
+    },
+    {
+      "q": "Frame the cart-abandonment problem as a one-page problem statement for the team",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Framing one specific problem; define-problem-statement territory"
+    },
+    {
+      "q": "Build an opportunity solution tree connecting our retention goal to customer opportunities",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Compare our positioning against the top four competitors in a structured analysis",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write the PRD for the job-board feature we committed to last quarter",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Contains 'job' but is a specification ask"
+    },
+    {
+      "q": "My Docker container can't reach the host database; help me debug the networking",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Write a SQL window function that ranks customers by lifetime value",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Arrange travel for three days of customer visits in Toronto",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "Draft this quarter's OKRs for the growth team",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

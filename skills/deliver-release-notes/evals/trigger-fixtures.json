@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "skill": "deliver-release-notes",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write release notes for version 4.2: we shipped dark mode, faster search, and fixed the export bug",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Turn this changelog of merged PRs into something customers will actually want to read",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "No 'release notes' keyword; benefit-translation intent"
+    },
+    {
+      "q": "We're shipping the spring update on Friday; draft the what's-new announcement for the in-app banner and email",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Prepare the app store update description for the new iOS build",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Support and sales keep getting surprised by what we ship; write the customer-facing summary of this release for them",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Translate these engineering ticket titles into benefit-focused notes users can understand for the monthly product update",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Draft release notes for the Q2 platform update, highlighting the three biggest features",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our users have no idea we fixed the sync issue they kept complaining about; announce this release in a way that rebuilds trust",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask, no artifact keyword"
+    },
+    {
+      "q": "Write the customer email announcing the new integrations we shipped this sprint",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Summarize this release for customers: new SSO support, two performance improvements, five bug fixes, all in user-benefit language",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The release is in two weeks; build the checklist that makes sure marketing, support, and legal are ready for it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-launch-checklist",
+      "notes": "Coordinating launch readiness, not communicating the ship, per When NOT to Use"
+    },
+    {
+      "q": "Send leadership the weekly progress update on the migration project; nothing has shipped yet",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "Progress update to internal stakeholders, not an announcement of shipped changes"
+    },
+    {
+      "q": "Generate a technical changelog from these commit messages for the developer docs",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Engineering-facing record; the skill's boundary keeps the changelog separate"
+    },
+    {
+      "q": "Write user stories for the notification preferences feature",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Nothing user-visible shipped this cycle, it was all refactoring; write a retrospective on the refactor work instead",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "The skill's own boundary says skip the cycle when nothing user-visible shipped"
+    },
+    {
+      "q": "Draft the PRD for the upcoming billing revamp",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Fix this TypeError in my React component when the props are undefined",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Write a SQL query to count weekly active users by cohort",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "What restaurants should I book for a client dinner in Chicago?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "Create a competitive analysis of the top three release-management tools",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Contains 'release' but is a discover-phase research ask"
+    }
+  ]
+}

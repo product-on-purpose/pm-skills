@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "skill": "deliver-edge-cases",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Document the edge cases for the file upload feature before engineering starts",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "What boundary conditions and error states should we cover for bulk CSV import?",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "List everything that can go wrong in the checkout flow, with a recovery path for each",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no edge-case keyword"
+    },
+    {
+      "q": "We keep getting burned by weird inputs in production; map the failure surface of the search feature",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Prepare a QA catalog of unusual and failure scenarios for the scheduling feature",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "What happens at the limits for the cart: zero items, max items, expired sessions, concurrent edits? Enumerate them",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Identify the race conditions and timeout scenarios we need to design for in the sync engine",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before launch, make sure every error state in onboarding has a designed message and recovery path",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Review this PRD and enumerate the boundary and failure scenarios it does not cover",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "After last week's outage, build a systematic catalog of failure modes for the notifications pipeline",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write Given/When/Then acceptance criteria for the password reset story",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-acceptance-criteria",
+      "notes": "Story-scoped GWT checks for handoff belong to the partner"
+    },
+    {
+      "q": "Add testable done conditions, including a couple of error scenarios, to this single user story for handoff",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-acceptance-criteria",
+      "notes": "Error scenarios inside one story's criteria stay with acceptance criteria"
+    },
+    {
+      "q": "I need story-scoped pass/fail conditions for the export slice so QA can sign off",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-acceptance-criteria",
+      "notes": "Done-ness for a slice, not the feature-wide failure catalog"
+    },
+    {
+      "q": "A production incident just happened; write up the lesson so future teams avoid repeating it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-lessons-log",
+      "notes": "Banking the learning comes first; the catalog gets updated after"
+    },
+    {
+      "q": "Build the pre-launch checklist covering support, legal, and marketing readiness",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-launch-checklist",
+      "notes": "Launch readiness coordination, not failure analysis"
+    },
+    {
+      "q": "Break the reporting feature into user stories for the next two sprints",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-user-stories"
+    },
+    {
+      "q": "Write the PRD for the document signing feature",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-prd",
+      "notes": "Feature not specified enough yet to enumerate inputs and limits"
+    },
+    {
+      "q": "Fix this flaky Jest test that fails intermittently in CI",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query that finds orders with negative totals",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Suggest a birthday gift for my 8 year old nephew",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

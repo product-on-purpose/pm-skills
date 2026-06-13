@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "skill": "measure-experiment-results",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write up the results of the checkout button A/B test that hit significance yesterday",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Our onboarding experiment ended early because of a guardrail breach. Document what happened and what we learned.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The paywall test finished: treatment up 4.2% on conversion, p=0.03. Turn this into a readout for stakeholders who weren't involved.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Summarize the pricing page experiment outcome with confidence intervals and a ship, iterate, or kill recommendation",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We ran the email cadence test for six weeks. Analyze the primary and guardrail metrics and tell the org what we found.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document the experiment readout for the recommendation widget, including segment breakdowns by platform and tenure",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The dark mode test came back flat. Write an honest results doc so we stop relitigating it.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Turn the raw numbers from the search ranking test into a findings document with learnings that go beyond the stats",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Leadership wants to know if the free trial extension experiment worked. Put together the results with the statistics and a clear recommendation.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our growth experiment on referral incentives just concluded. Capture the outcome so future teams can learn from it.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Design an A/B test for the new paywall: hypothesis, variants, sample size, and how long it needs to run",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "Experiment not run yet; design comes before results"
+    },
+    {
+      "q": "The experiment data is in and it is bleak. Should we change direction on the freemium strategy or stay the course? Lay out the options and decide.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-pivot-decision",
+      "notes": "Direction decision attached; results skill reports, pivot skill decides"
+    },
+    {
+      "q": "Analyze the 600 responses from our churn survey and summarize the drivers",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-survey-analysis",
+      "notes": "Survey responses, not a controlled experiment"
+    },
+    {
+      "q": "Spec the tracking events we need in place before the experiment launches next sprint",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "My significance calculator script throws a divide-by-zero error, can you fix it?",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "We want to test three subject-line variants next month. What metrics, guardrails, and stopping rules should the experiment have?",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "Future experiment setup, not a completed readout"
+    },
+    {
+      "q": "Add the transferable lessons from our last five experiments to the team's knowledge base",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "iterate-lessons-log",
+      "notes": "Banking organizational learnings, not a single experiment readout"
+    },
+    {
+      "q": "Build the dashboard requirements for ongoing experiment program health",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Translate this results document into French for the Paris office",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write a testable hypothesis with success metrics for the new activation idea before we build anything",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

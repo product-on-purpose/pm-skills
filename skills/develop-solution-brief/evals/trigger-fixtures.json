@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "skill": "develop-solution-brief",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write a one-page solution brief for the in-app referral program",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I need something short that gets leadership aligned on our approach to self-serve onboarding before we write the full spec",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Pitch the proposed fix for cart abandonment to stakeholders: the approach, key features, and what we are explicitly not doing",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Summarize the proposed offline mode solution on one page, with success metrics and risks, ahead of the steering meeting",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We have three candidate approaches to notification overload. Draft a brief that recommends one and shows the trade-offs.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Engineering and design keep describing different products. Put the intended solution on a single page so everyone aligns before PRD work starts.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Draft a solution overview for the AI-assisted search feature I can socialize with the VP before detailed spec work",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Create a concise pitch doc for replacing our CSV export with a reporting API: problem recap, approach, metrics, next steps",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before we invest a quarter in the partner portal, I want a one-pager that states what we would build, why, and the biggest risks",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Turn this messy solution discussion thread into a tight one-page brief for stakeholder buy-in",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Stakeholders signed off on the approach last week. Now write the full requirements document engineering needs to build the referral program.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-prd",
+      "notes": "Alignment exists; the ask is the full specification"
+    },
+    {
+      "q": "We keep arguing about what problem the churn work is even solving. Frame the problem, the user impact, and success criteria first.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-problem-statement",
+      "notes": "Problem not yet framed; brief comes after"
+    },
+    {
+      "q": "Record the decision we already made to build the export pipeline on Kafka, with its consequences",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-adr",
+      "notes": "Decision already made and technical; ADR records, brief pitches"
+    },
+    {
+      "q": "Score these five feature ideas with RICE and ICE and tell me where the rankings disagree",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write a SQL query to find users who churned in the last 90 days",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Estimate the TAM, SAM, and SOM for our scheduling tool in the European market",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Compare two strategic options for the whole business side by side: problem, channels, revenue model, unfair advantage",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-lean-canvas",
+      "notes": "Whole-business-model comparison, beyond a solution brief"
+    },
+    {
+      "q": "Break the agreed solution into user stories with acceptance criteria for sprint planning",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Draft the employment contract for our new senior PM hire",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write up what we learned from the two-day prototype spike on real-time collaboration",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "develop-spike-summary",
+      "notes": "Documenting exploration results, not proposing a solution"
+    }
+  ]
+}

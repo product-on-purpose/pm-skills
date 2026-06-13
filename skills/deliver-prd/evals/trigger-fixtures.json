@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "skill": "deliver-prd",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write a PRD for the new self-serve onboarding flow",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Engineering keeps asking what exactly we're building and why; I need one doc that settles scope, requirements, and success metrics before the sprint starts",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask, no artifact keyword"
+    },
+    {
+      "q": "We agreed on the problem and the approach for payment retries; now I need the full requirements doc for engineering handoff",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me spec out the requirements for our Q3 epic so design, backend, and mobile are all working from the same source",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Put together a product requirements document for migrating reporting to the new dashboard, including scope boundaries and success metrics",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Stakeholders want to approve scope before we invest two quarters in this initiative; draft the spec doc they can sign off on",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Draft a PRD for adding SSO support to the enterprise tier",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I have a one-pager and leadership buy-in; turn this into a complete requirements document the team can build from",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We're kicking off the offline mode initiative; create the spec that covers requirements, out-of-scope items, dependencies, and risks",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Three teams are coordinating on the shared checkout rebuild; write the document that aligns everyone on what we're building, why, and how we'll measure success",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask, no artifact keyword"
+    },
+    {
+      "q": "Take this feature description and break it into user stories with acceptance criteria for next sprint's tickets",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-user-stories",
+      "notes": "Ticket breakdown for a sprint belongs to the story skill, per the PRD's When NOT to Use"
+    },
+    {
+      "q": "Before we write any detailed spec, I need a one-page solution overview pitching the approach and trade-offs to stakeholders",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "develop-solution-brief",
+      "notes": "One-page pitch for approach alignment comes before the PRD"
+    },
+    {
+      "q": "Document the architectural decision to move from REST to gRPC for our internal services",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Technical decision record; develop-adr territory"
+    },
+    {
+      "q": "Write release notes announcing the new notifications feature to customers",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me put together a pre-launch readiness checklist across marketing, support, and legal",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Summarize what we learned from the 12 customer interviews last week",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write a SQL query that finds users who churned within 30 days of signup",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "My Next.js build is failing with a module resolution error; help me debug it",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Book me a flight and hotel for the product offsite in Austin next month",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "Draft the OKRs for our platform team for next quarter",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

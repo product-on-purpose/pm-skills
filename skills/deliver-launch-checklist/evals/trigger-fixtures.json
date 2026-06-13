@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "skill": "deliver-launch-checklist",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Create a launch checklist for the v3 mobile app release going out in two weeks",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We ship the enterprise tier in ten days and I'm worried support and legal haven't signed off; help me track readiness across every team",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask, no artifact keyword"
+    },
+    {
+      "q": "Build the go/no-go readiness doc for the payments migration, including rollback plan and owner assignments",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're coordinating engineering, marketing, and support for the rebrand launch; I need one artifact that catches anything we've missed before the date",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Kicking off launch planning for the AI assistant feature; draft the cross-functional pre-launch checklist",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Last launch we forgot to brief the support team and it was a mess; set up the readiness tracking so that never happens again",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Put together a pre-launch checklist for the self-serve pricing change, owners and dates included",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "What needs to be verified across legal, ops, and marketing before Thursday's feature rollout? Make me the tracking doc",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Major version release next sprint; create the readiness checklist with go/no-go criteria and a rollback plan",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our launch tier is major this time; generate the full cross-functional readiness list so we can review it at kickoff",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The feature ships tomorrow; write the customer-facing announcement of what's new and improved",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-release-notes",
+      "notes": "Communicating the ship, not coordinating readiness, per When NOT to Use"
+    },
+    {
+      "q": "We're not sure this should ship at all; design the A/B test that tells us whether to roll it out",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-experiment-design",
+      "notes": "Validating whether to ship belongs to experiment design, per When NOT to Use"
+    },
+    {
+      "q": "The launch happened last week; run a retrospective on how it went",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Post-launch reflection; iterate-retrospective territory"
+    },
+    {
+      "q": "Draft a PRD for the referral program so engineering can start building",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "It's a tiny copy change shipping from one team; just write the ticket description for it",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Small single-team change; the skill's own boundary says skip the checklist"
+    },
+    {
+      "q": "Summarize the launch metrics from the dashboard and tell me whether we hit the activation target",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write a Python script that renames thousands of image files by date",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated scripting ask"
+    },
+    {
+      "q": "Plan a five-day trip to Lisbon for our team offsite, flights and hotels included",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "Help me debug why our Kubernetes pods keep crash-looping after the deploy",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Map the stakeholders for the platform migration so I know who needs to be aligned",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

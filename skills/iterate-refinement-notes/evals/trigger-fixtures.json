@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "skill": "iterate-refinement-notes",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write up the notes from today's backlog refinement: stories estimated, questions raised, decisions made",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Half the team missed grooming. Capture what we estimated and decided so they can catch up.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document the outcomes of the refinement session: the payments epic got split and two stories are blocked on legal",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Turn my scratchpad from this afternoon's grooming session into structured notes with open questions and owners",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before sprint planning, summarize what got refined this week and which stories are actually ready",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Capture the estimates and scope changes we agreed in refinement, plus the spike we decided to run first",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Record the backlog grooming outcomes: points per story, parking lot items, and what we refine next session",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "A new engineer joined mid-quarter. Put together refinement notes that explain how these backlog stories evolved and where they stand.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "These five stories went stale and we re-refined them today. Document what changed and the new estimates.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Summarize today's refinement so absent folks know which stories moved to ready and what's still blocked",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write the user stories with acceptance criteria for the payments epic before we bring them to refinement",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-user-stories",
+      "notes": "Authoring the stories themselves, not recording session outcomes"
+    },
+    {
+      "q": "Send a recap of this morning's leadership sync with decisions and action items",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "General meeting summary, not a backlog-refinement record"
+    },
+    {
+      "q": "Facilitate and document the sprint retro: what went well, what didn't, what we'll change",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-retrospective",
+      "notes": "Retrospective ceremony, not refinement outcomes"
+    },
+    {
+      "q": "Write Given/When/Then acceptance criteria for the checkout story",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Fix the flaky Jest test in the backlog service repo",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "The login story is refined; now enumerate its failure scenarios and error states for QA",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-edge-cases",
+      "notes": "Post-refinement edge-case enumeration belongs elsewhere"
+    },
+    {
+      "q": "Summarize the quarterly business review meeting for the folks who couldn't attend",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "Absent-attendee summary, but not a refinement session"
+    },
+    {
+      "q": "Draft the sprint goal and pick which stories go into next sprint",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Renew my passport: what documents do I need?",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write release notes for the features that shipped this sprint",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

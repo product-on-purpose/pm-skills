@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "skill": "deliver-user-stories",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Break the new bulk-export feature into user stories for next sprint",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write Jira tickets for the password reset flow in persona, action, benefit format",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I have an approved PRD for in-app notifications; turn it into stories engineering can pick up",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me slice this big checkout redesign into small shippable increments the team can estimate",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no story keyword"
+    },
+    {
+      "q": "I need to communicate the reporting feature scope to engineering in story form",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Draft user stories for the admin role management epic and check them against INVEST",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Sprint planning is tomorrow and the search revamp is still one giant blob; help me break it down into ticket-sized pieces",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing, no story keyword"
+    },
+    {
+      "q": "Convert these requirements for the mobile onboarding flow into As a / I want / so that stories",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Generate stories from this feature description: customers can save carts and share them with teammates",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our backlog needs the data import capability split into estimable work items with clear user value",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing, no story keyword"
+    },
+    {
+      "q": "Write Given/When/Then acceptance criteria for the cart sharing story",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-acceptance-criteria",
+      "notes": "Story already exists; deepening it with GWT criteria is the partner's job"
+    },
+    {
+      "q": "Deepen this existing story with testable done conditions QA can pass or fail at handoff",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-acceptance-criteria",
+      "notes": "QA-ready done conditions on a single story belong to acceptance criteria"
+    },
+    {
+      "q": "The story for CSV import is written; I need QA-ready scenarios covering the happy path and error states",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-acceptance-criteria",
+      "notes": "Story-scoped testable scenarios, not story writing"
+    },
+    {
+      "q": "Catalog every boundary condition and failure mode across the whole file upload feature",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-edge-cases",
+      "notes": "Feature-wide failure catalog belongs to edge cases"
+    },
+    {
+      "q": "Write the PRD for our new analytics module before we break anything down",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-prd",
+      "notes": "Feature not yet specified; PRD comes before stories"
+    },
+    {
+      "q": "Capture the estimates, scope decisions, and open questions from today's backlog refinement session",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "iterate-refinement-notes",
+      "notes": "Refinement-session outcomes, not story authoring"
+    },
+    {
+      "q": "Draft user-facing release notes for the v3.2 update",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-release-notes"
+    },
+    {
+      "q": "Debug this Python script that throws a KeyError on startup",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query joining the orders and customers tables by region",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Plan a week-long trip to Portugal in October",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}

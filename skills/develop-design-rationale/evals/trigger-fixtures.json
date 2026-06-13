@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "skill": "develop-design-rationale",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Document the design rationale for moving filters into a left sidebar instead of the top bar",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We debated three onboarding flows and landed on progressive profiling. Write down why before the context evaporates.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Prepare the reasoning behind the new card-based dashboard layout for Thursday's design review",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Capture which alternatives we considered for the mobile navigation and why bottom tabs won",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "New designers keep asking why search is hidden behind an icon on mobile. Put the original reasoning and trade-offs in writing.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write up why we adopted inline editing over modal dialogs in our table views, including what we sacrificed",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I want a record of why the checkout uses a single accent color, with the accessibility criteria we evaluated against",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Design chose skeleton screens over spinners across the app. Document the options we weighed and the principles applied.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before we ship the redesigned settings page, document why we grouped preferences by task instead of by feature area",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Stakeholders keep relitigating the removal of the hamburger menu. Give me a document that walks through the alternatives and why we chose what we chose.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Record our decision to move session storage from cookies to Redis, with the consequences",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-adr",
+      "notes": "Technology selection, Nygard ADR territory"
+    },
+    {
+      "q": "Give me a one-page overview of the proposed redesign I can use to get exec buy-in",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-solution-brief",
+      "notes": "Pitching for alignment, not preserving decision reasoning"
+    },
+    {
+      "q": "We spent two days exploring whether the design system tokens can support theming. Summarize the findings and the recommendation.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-spike-summary",
+      "notes": "Time-boxed exploration findings, not a decision record"
+    },
+    {
+      "q": "Synthesize the usability test sessions from last week into themes and recommendations",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Write acceptance criteria for the new filter sidebar story",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Fix the CSS so the sidebar stops overlapping the footer at small breakpoints",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Document why we selected Postgres full-text search over Elasticsearch and what trade-offs we accepted",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "develop-adr",
+      "notes": "Reasoning ask, but the decision is architectural"
+    },
+    {
+      "q": "Draft release notes announcing the redesigned dashboard to customers",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Plan a two-day team offsite agenda for the design org",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Map the customer journey for first-time buyers from landing page to first purchase",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

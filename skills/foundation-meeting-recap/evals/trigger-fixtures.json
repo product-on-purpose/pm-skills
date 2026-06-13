@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "skill": "foundation-meeting-recap",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write a recap of today's product sync with decisions highlighted and actions grouped by owner",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Here is the Otter transcript from our quarterly planning meeting; turn it into a topic-segmented summary for attendees",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Summarize this morning's standup-turned-debate so the team has the outcomes in writing",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We had the API deprecation meeting an hour ago; capture what was decided and who owes what by when",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no recap keyword"
+    },
+    {
+      "q": "Reconcile the agenda we planned against what we actually covered in the roadmap review, and list the actions",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Turn these messy notes from the pricing discussion into a clean summary the attendees can reference",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Generate the post-meeting summary from this Google Meet transcript, flagging actions that have no owner",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "After that two hour architecture meeting nobody remembers what we agreed; write it up",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Produce a recap of the launch go/no-go meeting with the decision bolded and follow-ups consolidated",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Take the Fireflies transcript from the vendor evaluation call and give the team a topic-organized writeup",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Synthesize the patterns across our 9 customer discovery interviews into insights and recommendations",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-interview-synthesis",
+      "notes": "Aggregating research conversations across participants is the partner's job"
+    },
+    {
+      "q": "Aggregate what we heard in this round of usability tests into evidence-backed findings",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-interview-synthesis",
+      "notes": "Research session synthesis, not an internal meeting summary"
+    },
+    {
+      "q": "These are transcripts from user research sessions with 7 participants; extract the cross-participant themes with quotes",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-interview-synthesis",
+      "notes": "Transcript input tempts this skill, but multi-participant research belongs to synthesis"
+    },
+    {
+      "q": "Identify trends across the last month of team meetings, not just one of them",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-synthesize",
+      "notes": "Cross-meeting synthesis is out of scope for a single recap"
+    },
+    {
+      "q": "Draft the agenda for next week's quarterly planning meeting with time-boxed topics",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-agenda",
+      "notes": "Pre-meeting artifact, not post-meeting"
+    },
+    {
+      "q": "Write an update on the project for execs who were not in the room",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "Non-attendee communication; recap assumes reader context"
+    },
+    {
+      "q": "Help me prepare privately for tomorrow's tense roadmap negotiation: stakes, positions, and asks",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-brief"
+    },
+    {
+      "q": "Debug why my Express server returns 502s behind nginx",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query listing meetings per attendee from this events table",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated; meeting keyword but a SQL task"
+    },
+    {
+      "q": "Recommend a sci-fi novel similar to Project Hail Mary",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    }
+  ]
+}
