@@ -11,7 +11,7 @@
 | 4. Fixtures: remainder of roster | DONE (2026-06-12: remaining 18 roster skills; full 29-file roster validates clean; near-miss targets annotated beyond the mandate to enrich the future --collision sweep) |
 | 5. Harness | DONE (2026-06-12: `run-trigger-evals.mjs` + 6-case test; detection/aggregation/report pure functions unit-tested on canned transcripts; `--probe` mode added for the live transcript-shape check the spec risk note requires; dry-run math matches the spec estimate, 1,740 invocations full roster) |
 | 6. workflow_dispatch lane | DONE (2026-06-12: `.github/workflows/trigger-evals.yml`; dry_run defaults TRUE, fixture validator is a hard gate in-lane, report uploads as artifact; needs the ANTHROPIC_API_KEY secret for live legs) |
-| 7. Baseline run + triage record | TODO |
+| 7. Baseline run + triage record | READY TO RUN (record resource `records/trigger-eval-baseline.md` created 2026-06-13 with run-log template + how-to; probe now reports real per-call token usage. Needs: run in a scratch dir where the plugin is enabled, on Haiku, preferably via API key. NOT yet executed) |
 | 8. Docs + hygiene sync | PARTIAL (2026-06-12: skill-versioning T-B no-bump rule recorded; CHANGELOG Unreleased entry added; contributor doc + brief flip remain) |
 
 ---
@@ -54,7 +54,7 @@ Files: the remaining roster skills (rest of the 26-skill cohort).
 Files: `scripts/run-trigger-evals.mjs`, `scripts/run-trigger-evals.test.mjs`.
 
 - Pure detection function over a `claude -p --output-format json` transcript (Skill tool fired for target skill?); runner loop (3 runs per query, rate vs threshold, pass/fail vs `expect`); per-skill and aggregate reporting (train and validation separated, validation headline); `--skills` filter; `--collision` sweep; `--report <path>` markdown output; `--dry-run` prints the plan + invocation count.
-- Before batch-running: ONE live probe invocation to confirm transcript shape and headless skill discovery (reuse the agentic-smoke-runbook's install-at-user-scope pattern; watch its recorded plugin-cache Glob quirk).
+- Before batch-running: ONE live probe invocation to confirm transcript shape and headless skill discovery (reuse the agentic-smoke-runbook's install-at-user-scope pattern; watch its recorded plugin-cache Glob quirk). The probe now also prints a real per-call token-usage line (`extractUsage`); multiply by 1740 (full) / ~600 (collision batch) for a grounded cost estimate. NOTE from a 2026-06-13 probe run inside the repo: the call succeeded but `skillFired=false` because the plugin is local-disabled in the repo cwd, and per-call input was ~56k tokens because this dev box has many other plugins loaded. Both confounders vanish in a clean scratch dir with only pm-skills installed (lower context, plugin discoverable) - run the real baseline there.
 - `.test.mjs` covers detection + report math on canned transcripts only (no API in CI).
 - Validation: unit tests green; a real single-skill run produces a correct report.
 

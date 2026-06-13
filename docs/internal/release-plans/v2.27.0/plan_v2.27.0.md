@@ -4,7 +4,7 @@
 **Owner:** Maintainers
 **Type:** MINOR (new advisory CI capability + eval fixtures + a generated manifest + AGENTS.md generation; no new skills, no catalog count change; the marketplace submission is a distribution action with no code).
 **Theme:** Prove + industrialize. After v2.26.0 closed the authoring + quality-convergence gap, v2.27.0 converts quality claims into verifiable properties (the first lane of the published per-skill eval standard), kills the hand-sync drift class before the catalog grows again (derived surfaces), and fixes the cheapest distribution defect (absence from the in-app Discover tab).
-**Created:** 2026-06-10 (stub at v2.26.0 G4) | **Updated:** 2026-06-12 R2
+**Created:** 2026-06-10 (stub at v2.26.0 G4) | **Updated:** 2026-06-13 R3 (community-marketplace submission demoted from committed scope to BEST-EFFORT, non-blocking, per maintainer decision after a prior ~4-6-week-stale rejection with no feedback; trigger-eval baseline record + probe usage-reporting added)
 **Companion docs (this directory):** [`spec_trigger-accuracy-evals.md`](spec_trigger-accuracy-evals.md) + [`implementation-plan_trigger-accuracy-evals.md`](implementation-plan_trigger-accuracy-evals.md) | [`spec_derived-surfaces.md`](spec_derived-surfaces.md) + [`implementation-plan_derived-surfaces.md`](implementation-plan_derived-surfaces.md)
 **Effort briefs:** [M-31 trigger-accuracy evals](../../efforts/M-31-trigger-accuracy-evals.md) | [M-32 derived surfaces](../../efforts/M-32-derived-surfaces.md) | [M-25 community-marketplace submission](../../efforts/M-25-community-marketplace-submission.md)
 
@@ -13,8 +13,8 @@
 ## Why this scope, why now
 
 1. **Trigger accuracy is now a published, measurable standard.** The agentskills.io skill-creation guides codify trigger evals (labeled query sets, 60/40 train/validation split, trigger-rate thresholds) and per-skill output evals (`evals/evals.json`). No PM skill library currently conforms. The 2026-06-09 audit found description collisions by hand; F-12 Batch 0 (v2.26.0) fixed them; M-31 makes recurrence detectable instead of relying on the next manual audit. Sequenced AFTER F-12 by design, so fixtures test the corrected corpus.
-2. **M-25 was verified open on 2026-06-09** (no issue exists; no Discover-tab listing across issues, CHANGELOG, roadmap, or audit). The community marketplace puts pm-skills in the Discover tab of every Claude Code install with zero change to existing install paths, and its SHA-pinned listing model is itself a trust signal.
-3. Both items are the first two moves of the competitive roadmap's top-priority pillars (provable quality; distribution-as-product) while staying small enough to ship on the normal cadence.
+2. **Community-marketplace reach (community-marketplace submission, M-25) is the cheapest distribution win**, but a prior submission was rejected ~4-6 weeks ago with no reason given, and the community pipeline has TWO gates (automated security scanning AND a manual Anthropic approval/curation step; source: code.claude.com/docs discover-plugins + the community repo, fetched 2026-06-13). A no-feedback rejection most likely came from the opaque manual/curation gate, outside our control. It is therefore demoted to BEST-EFFORT (see the Best-effort section below): it never blocks the tag; a resubmit-with-record is the action, not a committed deliverable.
+3. The two build items (trigger evals, derived surfaces) are the first moves of the competitive roadmap's top-priority pillars (provable quality; sustainable surfaces) while staying small enough to ship on the normal cadence.
 
 ## Scope - what v2.27.0 ships (committed)
 
@@ -22,7 +22,12 @@
 |---|---|---|---|
 | **Trigger-accuracy eval harness, Phase 1 (M-31)** | #200 | Trigger fixtures for the F-12 cohort + collision partners (29 files) in the published format; local + cost-gated CI harness; deterministic fixture validator wired ADVISORY (Tasks 1-2 LANDED 2026-06-12); recorded baseline | claude (fixtures) + codex (harness/validator) |
 | **Derived surfaces, Phase 1 (M-32)** | #201 (closes #87, open since January, on ship) | `skill-manifest.json` generated from frontmatter + AGENTS.md catalog section generated between markers, both behind ENFORCING `--check` staleness gates; retires the disabled `sync-agents-md.yml` | codex or claude |
-| **Community-marketplace submission (M-25)** | #202 | `claude plugin validate`, submit to Anthropic's community marketplace, verify Discover-tab listing + install smoke; self-hosted path unchanged | human (submission) + claude (prep/verification) |
+
+## Best-effort (non-blocking; not a tag gate)
+
+| Item | Issue | One-line intent | Agent |
+|---|---|---|---|
+| **Community-marketplace submission (M-25)** | #202 | Resubmit pm-skills to Anthropic's community marketplace (now materially more mature than the rejected ~May submission), capturing the exact submission record this time; verify Discover-tab listing + install smoke if approved. Self-hosted path unchanged. NEVER blocks the v2.27.0 tag | human (submission) + claude (prep/record) |
 
 ## Workstream WS-B: release hygiene + command polish (plan rows, not effort briefs, per the v2.26.0 P-F precedent)
 
@@ -50,12 +55,12 @@ Standing principle (applies to everything above and all future work): durable CI
 ## Sequencing + dependencies
 
 1. **File the three issues: DONE 2026-06-12** (#200 trigger evals / #201 derived surfaces / #202 marketplace submission; IDs verified free; `v2.27.0` milestone created as milestone 5).
-2. **Marketplace submission prep (M-25)** (S): `claude plugin validate`; fix anything flagged; submit. External review latency is outside our control, so start first; listing verification is an evidence gate, not a build step.
+2. **Marketplace submission (community-marketplace submission, M-25): BEST-EFFORT, non-blocking.** `claude plugin validate` is recorded clean. Resubmit when convenient (the plugin is now materially more mature than the rejected ~May version), capture the submission record, and treat any listing as a bonus that may land long after the tag. Do NOT gate the release on it. See the rejection analysis in the effort brief.
 3. **Specs: DONE 2026-06-12** (both spec + implementation-plan pairs in this directory). Build pre-authorized; G1 adversarial review still runs before tag and findings fold back into the specs.
 4. **Trigger evals (M-31) build** per its implementation plan: validator + advisory wiring -> collision-batch fixtures -> remaining fixtures -> harness + dispatch lane -> recorded baseline + triage.
 5. **Derived surfaces (M-32) build** per its implementation plan, in parallel with item 4 (independent): generator + manifest + gate -> AGENTS.md markers + first-generation diff triage + gate + sync-workflow retirement.
 6. **WS-B hygiene + polish rows** land as small independent PRs any time in the window; WS-B1 (scar sweep) before any new `_workflows` content is authored.
-7. **Tag v2.27.0** via the 6-gate runbook once the evidence gates are recorded (trigger-eval baseline report; marketplace submission record, with the listing itself allowed to trail the tag if Anthropic review is pending: record the submission, disclose in release notes). Keep this plan's scope table and the two implementation-plan task tables current as PRs land (update-plans-as-you-ship).
+7. **Tag v2.27.0** via the 6-gate runbook once the SINGLE evidence gate is recorded: the trigger-eval baseline report (`records/trigger-eval-baseline.md`). The marketplace submission (M-25) is best-effort and does NOT gate the tag; mention its state in release notes if relevant. Keep this plan's scope table and the two implementation-plan task tables current as PRs land (update-plans-as-you-ship).
 
 ## Decisions (lettered for review)
 
@@ -70,6 +75,7 @@ Standing principle (applies to everything above and all future work): durable CI
 | Q-G | The marketplace submission (M-25) gets NO separate spec; its effort brief is the spec | External action, not a build; the brief already carries scope, steps, validation, and open questions |
 | Q-H | Hygiene + polish items enter as WS-B plan rows, not effort briefs | The v2.26.0 P-F no-effort-doc-bloat precedent |
 | Q-I | The two M-26/M-27 operating-layer candidates ride this release as WS-B3/WS-B4 plan rows under their roadmap names (command argument hints; displayName + context-cost measurement) | S-sized, immediate UX gain, and WS-B4's measured token cost is the input the plugin-split decision needs |
+| Q-J | Community-marketplace submission (M-25) demoted from committed scope to BEST-EFFORT, non-blocking (2026-06-13) | A prior submission was rejected ~4-6 weeks ago with no feedback; the community pipeline gates on automated scanning AND opaque manual approval, so the outcome is outside our control. Gating a release on an unpredictable external review violates the repo's evidence-gate discipline. Resubmit-with-record is the action; the trigger-eval baseline is the only tag gate |
 
 ## How each item ships (standard pipeline)
 

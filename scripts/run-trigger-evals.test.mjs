@@ -2,7 +2,7 @@
 // transcripts only (no API calls; see the harness --probe mode for live shape checks).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseEvents, skillFired, aggregate, renderReport } from './run-trigger-evals.mjs';
+import { parseEvents, skillFired, aggregate, renderReport, extractUsage } from './run-trigger-evals.mjs';
 
 test('parseEvents reads stream-json lines and ignores noise', () => {
   const out = 'starting up\n{"type":"system","subtype":"init"}\n{"type":"assistant","message":{"content":[{"type":"tool_use","name":"Skill","input":{"skill":"deliver-prd"}}]}}\nnot json\n';
@@ -45,6 +45,18 @@ test('renderReport lists failures and collision false-fires', () => {
   assert.ok(report.includes('| deliver-prd | 100% | 0% | 1 |'));
   assert.ok(report.includes('expected trigger, fired 0x: "missed ask"'));
   assert.ok(report.includes('COLLISION false-fire on deliver-user-stories'));
+});
+
+test('extractUsage reads the result event usage + cost', () => {
+  const out = '{"type":"assistant","message":{"content":[{"type":"text","text":"hi"}]}}\n{"type":"result","subtype":"success","usage":{"input_tokens":120,"output_tokens":40,"cache_read_input_tokens":24000},"total_cost_usd":0.012}';
+  const u = extractUsage(parseEvents(out));
+  assert.equal(u.input_tokens, 120);
+  assert.equal(u.cache_read_input_tokens, 24000);
+  assert.equal(u.total_cost_usd, 0.012);
+});
+
+test('extractUsage returns null when no usage block is present', () => {
+  assert.equal(extractUsage(parseEvents('{"type":"system","subtype":"init"}')), null);
 });
 
 test('renderReport shows none when everything passes', () => {

@@ -1,6 +1,6 @@
 # [M-25] Community-marketplace submission (Anthropic claude-plugins-community)
 
-Status: Planned (v2.27.0)
+Status: BEST-EFFORT (v2.27.0; non-blocking, NOT a tag gate, per plan decision Q-J 2026-06-13)
 Milestone: v2.27.0
 Issue: #202 (filed 2026-06-12; milestone v2.27.0. ID reserved by `docs/internal/roadmap.md` since 2026-05-31; verified NOT done as of 2026-06-09: no Discover-tab listing recorded anywhere)
 Agent: human (submission is an external account action) + claude (validation prep, docs, verification)
@@ -14,6 +14,17 @@ Submit the pm-skills plugin to Anthropic's community plugin marketplace (`anthro
 pm-skills is currently discoverable only via its self-hosted marketplace (requires knowing the owner/repo), skills.sh, and the repo itself. The Discover tab is the single largest zero-cost distribution surface available, and the community marketplace's mechanics are themselves trust signals aligned with the repo's positioning: each listed plugin passes Anthropic's automated validation and safety screening and is pinned to a specific commit SHA. The competitive analysis (2026-06-12) classifies absence from it as a distribution defect, not a marketing gap: the product claims broad availability, and this path is missing.
 
 Do not conflate with closed efforts #117 (M-15 community contribution setup) or #15 (awesome-claude-skills submission); this is the in-app marketplace, distinct from both.
+
+## Prior rejection (investigation, 2026-06-13)
+
+A prior submission was rejected ~4-6 weeks ago (roughly early-to-mid May 2026) with NO reason or suggestions given. Investigation against the public docs (code.claude.com/docs discover-plugins; the `anthropics/claude-plugins-community` repo, both fetched 2026-06-13):
+
+- **The community pipeline has two gates, not one:** (1) automated security scanning, then (2) a **manual Anthropic approval/curation step**, then nightly sync. Submission is via `clau.de/plugin-directory-submission`; PRs opened directly against the repo are auto-closed. This contradicts the earlier brief text that implied a purely automated gate.
+- **A no-feedback rejection most plausibly came from the manual/curation gate**, which is discretionary and opaque. The official marketplace is explicitly "at Anthropic's discretion"; the community tier still carries a manual approval. Neither provides rejection reasons.
+- **Timeline matters:** the public directory got press coverage ~2026-05-25 ("Anthropic flags unverified MCP risks"). The rejection predates or coincides with launch, when the directory and its bar were new. The rejected version of pm-skills was also PRE-HOOKS (hooks shipped v2.25.0, 2026-06-03) and pre-v2.26.0, i.e. a less mature, possibly less manifest-clean submission than today's.
+- **Likely-cause ranking (none confirmable without the actual rejection message):** (1) discretionary curation bar / launch-window backlog [most likely given no feedback]; (2) plugin breadth + always-on context cost (60+ skills) read as unfocused by a curator; (3) name ambiguity with the popular `phuryn/pm-skills`; (4) a manifest issue in the older submission since fixed. MCP-bundling risk is NOT a likely cause: the core plugin does not bundle an MCP server (pm-skills-mcp is a separate, unbundled npm package).
+- **Recommended action: resubmit, with a record.** The plugin is materially more mature now (`claude plugin validate` clean, hooks, eval harness, v2.26.0+, derived surfaces incoming). Capture the exact submission payload, date, and any response this time so a future rejection is diagnosable. Do not re-submit blind on a cadence; one clean resubmit, recorded, then wait.
+- Anthropic does not publish a feedback channel for rejections; the submission form is the only contact surface. Treat the listing as a bonus, never a dependency.
 
 ## How It Works
 

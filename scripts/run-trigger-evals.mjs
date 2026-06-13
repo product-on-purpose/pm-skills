@@ -53,6 +53,26 @@ export function skillFired(events, skill) {
   return false;
 }
 
+/** Pull the usage/cost block out of a headless transcript (the `result` event,
+ *  or any event carrying a usage object). Returns null when absent. Used by --probe
+ *  to report a REAL per-call token count you can multiply by the full run size. */
+export function extractUsage(events) {
+  const stack = [...events];
+  let usage = null;
+  let costUsd = null;
+  while (stack.length) {
+    const n = stack.pop();
+    if (!n || typeof n !== 'object') continue;
+    if (Array.isArray(n)) { stack.push(...n); continue; }
+    if (typeof n.total_cost_usd === 'number') costUsd = n.total_cost_usd;
+    if (n.usage && typeof n.usage === 'object' && ('input_tokens' in n.usage || 'output_tokens' in n.usage)) {
+      usage = n.usage;
+    }
+    stack.push(...Object.values(n));
+  }
+  return usage ? { ...usage, total_cost_usd: costUsd } : null;
+}
+
 /** Aggregate one skill's per-query outcomes into split-level pass rates. */
 export function aggregate(results) {
   const agg = { train: { pass: 0, total: 0 }, validation: { pass: 0, total: 0 } };
@@ -149,6 +169,14 @@ function main() {
     }
     console.log(`events parsed: ${events.length}; tool_use blocks: ${JSON.stringify(tools, null, 2)}`);
     console.log(`skillFired(${fx.skill}) = ${skillFired(events, fx.skill)}`);
+    const usage = extractUsage(events);
+    if (usage) {
+      const inTok = (usage.input_tokens ?? 0) + (usage.cache_read_input_tokens ?? 0) + (usage.cache_creation_input_tokens ?? 0);
+      console.log(`USAGE  per-call input ~${inTok} tokens (uncached ${usage.input_tokens ?? 0}, cache-read ${usage.cache_read_input_tokens ?? 0}, cache-write ${usage.cache_creation_input_tokens ?? 0}), output ${usage.output_tokens ?? 0}${usage.total_cost_usd != null ? `, reported cost $${usage.total_cost_usd}` : ''}`);
+      console.log(`ESTIMATE  full roster = this x 1740 runs (29 skills x 20 queries x 3); collision batch = this x ~600`);
+    } else {
+      console.log('USAGE  no usage block found in transcript (check --output-format; the harness sends stream-json)');
+    }
     return;
   }
 
