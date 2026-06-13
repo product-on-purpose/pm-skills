@@ -2,7 +2,7 @@
 // transcripts only (no API calls; see the harness --probe mode for live shape checks).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseEvents, skillFired, aggregate, renderReport, extractUsage, BATCHES, rateLimitBlocked, mapPool } from './run-trigger-evals.mjs';
+import { parseEvents, skillFired, aggregate, renderReport, extractUsage, BATCHES, rateLimitBlocked, mapPool, apiError } from './run-trigger-evals.mjs';
 import { ROSTER } from './check-trigger-fixtures.mjs';
 
 test('parseEvents reads stream-json lines and ignores noise', () => {
@@ -58,6 +58,13 @@ test('extractUsage reads the result event usage + cost', () => {
 
 test('extractUsage returns null when no usage block is present', () => {
   assert.equal(extractUsage(parseEvents('{"type":"system","subtype":"init"}')), null);
+});
+
+test('apiError catches a failed result event (e.g. credit exhausted), passes a success', () => {
+  const bad = parseEvents('{"type":"result","subtype":"success","is_error":true,"api_error_status":400,"result":"Credit balance is too low"}');
+  assert.equal(apiError(bad), 'Credit balance is too low');
+  const ok = parseEvents('{"type":"result","subtype":"success","is_error":false,"result":"done"}');
+  assert.equal(apiError(ok), null);
 });
 
 test('mapPool preserves order and bounds concurrency', async () => {

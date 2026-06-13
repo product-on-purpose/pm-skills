@@ -104,8 +104,26 @@ export function rateLimitBlocked(events) {
   return null;
 }
 
+/** Returns an error reason if the transcript's result event is an API error
+ *  (credit exhausted, 4xx/5xx, overloaded) so we ABORT instead of recording the
+ *  failed call as a false trigger-miss; null when the call succeeded. */
+export function apiError(events) {
+  for (const e of events) {
+    if (e && e.type === 'result' && e.is_error) {
+      return String(e.result || e.api_error_status || 'api error').slice(0, 80);
+    }
+  }
+  return null;
+}
+
+/** A run is "blocked" (abort + save partial) on a subscription rate-limit OR an
+ *  API error. Either way, recording it as a trigger-miss would fabricate results. */
+function runBlock(events) {
+  return rateLimitBlocked(events) || apiError(events);
+}
+
 class RateLimitAbort extends Error {
-  constructor(status) { super(`rate limit: ${status}`); this.rateLimited = status; }
+  constructor(status) { super(`run blocked: ${status}`); this.rateLimited = status; }
 }
 
 /** Aggregate one skill's per-query outcomes into split-level pass rates. */
@@ -177,7 +195,7 @@ async function evalConcurrent(fixtures, concurrency) {
     let fired = 0;
     for (let i = 0; i < f.runs_per_query; i++) {
       const events = await runOnceAsync(q.q);
-      const blocked = rateLimitBlocked(events);
+      const blocked = runBlock(events);
       if (blocked) { aborted = aborted ?? blocked; return null; }
       if (skillFired(events, f.skill)) fired += 1;
     }
@@ -206,7 +224,7 @@ function evalSkill(fixture, { collision }) {
     let fired = 0;
     for (let i = 0; i < fixture.runs_per_query; i++) {
       const events = runOnce(q.q);
-      const blocked = rateLimitBlocked(events);
+      const blocked = runBlock(events);
       if (blocked) throw new RateLimitAbort(blocked);
       if (skillFired(events, fixture.skill)) fired += 1;
     }
