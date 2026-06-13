@@ -2,7 +2,7 @@
 // transcripts only (no API calls; see the harness --probe mode for live shape checks).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseEvents, skillFired, aggregate, renderReport, extractUsage, BATCHES, rateLimitBlocked } from './run-trigger-evals.mjs';
+import { parseEvents, skillFired, aggregate, renderReport, extractUsage, BATCHES, rateLimitBlocked, mapPool } from './run-trigger-evals.mjs';
 import { ROSTER } from './check-trigger-fixtures.mjs';
 
 test('parseEvents reads stream-json lines and ignores noise', () => {
@@ -58,6 +58,18 @@ test('extractUsage reads the result event usage + cost', () => {
 
 test('extractUsage returns null when no usage block is present', () => {
   assert.equal(extractUsage(parseEvents('{"type":"system","subtype":"init"}')), null);
+});
+
+test('mapPool preserves order and bounds concurrency', async () => {
+  let active = 0; let maxActive = 0;
+  const out = await mapPool([1, 2, 3, 4, 5, 6, 7], 3, async (x) => {
+    active += 1; maxActive = Math.max(maxActive, active);
+    await new Promise((r) => setTimeout(r, 5));
+    active -= 1;
+    return x * 10;
+  });
+  assert.deepEqual(out, [10, 20, 30, 40, 50, 60, 70]);
+  assert.ok(maxActive <= 3, `concurrency capped (saw ${maxActive})`);
 });
 
 test('rateLimitBlocked flags a non-allowed window, ignores allowed', () => {

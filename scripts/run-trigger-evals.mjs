@@ -20,7 +20,7 @@
 import { readFileSync, writeFileSync, globSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, isAbsolute } from 'node:path';
-import { spawnSync } from 'node:child_process';
+import { spawnSync, spawn } from 'node:child_process';
 import { partnersOf } from './check-trigger-fixtures.mjs';
 
 const RUN_TIMEOUT_MS = 120_000;
@@ -131,6 +131,64 @@ function runOnce(query) {
   return parseEvents(`${res.stdout ?? ''}\n${res.stderr ?? ''}`);
 }
 
+/** Async sibling of runOnce (prompt on stdin) for concurrent dispatch. Resolves to
+ *  parsed events; never rejects (errors return whatever transcript was captured). */
+function runOnceAsync(query) {
+  return new Promise((resolve) => {
+    const extra = (process.env.TRIGGER_EVAL_CLAUDE_ARGS ?? '').split(' ').filter(Boolean);
+    const args = ['-p', '--output-format', 'stream-json', '--verbose', '--max-turns', '1', ...extra];
+    const child = spawn('claude', args, { shell: process.platform === 'win32' });
+    let out = ''; let err = '';
+    const timer = setTimeout(() => child.kill(), RUN_TIMEOUT_MS);
+    child.stdout.on('data', (d) => { out += d; });
+    child.stderr.on('data', (d) => { err += d; });
+    child.on('close', () => { clearTimeout(timer); resolve(parseEvents(`${out}\n${err}`)); });
+    child.on('error', () => { clearTimeout(timer); resolve(parseEvents(err)); });
+    child.stdin.on('error', () => {});
+    child.stdin.write(query); child.stdin.end();
+  });
+}
+
+/** Run fn over items with at most `n` concurrent. Order-preserving results. */
+export async function mapPool(items, n, fn) {
+  const results = new Array(items.length);
+  let next = 0;
+  const worker = async () => {
+    while (next < items.length) {
+      const idx = next++;
+      results[idx] = await fn(items[idx], idx);
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(Math.max(1, n), items.length || 1) }, worker));
+  return results;
+}
+
+/** Concurrent evaluation: same per-query math as evalSkill, dispatched via a pool.
+ *  No --collision partner sweep (near-miss negatives in the fixtures still test
+ *  collisions). Aborts new work on a rate-limit block, keeping completed results. */
+async function evalConcurrent(fixtures, concurrency) {
+  const tasks = [];
+  for (const f of fixtures) for (const q of f.queries) tasks.push({ f, q });
+  let aborted = null;
+  const perTask = await mapPool(tasks, concurrency, async ({ f, q }) => {
+    if (aborted) return null;
+    let fired = 0;
+    for (let i = 0; i < f.runs_per_query; i++) {
+      const events = await runOnceAsync(q.q);
+      const blocked = rateLimitBlocked(events);
+      if (blocked) { aborted = aborted ?? blocked; return null; }
+      if (skillFired(events, f.skill)) fired += 1;
+    }
+    const triggered = fired / f.runs_per_query >= f.trigger_threshold;
+    return { skill: f.skill, q: q.q, expect: q.expect, split: q.split, fired, triggered, pass: triggered === (q.expect === 'trigger') };
+  });
+  const evaluated = fixtures.map((f) => {
+    const results = perTask.filter((r) => r && r.skill === f.skill).map(({ skill, ...rest }) => rest);
+    return { skill: f.skill, results, agg: aggregate(results), falseFires: [] };
+  }).filter((e) => e.results.length === fixtures.find((f) => f.skill === e.skill).queries.length);
+  return { evaluated, aborted };
+}
+
 function loadFixtures(repo, filter) {
   const files = globSync('skills/*/evals/trigger-fixtures.json', { cwd: repo });
   return files.map((f) => JSON.parse(readFileSync(join(repo, f), 'utf8')))
@@ -185,7 +243,7 @@ export function renderReport(evaluated) {
   return `${lines.join('\n')}\n`;
 }
 
-function main() {
+async function main() {
   const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
   const args = process.argv.slice(2);
   const flag = (name) => args.includes(name);
@@ -243,20 +301,31 @@ function main() {
   console.log(`plan: ${fixtures.length} skill(s), ${queries} queries, ${invocations} claude invocations${flag('--collision') ? ' (incl. collision sweep)' : ''}`);
   if (flag('--dry-run')) return;
 
+  const concurrency = Math.max(1, parseInt(value('--concurrency') ?? '1', 10) || 1);
   const evaluated = [];
   let aborted = null;
-  for (const f of fixtures) {
+  if (concurrency > 1) {
     const t0 = Date.now();
-    console.log(`running ${f.skill} ...`);
-    try {
-      const r = evalSkill(f, { collision: flag('--collision') });
-      const secs = Math.round((Date.now() - t0) / 1000);
-      const calls = f.queries.length * f.runs_per_query;
-      console.log(`  ${f.skill} done: ${secs}s / ${calls} calls (${(secs / calls).toFixed(1)}s/call)`);
-      evaluated.push(r);
-    } catch (e) {
-      if (e.rateLimited) { aborted = e.rateLimited; break; }
-      throw e;
+    console.log(`running ${fixtures.length} skills at concurrency ${concurrency} ...`);
+    const res = await evalConcurrent(fixtures, concurrency);
+    evaluated.push(...res.evaluated);
+    aborted = res.aborted;
+    const secs = Math.round((Date.now() - t0) / 1000);
+    console.log(`  done: ${secs}s / ${invocations} calls (${(secs / invocations).toFixed(1)}s/call wall, ${concurrency}x)`);
+  } else {
+    for (const f of fixtures) {
+      const t0 = Date.now();
+      console.log(`running ${f.skill} ...`);
+      try {
+        const r = evalSkill(f, { collision: flag('--collision') });
+        const secs = Math.round((Date.now() - t0) / 1000);
+        const calls = f.queries.length * f.runs_per_query;
+        console.log(`  ${f.skill} done: ${secs}s / ${calls} calls (${(secs / calls).toFixed(1)}s/call)`);
+        evaluated.push(r);
+      } catch (e) {
+        if (e.rateLimited) { aborted = e.rateLimited; break; }
+        throw e;
+      }
     }
   }
   const report = renderReport(evaluated)
@@ -269,4 +338,6 @@ function main() {
   process.exit(failures ? 1 : 0);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e) => { console.error(e); process.exit(1); });
+}
