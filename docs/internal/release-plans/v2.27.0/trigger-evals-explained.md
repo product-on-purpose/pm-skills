@@ -171,7 +171,8 @@ One file per skill: `skills/<name>/evals/trigger-fixtures.json` (29 files = the 
 (train | validation), and optional `near_miss_of` (the sibling skill a no-trigger query belongs to).
 A deterministic validator (`scripts/check-trigger-fixtures.mjs`) enforces composition (>=16 queries,
 8 per class, the 60/40 split, >=2 partner near-misses for collision-pair skills, roster completeness)
-and runs advisory in CI. Adding fixtures does not bump skill versions (tooling, not behavior).
+and runs enforcing in CI (promoted advisory -> enforcing 2026-06-14, B-4, once the 29-file corpus
+stabilized). Adding fixtures does not bump skill versions (tooling, not behavior).
 
 ### Harness architecture (`scripts/run-trigger-evals.mjs`)
 

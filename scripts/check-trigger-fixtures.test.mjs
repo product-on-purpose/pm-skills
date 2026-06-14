@@ -1,6 +1,9 @@
 // scripts/check-trigger-fixtures.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { globSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 import { validateFixture, missingRosterFixtures, partnersOf, ROSTER, COLLISION_PAIRS } from './check-trigger-fixtures.mjs';
 
 const KNOWN = new Set(['deliver-prd', 'deliver-user-stories', 'deliver-acceptance-criteria', 'deliver-edge-cases']);
@@ -90,6 +93,7 @@ test('roster completeness reports exactly the missing names', () => {
   const have = new Set(ROSTER.slice(1));
   assert.deepEqual(missingRosterFixtures(have), [ROSTER[0]]);
   assert.deepEqual(missingRosterFixtures(new Set(ROSTER)), []);
+  assert.deepEqual(missingRosterFixtures(new Set()), ROSTER); // none present -> every roster skill missing
 });
 
 test('roster and pairs are internally consistent', () => {
@@ -101,4 +105,19 @@ test('roster and pairs are internally consistent', () => {
   }
   assert.deepEqual(partnersOf('deliver-acceptance-criteria').sort(), ['deliver-edge-cases', 'deliver-user-stories']);
   assert.deepEqual(partnersOf('deliver-prd'), []);
+});
+
+// B-4 asset-presence guard. The trigger-fixture step is ENFORCING in validation.yml,
+// so the on-disk corpus must satisfy roster completeness at all times. This test runs
+// in the enforcing `node --test` step (ahead of the live validator) and fails the
+// moment a roster skill loses its fixture - an earlier, clearer signal than the
+// script's own scan. Reads only committed repo content: hermetic, and cross-OS via the
+// same backslash normalization the main script uses.
+test('every roster skill has a trigger-fixtures.json on disk (enforcing-gate guard)', () => {
+  const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
+  const present = new Set(
+    globSync('skills/*/evals/trigger-fixtures.json', { cwd: repo })
+      .map((f) => f.replace(/\\/g, '/').match(/skills\/([^/]+)\/evals\//)[1]),
+  );
+  assert.deepEqual(missingRosterFixtures(present), []);
 });

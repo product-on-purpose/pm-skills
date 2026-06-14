@@ -380,12 +380,15 @@ jobs:
         continue-on-error: true
         run: node scripts/check-sample-no-fabricated-metrics.mjs
 
-      - name: Eval - trigger-fixture structure (advisory)
+      - name: Eval - trigger-fixture structure + asset presence (enforcing)
         # M-31 Phase 1 (spec_trigger-accuracy-evals.md section 3): schema, composition
-        # minimums, 60/40 split, collision near-misses, roster completeness. Advisory
-        # until the 29-file fixture corpus lands; promotion is a later deliberate step.
+        # minimums, 60/40 split, collision near-misses, and roster asset-presence (every
+        # Phase 1 roster skill has evals/trigger-fixtures.json). Promoted advisory ->
+        # enforcing 2026-06-14 (B-4): the 29-file corpus is stable and the validator
+        # exits 0, so a malformed fixture or a roster skill losing its fixture now fails
+        # CI. Roster-scoped by design (the 29 measured skills); the other skills are not
+        # yet in the trigger-eval program, so they are not asset-gated here.
         if: always()
-        continue-on-error: true
         run: node scripts/check-trigger-fixtures.mjs
 
       - name: Check rendered link resolution + anchors (enforcing)

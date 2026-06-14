@@ -1,8 +1,9 @@
 // scripts/check-trigger-fixtures.mjs - deterministic structure validator for the
 // M-31 trigger-eval fixtures (skills/<name>/evals/trigger-fixtures.json).
 // Spec: docs/internal/release-plans/v2.27.0/spec_trigger-accuracy-evals.md (section 3).
-// CI-only Node check (out of the shell parity remit); wired ADVISORY until the
-// fixture corpus stabilizes, per the M-30 ladder.
+// CI-only Node check (out of the shell parity remit). Promoted to ENFORCING in
+// validation.yml on 2026-06-14 (B-4) now that the 29-file roster corpus is stable;
+// a malformed fixture or a roster skill missing its fixture file fails CI.
 import { readFileSync, globSync, existsSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -161,7 +162,7 @@ function main() {
     console.log(`MISSING  skills/${name}/evals/trigger-fixtures.json (Phase 1 roster, spec T-C)`);
   }
 
-  console.log(findings ? `\n${findings} trigger-fixture finding(s) (advisory).` : `no trigger-fixture findings (${files.length} fixture file(s) checked).`);
+  console.log(findings ? `\n${findings} trigger-fixture finding(s) (enforcing).` : `no trigger-fixture findings (${files.length} fixture file(s) checked).`);
   process.exit(findings ? 1 : 0);
 }
 

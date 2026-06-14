@@ -19,7 +19,7 @@
 
 **In (Phase 1):**
 - Trigger fixtures for the **26-skill F-12 cohort** (the cohort table in `../v2.26.0/spec_skill-quality-convergence.md` section 1 is normative).
-- A deterministic fixture-structure validator (`scripts/check-trigger-fixtures.mjs` + `.test.mjs`), wired ADVISORY in validation.yml immediately.
+- A deterministic fixture-structure validator (`scripts/check-trigger-fixtures.mjs` + `.test.mjs`), wired ADVISORY in validation.yml immediately, promoted ENFORCING 2026-06-14 (B-4) per the M-30 ladder once the 29-file roster corpus stabilized.
 - A runnable harness (`scripts/run-trigger-evals.mjs`) for local use and a cost-gated `workflow_dispatch` lane.
 - A recorded baseline report for the cohort (the evidence gate).
 - A contributor-facing reference doc for authoring fixtures.
