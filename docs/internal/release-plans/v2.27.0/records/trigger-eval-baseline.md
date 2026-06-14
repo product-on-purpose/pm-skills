@@ -221,6 +221,20 @@ A follow-up session investigated the paused run and overturned the diagnosis. Fu
   framing is retracted: it was overstated by the confounded headless harness.
 - Reports: `router-eval-claude-haiku-4-5.json`, `router-eval-claude-sonnet-4-6.json` (scratch dir).
 
+### Run 8 - 2026-06-13 PM (FULL ROSTER re-baseline via the controlled router eval, both models) - the trustworthy baseline
+
+- Full writeup + per-skill tables: `trigger-eval-router-baseline-20260613.md` (this directory).
+- Method: controlled router eval via Messages API (`run-roster-eval.mjs`), all 29 skills x 20 queries x
+  3 runs against the current 66-skill catalog. Haiku 1740 calls 0 fails $1.20 (179s); Sonnet 1740 calls
+  0 fails $3.63 (285s). Total $4.83.
+- **Result: healthy.** Precision ~100% + collisions CLEAN on both models (zero false-fires Haiku; one
+  debatable fixture-labeling edge on Sonnet). Recall: Haiku 22/29 at 100% val (7 at 75%); Sonnet 25/29
+  at 100% (4 at 75%). The 75% skills miss one genuinely ambiguous validation query each.
+- **The headless gaps were artifacts:** deliver-edge-cases 100% Sonnet (headless claimed 50/63),
+  define-hypothesis 90%, measure-okr-grader 100% (headless claimed 63). Runs 1-5 are superseded by this.
+- One cross-cutting pattern: broad "review/critique/stress-test" framings get absorbed by
+  `utility-pm-critic`. A few fixtures are triage candidates (e.g. the spike-scoping no-trigger query).
+
 <!-- Copy this block per run:
 
 ### Run N - YYYY-MM-DD
