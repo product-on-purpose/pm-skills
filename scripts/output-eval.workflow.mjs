@@ -27,7 +27,15 @@
 //     criteriaDefs: '<one line per criterion: key - what it measures>',
 //     generations: 2,   // skill-arm drafts (default 2)
 //     judges: 3,        // panel size (default 3)
+//     genModel: 'sonnet',   // OPTIONAL model for the generation arms (skill + control). Default: inherit.
+//     judgeModel: 'sonnet', // OPTIONAL model for the judge panel. Default: inherit.
 //   }
+//
+// genModel / judgeModel let the orchestrator pin the cheap+parallel rollout engine (Sonnet
+// generation + Sonnet judges, validated 2026-06-14) without switching the orchestrating
+// session's model: the main-loop model and the workflow-agent model are independent. When a
+// model arg is unset, that arm inherits the session model (the documented default-inherit
+// behaviour). Keep the judge model consistent within a run.
 
 export const meta = {
   name: 'output-eval',
@@ -47,6 +55,11 @@ const ANCHOR = a.anchorScale || ''
 const CRIT_DEFS = a.criteriaDefs || ''
 const G = Math.max(1, a.generations || 2)
 const N = Math.max(1, a.judges || 3)
+// Optional model pins. Unset -> the arm inherits the session model (default-inherit). Built
+// once and spread into each agent() opts so generation arms and judges can run on different
+// models (the validated rollout: Sonnet generation + Sonnet judges, orchestrated on Opus).
+const GEN_OPTS = a.genModel ? { model: a.genModel } : {}
+const JUDGE_OPTS = a.judgeModel ? { model: a.judgeModel } : {}
 
 // Per-artifact judge schema: one integer 1-5 per criterion + a short note. `overall` is
 // NOT asked of the judge; it is derived as the criterion mean during aggregation.
@@ -74,11 +87,11 @@ phase('Generate')
 // G skill drafts (same skill, same scenario - generation noise only) + 1 control.
 const skillThunks = Array.from({ length: G }, (_, i) => () => agent(
   `${SKILL_PROMPT}\n\n=== FEATURE BRIEF (the scenario) ===\n${SCENARIO}\n\n=== END BRIEF ===\n\nProduce ONLY the completed artifact in the prescribed format. No preamble, no commentary.`,
-  { label: `skill-arm:${SKILL}#${i + 1}`, phase: 'Generate' },
+  { label: `skill-arm:${SKILL}#${i + 1}`, phase: 'Generate', ...GEN_OPTS },
 ))
 const controlThunk = () => agent(
   `You are a competent product manager asked to quickly produce a "${SKILL}"-type artifact for a feature. You have solid general PM experience but you are NOT using any special template, framework, or checklist, and you only have a few minutes. Write a reasonable first-pass artifact from memory. Do not deliberately make it weak; just write what you would actually produce quickly without special tooling.\n\nYour entire final message must be ONLY the artifact (no preamble, no commentary).\n\n=== FEATURE BRIEF ===\n${SCENARIO}\n\n=== END BRIEF ===`,
-  { label: `control-arm:${SKILL}`, phase: 'Generate' },
+  { label: `control-arm:${SKILL}`, phase: 'Generate', ...GEN_OPTS },
 )
 
 const gen = await parallel([...skillThunks, controlThunk])
@@ -103,7 +116,7 @@ const judgeThunks = Array.from({ length: N }, (_, j) => () => {
   const artifactA = skillIsA ? draft : control
   const artifactB = skillIsA ? control : draft
   const prompt = `You are an expert Product Management reviewer acting as a blind judge in an output-quality evaluation. You are given a feature scenario and TWO artifacts (Artifact A and Artifact B) produced for it. Score BOTH against the rubric. You do not know how either was produced. Be rigorous, independent, and score CONSERVATIVELY: when torn between two levels, pick the LOWER. 5 is reserved for work a senior PM would not touch.\n\n${rubricBlock}\n\n=== THE SCENARIO ===\n${SCENARIO}\n\n=== ARTIFACT A ===\n${artifactA}\n\n=== ARTIFACT B ===\n${artifactB}\n\nReturn your per-criterion integer scores (1-5) for each artifact, which is stronger, and a one-line rationale.`
-  return agent(prompt, { label: `judge#${j + 1}:${SKILL}`, phase: 'Judge', schema: JUDGE_SCHEMA })
+  return agent(prompt, { label: `judge#${j + 1}:${SKILL}`, phase: 'Judge', schema: JUDGE_SCHEMA, ...JUDGE_OPTS })
     .then((v) => (v ? { judge: j + 1, skillIsA, v } : null))
 })
 

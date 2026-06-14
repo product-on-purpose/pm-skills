@@ -361,6 +361,7 @@ jobs:
           node --test scripts/run-router-evals.test.mjs
           node --test scripts/check-new-skill-collision.test.mjs
           node --test scripts/check-reciprocal-boundary-pointers.test.mjs
+          node --test scripts/output-eval.workflow.test.mjs
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
