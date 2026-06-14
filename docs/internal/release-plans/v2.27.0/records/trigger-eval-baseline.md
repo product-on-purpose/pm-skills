@@ -197,6 +197,30 @@ A follow-up session investigated the paused run and overturned the diagnosis. Fu
 - RESUME PLAN: re-run the controlled eval with throttle control for a clean B1 before/after and a
   re-baseline on a sound instrument; the burst approach trips the rate limiter on the subscription.
 
+### Run 7 - 2026-06-13 PM (controlled router eval via Messages API, CLEAN) - B1 ANSWERED cross-model
+
+- Method: direct Anthropic Messages API (the C4 instrument; `E:/tmp/trigger-eval-scratch/run-router-evals.mjs`).
+  Uses an API key, NOT the subscription, so no burst-throttle. 66-skill catalog cached as the system
+  block; each query 3 runs, majority. 126 calls/model, **0 fails**. Cost: Haiku **$0.15**, Sonnet **$0.44**.
+- Calibration **6/6 on both models** (PRD->deliver-prd, "what can go wrong + recovery"->deliver-edge-cases,
+  GWT->deliver-acceptance-criteria, competitive analysis->discover-competitive-analysis, SQL/gift->none).
+  The controlled instrument is validated on a clean transport.
+- **B1 deliver-edge-cases before/after (10 trigger queries, majority of 3):**
+  - **Haiku: recall OLD 80% -> NEW 90%** (precision 10/10 both arms). The entire lift is ONE query:
+    "Identify the race conditions and timeout scenarios..." - OLD misrouted it to `develop-spike-summary`;
+    NEW routes it to deliver-edge-cases (the added "race conditions" synonym). One query ("Review this PRD
+    and enumerate boundary/failure scenarios") routes to `utility-pm-critic` in both arms (a fair loss to
+    "review/critique" framing, not a B1 target).
+  - **Sonnet: recall OLD 100% -> NEW 100%** (precision 10/10 both). The OLD description already routes all
+    10 queries correctly. B1 is a no-op on the representative model.
+- **CONCLUSION:** B1 is harmless (precision held, recall equal-or-better on both models) but its real
+  benefit is **Haiku-only and marginal** (one phrasing); on Sonnet/Opus (real users) there was no gap.
+  The headless baseline's "deliver-edge-cases 50% Haiku / 63% Sonnet, confirmed real on both" was an
+  ENVIRONMENT ARTIFACT - the clean numbers for the OLD description are 80% Haiku / 100% Sonnet. Keep B1
+  (harmless, slight strict-model gain, better human readability), but the "one CONFIRMED real recall gap"
+  framing is retracted: it was overstated by the confounded headless harness.
+- Reports: `router-eval-claude-haiku-4-5.json`, `router-eval-claude-sonnet-4-6.json` (scratch dir).
+
 <!-- Copy this block per run:
 
 ### Run N - YYYY-MM-DD

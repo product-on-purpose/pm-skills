@@ -85,6 +85,20 @@ noise - it isolates the one variable that matters, the description text. Three w
   description routes fine in a clean test. Not concluded on 7 contaminated points; needs a
   throttle-controlled re-run to settle. If confirmed, B1 fixed a non-problem (harmlessly).
 
+**6b. RESOLVED (2026-06-13 PM) - clean cross-model B1 answer via the Messages API.** The controlled
+router eval was run via the Anthropic Messages API (an API key, not the subscription, so no burst-throttle)
+on both models: 126 calls each, 0 fails, $0.15 (Haiku) + $0.44 (Sonnet). Calibration 6/6 on both.
+B1 before/after on deliver-edge-cases:
+- **Haiku: recall 80% -> 90%, precision 10/10.** The lift is one query ("race conditions and timeout
+  scenarios"): OLD misrouted it to develop-spike-summary, NEW routes it correctly.
+- **Sonnet: recall 100% -> 100%, precision 10/10.** The OLD description already routed every query
+  correctly; B1 is a no-op on the representative model.
+- **Verdict:** B1 is harmless and a small Haiku-only win; the "one confirmed real recall gap" claim is
+  **retracted** - the clean OLD-description numbers are 80% Haiku / 100% Sonnet, so the headless 50%/63%
+  overstated the gap (environment artifact). Keep B1 (harmless + slight strict-model gain + readability).
+- This also confirms the cost model: $0.59 for the full cross-model B1 answer vs ~$30 for the earlier
+  confounded headless partial. The instrument is proven; the next step is a full-roster re-baseline on it.
+
 **7. What is next (revised).**
 - Re-run the controlled router eval with throttle control (concurrency ~2-3 + backoff, or `--bare`
   sequential) to get a clean B1 before/after and re-baseline the roster on a sound instrument.
