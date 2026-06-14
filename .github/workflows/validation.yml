@@ -360,6 +360,7 @@ jobs:
           node --test scripts/run-trigger-evals.test.mjs
           node --test scripts/run-router-evals.test.mjs
           node --test scripts/check-new-skill-collision.test.mjs
+          node --test scripts/check-reciprocal-boundary-pointers.test.mjs
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
@@ -391,6 +392,15 @@ jobs:
         # yet in the trigger-eval program, so they are not asset-gated here.
         if: always()
         run: node scripts/check-trigger-fixtures.mjs
+
+      - name: Eval - reciprocal boundary pointers (advisory)
+        # C-5 (M-31): every declared collision pair must point at each other in "When NOT
+        # to Use" - the reciprocity that kept the library collision-clean. ADVISORY until
+        # the one known gap is closed (foundation-meeting-recap -> discover-interview-
+        # synthesis needs a back-pointer + a version bump), then promote per the M-30 ladder.
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-reciprocal-boundary-pointers.mjs
 
       - name: Check rendered link resolution + anchors (enforcing)
         if: always()
