@@ -183,6 +183,12 @@ bar), discrimination gap >= 1.0, agreement stdev <= 0.7, and no single criterion
 without a logged reason. A criterion that fails the bar is the queue for a targeted skill-body
 improvement (the F-12 mechanism, now for body quality).
 
+**Verdict ordering is absolute-failure-first** (see `spec_output-quality-evals.md` section 4): a skill
+FAILS if its overall is below the bar OR any criterion floors (< 2.5), *regardless of the gap* - a weak
+control can never launder a bad skill into a pass-or-void. Only a skill that independently clears the
+absolute bar is labelled VOID (inconclusive, an instrument finding) when the gap is sub-threshold. This
+ordering is encoded and unit-tested in `scripts/output-eval-aggregate.mjs`.
+
 ---
 
 ## 8. Human anchor (maintainer to confirm)

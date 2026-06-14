@@ -71,6 +71,34 @@ LLM-judged lanes are never enforcing CI. A skill "passes" output eval when: over
 (start ~3.5/5), discrimination gap >= 1.0, agreement stdev <= 0.7, and no single criterion is failing
 (< 2.5) without a logged reason.
 
+### Verdict ordering: absolute-failure-first (do not let a low gap launder a bad skill)
+
+A low discrimination gap must NOT define away a genuinely bad skill. The verdict is decided in this
+order (encoded + tested in `scripts/output-eval-aggregate.mjs` `gateVerdict`):
+
+1. **FAIL** if the skill-arm overall is below the family bar OR any criterion mean is below the floor
+   (2.5), **regardless of the gap or agreement**. A weak control or a rubric/scenario that compresses
+   the gap can never turn a low absolute score into a pass-or-void.
+2. **VOID (inconclusive, an instrument finding)** if the skill independently clears the absolute gates
+   but the gap is sub-threshold or agreement is too high. The eval cannot prove the skill's marginal
+   value here; this is a finding about the rubric/control/scenario, not a skill verdict.
+3. **PASS** if the skill clears the absolute gates AND the gap AND agreement.
+
+### Threats to validity (and the planned informed control)
+
+- **The freehand control measures skill-vs-no-skill, which includes the value of the skill's structure.**
+  The negative control gets the scenario only (no skill, no template), while the skill arm gets the real
+  SKILL.md + template. So a PASS proves the skill beats a competent freehand attempt; it does NOT isolate
+  whether the skill's *rigor* beats simply handing someone the section list. A shallow skill that emits
+  the expected sections could pass on structure alone. This is the intended baseline (the skill's value
+  legitimately includes providing structure), but it is a coarser measurement than the question "is the
+  skill better than the template alone."
+- **Planned enhancement - the informed control.** Add a second control that receives the same Output
+  Format / rubric contract (the section list) but NOT the skill's instructions, so the skill must beat
+  both the freehand control AND the informed control. A skill that only adds a template will tie the
+  informed control; a skill that adds real rigor will still win. Pair this with the per-family **human
+  anchor** (an absolute, human-calibrated bar) so quality is not judged by discrimination alone.
+
 ## 5. Scope and sequencing
 
 - **Phase 0 (PoC, deliver-prd):** prove discrimination + agreement on one skill. Results below.

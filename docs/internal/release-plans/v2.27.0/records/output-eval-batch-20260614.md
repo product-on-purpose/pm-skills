@@ -20,12 +20,14 @@ Opus session via a single Workflow fan-out. Follows the `deliver-acceptance-crit
 | Validity gates | discrimination gap >= 1.0; inter-judge agreement (skill-overall stdev) <= 0.7 |
 | Pass bar | gates clear AND overall >= 3.5 AND no skill criterion mean < 2.5 |
 
-The run used a batch Workflow fan-out (saved at the session's workflow scripts dir as
-`output-eval-batch-*.js`) with a self-shakedown: `deliver-edge-cases` was evaluated first and the
-remaining 9 fanned out only after it returned a valid result. The canonical reusable tool remains the
-single-skill harness `scripts/output-eval.workflow.mjs`; the batch runner is orchestration glue over the
-same generate/judge/aggregate logic and is NOT committed (it needs the codex adversarial-review the
-methodology requires before becoming a repo asset).
+The run used a batch Workflow fan-out with a self-shakedown: `deliver-edge-cases` was evaluated first
+and the remaining 9 fanned out only after it returned a valid result. **Reproducibility (codex finding
+3, addressed):** the exact runner is committed at `scripts/output-eval-batch.workflow.mjs`, its verbatim
+output at `records/output-eval-batch-20260614.raw.json`, and the un-blind/aggregate/verdict math is
+factored into the unit-tested `scripts/output-eval-aggregate.mjs` (the runner mirrors it; Workflow
+scripts cannot import). Known limitation tracked there: the runner returns per-criterion means, not the
+raw per-judge rows, so full independent re-aggregation needs a runner revision. The canonical reusable
+tool remains the single-skill harness `scripts/output-eval.workflow.mjs`.
 
 ## Headline (all 10)
 
@@ -77,9 +79,13 @@ failure. None of the 10 has a skill-arm criterion mean below 2.5.
 
 ## The 3 VOID results (instrument findings, NOT skill failures)
 
-Per the validity gates, these are findings about the eval instrument. Do NOT fabricate skill-body fixes;
-queue an instrument re-look (stronger scenario that isolates the skill's marginal value, and/or a
-full-fidelity re-run with more generations to damp draft noise).
+These are VOID (inconclusive), NOT FAIL, **specifically because each skill independently clears the
+absolute bar** (overall 4.42-4.83, every criterion >= 2.5). Under the absolute-failure-first verdict
+(`gateVerdict`, codex finding 1), had any of them floored a criterion or scored below 3.5 it would be a
+FAIL regardless of the gap - a weak control cannot launder a bad skill into instrument noise. Here the
+skills are genuinely good and the eval simply cannot prove their marginal value over a strong freehand
+control. Do NOT fabricate skill-body fixes; queue an instrument re-look (stronger scenario that isolates
+the skill's marginal value, and/or a full-fidelity re-run with more generations to damp draft noise).
 
 - **measure-experiment-design** (gap 0.21, the weakest): the control scored 4.21, essentially tied with
   the skill (4.42), and even led on aggregate `sample_size` (4.0 vs 3.0), `duration` (5.0 vs 3.67), and
@@ -113,14 +119,32 @@ the strongest skills under a Sonnet panel. This is the exact condition the per-f
 (P1-5, still awaiting maintainer sign-off) exists to catch. Until a human anchor lands, treat 5.0 skill
 overalls as "passes with no measured headroom," not as literal perfection.
 
+## Threats to validity (codex adversarial review, 2026-06-14)
+
+- **The freehand control is denied the output contract the skill arm gets** (codex finding 2). The skill
+  arm reads the real SKILL.md + template; the control reads only the scenario. The PASS therefore proves
+  "skill beats a competent freehand attempt," which INCLUDES the value of the skill's structure - it does
+  NOT isolate whether the skill's rigor beats simply handing someone the section list. This is the spec's
+  intended baseline (a skill's value legitimately includes structure), but it is coarser than the sharper
+  question. Planned: an **informed control** that gets the Output Format / rubric contract but not the
+  skill, so a skill must beat both (a template-only skill ties the informed control; a rigor-adding skill
+  still wins). The per-family **human anchor** is the absolute bar that does not depend on any control.
+- **Discrimination alone cannot fail a skill** (codex finding 1, addressed). The verdict is now
+  absolute-failure-first (see the 3-VOID section above and `spec_output-quality-evals.md` section 4).
+
 ## Status and next steps
 
 - 7 skills certified PASS on output quality (gates clear, unanimous or near-unanimous blind preference,
-  family bar cleared). No skill-body changes indicated.
+  family bar cleared). No skill-body changes indicated. Caveat: PASS here is skill-vs-freehand (see
+  threats to validity); the informed-control comparison and the human anchor remain to confirm the
+  absolute claim.
 - 3 skills VOID on discrimination: instrument findings, queued for a scenario/control re-look and a
   full-fidelity re-run. No skill-body fixes fabricated.
 - Engine and harness are now proven end-to-end at batch scale (10 skills, one fan-out, fail-closed,
-  Sonnet). The productized single-skill harness `scripts/output-eval.workflow.mjs` and the family rubrics
-  are validated working assets.
-- Remaining roster stays deferred to regression-triggered runs (a skill is evaled when its body changes).
-- The human anchor (P1-5) is the open calibration step, made more pressing by the residual ceiling above.
+  Sonnet). The single-skill harness `scripts/output-eval.workflow.mjs` is a validated working asset; the
+  6 family rubrics are validated **for the sampled skill(s) in each family** only - the other family
+  skills' criteria remain append-on-first-eval stubs and carry no validation claim yet.
+- Remaining roster stays deferred to regression-triggered runs (a skill is evaled when its body changes),
+  which needs an asset-presence gate to be real protection (codex finding 4; see the plan's B section).
+- The human anchor (P1-5) is the open calibration step, made more pressing by the residual ceiling above
+  and by the control-asymmetry threat.

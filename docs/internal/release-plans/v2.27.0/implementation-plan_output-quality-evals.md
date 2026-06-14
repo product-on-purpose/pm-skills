@@ -122,6 +122,7 @@ deterministic asset-presence gates ARE enforcing.
 | B-4 Eval-asset presence | deterministic, enforcing | DONE (trigger half, 2026-06-14): `check-trigger-fixtures.mjs` promoted advisory -> ENFORCING in validation.yml. It now fails CI on a malformed fixture or any **roster** skill missing `evals/trigger-fixtures.json`. Scope is the 29-skill measured roster (not all 66 skills - the other skills are not yet in the trigger-eval program, so gating them would red-CI without measuring anything). A filesystem-backed unit-test guard locks the corpus green in the enforcing `node --test` step ahead of the live validator. PENDING (output half, waits on M-33 Phase 1): extend the gate to also require an `output-scenarios/` entry + a rubric-family mapping per skill. |
 | B-5 Description-change reminder | advisory | A check that flags a PR changing a SKILL.md `description` without a recorded router-eval re-run for that skill (advisory comment, not a hard fail). |
 | B-6 Harness bug fix | tooling | DONE (2026-06-13): `apiError()` now surfaces `error_max_turns` from the result event's subtype/errors, and `classifyRun()` hard-stops it with an actionable message ("a SessionStart skill likely consumed the turn; raise --max-turns or disable interfering plugins. NOT a server throttle"). 2 regression tests added. |
+| B-7 Output-eval asset + body-change gate | advisory -> enforcing | NEW (codex adversarial review 2026-06-14, finding 4). Closes the regression-protection hole: regression-triggering only protects a skill if its output-eval assets exist WHEN its body changes, else an assetless skill stays unmeasured forever and a future change has no deterministic guardrail. (a) An asset-presence check, the output-eval analog of B-4: for every skill in the output-eval roster, require an `evals/output-scenarios/` entry + a family-rubric mapping (advisory until the roster is pinned, then enforcing). (b) A body-change reminder, the output-eval analog of B-5: a PR editing a roster skill's instructions/template without a recorded output-eval re-run gets an advisory flag. |
 
 Drift threshold defaults: recall drop > 1 query (per skill) or any new validation-set collision = fail.
 Tune after the baseline has a few runs of natural variance.
@@ -185,3 +186,31 @@ the same loop to every new gate/script. Companion recipe in memory `codex-native
   RESOURCES.md + the AGENTS block stale and only CI caught it.
 - Windows CI checks out `*.md` as CRLF (`.gitattributes` marks `*.md text` without `eol=lf`); any
   byte-exact generator `--check` must normalize EOL (now fixed in gen-skill-manifest).
+
+## Codex adversarial review of the rollout (2026-06-14)
+
+A `codex:adversarial-review` of the rollout commits (`c08b58b6..d7744fcf`) returned `needs-attention`
+with 4 findings. Disposition:
+
+1. **[high] Low gap defined away as non-failure - ADDRESSED.** The verdict is now absolute-failure-first,
+   encoded + unit-tested in `scripts/output-eval-aggregate.mjs` (`gateVerdict`): a skill FAILS on a
+   sub-bar overall or a floored criterion regardless of the gap; only an absolute-clearing skill is VOID
+   on a low gap. Spec section 4 + `eval-rubrics/specification.md` section 7 updated. The 3 VOID skills
+   re-confirmed as inconclusive (they clear the absolute bar), not fails.
+2. **[high] Control denied the contract - DOCUMENTED + PLANNED.** The freehand control measures
+   skill-vs-no-skill (structure included); a PASS is not proof the skill's rigor beats the template
+   alone. Recorded as a threat to validity in the spec + the batch record. Planned: an **informed
+   control** (gets the Output Format contract, not the skill) as a second comparison, plus the human
+   anchor as the absolute bar. NOT a current-results invalidation - the freehand control is the spec's
+   intended baseline.
+3. **[medium] Not reproducible from committed code - ADDRESSED.** Runner committed
+   (`scripts/output-eval-batch.workflow.mjs`), raw output committed
+   (`records/output-eval-batch-20260614.raw.json`), aggregation factored into the tested
+   `output-eval-aggregate.mjs`. Open: the runner returns means not raw judge rows (tracked in its header).
+4. **[medium] Sample coverage treated as regression protection - PLANNED (B-7).** Added B-7 (output-eval
+   asset-presence + body-change gate). Family-validation claims softened to "validated for the sampled
+   skill(s)" in the batch record.
+
+Open follow-ups carried forward: implement the informed control (re-run >= 1 sampled skill with it),
+build B-7, revise the runner to emit raw judge rows + call the shared `gateVerdict`, and land the human
+anchor (P1-5).
