@@ -111,3 +111,16 @@ test('a fixture with no trigger queries yields zero recall tasks (the fail-close
   assert.equal(tasks.length, 0);
   assert.equal(tasks.filter((t) => t.kind === 'recall').length, 0);
 });
+
+test('a skill with trigger queries but no neighbors yields only recall tasks (boundary guard trips)', () => {
+  const isolated = { 'solo-skill': { skill: 'solo-skill', queries: [
+    { q: 'trigger 1', expect: 'trigger', split: 'train' },
+    { q: 'trigger 2', expect: 'trigger', split: 'validation' },
+    { q: 'generic negative', expect: 'no-trigger', split: 'train' },
+  ] } };
+  const tasks = collisionTasks('solo-skill', isolated, []);
+  assert.ok(tasks.length > 0);
+  assert.equal(tasks.filter((t) => t.kind === 'recall').length, 2);
+  // No near_miss_of and no neighbors -> zero boundary tasks -> the gate must fail closed.
+  assert.equal(tasks.filter((t) => ['no-theft', 'precision', 'back-recall'].includes(t.kind)).length, 0);
+});

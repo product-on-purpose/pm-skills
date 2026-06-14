@@ -115,8 +115,17 @@ async function main() {
   // roster-scoped, a brand-new non-roster skill could ship an empty/thin fixture, so the
   // gate must refuse to certify when there is nothing (or no recall coverage) to probe.
   const recallCount = tasks.filter((t) => t.kind === 'recall').length;
+  const boundaryCount = tasks.filter((t) => t.kind === 'no-theft' || t.kind === 'precision' || t.kind === 'back-recall').length;
   if (!tasks.length || !recallCount) {
     console.error(`ERROR: ${newSkill} has no usable probe coverage (recall ${recallCount}, total ${tasks.length}). A new skill needs trigger fixtures before the collision gate can certify it (see B-4 / C-1). Failing closed.`);
+    process.exit(1);
+  }
+  // A collision gate that only checks recall (the skill recognizes its own queries)
+  // tests no collisions at all. If the fixture declares no neighbors via near_miss_of and
+  // no existing skill disclaims a query to it, there is zero boundary coverage, so a PASS
+  // would be meaningless. Fail closed and demand near-miss fixtures naming the neighbors.
+  if (!boundaryCount) {
+    console.error(`ERROR: ${newSkill} has recall coverage but ZERO boundary coverage (no no-theft / precision / back-recall tasks). Its fixture declares no neighbors and no existing skill disclaims a query to it, so the gate cannot test for a collision - it would only confirm the skill recalls its own queries. Add near-miss negatives naming the new skill's nearest neighbors (C-1 / C-3) first. Failing closed.`);
     process.exit(1);
   }
   const calls = (CALIBRATION.length + tasks.length) * runs;

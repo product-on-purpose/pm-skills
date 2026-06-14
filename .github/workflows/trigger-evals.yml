@@ -62,14 +62,26 @@ jobs:
         run: node --test scripts/run-router-evals.test.mjs
 
       - name: Dry-run plan
-        run: node scripts/run-router-evals.mjs --dry-run ${{ inputs.skills != '' && format('--skills={0}', inputs.skills) || '' }}
+        # `skills` arrives via a quoted env var (never interpolated into the command text)
+        # and the --skills flag is appended only when non-empty, so a dispatch value with
+        # shell metacharacters cannot inject runner commands.
+        env:
+          SKILLS: ${{ inputs.skills }}
+        run: |
+          extra=()
+          [ -n "$SKILLS" ] && extra=("--skills=$SKILLS")
+          node scripts/run-router-evals.mjs --dry-run "${extra[@]}"
 
       - name: Run router eval + drift diff vs committed baseline
         if: ${{ !inputs.dry_run }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SKILLS: ${{ inputs.skills }}
         # Exit 4 on a recall/precision regression vs the committed Haiku baseline.
-        run: node scripts/run-router-evals.mjs --model=claude-haiku-4-5 --report=router-eval-report.md --baseline=docs/internal/release-plans/v2.27.0/records/router-eval-baseline-haiku.json ${{ inputs.skills != '' && format('--skills={0}', inputs.skills) || '' }}
+        run: |
+          extra=()
+          [ -n "$SKILLS" ] && extra=("--skills=$SKILLS")
+          node scripts/run-router-evals.mjs --model=claude-haiku-4-5 --report=router-eval-report.md --baseline=docs/internal/release-plans/v2.27.0/records/router-eval-baseline-haiku.json "${extra[@]}"
 
       - name: Upload report artifact
         if: ${{ !inputs.dry_run && always() }}
@@ -133,7 +145,13 @@ jobs:
         run: node --test scripts/run-trigger-evals.test.mjs
 
       - name: Dry-run plan
-        run: node scripts/run-trigger-evals.mjs --dry-run ${{ inputs.skills != '' && format('--skills {0}', inputs.skills) || '' }} ${{ inputs.collision && '--collision' || '' }}
+        # `skills` via a quoted env var (the boolean `collision` is a fixed literal, safe).
+        env:
+          SKILLS: ${{ inputs.skills }}
+        run: |
+          extra=()
+          [ -n "$SKILLS" ] && extra=(--skills "$SKILLS")
+          node scripts/run-trigger-evals.mjs --dry-run "${extra[@]}" ${{ inputs.collision && '--collision' || '' }}
 
       - name: Install Claude Code CLI
         if: ${{ !inputs.dry_run }}
@@ -143,9 +161,13 @@ jobs:
         if: ${{ !inputs.dry_run }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SKILLS: ${{ inputs.skills }}
         # First live use should be a --probe on one skill to verify the transcript
         # shape (spec risk note); the report artifact is the recording-rule input.
-        run: node scripts/run-trigger-evals.mjs --report trigger-eval-report.md ${{ inputs.skills != '' && format('--skills {0}', inputs.skills) || '' }} ${{ inputs.collision && '--collision' || '' }}
+        run: |
+          extra=()
+          [ -n "$SKILLS" ] && extra=(--skills "$SKILLS")
+          node scripts/run-trigger-evals.mjs --report trigger-eval-report.md "${extra[@]}" ${{ inputs.collision && '--collision' || '' }}
 
       - name: Upload report artifact
         if: ${{ !inputs.dry_run && always() }}
