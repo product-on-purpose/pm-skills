@@ -4,7 +4,15 @@ name: Trigger evals (advisory, cost-gated)
 # NEVER part of the enforcing pre-tag bundle; the recording rule is the gate (the
 # accepted baseline report is committed under the release-plan records path).
 # Spec: docs/internal/release-plans/v2.27.0/spec_trigger-accuracy-evals.md section 5.
-# Cost note: the full 29-skill roster is ~1,740 headless invocations; dry_run
+#
+# TWO jobs:
+#  - router-evals: the TRUSTWORTHY instrument (controlled router eval; a direct
+#    Messages API call per query, no plugin environment). Diffs against the committed
+#    baseline and FAILS on a recall/precision regression - the drift gate (B-2).
+#  - trigger-evals: the legacy headless harness, kept as an integration check only.
+#    It was environment-confounded (see trigger-evals-explained.md "CORRECTION");
+#    do not trust its absolute numbers.
+# Cost note: a full roster run is ~1,740 API calls (~$1.20 on Haiku); dry_run
 # defaults to TRUE so a dispatch without explicit intent never spends tokens.
 
 on:
@@ -29,6 +37,40 @@ permissions:
   contents: read
 
 jobs:
+  router-evals:
+    # The trustworthy drift gate (B-2). Controlled router eval; diffs vs the committed
+    # baseline and fails on regression. No Claude Code CLI / plugin env needed.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+
+      - name: Harness unit tests
+        run: node --test scripts/run-router-evals.test.mjs
+
+      - name: Dry-run plan
+        run: node scripts/run-router-evals.mjs --dry-run ${{ inputs.skills != '' && format('--skills={0}', inputs.skills) || '' }}
+
+      - name: Run router eval + drift diff vs committed baseline
+        if: ${{ !inputs.dry_run }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        # Exit 4 on a recall/precision regression vs the committed Haiku baseline.
+        run: node scripts/run-router-evals.mjs --model=claude-haiku-4-5 --report=router-eval-report.md --baseline=docs/internal/release-plans/v2.27.0/records/router-eval-baseline-haiku.json ${{ inputs.skills != '' && format('--skills={0}', inputs.skills) || '' }}
+
+      - name: Upload report artifact
+        if: ${{ !inputs.dry_run && always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: router-eval-report
+          path: router-eval-report.md
+          if-no-files-found: ignore
+
   trigger-evals:
     runs-on: ubuntu-latest
     steps:

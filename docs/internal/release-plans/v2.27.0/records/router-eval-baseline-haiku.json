@@ -1,0 +1,387 @@
+{
+  "model": "claude-haiku-4-5",
+  "runs": 3,
+  "calibration": 6,
+  "rows": [
+    {
+      "skill": "define-hypothesis",
+      "valRecall": 75,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "define-hypothesis",
+          "q": "Write the We believe that X for Y will Z statement for the referral incentive idea",
+          "expect": "trigger",
+          "split": "validation",
+          "near": null,
+          "pick": "tool-foundation-sprint-founding-hypothesis",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "define-jtbd-canvas",
+      "valRecall": 75,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "define-jtbd-canvas",
+          "q": "Capture the circumstances, motivations, and desired outcomes behind why teams adopt our API product",
+          "expect": "trigger",
+          "split": "validation",
+          "near": null,
+          "pick": "discover-interview-synthesis",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "define-opportunity-tree",
+      "valRecall": 75,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "define-opportunity-tree",
+          "q": "After the user research wrap-up, connect the insights to our north-star outcome and lay out solution options per opportunity",
+          "expect": "trigger",
+          "split": "validation",
+          "near": null,
+          "pick": "discover-interview-synthesis",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "deliver-edge-cases",
+      "valRecall": 75,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "deliver-edge-cases",
+          "q": "Review this PRD and enumerate the boundary and failure scenarios it does not cover",
+          "expect": "trigger",
+          "split": "validation",
+          "near": null,
+          "pick": "utility-pm-critic",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "develop-spike-summary",
+      "valRecall": 75,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "develop-spike-summary",
+          "q": "Before we commit engineers to the migration, document what the proof of concept on zero-downtime schema changes actually showed",
+          "expect": "trigger",
+          "split": "validation",
+          "near": null,
+          "pick": "measure-experiment-results",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "foundation-okr-writer",
+      "valRecall": 75,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "foundation-okr-writer",
+          "q": "Critique this OKR draft: are the objectives inspiring and the key results measurable?",
+          "expect": "trigger",
+          "split": "validation",
+          "near": null,
+          "pick": "utility-pm-critic",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "foundation-persona",
+      "valRecall": 75,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "foundation-persona",
+          "q": "Stress-test our pricing decision against a realistic profile of our typical small-team customer",
+          "expect": "trigger",
+          "split": "validation",
+          "near": null,
+          "pick": "utility-pm-critic",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "define-problem-statement",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "deliver-acceptance-criteria",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "deliver-launch-checklist",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "deliver-launch-checklist",
+          "q": "Build the go/no-go readiness doc for the payments migration, including rollback plan and owner assignments",
+          "expect": "trigger",
+          "split": "train",
+          "near": null,
+          "pick": "tool-design-sprint-readiness",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "deliver-prd",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "deliver-release-notes",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "deliver-user-stories",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "develop-adr",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "develop-design-rationale",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "develop-design-rationale",
+          "q": "We debated three onboarding flows and landed on progressive profiling. Write down why before the context evaporates.",
+          "expect": "trigger",
+          "split": "train",
+          "near": null,
+          "pick": "develop-solution-brief",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "develop-solution-brief",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "discover-competitive-analysis",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "discover-interview-synthesis",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "discover-stakeholder-summary",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "foundation-meeting-recap",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "iterate-lessons-log",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "iterate-pivot-decision",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "iterate-refinement-notes",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "iterate-retrospective",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "measure-dashboard-requirements",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "measure-experiment-design",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "measure-experiment-results",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 90,
+      "allPrec": 100,
+      "misses": [
+        {
+          "skill": "measure-experiment-results",
+          "q": "The paywall test finished: treatment up 4.2% on conversion, p=0.03. Turn this into a readout for stakeholders who weren't involved.",
+          "expect": "trigger",
+          "split": "train",
+          "near": null,
+          "pick": "foundation-stakeholder-update",
+          "pass": false,
+          "hard": null
+        }
+      ],
+      "falseFires": []
+    },
+    {
+      "skill": "measure-instrumentation-spec",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    },
+    {
+      "skill": "measure-okr-grader",
+      "valRecall": 100,
+      "valPrec": 100,
+      "allRecall": 100,
+      "allPrec": 100,
+      "misses": [],
+      "falseFires": []
+    }
+  ],
+  "usage": {
+    "in": 94275,
+    "out": 13148,
+    "cw": 33924,
+    "cr": 9837960,
+    "calls": 1746,
+    "fails": 0,
+    "estCostUSD": 1.186216
+  }
+}
