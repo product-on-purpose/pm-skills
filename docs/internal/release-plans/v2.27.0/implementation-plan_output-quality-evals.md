@@ -50,35 +50,35 @@ mean / discrimination gap / agreement stdev.
 | Skill | Family | Scenario | Rubric | Last result (overall / gap / agree) | Status |
 |---|---|---|---|---|---|
 | deliver-prd | specification | seat-mgmt (poc) | specification | 5.0 / 2.67 / 0.0 | PoC done |
-| deliver-edge-cases | specification | - | specification | - | pending |
+| deliver-edge-cases | specification | file-upload | specification | 5.0 / 2.13 / 0.0 | PASS (batch 2026-06-14, unanimous) |
 | deliver-acceptance-criteria | specification | bulk-invite | specification | 4.67 / 1.67 / 0.47 | PASS (gates clear, unanimous; record 2026-06-14) |
 | deliver-user-stories | specification | - | specification | - | pending |
 | deliver-launch-checklist | specification | - | specification | - | pending |
-| deliver-release-notes | communication | - | - | - | pending |
-| define-problem-statement | framing | - | - | - | pending |
+| deliver-release-notes | communication | mobile-v3 | communication | 4.63 / 0.83 / 0.27 | VOID gap<1.0 (instrument finding, batch 2026-06-14) |
+| define-problem-statement | framing | checkout-abandonment | framing | 4.75 / 1.75 / 0.10 | PASS (batch 2026-06-14, unanimous) |
 | define-hypothesis | framing | - | - | - | pending |
 | define-jtbd-canvas | framing | - | - | - | pending |
 | define-opportunity-tree | framing | - | - | - | pending |
 | define-prioritization-framework | framing | - | - | - | pending |
-| discover-interview-synthesis | discovery | - | - | - | pending |
-| discover-competitive-analysis | discovery | - | - | - | pending |
+| discover-interview-synthesis | discovery | onboarding-interviews | discovery | 4.88 / 1.50 / 0.10 | PASS (batch 2026-06-14, unanimous) |
+| discover-competitive-analysis | discovery | notetaking-market | discovery | 4.88 / 1.33 / 0.10 | PASS (batch 2026-06-14, unanimous) |
 | discover-market-sizing | discovery | - | - | - | pending |
 | discover-journey-map | discovery | - | - | - | pending |
 | discover-stakeholder-summary | discovery | - | - | - | pending |
-| develop-adr | technical | - | - | - | pending |
+| develop-adr | technical | search-datastore | technical | 4.83 / 0.92 / 0.24 | VOID gap<1.0 (instrument finding, batch 2026-06-14; skill won 2/3 blind) |
 | develop-design-rationale | technical | - | - | - | pending |
 | develop-solution-brief | technical | - | - | - | pending |
 | develop-spike-summary | technical | - | - | - | pending |
-| measure-experiment-design | measurement | - | - | - | pending |
+| measure-experiment-design | measurement | onboarding-checklist | measurement | 4.42 / 0.21 / 0.41 | VOID gap<1.0 (instrument finding, batch 2026-06-14; strong control) |
 | measure-experiment-results | measurement | - | - | - | pending |
-| measure-okr-grader | measurement | - | - | - | pending |
+| measure-okr-grader | measurement | activation-q3-close | measurement | 5.0 / 1.46 / 0.0 | PASS (batch 2026-06-14, unanimous) |
 | measure-dashboard-requirements | measurement | - | - | - | pending |
 | measure-instrumentation-spec | measurement | - | - | - | pending |
 | measure-survey-analysis | measurement | - | - | - | pending |
-| foundation-okr-writer | framing | - | - | - | pending |
+| foundation-okr-writer | framing | activation-quarter | framing | 5.0 / 2.46 / 0.0 | PASS (batch 2026-06-14, unanimous) |
 | foundation-persona | framing | - | - | - | pending |
 | foundation-lean-canvas | framing | - | - | - | pending |
-| iterate-retrospective | learning | - | - | - | pending |
+| iterate-retrospective | learning | sprint-42 | learning | 4.83 / 1.08 / 0.06 | PASS (batch 2026-06-14, unanimous) |
 | iterate-lessons-log | learning | - | - | - | pending |
 | iterate-pivot-decision | learning | - | - | - | pending |
 | iterate-refinement-notes | learning | - | - | - | pending |
@@ -86,6 +86,25 @@ mean / discrimination gap / agreement stdev.
 
 > The tracker is the resumable surface: pick the next `pending` row, author its scenario, run the harness,
 > paste the result, flip status. Families share a rubric so authoring is amortized.
+
+#### Phase 2 first batch (2026-06-14): 10-skill representative sample, Sonnet engine
+
+The first representative-sample run landed: 1-2 highest-signal skills across 7 families, all on the
+validated Sonnet engine via one Workflow fan-out (60 agents, ~1.74M tokens, ~6.4 min). Full evidence:
+`records/output-eval-batch-20260614.md`.
+
+- **7 of 10 PASS** both validity gates and the family bar with healthy margins and unanimous (or 2/3)
+  blind preference: foundation-okr-writer (gap 2.46), deliver-edge-cases (2.13), define-problem-statement
+  (1.75), discover-interview-synthesis (1.50), measure-okr-grader (1.46), discover-competitive-analysis
+  (1.33), iterate-retrospective (1.08). No skill-body changes indicated; all 6 new family rubrics are
+  validated working instruments.
+- **3 of 10 VOID on discrimination (gap < 1.0)**: develop-adr (0.92), deliver-release-notes (0.83),
+  measure-experiment-design (0.21). Per the validity gates these are INSTRUMENT findings (familiar
+  artifact types where a strong freehand control is competitive), NOT skill failures. Queued: a
+  scenario/control re-look + a full-fidelity re-run; no skill-body fixes fabricated.
+- **Residual ceiling:** 3 skills scored a straight 5.0 (discrimination still large). The hardened anchor
+  ceilings for the strongest skills under a Sonnet panel; the per-family human anchor (P1-5) is the
+  remedy and is now the most pressing open calibration step.
 
 ---
 

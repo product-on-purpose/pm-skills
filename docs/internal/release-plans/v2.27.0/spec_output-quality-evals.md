@@ -80,7 +80,13 @@ LLM-judged lanes are never enforcing CI. A skill "passes" output eval when: over
   maintainer sign-off. First family run: `deliver-acceptance-criteria` PASSED (gap 1.67, agreement 0.47).
 - **Phase 2..N:** roll out family by family via the living tracker in the implementation plan; each skill
   gets a scenario + a recorded result; findings feed targeted skill-body improvements (the F-12 mechanism,
-  now for body quality not just descriptions).
+  now for body quality not just descriptions). **First batch landed 2026-06-14** (`records/output-eval-batch-20260614.md`):
+  a 10-skill representative sample across 7 families on the Sonnet engine (one Workflow fan-out, ~1.74M
+  tokens, ~6.4 min) proved the harness end-to-end at batch scale. 7 of 10 PASS (gaps 1.08-2.46, unanimous
+  or 2/3 blind preference); 3 VOID on the discrimination gate (develop-adr, deliver-release-notes,
+  measure-experiment-design) - instrument findings (strong freehand control on familiar artifact types),
+  not skill failures, queued for a scenario re-look. A residual ceiling (3 skills at straight 5.0)
+  reconfirms the human anchor (P1-5) as the key open calibration step.
 
 ## 6. PoC validation results (Phase 0) - PASSED, with one calibration fix
 
