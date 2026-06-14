@@ -22,15 +22,21 @@ into Phase 1: (a) harden rubric anchors to fix a ceiling effect (skill arm hit 5
 arm 2-3x to average out generation noise. Cost ~207k subscription tokens / ~2 min per skill (one scenario,
 3 judges) - full roster is feasible on the subscription.
 
-### Phase 1 - productize [status: pending PoC]
+### Phase 1 - productize [status: DONE 2026-06-14; human anchor (P1-5) awaiting maintainer]
 
-| Task | Detail |
-|---|---|
-| P1-1 Harness | Saved workflow or `scripts/run-output-evals.mjs` (subscription subagents): takes a skill + scenario(s) + family rubric, runs generate(skill) + generate(control) + N judges, writes a recorded result. |
-| P1-2 Rubric library | `docs/internal/eval-rubrics/<family>.md` - one per family, built from each skill's Quality Checklist + the two universal criteria (specificity, completeness). First: `specification` family. |
-| P1-3 Scenario format | `skills/<name>/evals/output-scenarios/<id>.md` (input brief). Start 1 high-signal scenario/skill. |
-| P1-4 Recorded-results convention | `docs/internal/release-plans/.../records/output-eval-<skill>-<date>.md` + a roll-up; the recorded result is the gate (not CI). |
-| P1-5 Human anchor | Maintainer hand-scores 1-2 artifacts per family to calibrate the panel. |
+| Task | Detail | Status |
+|---|---|---|
+| P1-1 Harness | `scripts/output-eval.workflow.mjs` (Workflow-tool script, subscription subagents): takes a skill + scenario + family rubric via `args`, runs G skill generations + a thin control + N blind schema-validated judges, derives overall as the criterion mean, reports gap + agreement + the validity gates. | DONE |
+| P1-2 Rubric library | `docs/internal/eval-rubrics/specification.md`: hardened anchor scale (5 = nothing to improve, 4 = solid), 2 universal criteria + per-skill criteria for all 5 specification skills, negative-control design + judge protocol + validity gates. | DONE (specification family) |
+| P1-3 Scenario format | `skills/<name>/evals/output-scenarios/<id>.md` (input brief). First: `deliver-acceptance-criteria/evals/output-scenarios/bulk-invite.md`. | DONE (format + 1 scenario) |
+| P1-4 Recorded-results convention | `docs/internal/release-plans/v2.27.0/records/output-eval-<skill>-<date>.md`; the recorded result is the gate (not CI). First: `output-eval-deliver-acceptance-criteria-20260614.md`. | DONE |
+| P1-5 Human anchor | Maintainer hand-scores 1-2 artifacts per family to calibrate the panel. Slot set up in the rubric (section 8) with a proposed deliver-prd anchor; awaiting maintainer sign-off. | SET UP, awaiting maintainer |
+
+> Phase 1 carried two method refinements learned from the deliver-acceptance-criteria run (recorded
+> 2026-06-14): (a) judges must receive each artifact VERBATIM and in full - summarizing the richer arm
+> asymmetrically under-credits it; (b) derive `overall` as the criterion mean rather than a separate
+> holistic score, because holistic-overall still ceilings (2/3 judges) even when the same judge scores
+> individual criteria at 4. Both are baked into `output-eval.workflow.mjs`.
 
 ### Phase 2..N - per-family rollout (the living tracker)
 
@@ -42,7 +48,7 @@ mean / discrimination gap / agreement stdev.
 |---|---|---|---|---|---|
 | deliver-prd | specification | seat-mgmt (poc) | specification | 5.0 / 2.67 / 0.0 | PoC done |
 | deliver-edge-cases | specification | - | specification | - | pending |
-| deliver-acceptance-criteria | specification | - | specification | - | pending |
+| deliver-acceptance-criteria | specification | bulk-invite | specification | 4.67 / 1.67 / 0.47 | PASS (gates clear, unanimous; record 2026-06-14) |
 | deliver-user-stories | specification | - | specification | - | pending |
 | deliver-launch-checklist | specification | - | specification | - | pending |
 | deliver-release-notes | communication | - | - | - | pending |

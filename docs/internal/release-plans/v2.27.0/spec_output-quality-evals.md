@@ -74,8 +74,10 @@ LLM-judged lanes are never enforcing CI. A skill "passes" output eval when: over
 ## 5. Scope and sequencing
 
 - **Phase 0 (PoC, deliver-prd):** prove discrimination + agreement on one skill. Results below.
-- **Phase 1:** productize the harness (`scripts/run-output-evals.mjs` or a saved workflow) + author the
-  first family rubric (specification) + scenario format + the recorded-results convention.
+- **Phase 1:** DONE 2026-06-14. Harness `scripts/output-eval.workflow.mjs` (a saved Workflow-tool
+  script), the `specification` family rubric (`docs/internal/eval-rubrics/specification.md`), the
+  scenario format, and the recorded-results convention all landed; the per-family human anchor awaits
+  maintainer sign-off. First family run: `deliver-acceptance-criteria` PASSED (gap 1.67, agreement 0.47).
 - **Phase 2..N:** roll out family by family via the living tracker in the implementation plan; each skill
   gets a scenario + a recorded result; findings feed targeted skill-body improvements (the F-12 mechanism,
   now for body quality not just descriptions).
