@@ -98,13 +98,20 @@ jobs:
         run: node --test scripts/check-new-skill-collision.test.mjs
 
       - name: Dry-run plan
-        run: node scripts/check-new-skill-collision.mjs --skill=${{ inputs.new_skill }} --dry-run
+        # new_skill arrives via env and is shell-quoted - never interpolated into the
+        # command text - so a dispatch value with shell metacharacters cannot inject
+        # commands into the runner. The script's manifest membership check is the
+        # allowlist: only a real skill name proceeds past argument parsing.
+        env:
+          NEW_SKILL: ${{ inputs.new_skill }}
+        run: node scripts/check-new-skill-collision.mjs --skill="$NEW_SKILL" --dry-run
 
       - name: Run collision probe
         if: ${{ !inputs.dry_run }}
         env:
+          NEW_SKILL: ${{ inputs.new_skill }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/check-new-skill-collision.mjs --skill=${{ inputs.new_skill }} --model=claude-haiku-4-5
+        run: node scripts/check-new-skill-collision.mjs --skill="$NEW_SKILL" --model=claude-haiku-4-5
 
   trigger-evals:
     runs-on: ubuntu-latest

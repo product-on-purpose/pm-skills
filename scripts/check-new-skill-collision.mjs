@@ -54,6 +54,11 @@ export function collisionTasks(newSkill, fixturesBySkill, partners) {
     if (!pf) continue;
     for (const q of pf.queries) {
       if (q.expect === 'trigger') tasks.push({ kind: 'no-theft', q: q.q, owner: p, mustNotPick: newSkill, expectPick: p });
+      // A neighbor's no-trigger query that points AT the new skill belongs to the new
+      // skill (it is the evidence that derived this neighbor). With the new skill in the
+      // catalog it must route to the new skill, else the new skill's description is too
+      // weak to claim its own domain (a backward-recall miss).
+      else if (q.near_miss_of === newSkill) tasks.push({ kind: 'back-recall', q: q.q, owner: p, mustPick: newSkill });
     }
   }
   return tasks;
@@ -62,9 +67,16 @@ export function collisionTasks(newSkill, fixturesBySkill, partners) {
 /** Classify scored tasks (each task plus a `.pick`) into failure buckets. Pure. */
 export function collisionVerdict(scored, newSkill) {
   const recallFails = scored.filter((t) => t.kind === 'recall' && t.pick !== newSkill);
+  const backRecallFails = scored.filter((t) => t.kind === 'back-recall' && t.pick !== newSkill);
   const precisionFails = scored.filter((t) => t.kind === 'precision' && t.pick === newSkill);
   const theftFails = scored.filter((t) => t.kind === 'no-theft' && t.pick === newSkill);
-  return { recallFails, precisionFails, theftFails, pass: !recallFails.length && !precisionFails.length && !theftFails.length };
+  return {
+    recallFails,
+    backRecallFails,
+    precisionFails,
+    theftFails,
+    pass: !recallFails.length && !backRecallFails.length && !precisionFails.length && !theftFails.length,
+  };
 }
 
 function loadFixtures(repo) {
@@ -84,6 +96,9 @@ async function main() {
   const runs = parseInt(arg('runs', '3'), 10);
   const conc = parseInt(arg('concurrency', '8'), 10);
   if (!newSkill) { console.error('ERROR: --skill=<name> is required'); process.exit(1); }
+  // Defense-in-depth allowlist (the CI job also passes this via a quoted env var): a skill
+  // name is a lowercase slug. Rejects anything that could carry shell metacharacters.
+  if (!/^[a-z0-9-]+$/.test(newSkill)) { console.error(`ERROR: --skill must be a lowercase slug [a-z0-9-]; got ${JSON.stringify(newSkill)}`); process.exit(1); }
 
   const manifest = JSON.parse(readFileSync(join(repo, 'skill-manifest.json'), 'utf8'));
   const names = manifest.entries.map((e) => e.name.toLowerCase());
@@ -95,6 +110,15 @@ async function main() {
 
   const partners = derivePartners(newSkill, fixturesBySkill, partnersOf(newSkill));
   const tasks = collisionTasks(newSkill, fixturesBySkill, partners);
+  // Fail closed: a fixture with no usable queries would make collisionVerdict([]) pass
+  // vacuously (no tasks = no failures). Because the enforcing fixture validator is
+  // roster-scoped, a brand-new non-roster skill could ship an empty/thin fixture, so the
+  // gate must refuse to certify when there is nothing (or no recall coverage) to probe.
+  const recallCount = tasks.filter((t) => t.kind === 'recall').length;
+  if (!tasks.length || !recallCount) {
+    console.error(`ERROR: ${newSkill} has no usable probe coverage (recall ${recallCount}, total ${tasks.length}). A new skill needs trigger fixtures before the collision gate can certify it (see B-4 / C-1). Failing closed.`);
+    process.exit(1);
+  }
   const calls = (CALIBRATION.length + tasks.length) * runs;
   console.log(`collision probe: ${newSkill} vs [${partners.join(', ') || 'no declared neighbors'}]`);
   console.log(`plan: ${tasks.length} probe queries + ${CALIBRATION.length} calibration, ${calls} API calls (model ${model}, runs ${runs})`);
@@ -118,10 +142,11 @@ async function main() {
   const show = (label, fails, fmt) => { if (fails.length) { console.error(`\n${label} (${fails.length}):`); for (const f of fails) console.error('  ' + fmt(f)); } };
   show('THEFT - a neighbor query routed to the new skill', v.theftFails, (f) => `${f.owner} query stolen by ${newSkill}: "${f.q}"`);
   show('RECALL - the new skill missed its own query', v.recallFails, (f) => `routed to ${f.pick}: "${f.q}"`);
+  show('BACK-RECALL - a query a neighbor disclaimed to the new skill did not route to it', v.backRecallFails, (f) => `from ${f.owner}, routed to ${f.pick}: "${f.q}"`);
   show('PRECISION - the new skill fired on a neighbor query', v.precisionFails, (f) => `belongs to ${f.expectPick}: "${f.q}"`);
 
-  if (v.pass) { console.log(`\nPASS: no collision. ${newSkill} recalls its queries, steals none from [${partners.join(', ')}], and respects neighbor boundaries.`); process.exit(0); }
-  console.error(`\nFAIL: collision detected for ${newSkill} (theft ${v.theftFails.length}, recall ${v.recallFails.length}, precision ${v.precisionFails.length}).`);
+  if (v.pass) { console.log(`\nPASS: no collision. ${newSkill} recalls its queries (incl. ${tasks.filter((t) => t.kind === 'back-recall').length} disclaimed by neighbors), steals none from [${partners.join(', ')}], and respects neighbor boundaries.`); process.exit(0); }
+  console.error(`\nFAIL: collision detected for ${newSkill} (theft ${v.theftFails.length}, recall ${v.recallFails.length}, back-recall ${v.backRecallFails.length}, precision ${v.precisionFails.length}).`);
   process.exit(5);
 }
 

@@ -84,9 +84,11 @@ const controlThunk = () => agent(
 const gen = await parallel([...skillThunks, controlThunk])
 const skillDrafts = gen.slice(0, G).filter(Boolean)
 const control = gen[G]
-if (!skillDrafts.length || !control) {
-  log('Generation failed (a generation agent returned null). Aborting; nothing recorded.')
-  return { error: 'generation-failed', skill: SKILL }
+// Fail closed: a partial panel must never produce a score. If any of the G skill drafts
+// or the control did not come back, the run is VOID (not a pass, not a silent degrade).
+if (skillDrafts.length < G || !control) {
+  log(`Generation incomplete: ${skillDrafts.length}/${G} skill drafts, control ${control ? 'ok' : 'missing'}. Voiding - a partial panel cannot produce evidence.`)
+  return { status: 'void', reason: 'generation-incomplete', skill: SKILL, expected: { generations: G }, actual: { skillDrafts: skillDrafts.length, control: !!control } }
 }
 
 phase('Judge')
@@ -106,9 +108,13 @@ const judgeThunks = Array.from({ length: N }, (_, j) => () => {
 })
 
 const judged = (await parallel(judgeThunks)).filter(Boolean)
-if (!judged.length) {
-  log('All judges failed. Aborting; nothing recorded.')
-  return { error: 'judging-failed', skill: SKILL }
+// Fail closed: agreement is the stdev of the skill arm's overall across judges, which is
+// 0 by construction with a single surviving judge - a degraded panel would then PASS the
+// agreement gate on no real agreement. Require the full N-judge panel (and N >= 2 for a
+// meaningful stdev); otherwise the run is VOID.
+if (judged.length < N || N < 2) {
+  log(`Judge panel unusable: ${judged.length}/${N} judges returned (need the full panel, N >= 2). Voiding - agreement is undefined, so a score here would be false confidence.`)
+  return { status: 'void', reason: 'panel-incomplete', skill: SKILL, expected: { judges: N }, actual: { judges: judged.length } }
 }
 
 // Un-blind: map A/B back to skill/control per judge.
