@@ -131,3 +131,38 @@ Phase 0 (PoC) -> Phase 1 (harness + specification rubric + scenario format) in o
 (productize + harness fix) can land in parallel (they are the trustworthy instrument becoming a repo asset
 and feed B-2/B-3). C-1..C-3 (creator integration for triggers) can land independently of M-33 output evals;
 C-4 waits on Phase 1 rubrics. Roll out Phase 2 families behind the tracker, highest-signal skills first.
+
+---
+
+## Optimized rollout + development methodology (2026-06-14)
+
+**Engine (validated, spec sections 7-8):** Sonnet generation + 3 Sonnet judges, one Workflow per
+family (parallel fan-out). The orchestrating session runs on Opus (rubric/scenario authoring, the
+version-bump cycle, codex reviews); eval agents are pinned to Sonnet via `agent({model:'sonnet'})`.
+~138k tokens / ~2 min per skill. The main-loop model and the workflow agent model are independent -
+you do NOT switch the session to Sonnet; the orchestrator creates Sonnet workers.
+
+**Scope (validated):** representative SAMPLE - 1-2 highest-signal skills per family (~8-12 total) -
+then REGRESSION-TRIGGER (eval a skill only when its body changes, like B-3 for new skills). Not a
+full-roster sweep; exhaustive coverage is gold-plating once a family's first skills clear the gates.
+
+**Harness gap to close first:** add `genModel`/`judgeModel` args to `output-eval.workflow.mjs` so
+Sonnet is a flag (default inherit) + a unit test.
+
+**Development methodology (how B-3/B-4/C-5 + the harness were built this session):** build ->
+codex adversarial-review -> fix -> RE-REVIEW TO CONVERGENCE. This caught 7 real defects that unit
+tests + self-review missed, two only visible after the first fix (the loop went 4 -> 2 -> 0). Apply
+the same loop to every new gate/script. Companion recipe in memory `codex-native-review-stalls`.
+
+**Hard-won lessons (carry into the rollout):**
+- Judges get each artifact VERBATIM and in full - summarizing the richer arm under-credits it.
+- The harness must FAIL CLOSED on a partial panel (missing gen/judge -> void, not pass): one
+  surviving judge makes agreement trivially 0 and would auto-pass the agreement gate.
+- A gate must fail closed when there is nothing to test (no boundary coverage / empty fixture),
+  never vacuously pass.
+- CI is a SUPERSET of the local shell bundle: the generated-surface node checks
+  (`gen-resource-index.mjs --check`, `gen-skill-manifest.mjs --check` / `--agents --check`) run
+  ONLY in CI. Run all three locally before every push - a prior session's description change left
+  RESOURCES.md + the AGENTS block stale and only CI caught it.
+- Windows CI checks out `*.md` as CRLF (`.gitattributes` marks `*.md text` without `eol=lf`); any
+  byte-exact generator `--check` must normalize EOL (now fixed in gen-skill-manifest).

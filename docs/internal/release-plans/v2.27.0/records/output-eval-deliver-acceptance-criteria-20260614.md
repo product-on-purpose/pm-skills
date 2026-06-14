@@ -89,3 +89,29 @@ full. No summarization, no compression, identical fidelity across arms. Encoded 
 family bar). No skill-body change indicated. The `testability` 4.0 reading is not actioned against the
 skill because it is attributable to the run's compression confound, not the skill's output; re-confirm
 on a clean full-fidelity re-run before drawing a skill-body conclusion.
+
+## Addendum: all-Sonnet engine validation (2026-06-14)
+
+To validate the optimized (cheaper) engine for the Phase 2 rollout, the same skill + scenario was
+re-run **entirely on Sonnet** (Sonnet generation + 3 Sonnet judges) via a Workflow, full-fidelity
+artifacts, derived overall (criterion mean). The orchestrating session was Opus 4.8; only the eval
+agents were pinned to Sonnet via `agent({model:'sonnet'})`.
+
+| Metric | Sonnet (gen + judge) | Opus reference (derived) | Gate |
+|---|---|---|---|
+| Skill overall | 4.63 | 4.58 | - |
+| Control overall | 3.25 | 3.50 | - |
+| Discrimination gap | **1.38** | ~1.08 | >= 1.0 PASS |
+| Agreement stdev | **0.20** | ~0.24 | <= 0.7 PASS |
+| Blind preference | **3/3 to skill** | 3/3 | unanimous |
+| Cost / time | ~138k tokens / ~2 min | ~200k+ / manual | - |
+
+Sonnet per-criterion (skill): mapping 4.67, happy_path 5.0, edge_error 4.67, non_functional 4.67,
+testability 4.33, no_impl_leak 4.0, specificity 5.0, completeness 4.67.
+
+**Conclusion:** the all-Sonnet config reproduces the discrimination (slightly harder: gap 1.38) with
+tighter agreement (0.20) and unanimous blind preference; both validity gates pass at ~half the Opus
+cost. Sonnet is the validated rollout engine. Caveat: this regenerated fresh artifacts (end-to-end
+cheap config, not a pure judge-isolation test), and the slightly larger gap is within generation-draw
+variance; neither changes the conclusion. The blind A/B rotation worked: Judge 2's raw pick was "B"
+but B was the skill arm for that judge, so all three preferred the skill after un-blinding.

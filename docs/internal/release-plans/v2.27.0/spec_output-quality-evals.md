@@ -106,10 +106,38 @@ subagents; 5 agents, ~207k tokens, ~2 min):
 The negative-control design is validated as-is: a "competent but thin" freehand baseline (not a strawman)
 is the right control - it isolates the skill's marginal value.
 
-## 7. Open questions the PoC + early rollout must answer
+## 7. Open questions - answered by the PoC + the 2026-06-14 Sonnet validation
 
-- Does a 3-judge panel discriminate reliably, or do we need 5 / a stronger judge model?
-- Is one scenario per skill enough signal, or do we need 2-3 to average out scenario luck?
-- Judge model: Sonnet (cost-effective) vs Opus (more reliable grader) - calibrate against human anchors.
-- How much does generation nondeterminism move the skill-arm score (run the skill arm 2-3x and average)?
-- Cost/time per skill (drives the full-roster budget) - measured by the PoC.
+- **3-judge panel discrimination: SUFFICIENT.** Both the Opus PoC and the Sonnet validation
+  cleared the discrimination + agreement gates with unanimous blind preference; no need for 5
+  judges at the current signal strength.
+- **Judge + generation model: SONNET is sufficient (validated 2026-06-14).** A full all-Sonnet
+  run of `deliver-acceptance-criteria` (Sonnet generation + 3 Sonnet judges, via a Workflow)
+  reproduced the Opus result: skill 4.63 / control 3.25 / discrimination gap 1.38 / agreement
+  stdev 0.20 / 3-of-3 to the skill; both validity gates pass. ~138k subscription tokens,
+  ~2 min. DECISION: run generation AND judges on Sonnet for the rollout; reserve Opus or a
+  human only for the one-time per-family human anchor. Keep the judge model consistent within a
+  run. (Record: `records/output-eval-deliver-acceptance-criteria-20260614.md`, Sonnet addendum.)
+- **One scenario per skill: adequate to start.** Add edge scenarios (thin/adversarial input)
+  later only where a skill's risk warrants it.
+- **Generation nondeterminism:** real but small relative to the gap; the harness supports
+  averaging the skill arm over G generations, but 1 generation is enough for PASS/FAIL gating.
+- **Cost/time per skill:** ~138k Sonnet tokens, ~2 min wall-clock via a per-family Workflow
+  fan-out - the economics that make a representative sample (not a full sweep) the right scope.
+
+## 8. Scope decision (2026-06-14): sample, then regression-trigger
+
+The content roster is ~33 artifact-producing skills (plus a later wave of meeting/tool skills).
+Exhaustive output-evaling is gold-plating: once a family's first 1-2 skills clear the gates with
+healthy margins, the marginal information from the rest is low, and the trigger evals already
+certify routing health cheaply. The chosen scope:
+- **Sample:** 1-2 highest-signal skills per family (~8-12 total) to establish the quality claim
+  and calibrate each family rubric.
+- **Regression-trigger:** thereafter, run a skill's output eval only when its body changes (the
+  same posture as B-3 for new skills) - incremental forever, never a one-time mountain.
+- **Engine:** Sonnet generation + 3 Sonnet judges, orchestrated by one Workflow per family
+  (parallel fan-out). The orchestrating session can run on any model (Opus recommended for the
+  rubric/scenario authoring); the eval agents are pinned to Sonnet via `agent({model:'sonnet'})`.
+
+The value bought is a defensible, evidence-backed quality claim plus regression protection, not
+full-roster parity.
