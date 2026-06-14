@@ -16,15 +16,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Trigger-fixture structure validator (`scripts/check-trigger-fixtures.mjs` + unit tests), the first slice of the v2.27.0 trigger-accuracy eval harness (M-31): validates per-skill `evals/trigger-fixtures.json` files against the published agentskills.io trigger-eval methodology (composition minimums, 60/40 train/validation split, collision-pair near-miss requirements, Phase 1 roster completeness). Wired as an advisory CI step; its unit tests run enforcing.
 - Trigger-eval fixtures for the full Phase 1 roster: 29 skills (the 26-skill quality-convergence cohort plus 3 collision partners) each carry `evals/trigger-fixtures.json` with 20 labeled queries (10 should-trigger, 10 should-not, 60/40 train/validation split) including near-miss negatives aimed at known description-collision partners. 580 labeled queries total; the advisory fixture gate is fully green. Per the versioning policy below, fixture files do not bump skill versions.
 - Trigger-eval harness (`scripts/run-trigger-evals.mjs` + unit tests) and a cost-gated `workflow_dispatch` lane (`.github/workflows/trigger-evals.yml`): runs fixture queries through headless Claude Code, detects Skill-tool firing, scores trigger rates against each query's label (3 runs, 0.5 threshold), reports train and validation pass rates separately, and supports a cross-skill collision false-fire sweep. The CI lane defaults to dry-run and never gates a release; the recorded baseline report is the evidence gate.
+- `scripts/run-router-evals.mjs` (+ unit tests): a controlled trigger-router eval, now the trustworthy trigger instrument. Given the catalog of every skill description and one user query, it asks a model which single skill the query routes to (or none) and scores per-skill recall and precision. Because it sends a direct Anthropic Messages API call with no plugin environment, it isolates the description under test, runs cheaply and in parallel, and includes a built-in calibration self-check plus a committed-baseline drift diff. A new `router-evals` job in `.github/workflows/trigger-evals.yml` runs it cost-gated (dry-run by default) and fails on any per-skill recall or precision regression versus the committed baseline. Trigger-accuracy eval effort (M-31).
 
 ### Changed
 
 - AGENTS.md skills catalog is now generated between markers from skill frontmatter (run `node scripts/gen-skill-manifest.mjs --agents` after changing a skill). First generation resynced descriptions that had drifted from frontmatter, including the v2.26.0 boundary-pointer rewrites the hand-maintained catalog never received; entry formatting normalized (uniform separators, alphabetical order, sprint families in workshop sequence).
 - Skill versioning policy: tooling-only files added beside a skill (eval fixtures, test artifacts) do not bump the skill's version; recorded in the versioning guide's bump table.
+- `deliver-edge-cases` 2.1.1: trigger-recall patch adding intent-synonyms (failure modes, what can go wrong, race conditions, boundary and limit scenarios) to the description and "When to Use", so the skill is recognized when its domain is phrased without the literal words "edge case". Boundary pointers to neighboring skills are unchanged.
+- Trigger-eval methodology: the controlled router eval (`scripts/run-router-evals.mjs`) is now the trustworthy trigger instrument; the headless `claude -p` harness (`scripts/run-trigger-evals.mjs`) is retained as an integration check only, after it was found to be dominated by the host environment (other installed skills, reasoning settings, turn budget) rather than the skill description under test.
 
 ### Removed
 
 - `.github/workflows/sync-agents-md.yml`: the disabled nested-layout AGENTS.md sync workflow (dead since v2.14.x), superseded by the marker-based generator and its enforcing staleness gate.
+
+### Fixed
+
+- `scripts/run-trigger-evals.mjs`: an `error_max_turns` result is now treated as a hard, clearly labeled failure (a session-start skill consumed the single allowed turn) instead of being misclassified as a retryable server throttle, which previously produced a false "sustained throttling" reading and burned retries.
 
 ## [2.26.0] - 2026-06-10
 
