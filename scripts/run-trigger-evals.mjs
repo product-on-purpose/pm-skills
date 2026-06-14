@@ -110,7 +110,10 @@ export function rateLimitBlocked(events) {
 export function apiError(events) {
   for (const e of events) {
     if (e && e.type === 'result' && e.is_error) {
-      return String(e.result || e.api_error_status || 'api error').slice(0, 80);
+      // error_max_turns carries its message in subtype/errors, NOT result - surface it so
+      // classifyRun can recognize it instead of falling through to a generic "api error".
+      const msg = e.result || (Array.isArray(e.errors) && e.errors[0]) || e.subtype || e.api_error_status || 'api error';
+      return String(msg).slice(0, 120);
     }
   }
   return null;
@@ -118,6 +121,9 @@ export function apiError(events) {
 
 // Errors that no retry can fix: stop the run, save partial, resume later.
 const HARD_ERR = /credit balance|authentication|invalid x-api-key|permission|invalid_request/i;
+// error_max_turns is NOT a throttle (it cost the M-31 session a false "sustained throttling"
+// diagnosis): a SessionStart skill ate the single turn. Hard-stop with an actionable message.
+const MAX_TURNS = /maximum number of turns|max.?turns|error_max_turns/i;
 const MAX_TRIES = 6;
 
 /** Classify a transcript: null = success; {hard} = abort now (credit/auth/5-hour
@@ -129,6 +135,7 @@ export function classifyRun(events) {
   if (rl) return { hard: `usage-window:${rl}` };
   const e = apiError(events);
   if (!e) return null;
+  if (MAX_TURNS.test(e)) return { hard: `max_turns (${e}); a SessionStart skill likely consumed the turn - raise --max-turns or disable interfering plugins. NOT a server throttle.` };
   if (HARD_ERR.test(e)) return { hard: e };
   return { retry: e };
 }

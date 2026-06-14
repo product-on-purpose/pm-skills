@@ -79,6 +79,18 @@ test('classifyRun: success / transient-retry / hard-abort', () => {
   assert.ok(classifyRun(parseEvents('{"type":"rate_limit_event","rate_limit_info":{"status":"rejected"}}')).hard);
 });
 
+test('apiError surfaces error_max_turns from subtype/errors when result is absent', () => {
+  const e = apiError(parseEvents('{"type":"result","subtype":"error_max_turns","is_error":true,"errors":["Reached maximum number of turns (1)"]}'));
+  assert.ok(/maximum number of turns/i.test(e), `got: ${e}`);
+});
+
+test('classifyRun: error_max_turns is a HARD stop, not a retry (the M-31 misdiagnosis)', () => {
+  const c = classifyRun(parseEvents('{"type":"result","subtype":"error_max_turns","is_error":true,"errors":["Reached maximum number of turns (1)"]}'));
+  assert.ok(c.hard, 'must be hard, not retry');
+  assert.ok(!('retry' in c), 'must not be classified retry');
+  assert.ok(/max.?turns/i.test(c.hard));
+});
+
 test('mapPool preserves order and bounds concurrency', async () => {
   let active = 0; let maxActive = 0;
   const out = await mapPool([1, 2, 3, 4, 5, 6, 7], 3, async (x) => {

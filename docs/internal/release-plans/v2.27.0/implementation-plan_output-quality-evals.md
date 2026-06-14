@@ -88,12 +88,12 @@ deterministic asset-presence gates ARE enforcing.
 
 | Gate | Type | What it protects |
 |---|---|---|
-| B-1 Productize the router eval | tooling | Move `run-router-evals.mjs` / `run-roster-eval.mjs` from scratch into `scripts/` with tests + a roster recall/precision mode + a per-skill before/after mode. The trustworthy instrument becomes a repo asset. |
+| B-1 Productize the router eval | tooling | DONE (2026-06-13): `scripts/run-router-evals.mjs` + `.test.mjs` (11 tests, in the enforcing CI node --test step). Roster recall/precision + built-in calibration gate + `--dry-run` + `--baseline` diff (via exported `diffBaseline`); pure functions exported, network via injected `fetchImpl` so CI needs no key. Per-skill before/after mode (the B1 one-off) not ported - low value, skip. |
 | B-2 Committed router baseline + diff lane | drift | Commit the per-skill recall/precision baseline (the router result). A cost-gated `workflow_dispatch` lane (API key secret) re-runs and diffs vs the committed baseline; fails if any skill's recall drops > threshold or a new false-fire (collision) appears. Mirrors the `check-route-parity` committed-baseline pattern. |
 | B-3 New-skill collision gate | collision | When `skills/**` adds a skill, run the router eval with the new skill in the catalog against (a) the new skill's own fixtures and (b) every existing near-miss query, asserting the new skill neither steals an existing skill's queries nor is stolen from. Cost-gated; required before merge of a new skill. |
 | B-4 Eval-asset presence | deterministic, enforcing | Every skill has `evals/trigger-fixtures.json` (promote `check-trigger-fixtures.mjs` advisory -> enforcing once the corpus is stable) and, once M-33 lands, an `output-scenarios/` entry + a rubric-family mapping. Fails CI on a skill missing eval assets. |
 | B-5 Description-change reminder | advisory | A check that flags a PR changing a SKILL.md `description` without a recorded router-eval re-run for that skill (advisory comment, not a hard fail). |
-| B-6 Harness bug fix | tooling | `classifyRun()` in `run-trigger-evals.mjs` must treat `error_max_turns` as a hard, labeled failure (the M-31 misdiagnosis), not a retryable throttle. Either fix or retire the headless harness in favor of the router eval. |
+| B-6 Harness bug fix | tooling | DONE (2026-06-13): `apiError()` now surfaces `error_max_turns` from the result event's subtype/errors, and `classifyRun()` hard-stops it with an actionable message ("a SessionStart skill likely consumed the turn; raise --max-turns or disable interfering plugins. NOT a server throttle"). 2 regression tests added. |
 
 Drift threshold defaults: recall drop > 1 query (per skill) or any new validation-set collision = fail.
 Tune after the baseline has a few runs of natural variance.
