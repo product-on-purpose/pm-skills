@@ -394,13 +394,13 @@ jobs:
         if: always()
         run: node scripts/check-trigger-fixtures.mjs
 
-      - name: Eval - reciprocal boundary pointers (advisory)
+      - name: Eval - reciprocal boundary pointers (enforcing)
         # C-5 (M-31): every declared collision pair must point at each other in "When NOT
-        # to Use" - the reciprocity that kept the library collision-clean. ADVISORY until
-        # the one known gap is closed (foundation-meeting-recap -> discover-interview-
-        # synthesis needs a back-pointer + a version bump), then promote per the M-30 ladder.
+        # to Use" - the reciprocity that kept the library collision-clean. Promoted advisory
+        # -> enforcing 2026-06-14 once the one known gap closed: foundation-meeting-recap
+        # 1.0.2 added the reciprocal back-pointer to discover-interview-synthesis, so the
+        # validator now exits 0. Any future collision pair missing a reciprocal pointer fails CI.
         if: always()
-        continue-on-error: true
         run: node scripts/check-reciprocal-boundary-pointers.mjs
 
       - name: Check rendered link resolution + anchors (enforcing)

@@ -4,8 +4,8 @@ description: Produces a topic-segmented post-meeting summary for attendees with 
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.1"
-  updated: 2026-06-10
+  version: "1.0.2"
+  updated: 2026-06-14
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose
@@ -30,6 +30,7 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 - Communicating outcomes to non-attendees. Use `foundation-stakeholder-update`. recap assumes reader context; stakeholder-update translates to readers without it.
 - Cross-meeting synthesis (patterns across multiple meetings). Use `foundation-meeting-synthesize`.
+- Synthesizing user research interviews across participants, not one meeting's attendees. Use `discover-interview-synthesis`. recap organizes a single meeting by topic; interview-synthesis finds patterns across many research conversations.
 - Live meeting note-taking. This skill consumes finished inputs; it does not transcribe live.
 
 ## Zero-friction execution
