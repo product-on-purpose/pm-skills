@@ -19,6 +19,20 @@ test('whenNotToUseSection reads a section that runs to end of file', () => {
   assert.ok(s.includes('measure-okr-grader'));
 });
 
+test('whenNotToUseSection ignores a nested h3 of the same name and reads the real h2', () => {
+  const md = '## Examples\n\n### When NOT to Use\n\n- decoy `deliver-prd`\n\n## When NOT to Use\n\n- real `measure-okr-grader`\n\n## Next';
+  const s = whenNotToUseSection(md);
+  assert.ok(s.includes('measure-okr-grader'));
+  assert.ok(!s.includes('deliver-prd')); // the h3 decoy must not be extracted
+});
+
+test('whenNotToUseSection does not let an h3 inside the section end it early', () => {
+  const md = '## When NOT to Use\n\n- `deliver-prd`\n\n### A sub-note\n\n- `measure-okr-grader`\n\n## Next';
+  const s = whenNotToUseSection(md);
+  assert.ok(s.includes('deliver-prd') && s.includes('measure-okr-grader'));
+  assert.ok(!s.includes('## Next'));
+});
+
 test('pointersIn finds prefixed backtick skill names, deduped, ignoring non-skill backticks', () => {
   const s = '- Use `deliver-prd` not `deliver-prd`\n- or `measure-okr-grader`\n- code `someVar` and `npm install`';
   assert.deepEqual([...pointersIn(s)].sort(), ['deliver-prd', 'measure-okr-grader']);

@@ -19,11 +19,20 @@ import { COLLISION_PAIRS } from './check-trigger-fixtures.mjs';
 
 const PREFIX = 'discover|define|develop|deliver|measure|iterate|foundation|utility|tool';
 
-/** The body of the "## When NOT to Use" section (up to the next "## " heading or EOF).
- *  Returns '' when the section is absent. Pure. */
+/** The body of the "## When NOT to Use" h2 section (up to the next h2 heading or EOF).
+ *  Parsed line-by-line and anchored to a real h2: `^##[ \t]` requires whitespace after
+ *  exactly two `#`, so a `### When NOT to Use` (h3) neither starts nor ends the section
+ *  (avoids the unanchored-regex trap where `##` matches the tail of `###`). Pure. */
 export function whenNotToUseSection(md) {
-  const m = md.match(/##\s+When NOT to Use[^\n]*\n([\s\S]*?)(?=\n##\s|$)/);
-  return m ? m[1] : '';
+  const lines = md.split(/\r?\n/);
+  const start = lines.findIndex((l) => /^##[ \t]+When NOT to Use\b/.test(l));
+  if (start === -1) return '';
+  const body = [];
+  for (let i = start + 1; i < lines.length; i++) {
+    if (/^##[ \t]/.test(lines[i])) break; // next h2 ends the section; h3 (###) does not match
+    body.push(lines[i]);
+  }
+  return body.join('\n');
 }
 
 /** Backtick-wrapped, classification-prefixed skill names referenced in a section. Pure. */
