@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   parseFrontmatter, buildEntry, headingName, renderManifest, renderAgentsBlock,
-  spliceAgents, MARKER_START, MARKER_END,
+  spliceAgents, MARKER_START, MARKER_END, normalizeEol,
 } from './gen-skill-manifest.mjs';
 
 const skillText = (name, metaLines) => `---\nname: ${name}\ndescription: Does the thing. Use when the thing is needed.\nlicense: Apache-2.0\nmetadata:\n${metaLines}\n---\n\n# Body\n`;
@@ -90,4 +90,21 @@ test('spliceAgents replaces only the marker block and is idempotent', () => {
 
 test('spliceAgents refuses when markers are missing', () => {
   assert.throws(() => spliceAgents('# no markers here', 'X'), /marker pair not found/);
+});
+
+test('normalizeEol collapses CRLF to LF so compares are line-ending agnostic', () => {
+  assert.equal(normalizeEol('a\r\nb\r\n'), 'a\nb\n');
+  assert.equal(normalizeEol('a\nb\n'), 'a\nb\n');
+  assert.equal(normalizeEol('a\r\nb'), normalizeEol('a\nb'));
+});
+
+test('--check stays current for a CRLF AGENTS.md whose content matches (Windows CI fix)', () => {
+  // Simulates a Windows checkout: *.md is `text` without eol=lf in .gitattributes, so
+  // autocrlf yields CRLF, while the spliced/generated block is always LF.
+  const block = 'GENERATED LINE 1\nGENERATED LINE 2\n';
+  const lfFile = `intro line\n\n${MARKER_START}\n${block}${MARKER_END}\n\noutro line\n`;
+  const crlfFile = lfFile.replace(/\n/g, '\r\n');
+  const next = spliceAgents(crlfFile, block); // what --check re-renders to compare
+  assert.notEqual(crlfFile, next);                              // raw compare = the false-STALE bug
+  assert.equal(normalizeEol(crlfFile), normalizeEol(next));     // normalized compare = correctly current
 });
