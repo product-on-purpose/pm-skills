@@ -1,0 +1,124 @@
+# Implementation Plan: Output-Quality Evals (M-33) + Eval Drift Protection
+
+Status: DRAFT (2026-06-13). Follows `spec_output-quality-evals.md`. This is a **living plan**: any session
+can pick it up, advance one skill (or one CI gate) at a time, and update the tracker in place. Update task
+status as work lands (the update-plans-as-you-ship rule).
+
+This plan covers three asks:
+- A. The output-eval program (PoC -> harness -> per-family rollout), with a status tracker.
+- B. CI / tests to protect against trigger drift and future collisions.
+- C. What the pm-skill-creator family must incorporate so new skills ship eval-ready.
+
+---
+
+## A. Output-eval program
+
+### Phase 0 - PoC (deliver-prd) [status: DONE, PASSED 2026-06-13]
+
+Workflow `output-eval-poc-deliver-prd`: generate skill PRD + weak control, 3-judge blind rubric panel,
+measure discrimination gap + agreement. Result (spec section 6): discrimination gap **2.67**, judge
+agreement stdev **0.0/0.47** - both validity gates cleared, the method is sound. Two refinements carried
+into Phase 1: (a) harden rubric anchors to fix a ceiling effect (skill arm hit 5.0); (b) run the skill
+arm 2-3x to average out generation noise. Cost ~207k subscription tokens / ~2 min per skill (one scenario,
+3 judges) - full roster is feasible on the subscription.
+
+### Phase 1 - productize [status: pending PoC]
+
+| Task | Detail |
+|---|---|
+| P1-1 Harness | Saved workflow or `scripts/run-output-evals.mjs` (subscription subagents): takes a skill + scenario(s) + family rubric, runs generate(skill) + generate(control) + N judges, writes a recorded result. |
+| P1-2 Rubric library | `docs/internal/eval-rubrics/<family>.md` - one per family, built from each skill's Quality Checklist + the two universal criteria (specificity, completeness). First: `specification` family. |
+| P1-3 Scenario format | `skills/<name>/evals/output-scenarios/<id>.md` (input brief). Start 1 high-signal scenario/skill. |
+| P1-4 Recorded-results convention | `docs/internal/release-plans/.../records/output-eval-<skill>-<date>.md` + a roll-up; the recorded result is the gate (not CI). |
+| P1-5 Human anchor | Maintainer hand-scores 1-2 artifacts per family to calibrate the panel. |
+
+### Phase 2..N - per-family rollout (the living tracker)
+
+Roll out family by family. Each skill: author scenario -> run harness -> record result -> if a criterion
+fails, queue a skill-body improvement (F-12 mechanism, now for body quality). Headline per skill: overall
+mean / discrimination gap / agreement stdev.
+
+| Skill | Family | Scenario | Rubric | Last result (overall / gap / agree) | Status |
+|---|---|---|---|---|---|
+| deliver-prd | specification | seat-mgmt (poc) | specification | 5.0 / 2.67 / 0.0 | PoC done |
+| deliver-edge-cases | specification | - | specification | - | pending |
+| deliver-acceptance-criteria | specification | - | specification | - | pending |
+| deliver-user-stories | specification | - | specification | - | pending |
+| deliver-launch-checklist | specification | - | specification | - | pending |
+| deliver-release-notes | communication | - | - | - | pending |
+| define-problem-statement | framing | - | - | - | pending |
+| define-hypothesis | framing | - | - | - | pending |
+| define-jtbd-canvas | framing | - | - | - | pending |
+| define-opportunity-tree | framing | - | - | - | pending |
+| define-prioritization-framework | framing | - | - | - | pending |
+| discover-interview-synthesis | discovery | - | - | - | pending |
+| discover-competitive-analysis | discovery | - | - | - | pending |
+| discover-market-sizing | discovery | - | - | - | pending |
+| discover-journey-map | discovery | - | - | - | pending |
+| discover-stakeholder-summary | discovery | - | - | - | pending |
+| develop-adr | technical | - | - | - | pending |
+| develop-design-rationale | technical | - | - | - | pending |
+| develop-solution-brief | technical | - | - | - | pending |
+| develop-spike-summary | technical | - | - | - | pending |
+| measure-experiment-design | measurement | - | - | - | pending |
+| measure-experiment-results | measurement | - | - | - | pending |
+| measure-okr-grader | measurement | - | - | - | pending |
+| measure-dashboard-requirements | measurement | - | - | - | pending |
+| measure-instrumentation-spec | measurement | - | - | - | pending |
+| measure-survey-analysis | measurement | - | - | - | pending |
+| foundation-okr-writer | framing | - | - | - | pending |
+| foundation-persona | framing | - | - | - | pending |
+| foundation-lean-canvas | framing | - | - | - | pending |
+| iterate-retrospective | learning | - | - | - | pending |
+| iterate-lessons-log | learning | - | - | - | pending |
+| iterate-pivot-decision | learning | - | - | - | pending |
+| iterate-refinement-notes | learning | - | - | - | pending |
+| (meeting / foundation-meeting-* + tool-* families) | various | - | - | - | later wave |
+
+> The tracker is the resumable surface: pick the next `pending` row, author its scenario, run the harness,
+> paste the result, flip status. Families share a rubric so authoring is amortized.
+
+---
+
+## B. CI / tests against trigger drift and future collisions
+
+The trigger re-baseline (M-31, `trigger-eval-router-baseline-20260613.md`) is the reference. These gates
+keep it from rotting. All LLM-judged lanes are cost-gated / non-enforcing per the recorded-gate rule; the
+deterministic asset-presence gates ARE enforcing.
+
+| Gate | Type | What it protects |
+|---|---|---|
+| B-1 Productize the router eval | tooling | Move `run-router-evals.mjs` / `run-roster-eval.mjs` from scratch into `scripts/` with tests + a roster recall/precision mode + a per-skill before/after mode. The trustworthy instrument becomes a repo asset. |
+| B-2 Committed router baseline + diff lane | drift | Commit the per-skill recall/precision baseline (the router result). A cost-gated `workflow_dispatch` lane (API key secret) re-runs and diffs vs the committed baseline; fails if any skill's recall drops > threshold or a new false-fire (collision) appears. Mirrors the `check-route-parity` committed-baseline pattern. |
+| B-3 New-skill collision gate | collision | When `skills/**` adds a skill, run the router eval with the new skill in the catalog against (a) the new skill's own fixtures and (b) every existing near-miss query, asserting the new skill neither steals an existing skill's queries nor is stolen from. Cost-gated; required before merge of a new skill. |
+| B-4 Eval-asset presence | deterministic, enforcing | Every skill has `evals/trigger-fixtures.json` (promote `check-trigger-fixtures.mjs` advisory -> enforcing once the corpus is stable) and, once M-33 lands, an `output-scenarios/` entry + a rubric-family mapping. Fails CI on a skill missing eval assets. |
+| B-5 Description-change reminder | advisory | A check that flags a PR changing a SKILL.md `description` without a recorded router-eval re-run for that skill (advisory comment, not a hard fail). |
+| B-6 Harness bug fix | tooling | `classifyRun()` in `run-trigger-evals.mjs` must treat `error_max_turns` as a hard, labeled failure (the M-31 misdiagnosis), not a retryable throttle. Either fix or retire the headless harness in favor of the router eval. |
+
+Drift threshold defaults: recall drop > 1 query (per skill) or any new validation-set collision = fail.
+Tune after the baseline has a few runs of natural variance.
+
+---
+
+## C. pm-skill-creator family integration (new skills ship eval-ready)
+
+The creator/validator family (`utility-pm-skill-builder`, `utility-pm-skill-validate`, `jp-skill-builder`,
+and the contribution docs) must bake the eval contract into skill creation so coverage never falls behind.
+
+| Task | Detail |
+|---|---|
+| C-1 Scaffold trigger fixtures | When the builder creates a skill, generate a `trigger-fixtures.json` stub: should-trigger queries from the skill's intents, should-not + near-miss queries aimed at the neighbors identified during classification. |
+| C-2 Neighbor + collision check at creation | The builder already classifies phase/type; extend it to name the new skill's NEAREST NEIGHBORS and run a quick router-eval collision probe (new skill vs neighbors) BEFORE the skill ships. Surfaces a collision while it is cheap to fix (description wording / boundary pointers). |
+| C-3 Enforce boundary pointers | The builder must require a `When NOT to Use` section that names neighbors, and prompt to add the reciprocal pointer back from each neighbor. Reciprocal boundary pointers are what kept the v2.26.0 rewrites collision-clean (proven by M-31). |
+| C-4 Scaffold output-eval assets | Generate an `output-scenarios/` stub + assign the family rubric, so a new skill is output-eval-ready. |
+| C-5 Validator coverage | `utility-pm-skill-validate` checks eval-asset presence (B-4) and that boundary pointers are reciprocal. |
+| C-6 CONTRIBUTING + creator docs | Document the eval contract (fixtures + scenario + rubric family + reciprocal pointers) as part of "what done looks like" for a new skill. |
+
+---
+
+## Sequencing
+
+Phase 0 (PoC) -> Phase 1 (harness + specification rubric + scenario format) in one effort. B-1/B-6
+(productize + harness fix) can land in parallel (they are the trustworthy instrument becoming a repo asset
+and feed B-2/B-3). C-1..C-3 (creator integration for triggers) can land independently of M-33 output evals;
+C-4 waits on Phase 1 rubrics. Roll out Phase 2 families behind the tracker, highest-signal skills first.
