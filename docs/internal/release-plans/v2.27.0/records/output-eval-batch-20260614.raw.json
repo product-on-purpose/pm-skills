@@ -1,0 +1,622 @@
+{
+  "summary": "M-33 output-quality eval across N sampled skills (Sonnet gen + Sonnet judges). Per skill: skill-arm reads its real SKILL.md+template and produces the artifact; a thin freehand control reads only the scenario; N blind judges score both verbatim; derive discrimination gap + inter-judge agreement vs the validity gates. Self-shakedown: skill 1 runs first and the rest fan out only if it returns a valid result. Fails closed per skill.",
+  "agentCount": 60,
+  "logs": [
+    "Shakedown: evaluating deliver-edge-cases first (1 of 10)...",
+    "deliver-edge-cases: skill 5.00 vs control 2.88 | gap 2.13 (PASS) | agreement 0.00 (PASS) | pref 3/3",
+    "Shakedown OK (deliver-edge-cases gap 2.13). Fanning out the remaining 9 skills.",
+    "define-problem-statement: skill 4.75 vs control 3.00 | gap 1.75 (PASS) | agreement 0.10 (PASS) | pref 3/3",
+    "develop-adr: skill 4.83 vs control 3.92 | gap 0.92 (FAIL) | agreement 0.24 (PASS) | pref 2/3",
+    "deliver-release-notes: skill 4.63 vs control 3.79 | gap 0.83 (FAIL) | agreement 0.27 (PASS) | pref 3/3",
+    "iterate-retrospective: skill 4.83 vs control 3.75 | gap 1.08 (PASS) | agreement 0.06 (PASS) | pref 3/3",
+    "discover-interview-synthesis: skill 4.88 vs control 3.38 | gap 1.50 (PASS) | agreement 0.10 (PASS) | pref 3/3",
+    "measure-experiment-design: skill 4.42 vs control 4.21 | gap 0.21 (FAIL) | agreement 0.41 (PASS) | pref 2/3",
+    "discover-competitive-analysis: skill 4.88 vs control 3.54 | gap 1.33 (PASS) | agreement 0.10 (PASS) | pref 3/3",
+    "foundation-okr-writer: skill 5.00 vs control 2.54 | gap 2.46 (PASS) | agreement 0.00 (PASS) | pref 3/3",
+    "measure-okr-grader: skill 5.00 vs control 3.54 | gap 1.46 (PASS) | agreement 0.00 (PASS) | pref 3/3"
+  ],
+  "result": {
+    "results": [
+      {
+        "skill": "deliver-edge-cases",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 5,
+        "control_overall": 2.875,
+        "discrimination_gap": 2.125,
+        "agreement_stdev": 0,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "input_validation": 5,
+          "boundaries": 5,
+          "failures": 5,
+          "messages": 5,
+          "recovery": 5,
+          "prioritized": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "input_validation": 4,
+          "boundaries": 3.3333333333333335,
+          "failures": 3.3333333333333335,
+          "messages": 2,
+          "recovery": 2.3333333333333335,
+          "prioritized": 1.3333333333333333,
+          "specificity": 4,
+          "completeness": 2.6666666666666665
+        },
+        "gates": {
+          "discrimination": {
+            "value": 2.125,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is a complete, ship-ready spec with exact error copy, tiered priorities, and structured recovery paths for every failure mode; Artifact B is a solid case list that omits prioritization entirely, provides no message text, and skips recovery paths, leaving three of eight criteria materially undersupplied."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B dominates on every structural criterion A is weak on - verbatim error messages, named recovery paths, and explicit priority tiers - while matching or exceeding A's scenario breadth with additions like password-protected PDFs, idempotency handling, and platform-specific implementation notes."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "A is stronger on every scored criterion - it provides exact error message text, structured recovery paths with data-preservation guarantees, explicit P1/P2/P3 tiering on every row, and a triaged test checklist, while B omits all three of those output sections and offers no priority signal whatsoever."
+          }
+        ]
+      },
+      {
+        "skill": "define-problem-statement",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 4.75,
+        "control_overall": 3,
+        "discrimination_gap": 1.75,
+        "agreement_stdev": 0.10206207261596575,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "user_segment": 4.333333333333333,
+          "impact_quantified": 5,
+          "success_metrics": 4.666666666666667,
+          "what_not_how": 4.333333333333333,
+          "why_now": 4.666666666666667,
+          "open_questions": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "user_segment": 3,
+          "impact_quantified": 2.6666666666666665,
+          "success_metrics": 1,
+          "what_not_how": 4.333333333333333,
+          "why_now": 4,
+          "open_questions": 3,
+          "specificity": 4,
+          "completeness": 2
+        },
+        "gates": {
+          "discrimination": {
+            "value": 1.75,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0.10206207261596575,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is stronger on every evaluable criterion: it derives step-level impact with visible math, supplies a five-metric success table with baselines and targets, offers five grounded open questions, and fills every required section - while Artifact B, despite clean prose and correct problem framing, is missing a success metrics section entirely and understates structural completeness."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B is stronger on every structural criterion - it adds an explicit success metrics table with baselines, targets, and guardrails that Artifact A omits entirely, quantifies impact across two recovery scenarios with shown math, and provides six substantive open questions versus two, while matching A's narrative quality."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A is stronger on every substantive criterion: it derives and explains its impact math, includes a full success-metrics table with baselines and targets, surfaces five specific open questions beyond the scenario's stated unknowns, and fills every required section - while Artifact B omits success metrics entirely, presents an unexplained revenue figure, and reads as an executive memo rather than a complete problem-statement artifact."
+          }
+        ]
+      },
+      {
+        "skill": "foundation-okr-writer",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 5,
+        "control_overall": 2.5416666666666665,
+        "discrimination_gap": 2.4583333333333335,
+        "agreement_stdev": 0,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "objective_quality": 5,
+          "outcome_krs": 5,
+          "kr_measurability": 5,
+          "guardrails": 5,
+          "no_fabrication": 5,
+          "integrity_audit": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "objective_quality": 3.3333333333333335,
+          "outcome_krs": 2.6666666666666665,
+          "kr_measurability": 2,
+          "guardrails": 2,
+          "no_fabrication": 2.6666666666666665,
+          "integrity_audit": 2.3333333333333335,
+          "specificity": 3.3333333333333335,
+          "completeness": 2
+        },
+        "gates": {
+          "discrimination": {
+            "value": 2.4583333333333335,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A scores 5 across all eight criteria by producing a single sharp objective, three correctly-typed outcome KRs with fully populated fields and honestly-marked baselines, three targeted guardrails including the team's own vanity-metric trap, and a complete quality audit; Artifact B invents numeric targets against uninstrumented baselines, mixes tasks into KRs, omits a guardrail section and quality audit, and is missing half the required sections."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B is stronger on every criterion: it converts all feature/task items to Initiatives, provides full KR metadata with explicit uncertainty markers, includes three formal guardrails with rationale, issues a 11-dimension pass/risk/fail audit, and covers every required structural section - while Artifact A has an activity KR, missing evidence sources, no guardrail section, and thin structural completeness."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A earns a clean sweep on all eight criteria because it correctly marks every unknown baseline as a placeholder rather than inventing targets, includes a formal pass/risk/fail quality audit, separates features into an Initiatives section with hypothesis framing, and adds three specific guardrails including one directly addressing the team's stated vanity-metric history - whereas Artifact B sets numeric targets against explicitly untracked metrics, omits evidence sources, and lacks guardrails, a quality audit, and an Initiatives section."
+          }
+        ]
+      },
+      {
+        "skill": "discover-interview-synthesis",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 4.875,
+        "control_overall": 3.375,
+        "discrimination_gap": 1.5,
+        "agreement_stdev": 0.10206207261596575,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "theme_evidence": 4.666666666666667,
+          "quotes": 4.666666666666667,
+          "insight_why": 5,
+          "recommendations": 5,
+          "pii_protected": 5,
+          "limitations": 5,
+          "specificity": 4.666666666666667,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "theme_evidence": 4,
+          "quotes": 3,
+          "insight_why": 3.3333333333333335,
+          "recommendations": 3.6666666666666665,
+          "pii_protected": 5,
+          "limitations": 1.3333333333333333,
+          "specificity": 4,
+          "completeness": 2.6666666666666665
+        },
+        "gates": {
+          "discrimination": {
+            "value": 1.5,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0.10206207261596575,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A covers every required section with explicit prevalence, verbatim attributed quotes, mechanistic insight framing, confidence-rated recommendations cross-referenced to named insights, and a thorough Limitations section - none of which Artifact B fully delivers."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "B separates insight from observation with named interpretive frames, reproduces fuller quote coverage with attribution, adds a structured recommendations table with confidence signals, and includes a thorough limitations section that A omits entirely - making B clearly stronger across every scored dimension."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A earns its scores on every criterion while B, though readable, is missing a limitations section entirely, lacks a standalone quotes layer with P2's two most important lines, and collapses the insight-why layer into a thin bridge paragraph rather than named, interpreted insights."
+          }
+        ]
+      },
+      {
+        "skill": "discover-competitive-analysis",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 4.875,
+        "control_overall": 3.5416666666666665,
+        "discrimination_gap": 1.3333333333333335,
+        "agreement_stdev": 0.10206207261596575,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "scope": 5,
+          "competitor_set": 4.666666666666667,
+          "feature_matrix": 5,
+          "positioning": 4.666666666666667,
+          "recommendations": 5,
+          "sources_confidence": 5,
+          "specificity": 4.666666666666667,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "scope": 4,
+          "competitor_set": 4,
+          "feature_matrix": 2.6666666666666665,
+          "positioning": 3.6666666666666665,
+          "recommendations": 4,
+          "sources_confidence": 3,
+          "specificity": 4,
+          "completeness": 3
+        },
+        "gates": {
+          "discrimination": {
+            "value": 1.3333333333333335,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0.10206207261596575,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A outscores B on every criterion, most decisively on feature_matrix (5 vs 3), sources_confidence (5 vs 3), and completeness (5 vs 3), while B's strength - its crisp Bet A/B framing and deprioritization call - is present in A's recommendations section as well."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B dominates on every structural criterion - defined feature rating scale, named positioning axes, a 13-row sources/confidence table, a watch list with specific triggers - while matching A's substantive insight, making it the clear senior-PM-ready artifact."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A is substantially more rigorous across the board: a full 12-feature matrix with explicit confidence ratings, a named 2x2 positioning map with white space called out, per-source confidence levels, a segmented recommendations structure with a watch list and concrete next steps, and no section gaps - while Artifact B's prose is readable and decision-oriented but its feature table covers only 4 dimensions, lacks a structured positioning map, omits a sources/confidence table, and is missing a watch list and next steps."
+          }
+        ]
+      },
+      {
+        "skill": "develop-adr",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 4.833333333333333,
+        "control_overall": 3.9166666666666665,
+        "discrimination_gap": 0.9166666666666665,
+        "agreement_stdev": 0.23570226039551584,
+        "blind_preference_skill": "2/3",
+        "skill_per_criterion": {
+          "title_status": 4.333333333333333,
+          "context": 5,
+          "decision": 5,
+          "consequences": 5,
+          "alternatives": 4.666666666666667,
+          "standalone": 5,
+          "specificity": 5,
+          "completeness": 4.666666666666667
+        },
+        "control_per_criterion": {
+          "title_status": 3.6666666666666665,
+          "context": 4.333333333333333,
+          "decision": 3.3333333333333335,
+          "consequences": 4,
+          "alternatives": 3.6666666666666665,
+          "standalone": 4.333333333333333,
+          "specificity": 3.6666666666666665,
+          "completeness": 4.333333333333333
+        },
+        "gates": {
+          "discrimination": {
+            "value": 0.9166666666666665,
+            "target": 1,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.23570226039551584,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is stronger on every criterion - it names the decision in the title, specifies concrete implementation choices, ties all rejection reasoning to the stated constraints, and adds EU/DPA specificity and a References section that make it genuinely standalone and audit-ready; Artifact B is readable but consistently thinner on decision specifics, alternative analysis depth, and technical concreteness."
+          },
+          {
+            "judge": 2,
+            "stronger": "A",
+            "why": "A is structurally complete with no defects and a dedicated Rationale section that ties all forces to the choice; B's implementation-specific Decision section and richer Consequences are undercut by the draft/Proposed status conflict and the missing synthesized rationale."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A is stronger on every criterion: its decision section names the exact Postgres functions and column strategy, its alternatives give distinct vendor-level rejection reasoning, and its consequences section is the most honest and granular - while B's generic option prose and question-form title leave a senior PM with real gaps to fill."
+          }
+        ]
+      },
+      {
+        "skill": "measure-experiment-design",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 4.416666666666667,
+        "control_overall": 4.208333333333333,
+        "discrimination_gap": 0.20833333333333393,
+        "agreement_stdev": 0.41247895569215276,
+        "blind_preference_skill": "2/3",
+        "skill_per_criterion": {
+          "hypothesis": 4.333333333333333,
+          "primary_metric": 4.666666666666667,
+          "sample_size": 3,
+          "duration": 3.6666666666666665,
+          "success_criteria": 5,
+          "guardrails": 4.666666666666667,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "hypothesis": 3.3333333333333335,
+          "primary_metric": 5,
+          "sample_size": 4,
+          "duration": 5,
+          "success_criteria": 4.333333333333333,
+          "guardrails": 3.6666666666666665,
+          "specificity": 4.333333333333333,
+          "completeness": 4
+        },
+        "gates": {
+          "discrimination": {
+            "value": 0.20833333333333393,
+            "target": 1,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.41247895569215276,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "A is stronger overall: it matches B on hypothesis, primary metric, specificity, and sample size while significantly outperforming on completeness (variant UX detail, implementation/instrumentation schema) and success criteria (exhaustive edge-case handling), with B's single clear advantage - the day-21 analysis-lock call-out - not enough to close the gap across all eight criteria."
+          },
+          {
+            "judge": 2,
+            "stronger": "A",
+            "why": "Artifact A has the correct sample size (~4,900/arm) and derives duration from both statistical need and cycle coverage with an explicit day-21 analysis lock; Artifact B's ~11,900/arm figure is a 2.4x error that invalidates its duration reasoning and would mislead the data scientist who runs the test."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A dominates on completeness, guardrail rigor, and structured hypothesis while matching or exceeding B on every other criterion; B's one genuine advantage (the day-21 analysis-lock note) is a single operationally useful detail in an otherwise thinner document."
+          }
+        ]
+      },
+      {
+        "skill": "measure-okr-grader",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 5,
+        "control_overall": 3.5416666666666665,
+        "discrimination_gap": 1.4583333333333335,
+        "agreement_stdev": 0,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "type_aware_scoring": 5,
+          "evidence_quality": 5,
+          "guardrail_separation": 5,
+          "no_retro_adjust": 5,
+          "learning_synthesis": 5,
+          "next_cycle": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "type_aware_scoring": 3.6666666666666665,
+          "evidence_quality": 3.3333333333333335,
+          "guardrail_separation": 4,
+          "no_retro_adjust": 4.333333333333333,
+          "learning_synthesis": 3,
+          "next_cycle": 3,
+          "specificity": 4,
+          "completeness": 3
+        },
+        "gates": {
+          "discrimination": {
+            "value": 1.4583333333333335,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is stronger across every criterion: it calculates the aspirational score correctly (0.62 vs B's erroneous 70%), rates evidence confidence per-KR with a dedicated section, explicitly names and refuses retroactive scope shrinkage as a precedent risk, routes learnings to six downstream skills, and includes a Risks section that B omits entirely - making it the artifact a senior PM would ship without revision."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B is stronger on every differentiating criterion: it provides explicit guardrail-not-averaged language, a structured evidence quality section with per-issue impact and fixes, a validated/invalidated/surprise learning framework with named downstream skill hand-offs, and per-recommendation specificity including exact inputs for Q4 skills, while Artifact A covers the same ground but at a shallower depth that would require a reviewer to ask for more before shipping."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A applies every OKR-type convention with explicit calculations and quotes, rates evidence confidence per KR, enumerates four evidence issues with fixes, names and rejects the retroactive scope-shrinkage attempt by label, routes learnings to downstream skills, and covers risks the scenario sets up (guardrail averaging, premature KR3 scoring, leadership framing); Artifact B is honest and readable but has a 70%/62% arithmetic error on the primary KR, lacks systematic evidence ratings, a risks section, and skill handoffs, making it a strong executive summary rather than a complete cycle-review artifact."
+          }
+        ]
+      },
+      {
+        "skill": "iterate-retrospective",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 4.833333333333333,
+        "control_overall": 3.75,
+        "discrimination_gap": 1.083333333333333,
+        "agreement_stdev": 0.05892556509887896,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "balanced": 4.666666666666667,
+          "action_items": 5,
+          "prioritized": 4,
+          "prev_actions": 5,
+          "inclusive": 5,
+          "standalone": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "balanced": 4,
+          "action_items": 4.333333333333333,
+          "prioritized": 4.333333333333333,
+          "prev_actions": 3.6666666666666665,
+          "inclusive": 3.3333333333333335,
+          "standalone": 3.3333333333333335,
+          "specificity": 4,
+          "completeness": 3
+        },
+        "gates": {
+          "discrimination": {
+            "value": 1.083333333333333,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0.05892556509887896,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is stronger on every criterion except prioritized (a tie): its discussion notes with explicit root-cause and solution rationale make it genuinely standalone, its prev-actions reflection surfaces the causal link between Sprint 41 failures and Sprint 42 outcomes, and its inclusive handling of Sam and Lee is structural rather than just noted in facilitator comments."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B is stronger across every criterion, with notably superior completeness (parking lot, metrics, next-retro agenda), richer action-item success criteria, structural inclusivity techniques explicitly recorded, and per-topic discussion notes that give a missing reader the root cause and decision behind each action item - depth that Artifact A's cleaner but thinner format does not provide."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A wins on completeness, standalone readability, and inclusive depth - it provides sprint context, root-cause analysis, a parking lot, metrics, and a concrete plan to surface quieter voices, while Artifact B is actionable but too thin for a missing reader to reconstruct the sprint or its facilitation decisions."
+          }
+        ]
+      },
+      {
+        "skill": "deliver-release-notes",
+        "status": "ok",
+        "generations": 2,
+        "judges": 3,
+        "skill_overall": 4.625,
+        "control_overall": 3.7916666666666665,
+        "discrimination_gap": 0.8333333333333335,
+        "agreement_stdev": 0.27003086243366087,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "highlights": 4.333333333333333,
+          "benefit_led": 5,
+          "accessible": 5,
+          "concise": 3.3333333333333335,
+          "bugfix_problem": 4.666666666666667,
+          "no_leak": 5,
+          "specificity": 4.666666666666667,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "highlights": 3.3333333333333335,
+          "benefit_led": 3.6666666666666665,
+          "accessible": 3.6666666666666665,
+          "concise": 4.666666666666667,
+          "bugfix_problem": 4,
+          "no_leak": 3.6666666666666665,
+          "specificity": 4.333333333333333,
+          "completeness": 3
+        },
+        "gates": {
+          "discrimination": {
+            "value": 0.8333333333333335,
+            "target": 1,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.27003086243366087,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is stronger across the board: its explicit Highlights section, benefit-led headings, complete structure (Known Issues, Feedback), and thorough jargon removal outweigh Artifact B's tighter prose, which loses points for flat feature ordering, name-first headings, an unsupported \"beta\" label on Spaces, and a missing Known Issues section."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "B wins on the criteria that matter most for user-facing release notes - completely jargon-free language, consistent benefit-led framing, and a proper Known Issues section that correctly surfaces the partial rollout - while A's \"cold start time\" leak and missing Known Issues section leave real gaps a reviewer would flag before shipping."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A wins on structure and completeness - its dedicated Highlights section, full section coverage, and thorough jargon stripping outweigh its one real flaw (redundancy between Highlights and New Features), while Artifact B's superior conciseness cannot compensate for the missing highlights lead and thinner section set."
+          }
+        ]
+      }
+    ]
+  }
+}
