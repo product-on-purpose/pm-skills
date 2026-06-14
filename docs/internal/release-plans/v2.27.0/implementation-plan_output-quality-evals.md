@@ -122,7 +122,7 @@ deterministic asset-presence gates ARE enforcing.
 | B-4 Eval-asset presence | deterministic, enforcing | DONE (trigger half, 2026-06-14): `check-trigger-fixtures.mjs` promoted advisory -> ENFORCING in validation.yml. It now fails CI on a malformed fixture or any **roster** skill missing `evals/trigger-fixtures.json`. Scope is the 29-skill measured roster (not all 66 skills - the other skills are not yet in the trigger-eval program, so gating them would red-CI without measuring anything). A filesystem-backed unit-test guard locks the corpus green in the enforcing `node --test` step ahead of the live validator. PENDING (output half, waits on M-33 Phase 1): extend the gate to also require an `output-scenarios/` entry + a rubric-family mapping per skill. |
 | B-5 Description-change reminder | advisory | A check that flags a PR changing a SKILL.md `description` without a recorded router-eval re-run for that skill (advisory comment, not a hard fail). |
 | B-6 Harness bug fix | tooling | DONE (2026-06-13): `apiError()` now surfaces `error_max_turns` from the result event's subtype/errors, and `classifyRun()` hard-stops it with an actionable message ("a SessionStart skill likely consumed the turn; raise --max-turns or disable interfering plugins. NOT a server throttle"). 2 regression tests added. |
-| B-7 Output-eval asset + body-change gate | advisory -> enforcing | NEW (codex adversarial review 2026-06-14, finding 4). Closes the regression-protection hole: regression-triggering only protects a skill if its output-eval assets exist WHEN its body changes, else an assetless skill stays unmeasured forever and a future change has no deterministic guardrail. (a) An asset-presence check, the output-eval analog of B-4: for every skill in the output-eval roster, require an `evals/output-scenarios/` entry + a family-rubric mapping (advisory until the roster is pinned, then enforcing). (b) A body-change reminder, the output-eval analog of B-5: a PR editing a roster skill's instructions/template without a recorded output-eval re-run gets an advisory flag. |
+| B-7 Output-eval asset + body-change gate | advisory -> enforcing | Codex adversarial review 2026-06-14, finding 4. Closes the regression-protection hole: regression-triggering only protects a skill if its output-eval assets exist WHEN its body changes. (a) Asset-presence check (output-eval analog of B-4): **DONE (advisory).** `scripts/check-output-eval-assets.mjs` (+ 7-test `.test.mjs`, in the enforcing node --test step) validates, for every skill carrying `evals/output-scenarios/`, that each scenario has well-formed frontmatter (scenario/skill/family), names its own skill, maps its family to an existing rubric, and carries a non-trivial brief. Wired advisory in validation.yml (M-30 ladder); clean across 11 scenarios; promote to enforcing once the output-eval roster is pinned. (b) Body-change reminder (output-eval analog of B-5): **PENDING** - a PR editing a roster skill's instructions/template without a recorded output-eval re-run gets an advisory flag (needs PR-diff context). |
 
 Drift threshold defaults: recall drop > 1 query (per skill) or any new validation-set collision = fail.
 Tune after the baseline has a few runs of natural variance.
@@ -211,6 +211,9 @@ with 4 findings. Disposition:
    asset-presence + body-change gate). Family-validation claims softened to "validated for the sampled
    skill(s)" in the batch record.
 
-Open follow-ups carried forward: implement the informed control (re-run >= 1 sampled skill with it),
-build B-7, revise the runner to emit raw judge rows + call the shared `gateVerdict`, and land the human
-anchor (P1-5).
+Done since the review (2026-06-14): **B-7 asset-presence gate built** (`check-output-eval-assets.mjs`,
+advisory) and the **batch runner revised** to emit raw per-judge rows + a mirrored absolute-failure-first
+verdict. Open follow-ups carried forward: implement the **informed control** (re-run >= 1 sampled skill
+with it; codex finding 2), build the **B-7 body-change reminder** half (output-eval analog of the B-5
+description-change reminder), land the **per-family human anchor** (P1-5), and re-look the 3 VOID
+instruments (`develop-adr`, `deliver-release-notes`, `measure-experiment-design`).

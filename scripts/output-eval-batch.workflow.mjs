@@ -1,23 +1,20 @@
-// scripts/output-eval-batch.workflow.mjs - the EXACT M-33 output-eval batch runner used for the
-// 2026-06-14 representative-sample run (records/output-eval-batch-20260614.md + its .raw.json),
-// committed for reproducibility (codex adversarial review, finding 3). It is a Workflow-tool script:
-// run it via the Claude Code Workflow tool (multi-agent opt-in required), not `node`.
+// scripts/output-eval-batch.workflow.mjs - the M-33 output-eval batch runner. It is a Workflow-tool
+// script: run it via the Claude Code Workflow tool (multi-agent opt-in required), not `node`.
 //
-// Relationship to the canonical logic: the un-blinding + criterion-mean aggregation + agreement math
-// below MIRROR scripts/output-eval-aggregate.mjs, which is unit-tested (output-eval-aggregate.test.mjs).
-// Workflow scripts cannot `import`, so the logic is duplicated; keep it in sync with that module, which
-// is the reference. The single-skill harness scripts/output-eval.workflow.mjs is the canonical tool;
-// this batch runner fans the same per-skill flow across N skills with a self-shakedown gate.
+// Provenance: the 2026-06-14 representative-sample run (records/output-eval-batch-20260614.md + its
+// .raw.json) used the version of this file committed at 25c37e9b. This revision (post codex adversarial
+// review) emits the raw per-judge rows and a verdict so future runs are fully re-derivable and self-
+// labelling; the recorded 2026-06-14 numbers are unchanged (the revision is for the next wave).
 //
-// KNOWN LIMITATIONS (tracked for a future revision, do not silently drift):
-//   - It returns per-criterion MEANS, not the raw per-judge per-criterion scores, so a committed run
-//     cannot be independently re-aggregated from this output alone. A future revision should return the
-//     raw judge rows so records/*.raw.json is fully re-derivable.
-//   - It reports gap/agreement but does NOT apply the absolute-failure-first verdict (gateVerdict in
-//     output-eval-aggregate.mjs); the verdict was applied by the orchestrator when recording. A future
-//     revision should call the shared verdict so PASS/FAIL/VOID is emitted by the runner.
-//   - The control arm is freehand-only (no output contract); the "informed control" enhancement
-//     (codex finding 2) is not yet implemented here.
+// Relationship to the canonical logic: the un-blinding + criterion-mean aggregation + the absolute-
+// failure-first verdict below MIRROR scripts/output-eval-aggregate.mjs, which is unit-tested
+// (output-eval-aggregate.test.mjs). Workflow scripts cannot `import`, so the logic is duplicated; keep
+// it in sync with that module, which is the reference. The single-skill harness
+// scripts/output-eval.workflow.mjs is the canonical tool; this batch runner fans the same per-skill flow
+// across N skills with a self-shakedown gate.
+//
+// REMAINING LIMITATION: the control arm is freehand-only (no output contract); the "informed control"
+// enhancement (codex finding 2) is not yet implemented here.
 
 export const meta = {
   name: 'output-eval-batch',
@@ -102,12 +99,22 @@ async function evalSkill(cfg) {
   const gap = skillOverall - controlOverall, agreement = stdev(skillOveralls)
   const skillWins = judged.filter(({ skillIsA, v }) => (v.which_is_stronger === 'A') === skillIsA).length
   const gates = { discrimination: { value: gap, target: 1.0, pass: gap >= 1.0 }, agreement: { value: agreement, target: 0.7, pass: agreement <= 0.7 } }
-  log(`${SKILL}: skill ${skillOverall.toFixed(2)} vs control ${controlOverall.toFixed(2)} | gap ${gap.toFixed(2)} (${gates.discrimination.pass ? 'PASS' : 'FAIL'}) | agreement ${agreement.toFixed(2)} (${gates.agreement.pass ? 'PASS' : 'FAIL'}) | pref ${skillWins}/${judged.length}`)
+  // Absolute-failure-first verdict - MIRRORS gateVerdict in scripts/output-eval-aggregate.mjs (tested).
+  // A sub-bar or floored skill is a FAIL regardless of the gap; only an absolute-clearing skill is VOID
+  // on a sub-threshold gap or high disagreement.
+  const floored = Object.entries(skillCrit).filter(([, m]) => m < 2.5).map(([k]) => k)
+  const absolutePass = skillOverall >= 3.5 && floored.length === 0
+  const verdict = !absolutePass ? 'fail' : (!gates.discrimination.pass || !gates.agreement.pass) ? 'void-inconclusive' : 'pass'
+  log(`${SKILL}: ${verdict.toUpperCase()} | skill ${skillOverall.toFixed(2)} vs control ${controlOverall.toFixed(2)} | gap ${gap.toFixed(2)} (${gates.discrimination.pass ? 'PASS' : 'FAIL'}) | agreement ${agreement.toFixed(2)} (${gates.agreement.pass ? 'PASS' : 'FAIL'}) | pref ${skillWins}/${judged.length}`)
   return {
-    skill: SKILL, status: 'ok', generations: skillDrafts.length, judges: judged.length,
+    skill: SKILL, status: 'ok', verdict, absolute_pass: absolutePass, floored_criteria: floored,
+    generations: skillDrafts.length, judges: judged.length,
     skill_overall: skillOverall, control_overall: controlOverall, discrimination_gap: gap, agreement_stdev: agreement,
     blind_preference_skill: `${skillWins}/${judged.length}`, skill_per_criterion: skillCrit, control_per_criterion: controlCrit, gates,
     rationales: judged.map(({ judge, v }) => ({ judge, stronger: v.which_is_stronger, why: v.one_line_rationale })),
+    // Raw per-judge rows for independent re-aggregation (codex finding 3): each judge's full A/B
+    // per-criterion scores + their blind assignment, so records/*.raw.json is re-derivable end to end.
+    raw_judges: judged.map(({ judge, skillIsA, v }) => ({ judge, skillIsA, artifact_a: v.artifact_a, artifact_b: v.artifact_b, which_is_stronger: v.which_is_stronger })),
   }
 }
 

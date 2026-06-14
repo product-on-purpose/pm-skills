@@ -363,6 +363,7 @@ jobs:
           node --test scripts/check-reciprocal-boundary-pointers.test.mjs
           node --test scripts/output-eval.workflow.test.mjs
           node --test scripts/output-eval-aggregate.test.mjs
+          node --test scripts/check-output-eval-assets.test.mjs
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
@@ -403,6 +404,16 @@ jobs:
         # validator now exits 0. Any future collision pair missing a reciprocal pointer fails CI.
         if: always()
         run: node scripts/check-reciprocal-boundary-pointers.mjs
+
+      - name: Eval - output-eval asset presence (advisory)
+        # B-7 (M-33): the output-eval analog of B-4. Every skill carrying an
+        # evals/output-scenarios/ entry must have well-formed scenario frontmatter, a
+        # matching skill name, an existing family rubric, and a non-trivial brief. Advisory
+        # on the M-30 ladder until the output-eval roster is pinned, then enforcing. Closes
+        # the regression-protection gap from the 2026-06-14 codex adversarial review.
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-output-eval-assets.mjs
 
       - name: Check rendered link resolution + anchors (enforcing)
         if: always()
