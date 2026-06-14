@@ -83,8 +83,8 @@ export function diffBaseline(rows, baselineRows) {
   return regressions;
 }
 
-const buildCatalog = (entries) => entries.map((s) => '- ' + s.n + ': ' + s.d).join('\n');
-const systemPrompt = (catalogStr) => [
+export const buildCatalog = (entries) => entries.map((s) => '- ' + s.n + ': ' + s.d).join('\n');
+export const systemPrompt = (catalogStr) => [
   'You are a precise classifier that routes a user request to the single best-matching option.',
   'Below is a CATALOG of options, one per line, formatted "name: description".',
   'Judge ONLY by the descriptions. Choose the SINGLE option whose description best matches the',
@@ -125,7 +125,7 @@ export async function majority(q, runs, routeFn) {
   return { pick: Object.entries(c).sort((a, b) => b[1] - a[1])[0][0], hard };
 }
 
-async function mapPool(items, n, fn) {
+export async function mapPool(items, n, fn) {
   const out = new Array(items.length); let i = 0; let stop = false;
   const worker = async () => { while (i < items.length && !stop) { const idx = i++; out[idx] = await fn(items[idx]); if (out[idx] && out[idx].hard) stop = true; } };
   await Promise.all(Array.from({ length: Math.min(n, items.length || 1) }, worker));

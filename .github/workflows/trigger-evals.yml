@@ -5,10 +5,14 @@ name: Trigger evals (advisory, cost-gated)
 # accepted baseline report is committed under the release-plan records path).
 # Spec: docs/internal/release-plans/v2.27.0/spec_trigger-accuracy-evals.md section 5.
 #
-# TWO jobs:
+# THREE jobs:
 #  - router-evals: the TRUSTWORTHY instrument (controlled router eval; a direct
 #    Messages API call per query, no plugin environment). Diffs against the committed
 #    baseline and FAILS on a recall/precision regression - the drift gate (B-2).
+#  - collision-probe: the new-skill collision merge gate (B-3). Runs the router eval
+#    with a named new skill in the catalog and FAILS on theft (a neighbor's query
+#    routes to the new skill), a recall miss, or a precision false-fire. Dispatch with
+#    new_skill=<name>; the deterministic core is unit-tested in validation.yml.
 #  - trigger-evals: the legacy headless harness, kept as an integration check only.
 #    It was environment-confounded (see trigger-evals-explained.md "CORRECTION");
 #    do not trust its absolute numbers.
@@ -20,6 +24,10 @@ on:
     inputs:
       skills:
         description: 'Comma-separated skill filter (empty = full Phase 1 roster)'
+        required: false
+        type: string
+      new_skill:
+        description: 'B-3: run the new-skill collision probe for this single skill name (collision-probe job only)'
         required: false
         type: string
       dry_run:
@@ -70,6 +78,33 @@ jobs:
           name: router-eval-report
           path: router-eval-report.md
           if-no-files-found: ignore
+
+  collision-probe:
+    # B-3 new-skill collision merge gate. Runs only when a new_skill name is supplied.
+    # Asserts the new skill recalls its own queries, steals none from its neighbors, and
+    # does not false-fire on neighbor queries. Exit 5 on a collision.
+    runs-on: ubuntu-latest
+    if: ${{ inputs.new_skill != '' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+
+      - name: Harness unit tests
+        run: node --test scripts/check-new-skill-collision.test.mjs
+
+      - name: Dry-run plan
+        run: node scripts/check-new-skill-collision.mjs --skill=${{ inputs.new_skill }} --dry-run
+
+      - name: Run collision probe
+        if: ${{ !inputs.dry_run }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/check-new-skill-collision.mjs --skill=${{ inputs.new_skill }} --model=claude-haiku-4-5
 
   trigger-evals:
     runs-on: ubuntu-latest
