@@ -1,0 +1,1040 @@
+{
+  "summary": "M-33 output-quality eval across N sampled skills (Sonnet gen + Sonnet judges). Per skill: skill-arm reads its real SKILL.md+template and produces the artifact; a thin freehand control reads only the scenario; N blind judges score both verbatim; derive discrimination gap + inter-judge agreement vs the validity gates. Self-shakedown: skill 1 runs first and the rest fan out only if it returns a valid result. Fails closed per skill.",
+  "agentCount": 35,
+  "logs": [
+    "Shakedown: evaluating foundation-okr-writer first (1 of 7)...",
+    "foundation-okr-writer: PASS | skill 5.00 vs control 2.42 | gap 2.58 (PASS) | agreement 0.00 (PASS) | pref 3/3",
+    "Shakedown OK (foundation-okr-writer gap 2.58). Fanning out the remaining 6 skills.",
+    "deliver-release-notes: VOID-INCONCLUSIVE | skill 4.46 vs control 3.92 | gap 0.54 (FAIL) | agreement 0.26 (PASS) | pref 3/3",
+    "develop-adr: VOID-INCONCLUSIVE | skill 4.58 vs control 4.13 | gap 0.46 (FAIL) | agreement 0.12 (PASS) | pref 3/3",
+    "iterate-retrospective: PASS | skill 4.92 vs control 3.67 | gap 1.25 (PASS) | agreement 0.06 (PASS) | pref 3/3",
+    "discover-interview-synthesis: PASS | skill 4.92 vs control 3.33 | gap 1.58 (PASS) | agreement 0.06 (PASS) | pref 3/3",
+    "deliver-edge-cases: PASS | skill 5.00 vs control 2.75 | gap 2.25 (PASS) | agreement 0.00 (PASS) | pref 3/3",
+    "measure-okr-grader: PASS | skill 5.00 vs control 3.38 | gap 1.63 (PASS) | agreement 0.00 (PASS) | pref 3/3"
+  ],
+  "result": {
+    "results": [
+      {
+        "skill": "foundation-okr-writer",
+        "status": "ok",
+        "verdict": "pass",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 1,
+        "judges": 3,
+        "skill_overall": 5,
+        "control_overall": 2.4166666666666665,
+        "discrimination_gap": 2.5833333333333335,
+        "agreement_stdev": 0,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "objective_quality": 5,
+          "outcome_krs": 5,
+          "kr_measurability": 5,
+          "guardrails": 5,
+          "no_fabrication": 5,
+          "integrity_audit": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "objective_quality": 3.6666666666666665,
+          "outcome_krs": 2,
+          "kr_measurability": 2,
+          "guardrails": 2,
+          "no_fabrication": 2.6666666666666665,
+          "integrity_audit": 1.3333333333333333,
+          "specificity": 4,
+          "completeness": 1.6666666666666667
+        },
+        "gates": {
+          "discrimination": {
+            "value": 2.5833333333333335,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A applies the full OKR discipline - pure outcome KRs, labeled placeholders for every uninstrumented baseline, three scenario-specific guardrails, and an explicit pass/risk/fail quality audit - while Artifact B includes task KRs (interviews, synthesis doc), an output KR (checklist completion rate), fabricated or ungrounded targets (40% connector attribution), no guardrail section, and no integrity audit, leaving the planning review audience without the accountability structure the skill exists to provide."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B satisfies every section of the skill's Output Contract (Quality Audit, Guardrails, Initiatives as Bets, Disclosure, per-KR metadata) and reframes all task KRs correctly, while Artifact A, though well-written and specific, is missing seven required sections and leaves task-count and vanity KRs unreformed."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A correctly converts every task to an Initiative, labels all missing baselines as explicit placeholders, provides three scenario-targeted guardrails, and includes a structured audit - while Artifact B includes task KRs, a fabricated target with no baseline, and omits guardrail, audit, alignment, and initiative sections."
+          }
+        ],
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillIsA": true,
+            "artifact_a": {
+              "objective_quality": 5,
+              "outcome_krs": 5,
+              "kr_measurability": 5,
+              "guardrails": 5,
+              "no_fabrication": 5,
+              "integrity_audit": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "A produces one well-formed qualitative objective (state-change, not a metric bundle or slogan). All four KRs are outcomes or evidence-generation; features and tasks are correctly relocated to an Initiatives section. Every KR carries metric, baseline (or an explicitly labeled placeholder: 'assumption,' 'recommended-to-measure,' 'placeholder'), target, deadline, and evidence source - no blank fields. Three named guardrails address the exact anti-patterns in the brief (checklist-completion gaming, support load, cohort selection theater). No baselines are fabricated; uncertain figures from the brief are carried forward with explicit uncertainty labels. The Quality Audit section applies pass/risk/fail to every dimension and honestly flags three risks (measurement, product influence, operating rhythm). All scenario entities are named (22%, 6%, three connector names, the definition dispute, the feature-team constraint). Every expected section is present: objective, KRs, initiatives, guardrails, alignment notes, disclosure, quality audit, open questions, next step. One point of honest uncertainty: the 25% time-reduction target is labeled placeholder awaiting baseline, which is correct handling, not a deficiency. The sole minor nit is that four KRs is at the ceiling of the recommended range; A acknowledges this and justifies each."
+            },
+            "artifact_b": {
+              "objective_quality": 3,
+              "outcome_krs": 2,
+              "kr_measurability": 2,
+              "guardrails": 2,
+              "no_fabrication": 3,
+              "integrity_audit": 1,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "B uses three objectives for one squad, which fragments focus; Objective 2 ('Convert more activated users to paying teams within 30 days') reads as a restatement of KR 2.1 rather than a qualitative state-change. Objective 3 is the strongest - it names the specific anti-pattern from the brief and gives direction. KR quality is the biggest gap: KR 1.3 (checklist completion rate) is explicitly labeled by the artifact itself as an 'output of committed roadmap work,' not an outcome - it should not appear as a KR. KR 2.2 (40% of paid conversions cite a connector via survey) is a fragile attribution instrument measuring roadmap delivery, not behavior change. KR 3.1 (10 interviews completed) and KR 3.2 (synthesis doc produced) are tasks and deliverables, not outcomes. Measurability suffers: most KRs lack an explicit evidence source, baseline confidence labels, or placeholder markers for uninstrumented metrics. The 22% baseline is carried without noting the scenario's warning that the definition is fuzzy; KR 2.2's 40% target has no grounding in the brief. No formal guardrails section exists; the checklist-completion concern is handled via pairing and a note, but there is no counter-metric for conversion-rate gaming or support load. No quality audit section at all. The notes section is useful planning guidance but does not self-assess pass/risk/fail. Specificity is a relative strength - the scenario's numbers, connectors, and anti-pattern are named - but some KRs (3.1, 3.2) are generic research tasks that could appear in any product team's OKR set. Missing sections: initiatives, guardrails, alignment/dependencies, quality audit, open questions, disclosure."
+            },
+            "which_is_stronger": "A"
+          },
+          {
+            "judge": 2,
+            "skillIsA": false,
+            "artifact_a": {
+              "objective_quality": 4,
+              "outcome_krs": 2,
+              "kr_measurability": 2,
+              "guardrails": 2,
+              "no_fabrication": 3,
+              "integrity_audit": 1,
+              "specificity": 4,
+              "completeness": 1,
+              "notes": "Artifact A is a well-written planning document with specific, grounded prose and two genuinely good objectives. However it fails the skill's Output Contract on almost every structural dimension: no Quality Audit section (the rubric criterion most visibly absent), no Initiatives as Bets, no Guardrails and Health Checks, no Alignment Notes, no Open Questions, no Suggested Next Step, and no Disclosure despite a clear feature-team signal. KR 1.3 (checklist completion) is kept as a primary KR despite being called a vanity metric in the Notes; KR 3.1 and 3.2 are task/activity KRs not reframed to evidence-generation type. No KR carries evidence source, indicator class, or confidence. Targets are presented without placeholder labels. The Notes section is thoughtful but cannot substitute for the required structured sections."
+            },
+            "artifact_b": {
+              "objective_quality": 5,
+              "outcome_krs": 5,
+              "kr_measurability": 5,
+              "guardrails": 5,
+              "no_fabrication": 5,
+              "integrity_audit": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact B satisfies every criterion in the skill's Output Contract with no required section missing or thin. The single objective is qualitative, directional, and free of embedded metrics. All four KRs measure outcomes or behavior change; the original draft feature-delivery items (checklist, connectors, interviews) are correctly moved to Initiatives as Bets with explicit hypothesis framing. Every KR carries metric, baseline (or explicitly labeled assumption/recommended-to-measure), target, deadline, evidence source, indicator class, and confidence. Three guardrails cover the specific anti-patterns from the brief. The Quality Audit applies all 11 rubric criteria with explicit pass/risk/fail. No value is fabricated; missing baselines are labeled. The feature-team Disclosure section is present. The only rubric flag (operating rhythm: risk) is correctly identified and noted."
+            },
+            "which_is_stronger": "B"
+          },
+          {
+            "judge": 3,
+            "skillIsA": true,
+            "artifact_a": {
+              "objective_quality": 5,
+              "outcome_krs": 5,
+              "kr_measurability": 5,
+              "guardrails": 5,
+              "no_fabrication": 5,
+              "integrity_audit": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Single qualitative objective, all KRs are outcomes or evidence-generation (tasks moved to Initiatives), every missing value explicitly labeled as assumption/placeholder/recommended-to-measure, three purpose-built guardrails directly addressing the scenario's historical anti-pattern and speed-pressure risk, full structured Quality Audit with pass/risk/fail per dimension, empowered-team Disclosure section, scenario-specific entities and numbers throughout, all required output sections present with substance."
+            },
+            "artifact_b": {
+              "objective_quality": 4,
+              "outcome_krs": 2,
+              "kr_measurability": 2,
+              "guardrails": 2,
+              "no_fabrication": 2,
+              "integrity_audit": 2,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Three objectives are each well-formed and directional, and Objective 3 directly names the historical anti-pattern. However: KR 1.3 (checklist completion) is an output metric included as a KR rather than a counter-metric guardrail; KR 3.1 and KR 3.2 are tasks/deliverables not outcomes; KR 2.2 introduces a new survey with a fabricated 40% target and no baseline or placeholder label; evidence sources and explicit deadlines are missing from most KRs; missing values are acknowledged in prose notes but not labeled inline per KR; no formal guardrail section; no structured Quality Audit with pass/risk/fail ratings; no empowered-team disclosure; Initiatives, Alignment, and Open Questions sections absent."
+            },
+            "which_is_stronger": "A"
+          }
+        ]
+      },
+      {
+        "skill": "deliver-edge-cases",
+        "status": "ok",
+        "verdict": "pass",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 1,
+        "judges": 3,
+        "skill_overall": 5,
+        "control_overall": 2.75,
+        "discrimination_gap": 2.25,
+        "agreement_stdev": 0,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "input_validation": 5,
+          "boundaries": 5,
+          "failures": 5,
+          "messages": 5,
+          "recovery": 5,
+          "prioritized": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "input_validation": 3.6666666666666665,
+          "boundaries": 3.3333333333333335,
+          "failures": 3,
+          "messages": 3,
+          "recovery": 2.3333333333333335,
+          "prioritized": 1,
+          "specificity": 3.6666666666666665,
+          "completeness": 2
+        },
+        "gates": {
+          "discrimination": {
+            "value": 2.25,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is stronger on every criterion: it fills all five required template sections including a dedicated Error Messages table with quoted copy and structured Recovery Paths with data-preservation analysis, assigns P1/P2/P3 to every case, uses concrete numbers throughout, and covers additional high-value cases (presigned URL expiry, off-by-one bytes, HEIC, path traversal, session-expiry grace period) that Artifact B omits entirely."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B outperforms A on every criterion: it adds systematic P1/P2/P3 prioritization, a dedicated error-messages table with exact copy and recovery buttons, structured recovery-path narratives with data-preservation guarantees, deeper failure coverage (presigned URL expiry, session expiry, double-tap, orphaned multipart parts), and a three-tier test checklist - none of which appear in Artifact A's flat categorical dump."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A satisfies every required template section with exhaustive, prioritized, scenario-specific content; Artifact B has some additive edge cases (extension normalization, retroactive re-scan, accessibility ARIA detail) but is missing the Error Messages table, Recovery Paths section, Test Scenarios checklist, and any prioritization, making it structurally incomplete against the skill's output format."
+          }
+        ],
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillIsA": true,
+            "artifact_a": {
+              "input_validation": 5,
+              "boundaries": 5,
+              "failures": 5,
+              "messages": 5,
+              "recovery": 5,
+              "prioritized": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A fills every required template section (Feature Overview, all five Edge Case Category sub-tables, Error Messages table with quoted copy, structured Recovery Paths with data-preservation analysis, tri-tiered Test Scenarios). Every row carries a P1/P2/P3 priority. Actual numbers are used throughout (10 MB, 25 MB, 5 files, 30 s stall, S3 1024-byte key, 60 s scan timeout, 1-hour grace period). Off-by-one boundary cases (10 MB+1 byte, 25 MB+1 byte), presigned-URL expiry (before and mid-upload), EXIF GPS stripping, path-traversal filename injection, and HEIC auto-conversion question are all present. Messages are quoted with variable substitution ([X MB]). Recovery paths each carry User sees / Recovery options / Data preservation sub-sections."
+            },
+            "artifact_b": {
+              "input_validation": 4,
+              "boundaries": 3,
+              "failures": 3,
+              "messages": 3,
+              "recovery": 3,
+              "prioritized": 1,
+              "specificity": 3,
+              "completeness": 2,
+              "notes": "Artifact B covers the high-level cases competently but has significant structural gaps. No priority column or tier exists anywhere - cases are grouped by theme only, leaving relative severity completely unranked (prioritized = 1). The required template sections for Error Messages (consolidated table) and Recovery Paths (User sees / Recovery options / Data preservation) are absent; messages are embedded inline and recovery is mentioned only briefly in row descriptions. Test Scenarios are entirely missing. Boundaries are thinner: no pixel-dimension edge cases, no explicit 25 MB doc off-by-one row, no filename-length boundary. Failures omit presigned URL expiry, 413/403 server codes, and session expiry during long uploads. Several message rows use an unresolved 'X MB' placeholder. A useful addition is the accessibility section (4 cases) and the out-of-scope confirmation, but these do not compensate for the missing required sections."
+            },
+            "which_is_stronger": "A"
+          },
+          {
+            "judge": 2,
+            "skillIsA": false,
+            "artifact_a": {
+              "input_validation": 3,
+              "boundaries": 3,
+              "failures": 3,
+              "messages": 3,
+              "recovery": 2,
+              "prioritized": 1,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact A is well-written prose with strong specificity (real numbers, MIME types, EXIF detail) but has structural gaps: no dedicated error-messages table (messages are embedded in table rows), no recovery section (paths are described inline but not structured), and no prioritization whatsoever - it is a flat categorical dump. Missing cases include HEIC, no-file-selected, session expiry, presigned URL expiry, filename sanitization, and a test checklist. The out-of-scope confirmation block is a nice touch."
+            },
+            "artifact_b": {
+              "input_validation": 5,
+              "boundaries": 5,
+              "failures": 5,
+              "messages": 5,
+              "recovery": 5,
+              "prioritized": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact B covers every dimension the scenario raises and then some: HEIC, magic-byte mismatch with server enforcement, batch-exceeds-5, pixel-dimension memory risk, presigned URL expiry mid-upload, session expiry, storage backend down, CDN failure, orphaned multipart parts, double-tap debounce. Every table row has a P1/P2/P3 priority. A dedicated Error Messages table provides exact user-facing copy with dynamic interpolation and recovery action buttons. Six named Recovery Paths each include user message, options, and data preservation guarantee. A three-tier test checklist (P1/P2/P3) provides immediately actionable QA coverage. The only nit is that the 'fail safe: reject' policy for scan timeout may warrant more explicit product debate, but it is at least documented as a decision."
+            },
+            "which_is_stronger": "B"
+          },
+          {
+            "judge": 3,
+            "skillIsA": true,
+            "artifact_a": {
+              "input_validation": 5,
+              "boundaries": 5,
+              "failures": 5,
+              "messages": 5,
+              "recovery": 5,
+              "prioritized": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A fills every required template section (Feature Overview, all Edge Case Category subtables, Error Messages table with exact copy, Recovery Paths with User-sees/options/data-preservation structure, tiered Test Scenarios checklist). Every row carries a P1/P2/P3 priority. Error messages are consolidated, specific, and include dynamic values. Recovery paths are structured and address data preservation and automatic vs. manual options. Failure coverage is exhaustive: presigned URL expiry mid-upload, multipart orphan cleanup, scan service in degraded mode, EXIF GPS strip, 60-second scan timeout suggestion, exponential backoff, S3 key length limit. The only theoretical gap is that it does not explicitly cover mixed-case file extensions or retroactive re-scan, but the overall depth and format conformance are exceptional."
+            },
+            "artifact_b": {
+              "input_validation": 4,
+              "boundaries": 4,
+              "failures": 3,
+              "messages": 3,
+              "recovery": 2,
+              "prioritized": 1,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact B has genuine strengths: mixed-case extension normalization (case 8), retroactive malware re-scan (case 27), near-quota partial-reject (case 29), quota-freed race condition (case 30), and a dedicated Accessibility section with ARIA specifics are all additions not present in A. However it structurally fails several required sections: no YAML frontmatter, no Feature Overview, no consolidated Error Messages table, no dedicated Recovery Paths section with data-preservation language, and no tiered Test Scenarios checklist. No priority column exists anywhere, so the skill's prioritization requirement is entirely unmet. Recovery is described inline but at shallow depth with no data-preservation detail. Message copy is embedded and incomplete across scenarios. The thematic organization is intuitive but does not satisfy the template Output Format."
+            },
+            "which_is_stronger": "A"
+          }
+        ]
+      },
+      {
+        "skill": "measure-okr-grader",
+        "status": "ok",
+        "verdict": "pass",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 1,
+        "judges": 3,
+        "skill_overall": 5,
+        "control_overall": 3.375,
+        "discrimination_gap": 1.625,
+        "agreement_stdev": 0,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "type_aware_scoring": 5,
+          "evidence_quality": 5,
+          "guardrail_separation": 5,
+          "no_retro_adjust": 5,
+          "learning_synthesis": 5,
+          "next_cycle": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "type_aware_scoring": 3.3333333333333335,
+          "evidence_quality": 3,
+          "guardrail_separation": 4,
+          "no_retro_adjust": 4.666666666666667,
+          "learning_synthesis": 3,
+          "next_cycle": 3,
+          "specificity": 4,
+          "completeness": 2
+        },
+        "gates": {
+          "discrimination": {
+            "value": 1.625,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A satisfies every Output Contract section in canonical order with explicit OKR-type-aware scoring, per-KR evidence confidence, named downstream skill hand-offs, and a source-of-truth note; Artifact B is honest and readable but omits frontmatter, the source-of-truth note, a formal Initiative Review with bet framing, a Risks in Interpretation section, and all named downstream skill hand-offs, which are non-negotiable completeness requirements of the skill spec."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B satisfies the full Output Contract (all 8 canonical sections, correct canonical scoring for every KR type, explicit guardrail separation, named downstream skill hand-offs) while Artifact A makes the right integrity calls but lacks three required sections, never produces the 0-1 numeric score for aspirational KRs, and misclassifies guardrail as an OKR type rather than an indicator class."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A satisfies every output-contract section, scoring convention, evidence-quality requirement, and hand-off protocol at a level a senior PM would not revise; Artifact B is honest and readable but is missing the standalone Evidence Quality section, source-of-truth note, frontmatter, downstream skill hand-offs, and the committed-KR not-yet-fully-observable marker on KR2."
+          }
+        ],
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillIsA": true,
+            "artifact_a": {
+              "type_aware_scoring": 5,
+              "evidence_quality": 5,
+              "guardrail_separation": 5,
+              "no_retro_adjust": 5,
+              "learning_synthesis": 5,
+              "next_cycle": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A is exceptional across every criterion. KR1 uses the exact aspirational 0-1 formula with calculation shown (8/13 = 0.62), correctly named within the 0.6-0.7 sweet spot. KR2 is scored FAIL for the committed type with no aspirational softening and explicitly refuses the PM's retroactive scope shrinkage with named reasoning. KR3 is marked deferred with an explicit October 15 close date and a provisional sub-signal (0.33) clearly bounded as August-only. KR4 is correctly typed as guardrail/operational_health (FAIL, 36% overshoot) and emphatically not averaged in. Evidence confidence is rated per KR (high/high/low+medium/medium) with specific instrumentation caveats named. The guardrail is surfaced as a standalone finding in a dedicated section and again in the Risks section. No retroactive adjustment is made; the KR2 PM reframing is explicitly refused with reasoning. Learning distinguishes validated vs. invalidated assumptions and surprises with causal hedging. Next-cycle section names six specific actions with concrete timing, candidate OKR framing, and named downstream skills (iterate-lessons-log, iterate-retrospective, define-hypothesis x2, measure-instrumentation-spec, measure-dashboard-requirements, foundation-okr-writer). All eight required Output Contract sections are present in canonical order. Frontmatter includes phase: measure. Source-of-truth note is present. No skill commentary leaked into the artifact. One extremely minor observation: KR2 is labeled committed (correct) but the SKILL.md says committed KRs should be scored 'pass or fail'; A scores it 'FAIL' which is correct. KR4 is labeled 'operational_health' as OKR type and 'guardrail' as indicator class, which is the correct dual-classification from the skill spec. This is about as close to a perfect execution as the rubric allows."
+            },
+            "artifact_b": {
+              "type_aware_scoring": 3,
+              "evidence_quality": 3,
+              "guardrail_separation": 4,
+              "no_retro_adjust": 4,
+              "learning_synthesis": 3,
+              "next_cycle": 3,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact B is readable and honest but has meaningful gaps against the skill spec. type_aware_scoring: KR1 is described as 'Partial / Strong Progress - 62% of gap closed' rather than a 0.62 score on the 0-1 aspirational scale; the formula is not shown. KR2 is correctly scored as incomplete/failed for a committed KR. KR3 is correctly deferred. KR4 is labeled Guardrail Breached - correct type handling. However, KR4 is never explicitly assigned an OKR type (operational_health vs. compliance_or_safety vs. committed); it is only referred to by indicator class. The skill spec requires both OKR type and indicator class. evidence_quality: Evidence confidence is stated per KR (High / Medium-High / Low-Medium / Medium) but without the structured per-issue breakdown the skill calls for: instrumentation gaps, cohort definition changes, measurement window mismatches. Issue 2 (conversion attribution weakness) and Issue 4 (single-cycle reading) are touched lightly in prose but not formalized as named evidence issues with impacts and recommended fixes. guardrail_separation: KR4 is called out prominently and explicitly not averaged in; the section heading makes this clear. no_retro_adjust: The PM framing is explicitly rejected for KR2, which is correct. learning_synthesis: The 'What We Learned' section captures what worked/didn't/unknown but does NOT use the canonical validated/invalidated/surprises/decision-implications structure the skill spec requires. It reads more as a retrospective prose summary than a learning synthesis with routed hand-offs. next_cycle: Five Q4 recommendations are named, but only one explicitly names a downstream skill (Segment connector carry is implied, not a skill hand-off). The skill spec requires named downstream skill hand-offs for lessons-log, retrospective, hypothesis, instrumentation, dashboard, and okr-writer. Artifact B names none. specificity: Numbers are correct and scenario-specific throughout; the leadership readout section is a genuine value-add for this scenario's audience context. completeness: Missing the Output Contract's required 'Initiative Review' as a formal section (it appears only as a table without per-initiative contribution analysis or bet-framing), missing a 'Risks in Interpretation' section (the leadership readout section partially substitutes but does not name all six risk categories the skill spec requires), missing frontmatter, missing source-of-truth note. The quality checklist items for hand-off section with named downstream skills and source-of-truth note are both absent."
+            },
+            "which_is_stronger": "A"
+          },
+          {
+            "judge": 2,
+            "skillIsA": false,
+            "artifact_a": {
+              "type_aware_scoring": 3,
+              "evidence_quality": 3,
+              "guardrail_separation": 4,
+              "no_retro_adjust": 5,
+              "learning_synthesis": 3,
+              "next_cycle": 3,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact A makes all the right calls in terms of OKR integrity (refuses retroactive scope shrinkage, separates guardrail, flags forced scores) and the prose is clear and senior-PM-readable. Its weaknesses are structural: it never produces the canonical 0-1 numeric score for aspirational KRs (KR1 is described as '62% of gap closed' in prose rather than '0.62'), it treats 'guardrail' as an OKR type rather than an indicator class on top of operational_health, it lacks standalone Evidence Quality, Risks in Interpretation, and Source of Truth sections (all required by the Output Contract), and the learning section does not route findings to named downstream skills. The Q4 recommendations are specific and honest but do not include candidate next-cycle OKRs or the continue/revise/retire/escalate per-objective disposition. Solid thinking in an incomplete structure."
+            },
+            "artifact_b": {
+              "type_aware_scoring": 5,
+              "evidence_quality": 5,
+              "guardrail_separation": 5,
+              "no_retro_adjust": 5,
+              "learning_synthesis": 5,
+              "next_cycle": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact B satisfies every requirement of the Output Contract. All 8 canonical sections are present in canonical order with frontmatter. KR1 is scored 0.62 with the explicit formula shown and correctly placed in the 0.6-0.7 sweet spot. KR2 is scored FAIL with the not-yet-fully-observable language from the skill. KR3 is deferred with the interim August sub-signal (0.33) computed and October 15 close date flagged. KR4 uses operational_health as the OKR type and guardrail as indicator class - exactly per the skill's taxonomy. The guardrail is explicitly stated as 'NOT averaged into the primary objective score.' The Evidence Quality section provides 4 named issues with impact and recommended fix each. The Learning section distinguishes validated/invalidated/surprises/decision implications and routes to 6 named downstream skills. The Risks section names 6 specific misleading readings. The only defensible criticism is that the artifact is long, but no required substance is missing or thin."
+            },
+            "which_is_stronger": "B"
+          },
+          {
+            "judge": 3,
+            "skillIsA": true,
+            "artifact_a": {
+              "type_aware_scoring": 5,
+              "evidence_quality": 5,
+              "guardrail_separation": 5,
+              "no_retro_adjust": 5,
+              "learning_synthesis": 5,
+              "next_cycle": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A satisfies every criterion at the highest level. KR4 is correctly classified with OKR type operational_health and indicator class guardrail (matching the skill spec's distinction between type and class). All 8 canonical output-contract sections are present in order, plus frontmatter and source-of-truth note. Evidence quality carries per-KR confidence ratings and a dedicated four-issue Evidence Quality section with impact and remediation. Learning is formally split into validated/invalidated/surprises/decision-implications and routed to six named downstream skills. Next-cycle recommendations are numbered, specific, gated on October 15 for KR3, and include candidate OKR logic. The PM reframe refusal is explicit and principled. No section is stub or generic - every passage names the actual entities (30%, 22%, 35%, 0.62, 19 vs 14, Android, Segment, October 15). Nothing a senior PM would materially add or change."
+            },
+            "artifact_b": {
+              "type_aware_scoring": 4,
+              "evidence_quality": 3,
+              "guardrail_separation": 4,
+              "no_retro_adjust": 5,
+              "learning_synthesis": 3,
+              "next_cycle": 3,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact B is well-written, honest, and gets the core judgments right (committed miss on KR2, guardrail breach surfaced, KR3 deferred, PM reframe refused). However it falls short on structural completeness and several required conventions. Evidence quality is embedded per-KR with no standalone Evidence Quality section. Source-of-truth note is absent. Frontmatter is absent. Learning synthesis uses informal what-worked/what-didn't framing rather than validated/invalidated/surprises structure, and there are no downstream skill hand-offs named anywhere. Next-cycle recommendations are practical but do not name specific downstream skills (iterate-lessons-log, define-hypothesis, measure-instrumentation-spec, etc.) or propose candidate OKR language. KR2 is described as scoring 80% rather than being marked fail or not-yet-fully-observable per the committed-KR convention. KR4 lacks an explicit OKR type designation (the skill requires both type and indicator class). The For the Leadership Readout section is useful but does not substitute for required output-contract sections."
+            },
+            "which_is_stronger": "A"
+          }
+        ]
+      },
+      {
+        "skill": "discover-interview-synthesis",
+        "status": "ok",
+        "verdict": "pass",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 1,
+        "judges": 3,
+        "skill_overall": 4.916666666666667,
+        "control_overall": 3.3333333333333335,
+        "discrimination_gap": 1.5833333333333335,
+        "agreement_stdev": 0.05892556509887896,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "theme_evidence": 4.333333333333333,
+          "quotes": 5,
+          "insight_why": 5,
+          "recommendations": 5,
+          "pii_protected": 5,
+          "limitations": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "theme_evidence": 3.3333333333333335,
+          "quotes": 2.6666666666666665,
+          "insight_why": 3.6666666666666665,
+          "recommendations": 3,
+          "pii_protected": 5,
+          "limitations": 2.6666666666666665,
+          "specificity": 4.333333333333333,
+          "completeness": 2
+        },
+        "gates": {
+          "discrimination": {
+            "value": 1.5833333333333335,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0.05892556509887896,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is stronger because it satisfies every required template section (including Notable Quotes and Appendix) and provides fuller 'why' reasoning in insights, explicit confidence levels in recommendations with success metrics, and a richer limitations section - while Artifact B, though sharp in analysis, is structurally incomplete and omits confidence levels and the Appendix entirely."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "B satisfies every required template section, grounds all four themes in 3-of-5 evidence, provides verbatim quotes in a dedicated section, explains the why behind each insight with an explicit Implication, and includes confidence levels and success metrics per recommendation - covering every criterion A either omits (quotes section, completeness, confidence levels, limitations depth) or only partially meets (theme prevalence below 3, no-confidence recs)."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A fills every required template section with rigor - verbatim quoted Notable Quotes, causal insight paragraphs with Implications, success-metric-backed recommendations, and six specific limitations - while Artifact B, though readable, overcounts a prevalence claim, omits the dedicated quotes section, has shallower insight reasoning, no success metrics, and a thin limitations treatment that misses core research biases."
+          }
+        ],
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillIsA": true,
+            "artifact_a": {
+              "theme_evidence": 4,
+              "quotes": 5,
+              "insight_why": 5,
+              "recommendations": 5,
+              "pii_protected": 5,
+              "limitations": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A is structurally complete against the template. All 4 themes carry participant counts and at least 3 verbatim quotes in Evidence sections. The Notable Quotes section adds 7 attributed direct-quotes. Insights have multi-sentence 'why' reasoning plus explicit Implication callouts. Recommendations include a priority table with confidence levels AND detailed narratives with success metrics. Limitations are thorough (5 named biases + 3 future-research areas). One small deduction on theme_evidence: Theme 4 ('Feature Discovery Gaps') includes an interviewer-observation note for P1 rather than a direct quote, which slightly weakens the verbatim evidence standard within that theme."
+            },
+            "artifact_b": {
+              "theme_evidence": 4,
+              "quotes": 3,
+              "insight_why": 4,
+              "recommendations": 3,
+              "pii_protected": 5,
+              "limitations": 3,
+              "specificity": 5,
+              "completeness": 2,
+              "notes": "Artifact B is well-reasoned and its 'What We Don't Know Yet' section shows good analytical independence (asking whether the notification gap is a perception vs. actual reliability problem is a sharp question absent from A). Pattern 4 honestly flags it as a single-participant finding rather than inflating its prevalence. However, the artifact is structurally incomplete: it lacks a standalone Notable Quotes section (required by the template), the Appendix (Methodology Notes and Raw Notes pointer) is entirely absent, and confidence levels by evidence strength are not stated in the recommendations. The P0-P3 priority labels are intuitive but the skill requires confidence annotation tied to evidence strength. Insights are directional with 'why' reasoning but shorter and less mechanistic than A."
+            },
+            "which_is_stronger": "A"
+          },
+          {
+            "judge": 2,
+            "skillIsA": false,
+            "artifact_a": {
+              "theme_evidence": 3,
+              "quotes": 2,
+              "insight_why": 4,
+              "recommendations": 3,
+              "pii_protected": 5,
+              "limitations": 3,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "A is a well-written narrative synthesis with genuinely sharp observations (the 'delivery loop' framing, Insight 4 on wasted competitive strength) and good specificity, but it omits multiple required template sections: no Research Overview, no Methodology, no Notable Quotes section, no Appendix. Themes 3 and 4 cite fewer than 3 participants without flagging them as one-offs. Recommendations lack confidence levels. The P0/P1/P2/P3 priority labels are also confusingly overloaded with participant IDs. PII handling is clean."
+            },
+            "artifact_b": {
+              "theme_evidence": 5,
+              "quotes": 5,
+              "insight_why": 5,
+              "recommendations": 5,
+              "pii_protected": 5,
+              "limitations": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "B fills every required template section with substance. All four themes hit exactly 3-of-5 prevalence with per-participant evidence. Seven verbatim quotes are collected in a dedicated Notable Quotes section and also embedded in theme evidence. Each insight includes an Implication subsection that explains the underlying need, not just the observation. The recommendations table has confidence levels and each detail block includes a measurable success metric. The Limitations section names five distinct biases including the sharp observation that no frictionless participant was included. Specificity is high throughout (48-hour trigger, 5-10 staff threshold, A4/letter format). Minor gap: P4's quote in Theme 3 is inferential rather than a direct statement about delivery confidence, but it is attributed correctly."
+            },
+            "which_is_stronger": "B"
+          },
+          {
+            "judge": 3,
+            "skillIsA": true,
+            "artifact_a": {
+              "theme_evidence": 4,
+              "quotes": 5,
+              "insight_why": 5,
+              "recommendations": 5,
+              "pii_protected": 5,
+              "limitations": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "A is meticulous: every theme hits 3+ named participants with verbatim evidence, a dedicated Notable Quotes section with 7 attributed blockquotes, insight paragraphs with explicit causal reasoning and Implication sub-sections, a recommendations table with confidence levels backed by detailed write-ups and success metrics, six named limitations including recall bias and self-selection, and full template adherence across all sections including Appendix sub-sections. The one minor quibble on theme_evidence: Theme 2 tags P1 but P1's quote is 'fiddly but fine' rather than a strong pain signal; the prevalence claim holds but is slightly stretched."
+            },
+            "artifact_b": {
+              "theme_evidence": 3,
+              "quotes": 3,
+              "insight_why": 3,
+              "recommendations": 3,
+              "pii_protected": 5,
+              "limitations": 2,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "B is well-written and readable but has structural gaps against the skill template. Pattern 2 claims '4 of 5' on setup friction but P3's note is about delivery opacity not setup cost - an overcounted prevalence claim. No dedicated Notable Quotes section (template requires 5-8 blockquotes). Insights are punchy but shallower: Insight 4 is a reframe rather than a causal why. Recommendations are actionable but lack success metrics and the P3 bucket combines two distinct issues. The 'What We Don't Know Yet' section covers open questions but omits methodology biases (recall, self-selection, single-interviewer). Template sections missing: formal Notable Quotes, Methodology Notes in Appendix, Raw Notes in Appendix."
+            },
+            "which_is_stronger": "A"
+          }
+        ]
+      },
+      {
+        "skill": "develop-adr",
+        "status": "ok",
+        "verdict": "void-inconclusive",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 1,
+        "judges": 3,
+        "skill_overall": 4.583333333333333,
+        "control_overall": 4.125,
+        "discrimination_gap": 0.45833333333333304,
+        "agreement_stdev": 0.11785113019775792,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "title_status": 4.333333333333333,
+          "context": 4.333333333333333,
+          "decision": 5,
+          "consequences": 4.666666666666667,
+          "alternatives": 3.6666666666666665,
+          "standalone": 5,
+          "specificity": 5,
+          "completeness": 4.666666666666667
+        },
+        "control_per_criterion": {
+          "title_status": 3,
+          "context": 4.333333333333333,
+          "decision": 3.6666666666666665,
+          "consequences": 4.666666666666667,
+          "alternatives": 4.333333333333333,
+          "standalone": 5,
+          "specificity": 4.666666666666667,
+          "completeness": 3.3333333333333335
+        },
+        "gates": {
+          "discrimination": {
+            "value": 0.45833333333333304,
+            "target": 1,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.11785113019775792,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A edges out on the criteria that matter most for an ADR: its decision section is maximally specific (five concrete implementation bullets with an explicit scope fence), its alternatives section has deeper grounded why-not reasoning, and it avoids the status-mismatch and missing-references gaps that hold B back - though B's re-evaluation threshold in consequences is the single best sentence in either artifact."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "B's decision section is far more implementation-specific (naming tsvector columns, triggers, ts_rank, scope exclusions explicitly), it matches the required template structure including the Neutral consequences sub-section and References section that A omits, and its title carries a proper ADR-NNN sequence number - while A's stronger context formatting and richer alternatives prose do not overcome its missing References section and underspecified Decision."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "A fills every required template section (including References) with more precise active-voice decision specifics and fully honest consequences, while B's stronger alternatives table and re-evaluation thresholds do not offset its missing References section, absent ADR number, and premature Accepted status."
+          }
+        ],
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillIsA": true,
+            "artifact_a": {
+              "title_status": 5,
+              "context": 4,
+              "decision": 5,
+              "consequences": 4,
+              "alternatives": 4,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 4,
+              "notes": "Artifact A is structured as a clean narrative ADR. The decision section is the strongest of both artifacts: five concrete bullet points in active voice with an explicit scope boundary. Alternatives are substantive prose with grounded why-not reasoning. The References section adds completeness missing from B. Minor gaps: the consequences section lacks the actionable re-evaluation threshold B provides, and the context section does not call out index freshness as a named constraint (it surfaces only in the consequences). The 'Neutral' consequence bucket is a nice touch but slightly dilutes the positive/negative signal a reviewer wants to act on."
+            },
+            "artifact_b": {
+              "title_status": 3,
+              "context": 4,
+              "decision": 4,
+              "consequences": 5,
+              "alternatives": 4,
+              "standalone": 5,
+              "specificity": 4,
+              "completeness": 3,
+              "notes": "Artifact B's standout strength is the consequences section: the re-evaluation threshold (1M docs, p95 > 2s) and follow-up decision list are the most actionable content in either artifact. The Options Considered layout before the decision is readable. Weaknesses: status is 'Accepted' with no rationale for why a newly drafted ADR is already accepted (not a retrospective scenario); no ADR number; no References section; the decision section commits less on the technical specifics (trigger vs. application-level deferred) where A is more concrete; specificity on Debezium CDC is a plus but the why-not rationale for B and C is thinner than A's prose alternatives section."
+            },
+            "which_is_stronger": "A"
+          },
+          {
+            "judge": 2,
+            "skillIsA": false,
+            "artifact_a": {
+              "title_status": 3,
+              "context": 5,
+              "decision": 3,
+              "consequences": 4,
+              "alternatives": 4,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 3
+            },
+            "artifact_b": {
+              "title_status": 4,
+              "context": 4,
+              "decision": 5,
+              "consequences": 5,
+              "alternatives": 3,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 5
+            },
+            "which_is_stronger": "B"
+          },
+          {
+            "judge": 3,
+            "skillIsA": true,
+            "artifact_a": {
+              "title_status": 4,
+              "context": 5,
+              "decision": 5,
+              "consequences": 5,
+              "alternatives": 4,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "A is structurally closer to the template (Status/Context/Decision/Consequences/Alternatives/References all present). The decision section is maximally specific with active-voice bullet implementation details. The only minor issues: frontmatter says 'draft' while body says 'Proposed' (minor inconsistency), and alternatives cover only 2 of the 3 named options (managed service and self-hosted, but not a 'do nothing' path - though the scenario framed exactly 3 options so this is not a real gap). References section is present. Consequences positive/negative/neutral structure is thorough and honest."
+            },
+            "artifact_b": {
+              "title_status": 3,
+              "context": 4,
+              "decision": 4,
+              "consequences": 5,
+              "alternatives": 5,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 4,
+              "notes": "B's strongest area is alternatives: all three options from the scenario are laid out with a clear pros/cons table and concrete why-not reasoning. The consequences section goes beyond A by adding a re-evaluation threshold (1M docs, p95 > 2s) and follow-up decisions. However, B has two structural gaps: (1) no sequential ADR number (the skill explicitly requires ADR-NNN numbering), and (2) no References section (a required template section). The status 'Accepted' is also slightly premature vs. the skill's guidance that new ADRs start as 'Proposed'. The decision section is active-voice but defers technical specifics (triggers, ts_rank) to the Options table rather than the Decision section itself."
+            },
+            "which_is_stronger": "A"
+          }
+        ]
+      },
+      {
+        "skill": "iterate-retrospective",
+        "status": "ok",
+        "verdict": "pass",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 1,
+        "judges": 3,
+        "skill_overall": 4.916666666666667,
+        "control_overall": 3.6666666666666665,
+        "discrimination_gap": 1.2500000000000004,
+        "agreement_stdev": 0.05892556509887896,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "balanced": 5,
+          "action_items": 5,
+          "prioritized": 4.333333333333333,
+          "prev_actions": 5,
+          "inclusive": 5,
+          "standalone": 5,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "balanced": 4,
+          "action_items": 3.3333333333333335,
+          "prioritized": 4.666666666666667,
+          "prev_actions": 4.333333333333333,
+          "inclusive": 3,
+          "standalone": 3.6666666666666665,
+          "specificity": 4,
+          "completeness": 2.3333333333333335
+        },
+        "gates": {
+          "discrimination": {
+            "value": 1.2500000000000004,
+            "target": 1,
+            "pass": true
+          },
+          "agreement": {
+            "value": 0.05892556509887896,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A is the stronger document because it fills every required section of the skill's Output Format, has fully specified action items with owners and success criteria, and explicitly addresses inclusive facilitation - while Artifact B's sharper prioritization framing cannot compensate for missing entire required sections and underspecified action ownership."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B is stronger on every criterion - it adds facilitator notes surfacing quiet-voice dynamics, per-action success criteria, a themes voting table, root-cause discussion per topic, a parking lot, and metrics/trends, while matching or exceeding Artifact A's specificity and action ownership throughout."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A covers all 10 required sections with deeper standalone reconstruction value, tighter action-item ownership, and explicit quiet-voice intervention, while Artifact B's stronger prioritization structure cannot compensate for four missing required sections and looser action-item rigor."
+          }
+        ],
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillIsA": true,
+            "artifact_a": {
+              "balanced": 5,
+              "action_items": 5,
+              "prioritized": 4,
+              "prev_actions": 5,
+              "inclusive": 5,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A fills every required section from the skill Output Format (Overview, Previous Retrospective Review, What Went Well, What to Improve, Discussion Notes, Action Items, Parking Lot, Metrics and Trends, Facilitator Notes, Next Retrospective). Action items carry explicit priority rank, dual owners where appropriate, specific due dates, and elaborated success criteria. Inclusivity is explicitly addressed both in the document body (Lee/Sam shoutouts) and in Facilitator Notes with a concrete next-retro intervention. Previous actions are reviewed with an accountability note tying the incomplete Sprint 41 item directly to the Sprint 42 incident. The sole gap keeping prioritized at 4 rather than 5: the theme vote table is credible but the vote counts feel lightly sourced for a 7-person team; a senior PM might ask how those counts were gathered."
+            },
+            "artifact_b": {
+              "balanced": 4,
+              "action_items": 3,
+              "prioritized": 5,
+              "prev_actions": 4,
+              "inclusive": 3,
+              "standalone": 4,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact B's P1/P2/P3 prioritization with a 'One Thing' callout is the strongest aspect and slightly edges Artifact A on that single criterion. However, it is missing three required sections entirely: Parking Lot, Metrics and Trends, and Facilitator Notes. The 'Patterns to Carry Forward' block does not substitute for a Parking Lot. Several action items lack explicit single owners or due dates (the staging channel-flagging norm has no owner; the pairing pattern has no action). Inclusive is thin: Sam's quietness and Lee's near-miss surfacing are noted in passing but there is no facilitation reflection or proposed intervention. Previous actions are reviewed but the 'verify the doc was usable' note on Lee's staging item, while a nice addition, is framed as an action rather than a status check."
+            },
+            "which_is_stronger": "A"
+          },
+          {
+            "judge": 2,
+            "skillIsA": false,
+            "artifact_a": {
+              "balanced": 4,
+              "action_items": 4,
+              "prioritized": 4,
+              "prev_actions": 5,
+              "inclusive": 3,
+              "standalone": 4,
+              "specificity": 4,
+              "completeness": 3,
+              "notes": "Artifact A is a tight, readable retro with clear P1/P2/P3 structure, specific owners and dates, and a strong previous-action review table. It names Lee and Sam by contribution. Gaps: no facilitator notes on how quiet voices were drawn out; no metrics or health section; no discussion notes showing root-cause reasoning; no parking lot for estimation. Completeness is thin relative to a full skill output format."
+            },
+            "artifact_b": {
+              "balanced": 5,
+              "action_items": 5,
+              "prioritized": 5,
+              "prev_actions": 5,
+              "inclusive": 5,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact B is comprehensive and rigorous across every criterion. It adds a themes voting table, per-action success criteria, facilitator notes explicitly addressing quiet-voice dynamics and proposing a process fix, a parking lot, metrics/trends with trend arrows, and a full discussion section with root cause and proposed solution per topic. Specificity is exceptional: HTTP health endpoint cadence, ticket template mechanic, exact due dates, sprint week framing. Nothing a senior PM would add or change."
+            },
+            "which_is_stronger": "B"
+          },
+          {
+            "judge": 3,
+            "skillIsA": true,
+            "artifact_a": {
+              "balanced": 5,
+              "action_items": 5,
+              "prioritized": 4,
+              "prev_actions": 5,
+              "inclusive": 5,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A fills all 10 required sections from the skill's Output Format (Overview, Previous Retro Review, What Went Well, What to Improve, Discussion Notes, Action Items, Parking Lot, Metrics and Trends, Facilitator Notes, Next Retrospective). Action items have named co-owners, specific calendar dates, detailed what/why/success-criteria writeups. Quiet voices (Lee, Sam) are explicitly surfaced in shoutouts and facilitator notes with a concrete intervention plan for next time. The incomplete Sprint 41 on-call action is connected causally to the incident. Prioritization uses a vote-count theme table plus a numbered priority order. Minor nit on 'prioritized': the parking lot estimation item dilutes the top-3 focus slightly, keeping it at 4 rather than 5."
+            },
+            "artifact_b": {
+              "balanced": 4,
+              "action_items": 3,
+              "prioritized": 5,
+              "prev_actions": 4,
+              "inclusive": 3,
+              "standalone": 3,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact B is well-structured and its P1/P2/P3 tiering plus 'One Thing We're Taking into Sprint 43' is the strongest prioritization of either artifact. However, it is missing four required sections entirely: Discussion Notes, Parking Lot, Metrics and Trends, and Facilitator Notes. Action items under P2 and P3 are less tight - the staging action ('team to flag issues in Slack immediately') has no named owner, and the estimation post-mortem lacks a firm due date. Quiet voices (Lee, Sam) are credited but there is no documented intervention strategy or self-critique on facilitation, costing it on inclusive and standalone. The previous retro table is solid but the forward-looking 'verify the doc was usable' note, while useful, slightly deflects from a clean status accounting."
+            },
+            "which_is_stronger": "A"
+          }
+        ]
+      },
+      {
+        "skill": "deliver-release-notes",
+        "status": "ok",
+        "verdict": "void-inconclusive",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 1,
+        "judges": 3,
+        "skill_overall": 4.458333333333333,
+        "control_overall": 3.9166666666666665,
+        "discrimination_gap": 0.5416666666666665,
+        "agreement_stdev": 0.2568505834570407,
+        "blind_preference_skill": "3/3",
+        "skill_per_criterion": {
+          "highlights": 4,
+          "benefit_led": 4.333333333333333,
+          "accessible": 4.333333333333333,
+          "concise": 3.6666666666666665,
+          "bugfix_problem": 4.666666666666667,
+          "no_leak": 5,
+          "specificity": 4.666666666666667,
+          "completeness": 5
+        },
+        "control_per_criterion": {
+          "highlights": 3,
+          "benefit_led": 4,
+          "accessible": 4,
+          "concise": 4.666666666666667,
+          "bugfix_problem": 3.6666666666666665,
+          "no_leak": 5,
+          "specificity": 4.333333333333333,
+          "completeness": 2.6666666666666665
+        },
+        "gates": {
+          "discrimination": {
+            "value": 0.5416666666666665,
+            "target": 1,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.2568505834570407,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "rationales": [
+          {
+            "judge": 1,
+            "stronger": "A",
+            "why": "Artifact A wins on benefit-led framing, structural completeness (dedicated Highlights, Known Issues, and Feedback sections), and fuller bug-fix specificity, while Artifact B is more concise but sacrifices priority signaling, benefit framing, and required sections."
+          },
+          {
+            "judge": 2,
+            "stronger": "B",
+            "why": "Artifact B covers every required template section (including Known Issues and Feedback that A omits), uses the prescribed bug-fix framing, and achieves the same benefit-led clarity and jargon-free standard as A, making it the stronger release-notes artifact on completeness and structural fidelity despite some redundancy between Highlights and New Features."
+          },
+          {
+            "judge": 3,
+            "stronger": "A",
+            "why": "Artifact A is stronger because it covers every required section including a distinct Known Issues entry and a feedback channel, while Artifact B's superior voice and concision is undercut by missing structural completeness that a senior PM would flag before shipping."
+          }
+        ],
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillIsA": true,
+            "artifact_a": {
+              "highlights": 4,
+              "benefit_led": 5,
+              "accessible": 5,
+              "concise": 4,
+              "bugfix_problem": 5,
+              "no_leak": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A is structurally complete and consistently benefit-led. The Highlights section surfaces two of three features (Shared Spaces and Insights) with genuine user-benefit framing. Bug fixes name the user-visible problem in full, including the Android 14 + emoji context and the US-locale condition for the GBP currency bug. Feedback CTA and Known Issues section are both present, giving it full coverage of the scenario input."
+            },
+            "artifact_b": {
+              "highlights": 3,
+              "benefit_led": 3,
+              "accessible": 4,
+              "concise": 5,
+              "bugfix_problem": 4,
+              "no_leak": 5,
+              "specificity": 4,
+              "completeness": 3,
+              "notes": "Artifact B is lean and scannable but trades structural completeness for brevity. There is no dedicated Highlights section - all three features sit in What's new without priority signaling. Several feature entries lead with the feature name rather than the user benefit ('MoneyMap now supports Face ID and Touch ID'). The Known Issues section is absent: the recurring-transaction flag situation is folded into Coming Soon, losing the important caveat that ~10% already have access. The GBP bug fix drops the US-locale condition that makes the problem concrete."
+            },
+            "which_is_stronger": "A"
+          },
+          {
+            "judge": 2,
+            "skillIsA": false,
+            "artifact_a": {
+              "highlights": 3,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 3,
+              "no_leak": 5,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact A is clean and readable, with no leaked jargon or ticket IDs. Items are benefit-led and concise. However, it deviates significantly from the required template structure: no YAML frontmatter, no explicit 'Highlights' section heading (renamed to 'What's new'), no separate 'New Features' section, no 'Known Issues' section (recurring issue folded into 'Coming Soon'), and no 'Feedback' section. Bug fixes use 'Fixed a crash...' / 'Fixed duplicate transactions...' phrasing that names the problem but doesn't consistently use the 'Fixed an issue where...' template framing. The 'Coming soon' note is vague about the 10% vs. full-rollout detail. Completeness suffers most: multiple required sections are absent or merged into non-template names."
+            },
+            "artifact_b": {
+              "highlights": 4,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 3,
+              "bugfix_problem": 4,
+              "no_leak": 5,
+              "specificity": 4,
+              "completeness": 5,
+              "notes": "Artifact B follows the template precisely: frontmatter, Highlights, New Features, Improvements, Bug Fixes, Known Issues, Coming Soon, and Feedback are all present and substantive. Bug fixes use 'Fixed an issue where...' framing with user-visible problem descriptions. No jargon, ticket IDs, or code names leak through. The Known Issues section accurately reflects the partial rollout. The main weakness is conciseness: the New Features section partially repeats content already in Highlights, adding length without additional user value. The GBP bug fix adds useful locale specificity. Biometric unlock is omitted from Highlights (only 2 of a possible 3 highlights used), which is a defensible editorial choice but leaves some impact on the table."
+            },
+            "which_is_stronger": "B"
+          },
+          {
+            "judge": 3,
+            "skillIsA": true,
+            "artifact_a": {
+              "highlights": 4,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 5,
+              "no_leak": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Strong across all criteria. Highlights section correctly leads with the two most impactful changes; biometric is appropriately in New Features body. Bug fixes name the visible problem precisely, including Android 14, emoji note field, duplicate sync, and GBP/US locale context. Known Issues section is present and distinct from Coming Soon. All sections filled. Minor gap: highlights could surface biometric as a third callout since it is a high-visibility feature."
+            },
+            "artifact_b": {
+              "highlights": 3,
+              "benefit_led": 5,
+              "accessible": 4,
+              "concise": 5,
+              "bugfix_problem": 4,
+              "no_leak": 5,
+              "specificity": 5,
+              "completeness": 3,
+              "notes": "Benefit-led language is the strongest of the two artifacts - every entry opens with what the user can do or gains. Extremely concise and scannable. However, completeness is a real gap: no dedicated Known Issues section (the ~10% rollout limitation is folded into Coming Soon, which reads as a roadmap item not a current caveat); no feedback/contact section. The 'What's new' flat list does not structurally distinguish the most impactful highlights from the rest. GBP bug fix drops the US locale context that explains why GBP users were affected."
+            },
+            "which_is_stronger": "A"
+          }
+        ]
+      }
+    ]
+  },
+  "_note": "Anchor run wf_c1261234-93a (2026-06-15), G=1/N=3 Sonnet. Scored artifact text lives in anchor-artifacts-20260615/<skill>.md (stripped from here to avoid duplication). This file holds the panel scores + rationales + raw_judges rows."
+}
