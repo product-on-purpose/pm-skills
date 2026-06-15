@@ -143,6 +143,11 @@ Per the spec, a maintainer hand-scores 1-2 framing artifacts so we can confirm t
 lands near a human judgment and is not inflating grades. This slot is set up but needs human
 sign-off; it is the one step the harness cannot self-certify.
 
-> Maintainer: replace this paragraph with your hand-scored anchor (artifact link +
-> per-criterion scores + one line on why) once you have scored a `define-problem-statement`
-> or `foundation-okr-writer` artifact. Until then, treat panel numbers as provisional.
+**Recorded anchor (2026-06-15, foundation-okr-writer):** maintainer hand-scored the
+`anchor-artifacts-20260615/foundation-okr-writer.md` artifact at **overall 4.0**; the blind panel scored
+it a straight **5.00** (Δ **+1.00**). The maintainer's note: strong OKR hygiene (outcomes vs initiatives
+separated, assumptions labeled, guardrails, feature-team constraint disclosed), but it lacks an operating
+rhythm (weekly review cadence, check-in dates, scoring checkpoints, decision owners for the open
+questions), so it is a good planning artifact, not yet operating-ready. The panel's straight 5.0
+over-credits by a full point. Treat panel absolutes on this family as ~0.5-1.0 hot (see specification.md
+section 2 calibration); the discrimination gap remains the primary signal.

@@ -135,7 +135,11 @@ below **2.5** without a logged reason.
 A maintainer hand-scores 1-2 discovery artifacts to confirm the panel lands near a human
 judgment. This slot is set up but needs human sign-off.
 
-> Maintainer: replace this paragraph with your hand-scored anchor (artifact link +
-> per-criterion scores + one line on why) once you have scored a
-> `discover-interview-synthesis` or `discover-competitive-analysis` artifact. Until then,
-> treat panel numbers as provisional.
+**Recorded anchor (2026-06-15, discover-interview-synthesis):** maintainer hand-scored the
+`anchor-artifacts-20260615/discover-interview-synthesis.md` artifact at **overall 4.5**; the blind panel
+scored it **4.92** (Δ **+0.42**, the closest of the 7 - this family's instrument is the best-calibrated).
+The maintainer's note: strongest artifact in the set, senior-PM-level synthesis connecting evidence to
+themes/insights/recommendations with the sample limitation named; not a 5 because the sample is small and
+the recommendations should be split more sharply into immediate product changes vs. validation work (a
+"decision implications" section: do now / do not do yet / needs validation). Panel absolutes on this
+family read ~0.5 hot (see specification.md section 2 calibration); the discrimination gap is the primary signal.

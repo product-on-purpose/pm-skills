@@ -124,6 +124,11 @@ below **2.5** without a logged reason.
 A maintainer hand-scores 1-2 technical artifacts to confirm the panel lands near a human
 judgment. This slot is set up but needs human sign-off.
 
-> Maintainer: replace this paragraph with your hand-scored anchor (artifact link +
-> per-criterion scores + one line on why) once you have scored a `develop-adr` artifact.
-> Until then, treat panel numbers as provisional.
+**Recorded anchor (2026-06-15, develop-adr):** maintainer hand-scored the
+`anchor-artifacts-20260615/develop-adr.md` artifact at **overall 4.0**; the blind panel scored it
+**4.58** (Δ **+0.58**; the panel had already VOIDed it on a sub-1.0 gap vs a strong freehand control).
+The maintainer's note: clear context, decision, tradeoffs, consequences, and alternatives (Postgres FTS
+for v1, with scaling/relevance limits named) - decision-ready for v1, but missing explicit decision
+guardrails (when to revisit, performance thresholds, an owner, a review date) so it risks becoming stale
+technical debt. Panel absolutes on this family read ~0.5 hot (see specification.md section 2 calibration);
+the discrimination gap is the primary signal.

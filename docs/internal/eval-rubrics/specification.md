@@ -49,6 +49,16 @@ Calibration note: under this scale, the PoC's straight-5 skill PRD should land m
 at most one or two 5s. If a panel still returns straight 5s for solid-but-improvable work, the scale
 is not being applied; re-anchor against section 8 before trusting the numbers.
 
+> **Maintainer calibration (2026-06-15, applies to every family rubric):** the human anchor confirmed
+> the Sonnet panel runs **~0.5-1.0 optimistic**. Across the 7-skill anchor set the panel over-scored
+> the maintainer by a mean of **+0.77** (6 of 7 over the +0.5 threshold), and every skill the panel
+> gave a straight **5.00** the maintainer scored **4.0**. So: a panel 5.0 almost never means "nothing
+> to improve" - read panel absolutes as ~0.5-1.0 hot, treat a straight-5.0 as "passes with no measured
+> headroom," and rely on the **discrimination gap** (skill - control), not the absolute, as the primary
+> signal. Judges: a straight 5.0 across all criteria is almost always wrong; reserve 5 for a criterion
+> a senior PM truly could not improve, and default solid work to 4. Per-family human anchors are in each
+> rubric's section 8; the full record is `release-plans/v2.27.0/records/human-anchor-scoring-sheet-20260615.md`.
+
 ---
 
 ## 3. Universal criteria (scored for every skill in the family)
@@ -204,5 +214,11 @@ step the harness cannot self-certify.
 record the number here; if the panel returns >= 4.8 for the same artifact under the hardened scale,
 the anchors are not being applied and the rubric wording in section 2 needs sharpening.
 
-> Maintainer: replace this paragraph with your hand-scored anchor (artifact link + per-criterion
-> scores + one line on why) once you have scored it. Until then, treat panel numbers as provisional.
+**Recorded anchor (2026-06-15, deliver-edge-cases):** maintainer hand-scored the
+`anchor-artifacts-20260615/deliver-edge-cases.md` artifact at **overall 4.0**; the blind panel scored
+it **5.00** (Δ **+1.00**). The maintainer's note: thorough coverage (validation, boundaries, errors,
+concurrency, integrations, recovery, P1/P2/P3 scenarios), but it defers product-policy choices (partial
+batch behavior, de-dupe, image-dimension policy, degraded-scan policy) that should be decided before
+engineering/test execution. So the panel's straight 5.0 over-credits by a full point: a senior PM would
+ship this only after closing those open decisions. Treat panel absolutes on this family as ~0.5-1.0 hot;
+the discrimination gap remains the primary signal.

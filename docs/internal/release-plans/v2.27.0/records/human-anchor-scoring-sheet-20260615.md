@@ -1,10 +1,31 @@
 # Human anchor scoring sheet (P1-5) - 2026-06-15 anchor run
 
-Status: **AWAITING MAINTAINER**. This is the one calibration step the harness cannot self-certify
-(`spec_output-quality-evals.md` section 1, "Human anchoring"). You hand-score each artifact; we then
-compare your score to the blind panel and, if the panel sits **>= ~0.5 above you** (grade inflation),
-we sharpen the rubric/judge wording (anchor scale, section 2) and re-anchor. The **three PRIORITY
-skills below scored a straight 5.00 from the panel** - they are the acute inflation suspects.
+Status: **SCORED 2026-06-15** (maintainer hand-scores recorded; calibration complete). This was the one
+step the harness cannot self-certify (`spec_output-quality-evals.md` section 1, "Human anchoring").
+
+## Results: the panel runs ~0.5-1.0 hot (grade inflation confirmed)
+
+The maintainer hand-scored all 7 artifacts. The Sonnet panel over-scored on every one (mean Δ +0.77;
+6 of 7 over the +0.5 re-anchor threshold). A straight panel 5.00 corresponds to a human ~4.0.
+
+| Skill | Panel overall | Human overall | Δ (panel - human) | Over +0.5? |
+|---|---|---|---|---|
+| foundation-okr-writer | 5.00 | 4.0 | +1.00 | yes |
+| deliver-edge-cases | 5.00 | 4.0 | +1.00 | yes |
+| deliver-release-notes | 4.46 | 3.5 | +0.96 | yes |
+| iterate-retrospective | 4.92 | 4.0 | +0.92 | yes |
+| develop-adr | 4.58 | 4.0 | +0.58 | yes |
+| measure-okr-grader | 5.00 | 4.5 | +0.50 | yes (at threshold) |
+| discover-interview-synthesis | 4.92 | 4.5 | +0.42 | no |
+
+**Re-anchor decision (DECIDED 2026-06-15):** the human anchor is now the calibration reference. The
+shared anchor scale (`docs/internal/eval-rubrics/specification.md` section 2) carries a calibration note
+that a Sonnet panel runs ~0.5-1.0 optimistic and a straight-5.0 is almost never literally correct; panel
+absolute numbers are read as "~0.5-1.0 hot," and the discrimination GAP (skill - control), not the
+absolute, remains the primary signal. Each family rubric's Section 8 records its skill's human anchor.
+The maintainer's per-artifact fix-notes are applied to the artifacts themselves (see `anchor-artifacts-20260615/`).
+
+The original blank scoring form follows (the panel reference at the bottom now carries the recorded scores).
 
 ## Source
 Gated Sonnet anchor run (Run ID `wf_c1261234-93a`), **G=1 / N=3 blind Sonnet judges**, one skill per
@@ -121,13 +142,13 @@ Your score:
 
 | # | Skill | Panel overall | Control | Gap | Agreement | Blind pref | Verdict | Your overall | Delta (panel - you) |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | foundation-okr-writer | **5.00** | 2.42 | 2.58 | 0.00 | 3/3 | pass | ____ | ____ |
-| 2 | deliver-edge-cases | **5.00** | 2.75 | 2.25 | 0.00 | 3/3 | pass | ____ | ____ |
-| 3 | measure-okr-grader | **5.00** | 3.38 | 1.63 | 0.00 | 3/3 | pass | ____ | ____ |
-| 4 | discover-interview-synthesis | **4.92** | 3.33 | 1.58 | 0.06 | 3/3 | pass | ____ | ____ |
-| 5 | develop-adr | **4.58** | 4.13 | 0.46 | 0.12 | 3/3 | void-inconclusive | ____ | ____ |
-| 6 | iterate-retrospective | **4.92** | 3.67 | 1.25 | 0.06 | 3/3 | pass | ____ | ____ |
-| 7 | deliver-release-notes | **4.46** | 3.92 | 0.54 | 0.26 | 3/3 | void-inconclusive | ____ | ____ |
+| 1 | foundation-okr-writer | **5.00** | 2.42 | 2.58 | 0.00 | 3/3 | pass | 4.0 | +1.00 |
+| 2 | deliver-edge-cases | **5.00** | 2.75 | 2.25 | 0.00 | 3/3 | pass | 4.0 | +1.00 |
+| 3 | measure-okr-grader | **5.00** | 3.38 | 1.63 | 0.00 | 3/3 | pass | 4.5 | +0.50 |
+| 4 | discover-interview-synthesis | **4.92** | 3.33 | 1.58 | 0.06 | 3/3 | pass | 4.5 | +0.42 |
+| 5 | develop-adr | **4.58** | 4.13 | 0.46 | 0.12 | 3/3 | void-inconclusive | 4.0 | +0.58 |
+| 6 | iterate-retrospective | **4.92** | 3.67 | 1.25 | 0.06 | 3/3 | pass | 4.0 | +0.92 |
+| 7 | deliver-release-notes | **4.46** | 3.92 | 0.54 | 0.26 | 3/3 | void-inconclusive | 3.5 | +0.96 |
 
 Per-criterion panel scores (skill arm):
 

@@ -121,6 +121,11 @@ below **2.5** without a logged reason.
 A maintainer hand-scores 1-2 communication artifacts to confirm the panel lands near a human
 judgment. This slot is set up but needs human sign-off.
 
-> Maintainer: replace this paragraph with your hand-scored anchor (artifact link +
-> per-criterion scores + one line on why) once you have scored a `deliver-release-notes`
-> artifact. Until then, treat panel numbers as provisional.
+**Recorded anchor (2026-06-15, deliver-release-notes):** maintainer hand-scored the
+`anchor-artifacts-20260615/deliver-release-notes.md` artifact at **overall 3.5** (the lowest of the 7);
+the blind panel scored it **4.46** (Δ **+0.96**). The maintainer's note: clean, readable, well-organized
+user-facing comms (highlights, features, improvements, fixes, known issues, coming soon, feedback), but
+generic and less operationally precise than the rest - it needs rollout caveats, eligibility,
+platform/version specifics, and explicit user-action-needed where relevant. The panel over-credited by
+nearly a point on a familiar artifact type. Panel absolutes on this family read ~0.5-1.0 hot (see
+specification.md section 2 calibration); the discrimination gap is the primary signal.

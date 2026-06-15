@@ -133,6 +133,10 @@ below **2.5** without a logged reason.
 A maintainer hand-scores 1-2 measurement artifacts to confirm the panel lands near a human
 judgment. This slot is set up but needs human sign-off.
 
-> Maintainer: replace this paragraph with your hand-scored anchor (artifact link +
-> per-criterion scores + one line on why) once you have scored a `measure-experiment-design`
-> or `measure-okr-grader` artifact. Until then, treat panel numbers as provisional.
+**Recorded anchor (2026-06-15, measure-okr-grader):** maintainer hand-scored the
+`anchor-artifacts-20260615/measure-okr-grader.md` artifact at **overall 4.5**; the blind panel scored it
+a straight **5.00** (Δ **+0.50**). The maintainer's note: the most senior-PM-judgment artifact in the
+set - very strong evidence discipline (refuses retroactive scope-shrinking, separates guardrails from
+averaged scores, flags incomplete observability), candid and hard to game; not a 5 only because it lacks
+a leadership-ready one-page readout at the top. Panel absolutes on this family read ~0.5 hot (see
+specification.md section 2 calibration); the discrimination gap is the primary signal.

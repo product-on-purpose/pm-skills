@@ -123,6 +123,10 @@ below **2.5** without a logged reason.
 A maintainer hand-scores 1-2 learning artifacts to confirm the panel lands near a human
 judgment. This slot is set up but needs human sign-off.
 
-> Maintainer: replace this paragraph with your hand-scored anchor (artifact link +
-> per-criterion scores + one line on why) once you have scored an `iterate-retrospective`
-> artifact. Until then, treat panel numbers as provisional.
+**Recorded anchor (2026-06-15, iterate-retrospective):** maintainer hand-scored the
+`anchor-artifacts-20260615/iterate-retrospective.md` artifact at **overall 4.0**; the blind panel scored
+it **4.92** (Δ **+0.92**). The maintainer's note: good accountability (concrete action items, carry-over
+review, named owners, quiet-voices handling), but the "root causes" are still partly process symptoms
+(no rotation, no intake norm) - it needs a cleaner distinction between symptom, root cause, action, and
+success metric. The panel over-credited by nearly a point. Panel absolutes on this family read ~0.5-1.0
+hot (see specification.md section 2 calibration); the discrimination gap is the primary signal.
