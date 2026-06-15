@@ -1,5 +1,5 @@
 <!-- Anchor artifact: deliver-edge-cases (specification) | scenario file-upload | 2026-06-15 anchor run wf_c1261234-93a, G=1.
-     This is the EXACT single draft all three blind judges scored. Do not edit (it is scored evidence). -->
+     This was the draft all three blind judges scored (anchor run wf_c1261234-93a). The scored original is preserved in git at the 2026-06-15 anchor commit; an operating layer (decisions / owners / maintainer fix-notes) was added 2026-06-15 per maintainer review. -->
 
 ---
 artifact: edge-cases
@@ -219,3 +219,48 @@ Freelancers build their profile on a consumer mobile and web marketplace by uplo
 - [ ] Use a screen reader and complete the full upload flow - verify all upload states (progress, error, success) have accessible labels and no color-only signaling
 - [ ] Upload while the device is in offline mode, then bring the network online - verify the queued upload starts automatically
 - [ ] Background the app mid-upload on mobile then foreground it - verify the upload state is accurately restored
+
+## Decisions, Owners & Open Items
+
+> Operating layer (added 2026-06-15, maintainer review). The catalog above defers several product-policy
+> choices in its Notes; left open, they become ambiguity that engineering and QA resolve ad hoc mid-build.
+> Each is surfaced here with a recommendation, an owner, and a "decide before eng/test execution" due so
+> the spec is execution-ready. Owners/dates are illustrative for this scenario.
+
+| ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
+|----|-------|--------------------------|--------|-------|-----|--------------|
+| D-1 | Partial-batch behavior (over-limit selection) | Pending - rec: accept first-fit, inform slots left | OPEN | PM + eng | Before test execution | 2026-06-15 |
+| D-2 | Duplicate-filename / de-dupe policy | Pending - rec: UUID-key, allow duplicates | OPEN | PM + eng | Before test execution | 2026-06-15 |
+| D-3 | Image-dimension policy (floor + pixel cap) | Pending - rec: add a max pixel-count cap | OPEN | PM + UX + eng | Before test execution | 2026-06-15 |
+| D-4 | Degraded malware-scan policy | Pending - rec: fail-closed (block new uploads) | OPEN | PM + security/eng | Before launch (gating) | 2026-06-15 |
+| D-5 | HEIC handling | Pending - rec: reject with message for v1 | OPEN | PM | Before test execution | 2026-06-15 |
+
+### D-1: Partial-batch behavior when a selection exceeds the remaining slots
+Status: OPEN
+**Context** - A user with 4 files who selects 2 (total 6) hits the 5-file cap. The catalog flags "define which files are accepted if partial." Value: deterministic behavior testers and engineers can build to.
+**Potential solutions** - (a) reject the whole batch; (b) accept the first file(s) that fit and tell the user how many slots remain; (c) let the user choose which to keep. Recommendation: (b) - least friction, no data loss, clear messaging.
+**Final decision** - Pending. Owner: PM + eng; decide before test execution.
+
+### D-2: Duplicate-filename / de-dupe policy
+Status: OPEN
+**Context** - Two devices uploading the same filename, or the same file twice; the catalog defers the de-dupe policy. Value: predictable storage behavior + no surprise rejections.
+**Potential solutions** - (a) UUID-key every object, allow duplicates (a portfolio may legitimately include similar files); (b) content-hash de-dupe and reject/merge exact duplicates. Recommendation: (a) for v1 - simpler and avoids false "duplicate" rejections; revisit (b) only if storage cost warrants.
+**Final decision** - Pending. Owner: PM + eng; decide before test execution.
+
+### D-3: Image-dimension policy (minimum floor + maximum pixel cap)
+Status: OPEN
+**Context** - A 1x1 px photo is accepted; a 20000x20000 px image under the byte limit can still exhaust server memory at thumbnail time. The catalog flags both for decision. Value: display quality + a real server-stability guard.
+**Potential solutions** - (a) byte-limit only (status quo); (b) add a maximum pixel-count cap (stability) and a modest minimum dimension floor (display quality). Recommendation: (b) - the pixel cap is a stability requirement, not a nicety.
+**Final decision** - Pending. Owner: PM + UX + eng; decide before test execution (the pixel cap blocks the P2 memory-safety test).
+
+### D-4: Degraded malware-scan policy (scan service unavailable)
+Status: OPEN
+**Context** - When the scan service is down or times out, the catalog asks whether to block all new uploads or hold files unverified. Value: a security posture that never exposes unscanned files. This gates launch, not just test.
+**Potential solutions** - (a) fail-closed: block new uploads while the scanner is down, with monitoring + a user status message; (b) accept and hold in a provably no-public-access unverified state for a deferred scan. Recommendation: (a) - simplest safe default; pursue (b) only if availability requirements force it and the inaccessibility is proven.
+**Final decision** - Pending. Owner: PM + security/eng; decide before launch (security-gating).
+
+### D-5: HEIC handling
+Status: OPEN
+**Context** - HEIC is common on iOS; the catalog suggests auto-conversion or explicit rejection. Value: avoids a confusing silent failure for a large share of mobile users.
+**Potential solutions** - (a) reject with a clear "please upload JPG or PNG" message for v1; (b) auto-convert HEIC to JPG server-side. Recommendation: (a) for v1 (cheap, clear), schedule (b) as a fast-follow given HEIC prevalence.
+**Final decision** - Pending. Owner: PM; decide before test execution.

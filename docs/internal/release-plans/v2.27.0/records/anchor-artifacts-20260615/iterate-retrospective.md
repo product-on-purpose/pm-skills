@@ -1,5 +1,5 @@
 <!-- Anchor artifact: iterate-retrospective (learning) | scenario sprint-42 | 2026-06-15 anchor run wf_c1261234-93a, G=1.
-     This is the EXACT single draft all three blind judges scored. Do not edit (it is scored evidence). -->
+     This was the draft all three blind judges scored (anchor run wf_c1261234-93a). The scored original is preserved in git at the 2026-06-15 anchor commit; an operating layer (decisions / owners / maintainer fix-notes) was added 2026-06-15 per maintainer review. -->
 
 ---
 artifact: retrospective
@@ -151,6 +151,22 @@ There is no alerting when staging goes down, and no clear owner for staging envi
 Set up a basic uptime check on the staging environment with a notification to the team Slack channel. Lee will scope the work; the team will decide in Sprint 43 planning whether to pull it in as a ticket.
 
 ---
+
+## Root-Cause Tightening
+
+> Operating layer (added 2026-06-15, maintainer review). The discussion notes above label the missing
+> mechanism (no rotation, no intake norm, no workflow checkpoint) as the "root cause." That is the
+> SYMPTOM/gap. The table below separates symptom from the deeper root cause from the action from the
+> success metric, so the team fixes the cause, not just the surface. The actions already carry owners and
+> due dates in the next section; this sharpens why each is the right fix.
+
+| Theme | Symptom (what we saw) | Stated "cause" (the gap) | Deeper root cause (why the gap persists) | Action | Success metric |
+|-------|-----------------------|--------------------------|------------------------------------------|--------|----------------|
+| Incident readiness | 25-min checkout outage, no one knew who owned response | "No on-call rotation defined" | Operational readiness is un-owned: the Sprint 41 rotation action had an owner but no forcing function, so it slipped with zero consequence until an incident made it visible | A1 (rotation + 15-min incident checklist) | Every engineer can state current on-call without looking; next incident has an owner within 5 min |
+| Scope discipline | 2 tickets added mid-sprint, slippage across all | "No process for inbound mid-sprint requests" | The sprint commitment is not treated as a protected contract: urgency is accepted at face value with no gate-keeper enforcing a trade-off | A3 ("one in, one out" + intake template) | The norm is invoked at the first mid-sprint request; zero slippage attributable to un-traded additions |
+| Design-to-eng handoff | Engineers built before design review; rework | "Checkpoint not operationalized" | The Sprint 41 fix relied on memory/informality with no workflow enforcement; a habit with no system regresses | A2 ("Design reviewed" gate in the ticket template) | Template live before kickoff; zero build-before-review tickets in Sprint 43 |
+
+The deeper-cause read also explains the recurrence (two sprints in a row): each prior fix addressed the gap with an informal commitment rather than a system + an accountable owner. The Sprint 43 actions deliberately add the system (published rotation, ticket-template gates, a written intake norm).
 
 ## Action Items
 

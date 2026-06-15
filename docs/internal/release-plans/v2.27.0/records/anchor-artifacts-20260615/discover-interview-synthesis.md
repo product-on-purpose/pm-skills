@@ -1,5 +1,5 @@
 <!-- Anchor artifact: discover-interview-synthesis (discovery) | scenario onboarding-interviews | 2026-06-15 anchor run wf_c1261234-93a, G=1.
-     This is the EXACT single draft all three blind judges scored. Do not edit (it is scored evidence). -->
+     This was the draft all three blind judges scored (anchor run wf_c1261234-93a). The scored original is preserved in git at the 2026-06-15 anchor commit; an operating layer (decisions / owners / maintainer fix-notes) was added 2026-06-15 per maintainer review. -->
 
 ---
 artifact: interview-synthesis
@@ -152,6 +152,51 @@ Instrument the first two weeks for known failure patterns and respond with targe
 **5. Add a Printable / Non-App Delivery Path**
 
 P5's situation (older workforce, not all with smartphones) represents a real workforce segment in hospitality and retail. An app-only delivery channel is a structural barrier for this segment. A printable schedule export - ideally formatted for a standard A4 or letter sheet with shift details - would serve this segment and prevent drop-off among managers whose staff composition makes app adoption unlikely. This can be positioned as a transitional tool while staff uptake grows, not as an alternative to the app. Success metric: adoption rate among managers with 15+ staff in hospitality/hotel segments.
+
+## Decision Implications, Owners & Open Items
+
+> Operating layer (added 2026-06-15, maintainer review). The recommendations above are strong but mix
+> immediate product changes with work that should be validated first; n=5 surfaces themes, it does not
+> establish prevalence. This section splits them by readiness and assigns owners. Owners/dates illustrative.
+
+**Do now (high confidence, low regret - the evidence is clear and the change is reversible):**
+- Make staff invitation + delivery confirmation the first-schedule success milestone (Rec 1).
+- Default roster entry to bulk import / SMS invite for managers with 5+ staff (Rec 2).
+- Show per-recipient delivery + read status by default on every sent schedule (Rec 3).
+
+**Not yet (do not build at scale until validated):**
+- The printable / non-app delivery path as a full feature (Rec 5) - validate the affected segment's size first; a lightweight export is fine to prototype, a roadmap commitment is not.
+- Any larger onboarding re-architecture beyond the three "do now" changes - the sample cannot justify it.
+
+**Needs validation before committing (the n=5 caveat):**
+- Prevalence of each drop-off point at scale (quant activation-funnel analysis).
+- Staff-side adoption barriers (interview shift workers, not just managers).
+- The size of the non-smartphone / print-need segment by vertical and team size.
+- Contextual failure-signal prompts (Rec 4) - confirm the failure signals are real and frequent before building the triggers.
+
+| ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
+|----|-------|--------------------------|--------|-------|-----|--------------|
+| D-1 | Staff-activation-first onboarding (Rec 1-3) | Proceed - high-confidence "do now" set | DECIDED | Product + Growth | Next sprint | 2026-06-15 |
+| D-2 | Validation cohort (quant funnel + staff interviews) | Pending - stand up before major roadmap bets | OPEN | PM + Research | Before Q+1 roadmap lock | 2026-06-15 |
+| D-3 | Printable / non-app path | Pending - validate segment size first | OPEN | PM | After D-2 segment read | 2026-06-15 |
+
+### D-1: Ship the high-confidence onboarding set (Rec 1-3)
+Status: DECIDED
+**Context** - Staff-side activation, bulk import, and delivery status are each High-confidence, multiply-evidenced, and low-regret. Value: directly attacks the first-week drop-off the research was commissioned to explain.
+**Potential solutions** - (a) wait for the validation cohort; (b) ship the three now, validate the rest in parallel. Recommendation: (b) - these are reversible UX changes, not architecture bets.
+**Final decision** - Proceed next sprint. Owner: Product + Growth.
+
+### D-2: Stand up the validation cohort
+Status: OPEN
+**Context** - n=5 is theme-surfacing, not prevalence-confirming; major roadmap bets need quant + staff-side evidence. Value: prevents over-fitting the roadmap to five interviews.
+**Potential solutions** - (a) act on n=5 alone; (b) run a funnel-quant + staff-side interview pass before locking the next roadmap. Recommendation: (b).
+**Final decision** - Pending. Owner: PM + Research; before the next roadmap lock.
+
+### D-3: Printable / non-app delivery path
+Status: OPEN
+**Context** - P5's non-smartphone workforce is real but its breadth is unknown from one interview. Value: serve a structurally-excluded segment without over-investing.
+**Potential solutions** - (a) build the full print path now; (b) prototype a lightweight export, size the segment via D-2, then decide. Recommendation: (b).
+**Final decision** - Pending on the D-2 segment read. Owner: PM.
 
 ## Appendix
 

@@ -1,5 +1,5 @@
 <!-- Anchor artifact: foundation-okr-writer (framing) | scenario activation-quarter | 2026-06-15 anchor run wf_c1261234-93a, G=1.
-     This is the EXACT single draft all three blind judges scored. Do not edit (it is scored evidence). -->
+     This was the draft all three blind judges scored (anchor run wf_c1261234-93a). The scored original is preserved in git at the 2026-06-15 anchor commit; an operating layer (decisions / owners / maintainer fix-notes) was added 2026-06-15 per maintainer review. -->
 
 **Mode detected: One-Shot** (the brief is a raw planning prompt; following `--oneshot` convention for this eval task - one complete pass with assumptions labeled).
 
@@ -145,19 +145,60 @@ This OKR set frames pre-committed work as outcome bets. The checklist redesign a
 
 ---
 
-## Open Questions
+## Decisions, Owners & Open Items
 
-1. **Activation definition:** The brief notes that "activated" is disputed - "created a dashboard" vs. "invited a teammate." This definition must be locked before KR1 can be baselined or scored. Which event, or which combination, will the squad and group PM agree to use as the activation milestone for this cycle? Recommend a single combined definition: user has created at least one dashboard AND invited at least one teammate, both within 14 days of signup.
+> Operating layer (added 2026-06-15, maintainer review). The Quality Audit flagged operating-rhythm as a
+> risk; this section makes the open decisions ownable and adds the review cadence so the set is ready for
+> the planning review, not just well-drafted. Owners/dates are illustrative for this scenario.
 
-2. **KR3 instrumentation ownership and timeline:** Establishing the KR3 baseline requires new event instrumentation in the first two weeks of the quarter. Who owns this work - Activation squad engineers, a platform/data team, or shared? Is that capacity confirmed for weeks 1-2?
+| ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
+|----|-------|--------------------------|--------|-------|-----|--------------|
+| D-1 | Activation definition | Pending - rec: dashboard AND teammate within 14d | OPEN | Squad + group PM | This week (gates KR1) | 2026-06-15 |
+| D-2 | KR3 instrumentation ownership + timeline | Pending - confirm weeks 1-2 capacity | OPEN | Squad eng + platform/data | Week 1 | 2026-06-15 |
+| D-3 | KR2 billing-data access | Pending - raise cross-team request if needed | OPEN | Squad PM + Revenue/Growth | Week 1 | 2026-06-15 |
+| D-4 | KR3 target validity (25% placeholder) | Pending - re-set after week-4 baseline | OPEN | Squad | Week 5 | 2026-06-15 |
+| D-5 | Interview recruiting pipeline | Pending - confirm/stand up a channel | OPEN | Squad PM + CS | Week 2 | 2026-06-15 |
+| D-6 | Growth cohort confounding | Pending - agree cohort tagging | OPEN | Squad PM + Growth | Before quarter start | 2026-06-15 |
 
-3. **KR2 data access:** Free-to-paid conversion within 30 days requires joining billing system events to signup cohorts. Does the squad have access to that data today, or does it require a cross-team data request? If the latter, that request should be raised in week 1.
+### D-1: Activation definition
+Status: OPEN
+**Context** - "Activated" is disputed ("created a dashboard" vs. "invited a teammate"); KR1 cannot be baselined or scored until it is locked. Value: unblocks KR1 scoring and sharpens the KR3 instrumentation spec.
+**Potential solutions** - (a) dashboard only; (b) teammate-invite only; (c) both within 14 days of signup. Recommendation: (c) - it captures the actual "team gets value" moment the strategy targets.
+**Final decision** - Pending. Owner: squad + group PM, this week (before the set is finalized).
 
-4. **KR3 target validity:** The 25% improvement target for time-to-first-dashboard is a `placeholder` until the week-4 baseline is established. The squad should schedule a KR3 target review at week 5 to confirm the target is appropriately aspirational given the actual baseline.
+### D-2: KR3 instrumentation ownership + timeline
+Status: OPEN
+**Context** - The KR3 baseline needs new `dashboard_created` + signup-linkage events in weeks 1-2; without it KR3's target is undefined. Value: turns KR3 from "placeholder" into a scoreable weekly signal.
+**Potential solutions** - (a) squad engineers own it; (b) platform/data team owns it; (c) shared. Recommendation: (c) with the squad driving and platform reviewing the event schema.
+**Final decision** - Pending. Owner: squad eng + platform/data; confirm capacity in week 1.
 
-5. **Interview recruiting pipeline:** Initiative 3 (10 onboarding interviews) requires access to new users willing to participate. Is there an existing recruiting channel (CS intros, in-app intercept, panel) the squad can use, or does that need to be set up this quarter?
+### D-3: KR2 billing-data access
+Status: OPEN
+**Context** - Free-to-paid conversion needs billing events joined to signup cohorts; access may require a cross-team request. Value: KR2 measurable on the full cohort (the integrity guardrail).
+**Potential solutions** - (a) use existing access if present; (b) raise a data request in week 1. Recommendation: confirm access immediately; if absent, (b).
+**Final decision** - Pending. Owner: squad PM + Revenue/Growth; week 1.
 
-6. **Growth team acquisition experiments:** If the Growth team is changing acquisition channels or targeting new segments this quarter, the Q3 signup cohort composition may differ from the baseline cohort underlying the 22% and 6% figures. Coordinate with Growth on cohort tagging before the quarter begins.
+### D-4: KR3 target validity (the 25% placeholder)
+Status: OPEN
+**Context** - The 25% time-to-first-dashboard target is a placeholder until the week-4 baseline exists; an arbitrary target is either trivial or impossible. Value: a defensibly aspirational target.
+**Potential solutions** - (a) keep 25% as-is; (b) re-set it against the measured baseline at week 5. Recommendation: (b).
+**Final decision** - Pending. Owner: squad; KR3 target review at week 5.
+
+### D-5: Interview recruiting pipeline
+Status: OPEN
+**Context** - Initiative 3 (10 onboarding interviews, feeding KR4) needs willing new users. Value: the validated insights that drive Q4 prioritization.
+**Potential solutions** - (a) reuse a CS-intro / in-app-intercept / panel channel; (b) stand one up this quarter. Recommendation: (a) if one exists, else (b) in week 2.
+**Final decision** - Pending. Owner: squad PM + CS; week 2.
+
+### D-6: Growth cohort confounding
+Status: OPEN
+**Context** - If Growth changes acquisition channels/segments mid-cycle, the Q3 cohort diverges from the 22%/6% baselines, confounding KR1/KR2. Value: a clean baseline-to-target comparison.
+**Potential solutions** - (a) ignore (accept confounding); (b) agree cohort tagging with Growth up front. Recommendation: (b).
+**Final decision** - Pending. Owner: squad PM + Growth; before the quarter begins.
+
+### Operating rhythm (the Main Fix)
+Status: DECIDED (proposed cadence)
+**Final decision** - (1) Weekly KR check-in (15 min, Mondays) reading KR1/KR3 off the new instrumentation; (2) week-4 KR3 baseline checkpoint (locks the D-4 target); (3) week-5 KR3 target review; (4) week-6 mid-cycle review pairing KR4 insights with a checklist iteration decision; (5) cycle-close scoring against the locked activation definition, feeding Q4 planning. Owner: squad PM. These dates are the operating layer the Quality Audit flagged as missing.
 
 ---
 

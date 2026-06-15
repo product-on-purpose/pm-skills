@@ -1,5 +1,5 @@
 <!-- Anchor artifact: develop-adr (technical) | scenario search-datastore | 2026-06-15 anchor run wf_c1261234-93a, G=1.
-     This is the EXACT single draft all three blind judges scored. Do not edit (it is scored evidence). -->
+     This was the draft all three blind judges scored (anchor run wf_c1261234-93a). The scored original is preserved in git at the 2026-06-15 anchor commit; an operating layer (decisions / owners / maintainer fix-notes) was added 2026-06-15 per maintainer review. -->
 
 ---
 artifact: adr
@@ -76,6 +76,35 @@ Elasticsearch and OpenSearch offer superior relevance tuning, native fuzzy match
 ### Managed Search Service (e.g., Elastic Cloud, Algolia, or Typesense Cloud)
 
 A managed service would reduce operational burden relative to self-hosting, but introduces two blockers for v1. First, EU data-residency must be verified for any chosen vendor, which requires legal and security review time we do not have on the current timeline. Second, the cost profile of managed search at production scale could exceed budget, and the team lacks baseline usage data to size costs accurately. A managed service remains a viable path for v2 if Postgres search is insufficient and the team has time to evaluate vendors properly.
+
+## Decisions, Owners & Review
+
+> Operating layer (added 2026-06-15, maintainer review). Converts this ADR from a decision record into
+> an operating artifact: explicit owner, review date, and revisit guardrails so the v1 choice does not
+> become silent technical debt. Owners/dates are illustrative for this scenario.
+
+| ID | Title | Final decision (summary) | Status | Owner | Review / due | Last updated |
+|----|-------|--------------------------|--------|-------|--------------|--------------|
+| D-1 | v1 search datastore | Postgres FTS (tsvector + GIN), no separate cluster | DECIDED | Platform lead | v1 + 1 quarter | 2026-06-15 |
+| D-2 | When to migrate to a dedicated engine | Pending - revisit when a guardrail trips | OPEN | Platform lead | At first trigger | 2026-06-15 |
+
+### D-1: v1 search datastore
+Status: DECIDED
+
+**Context** - Search is the #2 customer request. The constraints: a 4-engineer team already on-call for the monolith, EU data-residency, a tight budget, and deep Postgres (vs. little Elasticsearch) expertise. The simplified question: build search on what we already operate, or take on new infrastructure now?
+
+**Potential solutions** - (a) Postgres full-text search (tsvector + GIN), no new infra; (b) self-hosted Elasticsearch/OpenSearch (superior relevance/fuzzy/faceting, but high ops burden + EU-deployment work); (c) managed search service (less ops, but unverified EU residency + uncertain cost at scale). Recommendation: (a) for v1 - it clears the constraints and ships fastest.
+
+**Final decision** - Use Postgres FTS for v1. Owner: Platform lead. Review at v1 + 1 quarter.
+
+### D-2: When to migrate to a dedicated search engine
+Status: OPEN
+
+**Context** - Postgres FTS has known ceilings (simpler ranking, no native fuzzy match, slower faceting, primary read-pressure at scale). Without explicit revisit triggers, "v1 for now" silently hardens into permanent debt. The desired outcome: a pre-agreed, measurable signal that flips us to evaluating a dedicated engine before users feel the limits.
+
+**Potential solutions** - (a) revisit on a fixed calendar cadence (simple, but ignores actual load); (b) revisit on measurable thresholds (recommended - tied to real signals). Recommendation: (b).
+
+**Final decision** - Pending. Revisit when ANY guardrail trips: p95 search latency exceeds the agreed budget at production scale, search read-load exceeds the agreed share of primary DB capacity, or there are 2+ high-priority relevance/fuzzy-match complaints in a quarter. Owner: Platform lead. Re-evaluate at the first trigger (set the concrete thresholds with the data scientist before v1 ships).
 
 ## References
 

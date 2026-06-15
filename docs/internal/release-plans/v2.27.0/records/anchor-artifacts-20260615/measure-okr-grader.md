@@ -1,5 +1,5 @@
 <!-- Anchor artifact: measure-okr-grader (measurement) | scenario activation-q3-close | 2026-06-15 anchor run wf_c1261234-93a, G=1.
-     This is the EXACT single draft all three blind judges scored. Do not edit (it is scored evidence). -->
+     This was the draft all three blind judges scored (anchor run wf_c1261234-93a). The scored original is preserved in git at the 2026-06-15 anchor commit; an operating layer (decisions / owners / maintainer fix-notes) was added 2026-06-15 per maintainer review. -->
 
 ---
 
@@ -12,6 +12,25 @@ skill: measure-okr-grader
 version: 1.0.0
 ---
 # OKR Cycle Review: Activation Team, Q3 2026
+
+## Leadership Readout (one page)
+
+> Added 2026-06-15 (maintainer review): a leadership-ready summary so the candid full review below is read, not skimmed past.
+
+**Bottom line: this is NOT a win.** Real activation progress, but a committed instrumentation miss, a conversion KR that cannot yet be scored, and a failed support guardrail. Do not present Q3 as a success.
+
+| KR | Type | Result | Score |
+|----|------|--------|-------|
+| KR1 - signup-to-activation (22% -> 35%) | aspirational | 30% | 0.62 (in the 0.6-0.7 sweet spot) |
+| KR2 - instrument 100% of new teams | committed | ~80% (Android slipped 2 wks) | FAIL (miss) |
+| KR3 - free-to-paid in 30d (6% -> 9%) | aspirational | Aug 7%; Sep window closes Oct 15 | Deferred |
+| KR4 - support tickets <= 14 / 100 signups | guardrail | 19 / 100 (+36%) | FAIL (reported standalone, not averaged in) |
+
+**Three must-act items:** (1) root-cause the support-ticket spike before any further checklist iteration; (2) close the Android instrumentation gap in Q4 weeks 1-2 (a carry-forward completion, not new KR budget); (3) wait for the Oct 15 KR3 close before making any conversion decision.
+
+**One ask of leadership:** do NOT accept the proposal to reframe KR2 as "done for the platforms that mattered." It is a committed KR; the miss stands. Accepting the reframe would teach the org that committed targets can be moved at grading time. Detail in "Risks in Interpretation" and the decisions table below.
+
+---
 
 ## Summary
 
@@ -165,6 +184,49 @@ version: 1.0.0
 - A single-cycle activation rate reading is suggestive, not confirmatory. The 0.62 result should be carried into Q4 as a tracked metric to test durability before the team builds strategy on the assumption that the activation improvement is durable.
 
 ---
+
+## Decisions, Owners & Open Items
+
+> Operating layer (added 2026-06-15, maintainer review): the review's recommendations and integrity calls
+> made ownable and dated. Owners/dates are illustrative for this scenario.
+
+| ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
+|----|-------|--------------------------|--------|-------|-----|--------------|
+| D-1 | KR2 scope-reframe request | DECIDED - rejected; the miss stands | DECIDED | PM + group PM | Q3 close | 2026-06-15 |
+| D-2 | KR3 final score | Deferred to the Sep cohort close | OPEN | PM + analyst | Oct 15 | 2026-06-15 |
+| D-3 | Support-spike root cause | Pending - ticket taxonomy review | OPEN | PM + Support | Q4 wk 2, before next checklist iteration | 2026-06-15 |
+| D-4 | Android instrumentation gap | DECIDED - Q4 P0 carry-forward | DECIDED | Eng lead | Q4 wk 1-2 | 2026-06-15 |
+| D-5 | Segment connector as a Q4 committed initiative | Pending - only with a linked outcome hypothesis | OPEN | PM | Q4 drafting | 2026-06-15 |
+
+### D-1: KR2 scope-reframe request
+Status: DECIDED
+**Context** - The PM proposed marking KR2 "done for the platforms that mattered" (excluding the 20% Android cohort). KR2 was a committed 100%-coverage target. Value at stake: the integrity of the OKR operating system - accepting a grading-time reframe teaches that committed targets are movable.
+**Potential solutions** - (a) accept the reframe (score it a pass); (b) reject it, record the miss, and carry a Q4 completion commitment. Recommendation: (b).
+**Final decision** - Rejected. KR2 is a miss; document the Android slip and carry a completion commitment into Q4. Owner: PM + group PM.
+
+### D-2: KR3 final score
+Status: OPEN
+**Context** - The September cohort's 30-day window closes Oct 15, after cycle close; the August interim is 0.33. A forced cycle-close score would be misleading. Value: an honest, complete conversion read before any conversion decision.
+**Potential solutions** - (a) score now on August alone; (b) defer to Oct 15. Recommendation: (b).
+**Final decision** - Deferred to Oct 15; append the final score then. Owner: PM + analyst.
+
+### D-3: Support-spike root cause (failed guardrail)
+Status: OPEN
+**Context** - Support tickets ran 19/100 vs a 14 threshold (+36%) during rollout, un-root-caused. Value: knowing whether the checklist design is harmful, a routing artifact, or a transient - it gates the next iteration.
+**Potential solutions** - (a) iterate the checklist now; (b) run a ticket taxonomy review (category, checklist step, time-since-signup) first. Recommendation: (b) - do not iterate on an unresolved UX problem.
+**Final decision** - Pending. Run the taxonomy review before the next checklist iteration. Owner: PM + Support; Q4 week 2.
+
+### D-4: Android instrumentation gap
+Status: DECIDED
+**Context** - 20% of new teams (Android) lack time-to-first-dashboard instrumentation, so KR2 learning may not generalize. Value: complete, trustworthy measurement.
+**Potential solutions** - (a) deprioritize; (b) close it as a Q4 P0 carry-forward (no new KR budget). Recommendation: (b).
+**Final decision** - Close in Q4 weeks 1-2 as a P0 carry-forward; backfill the baseline. Owner: Eng lead.
+
+### D-5: Segment connector as a Q4 committed initiative
+Status: OPEN
+**Context** - Segment slipped in Q3; its effect on activation/conversion was never isolated. Value: avoid committing build effort without a measurable outcome thesis.
+**Potential solutions** - (a) carry Segment as a committed initiative on completion alone; (b) require a linked outcome hypothesis (which cohort, what lift) before scoping. Recommendation: (b).
+**Final decision** - Pending. Do not commit Segment for Q4 without a linked outcome hypothesis. Owner: PM; decide at Q4 drafting.
 
 ## Source of Truth
 
