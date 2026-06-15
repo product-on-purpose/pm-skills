@@ -93,11 +93,15 @@ order (encoded + tested in `scripts/output-eval-aggregate.mjs` `gateVerdict`):
   the expected sections could pass on structure alone. This is the intended baseline (the skill's value
   legitimately includes providing structure), but it is a coarser measurement than the question "is the
   skill better than the template alone."
-- **Planned enhancement - the informed control.** Add a second control that receives the same Output
-  Format / rubric contract (the section list) but NOT the skill's instructions, so the skill must beat
-  both the freehand control AND the informed control. A skill that only adds a template will tie the
-  informed control; a skill that adds real rigor will still win. Pair this with the per-family **human
-  anchor** (an absolute, human-calibrated bar) so quality is not judged by discrimination alone.
+- **The informed control (IMPLEMENTED 2026-06-15).** A second control that receives the skill's output
+  template (the section structure) but NOT the skill's instructions, so the skill must beat both the
+  freehand control AND the informed control. A skill that only adds a template ties the informed control;
+  a skill that adds real rigor still wins. Implemented as the three-arm runner
+  `scripts/output-eval-informed.workflow.mjs` (skill = instructions + template; informed = template only;
+  freehand = scenario only), with `unblindAndAggregate3` / `gateVerdict3` in the tested aggregate module
+  and a `pass-structural` verdict tier (beats freehand but the rigor premium over template-only is thin).
+  The per-family **human anchor** (recorded 2026-06-15; the panel ran ~0.5-1.0 hot) is the absolute,
+  human-calibrated bar so quality is not judged by discrimination alone.
 
 ## 5. Scope and sequencing
 

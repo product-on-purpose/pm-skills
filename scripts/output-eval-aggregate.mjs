@@ -90,3 +90,90 @@ export function gateVerdict(agg, opts = {}) {
 
   return { verdict, absolute_pass, discrimination_pass, agreement_pass, floored_criteria: flooredCriteria };
 }
+
+// ---------------------------------------------------------------------------
+// Three-arm variant (codex adversarial review finding 2: the informed control).
+//
+// The freehand control measures skill-vs-no-skill, which bundles the value of the skill's STRUCTURE
+// (its template) with the value of its RIGOR (its instructions). The informed control separates them:
+//   - skill arm    = SKILL.md instructions + the template + the scenario
+//   - informed arm = the template + the scenario (structure, NO instructions/rigor)
+//   - freehand arm = the scenario only (neither)
+// So a skill that merely emits the expected sections ties the informed control; a skill that adds real
+// rigor still beats it. The verdict gains a 'pass-structural' tier for "beats freehand but the rigor
+// premium over template-only is thin" - a finding about where the skill's value comes from, not a fail.
+// The 2-arm functions above are unchanged (the canonical single-skill harness still uses them).
+
+/**
+ * Un-blind and aggregate a THREE-arm judge panel (skill vs freehand control vs informed control).
+ * @param judged array of { skillPos, freehandPos, informedPos, v } where each *Pos is 'a'|'b'|'c' and
+ *   v = { artifact_a:{<crit>:1-5,...}, artifact_b:{...}, artifact_c:{...}, which_is_strongest:'A'|'B'|'C' }
+ * @param criteria array of criterion keys (per-skill keys plus 'specificity','completeness')
+ */
+export function unblindAndAggregate3(judged, criteria) {
+  const pick = (v, pos) => v[`artifact_${pos}`];
+  const skillRows = [], freehandRows = [], informedRows = [];
+  for (const { skillPos, freehandPos, informedPos, v } of judged) {
+    skillRows.push(pick(v, skillPos));
+    freehandRows.push(pick(v, freehandPos));
+    informedRows.push(pick(v, informedPos));
+  }
+  const perCriterion = (rows, k) => mean(rows.map((r) => r[k]));
+  const overallOf = (rows) => mean(rows.map((r) => mean(criteria.map((k) => r[k])))); // derived: criterion mean
+  const per = (rows) => { const o = {}; for (const k of criteria) o[k] = perCriterion(rows, k); return o; };
+  const skillOveralls = skillRows.map((r) => mean(criteria.map((k) => r[k])));
+
+  const skill_overall = overallOf(skillRows);
+  const freehand_overall = overallOf(freehandRows);
+  const informed_overall = overallOf(informedRows);
+  let skillWins = 0;
+  for (const { skillPos, v } of judged) if (v.which_is_strongest === skillPos.toUpperCase()) skillWins += 1;
+
+  return {
+    skill_overall,
+    freehand_overall,
+    informed_overall,
+    gap_vs_freehand: skill_overall - freehand_overall,
+    gap_vs_informed: skill_overall - informed_overall,
+    agreement_stdev: stdev(skillOveralls),
+    skill_per_criterion: per(skillRows),
+    freehand_per_criterion: per(freehandRows),
+    informed_per_criterion: per(informedRows),
+    blind_preference_skill: `${skillWins}/${judged.length}`,
+  };
+}
+
+/**
+ * Decide a THREE-arm verdict. Absolute-failure-first, then the freehand discrimination gate (unchanged
+ * meaning from the 2-arm path), then the informed-control "rigor premium" as an extra tier:
+ *   1. fail             - skill_overall < bar OR any criterion floored, regardless of gaps.
+ *   2. void-inconclusive - clears absolute, but the FREEHAND gap is sub-threshold or agreement too high.
+ *   3. pass-structural  - beats freehand AND agrees, but the gap over the INFORMED (template-only)
+ *                         control is below informedGapTarget: the skill's value is mostly structure.
+ *   4. pass             - beats BOTH controls (rigor adds measurable value beyond the template alone).
+ * @param agg the object returned by unblindAndAggregate3
+ * @param opts { bar=3.5, floor=2.5, gapTarget=1.0, informedGapTarget=0.5, agreeTarget=0.7 }
+ */
+export function gateVerdict3(agg, opts = {}) {
+  const bar = opts.bar ?? 3.5;
+  const floor = opts.floor ?? 2.5;
+  const gapTarget = opts.gapTarget ?? 1.0;
+  const informedGapTarget = opts.informedGapTarget ?? 0.5;
+  const agreeTarget = opts.agreeTarget ?? 0.7;
+
+  const flooredCriteria = Object.entries(agg.skill_per_criterion)
+    .filter(([, m]) => m < floor)
+    .map(([k]) => k);
+  const absolute_pass = agg.skill_overall >= bar && flooredCriteria.length === 0;
+  const freehand_pass = agg.gap_vs_freehand >= gapTarget;
+  const informed_pass = agg.gap_vs_informed >= informedGapTarget;
+  const agreement_pass = agg.agreement_stdev <= agreeTarget;
+
+  let verdict;
+  if (!absolute_pass) verdict = 'fail';
+  else if (!freehand_pass || !agreement_pass) verdict = 'void-inconclusive';
+  else if (!informed_pass) verdict = 'pass-structural';
+  else verdict = 'pass';
+
+  return { verdict, absolute_pass, freehand_pass, informed_pass, agreement_pass, floored_criteria: flooredCriteria };
+}

@@ -4,7 +4,7 @@
 // un-blinding, criterion-mean aggregation, and the absolute-failure-first verdict (codex finding 1).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mean, stdev, unblindAndAggregate, gateVerdict } from './output-eval-aggregate.mjs';
+import { mean, stdev, unblindAndAggregate, gateVerdict, unblindAndAggregate3, gateVerdict3 } from './output-eval-aggregate.mjs';
 
 test('mean and population stdev', () => {
   assert.equal(mean([5, 4]), 4.5);
@@ -79,4 +79,62 @@ test('VOID on high inter-judge disagreement even with a healthy gap', () => {
   const v = gateVerdict(agg);
   assert.equal(v.verdict, 'void-inconclusive');
   assert.equal(v.agreement_pass, false);
+});
+
+// ---- Three-arm (informed control, codex finding 2) ----
+
+// Two judges with ROTATED positions: each arm sits in a different slot per judge, the case that breaks
+// a naive aggregator that assumes a fixed position. J1 skill=a/freehand=b/informed=c; J2 skill=c/freehand=a/informed=b.
+const JUDGED3 = [
+  { skillPos: 'a', freehandPos: 'b', informedPos: 'c', v: { artifact_a: { c1: 5, c2: 5 }, artifact_b: { c1: 2, c2: 2 }, artifact_c: { c1: 4, c2: 4 }, which_is_strongest: 'A' } },
+  { skillPos: 'c', freehandPos: 'a', informedPos: 'b', v: { artifact_a: { c1: 2, c2: 2 }, artifact_b: { c1: 3, c2: 3 }, artifact_c: { c1: 4, c2: 4 }, which_is_strongest: 'C' } },
+];
+
+test('three-arm: un-blinds rotated positions and computes both gaps', () => {
+  const agg = unblindAndAggregate3(JUDGED3, CRITERIA);
+  assert.equal(agg.skill_overall, 4.5);     // [5,4]
+  assert.equal(agg.freehand_overall, 2.0);  // [2,2]
+  assert.equal(agg.informed_overall, 3.5);  // [4,3]
+  assert.equal(agg.gap_vs_freehand, 2.5);
+  assert.equal(agg.gap_vs_informed, 1.0);
+  assert.equal(agg.agreement_stdev, 0.5);   // stdev of skill overalls [5,4]
+  assert.equal(agg.blind_preference_skill, '2/2'); // J1 picked A=skill, J2 picked C=skill
+});
+
+test('three-arm PASS: skill beats BOTH controls (rigor adds value beyond the template)', () => {
+  const v = gateVerdict3(unblindAndAggregate3(JUDGED3, CRITERIA));
+  assert.equal(v.verdict, 'pass');
+  assert.equal(v.informed_pass, true);
+});
+
+test('three-arm PASS-STRUCTURAL: beats freehand but the rigor premium over template-only is thin', () => {
+  const agg = {
+    skill_overall: 4.5, freehand_overall: 3.0, informed_overall: 4.2,
+    gap_vs_freehand: 1.5, gap_vs_informed: 0.3, agreement_stdev: 0.2,
+    skill_per_criterion: { c1: 4.5, c2: 4.5 },
+  };
+  const v = gateVerdict3(agg);
+  assert.equal(v.verdict, 'pass-structural');
+  assert.equal(v.freehand_pass, true);
+  assert.equal(v.informed_pass, false);
+});
+
+test('three-arm VOID: sub-threshold freehand gap voids regardless of the informed gap', () => {
+  const agg = {
+    skill_overall: 4.5, freehand_overall: 3.8, informed_overall: 3.9,
+    gap_vs_freehand: 0.7, gap_vs_informed: 0.6, agreement_stdev: 0.2,
+    skill_per_criterion: { c1: 4.5, c2: 4.5 },
+  };
+  assert.equal(gateVerdict3(agg).verdict, 'void-inconclusive');
+});
+
+test('three-arm FAIL: a floored criterion fails regardless of either gap (absolute-failure-first)', () => {
+  const agg = {
+    skill_overall: 4.0, freehand_overall: 1.0, informed_overall: 1.5,
+    gap_vs_freehand: 3.0, gap_vs_informed: 2.5, agreement_stdev: 0.1,
+    skill_per_criterion: { c1: 4.5, c2: 2.0 }, // c2 below the 2.5 floor
+  };
+  const v = gateVerdict3(agg);
+  assert.equal(v.verdict, 'fail');
+  assert.deepEqual(v.floored_criteria, ['c2']);
 });

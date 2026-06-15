@@ -213,7 +213,16 @@ with 4 findings. Disposition:
 
 Done since the review (2026-06-14): **B-7 asset-presence gate built** (`check-output-eval-assets.mjs`,
 advisory) and the **batch runner revised** to emit raw per-judge rows + a mirrored absolute-failure-first
-verdict. Open follow-ups carried forward: implement the **informed control** (re-run >= 1 sampled skill
-with it; codex finding 2), build the **B-7 body-change reminder** half (output-eval analog of the B-5
-description-change reminder), land the **per-family human anchor** (P1-5), and re-look the 3 VOID
-instruments (`develop-adr`, `deliver-release-notes`, `measure-experiment-design`).
+verdict.
+
+Follow-up status (2026-06-15):
+- **Per-family human anchor (P1-5): DONE** - maintainer hand-scored all 7; the panel ran ~0.77 hot,
+  recorded into each rubric Section 8 + a calibration note on the shared scale (commit 76350a85).
+- **Informed control (codex finding 2): IMPLEMENTED** - `scripts/output-eval-informed.workflow.mjs`
+  (three-arm: skill vs informed [template only] vs freehand) + `unblindAndAggregate3`/`gateVerdict3` in
+  the tested aggregate module + a `pass-structural` verdict tier. The gated re-run is the open step.
+- **3 VOID instruments re-look: scenarios AUTHORED** - stronger second scenarios `develop-adr/event-streaming`,
+  `deliver-release-notes/api-v4-breaking`, `measure-experiment-design/paywall-pricing` (each sharpens the
+  skill's marginal value vs a freehand control). The gated re-run (experiment-design at G>=3) is the open step.
+- **B-7 body-change reminder** half (output-eval analog of the B-5 description-change reminder): still
+  PENDING (needs PR-diff context).
