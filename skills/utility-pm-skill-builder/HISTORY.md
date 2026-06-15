@@ -1,0 +1,21 @@
+# utility-pm-skill-builder - Version History
+
+| Version | Date | Release | Effort | Type | Summary |
+|---------|------|---------|--------|------|---------|
+| 1.1.0 | 2026-06-15 | - | C-1..C-4 | minor | New skills ship eval-ready: added a Step 4.5 "Eval Readiness" (neighbors + reciprocal boundary pointers + output-eval family rubric), scaffolded `evals/trigger-fixtures.json` (C-1) and `evals/output-scenarios/{id}.md` (C-4) into the packet/staging/promotion, a Step 7 collision probe (C-2), and the eval contract in the Output Contract + Quality Checklist. Refreshed the stale "When NOT to Use" pointers (pm-skill-iterate/validate now exist). |
+| 1.0.0 | 2026-03-22 | - | - | baseline | Prior published version: guided skill creation (gap analysis, Why Gate, classification, staged packet, promotion). |
+
+## 1.1.0 (2026-06-15)
+
+Eval-contract integration (v2.27.0 eval program, plan items C-1 through C-4): the builder now produces eval-ready skills so routing and output-quality coverage never falls behind the catalog.
+
+- **Step 4.5 Eval Readiness (new):** name nearest neighbors (C-2), require reciprocal "When NOT to Use" boundary pointers and a `COLLISION_PAIRS` entry for strong overlaps (C-3), and assign an output-eval family rubric via a phase/category mapping table (C-4).
+- **Packet + staging + promotion:** added `evals/trigger-fixtures.json` (the B-4 routing-fixture contract: >=16 queries, >=8/class, >=2 neighbor near-misses, train/validation split) and `evals/output-scenarios/{id}.md` (the B-7 output-scenario contract: scenario/skill/family frontmatter + a >=100-char brief). Promotion now runs the eval-asset gates + the `check-new-skill-collision.mjs` probe (C-2) and regenerates the catalog surfaces.
+- **Output Contract + Quality Checklist:** the eval assets are now required outputs with a dedicated checklist tier.
+- Refreshed the stale "When NOT to Use" section (the planned validate/iterate utilities now exist as `utility-pm-skill-validate` / `utility-pm-skill-iterate`).
+
+No change to the core create-a-skill flow (Steps 1-4, 5-7); the eval contract is additive.
+
+## 1.0.0 (2026-03-22)
+
+Baseline row for the prior published version; see git history for its changes.

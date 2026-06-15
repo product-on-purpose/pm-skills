@@ -4,8 +4,8 @@ description: Audits an existing pm-skills skill against structural conventions a
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.0"
-  updated: 2026-04-03
+  version: "1.1.0"
+  updated: 2026-06-15
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -73,6 +73,8 @@ Read all files in the skill directory:
 | `references/TEMPLATE.md` | yes | Output template |
 | `references/EXAMPLE.md` | yes | Worked example |
 | `HISTORY.md` | no | Version history (if present) |
+| `evals/trigger-fixtures.json` | no | Routing-eval fixtures (B-4); present for roster skills |
+| `evals/output-scenarios/*.md` | no | Output-quality scenarios (B-7); present for evaled skills |
 
 Also read:
 - The corresponding command file: `commands/{command-name}.md`
@@ -100,6 +102,9 @@ Run these deterministic checks. Each produces a `PASS` or `FAIL` line.
 | `example-exists` | `references/EXAMPLE.md` exists | File present |
 | `command-exists` | Command file exists in `commands/` | File present and references correct skill path |
 | `agents-entry` | AGENTS.md has an entry for this skill | Entry exists with matching `**Path:**` |
+| `eval-trigger-fixtures` | Routing fixtures present + well-formed (B-4) | If `evals/trigger-fixtures.json` exists: `schema:1`, `skill` matches dir, >=16 queries, >=8 per class (trigger / no-trigger), >=2 near-misses. If absent: INFO (not in the trigger-eval roster, or fixtures not yet authored). Authoritative gate: `scripts/check-trigger-fixtures.mjs`. |
+| `eval-output-scenarios` | Output scenarios present + well-formed (B-7) | If `evals/output-scenarios/*.md` exist: each has `scenario`/`skill`/`family` frontmatter, `skill` matches dir, `family` maps to an existing `docs/internal/eval-rubrics/{family}.md`, body >=100 chars. If absent: INFO (not yet output-evaled). Authoritative gate: `scripts/check-output-eval-assets.mjs`. |
+| `reciprocal-boundary-pointers` | Declared collision pairs cross-point (C-5) | If the skill appears in `COLLISION_PAIRS` (`scripts/check-trigger-fixtures.mjs`): its `When NOT to Use` names each partner AND each partner's `When NOT to Use` names it back. FAIL if a declared pair is one-directional. If not in any pair: PASS. Authoritative gate: `scripts/check-reciprocal-boundary-pointers.mjs`. |
 
 ### Step 4: Run Tier 2 - Quality Checks
 
@@ -116,7 +121,7 @@ line. Tier 2 findings are capped at `WARN` unless objectively grounded
 | `description-actionability` | Description tells *when* to use the skill | Check for a trigger phrase like "Use when..." or "Use for..." in the frontmatter description. WARN if the description only says *what* the skill does without indicating *when* to use it. | WARN |
 | `instruction-clarity` | Instructions are numbered and imperative | Check for `### Step` headings or a numbered list pattern in the Instructions section. WARN if instructions are prose paragraphs without clear step structure. | WARN |
 | `placeholder-leakage` | No leftover scaffolding in any shipped file | Scan SKILL.md, TEMPLATE.md, and EXAMPLE.md for: `[Placeholder]` or `[Feature Name]` patterns, `<!-- ... -->` HTML comments (except the license header), template guidance blockquotes that should have been removed, and authoring notes like "TODO" or "FIXME". FAIL if any are found - this is objectively grounded. | FAIL |
-| `when-not-to-use` | "When NOT to Use" section present in SKILL.md | Check for a section with "When NOT to Use" or similar heading. INFO only - this is present in 1/27 shipped skills and is not yet a convention. | INFO |
+| `when-not-to-use` | "When NOT to Use" section present and names neighbors | Check for a `When NOT to Use` section that names the skill's nearest neighbors (when to use them instead). WARN if the section is absent, or present but generic (no neighbor named). This became a convention in the v2.26.0 rewrites and underpins the reciprocity gate; `reciprocal-boundary-pointers` (Tier 1) is the deterministic backstop for declared collision pairs. | WARN |
 
 **Quality standard framing:** These checks validate against current library
 conventions - what the shipped library actually does today. Findings graded
@@ -223,7 +228,7 @@ The report:
 
 Before delivering the report, verify:
 
-- [ ] All Tier 1 structural checks were run (not skipped)
+- [ ] All Tier 1 structural checks were run (not skipped), including the eval-asset checks (`eval-trigger-fixtures`, `eval-output-scenarios`, `reciprocal-boundary-pointers`); absent eval assets are INFO, not FAIL, except a one-directional declared collision pair which FAILs
 - [ ] All Tier 2 quality checks were run (not skipped) - single skill mode only
 - [ ] Report follows the exact section and line format from Step 5
 - [ ] Every non-passing check appears in Recommendations with a target file path

@@ -35,14 +35,17 @@ All contributed skills must:
 
 ## Skill Structure
 
-Every skill requires three files:
+Every skill requires three files, plus the eval assets that make it measurable (see [Eval Contract](#eval-contract-what-done-looks-like)):
 
 ```
 skills/<skill-name>/
-├── SKILL.md           # Main instructions with frontmatter
-└── references/
-    ├── TEMPLATE.md    # Output template
-    └── EXAMPLE.md     # Completed example
+├── SKILL.md           # Main instructions with frontmatter (incl. "When NOT to Use")
+├── references/
+│   ├── TEMPLATE.md    # Output template
+│   └── EXAMPLE.md     # Completed example
+└── evals/                         # eval assets (ship eval-ready)
+    ├── trigger-fixtures.json      # routing-eval fixtures
+    └── output-scenarios/<id>.md   # output-quality scenario + family rubric
 ```
 
 ### SKILL.md Requirements
@@ -70,6 +73,33 @@ Per agentskills.io specification:
 
 **Valid:** `problem-statement`, `prd`, `user-stories`
 **Invalid:** `Problem_Statement`, `PRD`, `user--stories`
+
+## Eval Contract (what done looks like)
+
+A skill is not "done" when it produces output - it is done when its **routing** and its
+**output quality** are measurable, so regressions are caught automatically. `utility-pm-skill-builder`
+scaffolds all of this for you; if you author a skill by hand, supply it yourself. Four parts:
+
+1. **Boundary pointers (reciprocal).** The SKILL.md has a `When NOT to Use` section naming the
+   skill's nearest neighbors (when to use them instead). For each neighbor, add the **reciprocal**
+   pointer back in the neighbor's SKILL.md. If the overlap is strong enough to measure, add the pair
+   to `COLLISION_PAIRS` in `scripts/check-trigger-fixtures.mjs`. Reciprocal pointers are what keep
+   near-duplicate skills routing cleanly.
+2. **Trigger fixtures.** `evals/trigger-fixtures.json` (`schema: 1`): at least 16 queries, at least
+   8 that should trigger the skill (include intent-only asks, not just artifact keywords) and at
+   least 8 that should not - of which at least 2 are near-misses aimed at the neighbors. Split each
+   class roughly 60/40 across `train` / `validation`.
+3. **Output scenario + family rubric.** `evals/output-scenarios/<id>.md` with frontmatter
+   `scenario` / `skill` / `family` and a realistic input brief. `family` maps to a rubric under
+   `docs/internal/eval-rubrics/<family>.md` (framing, specification, discovery, technical,
+   measurement, learning, communication). If your skill opens a new family, author the rubric first.
+4. **Version history.** When you change a shipped skill's body, bump `metadata.version` (SemVer) and
+   add a matching `HISTORY.md` entry.
+
+These are enforced deterministically in CI by `check-trigger-fixtures.mjs` (B-4),
+`check-output-eval-assets.mjs` (B-7), `check-reciprocal-boundary-pointers.mjs` (C-5), and
+`validate-skill-history.sh`. Run `utility-pm-skill-validate <skill>` for an interactive report that
+mirrors these gates before you open a PR.
 
 ## Pull Request Process
 

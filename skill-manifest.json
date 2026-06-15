@@ -896,7 +896,7 @@
     {
       "name": "utility-pm-skill-builder",
       "description": "Guides contributors from a PM skill idea to a complete Skill Implementation Packet aligned with pm-skills conventions. Runs gap analysis, validates through a Why Gate, classifies by type and phase, generates draft files, and writes to a staging area for review before promotion.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "group": "utility",
       "phase": null,
       "family": null,
@@ -926,7 +926,7 @@
     {
       "name": "utility-pm-skill-validate",
       "description": "Audits an existing pm-skills skill against structural conventions and quality criteria. Produces a structured validation report with pass/fail checks, severity-graded findings, and actionable recommendations. Use when checking whether a skill meets repo standards before shipping or after making changes.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "group": "utility",
       "phase": null,
       "family": null,
