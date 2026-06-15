@@ -1,0 +1,757 @@
+{
+  "summary": "M-33 three-arm output-quality eval (skill vs freehand control vs informed control) across N sampled skills, Sonnet gen + Sonnet judges. The informed control reads the template (structure) but not the skill instructions (rigor), so the run separates the skill's structural value from its rigor. N blind judges score all three artifacts verbatim with positions rotated; derive the gap vs each control + inter-judge agreement vs the validity gates. Self-shakedown: skill 1 runs first and the rest fan out only if it returns a valid result. Fails closed per skill.",
+  "agentCount": 32,
+  "logs": [
+    "Shakedown: evaluating foundation-okr-writer first (1 of 4)...",
+    "foundation-okr-writer: PASS-STRUCTURAL | skill 4.54 | vs freehand 2.38 (gap 2.17 PASS) | vs informed 4.50 (gap 0.04 FAIL) | agree 0.29 | pref 2/3",
+    "Shakedown OK (foundation-okr-writer: pass-structural). Fanning out the remaining 3 skills.",
+    "deliver-release-notes: VOID-INCONCLUSIVE | skill 4.17 | vs freehand 3.71 (gap 0.46 FAIL) | vs informed 4.08 (gap 0.08 FAIL) | agree 0.16 | pref 2/3",
+    "develop-adr: PASS-STRUCTURAL | skill 4.50 | vs freehand 3.21 (gap 1.29 PASS) | vs informed 4.54 (gap -0.04 FAIL) | agree 0.18 | pref 1/3",
+    "measure-experiment-design: PASS-STRUCTURAL | skill 4.42 | vs freehand 3.21 (gap 1.21 PASS) | vs informed 4.58 (gap -0.17 FAIL) | agree 0.41 | pref 1/3"
+  ],
+  "result": {
+    "results": [
+      {
+        "skill": "foundation-okr-writer",
+        "status": "ok",
+        "verdict": "pass-structural",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 3,
+        "judges": 3,
+        "skill_overall": 4.541666666666667,
+        "freehand_overall": 2.375,
+        "informed_overall": 4.5,
+        "gap_vs_freehand": 2.166666666666667,
+        "gap_vs_informed": 0.04166666666666696,
+        "agreement_stdev": 0.29462782549439476,
+        "blind_preference_skill": "2/3",
+        "skill_per_criterion": {
+          "objective_quality": 3.6666666666666665,
+          "outcome_krs": 4,
+          "kr_measurability": 4.666666666666667,
+          "guardrails": 5,
+          "no_fabrication": 4.666666666666667,
+          "integrity_audit": 4.666666666666667,
+          "specificity": 5,
+          "completeness": 4.666666666666667
+        },
+        "freehand_per_criterion": {
+          "objective_quality": 3,
+          "outcome_krs": 2.6666666666666665,
+          "kr_measurability": 2.3333333333333335,
+          "guardrails": 2,
+          "no_fabrication": 2.6666666666666665,
+          "integrity_audit": 1,
+          "specificity": 3.6666666666666665,
+          "completeness": 1.6666666666666667
+        },
+        "informed_per_criterion": {
+          "objective_quality": 4,
+          "outcome_krs": 4,
+          "kr_measurability": 4.333333333333333,
+          "guardrails": 4.666666666666667,
+          "no_fabrication": 4.333333333333333,
+          "integrity_audit": 4.666666666666667,
+          "specificity": 5,
+          "completeness": 5
+        },
+        "gates": {
+          "freehand": {
+            "value": 2.166666666666667,
+            "target": 1,
+            "pass": true
+          },
+          "informed": {
+            "value": 0.04166666666666696,
+            "target": 0.5,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.29462782549439476,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillPos": "a",
+            "freehandPos": "b",
+            "informedPos": "c",
+            "artifact_a": {
+              "objective_quality": 4,
+              "outcome_krs": 4,
+              "kr_measurability": 5,
+              "guardrails": 5,
+              "no_fabrication": 5,
+              "integrity_audit": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Strongest of the three. Every KR carries a full field set (metric, baseline with sourcing flag, target with rationale, deadline, evidence source, owner, indicator class, confidence level). Three guardrails - uniquely includes a retention-after-activation guardrail that catches definition gaming, directly tied to the scenario's vanity-metric history. KR3 framed as evidence-generation with an explicit label rather than a milestone disguised as an outcome. Quality Audit is comprehensive with 11 named dimensions and explicit pass/risk/fail. All missing values marked assumption or recommended-to-measure; no fabricated figures. Objective is directional and tradeoff-guiding, though slightly overlong. The 'Suggested Next Step' section adds actionable near-term guidance. Minor nit on objective: the 'excuse' framing is slightly combative."
+            },
+            "artifact_b": {
+              "objective_quality": 3,
+              "outcome_krs": 3,
+              "kr_measurability": 2,
+              "guardrails": 2,
+              "no_fabrication": 3,
+              "integrity_audit": 1,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Materially weaker on structure. Two objectives where convention expects one - a reviewer would ask to consolidate before shipping. KR 1.3 (interviews plus friction hypotheses) and KR 2.2 (connector adoption percentage) are closer to process outputs and feature-adoption milestones than behavior-change outcomes. KRs consistently lack evidence sources, owners, indicator class labels, and per-KR deadlines. Guardrails section names what NOT to track rather than setting counter-metrics with measurable thresholds; this does not substitute for a guardrail KR. No Quality Audit section at all - the largest single gap. Targets (30%, 20% faster, 25% adoption) carry no assumption labels. Specificity is good: names connectors, exact baseline figures, the vanity-metric history. But structural omissions make this not shippable as-is."
+            },
+            "artifact_c": {
+              "objective_quality": 4,
+              "outcome_krs": 4,
+              "kr_measurability": 4,
+              "guardrails": 4,
+              "no_fabrication": 4,
+              "integrity_audit": 4,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Close second to Artifact A. Specificity is the strongest of the three: names the Growth team's potential acquisition campaign as a denominator risk for KR1 - an insight not present in A or B. Two guardrails with a measurable threshold (20 pp gap between checklist completion and activation rate) are solid, though missing the retention-quality third guardrail A includes. KR2's 25%-reduction target from an unknown baseline is structurally honest and disclosed in the audit, but remains a practical risk. Quality Audit covers 11 dimensions with explicit pass/risk ratings. All baselines labeled. Difference from A: fewer per-KR fields (no confidence score row, no indicator class row at the same detail level), and two guardrails vs. three. Everything required is present and filled; no stub sections."
+            },
+            "which_is_strongest": "A"
+          },
+          {
+            "judge": 2,
+            "skillPos": "b",
+            "freehandPos": "c",
+            "informedPos": "a",
+            "artifact_a": {
+              "objective_quality": 4,
+              "outcome_krs": 4,
+              "kr_measurability": 4,
+              "guardrails": 5,
+              "no_fabrication": 4,
+              "integrity_audit": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Strongest overall. All required sections present and substantively filled. Guardrails directly address the stated historical failure mode (checklist completion as vanity metric). Quality Audit covers 11 dimensions with explicit pass/risk ratings. KR2 is honestly flagged as partly an instrumentation milestone. The only structural weakness is KR3's 8% target arrives without an explicit assumption label (unlike KR2 which is well-disclosed). Specificity is high: all three connectors named, Growth/Data/Support dependencies named, cohort-timing caveat on KR3 noted."
+            },
+            "artifact_b": {
+              "objective_quality": 3,
+              "outcome_krs": 4,
+              "kr_measurability": 4,
+              "guardrails": 5,
+              "no_fabrication": 4,
+              "integrity_audit": 4,
+              "specificity": 5,
+              "completeness": 4,
+              "notes": "Strong effort with notable additions (connector error rate guardrail, separate initiative per connector with external dependency risks). KR3 as explicit evidence-generation is a defensible and honest design. The 15-minute target for KR2 is labeled as an industry-placeholder assumption, which is correct handling. Objective is slightly weaker: 'aha moment' is slogany and '30 days' embeds a measurement window. The 'Mode: One-Shot' preamble is meta-noise that should not appear in a delivered artifact. Quality Audit has 11 dimensions but integrity is rated pass without flagging the 15-minute fabricated number more prominently."
+            },
+            "artifact_c": {
+              "objective_quality": 2,
+              "outcome_krs": 2,
+              "kr_measurability": 2,
+              "guardrails": 2,
+              "no_fabrication": 2,
+              "integrity_audit": 1,
+              "specificity": 3,
+              "completeness": 1,
+              "notes": "Significant structural gaps. Two objectives violates single-objective convention and the second is more metric-adjacent than qualitative. KR 1.3 (10 interviews + 3 hypotheses) is a task output, not an outcome. KR 2.2 (25% connector adoption) is a feature adoption metric closer to an output. No evidence sources stated across any KR. No formal guardrail KRs - 'what is NOT an OKR' does not substitute. Multiple targets (9% conversion, 25% connector adoption, 20% time reduction) arrive without assumption labels or basis. No Quality Audit section at all. Missing: Context, Assumptions, Initiatives as Bets, Guardrails, Alignment Notes, Disclosure, Quality Audit, Open Questions, Suggested Next Step. The 'Q[Current]' title placeholder is a hygiene issue."
+            },
+            "which_is_strongest": "A"
+          },
+          {
+            "judge": 3,
+            "skillPos": "c",
+            "freehandPos": "a",
+            "informedPos": "b",
+            "artifact_a": {
+              "objective_quality": 4,
+              "outcome_krs": 3,
+              "kr_measurability": 3,
+              "guardrails": 2,
+              "no_fabrication": 3,
+              "integrity_audit": 1,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Two objectives (unusual but defensible). KR 1.3 (interviews + hypotheses) is a task/output KR, not an outcome measure. KR 2.2 (connector adoption %) is a leading-indicator output. No evidence sources named on any KR. The 25% connector adoption target has no stated basis and is not labeled assumption. No formal guardrails section - only informal exclusions ('What is NOT an OKR'). No Quality Audit whatsoever. Missing Context block, Initiatives section, Alignment Notes, Open Questions, Disclosure, Suggested Next Step. Strong specificity: names connectors, uses brief numbers, calls out the activation definition problem and vanity-metric history. Concise and opinionated but structurally thin against the skill output format."
+            },
+            "artifact_b": {
+              "objective_quality": 4,
+              "outcome_krs": 4,
+              "kr_measurability": 5,
+              "guardrails": 5,
+              "no_fabrication": 5,
+              "integrity_audit": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Single qualitative objective with no embedded metrics. KR2 is partly an instrumentation milestone but is flagged as such with appropriate confidence/risk labeling. All KRs include metric, baseline (missing ones labeled not-enough-evidence), target, deadline, evidence source, owner, indicator class, and confidence rating - the most complete KR structure of the three. Two targeted guardrails directly address the historical failure modes (vanity checklist metric and support load shift). No fabricated values; every uncertain figure is disclosed as approximate or directional. Quality Audit covers 10 named dimensions with calibrated pass/risk ratings - not all passes. Full format coverage: Context, Objective, KRs, Initiatives, Guardrails, Alignment, Disclosure, Audit, Open Questions, Suggested Next Step. 5 scenario-specific open questions. Cohort observation timing note for KR3 shows strong measurement craft."
+            },
+            "artifact_c": {
+              "objective_quality": 4,
+              "outcome_krs": 4,
+              "kr_measurability": 5,
+              "guardrails": 5,
+              "no_fabrication": 5,
+              "integrity_audit": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Objective is qualitative and directional; the 'within their first two weeks' phrase is borderline metric-adjacent but does not embed a hard number. KR3 is an evidence_generation KR (instrumentation baseline) - correctly classified and not treated as an outcome bet, which is the right call for an uninstrumented metric. All KRs fully specified with metric, baseline, target, deadline, evidence source, owner, indicator class, and confidence. Three guardrails vs B's two: adds a 30-day retention floor (addresses gaming the activation definition by lowering the bar) and a connector error rate ceiling (scenario-specific to the three new connectors shipping this cycle) - both are novel and well-reasoned. All uncertain values explicitly labeled. 11-dimension Quality Audit with calibrated pass/risk ratings. Four Initiatives including instrumentation as its own distinct bet (good craft). Disclosure section is the most detailed of the three, explicitly addressing the pre-committed roadmap dynamic and the checklist-completion vanity metric history. Six open questions. Slightly edges B on guardrail depth and Initiatives completeness."
+            },
+            "which_is_strongest": "C"
+          }
+        ]
+      },
+      {
+        "skill": "develop-adr",
+        "status": "ok",
+        "verdict": "pass-structural",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 3,
+        "judges": 3,
+        "skill_overall": 4.5,
+        "freehand_overall": 3.2083333333333335,
+        "informed_overall": 4.541666666666667,
+        "gap_vs_freehand": 1.2916666666666665,
+        "gap_vs_informed": -0.04166666666666696,
+        "agreement_stdev": 0.1767766952966369,
+        "blind_preference_skill": "1/3",
+        "skill_per_criterion": {
+          "title_status": 4,
+          "context": 4.666666666666667,
+          "decision": 5,
+          "consequences": 4.333333333333333,
+          "alternatives": 4.333333333333333,
+          "standalone": 4.333333333333333,
+          "specificity": 5,
+          "completeness": 4.333333333333333
+        },
+        "freehand_per_criterion": {
+          "title_status": 2.6666666666666665,
+          "context": 3,
+          "decision": 3,
+          "consequences": 4,
+          "alternatives": 3.3333333333333335,
+          "standalone": 3.6666666666666665,
+          "specificity": 3,
+          "completeness": 3
+        },
+        "informed_per_criterion": {
+          "title_status": 4,
+          "context": 5,
+          "decision": 4.666666666666667,
+          "consequences": 4.333333333333333,
+          "alternatives": 4.666666666666667,
+          "standalone": 4.333333333333333,
+          "specificity": 4.666666666666667,
+          "completeness": 4.666666666666667
+        },
+        "gates": {
+          "freehand": {
+            "value": 1.2916666666666665,
+            "target": 1,
+            "pass": true
+          },
+          "informed": {
+            "value": -0.04166666666666696,
+            "target": 0.5,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.1767766952966369,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillPos": "a",
+            "freehandPos": "b",
+            "informedPos": "c",
+            "artifact_a": {
+              "title_status": 4,
+              "context": 5,
+              "decision": 5,
+              "consequences": 5,
+              "alternatives": 4,
+              "standalone": 4,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "A is the most thorough artifact overall. Context names all 4 downstream consumers and every force from the scenario with quantification. Decision section is exceptionally specific: names LISTEN/NOTIFY, logical replication, sequence field, pruning, idempotency keys, and explicitly scopes what is and is not included. Consequences section is the strongest of the three: honest negative about the throughput ceiling with real numbers (17M events/day estimate), latency range quantified, the cross-team idempotency contract burden named, and notably addresses the Kafka advocate's unresolved concern. Minor deductions: title is descriptive but frontmatter 'draft' + body 'Proposed' is slightly redundant; alternatives lack the control-plane-transit specificity C has; standalone slightly weaker than it could be."
+            },
+            "artifact_b": {
+              "title_status": 2,
+              "context": 3,
+              "decision": 3,
+              "consequences": 4,
+              "alternatives": 4,
+              "standalone": 3,
+              "specificity": 3,
+              "completeness": 3,
+              "notes": "B has structural strengths (Commitments and Revisit Trigger sections add genuine value) but scores lower across most criteria. Title_status is penalized because 'Accepted' is an incorrect status for a new decision being proposed - nothing in the scenario supports it being already accepted. Context is compressed and omits the ops-capacity nuance and the contested-champion dynamic. Decision is thin on specifics: 'in-process or lightweight message bus' is too vague, and idempotency contract is absent. Specificity suffers from the same vagueness. Missing a formal References section and YAML frontmatter. The 'No replay out of the box' consequence is a genuine honest callout the other artifacts handle less directly, which is the main reason consequences scores 4."
+            },
+            "artifact_c": {
+              "title_status": 3,
+              "context": 5,
+              "decision": 5,
+              "consequences": 4,
+              "alternatives": 5,
+              "standalone": 4,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "C is the strongest on alternatives and matches A on context, decision, specificity, and completeness. The alternatives section is the most rigorous of the three: names KRaft/ZooKeeper, flags VP sign-off risk even for self-hosted Kafka costs, and uniquely identifies control-plane data transit as the EU residency concern for managed services. The neutral section directly addresses the Kafka advocate by noting his knowledge is an asset for relay reliability design - a rare and useful team-alignment touch. Decision explicitly states what is not being continued (polling on orders table). Minor deductions: title is generic (same 'Event-Delivery Backbone' noun phrase as B, not specific to the chosen pattern); consequences slightly below A because the throughput ceiling quantification is less precise (1.5M threshold stated but without the events/day breakdown A provides)."
+            },
+            "which_is_strongest": "A"
+          },
+          {
+            "judge": 2,
+            "skillPos": "b",
+            "freehandPos": "c",
+            "informedPos": "a",
+            "artifact_a": {
+              "title_status": 5,
+              "context": 5,
+              "decision": 5,
+              "consequences": 5,
+              "alternatives": 5,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "All template sections present and substantive. Active-voice decision with explicit scope and sunset. Neutral section adds non-obvious value (Kafka advocate's skills remain relevant; explicit 30-day volume trigger). Alternatives section is the most technically detailed of the three - names ZooKeeper/KRaft, MirrorMaker 2, Confluent/MSK/Pub-Sub, and correctly frames managed streaming as the likely successor. The one item a reviewer might nit: 'Proposed' deciders list includes VP of Engineering (budget approval) which is accurate to the scenario but slightly aspirational since VP sign-off is only triggered by five-figure spend."
+            },
+            "artifact_b": {
+              "title_status": 4,
+              "context": 5,
+              "decision": 5,
+              "consequences": 4,
+              "alternatives": 5,
+              "standalone": 5,
+              "specificity": 5,
+              "completeness": 4,
+              "notes": "Context framing ('decision is contested') is the best of the three for orienting a non-participant. Decision section has the strongest scoping of exclusions (relay implementation deferred to spike, idempotency contracts a separate effort, no permanent commitment). 'Not a general-purpose message bus' negative is a genuine insight absent from A and C. Loses a point on consequences because Neutral section is thinner than A - the Kafka advocate's expertise angle is missing. Completeness docked one point: References section includes forward-looking ADRs to be created (good) but the Neutral section is sparse relative to the depth elsewhere. VP of Engineering omitted from deciders despite being budget gate for five-figure options."
+            },
+            "artifact_c": {
+              "title_status": 3,
+              "context": 3,
+              "decision": 3,
+              "consequences": 4,
+              "alternatives": 3,
+              "standalone": 4,
+              "specificity": 3,
+              "completeness": 3,
+              "notes": "Status 'Accepted' is premature for a decision being proposed now; A and B correctly use 'Proposed.' No ADR number assigned. Context is compressed and lacks an explicit forces breakdown - budget tier and ops capacity mentioned in passing rather than named as forces. Decision is thin: 'We will implement Option 3' presupposes the reader has read the Options section, and there are no explicit exclusions. Alternatives are structured as numbered options (including the chosen one), which is an unusual format that dilutes the why-not reasoning. Strengths: 'No replay out of the box' is a genuine insight the others miss; Commitments section with concrete delivery milestones and a numeric Revisit Trigger (800k orders/day, 5s relay lag) add operational value not found in A or B. Completeness docked: missing Neutral consequences subsection and References section (both required by template)."
+            },
+            "which_is_strongest": "A"
+          },
+          {
+            "judge": 3,
+            "skillPos": "c",
+            "freehandPos": "a",
+            "informedPos": "b",
+            "artifact_a": {
+              "title_status": 3,
+              "context": 3,
+              "decision": 3,
+              "consequences": 4,
+              "alternatives": 3,
+              "standalone": 4,
+              "specificity": 3,
+              "completeness": 3,
+              "notes": "Artifact A is well-written and honest about trade-offs, but has several gaps. It labels the decision 'Accepted' for what appears to be a freshly proposed ADR - atypical and arguably premature. The Context section omits naming the Python stack explicitly and does not structure forces as a distinct sub-section, making constraints harder to scan. The Decision paragraph is clear but brief; it delegates specifics to the Options section rather than stating what will be built. The non-standard Commitments and Revisit Trigger sections add value but drift from the standard ADR output format expected by the skill. No References section. Vendor names are absent from the managed-streaming alternative. These are real gaps a reviewer would ask to close, not just nits."
+            },
+            "artifact_b": {
+              "title_status": 4,
+              "context": 5,
+              "decision": 4,
+              "consequences": 4,
+              "alternatives": 4,
+              "standalone": 4,
+              "specificity": 4,
+              "completeness": 4,
+              "notes": "Artifact B is the strongest overall. The Context section is exemplary: it names all downstream consumers, structures forces as a labeled sub-list with explicit values (budget threshold, timeline, delivery semantics, multi-region), and gives a non-participant everything needed to understand why this decision was forced. The Decision section includes explicit 'We will not' scoping and a revisit threshold (1.5M/day sustained 30 days). The neutral consequences category captures real trade-offs that do not fit cleanly into positive or negative. Alternatives name specific vendors (Confluent Cloud, AWS MSK, Google Pub/Sub) and include vendor lock-in and control-plane residency concerns. References section with internal incident and in-progress EU assessment is a differentiating strength. One minor inconsistency: YAML frontmatter says 'status: draft' while the body says 'Proposed'. The decision paragraph could be slightly more implementation-specific (no table name or relay language type)."
+            },
+            "artifact_c": {
+              "title_status": 4,
+              "context": 4,
+              "decision": 5,
+              "consequences": 4,
+              "alternatives": 4,
+              "standalone": 4,
+              "specificity": 5,
+              "completeness": 4,
+              "notes": "Artifact C is the most implementation-specific of the three. The Decision section names the outbox table (`order_events`), specifies the relay as a single Python service, describes the delivery acknowledgment protocol, and defines the per-order ordering mechanism - a senior engineer could begin implementation from this section alone. Specificity is the standout criterion: concrete table names, relay language, delivery semantics, and explicit revisit triggers tied to measurable thresholds. The alternatives section adds revisit conditions per option, which is a useful forward-looking addition. Context forces are well-structured but slightly less thorough than B on the deciders list (VP of Engineering is named in scenario forces but appears only as 'Product stakeholders for fraud service launch' in deciders). The book citation in References (Chris Richardson) adds credibility but the related internal documents are less precisely described than B's. The neutral consequences section appropriately handles the idempotency requirement. Minor: the 'Proposed' status is appropriate, but the Deciders list is less precise than B's."
+            },
+            "which_is_strongest": "B"
+          }
+        ]
+      },
+      {
+        "skill": "deliver-release-notes",
+        "status": "ok",
+        "verdict": "void-inconclusive",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 3,
+        "judges": 3,
+        "skill_overall": 4.166666666666667,
+        "freehand_overall": 3.7083333333333335,
+        "informed_overall": 4.083333333333333,
+        "gap_vs_freehand": 0.4583333333333335,
+        "gap_vs_informed": 0.08333333333333393,
+        "agreement_stdev": 0.15590239111558088,
+        "blind_preference_skill": "2/3",
+        "skill_per_criterion": {
+          "highlights": 4,
+          "benefit_led": 4,
+          "accessible": 4,
+          "concise": 4,
+          "bugfix_problem": 4,
+          "no_leak": 4.666666666666667,
+          "specificity": 4.333333333333333,
+          "completeness": 4.333333333333333
+        },
+        "freehand_per_criterion": {
+          "highlights": 3,
+          "benefit_led": 4,
+          "accessible": 4.333333333333333,
+          "concise": 4,
+          "bugfix_problem": 4,
+          "no_leak": 4,
+          "specificity": 4,
+          "completeness": 2.3333333333333335
+        },
+        "informed_per_criterion": {
+          "highlights": 4,
+          "benefit_led": 3.6666666666666665,
+          "accessible": 4,
+          "concise": 4,
+          "bugfix_problem": 4,
+          "no_leak": 4.666666666666667,
+          "specificity": 4,
+          "completeness": 4.333333333333333
+        },
+        "gates": {
+          "freehand": {
+            "value": 0.4583333333333335,
+            "target": 1,
+            "pass": false
+          },
+          "informed": {
+            "value": 0.08333333333333393,
+            "target": 0.5,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.15590239111558088,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillPos": "a",
+            "freehandPos": "b",
+            "informedPos": "c",
+            "artifact_a": {
+              "highlights": 4,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 5,
+              "specificity": 4,
+              "completeness": 4,
+              "notes": "Strong all-around entry. Highlights section correctly surfaces the savings goals, the breaking change, and speed. No jargon leaks anywhere. Bug fixes name the user-visible problem. Security is handled calmly in Improvements. Minor gap: security buried inside Improvements rather than a dedicated section, and the breaking change highlight could be more visually alarming given the stakes. Known Issues and Coming Soon present."
+            },
+            "artifact_b": {
+              "highlights": 3,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 4,
+              "specificity": 4,
+              "completeness": 3,
+              "notes": "Correct instinct to lead with the breaking change (right prioritization) but there is no formal Highlights section header - it just starts with the action-required block. The flat, unlabeled structure omits several Output Format sections: no Highlights label, no New Features/Improvements grouping, no Coming Soon, no Feedback section. These are real completeness gaps against the skill format. Language is clean and accessible; '1 in 25' instead of '4%' is a nice user-friendly touch."
+            },
+            "artifact_c": {
+              "highlights": 4,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 5,
+              "specificity": 4,
+              "completeness": 4,
+              "notes": "Matches A in most dimensions and edges it on two points: security gets its own standalone section (appropriate given the brief's instruction on calm, accurate communication), and 'pending transaction' is cleaner user language than 'pending debit hold.' Highlights correctly surfaces the savings goals and breaking change. The breaking-change highlight heading 'How You Export Your Data Has Changed' is slightly passive - 'Action Required' framing would be stronger. No jargon leaks anywhere. Coming Soon and Feedback present."
+            },
+            "which_is_strongest": "C"
+          },
+          {
+            "judge": 2,
+            "skillPos": "b",
+            "freehandPos": "c",
+            "informedPos": "a",
+            "artifact_a": {
+              "highlights": 4,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 4,
+              "specificity": 4,
+              "completeness": 4,
+              "notes": "Consistently solid across all criteria and fully template-compliant. The breaking change appears as the second highlight rather than first, which is the one ordering judgment a reviewer might question. Security is handled as a clean standalone section. No jargon leaks. All required sections present and substantive."
+            },
+            "artifact_b": {
+              "highlights": 4,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 4,
+              "specificity": 4,
+              "completeness": 4,
+              "notes": "Edges A on one key judgment: the breaking change leads the Highlights section, which is the correct PM call when users must act before updating. Three highlights cover the right three items. Prose is equally clean, no leaks, all required sections present. 'Classification model' in New Features is mild but immediately contextualized. EU coming-soon call-out is a nice touch."
+            },
+            "artifact_c": {
+              "highlights": 3,
+              "benefit_led": 4,
+              "accessible": 5,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 4,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "The most readable prose of the three and the only artifact to earn a 5 on accessibility. The security paragraph is especially well-calibrated: calm, accurate, no alarm. However, the artifact abandons the required template structure entirely: no Highlights section, no New Features heading, no Improvements heading, no Feedback section. The skill explicitly requires all of these. The creative flat-section approach costs it significantly on completeness despite strong writing quality."
+            },
+            "which_is_strongest": "B"
+          },
+          {
+            "judge": 3,
+            "skillPos": "c",
+            "freehandPos": "a",
+            "informedPos": "b",
+            "artifact_a": {
+              "highlights": 3,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 4,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Breaking change is correctly surfaced first and security is handled calmly, but the artifact uses a freeform structure that omits the required template sections (no Highlights section, no New Features / Improvements distinction, no standalone Known Issues or Feedback sections). The inline known-issue callout inside the Smart Categories body is easy to miss. Loses significantly on completeness versus the template requirements."
+            },
+            "artifact_b": {
+              "highlights": 4,
+              "benefit_led": 3,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 5,
+              "specificity": 4,
+              "completeness": 5,
+              "notes": "Template sections are all present and filled. Clean jargon-free output with no leaks. Benefit-led is the weak spot: the breaking-change highlight and the bank-connection bullet both lead with what the team did rather than what the user gains. Speed improvement is relegated to Improvements rather than Highlights, a defensible but debatable call."
+            },
+            "artifact_c": {
+              "highlights": 4,
+              "benefit_led": 4,
+              "accessible": 4,
+              "concise": 4,
+              "bugfix_problem": 4,
+              "no_leak": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Strongest overall. Uses all three highlight slots well, including the breaking change and speed. The speed highlight translates p95 latency into user-meaningful terms ('under a second, down from nearly two') without leaking technical framing - notably rigorous. Benefit-led is consistently good; only the bank-connection improvement starts team-action-first. All required template sections present and substantively filled. Feedback section includes a concrete support email."
+            },
+            "which_is_strongest": "C"
+          }
+        ]
+      },
+      {
+        "skill": "measure-experiment-design",
+        "status": "ok",
+        "verdict": "pass-structural",
+        "absolute_pass": true,
+        "floored_criteria": [],
+        "generations": 3,
+        "judges": 3,
+        "skill_overall": 4.416666666666667,
+        "freehand_overall": 3.2083333333333335,
+        "informed_overall": 4.583333333333333,
+        "gap_vs_freehand": 1.2083333333333335,
+        "gap_vs_informed": -0.16666666666666607,
+        "agreement_stdev": 0.41247895569215276,
+        "blind_preference_skill": "1/3",
+        "skill_per_criterion": {
+          "hypothesis": 4.333333333333333,
+          "primary_metric": 4.333333333333333,
+          "sample_size": 3.6666666666666665,
+          "duration": 4.666666666666667,
+          "success_criteria": 4.666666666666667,
+          "guardrails": 4.333333333333333,
+          "specificity": 4.666666666666667,
+          "completeness": 4.666666666666667
+        },
+        "freehand_per_criterion": {
+          "hypothesis": 2.6666666666666665,
+          "primary_metric": 3.6666666666666665,
+          "sample_size": 3.6666666666666665,
+          "duration": 3.3333333333333335,
+          "success_criteria": 3.3333333333333335,
+          "guardrails": 3.3333333333333335,
+          "specificity": 3.6666666666666665,
+          "completeness": 2
+        },
+        "informed_per_criterion": {
+          "hypothesis": 4.333333333333333,
+          "primary_metric": 4.333333333333333,
+          "sample_size": 5,
+          "duration": 4,
+          "success_criteria": 4.666666666666667,
+          "guardrails": 5,
+          "specificity": 4.666666666666667,
+          "completeness": 4.666666666666667
+        },
+        "gates": {
+          "freehand": {
+            "value": 1.2083333333333335,
+            "target": 1,
+            "pass": true
+          },
+          "informed": {
+            "value": -0.16666666666666607,
+            "target": 0.5,
+            "pass": false
+          },
+          "agreement": {
+            "value": 0.41247895569215276,
+            "target": 0.7,
+            "pass": true
+          }
+        },
+        "raw_judges": [
+          {
+            "judge": 1,
+            "skillPos": "a",
+            "freehandPos": "b",
+            "informedPos": "c",
+            "artifact_a": {
+              "hypothesis": 5,
+              "primary_metric": 5,
+              "sample_size": 4,
+              "duration": 5,
+              "success_criteria": 5,
+              "guardrails": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact A is thorough and fills every required template section with scenario-specific numbers. Its sample-size derivation is shown step by step but uses a pooled-SE one-tailed z-test formulation rather than the standard two-proportion two-tailed formula, and it sizes only to the conservative 0.2 pp MDE without first showing what the 0.4 pp sizing looks like - the reader must infer the aspirational case from the conflict discussion. Duration handling is the strongest of the three: it names three explicit options and pre-registers Option B with a clear acknowledgment of the power gap, and it correctly identifies the enrollment-close vs. attribution-tail split (day 42 enrollment, day 72 primary read). Success criteria are pre-registered and locked with explicit language against CTA-click misuse. Guardrails are concrete with thresholds, daily/weekly monitoring cadence, alert thresholds, rollback authority, and a one-business-day SLA."
+            },
+            "artifact_b": {
+              "hypothesis": 2,
+              "primary_metric": 3,
+              "sample_size": 3,
+              "duration": 3,
+              "success_criteria": 3,
+              "guardrails": 3,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "Artifact B is the most incomplete of the three against the skill's required output format. It omits: the Overview metadata table, Background, Variants section (control and treatment descriptions), Audience Targeting, and Implementation Notes. Roughly half the template is absent, leaving it closer to a memo than a complete experiment design document. The hypothesis collapses the structured believe/for/will/as-measured-by form into a single sentence and bakes the target rate (2.4%) into the hypothesis rather than the success criteria, conflating the two. On sample size, it sizes to the aspirational 0.4 pp MDE without deriving what the conservative 0.2 pp would require - the scenario explicitly identifies 0.2 pp as the minimum commercial threshold. Duration is directionally correct but imprecise ('7.5 to 8 weeks') without committing to a decision. Guardrails require '2 weeks of data' before triggering rollback review, which could allow harm to accumulate. The secondary metrics section is thin - essentially one diagnostic (CTA CTR) with the rest classified as guardrails, leaving the 2-3 labeled secondaries criterion underserved."
+            },
+            "artifact_c": {
+              "hypothesis": 5,
+              "primary_metric": 5,
+              "sample_size": 5,
+              "duration": 4,
+              "success_criteria": 5,
+              "guardrails": 5,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "Artifact C is the strongest across criteria. It uniquely shows both the conservative 0.2 pp sizing (yielding ~80,600 per variant and 13-14 weeks - correctly derived using the two-proportion two-tailed formula) and the aspirational 0.4 pp sizing (~21,100 per variant), explicitly acknowledging that choosing the 0.4 pp design means the experiment has no power to detect the 0.2 pp commercial threshold, which would be inconclusive not a loss. This is the only artifact that surfaces that critical distinction for the decision team. Success criteria include a subtle but important pre-registered rule: a result that is statistically significant at +0.2 pp is treated as inconclusive relative to the pre-registered MDE, closing a goalpost-moving loophole. Guardrails include early-warning alert thresholds at 50% of the hard limit (not just at the hard limit), a named rollback authority (PM owner), and a 2-hour execution SLA. Implementation notes name the feature flag, enumerate specific instrumentation events, and require a 90-day pre-experiment baseline pull for guardrail metrics. Duration loses one point versus A: the recommended 8-week duration exceeds Finance's deadline without committing to a specific resolution path before launch the way A does."
+            },
+            "which_is_strongest": "C"
+          },
+          {
+            "judge": 2,
+            "skillPos": "b",
+            "freehandPos": "c",
+            "informedPos": "a",
+            "artifact_a": {
+              "hypothesis": 4,
+              "primary_metric": 5,
+              "sample_size": 5,
+              "duration": 4,
+              "success_criteria": 5,
+              "guardrails": 5,
+              "specificity": 5,
+              "completeness": 4,
+              "notes": "Artifact A is the strongest overall. It derives the sample size twice - once for the 0.2 pp risk boundary (correctly getting ~80,600 per variant) and again for the 0.4 pp target (correctly getting ~21,100), explicitly acknowledging the power trade-off. Guardrails are the most rigorous: four named metrics with specific thresholds, daily plus weekly monitoring cadences, pre-alert thresholds before hard thresholds, and a 2-hour rollback SLA with named authority. Success criteria pre-register that a statistically significant result below the 0.4 pp MDE is still inconclusive - directly closing the scenario's movable-goalposts trap. CTR diagnostic-only rule is pre-registered and explained. Minor gaps: hypothesis 'for' clause is slightly under-specified; duration conflict with the Finance deadline could have a cleaner decision tree (B offers three labeled options vs. A's two)."
+            },
+            "artifact_b": {
+              "hypothesis": 4,
+              "primary_metric": 4,
+              "sample_size": 3,
+              "duration": 4,
+              "success_criteria": 4,
+              "guardrails": 4,
+              "specificity": 4,
+              "completeness": 4,
+              "notes": "Artifact B has the strongest duration resolution of the three - it derives the enrollment gap precisely and offers three labeled options (A/B/C) with a clear recommendation and the pre-registered adjusted MDE (0.28 pp for Option B). The peeking-bias guardrail (do not review primary metric until experiment ends) is a notable strength not present in A or C. However, the sample size section uses a one-tailed test (z_alpha = 1.645) without strong justification - the scenario does not specify directionality and two-tailed is the safer default for a paywall reverting a free feature; the result (~63,600 per variant) is lower than the correct two-tailed answer (~80,600), which overstates achievable precision. The app store guardrail is qualitative only (no specific star-rating threshold). Success criteria reference the one-tailed framing inconsistently in the Loss condition."
+            },
+            "artifact_c": {
+              "hypothesis": 2,
+              "primary_metric": 3,
+              "sample_size": 4,
+              "duration": 3,
+              "success_criteria": 3,
+              "guardrails": 3,
+              "specificity": 3,
+              "completeness": 2,
+              "notes": "Artifact C is the weakest. The hypothesis is a plain prediction statement, not the required believe/for/will/as-measured-by form - it lacks the 'for' (target user segment) and 'as-measured-by' (metric definition) clauses, and incorrectly bundles guardrail conditions into the hypothesis. Sample size math is clean and correct for the 0.4 pp MDE case but does not address the 0.2 pp risk boundary the brief explicitly names. Duration options include recommending 70% power, which is non-standard advice. Success criteria have an internal inconsistency: the Loss threshold references 2.2% (implying 0.2 pp sensitivity) but the design is powered only for 0.4 pp. Guardrail monitoring cadence is weekly only with no early daily checks, and rollback requires '2 weeks of data' before acting - a potentially harmful delay. Missing required sections: Variants (no control/treatment descriptions), Audience Targeting, Implementation Notes, Background context."
+            },
+            "which_is_strongest": "A"
+          },
+          {
+            "judge": 3,
+            "skillPos": "c",
+            "freehandPos": "a",
+            "informedPos": "b",
+            "artifact_a": {
+              "hypothesis": 4,
+              "primary_metric": 5,
+              "sample_size": 4,
+              "duration": 4,
+              "success_criteria": 4,
+              "guardrails": 4,
+              "specificity": 4,
+              "completeness": 2,
+              "notes": "A is precise and rigorous on every analytical criterion - the sample-size derivation is clean, the primary metric rule is stated as the sole decision lever, and the success criteria tri-partite rule is locked. The click-trap warning is explicit. However A is missing roughly half the template: no Overview table, no Background, no Variants section, no Audience Targeting, no Implementation Notes, no References. That structural gap is a real ship blocker and drops completeness hard. The hypothesis is stated in prose rather than the four-part template format, which is a minor form issue not a substance issue."
+            },
+            "artifact_b": {
+              "hypothesis": 4,
+              "primary_metric": 3,
+              "sample_size": 5,
+              "duration": 4,
+              "success_criteria": 4,
+              "guardrails": 5,
+              "specificity": 4,
+              "completeness": 5,
+              "notes": "B is the most analytically sophisticated artifact. Its sample-size section is outstanding: it works through the 0.2 pp MDE first (correctly reaching ~80,600 per variant), flags that as infeasible, then re-derives at 0.4 pp, and explicitly warns that the 2.2% floor is therefore undetectable with this design. No other artifact catches this trap. Guardrails are the most operationally complete: early-warning thresholds, rollback authority named, 2-hour execution SLA, layered monitoring plan. All template sections are present and filled. The one real gap: the primary metric table says MDE = 0.2 pp but the body works at 0.4 pp - a reviewer would flag this as an inconsistency before shipping, dropping primary_metric to 3."
+            },
+            "artifact_c": {
+              "hypothesis": 4,
+              "primary_metric": 4,
+              "sample_size": 4,
+              "duration": 5,
+              "success_criteria": 5,
+              "guardrails": 4,
+              "specificity": 5,
+              "completeness": 5,
+              "notes": "C is the most operationally complete artifact. Duration stands out: it specifies concrete calendar dates, enforces Monday-to-Sunday enrollment periods, and gives two named options (A: negotiate extension, B: 7-day leading indicator) with clear guidance on which to choose and what must be pre-registered if the secondary path is taken. Success criteria are the most rigorous: the Loss rule explicitly includes a point estimate below 2.2% even if not statistically significant, directly matching the scenario's stated floor - no other artifact handles this edge case. The peek policy is stated explicitly. Specificity is high throughout (feature flag name, event schemas, ramp-up plan). The sample-size derivation is solid but does not work through the 0.2 pp MDE path the way B does, which is a missed opportunity given the scenario's trap. The hypothesis segment definition ('free-tier users who encounter the paywall during their first 30 days') is slightly circular."
+            },
+            "which_is_strongest": "C"
+          }
+        ]
+      }
+    ]
+  },
+  "_note": "Three-arm informed-control run wf_488ca001-61d (2026-06-15), G=3/N=3 Sonnet, re-anchored scale. skill vs informed (template only) vs freehand (scenario only). Artifacts stripped; this holds the scores + rationales + raw_judges. See output-eval-informed-20260615.md for the analysis."
+}

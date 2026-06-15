@@ -54,7 +54,7 @@ mean / discrimination gap / agreement stdev.
 | deliver-acceptance-criteria | specification | bulk-invite | specification | 4.67 / 1.67 / 0.47 | PASS (gates clear, unanimous; record 2026-06-14) |
 | deliver-user-stories | specification | - | specification | - | pending |
 | deliver-launch-checklist | specification | - | specification | - | pending |
-| deliver-release-notes | communication | mobile-v3 | communication | 4.63 / 0.83 / 0.27 | VOID gap<1.0 (instrument finding, batch 2026-06-14) |
+| deliver-release-notes | communication | mobile-v3 / api-v4-breaking | communication | 4.17 / 0.46 / 0.16 (re-look) | VOID (stays): RE-LOOK 2026-06-15 (api-v4-breaking scenario + informed control) freehand gap 0.83 -> 0.46 - a deliberately harder scenario did NOT open the gap; genuine low-marginal-value artifact type (a strong model writes decent release notes freehand). See `output-eval-informed-20260615.md`. |
 | define-problem-statement | framing | checkout-abandonment | framing | 4.75 / 1.75 / 0.10 | PASS (batch 2026-06-14, unanimous) |
 | define-hypothesis | framing | - | - | - | pending |
 | define-jtbd-canvas | framing | - | - | - | pending |
@@ -65,11 +65,11 @@ mean / discrimination gap / agreement stdev.
 | discover-market-sizing | discovery | - | - | - | pending |
 | discover-journey-map | discovery | - | - | - | pending |
 | discover-stakeholder-summary | discovery | - | - | - | pending |
-| develop-adr | technical | search-datastore | technical | 4.83 / 0.92 / 0.24 | VOID gap<1.0 (instrument finding, batch 2026-06-14; skill won 2/3 blind) |
+| develop-adr | technical | search-datastore / event-streaming | technical | 4.50 / 1.29 / 0.18 (re-look) | VOID -> pass-structural: RE-LOOK 2026-06-15 (event-streaming scenario + informed control) reopened the freehand gap 0.92 -> 1.29 (now clearly beats freehand); weak-scenario instrument finding confirmed. Ties the template-only informed control (rigor premium ~0). See `output-eval-informed-20260615.md`. |
 | develop-design-rationale | technical | - | - | - | pending |
 | develop-solution-brief | technical | - | - | - | pending |
 | develop-spike-summary | technical | - | - | - | pending |
-| measure-experiment-design | measurement | onboarding-checklist | measurement | 4.42 / 0.21 / 0.41 | VOID gap<1.0 (instrument finding, batch 2026-06-14; strong control) |
+| measure-experiment-design | measurement | onboarding-checklist / paywall-pricing | measurement | 4.42 / 1.21 / 0.41 (re-look) | VOID -> pass-structural: RE-LOOK 2026-06-15 (paywall-pricing scenario + informed control) reopened the freehand gap 0.21 -> 1.21 (now clearly beats freehand); weak-scenario finding confirmed. BUT the template-only informed control ties/beats it, weaker on `sample_size` math (3.7 vs 5.0). See `output-eval-informed-20260615.md`. |
 | measure-experiment-results | measurement | - | - | - | pending |
 | measure-okr-grader | measurement | activation-q3-close | measurement | 5.0 / 1.46 / 0.0 | PASS (batch 2026-06-14, unanimous) |
 | measure-dashboard-requirements | measurement | - | - | - | pending |
@@ -218,11 +218,17 @@ verdict.
 Follow-up status (2026-06-15):
 - **Per-family human anchor (P1-5): DONE** - maintainer hand-scored all 7; the panel ran ~0.77 hot,
   recorded into each rubric Section 8 + a calibration note on the shared scale (commit 76350a85).
-- **Informed control (codex finding 2): IMPLEMENTED** - `scripts/output-eval-informed.workflow.mjs`
-  (three-arm: skill vs informed [template only] vs freehand) + `unblindAndAggregate3`/`gateVerdict3` in
-  the tested aggregate module + a `pass-structural` verdict tier. The gated re-run is the open step.
-- **3 VOID instruments re-look: scenarios AUTHORED** - stronger second scenarios `develop-adr/event-streaming`,
-  `deliver-release-notes/api-v4-breaking`, `measure-experiment-design/paywall-pricing` (each sharpens the
-  skill's marginal value vs a freehand control). The gated re-run (experiment-design at G>=3) is the open step.
+- **Informed control (codex finding 2): DONE** - implemented (`output-eval-informed.workflow.mjs` +
+  `unblindAndAggregate3`/`gateVerdict3` + the `pass-structural` tier) AND run 2026-06-15
+  (`output-eval-informed-20260615.md`). **HEADLINE FINDING: the skills' measured artifact-quality value is
+  primarily STRUCTURE (the template), not added RIGOR (the prose instructions).** The template-only informed
+  control tied or beat the full skill in all 4 cases (gaps +0.04 / -0.04 / -0.17 / +0.08), even on
+  experiment-design's sample-size math (informed 5.0 vs skill 3.7). Caveats recorded (the template IS the
+  distilled methodology; the rubric rewards template-conformance; a weaker model might lean on instructions).
+- **3 VOID instruments re-look: DONE** - stronger scenarios reopened the freehand gap for `develop-adr`
+  (0.92 -> 1.29) and `measure-experiment-design` (0.21 -> 1.21), confirming those VOIDs were weak-scenario
+  instrument findings; `deliver-release-notes` stays VOID (0.83 -> 0.46) - a genuine low-marginal-value
+  artifact type a strong model writes well freehand. The re-anchored scale also dropped foundation-okr-writer
+  off the 5.0 ceiling (to 4.54, near the human 4.0).
 - **B-7 body-change reminder** half (output-eval analog of the B-5 description-change reminder): still
   PENDING (needs PR-diff context).
