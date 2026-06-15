@@ -171,4 +171,8 @@ return {
   control_per_criterion: controlCrit,
   gates,
   rationales: judged.map(({ judge, v }) => ({ judge, stronger: v.which_is_stronger, why: v.one_line_rationale })),
+  // The verbatim generated artifact TEXT (not just scores), so a human anchor (P1-5) can be staged
+  // from a run: the maintainer must read the exact artifact the panel scored. Run an anchor at
+  // generations:1 so skill_drafts[0] is the single draft every judge (and the maintainer) scores.
+  artifacts: { skill_drafts: skillDrafts, control },
 }

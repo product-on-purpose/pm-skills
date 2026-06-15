@@ -115,6 +115,11 @@ async function evalSkill(cfg) {
     // Raw per-judge rows for independent re-aggregation (codex finding 3): each judge's full A/B
     // per-criterion scores + their blind assignment, so records/*.raw.json is re-derivable end to end.
     raw_judges: judged.map(({ judge, skillIsA, v }) => ({ judge, skillIsA, artifact_a: v.artifact_a, artifact_b: v.artifact_b, which_is_stronger: v.which_is_stronger })),
+    // The verbatim generated artifact TEXT (not just scores), so a human anchor (P1-5) can be staged:
+    // the maintainer needs to read the exact artifact the panel scored, which the score-only raw.json
+    // cannot supply. Run an anchor at generations:1 so skill_drafts[0] is the single draft every judge
+    // (and the maintainer) scores; the freehand control text is included for context.
+    artifacts: { skill_drafts: skillDrafts, control },
   }
 }
 

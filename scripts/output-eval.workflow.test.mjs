@@ -61,3 +61,9 @@ test('judgeModel reaches the judge panel', () => {
 test('the generation pin does not bleed into the judge panel (no GEN_OPTS on a judge)', () => {
   assert.doesNotMatch(SRC, /label: `judge#[^`]*`[^}]*\.\.\.GEN_OPTS/, 'judge wrongly carries GEN_OPTS');
 });
+
+test('the result surfaces the verbatim artifact text (enables the human anchor, P1-5)', () => {
+  // A human anchor needs the exact artifact the panel scored; the score-only return cannot supply it.
+  // The harness must emit both arms' generated text - skill_drafts (the array) and the control.
+  assert.match(SRC, /artifacts:\s*\{\s*skill_drafts:\s*skillDrafts\s*,\s*control\s*\}/, 'result missing artifacts emission');
+});

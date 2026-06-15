@@ -362,6 +362,7 @@ jobs:
           node --test scripts/check-new-skill-collision.test.mjs
           node --test scripts/check-reciprocal-boundary-pointers.test.mjs
           node --test scripts/output-eval.workflow.test.mjs
+          node --test scripts/output-eval-batch.workflow.test.mjs
           node --test scripts/output-eval-aggregate.test.mjs
           node --test scripts/check-output-eval-assets.test.mjs
 
