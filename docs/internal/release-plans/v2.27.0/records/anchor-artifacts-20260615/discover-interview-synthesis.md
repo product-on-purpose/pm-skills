@@ -177,23 +177,23 @@ P5's situation (older workforce, not all with smartphones) represents a real wor
 | ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
 |----|-------|--------------------------|--------|-------|-----|--------------|
 | D-1 | Staff-activation-first onboarding (Rec 1-3) | Proceed - high-confidence "do now" set | DECIDED | Product + Growth | Next sprint | 2026-06-15 |
-| D-2 | Validation cohort (quant funnel + staff interviews) | Pending - stand up before major roadmap bets | OPEN | PM + Research | Before Q+1 roadmap lock | 2026-06-15 |
-| D-3 | Printable / non-app path | Pending - validate segment size first | OPEN | PM | After D-2 segment read | 2026-06-15 |
+| D-2 | Validation cohort (quant funnel + staff interviews) | Pending - stand up before major roadmap bets | GATED | PM + Research | Before Q+1 roadmap lock | 2026-06-15 |
+| D-3 | Printable / non-app path | Pending - validate segment size first | GATED | PM | After D-2 segment read | 2026-06-15 |
 
 ### D-1: Ship the high-confidence onboarding set (Rec 1-3)
 Status: DECIDED
 **Context** - Staff-side activation, bulk import, and delivery status are each High-confidence, multiply-evidenced, and low-regret. Value: directly attacks the first-week drop-off the research was commissioned to explain.
 **Potential solutions** - (a) wait for the validation cohort; (b) ship the three now, validate the rest in parallel. Recommendation: (b) - these are reversible UX changes, not architecture bets.
-**Final decision** - Proceed next sprint. Owner: Product + Growth.
+**Final decision** - Ship the three changes next sprint **as reversible UX experiments** - each behind a flag or otherwise easily revertible, instrumented against its success metric, with a pre-agreed rollback if it regresses activation or raises support load. This keeps an n=5-driven decision low-risk: we act on the strong signal now but can undo cheaply. Owner: Product + Growth.
 
 ### D-2: Stand up the validation cohort
-Status: OPEN
+Status: GATED follow-up (owned; gate below)
 **Context** - n=5 is theme-surfacing, not prevalence-confirming; major roadmap bets need quant + staff-side evidence. Value: prevents over-fitting the roadmap to five interviews.
 **Potential solutions** - (a) act on n=5 alone; (b) run a funnel-quant + staff-side interview pass before locking the next roadmap. Recommendation: (b).
 **Final decision** - Pending. Owner: PM + Research; before the next roadmap lock.
 
 ### D-3: Printable / non-app delivery path
-Status: OPEN
+Status: GATED follow-up (owned; gate below)
 **Context** - P5's non-smartphone workforce is real but its breadth is unknown from one interview. Value: serve a structurally-excluded segment without over-investing.
 **Potential solutions** - (a) build the full print path now; (b) prototype a lightweight export, size the segment via D-2, then decide. Recommendation: (b).
 **Final decision** - Pending on the D-2 segment read. Owner: PM.

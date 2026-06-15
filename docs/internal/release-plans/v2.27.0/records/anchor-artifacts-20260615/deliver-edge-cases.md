@@ -222,45 +222,47 @@ Freelancers build their profile on a consumer mobile and web marketplace by uplo
 
 ## Decisions, Owners & Open Items
 
-> Operating layer (added 2026-06-15, maintainer review). The catalog above defers several product-policy
-> choices in its Notes; left open, they become ambiguity that engineering and QA resolve ad hoc mid-build.
-> Each is surfaced here with a recommendation, an owner, and a "decide before eng/test execution" due so
-> the spec is execution-ready. Owners/dates are illustrative for this scenario.
+> Operating layer (added 2026-06-15, maintainer review; finality pass). The catalog above defers several
+> product-policy choices in its Notes; left open, they become ambiguity engineering and QA resolve ad hoc
+> mid-build. Each is now a **decided default**: the recommended behavior is the v1 decision and ships unless
+> the named owner explicitly overrides it by the gate date. That removes the ambiguity (there is always a
+> defined behavior to build and test to) while still inviting a deliberate override. Owners/dates are
+> illustrative for this scenario; the decision content is real.
 
-| ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
-|----|-------|--------------------------|--------|-------|-----|--------------|
-| D-1 | Partial-batch behavior (over-limit selection) | Pending - rec: accept first-fit, inform slots left | OPEN | PM + eng | Before test execution | 2026-06-15 |
-| D-2 | Duplicate-filename / de-dupe policy | Pending - rec: UUID-key, allow duplicates | OPEN | PM + eng | Before test execution | 2026-06-15 |
-| D-3 | Image-dimension policy (floor + pixel cap) | Pending - rec: add a max pixel-count cap | OPEN | PM + UX + eng | Before test execution | 2026-06-15 |
-| D-4 | Degraded malware-scan policy | Pending - rec: fail-closed (block new uploads) | OPEN | PM + security/eng | Before launch (gating) | 2026-06-15 |
-| D-5 | HEIC handling | Pending - rec: reject with message for v1 | OPEN | PM | Before test execution | 2026-06-15 |
+| ID | Title | Final decision (default ships unless overridden) | Status | Owner | Override-by gate | Last updated |
+|----|-------|--------------------------------------------------|--------|-------|------------------|--------------|
+| D-1 | Partial-batch behavior (over-limit selection) | Accept first-fit, tell user slots remaining | DECIDED (default) | PM + eng | Sprint planning, before test | 2026-06-15 |
+| D-2 | Duplicate-filename / de-dupe policy | UUID-key, allow duplicates (no de-dupe in v1) | DECIDED (default) | PM + eng | Sprint planning, before test | 2026-06-15 |
+| D-3 | Image-dimension policy (floor + pixel cap) | Add a max pixel-count cap + a modest min floor | DECIDED (default) | PM + UX + eng | Sprint planning, before test | 2026-06-15 |
+| D-4 | Degraded malware-scan policy | Fail-closed: block new uploads while the scanner is down | DECIDED (default) | PM + security/eng | Before launch (security-gating) | 2026-06-15 |
+| D-5 | HEIC handling | Reject with a clear "use JPG/PNG" message in v1; auto-convert as a fast-follow | DECIDED (default) | PM | Sprint planning, before test | 2026-06-15 |
 
 ### D-1: Partial-batch behavior when a selection exceeds the remaining slots
-Status: OPEN
+Status: DECIDED (default; owner may override by the gate)
 **Context** - A user with 4 files who selects 2 (total 6) hits the 5-file cap. The catalog flags "define which files are accepted if partial." Value: deterministic behavior testers and engineers can build to.
 **Potential solutions** - (a) reject the whole batch; (b) accept the first file(s) that fit and tell the user how many slots remain; (c) let the user choose which to keep. Recommendation: (b) - least friction, no data loss, clear messaging.
-**Final decision** - Pending. Owner: PM + eng; decide before test execution.
+**Final decision** - DECIDED (default): accept the first file(s) that fit and tell the user how many slots remain. This ships unless PM + eng override it at sprint planning (before test). Build and test to this behavior now.
 
 ### D-2: Duplicate-filename / de-dupe policy
-Status: OPEN
+Status: DECIDED (default; owner may override by the gate)
 **Context** - Two devices uploading the same filename, or the same file twice; the catalog defers the de-dupe policy. Value: predictable storage behavior + no surprise rejections.
 **Potential solutions** - (a) UUID-key every object, allow duplicates (a portfolio may legitimately include similar files); (b) content-hash de-dupe and reject/merge exact duplicates. Recommendation: (a) for v1 - simpler and avoids false "duplicate" rejections; revisit (b) only if storage cost warrants.
-**Final decision** - Pending. Owner: PM + eng; decide before test execution.
+**Final decision** - DECIDED (default): UUID-key every object and allow duplicates (no de-dupe in v1). Ships unless PM + eng override at sprint planning (before test). Content-hash de-dupe is revisited only if storage cost warrants.
 
 ### D-3: Image-dimension policy (minimum floor + maximum pixel cap)
-Status: OPEN
+Status: DECIDED (default; owner may override by the gate)
 **Context** - A 1x1 px photo is accepted; a 20000x20000 px image under the byte limit can still exhaust server memory at thumbnail time. The catalog flags both for decision. Value: display quality + a real server-stability guard.
 **Potential solutions** - (a) byte-limit only (status quo); (b) add a maximum pixel-count cap (stability) and a modest minimum dimension floor (display quality). Recommendation: (b) - the pixel cap is a stability requirement, not a nicety.
-**Final decision** - Pending. Owner: PM + UX + eng; decide before test execution (the pixel cap blocks the P2 memory-safety test).
+**Final decision** - DECIDED (default): add a maximum pixel-count cap (set the concrete cap with eng at sprint planning, proposed 25 MP) and a modest minimum dimension floor (proposed 100x100 px). Ships unless PM + UX + eng override before test. The pixel cap is required for the P2 memory-safety test, so it is not optional.
 
 ### D-4: Degraded malware-scan policy (scan service unavailable)
-Status: OPEN
+Status: DECIDED (default; owner may override by the gate)
 **Context** - When the scan service is down or times out, the catalog asks whether to block all new uploads or hold files unverified. Value: a security posture that never exposes unscanned files. This gates launch, not just test.
 **Potential solutions** - (a) fail-closed: block new uploads while the scanner is down, with monitoring + a user status message; (b) accept and hold in a provably no-public-access unverified state for a deferred scan. Recommendation: (a) - simplest safe default; pursue (b) only if availability requirements force it and the inaccessibility is proven.
-**Final decision** - Pending. Owner: PM + security/eng; decide before launch (security-gating).
+**Final decision** - DECIDED (default): fail-closed - block new uploads while the scanner is down, with monitoring and a user-facing status message. This is the launch default and ships unless PM + security/eng override before launch. The accept-and-hold alternative is pursued only if availability requirements force it AND the no-public-access state is proven.
 
 ### D-5: HEIC handling
-Status: OPEN
+Status: DECIDED (default; owner may override by the gate)
 **Context** - HEIC is common on iOS; the catalog suggests auto-conversion or explicit rejection. Value: avoids a confusing silent failure for a large share of mobile users.
 **Potential solutions** - (a) reject with a clear "please upload JPG or PNG" message for v1; (b) auto-convert HEIC to JPG server-side. Recommendation: (a) for v1 (cheap, clear), schedule (b) as a fast-follow given HEIC prevalence.
-**Final decision** - Pending. Owner: PM; decide before test execution.
+**Final decision** - DECIDED (default): reject HEIC with a clear "please upload a JPG or PNG" message in v1, and schedule server-side auto-conversion as a fast-follow given HEIC prevalence on iOS. Ships unless PM overrides before test.

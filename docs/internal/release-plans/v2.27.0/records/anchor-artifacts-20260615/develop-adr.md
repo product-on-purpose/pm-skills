@@ -86,7 +86,7 @@ A managed service would reduce operational burden relative to self-hosting, but 
 | ID | Title | Final decision (summary) | Status | Owner | Review / due | Last updated |
 |----|-------|--------------------------|--------|-------|--------------|--------------|
 | D-1 | v1 search datastore | Postgres FTS (tsvector + GIN), no separate cluster | DECIDED | Platform lead | v1 + 1 quarter | 2026-06-15 |
-| D-2 | When to migrate to a dedicated engine | Pending - revisit when a guardrail trips | OPEN | Platform lead | At first trigger | 2026-06-15 |
+| D-2 | When to migrate to a dedicated engine | Pending - revisit when a guardrail trips | DECIDED (default) | Platform lead | At first trigger | 2026-06-15 |
 
 ### D-1: v1 search datastore
 Status: DECIDED
@@ -98,13 +98,13 @@ Status: DECIDED
 **Final decision** - Use Postgres FTS for v1. Owner: Platform lead. Review at v1 + 1 quarter.
 
 ### D-2: When to migrate to a dedicated search engine
-Status: OPEN
+Status: DECIDED (default thresholds; owner may revise before v1)
 
 **Context** - Postgres FTS has known ceilings (simpler ranking, no native fuzzy match, slower faceting, primary read-pressure at scale). Without explicit revisit triggers, "v1 for now" silently hardens into permanent debt. The desired outcome: a pre-agreed, measurable signal that flips us to evaluating a dedicated engine before users feel the limits.
 
 **Potential solutions** - (a) revisit on a fixed calendar cadence (simple, but ignores actual load); (b) revisit on measurable thresholds (recommended - tied to real signals). Recommendation: (b).
 
-**Final decision** - Pending. Revisit when ANY guardrail trips: p95 search latency exceeds the agreed budget at production scale, search read-load exceeds the agreed share of primary DB capacity, or there are 2+ high-priority relevance/fuzzy-match complaints in a quarter. Owner: Platform lead. Re-evaluate at the first trigger (set the concrete thresholds with the data scientist before v1 ships).
+**Final decision** - DECIDED (default thresholds): revisit the search datastore when ANY of these trips - **p95 search latency > 300 ms** at production scale, **sustained search read-load > 25% of primary DB capacity**, or **2+ high-priority relevance/fuzzy-match complaints in a quarter**. These concrete defaults are what we monitor from v1; they stand unless the Platform lead + data scientist revise them before v1 ships. Owner: Platform lead; re-evaluate at the first trigger.
 
 ## References
 

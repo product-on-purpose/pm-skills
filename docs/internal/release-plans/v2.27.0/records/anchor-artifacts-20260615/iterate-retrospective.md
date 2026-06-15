@@ -168,6 +168,10 @@ Set up a basic uptime check on the staging environment with a notification to th
 
 The deeper-cause read also explains the recurrence (two sprints in a row): each prior fix addressed the gap with an informal commitment rather than a system + an accountable owner. The Sprint 43 actions deliberately add the system (published rotation, ticket-template gates, a written intake norm).
 
+### Action follow-through (between retros)
+
+The recurring failure mode is actions reviewed only at the *next* retro - too late to course-correct, which is how the Sprint 41 on-call action slipped into the Sprint 42 incident. Closing that loop without waiting for the next retro: the PM posts a one-line status for each open action in the team channel at **sprint mid-point (Wednesday of week 2)**; any action still `Not Started` whose due date falls inside the sprint is re-owned or escalated on the spot. This is a lightweight async check, not a meeting, and it makes carry-over visible while there is still time to act. Owner: PM (the facilitator), every sprint.
+
 ## Action Items
 
 | Priority | Action | Owner | Due Date | Status |

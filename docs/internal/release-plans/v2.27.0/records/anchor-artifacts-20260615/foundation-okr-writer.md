@@ -153,45 +153,45 @@ This OKR set frames pre-committed work as outcome bets. The checklist redesign a
 
 | ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
 |----|-------|--------------------------|--------|-------|-----|--------------|
-| D-1 | Activation definition | Pending - rec: dashboard AND teammate within 14d | OPEN | Squad + group PM | This week (gates KR1) | 2026-06-15 |
-| D-2 | KR3 instrumentation ownership + timeline | Pending - confirm weeks 1-2 capacity | OPEN | Squad eng + platform/data | Week 1 | 2026-06-15 |
-| D-3 | KR2 billing-data access | Pending - raise cross-team request if needed | OPEN | Squad PM + Revenue/Growth | Week 1 | 2026-06-15 |
-| D-4 | KR3 target validity (25% placeholder) | Pending - re-set after week-4 baseline | OPEN | Squad | Week 5 | 2026-06-15 |
-| D-5 | Interview recruiting pipeline | Pending - confirm/stand up a channel | OPEN | Squad PM + CS | Week 2 | 2026-06-15 |
-| D-6 | Growth cohort confounding | Pending - agree cohort tagging | OPEN | Squad PM + Growth | Before quarter start | 2026-06-15 |
+| D-1 | Activation definition | Default: dashboard AND teammate within 14d; hard gate end of wk 1 (else KR1 at-risk) | DECIDED (default) | Squad + group PM | This week | 2026-06-15 |
+| D-2 | KR3 instrumentation ownership + timeline | Default: squad eng owns, platform reviews, wks 1-2; hard gate end of wk 1 (else KR3 at-risk) | DECIDED (default) | Squad eng + platform/data | Week 1 | 2026-06-15 |
+| D-3 | KR2 billing-data access | Pending - raise cross-team request if needed | GATED | Squad PM + Revenue/Growth | Week 1 | 2026-06-15 |
+| D-4 | KR3 target validity (25% placeholder) | Pending - re-set after week-4 baseline | GATED | Squad | Week 5 | 2026-06-15 |
+| D-5 | Interview recruiting pipeline | Pending - confirm/stand up a channel | GATED | Squad PM + CS | Week 2 | 2026-06-15 |
+| D-6 | Growth cohort confounding | Pending - agree cohort tagging | GATED | Squad PM + Growth | Before quarter start | 2026-06-15 |
 
 ### D-1: Activation definition
-Status: OPEN
+Status: DECIDED (default; hard-gated)
 **Context** - "Activated" is disputed ("created a dashboard" vs. "invited a teammate"); KR1 cannot be baselined or scored until it is locked. Value: unblocks KR1 scoring and sharpens the KR3 instrumentation spec.
 **Potential solutions** - (a) dashboard only; (b) teammate-invite only; (c) both within 14 days of signup. Recommendation: (c) - it captures the actual "team gets value" moment the strategy targets.
-**Final decision** - Pending. Owner: squad + group PM, this week (before the set is finalized).
+**Final decision** - DECIDED (default): adopt the combined definition (created >=1 dashboard AND invited >=1 teammate, both within 14 days of signup) unless the squad + group PM agree an alternative in this week's alignment session. **Hard gate:** if no definition is locked by end of week 1, KR1 cannot be baselined and is flagged at-risk to leadership rather than left silently undefined. Owner: squad + group PM.
 
 ### D-2: KR3 instrumentation ownership + timeline
-Status: OPEN
+Status: DECIDED (default; hard-gated)
 **Context** - The KR3 baseline needs new `dashboard_created` + signup-linkage events in weeks 1-2; without it KR3's target is undefined. Value: turns KR3 from "placeholder" into a scoreable weekly signal.
 **Potential solutions** - (a) squad engineers own it; (b) platform/data team owns it; (c) shared. Recommendation: (c) with the squad driving and platform reviewing the event schema.
-**Final decision** - Pending. Owner: squad eng + platform/data; confirm capacity in week 1.
+**Final decision** - DECIDED (default): the squad's own engineers own the KR3 instrumentation, with the platform/data team reviewing the event schema, and the work is committed to weeks 1-2. **Hard gate:** if that capacity is not confirmed by end of week 1, KR3's baseline cannot be established and KR3 is flagged at-risk (it does not silently carry an undefined target). Owner: squad eng + platform/data.
 
 ### D-3: KR2 billing-data access
-Status: OPEN
+Status: GATED follow-up (owned; gate + recommended default below)
 **Context** - Free-to-paid conversion needs billing events joined to signup cohorts; access may require a cross-team request. Value: KR2 measurable on the full cohort (the integrity guardrail).
 **Potential solutions** - (a) use existing access if present; (b) raise a data request in week 1. Recommendation: confirm access immediately; if absent, (b).
 **Final decision** - Pending. Owner: squad PM + Revenue/Growth; week 1.
 
 ### D-4: KR3 target validity (the 25% placeholder)
-Status: OPEN
+Status: GATED follow-up (owned; gate + recommended default below)
 **Context** - The 25% time-to-first-dashboard target is a placeholder until the week-4 baseline exists; an arbitrary target is either trivial or impossible. Value: a defensibly aspirational target.
 **Potential solutions** - (a) keep 25% as-is; (b) re-set it against the measured baseline at week 5. Recommendation: (b).
 **Final decision** - Pending. Owner: squad; KR3 target review at week 5.
 
 ### D-5: Interview recruiting pipeline
-Status: OPEN
+Status: GATED follow-up (owned; gate + recommended default below)
 **Context** - Initiative 3 (10 onboarding interviews, feeding KR4) needs willing new users. Value: the validated insights that drive Q4 prioritization.
 **Potential solutions** - (a) reuse a CS-intro / in-app-intercept / panel channel; (b) stand one up this quarter. Recommendation: (a) if one exists, else (b) in week 2.
 **Final decision** - Pending. Owner: squad PM + CS; week 2.
 
 ### D-6: Growth cohort confounding
-Status: OPEN
+Status: GATED follow-up (owned; gate + recommended default below)
 **Context** - If Growth changes acquisition channels/segments mid-cycle, the Q3 cohort diverges from the 22%/6% baselines, confounding KR1/KR2. Value: a clean baseline-to-target comparison.
 **Potential solutions** - (a) ignore (accept confounding); (b) agree cohort tagging with Growth up front. Recommendation: (b).
 **Final decision** - Pending. Owner: squad PM + Growth; before the quarter begins.

@@ -193,10 +193,10 @@ version: 1.0.0
 | ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
 |----|-------|--------------------------|--------|-------|-----|--------------|
 | D-1 | KR2 scope-reframe request | DECIDED - rejected; the miss stands | DECIDED | PM + group PM | Q3 close | 2026-06-15 |
-| D-2 | KR3 final score | Deferred to the Sep cohort close | OPEN | PM + analyst | Oct 15 | 2026-06-15 |
-| D-3 | Support-spike root cause | Pending - ticket taxonomy review | OPEN | PM + Support | Q4 wk 2, before next checklist iteration | 2026-06-15 |
+| D-2 | KR3 final score | Deferred to the Sep cohort close | GATED | PM + analyst | Oct 15 | 2026-06-15 |
+| D-3 | Support-spike root cause | Pending - ticket taxonomy review | GATED | PM + Support | Q4 wk 2, before next checklist iteration | 2026-06-15 |
 | D-4 | Android instrumentation gap | DECIDED - Q4 P0 carry-forward | DECIDED | Eng lead | Q4 wk 1-2 | 2026-06-15 |
-| D-5 | Segment connector as a Q4 committed initiative | Pending - only with a linked outcome hypothesis | OPEN | PM | Q4 drafting | 2026-06-15 |
+| D-5 | Segment connector as a Q4 committed initiative | Pending - only with a linked outcome hypothesis | GATED | PM | Q4 drafting | 2026-06-15 |
 
 ### D-1: KR2 scope-reframe request
 Status: DECIDED
@@ -205,13 +205,13 @@ Status: DECIDED
 **Final decision** - Rejected. KR2 is a miss; document the Android slip and carry a completion commitment into Q4. Owner: PM + group PM.
 
 ### D-2: KR3 final score
-Status: OPEN
+Status: GATED follow-up (owned; gate below)
 **Context** - The September cohort's 30-day window closes Oct 15, after cycle close; the August interim is 0.33. A forced cycle-close score would be misleading. Value: an honest, complete conversion read before any conversion decision.
 **Potential solutions** - (a) score now on August alone; (b) defer to Oct 15. Recommendation: (b).
 **Final decision** - Deferred to Oct 15; append the final score then. Owner: PM + analyst.
 
 ### D-3: Support-spike root cause (failed guardrail)
-Status: OPEN
+Status: GATED follow-up (owned; gate below)
 **Context** - Support tickets ran 19/100 vs a 14 threshold (+36%) during rollout, un-root-caused. Value: knowing whether the checklist design is harmful, a routing artifact, or a transient - it gates the next iteration.
 **Potential solutions** - (a) iterate the checklist now; (b) run a ticket taxonomy review (category, checklist step, time-since-signup) first. Recommendation: (b) - do not iterate on an unresolved UX problem.
 **Final decision** - Pending. Run the taxonomy review before the next checklist iteration. Owner: PM + Support; Q4 week 2.
@@ -223,12 +223,12 @@ Status: DECIDED
 **Final decision** - Close in Q4 weeks 1-2 as a P0 carry-forward; backfill the baseline. Owner: Eng lead.
 
 ### D-5: Segment connector as a Q4 committed initiative
-Status: OPEN
+Status: GATED follow-up (owned; gate below)
 **Context** - Segment slipped in Q3; its effect on activation/conversion was never isolated. Value: avoid committing build effort without a measurable outcome thesis.
 **Potential solutions** - (a) carry Segment as a committed initiative on completion alone; (b) require a linked outcome hypothesis (which cohort, what lift) before scoping. Recommendation: (b).
 **Final decision** - Pending. Do not commit Segment for Q4 without a linked outcome hypothesis. Owner: PM; decide at Q4 drafting.
 
 ## Source of Truth
 
-This artifact is a review document, not the canonical OKR record. The authoritative OKR set, baseline definitions, and tracking history live in the team's OKR tracker (link to be inserted by the team: e.g., the Activation team's Q3 page in your company OKR system). Scores and evidence here reflect the review as of Q3 cycle close; the October 15 KR3 final score must be appended once the September cohort window closes.
+This artifact is a review document, not the canonical OKR record. The authoritative OKR set, baseline definitions, and tracking history live in the Activation team's Q3 OKR tracker (`okr/activation/2026-q3` in the company OKR system); the PM owns linking this review from that page so the two never diverge. Scores and evidence here reflect the review as of Q3 cycle close; the October 15 KR3 final score must be appended once the September cohort window closes (tracked as decision D-2 below).
 ```

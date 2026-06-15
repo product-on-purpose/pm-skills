@@ -76,21 +76,21 @@ Have thoughts on this release? Tap the feedback button in Settings or reach out 
 
 | ID | Title | Final decision (summary) | Status | Owner | Due | Last updated |
 |----|-------|--------------------------|--------|-------|-----|--------------|
-| D-1 | Staged-rollout phrasing for flagged features | Pending - confirm wording for biometric + recurring | OPEN | PM + Comms | Before publish | 2026-06-15 |
-| D-2 | Eligibility + platform/version specifics | Pending - confirm min OS + Shared-Spaces invitee requirement | OPEN | PM + Eng | Before publish | 2026-06-15 |
+| D-1 | Staged-rollout phrasing for flagged features | Pending - confirm wording for biometric + recurring | GATED | PM + Comms | Before publish | 2026-06-15 |
+| D-2 | Eligibility + platform/version specifics | Pending - confirm min OS + Shared-Spaces invitee requirement | GATED | PM + Eng | Before publish | 2026-06-15 |
 | D-3 | Quantify "40% faster app launch" publicly | DECIDED - keep (benefit-led, sourced to PERF-77) | DECIDED | PM | This release | 2026-06-15 |
 
 ### D-1: Staged-rollout phrasing for flagged features
-Status: OPEN
+Status: GATED follow-up (owned; resolves or defaults at the publish gate)
 **Context** - Biometric Unlock (`secure_unlock` flag) and recurring-transaction detection (`recurring_v2`, ~10%) are not yet on for everyone; users who don't see them will be confused if the notes imply otherwise. Value: avoids "the notes lied" support tickets.
 **Potential solutions** - (a) omit flagged features until 100%; (b) include them with an explicit "rolling out gradually / available to some users" caveat. Recommendation: (b) - applied inline above.
 **Final decision** - Pending final wording sign-off. Owner: PM + Comms; before publish.
 
 ### D-2: Eligibility + platform/version specifics
-Status: OPEN
+Status: GATED follow-up (owned; resolves or defaults at the publish gate)
 **Context** - The notes should state who can use each feature and what's required (e.g., min iOS/Android for Face ID/Touch ID; whether Shared-Spaces invitees need an account, not just the app). The changelog only confirms Android 14 for one bug; the rest needs eng confirmation. Value: accuracy; no over-promising.
 **Potential solutions** - (a) ship generic copy; (b) confirm the specifics with eng and state them. Recommendation: (b).
-**Final decision** - Pending eng confirmation of min-OS + invitee requirements. Owner: PM + Eng; before publish.
+**Final decision** - BLOCKS PUBLISH: Eng confirms the min OS for Face ID/Touch ID and whether Shared-Spaces invitees need an account (not just the app) before these notes ship. Default if unconfirmed by the publish gate: omit the unverified specifics rather than guess - drop any version claim and soften "need the MoneyMap app" to a neutral "invite a teammate." Owner: PM + Eng.
 
 ### D-3: Quantify the "40% faster" claim publicly
 Status: DECIDED
