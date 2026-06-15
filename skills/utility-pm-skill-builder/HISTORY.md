@@ -13,6 +13,7 @@ Eval-contract integration (v2.27.0 eval program, plan items C-1 through C-4): th
 - **Packet + staging + promotion:** added `evals/trigger-fixtures.json` (the B-4 routing-fixture contract: >=16 queries, >=8/class, >=2 neighbor near-misses, train/validation split) and `evals/output-scenarios/{id}.md` (the B-7 output-scenario contract: scenario/skill/family frontmatter + a >=100-char brief). Promotion now runs the eval-asset gates + the `check-new-skill-collision.mjs` probe (C-2) and regenerates the catalog surfaces.
 - **Output Contract + Quality Checklist:** the eval assets are now required outputs with a dedicated checklist tier.
 - Refreshed the stale "When NOT to Use" section (the planned validate/iterate utilities now exist as `utility-pm-skill-validate` / `utility-pm-skill-iterate`).
+- Refreshed the "Current Library Reference" table to the live catalog (domain 30 / foundation 9 / utility 12; added the 11 missing rows) per the 2026-06-15 doc-currency audit, so gap analysis sees the full inventory.
 
 No change to the core create-a-skill flow (Steps 1-4, 5-7); the eval contract is additive.
 

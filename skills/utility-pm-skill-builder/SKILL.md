@@ -261,17 +261,20 @@ Provide post-promotion guidance:
 Use this table for gap analysis - it reflects the current skill inventory.
 Also scan the `skills/` directory for the latest authoritative count.
 
-### Domain Skills (26)
+### Domain Skills (30)
 
 | Phase | Skill | Category | Description |
 |-------|-------|----------|-------------|
 | discover | competitive-analysis | research | Structured competitive landscape analysis |
 | discover | interview-synthesis | research | User research interview synthesis |
 | discover | stakeholder-summary | research | Stakeholder needs and influence mapping |
+| discover | market-sizing | research | TAM/SAM/SOM market sizing across frameworks |
+| discover | journey-map | research | Customer journey map with emotional curve and opportunities |
 | define | hypothesis | ideation | Testable hypothesis with success metrics |
 | define | jtbd-canvas | problem-framing | Jobs to Be Done canvas |
 | define | opportunity-tree | problem-framing | Opportunity solution tree |
 | define | problem-statement | problem-framing | Clear problem statement with success criteria |
+| define | prioritization-framework | problem-framing | Run RICE/ICE/MoSCoW/Kano prioritization across frameworks |
 | develop | adr | specification | Architecture Decision Record |
 | develop | design-rationale | specification | Design decision reasoning |
 | develop | solution-brief | ideation | One-page solution overview |
@@ -287,12 +290,13 @@ Also scan the `skills/` directory for the latest authoritative count.
 | measure | experiment-results | reflection | Experiment results and learnings |
 | measure | instrumentation-spec | validation | Event tracking specification |
 | measure | okr-grader | reflection | OKR cycle-close scoring at the KR level |
+| measure | survey-analysis | validation | Survey response analysis and synthesis |
 | iterate | lessons-log | reflection | Structured lessons learned |
 | iterate | pivot-decision | reflection | Pivot or persevere decision |
 | iterate | refinement-notes | coordination | Backlog refinement outcomes |
 | iterate | retrospective | reflection | Team retrospective |
 
-### Foundation Skills (8)
+### Foundation Skills (9)
 
 | Skill | Category | Description |
 |-------|----------|-------------|
@@ -304,8 +308,9 @@ Also scan the `skills/` directory for the latest authoritative count.
 | okr-writer | coordination | Outcome-based OKR set authoring with coaching |
 | persona | research | Evidence-calibrated product or marketing persona |
 | stakeholder-update | meeting | Async stakeholder communication for non-attendees |
+| prioritized-action-plan | coordination | Ranked action plan with an optional handoff to run the work |
 
-### Utility Skills (6)
+### Utility Skills (12)
 
 | Skill | Category | Description |
 |-------|----------|-------------|
@@ -315,6 +320,12 @@ Also scan the `skills/` directory for the latest authoritative count.
 | pm-skill-validate | coordination | Audit a skill against structural conventions and quality criteria |
 | slideshow-creator | communication | JSON-spec presentation generation across 18 slide types |
 | update-pm-skills | coordination | Check for and apply pm-skills releases locally |
+| pm-changelog-curator | coordination | Curate and format CHANGELOG entries |
+| pm-critic | coordination | Critique a PM artifact against quality standards |
+| pm-skill-auditor | coordination | Repo-wide cross-cutting governance audit (sub-agent dispatch) |
+| pm-release-conductor | coordination | Guided release runbook walk (sub-agent dispatch) |
+| pm-workflow-orchestrator | coordination | Governed multi-skill workflow runner (sub-agent dispatch) |
+| pm-workflow-builder | coordination | Turn a proven chain into a staged draft workflow packet |
 
 ## Output Contract
 

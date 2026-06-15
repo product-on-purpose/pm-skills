@@ -66,7 +66,7 @@ A complete, realistic example of the skill's output. Shows what "good" looks lik
 
 Skills are classified into three types that determine their directory naming and frontmatter:
 
-### Domain Skills (26)
+### Domain Skills (30)
 
 Phase-specific PM activities organized by the Triple Diamond framework.
 
@@ -74,17 +74,17 @@ Phase-specific PM activities organized by the Triple Diamond framework.
 - **Frontmatter**: `phase: deliver` (required), no `classification` field
 - **Phases**: discover, define, develop, deliver, measure, iterate
 
-### Foundation Skills (8)
+### Foundation Skills (9)
 
-Cross-cutting capabilities that apply across multiple phases (persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update).
+Cross-cutting capabilities that apply across multiple phases (persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update, prioritized action plan).
 
 - **Directory**: `foundation-{skill-name}` (e.g., `foundation-persona`)
 - **Frontmatter**: `classification: foundation` (required), no `phase` field
 - **Use when**: the skill applies to multiple phases equally
 
-### Utility Skills (6)
+### Utility Skills (12)
 
-Meta-skills that operate on the repository, workflow, or other skills (skill lifecycle, diagrams, slideshows, library updates).
+Meta-skills that operate on the repository, workflow, or other skills (skill lifecycle, diagrams, slideshows, library updates, changelog curation, critique, release conduction, workflow orchestration and building).
 
 - **Directory**: `utility-{skill-name}` (e.g., `utility-pm-skill-builder`)
 - **Frontmatter**: `classification: utility` (required), no `phase` field
