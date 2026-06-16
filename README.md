@@ -38,18 +38,20 @@
 
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills/stargazers">
-    <img src="https://img.shields.io/github/stars/product-on-purpose/pm-skills?style=flat-square" alt="Stars">
+    <img src="https://badgen.net/github/stars/product-on-purpose/pm-skills" alt="Stars">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/network/members">
-    <img src="https://img.shields.io/github/forks/product-on-purpose/pm-skills?style=flat-square" alt="Forks">
+    <img src="https://badgen.net/github/forks/product-on-purpose/pm-skills" alt="Forks">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/issues">
-    <img src="https://img.shields.io/github/issues/product-on-purpose/pm-skills?style=flat-square" alt="Issues">
+    <img src="https://badgen.net/github/open-issues/product-on-purpose/pm-skills" alt="Open Issues">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/product-on-purpose/pm-skills?style=flat-square" alt="Contributors">
+    <img src="https://badgen.net/github/contributors/product-on-purpose/pm-skills" alt="Contributors">
   </a>
-  <img src="https://img.shields.io/github/last-commit/product-on-purpose/pm-skills?style=flat-square" alt="Last Commit">
+  <a href="https://github.com/product-on-purpose/pm-skills/commits/main">
+    <img src="https://badgen.net/github/last-commit/product-on-purpose/pm-skills" alt="Last Commit">
+  </a>
 </p>
 
 <p align="center">
