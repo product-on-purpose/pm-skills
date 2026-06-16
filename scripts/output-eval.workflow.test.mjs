@@ -17,6 +17,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { gateVerdict } from './output-eval-aggregate.mjs';
 
 const SRC = readFileSync(
   join(dirname(fileURLToPath(import.meta.url)), 'output-eval.workflow.mjs'),
@@ -66,4 +67,37 @@ test('the result surfaces the verbatim artifact text (enables the human anchor, 
   // A human anchor needs the exact artifact the panel scored; the score-only return cannot supply it.
   // The harness must emit both arms' generated text - skill_drafts (the array) and the control.
   assert.match(SRC, /artifacts:\s*\{\s*skill_drafts:\s*skillDrafts\s*,\s*control\s*\}/, 'result missing artifacts emission');
+});
+
+/** Extract the RHS of a single-line `const <name> = <expr>` as a raw expression string. */
+function rhs(name) {
+  const m = SRC.match(new RegExp('const ' + name + ' = ([^\\n]+)'));
+  assert.ok(m, `${name} assignment not found in the harness source`);
+  return m[1].replace(/\s*$/, '');
+}
+
+test('the harness emits the absolute-failure-first verdict and MIRRORS gateVerdict (codex finding 2)', () => {
+  // Finding 2: the single-skill harness previously returned only gates (no verdict), so a sub-bar or
+  // floored skill could read as a pass. It must now mirror gateVerdict like the batch + informed runners.
+  assert.match(SRC, /\n\s*verdict,/, 'result must include a verdict field');
+  assert.match(SRC, /absolute_pass: absolutePass/, 'result must include absolute_pass');
+  const mirror = new Function('skillCrit', 'skillOverall', 'gap', 'agreement', `
+    const gates = { discrimination: { pass: gap >= 1.0 }, agreement: { pass: agreement <= 0.7 } };
+    const floored = ${rhs('floored')};
+    const absolutePass = ${rhs('absolutePass')};
+    const verdict = ${rhs('verdict')};
+    return verdict;
+  `);
+  const cases = [
+    ['fail: sub-bar overall', { a: 4, b: 4 }, 3.0, 2.0, 0.0],
+    ['fail: a criterion floors', { a: 2.0, b: 5 }, 4.0, 2.0, 0.0],
+    ['void: gap sub-threshold', { a: 4, b: 4 }, 4.0, 0.5, 0.1],
+    ['void: agreement too high', { a: 4, b: 4 }, 4.0, 2.0, 0.9],
+    ['pass: clears everything', { a: 4, b: 5 }, 4.5, 2.0, 0.1],
+  ];
+  for (const [label, skillCrit, skillOverall, gap, agreement] of cases) {
+    const mine = mirror(skillCrit, skillOverall, gap, agreement);
+    const canonical = gateVerdict({ skill_per_criterion: skillCrit, skill_overall: skillOverall, discrimination_gap: gap, agreement_stdev: agreement }).verdict;
+    assert.equal(mine, canonical, `mirror disagrees with gateVerdict on "${label}": ${mine} vs ${canonical}`);
+  }
 });

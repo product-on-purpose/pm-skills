@@ -156,10 +156,20 @@ const gates = {
   agreement: { value: agreement, target: 0.7, pass: agreement <= 0.7 },
 }
 
-log(`${SKILL}: skill ${skillOverall.toFixed(2)} vs control ${controlOverall.toFixed(2)} | gap ${gap.toFixed(2)} (${gates.discrimination.pass ? 'PASS' : 'FAIL'}) | agreement ${agreement.toFixed(2)} (${gates.agreement.pass ? 'PASS' : 'FAIL'}) | blind preference ${skillWins}/${judged.length} to skill`)
+// Absolute-failure-first verdict - MIRRORS gateVerdict in scripts/output-eval-aggregate.mjs (tested),
+// the same contract the batch + informed runners enforce. Without it, a sub-bar or floored skill could
+// read as a pass when the control is worse and agreement is low (codex adversarial review, finding 2).
+const floored = Object.entries(skillCrit).filter(([, m]) => m < 2.5).map(([k]) => k)
+const absolutePass = skillOverall >= 3.5 && floored.length === 0
+const verdict = !absolutePass ? 'fail' : (!gates.discrimination.pass || !gates.agreement.pass) ? 'void-inconclusive' : 'pass'
+
+log(`${SKILL}: ${verdict.toUpperCase()} | skill ${skillOverall.toFixed(2)} vs control ${controlOverall.toFixed(2)} | gap ${gap.toFixed(2)} (${gates.discrimination.pass ? 'PASS' : 'FAIL'}) | agreement ${agreement.toFixed(2)} (${gates.agreement.pass ? 'PASS' : 'FAIL'}) | blind preference ${skillWins}/${judged.length} to skill`)
 
 return {
   skill: SKILL,
+  verdict,
+  absolute_pass: absolutePass,
+  floored_criteria: floored,
   generations: skillDrafts.length,
   judges: judged.length,
   skill_overall: skillOverall,

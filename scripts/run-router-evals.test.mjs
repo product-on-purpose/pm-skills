@@ -2,7 +2,7 @@
 // No API calls: route() is exercised with a fake fetchImpl, majority() with a fake routeFn.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parsePick, scorePass, aggregateSkill, diffBaseline, majority, route, CALIBRATION } from './run-router-evals.mjs';
+import { parsePick, scorePass, aggregateSkill, diffBaseline, missingBaselineRows, majority, route, CALIBRATION } from './run-router-evals.mjs';
 
 const NAMES = ['deliver-prd', 'deliver-edge-cases', 'deliver-acceptance-criteria', 'develop-spike-summary'];
 
@@ -61,6 +61,27 @@ test('diffBaseline: no regression when equal or improved', () => {
   const base = [{ skill: 'a', valRecall: 75, valPrec: 100 }];
   const now = [{ skill: 'a', valRecall: 100, valPrec: 100 }];
   assert.equal(diffBaseline(now, base).length, 0);
+});
+
+test('missingBaselineRows: a baseline skill absent from a partial run is flagged (fail closed)', () => {
+  // The codex finding: a mid-roster hard stop drops skill b; diffBaseline alone would say "no regression".
+  const base = [{ skill: 'a', valRecall: 100, valPrec: 100 }, { skill: 'b', valRecall: 90, valPrec: 100 }];
+  const partial = [{ skill: 'a', valRecall: 100, valPrec: 100 }]; // b never evaluated
+  assert.deepEqual(missingBaselineRows(partial, base), ['b']);
+  assert.equal(diffBaseline(partial, base).length, 0); // proves diffBaseline alone misses it
+});
+
+test('missingBaselineRows: a deliberate --skills filter narrows the expected set', () => {
+  const base = [{ skill: 'a' }, { skill: 'b' }];
+  const rows = [{ skill: 'a' }];
+  assert.deepEqual(missingBaselineRows(rows, base, ['a']), []); // b is out of scope, not missing
+  assert.deepEqual(missingBaselineRows(rows, base, []), ['b']); // no filter: b is missing
+});
+
+test('missingBaselineRows: full coverage flags nothing', () => {
+  const base = [{ skill: 'a' }, { skill: 'b' }];
+  const rows = [{ skill: 'a' }, { skill: 'b' }];
+  assert.deepEqual(missingBaselineRows(rows, base), []);
 });
 
 test('majority: returns the most frequent pick', async () => {

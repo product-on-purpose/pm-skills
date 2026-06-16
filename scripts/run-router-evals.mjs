@@ -83,6 +83,16 @@ export function diffBaseline(rows, baselineRows) {
   return regressions;
 }
 
+// A baseline skill absent from the current rows was NOT evaluated this run (e.g., a mid-roster hard
+// stop dropped it). diffBaseline only iterates the current rows, so a missing skill is silently skipped
+// and the gate could print "no regressions" on incomplete coverage. This treats a missing in-scope
+// baseline skill as a gate failure (fail closed). A deliberate --skills filter narrows the expected set.
+export function missingBaselineRows(rows, baselineRows, filter = []) {
+  const present = new Set(rows.map((r) => r.skill));
+  const inScope = (s) => !filter.length || filter.includes(s);
+  return baselineRows.map((r) => r.skill).filter((s) => inScope(s) && !present.has(s));
+}
+
 export const buildCatalog = (entries) => entries.map((s) => '- ' + s.n + ': ' + s.d).join('\n');
 export const systemPrompt = (catalogStr) => [
   'You are a precise classifier that routes a user request to the single best-matching option.',
@@ -194,11 +204,21 @@ async function main() {
   if (baselinePath) {
     const bp = isAbsolute(baselinePath) ? baselinePath : join(repo, baselinePath);
     if (!existsSync(bp)) { console.error(`baseline not found: ${bp}`); process.exit(1); }
-    const regressions = diffBaseline(rows, JSON.parse(readFileSync(bp, 'utf8')).rows || []);
-    if (regressions.length) { console.error('DRIFT REGRESSIONS:'); for (const r of regressions) console.error(`  ${r.skill} ${r.kind}: ${r.was}% -> ${r.now}%`); process.exit(4); }
+    const baselineRows = JSON.parse(readFileSync(bp, 'utf8')).rows || [];
+    const regressions = diffBaseline(rows, baselineRows);
+    const missing = missingBaselineRows(rows, baselineRows, filter);
+    if (regressions.length || missing.length) {
+      if (regressions.length) { console.error('DRIFT REGRESSIONS:'); for (const r of regressions) console.error(`  ${r.skill} ${r.kind}: ${r.was}% -> ${r.now}%`); }
+      if (missing.length) console.error(`MISSING BASELINE SKILLS (not evaluated this run; incomplete coverage, fail closed): ${missing.join(', ')}`);
+      process.exit(4);
+    }
     console.log('no regressions vs baseline.');
   }
-  writeFileSync(join(repo, arg('json', 'router-eval-result.json')), JSON.stringify({ model, runs, calibration: calPass, rows, usage: { ...usage, estCostUSD: cost } }, null, 2));
+  writeFileSync(join(repo, arg('json', 'router-eval-result.json')), JSON.stringify({ model, runs, calibration: calPass, rows, usage: { ...usage, estCostUSD: cost }, stopped }, null, 2));
+  // Fail closed on a partial run: a mid-roster hard stop (key/credit/auth) means the full roster was
+  // not evaluated, so the run cannot certify routing health even if the completed rows showed no
+  // regression. This must be the LAST check so the report + json are written for diagnosis first.
+  if (stopped) { console.error('PARTIAL RUN: hard stop mid-roster; the full roster was not evaluated, so this run cannot certify. Failing closed.'); process.exit(2); }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
