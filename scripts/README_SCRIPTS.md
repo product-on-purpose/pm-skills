@@ -34,6 +34,8 @@ The `scripts/` folder contains small utilities to keep the repo consistent, repr
 
 CI-only automation scripts live in `.github/scripts/` (for example, `create-issues.js`).
 
+> **Scope of this catalog.** The entries below cover the shell-pair (`.sh` / `.ps1`) utilities. The repo also has a class of Node (`.mjs`) scripts added with the v2.27.0 eval program: the trigger + output eval harnesses (`run-router-evals`, `output-eval.workflow`, `output-eval-batch.workflow`, `output-eval-informed.workflow`, `output-eval-aggregate`), the eval/structure CI gates (`check-trigger-fixtures`, `check-new-skill-collision`, `check-reciprocal-boundary-pointers`, `check-output-eval-assets`), and the catalog generators (`gen-skill-manifest`, `gen-resource-index`). These are the CI validator source of truth in [`validation-manifest.yaml`](validation-manifest.yaml), are self-documented in each script's header comment, and the eval system they implement is specified under `docs/internal/release-plans/v2.27.0/` with the family rubrics in `docs/internal/eval-rubrics/`.
+
 ## Script Catalog
 
 ### sync-claude.sh / sync-claude.ps1
