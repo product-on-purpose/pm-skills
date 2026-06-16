@@ -135,7 +135,7 @@ npx skills add product-on-purpose/pm-skills
 git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
-[![Download Latest](https://img.shields.io/github/v/release/product-on-purpose/pm-skills?style=for-the-badge&label=Download&color=brightgreen)](https://github.com/product-on-purpose/pm-skills/releases/latest)
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest_Release-brightgreen?style=for-the-badge)](https://github.com/product-on-purpose/pm-skills/releases/latest)
 
 **More resources:**
 
