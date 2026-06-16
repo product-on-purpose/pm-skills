@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.26.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.27.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-66-brightgreen.svg?style=flat-square" alt="Skills">
@@ -164,6 +164,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.27.0 - Provable quality: trigger evals, generated catalog surfaces, eval-ready skill creation</strong></summary>
+
+**What changed.** The provable-quality release - no new skills (catalog stays 66), just the machinery that makes quality verifiable and regression-protected. **Trigger-accuracy evals (M-31):** every measured skill carries labeled `evals/trigger-fixtures.json`; a controlled router eval scores per-skill recall/precision against a committed baseline; new CI gates fail on routing drift or a new-skill collision. **Derived surfaces (M-32):** `skill-manifest.json` and the `AGENTS.md` catalog are generated from frontmatter behind enforcing staleness gates, retiring the hand-sync drift class. **Output-quality evals (M-33):** the harness, six family rubrics, the unit-tested aggregation + verdict module, a three-arm informed control, and the asset-presence gate ship (per-skill results stay internal evidence). The creator/validator family (`utility-pm-skill-builder` / `utility-pm-skill-validate` 1.1.0) now bakes the eval contract into skill creation, and the reciprocal-boundary-pointer gate is enforcing.
+
+**Get started.** [v2.27.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.27.0)
+
+</details>
 
 <details>
 <summary><strong>v2.26.0 - Authoring + quality: /chain ad-hoc runner, workflow builder, 26-skill convergence</strong></summary>
@@ -1075,7 +1084,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.26.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.26.0)           |
+| **Current version** | [v2.27.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.27.0)           |
 | **Skill count**     | 66 skills (30 phase + 9 foundation + 12 utility + 15 tool)                                |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |

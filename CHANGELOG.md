@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.27.0] - 2026-06-15
+
+**The provable-quality release.** After v2.26.0 made every skill state when to use it, v2.27.0 makes those claims verifiable and keeps them from regressing - no new skills, just the quality machinery underneath. Trigger-accuracy evals (M-31): every measured skill carries labeled `evals/trigger-fixtures.json`, a controlled router eval scores per-skill recall/precision against a committed baseline, and new CI gates fail on routing drift or a new-skill collision. Derived surfaces (M-32): `skill-manifest.json` and the `AGENTS.md` catalog are generated from frontmatter behind enforcing staleness gates, retiring the hand-sync drift class. Output-quality evals (M-33): the harness, six family rubrics, the tested aggregation + verdict module, a three-arm informed control, and the asset-presence gate ship (per-skill results stay internal evidence). The creator/validator family now bakes the eval contract into skill creation so coverage never falls behind, and the reciprocal-boundary-pointer gate is enforcing. Additive MINOR; catalog stays 66 skills / 5 sub-agents.
+
 ### Added
 
 - `skill-manifest.json`: a generated, committed, machine-readable catalog of all 66 skills (name, verbatim description, version, group, family, references, sample path, plus aggregate counts) built from skill frontmatter by `scripts/gen-skill-manifest.mjs`. Two new enforcing CI gates keep it and the AGENTS.md skills catalog from going stale (the same generate-plus-check pattern as the resource index). First slice of the derived-surfaces effort (M-32, issue #201).
