@@ -385,16 +385,19 @@ check_subcounts() {
         if (num != to) printf "  %s:%s: found \x27%d tool (classification)\x27 (actual: %d)\n", file, linenum, num, to
         s = substr(s, RSTART + RLENGTH)
       }
-      # Form 2: parenthetical "<Bucket> Skills (N)"
+      # Form 2: parenthetical "<Bucket> Skills (N)". Save the OUTER match span
+      # (mstart/mlen) before the inner number-extraction match, which clobbers the
+      # global RSTART/RLENGTH; advancing by the clobbered values would loop forever.
       s = line
       while (match(s, /(phase|foundation|utility|tool) skills? \([0-9]+\)/)) {
-        seg = substr(s, RSTART, RLENGTH)
+        mstart = RSTART; mlen = RLENGTH
+        seg = substr(s, mstart, mlen)
         b = (seg ~ /phase/) ? "phase" : (seg ~ /foundation/) ? "foundation" : (seg ~ /utility/) ? "utility" : "tool"
         n2 = seg; num = -1
         while (match(n2, /[0-9]+/)) { num = substr(n2, RSTART, RLENGTH) + 0; n2 = substr(n2, RSTART + RLENGTH) }
         e = expected(b)
         if (num != e) printf "  %s:%s: found \x27%s skills (%d)\x27 (actual: %d)\n", file, linenum, b, num, e
-        s = substr(s, RSTART + RLENGTH)
+        s = substr(s, mstart + mlen)
       }
     }' || true
 }
