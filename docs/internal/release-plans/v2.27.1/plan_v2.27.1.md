@@ -1,6 +1,6 @@
 # v2.27.1 Release Plan: Maintenance patch (sub-count drift gate)
 
-**Status:** READY TO TAG (build + hygiene complete; CI verification pending push).
+**Status:** **SHIPPED 2026-06-16** (annotated tag `v2.27.1` at `10685b2d`; GitHub Release Latest with the rich body + ZIP/sha256/manifest assets; tag CI green: Release + Validate Plugin Packaging; Validation green both OS on the tagged SHA).
 **Owner:** Maintainers
 **Type:** **PATCH** (maintenance only: a validator extension + the doc-currency fixes it surfaced; no skill behavior change, no new skill; catalog stays 30 phase + 9 foundation + 12 utility + 15 tool = 66 skills, 5 sub-agents, 11 commands, 12 workflows).
 **Theme:** Close the classification-sub-count drift class. `check-count-consistency` now polices the four frontmatter-derived skill sub-counts so a stale "10 utility skills" or "Phase Skills (30)" fails CI like a stale total - the gap that let the 26/8/6 split drift on a published page until a v2.27.0 hand audit caught it.
@@ -45,14 +45,15 @@ This is a focused maintenance PATCH (the v2.25.1 / v2.25.2 precedent), separate 
 
 ## Gate ledger
 
-- [ ] G0 Pre-tag readiness (counts re-derived 66/5; the new sub-count gate green both shells; generated-surface checks green; cross-cutting check)
+- [x] G0 Pre-tag readiness (full pre-tag bundle ALL CHECKS PASSED; counts re-derived 66/5 + sub 30/9/12/15; generated-surface checks green)
 - [~] G1 Adversarial review - WAIVED for this deterministic patch (D2), recorded
-- [ ] G2 Version bump + CHANGELOG move + all release surfaces
-- [ ] G2.5 Commit release-prep + push + CI green both OS legs
-- [ ] G3 Annotated tag `v2.27.1` on the CI-green SHA + pushed; tag CI green
-- [ ] G4 Post-tag hygiene (GitHub Release Latest with the rich body; this plan to SHIPPED; CONTEXT flip)
+- [x] G2 Version bump + CHANGELOG [2.27.1] + all release surfaces (manifests + README + both CONTEXT + mirror + release notes + index)
+- [x] G2.5 Commit release-prep (`da60f3a1`) + the bash fix (`10685b2d`) + push; Validation green both OS on `10685b2d`
+- [x] G3 Annotated tag `v2.27.1` on `10685b2d` + pushed; tag CI green (Release + Validate Plugin Packaging)
+- [x] G4 GitHub Release Latest (rich body via `gh release edit --notes-file`); this plan to SHIPPED; CONTEXT + index latest-shipped updated
 
 ## Notes
 
 - The new gate immediately earned its keep: run on the tree it surfaced three stale sub-counts, two of which a manual inventory had missed.
-- CI is a superset of the local bundle (the recurring lesson): the bash leg runs on Linux and is the authoritative parity check for the new `check_subcounts` awk.
+- **CI caught a real bash-only defect (the parity payoff).** The first push (`da60f3a1`) hung the ubuntu `check-count-consistency (bash)` step: the parenthetical loop's inner number-extraction `match()` clobbered awk's global `RSTART`/`RLENGTH`, so the outer loop advanced by `-1` and never terminated on any "`<Bucket> Skills (N)`" form. pwsh (independent `.NET Matches`) was unaffected, which is exactly why the local pwsh bundle passed and only the Linux leg revealed it. Fixed in `10685b2d` by saving the outer match span (`mstart`/`mlen`) before the inner match, mirroring `check_count_suffix`; verified via Git Bash (full repo scan clean in ~11s + a parenthetical negative test) before re-push. Lesson reinforced: the local Bash "slowness" earlier in the session was this same infinite loop, not Windows performance.
+- CI is a superset of the local bundle (the recurring lesson): the bash leg on Linux is the authoritative parity check for the new `check_subcounts` awk, and it earned that role here.
