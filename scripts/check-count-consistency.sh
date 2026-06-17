@@ -37,10 +37,28 @@ SKILL_COUNT=$(find "$ROOT/skills" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -
 COMMAND_COUNT=$(find "$ROOT/commands" -name '*.md' -maxdepth 1 | wc -l | tr -d ' ')
 WORKFLOW_COUNT=$(find "$ROOT/_workflows" -name '*.md' -maxdepth 1 ! -name 'README.md' | wc -l | tr -d ' ')
 
+# --- Derive per-classification / per-phase sub-counts from skill frontmatter ---
+# (v2.27.1) Police the four frontmatter-derived buckets (metadata.classification
+# XOR metadata.phase) so a stale "10 utility skills" or "Phase Skills (30)" fails
+# like a stale total. Other subset words (domain, shipped, sample, ...) stay
+# exempt: they have no single frontmatter-derived count.
+PHASE_COUNT=0; FOUNDATION_COUNT=0; UTILITY_COUNT=0; TOOL_COUNT=0
+for d in "$ROOT"/skills/*/; do
+  sf="${d}SKILL.md"
+  [ -f "$sf" ] || continue
+  fm=$(head -n 25 "$sf")
+  if   printf '%s\n' "$fm" | grep -qE '^[[:space:]]*classification:[[:space:]]*foundation([[:space:]]|$)'; then FOUNDATION_COUNT=$((FOUNDATION_COUNT+1))
+  elif printf '%s\n' "$fm" | grep -qE '^[[:space:]]*classification:[[:space:]]*utility([[:space:]]|$)';    then UTILITY_COUNT=$((UTILITY_COUNT+1))
+  elif printf '%s\n' "$fm" | grep -qE '^[[:space:]]*classification:[[:space:]]*tool([[:space:]]|$)';       then TOOL_COUNT=$((TOOL_COUNT+1))
+  elif printf '%s\n' "$fm" | grep -qE '^[[:space:]]*phase:[[:space:]]*[a-z]';                              then PHASE_COUNT=$((PHASE_COUNT+1))
+  fi
+done
+
 echo "Actual counts:"
 echo "  Skills:    $SKILL_COUNT"
 echo "  Commands:  $COMMAND_COUNT"
 echo "  Workflows: $WORKFLOW_COUNT"
+echo "  (sub: phase $PHASE_COUNT / foundation $FOUNDATION_COUNT / utility $UTILITY_COUNT / tool $TOOL_COUNT)"
 echo ""
 
 # --- Use git grep + awk for efficient processing ---
@@ -319,6 +337,68 @@ check_singular_noun() {
     }' || true
 }
 
+# Per-classification / per-phase sub-counts (v2.27.1). check_resource above EXEMPTS
+# the bucket words (phase/foundation/utility/tool) so they don't trip the TOTAL
+# check; this scan instead validates them against the frontmatter-derived bucket
+# counts. Two surface forms: "N <bucket> skills" (number-before, incl. tool-
+# classification/entries) and "<Bucket> Skills (N)" (parenthetical). No MIN_THRESHOLD
+# (foundation = 9 < 10 must still be policed). Honors $EXCLUDES + count-exempt ranges.
+check_subcounts() {
+  git -C "$ROOT" grep -inE '([0-9]+ (phase|foundation|utility)[ -]skill|[0-9]+ tool[ -](classification|skill|entries)|(phase|foundation|utility|tool) skills? \([0-9]+\))' -- '*.md' '*.mdx' '*.json' "${EXCLUDES[@]}" 2>/dev/null | \
+    awk -F: -v ph="$PHASE_COUNT" -v fo="$FOUNDATION_COUNT" -v ut="$UTILITY_COUNT" -v to="$TOOL_COUNT" -v ranges_file="$EXEMPT_RANGES" '
+    BEGIN {
+      while ((getline line < ranges_file) > 0) {
+        nf = split(line, parts, "\t")
+        if (nf < 3) continue
+        f = parts[1]
+        idx = exempt_count[f]++
+        exempt_start[f, idx] = parts[2] + 0
+        exempt_end[f, idx]   = parts[3] + 0
+      }
+      close(ranges_file)
+    }
+    function expected(b) { return (b == "phase") ? ph : (b == "foundation") ? fo : (b == "utility") ? ut : to }
+    {
+      file = $1
+      linenum = $2 + 0
+      content = ""
+      for (i = 3; i <= NF; i++) content = content (i > 3 ? ":" : "") $i
+      if (file in exempt_count) {
+        for (i = 0; i < exempt_count[file]; i++) {
+          if (linenum >= exempt_start[file, i] && linenum <= exempt_end[file, i]) next
+        }
+      }
+      line = tolower(content)
+      # Form 1: number-before "N <bucket> skill[s]"
+      s = line
+      while (match(s, /[0-9]+ (phase|foundation|utility)[ -]skills?/)) {
+        seg = substr(s, RSTART, RLENGTH); num = seg + 0
+        b = (seg ~ /phase/) ? "phase" : (seg ~ /foundation/) ? "foundation" : "utility"
+        e = expected(b)
+        if (num != e) printf "  %s:%s: found \x27%d %s skills\x27 (actual: %d)\n", file, linenum, num, b, e
+        s = substr(s, RSTART + RLENGTH)
+      }
+      # Form 1b: number-before tool ("N tool skills/classification/entries")
+      s = line
+      while (match(s, /[0-9]+ tool[ -](classification|skills?|entries)/)) {
+        seg = substr(s, RSTART, RLENGTH); num = seg + 0
+        if (num != to) printf "  %s:%s: found \x27%d tool (classification)\x27 (actual: %d)\n", file, linenum, num, to
+        s = substr(s, RSTART + RLENGTH)
+      }
+      # Form 2: parenthetical "<Bucket> Skills (N)"
+      s = line
+      while (match(s, /(phase|foundation|utility|tool) skills? \([0-9]+\)/)) {
+        seg = substr(s, RSTART, RLENGTH)
+        b = (seg ~ /phase/) ? "phase" : (seg ~ /foundation/) ? "foundation" : (seg ~ /utility/) ? "utility" : "tool"
+        n2 = seg; num = -1
+        while (match(n2, /[0-9]+/)) { num = substr(n2, RSTART, RLENGTH) + 0; n2 = substr(n2, RSTART + RLENGTH) }
+        e = expected(b)
+        if (num != e) printf "  %s:%s: found \x27%s skills (%d)\x27 (actual: %d)\n", file, linenum, b, num, e
+        s = substr(s, RSTART + RLENGTH)
+      }
+    }' || true
+}
+
 MISMATCHES=""
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}skills' "skills" "$SKILL_COUNT")
 MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}commands' "commands" "$COMMAND_COUNT")
@@ -326,6 +406,7 @@ MISMATCHES+=$(check_resource '[0-9]+ ([a-zA-Z][a-zA-Z-]* ){0,3}workflows' "workf
 MISMATCHES+=$(check_badge "$SKILL_COUNT")
 MISMATCHES+=$(check_count_suffix)
 MISMATCHES+=$(check_singular_noun)
+MISMATCHES+=$(check_subcounts)
 
 if [[ -z "$MISMATCHES" ]]; then
   echo "PASS: No stale counts found in tracked .md or .json files."

@@ -122,7 +122,7 @@ metadata:
 - `name` must exactly match the directory name
 - `description` must be 20-100 words on a single line (no `>-` or `|` folding)
 - `version` must be quoted and appear exactly once at the root level (no `metadata.version`)
-- **First line must be `---`**: enforced by `scripts/lint-skills-frontmatter.sh`. Skills with a leading HTML comment or BOM are silently dropped by the open `skills` CLI (the issue v2.11.1 fixed for the 6 foundation skills). Library samples and TEMPLATE/EXAMPLE files keep the leading attribution comment because they are not loaded as skills; only `SKILL.md` is governed by this rule.
+- **First line must be `---`**: enforced by `scripts/lint-skills-frontmatter.sh`. Skills with a leading HTML comment or BOM are silently dropped by the open `skills` CLI (the issue v2.11.1 fixed for the then-six foundation skills). Library samples and TEMPLATE/EXAMPLE files keep the leading attribution comment because they are not loaded as skills; only `SKILL.md` is governed by this rule.
 
 For the full schema, see [frontmatter-schema.yaml](../reference/frontmatter-schema.yaml).
 

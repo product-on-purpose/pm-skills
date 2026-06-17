@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.27.1] - 2026-06-16
+
+**Maintenance patch: classification sub-count drift gate.** `check-count-consistency` now polices the four per-classification / per-phase skill sub-counts (phase, foundation, utility, tool) against their frontmatter source of truth, closing the gap that let the 26/8/6 classification split drift on a published page while CI stayed green - the gap a v2.27.0 doc-currency audit had to catch by hand. No skill behavior change; catalog stays 66 skills / 5 sub-agents. PATCH.
+
+### Added
+
+- `check-count-consistency` (both shells) now derives per-classification (`metadata.classification`: foundation/utility/tool) and per-phase (`metadata.phase`) skill sub-counts from frontmatter and validates the four buckets on every tracked doc surface, in both number-before ("30 phase skills") and parenthetical ("Foundation Skills (9)") forms. The check is additive - the existing total-count exemption for bucket words is unchanged, so a legitimate "30 phase skills" is still not flagged as a stale total of 66. Historical point-in-time sub-counts are handled with word-form numbers or `count-exempt` ranges (documented in `scripts/check-count-consistency.md`). Closes the carried v2.28.0-stub candidate; surfaced three stale sub-counts on first run, two not found by a manual inventory.
+
+### Fixed
+
+- Stale skill sub-counts surfaced by the new gate: `_workflows/triple-diamond.md` (25 to 30 phase skills), the getting-started quickstart page (65 to 66 skills, 10 to 12 utility skills, 10 to 11 command docs), and a v2.11.1 historical mention on the skill-anatomy page reworded as point-in-time ("the then-six foundation skills", which correctly describes the catalog at v2.11.1). These had drifted because the four buckets were exempt from the count gate.
+
 ## [2.27.0] - 2026-06-15
 
 **The provable-quality release.** After v2.26.0 made every skill state when to use it, v2.27.0 makes those claims verifiable and keeps them from regressing - no new skills, just the quality machinery underneath. Trigger-accuracy evals (M-31): every measured skill carries labeled `evals/trigger-fixtures.json`, a controlled router eval scores per-skill recall/precision against a committed baseline, and new CI gates fail on routing drift or a new-skill collision. Derived surfaces (M-32): `skill-manifest.json` and the `AGENTS.md` catalog are generated from frontmatter behind enforcing staleness gates, retiring the hand-sync drift class. Output-quality evals (M-33): the harness, six family rubrics, the tested aggregation + verdict module, a three-arm informed control, and the asset-presence gate ship (per-skill results stay internal evidence). The creator/validator family now bakes the eval contract into skill creation so coverage never falls behind, and the reciprocal-boundary-pointer gate is enforcing. Additive MINOR; catalog stays 66 skills / 5 sub-agents.

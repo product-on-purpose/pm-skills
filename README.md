@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.27.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.27.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-66-brightgreen.svg?style=flat-square" alt="Skills">
@@ -166,6 +166,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.27.1 - Maintenance: classification sub-count drift gate</strong></summary>
+
+**What changed.** A maintenance patch with no skill behavior change (catalog stays 66). The count-consistency CI gate now polices the four per-classification / per-phase skill sub-counts (phase, foundation, utility, tool) against their frontmatter source of truth, so a stale "10 utility skills" or "Foundation Skills (9)" fails CI like a stale total - closing the gap that let the classification split drift on a published page until a v2.27.0 hand audit caught it. The change is additive (the total-count check is unchanged); historical point-in-time mentions use word-form numbers or `count-exempt` ranges. Three stale sub-counts the new gate surfaced are fixed.
+
+**Get started.** [v2.27.1 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.27.1)
+
+</details>
 
 <details>
 <summary><strong>v2.27.0 - Provable quality: trigger evals, generated catalog surfaces, eval-ready skill creation</strong></summary>
@@ -1086,7 +1095,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.27.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.27.0)           |
+| **Current version** | [v2.27.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.27.1)           |
 | **Skill count**     | 66 skills (30 phase + 9 foundation + 12 utility + 15 tool)                                |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |

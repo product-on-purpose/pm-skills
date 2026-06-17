@@ -27,10 +27,30 @@ $CommandCount = (Get-ChildItem -Path (Join-Path $Root "commands") -Filter "*.md"
 $WorkflowCount = (Get-ChildItem -Path (Join-Path $Root "_workflows") -Filter "*.md" |
     Where-Object { $_.Name -ne "README.md" }).Count
 
+# --- Derive per-classification / per-phase sub-counts from skill frontmatter ---
+#
+# Classification sub-counts ("9 foundation skills", "Utility Skills (12)") were
+# historically hand-maintained and exempted from this check (see the v2.14.0+
+# note in the .md doc). v2.27.1 polices the four frontmatter-derived buckets
+# against their source of truth (metadata.classification XOR metadata.phase), so
+# a stale "10 utility skills" fails like a stale total. Other subset words
+# (domain, shipped, sample, ...) stay exempt because they have no single
+# frontmatter-derived count.
+$SubCounts = @{ phase = 0; foundation = 0; utility = 0; tool = 0 }
+foreach ($dir in Get-ChildItem -Path (Join-Path $Root "skills") -Directory) {
+    $skillMd = Join-Path $dir.FullName "SKILL.md"
+    if (-not (Test-Path $skillMd -PathType Leaf)) { continue }
+    foreach ($l in (Get-Content $skillMd -TotalCount 25)) {
+        if ($l -match '^\s*classification:\s*(foundation|utility|tool)\b') { $SubCounts[$Matches[1]]++; break }
+        if ($l -match '^\s*phase:\s*[a-z]') { $SubCounts['phase']++; break }
+    }
+}
+
 Write-Host "Actual counts:"
 Write-Host "  Skills:    $SkillCount"
 Write-Host "  Commands:  $CommandCount"
 Write-Host "  Workflows: $WorkflowCount"
+Write-Host "  (sub: phase $($SubCounts['phase']) / foundation $($SubCounts['foundation']) / utility $($SubCounts['utility']) / tool $($SubCounts['tool']))"
 Write-Host ""
 
 # --- Scan tracked .md files for hardcoded counts ---
@@ -219,6 +239,36 @@ foreach ($file in $filesToCheck) {
             $sactual = if ($r -eq 'commands') { $CommandCount } else { $SkillCount }
             if ($snum -ne $sactual -and $snum -ge $MinThreshold) {
                 $mismatches += "  ${file}:${lineNum}: found '$($sn.Value)' (actual: $sactual)"
+                $Fail = $true
+            }
+        }
+
+        # Per-classification / per-phase sub-counts (v2.27.1). The total checks
+        # above EXEMPT the bucket words (phase/foundation/utility/tool); these
+        # checks instead validate them against the frontmatter-derived buckets.
+        # Two surface forms: number-before ("25 phase skills", "15 tool-
+        # classification entries") and parenthetical ("Phase Skills (30)"). No
+        # MinThreshold (foundation = 9 < 10 must still be policed).
+        foreach ($cm in [regex]::Matches($line, '(\d+)\s+(phase|foundation|utility)[ -]skills?', 'IgnoreCase')) {
+            $bucket = $cm.Groups[2].Value.ToLower()
+            $cnum = [int]$cm.Groups[1].Value
+            if ($cnum -ne $SubCounts[$bucket]) {
+                $mismatches += "  ${file}:${lineNum}: found '$cnum $bucket skills' (actual: $($SubCounts[$bucket]))"
+                $Fail = $true
+            }
+        }
+        foreach ($cm in [regex]::Matches($line, '(\d+)\s+tool[ -](?:classification|skills?|entries)', 'IgnoreCase')) {
+            $cnum = [int]$cm.Groups[1].Value
+            if ($cnum -ne $SubCounts['tool']) {
+                $mismatches += "  ${file}:${lineNum}: found '$cnum tool (classification)' (actual: $($SubCounts['tool']))"
+                $Fail = $true
+            }
+        }
+        foreach ($cm in [regex]::Matches($line, '(phase|foundation|utility|tool)\s+skills?\s*\((\d+)\)', 'IgnoreCase')) {
+            $bucket = $cm.Groups[1].Value.ToLower()
+            $cnum = [int]$cm.Groups[2].Value
+            if ($cnum -ne $SubCounts[$bucket]) {
+                $mismatches += "  ${file}:${lineNum}: found '$bucket skills ($cnum)' (actual: $($SubCounts[$bucket]))"
                 $Fail = $true
             }
         }

@@ -14,7 +14,7 @@ The Triple Diamond framework extends the traditional Double Diamond design model
 |-------|-------|
 | **Workflow** | Triple Diamond |
 | **Command** | No dedicated command yet -- reference file directly |
-| **Skills** | All 25 phase skills across 6 phases |
+| **Skills** | All 30 phase skills across 6 phases |
 | **Phases Covered** | All 6 (Discover, Define, Develop, Deliver, Measure, Iterate) |
 | **Estimated Duration** | Weeks to months (comprehensive) |
 | **Prerequisite Inputs** | A new product or major initiative |
