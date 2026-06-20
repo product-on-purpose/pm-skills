@@ -73,7 +73,7 @@ Audiences: take the experiment proposal (Data/BI, Executive, PMM, Engineering).
 
 --- BEGIN: Data/BI ---
 
-**Draws on:** M1, M4, M5, M6
+**Draws on:** M1, M4, M5, M6, M9
 **Primary ask:** Confirm the +22% read is sound and define the 90-day durability check.
 
 **Templates win the first-send by +22%; the read is clean, durability is the open question**

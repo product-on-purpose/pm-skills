@@ -44,6 +44,7 @@ go
 
 - M1: We ran a 4-week A/B test pitting the email morning digest against an in-app "resurface" card, to learn which trigger mechanism best brings users back to saved content.
 - M2: The decision this informs is which trigger to invest in for Resurface v1: email, in-app, or both.
+- M12: Resurface's differentiation versus read-later competitors (Readwise, Raindrop, Omnivore) is getting users to actually return to saved content, the thing those tools make users work for; a measured retention lift is the credibility proof for that positioning.
 
 **Decisions**
 
@@ -87,7 +88,7 @@ The test cleanly separates the two triggers. Email click-through was 17.2% [fict
 
 --- BEGIN: Executive ---
 
-**Draws on:** M2, M3, M5, M6, M10
+**Draws on:** M1, M2, M3, M5, M6, M10, M11
 
 **Primary ask:** Approve shipping the email digest as the Resurface v1 trigger.
 
@@ -101,7 +102,7 @@ We tested two ways to pull users back to saved content: a morning email digest a
 
 --- BEGIN: PMM ---
 
-**Draws on:** M1, M3, M5, M10
+**Draws on:** M1, M3, M5, M10, M11, M12
 
 **Primary ask:** Greenlight a "your saved articles, resurfaced" narrative for the v1.1 launch and start the messaging.
 
@@ -129,5 +130,5 @@ We have a clean, defensible story to tell. We tested an email digest against an 
 
 - Source artifact: resurface-ab-results.md [fictional]
 - **Generated:** 2026-06-20T16:10:00Z | **Skill version:** 1.0.0 | **Audiences:** Data/BI, Executive, PMM | **Input quality:** high
-- **Invariant self-check:** 3 briefings; all Draws-on IDs resolve to M1-M11; one Primary ask each; master reviewed as audience-neutral.
+- **Invariant self-check:** 3 briefings; all Draws-on IDs resolve to M1-M12; one Primary ask each; master reviewed as audience-neutral.
 ```

@@ -57,12 +57,14 @@ GA go/no-go is at the 2026-07-15 review; beta 2026-06-30, GA target 2026-07-20.
 **Status**
 
 - M6: Engineering build is ~60% complete [fictional]; the sending pipeline and template gallery are done, analytics instrumentation is not.
+- M12: Success is measured by first-send activation plus deliverability health; this needs campaign-event instrumentation (campaign_created, template_selected, send_started, send_completed, delivered, opened, clicked, unsubscribed, spam_reported) and a dashboard covering first-send rate, deliverability rate, and bounce/complaint trend, both part of the unfinished analytics work.
 
 **Risks and open questions**
 
 - M7: Deliverability reputation on cold domains is the top risk; warm-up adds ~2 weeks [fictional] to the timeline.
 - M8: CAN-SPAM and GDPR consent handling needs legal sign-off before GA.
 - M9: First-send activation is unproven; a guided template flow is the planned lever but is not yet validated.
+- M13: The compliance surface that needs legal review spans one-click unsubscribe, an accurate physical sender address, honest headers, lawful consent capture for EU recipients, and suppression-list handling.
 
 **Asks**
 
@@ -76,7 +78,7 @@ GA go/no-go is at the 2026-07-15 review; beta 2026-06-30, GA target 2026-07-20.
 
 --- BEGIN: Engineering ---
 
-**Draws on:** M3, M4, M5, M6, M7
+**Draws on:** M3, M4, M5, M6, M7, M11
 **Primary ask:** Confirm the dedicated-IP warm-up schedule completes before the 2026-06-30 beta.
 
 **Template-only v1; the SendGrid warm-up is the critical path**
@@ -91,7 +93,7 @@ The risk that drives sequencing is reputation on cold domains: warm-up adds abou
 
 --- BEGIN: UX/Design ---
 
-**Draws on:** M2, M3, M9
+**Draws on:** M1, M2, M3, M9, M11
 **Primary ask:** Lock the template-flow design that drives first-send to the 30% target before beta.
 
 **Template-first is the whole UX bet; the first send is the activation moment**
@@ -106,7 +108,7 @@ The bar is concrete: first-send rate has to move from 12% to 30% [fictional] amo
 
 --- BEGIN: Data/BI ---
 
-**Draws on:** M2, M6, M9
+**Draws on:** M2, M6, M9, M11, M12
 **Primary ask:** Stand up the adoption + deliverability dashboard before beta so v1 ships measurable.
 
 **Analytics is the open build item; we need first-send and deliverability instrumented**
@@ -135,7 +137,7 @@ Campaigns lets merchants run email/SMS inside Storevine instead of paying for Kl
 
 --- BEGIN: Legal ---
 
-**Draws on:** M3, M8, M10
+**Draws on:** M3, M8, M10, M13
 
 **Primary ask:** Sign off on CAN-SPAM + GDPR consent handling before the 2026-07-15 GA review.
 
@@ -166,5 +168,5 @@ This is sequenced as a hard gate, not an advisory pass: GA go/no-go is at the 20
 
 - Source artifact: campaigns-prd.md [fictional]
 - **Generated:** 2026-06-20T16:40:00Z | **Skill version:** 1.0.0 | **Audiences:** Engineering, UX/Design, Data/BI, Executive, Legal | **Input quality:** high (locked PRD with scope, metrics, timeline, and named risks)
-- **Invariant self-check:** 5 briefings; all Draws-on IDs resolve to M1-M11; one Primary ask each; master reviewed as audience-neutral.
+- **Invariant self-check:** 5 briefings; all Draws-on IDs resolve to M1-M13; one Primary ask each; master reviewed as audience-neutral.
 ```

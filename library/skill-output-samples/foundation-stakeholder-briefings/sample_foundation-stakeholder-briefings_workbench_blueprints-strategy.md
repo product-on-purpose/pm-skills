@@ -130,7 +130,7 @@ This is a narrative job, not a deal job: define the category language, the diffe
 
 --- BEGIN: Sales ---
 
-**Draws on:** M2, M4, M7
+**Draws on:** M2, M3, M4, M7
 
 **Primary ask:** Validate that the governance talk track converts in live enterprise deals, and report which objections recur, before GA.
 

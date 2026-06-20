@@ -60,6 +60,7 @@ Audiences: take the discovery proposal (UX/Design, PMM, Executive, Engineering).
 
 - M5: The first-send moment is where merchants stall; blank-canvas setup is the named friction point.
 - M6: Switching cost off Klaviyo (lists, send history) is the main thing holding would-be adopters back.
+- M9: A migration-aware onboarding has to support list import and suppression-list carryover so adopters can move off their external tool without rebuilding it.
 
 **Asks**
 
@@ -119,7 +120,7 @@ The merchant interviews back the Campaigns thesis and, helpfully, point to a che
 
 --- BEGIN: Engineering ---
 
-**Draws on:** M3, M5, M6
+**Draws on:** M3, M5, M6, M9
 
 **Primary ask:** Plan v1 around a template engine plus list/history import, not a general-purpose editor.
 
@@ -150,5 +151,5 @@ The second build implication is migration: switching cost off Klaviyo (lists, se
 
 - Source artifact: campaigns-merchant-interviews.md [fictional]
 - **Generated:** 2026-06-20T17:05:00Z | **Skill version:** 1.0.0 | **Audiences:** UX/Design, PMM, Executive, Engineering | **Input quality:** medium (clear qualitative findings from 8 interviews; scope claims are inferences the team must ratify, flagged in Decisions)
-- **Invariant self-check:** 4 briefings; all Draws-on IDs resolve to M1-M8; one Primary ask each; master reviewed as audience-neutral; inferred-decision caveat recorded.
+- **Invariant self-check:** 4 briefings; all Draws-on IDs resolve to M1-M9; one Primary ask each; master reviewed as audience-neutral; inferred-decision caveat recorded.
 ```

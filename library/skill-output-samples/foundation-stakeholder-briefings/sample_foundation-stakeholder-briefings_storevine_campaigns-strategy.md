@@ -49,6 +49,7 @@ about the company strategy and capital story - they should not read alike.
 - M1: The Campaigns thesis is embedded re-engagement: capture the ~68% of merchants [fictional] paying for an external email tool by making lifecycle messaging native to Storevine.
 - M2: The business model is two-sided: Campaigns lifts retention of the core platform and opens a new paid send tier as a revenue line.
 - M3: The persevere decision validated the thesis: merchants who adopt Campaigns show +18% retention [fictional] versus comparable non-adopters.
+- M11: The external email tools merchants pay for today are primarily Klaviyo and Mailchimp.
 
 **Decisions**
 
@@ -92,7 +93,7 @@ What I need from you is to fund the activation investment (the first-send build 
 
 --- BEGIN: Board/Investors ---
 
-**Draws on:** M1, M2, M3, M9
+**Draws on:** M1, M2, M3, M9, M11
 
 **Primary ask:** Endorse embedded re-engagement as a durable retention-and-monetization wedge in the company strategy.
 
@@ -124,7 +125,7 @@ Anchor the Q3 positioning on that wedge and on the proof that it is working, gro
 
 --- BEGIN: Sales ---
 
-**Draws on:** M1, M2, M3
+**Draws on:** M1, M2, M3, M11
 
 **Primary ask:** Lead Q3 conversations with the retention + cost-consolidation story for merchants on an external tool.
 
@@ -155,5 +156,5 @@ Combine them into one talk track, less tool sprawl, better retention, native to 
 
 - Source artifact: campaigns-lean-canvas.md + campaigns-q3-okrs.md [fictional]
 - **Generated:** 2026-06-20T16:55:00Z | **Skill version:** 1.0.0 | **Audiences:** Executive, Board/Investors, PMM, Sales | **Input quality:** high (lean canvas thesis plus a quantified OKR set and a validated persevere signal)
-- **Invariant self-check:** 4 briefings; all Draws-on IDs resolve to M1-M10; one Primary ask each; master reviewed as audience-neutral; Exec and Board confirmed distinct (internal reprioritization vs company-strategy endorsement).
+- **Invariant self-check:** 4 briefings; all Draws-on IDs resolve to M1-M11; one Primary ask each; master reviewed as audience-neutral; Exec and Board confirmed distinct (internal reprioritization vs company-strategy endorsement).
 ```

@@ -85,7 +85,7 @@ CS/Support, Executive).
 
 --- BEGIN: PMM ---
 
-**Draws on:** M2, M3, M4
+**Draws on:** M1, M2, M3, M4
 
 **Primary ask:** Ship the launch narrative and assets on the governed-documents frame, with the in-app announcement live by April 28.
 
@@ -117,7 +117,7 @@ The ask is timing and pipeline, not narrative (that is PMM's): prioritize the go
 
 --- BEGIN: CS/Support ---
 
-**Draws on:** M6, M7, M8
+**Draws on:** M5, M6, M7, M8
 
 **Primary ask:** Pre-stage support macros and the SSO admin guide for the two known issues, and watch the 10% tier closely for SSO tickets.
 
@@ -133,7 +133,7 @@ The ask is to pre-stage rather than react: have a support macro ready for the "w
 
 --- BEGIN: Executive ---
 
-**Draws on:** M1, M3, M8, M9
+**Draws on:** M1, M3, M5, M8, M9
 
 **Primary ask:** Confirm the GA go and the April 28 progressive-rollout start.
 

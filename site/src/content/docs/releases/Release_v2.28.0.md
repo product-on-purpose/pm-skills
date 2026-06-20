@@ -20,7 +20,7 @@ The skill is built around one idea: **master-first, then project.** It writes a 
 
 **Source-aware proposal.** The skill detects the source type and proposes the audiences that artifact usually needs (a spec proposes Engineering, UX, Data, Exec; a GTM plan proposes PMM, Sales, CS, Exec). You accept, edit, or take all nine. N=1 is supported - the fan-out is the signature use, not a floor.
 
-**A mechanized invariant.** Each briefing block carries a `Draws on:` line (the master claim IDs it projects) and exactly one `Primary ask:`. The advisory `scripts/check-briefings-trace.mjs` verifies every `Draws on:` ID resolves to a real master claim and that each block has exactly one ask - so the master-projection contract is checkable, not aspirational.
+**A structural contract.** Each briefing block carries a `Draws on:` line (the master claim IDs it projects) and exactly one `Primary ask:`. The advisory `scripts/check-briefings-trace.mjs` verifies every `Draws on:` ID resolves to a real master claim and that each block has exactly one ask. That structural half is enforced; full projection fidelity (the body adds no untraced claim) is the skill's self-check plus review, kept honest rather than overclaimed as fully automated.
 
 **18 library samples.** Six per Storevine / Brainshelf / Workbench thread, covering all eight source types plus a Custom lens, a raw/ambiguous source, and a standalone compliance review.
 

@@ -30,6 +30,7 @@ A worked case showing the master-first projection: one PRD fanned out into four 
 **Status**
 
 - M5: Engineering build is ~60% complete [fictional]; the sending pipeline and template gallery are done, analytics is not.
+- M10: Success is measured by adoption among external-tool merchants plus deliverability health; this needs campaign-event instrumentation (created, sent, delivered, opened, clicked, unsubscribed) and an adoption/deliverability dashboard, both part of the unfinished analytics work.
 
 **Risks and open questions**
 
@@ -74,7 +75,7 @@ v1 is template-only sending (no drag-and-drop) with CAN-SPAM one-click unsubscri
 
 --- BEGIN: Data/BI ---
 
-**Draws on:** M2, M5
+**Draws on:** M2, M5, M10
 **Primary ask:** Stand up the adoption + deliverability dashboard before beta so v1 is measurable.
 
 **Analytics is the open build item; we need adoption + deliverability instrumented**

@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `foundation-stakeholder-briefings`: a foundation skill (classification `communication`) that fans one source into a master document plus N audience briefings. Ships SKILL.md, `references/TEMPLATE.md` (master with numbered claim IDs plus per-briefing `Draws on:` / `Primary ask:` blocks), `references/EXAMPLE.md`, `references/audience-lenses.md` (nine first-class lenses with "not this lens when" boundaries, an overlap matrix, and Custom-lens inference), `references/source-type-map.md`, and `evals/trigger-fixtures.json`.
 - 18 library samples (six per Storevine / Brainshelf / Workbench thread) covering all eight source types, a Custom lens, raw/ambiguous input, and a standalone compliance review.
-- `scripts/check-briefings-trace.mjs`: an advisory validator that mechanizes the master-projection invariant (every briefing `Draws on:` ID resolves to a master claim; exactly one `Primary ask:` per block).
+- `scripts/check-briefings-trace.mjs`: an advisory validator for the structural half of the master-projection contract (every briefing `Draws on:` ID resolves to a real master claim; exactly one `Primary ask:` per block). Full projection fidelity (the body introduces no untraced claim) is the skill's self-check plus review, not automated.
 
 ### Changed
 

@@ -80,7 +80,7 @@ trust any of our numbers honestly. anyway lots here. who needs to know what
 
 --- BEGIN: Executive ---
 
-**Draws on:** M1, M3, M5, M7, M8
+**Draws on:** M1, M2, M3, M5, M7, M8
 
 **Primary ask:** Decide which one of "smarter matching," "weekly best-of," or "Resurface-led onboarding" gets prioritized next, given the budget constraint.
 

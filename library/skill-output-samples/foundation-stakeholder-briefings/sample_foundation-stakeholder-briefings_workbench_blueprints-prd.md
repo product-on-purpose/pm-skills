@@ -68,11 +68,14 @@ Lead), Leo M. (Data Analyst), Mei-Lin T. (Enterprise Sales Lead).
 **Status**
 
 - M8: Engineering build is roughly 60% complete [fictional]; the sending pipeline, template gallery, and required-section gating are done, analytics instrumentation and SSO certification are not.
+- M13: Success is measured against two targets: median time-to-approved down from 4.0 days to 2.5 days or less [fictional], and empty-section rate down from 38% to 10% or less [fictional]; both targets are unmeasurable until analytics instrumentation lands.
+- M14: Measuring success requires lifecycle event instrumentation (blueprint_created, section_completed, submitted, approved, rejected, published) and a dashboard covering empty-section rate, time-to-approved, and approval-cycle count, in place before beta exits.
 
 **Risks and open questions**
 
-- M9: SAML SSO certification is the top schedule risk: if it slips, GA either ships without SSO or moves, because the enterprise pipeline depends on it.
+- M9: SAML SSO certification is the top schedule risk: if it slips, GA either ships without SSO or moves, because the enterprise pipeline depends on it; the fallback is a roughly two-week fast-follow once certification lands.
 - M10: Required sections may push authors to enter placeholder text to clear the gate ("skip-and-submit"); the A/B test and approval-gate review are the planned guards.
+- M15: Distinguishing real completeness from gamed completeness needs a detection signal: a heuristic that flags required sections cleared with trivial content (single character, "n/a", repeated whitespace), or a reported empty-section rate could mask gaming.
 
 **Asks**
 
@@ -116,7 +119,7 @@ The risk is skip-and-submit (M10): if the gate feels like a wall, authors will t
 
 --- BEGIN: Data/BI ---
 
-**Draws on:** M2, M8, M10
+**Draws on:** M2, M8, M10, M13, M14, M15
 **Primary ask:** Stand up the lifecycle dashboard and skip-and-submit detection before beta exits, so v1 ships measurable.
 
 **Analytics is the open build item; without it we cannot prove the governance bet or catch gaming**
@@ -177,5 +180,5 @@ There is one decision only you can make. SAML SSO certification is the top sched
 
 - Source artifact: blueprints-prd.md [fictional]
 - **Generated:** 2026-06-20T15:10:00Z | **Skill version:** 1.0.0 | **Audiences:** Engineering, UX/Design, Data/BI, Legal, Executive | **Input quality:** high (locked PRD with scope, quantified baselines, decisions, named risks, and a named decision-maker)
-- **Invariant self-check:** 5 briefings; all Draws-on IDs resolve to M1-M12; one Primary ask each; master reviewed as audience-neutral.
+- **Invariant self-check:** 5 briefings; all Draws-on IDs resolve to M1-M15; one Primary ask each; master reviewed as audience-neutral.
 ```

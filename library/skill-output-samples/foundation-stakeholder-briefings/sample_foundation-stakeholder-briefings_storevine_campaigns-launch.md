@@ -108,7 +108,7 @@ Two objections will come up immediately. "I already use Klaviyo and it works" is
 
 --- BEGIN: CS/Support ---
 
-**Draws on:** M3, M7, M8, M10
+**Draws on:** M1, M3, M7, M8, M10
 **Primary ask:** Confirm launch-week support staffing and the first-send + migration playbook are ready for GA.
 
 **Two ticket waves to expect: first-send help and migration questions**

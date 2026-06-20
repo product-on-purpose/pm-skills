@@ -49,6 +49,7 @@ casual is fine. go
 
 - M3: Launch is a phased rollout: 25% of eligible users day 1, 50% day 2, 100% day 3, gated on deliverability and unsubscribe staying healthy.
 - M4: The store listing leads with "Resurface: your morning reading, rediscovered"; the in-app prompt drives opt-in; the announcement (blog + social) follows at 100% rollout.
+- M11: The digest sends at 7:30 AM in the user's device timezone; a stale or recently-changed device timezone can shift the timing until it self-corrects on next app open.
 
 **Status**
 
@@ -86,7 +87,7 @@ Resurface is the headline of the v3.1 release and it is our first email channel,
 
 --- BEGIN: CS/Support ---
 
-**Draws on:** M2, M3, M7, M8
+**Draws on:** M2, M3, M7, M8, M11
 
 **Primary ask:** Publish support macros for the three predictable tickets (opt-in/why-no-email, paywalled links, wrong send time) before the rollout starts.
 
@@ -128,5 +129,5 @@ Resurface, the morning digest, ships as the headline of the next App Store updat
 
 - Source artifact: resurface-launch-plan.md [fictional]
 - **Generated:** 2026-06-20T16:20:00Z | **Skill version:** 1.0.0 | **Audiences:** PMM, CS/Support, Executive | **Input quality:** high
-- **Invariant self-check:** 3 briefings; all Draws-on IDs resolve to M1-M10; one Primary ask each; master reviewed as audience-neutral.
+- **Invariant self-check:** 3 briefings; all Draws-on IDs resolve to M1-M11; one Primary ask each; master reviewed as audience-neutral.
 ```

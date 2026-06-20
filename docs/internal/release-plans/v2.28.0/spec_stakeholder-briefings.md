@@ -15,15 +15,15 @@ One saveable artifact = a **master document** (canonical, audience-neutral synth
 5. **Flag translations.** Maintain a translations-applied log (internal, below the shareable boundary) recording every technical-to-business or inferred re-pitch, for user verification - inheriting the `foundation-stakeholder-update` discipline.
 6. **Self-check the invariant** (below) and list anything that fails before finalizing.
 
-## The invariant (the skill's structural contract)
+## The invariant (the skill's contract)
 
-Three rules. Two are deterministically checkable via trace structure; the third is an honestly-labeled review check (not automation).
+Three rules. The trace-reference and CTA structure is deterministically checkable; the "no untraced claim" projection fidelity and the neutral-master rule are the skill's self-check plus human/LLM review, not automation. (Honest scope per Codex review #2, 2026-06-19; an earlier draft overstated deterministic enforcement.)
 
-1. **Projection rule (deterministic).** Every briefing claim traces to a master claim. The master numbers its claims with stable IDs (`M1`, `M2`, ...); each briefing block carries a `Draws on:` line listing the master IDs it projects. A validator can confirm every referenced ID resolves to a real master claim and can flag briefing blocks whose body asserts load-bearing content with no trace. Briefings may omit, reorder, and translate; they may not introduce an untraced claim.
-2. **One-CTA rule (deterministic).** Each briefing block has exactly one `Primary ask:` field (a single required line). A validator checks cardinality = 1 per block.
-3. **Neutral-master rule (review check, NOT machine-checkable).** The master carries no audience-specific spin. This is a recorded human/LLM review step in the self-check; the spec does not claim it is automatically enforced.
+1. **Projection rule.** A briefing may omit, reorder, and translate master content; it may not introduce a claim absent from the master. This has a **deterministic part** - every briefing's `Draws on:` line must list master claim IDs that all resolve to real master claims (the master numbers its claims `M1`, `M2`, ...) - and a **review part** - the body must actually contain only those claims, re-read per block at self-check time. The deterministic part is enforced by `check-briefings-trace`; the review part is semantic and not automated. Authoring rule: make the master the true superset, so any specific a briefing needs is added as a master claim and cited, never introduced only in the briefing.
+2. **One-CTA rule (deterministic).** Each briefing block has exactly one `Primary ask:` field. `check-briefings-trace` checks cardinality = 1 per block.
+3. **Neutral-master rule (review).** The master carries no audience-specific spin. Review check, not automation.
 
-The trace structure (master claim IDs + per-briefing `Draws on:` refs + a single required `Primary ask:`) is what makes projection drift *detectable* rather than aspirational, and it is what separates the skill from "ask an LLM to rewrite this 6 ways" (per plan Decision D1, structure over prose). Rules 1-2 are the enforceable contract a deterministic validator (`check-briefings-trace`, advisory first per the M-30 ladder) can police on the skill's own samples; rule 3 is labeled review, not automation. (Resolves Codex 2026-06-19 finding: the earlier draft claimed all three were "checkable" without any trace machinery.)
+`check-briefings-trace` (advisory, per the M-30 ladder) enforces the **structural half**: every `Draws on:` ID resolves to a real master claim and each block has exactly one `Primary ask:`. It does **not** verify the body introduces no untraced claim - that is the self-check step plus review. The structural contract (declared, resolving claim references + one ask) is still what separates the skill from "ask an LLM to rewrite this 6 ways" (per plan Decision D1, structure over prose), while the spec stays honest about what is and is not automated.
 
 ## Audience lens library (9 first-class + Custom)
 
@@ -73,7 +73,7 @@ This is encoded PM judgment and a catalog integration point: the skill is the na
 ## Output contract
 
 - **Single artifact** (Decision D2). Structure: the master section -> the delimited briefing blocks (`--- BEGIN: <lens> ---` ... `--- END ---`, each self-contained and send-ready) -> the internal translations-applied log -> Sources & References. Template authoring blockquotes stripped from the final output.
-- **Trace structure (for the invariant).** The master section numbers each claim with a stable ID (`M1`, `M2`, ...). Each briefing block opens with two required fields: `Draws on:` (the master IDs it projects) and `Primary ask:` (exactly one). This is what makes rules 1-2 deterministically checkable; `check-briefings-trace` (advisory) verifies every `Draws on:` ID resolves and that each block has exactly one `Primary ask:`.
+- **Trace structure (for the invariant).** The master section numbers each claim with a stable ID (`M1`, `M2`, ...). Each briefing block opens with two required fields: `Draws on:` (the master IDs it projects) and `Primary ask:` (exactly one). This is the structural contract `check-briefings-trace` (advisory) enforces: every `Draws on:` ID resolves and each block has exactly one `Primary ask:`. (It does not semantically verify the body; that is the self-check + review.)
 - **Filename:** `YYYY-MM-DD_HH-MMtz_<title>_stakeholder-briefings.md` (the artifact); library samples use `sample_foundation-stakeholder-briefings_<thread>_<suffix>.md` per `SAMPLE_CREATION.md`.
 - **Boundary marker** between the shareable briefings and the internal sections (translations log, sources), mirroring `foundation-stakeholder-update` v1.1.0.
 - **Deferred `--split` mode:** a future enhancement writes each briefing block to its own file (the first multi-file skill in the repo). Out of scope for v1; the block self-containment means `--split` is cheap to add later.

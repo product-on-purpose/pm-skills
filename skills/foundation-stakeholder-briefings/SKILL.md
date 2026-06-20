@@ -55,8 +55,9 @@ When asked to create stakeholder briefings, follow these steps:
 5. **Flag translations.** Keep a translations-applied log (internal, below the shareable boundary) for every technical-to-business or inferred re-pitch, so the user can verify it lands. This section is never part of a shareable briefing.
 
 6. **Self-check the invariant** before finalizing:
-   - **Projection** (deterministic): every briefing `Draws on:` ID resolves to a real master claim; no untraced load-bearing claim.
-   - **One CTA** (deterministic): exactly one `Primary ask:` per block.
+   - **Trace references resolve** (deterministic, checkable): every briefing `Draws on:` ID resolves to a real master claim.
+   - **One CTA** (deterministic, checkable): exactly one `Primary ask:` per block.
+   - **No untraced claim** (review): re-read each block against its `Draws on:` set and confirm the body introduces nothing absent from those master claims. This is a review step, not automated.
    - **Neutral master** (review): the master has no audience-specific spin. List anything that fails.
 
 7. **Render the artifact.** Master (with claim IDs) -> the delimited briefing blocks -> the boundary marker -> the translations-applied log -> Sources and References. Remove all guidance blockquotes from the final output.

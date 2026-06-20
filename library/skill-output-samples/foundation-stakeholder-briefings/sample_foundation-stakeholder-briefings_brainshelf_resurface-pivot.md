@@ -46,6 +46,7 @@ go
 
 - M1: We are recommending a pivot in how Resurface triggers: from a fixed-time morning email digest to a browser-extension-triggered contextual resurface that shows a related saved item the moment you finish reading something on the same topic.
 - M2: The reason: the email digest validated the concept (it lifted 7-day return rate +5.3pp [fictional]), but the data shows the strongest engagement comes when the user is already reading in the browser, not at a fixed clock time.
+- M10: Owning a browser extension is a new surface that puts Brainshelf into the user's daily reading path, expanding daily touchpoints beyond the app; this is the strategic upside of the pivot, distinct from its execution cost.
 
 **Decisions**
 
@@ -73,7 +74,7 @@ go
 
 --- BEGIN: Executive ---
 
-**Draws on:** M1, M2, M3, M8, M9
+**Draws on:** M1, M2, M3, M5, M7, M8, M9
 
 **Primary ask:** Approve reprioritizing the next two sprints to the extension trigger, keeping the email digest in maintenance.
 
@@ -101,7 +102,7 @@ The pivot keeps the existing email pipeline (it stays live in maintenance) and a
 
 --- BEGIN: Board/Investors ---
 
-**Draws on:** M2, M3, M7
+**Draws on:** M2, M3, M7, M10
 
 **Primary ask:** Endorse the strategic shift from "saved-content inbox" to "resurfacing inside the reading flow" as the engagement-and-retention thesis for the next phase.
 
@@ -129,5 +130,5 @@ The retention thesis is playing out. Our first re-engagement bet (the morning em
 
 - Source artifact: resurface-pivot-decision.md [fictional]
 - **Generated:** 2026-06-20T16:40:00Z | **Skill version:** 1.0.0 | **Audiences:** Executive, Engineering, Board/Investors | **Input quality:** high
-- **Invariant self-check:** 3 briefings; all Draws-on IDs resolve to M1-M9; one Primary ask each; master reviewed as audience-neutral; Exec and Board verified to lead with different decisions.
+- **Invariant self-check:** 3 briefings; all Draws-on IDs resolve to M1-M10; one Primary ask each; master reviewed as audience-neutral; Exec and Board verified to lead with different decisions.
 ```

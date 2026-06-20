@@ -76,7 +76,7 @@ Engineering, CS/Support, Executive.
 
 --- BEGIN: Engineering ---
 
-**Draws on:** M1, M3, M4, M6, M7
+**Draws on:** M1, M2, M3, M4, M6, M7, M10
 
 **Primary ask:** Land the warm-up-aware send-rate cap and the inbox-placement alert before GA.
 
@@ -92,7 +92,7 @@ Two builds close it. First, the warm-up-aware send-rate cap: daily send volume m
 
 --- BEGIN: CS/Support ---
 
-**Draws on:** M1, M2, M5
+**Draws on:** M1, M2, M4, M5
 
 **Primary ask:** Adopt the deliverability runbook so first-line support can resolve spam-placement questions without escalating.
 
@@ -108,7 +108,7 @@ The takeaway for your team is that you no longer have to escalate these. The new
 
 --- BEGIN: Executive ---
 
-**Draws on:** M2, M6, M9, M10
+**Draws on:** M1, M2, M6, M7, M9, M10
 
 **Primary ask:** Confirm GA confidence holds and that the send-rate cap is a launch gate.
 

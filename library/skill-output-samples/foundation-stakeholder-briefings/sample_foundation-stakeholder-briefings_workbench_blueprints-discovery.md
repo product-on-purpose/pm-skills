@@ -114,7 +114,7 @@ One detail sharpens it: 2 of 6 leads are in regulated orgs where informal Slack/
 
 --- BEGIN: Executive ---
 
-**Draws on:** M2, M3, M5, M6
+**Draws on:** M1, M2, M3, M5, M6
 
 **Primary ask:** Decide whether enforced documentation governance becomes a funded bet worth scoping a solution against.
 

@@ -234,7 +234,7 @@ The version reshuffle (memory v2.28.0 -> v2.29.0) leaves stale "v2.28.0 = memory
 
 | # | Decision | Status |
 |---|---|---|
-| D1 | Master-first projection with the 3-rule invariant, **mechanized** via master claim IDs + per-briefing `Draws on:` + a single required `Primary ask:` (rules 1-2 deterministic via `check-briefings-trace`; rule 3 neutral-master is a labeled review check, not automation) | DECIDED (brainstorming + Codex finding 2) |
+| D1 | Master-first projection with the 3-rule invariant, structured via master claim IDs + per-briefing `Draws on:` + one required `Primary ask:`. `check-briefings-trace` enforces the structural half (every `Draws on:` ID resolves + one ask per block); the no-untraced-claim and neutral-master rules are the skill self-check + human/LLM review, not automation | DECIDED (brainstorming + Codex reviews #1/#2) |
 | D2 | Single-artifact output with send-ready blocks; `--split` multi-file deferred | DECIDED (YAGNI; first multi-file skill is a convention break, defer until demand) |
 | D3 | 9 first-class lenses + Custom; Marketing/Growth optional/documented | DECIDED (maintainer chose "broaden" + added Data/Analytics/BI as the 9th) |
 | D4 | Source-aware audience proposal as the default (not all-9, not always-ask) | DECIDED |

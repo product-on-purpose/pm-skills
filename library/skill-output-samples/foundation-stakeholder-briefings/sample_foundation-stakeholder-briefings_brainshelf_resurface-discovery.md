@@ -70,7 +70,7 @@ scope anything. need design + pmm + marco versions. don't oversell, it's
 
 --- BEGIN: UX/Design ---
 
-**Draws on:** M1, M5, M6, M7, M8
+**Draws on:** M1, M3, M4, M5, M6, M7, M8
 
 **Primary ask:** Let the three behavioral patterns (saving-as-productivity, pile-as-debt, no-return-moment) drive the next round of solution sketches, not an organization/folders direction.
 
@@ -84,7 +84,7 @@ The interviews (n=7, so a strong qualitative signal, not a proof) [fictional] po
 
 --- BEGIN: PMM ---
 
-**Draws on:** M1, M2, M5, M6
+**Draws on:** M1, M2, M3, M4, M5, M6
 
 **Primary ask:** Reserve "the guilt pile" as the emotional anchor for future messaging, but hold any external claims until a solution is validated.
 
@@ -98,7 +98,7 @@ There is a real emotional story here, and it is worth capturing now even though 
 
 --- BEGIN: Executive ---
 
-**Draws on:** M2, M3, M4, M9
+**Draws on:** M2, M3, M4, M7, M9
 
 **Primary ask:** Endorse framing the problem as a missing return trigger (not a missing organization feature) before we spend a sprint scoping.
 

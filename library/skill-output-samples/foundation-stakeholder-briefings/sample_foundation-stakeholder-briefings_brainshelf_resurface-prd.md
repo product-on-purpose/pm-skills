@@ -53,6 +53,8 @@ of them differently (open rates junk, image prefetch, etc). go
 **Status**
 
 - M7: PRD approved; Sprint 8 build (Feb 3-16) not yet started; no email infrastructure exists, so domain auth (SPF/DKIM/DMARC) is week-1 critical path.
+- M13: Success is measured by click-through rate and 7-day return rate, not open rate; the MPP-aware metric definition is that opens are never reported as a success signal.
+- M14: Measurability needs campaign-event instrumentation (opt_in, email_sent, item_clicked, unsubscribe, plus the downstream return-visit) and a click-and-retention dashboard live before the A/B test; Mercury Parser extraction-failure rate and send/bounce counts serve as a delivery sanity check, not opens.
 
 **Risks and open questions**
 
@@ -100,7 +102,7 @@ Resurface is the morning nudge that gets people back to the things they saved (a
 
 --- BEGIN: Data/BI ---
 
-**Draws on:** M3, M6, M9, M11, M12
+**Draws on:** M3, M6, M9, M11, M12, M13, M14
 
 **Primary ask:** Stand up a click-and-retention dashboard (not open-rate-based) before the Mar 9 A/B test, with the MPP-aware metric definition locked.
 
@@ -114,7 +116,7 @@ The eligible base is ~9,800 active savers [fictional], and the experiment runs M
 
 --- BEGIN: Legal ---
 
-**Draws on:** M4, M6, M10
+**Draws on:** M4, M6, M10, M12
 
 **Primary ask:** Sign off on the email opt-in, one-click unsubscribe, and consent-record handling before the first real-user send in the Mar 2-8 enrollment window.
 
@@ -142,5 +144,5 @@ Resurface sends recurring commercial email, which brings CAN-SPAM and GDPR oblig
 
 - Source artifact: resurface-prd.md [fictional]
 - **Generated:** 2026-06-20T16:00:00Z | **Skill version:** 1.0.0 | **Audiences:** Engineering, UX/Design, Data/BI, Legal | **Input quality:** high
-- **Invariant self-check:** 4 briefings; all Draws-on IDs resolve to M1-M12; one Primary ask each; master reviewed as audience-neutral.
+- **Invariant self-check:** 4 briefings; all Draws-on IDs resolve to M1-M14; one Primary ask each; master reviewed as audience-neutral.
 ```
