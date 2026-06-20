@@ -434,11 +434,58 @@
                                        ],
                        "status":  "sample-complete",
                        "notes":  "Foundation-persona has expanded coverage: 4 samples per thread (product brief, product detailed, marketing brief, marketing detailed) = 12 total."
+                   },
+                   {
+                       "skill":  "foundation-stakeholder-briefings",
+                       "command":  "stakeholder-briefings",
+                       "expectedSampleCount":  18,
+                       "expectedFiles":  [
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-prd.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-launch.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-experiment.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-strategy.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-retro.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-discovery.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-prd.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-experiment.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-launch.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-discovery.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-pivot.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-rawnotes.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-prd.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-strategy.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-experiment.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-compliance.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-launch.md",
+                                             "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-discovery.md"
+                                         ],
+                       "actualFiles":  [
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-prd.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-launch.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-experiment.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-strategy.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-retro.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_storevine_campaigns-discovery.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-prd.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-experiment.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-launch.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-discovery.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-pivot.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_brainshelf_resurface-rawnotes.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-prd.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-strategy.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-experiment.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-compliance.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-launch.md",
+                                           "library/skill-output-samples/foundation-stakeholder-briefings/sample_foundation-stakeholder-briefings_workbench_blueprints-discovery.md"
+                                       ],
+                       "status":  "sample-complete",
+                       "notes":  "Foundation-stakeholder-briefings has expanded coverage: 6 samples per thread = 18 total. Each sample is a master document plus audience-tailored briefings, one per stakeholder lens."
                    }
                ],
-    "actualSkillCount":  25,
-    "actualSampleCount":  84,
-    "notes":  "Coverage verified: 24 phase skills x 3 samples = 72, plus foundation-persona x 12 samples = 84 total."
+    "actualSkillCount":  26,
+    "actualSampleCount":  102,
+    "notes":  "Coverage verified: 24 phase skills x 3 samples = 72, plus foundation-persona x 12 samples + foundation-stakeholder-briefings x 18 samples = 102 total."
 }
 
 

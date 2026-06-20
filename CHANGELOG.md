@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.28.0] - 2026-06-20
+
+**New foundation skill: stakeholder briefings (1-to-N audience fan-out).** `foundation-stakeholder-briefings` takes any source artifact (a spec, discovery synthesis, research report, GTM plan, experiment results, or a retro) and produces one canonical master document plus a set of audience-tailored briefings, one per stakeholder lens (executive, board, engineering, UX, PMM, sales, CS, legal, data, or a custom audience). Every briefing is a traceable projection of the master: it cites the master claim IDs it draws on and carries exactly one ask, so the versions never quietly disagree. Additive MINOR; catalog grows 66 to 67 skills (foundation 9 to 10), 5 sub-agents unchanged.
+
+### Added
+
+- `foundation-stakeholder-briefings`: a foundation skill (classification `communication`) that fans one source into a master document plus N audience briefings. Ships SKILL.md, `references/TEMPLATE.md` (master with numbered claim IDs plus per-briefing `Draws on:` / `Primary ask:` blocks), `references/EXAMPLE.md`, `references/audience-lenses.md` (nine first-class lenses with "not this lens when" boundaries, an overlap matrix, and Custom-lens inference), `references/source-type-map.md`, and `evals/trigger-fixtures.json`.
+- 18 library samples (six per Storevine / Brainshelf / Workbench thread) covering all eight source types, a Custom lens, raw/ambiguous input, and a standalone compliance review.
+- `scripts/check-briefings-trace.mjs`: an advisory validator that mechanizes the master-projection invariant (every briefing `Draws on:` ID resolves to a master claim; exactly one `Primary ask:` per block).
+
+### Changed
+
+- `utility-pm-skill-builder` 1.1.0 to 1.1.1: added the new skill to its Current Library Reference (foundation 9 to 10) so gap analysis sees the full inventory.
+- Counts re-derived 66 to 67 (foundation 9 to 10) across the plugin manifests, README, QUICKSTART, and the documentation site; sample corpus 189 to 207 across 62 skills.
+
 ## [2.27.1] - 2026-06-16
 
 **Maintenance patch: classification sub-count drift gate.** `check-count-consistency` now polices the four per-classification / per-phase skill sub-counts (phase, foundation, utility, tool) against their frontmatter source of truth, closing the gap that let the 26/8/6 classification split drift on a published page while CI stayed green - the gap a v2.27.0 doc-currency audit had to catch by hand. No skill behavior change; catalog stays 66 skills / 5 sub-agents. PATCH.

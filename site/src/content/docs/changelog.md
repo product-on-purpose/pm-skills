@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.28.0] - 2026-06-20
+
+**New foundation skill: stakeholder briefings (1-to-N audience fan-out).** `foundation-stakeholder-briefings` takes any source artifact (spec, discovery, research, GTM, experiment, retro, or raw notes) and produces one canonical master document plus a set of audience-tailored briefings, one per stakeholder lens (executive, board, engineering, UX, PMM, sales, CS, legal, data, or a custom audience). Master-first projection: each briefing cites the master claim IDs it draws on and carries exactly one ask, so the versions never quietly disagree, and the advisory `scripts/check-briefings-trace.mjs` validator enforces it. Ships nine first-class lenses (with "not this lens when" boundaries and an overlap matrix), a source-aware audience proposal, trigger fixtures, and 18 library samples. Catalog grows 66 to 67 skills (foundation 9 to 10); 5 sub-agents unchanged. Additive MINOR. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2280---2026-06-20) and [`docs/releases/Release_v2.28.0.md`](releases/Release_v2.28.0.md).
+
 ## [2.27.1] - 2026-06-16
 
 **Maintenance patch: classification sub-count drift gate.** `check-count-consistency` now derives the four per-classification / per-phase skill sub-counts (phase, foundation, utility, tool) from frontmatter and validates them on every doc surface, so a stale "10 utility skills" or "Foundation Skills (9)" fails CI like a stale total - closing the gap that let the classification split drift on a published page until a v2.27.0 hand audit caught it. The change is additive (the total-count check is unchanged) and historical mentions are handled with word-form numbers or `count-exempt` ranges. Three stale sub-counts the gate surfaced are fixed. No skill behavior change; catalog stays 66 skills / 5 sub-agents. PATCH. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2271---2026-06-16) and [`docs/releases/Release_v2.27.1.md`](releases/Release_v2.27.1.md).

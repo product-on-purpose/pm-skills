@@ -13,7 +13,7 @@
 
 v2.27.0 shipped the provable-quality eval program. Its doc-currency audit fixed a stale 26/8/6 classification split (it had drifted to the wrong per-classification counts on `pm-skill-anatomy.md`, the builder reference table, and the release-plans index) by hand, and recorded the root cause as a carried v2.28.0 candidate: `check-count-consistency` polices top-line totals but **skips classification sub-counts** (they were hand-maintained and exempt), so a published page can drift while CI stays green. This patch closes that gap at the source.
 
-This is a focused maintenance PATCH (the v2.25.1 / v2.25.2 precedent), separate from the reserved v2.28.0 MINOR (the "Remember" / project-memory train).
+This is a focused maintenance PATCH (the v2.25.1 / v2.25.2 precedent), separate from the reserved memory MINOR (the "Remember" / project-memory train; reassigned from v2.28.0 to v2.29.0 on 2026-06-19 when v2.28.0 was taken by the `foundation-stakeholder-briefings` skill).
 
 ## Scope - what v2.27.1 ships
 
@@ -22,13 +22,13 @@ This is a focused maintenance PATCH (the v2.25.1 / v2.25.2 precedent), separate 
 | **check-count-consistency sub-count policing** | v2.27.0 doc-currency audit (carried in `v2.28.0` stub) | **SHIPPED here.** Both shells derive phase/foundation/utility/tool counts from frontmatter and validate the four buckets (number-before + parenthetical forms). Additive: the total-check bucket exemption is unchanged; historical mentions use word-form or `count-exempt`. Doc updated. |
 | **Sub-count drift fixes (gate-surfaced)** | the new gate, run on the tree | **SHIPPED here.** `_workflows/triple-diamond.md` (25 to 30 phase); the getting-started quickstart page (65 to 66 skills, 10 to 12 utility, 10 to 11 commands); `pm-skill-anatomy.md` historical mention reworded ("then-six"). |
 | **M-25 community-marketplace resubmit** | v2.27.0 best-effort | **NOT shipped here (pending-human).** The submission is an external account action and the plugin is not currently listed, so install-from-Discover docs would document non-existent state. The honest contribution is a fresh `claude plugin validate` clean record (resubmission-readiness evidence) at `records/`. Stays BEST-EFFORT; see `docs/internal/efforts/M-25-community-marketplace-submission.md`. |
-| **utility-pm-critic fixture relabel** | live trigger-lane finding | **DEFERRED to v2.28.0** with a sharpened problem statement. The collision is a taxonomy decision (audit-mode vs critic), `utility-pm-critic` has no fixtures of its own, and the recall effect is only provable by a live router re-run (key burned). A blind relabel into an eval-integrity patch would violate "evidence gates over assertions." |
+| **utility-pm-critic fixture relabel** | live trigger-lane finding | **DEFERRED to v2.29.0** (the memory train; renumbered from v2.28.0 on 2026-06-19) with a sharpened problem statement. The collision is a taxonomy decision (audit-mode vs critic), `utility-pm-critic` has no fixtures of its own, and the recall effect is only provable by a live router re-run (key burned). A blind relabel into an eval-integrity patch would violate "evidence gates over assertions." |
 
 ## Open decisions
 
 | # | Decision | Status |
 |---|---|---|
-| D1 | Version is **v2.27.1 (PATCH)**, not v2.28.0 | DECIDED. SemVer tracks compatibility, not significance; tooling + docs, no skill change. v2.28.0 stays reserved for the memory MINOR. |
+| D1 | Version is **v2.27.1 (PATCH)**, not v2.28.0 | DECIDED. SemVer tracks compatibility, not significance; tooling + docs, no skill change. The memory MINOR was renumbered to v2.29.0 on 2026-06-19 (v2.28.0 is now the foundation-stakeholder-briefings skill). |
 | D2 | **G1 codex adversarial-review is waived** for this tag | DECIDED-with-rationale. The maintainer chose "drive all the way to tagged." For a deterministic validator + docs PATCH (no skill/behavior change), the v2.27.0 "when green, push" precedent applies. Flagged, not hidden. |
 | D3 | Historical sub-count mentions: word-form or `count-exempt` | DECIDED. Documented in `scripts/check-count-consistency.md`; first instance is the anatomy-page "then-six". |
 
