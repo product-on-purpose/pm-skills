@@ -2,7 +2,7 @@
 
 Status: Active  
 Owner: Maintainers  
-Last updated: 2026-06-16
+Last updated: 2026-06-19
 
 This directory is the canonical tracked home for internal release-governance artifacts.
 
@@ -15,7 +15,7 @@ This directory is the canonical tracked home for internal release-governance art
 ## Current Entry Points
 
 1. `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`
-2. `docs/internal/release-plans/v2.27.1/` (**SHIPPED 2026-06-16**, tag `v2.27.1` at `10685b2d`; maintenance PATCH - the classification sub-count drift gate in `check-count-consistency` plus the doc-currency fixes it surfaced. Plan: `plan_v2.27.1.md`; spec: `spec_subcount-policing.md`.) `docs/internal/release-plans/v2.28.0/plan_v2.28.0.md` is the next-MINOR STUB (the memory / "Remember" train + carried candidates).
+2. `docs/internal/release-plans/v2.27.1/` (**SHIPPED 2026-06-16**, tag `v2.27.1` at `10685b2d`; maintenance PATCH - the classification sub-count drift gate in `check-count-consistency` plus the doc-currency fixes it surfaced. Plan: `plan_v2.27.1.md`; spec: `spec_subcount-policing.md`.) The next MINOR is `docs/internal/release-plans/v2.28.0/plan_v2.28.0.md` (**PROPOSED 2026-06-19**; new `foundation-stakeholder-briefings` foundation skill - the 1-to-N audience fan-out, additive; catalog 66 -> 67, foundation 9 -> 10; spec: `spec_stakeholder-briefings.md`). The memory / "Remember" train was renumbered from v2.28.0 to `docs/internal/release-plans/v2.29.0/plan_v2.29.0.md` (PROPOSED, tentative; plan + `spec_project-memory.md` relocated 2026-06-19).
 3. Latest shipped: **v2.27.1** (2026-06-16, tag `v2.27.1` at `10685b2d`; maintenance patch - the classification sub-count drift gate). Previous: **v2.27.0** (2026-06-15, tag `ee7ff9d5`; the provable-quality eval-program release - M-31 trigger evals + M-32 derived surfaces + M-33 output-eval gates + the creator/validator eval-contract integration). Earlier: v2.26.0 (authoring + quality), v2.24.0 (workflow orchestrator), v2.25.0 (activation layer), v2.25.1/v2.25.2 (audit closeouts). See git tags + `docs/releases/**` for shipped context.
 4. `docs/internal/release-plans/v2.22.0/plan_v2.22.0.md` (SHIPPED 2026-05-30, tag `v2.22.0` at `be1e400`; deleted the 63 command/skill wrappers + added the Codex manifest, MINOR; skill names UNCHANGED).
 5. `docs/internal/release-plans/v2.23.0/plan_v2.23.0.md` (SHIPPED 2026-05-31, tag `v2.23.0` at `b54cef0`; new `prioritized-action-plan` foundation skill, additive MINOR).
