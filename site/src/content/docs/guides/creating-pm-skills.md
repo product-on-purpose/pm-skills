@@ -57,7 +57,7 @@ Skills are invoked directly by name; there is no per-skill command wrapper (see 
 
 ### 1. Check If It Already Exists
 
-Review the existing repo catalog before opening a new skill proposal. The current repo contains 66 skills in `skills/` (30 phase, 9 foundation, 12 utility, and 15 tool entries covering Foundation Sprint plus Design Sprint families plus the tool-note-and-vote standalone, introduced in v2.15.0), while `AGENTS.md` lists the currently registered/discoverable subset.
+Review the existing repo catalog before opening a new skill proposal. The current repo contains 67 skills in `skills/` (30 phase, 10 foundation, 12 utility, and 15 tool entries covering Foundation Sprint plus Design Sprint families plus the tool-note-and-vote standalone, introduced in v2.15.0), while `AGENTS.md` lists the currently registered/discoverable subset.
 
 | Category | Existing Skills |
 |----------|-----------------|

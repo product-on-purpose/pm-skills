@@ -4,8 +4,8 @@ description: Guides contributors from a PM skill idea to a complete Skill Implem
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.1.0"
-  updated: 2026-06-15
+  version: "1.1.1"
+  updated: 2026-06-20
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -296,7 +296,7 @@ Also scan the `skills/` directory for the latest authoritative count.
 | iterate | refinement-notes | coordination | Backlog refinement outcomes |
 | iterate | retrospective | reflection | Team retrospective |
 
-### Foundation Skills (9)
+### Foundation Skills (10)
 
 | Skill | Category | Description |
 |-------|----------|-------------|
@@ -308,6 +308,7 @@ Also scan the `skills/` directory for the latest authoritative count.
 | okr-writer | coordination | Outcome-based OKR set authoring with coaching |
 | persona | research | Evidence-calibrated product or marketing persona |
 | stakeholder-update | meeting | Async stakeholder communication for non-attendees |
+| stakeholder-briefings | communication | Master document plus audience-tailored briefings, one per stakeholder lens, each a traceable projection of the master |
 | prioritized-action-plan | coordination | Ranked action plan with an optional handoff to run the work |
 
 ### Utility Skills (12)

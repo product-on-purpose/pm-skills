@@ -2,9 +2,9 @@
   "schema": 1,
   "generated_by": "scripts/gen-skill-manifest.mjs",
   "catalog": {
-    "skills": 66,
+    "skills": 67,
     "phase": 30,
-    "foundation": 9,
+    "foundation": 10,
     "utility": 12,
     "tool": 15,
     "sub_agents": 5,
@@ -431,6 +431,21 @@
         "EXAMPLE.md"
       ],
       "sample": "library/skill-output-samples/foundation-prioritized-action-plan"
+    },
+    {
+      "name": "foundation-stakeholder-briefings",
+      "description": "Turns any source artifact (spec, discovery, research, GTM plan, experiment results, retro, or raw notes) into one canonical master document plus a set of audience-tailored briefings, each re-pitched to a stakeholder lens (executive, board, engineering, UX, PMM, sales, CS, legal, data, or a custom audience). Every briefing is a traceable projection of the master, so the versions never disagree. Use when one piece of work must reach several audiences who each need a different framing, decision, and level of detail.",
+      "version": "1.0.0",
+      "group": "foundation",
+      "phase": null,
+      "family": null,
+      "move": null,
+      "path": "skills/foundation-stakeholder-briefings",
+      "references": [
+        "TEMPLATE.md",
+        "EXAMPLE.md"
+      ],
+      "sample": "library/skill-output-samples/foundation-stakeholder-briefings"
     },
     {
       "name": "foundation-stakeholder-update",
@@ -896,7 +911,7 @@
     {
       "name": "utility-pm-skill-builder",
       "description": "Guides contributors from a PM skill idea to a complete Skill Implementation Packet aligned with pm-skills conventions. Runs gap analysis, validates through a Why Gate, classifies by type and phase, generates draft files, and writes to a staging area for review before promotion.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "group": "utility",
       "phase": null,
       "family": null,

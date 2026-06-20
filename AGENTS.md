@@ -49,6 +49,11 @@ Generates an evidence-calibrated product or marketing persona using the canonica
 
 Produce a comprehensive, evidence-grounded prioritized action plan from any PM input (notes, transcripts, drafts, executive asks, Slack threads, or a raw situation). Outputs one saveable document with an executive summary, input mirror, situation classification (Cynefin), the binding constraint (Theory of Constraints), prioritized questions and open decisions, a ranked action plan with the critical effort plus follow-ons, risks and pre-mortem, copy/paste prompts for downstream pm-skills, and an evidence map. Builds a source ledger and cites exact input quotes; refuses High-confidence plans for Complex or Chaotic situations. Use when you want the critical next effort and how to execute it.
 
+#### stakeholder-briefings
+**Path:** `skills/foundation-stakeholder-briefings/SKILL.md`
+
+Turns any source artifact (spec, discovery, research, GTM plan, experiment results, retro, or raw notes) into one canonical master document plus a set of audience-tailored briefings, each re-pitched to a stakeholder lens (executive, board, engineering, UX, PMM, sales, CS, legal, data, or a custom audience). Every briefing is a traceable projection of the master, so the versions never disagree. Use when one piece of work must reach several audiences who each need a different framing, decision, and level of detail.
+
 #### stakeholder-update
 **Path:** `skills/foundation-stakeholder-update/SKILL.md`
 

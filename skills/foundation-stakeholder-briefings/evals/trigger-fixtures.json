@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "skill": "foundation-stakeholder-briefings",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Take this PRD and give me tailored versions for engineering, design, data, and our exec sponsor",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I need to brief five different teams on this launch, each with what they actually care about; produce one master and a per-audience version",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Explicit 1-to-N fan-out, the signature use"
+    },
+    {
+      "q": "Turn these experiment results into audience-specific briefings for the exec, PMM, and data teams",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Fan this spec out into stakeholder briefings for engineering, legal, and the board",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Same content, different audiences: repackage this research synthesis for UX, sales, and leadership",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're pivoting; I have to tell six audiences and they each need a different framing. Give me a master plus a briefing per group",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Create per-stakeholder briefings from this GTM plan so each team gets the cut that matters to them",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Project this incident write-up into separate briefings for engineering, support, and the exec team",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I keep rewriting the same update three ways for three audiences; generate all the audience versions from one source at once",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask, no artifact keyword"
+    },
+    {
+      "q": "Give me an exec briefing of this spec re-pitched for a non-technical leadership audience",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "N=1 from a non-meeting source is supported"
+    },
+    {
+      "q": "Write the post-meeting update to stakeholders about what we decided in today's planning meeting",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "One async update of meeting outcomes; meeting-bound, single audience"
+    },
+    {
+      "q": "Draft a Slack update to the team summarizing the outcomes of our sprint review meeting",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "Meeting-outcome update, not a multi-audience fan-out"
+    },
+    {
+      "q": "Map who the stakeholders are for this migration, their influence and interest, and how to engage them",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-stakeholder-summary",
+      "notes": "Mapping stakeholders, not communicating to them"
+    },
+    {
+      "q": "Create a buyer persona for our enterprise healthcare segment",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-persona",
+      "notes": "A customer/buyer viewpoint, not stakeholder briefings"
+    },
+    {
+      "q": "Write the customer-facing release notes for the 4.2 launch",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-release-notes",
+      "notes": "Public release notes, not internal audience briefings"
+    },
+    {
+      "q": "Draft the agenda for next Tuesday's cross-team kickoff meeting",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me fix a flaky Playwright test that only fails in CI",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Write a SQL query listing the top 20 accounts by support ticket volume",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    }
+  ]
+}

@@ -74,9 +74,9 @@ Phase-specific PM activities organized by the Triple Diamond framework.
 - **Frontmatter**: `phase: deliver` (required), no `classification` field
 - **Phases**: discover, define, develop, deliver, measure, iterate
 
-### Foundation Skills (9)
+### Foundation Skills (10)
 
-Cross-cutting capabilities that apply across multiple phases (persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update, prioritized action plan).
+Cross-cutting capabilities that apply across multiple phases (persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update, stakeholder briefings, prioritized action plan).
 
 - **Directory**: `foundation-{skill-name}` (e.g., `foundation-persona`)
 - **Frontmatter**: `classification: foundation` (required), no `phase` field

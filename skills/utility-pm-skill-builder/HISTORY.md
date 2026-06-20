@@ -2,8 +2,13 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.1.1 | 2026-06-20 | v2.28.0 | - | patch | Doc-currency: added `foundation-stakeholder-briefings` to the Current Library Reference foundation table (foundation 9 to 10) so gap analysis sees the full v2.28.0 inventory. No flow change. |
 | 1.1.0 | 2026-06-15 | - | C-1..C-4 | minor | New skills ship eval-ready: added a Step 4.5 "Eval Readiness" (neighbors + reciprocal boundary pointers + output-eval family rubric), scaffolded `evals/trigger-fixtures.json` (C-1) and `evals/output-scenarios/{id}.md` (C-4) into the packet/staging/promotion, a Step 7 collision probe (C-2), and the eval contract in the Output Contract + Quality Checklist. Refreshed the stale "When NOT to Use" pointers (pm-skill-iterate/validate now exist). |
 | 1.0.0 | 2026-03-22 | - | - | baseline | Prior published version: guided skill creation (gap analysis, Why Gate, classification, staged packet, promotion). |
+
+## 1.1.1 (2026-06-20)
+
+Doc-currency patch for the v2.28.0 release (new foundation skill `foundation-stakeholder-briefings`): added its row to the "Current Library Reference" foundation table and bumped the count 9 to 10, so the builder's gap analysis sees the full inventory. No change to the create-a-skill flow.
 
 ## 1.1.0 (2026-06-15)
 
