@@ -1,6 +1,6 @@
 # v2.28.0 Release Plan: `stakeholder-briefings` (new foundation skill, additive)
 
-**Status:** PROPOSED (2026-06-19). Theme committed (one new skill); scope rows, the sample manifest, and the F-55 ID are proposed, not locked. Effort brief + GitHub issue are the next execution-time step (not filed yet).
+**Status:** SHIPPED 2026-06-20. Annotated tag `v2.28.0` (tag object `e350c5b`) at `4fb0d703`; GitHub Release Latest (rich body + ZIP/sha256/manifest assets); tag CI green (Release + Validate Plugin Packaging); Validation + CodeQL + Pages green on the tagged SHA; `agent-plugins` re-pinned to v2.28.0 / `4fb0d703` (registry metadata 1.28.0). Two Codex adversarial reviews (plan/spec + implementation) resolved before tag. Cut via the 6-gate runbook embodied inline. Post-ship follow-up: file the F-55 effort brief + GitHub issue.
 **Owner:** Maintainers
 **Type:** **MINOR** (additive: one new foundation skill; no behavior change to existing skills, none removed or renamed). Catalog 66 -> 67; foundation 9 -> 10.
 **Theme:** Ship one new foundation skill, `foundation-stakeholder-briefings`, that takes any source artifact (spec, discovery, research, GTM, metrics, retro) and fans it out into a canonical **master document plus a set of audience-tailored briefings** (one per stakeholder lens), each a provable projection of the master.
@@ -275,9 +275,15 @@ Full design rationale: [`spec_stakeholder-briefings.md`](spec_stakeholder-briefi
 
 ---
 
-## Gate ledger (placeholder)
+## Gate ledger
 
-- [ ] G0 / G1 / G2 / G2.5 / G3 / G4 - filled at cut time (6-gate runbook embodied inline, same as v2.27.x).
+- [x] **G0** pre-tag bundle green (21 PASS); generated surfaces (skill-manifest, AGENTS) --check clean; site builds (405 pages); route-parity + rendered-links + resource-index clean.
+- [x] **G1** Codex adversarial review #1 (plan/spec) - 7 findings resolved.
+- [x] **G2** full release surface: CHANGELOG [2.28.0] + site mirror + Release_v2.28.0.md + releases index + README (badges, cards, At-a-Glance, What's New, version row, catalog row) + 3 manifests + both CONTEXT markers + README_SAMPLES + sample manifest + grep count sweep + reshuffle renumber sweep.
+- [x] **G2.5** committed + pushed main `4fb0d703`; CI green both OS (Validation + Validate Plugin Packaging + CodeQL + Pages) before tagging.
+- [x] **G1 (impl)** Codex adversarial review #2 (implementation) - 4 findings resolved (honest invariant scope, sample master enrichment, checker CRLF/zero-artifact hardening, CONTEXT count).
+- [x] **G3** annotated tag `v2.28.0` (`e350c5b`) at `4fb0d703`, pushed; tag CI green.
+- [x] **G4** GitHub Release Latest (rich notes); `agent-plugins` re-pinned (metadata 1.28.0); this plan flipped SHIPPED; CONTEXT + latest-shipped pointers updated.
 
 ## Notes
 
