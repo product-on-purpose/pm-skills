@@ -1,78 +1,161 @@
-# v2.29.0 Release Plan: Remember (project memory + memory-aware cohort)
+# v2.29.0 Release Plan: the pre-build risk gate (foundation-build-risk-review)
 
-**Status:** PROPOSED (promoted from STUB 2026-06-17; renumbered v2.28.0 -> v2.29.0 on 2026-06-19 when v2.28.0 was reassigned to the `foundation-stakeholder-briefings` skill). Theme committed; scope rows are proposed, not locked; effort briefs + GitHub issues are the next execution-time step (not filed yet).
+**Status:** PROPOSED - conditional GO. The skill's go/no-go is gated on the trigger-fixture disambiguation pass (Phase 1 below; the spec). Everything past the gate (W1-W4, the sample manifest, the surface sweep) is the **if-GO blueprint**. **Supersedes the prior v2.29.0 "Remember" (project-memory) plan, deferred to [`../_unreleased/project-memory/`](../_unreleased/project-memory/plan_project-memory.md) on 2026-06-22.**
 **Owner:** Maintainers
-**Type:** MINOR (additive: a new project-state file + memory contracts on an existing skill cohort; no skill removed or renamed). Catalog stays at its post-v2.28.0 count (67) unless a new skill is added (none planned).
-**Theme:** **Remember.** Give the plugin durable project memory and make a first cohort of skills read and write it, so the catalog compounds across a session instead of starting cold each time.
-**Created:** 2026-06-15 (stub) | **Promoted:** 2026-06-17 | **Renumbered:** 2026-06-19 (was v2.28.0)
-**Previous:** v2.28.0 (`foundation-stakeholder-briefings`, the 1-to-N audience fan-out skill) - see [`../v2.28.0/plan_v2.28.0.md`](../v2.28.0/plan_v2.28.0.md).
+**Type:** MINOR (additive: one new foundation skill; nothing removed or renamed). Catalog 67 -> 68 on ship; foundation 10 -> 11.
+**Theme:** **The pre-build risk gate.** Given an idea, a feature request, or a scope change, name the single assumption most likely to make it fail and return a verdict that routes into the rest of the library.
+**Created:** 2026-06-22 | **Previous:** v2.28.0 (`foundation-stakeholder-briefings`) - see [`../v2.28.0/plan_v2.28.0.md`](../v2.28.0/plan_v2.28.0.md).
+**Companion docs:** [`spec_build-risk-review.md`](spec_build-risk-review.md) (the skill contract) + [`implementation-plan_build-risk-review.md`](implementation-plan_build-risk-review.md) (task-ordered build) | **Effort brief:** [F-56](../../efforts/F-56-build-risk-review.md) | **Issue:** #149 (external request)
 
 ---
 
-## Renumber note (2026-06-19)
+## Why this, why now
 
-This plan was authored as v2.28.0 and renumbered to v2.29.0 when the maintainer assigned v2.28.0 to the new `foundation-stakeholder-briefings` skill (an additive content skill that was ready to plan first). The memory train is the more entangled change (the plugin's deeper hook/cohort coupling), so de-coupling it into its own later release keeps a stumble in either release from blocking the other. The v2.29.0 number is tentative; confirm sequencing against the content-train order in `_LOCAL/pm-skill-comparison/roadmap/02-roadmap.md` when this is slotted.
+External pull: issue #149 (a contributor's `before-you-build` request with a working Apache-2.0 reference) names a real gap - "should we build this, honor this feature request, or expand this scope" is a high-frequency PM decision and no skill returns a fast verdict on it. The memory train was deferred to `_unreleased/project-memory/` on 2026-06-22; this smaller, externally-pulled gate takes the v2.29.0 slot. Honest counter-weight: the roadmap's thesis is "the next frontier is NOT more skills" - this clears the higher bar because it is high-frequency, externally pulled, and positioned as a router/triage gate (an operating-layer move), not another standalone artifact.
 
-## Why this theme, now
+## Conditional GO + the gate (D1)
 
-The competitive roadmap (`_LOCAL/pm-skill-comparison/roadmap/02-roadmap.md`, Pillar B) and the operating roadmap (`docs/internal/roadmap.md`, §4.4) both put memory next, and the prioritization scores it highest (Bar 3 / Moat 3 / Effort 2 = 8, the top of the table). The reason it outranks additive features: it is a **winner-take-the-dimension** race. The rival pairing (PM Brain + the competitor `phuryn/pm-skills`) is positional only today - one README mention, zero code coupling (verified 2026-06-12). A pm-skills cohort with real read/write contracts is structural integration that a README edit cannot match, and the wargame flags this as "the one race where second place loses the dimension." Shipping the keystone (B1) before any competitor couples memory into their skills is the whole point of sequencing it here.
+The reversible work (author the trigger fixtures + draft the skill on a branch) proceeds; the **irreversible** step (promotion to `skills/`, the catalog count, the AGENTS.md regen) is gated on the fixture disambiguation pass against the five neighbors (`foundation-lean-canvas`, `iterate-pivot-decision`, `define-hypothesis`, `define-problem-statement`, `define-prioritization-framework`). If the boundary will not draw cleanly, the skill does NOT ship; the unique structure (demand hierarchy + verdict rubric) folds into `foundation-lean-canvas` / `iterate-pivot-decision` instead, and #149 closes with that disposition. Go/no-go confidence on record: ~70/30. Full analysis: [F-56 brief](../../efforts/F-56-build-risk-review.md), Validation.
 
-The v2.27.0 informed-control finding reinforces the bet rather than competing with it (see Decision D1): the dimension that measurably carries artifact value is **structure**, and memory contracts are structure (typed state, provenance tags, section-shaped reads/writes), not more prose.
+## Scope - work items (all conditional on the Phase-1 gate)
 
-## Committed scope (proposed)
-
-| ID | Initiative | One-line intent | Size | Depends on |
+| ID | Item | Type | Classification / Category | Gate |
 |---|---|---|---|---|
-| **B1 (F-48)** | Project-memory keystone | A gitignored `.claude/pm-skills.local.md` holding current Triple Diamond phase, active initiative, and artifacts produced; the shipped `SessionStart` router (F-44) reads it; skills append to it. No MCP, no DB. | M | none (F-44 shipped v2.25.0) |
-| **B2 (F-54, provisional)** | Memory-aware skill cohort | A first cohort (`deliver-prd`, `foundation-okr-writer`, `iterate-retrospective`, the `foundation-meeting-*` family) declares read/write contracts against B1 state, with provenance tags (observation / interpretation / hypothesis / decision). This is the "real coupling" vs positional pairing. | M | B1 |
-| E1/E2 (opt) | Trust posture docs (ride-along) | `SECURITY.md` + a provenance/release-integrity statement; small, the roadmap pairs them with this train. Include only if they do not slow the memory work. | S | none |
+| **W1** | `foundation-build-risk-review` (incl. `evals/trigger-fixtures.json`) | NEW SKILL | foundation / `problem-framing` (D3 open: vs `validation`) | fixtures FIRST = the go/no-go (Phase 1) |
+| **W2** | Sample library (target 6 = 2 per thread; floor 3) + `README_SAMPLES` + the tracked sample manifest | SAMPLES | - | after W1 `TEMPLATE.md` |
+| **W3** | Surface + count sweep (67 -> 68, foundation 10 -> 11) | RELEASE HYGIENE | - | at G2 (see Release surfaces) |
+| **W4** | Reciprocal cross-link in `iterate-pivot-decision` + (optional, D4) `workflow-feature-kickoff` front-gate | INTEGRATION | - | with W1 |
 
-**ID note:** F-48 is reserved for B1 in the operating roadmap. B2 has no reserved ID; **F-54 is provisional** (F-45..F-53 are taken by F-45 output style, F-46 auto-critic, F-47 userConfig, F-48 project state, F-49 dynamic context, F-50 context fork, F-51 MCP, F-52 PM coach, F-53 monitors; **F-55 is now taken by `foundation-stakeholder-briefings` in v2.28.0**). Confirm F-54 is free against the GitHub issue list before filing.
+## What W1 ships (the skill files)
 
-**Design detail:** [`spec_project-memory.md`](spec_project-memory.md) (the `.local.md` schema, the contract mechanism, provenance tags, the per-skill cohort read/write map, and the open questions).
+- `skills/foundation-build-risk-review/SKILL.md` (frontmatter + the contract + the two modes + verdict-as-router + When-NOT-to-Use + source attribution).
+- `references/TEMPLATE.md` (the Build Risk Review scaffold: decision header, `R#` risk blocks, demand level, evidence ledger, validation plan, routing, Sources). REQUIRED by `lint-skills-frontmatter`.
+- `references/EXAMPLE.md` (one fully worked feature-mode case). REQUIRED.
+- `references/risk-taxonomy.md` (risk types in the library's vocabulary + demand hierarchy L0-L4 + evidence ladder).
+- `references/routing-map.md` (verdict -> next-skill + per-risk routing).
+- `evals/trigger-fixtures.json` (committed; authored BEFORE the collision gate; near-miss negatives vs the five neighbors).
+- No `HISTORY.md` at launch (created on first iteration per `docs/internal/skill-versioning.md`).
+- No `commands/` wrapper (per the v2.22.0 wrapper-deletion decision); a `/build-risk-review` command only if the command surface is revived.
 
-## Open Questions / Decisions
+## Sample manifest (W2)
+
+Follows `library/skill-output-samples/SAMPLE_CREATION.md` (samples mirror `references/TEMPLATE.md` order, so authored AFTER W1's TEMPLATE.md) and `THREAD_PROFILES.md` (the storevine / brainshelf / workbench thread voices). `check-skill-sample-coverage` requires only 1 per thread (floor 3); target 6 (2 per thread) to exercise both modes + a verdict spread. **Specific source scenarios are authored at build time (post-gate); this is the coverage contract, not the final copy.**
+
+| Thread (voice) | Sample A | Sample B |
+|---|---|---|
+| Storevine (B2B ecom, organized) | Feature-request triage ("should we build SSO now?") - feature mode, demand-hierarchy call, routes to prioritization/hypothesis | New-idea triage ("a B2B analytics add-on") - pre-build mode, "Validate first" |
+| Brainshelf (consumer PKM, casual) | Scope-expansion ("turn the utility into a platform?") - "Pivot first" / "Don't build yet", routes to lean-canvas | Feature-change ("add social sharing?") - "Build small", L3/L4 demand |
+| Workbench (enterprise, formal) | Competitor-copy request ("competitor has required-sections, add it?") - feature mode, "Defer/Cut" | Pre-build internal-tool idea - graded evidence ledger emphasis |
+
+**Coverage contract across the 6:** both modes present; all four verdicts (Build small / Validate first / Pivot first / Don't build yet) appear at least once; the demand hierarchy L0-L4 exercised; each sample shows `R#` risk IDs, a graded evidence ledger, and an explicit routing to a named next skill; `[fictional]` markers on every invented metric per `SAMPLE_CREATION.md`.
+
+## Count impact (audit before tagging)
+
+- Before: 30 phase + 10 foundation + 12 utility + 15 tool = **67**.
+- After: 30 phase + **11 foundation** + 12 utility + 15 tool = **68**.
+- Derived: "Cross-Cutting Capabilities (foundation + utility)" 22 -> 23 (README At-a-Glance mermaid).
+- Samples: library total + 6; sampled-skill count + 1 (`samples/index.md` carries explicit, non-derived sample + sampled-skill numbers).
+- `check-count-consistency` derives the total from the `skills/` directory + the four sub-counts from frontmatter, but it intentionally excludes internal docs, library samples, changelog/release pages, and agent-context - so G2 includes an explicit **grep count-sweep** (surface I), not just the enumerated list.
+
+## Release surfaces (G2)
+
+A new skill touches a known surface set (adapted from the v2.28.0 ship-surface scan). Grouped by auto-derived (regenerate / let the gate police) vs manual.
+
+### A. The skill + samples (committed source)
+- `skills/foundation-build-risk-review/` (W1 files).
+- `library/skill-output-samples/foundation-build-risk-review/` (W2 sample files).
+- `library/skill-output-samples/README_SAMPLES.md` - add the Browse-by-Skill row + Browse-by-Company entries; update the library total + sampled-skill count.
+- `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json` - add the new sample entries (the tracked release-coverage manifest, per `SAMPLE_CREATION.md` §6).
+
+### B. Regenerated (run the generator; CI checks with --check)
+- `node scripts/gen-skill-manifest.mjs` -> root `skill-manifest.json`.
+- `node scripts/gen-skill-manifest.mjs --agents` -> the `skills-catalog` block in `AGENTS.md` (do NOT hand-edit).
+- Build the site (`cd site && npm run build`) so the gitignored per-skill + per-sample Astro pages generate via `gen-site.mjs`.
+- `node scripts/check-route-parity.mjs --update` -> refresh `scripts/route-manifest.txt`.
+- `node scripts/gen-resource-index.mjs` -> rewrite `docs/RESOURCES.md` (AFTER the route-manifest refresh).
+
+### C. Manifests (version + count prose; manual)
+- `.claude-plugin/plugin.json` - `version` 2.29.0 + `description` count prose (67 -> 68, foundation 10 -> 11) + a release sentence.
+- `.claude-plugin/marketplace.json` - `version` + count prose + release sentence.
+- `.codex-plugin/plugin.json` - `version` + `longDescription` count prose.
+
+### D. Root docs (manual)
+- `README.md` - hero count, skills badge (`skills-67` -> `68`), foundation badge (`Foundation-10` -> `11`), the features bullet, the At-a-Glance mermaid (Foundation 10 -> 11, Cross-Cutting 22 -> 23), the catalog Foundation header + a NEW table row, the At-a-Glance facts row + tree comments, the version badge + Current-version row, a new "What's New" `<details>` block, the TOC anchor.
+- `CHANGELOG.md` - new `## [2.29.0]` with `### Added` (the skill + sample library).
+- `CLAUDE.md` - the project-context count line (68 / 11 foundation).
+- `QUICKSTART.md` - the count lines (68 / 11 foundation).
+- `AGENTS.md` - regenerated (item B), not hand-edited.
+
+### E. Context files (manual; currency-gated)
+- `_agent-context/claude/CONTEXT.md` - status line -> v2.29.0 + release summary; the skills-total tree comment -> 68.
+- `_agent-context/codex/CONTEXT.md` - currency marker -> v2.29.0.
+
+### F. Astro site (tracked, hand-authored)
+- `site/src/content/docs/index.mdx` - Foundation (10) -> (11) + add the skill to the inline foundation list.
+- `site/src/content/docs/skills/index.md` - classification table Foundation cell -> 11.
+- `site/src/content/docs/samples/index.md` - bump the skill count (67 -> 68), the sampled-skill count, and the sample total (+6).
+- `site/src/content/docs/getting-started/index.md` + `getting-started/quickstart.md` - count lines (68 / 11).
+- `site/src/content/docs/reference/ecosystem.md` - the breakdown line (68 / 11).
+- `site/src/content/docs/reference/pm-skill-anatomy.md` + `reference/project-structure.md` - verify/update any current-count claim.
+- `site/src/content/docs/changelog.md` - curated one-paragraph `[2.29.0]` mirror.
+- `site/src/content/docs/releases/Release_v2.29.0.md` (NEW, with `slug:` frontmatter) + a row in `releases/index.md`.
+
+### G. Sample-approach + doc-currency check
+- `library/skill-output-samples/SAMPLE_CREATION.md` + `THREAD_PROFILES.md` - these are stable process docs (followed, not edited per skill); verify currency (the v2.28.0 release found a stale `scripts/generate-showcase.py` reference in THREAD_PROFILES.md - confirm it was fixed). Note if the new "decision/verdict" artifact type needs any addition to SAMPLE_CREATION.md.
+- `docs/internal/efforts/F-34-thread-profiles-reference.md` - no change expected; cross-check.
+
+### H. Release-plan housekeeping
+- `docs/internal/release-plans/v2.29.0/` (this plan + spec + implementation-plan).
+- `docs/internal/release-plans/README.md` - add the v2.29.0 index row (and reconcile the v2.28.0/v2.29.0 reshuffle rows if present).
+
+### I. Grep count-sweep (G2; the enumerated list is necessary, not sufficient)
+Run an explicit sweep and update every non-historical hit, then re-grep to confirm zero:
+- `grep -rn "\b67\b" --include=*.md --include=*.mdx --include=*.json .` and the same for `10 foundation` / `Foundation.*10` / `(10)` foundation forms.
+- Triage each: live count -> 68 / 11; historical/changelog/release-note mention -> leave.
+- Explicitly check surfaces the validator misses: `site/.../reference/platform*` / `guide*` / `concept*` / `runtime-component*` / `skill-versioning`; `_agent-context`; `README_SAMPLES.md` totals.
+
+### J. Memory-deferral sweep (already mostly done)
+The reassignment leaves stale "v2.29.0 = memory" pointers. Done: the parked plan banner + MEMORY.md. Confirm at G2: `grep -rni "v2.29.0" docs/internal _agent-context` finds no live reference that still calls v2.29.0 the memory/"Remember" train (the `_unreleased/project-memory/` plan's internal refs are historical, banner-noted).
+
+## Execution phases (gate-first; task detail in the implementation-plan)
+
+| Phase | What | Status |
+|---|---|---|
+| 0 | Spec design forks locked (name/category D3); ratify D2 | PENDING |
+| **1** | **`evals/trigger-fixtures.json` authored + the disambiguation run = the GO/NO-GO gate** (`check-trigger-fixtures` + `check-new-skill-collision` green; the router eval separates from the five neighbors) | PENDING - the conditional-GO gate |
+| 2 | `SKILL.md` + `references/{TEMPLATE,EXAMPLE,risk-taxonomy,routing-map}.md` | PENDING |
+| 3 | M-33 output-eval rubric for the Build Risk Review artifact | PENDING |
+| 4 | Sample library (W2, after TEMPLATE.md) + README_SAMPLES + manifest; sample-invariant + `check-skill-sample-coverage` green | PENDING |
+| 5 | W4: reciprocal cross-link in `iterate-pivot-decision`; optional `workflow-feature-kickoff` front-gate (D4) | PENDING |
+| 6 | Regen: skill-manifest, AGENTS block, site build, route-parity --update, resource-index (order matters) | PENDING |
+| 7 | Count + surface sweep (Release surfaces A-J incl. the grep sweep I) | PENDING |
+| 8 | G1 adversarial review (Codex) of the skill + samples; resolve | PENDING |
+| 9 | Pre-tag validator bundle (`--strict`) + clean site build; cross-client smoke | PENDING |
+| 10 | Tag v2.29.0 + GitHub Release + repin `agent-plugins`; flip plan SHIPPED | PENDING |
+
+**Regen order:** add skill + samples -> regen skill-manifest + AGENTS -> build site -> `check-route-parity --update` -> `gen-resource-index`.
+
+## Exit criteria (definition of done)
+
+1. Phase-1 gate passed: fixtures separate the skill from the five neighbors; `check-new-skill-collision` green (or, on NO-GO, #149 closed with the fold-in disposition and this plan withdrawn).
+2. Skill ships with SKILL.md + the 4 references + `evals/trigger-fixtures.json`; `lint-skills-frontmatter` green; description 20-100 words.
+3. The contract holds in SKILL.md (one primary `R1`, demand level, graded evidence ledger, one of the four verdicts, a no-code next step, routing) and is structure-forward (the D1 no-go condition).
+4. 6 samples (floor 3) pass the sample invariant + `check-skill-sample-coverage`; cover both modes + the four verdicts; an M-33 rubric is recorded.
+5. Counts updated to 68 / foundation 11 across all surfaces (A-J); the grep sweep returns zero live stale hits.
+6. Reciprocal cross-link added to `iterate-pivot-decision`.
+7. Pre-tag bundle `--strict` green both shells; site builds clean; route-parity + rendered-links green.
+8. G1 adversarial review applied; no unresolved Blocker/Major.
+9. v2.29.0 tagged, GitHub Release Latest, marketplace install pulls the new version; this plan flipped SHIPPED; CONTEXT markers updated.
+
+## Decisions
 
 | # | Decision | Status |
 |---|---|---|
-| D1 | Skill design invests in structure (templates + triggers + boundaries) over added prose rigor; re-test on a weak model before generalizing | RECOMMENDED (maintainer to ratify) |
-| D2 | B1 state file format + whether skills write it directly or only propose writes | OPEN (see spec) |
-| D3 | Cohort membership for B2 (the first 4-7 skills) | PROPOSED (see scope) |
-
-### D1 - Structural value: where future skill investment goes
-
-**Status:** RECOMMENDED, maintainer to ratify. The cheap precondition for B2 and every later content cycle.
-
-**Context / value.** The v2.27.0 informed-control eval (`docs/internal/release-plans/v2.27.0/records/output-eval-informed-20260615.md`) ran three arms - skill (instructions + template) vs informed (template only) vs freehand (scenario only). Two results: using a pm-skill beats freehand by **+1.2 to +2.2** where the scenario discriminates (the real, defensible quality claim), but the **template-only arm tied or beat the full skill in all four cases**. So for these PM artifact types under a strong model, the measured value is the skill's **structure (its section template), not the prose instructions' added rigor.** Caveats that bound it: the template *is* the skill's distilled methodology (a legitimate home for the value); rubric circularity (the rubric is transcribed from each skill's own checklist, so it rewards template-conformance); the eval ignores triggering, boundaries, edge-case robustness, and coaching (all real skill value); and the result is conditioned on a capable generation model.
-
-**Solutions + recommendation.**
-- **(a) Structure-first (recommended).** Bias future skill effort toward templates, triggers, and boundaries (When NOT to Use, output contracts) and keep prose lean. This is cheap to adopt and it is exactly what B2's memory contracts already are - typed, section-shaped state - so the memory train becomes the first expression of the principle, not a separate bet. (The v2.28.0 `foundation-stakeholder-briefings` skill is the second: its value lives in the master-projection invariant and the lens library, both structure.)
-- **(b) Re-test on a weak generation model first.** Run the output-eval roster against a weaker model (e.g. Haiku) where prose instructions may carry more weight, before generalizing (a). Cost-gated Workflow run; cheap.
-- **(c) Do nothing / keep prose-heavy authoring.** Rejected: the eval shows it does not move the measured needle for these artifact types.
-
-**Final decision.** Adopt (a) as the standing design principle from v2.28.0 onward, and schedule (b) as a one-shot calibration before the next *content* (C-family) cycle, not before the memory cycle (memory is structural by construction, so it does not depend on the weak-model result). Record (a) in the skill-builder guidance when B2 lands. *Maintainer ratification requested on review.*
-
-## Carried candidates (ride-alongs / backlog; not the theme)
-
-| Candidate | Disposition |
-|---|---|
-| utility-pm-critic fixture relabel (sharpened) | **Fits this cycle:** the taxonomy question (artifact audit-mode vs the general critic) intersects B2's contract work, and the burned key can be replaced for the live B-3 re-run. Author `utility-pm-critic` trigger fixtures, decide the boundary, relabel, re-run. |
-| 3 VOID instruments residual (`measure-experiment-design` sample-size; `deliver-release-notes` genuine low-value) | Backlog; a clean G>=3 look when convenient. Not blocking. |
-| B-5 + B-7 body-change reminders | Backlog; both need PR-diff context. |
-| Router-eval drift-threshold tuning | Backlog; tune after a few more baseline runs (quantization on ~4-query validation sets). |
-| Promote B-7 asset gate advisory -> enforcing | When the output-eval roster is pinned. |
-| M-32 derived-surfaces Phase 2 (landing cards, README numbers, Skill Finder, schema) | Backlog; larger; sequence after the memory cohort. |
-| WS-A4 skills-ref CI lane (#97) | Backlog (codex lane). |
-| M-25 community-marketplace resubmit | Pending-human; not a cycle gate (validate-clean record refreshed in v2.27.1). |
-
-## Sequencing
-
-1. **Ratify D1** (one decision; cheap).
-2. **B1 keystone** - the `.local.md` schema + SessionStart router read + a write convention. Ship behind the existing opt-in `.local.md` posture (consistent with F-43/F-44).
-3. **B2 cohort** - add read/write contracts + provenance tags to the first cohort; each skill gains a HISTORY row + (per D1) lean structural edits, no prose bloat.
-4. **utility-pm-critic fixtures + relabel + live B-3 re-run** (needs a key) - rides this cycle because of the taxonomy overlap with the cohort.
-5. **E1/E2 trust docs** if capacity allows (ride-along).
-6. Cut via the 6-gate runbook embodied inline (same as v2.27.x / v2.28.0).
+| D1 | Build it at all (go/no-go) | CONDITIONAL GO (~70/30); gated on Phase 1; structure-forward or no-go |
+| D2 | Scope = two modes (pre-build + feature-change); launched -> `iterate-pivot-decision` | DECIDED (spec) |
+| D3 | Name + category | OPEN: `foundation-build-risk-review` vs `foundation-build-decision`; `problem-framing` vs `validation` |
+| D4 | Ship the `workflow-feature-kickoff` front-gate this cycle, or defer | OPEN (default defer) |
+| D5 | Sample richness = 6 (2 per thread), floor 3 | PROPOSED (vs the v2.28.0 6-per-thread; this artifact is narrower, so lighter) |
 
 ## Gate ledger (placeholder)
 
@@ -80,5 +163,6 @@ The v2.27.0 informed-control finding reinforces the bet rather than competing wi
 
 ## Notes
 
-- This is a DRAFT for maintainer review. Theme is the recommendation; scope rows, the B2 cohort membership, and the F-54 ID are all open to change on review.
-- Effort briefs (`docs/internal/efforts/F-48-*.md`, `F-54-*.md`) + GitHub issues are the next execution-time step, deferred to keep this a single review surface (per the no-effort-doc-bloat convention).
+- DRAFT for maintainer review. D1 is a conditional GO; W1-W4 + the surface sweep are the if-GO blueprint.
+- This plan took the v2.29.0 number from the deferred memory train; the number is tentative and renumbers if sequencing changes.
+- Source skill is Apache-2.0 (`bin1874/before-you-build-skill`); the adaptation strips the external `beforeyoubuild.fyi` API call and re-voices PM-neutral, with attribution.
