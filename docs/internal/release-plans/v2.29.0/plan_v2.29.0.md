@@ -169,7 +169,7 @@ The reassignment leaves stale "v2.29.0 = memory" pointers. Done: the parked plan
 | D5 | Sample richness = 6 (2 per thread), floor 3 | PROPOSED (vs the v2.28.0 6-per-thread; this artifact is narrower, so lighter) |
 | D6 | M-34 joins v2.29.0: the key-free `pm-skill-router` engine (sub-agent default, dual-engine) | DECIDED (realizes the pre-documented `trigger-evals-explained.md` engine; removes the key for in-session gate runs; the F-56 probe already proved it) |
 | D7 | Router model = Haiku default (gate tier); Opus avoided (lenient) | DECIDED (spec D-MODEL) |
-| D8 | Candidate ride-along: a sample-sync CI gate (count `library/` samples; reconcile vs README_SAMPLES + `samples/index.md` + the v2.6.1 manifest) | OPEN - flagged because nothing currently enforces those manual sample counts; decide whether it rides v2.29.0 or is its own effort |
+| D8 | Sample-surface drift (RESOLVED, rides v2.29.0) - **derive, don't gate** (the M-32 pattern). (1) **Auto-derive the showcase** skill set + labels in `gen-site.mjs` from the sample files (kills the hardcoded `SHOWCASE_PHASE_SKILLS` rot, which is ~15 skills stale - foundation shows only persona); (2) a **`gen-sample-index` generator + `--check` gate** for the README_SAMPLES + `samples/index.md` counts; (3) **retire** the unread `v2.6.1` manifest. Rationale: the showcase set + the counts are derivable from disk, so derive them; a gate is only for what you cannot derive. Auto-derive also deletes the would-be "showcase coverage" gate. | DECIDED |
 
 ## Gate ledger (placeholder)
 

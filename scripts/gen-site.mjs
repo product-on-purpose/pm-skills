@@ -622,15 +622,22 @@ const SHOWCASE_PHASES = [
   ['foundation', 'Foundation'], ['discover', 'Discover'], ['define', 'Define'],
   ['develop', 'Develop'], ['deliver', 'Deliver'], ['measure', 'Measure'], ['iterate', 'Iterate'],
 ];
-const SHOWCASE_PHASE_SKILLS = {
-  foundation: ['foundation-persona'],
-  discover: ['discover-competitive-analysis', 'discover-interview-synthesis', 'discover-stakeholder-summary'],
-  define: ['define-problem-statement', 'define-hypothesis', 'define-opportunity-tree', 'define-jtbd-canvas'],
-  develop: ['develop-solution-brief', 'develop-spike-summary', 'develop-adr', 'develop-design-rationale'],
-  deliver: ['deliver-prd', 'deliver-user-stories', 'deliver-edge-cases', 'deliver-launch-checklist', 'deliver-release-notes'],
-  measure: ['measure-experiment-design', 'measure-instrumentation-spec', 'measure-dashboard-requirements', 'measure-experiment-results'],
-  iterate: ['iterate-retrospective', 'iterate-lessons-log', 'iterate-refinement-notes', 'iterate-pivot-decision'],
-};
+// Showcase skill set is DERIVED (the M-32 derive-don't-hand-sync rule): every skill with a
+// sample for a thread auto-appears, grouped by name prefix into the SHOWCASE_PHASES groups
+// (foundation + the six phases; utility-* / tool-* are excluded from the product-lifecycle
+// journey). A skill can no longer rot out of the showcase by being forgotten in a hand-list.
+function deriveShowcasePhaseSkills() {
+  const showcaseKeys = new Set(SHOWCASE_PHASES.map(([k]) => k));
+  const groups = {};
+  for (const entry of readdirSync(SAMPLES_DIR, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const prefix = entry.name.split('-')[0];
+    if (!showcaseKeys.has(prefix)) continue; // skip utility-* / tool-* (not part of the journey)
+    (groups[prefix] ||= []).push(entry.name);
+  }
+  for (const k of Object.keys(groups)) groups[k].sort();
+  return groups;
+}
 const SHOWCASE_SKILL_DISPLAY = {
   'foundation-persona': 'Persona',
   'discover-competitive-analysis': 'Competitive Analysis', 'discover-interview-synthesis': 'Interview Synthesis', 'discover-stakeholder-summary': 'Stakeholder Summary',
@@ -639,7 +646,13 @@ const SHOWCASE_SKILL_DISPLAY = {
   'deliver-prd': 'PRD', 'deliver-user-stories': 'User Stories', 'deliver-edge-cases': 'Edge Cases', 'deliver-launch-checklist': 'Launch Checklist', 'deliver-release-notes': 'Release Notes',
   'measure-experiment-design': 'Experiment Design', 'measure-instrumentation-spec': 'Instrumentation Spec', 'measure-dashboard-requirements': 'Dashboard Requirements', 'measure-experiment-results': 'Experiment Results',
   'iterate-retrospective': 'Retrospective', 'iterate-lessons-log': 'Lessons Log', 'iterate-refinement-notes': 'Refinement Notes', 'iterate-pivot-decision': 'Pivot Decision',
+  'foundation-okr-writer': 'OKR Writer', 'measure-okr-grader': 'OKR Grader',
 };
+// SHOWCASE_SKILL_DISPLAY above is an OVERRIDE map (acronyms / special casing) ONLY; it no
+// longer controls which skills appear. A skill not listed derives its label from its name.
+function deriveShowcaseLabel(skill) {
+  return skill.split('-').slice(1).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
 function findAllSamplesForSkill(skill, thread) {
   const dir = join(SAMPLES_DIR, skill);
   if (!existsSync(dir)) return [];
@@ -647,6 +660,7 @@ function findAllSamplesForSkill(skill, thread) {
 }
 function generateShowcaseThread(threadKey) {
   const thread = SHOWCASE_THREADS[threadKey];
+  const phaseSkills = deriveShowcasePhaseSkills();
   const out = [];
   out.push('---');
   out.push(`title: "${thread.display}: Follow the Product"`);
@@ -665,7 +679,7 @@ function generateShowcaseThread(threadKey) {
   out.push('');
   let sampleCount = 0;
   for (const [phaseKey, phaseDisplay] of SHOWCASE_PHASES) {
-    const skills = SHOWCASE_PHASE_SKILLS[phaseKey] || [];
+    const skills = phaseSkills[phaseKey] || [];
     if (!skills.length) continue;
     let hasContent = false;
     const phaseLines = [`## Phase: ${phaseDisplay}`, ''];
@@ -675,7 +689,7 @@ function generateShowcaseThread(threadKey) {
         if (!parsed.output) continue;
         hasContent = true;
         sampleCount++;
-        const skillDisplay = SHOWCASE_SKILL_DISPLAY[skill] || skill;
+        const skillDisplay = SHOWCASE_SKILL_DISPLAY[skill] || deriveShowcaseLabel(skill);
         let variant = '';
         const fname = sampleFile.replace(/\.md$/, '');
         if (fname.includes('product-brief')) variant = ' (Product Brief)';
