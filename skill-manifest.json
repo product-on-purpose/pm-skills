@@ -7,7 +7,7 @@
     "foundation": 11,
     "utility": 12,
     "tool": 15,
-    "sub_agents": 5,
+    "sub_agents": 6,
     "commands": 11,
     "workflows": 12
   },
@@ -926,7 +926,7 @@
     {
       "name": "utility-pm-skill-builder",
       "description": "Guides contributors from a PM skill idea to a complete Skill Implementation Packet aligned with pm-skills conventions. Runs gap analysis, validates through a Why Gate, classifies by type and phase, generates draft files, and writes to a staging area for review before promotion.",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "group": "utility",
       "phase": null,
       "family": null,

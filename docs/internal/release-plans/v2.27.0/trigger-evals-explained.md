@@ -5,6 +5,8 @@ a plain-English version for anyone, and a technical version for engineers. The l
 section is updated as batches complete; the canonical run log is `records/trigger-eval-baseline.md`.
 Candidate to adapt for the public comparison docs later (it is the "provable quality" story).
 
+> **Engine update (2026-06-23, M-34):** the sub-agent engine this doc weighed ("a workflow of subagents - runs on the subscription, no API key") is now IMPLEMENTED. `check-new-skill-collision.mjs --emit-tasks` emits the probe tasks for the `pm-skill-router` sub-agent (Haiku default) to route key-free in a session; the Messages-API path stays for unattended CI. Spec: [`../v2.29.0/spec_sub-agent-router.md`](../v2.29.0/spec_sub-agent-router.md).
+
 ---
 
 ## CORRECTION AND CURRENT UNDERSTANDING (2026-06-13 PM) - read this first

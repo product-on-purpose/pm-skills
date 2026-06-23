@@ -17,6 +17,7 @@
 //
 // Usage:
 //   node scripts/check-new-skill-collision.mjs --skill=deliver-acceptance-criteria --dry-run
+//   node scripts/check-new-skill-collision.mjs --skill=<new-skill> --emit-tasks   # key-free: emit tasks for the pm-skill-router sub-agent
 //   node scripts/check-new-skill-collision.mjs --skill=<new-skill> --model=claude-haiku-4-5
 import { readFileSync, globSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -129,8 +130,18 @@ async function main() {
     process.exit(1);
   }
   const calls = (CALIBRATION.length + tasks.length) * runs;
-  console.log(`collision probe: ${newSkill} vs [${partners.join(', ') || 'no declared neighbors'}]`);
-  console.log(`plan: ${tasks.length} probe queries + ${CALIBRATION.length} calibration, ${calls} API calls (model ${model}, runs ${runs})`);
+  console.error(`collision probe: ${newSkill} vs [${partners.join(', ') || 'no declared neighbors'}]`);
+  console.error(`plan: ${tasks.length} probe queries + ${CALIBRATION.length} calibration, ${calls} API calls (model ${model}, runs ${runs})`);
+  if (flag('emit-tasks')) {
+    // M-34 key-free seam: emit the computed probe tasks as JSON for a Claude Code session
+    // (the pm-skill-router sub-agent) to route, instead of calling the Messages API here.
+    // Each task carries its assertion (kind / mustPick / mustNotPick / expectPick) so the
+    // session can apply collisionVerdict after routing 3 runs per query and taking the
+    // majority. This is the no-key default engine; the Messages-API path below stays for
+    // unattended CI. The pure task + verdict functions are shared by both engines.
+    process.stdout.write(JSON.stringify({ skill: newSkill, model, runs, partners, tasks }, null, 2) + '\n');
+    return;
+  }
   if (flag('dry-run')) { console.log('dry-run: no API calls.'); return; }
 
   const key = process.env.ANTHROPIC_API_KEY;
