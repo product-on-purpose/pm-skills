@@ -168,6 +168,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 <!-- count-exempt:start -->
 
 <details>
+<summary><strong>v2.29.0 - New skill: build risk review (pre-build gate) + a key-free router</strong></summary>
+
+**What changed.** Two additions grow the catalog from 67 to 68 (foundation 10 to 11) and the sub-agents from 5 to 6. `foundation-build-risk-review` is a fast pre-build / feature-scope risk gate: given an idea, a feature request, or a scope change, it names the single assumption most likely to make the work fail and returns a verdict (build small, validate first, pivot first, or don't build yet) with a no-code validation step, then routes to the next skill. `pm-skill-router` is a key-free router sub-agent that makes the new-skill collision gate and the trigger router-eval runnable on the subscription with no API key. Additive MINOR; no change to existing skills' behavior.
+
+**Get started.** [v2.29.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.29.0)
+
+</details>
+
+<details>
 <summary><strong>v2.28.0 - New skill: stakeholder briefings (1-to-N audience fan-out)</strong></summary>
 
 **What changed.** One new foundation skill, `foundation-stakeholder-briefings`, grows the catalog from 66 to 67 (foundation 9 to 10). It turns any source artifact (a spec, discovery synthesis, research, GTM plan, experiment results, or a retro) into one canonical master document plus a set of audience-tailored briefings - one per stakeholder lens (executive, board, engineering, UX, PMM, sales, CS, legal, data, or a custom audience). Every briefing is a traceable projection of the master (it cites the master claim IDs it draws on and carries exactly one ask), so the versions never quietly disagree. Additive MINOR; no change to existing skills.

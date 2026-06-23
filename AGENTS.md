@@ -451,6 +451,10 @@ v2.24.0 adds a fifth sub-agent:
 
 - `pm-workflow-orchestrator` - governed multi-skill runner that walks an ordered step list (a saved `foundation-prioritized-action-plan` or a user-named chain), pausing for human go/no-go by default and refusing to advance past a failed or empty step. The first repo agent to declare the `Skill` tool to delegate downstream skills (it adds no chain-permission entry and spawns no sub-agents). Ships EXPERIMENTAL on all clients.
 
+v2.29.0 adds a sixth sub-agent:
+
+- `pm-skill-router` - an internal tooling instrument (NOT a user-facing PM sub-agent): given the catalog and a single query, it returns the one skill that would fire, judging by `description:` match only. It is the key-free engine behind the new-skill collision gate and the trigger router-eval (dispatched on the subscription, Haiku-pinned by default). It has no dispatch skill and is not invoked directly by users.
+
 The canonical sub-agents catalog with full audience, trigger, lifetime, tool surface, and composition data lives at the [runtime components reference](https://product-on-purpose.github.io/pm-skills/reference/runtime-components/). Sub-agent definition files live at `agents/{name}.md`, the fixed path Claude Code's plugin runtime auto-discovers (renamed from `subagents/` in v2.17.0 W2).
 
 ### Cross-client compatibility
