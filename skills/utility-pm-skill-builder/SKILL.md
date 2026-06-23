@@ -296,7 +296,7 @@ Also scan the `skills/` directory for the latest authoritative count.
 | iterate | refinement-notes | coordination | Backlog refinement outcomes |
 | iterate | retrospective | reflection | Team retrospective |
 
-### Foundation Skills (10)
+### Foundation Skills (11)
 
 | Skill | Category | Description |
 |-------|----------|-------------|

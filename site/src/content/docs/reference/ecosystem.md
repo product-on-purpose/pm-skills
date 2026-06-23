@@ -27,7 +27,7 @@ This guide explains the PM-Skills ecosystem, which comprises two complementary p
 
 ## Overview
 
-The PM-Skills ecosystem provides a file-based PM skill library plus an MCP server companion in maintenance mode. The current `pm-skills` repo ships 67 skill directories (30 phase skills, 10 foundation skills, 12 utility skills, 15 tool skills), while `pm-skills-mcp` (latest v2.9.3 in the v2.9.x maintenance line) embeds the full 40-skill catalog frozen at the v2.9.2 build.
+The PM-Skills ecosystem provides a file-based PM skill library plus an MCP server companion in maintenance mode. The current `pm-skills` repo ships 68 skill directories (30 phase skills, 11 foundation skills, 12 utility skills, 15 tool skills), while `pm-skills-mcp` (latest v2.9.3 in the v2.9.x maintenance line) embeds the full 40-skill catalog frozen at the v2.9.2 build.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -38,7 +38,7 @@ The PM-Skills ecosystem provides a file-based PM skill library plus an MCP serve
 │   │     PM-Skills       │      │   PM-Skills MCP     │         │
 │   │   (Skill Library)   │      │   (MCP Server)      │         │
 │   │                     │      │                     │         │
-│   │  • 67 skill files   │ ───► │  • MCP tools        │         │
+│   │  • 68 skill files   │ ───► │  • MCP tools        │         │
 │   │  • Slash commands   │      │  • MCP resources    │         │
 │   │  • AGENTS.md        │      │  • MCP prompts      │         │
 │   │  • Workflows       │      │  • Workflows       │         │
@@ -74,12 +74,12 @@ PM-Skills is the **source skill library**.a collection of markdown files contain
 
 | Component | Count | Description |
 |-----------|-------|-------------|
-| Skills | 67 | Complete PM artifacts (30 phase skills + 10 foundation skills + 12 utility skills + 15 tool skills) |
+| Skills | 68 | Complete PM artifacts (30 phase skills + 11 foundation skills + 12 utility skills + 15 tool skills) |
 | Slash Commands | 11 | Command markdown files (the 10 `/workflow-*` orchestrator commands plus `/chain`) |
 | Workflows | 12 | Multi-skill workflows (Feature Kickoff, Lean Startup, Triple Diamond, foundation-sprint, design-sprint, foundation-to-design, and 6 more) |
 | Documentation | ~10 files | Guides, references, and framework explanations |
 
-All 67 skills are registered in `AGENTS.md` with corresponding slash commands in `commands/`. 12 workflows are in `_workflows/`.
+All 68 skills are registered in `AGENTS.md` with corresponding slash commands in `commands/`. 12 workflows are in `_workflows/`.
 
 #### Directory Structure
 
@@ -117,7 +117,7 @@ pm-skills/
 ### PM-Skills MCP (MCP Server)
 
 :::caution[Maintenance mode (effective 2026-05-04)]
-Active development on `pm-skills-mcp` is paused. The latest release in the v2.9.x maintenance line is v2.9.3 (security-patch follow-up to v2.9.2; cleared all open Dependabot advisories on 2026-05-05). The MCP-embedded catalog is frozen at the v2.9.2 build state (40 MCP-embedded PM entries + 11 workflow tools + 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the embedded catalog, and pm-skills v2.15.0's new Foundation Sprint and Design Sprint families plus tool-note-and-vote are NOT embedded. The pm-skills file-based catalog has since grown to 67 skills total. Security patches and critical bug fixes will continue. New skill parity with the upstream `pm-skills` library is on hold after the v2.9.2 build. See [MCP Integration](../guides/mcp-integration.md) for status details.
+Active development on `pm-skills-mcp` is paused. The latest release in the v2.9.x maintenance line is v2.9.3 (security-patch follow-up to v2.9.2; cleared all open Dependabot advisories on 2026-05-05). The MCP-embedded catalog is frozen at the v2.9.2 build state (40 MCP-embedded PM entries + 11 workflow tools + 8 utility tools = 59 tools); subsequent v2.9.x patches do not change the embedded catalog, and pm-skills v2.15.0's new Foundation Sprint and Design Sprint families plus tool-note-and-vote are NOT embedded. The pm-skills file-based catalog has since grown to 68 skills total. Security patches and critical bug fixes will continue. New skill parity with the upstream `pm-skills` library is on hold after the v2.9.2 build. See [MCP Integration](../guides/mcp-integration.md) for status details.
 :::
 
 **Repository:** [github.com/product-on-purpose/pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp)
