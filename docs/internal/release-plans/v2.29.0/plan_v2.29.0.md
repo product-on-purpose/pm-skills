@@ -1,8 +1,8 @@
-# v2.29.0 Release Plan: the pre-build risk gate (foundation-build-risk-review)
+# v2.29.0 Release Plan: the pre-build risk gate (F-56) + a key-free router probe (M-34)
 
 **Status:** PROPOSED - conditional GO. The skill's go/no-go is gated on the trigger-fixture disambiguation pass (Phase 1 below; the spec). Everything past the gate (W1-W4, the sample manifest, the surface sweep) is the **if-GO blueprint**. **Supersedes the prior v2.29.0 "Remember" (project-memory) plan, deferred to [`../_unreleased/project-memory/`](../_unreleased/project-memory/plan_project-memory.md) on 2026-06-22.**
 **Owner:** Maintainers
-**Type:** MINOR (additive: one new foundation skill; nothing removed or renamed). Catalog 67 -> 68 on ship; foundation 10 -> 11.
+**Type:** MINOR (additive: one new foundation skill + one new sub-agent + a key-free router engine; nothing removed or renamed). Catalog 67 -> 68 (foundation 10 -> 11); sub-agents 5 -> 6.
 **Theme:** **The pre-build risk gate.** Given an idea, a feature request, or a scope change, name the single assumption most likely to make it fail and return a verdict that routes into the rest of the library.
 **Created:** 2026-06-22 | **Previous:** v2.28.0 (`foundation-stakeholder-briefings`) - see [`../v2.28.0/plan_v2.28.0.md`](../v2.28.0/plan_v2.28.0.md).
 **Companion docs:** [`spec_build-risk-review.md`](spec_build-risk-review.md) (the skill contract) + [`implementation-plan_build-risk-review.md`](implementation-plan_build-risk-review.md) (task-ordered build) | **Effort brief:** [F-56](../../efforts/F-56-build-risk-review.md) | **Issue:** #149 (external request)
@@ -37,6 +37,16 @@ The reversible work (author the trigger fixtures + draft the skill on a branch) 
 - No `HISTORY.md` at launch (created on first iteration per `docs/internal/skill-versioning.md`).
 - No `commands/` wrapper (per the v2.22.0 wrapper-deletion decision); a `/build-risk-review` command only if the command surface is revived.
 
+## Scope B (M-34): the key-free router engine
+
+Independent of the F-56 gate. Replaces the live router probe's `ANTHROPIC_API_KEY` dependency with a `pm-skill-router` sub-agent (no key; runs on the subscription in-session), realizing the engine `trigger-evals-explained.md` already designed but never built. Full design: [`spec_sub-agent-router.md`](spec_sub-agent-router.md) + [`implementation-plan_sub-agent-router.md`](implementation-plan_sub-agent-router.md).
+
+| ID | Item | Type | Gate |
+|---|---|---|---|
+| **M-34** | `pm-skill-router` sub-agent + an engine interface (sub-agent default, Messages-API retained for unattended CI) + arch-doc updates + the contributor-checklist rewire | INFRA (new sub-agent; no new skill) | pure-function tests + a recorded key-free probe run |
+
+**Model:** Haiku default (the conservative gate tier; Opus is lenient and falsely reassuring; Sonnet an optional production cross-check). **Count axis:** sub-agents 5 -> 6 (distinct from the 67 -> 68 skills, and NOT covered by `check-count-consistency` - needs the grep backstop). The F-56 build already proved the sub-agent engine works (the in-session Haiku probe: 10/10 recall, 8/8 precision); M-34 makes it a named, reusable instrument.
+
 ## Sample manifest (W2)
 
 Follows `library/skill-output-samples/SAMPLE_CREATION.md` (samples mirror `references/TEMPLATE.md` order, so authored AFTER W1's TEMPLATE.md) and `THREAD_PROFILES.md` (the storevine / brainshelf / workbench thread voices). `check-skill-sample-coverage` requires only 1 per thread (floor 3); target 6 (2 per thread) to exercise both modes + a verdict spread. **Specific source scenarios are authored at build time (post-gate); this is the coverage contract, not the final copy.**
@@ -55,6 +65,7 @@ Follows `library/skill-output-samples/SAMPLE_CREATION.md` (samples mirror `refer
 - After: 30 phase + **11 foundation** + 12 utility + 15 tool = **68**.
 - Derived: "Cross-Cutting Capabilities (foundation + utility)" 22 -> 23 (README At-a-Glance mermaid).
 - Samples: library total + 6; sampled-skill count + 1 (`samples/index.md` carries explicit, non-derived sample + sampled-skill numbers).
+- **Sub-agents: 5 -> 6** (the new `pm-skill-router`, M-34). A distinct count axis: `check-count-consistency` polices skill counts, not sub-agent counts, so the sub-agent number on README / AGENTS.md / site / CONTEXT / manifests rides the **grep count-sweep (surface I)**, not the validator. (See the sample-sync gap note below: the same class of unenforced manual count.)
 - `check-count-consistency` derives the total from the `skills/` directory + the four sub-counts from frontmatter, but it intentionally excludes internal docs, library samples, changelog/release pages, and agent-context - so G2 includes an explicit **grep count-sweep** (surface I), not just the enumerated list.
 
 ## Release surfaces (G2)
@@ -156,6 +167,9 @@ The reassignment leaves stale "v2.29.0 = memory" pointers. Done: the parked plan
 | D3 | Name + category | OPEN: `foundation-build-risk-review` vs `foundation-build-decision`; `problem-framing` vs `validation` |
 | D4 | Ship the `workflow-feature-kickoff` front-gate this cycle, or defer | OPEN (default defer) |
 | D5 | Sample richness = 6 (2 per thread), floor 3 | PROPOSED (vs the v2.28.0 6-per-thread; this artifact is narrower, so lighter) |
+| D6 | M-34 joins v2.29.0: the key-free `pm-skill-router` engine (sub-agent default, dual-engine) | DECIDED (realizes the pre-documented `trigger-evals-explained.md` engine; removes the key for in-session gate runs; the F-56 probe already proved it) |
+| D7 | Router model = Haiku default (gate tier); Opus avoided (lenient) | DECIDED (spec D-MODEL) |
+| D8 | Candidate ride-along: a sample-sync CI gate (count `library/` samples; reconcile vs README_SAMPLES + `samples/index.md` + the v2.6.1 manifest) | OPEN - flagged because nothing currently enforces those manual sample counts; decide whether it rides v2.29.0 or is its own effort |
 
 ## Gate ledger (placeholder)
 
