@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "skill": "foundation-build-risk-review",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Before I start building this SaaS idea, tell me the one thing most likely to make it fail and whether it's worth doing at all",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "A customer asked us to add SSO. Should we build it now, or is that premature?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Feature-change mode; demand-hierarchy call before committing"
+    },
+    {
+      "q": "We're thinking of expanding our note-taking utility into a full platform; pour cold water on it before we commit",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Is this AI meeting-summarizer idea worth building, or should I validate demand first?",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Sales keeps asking for a bulk-export feature; sanity-check whether we should build it before I write it up",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Should we honor this feature request, or is it scope creep that hides a harder problem?",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I want to build a landing page and MVP for a freelancer-invoicing tool; what's the biggest risk and what should I validate first?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Competitors just shipped a Kanban view; should we copy it, or is that a trap?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Give me a build, validate, or cut verdict on adding a native mobile app to our web product",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before we put this on the roadmap, what assumption would kill it and how do I test that cheaply?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write up the problem statement for our mobile checkout drop-off, with user impact and success criteria",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-problem-statement",
+      "notes": "Framing a confirmed problem, not a build verdict"
+    },
+    {
+      "q": "We launched six months ago, growth has stalled, and the data shows users churn after week two; document whether we should pivot or persevere",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-pivot-decision",
+      "notes": "Post-launch pivot-or-persevere with usage data: the closest boundary"
+    },
+    {
+      "q": "Build me a full lean canvas for this new product thesis across all nine blocks",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-lean-canvas",
+      "notes": "Full business-model canvas, not a single-risk gate"
+    },
+    {
+      "q": "Run RICE and MoSCoW over these twelve feature requests and show me where they disagree",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-prioritization-framework",
+      "notes": "Ranking a list, not one build decision"
+    },
+    {
+      "q": "We believe onboarding emails will lift activation; turn that into a testable hypothesis with success metrics",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-hypothesis",
+      "notes": "Designing the test for a chosen assumption"
+    },
+    {
+      "q": "Our paid product has flat retention and the market shifted under us; make the persevere-or-pivot call with the evidence",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-pivot-decision",
+      "notes": "Second post-launch pivot near-miss (closest neighbor)"
+    },
+    {
+      "q": "Reframe this drifted project around the original problem we set out to solve, for leadership",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-problem-statement",
+      "notes": "Re-anchoring a problem, not a build verdict"
+    },
+    {
+      "q": "Stress-test our existing business model and compare two strategic options side by side",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-lean-canvas",
+      "notes": "Business-model stress-test across the canvas blocks"
+    },
+    {
+      "q": "Debug this null pointer exception showing up in our checkout service logs",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Find me a hotel near the Berlin conference center for next week",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated logistics ask"
+    }
+  ]
+}

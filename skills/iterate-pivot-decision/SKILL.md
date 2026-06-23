@@ -4,8 +4,8 @@ description: Documents a strategic pivot or persevere decision with the evidence
 license: Apache-2.0
 metadata:
   phase: iterate
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.1.1"
+  updated: 2026-06-22
   category: reflection
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -29,6 +29,7 @@ A pivot decision document captures the analysis and rationale behind a strategic
 - The decision is technical or architectural rather than directional -> use `develop-adr`
 - You want to explore candidate directions before deciding anything -> use `define-opportunity-tree`
 - The team needs the period-end reflection ceremony -> use `iterate-retrospective`; a pivot call is a decision document, not a retro
+- The product is not built yet, and the question is whether to build a new idea, feature, or scope change at all (a build / validate / cut verdict) -> use `foundation-build-risk-review`; a pivot call weighs market feedback on something already shipped
 
 ## Instructions
 
