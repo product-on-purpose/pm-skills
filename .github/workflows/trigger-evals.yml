@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Node (pin from .nvmrc)
         uses: actions/setup-node@v5
@@ -99,7 +99,7 @@ jobs:
     if: ${{ inputs.new_skill != '' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Node (pin from .nvmrc)
         uses: actions/setup-node@v5
@@ -129,7 +129,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Node (pin from .nvmrc)
         uses: actions/setup-node@v5
