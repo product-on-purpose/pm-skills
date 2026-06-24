@@ -130,11 +130,9 @@ Legacy files (`status: legacy`) may not have full modern frontmatter; avoid back
 
 ## 6) Release-Coverage Metadata
 
-Release-coverage manifest is maintained as a tracked internal release-governance artifact (not in this folder):
+Sample counts are reconciled from disk by `scripts/check-sample-counts.mjs` (enforcing CI): the on-disk `sample_*.md` total and the sampled-skill count must match the headline numbers in `README_SAMPLES.md` and the site samples landing page. Per-skill coverage (every phase / foundation / tool skill ships its thread samples) is enforced by `scripts/check-skill-sample-coverage`.
 
-- `docs/internal/release-plans/v2.6.1/skill-output-samples_manifest.v2.6.1.json`
-
-When sample files are added/renamed/removed, update that tracked manifest in the same change set.
+The former hand-maintained release-coverage manifest (`v2.6.1/skill-output-samples_manifest.v2.6.1.json`) was retired in v2.29.0: it was unread by any tool and drifted from disk. Add or rename samples freely; the count gate catches a stale headline.
 
 ## 7) README_SAMPLES Update Workflow
 
@@ -155,7 +153,7 @@ Before considering sample updates complete:
 1. All markdown links in `README_SAMPLES.md` resolve to existing files.
 2. Filenames conform to `sample_skill_thread_<additional-helpful-context>.md`.
 3. Section order and completeness checks pass (`Scenario`, `Prompt`, `Output`).
-4. Release-coverage manifest entries match actual filenames for expected samples.
+4. `node scripts/check-sample-counts.mjs` passes (on-disk sample + skill counts match the README_SAMPLES and samples-landing headlines).
 
 ## 9) Practical Policy Notes
 

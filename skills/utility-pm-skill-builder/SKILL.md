@@ -4,8 +4,8 @@ description: Guides contributors from a PM skill idea to a complete Skill Implem
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.1.1"
-  updated: 2026-06-20
+  version: "1.1.2"
+  updated: 2026-06-23
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -296,7 +296,7 @@ Also scan the `skills/` directory for the latest authoritative count.
 | iterate | refinement-notes | coordination | Backlog refinement outcomes |
 | iterate | retrospective | reflection | Team retrospective |
 
-### Foundation Skills (10)
+### Foundation Skills (11)
 
 | Skill | Category | Description |
 |-------|----------|-------------|
@@ -369,7 +369,7 @@ Before finalizing the packet, verify all items in both tiers:
 - [ ] Reciprocal "When NOT to Use" pointer added back from each neighbor (C-3); collision pair added to `COLLISION_PAIRS` if strong overlap
 - [ ] `evals/trigger-fixtures.json` present and meets the B-4 contract (>=16 queries, >=8/class, >=2 near-misses, train/validation split)
 - [ ] `evals/output-scenarios/{id}.md` present with `scenario`/`skill`/`family` frontmatter mapping to an existing rubric (or family deferred with a noted reason)
-- [ ] Collision probe run (`check-new-skill-collision.mjs --skill={name}`): the new skill recalls its triggers and steals none of a neighbor's
+- [ ] Collision probe run, key-free: `check-new-skill-collision.mjs --skill={name} --emit-tasks`, then dispatch the `pm-skill-router` sub-agent (Haiku) over the emitted queries and apply the verdict; the new skill recalls its triggers and steals none of a neighbor's. (Unattended CI may instead use the Messages-API path with `ANTHROPIC_API_KEY`.)
 
 ## Examples
 

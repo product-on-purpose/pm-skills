@@ -5,7 +5,7 @@ description: Five-minute pm-skills install + first skill invocation. Pick an ins
 
 ## What's Included
 
-- **67 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 10 foundation skills, 12 utility skills, 15 tool skills)
+- **67 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 11 foundation skills, 12 utility skills, 15 tool skills)
 - **11 slash-command docs in `commands/`** (10 `/workflow-*` orchestrator commands + the `/chain` command)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 
@@ -20,7 +20,7 @@ Install from the plugin marketplace, no clone required:
 /plugin install pm-skills@product-on-purpose
 ```
 
-All 67 skills are available immediately. Invoke any by name, for example `/pm-skills:deliver-prd`. Already on the old `pm-skills-marketplace`? It keeps working; see [Setup by Platform](platforms.md) to switch homes.
+All 68 skills are available immediately. Invoke any by name, for example `/pm-skills:deliver-prd`. Already on the old `pm-skills-marketplace`? It keeps working; see [Setup by Platform](platforms.md) to switch homes.
 
 ### Cross-agent (Cursor, GitHub Copilot, Cline, and others)
 
@@ -28,7 +28,7 @@ All 67 skills are available immediately. Invoke any by name, for example `/pm-sk
 npx skills add product-on-purpose/pm-skills
 ```
 
-Installs all 67 skills into your agent's default skills directory via the open [skills CLI](https://github.com/vercel-labs/skills). No clone, no sync.
+Installs all 68 skills into your agent's default skills directory via the open [skills CLI](https://github.com/vercel-labs/skills). No clone, no sync.
 
 ### Claude.ai / Claude Desktop
 

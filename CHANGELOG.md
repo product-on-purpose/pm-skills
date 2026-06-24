@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.29.0] - 2026-06-23
+
+**New foundation skill: the pre-build risk gate, plus a key-free router engine.** `foundation-build-risk-review` runs a fast pre-commitment risk review on a product idea, feature request, or scope change: it names the single assumption most likely to make the work fail and returns a verdict (build small, validate first, pivot first, or don't build yet) with a no-code validation step, then routes to the next skill. Alongside it, `pm-skill-router` makes the new-skill collision gate and the trigger router-eval runnable on the subscription with no API key. Additive MINOR; catalog grows 67 to 68 skills (foundation 10 to 11), sub-agents 5 to 6.
+
+### Added
+
+- `foundation-build-risk-review`: a foundation skill (classification `problem-framing`) that triages a build decision and dispatches into the library. Ships SKILL.md, `references/TEMPLATE.md`, `references/EXAMPLE.md`, `references/risk-taxonomy.md` (risk types mapped to lean-canvas blocks, the L0-L4 demand hierarchy, and an evidence-strength ladder), `references/routing-map.md`, and `evals/trigger-fixtures.json`. Adapted from the open-source `bin1874/before-you-build-skill` (Apache-2.0), repositioned PM-neutral. Two modes (pre-build, feature-change); launched-product diagnosis routes to `iterate-pivot-decision`.
+- `pm-skill-router` (sub-agent): a key-free router instrument. `check-new-skill-collision.mjs --emit-tasks` emits the probe tasks for it to route on the subscription (Haiku-pinned), so the collision gate no longer requires `ANTHROPIC_API_KEY` in a session; the Messages-API path stays for unattended CI. The router's verdict logic is unchanged, so baselines stay comparable.
+- 3 library samples (one per Storevine / Brainshelf / Workbench thread) covering both modes and all four verdicts.
+
+### Changed
+
+- The documentation-site showcase (`/showcase/`) now derives its skill set from the sample files instead of a hardcoded list, so it self-heals as skills and samples are added (it had silently drifted about fifteen skills stale, showing only one of ten foundation skills).
+- `iterate-pivot-decision` 2.1.0 to 2.1.1: reciprocal "When NOT to Use" pointer to `foundation-build-risk-review`.
+- `utility-pm-skill-builder` 1.1.1 to 1.1.2: the collision-probe checklist points to the key-free `pm-skill-router` path.
+- Counts re-derived 67 to 68 (foundation 10 to 11, sub-agents 5 to 6) across the plugin manifests, README, QUICKSTART, and the documentation site; sample corpus 207 to 210 (62 to 63 sampled skills).
+
 ## [2.28.0] - 2026-06-20
 
 **New foundation skill: stakeholder briefings (1-to-N audience fan-out).** `foundation-stakeholder-briefings` takes any source artifact (a spec, discovery synthesis, research report, GTM plan, experiment results, or a retro) and produces one canonical master document plus a set of audience-tailored briefings, one per stakeholder lens (executive, board, engineering, UX, PMM, sales, CS, legal, data, or a custom audience). Every briefing is a traceable projection of the master: it cites the master claim IDs it draws on and carries exactly one ask, so the versions never quietly disagree. Additive MINOR; catalog grows 66 to 67 skills (foundation 9 to 10), 5 sub-agents unchanged.

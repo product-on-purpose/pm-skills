@@ -2,7 +2,7 @@
 
 ## What's Included
 
-- **67 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 10 foundation skills, 12 utility skills, 15 tool skills)
+- **67 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 11 foundation skills, 12 utility skills, 15 tool skills)
 - **11 slash-command docs in `commands/`** (the 10 `/workflow-*` orchestrator commands plus `/chain`)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 

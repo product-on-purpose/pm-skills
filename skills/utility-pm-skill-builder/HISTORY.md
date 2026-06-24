@@ -2,6 +2,7 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.1.2 | 2026-06-23 | v2.29.0 | M-34 | patch | Collision-probe checklist now points to the key-free `pm-skill-router` path (`--emit-tasks` + the sub-agent); the Messages-API path is the unattended-CI alternative. No flow change. |
 | 1.1.1 | 2026-06-20 | v2.28.0 | - | patch | Doc-currency: added `foundation-stakeholder-briefings` to the Current Library Reference foundation table (foundation 9 to 10) so gap analysis sees the full v2.28.0 inventory. No flow change. |
 | 1.1.0 | 2026-06-15 | - | C-1..C-4 | minor | New skills ship eval-ready: added a Step 4.5 "Eval Readiness" (neighbors + reciprocal boundary pointers + output-eval family rubric), scaffolded `evals/trigger-fixtures.json` (C-1) and `evals/output-scenarios/{id}.md` (C-4) into the packet/staging/promotion, a Step 7 collision probe (C-2), and the eval contract in the Output Contract + Quality Checklist. Refreshed the stale "When NOT to Use" pointers (pm-skill-iterate/validate now exist). |
 | 1.0.0 | 2026-03-22 | - | - | baseline | Prior published version: guided skill creation (gap analysis, Why Gate, classification, staged packet, promotion). |

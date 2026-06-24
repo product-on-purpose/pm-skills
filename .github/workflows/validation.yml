@@ -355,6 +355,7 @@ jobs:
         run: |
           node --test hooks/lib/frontmatter.test.mjs hooks/lib/local-config.test.mjs hooks/lib/phase-map.test.mjs hooks/lib/signals.test.mjs hooks/guardrails.test.mjs hooks/phase-router.test.mjs
           node --test scripts/check-sample-no-placeholders.test.mjs scripts/check-sample-exact-quote-sourcing.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
+          node --test scripts/check-sample-counts.test.mjs
           node --test scripts/check-trigger-fixtures.test.mjs
           node --test scripts/gen-skill-manifest.test.mjs
           node --test scripts/run-trigger-evals.test.mjs
@@ -386,6 +387,13 @@ jobs:
         if: always()
         continue-on-error: true
         run: node scripts/check-sample-no-fabricated-metrics.mjs
+
+      - name: Sample-count reconciliation (enforcing)
+        # D8 (v2.29.0): library sample counts on disk must match the headline numbers in
+        # README_SAMPLES.md + samples/index.md. check-count-consistency excludes library/,
+        # so this closes that gap (the same rot class as the stale showcase). Deterministic.
+        if: always()
+        run: node scripts/check-sample-counts.mjs
 
       - name: Eval - trigger-fixture structure + asset presence (enforcing)
         # M-31 Phase 1 (spec_trigger-accuracy-evals.md section 3): schema, composition

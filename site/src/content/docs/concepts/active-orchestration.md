@@ -14,7 +14,7 @@ description: 'The v2.16.0 strategic theme: pm-skills evolves from a passive cont
 
 ## The Theme
 
-pm-skills started as a content library: skills that AI agents read at invocation time to produce PM artifacts with professional quality. Through several releases, the catalog grew to 67 skills, 12 workflows, and 27 enforcing CI validators. All of it is content. The AI reads it. The AI acts on it. The AI produces the output.
+pm-skills started as a content library: skills that AI agents read at invocation time to produce PM artifacts with professional quality. Through several releases, the catalog grew to 68 skills, 12 workflows, and 27 enforcing CI validators. All of it is content. The AI reads it. The AI acts on it. The AI produces the output.
 
 v2.16.0 opens a second layer: the **runtime layer**. Sub-agents are the first inhabitants. Hooks (v2.17+) and output styles (v2.18+) follow.
 
