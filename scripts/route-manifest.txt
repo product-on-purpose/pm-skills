@@ -108,6 +108,7 @@
 /releases/Release_v2.27.0/index.html
 /releases/Release_v2.27.1/index.html
 /releases/Release_v2.28.0/index.html
+/releases/Release_v2.29.0/index.html
 /releases/Release_v2.3/index.html
 /releases/Release_v2.4.1/index.html
 /releases/Release_v2.4.2/index.html
@@ -183,6 +184,9 @@
 /samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_brainshelf_resurface/index.html
 /samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_storevine_campaigns/index.html
 /samples/discover-stakeholder-summary/sample_discover-stakeholder-summary_workbench_blueprints/index.html
+/samples/foundation-build-risk-review/sample_foundation-build-risk-review_brainshelf_ai-auto-tagging/index.html
+/samples/foundation-build-risk-review/sample_foundation-build-risk-review_storevine_bulk-price-update/index.html
+/samples/foundation-build-risk-review/sample_foundation-build-risk-review_workbench_enterprise-knowledge-base/index.html
 /samples/foundation-lean-canvas/sample_foundation-lean-canvas_brainshelf_resurface/index.html
 /samples/foundation-lean-canvas/sample_foundation-lean-canvas_storevine_campaigns/index.html
 /samples/foundation-lean-canvas/sample_foundation-lean-canvas_workbench_blueprints/index.html
@@ -350,6 +354,7 @@
 /skills/discover/discover-market-sizing/index.html
 /skills/discover/discover-stakeholder-summary/index.html
 /skills/discover/index.html
+/skills/foundation/foundation-build-risk-review/index.html
 /skills/foundation/foundation-lean-canvas/index.html
 /skills/foundation/foundation-meeting-agenda/index.html
 /skills/foundation/foundation-meeting-brief/index.html

@@ -5,7 +5,7 @@ description: High-level walkthrough of the pm-skills repository layout - skills/
 
 ## Table of Contents
 - [Directory Overview](#directory-overview)
-- [/skills/ - Skills](#skills---the-67-pm-skills-flat)
+- [/skills/ - Skills](#skills---the-68-pm-skills-flat)
 - [/commands/ - Slash Commands](#commands---slash-commands)
 - [/workflows/ - Workflows](#_workflows---workflows)
 - [/docs/ - Documentation](#docs---documentation)
