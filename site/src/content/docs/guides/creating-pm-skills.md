@@ -221,6 +221,8 @@ Good names:
 
 The SKILL.md file is the heart of your skill. It tells the AI exactly how to create the artifact.
 
+Every `##` section you write also renders on the skill's generated documentation page. That page is a faithful rendering of your SKILL.md (built by `scripts/gen-site.mjs`): recognized sections (`When to Use`, `When NOT to Use`, `Instructions`, `Quality Checklist`) land in dedicated slots, and any other section is rendered verbatim in document order, so nothing is dropped. The `check-skill-page-sections` CI gate fails the build if any section would be lost. Structure your SKILL.md for human readers as well as the agent.
+
 ### Required Sections
 
 ```markdown

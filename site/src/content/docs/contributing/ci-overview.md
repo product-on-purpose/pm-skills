@@ -93,7 +93,9 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | `check-no-body-h1 --strict` | No body H1 duplications (Starlight derives H1 from `title` frontmatter; body H1 would duplicate) |
 | `check-count-consistency` | Skill/command/workflow counts in tracked .md, .mdx, and .json match filesystem state, including the `badge/skills-<N>` shields-badge form (.mdx + badge added v2.19.0) |
 | `check-skill-cross-references` | Backtick skill-name references in `skills/*/SKILL.md` resolve to a real `skills/*/` directory; intentional forward-refs are allowlisted (v2.19.0) |
-| (generated content: no drift guard) | Reference pages are emitted by `scripts/gen-site.mjs` into `site/src/content/docs/` and are gitignored + rebuilt each build, so there is no committed drift surface to guard |
+| `check-skill-page-sections` | Every `## section` in a `SKILL.md` renders on its generated docs page. Output-based: it imports `renderSkillPage` from `scripts/gen-site.mjs`, renders each page, and fails if any section is missing. Guards the silent-section-drop class that shipped ~27 hollow skill pages before v2.29.1 |
+| `check-sample-counts` | The on-disk library sample + sampled-skill counts match the headline numbers in `README_SAMPLES.md` and the site samples landing page (`check-count-consistency` excludes `library/`, so this closes that gap; v2.29.0) |
+| (generated content: completeness-guarded) | Reference pages are emitted by `scripts/gen-site.mjs` into `site/src/content/docs/` and are gitignored + rebuilt each build, so there is no committed drift surface; content completeness is guarded by `check-skill-page-sections` (above) |
 | `check-landing-page-counts --strict` | Landing-page total count claims (`site/src/content/docs/index.mdx`, `skills/index.md`, etc.) match filesystem state |
 | `check-workflow-generator-coverage` | Every workflow source has both an individual page and an index-table row |
 | `check-agents-md-command-sync` | AGENTS.md command table is in sync with `commands/` directory |

@@ -9,6 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.29.1] - 2026-06-24
+
+**Maintenance patch: skill docs pages no longer drop sections.** The documentation-site generator (`scripts/gen-site.mjs`) built each skill page from a fixed allow-list of H2 section names and silently discarded the rest, so any skill whose method lived under bespoke headings shipped a hollow page (missing its actual instructions). About 27 of 68 pages were affected, most visibly `foundation-build-risk-review` (its Hard gate, Modes, review contract, and Verdict routing were all dropped). No skill behavior change; catalog stays 68 skills / 6 sub-agents. PATCH.
+
+### Fixed
+
+- `gen-site.mjs`: the skill-page builder now renders recognized sections (When to Use, When NOT to Use, Instructions, Quality Checklist) in their slots AND every other section verbatim in document order, so no authored content is dropped. The page is a faithful rendering of the SKILL.md.
+- `remark-resolve-links.mjs`: flat skill-to-skill cross-references (`../<skill>/SKILL.md`) and reference-file links surfaced by the newly-rendered sections now resolve to the published page or a GitHub source URL (they normalize to `skills/<skill>/SKILL.md`, which the slug check missed because the site groups skills under their phase).
+
+### Added
+
+- `scripts/check-skill-page-sections.mjs` (+ unit test, enforcing in CI): an output-based completeness gate that renders each skill page via `renderSkillPage` and fails if any SKILL.md section is missing, so the silent-drop class cannot recur.
+- The section contract is documented in the skill-authoring guide and `contributing/ci-overview.md`.
+
 ## [2.29.0] - 2026-06-23
 
 **New foundation skill: the pre-build risk gate, plus a key-free router engine.** `foundation-build-risk-review` runs a fast pre-commitment risk review on a product idea, feature request, or scope change: it names the single assumption most likely to make the work fail and returns a verdict (build small, validate first, pivot first, or don't build yet) with a no-code validation step, then routes to the next skill. Alongside it, `pm-skill-router` makes the new-skill collision gate and the trigger router-eval runnable on the subscription with no API key. Additive MINOR; catalog grows 67 to 68 skills (foundation 10 to 11), sub-agents 5 to 6.

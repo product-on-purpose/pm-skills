@@ -35,7 +35,7 @@ import {
   readdirSync,
   statSync,
 } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -164,7 +164,7 @@ function stripFrontmatter(content) {
 }
 
 // Split markdown body by ## headings; also capture "_intro" (before first ##).
-function extractSections(body) {
+export function extractSections(body) {
   const sections = {};
   let heading = null;
   let lines = [];
@@ -274,7 +274,25 @@ function loadSkillSamples(skillName) {
 }
 
 // --- emit: skill pages ------------------------------------------------------
-function generateSkillPage(skillDirName) {
+// Section names the skill-page builder renders in a dedicated slot (case-insensitive), or that
+// come from a generated block (Output Template / Example Output / Real-World Examples). Every
+// OTHER SKILL.md section is rendered verbatim by the catch-all below, so no authored content is
+// ever silently dropped from the page.
+const PAGE_SLOTTED_SECTIONS = new Set([
+  'when to use', 'when not to use', 'instructions',
+  'quality checklist', 'output template', 'example output', 'real-world examples',
+]);
+
+/** Case-insensitive section lookup (skills are inconsistent about heading case). */
+function findSection(sections, name) {
+  const key = Object.keys(sections).find((k) => k.toLowerCase() === name.toLowerCase());
+  return key ? sections[key] : null;
+}
+
+// Build the skill-page markdown (pure: no writes). Returns { markdown, info, sourceSections }, or
+// null when the skill has no SKILL.md. Exported so scripts/check-skill-page-sections.mjs can render
+// each page and verify that every SKILL.md section survives into it.
+export function renderSkillPage(skillDirName) {
   const skillDir = join(SKILLS_DIR, skillDirName);
   const skillFile = join(skillDir, 'SKILL.md');
   if (!existsSync(skillFile)) return null;
@@ -326,12 +344,11 @@ function generateSkillPage(skillDirName) {
     out.push('');
   }
 
-  if (sections['When to Use']) {
-    out.push('## When to Use', '', sections['When to Use'], '');
-  }
-  if (sections['When NOT to Use']) {
-    out.push('## When NOT to Use', '', sections['When NOT to Use'], '');
-  }
+  const whenToUse = findSection(sections, 'When to Use');
+  if (whenToUse) out.push('## When to Use', '', whenToUse, '');
+
+  const whenNotToUse = findSection(sections, 'When NOT to Use');
+  if (whenNotToUse) out.push('## When NOT to Use', '', whenNotToUse, '');
 
   out.push('## How to Use', '');
   out.push(`Invoke the skill by name (\`/pm-skills:${name}\` on Claude Code, \`$${name}\` on Codex):`, '');
@@ -340,8 +357,15 @@ function generateSkillPage(skillDirName) {
   out.push('```', '');
   out.push(`Or reference the skill file directly: \`skills/${skillDirName}/SKILL.md\``, '');
 
-  if (sections.Instructions) {
-    out.push('## Instructions', '', sections.Instructions, '');
+  const instructions = findSection(sections, 'Instructions');
+  if (instructions) out.push('## Instructions', '', instructions, '');
+
+  // Catch-all: render every remaining SKILL.md section verbatim, in document order, so no authored
+  // content is ever silently dropped from the page (the v2.29.1 fix). Sections with a dedicated slot
+  // above/below, or sourced from a generated block, are skipped here (PAGE_SLOTTED_SECTIONS).
+  for (const key of Object.keys(sections)) {
+    if (key === '_intro' || PAGE_SLOTTED_SECTIONS.has(key.toLowerCase())) continue;
+    out.push(`## ${key}`, '', sections[key], '');
   }
 
   const template = read(join(skillDir, 'references', 'TEMPLATE.md'));
@@ -374,18 +398,20 @@ function generateSkillPage(skillDirName) {
     }
   }
 
-  const qc = sections['Quality Checklist'] || sections['Quality checklist'];
+  const qc = findSection(sections, 'Quality Checklist');
   if (qc) out.push('## Quality Checklist', '', qc, '');
 
-  for (const key of ['Output Format', 'Output Contract']) {
-    if (sections[key]) {
-      out.push(`## ${key}`, '', sections[key], '');
-      break;
-    }
-  }
+  const sourceSections = Object.keys(sections).filter((k) => k !== '_intro');
+  const info = { name, dirname: skillDirName, group, group_display: groupDisplay, description, version, category, command: cmd };
+  return { markdown: out.join('\n'), info, sourceSections };
+}
 
-  writeOut(join(DOCS, 'skills', group, `${name}.md`), out.join('\n'));
-  return { name, dirname: skillDirName, group, group_display: groupDisplay, description, version, category, command: cmd };
+/** Build a skill page and write it. Returns the page metadata, or null when there is no SKILL.md. */
+function generateSkillPage(skillDirName) {
+  const rendered = renderSkillPage(skillDirName);
+  if (!rendered) return null;
+  writeOut(join(DOCS, 'skills', rendered.info.group, `${rendered.info.name}.md`), rendered.markdown);
+  return rendered.info;
 }
 
 // --- emit: phase index pages ------------------------------------------------
@@ -841,4 +867,4 @@ function main() {
   );
 }
 
-main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
