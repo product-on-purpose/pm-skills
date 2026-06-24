@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.29.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.29.1-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-68-brightgreen.svg?style=flat-square" alt="Skills">
@@ -166,6 +166,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.29.1 - Maintenance: skill docs pages no longer drop sections</strong></summary>
+
+**What changed.** A documentation patch with no skill behavior change (catalog stays 68 skills / 6 sub-agents). The docs-site generator built each skill page from a fixed list of section names and silently dropped the rest, so about 27 of 68 pages shipped hollow (missing their method) - most visibly `foundation-build-risk-review`. The generator now renders every SKILL.md section verbatim, and a new output-based `check-skill-page-sections` CI gate fails the build if any section is dropped, so it cannot recur. PATCH.
+
+**Get started.** [v2.29.1 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.29.1)
+
+</details>
 
 <details>
 <summary><strong>v2.29.0 - New skill: build risk review (pre-build gate) + a key-free router</strong></summary>
@@ -1114,7 +1123,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.29.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.29.0)           |
+| **Current version** | [v2.29.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.29.1)           |
 | **Skill count**     | 68 skills (30 phase + 10 foundation + 12 utility + 15 tool)                               |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |

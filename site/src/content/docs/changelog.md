@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.29.1] - 2026-06-24
+
+**Maintenance patch: skill docs pages no longer drop sections.** The documentation-site generator built each skill page from a fixed allow-list of H2 section names and silently discarded the rest, so any skill whose method lived under bespoke headings shipped a hollow page (about 27 of 68, most visibly `foundation-build-risk-review`). The generator now renders every SKILL.md section verbatim, an output-based `check-skill-page-sections` gate fails CI if any section is dropped, and the flat skill cross-references the restored sections surfaced now resolve. No skill behavior change; catalog stays 68 skills / 6 sub-agents. PATCH. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2291---2026-06-24) and [`docs/releases/Release_v2.29.1.md`](releases/Release_v2.29.1.md).
+
 ## [2.29.0] - 2026-06-23
 
 **New foundation skill: the pre-build risk gate, plus a key-free router engine.** `foundation-build-risk-review` runs a fast pre-commitment risk review on a product idea, feature request, or scope change: it names the single assumption most likely to make the work fail and returns a verdict (build small, validate first, pivot first, or don't build yet) with a no-code validation step, then routes to the next skill. Two modes (pre-build, feature-change); launched-product diagnosis routes to `iterate-pivot-decision`. Alongside it, the `pm-skill-router` sub-agent makes the new-skill collision gate and the trigger router-eval runnable on the subscription with no API key (`check-new-skill-collision.mjs --emit-tasks` plus a Haiku-pinned router). The documentation showcase now auto-derives its skill set from the sample files (self-healing). Catalog grows 67 to 68 skills (foundation 10 to 11), sub-agents 5 to 6. Additive MINOR. Full details in root [`CHANGELOG.md`](https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md#2290---2026-06-23) and [`docs/releases/Release_v2.29.0.md`](releases/Release_v2.29.0.md).

@@ -109,6 +109,7 @@
 /releases/Release_v2.27.1/index.html
 /releases/Release_v2.28.0/index.html
 /releases/Release_v2.29.0/index.html
+/releases/Release_v2.29.1/index.html
 /releases/Release_v2.3/index.html
 /releases/Release_v2.4.1/index.html
 /releases/Release_v2.4.2/index.html
