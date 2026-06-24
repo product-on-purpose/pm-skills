@@ -10,7 +10,7 @@ This family covers the strategy-framing skills, those that decide *what problem 
 and *what outcomes to chase* before any building: `define-problem-statement`,
 `define-hypothesis`, `define-jtbd-canvas`, `define-opportunity-tree`,
 `define-prioritization-framework`, `foundation-okr-writer`, `foundation-persona`,
-`foundation-lean-canvas`.
+`foundation-lean-canvas`, `foundation-build-risk-review`.
 
 > A framing artifact's defining trait is **grounded, falsifiable intent**: it names a
 > specific user/segment, a real reason-now, and success measured by baselines and targets
@@ -87,6 +87,16 @@ is the machine name used by the harness schema (section 6).
 | guardrails | A guardrail / counter-metric KR exists for any optimization KR | growth / speed / volume KRs are paired with a guardrail |
 | no_fabrication | No fabricated baselines or targets | missing values labeled assumption / placeholder / recommended-to-measure, not invented |
 | integrity_audit | Quality Audit applied; no compensation coupling | explicit pass / risk / fail ratings; scores not coupled to performance or pay |
+
+### foundation-build-risk-review
+| key | criterion | what "5" requires |
+|---|---|---|
+| primary_risk | Exactly one primary risk (`R1`), tagged from the taxonomy | one named primary risk tagged to a taxonomy type (mapped to a lean-canvas block), not a vague "might not work" or an undifferentiated list |
+| demand_level | Feature-change mode places the request on the L0-L4 demand hierarchy | the request is placed at a specific level with justification; build-now is claimed only at L3 or L4 |
+| evidence_graded | Every evidence entry is graded; weak signals are not counted as demand | each signal graded on the strength ladder; likes, waitlists, and market-size are explicitly NOT treated as demand; traceable to the scenario, no invented evidence |
+| verdict_clear | Exactly one of the four verdicts is returned | exactly one of build-small / validate-first / pivot-first / do-not-build-yet, justified by the risk and the evidence; no hedge and no "Kill" |
+| validation_step | The next step is specific and low or no-code, not generic advice | a concrete no-code action tied to the riskiest assumption (talk to the N users who do X, manually deliver the result, collect a preorder or deposit), never "build an MVP" or "do user research" |
+| routing_and_gate | A routing target is named and no implementation is produced | names the correct next skill for the verdict, and produces no code, stack, or design (the hard gate held) |
 
 > Append-on-first-eval (not yet authored): define-hypothesis, define-jtbd-canvas,
 > define-opportunity-tree, define-prioritization-framework, foundation-persona,
