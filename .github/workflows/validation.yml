@@ -356,6 +356,7 @@ jobs:
           node --test hooks/lib/frontmatter.test.mjs hooks/lib/local-config.test.mjs hooks/lib/phase-map.test.mjs hooks/lib/signals.test.mjs hooks/guardrails.test.mjs hooks/phase-router.test.mjs
           node --test scripts/check-sample-no-placeholders.test.mjs scripts/check-sample-exact-quote-sourcing.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
           node --test scripts/check-sample-counts.test.mjs
+          node --test scripts/check-skill-page-sections.test.mjs
           node --test scripts/check-trigger-fixtures.test.mjs
           node --test scripts/gen-skill-manifest.test.mjs
           node --test scripts/run-trigger-evals.test.mjs
@@ -394,6 +395,13 @@ jobs:
         # so this closes that gap (the same rot class as the stale showcase). Deterministic.
         if: always()
         run: node scripts/check-sample-counts.mjs
+
+      - name: Skill-page completeness (enforcing)
+        # v2.29.1: every SKILL.md section must render on its generated docs page. gen-site used to
+        # drop unrecognized sections silently, shipping ~27 hollow pages; the renderSkillPage catch-all
+        # fixed it and this gate keeps it fixed. Output-based: it renders each page and checks every section.
+        if: always()
+        run: node scripts/check-skill-page-sections.mjs
 
       - name: Eval - trigger-fixture structure + asset presence (enforcing)
         # M-31 Phase 1 (spec_trigger-accuracy-evals.md section 3): schema, composition

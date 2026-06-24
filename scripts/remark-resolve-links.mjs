@@ -141,6 +141,12 @@ function resolveUrl(base, fileDirRel, url) {
     if (repoKind(`site/src/content/docs/${targetRel}`) === 'file') {
       return `${GH}/blob/main/site/src/content/docs/${targetRel}${frag}`;
     }
+    // A normalized intra-content path that is really a cross-repo target: e.g. a flat
+    // skill-to-skill reference `../<skill>/SKILL.md` normalizes to `skills/<skill>/SKILL.md`,
+    // which the slug check above misses because the site groups skills under their phase. Pattern-map
+    // the normalized path to the published page (or a GitHub source URL for non-page files).
+    const mappedIntra = mapCrossTarget(base, targetRel);
+    if (mappedIntra) return mappedIntra + frag;
   }
 
   // Cross-target: strip a leading / (host-root) and ../ ./ and pattern-map the tail.
