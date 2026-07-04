@@ -4,8 +4,8 @@ description: Run applicable prioritization frameworks (RICE, ICE, MoSCoW, Weight
 license: Apache-2.0
 metadata:
   phase: define
-  version: "1.0.0"
-  updated: 2026-05-21
+  version: "1.1.0"
+  updated: 2026-07-04
   category: planning
   frameworks: [triple-diamond, prioritization]
   author: product-on-purpose
@@ -27,6 +27,14 @@ You run all applicable prioritization frameworks against a candidate list of wor
 **Multi-framework analysis surfaces what single-framework selection hides.** Where RICE and ICE agree, confidence rises. Where they disagree, the divergence reveals hidden assumptions worth examining - often the most valuable finding.
 
 Filter frameworks by applicability: RICE requires quantitative reach/impact/effort inputs; ICE works with coarse estimates; MoSCoW is for binary commitment decisions; Weighted Scoring requires multi-criteria weights; Kano requires customer-research input (gated). Run all frameworks that pass the applicability filter. Do NOT reduce to one framework when multiple are applicable.
+
+## When NOT to Use
+
+- You have not yet structured outcomes and opportunities into a candidate list -> use `define-opportunity-tree`; this skill ranks a list, it does not discover what belongs on it
+- You want to test one specific assumption rather than rank several items -> use `define-hypothesis`, then `measure-experiment-design`
+- You need to size a market opportunity (TAM/SAM/SOM), not rank a feature list -> use `discover-market-sizing`
+- Your items are already ranked and you need launch readiness next -> use `deliver-launch-checklist`
+- You need qualitative synthesis of user research to generate candidates, not rank an existing list -> use `discover-interview-synthesis`
 
 ## Inputs
 

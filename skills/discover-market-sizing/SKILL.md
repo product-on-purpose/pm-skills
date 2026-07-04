@@ -4,8 +4,8 @@ description: Estimate market opportunity (TAM, SAM, SOM) using multiple sizing f
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "1.0.0"
-  updated: 2026-05-21
+  version: "1.1.0"
+  updated: 2026-07-04
   category: strategy
   frameworks: [triple-diamond, business-strategy]
   author: product-on-purpose
@@ -27,6 +27,13 @@ You produce a multi-framework market-sizing meta-analysis covering TAM (Total Ad
 **Multi-framework synthesis and epistemic discipline.** Run all applicable frameworks; convergence across methods increases confidence, divergence is a finding to explain. Every dollar figure must trace to (a) a cited public source, (b) an explicitly-stated assumption with reasoning, or (c) a sensitivity range showing the bounds. Hand-wavy guesses are a P0 anti-pattern. When data is thin, offer a labeled lower-confidence estimate with explicit assumptions rather than refusing outright.
 
 **Scope:** external market opportunity only. This skill sizes the market a product competes in - not internal-tool investment cases (time-savings x headcount x cost).
+
+## When NOT to Use
+
+- You are sizing an internal-tool investment case (time saved x headcount x cost), not an external market -> compute the ROI directly; this skill covers external market opportunity only
+- You need to rank or prioritize a list of features or initiatives, not size a market -> use `define-prioritization-framework`
+- You need competitive positioning or a feature comparison, not TAM/SAM/SOM -> use `discover-competitive-analysis`
+- You have not yet identified who the target customer is -> use `foundation-persona` first
 
 ## Inputs
 

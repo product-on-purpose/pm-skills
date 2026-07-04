@@ -28,6 +28,13 @@ You produce a customer journey map that captures stages, touchpoints, emotional 
 
 If the user provides research signal (interview transcripts, survey results, analytics data, customer support tickets), you ground the map in that signal. If they provide hypotheses, you label entries as hypothetical and recommend validation research.
 
+## When NOT to Use
+
+- You need an operational service blueprint or system architecture diagram -> use a dedicated diagramming tool; this skill covers the user-experience lens only, not back-stage processes
+- You have no research signal yet and want more than a labeled-hypothesis placeholder -> run `discover-interview-synthesis` or `measure-survey-analysis` first, then map the journey from evidence
+- You need to frame one specific problem, not the full experience arc -> use `define-problem-statement`
+- You are mapping a single-session task flow, not a multi-stage customer journey -> use `deliver-edge-cases` for that flow's boundary conditions instead
+
 ## Inputs
 
 Required:

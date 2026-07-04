@@ -113,15 +113,26 @@ Determine the skill's classification and naming:
 - Frontmatter: `classification: utility` (required), no `phase` field
 - Use when: the skill operates on the repo, workflow, or other skills
 
-**Exemplar selection:**
-Identify 1-2 existing skills that are the closest structural match:
-- Same phase > same category > similar artifact type
-- Read their SKILL.md to understand section structure, instruction style,
-  output contract format, and quality checklist pattern
-- Name the exemplars explicitly: "Modeled after [skill] - same phase,
-  [category] category"
+**Dialect and exemplar selection:**
+First, pick the skill's dialect from [Skeleton Canon: The Three Sanctioned
+Dialects](../../site/src/content/docs/guides/creating-pm-skills.md#skeleton-canon-the-three-sanctioned-dialects)
+(classic, contract-shaped, or tool-family) - this fixes the required heading
+skeleton before any exemplar is chosen. Do not default to "mirror the closest
+exemplar": an exemplar can itself carry drift (a case variant, an extra or
+missing section), and a straight mirror copies that drift forward into the
+new skill.
 
-Present the classification and exemplar selection for user confirmation.
+Then identify 1-2 existing skills in the SAME dialect that are the closest
+structural match:
+- Same phase > same category > similar artifact type
+- Read their SKILL.md to confirm instruction style, output-contract wording,
+  and quality-checklist pattern (the canon fixes the required headings; the
+  exemplar informs everything else - tone, step granularity, and any
+  skill-specific extra sections)
+- Name the exemplars explicitly: "Modeled after [skill] - same phase,
+  [category] category, [dialect] dialect"
+
+Present the classification, dialect, and exemplar selection for user confirmation.
 
 ### Step 4.5: Eval Readiness (the eval contract)
 
@@ -178,7 +189,8 @@ The packet includes:
 3. **Overlap Analysis** - what was found, why this skill is still needed
 4. **Exemplar Skills** - which existing skills modeled, why
 5. **Draft Frontmatter** - complete, valid YAML block. The frontmatter MUST begin with `---` at byte 0 of the file (no preceding content of any kind, including HTML comments, BOM, or whitespace). Place any attribution comment AFTER the closing `---` fence, never before. Reference: `library/skill-output-samples/SAMPLE_CREATION.md` Section 5.
-6. **Draft SKILL.md** - full content (not an outline), mirroring exemplar structure
+6. **Draft SKILL.md** - full content (not an outline), following the Step 4
+   dialect's canon heading skeleton and the chosen exemplars' instruction style
 7. **Draft TEMPLATE.md** - section headers with guidance comments
 8. **Draft EXAMPLE.md** - complete, realistic example (150-300 lines) with a
    specific PM scenario, every section filled, optional sections demonstrated

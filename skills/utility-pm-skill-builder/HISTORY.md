@@ -2,7 +2,7 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
-| 1.2.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Replaced the hand-maintained "Current Library Reference" tables (a 10-row foundation table under an "(11)" header, and no tool-family table at all) with an instruction to derive the live inventory from `skill-manifest.json` or `AGENTS.md` at run time, plus a thin no-counts families overview. Gap analysis (Step 2) can now reach all 68 skills, including all 15 tool-family skills, without a future skill addition requiring a hand edit here. |
+| 1.2.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Replaced the hand-maintained "Current Library Reference" tables (a 10-row foundation table under an "(11)" header, and no tool-family table at all) with an instruction to derive the live inventory from `skill-manifest.json` or `AGENTS.md` at run time, plus a thin no-counts families overview. Gap analysis (Step 2) can now reach all 68 skills, including all 15 tool-family skills, without a future skill addition requiring a hand edit here. Step 4's exemplar selection now picks a dialect from the new Skeleton Canon doc BEFORE choosing an exemplar, replacing the circular "mirror exemplar structure" instruction that let a fourth, unsanctioned dialect emerge in `foundation-build-risk-review`. |
 | 1.1.2 | 2026-06-23 | v2.29.0 | M-34 | patch | Collision-probe checklist now points to the key-free `pm-skill-router` path (`--emit-tasks` + the sub-agent); the Messages-API path is the unattended-CI alternative. No flow change. |
 | 1.1.1 | 2026-06-20 | v2.28.0 | - | patch | Doc-currency: added `foundation-stakeholder-briefings` to the Current Library Reference foundation table (foundation 9 to 10) so gap analysis sees the full v2.28.0 inventory. No flow change. |
 | 1.1.0 | 2026-06-15 | - | C-1..C-4 | minor | New skills ship eval-ready: added a Step 4.5 "Eval Readiness" (neighbors + reciprocal boundary pointers + output-eval family rubric), scaffolded `evals/trigger-fixtures.json` (C-1) and `evals/output-scenarios/{id}.md` (C-4) into the packet/staging/promotion, a Step 7 collision probe (C-2), and the eval contract in the Output Contract + Quality Checklist. Refreshed the stale "When NOT to Use" pointers (pm-skill-iterate/validate now exist). |
@@ -19,8 +19,9 @@ The 2026-07-04 deep audit found the "Current Library Reference" section blind to
 - Added an instruction to derive the live inventory at run time from `skill-manifest.json` or `AGENTS.md`, both generated and never hand-edited, so they cannot drift from `skills/` on disk.
 - Added a thin families overview (domain, foundation, utility, tool: phase-scoping, directory prefix, what each covers) that carries no hard counts on purpose.
 - Step 2 (Gap Analysis) now explicitly names all four families and flags the tool family as the easiest to miss.
+- Step 4's "Exemplar selection" (renamed "Dialect and exemplar selection") now points to [Skeleton Canon: The Three Sanctioned Dialects](../../site/src/content/docs/guides/creating-pm-skills.md#skeleton-canon-the-three-sanctioned-dialects) and requires picking a dialect (classic, contract-shaped, tool-family) BEFORE choosing an exemplar, so a drifted exemplar is no longer mirrored forward into a new skill. Step 5 item 6 updated to match.
 
-No change to the core create-a-skill flow (Steps 1-7); this is a gap-analysis input fix.
+No change to the core create-a-skill flow (Steps 1-7); this is a gap-analysis and dialect-selection input fix.
 
 ## 1.1.1 (2026-06-20)
 

@@ -4,8 +4,8 @@ description: Analyze survey results into actionable PM insights. Produces person
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "1.0.0"
-  updated: 2026-05-21
+  version: "1.1.0"
+  updated: 2026-07-04
   category: research
   frameworks: [triple-diamond, quantitative-research]
   author: product-on-purpose
@@ -27,6 +27,13 @@ You analyze survey results into actionable PM insights. Your job is to (a) hones
 **Honesty about what the data does NOT show is more valuable than confident conclusions from weak data.** Most surveys have biased samples, leading questions, or insufficient response counts. Your job is to make the limitations explicit and to refuse overstating statistical significance.
 
 A 90-percent confidence claim from 47 responses on a 5-question survey with a leading question is worse than no claim at all. You explain why and offer what would change the analysis.
+
+## When NOT to Use
+
+- Your data is interview transcripts or open conversations rather than structured survey responses -> use `discover-interview-synthesis`
+- You need to establish causation, not correlation -> use `measure-experiment-design` for a controlled test
+- You need to grade progress against committed objectives, not analyze a standalone survey -> use `measure-okr-grader`
+- You are ranking features or initiatives, not analyzing research data -> use `define-prioritization-framework`
 
 ## Inputs
 
