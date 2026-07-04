@@ -1,16 +1,21 @@
 // hooks/phase-router.mjs - SessionStart phase router. ON by default, silent
-// unless a strong signal resolves a phase. Dependency-free.
+// unless a strong signal resolves a phase. Opt out with `phase_router: off` in
+// .claude/pm-skills.local.md (unset stays on). Dependency-free.
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { branchPhase, artifactPhase, resolvePhase } from './lib/signals.mjs';
 import { buildPhaseMap, skillsForPhase } from './lib/phase-map.mjs';
+import { readLocalConfig, isPhaseRouterEnabled } from './lib/local-config.mjs';
 
 const SELF_DIR = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_SKILLS_DIR = join(SELF_DIR, '..', 'skills');
 const TITLE = { discover: 'Discover', define: 'Define', develop: 'Develop', deliver: 'Deliver', measure: 'Measure', iterate: 'Iterate' };
 
-/** Pure router. Returns a SessionStart hook-output object, or null to stay silent. */
-export function route(cwd, skillsDir = DEFAULT_SKILLS_DIR) {
+/** Router. Returns a SessionStart hook-output object, or null to stay silent.
+ *  `config` defaults to the project's .local.md; pass it explicitly in tests.
+ *  A `phase_router: off` opt-out short-circuits to silence before any signal work. */
+export function route(cwd, skillsDir = DEFAULT_SKILLS_DIR, config = readLocalConfig(cwd)) {
+  if (!isPhaseRouterEnabled(config)) return null; // opt-out honored -> silent
   let phase;
   try {
     phase = resolvePhase(branchPhase(cwd), artifactPhase(cwd));

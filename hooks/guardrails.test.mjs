@@ -48,3 +48,41 @@ test('quoted guardrail_checks still enable the check', () => {
 test('malformed payload fails open (allow)', () => {
   assert.equal(evaluateGuardrail('not json', { guardrails: true }), null);
 });
+
+const METRIC_CFG = { guardrails: true, guardrail_checks: ['fabricated-metric'] };
+
+test('fabricated-metric warns (advisory, not deny) on a percentage with context', () => {
+  const d = evaluateGuardrail(payload({ content: 'Lifted signups +40% conversion this quarter' }), METRIC_CFG);
+  assert.equal(d.hookSpecificOutput.permissionDecision, undefined); // advisory, never blocks
+  assert.match(d.hookSpecificOutput.additionalContext, /metric/i);
+});
+
+test('fabricated-metric fires on a currency figure and on a metric keyword near a number', () => {
+  assert.notEqual(evaluateGuardrail(payload({ content: 'closed $2,000,000 in revenue' }), METRIC_CFG), null);
+  assert.notEqual(evaluateGuardrail(payload({ content: 'grew active users by 12 last month' }), METRIC_CFG), null);
+});
+
+test('fabricated-metric does NOT trip on a bare date or a version string', () => {
+  assert.equal(evaluateGuardrail(payload({ content: 'Shipped on 2026-07-04.' }), METRIC_CFG), null);
+  assert.equal(evaluateGuardrail(payload({ content: 'Bumped the plugin to 1.2.3 today.' }), METRIC_CFG), null);
+  assert.equal(evaluateGuardrail(payload({ content: 'We added 3 skills and 6 sub-agents.' }), METRIC_CFG), null);
+});
+
+test('fabricated-metric respects the [fictional] escape hatch', () => {
+  assert.equal(evaluateGuardrail(payload({ content: '[fictional] +40% conversion' }), METRIC_CFG), null);
+});
+
+test('a date does not trip the metric check even when its LINE also names a metric word', () => {
+  // metric word + number share the line, so this is a deliberate true positive:
+  // the heuristic is line-scoped, and the date sits with "conversion" here.
+  const withContext = evaluateGuardrail(payload({ content: 'conversion review scheduled 2026-07-04' }), METRIC_CFG);
+  assert.notEqual(withContext, null);
+  // but the same date on its own line stays silent
+  const alone = evaluateGuardrail(payload({ content: 'conversion review\nscheduled 2026-07-04' }), METRIC_CFG);
+  assert.equal(alone, null);
+});
+
+test('fabricated-metric is inert unless the check is enabled', () => {
+  const d = evaluateGuardrail(payload({ content: '+40% conversion' }), { guardrails: true, guardrail_checks: ['em-dash'] });
+  assert.equal(d, null);
+});
