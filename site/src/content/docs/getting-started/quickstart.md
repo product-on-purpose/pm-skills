@@ -46,6 +46,16 @@ Or download and extract the latest ZIP from [Releases](https://github.com/produc
 
 More detail: see the [full getting-started guide](index.md) for the long-form walkthrough.
 
+## Verify It Worked
+
+Confirm the install landed before you start building:
+
+- **Claude Code**: run `/plugin list` to confirm `pm-skills` is installed, then invoke `/pm-skills:deliver-prd "test feature"` and expect a complete PRD artifact back.
+- **Claude.ai / Claude Desktop**: ask "Use the prd skill to create requirements for a test feature" and expect a complete PRD artifact back.
+- **Other AI agents** (Cursor, Windsurf, Copilot, Gemini CLI, and similar): ask "Use the hypothesis skill to test my assumption about checkout abandonment" and expect a structured hypothesis artifact back.
+
+If you get a generic response instead of a structured artifact, the agent has not discovered the skill; see [Setup by Platform](platforms.md) for troubleshooting.
+
 ## Usage
 
 ### Slash Commands

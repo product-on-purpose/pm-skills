@@ -56,14 +56,14 @@ Critical discipline: every finding includes a concrete fix suggestion. "This is 
 At invocation time, read the canonical contract docs for the artifact type. Map by artifact type:
 
 - **OKR sets:** read `skills/foundation-okr-writer/SKILL.md` sections on refusal protocols (fabricated baselines, comp coupling, feature-delivery KRs), guardrail balance, committed-vs-aspirational appropriateness
-- **Meeting recaps / agendas / briefs / syntheses / stakeholder updates:** read `docs/reference/skill-families/meeting-skills-contract.md` for family rules; read the producing skill's `SKILL.md` for its output contract
+- **Meeting recaps / agendas / briefs / syntheses / stakeholder updates:** read `site/src/content/docs/reference/skill-families/meeting-skills-contract.md` for family rules; read the producing skill's `SKILL.md` for its output contract
 - **Personas:** read `skills/foundation-persona/SKILL.md` for evidence calibration and assumption-flagging requirements
 - **PRDs:** read `skills/deliver-prd/SKILL.md` for success-metric testability requirements; cross-reference `skills/deliver-edge-cases/SKILL.md` for completeness
 - **Lean canvases:** read `skills/foundation-lean-canvas/SKILL.md` for block coherence requirements; check internal consistency across all 9 blocks
 - **Interview syntheses:** read `skills/discover-interview-synthesis/SKILL.md` for evidence-claim mapping requirements
 - **Edge case catalogs:** read `skills/deliver-edge-cases/SKILL.md` for category completeness (input validation, state corruption, concurrency, security, failure recovery, etc.)
-- **Foundation Sprint outputs:** read `docs/reference/skill-families/foundation-sprint-skills-contract.md`
-- **Design Sprint outputs:** read `docs/reference/skill-families/design-sprint-skills-contract.md`
+- **Foundation Sprint outputs:** read `site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md`
+- **Design Sprint outputs:** read `site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md`
 
 For artifact types not listed: infer the contract from the artifact's frontmatter (which skill produced it), then read that skill's `SKILL.md`.
 
@@ -94,7 +94,7 @@ When the user provides an artifact deliberately phrased to extract validation ("
 
 ## Output Format
 
-Produce a markdown findings report following this structure (full format documented in `docs/guides/adversarial-review.md`):
+Produce a markdown findings report following this structure (full format documented in `site/src/content/docs/guides/adversarial-review.md`):
 
 ```markdown
 # pm-critic findings: {artifact name}
@@ -146,7 +146,7 @@ When reviewing PM artifacts (PRDs, OKR sets, personas), produce a narrower-scope
 
 ## Cross-References
 
-- User guide: `docs/guides/adversarial-review.md` (covers invocation paths, severity examples, opt-out)
+- User guide: `site/src/content/docs/guides/adversarial-review.md` (covers invocation paths, severity examples, opt-out)
 - Spec doc: `docs/internal/release-plans/v2.16.0/spec_pm-critic.md` (behavioral contract; this file is the implementation of that spec)
-- Runtime components catalog: `docs/reference/runtime-components.md`
+- Runtime components catalog: `site/src/content/docs/reference/runtime-components.md`
 - Dispatch skill for cross-client access: `skills/utility-pm-critic/SKILL.md` (conditional on Phase 2 GATE B per master plan D30)

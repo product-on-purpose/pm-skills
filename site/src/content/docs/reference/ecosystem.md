@@ -85,7 +85,7 @@ All 68 skills are registered in `AGENTS.md` with corresponding slash commands in
 
 ```
 pm-skills/
-├── skills/               # The 67 shipped skills (flat, including foundation, utility, tool)
+├── skills/               # The 68 shipped skills (flat, including foundation, utility, tool)
 │   ├── discover-competitive-analysis/
 │   ├── define-hypothesis/
 │   ├── develop-adr/
@@ -353,23 +353,25 @@ git merge upstream/main
 
 ## Version Compatibility
 
+> **Current status (since 2026-05-04):** pm-skills-mcp is in [maintenance mode](../guides/mcp-integration.md), frozen at its v2.9.2 40-skill embedded catalog. It does **not** track current pm-skills releases 1:1; the table below records the historical alignment eras that held before the freeze. The current pm-skills catalog is 68 skills; use the file-based install for parity with it. pm-skills-mcp continues to receive security and critical-bug-fix patches only (latest v2.9.3).
+
 | PM-Skills Version | PM-Skills MCP Version | Compatibility |
 |-------------------|----------------------|---------------|
-| v2.4.x | v2.4.x | **Direct version tracking** - release versions align 1:1 across repos |
-| v2.1.x to v2.3.x | v2.1.x to v2.3.x | **Full alignment** - flat structure, frontmatter-based phase |
-| v2.0.x | v1.1.0 | Partial - nested MCP, flat pm-skills |
-| v1.2.x | v1.0.x | Legacy stable |
-| v1.1.x | v1.0.x | Legacy compatible |
-| v1.0.x | v1.0.x | Legacy compatible |
+| v2.4.x (historical) | v2.4.x | Direct version tracking - release versions aligned 1:1 across repos, before the MCP freeze |
+| v2.1.x to v2.3.x (historical) | v2.1.x to v2.3.x | Full alignment - flat structure, frontmatter-based phase |
+| v2.0.x (historical) | v1.1.0 | Partial - nested MCP, flat pm-skills |
+| v1.2.x (historical) | v1.0.x | Legacy stable |
+| v1.1.x (historical) | v1.0.x | Legacy compatible |
+| v1.0.x (historical) | v1.0.x | Legacy compatible |
 
 **Current Alignment Notes:**
-- pm-skills-mcp tracks pm-skills releases directly in current shipped versions.
+- pm-skills-mcp is frozen at its v2.9.2 40-skill embedded catalog and does not track current pm-skills releases (now 68 skills). Security and critical-bug-fix patches continue (latest v2.9.3); new-skill parity growth does not.
 - Resource URIs use the flat `pm-skills://skills/{skill}` form, with phase available in metadata where applicable.
 - Tool names remain stable: `pm_prd`, `pm_hypothesis`, etc.
-- Custom `PM_SKILLS_PATH` works with current pm-skills v2.x structure.
+- Custom `PM_SKILLS_PATH` lets you point the frozen server at your own current pm-skills checkout, restoring parity for teams that need it.
 
 **Compatibility Notes:**
-- PM-Skills MCP embeds a snapshot of pm-skills at build time
+- PM-Skills MCP embeds a snapshot of pm-skills at build time (frozen at the v2.9.2 build)
 - Custom `PM_SKILLS_PATH` bypasses embedded skills (use any pm-skills version)
 
 ---

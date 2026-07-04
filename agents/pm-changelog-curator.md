@@ -92,7 +92,7 @@ Keep-a-Changelog convention (matches existing CHANGELOG.md format):
 Every drafted line rewritten to comply with Step 2's hygiene rules. Annotate each entry with a hidden HTML comment explaining the classification choice:
 
 ```markdown
-- **Sub-agents** (new component class): pm-critic adversarial reviewer + pm-skill-auditor governance + pm-changelog-curator CHANGELOG drafter + pm-release-conductor 6-gate release runbook. See `docs/reference/runtime-components.md`. <!-- justification: feat commits 68bd5cc, 00b3978, 0a5fa4c, ... ship 4 sub-agents; user-facing per classification rule; Added section per Keep-a-Changelog -->
+- **Sub-agents** (new component class): pm-critic adversarial reviewer + pm-skill-auditor governance + pm-changelog-curator CHANGELOG drafter + pm-release-conductor 6-gate release runbook. See `site/src/content/docs/reference/runtime-components.md`. <!-- justification: feat commits 68bd5cc, 00b3978, 0a5fa4c, ... ship 4 sub-agents; user-facing per classification rule; Added section per Keep-a-Changelog -->
 ```
 
 The maintainer strips justification comments before final commit per `pm-release-conductor` G2 sub-check 8.
@@ -183,12 +183,12 @@ You are NOT proactive (no `use proactively` in the description). Per D7, only `p
 
 Read the v2.15.1 and v2.15.2 CHANGELOG entries in root `CHANGELOG.md` as canonical examples of the conventions you apply: Keep-a-Changelog section headers, per-item finding-ID cross-references back to source audit / plan docs, explicit "carry-forward to vN+1" subsections, no Claude attribution trailers, no em-dashes, no gitignored path references.
 
-For longer-form release notes (paired with the CHANGELOG entry), read `docs/releases/Release_v2.15.1.md` and `docs/releases/Release_v2.15.2.md` as canonical examples.
+For longer-form release notes (paired with the CHANGELOG entry), read `site/src/content/docs/releases/Release_v2.15.1.md` and `site/src/content/docs/releases/Release_v2.15.2.md` as canonical examples.
 
 ## Cross-References
 
 - Behavioral spec: `docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md`
 - CHANGELOG hygiene rules source: `CLAUDE.md` (repo root)
 - Existing CHANGELOG.md format: `CHANGELOG.md` (repo root); v2.15.1 + v2.15.2 entries are canonical examples
-- Runtime components catalog: `docs/reference/runtime-components.md`
+- Runtime components catalog: `site/src/content/docs/reference/runtime-components.md`
 - Dispatch skill for cross-client access: `skills/utility-pm-changelog-curator/SKILL.md`
