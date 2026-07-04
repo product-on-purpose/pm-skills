@@ -2,6 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { derivePartners, collisionTasks, collisionVerdict } from './check-new-skill-collision.mjs';
+import { partnersOf } from './trigger-eval-roster.mjs';
 
 const fixtures = {
   'new-skill': {
@@ -38,6 +39,15 @@ test('derivePartners unions curated extras and stays sorted, deduped', () => {
 test('derivePartners with no neighbors returns empty', () => {
   const lone = { 'lonely': { skill: 'lonely', queries: [{ q: 'x', expect: 'trigger', split: 'train' }] } };
   assert.deepEqual(derivePartners('lonely', lone), []);
+});
+
+test('curated collision partners come from the trigger-eval roster data file (WS-T10)', () => {
+  // check-new-skill-collision.mjs unions derivePartners with partnersOf(newSkill);
+  // partnersOf now reads trigger-eval-roster.yaml. A known curated pair must resolve
+  // in both directions so the merge gate keeps seeing the declared neighbors.
+  assert.deepEqual(partnersOf('foundation-okr-writer'), ['measure-okr-grader']);
+  assert.deepEqual(partnersOf('measure-okr-grader'), ['foundation-okr-writer']);
+  assert.deepEqual(partnersOf('deliver-acceptance-criteria').sort(), ['deliver-edge-cases', 'deliver-user-stories']);
 });
 
 // "correct" routing for the scored-task helpers: recall + back-recall route to the new

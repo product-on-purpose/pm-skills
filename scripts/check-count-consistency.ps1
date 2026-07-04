@@ -75,7 +75,12 @@ $excludePatterns = @(
     '^library/',
     '^skills/utility-pm-skill-auditor/references/',
     '^site/src/content/docs/skills/utility/utility-pm-skill-auditor\.md$',
-    '^scripts/check-count-consistency\.'
+    '^scripts/check-count-consistency\.',
+    # WS-T9 dual-shell equivalence fixture (see check-count-consistency.sh): the
+    # mini-repo under scripts/fixtures/shell-parity/ carries deliberately stale counts
+    # for the shell-parity smoke. Exclude it from the REAL repo scan; during the smoke
+    # ROOT is the fixture itself, where this pattern matches nothing.
+    '^scripts/fixtures/'
 )
 
 $filesToCheck = $trackedFiles | Where-Object {

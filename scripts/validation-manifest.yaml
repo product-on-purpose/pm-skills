@@ -34,6 +34,17 @@
 #
 # When you add, retire, or re-flag a shell validator, edit THIS file and the
 # matching inventory; the parity referee proves they agree.
+#
+# DUAL-SHELL FREEZE (v2.30.0, WS-T9). This inventory is FROZEN: do NOT add a new
+# scripts/<name>.sh + scripts/<name>.ps1 validator pair. New validators are
+# single-source Node (scripts/<name>.mjs + .test.mjs) wired straight into
+# validation.yml, so they run once cross-platform with no two-shell duplication to
+# hand-sync. Rationale (2026-07-04 audit finding P1-3): the existing pairs carry
+# ~3,700 duplicated lines and this referee proves only INVENTORY parity, not that
+# the two shells compute the same VERDICT (the awk RSTART/RLENGTH clobber hung
+# v2.27.1 CI in one shell only). The frozen pairs' behavior is smoke-tested by
+# scripts/shell-parity-smoke.mjs (advisory); the port to single-source Node is
+# v2.31.0 WS-Z4. See CONTRIBUTING.md "New validators are single-source Node".
 
 # === Required: local pre-tag (blocking) + enforcing in CI ===
 - id: lint-skills-frontmatter

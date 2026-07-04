@@ -2,7 +2,7 @@
 // No API calls: route() is exercised with a fake fetchImpl, majority() with a fake routeFn.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parsePick, scorePass, aggregateSkill, diffBaseline, missingBaselineRows, majority, route, CALIBRATION } from './run-router-evals.mjs';
+import { parsePick, scorePass, aggregateSkill, diffBaseline, missingBaselineRows, majority, route, CALIBRATION, ROSTER } from './run-router-evals.mjs';
 
 const NAMES = ['deliver-prd', 'deliver-edge-cases', 'deliver-acceptance-criteria', 'develop-spike-summary'];
 
@@ -124,4 +124,12 @@ test('CALIBRATION set is well-formed (has none-cases and known answers)', () => 
   assert.ok(CALIBRATION.length >= 4);
   assert.ok(CALIBRATION.some((c) => c.expect === 'none'));
   assert.ok(CALIBRATION.every((c) => typeof c.q === 'string' && typeof c.expect === 'string'));
+});
+
+test('the eval scope is the trigger-eval roster data file (WS-T10)', () => {
+  // run-router-evals scopes its fixtures to ROSTER, re-exported from
+  // trigger-eval-roster.yaml. 31 = every registered fixture set on disk.
+  assert.equal(ROSTER.length, 31);
+  assert.equal(new Set(ROSTER).size, 31);
+  assert.ok(ROSTER.every((s) => typeof s === 'string' && /^[a-z0-9-]+$/.test(s)));
 });

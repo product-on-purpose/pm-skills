@@ -72,6 +72,14 @@ while IFS= read -r family; do
 
   echo "--- Family: $family ---"
 
+  # HAZARD (awk RSTART/RLENGTH clobber - the class that hung v2.27.1 ubuntu CI; see
+  # reference_awk-match-rstart-clobber and the WS-T9 freeze note in
+  # scripts/validation-manifest.yaml). This file uses awk match() ONLY as a boolean
+  # rule condition (below and at the members block), never followed by an
+  # RSTART/RLENGTH-based advance inside a while-loop, so it is not exposed to the
+  # clobber-driven infinite loop. If you ever add a nested match() inside a
+  # match()-driven while-loop here, save the outer span (mstart/mlen) BEFORE the
+  # nested match and advance by it, exactly like check-count-consistency.sh does.
   # Extract contract path for this family
   contract=$(awk -v fam="$family" '
     /^families:/ { in_families=1; next }

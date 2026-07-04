@@ -2,44 +2,20 @@
 // M-31 trigger-eval fixtures (skills/<name>/evals/trigger-fixtures.json).
 // Spec: docs/internal/release-plans/v2.27.0/spec_trigger-accuracy-evals.md (section 3).
 // CI-only Node check (out of the shell parity remit). Promoted to ENFORCING in
-// validation.yml on 2026-06-14 (B-4) now that the 29-file roster corpus is stable;
-// a malformed fixture or a roster skill missing its fixture file fails CI.
+// validation.yml on 2026-06-14 (B-4) now that the roster corpus is stable (31 fixture
+// sets as of v2.30.0); a malformed fixture or a roster skill missing its fixture file
+// fails CI. Roster + collision pairs load from trigger-eval-roster.yaml (WS-T10).
 import { readFileSync, globSync, existsSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
-// Phase 1 roster (spec T-C): the F-12 26-skill cohort + 3 collision partners.
-export const ROSTER = [
-  // Define (4)
-  'define-hypothesis', 'define-jtbd-canvas', 'define-opportunity-tree', 'define-problem-statement',
-  // Discover (3)
-  'discover-competitive-analysis', 'discover-interview-synthesis', 'discover-stakeholder-summary',
-  // Develop (4)
-  'develop-adr', 'develop-design-rationale', 'develop-solution-brief', 'develop-spike-summary',
-  // Deliver (6)
-  'deliver-acceptance-criteria', 'deliver-edge-cases', 'deliver-launch-checklist',
-  'deliver-prd', 'deliver-release-notes', 'deliver-user-stories',
-  // Measure (4)
-  'measure-dashboard-requirements', 'measure-experiment-design', 'measure-experiment-results',
-  'measure-instrumentation-spec',
-  // Iterate (4)
-  'iterate-lessons-log', 'iterate-pivot-decision', 'iterate-refinement-notes', 'iterate-retrospective',
-  // Foundation cohort member (1)
-  'foundation-persona',
-  // Collision partners outside the cohort (3)
-  'foundation-meeting-recap', 'foundation-okr-writer', 'measure-okr-grader',
-];
-
-// Known collision pairs (2026-06 audit D1-D5 + the OKR watch pair, D6). Skills in a
-// pair must carry near-miss negatives aimed at (at least) one declared partner.
-export const COLLISION_PAIRS = [
-  ['deliver-user-stories', 'deliver-acceptance-criteria'],
-  ['deliver-acceptance-criteria', 'deliver-edge-cases'],
-  ['define-hypothesis', 'measure-experiment-design'],
-  ['discover-interview-synthesis', 'foundation-meeting-recap'],
-  ['iterate-lessons-log', 'iterate-retrospective'],
-  ['foundation-okr-writer', 'measure-okr-grader'],
-];
+// The Phase 1 roster + curated collision pairs moved to trigger-eval-roster.yaml
+// (WS-T10 / v2.30.0): the in-code ROSTER had drifted to 29 vs 31 fixture sets on
+// disk (audit P1-5). They load via ./trigger-eval-roster.mjs. Imported here for
+// this script's own use (missingRosterFixtures, partnersOf) and re-exported so
+// check-trigger-fixtures.test.mjs keeps its existing import surface.
+import { ROSTER, partnersOf } from './trigger-eval-roster.mjs';
+export { ROSTER, COLLISION_PAIRS, partnersOf } from './trigger-eval-roster.mjs';
 
 // Phase 1 fixed constants (spec T-D): present in each file, but not yet variable.
 const RUNS_PER_QUERY = 3;
@@ -49,15 +25,6 @@ const MIN_PER_CLASS = 8;
 const SPLIT_TRAIN_FRACTION = 0.6;
 const SPLIT_TOLERANCE = 1;
 const MIN_NEAR_MISSES = 2;
-
-export function partnersOf(skill) {
-  const out = [];
-  for (const [a, b] of COLLISION_PAIRS) {
-    if (a === skill) out.push(b);
-    if (b === skill) out.push(a);
-  }
-  return out;
-}
 
 /** Validate one parsed fixture object. Pure: filesystem facts arrive via opts.
  *  opts = { dirName, skillExists(name) -> bool, collisionPartners: [names] }.

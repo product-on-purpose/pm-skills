@@ -83,8 +83,8 @@ scaffolds all of this for you; if you author a skill by hand, supply it yourself
 1. **Boundary pointers (reciprocal).** The SKILL.md has a `When NOT to Use` section naming the
    skill's nearest neighbors (when to use them instead). For each neighbor, add the **reciprocal**
    pointer back in the neighbor's SKILL.md. If the overlap is strong enough to measure, add the pair
-   to `COLLISION_PAIRS` in `scripts/check-trigger-fixtures.mjs`. Reciprocal pointers are what keep
-   near-duplicate skills routing cleanly.
+   to `collision_pairs` in `scripts/trigger-eval-roster.yaml` (the single roster data file read by the
+   trigger + collision gates). Reciprocal pointers are what keep near-duplicate skills routing cleanly.
 2. **Trigger fixtures.** `evals/trigger-fixtures.json` (`schema: 1`): at least 16 queries, at least
    8 that should trigger the skill (include intent-only asks, not just artifact keywords) and at
    least 8 that should not - of which at least 2 are near-misses aimed at the neighbors. Split each
@@ -151,6 +151,14 @@ Through v2.16.x the directory was named `subagents/` to dodge a case-insensitivi
 Validation: `scripts/validate-agents-md.{sh,ps1}` enumerates `agents/*.md` and verifies each sub-agent name appears in `AGENTS.md`. If you add a new Claude Code plugin sub-agent, place its definition in `agents/`; do not reintroduce a `subagents/` directory or a plugin.json custom-path field.
 
 Origin: case-collision caught during v2.16.0 Phase 1 execution (D31 amendment); resolved by the v2.17.0 directory rename in `docs/internal/release-plans/v2.17.0/spec_agents-directory-rename.md`.
+
+### 7. New validators are single-source Node (`.mjs`), NOT `.sh` + `.ps1` pairs (dual-shell freeze)
+
+**Do not add a new `scripts/<name>.sh` + `scripts/<name>.ps1` validator pair.** Write new validators as a single cross-platform Node script (`scripts/<name>.mjs`) with a matching `scripts/<name>.test.mjs`, wired directly into `.github/workflows/validation.yml` so it runs once on both OS legs. This is how every recent gate ships (`check-count-consistency` is dual-shell legacy; `check-frontmatter-yaml`, `check-rendered-links`, `check-route-parity`, `check-count-phrases`, `check-heading-canon`, and the trigger/collision evals are all single-source Node).
+
+Why the freeze: the existing `.sh`/`.ps1` pairs carry roughly 3,700 duplicated lines that must be hand-kept in lockstep. `scripts/check-validator-parity.mjs` proves the two shells run the same INVENTORY, but nothing proves they compute the same VERDICT, and the awk `RSTART`/`RLENGTH` clobber class hung ubuntu CI at v2.27.1 in exactly one shell. The 2026-07-04 deep audit flagged this duplication (finding P1-3); the decision was to freeze the surface here (v2.30.0, WS-T9) and port the most fragile validators to single-source Node in v2.31.0 (WS-Z4), not to grow it. The dual-shell freeze is also recorded in the header of `scripts/validation-manifest.yaml` (the shell-validator inventory).
+
+Interim behavioral guard for the frozen pairs: `scripts/shell-parity-smoke.mjs` runs `check-count-consistency` through both shells against the committed fixture tree in `scripts/fixtures/shell-parity/` and fails if their verdicts diverge from the committed golden. It ships advisory in `validation.yml` until the v2.31.0 ports shrink the surface. If you must touch an existing dual-shell validator, edit BOTH scripts and keep the awk hazard comments intact.
 
 ## Code of Conduct
 

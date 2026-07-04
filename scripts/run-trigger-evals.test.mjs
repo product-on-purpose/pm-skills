@@ -111,7 +111,7 @@ test('rateLimitBlocked flags a non-allowed window, ignores allowed', () => {
   assert.equal(rateLimitBlocked(parseEvents('{"type":"system"}')), null);
 });
 
-test('BATCHES partition the full 29-skill roster exactly once', () => {
+test('BATCHES partition the full 31-skill roster exactly once', () => {
   const flat = Object.values(BATCHES).flat();
   assert.equal(flat.length, ROSTER.length, 'batch skill count == roster size');
   assert.equal(new Set(flat).size, flat.length, 'no skill appears in two batches');
