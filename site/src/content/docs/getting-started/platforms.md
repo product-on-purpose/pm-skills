@@ -90,7 +90,7 @@ Both use ZIP upload to Project Files.
     - **Claude Desktop**: Settings > Capabilities > Upload ZIP
 3. Use skills by name in your conversation: "Use the prd skill to create requirements for [your topic]"
 
-The ZIP contains all 68 skills, slash commands, workflows, library samples, and a `QUICKSTART.md` with detailed instructions.
+The ZIP contains all 68 skills, slash commands, workflows, sub-agent definitions, activation hooks, library samples, and a `QUICKSTART.md` with detailed instructions.
 
 ---
 

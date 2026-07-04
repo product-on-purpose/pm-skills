@@ -19,3 +19,15 @@
 
 # Markdown: normalized to LF in the repository; checked out per-platform.
 *.md    text
+
+# Release-archive hygiene (v2.30.0, WS-T2 packaging integrity).
+#
+# Maintainer-only trees are tracked in the repo but must never ship in a
+# consumer artifact. export-ignore drops them from `git archive` (the
+# GitHub auto-generated source tarballs/zips). The curated build-release
+# script excludes docs/internal separately; these rules cover the archive
+# path GitHub generates on its own.
+docs/internal/          export-ignore
+_agent-context/         export-ignore
+.github/issues-drafts/  export-ignore
+.github/issues-archive/ export-ignore

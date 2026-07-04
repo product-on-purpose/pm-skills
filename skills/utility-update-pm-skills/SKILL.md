@@ -4,8 +4,8 @@ description: Checks for newer pm-skills releases, compares local vs. latest vers
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.0"
-  updated: 2026-04-09
+  version: "1.0.1"
+  updated: 2026-07-04
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -245,8 +245,11 @@ Execute the update using validated-before-copy with backup:
 
 The updater writes only files present in the release ZIP asset
 (`pm-skills-vX.Y.Z.zip`), which is the curated build produced by
-`build-release.sh`. The ZIP excludes `docs/internal/` and other
-non-user-facing content - no exclusion logic is needed at copy time.
+`build-release.sh`. As of v2.30.0 the ZIP also carries the `agents/`
+sub-agent definitions and the `hooks/` activation hooks, so a ZIP install
+has the runtime files the dispatch skills reference. The ZIP excludes
+`docs/internal/` and other non-user-facing content - no exclusion logic is
+needed at copy time.
 
 **Files included in the release ZIP (updated):**
 
@@ -255,6 +258,8 @@ non-user-facing content - no exclusion logic is needed at copy time.
 | `skills/` | Core skill files |
 | `commands/` | Slash command definitions |
 | `_workflows/` | Workflow chains |
+| `agents/` | Sub-agent definitions the `utility-pm-*` dispatch skills read at runtime |
+| `hooks/` | Activation hooks (guardrails + phase router) including `hooks.json` |
 | `library/` | Sample library and skill output samples (note: user-added samples may be overwritten) |
 | `AGENTS.md` | Skill discovery for IDEs |
 | `.claude-plugin/plugin.json` | Version + plugin metadata |
