@@ -368,6 +368,7 @@ jobs:
           node --test scripts/output-eval-informed.workflow.test.mjs
           node --test scripts/output-eval-aggregate.test.mjs
           node --test scripts/check-output-eval-assets.test.mjs
+          node --test scripts/check-count-phrases.test.mjs
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
@@ -395,6 +396,21 @@ jobs:
         # so this closes that gap (the same rot class as the stale showcase). Deterministic.
         if: always()
         run: node scripts/check-sample-counts.mjs
+
+      - name: Check count-bearing phrases (advisory)
+        # WS-T1 (v2.30.0, M-35): derives the catalog total, the sub-agent count, and the
+        # sample floor from disk, then fails on stale count-bearing PHRASE VARIANTS the
+        # canonical check-count-consistency cannot see - "N shipped PM skills", "N skill
+        # definitions", "N+ sample outputs", and the "N sub-agents" axis it omits entirely -
+        # on the front-door surfaces (README, QUICKSTART, the getting-started pages, and the
+        # three manifest description headlines). Pure node builtins; runs on BOTH OS legs via
+        # the matrix (if: always), so a CRLF/LF slip is exercised too. Ships ADVISORY on the
+        # M-30 ladder; promote to ENFORCING (remove continue-on-error) in the v2.30.0
+        # surface-sweep PR (Phase 7) once the repo-wide grep count-sweep returns zero. Added
+        # 2026-07-04.
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-count-phrases.mjs
 
       - name: Skill-page completeness (enforcing)
         # v2.29.1: every SKILL.md section must render on its generated docs page. gen-site used to
