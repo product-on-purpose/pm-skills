@@ -4,8 +4,8 @@ description: Scores completed OKR sets at cycle close with KR-level scoring per 
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "1.0.0"
-  updated: 2026-05-01
+  version: "1.0.1"
+  updated: 2026-07-04
   category: reflection
   frameworks: [triple-diamond, okrs, lean-startup]
   author: product-on-purpose
@@ -46,15 +46,7 @@ When asked to score completed OKRs, follow these steps:
    The OKR type is one of `committed | aspirational | learning | operational_health | compliance_or_safety` (the five values produced by `foundation-okr-writer`). The indicator class is one of `leading | lagging | guardrail | health | evidence_generation`. Carry both forward from the original OKR set, or assign defaults if the original set did not specify. The OKR type determines the scoring convention: `aspirational` uses the 0.6 to 0.7 sweet spot; `committed` targets 1.0; `compliance_or_safety` is binary; `operational_health` is pass | fail | drift-within-tolerance against a threshold band; `learning` grades by validated or invalidated rather than by score. The indicator class adds independent rules that apply on top of the type's scoring (see Step 3).
 
 3. **Score each KR**
-   For each KR, compute or assign a score using the convention for its OKR type:
-   - `aspirational` KR: numeric score = (actual - baseline) / (target - baseline). Sweet spot is 0.6 to 0.7.
-   - `committed` KR: pass or fail against the target. Anything below 1.0 is a miss.
-   - `compliance_or_safety` KR: binary. Met or not met. No partial credit. No retroactive scope shrinkage when coverage is partial; mark as not-yet-fully-observable instead.
-   - `operational_health` KR: pass | fail | drift-within-tolerance against the threshold band.
-   - `learning` KR: validated, invalidated, partially-validated, or insufficient-evidence. No numeric score.
-   Then apply indicator-class rules independently of the OKR type:
-   - any KR with indicator class `guardrail` is reported as its own signal and is NEVER averaged into the primary objective score, regardless of its OKR type. A failed guardrail does not dilute a high primary KR score.
-   For each score, state the calculation or rationale and the evidence confidence (high | medium | low | unknown).
+   Score each KR using the convention for its OKR type, then apply the indicator-class rules on top; see the Scoring Rules section below for the full per-type convention table and the guardrail rule (do not restate them here). For each score, state the calculation or rationale and the evidence confidence (high | medium | low | unknown).
 
 4. **Interpret the objective score**
    Avoid naive averaging when one KR is a guardrail, compliance threshold, or learning KR. Produce a qualitative read of the objective alongside any rough numeric average. State explicitly what the score does and does not mean.

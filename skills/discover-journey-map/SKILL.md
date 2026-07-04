@@ -1,11 +1,11 @@
 ---
 name: discover-journey-map
-description: Produce a customer journey map covering stages, touchpoints, emotional curve, pain points, moments of truth, and opportunity annotations. Output is a markdown artifact that may include mermaid timeline / flowchart visualization. Supports both linear journey (start to end) and cyclical journey (recurring engagement loops). Refuses to fabricate emotional or behavioral data without research input.
+description: Maps a customer journey across stages, touchpoints, emotional curve, pain points, and moments of truth into a markdown artifact with an optional mermaid timeline or flowchart. Use when synthesizing existing research into the shape of a customer's experience, end-to-end or for one phase. Without research signal yet, run discover-interview-synthesis or measure-survey-analysis first; refuses to fabricate emotional or behavioral data.
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "1.0.0"
-  updated: 2026-05-21
+  version: "1.1.0"
+  updated: 2026-07-04
   category: research
   frameworks: [triple-diamond, service-design]
   author: product-on-purpose

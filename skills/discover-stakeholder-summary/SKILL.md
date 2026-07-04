@@ -1,11 +1,11 @@
 ---
 name: discover-stakeholder-summary
-description: Documents stakeholder needs, concerns, and influence for a project or initiative. Use when starting projects, managing complex stakeholder relationships, or ensuring alignment across organizational boundaries.
+description: Maps the people and groups with a stake in a project, documenting their needs, concerns, influence, and engagement approach. Use at project kickoff, when taking over from another PM, or when resistance signals misalignment. For the update you send to those stakeholders, use foundation-stakeholder-update instead; this skill maps them, that one talks to them.
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.2.0"
+  updated: 2026-07-04
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

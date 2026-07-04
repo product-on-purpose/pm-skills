@@ -203,7 +203,7 @@ Requires customer-research input (survey or interview) to populate categories de
 
 ## Cross-skill composition
 
-- Output of this skill feeds into: `deliver-roadmap` (when shipped; rank, then sequence), `deliver-launch-checklist` (Must-Have items become launch criteria), sprint-planning workflows
+- Output of this skill feeds into: a future roadmap-sequencing skill (unshipped; would rank, then sequence), `deliver-launch-checklist` (Must-Have items become launch criteria), sprint-planning workflows
 - Inputs to this skill often come from: `develop-solution-brief`, `define-opportunity-tree`, `define-hypothesis`, `discover-interview-synthesis`
 - Adversarial review via: `utility-pm-critic` (challenges assumed inputs, framework applicability, and divergence explanations)
 

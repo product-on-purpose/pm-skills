@@ -1,11 +1,11 @@
 ---
 name: deliver-launch-checklist
-description: Creates a comprehensive pre-launch checklist covering engineering, design, marketing, support, legal, and operations readiness. Use before releasing features, products, or major updates to ensure nothing is missed.
+description: Creates a cross-functional pre-launch checklist covering engineering, design, marketing, support, legal, and operations readiness, with owners, dates, and go/no-go criteria so nothing is missed before release. Use for significant or cross-team launches, not a small single-team change. For the customer-facing announcement of what shipped, use deliver-release-notes instead.
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.2.0"
+  updated: 2026-07-04
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

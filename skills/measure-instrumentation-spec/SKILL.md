@@ -1,11 +1,11 @@
 ---
 name: measure-instrumentation-spec
-description: Specifies event tracking and analytics instrumentation requirements for a feature. Use when defining what data to collect, ensuring consistent tracking implementation, or documenting analytics requirements for engineering.
+description: Specifies what analytics events to track, when they fire, and what properties to include, as a contract between product and engineering that prevents undertracked features. Use before engineering builds a feature or when auditing existing tracking for gaps. For the dashboard built on top of these events, use measure-dashboard-requirements instead.
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.2.0"
+  updated: 2026-07-04
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
