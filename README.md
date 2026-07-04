@@ -4,7 +4,7 @@
   <a href="https://github.com/product-on-purpose/pm-skills">PM-Skills</a>
 </h1>
 
-<h4 align="center">A curated library of 68 best-practice, plug-and-play product management skills covering the complete product lifecycle - plus templates, workflows, and 95+ real-world sample outputs that set the quality bar.</h4>
+<h4 align="center">A curated library of 68 best-practice, plug-and-play product management skills covering the complete product lifecycle - plus templates, workflows, and 200+ real-world sample outputs that set the quality bar.</h4>
 
 <p align="center">
   <a href="https://github.com/product-on-purpose/pm-skills/issues/new?labels=bug">Report a Bug</a>
@@ -114,7 +114,7 @@
 
 ## Quick Start
 
-After installing, you'll have all 68 skills available (invoke any by name, like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus 10 `/workflow-*` orchestrator commands and the `/chain` ad-hoc runner, templates, sub-agents, and 95+ sample outputs.
+After installing, you'll have all 68 skills available (invoke any by name, like `/pm-skills:deliver-prd`, `/pm-skills:define-hypothesis`, `/pm-skills:deliver-user-stories`) plus 10 `/workflow-*` orchestrator commands and the `/chain` ad-hoc runner, templates, sub-agents, and 200+ sample outputs.
 
 **Claude Code (recommended):**
 
@@ -991,7 +991,7 @@ When you ask an AI to write a PRD, the output quality is anchored to its trainin
 There are two layers of examples:
 
 1. **Skill-level `EXAMPLE.md`** - every skill ships with a worked example sitting right next to the SKILL.md. This is what the agent reads at the moment it runs the skill.
-1. **Library samples** (`library/skill-output-samples/`) - 95+ full outputs across three narrative threads. These are for *you*, not just the agent: read them before a skill run to calibrate expectations, or browse them to understand what a skill you haven't used actually produces.
+1. **Library samples** (`library/skill-output-samples/`) - 200+ full outputs across three narrative threads. These are for *you*, not just the agent: read them before a skill run to calibrate expectations, or browse them to understand what a skill you haven't used actually produces.
 
 ### Varied Prompt Maturity to Reflect Reality
 
@@ -1047,7 +1047,7 @@ Since product management is all about context, there  are several ways for you t
 
 **More resources:**
 
-- [**Skill Output Samples**](library/skill-output-samples/) - All 95+ sample outputs organized by skill name. Browse to calibrate expectations before running a skill.
+- [**Skill Output Samples**](library/skill-output-samples/) - All 200+ sample outputs organized by skill name. Browse to calibrate expectations before running a skill.
 - [**Prompt Gallery**](https://product-on-purpose.github.io/pm-skills/guides/prompt-gallery/) - The prompts that generated many of the best library samples, annotated with what makes each one effective. A useful companion when you want to improve your own invocation patterns.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -1064,7 +1064,7 @@ Since product management is all about context, there  are several ways for you t
 - Case studies
 - Recovery playbooks
 - A prompt gallery
-- ... and 95+ real sample outputs.
+- ... and 200+ real sample outputs.
 
 ### Learn the Methodologies
 
@@ -1124,7 +1124,7 @@ The Design Sprint tool family ships with five companion guides:
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
 | **Current version** | [v2.29.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.29.1)           |
-| **Skill count**     | 68 skills (30 phase + 10 foundation + 12 utility + 15 tool)                               |
+| **Skill count**     | 68 skills (30 phase + 11 foundation + 12 utility + 15 tool)                               |
 | **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
 | **Workflows**       | 12                                                                                        |
 | **Slash commands**  | 11                                                                                        |
@@ -1141,7 +1141,7 @@ pm-skills/
 ├── _workflows/              # Workflow chains: feature-kickoff, lean-startup, triple-diamond, and more
 ├── agents/                  # Sub-agent definitions (v2.16.0+, Claude Code plugin runtime)
 ├── hooks/                   # Claude Code hooks: house-rule guardrails + phase router (v2.25.0+)
-├── library/                 # Sample output library (95+ real skill outputs)
+├── library/                 # Sample output library (200+ real skill outputs)
 ├── scripts/                 # sync-claude, build-release, validate-commands, and CI scripts
 ├── .github/                 # CI workflows and automation
 ├── site/                    # Astro docs site, published to product-on-purpose.github.io/pm-skills
@@ -1160,7 +1160,7 @@ pm-skills/
 | [`skills/`](skills/)                                             | All 68 PM skills, each with SKILL.md + references/TEMPLATE.md + references/EXAMPLE.md |
 | [`commands/`](commands/)                                         | Slash command definitions for Claude Code                                             |
 | [`_workflows/`](_workflows/)                                     | Multi-skill workflow chains with handoff guidance                                     |
-| [`library/skill-output-samples/`](library/skill-output-samples/) | 95+ real sample outputs organized by skill name                                       |
+| [`library/skill-output-samples/`](library/skill-output-samples/) | 200+ real sample outputs organized by skill name                                       |
 | [`site/src/content/docs/guides/`](site/src/content/docs/guides/)                                   | How-to guides and operational references                                              |
 | [`site/src/content/docs/concepts/`](site/src/content/docs/concepts/)                               | Methodology primers and conceptual explanations                                       |
 | [`site/src/content/docs/reference/`](site/src/content/docs/reference/)                             | Technical reference: skill anatomy, ecosystem, runtime components                     |

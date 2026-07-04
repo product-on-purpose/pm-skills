@@ -80,7 +80,7 @@ AI: *Produces a comprehensive PRD with problem statement, success metrics,
 
 ### What You Get
 
-- **68 skills in `skills/`** covering the PM lifecycle (30 phase + 10 foundation + 12 utility + 15 tool)
+- **68 skills in `skills/`** covering the PM lifecycle (30 phase + 11 foundation + 12 utility + 15 tool)
 - **Professional templates** based on industry best practices
 - **Real-world examples** showing what good looks like
 - **Works with any AI assistant** (Claude, ChatGPT, Copilot, etc.)

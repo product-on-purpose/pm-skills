@@ -80,7 +80,7 @@ pm-skills/
 │   ├── define-problem-statement/
 │   ├── deliver-prd/
 │   ├── deliver-user-stories/
-│   └── ...               # 67 skills total: {phase/classification}-{skill}/
+│   └── ...               # 68 skills total: {phase/classification}-{skill}/
 ├── _workflows/           # 12 Workflows (triple-diamond, lean-startup, feature-kickoff, and 9 more)
 ├── commands/             # Claude Code slash commands (11 total: 10 workflow orchestrators + /chain)
 ├── docs/                 # Documentation (Diataxis: concepts, guides, reference, plus generated skills/workflows/showcase)

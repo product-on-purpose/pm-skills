@@ -5,7 +5,7 @@ description: Five-minute pm-skills install + first skill invocation. Pick an ins
 
 ## What's Included
 
-- **67 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 11 foundation skills, 12 utility skills, 15 tool skills)
+- **68 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 11 foundation skills, 12 utility skills, 15 tool skills)
 - **11 slash-command docs in `commands/`** (10 `/workflow-*` orchestrator commands + the `/chain` command)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 
@@ -87,7 +87,7 @@ See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
 ## File Structure
 
 ```
-skills/            # All 67 skill definitions (30 phase + 10 foundation + 12 utility + 15 tool, flat)
+skills/            # All 68 skill definitions (30 phase + 11 foundation + 12 utility + 15 tool, flat)
 commands/          # 11 command markdown files
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
