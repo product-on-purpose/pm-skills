@@ -630,7 +630,7 @@
     {
       "name": "tool-design-sprint-brief",
       "description": "Pre-sprint brief that locks challenge, sprint questions, team and role assignments, customer recruiting plan, prototype medium, interview format, logistics, and success criteria before Monday of a Design Sprint. Use after the readiness verdict is Go and before Monday begins. Produces a two-page artifact the team and Decider sign off on as the contract for the next five days.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -645,7 +645,7 @@
     {
       "name": "tool-design-sprint-decide-and-storyboard",
       "description": "Day 3 (Wednesday) move of a Design Sprint that runs the art museum layout, heat map, speed critique, straw poll, Decider supervote, rumble-vs-all-in-one decision, and the storyboard that drives Thursday's prototype build. The most decision-heavy day of the sprint. Use Wednesday morning and afternoon after Tuesday's sketches are collected and attribution-stripped. Produces the canonical 5-15 step storyboard that becomes the build spec.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -660,7 +660,7 @@
     {
       "name": "tool-design-sprint-map-and-target",
       "description": "Day 1 (Monday) move of a Design Sprint that produces the bundled Monday artifact containing long-term goal, sprint questions (3-7 testable risks), customer or system map (5-15 step flow), expert interview notes, HMW (How Might We) cluster board, and the Decider's chosen target moment. Use Day 1 morning and afternoon after the sprint brief is locked. Sets the design target for Tuesday's sketches and Wednesday's storyboard.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -675,7 +675,7 @@
     {
       "name": "tool-design-sprint-prototype-plan",
       "description": "Day 4 (Thursday) move of a Design Sprint that produces the planning artifact for the day. Output covers the prototype role plan (Maker, Stitcher, Writer, Asset Collector, Interviewer), prototype brief (what to build, fidelity bar, time allocation per role), canonical Five-Act Interview script (Welcome, Context, Intro, Tasks, Debrief), trial-run checklist, and Friday participant confirmation tracker. The actual prototype build is craft work outside the skill's AI invocation surface. Use Thursday morning after Wednesday's storyboard is signed off.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -690,7 +690,7 @@
     {
       "name": "tool-design-sprint-readiness",
       "description": "Pre-sprint diagnostic that determines whether a team should run a Design Sprint now, postpone it, or do prerequisite work first. Produces a Go / Conditional Go / Wait verdict with diagnosis, recommended preconditions, attendee list, customer recruiting plan, and pre-sprint activities. Use when a team is considering starting a Design Sprint and wants a fast yes/no diagnosis before committing five days of team time and customer recruiting cost.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -705,7 +705,7 @@
     {
       "name": "tool-design-sprint-sketch",
       "description": "Day 2 (Tuesday) move of a Design Sprint that structures lightning demos and the four-step independent solution sketch protocol (Notes, Ideas, Crazy 8s, Solution Sketch). Each team member produces one solution sketch individually; the skill orchestrates the day but does not author the sketches themselves. Use Tuesday morning after Monday's target moment is locked. Output is the lightning demo board, sketch assignments, and the cohort of independent sketches that become Wednesday's heat-map material.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -720,7 +720,7 @@
     {
       "name": "tool-design-sprint-test-and-score",
       "description": "Day 5 (Friday) sprint-closing move of a Design Sprint that produces the bundled Friday artifact covering per-customer interview observations, best quotes, scorecard grid (sprint questions by customers), observed patterns, hot takes from each team member, and the Decider summary (build, iterate, pivot, or stop, plus highest-confidence learning, most important revision, and next artifact). Use Friday after Thursday's prototype passes trial run and during/after the 5 customer interviews. The sprint's payoff artifact.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -735,7 +735,7 @@
     {
       "name": "tool-foundation-sprint-approach-options",
       "description": "Day 2 morning move of a Foundation Sprint. Forces generation of 3 to 7 candidate approaches as one-page summaries before the team converges on a top bet. Use after Day 1 is signed and before Magic Lenses on Day 2 afternoon. Enforces a minimum of 3 approaches to prevent first-idea anchoring. Each approach summary names what it is, why it serves the differentiators, and includes a simple visual.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -750,7 +750,7 @@
     {
       "name": "tool-foundation-sprint-basics",
       "description": "Day 1 morning move of a Foundation Sprint. Forces explicit team choices on target customer, important problem, team advantage, and competitors and alternatives. Produces a single coherent strategic frame that becomes the input to Day 1 afternoon Differentiation. Use after the sprint brief is signed and Day 1 morning is scheduled. Bundled artifact, not four separate decisions.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -765,7 +765,7 @@
     {
       "name": "tool-foundation-sprint-brief",
       "description": "Pre-sprint brief that locks scope, the decision the sprint must unlock, team and role assignments, logistics, inputs to bring, and success criteria before Day 1 of a Foundation Sprint. Use after the readiness verdict is Go and before the sprint begins. Produces a one-page artifact the team and Decider sign off on as the contract for the next two days.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -780,7 +780,7 @@
     {
       "name": "tool-foundation-sprint-differentiation",
       "description": "Day 1 afternoon move of a Foundation Sprint. Converts the morning's Basics frame into a defensible strategic position by scoring differentiator candidates against customer-perceived value, choosing two committed differentiators, plotting alternatives on a 2x2 chart, writing decision principles, and producing a one-page Mini Manifesto. Use after Basics is signed; before Approach Options the next morning.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -795,7 +795,7 @@
     {
       "name": "tool-foundation-sprint-founding-hypothesis",
       "description": "Day 2 end capstone move of a Foundation Sprint. Compresses the sprint's full strategic frame into a single canonical sentence (the Founding Hypothesis) plus an assumption scorecard, why-we-believe, what-could-prove-us-wrong, and recommended next validation step. Use after Magic Lenses is signed. Strict canonical template; paraphrase is not accepted in v0.1.0. The Founding Hypothesis is the spine artifact the sprint exists to produce.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -810,7 +810,7 @@
     {
       "name": "tool-foundation-sprint-magic-lenses",
       "description": "Day 2 afternoon move of a Foundation Sprint. Evaluates the candidate approach set through multiple lenses (4 classic plus at least 1 custom) to surface trade-offs, identify consistent winners and contradictions, and produce a top bet plus a backup plan. Use after Approach Options is signed. Lens scoring is a sense-making tool, not mathematical truth; arbitrary precision is a smell.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -825,7 +825,7 @@
     {
       "name": "tool-foundation-sprint-readiness",
       "description": "Pre-sprint diagnostic that determines whether a team should run a Foundation Sprint now, postpone it, or do prerequisite work first. Produces a Go / Conditional Go / Wait verdict with diagnosis, recommended preconditions, attendee list, and pre-sprint activities. Use when a team is considering starting a Foundation Sprint and wants a fast yes/no diagnosis before committing two days of facilitated work.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -840,7 +840,7 @@
     {
       "name": "tool-note-and-vote",
       "description": "Structured group-decision mechanic that captures silent ideation, voting summaries, and Decider sign-off in a single bundled artifact. Use when a small team needs to make a fast decision with diverse input, when groupthink is a risk, or when a workshop moment demands silent contribution before discussion. Applicable to Foundation Sprint, Design Sprint, and any participatory decision context.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": null,

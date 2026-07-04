@@ -4,8 +4,8 @@ description: Day 1 afternoon move of a Foundation Sprint. Converts the morning's
 license: Apache-2.0
 metadata:
   classification: tool
-  version: "0.1.0"
-  updated: 2026-05-14
+  version: "1.0.0"
+  updated: 2026-07-04
   tool: foundation-sprint
   move: differentiation
   category: problem-framing

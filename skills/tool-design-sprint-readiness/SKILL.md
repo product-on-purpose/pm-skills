@@ -4,8 +4,8 @@ description: Pre-sprint diagnostic that determines whether a team should run a D
 license: Apache-2.0
 metadata:
   classification: tool
-  version: "0.1.0"
-  updated: 2026-05-15
+  version: "1.0.0"
+  updated: 2026-07-04
   tool: design-sprint
   move: readiness
   category: coordination
