@@ -191,11 +191,11 @@ Survey is a recurring instrument. Analysis focuses on:
 - Adversarial review via: `utility-pm-critic` (challenges over-confident conclusions and missed limitations)
 - Complement to qualitative: `discover-interview-synthesis` covers qualitative; this skill covers quantitative; they should agree or the disagreement is itself a finding
 
-## Output format
+## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. See `references/EXAMPLE.md` for a complete worked example.
 
-## Quality checklist
+## Quality Checklist
 
 Before finalizing, verify:
 

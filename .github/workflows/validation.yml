@@ -369,6 +369,7 @@ jobs:
           node --test scripts/output-eval-aggregate.test.mjs
           node --test scripts/check-output-eval-assets.test.mjs
           node --test scripts/check-count-phrases.test.mjs
+          node --test scripts/check-heading-canon.test.mjs
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
@@ -411,6 +412,20 @@ jobs:
         if: always()
         continue-on-error: true
         run: node scripts/check-count-phrases.mjs
+
+      - name: Check heading canon spelling (advisory)
+        # WS-T8d (v2.30.0, M-35): flags SKILL.md `## ` headings whose text case-insensitively
+        # matches a cross-dialect canon heading (When to Use, When NOT to Use, Instructions,
+        # Output Format, Output Contract, Quality Checklist, Examples) but whose actual case
+        # deviates from it - the "Quality checklist" / "When NOT to use" class of drift the
+        # 2026-07-04 deep audit found. Pure node builtins; runs on BOTH OS legs via the matrix
+        # (if: always). Ships ADVISORY on the M-30 ladder: only the skills the v2.30.0 WS-T8b
+        # heading-normalization sweep actually touched are canon-clean today, so promotion to
+        # ENFORCING is a v2.31.0 candidate once a full-catalog sweep (not just this release's
+        # touched skills) returns zero, per spec OQ-3. Added 2026-07-04.
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-heading-canon.mjs
 
       - name: Skill-page completeness (enforcing)
         # v2.29.1: every SKILL.md section must render on its generated docs page. gen-site used to

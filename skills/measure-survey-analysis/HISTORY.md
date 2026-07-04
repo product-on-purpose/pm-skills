@@ -2,7 +2,7 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
-| 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Added a "When NOT to Use" section with a reciprocal pointer back to `discover-interview-synthesis`, which already deflected here without a return edge. Closes a one-way gap in the cross-skill reciprocity mesh flagged by the 2026-07-04 deep audit. |
+| 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Added a "When NOT to Use" section with a reciprocal pointer back to `discover-interview-synthesis`, which already deflected here without a return edge. Closes a one-way gap in the cross-skill reciprocity mesh flagged by the 2026-07-04 deep audit. Also normalized the "Output format" and "Quality checklist" headings to their canon spelling (WS-T8b, no re-bump). |
 | 1.0.0 | 2026-05-21 | v2.18.0 | - | baseline | Prior published version: analyzes survey results into persona segmentation, hypothesis validation, open-text thematic clustering, qualitative confidence labels, and prioritized recommendations, with explicit what-the-data-does-NOT-show warnings. |
 
 ## 1.1.0 (2026-07-04)
@@ -14,6 +14,7 @@ The 2026-07-04 deep audit found `discover-interview-synthesis` deflecting to thi
 ### Changes
 - Added a "When NOT to Use" section, first bullet pointing back to `discover-interview-synthesis`, closing the reciprocal edge.
 - Additional pointers to `measure-experiment-design` (causal inference), `measure-okr-grader` (objective grading vs. standalone survey analysis), and `define-prioritization-framework` (ranking vs. analysis).
+- Heading-normalization sweep (WS-T8b, folded into this same v2.30.0 row rather than a separate bump): "Output format" to "Output Format" and "Quality checklist" to "Quality Checklist", two of the catalog's drifted heading-spelling instances the 2026-07-04 deep audit flagged.
 
 No change to the methodology-audit flow, refusal protocols, or output contract.
 

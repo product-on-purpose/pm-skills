@@ -4,8 +4,8 @@ description: Produces async communication to stakeholders, primarily non-attende
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.0"
-  updated: 2026-04-17
+  version: "1.0.1"
+  updated: 2026-07-04
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose
@@ -86,7 +86,7 @@ When asked to create a stakeholder update, follow these steps:
    - `primary_cta` is non-empty (use "FYI-only" if no action needed)
    - `related_recap` is a valid filename reference or flagged as raw-notes input
 
-## Quality checklist
+## Quality Checklist
 
 - [ ] Channel variant matches the specified or inferred channel
 - [ ] Audience variant's "what this means for you" is specifically tailored (not generic)

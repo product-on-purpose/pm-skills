@@ -2,7 +2,7 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
-| 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Added a "When NOT to Use" section with four reciprocal boundary pointers, closing a gap in the cross-skill reciprocity mesh flagged by the 2026-07-04 deep audit. |
+| 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Added a "When NOT to Use" section with four reciprocal boundary pointers, closing a gap in the cross-skill reciprocity mesh flagged by the 2026-07-04 deep audit. Also normalized the "Output format" and "Quality checklist" headings to their canon spelling (WS-T8b, no re-bump). |
 | 1.0.0 | 2026-05-21 | v2.18.0 | - | baseline | Prior published version: estimates market opportunity (TAM, SAM, SOM) via multiple sizing frameworks, triangulating where they converge and diverge, producing a calibrated range with source-graded confidence labels. |
 
 ## 1.1.0 (2026-07-04)
@@ -13,6 +13,7 @@ The 2026-07-04 deep audit found this skill had no "When NOT to Use" section at a
 
 ### Changes
 - Added a "When NOT to Use" section naming the internal-tool-ROI non-use case (already implied by the existing "Scope" note in Core principle) plus pointers to `define-prioritization-framework`, `discover-competitive-analysis`, and `foundation-persona`.
+- Heading-normalization sweep (WS-T8b, folded into this same v2.30.0 row rather than a separate bump): "Output format" to "Output Format" and "Quality checklist" to "Quality Checklist", two of the catalog's drifted heading-spelling instances the 2026-07-04 deep audit flagged.
 
 No change to the sizing-framework flow, refusal protocols, or output contract.
 

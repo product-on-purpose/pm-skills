@@ -315,7 +315,7 @@
     {
       "name": "foundation-build-risk-review",
       "description": "Runs a fast pre-build risk review on a product idea, feature request, or scope change, naming the single assumption most likely to make it fail and returning a clear verdict (build small, validate first, pivot first, or don't build yet) with a no-code validation step. Use before committing build effort, when triaging whether to honor a feature request, or when deciding whether to expand scope, ahead of writing a PRD. For a launched product's pivot-or-persevere decision, use iterate-pivot-decision instead.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -345,7 +345,7 @@
     {
       "name": "foundation-meeting-agenda",
       "description": "Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants (standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing). Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -360,7 +360,7 @@
     {
       "name": "foundation-meeting-brief",
       "description": "Produces a private strategic preparation document for the user before a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated questions with prepared responses, risks and tensions, specific asks, and success signals. Distinct from meeting-agenda because this artifact is not shared with attendees; it is the user's personal tactical prep for meetings where positioning matters.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -375,7 +375,7 @@
     {
       "name": "foundation-meeting-recap",
       "description": "Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking. For synthesizing user research interviews across participants, use discover-interview-synthesis.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -390,7 +390,7 @@
     {
       "name": "foundation-meeting-synthesize",
       "description": "Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes) over a period and surfaces patterns invisible in any single meeting. Shows how decisions evolved, who has been saying what, where threads are stalling, and where contradictions have emerged. Produces a plain-text timeline, themes with confidence markers, stakeholder position tracking, consolidated decision list, contradiction flags, open items, narrative summary, and prioritized follow-ups.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -450,7 +450,7 @@
     {
       "name": "foundation-stakeholder-briefings",
       "description": "Turns any source artifact (spec, discovery, research, GTM plan, experiment results, retro, or raw notes) into one canonical master document plus a set of audience-tailored briefings, each re-pitched to a stakeholder lens (executive, board, engineering, UX, PMM, sales, CS, legal, data, or a custom audience). Every briefing is a traceable projection of the master, so the versions never disagree. Use when one piece of work must reach several audiences who each need a different framing, decision, and level of detail.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -465,7 +465,7 @@
     {
       "name": "foundation-stakeholder-update",
       "description": "Produces async communication to stakeholders, primarily non-attendees and secondarily some attendees who want a reference. Translates meeting outcomes into what-it-means language for readers, with channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces a primary CTA up front, flags technical-to-business translations for user verification, and detects thread continuation from prior updates.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,

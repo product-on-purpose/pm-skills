@@ -206,11 +206,11 @@ Quick-estimate mode still refuses unbounded fabrication. The difference is it ac
 - Inputs to this skill often come from: `discover-competitive-analysis` (market and competitor context) and `discover-interview-synthesis` (qualitative signal that informs sizing assumptions)
 - Adversarial review via: `utility-pm-critic` (use proactively to challenge assumptions, source quality, and confidence labels)
 
-## Output format
+## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. See `references/EXAMPLE.md` for a complete worked example showing multi-framework synthesis.
 
-## Quality checklist
+## Quality Checklist
 
 Before finalizing, verify:
 

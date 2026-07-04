@@ -207,11 +207,11 @@ Requires customer-research input (survey or interview) to populate categories de
 - Inputs to this skill often come from: `develop-solution-brief`, `define-opportunity-tree`, `define-hypothesis`, `discover-interview-synthesis`
 - Adversarial review via: `utility-pm-critic` (challenges assumed inputs, framework applicability, and divergence explanations)
 
-## Output format
+## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. See `references/EXAMPLE.md` for a complete worked multi-framework run.
 
-## Quality checklist
+## Quality Checklist
 
 Before finalizing, verify:
 

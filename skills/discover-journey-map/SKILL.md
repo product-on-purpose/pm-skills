@@ -184,11 +184,11 @@ Multiple personas with intersecting journeys (e.g., buyer + influencer + user in
 - Visualizes via: `utility-mermaid-diagrams` (timeline or flowchart)
 - Adversarial review via: `utility-pm-critic` (challenges where emotions and moments of truth lack research evidence)
 
-## Output format
+## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. See `references/EXAMPLE.md` for a complete worked example.
 
-## Quality checklist
+## Quality Checklist
 
 Before finalizing, verify:
 

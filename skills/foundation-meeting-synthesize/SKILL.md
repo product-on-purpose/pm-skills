@@ -4,8 +4,8 @@ description: Cross-meeting archaeology skill. Consumes multiple meeting recaps (
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.1"
-  updated: 2026-04-22
+  version: "1.0.2"
+  updated: 2026-07-04
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose
@@ -110,7 +110,7 @@ When asked to create a meeting synthesis, follow these steps:
     - Every contradiction has before/after source citations
     - At least 1 prioritized follow-up
 
-## Quality checklist
+## Quality Checklist
 
 - [ ] Source meetings listed with filename + date + per-source input quality
 - [ ] Time range populated and sensible
