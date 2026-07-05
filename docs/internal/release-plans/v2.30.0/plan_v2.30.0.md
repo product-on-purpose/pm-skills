@@ -189,7 +189,7 @@ Run an explicit sweep and update every non-historical hit, then re-grep to confi
 - The new `check-count-phrases.mjs` gate is the durable backstop for this sweep; the manual grep is the belt-and-suspenders for the cut.
 
 ### J. CONTEXT-marker flip
-- Both `CONTEXT.md` markers flipped from the release-in-progress state to SHIPPED at G4 (the standard post-tag hygiene, mirroring v2.29.1's G4 commit).
+- Both `CONTEXT.md` markers flipped from the release-in-progress state to SHIPPED at G4. From this release onward WS-T12 gitignores `_agent-context/`, so the flip is a local-only untracked edit (the markers live on disk, off the tracked tree), not a tracked G4 commit as in v2.29.1.
 
 ## Agent assignment
 
@@ -234,7 +234,7 @@ Codex-context note for the code workstreams: WS-T2/T7/T9/T10 touch behavior-bear
 9. Tool family is at 1.0.0 with 15 first HISTORY rows; the HISTORY-start convention is documented; `cache: npm` is on both legs; `npm test` runs the full unit suite and CI calls it; the opt-in pre-commit hook is committed + documented; `.created-issues.json` is untracked; the orphan scripts are deleted with no dangling references; both site quickstart links resolve.
 10. Marketplace `ref` is pinned per TD-3; branch protection is active on main; the 8 Dependabot PRs are merged or closed; 3-5 good-first-issues are seeded; the D-6 re-commit session is scheduled with a recorded landing spot.
 11. Pre-tag bundle `--strict` green both shells; site builds clean; route-parity + rendered-links + root-doc-links green; G1 adversarial review applied with no unresolved Blocker/Major.
-12. v2.30.0 tagged, GitHub Release Latest, marketplace install pulls the new version; this plan flipped SHIPPED; both CONTEXT markers at SHIPPED.
+12. v2.30.0 tagged, GitHub Release Latest, marketplace install pulls the new version; this plan flipped SHIPPED; both CONTEXT markers flipped to SHIPPED as a local-only untracked action (WS-T12 gitignored `_agent-context/` this release, so there is no tracked marker commit).
 
 ## Decisions
 

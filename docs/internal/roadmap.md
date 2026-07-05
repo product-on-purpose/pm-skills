@@ -3,7 +3,7 @@
 Status: Proposed strategic roadmap (forward-looking; initiatives become efforts -> issues -> releases)
 Date: 2026-05-31
 Owner: Maintainers
-Companion to: `docs/internal/audit/2026-05-31_audit-internal.md` (Section 6 is the source research), `docs/internal/restructure-plan_2026-05-31.md`, `docs/internal/backlog.md`
+Companion to: `docs/internal/audit/2026-05-31_audit-internal.md` (Section 6 is the source research), `docs/internal/restructure-plan_2026-05-31.md`, and the maintainer-local backlog (untracked)
 Source verification: the load-bearing primitives below were **confirmed against the official Claude Code docs (`code.claude.com/docs`) on 2026-05-31**: `SessionStart` / `PreToolUse` (can block) / `PostToolUse` / `Stop` hook events; `userConfig` + `${user_config.KEY}` + `CLAUDE_PLUGIN_OPTION_*`; settings.json `agent` (main-thread) + `subagentStatusLine` keys; `displayName`; `defaultEnabled`; `${CLAUDE_PLUGIN_DATA}`; `dependencies`; `monitors`; output-style `force-for-plugin` + `keep-coding-instructions`; and `argument-hint` / `allowed-tools` / `context: fork` / `agent:` / `` !`command` `` / `$ARGUMENTS`. **Two specifics still to confirm before building:** the exact auto-dispatch mechanism for 4.2 (a command hook invoking `pm-critic`, since an `agent` hook *type* was not separately verified) and whether per-skill `model` frontmatter (3.3) is supported. Version-gated items note their minimum CC version. Re-check exact keys before implementing each item.
 
 ---
@@ -46,7 +46,7 @@ Effort key: S (hours-day), M (days), L (week+), XL (multi-week).
 
 ### 3.2 `displayName` + token-cost transparency `[table-stakes, S]`
 - **Feature:** `displayName` in `plugin.json` (the `.codex-plugin` interface already has it; the Claude manifest does not); `claude plugin details` reports always-on vs on-invoke token cost.
-- **Why:** a 64-skill plugin's always-on listing cost is non-trivial; measuring and publishing it builds trust and informs the plugin-#2 split decision.
+- **Why:** a 68-skill plugin's always-on listing cost is non-trivial; measuring and publishing it builds trust and informs the plugin-#2 split decision.
 - **Do:** add `displayName: "PM Skills"`; add a CI step that runs `claude plugin details` and records the cost.
 - **Tracking:** candidate `M-26`.
 
@@ -126,7 +126,7 @@ Effort key: S (hours-day), M (days), L (week+), XL (multi-week).
 
 ### 5.3 Plugin #2 - multi-plugin split `[differentiator, L]`
 - **Feature:** `marketplace.json` hosts multiple plugins; manifest `dependencies` (semver) auto-install transitively; `defaultEnabled: false`.
-- **Why:** the `product-on-purpose` marketplace hosts only pm-skills today, and the project already anticipates "plugin #2" (it is the trigger for the reserved v3.0.0 convergence). Split optional/heavy capability into sibling plugins (e.g. a `pm-coach` agent plugin, or a `sprint-facilitation` plugin) with pm-skills as the **core dependency**. Users install a lean core and opt into add-ons - the natural growth path beyond one monolith, and the lever for managing the 64-skill always-on token cost (3.2).
+- **Why:** the `product-on-purpose` marketplace hosts only pm-skills today, and the project already anticipates "plugin #2" (it is the trigger for the reserved v3.0.0 convergence). Split optional/heavy capability into sibling plugins (e.g. a `pm-coach` agent plugin, or a `sprint-facilitation` plugin) with pm-skills as the **core dependency**. Users install a lean core and opt into add-ons - the natural growth path beyond one monolith, and the lever for managing the 68-skill always-on token cost (3.2).
 - **Tracking:** candidate `M-28`. Gates the v3.0.0 old-path retirement.
 
 ### 5.4 Release-gate status lines + experiment monitors `[moonshot, M/L]`
@@ -154,13 +154,13 @@ Order by **(impact x certainty) / effort**, front-loading asymmetric wins:
 
 ## 7. How a roadmap item becomes shipped work
 
-This roadmap is the *strategy* layer. Each initiative flows through the standard pipeline (see `backlog.md` and `restructure-plan_2026-05-31.md`):
+This roadmap is the *strategy* layer. Each initiative flows through the standard pipeline (see the maintainer-local backlog (untracked) and `restructure-plan_2026-05-31.md`):
 
 1. **Effort brief** at `docs/internal/efforts/{ID}-{slug}.md` (assign the candidate ID above; thin: scope, decisions, links).
 2. **GitHub issue** (the `effort.yml` template) - canonical lifecycle; carries Type + Agent + milestone.
 3. **Release plan** at `docs/internal/release-plans/vX.Y.Z/` when scheduled - `plan_` + `spec_` + `implementation-plan.md` per the codified template.
 4. **Ship** -> flip the brief to Shipped, close the issue, the skill gets its `HISTORY.md` row, the release notes go to `docs/releases/`.
 
-The candidate IDs (`F-43`..`F-53`, `M-25`..`M-29`) are provisional. The highest **effort-brief** IDs in `efforts/` are F-42 and M-22; M-23 and M-24 are assigned only in `backlog-canonical.md` and the v2.13/v2.14 release plans (not as briefs), so the next genuinely free IDs are **F-43 / M-25**. Confirm against the GitHub issue list **and** `backlog-canonical.md` (before it is retired) rather than `efforts/` alone, since `efforts/` is not the sole ID authority.
+The candidate IDs (`F-43`..`F-53`, `M-25`..`M-29`) are provisional. The highest **effort-brief** IDs in `efforts/` are F-42 and M-22; M-23 and M-24 are assigned only in the maintainer-local backlog (untracked) and the v2.13/v2.14 release plans (not as briefs), so the next genuinely free IDs are **F-43 / M-25**. Confirm against the GitHub issue list **and** the maintainer-local backlog (untracked) rather than `efforts/` alone, since `efforts/` is not the sole ID authority.
 
 > **Closing insight.** The roadmap's center of gravity is hooks. That is not a coincidence: hooks are the primitive that converts a *pull* library (user must know to invoke) into a *push* operating layer (the plugin surfaces the right capability and verifies output). A 68-skill library that the user has to navigate by memory will plateau; the same 68 skills wired into SessionStart routing, PostToolUse review, and PreToolUse guardrails become a system that gets *more* valuable as it grows, because the router does the remembering. Build the activation layer, and the content you already have compounds.

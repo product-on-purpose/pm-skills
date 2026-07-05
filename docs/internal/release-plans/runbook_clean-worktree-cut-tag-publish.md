@@ -163,7 +163,7 @@ Use this checklist immediately after cut:
 
 ## 10.5) External-Surface Sync (REQUIRED for major + minor releases; OPTIONAL for patches)
 
-Tracked-file description surfaces (README header, plugin.json, marketplace.json, docs/index.mdx, CHANGELOG, release notes, AGENTS.md, library samples README, CONTEXT.md) ship with every commit. **External-state surfaces do NOT**: they live in GitHub API state, external service caches, and cross-repo files. They must be synced explicitly after the tag pushes.
+Tracked-file description surfaces (README header, plugin.json, marketplace.json, docs/index.mdx, CHANGELOG, release notes, AGENTS.md, library samples README) ship with every commit. Note: the per-agent `CONTEXT.md` markers left this tracked set in v2.30.0 (WS-T12 gitignored `_agent-context/`), so the marker flip is now a local-only action, not part of any commit. **External-state surfaces do NOT**: they live in GitHub API state, external service caches, and cross-repo files. They must be synced explicitly after the tag pushes.
 
 For **major** (X.0.0) and **minor** (X.Y.0) releases: execute all sub-checks below. The qualitative description content has typically changed; external surfaces must catch up.
 

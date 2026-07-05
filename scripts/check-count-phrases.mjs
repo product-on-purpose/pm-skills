@@ -9,8 +9,10 @@
 //      skipped. That is exactly how QUICKSTART:5 shipped "67 shipped PM skills" green.
 //   2. "N skill definitions" - the phrase ends in "definitions", not "skills", so the regex
 //      never matches it (QUICKSTART:85).
-//   3. "N+ sample outputs" - the sample corpus is out of that check's scope, so a stale floor
-//      like "95+ sample outputs" (7x in README) never failed.
+//   3. "N+ sample outputs" - the sample corpus is out of that check's scope. This gate adds the
+//      sample axis but treats "N+" as a FLOOR: it fails only an overstated floor (N above the
+//      actual count). A stale-low floor like "95+ sample outputs" (7x in README) is a true lower
+//      bound, so it passes here by design; the "+" guards against inflation, not understatement.
 //   4. Sub-agent axis: nothing reconciles "N sub-agents" against the real agent-doc count,
 //      which is how the off-repo GitHub About text drifted to "4 sub-agents".
 //
@@ -62,6 +64,7 @@ export const PHRASE_SPECS = [
   { re: /(\d+)(\+)?\s+shipped\s+PM\s+skills/gi, axis: 'skills' },
   { re: /(\d+)(\+)?\s+skill\s+definitions/gi, axis: 'skills' },
   { re: /(\d+)(\+)?\s+PM\s+skills/gi, axis: 'skills' },
+  { re: /(\d+)(\+)?\s+product\s+management\s+skills/gi, axis: 'skills' },
   { re: /(\d+)(\+)\s+samples?\b/gi, axis: 'sample' },
   { re: /(\d+)(\+)?\s+sub-?agents/gi, axis: 'subagents' },
 ];

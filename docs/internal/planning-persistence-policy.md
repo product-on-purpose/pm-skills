@@ -2,7 +2,7 @@
 
 Status: Active  
 Owner: Maintainers  
-Last updated: 2026-03-15
+Last updated: 2026-07-04
 
 ## Purpose
 
@@ -13,8 +13,6 @@ Define which planning artifacts are durable and tracked versus local working mat
 Track planning artifacts when future collaborators should be able to cite them without access to a local workspace.
 
 - `AGENTS/DECISIONS.md`
-- `AGENTS/*/CONTEXT.md`
-- `AGENTS/*/DECISIONS.md`
 - `docs/internal/efforts/**` for durable effort briefs and canonical issue/context links
 - `docs/internal/release-plans/**` for internal release governance, blocker decisions, and cut/publish notes
 - `docs/releases/*.md` for public release communication
@@ -24,6 +22,8 @@ Track planning artifacts when future collaborators should be able to cite them w
 
 Keep high-churn planning material local and non-canonical.
 
+- `AGENTS/*/CONTEXT.md` (per-agent coordination context; moved to the gitignored tier 2026-07-04 per WS-T12)
+- `AGENTS/*/DECISIONS.md` (per-agent decision notes; moved to the gitignored tier 2026-07-04 per WS-T12)
 - `AGENTS/SESSION-LOG/**` (shared session logs; model encoded in filename)
 - `AGENTS/*/SESSION-LOG/**` (legacy per-agent locations)
 - `AGENTS/*/TODO.md`
@@ -45,8 +45,7 @@ Promote into one of these tracked homes:
 
 1. `docs/internal/efforts/**`
 2. `docs/internal/release-plans/**`
-3. `AGENTS/*/DECISIONS.md`
-4. `AGENTS/DECISIONS.md`
+3. `AGENTS/DECISIONS.md`
 
 Do not promote raw notes or transcripts. Promote only concise, stable outcomes.
 

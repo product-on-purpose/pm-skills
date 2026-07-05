@@ -142,6 +142,13 @@ test('scanUnit flags a hand-broken "skill definitions" count', () => {
   assert.match(f[0], /says 67, actual skills count 68/);
 });
 
+test('scanUnit flags a stale "product management skills" headline and passes the current one', () => {
+  const bad = scanUnit('.claude-plugin/plugin.json', asLine('67 product management skills'), TRUTH);
+  assert.equal(bad.length, 1);
+  assert.match(bad[0], /"67 product management skills" says 67, actual skills count 68/);
+  assert.deepEqual(scanUnit('x', asLine('68 product management skills'), TRUTH), []);
+});
+
 test('scanUnit "N+" sample floor passes when N <= actual and fails when N > actual', () => {
   assert.deepEqual(scanUnit('x', asLine('200+ sample outputs'), TRUTH), []);
   const f = scanUnit('x', asLine('300+ sample outputs'), TRUTH);

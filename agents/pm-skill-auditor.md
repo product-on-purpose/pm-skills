@@ -8,7 +8,7 @@ description: |
   cross-cutting issues no single validator catches alone (sample gaps,
   aggregate counter drift, family contract orphans / phantoms, thread
   imbalance, deprecated references, etc.). Re-derives
-  aggregate counters across CONTEXT.md + AGENTS.md + README.md. Returns layered
+  aggregate counters across AGENTS.md + README.md. Returns layered
   output (full report + Status Summary + Status YAML) graded P0/P1/P2/P3.
   Explicit invocation only - never proactive. Used by maintainers pre-release
   and by users running repo-health checks.
@@ -55,7 +55,7 @@ Categories of cross-cutting checks:
 - **Skill / sample coverage** (sample gap, thread imbalance; a `workflow-*` command references a missing skill)
 - **Workflow integrity** (workflow references renamed skill, stale workflow member output contract)
 - **Description collision** (overlapping `description:` fields between skills)
-- **Counter consistency** (CONTEXT.md, AGENTS.md, README.md counters vs re-derived)
+- **Counter consistency** (AGENTS.md, README.md counters vs re-derived)
 - **Family contract integrity** (orphan, phantom, version drift between SKILL.md and HISTORY.md)
 - **Deprecation tracking** (references to deleted paths / skills / commands)
 - **Tool classification leak** (skill claims `classification: tool` but not registered in any family or as standalone)
@@ -73,7 +73,6 @@ Count by reading the filesystem:
 
 Compare these re-derived counts to declared values in:
 
-- `_agent-context/claude/CONTEXT.md` (per-phase tables; project status sections)
 - `AGENTS.md` (skill listings under classification headings)
 - `README.md` (skill count badges, Project Structure tree, What's New paragraphs)
 

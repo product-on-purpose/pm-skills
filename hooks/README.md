@@ -42,7 +42,7 @@ hooks/
 Gitignored, per-project. Guardrails are off unless `guardrails: true`. Keys:
 
 - `guardrails` (bool) - master switch for the PreToolUse guardrail; off by default.
-- `guardrail_checks` (list of `em-dash` | `placeholder` | `fabricated-metric`; default `[em-dash]`; quoted items are tolerated). Only `em-dash` blocks; the rest warn. `fabricated-metric` is a line-scoped heuristic: it fires only when a number shares its line with metric context (a percentage, a currency symbol, or a metric keyword such as `users` / `revenue` / `conversion` / `growth`), so a bare date (`2026-07-04`) or version (`1.2.3`) does not trip it. Suppress a known-good figure with `[fictional]` on the line.
+- `guardrail_checks` (list of `em-dash` | `placeholder` | `fabricated-metric`; default `[em-dash]`; quoted items are tolerated). Only `em-dash` blocks; the rest warn. `fabricated-metric` is a line-scoped heuristic: it fires only when a number shares its line with metric context (a percentage, a currency symbol, or a metric keyword such as `users` / `revenue` / `conversion` / `growth`), so a bare date (`2026-07-04`) or version (`1.2.3`) does not trip it. Suppress the advisory by writing `[fictional]` anywhere in the edit; the escape hatch is matched against the whole payload text, not a single line.
 - `phase_router` (`auto` | `off` | `verbose`; default `auto`). The SessionStart phase router is ON by default. Set `phase_router: off` to disable it: `phase-router.mjs` then early-exits silently before any signal work. An unset key, `auto`, `verbose`, or any unrecognized value keeps it on (fail open to default-on); only an explicit off-switch value (`off` / `false` / `no` / `0` / `disabled`, case-insensitive) silences it.
 
 See `concepts/hooks.md` for the full schema table.
