@@ -1,0 +1,98 @@
+name: release-please
+
+# WS-Z1 (v2.31.0, M-21, issue #136). SHADOW PHASE (ZD-4 = A): this workflow opens
+# and updates the release-please Release PR on every qualifying push to main, but
+# nothing in this program merges it yet. The manual 6-gate runbook still cuts
+# v2.31.0 itself; the Release PR is observed and diffed against that manual cut,
+# never merged, until a full shadow cycle shows zero hand-fixes (see the cutover
+# checklist in docs/internal/release-plans/v2.31.0/implementation-plan_zero-drift-program.md
+# section 1c). Background: docs/internal/release-plans/v2.31.0/release-please-primer.md.
+#
+# SHADOW SEMANTICS: this workflow triggers ONLY on push to main, deliberately with
+# no `pull_request:` trigger. release-please tags and releases only when its own
+# Release PR is merged (which does not happen this cycle); it never runs on a
+# candidate PR's own branch. The PR-title lint (.github/workflows/pr-title-lint.yml,
+# ZD-3) is the one gate that runs before merge.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          # ZD-5 (v2.31.0 plan, DECIDED A, 2026-07-04): the real fix is a
+          # fine-grained PAT scoped to this repo only (Contents read/write,
+          # Pull requests read/write, Issues read/write, Metadata read-only -
+          # the mandatory baseline every fine-grained PAT carries), stored as
+          # the RELEASE_PLEASE_TOKEN repository secret. The maintainer creates
+          # that token and secret by hand; an agent must never hold or mint a
+          # PAT. This is an S2 authoritative-cutover PREREQUISITE (REQ-Z1.6),
+          # not merely a nice-to-have.
+          #
+          # LOUD NOTE, read before removing the fallback below: GitHub
+          # deliberately suppresses further workflow triggers for anything
+          # opened or pushed by a workflow's own default GITHUB_TOKEN, to stop
+          # infinite trigger loops. Concretely: a Release PR opened with the
+          # bare default token shows NO validation.yml checks at all - not a
+          # red X, no checks, as if CI does not exist for that one PR (verified
+          # release-please behavior; see the primer, Section 6). The `||`
+          # fallback below only exists so this shadow workflow can run at all
+          # BEFORE the RELEASE_PLEASE_TOKEN secret exists; while the fallback
+          # is active, the Release PR it opens is still CI-blind, which is
+          # exactly the gap ZD-5 exists to close. Do not mistake a green
+          # workflow run under the fallback for a green Release PR.
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      # Post-tag GitHub About sync (REQ-Z1.7). Only fires when release-please
+      # itself creates a release from this push (the root-component
+      # `release_created` output; googleapis/release-please-action's "Root
+      # component outputs", confirmed against the action's own docs - path is
+      # "." here, so the unprefixed output name applies). Supersedes v2.30.0
+      # R-02's one-time manual About fix: the description is re-derived from
+      # skill-manifest.json every time a release ships, so it cannot drift
+      # again. This never fires during v2.31.0's shadow phase: the Release PR
+      # is observed, never merged (ZD-4 S1), so `release_created` stays unset
+      # for this release's whole lifetime.
+      #
+      # KNOWN GAP as of this commit (2026-07-05): scripts/gen-derived-surfaces.mjs
+      # implements `--check` only; its own header already flags `--about` as a
+      # forward reference ("Later stages still extend this same generator: the
+      # release-please --about string"). That mode must land before this step
+      # could ever actually run (S2 cutover, a later tag), or the PATCH below
+      # will fail the one time it fires. Tracked by REQ-Z1.7 /
+      # spec_zero-drift-program.md; not fixed here because it belongs to the
+      # WS-Z2 generator, not this bootstrap commit.
+      - name: Checkout (for About sync)
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v5
+
+      - name: Setup Node (for About sync)
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install validator-tooling dependencies (for About sync)
+        # gen-derived-surfaces.mjs imports js-yaml; needs the root npm ci.
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm ci
+
+      - name: Sync GitHub About text
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
+        run: |
+          about="$(node scripts/gen-derived-surfaces.mjs --about)"
+          gh api -X PATCH "/repos/${{ github.repository }}" -f description="$about"

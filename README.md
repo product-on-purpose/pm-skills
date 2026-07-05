@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.30.0-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.30.0-blue.svg?style=flat-square" alt="Version"> <!-- x-release-please-version -->
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-68-brightgreen.svg?style=flat-square" alt="Skills">
@@ -911,7 +911,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.30.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.30.0)           |
+| **Current version** | [v2.30.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.30.0)           | <!-- x-release-please-version -->
 | **Skill count**     | 68 skills (30 phase + 11 foundation + 12 utility + 15 tool)                               |
 | **Sub-agents**      | 6 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator, pm-skill-router) |
 | **Workflows**       | 12                                                                                        |
