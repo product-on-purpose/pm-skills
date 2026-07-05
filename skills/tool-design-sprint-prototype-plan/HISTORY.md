@@ -1,4 +1,4 @@
-# tool-design-sprint-prototype-plan . Version History
+# tool-design-sprint-prototype-plan - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

@@ -1,4 +1,4 @@
-# tool-foundation-sprint-differentiation . Version History
+# tool-foundation-sprint-differentiation - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

@@ -1,4 +1,4 @@
-# tool-design-sprint-brief . Version History
+# tool-design-sprint-brief - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

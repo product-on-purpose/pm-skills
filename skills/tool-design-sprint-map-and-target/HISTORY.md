@@ -1,4 +1,4 @@
-# tool-design-sprint-map-and-target . Version History
+# tool-design-sprint-map-and-target - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

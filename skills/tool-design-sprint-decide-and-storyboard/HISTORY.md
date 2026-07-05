@@ -1,4 +1,4 @@
-# tool-design-sprint-decide-and-storyboard . Version History
+# tool-design-sprint-decide-and-storyboard - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

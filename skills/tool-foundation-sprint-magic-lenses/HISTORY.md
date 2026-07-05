@@ -1,4 +1,4 @@
-# tool-foundation-sprint-magic-lenses . Version History
+# tool-foundation-sprint-magic-lenses - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

@@ -1,4 +1,4 @@
-# tool-foundation-sprint-founding-hypothesis . Version History
+# tool-foundation-sprint-founding-hypothesis - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

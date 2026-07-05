@@ -1,4 +1,4 @@
-# tool-design-sprint-sketch . Version History
+# tool-design-sprint-sketch - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

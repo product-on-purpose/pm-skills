@@ -1,4 +1,4 @@
-# tool-foundation-sprint-basics . Version History
+# tool-foundation-sprint-basics - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

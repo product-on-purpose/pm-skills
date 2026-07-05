@@ -1,4 +1,4 @@
-# tool-design-sprint-test-and-score . Version History
+# tool-design-sprint-test-and-score - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

@@ -1,4 +1,4 @@
-# tool-foundation-sprint-readiness . Version History
+# tool-foundation-sprint-readiness - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

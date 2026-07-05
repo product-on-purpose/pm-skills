@@ -1,4 +1,4 @@
-# tool-design-sprint-readiness . Version History
+# tool-design-sprint-readiness - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

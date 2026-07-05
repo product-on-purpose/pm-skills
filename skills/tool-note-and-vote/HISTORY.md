@@ -1,4 +1,4 @@
-# tool-note-and-vote . Version History
+# tool-note-and-vote - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

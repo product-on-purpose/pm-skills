@@ -1,4 +1,4 @@
-# tool-foundation-sprint-approach-options . Version History
+# tool-foundation-sprint-approach-options - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
