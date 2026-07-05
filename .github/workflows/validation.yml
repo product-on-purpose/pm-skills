@@ -234,29 +234,16 @@ jobs:
         run: pwsh -File scripts/check-workflow-coverage.ps1
         continue-on-error: true
 
-      - name: Check count consistency (bash)
-        if: matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-count-consistency.sh
-
-      - name: Check count consistency (pwsh)
-        if: matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-count-consistency.ps1
-
-      - name: Dual-shell equivalence smoke - check-count-consistency (advisory)
-        # WS-T9 (v2.30.0, M-35): behavioral-equivalence guard for one of the frozen
-        # dual-shell validator pairs. check-validator-parity.mjs proves the two shells
-        # run the same INVENTORY; this proves they compute the same VERDICT. Runs the
-        # bash and PowerShell check-count-consistency against the committed fixture
-        # (scripts/fixtures/shell-parity/) and fails if either shell diverges from the
-        # committed golden. Runs on BOTH legs so each shell is checked where it is
-        # native (ubuntu has both bash + pwsh, so it is also a direct cross-shell diff;
-        # windows checks pwsh). Single-source Node (no new .sh/.ps1 pair - honors the
-        # WS-T9 freeze). Ships ADVISORY on the M-30 ladder; promote to ENFORCING when
-        # the v2.31.0 WS-Z4 Node ports shrink the dual-shell surface enough that any
-        # divergence is always a bug. Added 2026-07-04.
+      - name: Check count consistency (enforcing)
+        # WS-Z4 (v2.31.0): single-source Node port of the retired bash + PowerShell
+        # check-count-consistency pair (one of the awk RSTART/RLENGTH hazard scripts,
+        # the class that hung v2.27.1 CI in one shell only). One cross-OS node step runs
+        # on BOTH matrix legs (also exercises the CRLF/LF path); no npm deps. The port's
+        # verdict was proven byte-identical to both retired shells against the committed
+        # scripts/fixtures/shell-parity/repo fixture before the shells + the WS-T9
+        # shell-parity smoke were deleted. See scripts/check-count-consistency.test.mjs.
         if: always()
-        continue-on-error: true
-        run: node scripts/shell-parity-smoke.mjs
+        run: node scripts/check-count-consistency.mjs
 
       - name: Check version references (bash)
         if: always() && matrix.os == 'ubuntu-latest'

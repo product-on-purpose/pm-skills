@@ -42,9 +42,17 @@
 # hand-sync. Rationale (2026-07-04 audit finding P1-3): the existing pairs carry
 # ~3,700 duplicated lines and this referee proves only INVENTORY parity, not that
 # the two shells compute the same VERDICT (the awk RSTART/RLENGTH clobber hung
-# v2.27.1 CI in one shell only). The frozen pairs' behavior is smoke-tested by
-# scripts/shell-parity-smoke.mjs (advisory); the port to single-source Node is
-# v2.31.0 WS-Z4. See CONTRIBUTING.md "New validators are single-source Node".
+# v2.27.1 CI in one shell only).
+#
+# DUAL-SHELL PORT (v2.31.0, WS-Z4; audit D-1 ruled B-complete). The awk-hazard scripts
+# are being ported to single-source Node. Ported so far: check-count-consistency ->
+# check-count-consistency.mjs (+ .test.mjs). Each port is proven byte-identical to BOTH
+# retired shells against scripts/fixtures/shell-parity/repo before deletion; the WS-T9
+# shell-parity smoke that guarded the count-consistency pair is retired with it (its
+# fixture lives on as the .mjs's integration corpus). Porting continues at a standing
+# cadence of 1-2 validators per release until zero pairs remain, at which point a
+# terminal payoff commit retires this referee, the pair rows, and the .md sidecars.
+# See CONTRIBUTING.md "New validators are single-source Node".
 
 # === Required: local pre-tag (blocking) + enforcing in CI ===
 - id: lint-skills-frontmatter
@@ -87,11 +95,9 @@
   ci: enforcing
   bash: { script: check-no-body-h1.sh, args: ['--strict'] }
   pwsh: { script: check-no-body-h1.ps1, args: ['-Strict'] }
-- id: check-count-consistency
-  pre_tag: required
-  ci: enforcing
-  bash: { script: check-count-consistency.sh, args: [] }
-  pwsh: { script: check-count-consistency.ps1, args: [] }
+# check-count-consistency: ported to single-source scripts/check-count-consistency.mjs
+# (v2.31.0 WS-Z4); it now runs as one cross-OS node step in validation.yml and is out
+# of this shell-pair parity remit by design.
 - id: check-skill-cross-references
   pre_tag: required
   ci: enforcing

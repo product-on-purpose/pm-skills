@@ -15,7 +15,7 @@
   - [validate-gitignore-pm-skills.sh / validate-gitignore-pm-skills.ps1](#validate-gitignore-pm-skillssh--validate-gitignore-pm-skillsps1)
   - [validate-script-docs.sh / validate-script-docs.ps1](#validate-script-docssh--validate-script-docsps1)
   - [check-workflow-coverage.sh / check-workflow-coverage.ps1](#check-workflow-coveragesh--check-workflow-coverageps1)
-  - [check-count-consistency.sh / check-count-consistency.ps1](#check-count-consistencysh--check-count-consistencyps1)
+  - [check-count-consistency.mjs](#check-count-consistencymjs)
   - [check-nav-completeness.sh / check-nav-completeness.ps1](#check-nav-completenesssh--check-nav-completenessps1)
   - [check-version-references.sh / check-version-references.ps1](#check-version-referencessh--check-version-referencesps1)
   - [validate-docs-frontmatter.sh / validate-docs-frontmatter.ps1](#validate-docs-frontmattersh--validate-docs-frontmatterps1)
@@ -193,18 +193,19 @@ CI-only automation scripts live in `.github/scripts/` (for example, `create-issu
 
 **Outputs:** Pass/fail per workflow; lists specific missing entries.
 
-### check-count-consistency.sh / check-count-consistency.ps1
+### check-count-consistency.mjs
 **Purpose:** Detect stale hardcoded skill/command/workflow counts in documentation.
 
 **Why:** Docs pages reference hardcoded counts which go stale when skills are added or removed. This detects mismatches automatically.
 
-**Use when:** After adding skills, commands, or workflows; before release; in CI (advisory).
+**Use when:** After adding skills, commands, or workflows; before release; in CI (enforcing).
 
 **Commands:**
-- Bash: `./scripts/check-count-consistency.sh`
-- PowerShell: `./scripts/check-count-consistency.ps1`
+- `node scripts/check-count-consistency.mjs` (single-source Node; runs on both OS legs)
 
 **Outputs:** Pass if all counts match, or fail with file path, line number, and expected vs. found count. Excludes CHANGELOG and release notes (historical counts are correct for their time).
+
+**Note:** Ported from the retired bash + PowerShell pair in v2.31.0 (WS-Z4); the port was proven byte-identical to both shells against `scripts/fixtures/shell-parity/repo`. Behavior verified by `scripts/check-count-consistency.test.mjs`.
 
 ### check-nav-completeness.sh / check-nav-completeness.ps1
 **Purpose:** Verify every `docs/**/*.md` file (excluding `docs/internal/`) is in `mkdocs.yml` `nav:` or `exclude_docs:` (or matches an `AUTO_INCLUDE_PATTERNS` entry for transitively-reachable content like release notes and templates).
@@ -311,7 +312,6 @@ Each script has a dedicated documentation file with full usage details, options,
 | `validate-gitignore-pm-skills.sh` / `.ps1` | [validate-gitignore-pm-skills.md](validate-gitignore-pm-skills.md) |
 | `validate-script-docs.sh` / `.ps1` | [validate-script-docs.md](validate-script-docs.md) |
 | `check-workflow-coverage.sh` / `.ps1` | [check-workflow-coverage.md](check-workflow-coverage.md) |
-| `check-count-consistency.sh` / `.ps1` | [check-count-consistency.md](check-count-consistency.md) |
 | `check-nav-completeness.sh` / `.ps1` | [check-nav-completeness.md](check-nav-completeness.md) |
 | `check-version-references.sh` / `.ps1` | [check-version-references.md](check-version-references.md) |
 | `validate-docs-frontmatter.sh` / `.ps1` | [validate-docs-frontmatter.md](validate-docs-frontmatter.md) |

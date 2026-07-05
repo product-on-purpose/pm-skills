@@ -1,4 +1,0 @@
-counts.md:10: found '15 workflows' (actual: 1)
-counts.md:8: found '12 skills' (actual: 3)
-counts.md:9: found '20 commands' (actual: 1)
-EXIT 1

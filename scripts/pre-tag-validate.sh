@@ -58,7 +58,7 @@ VALIDATORS=(
   "validate-design-sprint-skills-family --strict|bash $ROOT/scripts/validate-design-sprint-skills-family.sh --strict"
   "validate-docs-frontmatter --strict|bash $ROOT/scripts/validate-docs-frontmatter.sh --strict"
   "check-no-body-h1 --strict|bash $ROOT/scripts/check-no-body-h1.sh --strict"
-  "check-count-consistency|bash $ROOT/scripts/check-count-consistency.sh"
+  "check-count-consistency|node $ROOT/scripts/check-count-consistency.mjs"
   "check-skill-cross-references|bash $ROOT/scripts/check-skill-cross-references.sh"
   "validate-script-docs|bash $ROOT/scripts/validate-script-docs.sh"
   "validate-version-consistency|bash $ROOT/scripts/validate-version-consistency.sh"
