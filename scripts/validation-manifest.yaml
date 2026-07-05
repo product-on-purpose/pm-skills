@@ -146,13 +146,6 @@
   ci: enforcing
   bash: { script: check-agents-md-command-sync.sh, args: [] }
   pwsh: { script: check-agents-md-command-sync.ps1, args: [] }
-# Optional locally but advisory (continue-on-error) in CI: a pre-existing
-# asymmetry, faithfully recorded rather than silently "fixed" here.
-- id: check-context-currency
-  pre_tag: optional
-  ci: advisory
-  bash: { script: check-context-currency.sh, args: [] }
-  pwsh: { script: check-context-currency.ps1, args: [] }
 
 # === Advisory: local pre-tag (never blocks) + advisory in CI ===
 - id: check-version-references

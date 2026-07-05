@@ -35,7 +35,7 @@ flowchart TD
     Manual[workflow_dispatch] --> SyncAgents[sync-agents-md.yml]
 
     Validation --> Enforcing[enforcing validators:<br/>lint-skills-frontmatter<br/>validate-agents-md<br/>validate-commands<br/>family validators<br/>validate-docs-frontmatter --strict<br/>check-no-body-h1 --strict<br/>check-count-consistency<br/>check-skill-cross-references<br/>gen + astro build<br/>check-rendered-links + anchors<br/>check-route-parity<br/>+ more]
-    Validation --> Advisory[Advisory validators:<br/>check-context-currency<br/>check-frontmatter-yaml<br/>check-version-references]
+    Validation --> Advisory[Advisory validators:<br/>check-frontmatter-yaml<br/>check-version-references]
 
     Enforcing -->|all pass| Green[PR green; merge unblocked]
     Enforcing -->|any fail| Red[PR red; fix + push again]
@@ -106,7 +106,6 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | Validator | What It Surfaces |
 |---|---|
 | `check-mcp-impact` | Detects pm-skills changes that may require pm-skills-mcp companion updates (M-22 maintenance-mode posture; never blocking) |
-| `check-context-currency` | Context-staleness detector for internal notes |
 | `check-frontmatter-yaml` | YAML parse validity in frontmatter (sibling to lint-skills-frontmatter; finer-grained on YAML errors) |
 | `check-generated-freshness` | Generation-timestamp recency check |
 | `check-version-references` | Version-string consistency across docs |

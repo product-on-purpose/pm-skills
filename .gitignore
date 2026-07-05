@@ -79,15 +79,19 @@ node_modules/
 _LOCAL/
 docs/internal/milestones/**/_archived/
 
-# Agent working files
-# Planning persistence policy: docs/internal/planning-persistence-policy.md
-# Durable files are tracked; high-churn working logs and drafts are ignored.
-# Note: SESSION-LOG/ is matched by the top-level rule above.
-_agent-context/*/TODO.md
-_agent-context/*/PLANNING/
-!_agent-context/*/CONTEXT.md
-!_agent-context/*/DECISIONS.md
-!_agent-context/DECISIONS.md
+# Agent coordination context - fully local as of v2.30.0 (M-35, WS-T12; audit D-3
+# option B). The entire _agent-context/ tree (CONTEXT.md, DECISIONS.md, session
+# logs, worktree primers) is maintainer-facing working context, not part of the
+# public plugin surface, so it is untracked. Files stay on disk locally; they are
+# just no longer committed. See docs/internal/planning-persistence-policy.md.
+_agent-context/
+
+# Internal strategy/backlog/planning tiers - local as of v2.30.0 (M-35, WS-T12;
+# audit D-3 option B). These maintainer working docs are untracked while runbooks,
+# skill-versioning.md, and release-plans/ stay tracked. Files stay on disk locally.
+docs/internal/backlog.md
+docs/internal/backlog-canonical.md
+docs/internal/next.md
 .github/scripts/node_modules/
 
 # WS-T9 dual-shell smoke: shell-parity-smoke.mjs copies the real check-count-consistency

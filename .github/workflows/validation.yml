@@ -153,16 +153,6 @@ jobs:
         run: pwsh -File scripts/check-mcp-impact.ps1
         continue-on-error: true
 
-      - name: Check CONTEXT.md currency (bash)
-        if: matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-context-currency.sh
-        continue-on-error: true
-
-      - name: Check CONTEXT.md currency (pwsh)
-        if: matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-context-currency.ps1
-        continue-on-error: true
-
       - name: Validate skill HISTORY.md (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-skill-history.sh
