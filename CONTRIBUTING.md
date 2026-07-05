@@ -118,6 +118,16 @@ mirrors these gates before you open a PR.
    - Link to the approved issue (for new skills)
    - Confirmation that you've tested the skill
 
+## Opt-in Pre-commit Hook
+
+A committed hook at `.githooks/pre-commit` runs the fast local subset of the release gate (frontmatter lint, validator-inventory parity, and the full `node --test` unit suite) before each commit. It is **opt-in**, not installed by default:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+Disable it again with `git config --unset core.hooksPath`. The hook exits non-zero on the first failing check, blocking the commit; run that command directly for the full error output.
+
 ## Maintainer notes: architectural workarounds
 
 A few things in the codebase look like odd code but exist for specific reasons. If you are tempted to "clean these up," read the inline comment in the source file first. Each one has a real reason that is non-obvious from the syntax alone.
@@ -159,6 +169,10 @@ Origin: case-collision caught during v2.16.0 Phase 1 execution (D31 amendment); 
 Why the freeze: the existing `.sh`/`.ps1` pairs carry roughly 3,700 duplicated lines that must be hand-kept in lockstep. `scripts/check-validator-parity.mjs` proves the two shells run the same INVENTORY, but nothing proves they compute the same VERDICT, and the awk `RSTART`/`RLENGTH` clobber class hung ubuntu CI at v2.27.1 in exactly one shell. The 2026-07-04 deep audit flagged this duplication (finding P1-3); the decision was to freeze the surface here (v2.30.0, WS-T9) and port the most fragile validators to single-source Node in v2.31.0 (WS-Z4), not to grow it. The dual-shell freeze is also recorded in the header of `scripts/validation-manifest.yaml` (the shell-validator inventory).
 
 Interim behavioral guard for the frozen pairs: `scripts/shell-parity-smoke.mjs` runs `check-count-consistency` through both shells against the committed fixture tree in `scripts/fixtures/shell-parity/` and fails if their verdicts diverge from the committed golden. It ships advisory in `validation.yml` until the v2.31.0 ports shrink the surface. If you must touch an existing dual-shell validator, edit BOTH scripts and keep the awk hazard comments intact.
+
+### 8. Repo pack size (observation, no corrective action yet)
+
+A full clone's packed history is currently around 55 MiB (verified via `git count-objects -vH`). The largest cumulative contributors across history are `CHANGELOG.md`, `site/package-lock.json`, and `docs/RESOURCES.md`. The 2026-07-04 deep audit recorded this (finding P2-11) as an observation; v2.30.0 takes no corrective action. If it keeps growing, the likely levers are history-rewrite (`git gc` / `git filter-repo`) or moving the lockfile churn out of the tracked tree, not attempted here.
 
 ## Code of Conduct
 

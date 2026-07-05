@@ -92,7 +92,7 @@ flowchart LR
     Iterate --> Validate
 ```
 
-See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
+See [the pm-skill-lifecycle guide](../guides/pm-skill-lifecycle.md) for detailed workflow patterns.
 
 ## File Structure
 
@@ -109,7 +109,7 @@ For Claude Code discovery, run `./scripts/sync-claude.sh` (or `.ps1`) to populat
 
 ## Learn More
 
-- Full documentation: https://github.com/product-on-purpose/pm-skills
+- Full documentation: [pm-skills docs home](../)
 - Skill specification: https://agentskills.io/specification
 
 ---

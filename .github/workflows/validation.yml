@@ -23,6 +23,14 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
+          cache: npm
+          # Two installs share this one setup step (root validator-tooling deps
+          # below, and the Astro site deps under site/); list both lockfiles so
+          # the npm cache key covers both `npm ci` calls. WS-T11 (v2.30.0, M-35):
+          # closes the cold-double-install CI ergonomics gap (P2-8).
+          cache-dependency-path: |
+            package-lock.json
+            site/package-lock.json
 
       - name: Install validator-tooling dependencies (root)
         # Root package.json provides js-yaml for scripts/check-frontmatter-yaml.mjs
@@ -366,27 +374,13 @@ jobs:
 
       - name: Test hooks + eval validators (unit; enforcing)
         # F-43/F-44 hook units (dependency-free) and M-30 eval invariants. Pure
-        # node builtins + temp fixtures; cross-OS. These MUST pass.
+        # node builtins + temp fixtures; cross-OS. These MUST pass. WS-T11
+        # (v2.30.0, M-35): runs the full node --test suite via the root `npm
+        # test` entrypoint (package.json) instead of a hand-maintained inline
+        # file list, so a new scripts/*.test.mjs or hooks/**/*.test.mjs is
+        # picked up here automatically, closing the P2-8 drift risk.
         if: always()
-        run: |
-          node --test hooks/lib/frontmatter.test.mjs hooks/lib/local-config.test.mjs hooks/lib/phase-map.test.mjs hooks/lib/signals.test.mjs hooks/guardrails.test.mjs hooks/phase-router.test.mjs
-          node --test scripts/check-sample-no-placeholders.test.mjs scripts/check-sample-exact-quote-sourcing.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
-          node --test scripts/check-sample-counts.test.mjs
-          node --test scripts/check-skill-page-sections.test.mjs
-          node --test scripts/check-trigger-fixtures.test.mjs
-          node --test scripts/gen-skill-manifest.test.mjs
-          node --test scripts/run-trigger-evals.test.mjs
-          node --test scripts/run-router-evals.test.mjs
-          node --test scripts/check-new-skill-collision.test.mjs
-          node --test scripts/shell-parity-smoke.test.mjs
-          node --test scripts/check-reciprocal-boundary-pointers.test.mjs
-          node --test scripts/output-eval.workflow.test.mjs
-          node --test scripts/output-eval-batch.workflow.test.mjs
-          node --test scripts/output-eval-informed.workflow.test.mjs
-          node --test scripts/output-eval-aggregate.test.mjs
-          node --test scripts/check-output-eval-assets.test.mjs
-          node --test scripts/check-count-phrases.test.mjs
-          node --test scripts/check-heading-canon.test.mjs
+        run: npm test
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the

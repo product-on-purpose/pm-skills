@@ -98,6 +98,11 @@ scripts/fixtures/shell-parity/repo/scripts/
 # Local state (update reports, backups)
 _pm-skills/
 
+# Issue-drafting automation state (WS-T11, v2.30.0, M-35): local idempotency
+# tracking for .github/issues-drafts/, not repo history. See
+# .github/issues-drafts/WORKFLOW-GUIDE.md.
+.github/.created-issues.json
+
 # Local convenience
 .favorites.json
 .cache/

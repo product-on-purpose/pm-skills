@@ -9,6 +9,11 @@
 # Git Bash; a CRLF here breaks the shebang and `set -e` heredocs.
 *.sh    text eol=lf
 
+# Git hooks (WS-T11, v2.30.0): extensionless POSIX shell scripts invoked
+# directly by git via `core.hooksPath`. Same CRLF-breaks-the-shebang hazard
+# as *.sh, but the extension glob above cannot match them.
+.githooks/*  text eol=lf
+
 # PowerShell scripts: CRLF (Windows-native).
 *.ps1   text eol=crlf
 

@@ -111,7 +111,10 @@ A per-skill changelog that connects versions to efforts and releases.
 
 **Location:** `skills/{name}/HISTORY.md`
 
-**When to create:** When a skill ships its **second** version. A skill at 1.0.0 with no iteration history doesn't need one - the effort brief and skills manifest cover it. Once a skill bumps to 1.1.0 or 2.0.0, create HISTORY.md with entries for all versions.
+**When to create:** HISTORY.md is created on either of two triggers, whichever comes first:
+
+1. A skill ships its **second** version. A skill at 1.0.0 with no iteration history doesn't need one - the effort brief and skills manifest cover it. Once a skill bumps to 1.1.0 or 2.0.0, create HISTORY.md with entries for all versions.
+2. A skill takes its **first-ever bump off an unbumped 0.x baseline** (a pre-1.0 skill that shipped and then sat unbumped across one or more releases). The 0.x version itself does not get a synthetic backfilled row - 0.x is pre-contract by SemVer convention - but the bump that promotes it (typically to 1.0.0) gets a first HISTORY row documenting why the contract is now considered stable. Precedent: the 15 `tool-*` family skills, frozen at `0.1.0` since v2.15.0 across seven releases with no versioning intent stated, bumped to `1.0.0` with a first HISTORY row each in v2.30.0 (M-35, WS-T11; see TD-5 in [`release-plans/v2.30.0/plan_v2.30.0.md`](release-plans/v2.30.0/plan_v2.30.0.md)).
 
 ### Format
 
