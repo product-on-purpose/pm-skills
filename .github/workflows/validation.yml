@@ -67,6 +67,16 @@ jobs:
         # without regeneration fails here; hand edits inside the markers fail here.
         run: node scripts/gen-skill-manifest.mjs --agents --check
 
+      - name: Check derived surfaces are current (enforcing)
+        # WS-Z2 (v2.31.0, M-36): the README catalog badges + classification table
+        # (between the pmskills:catalog-* markers) and the three plugin manifest
+        # description headlines are generated from skill-manifest.json by
+        # scripts/gen-derived-surfaces.mjs. Enforcing from day one: deterministic
+        # generator, the skill-manifest / resource-index precedent. A hand edit
+        # inside a marker or a drifted manifest count fails here. One cross-OS node
+        # step (runs on both matrix legs; also exercises the CRLF/LF path); no npm deps.
+        run: node scripts/gen-derived-surfaces.mjs --check
+
       - name: Validate site doc frontmatter YAML (enforcing)
         # Parse-checks frontmatter in tracked Astro doc bodies (skills front matter
         # is covered separately by lint-skills-frontmatter). Catches the unquoted
