@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.29.1-blue.svg?style=flat-square" alt="Version">
+    <img src="https://img.shields.io/badge/version-2.30.0-blue.svg?style=flat-square" alt="Version">
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-68-brightgreen.svg?style=flat-square" alt="Skills">
@@ -166,6 +166,15 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 **What's New**
 
 <!-- count-exempt:start -->
+
+<details>
+<summary><strong>v2.30.0 - Trust repair: count truth, packaging fix, and a hygiene sweep</strong></summary>
+
+**What changed.** A 2026-07-04 audit found that this project's least-engineered surfaces carried its most damaging defects: the first sentence a new user reads stated a skill count that contradicted its own sub-counts, the curated release zip omitted the `agents/` and `hooks/` directories the dispatch skills need at runtime, and `utility-pm-skill-builder` (the gate for all new skill creation) carried a hand-maintained inventory blind to 22% of the catalog. This release fixes every instance of that drift and closes the gate holes that let it pass green CI. New: an enforcing `check-count-phrases` gate (catches phrase variants the canonical count checker misses) and an advisory `check-heading-canon` gate. Fixed: the release zip now stages `agents/` and `hooks/` while still excluding `docs/internal`; `phase-router`'s opt-out is now functional and its fabricated-metric regex no longer trips on dates or version strings; dead `docs/reference/*` paths in three sub-agent definitions resolve again; two site quickstart links that 404'd or pointed off-site are fixed. Changed: the skill-builder derives its inventory at run time instead of hand-listing it; the sub-agent compatibility matrix, platform setup guide (now with a Gemini CLI section), and MCP-ecosystem page are current; 4 skills gained reciprocal "When NOT to Use" edges; 11 skills' headings were normalized to a documented skeleton canon; 8 early-cohort descriptions were rewritten to the build-risk-review standard; the 15-skill tool family is declared stable at 1.0.0; new dual-shell validator pairs are frozen and the trigger-eval roster is externalized to a data file; CI gained `npm test` and an opt-in pre-commit hook. No new skills; catalog stays 68 skills / 6 sub-agents. Additive MINOR (the distributed zip gains content).
+
+**Get started.** [v2.30.0 release notes](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.30.0)
+
+</details>
 
 <details>
 <summary><strong>v2.29.1 - Maintenance: skill docs pages no longer drop sections</strong></summary>
@@ -1123,9 +1132,9 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.29.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.29.1)           |
+| **Current version** | [v2.30.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.30.0)           |
 | **Skill count**     | 68 skills (30 phase + 11 foundation + 12 utility + 15 tool)                               |
-| **Sub-agents**      | 5 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator) |
+| **Sub-agents**      | 6 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator, pm-skill-router) |
 | **Workflows**       | 12                                                                                        |
 | **Slash commands**  | 11                                                                                        |
 | **Spec**            | [agentskills.io](https://agentskills.io/specification)                                    |

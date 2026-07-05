@@ -399,19 +399,18 @@ jobs:
         if: always()
         run: node scripts/check-sample-counts.mjs
 
-      - name: Check count-bearing phrases (advisory)
+      - name: Check count-bearing phrases (enforcing)
         # WS-T1 (v2.30.0, M-35): derives the catalog total, the sub-agent count, and the
         # sample floor from disk, then fails on stale count-bearing PHRASE VARIANTS the
         # canonical check-count-consistency cannot see - "N shipped PM skills", "N skill
         # definitions", "N+ sample outputs", and the "N sub-agents" axis it omits entirely -
         # on the front-door surfaces (README, QUICKSTART, the getting-started pages, and the
         # three manifest description headlines). Pure node builtins; runs on BOTH OS legs via
-        # the matrix (if: always), so a CRLF/LF slip is exercised too. Ships ADVISORY on the
-        # M-30 ladder; promote to ENFORCING (remove continue-on-error) in the v2.30.0
-        # surface-sweep PR (Phase 7) once the repo-wide grep count-sweep returns zero. Added
-        # 2026-07-04.
+        # the matrix (if: always), so a CRLF/LF slip is exercised too. Promoted ENFORCING
+        # 2026-07-04 in the v2.30.0 surface-sweep PR (Phase 7): the repo-wide grep count-sweep
+        # returned zero live stale hits and this gate is green on the swept corpus. This gate
+        # must stay enforcing before every future tag per the spec's WS-T1 Durable CI block.
         if: always()
-        continue-on-error: true
         run: node scripts/check-count-phrases.mjs
 
       - name: Check heading canon spelling (advisory)

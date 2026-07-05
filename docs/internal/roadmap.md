@@ -10,9 +10,9 @@ Source verification: the load-bearing primitives below were **confirmed against 
 
 ## 1. The strategic frame
 
-pm-skills has won the content race: 64 skills across the Triple Diamond, sub-agents, workflows, samples, a marketplace, cross-client (Claude + Codex) discovery. The next frontier is **not more skills**. It is the three problems every large library hits:
+pm-skills has won the content race: 68 skills across the Triple Diamond, sub-agents, workflows, samples, a marketplace, cross-client (Claude + Codex) discovery. The next frontier is **not more skills**. It is the three problems every large library hits:
 
-1. **Discovery.** With 64 skills, the user's bottleneck is *knowing which one to invoke when*. Description-matching alone does not solve this at scale.
+1. **Discovery.** With 68 skills, the user's bottleneck is *knowing which one to invoke when*. Description-matching alone does not solve this at scale.
 2. **Activation.** A skill only helps if it fires at the right moment with the right context. Today the user must remember the catalog and supply context cold.
 3. **Trust.** PM artifacts are judged on rigor (evidence-calibrated, no fabricated metrics, house voice). That discipline currently lives inside individual skills; it is not a guaranteed property of the plugin.
 
@@ -20,7 +20,7 @@ The Claude Code plugin platform now offers primitives that attack all three dire
 
 > **The thesis in one line:** evolve pm-skills from a *catalog you search* into a *PM operating layer that routes you to the right skill, in the right context, with your team's standards already applied, and verifies its own output.* That is the "best-in-class" target, and almost none of it requires writing new skills - it requires wiring the ones we have into the platform's activation and trust primitives.
 
-`★ Insight (for future maintainers)` Every initiative below is scored on a deliberate axis: **table-stakes** (catch up to what good plugins do), **differentiator** (something few or no PM plugins do), **moonshot** (high-ceiling, higher-cost bets). Prioritize differentiators that are also low-effort - those are the asymmetric wins. The single highest-leverage differentiator here (SessionStart phase routing) is only Medium effort because the data it needs (`scripts/build-skill-catalog.py`) already exists.
+`★ Insight (for future maintainers)` Every initiative below is scored on a deliberate axis: **table-stakes** (catch up to what good plugins do), **differentiator** (something few or no PM plugins do), **moonshot** (high-ceiling, higher-cost bets). Prioritize differentiators that are also low-effort - those are the asymmetric wins. The single highest-leverage differentiator here (SessionStart phase routing) is only Medium effort because the data it needs (`scripts/gen-skill-manifest.mjs`) already exists.
 
 ---
 
@@ -115,7 +115,7 @@ Effort key: S (hours-day), M (days), L (week+), XL (multi-week).
 
 ### 5.1 Bundled catalog MCP + `recommend_skill` tool `[moonshot, L]`
 - **Feature:** `.mcp.json` / `mcpServers` bundles an MCP server that starts with the plugin; exposes resources + tools with `${CLAUDE_PLUGIN_ROOT}` / `${CLAUDE_PLUGIN_DATA}`.
-- **Why:** make catalog navigation *queryable* rather than description-matched. Expose the catalog as a structured resource (name/phase/classification/when-to-use), plus `recommend_skill(situation)` and `get_sample(skill)` tools. Works cross-client (any MCP host). `build-skill-catalog.py` is the natural data source. This is the durable, programmatic form of the 3.6 router.
+- **Why:** make catalog navigation *queryable* rather than description-matched. Expose the catalog as a structured resource (name/phase/classification/when-to-use), plus `recommend_skill(situation)` and `get_sample(skill)` tools. Works cross-client (any MCP host). `gen-skill-manifest.mjs`'s output (`skill-manifest.json`) is the natural data source. This is the durable, programmatic form of the 3.6 router.
 - **Note:** the separate `pm-skills-mcp` is in maintenance mode (file-install recommended); this is a *light, in-plugin* server, not a revival of that project. Reconcile scope with the MCP maintenance-mode decision before building.
 - **Tracking:** candidate `F-51`.
 
@@ -163,4 +163,4 @@ This roadmap is the *strategy* layer. Each initiative flows through the standard
 
 The candidate IDs (`F-43`..`F-53`, `M-25`..`M-29`) are provisional. The highest **effort-brief** IDs in `efforts/` are F-42 and M-22; M-23 and M-24 are assigned only in `backlog-canonical.md` and the v2.13/v2.14 release plans (not as briefs), so the next genuinely free IDs are **F-43 / M-25**. Confirm against the GitHub issue list **and** `backlog-canonical.md` (before it is retired) rather than `efforts/` alone, since `efforts/` is not the sole ID authority.
 
-> **Closing insight.** The roadmap's center of gravity is hooks. That is not a coincidence: hooks are the primitive that converts a *pull* library (user must know to invoke) into a *push* operating layer (the plugin surfaces the right capability and verifies output). A 64-skill library that the user has to navigate by memory will plateau; the same 64 skills wired into SessionStart routing, PostToolUse review, and PreToolUse guardrails become a system that gets *more* valuable as it grows, because the router does the remembering. Build the activation layer, and the content you already have compounds.
+> **Closing insight.** The roadmap's center of gravity is hooks. That is not a coincidence: hooks are the primitive that converts a *pull* library (user must know to invoke) into a *push* operating layer (the plugin surfaces the right capability and verifies output). A 68-skill library that the user has to navigate by memory will plateau; the same 68 skills wired into SessionStart routing, PostToolUse review, and PreToolUse guardrails become a system that gets *more* valuable as it grows, because the router does the remembering. Build the activation layer, and the content you already have compounds.
