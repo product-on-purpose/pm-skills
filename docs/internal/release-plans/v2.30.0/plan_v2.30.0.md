@@ -1,6 +1,6 @@
 # v2.30.0 Release Plan: Trust repair + hygiene (M-35)
 
-**Status:** PROPOSED - DRAFT for maintainer review. Remediates every executable P0/P1/P2 finding of the 2026-07-04 deep audit (maintainer-local, gitignored). Program-scale findings ship their v2.30.0 increment here and hand the remainder to the parallel v2.31.0 "Zero-drift surfaces" plan.
+**Status:** SHIPPED 2026-07-05 (tag `v2.30.0` at `87e423c5`, squash-merge PR #220; GitHub Release via release.yml). Remediates every executable P0/P1/P2 finding of the 2026-07-04 deep audit (maintainer-local, gitignored). Program-scale findings shipped their v2.30.0 increment here and hand the remainder to the v2.31.0 "Zero-drift surfaces" plan.
 **Owner:** Maintainers
 **Type:** MINOR (see TD-1). Rationale: the curated release zip gains content (`agents/`, `hooks/`), a new advisory CI gate class ships, a hook opt-out becomes functional, and many skills take PATCH/MINOR bumps. PATCH was considered and rejected because the distributed artifact's content set changes additively.
 **Theme:** **Trust repair + hygiene.** The engine room is best-in-class; the front door rotted. Fix every count-drift, packaging, and inventory defect now, and close the regex/gate holes that let them pass green CI, so the "provable quality" claim stops being falsified by its own first sentence.
@@ -268,9 +268,14 @@ Codex-context note for the code workstreams: WS-T2/T7/T9/T10 touch behavior-bear
 | Heading normalization or description Batch 5 accidentally changes routing | Trigger fixtures are re-run through `check-new-skill-collision.mjs` after each rewrite; a rewrite that collapses a boundary fails the gate |
 | Branch protection locks out the maintainer's own linear-history squash flow | Configure protection to require the validation checks + linear history while allowing the maintainer's admin squash-merge, matching the existing convention (the audit calls this the cheapest insurance, not a workflow change) |
 
-## Gate ledger (placeholder)
+## Gate ledger (filled at cut, 2026-07-05)
 
-- [ ] G0 audit / G1 Codex adversarial review / G2 release surfaces / G2.5 SHA capture / G3 tag + publish / G4 post-tag hygiene - filled at cut time per [`../runbook_clean-worktree-cut-tag-publish.md`](../runbook_clean-worktree-cut-tag-publish.md).
+- [x] G0 readiness: full validator battery + 274 unit tests green on the branch (13-stage build + read-only verification sweep; one CI-only miss, the em-dash-scar guard on 15 new HISTORY headings, fixed at `388c13b0`).
+- [x] G1 adversarial review: the Codex companion run stalled on the known sandbox pwsh exit -1 class and was stopped; substituted by a four-lens adversarial panel (2 Opus + 2 Sonnet, read-only) on 2026-07-05: 19 findings (1 P0, 6 P1, 12 P2/P3), all fixed or dispositioned at `23620779`; 4 low-severity items deferred with rationale (subset-phrase latent false positive, marketplace-pin drift gate to v2.31.0 WS-Z1/Z2, 2 observations).
+- [x] G2 release surfaces: swept at `db40c6d2` (A-J incl. regen chain, grep count-sweep, `check-count-phrases` promoted enforcing); executed as 15 thematic commits on one branch / one squash PR (deviation from the drafted 14-PR shape, matching the v2.28.0/v2.29.x single-release-PR practice).
+- [x] G2.5 SHA capture: squash-merge SHA `87e423c5` (CI green on the pre-merge branch: both validation legs, validate-plugin zip assertions, CodeQL).
+- [x] G3 tag + publish: annotated tag `v2.30.0` pushed on `87e423c5`; release.yml + release-zips + Pages deploy fire on the tag/main push.
+- [x] G4 post-tag hygiene: this flip + index update; GitHub About and good-first-issues (#217-#219) done pre-merge; agent-plugins re-pin, main-ruleset status checks, and Dependabot triage executed post-tag (see tracking issue #216).
 
 ## Notes
 
