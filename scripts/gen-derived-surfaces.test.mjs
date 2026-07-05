@@ -1,7 +1,7 @@
 // scripts/gen-derived-surfaces.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, writeFileSync as writeFixture, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync as writeFixture, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join as joinPath } from 'node:path';
 import {
@@ -10,6 +10,11 @@ import {
   MANIFEST_SPECS, BADGES_START, BADGES_END, TABLE_START, normalizeEol,
   QUICKSTART_START, QUICKSTART_END, QUICKSTART_LINKS, QUICKSTART_TARGETS, renderQuickstartBody,
   COMPAT_START, COMPAT_END, currentVersion, discoverAgentIds, crossJoinSubAgents, renderCompatMatrixBlock,
+  LATEST_RELEASE_START, LATEST_RELEASE_END, CHANGELOG_MIRROR_START, CHANGELOG_MIRROR_END,
+  RELEASES_INDEX_START, RELEASES_INDEX_END, RECENT_RELEASES_COUNT,
+  parseChangelogSections, topChangelogSections, extractTheme, changelogLeadParagraph, changelogAnchor,
+  renderLatestReleaseMirror, renderSiteChangelogMirror,
+  parseReleaseIndexRows, readReleasePageDescription, renderReleasesIndexTable,
 } from './gen-derived-surfaces.mjs';
 
 // A fixture catalog with a distinct value per bucket so a column swap is caught
@@ -289,4 +294,228 @@ test('currentVersion reads .claude-plugin/plugin.json\'s version and fails loudl
   assert.equal(currentVersion(JSON.stringify({ version: '2.31.0' })), '2.31.0');
   assert.throws(() => currentVersion(JSON.stringify({})), /version missing or not a string/);
   assert.throws(() => currentVersion(JSON.stringify({ version: 42 })), /version missing or not a string/);
+});
+
+// ---- release-notes mirrors (PR4, WS-Z3): CHANGELOG.md parsing --------------------------
+
+// A fixture CHANGELOG with an empty [Unreleased] section and four dated sections, mirroring
+// the real file's shape closely enough to exercise every parser branch (a multi-sentence
+// lead paragraph, a "### " subsection, and a final section with nothing after it).
+const CHANGELOG_FIX = [
+  '# Changelog',
+  '',
+  'Intro prose that must never be captured as a section.',
+  '',
+  '## [Unreleased]',
+  '',
+  '## [9.3.0] - 2027-01-02',
+  '',
+  "**Fixture theme one.** A longer elaboration sentence with a count claim like 99 skills that must never leak into the theme.",
+  '',
+  '### Added',
+  '',
+  '- one thing',
+  '',
+  '## [9.2.1] - 2027-01-01',
+  '',
+  '**Fixture theme two.** Shorter elaboration.',
+  '',
+  '### Fixed',
+  '',
+  '- a fix',
+  '',
+  '## [9.2.0] - 2026-12-31',
+  '',
+  '**Fixture theme three.** Elaboration three.',
+  '',
+  '## [9.1.0] - 2026-12-30',
+  '',
+  '**Fixture theme four.** Elaboration four (the oldest captured section, nothing follows it).',
+  '',
+].join('\n');
+
+test('parseChangelogSections captures every dated section, newest first, and skips [Unreleased]', () => {
+  const sections = parseChangelogSections(CHANGELOG_FIX);
+  assert.deepEqual(sections.map((s) => s.version), ['9.3.0', '9.2.1', '9.2.0', '9.1.0']);
+  assert.deepEqual(sections.map((s) => s.date), ['2027-01-02', '2027-01-01', '2026-12-31', '2026-12-30']);
+  assert.ok(sections[0].body.includes('### Added'));
+  assert.ok(!sections[0].body.includes('9.2.1')); // does not bleed into the next section
+});
+
+test('parseChangelogSections is EOL-agnostic (a CRLF CHANGELOG parses identically to LF)', () => {
+  const crlf = CHANGELOG_FIX.replace(/\n/g, '\r\n');
+  assert.deepEqual(parseChangelogSections(crlf), parseChangelogSections(CHANGELOG_FIX));
+});
+
+test('topChangelogSections slices the newest N and fails loudly when fewer exist', () => {
+  const top2 = topChangelogSections(CHANGELOG_FIX, 2);
+  assert.deepEqual(top2.map((s) => s.version), ['9.3.0', '9.2.1']);
+  assert.throws(() => topChangelogSections(CHANGELOG_FIX, 99), /only 4 dated section\(s\) found, need at least 99/);
+});
+
+test('extractTheme takes only the leading bold sentence, never the elaboration that follows it', () => {
+  const [top] = topChangelogSections(CHANGELOG_FIX, 1);
+  assert.equal(extractTheme(top.body), 'Fixture theme one.');
+  assert.ok(!extractTheme(top.body).includes('99 skills'), 'the count-bearing elaboration must not leak into the theme');
+});
+
+test('extractTheme fails loudly when a section does not open with a bold run', () => {
+  assert.throws(() => extractTheme('No bold lead sentence here.'), /expected a bold lead theme sentence/);
+});
+
+test('changelogLeadParagraph stops at the first ### subsection, or returns the whole body when there is none', () => {
+  const [withSub] = topChangelogSections(CHANGELOG_FIX, 1);
+  const para = changelogLeadParagraph(withSub.body);
+  assert.ok(para.startsWith('**Fixture theme one.**'));
+  assert.ok(!para.includes('### Added'));
+
+  const sections = parseChangelogSections(CHANGELOG_FIX);
+  const noSub = sections[sections.length - 1]; // 9.1.0: no ### subsection follows it
+  assert.equal(changelogLeadParagraph(noSub.body), noSub.body);
+});
+
+test('changelogLeadParagraph fails loudly on an empty paragraph', () => {
+  assert.throws(() => changelogLeadParagraph('### Added\n\n- x'), /no lead paragraph/);
+});
+
+test('changelogAnchor matches the real GitHub heading-anchor algorithm (verified against hand-written anchors already in the repo)', () => {
+  assert.equal(changelogAnchor('2.30.0', '2026-07-04'), '#2300---2026-07-04');
+  assert.equal(changelogAnchor('2.29.1', '2026-06-24'), '#2291---2026-06-24');
+  assert.equal(changelogAnchor('2.29.0', '2026-06-23'), '#2290---2026-06-23');
+});
+
+// ---- README recent-releases mirror -------------------------------------------------------
+
+test('the latest-release marker constants are distinct from the PR1-PR3 markers and self-describe their edit target', () => {
+  assert.equal(LATEST_RELEASE_START, '<!-- pmskills:latest-release:start (generated by scripts/gen-derived-surfaces.mjs; edit CHANGELOG.md, not this block) -->');
+  assert.equal(LATEST_RELEASE_END, '<!-- pmskills:latest-release:end -->');
+  assert.equal(CHANGELOG_MIRROR_START, '<!-- pmskills:changelog-mirror:start (generated by scripts/gen-derived-surfaces.mjs; edit CHANGELOG.md, not this block) -->');
+  assert.equal(CHANGELOG_MIRROR_END, '<!-- pmskills:changelog-mirror:end -->');
+  assert.equal(RELEASES_INDEX_START, '<!-- pmskills:releases-index:start (generated by scripts/gen-derived-surfaces.mjs; edit CHANGELOG.md + the release page frontmatter, not this block) -->');
+  assert.equal(RELEASES_INDEX_END, '<!-- pmskills:releases-index:end -->');
+});
+
+test('renderLatestReleaseMirror round-trips version/date/theme for every section and links the release tag + CHANGELOG anchor', () => {
+  const top = topChangelogSections(CHANGELOG_FIX, RECENT_RELEASES_COUNT);
+  const block = renderLatestReleaseMirror(top);
+  assert.ok(block.startsWith('<!-- count-exempt:start -->\n'), 'wrapped in count-exempt as a defense-in-depth layer');
+  assert.ok(block.trim().endsWith('<!-- count-exempt:end -->'));
+  for (const s of top) {
+    assert.ok(block.includes(`[v${s.version}](https://github.com/product-on-purpose/pm-skills/releases/tag/v${s.version})`), `${s.version} links its release tag`);
+    assert.ok(block.includes(s.date), `${s.version} carries its date`);
+    assert.ok(block.includes(extractTheme(s.body)), `${s.version} carries its theme`);
+    assert.ok(block.includes(`CHANGELOG.md${changelogAnchor(s.version, s.date)}`), `${s.version} links its CHANGELOG anchor`);
+  }
+  assert.ok(!block.includes('99 skills'), 'the elaboration sentence (with its count claim) never appears, only the theme');
+});
+
+test('renderLatestReleaseMirror uses exactly RECENT_RELEASES_COUNT rows (the "top ~3" contract)', () => {
+  const top = topChangelogSections(CHANGELOG_FIX, RECENT_RELEASES_COUNT);
+  assert.equal(top.length, 3);
+  const rowCount = renderLatestReleaseMirror(top).split('\n').filter((l) => /^\|\s*\[v/.test(l)).length;
+  assert.equal(rowCount, RECENT_RELEASES_COUNT);
+});
+
+// ---- site changelog.md top mirror --------------------------------------------------------
+
+test('renderSiteChangelogMirror reproduces the heading and lead paragraph verbatim, plus a trailer linking CHANGELOG + the release page', () => {
+  const [newest] = topChangelogSections(CHANGELOG_FIX, 1);
+  const block = renderSiteChangelogMirror(newest);
+  assert.ok(block.startsWith(`## [${newest.version}] - ${newest.date}\n`));
+  assert.ok(block.includes(changelogLeadParagraph(newest.body)), 'the lead paragraph is copied verbatim, not condensed');
+  assert.ok(block.includes('99 skills'), 'unlike the README mirror, the site mirror carries the full paragraph verbatim');
+  assert.ok(block.includes(`CHANGELOG.md${changelogAnchor(newest.version, newest.date)}`));
+  assert.ok(block.includes(`releases/Release_v${newest.version}.md`));
+});
+
+// ---- releases/index.md top rows ----------------------------------------------------------
+
+const EXISTING_TABLE_FIX = [
+  '| Version | Date | Highlights |',
+  '|---------|------|-----------|',
+  '| [v9.3.0](Release_v9.3.0.md) | 2027-01-02 | STALE hand-typed highlight that must be replaced |',
+  '| [v9.2.1](Release_v9.2.1.md) | 2027-01-01 | STALE hand-typed highlight that must be replaced |',
+  '| [v9.2.0](Release_v9.2.0.md) | 2026-12-31 | Historical highlight, preserved verbatim |',
+  '| [v9.1.0](Release_v9.1.0.md) | 2026-12-30 | Another historical highlight, preserved verbatim |',
+  '',
+].join('\n');
+
+test('parseReleaseIndexRows extracts only data rows (header/separator excluded)', () => {
+  const rows = parseReleaseIndexRows(EXISTING_TABLE_FIX);
+  assert.equal(rows.length, 4);
+  assert.ok(rows.every((r) => /^\|\s*\[v/.test(r)));
+});
+
+test('renderReleasesIndexTable replaces only the fresh versions\' rows, preserving every other row verbatim and in place', () => {
+  const top2 = topChangelogSections(CHANGELOG_FIX, 2); // 9.3.0, 9.2.1
+  const pageDescriptions = new Map([
+    ['9.3.0', 'Fresh description for 9.3.0.'],
+    ['9.2.1', 'Fresh description for 9.2.1.'],
+  ]);
+  const table = renderReleasesIndexTable(top2, pageDescriptions, EXISTING_TABLE_FIX);
+  const rows = parseReleaseIndexRows(table);
+  assert.equal(rows.length, 4, 'row count is unchanged: 2 fresh + 2 preserved');
+  assert.ok(rows[0].includes('Fresh description for 9.3.0.'));
+  assert.ok(rows[1].includes('Fresh description for 9.2.1.'));
+  assert.ok(!rows[0].includes('STALE'));
+  assert.ok(!rows[1].includes('STALE'));
+  assert.ok(rows[2].includes('Historical highlight, preserved verbatim'), 'v9.2.0 row untouched');
+  assert.ok(rows[3].includes('Another historical highlight, preserved verbatim'), 'v9.1.0 row untouched');
+});
+
+test('renderReleasesIndexTable fails loudly when a fresh version has no supplied page description', () => {
+  const top1 = topChangelogSections(CHANGELOG_FIX, 1);
+  assert.throws(() => renderReleasesIndexTable(top1, new Map(), EXISTING_TABLE_FIX), /no page description supplied for v9\.3\.0/);
+});
+
+// readReleasePageDescription touches real files (existsSync is not injected, matching the
+// discoverAgentIds precedent above), so it is exercised against a real temp repo layout
+// rather than a mock.
+function tempReleasesRepo() {
+  const repoRoot = mkdtempSync(joinPath(tmpdir(), 'gends-releases-'));
+  const releasesDir = joinPath(repoRoot, 'site', 'src', 'content', 'docs', 'releases');
+  mkdirSync(releasesDir, { recursive: true });
+  return { repoRoot, releasesDir };
+}
+
+test('readReleasePageDescription reads the frontmatter description of a real release page', () => {
+  const { repoRoot, releasesDir } = tempReleasesRepo();
+  try {
+    writeFixture(
+      joinPath(releasesDir, 'Release_v9.9.9.md'),
+      '---\nslug: releases/Release_v9.9.9\ntitle: Release v9.9.9\ndescription: A fixture description.\n---\n\nBody.\n',
+    );
+    assert.equal(readReleasePageDescription(repoRoot, '9.9.9'), 'A fixture description.');
+  } finally {
+    rmSync(repoRoot, { recursive: true, force: true });
+  }
+});
+
+test('readReleasePageDescription fails loudly when the release page does not exist', () => {
+  const { repoRoot } = tempReleasesRepo();
+  try {
+    assert.throws(() => readReleasePageDescription(repoRoot, '9.9.9'), /Release_v9\.9\.9\.md not found/);
+  } finally {
+    rmSync(repoRoot, { recursive: true, force: true });
+  }
+});
+
+test('readReleasePageDescription fails loudly when the page has no frontmatter block', () => {
+  const { repoRoot, releasesDir } = tempReleasesRepo();
+  try {
+    writeFixture(joinPath(releasesDir, 'Release_v9.9.9.md'), '# No frontmatter here\n');
+    assert.throws(() => readReleasePageDescription(repoRoot, '9.9.9'), /no frontmatter block found/);
+  } finally {
+    rmSync(repoRoot, { recursive: true, force: true });
+  }
+});
+
+test('readReleasePageDescription fails loudly when frontmatter has no description field', () => {
+  const { repoRoot, releasesDir } = tempReleasesRepo();
+  try {
+    writeFixture(joinPath(releasesDir, 'Release_v9.9.9.md'), '---\ntitle: Release v9.9.9\n---\n\nBody.\n');
+    assert.throws(() => readReleasePageDescription(repoRoot, '9.9.9'), /no description \(needed as the releases\/index\.md highlight\)/);
+  } finally {
+    rmSync(repoRoot, { recursive: true, force: true });
+  }
 });
