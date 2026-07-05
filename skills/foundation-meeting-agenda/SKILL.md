@@ -4,8 +4,8 @@ description: Produces an attendee-facing agenda that sets what will be discussed
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.0"
-  updated: 2026-04-17
+  version: "1.0.1"
+  updated: 2026-07-04
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose
@@ -128,7 +128,7 @@ Applied in step 5. Each variant reshapes the topic list to match the meeting's p
 - **exec-briefing**: TL;DR first, supporting detail after. Default 30 min.
 - **other**: Generic topic structure, default 30 min.
 
-## Quality checklist
+## Quality Checklist
 
 Before delivering the agenda, verify:
 

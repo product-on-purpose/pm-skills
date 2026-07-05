@@ -2,8 +2,20 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 2.2.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Rewrote the frontmatter description: added the product-engineering contract framing and the sibling deflection to `measure-dashboard-requirements`, its collision-pair companion in this release's Batch 5. |
 | 2.1.0 | 2026-06-10 | v2.26.0 | F-12-batch-4 | minor | Quality convergence: When NOT to Use + output-contract enumeration (F-12 Batch 4) |
 | 2.0.0 | 2026-01-26 | - | - | baseline | Prior published version |
+
+## 2.2.0 (2026-07-04)
+
+Released in [v2.30.0](../../site/src/content/docs/releases/Release_v2.30.0.md). Effort: M-35 (trust repair sweep).
+
+The 2026-07-04 deep audit named the catalog's ~8 weakest early-cohort descriptions for rewrite (Batch 5). This skill and its companion `measure-dashboard-requirements` were picked as a pair: both original descriptions used the near-identical template with no cross-reference between them, despite each already disclaiming the other in its own "When NOT to Use" section and trigger fixtures.
+
+### Changes
+- Rewrote the frontmatter description (Batch 5, WS-T8e) to frame the spec as a product-engineering contract and surface the `measure-dashboard-requirements` deflection already present in the body.
+
+No change to the Instructions, Output Format, or Quality Checklist.
 
 ## 2.1.0 (2026-06-10)
 

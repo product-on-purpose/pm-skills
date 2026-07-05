@@ -4,8 +4,8 @@ description: "Turns any source artifact (spec, discovery, research, GTM plan, ex
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.0"
-  updated: 2026-06-20
+  version: "1.0.1"
+  updated: 2026-07-04
   category: communication
   frameworks: [stakeholder-comms]
   author: product-on-purpose
@@ -66,13 +66,13 @@ When asked to create stakeholder briefings, follow these steps:
 
 Nine first-class lenses, each defined by the decision it owns, plus a Custom slot whose lens is inferred from the audience name and source and shown for confirmation. Full definitions, per-lens "not this lens when" boundaries, and the overlap matrix (Exec vs Board, PMM vs Sales, Engineering vs Data, Legal vs Exec) are in `references/audience-lenses.md`.
 
-## Output
+## Output Format
 
 - A single artifact (filename `YYYY-MM-DD_HH-MMtz_<title>_stakeholder-briefings.md`), built from `references/TEMPLATE.md`.
 - Each briefing block is self-contained and send-ready (BEGIN/END cut-lines) so it can be copied out without edits.
 - A future `--split` mode (write each block to its own file) is deferred; v1 is single-artifact.
 
-## Quality checklist
+## Quality Checklist
 
 - [ ] Master present with numbered claim IDs (`M1`, `M2`, ...) and no audience-specific spin.
 - [ ] Each briefing block has a `Draws on:` line whose IDs all resolve to master claims.

@@ -1,11 +1,11 @@
 ---
 name: measure-dashboard-requirements
-description: Specifies requirements for an analytics dashboard including metrics, visualizations, filters, and data sources. Use when requesting dashboards from data teams, defining KPI tracking, or documenting reporting needs.
+description: Specifies what questions a dashboard must answer and the metrics, visualizations, filters, and data sources it needs, so data teams build something that informs decisions rather than displaying numbers. Use when requesting a dashboard or formalizing ad-hoc reporting. For the event tracking that feeds the dashboard, use measure-instrumentation-spec instead; instrument first, visualize second.
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.2.0"
+  updated: 2026-07-04
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

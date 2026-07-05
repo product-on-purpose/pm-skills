@@ -32,11 +32,10 @@ Optional (preventive validators; run if present):
 15. `check-landing-page-counts --strict`
 16. `check-workflow-generator-coverage`
 17. `check-agents-md-command-sync`
-18. `check-context-currency`
 
 Advisory (non-blocking; informational only):
 
-19. `check-version-references` (advisory by design)
+18. `check-version-references` (advisory by design)
 
 ## When to run
 

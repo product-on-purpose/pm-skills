@@ -143,7 +143,7 @@ metadata:
 
 ## 1.0.0 (<PR-11 cut date>)
 
-Released in [v2.30.0](../../docs/releases/Release_v2.30.0.md). Effort: M-35.
+Released in [v2.30.0](../../site/src/content/docs/releases/Release_v2.30.0.md). Effort: M-35.
 
 Tool-family skills shipped at 0.1.0 in v2.15.0 and held there across seven releases with no stated versioning intent. This release declares the family's contract stable and starts its HISTORY.
 

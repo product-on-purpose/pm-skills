@@ -1,0 +1,29 @@
+#!/bin/sh
+# .githooks/pre-commit - opt-in local pre-commit gate (WS-T11, v2.30.0, M-35).
+#
+# NOT installed by default. A clone's git config is untouched until a
+# contributor opts in:
+#   git config core.hooksPath .githooks
+# Disable again with:
+#   git config --unset core.hooksPath
+#
+# Runs the fast, deterministic subset of the release gate locally, before a
+# commit is created, so a frontmatter slip or a validator-inventory drift is
+# caught in seconds instead of waiting on CI. Documented in CONTRIBUTING.md.
+# POSIX sh so it runs under Git Bash on Windows and the native shell on
+# macOS/Linux without a second copy (the WS-T9 dual-shell freeze applies to
+# scripts/*.sh + scripts/*.ps1 validator PAIRS; a single git hook script is
+# out of that remit).
+
+set -e
+
+echo "[pre-commit] lint-skills-frontmatter..."
+bash scripts/lint-skills-frontmatter.sh
+
+echo "[pre-commit] check-validator-parity..."
+node scripts/check-validator-parity.mjs
+
+echo "[pre-commit] npm test (full node --test suite)..."
+npm test
+
+echo "[pre-commit] all checks passed."

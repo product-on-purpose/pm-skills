@@ -23,6 +23,14 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
+          cache: npm
+          # Two installs share this one setup step (root validator-tooling deps
+          # below, and the Astro site deps under site/); list both lockfiles so
+          # the npm cache key covers both `npm ci` calls. WS-T11 (v2.30.0, M-35):
+          # closes the cold-double-install CI ergonomics gap (P2-8).
+          cache-dependency-path: |
+            package-lock.json
+            site/package-lock.json
 
       - name: Install validator-tooling dependencies (root)
         # Root package.json provides js-yaml for scripts/check-frontmatter-yaml.mjs
@@ -145,16 +153,6 @@ jobs:
         run: pwsh -File scripts/check-mcp-impact.ps1
         continue-on-error: true
 
-      - name: Check CONTEXT.md currency (bash)
-        if: matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-context-currency.sh
-        continue-on-error: true
-
-      - name: Check CONTEXT.md currency (pwsh)
-        if: matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-context-currency.ps1
-        continue-on-error: true
-
       - name: Validate skill HISTORY.md (bash)
         if: matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-skill-history.sh
@@ -233,6 +231,22 @@ jobs:
       - name: Check count consistency (pwsh)
         if: matrix.os == 'windows-latest'
         run: pwsh -File scripts/check-count-consistency.ps1
+
+      - name: Dual-shell equivalence smoke - check-count-consistency (advisory)
+        # WS-T9 (v2.30.0, M-35): behavioral-equivalence guard for one of the frozen
+        # dual-shell validator pairs. check-validator-parity.mjs proves the two shells
+        # run the same INVENTORY; this proves they compute the same VERDICT. Runs the
+        # bash and PowerShell check-count-consistency against the committed fixture
+        # (scripts/fixtures/shell-parity/) and fails if either shell diverges from the
+        # committed golden. Runs on BOTH legs so each shell is checked where it is
+        # native (ubuntu has both bash + pwsh, so it is also a direct cross-shell diff;
+        # windows checks pwsh). Single-source Node (no new .sh/.ps1 pair - honors the
+        # WS-T9 freeze). Ships ADVISORY on the M-30 ladder; promote to ENFORCING when
+        # the v2.31.0 WS-Z4 Node ports shrink the dual-shell surface enough that any
+        # divergence is always a bug. Added 2026-07-04.
+        if: always()
+        continue-on-error: true
+        run: node scripts/shell-parity-smoke.mjs
 
       - name: Check version references (bash)
         if: always() && matrix.os == 'ubuntu-latest'
@@ -350,24 +364,13 @@ jobs:
 
       - name: Test hooks + eval validators (unit; enforcing)
         # F-43/F-44 hook units (dependency-free) and M-30 eval invariants. Pure
-        # node builtins + temp fixtures; cross-OS. These MUST pass.
+        # node builtins + temp fixtures; cross-OS. These MUST pass. WS-T11
+        # (v2.30.0, M-35): runs the full node --test suite via the root `npm
+        # test` entrypoint (package.json) instead of a hand-maintained inline
+        # file list, so a new scripts/*.test.mjs or hooks/**/*.test.mjs is
+        # picked up here automatically, closing the P2-8 drift risk.
         if: always()
-        run: |
-          node --test hooks/lib/frontmatter.test.mjs hooks/lib/local-config.test.mjs hooks/lib/phase-map.test.mjs hooks/lib/signals.test.mjs hooks/guardrails.test.mjs hooks/phase-router.test.mjs
-          node --test scripts/check-sample-no-placeholders.test.mjs scripts/check-sample-exact-quote-sourcing.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
-          node --test scripts/check-sample-counts.test.mjs
-          node --test scripts/check-skill-page-sections.test.mjs
-          node --test scripts/check-trigger-fixtures.test.mjs
-          node --test scripts/gen-skill-manifest.test.mjs
-          node --test scripts/run-trigger-evals.test.mjs
-          node --test scripts/run-router-evals.test.mjs
-          node --test scripts/check-new-skill-collision.test.mjs
-          node --test scripts/check-reciprocal-boundary-pointers.test.mjs
-          node --test scripts/output-eval.workflow.test.mjs
-          node --test scripts/output-eval-batch.workflow.test.mjs
-          node --test scripts/output-eval-informed.workflow.test.mjs
-          node --test scripts/output-eval-aggregate.test.mjs
-          node --test scripts/check-output-eval-assets.test.mjs
+        run: npm test
 
       - name: Eval - no placeholders in samples (advisory)
         # M-30 Tier 1. Advisory until promoted to enforcing per invariant; the
@@ -395,6 +398,34 @@ jobs:
         # so this closes that gap (the same rot class as the stale showcase). Deterministic.
         if: always()
         run: node scripts/check-sample-counts.mjs
+
+      - name: Check count-bearing phrases (enforcing)
+        # WS-T1 (v2.30.0, M-35): derives the catalog total, the sub-agent count, and the
+        # sample floor from disk, then fails on stale count-bearing PHRASE VARIANTS the
+        # canonical check-count-consistency cannot see - "N shipped PM skills", "N skill
+        # definitions", "N+ sample outputs", and the "N sub-agents" axis it omits entirely -
+        # on the front-door surfaces (README, QUICKSTART, the getting-started pages, and the
+        # three manifest description headlines). Pure node builtins; runs on BOTH OS legs via
+        # the matrix (if: always), so a CRLF/LF slip is exercised too. Promoted ENFORCING
+        # 2026-07-04 in the v2.30.0 surface-sweep PR (Phase 7): the repo-wide grep count-sweep
+        # returned zero live stale hits and this gate is green on the swept corpus. This gate
+        # must stay enforcing before every future tag per the spec's WS-T1 Durable CI block.
+        if: always()
+        run: node scripts/check-count-phrases.mjs
+
+      - name: Check heading canon spelling (advisory)
+        # WS-T8d (v2.30.0, M-35): flags SKILL.md `## ` headings whose text case-insensitively
+        # matches a cross-dialect canon heading (When to Use, When NOT to Use, Instructions,
+        # Output Format, Output Contract, Quality Checklist, Examples) but whose actual case
+        # deviates from it - the "Quality checklist" / "When NOT to use" class of drift the
+        # 2026-07-04 deep audit found. Pure node builtins; runs on BOTH OS legs via the matrix
+        # (if: always). Ships ADVISORY on the M-30 ladder: only the skills the v2.30.0 WS-T8b
+        # heading-normalization sweep actually touched are canon-clean today, so promotion to
+        # ENFORCING is a v2.31.0 candidate once a full-catalog sweep (not just this release's
+        # touched skills) returns zero, per spec OQ-3. Added 2026-07-04.
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-heading-canon.mjs
 
       - name: Skill-page completeness (enforcing)
         # v2.29.1: every SKILL.md section must render on its generated docs page. gen-site used to

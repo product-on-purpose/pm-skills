@@ -4,8 +4,8 @@ description: Guides contributors from a PM skill idea to a complete Skill Implem
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.1.2"
-  updated: 2026-06-23
+  version: "1.2.0"
+  updated: 2026-07-04
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -52,7 +52,10 @@ type and target audience before proceeding.
 ### Step 2: Gap Analysis
 
 Check ALL existing skills for overlap. Use the Current Library Reference
-table below AND scan the `skills/` directory for the latest inventory.
+below (derive the live inventory from `skill-manifest.json` or `AGENTS.md`)
+AND scan the `skills/` directory for the latest inventory. Include all four
+families - domain, foundation, utility, and tool - the tool family is easy
+to miss since it has no phase prefix pattern in common conversation.
 
 Present findings with specificity:
 - Name each overlapping skill and explain what it covers
@@ -110,15 +113,26 @@ Determine the skill's classification and naming:
 - Frontmatter: `classification: utility` (required), no `phase` field
 - Use when: the skill operates on the repo, workflow, or other skills
 
-**Exemplar selection:**
-Identify 1-2 existing skills that are the closest structural match:
-- Same phase > same category > similar artifact type
-- Read their SKILL.md to understand section structure, instruction style,
-  output contract format, and quality checklist pattern
-- Name the exemplars explicitly: "Modeled after [skill] - same phase,
-  [category] category"
+**Dialect and exemplar selection:**
+First, pick the skill's dialect from [Skeleton Canon: The Three Sanctioned
+Dialects](../../site/src/content/docs/guides/creating-pm-skills.md#skeleton-canon-the-three-sanctioned-dialects)
+(classic, contract-shaped, or tool-family) - this fixes the required heading
+skeleton before any exemplar is chosen. Do not default to "mirror the closest
+exemplar": an exemplar can itself carry drift (a case variant, an extra or
+missing section), and a straight mirror copies that drift forward into the
+new skill.
 
-Present the classification and exemplar selection for user confirmation.
+Then identify 1-2 existing skills in the SAME dialect that are the closest
+structural match:
+- Same phase > same category > similar artifact type
+- Read their SKILL.md to confirm instruction style, output-contract wording,
+  and quality-checklist pattern (the canon fixes the required headings; the
+  exemplar informs everything else - tone, step granularity, and any
+  skill-specific extra sections)
+- Name the exemplars explicitly: "Modeled after [skill] - same phase,
+  [category] category, [dialect] dialect"
+
+Present the classification, dialect, and exemplar selection for user confirmation.
 
 ### Step 4.5: Eval Readiness (the eval contract)
 
@@ -175,7 +189,8 @@ The packet includes:
 3. **Overlap Analysis** - what was found, why this skill is still needed
 4. **Exemplar Skills** - which existing skills modeled, why
 5. **Draft Frontmatter** - complete, valid YAML block. The frontmatter MUST begin with `---` at byte 0 of the file (no preceding content of any kind, including HTML comments, BOM, or whitespace). Place any attribution comment AFTER the closing `---` fence, never before. Reference: `library/skill-output-samples/SAMPLE_CREATION.md` Section 5.
-6. **Draft SKILL.md** - full content (not an outline), mirroring exemplar structure
+6. **Draft SKILL.md** - full content (not an outline), following the Step 4
+   dialect's canon heading skeleton and the chosen exemplars' instruction style
 7. **Draft TEMPLATE.md** - section headers with guidance comments
 8. **Draft EXAMPLE.md** - complete, realistic example (150-300 lines) with a
    specific PM scenario, every section filled, optional sections demonstrated
@@ -258,75 +273,35 @@ Provide post-promotion guidance:
 
 ## Current Library Reference
 
-Use this table for gap analysis - it reflects the current skill inventory.
-Also scan the `skills/` directory for the latest authoritative count.
+**Do not hand-maintain a skill inventory in this file.** A static table here
+has drifted from the real catalog before (most recently: an entire family
+untracked, plus a missing row in another) because every new or removed skill
+would require a hand edit here too. Instead, derive the live inventory at
+run time, every time, from one of:
 
-### Domain Skills (30)
+- **`skill-manifest.json`** (repo root) - generated, machine-readable; every
+  skill's name, classification, phase (if any), category, and description.
+- **`AGENTS.md`** - generated, human-browsable; the same catalog grouped by
+  family with a short description per skill.
 
-| Phase | Skill | Category | Description |
-|-------|-------|----------|-------------|
-| discover | competitive-analysis | research | Structured competitive landscape analysis |
-| discover | interview-synthesis | research | User research interview synthesis |
-| discover | stakeholder-summary | research | Stakeholder needs and influence mapping |
-| discover | market-sizing | research | TAM/SAM/SOM market sizing across frameworks |
-| discover | journey-map | research | Customer journey map with emotional curve and opportunities |
-| define | hypothesis | ideation | Testable hypothesis with success metrics |
-| define | jtbd-canvas | problem-framing | Jobs to Be Done canvas |
-| define | opportunity-tree | problem-framing | Opportunity solution tree |
-| define | problem-statement | problem-framing | Clear problem statement with success criteria |
-| define | prioritization-framework | problem-framing | Run RICE/ICE/MoSCoW/Kano prioritization across frameworks |
-| develop | adr | specification | Architecture Decision Record |
-| develop | design-rationale | specification | Design decision reasoning |
-| develop | solution-brief | ideation | One-page solution overview |
-| develop | spike-summary | coordination | Technical/design spike results |
-| deliver | acceptance-criteria | specification | Given/When/Then acceptance criteria |
-| deliver | edge-cases | specification | Edge cases and error states |
-| deliver | launch-checklist | coordination | Pre-launch checklist |
-| deliver | prd | specification | Product Requirements Document |
-| deliver | release-notes | coordination | User-facing release notes |
-| deliver | user-stories | specification | User stories with acceptance criteria |
-| measure | dashboard-requirements | validation | Analytics dashboard spec |
-| measure | experiment-design | validation | A/B test or experiment design |
-| measure | experiment-results | reflection | Experiment results and learnings |
-| measure | instrumentation-spec | validation | Event tracking specification |
-| measure | okr-grader | reflection | OKR cycle-close scoring at the KR level |
-| measure | survey-analysis | validation | Survey response analysis and synthesis |
-| iterate | lessons-log | reflection | Structured lessons learned |
-| iterate | pivot-decision | reflection | Pivot or persevere decision |
-| iterate | refinement-notes | coordination | Backlog refinement outcomes |
-| iterate | retrospective | reflection | Team retrospective |
+Both are regenerated by `node scripts/gen-skill-manifest.mjs` (and
+`--agents`) whenever a skill is added, changed, or removed, so they track
+`skills/` on disk exactly - unlike a hand-written table, they cannot drift.
 
-### Foundation Skills (11)
+The families, for orientation (no counts kept here on purpose - read the
+manifest for the current total):
 
-| Skill | Category | Description |
-|-------|----------|-------------|
-| lean-canvas | problem-framing | One-page lean canvas across nine interlocking blocks |
-| meeting-agenda | meeting | Attendee-facing pre-meeting agenda |
-| meeting-brief | meeting | Private pre-meeting strategic preparation |
-| meeting-recap | meeting | Post-meeting summary with decisions and actions |
-| meeting-synthesize | meeting | Cross-meeting pattern synthesis from multiple recaps |
-| okr-writer | coordination | Outcome-based OKR set authoring with coaching |
-| persona | research | Evidence-calibrated product or marketing persona |
-| stakeholder-update | meeting | Async stakeholder communication for non-attendees |
-| stakeholder-briefings | communication | Master document plus audience-tailored briefings, one per stakeholder lens, each a traceable projection of the master |
-| prioritized-action-plan | coordination | Ranked action plan with an optional handoff to run the work |
+| Family | Phase-scoped? | Directory prefix | Covers |
+|--------|---------------|-------------------|--------|
+| Domain | Yes (discover/define/develop/deliver/measure/iterate) | `{phase}-` | PM activities scoped to one Triple Diamond phase |
+| Foundation | No | `foundation-` | Cross-cutting artifacts used across phases (canvases, personas, OKRs, meeting artifacts, stakeholder communication, pre-build risk review) |
+| Utility | No | `utility-` | Meta/tooling skills that operate on the repo, workflow, or other skills (this skill is one) |
+| Tool | No | `tool-` | Workshop facilitation formats (Foundation Sprint family, Design Sprint family, standalone facilitation formats) |
 
-### Utility Skills (12)
-
-| Skill | Category | Description |
-|-------|----------|-------------|
-| mermaid-diagrams | documentation | Mermaid diagram authoring with syntax validation |
-| pm-skill-builder | coordination | This skill |
-| pm-skill-iterate | coordination | Targeted improvements to an existing skill |
-| pm-skill-validate | coordination | Audit a skill against structural conventions and quality criteria |
-| slideshow-creator | communication | JSON-spec presentation generation across 18 slide types |
-| update-pm-skills | coordination | Check for and apply pm-skills releases locally |
-| pm-changelog-curator | coordination | Curate and format CHANGELOG entries |
-| pm-critic | coordination | Critique a PM artifact against quality standards |
-| pm-skill-auditor | coordination | Repo-wide cross-cutting governance audit (sub-agent dispatch) |
-| pm-release-conductor | coordination | Guided release runbook walk (sub-agent dispatch) |
-| pm-workflow-orchestrator | coordination | Governed multi-skill workflow runner (sub-agent dispatch) |
-| pm-workflow-builder | coordination | Turn a proven chain into a staged draft workflow packet |
+For gap analysis (Step 2), read `skill-manifest.json` or `AGENTS.md` in
+full - all four families, not just domain and foundation - before judging
+overlap. The tool family is the easiest to miss because none of its skills
+share a phase name with the idea being pitched.
 
 ## Output Contract
 

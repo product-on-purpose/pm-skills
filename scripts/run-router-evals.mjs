@@ -20,6 +20,11 @@
 import { readFileSync, writeFileSync, globSync, existsSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, isAbsolute } from 'node:path';
+// The eval scope is the declared trigger-eval roster (trigger-eval-roster.yaml, WS-T10 /
+// v2.30.0), the single source shared with check-trigger-fixtures.mjs. Re-exported so the
+// unit test can assert this instrument reads the data file, not an in-code list.
+import { ROSTER } from './trigger-eval-roster.mjs';
+export { ROSTER };
 
 export const PRICING = {
   'claude-haiku-4-5': { in: 1.0, out: 5.0, cw: 1.25, cr: 0.10 },
@@ -158,8 +163,13 @@ async function main() {
   const catalogStr = buildCatalog(entries);
   const system = systemPrompt(catalogStr);
 
+  // Scope to the declared roster (WS-T10): the data file is the authoritative "what we
+  // measure" set. All 31 on-disk fixtures are registered, so this is a no-op today; a
+  // stray un-rostered fixture is skipped rather than silently evaluated.
+  const rosterSet = new Set(ROSTER);
   const files = globSync('skills/*/evals/trigger-fixtures.json', { cwd: repo });
   const fixtures = files.map((f) => JSON.parse(readFileSync(join(repo, f), 'utf8')))
+    .filter((fx) => rosterSet.has(fx.skill))
     .filter((fx) => !filter.length || filter.includes(fx.skill)).sort((a, b) => a.skill.localeCompare(b.skill));
   const queryCount = fixtures.reduce((n, fx) => n + fx.queries.length, 0);
   const calls = (CALIBRATION.length + queryCount) * runs;

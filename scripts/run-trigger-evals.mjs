@@ -28,8 +28,10 @@ const RUN_TIMEOUT_MS = 120_000;
 // Named execution batches (M-31 Phase 1) sized for a Pro/Max subscription's
 // 5-hour rolling rate window: run ONE batch per window, collision-critical first.
 // Each batch = N skills x 20 queries x 3 runs = N*60 calls. The 10 batches cover
-// all 29 roster skills exactly once and sum to 1,740 calls. See the implementation
-// plan's "Batched execution on a subscription" section.
+// all 31 roster skills exactly once and sum to 1,860 calls (roster grew 29 -> 31 in
+// v2.30.0, WS-T10). The batches partition the roster from trigger-eval-roster.yaml;
+// the run-trigger-evals.test.mjs "partition exactly once" test enforces it stays in
+// sync. See the implementation plan's "Batched execution on a subscription" section.
 export const BATCHES = {
   'collision-deliver': ['deliver-user-stories', 'deliver-acceptance-criteria', 'deliver-edge-cases'],
   'collision-define-measure': ['define-hypothesis', 'measure-experiment-design'],
@@ -40,7 +42,7 @@ export const BATCHES = {
   'rest-deliver': ['deliver-prd', 'deliver-launch-checklist', 'deliver-release-notes'],
   'develop': ['develop-adr', 'develop-design-rationale', 'develop-solution-brief', 'develop-spike-summary'],
   'rest-measure': ['measure-dashboard-requirements', 'measure-experiment-results', 'measure-instrumentation-spec'],
-  'rest-iterate-foundation': ['iterate-pivot-decision', 'iterate-refinement-notes', 'foundation-persona'],
+  'rest-iterate-foundation': ['iterate-pivot-decision', 'iterate-refinement-notes', 'foundation-persona', 'foundation-build-risk-review', 'foundation-stakeholder-briefings'],
 };
 
 /** Parse headless output (stream-json lines or a single JSON document) into events. */
@@ -355,7 +357,7 @@ async function main() {
     if (usage) {
       const inTok = (usage.input_tokens ?? 0) + (usage.cache_read_input_tokens ?? 0) + (usage.cache_creation_input_tokens ?? 0);
       console.log(`USAGE  per-call input ~${inTok} tokens (uncached ${usage.input_tokens ?? 0}, cache-read ${usage.cache_read_input_tokens ?? 0}, cache-write ${usage.cache_creation_input_tokens ?? 0}), output ${usage.output_tokens ?? 0}${usage.total_cost_usd != null ? `, reported cost $${usage.total_cost_usd}` : ''}`);
-      console.log(`ESTIMATE  full roster = this x 1740 runs (29 skills x 20 queries x 3); collision batch = this x ~600`);
+      console.log(`ESTIMATE  full roster = this x 1860 runs (31 skills x 20 queries x 3); collision batch = this x ~600`);
     } else {
       console.log('USAGE  no usage block found in transcript (check --output-format; the harness sends stream-json)');
     }

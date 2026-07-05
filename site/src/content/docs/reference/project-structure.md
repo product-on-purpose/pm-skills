@@ -22,7 +22,7 @@ This document provides a comprehensive overview of the PM-Skills repository stru
 
 ```
 pm-skills/
-├── skills/                     # Core PM skills (63 total: 30 phase + 10 foundation + 10 utility + 15 tool; flat layout)
+├── skills/                     # Core PM skills (68 total: 30 phase + 11 foundation + 12 utility + 15 tool; flat layout)
 ├── commands/                   # The 10 /workflow-* orchestrator commands
 ├── _workflows/                 # Workflows source (12 in v2.15.0)
 ├── agents/                     # Sub-agent definitions (v2.16.0+; auto-discovered by Claude Code's plugin runtime)

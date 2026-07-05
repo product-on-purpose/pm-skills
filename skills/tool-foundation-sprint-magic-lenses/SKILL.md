@@ -4,8 +4,8 @@ description: Day 2 afternoon move of a Foundation Sprint. Evaluates the candidat
 license: Apache-2.0
 metadata:
   classification: tool
-  version: "0.1.0"
-  updated: 2026-05-14
+  version: "1.0.0"
+  updated: 2026-07-04
   tool: foundation-sprint
   move: magic-lenses
   category: validation

@@ -4,8 +4,8 @@ description: Day 2 morning move of a Foundation Sprint. Forces generation of 3 t
 license: Apache-2.0
 metadata:
   classification: tool
-  version: "0.1.0"
-  updated: 2026-05-14
+  version: "1.0.0"
+  updated: 2026-07-04
   tool: foundation-sprint
   move: approach-options
   category: ideation

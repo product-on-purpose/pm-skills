@@ -14,6 +14,7 @@ This guide walks you through creating new PM skills for submission to the pm-ski
 - [The Contribution Process](#the-contribution-process)
 - [Skill Anatomy](#skill-anatomy)
 - [Writing SKILL.md](#writing-skillmd)
+- [Skeleton Canon: The Three Sanctioned Dialects](#skeleton-canon-the-three-sanctioned-dialects)
 - [Creating TEMPLATE.md](#creating-templatemd)
 - [Writing EXAMPLE.md](#writing-examplemd)
 - [Invoking Your Skill](#invoking-your-skill)
@@ -57,7 +58,7 @@ Skills are invoked directly by name; there is no per-skill command wrapper (see 
 
 ### 1. Check If It Already Exists
 
-Review the existing repo catalog before opening a new skill proposal. The current repo contains 68 skills in `skills/` (30 phase, 10 foundation, 12 utility, and 15 tool entries covering Foundation Sprint plus Design Sprint families plus the tool-note-and-vote standalone, introduced in v2.15.0), while `AGENTS.md` lists the currently registered/discoverable subset.
+Review the existing repo catalog before opening a new skill proposal. The current repo contains 68 skills in `skills/` (30 phase, 11 foundation, 12 utility, and 15 tool entries covering Foundation Sprint plus Design Sprint families plus the tool-note-and-vote standalone, introduced in v2.15.0), while `AGENTS.md` lists the currently registered/discoverable subset.
 
 | Category | Existing Skills |
 |----------|-----------------|
@@ -466,6 +467,91 @@ Before finalizing, verify:
 - Specific and verifiable
 - Focused on common failure modes
 - Actionable (can be fixed if not met)
+
+---
+
+## Skeleton Canon: The Three Sanctioned Dialects
+
+The example in [Required Sections](#writing-skillmd) above shows one shape for a SKILL.md. It is not the only shape: the shipped catalog uses three sanctioned structural dialects, each with its own exact heading skeleton. **A new skill picks one of the three below. It does not invent a fourth.**
+
+This section exists because that discipline was missing until v2.30.0 (M-35, the 2026-07-04 trust-repair audit). The prior standard told a builder to "mirror the closest exemplar" - a circular instruction, since the exemplar pool already contained drift (case variants like `Quality checklist` vs `Quality Checklist`, and at least six different output-section heading names). Mirroring an exemplar that had already drifted let a new, unsanctioned pattern emerge informally in `foundation-build-risk-review`. The fix is a named canon to mirror instead of an arbitrary prior skill.
+
+Heading text below is exact, including case. A dialect's skeleton is its *required* headings in order; a skill may add its own extra `##` sections between the required ones (a framework-specific breakdown, a domain glossary, a common-patterns list) without leaving its dialect.
+
+### Dialect 1: Classic
+
+The default. Used by the large majority of phase-prefixed (`discover-`, `define-`, `develop-`, `deliver-`, `measure-`, `iterate-`) skills, and by most `foundation-`/`utility-` skills. Exemplars: `deliver-prd`, `define-hypothesis`, `define-opportunity-tree`, `discover-interview-synthesis`.
+
+```markdown
+# <Skill Title>
+
+<Overview paragraph>
+
+## When to Use
+## When NOT to Use
+## Instructions
+## Output Format         <!-- or "Output Contract" when the output shape is itself
+                              independently versioned (e.g. "Output Contract (v1.2.0)") -->
+## Quality Checklist
+## Examples
+```
+
+### Dialect 2: Contract-shaped
+
+A smaller cohort of research/analysis skills that front-load a behavioral contract before getting to inputs: an explicit `Identity` (phase, turn-lifetime, tool access, output type), a stated `Core principle`, numbered `Refusal protocols` for bad inputs, and a `Cross-skill composition` map instead of a plain Examples pointer. Exemplars: `define-prioritization-framework`, `discover-journey-map`, `discover-market-sizing`, `measure-survey-analysis` - all four gained the required `When NOT to Use` section in v2.30.0 (M-35), closing the one gap they previously had against this skeleton.
+
+```markdown
+# <Skill Title>
+
+<Overview paragraph>
+
+## Identity
+## Core principle
+## When NOT to Use
+## Inputs
+## What you produce      <!-- numbered ### subsections, one per output element -->
+## Refusal protocols     <!-- numbered list -->
+## Cross-skill composition
+## Output Format
+## Quality Checklist
+## Cross-references
+```
+
+Use this dialect when a skill must refuse classes of bad input explicitly (fabricated data, insufficient sample size, wrong-framework insistence) rather than only describe its happy path - the numbered `Refusal protocols` section is the tell.
+
+### Dialect 3: Tool-family
+
+All 15 `tool-*` skills (the Foundation Sprint family, the Design Sprint family, and the standalone `tool-note-and-vote`). This dialect is a facilitation-format contract, not a content-artifact contract: it names roles (facilitator, Decider), a timebox, and ends every skill on an explicit sign-off. Exemplars: `tool-foundation-sprint-brief`, `tool-design-sprint-sketch`.
+
+```markdown
+# <Skill Title>
+
+<Overview paragraph>
+
+## When to Use
+## When NOT to Use
+## What This Skill Produces
+                          <!-- skill-specific process/sequence sections here -->
+## Common Pitfalls
+## Decider Role           <!-- present on most family members; optional -->
+## Canonical Sources
+## Cross-Skill Usage
+## Decider Checkpoint
+```
+
+The two sprint families additionally carry their own frontmatter and file-anatomy contract, documented in [Foundation Sprint Skills Contract](../reference/skill-families/foundation-sprint-skills-contract.md) and [Design Sprint Skills Contract](../reference/skill-families/design-sprint-skills-contract.md) - read this section for the shared SKILL.md heading skeleton and those contracts for everything else (frontmatter shape, library-sample requirements, the `Decider Checkpoint` positional rule). `tool-note-and-vote` is the standalone: it is not a family member, and its heading spellings (`Output Structure`, `Canonical Source`, `Cross-Family Usage`) predate this canon and are tracked for reconciliation rather than reproduced in a new skill. It also omits two required canon headings outright (`What This Skill Produces` and `Decider Checkpoint`), so its drift from this dialect is missing headings as well as renamed ones.
+
+### Choosing a dialect for a new skill
+
+| If the new skill... | Use |
+|---|---|
+| Produces one artifact via a linear instruction flow (the common case) | Classic |
+| Must state hard refusal rules up front (anti-fabrication, minimum-input gates) before describing inputs | Contract-shaped |
+| Is a new move in an existing named workshop methodology, or a new standalone facilitation format | Tool-family |
+
+If none of the three fits, that is a signal to reconsider the skill's shape with a maintainer before drafting - not a license to author a fourth vocabulary. `utility-pm-skill-builder` and `utility-pm-skill-validate` both point here as the canon for skeleton shape and heading spelling.
+
+Older skills that predate this canon and do not cleanly match any of the three (a handful of `foundation-*` skills use a fourth, informally-emerged pattern: `Zero-friction execution`, lowercase `Quality checklist`, a bare `Output` heading, and `See also` instead of `Examples`) are not retrofitted by this section. A full-catalog normalization pass is out of scope for v2.30.0; `scripts/check-heading-canon.mjs` ships advisory for exactly this reason - only skills touched in a given release are held to the canon until that pass lands.
 
 ---
 

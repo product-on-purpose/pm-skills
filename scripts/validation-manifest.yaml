@@ -34,6 +34,17 @@
 #
 # When you add, retire, or re-flag a shell validator, edit THIS file and the
 # matching inventory; the parity referee proves they agree.
+#
+# DUAL-SHELL FREEZE (v2.30.0, WS-T9). This inventory is FROZEN: do NOT add a new
+# scripts/<name>.sh + scripts/<name>.ps1 validator pair. New validators are
+# single-source Node (scripts/<name>.mjs + .test.mjs) wired straight into
+# validation.yml, so they run once cross-platform with no two-shell duplication to
+# hand-sync. Rationale (2026-07-04 audit finding P1-3): the existing pairs carry
+# ~3,700 duplicated lines and this referee proves only INVENTORY parity, not that
+# the two shells compute the same VERDICT (the awk RSTART/RLENGTH clobber hung
+# v2.27.1 CI in one shell only). The frozen pairs' behavior is smoke-tested by
+# scripts/shell-parity-smoke.mjs (advisory); the port to single-source Node is
+# v2.31.0 WS-Z4. See CONTRIBUTING.md "New validators are single-source Node".
 
 # === Required: local pre-tag (blocking) + enforcing in CI ===
 - id: lint-skills-frontmatter
@@ -135,13 +146,6 @@
   ci: enforcing
   bash: { script: check-agents-md-command-sync.sh, args: [] }
   pwsh: { script: check-agents-md-command-sync.ps1, args: [] }
-# Optional locally but advisory (continue-on-error) in CI: a pre-existing
-# asymmetry, faithfully recorded rather than silently "fixed" here.
-- id: check-context-currency
-  pre_tag: optional
-  ci: advisory
-  bash: { script: check-context-currency.sh, args: [] }
-  pwsh: { script: check-context-currency.ps1, args: [] }
 
 # === Advisory: local pre-tag (never blocks) + advisory in CI ===
 - id: check-version-references

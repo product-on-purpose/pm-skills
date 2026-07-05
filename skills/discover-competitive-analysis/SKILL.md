@@ -1,11 +1,11 @@
 ---
 name: discover-competitive-analysis
-description: Creates a structured competitive analysis comparing features, positioning, and strategy across competitors. Use when entering a market, planning differentiation, or understanding the competitive landscape.
+description: Creates a structured competitive analysis comparing features, pricing, and positioning across 3-5 direct and indirect competitors, with a 2x2 map and actionable strategic recommendations. Use before entering a market, planning differentiation, or after losing deals. For market size rather than competitor positioning, use discover-market-sizing instead.
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.2.0"
+  updated: 2026-07-04
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

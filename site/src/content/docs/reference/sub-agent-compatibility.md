@@ -22,7 +22,9 @@ When validation status changes (a new client passes; an existing client regresse
 - **Codex CLI** = OpenAI Codex command-line client; runs skills via the `skill` tool; does not natively support sub-agents
 - **Cursor / Windsurf / Copilot CLI / Gemini CLI** = other AI clients that read agentskills.io-compatible skills via the `Skill` tool or equivalent
 
-## Cross-Client Status (as of v2.16.0)
+## Cross-Client Status (as of v2.30.0)
+
+This matrix now covers all 6 sub-agents (5 user-facing PM sub-agents plus the internal tooling instrument `pm-skill-router`, added v2.29.0). The "as of" stamp tracks the latest inventory refresh; per-row status claims stay pinned to whatever date or version they were last independently verified, exactly as recorded in the prose below the table.
 
 | Sub-agent | Dispatch skill | Claude Code (native) | Codex CLI | Cursor / Windsurf / Copilot CLI / Gemini CLI |
 |---|---|---|---|---|
@@ -31,6 +33,7 @@ When validation status changes (a new client passes; an existing client regresse
 | pm-changelog-curator | utility-pm-changelog-curator | PRODUCTION | PRODUCTION | EXPERIMENTAL |
 | pm-release-conductor | utility-pm-release-conductor | PRODUCTION | DRY-RUN VALIDATED (live UNTESTED) | EXPERIMENTAL |
 | pm-workflow-orchestrator (added v2.24.0) | utility-pm-workflow-orchestrator | SMOKE-TESTED PASS for Mode B chains (2026-06-10, installed plugin: native `Skill`-from-sub-agent delegation works; downstream skills run INLINE in the engine context). Mode A native and interactive multi-checkpoint runs not yet exercised | EXPERIMENTAL | EXPERIMENTAL |
+| pm-skill-router (added v2.29.0) | None (internal tooling instrument; see the dedicated note below) | PRODUCTION for its maintainer-tooling role (key-free `Agent`-tool dispatch, Haiku-pinned by default) | N/A - no dispatch skill; not a cross-client user path | N/A - no dispatch skill; not a cross-client user path |
 
 ## What Each Status Cell Means
 
@@ -72,6 +75,12 @@ Per the gate's contract, the PASS removes the native-path EXPERIMENTAL caveat fo
 
 This is a present-tense status added at v2.24.0; it does NOT amend the v2.16.0-attested GATE prose below, which describes a test that exercised the four v2.16.0 sub-agents only.
 
+### pm-skill-router (added v2.29.0): internal tooling instrument, not a cross-client case
+
+`pm-skill-router` differs structurally from the five rows above: it is an internal tooling instrument, not a user-facing PM sub-agent (AGENTS.md states this explicitly). Given the skill catalog and a single query, it returns the one skill that would fire, judging by `description:` match only; it is the routing engine behind the enforcing `scripts/check-new-skill-collision.mjs` gate and the `scripts/run-router-evals.mjs` trigger-eval baseline, both maintainer-run repo-governance tools, never a general PM workflow. It ships with no dispatch skill under `skills/utility-pm-{role}/`, so it carries none of the cross-client fallback the other five sub-agents have.
+
+Two invocation paths exist: a key-free path (`--emit-tasks`), which is Claude Code-native and dispatches the sub-agent via the `Agent` tool from a maintainer session (Haiku-pinned by default); and a direct Messages API path (`--model=<id>`, requires `ANTHROPIC_API_KEY`), which is client-independent because it calls the API directly rather than through any AI client's sub-agent mechanism. The cross-client cells above read N/A rather than EXPERIMENTAL or UNTESTED because there is no dispatch-skill mechanism to validate on Codex CLI or any other client; the PRODUCTION status describes its maintainer-tooling role on Claude Code, not a general-purpose invocation path.
+
 ## Safe-Usage Matrix (Quick Reference)
 
 | Operation | Claude Code | Codex CLI | Other clients |
@@ -82,6 +91,8 @@ This is a present-tense status added at v2.24.0; it does NOT amend the v2.16.0-a
 | Walk release runbook dry-run with pm-release-conductor | Production | Production | Experimental |
 | Walk release runbook with actual tag + push | Production | Use with caution (run dry-run first) | Strongly recommend running on Claude Code |
 | Run a plan through pm-workflow-orchestrator | Experimental (run `--dry-run` first) | Experimental (run `--dry-run` first) | Experimental (run `--dry-run` first) |
+
+> `pm-skill-router` is intentionally absent from this table: it is maintainer-only repo-governance tooling (the new-skill collision gate and the trigger router-eval engine), never a user-invoked operation. See the note above under "What Each Status Cell Means."
 
 ## What Was Validated for v2.16.0 Ship
 
@@ -136,4 +147,5 @@ If you are a maintainer or downstream user testing on a not-yet-validated client
 
 | Doc version | Date | Change |
 |---|---|---|
+| 1.1.0 | 2026-07-04 | v2.30.0 trust repair (M-35, WS-T4): added the sixth sub-agent `pm-skill-router` (shipped v2.29.0, an internal tooling instrument with no dispatch skill) to the matrix; refreshed the "as of" stamp to v2.30.0. |
 | 1.0.0 | 2026-05-17 | Initial publication; consolidates the cross-client compatibility surfaces previously inline in 7+ files into this canonical reference. Captures v2.16.0 ship-state status. |

@@ -2,9 +2,16 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.0.3 | 2026-07-04 | v2.30.0 | M-35 | patch | Heading normalized to the skeleton-canon spelling ("Quality checklist" to "Quality Checklist"). |
 | 1.0.2 | 2026-06-14 | - | C-5 | patch | Added reciprocal "When NOT to Use" body bullet pointing to discover-interview-synthesis (closes the C-5 reciprocity gap; 1.0.1 added only the description sentence) |
 | 1.0.1 | 2026-06-10 | v2.26.0 | F-12-batch-0 | patch | Boundary sentence appended pointing to discover-interview-synthesis (2026-06-09 audit, v2.26.0 Batch 0) |
 | 1.0.0 | 2026-04-17 | - | - | baseline | Prior published version |
+
+## 1.0.3 (2026-07-04)
+
+Released in [v2.30.0](../../site/src/content/docs/releases/Release_v2.30.0.md). Effort: M-35 (trust repair sweep).
+
+Heading-normalization sweep (WS-T8b): the 2026-07-04 deep audit found "Quality checklist" (lowercase c) as one of 11 catalog instances of the canon "Quality Checklist" heading drifting to a lowercase variant that evaded case-sensitive tooling. No content or behavior change.
 
 ## 1.0.2 (2026-06-14)
 

@@ -4,8 +4,8 @@ description: Audits an existing pm-skills skill against structural conventions a
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.1.0"
-  updated: 2026-06-15
+  version: "1.1.1"
+  updated: 2026-07-04
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -128,6 +128,15 @@ conventions - what the shipped library actually does today. Findings graded
 WARN or INFO represent the v2.8 quality standard that newer skills (built
 with `utility-pm-skill-builder`) meet. Older skills may legitimately receive these
 findings until iterated through the lifecycle.
+
+**Heading and dialect conventions:** for the authoritative section skeleton per
+dialect (classic, contract-shaped, tool-family) and the exact canon heading
+spellings, see [Skeleton Canon: The Three Sanctioned
+Dialects](../../site/src/content/docs/guides/creating-pm-skills.md#skeleton-canon-the-three-sanctioned-dialects)
+in the skill-authoring guide. A skill whose headings or section set drift from
+its dialect's canon should be flagged in Recommendations even where no Tier 1
+check above already covers it; `scripts/check-heading-canon.mjs` is the eventual
+deterministic backstop, shipping advisory until the full catalog is normalized.
 
 ### Step 5: Produce the Validation Report
 

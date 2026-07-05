@@ -5,7 +5,7 @@ description: Five-minute pm-skills install + first skill invocation. Pick an ins
 
 ## What's Included
 
-- **67 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 11 foundation skills, 12 utility skills, 15 tool skills)
+- **68 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 11 foundation skills, 12 utility skills, 15 tool skills)
 - **11 slash-command docs in `commands/`** (10 `/workflow-*` orchestrator commands + the `/chain` command)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 
@@ -46,6 +46,16 @@ Or download and extract the latest ZIP from [Releases](https://github.com/produc
 
 More detail: see the [full getting-started guide](index.md) for the long-form walkthrough.
 
+## Verify It Worked
+
+Confirm the install landed before you start building:
+
+- **Claude Code**: run `/plugin list` to confirm `pm-skills` is installed, then invoke `/pm-skills:deliver-prd "test feature"` and expect a complete PRD artifact back.
+- **Claude.ai / Claude Desktop**: ask "Use the prd skill to create requirements for a test feature" and expect a complete PRD artifact back.
+- **Other AI agents** (Cursor, Windsurf, Copilot, Gemini CLI, and similar): ask "Use the hypothesis skill to test my assumption about checkout abandonment" and expect a structured hypothesis artifact back.
+
+If you get a generic response instead of a structured artifact, the agent has not discovered the skill; see [Setup by Platform](platforms.md) for troubleshooting.
+
 ## Usage
 
 ### Slash Commands
@@ -82,12 +92,12 @@ flowchart LR
     Iterate --> Validate
 ```
 
-See `docs/guides/pm-skill-lifecycle.md` for detailed workflow patterns.
+See [the pm-skill-lifecycle guide](../guides/pm-skill-lifecycle.md) for detailed workflow patterns.
 
 ## File Structure
 
 ```
-skills/            # All 67 skill definitions (30 phase + 10 foundation + 12 utility + 15 tool, flat)
+skills/            # All 68 skill definitions (30 phase + 11 foundation + 12 utility + 15 tool, flat)
 commands/          # 11 command markdown files
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers
@@ -99,7 +109,7 @@ For Claude Code discovery, run `./scripts/sync-claude.sh` (or `.ps1`) to populat
 
 ## Learn More
 
-- Full documentation: https://github.com/product-on-purpose/pm-skills
+- Full documentation: [pm-skills docs home](../)
 - Skill specification: https://agentskills.io/specification
 
 ---

@@ -31,3 +31,15 @@ export function enabledChecks(config) {
     ? config.guardrail_checks
     : ['em-dash'];
 }
+
+// The phase router is ON by default (documented schema: `phase_router: auto | off
+// | verbose`). It is disabled ONLY by an explicit off-switch value; an unset key,
+// `auto`, `verbose`, or any unrecognized value keeps it on, so a malformed config
+// never silences the router (fail open to the default-on behavior).
+const ROUTER_OFF = /^(off|false|no|0|disabled)$/i;
+
+export function isPhaseRouterEnabled(config) {
+  const v = config && config.phase_router;
+  if (v === undefined || v === null) return true; // unset -> default on
+  return !ROUTER_OFF.test(String(v).trim());
+}

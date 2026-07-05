@@ -97,8 +97,10 @@ test('roster completeness reports exactly the missing names', () => {
 });
 
 test('roster and pairs are internally consistent', () => {
-  assert.equal(ROSTER.length, 29);
-  assert.equal(new Set(ROSTER).size, 29);
+  // 31 = every skills/*/evals/trigger-fixtures.json on disk, sourced from
+  // trigger-eval-roster.yaml (WS-T10); the in-code roster had drifted to 29.
+  assert.equal(ROSTER.length, 31);
+  assert.equal(new Set(ROSTER).size, 31);
   for (const [a, b] of COLLISION_PAIRS) {
     assert.ok(ROSTER.includes(a), `${a} in roster`);
     assert.ok(ROSTER.includes(b), `${b} in roster`);
@@ -120,4 +122,10 @@ test('every roster skill has a trigger-fixtures.json on disk (enforcing-gate gua
       .map((f) => f.replace(/\\/g, '/').match(/skills\/([^/]+)\/evals\//)[1]),
   );
   assert.deepEqual(missingRosterFixtures(present), []);
+  // Reverse direction (WS-T10): every on-disk fixture must also be registered in the
+  // roster, so a new fixture cannot silently drift OUT of scope the way the 29-vs-31
+  // gap did. This is the guard that makes trigger-eval-roster.yaml authoritative.
+  const rosterSet = new Set(ROSTER);
+  const unregistered = [...present].filter((s) => !rosterSet.has(s)).sort();
+  assert.deepEqual(unregistered, []);
 });

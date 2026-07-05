@@ -38,11 +38,13 @@ The `v` prefix is stripped automatically (`v2.6.0` becomes `2.6.0`).
 
 1. **Runs `sync-claude`** to populate `.claude/skills` and `.claude/commands` from the source tree.
 2. **Stages content** into `dist/stage/`:
-   - `skills/`, `commands/`, `_workflows/`, `scripts/`, `docs/`
+   - `skills/`, `commands/`, `_workflows/`, `agents/`, `hooks/`, `scripts/`, `docs/`
    - `library/` (including `library/skill-output-samples/`)
    - `.claude-plugin/` (plugin manifest)
    - `.claude/pm-skills-for-claude.md`
    - `README.md`, `QUICKSTART.md`, `AGENTS.md`, `CHANGELOG.md`
+   - Then removes `docs/internal/` from the stage (maintainer-only, never shipped).
+   - `agents/` carries the 6 sub-agent docs the `utility-pm-*` dispatch skills read; `hooks/` carries the activation hooks (`hooks.json`).
 3. **Validates staged sample library content**:
    - Asserts `library/skill-output-samples/` exists in stage.
    - Asserts canonical sample output files are present (not only root docs).

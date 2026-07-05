@@ -4,8 +4,8 @@ description: Produces a topic-segmented post-meeting summary for attendees with 
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.2"
-  updated: 2026-06-14
+  version: "1.0.3"
+  updated: 2026-07-04
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose
@@ -108,7 +108,7 @@ When asked to create a meeting recap, follow these steps:
     - `meeting_quality.outcomes_achieved` matches `N/M` pattern when populated
     - `agenda_reconciliation` fields present even when empty lists
 
-## Quality checklist
+## Quality Checklist
 
 - [ ] Input quality flagged honestly (high / medium / low)
 - [ ] Agenda auto-discovery attempted; result noted in Generation context

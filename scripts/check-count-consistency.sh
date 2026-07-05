@@ -84,6 +84,12 @@ EXCLUDES=(
   ':!scripts/check-count-consistency.sh'
   ':!scripts/check-count-consistency.ps1'
   ':!scripts/check-count-consistency.md'
+  # WS-T9 dual-shell equivalence fixture: scripts/fixtures/shell-parity/ holds a
+  # mini-repo with DELIBERATELY stale counts so shell-parity-smoke.mjs can exercise
+  # the finding path through both shells. Exclude it from the REAL repo scan. During
+  # the smoke ROOT is the fixture itself, where this pathspec matches nothing, so the
+  # smoke still sees the fixture's counts.
+  ':!scripts/fixtures/'
 )
 
 # --- Pre-compute count-exempt line ranges per file ---
@@ -272,7 +278,14 @@ check_count_suffix() {
         actual = (r == "commands") ? cc : (r == "workflows") ? wc : sc
         if (num != actual && num >= min_t) printf "  %s:%s: found table \x27%s = %d\x27 (actual: %d)\n", file, linenum, r, num, actual
       }
-      # Form 2: parenthetical "<resource> (N)"
+      # Form 2: parenthetical "<resource> (N)".
+      # HAZARD (awk RSTART/RLENGTH clobber - the class that hung v2.27.1 ubuntu CI;
+      # see the WS-T9 freeze note and reference_awk-match-rstart-clobber). The inner
+      # number-extraction match() below overwrites the global RSTART/RLENGTH, so the
+      # OUTER match span is saved into mstart/mlen FIRST and the loop advances by
+      # those. Advancing by the clobbered RSTART/RLENGTH would rescan the same span
+      # forever. Any future edit adding a nested match() in a match()-driven while
+      # loop MUST save the outer span before the nested match, exactly like this.
       ls = line
       while (match(ls, /([a-z][a-z-]* )?(skill|command|workflow)s? \([0-9]+\)/)) {
         mstart = RSTART; mlen = RLENGTH
@@ -325,6 +338,9 @@ check_singular_noun() {
         }
       }
       s = tolower(content)
+      # HAZARD (awk RSTART/RLENGTH clobber): same class as check_count_suffix Form 2 -
+      # the inner match(seg, /[0-9]+/) clobbers the global RSTART/RLENGTH, so save the
+      # outer span (mstart/mlen) first and advance by it. See the WS-T9 freeze note.
       while (match(s, /[0-9]+ (skill|command)s? (markdown )?(director(y|ies)|files?|docs?)/)) {
         mstart = RSTART; mlen = RLENGTH
         seg = substr(s, mstart, mlen)

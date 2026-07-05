@@ -5,7 +5,7 @@ description: "Which AI platforms support pm-skills and how: Claude Code plugin m
 
 PM-Skills works across the AI agent ecosystem. This page covers every supported platform with step-by-step setup instructions. For the README's quick-start summary, see [README.md](../../README.md#getting-started).
 
-> **Using the pm-skills sub-agents on a non-Claude client?** All 4 sub-agents ship with dispatch skills (`skills/utility-pm-{role}/`) for cross-client access. Native `@`-mention registration is live on Claude Code; the dispatch mechanism is validated on Codex CLI; Cursor / Windsurf / Copilot CLI / Gemini CLI remain experimental. See the canonical [Sub-Agent Compatibility Matrix](../reference/sub-agent-compatibility.md) for per-client status before invoking pm-critic, pm-skill-auditor, pm-changelog-curator, or pm-release-conductor on a non-Claude platform.
+> **Using the pm-skills sub-agents on a non-Claude client?** 5 of the 6 sub-agents ship with dispatch skills (`skills/utility-pm-{role}/`) for cross-client access; the sixth, `pm-skill-router`, is an internal tooling instrument with no dispatch skill and is not invoked by users (see the compatibility matrix). Native `@`-mention registration is live on Claude Code; the dispatch mechanism is validated on Codex CLI; Cursor / Windsurf / Copilot CLI / Gemini CLI remain experimental. See the canonical [Sub-Agent Compatibility Matrix](../reference/sub-agent-compatibility.md) for per-client status before invoking pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, or pm-workflow-orchestrator on a non-Claude platform.
 
 ## Quick reference
 
@@ -15,6 +15,7 @@ PM-Skills works across the AI agent ecosystem. This page covers every supported 
 | [Claude.ai / Claude Desktop](#claudeai--claude-desktop) | Yes | ZIP upload |
 | [Cursor](#cursor) | Yes | Git clone (AGENTS.md auto-discovery) |
 | [Windsurf](#windsurf) | Yes | Git clone (AGENTS.md auto-discovery) |
+| [Gemini CLI](#gemini-cli) | Yes | Git clone (AGENTS.md auto-discovery) |
 | [GitHub Copilot](#github-copilot) | Yes | Git clone (AGENTS.md auto-discovery) |
 | [VS Code (Cline / Continue)](#vs-code-cline--continue) | Yes | Git clone + extension |
 | [OpenCode](#opencode) | Yes | Git clone + skill source config |
@@ -90,7 +91,7 @@ Both use ZIP upload to Project Files.
     - **Claude Desktop**: Settings > Capabilities > Upload ZIP
 3. Use skills by name in your conversation: "Use the prd skill to create requirements for [your topic]"
 
-The ZIP contains all 68 skills, slash commands, workflows, library samples, and a `QUICKSTART.md` with detailed instructions.
+The ZIP contains all 68 skills, slash commands, workflows, sub-agent definitions, activation hooks, library samples, and a `QUICKSTART.md` with detailed instructions.
 
 ---
 
@@ -124,6 +125,22 @@ git clone https://github.com/product-on-purpose/pm-skills.git
 ```
 
 Open the folder in Windsurf. The AI assistant discovers and can invoke all 68 skills. No sync helper needed; Windsurf reads `AGENTS.md` directly.
+
+---
+
+## Gemini CLI
+
+Same pattern as Cursor and Windsurf. Gemini CLI auto-discovers PM-Skills via `AGENTS.md` once the repo is in your workspace.
+
+```bash
+git clone https://github.com/product-on-purpose/pm-skills.git
+```
+
+Open Gemini CLI in the folder that includes `pm-skills`. Gemini discovers and can invoke all 68 skills via `AGENTS.md`. Invoke by name:
+
+> "Use the hypothesis skill to test my assumption about checkout abandonment."
+
+For programmatic access, you can also configure pm-skills-mcp; see [Any MCP client](#any-mcp-client).
 
 ---
 
@@ -253,7 +270,7 @@ For higher-quality output, also paste the matching `references/EXAMPLE.md` so th
 
 - **Claude Code**: run `/plugin list` to confirm pm-skills is installed. If not, re-run the install command. If yes, run `/reload-plugins` or restart the session.
 - **skills CLI install**: confirm skills landed in your agent's default skills directory; the CLI prints the path on completion.
-- **Git clone install**: ensure your agent reads `AGENTS.md` (Cursor, Copilot, Windsurf do automatically when the repo is in workspace).
+- **Git clone install**: ensure your agent reads `AGENTS.md` (Cursor, Copilot, Windsurf, Gemini CLI do automatically when the repo is in workspace).
 
 ### "Plugin install path failed" errors
 

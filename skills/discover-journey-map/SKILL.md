@@ -1,11 +1,11 @@
 ---
 name: discover-journey-map
-description: Produce a customer journey map covering stages, touchpoints, emotional curve, pain points, moments of truth, and opportunity annotations. Output is a markdown artifact that may include mermaid timeline / flowchart visualization. Supports both linear journey (start to end) and cyclical journey (recurring engagement loops). Refuses to fabricate emotional or behavioral data without research input.
+description: Maps a customer journey across stages, touchpoints, emotional curve, pain points, and moments of truth into a markdown artifact with an optional mermaid timeline or flowchart. Use when synthesizing existing research into the shape of a customer's experience, end-to-end or for one phase. Without research signal yet, run discover-interview-synthesis or measure-survey-analysis first; refuses to fabricate emotional or behavioral data.
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "1.0.0"
-  updated: 2026-05-21
+  version: "1.1.0"
+  updated: 2026-07-04
   category: research
   frameworks: [triple-diamond, service-design]
   author: product-on-purpose
@@ -27,6 +27,13 @@ You produce a customer journey map that captures stages, touchpoints, emotional 
 **A journey map is a synthesis artifact, not a brainstorm.** Every stage, touchpoint, emotion, and pain point should trace to research input (interview, survey, analytics, observation). Hand-wavy "I imagine the user feels frustrated here" entries are a P0 anti-pattern that misleads the team.
 
 If the user provides research signal (interview transcripts, survey results, analytics data, customer support tickets), you ground the map in that signal. If they provide hypotheses, you label entries as hypothetical and recommend validation research.
+
+## When NOT to Use
+
+- You need an operational service blueprint or system architecture diagram -> use a dedicated diagramming tool; this skill covers the user-experience lens only, not back-stage processes
+- You have no research signal yet and want more than a labeled-hypothesis placeholder -> run `discover-interview-synthesis` or `measure-survey-analysis` first, then map the journey from evidence
+- You need to frame one specific problem, not the full experience arc -> use `define-problem-statement`
+- You are mapping a single-session task flow, not a multi-stage customer journey -> use `deliver-edge-cases` for that flow's boundary conditions instead
 
 ## Inputs
 
@@ -177,11 +184,11 @@ Multiple personas with intersecting journeys (e.g., buyer + influencer + user in
 - Visualizes via: `utility-mermaid-diagrams` (timeline or flowchart)
 - Adversarial review via: `utility-pm-critic` (challenges where emotions and moments of truth lack research evidence)
 
-## Output format
+## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. See `references/EXAMPLE.md` for a complete worked example.
 
-## Quality checklist
+## Quality Checklist
 
 Before finalizing, verify:
 

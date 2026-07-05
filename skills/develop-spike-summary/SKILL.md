@@ -1,11 +1,11 @@
 ---
 name: develop-spike-summary
-description: Documents the results of a time-boxed technical or design exploration (spike). Use after completing a spike to capture learnings, findings, and recommendations for the team.
+description: Documents the results of a completed technical or design spike, capturing the original question, approach, evidence-backed findings, and a clear proceed-or-not recommendation so the team does not re-litigate the exploration. Use once a time-boxed investigation has concluded. For the architecture decision the spike informs, use develop-adr instead; for research-based exploration, use discover-interview-synthesis.
 license: Apache-2.0
 metadata:
   phase: develop
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.2.0"
+  updated: 2026-07-04
   category: coordination
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

@@ -4,8 +4,8 @@ description: Runs a fast pre-build risk review on a product idea, feature reques
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.0"
-  updated: 2026-06-22
+  version: "1.0.1"
+  updated: 2026-07-04
   category: problem-framing
   frameworks: [triple-diamond, lean-startup]
   author: product-on-purpose
@@ -24,13 +24,13 @@ Do not write code, scaffold a project, recommend a stack, or design implementati
 
 If the user says the work is for learning, a portfolio, or internal practice, do not judge it by market standards; still flag scope and clarity risks.
 
-## When to use
+## When to Use
 
 - A product idea, MVP, or new bet is about to turn into build work.
 - A feature request or scope change has arrived and you need to separate real demand from a polite ask, founder anxiety, or competitor-copying.
 - Someone wants a fast "should we build this?" verdict before a PRD, roadmap row, or ticket exists.
 
-## When NOT to use
+## When NOT to Use
 
 | If the ask is | Use instead |
 |---|---|
@@ -74,11 +74,11 @@ Be skeptical but useful. Always separate "can be built" from "should be built". 
 
 Full map, including the per-risk routing: `references/routing-map.md`.
 
-## Output
+## Output Format
 
 A single Build Risk Review artifact, built from `references/TEMPLATE.md`. Section order: decision header (verdict + one-line rationale), the biggest risk (`R1`), supporting risks, demand level (feature mode), evidence ledger, validation plan, routing, Sources. A fully worked case is in `references/EXAMPLE.md`.
 
-## Quality checklist
+## Quality Checklist
 
 - [ ] Exactly one primary risk is named (`R1`) and tagged from the taxonomy.
 - [ ] Feature-change mode places the request on L0 through L4.

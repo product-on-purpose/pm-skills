@@ -4,8 +4,8 @@ description: Produces a private strategic preparation document for the user befo
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.0"
-  updated: 2026-04-17
+  version: "1.0.1"
+  updated: 2026-07-04
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose
@@ -105,7 +105,7 @@ When asked to create a meeting brief, follow these steps:
     - Stakeholder list has minimum fields (name, position) when present
     - Primary ask is non-empty (use "alignment" or "information gathering" if no specific ask)
 
-## Quality checklist
+## Quality Checklist
 
 - [ ] Anti-meeting check was applied and recorded
 - [ ] `visibility: private` default applied

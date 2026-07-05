@@ -98,7 +98,7 @@ jobs:
       - name: Validate command mappings
         run: bash scripts/validate-commands.sh
 
-      - name: Validate Cowork compatibility (ZIP under 50MB)
+      - name: Validate Cowork compatibility (ZIP under 50MB) and release stage contents
         run: |
           set -euo pipefail
           chmod +x scripts/build-release.sh
@@ -116,6 +116,56 @@ jobs:
             exit 1
           fi
           echo "Cowork ZIP size check passed (${ZIP_MB} MB < 50 MB)"
+
+          # --- Release stage content assertions (WS-T2 packaging integrity) ---
+          # build-release leaves the staged tree at dist/stage. Assert it carries
+          # the runtime sub-agent docs and hooks the dispatch skills need at
+          # install time, and that the maintainer-only docs/internal tree did not
+          # leak into the consumer artifact.
+          STAGE="dist/stage"
+          if [[ ! -d "$STAGE" ]]; then
+            echo "::error::Release stage $STAGE not found"
+            exit 1
+          fi
+
+          EXPECTED_AGENTS="pm-changelog-curator pm-critic pm-release-conductor pm-skill-auditor pm-skill-router pm-workflow-orchestrator"
+          for agent_name in $EXPECTED_AGENTS; do
+            if [[ ! -f "$STAGE/agents/$agent_name.md" ]]; then
+              echo "::error::Missing staged sub-agent doc: agents/$agent_name.md"
+              exit 1
+            fi
+          done
+          AGENT_MD_COUNT=$(find "$STAGE/agents" -maxdepth 1 -type f -name '*.md' | wc -l | tr -d ' ')
+          if [[ "$AGENT_MD_COUNT" != "6" ]]; then
+            echo "::error::Expected exactly 6 agents/*.md in the stage, found $AGENT_MD_COUNT"
+            find "$STAGE/agents" -maxdepth 1 -type f -name '*.md'
+            exit 1
+          fi
+
+          if [[ ! -f "$STAGE/hooks/hooks.json" ]]; then
+            echo "::error::Missing staged hooks manifest: hooks/hooks.json"
+            exit 1
+          fi
+
+          if [[ -e "$STAGE/docs/internal" ]]; then
+            echo "::error::docs/internal must be excluded from the release stage"
+            exit 1
+          fi
+
+          # Every agents/*.md a utility-pm-* dispatch skill reads must resolve in the stage.
+          MISSING=0
+          while IFS= read -r ref; do
+            [[ -z "$ref" ]] && continue
+            if [[ ! -f "$STAGE/$ref" ]]; then
+              echo "::error::Dispatch skill references $ref, which is not present in the stage"
+              MISSING=1
+            fi
+          done < <(find "$STAGE/skills" -maxdepth 2 -type f -name SKILL.md -path '*utility-pm-*' -exec grep -hoE 'agents/pm-[a-z-]+\.md' {} + 2>/dev/null | sort -u)
+          if [[ "$MISSING" != "0" ]]; then
+            exit 1
+          fi
+
+          echo "Release stage OK: 6 agent docs + hooks/hooks.json, no docs/internal, all dispatch refs resolve."
           rm -rf dist/
 
       - name: Lint plugin packaging policy

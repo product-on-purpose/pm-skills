@@ -23,7 +23,9 @@ import { readFileSync, globSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 import { route, majority, buildCatalog, systemPrompt, mapPool, CALIBRATION } from './run-router-evals.mjs';
-import { partnersOf } from './check-trigger-fixtures.mjs';
+// Curated collision partners load from the trigger-eval roster data file (WS-T10,
+// v2.30.0), the same single source check-trigger-fixtures.mjs reads.
+import { partnersOf } from './trigger-eval-roster.mjs';
 
 /** Neighbors of `newSkill`: skills its no-trigger queries point at (forward), skills whose
  *  no-trigger queries point at it (backward), plus `extra` (e.g. curated partners). Pure. */

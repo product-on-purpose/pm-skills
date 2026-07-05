@@ -2,7 +2,7 @@
 
 ## What's Included
 
-- **67 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 11 foundation skills, 12 utility skills, 15 tool skills)
+- **68 shipped PM skills in `skills/`** (30 phase skills across 6 phases, 11 foundation skills, 12 utility skills, 15 tool skills)
 - **11 slash-command docs in `commands/`** (the 10 `/workflow-*` orchestrator commands plus `/chain`)
 - **12 Workflows** for multi-skill processes (Triple Diamond, Lean Startup, Feature Kickoff, and 9 more)
 
@@ -40,6 +40,16 @@ npx skills add product-on-purpose/pm-skills
 Or point your agent to `AGENTS.md` for skill discovery. Each skill is self-contained in `skills/{skill-name}/SKILL.md` (e.g., `skills/deliver-prd/SKILL.md`).
 
 More detail: see the [Getting Started guide](https://product-on-purpose.github.io/pm-skills/getting-started/) for the long-form walkthrough.
+
+## Verify It Worked
+
+Confirm the install landed before you start building:
+
+- **Claude Code**: run `/plugin list` to confirm `pm-skills` is installed, then invoke `/pm-skills:deliver-prd "test feature"` and expect a complete PRD artifact back.
+- **Claude.ai / Claude Desktop**: ask "Use the prd skill to create requirements for a test feature" and expect a complete PRD artifact back.
+- **Other AI agents** (Cursor, Windsurf, Copilot, Gemini CLI, and similar): ask "Use the hypothesis skill to test my assumption about checkout abandonment" and expect a structured hypothesis artifact back.
+
+If you get a generic response instead of a structured artifact, the agent has not discovered the skill; see [Setup by Platform](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/) for troubleshooting.
 
 ## Usage
 
@@ -82,7 +92,7 @@ See the [PM Skill Lifecycle guide](https://product-on-purpose.github.io/pm-skill
 ## File Structure
 
 ```
-skills/            # All 67 skill definitions (30 phase + 10 foundation + 12 utility + 15 tool, flat)
+skills/            # All 68 skill definitions (30 phase + 11 foundation + 12 utility + 15 tool, flat)
 commands/          # 11 command markdown files (10 workflow + /chain)
 _workflows/        # Multi-skill workflows
 scripts/           # sync, validation, and release helpers

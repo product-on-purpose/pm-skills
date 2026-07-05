@@ -39,6 +39,8 @@ if command -v rsync >/dev/null 2>&1; then
     "$ROOT/skills" \
     "$ROOT/commands" \
     "$ROOT/_workflows" \
+    "$ROOT/agents" \
+    "$ROOT/hooks" \
     "$ROOT/library" \
     "$ROOT/scripts" \
     "$ROOT/.claude-plugin" \
@@ -52,6 +54,8 @@ else
     "$ROOT/skills" \
     "$ROOT/commands" \
     "$ROOT/_workflows" \
+    "$ROOT/agents" \
+    "$ROOT/hooks" \
     "$ROOT/library" \
     "$ROOT/scripts" \
     "$ROOT/.claude-plugin" \

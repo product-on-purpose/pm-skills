@@ -45,7 +45,6 @@ $OptionalValidators = @(
   @{ Name = 'check-landing-page-counts -Strict';            Script = 'check-landing-page-counts.ps1';                     Args = @('-Strict') }
   @{ Name = 'check-workflow-generator-coverage';             Script = 'check-workflow-generator-coverage.ps1';             Args = @() }
   @{ Name = 'check-agents-md-command-sync';                  Script = 'check-agents-md-command-sync.ps1';                  Args = @() }
-  @{ Name = 'check-context-currency';                        Script = 'check-context-currency.ps1';                        Args = @() }
 )
 
 # Advisory validators: run for visibility but NEVER affect exit status (parity with

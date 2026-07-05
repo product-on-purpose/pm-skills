@@ -1,0 +1,74 @@
+# trigger-eval-roster.yaml - the single source of truth for the M-31 trigger-eval
+# roster and the curated collision pairs.
+#
+# WHY: the roster (which skills are in the trigger-eval program) and the collision
+# pairs (near-duplicate skills that must carry near-miss negatives at each other)
+# were hardcoded as in-code literals in scripts/check-trigger-fixtures.mjs. The
+# in-code ROSTER drifted to 29 while 31 fixture sets existed on disk (the 2026-07-04
+# deep audit finding P1-5). Extracting them here (v2.30.0, WS-T10) removes the
+# hand-synced array and lets all three eval consumers read one data file.
+#
+# CONSUMERS (via the loader scripts/trigger-eval-roster.mjs):
+#   - scripts/check-trigger-fixtures.mjs   (roster asset-presence + collision-pair validation)
+#   - scripts/run-router-evals.mjs         (scopes the controlled router eval to the roster)
+#   - scripts/check-new-skill-collision.mjs (curated collision partners for the merge gate)
+#
+# INVARIANT: every name in `roster` must have skills/<name>/evals/trigger-fixtures.json
+# on disk; the ENFORCING check-trigger-fixtures.mjs step fails the build otherwise.
+# When you add a skill to the trigger-eval program, add it here AND ship its fixture.
+# When two skills are near-duplicates strong enough to measure, add the pair to
+# `collision_pairs` (see CONTRIBUTING.md, Eval Contract).
+
+# Phase 1 roster: the F-12 26-skill cohort + 3 collision partners, plus the two
+# foundation skills whose fixtures shipped after the in-code roster was last synced
+# (foundation-build-risk-review in v2.29.0, foundation-stakeholder-briefings in
+# v2.28.0). 31 entries = every skills/*/evals/trigger-fixtures.json on disk.
+roster:
+  # Define (4)
+  - define-hypothesis
+  - define-jtbd-canvas
+  - define-opportunity-tree
+  - define-problem-statement
+  # Discover (3)
+  - discover-competitive-analysis
+  - discover-interview-synthesis
+  - discover-stakeholder-summary
+  # Develop (4)
+  - develop-adr
+  - develop-design-rationale
+  - develop-solution-brief
+  - develop-spike-summary
+  # Deliver (6)
+  - deliver-acceptance-criteria
+  - deliver-edge-cases
+  - deliver-launch-checklist
+  - deliver-prd
+  - deliver-release-notes
+  - deliver-user-stories
+  # Measure (5)
+  - measure-dashboard-requirements
+  - measure-experiment-design
+  - measure-experiment-results
+  - measure-instrumentation-spec
+  - measure-okr-grader
+  # Iterate (4)
+  - iterate-lessons-log
+  - iterate-pivot-decision
+  - iterate-refinement-notes
+  - iterate-retrospective
+  # Foundation (5)
+  - foundation-build-risk-review
+  - foundation-meeting-recap
+  - foundation-okr-writer
+  - foundation-persona
+  - foundation-stakeholder-briefings
+
+# Known collision pairs (2026-06 audit D1-D5 + the OKR watch pair, D6). Skills in a
+# pair must carry near-miss negatives aimed at (at least) one declared partner.
+collision_pairs:
+  - [deliver-user-stories, deliver-acceptance-criteria]
+  - [deliver-acceptance-criteria, deliver-edge-cases]
+  - [define-hypothesis, measure-experiment-design]
+  - [discover-interview-synthesis, foundation-meeting-recap]
+  - [iterate-lessons-log, iterate-retrospective]
+  - [foundation-okr-writer, measure-okr-grader]

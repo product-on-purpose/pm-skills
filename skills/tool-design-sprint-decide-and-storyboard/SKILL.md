@@ -4,8 +4,8 @@ description: Day 3 (Wednesday) move of a Design Sprint that runs the art museum 
 license: Apache-2.0
 metadata:
   classification: tool
-  version: "0.1.0"
-  updated: 2026-05-15
+  version: "1.0.0"
+  updated: 2026-07-04
   tool: design-sprint
   move: decide-and-storyboard
   category: decision

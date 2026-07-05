@@ -44,8 +44,8 @@
     },
     {
       "name": "define-opportunity-tree",
-      "description": "Creates an opportunity solution tree mapping desired outcomes to opportunities and potential solutions. Use for outcome-driven product discovery, prioritization, or communicating product strategy.",
-      "version": "2.1.0",
+      "description": "Creates an opportunity solution tree connecting a desired outcome to customer opportunities and candidate solutions, preventing solution-first jumps in continuous discovery. Use when structuring scattered feature ideas or communicating how the roadmap traces to outcomes. For ranking an existing flat list of candidates, use define-prioritization-framework instead; this skill discovers the list, it does not score one.",
+      "version": "2.2.0",
       "group": "phase",
       "phase": "define",
       "family": null,
@@ -60,7 +60,7 @@
     {
       "name": "define-prioritization-framework",
       "description": "Run applicable prioritization frameworks (RICE, ICE, MoSCoW, Weighted Scoring, Kano) against a list of features or initiatives. Produces a comparison table showing where rankings agree and diverge across frameworks, and an executive summary with recommendation. Framework applicability is filtered by data availability; Kano requires customer research. Refuses to fabricate scores; produces an estimation scaffold when input data is missing.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "group": "phase",
       "phase": "define",
       "family": null,
@@ -119,8 +119,8 @@
     },
     {
       "name": "deliver-launch-checklist",
-      "description": "Creates a comprehensive pre-launch checklist covering engineering, design, marketing, support, legal, and operations readiness. Use before releasing features, products, or major updates to ensure nothing is missed.",
-      "version": "2.1.0",
+      "description": "Creates a cross-functional pre-launch checklist covering engineering, design, marketing, support, legal, and operations readiness, with owners, dates, and go/no-go criteria so nothing is missed before release. Use for significant or cross-team launches, not a small single-team change. For the customer-facing announcement of what shipped, use deliver-release-notes instead.",
+      "version": "2.2.0",
       "group": "phase",
       "phase": "deliver",
       "family": null,
@@ -224,8 +224,8 @@
     },
     {
       "name": "develop-spike-summary",
-      "description": "Documents the results of a time-boxed technical or design exploration (spike). Use after completing a spike to capture learnings, findings, and recommendations for the team.",
-      "version": "2.1.0",
+      "description": "Documents the results of a completed technical or design spike, capturing the original question, approach, evidence-backed findings, and a clear proceed-or-not recommendation so the team does not re-litigate the exploration. Use once a time-boxed investigation has concluded. For the architecture decision the spike informs, use develop-adr instead; for research-based exploration, use discover-interview-synthesis.",
+      "version": "2.2.0",
       "group": "phase",
       "phase": "develop",
       "family": null,
@@ -239,8 +239,8 @@
     },
     {
       "name": "discover-competitive-analysis",
-      "description": "Creates a structured competitive analysis comparing features, positioning, and strategy across competitors. Use when entering a market, planning differentiation, or understanding the competitive landscape.",
-      "version": "2.1.0",
+      "description": "Creates a structured competitive analysis comparing features, pricing, and positioning across 3-5 direct and indirect competitors, with a 2x2 map and actionable strategic recommendations. Use before entering a market, planning differentiation, or after losing deals. For market size rather than competitor positioning, use discover-market-sizing instead.",
+      "version": "2.2.0",
       "group": "phase",
       "phase": "discover",
       "family": null,
@@ -269,8 +269,8 @@
     },
     {
       "name": "discover-journey-map",
-      "description": "Produce a customer journey map covering stages, touchpoints, emotional curve, pain points, moments of truth, and opportunity annotations. Output is a markdown artifact that may include mermaid timeline / flowchart visualization. Supports both linear journey (start to end) and cyclical journey (recurring engagement loops). Refuses to fabricate emotional or behavioral data without research input.",
-      "version": "1.0.0",
+      "description": "Maps a customer journey across stages, touchpoints, emotional curve, pain points, and moments of truth into a markdown artifact with an optional mermaid timeline or flowchart. Use when synthesizing existing research into the shape of a customer's experience, end-to-end or for one phase. Without research signal yet, run discover-interview-synthesis or measure-survey-analysis first; refuses to fabricate emotional or behavioral data.",
+      "version": "1.1.0",
       "group": "phase",
       "phase": "discover",
       "family": null,
@@ -285,7 +285,7 @@
     {
       "name": "discover-market-sizing",
       "description": "Estimate market opportunity (TAM, SAM, SOM) using multiple sizing frameworks (top-down, bottom-up, comparable company, analogous market). Triangulates across frameworks, highlights where they converge and diverge as signal, and produces a calibrated range with source-graded confidence labels. Refuses unbounded fabrications; always offers a labeled lower-confidence path when data is thin. Used for investment cases, go/no-go decisions, and stakeholder pitches.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "group": "phase",
       "phase": "discover",
       "family": null,
@@ -299,8 +299,8 @@
     },
     {
       "name": "discover-stakeholder-summary",
-      "description": "Documents stakeholder needs, concerns, and influence for a project or initiative. Use when starting projects, managing complex stakeholder relationships, or ensuring alignment across organizational boundaries.",
-      "version": "2.1.0",
+      "description": "Maps the people and groups with a stake in a project, documenting their needs, concerns, influence, and engagement approach. Use at project kickoff, when taking over from another PM, or when resistance signals misalignment. For the update you send to those stakeholders, use foundation-stakeholder-update instead; this skill maps them, that one talks to them.",
+      "version": "2.2.0",
       "group": "phase",
       "phase": "discover",
       "family": null,
@@ -315,7 +315,7 @@
     {
       "name": "foundation-build-risk-review",
       "description": "Runs a fast pre-build risk review on a product idea, feature request, or scope change, naming the single assumption most likely to make it fail and returning a clear verdict (build small, validate first, pivot first, or don't build yet) with a no-code validation step. Use before committing build effort, when triaging whether to honor a feature request, or when deciding whether to expand scope, ahead of writing a PRD. For a launched product's pivot-or-persevere decision, use iterate-pivot-decision instead.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -345,7 +345,7 @@
     {
       "name": "foundation-meeting-agenda",
       "description": "Produces an attendee-facing agenda that sets what will be discussed, who owns each topic, and how time will be spent. Supports ten meeting type variants (standup, planning, review, decision-making, brainstorm, 1-on-1, stakeholder-review, project-kickoff, working-session, exec-briefing). Emits a shareable summary suitable for Slack or email plus a full agenda with time-boxed topics, type tags, owners, attendee prep, and logistics.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -360,7 +360,7 @@
     {
       "name": "foundation-meeting-brief",
       "description": "Produces a private strategic preparation document for the user before a meeting that matters. Captures stakes, stakeholder positions and reads, ranked desired outcomes, key messages, anticipated questions with prepared responses, risks and tensions, specific asks, and success signals. Distinct from meeting-agenda because this artifact is not shared with attendees; it is the user's personal tactical prep for meetings where positioning matters.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -375,7 +375,7 @@
     {
       "name": "foundation-meeting-recap",
       "description": "Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking. For synthesizing user research interviews across participants, use discover-interview-synthesis.",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -390,7 +390,7 @@
     {
       "name": "foundation-meeting-synthesize",
       "description": "Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes) over a period and surfaces patterns invisible in any single meeting. Shows how decisions evolved, who has been saying what, where threads are stalling, and where contradictions have emerged. Produces a plain-text timeline, themes with confidence markers, stakeholder position tracking, consolidated decision list, contradiction flags, open items, narrative summary, and prioritized follow-ups.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -450,7 +450,7 @@
     {
       "name": "foundation-stakeholder-briefings",
       "description": "Turns any source artifact (spec, discovery, research, GTM plan, experiment results, retro, or raw notes) into one canonical master document plus a set of audience-tailored briefings, each re-pitched to a stakeholder lens (executive, board, engineering, UX, PMM, sales, CS, legal, data, or a custom audience). Every briefing is a traceable projection of the master, so the versions never disagree. Use when one piece of work must reach several audiences who each need a different framing, decision, and level of detail.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -465,7 +465,7 @@
     {
       "name": "foundation-stakeholder-update",
       "description": "Produces async communication to stakeholders, primarily non-attendees and secondarily some attendees who want a reference. Translates meeting outcomes into what-it-means language for readers, with channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces a primary CTA up front, flags technical-to-business translations for user verification, and detects thread continuation from prior updates.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -539,8 +539,8 @@
     },
     {
       "name": "measure-dashboard-requirements",
-      "description": "Specifies requirements for an analytics dashboard including metrics, visualizations, filters, and data sources. Use when requesting dashboards from data teams, defining KPI tracking, or documenting reporting needs.",
-      "version": "2.1.0",
+      "description": "Specifies what questions a dashboard must answer and the metrics, visualizations, filters, and data sources it needs, so data teams build something that informs decisions rather than displaying numbers. Use when requesting a dashboard or formalizing ad-hoc reporting. For the event tracking that feeds the dashboard, use measure-instrumentation-spec instead; instrument first, visualize second.",
+      "version": "2.2.0",
       "group": "phase",
       "phase": "measure",
       "family": null,
@@ -584,8 +584,8 @@
     },
     {
       "name": "measure-instrumentation-spec",
-      "description": "Specifies event tracking and analytics instrumentation requirements for a feature. Use when defining what data to collect, ensuring consistent tracking implementation, or documenting analytics requirements for engineering.",
-      "version": "2.1.0",
+      "description": "Specifies what analytics events to track, when they fire, and what properties to include, as a contract between product and engineering that prevents undertracked features. Use before engineering builds a feature or when auditing existing tracking for gaps. For the dashboard built on top of these events, use measure-dashboard-requirements instead.",
+      "version": "2.2.0",
       "group": "phase",
       "phase": "measure",
       "family": null,
@@ -600,7 +600,7 @@
     {
       "name": "measure-okr-grader",
       "description": "Scores completed OKR sets at cycle close with KR-level scoring per the canonical OKR type enum (committed | aspirational | learning | operational_health | compliance_or_safety), committed-vs-aspirational interpretation, evidence quality assessment, learning synthesis, and next-cycle recommendations. Refuses to retroactively change targets or shrink committed scope, average away guardrail KRs, treat 0.7 as success for committed or compliance_or_safety KRs, equate effort with impact, or use scores for individual performance. Hands off to iterate-lessons-log, iterate-retrospective, define-hypothesis, measure-dashboard-requirements, measure-instrumentation-spec, and foundation-okr-writer.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "phase",
       "phase": "measure",
       "family": null,
@@ -615,7 +615,7 @@
     {
       "name": "measure-survey-analysis",
       "description": "Analyze survey results into actionable PM insights. Produces persona segmentation, hypothesis validation status, thematic clustering of open-text responses, statistical confidence labels, prioritized recommendations, and what-NOT-to-conclude warnings. Refuses to overstate statistical significance from weak samples or biased instruments.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "group": "phase",
       "phase": "measure",
       "family": null,
@@ -630,7 +630,7 @@
     {
       "name": "tool-design-sprint-brief",
       "description": "Pre-sprint brief that locks challenge, sprint questions, team and role assignments, customer recruiting plan, prototype medium, interview format, logistics, and success criteria before Monday of a Design Sprint. Use after the readiness verdict is Go and before Monday begins. Produces a two-page artifact the team and Decider sign off on as the contract for the next five days.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -645,7 +645,7 @@
     {
       "name": "tool-design-sprint-decide-and-storyboard",
       "description": "Day 3 (Wednesday) move of a Design Sprint that runs the art museum layout, heat map, speed critique, straw poll, Decider supervote, rumble-vs-all-in-one decision, and the storyboard that drives Thursday's prototype build. The most decision-heavy day of the sprint. Use Wednesday morning and afternoon after Tuesday's sketches are collected and attribution-stripped. Produces the canonical 5-15 step storyboard that becomes the build spec.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -660,7 +660,7 @@
     {
       "name": "tool-design-sprint-map-and-target",
       "description": "Day 1 (Monday) move of a Design Sprint that produces the bundled Monday artifact containing long-term goal, sprint questions (3-7 testable risks), customer or system map (5-15 step flow), expert interview notes, HMW (How Might We) cluster board, and the Decider's chosen target moment. Use Day 1 morning and afternoon after the sprint brief is locked. Sets the design target for Tuesday's sketches and Wednesday's storyboard.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -675,7 +675,7 @@
     {
       "name": "tool-design-sprint-prototype-plan",
       "description": "Day 4 (Thursday) move of a Design Sprint that produces the planning artifact for the day. Output covers the prototype role plan (Maker, Stitcher, Writer, Asset Collector, Interviewer), prototype brief (what to build, fidelity bar, time allocation per role), canonical Five-Act Interview script (Welcome, Context, Intro, Tasks, Debrief), trial-run checklist, and Friday participant confirmation tracker. The actual prototype build is craft work outside the skill's AI invocation surface. Use Thursday morning after Wednesday's storyboard is signed off.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -690,7 +690,7 @@
     {
       "name": "tool-design-sprint-readiness",
       "description": "Pre-sprint diagnostic that determines whether a team should run a Design Sprint now, postpone it, or do prerequisite work first. Produces a Go / Conditional Go / Wait verdict with diagnosis, recommended preconditions, attendee list, customer recruiting plan, and pre-sprint activities. Use when a team is considering starting a Design Sprint and wants a fast yes/no diagnosis before committing five days of team time and customer recruiting cost.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -705,7 +705,7 @@
     {
       "name": "tool-design-sprint-sketch",
       "description": "Day 2 (Tuesday) move of a Design Sprint that structures lightning demos and the four-step independent solution sketch protocol (Notes, Ideas, Crazy 8s, Solution Sketch). Each team member produces one solution sketch individually; the skill orchestrates the day but does not author the sketches themselves. Use Tuesday morning after Monday's target moment is locked. Output is the lightning demo board, sketch assignments, and the cohort of independent sketches that become Wednesday's heat-map material.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -720,7 +720,7 @@
     {
       "name": "tool-design-sprint-test-and-score",
       "description": "Day 5 (Friday) sprint-closing move of a Design Sprint that produces the bundled Friday artifact covering per-customer interview observations, best quotes, scorecard grid (sprint questions by customers), observed patterns, hot takes from each team member, and the Decider summary (build, iterate, pivot, or stop, plus highest-confidence learning, most important revision, and next artifact). Use Friday after Thursday's prototype passes trial run and during/after the 5 customer interviews. The sprint's payoff artifact.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "design-sprint",
@@ -735,7 +735,7 @@
     {
       "name": "tool-foundation-sprint-approach-options",
       "description": "Day 2 morning move of a Foundation Sprint. Forces generation of 3 to 7 candidate approaches as one-page summaries before the team converges on a top bet. Use after Day 1 is signed and before Magic Lenses on Day 2 afternoon. Enforces a minimum of 3 approaches to prevent first-idea anchoring. Each approach summary names what it is, why it serves the differentiators, and includes a simple visual.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -750,7 +750,7 @@
     {
       "name": "tool-foundation-sprint-basics",
       "description": "Day 1 morning move of a Foundation Sprint. Forces explicit team choices on target customer, important problem, team advantage, and competitors and alternatives. Produces a single coherent strategic frame that becomes the input to Day 1 afternoon Differentiation. Use after the sprint brief is signed and Day 1 morning is scheduled. Bundled artifact, not four separate decisions.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -765,7 +765,7 @@
     {
       "name": "tool-foundation-sprint-brief",
       "description": "Pre-sprint brief that locks scope, the decision the sprint must unlock, team and role assignments, logistics, inputs to bring, and success criteria before Day 1 of a Foundation Sprint. Use after the readiness verdict is Go and before the sprint begins. Produces a one-page artifact the team and Decider sign off on as the contract for the next two days.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -780,7 +780,7 @@
     {
       "name": "tool-foundation-sprint-differentiation",
       "description": "Day 1 afternoon move of a Foundation Sprint. Converts the morning's Basics frame into a defensible strategic position by scoring differentiator candidates against customer-perceived value, choosing two committed differentiators, plotting alternatives on a 2x2 chart, writing decision principles, and producing a one-page Mini Manifesto. Use after Basics is signed; before Approach Options the next morning.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -795,7 +795,7 @@
     {
       "name": "tool-foundation-sprint-founding-hypothesis",
       "description": "Day 2 end capstone move of a Foundation Sprint. Compresses the sprint's full strategic frame into a single canonical sentence (the Founding Hypothesis) plus an assumption scorecard, why-we-believe, what-could-prove-us-wrong, and recommended next validation step. Use after Magic Lenses is signed. Strict canonical template; paraphrase is not accepted in v0.1.0. The Founding Hypothesis is the spine artifact the sprint exists to produce.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -810,7 +810,7 @@
     {
       "name": "tool-foundation-sprint-magic-lenses",
       "description": "Day 2 afternoon move of a Foundation Sprint. Evaluates the candidate approach set through multiple lenses (4 classic plus at least 1 custom) to surface trade-offs, identify consistent winners and contradictions, and produce a top bet plus a backup plan. Use after Approach Options is signed. Lens scoring is a sense-making tool, not mathematical truth; arbitrary precision is a smell.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -825,7 +825,7 @@
     {
       "name": "tool-foundation-sprint-readiness",
       "description": "Pre-sprint diagnostic that determines whether a team should run a Foundation Sprint now, postpone it, or do prerequisite work first. Produces a Go / Conditional Go / Wait verdict with diagnosis, recommended preconditions, attendee list, and pre-sprint activities. Use when a team is considering starting a Foundation Sprint and wants a fast yes/no diagnosis before committing two days of facilitated work.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": "foundation-sprint",
@@ -840,7 +840,7 @@
     {
       "name": "tool-note-and-vote",
       "description": "Structured group-decision mechanic that captures silent ideation, voting summaries, and Decider sign-off in a single bundled artifact. Use when a small team needs to make a fast decision with diverse input, when groupthink is a risk, or when a workshop moment demands silent contribution before discussion. Applicable to Foundation Sprint, Design Sprint, and any participatory decision context.",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "group": "tool",
       "phase": null,
       "family": null,
@@ -926,7 +926,7 @@
     {
       "name": "utility-pm-skill-builder",
       "description": "Guides contributors from a PM skill idea to a complete Skill Implementation Packet aligned with pm-skills conventions. Runs gap analysis, validates through a Why Gate, classifies by type and phase, generates draft files, and writes to a staging area for review before promotion.",
-      "version": "1.1.2",
+      "version": "1.2.0",
       "group": "utility",
       "phase": null,
       "family": null,
@@ -956,7 +956,7 @@
     {
       "name": "utility-pm-skill-validate",
       "description": "Audits an existing pm-skills skill against structural conventions and quality criteria. Produces a structured validation report with pass/fail checks, severity-graded findings, and actionable recommendations. Use when checking whether a skill meets repo standards before shipping or after making changes.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "group": "utility",
       "phase": null,
       "family": null,
@@ -1015,7 +1015,7 @@
     {
       "name": "utility-update-pm-skills",
       "description": "Checks for newer pm-skills releases, compares local vs. latest version, previews what would change, and updates local files after user confirmation. Generates a structured update report documenting changed files, new capabilities, and the value delta between versions. Use when you want to bring a local pm-skills installation up to date.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "group": "utility",
       "phase": null,
       "family": null,

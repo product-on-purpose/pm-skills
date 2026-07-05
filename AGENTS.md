@@ -73,7 +73,7 @@ Produces async communication to stakeholders, primarily non-attendees and second
 #### competitive-analysis
 **Path:** `skills/discover-competitive-analysis/SKILL.md`
 
-Creates a structured competitive analysis comparing features, positioning, and strategy across competitors. Use when entering a market, planning differentiation, or understanding the competitive landscape.
+Creates a structured competitive analysis comparing features, pricing, and positioning across 3-5 direct and indirect competitors, with a 2x2 map and actionable strategic recommendations. Use before entering a market, planning differentiation, or after losing deals. For market size rather than competitor positioning, use discover-market-sizing instead.
 
 #### interview-synthesis
 **Path:** `skills/discover-interview-synthesis/SKILL.md`
@@ -83,7 +83,7 @@ Synthesizes user research interviews into actionable insights, patterns, and rec
 #### journey-map
 **Path:** `skills/discover-journey-map/SKILL.md`
 
-Produce a customer journey map covering stages, touchpoints, emotional curve, pain points, moments of truth, and opportunity annotations. Output is a markdown artifact that may include mermaid timeline / flowchart visualization. Supports both linear journey (start to end) and cyclical journey (recurring engagement loops). Refuses to fabricate emotional or behavioral data without research input.
+Maps a customer journey across stages, touchpoints, emotional curve, pain points, and moments of truth into a markdown artifact with an optional mermaid timeline or flowchart. Use when synthesizing existing research into the shape of a customer's experience, end-to-end or for one phase. Without research signal yet, run discover-interview-synthesis or measure-survey-analysis first; refuses to fabricate emotional or behavioral data.
 
 #### market-sizing
 **Path:** `skills/discover-market-sizing/SKILL.md`
@@ -93,7 +93,7 @@ Estimate market opportunity (TAM, SAM, SOM) using multiple sizing frameworks (to
 #### stakeholder-summary
 **Path:** `skills/discover-stakeholder-summary/SKILL.md`
 
-Documents stakeholder needs, concerns, and influence for a project or initiative. Use when starting projects, managing complex stakeholder relationships, or ensuring alignment across organizational boundaries.
+Maps the people and groups with a stake in a project, documenting their needs, concerns, influence, and engagement approach. Use at project kickoff, when taking over from another PM, or when resistance signals misalignment. For the update you send to those stakeholders, use foundation-stakeholder-update instead; this skill maps them, that one talks to them.
 
 ---
 
@@ -112,7 +112,7 @@ Creates a Jobs to be Done canvas capturing the functional, emotional, and social
 #### opportunity-tree
 **Path:** `skills/define-opportunity-tree/SKILL.md`
 
-Creates an opportunity solution tree mapping desired outcomes to opportunities and potential solutions. Use for outcome-driven product discovery, prioritization, or communicating product strategy.
+Creates an opportunity solution tree connecting a desired outcome to customer opportunities and candidate solutions, preventing solution-first jumps in continuous discovery. Use when structuring scattered feature ideas or communicating how the roadmap traces to outcomes. For ranking an existing flat list of candidates, use define-prioritization-framework instead; this skill discovers the list, it does not score one.
 
 #### prioritization-framework
 **Path:** `skills/define-prioritization-framework/SKILL.md`
@@ -146,7 +146,7 @@ Creates a concise one-page solution overview that communicates the proposed appr
 #### spike-summary
 **Path:** `skills/develop-spike-summary/SKILL.md`
 
-Documents the results of a time-boxed technical or design exploration (spike). Use after completing a spike to capture learnings, findings, and recommendations for the team.
+Documents the results of a completed technical or design spike, capturing the original question, approach, evidence-backed findings, and a clear proceed-or-not recommendation so the team does not re-litigate the exploration. Use once a time-boxed investigation has concluded. For the architecture decision the spike informs, use develop-adr instead; for research-based exploration, use discover-interview-synthesis.
 
 ---
 
@@ -165,7 +165,7 @@ Documents edge cases, error states, boundary conditions, race conditions, and re
 #### launch-checklist
 **Path:** `skills/deliver-launch-checklist/SKILL.md`
 
-Creates a comprehensive pre-launch checklist covering engineering, design, marketing, support, legal, and operations readiness. Use before releasing features, products, or major updates to ensure nothing is missed.
+Creates a cross-functional pre-launch checklist covering engineering, design, marketing, support, legal, and operations readiness, with owners, dates, and go/no-go criteria so nothing is missed before release. Use for significant or cross-team launches, not a small single-team change. For the customer-facing announcement of what shipped, use deliver-release-notes instead.
 
 #### prd
 **Path:** `skills/deliver-prd/SKILL.md`
@@ -189,7 +189,7 @@ Generates user stories in the standard persona, action, benefit story format fro
 #### dashboard-requirements
 **Path:** `skills/measure-dashboard-requirements/SKILL.md`
 
-Specifies requirements for an analytics dashboard including metrics, visualizations, filters, and data sources. Use when requesting dashboards from data teams, defining KPI tracking, or documenting reporting needs.
+Specifies what questions a dashboard must answer and the metrics, visualizations, filters, and data sources it needs, so data teams build something that informs decisions rather than displaying numbers. Use when requesting a dashboard or formalizing ad-hoc reporting. For the event tracking that feeds the dashboard, use measure-instrumentation-spec instead; instrument first, visualize second.
 
 #### experiment-design
 **Path:** `skills/measure-experiment-design/SKILL.md`
@@ -204,7 +204,7 @@ Documents the results of a completed experiment or A/B test with statistical ana
 #### instrumentation-spec
 **Path:** `skills/measure-instrumentation-spec/SKILL.md`
 
-Specifies event tracking and analytics instrumentation requirements for a feature. Use when defining what data to collect, ensuring consistent tracking implementation, or documenting analytics requirements for engineering.
+Specifies what analytics events to track, when they fire, and what properties to include, as a contract between product and engineering that prevents undertracked features. Use before engineering builds a feature or when auditing existing tracking for gaps. For the dashboard built on top of these events, use measure-dashboard-requirements instead.
 
 #### okr-grader
 **Path:** `skills/measure-okr-grader/SKILL.md`

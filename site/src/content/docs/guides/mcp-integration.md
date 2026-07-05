@@ -26,8 +26,8 @@ If your team has already adopted `pm-skills-mcp` or has a specific reason to use
 
 | | This `pm-skills` library | `pm-skills-mcp` v2.9.x maintenance line (frozen catalog) |
 |---|---|---|
-| Total skills | 40 (and growing) | 40 (frozen at v2.9.2 build) |
-| Workflows | 9 | 11 (legacy names retained) |
+| Total skills | 68 | 40 (frozen at v2.9.2 build) |
+| Workflows | 12 | 11 (legacy names retained) |
 | Active maintenance | Yes | Maintenance mode |
 
 The v2.9.2 build of `pm-skills-mcp` embeds the full current 40-skill catalog at the time of its publication (2026-05-05). Skills added to `pm-skills` after that build are not embedded in the MCP server. Use the file-based install for parity with future pm-skills releases.
