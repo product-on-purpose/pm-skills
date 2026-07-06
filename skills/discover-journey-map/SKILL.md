@@ -4,8 +4,8 @@ description: Maps a customer journey across stages, touchpoints, emotional curve
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "1.1.0"
-  updated: 2026-07-04
+  version: "1.2.0"
+  updated: 2026-07-05
   category: research
   frameworks: [triple-diamond, service-design]
   author: product-on-purpose
@@ -34,6 +34,7 @@ If the user provides research signal (interview transcripts, survey results, ana
 - You have no research signal yet and want more than a labeled-hypothesis placeholder -> run `discover-interview-synthesis` or `measure-survey-analysis` first, then map the journey from evidence
 - You need to frame one specific problem, not the full experience arc -> use `define-problem-statement`
 - You are mapping a single-session task flow, not a multi-stage customer journey -> use `deliver-edge-cases` for that flow's boundary conditions instead
+- You need general guidance on mermaid syntax or choosing among all 15 diagram types for a non-journey document -> use `utility-mermaid-diagrams` directly; this skill only produces the journey-specific timeline or flowchart as one section of the larger artifact
 
 ## Inputs
 

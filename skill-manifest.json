@@ -60,7 +60,7 @@
     {
       "name": "define-prioritization-framework",
       "description": "Run applicable prioritization frameworks (RICE, ICE, MoSCoW, Weighted Scoring, Kano) against a list of features or initiatives. Produces a comparison table showing where rankings agree and diverge across frameworks, and an executive summary with recommendation. Framework applicability is filtered by data availability; Kano requires customer research. Refuses to fabricate scores; produces an estimation scaffold when input data is missing.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "group": "phase",
       "phase": "define",
       "family": null,
@@ -255,7 +255,7 @@
     {
       "name": "discover-interview-synthesis",
       "description": "Synthesizes user research interviews into actionable insights, patterns, and recommendations. Use after conducting user interviews, customer calls, or usability sessions to extract and communicate findings across participants. Distinct from foundation-meeting-recap, which summarizes one internal meeting for its attendees; this skill aggregates research conversations into evidence-backed findings.",
-      "version": "2.1.0",
+      "version": "2.2.0",
       "group": "phase",
       "phase": "discover",
       "family": null,
@@ -270,7 +270,7 @@
     {
       "name": "discover-journey-map",
       "description": "Maps a customer journey across stages, touchpoints, emotional curve, pain points, and moments of truth into a markdown artifact with an optional mermaid timeline or flowchart. Use when synthesizing existing research into the shape of a customer's experience, end-to-end or for one phase. Without research signal yet, run discover-interview-synthesis or measure-survey-analysis first; refuses to fabricate emotional or behavioral data.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "group": "phase",
       "phase": "discover",
       "family": null,
@@ -330,7 +330,7 @@
     {
       "name": "foundation-lean-canvas",
       "description": "Produces a one-page lean canvas across nine interlocking blocks (problem, customer, UVP, solution, channels, revenue, cost, metrics, unfair advantage) with optional inline HTML and SVG visual rendering. Use when framing a new product thesis, stress-testing an existing strategy, comparing strategic options side-by-side, or aligning a team on business-model assumptions. Works as a strategic hub that cross-links to deeper PM skills without duplicating them.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -375,7 +375,7 @@
     {
       "name": "foundation-meeting-recap",
       "description": "Produces a topic-segmented post-meeting summary for attendees with decisions highlighted and actions captured inline per topic (plus a consolidated action view at the end). Auto-populates topic skeleton from a sibling meeting-agenda when available and reconciles planned vs. actual topics. Accepts transcripts from Zoom, Meet, Otter, Fireflies, Krisp MCP, or manual notes; runs on variable-quality input without blocking. For synthesizing user research interviews across participants, use discover-interview-synthesis.",
-      "version": "1.0.3",
+      "version": "1.1.0",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -390,7 +390,7 @@
     {
       "name": "foundation-meeting-synthesize",
       "description": "Cross-meeting archaeology skill. Consumes multiple meeting recaps (or raw notes) over a period and surfaces patterns invisible in any single meeting. Shows how decisions evolved, who has been saying what, where threads are stalling, and where contradictions have emerged. Produces a plain-text timeline, themes with confidence markers, stakeholder position tracking, consolidated decision list, contradiction flags, open items, narrative summary, and prioritized follow-ups.",
-      "version": "1.0.2",
+      "version": "1.1.0",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -435,7 +435,7 @@
     {
       "name": "foundation-prioritized-action-plan",
       "description": "Produce a comprehensive, evidence-grounded prioritized action plan from any PM input (notes, transcripts, drafts, executive asks, Slack threads, or a raw situation). Outputs one saveable document with an executive summary, input mirror, situation classification (Cynefin), the binding constraint (Theory of Constraints), prioritized questions and open decisions, a ranked action plan with the critical effort plus follow-ons, risks and pre-mortem, copy/paste prompts for downstream pm-skills, and an evidence map. Builds a source ledger and cites exact input quotes; refuses High-confidence plans for Complex or Chaotic situations. Use when you want the critical next effort and how to execute it.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -465,7 +465,7 @@
     {
       "name": "foundation-stakeholder-update",
       "description": "Produces async communication to stakeholders, primarily non-attendees and secondarily some attendees who want a reference. Translates meeting outcomes into what-it-means language for readers, with channel variants (slack, teams, email, notion, exec-memo) and audience variants (engineering, design, leadership, customer-facing, mixed). Surfaces a primary CTA up front, flags technical-to-business translations for user verification, and detects thread continuation from prior updates.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -615,7 +615,7 @@
     {
       "name": "measure-survey-analysis",
       "description": "Analyze survey results into actionable PM insights. Produces persona segmentation, hypothesis validation status, thematic clustering of open-text responses, statistical confidence labels, prioritized recommendations, and what-NOT-to-conclude warnings. Refuses to overstate statistical significance from weak samples or biased instruments.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "group": "phase",
       "phase": "measure",
       "family": null,
@@ -855,7 +855,7 @@
     {
       "name": "utility-mermaid-diagrams",
       "description": "Teaches PMs to create syntactically valid mermaid diagrams by selecting the right diagram type for their communication need, following syntax validity rules, and validating before shipping. Covers all 15 mermaid diagram types with PM-relevant examples and a dual-lens navigation system.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "group": "utility",
       "phase": null,
       "family": null,

@@ -4,8 +4,8 @@ description: Produce a comprehensive, evidence-grounded prioritized action plan 
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.1.0"
-  updated: 2026-06-01
+  version: "1.2.0"
+  updated: 2026-07-05
   category: planning
   frameworks: [triple-diamond, theory-of-constraints, cynefin]
   author: product-on-purpose
@@ -41,6 +41,7 @@ The skill is honest about what it does not know. In Complex or Chaotic situation
 - **vs `utility-pm-critic`:** if the user asks "is this artifact good, what is wrong with it," use `utility-pm-critic`. Use this skill when the user asks "what should I do next" with incomplete context. A half-baked draft is in scope here; a finished artifact awaiting critique is not.
 - **vs `jp-strategy-brief` (jp-library):** if the user wants broad strategic exploration, option framing, or "help me think through this," use `jp-strategy-brief`. Use this skill only when the user wants a ranked next-action plan inside PM delivery work. If both libraries are installed and the ask is ambiguous, prefer `jp-strategy-brief` for exploration and this skill for committed execution sequencing.
 - **vs `using-workflows`:** if the user wants a multi-skill workflow walkthrough, use `using-workflows`. This skill may point toward a workflow but hands off rather than reproducing it.
+- **vs `define-prioritization-framework`:** if the user already has a defined candidate list of features or initiatives and wants formal RICE/ICE/MoSCoW/Kano scoring, use `define-prioritization-framework`. Use this skill when the input is a raw, unstructured situation and the user wants the single critical next effort, not a scored comparison across a list.
 - The user wants to generate a specific named artifact (persona, OKRs, journey map): invoke that skill directly.
 - The input is unrelated to PM work: refuse with a one-line redirect.
 

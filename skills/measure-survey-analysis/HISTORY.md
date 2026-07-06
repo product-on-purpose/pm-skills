@@ -2,8 +2,15 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.2.0 | 2026-07-05 | v2.31.0 | WS-Z5 | minor | Reciprocal When NOT to Use pointers to `discover-journey-map` and `measure-experiment-results`; collision pairs declared with new trigger fixtures. |
 | 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Added a "When NOT to Use" section with a reciprocal pointer back to `discover-interview-synthesis`, which already deflected here without a return edge. Closes a one-way gap in the cross-skill reciprocity mesh flagged by the 2026-07-04 deep audit. Also normalized the "Output format" and "Quality checklist" headings to their canon spelling (WS-T8b, no re-bump). |
 | 1.0.0 | 2026-05-21 | v2.18.0 | - | baseline | Prior published version: analyzes survey results into persona segmentation, hypothesis validation, open-text thematic clustering, qualitative confidence labels, and prioritized recommendations, with explicit what-the-data-does-NOT-show warnings. |
+
+## 1.2.0 (2026-07-05)
+
+Released in [v2.31.0](../../site/src/content/docs/releases/Release_v2.31.0.md). Effort: WS-Z5 (eval backfill wave 1, R-16).
+
+The WS-Z5 fixture backfill declared both `discover-journey-map` and `measure-experiment-results` as new collision pairs for this skill in `scripts/trigger-eval-roster.yaml`, but neither reciprocal "When NOT to Use" pointer was added. The enforcing `check-reciprocal-boundary-pointers` gate caught both gaps. Adds one bullet pointing to `discover-journey-map` (mapping findings onto a customer journey rather than analyzing the survey) and one bullet pointing to `measure-experiment-results` (a completed controlled experiment rather than a survey instrument). No other content change.
 
 ## 1.1.0 (2026-07-04)
 

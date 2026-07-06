@@ -4,8 +4,8 @@ description: Analyze survey results into actionable PM insights. Produces person
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "1.1.0"
-  updated: 2026-07-04
+  version: "1.2.0"
+  updated: 2026-07-05
   category: research
   frameworks: [triple-diamond, quantitative-research]
   author: product-on-purpose
@@ -31,7 +31,9 @@ A 90-percent confidence claim from 47 responses on a 5-question survey with a le
 ## When NOT to Use
 
 - Your data is interview transcripts or open conversations rather than structured survey responses -> use `discover-interview-synthesis`
+- You want to map survey findings onto a customer's end-to-end experience (stages, touchpoints, emotional curve) rather than analyze the survey itself -> use `discover-journey-map`, which can consume this skill's output as its quantitative signal
 - You need to establish causation, not correlation -> use `measure-experiment-design` for a controlled test
+- Your data comes from a completed controlled experiment or A/B test rather than a survey instrument -> use `measure-experiment-results` to document those outcomes
 - You need to grade progress against committed objectives, not analyze a standalone survey -> use `measure-okr-grader`
 - You are ranking features or initiatives, not analyzing research data -> use `define-prioritization-framework`
 

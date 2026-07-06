@@ -4,8 +4,8 @@ description: Cross-meeting archaeology skill. Consumes multiple meeting recaps (
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.2"
-  updated: 2026-07-04
+  version: "1.1.0"
+  updated: 2026-07-05
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose
@@ -32,7 +32,7 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 
 - Single-meeting summary. Use `foundation-meeting-recap` instead.
 - Communicating outcomes outward. Use `foundation-stakeholder-update`.
-- User research conversation synthesis. Use `/discover-interview-synthesis`.
+- User research conversation synthesis. Use `discover-interview-synthesis`.
 
 ## Zero-friction execution
 

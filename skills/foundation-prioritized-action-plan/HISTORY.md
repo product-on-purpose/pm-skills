@@ -2,8 +2,15 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.2.0 | 2026-07-05 | v2.31.0 | WS-Z5 | minor | Reciprocal When NOT to Use pointer to `define-prioritization-framework`; collision pair declared with new trigger fixtures. |
 | 1.1.0 | 2026-06-01 | v2.24.0 | plan-orchestrator | changed | Added optional one-confirmation handoff to utility-pm-workflow-orchestrator (--run, forwarded --force-auto) |
 | 1.0.0 | 2026-05-31 | v2.23.0 | prioritized-action-plan | added | Initial release |
+
+## 1.2.0 (2026-07-05)
+
+Released in [v2.31.0](../../site/src/content/docs/releases/Release_v2.31.0.md). Effort: WS-Z5 (eval backfill wave 1, R-16).
+
+The WS-Z5 fixture backfill declared `define-prioritization-framework` as a new collision pair for this skill in `scripts/trigger-eval-roster.yaml`, but the reciprocal "When NOT to Use" pointer was never added. The enforcing `check-reciprocal-boundary-pointers` gate caught the gap. Adds one bullet distinguishing a raw, unstructured situation from a defined candidate list ready for formal framework scoring. No other content change.
 
 ## 1.1.0 (2026-06-01)
 
