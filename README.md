@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square" alt="License">
   </a>
   <a href="https://github.com/product-on-purpose/pm-skills/releases">
-    <img src="https://img.shields.io/badge/version-2.30.0-blue.svg?style=flat-square" alt="Version"> <!-- x-release-please-version -->
+    <img src="https://img.shields.io/badge/version-2.31.0-blue.svg?style=flat-square" alt="Version"> <!-- x-release-please-version -->
   </a>
   <a href="#the-skill-library">
     <img src="https://img.shields.io/badge/skills-68-brightgreen.svg?style=flat-square" alt="Skills">
@@ -170,9 +170,9 @@ The companion [`pm-skills-mcp`](https://github.com/product-on-purpose/pm-skills-
 
 | Version | Date | Highlights |
 | ------- | ---- | ---------- |
+| [v2.31.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.31.0) | 2026-07-05 | Zero-drift releases: generation becomes the only write path. See [CHANGELOG](CHANGELOG.md#2310---2026-07-05). |
 | [v2.30.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.30.0) | 2026-07-04 | Trust repair + hygiene. See [CHANGELOG](CHANGELOG.md#2300---2026-07-04). |
 | [v2.29.1](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.29.1) | 2026-06-24 | Maintenance patch: skill docs pages no longer drop sections. See [CHANGELOG](CHANGELOG.md#2291---2026-06-24). |
-| [v2.29.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.29.0) | 2026-06-23 | New foundation skill: the pre-build risk gate, plus a key-free router engine. See [CHANGELOG](CHANGELOG.md#2290---2026-06-23). |
 
 Full history: [CHANGELOG.md](CHANGELOG.md) or [all GitHub Releases](https://github.com/product-on-purpose/pm-skills/releases).
 
@@ -913,7 +913,7 @@ The Design Sprint tool family ships with five companion guides:
 
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.30.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.30.0)           | <!-- x-release-please-version -->
+| **Current version** | [v2.31.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.31.0)           | <!-- x-release-please-version -->
 | **Skill count**     | 68 skills (30 phase + 11 foundation + 12 utility + 15 tool)                               |
 | **Sub-agents**      | 6 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator, pm-skill-router) |
 | **Workflows**       | 12                                                                                        |
