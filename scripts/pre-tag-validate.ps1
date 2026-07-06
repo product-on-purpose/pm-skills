@@ -37,7 +37,7 @@ $Validators = @(
   @{ Name = 'validate-version-consistency';                  Script = 'validate-version-consistency.ps1';                  Args = @() }
   @{ Name = 'validate-codex-manifest';                       Script = 'validate-codex-manifest.ps1';                       Args = @() }
   @{ Name = 'check-skill-sample-coverage';                   Script = 'check-skill-sample-coverage.ps1';                   Args = @() }
-  @{ Name = 'validate-skill-family-registration';            Script = 'validate-skill-family-registration.ps1';            Args = @() }
+  @{ Name = 'validate-skill-family-registration';            Script = 'validate-skill-family-registration.mjs';            Runner = 'node'; Args = @() }
   @{ Name = 'validate-plugin-install';                       Script = 'validate-plugin-install.ps1';                       Args = @() }
 )
 

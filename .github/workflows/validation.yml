@@ -263,13 +263,15 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-docs-frontmatter.ps1 -Strict
 
-      - name: Validate skill family registration (bash, enforcing)
-        if: always() && matrix.os == 'ubuntu-latest'
-        run: bash scripts/validate-skill-family-registration.sh
-
-      - name: Validate skill family registration (pwsh, enforcing)
-        if: always() && matrix.os == 'windows-latest'
-        run: pwsh -File scripts/validate-skill-family-registration.ps1
+      - name: Validate skill family registration (enforcing)
+        # WS-Z4 (v2.31.0): single-source Node port of the retired bash + PowerShell
+        # family-registration pair (one of the awk-bearing scripts named in the WS-T9
+        # freeze). One cross-OS node step runs on BOTH matrix legs; the port's verdict was
+        # proven identical to both retired shells against the real registry (pass) and
+        # scripts/fixtures/family-registration/repo (fail) before the shells were deleted.
+        # See scripts/validate-skill-family-registration.test.mjs.
+        if: always()
+        run: node scripts/validate-skill-family-registration.mjs
 
       # Filesystem link validators (check-internal-link-validity,
       # validate-references-cross-doc) were retired in the Pattern S migration:

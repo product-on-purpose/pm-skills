@@ -45,13 +45,23 @@
 # v2.27.1 CI in one shell only).
 #
 # DUAL-SHELL PORT (v2.31.0, WS-Z4; audit D-1 ruled B-complete). The awk-hazard scripts
-# are being ported to single-source Node. Ported so far: check-count-consistency ->
-# check-count-consistency.mjs (+ .test.mjs). Each port is proven byte-identical to BOTH
-# retired shells against scripts/fixtures/shell-parity/repo before deletion; the WS-T9
-# shell-parity smoke that guarded the count-consistency pair is retired with it (its
-# fixture lives on as the .mjs's integration corpus). Porting continues at a standing
-# cadence of 1-2 validators per release until zero pairs remain, at which point a
-# terminal payoff commit retires this referee, the pair rows, and the .md sidecars.
+# are being ported to single-source Node. Ported in wave 1: check-count-consistency ->
+# check-count-consistency.mjs, and validate-skill-family-registration ->
+# validate-skill-family-registration.mjs (each + .test.mjs). Each port was proven
+# identical to BOTH retired shells before deletion - count-consistency against
+# scripts/fixtures/shell-parity/repo, family-registration against the real registry
+# (pass) + scripts/fixtures/family-registration/repo (fail). The WS-T9 shell-parity smoke
+# that guarded the count-consistency pair retired with it (its fixture lives on as that
+# .mjs's integration corpus). Porting continues at a standing cadence of 1-2 validators
+# per release until zero pairs remain, at which point a terminal payoff commit retires
+# this referee, the pair rows, and the .md sidecars.
+#
+# WAVE-2 CANDIDATES (next port cycle; selection = awk fragility + LOC + change frequency):
+#   - lint-skills-frontmatter (243 lines, 3 awk; runs on every skill change = highest churn)
+#   - validate-docs-frontmatter (193 lines, 2 awk) and validate-skills-manifest (167, 3 awk)
+#   - check-landing-page-counts + validate-version-consistency (count/version parsing, high LOC)
+#   - the three family validators (meeting / foundation-sprint / design-sprint) share one
+#     awk match() pattern and can port together.
 # See CONTRIBUTING.md "New validators are single-source Node".
 
 # === Required: local pre-tag (blocking) + enforcing in CI ===
@@ -123,13 +133,11 @@
   ci: enforcing
   bash: { script: check-skill-sample-coverage.sh, args: [] }
   pwsh: { script: check-skill-sample-coverage.ps1, args: [] }
+# validate-skill-family-registration: ported to single-source
+# scripts/validate-skill-family-registration.mjs (v2.31.0 WS-Z4); it now runs as one
+# cross-OS node step in validation.yml and is out of this shell-pair parity remit.
 # Added in the Spec A reconciliation: enforcing in CI, previously absent from both
 # local bundles (the live drift P0-02 warned about, surfaced after #174).
-- id: validate-skill-family-registration
-  pre_tag: required
-  ci: enforcing
-  bash: { script: validate-skill-family-registration.sh, args: [] }
-  pwsh: { script: validate-skill-family-registration.ps1, args: [] }
 - id: validate-plugin-install
   pre_tag: required
   ci: enforcing

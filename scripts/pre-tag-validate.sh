@@ -64,7 +64,7 @@ VALIDATORS=(
   "validate-version-consistency|bash $ROOT/scripts/validate-version-consistency.sh"
   "validate-codex-manifest|bash $ROOT/scripts/validate-codex-manifest.sh"
   "check-skill-sample-coverage|bash $ROOT/scripts/check-skill-sample-coverage.sh"
-  "validate-skill-family-registration|bash $ROOT/scripts/validate-skill-family-registration.sh"
+  "validate-skill-family-registration|node $ROOT/scripts/validate-skill-family-registration.mjs"
   "validate-plugin-install|bash $ROOT/scripts/validate-plugin-install.sh"
 )
 
