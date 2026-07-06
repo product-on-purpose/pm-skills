@@ -38,9 +38,11 @@ roster:
   - define-opportunity-tree
   - define-prioritization-framework
   - define-problem-statement
-  # Discover (3)
+  # Discover (5)
   - discover-competitive-analysis
   - discover-interview-synthesis
+  - discover-journey-map
+  - discover-market-sizing
   - discover-stakeholder-summary
   # Develop (4)
   - develop-adr
@@ -87,3 +89,5 @@ collision_pairs:
   - [iterate-lessons-log, iterate-retrospective]
   - [foundation-okr-writer, measure-okr-grader]
   - [define-prioritization-framework, define-opportunity-tree]
+  - [discover-journey-map, discover-interview-synthesis]
+  - [discover-market-sizing, discover-competitive-analysis]

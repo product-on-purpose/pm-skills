@@ -47,6 +47,7 @@ export const BATCHES = {
   // v2.31.0 WS-Z5 wave-1 backfill batches, added as PR9/PR10/PR11 land (each batch
   // exists only once its members are on the roster with a shipped fixture).
   'collision-prioritization': ['define-prioritization-framework'],
+  'wave1-discover': ['discover-journey-map', 'discover-market-sizing'],
 };
 
 /** Parse headless output (stream-json lines or a single JSON document) into events. */

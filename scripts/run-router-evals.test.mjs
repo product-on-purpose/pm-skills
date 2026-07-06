@@ -129,8 +129,8 @@ test('CALIBRATION set is well-formed (has none-cases and known answers)', () => 
 test('the eval scope is the trigger-eval roster data file (WS-T10)', () => {
   // run-router-evals scopes its fixtures to ROSTER, re-exported from
   // trigger-eval-roster.yaml. 31 at v2.30.0; the v2.31.0 WS-Z5 wave-1 backfill
-  // (PR9) adds define-prioritization-framework, bringing this to 32.
-  assert.equal(ROSTER.length, 32);
-  assert.equal(new Set(ROSTER).size, 32);
+  // adds 12 skills across PR9-PR11; PR10 (discover- cluster) brings this to 34.
+  assert.equal(ROSTER.length, 34);
+  assert.equal(new Set(ROSTER).size, 34);
   assert.ok(ROSTER.every((s) => typeof s === 'string' && /^[a-z0-9-]+$/.test(s)));
 });

@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "skill": "discover-journey-map",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Map the customer journey for new users from signup to first value, with emotional highs and lows",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We have three months of support tickets and analytics on the renewal flow; turn that into a journey map with pain points",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Show me the touchpoints and moments of truth across the full onboarding lifecycle",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I want a visual of where customers get frustrated during checkout, stage by stage",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no journey-map keyword"
+    },
+    {
+      "q": "Build the end-to-end journey for enterprise admins provisioning their first workspace, grounded in the interview notes",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Chart the emotional curve of the trial-to-paid experience so we can see where confidence drops",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Take this round of usability findings and lay out the journey stages with triggers and exit criteria",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We need to see the whole renewal journey as one artifact before the offsite, including where support gets pulled in",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Produce a journey map focused just on the activation phase, with a mermaid timeline",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Revise our existing onboarding journey map now that we have new analytics on drop-off points",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We haven't done any research yet; synthesize these 9 raw customer interviews into themes first",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-interview-synthesis",
+      "notes": "No research signal to map yet, per When NOT to Use"
+    },
+    {
+      "q": "Aggregate what we heard across this batch of discovery calls into evidence-backed findings",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-interview-synthesis"
+    },
+    {
+      "q": "Analyze these 500 onboarding survey responses for themes before we decide anything about the journey",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-survey-analysis",
+      "notes": "Structured survey data needs its own analysis pass first, per When NOT to Use"
+    },
+    {
+      "q": "We ran an NPS survey after renewal; tell me what the open-text responses are actually saying",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-survey-analysis"
+    },
+    {
+      "q": "I just need a clean mermaid flowchart of our internal approval process, nothing about the customer",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-mermaid-diagrams",
+      "notes": "Internal process diagram, not a customer-experience artifact"
+    },
+    {
+      "q": "Debug why this webpack build hangs on the production config",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query joining sessions and events for the last 30 days",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "What's a good gift for a coworker's last day?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}
