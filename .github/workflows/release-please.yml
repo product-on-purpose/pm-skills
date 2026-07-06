@@ -75,7 +75,7 @@ jobs:
       # WS-Z2 generator, not this bootstrap commit.
       - name: Checkout (for About sync)
         if: ${{ steps.release.outputs.release_created }}
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Node (for About sync)
         if: ${{ steps.release.outputs.release_created }}
