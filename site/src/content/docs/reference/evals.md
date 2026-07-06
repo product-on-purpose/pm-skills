@@ -26,7 +26,7 @@ The output-eval harness (`scripts/output-eval.workflow.mjs`, method in `spec_out
 
 ## The confound lesson (read this before trusting any absolute number)
 
-An earlier version of the trigger-eval harness ran headless `claude -p` sessions and reported per-skill firing rates. Those numbers turned out to be **measuring the environment, not the skill description**: whether a companion plugin's own session-start nudge fired, the turn budget it left behind, and even time-of-day server load all moved the observed rate more than the description text did. The same exact query scored 88% one run and 0% the same afternoon, with nothing about the skill changed in between.
+An earlier version of the trigger-eval harness ran headless `claude -p` sessions and reported per-skill firing rates. Those numbers turned out to be **measuring the environment, not the skill description**: whether the companion **superpowers** plugin's own `SessionStart` nudge fired, the thinking-effort and turn budget it left behind, and a run hitting the turn limit and returning `error_max_turns` (misread at the time as server-side throttling) all moved the observed rate more than the description text did. The same exact query scored 88% one run and 0% the same afternoon, with nothing about the skill changed in between.
 
 The fix was not a better headless harness; it was a different instrument. The controlled router eval (Lane 2) asks the one question that isolates the description text and removes the rest: no plugin, no nudge, no turn budget. It is also far cheaper (roughly 2,000 tokens per call, and the catalog prompt-caches, versus roughly 38,000 tokens for a full headless session), which is what makes a committed baseline and a per-release regression diff affordable at all.
 

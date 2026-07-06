@@ -63,27 +63,31 @@ const EXCLUDE_PATTERNS = [
   /^scripts\/fixtures\//,
 ];
 
-// Prose "N <resource>" checks (number-before). Each carries a subset-descriptor
-// pattern: numbers appearing in a subset context ("26 phase skills") describe a
-// SUBSET, not the total, and are skipped for the total check.
+// Prose "N <resource>" checks (number-before). `main` matches the resource phrase anchored
+// at the text immediately AFTER a number (the shell's `^[ ]+([a-zA-Z][a-zA-Z-]*[ ]+){0,3}<resource>`);
+// `subset` matches a subset descriptor in that same position, using the shell's PREFIX-match
+// set (e.g. "phase", or "test" which prefix-matches "testing"), so a number describing a
+// SUBSET ("26 phase skills") is skipped for the total check. Both are NON-global and anchored,
+// so lineFindings can re-test them per occurrence without any lastIndex state; the line is
+// lowercased before matching, exactly as the shell did (`tolower`).
 function proseChecks(counts) {
   return [
     {
-      pattern: /(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}skills/gi,
       name: 'skills',
       count: counts.skills,
-      subset: /(\d+)\s+(phase|foundation|utility|tool|domain|shipped|embedded|test|sample|library|lines?)\b/gi,
+      main: /^ +([a-z][a-z-]*[ ]+){0,3}skills/,
+      subset: /^ +(phase|foundation|utility|tool|domain|shipped|embedded|test|sample|library|lines? )/,
     },
     {
-      pattern: /(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}commands/gi,
       name: 'commands',
       count: counts.commands,
-      subset: /(\d+)\s+(skill|workflow)[\s-]/gi,
+      main: /^ +([a-z][a-z-]*[ ]+){0,3}commands/,
+      subset: /^ +(skill|workflow)[ -]/,
     },
     {
-      pattern: /(\d+)\s+(?:[a-zA-Z][a-zA-Z-]*\s+){0,3}workflows/gi,
       name: 'workflows',
       count: counts.workflows,
+      main: /^ +([a-z][a-z-]*[ ]+){0,3}workflows/,
       subset: null,
     },
   ];
@@ -143,16 +147,23 @@ export function lineFindings(file, lineNum, line, counts) {
   const { skills: SkillCount, commands: CommandCount, workflows: WorkflowCount, sub } = counts;
   const actualFor = (r) => (r === 'commands' ? CommandCount : r === 'workflows' ? WorkflowCount : SkillCount);
 
-  // Prose "N <resource>" (number-before), with per-number subset exclusion.
+  // Prose "N <resource>" (number-before). Per-occurrence, prefix-match subset exclusion,
+  // faithful to the retired shell's awk `while (match(line, /[0-9]+/))` loop: for EACH number
+  // on the (lowercased) line, look at the text immediately after THAT number; if it opens with
+  // a subset descriptor (prefix match, so "testing" counts as "test") skip it; otherwise, if it
+  // opens with the resource phrase, check the number. A per-line number-VALUE set would wrongly
+  // suppress a second bare "N skills" that merely shares a value with an earlier subset phrase
+  // ("26 phase skills; the old 26 skills page"), and a \b on the descriptor would wrongly flag
+  // "12 testing skills"; the shell did neither.
+  const lower = line.toLowerCase();
   for (const check of proseChecks(counts)) {
-    const subsetNums = new Set();
-    if (check.subset) {
-      for (const sm of line.matchAll(check.subset)) subsetNums.add(sm[1]);
-    }
-    for (const m of line.matchAll(check.pattern)) {
-      const rawNum = m[1];
-      if (subsetNums.has(rawNum)) continue;
-      const num = parseInt(rawNum, 10);
+    const numRe = /\d+/g;
+    let nm;
+    while ((nm = numRe.exec(lower)) !== null) {
+      const rest = lower.slice(nm.index + nm[0].length);
+      if (check.subset && check.subset.test(rest)) continue; // subset descriptor after this number -> skip
+      if (!check.main.test(rest)) continue;                  // not this resource phrase here -> skip
+      const num = parseInt(nm[0], 10);
       if (num !== check.count && num >= MIN_THRESHOLD) {
         out.push(`  ${file}:${lineNum}: found '${num} ${check.name}' (actual: ${check.count})`);
       }

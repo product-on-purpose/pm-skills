@@ -911,9 +911,11 @@ The Design Sprint tool family ships with five companion guides:
 
 ### At a Glance
 
+<!-- x-release-please-start-version -->
+
 |                     |                                                                                           |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| **Current version** | [v2.31.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.31.0)           | <!-- x-release-please-version -->
+| **Current version** | [v2.31.0](https://github.com/product-on-purpose/pm-skills/releases/tag/v2.31.0)           |
 | **Skill count**     | 68 skills (30 phase + 11 foundation + 12 utility + 15 tool)                               |
 | **Sub-agents**      | 6 (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator, pm-skill-router) |
 | **Workflows**       | 12                                                                                        |
@@ -921,6 +923,8 @@ The Design Sprint tool family ships with five companion guides:
 | **Spec**            | [agentskills.io](https://agentskills.io/specification)                                    |
 | **License**         | [Apache 2.0](LICENSE)                                                                     |
 | **Docs site**       | [product-on-purpose.github.io/pm-skills](https://product-on-purpose.github.io/pm-skills/) |
+
+<!-- x-release-please-end -->
 
 ### Repo Structure
 

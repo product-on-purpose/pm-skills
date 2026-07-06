@@ -221,11 +221,11 @@ Run the core skill-specific validators before committing new skills:
 bash scripts/lint-skills-frontmatter.sh
 bash scripts/validate-agents-md.sh
 bash scripts/validate-commands.sh
-bash scripts/validate-skill-family-registration.sh
+node scripts/validate-skill-family-registration.mjs
 bash scripts/check-mcp-impact.sh
 ```
 
-PowerShell equivalents: replace `bash scripts/` with `pwsh -File scripts/` and `.sh` with `.ps1`.
+PowerShell equivalents: replace `bash scripts/` with `pwsh -File scripts/` and `.sh` with `.ps1` (the `node` command is cross-platform and runs unchanged).
 
 ---
 

@@ -531,6 +531,43 @@ export function renderSiteChangelogMirror(section) {
   ].join('\n');
 }
 
+/** The version in a site-changelog mirror block's leading "## [X.Y.Z] - date" heading, or
+ *  null when the block carries no such heading (an empty first-run marker). Pure. */
+export function siteMirrorVersion(block) {
+  const m = /^##\s*\[(\d+\.\d+\.\d+)\]/m.exec(block);
+  return m ? m[1] : null;
+}
+
+/** Regenerate the whole site changelog.md surface around its mirror marker. Splices the
+ *  newest CHANGELOG.md section into the marker and, applying the same preserve-tail contract
+ *  renderReleasesIndexTable uses, migrates the OUTGOING block (a now-superseded newest section
+ *  still sitting in the marker) to just below the :end marker BEFORE overwriting it, so the
+ *  authored history there never drops a release. Idempotent: when the marker already holds the
+ *  newest section nothing migrates and this reduces to a plain re-splice. Pure (whole file
+ *  text in and out). Unlike renderReleasesIndexTable, whose preserved tail lives INSIDE the
+ *  marker, the changelog's authored history lives just BELOW the marker, so the outgoing
+ *  section is prepended there rather than kept in place. */
+export function renderSiteChangelogSurface(currentText, newestSection) {
+  const s = currentText.indexOf(CHANGELOG_MIRROR_START);
+  const e = currentText.indexOf(CHANGELOG_MIRROR_END);
+  if (s === -1 || e === -1 || e < s) {
+    fail(`site changelog.md: marker pair not found (${CHANGELOG_MIRROR_START} / ${CHANGELOG_MIRROR_END}); refusing to write`);
+  }
+  const head = currentText.slice(0, s + CHANGELOG_MIRROR_START.length);
+  const outgoing = currentText.slice(s + CHANGELOG_MIRROR_START.length, e).trim();
+  const afterEnd = currentText.slice(e); // opens with the :end marker, then the authored history
+  const newBlock = renderSiteChangelogMirror(newestSection);
+  const outgoingVersion = siteMirrorVersion(outgoing);
+  if (outgoingVersion && outgoingVersion !== newestSection.version) {
+    // Migrate the superseded newest section to just below the :end marker, ahead of the
+    // authored history. `belowMarker` already opens with the "\n\n" that preceded the first
+    // authored heading, so it supplies the separator after the migrated block.
+    const belowMarker = afterEnd.slice(CHANGELOG_MIRROR_END.length);
+    return `${head}\n${newBlock}${CHANGELOG_MIRROR_END}\n\n${outgoing}${belowMarker}`;
+  }
+  return `${head}\n${newBlock}${afterEnd}`;
+}
+
 // ---- releases/index.md top rows (REQ-Z3.3) ---------------------------------------------
 
 const RELEASE_ROW_VERSION = /^\|\s*\[v(\d+\.\d+\.\d+)\]/;
@@ -690,10 +727,12 @@ function main() {
   }
 
   // Site changelog.md top mirror (REQ-Z3.2): the single newest CHANGELOG.md section,
-  // verbatim lead paragraph, replacing the hand-condensed rewrite.
+  // verbatim lead paragraph, replacing the hand-condensed rewrite. The surface renderer
+  // also migrates the outgoing (now-superseded) mirror section to just below the marker so
+  // the authored history there is never dropped (preserve-tail contract, panel P1 finding).
   const siteChangelogPath = join(repo, 'site/src/content/docs/changelog.md');
   const siteChangelogCurrent = readFileSync(siteChangelogPath, 'utf8');
-  const siteChangelogNext = splice(siteChangelogCurrent, CHANGELOG_MIRROR_START, CHANGELOG_MIRROR_END, renderSiteChangelogMirror(topSections[0]));
+  const siteChangelogNext = renderSiteChangelogSurface(siteChangelogCurrent, topSections[0]);
   emit('site changelog.md top mirror', siteChangelogPath, siteChangelogCurrent, siteChangelogNext);
 
   // releases/index.md top rows (REQ-Z3.3): fresh top rows + every other row preserved

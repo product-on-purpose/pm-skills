@@ -47,6 +47,23 @@ test('prose subset descriptor ("30 phase skills") is not flagged as a stale tota
   assert.deepEqual(finds('the suite has 30 phase skills'), []);
 });
 
+test('per-occurrence subset exclusion: a bare "N skills" after a subset phrase on the same line still flags', () => {
+  // "26 phase skills" is a subset (phase) and excluded, but the SECOND occurrence, the bare
+  // "26 skills", is a stale total claim and must still flag. A global per-line number-VALUE
+  // set wrongly suppressed it because it shares the value 26 with the subset phrase. Use
+  // sub.phase = 26 so the sub-count check stays clean and isolates the prose total finding.
+  assert.deepEqual(
+    finds('26 phase skills; the old 26 skills page', counts({ sub: { phase: 26, foundation: 11, utility: 12, tool: 15 } })),
+    ["  f.md:1: found '26 skills' (actual: 68)"],
+  );
+});
+
+test('per-occurrence prefix match: "12 testing skills" is a subset descriptor (test-prefix), not flagged', () => {
+  // The retired shell prefix-matched the descriptor, so "testing" counts as "test" and the
+  // phrase is skipped. A word-boundary (\b) on the descriptor would wrongly flag it.
+  assert.deepEqual(finds('12 testing skills'), []);
+});
+
 test('prose commands/workflows totals flag independently', () => {
   assert.deepEqual(finds('there are 40 commands'), ["  f.md:1: found '40 commands' (actual: 11)"]);
   assert.deepEqual(finds('there are 40 workflows'), ["  f.md:1: found '40 workflows' (actual: 12)"]);

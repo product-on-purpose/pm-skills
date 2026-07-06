@@ -13,7 +13,7 @@ import {
   LATEST_RELEASE_START, LATEST_RELEASE_END, CHANGELOG_MIRROR_START, CHANGELOG_MIRROR_END,
   RELEASES_INDEX_START, RELEASES_INDEX_END, RECENT_RELEASES_COUNT,
   parseChangelogSections, topChangelogSections, extractTheme, changelogLeadParagraph, changelogAnchor,
-  renderLatestReleaseMirror, renderSiteChangelogMirror,
+  renderLatestReleaseMirror, renderSiteChangelogMirror, siteMirrorVersion, renderSiteChangelogSurface,
   parseReleaseIndexRows, readReleasePageDescription, renderReleasesIndexTable,
 } from './gen-derived-surfaces.mjs';
 
@@ -426,6 +426,43 @@ test('renderSiteChangelogMirror reproduces the heading and lead paragraph verbat
   assert.ok(block.includes('99 skills'), 'unlike the README mirror, the site mirror carries the full paragraph verbatim');
   assert.ok(block.includes(`CHANGELOG.md${changelogAnchor(newest.version, newest.date)}`));
   assert.ok(block.includes(`releases/Release_v${newest.version}.md`));
+});
+
+test('siteMirrorVersion reads the version from a mirror block heading, or null when absent', () => {
+  assert.equal(siteMirrorVersion(renderSiteChangelogMirror(topChangelogSections(CHANGELOG_FIX, 1)[0])), '9.3.0');
+  assert.equal(siteMirrorVersion('no heading here'), null);
+});
+
+test('renderSiteChangelogSurface migrates the outgoing (superseded) section below the marker, never dropping it', () => {
+  const [newest, second] = topChangelogSections(CHANGELOG_FIX, 2); // 9.3.0 (new newest), 9.2.1 (outgoing)
+  // A "before" file whose marker currently holds the OLD newest section (9.2.1), with a
+  // pre-existing authored 9.2.0 entry already sitting below the marker. Built with the same
+  // splice shape the generator emits (START + "\n" + mirror-block + END + authored tail).
+  const before =
+    '## [Unreleased]\n\n' +
+    CHANGELOG_MIRROR_START + '\n' +
+    renderSiteChangelogMirror(second) +
+    CHANGELOG_MIRROR_END + '\n\n' +
+    '## [9.2.0] - 2026-12-31\n\n**Older authored entry.** Body.\n';
+  const after = renderSiteChangelogSurface(before, newest);
+
+  // The marker now holds ONLY the new newest section; the superseded one has left it.
+  const marker = after.slice(
+    after.indexOf(CHANGELOG_MIRROR_START) + CHANGELOG_MIRROR_START.length,
+    after.indexOf(CHANGELOG_MIRROR_END),
+  );
+  assert.ok(marker.includes('## [9.3.0] - 2027-01-02'), 'new newest section is in the marker');
+  assert.ok(!marker.includes('## [9.2.1]'), 'the outgoing section no longer sits inside the marker');
+
+  // The outgoing 9.2.1 section is migrated just below the marker, ahead of the pre-existing
+  // 9.2.0 authored history, which is itself untouched. Nothing is dropped.
+  const below = after.slice(after.indexOf(CHANGELOG_MIRROR_END) + CHANGELOG_MIRROR_END.length);
+  assert.ok(below.includes('## [9.2.1] - 2027-01-01'), 'the outgoing section is preserved below the marker');
+  assert.ok(below.indexOf('## [9.2.1]') < below.indexOf('## [9.2.0]'), 'migrated section sits above the older authored history');
+  assert.ok(below.includes('**Older authored entry.**'), 'pre-existing authored history is untouched');
+
+  // Idempotent: once the marker already holds the newest section, regenerating is a no-op.
+  assert.equal(renderSiteChangelogSurface(after, newest), after);
 });
 
 // ---- releases/index.md top rows ----------------------------------------------------------

@@ -42,7 +42,7 @@ Both hooks **fail open**: any parse error, missing config, or unexpected input l
   ```
 - **Release ZIPs exclude maintainer working notes.** `docs/internal/` never ships in a packaged release; only the skill library, commands, workflows, sub-agent definitions, hooks, sample library, scripts, plugin manifests, and public docs do.
 - **Release automation uses a scoped token.** The release-please automation is configured to prefer a fine-grained, repository-scoped token over the broad default Actions token, falling back to the default only while that scoped token is being provisioned.
-- **Every release is a signed git tag with a public history.** `vX.Y.Z` tags and their commits are visible in the repository's own history; nothing about a release is assembled off-repo.
+- **Every release is an annotated git tag in a public commit history.** Each `vX.Y.Z` is an annotated tag (not a GPG-signed tag) pointing at the squash-merge commit that landed the release on `main`; the tag and its commit are visible in the repository's own history, so nothing about a release is assembled off-repo. GitHub marks that squash-merge commit itself as Verified when the merge is performed through GitHub, which signs the commit with GitHub's own key.
 
 ## Reporting a vulnerability
 
