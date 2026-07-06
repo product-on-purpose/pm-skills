@@ -27,11 +27,12 @@ const RUN_TIMEOUT_MS = 120_000;
 
 // Named execution batches (M-31 Phase 1) sized for a Pro/Max subscription's
 // 5-hour rolling rate window: run ONE batch per window, collision-critical first.
-// Each batch = N skills x 20 queries x 3 runs = N*60 calls. The 10 batches cover
-// all 31 roster skills exactly once and sum to 1,860 calls (roster grew 29 -> 31 in
-// v2.30.0, WS-T10). The batches partition the roster from trigger-eval-roster.yaml;
-// the run-trigger-evals.test.mjs "partition exactly once" test enforces it stays in
-// sync. See the implementation plan's "Batched execution on a subscription" section.
+// Each batch = N skills x ~18-20 queries x 3 runs, roughly N*60 calls. The batches
+// cover every roster skill exactly once (roster grew 29 -> 31 in v2.30.0, WS-T10;
+// wave-1 backfill starts growing it toward 43 in v2.31.0, WS-Z5). The batches
+// partition the roster from trigger-eval-roster.yaml; the run-trigger-evals.test.mjs
+// "partition exactly once" test enforces it stays in sync. See the implementation
+// plan's "Batched execution on a subscription" section.
 export const BATCHES = {
   'collision-deliver': ['deliver-user-stories', 'deliver-acceptance-criteria', 'deliver-edge-cases'],
   'collision-define-measure': ['define-hypothesis', 'measure-experiment-design'],
@@ -43,6 +44,9 @@ export const BATCHES = {
   'develop': ['develop-adr', 'develop-design-rationale', 'develop-solution-brief', 'develop-spike-summary'],
   'rest-measure': ['measure-dashboard-requirements', 'measure-experiment-results', 'measure-instrumentation-spec'],
   'rest-iterate-foundation': ['iterate-pivot-decision', 'iterate-refinement-notes', 'foundation-persona', 'foundation-build-risk-review', 'foundation-stakeholder-briefings'],
+  // v2.31.0 WS-Z5 wave-1 backfill batches, added as PR9/PR10/PR11 land (each batch
+  // exists only once its members are on the roster with a shipped fixture).
+  'collision-prioritization': ['define-prioritization-framework'],
 };
 
 /** Parse headless output (stream-json lines or a single JSON document) into events. */

@@ -97,10 +97,11 @@ test('roster completeness reports exactly the missing names', () => {
 });
 
 test('roster and pairs are internally consistent', () => {
-  // 31 = every skills/*/evals/trigger-fixtures.json on disk, sourced from
-  // trigger-eval-roster.yaml (WS-T10); the in-code roster had drifted to 29.
-  assert.equal(ROSTER.length, 31);
-  assert.equal(new Set(ROSTER).size, 31);
+  // Every skills/*/evals/trigger-fixtures.json on disk, sourced from
+  // trigger-eval-roster.yaml (WS-T10). 31 at v2.30.0; the v2.31.0 WS-Z5 wave-1
+  // backfill (PR9) adds define-prioritization-framework, bringing this to 32.
+  assert.equal(ROSTER.length, 32);
+  assert.equal(new Set(ROSTER).size, 32);
   for (const [a, b] of COLLISION_PAIRS) {
     assert.ok(ROSTER.includes(a), `${a} in roster`);
     assert.ok(ROSTER.includes(b), `${b} in roster`);

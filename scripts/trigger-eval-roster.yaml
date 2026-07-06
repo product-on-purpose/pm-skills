@@ -22,12 +22,21 @@
 # Phase 1 roster: the F-12 26-skill cohort + 3 collision partners, plus the two
 # foundation skills whose fixtures shipped after the in-code roster was last synced
 # (foundation-build-risk-review in v2.29.0, foundation-stakeholder-briefings in
-# v2.28.0). 31 entries = every skills/*/evals/trigger-fixtures.json on disk.
+# v2.28.0). 31 entries as of v2.30.0 = every skills/*/evals/trigger-fixtures.json
+# on disk at that point.
+#
+# Wave-1 backfill (v2.31.0, WS-Z5, R-16): +12 skills targeting the collision-risk
+# neighborhoods named in spec_zero-drift-program.md (the define- cluster, the
+# discover- research cluster, the foundation-meeting- remainder) plus adjacent
+# foundation/measure/utility siblings carrying genuine collision risk with
+# existing roster members. 43 entries = every skills/*/evals/trigger-fixtures.json
+# on disk as of v2.31.0 (43/68, about 65 percent).
 roster:
-  # Define (4)
+  # Define (5)
   - define-hypothesis
   - define-jtbd-canvas
   - define-opportunity-tree
+  - define-prioritization-framework
   - define-problem-statement
   # Discover (3)
   - discover-competitive-analysis
@@ -65,6 +74,11 @@ roster:
 
 # Known collision pairs (2026-06 audit D1-D5 + the OKR watch pair, D6). Skills in a
 # pair must carry near-miss negatives aimed at (at least) one declared partner.
+#
+# v2.31.0 WS-Z5 wave-1 additions below the original six: each new pair was checked
+# against every already-shipped fixture it touches, confirming the existing file
+# already carries a near-miss at its new declared partner, so no existing fixture
+# needed to change.
 collision_pairs:
   - [deliver-user-stories, deliver-acceptance-criteria]
   - [deliver-acceptance-criteria, deliver-edge-cases]
@@ -72,3 +86,4 @@ collision_pairs:
   - [discover-interview-synthesis, foundation-meeting-recap]
   - [iterate-lessons-log, iterate-retrospective]
   - [foundation-okr-writer, measure-okr-grader]
+  - [define-prioritization-framework, define-opportunity-tree]
