@@ -709,6 +709,8 @@ See `_workflows/` directory for detailed workflow documentation.
 - [Categories Reference](../reference/categories.md) - understand skill organization
 - [Frontmatter Schema](../reference/frontmatter-schema.yaml) - technical skill structure
 - [Triple Diamond Framework](../concepts/triple-diamond-delivery-process.md) - the organizing methodology
+- [Security Policy](../../SECURITY.md) - how to report a vulnerability and what's in scope
+- [Provenance and Trust](../reference/provenance.md) - what ships, what runs at install, and how a release is verified
 
 ### Explore Skills
 

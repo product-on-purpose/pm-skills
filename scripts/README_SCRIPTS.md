@@ -15,11 +15,11 @@
   - [validate-gitignore-pm-skills.sh / validate-gitignore-pm-skills.ps1](#validate-gitignore-pm-skillssh--validate-gitignore-pm-skillsps1)
   - [validate-script-docs.sh / validate-script-docs.ps1](#validate-script-docssh--validate-script-docsps1)
   - [check-workflow-coverage.sh / check-workflow-coverage.ps1](#check-workflow-coveragesh--check-workflow-coverageps1)
-  - [check-count-consistency.sh / check-count-consistency.ps1](#check-count-consistencysh--check-count-consistencyps1)
+  - [check-count-consistency.mjs](#check-count-consistencymjs)
   - [check-nav-completeness.sh / check-nav-completeness.ps1](#check-nav-completenesssh--check-nav-completenessps1)
   - [check-version-references.sh / check-version-references.ps1](#check-version-referencessh--check-version-referencesps1)
   - [validate-docs-frontmatter.sh / validate-docs-frontmatter.ps1](#validate-docs-frontmattersh--validate-docs-frontmatterps1)
-  - [validate-skill-family-registration.sh / validate-skill-family-registration.ps1](#validate-skill-family-registrationsh--validate-skill-family-registrationps1)
+  - [validate-skill-family-registration.mjs](#validate-skill-family-registrationmjs)
 - [When to use what](#when-to-use-what)
 - [FAQ](#faq)
 - [Tips](#tips)
@@ -193,18 +193,19 @@ CI-only automation scripts live in `.github/scripts/` (for example, `create-issu
 
 **Outputs:** Pass/fail per workflow; lists specific missing entries.
 
-### check-count-consistency.sh / check-count-consistency.ps1
+### check-count-consistency.mjs
 **Purpose:** Detect stale hardcoded skill/command/workflow counts in documentation.
 
 **Why:** Docs pages reference hardcoded counts which go stale when skills are added or removed. This detects mismatches automatically.
 
-**Use when:** After adding skills, commands, or workflows; before release; in CI (advisory).
+**Use when:** After adding skills, commands, or workflows; before release; in CI (enforcing).
 
 **Commands:**
-- Bash: `./scripts/check-count-consistency.sh`
-- PowerShell: `./scripts/check-count-consistency.ps1`
+- `node scripts/check-count-consistency.mjs` (single-source Node; runs on both OS legs)
 
 **Outputs:** Pass if all counts match, or fail with file path, line number, and expected vs. found count. Excludes CHANGELOG and release notes (historical counts are correct for their time).
+
+**Note:** Ported from the retired bash + PowerShell pair in v2.31.0 (WS-Z4); the port was proven byte-identical to both shells against `scripts/fixtures/shell-parity/repo`. Behavior verified by `scripts/check-count-consistency.test.mjs`.
 
 ### check-nav-completeness.sh / check-nav-completeness.ps1
 **Purpose:** Verify every `docs/**/*.md` file (excluding `docs/internal/`) is in `mkdocs.yml` `nav:` or `exclude_docs:` (or matches an `AUTO_INCLUDE_PATTERNS` entry for transitively-reachable content like release notes and templates).
@@ -245,7 +246,7 @@ CI-only automation scripts live in `.github/scripts/` (for example, `create-issu
 
 **Outputs:** File count, finding count (failures + warnings), per-finding file path with the issue (e.g., "missing frontmatter delimiter", "title exceeds 80 chars"). Auto-skips generated content (skills, workflows, showcase, commands.md, releases) and `templates/`.
 
-### validate-skill-family-registration.sh / validate-skill-family-registration.ps1
+### validate-skill-family-registration.mjs
 **Purpose:** Generic structural validator for all skill families declared in `docs/reference/skill-families/_registry.yaml`. Verifies each family has a contract document, members exist as `skills/` directories, and members reference the contract.
 
 **Why:** Closes audit gap G2. Adding a new skill family no longer requires authoring a new validator script. Family-specific contract rules (template sections, artifact_type enums, filename conventions) remain in family-specific validators (e.g., `validate-meeting-skills-family`); this generic validator handles structural integrity.
@@ -253,10 +254,11 @@ CI-only automation scripts live in `.github/scripts/` (for example, `create-issu
 **Use when:** After adding or renaming family member skills; after creating a new family; in CI (enforcing).
 
 **Commands:**
-- Bash: `./scripts/validate-skill-family-registration.sh`
-- PowerShell: `./scripts/validate-skill-family-registration.ps1`
+- `node scripts/validate-skill-family-registration.mjs` (single-source Node; runs on both OS legs)
 
 **Outputs:** Per-family pass/fail with member-by-member status. Summary count of families validated.
+
+**Note:** Ported from the retired bash + PowerShell pair in v2.31.0 (WS-Z4); the port was proven identical to both shells against the real registry (pass) and `scripts/fixtures/family-registration/repo` (fail). Behavior verified by `scripts/validate-skill-family-registration.test.mjs`.
 
 ## When to use what
 - **Day-to-day:** No scripts needed unless using openskills/Claude Code → run `sync-claude`.
@@ -311,8 +313,6 @@ Each script has a dedicated documentation file with full usage details, options,
 | `validate-gitignore-pm-skills.sh` / `.ps1` | [validate-gitignore-pm-skills.md](validate-gitignore-pm-skills.md) |
 | `validate-script-docs.sh` / `.ps1` | [validate-script-docs.md](validate-script-docs.md) |
 | `check-workflow-coverage.sh` / `.ps1` | [check-workflow-coverage.md](check-workflow-coverage.md) |
-| `check-count-consistency.sh` / `.ps1` | [check-count-consistency.md](check-count-consistency.md) |
 | `check-nav-completeness.sh` / `.ps1` | [check-nav-completeness.md](check-nav-completeness.md) |
 | `check-version-references.sh` / `.ps1` | [check-version-references.md](check-version-references.md) |
 | `validate-docs-frontmatter.sh` / `.ps1` | [validate-docs-frontmatter.md](validate-docs-frontmatter.md) |
-| `validate-skill-family-registration.sh` / `.ps1` | [validate-skill-family-registration.md](validate-skill-family-registration.md) |

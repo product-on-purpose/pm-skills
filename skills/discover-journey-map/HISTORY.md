@@ -2,8 +2,15 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.2.0 | 2026-07-05 | v2.31.0 | WS-Z5 | minor | Reciprocal When NOT to Use pointer to `utility-mermaid-diagrams`; collision pair declared with new trigger fixtures. |
 | 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Combined bump per skill-versioning.md's tie-breaker rule: added a "When NOT to Use" section, normalized the "Output Format" heading to canon spelling, and rewrote the frontmatter description to name a sibling deflection. All three changes landed across separate stages of this release and share one version bump (implementation plan Section 4). |
 | 1.0.0 | 2026-05-21 | v2.18.0 | - | baseline | Prior published version: produces a customer journey map covering stages, touchpoints, emotional curve, pain points, moments of truth, and opportunity annotations, refusing to fabricate emotional or behavioral data without research input. |
+
+## 1.2.0 (2026-07-05)
+
+Released in [v2.31.0](../../site/src/content/docs/releases/Release_v2.31.0.md). Effort: WS-Z5 (eval backfill wave 1, R-16).
+
+The WS-Z5 fixture backfill declared `utility-mermaid-diagrams` as a new collision pair for this skill in `scripts/trigger-eval-roster.yaml`, but the reciprocal "When NOT to Use" pointer was never added. The enforcing `check-reciprocal-boundary-pointers` gate caught the gap. Adds one bullet pointing to `utility-mermaid-diagrams` for general mermaid syntax or diagram-type guidance outside a journey artifact. No other content change.
 
 ## 1.1.0 (2026-07-04)
 

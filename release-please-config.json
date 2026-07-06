@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "87e423c563b3cb9315134cc91e8c202cf117716b",
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "changelog-path": "CHANGELOG.md",
+      "include-component-in-tag": false,
+      "changelog-sections": [
+        { "type": "feat", "section": "Added" },
+        { "type": "fix", "section": "Fixed" },
+        { "type": "refactor", "section": "Changed" },
+        { "type": "perf", "section": "Changed" },
+        { "type": "docs", "section": "Changed", "hidden": true },
+        { "type": "chore", "section": "Changed", "hidden": true },
+        { "type": "ci", "section": "Changed", "hidden": true },
+        { "type": "style", "section": "Changed", "hidden": true },
+        { "type": "test", "section": "Changed", "hidden": true },
+        { "type": "build", "section": "Changed", "hidden": true },
+        { "type": "revert", "section": "Changed", "hidden": true },
+        { "type": "record", "section": "Changed", "hidden": true }
+      ],
+      "extra-files": [
+        { "type": "json", "path": ".claude-plugin/plugin.json",      "jsonpath": "$.version" },
+        { "type": "json", "path": ".codex-plugin/plugin.json",       "jsonpath": "$.version" },
+        { "type": "json", "path": ".claude-plugin/marketplace.json", "jsonpath": "$.plugins[0].version" },
+        "README.md"
+      ]
+    }
+  }
+}

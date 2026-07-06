@@ -1,0 +1,11 @@
+# Family-registration parity fixture (WS-Z4). Deliberately mixes a passing member with
+# two failing members so the ported validator is proven against the FAIL paths (missing
+# directory, SKILL.md that does not reference the contract), not only the happy path.
+# A correct run reports one PASS member and two FAIL members and exits 1.
+families:
+  demo-family:
+    contract: docs/reference/skill-families/demo-family-contract.md
+    members:
+      - demo-present
+      - demo-noref
+      - demo-missing

@@ -94,11 +94,6 @@ docs/internal/backlog-canonical.md
 docs/internal/next.md
 .github/scripts/node_modules/
 
-# WS-T9 dual-shell smoke: shell-parity-smoke.mjs copies the real check-count-consistency
-# scripts here at run time to point their ROOT at the fixture, then deletes them. Never commit
-# the copies (the smoke always tests the CURRENT real scripts, not a stale committed duplicate).
-scripts/fixtures/shell-parity/repo/scripts/
-
 # Local state (update reports, backups)
 _pm-skills/
 

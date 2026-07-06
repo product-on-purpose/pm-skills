@@ -50,6 +50,7 @@ None of these are satisfied within v2.31.0 itself; they are the criteria the mai
 - [ ] The token (ZD-5) is proven to trigger `validation.yml` on the Release PR itself (green CI observed on the PR, not just on `main`).
 - [ ] The generators (WS-Z2/Z3) are landed and stable, so the shadow PR's diff is a clean version-only signal, not manual-vs-generated churn.
 - [ ] A PR-title lint (ZD-3) is active, since squash-PR titles become load-bearing the moment release-please derives the bump from them.
+- [ ] Before any S2 authoritative merge, the Release PR branch has run `node scripts/gen-derived-surfaces.mjs` and committed the regenerated mirrors (the README recent-releases block, the site `changelog.md` top mirror, and the `releases/index.md` rows); otherwise the enforcing `--check` fails on `main` immediately after the merge, because release-please updates `CHANGELOG.md` without regenerating the surfaces derived from it (panel R1 finding).
 - [ ] Maintainer (`agent:human`) explicitly ratifies the cutover; no agent may self-promote S1 to S2.
 
 ### 1d. The manual runbook's status

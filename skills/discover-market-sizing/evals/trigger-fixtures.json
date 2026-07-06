@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "skill": "discover-market-sizing",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Estimate the TAM, SAM, and SOM for the AI meeting-notes category before we pitch this to the board",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "How big is the addressable market for mid-market expense-management tools?",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're deciding whether to enter the vertical SaaS space for dental clinics; size the opportunity",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no TAM/SAM/SOM keyword"
+    },
+    {
+      "q": "Triangulate a market size for our new developer-tools line using top-down and bottom-up methods",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Investors want a defensible market-size number for the Series B deck; give me a calibrated range",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Size the obtainable market for our product in the EU over the next three years",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're deciding go or no-go on this new category; what's the realistic market opportunity?",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Use comparable-company data to estimate how big this market could get",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Give me the market-sizing section for the annual strategy deck, TAM down to SOM",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "How much revenue is actually available to us in the SMB segment of this market?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Compare our product against the three main competitors on features and pricing",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-competitive-analysis",
+      "notes": "Competitive positioning, not market size, per When NOT to Use"
+    },
+    {
+      "q": "Break down where we win and lose against the category leader",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-competitive-analysis"
+    },
+    {
+      "q": "Map the competitive landscape for this space, direct and indirect players",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-competitive-analysis"
+    },
+    {
+      "q": "Rank these ten expansion-market candidates so we know which to size first",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-prioritization-framework",
+      "notes": "Ranking a candidate list, not sizing one market, per When NOT to Use"
+    },
+    {
+      "q": "We don't even know who the target buyer is yet for this category; help me figure that out first",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-persona",
+      "notes": "Target customer not yet identified, per When NOT to Use"
+    },
+    {
+      "q": "Fix this flaky Cypress test that only fails in CI",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a Terraform module for an S3 bucket with versioning enabled",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Suggest a birthday present for a 10 year old who likes robots",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

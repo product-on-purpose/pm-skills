@@ -4,8 +4,8 @@ description: Produces async communication to stakeholders, primarily non-attende
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.1"
-  updated: 2026-07-04
+  version: "1.1.0"
+  updated: 2026-07-05
   category: meeting
   frameworks: [meeting-skills-family]
   author: product-on-purpose
@@ -33,6 +33,7 @@ This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Ski
 - Summarizing what happened for attendees. Use `foundation-meeting-recap`.
 - Broadcasting status with no specific audience tailoring. A plain Slack message is sufficient; the skill adds value when translation or CTA framing matters.
 - Communicating research findings to stakeholders. Use `/discover-interview-synthesis` plus targeted comms.
+- The source is not one meeting's outcomes but a broader artifact (a spec, discovery synthesis, research report, GTM plan, or experiment results) that needs to fan out to several audience-tailored briefings from one canonical master. Use `foundation-stakeholder-briefings`.
 
 ## Zero-friction execution
 

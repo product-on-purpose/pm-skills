@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "skill": "utility-mermaid-diagrams",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "I need a valid mermaid flowchart for this approval process with two decision points",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Debug why this mermaid sequence diagram won't render, the syntax looks off",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Which mermaid diagram type should I use to show a feature's status transitions?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Build a Gantt chart in mermaid for the Q3 release timeline with dependencies",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Create a quadrant chart in mermaid showing effort versus impact for these initiatives",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Review this mermaid diagram in our PRD for clarity and whether the syntax will actually render",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I want a mermaid mindmap to brainstorm the problem space before we structure it",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Show system topology for this service using a mermaid architecture diagram",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Pick the right mermaid diagram type to show our sprint pipeline stages",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Fix the unquoted labels breaking this mermaid class diagram",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Map the actual customer journey for our trial-to-paid flow, not just a diagram of steps",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-journey-map",
+      "notes": "The full research-grounded journey artifact, not a standalone diagram request"
+    },
+    {
+      "q": "I need the emotional curve and pain points across the onboarding experience, grounded in our interview data",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-journey-map"
+    },
+    {
+      "q": "Structure our outcome, opportunities, and candidate solutions into a tree",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-opportunity-tree",
+      "notes": "The opportunity-solution-tree artifact, not a generic diagram request"
+    },
+    {
+      "q": "Export this diagram to a PNG for the slide deck",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-slideshow-creator",
+      "notes": "Image export is out of scope for this skill, per When NOT to Use"
+    },
+    {
+      "q": "Recreate this flow in Figma with our design-system components",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Non-mermaid tool, explicitly out of scope per When NOT to Use"
+    },
+    {
+      "q": "Why does this Kafka consumer keep rebalancing under load?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a Dockerfile for a minimal Node 20 alpine image",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Suggest a good comedy movie for a rainy Sunday",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

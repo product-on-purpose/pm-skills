@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "skill": "define-prioritization-framework",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Run RICE and ICE against these 15 roadmap candidates and show me where they disagree",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We have a backlog of 20 feature requests; score them and tell me what to build first",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no framework keyword"
+    },
+    {
+      "q": "Rank these Q3 initiatives with MoSCoW so we can scope the release",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Compare our candidate list across RICE, ICE, and weighted scoring; I want to see the consensus and the outliers",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Leadership wants a defensible ranking of these eight initiatives before the planning offsite",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "We surveyed customers on the top pain points; run Kano against these feature candidates now that we have that data",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Score this list of technical debt items against business priority, engineering cost, and customer urgency",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Two PMs disagree about what ships next quarter; run the numbers so the debate is about assumptions, not opinions",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Apply a weighted scoring model across these twelve candidates using our four criteria",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Give me an executive summary recommendation after running every applicable framework on this feature list",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We have forty raw ideas and no structure yet; connect them back to customer opportunities before we rank anything",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-opportunity-tree",
+      "notes": "No candidate list to rank yet; the tree structures ideas first, per When NOT to Use"
+    },
+    {
+      "q": "Build the outcome-to-opportunity-to-solution map for our retention goal before we even have a list to score",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-opportunity-tree"
+    },
+    {
+      "q": "Here is a messy Slack thread about a production incident; tell me what to do next and how to execute it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-prioritized-action-plan",
+      "notes": "A raw situation needing a full action plan, not a defined list to rank"
+    },
+    {
+      "q": "I have an executive's rambling notes from a hallway conversation; turn this into the single most important next effort and how to run it",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-prioritized-action-plan"
+    },
+    {
+      "q": "How big is the market opportunity for this new product line? Give me TAM, SAM, and SOM",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-market-sizing",
+      "notes": "Sizing a market, not ranking a feature list, per When NOT to Use"
+    },
+    {
+      "q": "Why does my Kubernetes pod keep getting OOMKilled under normal load?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a regex to validate international phone numbers",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Recommend a good running route near Golden Gate Park",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

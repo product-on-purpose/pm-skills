@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "skill": "foundation-meeting-brief",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "I'm walking into an exec review on our missed targets tomorrow; prep me on stakes, positions, and messaging",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Help me prepare for a negotiation with our biggest customer about the renewal terms",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "First meeting with the new VP of Engineering next week; how do I read the room and what should I ask for",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "I need something from legal in this meeting and cannot afford it to get buried; prep my talking points and anticipated pushback",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Build my private prep doc for the board meeting: risks, asks, and key messages",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "This stakeholder has been resistant; give me positioning and anticipated objections before we meet",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Prepare me for tomorrow's tense roadmap conversation with the data team lead",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "What should my strategy be walking into this budget-approval conversation with finance?",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Draft my talking points and success signals ahead of the partnership discussion on Thursday",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I need to calibrate with a new stakeholder I've never met; prep me on likely positions and how to build the relationship",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Build the shared agenda that attendees will see for next week's kickoff, with timeboxes",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-agenda",
+      "notes": "Attendee-facing structure, not private prep, per When NOT to Use"
+    },
+    {
+      "q": "Set the topics and owners for tomorrow's cross-team working session",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-agenda"
+    },
+    {
+      "q": "That negotiation already happened this morning; write up what was agreed and who owes what",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "Post-meeting summarization, per When NOT to Use"
+    },
+    {
+      "q": "Summarize the outcomes of yesterday's exec review for the people who attended",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-recap"
+    },
+    {
+      "q": "Just give me the standard weekly-standup agenda, nothing fancy, low stakes",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-agenda",
+      "notes": "Low-stakes recurring sync; the agenda alone is sufficient, per When NOT to Use"
+    },
+    {
+      "q": "My Postgres query planner keeps choosing a seq scan over an obvious index, why?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a bash one-liner to find the largest files in a directory tree",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "What's a good weekend trip from Seattle in the fall?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "skill": "foundation-prioritized-action-plan",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Here's a messy Slack thread about our onboarding numbers cratering; tell me what to do next and how to execute it",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I have an executive's rambling voice-memo transcript about a customer escalation; turn it into a ranked action plan",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're stuck and I don't know what matters most right now; give me the critical next effort from these notes",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no action-plan keyword"
+    },
+    {
+      "q": "Take this draft PRD that never went anywhere and tell me the single most important thing to do with it",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Pull together a plan from this chaotic incident write-up: what's binding us and what do we do first",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I pasted three weeks of scattered standup notes; what's actually the priority here and how do I run it",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Turn this raw customer interview transcript into a next-action plan with the critical effort called out",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Everything feels urgent and nothing is sequenced; help me figure out what's actually next",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Given this executive ask and the constraints I've listed, build me one plan with risks and a pre-mortem",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I have a pile of context about a stalled migration; what's the one thing to do next and how do I sequence the rest",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I already know what's on the list; just run RICE and ICE against these ten items and rank them",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-prioritization-framework",
+      "notes": "A defined candidate list to score, not a raw situation to triage"
+    },
+    {
+      "q": "Score these twelve features with weighted scoring using our four stated criteria",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-prioritization-framework"
+    },
+    {
+      "q": "Here's a finished PRD, just tell me what's wrong with it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-critic",
+      "notes": "A finished artifact awaiting critique, not a raw situation, per When NOT to Use"
+    },
+    {
+      "q": "Build me a persona for our SMB segment from this research",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-persona",
+      "notes": "A specific named artifact ask; invoke that skill directly, per When NOT to Use"
+    },
+    {
+      "q": "Help me plan a weekend ski trip with friends",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Off-topic; the skill refuses input unrelated to PM work"
+    },
+    {
+      "q": "Debug why this Terraform apply keeps failing on a circular dependency",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a haiku about autumn leaves",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Fix this off-by-one error in my pagination logic",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    }
+  ]
+}

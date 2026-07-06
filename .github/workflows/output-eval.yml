@@ -1,0 +1,137 @@
+name: Output evals (advisory, cost-gated)
+
+# WS-Z5 (v2.31.0, R-17, issue tracked in docs/internal/release-plans/v2.31.0/).
+# The M-33 output-quality eval harness (scripts/output-eval.workflow.mjs,
+# spec_output-quality-evals.md) measures whether a skill produces a GOOD artifact
+# once it fires, as distinct from the trigger-evals.yml lane (does the right skill
+# fire at all). Advisory by definition and NEVER part of the enforcing pre-tag
+# bundle, matching the trigger-evals.yml precedent: the published evals page plus
+# the uploaded per-run report are the recording rule, not a merge gate.
+#
+# TWO jobs:
+#  - dry-run: ALWAYS runs (dispatch or the monthly cron), no API key needed.
+#    Proves the harness end to end short of spending a token: the source-contract
+#    tests for every output-eval Workflow-tool script (they cannot be `import`-ed -
+#    see each test file's own header - so these assert the agent()/parallel() call
+#    sites are wired correctly and execute the extracted GEN_OPTS/JUDGE_OPTS and
+#    verdict expressions verbatim), the tested aggregation-math reference
+#    (output-eval-aggregate.mjs, which the workflow scripts hand-copy and must stay
+#    in sync with), and the deterministic asset-presence gate
+#    (check-output-eval-assets.mjs) over every skills/*/evals/output-scenarios/
+#    scenario, whose own summary line doubles as the run plan (which skills are
+#    eval-ready, how many scenarios each carries).
+#  - live: gated on secrets.ANTHROPIC_API_KEY, SKIPPED (not failed) when the
+#    secret is absent, so a fork or an unconfigured environment never goes red.
+#    output-eval.workflow.mjs is a Workflow-tool script: its top-level body reads
+#    runtime-injected globals (`args`, `agent`, `parallel`, `phase`, `log`) that
+#    only exist inside the Claude Code Workflow engine, so - unlike
+#    run-trigger-evals.mjs, which calls the Messages API directly - there is no
+#    plain `node` entry point for it. The live leg installs the Claude Code CLI
+#    and asks it, via a single `claude -p` call, to read one roster skill's real
+#    SKILL.md plus one of its evals/output-scenarios/ briefs plus that scenario's
+#    family rubric, then run scripts/output-eval.workflow.mjs through the Workflow
+#    tool with those contents as args. This exact headless invocation has not been
+#    exercised before (trigger-evals.yml's live leg only checks whether the Skill
+#    tool fires, a much simpler ask): per the trigger-evals.yml precedent
+#    ("first live use should be a --probe on one skill to verify the transcript
+#    shape"), treat the first live run of this job the same way and read the
+#    uploaded artifact by hand before trusting any verdict it reports.
+#
+# Cost note: dry-run is free (no API calls). The live leg runs exactly ONE roster
+# skill per invocation, not the full roster, bounding a bad monthly cron to a
+# single generate+judge round; dry_run defaults to TRUE so a manual dispatch
+# without explicit intent never spends tokens.
+
+on:
+  workflow_dispatch:
+    inputs:
+      skill:
+        description: 'Roster skill to run live (default: define-problem-statement)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Run the harness tests + asset gate + roster plan only; no API calls'
+        required: false
+        type: boolean
+        default: true
+  schedule:
+    # 06:17 UTC on the 1st of each month. Attempts the live leg (gated on the
+    # secret below); a fork with no ANTHROPIC_API_KEY configured just runs the
+    # free dry-run job and skips the live one.
+    - cron: '17 6 1 * *'
+
+permissions:
+  contents: read
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Harness unit tests (source-contract + tested aggregation math)
+        run: node --test scripts/output-eval.workflow.test.mjs scripts/output-eval-batch.workflow.test.mjs scripts/output-eval-informed.workflow.test.mjs scripts/output-eval-aggregate.test.mjs scripts/check-output-eval-assets.test.mjs
+
+      - name: Asset gate + roster plan (no API calls)
+        # check-output-eval-assets.mjs's own summary line ("N scenarios across M
+        # skills checked") is the dry-run plan: it names exactly which skills are
+        # eval-ready without spending a token.
+        run: node scripts/check-output-eval-assets.mjs
+
+  live:
+    needs: dry-run
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Check ANTHROPIC_API_KEY present
+        id: gate
+        env:
+          HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: echo "present=$HAS_KEY" >> "$GITHUB_OUTPUT"
+
+      - name: Install Claude Code CLI
+        if: steps.gate.outputs.present == 'true'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run output-eval probe (live; first use is a shape-verification probe)
+        if: steps.gate.outputs.present == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SKILL: ${{ inputs.skill }}
+        # Prompt on STDIN, never a positional arg (the run-trigger-evals.mjs
+        # precedent: a shell can split a positional multi-word prompt and the
+        # real text never reaches the model). One skill only, generations:1,
+        # judges:3, Sonnet pinned for both arms per the validated 2026-06-14
+        # rollout (Sonnet generation + Sonnet judges).
+        run: |
+          skill="${SKILL:-define-problem-statement}"
+          prompt="Read skills/${skill}/SKILL.md in full, read ONE scenario file under skills/${skill}/evals/output-scenarios/, and read the family rubric it names (docs/internal/eval-rubrics/<family>.md, where <family> is the scenario's frontmatter 'family' field). Then use the Workflow tool to run scripts/output-eval.workflow.mjs with args built from those three files: skill='${skill}', scenario=<the scenario brief body>, skillPrompt=<the SKILL.md content>, criteria=<the rubric's criteria keys>, anchorScale=<the rubric's anchor-scale text>, criteriaDefs=<the rubric's per-criterion definitions>, generations:1, judges:3, genModel:'sonnet', judgeModel:'sonnet'. Your entire final message must be the workflow's returned JSON result, unmodified."
+          claude -p --output-format stream-json --verbose --max-turns 40 <<< "$prompt" > output-eval-probe.jsonl
+
+      - name: Upload probe artifact
+        if: ${{ steps.gate.outputs.present == 'true' && always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-eval-probe
+          path: output-eval-probe.jsonl
+          if-no-files-found: ignore
+
+      - name: Skip notice (no key configured)
+        if: steps.gate.outputs.present != 'true'
+        run: echo "ANTHROPIC_API_KEY is not configured; skipping the live output-eval probe (dry-run-only environment, e.g. a fork)."

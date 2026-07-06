@@ -1,45 +1,41 @@
-# Dual-shell parity fixture (WS-T9)
+# Count-consistency fixture (WS-T9 -> WS-Z4)
 
-A committed mini-repo used by [`scripts/shell-parity-smoke.mjs`](../../shell-parity-smoke.mjs)
-to prove the bash and PowerShell implementations of `check-count-consistency` compute the
-**same verdict**, not just run the same inventory. Background: the two shells are one of the
-frozen dual-shell pairs (see the freeze note in `scripts/validation-manifest.yaml` and
-CONTRIBUTING.md). `check-validator-parity.mjs` proves inventory parity; this fixture proves
-behavioral parity for the count checker until the v2.31.0 Node port (WS-Z4) retires the pair.
+A committed mini-repo used by [`scripts/check-count-consistency.test.mjs`](../../check-count-consistency.test.mjs)
+to lock the end-to-end verdict of the single-source `check-count-consistency.mjs` checker.
+
+## History
+
+This tree began (v2.30.0, WS-T9) as the corpus for `shell-parity-smoke.mjs`, which
+proved the bash and PowerShell implementations of `check-count-consistency` computed the
+**same verdict**, not just ran the same inventory. In v2.31.0 (WS-Z4) that pair was ported
+to a single-source Node checker: the port was proven byte-identical to both retired shells
+against this fixture, then the shells and the smoke were retired. The fixture now lives on
+as the port's integration corpus - the closest thing to a real tracked tree that the unit
+test can scan through `git ls-files`.
 
 ## Layout
 
 ```
 scripts/fixtures/shell-parity/
   README.md              # this file (outside repo/, never scanned)
-  expected-verdict.txt   # the golden normalized verdict (outside repo/, never scanned)
   repo/                  # the scanned mini-repo; check-count-consistency treats this as ROOT
     skills/{s-one,s-two,s-three}/SKILL.md   # 3 skill dirs  -> actual skills = 3
     commands/c-one.md                       # 1 command     -> actual commands = 1
     _workflows/{README.md,w-one.md}         # 1 workflow    -> actual workflows = 1 (README excluded)
-    counts.md                               # DELIBERATELY stale counts + a count-exempt section
+    counts.md                               # stale number-before totals + a count-exempt section
+    hazards.md                              # stale parenthetical / singular-noun / sub-count forms
 ```
 
-`counts.md` hardcodes `12 skills`, `20 commands`, and `15 workflows` (all wrong on purpose),
-so a correct run flags exactly three stale counts and exits 1. It also carries a
-`count-exempt` section around a `99 skills` line that neither shell may flag - this exercises
-the exempt-marker path AND gives bash's marker scan a file to find (an empty match makes the
-bash script `set -e` abort before the count scan).
+`counts.md` hardcodes `12 skills`, `20 commands`, and `15 workflows` (all wrong on
+purpose) plus a `count-exempt` section around a `99 skills` line that must NOT be flagged.
+`hazards.md` adds the parenthetical (`Skills (40)`), singular-noun (`40 skill directories`),
+and sub-count (`12 phase skills`, `Foundation Skills (7)`) forms - the awk RSTART/RLENGTH
+while-loop paths the port had to reproduce without the clobber. A correct run flags exactly
+eleven stale counts and exits 1.
 
-## How the smoke runs it
+## How the test runs it
 
-`shell-parity-smoke.mjs` copies the real `scripts/check-count-consistency.{sh,ps1}` into
-`repo/scripts/` at run time (gitignored, so it always tests the CURRENT scripts, never a stale
-copy), runs each available shell so it resolves ROOT to `repo/`, normalizes the output to a
-sorted finding set + exit code, and compares each shell to `expected-verdict.txt`.
-
-## Regenerating the golden
-
-If you intentionally change the fixture's real contents or the count-checker's output, run:
-
-```
-node scripts/shell-parity-smoke.mjs --update
-```
-
-`--update` refuses to write unless every available shell already agrees, so it cannot bake a
-golden that hides a real divergence. Run it where both `bash` and `pwsh` are on PATH.
+`check-count-consistency.test.mjs` calls `runCheck(root)` with `root` pointed at `repo/`,
+so the checker resolves `git ls-files` against the mini-repo and asserts the exact eleven
+findings. The frontmatter-less skill dirs make every sub-count (phase/foundation/utility/tool)
+zero, which is what lets the `hazards.md` sub-count lines flag deterministically.

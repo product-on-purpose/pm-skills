@@ -1,6 +1,6 @@
 {
   "name": "pm-skills",
-  "version": "2.30.0",
+  "version": "2.31.0",
   "description": "Product management skills for AI agents across discovery, definition, delivery, measurement, iteration, foundation artifacts, and workshop tools.",
   "author": {
     "name": "product-on-purpose",
@@ -26,7 +26,7 @@
   "interface": {
     "displayName": "PM Skills",
     "shortDescription": "Product management skills for AI agents",
-    "longDescription": "68 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, workflow authoring and ad-hoc chaining, and pm-skills lifecycle utilities. v2.30.0 is a trust-repair release: it corrects count drift on the front-door install surfaces, closes the CI gate holes that let the drift pass, and ships a broader hygiene sweep (heading normalization, description rewrites, tool-family versioning); no new skills, catalog stays 68 skills / 6 sub-agents.",
+    "longDescription": "68 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, workflow authoring and ad-hoc chaining, and pm-skills lifecycle utilities. v2.31.0 is the zero-drift release: it makes generation the only write path for the README catalog, quickstarts, compat matrix, manifest descriptions, and release notes, stands up release-please in shadow behind a PR-title lint, ports two awk-hazard validators to single-source Node, lifts trigger-fixture coverage to 43 of 68 skills, and adds an output-eval CI lane plus SECURITY.md and provenance-page expansions; no new skills, catalog stays 68 skills / 6 sub-agents.",
     "developerName": "Product on Purpose",
     "category": "Productivity",
     "capabilities": [

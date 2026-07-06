@@ -4,8 +4,8 @@ description: Run applicable prioritization frameworks (RICE, ICE, MoSCoW, Weight
 license: Apache-2.0
 metadata:
   phase: define
-  version: "1.1.0"
-  updated: 2026-07-04
+  version: "1.2.0"
+  updated: 2026-07-05
   category: planning
   frameworks: [triple-diamond, prioritization]
   author: product-on-purpose
@@ -35,6 +35,7 @@ Filter frameworks by applicability: RICE requires quantitative reach/impact/effo
 - You need to size a market opportunity (TAM/SAM/SOM), not rank a feature list -> use `discover-market-sizing`
 - Your items are already ranked and you need launch readiness next -> use `deliver-launch-checklist`
 - You need qualitative synthesis of user research to generate candidates, not rank an existing list -> use `discover-interview-synthesis`
+- You have a raw, unstructured situation (notes, transcript, exec ask) rather than a defined candidate list of items to score -> use `foundation-prioritized-action-plan` for a general ranked next-action plan; this skill requires a candidate list and scores it against formal frameworks
 
 ## Inputs
 

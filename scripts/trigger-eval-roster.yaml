@@ -22,16 +22,27 @@
 # Phase 1 roster: the F-12 26-skill cohort + 3 collision partners, plus the two
 # foundation skills whose fixtures shipped after the in-code roster was last synced
 # (foundation-build-risk-review in v2.29.0, foundation-stakeholder-briefings in
-# v2.28.0). 31 entries = every skills/*/evals/trigger-fixtures.json on disk.
+# v2.28.0). 31 entries as of v2.30.0 = every skills/*/evals/trigger-fixtures.json
+# on disk at that point.
+#
+# Wave-1 backfill (v2.31.0, WS-Z5, R-16): +12 skills targeting the collision-risk
+# neighborhoods named in spec_zero-drift-program.md (the define- cluster, the
+# discover- research cluster, the foundation-meeting- remainder) plus adjacent
+# foundation/measure/utility siblings carrying genuine collision risk with
+# existing roster members. 43 entries = every skills/*/evals/trigger-fixtures.json
+# on disk as of v2.31.0 (43/68, about 65 percent).
 roster:
-  # Define (4)
+  # Define (5)
   - define-hypothesis
   - define-jtbd-canvas
   - define-opportunity-tree
+  - define-prioritization-framework
   - define-problem-statement
-  # Discover (3)
+  # Discover (5)
   - discover-competitive-analysis
   - discover-interview-synthesis
+  - discover-journey-map
+  - discover-market-sizing
   - discover-stakeholder-summary
   # Develop (4)
   - develop-adr
@@ -45,26 +56,41 @@ roster:
   - deliver-prd
   - deliver-release-notes
   - deliver-user-stories
-  # Measure (5)
+  # Measure (6)
   - measure-dashboard-requirements
   - measure-experiment-design
   - measure-experiment-results
   - measure-instrumentation-spec
   - measure-okr-grader
+  - measure-survey-analysis
   # Iterate (4)
   - iterate-lessons-log
   - iterate-pivot-decision
   - iterate-refinement-notes
   - iterate-retrospective
-  # Foundation (5)
+  # Foundation (11)
   - foundation-build-risk-review
+  - foundation-lean-canvas
+  - foundation-meeting-agenda
+  - foundation-meeting-brief
   - foundation-meeting-recap
+  - foundation-meeting-synthesize
   - foundation-okr-writer
   - foundation-persona
+  - foundation-prioritized-action-plan
   - foundation-stakeholder-briefings
+  - foundation-stakeholder-update
+  # Utility (2)
+  - utility-mermaid-diagrams
+  - utility-pm-changelog-curator
 
 # Known collision pairs (2026-06 audit D1-D5 + the OKR watch pair, D6). Skills in a
 # pair must carry near-miss negatives aimed at (at least) one declared partner.
+#
+# v2.31.0 WS-Z5 wave-1 additions below the original six: each new pair was checked
+# against every already-shipped fixture it touches, confirming the existing file
+# already carries a near-miss at its new declared partner, so no existing fixture
+# needed to change.
 collision_pairs:
   - [deliver-user-stories, deliver-acceptance-criteria]
   - [deliver-acceptance-criteria, deliver-edge-cases]
@@ -72,3 +98,19 @@ collision_pairs:
   - [discover-interview-synthesis, foundation-meeting-recap]
   - [iterate-lessons-log, iterate-retrospective]
   - [foundation-okr-writer, measure-okr-grader]
+  - [define-prioritization-framework, define-opportunity-tree]
+  - [discover-journey-map, discover-interview-synthesis]
+  - [discover-market-sizing, discover-competitive-analysis]
+  - [define-prioritization-framework, foundation-prioritized-action-plan]
+  - [discover-journey-map, measure-survey-analysis]
+  - [discover-journey-map, utility-mermaid-diagrams]
+  - [foundation-meeting-agenda, foundation-meeting-recap]
+  - [foundation-meeting-agenda, foundation-meeting-brief]
+  - [foundation-meeting-brief, foundation-meeting-recap]
+  - [foundation-meeting-synthesize, foundation-meeting-recap]
+  - [foundation-meeting-synthesize, discover-interview-synthesis]
+  - [foundation-stakeholder-update, foundation-stakeholder-briefings]
+  - [foundation-stakeholder-update, foundation-meeting-recap]
+  - [foundation-lean-canvas, define-hypothesis]
+  - [measure-survey-analysis, discover-interview-synthesis]
+  - [measure-survey-analysis, measure-experiment-results]

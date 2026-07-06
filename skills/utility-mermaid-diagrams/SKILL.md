@@ -4,8 +4,8 @@ description: Teaches PMs to create syntactically valid mermaid diagrams by selec
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.0"
-  updated: 2026-04-07
+  version: "1.1.0"
+  updated: 2026-07-05
   category: documentation
   frameworks:
     - mermaid
@@ -30,6 +30,7 @@ Create effective, syntactically valid mermaid diagrams for product documents.
 - Exporting diagrams to image files (PNG/SVG) - that's a rendering tool concern
 - Using non-mermaid diagramming tools (Figma, Lucidchart, draw.io)
 - Creating purely decorative visuals with no informational purpose
+- Producing a full customer-journey artifact (stages, touchpoints, emotional curve, pain points) rather than a standalone diagram - use `discover-journey-map`, which composes this skill for its timeline or flowchart section
 
 ## The Cardinal Rule
 

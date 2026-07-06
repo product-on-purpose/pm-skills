@@ -1,0 +1,43 @@
+name: PR Title Lint
+
+# ZD-3 (v2.31.0 plan, DECIDED A, 2026-07-04): squash-merge PR titles become
+# load-bearing the moment release-please goes live (release-please.yml, WS-Z1)
+# - the PR title IS the entire commit message it reads to compute the version
+# bump and the changelog skeleton, since main is linear history via squash
+# merges. This gate catches a malformed title before merge.
+#
+# SHADOW SEMANTICS: this is the one gate that runs before merge to main this
+# release; release-please.yml itself triggers only on push to main (no
+# `pull_request:` trigger there), so it never runs on a candidate PR's branch.
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+
+      - name: Check PR title (conventional commit, advisory)
+        # Ships ADVISORY: real merged history predates this gate and would fail
+        # it outright (see scripts/check-pr-title.mjs's header for a named,
+        # already-shipped example). Promote to enforcing once a full shadow
+        # cycle shows clean titles land without a manual nudge - see the
+        # cutover checklist in
+        # docs/internal/release-plans/v2.31.0/implementation-plan_zero-drift-program.md,
+        # section 1c. Added 2026-07-05.
+        continue-on-error: true
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: node scripts/check-pr-title.mjs

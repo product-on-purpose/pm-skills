@@ -4,8 +4,8 @@ description: Produces a one-page lean canvas across nine interlocking blocks (pr
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.0"
-  updated: 2026-04-15
+  version: "1.1.0"
+  updated: 2026-07-05
   category: problem-framing
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -39,6 +39,7 @@ If mode is omitted, default to `content` and state that fallback explicitly.
 - You are drafting a PRD, user stories, or acceptance criteria. Use `deliver-prd`, `deliver-user-stories`, `deliver-acceptance-criteria`; lean canvas is strategy, not specification.
 - You want to brainstorm solutions without a customer-problem anchor. Start with `define-problem-statement` or `define-jtbd-canvas` and return to lean canvas once the problem is framed.
 - You need a Business Model Canvas for an established enterprise with known customers and channels. Maurya designed lean canvas specifically for high-uncertainty early-stage ventures; a BMC is a better fit for steady-state analysis.
+- You want to test one specific assumption in isolation, not stress-test the whole business model. Use `define-hypothesis`, then `measure-experiment-design`; lean canvas frames the full thesis, a hypothesis tests one claim within it.
 
 ## Instructions
 

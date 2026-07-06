@@ -63,11 +63,13 @@
 /reference/categories/index.html
 /reference/commands/index.html
 /reference/ecosystem/index.html
+/reference/evals/index.html
 /reference/index.html
 /reference/mermaid-style-guide/index.html
 /reference/pm-skill-anatomy/index.html
 /reference/pm-skill-versioning/index.html
 /reference/project-structure/index.html
+/reference/provenance/index.html
 /reference/runtime-components/index.html
 /reference/skill-families/design-sprint-skills-contract/index.html
 /reference/skill-families/foundation-sprint-skills-contract/index.html
@@ -112,6 +114,7 @@
 /releases/Release_v2.29.1/index.html
 /releases/Release_v2.3/index.html
 /releases/Release_v2.30.0/index.html
+/releases/Release_v2.31.0/index.html
 /releases/Release_v2.4.1/index.html
 /releases/Release_v2.4.2/index.html
 /releases/Release_v2.4.3/index.html

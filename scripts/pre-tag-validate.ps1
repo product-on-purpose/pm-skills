@@ -31,13 +31,13 @@ $Validators = @(
   @{ Name = 'validate-design-sprint-skills-family -Strict';  Script = 'validate-design-sprint-skills-family.ps1';          Args = @('-Strict') }
   @{ Name = 'validate-docs-frontmatter -Strict';             Script = 'validate-docs-frontmatter.ps1';                     Args = @('-Strict') }
   @{ Name = 'check-no-body-h1 -Strict';                      Script = 'check-no-body-h1.ps1';                              Args = @('-Strict') }
-  @{ Name = 'check-count-consistency';                       Script = 'check-count-consistency.ps1';                       Args = @() }
+  @{ Name = 'check-count-consistency';                       Script = 'check-count-consistency.mjs';                       Runner = 'node'; Args = @() }
   @{ Name = 'check-skill-cross-references';                  Script = 'check-skill-cross-references.ps1';                  Args = @() }
   @{ Name = 'validate-script-docs';                          Script = 'validate-script-docs.ps1';                          Args = @() }
   @{ Name = 'validate-version-consistency';                  Script = 'validate-version-consistency.ps1';                  Args = @() }
   @{ Name = 'validate-codex-manifest';                       Script = 'validate-codex-manifest.ps1';                       Args = @() }
   @{ Name = 'check-skill-sample-coverage';                   Script = 'check-skill-sample-coverage.ps1';                   Args = @() }
-  @{ Name = 'validate-skill-family-registration';            Script = 'validate-skill-family-registration.ps1';            Args = @() }
+  @{ Name = 'validate-skill-family-registration';            Script = 'validate-skill-family-registration.mjs';            Runner = 'node'; Args = @() }
   @{ Name = 'validate-plugin-install';                       Script = 'validate-plugin-install.ps1';                       Args = @() }
 )
 
@@ -80,7 +80,13 @@ function Invoke-Validator {
   }
 
   Write-Host -NoNewline "RUN  $name ... "
-  $output = & pwsh -NoProfile -File $script @($V.Args) 2>&1
+  # WS-Z4 (v2.31.0): a Runner = 'node' entry runs a single-source .mjs port instead of
+  # a pwsh shell (the retired check-count-consistency pair); everything else is pwsh.
+  if ($V.Runner -eq 'node') {
+    $output = & node $script @($V.Args) 2>&1
+  } else {
+    $output = & pwsh -NoProfile -File $script @($V.Args) 2>&1
+  }
   if ($LASTEXITCODE -eq 0) {
     Write-Host "PASS"
     return $true

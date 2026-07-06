@@ -1,0 +1,54 @@
+{
+  "intro_tail": "sub-agents (5 user-facing PM sub-agents plus the internal tooling instrument `pm-skill-router`, added v2.29.0). The \"as of\" stamp tracks the latest inventory refresh; per-row status claims stay pinned to whatever date or version they were last independently verified, exactly as recorded in the prose below the table.",
+  "clients": [
+    "Claude Code (native)",
+    "Codex CLI",
+    "Cursor / Windsurf / Copilot CLI / Gemini CLI"
+  ],
+  "sub_agents": [
+    {
+      "id": "pm-critic",
+      "label": "pm-critic",
+      "dispatch": "utility-pm-critic",
+      "cells": ["PRODUCTION", "PRODUCTION", "EXPERIMENTAL"]
+    },
+    {
+      "id": "pm-skill-auditor",
+      "label": "pm-skill-auditor",
+      "dispatch": "utility-pm-skill-auditor",
+      "cells": ["PRODUCTION", "PRODUCTION", "EXPERIMENTAL"]
+    },
+    {
+      "id": "pm-changelog-curator",
+      "label": "pm-changelog-curator",
+      "dispatch": "utility-pm-changelog-curator",
+      "cells": ["PRODUCTION", "PRODUCTION", "EXPERIMENTAL"]
+    },
+    {
+      "id": "pm-release-conductor",
+      "label": "pm-release-conductor",
+      "dispatch": "utility-pm-release-conductor",
+      "cells": ["PRODUCTION", "DRY-RUN VALIDATED (live UNTESTED)", "EXPERIMENTAL"]
+    },
+    {
+      "id": "pm-workflow-orchestrator",
+      "label": "pm-workflow-orchestrator (added v2.24.0)",
+      "dispatch": "utility-pm-workflow-orchestrator",
+      "cells": [
+        "SMOKE-TESTED PASS for Mode B chains (2026-06-10, installed plugin: native `Skill`-from-sub-agent delegation works; downstream skills run INLINE in the engine context). Mode A native and interactive multi-checkpoint runs not yet exercised",
+        "EXPERIMENTAL",
+        "EXPERIMENTAL"
+      ]
+    },
+    {
+      "id": "pm-skill-router",
+      "label": "pm-skill-router (added v2.29.0)",
+      "dispatch": "None (internal tooling instrument; see the dedicated note below)",
+      "cells": [
+        "PRODUCTION for its maintainer-tooling role (key-free `Agent`-tool dispatch, Haiku-pinned by default)",
+        "N/A - no dispatch skill; not a cross-client user path",
+        "N/A - no dispatch skill; not a cross-client user path"
+      ]
+    }
+  ]
+}

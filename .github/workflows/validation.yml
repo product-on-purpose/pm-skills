@@ -67,6 +67,16 @@ jobs:
         # without regeneration fails here; hand edits inside the markers fail here.
         run: node scripts/gen-skill-manifest.mjs --agents --check
 
+      - name: Check derived surfaces are current (enforcing)
+        # WS-Z2 (v2.31.0, M-36): the README catalog badges + classification table
+        # (between the pmskills:catalog-* markers) and the three plugin manifest
+        # description headlines are generated from skill-manifest.json by
+        # scripts/gen-derived-surfaces.mjs. Enforcing from day one: deterministic
+        # generator, the skill-manifest / resource-index precedent. A hand edit
+        # inside a marker or a drifted manifest count fails here. One cross-OS node
+        # step (runs on both matrix legs; also exercises the CRLF/LF path); no npm deps.
+        run: node scripts/gen-derived-surfaces.mjs --check
+
       - name: Validate site doc frontmatter YAML (enforcing)
         # Parse-checks frontmatter in tracked Astro doc bodies (skills front matter
         # is covered separately by lint-skills-frontmatter). Catches the unquoted
@@ -224,29 +234,16 @@ jobs:
         run: pwsh -File scripts/check-workflow-coverage.ps1
         continue-on-error: true
 
-      - name: Check count consistency (bash)
-        if: matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-count-consistency.sh
-
-      - name: Check count consistency (pwsh)
-        if: matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-count-consistency.ps1
-
-      - name: Dual-shell equivalence smoke - check-count-consistency (advisory)
-        # WS-T9 (v2.30.0, M-35): behavioral-equivalence guard for one of the frozen
-        # dual-shell validator pairs. check-validator-parity.mjs proves the two shells
-        # run the same INVENTORY; this proves they compute the same VERDICT. Runs the
-        # bash and PowerShell check-count-consistency against the committed fixture
-        # (scripts/fixtures/shell-parity/) and fails if either shell diverges from the
-        # committed golden. Runs on BOTH legs so each shell is checked where it is
-        # native (ubuntu has both bash + pwsh, so it is also a direct cross-shell diff;
-        # windows checks pwsh). Single-source Node (no new .sh/.ps1 pair - honors the
-        # WS-T9 freeze). Ships ADVISORY on the M-30 ladder; promote to ENFORCING when
-        # the v2.31.0 WS-Z4 Node ports shrink the dual-shell surface enough that any
-        # divergence is always a bug. Added 2026-07-04.
+      - name: Check count consistency (enforcing)
+        # WS-Z4 (v2.31.0): single-source Node port of the retired bash + PowerShell
+        # check-count-consistency pair (one of the awk RSTART/RLENGTH hazard scripts,
+        # the class that hung v2.27.1 CI in one shell only). One cross-OS node step runs
+        # on BOTH matrix legs (also exercises the CRLF/LF path); no npm deps. The port's
+        # verdict was proven byte-identical to both retired shells against the committed
+        # scripts/fixtures/shell-parity/repo fixture before the shells + the WS-T9
+        # shell-parity smoke were deleted. See scripts/check-count-consistency.test.mjs.
         if: always()
-        continue-on-error: true
-        run: node scripts/shell-parity-smoke.mjs
+        run: node scripts/check-count-consistency.mjs
 
       - name: Check version references (bash)
         if: always() && matrix.os == 'ubuntu-latest'
@@ -266,13 +263,15 @@ jobs:
         if: always() && matrix.os == 'windows-latest'
         run: pwsh -File scripts/validate-docs-frontmatter.ps1 -Strict
 
-      - name: Validate skill family registration (bash, enforcing)
-        if: always() && matrix.os == 'ubuntu-latest'
-        run: bash scripts/validate-skill-family-registration.sh
-
-      - name: Validate skill family registration (pwsh, enforcing)
-        if: always() && matrix.os == 'windows-latest'
-        run: pwsh -File scripts/validate-skill-family-registration.ps1
+      - name: Validate skill family registration (enforcing)
+        # WS-Z4 (v2.31.0): single-source Node port of the retired bash + PowerShell
+        # family-registration pair (one of the awk-bearing scripts named in the WS-T9
+        # freeze). One cross-OS node step runs on BOTH matrix legs; the port's verdict was
+        # proven identical to both retired shells against the real registry (pass) and
+        # scripts/fixtures/family-registration/repo (fail) before the shells were deleted.
+        # See scripts/validate-skill-family-registration.test.mjs.
+        if: always()
+        run: node scripts/validate-skill-family-registration.mjs
 
       # Filesystem link validators (check-internal-link-validity,
       # validate-references-cross-doc) were retired in the Pattern S migration:
