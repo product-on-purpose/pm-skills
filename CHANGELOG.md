@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 > **Note on historical paths:** entries before v2.19.0 occasionally reference internal planning documents (for example `docs/internal/release-plans/...`). Those references are preserved as written for historical accuracy. From v2.19.0 onward, CHANGELOG entries reference public paths only.
 
+## [2.31.1](https://github.com/product-on-purpose/pm-skills/compare/v2.31.0...v2.31.1) (2026-07-06)
+
+
+### Fixed
+
+* **release:** make the README version badge generator-owned, dropping the lossy annotation path ([#228](https://github.com/product-on-purpose/pm-skills/issues/228)) ([eee2ef7](https://github.com/product-on-purpose/pm-skills/commit/eee2ef7fea55f29b491e03c198134e496edd7a03))
+
 ## [Unreleased]
 
 ## [2.31.0] - 2026-07-05
