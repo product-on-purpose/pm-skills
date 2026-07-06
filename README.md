@@ -901,6 +901,7 @@ The Design Sprint tool family ships with five companion guides:
 - [**Workshop method comparison**](https://product-on-purpose.github.io/pm-skills/reference/workshop-method-comparison/) - Decision matrix for when to use Foundation Sprint vs Design Sprint vs other structured workshop approaches.
 - [**Ecosystem overview**](https://product-on-purpose.github.io/pm-skills/reference/ecosystem/) - How pm-skills, pm-skills-mcp, and the skills CLI relate to each other; which to use for which client and workflow.
 - [**How pm-skills is evaluated**](https://product-on-purpose.github.io/pm-skills/reference/evals/) - The three eval lanes (trigger fixtures, the controlled router eval, LLM-judged output evals), what each measures, and the honest confound lesson behind why the router eval is the trustworthy instrument.
+- [**Provenance and trust**](https://product-on-purpose.github.io/pm-skills/reference/provenance/) - What ships, what runs at install (nothing, except opt-in hooks), and the supply-chain posture behind every install path.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -1002,6 +1003,7 @@ Contributions are what make the open-source community such a meaningful place to
 
 - [Creating PM Skills](https://product-on-purpose.github.io/pm-skills/guides/creating-pm-skills/) - Authoring guide for new skills
 - [Skill Template](docs/templates/skill-template/) - The expected three-file structure
+- [Security Policy](SECURITY.md) - How to report a vulnerability, what's in scope, and what ships
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -45,6 +45,7 @@ This folder is for lookup, not learning. New contributors should start with [`do
 | File | Purpose | When to read it |
 |------|---------|-----------------|
 | [`evals.md`](evals.md) | The three eval lanes (trigger fixtures, the controlled router eval, LLM-judged output evals): what each measures, the honest confound lesson behind why the router eval is the trustworthy instrument, and where results live. | When deciding how much to trust a trigger-accuracy or output-quality number, or before adding a new eval lane. |
+| [`provenance.md`](provenance.md) | What the plugin ships, that nothing executes at install except opt-in hooks, and the supply-chain posture (SHA-pinned marketplace, release ZIP checksums). Restates `SECURITY.md` for readers who never open the repo. | When a user asks what runs on install, or before citing the project's trust posture externally. |
 
 ### Skill family contracts
 
