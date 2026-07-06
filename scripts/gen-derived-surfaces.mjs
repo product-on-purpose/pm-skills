@@ -25,9 +25,19 @@
 //         the Classification | Count | What's in it summary table.
 //   These are DISTINCT from the pre-existing count-exempt:start/end markers, which
 //   only EXEMPT historical prose from the count gate; these GENERATE content.
-//   The README version badge line and the "Current version" row are deliberately
-//   left OUTSIDE any marker: release-please owns those via x-release-please-version
-//   annotations (WS-Z1, a later stage), so the two systems never fight over a line.
+//   The README version badge line and the "Current version" row are ALSO generator-
+//   owned (added post-S1, issue #136): the version badge under
+//   pmskills:version-badge:start/end and the "At a Glance" table (which carries the
+//   Current-version row) under pmskills:version-row:start/end, both sourced from
+//   .claude-plugin/plugin.json's version. This replaces an earlier design where
+//   release-please's Generic README updater owned these two lines via
+//   x-release-please-version annotations: the v2.31.0 S1 shadow run found that
+//   updater's semver regex reads the badge URL's "2.31.0-blue" as a version plus a
+//   "-blue.svg" prerelease token and replaces the whole match, corrupting the
+//   shields.io URL. release-please no longer touches README.md at all (its
+//   extra-files entry for README.md is removed in release-please-config.json); the
+//   generator is the only write path for both lines now, same as every other
+//   count-bearing region here.
 //   ZD-2 = A (2026-07-04): the mega-README keeps its full length; only the
 //   count-bearing catalog regions become generator-owned. No section is removed.
 //
@@ -221,6 +231,52 @@ export const README_REGIONS = [
   { start: BADGES_START, end: BADGES_END, render: renderCatalogBadges },
   { start: TABLE_START, end: TABLE_END, render: renderCatalogTable },
 ];
+
+// ---- README version badge + Current-version row (post-S1 fix, issue #136) ------------
+
+// release-please's Generic README updater treated the badge URL's "2.31.0-blue" as a
+// SemVer version plus a "-blue.svg" prerelease token and replaced the whole match,
+// silently dropping "-blue.svg" from the shields.io URL (found on the v2.31.0 S1 shadow
+// run, issue #136). The fix: both lines stop being release-please's problem. They are
+// generator-owned instead, sourced from .claude-plugin/plugin.json's version, the same
+// file scripts/validate-version-consistency.sh already treats as canonical.
+// release-please's extra-files entry for README.md is removed entirely
+// (release-please-config.json); there is nothing left in this file for its Generic
+// updater to act on.
+
+export const VERSION_BADGE_START = MARK('version-badge', 'edit .claude-plugin/plugin.json, not this block');
+export const VERSION_BADGE_END = END('version-badge');
+
+/** The single version badge <img> line near the top of the README. One line, sourced
+ *  from plugin.json's version; no table/GFM structure to worry about here. */
+export function renderVersionBadge(version) {
+  return `    <img src="https://img.shields.io/badge/version-${version}-blue.svg?style=flat-square" alt="Version">\n`;
+}
+
+export const VERSION_ROW_START = MARK('version-row', 'edit .claude-plugin/plugin.json, not this block');
+export const VERSION_ROW_END = END('version-row');
+
+/** The "Current version" row lives inside the Project Status "At a Glance" table. The
+ *  marker wraps the WHOLE table, not just that one row, for the same reason
+ *  RELEASES_INDEX_START/END (below) wraps its whole table: an HTML-comment marker
+ *  interleaved between GFM table rows is a block-level construct that fragments table
+ *  parsing into two separate tables. The render function reproduces every line of the
+ *  block VERBATIM and rewrites only the version-shaped tokens on the one line that
+ *  carries "Current version" - the rest of the table (skill count, sub-agents,
+ *  workflows, and so on) is untouched by this emit target and stays whatever the file
+ *  already had. Fails loudly if that row is not found, rather than silently leaving a
+ *  stale version in place. Pure. */
+export function renderVersionRowTable(existingBlock, version) {
+  // existingBlock is a raw slice starting right after the start marker's own text, so its
+  // very first character is always the newline that ends the marker's line - the same
+  // newline splice() unconditionally re-inserts on write. Strip exactly that one so a
+  // regen does not grow an extra blank line above the table every run (CRLF-safe).
+  const lines = existingBlock.replace(/^\r?\n/, '').split('\n');
+  const idx = lines.findIndex((l) => l.includes('**Current version**'));
+  if (idx === -1) fail('README.md: "Current version" row not found inside the pmskills:version-row marker; refusing to write');
+  lines[idx] = lines[idx].replace(/v\d+\.\d+\.\d+/g, `v${version}`);
+  return lines.join('\n');
+}
 
 // ---- manifest description headlines --------------------------------------------------
 
@@ -655,7 +711,9 @@ function main() {
     console.log(`${label} rewritten.`);
   };
 
-  // README catalog regions.
+  // README catalog regions. pluginVersion is read once here and reused below for the
+  // compat-matrix "as of" stamp, so plugin.json is read exactly once per run.
+  const pluginVersion = currentVersion(readFileSync(join(repo, '.claude-plugin/plugin.json'), 'utf8'));
   const readmePath = join(repo, 'README.md');
   const readmeText = readFileSync(readmePath, 'utf8');
   let next = readmeText;
@@ -663,6 +721,16 @@ function main() {
   // README recent-releases mirror (REQ-Z3.1): folds in the same README write pass as the
   // catalog regions above, so README.md still gets exactly one read-modify-write.
   next = splice(next, LATEST_RELEASE_START, LATEST_RELEASE_END, renderLatestReleaseMirror(topSections));
+  // README version badge + Current-version row (post-S1 fix, issue #136): same single
+  // write pass, sourced from .claude-plugin/plugin.json rather than skill-manifest.json.
+  next = splice(next, VERSION_BADGE_START, VERSION_BADGE_END, renderVersionBadge(pluginVersion));
+  {
+    const s = next.indexOf(VERSION_ROW_START);
+    const e = next.indexOf(VERSION_ROW_END);
+    if (s === -1 || e === -1 || e < s) fail('README.md: pmskills:version-row marker pair not found; refusing to write');
+    const existingBlock = next.slice(s + VERSION_ROW_START.length, e);
+    next = splice(next, VERSION_ROW_START, VERSION_ROW_END, renderVersionRowTable(existingBlock, pluginVersion));
+  }
   if (normalizeEol(readmeText) !== normalizeEol(next)) {
     if (check) {
       console.error('STALE  README.md catalog blocks do not match the manifest. Run: node scripts/gen-derived-surfaces.mjs');
@@ -695,9 +763,8 @@ function main() {
   const compatData = JSON.parse(readFileSync(compatDataPath, 'utf8'));
   const agentIds = discoverAgentIds(join(repo, 'agents'));
   const compatRows = crossJoinSubAgents(agentIds, compatData, catalog.sub_agents);
-  const version = currentVersion(readFileSync(join(repo, '.claude-plugin/plugin.json'), 'utf8'));
   const compatCurrent = readFileSync(compatPath, 'utf8');
-  const compatBlock = renderCompatMatrixBlock(compatData, compatRows, catalog.sub_agents, version);
+  const compatBlock = renderCompatMatrixBlock(compatData, compatRows, catalog.sub_agents, pluginVersion);
   const compatNext = splice(compatCurrent, COMPAT_START, COMPAT_END, compatBlock);
   emit('sub-agent-compatibility.md', compatPath, compatCurrent, compatNext);
 
