@@ -63,6 +63,7 @@
 /reference/categories/index.html
 /reference/commands/index.html
 /reference/ecosystem/index.html
+/reference/evals/index.html
 /reference/index.html
 /reference/mermaid-style-guide/index.html
 /reference/pm-skill-anatomy/index.html

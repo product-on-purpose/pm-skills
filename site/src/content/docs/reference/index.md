@@ -40,6 +40,12 @@ This folder is for lookup, not learning. New contributors should start with [`do
 | [`runtime-components.md`](runtime-components.md) | Canonical catalog of Claude Code plugin runtime components: sub-agents (4 rows for v2.16.0 slate), hooks (empty; v2.17+), output styles (empty; v2.18+). Includes audience / trigger / lifetime / tool surface / composition / dispatch skill columns plus a Cross-Client Compatibility section explaining the dispatch-skill mechanism. | When authoring a new sub-agent, hook, or output style, or when answering "which sub-agent runs when?" or "what does the conductor's tool surface look like?" |
 | [`sub-agent-compatibility.md`](sub-agent-compatibility.md) | Canonical cross-client compatibility matrix for the 4 v2.16.0 sub-agents + dispatch skills. Status per client (PRODUCTION, DRY-RUN VALIDATED, EXPERIMENTAL, UNTESTED) across Claude Code, Codex CLI, Cursor, Windsurf, Copilot CLI, Gemini CLI. Safe-usage matrix. v2.17 expansion plan. How-to-validate-a-new-client maintainer guide. | When deciding whether to invoke a sub-agent on a non-Claude client, or before promoting a new client status from EXPERIMENTAL to PRODUCTION. |
 
+### Evaluation and trust
+
+| File | Purpose | When to read it |
+|------|---------|-----------------|
+| [`evals.md`](evals.md) | The three eval lanes (trigger fixtures, the controlled router eval, LLM-judged output evals): what each measures, the honest confound lesson behind why the router eval is the trustworthy instrument, and where results live. | When deciding how much to trust a trigger-accuracy or output-quality number, or before adding a new eval lane. |
+
 ### Skill family contracts
 
 | File | Purpose | When to read it |

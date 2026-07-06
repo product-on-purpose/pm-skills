@@ -900,6 +900,7 @@ The Design Sprint tool family ships with five companion guides:
 - [**Sprint methodology glossary**](https://product-on-purpose.github.io/pm-skills/reference/sprint-methodology-glossary/) - Definitions for terms used across Foundation Sprint and Design Sprint skills. A useful reference when the meaning of a skill output or workshop term isn't clear.
 - [**Workshop method comparison**](https://product-on-purpose.github.io/pm-skills/reference/workshop-method-comparison/) - Decision matrix for when to use Foundation Sprint vs Design Sprint vs other structured workshop approaches.
 - [**Ecosystem overview**](https://product-on-purpose.github.io/pm-skills/reference/ecosystem/) - How pm-skills, pm-skills-mcp, and the skills CLI relate to each other; which to use for which client and workflow.
+- [**How pm-skills is evaluated**](https://product-on-purpose.github.io/pm-skills/reference/evals/) - The three eval lanes (trigger fixtures, the controlled router eval, LLM-judged output evals), what each measures, and the honest confound lesson behind why the router eval is the trustworthy instrument.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
