@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-changelog-curator",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Draft the CHANGELOG entries from the git log since our last tag",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're cutting a release Friday; give me a CHANGELOG draft grouped into Added, Changed, Fixed",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Bank all the unreleased commits into CHANGELOG.md before we tag",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no CHANGELOG keyword"
+    },
+    {
+      "q": "Summarize what changed since v2.3.0 for the CHANGELOG, following our hygiene rules",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I'm on Cursor without a native sub-agent; still draft the CHANGELOG from these commits",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Turn the merged PR titles since the last release into a proper CHANGELOG section",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Working tree has uncommitted changes but only draft from what's actually committed",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Prepare the CHANGELOG draft for the target version we're about to ship",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "What changed between these two tags? Give me a CHANGELOG-formatted draft",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Draft the unreleased section of the CHANGELOG so the maintainer can review before tagging",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Write the customer-facing release notes for version 4.2, dark mode and faster search",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-release-notes",
+      "notes": "External customer-facing announcement, not the internal git-log-derived CHANGELOG"
+    },
+    {
+      "q": "Draft the what's-new announcement for the app store listing",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-release-notes"
+    },
+    {
+      "q": "Is this PRD any good? Tell me what's wrong with it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-critic",
+      "notes": "Reviewing an artifact, not drafting a changelog"
+    },
+    {
+      "q": "Run the full repo governance audit before we tag",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-skill-auditor"
+    },
+    {
+      "q": "Walk me through the whole guided release process, gate by gate",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-release-conductor",
+      "notes": "The full release flow; this skill is just gate G2's draft step"
+    },
+    {
+      "q": "Why does npm ci fail with an ERESOLVE error on this lockfile?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a git alias for interactive rebase onto main",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Recommend a good productivity podcast",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

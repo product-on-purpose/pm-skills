@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "skill": "foundation-meeting-agenda",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Draft the agenda for Tuesday's cross-functional kickoff, with time-boxed topics and owners",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We have a 45-minute decision meeting on pricing; build the structure so we actually decide something",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no agenda keyword"
+    },
+    {
+      "q": "Put together the agenda for the quarterly planning session, ten attendees, ninety minutes",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I'm chairing the stakeholder review next week; give me the topics, owners, and time allocation",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Set up the working-session agenda for the design sprint kickoff",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We keep running long on the weekly sync; rebuild the agenda with tighter timeboxes",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Prepare the exec-briefing agenda for the board update next Thursday",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "This is a brainstorm session for onboarding ideas; structure it so it doesn't turn into a status meeting",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Build the 1-on-1 agenda template for my new report's first check-in",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We need a fresh structure for the recurring team sync so it doesn't feel stale",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "That roadmap review already happened this morning; write up what we decided",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "The meeting has already happened, per When NOT to Use"
+    },
+    {
+      "q": "Summarize yesterday's planning meeting with the decisions and action owners",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-recap"
+    },
+    {
+      "q": "I need private prep before tomorrow's tense negotiation with the vendor: stakes, positions, and my ask",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-brief",
+      "notes": "Private tactical prep, not a shared attendee agenda, per When NOT to Use"
+    },
+    {
+      "q": "Help me get ready for a first meeting with a skeptical new stakeholder, what to say and how to read the room",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-brief"
+    },
+    {
+      "q": "Write the update for the teams who weren't in the room about what we decided in planning",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "Communicating outcomes to non-attendees, per When NOT to Use"
+    },
+    {
+      "q": "Why does this Redis connection pool exhaust under load?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a shell script that rotates log files older than 30 days",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Recommend a beginner-friendly hiking trail near Denver",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

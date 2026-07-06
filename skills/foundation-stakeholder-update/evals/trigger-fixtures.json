@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "skill": "foundation-stakeholder-update",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Write the async update for teams who weren't in today's planning meeting about what we decided",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Translate this recap into a Slack message for engineering explaining what it means for them",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Leadership needs to know the outcome of yesterday's roadmap review even though they weren't there",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no update keyword"
+    },
+    {
+      "q": "Draft the exec-memo version of this decision for people who missed the meeting",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We committed to something in today's sync that support needs to know about; write that update",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Send a Notion update to the broader team on what was decided in the migration planning call",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "This decision needs to propagate to three downstream teams who weren't in the room; write the update",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Turn this meeting recap into an email for stakeholders who need the what-it-means version",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I need something to forward to people who stepped out of the call early",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Write the follow-up update continuing the thread from last week's stakeholder note on this same project",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Take this PRD and give me tailored versions for engineering, design, and our exec sponsor",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-stakeholder-briefings",
+      "notes": "Multi-audience fan-out from a source artifact, not a single meeting-outcome update"
+    },
+    {
+      "q": "I need five different audience cuts of this launch plan, not just one outcomes update",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-stakeholder-briefings"
+    },
+    {
+      "q": "Just write up today's meeting for the people who were actually in the room",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "Summarizing for attendees, per When NOT to Use"
+    },
+    {
+      "q": "Recap this morning's standup with decisions and owners for the attendees",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-recap"
+    },
+    {
+      "q": "Map out who the stakeholders are on this migration and how influential each one is",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-stakeholder-summary",
+      "notes": "Understanding stakeholders, not communicating to them, per When NOT to Use"
+    },
+    {
+      "q": "Why does my Docker build cache invalidate on every run?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a Python script to dedupe a CSV by email column",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Suggest an easy weeknight dinner recipe for four people",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

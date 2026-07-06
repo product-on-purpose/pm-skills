@@ -99,10 +99,11 @@ test('roster completeness reports exactly the missing names', () => {
 test('roster and pairs are internally consistent', () => {
   // Every skills/*/evals/trigger-fixtures.json on disk, sourced from
   // trigger-eval-roster.yaml (WS-T10). 31 at v2.30.0; the v2.31.0 WS-Z5 wave-1
-  // backfill adds 12 skills across PR9-PR11; PR10 (discover- cluster) brings
-  // this to 34 (32 + discover-journey-map + discover-market-sizing).
-  assert.equal(ROSTER.length, 34);
-  assert.equal(new Set(ROSTER).size, 34);
+  // backfill adds 12 skills across PR9-PR11 (define-, discover-, then the
+  // foundation-meeting- remainder plus adjacent collision-risk siblings),
+  // bringing this to 43 (43/68, about 65 percent).
+  assert.equal(ROSTER.length, 43);
+  assert.equal(new Set(ROSTER).size, 43);
   for (const [a, b] of COLLISION_PAIRS) {
     assert.ok(ROSTER.includes(a), `${a} in roster`);
     assert.ok(ROSTER.includes(b), `${b} in roster`);

@@ -56,23 +56,33 @@ roster:
   - deliver-prd
   - deliver-release-notes
   - deliver-user-stories
-  # Measure (5)
+  # Measure (6)
   - measure-dashboard-requirements
   - measure-experiment-design
   - measure-experiment-results
   - measure-instrumentation-spec
   - measure-okr-grader
+  - measure-survey-analysis
   # Iterate (4)
   - iterate-lessons-log
   - iterate-pivot-decision
   - iterate-refinement-notes
   - iterate-retrospective
-  # Foundation (5)
+  # Foundation (11)
   - foundation-build-risk-review
+  - foundation-lean-canvas
+  - foundation-meeting-agenda
+  - foundation-meeting-brief
   - foundation-meeting-recap
+  - foundation-meeting-synthesize
   - foundation-okr-writer
   - foundation-persona
+  - foundation-prioritized-action-plan
   - foundation-stakeholder-briefings
+  - foundation-stakeholder-update
+  # Utility (2)
+  - utility-mermaid-diagrams
+  - utility-pm-changelog-curator
 
 # Known collision pairs (2026-06 audit D1-D5 + the OKR watch pair, D6). Skills in a
 # pair must carry near-miss negatives aimed at (at least) one declared partner.
@@ -91,3 +101,16 @@ collision_pairs:
   - [define-prioritization-framework, define-opportunity-tree]
   - [discover-journey-map, discover-interview-synthesis]
   - [discover-market-sizing, discover-competitive-analysis]
+  - [define-prioritization-framework, foundation-prioritized-action-plan]
+  - [discover-journey-map, measure-survey-analysis]
+  - [discover-journey-map, utility-mermaid-diagrams]
+  - [foundation-meeting-agenda, foundation-meeting-recap]
+  - [foundation-meeting-agenda, foundation-meeting-brief]
+  - [foundation-meeting-brief, foundation-meeting-recap]
+  - [foundation-meeting-synthesize, foundation-meeting-recap]
+  - [foundation-meeting-synthesize, discover-interview-synthesis]
+  - [foundation-stakeholder-update, foundation-stakeholder-briefings]
+  - [foundation-stakeholder-update, foundation-meeting-recap]
+  - [foundation-lean-canvas, define-hypothesis]
+  - [measure-survey-analysis, discover-interview-synthesis]
+  - [measure-survey-analysis, measure-experiment-results]

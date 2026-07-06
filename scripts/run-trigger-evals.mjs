@@ -46,8 +46,11 @@ export const BATCHES = {
   'rest-iterate-foundation': ['iterate-pivot-decision', 'iterate-refinement-notes', 'foundation-persona', 'foundation-build-risk-review', 'foundation-stakeholder-briefings'],
   // v2.31.0 WS-Z5 wave-1 backfill batches, added as PR9/PR10/PR11 land (each batch
   // exists only once its members are on the roster with a shipped fixture).
-  'collision-prioritization': ['define-prioritization-framework'],
+  'collision-prioritization': ['define-prioritization-framework', 'foundation-prioritized-action-plan'],
   'wave1-discover': ['discover-journey-map', 'discover-market-sizing'],
+  'collision-meeting': ['foundation-meeting-agenda', 'foundation-meeting-brief', 'foundation-meeting-synthesize'],
+  'wave1-foundation-measure': ['foundation-stakeholder-update', 'foundation-lean-canvas', 'measure-survey-analysis'],
+  'wave1-utility': ['utility-pm-changelog-curator', 'utility-mermaid-diagrams'],
 };
 
 /** Parse headless output (stream-json lines or a single JSON document) into events. */

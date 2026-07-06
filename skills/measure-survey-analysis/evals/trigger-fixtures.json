@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "skill": "measure-survey-analysis",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Analyze these 400 NPS survey responses for themes and a confidence label",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We ran a post-purchase survey with 600 respondents; tell me what it actually shows",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Turn this raw CSV of onboarding-satisfaction survey rows into recommendations",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no analysis keyword"
+    },
+    {
+      "q": "What does the churn survey tell us, and what does it NOT tell us given the sample size?",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Segment the survey responses by persona and tell me if the patterns hold across segments",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Cluster the open-text responses from this feature-request survey into themes",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We got 150 responses on the redesign survey; is that enough to make a confident call?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Validate whether the survey data supports our pricing hypothesis",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Here's the methodology and the raw rows from our quarterly NPS survey; analyze it honestly",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The response rate looks low on this survey; tell me what we can and cannot conclude",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "These are interview transcripts, not survey rows; synthesize the themes across the conversations",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-interview-synthesis",
+      "notes": "Interview transcripts rather than structured survey responses, per When NOT to Use"
+    },
+    {
+      "q": "Pull the patterns out of these open-ended customer conversation notes",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-interview-synthesis"
+    },
+    {
+      "q": "The dark-mode experiment just finished with a p-value of 0.03; write up what happened and whether we should ship it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "measure-experiment-results",
+      "notes": "A completed controlled-experiment readout, not survey data"
+    },
+    {
+      "q": "Grade our progress against this quarter's committed OKRs",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "measure-okr-grader",
+      "notes": "Grading objectives, not analyzing a standalone survey, per When NOT to Use"
+    },
+    {
+      "q": "We haven't touched the survey data at all; just map out what the customer journey looks like from what we already know",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-journey-map",
+      "notes": "Mapping the journey shape, not analyzing collected survey data"
+    },
+    {
+      "q": "Why does this React useEffect fire twice on mount in strict mode?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a SQL query to compute median order value by month",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Suggest a low-key birthday gift for a coworker who likes plants",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

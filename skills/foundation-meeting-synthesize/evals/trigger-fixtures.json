@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "skill": "foundation-meeting-synthesize",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "I have recaps from the last eight sprint reviews; show me how the scope decision evolved over time",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Onboard our new eng lead into the history of this initiative using the last two months of meeting recaps",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "This project has been stalling for weeks across multiple syncs; find out why by looking at the pattern of meetings",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no synthesis keyword"
+    },
+    {
+      "q": "Pull together the board-prep view from every planning meeting this quarter",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Where have stakeholder positions shifted across our last six roadmap reviews?",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Surface any contradictions between what was decided in the March and May planning meetings",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Give me the quarterly review of everything that's happened across this initiative's meetings",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I need the narrative of how we got here, across all the recaps from this project",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Consolidate the decisions from these twelve recap files into one chronological list",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Track how the data team's position on this migration has changed across our last five syncs",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Just summarize yesterday's single planning meeting for the people who were there",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "Single-meeting summary, per When NOT to Use"
+    },
+    {
+      "q": "Write up today's roadmap review with decisions and action owners",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "foundation-meeting-recap"
+    },
+    {
+      "q": "Synthesize these customer discovery interviews from this month's research sprint",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-interview-synthesis",
+      "notes": "User-research conversations, not internal org meetings, per When NOT to Use"
+    },
+    {
+      "q": "Pull the cross-participant themes out of these usability session transcripts",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-interview-synthesis"
+    },
+    {
+      "q": "Tell the wider org what's been decided across this project so far, as one outward-facing update",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "Communicating outcomes outward, per When NOT to Use"
+    },
+    {
+      "q": "Why does this GraphQL resolver N+1 query only show up under load?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a cron expression that runs every weekday at 6am UTC",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Suggest a podcast about early-stage startups",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}

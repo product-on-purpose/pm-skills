@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "skill": "foundation-lean-canvas",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Sketch a lean canvas for this new product idea, problem through unfair advantage",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Stress-test our current business by making the implicit assumptions explicit on one page",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no canvas keyword"
+    },
+    {
+      "q": "We're comparing two strategic directions; run the canvas on each so we can diff them side by side",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Onboard the new team members into our strategic thesis with one artifact",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Does our thesis still hold given what we've learned this quarter? Do a reality check across the whole model",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing"
+    },
+    {
+      "q": "Produce the visual HTML lean canvas for the board deck, with confidence badges per block",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Frame the business-model assumptions for this pivot on a single page",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before we build anything, get problem, customer, solution, and revenue onto one page so we can spot the gaps",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Give me the nine-block canvas for the freemium-to-paid product line",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Align the team on what we're assuming about channels, cost, and revenue for this new venture",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We believe shortening onboarding will lift activation; turn that into one falsifiable statement with a metric",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "define-hypothesis",
+      "notes": "One specific testable assumption, not the whole business-model canvas"
+    },
+    {
+      "q": "Frame this single pricing assumption as something we can test, not the whole strategy",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-hypothesis"
+    },
+    {
+      "q": "Compare three solution approaches to this problem in a one-page brief for stakeholders",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "develop-solution-brief",
+      "notes": "A specification/options brief, not a full business-model canvas"
+    },
+    {
+      "q": "We haven't agreed on the problem yet; frame just that before anything else",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "define-problem-statement",
+      "notes": "Per When NOT to Use: frame the problem first, then return to the canvas"
+    },
+    {
+      "q": "Give me deep competitive detail on the three main rivals, not the whole business model",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "discover-competitive-analysis",
+      "notes": "Single-block depth ask, per When NOT to Use"
+    },
+    {
+      "q": "Why is my Vite dev server so slow to hot-reload on this project?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write a regex to strip HTML tags from a string",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Recommend a good book on negotiation",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated"
+    }
+  ]
+}
