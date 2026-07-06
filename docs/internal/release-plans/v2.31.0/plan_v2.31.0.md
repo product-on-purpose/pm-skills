@@ -1,6 +1,6 @@
 # v2.31.0 Release Plan: zero-drift releases + the improvement program
 
-**Status:** PROPOSED - DRAFT for maintainer review. Nothing here is committed; the workstreams are proposed and the decisions (ZD-1..ZD-5) are open.
+**Status:** SHIPPED 2026-07-06 (tag `v2.31.0` at `fa0111e8`, squash-merge PR #227 with a conventional feat(release) title for the S1 shadow observation).
 **Owner:** Maintainers
 **Type:** MINOR (additive: release automation + generated surfaces + doc restructures + a new eval CI lane + trust docs; nothing is removed from the catalog). Catalog stays **68 / 6** in core scope (30 phase + 11 foundation + 12 utility + 15 tool; 6 sub-agents). Staged items change counts only when they execute at their own follow-on tags.
 **Theme:** **Zero-drift releases + the improvement program.** Make generation the only write path for every derived surface (counts, catalogs, matrices, manifest descriptions, About text, quickstarts, release notes), so the drift class that produced the audit's P0s cannot recur; and, in the same release, stand up the structural half of the wider improvement program the 2026-07-04 deep audit scoped (Tier 1, R-11..R-20, plus the small trust-posture publication R-25).
@@ -38,17 +38,17 @@ The audit produced 25 recommendations (R-01..R-25) across three tiers. This plan
 | R-08 (router opt-out + regex) | Wire `phase_router` off-switch; tighten metric regex | 0 | v2.30.0 | WS-T* | delivered by v2.30.0 (planned) |
 | R-09 (legacy marketplace) | Pin to tag or retire in favor of agent-plugins | 0 | v2.30.0 | WS-T* | delivered by v2.30.0 (planned) |
 | R-10 (Dependabot + first issues) | Clear 8 PRs; seed good-first-issues | 0 | v2.30.0 | WS-T* | delivered by v2.30.0 (planned) |
-| R-11 (release automation, M-21) | release-please manifest mode fans one bump to all surfaces | 1 | **v2.31.0** | **WS-Z1** | core, proposed |
-| R-12 (generated README + notes dedup) | Generate catalog/badges; collapse the 6 release-note copies | 1 | **v2.31.0** | **WS-Z2 + WS-Z3** | core, proposed |
-| R-13 (single-source quickstart) | One quickstart fragment -> root + site | 1 | **v2.31.0** | **WS-Z2** | core, proposed |
+| R-11 (release automation, M-21) | release-please manifest mode fans one bump to all surfaces | 1 | **v2.31.0** | **WS-Z1** | delivered (v2.31.0) |
+| R-12 (generated README + notes dedup) | Generate catalog/badges; collapse the 6 release-note copies | 1 | **v2.31.0** | **WS-Z2 + WS-Z3** | delivered (v2.31.0) |
+| R-13 (single-source quickstart) | One quickstart fragment -> root + site | 1 | **v2.31.0** | **WS-Z2** | delivered (v2.31.0) |
 | R-14 (skeleton canon + heading lint) | Canonical SKILL.md skeleton doc + heading-case lint | 1 | v2.30.0 | WS-T8 | owned by v2.30.0 (planned); C-14 here = catch-up slot |
 | R-15 (WNTU + description batch) | Backfill 4 contract skills + ~8 weak descriptions | 1 | v2.30.0 | WS-T8 | owned by v2.30.0 (planned); C-15 here = catch-up slot |
-| R-16 (eval backfill wave 1) | Fixtures for collision-risk clusters; externalize roster | 1 | **v2.31.0** | **WS-Z5** | core, proposed |
-| R-17 (output-eval CI lane) | Dispatch + cron lane exercising the orchestrators | 1 | **v2.31.0** | **WS-Z5** | core, proposed |
-| R-18 (dual-shell port wave 1) | Port the 2 awk-RSTART scripts to single-source `.mjs` | 1 | **v2.31.0** | **WS-Z4** | core, proposed |
+| R-16 (eval backfill wave 1) | Fixtures for collision-risk clusters; externalize roster | 1 | **v2.31.0** | **WS-Z5** | delivered (v2.31.0) |
+| R-17 (output-eval CI lane) | Dispatch + cron lane exercising the orchestrators | 1 | **v2.31.0** | **WS-Z5** | delivered (v2.31.0) |
+| R-18 (dual-shell port wave 1) | Port the 2 awk-RSTART scripts to single-source `.mjs` | 1 | **v2.31.0** | **WS-Z4** | delivered (v2.31.0) |
 | R-19 (CI ergonomics) | `cache: npm`, root `npm test`, pre-commit | 1 | v2.30.0 | WS-T11 | owned by v2.30.0 (planned); C-19 here = catch-up slot |
 | R-20 (hygiene sweep) | Orphans, effort-brief dedupe, tool-family versioning (D-4) | 1 | v2.30.0 | WS-T11 | owned by v2.30.0 (planned); C-20 here = catch-up slot |
-| R-25 (trust posture publish) | SECURITY.md expansion + provenance page | 1 | **v2.31.0** | **WS-Z6** | core, proposed |
+| R-25 (trust posture publish) | SECURITY.md expansion + provenance page | 1 | **v2.31.0** | **WS-Z6** | delivered (v2.31.0) |
 | R-21 (eval completion) | Fixtures + output scenarios for all 68; feeds PM-Bench | 2 | v2.31.x / v2.32.0 | **WS-Z10** | staged, trigger below |
 | R-22 (project memory, F-48) | Revive the parked memory train | 2 | v2.32.0 (target) | **WS-Z7** | staged, trigger below |
 | R-23 (typed handoff envelope) | Optional `## Handoff` YAML + `--thread` typed fields | 2 | v2.32.0+ | **WS-Z8** | staged, trigger below |
@@ -287,9 +287,14 @@ The externally visible outcome, stated so the release notes are honest and the a
 
 The release notes must NOT overclaim: eval coverage is not yet 100% (that is staged WS-Z10), memory is not shipped (staged WS-Z7), and release-please may still be in shadow (ZD-4) rather than authoritative at tag time. Say which of those is true at cut.
 
-## Gate ledger (placeholder)
+## Gate ledger (filled at cut, 2026-07-06)
 
-- [ ] G0 (audit) / G1 (Codex adversarial review) / G2 (release surfaces) / G2.5 (SHA capture) / G3 (tag + publish) / G4 (post-tag hygiene) - filled at cut time per `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`.
+- [x] G0 readiness: 13-stage build + read-only verification sweep on `release/v2.31.0-zero-drift`; full validator battery + 354 unit tests green on both OS legs (`Test hooks + eval validators (unit; enforcing)`).
+- [x] G1 adversarial review: Codex companion unavailable; substituted by a four-lens adversarial panel. 16 findings fixed at `12abceb3` (fix(review): resolve v2.31.0 G1 adversarial panel findings); a further 12 reciprocity edges (reciprocal When-NOT-to-Use pointers for the newly declared collision pairs) closed at `ce1fc657` (fix(skills): close reciprocal boundary pointers for newly declared collision pairs).
+- [x] G2 release surfaces: swept at `aacb0d44` (chore(release): v2.31.0 surface sweep, marketplace pin, version bump) - version bump across the 3 manifests, the `[2.31.0]` CHANGELOG entry, `Release_v2.31.0.md`, the full regen chain, and a clean grep count-sweep.
+- [x] G2.5 SHA capture: squash-merge SHA `fa0111e8` (CI green: `validate` both OS legs, `build`, `validate-plugin` x2, CodeQL `Analyze`, `deploy`, `release` all success).
+- [x] G3 tag + publish: annotated tag `v2.31.0` pushed on `fa0111e8`; GitHub Release published at `https://github.com/product-on-purpose/pm-skills/releases/tag/v2.31.0`.
+- [x] G4 post-tag hygiene: this commit (plan flipped SHIPPED, R-coverage matrix rows R-11..R-13/R-16..R-18/R-25 marked delivered, `release-plans/README.md` updated). **S1 shadow observation:** release-please's first run (`release-please.yml`, triggered by the `fa0111e8` push to main) failed before it could open a PR - `release-please failed: GitHub Actions is not permitted to create or approve pull requests.` This is the anticipated `GITHUB_TOKEN` fallback limitation: ZD-5's `RELEASE_PLEASE_TOKEN` secret is not yet configured, so the workflow fell back to the default token, which this repo's Actions policy blocks from opening pull requests. No PR number exists to record or close. release-please's proposal branch (`release-please--branches--main`, commit `f4bc12a1`) was inspected directly instead: proposed version `2.31.0` matches the manual cut; its auto-generated CHANGELOG entry is a one-line skeleton citing PR #227 that would have inserted as a second, duplicate `## [2.31.0]` heading above the already-curated entry; the `.release-please-manifest.json` version field matches (`2.30.0` -> `2.31.0`, reconciled in this commit); the README badge extra-file updater carries a lossy regex that drops `-blue.svg` from the shields.io URL, a bug worth fixing before the ZD-4 authoritative cutover. `agent-plugins` re-pinned to v2.31.0 (registry metadata 1.36.0).
 
 ## Notes
 
