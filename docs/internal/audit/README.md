@@ -4,13 +4,19 @@ This folder holds analytical audits of the pm-skills repository. Each audit is a
 
 ---
 
-## Active audits (2026-05-03)
+## Active audits
+
+> **This table lists a subset.** Sixteen audit files exist in this folder; the three v2.13-era rows
+> below plus the 2026-07-16 row are the only ones indexed. Corrected 2026-07-16: the three original
+> links were dead (they used a `<topic>_<date>` spelling that no file in this folder has ever used).
+> Reconciling the remaining twelve is not attempted here.
 
 | Audit | Scope | Cycle binding |
 |---|---|---|
-| [`audit_repo-structure_2026-05-01.md`](audit_repo-structure_2026-05-01.md) | `docs/` structure, naming, dual-doc system, drift, refactor patterns | v2.13 input (strong) |
-| [`ci-audit_2026-05-03.md`](ci-audit_2026-05-03.md) | `scripts/`, `.github/workflows/`, CI posture, validators, gaps, implementation specifications | v2.13 input (strong) |
-| [`branches-pr_2026-05-03.md`](branches-pr_2026-05-03.md) | Local branches, remote branches, open PRs, branch hygiene | Tactical (weak v2.13 binding) |
+| [`2026-05-01_audit_repo-structure.md`](2026-05-01_audit_repo-structure.md) | `docs/` structure, naming, dual-doc system, drift, refactor patterns | v2.13 input (strong) |
+| [`2026-05-03_ci-audit.md`](2026-05-03_ci-audit.md) | `scripts/`, `.github/workflows/`, CI posture, validators, gaps, implementation specifications | v2.13 input (strong) |
+| [`2026-05-03_branches-pr.md`](2026-05-03_branches-pr.md) | Local branches, remote branches, open PRs, branch hygiene | Tactical (weak v2.13 binding) |
+| [`2026-07-16_adr-format-divergence.md`](2026-07-16_adr-format-divergence.md) | `develop-adr`'s Nygard output vs the org's MADR v4 mandate; this folder's own future-directions plan. Externally reported (EC-1 from `product-lifecycle-templates`). Reported, not patched. | Unbound (needs a decision) |
 
 ## Archived audits
 
@@ -69,11 +75,17 @@ If the work is small (<5 items) or purely tactical (no analytical depth), skip t
 
 ## File naming
 
-Current audit folder uses mixed naming conventions across active files (`<topic>_<date>.md` and `<date>_<topic>.md`). A canonical convention is **deferred** as of 2026-05-03 pending decision; current files retained as-is to avoid churn.
+A canonical convention is **deferred** as of 2026-05-03 pending decision; current files retained as-is to avoid churn.
 
 When the canonical convention is decided, update this section and rename existing files in a single dedicated PR.
 
-**Current de facto pattern:** descriptive topic first, then date suffix (`<topic>_<date>.md`). Active audits follow this. Archived audits use a mix.
+**Current de facto pattern:** date first, then topic (`<date>_<topic>.md`).
+
+*Corrected 2026-07-16.* This section previously claimed the de facto pattern was topic-first
+(`<topic>_<date>.md`) and that "active audits follow this." Neither was true: all sixteen files in
+this folder, and both files in `_archived/`, are date-first. The claim appears to have described an
+intent that was never carried out, and it is what made the Active-audits table's links dead. New
+audits should follow the date-first pattern actually in use until a canonical convention is chosen.
 
 ---
 
@@ -117,3 +129,4 @@ To be designed when adoption demand surfaces.
 | Date | Change |
 |---|---|
 | 2026-05-03 | README authored. Audit + plan pair convention codified after v2.13 CI audit + plan dedup work. ADR and per-skill-decisions future directions noted. |
+| 2026-07-16 | Indexed [`2026-07-16_adr-format-divergence.md`](2026-07-16_adr-format-divergence.md) (externally reported: EC-1 from `product-lifecycle-templates`). Fixed three dead links in the Active-audits table and corrected the File-naming section, which claimed a topic-first de facto pattern that no file in this folder uses. Noted that the table indexes only a subset. The "Future directions > ADR" section's Nygard reference is **left as-is on purpose**: the new audit recommends changing it to MADR v4, but that is the maintainer's decision, not a factual correction. |
