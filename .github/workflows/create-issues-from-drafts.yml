@@ -26,7 +26,7 @@ jobs:
         # Read the committed Node pin rather than a hardcoded literal, so this
         # non-site workflow tracks the same version as the site CI (.nvmrc = 24;
         # family Astro site standard 14.8 uses node-version-file, not a literal).
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
 
