@@ -26,7 +26,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         id: release
         with:
           # ZD-5 (v2.31.0 plan, DECIDED A, 2026-07-04): the real fix is a
