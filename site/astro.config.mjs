@@ -20,6 +20,19 @@ export default defineConfig({
   // stock docsLoader uses Astro's standard markdown pipeline (the previous custom
   // glob loader prevented remark plugins from firing). See
   // scripts/remark-resolve-links.mjs; scripts/check-rendered-links.mjs is the gate.
+  //
+  // `@astrojs/markdown-remark` is a DIRECT dependency in site/package.json even
+  // though nothing here imports it. Astro 7 made Saetteri the default Markdown
+  // processor and stopped installing that package, so these deprecated
+  // `remarkPlugins` keys hard-fail config validation without it. It used to
+  // arrive transitively, which silently broke the astro 7.0.2 to 7.1.x bump when
+  // the transitive path disappeared. Do not remove it as an unused dependency.
+  //
+  // The non-deprecated form is `processor: unified({ remarkPlugins: [...] })`.
+  // Deliberately NOT adopted yet: astro-mermaid injects its own remark/rehype
+  // plugins through these same keys, and moving to `processor:` risks orphaning
+  // those injections and silently dropping every diagram. Migrate only with a
+  // build that verifies mermaid output still renders.
   markdown: {
     remarkPlugins: [[remarkResolveLinks, { base: BASE }]],
   },
