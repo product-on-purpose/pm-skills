@@ -28,7 +28,15 @@ export const collections = {
         metadata: z.record(z.unknown()).optional(),
         tags: z.array(z.string()).optional(),
         date: z.string().or(z.date()).optional(),
-        draft: z.boolean().optional(),
+        // `draft` is deliberately NOT listed here. Starlight's docsSchema() already
+        // defines `draft: z.boolean().default(false)`, and re-declaring it in extend
+        // as `.optional()` shadows that default. Starlight 0.41.4+ fixed extend
+        // merging so the shadow actually wins: every page without explicit `draft:`
+        // frontmatter then gets `undefined`, the production route filter
+        // (`data.draft === false`) drops ALL entries, and the build dies on the
+        // first sidebar slug lookup ("The slug `changelog` does not exist" with
+        // routes.length=0). Do not re-declare built-in docsSchema fields in extend;
+        // pages using `draft: true` (tags.md) validate against the built-in field.
         // Sample-specific fields
         artifact: z.string().optional(),
         repo_version: z.string().or(z.number()).optional(),
