@@ -28,8 +28,23 @@ skill_paths=("${_sorted[@]}")
 agents_paths=()
 while IFS= read -r _line; do agents_paths+=("$_line"); done < <(grep -oE 'skills/[a-z0-9-]+/SKILL\.md' "$AGENTS" | sort -u)
 
+# Pure-bash membership test, deliberately NOT `printf ... | grep -Fxq`. Under the
+# `set -o pipefail` above, that idiom is nondeterministically WRONG: `grep -q`
+# exits the moment it matches, closing the read end, so `printf` can die with
+# EPIPE ("write error: Broken pipe"). pipefail then promotes the dead printf to a
+# pipeline failure even though grep matched, and the entry is falsely reported
+# missing. It surfaced on main 2026-07-30, failing on two skills whose entries
+# were present, while the PowerShell leg passed on identical content. No pipe,
+# no race. Kept bash 3.2 compatible (no associative arrays).
 for path in "${skill_paths[@]}"; do
-  if ! printf '%s\n' "${agents_paths[@]}" | grep -Fxq "$path"; then
+  found=0
+  for entry in "${agents_paths[@]}"; do
+    if [[ "$entry" == "$path" ]]; then
+      found=1
+      break
+    fi
+  done
+  if [[ $found -eq 0 ]]; then
     echo "FAIL: AGENTS.md missing entry for $path"
     FAIL=1
   fi
