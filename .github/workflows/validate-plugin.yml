@@ -1,16 +1,16 @@
 name: Validate Plugin Packaging
 
 on:
+  # No `paths:` filter on pull_request, deliberately. `validate-plugin` is a
+  # REQUIRED status check in the `main Protection` ruleset. A required check that
+  # never reports leaves the PR permanently BLOCKED, with every visible check
+  # green and no failure to point at. A paths filter here deadlocked every
+  # site-only and root-package-only PR opened after 2026-07-05, including eight
+  # Dependabot PRs carrying open security alerts. The job runs in about 20
+  # seconds; running it on every PR costs far less than the deadlock.
+  # Do not add a paths filter here without first removing `validate-plugin` from
+  # the ruleset's required status checks.
   pull_request:
-    paths:
-      - ".claude-plugin/**"
-      - ".codex-plugin/**"
-      - "skills/**"
-      - "commands/**"
-      - "scripts/build-release.sh"
-      - "scripts/build-release.ps1"
-      - ".github/workflows/validate-plugin.yml"
-      - ".github/workflows/release.yml"
   push:
     branches:
       - main
