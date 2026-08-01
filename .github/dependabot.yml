@@ -10,6 +10,13 @@ updates:
       - "github-actions"
     commit-message:
       prefix: "ci(deps)"
+    groups:
+      actions-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
   # npm (for .github/scripts)
   - package-ecosystem: "npm"
@@ -20,6 +27,13 @@ updates:
       - "dependencies"
     commit-message:
       prefix: "chore(deps)"
+    groups:
+      scripts-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
   # npm (Astro Starlight docs site; relocated under site/ in the Pattern S move)
   - package-ecosystem: "npm"
@@ -30,3 +44,10 @@ updates:
       - "dependencies"
     commit-message:
       prefix: "chore(deps)"
+    groups:
+      site-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"

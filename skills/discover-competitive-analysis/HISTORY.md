@@ -2,6 +2,7 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 2.2.1 | 2026-07-31 | v2.32.0 | issue-248 | patch | Fixed three fused sentence boundaries in the Instructions (competitors.direct, competitors.respect, reliability.be), external report issue #248. Prose only; no behavior change. |
 | 2.2.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Rewrote the frontmatter description: added output specifics (competitor count, 2x2 map) and the sibling deflection to `discover-market-sizing` already present in the body. One of the four additional Batch 5 skills selected for this release alongside the spec's four named examples (see the trust-repair spec's WS-T8e "~4 more early-cohort descriptions"). |
 | 2.1.0 | 2026-06-10 | v2.26.0 | F-12-batch-3 | minor | Quality convergence: When NOT to Use + output-contract enumeration (F-12 Batch 3) |
 | 2.0.0 | 2026-01-26 | - | - | baseline | Prior published version |

@@ -9,10 +9,22 @@ word_count() {
   printf '%s\n' "$1" | awk '{ count += NF } END { print count + 0 }'
 }
 
+# Single awk process fed by a here-string: no pipeline at all. The former
+# printf | sed | head and printf | awk | head shapes could take EPIPE under
+# `set -euo pipefail` when head exited first, and these run inside command
+# substitutions where set -e aborts the whole script (the same class fixed
+# at the grep sites below and in validate-agents-md.sh #246). awk's exit on
+# first match replaces head -1 with identical semantics.
 frontmatter_value() {
   local key="$1"
-
-  printf '%s\n' "$frontmatter" | sed -n "s/^${key}:[[:space:]]*//p" | head -1
+  awk -v key="$key" '
+    index($0, key ":") == 1 {
+      line=$0
+      sub("^" key ":[ \t]*", "", line)
+      print line
+      exit
+    }
+  ' <<<"$frontmatter"
 }
 
 # Read a value from the first indent level inside the metadata: block.
@@ -20,7 +32,7 @@ frontmatter_value() {
 # deeper-nested keys and top-level keys.
 metadata_value() {
   local key="$1"
-  printf '%s\n' "$frontmatter" | awk -v key="$key" '
+  awk -v key="$key" '
     /^metadata:[ \t]*$/ { inmeta=1; next }
     inmeta==1 {
       if ($0 !~ /^[ \t]/) { inmeta=0; next }
@@ -31,7 +43,7 @@ metadata_value() {
         exit
       }
     }
-  ' | head -1
+  ' <<<"$frontmatter"
 }
 
 for dir in "$ROOT"/skills/*; do
@@ -96,7 +108,11 @@ for dir in "$ROOT"/skills/*; do
       FAIL=1
       skill_fail=1
     fi
-    if [[ $is_quoted -eq 0 ]] && printf '%s' "$description_field" | grep -qE ': '; then
+    # Under `set -euo pipefail`, a printf-into-grep pipe can fail on SIGPIPE
+    # even when grep matched, since grep may exit before printf finishes
+    # writing (the class fixed in validate-agents-md.sh #246, see the comment
+    # block around its membership loop). Here-strings avoid the pipe.
+    if [[ $is_quoted -eq 0 ]] && grep -qE ': ' <<<"$description_field"; then
       echo "✗ $rel : description contains inline ': ' which breaks strict YAML parsing (skills.sh CLI). Reword to remove the colon, or wrap the whole description in double quotes."
       FAIL=1
       skill_fail=1
@@ -105,14 +121,14 @@ for dir in "$ROOT"/skills/*; do
 
   # v2.17.0 spec migration: top-level keeps name/description/license only.
   # version/updated/phase/classification move under metadata: per agentskills.io.
-  if ! printf '%s\n' "$frontmatter" | grep -q "^license:"; then
+  if ! grep -q "^license:" <<<"$frontmatter"; then
     echo "✗ $rel : missing top-level license"
     FAIL=1
     skill_fail=1
   fi
 
   for key in version updated phase classification; do
-    if printf '%s\n' "$frontmatter" | grep -q "^${key}:"; then
+    if grep -q "^${key}:" <<<"$frontmatter"; then
       echo "✗ $rel : top-level '$key' found (move under metadata: per v2.17.0 migration)"
       FAIL=1
       skill_fail=1
