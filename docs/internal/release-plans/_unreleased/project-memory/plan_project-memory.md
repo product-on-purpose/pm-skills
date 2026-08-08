@@ -1,13 +1,71 @@
-# Remember: project memory + memory-aware cohort (PARKED)
+# Remember: project memory + memory-aware cohort (PROMOTED to v2.32.0)
 
-> **PARKED 2026-06-22 - deferred from v2.29.0 to `_unreleased/project-memory/`.** The maintainer reprioritized the pre-build risk gate (`foundation-build-risk-review`, issue #149) into v2.29.0 ahead of this memory train. This plan is revivable as-is; its target version is unassigned until re-slotted. Internal "v2.29.0" references below are historical - the slot now belongs to the pre-build gate (`docs/internal/release-plans/v2.29.0/`).
+> **PROMOTED 2026-08-07 to the v2.32.0 cycle as candidate C-1 (memory artifact ledger, F-48).** Scope
+> was ruled D1 = C (full-slate composite) on 2026-08-02; see
+> [`../../v2.32.0/plan_v2.32.0.md`](../../v2.32.0/plan_v2.32.0.md), workstreams WS-1 (ratification packet),
+> WS-2 (B1 keystone build), WS-3 (B2 cohort). **This plan is annotated, not rewritten**, per the
+> standing v2.31.0 staging instruction: extend, never re-author. Everything below is the original
+> parked text and remains the design of record except where this block or the delta spec supersedes it.
+>
+> **Superseding facts as of 2026-08-07 (WS-1):**
+> - **D2 (write posture) is RULED and the parked recommendation is superseded.** The parked spec
+>   recommends auto-append; the maintainer ruled **propose-then-confirm by default with an opt-in auto
+>   mode** (v2.32.0 decision D3 = C, 2026-08-02). Build to the ruling, not to the parked recommendation.
+> - **Ledger semantics are added** by [`spec_ledger-delta.md`](spec_ledger-delta.md), which extends
+>   `spec_project-memory.md` with artifact IDs, content hashes, provenance chains, and orchestrator
+>   execution state, per issue [#223](https://github.com/product-on-purpose/pm-skills/issues/223).
+> - **F-54 is CONFIRMED FREE** for B2 (memory-aware cohort). Verified 2026-08-07 against the live issue
+>   list: no issue claims F-54; F-55 is issue #209 (`foundation-stakeholder-briefings`, closed) and F-56
+>   is issue #149 (`foundation-build-risk-review`, closed); `docs/internal/roadmap.md` reserves F-45
+>   through F-53 as candidates. One leg unverified: the maintainer-local untracked backlog, which
+>   `roadmap.md` names as a second ID authority.
+> - **Type correction.** The header below says the catalog stays at 67. It is 68 as of v2.29.0. The
+>   MINOR classification and the no-new-skill statement both still hold.
+>
+> **RATIFIED 2026-08-07 (WS-1), all three:**
+> - **Parked D1 (structure-over-prose): RATIFIED as drafted.** Structure-first (templates, triggers,
+>   boundaries) is the standing design principle; keep prose lean. The weak-model re-test is scheduled
+>   as a one-shot calibration before the next *content* cycle, not before this memory cycle, since
+>   memory is structural by construction. Record in skill-builder guidance when B2 lands.
+> - **Parked D3 (cohort membership): RULED C, the full 8-skill cohort as specced.** Members:
+>   `discover-interview-synthesis`, `deliver-prd`, `foundation-okr-writer`, `iterate-retrospective`,
+>   and all four `foundation-meeting-*` skills (agenda, brief, recap, synthesize). This exceeds the
+>   4-7 range the v2.32.0 plan stated; that plan's text is corrected to 8 rather than the cohort being
+>   trimmed to the text. The maintainer ruled with the feasibility case heard, exactly as with the
+>   cycle-level D1 = C scope ruling. **Recorded risk, not re-argued:** 8 skills means 8 MINOR bumps,
+>   8 HISTORY rows, and a derived-surface regeneration, while WS-6 is separately changing where and
+>   when the generator runs on release branches. Two moving parts on the same plumbing in one cycle.
+>   The within-cohort drop order below is the safety net.
+> - **Resume posture: RULED A.** The ledger records orchestrator execution state; the orchestrator's
+>   no-resume halt text is UNCHANGED this cycle and that is now an acceptance item. Resume becomes
+>   possible later without being promised now.
+>
+> **Two rows below predate this ruling and are superseded by the 8-name list above.** The Committed
+> scope table's B2 row names only seven members and omits `discover-interview-synthesis`, which is the
+> canonical writer in the demonstration loop; the D1 row still reads RECOMMENDED. Both are left as
+> authored, per extend-never-re-author. **The annotation is authoritative where they conflict.**
+>
+> **Within-cohort drop order (WS-3), if capacity bites.** Drop from the bottom up; never re-open the
+> membership ruling under pressure:
+> 1. `foundation-meeting-agenda`, `foundation-meeting-brief`, `foundation-meeting-synthesize` drop
+>    FIRST. Each is a per-skill cost that neither completes the demonstration loop nor exercises a
+>    write target the rest of the cohort misses. Dropping all three lands at 5.
+> 2. `foundation-okr-writer` and `iterate-retrospective` drop next, landing at 3.
+> 3. `foundation-meeting-recap` is held above those two: it is the only cohort member that writes the
+>    `## Decisions` section, so without it half the schema ships unexercised.
+> 4. **`discover-interview-synthesis` and `deliver-prd` never drop.** They are the writer-to-reader
+>    loop the cohort exists to demonstrate; without both, B2 proves nothing.
+>
+> ---
+>
+> **Historical: PARKED 2026-06-22 - deferred from v2.29.0 to `_unreleased/project-memory/`.** The maintainer reprioritized the pre-build risk gate (`foundation-build-risk-review`, issue #149) into v2.29.0 ahead of this memory train. This plan is revivable as-is; its target version is unassigned until re-slotted. Internal "v2.29.0" references below are historical - the slot now belongs to the pre-build gate (`docs/internal/release-plans/v2.29.0/`).
 
 **Status:** PARKED in `_unreleased/project-memory/` (revivable). Prior status: PROPOSED (promoted from STUB 2026-06-17; renumbered v2.28.0 -> v2.29.0 on 2026-06-19 when v2.28.0 was reassigned to the `foundation-stakeholder-briefings` skill). Theme committed; scope rows are proposed, not locked; effort briefs + GitHub issues are the next execution-time step (not filed yet).
 **Owner:** Maintainers
 **Type:** MINOR (additive: a new project-state file + memory contracts on an existing skill cohort; no skill removed or renamed). Catalog stays at its post-v2.28.0 count (67) unless a new skill is added (none planned).
 **Theme:** **Remember.** Give the plugin durable project memory and make a first cohort of skills read and write it, so the catalog compounds across a session instead of starting cold each time.
 **Created:** 2026-06-15 (stub) | **Promoted:** 2026-06-17 | **Renumbered:** 2026-06-19 (was v2.28.0)
-**Previous:** v2.28.0 (`foundation-stakeholder-briefings`, the 1-to-N audience fan-out skill) - see [`../v2.28.0/plan_v2.28.0.md`](../v2.28.0/plan_v2.28.0.md).
+**Previous:** v2.28.0 (`foundation-stakeholder-briefings`, the 1-to-N audience fan-out skill) - see [`../../v2.28.0/plan_v2.28.0.md`](../../v2.28.0/plan_v2.28.0.md).
 
 ---
 
@@ -39,7 +97,7 @@ The v2.27.0 informed-control finding reinforces the bet rather than competing wi
 |---|---|---|
 | D1 | Skill design invests in structure (templates + triggers + boundaries) over added prose rigor; re-test on a weak model before generalizing | RECOMMENDED (maintainer to ratify) |
 | D2 | B1 state file format + whether skills write it directly or only propose writes | OPEN (see spec) |
-| D3 | Cohort membership for B2 (the first 4-7 skills) | PROPOSED (see scope) |
+| D3 | Cohort membership for B2 | **RULED C 2026-08-07: 8 skills.** See the PROMOTED annotation at the top of this file for the authoritative member list. The "first 4-7 skills" framing this row originally carried is superseded. |
 
 ### D1 - Structural value: where future skill investment goes
 
