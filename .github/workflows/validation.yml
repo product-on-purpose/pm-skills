@@ -484,6 +484,21 @@ jobs:
           node --test scripts/check-root-doc-links.test.mjs
           node scripts/check-root-doc-links.mjs
 
+      - name: Check internal doc links (ADVISORY; docs/internal relative links)
+        # docs/internal was never scanned by any link guard, so relative links there
+        # rotted silently. Adding it caught two live breaks on the day it was wired,
+        # one of them newly introduced by the commit that added this lane.
+        #
+        # ADVISORY, not enforcing, per the M-30 ladder: docs/internal carries a
+        # pre-existing backlog of ~74 broken links, nearly all pointing at the
+        # historical pm-release-plans/ path that was renamed to release-plans/ AFTER
+        # those plans shipped. Enforcing today would mean rewriting shipped release
+        # history to satisfy a new gate. Promote to enforcing (fold the flag into the
+        # step above) once the backlog is drained.
+        if: always()
+        continue-on-error: true
+        run: node scripts/check-root-doc-links.mjs --include-internal
+
       - name: Check validator-inventory parity (enforcing; bash/pwsh/CI vs manifest)
         # The release gate has three hand-maintained SHELL-validator inventories:
         # pre-tag-validate.sh, pre-tag-validate.ps1, and this workflow. They drifted

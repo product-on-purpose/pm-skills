@@ -1,8 +1,11 @@
-// Unit tests for check-root-doc-links.mjs findBrokenLinks() + relativeTargetResolves().
+// Unit tests for check-root-doc-links.mjs findBrokenLinks() + relativeTargetResolves()
+// + collectMarkdown().
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
-import { findBrokenLinks, relativeTargetResolves } from './check-root-doc-links.mjs';
+import fs from 'node:fs';
+import os from 'node:os';
+import { findBrokenLinks, relativeTargetResolves, collectMarkdown } from './check-root-doc-links.mjs';
 
 const routes = new Set(['/getting-started/index.html', '/index.html']);
 const sitePrefix = 'https://product-on-purpose.github.io/pm-skills';
@@ -118,4 +121,30 @@ test('a genuinely missing link resolves nowhere and fails', () => {
     relativeTargetResolves('../../docs/nope.md', { fileDir: RR_FILEDIR, root: RR_ROOT, fileExists: rrExists([]) }),
     false
   );
+});
+
+// collectMarkdown() must skip gitignored maintainer scratch. `_LOCAL/` is gitignored
+// repo-wide and holds no tracked file; without the skip, --include-internal drowns the
+// ~74 real broken links under ~1,150 reported from untracked scratch.
+test('collectMarkdown skips _LOCAL and node_modules but recurses real subdirs', () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cml-'));
+  try {
+    fs.writeFileSync(path.join(tmp, 'top.md'), '#');
+    fs.mkdirSync(path.join(tmp, 'sub'));
+    fs.writeFileSync(path.join(tmp, 'sub', 'nested.md'), '#');
+    fs.mkdirSync(path.join(tmp, '_LOCAL'));
+    fs.writeFileSync(path.join(tmp, '_LOCAL', 'scratch.md'), '#');
+    fs.mkdirSync(path.join(tmp, 'node_modules'));
+    fs.writeFileSync(path.join(tmp, 'node_modules', 'dep.md'), '#');
+    fs.writeFileSync(path.join(tmp, 'notmarkdown.txt'), 'x');
+
+    const found = collectMarkdown(tmp).map((f) => path.basename(f)).sort();
+    assert.deepEqual(found, ['nested.md', 'top.md']);
+  } finally {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
+test('collectMarkdown returns empty for a missing directory', () => {
+  assert.deepEqual(collectMarkdown(path.join(os.tmpdir(), 'cml-does-not-exist-' + process.pid)), []);
 });

@@ -1,6 +1,6 @@
 # Spec: project memory + memory-aware cohort (B1/B2, v2.29.0) - DRAFT for review
 
-Companion to [`plan_v2.29.0.md`](plan_v2.29.0.md). Defines the `.claude/pm-skills.local.md` state file (B1), the read/write contract mechanism and provenance model, the first cohort (B2), and the open design questions. DRAFT: everything here is proposed, not locked. (Renumbered from v2.28.0 on 2026-06-19; see the plan's renumber note.)
+Companion to [`plan_project-memory.md`](plan_project-memory.md) (renamed from `plan_v2.29.0.md` when the train was parked; link corrected 2026-08-07). Defines the `.claude/pm-skills.local.md` state file (B1), the read/write contract mechanism and provenance model, the first cohort (B2), and the open design questions. DRAFT: everything here is proposed, not locked. (Renumbered from v2.28.0 on 2026-06-19; see the plan's renumber note.)
 
 ## B1 - the state file
 

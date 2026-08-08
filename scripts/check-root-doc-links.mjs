@@ -28,8 +28,14 @@
 // External URLs (other hosts), in-page #anchors, and mailto:/tel: are skipped.
 // Anchor fragments on internal links are not resolved (presence-only, by design).
 //
-// Usage:  node scripts/check-root-doc-links.mjs
+// Usage:  node scripts/check-root-doc-links.mjs                     (enforcing scope)
+//         node scripts/check-root-doc-links.mjs --include-internal  (adds docs/internal)
 // Exit:   0 = all links resolve; 1 = one or more broken.
+//
+// --include-internal closes a real blind spot: docs/internal was unscanned, so relative
+// links there rotted silently. It caught two live breaks the day it was added, one of
+// them newly introduced. It is ADVISORY in CI until the ~74-link historical backlog in
+// shipped release plans is drained; see the note in main().
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -45,6 +51,8 @@ const SITE_PREFIX = 'https://product-on-purpose.github.io' + BASE;
 const ROOT_DOCS = ['README.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'AGENTS.md', 'QUICKSTART.md'];
 // Raw source surfaces consumed directly by agents and GitHub readers (Codex audit P1-01).
 const SOURCE_DIRS = ['skills', 'agents', '_workflows', 'commands'];
+// Maintainer-facing docs, scanned only under --include-internal (see below).
+const INTERNAL_DIRS = ['docs/internal'];
 const MANIFEST = path.join(ROOT, 'scripts', 'route-manifest.txt');
 
 // Find broken links in a markdown string. Pure (filesystem + routes injected) so it
@@ -94,14 +102,22 @@ export function relativeTargetResolves(rel, { fileDir, root, fileExists }) {
   return false;
 }
 
+// Directory names never worth scanning: gitignored maintainer scratch. `_LOCAL/` is
+// gitignored repo-wide (.gitignore line 79), so it appears at several depths and holds
+// no tracked file. Without this skip, --include-internal reports ~1,150 breaks in
+// untracked scratch and buries the ~74 real ones.
+const SKIP_DIRS = new Set(['_LOCAL', 'node_modules', '.git']);
+
 // Recursively collect *.md files under a directory (empty if the dir is absent).
-function collectMarkdown(dir) {
+export function collectMarkdown(dir) {
   const out = [];
   if (!fs.existsSync(dir)) return out;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...collectMarkdown(full));
-    else if (entry.name.endsWith('.md')) out.push(full);
+    if (entry.isDirectory()) {
+      if (SKIP_DIRS.has(entry.name)) continue;
+      out.push(...collectMarkdown(full));
+    } else if (entry.name.endsWith('.md')) out.push(full);
   }
   return out;
 }
@@ -116,9 +132,18 @@ function main() {
   );
   const fileExists = (abs) => fs.existsSync(abs);
 
+  // --include-internal adds the maintainer-facing docs/internal tree. It is OPT-IN and
+  // wired as an ADVISORY CI lane (M-30 ladder) rather than folded into the enforcing
+  // scan, because docs/internal carries a pre-existing backlog of ~74 broken links,
+  // nearly all from the historical pm-release-plans/ -> release-plans/ rename that
+  // happened after those plans shipped. Enforcing today would mean rewriting shipped
+  // history to satisfy a new gate. Promote to enforcing once the backlog is drained.
+  const includeInternal = process.argv.includes('--include-internal');
+
   const files = [
     ...ROOT_DOCS.map((d) => path.join(ROOT, d)).filter((f) => fs.existsSync(f)),
     ...SOURCE_DIRS.flatMap((d) => collectMarkdown(path.join(ROOT, d))),
+    ...(includeInternal ? INTERNAL_DIRS.flatMap((d) => collectMarkdown(path.join(ROOT, d))) : []),
   ];
 
   let problems = [];
@@ -131,7 +156,8 @@ function main() {
   }
 
   console.log('=== Root + Source Doc Link Check ===');
-  console.log(`scanned: ${files.length} markdown files (root prose + ${SOURCE_DIRS.join('/')})`);
+  const scope = SOURCE_DIRS.join('/') + (includeInternal ? ' + ' + INTERNAL_DIRS.join('/') : '');
+  console.log(`scanned: ${files.length} markdown files (root prose + ${scope})`);
   if (problems.length === 0) {
     console.log('\nPASS: all relative links resolve (Pattern S alias honored) and all deployed-site URLs map to a real route.');
     process.exit(0);
