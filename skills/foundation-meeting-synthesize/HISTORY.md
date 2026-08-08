@@ -2,10 +2,22 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.2.0 | 2026-08-08 | v2.32.0 | F-54 | minor | Project Memory Contract: reads prior syntheses, writes the synthesis as an interpretation artifact. |
 | 1.1.0 | 2026-07-05 | v2.31.0 | WS-Z5 | minor | Reciprocal When NOT to Use pointer to `discover-interview-synthesis`; collision pair declared with new trigger fixtures. |
 | 1.0.2 | 2026-07-04 | v2.30.0 | M-35 | patch | Heading normalized to the skeleton-canon spelling ("Quality checklist" to "Quality Checklist"). |
 | 1.0.1 | 2026-04-22 | v2.11.1 | - | baseline | Prior published version: cross-meeting archaeology surfacing patterns, trajectories, and contradictions across multiple recaps. Bumped from 1.0.0 for a description YAML colon-truncation fix; no HISTORY.md was created at the time. |
 
+
+## 1.2.0 (2026-08-08)
+
+Released in v2.32.0. Effort: F-54 (memory-aware cohort, B2).
+
+Adds a `## Project Memory Contract` section declaring what this skill reads from and appends to
+`.claude/pm-skills.local.md`. Additive and inert: with no memory file the skill behaves exactly as
+before. Writes are proposed for confirmation unless `memory_auto_append: true` is set.
+
+### Changes
+- Declared the project-memory read/write contract.
 ## 1.1.0 (2026-07-05)
 
 Released in [v2.31.0](../../site/src/content/docs/releases/Release_v2.31.0.md). Effort: WS-Z5 (eval backfill wave 1, R-16).

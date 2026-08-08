@@ -4,7 +4,7 @@ description: Produces a topic-segmented post-meeting summary for attendees with 
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.1.0"
+  version: "1.2.0"
   updated: 2026-07-05
   category: meeting
   frameworks: [meeting-skills-family]
@@ -110,6 +110,17 @@ When asked to create a meeting recap, follow these steps:
     - `meeting_quality.outcomes_achieved` matches `N/M` pattern when populated
     - `agenda_reconciliation` fields present even when empty lists
 
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** `active_initiative`, so decisions are recorded against the initiative they belong to.
+- **Writes:** each decision actually reached in the meeting to the `## Decisions` section, dated and attributed, plus the recap itself as a `decision` artifact.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+
+The fabrication prohibition above governs this write without exception: record only decisions that were stated. An unrecorded decision is recoverable; an invented one in durable memory is not. This complements the family's filename-based chaining rather than replacing it: filenames still locate the sibling artifacts of one meeting, while project memory carries the durable product context across meetings.
 ## Quality Checklist
 
 - [ ] Input quality flagged honestly (high / medium / low)

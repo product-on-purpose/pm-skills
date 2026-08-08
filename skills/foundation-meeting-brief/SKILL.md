@@ -4,7 +4,7 @@ description: Produces a private strategic preparation document for the user befo
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.1"
+  version: "1.1.0"
   updated: 2026-07-04
   category: meeting
   frameworks: [meeting-skills-family]
@@ -105,6 +105,17 @@ When asked to create a meeting brief, follow these steps:
     - Stakeholder list has minimum fields (name, position) when present
     - Primary ask is non-empty (use "alignment" or "information gathering" if no specific ask)
 
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** `active_initiative` and recent `decision` artifacts, so the brief can state the current position without you re-supplying it.
+- **Writes:** nothing. The brief is preparation; the recap is what becomes durable.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+
+This complements the family's filename-based chaining rather than replacing it: filenames still locate the sibling artifacts of one meeting, while project memory carries the durable product context across meetings.
 ## Quality Checklist
 
 - [ ] Anti-meeting check was applied and recorded

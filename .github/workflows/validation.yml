@@ -499,6 +499,22 @@ jobs:
         continue-on-error: true
         run: node scripts/check-root-doc-links.mjs --include-internal
 
+      - name: Check project-memory contracts (ADVISORY; B2 cohort declaration shape)
+        # F-54 / WS-3. A memory-aware skill declares in its SKILL.md what it reads from
+        # and appends to .claude/pm-skills.local.md. There is no runtime behind that: the
+        # skill is instructions and the AGENT does the file I/O, so the enforceable half
+        # is the DECLARATION, not the behavior. This checks any skill carrying the section
+        # declares it in the one agreed shape, which is what makes eight skills a cohort.
+        #
+        # ADVISORY per the parked spec's explicit instruction ("advisory first, per the
+        # M-30 ladder"). The corpus is clean at 8/8 from day one, so this is a promotion
+        # candidate at the next cut rather than a backlog to drain.
+        if: always()
+        continue-on-error: true
+        run: |
+          node --test scripts/check-memory-contracts.test.mjs
+          node scripts/check-memory-contracts.mjs
+
       - name: Check validator-inventory parity (enforcing; bash/pwsh/CI vs manifest)
         # The release gate has three hand-maintained SHELL-validator inventories:
         # pre-tag-validate.sh, pre-tag-validate.ps1, and this workflow. They drifted

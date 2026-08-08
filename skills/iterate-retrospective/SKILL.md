@@ -4,7 +4,7 @@ description: Facilitates and documents a team retrospective capturing what went 
 license: Apache-2.0
 metadata:
   phase: iterate
-  version: "2.1.0"
+  version: "2.2.0"
   updated: 2026-06-10
   category: reflection
   frameworks: [triple-diamond, lean-startup, design-thinking]
@@ -60,6 +60,17 @@ When asked to facilitate or document a retrospective, follow these steps:
 7. **Document for Future Reference**
    Capture the key points so they're available for future team members and for tracking patterns over time.
 
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** the recent `artifacts[]` entries, so the retrospective can look at what the cycle actually produced instead of relying on recall.
+- **Writes:** the lessons as an `interpretation` artifact.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+
+A retrospective surfaces raw observations, patterns, and commitments at once. Record the durable half, the lessons, under a single tag; a downstream reader needs to know how firmly to weight the entry, and a mixed tag tells it nothing.
 ## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. A complete retrospective fills every template section: Overview; Previous Retrospective Review; What Went Well; What to Improve; Discussion Notes; Action Items; Parking Lot; Metrics and Trends; Facilitator Notes; and Next Retrospective.

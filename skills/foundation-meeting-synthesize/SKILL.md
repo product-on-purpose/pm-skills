@@ -4,7 +4,7 @@ description: Cross-meeting archaeology skill. Consumes multiple meeting recaps (
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.1.0"
+  version: "1.2.0"
   updated: 2026-07-05
   category: meeting
   frameworks: [meeting-skills-family]
@@ -110,6 +110,17 @@ When asked to create a meeting synthesis, follow these steps:
     - Every contradiction has before/after source citations
     - At least 1 prioritized follow-up
 
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** `active_initiative` and prior `interpretation` artifacts on the same topic, so the synthesis shows movement rather than restating what is already recorded.
+- **Writes:** the synthesis as an `interpretation` artifact.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+
+This complements the family's filename-based chaining rather than replacing it: filenames still locate the sibling artifacts of one meeting, while project memory carries the durable product context across meetings.
 ## Quality Checklist
 
 - [ ] Source meetings listed with filename + date + per-source input quality

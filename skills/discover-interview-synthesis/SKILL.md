@@ -4,7 +4,7 @@ description: Synthesizes user research interviews into actionable insights, patt
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "2.2.0"
+  version: "2.3.0"
   updated: 2026-07-05
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
@@ -56,6 +56,17 @@ When asked to synthesize interview findings, follow these steps:
 7. **Document Limitations**
    Acknowledge what you didn't learn, sample biases, or areas needing further research. Honest limitations increase credibility.
 
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** `phase` and `active_initiative`, so findings are framed against the initiative in flight instead of asking you to restate it.
+- **Writes:** the personas and findings as an `interpretation` artifact, so a later skill can consume them without you pasting them again.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+
+This is the writer half of the loop the cohort exists to demonstrate: what this skill records, `deliver-prd` later reads.
 ## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. A complete synthesis fills every template section: Research Overview; Key Themes; Notable Quotes; Insights; Recommendations; and Appendix.

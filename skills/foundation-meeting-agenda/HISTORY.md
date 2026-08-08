@@ -2,9 +2,21 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.1.0 | 2026-08-08 | v2.32.0 | F-54 | minor | Project Memory Contract: reads active_initiative and prior decisions so agendas do not re-open settled items. |
 | 1.0.1 | 2026-07-04 | v2.30.0 | M-35 | patch | Heading normalized to the skeleton-canon spelling ("Quality checklist" to "Quality Checklist"). |
 | 1.0.0 | 2026-04-17 | v2.11.0 | F-18 | baseline | Prior published version: produces an attendee-facing agenda with time-boxed topics, owners, and ten meeting-type variants. |
 
+
+## 1.1.0 (2026-08-08)
+
+Released in v2.32.0. Effort: F-54 (memory-aware cohort, B2).
+
+Adds a `## Project Memory Contract` section declaring what this skill reads from and appends to
+`.claude/pm-skills.local.md`. Additive and inert: with no memory file the skill behaves exactly as
+before. Writes are proposed for confirmation unless `memory_auto_append: true` is set.
+
+### Changes
+- Declared the project-memory read/write contract.
 ## 1.0.1 (2026-07-04)
 
 Released in [v2.30.0](../../site/src/content/docs/releases/Release_v2.30.0.md). Effort: M-35 (trust repair sweep).

@@ -4,7 +4,7 @@ description: Produces an attendee-facing agenda that sets what will be discussed
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.1"
+  version: "1.1.0"
   updated: 2026-07-04
   category: meeting
   frameworks: [meeting-skills-family]
@@ -128,6 +128,17 @@ Applied in step 5. Each variant reshapes the topic list to match the meeting's p
 - **exec-briefing**: TL;DR first, supporting detail after. Default 30 min.
 - **other**: Generic topic structure, default 30 min.
 
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** `active_initiative` and recent `decision` artifacts, so the agenda reflects what is already settled and does not schedule time to re-open it.
+- **Writes:** nothing. An agenda is a plan for a meeting that has not happened; the recap is what becomes durable.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+
+This complements the family's filename-based chaining rather than replacing it: filenames still locate the sibling artifacts of one meeting, while project memory carries the durable product context across meetings.
 ## Quality Checklist
 
 Before delivering the agenda, verify:

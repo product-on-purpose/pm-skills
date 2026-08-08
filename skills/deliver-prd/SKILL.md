@@ -4,7 +4,7 @@ description: Creates a comprehensive Product Requirements Document that aligns s
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "2.1.0"
+  version: "2.2.0"
   updated: 2026-06-10
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
@@ -58,6 +58,17 @@ When asked to create a PRD, follow these steps:
 8. **Propose Timeline and Milestones**
    Outline key phases and checkpoints. This helps stakeholders understand the delivery plan without committing to specific dates prematurely.
 
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** `active_initiative`, and any `interpretation` artifacts recording personas or research findings. Use them instead of asking for context that has already been produced. If none exist, ask as normal and never invent a persona to fill the gap.
+- **Writes:** the PRD as a `decision` artifact, and its committed scope boundaries and success metrics to the `## Decisions` section.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+
+This is the reader half of the demonstration loop: when `discover-interview-synthesis` has already recorded personas, do not ask the user to supply them again.
 ## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. A complete PRD fills every template section: Overview; Goals & Success Metrics; User Stories; Scope; Solution Design; Technical Considerations; Dependencies & Risks; Timeline & Milestones; Open Questions; and the Appendix when supporting material exists.

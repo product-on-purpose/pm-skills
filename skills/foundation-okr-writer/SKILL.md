@@ -4,7 +4,7 @@ description: Drafts, reviews, rewrites, and coaches outcome-based OKR sets acros
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.0"
+  version: "1.1.0"
   updated: 2026-04-30
   category: coordination
   frameworks: [triple-diamond, okrs, lean-startup]
@@ -98,6 +98,17 @@ When asked to write or review OKRs, follow these steps:
 14. **Finalize for direct use**
     Remove all skill instruction commentary from the final artifact. The final output should be reader-facing.
 
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** `phase`, `active_initiative`, and any prior `decision` artifacts, so objectives align to what has already been committed rather than restating it.
+- **Writes:** the OKR set as a `decision` artifact.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+
+Memory never supplies a baseline or a target. The refusal to fabricate those stands regardless of what is recorded.
 ## Constraint Rules (MUST / MUST NOT)
 
 These rules are non-negotiable. The skill enforces them in every mode.
