@@ -46,8 +46,13 @@ This is called out at the top of the delta because it is the one place where bui
 document would produce the wrong behavior. Concretely:
 
 - Default: the agent shows the proposed ledger entry and waits for confirmation before writing.
-- Opt-in: a flag in the state file (proposed key `memory.auto_append: true`) switches to auto-append
-  with an echo of what was written.
+- Opt-in: a flag in the state file, `memory_auto_append: true`, switches to auto-append with an echo
+  of what was written. **Flat key, corrected during the WS-2 build.** This spec first proposed the
+  nested `memory.auto_append`, which the shipped reader cannot parse: `hooks/lib/frontmatter.mjs`
+  states in its own header that it is "NOT a YAML parser" because an installed plugin's hooks have no
+  `node_modules` and therefore cannot import js-yaml. It reads flat scalars and inline arrays only.
+  The flat form is also consistent with the keys already in that file (`phase_router`, `guardrails`,
+  `guardrail_checks`) and still avoids collision by prefix.
 - The posture applies to every write in this delta, including ledger run records.
 
 ## 3. Schema version: stays `schema: 1`
