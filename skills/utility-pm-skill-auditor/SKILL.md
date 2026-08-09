@@ -4,7 +4,7 @@ description: Run a repo-wide cross-cutting governance audit via the pm-skill-aud
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.1"
+  version: "1.1.0"
   updated: 2026-06-10
   category: governance
   frameworks: [triple-diamond]
@@ -27,6 +27,7 @@ Cross-client dispatch wrapper for the `pm-skill-auditor` sub-agent. Detects runt
 - You want to draft a CHANGELOG entry -> use `utility-pm-changelog-curator` (ships in Phase 4)
 - You want to ship a release -> use `utility-pm-release-conductor` (ships in Phase 5)
 - You want to FIX issues found in an audit -> the auditor is detection-only; remediation is maintainer judgment or future `pm-frontmatter-doctor` (v2.17+)
+- You want a deep, single-skill check against the authoring conventions -> use `utility-pm-skill-validate`. The auditor goes wide across the catalog; it does not go deep on one skill.
 
 ## Instructions
 

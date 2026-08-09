@@ -4,7 +4,7 @@ description: Run an ordered sequence of pm-skills against one input, pausing for
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.1.0"
+  version: "1.2.0"
   updated: 2026-06-10
   category: workflow
   frameworks: [triple-diamond]
@@ -40,6 +40,7 @@ Run modes (orthogonal to client):
 - You only need to PRODUCE a prioritized action plan (not run it) -> use `foundation-prioritized-action-plan` (which can then offer to hand its plan here).
 - You only need to review one artifact -> use `utility-pm-critic`.
 - You want to run library-maintenance machinery as if it were PM work -> the orchestrator refuses Tier-3 maintenance skills.
+- You want to AUTHOR a reusable workflow rather than run a chain right now -> use `utility-pm-workflow-builder`. That skill produces a durable, named workflow; this one runs an ephemeral chain and persists no definition.
 
 ## Instructions
 

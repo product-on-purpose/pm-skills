@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-skill-validate",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Can you validate the deliver-prd skill before we ship v2.33.0?",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I just edited foundation-persona's frontmatter and instructions; can you confirm it still meets our structural conventions before I open the PR?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no validate keyword, but matches the after-manual-edit use case in When to Use"
+    },
+    {
+      "q": "Run a full validation report on utility-pm-critic, both the structural checks and the quality ones.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before I hand this off to iterate, I need a pass/fail report showing exactly which checks discover-market-sizing is failing and how severe each finding is.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Explicitly upstream of utility-pm-skill-iterate, matching the validate-before-iterate use case named in When to Use"
+    },
+    {
+      "q": "Check whether skills/tool-design-sprint-brief has the required TEMPLATE.md, EXAMPLE.md, and a properly formed frontmatter block.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Someone on the team contributed a new skill last week; before we merge it, I want a second pair of eyes checking it hits every structural and quality bar we hold shipped skills to.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only, describes reviewing a contributed skill for quality and completeness, a named use case"
+    },
+    {
+      "q": "Give me a structured pass/fail report on develop-adr with severity-graded findings before we ship it.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Audit define-jtbd-canvas against our repo's structural conventions and quality checklist.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We changed the description-length convention repo-wide last week; which skills in the catalog now need updating to comply?",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Convention-change batch mode use case, named directly in When to Use"
+    },
+    {
+      "q": "I hand-edited iterate-retrospective's SKILL.md yesterday to fix a typo; confirm it still passes all our checks before I forget about it.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I have an idea for a new skill that generates competitor teardown decks; walk me through the gap analysis and get me a draft packet.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-builder",
+      "notes": "Creating a brand-new skill from scratch is the builder's job, not validate's; validate only audits skills that already exist"
+    },
+    {
+      "q": "The last validation report flagged that the template is missing an EXAMPLE section; go ahead and apply that fix to the skill.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-iterate",
+      "notes": "Explicit ask to apply the fix, not just diagnose it; validate reports, iterate writes changes"
+    },
+    {
+      "q": "Before we tag v2.33.0, run the full repo governance audit: every enforcing validator, the cross-cutting checks, and re-derive the aggregate skill counts.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-auditor",
+      "notes": "Repo-wide governance audit with cross-cutting checks and counter re-derivation is the auditor's territory; validate's batch mode is structural-only, per-skill"
+    },
+    {
+      "q": "Write a SQL query that finds the median time between signup and first purchase.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Review this draft PRD for gaps in the success metrics section before I send it to engineering.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-critic",
+      "notes": "Reviewing a PM artifact a skill produced, not auditing a skill's own SKILL.md files"
+    },
+    {
+      "q": "Book me a flight and hotel for the product offsite in Austin next month.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "I want to add a brand-new utility skill for competitor teardown decks to the library; help me scope it and generate the draft files.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-skill-builder",
+      "notes": "Scoping and drafting a new skill's files is the builder's flow, not an audit of an existing one"
+    },
+    {
+      "q": "Take the feedback from last week's review and apply the fixes directly to foundation-persona's SKILL.md.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-skill-iterate",
+      "notes": "Applying feedback as edits is iterate's job; validate only produces the report the feedback came from"
+    },
+    {
+      "q": "Draft the CHANGELOG entry summarizing everything that shipped in this release.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-changelog-curator",
+      "notes": "Drafting release notes from git log, not auditing a skill file against conventions"
+    },
+    {
+      "q": "Wire the frontmatter checks into CI so every PR gets linted automatically.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Points to scripts/lint-skills-frontmatter.sh directly, per the skill's own When NOT to Use; a CI pipeline task, not an interactive validate invocation"
+    }
+  ]
+}

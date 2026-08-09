@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-workflow-orchestrator",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "I have a prioritized action plan saved from last week's planning session; run its Section 7 prompts in order and pause for my approval after each one.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Chain deliver-prd into deliver-user-stories against this feature brief so the story skill picks up the PRD's confirmed output automatically.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before we spend real tokens on it, walk through the whole three-skill sequence in dry-run mode so I can see what would run and whether the chain even parses.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Names the readiness-probe flag but is otherwise a Mode B ad-hoc chain request; still this skill's territory."
+    },
+    {
+      "q": "Run competitive-analysis, then the founding hypothesis, then experiment-design back to back, and don't stop to ask me after each one unless something actually fails or comes back empty.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Guarded-auto run mode (stop on failed/empty, otherwise no pause) is this skill's own semantics."
+    },
+    {
+      "q": "We keep manually copying the output of one PM skill into the next for this same three-step process every sprint; is there a way to just run them as one sequence with a pause between each?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only, no artifact or skill-name keyword; describes checkpointed multi-skill execution."
+    },
+    {
+      "q": "I want journey-map and problem-statement chained so the second step automatically receives the confirmed artifact from the first, not something I re-paste myself.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Describes the --thread dependency behavior without naming it."
+    },
+    {
+      "q": "Run the ad-hoc chain: foundation-persona, then discover-journey-map, then deliver-prd, using the same customer context for all three.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Use /chain to run define-hypothesis and then measure-experiment-design on this pricing idea.",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "The chain command is the terse front door for Mode B; this is the same skill's territory."
+    },
+    {
+      "q": "Execute my saved action plan's ranked list of next efforts end to end, and stop the whole run if any step comes back empty or fails.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Is there a way to run a handful of pm-skills as one continuous sequence, checkpointing after each, instead of me babysitting and re-invoking each one by hand?",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Fully intent-only, no skill names or artifact keywords at all; the strongest routing test."
+    },
+    {
+      "q": "We keep running the same three skills by hand every time we kick off a new feature; can you turn that repeated sequence into a permanent workflow I can invoke by name later?",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-workflow-builder",
+      "notes": "Promoting a repeated chain into a durable, authored workflow is the builder's job; the orchestrator only runs a sequence once, it never authors one."
+    },
+    {
+      "q": "I have a chain expression from a /chain run that worked really well; capture it as a proper workflow file and command so the rest of the team can reuse it.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-workflow-builder",
+      "notes": "Chain-promotion is explicitly the workflow builder's entry form, not a run request."
+    },
+    {
+      "q": "I just have a pile of messy notes from a leadership sync and I'm not sure what to prioritize; what should I actually do next?",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-prioritized-action-plan",
+      "notes": "Wants the ranked next-action plan produced from scratch, not an existing plan's steps executed; the orchestrator's own When NOT to Use calls this out."
+    },
+    {
+      "q": "Here's the PRD I just drafted for the checkout redesign; tell me what's weak or missing before I send it to engineering.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-critic",
+      "notes": "Single-artifact adversarial review, not a multi-step run; the orchestrator's own When NOT to Use routes this to pm-critic."
+    },
+    {
+      "q": "Check whether a newer pm-skills release is out and bring my local install up to date.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-update-pm-skills",
+      "notes": "Library-maintenance machinery; the orchestrator explicitly refuses Tier-3 maintenance skills and this is one of the named ones."
+    },
+    {
+      "q": "Summarize what happened in yesterday's roadmap review for the folks who couldn't make it.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-meeting-recap",
+      "notes": "Plain single-skill meeting recap request with no sequencing or multi-step intent."
+    },
+    {
+      "q": "Run our whole Foundation Sprint end to end this week, from basics through the founding hypothesis.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "A fixed, curated, author-maintained multi-skill workflow (the workflow-foundation-sprint command) is explicitly out of scope per When NOT to Use; the command has no backing skill directory so no near_miss_of is set."
+    },
+    {
+      "q": "My Postgres migration script keeps timing out on the big customers table; can you help me debug it?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated engineering debugging ask."
+    },
+    {
+      "q": "Draft the launch checklist for the mobile app release covering legal, support, and marketing readiness.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-launch-checklist",
+      "notes": "Single-artifact production request; no sequencing of multiple skills implied."
+    },
+    {
+      "q": "Plan a team offsite in Denver for next quarter, need agenda and logistics.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask."
+    }
+  ]
+}

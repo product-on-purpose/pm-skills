@@ -28,6 +28,12 @@ if (!Array.isArray(data.collision_pairs) || !data.collision_pairs.every((p) => A
 /** The trigger-eval roster: every skill that must ship evals/trigger-fixtures.json. */
 export const ROSTER = data.roster;
 
+/** Skills deliberately outside the trigger-eval program (v2.32.0 decision D6 = C: the
+ *  tool-* sprint stages are entered through their family, not by free-text routing).
+ *  Optional in the data file; absent means nothing is excluded. Kept as data so a
+ *  coverage report can subtract it instead of hardcoding a count. */
+export const EXCLUDED = Array.isArray(data.excluded) ? data.excluded : [];
+
 /** Curated near-duplicate pairs; each member must carry near-miss negatives at the other. */
 export const COLLISION_PAIRS = data.collision_pairs;
 

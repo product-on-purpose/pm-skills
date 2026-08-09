@@ -119,7 +119,7 @@ A per-skill changelog that connects versions to efforts and releases.
 ### Format
 
 ```markdown
-# {skill-name} . Version History
+# {skill-name} - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-skill-iterate",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "I ran utility-pm-skill-validate on deliver-edge-cases and got three WARN findings; can you apply the fixes it recommends?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Validation-report-driven iteration is the primary intended input type"
+    },
+    {
+      "q": "The example in foundation-persona doesn't feel realistic anymore, make it better",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "General improvement request naming no tool, only the target skill and a vague ask"
+    },
+    {
+      "q": "We just decided every skill needs a Limitations section from now on; update develop-adr to add one",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Convention-change input type, applied to one named skill"
+    },
+    {
+      "q": "Can you update the deliver-prd skill's template so it matches how we're actually using it now",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Iterate on utility-pm-critic based on this feedback: the checklist step is too vague",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "This validation report flagged missing frontmatter fields on discover-journey-map; walk me through fixing it and bumping the version",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "The instructions in measure-survey-analysis are out of date now that we changed our template header format everywhere; can you bring it in line?",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only convention-change ask, no keyword from the skill's own name or description"
+    },
+    {
+      "q": "Someone on the team said define-problem-statement's example is confusing; can we tighten it up before the next release?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Apply the changes from this validate report to iterate-lessons-log and suggest what version bump that should be",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Target skill happens to live in the iterate phase family; the request is still about editing that skill's files, which is this skill's job regardless of the target's own name"
+    },
+    {
+      "q": "I want to preview and apply targeted edits to foundation-okr-writer before we ship it, based on the feedback doc I pasted",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We need a whole new skill for competitive teardown decks, nothing like this exists yet",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-builder",
+      "notes": "Creating from scratch, not modifying an existing skill; per iterate's own When NOT to Use"
+    },
+    {
+      "q": "Just check whether develop-spike-summary meets our structural conventions, don't change anything yet",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-validate",
+      "notes": "Audit only, explicitly no edits; validate is the correct precursor step"
+    },
+    {
+      "q": "Run a full repo health check before we tag the next release",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-auditor",
+      "notes": "Repo-wide cross-cutting audit, not a targeted edit to one skill"
+    },
+    {
+      "q": "Check if there's a newer version of pm-skills available and pull it down",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-update-pm-skills",
+      "notes": "Bringing a local install up to the latest public release, not applying custom feedback to a skill"
+    },
+    {
+      "q": "Write up notes from today's backlog grooming session so the folks who missed it can catch up",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-refinement-notes",
+      "notes": "Shares the iterate phase name but documents a team ceremony, not a skill file edit"
+    },
+    {
+      "q": "Facilitate our sprint retro and capture what went well and what to improve",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "iterate-retrospective",
+      "notes": "Shares the iterate phase name but is a team ceremony, not a skill file edit"
+    },
+    {
+      "q": "Draft a PRD for the new offline sync feature",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-prd",
+      "notes": "Ordinary PM deliverable request with no connection to editing a pm-skills skill"
+    },
+    {
+      "q": "What's the weather like in Austin this weekend?",
+      "expect": "no-trigger",
+      "split": "validation"
+    },
+    {
+      "q": "My Python script throws a KeyError when parsing the CSV, can you help debug it?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Compare our onboarding funnel against three competitors' flows",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "discover-competitive-analysis",
+      "notes": "Unrelated PM research task, not a skill edit"
+    }
+  ]
+}

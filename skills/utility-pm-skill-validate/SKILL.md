@@ -4,7 +4,7 @@ description: Audits an existing pm-skills skill against structural conventions a
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.1.1"
+  version: "1.2.0"
   updated: 2026-07-04
   category: coordination
   frameworks: [triple-diamond]
@@ -37,6 +37,7 @@ The validator checks two tiers:
 - To fix or improve a skill -> use `utility-pm-skill-iterate` (feed it this report)
 - To run CI checks in a pipeline -> use `scripts/lint-skills-frontmatter.sh`
   (this skill is for interactive, deeper-than-CI validation)
+- To audit the whole catalog rather than one skill -> use `utility-pm-skill-auditor`. This skill goes deep on a single skill; the auditor goes wide across the repo and aggregates cross-cutting findings.
 
 ## Instructions
 

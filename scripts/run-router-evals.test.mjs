@@ -130,7 +130,10 @@ test('the eval scope is the trigger-eval roster data file (WS-T10)', () => {
   // run-router-evals scopes its fixtures to ROSTER, re-exported from
   // trigger-eval-roster.yaml. 31 at v2.30.0; the v2.31.0 WS-Z5 wave-1 backfill
   // adds 12 skills across PR9-PR11, bringing this to 43 (43/68, about 65 percent).
-  assert.equal(ROSTER.length, 43);
-  assert.equal(new Set(ROSTER).size, 43);
+  // The v2.32.0 WS-4 wave-2 backfill adds the 10 remaining utility-* skills -> 53,
+  // which with the 15 tool-* skills excluded by design (decision D6 = C) covers the
+  // full 68-skill catalog with nothing unaccounted for.
+  assert.equal(ROSTER.length, 53);
+  assert.equal(new Set(ROSTER).size, 53);
   assert.ok(ROSTER.every((s) => typeof s === 'string' && /^[a-z0-9-]+$/.test(s)));
 });

@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "skill": "utility-update-pm-skills",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Check if there's a newer version of pm-skills available and update me to it",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I installed pm-skills as a plugin months ago and haven't touched it since; is there a newer release, and can you bring me current?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no artifact keyword"
+    },
+    {
+      "q": "Show me what's new before you touch anything, then update if it looks safe",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Describes the preview-then-confirm flow without naming the skill"
+    },
+    {
+      "q": "We just heard pm-skills shipped v2.32.0; walk me through getting our local install caught up",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Pull the latest pm-skills release into this folder and give me a report of what changed",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Our skills folder looks thinner than the catalog the docs describe; can you tell me if we're behind and refresh us?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no artifact keyword"
+    },
+    {
+      "q": "Run utility-update-pm-skills in report-only mode so I can see the diff without writing files",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before onboarding the new PM hire, confirm we're running the latest pm-skills release",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Give me a quick version check: what pm-skills version am I on versus what's latest",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Maps to the --status flag path"
+    },
+    {
+      "q": "Sync our local pm-skills copy with the newest tagged release, and back up the old files first",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I have an idea for a new skill that generates competitive teardown docs; walk me through building it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-builder",
+      "notes": "New skill creation, not bringing an install current"
+    },
+    {
+      "q": "Check this skill directory against pm-skills conventions and tell me what's wrong with it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-validate",
+      "notes": "Structural audit of one skill, not a version update"
+    },
+    {
+      "q": "The validator flagged three issues in deliver-prd; apply the fixes and suggest a version bump",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-iterate",
+      "notes": "Editing one skill's content, not syncing the whole install to upstream"
+    },
+    {
+      "q": "We're ready to cut v2.33.0; walk me through the release gates and tag it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-release-conductor",
+      "notes": "Publishing a new release as maintainer, the mirror image of consuming one as a user"
+    },
+    {
+      "q": "Run a full governance audit across the repo before we ship, check every validator",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-auditor",
+      "notes": "Repo-wide health check, not a version comparison against upstream"
+    },
+    {
+      "q": "I have the repo cloned locally and I'm contributing directly; how do I pull in the latest changes from main?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Per the skill's own FAQ, contributors use git pull directly; no skill should claim this, it is a plain git operation"
+    },
+    {
+      "q": "Draft the CHANGELOG entry summarizing the skills we shipped this sprint",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-changelog-curator",
+      "notes": "Authoring release notes for a new release, not consuming one"
+    },
+    {
+      "q": "Is there a newer major version of Next.js I should migrate to, and what breaks?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated library upgrade, not pm-skills"
+    },
+    {
+      "q": "My npm dependencies show a bunch of outdated packages, help me bump them safely",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated dependency management"
+    },
+    {
+      "q": "Summarize the action items from today's roadmap review meeting",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated meeting recap ask"
+    }
+  ]
+}

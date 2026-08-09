@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-workflow-builder",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "The /chain run I did earlier, measure-experiment-results into discover-stakeholder-summary, worked so well I want to promote it into something the whole team can reuse. Set that up as a durable workflow.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I want to chain foundation-persona, define-jtbd-canvas, and discover-journey-map into a reusable workflow with a slash command.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We need a new workflow for quarterly business reviews that pulls together competitive analysis, experiment results, and stakeholder summary work.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Every time we kick off customer discovery, three of us manually run the same five skills in the same order and hand off notes between each other. I want this captured as something durable the whole team can run, not something I retype from memory every time.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask, no 'workflow' keyword; the recurring hand-off pain is the tell"
+    },
+    {
+      "q": "Help me build a workflow packet for our quarterly OKR cycle, chaining OKR writing into OKR grading with a real handoff between the two steps.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Our onboarding-to-first-value process runs through five different skills right now and everyone does it slightly differently. I want one authored sequence with a command name the team can just run.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask; standardizing a repeated multi-skill process into a durable, named sequence"
+    },
+    {
+      "q": "Draft a new durable workflow for onboarding a new PM to a product area, chaining stakeholder summary work with persona building.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We want a lasting workflow for post-mortems, chaining the retrospective skill and the lessons-log skill with real handoffs authored between them.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I'm tired of manually kicking off the same five skills every time we run a stakeholder alignment session. Can we turn that into an actual reusable thing with its own command instead of me remembering the order?",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask, no artifact keyword; standing up a durable named sequence is the tell"
+    },
+    {
+      "q": "Take the chain expression the orchestrator suggested after that run, deliver-prd into deliver-acceptance-criteria, and turn it into a proper workflow file and command.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Just run deliver-prd then deliver-user-stories against this feature description right now, I don't need this saved as anything permanent.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-workflow-orchestrator",
+      "notes": "One-off chain run with no intent to author a durable sequence; orchestrator territory per the builder's own description"
+    },
+    {
+      "q": "I have an idea for a single new skill that scores accounts by churn risk; walk me through building it.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-builder",
+      "notes": "Single skill, not a multi-skill sequence"
+    },
+    {
+      "q": "The instructions in our discover-competitive-analysis skill are stale after the last framework change; help me revise its steps.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-iterate",
+      "notes": "Modifying an existing single skill, explicitly named in the builder's When NOT to Use"
+    },
+    {
+      "q": "Add a backlog-grooming step to the existing sprint-planning workflow file.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Customizing an existing workflow is a direct file edit per the builder's own When NOT to Use; no dedicated skill owns this so no near_miss_of"
+    },
+    {
+      "q": "Write a SQL query that joins our events table with the users table to find weekly active users.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Help me debug why our React app throws a hydration mismatch error on the pricing page.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Run my saved prioritized action plan's steps in order, pausing for my approval after each one.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-workflow-orchestrator",
+      "notes": "Mode A execution of an already-produced plan; running, not authoring"
+    },
+    {
+      "q": "Before we tag the next release, run a full governance audit across every skill and workflow file in the repo and flag anything broken.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-skill-auditor",
+      "notes": "Repo-wide readiness audit, not authoring a new workflow"
+    },
+    {
+      "q": "Draft OKRs for the platform team for next quarter.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated single-artifact ask"
+    },
+    {
+      "q": "Plan an offsite dinner reservation for twelve people next Thursday.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated logistics ask"
+    }
+  ]
+}

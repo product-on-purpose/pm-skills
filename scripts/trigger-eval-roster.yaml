@@ -80,9 +80,55 @@ roster:
   - foundation-prioritized-action-plan
   - foundation-stakeholder-briefings
   - foundation-stakeholder-update
-  # Utility (2)
+  # Utility (12)
   - utility-mermaid-diagrams
   - utility-pm-changelog-curator
+  # Wave-2 (v2.32.0, WS-4): the 10 remaining utility-* skills. With the tool-*
+  # family ruled out by design below, the roster now covers every triggerable
+  # skill: 53 of 53.
+  - utility-pm-critic
+  - utility-pm-release-conductor
+  - utility-pm-skill-auditor
+  - utility-pm-skill-builder
+  - utility-pm-skill-iterate
+  - utility-pm-skill-validate
+  - utility-pm-workflow-builder
+  - utility-pm-workflow-orchestrator
+  - utility-slideshow-creator
+  - utility-update-pm-skills
+
+# Skills deliberately OUT of the trigger-eval program (v2.32.0, decision D6 ruled C).
+#
+# The 15 tool-* skills are sequential STAGES inside two registered sprint families
+# (Foundation Sprint, Design Sprint) plus one standalone facilitation tool. A user
+# reaches them through the family entry point or a workflow command, not by free-text
+# routing to stage 4 of 7. Measuring free-text trigger recall on a step nobody enters
+# by name would report a number that means nothing, and chasing that number would
+# push each stage to compete for queries its own family is supposed to route.
+#
+# The honest case against, recorded rather than buried: a user CAN free-text a stage
+# ("run the magic lenses exercise"), and fixtures guard collisions as well as recall.
+# If free-text entry into sprint stages turns out to be real, reverse this: the work
+# is 15 fixture packs, and D6 option A is the decision to revisit.
+#
+# This list is data, not prose, so a coverage report can subtract it rather than
+# hardcoding 15. Consumers read it via EXCLUDED in trigger-eval-roster.mjs.
+excluded:
+  - tool-design-sprint-brief
+  - tool-design-sprint-decide-and-storyboard
+  - tool-design-sprint-map-and-target
+  - tool-design-sprint-prototype-plan
+  - tool-design-sprint-readiness
+  - tool-design-sprint-sketch
+  - tool-design-sprint-test-and-score
+  - tool-foundation-sprint-approach-options
+  - tool-foundation-sprint-basics
+  - tool-foundation-sprint-brief
+  - tool-foundation-sprint-differentiation
+  - tool-foundation-sprint-founding-hypothesis
+  - tool-foundation-sprint-magic-lenses
+  - tool-foundation-sprint-readiness
+  - tool-note-and-vote
 
 # Known collision pairs (2026-06 audit D1-D5 + the OKR watch pair, D6). Skills in a
 # pair must carry near-miss negatives aimed at (at least) one declared partner.
@@ -108,6 +154,17 @@ collision_pairs:
   - [foundation-meeting-agenda, foundation-meeting-brief]
   - [foundation-meeting-brief, foundation-meeting-recap]
   - [foundation-meeting-synthesize, foundation-meeting-recap]
+  # v2.32.0 WS-4 wave-2 additions. Same discipline as wave-1: each pair was checked
+  # against BOTH sides' fixtures before declaring it, and each side already carries a
+  # near-miss aimed at its new partner, so no existing fixture needed to change. The
+  # authoring agents produced those near-misses independently from reading the SKILL.md
+  # boundaries, which is corroboration that these three collisions are real and not
+  # invented to fill a quota. Two of the six reciprocal When NOT to Use edges were
+  # already in place; the other three were added in this cycle (one of them,
+  # workflow-orchestrator to workflow-builder, was a pre-existing one-sided pointer).
+  - [utility-pm-skill-builder, utility-pm-skill-iterate]
+  - [utility-pm-skill-validate, utility-pm-skill-auditor]
+  - [utility-pm-workflow-builder, utility-pm-workflow-orchestrator]
   - [foundation-meeting-synthesize, discover-interview-synthesis]
   - [foundation-stakeholder-update, foundation-stakeholder-briefings]
   - [foundation-stakeholder-update, foundation-meeting-recap]

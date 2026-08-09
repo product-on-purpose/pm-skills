@@ -912,7 +912,7 @@
     {
       "name": "utility-pm-skill-auditor",
       "description": "Run a repo-wide cross-cutting governance audit via the pm-skill-auditor sub-agent. Aggregates the enforcing validator suite, re-derives aggregate counters, and surfaces cross-cutting issues no single validator catches, graded P0/P1/P2/P3 with a machine-readable status. Use for pre-release readiness checks or a periodic repo health audit.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "group": "utility",
       "phase": null,
       "family": null,
@@ -956,7 +956,7 @@
     {
       "name": "utility-pm-skill-validate",
       "description": "Audits an existing pm-skills skill against structural conventions and quality criteria. Produces a structured validation report with pass/fail checks, severity-graded findings, and actionable recommendations. Use when checking whether a skill meets repo standards before shipping or after making changes.",
-      "version": "1.1.1",
+      "version": "1.2.0",
       "group": "utility",
       "phase": null,
       "family": null,
@@ -986,7 +986,7 @@
     {
       "name": "utility-pm-workflow-orchestrator",
       "description": "Run an ordered sequence of pm-skills against one input, pausing for go/no-go and stopping on a failed or empty step. Accepts a saved prioritized action plan (Mode A) or an ad-hoc named chain (Mode B; the chain command routes here). Explicit invocation only; run --dry-run first while the native path is EXPERIMENTAL. To author a durable workflow instead, use utility-pm-workflow-builder.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "group": "utility",
       "phase": null,
       "family": null,

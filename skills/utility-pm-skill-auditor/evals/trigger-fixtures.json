@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-skill-auditor",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Run a full pre-release readiness audit across the whole repo before we tag v2.33.0",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Can you check whether the skill counts declared in AGENTS.md and README still match what's actually in the skills folder?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only ask for aggregate counter re-derivation, no 'audit' keyword"
+    },
+    {
+      "q": "It has been a while since our last repo health check; walk the whole library and tell me what is structurally broken",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only phrasing, no artifact or validator keyword"
+    },
+    {
+      "q": "Run every enforcing validator and give me a P0 through P3 severity report on the state of the repo",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before we cut this release, I need every cross-cutting governance check run against the whole library, not just one skill",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Do a periodic health audit of the pm-skills repo and flag anything the individual validators would not catch on their own",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Give me a machine-readable status block on repo governance issues right now",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Audit the whole skills library for orphaned family contracts, sample gaps, and skills missing a matching command",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We have not run a repo-wide check in months; catch me up on where governance stands before I plan next quarter",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing, no explicit audit or validator keyword"
+    },
+    {
+      "q": "Kick off the pm-skill-auditor pass scoped to changed files with a P1 severity floor",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Review this PRD I just drafted for gaps and inconsistencies before I send it to engineering",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-critic",
+      "notes": "Single-artifact adversarial review, not a repo-wide audit; per the auditor's own When NOT to Use pointer"
+    },
+    {
+      "q": "Check whether the define-hypothesis skill's frontmatter and template still follow our repo conventions",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-validate",
+      "notes": "Audits ONE skill's structure, not a cross-cutting repo-wide governance sweep"
+    },
+    {
+      "q": "I'm ready to cut v2.33.0; walk me through the release gates and tag it when we're done",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-release-conductor",
+      "notes": "The conductor's own G0 gate chains to the auditor internally, but the user's ask is for the guided release walkthrough itself"
+    },
+    {
+      "q": "Draft the CHANGELOG entries for everything since the last tag",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-changelog-curator"
+    },
+    {
+      "q": "The last audit flagged three P1 issues on define-hypothesis; go apply the fixes",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-iterate",
+      "notes": "Remediation of already-found issues; the auditor is detection-only per its When NOT to Use"
+    },
+    {
+      "q": "My Next.js build is failing with a module resolution error, can you help me debug it",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "I have an idea for a new skill that captures win and loss reasons from sales interviews; help me figure out if it's worth building",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-skill-builder",
+      "notes": "New skill scoping, not an audit of existing repo state"
+    },
+    {
+      "q": "Check if there's a newer pm-skills release available and update my local install to it",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-update-pm-skills",
+      "notes": "Checks for and applies a newer PUBLISHED release; not a governance audit of current repo state"
+    },
+    {
+      "q": "Write a SQL query that finds which users churned within 30 days of signup",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "Book me a flight and hotel for the team offsite next month",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated logistics ask"
+    }
+  ]
+}

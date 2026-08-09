@@ -1,4 +1,4 @@
-# foundation-okr-writer . Version History
+# foundation-okr-writer - Version History
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|

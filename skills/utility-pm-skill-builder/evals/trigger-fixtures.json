@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-skill-builder",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "I have an idea for a new PM skill that turns raw NPS verbatims into a themed insight brief - walk me through getting it built into the library.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We keep improvising the same vendor-comparison writeup by hand every quarter, and I bet other teams do too. Is there a real gap in what pm-skills already covers, and if so, help me get something built and staged for review.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only, problem-first ask with no skill-builder keyword"
+    },
+    {
+      "q": "Guide me through creating a new pm-skills skill for writing customer advisory board briefings, from idea to a full packet I can review.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Before I write a single line: our PMs keep hand-rolling the same pricing teardown doc and there's no repo skill that produces it. Is this even worth a new skill?",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only, opens with the gap-analysis question itself"
+    },
+    {
+      "q": "Run gap analysis on whether we need a new skill for capacity planning against sprint commitments, and if there's a real gap, take me through the Why Gate and generate the packet.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I want to add a foundation skill for cross-team dependency mapping to the library - help me classify it, pick exemplars, and draft the files.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Take my rough idea - a skill that drafts internal FAQ documents for support handoff - and turn it into a full Skill Implementation Packet with drafts staged for review.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Our team invents a new one-off doc every time we run vendor security reviews. Is that worth turning into a proper skill in the catalog, and if so, build it out end to end.",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only, no artifact keyword until the ask to build it out"
+    },
+    {
+      "q": "Help me figure out whether this belongs as a new domain skill or folds into an existing one, then generate the draft SKILL.md, template, example, and eval fixtures for a customer win-loss analysis skill.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I want to propose a new utility skill for auto-generating stakeholder RACI matrices - start with the gap analysis against what's already in the catalog.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "The persona skill's example is thin and a couple of checklist items are vague per the last audit - can you tighten up the existing skill rather than start something new?",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-iterate",
+      "notes": "Improving an already-shipped skill is the iterator's job, not the builder's, per the builder's own When NOT to Use"
+    },
+    {
+      "q": "Before we ship this quarter, check whether foundation-okr-writer still meets the repo's structural and quality conventions.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-validate",
+      "notes": "Auditing one existing skill against conventions is the validator's job, not skill creation"
+    },
+    {
+      "q": "I want to chain interview-synthesis, opportunity-tree, and prioritization into a durable, reusable workflow the team can invoke as one command.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-workflow-builder",
+      "notes": "Multi-skill workflow authoring is a separate builder; the skill-builder explicitly defers workflow creation"
+    },
+    {
+      "q": "Run a full pass over the skills catalog and flag drifted headings, stale AGENTS.md entries, and anything that would block the next release.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-skill-auditor",
+      "notes": "Repo-wide governance audit across existing skills, not creation of a new one"
+    },
+    {
+      "q": "Draft a PRD for the new skill-recommendation feature we're shipping to end users next quarter.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-prd",
+      "notes": "Trap: 'skill' here names an end-user-facing product feature, not a pm-skills library skill; this is a requirements doc ask"
+    },
+    {
+      "q": "Help me build a Claude Code skill for my personal recipe-blog repo that turns draft markdown into publish-ready posts.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Non-pm-skills context; the builder's own When NOT to Use points this to a general skill builder instead"
+    },
+    {
+      "q": "Help me draft OKRs for the growth pod for H2.",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "My CI pipeline for the docs site is failing on a Node version mismatch during the build step - can you help debug it?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Find me a good conference room for Thursday's product review and send the invite.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "We just shipped a new lead-routing skill for our internal voice assistant - can you write up documentation on how it works for the sales team?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Keyword collision on 'skill' (voice-assistant skill, not a pm-skills library skill); unrelated domain and no packet/gap-analysis intent"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-critic",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Before I send this PRD over to engineering, tear it apart and tell me everything that's wrong or missing",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I don't trust my own judgment on this OKR set anymore; poke as many holes in it as you can before I bring it to the exec review",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Run an adversarial review on the persona doc I drafted for the onboarding redesign",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Give this meeting recap a hard pass for gaps or misattributed decisions before I send it out to the team",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're about to hand this lean canvas to the founders; find every weak assumption in it and rank how much each one would hurt us if it's wrong",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Reviewing an already-drafted canvas, not authoring a new one; the ranking-by-risk framing is adversarial review, not lean-canvas creation"
+    },
+    {
+      "q": "Stress test the hypothesis statement I wrote for the pricing experiment before we commit engineering time to it",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Critique this problem statement the way a skeptical VP would before it goes into the roadmap review",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I want the harshest, most rigorous feedback you can give me on this interview synthesis before I present the findings",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only ask; no artifact-review keyword beyond naming the artifact itself"
+    },
+    {
+      "q": "Find the P0 issues in this edge case catalog before QA signs off on it",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Reviewing an already-written catalog for findings, distinct from authoring one fresh (see the deliver-edge-cases near miss below)"
+    },
+    {
+      "q": "Review this retrospective doc for gaps in the root cause analysis before we share it with the team",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "Before we ship v2.33.0, run a pass across every skill in the repo and confirm the validators and the aggregate counts in the README still agree",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-auditor",
+      "notes": "Repo-wide governance pass across many skills, not adversarial review of one PM artifact; pm-critic's own When NOT to Use names the auditor for this"
+    },
+    {
+      "q": "I just finished building a new skill for the catalog; check that it follows our structural conventions before I open the PR",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-validate",
+      "notes": "Validating a skill definition's own structure against repo conventions, not reviewing a PM artifact's content"
+    },
+    {
+      "q": "Walk me through the release gates for this cut and confirm the em-dash sweep is clean before we tag",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-release-conductor",
+      "notes": "Style/enforcement sweep is explicitly the G0 gate's job per pm-critic's own When NOT to Use, not pm-critic's"
+    },
+    {
+      "q": "The requirements section of our onboarding PRD is still blank; can you write that part for me",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "deliver-prd",
+      "notes": "Authoring missing content is the phase skill's job; pm-critic only reviews and reports findings, it does not draft or edit the artifact"
+    },
+    {
+      "q": "Write a SQL query that finds users who churned within 30 days of signing up",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated technical ask"
+    },
+    {
+      "q": "My Python script keeps throwing a KeyError when I parse the CSV export; help me fix it",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Before we spec this out, catalog everything that could go wrong with the new checkout flow so we design for it up front",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "deliver-edge-cases",
+      "notes": "Authoring a prospective failure catalog for a feature not yet built; echoes 'find everything wrong' phrasing without reviewing an existing artifact"
+    },
+    {
+      "q": "Book me a flight and hotel for the product offsite in Austin next month",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated logistics ask"
+    },
+    {
+      "q": "My Next.js build is failing with a module resolution error; help me debug it",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated debugging ask"
+    },
+    {
+      "q": "Draft the pre-launch readiness checklist covering legal, support, and marketing",
+      "expect": "no-trigger",
+      "split": "validation"
+    }
+  ]
+}

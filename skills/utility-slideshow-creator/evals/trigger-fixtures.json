@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "skill": "utility-slideshow-creator",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "Can you build me a PowerPoint deck for tomorrow's board meeting on Q3 results?",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I have a content brief for next week's customer QBR and need a polished slide deck out of it.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I keep rewriting these updates as a doc but the board keeps asking for something they can flip through together in the room.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Intent-only, no artifact keyword; the request for something to flip through together signals slides over a written doc."
+    },
+    {
+      "q": "We need slides for the all-hands covering what shipped this quarter and what's next.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Generate a pptx from these talking points, it should open with a headline stat and close with next steps.",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "I need our product review deck exported as a PDF so the exec team can review it offline before the meeting.",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "PDF export from a deck is explicitly in scope per the skill's When to Use list."
+    },
+    {
+      "q": "Put together the slides for my product review with the design team tomorrow morning.",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I'm presenting to the board next week and need something that actually looks professional, not a wall of text in a doc.",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only, situation described with no deck or slide keyword at all."
+    },
+    {
+      "q": "Take these messy meeting notes and turn them into something I can click through with the team instead of reading off a page.",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only phrasing; click through implies slide navigation without naming the artifact."
+    },
+    {
+      "q": "We're pitching investors next month; can you put together the deck from our updated positioning content?",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "I just need a quick flowchart of our incident escalation process to drop into the engineering runbook, nothing fancy.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-mermaid-diagrams",
+      "notes": "A standalone diagram for a doc, not a slide deck; explicitly the mermaid skill's territory."
+    },
+    {
+      "q": "I have one PRD and need consistent versions of it pitched to engineering, sales, and our exec sponsor without the framing drifting.",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-stakeholder-briefings",
+      "notes": "Fan-out to multiple audiences from one master source is the briefings skill's signature use, not a deck."
+    },
+    {
+      "q": "The roadmap review just wrapped; can you write up what we decided so the teams who couldn't join are caught up?",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "foundation-stakeholder-update",
+      "notes": "Async written update of meeting outcomes for non-attendees, not a presentation."
+    },
+    {
+      "q": "Can you update the numbers on our existing Q2 board deck with the latest figures?",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Editing an existing PowerPoint file is explicitly out of scope; this skill only creates new decks from scratch."
+    },
+    {
+      "q": "Build me an interactive web presentation with clickable sections for our product tour.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Interactive HTML presentation is explicitly excluded; this skill produces .pptx, not web output."
+    },
+    {
+      "q": "I need a dashboard that visualizes our funnel conversion data across cohorts.",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Complex data visualization is explicitly out of scope; the skill defers to dedicated charting tools."
+    },
+    {
+      "q": "Before we build anything, I need a one-page overview pitching our proposed approach and the trade-offs we considered.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "develop-solution-brief",
+      "notes": "A one-page written pitch of approach and trade-offs, not slides."
+    },
+    {
+      "q": "Why does my Next.js build fail with a module resolution error?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated engineering ask."
+    },
+    {
+      "q": "Draft the OKRs for our platform team for next quarter.",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated PM artifact."
+    },
+    {
+      "q": "Can you help me plan the catering and seating chart for our team offsite?",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated logistics ask."
+    }
+  ]
+}

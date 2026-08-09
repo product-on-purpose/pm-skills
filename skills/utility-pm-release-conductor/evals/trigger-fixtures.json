@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "skill": "utility-pm-release-conductor",
+  "runs_per_query": 3,
+  "trigger_threshold": 0.5,
+  "queries": [
+    {
+      "q": "I'm ready to cut the v2.33.0 release for pm-skills; walk me through the process from readiness checks to tagging",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Take us from pre-tag readiness all the way through adversarial review, version bump, and tagging the new release",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Kick off the guided release runbook for this pm-skills version",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Everything's merged to main and validators are green; walk me through the gates before we cut this release",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "We're shipping v2.32.0 from Codex CLI and need the same 6-gate discipline the Claude Code release conductor enforces",
+      "expect": "trigger",
+      "split": "train",
+      "notes": "Names the non-Claude-client scenario that is this skill's primary reason to exist (dispatch wrapper for the sub-agent)"
+    },
+    {
+      "q": "Run the full release flow: readiness, review, version bump, CHANGELOG, commit, re-verify, tag, and push",
+      "expect": "trigger",
+      "split": "train"
+    },
+    {
+      "q": "Three of us keep debating whether it's safe to tag yet; give me a structured walk-through that won't let us skip a check",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only, no artifact or gate keyword; describes the gate-bypass-refusal behavior that defines this skill"
+    },
+    {
+      "q": "Help me cut this release on Cursor since the native sub-agent isn't available there",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Explicit non-Claude client (Cursor); matches When to Use's inline-execution case directly"
+    },
+    {
+      "q": "Walk me through G0 through G4 before we ship this version",
+      "expect": "trigger",
+      "split": "validation"
+    },
+    {
+      "q": "We just merged the last PR for this cycle; run the process that gets us from here to a pushed, tagged release",
+      "expect": "trigger",
+      "split": "validation",
+      "notes": "Intent-only, describes end-to-end release completion without naming the skill or its gates"
+    },
+    {
+      "q": "Run an adversarial review on this PRD before I share it with the team",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-critic",
+      "notes": "Single-artifact review, not a release; conductor's own When NOT to Use routes this to pm-critic"
+    },
+    {
+      "q": "I need a repo-wide governance audit of all our skills before we ship",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-skill-auditor",
+      "notes": "Wants the audit standalone, not a release; the conductor inlines this same auditor at G0, but a bare audit request doesn't want tagging and pushing"
+    },
+    {
+      "q": "Draft the CHANGELOG entries from the git log since the last tag",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-pm-changelog-curator",
+      "notes": "CHANGELOG draft only, not a full release; conductor's own When NOT to Use routes this to pm-changelog-curator"
+    },
+    {
+      "q": "Check whether my local pm-skills installation is on the latest version and update it",
+      "expect": "no-trigger",
+      "split": "train",
+      "near_miss_of": "utility-update-pm-skills",
+      "notes": "An end user updating an install to an existing release, not a maintainer cutting a new one; different actor and action despite sharing the word release"
+    },
+    {
+      "q": "My Next.js build is failing with a webpack config error, can you help me debug it",
+      "expect": "no-trigger",
+      "split": "train",
+      "notes": "Unrelated engineering ask"
+    },
+    {
+      "q": "Write the OKRs for our platform team for next quarter",
+      "expect": "no-trigger",
+      "split": "train"
+    },
+    {
+      "q": "Validate this skill against the repo's structural conventions before I submit it",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-skill-validate",
+      "notes": "Structural lint of one skill file, not a release cut"
+    },
+    {
+      "q": "I have an idea for a new PM skill; help me build it out from scratch",
+      "expect": "no-trigger",
+      "split": "validation",
+      "near_miss_of": "utility-pm-skill-builder",
+      "notes": "Authoring a new skill, unrelated to shipping a release"
+    },
+    {
+      "q": "Summarize what we learned from last week's customer interviews",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated"
+    },
+    {
+      "q": "Book a conference room for the release retro next Tuesday",
+      "expect": "no-trigger",
+      "split": "validation",
+      "notes": "Unrelated logistics ask; mentions 'release' only incidentally"
+    }
+  ]
+}

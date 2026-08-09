@@ -101,9 +101,13 @@ test('roster and pairs are internally consistent', () => {
   // trigger-eval-roster.yaml (WS-T10). 31 at v2.30.0; the v2.31.0 WS-Z5 wave-1
   // backfill adds 12 skills across PR9-PR11 (define-, discover-, then the
   // foundation-meeting- remainder plus adjacent collision-risk siblings),
-  // bringing this to 43 (43/68, about 65 percent).
-  assert.equal(ROSTER.length, 43);
-  assert.equal(new Set(ROSTER).size, 43);
+  // bringing this to 43 (43/68, about 65 percent). The v2.32.0 WS-4 wave-2 backfill
+  // adds the 10 remaining utility-* skills, bringing this to 53. With the 15 tool-*
+  // sprint stages ruled out by design (decision D6 = C, see the `excluded` list in
+  // trigger-eval-roster.yaml), 53 + 15 = 68 accounts for the whole catalog: every
+  // skill is now either measured or deliberately excluded with a stated reason.
+  assert.equal(ROSTER.length, 53);
+  assert.equal(new Set(ROSTER).size, 53); // no duplicate roster entries
   for (const [a, b] of COLLISION_PAIRS) {
     assert.ok(ROSTER.includes(a), `${a} in roster`);
     assert.ok(ROSTER.includes(b), `${b} in roster`);

@@ -2,10 +2,22 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.2.0 | 2026-08-08 | v2.32.0 | R-16 | minor | Reciprocal When NOT to Use pointer to `utility-pm-skill-auditor`; collision pair declared with new trigger fixtures. |
 | 1.1.1 | 2026-07-04 | v2.30.0 | M-35 | patch | Added a pointer to the new Skeleton Canon doc (the three sanctioned dialects and their exact heading spellings) as the authoritative reference for heading and section-set conventions; noted `check-heading-canon.mjs` as the eventual deterministic backstop. No new check, no report-schema change. |
 | 1.1.0 | 2026-06-15 | - | C-5 | minor | Folded the eval-asset contract into the report: new Tier 1 checks `eval-trigger-fixtures` (B-4), `eval-output-scenarios` (B-7), and `reciprocal-boundary-pointers` (C-5, can FAIL a one-directional declared collision pair). Upgraded `when-not-to-use` from INFO to WARN (now a v2.26.0 convention naming neighbors). Each check names its authoritative CI gate. |
 | 1.0.0 | 2026-04-03 | - | - | baseline | Prior published version: two-tier (structural + quality) skill audit with the F-11-parseable report. |
 
+
+## 1.2.0 (2026-08-08)
+
+Released in v2.32.0. Effort: R-16 (trigger-eval wave 2, WS-4).
+
+Declares a curated collision pair with its nearest neighbour and closes the reciprocal
+When NOT to Use edge the enforcing boundary gate requires. Routing-only: no change to what
+this skill does or produces.
+
+### Changes
+- Added the reciprocal boundary pointer.
 ## 1.1.1 (2026-07-04)
 
 Released in [v2.30.0](../../site/src/content/docs/releases/Release_v2.30.0.md). Effort: M-35 (trust repair sweep).
