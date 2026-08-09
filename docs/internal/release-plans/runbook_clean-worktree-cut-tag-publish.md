@@ -193,7 +193,7 @@ For **patch** (X.Y.z) releases: skip if the description content is unchanged (ve
 
 ```bash
 gh repo edit product-on-purpose/pm-skills \
-  --description "<paste current README.md <h4> byline; reformat to <=350 chars>"
+  --description "$(node scripts/gen-derived-surfaces.mjs --about)"
 ```
 
 Verify:
@@ -202,7 +202,7 @@ Verify:
 gh api repos/product-on-purpose/pm-skills --jq '.description'
 ```
 
-Expected: matches the current README header byline modulo length truncation. The byline is the canonical source; the GitHub description is a derivative that must be re-synced manually.
+Expected: matches `node scripts/gen-derived-surfaces.mjs --about` exactly (the generator-owned About string, REQ-Z1.7, added v2.32.0 WS-6 addendum). The generator is the canonical source; the GitHub description is a derivative, synced manually here or automatically by release-please.yml's post-tag About-sync step once the automated flow is authoritative.
 
 ### 10.5.2) GitHub repo Topics
 

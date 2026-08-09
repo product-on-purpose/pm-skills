@@ -17,7 +17,7 @@ import {
   parseReleaseIndexRows, readReleasePageDescription, renderReleasesIndexTable,
   VERSION_BADGE_START, VERSION_BADGE_END, renderVersionBadge,
   VERSION_ROW_START, VERSION_ROW_END, renderVersionRowTable,
-  swapValueLiteralOnce, evalMarketplacePin,
+  swapValueLiteralOnce, evalMarketplacePin, renderAboutString,
 } from './gen-derived-surfaces.mjs';
 
 // A fixture catalog with a distinct value per bucket so a column swap is caught
@@ -682,4 +682,21 @@ test('swapValueLiteralOnce refuses (loudly) unless the literal appears exactly o
   // The realistic ambiguity: a second `"version": "..."` literal elsewhere in the file.
   const ambiguous = '{ "plugins": [ { "version": "1.2.3", "shadow": { "version": "1.2.3" }, "source": { "source": "url", "url": "u", "ref": "v1.2.3" } } ] }';
   assert.throws(() => evalMarketplacePin(ambiguous, '2.0.0'), /exactly one occurrence/);
+});
+
+// ---- GitHub About string (REQ-Z1.7; WS-6 addendum) --------------------------------------
+
+test('renderAboutString is single-line, round-trips every count, and has no banned dashes (the spec REQ-Z1.7 test contract)', () => {
+  const s = renderAboutString(FIX);
+  assert.ok(!/\n/.test(s), 'single line');
+  assert.ok(!BANNED_DASH.test(s), 'no em/en dash');
+  assert.ok(s.startsWith(`${FIX.skills} plug-and-play`), 'opens with the skill total');
+  assert.ok(s.includes(`${FIX.phase} Triple Diamond phase + ${FIX.foundation} foundation + ${FIX.utility} utility + ${FIX.tool} tool`), 'per-bucket counts round-trip');
+  assert.ok(s.includes(`${FIX.sub_agents} sub-agents`), 'sub-agent count round-trips');
+  assert.ok(s.endsWith('Apache 2.0.'), 'closes with the authored license tail');
+});
+
+test('renderAboutString stays under the ~350-char GitHub display guidance at the real catalog shape', () => {
+  const real = { skills: 68, phase: 30, foundation: 11, utility: 12, tool: 15, sub_agents: 6 };
+  assert.ok(renderAboutString(real).length <= 350, `length ${renderAboutString(real).length} must be <= 350`);
 });

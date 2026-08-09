@@ -70,14 +70,12 @@ jobs:
       # is observed, never merged (ZD-4 S1), so `release_created` stays unset
       # for this release's whole lifetime.
       #
-      # KNOWN GAP as of this commit (2026-07-05): scripts/gen-derived-surfaces.mjs
-      # implements `--check` only; its own header already flags `--about` as a
-      # forward reference ("Later stages still extend this same generator: the
-      # release-please --about string"). That mode must land before this step
-      # could ever actually run (S2 cutover, a later tag), or the PATCH below
-      # will fail the one time it fires. Tracked by REQ-Z1.7 /
-      # spec_zero-drift-program.md; not fixed here because it belongs to the
-      # WS-Z2 generator, not this bootstrap commit.
+      # REQ-Z1.7 CLOSED (2026-08-09, WS-6 addendum): gen-derived-surfaces.mjs now
+      # implements --about (renderAboutString; prints only the derived About string
+      # to stdout), so this step is runnable the first time release_created fires.
+      # Unit-tested per the spec's REQ-Z1.7 contract: single-line, counts
+      # round-trip, no banned dash characters. Runbook Section 10.5.1's manual
+      # About step uses the same generator string, so the two lanes cannot drift.
       - name: Checkout (for About sync)
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v7

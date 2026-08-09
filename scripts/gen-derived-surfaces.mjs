@@ -9,6 +9,7 @@
 // Modes:
 //   node scripts/gen-derived-surfaces.mjs           rewrite every derived surface in place
 //   node scripts/gen-derived-surfaces.mjs --check    exit non-zero if any surface is stale
+//   node scripts/gen-derived-surfaces.mjs --about    print ONLY the GitHub About string
 //
 // SOURCE OF TRUTH. Every count comes from skill-manifest.json (itself generated
 // from skills/*/SKILL.md frontmatter by gen-skill-manifest.mjs and CI-gated).
@@ -147,7 +148,10 @@
 //   the row describes. A release with no frontmatter `description` fails the run loudly
 //   rather than emitting a blank cell.
 //
-// Later stages still extend this same generator: the release-please --about string.
+// The release-please --about string (REQ-Z1.7) is implemented below (renderAboutString,
+// WS-6 addendum 2026-08-09): the post-tag About-sync step in release-please.yml PATCHes
+// the repo description with it on release_created, and runbook Section 10.5.1's manual
+// path uses the same string. --about prints ONLY the string; stdout is the interface.
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -378,6 +382,20 @@ export function evalMarketplacePin(rawText, version) {
   if (p.version !== version) next = swapValueLiteralOnce(next, `"version": "${p.version}"`, `"version": "${version}"`, '.claude-plugin/marketplace.json');
   if (p.source.ref !== wantRef) next = swapValueLiteralOnce(next, `"ref": "${p.source.ref}"`, `"ref": "${wantRef}"`, '.claude-plugin/marketplace.json');
   return { stale: true, newText: next };
+}
+
+// ---- GitHub About string (REQ-Z1.7; WS-6 addendum, issue #136) -----------------------
+
+/** The GitHub repo About description, derived from the catalog - the string the
+ *  post-tag About-sync step in release-please.yml PATCHes onto the repo on
+ *  release_created (REQ-Z1.7), superseding R-02's one-time manual fix. Reproduces the
+ *  live About wording verbatim with every count interpolated (the
+ *  renderManifestHeadline convention); the sample count and license are authored
+ *  literals, so changing them is a deliberate release edit here. Single line, no
+ *  banned dash characters, comfortably under the ~350-char display guidance the
+ *  runbook's Section 10.5.1 works to. Pure. */
+export function renderAboutString(c) {
+  return `${c.skills} plug-and-play, best-practice product management skills for AI agents: ${c.phase} Triple Diamond phase + ${c.foundation} foundation + ${c.utility} utility + ${c.tool} tool (Foundation Sprint + Design Sprint). Plus ${c.sub_agents} sub-agents, workflows, 200+ output samples, guides, and CI-enforced contracts. Apache 2.0.`;
 }
 
 // ---- shared quickstart fragment (QUICKSTART.md + the site quickstart) ----------------
@@ -737,6 +755,14 @@ function main() {
   const manifestPath = join(repo, 'skill-manifest.json');
   if (!existsSync(manifestPath)) fail('skill-manifest.json not found; run: node scripts/gen-skill-manifest.mjs');
   const catalog = loadCatalog(readFileSync(manifestPath, 'utf8'));
+
+  // --about mode (REQ-Z1.7): print the derived About string and nothing else. stdout
+  // IS the interface (release-please.yml captures it into a repo PATCH), so none of
+  // the status logging below runs on this path.
+  if (process.argv.slice(2).includes('--about')) {
+    process.stdout.write(`${renderAboutString(catalog)}\n`);
+    return;
+  }
 
   // CHANGELOG.md is the one source for all three release-notes mirrors (PR4, WS-Z3).
   const changelogText = readFileSync(join(repo, 'CHANGELOG.md'), 'utf8');
