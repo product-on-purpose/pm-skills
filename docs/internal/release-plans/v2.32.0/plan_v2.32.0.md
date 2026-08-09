@@ -101,6 +101,67 @@ Option letters are per-decision labels, not rankings; recommendations state the 
 - S2 phantom-minor fallback note: recorded in `../v2.31.1/plan_v2.31.1.md`; moves into the runbook via C-5 item (c).
 - Deferred observation (P3, from the audit): `_agent-context/*/PLANNING/` trees have had no entries since 2026-05-17 while SESSION-LOG stays current; maintainer to confirm whether that is by design. `_agent-context/claude/TODO.md` itself was refreshed 2026-07-31 (gitignored).
 
+## Release narrative draft (for G2; written 2026-08-08 while the material was fresh)
+
+Drafted during the build so G2 is assembly rather than archaeology across the branch. **Not a
+commitment to ship this text**: G2 still owns the actual CHANGELOG write, the version bump, and
+`docs/releases/Release_v2.32.0.md`. Covers WS-1 through WS-4; extend as WS-5 to WS-7 land.
+
+### The one-sentence claim
+
+Every previous release added capability you invoke. **This one adds capability that accumulates.**
+Project memory is the first thing in the catalog's history that compounds within a session instead
+of resetting, and that is a materially different claim from adding N skills.
+
+### Proposed CHANGELOG headline
+
+> **Project memory: the catalog stops asking you to repeat yourself.** Record your Triple Diamond
+> phase and current initiative once, in the gitignored `.claude/pm-skills.local.md` the guardrails
+> and phase router already use, and eight skills begin reading it. The concrete moment: synthesize
+> your research with `discover-interview-synthesis`, then run `deliver-prd` and it uses the personas
+> you already produced instead of asking you to paste them again. Nothing happens until you opt in:
+> with no file, every skill and both hooks behave exactly as before, and writes are proposed for
+> your confirmation rather than applied. Alongside it, trigger-eval coverage closes: 53 skills
+> measured and 15 excluded by design, accounting for all 68 with nothing unclassified. Catalog stays
+> 68 skills (30 phase + 11 foundation + 12 utility + 15 tool), 6 sub-agents unchanged. Additive MINOR.
+
+### Keep-a-Changelog sections
+
+**Added**
+- Project memory (opt-in): `schema: 1` state file carrying `phase`, `active_initiative`, an
+  `artifacts[]` ledger and a `## Decisions` section, with the four-tag provenance model.
+- `## Project Memory Contract` on eight skills: `discover-interview-synthesis`, `deliver-prd`,
+  `foundation-okr-writer`, `iterate-retrospective`, and the four `foundation-meeting-*` skills.
+- Trigger-eval fixture packs for the 10 remaining `utility-*` skills (20 queries each).
+- `scripts/check-memory-contracts.mjs` (advisory): structural validation of the memory declaration.
+- Internal-doc link scanning via `check-root-doc-links.mjs --include-internal` (advisory).
+- `excluded:` in `trigger-eval-roster.yaml` plus an `EXCLUDED` loader export, recording decision
+  D6 = C as data with its counter-argument and reversal path.
+
+**Changed**
+- The SessionStart phase router prefers a declared phase over its branch and artifact heuristics,
+  and states a declared phase rather than hedging it.
+- Three collision pairs declared (22 -> 25), with reciprocal boundary pointers on
+  `utility-pm-workflow-orchestrator`, `utility-pm-skill-validate`, and `utility-pm-skill-auditor`.
+- Trigger-eval execution batches extended with three wave-2 batches, collision-critical first.
+
+**Fixed**
+- Two broken relative links in `docs/internal` that no guard could see, one of them long-standing.
+- The HISTORY.md header template in `docs/internal/skill-versioning.md` carried an em-dash scar that
+  every real HISTORY file had already moved past, so the template was manufacturing the defect it
+  documented.
+- A pre-existing one-sided boundary pointer between `utility-pm-workflow-builder` and
+  `utility-pm-workflow-orchestrator`.
+
+### Framing notes for whoever writes the final copy
+
+- Lead with the loop, not the schema. "The PRD skill already knows your personas" lands; "schema 1
+  YAML with provenance tags" does not.
+- State the opt-in posture early and plainly. It is the trust claim, and this repo has spent two
+  releases earning that ground.
+- The 53 + 15 = 68 accounting is a completeness claim, not a coverage percentage. Say it that way.
+- Do not oversell the cohort as "memory-aware skills" generally. Eight skills, named, is honest.
+
 ## Execution workstreams (scope ruled 2026-08-02)
 
 Dependency order: WS-1 gates WS-2 gates WS-3; WS-4 gates WS-5's trigger ruling text; WS-6 and WS-7 are independent. Agent labels per the assignment framework.
