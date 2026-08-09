@@ -1,10 +1,20 @@
 # X-02 Artifact schemas: machine-readable output contracts (unreleased spec + implementation plan)
 
-**Status:** PARKED (pre-decision; not committed scope)
+> **FILED 2026-08-08 as [M-40] (tracking issue [#258](https://github.com/product-on-purpose/pm-skills/issues/258)), per v2.32.0 decision D4 = B** (defer C-2, file X-2 so
+> [#224](https://github.com/product-on-purpose/pm-skills/issues/224)'s promotion trigger is reachable; see
+> [`../../v2.32.0/plan_v2.32.0.md`](../../v2.32.0/plan_v2.32.0.md), decision D4 and workstream WS-7, and the thin effort brief at
+> [`../../../efforts/M-40-artifact-schemas.md`](../../../efforts/M-40-artifact-schemas.md)). **This document is annotated, not rewritten**,
+> per the standing staging instruction: everything below is the original parked text and remains the
+> design of record. The filing schedules no build; the open questions (OQ-1 through OQ-3) stay open
+> until a build cycle rules them. ID note: M-37, M-38, and M-39 were left to the sibling bets that
+> pencil them (X-07, X-09, X-10); M-40 is the next free number after that band, per the WS-1 F-54
+> precedent of honoring penciled candidates as reservations.
+
+**Status:** FILED 2026-08-08 (tracking issue [#258](https://github.com/product-on-purpose/pm-skills/issues/258) as M-40, per v2.32.0 decision D4 = B; build not scheduled; still not committed scope)
 **Owner:** Maintainers
 **Created:** 2026-07-03
 **Provenance:** the 2026-07-04 deep audit (maintainer-local, gitignored), section 6b/6c, bet X-2 (machine-readable artifact contracts)
-**Candidate formal ID:** to be assigned at promotion (F-5x/M-3x per the backlog ID rule)
+**Formal ID:** M-40 (assigned at the D4-B filing, 2026-08-08; see the annotation above. Original text: to be assigned at promotion, F-5x/M-3x per the backlog ID rule)
 **Audit score (Bar / Moat / Effort-inverse):** 2 / 3 / 1 = 6 of 9. Audit's note: "foundation for orchestration and spec leadership."
 **Companion docs:** [`docs/internal/release-plans/v2.31.0/plan_v2.31.0.md`](../../v2.31.0/plan_v2.31.0.md) (WS-Z8, the staged typed-handoff workstream this bet unblocks) and [`docs/internal/release-plans/v2.27.0/records/output-eval-informed-20260615.md`](../../v2.27.0/records/output-eval-informed-20260615.md) (the structure-first finding this bet extends)
 

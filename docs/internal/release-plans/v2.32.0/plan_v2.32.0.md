@@ -31,7 +31,7 @@ Agent labels follow the assignment framework (claude / codex / human) used by th
 | Candidate | Trigger leg | State | Proposed handling |
 |---|---|---|---|
 | C-1 | Orchestrator artifact-ledger interface agreed | UNMET | Satisfied by the D2 delta spec before build; otherwise WAIVED-with-reason |
-| C-2 | X-2 (artifact schemas) ratified with one shipped schema family | UNMET | HONORED (defer); D4-B makes it reachable later |
+| C-2 | X-2 (artifact schemas) ratified with one shipped schema family | UNMET | HONORED (defer); D4-B makes it reachable later (filed 2026-08-08: [M-40] [#258](https://github.com/product-on-purpose/pm-skills/issues/258)) |
 | C-3 | Eval-complete-from-day-one gate live (rides the WS-Z5 contract) | PARTLY MET (see resolved fact in C-3 section) | Rule after D6; D5-A names the satisfying condition |
 | C-4 | Wave-1 green (met) + output-eval lane stable for two releases | SECOND LEG UNCONFIRMED | Argue the output-eval leg does not gate a trigger-fixture-only wave; amend the WS-Z10 trigger note accordingly |
 | C-5 | (New candidate; no staged trigger. Blocks on nothing.) | N/A | D7 rules inclusion |
@@ -44,7 +44,7 @@ Pre-build gates: **ALL CLOSED by WS-1 on 2026-08-07.** Parked D1 (structure-over
 
 ### C-2 Typed handoff envelope (R-23)
 
-The orchestrator's `--thread` flag hands step N+1 only a raw artifact reference; R-23 proposes an optional per-skill `## Handoff` YAML block. The v2.31.0 plan staged this behind the X-2 (artifact schemas) promotion trigger, with a tracking issue as the only sanctioned pre-trigger action (filed as #224 on 2026-07-06). X-2 is PARKED pre-decision (`../_unreleased/fable-innovations/X-02-artifact-schemas.md`), has no tracking issue, no effort brief, and no schema file exists in the repo. Pulling R-23 forward means shipping X-2 first (XL combined). Authoring the Handoff shape "spec-only" ahead of X-2 would invert the dependency the staging exists to protect.
+The orchestrator's `--thread` flag hands step N+1 only a raw artifact reference; R-23 proposes an optional per-skill `## Handoff` YAML block. The v2.31.0 plan staged this behind the X-2 (artifact schemas) promotion trigger, with a tracking issue as the only sanctioned pre-trigger action (filed as #224 on 2026-07-06). X-2 is PARKED pre-decision (`../_unreleased/fable-innovations/X-02-artifact-schemas.md`), has no tracking issue, no effort brief, and no schema file exists in the repo. (Update 2026-08-08, WS-7: X-2 is now FILED as [M-40] [#258](https://github.com/product-on-purpose/pm-skills/issues/258), with the thin brief at `../../efforts/M-40-artifact-schemas.md`; still no schema file, and the build stays unscheduled.) Pulling R-23 forward means shipping X-2 first (XL combined). Authoring the Handoff shape "spec-only" ahead of X-2 would invert the dependency the staging exists to protect.
 
 ### C-3 AI-product family (R-24)
 
@@ -105,7 +105,7 @@ Option letters are per-decision labels, not rankings; recommendations state the 
 
 Drafted during the build so G2 is assembly rather than archaeology across the branch. **Not a
 commitment to ship this text**: G2 still owns the actual CHANGELOG write, the version bump, and
-`docs/releases/Release_v2.32.0.md`. Covers WS-1 through WS-4; extend as WS-5 to WS-7 land.
+`docs/releases/Release_v2.32.0.md`. Covers WS-1 through WS-4 and WS-7; extend as WS-5 and WS-6 land.
 
 ### The one-sentence claim
 
@@ -137,6 +137,9 @@ of resetting, and that is a materially different claim from adding N skills.
 - Internal-doc link scanning via `check-root-doc-links.mjs --include-internal` (advisory).
 - `excluded:` in `trigger-eval-roster.yaml` plus an `EXCLUDED` loader export, recording decision
   D6 = C as data with its counter-argument and reversal path.
+- X-2 (artifact schemas) tracking issue filed as [M-40] (#258) with a thin effort brief, per
+  decision D4 = B: nothing built, but the staged typed-handoff envelope (#224) stops being
+  trigger-unreachable.
 
 **Changed**
 - The SessionStart phase router prefers a declared phase over its branch and artifact heuristics,
@@ -174,5 +177,5 @@ Dependency order: WS-1 gates WS-2 gates WS-3; WS-4 gates WS-5's trigger ruling t
 | WS-4 | **DONE 2026-08-08.** C-4 wave-2: D6-C exclusion recorded as DATA (`excluded:` key + `EXCLUDED` loader export, with the case against it written alongside); 10 `utility-*` fixture packs at 20 queries each; 3 collision pairs declared (22 -> 25) with all reciprocal edges closed, including a pre-existing one-sided pointer the pair forced shut. Roster growth correctly broke 3 tests: 2 pinned drift-tripwire counts and the real BATCHES-partition invariant, all fixed | - | claude | **MET, and stronger than planned.** Not just 53/53: **53 rostered + 15 excluded = 68, nothing unaccounted for**, asserted in test so it cannot drift. 394/394 tests; fixture-structure (53 files), reciprocity (25 pairs), and all other gates green |
 | WS-5 | C-3 Phase-0: promote the maintainer-local scope into a tracked spec (5 skill names, classifications, rubric plan); rule the eval-complete trigger MET via roster-add-at-merge over the post-D6 roster | WS-4 (trigger text) | claude spec, human scope sign-off | Tracked spec committed; #225 updated with the trigger ruling |
 | WS-6 | C-5 S2 enablement: (b) marketplace updater ref-advance + reformat fix, (c) phantom-minor fallback note into the runbook, (a) regen-on-release-PR mechanism | - | claude | S2 checklist items 2/4/6 closed on #136 |
-| WS-7 | D4-B filing: X-2 (artifact schemas) tracking issue + effort brief; update #224's target note | - | claude | Issue exists; #224 no longer trigger-unreachable |
+| WS-7 | **DONE 2026-08-08.** D4-B filing: X-2 (artifact schemas) filed as [M-40] ([#258](https://github.com/product-on-purpose/pm-skills/issues/258)); thin effort brief at `../../efforts/M-40-artifact-schemas.md`; parked spec annotated FILED, not rewritten. ID verified next-free: M-30..M-36 claimed (M-36 is the v2.31.0 zero-drift generator), M-37/M-38/M-39 penciled by sibling bets X-07/X-09/X-10 and honored per the WS-1 F-54 precedent, the maintainer-local backlog remaining the one unverified authority. #224's body now points its trigger at #258 and a comment records the ruling | - | claude | **MET.** Issue exists; #224 no longer trigger-unreachable |
 | WS-8 | Release cut via the 6-gate runbook; during the cycle, collect the human-authored PR-title sample for the D8 revisit | WS-1..7 | claude runs, human gates | v2.32.0 tagged per G0-G4; D8 evidence recorded |
