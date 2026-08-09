@@ -13,6 +13,11 @@ name: release-please
 # Release PR is merged (which does not happen this cycle); it never runs on a
 # candidate PR's own branch. The PR-title lint (.github/workflows/pr-title-lint.yml,
 # ZD-3) is the one gate that runs before merge.
+#
+# REGEN MECHANISM (WS-6 item (a), v2.32.0): .github/workflows/release-please-regen.yml
+# runs gen-derived-surfaces.mjs on the Release PR's own branch (push-triggered there)
+# and commits the regenerated mirrors plus the marketplace release pin, closing the
+# stale-generated-surfaces hand-fix class PR #229 surfaced (S2 checklist items 4/6).
 on:
   push:
     branches: [main]

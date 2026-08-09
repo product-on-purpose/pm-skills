@@ -1,0 +1,94 @@
+name: release-please-regen
+
+# WS-6 item (a) (v2.32.0, M-21, issue #136): the regen-on-release-PR mechanism.
+# release-please's Release PR branch carries only the bot's version bumps and
+# CHANGELOG section; nothing on that branch runs the generators, so its PR
+# always failed validation on stale derived surfaces (observed on PR #229,
+# S2 checklist item 4's gap), and the marketplace release pin never advanced
+# (item 2; the pin is generator-owned as of WS-6 item (b), see
+# scripts/gen-derived-surfaces.mjs). This workflow runs the generator ON that
+# branch and commits the regenerated mirrors, so the Release PR can go green
+# without hand-fixes (item 6).
+#
+# TRIGGER SEMANTICS. Push-triggered on the release branch itself, so both of
+# its writers re-run it: release-please force-pushing the branch (its ZD-5 PAT
+# push does trigger workflows; only default-GITHUB_TOKEN pushes are
+# suppressed), and the maintainer pushing the ZD-1 enrichment commit (release
+# page + authored notes). workflow_dispatch is the manual poke. This
+# workflow's own push (again the PAT) retriggers it once; the second run finds
+# every surface current, commits nothing, and the loop terminates.
+#
+# MISSING-RELEASE-PAGE TOLERANCE. gen-derived-surfaces fails loudly when the
+# newest CHANGELOG section has no site release page (the releases-index and
+# mirror targets read that page's frontmatter description). On the bot's
+# freshly force-pushed branch the page does not exist until the maintainer's
+# enrichment commit adds it (ZD-1 hybrid: enrichment stays authored). That
+# state is EXPECTED, not an error: the regen step discards its partial writes
+# and exits neutral with a notice, and the real regen fires on the enrichment
+# push. Any other generator failure stays a hard failure.
+#
+# TOKEN. The same RELEASE_PLEASE_TOKEN fallback posture as release-please.yml.
+# Under the bare-github.token fallback this workflow may not be triggered by
+# the bot's own push at all, and its push does not retrigger validation on the
+# Release PR - the documented ZD-5 gap, not a new one.
+
+on:
+  push:
+    branches: [release-please--branches--main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-please-regen
+  cancel-in-progress: false
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: release-please--branches--main
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install validator-tooling dependencies
+        run: npm ci
+
+      - name: Regenerate derived surfaces (tolerating the pre-enrichment state)
+        id: regen
+        run: |
+          set +e
+          node scripts/gen-derived-surfaces.mjs
+          rc=$?
+          set -e
+          if [ "$rc" -ne 0 ]; then
+            v="$(node -p "require('./.claude-plugin/plugin.json').version")"
+            page="site/src/content/docs/releases/Release_v${v}.md"
+            if [ ! -f "$page" ]; then
+              echo "::notice::${page} is not on this branch yet; mirrors regenerate after the ZD-1 enrichment commit adds it. Generator exit ${rc} tolerated; partial writes discarded."
+              git restore .
+              echo "skipped=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            exit "$rc"
+          fi
+
+      - name: Commit regenerated mirrors (if any)
+        if: steps.regen.outputs.skipped != 'true'
+        run: |
+          if git diff --quiet; then
+            echo "All derived surfaces already current on this branch; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore(release): regenerate derived surfaces on the release branch"
+          git push

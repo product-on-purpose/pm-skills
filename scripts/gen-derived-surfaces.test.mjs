@@ -17,6 +17,7 @@ import {
   parseReleaseIndexRows, readReleasePageDescription, renderReleasesIndexTable,
   VERSION_BADGE_START, VERSION_BADGE_END, renderVersionBadge,
   VERSION_ROW_START, VERSION_ROW_END, renderVersionRowTable,
+  swapValueLiteralOnce, evalMarketplacePin,
 } from './gen-derived-surfaces.mjs';
 
 // A fixture catalog with a distinct value per bucket so a column swap is caught
@@ -628,4 +629,57 @@ test('--check does not read false-stale for a CRLF version-row table (Windows ch
   const next = splice(crlf, VERSION_ROW_START, VERSION_ROW_END, rendered);
   assert.notEqual(crlf, next);                          // raw compare = the false-STALE bug shape
   assert.equal(normalizeEol(crlf), normalizeEol(next));  // normalized compare = correctly current
+});
+
+// ---- marketplace release pin (WS-6 item (b), issue #136) --------------------------------
+
+// Mirrors the real .claude-plugin/marketplace.json shape: a compact single-line source
+// object, a description whose narration text carries bare version tokens (which the pin
+// swap must never touch), and the plugins[0] nesting the field checks expect.
+const MARKET_FIX = [
+  '{',
+  '  "name": "pm-skills-marketplace",',
+  '  "plugins": [',
+  '    {',
+  '      "name": "pm-skills",',
+  '      "description": "25 PM skills for AI agents. v1.2.3 is a maintenance patch: narration text. ",',
+  '      "version": "1.2.3",',
+  '      "source": { "source": "url", "url": "https://example.test/pm-skills.git", "ref": "v1.2.3" }',
+  '    }',
+  '  ]',
+  '}',
+  '',
+].join('\n');
+
+test('evalMarketplacePin is current (byte-identical no-op) when version and ref both match plugin.json', () => {
+  const res = evalMarketplacePin(MARKET_FIX, '1.2.3');
+  assert.equal(res.stale, false);
+  assert.equal(res.newText, MARKET_FIX);
+});
+
+test('evalMarketplacePin advances version + v-prefixed ref by targeted literal swap, preserving every other byte', () => {
+  const res = evalMarketplacePin(MARKET_FIX, '1.3.0');
+  assert.equal(res.stale, true);
+  const expected = MARKET_FIX
+    .replace('"version": "1.2.3"', '"version": "1.3.0"')
+    .replace('"ref": "v1.2.3"', '"ref": "v1.3.0"');
+  assert.equal(res.newText, expected); // formatting survives byte-for-byte
+  assert.ok(res.newText.includes('"ref": "v1.3.0"'), 'the ref carries the v prefix a jsonpath updater cannot write');
+  assert.ok(res.newText.includes('v1.2.3 is a maintenance patch'), 'narration version tokens in the description stay untouched');
+  assert.ok(res.newText.includes('"source": { "source": "url"'), 'the compact single-line source object survives');
+});
+
+test('evalMarketplacePin fails loudly on invalid JSON or missing fields', () => {
+  assert.throws(() => evalMarketplacePin('{ not json', '1.0.0'), /invalid JSON/);
+  assert.throws(() => evalMarketplacePin('{"plugins": []}', '1.0.0'), /plugins\[0\]\.version missing/);
+  assert.throws(() => evalMarketplacePin('{"plugins": [{"version": "1.0.0"}]}', '2.0.0'), /plugins\[0\]\.source\.ref missing/);
+});
+
+test('swapValueLiteralOnce refuses (loudly) unless the literal appears exactly once', () => {
+  assert.equal(swapValueLiteralOnce('a X b', 'X', 'Y', 'f.json'), 'a Y b');
+  assert.throws(() => swapValueLiteralOnce('a b', 'X', 'Y', 'f.json'), /expected exactly one occurrence of X \(found 0\)/);
+  assert.throws(() => swapValueLiteralOnce('X X', 'X', 'Y', 'f.json'), /expected exactly one occurrence of X \(found 2\)/);
+  // The realistic ambiguity: a second `"version": "..."` literal elsewhere in the file.
+  const ambiguous = '{ "plugins": [ { "version": "1.2.3", "shadow": { "version": "1.2.3" }, "source": { "source": "url", "url": "u", "ref": "v1.2.3" } } ] }';
+  assert.throws(() => evalMarketplacePin(ambiguous, '2.0.0'), /exactly one occurrence/);
 });
