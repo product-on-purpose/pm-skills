@@ -125,6 +125,17 @@ foundation + 12 utility + 15 tool), 6 sub-agents unchanged. Additive MINOR.
   `utility-pm-workflow-orchestrator`.
 - `foundation-okr-writer` gained the HISTORY.md its version bump requires, with its 1.0.0 row
   backfilled.
+- **Two published reference pages that stated this release's own facts wrong.** The evals page
+  carried "43 of 68 (about 63%)" for trigger coverage, the number this release replaces, and now
+  states the accounting (53 measured + 15 excluded by design = 68) with a section on why coverage
+  here is a closed accounting rather than a percentage climbing toward 100. The runtime-components
+  page described `.claude/pm-skills.local.md` as "deferred to v2.17+", a file live since v2.25.0 and
+  now the project-memory substrate; it is rewritten around the portability split that section is
+  actually about.
+- **Two contributor conventions that existed only in enforcement.** CONTRIBUTING now states the
+  roster rule (a new skill is rostered or `excluded:` with a rationale, in the merge that adds it,
+  with neither state failing CI) and documents the `## Project Memory Contract`, whose shape an
+  advisory CI validator had been checking without the contributor guide ever mentioning it.
 
 **Security**
 
