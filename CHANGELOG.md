@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 > **Note on historical paths:** entries before v2.19.0 occasionally reference internal planning documents (for example `docs/internal/release-plans/...`). Those references are preserved as written for historical accuracy. From v2.19.0 onward, CHANGELOG entries reference public paths only.
 
+## [2.32.0](https://github.com/product-on-purpose/pm-skills/compare/v2.31.1...v2.32.0) (2026-08-14)
+
+
+### Added
+
+* **v2.32.0:** project memory lands and trigger-eval coverage completes ([#257](https://github.com/product-on-purpose/pm-skills/issues/257)) ([54744ce](https://github.com/product-on-purpose/pm-skills/commit/54744cebfaffabac11070d07d3df33c9c7054531))
+
+
+### Fixed
+
+* **memory:** the documented config now parses, and the coverage claim is now asserted ([925a718](https://github.com/product-on-purpose/pm-skills/commit/925a7183a04bbbe8c2599487dfbcbab79ce3f788))
+* **memory:** write discipline on the six writer contracts, and honest eval-coverage copy ([edbbaf6](https://github.com/product-on-purpose/pm-skills/commit/edbbaf60bdcc3b5fd1b71f9b669f2f907507a7e5))
+* **validator:** scope the write-discipline check to the bullet it names ([e8a641c](https://github.com/product-on-purpose/pm-skills/commit/e8a641c375b166566b618ae37b9d271abc952eb9))
+
 ## [2.32.0] - 2026-08-14
 
 **Project memory: the catalog stops asking you to repeat yourself.** Every previous release added capability you invoke. This one adds capability that accumulates. Record your Triple Diamond phase and current initiative once, in the gitignored `.claude/pm-skills.local.md` the guardrails and phase router already read, and eight skills begin reading it too. The concrete moment: synthesize your research with `discover-interview-synthesis`, then run `deliver-prd` and it uses the personas you already produced instead of asking you to paste them again. Nothing happens until you opt in: with no file present, every skill and both hooks behave exactly as they did in v2.31.1, and writes are proposed for your confirmation rather than applied. Alongside it, trigger-eval coverage closes as an accounting rather than a percentage: 53 skills carry a trigger-eval fixture pack and 15 are excluded by design, covering all 68 with nothing unclassified. That is a completeness claim about fixture coverage, not a claim that every skill's routing is continuously scored: the enforcing CI check is fixture structure, and the committed router baseline still covers 29 of the 53. Release automation gains the three mechanisms its shadow-to-authoritative cutover was missing, and the first fully green Release PR in the program's history was observed during this cut. No new skills; catalog stays 68 skills (30 phase + 11 foundation + 12 utility + 15 tool), 6 sub-agents unchanged. Additive MINOR.
