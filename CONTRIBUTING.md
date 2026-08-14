@@ -85,10 +85,20 @@ scaffolds all of this for you; if you author a skill by hand, supply it yourself
    pointer back in the neighbor's SKILL.md. If the overlap is strong enough to measure, add the pair
    to `collision_pairs` in `scripts/trigger-eval-roster.yaml` (the single roster data file read by the
    trigger + collision gates). Reciprocal pointers are what keep near-duplicate skills routing cleanly.
-2. **Trigger fixtures.** `evals/trigger-fixtures.json` (`schema: 1`): at least 16 queries, at least
-   8 that should trigger the skill (include intent-only asks, not just artifact keywords) and at
-   least 8 that should not - of which at least 2 are near-misses aimed at the neighbors. Split each
-   class roughly 60/40 across `train` / `validation`.
+2. **Trigger fixtures, and a roster entry in the same PR.** `evals/trigger-fixtures.json`
+   (`schema: 1`): at least 16 queries, at least 8 that should trigger the skill (include intent-only
+   asks, not just artifact keywords) and at least 8 that should not - of which at least 2 are
+   near-misses aimed at the neighbors. Split each class roughly 60/40 across `train` / `validation`.
+
+   **Every skill must land in exactly one of two states in `scripts/trigger-eval-roster.yaml`, in
+   the merge that adds it.** Either add it to the roster (it then carries fixtures and falls under
+   the enforcing structural check), or add it under `excluded:` with a rationale, the argument
+   against the exclusion, and how to reverse it. Exclusion is for skills that are not entered by
+   typing a free-text request: the 15 `tool-*` sprint-family steps are excluded because they are
+   stages inside a registered sprint family, reached through a family or workflow entry point.
+   The counts are asserted in the test suite (currently 53 rostered + 15 excluded = 68), so a skill
+   that lands in neither state fails CI rather than quietly going unmeasured. This is what
+   "eval-complete from day one" means in practice.
 3. **Output scenario + family rubric.** `evals/output-scenarios/<id>.md` with frontmatter
    `scenario` / `skill` / `family` and a realistic input brief. `family` maps to a rubric under
    `docs/internal/eval-rubrics/<family>.md` (framing, specification, discovery, technical,
@@ -100,6 +110,50 @@ These are enforced deterministically in CI by `check-trigger-fixtures.mjs` (B-4)
 `check-output-eval-assets.mjs` (B-7), `check-reciprocal-boundary-pointers.mjs` (C-5), and
 `validate-skill-history.sh`. Run `utility-pm-skill-validate <skill>` for an interactive report that
 mirrors these gates before you open a PR.
+
+## Project Memory Contract (optional, for memory-aware skills)
+
+Skills normally start cold: the user re-supplies the phase, the initiative, and everything a prior
+skill already produced. A project can opt into recording that once, in the gitignored
+`.claude/pm-skills.local.md` file the guardrails and phase router already read. A skill that
+participates declares what it reads and writes in a `## Project Memory Contract` section.
+
+**This is optional.** Most skills do not need one. Add it when your skill either consumes context a
+sibling skill produces, or produces context a downstream skill would otherwise ask for again. As of
+v2.32.0 eight skills carry one; `deliver-prd` is a good model to copy.
+
+The section has four parts, and the shape is checked by an advisory CI validator
+(`scripts/check-memory-contracts.mjs`):
+
+```markdown
+## Project Memory Contract
+
+Active only when `.claude/pm-skills.local.md` exists. With no file, ignore this section entirely
+and behave exactly as described above.
+
+- **Reads:** which keys and which artifact tags, and what to do when they are absent.
+- **Writes:** what the skill records, as which artifact tag, and into which section.
+- **Posture:** propose the entry and wait for confirmation before writing, unless
+  `memory_auto_append: true` is set, in which case append and echo what was written.
+```
+
+Three rules that are not negotiable:
+
+1. **Opt-in, always.** With no file present the skill must behave exactly as it did before. Never
+   create the file, and never treat its absence as an error.
+2. **Propose, do not apply.** The default posture is to show the user the entry and wait. Direct
+   appending happens only when the user has set `memory_auto_append: true`. This is a trust
+   decision, not a formality: skills write into a repository the user owns.
+3. **State the absent case.** "If none exist, ask as normal and never invent a persona to fill the
+   gap" is the pattern. A contract that reads a key without saying what happens when it is missing
+   invites the model to fabricate context.
+
+A read-only contract is legitimate and common. Two of the eight shipped contracts declare no writes
+at all, because the meeting-skill family already chains its artifacts by filename and memory carries
+durable context there instead.
+
+Full reference, including the file schema and the four-tag provenance model:
+[Hooks and project memory](https://product-on-purpose.github.io/pm-skills/concepts/hooks/).
 
 ## Pull Request Process
 

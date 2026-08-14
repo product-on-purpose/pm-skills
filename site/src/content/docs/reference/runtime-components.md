@@ -155,7 +155,7 @@ The dispatch skill is portable per agentskills.io. The sub-agent definition file
 
 - Proactive triggering (pm-critic's auto-fire after PM-artifact-producing skills) is a Claude Code frontmatter feature. On non-Claude clients, sub-agent invocation is explicit-only.
 - User-level overrides via `.claude/agents/` (Claude Code's per-user agent dir) have no portable equivalent. Non-Claude users edit the dispatch skill SKILL.md locally instead.
-- Plugin-level settings via `.claude/pm-skills.local.md` (deferred to v2.17+) are Claude-Code-specific.
+- Plugin-level settings via `.claude/pm-skills.local.md` are Claude-Code-specific. The file has been live since v2.25.0 (house-rule guardrails and the phase router read it) and v2.32.0 makes it the project-memory substrate as well: a declared `phase`, an `active_initiative`, an `artifacts[]` ledger, and a `## Decisions` section. The hooks that read it are Claude Code hooks, so on other clients the file has no effect. The memory-aware skills themselves are portable, since a `## Project Memory Contract` is instructions the agent follows and the agent does the file I/O; a non-Claude client that reads and writes files can honor the contract, it just gets no hook-driven behavior. See [Hooks and project memory](../concepts/hooks.md).
 
 These gaps are documented but not blocking; they reflect the platform differences, not pm-skills design choices.
 

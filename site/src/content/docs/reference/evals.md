@@ -43,16 +43,24 @@ The fix was not a better headless harness; it was a different instrument. The co
 
 Populated as of each release from what is actually checked into the repo at tag time - never a fabricated or aspirational figure. If a count below looks stale, the repo itself is the source of truth; these lines are a snapshot, not a live query.
 
-| Measure | As of v2.31.0 |
+| Measure | As of v2.32.0 |
 |---|---|
-| Skills with a trigger-fixture set | 43 of 68 (about 63%) |
-| Skills with output-eval scenario assets | 12 of 68 |
+| Trigger-fixture coverage | **53 measured + 15 excluded by design = 68.** Complete, with nothing unclassified (see below) |
+| Skills with output-eval scenario assets | 12 of 68 (15 scenario files; a skill may carry more than one) |
 | Output-eval family rubrics defined | 7 (`docs/internal/eval-rubrics/`) |
 | Router-eval committed baseline | Haiku-pinned, calibration 6/6 on the instrument's own sanity queries |
 | Trigger-fixture structural validity | enforcing in CI (`check-trigger-fixtures.mjs`) |
 | Output-eval asset presence | advisory in CI (`check-output-eval-assets.mjs`), promotes to enforcing once the roster is pinned |
 
 No aggregate pass/fail score is published here: output-eval verdicts are per-skill, per-run, and read from CI artifacts or the maintainer's own records, not rolled into a single headline number a reader could mistake for a certified benchmark result.
+
+### Why trigger coverage is an accounting, not a percentage
+
+Through v2.31.0 this row read "43 of 68, about 63%", which invited the wrong question: when does it reach 100? It never should. The 15 `tool-*` sprint-family steps are stages inside two registered sprint families, entered through a family or workflow entry point rather than by typing a free-text request. Measuring whether "run the magic lenses exercise" routes correctly measures a path users do not take.
+
+So v2.32.0 replaced the percentage with a closed accounting. Every skill is in exactly one of two states, both recorded as data in `scripts/trigger-eval-roster.yaml`: **rostered** (53, each carrying a fixture pack under the enforcing structural check) or **`excluded:`** (15, each with its rationale, the argument against the exclusion, and the reversal path written alongside it). The 53 + 15 = 68 equation is asserted in the test suite, so a skill cannot be added to the catalog and silently land in neither state.
+
+A new skill joins the roster in the same merge that adds it, or is recorded as excluded with a reason. There is no third state, and that is what "eval-complete from day one" means here in practice.
 
 ## See also
 
