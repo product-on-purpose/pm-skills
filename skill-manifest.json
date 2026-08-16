@@ -60,7 +60,7 @@
     {
       "name": "define-prioritization-framework",
       "description": "Run applicable prioritization frameworks (RICE, ICE, MoSCoW, Weighted Scoring, Kano) against a list of features or initiatives. Produces a comparison table showing where rankings agree and diverge across frameworks, and an executive summary with recommendation. Framework applicability is filtered by data availability; Kano requires customer research. Refuses to fabricate scores; produces an estimation scaffold when input data is missing.",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "group": "phase",
       "phase": "define",
       "family": null,

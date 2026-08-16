@@ -4,7 +4,7 @@ description: Run applicable prioritization frameworks (RICE, ICE, MoSCoW, Weight
 license: Apache-2.0
 metadata:
   phase: define
-  version: "1.2.0"
+  version: "1.3.0"
   updated: 2026-07-05
   category: planning
   frameworks: [triple-diamond, prioritization]
@@ -62,7 +62,7 @@ Before running, evaluate each framework against the available inputs. Run all fr
 | **ICE** (Impact * Confidence * Ease) | Always applicable; coarse estimates are acceptable | Not excluded; ICE is the lowest-input framework |
 | **MoSCoW** (Must / Should / Could / Won't) | Decision involves binary commitment per item or scope bounding | Not applicable for pure ranking decisions without scope constraint |
 | **Weighted Scoring** (multi-criteria with weights) | Multiple stakeholders or criteria apply; user provides or accepts proposed default weights | Single criterion dominates; or criteria are purely personal preference |
-| **Kano** (Must-Have / Performance / Delighter) | Customer-research input (survey or interview data) is provided | **Gated:** excluded if no customer research is provided; explain why and suggest what research would unlock it |
+| **Kano** (Must-Have / Performance / Delighter) | Customer-research input is provided, at either evidence tier below | **Gated:** excluded only if no customer research at all is provided; explain why and suggest what research would unlock it. Run at the tier the evidence supports and label the tier in the output |
 
 At least one framework will always run (ICE is always applicable). Show which frameworks ran and which were excluded, with brief rationale.
 
@@ -82,7 +82,7 @@ Run each applicable framework and produce its scoring table.
 
 **For RICE:**
 
-| Item | Reach (users/qtr) | Impact (0.25-3) | Confidence (%) | Effort (eng-weeks) | RICE Score | Notes |
+| Item | Reach (users/qtr) | Impact (0.25-3) | Confidence (%) | Effort (capacity-weeks) | RICE Score | Notes |
 |---|---|---|---|---|---|---|
 | Item A | 1000 | 2 | 80% | 3 | 533 | High confidence on reach |
 
@@ -109,7 +109,7 @@ Run each applicable framework and produce its scoring table.
 
 ### 4. Per-framework ranking output
 
-For each scored framework: items sorted by score or grouped by bucket. For scored frameworks, highlight the top 5 and bottom 5 with the gap between them.
+For each scored framework: items sorted by score or grouped by bucket. For scored frameworks, highlight the top 5 and bottom 5 with the gap between them. **When the backlog has 10 or fewer items**, a top 5 and a bottom 5 overlap or exhaust the list, so the rule cannot be followed as written: show every item in rank order instead and describe the gap between the clear tiers rather than forcing a five-and-five split.
 
 ### 5. Cross-framework comparison
 
@@ -163,7 +163,7 @@ You refuse to produce a ranking without minimum input quality. Specifically:
 - Reach: how many users / customers / events affected per time period (per quarter is common). Number, not %.
 - Impact: how much each affected user benefits. Use Intercom's scale: 0.25 (minimal), 0.5 (low), 1 (medium), 2 (high), 3 (massive).
 - Confidence: how sure you are about the other estimates. 0-100%.
-- Effort: how much work it takes in eng-weeks (or person-weeks). Higher = lower score.
+- Effort: how much work it takes in capacity-weeks. Higher = lower score. **Scale the unit to the executing team's real weekly capacity and state the conversion in the output.** A notional 40-hour engineering week is the right unit for a staffed team and the wrong one for a solo maintainer with five hours a week: at that capacity every small item rounds to "under one week" and the Effort dimension stops discriminating between items entirely. Size in whatever a week actually buys that team, name the unit once, and keep it consistent across all items.
 
 ### ICE (Impact, Confidence, Ease)
 
@@ -200,7 +200,16 @@ Categorize features by how their presence / absence affects customer satisfactio
 - Reverse: presence dissatisfies (rare)
 - Indifferent: customers do not care either way
 
-Requires customer-research input (survey or interview) to populate categories defensibly. **Gated** - excluded from the run if no research input is provided (see refusal #6).
+Requires customer-research input to populate categories defensibly. **Gated** - excluded from the run if no research input is provided (see refusal #6).
+
+**Evidence tiers, because "customer research" spans a wide range and the classification's trustworthiness varies with it.** State which tier the run used, in the output, next to the categories:
+
+| Tier | What it means | How to run and label |
+|---|---|---|
+| **Surveyed** | Formal Kano question pairs, functional and dysfunctional, asked per feature | Classify normally. Label **Kano (surveyed)**. Categories are directly measured |
+| **Inferred** | Summarized research: interview themes, survey means, support-ticket patterns, or analytics that speak to satisfaction but were not collected as Kano pairs | Classify, and label **Kano (inferred)**. Say which signal drove each non-obvious category, and treat a Delighter or Must-Have call as a hypothesis to confirm rather than a finding |
+
+Do not refuse a run because the evidence is inferred rather than surveyed. Refuse only when there is no customer research at all. Downgrading to the inferred tier and saying so is more useful than excluding the framework, and it keeps the confidence claim honest.
 
 ## Cross-skill composition
 

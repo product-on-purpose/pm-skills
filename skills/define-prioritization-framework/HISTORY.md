@@ -2,9 +2,22 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.3.0 | 2026-08-16 | v2.33.0 | C-14 | minor | Field-reported calibration (#252): top/bottom highlight rule scales below 10 items, RICE Effort unit scales to real team capacity, Kano gains surveyed and inferred evidence tiers. |
 | 1.2.0 | 2026-07-05 | v2.31.0 | WS-Z5 | minor | Reciprocal When NOT to Use pointer to `foundation-prioritized-action-plan`; collision pair declared with new trigger fixtures. |
 | 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Added a "When NOT to Use" section with five reciprocal boundary pointers, including the bidirectional edge back to `define-opportunity-tree` (which already pointed here). Closes a one-way gap in the cross-skill reciprocity mesh flagged by the 2026-07-04 deep audit. Also normalized the "Output format" and "Quality checklist" headings to their canon spelling and resolved a phantom `deliver-roadmap` pointer in Cross-skill composition (both WS-T8b/f, no re-bump). |
 | 1.0.0 | 2026-05-21 | v2.18.0 | - | baseline | Prior published version: runs the applicable prioritization frameworks (RICE, ICE, MoSCoW, Weighted Scoring, Kano) against a candidate list, filtered by data availability, surfacing where rankings agree and diverge plus an executive recommendation. |
+
+## 1.3.0 (2026-08-16)
+
+Field-reported calibration ([#252](https://github.com/product-on-purpose/pm-skills/issues/252)), from an end-to-end run on a real 8-item backlog in a solo-maintainer context. The report was positive about the skill overall and singled out the convergence and divergence analysis as its most valuable output, so these are calibration fixes rather than defect repairs.
+
+**Top and bottom highlight rule now scales below 10 items.** The rule read "highlight the top 5 and bottom 5"; with 8 items, 5 and 5 overlap or exhaust the list and the rule cannot be followed as written. At 10 or fewer items the skill now shows every item in rank order and describes the gap between clear tiers instead of forcing a five-and-five split.
+
+**RICE Effort unit now scales to real team capacity.** The unit was fixed as eng-weeks or person-weeks. For a solo operator with roughly five hours a week, a notional 40-hour week makes every small item round to "under one week" and the Effort dimension stops discriminating entirely. The unit is now capacity-weeks, sized to what a week actually buys that team, with the conversion stated in the output.
+
+**Kano gains explicit evidence tiers.** The applicability gate asked for "customer-research input" without saying whether summarized signals qualified or whether formal Kano question pairs were required. It now distinguishes a surveyed tier (functional and dysfunctional pairs per feature, classify normally) from an inferred tier (interview themes, survey means, support patterns; classify, label as inferred, and treat a Delighter or Must-Have call as a hypothesis to confirm). Refusal is reserved for having no customer research at all, since downgrading the tier and saying so is more useful than excluding the framework.
+
+Minor rather than patch: the Kano tiering lets the skill run a case it previously refused or fudged, and adds an optional tier label to the output, which is additive behavior under the versioning tie-breaker.
 
 ## 1.2.0 (2026-07-05)
 
