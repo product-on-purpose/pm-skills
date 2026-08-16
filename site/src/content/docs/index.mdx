@@ -224,6 +224,22 @@ deliver-acceptance-criteria "User can reset password via email"
 
 [Full setup guide](getting-started/) · [Find the right skill](guides/skill-finder.md) · [Recipes](guides/recipes.md)
 
+### Optional: let the skills remember your project
+
+Every skill starts cold by default, so you re-supply your phase, your initiative, and whatever a previous skill already produced. Record it once instead. Add `.claude/pm-skills.local.md` to your `.gitignore`, then create it:
+
+```yaml
+---
+schema: 1
+phase: discover
+active_initiative: "Self-serve onboarding"
+---
+```
+
+Eight skills read it. The moment worth seeing: run `discover-interview-synthesis` on your research, confirm the entry it offers to record, then run `deliver-prd`. It uses the personas you already produced instead of asking you to paste them again.
+
+Nothing happens until you create the file, and writes are proposed for your confirmation rather than applied. [Full schema, participating skills, and current limits](concepts/hooks.md#project-memory-opt-in)
+
 ## See It In Action
 
 Follow three fictional companies through the complete product lifecycle - from discovery research to pivot decisions - with real prompts and full outputs.

@@ -70,6 +70,24 @@ If you get a generic response instead of a structured artifact, the agent has no
 
 See `AGENTS.md` for the complete command list.
 
+### Optional: project memory
+
+Skills start cold by default, so each one asks for your phase, your initiative, and anything an earlier skill already produced. Record it once instead.
+
+Add `.claude/pm-skills.local.md` to your `.gitignore` first, then create it:
+
+```yaml
+---
+schema: 1
+phase: discover
+active_initiative: "Self-serve onboarding"
+---
+```
+
+Eight skills read it. The handoff worth trying: run `discover-interview-synthesis`, confirm the entry it offers to record, then run `deliver-prd` and watch it use the personas you already produced instead of asking for them again.
+
+Nothing happens until the file exists, and writes are proposed for your confirmation rather than applied. Full schema and the list of participating skills: [Hooks and project memory](https://product-on-purpose.github.io/pm-skills/concepts/hooks/#project-memory-opt-in).
+
 ### Workflows
 
 Run multi-skill workflows:

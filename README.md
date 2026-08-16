@@ -147,6 +147,24 @@ git clone https://github.com/product-on-purpose/pm-skills.git
 - [Setup by Platform](https://product-on-purpose.github.io/pm-skills/getting-started/platforms/) - Step-by-step install for Claude.ai, Codex, Cursor, Windsurf, GitHub Copilot, VS Code extensions, and ChatGPT.
 - [Quickstart Reference](https://product-on-purpose.github.io/pm-skills/getting-started/quickstart/) - Short-form reference card for users who just need the commands.
 
+### Optional: let the skills remember your project
+
+By default every skill starts cold, so you re-supply your phase, your current initiative, and anything a previous skill already produced. You can record that once instead.
+
+Add `.claude/pm-skills.local.md` to your `.gitignore`, then create it:
+
+```yaml
+---
+schema: 1
+phase: discover
+active_initiative: "Self-serve onboarding"
+---
+```
+
+Eight skills now read it. The moment worth seeing: run `discover-interview-synthesis` on your research, confirm the entry it offers to record, then run `deliver-prd`. It uses the personas you already produced rather than asking you to paste them again.
+
+Nothing happens until you create the file, and writes are proposed for your confirmation rather than applied. Full schema, the list of participating skills, and the limits it does not yet cover: [Hooks and project memory](https://product-on-purpose.github.io/pm-skills/concepts/hooks/#project-memory-opt-in).
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---

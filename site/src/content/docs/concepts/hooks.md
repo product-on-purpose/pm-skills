@@ -46,7 +46,7 @@ The hook fires on Claude's tool calls, not on what you type by hand, so it only 
 
 ## Configuring guardrails
 
-Guardrails are controlled by a gitignored, per-project file, `.claude/pm-skills.local.md`, with YAML frontmatter. With no file, nothing happens. To enable them:
+Guardrails are controlled by a per-project file, `.claude/pm-skills.local.md`, with YAML frontmatter. Add it to your `.gitignore` before creating it: it is local configuration, and once project memory is in use it also holds your initiative and recorded decisions. With no file, nothing happens. To enable them:
 
 ```yaml
 ---
@@ -84,9 +84,44 @@ flowchart TD
 
 ## Project memory (opt-in)
 
-Skills normally start cold: every session you re-supply which phase you are in, what you are working on, and what you already produced. Project memory lets a project record that once, in the same gitignored `.claude/pm-skills.local.md` the guardrails and router already use, so the catalog compounds across a session instead of restarting.
+Skills normally start cold: every session you re-supply which phase you are in, what you are working on, and what you already produced. Project memory lets a project record that once, in the same `.claude/pm-skills.local.md` the guardrails and router already use, so the catalog compounds across a session instead of restarting.
 
 **It is inert unless you create the file.** With no file, every skill and both hooks behave exactly as they did before, which is the whole trust posture: nothing reads or writes your project until you ask it to.
+
+### Turning it on
+
+1. **Ignore the file first.** Add `.claude/pm-skills.local.md` to your project's `.gitignore` before you create it. It will hold your current initiative, recorded decisions, and paths to internal artifacts, which is not usually content you want in version control, and in a public repository is content you almost certainly do not. Nothing ignores it for you.
+2. **Create it** with the two keys that do the work:
+
+   ```yaml
+   ---
+   schema: 1
+   phase: discover
+   active_initiative: "Self-serve onboarding"
+   ---
+   ```
+
+3. **Run a skill that reads it.** Start a session and run `discover-interview-synthesis` on your research. When it finishes it will offer to record what it produced. Confirm.
+4. **Run the next skill.** Run `deliver-prd`. It reads the personas the previous skill recorded instead of asking you to paste them again. That handoff is the whole feature; everything else is plumbing that makes it safe.
+
+Update `phase` as you move through the Triple Diamond. The router reads it at session start and stops guessing from your branch name.
+
+### Which skills read it
+
+Eight skills carry a `## Project Memory Contract` as of v2.33.0. Anything not on this list ignores the file entirely.
+
+| Skill | Reads | Writes |
+|---|---|---|
+| `discover-interview-synthesis` | initiative | personas and findings, as `interpretation` |
+| `deliver-prd` | initiative, prior `interpretation` artifacts | the PRD as `decision`, plus scope and metrics to `## Decisions` |
+| `foundation-okr-writer` | initiative, prior artifacts | the OKR set as `decision` |
+| `iterate-retrospective` | initiative, prior artifacts | lessons as `interpretation` |
+| `foundation-meeting-agenda` | initiative | nothing; an agenda plans a meeting that has not happened |
+| `foundation-meeting-brief` | initiative | nothing; the brief is preparation |
+| `foundation-meeting-recap` | initiative | decisions reached, plus the recap as `decision` |
+| `foundation-meeting-synthesize` | initiative | the synthesis as `interpretation` |
+
+The two pure readers are deliberate. The meeting family already chains its own artifacts by filename, so memory carries durable product context across meetings rather than duplicating a mechanism that works.
 
 ```yaml
 ---
@@ -154,7 +189,7 @@ The distinction is load-bearing rather than decorative: it is what lets a reader
 
 **Concurrent writes: what is guaranteed, and what is not.** Every contract that writes carries a **Write discipline** bullet requiring the skill to re-read the file immediately before writing, merge its entry into current state rather than overwriting, and re-propose if the file changed since the proposal was drafted. The `check-memory-contracts` validator enforces that a writing contract states this.
 
-What that buys is an *instruction*, not a guarantee. Nothing enforces it at runtime: a skill is text an agent follows, the agent chooses its own edit primitive, and the validator checks the declaration rather than the resulting file. So the honest position is that two sessions writing the same file are now told how to avoid clobbering each other, and are not prevented from it. The file is gitignored, so a bad write is not recoverable through git. Eight skills ship a contract in v2.32.0, six of which write; treat the file as a convenience that compounds context, not as a system of record.
+What that buys is an *instruction*, not a guarantee. Nothing enforces it at runtime: a skill is text an agent follows, the agent chooses its own edit primitive, and the validator checks the declaration rather than the resulting file. So the honest position is that two sessions writing the same file are now told how to avoid clobbering each other, and are not prevented from it. If you have ignored the file as recommended, a bad write is not recoverable through git either. Eight skills ship a contract, six of which write; treat the file as a convenience that compounds context, not as a system of record.
 
 ## Output-quality checks (advisory CI)
 
