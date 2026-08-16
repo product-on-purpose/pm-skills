@@ -4,7 +4,7 @@ description: Generates an evidence-calibrated product or marketing persona using
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "2.6.0"
+  version: "2.6.1"
   updated: 2026-06-10
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
