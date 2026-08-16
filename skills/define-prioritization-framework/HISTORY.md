@@ -17,6 +17,8 @@ Field-reported calibration ([#252](https://github.com/product-on-purpose/pm-skil
 
 **Kano gains explicit evidence tiers.** The applicability gate asked for "customer-research input" without saying whether summarized signals qualified or whether formal Kano question pairs were required. It now distinguishes a surveyed tier (functional and dysfunctional pairs per feature, classify normally) from an inferred tier (interview themes, survey means, support patterns; classify, label as inferred, and treat a Delighter or Must-Have call as a hypothesis to confirm). Refusal is reserved for having no customer research at all, since downgrading the tier and saying so is more useful than excluding the framework.
 
+**Kano unlock suggestion no longer leaves a bare pointer** ([#253](https://github.com/product-on-purpose/pm-skills/issues/253), folded into this same unreleased version). When Kano is excluded for having no research at all, the refusal suggests `discover-interview-synthesis` or `measure-survey-analysis` to unlock it. Under a partial install neither may exist, so the refusal now names the research in plain language as a fallback: roughly 20 to 30 responses asking, per feature, how the user would feel if it were present and if it were absent.
+
 Minor rather than patch: the Kano tiering lets the skill run a case it previously refused or fudged, and adds an optional tier label to the output, which is additive behavior under the versioning tie-breaker.
 
 ## 1.2.0 (2026-07-05)

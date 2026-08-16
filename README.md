@@ -323,6 +323,14 @@ The open [skills CLI](https://github.com/vercel-labs/skills) from Vercel Labs sc
 
 Telemetry is anonymous and opt-out via `DISABLE_TELEMETRY=1` or `DO_NOT_TRACK=1`.
 
+> **Installing a subset?** The CLI's `--skill` flag lets you take individual skills rather than the
+> whole library, and that is a supported way to use pm-skills. Be aware that skills route to each
+> other: a build-risk review ends by sending you to a hypothesis skill, a survey analysis points at
+> experiment design, and so on. Skills that route as part of their output now detect a missing
+> destination and inline the minimum version of it instead of leaving you a dead pointer, but the
+> full library is where the handoffs are seamless. If you are installing a subset, take the skills
+> a routing table sends you to as well as the one you came for.
+
 **Git Clone (manual path, everything included)**
 
 ```bash

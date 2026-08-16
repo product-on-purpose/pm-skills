@@ -2,9 +2,16 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.3.0 | 2026-08-16 | v2.33.0 | C-14 | minor | Single-touchpoint refusal no longer leaves a bare pointer when the suggested alternative skill is not installed; describes the work in plain language instead (#253). |
 | 1.2.0 | 2026-07-05 | v2.31.0 | WS-Z5 | minor | Reciprocal When NOT to Use pointer to `utility-mermaid-diagrams`; collision pair declared with new trigger fixtures. |
 | 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Combined bump per skill-versioning.md's tie-breaker rule: added a "When NOT to Use" section, normalized the "Output Format" heading to canon spelling, and rewrote the frontmatter description to name a sibling deflection. All three changes landed across separate stages of this release and share one version bump (implementation plan Section 4). |
 | 1.0.0 | 2026-05-21 | v2.18.0 | - | baseline | Prior published version: produces a customer journey map covering stages, touchpoints, emotional curve, pain points, moments of truth, and opportunity annotations, refusing to fabricate emotional or behavioral data without research input. |
+
+## 1.3.0 (2026-08-16)
+
+Partial-install resilience ([#253](https://github.com/product-on-purpose/pm-skills/issues/253)). The single-touchpoint refusal offered `deliver-edge-cases` as the alternative artifact, which is a dead pointer when the library is installed in part. The refusal now says so when the skill is unavailable and describes the alternative in plain language instead: enumerate the flow's failure and boundary conditions, one row per condition, with the expected handling for each.
+
+Minor rather than patch: the refusal path handles a scenario it previously could not.
 
 ## 1.2.0 (2026-07-05)
 

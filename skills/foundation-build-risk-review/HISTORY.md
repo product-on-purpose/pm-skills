@@ -2,8 +2,19 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.1.0 | 2026-08-16 | v2.33.0 | C-14 | minor | Verdict routing gains a not-installed fallback: name the gap and inline the minimum for each routed skill, so a review never ships a next step the user cannot execute (#253). |
 | 1.0.1 | 2026-07-04 | v2.30.0 | M-35 | patch | Heading normalized to the skeleton-canon spelling: "When to use" to "When to Use", "When NOT to use" to "When NOT to Use", bare "Output" to "Output Format", "Quality checklist" to "Quality Checklist". |
 | 1.0.0 | 2026-06-22 | v2.29.0 | F-56 | baseline | Prior published version: fast pre-build risk review naming the single assumption most likely to make a product idea or scope change fail, with a verdict and a no-code validation step. |
+
+## 1.1.0 (2026-08-16)
+
+Field-reported ([#253](https://github.com/product-on-purpose/pm-skills/issues/253)). This skill was the reporter's exact reproduction: they installed a subset of the library, ran the review to a "Validate first" verdict, and the artifact shipped mandating `define-hypothesis` then `measure-experiment-design`, neither of which existed in their environment.
+
+The library is routinely installed in part rather than whole, and the install CLI copies only the skill directories it is asked for, so a routed skill may simply not be there. Until now the routing table assumed the full catalog.
+
+Verdict routing now carries a not-installed fallback: when the routed skill cannot be confirmed available, say so plainly and inline the minimum version of its output, with a per-skill table giving that minimum (a hypothesis in believe/for/will/as-measured-by form, a three-line experiment sketch, a two-sentence problem frame, the three riskiest lean-canvas boxes, or a single ranked list). The governing line is that a verdict whose next step the user cannot execute is not a finished review.
+
+Minor rather than patch: the skill now handles a scenario it previously could not, and the output gains an optional section, which is additive under the versioning tie-breaker.
 
 ## 1.0.1 (2026-07-04)
 

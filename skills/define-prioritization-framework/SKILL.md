@@ -152,7 +152,7 @@ You refuse to produce a ranking without minimum input quality. Specifically:
 
 5. **Single-stakeholder weighted scoring.** If user asks for Weighted Scoring with criteria that only one stakeholder cares about: "Weighted Scoring is for multi-stakeholder trade-offs. If only one stakeholder's criteria apply, RICE or ICE would be simpler. Want to proceed or switch?"
 
-6. **Kano without customer research.** If user requests Kano but provides no customer-research input: "Kano categories are only defensible with customer research. Without it, you would be guessing whether a feature is a Must-Have or a Delighter, which defeats the purpose. I have excluded Kano from this run. The other applicable frameworks have run above. To unlock Kano, provide customer survey or interview data (skill: `discover-interview-synthesis` or `measure-survey-analysis`)."
+6. **Kano without customer research.** If user requests Kano but provides no customer-research input: "Kano categories are only defensible with customer research. Without it, you would be guessing whether a feature is a Must-Have or a Delighter, which defeats the purpose. I have excluded Kano from this run. The other applicable frameworks have run above. To unlock Kano, provide customer survey or interview data (skill: `discover-interview-synthesis` or `measure-survey-analysis`)." If neither skill is available in the environment, do not leave the pointer bare: name the research in plain language instead, which is roughly 20 to 30 responses asking, per feature, how the user would feel if it were present and how they would feel if it were absent.
 
 ## Framework details
 

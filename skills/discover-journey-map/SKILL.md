@@ -4,7 +4,7 @@ description: Maps a customer journey across stages, touchpoints, emotional curve
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "1.2.0"
+  version: "1.3.0"
   updated: 2026-07-05
   category: research
   frameworks: [triple-diamond, service-design]
@@ -160,7 +160,7 @@ You refuse to produce a journey map without minimum input quality. Specifically:
 
 4. **Excessive scope.** End-to-end journey for a long-lifecycle product (e.g., 5 years of B2B SaaS engagement) is too coarse to be useful. Refuse: "End-to-end over 5 years is too coarse. Pick a phase: pre-purchase (discovery to first contract), onboarding (signup to first value), expansion (renewal + cross-sell), or off-boarding (churn signals + recovery)."
 
-5. **Single touchpoint as the whole journey.** If user provides only one touchpoint (e.g., "checkout"): "A single touchpoint isn't a journey. Either expand to the surrounding stages (e.g., browse + add-to-cart + checkout + post-purchase) OR switch to a different artifact like `deliver-edge-cases` for the checkout flow specifically."
+5. **Single touchpoint as the whole journey.** If user provides only one touchpoint (e.g., "checkout"): "A single touchpoint isn't a journey. Either expand to the surrounding stages (e.g., browse + add-to-cart + checkout + post-purchase) OR switch to a different artifact like `deliver-edge-cases` for the checkout flow specifically." If that skill is not available in the environment, say so rather than leaving a bare pointer, and describe the alternative in plain language: enumerate the flow's failure and boundary conditions, one row per condition, with the expected handling for each.
 
 ## Patterns
 

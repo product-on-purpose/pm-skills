@@ -28,6 +28,8 @@ npx skills add product-on-purpose/pm-skills
 
 Installs all 68 skills into your agent's default skills directory via the open [skills CLI](https://github.com/vercel-labs/skills). No clone, no sync.
 
+The CLI's `--skill` flag installs individual skills instead of the whole library, which is supported. Note that skills route to each other: a build-risk review ends by sending you to a hypothesis skill, a survey analysis points at experiment design. Skills that route as part of their output detect a missing destination and inline the minimum version of it rather than leaving a dead pointer, but the handoffs are seamless only with the full library. Installing a subset works best when you take the skills a routing table sends you to as well.
+
 ### Claude.ai / Claude Desktop
 
 1. Go to **Settings > Capabilities** (Desktop) or **Project Settings > Add Files** (Claude.ai)

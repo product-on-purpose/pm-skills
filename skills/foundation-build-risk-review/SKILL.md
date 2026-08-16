@@ -4,7 +4,7 @@ description: Runs a fast pre-build risk review on a product idea, feature reques
 license: Apache-2.0
 metadata:
   classification: foundation
-  version: "1.0.1"
+  version: "1.1.0"
   updated: 2026-07-04
   category: problem-framing
   frameworks: [triple-diamond, lean-startup]
@@ -73,6 +73,22 @@ Be skeptical but useful. Always separate "can be built" from "should be built". 
 | Several competing requests | `define-prioritization-framework` |
 
 Full map, including the per-risk routing: `references/routing-map.md`.
+
+**If a routed skill is not available, do not ship a bare pointer.** The library is often installed
+in part rather than whole, so the skill you route to may not exist in the user's environment. When
+you cannot confirm it is available, say so plainly and inline the minimal version of its output so
+the review stays executable:
+
+| Routed skill absent | Inline instead |
+|---|---|
+| `define-hypothesis` | One testable hypothesis in believe / for / will / as-measured-by form |
+| `measure-experiment-design` | A three-line experiment sketch: the one decision metric, the sample or duration needed, and the win/lose rule set before running |
+| `define-problem-statement` | A two-sentence problem frame: who, in what situation, blocked by what |
+| `foundation-lean-canvas` | The three riskiest boxes only: problem, customer segment, unfair advantage |
+| `define-prioritization-framework` | A single ranked list with the one criterion that actually decides |
+
+A verdict whose next step the user cannot execute is not a finished review. Naming the gap and
+supplying the minimum is always better than routing into an environment that cannot follow.
 
 ## Output Format
 

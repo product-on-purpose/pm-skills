@@ -270,7 +270,7 @@
     {
       "name": "discover-journey-map",
       "description": "Maps a customer journey across stages, touchpoints, emotional curve, pain points, and moments of truth into a markdown artifact with an optional mermaid timeline or flowchart. Use when synthesizing existing research into the shape of a customer's experience, end-to-end or for one phase. Without research signal yet, run discover-interview-synthesis or measure-survey-analysis first; refuses to fabricate emotional or behavioral data.",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "group": "phase",
       "phase": "discover",
       "family": null,
@@ -315,7 +315,7 @@
     {
       "name": "foundation-build-risk-review",
       "description": "Runs a fast pre-build risk review on a product idea, feature request, or scope change, naming the single assumption most likely to make it fail and returning a clear verdict (build small, validate first, pivot first, or don't build yet) with a no-code validation step. Use before committing build effort, when triaging whether to honor a feature request, or when deciding whether to expand scope, ahead of writing a PRD. For a launched product's pivot-or-persevere decision, use iterate-pivot-decision instead.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "group": "foundation",
       "phase": null,
       "family": null,
@@ -615,7 +615,7 @@
     {
       "name": "measure-survey-analysis",
       "description": "Analyze survey results into actionable PM insights. Produces persona segmentation, hypothesis validation status, thematic clustering of open-text responses, statistical confidence labels, prioritized recommendations, and what-NOT-to-conclude warnings. Refuses to overstate statistical significance from weak samples or biased instruments.",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "group": "phase",
       "phase": "measure",
       "family": null,

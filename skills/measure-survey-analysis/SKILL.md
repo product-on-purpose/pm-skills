@@ -4,7 +4,7 @@ description: Analyze survey results into actionable PM insights. Produces person
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "1.2.0"
+  version: "1.3.0"
   updated: 2026-07-05
   category: research
   frameworks: [triple-diamond, quantitative-research]
@@ -147,7 +147,7 @@ You refuse to overstate statistical significance from weak data. Specifically:
 
 4. **NPS as decision input.** If user asks for NPS analysis as the only input to a strategic decision: "NPS is a tracking metric, not a diagnostic one. It tells you the trend; it does not tell you what to do. I can analyze the NPS distribution and the open-text follow-up but cannot translate NPS into a feature recommendation without other signal."
 
-5. **Causal inference from a cross-sectional survey.** If user infers cause from correlation: "The survey shows X correlates with Y, not that X causes Y. Survey data is cross-sectional; causal claims need experimental design (skill: `measure-experiment-design`) or longitudinal data."
+5. **Causal inference from a cross-sectional survey.** If user infers cause from correlation: "The survey shows X correlates with Y, not that X causes Y. Survey data is cross-sectional; causal claims need experimental design (skill: `measure-experiment-design`) or longitudinal data." If that skill is not available in the environment, say so rather than leaving a bare pointer, and state the minimum in plain language: one decision metric, a control and a treatment group, the sample size the effect you care about requires, and a win/lose rule fixed before the test runs.
 
 6. **Demanding a single number.** If user asks "what percent want feature X?" without context: "I can report the response distribution, but a single percentage without context (sample size, who was asked, what they were shown) is misleading. Want the full distribution with caveats, or a different framing?"
 

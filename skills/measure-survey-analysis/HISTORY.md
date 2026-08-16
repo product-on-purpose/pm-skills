@@ -2,9 +2,16 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.3.0 | 2026-08-16 | v2.33.0 | C-14 | minor | Causal-inference refusal no longer leaves a bare pointer when the suggested experiment-design skill is not installed; states the minimum experiment in plain language instead (#253). |
 | 1.2.0 | 2026-07-05 | v2.31.0 | WS-Z5 | minor | Reciprocal When NOT to Use pointers to `discover-journey-map` and `measure-experiment-results`; collision pairs declared with new trigger fixtures. |
 | 1.1.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Added a "When NOT to Use" section with a reciprocal pointer back to `discover-interview-synthesis`, which already deflected here without a return edge. Closes a one-way gap in the cross-skill reciprocity mesh flagged by the 2026-07-04 deep audit. Also normalized the "Output format" and "Quality checklist" headings to their canon spelling (WS-T8b, no re-bump). |
 | 1.0.0 | 2026-05-21 | v2.18.0 | - | baseline | Prior published version: analyzes survey results into persona segmentation, hypothesis validation, open-text thematic clustering, qualitative confidence labels, and prioritized recommendations, with explicit what-the-data-does-NOT-show warnings. |
+
+## 1.3.0 (2026-08-16)
+
+Partial-install resilience ([#253](https://github.com/product-on-purpose/pm-skills/issues/253)). The causal-inference refusal pointed at `measure-experiment-design`, which is a dead pointer when the library is installed in part. The refusal now says so when the skill is unavailable and states the minimum in plain language instead: one decision metric, a control and a treatment group, the sample size the effect requires, and a win/lose rule fixed before the test runs.
+
+Minor rather than patch: the refusal path handles a scenario it previously could not.
 
 ## 1.2.0 (2026-07-05)
 
