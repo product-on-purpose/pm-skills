@@ -57,6 +57,23 @@ Be honest about trade-offs.
 
 - [Neutral observation or implication]
 
+### Model Choice
+
+<!-- OPTIONAL. Include only when this decision selects a model, or commits the system to one.
+     Skip this subsection entirely otherwise.
+
+     A model choice differs from an ordinary dependency choice in one way that matters for an ADR:
+     the thing you evaluated will be replaced, often inside the life of this decision. So the
+     consequence worth writing down is not which model won. It is what the choice costs to undo. -->
+
+| Consequence | This decision |
+|-------------|---------------|
+| **Build, buy, or prompt** | [Host or tune our own / call a vendor API / prompt a general model, and what ruled the other two out] |
+| **What is now coupled to it** | [Prompts, evaluation sets, output schemas, latency budgets: whatever would need rework on a swap] |
+| **Operating cost accepted** | [The ongoing cost this decision commits to, and at what volume it stops being acceptable] |
+| **Reversal cost** | [What a swap actually costs given the coupling above, not whether one is theoretically possible] |
+| **What would reopen this** | [The observation that sends us back to this ADR, not a review date] |
+
 ## Alternatives Considered
 
 <!-- Optional but recommended: document other options that were evaluated -->

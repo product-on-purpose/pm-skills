@@ -4,8 +4,8 @@ description: Creates an Architecture Decision Record following the Nygard format
 license: Apache-2.0
 metadata:
   phase: develop
-  version: "2.1.0"
-  updated: 2026-06-10
+  version: "2.2.0"
+  updated: 2026-08-16
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -49,6 +49,9 @@ When asked to create an ADR, follow these steps:
 5. **Document the Consequences**
    List the outcomes of this decision - positive, negative, and neutral. Good ADRs are honest about trade-offs. What becomes easier? What becomes harder? What new constraints or options does this create?
 
+6. **Record the Model-Choice Consequences** *(only when the decision selects a model or commits the system to one)*
+   Skip this step entirely otherwise; it is a subsection inside Consequences, not a seventh heading. A model choice differs from an ordinary dependency choice in one way that matters for an ADR: the thing you evaluated will be replaced, often inside the life of this decision. So record what the choice costs to undo, not just which option won. Name whether you are building, buying, or prompting a general model and what ruled the other two out; what is now coupled to the choice (prompts, evaluation sets, output schemas, latency budgets); the operating cost accepted and the volume at which it stops being acceptable; the real reversal cost given that coupling; and the observation that would reopen this ADR, which is a trigger rather than a review date.
+
 ## Output Format
 
 Use the template in `references/TEMPLATE.md` to structure the output. A complete ADR fills every template section: Status; Context; Decision; Consequences; Alternatives Considered; and References.
@@ -63,6 +66,7 @@ Before finalizing, verify:
 - [ ] Decision is stated clearly in active voice
 - [ ] Consequences include both positive and negative outcomes
 - [ ] ADR can stand alone without requiring other documents
+- [ ] If the decision selects or commits to a model: coupling, operating cost, reversal cost, and the observation that would reopen the decision are all recorded
 
 ## Examples
 
