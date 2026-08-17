@@ -4,8 +4,8 @@ description: Specifies what analytics events to track, when they fire, and what 
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "2.2.0"
-  updated: 2026-07-04
+  version: "2.3.0"
+  updated: 2026-08-16
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -52,6 +52,8 @@ When asked to create an instrumentation spec, follow these steps:
 6. **Address PII and Privacy**
    Flag any properties that contain personally identifiable information. Document how PII should be handled - hashing, encryption, or exclusion.
 
+   *When the feature sends user input to a model and the exchange is captured*, extend this section to cover the trace as well. A trace is not an event: an event carries properties you chose in advance, while a trace carries what the user typed and what the model wrote back, which is free text that can contain anything the user decided to put in it. Decide and record four things: what is captured, what redaction runs before storage and whether it runs before the trace leaves the process, how long traces are retained and what deletes them, and what fraction of requests is sampled and how that sample is chosen. A uniform sample is the wrong instrument for finding rare failures; if the traces exist to diagnose bad output, oversample the flagged cases and say so.
+
 7. **Create Testing Checklist**
    Define how QA should verify that tracking is implemented correctly. Include steps to validate events fire at the right times with correct properties.
 
@@ -69,6 +71,7 @@ Before finalizing, verify:
 - [ ] PII is identified and handling is documented
 - [ ] Events map to the analytics questions you need to answer
 - [ ] Testing checklist enables QA verification
+- [ ] If model traces are captured: redaction, retention, sampling, and who can read a trace are all decided, not deferred
 
 ## Examples
 

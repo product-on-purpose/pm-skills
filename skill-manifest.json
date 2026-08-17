@@ -135,7 +135,7 @@
     {
       "name": "deliver-prd",
       "description": "Creates a comprehensive Product Requirements Document that aligns stakeholders on what to build, why, and how success will be measured. Use when specifying features, epics, or product initiatives for engineering handoff.",
-      "version": "2.2.0",
+      "version": "2.3.0",
       "group": "phase",
       "phase": "deliver",
       "family": null,
@@ -585,7 +585,7 @@
     {
       "name": "measure-instrumentation-spec",
       "description": "Specifies what analytics events to track, when they fire, and what properties to include, as a contract between product and engineering that prevents undertracked features. Use before engineering builds a feature or when auditing existing tracking for gaps. For the dashboard built on top of these events, use measure-dashboard-requirements instead.",
-      "version": "2.2.0",
+      "version": "2.3.0",
       "group": "phase",
       "phase": "measure",
       "family": null,

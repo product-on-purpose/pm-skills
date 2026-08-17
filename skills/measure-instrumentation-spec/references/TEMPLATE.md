@@ -87,6 +87,30 @@ status: draft
 
 - [Retention policy for this data]
 
+### Model Trace Capture
+
+<!-- OPTIONAL. Include only when the feature sends user input to a model and the exchange is
+     captured for debugging or evaluation. Skip this subsection entirely otherwise.
+
+     A trace is not an event. An event records that something happened, with properties you
+     chose in advance. A trace records what the user typed and what the model wrote back: free
+     text that can contain anything the user decided to put in it, including data no property
+     schema anticipated. Treat it as the most sensitive thing the feature handles, not as one
+     more property on one more event. -->
+
+| Question | Decision |
+|----------|----------|
+| **What is captured** | [Prompt / completion / both / metadata only] |
+| **Redaction before storage** | [What is stripped or masked, by what mechanism, and whether it runs before the trace leaves the process] |
+| **Who can read a trace** | [Roles, and whether each read is itself logged] |
+| **Retention** | [How long, what deletes it, and whether that differs from the event retention above] |
+| **Sampling** | [What fraction of requests is captured and how the sample is chosen] |
+| **User opt-out** | [Whether users can decline capture, and what the feature does when they do] |
+
+<!-- On sampling: a uniform sample is the wrong instrument for finding rare failures, because the
+     failures are rare. If the traces exist to diagnose bad output, oversample the cases a check
+     already flagged and say so here, rather than recording a rate and hoping. -->
+
 ## Implementation Notes
 
 <!-- Technical details for engineering -->
