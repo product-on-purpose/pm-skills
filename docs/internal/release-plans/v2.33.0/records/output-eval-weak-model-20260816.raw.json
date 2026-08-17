@@ -1,0 +1,874 @@
+{
+  "_note": "C-2 structure-over-prose weak-model re-test, run wf_7bf33fe8-88a (2026-08-16). G=3/N=3, genModel haiku, judgeModel sonnet. Single-variable re-run of the 2026-06-15 baseline wf_488ca001-61d; every other input held and verified byte-for-byte. Artifacts stripped; scores, rationales and raw_judges retained. Analysis: output-eval-weak-model-20260816.md. Decision rule fixed in advance: prereg_output-eval-weak-model-20260816.md.",
+  "_preregistered_outcome": {
+    "V": 1,
+    "K": 0,
+    "outcome": "R3 (void, no usable clean signal)",
+    "excluded": [
+      "develop-adr: freehand gap 0.88 < 1.0",
+      "deliver-release-notes: freehand gap 0.50 < 1.0"
+    ],
+    "r4": []
+  },
+  "_args": {
+    "_provenance": {
+      "purpose": "C-2 (structure-over-prose weak-model re-test), v2.33.0 WS-7",
+      "baseline": "wf_488ca001-61d (2026-06-15), docs/internal/release-plans/v2.27.0/records/output-eval-informed-20260615.md",
+      "instrument": "criteria, criteriaDefs and anchorScale lifted VERBATIM from the baseline run's 12 judge prompts, not reconstructed from docs/internal/eval-rubrics/",
+      "single_change": "genModel sonnet -> haiku. generations, judges, judgeModel, skill order, scenarios and rubric blocks all held.",
+      "prereg": "docs/internal/release-plans/v2.33.0/records/prereg_output-eval-weak-model-20260816.md"
+    },
+    "skills": [
+      {
+        "skill": "foundation-okr-writer",
+        "scenarioPath": "skills/foundation-okr-writer/evals/output-scenarios/activation-quarter.md",
+        "criteria": [
+          "objective_quality",
+          "outcome_krs",
+          "kr_measurability",
+          "guardrails",
+          "no_fabrication",
+          "integrity_audit",
+          "specificity",
+          "completeness"
+        ],
+        "criteriaDefs": [
+          "objective_quality - a directional state-change objective; qualitative, specific, tradeoff-guiding; not a slogan, task, metric-bundle, or project name",
+          "outcome_krs - every KR measures an outcome/behavior change; features and tasks moved to Initiatives",
+          "kr_measurability - every KR has metric, baseline (or marked placeholder), target, deadline, evidence source",
+          "guardrails - a guardrail/counter-metric KR exists for any optimization KR",
+          "no_fabrication - no fabricated baselines or targets; missing values labeled assumption/placeholder",
+          "integrity_audit - Quality Audit applied with explicit pass/risk/fail ratings; scores not coupled to performance/pay",
+          "specificity - concrete to THIS scenario; names the actual entities, constraints, and numbers from the input",
+          "completeness - fills every section the skill's Output Format requires; no required area left a stub or thin"
+        ]
+      },
+      {
+        "skill": "develop-adr",
+        "scenarioPath": "skills/develop-adr/evals/output-scenarios/event-streaming.md",
+        "criteria": [
+          "title_status",
+          "context",
+          "decision",
+          "consequences",
+          "alternatives",
+          "standalone",
+          "specificity",
+          "completeness"
+        ],
+        "criteriaDefs": [
+          "title_status - a short descriptive noun-phrase title plus an explicit status (Proposed/Accepted/Deprecated/Superseded)",
+          "context - explains why the decision was needed; the forces (constraints, expertise, timeline, cost) a non-participant needs",
+          "decision - stated clearly in active voice ('We will ...'); specific about what is and is not included",
+          "consequences - includes positive AND negative; honest trade-offs (what gets easier, what gets harder, new constraints)",
+          "alternatives - the real options weighed with why-not reasoning, not a single foregone choice",
+          "standalone - readable and decision-complete without requiring other documents",
+          "specificity - concrete to THIS scenario; names the actual systems, constraints, and options from the input",
+          "completeness - fills every section the skill's Output Format requires; no required area left a stub or thin"
+        ]
+      },
+      {
+        "skill": "deliver-release-notes",
+        "scenarioPath": "skills/deliver-release-notes/evals/output-scenarios/api-v4-breaking.md",
+        "criteria": [
+          "highlights",
+          "benefit_led",
+          "accessible",
+          "concise",
+          "bugfix_problem",
+          "no_leak",
+          "specificity",
+          "completeness"
+        ],
+        "criteriaDefs": [
+          "highlights - leads with the 1-3 most impactful changes users will notice and care about",
+          "benefit_led - each item leads with user benefit ('you can now ...'), not the technical change",
+          "accessible - jargon-free; a non-technical user understands every line",
+          "concise - items concise (1-2 sentences), scannable, no bloated entries",
+          "bugfix_problem - bug fixes name the user-visible problem solved, not 'fixed a bug'",
+          "no_leak - no internal jargon, ticket IDs, or code names; every line reads as customer-facing",
+          "specificity - concrete to THIS scenario; names the actual features and user benefits from the input",
+          "completeness - fills every section the skill's Output Format requires; no required area left a stub or thin"
+        ]
+      },
+      {
+        "skill": "measure-experiment-design",
+        "scenarioPath": "skills/measure-experiment-design/evals/output-scenarios/paywall-pricing.md",
+        "criteria": [
+          "hypothesis",
+          "primary_metric",
+          "sample_size",
+          "duration",
+          "success_criteria",
+          "guardrails",
+          "specificity",
+          "completeness"
+        ],
+        "criteriaDefs": [
+          "hypothesis - one falsifiable, specific hypothesis in the believe/for/will/as-measured-by form",
+          "primary_metric - exactly one primary decision metric, with 2-3 labeled secondaries",
+          "sample_size - MDE, significance, and power stated; the calculation shown, not asserted",
+          "duration - derived from sample size and available traffic; respects weekly patterns",
+          "success_criteria - a pre-registered win/loss/inconclusive decision rule set before launch, no movable goalposts",
+          "guardrails - named guardrail/counter-metrics with a monitoring/rollback plan",
+          "specificity - concrete to THIS scenario; names the actual metrics, baselines, and numbers from the input",
+          "completeness - fills every section the skill's Output Format requires; no required area left a stub or thin"
+        ]
+      }
+    ],
+    "generations": 3,
+    "judges": 3,
+    "genModel": "haiku",
+    "judgeModel": "sonnet",
+    "anchorScale": [
+      "5 - Exceptional: Nothing a senior PM would add or change on this criterion. Fully satisfied with notable rigor. Rare by design. Test: 'I cannot improve this.'",
+      "4 - Solid: Meets the criterion well. A reviewer might suggest one minor improvement but would ship it as-is. Test: 'Ship it; I have one small nit.'",
+      "3 - Adequate: Meets the baseline, but has a real gap a reviewer would ask to close before shipping. Test: 'Fix one thing first.'",
+      "2 - Thin: Partially addresses the criterion. Generic, or missing substance. Needs rework. Test: 'This needs another pass.'",
+      "1 - Absent or wrong: The criterion is unaddressed, or what is present is incorrect or misleading. Test: 'Not there, or wrong.'",
+      "Score CONSERVATIVELY: when torn between two levels, pick the LOWER. A straight 5.0 across ALL criteria is almost always wrong (a 2026-06-15 human anchor found this Sonnet panel ran ~0.5-1.0 optimistic); reserve 5 for a criterion you genuinely could not improve, and default solid work to 4."
+    ]
+  },
+  "results": [
+    {
+      "skill": "foundation-okr-writer",
+      "status": "ok",
+      "verdict": "pass-structural",
+      "absolute_pass": true,
+      "floored_criteria": [],
+      "generations": 3,
+      "judges": 3,
+      "skill_overall": 3.8333333333333335,
+      "freehand_overall": 1.9166666666666667,
+      "informed_overall": 3.6666666666666665,
+      "gap_vs_freehand": 1.9166666666666667,
+      "gap_vs_informed": 0.16666666666666696,
+      "agreement_stdev": 0.15590239111558088,
+      "blind_preference_skill": "2/3",
+      "skill_per_criterion": {
+        "objective_quality": 4,
+        "outcome_krs": 4,
+        "kr_measurability": 3.6666666666666665,
+        "guardrails": 3.3333333333333335,
+        "no_fabrication": 3.3333333333333335,
+        "integrity_audit": 4,
+        "specificity": 4,
+        "completeness": 4.333333333333333
+      },
+      "freehand_per_criterion": {
+        "objective_quality": 2,
+        "outcome_krs": 2,
+        "kr_measurability": 1.6666666666666667,
+        "guardrails": 1.6666666666666667,
+        "no_fabrication": 3.3333333333333335,
+        "integrity_audit": 1,
+        "specificity": 2.6666666666666665,
+        "completeness": 1
+      },
+      "informed_per_criterion": {
+        "objective_quality": 3.3333333333333335,
+        "outcome_krs": 4,
+        "kr_measurability": 3.6666666666666665,
+        "guardrails": 4,
+        "no_fabrication": 3,
+        "integrity_audit": 4,
+        "specificity": 3.3333333333333335,
+        "completeness": 4
+      },
+      "gates": {
+        "freehand": {
+          "value": 1.9166666666666667,
+          "target": 1,
+          "pass": true
+        },
+        "informed": {
+          "value": 0.16666666666666696,
+          "target": 0.5,
+          "pass": false
+        },
+        "agreement": {
+          "value": 0.15590239111558088,
+          "target": 0.7,
+          "pass": true
+        }
+      },
+      "raw_judges": [
+        {
+          "judge": 1,
+          "skillPos": "a",
+          "freehandPos": "b",
+          "informedPos": "c",
+          "artifact_a": {
+            "objective_quality": 4,
+            "outcome_krs": 4,
+            "kr_measurability": 4,
+            "guardrails": 3,
+            "no_fabrication": 4,
+            "integrity_audit": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "All 9 sections plus Disclosure present with real content. Correctly triages all 5 given roadmap items per Castro's litmus test: checklist, connectors, and interviews go to Initiatives; activation rate and time-to-dashboard get reframed as outcome KRs. KR4 turns the brief's fuzzy activation definition into its own evidence-generation KR, a sophisticated read of the scenario's core ambiguity. Baseline dates of 2026-06-14 trace to the scenario file's own created date, not invented. Quality Audit self-rates 3 of 11 rows as risk rather than blanket pass, a sign of real self-critique. Main gap: all three guardrails are qualitative must-not statements with no metric, baseline, or target attached, so no formal guardrail-class KR exists at the same rigor as the primary KRs."
+          },
+          "artifact_b": {
+            "objective_quality": 2,
+            "outcome_krs": 2,
+            "kr_measurability": 2,
+            "guardrails": 2,
+            "no_fabrication": 3,
+            "integrity_audit": 1,
+            "specificity": 2,
+            "completeness": 1,
+            "notes": "Missing most of the required structure: no populated Context fields (scope, level, OKR type, empowerment signal, source of truth, assumptions), no Initiatives as Bets section, no Guardrails and Health Checks section, no Alignment Notes, no formal Disclosure, no Quality Audit, no Open Questions, no Suggested Next Step. Complete 10 customer interviews and Ship Salesforce, HubSpot, Segment connectors sit directly as Key Results, the exact anti-patterns the skill exists to catch, with no Initiatives section available to catch them. No KR states a deadline, evidence source, indicator class, or confidence anywhere. Never uses the brief's 22 percent activation baseline and never engages the support-load risk at all, though the vanity-metric risk gets one informal mention."
+          },
+          "artifact_c": {
+            "objective_quality": 3,
+            "outcome_krs": 4,
+            "kr_measurability": 3,
+            "guardrails": 4,
+            "no_fabrication": 2,
+            "integrity_audit": 3,
+            "specificity": 3,
+            "completeness": 4,
+            "notes": "All 9 sections plus Disclosure present with real content. KR3 turns the brief's support-load risk into a fully specified counter-metric KR with metric, labeled baseline, target, deadline, and evidence source, stronger guardrail rigor than Artifact A. Two real defects: KR2's baseline claims an estimated 6 to 8 hours based on support anecdotes, a specific figure and evidentiary source the brief never supplies (it states time-to-dashboard is not currently instrumented and support load is not quantified); and the Context section lists OKR type as feature-team, which is actually the empowerment_signal value, not one of the skill's five valid OKR types. The Quality Audit rates Integrity as risk citing the team's metric-gaming history, sharper than A's blanket pass, but does not catch its own KR2 fabrication."
+          },
+          "which_is_strongest": "A"
+        },
+        {
+          "judge": 2,
+          "skillPos": "b",
+          "freehandPos": "c",
+          "informedPos": "a",
+          "artifact_a": {
+            "objective_quality": 3,
+            "outcome_krs": 4,
+            "kr_measurability": 4,
+            "guardrails": 4,
+            "no_fabrication": 2,
+            "integrity_audit": 4,
+            "specificity": 3,
+            "completeness": 4,
+            "notes": "Strong structural compliance and an honest, differentiated self-audit, but KR2's baseline states 'estimated 6-8 hours based on support anecdotes,' a specific quantity and evidence source invented outside the brief (the input only says time-to-first-dashboard is 'not currently instrumented,' with no anecdotal color given at all). That fabrication is not caught by the artifact's own Quality Audit. The artifact also never uses the brief's 22% activation-rate figure anywhere, and the Context section labels OKR type as 'feature-team,' which is the empowerment-signal value, not one of the skill's defined OKR types (committed, aspirational, learning, operational_health, compliance_or_safety). The Objective bakes solution language ('through clearer guidance and faster time-to-value') into what should be a pure state-change statement. On the strong side: Guardrail 3 explicitly names the checklist-completion vanity metric the brief flags as the team's historical failure mode, KR2 keeps a time-to-first-dashboard KR rather than dropping it, and Alignment Notes surface a specific, non-generic known conflict (a sales-driven signup surge raising absolute support load even if per-user metrics improve)."
+          },
+          "artifact_b": {
+            "objective_quality": 4,
+            "outcome_krs": 4,
+            "kr_measurability": 4,
+            "guardrails": 4,
+            "no_fabrication": 4,
+            "integrity_audit": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "The only artifact that uses both given baselines (22% activation, 6% conversion) without inventing anything, correctly classifies OKR type as 'aspirational' using the skill's own enum, and ties the Context Level field to the actual stated audience ('team reporting to Group PM'). KR3 is the cleanest anti-pattern reframe of the three: a task count paired with a defined synthesis deliverable, correctly labeled indicator class evidence_generation, though 'structured findings document clarity' is a soft, hard-to-verify metric phrase for something meant to be measured. Two real, scenario-specific gaps keep this from a higher score: it drops the time-to-first-dashboard KR entirely, pushing it only into an open question instead of writing it as a KR with a recommended-to-measure baseline the way the skill's own missing-baseline guidance allows; and it never names 'checklist completion' as the specific vanity metric the brief calls out as the team's past failure mode, even though its two guardrails (retention, normalized support load) are well-reasoned on their own terms. The 22% and 6% baselines are stated 'as of June 2026' without hedging that specific month, a minor precision overstatement the brief itself only gave as 'roughly' current figures."
+          },
+          "artifact_c": {
+            "objective_quality": 2,
+            "outcome_krs": 2,
+            "kr_measurability": 1,
+            "guardrails": 1,
+            "no_fabrication": 3,
+            "integrity_audit": 1,
+            "specificity": 3,
+            "completeness": 1,
+            "notes": "Reads as a much lighter document against this skill's required Output Contract. There is no Quality Audit section anywhere, so no pass, risk, or fail rating on any criterion. There is no Guardrails section and no counter-metric KR of any kind, despite every KR in the document being growth or speed oriented (conversion, time-to-value, invite rate, connector adoption). There is no source_of_truth pointer, no empowered-team Disclosure despite a clear feature-team trigger in the brief (committed roadmap that cannot be dropped mid-cycle), and no Alignment Notes, Open Questions, or Suggested Next Step sections. Every KR is a single unlabeled bullet: none carry an explicit baseline field, evidence source, owner, indicator class, or confidence rating anywhere in the document. Objective 2 ('De-risk onboarding design through structured customer research and expand integration coverage') describes research activity and roadmap delivery rather than a customer or business state change, and its KR 'Ship Salesforce, HubSpot, Segment connectors; achieve 12%+ adoption' keeps feature-delivery language inside the KR rather than moving delivery to an initiative. Objective 1 leans the same direction, reading closer to a metric-direction label than a state change. To its credit, it does not fabricate any baseline: every missing number is marked as something to establish rather than invented, and the team-invite-rate KR is a genuinely specific, well-reasoned way of splitting the brief's fuzzy activation definition into two separately trackable signals."
+          },
+          "which_is_strongest": "B"
+        },
+        {
+          "judge": 3,
+          "skillPos": "c",
+          "freehandPos": "a",
+          "informedPos": "b",
+          "artifact_a": {
+            "objective_quality": 2,
+            "outcome_krs": 2,
+            "kr_measurability": 2,
+            "guardrails": 2,
+            "no_fabrication": 4,
+            "integrity_audit": 1,
+            "specificity": 3,
+            "completeness": 1,
+            "notes": "No Quality Audit section at all (integrity_audit criterion goes unaddressed). Of the 9 canonical sections, 6 are missing or reduced to prose: no formal Context block (scope/cycle/level/OKR-type/empowerment-signal/source-of-truth), no Initiatives as Bets, no Guardrails and Health Checks, no Open Questions, no Suggested Next Step; Alignment Notes exists only as a thin 'Key Constraints' list. Every KR omits evidence source, deadline, indicator class, and confidence. Two KRs are hybrid feature/task statements ('Ship Salesforce, HubSpot, Segment connectors...', 'Complete 10 customer interviews...') left in Key Results instead of moved to Initiatives, and Objective 2 ('De-risk onboarding design through structured customer research and expand integration coverage') names initiatives inside the objective itself. Strongest asset is the prose reasoning about the vanity-metric risk, but no rubric line rewards prose outside specificity and no_fabrication, where it scores adequately."
+          },
+          "artifact_b": {
+            "objective_quality": 4,
+            "outcome_krs": 4,
+            "kr_measurability": 4,
+            "guardrails": 4,
+            "no_fabrication": 5,
+            "integrity_audit": 5,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "Fully compliant with the canonical section order and all 7 KR sub-fields; consistently uses the skill's canonical missing-value vocabulary (recommended-to-measure, not-enough-evidence) and never presents an invented number as fact. Quality Audit is genuinely self-critical (4 of 11 items rated risk, not rubber-stamped), and the Integrity line correctly names the team's metric-gaming history as an ongoing risk needing weekly review. Two real but minor gaps: source of truth is left as a bracketed placeholder ('to be specified') in the final reader-facing artifact rather than resolved or raised as an Open Question; and Guardrail 2 (NPS/CSAT) has no baseline or confirmed measurement source and Guardrail 3 is a process rule rather than a metric, so guardrail coverage is thorough in scope but not fully operationalized as measurable counter-metrics."
+          },
+          "artifact_c": {
+            "objective_quality": 4,
+            "outcome_krs": 4,
+            "kr_measurability": 3,
+            "guardrails": 3,
+            "no_fabrication": 2,
+            "integrity_audit": 4,
+            "specificity": 4,
+            "completeness": 5,
+            "notes": "Most complete of the three (4 KRs, 4 initiatives, a real source-of-truth pointer, a cleanly typed evidence_generation KR3, and guardrail coverage folded non-redundantly into KR4). But KR1's baseline (1.3%) is produced by multiplying the input's ~22% activation rate by its ~6% free-to-paid rate across cohorts the artifact itself calls 'not formally linked,' and silently moves the 6% figure, which the input defines as a 30-day window, into a new 90-day metric. The Quality Audit's Integrity line claims 'no fabricated baselines (missing values explicitly marked)' but KR1 carries none of the canonical placeholder tags, so the audit asserts a rigor the document does not have. Alignment Notes also adds a 'Series B push' detail with no basis anywhere in the input. Guardrail coverage is narrower than B's: nothing counters dark-pattern-driven conversion tactics, which matters given KR1 more than doubles the conversion rate."
+          },
+          "which_is_strongest": "B"
+        }
+      ]
+    },
+    {
+      "skill": "develop-adr",
+      "status": "ok",
+      "verdict": "void-inconclusive",
+      "absolute_pass": true,
+      "floored_criteria": [],
+      "generations": 3,
+      "judges": 3,
+      "skill_overall": 3.9166666666666665,
+      "freehand_overall": 3.0416666666666665,
+      "informed_overall": 3.9166666666666665,
+      "gap_vs_freehand": 0.875,
+      "gap_vs_informed": 0,
+      "agreement_stdev": 0.11785113019775792,
+      "blind_preference_skill": "1/3",
+      "skill_per_criterion": {
+        "title_status": 4,
+        "context": 3.6666666666666665,
+        "decision": 4,
+        "consequences": 3.6666666666666665,
+        "alternatives": 4,
+        "standalone": 4,
+        "specificity": 4,
+        "completeness": 4
+      },
+      "freehand_per_criterion": {
+        "title_status": 2.3333333333333335,
+        "context": 2.6666666666666665,
+        "decision": 3,
+        "consequences": 3.3333333333333335,
+        "alternatives": 4,
+        "standalone": 3.6666666666666665,
+        "specificity": 3.3333333333333335,
+        "completeness": 2
+      },
+      "informed_per_criterion": {
+        "title_status": 3.3333333333333335,
+        "context": 4,
+        "decision": 3.6666666666666665,
+        "consequences": 4,
+        "alternatives": 4,
+        "standalone": 4,
+        "specificity": 4,
+        "completeness": 4.333333333333333
+      },
+      "gates": {
+        "freehand": {
+          "value": 0.875,
+          "target": 1,
+          "pass": false
+        },
+        "informed": {
+          "value": 0,
+          "target": 0.5,
+          "pass": false
+        },
+        "agreement": {
+          "value": 0.11785113019775792,
+          "target": 0.7,
+          "pass": true
+        }
+      },
+      "raw_judges": [
+        {
+          "judge": 1,
+          "skillPos": "a",
+          "freehandPos": "b",
+          "informedPos": "c",
+          "artifact_a": {
+            "title_status": 4,
+            "context": 3,
+            "decision": 4,
+            "consequences": 3,
+            "alternatives": 4,
+            "standalone": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "Template-complete and faithful to the source with no invented numbers. Context never names budget/VP-signoff as a force (cost only appears later, in Consequences), a real gap since the rubric names cost as one of four force-types to cover. Consequences misses the idempotency/dedup-on-consumers trade-off that both B and C catch, despite at-least-once being an explicit requirement in the scenario. Decision reasonably defers the specific vendor pick to a later review and states a clean, explicit inclusion/exclusion boundary. Title states the actual decision made, per the skill's own title guidance; full Status block with Date and Deciders."
+          },
+          "artifact_b": {
+            "title_status": 2,
+            "context": 3,
+            "decision": 3,
+            "consequences": 3,
+            "alternatives": 4,
+            "standalone": 3,
+            "specificity": 4,
+            "completeness": 2,
+            "notes": "Weakest on template compliance: References is entirely absent, Consequences has no Neutral subsection, Status is bare ('Proposed' only, no Date or Deciders), the main heading omits the ADR number, and the title is topic-level rather than naming the decision made. The Decision statement uses imperative phrasing ('Adopt...') rather than the specified 'We will' active voice, and team expertise plus budget, both named forces in the rubric, live in Decision/Consequences rather than Context. Content quality where present is genuinely strong: the Alternatives section's Strengths / Why-not / Accepted-risk structure is the most rigorous of the three, and negatives like partition-key misconfiguration and consumer idempotency burden are sharp and specific. One candor slip: frames EU multi-region as unconditionally 'straightforward,' dropping the source's own caveat that residency must be verified per vendor."
+          },
+          "artifact_c": {
+            "title_status": 3,
+            "context": 4,
+            "decision": 3,
+            "consequences": 4,
+            "alternatives": 4,
+            "standalone": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "Fullest Context section of the three: explicitly names all four force-types the rubric calls out (constraints, expertise, timeline, cost) plus ops appetite, in a clean scannable list, and states the fraud service's exact ordering requirement. Richest Consequences (positive, negative, and neutral all well populated, quantified throughput ceiling, explicit idempotency caveat). Decision commits to a concrete implementation (named outbox table, relay daemon, order-ID batching) but the mechanism description is internally muddled: it says the relay 'delivers' events to a Postgres logical replication slot, which is backwards, since slots are read from via CDC, not delivered to, and this sits in tension with its own Negative bullet claiming no offset tracking exists (logical replication slots track offsets via LSN). Title is topic-level, not decision-level, same gap as B. Two invented-but-plausible latency and threshold figures are not grounded in the source."
+          },
+          "which_is_strongest": "C"
+        },
+        {
+          "judge": 2,
+          "skillPos": "b",
+          "freehandPos": "c",
+          "informedPos": "a",
+          "artifact_a": {
+            "title_status": 3,
+            "context": 4,
+            "decision": 4,
+            "consequences": 4,
+            "alternatives": 4,
+            "standalone": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "Comprehensive and well-organized: Context bullets hit every scenario force (team, ordering, scale, multi-region, ops, budget, timeline) with precise numbers (400k to 1.2M, exact budget thresholds). Decision has a concrete, quantified re-evaluation trigger (3M+ orders/day). Consequences are candid about the relay's operational burden and throughput ceiling. Gap: the title 'Event-Delivery Backbone for Order Processing' is a topic label, not the decision-revealing 'Use X' / 'Adopt X' pattern the skill's own instructions specify (step 1). One Alternatives sentence also has an internal inconsistency: the managed-service alternative's re-evaluation trigger is worded around 'Kafka ops burden,' which reads like a copy-paste slip from the Kafka alternative above it."
+          },
+          "artifact_b": {
+            "title_status": 4,
+            "context": 4,
+            "decision": 4,
+            "consequences": 4,
+            "alternatives": 4,
+            "standalone": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "The most convention-compliant of the three: the title follows the skill's explicit 'Use X for Y' decision-revealing pattern, Deciders precisely names the scenario's actual stakeholder groups, and Context matches the scenario's exact phrasing (read replicas, seconds-to-minutes). The Decision states both what is included and an explicit exclusion ('We will not operate Kafka ourselves or build a custom event system'). Consequences include a genuinely self-critical point, the relay pulling into the managed service is new code the team owns and could fail silently, that undercuts the chosen option's own pitch, which is exactly the honest trade-off weighing the brief's 'what the team wants' section asks for. Minor gaps: the specific vendor is left open (Kinesis vs Pub/Sub vs equivalent) with no stated resolution path, and the fraud-specific 'paid cannot precede created' rule is implied through partition-key ordering rather than stated outright the way A and C both do."
+          },
+          "artifact_c": {
+            "title_status": 2,
+            "context": 2,
+            "decision": 3,
+            "consequences": 3,
+            "alternatives": 4,
+            "standalone": 4,
+            "specificity": 3,
+            "completeness": 2,
+            "notes": "Alternatives Rejected is genuinely strong: its 'Accepted risk if we choose it' framing for each rejected option is a rigorous, non-obvious addition that names the counterfactual failure mode directly. But the document misses the skill's own completeness bar: References, one of the six sections the skill's Output Format names explicitly ('Status; Context; Decision; Consequences; Alternatives Considered; and References'), is entirely absent; Status has no Date or Deciders and there is no YAML frontmatter at all, so a reader cannot tell who decided or when; Consequences omits the Neutral subsection the template requires. Context, read as its own section, covers the latency/DB-load/ordering problem well but never states team expertise or budget there (two of the rubric's four named force categories); those surface later, in Decision Rationale and Consequences. On scenario grounding: the fraud created-before-paid rule, event types, downstream consumers, the 1.2M/day 3x projection, and the EU 12-month timeframe are all concretely present (mostly outside Context). Spiky/peak-load traffic is acknowledged conceptually (twice) but never quantified as the scenario's stated 10x, the 400k/day baseline is never stated, and the on-call-for-the-monolith ops-capacity fact is absent throughout."
+          },
+          "which_is_strongest": "B"
+        },
+        {
+          "judge": 3,
+          "skillPos": "c",
+          "freehandPos": "a",
+          "informedPos": "b",
+          "artifact_a": {
+            "title_status": 3,
+            "context": 3,
+            "decision": 3,
+            "consequences": 4,
+            "alternatives": 4,
+            "standalone": 4,
+            "specificity": 3,
+            "completeness": 2,
+            "notes": "Clean, well-organized prose with a nice touch: an 'accepted risk if we choose it' framing under each rejected alternative. But Context never mentions team headcount, the budget bands, or the flash-sale 10x spike anywhere in the document. Decision names a category (managed streaming service) but defers the actual vendor pick (Kinesis vs Pub/Sub) to a follow-up step instead of committing now, and never uses 'We will' phrasing. No References section at all, no Neutral consequences subsection, no Date or Deciders under Status, no YAML frontmatter: the most incomplete of the three against the skill's own six required sections (Status, Context, Decision, Consequences, Alternatives, References)."
+          },
+          "artifact_b": {
+            "title_status": 4,
+            "context": 4,
+            "decision": 4,
+            "consequences": 4,
+            "alternatives": 4,
+            "standalone": 4,
+            "specificity": 4,
+            "completeness": 5,
+            "notes": "The most complete and precise execution of the six. Context maps every constraint from the brief (team, delivery semantics, scale plus spike, multi-region, ops appetite, budget, timeline) into a labeled list with no gaps. Decision uses explicit 'We will' phrasing plus a stated 18-month timebox and a concrete re-evaluation trigger (3M+ orders/day). Consequences cover positive, negative, and neutral with a quantified throughput ceiling. Verified both external references (microservices.io transactional-outbox pattern, postgresql.org logical-replication docs): both resolve and are on topic. Title names the problem area rather than the chosen decision, a minor style nit against the skill's own titling example."
+          },
+          "artifact_c": {
+            "title_status": 4,
+            "context": 4,
+            "decision": 4,
+            "consequences": 4,
+            "alternatives": 4,
+            "standalone": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "Substantively the sharpest analysis of the three: ties the outbox relay's estimated throughput ceiling directly to the fraud service's specific latency requirement, and is the only artifact to note that self-hosted Kafka also strains the budget constraint, not just the managed-service option. Two verified execution defects hold it back from matching B: one of four references ('Udi Dahan, The Outbox Pattern') 404s, and its cited title does not match the URL slug (nservicebus-distributor) even allowing for link rot, so the citation cannot be trusted. Also, its frontmatter status reads 'draft' while the body says 'Proposed': this may just be an unedited template default (TEMPLATE.md itself ships status: draft) rather than a deliberate error, but a reviewer would still flag the mismatch."
+          },
+          "which_is_strongest": "B"
+        }
+      ]
+    },
+    {
+      "skill": "deliver-release-notes",
+      "status": "ok",
+      "verdict": "void-inconclusive",
+      "absolute_pass": true,
+      "floored_criteria": [],
+      "generations": 3,
+      "judges": 3,
+      "skill_overall": 3.9166666666666665,
+      "freehand_overall": 3.4166666666666665,
+      "informed_overall": 3.5833333333333335,
+      "gap_vs_freehand": 0.5,
+      "gap_vs_informed": 0.33333333333333304,
+      "agreement_stdev": 0.11785113019775792,
+      "blind_preference_skill": "2/3",
+      "skill_per_criterion": {
+        "highlights": 3.3333333333333335,
+        "benefit_led": 4,
+        "accessible": 4,
+        "concise": 4,
+        "bugfix_problem": 4,
+        "no_leak": 4.666666666666667,
+        "specificity": 3.3333333333333335,
+        "completeness": 4
+      },
+      "freehand_per_criterion": {
+        "highlights": 2.6666666666666665,
+        "benefit_led": 3.6666666666666665,
+        "accessible": 4,
+        "concise": 3.3333333333333335,
+        "bugfix_problem": 3.6666666666666665,
+        "no_leak": 4.666666666666667,
+        "specificity": 3.3333333333333335,
+        "completeness": 2
+      },
+      "informed_per_criterion": {
+        "highlights": 4,
+        "benefit_led": 3.6666666666666665,
+        "accessible": 4,
+        "concise": 3,
+        "bugfix_problem": 4,
+        "no_leak": 4.333333333333333,
+        "specificity": 2,
+        "completeness": 3.6666666666666665
+      },
+      "gates": {
+        "freehand": {
+          "value": 0.5,
+          "target": 1,
+          "pass": false
+        },
+        "informed": {
+          "value": 0.33333333333333304,
+          "target": 0.5,
+          "pass": false
+        },
+        "agreement": {
+          "value": 0.11785113019775792,
+          "target": 0.7,
+          "pass": true
+        }
+      },
+      "raw_judges": [
+        {
+          "judge": 1,
+          "skillPos": "a",
+          "freehandPos": "b",
+          "informedPos": "c",
+          "artifact_a": {
+            "highlights": 4,
+            "benefit_led": 4,
+            "accessible": 4,
+            "concise": 4,
+            "bugfix_problem": 4,
+            "no_leak": 5,
+            "specificity": 3,
+            "completeness": 4,
+            "notes": "Cleanest and most disciplined of the three: fully template-compliant (all required sections present and substantive), zero internal leaks after two full passes, and every number checks out (3x perf claim matches 1.8s->0.6s exactly, '4 out of 100' matches the 4% figure, EU timeline stated without overpromising). Sole real gap: the session-security fix (SEC-318) is omitted entirely, dropping a scenario-mandated element outright. Minor nit: Highlight #2 conflates two unrelated changes (broad perf improvement + premium-only Smart Categories) under one heading."
+          },
+          "artifact_b": {
+            "highlights": 2,
+            "benefit_led": 3,
+            "accessible": 4,
+            "concise": 4,
+            "bugfix_problem": 4,
+            "no_leak": 5,
+            "specificity": 3,
+            "completeness": 2,
+            "notes": "The only artifact that addresses the security fix, and does so calmly and accurately - a real strength. But it is structurally noncompliant with the skill's required Output Format: no distinct Highlights section (just a one-line tagline substitutes), and Bug Fixes is folded into 'Performance and reliability' rather than standing alone. Also drops the EU-rollout timeline for savings goals and the '4% of users' bank-sync eligibility figure, and fabricates an unsupported 'it takes 30 seconds' relink duration not present anywhere in the source."
+          },
+          "artifact_c": {
+            "highlights": 4,
+            "benefit_led": 3,
+            "accessible": 4,
+            "concise": 3,
+            "bugfix_problem": 4,
+            "no_leak": 4,
+            "specificity": 2,
+            "completeness": 4,
+            "notes": "Structurally the most template-complete (every named section plus the optional Coming Soon, closely mirroring the skill's own gold example). But it carries the most factual/logic problems of the three: overstates the performance gain as 'cutting load time by nearly three-quarters' when the actual reduction is ~two-thirds (1.8s to 0.6s), and tells users to 'switch to our new Statements export before updating to v4.0' - an incoherent sequencing since Statements is a v4.0-introduced feature. Also omits the security fix (like A) and, unlike both A and B, drops the bank-sync affected-user/re-link notice entirely. CSV-export highlight runs to 4 sentences with content duplicated in New Features, a minor bloat/redundancy issue. Minor jargon nit: 'auto-transfer rules' echoes the engineering changelog's phrasing more than a warm consumer term would."
+          },
+          "which_is_strongest": "A"
+        },
+        {
+          "judge": 2,
+          "skillPos": "b",
+          "freehandPos": "c",
+          "informedPos": "a",
+          "artifact_a": {
+            "highlights": 4,
+            "benefit_led": 4,
+            "accessible": 4,
+            "concise": 3,
+            "bugfix_problem": 4,
+            "no_leak": 5,
+            "specificity": 2,
+            "completeness": 3,
+            "notes": "Best highlights placement: the breaking change is one of only 3 Highlights items, making it unmissable, and structure matches the template exactly (all 7 sections plus matching frontmatter). But specificity fails badly: the security fix (session-token bug) is never mentioned anywhere in the document, and the bank-sync re-link prompt for affected users is dropped entirely from the Bank Sync item. Also overstates the speed win as 'cutting load time by nearly three-quarters' when 1.8s to 0.6s is actually a 67% cut (3x faster is the accurate framing B and C use). No leaks."
+          },
+          "artifact_b": {
+            "highlights": 2,
+            "benefit_led": 4,
+            "accessible": 4,
+            "concise": 4,
+            "bugfix_problem": 4,
+            "no_leak": 5,
+            "specificity": 3,
+            "completeness": 4,
+            "notes": "Tightest, most consistently concise writing, and full template coverage: every one of the 9 changelog facts lands somewhere in the document. But it commits the scenario's central trap: the breaking change (the one 'unmissable' required action) sits in a section placed after Bug Fixes, not in Highlights, which undercuts the 'unmissable' requirement. It also mistranslates the known issue twice: 'peer-to-peer transfers' becomes 'transfers between your own accounts' and 'account-to-account transfers,' a different and incorrect concept. The security fix is accurate but generic ('enhanced how we protect your login sessions'), with no tie to password changes and no exploitation reassurance. No leaks."
+          },
+          "artifact_c": {
+            "highlights": 3,
+            "benefit_led": 4,
+            "accessible": 4,
+            "concise": 3,
+            "bugfix_problem": 3,
+            "no_leak": 5,
+            "specificity": 4,
+            "completeness": 2,
+            "notes": "Best per-fact accuracy of the three: the only artifact that ties the security fix to password changes and includes the 'no evidence anyone was affected' reassurance, the most thorough bank-sync eligibility treatment (though it invents an unsourced '30 seconds' figure), and the only one to get 'peer-to-peer' right in the known issue. But it breaks the required template: no distinct Highlights, Improvements, or Bug Fixes sections (merged into 'Performance and reliability'), no Coming Soon section, no Release Date line, and the EU-rollout timing is dropped entirely. No leaks."
+          },
+          "which_is_strongest": "C"
+        },
+        {
+          "judge": 3,
+          "skillPos": "c",
+          "freehandPos": "a",
+          "informedPos": "b",
+          "artifact_a": {
+            "highlights": 3,
+            "benefit_led": 4,
+            "accessible": 4,
+            "concise": 3,
+            "bugfix_problem": 4,
+            "no_leak": 4,
+            "specificity": 3,
+            "completeness": 2,
+            "notes": "Best security-fix handling of the three, explicit no-action-needed reassurance, and no factual errors. But the Output Format is not respected: no real Highlights section (just a one-line tagline), and Improvements plus Bug Fixes are fused into a single Performance and reliability section instead of two distinct sections. Omits the EU-rollout timeline entirely and adds an unverified 30-second re-link estimate not present in the source changelog."
+          },
+          "artifact_b": {
+            "highlights": 4,
+            "benefit_led": 4,
+            "accessible": 4,
+            "concise": 3,
+            "bugfix_problem": 4,
+            "no_leak": 4,
+            "specificity": 2,
+            "completeness": 4,
+            "notes": "Strongest template-structure compliance: all seven sections present and well-filled, and the most explicit EU rollout timeline of the three. But it drops the security-fix disclosure entirely, a required item the brief calls out by name, misstates the performance gain as nearly three-quarters when the actual cut is two-thirds (3x faster, matching A and C), and never mentions the re-link prompt required for the affected bank-sync subset."
+          },
+          "artifact_c": {
+            "highlights": 4,
+            "benefit_led": 4,
+            "accessible": 4,
+            "concise": 4,
+            "bugfix_problem": 4,
+            "no_leak": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "Most complete and accurate artifact: covers every changelog item including the security fix, states the performance gain correctly as 3x faster, and leads the Highlights section with the required export action, the clearest unmissable placement of the three. Tight, non-redundant bullets throughout. Remaining gaps: the security line reads as generic hardening rather than an explicit calm no-action-needed fix disclosure, and New Features carries only one bullet since Savings Goals already lives in Highlights, a defensible choice rather than a stub."
+          },
+          "which_is_strongest": "C"
+        }
+      ]
+    },
+    {
+      "skill": "measure-experiment-design",
+      "status": "ok",
+      "verdict": "pass-structural",
+      "absolute_pass": true,
+      "floored_criteria": [],
+      "generations": 3,
+      "judges": 3,
+      "skill_overall": 3.625,
+      "freehand_overall": 2.2083333333333335,
+      "informed_overall": 3.7916666666666665,
+      "gap_vs_freehand": 1.4166666666666665,
+      "gap_vs_informed": -0.16666666666666652,
+      "agreement_stdev": 0.46770717334674267,
+      "blind_preference_skill": "1/3",
+      "skill_per_criterion": {
+        "hypothesis": 3.6666666666666665,
+        "primary_metric": 3.6666666666666665,
+        "sample_size": 3.6666666666666665,
+        "duration": 3.3333333333333335,
+        "success_criteria": 3,
+        "guardrails": 3.6666666666666665,
+        "specificity": 3.6666666666666665,
+        "completeness": 4.333333333333333
+      },
+      "freehand_per_criterion": {
+        "hypothesis": 2.6666666666666665,
+        "primary_metric": 2,
+        "sample_size": 1.3333333333333333,
+        "duration": 1,
+        "success_criteria": 2.3333333333333335,
+        "guardrails": 3,
+        "specificity": 3.3333333333333335,
+        "completeness": 2
+      },
+      "informed_per_criterion": {
+        "hypothesis": 3.3333333333333335,
+        "primary_metric": 4.333333333333333,
+        "sample_size": 4.333333333333333,
+        "duration": 2.6666666666666665,
+        "success_criteria": 3,
+        "guardrails": 4,
+        "specificity": 4,
+        "completeness": 4.666666666666667
+      },
+      "gates": {
+        "freehand": {
+          "value": 1.4166666666666665,
+          "target": 1,
+          "pass": true
+        },
+        "informed": {
+          "value": -0.16666666666666652,
+          "target": 0.5,
+          "pass": false
+        },
+        "agreement": {
+          "value": 0.46770717334674267,
+          "target": 0.7,
+          "pass": true
+        }
+      },
+      "raw_judges": [
+        {
+          "judge": 1,
+          "skillPos": "a",
+          "freehandPos": "b",
+          "informedPos": "c",
+          "artifact_a": {
+            "hypothesis": 4,
+            "primary_metric": 4,
+            "sample_size": 4,
+            "duration": 4,
+            "success_criteria": 4,
+            "guardrails": 4,
+            "specificity": 4,
+            "completeness": 5,
+            "notes": "Only artifact whose numbers are internally consistent end to end. Shows the sample size formula and substitution, keeps one primary metric with three well labeled secondaries, explicitly rejects clicks as a success signal, and honestly surfaces the 6 vs 7 week Finance deadline conflict with real tradeoff options instead of fudging it. Real gaps found on inspection: the Loss and Inconclusive buckets overlap (a non-significant 2.3% result satisfies both, a mild movable-goalpost risk), the rollback trigger is 'grounds for discussion with leadership' rather than an automatic rule, and the shown arithmetic (42,160) does not quite match the stated 42,400 per arm, plus 'Cochran's formula with continuity correction' is mislabeled since no correction term is actually shown."
+          },
+          "artifact_b": {
+            "hypothesis": 2,
+            "primary_metric": 2,
+            "sample_size": 1,
+            "duration": 1,
+            "success_criteria": 2,
+            "guardrails": 3,
+            "specificity": 4,
+            "completeness": 2,
+            "notes": "Weakest artifact, driven by one severe cascading error: Cohen's h for 2.0% vs 2.2% is stated as 0.14 when the correct value is about 0.014 (verified two ways), understating required sample size by roughly 10x, about 7,800 per arm stated versus a correct ~80,600 (7,800 x 2 = 15,600 also does not match the stated 14,600 total). The resulting 2 week duration recommendation would produce a badly underpowered test, and worse, the plan calls a 'Day 14 final analysis' on a 30-day conversion metric, so no cohort would have a complete observation window by the decision date, making the design inexecutable as scheduled. The hypothesis has the right substance but skips the required believe/for/will/as-measured-by form entirely, and secondary metrics are mentioned in passing prose rather than labeled. Roughly half of the required template sections (Background, a dedicated Variants section, Audience Targeting, Risks and Mitigations, References) are absent, not merely thin."
+          },
+          "artifact_c": {
+            "hypothesis": 3,
+            "primary_metric": 4,
+            "sample_size": 5,
+            "duration": 3,
+            "success_criteria": 3,
+            "guardrails": 4,
+            "specificity": 4,
+            "completeness": 5,
+            "notes": "Strong methodological instinct: sizes to the 2.2% floor the brief calls the minimum effect that justifies churn risk, rather than anchoring to the optimistic 2.4% hope, and the sample size math (about 81,000 per arm) is independently verified correct by two formula variants. Uses the full believe/for/will/as-measured-by form but the 'will' clause omits the quantified target (just 'will increase'), pushing the actual number to a later section and weakening the hypothesis's own falsifiability. Two distinct, avoidable bugs found on inspection: the duration table computes ~94 days (13.4 weeks) needed, then the very next row recommends only 10-11 weeks, an unexplained contradiction that is then reused elsewhere in the doc; and the Inconclusive success criteria contains a unit error ('1.5pp or higher' would be a blowout win at 3.5%, not inconclusive) plus a worked example (2.05%) that actually falls below 2.2% and so satisfies the artifact's own Loss rule."
+          },
+          "which_is_strongest": "A"
+        },
+        {
+          "judge": 2,
+          "skillPos": "b",
+          "freehandPos": "c",
+          "informedPos": "a",
+          "artifact_a": {
+            "hypothesis": 3,
+            "primary_metric": 5,
+            "sample_size": 4,
+            "duration": 3,
+            "success_criteria": 3,
+            "guardrails": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "Sample-size math is correct and verified (approx 80,564 matches the stated approx 81,000 for a 0.2pp MDE off a 2.0% baseline). Primary metric section is exceptional: exactly one primary, three labeled secondaries, and an explicit callout naming the exact seeded trap ('do not declare success based on secondary metrics, e.g. upgrade screen clicks increased'). MDE and decision floor are correctly anchored to the brief's stated 2.2% justification threshold, not the more aspirational 2.4% figure. Real flaws: the duration section is internally inconsistent, it calculates approx 94 days (approx 13.4 weeks) needed to reach sample size, then recommends 10-11 weeks with no explanation for the shortfall. The hypothesis states only a directional change with no embedded magnitude (weaker than the rubric's 'specific' bar). The Inconclusive success criterion cites a '1.5 pp' directional lift that falls short of significance, which contradicts its own later example of a 2.05% outcome (approx 0.05pp), an apparent unresolved typo. The guardrail table gives thresholds but no explicit baselines. On the positive side, this is the most transparent of the three about the conflict with Finance's 6-week window, stating plainly that the recommended duration exceeds it rather than spinning the number."
+          },
+          "artifact_b": {
+            "hypothesis": 4,
+            "primary_metric": 4,
+            "sample_size": 4,
+            "duration": 3,
+            "success_criteria": 3,
+            "guardrails": 4,
+            "specificity": 4,
+            "completeness": 4,
+            "notes": "Most fully worked sample-size derivation of the three, explicit step-by-step arithmetic, verified correct at approx 21,050 per arm for a 0.4pp MDE. Duration section quantifies a weekday versus weekend traffic split, the strongest explicit handling of weekly-pattern math among the three, though the specific day-of-week numbers (2,000 weekday, 800 weekend) are invented rather than given in the brief; the assumption is labeled, which is good practice. Key flaw: anchors hypothesis, MDE, and Win/Loss rule at the aspirational 2.4% lift rather than the brief's stated 2.2% justification floor, so its own Loss rule would classify a true 2.3% outcome, which the brief treats as business-viable, as a Loss. States the 7-week duration 'meets the 6-week decision window' while admitting in the same sentence that results land at week 8, a soft overstatement rather than an honest flag of the conflict. Does not name the upgrade-screen-click trap or include any anti-trap language, despite that being the scenario's central seeded temptation. Two Loss conditions (revenue 'neutral', review sentiment 'declines significantly') are left unquantified."
+          },
+          "artifact_c": {
+            "hypothesis": 3,
+            "primary_metric": 2,
+            "sample_size": 2,
+            "duration": 1,
+            "success_criteria": 2,
+            "guardrails": 3,
+            "specificity": 3,
+            "completeness": 2,
+            "notes": "Most severe issue: the sample-size calculation is wrong by roughly an order of magnitude, this is exactly the trap the scenario was built to test. Stated Cohen's h = 0.14 for detecting 2.0% to 2.2%; the correct value is approx 0.014 (verified via arcsine transformation: 2 x [arcsin(sqrt(0.022)) minus arcsin(sqrt(0.020))] = 0.0139), a 10x error. Even taking the stated h=0.14 at face value, the formula (Z/h)^2 gives approx 400 per arm, not the stated 7,800; using the correct h=0.014 gives approx 40,600 per arm; the standard two-proportion formula (used correctly by artifact A for the identical 2.0% to 2.2% MDE) gives approx 80,500 per arm. The stated figures also fail a basic internal check, 2 x 7,800 = 15,600, not the stated 14,600 total. This cascades directly into duration: the 2-week recommendation rests on a sample size that is 5 to 10x too small, so the design as written is dangerously underpowered and would likely reach a false negative or noisy result well before real signal accumulates. On the positive side, Win/Lose thresholds correctly anchor to the brief's 2.2% floor, the guardrail table is the tightest of the three (baseline, threshold, and owner together), and the Primary Metric rationale explicitly names and defuses the upgrade-screen-clicks trap. But the Win/Lose criteria never state a significance requirement, point-estimate crossing alone decides the call, a serious gap given how undersized the sample already is. Completeness is also a real gap: no Overview, Background, dedicated Variants section, Secondary Metrics section (zero secondaries against the required 2-3), Audience Targeting section, Risks and Mitigations table, Implementation Notes, or References, roughly two-thirds of the skill's required template sections are missing or only thinly folded into other sections."
+          },
+          "which_is_strongest": "A"
+        },
+        {
+          "judge": 3,
+          "skillPos": "c",
+          "freehandPos": "a",
+          "informedPos": "b",
+          "artifact_a": {
+            "hypothesis": 3,
+            "primary_metric": 2,
+            "sample_size": 1,
+            "duration": 1,
+            "success_criteria": 3,
+            "guardrails": 3,
+            "specificity": 3,
+            "completeness": 2,
+            "notes": "Sample size (~7,800/arm) is wrong by roughly 10x under the standard two-proportion formula (correct value ~80,600/arm for a 0.2pp MDE); the cited Cohen's h (0.14) is also miscalculated (true h is about 0.014, and even a correctly computed h gives ~40,000/arm). Duration (2 weeks) inherits this error and would leave the test badly underpowered; no cross-check against the 6-week Finance deadline appears anywhere in the document. Six of the eleven required template sections (Overview, Background, Variants, Audience Targeting, Implementation Notes, References) are missing outright, not just thin. The guardrail table itself is a strength, clear thresholds plus named owners. Win/Lose/Inconclusive bucket bounds are clean and non-overlapping, but omit statistical significance entirely, so a noisy point estimate at 2.21% could trigger a false win."
+          },
+          "artifact_b": {
+            "hypothesis": 4,
+            "primary_metric": 4,
+            "sample_size": 4,
+            "duration": 2,
+            "success_criteria": 3,
+            "guardrails": 4,
+            "specificity": 4,
+            "completeness": 5,
+            "notes": "Sample size (~81,000/arm) is correctly derived and shown step by step, matching the standard two-proportion formula exactly. But duration is reported three inconsistent ways in the same document: 13.4 weeks (correctly calculated from the sample size), 10-11 weeks (stated as the recommendation), and 8-10 weeks (Overview table), never reconciled. The 'accelerate via 70/30 or 80/20 allocation' suggestion is statistically backwards: skewing allocation away from 50/50 lengthens time to reach power in the smaller arm rather than shortening it. Loss and Inconclusive criteria overlap (a non-significant 2.05% result satisfies both as written), and the Inconclusive bucket cites an internally inconsistent '1.5pp' figure. All eleven required template sections are present with real substance, and secondary metrics explicitly warn against the clicks trap named in the brief."
+          },
+          "artifact_c": {
+            "hypothesis": 3,
+            "primary_metric": 3,
+            "sample_size": 3,
+            "duration": 3,
+            "success_criteria": 2,
+            "guardrails": 3,
+            "specificity": 3,
+            "completeness": 4,
+            "notes": "Sample size math (~21,100/arm for a 0.4pp MDE) is correctly executed, but the MDE choice uses the team's optimistic hoped-for target (2.4%) rather than the 2.2% minimum-viable threshold the brief frames as the actual decision floor, understating the rigor the scenario calls for. A side note claims the stricter 2.2% threshold would need only ~19,000/arm; the true figure is about 80,600, so this reassurance runs backwards (a smaller effect needs more data, not less). Guardrail thresholds in the metrics table (2pp churn, 15% support, 8% refund) do not match the thresholds restated in the Loss criteria (3pp, 20%, 9%), creating dead zones where neither win nor loss triggers, a direct instance of the movable-goalposts failure this criterion warns against. Duration reasoning is otherwise internally consistent and correctly respects the weekly cycle. All eleven required sections present with solid substance."
+          },
+          "which_is_strongest": "B"
+        }
+      ]
+    }
+  ]
+}
