@@ -106,6 +106,8 @@ Skills normally start cold: every session you re-supply which phase you are in, 
 
 Update `phase` as you move through the Triple Diamond. The router reads it at session start and stops guessing from your branch name.
 
+**See it worked through.** Two samples in the library demonstrate exactly this handoff on the Storevine thread: [the interview synthesis that records its personas](../samples/discover-interview-synthesis/sample_discover-interview-synthesis_storevine_sms-optin.md) and [the PRD written afterward](../samples/deliver-prd/sample_deliver-prd_storevine_sms-optin.md) that reads them. Compare that PRD's 11-line prompt against the 32-line prompt in [the v1 email PRD](../samples/deliver-prd/sample_deliver-prd_storevine_campaigns.md) covering the same initiative without memory. The difference is entirely context the second prompt did not have to restate.
+
 ### Which skills read it
 
 Eight skills carry a `## Project Memory Contract` as of v2.33.0. Anything not on this list ignores the file entirely.

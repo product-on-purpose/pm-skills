@@ -379,6 +379,21 @@ The `<additional-helpful-context>` segment varies by sample type:
 Lowercase, hyphen-separated, no spaces. Validators pin these rules and
 reject filenames that violate them.
 
+**Sort hazard when a skill gains a second sample on the same thread.** The site's
+`loadSkillSamples()` in `scripts/gen-site.mjs` sorts the directory and takes the
+FIRST match per thread for a skill's Real-World Examples block. A suffix that
+extends the canonical arc name therefore displaces the canonical sample, because
+`-` (0x2D) sorts before `.` (0x2E):
+
+| Second sample named | Sorts before `_campaigns.md`? | Effect on the skill page |
+|---|---|---|
+| `_campaigns-sms-optin.md` | Yes | The sub-feature sample silently replaces the canonical one |
+| `_sms-optin.md` | No | Canonical sample stays; the second is reachable from the samples index |
+
+Both forms are permitted by the table above, so prefer a bare feature suffix
+when adding a second sample to a thread a skill already covers. Verified
+empirically 2026-08-16 while adding the `_sms-optin` project-memory pair.
+
 ## Adding a New Thread
 
 The current three threads cover the B2B / consumer / enterprise archetype
