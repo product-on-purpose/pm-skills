@@ -157,6 +157,57 @@ See [Figma Design Specs](#) for detailed mockups.
 - Soft delete for series to preserve historical data
 - Migration: No data migration required (new feature)
 
+## Agent Execution Contract
+
+<!-- Included here because this PRD is being handed to a contractor who was not in the planning
+     sessions. Nothing about this feature is AI-powered; the contract is about the handoff, not the
+     technology. A PRD implemented by the team that wrote it would omit this section. -->
+
+### Authoritative Sources
+
+| Source | Path or link | Definitive for |
+|--------|--------------|----------------|
+| This PRD | (this document) | Scope, functional requirements, and what is deferred |
+| Figma design specs | [Figma Design Specs](#) | All visual treatment, copy in dialogs, and the pause indicator |
+| RFC 5545 (RRULE) | Public spec | The stored format of `recurrence_pattern`; do not invent a serialization |
+| Existing notification service contract | Platform Team's service docs | Reminder payload shape and delivery guarantees |
+
+When the PRD and the Figma specs disagree on behavior, the PRD wins. When they disagree on wording or
+layout, Figma wins.
+
+### Do Not Touch
+
+| Path or system | Reason it is off limits |
+|----------------|-------------------------|
+| The existing `tasks` table schema | Recurrence lives in a new `recurring_series` table; altering `tasks` would put a migration in the critical path, and this PRD commits to none |
+| Notification service internals | We are a consumer of it. Behavior changes there affect four other features and belong to the Platform Team |
+| The activity-feed writer | Instance completion must log through the existing normal-task-completion path so reporting keeps working unchanged |
+
+### Requirement Verification Map
+
+| Requirement | How it is verified | Who verifies |
+|-------------|--------------------|--------------|
+| FR-1 | E2E: create a task with the recurring toggle on, assert a series row exists | Automated |
+| FR-2 | Unit: each of Daily, Weekly-with-days, Monthly-by-date and Monthly-by-weekday round-trips through RRULE | Automated |
+| FR-3 | Unit: series ends after N occurrences; series ends on a given date. Both assert no instance past the boundary | Automated |
+| FR-4 | Unit: an unbounded series stops generating at 52 weeks forward | Automated |
+| FR-5 | Unit: at any point in a live series, exactly the next 4 weeks of instances exist | Automated |
+| FR-6 | E2E: complete one instance, assert siblings unchanged and exactly one new instance appears | Automated |
+| FR-7 | Manual: the two-option dialog appears and each branch behaves as labelled | QA |
+| FR-8 | Manual: the two-option dialog appears; series delete is soft and history survives | QA |
+| FR-9 | E2E: pause a series, advance the clock, assert no new instances | Automated |
+| FR-10 | Manual: paused series shows the indicator and resumes correctly from the UI | QA |
+| FR-11 | Manual: the pattern is reachable and editable from an arbitrary instance, not only the first | QA |
+
+### Stop and Escalate
+
+| Condition | Escalate to |
+|-----------|-------------|
+| Any change that requires a migration on `tasks` | PM, before writing it. The no-migration commitment is load-bearing for the timeline |
+| A DST or timezone case where "the same local time" is ambiguous or does not exist | PM plus Platform Team. Pick nothing by default; the wrong choice is silent and users notice weeks later |
+| The 52-week generation cap proving too low for a real user pattern | PM. The cap is a database-bloat trade-off, not a technical limit |
+| Design specs still In Review blocking a screen | Design Team, and build behind the agreed FR rather than guessing at the visual |
+
 ## Dependencies & Risks
 
 ### Dependencies

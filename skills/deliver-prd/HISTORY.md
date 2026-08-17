@@ -43,6 +43,19 @@ under the versioning tie-breaker and would have forced regenerating three thread
 - Instructions gained two conditional steps; Output Format names both sections and states that a
   PRD omitting a section its feature does not need is complete, while one including an empty
   section is not; the Quality Checklist gained one conditional item per section.
+- `EXAMPLE.md` gained a filled-in Agent Execution Contract, keyed off its existing `FR-1` through
+  `FR-11`. The recurring-tasks feature has no AI component, so the AI section stays legitimately
+  absent, but the execution contract is not AI-specific and a non-AI example can carry it honestly.
+  The map covers **all eleven** requirements rather than a representative few, because a partial map
+  would contradict the template's own "one row per FR-n" rule, and an example contradicting its
+  template is exactly the defect [#251](https://github.com/product-on-purpose/pm-skills/issues/251)
+  reported against `foundation-persona`.
+
+**Version note.** Two increments, one bump. The spec calls these "two additive minors", and both ship
+in the same release, so they fold into a single `2.3.0` rather than stepping through `2.4.0`. That
+follows this cycle's own precedent: `define-prioritization-framework` took two independently
+minor-worthy changes from WS-2 and WS-3 into one `1.3.0`, recorded in its HISTORY as "folded into
+this same unreleased version".
 
 ## 2.2.0 (2026-08-08)
 
