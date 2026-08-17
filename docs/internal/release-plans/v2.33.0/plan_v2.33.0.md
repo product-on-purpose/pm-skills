@@ -145,10 +145,62 @@ Dates assume the 2026-09-05 target; re-derive if the target moves.
 | WS-3 | **DONE 2026-08-16** ([#272](https://github.com/product-on-purpose/pm-skills/pull/272), `95288753`). **Scope narrowed from 14 to 4 by measurement during execution**, and the 14 turned out to be regex noise exactly as the recorded residual risk predicted: "shared with `foundation-meeting-brief`" and "produced by `foundation-okr-writer`" are not handoffs. The precise signal is a sibling named inside an output, routing, or refusal section, which yields 7, of which two are Project Memory Contract hits about reading memory and one (`foundation-prioritized-action-plan`) already carries the discipline. **The final four include both skills the reporter named**, which is the corroboration that the measurement converged rather than drifted. `foundation-build-risk-review` 1.1.0 gains a per-skill not-installed fallback table; `discover-journey-map` 1.3.0, `measure-survey-analysis` 1.3.0 and the Kano unlock path in `define-prioritization-framework` gain plain-language fallbacks in their refusal messages. Front-door note added via `scripts/data/quickstart-fragment.md`, since QUICKSTART is generator-owned end to end. **Prior-art correction:** an earlier claim that `utility-pm-workflow-orchestrator` handles a missing skill was wrong (it handles missing tools); the real prior art is `foundation-prioritized-action-plan`'s name-safety rule | D3 | claude | **MET.** [#253](https://github.com/product-on-purpose/pm-skills/issues/253) closed |
 | WS-4 | **DONE 2026-08-16** ([#273](https://github.com/product-on-purpose/pm-skills/pull/273), `d553dc79`). **Scope grew during execution, correctly:** auditing the destination before writing pointers found the deep documentation was not usable either, so pointing four surfaces at it would have routed people to a dead end. **A real defect surfaced:** the docs called the state file "gitignored" twice, which is a property of THIS repo's `.gitignore` (`.claude/*`), not of the file. No document told a user to ignore it in their own project, so anyone following the docs would commit a file holding their initiative, decisions, and artifact paths while the docs assured them it was ignored. Corrected in both places, and every entry point now says to gitignore it first. Three usability gaps closed in `concepts/hooks.md`: the eight participating skills are now named in a table with what each reads and writes (previously "eight skills" with none named), a four-step getting-started sequence ending at the payoff rather than the schema, and the central claim demonstrated rather than described. Four surfaces landed: README and `index.mdx` directly, QUICKSTART and the site quickstart via `scripts/data/quickstart-fragment.md` since both are generator-owned end to end | - | claude | **MET.** All four surfaces carry a runnable setup, and the destination they point at is now sufficient |
 | WS-5 | Worked memory example | WS-4 | claude | A sample on one of the three canonical threads demonstrating the synthesize-to-PRD handoff end to end |
-| WS-6 | Hygiene checklist in the release-plan template | - | claude | A doc-update-and-hygiene checklist lives in the release plan, carries the "name the artifact that would fail" gate from [#269](https://github.com/product-on-purpose/pm-skills/issues/269), and gates the tag |
+| WS-6 | **DONE 2026-08-16.** Standing source at [`../checklist_doc-update-and-hygiene.md`](../checklist_doc-update-and-hygiene.md), copied into this plan as a filled section above. **The gating question dissolved rather than being decided** (D6): the canonical runbook's G0 sub-check 6 already requires the plan marked READY TO TAG and blocks on any sub-check failure, so a checklist inside the plan gates the tag with zero runbook edits, satisfying both [#269](https://github.com/product-on-purpose/pm-skills/issues/269)'s "not in the runbook" and this row's "gates the tag". Carries the claim-verification rule with the two real v2.32.0 precedents, the external and cross-repo surfaces including the agent-plugins re-pin that no workstream row had ever carried, a measurement warning drawn from four wrong-on-first-pass counts, and five meta-rules including a three-cycle removal candidacy so it cannot silently become ceremony | - | claude | **MET.** Its first live instance was found before it existed: the release-plans index was stale two days after the v2.32.0 tag, fixed at `1cf6c6e4`, and is now a checklist row |
 | WS-7 | AI-family Track 1 increments + weak-model re-test | D1 | claude | Four increments shipped as additive minors; re-test run and recorded |
 | WS-8 | Decisions block, per D5 | D5 | human | C-3 and C-8 ruled and recorded |
 | WS-9 | Release cut via the 6-gate runbook | WS-1..8 | claude runs, human gates | v2.33.0 tagged; the WS-6 checklist used for the first time and its gaps recorded |
+
+## Release hygiene checklist
+
+Copied from the standing source at [`../checklist_doc-update-and-hygiene.md`](../checklist_doc-update-and-hygiene.md) and filled as this cycle runs. **This plan may not be marked READY TO TAG while any GATE row is unchecked**, which is how it gates via the canonical runbook's G0 sub-check 6 without any runbook edit.
+
+### A. Quantitative claim verification (GATE)
+
+For every quantitative claim in release copy, name the artifact that would fail if it were false.
+
+| Claim | Artifact that goes red if false | Verified |
+|---|---|---|
+| "212 samples across 63 skills" | `scripts/check-sample-counts.mjs`, enforcing in CI | [x] Green at 212/63 |
+| Six skill version bumps this cycle | `scripts/validate-skill-history.sh` plus `gen-skill-manifest.mjs --check`, both enforcing | [x] |
+| "the PRD prompt is 11 lines against 32" (WS-5 sample copy) | Nothing. Prose in a sample, not gated. **Counted by hand against both files** and the first count was off by one before `sed` corrected it | [x] Verified manually |
+| Remaining CHANGELOG figures | To fill at G2 | [ ] |
+
+### B. Gate-owned checks (pointer only)
+
+- [ ] G0 through G4 per `site/src/content/docs/contributing/release-runbook.md`. Not restated here.
+
+### C. External and cross-repo surfaces (GATE)
+
+| Surface | Condition | Done |
+|---|---|---|
+| GitHub About description | Every release; compare against `gen-derived-surfaces --about` before editing | [ ] |
+| GitHub Release body | Every release; the workflow ships a generic template | [ ] |
+| `agent-plugins` re-pin | Every release. Complete that repo's Section 7 checklist in the PR body | [ ] |
+| `docs/internal/release-plans/README.md` | Every release | [x] Updated 2026-08-16 (`1cf6c6e4`), after being found stale two days post-v2.32.0 |
+| `pm-skills-mcp` surfaces | Only if the release changes the catalog narrative or skill counts | [ ] Catalog holds at 68; narrative half to answer at G4 |
+| Topics, Pages, Open Graph | Every release | [ ] |
+| skills.sh listing | Advisory, after a delay | [ ] |
+
+### D. Decisions carried out of this cycle
+
+| Decision or finding | Where it landed | Carried to |
+|---|---|---|
+| D6: the [#269](https://github.com/product-on-purpose/pm-skills/issues/269) placement conflict | Dissolved on G0 sub-check 6; no runbook edit needed | Closed |
+| D7, D8-a, D8-b: WS-5 build shape | Ruled in this plan | Closed |
+| Sample filename sort hazard (`-` before `.` displaces the canonical sample) | Documented in `THREAD_PROFILES.md` | Closed |
+| [#267](https://github.com/product-on-purpose/pm-skills/issues/267), [#268](https://github.com/product-on-purpose/pm-skills/issues/268), [#269](https://github.com/product-on-purpose/pm-skills/issues/269) | Open issues | v2.34.0 |
+| C-12, C-13 (doc-stack leftovers, stale CI overview) | Candidates in this plan, not in scope | v2.34.0 |
+
+### E. Documentation consistency sweep
+
+- [ ] Version-bearing surfaces agree at G2.
+- [ ] No `[Unreleased]` section orphaned below the new release heading.
+- [x] Conventions enforced by CI are written where humans read them (CONTRIBUTING gained the roster rule and the memory contract in v2.32.0).
+- [ ] Docs this release made stale are updated.
+
+### F. Shadow-automation observation
+
+- [ ] Copy the S2 criteria table from [#136](https://github.com/product-on-purpose/pm-skills/issues/136) and fill it during the cut, not afterward.
 
 ## Not carried in
 
