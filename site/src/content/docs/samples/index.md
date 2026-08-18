@@ -1,17 +1,17 @@
 ---
 title: Samples
-description: Browse 212 PM artifact samples spanning 63 of the catalog's 68 skills and three product threads (Storevine, Brainshelf, Workbench).
+description: Browse 213 PM artifact samples spanning 63 of the catalog's 68 skills and three product threads (Storevine, Brainshelf, Workbench).
 sidebar:
   order: 1
 ---
 
-The samples corpus contains **212 real PM artifacts** produced by the pm-skills commands, organized by skill and by product thread. Use this section as a "what does the output actually look like?" reference when picking which skill to run, when tuning your prompt style, or when comparing how the same skill behaves across different product contexts.
+The samples corpus contains **213 real PM artifacts** produced by the pm-skills commands, organized by skill and by product thread. Use this section as a "what does the output actually look like?" reference when picking which skill to run, when tuning your prompt style, or when comparing how the same skill behaves across different product contexts.
 
 ## What lives here
 
 | Coverage | Count |
 |----------|-------|
-| Total samples | 212 |
+| Total samples | 213 |
 | Skills with samples | 63 |
 | Product threads | 3 (Storevine, Brainshelf, Workbench) |
 
