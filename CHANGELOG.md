@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 > **Note on historical paths:** entries before v2.19.0 occasionally reference internal planning documents (for example `docs/internal/release-plans/...`). Those references are preserved as written for historical accuracy. From v2.19.0 onward, CHANGELOG entries reference public paths only.
 
+## [2.33.0](https://github.com/product-on-purpose/pm-skills/compare/v2.32.0...v2.33.0) (2026-08-21)
+
+
+### Added
+
+* **skills:** four AI-family increments, and the re-test that gated one of them (WS-7) ([#276](https://github.com/product-on-purpose/pm-skills/issues/276)) ([b17f554](https://github.com/product-on-purpose/pm-skills/commit/b17f554b92bcafc6893c156eb600e8e9ce3cec8b))
+* **skills:** retype the AI conditional sections as MAJORs; resolve G1 findings ([69df49c](https://github.com/product-on-purpose/pm-skills/commit/69df49c3eff24b3fa1a29d0bd6a35ae400af4f3e))
+
+
+### Fixed
+
+* **skills:** routed skills degrade gracefully when the destination is not installed ([#253](https://github.com/product-on-purpose/pm-skills/issues/253)) ([#272](https://github.com/product-on-purpose/pm-skills/issues/272)) ([9528875](https://github.com/product-on-purpose/pm-skills/commit/9528875300dfb8bf2f4e3fecb04d5a7aa83461f6))
+* **skills:** two field-reported defects - persona example conformance and prioritization calibration ([#270](https://github.com/product-on-purpose/pm-skills/issues/270)) ([4517292](https://github.com/product-on-purpose/pm-skills/commit/4517292674c509204a80b62f50f3b0753f4130b9))
+
 ## [2.32.0] - 2026-08-14
 
 **Project memory: the catalog stops asking you to repeat yourself.** Every previous release added capability you invoke. This one adds capability that accumulates. Record your Triple Diamond phase and current initiative once, in the gitignored `.claude/pm-skills.local.md` the guardrails and phase router already read, and eight skills begin reading it too. The concrete moment: synthesize your research with `discover-interview-synthesis`, then run `deliver-prd` and it uses the personas you already produced instead of asking you to paste them again. Nothing happens until you opt in: with no file present, every skill and both hooks behave exactly as they did in v2.31.1, and writes are proposed for your confirmation rather than applied. Alongside it, trigger-eval coverage closes as an accounting rather than a percentage: 53 skills carry a trigger-eval fixture pack and 15 are excluded by design, covering all 68 with nothing unclassified. That is a completeness claim about fixture coverage, not a claim that every skill's routing is continuously scored: the enforcing CI check is fixture structure, and the committed router baseline still covers 29 of the 53. Release automation gains the three mechanisms its shadow-to-authoritative cutover was missing, and the first fully green Release PR in the program's history was observed during this cut. No new skills; catalog stays 68 skills (30 phase + 11 foundation + 12 utility + 15 tool), 6 sub-agents unchanged. Additive MINOR.
