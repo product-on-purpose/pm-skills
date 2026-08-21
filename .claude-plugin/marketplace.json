@@ -9,8 +9,8 @@
     {
       "name": "pm-skills",
       "description": "68 PM skills (30 phase + 11 foundation + 12 utility + 15 tool) plus 6 sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator, pm-skill-router) covering the full product lifecycle. v2.32.0 adds opt-in project memory: record your Triple Diamond phase and current initiative once in a gitignored file, and eight skills read it instead of asking you to repeat yourself. No new skills; catalog stays 68 skills / 6 sub-agents. Full release history: https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md",
-      "version": "2.32.0",
-      "source": { "source": "url", "url": "https://github.com/product-on-purpose/pm-skills.git", "ref": "v2.32.0" },
+      "version": "2.33.0",
+      "source": { "source": "url", "url": "https://github.com/product-on-purpose/pm-skills.git", "ref": "v2.33.0" },
       "author": {
         "name": "product-on-purpose",
         "url": "https://github.com/product-on-purpose"
