@@ -162,6 +162,7 @@ Both items are maintainer-only per the agent-assignment framework. Prepared here
 | D12 | G1 round 2, F2 (evaluation-set sizing): the risk-based floor that replaced saturation stopping carries no derivation rule, so two competent PMs given the same feature do not arrive at the same N | **A)** Require a preregistered sizing calculation from acceptable failure rate plus confidence. **B)** Keep the coverage-floor framing, add a worked derivation and grade the reasoning in the checklist. **C)** Accept as-is, record the limitation, defer to v2.34.0 | **B** | **RULED B 2026-08-25** |
 | D13 | G1 round 2, F3 (release manifest scope): the reviewer's recommended fix would pre-empt open issue 279 (skills-manifest: restore the convention or retire it), which is scheduled for v2.34.0 scoping | **A)** Minimal correction of the header's false claims; enforcement rides with the 279 ruling. **B)** Build the enforcing reconciliation now and treat that as ruling 279 = restore. **C)** Drop the manifest from this release | **A** | **RULED A 2026-08-25** |
 | D14 | G1 round 2, F5 (sample provenance): the retyped orbit samples encode an impossible `repo_version` / `skill_version` / `created` tuple, and correcting it is a library-wide schema choice affecting all 213 samples | **A)** Revert `skill_version` to its authored value and let the body note carry the maintenance story. **B)** Add a `maintained_against` field to the 8-field contract. **C)** Redefine both fields to mean the current contract | **A** | **RULED A 2026-08-25** |
+| D15 | G1 round 3, R3-F2 (evaluation-set sizing, again): the derivation added under D12 computes its bound from the full slice while the same template holds 25% back from tuning, so it overstates protection by roughly 3.5x. The remedy the reviewer asks for is preregistered statistical methodology inside a PM template | **A)** Honest-minimal rewrite: strip every rate-bound claim, label floors as coverage judgments, defer rate methodology to a scoped v2.34.0 effort. **B)** Pull the AI conditional sections from v2.33.0 entirely. **C)** Author the full methodology now (p_max, alpha, sampling frame, independence) | **A** | **PENDING RULING** |
 
 ### D9: C-3, the PR-title lint
 
@@ -289,6 +290,57 @@ tag would have cost a patch or minor across three skills plus a sample sweep.
 **Round 3 is required** and must converge before the maintainer can attest G1. The reviewing agent
 does not attest its own review; per the runbook, "the conductor cannot auto-detect Phase 0 review
 status; this is a maintainer attestation gate."
+
+## G1 adversarial review: round 3 (2026-08-25) and the decision to stop patching
+
+**Full record:** [`review/g1-round3-20260825.md`](./review/g1-round3-20260825.md).
+
+**Round 3 returned needs-attention / no-ship with 8 findings (2 high, 6 medium).** Round 1 returned
+5, round 2 returned 6. **The count is diverging.** All eight were verified true against the tree.
+
+**The pattern is now the finding.** Three fix passes have each introduced fresh defects at roughly
+the rate they closed old ones, and the enforcing validators were green after every one. Both of
+round 3's highs were created by the pass that was meant to close round 2's two highs. The shared
+defect class is **hand-maintained prose asserting a countable fact that no validator checks**:
+cohort arithmetic, per-thread distributions, manifest header counts, HISTORY narrative claims,
+sample frontmatter tuples. Two illustrations from this round: a correction to a lexical-sort
+miscount itself miscounted (five skipped manifest folders listed where six exist, v2.13.0 omitted),
+and the sample-decomposition repair fixed `README_SAMPLES.md` while leaving the **published site
+index** still summing to 212.
+
+**Seven of the eight findings need no ruling.** R3-F1 (trace failure policy), R3-F3 (the three
+unattributed samples are the v2.26.0 workflow-builder cohort), R3-F4 (site thread distribution:
+Brainshelf is 65, not 64), R3-F5 (orbit `skill_version` should be `2.0.0`, the authored value,
+which is a correction *within* D14 rather than a reopening of it), R3-F6 (manifest skip list and
+residual overclaim), R3-F7 (the X-03 walkthrough), and R3-F8 (the HISTORY self-contradiction) all
+have single correct answers determined by facts already verified.
+
+**R3-F2 is the one real decision, carried as D15 above.** The D12 remedy of 2026-08-25 is what
+produced it: adding a derivation meant authoring statistical content under gate pressure, and the
+result claimed roughly 3.5x more protection than the design supports. The remedy round 3 asks for
+(preregistered `p_max`, confidence `alpha`, sampling frame, independence assumptions) is novel
+methodology, not a patch, and this repo's standing rule is that a framework is tested against a
+no-framework control arm before it is built, precisely so its author does not grade their own
+homework. That rule killed the AI opportunity-shaping work in August. Recommendation is **A**, the
+honest-minimal rewrite, which claims nothing false and is available inside the reviewer's own
+recommendation ("label non-random curated slices as coverage judgments rather than population-rate
+bounds").
+
+**Two rules bind the next fix pass**, because the three that failed share one property, that they
+added hand-typed claims:
+
+1. **Every number in the diff is derived by a command, not typed** (counted from disk, ordered with
+   `sort -V`, read via `git show`), and when a number appears on more than one surface, every
+   surface is checked. R3-F4 escaped precisely because only one of two surfaces was inspected.
+2. **Every edit is claim-reducing or claim-correcting, never claim-adding.** Where a hand-maintained
+   decomposition can be deleted rather than repaired, deleting is the safer fix.
+
+**On what convergence has to mean here.** The canonical runbook's G1 sub-check 2 is
+disposition-based: P1 findings closed **or explicitly deferred with rationale**, P2 and P3
+acknowledged. The stricter "re-run until findings fall below IMPORTANT" bar is a standing
+cross-LLM-protocol rule the maintainer owns. Under D15 = A a round-4 residual of "rate-claim
+methodology deferred to a scoped effort" is legitimately dispositionable at the gate rather than a
+blocker, but that reconciliation is the maintainer's to make, not the reviewing agent's.
 
 ## Release hygiene checklist
 
