@@ -159,10 +159,12 @@ Both items are maintainer-only per the agent-assignment framework. Prepared here
 | D9 | C-3: what to do about the PR-title lint, given that the demonstrated failure passed it | **A)** Promote the existing lint to required. **B)** Keep advisory, add a type-versus-change check. **C)** Both. **D)** Neither; rely on the shadow-PR observation step | **C**, with B as the load-bearing half | **RULED C 2026-08-19** (build targets v2.34.0) |
 | D10 | C-8: disposition of [#223](https://github.com/product-on-purpose/pm-skills/issues/223), whose substance has shipped | **A)** Close as shipped. **B)** Keep open, rewrite the body to the residual. **C)** Keep open as-is and retarget | **A**, plus a cleanup the issue does not mention | **RULED A 2026-08-17** |
 | D11 | G1 finding 1: the four conditional sections were typed as skill-MINORs; the adversarial review says the repo's own tie-breaker makes them MAJORs | **A)** Retype to MAJOR and fix the invalidated samples. **B)** Reword so the sections do not determine completeness. **C)** Keep MINOR with a documented exception | **A** | **RULED A 2026-08-21** |
-| D12 | G1 round 2, F2 (evaluation-set sizing): the risk-based floor that replaced saturation stopping carries no derivation rule, so two competent PMs given the same feature do not arrive at the same N | **A)** Require a preregistered sizing calculation from acceptable failure rate plus confidence. **B)** Keep the coverage-floor framing, add a worked derivation and grade the reasoning in the checklist. **C)** Accept as-is, record the limitation, defer to v2.34.0 | **B** | **RULED B 2026-08-25** |
+| D12 | G1 round 2, F2 (evaluation-set sizing): the risk-based floor that replaced saturation stopping carries no derivation rule, so two competent PMs given the same feature do not arrive at the same N | **A)** Require a preregistered sizing calculation from acceptable failure rate plus confidence. **B)** Keep the coverage-floor framing, add a worked derivation and grade the reasoning in the checklist. **C)** Accept as-is, record the limitation, defer to v2.34.0 | ~~**B**~~ | ~~**RULED B 2026-08-25**~~ **EXECUTION OVERTURNED same day by G1 round 3; see D15.** The ruling was sound on its reasoning and wrong in what it licensed: the worked derivation it asked for was authored under gate pressure and overstated protection by roughly 3.5x |
 | D13 | G1 round 2, F3 (release manifest scope): the reviewer's recommended fix would pre-empt open issue 279 (skills-manifest: restore the convention or retire it), which is scheduled for v2.34.0 scoping | **A)** Minimal correction of the header's false claims; enforcement rides with the 279 ruling. **B)** Build the enforcing reconciliation now and treat that as ruling 279 = restore. **C)** Drop the manifest from this release | **A** | **RULED A 2026-08-25** |
 | D14 | G1 round 2, F5 (sample provenance): the retyped orbit samples encode an impossible `repo_version` / `skill_version` / `created` tuple, and correcting it is a library-wide schema choice affecting all 213 samples | **A)** Revert `skill_version` to its authored value and let the body note carry the maintenance story. **B)** Add a `maintained_against` field to the 8-field contract. **C)** Redefine both fields to mean the current contract | **A** | **RULED A 2026-08-25** |
 | D15 | G1 round 3, R3-F2 (evaluation-set sizing, again): the derivation added under D12 computes its bound from the full slice while the same template holds 25% back from tuning, so it overstates protection by roughly 3.5x. The remedy the reviewer asks for is preregistered statistical methodology inside a PM template | **A)** Honest-minimal rewrite: strip every rate-bound claim, label floors as coverage judgments, defer rate methodology to a scoped v2.34.0 effort. **B)** Pull the AI conditional sections from v2.33.0 entirely. **C)** Author the full methodology now (p_max, alpha, sampling frame, independence) | **A** | **PENDING RULING** |
+| D16 | G1 round 3, the validator gap behind five findings across two rounds: prose that asserts a countable fact has no gate, so `check-sample-counts.mjs` stays green while three other numbers on the same page contradict its headline | **A)** Carry the whole gap to v2.34.0; fix this round's instances by hand under the derive-by-command rule. **B)** Extend `check-sample-counts.mjs` to derive the per-thread distribution now (about 20 lines on a 73-line script), carry the general gate to v2.34.0. **C)** Build the general prose-asserts-a-fact gate in this cycle | **B** | **PENDING RULING** |
+| D17 | The convergence standard for round 4, which must be fixed **before** the round runs: the canonical runbook's G1 sub-check 2 is disposition-based (P1 closed **or** explicitly deferred with rationale), while the standing cross-LLM protocol rule says re-run until findings fall below IMPORTANT. Under D15 = A the expected residual is "rate methodology deferred", which the first standard disposes of and the second blocks on | **A)** Pre-register the runbook standard: a deferred-with-rationale residual is dispositionable, so round 4 can clear the gate. **B)** Pre-register the stricter protocol standard: round 4 must return nothing at IMPORTANT or above. **C)** Rule it after round 4 returns | **A** | **PENDING RULING** |
 
 ### D9: C-3, the PR-title lint
 
@@ -342,6 +344,146 @@ cross-LLM-protocol rule the maintainer owns. Under D15 = A a round-4 residual of
 methodology deferred to a scoped effort" is legitimately dispositionable at the gate rather than a
 blocker, but that reconciliation is the maintainer's to make, not the reviewing agent's.
 
+### The seven round-3 findings that need no ruling
+
+Established pattern: an item earns a decision only when it needs a future call. These seven have
+single correct answers determined by facts already verified against the tree, and are fixed in the
+round-4 fix pass.
+
+| Finding | Disposition |
+|---|---|
+| R3-F1 trace failure policy | Remove "send it raw" from the egress failure options, add the missing storage-failure decision row, and extend the sentinel test to the durable store as well as the collector. Aligns the template with this skill's own Quality Checklist, which already required both boundaries |
+| R3-F3 the three unattributed samples | They are the v2.26.0 `utility-pm-workflow-builder` cohort (storevine, brainshelf, workbench). Add the cohort so the decomposition reaches 213 and delete the "predate this breakdown" claim |
+| R3-F4 site thread distribution | Brainshelf is **65**, not 64. Counted from frontmatter. Broke at [#281](https://github.com/product-on-purpose/pm-skills/pull/281), which added a brainshelf sample without updating the line. **The only round-3 finding not caused by the round-2 fix pass, and the only one on a published surface** |
+| R3-F5 orbit `skill_version` | Set `"2.0.0"`, the value `deliver-prd` actually declared at repo v2.5.0 (`git show v2.5.0:skills/deliver-prd/SKILL.md`). This is a correction **within** D14, not a reopening: D14 ruled "restore the authored value" and the fix restored the authored *literal*, which was itself wrong |
+| R3-F6 manifest header | Include v2.13.0 in the skipped set (six, not five), narrow the validator description to the directory-existence check it actually performs, and reconcile the denominator against this plan's carry row |
+| R3-F7 X-03 walkthrough | Rewrite using the real 2.1.0 / 2.2.0 / 3.0.0 history and make both format examples stamp the same version. The round-2 fix replaced two literals without reading the surrounding narrative |
+| R3-F8 HISTORY self-contradiction | `measure-instrumentation-spec/HISTORY.md` line 22 says the Testing Checklist gained a block, line 65 still says it is unchanged. Update the Changes section |
+
+**Three of these are one bug wearing three costumes: two surfaces, one fact, no reconciliation.**
+R3-F4 is the site index versus `README_SAMPLES.md`. R3-F8 is one file contradicting itself. R3-F6 is
+the manifest header contradicting **this plan's own carry row, which already said v2.15.0 and
+already said 29 folders**. The correct value was in the repository the whole time, two directories
+away. The failure was not ignorance; it was authoring a fact in isolation while the repo already
+asserted it somewhere else. That is what D16 exists to gate.
+
+### D15: the evaluation-sizing block, after three attempts
+
+**What happened.** This block has now been rewritten twice under adversarial pressure and found
+wanting three times: saturation stopping (round 1), an underived risk floor (round 2), and a
+quantified overstatement (round 3). The D12 remedy is what produced the current defect. It derived a
+coverage bound from full slice size while the same template holds 25 percent back from tuning, so
+the untouched sets are 10 and 20 rather than 40 and 80. Claimed protection 7.5 and 3.75 percent;
+actual one-sided 95 percent bounds 25.9 and 13.9 percent. **A wrong number carries more authority
+than an obviously vague one**, so round 3's defect is worse than the two it replaced.
+
+**Two measurements bound this decision, both taken 2026-08-25.**
+
+*Provenance.* Seven of round 3's eight findings sit in files the round-2 fix pass touched. Exactly
+one, R3-F4, is independent, and it traces to [#281](https://github.com/product-on-purpose/pm-skills/pull/281)
+rather than to this cycle's build. **The release content is close to clean; the instability is the
+fix passes.** The 5 to 6 to 8 progression reads as divergence only if provenance is ignored.
+
+*Concentration.* Quantified-claim tokens (percentages, `3/n`, "bound", "confidence", "rate") per new
+AI section: **evaluation sizing block 11; Agent Execution Contract 0; Model Choice 0; Model Trace
+Capture 0** (its three regex hits were the word "generated" and one line of cautionary prose). The
+other three sections are structural and qualitative. None asserts a number that can be
+arithmetically wrong. **The contamination is one comment block, not the AI work.**
+
+**Options and what each costs.**
+
+- **A) Honest-minimal rewrite.** Delete the `3/n` derivation, the worked example and every number in
+  it, and the "licenses exactly one claim" phrasing, in the template and both orbit samples. The D12
+  checklist item is reworded, since "naming the smallest failure rate that slice must catch" is
+  rate-language that would contradict the rewrite. **What survives is most of the block**: the
+  anti-saturation argument (round 1's actual finding, never challenged and still correct), name the
+  slices first, floor per slice, held-out cases, slices scored separately. `If a rate is claimed`
+  becomes an explicit refusal. About five files, and every edit is a deletion. **Impact:** claims
+  nothing quantitative, so no arithmetic remains to be wrong. The exit is inside the reviewer's own
+  recommendation ("label non-random curated slices as coverage judgments rather than population-rate
+  bounds"). **Case against:** round 2's charge that an underived floor is unreproducible between PMs
+  may return. The answer is that an undefended coverage judgment claims nothing while a wrong bound
+  claims something false, but that is a defensible position rather than a guaranteed-clean round.
+- **B) Pull the AI conditional sections from v2.33.0.** 871 insertions across 14 files, including the
+  `storevine_sms-optin` sample (170 lines) and the `brainshelf_topic-matching-model` ADR sample (127
+  lines). Unwinds D11 and D14, both already ruled and executed, plus three skill MAJOR retypes and
+  the orbit retrofits. **Impact:** removes three measurably clean sections to fix one dirty one, and
+  strands the [#281](https://github.com/product-on-purpose/pm-skills/pull/281) community
+  contribution after it was merged and thanked. The removal is itself a large hand-edited pass
+  carrying the same new-damage risk that produced this decision.
+- **C) Author the full methodology now.** Preregistered `p_max`, confidence `alpha`, sampling frame,
+  independence assumptions, `ceil(log(alpha)/log(1-p_max))` sizing. **Impact:** most rigorous on the
+  merits; the objection is process. It would be authored in one pass, under gate pressure, with no
+  control arm, which is the exact setup that produced R3-F2. The standing control-arm rule killed
+  the AI opportunity-shaping work in August at 0 of 3 judges. This would be the third attempt at the
+  same move inside one cycle.
+
+**Recommendation: A.** The provenance and concentration measurements both point at it: the defect is
+confined to one block, and the option that removes claims cannot introduce the class of defect that
+has now recurred three times.
+
+**Final decision:** _pending_
+
+### D16: the validator gap behind five findings
+
+**The gap.** `check-sample-counts.mjs` is 73 lines and validates the headline total against disk.
+Nothing gates the surrounding prose, so the headline can be right while the cohort decomposition,
+the itemized arithmetic and the published per-thread distribution all disagree with it, and CI stays
+green. That is what happened: round 2's F6 and round 3's R3-F3, R3-F4 and R3-F6 are all this gap,
+and R3-F4 is live on the site now.
+
+**Options and what each costs.**
+
+- **A) Carry the whole gap to v2.34.0.** Fix this round's instances by hand under the
+  derive-by-command rule. Cheapest now. **Impact:** the class stays open through the tag, and the
+  next hand-repair is free to reintroduce it, which is the pattern this cycle demonstrated three
+  times.
+- **B) Extend `check-sample-counts.mjs` to derive the per-thread distribution now**, and carry the
+  general gate to v2.34.0. About 20 lines on a 73-line script. **Impact:** closes the only
+  published-surface instance permanently and makes R3-F4 unreintroducible. No tension with
+  [#279](https://github.com/product-on-purpose/pm-skills/issues/279), which concerns the skills
+  manifest rather than sample counts. Note this is **enforcement code, not prose**: the
+  claim-reducing rule binding the fix pass governs hand-authored assertions, and a derived check is
+  the opposite of an assertion.
+- **C) Build the general prose-asserts-a-fact gate this cycle.** **Impact:** breaks the pattern
+  outright rather than patching another instance, at the cost of pushing the tag out and expanding
+  scope inside a release cut already over budget on scope.
+
+**Recommendation: B.** It is the smallest change that converts the only user-visible instance from a
+recurring hand-repair into a gate, and it is derived rather than typed.
+
+**Final decision:** _pending_
+
+### D17: pre-register the convergence standard before round 4 runs
+
+**Why this is a decision and why it cannot wait.** Two standards are live and they disagree. The
+canonical runbook's G1 sub-check 2 is disposition-based: P0 closed, **P1 closed or explicitly
+deferred to the next release with rationale**, P2 and P3 acknowledged. The standing cross-LLM
+protocol rule is stricter: re-run until findings fall below IMPORTANT. Under D15 = A, round 4's
+expected residual is "rate-claim methodology deferred to a scoped effort with a control arm", which
+the runbook disposes of and the protocol rule blocks on.
+
+**The reason to fix it first is this repo's own precedent.** C-2 was ruled VOID against a rule
+committed at `f4d50837` **before** the run, specifically so the verdict could not be attacked as
+moved goalposts. Choosing the standard after round 4 returns invites exactly that objection against
+whichever way the result lands.
+
+- **A) Pre-register the runbook standard.** A deferred-with-rationale residual is dispositionable, so
+  round 4 can clear G1 with the sizing methodology explicitly carried. **Impact:** makes the gate
+  reachable this cycle; requires accepting that "deferred with rationale" is a real disposition
+  rather than a dodge, which is what the runbook already says.
+- **B) Pre-register the stricter protocol standard.** Round 4 must return nothing at IMPORTANT or
+  above. **Impact:** highest confidence in the shipped artifact; on current evidence it likely means
+  a round 5, since a reviewer instructed to find problems in a template that declines to make a rate
+  claim can still argue the decline is itself a gap.
+- **C) Rule it after round 4 returns.** **Impact:** the goalpost objection, in whichever direction
+  the result lands.
+
+**Recommendation: A**, with the deferral written into the carry table so the rationale is a record
+rather than a promise.
+
+**Final decision:** _pending_
+
 ## Release hygiene checklist
 
 Copied from the standing source at [`../checklist_doc-update-and-hygiene.md`](../checklist_doc-update-and-hygiene.md) and filled as this cycle runs. **This plan may not be marked READY TO TAG while any GATE row due at or before G0 is unchecked**, which is how it gates via the canonical runbook's G0 sub-check 6 without any runbook edit. **GATE rows due at G2 or G4 do not block the mark**; they block the cycle closing and are checked as their own gate runs.
@@ -391,6 +533,8 @@ For every quantitative claim in release copy, name the artifact that would fail 
 | **The em-dash rule's enforcement has a hole, and the hole did the damage, not the rule.** Measured 2026-08-19 after the maintainer asked whether the rule costs enough to be worth removing. **Context cost is about 529 tokens per session** (roughly 331 in the global agent instructions, 198 in this repo's `CLAUDE.md`); **output cost is zero**, since `" - "` and an em-dash are a wash on tokens. So cost is not a reason to drop it. The real cost is elsewhere: **1,009 spaced-period scars across 68 sample files** (of 212 at the 2026-08-19 measurement). **The pattern is actively spreading, not merely historical:** [#281](https://github.com/product-on-purpose/pm-skills/pull/281), merged 2026-08-21, arrived with **9 fresh scars** because an external contributor reasonably matched the surrounding house style. That is the strongest argument for fixing the validator scope before the repair: while `library/` stays unwatched, every new sample inherits the defect from its neighbours, reading like "the prototype called the API . it was fastest to wire up". Those are not the rule's substitute. The rule specifies `" - "` (space hyphen space); some sweep replaced em-dashes with `"."` instead, so the scars are a **violation of the rule, not a consequence of it** | **Recommendation: keep the rule, fix the enforcement.** Three parts. (1) `scripts/check-emdash-scars.mjs` sets `ROOTS = ['CHANGELOG.md', 'README.md', 'CONTRIBUTING.md', 'site/src/content/docs', 'skills']`; **`library/` is absent**, so the one validator built to catch this pattern is structurally blind to the corpus that carries it, and reports clean while the published samples are full of it. Add `library`. (2) Repair the 1,009 scars driven by that validator's own detection logic, **not a blind `sed`** - `" . "` before a lowercase letter is a strong signal but not a certain one, and a human should read a sample of the diff before it runs wide. (3) Leave the rule text alone; it was correct and was enforced badly once. **The counter-argument, recorded because it is the maintainer's call and not a cost question:** the rule exists because em-dashes read as a tell of LLM-authored prose. If that signal no longer matters, the benefit is zero, even 529 tokens is waste, and it should come out of both the global agent instructions and the Codex mirror that copies them. That is a judgment about authorial voice | v2.34.0 |
 | **G0 sub-check 5 governance audit residuals (3 x P3).** The zero-P0 bar passed and the P1 plus both P2s were fixed in this cycle at `c4ef3af7`. Three P3s were left | (a) `skills/utility-pm-critic/SKILL.md:67` describes the compatibility matrix as covering "all 4 sub-agents"; that page now documents 6. (b) **The auditor's own operating spec is stale**: `agents/pm-skill-auditor.md` and `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md` both instruct comparing declared counts against `AGENTS/claude/CONTEXT.md`, a file that exists nowhere in the tracked tree post-restructure. The audit was valid only because the dispatch brief named the current surfaces instead. (c) The pre-Astro `docs/...` link class is a known near-miss, already mitigated by the tested Pattern S alias in `scripts/check-root-doc-links.mjs`; no action, recorded so the next auditor does not re-raise it as P1 | v2.34.0 |
 | C-12, C-13 (doc-stack leftovers, stale CI overview) | Candidates in this plan, not in scope | v2.34.0 |
+| **Evaluation-set rate-claim methodology** (conditional on D15 = A) | The `deliver-prd` sizing block will decline to license a rate claim rather than license one it cannot support. Deriving a defensible sizing method (preregistered acceptable failure rate, confidence, sampling frame, independence) is a scoped effort, not a patch, and under the standing control-arm rule it must be tested against a no-framework arm before it is built. Three attempts inside this cycle produced saturation stopping, an underived floor, and a 3.5x overstatement, which is the evidence that gate pressure is the wrong context for it | v2.34.0, gated on a control arm |
+| **Prose that asserts a countable fact has no gate** (general case; conditional on D16 = B, which takes only the per-thread slice now) | Five findings across rounds 2 and 3 are this one gap: `check-sample-counts.mjs` validates the headline against disk and stays green while the cohort decomposition, the itemized arithmetic and the published per-thread distribution contradict it. The same shape appears outside sample counts, in manifest header counts and HISTORY narrative claims. **The manifest header's wrong values were already stated correctly in this plan's own carry row two directories away**, so the general fix is reconciliation across surfaces, not better authoring | v2.34.0 |
 
 ### E. Documentation consistency sweep
 
