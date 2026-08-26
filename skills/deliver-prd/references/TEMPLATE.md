@@ -113,7 +113,7 @@ See [link to detailed user stories] for full acceptance criteria.
 <!-- CONDITIONAL, not optional. Include whenever the feature's output comes from a model and
      varies run to run, and skip it entirely for deterministic features. When the condition applies
      this section is REQUIRED for completeness: a PRD that meets the trigger and omits it does not
-     satisfy the skill's contract. That is why 3.0.0 is a major rather than a minor.
+     satisfy the skill's contract.
 
      This section links behavior to evidence. It is not a full behavior specification: it names
      the behaviors that are requirements of THIS release and how each will be shown to hold. -->

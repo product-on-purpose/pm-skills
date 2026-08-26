@@ -511,6 +511,77 @@ The stricter standing cross-LLM rule ("re-run until findings fall below IMPORTAN
 set aside for round 4 only**, on the maintainer's authority as its owner, and remains in force for
 future cycles.
 
+## G1 adversarial review: rounds 4 and 5 (2026-08-25)
+
+**Records:** [`review/g1-round4-20260825.md`](./review/g1-round4-20260825.md),
+[`review/g1-round5-20260825.md`](./review/g1-round5-20260825.md).
+
+**Count across the gate: 5, 6, 8, 6, 6.** Round 4 returned 1 high and 4 medium and 1 low; round 5
+returned 3 high and 3 medium. Every finding in both rounds was verified true against the tree and
+**closed rather than deferred**.
+
+### What the derive-by-command rule bought
+
+Round 4's reviewer summary volunteered, unprompted, that **"the 213/63 sample headline, 73/65/64/11
+distribution, Orbit 2.0.0 versions, and 9-of-44 manifest count reconcile."** Zero count findings in
+round 4 and zero in round 5, after five across rounds 2 and 3. The rule worked, and the one number
+now behind a derived validator (D16 = B) cannot come back at all. The residual defect class moved
+from arithmetic to prose consistency and test logic.
+
+### The round-3 conclusion was wrong, and round 5 falsified it
+
+The round-3 section above concludes that **"the release content is close to clean; the instability
+is the fix passes"**, on provenance evidence that 7 of 8 round-3 findings sat in files the previous
+fix pass had touched. ~~That conclusion~~ **OVERTURNED 2026-08-25 by round 5.** Three of round 5's
+six findings are **pre-existing content defects that four prior rounds missed**, and one of them,
+R5-F2, contradicts the stated basis for three MAJOR version bumps. The provenance measurement was
+accurate; the inference drawn from it was not, because it treated "what this round found" as if it
+were "what is there".
+
+**The method finding underneath it.** Rounds 3, 4 and 5 all led their focus text with "new damage
+from the fix pass itself". That instruction was correct and productive each time, and it also
+**shaped what got looked at**. Only by round 5, with fix-pass damage thinning, did the review have
+budget to range over untouched territory. The prompt is part of the instrument, and this one delayed
+discovery of pre-existing defects by roughly two rounds. **The counter-frame is equally true:** five
+genuinely pre-existing defects surfaced across five rounds, several serious, which is the gate
+working rather than the release rotting.
+
+### The two findings worth remembering
+
+**R5-F2 (high, pre-existing): three templates labelled a required section OPTIONAL.** D11 retyped
+three skills to MAJOR precisely because a conditional section is *required* for the population its
+condition selects. `deliver-prd` said `OPTIONAL` twice and `develop-adr` once, while
+`measure-instrumentation-spec` already said `CONDITIONAL`, which is what made the inconsistency
+visible at all. The shipped artifact contradicted the stated rationale for its own version
+classification. All three corrected.
+
+**R5-F3 (high, pre-existing): `foundation-persona`'s `EXAMPLE.md` invented research provenance and
+labelled the conclusions validated.** Five interviews, 312 tickets, four tenants, three recorded
+sessions, zero `[fictional]` markers in a file whose skill exists to calibrate evidence claims. The
+structural cause is a **validator scope gap that is the em-dash gap's twin**:
+`check-sample-no-fabricated-metrics.mjs` globs `library/skill-output-samples/**/sample_*.md` only,
+so `skills/*/references/EXAMPLE.md` is invisible to it, and it runs `continue-on-error: true`
+besides. The validator built for this exact defect cannot see the file the defect is in. Carried to
+v2.34.0 in section D.
+
+### Self-check on the round-5 fix pass
+
+The round-5 fixes were unavoidably claim-adding (markings, relabellings, new fallback rows), which
+is the mode that has failed before, so the pass was audited against its own rules before round 6.
+Two defects were found and fixed without waiting to be told: the persona marking was **partial**
+(its comment said "every count below" while two claims sat above it, which is R4-F4's lesson
+repeating), and three template comments carried **version-stamped rationale** ("that is why 3.0.0 is
+a major"), which is X-03's rot class since a template outlives the version that produced it.
+
+### What round 6 must clear
+
+**The bar is a fully dispositioned round, not a zero-finding round.** Zero was never the
+pre-registered standard, and five rounds of evidence suggest it may not exist on a 65-file diff
+under adversarial review. Round 6 clears when no P0 stands, nothing is new damage from the round-5
+fix pass, and any fresh **pre-existing** P1 is either closed or deferred to v2.34.0 with written
+rationale. That deferral clause is what stops discoveries in untouched territory from extending the
+loop without end, and using it is the maintainer's call on the round-6 record.
+
 ## Release hygiene checklist
 
 Copied from the standing source at [`../checklist_doc-update-and-hygiene.md`](../checklist_doc-update-and-hygiene.md) and filled as this cycle runs. **This plan may not be marked READY TO TAG while any GATE row due at or before G0 is unchecked**, which is how it gates via the canonical runbook's G0 sub-check 6 without any runbook edit. **GATE rows due at G2 or G4 do not block the mark**; they block the cycle closing and are checked as their own gate runs.
@@ -560,6 +631,8 @@ For every quantitative claim in release copy, name the artifact that would fail 
 | **The em-dash rule's enforcement has a hole, and the hole did the damage, not the rule.** Measured 2026-08-19 after the maintainer asked whether the rule costs enough to be worth removing. **Context cost is about 529 tokens per session** (roughly 331 in the global agent instructions, 198 in this repo's `CLAUDE.md`); **output cost is zero**, since `" - "` and an em-dash are a wash on tokens. So cost is not a reason to drop it. The real cost is elsewhere: **1,009 spaced-period scars across 68 sample files** (of 212 at the 2026-08-19 measurement). **The pattern is actively spreading, not merely historical:** [#281](https://github.com/product-on-purpose/pm-skills/pull/281), merged 2026-08-21, arrived with **9 fresh scars** because an external contributor reasonably matched the surrounding house style. That is the strongest argument for fixing the validator scope before the repair: while `library/` stays unwatched, every new sample inherits the defect from its neighbours, reading like "the prototype called the API . it was fastest to wire up". Those are not the rule's substitute. The rule specifies `" - "` (space hyphen space); some sweep replaced em-dashes with `"."` instead, so the scars are a **violation of the rule, not a consequence of it** | **Recommendation: keep the rule, fix the enforcement.** Three parts. (1) `scripts/check-emdash-scars.mjs` sets `ROOTS = ['CHANGELOG.md', 'README.md', 'CONTRIBUTING.md', 'site/src/content/docs', 'skills']`; **`library/` is absent**, so the one validator built to catch this pattern is structurally blind to the corpus that carries it, and reports clean while the published samples are full of it. Add `library`. (2) Repair the 1,009 scars driven by that validator's own detection logic, **not a blind `sed`** - `" . "` before a lowercase letter is a strong signal but not a certain one, and a human should read a sample of the diff before it runs wide. (3) Leave the rule text alone; it was correct and was enforced badly once. **The counter-argument, recorded because it is the maintainer's call and not a cost question:** the rule exists because em-dashes read as a tell of LLM-authored prose. If that signal no longer matters, the benefit is zero, even 529 tokens is waste, and it should come out of both the global agent instructions and the Codex mirror that copies them. That is a judgment about authorial voice | v2.34.0 |
 | **G0 sub-check 5 governance audit residuals (3 x P3).** The zero-P0 bar passed and the P1 plus both P2s were fixed in this cycle at `c4ef3af7`. Three P3s were left | (a) `skills/utility-pm-critic/SKILL.md:67` describes the compatibility matrix as covering "all 4 sub-agents"; that page now documents 6. (b) **The auditor's own operating spec is stale**: `agents/pm-skill-auditor.md` and `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md` both instruct comparing declared counts against `AGENTS/claude/CONTEXT.md`, a file that exists nowhere in the tracked tree post-restructure. The audit was valid only because the dispatch brief named the current surfaces instead. (c) The pre-Astro `docs/...` link class is a known near-miss, already mitigated by the tested Pattern S alias in `scripts/check-root-doc-links.mjs`; no action, recorded so the next auditor does not re-raise it as P1 | v2.34.0 |
 | C-12, C-13 (doc-stack leftovers, stale CI overview) | Candidates in this plan, not in scope | v2.34.0 |
+| **`check-sample-no-fabricated-metrics.mjs` is blind to the files that most need it** (raised by G1 round 5, R5-F3) | The validator globs `library/skill-output-samples/**/sample_*.md` only, so every `skills/*/references/EXAMPLE.md` is outside its scope, and it runs `continue-on-error: true` in `validation.yml` so it cannot fail a build either way. `foundation-persona`'s EXAMPLE asserted five interviews, 312 tickets, four tenants and three recorded sessions with zero `[fictional]` markers, in the skill whose whole purpose is calibrating evidence claims, and four adversarial rounds walked past it. **This is structurally identical to the em-dash gap carried above**: the validator built for the defect cannot see the surface the defect lives on. Fix is two parts, scope and enforcement, and the scope half should land before any sweep so new EXAMPLEs stop inheriting the pattern | v2.34.0 |
+| **No lint prevents a required conditional section from being labelled optional** (raised by G1 round 5, R5-F2, recommendation half not built) | Codex recommended both correcting the three labels and adding a check that prevents recurrence. The labels are corrected; the check is not built, and is recorded here rather than left silent so a later round does not re-raise it as new. The check would compare each template's section-level `OPTIONAL` / `CONDITIONAL` comment against whether `SKILL.md` names that section in its completeness contract. Worth building because the failure mode is invisible to every existing validator and it contradicted the stated rationale for three MAJOR bumps for four rounds | v2.34.0 |
 | **Evaluation-set rate-claim methodology** (D15 = A, ruled 2026-08-25) | The `deliver-prd` sizing block will decline to license a rate claim rather than license one it cannot support. Deriving a defensible sizing method (preregistered acceptable failure rate, confidence, sampling frame, independence) is a scoped effort, not a patch, and under the standing control-arm rule it must be tested against a no-framework arm before it is built. Three attempts inside this cycle produced saturation stopping, an underived floor, and a 3.5x overstatement, which is the evidence that gate pressure is the wrong context for it | v2.34.0, gated on a control arm |
 | **Prose that asserts a countable fact has no gate** (general case; D16 = B ruled 2026-08-25 takes only the per-thread slice now) | Five findings across rounds 2 and 3 are this one gap: `check-sample-counts.mjs` validates the headline against disk and stays green while the cohort decomposition, the itemized arithmetic and the published per-thread distribution contradict it. The same shape appears outside sample counts, in manifest header counts and HISTORY narrative claims. **The manifest header's wrong values were already stated correctly in this plan's own carry row two directories away**, so the general fix is reconciliation across surfaces, not better authoring | v2.34.0 |
 

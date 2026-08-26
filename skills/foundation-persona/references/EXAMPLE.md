@@ -4,7 +4,7 @@ version: "2.0"
 created: 2026-08-16
 status: complete
 mode: product
-context: Regulated B2B workflow software. Clinical quality operations lead who owns the approval chain, built from 5 interviews plus support-ticket and audit-log review.
+context: Regulated B2B workflow software. Clinical quality operations lead who owns the approval chain, built from 5 [fictional] interviews plus support-ticket and audit-log review.
 ---
 
 # Rhea Patel - Keeper of the Approval Chain
@@ -31,7 +31,7 @@ context: Regulated B2B workflow software. Clinical quality operations lead who o
 **Rhea Patel - Keeper of the Approval Chain**
 Rhea runs clinical quality operations and holds the last signature before a submission package ships. She serves the reviewers upstream of her and the auditors downstream, and she is the person who gets asked, months later, why a decision was made. Her relationship with the product is defined by that asymmetry: everyone else is optimizing for today, and she is answering for it later.
 
-**Key quote:** "I do not need it to be fast. I need to be able to stand behind it in a year when nobody remembers the context."
+**Key quote** [fictional, as is every quote and count in this example]**:** "I do not need it to be fast. I need to be able to stand behind it in a year when nobody remembers the context."
 
 **Goals.** Ship on time without carrying hidden assumptions past the gate. Make accountability legible so exceptions do not become orphans. Reconstruct any decision quickly when it is questioned. Spend her scarce attention on the few approvals that actually carry risk.
 
