@@ -162,9 +162,9 @@ Both items are maintainer-only per the agent-assignment framework. Prepared here
 | D12 | G1 round 2, F2 (evaluation-set sizing): the risk-based floor that replaced saturation stopping carries no derivation rule, so two competent PMs given the same feature do not arrive at the same N | **A)** Require a preregistered sizing calculation from acceptable failure rate plus confidence. **B)** Keep the coverage-floor framing, add a worked derivation and grade the reasoning in the checklist. **C)** Accept as-is, record the limitation, defer to v2.34.0 | ~~**B**~~ | ~~**RULED B 2026-08-25**~~ **EXECUTION OVERTURNED same day by G1 round 3; see D15.** The ruling was sound on its reasoning and wrong in what it licensed: the worked derivation it asked for was authored under gate pressure and overstated protection by roughly 3.5x |
 | D13 | G1 round 2, F3 (release manifest scope): the reviewer's recommended fix would pre-empt open issue 279 (skills-manifest: restore the convention or retire it), which is scheduled for v2.34.0 scoping | **A)** Minimal correction of the header's false claims; enforcement rides with the 279 ruling. **B)** Build the enforcing reconciliation now and treat that as ruling 279 = restore. **C)** Drop the manifest from this release | **A** | **RULED A 2026-08-25** |
 | D14 | G1 round 2, F5 (sample provenance): the retyped orbit samples encode an impossible `repo_version` / `skill_version` / `created` tuple, and correcting it is a library-wide schema choice affecting all 213 samples | **A)** Revert `skill_version` to its authored value and let the body note carry the maintenance story. **B)** Add a `maintained_against` field to the 8-field contract. **C)** Redefine both fields to mean the current contract | **A** | **RULED A 2026-08-25** |
-| D15 | G1 round 3, R3-F2 (evaluation-set sizing, again): the derivation added under D12 computes its bound from the full slice while the same template holds 25% back from tuning, so it overstates protection by roughly 3.5x. The remedy the reviewer asks for is preregistered statistical methodology inside a PM template | **A)** Honest-minimal rewrite: strip every rate-bound claim, label floors as coverage judgments, defer rate methodology to a scoped v2.34.0 effort. **B)** Pull the AI conditional sections from v2.33.0 entirely. **C)** Author the full methodology now (p_max, alpha, sampling frame, independence) | **A** | **PENDING RULING** |
-| D16 | G1 round 3, the validator gap behind five findings across two rounds: prose that asserts a countable fact has no gate, so `check-sample-counts.mjs` stays green while three other numbers on the same page contradict its headline | **A)** Carry the whole gap to v2.34.0; fix this round's instances by hand under the derive-by-command rule. **B)** Extend `check-sample-counts.mjs` to derive the per-thread distribution now (about 20 lines on a 73-line script), carry the general gate to v2.34.0. **C)** Build the general prose-asserts-a-fact gate in this cycle | **B** | **PENDING RULING** |
-| D17 | The convergence standard for round 4, which must be fixed **before** the round runs: the canonical runbook's G1 sub-check 2 is disposition-based (P1 closed **or** explicitly deferred with rationale), while the standing cross-LLM protocol rule says re-run until findings fall below IMPORTANT. Under D15 = A the expected residual is "rate methodology deferred", which the first standard disposes of and the second blocks on | **A)** Pre-register the runbook standard: a deferred-with-rationale residual is dispositionable, so round 4 can clear the gate. **B)** Pre-register the stricter protocol standard: round 4 must return nothing at IMPORTANT or above. **C)** Rule it after round 4 returns | **A** | **PENDING RULING** |
+| D15 | G1 round 3, R3-F2 (evaluation-set sizing, again): the derivation added under D12 computes its bound from the full slice while the same template holds 25% back from tuning, so it overstates protection by roughly 3.5x. The remedy the reviewer asks for is preregistered statistical methodology inside a PM template | **A)** Honest-minimal rewrite: strip every rate-bound claim, label floors as coverage judgments, defer rate methodology to a scoped v2.34.0 effort. **B)** Pull the AI conditional sections from v2.33.0 entirely. **C)** Author the full methodology now (p_max, alpha, sampling frame, independence) | **A** | **RULED A 2026-08-25** |
+| D16 | G1 round 3, the validator gap behind five findings across two rounds: prose that asserts a countable fact has no gate, so `check-sample-counts.mjs` stays green while three other numbers on the same page contradict its headline | **A)** Carry the whole gap to v2.34.0; fix this round's instances by hand under the derive-by-command rule. **B)** Extend `check-sample-counts.mjs` to derive the per-thread distribution now (about 20 lines on a 73-line script), carry the general gate to v2.34.0. **C)** Build the general prose-asserts-a-fact gate in this cycle | **B** | **RULED B 2026-08-25** |
+| D17 | The convergence standard for round 4, which must be fixed **before** the round runs: the canonical runbook's G1 sub-check 2 is disposition-based (P1 closed **or** explicitly deferred with rationale), while the standing cross-LLM protocol rule says re-run until findings fall below IMPORTANT. Under D15 = A the expected residual is "rate methodology deferred", which the first standard disposes of and the second blocks on | **A)** Pre-register the runbook standard: a deferred-with-rationale residual is dispositionable, so round 4 can clear the gate. **B)** Pre-register the stricter protocol standard: round 4 must return nothing at IMPORTANT or above. **C)** Rule it after round 4 returns | **A** | **RULED A 2026-08-25, before round 4 ran** |
 
 ### D9: C-3, the PR-title lint
 
@@ -422,7 +422,11 @@ arithmetically wrong. **The contamination is one comment block, not the AI work.
 confined to one block, and the option that removes claims cannot introduce the class of defect that
 has now recurred three times.
 
-**Final decision:** _pending_
+**Final decision:** **A, ruled 2026-08-25 by the maintainer.** The rate-claim methodology carries to
+v2.34.0 gated on a control arm, recorded in section D. **This overturns D12's execution**: the
+worked derivation D12 licensed is deleted, and D12's Quality Checklist item is reworded because
+"naming the smallest failure rate that slice must catch" is rate-language that would contradict the
+rewrite.
 
 ### D16: the validator gap behind five findings
 
@@ -452,7 +456,8 @@ and R3-F4 is live on the site now.
 **Recommendation: B.** It is the smallest change that converts the only user-visible instance from a
 recurring hand-repair into a gate, and it is derived rather than typed.
 
-**Final decision:** _pending_
+**Final decision:** **B, ruled 2026-08-25 by the maintainer.** The per-thread distribution becomes a
+derived check in this cycle; the general prose-asserts-a-fact gate carries to v2.34.0 in section D.
 
 ### D17: pre-register the convergence standard before round 4 runs
 
@@ -482,7 +487,29 @@ whichever way the result lands.
 **Recommendation: A**, with the deferral written into the carry table so the rationale is a record
 rather than a promise.
 
-**Final decision:** _pending_
+**Final decision:** **A, ruled 2026-08-25 by the maintainer, and committed before round 4 was
+launched.**
+
+### The pre-registered round-4 standard
+
+Fixed here so it cannot be adjusted after the evidence arrives. Round 4 clears G1 when:
+
+1. **No P0 finding stands.** Any P0 blocks outright.
+2. **Every P1 finding is either closed or explicitly deferred to v2.34.0 with a written rationale in
+   section D.** A deferral is a real disposition under the canonical runbook's G1 sub-check 2, not a
+   dodge, and it must name what is deferred and why the deferral is safe to ship.
+3. **P2 and P3 findings are acknowledged in the record.** They do not block.
+4. **One exception is pre-declared:** a finding that the evaluation-sizing block declines to license
+   a rate claim is **expected and dispositioned in advance** by this ruling and the D15 = A carry.
+   Re-raising the deferred methodology is not a new finding. A finding that the block still *makes*
+   a quantitative claim it cannot support **is** a new finding and blocks.
+5. **Any finding that is new damage introduced by the round-4 fix pass is treated as P1 regardless of
+   the reviewer's severity label.** Three consecutive passes introduced fresh defects; this cycle
+   does not get to ship a fourth on a technicality.
+
+The stricter standing cross-LLM rule ("re-run until findings fall below IMPORTANT") is **explicitly
+set aside for round 4 only**, on the maintainer's authority as its owner, and remains in force for
+future cycles.
 
 ## Release hygiene checklist
 
@@ -533,8 +560,8 @@ For every quantitative claim in release copy, name the artifact that would fail 
 | **The em-dash rule's enforcement has a hole, and the hole did the damage, not the rule.** Measured 2026-08-19 after the maintainer asked whether the rule costs enough to be worth removing. **Context cost is about 529 tokens per session** (roughly 331 in the global agent instructions, 198 in this repo's `CLAUDE.md`); **output cost is zero**, since `" - "` and an em-dash are a wash on tokens. So cost is not a reason to drop it. The real cost is elsewhere: **1,009 spaced-period scars across 68 sample files** (of 212 at the 2026-08-19 measurement). **The pattern is actively spreading, not merely historical:** [#281](https://github.com/product-on-purpose/pm-skills/pull/281), merged 2026-08-21, arrived with **9 fresh scars** because an external contributor reasonably matched the surrounding house style. That is the strongest argument for fixing the validator scope before the repair: while `library/` stays unwatched, every new sample inherits the defect from its neighbours, reading like "the prototype called the API . it was fastest to wire up". Those are not the rule's substitute. The rule specifies `" - "` (space hyphen space); some sweep replaced em-dashes with `"."` instead, so the scars are a **violation of the rule, not a consequence of it** | **Recommendation: keep the rule, fix the enforcement.** Three parts. (1) `scripts/check-emdash-scars.mjs` sets `ROOTS = ['CHANGELOG.md', 'README.md', 'CONTRIBUTING.md', 'site/src/content/docs', 'skills']`; **`library/` is absent**, so the one validator built to catch this pattern is structurally blind to the corpus that carries it, and reports clean while the published samples are full of it. Add `library`. (2) Repair the 1,009 scars driven by that validator's own detection logic, **not a blind `sed`** - `" . "` before a lowercase letter is a strong signal but not a certain one, and a human should read a sample of the diff before it runs wide. (3) Leave the rule text alone; it was correct and was enforced badly once. **The counter-argument, recorded because it is the maintainer's call and not a cost question:** the rule exists because em-dashes read as a tell of LLM-authored prose. If that signal no longer matters, the benefit is zero, even 529 tokens is waste, and it should come out of both the global agent instructions and the Codex mirror that copies them. That is a judgment about authorial voice | v2.34.0 |
 | **G0 sub-check 5 governance audit residuals (3 x P3).** The zero-P0 bar passed and the P1 plus both P2s were fixed in this cycle at `c4ef3af7`. Three P3s were left | (a) `skills/utility-pm-critic/SKILL.md:67` describes the compatibility matrix as covering "all 4 sub-agents"; that page now documents 6. (b) **The auditor's own operating spec is stale**: `agents/pm-skill-auditor.md` and `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md` both instruct comparing declared counts against `AGENTS/claude/CONTEXT.md`, a file that exists nowhere in the tracked tree post-restructure. The audit was valid only because the dispatch brief named the current surfaces instead. (c) The pre-Astro `docs/...` link class is a known near-miss, already mitigated by the tested Pattern S alias in `scripts/check-root-doc-links.mjs`; no action, recorded so the next auditor does not re-raise it as P1 | v2.34.0 |
 | C-12, C-13 (doc-stack leftovers, stale CI overview) | Candidates in this plan, not in scope | v2.34.0 |
-| **Evaluation-set rate-claim methodology** (conditional on D15 = A) | The `deliver-prd` sizing block will decline to license a rate claim rather than license one it cannot support. Deriving a defensible sizing method (preregistered acceptable failure rate, confidence, sampling frame, independence) is a scoped effort, not a patch, and under the standing control-arm rule it must be tested against a no-framework arm before it is built. Three attempts inside this cycle produced saturation stopping, an underived floor, and a 3.5x overstatement, which is the evidence that gate pressure is the wrong context for it | v2.34.0, gated on a control arm |
-| **Prose that asserts a countable fact has no gate** (general case; conditional on D16 = B, which takes only the per-thread slice now) | Five findings across rounds 2 and 3 are this one gap: `check-sample-counts.mjs` validates the headline against disk and stays green while the cohort decomposition, the itemized arithmetic and the published per-thread distribution contradict it. The same shape appears outside sample counts, in manifest header counts and HISTORY narrative claims. **The manifest header's wrong values were already stated correctly in this plan's own carry row two directories away**, so the general fix is reconciliation across surfaces, not better authoring | v2.34.0 |
+| **Evaluation-set rate-claim methodology** (D15 = A, ruled 2026-08-25) | The `deliver-prd` sizing block will decline to license a rate claim rather than license one it cannot support. Deriving a defensible sizing method (preregistered acceptable failure rate, confidence, sampling frame, independence) is a scoped effort, not a patch, and under the standing control-arm rule it must be tested against a no-framework arm before it is built. Three attempts inside this cycle produced saturation stopping, an underived floor, and a 3.5x overstatement, which is the evidence that gate pressure is the wrong context for it | v2.34.0, gated on a control arm |
+| **Prose that asserts a countable fact has no gate** (general case; D16 = B ruled 2026-08-25 takes only the per-thread slice now) | Five findings across rounds 2 and 3 are this one gap: `check-sample-counts.mjs` validates the headline against disk and stays green while the cohort decomposition, the itemized arithmetic and the published per-thread distribution contradict it. The same shape appears outside sample counts, in manifest header counts and HISTORY narrative claims. **The manifest header's wrong values were already stated correctly in this plan's own carry row two directories away**, so the general fix is reconciliation across surfaces, not better authoring | v2.34.0 |
 
 ### E. Documentation consistency sweep
 
