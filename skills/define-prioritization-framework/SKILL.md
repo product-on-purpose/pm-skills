@@ -220,6 +220,15 @@ categories as **directional** and do not use "directly measured", "validated", o
 breakdown of respondents by category. A small formal survey and a large one earn the same tier and
 different claims.
 
+**Clearing the count is necessary and not sufficient.** Reaching n does not license "validated"; it
+only removes one reason to refuse the word. Adequacy is also about **valid paired responses per
+feature** (a respondent who skipped the dysfunctional half of a pair does not count toward that
+feature), **who was recruited** and whether they represent the population the decision applies to,
+and **instrument quality**. `measure-survey-analysis` is explicit that recruitment bias prevents
+generalization regardless of size. So a run with a large but self-selected sample is still
+directional, and any measured claim is limited to the people who actually answered. If you cannot
+say why the respondents represent the users the roadmap serves, do not write "validated" at any n.
+
 ## Cross-skill composition
 
 - Output of this skill feeds into: a future roadmap-sequencing skill (unshipped; would rank, then sequence), `deliver-launch-checklist` (Must-Have items become launch criteria), sprint-planning workflows

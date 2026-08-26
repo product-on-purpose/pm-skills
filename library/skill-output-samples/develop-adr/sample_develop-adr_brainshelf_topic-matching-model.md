@@ -118,7 +118,7 @@ Free per call and keeps saved content on our own infrastructure, which is the st
 
 ### Cohere embed-english-v3.0
 
-Best retrieval score of the three at 0.83 top-10 recall [fictional]. Rejected because 2 percentage points of recall did not justify roughly 3x the per-token cost and onboarding a second vendor, including a new data-processing agreement. The margin is small enough to sit inside the noise of a 200-pair evaluation set, so the quality advantage is not firmly established. Reproducing this number requires the asymmetric `input_type` setting Cohere v3 expects, `search_query` for the query side and `search_document` for stored items; scoring both sides as documents changes retrieval and would not reproduce the 0.83.
+Best retrieval score of the three at 0.83 top-10 recall [fictional]. Rejected because 2 percentage points of recall did not justify roughly 3x the per-token cost and onboarding a second vendor, including a new data-processing agreement. The 2-point gap is **unresolved rather than dismissed**: two point estimates and a set size do not establish whether a difference that small is real, and no per-query paired analysis was run to find out. It is not evidence of an advantage and not evidence against one. The decision rests on the cost and vendor arguments below, which do not depend on resolving it. Reproducing this number requires the asymmetric `input_type` setting Cohere v3 expects, `search_query` for the query side and `search_document` for stored items; scoring both sides as documents changes retrieval and would not reproduce the 0.83.
 
 ## References
 

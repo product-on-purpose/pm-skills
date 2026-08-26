@@ -321,8 +321,8 @@ withhold, so abstention is not rewarded as faithfulness.
   so gets the deeper search. The floor is a coverage commitment: it says every named failure mode
   was looked for deliberately across that many cases. It is not a rate and does not bound one
 - **Held-out cases:** 25% [fictional] of each slice is withheld while thresholds are tuned and
-  scored once at the end. If a threshold only holds on the remaining 75% used for tuning, it is
-  not a threshold
+  scored once at the end. If a threshold only holds on the cases it was tuned against, it is not a
+  threshold
 - **Slices scored separately:** every slice above reports on its own. An aggregate that passes while
   the decision-and-commitment slice fails is a failing evaluation and blocks the release
 - **If someone asks for a rate:** this set does not support one and the launch review says so. It

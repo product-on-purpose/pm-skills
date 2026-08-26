@@ -167,12 +167,13 @@ status: draft
 
 - [ ] Seed a request containing sentinel A, then verify A is absent at the collector
 - [ ] Force the egress minimization mechanism to fail, then verify the feature drops the trace or blocks the request as its failure row states, and that A never reaches the collector
+- [ ] Clear the egress fault and re-check: A must still be absent from the collector **and** from every durable sink, buffer, replay path and dead-letter store. The terminal-disposition row applies to both boundaries, so an implementation that enqueues the raw trace during the fault and replays it after recovery must fail here rather than pass the step above
 
 **Storage boundary** (sentinel B: a class the spec allows to cross egress but not to persist)
 
 - [ ] Seed a request containing sentinel B, then verify B is **present at the collector** and **absent from durable storage**. The present-at-collector half is what makes this a real test of the storage filter rather than a re-test of the egress one
 - [ ] Force the storage minimization mechanism to fail **with egress left healthy**, then verify B is present at the collector and the storage fault actually fired, and only then verify B and the trace are absent from every durable sink. Without the present-at-collector and fault-fired assertions this test passes vacuously whenever the trace never reached the storage boundary at all, which is exactly what fault injection tends to cause
-- [ ] Verify the **terminal** disposition matches the row above, not just the state at the moment you looked. Absence right after a failure is also what a buffered trace looks like before it is replayed, so if the spec says the trace is dropped, clear the fault and confirm B has still not appeared anywhere
+- [ ] Verify the **terminal** disposition matches the row above, not just the state at the moment you looked. Absence right after a failure is also what a buffered trace looks like before it is replayed, so if the spec says the trace is dropped, clear the fault and confirm B has still not appeared **in any durable sink, buffer, replay path or dead-letter store**. B is expected at the collector throughout; that is this test's setup, not a failure
 - [ ] If the spec allows no such class, say so in the Minimization before storage row and record that the storage boundary is untested by construction, rather than leaving a test that cannot fail
 
 **Both boundaries**
