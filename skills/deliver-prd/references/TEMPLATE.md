@@ -110,8 +110,10 @@ See [link to detailed user stories] for full acceptance criteria.
 
 ## AI Behavior and Evaluation
 
-<!-- OPTIONAL. Include only when the feature's output comes from a model and varies run to run.
-     Skip this section entirely for deterministic features.
+<!-- CONDITIONAL, not optional. Include whenever the feature's output comes from a model and
+     varies run to run, and skip it entirely for deterministic features. When the condition applies
+     this section is REQUIRED for completeness: a PRD that meets the trigger and omits it does not
+     satisfy the skill's contract. That is why 3.0.0 is a major rather than a minor.
 
      This section links behavior to evidence. It is not a full behavior specification: it names
      the behaviors that are requirements of THIS release and how each will be shown to hold. -->
@@ -177,8 +179,9 @@ See [link to detailed user stories] for full acceptance criteria.
 
 ## Agent Execution Contract
 
-<!-- OPTIONAL. Include only when a coding agent, an outside contractor, or any executor working
-     without the authoring context will implement this PRD. Skip this section entirely otherwise.
+<!-- CONDITIONAL, not optional. Include whenever a coding agent, an outside contractor, or any
+     executor working without the authoring context will implement this PRD, and skip it entirely
+     otherwise. When the condition applies this section is REQUIRED for completeness.
 
      Everything here is a declaration the author already knows and the executor cannot infer. -->
 

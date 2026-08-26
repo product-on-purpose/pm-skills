@@ -39,8 +39,8 @@ statistical but is not carries more authority than an obviously rough one.
 stated as what it is, a coverage commitment that a named failure mode was searched for
 deliberately, and the section explicitly declines to license a failure-rate claim, saying that an
 honest rate needs a sampling frame, a preregistered threshold, and independence assumptions a
-curated slice usually violates. The third Quality Checklist item grades the coverage commitment
-rather than a derivation. Deriving a defensible sizing method carries to v2.34.0, gated on a
+curated slice usually violates. The Quality Checklist item triggered by "an evaluation set is
+sized" grades the coverage commitment rather than a derivation. Deriving a defensible sizing method carries to v2.34.0, gated on a
 control arm, because three attempts inside one release cycle produced saturation stopping, an
 underived floor, and an overstatement.
 
@@ -97,7 +97,10 @@ carries a contract-vintage note.
 - Added the conditional `Agent Execution Contract` section, keyed off the existing `FR-n` IDs.
 - Instructions gained two conditional steps; Output Format names both sections and states that a
   PRD omitting a section its feature does not need is complete, while one including an empty
-  section is not; the Quality Checklist gained one conditional item per section.
+  section is not. The Quality Checklist gained three conditional items: one triggered by model
+  output, one by an evaluation set being sized, and one by an executor implementing without the
+  authoring context. The first two are AI-related; the third is an independent trigger, so no
+  single condition makes all three apply.
 - `EXAMPLE.md` gained a filled-in Agent Execution Contract, keyed off its existing `FR-1` through
   `FR-11`. The recurring-tasks feature has no AI component, so the AI section stays legitimately
   absent, but the execution contract is not AI-specific and a non-AI example can carry it honestly.

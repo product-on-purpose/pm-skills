@@ -86,6 +86,10 @@ the review stays executable:
 | `define-problem-statement` | A two-sentence problem frame: who, in what situation, blocked by what |
 | `foundation-lean-canvas` | The three riskiest boxes only: problem, customer segment, unfair advantage |
 | `define-prioritization-framework` | A single ranked list with the one criterion that actually decides |
+| `discover-competitive-analysis` | The two closest alternatives and the one axis on which you would lose to each today |
+| `discover-market-sizing` | One bottom-up estimate: reachable accounts times realistic attach rate, naming the assumption that moves the answer most |
+| `deliver-prd` | The problem, the one success metric with its baseline, and what is explicitly out of scope |
+| `deliver-user-stories` | The three stories that carry the risk, each with one acceptance criterion that could fail |
 
 A verdict whose next step the user cannot execute is not a finished review. Naming the gap and
 supplying the minimum is always better than routing into an environment that cannot follow.

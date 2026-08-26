@@ -64,9 +64,13 @@ conditional requirement is still a requirement for the population it selects.
 - Quality Checklist gained one conditional item.
 - Event Inventory, User Properties, and Implementation Notes unchanged.
 - Testing Checklist gains a conditional `Trace Capture Validation` block, present only when the spec
-  captures model traces. Its checks are negative tests: they pass by proving a seeded sentinel does
-  not reach the collector or durable storage, on the normal path and with each minimization
-  mechanism forced to fail.
+  captures model traces. It uses **two** sentinels, because one cannot test two boundaries. Sentinel
+  A comes from a class forbidden to cross at all and is asserted absent at the collector. Sentinel B
+  comes from a class allowed to cross egress but not to persist, and is asserted **present at the
+  collector** and absent from durable storage; that positive assertion is what isolates the storage
+  boundary rather than re-testing the egress one. Both are repeated with each minimization mechanism
+  forced to fail, and the forced storage-failure case keeps egress healthy so it cannot pass
+  vacuously.
 
 ## 2.2.0 (2026-07-04)
 

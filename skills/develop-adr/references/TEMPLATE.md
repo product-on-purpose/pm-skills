@@ -59,7 +59,9 @@ Be honest about trade-offs.
 
 ### Model Choice
 
-<!-- OPTIONAL. Include only when this decision selects a model, or commits the system to one.
+<!-- CONDITIONAL, not optional. Include whenever this decision selects a model or commits the
+     system to one. When the condition applies this subsection is REQUIRED for completeness, which
+     is why 3.0.0 is a major rather than a minor.
      Skip this subsection entirely otherwise.
 
      A model choice differs from an ordinary dependency choice in one way that matters for an ADR:

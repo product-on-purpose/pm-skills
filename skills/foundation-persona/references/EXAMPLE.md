@@ -208,12 +208,19 @@ Rhea runs clinical quality operations and holds the last signature before a subm
 
 | Source | Type | Detail |
 | --- | --- | --- |
-| I1-I5 | Interview | Five quality and compliance operations leads at regulated manufacturers, 45-60 minutes each, 2026-06 to 2026-07 |
-| S1 | Support | 14 months of support tickets tagged approvals or exceptions, 312 tickets reviewed and themed |
-| A1 | Analytics | Audit-log export analysis across 4 customer tenants: rationale-field completion by impact tier |
-| W1 | Session recording | Three recorded submission-gate sessions, observed rather than self-reported |
+<!-- Every source, count and quote below is [fictional], invented to show the SHAPE of an evidence
+     ledger. None of it exists. The point of this section is that each claim names the study that
+     supports it and each unsupported claim is labelled as such; it is not a licence to invent
+     precise provenance. In a real persona these rows cite studies you actually ran. -->
 
-**Validated.** The behavioral model in sections 5 and 6, the exception-lifecycle pain point, and the export-parity failure are supported by converging evidence across interviews, support tickets, and the audit-log analysis. The shadow-spreadsheet workaround appeared unprompted in four of five interviews.
+| Source | Type | Detail |
+| --- | --- | --- |
+| I1-I5 | Interview | Five [fictional] quality and compliance operations leads at regulated manufacturers, 45-60 minutes each, 2026-06 to 2026-07 |
+| S1 | Support | 14 months of support tickets tagged approvals or exceptions, 312 [fictional] tickets reviewed and themed |
+| A1 | Analytics | Audit-log export analysis across 4 [fictional] customer tenants: rationale-field completion by impact tier |
+| W1 | Session recording | Three [fictional] recorded submission-gate sessions, observed rather than self-reported |
+
+**Validated against the sources above, which are themselves [fictional].** The behavioral model in sections 5 and 6, the exception-lifecycle pain point, and the export-parity failure each name a study that supports them, which is what "validated" has to mean here: traceable to a source, not merely plausible. The shadow-spreadsheet workaround appeared unprompted in four of five [fictional] interviews. In your own persona this label is earned by real studies or it is not earned at all.
 
 **Assumed.** The demographic detail in section 1 is composite rather than observed. The quality-bar shifts in section 10 come from interview self-report and have not been observed under real deadline compression, which is exactly the condition where self-report is least reliable. Validating that would require observing a live submission window rather than asking about one.
 

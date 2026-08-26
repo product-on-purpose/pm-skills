@@ -170,7 +170,7 @@ status: draft
 **Storage boundary** (sentinel B: a class the spec allows to cross egress but not to persist)
 
 - [ ] Seed a request containing sentinel B, then verify B is **present at the collector** and **absent from durable storage**. The present-at-collector half is what makes this a real test of the storage filter rather than a re-test of the egress one
-- [ ] Force the storage minimization mechanism to fail, then verify nothing is written to durable storage
+- [ ] Force the storage minimization mechanism to fail **with egress left healthy**, then verify B is present at the collector and the storage fault actually fired, and only then verify B and the trace are absent from every durable sink. Without the present-at-collector and fault-fired assertions this test passes vacuously whenever the trace never reached the storage boundary at all, which is exactly what fault injection tends to cause
 - [ ] If the spec allows no such class, say so in the Minimization before storage row and record that the storage boundary is untested by construction, rather than leaving a test that cannot fail
 
 **Both boundaries**
