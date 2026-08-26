@@ -17,7 +17,9 @@ retype rather than defend it. `2.3.0` never shipped, so the published line runs 
 
 Conditionality narrows *who* is affected; it does not change *what happens to them*. For a PRD whose
 feature output comes from a model, `AI Behavior and Evaluation` is now required for completeness, and
-three new Quality Checklist items must pass. That is the tie-breaker rule in
+a new Quality Checklist item must pass, with a second applying whenever an evaluation set is sized.
+(A third new item ships at 3.0.0 but is conditioned on the executor lacking authoring context, which
+is an independent trigger and not part of this one.) That is the tie-breaker rule in
 [`skill-versioning.md`](../../docs/internal/skill-versioning.md) verbatim: *"If a user must do
 something new to stay compliant with the skill's required contract, classify as major"*, plus its
 worked cases *"'You must now include section X' -> major"* and *"New required checklist item added ->
@@ -25,12 +27,13 @@ major"*. The invalidation is concrete rather than theoretical: the published `or
 `orbit_reality` samples describe an AI-generated summary feature and carry no such section, so both
 were non-compliant with the skill that produced them the moment this content landed.
 
-**Reworked twice at G1, and the second rework is the one that shipped.** Round 2 found that a
-risk-based floor with no derivation rule was hand-waving one level up. The round-2 remedy (D12)
-added a rule-of-three derivation and a worked example. **Round 3 found that remedy worse than the
-problem**: it computed its bound from the full slice while the same template holds 25 percent back
-from tuning, so it claimed roughly 3.5x more protection than the design supported. A number that
-looks statistical but is not carries more authority than an obviously rough one.
+**Four versions of this block, three reworks, and the fourth is the one that shipped.** The drafted
+version used saturation stopping. Round 1 replaced it with a risk-based floor. Round 2 found that
+floor had no derivation rule and was hand-waving one level up, and its remedy (D12) added a
+rule-of-three derivation with a worked example. **Round 3 found that remedy worse than the problem**:
+it computed its bound from the full slice while the same template holds 25 percent back from tuning,
+so it claimed roughly 3.5x more protection than the design supported. A number that looks
+statistical but is not carries more authority than an obviously rough one.
 
 **D15 ruled the honest-minimal path.** The derivation and every number in it are gone. A floor is
 stated as what it is, a coverage commitment that a named failure mode was searched for
@@ -62,9 +65,11 @@ hides which step failed. Case-set size is stated as a method, never as a borrowe
 "the smallest N where adding cases stops changing the verdict", which is optional stopping on the
 observed outcome: the answer depends on the order cases arrive in, and a verdict typically
 stabilises *before* the rare and harmful slices appear, because rare cases are rare. Sizing is now
-risk-based: name the slices that must be covered, set a floor per slice and say what the floor buys,
-hold cases back from tuning, and if a rate is claimed, state the precision the set supports or report
-the count as a floor rather than a measurement. The no-borrowed-number rule is unchanged.
+risk-based: name the slices that must be covered, set a coverage floor per slice and say what that
+floor buys, and hold cases back from tuning. **The section does not license a failure-rate claim at
+all**, and says so explicitly: report raw counts per slice against the floor each was held to. An
+honest rate needs a sampling frame, a threshold fixed before the run, and independence assumptions a
+curated slice usually violates. The no-borrowed-number rule is unchanged.
 
 **`Agent Execution Contract`, when an executor implements without the authoring context.** A coding
 agent, an outside contractor, or a team picking the work up cold cannot infer what the author

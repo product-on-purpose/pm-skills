@@ -5,7 +5,7 @@ license: Apache-2.0
 metadata:
   phase: discover
   version: "1.3.0"
-  updated: 2026-07-05
+  updated: 2026-08-16
   category: research
   frameworks: [triple-diamond, service-design]
   author: product-on-purpose

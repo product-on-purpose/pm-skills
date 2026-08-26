@@ -5,7 +5,7 @@ license: Apache-2.0
 metadata:
   classification: foundation
   version: "2.6.1"
-  updated: 2026-06-10
+  updated: 2026-08-16
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

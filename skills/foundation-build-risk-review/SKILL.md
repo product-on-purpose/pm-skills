@@ -5,7 +5,7 @@ license: Apache-2.0
 metadata:
   classification: foundation
   version: "1.1.0"
-  updated: 2026-07-04
+  updated: 2026-08-16
   category: problem-framing
   frameworks: [triple-diamond, lean-startup]
   author: product-on-purpose

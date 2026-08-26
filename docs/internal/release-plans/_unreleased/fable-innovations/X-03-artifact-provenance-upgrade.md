@@ -83,7 +83,7 @@ Stamp format for frontmatter-bearing artifacts:
 ```yaml
 generated_by:
   skill: deliver-prd
-  version: 2.3.0
+  version: 3.0.0
   generated_at: 2026-07-03T14:00:00Z
 ```
 

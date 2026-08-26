@@ -154,11 +154,27 @@ status: draft
 
 <!-- Include this subsection only if the spec captures model traces. Delete it otherwise.
      These are negative tests: they pass by proving something does NOT happen. A test that only
-     confirms traces arrive at the collector proves the pipe works, not that the boundary holds. -->
+     confirms traces arrive at the collector proves the pipe works, not that the boundary holds.
 
-- [ ] Seed a request with a known sentinel string in a class the spec does NOT allow to cross, then verify that string is absent **at the collector AND in durable storage**. Checking only the collector misses a working egress filter followed by an ineffective storage one
-- [ ] Force the egress minimization mechanism to fail, then verify the feature drops the trace or blocks the request as its failure row states, and that nothing reaches the collector
+     The two boundaries need TWO different sentinels, and this is easy to get wrong. A sentinel
+     from an egress-forbidden class never reaches storage when egress filtering works, so its
+     absence from storage is guaranteed by the egress filter and says nothing about the storage
+     filter. A completely broken storage filter passes that test. Isolating the storage boundary
+     needs a class that IS allowed to cross egress and is NOT allowed to be persisted. -->
+
+**Egress boundary** (sentinel A: a class the spec does not allow to cross at all)
+
+- [ ] Seed a request containing sentinel A, then verify A is absent at the collector
+- [ ] Force the egress minimization mechanism to fail, then verify the feature drops the trace or blocks the request as its failure row states, and that A never reaches the collector
+
+**Storage boundary** (sentinel B: a class the spec allows to cross egress but not to persist)
+
+- [ ] Seed a request containing sentinel B, then verify B is **present at the collector** and **absent from durable storage**. The present-at-collector half is what makes this a real test of the storage filter rather than a re-test of the egress one
 - [ ] Force the storage minimization mechanism to fail, then verify nothing is written to durable storage
+- [ ] If the spec allows no such class, say so in the Minimization before storage row and record that the storage boundary is untested by construction, rather than leaving a test that cannot fail
+
+**Both boundaries**
+
 - [ ] Verify a trace read is itself logged, with the reader identifiable
 
 ### Edge Cases
