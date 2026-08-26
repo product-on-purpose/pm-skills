@@ -28,10 +28,12 @@ Found 3 stamped artifacts: 1 up to date, 2 stale.
 
 1. 2026-04-02_growth-onboarding_prd.md
    Stamped: deliver-prd@2.1.0   Current: deliver-prd@3.0.0
-   What changed (from HISTORY.md): 2.2.0 added a Rollout Plan section
-   (additive); 2.3.0 was a wording pass on Success Metrics (no
-   structural change).
-   Options: [1] regenerate fully  [2] apply only the Rollout Plan
+   What changed (from HISTORY.md): 2.2.0 added the Project Memory
+   Contract (additive); 3.0.0 added two conditional sections, AI
+   Behavior and Evaluation and Agent Execution Contract, and is a
+   MAJOR because a PRD whose output comes from a model is incomplete
+   without the first.
+   Options: [1] regenerate fully  [2] apply only the new sections
    section  [3] skip, acknowledge as-is
 
 2. 2026-05-14_q3-okrs.md

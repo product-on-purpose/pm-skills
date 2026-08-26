@@ -2,7 +2,7 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
-| 3.0.0 | 2026-08-21 | v2.33.0 | C-1 | **major** | Two conditional sections: `AI Behavior and Evaluation` (behavior requirements linked to the evidence that they hold) and `Agent Execution Contract` (authoritative sources, do-not-touch, an FR-n verification map, stop-and-escalate). **Also replaces the evaluation-set sizing method**: saturation stopping ("smallest N where adding cases stops changing the verdict") is stopping on the observed outcome, so sizing is now risk-based with named slices, a floor per slice that must show the reasoning that produced it, and held-out cases. **Retyped from 2.3.0 minor before release** (G1 adversarial finding 1): when the condition applies, a section plus two checklist items are required for completeness, which is the tie-breaker rule's major case. 2.3.0 never shipped. |
+| 3.0.0 | 2026-08-21 | v2.33.0 | C-1 | **major** | Two conditional sections: `AI Behavior and Evaluation` (behavior requirements linked to the evidence that they hold) and `Agent Execution Contract` (authoritative sources, do-not-touch, an FR-n verification map, stop-and-escalate). **Also replaces the evaluation-set sizing method**: saturation stopping ("smallest N where adding cases stops changing the verdict") is stopping on the observed outcome, so sizing is now risk-based with named slices, a coverage floor per slice, and held-out cases, and the section explicitly declines to license a failure-rate claim. **Retyped from 2.3.0 minor before release** (G1 adversarial finding 1): when the condition applies, a section plus two checklist items are required for completeness, which is the tie-breaker rule's major case. 2.3.0 never shipped. |
 | 2.2.0 | 2026-08-08 | v2.32.0 | F-54 | minor | Project Memory Contract: reads prior interpretation artifacts, writes the PRD as a decision artifact. |
 | 2.1.0 | 2026-06-10 | v2.26.0 | F-12-batch-1 | minor | Quality convergence: When NOT to Use + output-contract enumeration (F-12 Batch 1) |
 | 2.0.0 | 2026-01-26 | - | - | baseline | Prior published version |
@@ -25,13 +25,21 @@ major"*. The invalidation is concrete rather than theoretical: the published `or
 `orbit_reality` samples describe an AI-generated summary feature and carry no such section, so both
 were non-compliant with the skill that produced them the moment this content landed.
 
-**Hardened at G1 round 2 (2026-08-25), before release.** The round-1 replacement of saturation
-stopping was itself found wanting: a risk-based floor with no derivation rule is the same
-hand-waving one level up, because two PMs given the same feature would not arrive at the same N.
-The template now carries a derivation (the smallest failure rate a slice must catch implies its
-floor, since a clean run across n cases still admits a true rate near 3/n) and a worked example,
-and a third Quality Checklist item grades the derivation rather than the number. A clean run is
-reported as a bound, never as a measurement.
+**Reworked twice at G1, and the second rework is the one that shipped.** Round 2 found that a
+risk-based floor with no derivation rule was hand-waving one level up. The round-2 remedy (D12)
+added a rule-of-three derivation and a worked example. **Round 3 found that remedy worse than the
+problem**: it computed its bound from the full slice while the same template holds 25 percent back
+from tuning, so it claimed roughly 3.5x more protection than the design supported. A number that
+looks statistical but is not carries more authority than an obviously rough one.
+
+**D15 ruled the honest-minimal path.** The derivation and every number in it are gone. A floor is
+stated as what it is, a coverage commitment that a named failure mode was searched for
+deliberately, and the section explicitly declines to license a failure-rate claim, saying that an
+honest rate needs a sampling frame, a preregistered threshold, and independence assumptions a
+curated slice usually violates. The third Quality Checklist item grades the coverage commitment
+rather than a derivation. Deriving a defensible sizing method carries to v2.34.0, gated on a
+control arm, because three attempts inside one release cycle produced saturation stopping, an
+underived floor, and an overstatement.
 
 Note that a skill MAJOR does not imply a repo MAJOR. `skill-versioning.md` states the repo versions
 independently, so this ships inside the v2.33.0 minor.

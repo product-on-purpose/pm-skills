@@ -25,7 +25,7 @@ Each sample includes the scenario context, the exact prompt that produced it, an
 | **Brainshelf** | Consumer PKM app building Resurface (contextual morning digest) | Post-seed, ~20 employees | Casual: bullet points, shorthand, enough context to work |
 | **Workbench** | Enterprise collaboration building Blueprints (document templates with approval gates) | Series B, ~200 employees | Enterprise: full stakeholder lists, quantified baselines, explicit metrics |
 
-Per-thread sample distribution: Storevine 73, Brainshelf 64, Workbench 64, plus 11 legacy and orbit samples outside the thread trio.
+Per-thread sample distribution: Storevine 73, Brainshelf 65, Workbench 64, plus 11 legacy and orbit samples outside the thread trio.
 
 The threads exist so you can see how the same skill behaves under different product contexts. A `define-hypothesis` sample under Storevine reads differently than one under Workbench, because the scenario inputs (team, scale, prior artifacts, decision tempo) differ. Reading three threads of the same skill is the fastest way to internalize the variation surface of any skill.
 

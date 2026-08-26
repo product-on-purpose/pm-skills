@@ -31,6 +31,29 @@ export function countSamples(dir, rd = readdirSync) {
   return { total, sampledSkills };
 }
 
+/**
+ * Count samples per product thread by reading each sample's `thread:` frontmatter field.
+ * Samples with no thread (legacy and orbit) are counted as `outside`. Pure (fs injected).
+ *
+ * Added at G1 round 3 (D16): the headline total was gated here while the published per-thread
+ * distribution on the site said 64 for Brainshelf against 65 on disk, so the page contradicted
+ * its own headline and CI stayed green. A derived count cannot drift the way a typed one does.
+ */
+export function countThreads(dir, rd = readdirSync, read = readFileSync) {
+  const counts = { storevine: 0, brainshelf: 0, workbench: 0, outside: 0 };
+  for (const e of rd(dir, { withFileTypes: true })) {
+    if (!e.isDirectory()) continue;
+    for (const f of rd(join(dir, e.name))) {
+      if (!f.startsWith('sample_') || !f.endsWith('.md')) continue;
+      const m = read(join(dir, e.name, f), 'utf8').match(/^thread:\s*(\S+)\s*$/m);
+      const t = m && m[1];
+      if (t === 'storevine' || t === 'brainshelf' || t === 'workbench') counts[t] += 1;
+      else counts.outside += 1;
+    }
+  }
+  return counts;
+}
+
 /** Findings for one (label, text) against the expected number for each named pattern. Pure. */
 export function checkClaims(label, text, claims) {
   const f = [];
@@ -60,6 +83,20 @@ function main() {
     { re: /Total samples \| (\d+)/, name: 'total samples', expect: actual.total },
     { re: /Skills with samples \| (\d+)/, name: 'sampled skills', expect: actual.sampledSkills },
   ]));
+
+  const th = countThreads(SAMPLES_DIR);
+  findings.push(...checkClaims('samples/index.md', idx, [
+    { re: /Per-thread sample distribution: Storevine (\d+)/, name: 'thread: storevine', expect: th.storevine },
+    { re: /Per-thread sample distribution: Storevine \d+, Brainshelf (\d+)/, name: 'thread: brainshelf', expect: th.brainshelf },
+    { re: /Per-thread sample distribution: Storevine \d+, Brainshelf \d+, Workbench (\d+)/, name: 'thread: workbench', expect: th.workbench },
+    { re: /plus (\d+) legacy and orbit samples/, name: 'thread: outside the trio', expect: th.outside },
+  ]));
+  // The distribution must also reconcile to the headline, or the page can be internally
+  // consistent per-line and still contradict its own total, which is how this defect shipped.
+  const spread = th.storevine + th.brainshelf + th.workbench + th.outside;
+  if (spread !== actual.total) {
+    findings.push(`samples/index.md: per-thread distribution sums to ${spread}, headline total is ${actual.total}`);
+  }
 
   if (findings.length) {
     for (const x of findings) console.log(`SAMPLE-COUNT  ${x}`);

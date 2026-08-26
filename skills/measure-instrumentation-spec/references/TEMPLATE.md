@@ -108,8 +108,9 @@ status: draft
 | **Data classes captured** | [Name them: user text, retrieved documents, system prompt, tool arguments and results, file contents, model output. "The trace" is not an answer] |
 | **What is captured** | [Prompt / completion / both / metadata only] |
 | **Minimization before egress** | [What is stripped or masked before the trace leaves the process, by what mechanism, and who owns that mechanism. Name what is allowed to cross, not what is removed. "It is redacted downstream" is not an answer: downstream is already across the boundary] |
-| **If egress minimization fails** | [What the feature does when the mechanism is unavailable or errors: drop the trace, block the request, or send it raw. Silence here means raw tenant content reaches an external collector on the first failure] |
+| **If egress minimization fails** | [What the feature does when the mechanism is unavailable or errors. Fail closed: drop the trace or block the request. Sending the trace raw is not an option here, because the disallowed data classes named above are disallowed regardless of whether the filter is working. Silence in this row means raw tenant content reaches an external collector on the first failure] |
 | **Minimization before storage** | [What is additionally stripped or masked before the trace is written to durable storage, by what mechanism, and who owns it. If it is the same mechanism as egress, say so explicitly rather than leaving this blank] |
+| **If storage minimization fails** | [What happens when the storage-side mechanism is unavailable or errors. Fail closed here too: do not write the trace. A trace that reaches the collector safely and is then persisted unredacted is the same leak with a longer fuse] |
 | **Who can read a trace** | [Roles, and whether each read is itself logged] |
 | **Retention** | [How long, what deletes it, and whether that differs from the event retention above] |
 | **Sampling** | [What fraction of requests is captured and how the sample is chosen] |
@@ -155,9 +156,9 @@ status: draft
      These are negative tests: they pass by proving something does NOT happen. A test that only
      confirms traces arrive at the collector proves the pipe works, not that the boundary holds. -->
 
-- [ ] Seed a request with a known sentinel string in a class the spec does NOT allow to cross, then verify that string is absent at the collector
-- [ ] Force the egress minimization mechanism to fail, then verify the feature does what the spec's failure row says it does, and verify no raw trace reaches the collector
-- [ ] Force the storage minimization mechanism to fail, then verify no raw trace is written to durable storage
+- [ ] Seed a request with a known sentinel string in a class the spec does NOT allow to cross, then verify that string is absent **at the collector AND in durable storage**. Checking only the collector misses a working egress filter followed by an ineffective storage one
+- [ ] Force the egress minimization mechanism to fail, then verify the feature drops the trace or blocks the request as its failure row states, and that nothing reaches the collector
+- [ ] Force the storage minimization mechanism to fail, then verify nothing is written to durable storage
 - [ ] Verify a trace read is itself logged, with the reader identifiable
 
 ### Edge Cases

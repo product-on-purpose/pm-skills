@@ -1,7 +1,7 @@
 ---
 artifact: prd
 repo_version: "2.5.0"
-skill_version: "2.0"
+skill_version: "2.0.0"
 created: 2026-02-20
 status: sample
 thread: orbit
@@ -316,21 +316,17 @@ withhold, so abstention is not rewarded as faithfulness.
   updates announcing a decision or a commitment, where a fabricated claim propagates into other
   people's work, and updates from enterprise pilot accounts, where a visible failure costs a
   contract rather than a click
-- **Floor per slice, and how it was derived:** 40 [fictional] cases per slice, 80 [fictional] for
-  the decision-and-commitment slice. Derivation: a slice returning zero failures across n cases
-  still admits a true rate near 3/n, so 40 cases license the claim "if this slice were failing more
-  than about 7.5% of the time we would most likely have seen it". The team set 7.5% as the
-  tolerable miss for general updates. Decision-and-commitment updates carry contract risk rather
-  than a lost click, so the tolerable miss there is halved to about 3.75%, which is 3/n at n = 80.
-  The floor is a coverage commitment: it says every named failure mode was looked for deliberately,
-  not that its rate is measured precisely
+- **Floor per slice, and what it commits us to:** 40 [fictional] cases per slice, 80 [fictional]
+  for the decision-and-commitment slice, which carries contract risk rather than a lost click and
+  so gets the deeper search. The floor is a coverage commitment: it says every named failure mode
+  was looked for deliberately across that many cases. It is not a rate and does not bound one
 - **Held-out cases:** 25% [fictional] of each slice is withheld while thresholds are tuned and
   scored once at the end. If a threshold only holds on the tuning half, it is not a threshold
 - **Slices scored separately:** every slice above reports on its own. An aggregate that passes while
   the decision-and-commitment slice fails is a failing evaluation and blocks the release
-- **If a rate is claimed:** the set supports "no unsupported claims observed in N cases" as a floor.
-  It is not powered for a precise fabrication-rate estimate, and the launch review states it as a
-  floor rather than a measurement
+- **If someone asks for a rate:** this set does not support one and the launch review says so. It
+  reports raw counts per slice against the floor each was held to. A fabrication-rate claim would
+  need a designed sample of real updates, which this evaluation set is not
 
 ## Technical Considerations
 

@@ -4,22 +4,29 @@
 # bumps shipped with no artifact recording which skills changed and how. This file is that
 # record.
 #
-# WHAT THIS FILE DOES NOT DO. It is a record, not an enforcing check, and an earlier version of
-# this header overclaimed. validate-skills-manifest iterates the rows present here and confirms
-# each names a real skill directory, so it catches a malformed or misdirected row. It does not
-# derive the changed-skill set from the diff, does not verify previous_version or change_type,
-# does not recompute the summary block, and does not read CHANGELOG.md. It therefore cannot
-# detect a bump that was never written here in the first place, which is the exact failure it
-# was created to catch. Closing that gap belongs to the restore-or-retire decision below.
+# WHAT THIS FILE DOES NOT DO. It is a record, not an enforcing check. Two earlier versions of this
+# header overclaimed, each in a different way, so this one states only what was read out of the
+# validator. validate-skills-manifest iterates the rows present here and checks that each row's
+# name resolves to a real skill directory. That is the whole check. A row with no parsable name is
+# skipped rather than failed; change_type is not validated; a current-version mismatch is a warning,
+# not an error; the summary block is not recomputed; CHANGELOG.md is not read. It therefore cannot
+# detect a bump that was never written here in the first place, which is the exact failure it was
+# created to catch. Closing that gap belongs to the restore-or-retire decision below.
 #
 # docs/internal/skill-versioning.md has required this file for changed releases since it was
-# written. Re-counted 2026-08-24: 9 of 44 release folders carry one, of which 8 predate this
-# release, and the most recent of those 8 is v2.15.0. An earlier version of this header said
-# "most recently v2.8.0". That was a lexical sort reading v2.8.0 as later than v2.15.0 and
-# silently skipping v2.10.0, v2.11.0, v2.11.1, v2.12.0 and v2.15.0. Re-derive this line with
-# `sort -V`, never plain `sort`. The requirement had gone unobserved for 36 folders. Issue 279
-# (skills-manifest.yaml: restore the convention or retire it) tracks the standing decision. This
-# file does not settle that; it supplies the artifact this release was missing.
+# written. Re-derived 2026-08-25 with `sort -V`: 9 of 44 release folders carry a manifest, 8 of
+# them predating this release, and the most recent of those 8 is v2.15.0.
+#
+# A note on how this line was wrong twice. The original said "most recently v2.8.0", which was a
+# lexical sort reading v2.8.0 as later than v2.15.0. The first correction named v2.15.0 but listed
+# only five skipped folders; there are SIX (v2.10.0, v2.11.0, v2.11.1, v2.12.0, v2.13.0, v2.15.0).
+# Re-derive with `sort -V`, never plain `sort`, and count the result rather than typing it.
+#
+# No "unobserved for N folders" figure is stated here. The governing rule makes a manifest optional
+# for a release that changed no skill, so the denominator is releases-that-changed-skills, which is
+# not derivable from a directory listing. Issue 279 (skills-manifest.yaml: restore the convention or
+# retire it) tracks the standing decision and owns that denominator. This file does not settle it;
+# it supplies the artifact this release was missing.
 #
 # Every row below was re-derived on 2026-08-21 from
 #   git diff v2.32.0..HEAD -- 'skills/*/SKILL.md'
@@ -51,9 +58,9 @@ skills:
     effort: C-1
     note: >-
       Conditional AI Behavior and Evaluation and Agent Execution Contract sections, plus a
-      replacement evaluation-set sizing method: risk-based rather than saturation stopping, with
-      a stated derivation per slice added at G1 round 2. Retyped from a drafted 2.3.0 minor;
-      2.3.0 never shipped.
+      replacement evaluation-set sizing method: risk-based coverage floors rather than saturation
+      stopping, with the block declining to license a failure-rate claim (D15, G1 round 3).
+      Retyped from a drafted 2.3.0 minor; 2.3.0 never shipped.
 
   - name: develop-adr
     version: 3.0.0
