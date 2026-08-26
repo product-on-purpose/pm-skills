@@ -87,7 +87,7 @@ the review stays executable:
 | `foundation-lean-canvas` | The three riskiest boxes only: problem, customer segment, unfair advantage |
 | `define-prioritization-framework` | A single ranked list with the one criterion that actually decides |
 | `discover-competitive-analysis` | The two closest alternatives and the one axis on which you would lose to each today |
-| `discover-market-sizing` | One bottom-up estimate: reachable accounts times realistic attach rate, naming the assumption that moves the answer most |
+| `discover-market-sizing` | One bottom-up estimate: reachable accounts, times a realistic attach rate, times annual revenue per account, labelling each of the three as sourced or assumed. All three factors are required: accounts times attach rate is a customer count, not a market size |
 | `deliver-prd` | The problem, the one success metric with its baseline, and what is explicitly out of scope |
 | `deliver-user-stories` | The three stories that carry the risk, each with one acceptance criterion that could fail |
 

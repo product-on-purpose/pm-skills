@@ -152,7 +152,7 @@ You refuse to produce a ranking without minimum input quality. Specifically:
 
 5. **Single-stakeholder weighted scoring.** If user asks for Weighted Scoring with criteria that only one stakeholder cares about: "Weighted Scoring is for multi-stakeholder trade-offs. If only one stakeholder's criteria apply, RICE or ICE would be simpler. Want to proceed or switch?"
 
-6. **Kano without customer research.** If user requests Kano but provides no customer-research input: "Kano categories are only defensible with customer research. Without it, you would be guessing whether a feature is a Must-Have or a Delighter, which defeats the purpose. I have excluded Kano from this run. The other applicable frameworks have run above. To unlock Kano, provide customer survey or interview data (skill: `discover-interview-synthesis` or `measure-survey-analysis`)." If neither skill is available in the environment, do not leave the pointer bare: name the research in plain language instead, which is asking, per feature, how the user would feel if it were present and how they would feel if it were absent. Be honest about what a small run buys rather than naming a number that implies more than it delivers. `measure-survey-analysis` sets n < 100 as direction-only and n < 30 as too small for segment claims, and a Kano category is a per-feature claim, so a handful of responses produces an **inferred**-tier read under the evidence tiers below, not a surveyed-tier classification. Say which tier the sample earns.
+6. **Kano without customer research.** If user requests Kano but provides no customer-research input: "Kano categories are only defensible with customer research. Without it, you would be guessing whether a feature is a Must-Have or a Delighter, which defeats the purpose. I have excluded Kano from this run. The other applicable frameworks have run above. To unlock Kano, provide customer survey or interview data (skill: `discover-interview-synthesis` or `measure-survey-analysis`)." If neither skill is available in the environment, do not leave the pointer bare: name the research in plain language instead, which is asking, per feature, how the user would feel if it were present and how they would feel if it were absent. Be honest about what a small run buys rather than naming a number that implies more than it delivers. The tier is set by how you collect (see the evidence tiers below), and what you may claim is set separately by how many people answered; a small formal instrument is still a surveyed run and still not measurement. Report the tier and the claim strength as two separate statements.
 
 ## Framework details
 
@@ -206,10 +206,19 @@ Requires customer-research input to populate categories defensibly. **Gated** - 
 
 | Tier | What it means | How to run and label |
 |---|---|---|
-| **Surveyed** | Formal Kano question pairs, functional and dysfunctional, asked per feature | Classify normally. Label **Kano (surveyed)**. Categories are directly measured |
+| **Surveyed** | Formal Kano question pairs, functional and dysfunctional, asked per feature | Classify normally. Label **Kano (surveyed)**. Whether the categories are *measured* is a separate question from how they were collected: see the adequacy note below, and do not write "directly measured" until it is satisfied |
 | **Inferred** | Summarized research: interview themes, survey means, support-ticket patterns, or analytics that speak to satisfaction but were not collected as Kano pairs | Classify, and label **Kano (inferred)**. Say which signal drove each non-obvious category, and treat a Delighter or Must-Have call as a hypothesis to confirm rather than a finding |
 
 Do not refuse a run because the evidence is inferred rather than surveyed. Refuse only when there is no customer research at all. Downgrading to the inferred tier and saying so is more useful than excluding the framework, and it keeps the confidence claim honest.
+
+**Tier is about method; adequacy is about sample, and they are independent.** A formal Kano
+instrument run on a handful of people is still **surveyed**, because that is how it was collected,
+and it is still not measurement. `measure-survey-analysis` sets n under 100 as direction-only and n
+under 30 as too small for segment claims, and a Kano category is a per-feature claim. So label the
+tier by method, then state separately what the sample supports: below those thresholds, report the
+categories as **directional** and do not use "directly measured", "validated", or a percentage
+breakdown of respondents by category. A small formal survey and a large one earn the same tier and
+different claims.
 
 ## Cross-skill composition
 

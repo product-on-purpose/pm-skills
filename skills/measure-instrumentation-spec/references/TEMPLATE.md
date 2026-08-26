@@ -111,6 +111,7 @@ status: draft
 | **If egress minimization fails** | [What the feature does when the mechanism is unavailable or errors. Fail closed: drop the trace or block the request. Sending the trace raw is not an option here, because the disallowed data classes named above are disallowed regardless of whether the filter is working. Silence in this row means raw tenant content reaches an external collector on the first failure] |
 | **Minimization before storage** | [What is additionally stripped or masked before the trace is written to durable storage, by what mechanism, and who owns it. If it is the same mechanism as egress, say so explicitly rather than leaving this blank] |
 | **If storage minimization fails** | [What happens when the storage-side mechanism is unavailable or errors. Fail closed here too: do not write the trace. A trace that reaches the collector safely and is then persisted unredacted is the same leak with a longer fuse] |
+| **Terminal disposition of a failed trace** | [What ultimately becomes of a trace that failed minimization: dropped and never enqueued, or held somewhere. "Dropped" and "queued for retry" are different answers, and only the first is safe. If anything buffers, replays, or dead-letters the trace, that buffer is a durable sink and everything above applies to it too. Name it here or the redaction contract has a hole with a delay on it] |
 | **Who can read a trace** | [Roles, and whether each read is itself logged] |
 | **Retention** | [How long, what deletes it, and whether that differs from the event retention above] |
 | **Sampling** | [What fraction of requests is captured and how the sample is chosen] |
@@ -171,6 +172,7 @@ status: draft
 
 - [ ] Seed a request containing sentinel B, then verify B is **present at the collector** and **absent from durable storage**. The present-at-collector half is what makes this a real test of the storage filter rather than a re-test of the egress one
 - [ ] Force the storage minimization mechanism to fail **with egress left healthy**, then verify B is present at the collector and the storage fault actually fired, and only then verify B and the trace are absent from every durable sink. Without the present-at-collector and fault-fired assertions this test passes vacuously whenever the trace never reached the storage boundary at all, which is exactly what fault injection tends to cause
+- [ ] Verify the **terminal** disposition matches the row above, not just the state at the moment you looked. Absence right after a failure is also what a buffered trace looks like before it is replayed, so if the spec says the trace is dropped, clear the fault and confirm B has still not appeared anywhere
 - [ ] If the spec allows no such class, say so in the Minimization before storage row and record that the storage boundary is untested by construction, rather than leaving a test that cannot fail
 
 **Both boundaries**
