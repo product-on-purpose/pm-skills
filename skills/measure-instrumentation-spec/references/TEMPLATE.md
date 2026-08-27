@@ -112,7 +112,8 @@ status: draft
 | **Minimization before storage** | [What is additionally stripped or masked before the trace is written to durable storage, by what mechanism, and who owns it. If it is the same mechanism as egress, say so explicitly rather than leaving this blank] |
 | **If storage minimization fails** | [What happens when the storage-side mechanism is unavailable or errors. Fail closed here too: do not write the trace. A trace that reaches the collector safely and is then persisted unredacted is the same leak with a longer fuse] |
 | **Terminal disposition of a failed trace** | [What ultimately becomes of a trace that failed minimization: dropped and never enqueued, or held somewhere. "Dropped" and "queued for retry" are different answers, and only the first is safe. If anything buffers, replays, or dead-letters the trace, that buffer is a durable sink and everything above applies to it too. Name it here or the redaction contract has a hole with a delay on it] |
-| **Who can read a trace** | [Roles, and whether each read is itself logged] |
+| **Who can read a trace** | [Which roles can read one, and how that grant is removed when someone changes team or leaves] |
+| **Whether a read is logged** | [Whether each read is recorded, and whether the record identifies the reader. This is a separate claim from who is allowed to read: an access test proves authorization worked, never that the read was audited, and combining them lets one test appear to cover both] |
 | **Retention** | [How long, what deletes it, and whether that differs from the event retention above] |
 | **Sampling** | [What fraction of requests is captured and how the sample is chosen] |
 | **User opt-out** | [Whether users can decline capture, and what the feature does when they do] |

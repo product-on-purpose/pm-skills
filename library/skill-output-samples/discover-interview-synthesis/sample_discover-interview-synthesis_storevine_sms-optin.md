@@ -153,7 +153,7 @@ M1 and M3 both pay a standalone provider and both described the separation as de
 
 ### Methodology Notes
 
-Participants were compensated [fictional]. Two researchers coded independently [fictional], with themes retained only where both coded the same passage [fictional]. Quotes are lightly edited for length and de-identified by merchant vertical rather than name.
+Participants were compensated [fictional]. Two researchers coded independently [fictional], with themes retained only where both coded the same passage [fictional]. Quotes are lightly edited for length [fictional] and de-identified by merchant vertical rather than name [fictional].
 
 ### Limitations
 

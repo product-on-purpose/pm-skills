@@ -781,7 +781,7 @@ For every quantitative claim in release copy, name the artifact that would fail 
 | GitHub About description | Every release; compare against `gen-derived-surfaces --about` before editing | [ ] |
 | GitHub Release body | Every release; the workflow ships a generic template | [ ] |
 | `agent-plugins` re-pin | Every release. Complete that repo's Section 7 checklist in the PR body | [ ] |
-| `docs/internal/release-plans/README.md` | Every release | [x] Updated 2026-08-16 (`1cf6c6e4`), after being found stale two days post-v2.32.0 |
+| `docs/internal/release-plans/README.md` | Every release | [ ] **(due: G4, post-tag)** Must name v2.33.0 as latest shipped. **Reset to unchecked 2026-08-27**: it had been marked complete on the strength of the v2.32.0 repair at `1cf6c6e4`, which is this control's *origin story*, not its completion for this cycle. A checked box would have let the cycle close with the index still naming v2.32.0, which is the exact failure the row exists to catch |
 | `pm-skills-mcp` surfaces | Only if the release changes the catalog narrative or skill counts | [ ] Catalog holds at 68; narrative half to answer at G4 |
 | Topics, Pages, Open Graph | Every release | [ ] |
 | skills.sh listing | Advisory, after a delay | [ ] |
