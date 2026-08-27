@@ -64,13 +64,14 @@ conditional requirement is still a requirement for the population it selects.
 - Quality Checklist gained one conditional item.
 - Event Inventory, User Properties, and Implementation Notes unchanged.
 - Testing Checklist gains a conditional `Trace Capture Validation` block, present only when the spec
-  captures model traces. It uses **two** sentinels, because one cannot test two boundaries. Sentinel
-  A comes from a class forbidden to cross at all and is asserted absent at the collector. Sentinel B
-  comes from a class allowed to cross egress but not to persist, and is asserted **present at the
-  collector** and absent from durable storage; that positive assertion is what isolates the storage
-  boundary rather than re-testing the egress one. Both are repeated with each minimization mechanism
-  forced to fail, and the forced storage-failure case keeps egress healthy so it cannot pass
-  vacuously.
+  captures model traces. It states **what must be proven and deliberately not how to prove it**:
+  every row of the trace table needs a QA-owned test that could fail, covering the normal path and a
+  failure or degraded path, recorded in a table naming where each test lives and who owns it, with
+  untested rows listed as untested rather than omitted. Earlier drafts of this block authored the
+  test choreography itself and were wrong ten times across eight adversarial rounds, passing
+  vacuously in three distinct ways, which is why the choreography was removed at D22 rather than
+  corrected again. Test design for a trace pipeline depends on collector topology and fault-injection
+  mechanics that a PRD-time spec does not know.
 
 ## 2.2.0 (2026-07-04)
 

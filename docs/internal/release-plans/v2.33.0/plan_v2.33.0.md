@@ -656,9 +656,16 @@ with the limitation recorded.
 **Final decision:** **A, ruled 2026-08-26 by the maintainer.** The template gains a
 `Terminal disposition of a failed trace` row that forces the spec to say whether a failed trace is
 dropped or held, and states that any buffer, replay or dead-letter path **is** a durable sink so the
-rest of the contract applies to it. The test gains one assertion: clear the fault and confirm the
-sentinel still has not appeared. This closes the same hole at a depth a PM can author and verify,
+rest of the contract applies to it. This closes the hole at a depth a PM can author and verify,
 without asking an instrumentation spec to carry distributed-systems test design.
+
+**Partially superseded by D22 on 2026-08-27.** The `Terminal disposition of a failed trace` row
+survives and is load-bearing. The accompanying test assertion this ruling added, clearing the fault
+and re-checking the sentinel, was deleted with the rest of the choreography, and the requirement it
+carried now lives in the per-row failure-coverage rule instead. **D19's principle was not
+overturned; D22 extended it.** D19 said a PM template names the contract rather than enumerating
+queue mechanics, and D22 applied that same reasoning to the remaining test steps that D19 had left
+standing.
 
 ## G1 adversarial review: rounds 7, 8 and 9, and what the nine rounds actually measured
 

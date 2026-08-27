@@ -168,18 +168,22 @@ status: draft
 **Every row in the Model Trace Capture table above is a claim, and each one needs a test that could
 fail.** For each row, record where that test lives and who owns it:
 
-- [ ] Each minimization row has a test proving it holds **on the normal path** and **under forced
-      failure of that mechanism**, with the failure case asserting the behavior its failure row
-      states rather than merely asserting an absence
+- [ ] **Every** row above has coverage on the **normal path** and on a **failure or degraded path**,
+      not only the minimization rows. Retention, sampling, access and opt-out all fail in ways a
+      happy-path check cannot see: a retention job that never runs, a sampler stuck at zero or one,
+      a role grant that outlives an offboarding, an opt-out that is recorded and not honoured
+- [ ] Where failure injection is genuinely meaningless for a row, write the reason in the table
+      instead of leaving the cell empty. "Not applicable" with no reason is how a row goes untested
+      quietly
 - [ ] Each test proves the pipeline was actually exercised, so that "nothing forbidden was found"
       cannot be satisfied by nothing being captured at all
-- [ ] The terminal-disposition row has a test that holds **after** recovery, not only during the
-      fault, since absence during a fault is also what a buffered trace looks like before replay
-- [ ] Read logging has a test that a trace read is recorded with the reader identifiable
+- [ ] The failure case asserts the behavior its failure row states, rather than merely asserting an
+      absence, and the terminal-disposition row is checked **after** recovery, since absence during a
+      fault is also what a buffered trace looks like before replay
 
-| Claim under test | Where the test lives | Owner |
-|---|---|---|
-| [Row from the table above] | [Path, suite or ticket] | [Team or person] |
+| Claim under test | Normal-path test | Failure or degraded-path test | QA owner |
+|---|---|---|---|
+| [Row from the table above] | [Path, suite or ticket] | [Path, suite or ticket, or the reason none applies] | [Named QA owner, not a team alias] |
 
 <!-- If a row has no test, say so in this table rather than omitting the row. An untested privacy
      claim that is labelled untested is a known risk; an untested claim that looks tested is not. -->

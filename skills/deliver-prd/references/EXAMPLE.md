@@ -193,7 +193,7 @@ layout, Figma wins.
 | Path or system | Reason it is off limits |
 |----------------|-------------------------|
 | The existing `tasks` table schema | Recurrence lives in a new `recurring_series` table; altering `tasks` would put a migration in the critical path, and this PRD commits to none |
-| Notification service internals | We are a consumer of it. Behavior changes there affect four other features and belong to the Platform Team |
+| Notification service internals | We are a consumer of it. Behavior changes there affect four other features [fictional] and belong to the Platform Team |
 | The activity-feed writer | Instance completion must log through the existing normal-task-completion path so reporting keeps working unchanged |
 
 ### Requirement Verification Map
