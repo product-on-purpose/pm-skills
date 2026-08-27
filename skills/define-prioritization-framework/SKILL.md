@@ -229,6 +229,15 @@ generalization regardless of size. So a run with a large but self-selected sampl
 directional, and any measured claim is limited to the people who actually answered. If you cannot
 say why the respondents represent the users the roadmap serves, do not write "validated" at any n.
 
+**And signal strength, which is the condition a clean sample can still fail.**
+`measure-survey-analysis` sets its confidence label on sample, methodology **and signal strength**,
+and the third is the one an adequacy checklist tends to drop. A representative 400-response run
+split near-evenly across Must-Have, Performance and Delighter for a feature has cleared every
+condition above and still has no answer. Report the per-feature distribution, not just the winning
+category, and if no category clearly leads, classify that feature **Ambiguous** and say what would
+resolve it. An unstable plurality is not a roadmap input, and "validated" is the wrong word for
+one at any sample size.
+
 ## Cross-skill composition
 
 - Output of this skill feeds into: a future roadmap-sequencing skill (unshipped; would rank, then sequence), `deliver-launch-checklist` (Must-Have items become launch criteria), sprint-planning workflows

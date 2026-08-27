@@ -161,20 +161,34 @@ status: draft
      from an egress-forbidden class never reaches storage when egress filtering works, so its
      absence from storage is guaranteed by the egress filter and says nothing about the storage
      filter. A completely broken storage filter passes that test. Isolating the storage boundary
-     needs a class that IS allowed to cross egress and is NOT allowed to be persisted. -->
+     needs a class that IS allowed to cross egress and is NOT allowed to be persisted.
 
-**Egress boundary** (sentinel A: a class the spec does not allow to cross at all)
+     THE TWO BOUNDARY BLOCKS BELOW ARE DELIBERATELY PARALLEL: Precondition, Normal, Fault,
+     Recovery, Not applicable, in that order, differing only in which sentinel and which sink.
+     If you change one, change the other. This template accumulated six review findings across
+     five review rounds, and every one was the same mistake: an assertion added to one boundary
+     and never mirrored to the other. The parallel structure exists so that an asymmetry is
+     visible on the page instead of discoverable only by someone attacking the spec. -->
 
-- [ ] Seed a request containing sentinel A, then verify A is absent at the collector
-- [ ] Force the egress minimization mechanism to fail, then verify the feature drops the trace or blocks the request as its failure row states, and that A never reaches the collector
-- [ ] Clear the egress fault and re-check: A must still be absent from the collector **and** from every durable sink, buffer, replay path and dead-letter store. The terminal-disposition row applies to both boundaries, so an implementation that enqueues the raw trace during the fault and replays it after recovery must fail here rather than pass the step above
+**Precondition, run once before either boundary.** Every check below is an absence check, and an
+absence check against a dead pipeline passes for the wrong reason.
 
-**Storage boundary** (sentinel B: a class the spec allows to cross egress but not to persist)
+- [ ] Force trace capture and sampling **on** for the test run, so no assertion is satisfied merely because a sampling rate skipped the request
+- [ ] Send a benign request whose data classes the spec fully allows, and verify that trace reaches the collector. This control is what separates "the boundary held" from "nothing was captured", and every step below assumes it is present
 
-- [ ] Seed a request containing sentinel B, then verify B is **present at the collector** and **absent from durable storage**. The present-at-collector half is what makes this a real test of the storage filter rather than a re-test of the egress one
-- [ ] Force the storage minimization mechanism to fail **with egress left healthy**, then verify B is present at the collector and the storage fault actually fired, and only then verify B and the trace are absent from every durable sink. Without the present-at-collector and fault-fired assertions this test passes vacuously whenever the trace never reached the storage boundary at all, which is exactly what fault injection tends to cause
-- [ ] Verify the **terminal** disposition matches the row above, not just the state at the moment you looked. Absence right after a failure is also what a buffered trace looks like before it is replayed, so if the spec says the trace is dropped, clear the fault and confirm B has still not appeared **in any durable sink, buffer, replay path or dead-letter store**. B is expected at the collector throughout; that is this test's setup, not a failure
-- [ ] If the spec allows no such class, say so in the Minimization before storage row and record that the storage boundary is untested by construction, rather than leaving a test that cannot fail
+**Egress boundary.** Sentinel A: a class the spec does not allow to cross at all.
+
+- [ ] **Normal:** seed A, verify A is absent at the collector while the control trace is present
+- [ ] **Fault:** force the egress minimizer to fail, verify the fault actually fired, verify the feature does what its failure row states (drop the trace or block the request), and verify A is absent at the collector
+- [ ] **Recovery:** clear the fault, verify A is still absent at the collector **and** from every durable sink, buffer, replay path and dead-letter store. An implementation that enqueues the raw trace during the fault and replays it after recovery fails here rather than passing the step above
+- [ ] **Not applicable:** if the spec forbids no class at egress, say so in the `Minimization before egress` row and record that this boundary is untested by construction, rather than leaving a test that cannot fail
+
+**Storage boundary.** Sentinel B: a class the spec allows to cross egress but not to persist.
+
+- [ ] **Normal:** seed B, verify B is **present at the collector** and **absent from durable storage**. The present-at-collector half is what makes this a test of the storage filter rather than a re-test of the egress one
+- [ ] **Fault:** force the storage minimizer to fail **with egress left healthy**, verify the fault actually fired, verify B is present at the collector, and verify B is absent from every durable sink
+- [ ] **Recovery:** clear the fault, verify B is still absent from every durable sink, buffer, replay path and dead-letter store. B stays present at the collector throughout, which is this boundary's setup and not a failure
+- [ ] **Not applicable:** if the spec allows no egress-permitted, storage-forbidden class, say so in the `Minimization before storage` row and record that this boundary is untested by construction, rather than leaving a test that cannot fail
 
 **Both boundaries**
 

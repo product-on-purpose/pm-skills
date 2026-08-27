@@ -8,11 +8,21 @@ context: Project management tool adding recurring tasks feature
 
 # PRD: Recurring Tasks
 
+<!-- FICTIONAL EXAMPLE. TaskFlow is not a real product and no research was conducted. Every
+     research finding, baseline and target below is invented to show the SHAPE of a completed PRD.
+     Values marked [fictional] are observations that would come from real research in a real PRD;
+     unmarked numbers such as "52 weeks" or "4 weeks" are design decisions this example is making,
+     which is a different kind of number. Do not copy any figure here into a real document, and do
+     not treat the pattern of stating a precise research finding as licence to invent one. -->
+
+**This is a fictional worked example.** TaskFlow does not exist and no research was run. The
+research findings, baselines and targets are invented to demonstrate structure.
+
 ## Overview
 
 ### Problem Statement
 
-Users of TaskFlow spend significant time manually recreating repetitive tasks that occur on predictable schedules. Our research shows that 34% of all tasks created are duplicates of previous tasks, and power users report spending 2+ hours per week on this manual work. This friction reduces productivity and causes users to miss recurring deadlines when they forget to recreate tasks.
+Users of TaskFlow spend significant time manually recreating repetitive tasks that occur on predictable schedules. Our research shows that 34% [fictional] of all tasks created are duplicates of previous tasks, and power users report spending 2+ hours per week [fictional] on this manual work. This friction reduces productivity and causes users to miss recurring deadlines when they forget to recreate tasks.
 
 ### Solution Summary
 
@@ -35,9 +45,9 @@ Add recurring task functionality that allows users to create tasks that automati
 
 | Metric | Current Baseline | Target | Timeline |
 |--------|-----------------|--------|----------|
-| Duplicate task creation rate | 34% | 15% | 90 days post-launch |
-| Missed recurring deadlines | 12 per user/month | 6 per user/month | 90 days post-launch |
-| Power user WAU | 67% | 75% | 90 days post-launch |
+| Duplicate task creation rate | 34% [fictional] | 15% | 90 days post-launch |
+| Missed recurring deadlines | 12 per user/month [fictional] | 6 per user/month | 90 days post-launch |
+| Power user WAU | 67% [fictional] | 75% | 90 days post-launch |
 | Feature adoption (% using recurring) | 0% | 40% | 90 days post-launch |
 
 ### Non-Goals
