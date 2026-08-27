@@ -104,8 +104,8 @@ Run each applicable framework and produce its scoring table.
 
 **For Kano:**
 
-| Item | Category (Must / Performance / Delighter / Reverse / Indifferent) | Customer evidence | Implication |
-|---|---|---|---|
+| Item | Category (Must / Performance / Delighter / Reverse / Indifferent / **Ambiguous**) | Response distribution | Evidence tier and claim strength | Customer evidence | Implication |
+|---|---|---|---|---|---|
 
 ### 4. Per-framework ranking output
 
@@ -229,6 +229,13 @@ generalization regardless of size. So a run with a large but self-selected sampl
 directional, and any measured claim is limited to the people who actually answered. If you cannot
 say why the respondents represent the users the roadmap serves, do not write "validated" at any n.
 
+**This skill does not define "clearly leads" as a number, and that is deliberate.** A threshold
+that would be right for a five-item consumer backlog is wrong for a two-item enterprise one, and
+inventing a house cutoff here would be the same move as inventing a sample size: a number with
+nothing behind it, carrying more authority than the judgment it replaced. Report the distribution
+and let the reader see the margin. If you cannot look at the distribution and say which category
+leads, that is what **Ambiguous** is for.
+
 **And signal strength, which is the condition a clean sample can still fail.**
 `measure-survey-analysis` sets its confidence label on sample, methodology **and signal strength**,
 and the third is the one an adequacy checklist tends to drop. A representative 400-response run
@@ -259,6 +266,8 @@ Before finalizing, verify:
 - [ ] Cross-framework comparison explains each divergent item by naming the driving dimension
 - [ ] Weighted Scoring (if run) loudly flags that the weights are a choice
 - [ ] Kano is excluded with an explanation when no customer research is provided
+- [ ] If Kano ran: every item carries its evidence tier and its claim strength, and the per-feature response distribution is reported rather than only the winning category
+- [ ] If Kano ran: any feature whose distribution shows no clear leader is recorded as **Ambiguous** with what would resolve it, rather than assigned a weak plurality
 - [ ] Executive summary gives a recommendation and a next step, not just a ranking
 
 ## Cross-references

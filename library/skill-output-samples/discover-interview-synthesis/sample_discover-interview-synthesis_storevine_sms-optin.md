@@ -73,7 +73,13 @@ Determine what an opt-in-first SMS release must handle for Storevine merchants, 
 
 ### Methodology
 
-Six semi-structured interviews, 45 minutes each, conducted remotely over two weeks. Participants were recruited from active Campaigns v1 merchants and deliberately split between current SMS users (2), considered-and-stopped (3), and tried-and-abandoned (1). Transcripts were coded independently by two researchers before theme consolidation.
+Six semi-structured interviews, 45 minutes each [fictional], conducted remotely over two weeks [fictional]. Participants were recruited from active Campaigns v1 merchants and deliberately split between current SMS users (2), considered-and-stopped (3), and tried-and-abandoned (1). Transcripts were coded independently by two researchers [fictional] before theme consolidation.
+
+<!-- The six participants and their split come from the prompt. The session length, field period and
+     two-researcher coding do not: they are [fictional] detail added to show what a Methodology
+     section states, and no transcripts exist. Marked because unmarked methodology is what makes an
+     invented synthesis read as corroborated, and a downstream artifact consuming it inherits that
+     false weight. -->
 
 ### Participant Summary
 

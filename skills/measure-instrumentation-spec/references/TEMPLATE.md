@@ -154,45 +154,35 @@ status: draft
 ### Trace Capture Validation
 
 <!-- Include this subsection only if the spec captures model traces. Delete it otherwise.
-     These are negative tests: they pass by proving something does NOT happen. A test that only
-     confirms traces arrive at the collector proves the pipe works, not that the boundary holds.
 
-     The two boundaries need TWO different sentinels, and this is easy to get wrong. A sentinel
-     from an egress-forbidden class never reaches storage when egress filtering works, so its
-     absence from storage is guaranteed by the egress filter and says nothing about the storage
-     filter. A completely broken storage filter passes that test. Isolating the storage boundary
-     needs a class that IS allowed to cross egress and is NOT allowed to be persisted.
+     This section names WHAT must be proven and deliberately does not author HOW to prove it.
+     Test design for a trace pipeline is engineering work: it depends on whether the collector is
+     synchronous, what buffers and replays, and how faults can be injected, none of which a PRD-time
+     spec knows. Earlier versions of this template did author the choreography, and across eight
+     adversarial review rounds that choreography was wrong ten times, passing vacuously against a
+     dead pipeline, against an unproven durable writer, and by construction whenever minimization
+     happens at the value level rather than by whole class. A test that cannot fail is worse than a
+     named requirement, because it converts an open question into a checked box. So the requirement
+     is named here and the design belongs to QA. -->
 
-     THE TWO BOUNDARY BLOCKS BELOW ARE DELIBERATELY PARALLEL: Precondition, Normal, Fault,
-     Recovery, Not applicable, in that order, differing only in which sentinel and which sink.
-     If you change one, change the other. This template accumulated six review findings across
-     five review rounds, and every one was the same mistake: an assertion added to one boundary
-     and never mirrored to the other. The parallel structure exists so that an asymmetry is
-     visible on the page instead of discoverable only by someone attacking the spec. -->
+**Every row in the Model Trace Capture table above is a claim, and each one needs a test that could
+fail.** For each row, record where that test lives and who owns it:
 
-**Precondition, run once before either boundary.** Every check below is an absence check, and an
-absence check against a dead pipeline passes for the wrong reason.
+- [ ] Each minimization row has a test proving it holds **on the normal path** and **under forced
+      failure of that mechanism**, with the failure case asserting the behavior its failure row
+      states rather than merely asserting an absence
+- [ ] Each test proves the pipeline was actually exercised, so that "nothing forbidden was found"
+      cannot be satisfied by nothing being captured at all
+- [ ] The terminal-disposition row has a test that holds **after** recovery, not only during the
+      fault, since absence during a fault is also what a buffered trace looks like before replay
+- [ ] Read logging has a test that a trace read is recorded with the reader identifiable
 
-- [ ] Force trace capture and sampling **on** for the test run, so no assertion is satisfied merely because a sampling rate skipped the request
-- [ ] Send a benign request whose data classes the spec fully allows, and verify that trace reaches the collector. This control is what separates "the boundary held" from "nothing was captured", and every step below assumes it is present
+| Claim under test | Where the test lives | Owner |
+|---|---|---|
+| [Row from the table above] | [Path, suite or ticket] | [Team or person] |
 
-**Egress boundary.** Sentinel A: a class the spec does not allow to cross at all.
-
-- [ ] **Normal:** seed A, verify A is absent at the collector while the control trace is present
-- [ ] **Fault:** force the egress minimizer to fail, verify the fault actually fired, verify the feature does what its failure row states (drop the trace or block the request), and verify A is absent at the collector
-- [ ] **Recovery:** clear the fault, verify A is still absent at the collector **and** from every durable sink, buffer, replay path and dead-letter store. An implementation that enqueues the raw trace during the fault and replays it after recovery fails here rather than passing the step above
-- [ ] **Not applicable:** if the spec forbids no class at egress, say so in the `Minimization before egress` row and record that this boundary is untested by construction, rather than leaving a test that cannot fail
-
-**Storage boundary.** Sentinel B: a class the spec allows to cross egress but not to persist.
-
-- [ ] **Normal:** seed B, verify B is **present at the collector** and **absent from durable storage**. The present-at-collector half is what makes this a test of the storage filter rather than a re-test of the egress one
-- [ ] **Fault:** force the storage minimizer to fail **with egress left healthy**, verify the fault actually fired, verify B is present at the collector, and verify B is absent from every durable sink
-- [ ] **Recovery:** clear the fault, verify B is still absent from every durable sink, buffer, replay path and dead-letter store. B stays present at the collector throughout, which is this boundary's setup and not a failure
-- [ ] **Not applicable:** if the spec allows no egress-permitted, storage-forbidden class, say so in the `Minimization before storage` row and record that this boundary is untested by construction, rather than leaving a test that cannot fail
-
-**Both boundaries**
-
-- [ ] Verify a trace read is itself logged, with the reader identifiable
+<!-- If a row has no test, say so in this table rather than omitting the row. An untested privacy
+     claim that is labelled untested is a known risk; an untested claim that looks tested is not. -->
 
 ### Edge Cases
 

@@ -10,9 +10,12 @@ context: Project management tool adding recurring tasks feature
 
 <!-- FICTIONAL EXAMPLE. TaskFlow is not a real product and no research was conducted. Every
      research finding, baseline and target below is invented to show the SHAPE of a completed PRD.
-     Values marked [fictional] are observations that would come from real research in a real PRD;
-     unmarked numbers such as "52 weeks" or "4 weeks" are design decisions this example is making,
-     which is a different kind of number. Do not copy any figure here into a real document, and do
+     Values marked [fictional] are OBSERVATIONS: things a real PRD would have measured or been told.
+     Unmarked numbers are DECISIONS this example is making, such as the 52-week generation limit,
+     the 4-week lookahead, the target column of the metrics table, and the rollout percentages. The
+     test is not where the number sits but whether it claims the world is a certain way. A scope
+     justification like "standard patterns cover 85% of use cases" is an observation wearing a
+     decision's clothes, and it is marked. Do not copy any figure here into a real document, and do
      not treat the pattern of stating a precise research finding as licence to invent one. -->
 
 **This is a fictional worked example.** TaskFlow does not exist and no research was run. The
@@ -91,7 +94,7 @@ See [User Stories Document](#) for full acceptance criteria.
 
 ### Future Considerations
 
-- **Custom patterns (v2):** Complex scheduling like "first Monday of each month" or "every 2 weeks" - deferred due to UI complexity; standard patterns cover 85% of use cases
+- **Custom patterns (v2):** Complex scheduling like "first Monday of each month" or "every 2 weeks" - deferred due to UI complexity; standard patterns cover 85% [fictional] of use cases
 - **Calendar sync (v2):** Two-way sync with external calendars - deferred due to integration complexity and scope
 - **Assignment rotation:** Auto-rotate assignee for team tasks - requires additional UX research to understand use cases
 

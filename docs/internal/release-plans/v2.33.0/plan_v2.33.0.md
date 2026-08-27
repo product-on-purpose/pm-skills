@@ -167,8 +167,9 @@ Both items are maintainer-only per the agent-assignment framework. Prepared here
 | D17 | The convergence standard for round 4, which must be fixed **before** the round runs: the canonical runbook's G1 sub-check 2 is disposition-based (P1 closed **or** explicitly deferred with rationale), while the standing cross-LLM protocol rule says re-run until findings fall below IMPORTANT. Under D15 = A the expected residual is "rate methodology deferred", which the first standard disposes of and the second blocks on | **A)** Pre-register the runbook standard: a deferred-with-rationale residual is dispositionable, so round 4 can clear the gate. **B)** Pre-register the stricter protocol standard: round 4 must return nothing at IMPORTANT or above. **C)** Rule it after round 4 returns | **A** | **RULED A 2026-08-25, before round 4 ran** |
 | D18 | G1 round 6 path: the round splits 3 fix-pass findings (clause 5 requires closure) and 3 pre-existing findings unrelated to this release (clause 2 permits deferral) | **A)** Close the three, defer the three with rationale, run round 7. **B)** Revert the claim-adding fixes rather than correcting them. **C)** Stop at six rounds and defer all six. **D)** Pause the release and audit the library for the quantitative-claim pattern first | **A** | **RULED A 2026-08-26** |
 | D19 | G1 round 6, R6-F2: how deep the storage-failure remedy goes in a PM-authored template | **A)** Name the terminal disposition and verify it, without enumerating queue mechanics. **B)** Full retry-horizon and dead-letter assertions as recommended. **C)** Defer the retry gap with the limitation recorded | **A** | **RULED A 2026-08-26** |
-| D20 | G1 round 8: the trace-capture test block has produced six findings across five consecutive review rounds, every one an assertion added to one boundary and never mirrored to the other. A sixth targeted patch has a 0-for-5 record | **A)** Rewrite both boundaries symmetrically so asymmetry is visible on the page. **B)** Cut the test choreography and keep only the policy rows. **C)** Patch the named finding only, as before | **A** | **RULED A 2026-08-26** |
+| D20 | G1 round 8: the trace-capture test block has produced six findings across five consecutive review rounds, every one an assertion added to one boundary and never mirrored to the other. A sixth targeted patch has a 0-for-5 record | **A)** Rewrite both boundaries symmetrically so asymmetry is visible on the page. **B)** Cut the test choreography and keep only the policy rows. **C)** Patch the named finding only, as before | ~~**A**~~ | ~~**RULED A 2026-08-26**~~ **PREDICTION FALSIFIED by round 9 and superseded by D22.** The ruling was sound on its reasoning and wrong in what it predicted: structural symmetry did not stop the churn, because the defect was representational rather than structural |
 | D21 | G1 round 8, R8-F3: `deliver-prd`'s canonical EXAMPLE presents ~11 invented quantities as established research with zero fictional markers, pre-existing since v2.0.0 and part of the already-deferred fabricated-metrics validator gap, but sitting in this release's flagship skill | **A)** Fix now, matching how the identical `foundation-persona` instance was handled at round 5. **B)** Defer with the validator gap. **C)** Add the notice now, defer the per-metric sweep | **A** | **RULED A 2026-08-26** |
+| D22 | G1 round 9 overturns D20 on evidence: the symmetric rewrite achieved symmetry of shape without equivalence of strength, and whole-class sentinels cannot represent value-level masking, which is the commoner real configuration | **A)** Delete the test choreography, keep every policy row, and require a QA-owned test per row recorded in a table. **B)** Patch the two named findings in place. **C)** Cut the trace subsection from v2.33.0 | **A** | **RULED A 2026-08-27** |
 
 ### D9: C-3, the PR-title lint
 
@@ -658,6 +659,92 @@ dropped or held, and states that any buffer, replay or dead-letter path **is** a
 rest of the contract applies to it. The test gains one assertion: clear the fault and confirm the
 sentinel still has not appeared. This closes the same hole at a depth a PM can author and verify,
 without asking an instrumentation spec to carry distributed-systems test design.
+
+## G1 adversarial review: rounds 7, 8 and 9, and what the nine rounds actually measured
+
+**Records:** [`review/g1-round7-20260826.md`](./review/g1-round7-20260826.md),
+[`review/g1-round8-20260826.md`](./review/g1-round8-20260826.md),
+[`review/g1-round9-20260826.md`](./review/g1-round9-20260826.md).
+
+**Counts: 5, 6, 8, 6, 6, 6, 4, 4, 5.** Fifty findings across nine rounds, every one verified against
+the tree before it was acted on, and none taken on the reviewer's word.
+
+### The one measurement that explains the cycle
+
+Splitting the findings by **which fix mode produced the surface** separates them cleanly, and the
+split is not the one this plan assumed at round 9, which was instance-versus-class:
+
+| Surface | Findings | Rounds | Fix mode used |
+|---|---|---|---|
+| Trace-capture test block | **10** | 2, 3, 4, 5, 6, 7 (x2), 8, 9 (x2) | authored test choreography, **including a ground-up symmetric rewrite at D20** |
+| Kano evidence tiers | **4** | 6, 7, 8, 9 (consecutive) | authored measurement methodology |
+| Evaluation-sizing block | 3, then **zero** | 1, 2, 3 | **D15 deleted the methodology** |
+| `EXAMPLE.md` research claims | 0 after the sweep | - | swept by class, markings only |
+
+**Every fix that removed a claim converged. Every fix that authored methodology churned.** The
+sizing block has produced nothing across six consecutive rounds since D15 deleted its derivation.
+The trace block survived a full rewrite and produced two more highs immediately.
+
+This is D15's lesson, relearned on two further surfaces without being recognised as the same lesson
+until round 9. **The instance-versus-class diagnosis recorded in the round-9 record is real but
+secondary**: the trace block was fixed by class at D20 and still churned, because the problem was
+never the breadth of the fix. It was that a PRD-time template cannot author correct
+distributed-systems test design, and an adversarial reviewer will keep proving it.
+
+### D22: the trace block, overturning D20 on evidence
+
+D20 chose a symmetric rewrite on the prediction that structural symmetry would stop the churn.
+**Round 9 falsified that prediction directly.** R9-F1 showed the rewrite achieved symmetry of shape
+without equivalence of strength: its shared control only exercised the egress path, so the durable
+writer was never proven live and a fail-open storage minimizer passed. R9-F2 was worse and is the
+finding that settles it: sentinels defined around **wholly forbidden classes** cannot express
+**value-level masking within a permitted class**, which is the commoner real configuration, so the
+common case routed straight to "Not applicable" and a broken masker passed by construction. That is
+a representational misfit, and no amount of added test detail repairs a wrong abstraction.
+
+Overturning a ruled decision on new evidence is this repo's own pattern, most recently D12 to D15 on
+the same day for the same reason.
+
+**Final decision:** **A, ruled 2026-08-27 by the maintainer.** Every policy row survives, D19's
+terminal disposition included: data classes, minimization at both boundaries, failure behavior at
+both, terminal disposition, read logging, retention, sampling, opt-out. What is deleted is the test
+choreography, replaced by a named requirement that each policy row carry a QA-owned test which could
+fail, proven on the normal path and under forced failure, plus a table recording where each test
+lives and who owns it, with untested rows listed as untested rather than omitted.
+
+**The case against, recorded.** Deleting tests reads as weakening a privacy guarantee. It would, if
+the tests worked. They passed vacuously in three distinct ways across rounds 5, 8 and 9, and R9-F2
+showed the common configuration skipped them entirely. **A test that cannot fail is worse than a
+named requirement, because it converts an open question into a checked box.**
+
+### Kano, given the same shape without a new ruling
+
+The output contract is now **representationally complete**: `Ambiguous` in the category enum, and
+per-feature response distribution and evidence-tier-plus-claim-strength as their own columns, since
+round 9 showed an agent could follow the declared contract and have nowhere to record the outcome the
+adequacy rule demanded. Both requirements are mirrored into the quality checklist.
+
+**The skill explicitly declines to define "clearly leads" as a number**, and says so in the text
+rather than leaving it unstated. A house cutoff would be the same move as a house sample size: a
+number with nothing behind it, carrying more authority than the judgment it displaced. The reader
+sees the distribution and makes the call, and `Ambiguous` exists for when they cannot.
+
+### Class discipline, applied by command rather than by eye
+
+Round 9's two sweep findings were closed by enumerating class membership with a script and recording
+the enumeration, so a later round checks a table instead of re-deriving one.
+
+- **The PRD example** was classified number by number into observations and decisions. Exactly one
+  unmarked observation survived the round-8 sweep, the claim that standard patterns cover 85 percent
+  of use cases, which is a scope justification wearing a design constant's clothes. It is marked, and
+  the notice now states the **test** (does the number claim the world is a certain way?) rather than
+  illustrating it with two examples.
+- **The in-diff sample set** was swept for asserted methodology. The interview-synthesis sample
+  invents a 45-minute session length, a two-week field period and two-researcher independent coding,
+  none of which its prompt supplies, while the six participants and their split are grounded. Those
+  three are marked with a note on why unmarked methodology is what makes an invented synthesis read
+  as corroborated. Its companion PRD was checked for inherited claims and carries none: its only
+  research-sourced figure is the six merchants, which is grounded.
 
 ## Release hygiene checklist
 
