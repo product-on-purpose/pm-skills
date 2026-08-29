@@ -73,13 +73,17 @@ Determine what an opt-in-first SMS release must handle for Storevine merchants, 
 
 ### Methodology
 
-Six semi-structured interviews, 45 minutes each [fictional], conducted remotely over two weeks [fictional]. Participants were recruited from active Campaigns v1 merchants and deliberately split between current SMS users (2), considered-and-stopped (3), and tried-and-abandoned (1). Transcripts were coded independently by two researchers [fictional] before theme consolidation.
+Six semi-structured [fictional] interviews, 45 minutes each [fictional], conducted remotely [fictional] over two weeks [fictional]. Participants were recruited from active Campaigns v1 merchants [fictional] and deliberately split [fictional] between current SMS users (2), considered-and-stopped (3), and tried-and-abandoned (1). Transcripts were coded independently by two researchers [fictional] before theme consolidation [fictional].
 
-<!-- The six participants and their split come from the prompt. The session length, field period and
-     two-researcher coding do not: they are [fictional] detail added to show what a Methodology
-     section states, and no transcripts exist. Marked because unmarked methodology is what makes an
-     invented synthesis read as corroborated, and a downstream artifact consuming it inherits that
-     false weight. -->
+<!-- Provenance rule, not a list. The six participants, their verticals, their staff counts and their
+     SMS status come from the prompt. EVERYTHING ELSE in this Methodology section is invented and
+     carries a [fictional] marker: interview format, session length, delivery mode, field period,
+     recruitment design, coding procedure, and the order in which coding and consolidation happened.
+     No transcripts exist. This is written as a rule rather than an enumeration because a closed list
+     of what is invented has now been wrong three times, each time by omitting an item that sat in the
+     sentence it annotated. The test is not "is it on the list" but "does the prompt supply it".
+     Marked because unmarked methodology is what makes an invented synthesis read as corroborated,
+     and a downstream artifact consuming it inherits that false weight. -->
 
 ### Participant Summary
 
@@ -108,7 +112,7 @@ This is a stronger signal than it appears. Merchants are declining a shortcut th
 
 ### Theme 3: The Second Sender Is a Reputation Risk, Not Just Infrastructure
 
-M1, M3 and M5 each independently connected SMS to the email deliverability work they had already done. M1 described spending eight months rebuilding sender reputation after a bad list import and said flatly that they would not put that at risk again. M3 kept SMS on a separate provider deliberately, describing it as "not worth mixing." M5 framed it as a governance question: different channel, different consent basis, different audit trail.
+M1, M3 and M5 each independently connected SMS to the email deliverability work they had already done. M1 described spending eight months [fictional] rebuilding sender reputation after a bad list import and said flatly that they would not put that at risk again. M3 kept SMS on a separate provider deliberately, describing it as "not worth mixing." M5 framed it as a governance question: different channel, different consent basis, different audit trail.
 
 This reframes the v1 deferral note. "Separate sending infrastructure" was recorded as a platform engineering cost. Merchants experience the same separation as a desirable property they want preserved.
 
@@ -120,7 +124,7 @@ M6 is the only participant who started and stopped. The abandonment point was no
 
 - "I do not want to configure consent. I want to not be the one holding it." (M4)
 - "The bundled checkbox is the thing that gets you sued." (M2)
-- "I spent eight months getting our email reputation back. I am not putting that near a new channel." (M1)
+- "I spent eight months getting our email reputation back. I am not putting that near a new channel." (M1) [fictional]
 - "Legal did not say no to SMS. They said no to that vendor's consent record." (M5)
 - "I filled in the registration, waited, and never heard anything. So I stopped." (M6)
 - "We keep SMS separate on purpose. Not worth mixing." (M3)
@@ -157,7 +161,7 @@ Participants were compensated [fictional]. Two researchers coded independently [
 
 ### Limitations
 
-Six participants across one platform is directional, not representative. The sample deliberately over-weights non-adopters (four of six), which is appropriate for a scoping question but means it under-samples the operational experience of running SMS at volume. No participant operated outside the US, so the findings speak to 10DLC and TCPA obligations only and do not cover jurisdictions with separate consent regimes.
+Six participants across one platform is directional, not representative. The sample deliberately [fictional] over-weights non-adopters (four of six), which is appropriate for a scoping question but means it under-samples the operational experience of running SMS at volume. No participant operated outside the US [fictional], so the findings speak to 10DLC and TCPA obligations only and do not cover jurisdictions with separate consent regimes.
 
 ### Project memory entry recorded
 
