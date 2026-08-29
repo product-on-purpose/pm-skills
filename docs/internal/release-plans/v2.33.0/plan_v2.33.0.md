@@ -1,6 +1,6 @@
-# v2.33.0 Release Plan: BUILD COMPLETE, AWAITING CUT (scope ruled 2026-08-16; WS-1 through WS-8 done)
+# v2.33.0 Release Plan: READY TO TAG (G0 and G1 closed 2026-08-29; WS-1 through WS-9 done)
 
-**Status:** **SCOPE COMMITTED 2026-08-16.** D1 through D5 all RULED (see the decisions table). Execution workstreams WS-1 through WS-9 below; build starting. History: STUB seeded 2026-08-13 during the v2.32.0 WS-8 prep; candidates accumulated through the v2.32.0 cut and its post-release audits; researched into a decision stage 2026-08-15; ruled 2026-08-16 with **D3 changed from its drafted recommendation by evidence** (see below).
+**Status:** **READY TO TAG, 2026-08-29.** G1 closed on maintainer attestation after twelve adversarial rounds; every GATE row due at or before G0 is checked, and the rows due at G2 and G4 are named with their stages. **Not yet SHIPPED:** that stamp belongs at G3 when a tag exists, and writing it earlier would be the same pre-satisfied-control defect R11-F3 and R12-F3 both caught in this cycle's own checklist. Previously **SCOPE COMMITTED 2026-08-16.** D1 through D5 all RULED (see the decisions table). Execution workstreams WS-1 through WS-9 below; build starting. History: STUB seeded 2026-08-13 during the v2.32.0 WS-8 prep; candidates accumulated through the v2.32.0 cut and its post-release audits; researched into a decision stage 2026-08-15; ruled 2026-08-16 with **D3 changed from its drafted recommendation by evidence** (see below).
 **Owner:** Maintainers.
 **Type:** Expected MINOR. Every candidate in the recommended scope is additive or corrective; none changes the catalog count.
 **Proposed theme:** **The release users notice.** v2.32.0 was an infrastructure cycle that shipped one opt-in feature the front door never mentions, while three user-filed defects sat untracked for two weeks. This cycle proposes correcting that balance.
@@ -753,7 +753,7 @@ the enumeration, so a later round checks a table instead of re-deriving one.
   as corroborated. Its companion PRD was checked for inherited claims and carries none: its only
   research-sourced figure is the six merchants, which is grounded.
 
-## G1 adversarial review: rounds 10 and 11 (2026-08-27), and the stopping condition
+## G1 adversarial review: rounds 10, 11 and 12, the stopping condition, and what twelve rounds measured
 
 **Records:** [`review/g1-round10-20260827.md`](./review/g1-round10-20260827.md),
 [`review/g1-round11-20260827.md`](./review/g1-round11-20260827.md).
@@ -870,6 +870,70 @@ recommendation above ("continue based on your best recommendations"). Ruled and 
 **before round 12 launched**, per the C-2 and D17 precedent, so neither a clearance nor a block
 can be attacked as a moved goalpost. The standing cross-LLM rule is set aside for this gate's
 closure as stated above, and remains in force for future cycles.
+
+
+## G1 CLOSED: round 12, and what twelve rounds actually measured
+
+**Record:** [`review/g1-round12-20260828.md`](./review/g1-round12-20260828.md). **Maintainer
+attestation GIVEN 2026-08-29**, the first and only one sought in this gate.
+
+**Final trend: 5, 6, 8, 6, 6, 6, 4, 4, 5, 5, 3, 3.** Fifty-six findings across twelve rounds, every
+one verified against the tree before it was acted on, none taken on the reviewer's word.
+
+### The one measurement that should outlive this release
+
+Splitting all fifty-six findings by **what the fix that produced the surface did** separates them
+completely, and the split held for the whole gate:
+
+| Fix mode | What happened |
+|---|---|
+| **Deleted a claim** | Converged, every time. The evaluation-sizing block produced three findings in rounds 1-3 and **zero across the nine rounds after D15 deleted its derivation** |
+| **Authored methodology or structure** | Churned, every time. The trace block survived a symmetric rewrite (D20), a choreography deletion with an authored replacement (D22), and a row split (the R11-F1 fix), **and produced a fresh high-severity finding after each one** |
+
+**R12-F1 is the cleanest single instance in the whole gate.** The R11-F1 fix split a row in order to
+assert that a row must carry exactly one claim. The row it authored to demonstrate that rule carries
+two. The principle was right and the act of authoring a replacement to embody it reintroduced the
+defect one level down. That is why R12-F1's own fix does not split again: the template now states
+that a row is a heading rather than a promise of atomicity, that a coverage entry proves one claim,
+and that decomposition belongs to the QA owner. **It removes a claim rather than authoring
+structure**, which is the only fix mode this gate ever observed converging.
+
+Codex's recommendation for R12-F1 was a six-row atomization. It is recorded and declined in the round
+record, with the case against the decline stated. **Declining a reviewer recommendation on twelve
+rounds of measured evidence is the point of measuring.**
+
+### What the fix-pass damage rate implies for the next cycle
+
+Rounds 7 through 11 produced 21 findings and **17 came from the immediately preceding fix pass**, at
+diff sizes that stayed flat rather than tapering. That pair of measurements is what made D23
+necessary: it falsifies "re-run until a round comes back clean" as a stopping condition, because
+nothing in the data predicts a clean round ever arriving.
+
+**The next cycle should not inherit twelve rounds as a norm.** The gate ran long because it was
+fixing by authoring, and the reviewer kept being right. A cycle that fixes by deleting or marking
+should converge in the two-to-three rounds v2.32.0 took.
+
+### The root cause the last round finally named
+
+Four separate rounds (9, 10, 11, 12) each found an incomplete sweep of invented methodology markers,
+and each was treated as a sweep failure. It was not. **The rule being enforced was never written
+down.** [`library/skill-output-samples/README_SAMPLES.md`](../../../library/skill-output-samples/README_SAMPLES.md)
+defines the `[fictional]` convention entirely in terms of numbers, and
+`check-sample-no-fabricated-metrics.mjs` is percentage-scoped to match, which is why it held at
+exactly 338 across a fix pass that added seven markers and could never have caught `eight months`.
+Four sweeps re-derived their own scope and each drew the boundary differently. Carried to v2.34.0 in
+section D as the item that should **lead** the library audit rather than follow it.
+
+### Round 12's method note, worth keeping
+
+Two instruments ran, both named in D23 before the round so neither could be a post-hoc addition.
+**All three Codex findings were independently reproduced by the corroborating Claude panel**, and the
+panel's own raw output was cut by a third (9 of 27 candidates killed) by three perspective-diverse
+refuters defaulting to refuted. Two lessons: independent convergence is the answer to "is the
+reviewer inventing work", and **a corroborating instrument is not a substitute for the instrument of
+record**. Codex named one unmarked claim that neither panel lens found; building the fix from the
+panel would have produced a fifth recurrence inside a fix pass no round would review.
+
 
 ## Release hygiene checklist
 
