@@ -753,6 +753,124 @@ the enumeration, so a later round checks a table instead of re-deriving one.
   as corroborated. Its companion PRD was checked for inherited claims and carries none: its only
   research-sourced figure is the six merchants, which is grounded.
 
+## G1 adversarial review: rounds 10 and 11 (2026-08-27), and the stopping condition
+
+**Records:** [`review/g1-round10-20260827.md`](./review/g1-round10-20260827.md),
+[`review/g1-round11-20260827.md`](./review/g1-round11-20260827.md).
+
+**Counts: 5, 6, 8, 6, 6, 6, 4, 4, 5, 5, 3.** Round 11 is the lowest of the gate; fifty-three findings
+across eleven rounds. The full synthesis of these two rounds is **deliberately deferred** until the
+gate's disposition is known, so it can be written once rather than twice. D23 below is the only part
+that cannot wait, for the same reason D17 could not: a stopping condition chosen after the evidence
+arrives is a moved goalpost.
+
+Round 10 was the first round run with pre-declared scope boundaries on the record, and the reviewer
+respected both. Round 11 returned three findings, two of them fix-pass damage and one from untouched
+governance territory, and closed all three.
+
+**The state this section exists to record: `51d5bec6` is an unreviewed fix pass.** Round 11 reviewed
+`e6e53ba7`. **Maintainer attestation has not been given on any round of this gate.**
+
+### D23: the stopping condition, pre-registered before the recheck runs
+
+**Why this is a decision and why it cannot wait.** No committed rule says when this gate ends. The
+pre-registered round-4 standard at `e32a117d` governs how findings are *dispositioned*; it never says
+how many rounds are enough. Eleven rounds have run without one. C-2 was ruled VOID against a rule
+committed at `f4d50837` **before** the run, and D17 was ruled and committed before round 4 launched,
+both so the verdict could not be attacked as a moved goalpost. The same exposure applies here in both
+directions: clear the gate on an unruled standard and the clearance is arguable; block on one and so
+is the block.
+
+**Two measurements taken 2026-08-28, before this decision was framed, because the obvious stopping
+conditions turn on them.**
+
+**Measurement 1: fix-pass damage is near-universal and is not decaying.** Rounds 7 through 11 produced
+21 findings, and **17 came from the immediately preceding fix pass**: 3 of 4, 3 of 4, 4 of 5, 5 of 5,
+2 of 3. Every round. **Measurement 2: the fix passes are not shrinking.** Diff sizes for the round-6
+through round-11 fixes run 91, 128, 51, 141, 95, 86 lines changed, flat rather than tapering.
+
+**Together these falsify any rule of the form "recheck until a recheck comes back clean."** Each fix
+pass is the same size as the last and carries the same damage rate, so the expected number of further
+rounds under an open-ended rule is unbounded. **A gate needs a terminator that does not depend on a
+clean round arriving.** This is the same lesson the round-9 analysis reached from the other
+direction: fixes that *delete* a claim converged, fixes that *author* methodology churned, and D22's
+authored replacement then churned twice more (R10-F1, R11-F1).
+
+**Measurement 3, correcting an earlier draft of this brief.** Untouched-territory findings across
+rounds 6 through 11 run **3, 0, 1, 0, 0, 1**: three of six rounds, declining. An earlier draft of
+this section claimed four of six and used it as the case against option B. That was wrong and is
+recorded here rather than quietly removed, because the corrected number weakens an argument this
+brief was making for its own recommendation.
+
+**Two distinct damage classes, which the option set has to cover.** The records separate them, and
+they need different instruments:
+
+| Class | What it is | Seen in | Caught by |
+|---|---|---|---|
+| **Execution fidelity** | The fix did not do everything the finding named | R9, R10-F3, **R11-F2** (third recurrence) | Re-reading the finding against the result; mechanical |
+| **Fresh design damage** | The fix's *replacement* has a new hole | R9-F1/F2 (D20), R10-F1 (D22), **R11-F1** (D22) | Adversarial review only |
+
+`51d5bec6` contains one change of each class: the trace row split is a design change, and the
+quote-editing marker is an execution-fidelity fix. **Any stopping condition that covers only one
+class leaves the other unexamined in the newest diff.**
+
+- **A) One scoped recheck, pre-registered as the last adversarial round of this gate.** Re-review only
+  the surfaces `51d5bec6` changed: the split trace rows (`Who can read a trace` and the new
+  `Whether a read is logged`), the quote-editing and de-identification markers in the
+  interview-synthesis sample, and the reset post-tag index row. Then, **regardless of what it
+  returns**: findings on those surfaces are closed, findings on untouched territory are dispositioned
+  under clause 2 (deferral to v2.34.0 with rationale), **the resulting fix pass is verified by a
+  recorded finding-versus-result table rather than by another adversarial round**, and the gate is
+  attested. **Impact:** terminates by construction rather than by hoping for a clean round, which
+  measurements 1 and 2 say will not arrive. Covers both damage classes: the round covers design, the
+  verification table covers fidelity. Costs one round and one verification pass.
+  **Instruments, named here so the round cannot be re-litigated on method.** The Codex companion
+  `adversarial-review` is the **instrument of record**, matching all eleven prior rounds and the
+  standing cross-LLM protocol. A multi-lens Claude panel runs alongside it as a **corroborating**
+  instrument, its lenses mapped to the two damage classes plus a governance class-check.
+  Corroboration **adds** findings to the round and never subtracts them: a Codex finding stands
+  whether or not the panel reproduces it, and a panel finding is dispositioned on its own merits.
+  Adding an instrument strengthens the round rather than moving its goalposts, which is why it is
+  recorded before the round runs rather than after its result is known.
+- **B) Scoped recheck, any high-severity finding reopens the gate.** **Impact:** rejected on
+  measurements 1 and 2, not on untouched-territory frequency. Its fix pass would itself be an
+  unreviewed fix pass at the same damage rate, so B is the open-ended rule the measurements falsify,
+  with the added cost of reopening classes this cycle has already agreed to defer.
+- **C) Attest on round 11 as it stands, no recheck.** **Impact:** fastest to tag, and defensible on
+  the argument that round 11's only untouched-territory finding was governance rather than content.
+  Against it: it leaves the fresh-design-damage class unexamined in `51d5bec6` precisely where that
+  class lives, the trace row split, on a gate where that class has appeared in three consecutive
+  rounds.
+- **D) Direct verification of the three round-11 fixes, no adversarial round.** Re-read each of
+  R11-F1, R11-F2 and R11-F3 against what the fix actually did, and record the result. **Impact:**
+  cheap, and it targets R11-F2's stated root cause exactly. **Rejected:** it covers execution
+  fidelity only. The row split is fresh design damage, which is the class that produced R10-F1 and
+  R11-F1 and which a finding-versus-result re-read cannot see, because the replacement can be a
+  faithful implementation of the finding and still carry a new hole. D is not discarded: it is
+  **absorbed into A** as the verification instrument for A's own fix pass, where the remaining risk
+  really is fidelity-only.
+
+**Recommendation: A.**
+
+**The standing cross-LLM rule is set aside for this gate's closure**, on the maintainer's authority as
+its owner, mirroring the D17 move for round 4. That rule ("re-run until findings fall below
+IMPORTANT") is an open-ended rule, and measurements 1 and 2 are the evidence that it cannot close this
+gate. It remains in force for future cycles, where a fix-pass damage rate this high is not the
+baseline expectation. **This set-aside is the load-bearing clause: without it the budget in A
+contradicts a rule still in force and the pre-registration is incoherent.**
+
+**Operating notes carried into the recheck, from the round-11 environment.** The MSYS fork-storm that
+wedged Bash mid-round-11 clears on session restart and has cleared. A Codex companion review is
+session-scoped, so the recheck must be launched with time to complete rather than near a boundary. An
+exit 1 plus "Turn failed" prints "No material findings" as an artifact of the aborted turn: that is a
+re-run, not a clean round, and it is not counted.
+
+**Final decision:** **A, ruled 2026-08-28 by the maintainer**, on in-session approval of the
+recommendation above ("continue based on your best recommendations"). Ruled and committed
+**before round 12 launched**, per the C-2 and D17 precedent, so neither a clearance nor a block
+can be attacked as a moved goalpost. The standing cross-LLM rule is set aside for this gate's
+closure as stated above, and remains in force for future cycles.
+
 ## Release hygiene checklist
 
 Copied from the standing source at [`../checklist_doc-update-and-hygiene.md`](../checklist_doc-update-and-hygiene.md) and filled as this cycle runs. **This plan may not be marked READY TO TAG while any GATE row due at or before G0 is unchecked**, which is how it gates via the canonical runbook's G0 sub-check 6 without any runbook edit. **GATE rows due at G2 or G4 do not block the mark**; they block the cycle closing and are checked as their own gate runs.
