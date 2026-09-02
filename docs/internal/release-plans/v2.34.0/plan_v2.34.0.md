@@ -40,9 +40,19 @@ Carried under [#269](https://github.com/product-on-purpose/pm-skills/issues/269)
 | Item | State |
 |---|---|
 | **P0 plugin-install smoke test against the published v2.33.0 artifact** | **NOT RUN.** The runbook refuses "Release complete" until this passes or the maintainer logs it as an accepted known risk. Note `validate-plugin-install` in the pre-tag bundle exercises the local tree, not the published artifact, and does not satisfy this |
-| `agent-plugins` re-pin | Open. Cross-repo PR, complete that repo's Section 7 checklist in the PR body |
+| `agent-plugins` re-pin | **OPEN 2026-09-01. This is the release's DELIVERY PATH, not post-release tidying.** The earlier note here read "cross-repo, nothing blocks it", which was literally true and wrong in effect: nothing blocks *doing* it, but until it is done **no user can receive the release**. Users install pm-skills from the `product-on-purpose` marketplace, which is the `agent-plugins` repo, and that registry pins by commit SHA independently of anything in this repo. It still pins `e8a641c3` (v2.32.0), so `claude plugin update` correctly returns 2.32.0 on every machine. `pm-skills`'s own `marketplace.json` reading v2.33.0 is irrelevant to those users. **Found from a field report, not from any check here**, which is the real defect: G4 can declare a release complete while it is undeliverable. Prepared at agent-plugins issue [#94](https://github.com/product-on-purpose/agent-plugins/issues/94) and branch `repin/pm-skills`; design to invert the default at agent-plugins [#95](https://github.com/product-on-purpose/agent-plugins/pull/95) |
 | `pm-skills-mcp` narrative | Open. Counts half is N/A (catalog holds at 68 / 6); the narrative half needs a ruling, since the AI-product family is genuinely new narrative but that repo is in maintenance mode |
 | skills.sh listing | Deferred by its own after-a-delay condition |
+
+## C2. New candidate: a delivery check on this side of the fence
+
+**Seeded 2026-09-01 by the v2.33.0 delivery miss.** G4 declared v2.33.0 essentially complete while the marketplace users install from still served v2.32.0. Every validator was green, every count correct, every link live. The release was simply not delivered, and nothing in this repo asks that question.
+
+The registry has its own detector (`repin-watch`, a daily poll) and the design to make delivery automatic is proposed at agent-plugins [#95](https://github.com/product-on-purpose/agent-plugins/pull/95). **Neither of those is a check on this side.** Asking the registry to notice on the publisher's behalf puts the check where the information is but not where the accountability is.
+
+**Proposal:** a G4 sub-check that reads the `product-on-purpose` registry's pinned version for `pm-skills` and compares it to the tag just pushed, refusing "Release complete" while they disagree. Cheap (one unauthenticated fetch of a public raw file), and it converts an invisible failure into a blocking one. Pairs with, and does not depend on, the registry-side work.
+
+Note this is a **second** instance of the same shape as the runbook defects in section B: a control that verifies the artifact rather than its arrival.
 
 ## D. Standing decisions still unruled
 
