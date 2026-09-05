@@ -60,21 +60,27 @@ Ordered by value per unit of effort. Each entry names what it reads, what it ass
 
 **This moved from "noisy" to "broken" while this document was being written, and it is now the first thing to fix.**
 
-Running the pre-tag bundle on 2026-09-05 hung for **ten minutes** and had to be killed. All 19 enforcing validators had already passed; the hang was in `check-version-references`, the advisory. Isolated and reproduced:
+Running the pre-tag bundle on 2026-09-05 blew past a **ten-minute** timeout and had to be killed. All 19 enforcing validators had already passed; the time was going into `check-version-references`, the advisory. Isolated and measured:
 
 | Variant | Result on the identical tree |
 |---|---|
-| `scripts/check-version-references.ps1` | **completes in 3 seconds**, 1287 findings |
-| `scripts/check-version-references.sh` | **does not complete**, killed at 90s and again at 10 minutes |
+| `scripts/check-version-references.ps1` | **3 seconds**, 1287 findings |
+| `scripts/check-version-references.sh` | **288 seconds**, same findings |
+| `pre-tag-validate.ps1` (whole bundle) | **24 seconds**, exit 0 |
+| `pre-tag-validate.sh` (whole bundle) | **exceeds 600 seconds**, killed |
+
+**It is a 96x performance gap, not a hang.** An earlier draft of this section said the bash variant "does not complete", on the strength of two kills at 90s and 600s. A deliberate 900-second run then completed in **288s**, which falsified that. Corrected here rather than quietly, because "infinite loop" and "very slow" send a fixer to different places.
 
 Confirmed not content-related: it hangs at `HEAD` with every uncommitted document removed.
 
-**Likely mechanism.** `is_exempt()` re-reads the entire exempt-ranges file from disk **for every input line**, and each line additionally spawns `printf | grep | sort`. That is thousands of process spawns over a quadratic-ish scan. MSYS bash on Windows has a very expensive fork emulation, so what costs PowerShell three seconds in-process may not finish here at all.
+**Mechanism.** `is_exempt()` re-reads the entire exempt-ranges file from disk **for every input line**, and each line additionally spawns `printf | grep | sort`. That is thousands of process spawns over a quadratic-ish scan. MSYS bash on Windows has a very expensive fork emulation, so work PowerShell does in-process in three seconds costs bash nearly five minutes here.
+
+**This is the fork-storm performance class, not the awk `RSTART`/`RLENGTH` infinite-loop class.** The two look identical from the outside (one shell appears to hang) and have completely different fixes. Attributing it to awk would send a fixer hunting a nested `match()` that is not there: this script calls `awk` once, correctly, and the cost is in the surrounding bash loop.
 
 **Three things make this worse than a slow script:**
 
-1. **It is a dual-shell parity failure of exactly the kind CONTRIBUTING.md warns about.** `check-validator-parity.mjs` proves the two shells run the same *inventory*; nothing proves they compute the same *verdict*. Here they do not: one returns in 3s, the other never returns. CONTRIBUTING already records that the awk `RSTART`/`RLENGTH` clobber class "hung ubuntu CI at v2.27.1 in exactly one shell". This is the second instance of one-shell-hangs in the same script family.
-2. **It can wedge the release gate.** The bundle runs the advisory last, so a maintainer on a bash shell sees 19 of 19 pass and then waits indefinitely with no failure to point at.
+1. **It is a dual-shell parity failure of the kind CONTRIBUTING.md warns about.** `check-validator-parity.mjs` proves the two shells run the same *inventory*; nothing proves they run it at usable *cost*. Both shells reach the same verdict here, and one takes 96x longer to get there. CONTRIBUTING already records the awk `RSTART`/`RLENGTH` clobber that "hung ubuntu CI at v2.27.1 in exactly one shell"; this is a **different** defect with the same outward symptom, which is itself the argument for shrinking the dual-shell surface rather than debugging it twice.
+2. **It breaks the release gate in practice.** The bundle runs the advisory last, so a maintainer on a bash shell sees 19 of 19 pass and then waits nearly five extra minutes with no failure to point at, pushing the whole bundle past ten minutes. Slow enough to look broken is broken, for a gate someone runs repeatedly during a cut.
 3. **The script's own output already argues for its retirement.** It prints, unprompted: *"Most are legitimate provenance ('since vX.Y.Z'); confirm none is a stale current claim. Current-version CLAIM drift (README badge + At-a-Glance) is enforced by validate-version-consistency."* The author had already concluded that the real risk is covered by an enforcing check, and that this one mostly reports history.
 
 **Recommendation: retire it (N1a), and do so before anything else in this program.**
@@ -84,6 +90,8 @@ The earlier draft of this document recommended re-scoping it to currency-bearing
 **If the signal is genuinely wanted**, rebuild it later as single-source Node under the WS-Z4 porting programme, scoped from the start to currency-bearing claims only, with a hand-labelled fixture. Do not port the current logic.
 
 **Effort: small.** Delete two scripts and their doc triplet, remove the bundle invocation, note it in `validation-manifest.yaml`.
+
+**If retirement is rejected**, the cheap interim fix is to hoist `is_exempt()` out of the per-line loop by reading the exempt ranges into an associative array once. That alone should remove most of the 288 seconds. Prefer retirement anyway: a faster version of a check with a near-zero true-positive rate is still a check nobody reads.
 
 ### Tier 1: currency checks, cheap and mechanical
 
