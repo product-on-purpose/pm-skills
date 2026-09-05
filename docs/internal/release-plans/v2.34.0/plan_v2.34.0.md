@@ -55,6 +55,22 @@ The registry has its own detector (`repin-watch`, a daily poll) and the design t
 
 Note this is a **second** instance of the same shape as the runbook defects in section B: a control that verifies the artifact rather than its arrival.
 
+## C3. Doc currency and usefulness: the program this cycle should start
+
+The delivery miss in C2 is one instance of a class. Seven defects were observed between 2026-09-01 and 2026-09-05 that all shipped with 19 of 19 enforcing validators green, and **zero of the seven were caught by tooling**: six by a human tripping over them, one by finally reading an advisory.
+
+Full analysis, prioritized gaps, sequencing and falsifiable success criteria: [`../../doc-currency-program.md`](../../doc-currency-program.md).
+
+**What this cycle should take**, which is phase 1 plus the highest-value single change:
+
+| Item | What it does | Effort |
+|---|---|---|
+| **C1 delivery check** | Compares the `agent-plugins` registry pin against the tag just pushed; refuses "Release complete" while they disagree. Same as section C2 above | Small |
+| **C2 manifest tail freshness** | The authored half of each manifest description names a version. Assert it names the current one. Catches the tails that still pitched v2.32.0 two days after v2.33.0 shipped | Small |
+| **N1 re-scope `check-version-references`** | It reports **1295 findings at a near-zero true-positive rate**, which is worse than no check: it occupies the slot a real check would fill and gives false assurance. Re-scope to flag version tokens only in currency-bearing sentences ("latest", "currently", "now at"), not historical ones ("v2.16.0 introduced"). Label 100 findings first as the fixture; retire it outright if precision stays under about 80 percent | Medium |
+
+**The design rule worth carrying**, because it explains every one of the seven: each existing check answers the question *adjacent* to the one that matters. Valid rather than current. Condition rather than action. Differs rather than wrong. Has-samples rather than samples-reachable. Local tree rather than published artifact.
+
 ## D. Standing decisions still unruled
 
 | Item | Carried since | Note |
