@@ -56,42 +56,31 @@ structural conformance (`lint-skills-frontmatter`, `validate-agents-md`, `valida
 
 Ordered by value per unit of effort. Each entry names what it reads, what it asserts, and what it would have caught.
 
-### Tier 0: `check-version-references` is a live defect, not just noise
+### Tier 0: retire `check-version-references` (DONE 2026-09-07)
 
-**This moved from "noisy" to "broken" while this document was being written, and it is now the first thing to fix.**
+**Retired on 2026-09-07.** Scripts, doc triplet, both bundle invocations, both CI steps, the manifest entry and every doc reference removed. The advisory tier is now empty; `run_advisory` / `Invoke-Advisory` are kept for the two advisory checks proposed in Tier 2.
 
-Running the pre-tag bundle on 2026-09-05 blew past a **ten-minute** timeout and had to be killed. All 19 enforcing validators had already passed; the time was going into `check-version-references`, the advisory. Isolated and measured:
+**The justification, which is about signal and stands on its own:**
 
-| Variant | Result on the identical tree |
-|---|---|
-| `scripts/check-version-references.ps1` | **3 seconds**, 1287 findings |
-| `scripts/check-version-references.sh` | **288 seconds**, same findings |
-| `pre-tag-validate.ps1` (whole bundle) | **24 seconds**, exit 0 |
-| `pre-tag-validate.sh` (whole bundle) | **exceeds 600 seconds**, killed |
+It reported **1287 findings at a near-zero true-positive rate**. Reading them, they are overwhelmingly legitimate history: "v2.16.0 introduces sub-agents", "the wrappers were removed in v2.22.0". The check flags any version token that is not today's.
 
-**It is a 96x performance gap, not a hang.** An earlier draft of this section said the bash variant "does not complete", on the strength of two kills at 90s and 600s. A deliberate 900-second run then completed in **288s**, which falsified that. Corrected here rather than quietly, because "infinite loop" and "very slow" send a fixer to different places.
+This was **known and written down in the script's own header since v2.17.0**:
 
-Confirmed not content-related: it hangs at `HEAD` with every uncommitted document removed.
+> its heuristic (flag any non-current vX.Y.Z) matches ~1000+ legitimate provenance refs repo-wide with **zero real drift**, so strict enforcement is deferred to v2.17.1 pending a precise current-version-claim heuristic
 
-**Mechanism.** `is_exempt()` re-reads the entire exempt-ranges file from disk **for every input line**, and each line additionally spawns `printf | grep | sort`. That is thousands of process spawns over a quadratic-ish scan. MSYS bash on Windows has a very expensive fork emulation, so work PowerShell does in-process in three seconds costs bash nearly five minutes here.
+"Zero real drift", with the fix deferred to the next patch. **Sixteen minor releases later it was still running.** The script's own output also states that real current-version claim drift is enforced by `validate-version-consistency`, so the risk it nominally covered was already covered.
 
-**This is the fork-storm performance class, not the awk `RSTART`/`RLENGTH` infinite-loop class.** The two look identical from the outside (one shell appears to hang) and have completely different fixes. Attributing it to awk would send a fixer hunting a nested `match()` that is not there: this script calls `awk` once, correctly, and the cost is in the surrounding bash loop.
+A check with no true positives, whose author documented that fact and whose stated risk is handled elsewhere, is not a check. It is 1287 lines of false assurance occupying the slot a real check would fill.
 
-**Three things make this worse than a slow script:**
+**A performance claim made here earlier has been WITHDRAWN.**
 
-1. **It is a dual-shell parity failure of the kind CONTRIBUTING.md warns about.** `check-validator-parity.mjs` proves the two shells run the same *inventory*; nothing proves they run it at usable *cost*. Both shells reach the same verdict here, and one takes 96x longer to get there. CONTRIBUTING already records the awk `RSTART`/`RLENGTH` clobber that "hung ubuntu CI at v2.27.1 in exactly one shell"; this is a **different** defect with the same outward symptom, which is itself the argument for shrinking the dual-shell surface rather than debugging it twice.
-2. **It breaks the release gate in practice.** The bundle runs the advisory last, so a maintainer on a bash shell sees 19 of 19 pass and then waits nearly five extra minutes with no failure to point at, pushing the whole bundle past ten minutes. Slow enough to look broken is broken, for a gate someone runs repeatedly during a cut.
-3. **The script's own output already argues for its retirement.** It prints, unprompted: *"Most are legitimate provenance ('since vX.Y.Z'); confirm none is a stale current claim. Current-version CLAIM drift (README badge + At-a-Glance) is enforced by validate-version-consistency."* The author had already concluded that the real risk is covered by an enforcing check, and that this one mostly reports history.
+An earlier version of this section argued the check was also a gate hazard, citing 288s under bash against 3s under PowerShell, a "96x gap". That measurement is **not sound and should not be cited.**
 
-**Recommendation: retire it (N1a), and do so before anything else in this program.**
+It was taken on a machine whose MSYS bash environment had degraded during the session. Measured directly afterwards: **347ms per trivial process spawn**, against a healthy 2 to 10ms. Every "hang" observed that day, including a 120-second timeout on a plain `grep`, is explained by that. Removing the check did **not** fix the bash bundle, which then timed out at 402s on `lint-skills-frontmatter`, a validator with no relationship to what was removed. The PowerShell bundle completed in 23s throughout.
 
-The earlier draft of this document recommended re-scoping it to currency-bearing sentences (N1b). That is now the weaker option. Re-scoping keeps a dual-shell pair alive that has already produced two one-shell hangs, to recover a signal its own author says is enforced elsewhere. Deleting both variants removes 1287 lines of false assurance, one release-gate hazard, and one entry from the dual-shell freeze list that CONTRIBUTING wants shrinking.
+So the honest position is: the bash suite is slow on a wedged MSYS environment, the wedge is cleared by restarting the session, and **none of that is evidence about this script**. The retirement is justified by the signal argument alone, which is why it still stands.
 
-**If the signal is genuinely wanted**, rebuild it later as single-source Node under the WS-Z4 porting programme, scoped from the start to currency-bearing claims only, with a hand-labelled fixture. Do not port the current logic.
-
-**Effort: small.** Delete two scripts and their doc triplet, remove the bundle invocation, note it in `validation-manifest.yaml`.
-
-**If retirement is rejected**, the cheap interim fix is to hoist `is_exempt()` out of the per-line loop by reading the exempt ranges into an associative array once. That alone should remove most of the 288 seconds. Prefer retirement anyway: a faster version of a check with a near-zero true-positive rate is still a check nobody reads.
+**The transferable lesson, and the reason this is recorded rather than deleted:** a plausible mechanism plus a matching symptom is a hypothesis, not a measurement. This claim was corrected twice, first from "hangs forever" to "288 seconds", then from "288 seconds means the script is slow" to "the machine was slow". Both corrections came from running a control that should have been run first. **Before attributing a slowdown to code, measure the environment.**
 
 ### Tier 1: currency checks, cheap and mechanical
 
@@ -136,7 +125,7 @@ Ordered so each phase is independently valuable and nothing blocks on a decision
 | Phase | Items | Gated on |
 |---|---|---|
 | **1** | C1, C2 | Nothing. Both are small and self-contained |
-| **0** | **N1a: retire `check-version-references`** | Nothing. Do this first; it is a live gate hazard |
+| **0** | ~~N1a: retire `check-version-references`~~ | **DONE 2026-09-07** |
 | **3** | C4 | Retiring the predecessor runbook (already queued under [#269](https://github.com/product-on-purpose/pm-skills/issues/269)) |
 | **4** | C3 | A publish-or-retire ruling on the `orbit` sample thread |
 | **5** | U1, U2, advisory | Phases 0 to 4 landing first, so the suite has credibility before adding fuzzy signals |
@@ -157,7 +146,7 @@ Borrowed from the release hygiene checklist's own conventions, which were writte
 Falsifiable, and measured at the second release after phase 3 lands:
 
 - **Primary:** zero currency defects found by a human that a Tier 1 check should have caught. The current baseline is six out of seven.
-- **Secondary:** `check-version-references` is retired, and the pre-tag bundle completes in both shells. Any replacement reports a number a person actually reads, under roughly 30 findings.
+- **Secondary:** `check-version-references` is retired (done). Any replacement reports a number a person actually reads, under roughly 30 findings. Note the pre-tag bundle's bash-vs-PowerShell cost gap is an ENVIRONMENT issue, tracked separately; do not use it to justify validator changes.
 - **Counter-metric, to catch this program overshooting:** total enforcing validators does not grow by more than four. If closing these gaps needs more than that, the design is wrong.
 
 ## Related

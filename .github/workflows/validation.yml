@@ -245,16 +245,6 @@ jobs:
         if: always()
         run: node scripts/check-count-consistency.mjs
 
-      - name: Check version references (bash)
-        if: always() && matrix.os == 'ubuntu-latest'
-        run: bash scripts/check-version-references.sh
-        continue-on-error: true
-
-      - name: Check version references (pwsh)
-        if: always() && matrix.os == 'windows-latest'
-        run: pwsh -File scripts/check-version-references.ps1
-        continue-on-error: true
-
       - name: Validate docs frontmatter (bash, enforcing)
         if: always() && matrix.os == 'ubuntu-latest'
         run: bash scripts/validate-docs-frontmatter.sh --strict

@@ -162,11 +162,10 @@
   pwsh: { script: check-agents-md-command-sync.ps1, args: [] }
 
 # === Advisory: local pre-tag (never blocks) + advisory in CI ===
-- id: check-version-references
-  pre_tag: advisory
-  ci: advisory
-  bash: { script: check-version-references.sh, args: [] }
-  pwsh: { script: check-version-references.ps1, args: [] }
+# EMPTY since 2026-09-07. check-version-references was retired: ~1287 findings at
+# a near-zero true-positive rate (documented as "zero real drift" since v2.17.0)
+# plus a 96x bash/pwsh cost gap that pushed the pre-tag bundle past ten minutes.
+# See docs/internal/doc-currency-program.md, Tier 0.
 
 # === CI-only: advisory in CI, intentionally NOT in the local pre-tag bundle ===
 - id: check-mcp-impact

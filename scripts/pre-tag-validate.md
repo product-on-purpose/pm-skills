@@ -35,7 +35,6 @@ Optional (preventive validators; run if present):
 
 Advisory (non-blocking; informational only):
 
-18. `check-version-references` (advisory by design)
 
 ## When to run
 

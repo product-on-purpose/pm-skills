@@ -91,7 +91,6 @@ FAIL: marketplace.json missing required field: owner (must be an object with at 
 
 - `validate-version-consistency`: checks plugin.json and marketplace.json have the SAME version. This validator extends that with full schema checks plus name consistency.
 - `lint-skills-frontmatter`: checks SKILL.md files; orthogonal to plugin manifests.
-- `check-version-references`: catches stale version strings in docs; complementary to this check.
 
 ## Prerequisites
 

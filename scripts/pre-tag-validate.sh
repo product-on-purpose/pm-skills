@@ -76,16 +76,22 @@ OPTIONAL_VALIDATORS=(
   "check-agents-md-command-sync|bash $ROOT/scripts/check-agents-md-command-sync.sh"
 )
 
-# Advisory validators: run for visibility but NEVER block the bundle. They
-# surface useful signal that is too noisy to enforce strictly today.
-# F-P2-01 (v2.17.0): check-version-references runs advisory here. Its heuristic
-# (flag any non-current vX.Y.Z) matches ~1000+ legitimate provenance refs
-# repo-wide with zero real drift, so strict enforcement is deferred to v2.17.1
-# pending a precise current-version-claim heuristic. Running it advisory still
-# surfaces the drift count at pre-tag time.
-ADVISORY_VALIDATORS=(
-  "check-version-references (advisory)|bash $ROOT/scripts/check-version-references.sh"
-)
+# Advisory tier: currently EMPTY, deliberately.
+#
+# The tier existed for check-version-references, retired 2026-09-07. Its own
+# header had recorded since v2.17.0 that the heuristic "matches ~1000+ legitimate
+# provenance refs repo-wide with zero real drift", with the fix deferred to
+# v2.17.1. Sixteen minor releases later it was still reporting ~1287 findings at
+# a near-zero true-positive rate, and it had additionally become a gate hazard:
+# 288s under bash against 3s under PowerShell on the same tree, pushing this
+# bundle past ten minutes. See docs/internal/doc-currency-program.md, Tier 0.
+#
+# run_advisory() below is intentionally KEPT: docs/internal/doc-currency-program.md
+# proposes two advisory checks (link density, orphan pages) that will use it.
+# To re-add one, restore an ADVISORY_VALIDATORS array plus its loop. Note that
+# this script runs under `set -u`, so an EMPTY array must not be expanded with
+# "${ARR[@]}" on bash < 4.4; that is why the array and loop are removed outright
+# rather than left empty.
 
 # Parse --skip flag(s)
 SKIPS=()
@@ -186,11 +192,6 @@ for v in "${OPTIONAL_VALIDATORS[@]}"; do
   run_validator "$v" optional || FAIL=1
 done
 
-echo ""
-echo "--- advisory (non-blocking; informational only) ---"
-for v in "${ADVISORY_VALIDATORS[@]}"; do
-  run_advisory "$v"
-done
 
 echo ""
 if [ "$FAIL" -eq 0 ]; then

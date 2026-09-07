@@ -47,13 +47,10 @@ $OptionalValidators = @(
   @{ Name = 'check-agents-md-command-sync';                  Script = 'check-agents-md-command-sync.ps1';                  Args = @() }
 )
 
-# Advisory validators: run for visibility but NEVER affect exit status (parity with
-# pre-tag-validate.sh ADVISORY_VALIDATORS). check-version-references flags any
-# non-current vX.Y.Z; its heuristic matches ~1000+ legitimate provenance refs
-# repo-wide with zero real drift, so it is informational only.
-$AdvisoryValidators = @(
-  @{ Name = 'check-version-references (advisory)';           Script = 'check-version-references.ps1';                      Args = @() }
-)
+# Advisory tier: currently EMPTY, deliberately, in parity with pre-tag-validate.sh.
+# check-version-references was retired 2026-09-07; see that script's note and
+# docs/internal/doc-currency-program.md Tier 0. Invoke-Advisory is kept for the two
+# advisory checks that program proposes.
 
 Write-Host "=== pm-skills pre-tag validator bundle ==="
 Write-Host ""
@@ -128,11 +125,6 @@ foreach ($v in $OptionalValidators) {
   if (-not (Invoke-Validator -V $v -Tier 'optional')) { $fail = $true }
 }
 
-Write-Host ""
-Write-Host "--- advisory (non-blocking; informational only) ---"
-foreach ($v in $AdvisoryValidators) {
-  Invoke-Advisory -V $v
-}
 
 Write-Host ""
 if (-not $fail) {
