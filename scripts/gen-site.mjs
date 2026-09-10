@@ -14,7 +14,7 @@
 //   reference/commands.md            (commands reference)    [generated, gitignored single file]
 //   workflows/<name>.md + index.md   (per-workflow + index)  [generated, gitignored]
 //   showcase/index.mdx + <thread>.md (showcase journeys)     [generated, gitignored]
-//   samples/<skill>/<file>.md        (178 library samples)   [generated, gitignored]
+//   samples/<skill>/<file>.md        (one per library sample) [generated, gitignored]
 //
 // Links are emitted as relative .md links (the same forms the Python generators
 // produced); a build-time remark plugin (scripts/remark-resolve-links.mjs) resolves
@@ -808,8 +808,7 @@ function generateShowcase() {
   for (const key of Object.keys(SHOWCASE_THREADS)) generateShowcaseThread(key);
 }
 
-// --- emit: library samples (the 178 in-place pages, now generated) ----------
-const SAMPLE_EXCLUDE = [/_legacy_/, /_orbit_/];
+// --- emit: library samples (one generated page per sample on disk) ----------
 function generateSamples() {
   removeSubdirs(join(DOCS, 'samples'));
   let count = 0;
@@ -817,7 +816,6 @@ function generateSamples() {
   for (const skill of listDirs(SAMPLES_DIR)) {
     const dir = join(SAMPLES_DIR, skill);
     for (const f of readdirSync(dir).filter((x) => /^sample_.*\.md$/.test(x)).sort()) {
-      if (SAMPLE_EXCLUDE.some((re) => re.test(f))) continue;
       const content = readFileSync(join(dir, f), 'utf8');
       // Point "Edit this page" at the library source (the sample is verbatim from
       // there). Insert editUrl after the frontmatter opener (which may follow a

@@ -33,7 +33,8 @@ export function countSamples(dir, rd = readdirSync) {
 
 /**
  * Count samples per product thread by reading each sample's `thread:` frontmatter field.
- * Samples with no thread (legacy and orbit) are counted as `outside`. Pure (fs injected).
+ * A sample whose `thread:` is missing or outside the canonical trio counts as `outside`,
+ * which main() asserts is zero. Pure (fs injected).
  *
  * Added at G1 round 3 (D16): the headline total was gated here while the published per-thread
  * distribution on the site said 64 for Brainshelf against 65 on disk, so the page contradicted
@@ -52,6 +53,21 @@ export function countThreads(dir, rd = readdirSync, read = readFileSync) {
     }
   }
   return counts;
+}
+
+/**
+ * Findings for samples sitting outside the canonical thread trio. Pure.
+ *
+ * `outside` was the legacy/orbit bucket, retired in full at the v2.33.0 doc-currency
+ * sweep. A non-zero value now means a sample carries a missing or misspelled `thread:`
+ * field. The spread reconciliation in main() cannot catch that on its own, because
+ * outside is one of its own addends and so it balances either way.
+ */
+export function checkThreadTrio(th) {
+  if (th.outside > 0) {
+    return [`library/skill-output-samples: ${th.outside} sample(s) carry a missing or unrecognized thread: field (expected storevine, brainshelf or workbench)`];
+  }
+  return [];
 }
 
 /** Findings for one (label, text) against the expected number for each named pattern. Pure. */
@@ -89,8 +105,8 @@ function main() {
     { re: /Per-thread sample distribution: Storevine (\d+)/, name: 'thread: storevine', expect: th.storevine },
     { re: /Per-thread sample distribution: Storevine \d+, Brainshelf (\d+)/, name: 'thread: brainshelf', expect: th.brainshelf },
     { re: /Per-thread sample distribution: Storevine \d+, Brainshelf \d+, Workbench (\d+)/, name: 'thread: workbench', expect: th.workbench },
-    { re: /plus (\d+) legacy and orbit samples/, name: 'thread: outside the trio', expect: th.outside },
   ]));
+  findings.push(...checkThreadTrio(th));
   // The distribution must also reconcile to the headline, or the page can be internally
   // consistent per-line and still contradict its own total, which is how this defect shipped.
   const spread = th.storevine + th.brainshelf + th.workbench + th.outside;

@@ -23,7 +23,7 @@ is an independent trigger and not part of this one.) That is the tie-breaker rul
 [`skill-versioning.md`](../../docs/internal/skill-versioning.md) verbatim: *"If a user must do
 something new to stay compliant with the skill's required contract, classify as major"*, plus its
 worked cases *"'You must now include section X' -> major"* and *"New required checklist item added ->
-major"*. The invalidation is concrete rather than theoretical: the published `orbit_ideal` and
+major"*. The invalidation is concrete rather than theoretical: the `orbit_ideal` and
 `orbit_reality` samples describe an AI-generated summary feature and carry no such section, so both
 were non-compliant with the skill that produced them the moment this content landed.
 

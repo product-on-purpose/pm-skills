@@ -1,6 +1,6 @@
 ﻿# PM Skills Sample Library
 
-213 sample outputs across 63 PM skills of the current 68-skill catalog. The 5 sub-agent dispatch skills have their samples at `library/sub-agent-samples/` instead of here. v2.18.0 added 12 samples across the 4 new phase skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis). Organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle plus the v2.15.0 Foundation Sprint and Design Sprint families. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs. Meeting-family skills (foundation-meeting-*) have three samples per skill (one per thread) following the SAMPLE_CREATION.md thread standards. Sprint-family skills (tool-foundation-sprint-* and tool-design-sprint-*) also have three samples per skill, with each thread carrying a coherent end-to-end FS+DS arc. Certain phase skills carry additional legacy and orbit samples beyond the canonical thread trio for historical calibration.
+202 sample outputs across 63 PM skills of the current 68-skill catalog. The 5 sub-agent dispatch skills have their samples at `library/sub-agent-samples/` instead of here. v2.18.0 added 12 samples across the 4 new phase skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis). Organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle plus the v2.15.0 Foundation Sprint and Design Sprint families. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs. Meeting-family skills (foundation-meeting-*) have three samples per skill (one per thread) following the SAMPLE_CREATION.md thread standards. Sprint-family skills (tool-foundation-sprint-* and tool-design-sprint-*) also have three samples per skill, with each thread carrying a coherent end-to-end FS+DS arc.
 
 ## Table of Contents
 
@@ -21,12 +21,11 @@
 
 ## What Is This?
 
-This folder contains 213 sample outputs, decomposing by release cohort as follows (126 pre-v2.15.0 + 45 v2.15.0 Sprint Skills additions + 12 v2.18.0 content-skill additions + 3 v2.23.0 foundation addition + 3 v2.26.0 workflow-builder addition + 18 v2.28.0 foundation addition + 3 v2.29.0 foundation addition + 2 v2.33.0 project-memory pair + 1 v2.33.0 Model Choice sample):
+This folder contains 202 sample outputs, decomposing by release cohort as follows (115 pre-v2.15.0 + 45 v2.15.0 Sprint Skills additions + 12 v2.18.0 content-skill additions + 3 v2.23.0 foundation addition + 3 v2.26.0 workflow-builder addition + 18 v2.28.0 foundation addition + 3 v2.29.0 foundation addition + 2 v2.33.0 project-memory pair + 1 v2.33.0 Model Choice sample):
 
-**Pre-v2.15.0 (126 samples):**
+**Pre-v2.15.0 (115 samples):**
 
 - **75 canonical-thread phase-skill samples** . 3 per thread (storevine / brainshelf / workbench) × 25 phase skills
-- **11 additional legacy / orbit / extra samples on select phase skills** . `discover-competitive-analysis`, `discover-interview-synthesis`, `discover-stakeholder-summary` carry 6 samples each (3 canonical + 3 legacy = 9 extras total); `deliver-prd` carries 5 samples (3 canonical + 2 orbit = 2 extras)
 - **12 foundation-persona samples** . 4 variants per thread (product brief, product detailed, marketing brief, marketing detailed) × 3 threads
 - **3 foundation-lean-canvas samples** . 1 per thread (companion HTML rendering files exist alongside but are not counted as separate samples)
 - **7 single-thread samples** . utility skills (mermaid-diagrams, pm-skill-builder, pm-skill-iterate, pm-skill-validate, slideshow-creator, update-pm-skills) and deliver-acceptance-criteria, all storevine-only
@@ -59,7 +58,7 @@ This folder contains 213 sample outputs, decomposing by release cohort as follow
 
 - **3 foundation-build-risk-review samples** - 1 per thread (storevine bulk price-update feature request, brainshelf AI auto-tagging idea, workbench enterprise knowledge-base bet); each a Build Risk Review with a single biggest risk, a graded evidence ledger, a verdict, and a no-code validation step
 
-75 + 11 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 + 12 + 3 + 3 + 18 + 3 + 2 + 1 = 213 itemized, which matches the on-disk corpus exactly. If you add a sample, update the headline total, its release cohort, and this line together.
+75 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 + 12 + 3 + 3 + 18 + 3 + 2 + 1 = 202 itemized, which matches the on-disk corpus exactly. If you add a sample, update the headline total, its release cohort, and this line together.
 
 The samples serve two purposes:
 

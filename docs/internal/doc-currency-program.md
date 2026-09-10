@@ -12,7 +12,7 @@ Documentation correctness has three separable classes. This repository is excell
 
 | Class | The question it answers | Coverage today |
 |---|---|---|
-| **Consistency** | Do the artifacts agree with each other? | **Strong.** 20 enforcing validators |
+| **Consistency** | Do the artifacts agree with each other? | **Strong.** The enforcing validator suite (count derivable from `scripts/validation-manifest.yaml`, deliberately not restated here) |
 | **Currency** | Are they true about the world *right now*? | **Almost none** |
 | **Usefulness** | Are they any good to read? | **None** |
 
@@ -92,9 +92,13 @@ Reads the `agent-plugins` registry `marketplace.json` over HTTPS, compares its `
 The three manifest descriptions are half-generated: `descriptionHeadline()` owns the counts, and everything from the first `vN.N.N` token onward is authored prose the generator preserves verbatim. Assert that the authored tail's version token equals the current version.
 *Catches defect 2.* Roughly ten lines inside the existing generator, which already parses exactly this split. **Effort: small.**
 
-**C3. Sample reachability.**
-For every sample under `library/skill-output-samples/`, assert a corresponding published page exists under `site/src/content/docs/samples/`, or that the sample sits on an explicitly declared unpublished thread.
-*Catches defect 7.* Requires one decision first: publish or retire the `orbit` thread. **Effort: small, after that ruling.**
+**C3. Thread-classification agreement (RULED and re-scoped 2026-09-10, DONE).**
+~~For every sample under `library/skill-output-samples/`, assert a corresponding published page exists under `site/src/content/docs/samples/`, or that the sample sits on an explicitly declared unpublished thread.~~
+
+**The ruling: retire.** The `orbit` and `legacy` threads are gone, all 11 samples deleted, and `SAMPLE_EXCLUDE` removed from `scripts/gen-site.mjs`. Every sample on disk is now published, which makes the original check true by construction: exactly the answers-the-question-nearby failure this document exists to name.
+
+**Re-scoped to the question that mattered.** The generator selected samples by **filename** regex while `check-sample-counts.mjs` classifies them by **frontmatter `thread:`** field. Two unlinked mechanisms that agreed at 11 only by coincidence, and nothing compared them. The filename half is now gone, and the surviving half is asserted directly by `checkThreadTrio()`, which reports any sample whose `thread:` is missing or outside the trio. That case was previously invisible: the distribution-versus-total reconciliation balances either way, because the outside bucket is one of its own addends. Shipped with the retirement, with fixtures proving it fires.
+*Catches defect 7, and the frontmatter-typo case the original scoping would have missed.*
 
 **C4. Process-doc liveness.**
 Narrow and rule-shaped rather than general: assert that any doc under `docs/internal/` claiming to be canonical for a process either **is** the canonical document, or redirects to it. Today two documents claim the release lane and the stale one is the one maintainers reach for.
@@ -127,7 +131,7 @@ Ordered so each phase is independently valuable and nothing blocks on a decision
 | **1** | C1, C2 | Nothing. Both are small and self-contained |
 | **0** | ~~N1a: retire `check-version-references`~~ | **DONE 2026-09-07** |
 | **3** | C4 | Retiring the predecessor runbook (already queued under [#269](https://github.com/product-on-purpose/pm-skills/issues/269)) |
-| **4** | C3 | A publish-or-retire ruling on the `orbit` sample thread |
+| **4** | ~~C3~~ | **DONE 2026-09-10.** Ruling made (retire); check re-scoped to thread-classification agreement and shipped |
 | **5** | U1, U2, advisory | Phases 0 to 4 landing first, so the suite has credibility before adding fuzzy signals |
 
 Phase 1 alone closes the two defects that had real user impact.
