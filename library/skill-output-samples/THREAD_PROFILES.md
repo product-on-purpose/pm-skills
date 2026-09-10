@@ -361,8 +361,6 @@ The `<thread>` segment must be one of:
 - `storevine` (B2B ecommerce thread)
 - `brainshelf` (consumer PKM thread)
 - `workbench` (enterprise collaboration thread)
-- `orbit` (legacy PRD calibration samples)
-- `legacy` (older non-thread baseline examples)
 
 The `<additional-helpful-context>` segment varies by sample type:
 
@@ -374,10 +372,9 @@ The `<additional-helpful-context>` segment varies by sample type:
 | OKR cycle | arc-period | `_campaigns-q3`, `_blueprints-q3` |
 | Sub-feature artifact | feature-or-deck | `_campaign-flow`, `_campaigns-launch-deck` |
 | Utility (single-thread) | feature or task | `_campaign-analytics-skill`, `_validate-campaign-analytics`, `_update-report` |
-| Legacy | descriptor | `_ideal`, `_ecommerce-platform` |
 
-Lowercase, hyphen-separated, no spaces. Validators pin these rules and
-reject filenames that violate them.
+Lowercase, hyphen-separated, no spaces. These are authoring conventions:
+no validator currently rejects a filename that violates them.
 
 **Sort hazard when a skill gains a second sample on the same thread.** The site's
 `loadSkillSamples()` in `scripts/gen-site.mjs` sorts the directory and takes the

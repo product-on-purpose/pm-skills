@@ -22,7 +22,7 @@
 | 3 | **Retention's dropped evaluation-set copy question** | `measure-instrumentation-spec`'s `SKILL.md` requires it and the shipped template does not carry it | **This is a known gap that SHIPPED in v2.33.0.** It is the v2.33.0 deferral with the least mitigation: the new per-claim coverage rule does not touch it, because it is a content gap rather than a decomposition gap |
 | 4 | **The opt-out row's subject scope** | Deferred with rationale at G1 round 12 | |
 | 5 | **`SKILL.md` drift after the access split** | Deferred with rationale at G1 round 12 | |
-| 6 | **Sibling samples carry unmarked invented methodology** | Library-wide audit, deferred from v2.33.0 | Depends on item 1. Do not run this sweep before the convention is authored |
+| 6 | **Sibling samples carry unmarked invented methodology** | Library-wide audit, deferred from v2.33.0 | Depends on item 1. Do not run this sweep before the convention is authored. **Scope reduced 2026-09-10:** the 11 `orbit` and `legacy` samples were retired, so the denominator is 202 rather than 213. The 9 deleted `legacy` files were the least conformant in the corpus (pre-convention 5-field schema, no `thread:` field, zero `[fictional]` markers against roughly 60 unmarked quantitative claims), so the sweep's remaining scope is more uniform than the original count suggested |
 
 ## B. Release-runbook defects, all observed during the v2.33.0 cut
 
@@ -61,13 +61,15 @@ The delivery miss in C2 is one instance of a class. Seven defects were observed 
 
 Full analysis, prioritized gaps, sequencing and falsifiable success criteria: [`../../doc-currency-program.md`](../../doc-currency-program.md).
 
+**Status 2026-09-10.** Tier 0 (N1) and phase 4 (C3) are both **DONE**, untagged on `main`. C3's gating decision, publish-or-retire on the `orbit` thread, was ruled **retire**: all 11 `orbit` and `legacy` samples deleted, `SAMPLE_EXCLUDE` removed from `scripts/gen-site.mjs`, and the check re-scoped away from a condition that had become true by construction toward the one that mattered, thread-classification agreement, now shipped as `checkThreadTrio()` in `scripts/check-sample-counts.mjs` with fixtures. **C1 and C2 remain open and are what this cycle should take.**
+
 **What this cycle should take**, which is phase 1 plus the highest-value single change:
 
 | Item | What it does | Effort |
 |---|---|---|
 | **C1 delivery check** | Compares the `agent-plugins` registry pin against the tag just pushed; refuses "Release complete" while they disagree. Same as section C2 above | Small |
 | **C2 manifest tail freshness** | The authored half of each manifest description names a version. Assert it names the current one. Catches the tails that still pitched v2.32.0 two days after v2.33.0 shipped | Small |
-| **N1 re-scope `check-version-references`** | It reports **1287 findings at a near-zero true-positive rate**, which is worse than no check: it occupies the slot a real check would fill and gives false assurance. **It is also 96x slower in bash than in PowerShell** (288s against 3s, same tree, same findings), which pushes the whole pre-tag bundle past ten minutes and made it look hung during this cycle. Measured, not inferred. Re-scope to flag version tokens only in currency-bearing sentences ("latest", "currently", "now at"), not historical ones ("v2.16.0 introduced"). Label 100 findings first as the fixture; retire it outright if precision stays under about 80 percent | Medium |
+| ~~**N1 re-scope `check-version-references`**~~ | **DONE 2026-09-07 at `a5115727`: retired outright rather than re-scoped.** It reported 1287 findings at a near-zero true-positive rate, and its own header had said since v2.17.0 that the heuristic matched "~1000+ legitimate provenance refs repo-wide with zero real drift". A performance argument made in this row earlier, a "96x slower in bash than PowerShell" claim presented as measured, is **WITHDRAWN and must not be cited**: it measured a degraded MSYS environment (347ms per trivial process spawn against a healthy 2 to 10ms), not the script. The retirement stands on the signal argument alone | **Done** |
 
 **The design rule worth carrying**, because it explains every one of the seven: each existing check answers the question *adjacent* to the one that matters. Valid rather than current. Condition rather than action. Differs rather than wrong. Has-samples rather than samples-reachable. Local tree rather than published artifact.
 

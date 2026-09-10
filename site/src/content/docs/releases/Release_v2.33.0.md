@@ -127,7 +127,7 @@ They were drafted as *minor* updates, on the reasoning that a section which only
 > Making something conditional narrows *who* is affected.
 > It does not change *what happens* to them.
 
-The proof was embarrassing and internal. Two published PRD samples on the Orbit thread, `sample_deliver-prd_orbit_ideal` and `sample_deliver-prd_orbit_reality`, describe an AI-generated summary feature and carried no `AI Behavior and Evaluation` section. They were **non-compliant with the skill that produced them**. Both were retrofitted before this shipped.
+The proof was embarrassing and internal. Two PRD samples on the Orbit thread, `sample_deliver-prd_orbit_ideal` and `sample_deliver-prd_orbit_reality`, describe an AI-generated summary feature and carried no `AI Behavior and Evaluation` section. They were **non-compliant with the skill that produced them**. Both were retrofitted before this shipped.
 
 :::caution[What this means for you]
 If you have existing PRDs, ADRs, or instrumentation specs covering model-backed features, they are now incomplete against the current version of those skills.

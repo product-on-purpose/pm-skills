@@ -26,8 +26,6 @@ Rules:
    - `storevine`
    - `brainshelf`
    - `workbench`
-   - `orbit` (legacy PRD calibration samples)
-   - `legacy` (older non-thread baseline examples)
 3. `<additional-helpful-context>` should be short and hyphenated (`[a-z0-9-]` only).
 4. Use lowercase only.
 5. Do not use spaces.
@@ -35,16 +33,15 @@ Rules:
 Examples:
 
 - `sample_define-hypothesis_storevine_campaigns.md`
-- `sample_deliver-prd_orbit_ideal.md`
+- `sample_deliver-prd_brainshelf_resurface.md`
 - `sample_foundation-persona_workbench_marketing-detailed-blueprints.md`
-- `sample_discover-competitive-analysis_legacy_ecommerce-platform.md`
+- `sample_discover-competitive-analysis_workbench_blueprints.md`
 
 ## 3) Folder Structure
 
 1. Keep one folder per skill:
    - `library/skill-output-samples/<skill-name>/`
 2. Do not mix skill outputs across folders.
-3. Keep legacy samples in their original skill folder, using `thread=legacy` in filename.
 
 ## 4) Required Content Structure
 
@@ -78,7 +75,7 @@ For modern thread samples (`storevine`, `brainshelf`, `workbench`), the frontmat
 | 5 | `repo_version` | Required | pm-skills version when sample was authored (e.g., `"2.5.0"`) |
 | 6 | `skill_version` | Required | Skill version when sample was authored (e.g., `"2.0.0"`) |
 | 7 | `created` | Required | ISO date (e.g., `2026-02-20`) |
-| 8 | `status` | Required | One of `sample`, `legacy` |
+| 8 | `status` | Required | One of `sample`, `canonical` |
 | 9 | `thread` | Required | One of `storevine`, `brainshelf`, `workbench` |
 | 10 | `context` | Required | Scenario-load-bearing; richer narrative (the why-this-sample); distinct from `description:` which is SEO-grade |
 
@@ -117,20 +114,19 @@ When in doubt: `description:` answers "what is this sample showing?"; `context:`
 
 ### Validation
 
-`scripts/lint-skills-frontmatter.sh` (and `.ps1`) enforces:
+`scripts/lint-skills-frontmatter.sh` (and `.ps1`) enforces two mechanical rules on every sample:
 
 - byte-0 `---` fence (no HTML comment, BOM, or whitespace on line 1)
 - attribution comment immediately after closing `---` fence (no blank line between them)
-- presence of all 10 required fields
-- `created` is ISO date format
-- `status` is one of the 2 enum values
-- `thread` is one of the 3 enum values
 
-Legacy files (`status: legacy`) may not have full modern frontmatter; avoid back-editing legacy unless there is a correctness issue.
+The field list, field order, ISO date format and the `status` enum above are authoring
+conventions, not gated rules: no validator currently checks them. `thread:` is the one
+exception, and only indirectly, since `scripts/check-sample-counts.mjs` derives the per-thread
+distribution from it and reports any sample whose value is missing or outside the trio.
 
 ## 6) Release-Coverage Metadata
 
-Sample counts are reconciled from disk by `scripts/check-sample-counts.mjs` (enforcing CI): the on-disk `sample_*.md` total and the sampled-skill count must match the headline numbers in `README_SAMPLES.md` and the site samples landing page. **Since v2.33.0 the per-thread distribution is enforced too**, derived from each sample's `thread:` frontmatter field rather than typed by hand, so the site samples landing page must state the correct Storevine, Brainshelf and Workbench counts plus the legacy-and-orbit remainder. **What this means when you add a sample:** give it a `thread:` value from the enum. A sample with a missing or unrecognized `thread:` is counted as outside the trio, which silently moves the remainder and fails the landing-page claim. The per-thread check exists because the published distribution once said 64 for Brainshelf against 65 on disk while CI stayed green: a derived count cannot drift the way a typed one does. Per-skill coverage (every phase / foundation / tool skill ships its thread samples) is enforced by `scripts/check-skill-sample-coverage`.
+Sample counts are reconciled from disk by `scripts/check-sample-counts.mjs` (enforcing CI): the on-disk `sample_*.md` total and the sampled-skill count must match the headline numbers in `README_SAMPLES.md` and the site samples landing page. **Since v2.33.0 the per-thread distribution is enforced too**, derived from each sample's `thread:` frontmatter field rather than typed by hand, so the site samples landing page must state the correct Storevine, Brainshelf and Workbench counts. **What this means when you add a sample:** give it a `thread:` value from the enum. A sample with a missing or unrecognized `thread:` is counted outside the trio and reported directly by `checkThreadTrio`, which is the only gate that catches it: the distribution-versus-total reconciliation balances either way, because the outside bucket is one of its own addends. The per-thread check exists because the published distribution once said 64 for Brainshelf against 65 on disk while CI stayed green: a derived count cannot drift the way a typed one does. Per-skill coverage (every phase / foundation / tool skill ships its thread samples) is enforced by `scripts/check-skill-sample-coverage`.
 
 The former hand-maintained release-coverage manifest (`v2.6.1/skill-output-samples_manifest.v2.6.1.json`) was retired in v2.29.0: it was unread by any tool and drifted from disk. Add or rename samples freely; the count gate catches a stale headline.
 
@@ -157,6 +153,6 @@ Before considering sample updates complete:
 
 ## 9) Practical Policy Notes
 
-1. Keep canonical coverage deterministic (currently 84 core samples).
-2. Additional legacy files are allowed but should be explicitly treated as legacy in naming.
+1. Keep canonical coverage deterministic: every phase, foundation and tool skill ships one sample per thread, enforced by `scripts/check-skill-sample-coverage`.
+2. Every sample sits on one of the three canonical threads. There is no out-of-trio category.
 3. Avoid ad-hoc naming exceptions; update this document first if policy changes.
