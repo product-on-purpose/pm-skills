@@ -94,7 +94,8 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | `check-count-consistency` | Skill/command/workflow counts in tracked .md, .mdx, and .json match filesystem state, including the `badge/skills-<N>` shields-badge form (.mdx + badge added v2.19.0) |
 | `check-skill-cross-references` | Backtick skill-name references in `skills/*/SKILL.md` resolve to a real `skills/*/` directory; intentional forward-refs are allowlisted (v2.19.0) |
 | `check-skill-page-sections` | Every `## section` in a `SKILL.md` renders on its generated docs page. Output-based: it imports `renderSkillPage` from `scripts/gen-site.mjs`, renders each page, and fails if any section is missing. Guards the silent-section-drop class that shipped ~27 hollow skill pages before v2.29.1 |
-| `check-sample-counts` | The on-disk library sample + sampled-skill counts match the headline numbers in `README_SAMPLES.md` and the site samples landing page (`check-count-consistency` excludes `library/`, so this closes that gap; v2.29.0) |
+| `check-sample-counts` | The on-disk library sample + sampled-skill counts match the headline numbers in `README_SAMPLES.md` and the site samples landing page (`check-count-consistency` excludes `library/`, so this closes that gap; v2.29.0). Also asserts the per-thread distribution and, since the orbit/legacy retirement, **thread-classification agreement**: every sample resolves to one of the three canonical threads. A missing or misspelled `thread:` is invisible to the distribution-versus-total reconciliation, because the outside bucket is one of its own addends |
+| `gen-derived-surfaces --check` | Two gates in one step. **(a)** Every generated count surface (README catalog regions, the three manifest description headlines, the marketplace release pin, the site changelog mirror, the releases index) matches what the generator would emit, so a hand-edit inside a generated region fails CI. **(b) C2, manifest-tail freshness:** the AUTHORED tail of each manifest description still opens on the shipped version. That tail is prose the generator carries through verbatim, which is exactly why nothing read it and why all three tails still pitched v2.32.0 two days after v2.33.0 shipped. Only the LEADING version token is asserted: a tail may legitimately narrate an older release further along, and flagging every token in sight is the heuristic that got `check-version-references` retired at 1287 findings |
 | (generated content: completeness-guarded) | Reference pages are emitted by `scripts/gen-site.mjs` into `site/src/content/docs/` and are gitignored + rebuilt each build, so there is no committed drift surface; content completeness is guarded by `check-skill-page-sections` (above) |
 | `check-landing-page-counts --strict` | Landing-page total count claims (`site/src/content/docs/index.mdx`, `skills/index.md`, etc.) match filesystem state |
 | `check-workflow-generator-coverage` | Every workflow source has both an individual page and an index-table row |
@@ -111,6 +112,15 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 | `check-workflow-coverage` | Older variant of workflow-generator-coverage; complementary checks |
 | `check-em-dashes` | Em-dash + en-dash sweep (CLAUDE.md hard rule enforcement) |
 
+### Post-Tag Delivery Check (deliberately NOT in CI or the pre-tag bundle)
+
+| Check | What It Catches |
+|---|---|
+| `check-delivery-pin.mjs` | **C1.** Whether the `product-on-purpose` marketplace users actually install from serves the tag just pushed. pm-skills ships through TWO repositories: that marketplace lives in `agent-plugins` and pins members by commit SHA independently of anything here. On 2026-09-01 v2.33.0 was tagged, released and fully green while reaching nobody for about eight hours, because the registry still pinned the v2.32.0 commit. A stale SHA pin resolves to real, working, older code, so nothing errors and no other check has an opinion. Compares BOTH the version label and `source.sha`: a registry that moved the label but not the pin serves old code under a new number |
+
+**Why it is not in CI or the bundle.** The pre-tag bundle runs before the tag exists, so the question is unanswerable rather than merely unasked. `validation.yml` triggers on push to `main` and on pull requests, where there is no new tag to ask about, and immediately after a real tag it would fail for hours by design, because the re-pin is a separate cross-repo pull request in another repository.
+
+**Why it does not block a single sitting.** The real v2.33.0 tag-to-repin gap was about eight hours. A gate that must go green inside one G4 walkthrough would be routed around on first use, and a gate that is routinely bypassed is worse than none. It is a cheap, idempotent question you re-ask until the answer is yes. Exit 0 delivered, exit 1 tagged-but-not-delivered, exit 2 unverifiable. It never prints the success line on exit 2: an unanswered delivery question blocks "Release complete" exactly as a failed one does, because silence being read as success is the original defect.
 ### Orchestration Bundles
 
 | Bundle | What It Runs |
@@ -137,10 +147,13 @@ These run in `validation.yml` and fail the build if they exit non-zero.
 
 When adding a new validator script:
 
-1. Create the script trio: `scripts/{name}.sh` + `scripts/{name}.ps1` + `scripts/{name}.md`. The `.md` documents what the validator catches, how to run it, and the failure-mode examples.
-2. Wire it into `validation.yml` (or `validate-plugin.yml` if plugin-specific). Add it to BOTH the ubuntu-latest job and the windows-latest job.
-3. Wire it into `scripts/pre-tag-validate.{sh,ps1}` if it should be part of the enforcing pre-release suite.
-4. Update this document's validator catalog (the relevant section above) with the new entry.
+1. **Write it as single-source Node: `scripts/{name}.mjs` plus a sibling `scripts/{name}.test.mjs`.** The dual-shell inventory has been FROZEN since v2.30.0 (see the DUAL-SHELL FREEZE note in `scripts/validation-manifest.yaml`): do NOT add a new `.sh` + `.ps1` pair. The existing pairs carry roughly 3,700 duplicated lines, and the parity referee proves only that the two inventories match, never that the two shells reach the same verdict. Export the logic as pure functions with their I/O injected, following `scripts/check-sample-counts.mjs`, so the test can prove every branch without touching the real repo.
+2. **Ship a fixture that proves the check FIRES**, not only that it passes. A test that cannot fail converts an open question into a checked box. This is a standing rule of the [documentation currency program](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/doc-currency-program.md).
+3. Wire it into `.github/workflows/validation.yml`. That workflow is ONE `validate` job with an OS matrix, so a Node validator needs a single step and runs on both legs automatically. Only the legacy shell pairs carry `if: matrix.os == ...` guards.
+4. Wire it into `scripts/pre-tag-validate.{sh,ps1}` ONLY if it can be answered before a tag exists. A check that is only meaningful after the tag belongs at G4 instead, like `check-delivery-pin.mjs`. Note `pre-tag-validate.sh` runs under `set -u`, where expanding an empty array is fatal on bash before 4.4, so a tier with no members must be removed outright rather than left empty.
+5. A `.md` sidecar is for shell pairs only: `validate-script-docs` iterates `.sh` and `.ps1` bases, and `scripts/README_SCRIPTS.md` catalogs shell utilities. A Node validator self-documents in its header comment.
+6. Update this document's validator catalog (the relevant section above) with the new entry.
+7. Before adding one at all, weigh it against the counter-metric in the documentation currency program: the enforcing suite is not meant to grow by more than four checks. Extending an existing validator, as C2 did inside `gen-derived-surfaces`, costs nothing against that budget.
 5. Add a test case to `docs/internal/release-plans/v{next-version}/testing-summary_v{next-version}.md` if it would be useful to include in the next release's testing investment record.
 
 ## CI Failure Triage Pointers

@@ -7,6 +7,7 @@ import { join as joinPath } from 'node:path';
 import {
   loadCatalog, renderCatalogBadges, renderCatalogTable, splice,
   descriptionHeadline, descriptionTail, renderManifestHeadline, evalManifest,
+  evalManifestTail, tailLeadVersion,
   MANIFEST_SPECS, BADGES_START, BADGES_END, TABLE_START, normalizeEol,
   QUICKSTART_START, QUICKSTART_END, QUICKSTART_LINKS, QUICKSTART_TARGETS, renderQuickstartBody,
   COMPAT_START, COMPAT_END, currentVersion, discoverAgentIds, crossJoinSubAgents, renderCompatMatrixBlock,
@@ -23,6 +24,50 @@ import {
 // A fixture catalog with a distinct value per bucket so a column swap is caught
 // (skills is the true total 9 + 8 + 5 + 3 = 25).
 const FIX = { skills: 25, phase: 9, foundation: 8, utility: 5, tool: 3, sub_agents: 2 };
+
+// ---- C2: manifest tail freshness ------------------------------------------------------
+// The defect these model: all three tails still pitched v2.32.0 two days after v2.33.0
+// shipped, with every validator green, because the tail is authored prose that
+// evalManifest carries through verbatim and nothing else ever read.
+
+const TAIL_FIX = '20 skills plus 2 sub-agents. v2.32.0 fixes the three defects users reported.';
+
+test('tailLeadVersion reads the version a tail opens on', () => {
+  assert.equal(tailLeadVersion(TAIL_FIX), '2.32.0');
+});
+
+test('tailLeadVersion is null when a description carries no version tail', () => {
+  assert.equal(tailLeadVersion('20 skills plus 2 sub-agents, no version narration here.'), null);
+});
+
+test('evalManifestTail FIRES on a tail one version behind the shipped version', () => {
+  const got = evalManifestTail(TAIL_FIX, '2.33.0');
+  assert.equal(got.stale, true, 'a v2.32.0 tail against a shipped v2.33.0 must be flagged');
+  assert.equal(got.lead, '2.32.0');
+});
+
+test('evalManifestTail is silent when the tail names the shipped version', () => {
+  assert.deepEqual(evalManifestTail(TAIL_FIX, '2.32.0'), { lead: '2.32.0', stale: false });
+});
+
+test('evalManifestTail ignores a stale-looking token that is not the leading one', () => {
+  // A tail may legitimately narrate an older release further along. Asserting every
+  // token is the heuristic that had check-version-references reporting 1287 findings
+  // at a near-zero true-positive rate before it was retired.
+  const narrated = '20 skills. v2.33.0 builds on the workflow engine added in v2.24.0.';
+  assert.equal(evalManifestTail(narrated, '2.33.0').stale, false);
+});
+
+test('a description with no tail makes no version claim and cannot be stale', () => {
+  assert.deepEqual(evalManifestTail('20 skills, no tail.', '2.33.0'), { lead: null, stale: false });
+});
+
+test('evalManifest still carries the tail through verbatim, which is why C2 is needed', () => {
+  // Guards the premise: if the generator ever started rewriting tails, C2 would be moot.
+  const stale = 'WRONG HEADLINE. v2.32.0 narration that must survive.';
+  const { newValue } = evalManifest('plugin', stale, FIX);
+  assert.match(newValue, /v2\.32\.0 narration that must survive\.$/);
+});
 
 const manifestText = (catalog) => JSON.stringify({ catalog });
 

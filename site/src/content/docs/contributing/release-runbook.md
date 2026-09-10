@@ -151,11 +151,12 @@ Before invoking the runbook (manually or via `utility-pm-release-conductor v{X.Y
 **Sub-checks (each produces a P0/P1/P2 incident on failure per master plan D23):**
 
 1. **Plugin install path check (P0 on fail)** - smoke-test plugin install from the new tag. Failure = release artifact is broken; blocks "Release complete" output.
-2. **Marketplace registration (P1 on fail)** - confirm marketplace listing still resolves. Failure = discoverability incident; surfaced but does not block.
-3. **GitHub Pages rebuild (P1 on fail)** - confirm doc-stack rebuild was triggered. Failure = documentation incident; surfaced but does not block.
-4. **GitHub Release UI body (P2 reminder)** - conductor reminds maintainer to author the GitHub Release UI body; does NOT auto-create.
-5. **Next-cycle stub (P2 reminder)** - create `docs/internal/release-plans/v{next-minor}/plan_v{next-minor}.md` stub if not present.
-6. **Post-tag follow-up tasks logged (P2 reminder)** - any deferred items captured in the next-cycle stub.
+2. **Delivery check (P0 on fail, re-runnable)** - run `node scripts/check-delivery-pin.mjs`. It reads the `product-on-purpose` marketplace in the `agent-plugins` repo and compares BOTH the served version and `source.sha` against the tag just pushed. Exit 0 delivered, exit 1 tagged-but-not-delivered, exit 2 unverifiable (never read exit 2 as a pass). **Expect this to fail immediately after G3** and to keep failing until the registry re-pin merges: the real v2.33.0 gap was about eight hours. Re-run it rather than blocking the session on it. Users install from that registry, not from this repo's tag, so until this returns 0 the release has reached nobody. On 2026-09-01 v2.33.0 was tagged, released, CI-green and validator-green while delivering to no one, and it was found by a field report rather than by any check here.
+3. **Marketplace registration (P1 on fail)** - confirm marketplace listing still resolves. Failure = discoverability incident; surfaced but does not block.
+4. **GitHub Pages rebuild (P1 on fail)** - confirm doc-stack rebuild was triggered. Failure = documentation incident; surfaced but does not block.
+5. **GitHub Release UI body (P2 reminder)** - `.github/workflows/release.yml` auto-publishes a body on tag push via `softprops/action-gh-release` with `body_path: RELEASE_NOTES.md`, so the real task is REPLACING an already-public body, not authoring one into a vacuum. The conductor reminds the maintainer to rewrite it.
+6. **Next-cycle stub (P2 reminder)** - create `docs/internal/release-plans/v{next-minor}/plan_v{next-minor}.md` stub if not present.
+7. **Post-tag follow-up tasks logged (P2 reminder)** - any deferred items captured in the next-cycle stub.
 
 **Blocker (per D23):** P0 sub-check failures block the "Release complete" output. The conductor surfaces the failure as a post-tag incident and instructs the maintainer to either resolve OR explicitly log the issue as a known regression carried to v{next-patch}. The conductor refuses to emit "Release complete: v{target}" until either path is taken. P1 and P2 sub-checks are surfaced but do not block.
 

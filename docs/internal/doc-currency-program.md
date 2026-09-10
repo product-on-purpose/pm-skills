@@ -84,13 +84,17 @@ So the honest position is: the bash suite is slow on a wedged MSYS environment, 
 
 ### Tier 1: currency checks, cheap and mechanical
 
-**C1. Delivery check (already queued for v2.34.0).**
-Reads the `agent-plugins` registry `marketplace.json` over HTTPS, compares its `pm-skills` `version` and `source.sha` against the tag just pushed. Refuses "Release complete" while they disagree.
-*Catches defect 1.* One unauthenticated fetch of a public file. **Effort: small.**
+**C1. Delivery check (DONE 2026-09-10).**
+Shipped as `scripts/check-delivery-pin.mjs`, wired into the runbook as G4 sub-check 2. Reads the `agent-plugins` registry `marketplace.json` over HTTPS and compares BOTH the served `version` and `source.sha` against the tag just pushed. Comparing both matters: a registry that moved the label but not the pin serves old code under a new number.
 
-**C2. Manifest tail freshness.**
-The three manifest descriptions are half-generated: `descriptionHeadline()` owns the counts, and everything from the first `vN.N.N` token onward is authored prose the generator preserves verbatim. Assert that the authored tail's version token equals the current version.
-*Catches defect 2.* Roughly ten lines inside the existing generator, which already parses exactly this split. **Effort: small.**
+Two design points the original scoping did not anticipate. **It is not a pre-tag or CI check**: the bundle runs before the tag exists, and `validation.yml` runs on pushes and pull requests where there is no new tag to ask about. **It is not a same-sitting blocker either**: the real v2.33.0 gap was about eight hours, so a gate that had to go green inside one G4 walkthrough would be routed around on first use, and a gate that is routinely bypassed is worse than none. It is a cheap idempotent question you re-ask until it answers yes. Exit 2 (unverifiable) never prints the success line, because silence being read as success is the original defect.
+*Catches defect 1.* Ten fixtures, including one reproducing the actual v2.33.0 miss. **Effort: small, as estimated.**
+
+**C2. Manifest tail freshness (DONE 2026-09-10).**
+Shipped as `evalManifestTail()` / `tailLeadVersion()` inside `scripts/gen-derived-surfaces.mjs`, asserted in its `--check` path. That path is ALREADY an enforcing CI step, so this needed no new wiring and **adds nothing to the enforcing-validator count**, which keeps the counter-metric in section 7 intact.
+
+Only the LEADING version token of the authored tail is asserted, not every token. A tail may legitimately narrate an older release further along, and flagging every token in sight is precisely the heuristic that had `check-version-references` reporting 1287 findings at a near-zero true-positive rate. A description carrying no tail makes no version claim and cannot be stale.
+*Catches defect 2.* Seven fixtures, including one guarding the premise that the generator still carries tails through verbatim. **Effort: small, as estimated.**
 
 **C3. Thread-classification agreement (RULED and re-scoped 2026-09-10, DONE).**
 ~~For every sample under `library/skill-output-samples/`, assert a corresponding published page exists under `site/src/content/docs/samples/`, or that the sample sits on an explicitly declared unpublished thread.~~
@@ -128,7 +132,7 @@ Ordered so each phase is independently valuable and nothing blocks on a decision
 
 | Phase | Items | Gated on |
 |---|---|---|
-| **1** | C1, C2 | Nothing. Both are small and self-contained |
+| **1** | ~~C1, C2~~ | **DONE 2026-09-10.** C1 as `scripts/check-delivery-pin.mjs` at G4; C2 inside `gen-derived-surfaces --check`, adding no new validator |
 | **0** | ~~N1a: retire `check-version-references`~~ | **DONE 2026-09-07** |
 | **3** | C4 | Retiring the predecessor runbook (already queued under [#269](https://github.com/product-on-purpose/pm-skills/issues/269)) |
 | **4** | ~~C3~~ | **DONE 2026-09-10.** Ruling made (retire); check re-scoped to thread-classification agreement and shipped |

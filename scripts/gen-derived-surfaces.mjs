@@ -348,6 +348,33 @@ export function evalManifest(id, currentValue, c) {
   return { stale, newValue: expected + descriptionTail(currentValue) };
 }
 
+/** The version a description tail opens on, or null when it carries no tail. Pure. */
+export function tailLeadVersion(desc) {
+  const m = descriptionTail(desc).match(/^v(\d+\.\d+\.\d+)/);
+  return m ? m[1] : null;
+}
+
+/**
+ * C2 (doc-currency-program.md): does the authored tail still pitch the shipped version?
+ *
+ * The tail is everything from the first vN.N.N token onward. `evalManifest` carries it
+ * through verbatim because it is authored prose, which is exactly why nothing checked it
+ * and why all three tails still pitched v2.32.0 two days after v2.33.0 shipped.
+ *
+ * Only the LEADING token is asserted. A tail may legitimately narrate an older release
+ * further along ("the workflow engine added in v2.24.0"), and flagging every token in
+ * sight is the heuristic that had `check-version-references` reporting 1287 findings at a
+ * near-zero true-positive rate until it was retired. This asserts the one token that
+ * makes a currency claim: the one the sentence opens on.
+ *
+ * A description with no tail at all is not stale. It makes no version claim, so there is
+ * nothing here to be wrong; the headline check above owns that whole string.
+ */
+export function evalManifestTail(desc, version) {
+  const lead = tailLeadVersion(desc);
+  return { lead, stale: lead !== null && lead !== version };
+}
+
 // ---- marketplace release pin (WS-6 item (b), issue #136) -----------------------------
 
 /** Swap one exact value literal, refusing (loudly) unless it appears exactly once in the
@@ -850,6 +877,18 @@ function main() {
     const raw = readFileSync(p, 'utf8');
     const value = spec.get(JSON.parse(raw));
     if (typeof value !== 'string') fail(`${spec.file}: owned description field is missing or not a string`);
+    // C2: the authored tail. Evaluated BEFORE the headline branches below, because both
+    // of them `continue` and the tail is independent of whether the counts drifted. Only
+    // --check reports it as STALE and counts it toward the exit code, matching every
+    // other STALE line here and the check-gated exit at the end of main(); write mode
+    // warns instead, so it never prints a failure the process then ignores.
+    const tail = evalManifestTail(value, pluginVersion);
+    if (tail.stale) {
+      const msg = `${spec.file} description tail opens on v${tail.lead}; the shipped version is v${pluginVersion}. This is authored prose the generator carries through verbatim: edit it by hand.`;
+      if (check) { console.error(`STALE  ${msg}`); stale++; } else { console.warn(msg); }
+    } else if (!check && tail.lead) {
+      console.log(`${spec.file} description tail is current (v${tail.lead}).`);
+    }
     const { stale: isStale, newValue } = evalManifest(spec.id, value, catalog);
     if (!isStale) {
       if (!check) console.log(`${spec.file} description headline is current.`);
