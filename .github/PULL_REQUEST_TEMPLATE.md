@@ -13,8 +13,8 @@
 
 ## Checklist
 - [ ] I have read the Contributing section in [README.md](../README.md)
-- [ ] My changes follow the skill structure in [AGENTS.md](../AGENTS.md)
-- [ ] I have tested my changes with an AI assistant
+- [ ] My changes follow the skill structure in [AGENTS.md](../AGENTS.md), if applicable
+- [ ] I have tested my changes with an AI assistant, if applicable
 - [ ] I have updated documentation as needed
 - [ ] My skill includes all required files (if adding a new skill)
 
