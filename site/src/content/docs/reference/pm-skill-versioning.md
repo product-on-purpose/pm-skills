@@ -1,6 +1,6 @@
 ---
 title: Skill Versioning
-description: How PM skills are versioned independently of repo releases, using SemVer, HISTORY.md, and skills-manifest.yaml.
+description: How PM skills are versioned independently of repo releases, using SemVer and a HISTORY.md file in every skill.
 tags:
   - Reference
   - Versioning
@@ -37,44 +37,20 @@ When a change doesn't clearly fit one category:
 
 ## HISTORY.md
 
-When a skill ships its second version, a `HISTORY.md` file is created in the skill directory connecting versions to efforts and releases:
+Every skill carries a `HISTORY.md` file in its directory, connecting each shipped version to its effort and release:
 
 ```
 skills/deliver-prd/
   SKILL.md
-  HISTORY.md          ← created at second version
+  HISTORY.md          ← one row per shipped version
   references/
     TEMPLATE.md
     EXAMPLE.md
 ```
 
-HISTORY.md includes a summary table (newest first) and a section per version describing what changed and why.
+HISTORY.md includes a summary table (newest first) and a section per version describing what changed and why. A new skill's file starts with a single baseline row for its first version.
 
-Skills on their first version don't need HISTORY.md - the effort brief and skills manifest cover the initial release.
-
-## Skills Manifest
-
-Each repo release includes a `skills-manifest.yaml` in its release plan folder, listing which skill versions changed:
-
-```yaml
-release: v2.8.0
-date: 2026-04-03
-
-skills:
-  - name: utility-pm-skill-validate
-    version: 1.0.0
-    previous_version: null
-    change_type: added
-    effort: F-10
-
-  - name: utility-pm-skill-iterate
-    version: 1.0.0
-    previous_version: null
-    change_type: added
-    effort: F-11
-```
-
-This answers: "Which skill versions shipped in release X?"
+The summary table's Release column also answers "which skill versions shipped in release X?": search it across the catalog with `grep -l '| vX.Y.Z |' skills/*/HISTORY.md`.
 
 ## How the Lifecycle Tools Handle Versioning
 
@@ -85,7 +61,7 @@ The [lifecycle tools](../guides/pm-skill-lifecycle.md) integrate with versioning
 
 ## Current Skill Versions
 
-Skill versions are tracked individually in each `skills/{name}/SKILL.md` frontmatter and aggregated per release in `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml`. The frontmatter is the source of truth; this section is summary.
+Skill versions are tracked individually in each `skills/{name}/SKILL.md` frontmatter and recorded per version in each skill's `HISTORY.md`. The frontmatter is the source of truth; this section is summary.
 
 As of v2.28.0 (68 skills total), versions cluster rather than march together: the v2.0-era domain skills sit at 2.0.x (lifted to 2.0.0 in the v2.0 flat-structure restructure; nine took 2.0.1 description patches in the v2.26.0 trigger-accuracy pass), later additions enter at 1.0.0 and move independently (`foundation-persona` reached 2.5.0 through its output-contract evolution), and every bumped skill carries a `HISTORY.md` recording the change. A hand-maintained per-skill census rots quickly at this catalog size, so this page deliberately stops at the cluster level; the frontmatter and `HISTORY.md` files are the authority.
 
@@ -97,6 +73,6 @@ The first quality-driven minor bumps ship with the [quality convergence effort](
 |----------|---------------|
 | What's the current version of a skill? | `skills/{name}/SKILL.md` frontmatter |
 | What changed between skill versions? | `skills/{name}/HISTORY.md` |
-| Which skill versions shipped in a release? | `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml` |
+| Which skill versions shipped in a release? | The Release column of each `skills/{name}/HISTORY.md` |
 | What effort created or changed a skill? | `docs/internal/efforts/` |
 | What files existed at a specific release? | `git show vX.Y.Z:skills/{name}/` |

@@ -58,7 +58,7 @@
 #
 # WAVE-2 CANDIDATES (next port cycle; selection = awk fragility + LOC + change frequency):
 #   - lint-skills-frontmatter (243 lines, 3 awk; runs on every skill change = highest churn)
-#   - validate-docs-frontmatter (193 lines, 2 awk) and validate-skills-manifest (167, 3 awk)
+#   - validate-docs-frontmatter (193 lines, 2 awk)
 #   - check-landing-page-counts + validate-version-consistency (count/version parsing, high LOC)
 #   - the three family validators (meeting / foundation-sprint / design-sprint) share one
 #     awk match() pattern and can port together.
@@ -176,10 +176,6 @@
   ci: advisory
   bash: { script: validate-skill-history.sh, args: [] }
   pwsh: { script: validate-skill-history.ps1, args: [] }
-- id: validate-skills-manifest
-  ci: advisory
-  bash: { script: validate-skills-manifest.sh, args: [] }
-  pwsh: { script: validate-skills-manifest.ps1, args: [] }
 - id: validate-gitignore-pm-skills
   ci: advisory
   bash: { script: validate-gitignore-pm-skills.sh, args: [] }

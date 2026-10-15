@@ -21,49 +21,13 @@ These are intentionally decoupled. A repo release packages many skills; a skill 
 | **Skill** | A long-lived shipped surface | `skills/{name}/SKILL.md` |
 | **Skill version** | The current contract version of a skill | `version` field in SKILL.md frontmatter |
 | **Repo release** | A tagged collection of changes | Git tag, `CHANGELOG.md`, `docs/releases/` |
-| **Skills manifest** | Which skill versions changed in a release | `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml` |
-| **Skill history** | Per-skill changelog across versions | `skills/{name}/HISTORY.md` (created when a skill iterates) |
+| **Skill history** | Per-skill changelog across versions, one row per shipped version | `skills/{name}/HISTORY.md` |
 
-## Skills Manifest
+## Retired: the per-release skills manifest
 
-Every release governance folder should include a `skills-manifest.yaml` listing skills that were added, changed, or removed in that release.
+Until 2026-10-15 this document required a `skills-manifest.yaml` in every release governance folder, listing the skills each release changed. The requirement was retired under [#279](https://github.com/product-on-purpose/pm-skills/issues/279). Only 9 of 45 release folders ever carried one, and the practice lapsed between v2.15.0 and v2.33.0. Every version a manifest recorded is also in that skill's `HISTORY.md`, so the nine files were deleted along with their validator. They remain readable at each release tag, for example `git show v2.12.0:docs/internal/release-plans/v2.12.0/skills-manifest.yaml`.
 
-**Location:** `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml`
-
-**When to create:** During release preparation, after all skill work is committed.
-
-### Format
-
-```yaml
-# Skills changed in this release
-release: v2.7.0
-date: 2026-03-22
-
-skills:
-  - name: utility-pm-skill-builder
-    version: 1.0.0
-    previous_version: null  # null for new skills
-    change_type: added       # added | changed | removed
-    effort: F-05
-    issue: 113
-```
-
-### Fields
-
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | yes | Skill directory name (e.g., `utility-pm-skill-builder`) |
-| `version` | yes | Skill version shipping in this release |
-| `previous_version` | yes | Prior version, or `null` if new |
-| `change_type` | yes | One of: `added`, `changed`, `removed` |
-| `effort` | yes | Effort ID that drove the change |
-| `issue` | no | GitHub issue number |
-
-### Rules
-
-- Only list skills that **changed** in this release, not the full inventory.
-- The `version` must match the skill's SKILL.md frontmatter at the tagged commit.
-- If a release contains no skill changes (e.g., CI-only or docs-only), the manifest is optional.
+To answer the question a manifest answered, which skills a release changed, search the Release column of every skill history: `grep -l '| vX.Y.Z |' skills/*/HISTORY.md`.
 
 ## Skill Version (SemVer)
 
@@ -113,7 +77,7 @@ A per-skill changelog that connects versions to efforts and releases.
 
 **When to create:** HISTORY.md is created on either of two triggers, whichever comes first:
 
-1. A skill ships its **second** version. A skill at 1.0.0 with no iteration history doesn't need one - the effort brief and skills manifest cover it. Once a skill bumps to 1.1.0 or 2.0.0, create HISTORY.md with entries for all versions.
+1. A skill ships at **1.0.0 or later**. Create HISTORY.md in the same change that adds the skill, with one baseline row for its first version, so the Release column records every version a release ships. Until 2026-10-15 a skill at 1.0.0 could rely on the release's `skills-manifest.yaml` instead; that file is retired, and 66 of 68 skills already carried a HISTORY.md when the rule changed.
 2. A skill takes its **first-ever bump off an unbumped 0.x baseline** (a pre-1.0 skill that shipped and then sat unbumped across one or more releases). The 0.x version itself does not get a synthetic backfilled row - 0.x is pre-contract by SemVer convention - but the bump that promotes it (typically to 1.0.0) gets a first HISTORY row documenting why the contract is now considered stable. Precedent: the 15 `tool-*` family skills, frozen at `0.1.0` since v2.15.0 across seven releases with no versioning intent stated, bumped to `1.0.0` with a first HISTORY row each in v2.30.0 (M-35, WS-T11; see TD-5 in [`release-plans/v2.30.0/plan_v2.30.0.md`](release-plans/v2.30.0/plan_v2.30.0.md)).
 
 ### Format
@@ -182,7 +146,7 @@ This makes `git log --grep="pm-skill-builder"` a reliable way to find all commit
 | Question | Where to look |
 |----------|---------------|
 | What effort created this skill? | `docs/internal/efforts/F-XX-*.md` or skill's HISTORY.md |
-| What skill versions shipped in release X? | `docs/internal/release-plans/vX.Y.Z/skills-manifest.yaml` |
+| What skill versions shipped in release X? | `grep -l '\| vX.Y.Z \|' skills/*/HISTORY.md`, then each file's row for that release |
 | What changed between skill v1.0 and v1.1? | `skills/{name}/HISTORY.md` |
 | What's the current version of a skill? | `skills/{name}/SKILL.md` frontmatter |
 | What files existed at a specific release? | `git show vX.Y.Z:skills/{name}/` |
@@ -193,6 +157,5 @@ Use this when a release includes skill additions or modifications.
 
 - [ ] Skill SKILL.md frontmatter `version` and `updated` fields are correct
 - [ ] CHANGELOG.md entry includes skill version bump in parentheses (e.g., `1.0.0 → 1.1.0`)
-- [ ] `skills-manifest.yaml` created/updated in the release governance folder
-- [ ] If skill has prior versions: HISTORY.md created or updated
+- [ ] HISTORY.md has a row for the new version, with the release in its Release column (a new skill gets the file with a baseline row)
 - [ ] Effort brief updated with release info (`Release: vX.Y.Z`)

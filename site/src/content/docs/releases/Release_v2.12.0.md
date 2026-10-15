@@ -166,7 +166,7 @@ Use the writer to draft or audit a quarterly OKR set. At cycle close, feed the O
 
 - [Full changelog entry](../../CHANGELOG.md#2120---2026-05-03)
 - [Internal release plan](../internal/release-plans/v2.12.0/plan_v2.12.0.md)
-- [Skills manifest](../internal/release-plans/v2.12.0/skills-manifest.yaml)
+- [Skills manifest](https://github.com/product-on-purpose/pm-skills/blob/v2.12.0/docs/internal/release-plans/v2.12.0/skills-manifest.yaml) (at the release tag; the per-release manifest was retired in 2026-10)
 - [foundation-okr-writer](../skills/foundation/foundation-okr-writer.md)
 - [measure-okr-grader](../skills/measure/measure-okr-grader.md)
 - [Library samples for foundation-okr-writer](https://github.com/product-on-purpose/pm-skills/tree/main/library/skill-output-samples/foundation-okr-writer)
