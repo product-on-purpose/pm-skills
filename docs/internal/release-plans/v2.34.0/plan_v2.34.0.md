@@ -39,7 +39,7 @@ Ruled in a maintainer decision sitting on 2026-10-15, after a status review foun
 **Also settled 2026-10-15.**
 
 - [#279](https://github.com/product-on-purpose/pm-skills/issues/279) (skills-manifest.yaml, restore or retire) is ruled **retire**; see section D.
-- Two contributor pull requests feed this cycle. [#287](https://github.com/product-on-purpose/pm-skills/pull/287) (PR-template checklist wording) had its expired CI re-run on 2026-10-15 and awaits merge approval. [#286](https://github.com/product-on-purpose/pm-skills/pull/286) would be the first published Model Trace Capture sample, answering good-first-issue [#282](https://github.com/product-on-purpose/pm-skills/issues/282); it awaits a rebase onto the 202-sample counts.
+- Two contributor pull requests feed this cycle. [#287](https://github.com/product-on-purpose/pm-skills/pull/287) (PR-template checklist wording) had its expired CI re-run and approved on 2026-10-15. [#286](https://github.com/product-on-purpose/pm-skills/pull/286) would be the first published Model Trace Capture sample, answering good-first-issue [#282](https://github.com/product-on-purpose/pm-skills/issues/282); on 2026-10-15 it conflicted with the 202-sample counts and needed a rebase.
 
 ## A. Carries from v2.33.0 section D
 
