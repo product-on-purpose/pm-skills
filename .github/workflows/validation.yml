@@ -85,7 +85,7 @@ jobs:
         run: node scripts/check-frontmatter-yaml.mjs --site-docs
 
       - name: Run resource-index unit tests
-        run: node --test scripts/gen-resource-index.test.mjs scripts/check-emdash-scars.test.mjs
+        run: node --test scripts/gen-resource-index.test.mjs scripts/check-emdash-scars.test.mjs scripts/check-sample-no-fabricated-metrics.test.mjs
 
       - name: Check for em-dash-sweep scars in user-facing prose (enforcing)
         # Flags the " . " (space-period-space) scar that an earlier em-dash sweep
@@ -365,8 +365,12 @@ jobs:
         run: node scripts/check-sample-exact-quote-sourcing.mjs
 
       - name: Eval - no fabricated metrics (advisory, heuristic)
-        # Flags percentages in output not traceable to input. Heuristic; stays
-        # advisory (never enforcing soon). Surfaces ~260 findings for human review.
+        # Flags percentages in output not traceable to input, across library
+        # samples and every skill's references/EXAMPLE.md (the two tranches of the
+        # [fictional] convention in README_SAMPLES.md). Heuristic; stays advisory,
+        # because decisions are unmarked by rule and a percentage-only check
+        # cannot tell a decision from an invented observation. The condition for
+        # making it enforcing is pre-registered in the v2.34.0 plan, section A item 1.
         if: always()
         continue-on-error: true
         run: node scripts/check-sample-no-fabricated-metrics.mjs

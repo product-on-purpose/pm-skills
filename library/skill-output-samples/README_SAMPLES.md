@@ -136,7 +136,7 @@ Unmarked method is what makes an invented synthesis read as corroborated, and an
 
 **Never marked:** the three thread companies and their team members, which are fictional by definition; real competitor and vendor names; decisions the artifact makes; and the artifact's own scaffolding, such as headings, requirement IDs and its own date.
 
-**What the check covers.** `scripts/check-sample-no-fabricated-metrics.mjs` is an advisory heuristic that flags only percentages, and only in library samples. Passing it does not mean a sample follows this convention.
+**What the check covers.** `scripts/check-sample-no-fabricated-metrics.mjs` is an advisory heuristic that flags only percentages. It scans both places the convention applies: library samples, where the input is the region before `## Output`, and every skill's `references/EXAMPLE.md`, where the input is empty. It cannot tell a decision from an invented observation, so it also flags targets and thresholds that are correctly left unmarked. Passing it does not mean a file follows this convention, and a finding does not mean the file breaks it.
 
 **Source Notes** cite real, public sources when industry context or market data anchors the scenario. All URLs are publicly accessible with no paywalls and no internal links.
 

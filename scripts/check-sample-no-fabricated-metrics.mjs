@@ -2,7 +2,7 @@
 // in the output not present in the input and not marked [fictional] is flagged.
 import { readFileSync, globSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { dirname, join, basename } from 'node:path';
+import { dirname, join, basename, resolve } from 'node:path';
 import { inputRegion } from './check-sample-exact-quote-sourcing.mjs';
 
 // Phase 1 flags only PERCENTAGES - the single highest-signal fabrication
@@ -25,22 +25,64 @@ export function fabricatedMetrics(output, input) {
   return out;
 }
 
+// The two tranches the [fictional] convention in
+// library/skill-output-samples/README_SAMPLES.md covers. A library sample's
+// input is its Scenario and Prompt region. A skill's EXAMPLE.md has no input
+// section, so its input is empty by rule, even when the artifact itself
+// happens to contain a "## Scenario" or "## Output" heading.
+export const TRANCHES = {
+  samples: { glob: 'library/skill-output-samples/**/sample_*.md', input: (text) => inputRegion(text) },
+  examples: { glob: 'skills/*/references/EXAMPLE.md', input: () => '' },
+};
+
+/** The tranche a file belongs to, judged from its path. */
+export function trancheFor(path) {
+  return /(^|[\\/])references[\\/]EXAMPLE\.md$/.test(path) ? 'examples' : 'samples';
+}
+
+function filesFor(repo, name) {
+  return globSync(TRANCHES[name].glob, { cwd: repo })
+    .map((f) => join(repo, f))
+    // case-sensitive: excludes guides (samples) and lowercase variants (examples) on Windows
+    .filter((f) => (name === 'samples' ? basename(f).startsWith('sample_') : basename(f) === 'EXAMPLE.md'));
+}
+
+// Usage: node scripts/check-sample-no-fabricated-metrics.mjs [--tranche samples|examples] [file ...]
+// With no arguments, both tranches are scanned. Named files are checked alone,
+// each under the tranche its path implies.
 function main() {
   const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
-  const files = globSync('library/skill-output-samples/**/sample_*.md', { cwd: repo })
-    .map((f) => join(repo, f))
-    .filter((f) => basename(f).startsWith('sample_')); // case-sensitive: excludes guides on Windows
-  let findings = 0;
+  const args = process.argv.slice(2);
+  const named = [];
+  let only = null;
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === '--tranche') only = args[++i];
+    else named.push(args[i]);
+  }
+  if (only !== null && !TRANCHES[only]) {
+    console.error(`unknown tranche "${only}"; expected one of: ${Object.keys(TRANCHES).join(', ')}`);
+    process.exit(2);
+  }
+  const files = named.length
+    ? named.map((f) => resolve(f))
+    : (only ? [only] : Object.keys(TRANCHES)).flatMap((name) => filesFor(repo, name));
+  const totals = {};
   for (const f of files) {
+    const tranche = trancheFor(f);
+    totals[tranche] ??= 0;
     const text = readFileSync(f, 'utf8');
-    if (/eval-exempt:\s*fabricated-metric/i.test(text)) continue; // per-sample exempt marker
-    const bad = fabricatedMetrics(text, inputRegion(text));
+    if (/eval-exempt:\s*fabricated-metric/i.test(text)) continue; // per-file exempt marker
+    const bad = fabricatedMetrics(text, TRANCHES[tranche].input(text));
     if (bad.length) {
-      findings += bad.length;
+      totals[tranche] += bad.length;
       console.log(`METRIC?  ${f}: ${[...new Set(bad)].join(', ')}`);
     }
   }
-  console.log(findings ? `\n${findings} possible-unsourced-metric finding(s) (advisory, heuristic).` : 'no metric findings.');
+  const findings = Object.values(totals).reduce((a, b) => a + b, 0);
+  const split = Object.entries(totals).map(([k, v]) => `${k} ${v}`).join(', ');
+  console.log(findings
+    ? `\n${findings} possible-unsourced-metric finding(s) (advisory, heuristic): ${split}.`
+    : `no metric findings (${split}).`);
   process.exit(findings ? 1 : 0);
 }
 
