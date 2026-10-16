@@ -243,7 +243,7 @@ section 2.1 item passes section 7's gate first.
 |---|---|---|---|
 | 1 | v2.33.0 | The four increments in 2.2 | No new trigger surface, no count change, no L floor. Highest value per unit of risk |
 | 2 | v2.34.0 | `measure-ai-eval-spec`, then `deliver-ai-behavior-spec` | The two keystones. Eval spec first: it is the measurement twin the behavior spec is checked against, and it carries the pm-critic capability in 2.3. **2026-10-16: both failed the section 7 gate and are closed; see section 3** |
-| 3 | unscheduled | `iterate-ai-incident-review`, `develop-agent-authority-plan` | The incident review needs the eval spec to exist to receive its output. The authority plan is independent but lower-frequency |
+| 3 | unscheduled | `iterate-ai-incident-review`, `develop-agent-authority-plan` | The incident review needs the eval spec to exist to receive its output. The authority plan is independent but lower-frequency. **2026-10-16, ruling R3 = B in the v2.34.0 plan:** the incident review is closed, because the eval spec will not exist; the authority plan stays unscheduled, and it must pass the section 7 gate before any build |
 | 4 | deferred | Plugin split, observability fork | Both wait on measurement: the token delta for the split, a consumer for the fork |
 
 ## 10. Open decisions this spec does not settle

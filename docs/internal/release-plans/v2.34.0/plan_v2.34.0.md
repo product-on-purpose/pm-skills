@@ -1,8 +1,8 @@
 # v2.34.0 Release Plan
 
-**Status:** **RE-SCOPE NEEDED, 2026-10-16.** The headline failed its own build gate: on 2026-10-16 neither `measure-ai-eval-spec` nor `deliver-ai-behavior-spec` beat the no-skill control, so neither is built (see "Control-arm result, 2026-10-16" below). The `[fictional]` convention, section A item 1, was written the same day. Scope was ruled 2026-10-15 and the stub was seeded 2026-09-01 during the v2.33.0 G4 post-tag hygiene pass.
+**Status:** **RE-SCOPED 2026-10-16 (R1 = A).** The original headline failed its own build gate: on 2026-10-16 neither `measure-ai-eval-spec` nor `deliver-ai-behavior-spec` beat the no-skill control, so neither is built (see "Control-arm result, 2026-10-16" below). The release now carries a `deliver-prd` increment built from what survived the test, plus the `[fictional]` validator and sweep, the HISTORY.md rule alignment and the section B runbook defects. The `[fictional]` convention, section A item 1, was written the same day. Scope was first ruled 2026-10-15, and the stub was seeded 2026-09-01 during the v2.33.0 G4 post-tag hygiene pass.
 **Owner:** Maintainers.
-**Type:** Open. It was MINOR because the headline was a new skill, which is the repo's MINOR test in [`../../skill-versioning.md`](../../skill-versioning.md). With no new skill, the type depends on the re-scope decision below.
+**Type:** MINOR, additive. The repo's MINOR test in [`../../skill-versioning.md`](../../skill-versioning.md) is "new skill added, or meaningful new shipped capability"; the `deliver-prd` increment is the second, as the skill increments were in v2.33.0.
 **Previous:** v2.33.0 SHIPPED 2026-09-01 (tag `v2.33.0` at `7a42570e`; plan at [`../v2.33.0/plan_v2.33.0.md`](../v2.33.0/plan_v2.33.0.md)).
 
 ---
@@ -79,6 +79,12 @@ All six judges recommended folding into an existing skill, including the one tha
 | R2 (D-A, reframed) | D-A asked whether distributional acceptance routes into `measure-ai-eval-spec`. That skill will not be built, so recommendation B is impossible as written | **A)** A designed-sample rule inside `deliver-prd`'s evaluation-set guidance, which already says a rate needs a designed sample. **B)** A When-NOT-to-Use bullet in `deliver-acceptance-criteria` that points at that guidance. **C)** Close D-A with no home | **A, with B as its pointer** |
 | R3 (family) | The two remaining new skills in the C-3 family | **A)** Close both with this result attached. **B)** Close `iterate-ai-incident-review`, whose input skill will not exist, and keep `develop-agent-authority-plan` unscheduled behind the same gate. **C)** Change nothing now | **B.** The authority plan covers the product's own agent, which no shipped increment covers, so it keeps its gate rather than being closed untested |
 
+**Ruled 2026-10-16 by the maintainer: R1 = A, R2 = A (with B as its pointer), R3 = B,** all as recommended. Consequences:
+
+- **R1.** The v2.34.0 build is a `deliver-prd` skill MINOR carrying salvage items 1 to 3 and both findings against the shipped section, alongside the `[fictional]` validator re-scope and sweep (section A items 1 and 6), the HISTORY.md rule alignment in `utility-pm-skill-builder` and `utility-pm-skill-iterate`, and the section B runbook defects. Salvage item 4 stays out until something tests it. The section D patch question folds in: there is no v2.33.1.
+- **R2.** Distributional acceptance gets a designed-sample rule inside `deliver-prd`'s evaluation-set guidance, built with the R1 increment, and `deliver-acceptance-criteria` gains one When-NOT-to-Use bullet pointing at it.
+- **R3.** `iterate-ai-incident-review` is closed, because the eval spec it fed will not exist. `develop-agent-authority-plan` stays unscheduled behind the same section 7 gate. Both are recorded in the C-3 spec.
+
 ## A. Carries from v2.33.0 section D
 
 | # | Item | Why it carried | Notes |
@@ -146,7 +152,7 @@ Full analysis, prioritized gaps, sequencing and falsifiable success criteria: [`
 | Item | Carried since | Note |
 |---|---|---|
 | [#279](https://github.com/product-on-purpose/pm-skills/issues/279) **skills-manifest.yaml: restore or retire** | 2026-08-18 | **RULED 2026-10-15: retire.** Only 9 of 45 release folders ever carried a manifest, and every version a manifest held is also in that skill's `HISTORY.md`. The nine manifests and their validator are deleted, the two skills without a `HISTORY.md` gain one, and `docs/internal/skill-versioning.md` now points at the `HISTORY.md` Release column instead. Merged 2026-10-15 as [#301](https://github.com/product-on-purpose/pm-skills/pull/301), which closed #279 |
-| **Tag the untagged delta as PATCH v2.33.1?** | 2026-10-15 | Open. `main` carries doc, validator and CI work since v2.33.0, and none of it reaches plugin users until a tag and a registry re-pin. A patch would ship it before this release does. **Evidence 2026-10-15:** every commit on `main` since `v2.33.0` is typed `docs`, `ci` or `chore`, including eleven dependency bumps, and no skill changed version. release-please agrees and proposes nothing. A patch would carry no fix, so the recommendation is to fold the delta into v2.34.0 |
+| **Tag the untagged delta as PATCH v2.33.1?** | 2026-10-15 | Open. `main` carries doc, validator and CI work since v2.33.0, and none of it reaches plugin users until a tag and a registry re-pin. A patch would ship it before this release does. **Evidence 2026-10-15:** every commit on `main` since `v2.33.0` is typed `docs`, `ci` or `chore`, including eleven dependency bumps, and no skill changed version. release-please agrees and proposes nothing. A patch would carry no fix, so the recommendation is to fold the delta into v2.34.0. **RULED 2026-10-16: folded into v2.34.0 as part of R1; there is no v2.33.1** |
 | [#267](https://github.com/product-on-purpose/pm-skills/issues/267) | v2.32.0 | Blocks C-6, which is why release-please stays shadow-only. The v2.33.0 shadow PR, [#271](https://github.com/product-on-purpose/pm-skills/pull/271), was closed unmerged on 2026-10-15 under the shadow protocol, and the next one opens when a `feat` or `fix` lands |
 | [#268](https://github.com/product-on-purpose/pm-skills/issues/268) | v2.32.0 | |
 
