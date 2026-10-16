@@ -55,7 +55,7 @@ Additional requirements:
 
 1. Output must follow the corresponding skill `references/TEMPLATE.md` section order.
 2. No unresolved placeholders (`TBD`, `TODO`, `<...>` placeholder text).
-3. Any invented metric/value should include `[fictional]` marker.
+3. Every invented observation carries a `[fictional]` marker: numbers, asserted method, events, quotes and sources named as evidence. The full rule, including what is never marked, is [the `[fictional]` convention](README_SAMPLES.md#the-fictional-convention).
 4. If real public claims are used, include `Source Notes` with public references.
 
 ## 5) Frontmatter Standards

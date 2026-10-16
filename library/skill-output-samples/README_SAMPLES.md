@@ -109,13 +109,34 @@ Every sample file follows a consistent three-section format:
 
 **Prompt** contains the realistic slash command the PM typed to invoke the skill. Prompt quality varies by thread (see above). The prompt is always a fenced code block showing exactly what the PM entered.
 
-**Output** is the complete artifact, following every section from the skill's `references/TEMPLATE.md` in order. No sections are skipped. No placeholder text remains. Every invented number carries a `[fictional]` marker.
+**Output** is the complete artifact, following every section from the skill's `references/TEMPLATE.md` in order. No sections are skipped. No placeholder text remains. Every invented observation carries a `[fictional]` marker, as defined in [the `[fictional]` convention](#the-fictional-convention) below.
 
 ---
 
 ## Data Integrity Rules
 
-**`[fictional]` markers** appear on every invented metric throughout the library: conversion rates, retention percentages, user counts, NPS scores, ARR figures, and any specific number that cannot be verified from a public source. If a number does not have a `[fictional]` marker, it is sourced from a real, publicly available document cited in the Source Notes.
+### The `[fictional]` convention
+
+A sample shows what a skill produces from its input. In real use a skill must never invent evidence, so anything a sample asserts beyond its input is marked as illustration with `[fictional]`. The convention applies to every library sample in this folder and to every skill's `references/EXAMPLE.md`.
+
+**The test is provenance, not form.** In a sample's Output, a claim carries the marker unless one of two things supplies it: the sample's input, meaning the Scenario and Prompt sections before `## Output`, or a public source cited in the Source Notes. A claim the input supplies keeps whatever marking it carries there, so a figure marked in the Scenario stays marked wherever the Output repeats it. Ask "does the input or a cited source supply this?", not "is this a number?" or "is this on a list?". A closed list of what to mark has been wrong before, each time by omitting an item that sat in the sentence it annotated. A skill's `EXAMPLE.md` has no input section, so every observation in it is invented unless a cited public source supplies it.
+
+**Mark observations, not decisions.** An observation claims the world is a certain way: something measured, found, reported, said or done. A decision is a choice the artifact itself makes, such as a target, a threshold, a limit, a rollout percentage or a scope cut. Mark observations and leave decisions unmarked. The test is not where a claim sits but whether it says the world is a certain way, so a scope justification such as "standard patterns cover most use cases" is an observation phrased as a decision, and it is marked.
+
+**Numbers are the obvious case, not the only one.** The marker also covers:
+
+- **Asserted method:** how evidence was gathered or checked, including the number and kind of participants, interview format, session length, delivery mode, field period, recruitment design, compensation, coding procedure, the order in which steps happened, and how an evaluation set was built, labeled or scored.
+- **Asserted events and durations:** "spent eight months rebuilding sender reputation" claims something happened, even though it reads as narrative.
+- **Quotes** attributed to a user, participant or stakeholder that the input does not supply.
+- **Sources named as evidence:** a ticket export, an audit-log review, an analytics query, a survey.
+
+Unmarked method is what makes an invented synthesis read as corroborated, and an artifact that consumes it inherits that false weight.
+
+**Placement.** Put the marker directly after the claim it covers. One marker covers one claim, so a sentence that asserts three invented things carries three markers. A notice at the start of a wholly invented section, such as an evidence ledger, may be added, but it supplements the inline markers and never replaces them: a reader who lands mid-section reads the claim, not the notice.
+
+**Never marked:** the three thread companies and their team members, which are fictional by definition; real competitor and vendor names; decisions the artifact makes; and the artifact's own scaffolding, such as headings, requirement IDs and its own date.
+
+**What the check covers.** `scripts/check-sample-no-fabricated-metrics.mjs` is an advisory heuristic that flags only percentages, and only in library samples. Passing it does not mean a sample follows this convention.
 
 **Source Notes** cite real, public sources when industry context or market data anchors the scenario. All URLs are publicly accessible with no paywalls and no internal links.
 

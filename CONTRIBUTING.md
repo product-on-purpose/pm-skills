@@ -29,7 +29,7 @@ All contributed skills must:
 1. **Solve a real PM workflow problem** - Not theoretical or edge-case
 2. **Follow agentskills.io spec** - Valid frontmatter, naming conventions
 3. **Include TEMPLATE.md** - Output template for the artifact
-4. **Include EXAMPLE.md** - Completed example demonstrating quality
+4. **Include EXAMPLE.md** - Completed example demonstrating quality, with every invented observation marked per [the `[fictional]` convention](library/skill-output-samples/README_SAMPLES.md#the-fictional-convention)
 5. **Have descriptive triggers** - Description includes keywords for discovery
 6. **Be well-tested** - Verified to produce useful output
 
