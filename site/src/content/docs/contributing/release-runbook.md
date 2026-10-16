@@ -100,8 +100,8 @@ Before invoking the runbook (manually or via `utility-pm-release-conductor v{X.Y
 
 **Sub-checks (conductor proposes each edit; maintainer confirms):**
 
-1. **plugin.json version field** - edit `.claude-plugin/plugin.json` `version` to target version
-2. **Marketplace manifest version** - edit `.claude-plugin/marketplace.json` (or equivalent) to match
+1. **Plugin manifest versions** - edit `version` to the target version in BOTH `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json`. `validate-version-consistency` fails if the two disagree.
+2. **Marketplace release pin (generator-owned)** - run `node scripts/gen-derived-surfaces.mjs`, which sets `plugins[0].version` and `plugins[0].source.ref` in `.claude-plugin/marketplace.json` from `plugin.json` (since v2.32.0 WS-6). Run it after the CHANGELOG section and the release page exist, because it fails loudly without the page. Never hand-edit the pin.
 3. **CHANGELOG.md header** - chain to `pm-changelog-curator` for a draft of entries; maintainer reviews + edits; new `## [vX.Y.Z] - YYYY-MM-DD` header at top
 4. **docs/changelog mirror** - update Astro-rendered changelog mirror to match
 5. **README badges** - version badges in `README.md` updated to target version
@@ -125,7 +125,7 @@ Before invoking the runbook (manually or via `utility-pm-release-conductor v{X.Y
 4. **Working tree clean post-commit** - `git status --porcelain` empty
 5. **Re-run G0 sub-checks against new HEAD** - validators, em-dash sweep, aggregate counter audit, cross-cutting audit (chains to pm-skill-auditor again) all run against the commit that includes release-prep edits; zero P0 findings required
 6. **CI green on new HEAD** - push the new commit to the release branch on origin; verify CI runs and passes. Block on this; the tag must point at a CI-passing commit.
-7. **Cross-reference commit SHA captured** - record the SHA that G3 will tag
+7. **Cross-reference commit SHA captured** - record the SHA that G3 will tag, outside the tree: in the session or the conductor's gate output, never in a tracked file. Committing the record would move HEAD past the SHA just captured, and re-capturing would recurse, which is how v2.33.0 ended up with an ambiguous tag target. The captured SHA, not HEAD, is what G3 tags.
 
 **Blocker:** any sub-check failure pauses G2.5. The conductor refuses to advance to G3 if working tree is not clean OR if CI is not green on the new commit.
 
@@ -158,8 +158,16 @@ Before invoking the runbook (manually or via `utility-pm-release-conductor v{X.Y
 6. **Next-cycle stub (P2 reminder)** - create `docs/internal/release-plans/v{next-minor}/plan_v{next-minor}.md` stub if not present.
 7. **Post-tag follow-up tasks logged (P2 reminder)** - any deferred items captured in the next-cycle stub. Copy every row of the closing plan's deferral sections (for example "Not carried in" and its open decisions) into the stub, row by row. A carry recorded only in the closing plan is not carried: the v2.34.0 stub omitted both AI-family keystone skills that the v2.33.0 plan staged for it, and the omission went unnoticed for six weeks.
 8. **release-please manifest reconciled (P2 reminder)** - set `.release-please-manifest.json` to the tagged version and commit it as `chore(release): reconcile the release-please manifest to {version} (G4)`. The manual cut never updates this file, and release-please computes its next proposal from it rather than from `plugin.json` or the tag. v2.33.0 skipped this step, so the shadow Release PR kept proposing 2.33.0, a version that already existed, until the manifest was reconciled on 2026-10-15.
+9. **External surfaces (P2 reminder)** - work the external-surface rows of `docs/internal/release-plans/checklist_doc-update-and-hygiene.md`: the GitHub About description (from `node scripts/gen-derived-surfaces.mjs --about`), repo topics, the Pages URL, Open Graph, and the skills.sh listing. These live in GitHub and third-party state, not in the tagged tree, so no validator sees them. `pm-skills-mcp` is frozen at v2.9.3, and a pm-skills cut takes no action there.
 
 **Blocker (per D23):** P0 sub-check failures block the "Release complete" output. The conductor surfaces the failure as a post-tag incident and instructs the maintainer to either resolve OR explicitly log the issue as a known regression carried to v{next-patch}. The conductor refuses to emit "Release complete: v{target}" until either path is taken. P1 and P2 sub-checks are surfaced but do not block.
+
+### Release-please during a manual cut
+
+release-please runs in shadow mode: it observes and proposes, and the manual cut above owns the version. Two behaviors are expected and must not be chased.
+
+- **The phantom-minor window.** Between pushing the release-prep commit and pushing the tag, release-please sees a manifest version with no matching tag, and its shadow Release PR can propose a spurious MINOR one step ahead. This was observed on 2026-07-31 on PR #237, during the v2.31.1 cut. The shadow PR is not a version authority: `plugin.json` and the G2 decision are. Keep the window short by tagging the captured SHA promptly. After the tag, the next release-please run corrects or supersedes the proposal. If it does not, close the shadow PR, citing the v2.31.1 shadow observation, and G4 sub-check 8 then reconciles the manifest.
+- **The regen workflow's neutral exit.** `.github/workflows/release-please-regen.yml` runs the generators on release-please's Release PR branch and commits the regenerated surfaces, so that PR can pass validation. Until the release page is committed to that branch, the newest CHANGELOG section has no page, and the run discards its partial writes and exits neutral with a notice. That is expected. Any other generator failure in that workflow is a real failure.
 
 ## No Bypass Policy
 
@@ -206,6 +214,6 @@ The maintainer running this runbook BY HAND (without any sub-agent) follows the 
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}` (G0 + G2.5 sub-check entry point)
 - Chain children: `agents/pm-skill-auditor.md`, `agents/pm-changelog-curator.md`
 - Chain allowlist: `agents/_chain-permitted.yaml` (lists only `pm-release-conductor`)
-- v2.15.1 clean-worktree runbook (predecessor for the manual maintainer flow): `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md`
+- v2.15.1 clean-worktree runbook, the predecessor for the manual maintainer flow, retired 2026-10-16: `docs/internal/release-plans/runbook_clean-worktree-cut-tag-publish.md` now holds a redirect to this page, and git history holds its old text. This page is the only release runbook.
 - Adversarial review user guide (G1 context): [`docs/guides/adversarial-review.md`](../guides/adversarial-review.md)
 - CHANGELOG hygiene rules (G2 context): `CLAUDE.md` (repo root)

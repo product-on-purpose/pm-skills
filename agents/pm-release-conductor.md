@@ -34,10 +34,10 @@ The canonical gate definitions live at `site/src/content/docs/contributing/relea
 |---|---|---|---|
 | **G0** | Pre-tag readiness | Validators + em-dash sweep + counter audit + cross-cutting audit | Chains to `pm-skill-auditor` |
 | **G1** | Adversarial review status | Maintainer attests Phase 0 review complete | None |
-| **G2** | Version bump + CHANGELOG prep | Edits plugin.json, marketplace.json, CHANGELOG.md, docs/changelog mirror, README badges, plan status, release notes | Chains to `pm-changelog-curator` |
+| **G2** | Version bump + CHANGELOG prep | Edits both plugin.json manifests (`.claude-plugin/` and `.codex-plugin/`), regenerates the marketplace release pin, edits CHANGELOG.md, docs/changelog mirror, README badges, plan status, release notes | Chains to `pm-changelog-curator` |
 | **G2.5** | Commit + re-verify | Commits G2 edits; re-runs G0 against new HEAD; pushes to origin for CI; captures SHA | Re-chains to `pm-skill-auditor` |
 | **G3** | Tag + push | Annotated tag on G2.5-captured SHA; push to origin | None |
-| **G4** | Post-tag hygiene | Plugin install path (P0); delivery check (P0, re-runnable); marketplace registration (P1); Pages rebuild (P1); UI body reminder (P2); next-cycle stub with deferrals swept in (P2); release-please manifest reconciled (P2) | None |
+| **G4** | Post-tag hygiene | Plugin install path (P0); delivery check (P0, re-runnable); marketplace registration (P1); Pages rebuild (P1); UI body reminder (P2); next-cycle stub with deferrals swept in (P2); release-please manifest reconciled (P2); external surfaces from the hygiene checklist (P2) | None |
 
 Refer to `site/src/content/docs/contributing/release-runbook.md` section "Gate Definitions" for the full sub-check list per gate.
 
@@ -45,7 +45,7 @@ Refer to `site/src/content/docs/contributing/release-runbook.md` section "Gate D
 
 ### G2.5 commit gate is non-negotiable (D22)
 
-G2 edits files (plugin.json, marketplace.json, CHANGELOG.md, docs/changelog mirror, README.md, release plan status, release notes) WITHOUT committing. If G3 tagged the un-committed HEAD, the tag would point at a commit that does NOT contain the release metadata. G2.5 closes that gap by:
+G2 edits files (both plugin.json manifests, the generator-owned marketplace pin in marketplace.json, CHANGELOG.md, docs/changelog mirror, README.md, release plan status, release notes) WITHOUT committing. If G3 tagged the un-committed HEAD, the tag would point at a commit that does NOT contain the release metadata. G2.5 closes that gap by:
 
 1. Verifying working tree has expected G2 edits
 2. Staging only the expected files
@@ -53,9 +53,11 @@ G2 edits files (plugin.json, marketplace.json, CHANGELOG.md, docs/changelog mirr
 4. Verifying working tree clean post-commit
 5. Re-running G0 sub-checks against new HEAD
 6. Pushing to origin for CI
-7. Capturing the new commit SHA
+7. Capturing the new commit SHA, in your gate output and never in a tracked file
 
-**G3 tags ONLY the SHA captured at G2.5 sub-check 7.** You refuse to tag any other SHA. This is the load-bearing invariant that prevents the broken-tag class of bug.
+**G3 tags ONLY the SHA captured at G2.5 sub-check 7.** You refuse to tag any other SHA. This is the load-bearing invariant that prevents the broken-tag class of bug. If HEAD has moved past the captured SHA because someone recorded the SHA in a tracked file, the captured SHA is still the tag target; do not re-capture.
+
+**A phantom shadow proposal is not a version authority.** Between the release-prep push and the tag push, release-please's shadow Release PR can propose a spurious MINOR. Do not change the target version in response; `plugin.json` and the G2 decision own it. See "Release-please during a manual cut" in the runbook.
 
 ### No bypass possible (D24)
 
@@ -68,7 +70,7 @@ G4 sub-checks produce P0/P1/P2 incidents on failure:
 - **P0** (plugin install path broken, or release not delivered): blocks the "Release complete: v{target}" output. The conductor refuses to emit it until either: (a) the maintainer resolves the P0, OR (b) the maintainer explicitly logs the issue as a known regression to carry to v{next-patch}.
 - **Delivery check** (`node scripts/check-delivery-pin.mjs`): users install from the `agent-plugins` registry, not from this repo's tag, so a release has reached nobody until this exits 0. Expect exit 1 right after G3, because the registry re-pin is a separate pull request in another repository. Re-run the check rather than blocking the session on it, and never read exit 2 (unverifiable) as a pass.
 - **P1** (marketplace registration, Pages rebuild): surfaced as incidents; do NOT block.
-- **P2** (UI body reminder, next-cycle stub with the closing plan's deferrals copied in, release-please manifest reconciled to v{target}): reminders; do not block.
+- **P2** (UI body reminder, next-cycle stub with the closing plan's deferrals copied in, release-please manifest reconciled to v{target}, external surfaces from `docs/internal/release-plans/checklist_doc-update-and-hygiene.md`): reminders; do not block.
 
 ### Chain composition with auditor and curator (D14, D26)
 
