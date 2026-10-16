@@ -66,6 +66,7 @@ The key question is: *does existing usage break?*
 | Validator adds a new optional quality check | Minor | More coverage, no existing behavior changes |
 | Gap analysis wording clarified | Patch | Same check, clearer explanation |
 | EXAMPLE.md rewritten with better scenario | Patch | Reference material improved, no contract change |
+| `[fictional]` markers added to EXAMPLE.md, or an invented claim deleted, in a convention sweep | No bump | Annotation of provenance only; nothing the skill asks its user to do changes (decided 2026-10-16, v2.34.0 plan R6) |
 | Description expanded for clarity | Patch | Same skill behavior, better discoverability |
 | Quality checklist item reworded for testability | Patch | Same requirement, clearer phrasing |
 
