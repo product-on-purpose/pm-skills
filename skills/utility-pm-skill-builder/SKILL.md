@@ -4,8 +4,8 @@ description: Guides contributors from a PM skill idea to a complete Skill Implem
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.2.0"
-  updated: 2026-07-04
+  version: "1.3.0"
+  updated: 2026-10-16
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -214,6 +214,12 @@ The packet includes:
     skill arm and a freehand control the same raw material. This is the B-7 asset contract
     (`scripts/check-output-eval-assets.mjs`). Omit `family` only if Step 4.5 found no
     rubric yet.
+15. **Draft HISTORY.md** - `HISTORY.md` with the summary table and one baseline row for
+    the skill's first version (Type `baseline`), plus a `## 1.0.0` section stating the
+    contract that version establishes. Every skill at 1.0.0 or later ships with this file
+    from its first version, so the Release column records every version a release ships
+    (`docs/internal/skill-versioning.md`, "Skill History"). Put the target release in the
+    Release column, or `-` if none is assigned yet.
 
 ### Step 6: Write to Staging Area
 
@@ -222,6 +228,7 @@ Write all generated files to the staging area:
 ```
 _staging/pm-skill-builder/{skill-name}/
 ├── SKILL.md               ← draft skill file
+├── HISTORY.md             ← draft version history (baseline row)
 ├── references/
 │   ├── TEMPLATE.md        ← draft template
 │   └── EXAMPLE.md         ← draft example
@@ -246,6 +253,7 @@ If yes, promote by copying each file from staging to its canonical path:
 | Staging file | Canonical location |
 |--------------|--------------------|
 | `_staging/pm-skill-builder/{skill-name}/SKILL.md` | `skills/{dir-name}/SKILL.md` |
+| `_staging/pm-skill-builder/{skill-name}/HISTORY.md` | `skills/{dir-name}/HISTORY.md` |
 | `_staging/pm-skill-builder/{skill-name}/references/TEMPLATE.md` | `skills/{dir-name}/references/TEMPLATE.md` |
 | `_staging/pm-skill-builder/{skill-name}/references/EXAMPLE.md` | `skills/{dir-name}/references/EXAMPLE.md` |
 | `_staging/pm-skill-builder/{skill-name}/evals/trigger-fixtures.json` | `skills/{dir-name}/evals/trigger-fixtures.json` |
@@ -307,6 +315,7 @@ share a phase name with the idea being pitched.
 
 The builder MUST produce draft files for the new skill:
 - `SKILL.md` - full skill instructions (including a `When NOT to Use` section naming neighbors, C-3)
+- `HISTORY.md` - version history with a baseline row for the first version
 - `references/TEMPLATE.md` - output template with guidance comments
 - `references/EXAMPLE.md` - complete worked example (150-300 lines)
 - `evals/trigger-fixtures.json` - routing eval fixtures (C-1; B-4 contract)
@@ -325,8 +334,8 @@ Before finalizing the packet, verify all items in both tiers:
 ### CI Validation (must pass)
 - [ ] `name` matches directory name
 - [ ] Description is 20-100 words (single-line, no multiline YAML)
-- [ ] `version`, `updated`, `license` all present
-- [ ] Classification correct (domain → `phase:`, foundation/utility → `classification:`)
+- [ ] `license` present at the top level, and `version` and `updated` present under `metadata:`, never at the top level (`lint-skills-frontmatter.sh` rejects a top-level `version`, `updated`, `phase` or `classification`)
+- [ ] Classification correct, under `metadata:` (domain → `phase:`, foundation/utility/tool → `classification:`, never both)
 - [ ] Directory name follows convention: `{phase/classification}-{skill-name}`
 - [ ] TEMPLATE.md has ≥3 `##` sections
 - [ ] Command file references correct skill path
@@ -336,6 +345,7 @@ Before finalizing the packet, verify all items in both tiers:
 - [ ] Gap analysis checked all existing skills (not just same-phase)
 - [ ] Why Gate evidence is specific (names prompts/scenarios, not vague)
 - [ ] EXAMPLE.md is a complete artifact (150-300 lines), not an outline
+- [ ] HISTORY.md has a baseline row for the first version and a matching `## 1.0.0` section
 - [ ] Output contract is present in draft SKILL.md
 - [ ] Quality checklist is present in draft SKILL.md
 

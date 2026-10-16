@@ -4,8 +4,8 @@ description: Applies targeted improvements to an existing pm-skills skill based 
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.0"
-  updated: 2026-04-03
+  version: "1.1.0"
+  updated: 2026-10-16
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
@@ -220,15 +220,21 @@ HISTORY.md based on the current state:
    I would add -- you can paste it manually:"
    Then show the proposed table row and version section.
 
-**If HISTORY.md does not exist and this is the skill's second version:**
-Offer to create it. "This is the second version of this skill. Would you
-like me to create HISTORY.md with entries for both versions? [yes / no]"
-On yes: create HISTORY.md with the format from `docs/internal/skill-versioning.md`,
-including entries for both the original version (from release history or
-effort brief) and the new version.
+**If HISTORY.md does not exist and the skill is at 1.0.0 or later:**
+The file is missing, whether or not this change bumps the version. Every
+skill at 1.0.0 or later carries a HISTORY.md from its first version
+(`docs/internal/skill-versioning.md`, "When to create"). Offer to create it.
+"This skill has no HISTORY.md. Would you like me to create it? [yes / no]"
+On yes: create HISTORY.md in that document's format, with a baseline row for
+the version the skill shipped at (from release history or the effort brief)
+and, if this change bumps the version, a row for the new version.
 
-**If HISTORY.md does not exist and version was not bumped:**
-No offer. HISTORY.md is premature until the skill has shipped a second version.
+**If HISTORY.md does not exist and the skill is still at 0.x:**
+- **If this change bumps it** (typically to 1.0.0): offer to create HISTORY.md
+  with a first row for the new version that says why the contract is now
+  stable. Do not backfill a row for the 0.x version.
+- **If this change does not bump it:** no offer. A 0.x skill is pre-contract,
+  and its file starts at its first bump.
 
 **If HISTORY.md exists but version was not bumped (skip):**
 No offer. The change summary is available in the conversation for the user
@@ -283,7 +289,7 @@ The iterator MUST NOT:
 - Write files without showing a preview first
 - Write files without user confirmation
 - Auto-increment the version number without explicit confirmation
-- Create HISTORY.md for a skill still on its first version
+- Create HISTORY.md for a 0.x skill whose version this change does not bump
 - Append to HISTORY.md without validating its format first
 
 ## Quality Checklist

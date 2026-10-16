@@ -1,7 +1,7 @@
 # Skill Implementation Packet: Change Communication
 
 > **Created**: 2026-03-22
-> **Builder version**: 1.0.0
+> **Builder version**: 1.3.0
 > **Status**: Draft
 
 ---
@@ -74,19 +74,19 @@ distinct coordination artifact in the Deliver phase.
 ## Draft Frontmatter
 
 ```yaml
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: deliver-change-communication
 description: Creates targeted change management communications for feature launches that alter user workflows. Guides audience segmentation, impact assessment, message drafting, and rollout sequencing to drive adoption and reduce support burden for SaaS product changes.
-phase: deliver
-version: "1.0.0"
-updated: 2026-03-22
 license: Apache-2.0
 metadata:
+  phase: deliver
+  version: "1.0.0"
+  updated: 2026-03-22
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ```
 
 ---
@@ -210,6 +210,26 @@ through T+3 days. Target length: 150-300 lines.
 
 ---
 
+## Draft HISTORY.md
+
+```markdown
+# deliver-change-communication - Version History
+
+| Version | Date | Release | Effort | Type | Summary |
+|---------|------|---------|--------|------|---------|
+| 1.0.0 | 2026-03-22 | - | - | baseline | Initial release: produces internal change communications for a launch that alters user workflows, segmented by audience, with an impact assessment, drafted messages, a support FAQ and a rollout schedule. |
+
+## 1.0.0 (2026-03-22)
+
+Initial release. Given a feature launch that changes how users work, the skill
+produces the internal communication package: who is affected and how, what
+each audience is told, what support needs to know, and when each message goes
+out. A later version that removed an audience segment or a template section
+would be a major.
+```
+
+---
+
 ## Draft Command
 
 ```markdown
@@ -247,10 +267,10 @@ Creates targeted change management communications for feature launches that alte
 
 - [x] `name` matches directory name (`deliver-change-communication`)
 - [x] `description` is 20-100 words (single-line) - 33 words
-- [x] `version` present (`"1.0.0"`)
-- [x] `updated` present (`2026-03-22`)
-- [x] `license` present (`Apache-2.0`)
-- [x] Phase/classification: domain skill has `phase: deliver`, no `classification:` field
+- [x] `metadata.version` present (`"1.0.0"`), and no top-level `version`
+- [x] `metadata.updated` present (`2026-03-22`), and no top-level `updated`
+- [x] `license` present at the top level (`Apache-2.0`)
+- [x] Phase/classification: domain skill has `metadata.phase: deliver`, no `classification:` field
 - [x] `references/TEMPLATE.md` has ≥3 `##` sections (6 sections)
 - [x] Command file references correct path (`skills/deliver-change-communication/SKILL.md`)
 - [x] AGENTS.md entry uses `#### change-communication` + `**Path:**` format

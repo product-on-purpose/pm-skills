@@ -1,7 +1,7 @@
 # Skill Implementation Packet: {Skill Name}
 
 > **Created**: {date}
-> **Builder version**: 1.0.0
+> **Builder version**: 1.3.0
 > **Status**: Draft | Promoted | Abandoned
 
 ---
@@ -55,21 +55,26 @@ where existing skills fail}
 ## Draft Frontmatter
 
 ```yaml
-<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ---
 name: {skill-name}
 description: {20-100 word description on a single line - linter reads first line only}
-phase: {phase}          # for domain skills only - omit for foundation/utility
-classification: {type}  # for foundation/utility only - omit for domain
-version: "1.0.0"
-updated: {date}
 license: Apache-2.0
 metadata:
+  phase: {phase}          # domain skills only - omit for foundation/utility/tool
+  classification: {type}  # foundation/utility/tool only - omit for domain
+  version: "1.0.0"
+  updated: {date}
   category: {category}
   frameworks: [triple-diamond]
   author: product-on-purpose
 ---
+<!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 ```
+
+> **Placement constraint**: the opening `---` must be the first bytes of the file, and
+> `version`, `updated`, `phase` and `classification` live under `metadata:`.
+> `lint-skills-frontmatter.sh` rejects any of the four at the top level. The attribution
+> comment goes after the closing `---`, never before it.
 
 > **Linter constraint**: `description:` must be a single-line value (no `>-` or `|` folding).
 > The linter extracts only the first line after the key using `sed`. Multiline YAML
@@ -109,6 +114,19 @@ Each section has:
 - Fills every TEMPLATE.md section with concrete content
 - Demonstrates optional sections both filled and skipped
 - Shows what "good" looks like for ambiguous sections}
+
+---
+
+## Draft HISTORY.md
+
+{A version history with one baseline row, in the format of
+`docs/internal/skill-versioning.md`, "Skill History (HISTORY.md)":
+- Title line: `# {skill-name} - Version History`
+- Summary table with the header `| Version | Date | Release | Effort | Type | Summary |`
+  and one row: `1.0.0`, the date, the target release (or `-` if none is assigned),
+  the effort ID (or `-`), `baseline`, and a one-sentence summary
+- A `## 1.0.0 ({date})` section stating the contract this version establishes: its
+  inputs, its output, and what a later change would have to break to be a major}
 
 ---
 
@@ -157,10 +175,10 @@ Context from user: $ARGUMENTS
 
 - [ ] `name` matches directory name
 - [ ] `description` is 20-100 words (single-line, no `>-`)
-- [ ] `version` present (exactly one root-level, no `metadata.version`)
-- [ ] `updated` present (ISO date format)
-- [ ] `license` present (`Apache-2.0`)
-- [ ] Phase/classification consistency (domain has `phase:`, foundation/utility has `classification:`)
+- [ ] `metadata.version` present, and no top-level `version` (`lint-skills-frontmatter.sh`)
+- [ ] `metadata.updated` present (ISO date format), and no top-level `updated`
+- [ ] `license` present at the top level (`Apache-2.0`)
+- [ ] Phase/classification consistency under `metadata:` (domain has `phase:`, foundation/utility/tool has `classification:`, never both)
 - [ ] `references/TEMPLATE.md` exists with ≥3 `##` sections
 - [ ] Command file references correct skill path (`validate-commands.sh`)
 - [ ] AGENTS.md entry uses `#### {name}` + `**Path:**` format (`validate-agents-md.sh`)
@@ -168,6 +186,7 @@ Context from user: $ARGUMENTS
 ### Quality Checks (should pass - builder-enforced, not CI-gated)
 
 - [ ] `references/EXAMPLE.md` is a complete artifact (150-300 lines), not an outline
+- [ ] `HISTORY.md` has a baseline row for the first version and a matching `## 1.0.0` section
 - [ ] Output contract present in SKILL.md
 - [ ] Quality checklist present in SKILL.md
 - [ ] Gap analysis checked all existing skills (not just same-phase)

@@ -2,11 +2,24 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 1.3.0 | 2026-10-16 | v2.34.0 | - | minor | The packet now includes a draft HISTORY.md with a baseline row, carried through staging and promotion, so a new skill ships with the file from its first version as `docs/internal/skill-versioning.md` has required since 2026-10-15. Also corrects the packet template's draft frontmatter, which put `version`, `updated`, `phase` and `classification` at the top level, where `lint-skills-frontmatter.sh` has rejected them since the v2.17.0 migration, and placed the attribution comment before the opening `---`, against this skill's own byte-0 rule. |
 | 1.2.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Replaced the hand-maintained "Current Library Reference" tables (a 10-row foundation table under an "(11)" header, and no tool-family table at all) with an instruction to derive the live inventory from `skill-manifest.json` or `AGENTS.md` at run time, plus a thin no-counts families overview. Gap analysis (Step 2) can now reach all 68 skills, including all 15 tool-family skills, without a future skill addition requiring a hand edit here. Step 4's exemplar selection now picks a dialect from the new Skeleton Canon doc BEFORE choosing an exemplar, replacing the circular "mirror exemplar structure" instruction that let a fourth, unsanctioned dialect emerge in `foundation-build-risk-review`. |
 | 1.1.2 | 2026-06-23 | v2.29.0 | M-34 | patch | Collision-probe checklist now points to the key-free `pm-skill-router` path (`--emit-tasks` + the sub-agent); the Messages-API path is the unattended-CI alternative. No flow change. |
 | 1.1.1 | 2026-06-20 | v2.28.0 | - | patch | Doc-currency: added `foundation-stakeholder-briefings` to the Current Library Reference foundation table (foundation 9 to 10) so gap analysis sees the full v2.28.0 inventory. No flow change. |
 | 1.1.0 | 2026-06-15 | - | C-1..C-4 | minor | New skills ship eval-ready: added a Step 4.5 "Eval Readiness" (neighbors + reciprocal boundary pointers + output-eval family rubric), scaffolded `evals/trigger-fixtures.json` (C-1) and `evals/output-scenarios/{id}.md` (C-4) into the packet/staging/promotion, a Step 7 collision probe (C-2), and the eval contract in the Output Contract + Quality Checklist. Refreshed the stale "When NOT to Use" pointers (pm-skill-iterate/validate now exist). |
 | 1.0.0 | 2026-03-22 | - | - | baseline | Prior published version: guided skill creation (gap analysis, Why Gate, classification, staged packet, promotion). |
+
+## 1.3.0 (2026-10-16)
+
+Planned for v2.34.0, under ruling R1 (re-scope the release around the deliver-prd increment) in its release plan.
+
+On 2026-10-15 the repo retired the per-release `skills-manifest.yaml` and made HISTORY.md required from a skill's first 1.0.0 release. This skill did not scaffold the file, so every skill it created would have shipped without one. Aligning it was a v2.34.0 plan item.
+
+### Changes
+- Step 5's packet gains item 15, a draft HISTORY.md with the summary table, one baseline row and a `## 1.0.0` section. Step 6's staging tree, Step 7's promotion table and the Output Contract carry the file, and both checklists check it.
+- The packet template's draft frontmatter moves `version`, `updated`, `phase` and `classification` under `metadata:`. The template had kept the pre-v2.17.0 shape, which `lint-skills-frontmatter.sh` rejects, and its checklist stated the inverted rule ("no `metadata.version`"). Every skill drafted from it would have failed lint until fixed by hand.
+- The attribution comment in the draft frontmatter moves after the closing `---`. It sat before the opening fence, which Step 5 item 5 of this skill forbids.
+- `references/EXAMPLE.md` shows the corrected frontmatter and a filled HISTORY.md section, and both packet files carry builder version 1.3.0.
 
 ## 1.2.0 (2026-07-04)
 
@@ -22,6 +35,14 @@ The 2026-07-04 deep audit found the "Current Library Reference" section blind to
 - Step 4's "Exemplar selection" (renamed "Dialect and exemplar selection") now points to [Skeleton Canon: The Three Sanctioned Dialects](../../site/src/content/docs/guides/creating-pm-skills.md#skeleton-canon-the-three-sanctioned-dialects) and requires picking a dialect (classic, contract-shaped, tool-family) BEFORE choosing an exemplar, so a drifted exemplar is no longer mirrored forward into a new skill. Step 5 item 6 updated to match.
 
 No change to the core create-a-skill flow (Steps 1-7); this is a gap-analysis and dialect-selection input fix.
+
+## 1.1.2 (2026-06-23)
+
+Released in [v2.29.0](../../site/src/content/docs/releases/Release_v2.29.0.md). Effort: M-34 (key-free skill router).
+
+The Step 7 collision-probe checklist now points to the key-free `pm-skill-router` path (`--emit-tasks` plus the sub-agent). The Messages-API path remains as the alternative for unattended CI. No change to the create-a-skill flow.
+
+This section was added on 2026-10-16. The 1.1.2 row had shipped without one.
 
 ## 1.1.1 (2026-06-20)
 

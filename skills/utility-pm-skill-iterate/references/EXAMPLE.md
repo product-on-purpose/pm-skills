@@ -101,10 +101,10 @@ Version updated: `2.0.0` -> `2.0.1` in SKILL.md frontmatter.
 
 ## Step 7: Offer HISTORY.md Update
 
-HISTORY.md does not exist. This is the skill's second version (2.0.0 -> 2.0.1).
+HISTORY.md does not exist, and the skill is at 1.0.0 or later (2.0.0, bumping
+to 2.0.1), so the file is missing.
 
-"This is the second version of this skill. Would you like me to create
-HISTORY.md with entries for both versions? [yes / no]"
+"This skill has no HISTORY.md. Would you like me to create it? [yes / no]"
 
 User: yes
 
@@ -178,8 +178,9 @@ This example demonstrates:
 - **Patch classification**: making implicit requirements explicit is a
   clarification, not a new requirement -- users who followed the template
   were already producing compliant output
-- **HISTORY.md creation at second-version trigger**: the skill moved from
-  2.0.0 to 2.0.1, triggering the governance rule to create HISTORY.md
-  with entries for both versions
+- **HISTORY.md creation for a skill at 1.0.0 or later**: the skill had no
+  HISTORY.md, which the governance rule requires from a skill's first
+  version, so the iterator created it with a baseline row for 2.0.0 and a
+  row for 2.0.1
 - **The iteration did NOT modify TEMPLATE.md or EXAMPLE.md**: the change
   was confined to SKILL.md's Output Format section
