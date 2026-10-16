@@ -131,10 +131,11 @@ See [link to detailed user stories] for full acceptance criteria.
 
      The pass rule is fixed before the run and applies to each case, for example "refuses on
      every run". A percentage over a curated set makes a weak pass rule, because that set supports
-     no rate (see Evaluation Set). A rate belongs here when a designed sample backs it.
+     no rate (see Evaluation Set). A rate belongs here only when a designed sample backs it, and
+     that sample is drawn separately from the curated evaluation set below.
 
-     AB-4 and AB-5 are prompted rows, each with its own condition. Keep a row when its condition
-     holds and delete it when it does not. Both are easy to leave out, which is why they are
+     AB-4 and AB-5 are recommended rows, each with its own condition. Include a row when its
+     condition holds and delete it when it does not. Both are easy to leave out, which is why they are
      named here rather than left to the slice list. -->
 
 | ID | Behavior required | How it is evaluated | Pass rule |
@@ -170,10 +171,10 @@ See [link to detailed user stories] for full acceptance criteria.
 - **Where the cases live:** [Path or system]
 - **Slices that must be covered:** [Derive them, do not guess. At minimum: every AB-n row above; every refusal and every abstention case; and the input classes where a failure costs the most - name the cost, not just the class]
 - **Floor per slice, and what it commits you to:** [For each slice: the minimum cases you will not go below, and why that slice earns that floor. Say what the floor buys in coverage terms, which is that a named failure mode was searched for deliberately rather than incidentally. Do not state or imply a failure rate]
-- **Runs per case:** [How many times each case runs at production settings, and when a case passes: on every run, or on a stated number of runs fixed before the run. A case that passes once and fails once has not shown that it holds]
+- **Runs per case** *(recommended)*: [How many times each case runs at production settings, and when a case passes: on every run, or on a stated number of runs fixed before the run. A case that passes once and fails once has not shown that it holds]
 - **Held-out cases:** [The cases not used while tuning, kept back to check the pass rules still hold. If none are held out, say so and say why the pass rules are not overfit]
 - **Slices scored separately:** [The segments reported on their own, never only in the aggregate. An aggregate that passes while one slice fails is a failing evaluation]
-- **Requirements stated as a rate:** [A criterion such as "at least 90% of answers cite a source" is a release requirement only when a designed sample backs it: a sampling frame, a size and a threshold fixed before the run, and someone who can defend them. Without one, restate it as a pass rule per case over the named slices]
+- **If a requirement is stated as a rate:** [A criterion such as "at least 90% of answers are faithful to their sources" is a release requirement only when a designed sample backs it. That sample is drawn separately from this curated set, with a sampling frame, a size and a threshold fixed before the run, and someone who can defend them. Without one, restate the criterion as a pass rule per case over the named slices]
 - **If someone asks for a rate:** [This set does not support one, and saying so is the correct answer. Report the raw counts per slice and the floor each was held to. A rate claim needs a designed sample, not a curated evaluation set, and inventing one here is how a PRD ends up carrying a number nobody can defend]
 
 ## Technical Considerations

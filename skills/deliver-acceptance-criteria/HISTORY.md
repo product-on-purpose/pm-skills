@@ -11,7 +11,7 @@
 
 Planned for v2.34.0, under ruling R2 (distributional acceptance gets a designed-sample rule in `deliver-prd`) in its release plan.
 
-A criterion such as "90% of answers cite a source" is a rate over model output, and a Given/When/Then scenario describes one case, not a share across many. The When NOT to Use section now routes it to `deliver-prd` 3.1.0, whose evaluation guidance says a rate is a requirement only when a designed sample backs it. Otherwise the rate is restated as a pass rule per case. Boundary pointer only; the skill's output is unchanged.
+A criterion such as "90% of answers are faithful to their sources" is a rate over model output, and a Given/When/Then scenario describes one case, not a share across many. The When NOT to Use section now routes it to `deliver-prd` 3.1.0, whose evaluation guidance says a rate is a requirement only when a designed sample backs it. Otherwise the rate is restated as a pass rule per case. Boundary pointer only; the skill's output is unchanged.
 
 ## 1.1.0 (2026-06-10)
 
