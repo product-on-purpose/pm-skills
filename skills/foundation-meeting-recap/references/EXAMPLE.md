@@ -72,14 +72,14 @@ Scope and capacity agreed; timeline deferred to a follow-up next week due to eme
 ### Meeting details
 
 - **Date**: 2026-04-17
-- **Actual duration**: 68 min (overran by 8 min)
+- **Actual duration**: 68 min (overran by 8 min) [fictional]
 - **Attendees present**: jonathan, maria, alex, sarah
 - **Attendees absent**: none
 - **Recording**: https://meet.example/search-kickoff/recording
 
 ### Overall summary
 
-Agreed on MVP scope (autocomplete + filters in; saved searches deferred) and Q2 engineering capacity (8 sprint-weeks). Timeline commitment deferred to next week because an emergent question on the search-provider vendor contract needs resolution before a date can be committed. Meeting ran 8 minutes over due to the vendor-contract tangent.
+Agreed on MVP scope (autocomplete + filters in; saved searches deferred) and Q2 engineering capacity (8 sprint-weeks). Timeline commitment deferred to next week because an emergent question on the search-provider vendor contract needs resolution before a date can be committed. Meeting ran 8 minutes over [fictional] due to the vendor-contract tangent.
 
 ### Agenda reconciliation
 
@@ -100,7 +100,7 @@ Walked the scope draft together. Autocomplete and filters had clear customer-res
 
 **Decisions made**
 
-- **MVP scope: autocomplete IN, filters IN, saved searches OUT (defer to v2)**. rationale: autocomplete + filters cover 80% of the research-identified user need; saved searches adds complexity (accounts, persistence) that costs Q2 engineering time without proportional customer-value gain
+- **MVP scope: autocomplete IN, filters IN, saved searches OUT (defer to v2)**. rationale: autocomplete + filters cover 80% [fictional] of the research-identified user need; saved searches adds complexity (accounts, persistence) that costs Q2 engineering time without proportional customer-value gain
 
 **Actions**
 
@@ -142,7 +142,7 @@ Alex walked the Q2 capacity model. 8 sprint-weeks available for search; no backf
 
 **Discussion**
 
-Alex surfaced a prior email from the search-provider (Algolia) indicating possible licensing limits on query volume at our projected usage. Raised concern that if limits trigger, we could be forced to renegotiate or re-architect. Decision was to investigate before committing to a ship timeline.
+Alex surfaced a prior email from the search-provider (Algolia) indicating possible licensing limits on query volume at our projected usage [fictional]. Raised concern that if limits trigger, we could be forced to renegotiate or re-architect. Decision was to investigate before committing to a ship timeline.
 
 **Decisions made**
 
@@ -180,7 +180,7 @@ Alex surfaced a prior email from the search-provider (Algolia) indicating possib
 ### Meeting quality signals
 
 - **Outcomes achieved**: 2 of 3 stated outcomes met (scope, capacity; ship-date deferred pending vendor review)
-- **Time management**: Started on time; ended 8 min over due to emergent vendor-contract discussion
+- **Time management**: Started on time; ended 8 min over [fictional] due to emergent vendor-contract discussion
 - **Key attendee presence**: All attendees present; decision-maker (jonathan) engaged throughout
 
 ### Next steps
@@ -194,7 +194,7 @@ Alex surfaced a prior email from the search-provider (Algolia) indicating possib
 
 ### Primary inputs
 
-- Transcript: zoom-recording-2026-04-17 via Otter (68 min, speaker-attributed)
+- Transcript: zoom-recording-2026-04-17 via Otter (68 min, speaker-attributed) [fictional]
 - jonathan's live notes (supplementary, used for context where transcript was ambiguous on speaker attribution)
 
 ### Referenced artifacts
@@ -213,7 +213,7 @@ Alex surfaced a prior email from the search-provider (Algolia) indicating possib
 
 - **Generated**: 2026-04-18T09:15:00Z
 - **Skill version**: 1.0.0
-- **Input quality**: high. transcript plus live notes; all speakers identifiable
+- **Input quality**: high. transcript plus live notes; all speakers identifiable [fictional]
 - **Overall confidence**: high. decisions, actions, owners, dates all directly supported in transcript
 - **Known gaps**: None identified
 - **Inferences applied**: topic "vendor-contract-review" emerged during meeting and was not in agenda; labeled as emergent [confidence: high. explicit in transcript]

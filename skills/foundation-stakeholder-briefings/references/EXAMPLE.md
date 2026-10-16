@@ -29,12 +29,12 @@ A worked case showing the master-first projection: one PRD fanned out into four 
 
 **Status**
 
-- M5: Engineering build is ~60% complete [fictional]; the sending pipeline and template gallery are done, analytics is not.
+- M5: Engineering build is ~60% complete [fictional]; the sending pipeline and template gallery are done [fictional], analytics is not [fictional].
 - M10: Success is measured by adoption among external-tool merchants plus deliverability health; this needs campaign-event instrumentation (created, sent, delivered, opened, clicked, unsubscribed) and an adoption/deliverability dashboard, both part of the unfinished analytics work.
 
 **Risks and open questions**
 
-- M6: Deliverability reputation on cold domains is the top risk; warm-up adds ~2 weeks to the timeline.
+- M6: Deliverability reputation on cold domains is the top risk; warm-up adds ~2 weeks to the timeline [fictional].
 - M7: CAN-SPAM and GDPR consent handling needs legal sign-off before GA.
 
 **Asks**
@@ -56,7 +56,7 @@ A worked case showing the master-first projection: one PRD fanned out into four 
 
 **What this means for the Executive sponsor**
 
-Campaigns lets merchants run email/SMS in-platform instead of paying for Klaviyo or Mailchimp, aimed at the ~68% [fictional] who use an external tool today. Build is on track for a 2026-07-20 GA. The one material risk is email deliverability on cold domains, which the warm-up plan addresses but which adds about two weeks. Decision needed from you: GA go/no-go at the 2026-07-15 review.
+Campaigns lets merchants run email/SMS in-platform instead of paying for Klaviyo or Mailchimp, aimed at the ~68% [fictional] who use an external tool today. Build is on track for a 2026-07-20 GA. The one material risk is email deliverability on cold domains, which the warm-up plan addresses but which adds about two weeks [fictional]. Decision needed from you: GA go/no-go at the 2026-07-15 review.
 
 --- END ---
 
@@ -69,7 +69,7 @@ Campaigns lets merchants run email/SMS in-platform instead of paying for Klaviyo
 
 **What this means for Engineering**
 
-v1 is template-only sending (no drag-and-drop) with CAN-SPAM one-click unsubscribe. Sending runs on a dedicated-IP provider with domain warm-up; the pipeline and template gallery are done (~60% overall [fictional]), analytics is not. The critical path is deliverability warm-up on cold domains. Confirm the warm-up schedule completes before the 2026-06-30 beta so reputation is established at launch.
+v1 is template-only sending (no drag-and-drop) with CAN-SPAM one-click unsubscribe. Sending runs on a dedicated-IP provider with domain warm-up; the pipeline and template gallery are done [fictional] (~60% overall [fictional]), analytics is not [fictional]. The critical path is deliverability warm-up on cold domains. Confirm the warm-up schedule completes before the 2026-06-30 beta so reputation is established at launch.
 
 --- END ---
 
@@ -82,7 +82,7 @@ v1 is template-only sending (no drag-and-drop) with CAN-SPAM one-click unsubscri
 
 **What this means for the Data team**
 
-The success measure for Campaigns is adoption among the ~68% [fictional] of merchants on external tools, plus deliverability health. Analytics is the one build item not yet done. We need event instrumentation (campaign_created, send_completed, delivered, opened, clicked, unsubscribed) and a dashboard covering adoption and deliverability before the 2026-06-30 beta, or v1 ships blind.
+The success measure for Campaigns is adoption among the ~68% [fictional] of merchants on external tools, plus deliverability health. Analytics is the one build item not yet done [fictional]. We need event instrumentation (campaign_created, send_completed, delivered, opened, clicked, unsubscribed) and a dashboard covering adoption and deliverability before the 2026-06-30 beta, or v1 ships blind.
 
 --- END ---
 

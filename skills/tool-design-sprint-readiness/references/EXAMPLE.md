@@ -12,7 +12,7 @@ The Brainshelf team closed their Foundation Sprint on 2026-05-14. The Founding H
 
 > Founding Hypothesis (2026-05-14): "If we help people who read 25 or more books a year and treat their personal library as memory rather than identity solve 'I can't remember what I've read or what I want to read next' with sub-3-second camera-first capture into a private library, they will choose it over Goodreads, StoryGraph, paper journals, and doing nothing because our solution is the fastest way to capture a book and the most useful way to recall what they have read." Highest-risk assumption (per FS scorecard): A1, "25+/year readers are switchable from 'do nothing' with sub-3-second capture."
 
-**Customer access status:** Riley owns recruiting; pulling from her 12k-follower book-blogger Discord plus a UserInterviews paid panel for non-Discord 25+/year readers. Estimated 7 days to confirm 5 customers (target 6 including 1 buffer). Honorarium budget USD 100 per 60-minute interview confirmed with Jamie.
+**Customer access status:** Riley owns recruiting; pulling from her 12k-follower [fictional] book-blogger Discord plus a UserInterviews paid panel for non-Discord 25+/year readers. Estimated 7 days to confirm 5 customers (target 6 including 1 buffer). Honorarium budget USD 100 per 60-minute interview confirmed with Jamie.
 
 **Decider name and availability:** Jamie, full-week availability for 2026-06-01 through 2026-06-05; no calendar conflicts in load-bearing windows (Mon AM, Wed AM, Fri PM).
 
@@ -39,14 +39,14 @@ The team meets all eight canonical readiness criteria. Recruiting is the only wa
 | 4. Team size appropriate (4-7) | PASS | 4 people, all 4 have load-bearing roles |
 | 5. Team can clear 5 consecutive days | PASS | Confirmed; calendars blocked; backup coverage arranged for non-sprint duties |
 | 6. Customer access for Friday testing secured | PASS | Riley owns; UserInterviews panel + Discord; 7-day path to 5 confirmed; honorarium budget approved |
-| 7. Prototype medium feasible in 1 day | PASS | Figma clickable; Alex has built 3 Figma prototypes of comparable scope in the last 6 months |
+| 7. Prototype medium feasible in 1 day | PASS | Figma clickable; Alex has built 3 Figma prototypes of comparable scope in the last 6 months [fictional] |
 | 8. Sprint output has a path forward | PASS | Decider review by 17:30 Friday; build (6-week MVP starting Monday 2026-06-08), iterate (re-sprint), or pivot to Red Bookstore Mode |
 
 ## Diagnosis
 
 The team meets all eight canonical readiness criteria cleanly. The transition from Foundation Sprint to Design Sprint is unusually smooth here because the FS Founding Hypothesis was specific and the highest-risk assumption (A1) was named explicitly in the assumption scorecard; the Design Sprint's purpose is therefore unambiguous (test A1 on Friday) rather than the more common "we'll figure out what to test on Monday" situation.
 
-The single watch item is recruiting. Riley needs to start recruiting within 24 hours (by 2026-05-16 EOD) to have comfortable lead time before 2026-05-29 (last day to confirm Friday slots; 7 days before Friday testing 2026-06-05). A UserInterviews panel is the safety net if the Discord channel underdelivers; Riley has used the panel before with a 65% confirm-to-show rate, meaning the team should target 6 confirmed slots (1 buffer) to land 5 actual customers Friday.
+The single watch item is recruiting. Riley needs to start recruiting within 24 hours (by 2026-05-16 EOD) to have comfortable lead time before 2026-05-29 (last day to confirm Friday slots; 7 days before Friday testing 2026-06-05). A UserInterviews panel is the safety net if the Discord channel underdelivers; Riley has used the panel before with a 65% confirm-to-show rate [fictional], meaning the team should target 6 confirmed slots (1 buffer) to land 5 actual customers Friday.
 
 No other risks found. The team is small, has FS context, has a clear Decider, has a chosen prototype medium with proven team capability, and has explicit downstream commitment to either build or pivot based on Friday outcome.
 
@@ -59,7 +59,7 @@ None. Verdict is Go without preconditions. The "recommended pre-sprint activitie
 | Element | Value |
 |---|---|
 | Target customer profile | Adults aged 25-55 who read 25+ books per year, treat their personal library as memory rather than identity, currently use no system or use paper journals; mix of male and female; mix of US and international (English-speaking) |
-| Source | Primary: Riley's book-blogger Discord (~12k followers; warm intro). Secondary: UserInterviews paid panel filtered to "reads 25+ books per year." |
+| Source | Primary: Riley's book-blogger Discord (~12k followers [fictional]; warm intro). Secondary: UserInterviews paid panel filtered to "reads 25+ books per year." |
 | Count needed | 5 (target 6 confirmed slots for 1-buffer) |
 | Incentive | USD 100 per 60-minute interview (paid via UserInterviews for panel customers; Amazon gift card for Discord customers; honorarium budget approved by Jamie) |
 | Recruiter owner | Riley |

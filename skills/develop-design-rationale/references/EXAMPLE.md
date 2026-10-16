@@ -21,11 +21,11 @@ context: Mobile app navigation redesign for 50+ features
 
 ### Problem Statement
 
-Our mobile app has grown from 12 to 50+ features over three years. The current hamburger menu navigation has become a "junk drawer" where users struggle to find features. Task completion rates have dropped 15% in the past year, and support tickets about "where is X?" have increased 40%.
+Our mobile app has grown from 12 to 50+ features over three years. The current hamburger menu navigation has become a "junk drawer" where users struggle to find features. Task completion rates have dropped 15% [fictional] in the past year, and support tickets about "where is X?" have increased 40% [fictional].
 
 ### User Need
 
-Users need to quickly access core functionality without hunting through menus. Research shows our users typically need the same 5-7 features in 80% of sessions, but they can't remember where those features live in the current navigation.
+Users need to quickly access core functionality without hunting through menus. Research shows our users typically need the same 5-7 features in 80% of sessions [fictional], but they can't remember where those features live in the current navigation.
 
 ### Constraints
 
@@ -60,7 +60,7 @@ Users need to quickly access core functionality without hunting through menus. R
 **Cons:**
 - Hidden navigation still requires recall ("where's Settings?")
 - Extra tap to reach any feature
-- User research shows low engagement with customization features
+- User research shows low engagement with customization features [fictional]
 - Doesn't solve core discoverability problem
 
 ---
@@ -91,7 +91,7 @@ Users need to quickly access core functionality without hunting through menus. R
 - Most accessible pattern.large tap targets, always visible
 - Industry standard across both iOS and Android
 - Highly discoverable.users instantly see what app does
-- Research shows 5 items is optimal for quick scanning
+- Research shows 5 items is optimal for quick scanning [fictional]
 - "More" menu can be organized and searchable
 
 **Cons:**
@@ -128,10 +128,10 @@ Users need to quickly access core functionality without hunting through menus. R
 
 ### User Research Input
 
-- Usability testing (n=8): 7/8 users found target feature faster with bottom nav than hamburger
-- Analytics: Current top 5 features account for 78% of all feature usage
-- Competitive analysis: 4/5 top-rated productivity apps use bottom tab navigation
-- User quote: "I wish I didn't have to think about where things are. Just show me."
+- Usability testing (n=8): 7/8 users found target feature faster with bottom nav than hamburger [fictional]
+- Analytics: Current top 5 features account for 78% of all feature usage [fictional]
+- Competitive analysis: 4/5 top-rated productivity apps use bottom tab navigation [fictional]
+- User quote: "I wish I didn't have to think about where things are. Just show me." [fictional]
 
 ---
 
@@ -139,7 +139,7 @@ Users need to quickly access core functionality without hunting through menus. R
 
 ### Why Option C?
 
-The bottom tab bar provides the best balance of discoverability, accessibility, and task efficiency.our three highest-weighted criteria. While it sacrifices some screen real estate and limits direct access to 4 features, user research strongly validates that our users primarily need quick access to a small set of features.
+The bottom tab bar provides the best balance of discoverability, accessibility, and task efficiency.our three highest-weighted criteria. While it sacrifices some screen real estate and limits direct access to 4 features, user research strongly validates that our users primarily need quick access to a small set of features [fictional].
 
 The hamburger menu (Option A) fails to solve our core problem: users still have to remember where features are. The FAB approach (Option B) has significant accessibility concerns and would require iOS users to learn an Android-centric pattern.
 
@@ -152,7 +152,7 @@ The hamburger menu (Option A) fails to solve our core problem: users still have 
 
 ### Dissenting Opinions
 
-Chen (Engineering) initially preferred Option A due to lower implementation effort. After reviewing the user research showing 15% task completion decline, he agreed that Option C's benefits justified the additional work.
+Chen (Engineering) initially preferred Option A due to lower implementation effort [fictional]. After reviewing the user research showing 15% [fictional] task completion decline, he agreed that Option C's benefits justified the additional work [fictional].
 
 ---
 
@@ -162,8 +162,8 @@ Chen (Engineering) initially preferred Option A due to lower implementation effo
 
 | Trade-off | Impact | Why Acceptable |
 |-----------|--------|----------------|
-| Screen real estate | 50px permanently used by navigation | On modern devices, this is <5% of screen; content scrolls. User research showed no concern. |
-| Secondary feature access | Requires 2 taps for "More" features | 78% of usage is top 5 features; acceptable friction for long tail |
+| Screen real estate | 50px permanently used by navigation | On modern devices, this is <5% of screen [fictional]; content scrolls. User research showed no concern [fictional]. |
+| Secondary feature access | Requires 2 taps for "More" features | 78% of usage is top 5 features [fictional]; acceptable friction for long tail |
 | Feature count limitation | Can only highlight 4 features directly | Forces prioritization; actually a benefit for user clarity |
 
 ### Risks

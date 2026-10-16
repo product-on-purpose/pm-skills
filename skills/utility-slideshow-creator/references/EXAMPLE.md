@@ -5,11 +5,11 @@ This example walks through creating a 9-slide product update deck for an enginee
 ## Content Brief
 
 The product team needs a deck for the Q3 engineering all-hands covering:
-- Customer satisfaction hit a record high (94%)
-- Three major features shipped (real-time analytics dashboard, API rate limiting, bulk data import)
-- Revenue grew 18% quarter-over-quarter
+- Customer satisfaction hit a record high (94%) [fictional]
+- Three major features shipped (real-time analytics dashboard, API rate limiting, bulk data import) [fictional]
+- Revenue grew 18% quarter-over-quarter [fictional]
 - Roadmap preview for Q4 (3 milestones)
-- Key insight: teams using the analytics dashboard have 2.4x faster incident response times
+- Key insight: teams using the analytics dashboard have 2.4x faster incident response times [fictional]
 
 ## Deck Planning
 

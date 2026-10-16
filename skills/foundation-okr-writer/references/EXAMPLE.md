@@ -16,9 +16,9 @@ context: Storevine B2B ecommerce platform. Campaigns team Q3 2026 OKR set follow
 
 ## Scenario
 
-Storevine's Campaigns team shipped the guided first-campaign flow in May 2026 and validated it via the 60-day A/B test that ran through late June (see the `measure-experiment-results` storevine sample). First-send rate moved from 13.4% to 31.7% [fictional] in the treatment, and the secondary metric (90-day second-campaign rate) reached 22.8% [fictional]. The guided flow is now the default for new merchants.
+Storevine's Campaigns team shipped the guided first-campaign flow in May 2026 and validated it via the 60-day [fictional] A/B test that ran through late June [fictional] (see the `measure-experiment-results` storevine sample). First-send rate moved from 13.4% to 31.7% [fictional] in the treatment, and the secondary metric (90-day second-campaign rate) reached 22.8% [fictional]. The guided flow is now the default for new merchants.
 
-For Q3 2026, the Campaigns growth-pm needs to set OKRs that move from "we activated more merchants" to "merchants use Campaigns as a sustained marketing channel." The forcing function is a company-level OKR to reduce 12-month merchant churn from 18% to 14% [fictional] by year-end. Engagement with Campaigns is one of the strongest leading indicators for merchant retention.
+For Q3 2026, the Campaigns growth-pm needs to set OKRs that move from "we activated more merchants" to "merchants use Campaigns as a sustained marketing channel." The forcing function is a company-level OKR to reduce 12-month merchant churn from 18% to 14% [fictional] by year-end. Engagement with Campaigns is one of the strongest leading indicators for merchant retention [fictional].
 
 The growth-pm runs `foundation-okr-writer` in Guided mode (default).
 

@@ -35,10 +35,10 @@ copilot> /utility-pm-release-conductor v2.16.0 --dry-run
 
 **Sub-checks:**
 
-1. **Working tree clean:** PASS
-2. **Pre-tag validator bundle green:** PASS (`bash scripts/pre-tag-validate.sh` exit 0)
-3. **Em-dash sweep clean:** PASS
-4. **Aggregate counters match declared:** PASS
+1. **Working tree clean:** PASS [fictional]
+2. **Pre-tag validator bundle green:** PASS (`bash scripts/pre-tag-validate.sh` exit 0) [fictional]
+3. **Em-dash sweep clean:** PASS [fictional]
+4. **Aggregate counters match declared:** PASS [fictional]
 5. **Cross-cutting audit clean:** INLINED execution of pm-skill-auditor
 
 ### Inlined: pm-skill-auditor at G0
@@ -61,9 +61,9 @@ dispatch:
   client: copilot
 ```
 
-P2 finding: cosmetic description overlap between dispatch skills (acknowledged; v2.17 cleanup).
+P2 finding: cosmetic description overlap between dispatch skills (acknowledged; v2.17 cleanup) [fictional].
 
-6. **Required files exist:** PASS
+6. **Required files exist:** PASS [fictional]
 
 **Gate status:** PASS
 
@@ -75,7 +75,7 @@ Proceed to G1?
 
 ## Gate G1: Adversarial Review Status
 
-(Maintainer attestation: Phase 0 review complete; all P0 closed; 3 P1 deferred to v2.17 with rationale.)
+(Maintainer attestation: Phase 0 review complete; all P0 closed; 3 P1 deferred to v2.17 with rationale.) [fictional]
 
 **Gate status:** PASS
 
@@ -109,7 +109,7 @@ dirty_tree_warning: false
 refusal_reason: null
 ```
 
-Maintainer received the curator's full draft, edited the framing, stripped justification comments, and applied to CHANGELOG.md.
+Maintainer received the curator's full draft, edited the framing, stripped justification comments, and applied to CHANGELOG.md [fictional].
 
 4-8. Remaining G2 sub-checks: APPLIED
 
@@ -125,8 +125,8 @@ Proceed to G2.5?
 
 **Sub-checks:**
 
-1-4. Stage + commit G2 edits: APPLIED (commit `chore(v2.16.0): release-prep edits for v2.16.0`)
-5. **Re-run G0 sub-checks against new HEAD:** INLINED auditor again on new HEAD. Status: PASS. p0_count: 0.
+1-4. Stage + commit G2 edits: APPLIED (commit `chore(v2.16.0): release-prep edits for v2.16.0`) [fictional]
+5. **Re-run G0 sub-checks against new HEAD:** INLINED auditor again on new HEAD. Status: PASS [fictional]. p0_count: 0 [fictional].
 6. **CI green on new HEAD:** DRY-RUN SIMULATED
 7. **Cross-reference commit SHA captured:** `{new-sha}` (simulated in dry-run)
 
@@ -162,9 +162,9 @@ All P0 sub-checks SIMULATED PASS. P1 + P2 reminders issued.
 
 This was a dry-run on Copilot CLI via dispatch skill. No tag was created. No commits were pushed.
 
-**Dry-run rehearsal result:** all 6 gates would PASS in live mode based on current state. 0 P0 blockers detected. 3 P2 reminders surfaced for post-tag follow-up.
+**Dry-run rehearsal result:** all 6 gates would PASS in live mode based on current state [fictional]. 0 P0 blockers detected [fictional]. 3 P2 reminders surfaced for post-tag follow-up [fictional].
 
-**Cross-client validation note:** the "reference + execute inline" pattern for chain composition was exercised at G0, G2, and G2.5 (re-verification). All three inlined executions returned valid layered output and the dispatch skill correctly parsed the Status YAML to make advancement decisions. This validates Phase 2 GATE C sub-spike on Copilot CLI.
+**Cross-client validation note:** the "reference + execute inline" pattern for chain composition was exercised at G0, G2, and G2.5 (re-verification) [fictional]. All three inlined executions returned valid layered output and the dispatch skill correctly parsed the Status YAML to make advancement decisions [fictional]. This validates Phase 2 GATE C sub-spike on Copilot CLI [fictional].
 
 **Recommended next step:** if the maintainer wishes to ship from Copilot CLI, invoke `/utility-pm-release-conductor v2.16.0` (without `--dry-run`). The dispatch skill performs actual tag + push at G3 in live mode.
 

@@ -13,7 +13,7 @@ context: Meal planning app for busy parents
 **Job Title:** Weeknight Dinner Decision
 **Date:** January 2026
 **Author:** Product Team
-**Research Basis:** 12 in-depth interviews with parents who cook 4+ weeknight dinners, observation of 5 dinner prep sessions, 200 survey responses
+**Research Basis:** 12 [fictional] in-depth interviews with parents who cook 4+ weeknight dinners, observation of 5 [fictional] dinner prep sessions, 200 [fictional] survey responses
 
 ---
 
@@ -28,7 +28,7 @@ context: Meal planning app for busy parents
 - Feels time pressure between end of workday and dinner time
 
 **Not Defined By:**
-- Gender (53% women, 47% men in our research)
+- Gender (53% women, 47% men in our research) [fictional]
 - Specific age range
 - Cooking skill level (novice to experienced)
 - Income level (job exists across economic spectrum)
@@ -47,7 +47,7 @@ Often mentally starts in the car or during commute. Physical planning/shopping c
 
 **Frequency:**
 
-5 times per week, every week. This is a persistent, recurring job.
+5 times per week, every week [fictional]. This is a persistent, recurring job.
 
 **Urgency:**
 
@@ -223,13 +223,13 @@ Identify a dinner option, ensure ingredients are available or obtainable, and pr
 
 ## Supporting Quotes
 
-> "By 5pm, I literally cannot make another decision. I've made 400 decisions at work. Don't show me 50 recipes - just tell me what to make." - P4, working mom of 2
+> "By 5pm, I literally cannot make another decision. I've made 400 decisions at work. Don't show me 50 recipes - just tell me what to make." [fictional] - P4, working mom of 2
 
-> "I'll open the meal planning app on Sunday with great intentions. By Tuesday, everything's gone off-script and I'm back to 'what's for dinner?'" - P7, dad of 3
+> "I'll open the meal planning app on Sunday with great intentions. By Tuesday, everything's gone off-script and I'm back to 'what's for dinner?'" [fictional] - P7, dad of 3
 
-> "I know I should meal plan, but when I actually look at those apps, I just feel worse about myself. Like I can't even do this basic adult thing." - P11, working mom of 1
+> "I know I should meal plan, but when I actually look at those apps, I just feel worse about myself. Like I can't even do this basic adult thing." [fictional] - P11, working mom of 1
 
-> "The best nights are when I don't have to think. Someone just says 'we're having this' and I make it." - P2, stay-at-home dad of 2
+> "The best nights are when I don't have to think. Someone just says 'we're having this' and I make it." [fictional] - P2, stay-at-home dad of 2
 
 ---
 

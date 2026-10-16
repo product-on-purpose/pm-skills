@@ -99,7 +99,7 @@ context: Enterprise platform migration affecting multiple departments
 
 ### Diana Reyes, VP Engineering
 
-**Role:** VP Engineering, 60 engineers across 8 teams
+**Role:** VP Engineering, 60 engineers across 8 teams [fictional]
 **Influence Level:** High - Controls engineering resources and priorities
 **Interest Level:** High - Her teams are directly affected
 **Current Alignment:** Supportive
@@ -128,10 +128,10 @@ context: Enterprise platform migration affecting multiple departments
 
 ### James Liu, IT Director
 
-**Role:** IT Director, manages infrastructure and operations team of 12
+**Role:** IT Director, manages infrastructure and operations team of 12 [fictional]
 **Influence Level:** High - Owns current infrastructure, critical for transition
 **Interest Level:** High - Directly affects his team's role and processes
-**Current Alignment:** Neutral (previously resistant)
+**Current Alignment:** Neutral (previously resistant [fictional])
 
 **Needs:**
 - Clear role for his team post-migration
@@ -222,9 +222,9 @@ context: Enterprise platform migration affecting multiple departments
 | Diana Reyes | Engineering Leads | Resource allocation for migration work |
 
 ### Alliances
-- **Executive alignment:** Marcus and Michael are aligned on cloud strategy; Marcus can influence Michael on budget concerns
-- **Technical block:** Diana and James share operational concerns; addressing James's concerns helps with Diana
-- **Security partnership:** Priya has CFO's ear on risk; getting her support removes a major blocker
+- **Executive alignment:** Marcus and Michael are aligned on cloud strategy [fictional]; Marcus can influence Michael on budget concerns
+- **Technical block:** Diana and James share operational concerns [fictional]; addressing James's concerns helps with Diana
+- **Security partnership:** Priya has CFO's ear on risk [fictional]; getting her support removes a major blocker
 
 ### Potential Conflicts
 | Parties | Conflict Area | Risk Level |

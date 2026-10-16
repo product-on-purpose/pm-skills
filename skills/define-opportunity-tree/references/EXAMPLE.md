@@ -11,14 +11,14 @@ context: SaaS productivity app focusing on user retention improvement
 ## Desired Outcome
 
 **Outcome Statement:** Increase 30-day user retention rate
-**Current State:** 40% of new users return after 30 days
+**Current State:** 40% of new users return after 30 days [fictional]
 **Target State:** 55% of new users return after 30 days
 **Timeframe:** Q2 2026
 **Owner:** Maya Johnson, Product Manager
 
 ### Why This Outcome Matters
 
-User retention is our primary growth lever. Our acquisition costs are high ($45 CAC), so improving retention directly impacts unit economics. Users who make it past 30 days have 85% likelihood of converting to paid, making early retention critical to revenue growth. Leadership has identified this as our #1 product priority for the quarter.
+User retention is our primary growth lever. Our acquisition costs are high ($45 CAC) [fictional], so improving retention directly impacts unit economics. Users who make it past 30 days have 85% likelihood of converting to paid [fictional], making early retention critical to revenue growth. Leadership has identified this as our #1 product priority for the quarter. [fictional]
 
 ---
 
@@ -54,10 +54,10 @@ Survey]  A/B]      Usage]   Prototype]
 **Confidence:** High
 
 **Evidence:**
-- User Research (P3): "I signed up but wasn't sure what I was supposed to do first. I just clicked around."
-- Data: 65% of churned users never completed their first task
-- Support Tickets: "How do I get started?" is #2 most common question
-- User Research (P7): "The product looks powerful but I didn't have time to figure it out."
+- User Research (P3): "I signed up but wasn't sure what I was supposed to do first. I just clicked around." [fictional]
+- Data: 65% of churned users never completed their first task [fictional]
+- Support Tickets: "How do I get started?" is #2 most common question [fictional]
+- User Research (P7): "The product looks powerful but I didn't have time to figure it out." [fictional]
 
 #### Solutions
 
@@ -88,10 +88,10 @@ Survey]  A/B]      Usage]   Prototype]
 **Confidence:** Medium
 
 **Evidence:**
-- User Research (P2): "I know you have time tracking somewhere but I spent 10 minutes looking for it."
-- Data: Search usage is low (8% of sessions) despite 50+ features
-- Heatmaps: Users click on navigation items seemingly at random
-- Support Tickets: "Where is X?" tickets increased 40% after last feature release
+- User Research (P2): "I know you have time tracking somewhere but I spent 10 minutes looking for it." [fictional]
+- Data: Search usage is low (8% of sessions) [fictional] despite 50+ features [fictional]
+- Heatmaps: Users click on navigation items seemingly at random [fictional]
+- Support Tickets: "Where is X?" tickets increased 40% after last feature release [fictional]
 
 #### Solutions
 
@@ -122,10 +122,10 @@ Survey]  A/B]      Usage]   Prototype]
 **Confidence:** High
 
 **Evidence:**
-- Data: 70% of churned users never returned after day 3
-- User Research (P5): "It's a good product, I just forgot about it. I have a lot going on."
-- Cohort Analysis: Users who engage within 72 hours have 3x retention
-- Benchmark: Competitors send 4-5 emails in first week; we send 1
+- Data: 70% of churned users never returned after day 3 [fictional]
+- User Research (P5): "It's a good product, I just forgot about it. I have a lot going on." [fictional]
+- Cohort Analysis: Users who engage within 72 hours have 3x retention [fictional]
+- Benchmark: Competitors send 4-5 emails in first week [fictional]; we send 1 [fictional]
 
 **Evidence:**
 
@@ -141,7 +141,7 @@ Survey]  A/B]      Usage]   Prototype]
 - Description: Smart push notifications for task deadlines, team activity, and usage prompts
 - Effort: M
 - Riskiest Assumption: Users have mobile app installed and notifications enabled
-- Assumption Test: Check current mobile app install rate (currently 23%); if low, this opportunity is capped
+- Assumption Test: Check current mobile app install rate (currently 23% [fictional]); if low, this opportunity is capped
 
 **Solution 3C: Weekly Digest Email**
 - Description: A personalized weekly summary showing what happened in their workspace and what needs attention

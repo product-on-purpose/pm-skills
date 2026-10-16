@@ -25,7 +25,7 @@ research findings, baselines and targets are invented to demonstrate structure.
 
 ### Problem Statement
 
-Users of TaskFlow spend significant time manually recreating repetitive tasks that occur on predictable schedules. Our research shows that 34% [fictional] of all tasks created are duplicates of previous tasks, and power users report spending 2+ hours per week [fictional] on this manual work. This friction reduces productivity and causes users to miss recurring deadlines when they forget to recreate tasks.
+Users of TaskFlow spend significant time manually recreating repetitive tasks that occur on predictable schedules [fictional]. Our research shows that 34% [fictional] of all tasks created are duplicates of previous tasks, and power users report spending 2+ hours per week [fictional] on this manual work. This friction reduces productivity and causes users to miss recurring deadlines when they forget to recreate tasks.
 
 ### Solution Summary
 

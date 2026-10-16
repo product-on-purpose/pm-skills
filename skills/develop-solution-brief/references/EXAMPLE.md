@@ -10,7 +10,7 @@ context: E-commerce company addressing mobile checkout abandonment
 
 ## Problem Recap
 
-Mobile shoppers abandon checkout at a 73% rate, significantly higher than desktop's 45%. Users cite confusing multi-step flows, small form fields, and unexpected shipping costs as primary frustrations. This represents a $177M annual revenue opportunity.
+Mobile shoppers abandon checkout at a 73% rate [fictional], significantly higher than desktop's 45% [fictional]. Users cite confusing multi-step flows, small form fields, and unexpected shipping costs as primary frustrations. This represents a $177M annual revenue opportunity [fictional].
 
 ## Proposed Solution
 
@@ -20,11 +20,11 @@ We will redesign mobile checkout as a single-page experience with progressive di
 
 1. **Single-Page Checkout:** All checkout steps visible on one page with accordion sections that expand/collapse. Users always see their progress and can edit any section without losing data.
 
-2. **Express Payment Options:** Apple Pay, Google Pay, and PayPal one-tap buttons prominently displayed at top. Returning customers can checkout in under 30 seconds.
+2. **Express Payment Options:** Apple Pay, Google Pay, and PayPal one-tap buttons prominently displayed at top. Returning customers can checkout in under 30 seconds [fictional].
 
 3. **Upfront Shipping Calculator:** Shipping costs displayed based on cart contents before checkout begins. No surprise costs at the final step.
 
-4. **Smart Form Fields:** Large, mobile-optimized input fields with auto-formatting (phone, credit card). Address autocomplete via Google Places API reduces typing by 70%.
+4. **Smart Form Fields:** Large, mobile-optimized input fields with auto-formatting (phone, credit card). Address autocomplete via Google Places API reduces typing by 70% [fictional].
 
 5. **Guest Checkout Persistence:** Cart and partially-entered information saved for 7 days, allowing users to return and complete purchase without starting over.
 
@@ -32,18 +32,18 @@ We will redesign mobile checkout as a single-page experience with progressive di
 
 | Metric | Current | Target | Timeline |
 |--------|---------|--------|----------|
-| Mobile checkout abandonment | 73% | 60% | Q1 2026 |
-| Mobile checkout completion time | 4.2 min | 2.0 min | Q1 2026 |
+| Mobile checkout abandonment | 73% [fictional] | 60% | Q1 2026 |
+| Mobile checkout completion time | 4.2 min [fictional] | 2.0 min | Q1 2026 |
 | Express payment adoption | 0% | 25% | Q2 2026 |
 
 ## Trade-offs Considered
 
 | What We're Not Doing | Why |
 |---------------------|-----|
-| Removing guest checkout | Legal requirement in EU markets; also helps first-time buyers |
-| Cross-sell/upsell in checkout | User research shows this adds friction; moving to cart instead |
-| Custom payment form design | Payment provider contract limits changes until March |
-| Cryptocurrency payment | Low demand (<1% of requests); complexity not justified |
+| Removing guest checkout | Legal requirement in EU markets [fictional]; also helps first-time buyers |
+| Cross-sell/upsell in checkout | User research shows this adds friction [fictional]; moving to cart instead |
+| Custom payment form design | Payment provider contract limits changes until March [fictional] |
+| Cryptocurrency payment | Low demand (<1% of requests [fictional]); complexity not justified |
 
 ## Risks & Mitigations
 

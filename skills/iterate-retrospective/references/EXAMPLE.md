@@ -27,7 +27,7 @@ context: Sprint 14 retrospective after payment feature launch
 
 ### Context
 
-Sprint 14 included the launch of our new payment processing feature, which was a company priority. The team successfully shipped on time despite a mid-sprint requirements change. We also onboarded a new team member (Chris) during this sprint. There was one production incident (P2) related to payment timeout handling that was resolved within 4 hours.
+Sprint 14 included the launch of our new payment processing feature, which was a company priority. The team successfully shipped on time despite a mid-sprint requirements change. We also onboarded a new team member (Chris) during this sprint. There was one production incident (P2) related to payment timeout handling that was resolved within 4 hours [fictional].
 
 ---
 
@@ -40,7 +40,7 @@ Sprint 14 included the launch of our new payment processing feature, which was a
 | Create PR template with checklist | Alex | Complete | Now in use, team finds it helpful |
 | Add Slack integration to CI pipeline | Jordan | Complete | Notifications working |
 | Schedule design sync for Sprint 14 | Taylor | Complete | Held on Jan 3, reduced back-and-forth |
-| Document on-call runbook | Sam | In Progress | 70% done, will finish this sprint |
+| Document on-call runbook | Sam | In Progress | 70% [fictional] done, will finish this sprint |
 
 ---
 
@@ -49,15 +49,15 @@ Sprint 14 included the launch of our new payment processing feature, which was a
 ### Team Highlights
 
 - Shipped payment feature on time despite mid-sprint requirements change
-- Zero critical bugs found in production after launch
+- Zero critical bugs found in production after launch [fictional]
 - Team rallied together during the P2 incident.great cross-functional response
 - New PR template caught several issues before merge
 
 ### Process Wins
 
-- Design sync meeting eliminated 3+ days of async back-and-forth
-- Pair programming on complex payment logic reduced bugs
-- Daily standups stayed focused and under 15 minutes
+- Design sync meeting eliminated 3+ days of async back-and-forth [fictional]
+- Pair programming on complex payment logic reduced bugs [fictional]
+- Daily standups stayed focused and under 15 minutes [fictional]
 
 ### Individual Shoutouts
 
@@ -72,14 +72,14 @@ Sprint 14 included the launch of our new payment processing feature, which was a
 ### Challenges Faced
 
 - Mid-sprint requirements change caused context switching and rework
-- Test environment was unstable for 2 days, blocking integration testing
+- Test environment was unstable for 2 days [fictional], blocking integration testing
 - P2 incident revealed gap in timeout handling documentation
 - Chris felt unsure where to find information as new team member
 
 ### Process Pain Points
 
 - Requirements changes mid-sprint.how do we protect sprint scope better?
-- Flaky tests are getting worse.5 tests failed intermittently this sprint
+- Flaky tests are getting worse.5 tests failed intermittently this sprint [fictional]
 - On-call runbook is still incomplete.we were lucky Sam knew what to do
 - Onboarding documentation is outdated
 
@@ -98,11 +98,11 @@ Sprint 14 included the launch of our new payment processing feature, which was a
 ### Test Reliability (Highest Priority)
 
 **What was discussed:**
-The team is frustrated with flaky tests. We identified 5 tests that have failed intermittently in the past month. Each failure wastes ~30 minutes investigating and re-running. The test environment instability was a separate issue (AWS configuration) but compounded the frustration.
+The team is frustrated with flaky tests. We identified 5 tests [fictional] that have failed intermittently in the past month. Each failure wastes ~30 minutes [fictional] investigating and re-running. The test environment instability was a separate issue (AWS configuration) but compounded the frustration.
 
 **Root cause identified:**
-- 3 tests have race conditions in async code
-- 2 tests depend on external services without proper mocking
+- 3 tests [fictional] have race conditions in async code
+- 2 tests [fictional] depend on external services without proper mocking
 - Test env issue was due to expired credentials (now fixed)
 
 **Proposed solution:**
@@ -130,7 +130,7 @@ Chris mentioned that onboarding was harder than it needed to be.docs pointed to 
 ### Scope Protection
 
 **What was discussed:**
-The mid-sprint requirements change (adding Apple Pay support) was justified from a business perspective, but the team felt it was handled poorly. The change added 3 story points mid-sprint without removing anything.
+The mid-sprint requirements change (adding Apple Pay support) was justified from a business perspective, but the team felt it was handled poorly. The change added 3 story points [fictional] mid-sprint without removing anything.
 
 **Root cause identified:**
 - No clear escalation path for mid-sprint changes
@@ -177,7 +177,7 @@ Create a lightweight process: any mid-sprint addition requires (1) PM-Eng discus
 
 ## Parking Lot
 
-- **Tech debt backlog review:** We have 47 items in tech debt backlog. Should schedule a grooming session, but not urgent. Defer to Sprint 16 planning.
+- **Tech debt backlog review:** We have 47 items [fictional] in tech debt backlog. Should schedule a grooming session, but not urgent. Defer to Sprint 16 planning.
 - **Pair programming formalization:** Team liked pairing on payment feature but want to discuss how to make it more regular. Add to Sprint 16 retro agenda.
 
 ---
@@ -188,21 +188,21 @@ Create a lightweight process: any mid-sprint addition requires (1) PM-Eng discus
 
 | Indicator | This Retro | Last Retro | Trend |
 |-----------|------------|------------|-------|
-| Team morale (1-5) | 4.0 | 3.5 | ↑ |
-| Process satisfaction (1-5) | 3.5 | 3.5 | → |
-| Collaboration (1-5) | 4.5 | 4.0 | ↑ |
+| Team morale (1-5) | 4.0 [fictional] | 3.5 [fictional] | ↑ |
+| Process satisfaction (1-5) | 3.5 [fictional] | 3.5 [fictional] | → |
+| Collaboration (1-5) | 4.5 [fictional] | 4.0 [fictional] | ↑ |
 
 ### Recurring Themes
 
-- **Test reliability** has appeared in 3 of last 5 retros. This sprint we're committing to fixing the top issues.
-- **Documentation** has appeared in 2 of last 5 retros. We now have 2 specific actions to address it.
+- **Test reliability** has appeared in 3 of last 5 retros [fictional]. This sprint we're committing to fixing the top issues.
+- **Documentation** has appeared in 2 of last 5 retros [fictional]. We now have 2 specific actions to address it.
 
 ---
 
 ## Facilitator Notes
 
 - Start/Stop/Continue worked well for this team.consider alternating with 4Ls next time for variety
-- Should timebox discussion sections more strictly.we ran 5 min over
+- Should timebox discussion sections more strictly.we ran 5 min over [fictional]
 - Anonymous input submission before meeting helped quieter team members contribute equally
 
 ---

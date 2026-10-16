@@ -15,8 +15,8 @@ context: B2C fitness app pivoting to B2B enterprise wellness
 | **Decision Date** | January 14, 2026 |
 | **Decision Maker(s)** | Sarah Kim (CEO), Michael Chen (CPO), Lisa Park (CTO) |
 | **Product/Initiative** | FitTrack - Personal Fitness Tracking App |
-| **Time in Market** | 8 months (launched May 2025) |
-| **Investment to Date** | $1.2M seed funding, 18 months development, 6 FTEs |
+| **Time in Market** | 8 months (launched May 2025) [fictional] |
+| **Investment to Date** | $1.2M seed funding, 18 months development, 6 FTEs [fictional] |
 
 ---
 
@@ -24,7 +24,7 @@ context: B2C fitness app pivoting to B2B enterprise wellness
 
 **Decision:** Pivot to B2B Enterprise Wellness (Customer Segment Pivot)
 
-After 8 months in market, our B2C fitness app has achieved 5,000 users but only 2% paid conversion, well below the 8% needed for sustainability. User interviews revealed strong interest from corporate wellness buyers, with 3 companies already asking about enterprise licensing. We're pivoting from B2C consumer to B2B enterprise wellness, targeting HR departments at companies with 500+ employees.
+After 8 months in market, our B2C fitness app has achieved 5,000 users [fictional] but only 2% paid conversion [fictional], well below the 8% needed for sustainability. User interviews revealed strong interest from corporate wellness buyers [fictional], with 3 companies already asking about enterprise licensing [fictional]. We're pivoting from B2C consumer to B2B enterprise wellness, targeting HR departments at companies with 500+ employees.
 
 ---
 
@@ -38,31 +38,31 @@ FitTrack is a B2C mobile app that helps individuals track workouts, nutrition, a
 
 | Metric | Current | Target | Gap |
 |--------|---------|--------|-----|
-| Total Users | 5,200 | 50,000 | -90% |
-| Paid Conversion | 2.1% | 8% | -74% |
-| Monthly Revenue | $1,100 | $25,000 | -96% |
-| 30-Day Retention | 18% | 40% | -55% |
-| CAC | $12 | $8 | +50% |
+| Total Users | 5,200 [fictional] | 50,000 | -90% |
+| Paid Conversion | 2.1% [fictional] | 8% | -74% |
+| Monthly Revenue | $1,100 [fictional] | $25,000 | -96% |
+| 30-Day Retention | 18% [fictional] | 40% | -55% |
+| CAC | $12 [fictional] | $8 | +50% |
 
 ### Timeline of Events
 
 | Date | Milestone | Outcome |
 |------|-----------|---------|
-| May 2025 | App Store launch | 500 downloads first week |
-| July 2025 | Paid tier launch | 1.8% conversion |
-| Sept 2025 | Marketing push | CAC increased, conversion flat |
-| Nov 2025 | Added social features | Slight retention improvement |
-| Dec 2025 | 3 enterprise inquiries received | Unexpected inbound interest |
+| May 2025 | App Store launch [fictional] | 500 downloads first week [fictional] |
+| July 2025 | Paid tier launch [fictional] | 1.8% conversion [fictional] |
+| Sept 2025 | Marketing push [fictional] | CAC increased, conversion flat [fictional] |
+| Nov 2025 | Added social features [fictional] | Slight retention improvement [fictional] |
+| Dec 2025 | 3 enterprise inquiries received [fictional] | Unexpected inbound interest [fictional] |
 | Jan 2026 | Pivot evaluation | This document |
 
 ### Resources Invested
 
 | Resource | Amount |
 |----------|--------|
-| Time | 18 months (10 months dev, 8 months in market) |
-| Budget | $1.2M of $1.5M seed funding |
-| Team | 6 people × 18 months |
-| Opportunity cost | Could have tested B2B earlier based on signals |
+| Time | 18 months (10 months dev, 8 months in market) [fictional] |
+| Budget | $1.2M of $1.5M seed funding [fictional] |
+| Team | 6 people × 18 months [fictional] |
+| Opportunity cost | Could have tested B2B earlier based on signals [fictional] |
 
 ---
 
@@ -70,42 +70,42 @@ FitTrack is a B2C mobile app that helps individuals track workouts, nutrition, a
 
 ### Data That Triggered This Evaluation
 
-1. **Conversion rate stuck at 2%** despite multiple pricing tests, feature additions, and marketing campaigns. The B2C fitness app market is brutally competitive.
+1. **Conversion rate stuck at 2%** [fictional] despite multiple pricing tests, feature additions, and marketing campaigns [fictional]. The B2C fitness app market is brutally competitive [fictional].
 
-2. **Three unsolicited enterprise inquiries** in Q4 from HR leaders who found our app and wanted to license it for their companies. We weren't pursuing this market.
+2. **Three unsolicited enterprise inquiries** [fictional] in Q4 from HR leaders who found our app and wanted to license it for their companies [fictional]. We weren't pursuing this market [fictional].
 
-3. **User interviews revealed job context**: When we asked converted users why they paid, 60% mentioned their employer either reimbursed it or they wished they would. The "fitness-conscious individual" is often a "wellness-benefit-seeking employee."
+3. **User interviews revealed job context**: When we asked converted users why they paid, 60% mentioned their employer either reimbursed it or they wished they would [fictional]. The "fitness-conscious individual" is often a "wellness-benefit-seeking employee."
 
-4. **Competitive analysis**: Direct B2C competitors (MyFitnessPal, Strava) have massive scale advantages. B2B wellness (Wellable, Virgin Pulse) is more fragmented with higher switching costs.
+4. **Competitive analysis**: Direct B2C competitors (MyFitnessPal, Strava) have massive scale advantages [fictional]. B2B wellness (Wellable, Virgin Pulse) is more fragmented with higher switching costs [fictional].
 
 ### Customer/User Feedback
 
 **What Users Are Saying:**
-- "I'd use this more if my company offered it as a benefit" - User interview, P7
-- "My HR team is always looking for wellness solutions. You should talk to them." - User interview, P12
-- "The app is good, but I have too many fitness apps already. If work paid for it, that'd change things." - User interview, P3
+- "I'd use this more if my company offered it as a benefit" [fictional] - User interview, P7
+- "My HR team is always looking for wellness solutions. You should talk to them." [fictional] - User interview, P12
+- "The app is good, but I have too many fitness apps already. If work paid for it, that'd change things." [fictional] - User interview, P3
 
 **What Enterprise Buyers Are Saying:**
-- "We spend $400/employee on wellness benefits and have no idea if they work. Your analytics could show ROI." - Inbound inquiry, HR Director at 800-person company
-- "Our current vendor is enterprise software from 2010. Your UX is 10 years better." - Inbound inquiry, Wellness Coordinator
+- "We spend $400/employee on wellness benefits and have no idea if they work. Your analytics could show ROI." [fictional] - Inbound inquiry, HR Director at 800-person company [fictional]
+- "Our current vendor is enterprise software from 2010. Your UX is 10 years better." [fictional] - Inbound inquiry, Wellness Coordinator
 
 **User Behavior Patterns:**
-- Power users (top 10%) often share app to colleagues.word of mouth within companies
-- Highest engagement on Monday mornings.suggests workplace wellness routines
-- Most churned users cite "too many apps" as reason.commodity market problem
+- Power users (top 10%) often share app to colleagues.word of mouth within companies [fictional]
+- Highest engagement on Monday mornings.suggests workplace wellness routines [fictional]
+- Most churned users cite "too many apps" as reason.commodity market problem [fictional]
 
 ### Market Signals
 
-- Corporate wellness market: $56B globally, growing 7% annually
-- Post-COVID: Employers competing for talent via wellness benefits
-- HR buyers increasingly have budget authority for wellness tools
-- Enterprise wellness has 3-5 year contracts (sticky revenue)
+- Corporate wellness market: $56B globally, growing 7% annually [fictional]
+- Post-COVID: Employers competing for talent via wellness benefits [fictional]
+- HR buyers increasingly have budget authority for wellness tools [fictional]
+- Enterprise wellness has 3-5 year contracts (sticky revenue) [fictional]
 
 ### Internal Learnings
 
-- Our analytics dashboard is more sophisticated than we realized.enterprise buyers loved it
-- We underestimated how much we compete with free (Apple Health, Google Fit) in B2C
-- The team has more B2B experience than B2C (3 of 6 came from enterprise SaaS)
+- Our analytics dashboard is more sophisticated than we realized.enterprise buyers loved it [fictional]
+- We underestimated how much we compete with free (Apple Health, Google Fit) in B2C [fictional]
+- The team has more B2B experience than B2C (3 of 6 came from enterprise SaaS) [fictional]
 
 ---
 
@@ -115,17 +115,17 @@ FitTrack is a B2C mobile app that helps individuals track workouts, nutrition, a
 
 | Hypothesis | Status | Evidence |
 |------------|--------|----------|
-| Health-conscious 25-45 year olds will pay $10/mo for premium fitness tracking | Invalidated | 2% conversion despite targeting; market saturated with free options |
-| Social features will drive retention | Partially Invalidated | Minor lift (18% → 22% retention), not enough to change trajectory |
-| We can achieve $8 CAC through organic + content marketing | Invalidated | CAC stuck at $12; paid channels even worse ($18) |
-| Premium analytics differentiate us from free alternatives | Validated | Users who convert cite analytics as reason; enterprise buyers excited by this |
+| Health-conscious 25-45 year olds will pay $10/mo for premium fitness tracking | Invalidated | 2% conversion despite targeting; market saturated with free options [fictional] |
+| Social features will drive retention | Partially Invalidated | Minor lift (18% → 22% retention) [fictional], not enough to change trajectory |
+| We can achieve $8 CAC through organic + content marketing | Invalidated | CAC stuck at $12; paid channels even worse ($18) [fictional] |
+| Premium analytics differentiate us from free alternatives | Validated | Users who convert cite analytics as reason; enterprise buyers excited by this [fictional] |
 
 ### Key Learnings from Validation
 
-- Analytics capability is real and valued.just by wrong customer segment
-- B2C fitness is a commodity market with winner-take-all dynamics
-- Corporate buyers have budget and willingness to pay for wellness
-- Our team's B2B DNA may be better suited to enterprise selling
+- Analytics capability is real and valued.just by wrong customer segment [fictional]
+- B2C fitness is a commodity market with winner-take-all dynamics [fictional]
+- Corporate buyers have budget and willingness to pay for wellness [fictional]
+- Our team's B2B DNA may be better suited to enterprise selling [fictional]
 
 ---
 
@@ -141,14 +141,14 @@ FitTrack is a B2C mobile app that helps individuals track workouts, nutrition, a
 - Explore additional monetization (ads, affiliate)
 
 **Rationale for Considering:**
-- We have some users who love the product
+- We have some users who love the product [fictional]
 - Pivoting means wasted B2C investment
 - B2C success could be massive scale if it works
 
 **Risks:**
 - Continuing to burn cash on a market that may not work
 - 3-6 more months of runway ($300K) needed to know
-- Team morale already suffering from flat metrics
+- Team morale already suffering from flat metrics [fictional]
 
 **Resource Requirements:** $300K additional runway, 3-6 months
 
@@ -166,13 +166,13 @@ FitTrack is a B2C mobile app that helps individuals track workouts, nutrition, a
 - Remove B2C freemium focus
 
 **Rationale for Considering:**
-- Inbound demand already exists (3 inquiries)
-- Higher contract values ($50-200K/year vs $120/user/year)
-- Longer retention cycles (3-year contracts)
-- Better competitive position (fragmented market, inferior UX)
+- Inbound demand already exists (3 inquiries) [fictional]
+- Higher contract values ($50-200K/year vs $120/user/year) [fictional]
+- Longer retention cycles (3-year contracts) [fictional]
+- Better competitive position (fragmented market, inferior UX) [fictional]
 
 **Risks:**
-- Longer sales cycles (3-6 months enterprise)
+- Longer sales cycles (3-6 months enterprise) [fictional]
 - Need to build sales capability
 - May lose current B2C users
 - Compliance requirements (SOC 2, GDPR)
@@ -192,7 +192,7 @@ FitTrack is a B2C mobile app that helps individuals track workouts, nutrition, a
 - B2B2C model
 
 **Rationale for Considering:**
-- Our analytics are genuinely good
+- Our analytics are genuinely good [fictional]
 - Avoids both B2C competition and B2B sales complexity
 - Potential massive scale through partnerships
 
@@ -222,7 +222,7 @@ FitTrack is a B2C mobile app that helps individuals track workouts, nutrition, a
 
 | Criterion | Persevere (B2C) | B2B Enterprise | Platform/API |
 |-----------|-----------------|----------------|--------------|
-| Market Opportunity | Low (saturated) | High ($56B, growing) | Medium (uncertain) |
+| Market Opportunity | Low (saturated) | High ($56B, growing) [fictional] | Medium (uncertain) |
 | Competitive Advantage | Low (commodity) | High (UX, analytics) | Medium (commoditization risk) |
 | Team Capability | Medium (learning) | High (B2B DNA) | Low (no partnerships exp) |
 | Resource Requirements | Medium ($300K) | Low ($150K) | High ($400K) |
@@ -240,13 +240,13 @@ FitTrack will pivot from B2C consumer fitness app to B2B enterprise wellness pla
 
 ### Rationale
 
-1. **Evidence of demand:** We have 3 inbound enterprise inquiries without trying. This is the strongest market signal we've received.
+1. **Evidence of demand:** We have 3 inbound enterprise inquiries without trying [fictional]. This is the strongest market signal we've received.
 
-2. **Better unit economics:** Enterprise contracts ($50-200K) are 400-1600x higher LTV than B2C ($120/year). Even with longer sales cycles, the math works better.
+2. **Better unit economics:** Enterprise contracts ($50-200K) are 400-1600x higher LTV than B2C ($120/year) [fictional]. Even with longer sales cycles, the math works better.
 
-3. **Team-market fit:** Our team has B2B DNA. Three of six team members have enterprise SaaS backgrounds. We've been fighting against our strengths.
+3. **Team-market fit:** Our team has B2B DNA. Three of six team members have enterprise SaaS backgrounds [fictional]. We've been fighting against our strengths.
 
-4. **Competitive positioning:** B2B wellness is fragmented with legacy UX. Our consumer-grade design is a genuine differentiator. In B2C, we're one of hundreds of "good enough" apps.
+4. **Competitive positioning:** B2B wellness is fragmented with legacy UX [fictional]. Our consumer-grade design is a genuine differentiator. In B2C, we're one of hundreds of "good enough" apps [fictional].
 
 5. **Resource efficiency:** B2B pivot requires $150K and 2-3 months.our most capital-efficient option.
 
@@ -254,14 +254,14 @@ FitTrack will pivot from B2C consumer fitness app to B2B enterprise wellness pla
 
 | Trade-off | Impact | Why Acceptable |
 |-----------|--------|----------------|
-| Lose 5,000 B2C users | Community we built, brand awareness | Users weren't converting; sunk cost fallacy otherwise |
-| Longer sales cycles | Cash flow delays 3-6 months | Enterprise contracts have upfront payments; VC can bridge if needed |
+| Lose 5,000 B2C users [fictional] | Community we built, brand awareness | Users weren't converting; sunk cost fallacy otherwise |
+| Longer sales cycles | Cash flow delays 3-6 months | Enterprise contracts have upfront payments [fictional]; VC can bridge if needed |
 | Need to learn enterprise sales | New capability to build | Team has transferable skills; can hire experienced seller |
 | Compliance requirements | Time and cost for SOC 2, etc. | Enterprise willingness to pay covers these costs |
 
 ### Dissenting Views
 
-**Michael (CPO):** Concerned about abandoning B2C entirely. Suggested maintaining a small B2C presence for brand awareness and potential B2B2C. Decision: We'll keep the app available but stop active B2C investment. Enterprise employees can still use it individually.
+**Michael (CPO):** Concerned about abandoning B2C entirely [fictional]. Suggested maintaining a small B2C presence for brand awareness and potential B2B2C [fictional]. Decision: We'll keep the app available but stop active B2C investment. Enterprise employees can still use it individually.
 
 ---
 
@@ -283,8 +283,8 @@ FitTrack will pivot from B2C consumer fitness app to B2B enterprise wellness pla
 
 | Resource | Current | Needed | Gap |
 |----------|---------|--------|-----|
-| Runway | $300K (8 months) | $300K (12 months) | Bridge round or faster revenue |
-| Headcount | 6 | 7-8 (add sales) | Hire 1-2 in Q1 |
+| Runway | $300K (8 months) [fictional] | $300K (12 months) | Bridge round or faster revenue |
+| Headcount | 6 [fictional] | 7-8 (add sales) | Hire 1-2 in Q1 |
 | Technology | B2C app | Enterprise features | $150K development |
 
 ### Success Criteria
@@ -331,10 +331,10 @@ FitTrack will pivot from B2C consumer fitness app to B2B enterprise wellness pla
 
 ### Supporting Documents
 
-- Enterprise market sizing analysis (internal doc)
-- User interview synthesis (enterprise quotes) (internal doc)
-- Competitive analysis: B2B wellness (internal doc)
-- SOC 2 readiness checklist (security doc)
+- Enterprise market sizing analysis (internal doc) [fictional]
+- User interview synthesis (enterprise quotes) (internal doc) [fictional]
+- Competitive analysis: B2B wellness (internal doc) [fictional]
+- SOC 2 readiness checklist (security doc) [fictional]
 
 ### Pivot Type Reference
 
@@ -342,7 +342,7 @@ FitTrack will pivot from B2C consumer fitness app to B2B enterprise wellness pla
 
 Other pivot types considered but rejected:
 - **Platform Pivot:** Too resource-intensive, uncertain outcome
-- **Value Capture Pivot:** Tried different pricing in B2C, didn't work
+- **Value Capture Pivot:** Tried different pricing in B2C, didn't work [fictional]
 - **Zoom-in Pivot:** Analytics alone aren't compelling without the tracking
 
 ---

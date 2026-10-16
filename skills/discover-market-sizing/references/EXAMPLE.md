@@ -12,7 +12,7 @@ context: B2B SaaS - sizing the market for an AI code-review tool sold to US comp
 
 ## Executive Summary
 
-We size the US market for an AI code-review tool sold per-seat to companies with 50 or more engineers. Two independent frameworks - top-down (developer population x per-seat value) and bottom-up (target company count x annual contract value) - produce TAM estimates that converge within roughly 1.1x ($862M top-down vs. $936M bottom-up), which raises confidence in a central TAM near $900M. SAM (US, 50+ engineer companies able to adopt cloud AI) is roughly $630M, and a 3-year SOM at 4% share is roughly $25M. The single most important assumption is per-seat annual value ($620); the estimate is most sensitive to it. Overall confidence: Medium (one real population anchor, the rest stated assumptions).
+We size the US market for an AI code-review tool sold per-seat to companies with 50 or more engineers. Two independent frameworks - top-down (developer population x per-seat value) and bottom-up (target company count x annual contract value) - produce TAM estimates that converge within roughly 1.1x [fictional] ($862M [fictional] top-down vs. $936M [fictional] bottom-up), which raises confidence in a central TAM near $900M [fictional]. SAM (US, 50+ engineer companies able to adopt cloud AI) is roughly $630M [fictional], and a 3-year SOM at 4% share is roughly $25M [fictional]. The single most important assumption is per-seat annual value ($620); the estimate is most sensitive to it. Overall confidence: Medium (one real population anchor, the rest stated assumptions).
 
 ## Market Definition
 
@@ -24,24 +24,24 @@ We size the US market for an AI code-review tool sold per-seat to companies with
 
 | Layer | Number | Method | Source / Assumption | Confidence |
 |---|---|---|---|---|
-| TAM | ~$862M | Addressable developers x per-seat value | ~1.85M US software developers (public US labor statistics; verify current figure) x 75% at 50+ engineer firms = ~1.39M seats x $620/seat/yr | Medium |
-| SAM | ~$630M | Filter on TAM | ~73% of addressable seats are at firms able to adopt cloud AI code review (excludes air-gapped / regulated) | Medium |
+| TAM | ~$862M | Addressable developers x per-seat value | ~1.85M [fictional] US software developers (public US labor statistics; verify current figure) x 75% [fictional] at 50+ engineer firms = ~1.39M seats x $620/seat/yr [fictional] | Medium |
+| SAM | ~$630M | Filter on TAM | ~73% [fictional] of addressable seats are at firms able to adopt cloud AI code review (excludes air-gapped / regulated) | Medium |
 | SOM | ~$25M | Market-share assumption | 4% of SAM captured by year 3 | Low |
 
 ## Bottom-Up Sizing
 
 | Segment | # Customers | Revenue / Customer (ACV) | Sub-total | Method | Source |
 |---|---|---|---|---|---|
-| 50-200 engineers | 12,000 firms | $18K | $216M | Bottom-up | Firm count and ACV both assumptions |
-| 200-1000 engineers | 3,500 firms | $90K | $315M | Bottom-up | Assumptions |
-| 1000+ engineers | 900 firms | $450K | $405M | Bottom-up | Assumptions |
+| 50-200 engineers | 12,000 [fictional] firms | $18K [fictional] | $216M | Bottom-up | Firm count and ACV both assumptions |
+| 200-1000 engineers | 3,500 [fictional] firms | $90K [fictional] | $315M | Bottom-up | Assumptions |
+| 1000+ engineers | 900 [fictional] firms | $450K [fictional] | $405M | Bottom-up | Assumptions |
 | **Total** | **16,400 firms** | - | **~$936M** | - | - |
 
 ## Multi-Framework Synthesis
 
-- **Where the frameworks agree:** Top-down (~$862M) and bottom-up (~$936M) land within ~1.1x of each other. Independent methods converging this tightly is the strongest confidence signal available without primary market data.
-- **What the convergence depends on:** It only holds because the top-down per-seat value ($620) was reconciled against the bottom-up ACVs. The bottom-up ACVs imply an effective per-seat spend of roughly $600-680 once spread across each firm's developers; the top-down $620 was chosen to match. Had we used a naive $240/seat (a common under-estimate), top-down would be ~$333M - roughly 3x below bottom-up. **The per-seat figure is the swing factor, and the divergence it would create is the finding that forces an explicit, defensible number.**
-- **Synthesized estimate:** TAM ~$900M (central), low $620M / high $1.3B. SAM ~$630M, SOM ~$25M at 4% in 3 years.
+- **Where the frameworks agree:** Top-down (~$862M [fictional]) and bottom-up (~$936M [fictional]) land within ~1.1x of each other. Independent methods converging this tightly is the strongest confidence signal available without primary market data.
+- **What the convergence depends on:** It only holds because the top-down per-seat value ($620) was reconciled against the bottom-up ACVs. The bottom-up ACVs imply an effective per-seat spend of roughly $600-680 [fictional] once spread across each firm's developers; the top-down $620 was chosen to match. Had we used a naive $240/seat (a common under-estimate) [fictional], top-down would be ~$333M - roughly 3x below bottom-up. **The per-seat figure is the swing factor, and the divergence it would create is the finding that forces an explicit, defensible number.**
+- **Synthesized estimate:** TAM ~$900M [fictional] (central), low $620M [fictional] / high $1.3B [fictional]. SAM ~$630M [fictional], SOM ~$25M [fictional] at 4% in 3 years.
 - **Synthesis confidence:** Medium. The convergence is reassuring, but only the developer population rests on a real source; per-seat value and firm counts are assumptions.
 
 ## Sensitivity Analysis
@@ -55,10 +55,10 @@ We size the US market for an AI code-review tool sold per-seat to companies with
 
 | Assumption | Source / Rationale | Confidence | What changes if wrong |
 |---|---|---|---|
-| ~1.85M US software developers | Public US labor statistics (occupational employment) | Medium | Scales TAM linearly |
-| 75% are at 50+ engineer firms | Firmographic assumption | Low | Scales addressable seats |
-| Effective per-seat value ~$620/yr | Reconciled from bottom-up ACVs | Low | Largest swing factor (see sensitivity) |
-| 16,400 US firms with 50+ engineers | Derived assumption; not from a firmographic source | Low | Scales bottom-up directly |
+| ~1.85M [fictional] US software developers | Public US labor statistics (occupational employment) | Medium | Scales TAM linearly |
+| 75% [fictional] are at 50+ engineer firms | Firmographic assumption | Low | Scales addressable seats |
+| Effective per-seat value ~$620/yr [fictional] | Reconciled from bottom-up ACVs | Low | Largest swing factor (see sensitivity) |
+| 16,400 [fictional] US firms with 50+ engineers | Derived assumption; not from a firmographic source | Low | Scales bottom-up directly |
 | 4% year-3 share | GTM judgment for a new entrant | Low | Scales SOM directly |
 
 ## Confidence and Limitations
@@ -72,4 +72,4 @@ We size the US market for an AI code-review tool sold per-seat to companies with
 
 - Buy a firmographic data pull to replace the assumed 16,400 firm count with a sourced number
 - Run a small pricing study to anchor the per-seat-value assumption that the estimate is most sensitive to
-- Conviction threshold: a SAM near $630M with a credible path to 4% share generally clears the bar for a seed-stage investment case; confirm the per-seat value before committing
+- Conviction threshold: a SAM near $630M with a credible path to 4% share generally clears the bar for a seed-stage investment case [fictional]; confirm the per-seat value before committing

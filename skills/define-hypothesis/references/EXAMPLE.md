@@ -22,20 +22,20 @@ context: SaaS product with low onboarding completion rates testing simplified fl
 
 ### Problem Context
 
-Our SaaS product has a 34% onboarding completion rate - meaning 66% of new signups never finish setup and experience the core value proposition. User research indicates the current 7-step onboarding feels overwhelming, with significant drop-off occurring at steps 4 and 5 (team invitation and integration setup). Users who don't complete onboarding are 4x more likely to churn within 14 days.
+Our SaaS product has a 34% [fictional] onboarding completion rate - meaning 66% [fictional] of new signups never finish setup and experience the core value proposition. User research indicates the current 7-step onboarding feels overwhelming, with significant drop-off occurring at steps 4 and 5 (team invitation and integration setup) [fictional]. Users who don't complete onboarding are 4x [fictional] more likely to churn within 14 days.
 
 ### Supporting Evidence
 
-- Session recordings show users hesitating and abandoning at the team invitation step
-- Support tickets frequently ask "Can I skip some of these steps?"
-- Competitor analysis shows market leaders use 3-4 step onboarding flows
-- Exit survey data: 42% of churned users cite "too complicated to get started"
-- Hotjar heatmaps show users scrolling to find a "skip" button that doesn't exist
+- Session recordings show users hesitating and abandoning at the team invitation step [fictional]
+- Support tickets frequently ask "Can I skip some of these steps?" [fictional]
+- Competitor analysis shows market leaders use 3-4 step onboarding flows [fictional]
+- Exit survey data: 42% [fictional] of churned users cite "too complicated to get started" [fictional]
+- Hotjar heatmaps show users scrolling to find a "skip" button that doesn't exist [fictional]
 
 ### Alternative Hypotheses Considered
 
-- **Progress indicators:** Adding a progress bar might reduce anxiety without changing steps - rejected because underlying issue is step count, not visibility
-- **Tooltips/guidance:** More help content might reduce confusion - rejected because it adds more cognitive load
+- **Progress indicators:** Adding a progress bar might reduce anxiety without changing steps - rejected because underlying issue is step count, not visibility [fictional]
+- **Tooltips/guidance:** More help content might reduce confusion - rejected because it adds more cognitive load [fictional]
 - **Optional steps:** Making steps skippable might work - considered as fallback if simplification fails
 
 ## Target User Segment
@@ -49,17 +49,17 @@ New users who:
 
 ### Segment Size
 
-- 12,400 new trial signups per month meeting these criteria
-- 8,200 (66%) currently fail to complete onboarding
+- 12,400 [fictional] new trial signups per month meeting these criteria
+- 8,200 (66%) [fictional] currently fail to complete onboarding
 
 ### Current Behavior
 
-- Average time to complete current onboarding: 18 minutes
-- Step 1-3 completion: 78%
-- Step 4 (team invitation) completion: 52%
-- Step 5 (integration) completion: 41%
-- Full completion (all 7 steps): 34%
-- Users who complete onboarding activate core feature within 24h: 89%
+- Average time to complete current onboarding: 18 minutes [fictional]
+- Step 1-3 completion: 78% [fictional]
+- Step 4 (team invitation) completion: 52% [fictional]
+- Step 5 (integration) completion: 41% [fictional]
+- Full completion (all 7 steps): 34% [fictional]
+- Users who complete onboarding activate core feature within 24h: 89% [fictional]
 
 ## Success Metrics
 
@@ -67,24 +67,24 @@ New users who:
 
 | Metric | Current Baseline | Target | Minimum Detectable Effect |
 |--------|-----------------|--------|--------------------------|
-| Onboarding completion rate | 34% | 50% | 10% relative lift |
+| Onboarding completion rate | 34% [fictional] | 50% | 10% relative lift |
 
 ### Secondary Metrics
 
 | Metric | Current Baseline | Expected Direction |
 |--------|-----------------|-------------------|
-| Time to complete onboarding | 18 min | Decrease to <8 min |
-| Day-1 core feature activation | 30% | Increase |
-| Support tickets (first 24h) | 8.2% of users | Decrease |
-| User satisfaction (post-onboarding) | 3.2/5 | Increase |
+| Time to complete onboarding | 18 min [fictional] | Decrease to <8 min |
+| Day-1 core feature activation | 30% [fictional] | Increase |
+| Support tickets (first 24h) | 8.2% [fictional] of users | Decrease |
+| User satisfaction (post-onboarding) | 3.2/5 [fictional] | Increase |
 
 ### Guardrail Metrics
 
 | Metric | Current Value | Acceptable Range |
 |--------|--------------|------------------|
-| 14-day trial-to-paid conversion | 12% | No decrease >5% relative |
-| Team invitation rate (within 7 days) | 23% | No decrease >10% relative |
-| Integration connection rate (within 7 days) | 31% | No decrease >10% relative |
+| 14-day trial-to-paid conversion | 12% [fictional] | No decrease >5% relative |
+| Team invitation rate (within 7 days) | 23% [fictional] | No decrease >10% relative |
+| Integration connection rate (within 7 days) | 31% [fictional] | No decrease >10% relative |
 
 ## Validation Approach
 
@@ -106,7 +106,7 @@ Deferred steps (team invitation, integrations) will be prompted via in-app messa
 
 ### Pass/Fail Criteria
 
-- **Validated if:** Onboarding completion increases by ≥10% relative (34% → 37.4%+) with 95% confidence AND guardrail metrics stay within acceptable range
+- **Validated if:** Onboarding completion increases by ≥10% relative (34% [fictional] → 37.4%+) with 95% confidence AND guardrail metrics stay within acceptable range
 - **Invalidated if:** Onboarding completion shows no significant change or decreases, OR guardrail metrics breach acceptable range
 - **Inconclusive if:** Results don't reach statistical significance within test window - extend test or increase sample
 

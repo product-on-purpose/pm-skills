@@ -31,7 +31,7 @@ This is the same worked run carried by the library sample at `library/sub-agent-
 **Disk-write:** on (`_pm-skills/plan-orchestrator/2026-06-01-storevine-q3/`)
 **Steps resolved:** 3 runnable, 1 manual
 **Cynefin domain:** Complicated
-**Overall plan confidence:** Medium-High - converging interview and analytics signal on the activation gap, thinner data on pricing sensitivity.
+**Overall plan confidence:** Medium-High - converging interview and analytics signal on the activation gap, thinner data on pricing sensitivity [fictional].
 
 ---
 

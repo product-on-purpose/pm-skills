@@ -32,7 +32,7 @@ Work comfortably in low-light environments with full dark mode support. Your eye
 
 ## Improvements
 
-- **Faster Page Loads:** We've optimized how projects load, resulting in 40% faster page loads for large projects with 500+ tasks. Complex projects now feel snappy.
+- **Faster Page Loads:** We've optimized how projects load, resulting in 40% faster page loads [fictional] for large projects with 500+ tasks. Complex projects now feel snappy.
 
 - **Smarter Search:** Search now includes task comments and attachments, not just task titles. Find that discussion from last month without remembering which task it was on.
 

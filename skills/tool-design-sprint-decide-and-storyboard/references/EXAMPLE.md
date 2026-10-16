@@ -19,18 +19,18 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 
 ## Heat Map
 
-**Mechanic:** 3 small dots per voter; silent; 15 minutes (09:30-09:45 PT). 4 voters x 3 dots = 12 total dots. Dots placed on Figma using comment-pin tool.
+**Mechanic:** 3 small dots per voter; silent; 15 minutes (09:30-09:45 PT) [fictional]. 4 voters x 3 dots = 12 total dots [fictional]. Dots placed on Figma using comment-pin tool.
 
 | Sketch | Dot count | Hottest elements (3-5 most-dotted) |
 |---|---|---|
-| Sketch A | 4 | Capture-as-rating with optional freeform "why did you grab this?"; captured-contexts library organization; chip filter UI |
-| Sketch B | 4 | 5-second undo countdown after capture; "where you saw it" geolocation tag on confirmation card |
-| Sketch C | 1 | Explicit two-step capture with confirmation; tabular sortable library |
-| Sketch D | 3 | Polaroid-stack post-capture animation; "found in your library: 3 books that mention X" recall surface |
+| Sketch A | 4 [fictional] | Capture-as-rating with optional freeform "why did you grab this?"; captured-contexts library organization; chip filter UI |
+| Sketch B | 4 [fictional] | 5-second undo countdown after capture; "where you saw it" geolocation tag on confirmation card |
+| Sketch C | 1 [fictional] | Explicit two-step capture with confirmation; tabular sortable library |
+| Sketch D | 3 [fictional] | Polaroid-stack post-capture animation; "found in your library: 3 books that mention X" recall surface |
 
 ## Speed Critique Notes
 
-09:45-10:45 PT. Riley walked through each sketch (3 min each plus 1 min buffer). Sketchers silent during their own sketch's critique (the rule held; no one broke silence).
+09:45-10:45 PT. Riley walked through each sketch (3 min each plus 1 min buffer) [fictional]. Sketchers silent during their own sketch's critique (the rule held; no one broke silence) [fictional].
 
 ### Sketch A
 
@@ -66,7 +66,7 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 
 ## Straw Poll Results
 
-11:00-11:15 PT. 1 large dot per voter; silent; non-binding.
+11:00-11:15 PT. 1 large dot per voter; silent; non-binding. [fictional]
 
 | Voter | Picked |
 |---|---|
@@ -75,7 +75,7 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 | Sam | Sketch B |
 | Riley | Sketch A |
 
-**Straw poll distribution:** Sketch A: 1; Sketch B: 2; Sketch C: 0; Sketch D: 1.
+**Straw poll distribution:** Sketch A: 1; Sketch B: 2; Sketch C: 0; Sketch D: 1. [fictional]
 
 ## Supervote
 
@@ -83,7 +83,7 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 
 **Supervote placement:** Jamie placed all 3 supervote dots on Sketch B (Sprint book canonical 3-dot supervote). All-in-one; no rumble.
 
-**Decider's rationale:** Jamie chose Sketch B because the lead sprint question (Q1) is about sub-3-second capture without abandonment, and Sketch B is the only sketch that explicitly designs for that speed constraint. The 5-second undo addresses the worry about "did it work?" feedback (from Dr. Chen's Monday expert interview) without slowing the actual capture. The "where you saw it" element is a bet that contextual capture-time data is what makes the recall surface feel personal rather than tabular. Jamie noted the heat-map concerns (geolocation permission speed bump; undo creating ambiguity) as build issues for Sketch B that the storyboard must address explicitly. Sketch A's captured-contexts library is intriguing but tested orthogonally to A1; Sketch D's recall surface is strong but the team can borrow the "found in your library" pattern in a future iteration without supervoting it now.
+**Decider's rationale:** Jamie chose Sketch B because the lead sprint question (Q1) is about sub-3-second capture without abandonment, and Sketch B is the only sketch that explicitly designs for that speed constraint. The 5-second undo addresses the worry about "did it work?" feedback (from Dr. Chen's Monday expert interview [fictional]) without slowing the actual capture. The "where you saw it" element is a bet that contextual capture-time data is what makes the recall surface feel personal rather than tabular. Jamie noted the heat-map concerns (geolocation permission speed bump; undo creating ambiguity) as build issues for Sketch B that the storyboard must address explicitly. Sketch A's captured-contexts library is intriguing but tested orthogonally to A1; Sketch D's recall surface is strong but the team can borrow the "found in your library" pattern in a future iteration without supervoting it now.
 
 ## Rumble vs All-in-One Decision
 
@@ -102,7 +102,7 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 | 3 | Bottom card showing "The Overstory by Richard Powers" + cover + 4 status chips (Read / Want / Reading / Reference) + "where you saw it: Twig and Cover Books" geolocation tag | Tap the "Want to read" chip | Card commits; brief confirmation animation; 5-sec undo countdown in top-right | Geolocation permission asked at first-ever capture; subsequent captures use cached permission; if denied, geolocation tag simply absent |
 | 4 | Camera surface ready for next capture (book still in frame); top toast: "Added to Want to Read" with mini-cover thumb | Lower the phone (capture flow complete) | App stays on camera; ready for next capture | "Sub-3-second" measured from Panel 1 tap to Panel 4 toast: target < 3 sec |
 | 5 | Library tab open; "Recently captured" row at top showing "The Overstory" first, followed by 3 previously-captured books; each card shows cover + "where you saw it" tag | Scroll the recently captured row | Smooth horizontal scroll; cards stay readable | "Where you saw it" tags appear only for captures with geolocation; visually consistent absence-vs-presence |
-| 6 | (1 week later) Library tab open with 23 books total; search bar at top | Tap search; type "trees" | Results show "The Overstory" plus 2 other books that mention trees | "Books like this you have" deferred to v0.2; Wednesday storyboard kept this scope tight |
+| 6 | (1 week later) Library tab open with 23 books total [fictional]; search bar at top | Tap search; type "trees" | Results show "The Overstory" plus 2 other books that mention trees | "Books like this you have" deferred to v0.2; Wednesday storyboard kept this scope tight |
 | 7 | Tap "The Overstory" card from search results | Card opens to book detail view | Book detail shows cover, captured-on date, where-you-saw-it, status, optional notes | Book detail is read-mostly Wednesday scope; edit-status is the only interaction |
 | 8 | (months later) User opens Brainshelf with intent: "I read something about old-growth forests" | Tap search; type "old-growth forests" | Results return "The Overstory" with a snippet of the captured-time context tag | Search across captured-time context tags is the recall payoff; this panel sells the long-term goal |
 | 9 | Book detail showing "The Overstory" with captured context "Twig and Cover Books, May 2026"; user remembers the moment | Smile, close phone | Recall moment complete | This panel is for the team's morale Wednesday; not a build target Thursday |

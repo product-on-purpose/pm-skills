@@ -9,7 +9,7 @@ A worked case showing the full artifact. The scenario is a B2B ecommerce platfor
 
 > The input the skill received.
 
-"Two enterprise prospects asked about SSO in the last month, and Sales says we'll lose them without it. They want me to put SSO on next sprint. We're a 140-merchant B2B catalog platform; most of our paying accounts are mid-market. Should we build SSO now?"
+"Two enterprise prospects asked about SSO in the last month [fictional], and Sales says we'll lose them without it. They want me to put SSO on next sprint. We're a 140-merchant B2B catalog platform [fictional]; most of our paying accounts are mid-market [fictional]. Should we build SSO now?"
 
 ## Prompt
 
@@ -27,7 +27,7 @@ A worked case showing the full artifact. The scenario is a B2B ecommerce platfor
 
 ## Biggest risk
 
-- **R1 `feature-fit`:** the request is being read as an L4 deal-blocker when the evidence only supports L2 (repeated asks, no behavior proof). Neither prospect has put "no SSO = no deal" in writing, and no current paying merchant has churned over its absence. Building on that is the feature-treadmill trap: it feels urgent because Sales is loud, not because the data says it changes who pays.
+- **R1 `feature-fit`:** the request is being read as an L4 deal-blocker when the evidence only supports L2 (repeated asks, no behavior proof). Neither prospect has put "no SSO = no deal" in writing [fictional], and no current paying merchant has churned over its absence [fictional]. Building on that is the feature-treadmill trap: it feels urgent because Sales is loud, not because the data says it changes who pays.
 - **R2 `distribution`:** even if built, SSO does not by itself reach more enterprise buyers; the constraint upstream is a thin enterprise pipeline `[fictional: 2 active prospects]`, which a feature does not fix.
 - **R3 `trust`:** SSO is a trust-tier feature (identity, provisioning), so a thin first version that mishandles SCIM or de-provisioning would do more reputational harm than not having it, raising the real cost above the sprint estimate.
 
@@ -40,7 +40,7 @@ A worked case showing the full artifact. The scenario is a B2B ecommerce platfor
 | Signal | Strength | What it does or does not prove |
 |---|---|---|
 | Two enterprise prospects raised SSO in calls `[fictional]` | medium | real interest from the target segment; not a commitment |
-| Sales says "we'll lose them without it" | weak | a forecast, not a written requirement; Sales is incentivized to unblock deals with product |
+| Sales says "we'll lose them without it" [fictional] | weak | a forecast, not a written requirement; Sales is incentivized to unblock deals with product |
 | "Enterprise buyers expect SSO" (category articles) | weak | a category norm, not proof for these two deals |
 | 0 of 140 paying merchants cite SSO `[fictional]` | counter-signal | no retention or activation pressure from the existing base |
 | Activation A/B in flight shows onboarding checklist lifts week-2 retention `[fictional]` | strong (for the alternative) | the capacity SSO would consume has a measured return elsewhere |

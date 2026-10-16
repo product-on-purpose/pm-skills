@@ -6,7 +6,7 @@ This example walks through four diagrams a PM would create while preparing Pulse
 
 ## Example 1: Flowchart -- Feature Approval Workflow
 
-**Context:** The PRD needs a visual showing how new feature requests move through the approval process. Stakeholders keep asking "what happens after I submit a request?" and a text description has not stuck.
+**Context:** The PRD needs a visual showing how new feature requests move through the approval process. Stakeholders keep asking "what happens after I submit a request?" and a text description has not stuck [fictional].
 
 ### Filled Worksheet
 

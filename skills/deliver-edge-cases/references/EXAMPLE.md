@@ -49,7 +49,7 @@ Users can upload documents (PDF, Word, images) to their workspace. Files are sto
 | Network failure mid-file | Resume from last chunk when reconnected | P1 | Chunked upload recovery |
 | Storage quota exceeded | Reject: "Storage full. Free up space or upgrade." | P1 | Check before upload starts |
 | File locked/in use (Windows) | Reject: "File is in use. Close it and try again." | P2 | Clear guidance |
-| Upload session expires (>1 hour) | Restart upload with warning | P2 | Token refresh failed |
+| Upload session expires (>1 hour) | Restart upload with warning | P2 | Token refresh failed [fictional] |
 | File deleted locally during upload | Skip file, continue others: "1 file no longer available" | P2 | Non-blocking failure |
 | Server error (5xx) | Show "Upload failed. Please try again." + retry button | P1 | Generic fallback |
 | Malware detected by scanner | Reject file, quarantine, notify admin | P1 | Security critical |
@@ -62,7 +62,7 @@ Users can upload documents (PDF, Word, images) to their workspace. Files are sto
 | User navigates away during upload | Warning: "Upload in progress. Leave anyway?" | P1 | Confirmation dialog |
 | User starts second upload batch | Queue second batch, show queue UI | P2 | Or reject with "upload in progress" |
 | Same file uploaded simultaneously by 2 users | Both succeed with unique versions | P3 | Conflict resolution via versioning |
-| User refreshes page during upload | Upload cancelled, show restart option on return | P2 | Cannot persist upload state |
+| User refreshes page during upload | Upload cancelled, show restart option on return | P2 | Cannot persist upload state [fictional] |
 
 ### Integration Failures
 

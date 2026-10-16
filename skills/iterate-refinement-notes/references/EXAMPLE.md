@@ -13,7 +13,7 @@ context: Weekly refinement session preparing for Sprint 15
 | Attribute | Value |
 |-----------|-------|
 | **Date** | January 14, 2026, 2:00 PM EST |
-| **Duration** | 45 minutes |
+| **Duration** | 45 minutes [fictional] |
 | **Facilitator** | Maya Chen (Scrum Master) |
 | **Sprint Preparing For** | Sprint 15 (Jan 20 - Feb 2) |
 
@@ -78,7 +78,7 @@ context: Weekly refinement session preparing for Sprint 15
 - Limit: 5 reset requests per email per hour
 - After limit hit: show generic "check your email" message (no indication of limiting for security)
 - Rate limit data stored in Redis with 1-hour TTL
-- Security team reviewed and approved approach
+- Security team reviewed and approved approach [fictional]
 
 **Scope Changes:**
 - None
@@ -100,11 +100,11 @@ context: Weekly refinement session preparing for Sprint 15
 | **Assignee** | Alex |
 
 **Discussion Notes:**
-- Current load time: 3.2 seconds average
+- Current load time: 3.2 seconds average [fictional]
 - Target: Under 1 second for 90th percentile
-- Main issue: N+1 query for user's projects
+- Main issue: N+1 query for user's projects [fictional]
 - Solution: Eager loading + pagination (show first 10 projects, load more on scroll)
-- Jordan suggested we add performance test to prevent regression
+- Jordan suggested we add performance test to prevent regression [fictional]
 
 **Scope Changes:**
 - Added acceptance criterion for performance test
@@ -126,7 +126,7 @@ context: Weekly refinement session preparing for Sprint 15
 | **Assignee** | TBD |
 
 **Discussion Notes:**
-- Story is too large.team estimated 13+ points
+- Story is too large.team estimated 13+ points [fictional]
 - Decision: Split into 3 smaller stories
   - USER-348a: Settings navigation restructure (3 pts)
   - USER-348b: Notification preferences panel (5 pts)
@@ -150,12 +150,12 @@ context: Weekly refinement session preparing for Sprint 15
 | **Assignee** | TBD |
 
 **Discussion Notes:**
-- Design team hasn't provided dark mode color palette yet
+- Design team hasn't provided dark mode color palette yet [fictional]
 - Can't estimate until we know scope of color changes
 - Some components may need redesign (charts, badges with colored backgrounds)
 
 **Blocker:**
-- Missing design specs.blocked on design team
+- Missing design specs [fictional].blocked on design team
 
 ---
 
@@ -182,12 +182,12 @@ context: Weekly refinement session preparing for Sprint 15
 ### Question Details
 
 **Q: Should CSV export include hidden columns?**
-- Context: Users can hide columns in the report view. Should hidden columns appear in export?
+- Context: Users can hide columns in the report view [fictional]. Should hidden columns appear in export?
 - Impact: Minor.doesn't block story, but affects implementation detail
-- Notes: Taylor leaning toward "export matches what you see" but will confirm with customers
+- Notes: Taylor leaning toward "export matches what you see" but will confirm with customers [fictional]
 
 **Q: What's the plan for internationalization of exported dates?**
-- Context: We have users in multiple locales. Dates in CSV might be ambiguous.
+- Context: We have users in multiple locales [fictional]. Dates in CSV might be ambiguous.
 - Impact: Could affect USER-342 scope
 - Notes: Options: ISO 8601 dates (unambiguous) or locale-specific with locale in filename
 
@@ -218,14 +218,14 @@ context: Weekly refinement session preparing for Sprint 15
 
 | Story | Blocker | Owner | Expected Resolution |
 |-------|---------|-------|---------------------|
-| USER-350 | Missing dark mode design specs | Design Lead | Jan 16 (Maya to follow up) |
+| USER-350 | Missing dark mode design specs [fictional] | Design Lead | Jan 16 (Maya to follow up) |
 
 ---
 
 ## Parking Lot
 
-- **Mobile responsive settings:** Jordan raised that settings page isn't mobile-friendly. Agreed to create a separate story rather than expand USER-348 scope. Taylor to add to backlog.
-- **Export to Google Sheets:** Customer request came in during session. Taylor will assess priority and create story if warranted.
+- **Mobile responsive settings:** Jordan raised that settings page isn't mobile-friendly [fictional]. Agreed to create a separate story rather than expand USER-348 scope. Taylor to add to backlog.
+- **Export to Google Sheets:** Customer request came in during session [fictional]. Taylor will assess priority and create story if warranted.
 
 ---
 

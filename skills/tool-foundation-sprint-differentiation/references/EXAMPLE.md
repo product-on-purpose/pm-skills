@@ -25,10 +25,10 @@ Top scorers advancing to note-and-vote: capture speed, private-by-default, perso
 ## Chosen Two Differentiators
 
 **1. Capture speed: sub-3-second log from any context.**
-The single biggest pain among the 22-interview cohort is the friction of opening Goodreads, searching, adding, tagging, exiting. Brainshelf wins if the team can get from "I just finished or want to remember this book" to "logged" in under three seconds, including book metadata resolution. Sam's mobile and offline-first engineering background makes this deliverable.
+The single biggest pain among the 22-interview cohort [fictional] is the friction of opening Goodreads, searching, adding, tagging, exiting. Brainshelf wins if the team can get from "I just finished or want to remember this book" to "logged" in under three seconds, including book metadata resolution. Sam's mobile and offline-first engineering background makes this deliverable.
 
 **2. Personal recall: surface what you've read and what you thought.**
-The second consistent pain is "did I already read this?" at the bookstore or "what did I think of that book my friend recommended?" later. Brainshelf wins if it answers those questions faster and more confidently than any alternative, including memory and paper journals. The 22 interviews repeatedly named recall friction; Riley's network confirms the same pattern.
+The second consistent pain is "did I already read this?" at the bookstore or "what did I think of that book my friend recommended?" later. Brainshelf wins if it answers those questions faster and more confidently than any alternative, including memory and paper journals. The 22 interviews repeatedly named recall friction [fictional]; Riley's network confirms the same pattern [fictional].
 
 ## 2x2 Differentiation Chart
 

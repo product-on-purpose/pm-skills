@@ -55,7 +55,7 @@ codex> /utility-pm-critic library/skill-output-samples/deliver-prd/sample_delive
 ### F-04: A/B test on opt-in self-selected sample vs no-email control; treatment effect not generalizable
 
 **Location:** Solution Summary (line 67) and Goals & Success Metrics (line 77)
-**Issue:** Opt-in users are systematically more engaged than non-opt-in. The 7-day return-rate uplift is confounded with "kind of user who opts in."
+**Issue:** Opt-in users are systematically more engaged than non-opt-in [fictional]. The 7-day return-rate uplift is confounded with "kind of user who opts in."
 **Fix:** Compare opt-in users in treatment vs opt-in users in control (both opted in; only treatment receives email), OR add an opt-in + no email washout arm.
 
 ## P2 findings

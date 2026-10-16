@@ -18,26 +18,26 @@ Errors: 0 | Warnings: 1 | Info: 1
 ## Structural Checks
 - PASS | structural | name-match | frontmatter `name` matches directory
 - PASS | structural | description-present | description exists
-- PASS | structural | description-length | 31 words (20-100 range)
+- PASS | structural | description-length | 31 words [fictional] (20-100 range)
 - PASS | structural | version-present | version "2.0.0"
 - PASS | structural | updated-present | updated 2026-01-26
 - PASS | structural | license-present | Apache-2.0
 - PASS | structural | phase-classification | phase: deliver (domain skill, no classification field)
 - PASS | structural | template-exists | references/TEMPLATE.md present
-- PASS | structural | template-sections | 10 level-2 headers (≥3 required)
+- PASS | structural | template-sections | 10 level-2 headers [fictional] (≥3 required)
 - PASS | structural | example-exists | references/EXAMPLE.md present
 - PASS | structural | command-exists | commands/prd.md exists and references correct path
 - PASS | structural | agents-entry | AGENTS.md entry found with matching path
 
 ## Quality Checks
 - WARN | quality | output-contract-coverage | Output Format section says "Use the template in `references/TEMPLATE.md` to structure the output" but does not enumerate template sections explicitly. Accepted as valid - this is the current library convention.
-- PASS | quality | checklist-verifiability | all 7 checklist items are specific and testable (e.g., "Success metrics are specific and measurable", "Document is readable in under 15 minutes")
-- PASS | quality | example-completeness | EXAMPLE.md fills all 10 template sections with concrete content. No placeholder scaffolding detected. Line count: 212 (informational).
+- PASS | quality | checklist-verifiability | all 7 [fictional] checklist items are specific and testable (e.g., "Success metrics are specific and measurable", "Document is readable in under 15 minutes")
+- PASS | quality | example-completeness | EXAMPLE.md fills all 10 [fictional] template sections with concrete content. No placeholder scaffolding detected. Line count: 212 [fictional] (informational).
 - PASS | quality | template-example-alignment | EXAMPLE.md section headers match TEMPLATE.md in order and naming
 - PASS | quality | description-actionability | description includes trigger phrase: "Use when specifying features, epics, or product initiatives for engineering handoff"
-- PASS | quality | instruction-clarity | 8 numbered steps with imperative verbs (Summarize, Define, Outline, Detail, Define, Address, Identify, Propose)
+- PASS | quality | instruction-clarity | 8 [fictional] numbered steps with imperative verbs (Summarize, Define, Outline, Detail, Define, Address, Identify, Propose)
 - PASS | quality | placeholder-leakage | no unresolved placeholders, HTML comments (except license header), or authoring notes found
-- INFO | quality | when-not-to-use | no "When NOT to Use" section present (optional - present in 1/27 shipped skills)
+- INFO | quality | when-not-to-use | no "When NOT to Use" section present (optional - present in 1/27 [fictional] shipped skills)
 
 ## Recommendations
 1. WARN | output-contract-coverage | Target: skills/deliver-prd/SKILL.md

@@ -68,11 +68,11 @@ manually download releases - future updates are one command away.
 
 | Directory | Files | New | Updated |
 |-----------|-------|-----|---------|
-| `skills/` | 32 | 3 (1 skill x 3 files) | 29 |
-| `commands/` | 39 | 1 | 38 |
-| `_workflows/` | 10 | 0 | 10 |
-| Other | 8 | 1 (guide) | 7 |
-| **Total** | **89** | **5** | **84** |
+| `skills/` | 32 [fictional] | 3 (1 skill x 3 files) [fictional] | 29 [fictional] |
+| `commands/` | 39 [fictional] | 1 [fictional] | 38 [fictional] |
+| `_workflows/` | 10 [fictional] | 0 [fictional] | 10 [fictional] |
+| Other | 8 [fictional] | 1 (guide) [fictional] | 7 [fictional] |
+| **Total** | **89 [fictional]** | **5 [fictional]** | **84 [fictional]** |
 
 ## Backup
 
@@ -86,7 +86,7 @@ To restore: `cp -r _pm-skills/backups/v2.9.1_2026-04-11_143022/* .`
 |-------|--------|
 | Version consistency | PASS -- plugin.json, marketplace.json, and CHANGELOG.md all show v2.10.0 |
 | File integrity | PASS -- AGENTS.md, skills/, commands/, _workflows/ all present |
-| Skill count | 31 -> 32 (+1: utility-update-pm-skills) |
+| Skill count | 31 -> 32 (+1: utility-update-pm-skills) [fictional] |
 
 ## Next Steps
 
@@ -167,11 +167,11 @@ The self-updater means future releases are one command away. Try
 
 | Directory | Files | New | Updated |
 |-----------|-------|-----|---------|
-| `skills/` | 32 | 3 | 29 |
-| `commands/` | 39 | 1 | 38 |
-| `_workflows/` | 10 | 0 | 10 |
-| Other | 8 | 1 | 7 |
-| **Total** | **89** | **5** | **84** |
+| `skills/` | 32 [fictional] | 3 [fictional] | 29 [fictional] |
+| `commands/` | 39 [fictional] | 1 [fictional] | 38 [fictional] |
+| `_workflows/` | 10 [fictional] | 0 [fictional] | 10 [fictional] |
+| Other | 8 [fictional] | 1 [fictional] | 7 [fictional] |
+| **Total** | **89 [fictional]** | **5 [fictional]** | **84 [fictional]** |
 
 ## Next Steps
 

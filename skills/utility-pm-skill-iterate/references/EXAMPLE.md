@@ -14,9 +14,9 @@ Resolved from user input: `utility-pm-skill-iterate deliver-prd`
 ## Step 2: Read Current Skill Files
 
 Read and recorded:
-- `skills/deliver-prd/SKILL.md` (72 lines)
-- `skills/deliver-prd/references/TEMPLATE.md` (10 sections)
-- `skills/deliver-prd/references/EXAMPLE.md` (212 lines)
+- `skills/deliver-prd/SKILL.md` (72 lines [fictional])
+- `skills/deliver-prd/references/TEMPLATE.md` (10 sections [fictional])
+- `skills/deliver-prd/references/EXAMPLE.md` (212 lines [fictional])
 - `HISTORY.md` does not exist
 
 ## Step 3: Normalize Input into Intended Changes

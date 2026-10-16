@@ -46,7 +46,7 @@ status: draft
 
 **Context**
 
-Kickoff yesterday settled the scope and capacity questions that have been open since January. Ship-date commitment was paused when alex surfaced an Algolia licensing question that needs resolution before we lock a date.
+Kickoff yesterday settled the scope and capacity questions that have been open since January [fictional]. Ship-date commitment was paused when alex surfaced an Algolia licensing question [fictional] that needs resolution before we lock a date.
 
 **What this means for engineering**
 
@@ -77,7 +77,7 @@ Sending this because yesterday's search-feature kickoff produced scope and capac
 
 **Context**
 
-Scope and capacity have been open questions since January. Kickoff yesterday converged both: we narrowed scope relative to the original proposal, which made the capacity commitment (8 sprint-weeks) workable without backfill. The vendor-licensing question emerged in the same meeting and is the one outstanding item.
+Scope and capacity have been open questions since January [fictional]. Kickoff yesterday converged both: we narrowed scope relative to the original proposal, which made the capacity commitment (8 sprint-weeks) workable without backfill. The vendor-licensing question emerged in the same meeting [fictional] and is the one outstanding item.
 
 **What was decided or advanced**
 

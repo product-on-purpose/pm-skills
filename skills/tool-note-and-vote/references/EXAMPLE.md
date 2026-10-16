@@ -4,7 +4,7 @@ A single Note-and-Vote invocation during Day 1 morning of the Brainshelf Foundat
 
 ## Decision Question
 
-> Of the candidate target customers we have surfaced from our 22 interviews, which one should the Brainshelf Foundation Sprint commit to for Day 1 Basics?
+> Of the candidate target customers we have surfaced from our 22 interviews [fictional], which one should the Brainshelf Foundation Sprint commit to for Day 1 Basics?
 
 ## Time Allocation
 
@@ -23,19 +23,19 @@ Multi-vote (each participant gets 2 dots); Decider gets an additional supervote 
 
 ## Silent Ideation Board
 
-**Jamie** (09:14):
+**Jamie** (09:14) [fictional]:
 - Individual collectors (read alone, library is for self)
 - Active social readers (book clubs, friend recommendations, Goodreads survivors)
 
-**Alex** (09:14):
+**Alex** (09:14) [fictional]:
 - People who read on multiple formats (audio + kindle + paper) and lose track across formats
 - "Book hoarders" who own more than they have read
 
-**Sam** (09:15):
-- Readers who hit Goodreads churn point (3+ months in, dropped because of social pressure)
-- People who track in spreadsheets today (highest existing friction tolerance)
+**Sam** (09:15) [fictional]:
+- Readers who hit Goodreads churn point (3+ months in, dropped because of social pressure) [fictional]
+- People who track in spreadsheets today (highest existing friction tolerance) [fictional]
 
-**Riley** (09:15):
+**Riley** (09:15) [fictional]:
 - Book club coordinators (manage 5-20 people's reading)
 - Romance / genre readers (high volume, repeat behavior)
 - People who read 25+ books/year and treat books as memory (NOT identity)
@@ -44,25 +44,25 @@ Multi-vote (each participant gets 2 dots); Decider gets an additional supervote 
 
 | Option | Votes | Voted by |
 |---|---|---|
-| 25+ books/year, books-as-memory readers (Riley) | 3 | Jamie, Alex, Riley |
-| Individual collectors (Jamie) | 1 | Alex |
-| Active social readers (Jamie) | 1 | Sam |
-| Multi-format readers (Alex) | 1 | Jamie |
-| Goodreads churn readers (Sam) | 1 | Riley |
-| Book club coordinators (Riley) | 0 | - |
-| Romance / genre readers (Riley) | 0 | - |
-| Spreadsheet trackers (Sam) | 0 | - |
-| "Book hoarders" (Alex) | 0 | - |
+| 25+ books/year, books-as-memory readers (Riley) | 3 [fictional] | Jamie, Alex, Riley [fictional] |
+| Individual collectors (Jamie) | 1 [fictional] | Alex [fictional] |
+| Active social readers (Jamie) | 1 [fictional] | Sam [fictional] |
+| Multi-format readers (Alex) | 1 [fictional] | Jamie [fictional] |
+| Goodreads churn readers (Sam) | 1 [fictional] | Riley [fictional] |
+| Book club coordinators (Riley) | 0 [fictional] | - |
+| Romance / genre readers (Riley) | 0 [fictional] | - |
+| Spreadsheet trackers (Sam) | 0 [fictional] | - |
+| "Book hoarders" (Alex) | 0 [fictional] | - |
 
-**Total votes cast:** 8 (4 participants x 2 dots each)
+**Total votes cast:** 8 (4 participants x 2 dots each) [fictional]
 
 ## Discussion Notes
 
-- **Books-as-memory readers (top option)**: Riley argued this framing absorbs individual collectors and Goodreads churners as adjacent segments. The other voters (Jamie, Alex) confirmed this matches the pattern from the 22 interviews.
-- **Sam's social-readers vote**: "I voted for it because we know that segment well via Riley, but I'm convinced by the discussion that this is the easier, lower-leverage choice. Social readers are well-served by Goodreads. We can't out-Goodreads Goodreads."
-- **Alex's individual-collectors vote**: "I think individual collectors and books-as-memory readers are mostly the same person framed differently. I'm comfortable folding."
-- **Riley's Goodreads-churn vote**: "These are real people but they're a sub-segment of the books-as-memory people. They've already validated the pain by leaving Goodreads. They prove the segment but don't define it."
-- **Surprise**: nobody voted for book club coordinators despite Riley's network advantage in that segment. Confirms that distribution access does not equal product-market-fit.
+- **Books-as-memory readers (top option)**: Riley argued this framing absorbs individual collectors and Goodreads churners as adjacent segments [fictional]. The other voters (Jamie, Alex) confirmed this matches the pattern from the 22 interviews [fictional].
+- **Sam's social-readers vote**: "I voted for it because we know that segment well via Riley, but I'm convinced by the discussion that this is the easier, lower-leverage choice. Social readers are well-served by Goodreads. We can't out-Goodreads Goodreads." [fictional]
+- **Alex's individual-collectors vote**: "I think individual collectors and books-as-memory readers are mostly the same person framed differently. I'm comfortable folding." [fictional]
+- **Riley's Goodreads-churn vote**: "These are real people but they're a sub-segment of the books-as-memory people. They've already validated the pain by leaving Goodreads. They prove the segment but don't define it." [fictional]
+- **Surprise**: nobody voted for book club coordinators despite Riley's network advantage in that segment [fictional]. Confirms that distribution access does not equal product-market-fit [fictional].
 
 ## Decision Record
 
@@ -74,13 +74,13 @@ Multi-vote (each participant gets 2 dots); Decider gets an additional supervote 
 
 **Alternatives explicitly considered and rejected:**
 
-- Active social readers (rejected: well-served by Goodreads; we can't out-Goodreads Goodreads)
+- Active social readers (rejected: well-served by Goodreads [fictional]; we can't out-Goodreads Goodreads)
 - Book club coordinators (rejected: distribution access does not equal product-market-fit)
 - Romance / genre readers (rejected: high volume but not the books-as-memory framing)
 - "Book hoarders" (rejected: subset of books-as-memory; not distinct enough to be its own segment)
-- Spreadsheet trackers (rejected: too small a niche)
+- Spreadsheet trackers (rejected: too small a niche [fictional])
 
-**Confidence:** High. Three of four voters aligned independently; Decider rationale matches the customer interview synthesis. The team will not re-vote on this during the sprint without explicit invalidation evidence.
+**Confidence:** High. Three of four voters aligned independently [fictional]; Decider rationale matches the customer interview synthesis [fictional]. The team will not re-vote on this during the sprint without explicit invalidation evidence.
 
 **Signed:** Jamie (Decider), 2026-05-13 09:30 PT
 

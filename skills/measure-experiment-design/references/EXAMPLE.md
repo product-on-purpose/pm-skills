@@ -30,9 +30,9 @@ context: E-commerce checkout optimization A/B test
 
 ## Background
 
-Mobile checkout abandonment is at 73%, compared to 45% on desktop. User research identified friction points: confusion navigating between steps, anxiety about hidden costs appearing late in the flow, and form field frustration on small screens. A single-page checkout addresses these by showing all information upfront and reducing navigation.
+Mobile checkout abandonment is at 73% [fictional], compared to 45% [fictional] on desktop. User research identified friction points: confusion navigating between steps, anxiety about hidden costs appearing late in the flow, and form field frustration on small screens [fictional]. A single-page checkout addresses these by showing all information upfront and reducing navigation.
 
-Competitor analysis shows that Amazon, Shopify stores, and Apple use single-page or minimal-step checkouts. Our hypothesis is that reducing cognitive load and providing visibility into the full process will improve conversion.
+Competitor analysis shows that Amazon, Shopify stores, and Apple use single-page or minimal-step checkouts [fictional]. Our hypothesis is that reducing cognitive load and providing visibility into the full process will improve conversion.
 
 ## Variants
 
@@ -68,7 +68,7 @@ Competitor analysis shows that Amazon, Shopify stores, and Apple use single-page
 
 | Metric | Definition | Current Baseline | Minimum Detectable Effect |
 |--------|------------|------------------|---------------------------|
-| Checkout conversion rate | Orders completed / Checkout sessions started | 27% | 5% relative (1.35 pp absolute) |
+| Checkout conversion rate | Orders completed / Checkout sessions started | 27% [fictional] | 5% relative (1.35 pp absolute) |
 
 ### Secondary Metrics
 
@@ -92,20 +92,20 @@ Competitor analysis shows that Amazon, Shopify stores, and Apple use single-page
 
 | Parameter | Value |
 |-----------|-------|
-| **Baseline conversion rate** | 27% |
+| **Baseline conversion rate** | 27% [fictional] |
 | **Minimum detectable effect (MDE)** | 5% relative (28.35% target) |
 | **Statistical significance (alpha)** | 0.05 (one-tailed) |
 | **Statistical power (1-beta)** | 0.80 |
 | **Users per variant** | 9,800 |
 | **Total users needed** | 19,600 |
 
-Calculation performed using Evan Miller's sample size calculator, assuming one-tailed test (we only ship if treatment is better).
+Calculation performed using Evan Miller's sample size calculator, assuming one-tailed test (we only ship if treatment is better) [fictional].
 
 ### Duration Estimate
 
 | Parameter | Value |
 |-----------|-------|
-| **Daily eligible traffic** | 18,000 mobile checkout sessions/day |
+| **Daily eligible traffic** | 18,000 [fictional] mobile checkout sessions/day |
 | **Traffic allocation** | 80% to experiment (20% holdout for safety) |
 | **Users per day in experiment** | 14,400 |
 | **Minimum duration** | 2 days to reach sample size |
@@ -194,5 +194,5 @@ Primary metric change is between -5% and +5% relative and not statistically sign
 
 - Hypothesis Document: Mobile Checkout Improvement (internal doc link)
 - Design Mockups (Figma link)
-- Previous Experiment: Guest Checkout (results/guest-checkout-q3-2025.md) - 3% lift, informed this design
+- Previous Experiment: Guest Checkout (results/guest-checkout-q3-2025.md) - 3% lift [fictional], informed this design
 - User Research: Checkout Friction Study (research PDF)

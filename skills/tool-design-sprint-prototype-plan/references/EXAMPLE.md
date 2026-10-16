@@ -88,14 +88,14 @@ Run with Sam playing a target-profile customer at 15:30-17:00 PT.
 
 | Slot | Customer (anonymized) | Status as of Thursday 09:30 | Recruiter action |
 |---|---|---|---|
-| Fri 09:00 | UI-Panel-A (US, age 38, M) | Confirmed; reminder sent yesterday | None |
-| Fri 10:30 | Discord-1 (UK, age 31, F) | Confirmed; high enthusiasm | None |
-| Fri 12:00 | Discord-4 (US, age 36, M; moved up from buffer) | Confirmed; reminder sent | None |
-| Fri 14:00 | Discord-3 (Canada, age 29, M) | Confirmed | None |
-| Fri 15:30 | UI-Panel-B (Australia, age 52, F) | Confirmed; timezone 09:30 their local; comfortable confirmed | None |
-| Fri 17:00 (buffer) | Open (previous buffer used Tuesday) | None scheduled | Riley to identify backup candidate by 12:00 PT Thursday in case of further cancellation |
+| Fri 09:00 | UI-Panel-A (US, age 38, M) [fictional] | Confirmed; reminder sent yesterday | None |
+| Fri 10:30 | Discord-1 (UK, age 31, F) [fictional] | Confirmed; high enthusiasm [fictional] | None |
+| Fri 12:00 | Discord-4 (US, age 36, M; moved up from buffer) [fictional] | Confirmed; reminder sent | None |
+| Fri 14:00 | Discord-3 (Canada, age 29, M) [fictional] | Confirmed | None |
+| Fri 15:30 | UI-Panel-B (Australia, age 52, F) [fictional] | Confirmed; timezone 09:30 their local; comfortable confirmed | None |
+| Fri 17:00 (buffer) | Open (previous buffer used Tuesday [fictional]) | None scheduled | Riley to identify backup candidate by 12:00 PT Thursday in case of further cancellation |
 
-**Risk assessment for Friday:** Low. All 5 primary slots confirmed Thursday morning. Buffer slot empty but Riley has a backup-of-backup candidate identified (UI-Panel-C, age 41, F, US) who can be activated within 4 hours if needed.
+**Risk assessment for Friday:** Low. All 5 primary slots confirmed Thursday morning. Buffer slot empty but Riley has a backup-of-backup candidate identified (UI-Panel-C, age 41, F, US) [fictional] who can be activated within 4 hours if needed.
 
 ## Decider Checkpoint
 

@@ -1,6 +1,6 @@
 # Design Sprint Monday Artifact: Brainshelf Camera-Capture Validation
 
-Monday 2026-06-01. The Brainshelf team's sprint brief was locked Friday 2026-05-29 with 6 customer slots confirmed for Friday 2026-06-05. The team is together for the full Monday workshop: Jamie + Sam in-person at Capitol Hill Coworking; Alex + Riley remote on Zoom + Miro. Three cameo experts scheduled for the afternoon. This artifact captures the team's Day 1 convergence from the brief's 4 sprint questions to the chosen target moment.
+Monday 2026-06-01. The Brainshelf team's sprint brief was locked Friday 2026-05-29 with 6 customer slots confirmed for Friday 2026-06-05 [fictional]. The team is together for the full Monday workshop: Jamie + Sam in-person at Capitol Hill Coworking; Alex + Riley remote on Zoom + Miro [fictional]. Three cameo experts scheduled for the afternoon [fictional]. This artifact captures the team's Day 1 convergence from the brief's 4 sprint questions to the chosen target moment.
 
 ## Long-Term Goal
 
@@ -52,42 +52,42 @@ The brief's 4 questions seed this list; the team refined wording during the morn
                                         (recall succeeds, decision made)
 ```
 
-**Key player:** 25+/year reader who treats personal library as memory rather than identity (cross-checked with the brief's target customer profile).
+**Key player:** 25+/year reader who treats personal library as memory rather than identity (cross-checked with the brief's target customer profile [fictional]).
 
-**Map narrative:** A 25+/year reader encounters a book they want to remember in any of 4 contexts (home, bookstore, friend's house, online). They decide whether to act; "do nothing" is the most common path today. If they act, they either buy the book (separate from the capture problem) or try to add it to some system. The current alternatives (Goodreads, StoryGraph, paper journals, memory only) all impose friction at capture; that friction is why "do nothing" wins so often. 3-12 months later, the reader hits the recall moment ("did I already read this? what was it about?") and either recovers the memory (long-term goal) or gives up (pain repeated).
+**Map narrative:** A 25+/year reader encounters a book they want to remember in any of 4 contexts (home, bookstore, friend's house, online). They decide whether to act; "do nothing" is the most common path today [fictional]. If they act, they either buy the book (separate from the capture problem) or try to add it to some system. The current alternatives (Goodreads, StoryGraph, paper journals, memory only) all impose friction at capture; that friction is why "do nothing" wins so often. 3-12 months later [fictional], the reader hits the recall moment ("did I already read this? what was it about?") and either recovers the memory (long-term goal) or gives up (pain repeated).
 
 ## Expert Interview Notes
 
 ### Expert 1: Dr. Mira Chen, UX researcher who published 2024 study on mobile capture flows (15 min, 13:30 PT)
 
-- Sub-3-second capture is the threshold below which users perceive the action as "free" rather than "transactional"; above 3 seconds, drop-off accelerates non-linearly.
-- The "did it work?" feedback loop matters more than the capture speed itself. Users tolerate slightly slower capture if confirmation is unambiguous.
+- Sub-3-second capture is the threshold below which users perceive the action as "free" rather than "transactional"; above 3 seconds, drop-off accelerates non-linearly [fictional].
+- The "did it work?" feedback loop matters more than the capture speed itself. Users tolerate slightly slower capture if confirmation is unambiguous [fictional].
 - HMW candidate: HMW make the post-capture confirmation feel like "yes, the book is in your library" rather than "processing"?
 
 ### Expert 2: Karen Iwasaki, indie bookstore owner with 15 years observing reader behavior (20 min, 14:00 PT)
 
-- Readers who track books are usually motivated by social anxiety (book club Tuesday) or completion-anxiety (did I finish this trilogy?), not memory per se. Memory framing may not resonate.
-- Counter-observation: a quieter cohort exists who track for personal recall (the books-as-memory framing); they often don't post on social platforms. They are hard to recruit but high-LTV.
+- Readers who track books are usually motivated by social anxiety (book club Tuesday) or completion-anxiety (did I finish this trilogy?), not memory per se. Memory framing may not resonate [fictional].
+- Counter-observation: a quieter cohort exists who track for personal recall (the books-as-memory framing); they often don't post on social platforms. They are hard to recruit but high-LTV [fictional].
 - HMW candidate: HMW design the capture-and-recall loop so it feels rewarding without requiring social sharing as the reward mechanism?
 
 ### Expert 3: Devon Park, mobile engineer who shipped two camera-OCR products at scale (15 min, 14:30 PT)
 
-- The Figma prototype CAN convincingly fake OCR if the team scripts the recognition to "succeed" for prepared books and "ask for correction" for others. Customers will believe the simulation if the latency feel is right.
-- Real OCR shipping accuracy is 88-94% depending on lighting; below 85% trust collapses; above 92% trust is binary "always works."
+- The Figma prototype CAN convincingly fake OCR if the team scripts the recognition to "succeed" for prepared books and "ask for correction" for others. Customers will believe the simulation if the latency feel is right [fictional].
+- Real OCR shipping accuracy is 88-94% depending on lighting [fictional]; below 85% trust collapses [fictional]; above 92% trust is binary "always works." [fictional]
 - HMW candidate: HMW make the "ask for correction" path feel like a helpful collaboration rather than a failure?
 
 ## HMW Cluster Board
 
-Total HMWs surfaced: 67 (team + expert interviews). Clustered into 6 themes. Heat-map vote via `tool-note-and-vote` with 5 dots per voter (4 voters; 20 dots total).
+Total HMWs surfaced: 67 (team + expert interviews) [fictional]. Clustered into 6 themes [fictional]. Heat-map vote via `tool-note-and-vote` with 5 dots per voter (4 voters; 20 dots total) [fictional].
 
 | Cluster | Theme | HMW count | Heat-map votes |
 |---|---|---|---|
-| C1 | Confirmation feedback at capture moment | 11 | 7 |
-| C2 | Recall framing and the moment of remembrance | 14 | 6 |
-| C3 | "Did I already read this?" detection and surfacing | 9 | 4 |
-| C4 | Capture across contexts (home / bookstore / friend) | 12 | 2 |
-| C5 | Social vs personal-only loop framing | 8 | 1 |
-| C6 | Onboarding and first-library setup | 13 | 0 |
+| C1 | Confirmation feedback at capture moment | 11 [fictional] | 7 [fictional] |
+| C2 | Recall framing and the moment of remembrance | 14 [fictional] | 6 [fictional] |
+| C3 | "Did I already read this?" detection and surfacing | 9 [fictional] | 4 [fictional] |
+| C4 | Capture across contexts (home / bookstore / friend) | 12 [fictional] | 2 [fictional] |
+| C5 | Social vs personal-only loop framing | 8 [fictional] | 1 [fictional] |
+| C6 | Onboarding and first-library setup | 13 [fictional] | 0 [fictional] |
 
 **Top cluster HMWs (verbatim):**
 
@@ -112,7 +112,7 @@ Total HMWs surfaced: 67 (team + expert interviews). Clustered into 6 themes. Hea
 
 **Selected target:** The capture moment + the immediate post-capture confirmation surface (Steps 2 plus 3 on the map; the "decides to act" + "adds to system" transition). Wednesday's storyboard will cover this transition plus a 2-step recall flow from the confirmation surface.
 
-**Decider rationale:** Jamie chose the capture-plus-confirmation moment over the recall-only moment for three reasons. First, the lead sprint question (Q1, FS-A1) lives here: if capture-plus-confirmation invalidates, the entire camera-first direction pivots regardless of how good recall would be. Second, C1 had the highest heat-map vote count (7), giving the team confidence the capture-confirmation pair is where the most reusable design insight lives. Third, the recall surface depends on the capture flow having produced meaningful captured books; testing recall in isolation would have required scripting fake library state for each customer.
+**Decider rationale:** Jamie chose the capture-plus-confirmation moment over the recall-only moment for three reasons. First, the lead sprint question (Q1, FS-A1) lives here: if capture-plus-confirmation invalidates, the entire camera-first direction pivots regardless of how good recall would be. Second, C1 had the highest heat-map vote count (7) [fictional], giving the team confidence the capture-confirmation pair is where the most reusable design insight lives. Third, the recall surface depends on the capture flow having produced meaningful captured books; testing recall in isolation would have required scripting fake library state for each customer.
 
 **Sprint questions the target moment most directly tests:** Q1 (lead; sub-3-second capture without abandonment, library valuable for recall), Q2 (OCR accuracy + trust), and Q5 (capture-to-library-location understanding in 15 seconds).
 

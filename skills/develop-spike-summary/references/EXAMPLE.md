@@ -20,7 +20,7 @@ context: Evaluating payment processors for new e-commerce platform
 
 ## Background
 
-Our new e-commerce platform needs payment processing capabilities. We currently process $2M/month through a legacy system and expect to scale to $10M/month within 18 months. The decision between Stripe and Adyen will affect our transaction costs, integration timeline, and ability to expand internationally.
+Our new e-commerce platform needs payment processing capabilities. We currently process $2M/month [fictional] through a legacy system and expect to scale to $10M/month within 18 months [fictional]. The decision between Stripe and Adyen will affect our transaction costs, integration timeline, and ability to expand internationally.
 
 ## Approach
 
@@ -44,28 +44,28 @@ Our new e-commerce platform needs payment processing capabilities. We currently 
 
 ### Finding 1: Stripe has significantly better developer experience
 
-Stripe's documentation is more comprehensive and includes more working examples. The sandbox environment required no setup - we were processing test payments within 15 minutes. Adyen required account manager approval and took 2 days to get sandbox access.
+Stripe's documentation is more comprehensive and includes more working examples. The sandbox environment required no setup - we were processing test payments within 15 minutes [fictional]. Adyen required account manager approval and took 2 days to get sandbox access [fictional].
 
 **Evidence:**
-- Time to first successful test payment: Stripe (15 min), Adyen (2 days including access wait)
-- Documentation score (internal rating): Stripe 9/10, Adyen 6/10
-- Stack Overflow questions with accepted answers: Stripe (47,000+), Adyen (3,200)
+- Time to first successful test payment: Stripe (15 min) [fictional], Adyen (2 days including access wait) [fictional]
+- Documentation score (internal rating): Stripe 9/10 [fictional], Adyen 6/10 [fictional]
+- Stack Overflow questions with accepted answers: Stripe (47,000+) [fictional], Adyen (3,200) [fictional]
 
 ### Finding 2: Adyen has lower fees at scale
 
-At our projected $10M/month volume, Adyen's interchange++ pricing results in meaningful savings. However, at current volume, the difference is marginal.
+At our projected $10M/month [fictional] volume, Adyen's interchange++ pricing results in meaningful savings. However, at current volume, the difference is marginal.
 
 **Evidence:**
-- Current volume ($2M/month): Stripe $58K/year, Adyen $54K/year (7% savings)
-- Projected volume ($10M/month): Stripe $290K/year, Adyen $245K/year (16% savings)
-- Stripe's 2.9% + $0.30 vs. Adyen's interchange++ (avg 2.4% + $0.20 at volume)
+- Current volume ($2M/month [fictional]): Stripe $58K/year [fictional], Adyen $54K/year (7% savings) [fictional]
+- Projected volume ($10M/month [fictional]): Stripe $290K/year [fictional], Adyen $245K/year (16% savings) [fictional]
+- Stripe's 2.9% + $0.30 [fictional] vs. Adyen's interchange++ (avg 2.4% + $0.20 at volume) [fictional]
 
 ### Finding 3: Both meet international requirements, but Adyen has edge in Europe
 
 Both processors support our target markets. Adyen has more local payment method integrations in Europe (iDEAL, Bancontact, SEPA Direct Debit) which could improve conversion for EU customers.
 
 **Evidence:**
-- Local EU payment methods: Stripe (8), Adyen (15)
+- Local EU payment methods: Stripe (8) [fictional], Adyen (15) [fictional]
 - Both support Apple Pay, Google Pay, PayPal
 - Both are PCI Level 1 compliant
 
@@ -83,7 +83,7 @@ If we add subscription products in the future, Stripe Billing is significantly m
 
 ### Rationale
 
-Stripe is the right choice for our current stage. The superior developer experience will accelerate our launch timeline by approximately 2-3 weeks. At our current volume, fee differences are minimal ($4K/year). Once we reach $10M/month and validate product-market fit, we should reevaluate migration to Adyen for cost savings.
+Stripe is the right choice for our current stage. The superior developer experience will accelerate our launch timeline by approximately 2-3 weeks [fictional]. At our current volume, fee differences are minimal ($4K/year) [fictional]. Once we reach $10M/month and validate product-market fit, we should reevaluate migration to Adyen for cost savings.
 
 ### If Proceeding
 
@@ -110,7 +110,7 @@ Consider Adyen migration when:
 
 ## Open Questions
 
-- [ ] What is the exact timeline for Stripe's pricing negotiation at higher volumes? (Sales said "competitive" but no specifics)
+- [ ] What is the exact timeline for Stripe's pricing negotiation at higher volumes? (Sales said "competitive" but no specifics) [fictional]
 - [ ] How does PSD2 Strong Customer Authentication affect conversion in EU? Need production data.
 - [ ] Should we implement payment abstraction from day one or wait until migration is certain?
 

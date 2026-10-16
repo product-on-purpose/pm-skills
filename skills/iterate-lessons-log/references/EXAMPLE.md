@@ -23,7 +23,7 @@ context: Production incident during high-traffic event
 
 ## Summary
 
-Our payment service experienced a 47-minute outage during Black Friday due to database connection pool exhaustion under 10x normal load. Despite running load tests, we didn't catch this because our synthetic load tests didn't replicate real traffic patterns.specifically the bursty, concentrated nature of flash sale traffic. Production traffic replay would have caught this.
+Our payment service experienced a 47-minute [fictional] outage during Black Friday due to database connection pool exhaustion under 10x normal load [fictional]. Despite running load tests, we didn't catch this because our synthetic load tests didn't replicate real traffic patterns [fictional].specifically the bursty, concentrated nature of flash sale traffic [fictional]. Production traffic replay would have caught this.
 
 ---
 
@@ -31,22 +31,22 @@ Our payment service experienced a 47-minute outage during Black Friday due to da
 
 ### Background
 
-Black Friday is our highest traffic day, typically 8-10x normal volume. The platform team conducted load testing in October, simulating 10x traffic with good results. We also completed a capacity review and provisioned additional infrastructure. Despite this preparation, our payment service failed at 9:03 AM EST when traffic spiked.
+Black Friday is our highest traffic day, typically 8-10x normal volume [fictional]. The platform team conducted load testing in October, simulating 10x traffic with good results [fictional]. We also completed a capacity review and provisioned additional infrastructure [fictional]. Despite this preparation, our payment service failed at 9:03 AM EST when traffic spiked [fictional].
 
 ### Timeline
 
 | Date | Event |
 |------|-------|
-| Oct 15 | Load testing complete.10x capacity validated |
-| Oct 20 | Capacity review approved additional database instances |
-| Nov 1 | Infrastructure scaling deployed |
-| Nov 29 09:00 | Black Friday sale begins |
-| Nov 29 09:03 | Payment service latency spikes |
-| Nov 29 09:07 | First customer complaints |
-| Nov 29 09:15 | Incident declared, war room assembled |
-| Nov 29 09:35 | Root cause identified (connection pool exhaustion) |
-| Nov 29 09:50 | Connection pool resized, service recovering |
-| Nov 29 10:15 | Full service restoration |
+| Oct 15 | Load testing complete.10x capacity validated [fictional] |
+| Oct 20 | Capacity review approved additional database instances [fictional] |
+| Nov 1 | Infrastructure scaling deployed [fictional] |
+| Nov 29 09:00 | Black Friday sale begins [fictional] |
+| Nov 29 09:03 | Payment service latency spikes [fictional] |
+| Nov 29 09:07 | First customer complaints [fictional] |
+| Nov 29 09:15 | Incident declared, war room assembled [fictional] |
+| Nov 29 09:35 | Root cause identified (connection pool exhaustion) [fictional] |
+| Nov 29 09:50 | Connection pool resized, service recovering [fictional] |
+| Nov 29 10:15 | Full service restoration [fictional] |
 
 ### Team and Stakeholders
 
@@ -54,13 +54,13 @@ Black Friday is our highest traffic day, typically 8-10x normal volume. The plat
 - Payment team (service owners)
 - Customer Support (user communication)
 - Executive team (business impact)
-- Affected: ~12,000 customers couldn't complete purchases during outage
+- Affected: ~12,000 customers couldn't complete purchases during outage [fictional]
 
 ### Constraints
 
 - Black Friday is immovable.no option to delay or reschedule
 - Payment service is critical path.no graceful degradation possible
-- Real traffic replay wasn't available (privacy concerns, infrastructure gap)
+- Real traffic replay wasn't available (privacy concerns, infrastructure gap) [fictional]
 
 ---
 
@@ -68,36 +68,36 @@ Black Friday is our highest traffic day, typically 8-10x normal volume. The plat
 
 ### Sequence of Events
 
-1. **Sale launch (09:00):** Traffic increased as expected. Systems initially handling load well.
+1. **Sale launch (09:00):** Traffic increased as expected [fictional]. Systems initially handling load well [fictional].
 
-2. **Flash sale spike (09:02):** A limited-quantity flash sale created concentrated traffic.5,000 users hitting checkout simultaneously rather than distributed load.
+2. **Flash sale spike (09:02):** A limited-quantity flash sale created concentrated traffic [fictional].5,000 users hitting checkout simultaneously rather than distributed load [fictional].
 
-3. **Connection pool saturation (09:03):** Payment service database connections exhausted. Each flash sale request held connections longer due to inventory checks under contention.
+3. **Connection pool saturation (09:03):** Payment service database connections exhausted [fictional]. Each flash sale request held connections longer due to inventory checks under contention [fictional].
 
-4. **Cascade begins (09:05):** New requests queue, timeouts trigger retries, retries amplify load. Database CPU hits 100%.
+4. **Cascade begins (09:05):** New requests queue, timeouts trigger retries, retries amplify load [fictional]. Database CPU hits 100% [fictional].
 
-5. **Service degradation (09:07):** Payment API latency exceeds 30 seconds. Frontend shows errors. Customers start contacting support.
+5. **Service degradation (09:07):** Payment API latency exceeds 30 seconds [fictional]. Frontend shows errors [fictional]. Customers start contacting support [fictional].
 
-6. **Incident response (09:15):** War room assembled. Initially suspected DDoS attack due to traffic pattern.
+6. **Incident response (09:15):** War room assembled [fictional]. Initially suspected DDoS attack due to traffic pattern [fictional].
 
-7. **Root cause identified (09:35):** Database team identified connection pool exhaustion. Pool sized for 10x sustained load, not 10x burst load with long-held connections.
+7. **Root cause identified (09:35):** Database team identified connection pool exhaustion [fictional]. Pool sized for 10x sustained load, not 10x burst load with long-held connections [fictional].
 
-8. **Remediation (09:50):** Connection pool increased from 100 to 500, connection timeout reduced. Service begins recovering.
+8. **Remediation (09:50):** Connection pool increased from 100 to 500 [fictional], connection timeout reduced [fictional]. Service begins recovering [fictional].
 
-9. **Resolution (10:15):** Service fully restored. Estimated $340,000 in lost revenue during outage.
+9. **Resolution (10:15):** Service fully restored [fictional]. Estimated $340,000 in lost revenue during outage [fictional].
 
 ### Key Decisions Made
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Load test at 10x sustained | Match expected average load | Didn't catch burst patterns |
-| Use synthetic traffic | Easier to generate, more controllable | Didn't match real user behavior |
-| Size connection pool for average | Based on sustained throughput | Failed under burst |
-| No production traffic replay | Privacy concerns, infrastructure cost | Missed realistic patterns |
+| Load test at 10x sustained | Match expected average load | Didn't catch burst patterns [fictional] |
+| Use synthetic traffic | Easier to generate, more controllable | Didn't match real user behavior [fictional] |
+| Size connection pool for average | Based on sustained throughput | Failed under burst [fictional] |
+| No production traffic replay | Privacy concerns, infrastructure cost | Missed realistic patterns [fictional] |
 
 ### Outcome
 
-47-minute service outage during our highest-revenue hour. Estimated $340,000 direct revenue loss, unknown brand damage. Customer trust impacted.we received 400+ complaint tickets in the following week referencing the Black Friday experience.
+47-minute [fictional] service outage during our highest-revenue hour. Estimated $340,000 direct revenue loss [fictional], unknown brand damage. Customer trust impacted.we received 400+ complaint tickets in the following week referencing the Black Friday experience [fictional].
 
 ---
 
@@ -109,21 +109,21 @@ Black Friday is our highest traffic day, typically 8-10x normal volume. The plat
 Synthetic load tests with evenly distributed traffic don't catch burst-pattern failures. Production traffic replay.using anonymized real traffic patterns.reveals timing, distribution, and correlation patterns that synthetic tests miss.
 
 **Supporting Observations:**
-- Our load test sent 100 requests/second evenly distributed. Real traffic came in bursts of 5,000 in 10 seconds.
-- Synthetic tests didn't simulate correlated requests (many users hitting the same flash sale item).
-- Connection pool math was correct for throughput but wrong for concurrency under burst.
-- The failure mode was predictable in retrospect.database contention under burst is a known pattern.
+- Our load test sent 100 requests/second evenly distributed [fictional]. Real traffic came in bursts of 5,000 in 10 seconds [fictional].
+- Synthetic tests didn't simulate correlated requests (many users hitting the same flash sale item) [fictional].
+- Connection pool math was correct for throughput but wrong for concurrency under burst [fictional].
+- The failure mode was predictable in retrospect.database contention under burst is a known pattern [fictional].
 
 ### Why This Matters
 
-Load testing is expensive and time-consuming. If we're going to invest in it, we need it to actually predict production behavior. Synthetic tests gave us false confidence. Production traffic replay is the only way to truly simulate real-world patterns, especially for events with unusual traffic characteristics.
+Load testing is expensive and time-consuming. If we're going to invest in it, we need it to actually predict production behavior. Synthetic tests gave us false confidence [fictional]. Production traffic replay is the only way to truly simulate real-world patterns, especially for events with unusual traffic characteristics.
 
 ### Root Cause Analysis
 
-- **Immediate cause:** Connection pool exhaustion under burst load
-- **Contributing cause:** Load test didn't simulate burst patterns
-- **Root cause:** No mechanism to replay real traffic patterns in test environments
-- **Systemic cause:** Load testing treated as checkbox, not continuous practice
+- **Immediate cause:** Connection pool exhaustion under burst load [fictional]
+- **Contributing cause:** Load test didn't simulate burst patterns [fictional]
+- **Root cause:** No mechanism to replay real traffic patterns in test environments [fictional]
+- **Systemic cause:** Load testing treated as checkbox, not continuous practice [fictional]
 
 ---
 
@@ -145,7 +145,7 @@ Load testing is expensive and time-consuming. If we're going to invest in it, we
 
 2. **Don't treat load testing as a one-time checkbox.** Traffic patterns change. Run load tests regularly, especially before major events or after significant changes.
 
-3. **Don't dismiss production traffic replay due to privacy concerns.** Traffic patterns can be anonymized and replayed without exposing user data. The technique is well-established.
+3. **Don't dismiss production traffic replay due to privacy concerns.** Traffic patterns can be anonymized and replayed without exposing user data. The technique is well-established [fictional].
 
 ### Questions to Ask
 
@@ -186,22 +186,22 @@ Load testing is expensive and time-consuming. If we're going to invest in it, we
 
 | Metric | Load Test | Black Friday Reality |
 |--------|-----------|---------------------|
-| Peak RPS | 1,000 | 1,200 |
-| Peak concurrent connections | 80 | 450+ |
-| Request distribution | Even over time | 80% in first 30 seconds of flash sale |
-| Connection hold time | 50ms average | 800ms under contention |
+| Peak RPS | 1,000 [fictional] | 1,200 [fictional] |
+| Peak concurrent connections | 80 [fictional] | 450+ [fictional] |
+| Request distribution | Even over time [fictional] | 80% in first 30 seconds of flash sale [fictional] |
+| Connection hold time | 50ms average [fictional] | 800ms under contention [fictional] |
 
 ### Quotes
 
-> "The load test results looked great. We hit 10x traffic with no issues. What we didn't realize is that we were testing a fantasy version of 10x traffic." - Sarah Chen, Platform Engineering
+> "The load test results looked great. We hit 10x traffic with no issues. What we didn't realize is that we were testing a fantasy version of 10x traffic." [fictional] - Sarah Chen, Platform Engineering
 
-> "In retrospect, of course flash sales create burst patterns. We just didn't think to simulate it." - Mike Johnson, Payment Service Owner
+> "In retrospect, of course flash sales create burst patterns. We just didn't think to simulate it." [fictional] - Mike Johnson, Payment Service Owner
 
 ### Artifacts
 
-- Black Friday Incident Postmortem (internal doc)
-- Load Testing Report - October 2025 (internal doc)
-- Production Traffic Replay RFC (internal doc)
+- Black Friday Incident Postmortem (internal doc) [fictional]
+- Load Testing Report - October 2025 (internal doc) [fictional]
+- Production Traffic Replay RFC (internal doc) [fictional]
 
 ---
 

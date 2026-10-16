@@ -76,7 +76,7 @@ context: Product health dashboard for SaaS platform
 | **Calculation** | COUNT(DISTINCT user_id) WHERE action_type NOT IN ('login', 'logout') AND event_date = date |
 | **Data Source** | events.user_actions table |
 | **Granularity** | Daily |
-| **Current Baseline** | 12,400 |
+| **Current Baseline** | 12,400 [fictional] |
 | **Target** | 15,000 by end of Q2 |
 | **Notes** | Excludes bot accounts and internal users |
 
@@ -88,9 +88,9 @@ context: Product health dashboard for SaaS platform
 | **Calculation** | DAU / MAU (rolling 30-day MAU) |
 | **Data Source** | Derived from events.user_actions |
 | **Granularity** | Daily |
-| **Current Baseline** | 0.32 (32%) |
+| **Current Baseline** | 0.32 (32%) [fictional] |
 | **Target** | 0.40 (40%) |
-| **Notes** | Industry benchmark for SaaS is 0.20-0.40 |
+| **Notes** | Industry benchmark for SaaS is 0.20-0.40 [fictional] |
 
 ### Metric 3: Feature Adoption Rate
 
@@ -112,7 +112,7 @@ context: Product health dashboard for SaaS platform
 | **Calculation** | (Active users in cohort at day N) / (Total users in cohort) |
 | **Data Source** | events.user_actions + users.signups |
 | **Granularity** | Weekly cohorts, measured at D7, D14, D30, D60, D90 |
-| **Current Baseline** | D30: 42% |
+| **Current Baseline** | D30: 42% [fictional] |
 | **Target** | D30: 55% |
 | **Notes** | Compare cohorts over time to see if retention is improving |
 
@@ -124,7 +124,7 @@ context: Product health dashboard for SaaS platform
 | **Calculation** | MEDIAN(first_project_created_at - signup_at) |
 | **Data Source** | users.signups + events.project_created |
 | **Granularity** | Daily (rolling 7-day average) |
-| **Current Baseline** | 2.3 days |
+| **Current Baseline** | 2.3 days [fictional] |
 | **Target** | < 1 day |
 | **Notes** | Users who never create a project counted as NULL/excluded |
 
@@ -272,7 +272,7 @@ context: Product health dashboard for SaaS platform
 
 | Source | Type | Owner | Latency | Quality Notes |
 |--------|------|-------|---------|---------------|
-| events.user_actions | Snowflake table | Data Engineering | 1 hour | 99.9% complete |
+| events.user_actions | Snowflake table | Data Engineering | 1 hour | 99.9% complete [fictional] |
 | events.feature_usage | Snowflake table | Data Engineering | 1 hour | Some features not instrumented |
 | users.signups | Snowflake table | Data Engineering | Real-time | Authoritative source |
 | users.subscriptions | Snowflake table | Data Engineering | Daily | Synced from Stripe |
@@ -286,8 +286,8 @@ context: Product health dashboard for SaaS platform
 
 ### Data Quality Considerations
 
-- Bot traffic filtered but occasional false positives; flag if DAU spikes >20% unexpectedly
-- Feature usage for "Reports" feature incomplete before Nov 2025 (instrumentation added)
+- Bot traffic filtered but occasional false positives [fictional]; flag if DAU spikes >20% unexpectedly
+- Feature usage for "Reports" feature incomplete before Nov 2025 (instrumentation added) [fictional]
 - Enterprise accounts have multiple users; user_id is individual, account_id needed for account-level views
 
 ---

@@ -64,10 +64,10 @@ status: draft
 
 ### Background
 
-- Q1 search feature work overran by 15% on eng hours; scope held but deadline slipped 2 weeks
+- Q1 search feature work overran by 15% [fictional] on eng hours; scope held but deadline slipped 2 weeks [fictional]
 - CFO has been vocal in leadership about "disciplined capacity" this year; Q1 overrun landed during her messaging
 - Maria (CPO) already signaled private support for search in Q2; this is a two-on-one dynamic
-- Prior exec review on 2026-03-20 flagged Q1 overrun but did not set a capacity policy; this meeting may be where that policy lands
+- Prior exec review on 2026-03-20 flagged Q1 overrun [fictional] but did not set a capacity policy [fictional]; this meeting may be where that policy lands
 
 ### Stakeholder reads
 
@@ -76,7 +76,7 @@ status: draft
 - **Position on topic**: wants to hold line on eng capacity; skeptical of scope creep on search after Q1 overrun [confidence: high, from prior exec review comments]
 - **Stakes**: accountability for delivering financial discipline messaging; a Q2 overrun would damage that narrative
 - **Likely concerns**: "why should I trust Q2 commitments after Q1 slipped?"; "what stops this from happening again?"; "what's the cost if we cut scope instead?"
-- **Relationship state**: neutral; worked together for 2 years; she's direct but fair; respects data, impatient with handwaving
+- **Relationship state**: neutral; worked together for 2 years [fictional]; she's direct but fair; respects data, impatient with handwaving
 - **Tactical notes**: lead with data on Q1 root cause (not excuses); offer specific capacity discipline mechanism (monthly review); have a pre-committed scope-cut fallback ready to show you thought about it
 
 **maria-cpo** (CPO)

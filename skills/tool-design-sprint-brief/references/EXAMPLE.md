@@ -1,6 +1,6 @@
 # Design Sprint Brief: Brainshelf Camera-Capture Validation
 
-Locked Friday 2026-05-29 (3 days before sprint start). The Brainshelf team's `tool-design-sprint-readiness` verdict was Go on 2026-05-15; Riley activated recruiting on 2026-05-16 and confirmed 6 customer slots by 2026-05-27 (two days ahead of the 2026-05-29 deadline). This brief locks the remaining decisions (sprint questions, prototype medium, interview format, success criteria) and authorizes the USD 600 customer-recruiting spend.
+Locked Friday 2026-05-29 (3 days before sprint start). The Brainshelf team's `tool-design-sprint-readiness` verdict was Go on 2026-05-15 [fictional]; Riley activated recruiting on 2026-05-16 [fictional] and confirmed 6 customer slots by 2026-05-27 [fictional] (two days ahead of the 2026-05-29 deadline). This brief locks the remaining decisions (sprint questions, prototype medium, interview format, success criteria) and authorizes the USD 600 customer-recruiting spend.
 
 ## Challenge Statement and Why-Now
 
@@ -22,7 +22,7 @@ Design and test a sub-3-second camera-first book-capture flow for 25+/year reade
 | Fri PM | 2026-06-05 14:00-18:00 PT | Decider observes interview slots 4-5 from breakout room; Decider review of Friday scorecard begins after last interview wraps 16:30; build/iterate/pivot/stop call by 17:30 PT |
 | Full week (ideal) | 2026-06-01 through 2026-06-05 | All 5 days, full attendance committed |
 
-**Jamie's confirmed availability:** all 5 days, full attendance, no calendar conflicts; backup investor calls rescheduled to 2026-06-08 afternoon.
+**Jamie's confirmed availability:** all 5 days, full attendance, no calendar conflicts [fictional]; backup investor calls rescheduled to 2026-06-08 afternoon [fictional].
 
 ## Team Roster
 
@@ -40,21 +40,21 @@ No cameo experts required. Riley acts as both customer expert (week-long context
 | Element | Value |
 |---|---|
 | Target customer profile | Adults 25-55 who read 25+ books per year, treat personal library as memory rather than identity, currently use no system or paper journals; English-speaking; mix of US and international |
-| Source | Primary: Riley's book-blogger Discord (12k followers; warm intro). Secondary: UserInterviews paid panel filtered to "reads 25+ books per year." |
-| Count needed | 5 (6 confirmed for 1-buffer) |
+| Source | Primary: Riley's book-blogger Discord (12k followers [fictional]; warm intro). Secondary: UserInterviews paid panel filtered to "reads 25+ books per year." |
+| Count needed | 5 (6 confirmed [fictional] for 1-buffer) |
 | Incentive | USD 100 per 60-minute interview; budget USD 600 total (6 slots); authorized by Jamie 2026-05-15 |
 | Recruiter owner | Riley |
-| Recruiting deadline | 2026-05-29 (CLOSED; 6 confirmed slots locked 2026-05-27) |
+| Recruiting deadline | 2026-05-29 (CLOSED; 6 confirmed slots locked 2026-05-27 [fictional]) |
 | Friday schedule | 6 slots: 09:00 / 10:30 / 12:00 / 14:00 / 15:30 / 17:00 PT. Buffer slot 17:00 used only on earlier no-show. |
 | Recording and consent | Zoom recording with audio + video; consent form sent at confirmation; 90-day retention; raw video deleted post-synthesis; quotes anonymized in any external sharing. |
 
-**Confirmed customer mix:** 4 from Riley's Discord (2 US, 1 UK, 1 Canada), 2 from UserInterviews panel (1 US, 1 Australia). All 6 self-identified as "25+/year reader who treats library as memory" via pre-screen DM.
+**Confirmed customer mix:** 4 from Riley's Discord (2 US, 1 UK, 1 Canada), 2 from UserInterviews panel (1 US, 1 Australia) [fictional]. All 6 self-identified as "25+/year reader who treats library as memory" via pre-screen DM [fictional].
 
 ## Prototype Medium Decision
 
 **Medium:** Clickable Figma prototype.
 
-**Rationale:** The team needs to test the camera-capture interaction sequence (point camera, see recognition, confirm or correct, see book added) and the immediate post-capture personal-recall surface (search, browse "books I've read about X"). Figma can fake the camera surface and OCR resolution flow convincingly enough for a 30-minute task-based interview; a true OCR build is out of scope for one Thursday. The prototype is NOT the product: it tests interaction and recall framing, not engineering feasibility. Alex has built 3 Figma prototypes of comparable scope in the last 6 months; the medium is proven team capability.
+**Rationale:** The team needs to test the camera-capture interaction sequence (point camera, see recognition, confirm or correct, see book added) and the immediate post-capture personal-recall surface (search, browse "books I've read about X"). Figma can fake the camera surface and OCR resolution flow convincingly enough for a 30-minute task-based interview; a true OCR build is out of scope for one Thursday. The prototype is NOT the product: it tests interaction and recall framing, not engineering feasibility. Alex has built 3 Figma prototypes of comparable scope in the last 6 months [fictional]; the medium is proven team capability.
 
 **Build owners:** Alex (design lead) and Sam (engineering lead). Sam's role on Thursday is to keep Alex unblocked on Figma constraints (component patterns, interaction logic) so the prototype completes by 17:00 PT for the Friday dry-run.
 
@@ -99,7 +99,7 @@ The sprint is **unsuccessful** if Friday interviews do not complete due to recru
 
 **Decider sign-off required before Monday 2026-06-01 begins.**
 
-- [x] Jamie confirms the challenge and sprint questions; questions are answerable from the 5 Friday interviews (6 confirmed slots; 1 buffer).
+- [x] Jamie confirms the challenge and sprint questions; questions are answerable from the 5 Friday interviews (6 confirmed slots [fictional]; 1 buffer).
 - [x] Jamie confirms the team roster and attendance windows; all 4 attendees committed all 5 days.
 - [x] Jamie re-confirms customer recruiting plan and the USD 600 honorarium budget (originally authorized 2026-05-15 at readiness sign-off; recruiting closed 2026-05-27).
 - [x] Jamie confirms prototype medium (Figma clickable) and acknowledges the team will not over-invest in the Figma prototype; the prototype tests interaction and recall framing, not engineering feasibility.

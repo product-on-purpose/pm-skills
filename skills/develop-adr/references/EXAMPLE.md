@@ -17,7 +17,7 @@ Accepted
 
 ## Context
 
-We are building a new order processing service to replace our legacy monolith's order management module. This service will handle approximately 50,000 orders per day initially, with projected growth to 500,000 orders per day within two years.
+We are building a new order processing service to replace our legacy monolith's order management module. This service will handle approximately 50,000 orders per day initially [fictional], with projected growth to 500,000 orders per day within two years [fictional].
 
 The order data has the following characteristics:
 - Strong consistency requirements (cannot lose or duplicate orders)
@@ -26,9 +26,9 @@ The order data has the following characteristics:
 - Regulatory requirement to maintain complete audit history
 - Reporting queries against order data by business analysts
 
-Our team has experience with PostgreSQL, MongoDB, and DynamoDB. The company already runs PostgreSQL in production for other services, with established backup and monitoring infrastructure.
+Our team has experience with PostgreSQL, MongoDB, and DynamoDB. [fictional] The company already runs PostgreSQL in production for other services, with established backup and monitoring infrastructure. [fictional]
 
-Timeline pressure exists: we need to launch the new service within 4 months to meet a deprecation deadline for the legacy system.
+Timeline pressure exists: we need to launch the new service within 4 months to meet a deprecation deadline for the legacy system. [fictional]
 
 ## Decision
 
@@ -46,9 +46,9 @@ Specifically:
 
 - **ACID compliance:** PostgreSQL guarantees the transaction consistency we require for financial data. Order creation spanning multiple tables will either fully succeed or fully rollback.
 
-- **Team expertise:** Three of our four backend engineers have significant PostgreSQL experience. No ramp-up time required, reducing project risk.
+- **Team expertise:** Three of our four backend engineers have significant PostgreSQL experience. [fictional] No ramp-up time required, reducing project risk.
 
-- **Operational maturity:** We leverage existing PostgreSQL infrastructure, monitoring (Datadog), and backup procedures. Our DBA team is already trained.
+- **Operational maturity:** We leverage existing PostgreSQL infrastructure, monitoring (Datadog), and backup procedures. Our DBA team is already trained. [fictional]
 
 - **Rich query capability:** Complex reporting queries are straightforward with SQL joins. Business analysts can use existing BI tools without learning new query languages.
 
@@ -60,19 +60,19 @@ Specifically:
 
 - **Schema rigidity:** Schema changes require migrations and potentially downtime for large tables. Adding new order attributes requires more planning than a document store.
 
-- **Cost at scale:** RDS PostgreSQL is more expensive than DynamoDB for high-throughput simple lookups. At 500K orders/day, we estimate $3,200/month vs. $1,800/month for DynamoDB.
+- **Cost at scale:** RDS PostgreSQL is more expensive than DynamoDB for high-throughput simple lookups. At 500K orders/day, we estimate $3,200/month [fictional] vs. $1,800/month for DynamoDB [fictional].
 
 ### Neutral
 
 - We will need to implement our own soft-delete and audit logging (PostgreSQL doesn't provide this natively like some enterprise databases).
 
-- Read replica lag (typically <1 second) means reporting data may be slightly behind real-time.
+- Read replica lag (typically <1 second [fictional]) means reporting data may be slightly behind real-time.
 
 ## Alternatives Considered
 
 ### MongoDB
 
-MongoDB's document model would provide more flexibility for evolving order schemas. However, our need for strong consistency in a distributed write scenario made MongoDB less attractive. The eventual consistency model, while configurable, adds complexity. Additionally, none of our current engineers have production MongoDB experience.
+MongoDB's document model would provide more flexibility for evolving order schemas. However, our need for strong consistency in a distributed write scenario made MongoDB less attractive. The eventual consistency model, while configurable, adds complexity. Additionally, none of our current engineers have production MongoDB experience. [fictional]
 
 ### DynamoDB
 
@@ -85,7 +85,7 @@ DynamoDB would excel at high-throughput single-item lookups and offers seamless 
 ### CockroachDB
 
 CockroachDB offers PostgreSQL compatibility with built-in horizontal scaling. We considered it for future-proofing but rejected it due to:
-- Less operational experience in our organization
+- Less operational experience in our organization [fictional]
 - Higher complexity for a team our size
 - The PostgreSQL-compatible mode has some limitations that could surprise us
 

@@ -48,10 +48,10 @@ Six Q3 candidate features with PM-supplied estimates. Reach is measured in affec
 
 | Item | Bucket | Rationale | Risk if dropped |
 |---|---|---|---|
-| SSO / SAML | Must | Three enterprise deals are blocked on it | Lose committed enterprise revenue |
-| Guest sharing links | Must | Competitive parity; churn risk without it | Continued competitive losses |
+| SSO / SAML | Must | Three enterprise deals are blocked on it [fictional] | Lose committed enterprise revenue |
+| Guest sharing links | Must | Competitive parity [fictional]; churn risk without it | Continued competitive losses |
 | Bulk task editing | Should | High-value quick win | Slower power-user workflows |
-| Custom dashboards | Should | Requested but not blocking | Mild dissatisfaction |
+| Custom dashboards | Should | Requested [fictional] but not blocking | Mild dissatisfaction |
 | Mobile offline mode | Could | Valuable but 8 eng-weeks | Mobile users wait another quarter |
 | AI task suggestions | Won't (this time) | Low confidence, 10 eng-weeks | Defer until validated |
 
@@ -70,13 +70,13 @@ Each scoring table above is sorted high to low, so the per-framework ranking is 
 | Custom dashboards | 5 | 4 | Should | Close |
 | AI task suggestions | 6 | 6 | Won't | Strong (agree: defer) |
 
-**Divergent - SSO / SAML (RICE 4th, ICE 1st, MoSCoW Must):** RICE's Reach term punishes SSO because it only touches 2,000 users. ICE has no reach term, so SSO's high per-user impact and high confidence push it to the top. MoSCoW agrees with ICE because the 2,000 users are concentrated, high-value enterprise accounts with blocked deals. **The divergence reveals that RICE under-weights revenue-concentrated features.** This is the most important finding in the analysis.
+**Divergent - SSO / SAML (RICE 4th, ICE 1st, MoSCoW Must):** RICE's Reach term punishes SSO because it only touches 2,000 users. ICE has no reach term, so SSO's high per-user impact and high confidence push it to the top. MoSCoW agrees with ICE because the 2,000 users are concentrated, high-value enterprise accounts with blocked deals [fictional]. **The divergence reveals that RICE under-weights revenue-concentrated features.** This is the most important finding in the analysis.
 
 **Divergent - Mobile offline (RICE 3rd, ICE 5th):** RICE rewards the large reach (12,000); ICE penalizes the low Ease (3, an 8-week build). The driver is effort vs. reach.
 
 ## Executive Summary with Recommendation
 
-Fund **Guest sharing** and **Bulk task editing** first: they top both scored frameworks and are cheap, so they are unambiguous wins. Fund **SSO / SAML** despite its 4th-place RICE score - the RICE Reach term misleads here because the 2,000 affected users are enterprise accounts with revenue already blocked, which ICE and MoSCoW both surface. Defer **AI task suggestions** (all three frameworks agree it is not ready). The recommendation is robust except for SSO, whose ranking depends entirely on whether you weight raw reach (RICE) or strategic revenue concentration (ICE + MoSCoW); given the blocked deals, weight the latter.
+Fund **Guest sharing** and **Bulk task editing** first: they top both scored frameworks and are cheap, so they are unambiguous wins. Fund **SSO / SAML** despite its 4th-place RICE score - the RICE Reach term misleads here because the 2,000 affected users are enterprise accounts with revenue already blocked [fictional], which ICE and MoSCoW both surface. Defer **AI task suggestions** (all three frameworks agree it is not ready). The recommendation is robust except for SSO, whose ranking depends entirely on whether you weight raw reach (RICE) or strategic revenue concentration (ICE + MoSCoW); given the blocked deals, weight the latter.
 
 ## Sensitivity / What Changes the Ranking
 

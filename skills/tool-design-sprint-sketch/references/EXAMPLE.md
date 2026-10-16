@@ -1,10 +1,10 @@
 # Design Sprint Tuesday Artifact: Brainshelf Camera-Capture Validation
 
-Tuesday 2026-06-02. Monday closed with Jamie selecting the capture-plus-confirmation moment (map Steps 2 + 3 transition; includes a 2-step recall flow from the confirmation surface) as the target. Today the team produced 4 independent solution sketches against that target.
+Tuesday 2026-06-02. Monday closed with Jamie selecting the capture-plus-confirmation moment (map Steps 2 + 3 transition; includes a 2-step recall flow from the confirmation surface) as the target. Today the team produced 4 [fictional] independent solution sketches against that target.
 
 ## Lightning Demo Board
 
-Each team member presented 3 demos (3 min each) during the 09:15-10:45 lightning session. Facilitator (Riley) extracted reusable patterns. Total demos: 12. Total patterns: 12.
+Each team member presented 3 demos (3 min each) during the 09:15-10:45 lightning session [fictional]. Facilitator (Riley) extracted reusable patterns. Total demos: 12 [fictional]. Total patterns: 12 [fictional].
 
 | Presenter | Demo source | Reusable pattern (one line) |
 |---|---|---|
@@ -35,7 +35,7 @@ Each team member presented 3 demos (3 min each) during the 09:15-10:45 lightning
 
 ## Four-Step Sketches
 
-All four sketches produced in Figma frames sized 1170 x 2532 (iPhone Pro vertical). Each sketcher used a single artboard with a 3-panel storyboard structure. Sketches collected at 15:10 PT, attribution stripped, named "Sketch A / B / C / D" in random order for Wednesday's heat-map.
+All four sketches produced in Figma frames sized 1170 x 2532 (iPhone Pro vertical). Each sketcher used a single artboard with a 3-panel storyboard structure. Sketches collected at 15:10 PT [fictional], attribution stripped, named "Sketch A / B / C / D" in random order for Wednesday's heat-map.
 
 ### Sketch B (Jamie's; attribution visible Tuesday to team for completion verification, stripped Wednesday morning for blind heat-map)
 
@@ -65,14 +65,14 @@ All four sketches produced in Figma frames sized 1170 x 2532 (iPhone Pro vertica
 
 | Slot | Customer name (or ID) | Status | Notes |
 |---|---|---|---|
-| Fri 09:00 | UI-Panel-A (US, age 38, M) | Confirmed | Reschedule risk Low; reminder sent |
-| Fri 10:30 | Discord-1 (UK, age 31, F) | Confirmed | High enthusiasm; pre-screen score 9/10 |
-| Fri 12:00 | Discord-2 (US, age 45, F) | Cancelled (work conflict; 12:20 PT email) | Buffer activation needed |
-| Fri 14:00 | Discord-3 (Canada, age 29, M) | Confirmed | |
-| Fri 15:30 | UI-Panel-B (Australia, age 52, F) | Confirmed | Time-zone challenge: 09:30 their local; confirmed comfortable |
-| Fri 17:00 (buffer) | Discord-4 (US, age 36, M) | Activated 14:50 PT in response to 12:00 cancellation | Moved to 12:00 slot; buffer slot now empty |
+| Fri 09:00 | UI-Panel-A (US, age 38, M) [fictional] | Confirmed | Reschedule risk Low; reminder sent [fictional] |
+| Fri 10:30 | Discord-1 (UK, age 31, F) [fictional] | Confirmed | High enthusiasm; pre-screen score 9/10 [fictional] |
+| Fri 12:00 | Discord-2 (US, age 45, F) [fictional] | Cancelled (work conflict; 12:20 PT email) [fictional] | Buffer activation needed |
+| Fri 14:00 | Discord-3 (Canada, age 29, M) [fictional] | Confirmed | |
+| Fri 15:30 | UI-Panel-B (Australia, age 52, F) [fictional] | Confirmed | Time-zone challenge: 09:30 their local; confirmed comfortable [fictional] |
+| Fri 17:00 (buffer) | Discord-4 (US, age 36, M) [fictional] | Activated 14:50 PT in response to 12:00 cancellation [fictional] | Moved to 12:00 slot; buffer slot now empty |
 
-**Cancellations to date:** 1. **Buffer slot activation needed:** Triggered; Discord-4 moved to 12:00; buffer slot now empty (next cancellation triggers escalation). **Risk level for Friday:** Low. Buffer used; team aware that one more cancellation triggers cohort-shrinks-to-4 protocol.
+**Cancellations to date:** 1 [fictional]. **Buffer slot activation needed:** Triggered; Discord-4 moved to 12:00; buffer slot now empty (next cancellation triggers escalation). **Risk level for Friday:** Low. Buffer used; team aware that one more cancellation triggers cohort-shrinks-to-4 protocol.
 
 ## Decider Checkpoint
 

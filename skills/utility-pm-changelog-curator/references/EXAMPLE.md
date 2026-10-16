@@ -66,7 +66,7 @@ windsurf> /utility-pm-changelog-curator --since-tag v2.15.2 --target-version v2.
 
 ## Status Summary
 
-Drafted v2.16.0 entries from 50 commits since v2.15.2. 5 Added, 2 Changed, 1 Fixed, 2 Security, 1 Known Limitations.
+Drafted v2.16.0 entries from 50 commits since v2.15.2 [fictional]. 5 Added, 2 Changed, 1 Fixed, 2 Security, 1 Known Limitations.
 
 Highlights:
 - 4 sub-agents shipped as the new component class (strategic milestone of v2.16.0)

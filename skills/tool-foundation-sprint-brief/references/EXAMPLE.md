@@ -1,6 +1,6 @@
 # Foundation Sprint Brief: Brainshelf
 
-A worked brief for the Brainshelf founding team, following a Go verdict from `tool-foundation-sprint-readiness` with one yellow flag (competitor research, closed via May 12 evening prep).
+A worked brief for the Brainshelf founding team, following a Go verdict from `tool-foundation-sprint-readiness` with one yellow flag (competitor research, closed via May 12 evening prep) [fictional].
 
 ## Initiative Statement and Stakes
 
@@ -34,9 +34,9 @@ No cameo experts. The team is the team.
 
 ## Existing Inputs to Bring
 
-1. **22-interview synthesis** (Riley). Themes already clustered; printed copies for Day 1 morning reference.
-2. **One-page competitor cards** (Riley). Goodreads, StoryGraph, Bookly, LibraryThing, compiled May 12 evening per readiness precondition.
-3. **Discord notes on reader frustrations** (Riley). Anonymized from her 12k-member book-blogger network.
+1. **22-interview synthesis** [fictional] (Riley). Themes already clustered [fictional]; printed copies for Day 1 morning reference.
+2. **One-page competitor cards** (Riley). Goodreads, StoryGraph, Bookly, LibraryThing, compiled May 12 evening [fictional] per readiness precondition.
+3. **Discord notes on reader frustrations** (Riley). Anonymized from her 12k-member [fictional] book-blogger network.
 4. **Pre-seed pitch deck draft** (Jamie). Context only, not for input.
 5. **Brand and visual sketches** (Alex). For Day 1 PM differentiation context only.
 
@@ -53,11 +53,11 @@ The sprint is **unsuccessful** if any of the above is missing or if the team rat
 
 ## Readiness Reaffirmation
 
-The Go verdict from `tool-foundation-sprint-readiness` (2026-05-12) remains in effect.
+The Go verdict from `tool-foundation-sprint-readiness` (2026-05-12) remains in effect [fictional].
 
 - [x] Decider availability still confirmed for both days (Jamie).
-- [x] Preconditions closed: Riley completed the competitor one-pagers on the evening of May 12 as planned.
-- [x] No new risk factors have surfaced.
+- [x] Preconditions closed: Riley completed the competitor one-pagers on the evening of May 12 as planned [fictional].
+- [x] No new risk factors have surfaced [fictional].
 - [x] Conditional Go yellow flag (competitor research) is now closed.
 
 ## Decider Checkpoint

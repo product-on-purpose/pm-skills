@@ -18,7 +18,7 @@ context: Regulated B2B workflow software. Clinical quality operations lead who o
 | Product scope | Approval workflows, exception handling, evidence and audit surfaces |
 | Valid for | Quality and compliance operations leads at 200-2000 person regulated companies, where approvals carry legal or patient-safety consequence |
 | Not valid for | Individual reviewers who approve within their own scope, and consumer or low-stakes internal approvals with no audit obligation |
-| Confidence | Directional. Five interviews plus support and audit-log review; behavioral model is consistent, quantitative baselines are missing |
+| Confidence | Directional. Five [fictional] interviews plus support and audit-log review; behavioral model is consistent, quantitative baselines are missing |
 | Last validated | 2026-08-16 |
 | Owner | Product, Workflow and Compliance area |
 
@@ -47,18 +47,18 @@ Rhea runs clinical quality operations and holds the last signature before a subm
 
 | Attribute | Detail |
 | --- | --- |
-| Age | 41 |
-| Location | Boston, hybrid, three days on site |
+| Age | 41 [fictional] |
+| Location | Boston, hybrid, three days on site [fictional] |
 | Education | BS Biology, later a regulatory affairs certification |
 | Role | Director, Clinical Quality Operations |
-| Company size | 900 employees, mid-size regulated device manufacturer |
-| Team | Six direct reports, mix of quality specialists and document controllers |
+| Company size | 900 [fictional] employees, mid-size regulated device manufacturer |
+| Team | Six [fictional] direct reports, mix of quality specialists and document controllers |
 | Reports to | VP Regulatory Affairs, skip level to Chief Quality Officer |
 | Stakeholders | Clinical operations, regulatory submissions, external auditors, occasionally legal |
 | Purchasing role | Influencer. She does not sign, but a veto from her ends an evaluation |
-| Accessibility | Works across two monitors with dense tables; increases browser zoom in late-day review sessions and loses layouts that assume a fixed viewport |
+| Accessibility | Works across two [fictional] monitors with dense tables; increases browser zoom in late-day review sessions and loses layouts that assume a fixed viewport |
 
-**Career stage and trajectory.** Rhea moved from bench science into quality operations a decade ago and has built her reputation on submissions that survive inspection without findings. She is being positioned for a VP role, and the thing that would most damage that path is a preventable audit finding traced to a process she owned. That shapes every tool decision she makes: she is not evaluating for personal efficiency, she is evaluating for defensibility.
+**Career stage and trajectory.** Rhea moved from bench science into quality operations a decade ago [fictional] and has built her reputation on submissions that survive inspection without findings. She is being positioned for a VP role, and the thing that would most damage that path is a preventable audit finding traced to a process she owned. That shapes every tool decision she makes: she is not evaluating for personal efficiency, she is evaluating for defensibility.
 
 **Organizational leverage.** Her influence exceeds her title. Nothing ships without her gate, so when she declines to approve, timelines move and executives hear about it. That leverage is also a burden: teams route around her when they can, which means she often learns about a shortcut after it has already been taken.
 
@@ -116,7 +116,7 @@ Rhea runs clinical quality operations and holds the last signature before a subm
 
 **Core mental model.** Rhea thinks in terms of a chain of custody for decisions, not a workflow. Each approval is a link, and the question she asks of any link is whether it will hold when pulled on later. She does not experience a status field as information; she experiences it as a claim someone made, and her instinct is to ask who made it and on what basis. This is why aggregate status indicators frustrate her disproportionately: a green badge is a summary of claims, and she needs the claims.
 
-**Primary work pattern.** Roughly two thirds reactive, responding to items arriving at her gate, and one third proactive process work she rarely protects successfully. She wants that ratio closer to even, and the reactive share spikes hard in the week before a submission deadline.
+**Primary work pattern.** Roughly two thirds reactive, responding to items arriving at her gate, and one third proactive process work she rarely protects successfully [fictional]. She wants that ratio closer to even, and the reactive share spikes hard in the week before a submission deadline.
 
 **Accuracy and quality approach.** She verifies by sampling rather than exhaustively, choosing samples by risk rather than at random. Good enough means the decision is supported and the support is findable. Her standard does not relax under deadline, but her tolerance for how the support is captured does.
 
@@ -126,7 +126,7 @@ Rhea runs clinical quality operations and holds the last signature before a subm
 
 ## 6. Decision-Making & Trust Patterns
 
-**How trust is built and broken.** Trust builds slowly through correct behavior in unremarkable cases and breaks in a single event: one contradictory approval, or one stale evidence link discovered during an audit, moves her permanently to verifying externally. She described a prior tool where one bad export ended her reliance on it entirely, after eighteen months of satisfactory use.
+**How trust is built and broken.** Trust builds slowly through correct behavior in unremarkable cases and breaks in a single event: one contradictory approval, or one stale evidence link discovered during an audit, moves her permanently to verifying externally. She described a prior tool where one bad export ended her reliance on it entirely, after eighteen months of satisfactory use [fictional].
 
 **Adoption filter.** Her implicit checklist runs roughly: can I reconstruct a decision made in this system a year from now, does it distinguish consequential from routine, does what I export match what I saw, and does it make ownership explicit or leave it implied. A tool that fails the first question is disqualified regardless of the rest.
 
@@ -138,7 +138,7 @@ Rhea runs clinical quality operations and holds the last signature before a subm
 
 ## 7. Workflow & Collaboration Context
 
-**Work rhythm.** Anchored hard to submission deadlines, with the approval load arriving late and compressed. She has perhaps two protected hours early each day and fragmented attention afterward. The riskiest approvals disproportionately arrive during the fragmented window, which is a product problem disguised as a scheduling one.
+**Work rhythm.** Anchored hard to submission deadlines, with the approval load arriving late and compressed. She has perhaps two [fictional] protected hours early each day and fragmented attention afterward. The riskiest approvals disproportionately arrive during the fragmented window, which is a product problem disguised as a scheduling one.
 
 **Collaboration model.** She is a reviewer and gatekeeper, rarely an author. Her counterparts are clinical and regulatory authors upstream, and auditors and regulators downstream who consume her output long after the fact. That downstream consumer never appears in the product, which is precisely why the product under-serves her.
 
@@ -154,7 +154,7 @@ Rhea runs clinical quality operations and holds the last signature before a subm
 
 **Where the product enters.** It is the system of record for the approval event itself and is trusted for that narrow purpose. Its position is more fragile than usage metrics suggest, because the work she does around it is invisible to the product.
 
-**The firing trigger.** Not one dramatic failure but a pattern: two or three occasions where the product's record could not answer a question she was asked, each pushing more of the real work into the spreadsheet. The tool does not get abandoned, it gets hollowed out.
+**The firing trigger.** Not one dramatic failure but a pattern: two or three [fictional] occasions where the product's record could not answer a question she was asked, each pushing more of the real work into the spreadsheet. The tool does not get abandoned, it gets hollowed out.
 
 ---
 
@@ -215,8 +215,8 @@ Rhea runs clinical quality operations and holds the last signature before a subm
 
 | Source | Type | Detail |
 | --- | --- | --- |
-| I1-I5 | Interview | Five [fictional] quality and compliance operations leads at regulated manufacturers, 45-60 minutes each, 2026-06 to 2026-07 |
-| S1 | Support | 14 months of support tickets tagged approvals or exceptions, 312 [fictional] tickets reviewed and themed |
+| I1-I5 | Interview | Five [fictional] quality and compliance operations leads at regulated manufacturers, 45-60 minutes [fictional] each, 2026-06 to 2026-07 [fictional] |
+| S1 | Support | 14 [fictional] months of support tickets tagged approvals or exceptions, 312 [fictional] tickets reviewed and themed |
 | A1 | Analytics | Audit-log export analysis across 4 [fictional] customer tenants: rationale-field completion by impact tier |
 | W1 | Session recording | Three [fictional] recorded submission-gate sessions, observed rather than self-reported |
 

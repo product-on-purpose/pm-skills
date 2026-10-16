@@ -26,31 +26,31 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 # pm-skill-auditor report
 
-**Scope:** full repo at HEAD `00b3978`
-**Validators invoked:** 16
-**Cross-cutting checks run:** 14
-**Findings:** 4 (P0: 0, P1: 2, P2: 2, P3: 0 [hidden by --severity-floor P1])
+**Scope:** full repo at HEAD `00b3978` [fictional]
+**Validators invoked:** 16 [fictional]
+**Cross-cutting checks run:** 14 [fictional]
+**Findings:** 4 (P0: 0, P1: 2, P2: 2, P3: 0 [hidden by --severity-floor P1]) [fictional]
 
 ## Validator results
 
 | Validator | Status | Issues |
 |---|---|---|
-| lint-skills-frontmatter | PASS | 0 |
-| validate-commands | PASS | 0 |
-| validate-agents-md | PASS | 0 |
-| validate-meeting-skills-family | PASS | 0 |
-| validate-foundation-sprint-skills-family | PASS | 0 |
-| validate-design-sprint-skills-family | PASS | 0 |
-| check-internal-link-validity --strict | PASS | 0 |
-| validate-docs-frontmatter --strict | PASS | 0 |
-| check-no-body-h1 --strict | PASS | 0 |
-| check-count-consistency --strict | PASS | 0 |
-| check-landing-page-counts --strict | PASS | 0 |
-| check-workflow-generator-coverage | PASS | 0 |
-| check-agents-md-command-sync | PASS | 0 |
-| check-generated-content-untouched | PASS | 0 |
-| validate-mcp-sync | PASS | 0 |
-| check-mcp-impact | PASS (advisory) | 0 |
+| lint-skills-frontmatter | PASS | 0 [fictional] |
+| validate-commands | PASS | 0 [fictional] |
+| validate-agents-md | PASS | 0 [fictional] |
+| validate-meeting-skills-family | PASS | 0 [fictional] |
+| validate-foundation-sprint-skills-family | PASS | 0 [fictional] |
+| validate-design-sprint-skills-family | PASS | 0 [fictional] |
+| check-internal-link-validity --strict | PASS | 0 [fictional] |
+| validate-docs-frontmatter --strict | PASS | 0 [fictional] |
+| check-no-body-h1 --strict | PASS | 0 [fictional] |
+| check-count-consistency --strict | PASS | 0 [fictional] |
+| check-landing-page-counts --strict | PASS | 0 [fictional] |
+| check-workflow-generator-coverage | PASS | 0 [fictional] |
+| check-agents-md-command-sync | PASS | 0 [fictional] |
+| check-generated-content-untouched | PASS | 0 [fictional] |
+| validate-mcp-sync | PASS | 0 [fictional] |
+| check-mcp-impact | PASS (advisory) | 0 [fictional] |
 
 ## Cross-cutting findings
 
@@ -58,15 +58,15 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 #### F-01: Deprecated reference to a removed skill path (deprecation tracking)
 
-**Location:** `library/skill-output-samples/develop-feature-spike/` (illustrative)
-**Issue:** A sample references `skills/develop-feature-spike/SKILL.md`, a skill directory deleted in a prior cycle. The path no longer resolves.
+**Location:** `library/skill-output-samples/develop-feature-spike/` (illustrative [fictional])
+**Issue:** A sample references `skills/develop-feature-spike/SKILL.md`, a skill directory deleted in a prior cycle. The path no longer resolves [fictional].
 **Why it matters:** Dead references break the docs link-validity gate and mislead users about the catalog.
 **Fix:** Repoint the sample to the surviving skill (`develop-spike-summary`), or delete the orphaned sample. Re-run `check-internal-link-validity --strict`.
 
 #### F-02: Sample gap on dispatch skill utility-pm-skill-auditor
 
 **Location:** `library/skill-output-samples/utility-pm-skill-auditor/` (does not exist)
-**Issue:** The newly shipped dispatch skill has no library samples in `library/skill-output-samples/`. Other utility skills (utility-pm-skill-builder, utility-pm-skill-validate, utility-mermaid-diagrams) have samples there.
+**Issue:** The newly shipped dispatch skill has no library samples in `library/skill-output-samples/` [fictional]. Other utility skills (utility-pm-skill-builder, utility-pm-skill-validate, utility-mermaid-diagrams) have samples there [fictional].
 **Why it matters:** Discoverability and quality demonstration. New users land on the skill via docs site and look for samples; finding none reduces confidence.
 **Fix:** Author 1-3 library samples for this dispatch skill showing audit output against current repo state. Phase 6 task or v2.17 cleanup.
 
@@ -75,14 +75,14 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 #### F-03: Description overlap between pm-critic dispatch skill and pm-skill-auditor dispatch skill (low risk)
 
 **Location:** `skills/utility-pm-critic/SKILL.md` description vs `skills/utility-pm-skill-auditor/SKILL.md` description
-**Issue:** Both descriptions begin with the dispatch-skill mechanism boilerplate ("Dispatches natively on Claude Code with the pm-skills plugin..."). The descriptions are distinct enough downstream that intent classifier should disambiguate, but the lead-in text is similar.
+**Issue:** Both descriptions begin with the dispatch-skill mechanism boilerplate ("Dispatches natively on Claude Code with the pm-skills plugin...") [fictional]. The descriptions are distinct enough downstream that intent classifier should disambiguate, but the lead-in text is similar.
 **Why it matters:** Slight discoverability collision risk if Claude's classifier matches on early-string similarity.
 **Fix:** Lead with the unique mission ("Run adversarial review on a PM artifact..." vs "Run a repo-wide cross-cutting governance audit...") and put the dispatch mechanism in the second sentence. v2.17 cleanup acceptable.
 
 #### F-04: Thread imbalance on pm-critic sub-agent samples (Phase 6 will resolve)
 
 **Location:** `library/sub-agent-samples/pm-critic/`
-**Issue:** Only 1 of 3 planned samples shipped (brainshelf). Storevine and workbench samples are Phase 6 deliverables.
+**Issue:** Only 1 of 3 planned samples shipped (brainshelf) [fictional]. Storevine and workbench samples are Phase 6 deliverables.
 **Why it matters:** Phase 6 closes this; not a defect, just an in-progress state.
 **Fix:** Phase 6 Task 23 ships the remaining 2.
 
@@ -90,16 +90,16 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 | Surface | Declared | Re-derived | Match |
 |---|---|---|---|
-| Total skills | 55 | 57 | NO (P2 - dispatch skills not yet in counters) |
-| Phase skills | 26 | 26 | YES |
-| Foundation skills | 8 | 8 | YES |
-| Utility skills | 6 | 8 | NO (P2 - 2 dispatch skills added in v2.16 Phase 2-3) |
-| Tool skills | 15 | 15 | YES |
-| Sub-agents | 4 (planned) | 2 | EXPECTED (Phase 4-5 ship remaining 2) |
-| Commands | 62 | 64 | NO (P2 - 2 new commands utility-pm-critic utility-pm-skill-auditor not in declared count) |
-| Workflows | 12 | 12 | YES |
-| Enforcing validators | 27 | 27 | YES |
-| Family contracts | 3 | 3 | YES |
+| Total skills | 55 | 57 [fictional] | NO (P2 - dispatch skills not yet in counters) |
+| Phase skills | 26 | 26 [fictional] | YES |
+| Foundation skills | 8 | 8 [fictional] | YES |
+| Utility skills | 6 | 8 [fictional] | NO (P2 - 2 dispatch skills added in v2.16 Phase 2-3) |
+| Tool skills | 15 | 15 [fictional] | YES |
+| Sub-agents | 4 (planned) | 2 [fictional] | EXPECTED (Phase 4-5 ship remaining 2) |
+| Commands | 62 | 64 [fictional] | NO (P2 - 2 new commands utility-pm-critic utility-pm-skill-auditor not in declared count) |
+| Workflows | 12 | 12 [fictional] | YES |
+| Enforcing validators | 27 | 27 [fictional] | YES |
+| Family contracts | 3 | 3 [fictional] | YES |
 
 **Counter notes:** mismatch in skills/utility/commands columns is EXPECTED in-cycle. The mismatch reflects the in-progress nature of v2.16 (dispatch skills + new commands shipped in Phase 2-3 but declared counts in README/AGENTS still reflect v2.15.x baseline). These will reconcile during the pre-tag artifact pass (master plan Phase 8 equivalent) when README + AGENTS + CONTEXT.md get refreshed.
 
@@ -114,9 +114,9 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 ## Status Summary
 
-Pre-release audit at HEAD 00b3978 (post-Phase-2) returned 4 findings: 0 P0, 2 P1, 2 P2, 0 P3.
+Pre-release audit at HEAD 00b3978 (post-Phase-2) returned 4 findings: 0 P0, 2 P1, 2 P2, 0 P3 [fictional].
 
-All 16 enforcing validators pass. No cross-cutting issues block ship. The two P1 findings are forward-looking: F-01 is a Phase 5 deliverable (will resolve when conductor ships); F-02 is a sample gap on the newly shipped dispatch skill (schedule for Phase 6 or v2.17). The two P2 findings are cosmetic or in-progress. The aggregate counter audit shows expected in-cycle drift between declared (v2.15.x baseline) and re-derived (v2.16 in-progress) counts; the pre-tag artifact pass will reconcile these.
+All 16 enforcing validators pass [fictional]. No cross-cutting issues block ship. The two P1 findings are forward-looking: F-01 is a Phase 5 deliverable (will resolve when conductor ships); F-02 is a sample gap on the newly shipped dispatch skill (schedule for Phase 6 or v2.17). The two P2 findings are cosmetic or in-progress. The aggregate counter audit shows expected in-cycle drift between declared (v2.15.x baseline) and re-derived (v2.16 in-progress) counts; the pre-tag artifact pass will reconcile these.
 
 **Recommended next action:** Continue with Phase 3-5 sub-agent authoring. No release-blocking issues. Re-run audit at end of Phase 5 to capture full slate.
 
