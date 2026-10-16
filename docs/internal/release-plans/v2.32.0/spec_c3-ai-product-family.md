@@ -79,6 +79,11 @@ judge calibration, reward hacking, slice coverage, repeated-run variance, and th
 that pm-critic has something to review against. No seventh sub-agent, no standalone standards
 document.
 
+**2026-10-16:** `measure-ai-eval-spec` failed the section 7 gate and will not be built, so this
+capability has no standards doc. The nearest existing one is `deliver-prd`'s "AI Behavior and
+Evaluation" section. In the test, the draft's review mode did not beat an unaided reviewer on the
+flawed plans it was given.
+
 ## 3. Explicitly out of scope, and why
 
 | Excluded | Reason |
@@ -91,6 +96,8 @@ document.
 | Separate handoff-manifest file format | Unsettled schema and an ungated governance surface. The intent is absorbed into the PRD agent execution contract |
 | `measure-agent-observability-spec` | Deferred until the eval spec has a consumer. Anchor to OpenTelemetry GenAI conventions if ever built. Traces are a nested run topology the instrumentation template's flat Event Inventory cannot serve, which is why 2.2 extends privacy only |
 | Upstream AI opportunity-shaping skill | Tested against a no-framework control arm on 2026-08-07 and KILLED: 0 of 3 judges found discrimination. Closed rather than parked, because a parked idea invites re-proposal and this one carries a measured negative result. Its two surviving rules ride in this family at no cost: per-component scoring in the eval spec, abstention behavior in the behavior spec |
+| `measure-ai-eval-spec` (added 2026-10-16) | Tested against a no-skill control arm on 2026-10-16 under section 7 and FAILED: 0 of 3 judges found discrimination, and the control made the better decision on three or four of six features. Closed rather than parked. The one surviving rule, run-to-run variance (state the repeats and the pass rule), is a candidate row for the shipped `deliver-prd` "AI Behavior and Evaluation" section. Result and open decisions: the "Control-arm result, 2026-10-16" section of [the v2.34.0 plan](../v2.34.0/plan_v2.34.0.md) |
+| `deliver-ai-behavior-spec` (added 2026-10-16) | Tested the same day and FAILED: 1 of 3 judges found discrimination, and all three recommended folding into an existing skill. Closed rather than parked. Two rules survive as candidate `deliver-prd` rows, with the evidence caveats recorded in the v2.34.0 plan: content the model reads is data, never instructions; and output must not reach an audience with less access than its source |
 
 ## 4. Naming
 
@@ -235,7 +242,7 @@ section 2.1 item passes section 7's gate first.
 | Track | Target | Contents | Rationale |
 |---|---|---|---|
 | 1 | v2.33.0 | The four increments in 2.2 | No new trigger surface, no count change, no L floor. Highest value per unit of risk |
-| 2 | v2.34.0 | `measure-ai-eval-spec`, then `deliver-ai-behavior-spec` | The two keystones. Eval spec first: it is the measurement twin the behavior spec is checked against, and it carries the pm-critic capability in 2.3 |
+| 2 | v2.34.0 | `measure-ai-eval-spec`, then `deliver-ai-behavior-spec` | The two keystones. Eval spec first: it is the measurement twin the behavior spec is checked against, and it carries the pm-critic capability in 2.3. **2026-10-16: both failed the section 7 gate and are closed; see section 3** |
 | 3 | unscheduled | `iterate-ai-incident-review`, `develop-agent-authority-plan` | The incident review needs the eval spec to exist to receive its output. The authority plan is independent but lower-frequency |
 | 4 | deferred | Plugin split, observability fork | Both wait on measurement: the token delta for the split, a consumer for the fork |
 
@@ -246,3 +253,5 @@ Recorded in section 6 of the aggregated roadmap and carried as v2.33.0 planning 
 (instrumentation privacy extension now rather than an observability fork, recommendation C), D-D
 (PRD as two additive minors, recommendation A), D-E (plugin identity, defer until the token delta is
 measured), D-F (governance evidence map, defer). D-C (roster amendment) is ruled A by this document.
+**2026-10-16:** D-A's recommendation B routed distributional acceptance into `measure-ai-eval-spec`,
+which will not be built. D-A is reframed as R2 in the v2.34.0 plan.

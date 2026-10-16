@@ -1,8 +1,8 @@
 # v2.34.0 Release Plan
 
-**Status:** **PLANNED, scope ruled 2026-10-15.** Seeded 2026-09-01 as a stub during the v2.33.0 G4 post-tag hygiene pass, so the v2.33.0 carries had a home rather than living only in a session log. The ruled scope is in "Scope, ruled 2026-10-15" below; nothing is built yet.
+**Status:** **RE-SCOPE NEEDED, 2026-10-16.** The headline failed its own build gate: on 2026-10-16 neither `measure-ai-eval-spec` nor `deliver-ai-behavior-spec` beat the no-skill control, so neither is built (see "Control-arm result, 2026-10-16" below). The `[fictional]` convention, section A item 1, was written the same day. Scope was ruled 2026-10-15 and the stub was seeded 2026-09-01 during the v2.33.0 G4 post-tag hygiene pass.
 **Owner:** Maintainers.
-**Type:** MINOR. The headline is a new skill, which is the repo's MINOR test in [`../../skill-versioning.md`](../../skill-versioning.md).
+**Type:** Open. It was MINOR because the headline was a new skill, which is the repo's MINOR test in [`../../skill-versioning.md`](../../skill-versioning.md). With no new skill, the type depends on the re-scope decision below.
 **Previous:** v2.33.0 SHIPPED 2026-09-01 (tag `v2.33.0` at `7a42570e`; plan at [`../v2.33.0/plan_v2.33.0.md`](../v2.33.0/plan_v2.33.0.md)).
 
 ---
@@ -21,19 +21,19 @@ Ruled in a maintainer decision sitting on 2026-10-15, after a status review foun
 
 | Item | Ruling | Why |
 |---|---|---|
-| `measure-ai-eval-spec` (new skill, measure phase) | **In v2.34.0, as the headline** | It is the measurement twin the behavior spec is checked against, and it carries the eval-review capability ([C-3 spec](../v2.32.0/spec_c3-ai-product-family.md) sections 2.3 and 9) |
-| `deliver-ai-behavior-spec` (new skill, deliver phase) | **Moved to v2.35.0** | Every new skill costs at least an L-sized asset floor. One per release ships sooner, and v2.33.0 showed that authored scope churns under adversarial review |
+| `measure-ai-eval-spec` (new skill, measure phase) | **In v2.34.0, as the headline.** **2026-10-16: FAILED the control-arm gate, 0 of 3 judges; not built** | It is the measurement twin the behavior spec is checked against, and it carries the eval-review capability ([C-3 spec](../v2.32.0/spec_c3-ai-product-family.md) sections 2.3 and 9) |
+| `deliver-ai-behavior-spec` (new skill, deliver phase) | **Moved to v2.35.0.** **2026-10-16: FAILED the control-arm gate, 1 of 3 judges; not built** | Every new skill costs at least an L-sized asset floor. One per release ships sooner, and v2.33.0 showed that authored scope churns under adversarial review |
 | Eval-review capability | **Rides inside the eval spec** | Per C-3 spec section 2.3, it is `utility-pm-critic` pointed at the eval spec's `SKILL.md`, with no new rubric and no new sub-agent. The eval spec must therefore cover leakage, contamination, judge calibration, reward hacking, slice coverage, repeated-run variance and threshold validity |
 
-**Gate before any build.** Run the control-arm test from C-3 spec section 7 for both keystones at the start of the cycle. It is cheap, and it settles the v2.35.0 input at the same time. A keystone that does not beat the no-skill control is not built.
+**Gate before any build.** Run the control-arm test from C-3 spec section 7 for both keystones at the start of the cycle. It is cheap, and it settles the v2.35.0 input at the same time. A keystone that does not beat the no-skill control is not built. **Ran 2026-10-16; both keystones failed, so the gate did its job.** Results and the open decisions are in "Control-arm result, 2026-10-16" below.
 
-**Prerequisite ruling.** D-A (distributional acceptance) is still open in C-3 spec section 10: does distributional acceptance route out of `deliver-acceptance-criteria` and into the eval spec (recommendation B)? The eval spec's scope depends on the answer, so D-A is ruled before the build starts. D-B (instrumentation privacy) and D-D (PRD increments) were in effect settled by what v2.33.0 shipped. D-E (plugin identity) and D-F (governance evidence map) stay deferred.
+**Prerequisite ruling.** D-A (distributional acceptance) is still open in C-3 spec section 10: does distributional acceptance route out of `deliver-acceptance-criteria` and into the eval spec (recommendation B)? The eval spec's scope depends on the answer, so D-A is ruled before the build starts. **2026-10-16: superseded as written,** because the eval spec will not be built; D-A is reframed as R2 in "Control-arm result, 2026-10-16". D-B (instrumentation privacy) and D-D (PRD increments) were in effect settled by what v2.33.0 shipped. D-E (plugin identity) and D-F (governance evidence map) stay deferred.
 
 **Order inside the cycle.**
 
-1. Section A item 1, the `[fictional]` convention, stays first. The eval spec ships three thread samples, and samples follow the convention.
-2. The control-arm tests for both keystones, which can run beside item 1.
-3. The D-A ruling, then the eval-spec build. The build adds the skill's baseline `HISTORY.md` by hand, because the skill-builder does not scaffold one yet (see the last bullet below).
+1. Section A item 1, the `[fictional]` convention, stays first. The eval spec ships three thread samples, and samples follow the convention. **Rule written 2026-10-16.**
+2. The control-arm tests for both keystones, which can run beside item 1. **Ran 2026-10-16: both failed.**
+3. The D-A ruling, then the eval-spec build. **Cancelled 2026-10-16 by the control-arm result; the re-scope decision R1 replaces this step.** The build adds the skill's baseline `HISTORY.md` by hand, because the skill-builder does not scaffold one yet (see the last bullet below).
 4. Release gates G0 through G4, then the `agent-plugins` registry re-pin, which is the step that delivers the release to users.
 
 **Also settled 2026-10-15.**
@@ -43,11 +43,47 @@ Ruled in a maintainer decision sitting on 2026-10-15, after a status review foun
 - Release and dependency hygiene, 2026-10-15. Eleven Dependabot pull requests merged, including the Starlight 0.41.7 to 0.42.0 group bump ([#288](https://github.com/product-on-purpose/pm-skills/pull/288)). The v2.33.0 G4 pass had never reconciled `.release-please-manifest.json`, so shadow Release PR [#271](https://github.com/product-on-purpose/pm-skills/pull/271) kept proposing 2.33.0 after that version shipped. [#302](https://github.com/product-on-purpose/pm-skills/pull/302) reconciled it, release-please then reported no user-facing commits since the tag, and #271 was closed. See section B for the two G4 defects behind it.
 - **Open consequence of the #279 ruling, found 2026-10-15.** `docs/internal/skill-versioning.md` now requires a `HISTORY.md` from a skill's first 1.0.0 release, but two shipped skills still follow the older second-version rule. `utility-pm-skill-builder` does not scaffold a `HISTORY.md`, and `utility-pm-skill-iterate` (Step 7) calls one premature before a skill's second version. Aligning them changes skill behavior and needs a version bump for each, so it was kept out of the docs-only retirement. It is a candidate for this cycle. No skill in this repo is affected today, because all 68 already carry the file.
 
+## Control-arm result, 2026-10-16
+
+**Method.** For each keystone, a treatment analyst used a frozen draft of the skill's method, and an equally capable control analyst used no method. Both worked the same six AI features, two from each canonical sample thread (storevine, brainshelf, workbench), and answered the same framework-neutral questions. The eval arms critiqued a flawed team evaluation plan for each feature, and the behavior arms wrote testable behavior requirements. Three judges per keystone, each with a distinct lens (build decision, post-hoc labeling, failure hunt), started from the default that the method added nothing. The build-decision judge also checked every treatment win against the shipped `deliver-prd` "AI Behavior and Evaluation" section. The run used twelve agents, and the pass rule, the dispositions and hashes of both drafts were recorded before launch.
+
+**Pre-registered rule.** A keystone passes when at least two of three judges find that the method changed a decision for the better. A pass whose only wins the shipped `deliver-prd` section already requires folds into `deliver-prd` instead of becoming a new skill. A failure closes the skill and salvages what survived.
+
+| Keystone | Build decision | Post-hoc labeling | Failure hunt | Outcome |
+|---|---|---|---|---|
+| `measure-ai-eval-spec` | No (high) | No (medium) | No (medium) | **FAIL, 0 of 3** |
+| `deliver-ai-behavior-spec` | Yes, narrowly (medium) | No (medium) | No (medium) | **FAIL, 1 of 3** |
+
+All six judges recommended folding into an existing skill, including the one that voted yes. Both collision probes returned PASS-WITH-REWORDING, so trigger collision was not the problem.
+
+**How strong each verdict is.** The eval-spec failure is robust: the control made the better decision on three or four of the six features. The most damaging case was the Workbench drafting feature. There, the treatment's sign-off gate checked that retrieval stays inside the requesting user's access, which the feature guarantees by design. The control tested whether restricted content reaches the wider audience the draft is shared with, which is the real leak. The behavior-spec failure is a closer call on the count, because one "no" vote rests partly on the draft having stated two of the planted answers almost verbatim. With that vote flipped, the rule would have returned build. The disposition would not move, because all three behavior judges recommended folding.
+
+**What survived, ranked by evidence.** These are candidates for a `deliver-prd` increment, which is a skill MINOR, and not for a new skill.
+
+1. **Run-to-run variance.** State how many times each case runs at production settings, and the rule for when a case passes. All three eval judges named this the only treatment decision that both beat the control and is missing from the shipped section.
+2. **Content the model reads is data, never instructions.** No analyst in either test built a prompt-injection case unprompted. The behavior draft stated the rule verbatim, so the case for a row is that skilled analysts skip it, not that a method catches it.
+3. **Output must not reach an audience with less access than its source.** Two of four skilled analyses tested the wrong permission boundary on the Workbench drafting feature, one with the method and one without. The hazard is real, but it is not a method effect.
+4. **"Does deciding this property require a model?"** This is a candidate only. It would fix the miss on the Workbench completeness check, which no analyst in either test caught, so it is untested.
+
+**Two findings against the shipped `deliver-prd` section** (medium confidence, each found independently by two judges). First, its table asks for a passing threshold on every behavior row, while its evaluation-set guidance says a curated set supports no rate, and every analyst in both tests wrote percentage thresholds on curated slices. Second, its trigger ("output comes from a model and varies run to run") admits a model-built completeness check whose core property is deterministic. Neither is fixed here, because a `deliver-prd` edit is a skill MINOR that belongs in a scoped build.
+
+**Limits.** One analyst per arm, unblinded judges and six features in one round are enough to stop an L-sized build, not to certify a revised method. The behavior draft mirrored several planted cases, which biased the test toward the skill. One judge read the pre-registration it was not given, and it disclosed that. The arms complied with their file-access instructions, which was verified from the transcripts. Next time, freeze the drafts from their source documents before writing any scenario, and keep the pre-registration outside the repository.
+
+**What this means for the family** (medium confidence). Counting the 2026-08-07 opportunity-shaping test, three proposed AI skills have now failed this gate and none has passed. `iterate-ai-incident-review` declared a dependency on the eval spec, which will not exist. The craft gap the C-3 spec was built on looks largely closed by the v2.33.0 increments to `deliver-prd`, `develop-adr` and `measure-instrumentation-spec`.
+
+### Open decisions this result creates
+
+| ID | Decision | Options | Recommendation |
+|---|---|---|---|
+| R1 (re-scope) | What v2.34.0 ships without its headline | **A)** A `deliver-prd` MINOR carrying salvage items 1 to 3 and the two findings, plus the `[fictional]` validator re-scope and sweep, the HISTORY.md rule alignment and the section B runbook defects. **B)** Tag the docs and validator work now as a smaller release, and hold the `deliver-prd` increment for the next cycle. **C)** Merge this question with the section D patch question and re-plan the release from scratch | **A.** The salvage is small, already ranked, and lands in the section it came from, and it gives the release a user-facing change |
+| R2 (D-A, reframed) | D-A asked whether distributional acceptance routes into `measure-ai-eval-spec`. That skill will not be built, so recommendation B is impossible as written | **A)** A designed-sample rule inside `deliver-prd`'s evaluation-set guidance, which already says a rate needs a designed sample. **B)** A When-NOT-to-Use bullet in `deliver-acceptance-criteria` that points at that guidance. **C)** Close D-A with no home | **A, with B as its pointer** |
+| R3 (family) | The two remaining new skills in the C-3 family | **A)** Close both with this result attached. **B)** Close `iterate-ai-incident-review`, whose input skill will not exist, and keep `develop-agent-authority-plan` unscheduled behind the same gate. **C)** Change nothing now | **B.** The authority plan covers the product's own agent, which no shipped increment covers, so it keeps its gate rather than being closed untested |
+
 ## A. Carries from v2.33.0 section D
 
 | # | Item | Why it carried | Notes |
 |---|---|---|---|
-| 1 | **The `[fictional]` convention has no written source** | Root cause of four G1 recurrences | **Sequence first.** Author the rule, then re-scope the validator to match it, then sweep |
+| 1 | **The `[fictional]` convention has no written source** | Root cause of four G1 recurrences | **Sequence first.** Author the rule, then re-scope the validator to match it, then sweep. **Rule written 2026-10-16** as "The `[fictional]` convention" in [`library/skill-output-samples/README_SAMPLES.md`](../../../../library/skill-output-samples/README_SAMPLES.md): a provenance test (a claim is marked unless the input or a cited public source supplies it), observations marked and decisions not, asserted method covered as well as numbers, one inline marker per claim, and scope widened to every skill's `references/EXAMPLE.md`. The validator re-scope and the sweep remain |
 | 2 | **The trace table's remaining multi-claim rows** (retention, sampling, terminal disposition) | R12-F1's fix stated the per-claim rule rather than re-splitting, deliberately leaving decomposition to a QA owner | The recorded case against the decline: it leaves decomposition to an owner who may not do it |
 | 3 | **Retention's dropped evaluation-set copy question** | `measure-instrumentation-spec`'s `SKILL.md` requires it and the shipped template does not carry it | **This is a known gap that SHIPPED in v2.33.0.** It is the v2.33.0 deferral with the least mitigation: the new per-claim coverage rule does not touch it, because it is a content gap rather than a decomposition gap |
 | 4 | **The opt-out row's subject scope** | Deferred with rationale at G1 round 12 | |
