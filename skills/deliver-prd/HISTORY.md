@@ -2,11 +2,30 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 3.1.0 | 2026-10-16 | v2.34.0 | - | minor | `AI Behavior and Evaluation` prompts for what the 2026-10-16 control-arm test found missing: runs per case at production settings, a row for content the model reads (data, never instructions), and a row for output reaching a lower-access audience. The column becomes "Pass rule", resolving its conflict with the no-rate guidance, and the trigger excludes properties a deterministic check can decide. All additions are prompts, not new contract items. |
 | 3.0.0 | 2026-08-21 | v2.33.0 | C-1 | **major** | Two conditional sections: `AI Behavior and Evaluation` (behavior requirements linked to the evidence that they hold) and `Agent Execution Contract` (authoritative sources, do-not-touch, an FR-n verification map, stop-and-escalate). **Also replaces the evaluation-set sizing method**: saturation stopping ("smallest N where adding cases stops changing the verdict") is stopping on the observed outcome, so sizing is now risk-based with named slices, a coverage floor per slice, and held-out cases, and the section explicitly declines to license a failure-rate claim. **Retyped from 2.3.0 minor before release** (G1 adversarial finding 1): when the condition applies, a section plus two checklist items are required for completeness, which is the tie-breaker rule's major case. 2.3.0 never shipped. |
 | 2.2.0 | 2026-08-08 | v2.32.0 | F-54 | minor | Project Memory Contract: reads prior interpretation artifacts, writes the PRD as a decision artifact. |
 | 2.1.0 | 2026-06-10 | v2.26.0 | F-12-batch-1 | minor | Quality convergence: When NOT to Use + output-contract enumeration (F-12 Batch 1) |
 | 2.0.0 | 2026-01-26 | - | - | baseline | Prior published version |
 
+
+## 3.1.0 (2026-10-16)
+
+Planned for v2.34.0, under ruling R1 (re-scope the release around the deliver-prd increment) in its release plan.
+
+Two proposed AI skills, an evaluation spec and a behavior spec, were tested against a no-skill control on 2026-10-16, and neither was built. Three of their decisions beat the control or caught what skilled analysts skipped, and the judges found two defects in this skill's shipped section. This version carries those into the section they came from.
+
+**Why this is a MINOR, given the 3.0.0 precedent.** At 3.0.0, a conditional section was retyped MAJOR because it was required when triggered and came with new checklist items. Nothing here is required. The new rows and the runs-per-case bullet are prompts in the template and in Step 5, the Output Format enumeration is unchanged, and no Quality Checklist item is added. The one checklist edit rewords "a threshold" to "a pass rule"; a 3.0.0 PRD with a threshold still has a pass rule, so nothing compliant becomes non-compliant.
+
+### Changes
+- **Runs per case.** The Evaluation Set asks how many times each case runs at production settings and when a case counts as passed, because the same case can pass once and fail the next time.
+- **AB-4, content the model reads is data.** A prompted row, kept when the model reads content it did not author: instructions inside that content are never followed.
+- **AB-5, no lower-access audience.** A prompted row, kept when the output is shown to people other than the one whose access produced it: the output never reaches an audience with less access than its source.
+- **"Passing threshold" becomes "Pass rule".** The column invited percentage thresholds while the Evaluation Set guidance said a curated set supports no rate. The pass rule is fixed before the run and applies per case, and a rate belongs there when a designed sample backs it.
+- **Requirements stated as a rate.** The Evaluation Set says a rate is a release requirement only when a designed sample backs it, and otherwise is restated as a pass rule per case. The 3.0.0 guidance already said a rate needs a designed sample; this applies it to requirements as well as reports.
+- **Trigger scope.** A property that a deterministic check can decide does not bring a feature under this section just because a model produced the output.
+
+Not added: a per-property question asking whether deciding a property requires a model. It was a candidate from the same test, but nothing tested it, so it stays out.
 
 ## 3.0.0 (2026-08-21)
 

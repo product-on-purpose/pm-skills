@@ -4,8 +4,8 @@ description: Generates structured Given/When/Then acceptance criteria for a user
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "1.1.0"
-  updated: 2026-06-10
+  version: "1.1.1"
+  updated: 2026-10-16
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -28,6 +28,7 @@ Acceptance criteria define the observable behavior that must be true for a story
 - You need systematic failure coverage across a whole feature -> use `deliver-edge-cases`; this skill stays story-scoped
 - There is no story or slice to bind criteria to yet -> use `deliver-prd` or `deliver-user-stories` first
 - You are defining success metrics for an experiment, not done-ness for a story -> use `measure-experiment-design`
+- The criterion is a rate over model output, such as "90% of answers cite a source" -> use the AI Behavior and Evaluation section of `deliver-prd`, which says when a rate needs a designed sample and how to state a pass rule per case instead
 
 ## Instructions
 

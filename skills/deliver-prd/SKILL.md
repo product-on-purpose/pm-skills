@@ -4,8 +4,8 @@ description: Creates a comprehensive Product Requirements Document that aligns s
 license: Apache-2.0
 metadata:
   phase: deliver
-  version: "3.0.0"
-  updated: 2026-08-21
+  version: "3.1.0"
+  updated: 2026-10-16
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -47,7 +47,9 @@ When asked to create a PRD, follow these steps:
    Break down what the system must do. Use user stories or requirement statements. Each requirement should be testable - someone should be able to verify if it's met.
 
 5. **Link AI Behavior to Evidence** *(only when the feature's output comes from a model)*
-   Skip this step entirely for deterministic features. When a model produces the output, the behavior varies run to run, so "it works" is a claim that needs evidence attached. Name the behaviors that are requirements of this release and, for each one, how it will be shown to hold and at what threshold. Refusal and abstention get their own rows: a model has no dependable default for either, so what the feature does when it should *not* answer is a requirement, not an implementation detail. Score each component of a multi-step feature separately, because an end-to-end pass rate hides which step failed. State how the case set was sized as a method, never as a borrowed number.
+   Skip this step entirely for deterministic features. A property that a deterministic check can decide, such as a required field being present or a count matching, does not bring a feature under this step just because a model produced the output; specify it as an ordinary requirement in step 4. When a model produces the output, the behavior varies run to run, so "it works" is a claim that needs evidence attached. Name the behaviors that are requirements of this release and, for each one, how it will be shown to hold and the rule a case must meet to pass, fixed before the run. Refusal and abstention get their own rows: a model has no dependable default for either, so what the feature does when it should *not* answer is a requirement, not an implementation detail. Score each component of a multi-step feature separately, because an end-to-end pass rate hides which step failed. State how the case set was sized as a method, never as a borrowed number.
+
+   Because the same case can pass on one run and fail on the next, say how many times each case runs at production settings and when a case counts as passed. The template also prompts for two rows that are easy to leave out. When the model reads content it did not author, that content is data and never instructions. When the output is shown to people other than the one whose access produced it, it must not reach anyone with less access than its source. A rate, such as "90% of answers cite a source", is a requirement only when a designed sample backs it; otherwise state the pass rule per case.
 
 6. **Define Scope Boundaries**
    Explicitly state what's in scope, out of scope, and deferred to future iterations. Clear scope prevents scope creep and sets realistic expectations.
@@ -97,7 +99,7 @@ Before finalizing, verify:
 - [ ] Technical considerations are surfaced without over-specifying
 - [ ] Dependencies and risks are documented with owners
 - [ ] Document is readable in under 15 minutes
-- [ ] If the output comes from a model: every behavior requirement has an evaluation and a threshold, and refusal and abstention are among them
+- [ ] If the output comes from a model: every behavior requirement has an evaluation and a pass rule, and refusal and abstention are among them
 - [ ] If an evaluation set is sized: each slice's floor says what coverage it commits to and why that slice earns it, and no slice result is reported as a failure rate or as a bound on one
 - [ ] If an executor will implement this without the authoring context: every FR-n has a verification and a verifier, and every escalation condition names an owner
 

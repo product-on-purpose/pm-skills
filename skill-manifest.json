@@ -90,7 +90,7 @@
     {
       "name": "deliver-acceptance-criteria",
       "description": "Generates structured Given/When/Then acceptance criteria for a user story or feature slice, covering the happy path, key failure scenarios, and non-functional expectations in testable form. Use when turning requirements into verifiable scenarios for engineering handoff and QA sign-off. For a dedicated catalog of boundary conditions, error states, and recovery paths across a feature, use deliver-edge-cases; to write the stories themselves, use deliver-user-stories.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "group": "phase",
       "phase": "deliver",
       "family": null,
@@ -135,7 +135,7 @@
     {
       "name": "deliver-prd",
       "description": "Creates a comprehensive Product Requirements Document that aligns stakeholders on what to build, why, and how success will be measured. Use when specifying features, epics, or product initiatives for engineering handoff.",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "group": "phase",
       "phase": "deliver",
       "family": null,
