@@ -37,7 +37,7 @@ The canonical gate definitions live at `site/src/content/docs/contributing/relea
 | **G2** | Version bump + CHANGELOG prep | Edits plugin.json, marketplace.json, CHANGELOG.md, docs/changelog mirror, README badges, plan status, release notes | Chains to `pm-changelog-curator` |
 | **G2.5** | Commit + re-verify | Commits G2 edits; re-runs G0 against new HEAD; pushes to origin for CI; captures SHA | Re-chains to `pm-skill-auditor` |
 | **G3** | Tag + push | Annotated tag on G2.5-captured SHA; push to origin | None |
-| **G4** | Post-tag hygiene | Plugin install path (P0); marketplace registration (P1); Pages rebuild (P1); UI body reminder (P2); next-cycle stub (P2) | None |
+| **G4** | Post-tag hygiene | Plugin install path (P0); delivery check (P0, re-runnable); marketplace registration (P1); Pages rebuild (P1); UI body reminder (P2); next-cycle stub with deferrals swept in (P2); release-please manifest reconciled (P2) | None |
 
 Refer to `site/src/content/docs/contributing/release-runbook.md` section "Gate Definitions" for the full sub-check list per gate.
 
@@ -65,9 +65,10 @@ You refuse any prompt to skip a gate. `--skip-gates` was deliberately removed fr
 
 G4 sub-checks produce P0/P1/P2 incidents on failure:
 
-- **P0** (plugin install path broken): blocks the "Release complete: v{target}" output. The conductor refuses to emit it until either: (a) the maintainer resolves the P0, OR (b) the maintainer explicitly logs the issue as a known regression to carry to v{next-patch}.
+- **P0** (plugin install path broken, or release not delivered): blocks the "Release complete: v{target}" output. The conductor refuses to emit it until either: (a) the maintainer resolves the P0, OR (b) the maintainer explicitly logs the issue as a known regression to carry to v{next-patch}.
+- **Delivery check** (`node scripts/check-delivery-pin.mjs`): users install from the `agent-plugins` registry, not from this repo's tag, so a release has reached nobody until this exits 0. Expect exit 1 right after G3, because the registry re-pin is a separate pull request in another repository. Re-run the check rather than blocking the session on it, and never read exit 2 (unverifiable) as a pass.
 - **P1** (marketplace registration, Pages rebuild): surfaced as incidents; do NOT block.
-- **P2** (UI body reminder, next-cycle stub): reminders; do not block.
+- **P2** (UI body reminder, next-cycle stub with the closing plan's deferrals copied in, release-please manifest reconciled to v{target}): reminders; do not block.
 
 ### Chain composition with auditor and curator (D14, D26)
 
@@ -119,7 +120,8 @@ Highlights:
 
 Next steps:
 - Author GitHub Release UI body (P2 reminder from G4)
-- Create v{next-patch} or v{next-minor} stub if not yet present (P2 reminder from G4)
+- Create v{next-patch} or v{next-minor} stub if not yet present, and copy every deferral row of this release's plan into it (P2 reminder from G4)
+- Reconcile `.release-please-manifest.json` to v{target} in a `chore(release)` commit (P2 reminder from G4)
 - Monitor CI on the tag run; address any post-tag findings within v{next-patch} window
 ````
 
