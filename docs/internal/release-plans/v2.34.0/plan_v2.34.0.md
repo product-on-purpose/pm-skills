@@ -84,6 +84,7 @@ All six judges recommended folding into an existing skill, including the one tha
 - **R1.** The v2.34.0 build is a `deliver-prd` skill MINOR carrying salvage items 1 to 3 and both findings against the shipped section, alongside the `[fictional]` validator re-scope and sweep (section A items 1 and 6), the HISTORY.md rule alignment in `utility-pm-skill-builder` and `utility-pm-skill-iterate`, and the section B runbook defects. Salvage item 4 stays out until something tests it. The section D patch question folds in: there is no v2.33.1.
 - **R2.** Distributional acceptance gets a designed-sample rule inside `deliver-prd`'s evaluation-set guidance, built with the R1 increment, and `deliver-acceptance-criteria` gains one When-NOT-to-Use bullet pointing at it.
 - **R3.** `iterate-ai-incident-review` is closed, because the eval spec it fed will not exist. `develop-agent-authority-plan` stays unscheduled behind the same section 7 gate. Both are recorded in the C-3 spec.
+- **Not named by R1: section A items 2 to 5,** the four `measure-instrumentation-spec` carries, including item 3, a gap that shipped in v2.33.0. Their disposition is open: they ride under R1 as a `measure-instrumentation-spec` increment, or they carry explicitly to v2.35.0. Recorded here so the carry cannot drop silently, which is the failure G4 item 7 exists to prevent.
 
 ## A. Carries from v2.33.0 section D
 
