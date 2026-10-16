@@ -33,7 +33,7 @@ Ruled in a maintainer decision sitting on 2026-10-15, after a status review foun
 
 1. Section A item 1, the `[fictional]` convention, stays first. The eval spec ships three thread samples, and samples follow the convention.
 2. The control-arm tests for both keystones, which can run beside item 1.
-3. The D-A ruling, then the eval-spec build.
+3. The D-A ruling, then the eval-spec build. The build adds the skill's baseline `HISTORY.md` by hand, because the skill-builder does not scaffold one yet (see the last bullet below).
 4. Release gates G0 through G4, then the `agent-plugins` registry re-pin, which is the step that delivers the release to users.
 
 **Also settled 2026-10-15.**
@@ -41,6 +41,7 @@ Ruled in a maintainer decision sitting on 2026-10-15, after a status review foun
 - [#279](https://github.com/product-on-purpose/pm-skills/issues/279) (skills-manifest.yaml, restore or retire) is ruled **retire**, and the retirement merged on 2026-10-15 as [#301](https://github.com/product-on-purpose/pm-skills/pull/301); see section D.
 - Two contributor pull requests feed this cycle. [#287](https://github.com/product-on-purpose/pm-skills/pull/287) (PR-template checklist wording) had its expired CI re-run and approved, and it merged on 2026-10-15 as `05612b1b`. [#286](https://github.com/product-on-purpose/pm-skills/pull/286) would be the first published Model Trace Capture sample, answering good-first-issue [#282](https://github.com/product-on-purpose/pm-skills/issues/282). On 2026-10-15 it conflicted with the 202-sample counts. A review comment posted that day asks for a rebase, a line-ending fix in its test, and `Part of #282` in place of `Fixes #282`, because #282 has two other slots still open. **If the author has not responded by 2026-10-29, maintainers finish the rebase on the contributor's branch**, which allows maintainer edits.
 - Release and dependency hygiene, 2026-10-15. Eight Dependabot pull requests merged, including the Starlight 0.41.7 to 0.42.0 group bump ([#288](https://github.com/product-on-purpose/pm-skills/pull/288)). The v2.33.0 G4 pass had never reconciled `.release-please-manifest.json`, so shadow Release PR [#271](https://github.com/product-on-purpose/pm-skills/pull/271) kept proposing 2.33.0 after that version shipped. [#302](https://github.com/product-on-purpose/pm-skills/pull/302) reconciled it, release-please then reported no user-facing commits since the tag, and #271 was closed. See section B for the two G4 defects behind it.
+- **Open consequence of the #279 ruling, found 2026-10-15.** `docs/internal/skill-versioning.md` now requires a `HISTORY.md` from a skill's first 1.0.0 release, but two shipped skills still follow the older second-version rule. `utility-pm-skill-builder` does not scaffold a `HISTORY.md`, and `utility-pm-skill-iterate` (Step 7) calls one premature before a skill's second version. Aligning them changes skill behavior and needs a version bump for each, so it was kept out of the docs-only retirement. It is a candidate for this cycle. No skill in this repo is affected today, because all 68 already carry the file.
 
 ## A. Carries from v2.33.0 section D
 
