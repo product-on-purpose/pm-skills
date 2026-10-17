@@ -19,7 +19,7 @@ The Brainshelf team is in Day 1 morning of their Foundation Sprint. The first su
 
 ## Decision Question
 
-> Of the candidate target customers we have surfaced from our 22 interviews, which one should the Brainshelf Foundation Sprint commit to for Day 1 Basics?
+> Of the candidate target customers we have surfaced from our 22 interviews [fictional], which one should the Brainshelf Foundation Sprint commit to for Day 1 Basics?
 
 ## Time Allocation
 
@@ -47,11 +47,11 @@ Multi-vote (each participant gets 2 dots); Decider gets an additional supervote 
 - "Book hoarders" who own more than they have read
 
 **Sam** (09:15):
-- Readers who hit Goodreads churn point (3+ months in, dropped because of social pressure)
-- People who track in spreadsheets today (highest existing friction tolerance)
+- Readers who hit Goodreads churn point (3+ months in, dropped because of social pressure [fictional])
+- People who track in spreadsheets today (highest existing friction tolerance [fictional])
 
 **Riley** (09:15):
-- Book club coordinators (manage 5-20 people's reading)
+- Book club coordinators (manage 5-20 people's reading [fictional])
 - Romance / genre readers (high volume, repeat behavior)
 - People who read 25+ books/year and treat books as memory (NOT identity)
 
@@ -73,7 +73,7 @@ Multi-vote (each participant gets 2 dots); Decider gets an additional supervote 
 
 ## Discussion Notes
 
-- **Books-as-memory readers (top option)**: Riley argued this framing absorbs individual collectors and Goodreads churners as adjacent segments. Confirmed by Jamie and Alex against the pattern from the 22 interviews.
+- **Books-as-memory readers (top option)**: Riley argued this framing absorbs individual collectors and Goodreads churners as adjacent segments. Confirmed by Jamie and Alex against the pattern from the 22 interviews [fictional].
 - **Sam's social-readers vote**: "I voted for it because we know that segment well via Riley, but I'm convinced by the discussion that this is the easier, lower-leverage choice."
 - **Alex's individual-collectors vote**: "I think individual collectors and books-as-memory readers are mostly the same person framed differently. I'm comfortable folding."
 - **Riley's Goodreads-churn vote**: "These are real people but they are a sub-segment of the books-as-memory people. They prove the segment but don't define it."

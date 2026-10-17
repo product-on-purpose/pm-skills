@@ -44,10 +44,10 @@ Slot derivation:
 
 ## Why We Believe This
 
-1. **22 customer interviews surfaced the same two pains repeatedly:** forgetting books and friction with current tools. The Founding Hypothesis directly addresses both.
-2. **Riley's network is a credible distribution channel** for the target segment; warm intros tested in the readiness assessment.
+1. **22 customer interviews surfaced the same two pains repeatedly [fictional]:** forgetting books and friction with current tools. The Founding Hypothesis directly addresses both.
+2. **Riley's network is a credible distribution channel** for the target segment; warm intros tested in the readiness assessment [fictional].
 3. **The team's existing capabilities** (Alex on fast-capture UX, Sam on mobile and offline) match the chosen differentiators with evidence.
-4. **The "do nothing" baseline is high** for this segment, meaning a 10x-better tool can win without displacing an entrenched competitor.
+4. **The "do nothing" baseline is high** for this segment [fictional], meaning a 10x-better tool can win without displacing an entrenched competitor.
 5. **The differentiation is observable to customers** (speed, recall) rather than internal-team metrics (architectural elegance).
 
 ## What Could Prove Us Wrong

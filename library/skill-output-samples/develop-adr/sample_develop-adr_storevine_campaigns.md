@@ -99,7 +99,7 @@ The existing SendGrid account, API integration, and bounce/unsubscribe webhook i
 
 - SendGrid's cost per email is meaningfully higher than AWS SES at large volumes; at the projected 10M emails/month [fictional] steady-state, the cost differential is significant and will need to be priced into the Campaigns paid tier.
 - A dedicated IP requires a 30 - 45 day warm-up period before Storevine can safely send full GA volume; this is a hard constraint on the launch timeline and must be factored into the beta and GA schedule.
-- Vendor dependency on a Twilio-owned service introduces a layer of acquisition and roadmap risk; Twilio has restructured multiple product lines since the SendGrid acquisition in 2019. This is low-probability but worth monitoring.
+- Vendor dependency on a Twilio-owned service introduces a layer of acquisition and roadmap risk; Twilio has restructured multiple product lines since the SendGrid acquisition in 2019 [fictional]. This is low-probability but worth monitoring.
 
 ### Neutral
 
@@ -118,7 +118,7 @@ Postmark has an excellent reputation for transactional email deliverability and 
 
 ### Mailgun
 
-Mailgun offers dedicated IP support and deliverability tooling comparable to SendGrid, making it the closest technical alternative. It was not selected because (1) Storevine has no existing Mailgun relationship or API integration, creating a switching cost that is not justified by a clear technical advantage over SendGrid, and (2) the team assessed the two providers as roughly equivalent on deliverability; given equivalent capability, the lower-switching-cost option is the correct choice. Mailgun remains a viable fallback if SendGrid pricing becomes uncompetitive at scale.
+Mailgun offers dedicated IP support and deliverability tooling comparable to SendGrid, making it the closest technical alternative. It was not selected because (1) Storevine has no existing Mailgun relationship or API integration, creating a switching cost that is not justified by a clear technical advantage over SendGrid, and (2) the team assessed the two providers as roughly equivalent on deliverability [fictional]; given equivalent capability, the lower-switching-cost option is the correct choice. Mailgun remains a viable fallback if SendGrid pricing becomes uncompetitive at scale.
 
 ## References
 

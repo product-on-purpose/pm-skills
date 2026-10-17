@@ -116,12 +116,12 @@ the committed-KR miss should be treated as a postmortem trigger.
   Mixed-type OKR set; do NOT collapse to a single number. The
   committed KR's miss requires a postmortem, even though the cause
   is external (HIPAA review pacing).
-- Evidence confidence: high for KR1 (binary count from Salesforce);
-  high for KR2 (Blueprints execution telemetry); high for KR3 (HIPAA
-  audit report); high for KR4 (Zendesk dashboard).
+- Evidence confidence: high for KR1 (binary count from Salesforce [fictional]);
+  high for KR2 (Blueprints execution telemetry [fictional]); high for KR3 (HIPAA
+  audit report [fictional]); high for KR4 (Zendesk dashboard [fictional]).
 - Main learning: HIPAA security review timelines for tier-1 healthcare
   accounts run 4 to 6 weeks longer than the contracted-onboarding
-  schedule budgeted. This is structural, not Q3-specific. Future
+  schedule budgeted [fictional]. This is structural, not Q3-specific. Future
   enterprise OKRs that include healthcare accounts must budget the
   longer review window or stage healthcare onboardings differently.
 
@@ -143,7 +143,7 @@ the committed-KR miss should be treated as a postmortem trigger.
     soften to 0.83 aspirational. The committed scoring convention
     requires postmortem when the target is missed, even when the
     cause is external.
-  - Evidence confidence: high. Binary count from Salesforce; both
+  - Evidence confidence: high. Binary count from Salesforce [fictional]; both
     slipped accounts have documented HIPAA review status.
   - Interpretation: the team delivered 10 of 12 contracted onboardings
     on schedule. The miss is real and deserves postmortem, but the
@@ -156,14 +156,14 @@ the committed-KR miss should be treated as a postmortem trigger.
   week [fictional] by 2026-09-30.
   - Actual: 19 executions per account per week [fictional] (median
     across the 10 onboarded accounts, measured in the 4 weeks after
-    each account's onboarding completion).
-  - Score: 0.68 (aspirational). Calculation:
-    (19 - 0) / (28 - 0) = 0.679. In the 0.6 to 0.7 sweet spot.
+    each account's onboarding completion [fictional]).
+  - Score: 0.68 [fictional] (aspirational). Calculation:
+    (19 - 0) / (28 - 0) = 0.679 [fictional]. In the 0.6 to 0.7 sweet spot.
   - Evidence confidence: high. Blueprints execution telemetry
-    (`blueprint_run` event) reliable; per-account aggregation clean.
+    (`blueprint_run` event [fictional]) reliable; per-account aggregation clean.
   - Interpretation: the 2x-of-benchmark target was aspirational and
     untested. Landing at 1.36x of the comparable benchmark (19 vs the
-    14/week comparable feature benchmark) is meaningfully strong for
+    14/week comparable feature benchmark) [fictional] is meaningfully strong for
     a v1.1 product. The vertical template library (Initiative 2) is
     the load-bearing bet here.
 
@@ -193,12 +193,12 @@ the committed-KR miss should be treated as a postmortem trigger.
   median time-to-resolution for Blueprints support tickets at or below
   4 hours [fictional].
   - Actual: 3.9 hours [fictional] median.
-  - Score: pass (committed scoring; threshold met). 0.1 hours below
+  - Score: pass (committed scoring; threshold met). 0.1 hours [fictional] below
     the SLA threshold.
   - Evidence confidence: high.
   - Interpretation: onboarding 10 new accounts did not breach the SLA
     threshold. CS team capacity held within the 4-hour threshold by
-    a thin margin (0.1 hours). Per the guardrail indicator-class
+    a thin margin (0.1 hours [fictional]). Per the guardrail indicator-class
     rule, this KR is reported as its own signal and is NOT averaged
     into the primary objective score.
 
@@ -279,7 +279,7 @@ the committed-KR miss should be treated as a postmortem trigger.
     close due to HIPAA review.
   - Apparent contribution: high. White-glove sessions reduced
     time-to-first-Blueprint and supported the engagement velocity
-    seen in KR2.
+    seen in KR2 [fictional].
   - Recommendation: continue. Reframe the per-account session
     duration estimate to include HIPAA review time for healthcare
     accounts.
@@ -289,7 +289,7 @@ the committed-KR miss should be treated as a postmortem trigger.
   - Status: shipped on time and in full (24 of 24 templates by
     August 14).
   - Apparent contribution: high. 73% adoption among onboarded
-    accounts in the first 4 weeks; per-account execution rate of 19
+    accounts in the first 4 weeks; per-account execution rate of 19 [fictional]
     aligns with the vertical-template-driven hypothesis.
   - Recommendation: continue at current scope. Consider expanding to
     additional verticals (legal, education) in Q4 if KR2 holds at the
@@ -308,10 +308,10 @@ the committed-KR miss should be treated as a postmortem trigger.
 
 - Validated assumptions:
   - Vertical-aligned templates accelerate first-week engagement at
-    enterprise scale (KR2 in the sweet spot).
+    enterprise scale [fictional] (KR2 in the sweet spot).
   - White-glove onboarding for tier-1 enterprise customers is the
     right delivery model; CS team capacity held within the SLA
-    guardrail (KR4) and the burnout health check held (47 hours
+    guardrail (KR4) and the burnout health check held (47 hours [fictional]
     median against the 50 threshold).
   - The mixed-empowerment Disclosure framing in the original OKR set
     held under stress: the cycle's mixed result was anticipated by
@@ -319,7 +319,7 @@ the committed-KR miss should be treated as a postmortem trigger.
 
 - Invalidated assumptions:
   - HIPAA security review for tier-1 healthcare accounts can complete
-    in 13 weeks. Actual is 17 to 22 weeks. This is structural, not
+    in 13 weeks [fictional]. Actual is 17 to 22 weeks [fictional]. This is structural, not
     Q3-specific.
   - The customer-health dashboard would ship in Q3 if data engineering
     capacity remained as planned. Mid-cycle reallocation to incident
@@ -330,9 +330,9 @@ the committed-KR miss should be treated as a postmortem trigger.
     expected (the original hypothesis was that vertical templates
     would reduce blank-canvas friction; the magnitude of adoption
     suggests they may also be a discoverability lever).
-  - The CS guardrail held by only 0.1 hours. The 4-hour SLA threshold
+  - The CS guardrail held by only 0.1 hours [fictional]. The 4-hour SLA threshold
     is a real ceiling, not a comfortable one. Q4 onboardings (the 5
-    new acquisitions plus the 2 healthcare slips) will pressure this
+    new acquisitions [fictional] plus the 2 healthcare slips) will pressure this
     further.
 
 - Decision implications:
@@ -356,9 +356,9 @@ the committed-KR miss should be treated as a postmortem trigger.
    fallback structure: "X non-healthcare plus best-effort on healthcare"
    with explicit healthcare fallback dates.
 
-3. Decide whether the 5 new tier-1 customers (from the Customer
+3. Decide whether the 5 new tier-1 customers [fictional] (from the Customer
    Acquisition team's Q3 success) onboard in Q4 or wait for Q1 2027.
-   The CS team SLA guardrail held at 3.9 hours by 0.1 hours; adding
+   The CS team SLA guardrail held at 3.9 hours [fictional] by 0.1 hours [fictional]; adding
    5+2 onboardings in Q4 risks breaching the SLA without additional
    CS capacity.
 
@@ -402,7 +402,7 @@ the committed-KR miss should be treated as a postmortem trigger.
   not-yet-fully-observable, period. The 1-account result is a positive
   sub-signal that does not promote to KR-level pass.
 
-- KR4 (CS guardrail) held by 0.1 hours. This is a thin margin. Q4
+- KR4 (CS guardrail) held by 0.1 hours [fictional]. This is a thin margin. Q4
   onboarding pace decisions must treat the SLA threshold as a binding
   constraint; framing it as "we held the guardrail" risks
   under-planning Q4 CS capacity.
@@ -415,6 +415,6 @@ the committed-KR miss should be treated as a postmortem trigger.
 
 ## Source of Truth
 
-ent.workbench.com/okrs/q3-blueprints (Confluence). This artifact is a
+ent.workbench.com/okrs/q3-blueprints (Confluence) [fictional]. This artifact is a
 review document, not the canonical OKR record.
 ```

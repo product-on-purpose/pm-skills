@@ -92,19 +92,19 @@ for stakeholder review and decision record.
 
 | Variant | Value | Sample Size | Confidence Interval |
 |---------|-------|-------------|---------------------|
-| Control | 13.4% [fictional] | 1,204 [fictional] | 11.6%  -  15.2% |
-| Treatment | 31.7% [fictional] | 1,198 [fictional] | 29.2%  -  34.2% |
+| Control | 13.4% [fictional] | 1,204 [fictional] | 11.6%  -  15.2% [fictional] |
+| Treatment | 31.7% [fictional] | 1,198 [fictional] | 29.2%  -  34.2% [fictional] |
 
-**Observed Difference:** +18.3 percentage points [fictional] (+136.6% relative)
+**Observed Difference:** +18.3 percentage points [fictional] (+136.6% relative [fictional])
 
 **Statistical Significance:**
-- p-value: <0.001
-- Confidence level: 99.9%
+- p-value: <0.001 [fictional]
+- Confidence level: 99.9% [fictional]
 - Statistically significant: Yes
 
 **Interpretation:**
 
-Treatment merchants sent their first campaign at a rate of 31.7% [fictional] within 60 days . exceeding the 30% [fictional] target by 1.7 percentage points [fictional] and more than doubling the control rate of 13.4% [fictional]. The result is highly statistically significant (p < 0.001), meaning the probability that this difference is due to chance is less than 0.1%. The guided first-campaign flow with pre-populated product templates is confirmed as the primary activation lever for non-adopter merchants.
+Treatment merchants sent their first campaign at a rate of 31.7% [fictional] within 60 days . exceeding the 30% [fictional] target by 1.7 percentage points [fictional] and more than doubling the control rate of 13.4% [fictional]. The result is highly statistically significant (p < 0.001 [fictional]), meaning the probability that this difference is due to chance is less than 0.1% [fictional]. The guided first-campaign flow with pre-populated product templates is confirmed as the primary activation lever for non-adopter merchants.
 
 ---
 
@@ -112,9 +112,9 @@ Treatment merchants sent their first campaign at a rate of 31.7% [fictional] wit
 
 | Metric | Control | Treatment | Difference | Significant? |
 |--------|---------|-----------|------------|----|
-| Median time to first send (minutes) | 43 min [fictional] | 12 min [fictional] | −31 min [fictional] | Yes (Mann-Whitney, p < 0.001) |
-| Second campaign send rate (90 days) | 9.1% [fictional] | 22.8% [fictional] | +13.7 pp [fictional] | Yes (p < 0.001) |
-| Campaigns activation rate (merchants who opened the flow) | 34.2% [fictional] | 35.8% [fictional] | +1.6 pp [fictional] | No (p = 0.31) . variants are comparable |
+| Median time to first send (minutes) | 43 min [fictional] | 12 min [fictional] | −31 min [fictional] | Yes (Mann-Whitney [fictional], p < 0.001 [fictional]) |
+| Second campaign send rate (90 days) | 9.1% [fictional] | 22.8% [fictional] | +13.7 pp [fictional] | Yes (p < 0.001 [fictional]) |
+| Campaigns activation rate (merchants who opened the flow) | 34.2% [fictional] | 35.8% [fictional] | +1.6 pp [fictional] | No (p = 0.31 [fictional]) . variants are comparable |
 
 ### Guardrail Metrics
 
@@ -146,7 +146,7 @@ Treatment merchants sent their first campaign at a rate of 31.7% [fictional] wit
 
 ### Segment Insights
 
-The treatment effect is consistent across all analyzed segments . no segment shows a null or negative treatment effect. The effect is strongest in the fashion and home goods category, consistent with merchant interview finding that these merchants have higher seasonal awareness and were more motivated to send promotional campaigns. The effect scales with customer count: merchants closer to the 250-customer threshold show a larger absolute improvement, likely because they have more product sales history to populate the pre-filled template with meaningful top-products data. The 0 - 50 customer segment shows the smallest absolute improvement but still a strong relative effect (+176% [fictional]), suggesting even very early-stage merchants benefit from the guided flow.
+The treatment effect is consistent across all analyzed segments . no segment shows a null or negative treatment effect. The effect is strongest in the fashion and home goods category, consistent with merchant interview finding that these merchants have higher seasonal awareness and were more motivated to send promotional campaigns [fictional]. The effect scales with customer count: merchants closer to the 250-customer threshold show a larger absolute improvement, likely because they have more product sales history to populate the pre-filled template with meaningful top-products data. The 0 - 50 customer segment shows the smallest absolute improvement but still a strong relative effect (+176% [fictional]), suggesting even very early-stage merchants benefit from the guided flow.
 
 ---
 
@@ -154,7 +154,7 @@ The treatment effect is consistent across all analyzed segments . no segment sho
 
 ### Primary Metric Over Time
 
-First campaign send cumulative rate for both variants over 60 days from GA: treatment diverges from control within the first week and maintains a stable lead through the end of the test window. No significant novelty effect observed . the treatment rate does not spike and decay, but builds steadily, confirming the sustained utility of the guided flow rather than a curiosity-driven burst.
+First campaign send cumulative rate for both variants over 60 days from GA: treatment diverges from control within the first week [fictional] and maintains a stable lead through the end of the test window [fictional]. No significant novelty effect observed . the treatment rate does not spike and decay, but builds steadily [fictional], confirming the sustained utility of the guided flow rather than a curiosity-driven burst.
 
 [Amplitude dashboard link . Campaigns EXP-001 primary metric trend]
 
@@ -184,7 +184,7 @@ The primary funnel drop in the control variant is between audience confirmation 
 ### Surprising Findings
 
 - The Campaigns activation rate (merchants who opened the flow) was nearly identical between control and treatment (34.2% vs. 35.8% [fictional]) . the guided flow did not meaningfully increase top-of-funnel entry. All of the treatment effect is in the completion rate, not the entry rate. This means the activation message or entry point is not what needs improvement; the content of the flow is what drives the difference.
-- Fashion and home goods merchants showed the strongest treatment effect despite being the most likely to already have some exposure to email marketing tools . the expectation was that less-sophisticated merchants would benefit most. This warrants further investigation.
+- Fashion and home goods merchants showed the strongest treatment effect despite being the most likely to already have some exposure to email marketing tools [fictional] . the expectation was that less-sophisticated merchants would benefit most. This warrants further investigation.
 
 ### What We Still Don't Know
 
@@ -199,7 +199,7 @@ The primary funnel drop in the control variant is between audience confirmation 
 
 **Rationale:**
 
-The guided first-campaign flow exceeded the 30% [fictional] first-send rate target (31.7% [fictional]), achieved statistical significance at p < 0.001, and produced a meaningful secondary effect on second-campaign send rate (22.8% vs. 9.1% [fictional]) that indicates lasting retention impact, not just first-use novelty. All guardrail metrics passed. The mechanism is understood . pre-populated content reduces abandonment at the content creation step . which gives confidence that the effect is real and actionable.
+The guided first-campaign flow exceeded the 30% [fictional] first-send rate target (31.7% [fictional]), achieved statistical significance at p < 0.001 [fictional], and produced a meaningful secondary effect on second-campaign send rate (22.8% vs. 9.1% [fictional]) that indicates lasting retention impact, not just first-use novelty. All guardrail metrics passed. The mechanism is understood . pre-populated content reduces abandonment at the content creation step . which gives confidence that the effect is real and actionable.
 
 ### If Shipping
 
@@ -230,9 +230,9 @@ The guided first-campaign flow exceeded the 30% [fictional] first-send rate targ
 ### Statistical Methodology
 
 - Test type: Chi-squared test for two proportions (primary metric . binary outcome)
-- Mann-Whitney U test (secondary metric . time to first send, non-normal distribution)
-- Multiple comparison correction: Bonferroni correction applied to secondary metrics; results remain significant after correction
-- Power calculation: 80% power to detect 8 pp improvement; actual experiment achieved >99% power given the observed effect size
+- Mann-Whitney U test (secondary metric . time to first send, non-normal distribution) [fictional]
+- Multiple comparison correction: Bonferroni correction applied to secondary metrics; results remain significant after correction [fictional]
+- Power calculation: 80% power to detect 8 pp improvement; actual experiment achieved >99% power [fictional] given the observed effect size
 
 ### Known Issues
 

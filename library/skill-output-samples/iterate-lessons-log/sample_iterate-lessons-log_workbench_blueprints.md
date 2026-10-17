@@ -114,13 +114,13 @@ The PRD Risk section identified "Required sections cause author frustration and 
 
 2. **GA launch (Apr 28):** Required-section enforcement shipped as default. Support ticket volume was low (47 tickets in 2 weeks [fictional]), and the empty-section rate held at 7% [fictional] across all accounts.
 
-3. **Post-launch analysis (May 10):** Leo M. ran a content-length distribution analysis on sections that passed the enforcement check. He discovered a bimodal distribution: most sections had 50+ words, but a distinct cluster had fewer than 10 words. Manual inspection of the low-word-count cluster revealed placeholder text patterns:
+3. **Post-launch analysis (May 10):** Leo M. ran a content-length distribution analysis on sections that passed the enforcement check. He discovered a bimodal distribution: most sections had 50+ words [fictional], but a distinct cluster had fewer than 10 words [fictional]. Manual inspection of the low-word-count cluster revealed placeholder text patterns:
    - "TBD" or "To be determined" (most common, 38% of placeholders [fictional])
    - "See above" or "Refer to previous section" (27% [fictional])
    - "Will update before review" (19% [fictional])
    - Lorem Ipsum or copied boilerplate (16% [fictional])
 
-4. **Quantification:** Approximately 4% of all submitted Blueprints contain at least one required section with placeholder text [fictional]. Combined with the 7% empty-section rate [fictional], 11% of Blueprints reaching the approval queue have quality issues [fictional]. Leo M. noted that the bimodal distribution was unmistakable in the data, with a clear valley between the placeholder cluster (3-8 words) and the genuine-content cluster (50+ words).
+4. **Quantification:** Approximately 4% of all submitted Blueprints contain at least one required section with placeholder text [fictional]. Combined with the 7% empty-section rate [fictional], 11% of Blueprints reaching the approval queue have quality issues [fictional]. Leo M. noted that the bimodal distribution was unmistakable in the data, with a clear valley between the placeholder cluster (3-8 words [fictional]) and the genuine-content cluster (50+ words [fictional]).
 
 ### Key Decisions Made
 
@@ -223,7 +223,7 @@ When designing future enforcement mechanisms:
 ### Quotes
 
 - Karen L. (retro, May 12): "We built the gate in the right place for catching empty sections, but the wrong place for catching lazy sections."
-- Leo M. (analysis debrief, May 10): "The bimodal distribution was obvious once I plotted it. There's a cluster at 3-8 words that's clearly not real content."
+- Leo M. (analysis debrief, May 10): "The bimodal distribution was obvious once I plotted it. There's a cluster at 3-8 words [fictional] that's clearly not real content."
 - Rachel V. (retro, May 12): "The PRD literally said 'enforce at approval gate if needed.' We had the answer; we just didn't build it into v1."
 
 ### Artifacts

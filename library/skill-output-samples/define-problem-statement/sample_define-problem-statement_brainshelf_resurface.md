@@ -53,16 +53,16 @@ Brainshelf users save content enthusiastically (~47 items/month average [fiction
 
 ### Who is affected?
 
-Active savers: Brainshelf users who have saved 10 or more items and have been active in the past 30 days (at least one save event). This segment represents approximately 9,800 users, or ~45% of Brainshelf's 22,000 MAU [fictional].
+Active savers: Brainshelf users who have saved 10 or more items and have been active in the past 30 days (at least one save event). This segment represents approximately 9,800 users [fictional], or ~45% [fictional] of Brainshelf's 22,000 MAU [fictional].
 
 ### How are they affected?
 
-Users experience a growing backlog of unread saved items that they describe as "a guilt pile," "overwhelming," and "a graveyard of good intentions" [fictional]. The saved library, intended to be a resource, becomes a source of negative emotion. Over time, users stop opening the library tab, reducing their engagement to save-only behavior (opening the app or extension to save, then closing without reading). Five of seven interview participants described their library in explicitly negative terms. One churned user cited the overwhelming library as the primary reason for leaving Brainshelf.
+Users experience a growing backlog of unread saved items that they describe as "a guilt pile," "overwhelming," and "a graveyard of good intentions" [fictional]. The saved library, intended to be a resource, becomes a source of negative emotion. Over time, users stop opening the library tab, reducing their engagement to save-only behavior (opening the app or extension to save, then closing without reading) [fictional]. Five of seven interview participants described their library in explicitly negative terms. One churned user cited the overwhelming library as the primary reason for leaving Brainshelf [fictional].
 
 ### Scale of impact
 
-- ~9,800 active savers in the target segment [fictional] (~45% of MAU)
-- Average: 47 items saved per month; fewer than 4.2 revisited within 30 days [fictional]
+- ~9,800 active savers in the target segment [fictional] (~45% of MAU [fictional])
+- Average: 47 items saved per month [fictional]; fewer than 4.2 revisited within 30 days [fictional]
 - 7-day return rate (% of weekly active users who return the following week): 18% [fictional]
 - Save-only sessions (save event with no read event in the same session): 72% of all sessions [fictional]
 
@@ -70,7 +70,7 @@ Users experience a growing backlog of unread saved items that they describe as "
 
 ### Strategic Alignment
 
-Brainshelf's Q1 2026 retention OKR targets increasing the 7-day return rate from 18% to 25% [fictional]. The CEO has framed retention as the company's top priority for 2026, citing it as the primary metric investors will evaluate at the next board meeting (Q2 2026 [fictional]). Solving the re-engagement gap is the only credible path to the retention OKR . acquisition alone cannot compensate for the current return-visit rate.
+Brainshelf's Q1 2026 retention OKR targets increasing the 7-day return rate from 18% [fictional] to 25% [fictional]. The CEO has framed retention as the company's top priority for 2026 [fictional], citing it as the primary metric investors will evaluate at the next board meeting (Q2 2026 [fictional]). Solving the re-engagement gap is the only credible path to the retention OKR . acquisition alone cannot compensate for the current return-visit rate.
 
 ### Business Impact
 
@@ -81,7 +81,7 @@ Brainshelf's Q1 2026 retention OKR targets increasing the 7-day return rate from
 ### Why Now?
 
 - The Q1 retention OKR requires a product intervention shipping in Q1 to produce measurable results by Q2
-- The competitive landscape is consolidating (Omnivore shut down, Matter shut down); displaced PKM users are evaluating alternatives, and Brainshelf's retention weakness limits its ability to convert trial users into long-term engaged users
+- The competitive landscape is consolidating (Omnivore shut down, Matter shut down) [fictional]; displaced PKM users are evaluating alternatives, and Brainshelf's retention weakness limits its ability to convert trial users into long-term engaged users
 - The January 2026 user interviews provided the qualitative evidence to design an intervention with high confidence in the problem definition . the team now has both the behavioral data (9% revisit rate [fictional]) and the user voice (guilt pile, no trigger) to act
 
 ## Success Criteria

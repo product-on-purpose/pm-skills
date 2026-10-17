@@ -63,7 +63,7 @@ want to prioritize opp 1 / email digest based on competitive analysis
 
 ### Why This Outcome Matters
 
-The 7-day return rate is the strongest leading indicator of long-term retention for Brainshelf. Users who return within 7 days of their last session are 3.2x more likely to retain at 90 days compared to users who do not [fictional]. The current 18% rate [fictional] places Brainshelf below the 25 - 35% median for consumer utility apps. Improving return rate is the Q1 retention OKR and the primary metric the CEO has identified for the next investor update (Q2 2026 [fictional]). Without a product intervention that moves this metric, the retention trajectory does not support the planned fundraise.
+The 7-day return rate is the strongest leading indicator of long-term retention for Brainshelf. Users who return within 7 days of their last session are 3.2x more likely to retain at 90 days compared to users who do not [fictional]. The current 18% rate [fictional] places Brainshelf below the 25 - 35% median for consumer utility apps. Improving return rate is the Q1 retention OKR and the primary metric the CEO has identified for the next investor update [fictional] (Q2 2026 [fictional]). Without a product intervention that moves this metric, the retention trajectory does not support the planned fundraise [fictional].
 
 ---
 
@@ -95,13 +95,13 @@ digest  notif.  ness    archive tagging collect.
 
 ### Opportunity 1: Re-Engagement Trigger Gap
 
-**Description:** Users have no external prompt to return to their saved content. Revisiting is entirely self-initiated, which means it almost never happens. All 7 interview participants described the absence of a trigger as the primary reason they don't return; behavioral data confirms that save-only sessions (save event with no read event) represent 72% of all sessions [fictional].
+**Description:** Users have no external prompt to return to their saved content. Revisiting is entirely self-initiated, which means it almost never happens. All 7 interview participants described the absence of a trigger as the primary reason they don't return [fictional]; behavioral data confirms that save-only sessions (save event with no read event) represent 72% of all sessions [fictional].
 **Impact Potential:** High
-**Confidence:** High . supported by both qualitative (7/7 interviews) and quantitative (72% save-only sessions [fictional]) evidence
+**Confidence:** High . supported by both qualitative (7/7 interviews [fictional]) and quantitative (72% save-only sessions [fictional]) evidence
 
 **Evidence:**
 - Interviews (Jan 2026): "Nothing reminds me. I save something, close the tab, and it's just... gone from my brain." . P2 [fictional]
-- Behavioral data: 72% of sessions are save-only [fictional]; only 28% include a read event on a saved item
+- Behavioral data: 72% of sessions are save-only [fictional]; only 28% include a read event on a saved item [fictional]
 - Competitive analysis: Readwise's core value proposition is the daily review email . the only proven trigger mechanism in the PKM category
 
 #### Solutions
@@ -124,7 +124,7 @@ digest  notif.  ness    archive tagging collect.
 
 **Description:** Saved items lose timeliness as they age. A news article saved 3 months ago may be outdated; a research paper may still be relevant but the user has no way to distinguish freshness without manually reviewing each item. Over time, the library feels stale . users assume that most of what they saved is no longer worth reading, which reduces the motivation to browse.
 **Impact Potential:** Medium
-**Confidence:** Medium . directionally supported by interview data (3/7 mentioned timeliness), but not as universally cited as the trigger gap
+**Confidence:** Medium . directionally supported by interview data (3/7 mentioned timeliness [fictional]), but not as universally cited as the trigger gap
 
 **Evidence:**
 - Interviews: "Half the stuff I saved is probably outdated by now. I saved it months ago." . P6 [fictional]
@@ -151,7 +151,7 @@ digest  notif.  ness    archive tagging collect.
 
 **Description:** The saved library is an undifferentiated list of hundreds of items sorted by date. There is no structure, no categorization by intent, and no way to distinguish "to read" items from "reference" items from "aspirational" saves. The volume creates decision paralysis . users open the library, scroll briefly, feel overwhelmed, and close it. This avoidance behavior is the mechanism through which the guilt pile converts into disengagement.
 **Impact Potential:** Medium
-**Confidence:** Medium . 5/7 interview participants described the library in negative terms, but the negativity may be a symptom of the trigger gap (Opportunity 1) rather than an independent cause
+**Confidence:** Medium . 5/7 interview participants described the library in negative terms [fictional], but the negativity may be a symptom of the trigger gap (Opportunity 1) rather than an independent cause
 
 **Evidence:**
 - Interviews: "I'd open it, scroll for a minute, feel overwhelmed, and close it. Eventually I just stopped opening it." . P7 [fictional]
@@ -180,7 +180,7 @@ digest  notif.  ness    archive tagging collect.
 
 **Priority Opportunity:** Opportunity 1 . Re-Engagement Trigger Gap
 **Priority Solution:** Solution 1A . Morning Email Digest (Resurface)
-**Rationale:** The trigger gap is the highest-confidence opportunity (7/7 interviews, 72% save-only sessions [fictional]) and the only opportunity with a proven competitive proof point (Readwise's daily review email). The email digest addresses the core behavioral barrier (no external trigger to return) directly. Opportunities 2 and 3 may resolve naturally if the email digest creates a return habit . stale content is less of an issue if users are reading regularly, and library overwhelm is less of an issue if users are engaging with individual items rather than browsing the full list.
+**Rationale:** The trigger gap is the highest-confidence opportunity (7/7 interviews [fictional], 72% save-only sessions [fictional]) and the only opportunity with a proven competitive proof point (Readwise's daily review email). The email digest addresses the core behavioral barrier (no external trigger to return) directly. Opportunities 2 and 3 may resolve naturally if the email digest creates a return habit . stale content is less of an issue if users are reading regularly, and library overwhelm is less of an issue if users are engaging with individual items rather than browsing the full list.
 
 ### Opportunity Ranking
 

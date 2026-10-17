@@ -114,7 +114,7 @@ independent read.
     instrumented; cohort definition stable across cycle (Onboarding team's
     near-miss kept the activated-merchant denominator within tolerance).
   - Interpretation: lifecycle triggers (Initiative 1) materially moved the
-    metric. The triggered-email-to-send conversion (21%) translates cleanly
+    metric. The triggered-email-to-send conversion (21% [fictional]) translates cleanly
     into the weekly cohort lift.
 
 - KR2: Increase 90-day campaign retention from 22.8% to 38% [fictional] for
@@ -151,8 +151,8 @@ independent read.
   guardrail held.
 - Why: Initiative 1 (lifecycle triggers) was the load-bearing bet for KR1
   and it worked roughly as hypothesized. Initiative 2 (Templates v2) was
-  the load-bearing bet for KR2 and it under-shipped (8 of 12) and
-  under-adopted (31% vs 60% target). Even templates that were adopted did
+  the load-bearing bet for KR2 and it under-shipped (8 of 12 [fictional]) and
+  under-adopted (31% vs 60% target [fictional]). Even templates that were adopted did
   not show a retention effect.
 - What changed during the cycle: mid-cycle bug in lifecycle eligibility
   (4 days, no measurable impact). No external surprises. Onboarding team's
@@ -181,7 +181,7 @@ independent read.
     team plans to keep retention as a primary KR.
 
 - Issue 2: KR2's underperformance correlates with Initiative 2's
-  under-shipping (8 of 12 templates) and low adoption (31%). This confounds
+  under-shipping (8 of 12 templates [fictional]) and low adoption (31% [fictional]). This confounds
   the templates-as-retention-driver test: the team did not run the bet at
   full scale.
   - Impact: the invalidating evidence is partial. A team could argue
@@ -191,7 +191,7 @@ independent read.
     that the thesis is weak enough to retire; the team should explicitly
     decide rather than carry an ambiguous bet forward.
 
-- Issue 3: Mid-cycle lifecycle-trigger bug affected ~120 merchants with
+- Issue 3: Mid-cycle lifecycle-trigger bug affected ~120 merchants [fictional] with
   duplicate sends. No measurable unsub or CTR impact, but the bug is
   unrecorded in standard dashboards.
   - Impact: low for this cycle. Documented here for the cycle log.
@@ -203,14 +203,14 @@ independent read.
 - Initiative 1 (Lifecycle email triggers):
   - Linked to: KR1 primarily, KR2 secondarily.
   - Status: shipped on time (July 22).
-  - Apparent contribution: high. Triggered emails reached 38% open rate
-    and 21% click-through-to-send rate, translating into the KR1 weekly
+  - Apparent contribution: high. Triggered emails reached 38% [fictional] open rate
+    and 21% [fictional] click-through-to-send rate, translating into the KR1 weekly
     cohort lift.
   - Recommendation: continue at full scale next cycle.
 
 - Initiative 2 (Templates v2):
   - Linked to: KR1 and KR2.
-  - Status: partially shipped (8 of 12 templates).
+  - Status: partially shipped (8 of 12 templates [fictional]).
   - Apparent contribution: low. Adopted templates showed no retention
     effect in the Q3 cohort. Even at full ship, the underlying thesis is
     not supported by the partial evidence.
@@ -221,9 +221,9 @@ independent read.
 
 - Initiative 3 (Campaign performance feedback loop):
   - Linked to: KR2 primarily.
-  - Status: shipped late (August 28 vs target of mid-August).
-  - Apparent contribution: unclear. 64% adoption among repeat senders and
-    4.1 / 5 self-reported usefulness suggest merchant demand, but the
+  - Status: shipped late (August 28 vs target of mid-August [fictional]).
+  - Apparent contribution: unclear. 64% [fictional] adoption among repeat senders and
+    4.1 / 5 [fictional] self-reported usefulness suggest merchant demand, but the
     contribution to KR2 cannot be isolated from Initiative 1's effects.
   - Recommendation: continue next cycle to gather more data; consider
     promoting from supporting bet to candidate primary initiative if the
@@ -242,14 +242,14 @@ independent read.
     showed no retention effect. This is the strongest invalidating signal
     of the cycle.
   - Designer capacity to ship 12 seasonal templates in Q3 was overestimated;
-    8 of 12 was the actual capacity. Revise next cycle's planning.
+    8 of 12 [fictional] was the actual capacity. Revise next cycle's planning.
 
 - Surprises:
   - Initiative 3 (feedback loop) shipped late but adopted high. Adoption
     rate suggests merchant demand for post-send analytics is stronger than
     the team expected. Worth a deeper investigation.
   - The 60-day interim for KR2 came in lower than the Q2 baseline cohort
-    despite KR1 success. If engagement causally drives retention, the team
+    [fictional] despite KR1 success. If engagement causally drives retention, the team
     should have seen at least a small interim lift. The flat result is
     itself information.
 
@@ -263,7 +263,7 @@ independent read.
 ## Next-cycle Recommendations
 
 1. Continue lifecycle triggers as a primary lever. Set Q4 KR1 target based
-   on Q3's 26% landing point, not Q3's pre-cycle 14% baseline.
+   on Q3's 26% [fictional] landing point, not Q3's pre-cycle 14% [fictional] baseline.
 
 2. Retire the Templates v2 thesis as currently framed. Do not re-run the
    bet without sharpening the sub-thesis first.
@@ -299,7 +299,7 @@ independent read.
 
 - Initiative 2's under-shipping confounds the Templates v2 invalidation. A
   reasonable counter-read is "we did not really test it." The grader's
-  stronger evidence is the no-retention effect among the 31% who did adopt;
+  stronger evidence is the no-retention effect among the 31% [fictional] who did adopt;
   that is the part that says the thesis is weak even at full adoption.
 
 - Stakeholder framing of "clear win on activation, learning on retention"
@@ -313,6 +313,6 @@ independent read.
 
 ## Source of Truth
 
-go/okrs-q3-2026-campaigns (Confluence). This artifact is a review document,
+go/okrs-q3-2026-campaigns (Confluence) [fictional]. This artifact is a review document,
 not the canonical OKR record.
 ```

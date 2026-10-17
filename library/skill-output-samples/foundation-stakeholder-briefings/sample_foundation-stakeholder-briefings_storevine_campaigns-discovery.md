@@ -150,6 +150,6 @@ The second build implication is migration: switching cost off Klaviyo (lists, se
 ## Sources and References
 
 - Source artifact: campaigns-merchant-interviews.md [fictional]
-- **Generated:** 2026-06-20T17:05:00Z | **Skill version:** 1.0.0 | **Audiences:** UX/Design, PMM, Executive, Engineering | **Input quality:** medium (clear qualitative findings from 8 interviews; scope claims are inferences the team must ratify, flagged in Decisions)
+- **Generated:** 2026-06-20T17:05:00Z | **Skill version:** 1.0.0 | **Audiences:** UX/Design, PMM, Executive, Engineering | **Input quality:** medium (clear qualitative findings from 8 interviews [fictional]; scope claims are inferences the team must ratify, flagged in Decisions)
 - **Invariant self-check:** 4 briefings; all Draws-on IDs resolve to M1-M9; one Primary ask each; master reviewed as audience-neutral; inferred-decision caveat recorded.
 ```

@@ -69,25 +69,25 @@ status: draft
 
 Hi Brainshelf beta users,
 
-Quick one to say: Resurface just got a meaningful upgrade, and your feedback drove most of the changes.
+Quick one to say: Resurface just got a meaningful upgrade, and your feedback drove most of the changes [fictional].
 
 **What changed**
 
-- The algorithm now weights recency more heavily. you'll see fresh saves surface faster
-- Notification copy is shorter and more direct (we heard "too much text" loud and clear)
-- A handful of UX refinements to cut friction between opening the email and saving your next item
+- The algorithm now weights recency more heavily [fictional]. you'll see fresh saves surface faster [fictional]
+- Notification copy is shorter and more direct (we heard "too much text" loud and clear [fictional])
+- A handful of UX refinements to cut friction between opening the email and saving your next item [fictional]
 
 **What you'll notice**
 
 - Morning digests should feel more "what I cared about this week" and less "a random resurface"
 - Fewer clicks to engage with each item
-- Open rates climbing across the beta group (thanks for engaging)
+- Open rates climbing across the beta group [fictional] (thanks for engaging)
 
 **No action needed**
 
 This is FYI. the changes are already live. If you want to send more feedback, reply to this email or ping us in the Brainshelf community Slack. We read everything.
 
-Thanks for being part of the beta. your feedback shaped the v1 you're now using.
+Thanks for being part of the beta. your feedback shaped the v1 you're now using [fictional].
 
 - priya and the Resurface team
 
@@ -99,10 +99,10 @@ Thanks for being part of the beta. your feedback shaped the v1 you're now using.
 
 **Translations applied**:
 
-- "Recency-weighted algorithm" → "algorithm now weights recency more heavily" (plain-language for consumer audience)
-- "Topic-clustering deferred" → omitted entirely (too internal; no user-facing implication yet)
-- "22% open rate lifted to 31%" → "open rates climbing across the beta group" (qualitative for public audience; specific metrics avoided in consumer email)
-- "<5 sec friction threshold" → "cut friction between opening the email and saving your next item" (concrete outcome, not internal metric)
+- "Recency-weighted algorithm" [fictional] → "algorithm now weights recency more heavily" (plain-language for consumer audience)
+- "Topic-clustering deferred" [fictional] → omitted entirely (too internal; no user-facing implication yet)
+- "22% open rate lifted to 31%" [fictional] → "open rates climbing across the beta group" (qualitative for public audience; specific metrics avoided in consumer email)
+- "<5 sec friction threshold" [fictional] → "cut friction between opening the email and saving your next item" (concrete outcome, not internal metric)
 
 **Flagged but kept**:
 

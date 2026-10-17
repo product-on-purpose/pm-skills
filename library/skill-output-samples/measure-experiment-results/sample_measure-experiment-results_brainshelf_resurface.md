@@ -113,7 +113,7 @@ recommendation: ship to all eligible users.
 
 **Interpretation:**
 
-The treatment group's 7-day return rate of 23.4% [fictional] represents a 5.3 percentage point improvement over the control group's 18.1% [fictional], exceeding the pre-registered minimum detectable effect of 5pp. The result is statistically significant at p = 0.008 [fictional], well below the 0.05 threshold. This means we can reject the null hypothesis that the digest has no effect on return rate with high confidence. The 95% confidence interval for the treatment effect is approximately +1.4pp to +9.2pp [fictional], meaning the true effect is very likely positive and could be as large as 9pp. The point estimate of 5.3pp would move Brainshelf's return rate from below the consumer utility median (25 - 35%) to the lower edge of the median range, directly advancing the Q1 retention OKR.
+The treatment group's 7-day return rate of 23.4% [fictional] represents a 5.3 percentage point improvement over the control group's 18.1% [fictional], exceeding the pre-registered minimum detectable effect of 5pp. The result is statistically significant at p = 0.008 [fictional], well below the 0.05 threshold. This means we can reject the null hypothesis that the digest has no effect on return rate with high confidence. The 95% confidence interval for the treatment effect is approximately +1.4pp to +9.2pp [fictional], meaning the true effect is very likely positive and could be as large as 9pp. The point estimate of 5.3pp would move Brainshelf's return rate from below the consumer utility median (25 - 35% [fictional]) to the lower edge of the median range, directly advancing the Q1 retention OKR.
 
 ---
 
@@ -165,11 +165,11 @@ Daily cadence users had a meaningfully higher CTR (18.6% [fictional]) than 3x/we
 
 ### Primary Metric Over Time
 
-The 7-day return rate for the treatment group showed a consistent upward trend across the 4 weeks: week 1 = 21.2% [fictional], week 2 = 22.8% [fictional], week 3 = 23.9% [fictional], week 4 = 25.1% [fictional]. The control group remained flat: 17.9%, 18.3%, 18.0%, 18.2% [fictional]. The treatment trend is the opposite of novelty decay . return rate increased each week, suggesting habit formation rather than a one-time curiosity effect. See the Amplitude dashboard (RSF-EXP-001 Results) for the full weekly trend chart.
+The 7-day return rate for the treatment group showed a consistent upward trend across the 4 weeks: week 1 = 21.2% [fictional], week 2 = 22.8% [fictional], week 3 = 23.9% [fictional], week 4 = 25.1% [fictional]. The control group remained flat: 17.9% [fictional], 18.3% [fictional], 18.0% [fictional], 18.2% [fictional]. The treatment trend is the opposite of novelty decay . return rate increased each week, suggesting habit formation rather than a one-time curiosity effect. See the Amplitude dashboard (RSF-EXP-001 Results) for the full weekly trend chart.
 
 ### Conversion Funnel Impact
 
-Treatment group opt-in funnel: 400 eligible users → 287 saw opt-in card (71.8% [fictional]) → 164 opted in (41.0% of eligible, 57.1% of card viewers [fictional]) → 164 received first digest. The opt-in card view rate (71.8% [fictional]) reflects that not all treatment users visited the home screen during the test window. Of the users who saw the card, more than half opted in . a strong signal that the value proposition ("Get your best saves delivered every morning") resonated.
+Treatment group opt-in funnel: 400 eligible users → 287 saw opt-in card [fictional] (71.8% [fictional]) → 164 opted in (41.0% of eligible [fictional], 57.1% of card viewers [fictional]) → 164 received first digest. The opt-in card view rate (71.8% [fictional]) reflects that not all treatment users visited the home screen during the test window. Of the users who saw the card, more than half opted in . a strong signal that the value proposition ("Get your best saves delivered every morning") resonated.
 
 ---
 
@@ -181,12 +181,12 @@ Treatment group opt-in funnel: 400 eligible users → 287 saw opt-in card (71.8%
 
 2. **Opt-in rate far exceeded expectations.** The 41% opt-in rate [fictional] (vs. the 10% target) indicates strong latent demand for a resurfacing feature. Users want to be reminded . they just haven't had a mechanism to ask for it. This has implications for future feature rollout: the addressable population for email-based features is much larger than the team assumed.
 
-3. **Habit formation, not novelty, drives the return rate improvement.** The week-over-week increase in treatment return rate (21.2% → 25.1% [fictional]) is the signature of habit formation: the digest is training users to expect and respond to the morning email. If the effect were novelty-driven, we would expect the highest return rate in week 1 with decay thereafter.
+3. **Habit formation, not novelty, drives the return rate improvement.** The week-over-week increase in treatment return rate (21.2% [fictional] → 25.1% [fictional]) is the signature of habit formation: the digest is training users to expect and respond to the morning email. If the effect were novelty-driven, we would expect the highest return rate in week 1 with decay thereafter.
 
 ### Surprising Findings
 
-- The 41% opt-in rate [fictional] was 4x the target. The team had designed contingency plans for low opt-in (revised copy, extended enrollment window) that were never needed. The conservative 10% assumption may have been anchored on email opt-in benchmarks from marketing email, which is a different category from product-value email.
-- Heavy savers (100+ items) benefited most from the digest (+7.1pp [fictional]), even though the team expected that heavy savers might be more resistant to email (inbox overload). The result suggests that the quality of the digest content (more items = better matching) outweighs inbox fatigue for this segment.
+- The 41% opt-in rate [fictional] was 4x the target. The team had designed contingency plans for low opt-in (revised copy, extended enrollment window) that were never needed [fictional]. The conservative 10% assumption may have been anchored on email opt-in benchmarks from marketing email, which is a different category from product-value email.
+- Heavy savers (100+ items) benefited most from the digest (+7.1pp [fictional]), even though the team expected that heavy savers might be more resistant to email (inbox overload) [fictional]. The result suggests that the quality of the digest content (more items = better matching) outweighs inbox fatigue for this segment.
 - The save-only session rate decreased by 8.4pp [fictional] in treatment. This means the digest is not just bringing users back . it's changing their behavior when they return, converting save-only sessions into save-and-read sessions.
 
 ### What We Still Don't Know
@@ -237,14 +237,14 @@ Amplitude dashboard: RSF-EXP-001 Results (internal link). Includes daily and wee
 ### Statistical Methodology
 
 - Test type: Two-proportion z-test (two-tailed) for the primary metric (7-day return rate)
-- Power calculation: 400 users per variant provides 80% power to detect a 5pp absolute difference from an 18% baseline at alpha = 0.05
+- Power calculation: 400 users per variant provides 80% power to detect a 5pp absolute difference from an 18% baseline [fictional] at alpha = 0.05
 - Multiple comparison correction: No correction applied; there is a single primary metric. Secondary and segment analyses are reported as exploratory and labeled accordingly.
 - Sequential testing: Amplitude's sequential testing engine was used to monitor the experiment weekly; the experiment was not stopped early, as the pre-registered plan required the full 4-week duration.
 
 ### Known Issues
 
 - Apple Mail Privacy Protection inflates the email open rate metric by pre-loading tracking pixels; the open rate is not reported as a metric for this reason. Click-through rate (based on redirect URL clicks) is unaffected by MPP and is the reliable behavioral measure.
-- 113 of 400 treatment users (28.2% [fictional]) never visited the home screen during the test window and therefore never saw the opt-in card. These users are included in the intent-to-treat analysis (contributing to the treatment group's return rate) but could not have been affected by the treatment. The per-protocol analysis (opted-in users only) shows a return rate of 27.8% [fictional], which is higher than the intent-to-treat estimate, but the intent-to-treat result is reported as primary to avoid selection bias.
+- 113 of 400 treatment users [fictional] (28.2% [fictional]) never visited the home screen during the test window and therefore never saw the opt-in card. These users are included in the intent-to-treat analysis (contributing to the treatment group's return rate) but could not have been affected by the treatment. The per-protocol analysis (opted-in users only) shows a return rate of 27.8% [fictional], which is higher than the intent-to-treat estimate, but the intent-to-treat result is reported as primary to avoid selection bias.
 
 ---
 

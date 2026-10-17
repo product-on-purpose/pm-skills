@@ -68,15 +68,15 @@ status: draft
 
 **Synthesis scope**: Blueprints enterprise-expansion initiative across 5 meetings, 2026-01-01 to 2026-03-31 (board-prep format)
 
-Q1 delivered a strategic pivot: enterprise expansion scoped to regulated industries (healthcare, FSI) rather than general enterprise. Compliance gates (SOC 2 Type II + HIPAA BAA) identified as the primary moat. Sales motion redesigned for 90-day enterprise cycle. Two open decisions for board: compliance investment ($1.2M) and SE hire timing.
+Q1 delivered a strategic pivot: enterprise expansion scoped to regulated industries (healthcare, FSI) rather than general enterprise. Compliance gates (SOC 2 Type II + HIPAA BAA) identified as the primary moat. Sales motion redesigned for 90-day enterprise cycle. Two open decisions for board: compliance investment ($1.2M [fictional]) and SE hire timing.
 
 **Headline for the board**:
 - Strategic pivot: general enterprise → regulated industries (healthcare, FSI)
-- Moat identified: compliance gates that incumbents have but most competitors lack
+- Moat identified: compliance gates that incumbents have but most competitors lack [fictional]
 - Sales motion redesigned: 90-day cycle, field + SE pairing
 
 **Top priority items for board decision**:
-- Compliance investment: $[fictional] 1.2M for SOC 2 Type II + HIPAA BAA (6-month path)
+- Compliance investment: $[fictional] 1.2M for SOC 2 Type II + HIPAA BAA (6-month path [fictional])
 - SE hire timing: dependent on compliance progress; board to confirm approach
 
 ---
@@ -90,7 +90,7 @@ Q1 delivered a strategic pivot: enterprise expansion scoped to regulated industr
 - **Meetings included** (5):
   - 2026-01-22: Exec Review (scope exploration)
   - 2026-02-05: Compliance Feasibility
-  - 2026-02-26: Customer Interviews Debrief (6 healthcare customers)
+  - 2026-02-26: Customer Interviews Debrief (6 healthcare customers [fictional])
   - 2026-03-12: Exec Review (scope narrowing)
   - 2026-03-26: Sales Motion Alignment
 - **Scope filter applied**: project=blueprints-enterprise-expansion
@@ -108,32 +108,32 @@ Q1 delivered a strategic pivot: enterprise expansion scoped to regulated industr
 
 ### Themes (board-relevant)
 
-#### Strategic pivot [confidence: high. 3/5 meetings drove it]
+#### Strategic pivot [confidence: high. 3/5 meetings drove it [fictional]]
 
 General enterprise → regulated industries. Evidence-based pivot driven by customer-interview signal and compliance-cost reality. Not scope creep; disciplined narrowing.
 
-#### Compliance as moat [confidence: high. 4/5 meetings referenced]
+#### Compliance as moat [confidence: high. 4/5 meetings referenced [fictional]]
 
-SOC 2 Type II + HIPAA BAA reframed from overhead cost to strategic capex. Incumbents have these; most direct competitors do not.
+SOC 2 Type II + HIPAA BAA reframed from overhead cost to strategic capex. Incumbents have these; most direct competitors do not [fictional].
 
-#### Sales motion redesign [confidence: medium. 2/5 meetings]
+#### Sales motion redesign [confidence: medium. 2/5 meetings [fictional]]
 
 90-day enterprise cycle with field sales + SE pairing. SE hire timing depends on compliance progress.
 
 ### Stakeholder position tracking (leadership-relevant)
 
-**jenna-ceo**: exploratory → committed (with pivot) → ready for board
+**jenna-ceo**: exploratory → committed (with pivot) → ready for board [fictional]
 
-**david-cfo**: skeptical → validator of moat framing → board-ask co-sponsor
+**david-cfo**: skeptical → validator of moat framing → board-ask co-sponsor [fictional]
 
-**rachel-cmo**: rebuilding positioning from general-enterprise to regulated-industry messaging
+**rachel-cmo**: rebuilding positioning from general-enterprise to regulated-industry messaging [fictional]
 
 ### Consolidated decision list
 
 | Date | Decision | Context | Meeting | Confidence |
 |------|----------|---------|---------|------------|
 | 2026-01-22 | Explore enterprise expansion (broad) | Exec review | Exec Review Jan | high |
-| 2026-02-05 | Compliance path: SOC 2 + HIPAA, $1.2M / 6 months | Compliance feasibility | Compliance Feasibility | high |
+| 2026-02-05 | Compliance path: SOC 2 + HIPAA, $1.2M [fictional] / 6 months [fictional] | Compliance feasibility | Compliance Feasibility | high |
 | 2026-03-12 | Narrow scope to regulated industries | Exec review | Exec Review Mar | high |
 | 2026-03-26 | 90-day sales cycle, field + SE pairing | Sales alignment | Sales Motion Alignment | medium |
 
@@ -143,7 +143,7 @@ SOC 2 Type II + HIPAA BAA reframed from overhead cost to strategic capex. Incumb
 
 - **2026-01-22** (Exec Review Jan): broad exploration
 - **2026-03-12** (Exec Review Mar): regulated industries only supersedes
-- **Context**: customer-evidence (7/8 in regulated) + compliance-moat framing drove disciplined narrowing
+- **Context**: customer-evidence (7/8 in regulated [fictional]) + compliance-moat framing drove disciplined narrowing
 
 ### Unresolved contradictions (⚠)
 
@@ -151,16 +151,16 @@ No live unresolved contradictions as of 2026-03-31.
 
 ### Open items (for board decision)
 
-- **Compliance investment**: $[fictional] 1.2M for SOC 2 Type II + HIPAA BAA, 6-month path. Currently unfunded in Q2 budget.
+- **Compliance investment**: $[fictional] 1.2M for SOC 2 Type II + HIPAA BAA, 6-month path [fictional]. Currently unfunded in Q2 budget [fictional].
 - **SE hire timing**: field hire already approved Q2; SE hire depends on compliance progress (client-presentable by Q3).
 
 ### Narrative summary (board-facing)
 
-Q1 Blueprints enterprise-expansion work began as an exploratory bet on general enterprise customers. By end of quarter, it became a disciplined strategic pivot to regulated industries (healthcare, FSI), driven by converging signals: pilot customer interviews (7 of 8 in regulated industries, all citing compliance as decisive) and the compliance-investment analysis ($1.2M / 6 months is feasible and creates durable moat in markets where most competitors lack SOC 2 Type II and HIPAA BAA).
+Q1 Blueprints enterprise-expansion work began as an exploratory bet on general enterprise customers. By end of quarter, it became a disciplined strategic pivot to regulated industries (healthcare, FSI), driven by converging signals: pilot customer interviews (7 of 8 in regulated industries [fictional], all citing compliance as decisive [fictional]) and the compliance-investment analysis ($1.2M [fictional] / 6 months [fictional] is feasible [fictional] and creates durable moat in markets where most competitors lack SOC 2 Type II and HIPAA BAA [fictional]).
 
-For the board: regulated-industry expansion is higher-value (larger contracts, longer retention), the moat is durable (compliance takes 6 months to achieve, not a weekend project), and the sales motion is being redesigned to match. Two board decisions remain: funding the $1.2M compliance investment, and timing the SE hire.
+For the board: regulated-industry expansion is higher-value (larger contracts, longer retention [fictional]), the moat is durable (compliance takes 6 months [fictional] to achieve, not a weekend project), and the sales motion is being redesigned to match. Two board decisions remain: funding the $1.2M [fictional] compliance investment, and timing the SE hire.
 
-What would change this picture: a customer shift away from regulated industries in Q2 (unlikely given our pipeline) or a material compliance-cost escalation (low risk. Feb 5 feasibility review was thorough).
+What would change this picture: a customer shift away from regulated industries in Q2 (unlikely given our pipeline [fictional]) or a material compliance-cost escalation (low risk [fictional]. Feb 5 feasibility review was thorough [fictional]).
 
 ### Prioritized follow-up suggestions (board actions)
 

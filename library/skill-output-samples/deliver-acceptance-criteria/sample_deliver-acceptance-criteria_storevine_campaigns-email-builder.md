@@ -118,5 +118,5 @@ Storevine merchants need to create branded marketing emails without writing HTML
 
 ## Notes
 
-- Template rendering engine is shared with the campaign preview . changes to rendering affect both surfaces.
-- Product card blocks depend on the Catalog API; availability is an external dependency.
+- Template rendering engine is shared with the campaign preview [fictional] . changes to rendering affect both surfaces [fictional].
+- Product card blocks depend on the Catalog API [fictional]; availability is an external dependency [fictional].

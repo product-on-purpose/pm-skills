@@ -36,11 +36,11 @@ Each approach scored 1-5 per lens. Higher is better.
 
 | Approach | Score | Rationale |
 |---|---|---|
-| 1. Multi-Source Aggregator | 4 | One-screen experience with familiar data; SREs we interviewed liked this idea |
+| 1. Multi-Source Aggregator | 4 | One-screen experience with familiar data; SREs we interviewed liked this idea [fictional] |
 | 2. Sidecar + Aggregator | 5 | Best data quality during incident + one-screen experience; both worlds |
-| 3. Replay-First | 4 | Replay is loved by SREs we asked; but pure-replay is narrower than what's needed |
-| 4. Runbook-Integrated | 3 | Some SREs want this; some explicitly said they want a data tool not an orchestrator |
-| 5. AI-Assisted | 2 | SRE interviews showed strong AI skepticism for incident-time use; "I don't trust AI at 03:00" was nearly verbatim |
+| 3. Replay-First | 4 | Replay is loved by SREs we asked [fictional]; but pure-replay is narrower than what's needed |
+| 4. Runbook-Integrated | 3 | Some SREs want this; some explicitly said they want a data tool not an orchestrator [fictional] |
+| 5. AI-Assisted | 2 | SRE interviews showed strong AI skepticism for incident-time use [fictional]; "I don't trust AI at 03:00" was nearly verbatim [fictional] |
 
 ### Pragmatic Lens (Can 4-person team ship in 12 weeks?)
 

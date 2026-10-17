@@ -49,9 +49,9 @@ No cameo experts. The team is the team.
 
 ## Existing Inputs to Bring
 
-1. **22-interview synthesis** (Riley). Themes already clustered; printed copies for Day 1 morning reference.
+1. **22-interview synthesis** [fictional] (Riley). Themes already clustered; printed copies for Day 1 morning reference.
 2. **One-page competitor cards** (Riley). Goodreads, StoryGraph, Bookly, LibraryThing, compiled May 12 evening per readiness precondition.
-3. **Discord notes on reader frustrations** (Riley). Anonymized from her 12k-member book-blogger network.
+3. **Discord notes on reader frustrations** (Riley). Anonymized from her 12k-member book-blogger network [fictional].
 4. **Pre-seed pitch deck draft** (Jamie). Context only, not for input.
 5. **Brand and visual sketches** (Alex). For Day 1 PM differentiation context only.
 

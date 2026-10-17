@@ -100,7 +100,7 @@ flowchart TD
 
 ## 6. Validation Checklist
 
-- [x] Renders without error (tested in mermaid.live)
+- [x] Renders without error (tested in mermaid.live [fictional])
 - [x] Cardinal rule satisfied -- a list or table would not communicate this more clearly
 - [x] Not a linear sequence -- has branching, relationships, or hierarchy
 - [x] Labels with spaces/special characters are quoted

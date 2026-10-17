@@ -25,7 +25,7 @@ All 5 approaches share: weekly Monday delivery, 15-minute read budget, specialty
 
 **Differentiator served:** D6 (specific actions) + D3 (human in the loop) at maximum strength. The dedicated analyst learns the customer over time.
 
-**Risk:** Unit economics. 8-12 accounts per analyst at $1k-$1.5k MRR means $8-18k/mo revenue per analyst. Analyst loaded cost is $8-12k/mo. Margins are thin and the analyst is the throughput cap.
+**Risk:** Unit economics. 8-12 accounts per analyst at $1k-$1.5k MRR means $8-18k/mo revenue per analyst. Analyst loaded cost is $8-12k/mo [fictional]. Margins are thin and the analyst is the throughput cap.
 
 **Visual:** [imagine: 1 analyst icon connecting to 10 retailer icons via a "Monday brief" arrow with bidirectional Slack arrows]
 

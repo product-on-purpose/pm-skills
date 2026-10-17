@@ -97,7 +97,7 @@ duplicate).
 | **Assignee** | Alex R. |
 
 **Discussion Notes:**
-- Alex presented the migration plan: replace the TF-IDF vectorization pipeline with OpenAI `text-embedding-3-small` embeddings for saved item similarity scoring. The spike showed embeddings achieve ~84% precision vs. ~72% for TF-IDF [fictional], which would address the "irrelevant items" feedback from the post-test survey.
+- Alex presented the migration plan: replace the TF-IDF vectorization pipeline with OpenAI `text-embedding-3-small` embeddings for saved item similarity scoring. The spike showed embeddings achieve ~84% precision [fictional] vs. ~72% for TF-IDF [fictional], which would address the "irrelevant items" feedback from the post-test survey.
 - The migration is a backend change only . no frontend or email template changes required. Existing TF-IDF vectors would be replaced with 1536-dimensional embedding vectors stored in the same PostgreSQL JSONB column.
 - The batch re-embedding of all ~460K existing saved items [fictional] is estimated at $15 - 25 one-time cost [fictional] plus ~$2 - 5/month ongoing for new saves [fictional]. Alex needs an OpenAI API key and budget approval from Marco before starting.
 - Jess raised a concern about API latency: if OpenAI's embedding endpoint is slow or down, the digest generation cron job could be delayed. Alex proposed a fallback to TF-IDF if the embedding call fails, which adds complexity but ensures reliability.
@@ -151,9 +151,9 @@ duplicate).
 | **Assignee** | Chloe B. (experiment design), Priya M. (experiment owner) |
 
 **Discussion Notes:**
-- The original A/B test showed daily cadence users had higher CTR (18.6% [fictional]) and higher return rate (26.1% [fictional]) than 3x/week users (14.1% CTR, 19.8% return rate [fictional]), but the 3x/week sample was only 33 users [fictional] . too small for conclusive comparison.
+- The original A/B test showed daily cadence users had higher CTR (18.6% [fictional]) and higher return rate (26.1% [fictional]) than 3x/week users (14.1% CTR [fictional], 19.8% return rate [fictional]), but the 3x/week sample was only 33 users [fictional] . too small for conclusive comparison.
 - This follow-up experiment will randomly assign new opt-in users to daily (default) or 3x/week cadence and measure the impact on CTR and return rate over 4 weeks. The primary question: is 3x/week meaningfully worse than daily, or is the original difference just noise?
-- Chloe estimated 200 users per variant for 80% power to detect a 5pp CTR difference [fictional]. At the current opt-in rate (~15 new opt-ins per day at full rollout [fictional]), the experiment would reach sample in ~27 days.
+- Chloe estimated 200 users per variant for 80% power to detect a 5pp CTR difference [fictional]. At the current opt-in rate (~15 new opt-ins per day at full rollout [fictional]), the experiment would reach sample in ~27 days [fictional].
 - Alex confirmed no code changes are needed: cadence assignment is a server-side configuration; the cron job already supports both cadences.
 
 **Scope Changes:**
@@ -175,8 +175,8 @@ duplicate).
 | **Assignee** | Chloe B. (data analysis) |
 
 **Discussion Notes:**
-- Users with fewer than 20 saved items exhaust the candidate pool quickly under the 14-day exclusion window. After 2 weeks, all items have been resurfaced and the digest starts skipping days. The A/B test showed that light savers (10 - 49 items) had the smallest return rate lift (+3.8pp [fictional], not statistically significant), which may be partly due to pool exhaustion.
-- Alex proposed shortening the exclusion window for small libraries: 7 days instead of 14 for users with <20 items, 10 days for 20 - 50 items. Priya asked Chloe to pull data on how many users are in the <20 segment and how often their digests are being skipped before committing to a specific threshold.
+- Users with fewer than 20 saved items exhaust the candidate pool quickly under the 14-day exclusion window [fictional]. After 2 weeks [fictional], all items have been resurfaced and the digest starts skipping days. The A/B test showed that light savers (10 - 49 items) had the smallest return rate lift (+3.8pp [fictional], not statistically significant), which may be partly due to pool exhaustion.
+- Alex proposed shortening the exclusion window for small libraries: 7 days instead of 14 [fictional] for users with <20 items, 10 days for 20 - 50 items. Priya asked Chloe to pull data on how many users are in the <20 segment and how often their digests are being skipped before committing to a specific threshold.
 - The team discussed whether to reduce the digest item count for small libraries (e.g., 2 items instead of 3 - 5) but decided to defer that decision until after seeing Chloe's data.
 
 **Scope Changes:**

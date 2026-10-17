@@ -63,7 +63,7 @@ Stakeholders: Sandra C. (Head of Product), Tomás G. (Design Lead)
 **Job Title:** Enforce documentation standards without manual policing
 **Date:** November 2025
 **Author:** Rachel V., Technical PM, Blueprints
-**Research Basis:** 6 semi-structured discovery interviews with enterprise team leads (October 2025); closed-beta telemetry (80 enterprise accounts [fictional])
+**Research Basis:** 6 semi-structured discovery interviews with enterprise team leads (October 2025) [fictional]; closed-beta telemetry (80 enterprise accounts [fictional])
 
 ---
 
@@ -223,7 +223,7 @@ Ensure that every document submitted for formal approval is complete (all requir
 - Document templates with configurable sections
 - SSO/SAML integration (IT deployment gate)
 - Audit logs and version history (compliance requirement)
-- Real-time co-editing (authors collaborate on documents simultaneously; Yjs CRDT enables this in Workbench)
+- Real-time co-editing (authors collaborate on documents simultaneously; Yjs CRDT enables this in Workbench [fictional])
 
 **Differentiators (Decision Drivers):**
 
@@ -247,7 +247,7 @@ Ensure that every document submitted for formal approval is complete (all requir
 **Key Insight 2:** The manager is the champion, not the end user. The person who most benefits from Blueprints enforcement is the middle manager who currently acts as the "docs police." The document author may perceive enforcement as friction initially. Adoption strategy must target the manager as the internal champion and address author friction through good UX, specifically through the hybrid wizard/canvas UI that Tomas G. is designing to guide authors through required sections without making the experience feel restrictive.
 - Product Implication: Onboarding and sales messaging should target middle managers (ops leads, team leads, program managers) as the primary champion persona. Author-facing UX (inline validation, save-as-draft, progress indicators) must minimize perceived friction.
 
-**Key Insight 3:** Migration from Confluence requires a capability justification, not a UX justification. Enterprises will not switch documentation tools for a better editing experience. They will switch for a capability their current tool structurally cannot provide. Required-section enforcement is that capability. Discovery interviews confirmed this pattern across all four participants with Confluence experience.
+**Key Insight 3:** Migration from Confluence requires a capability justification, not a UX justification. Enterprises will not switch documentation tools for a better editing experience. They will switch for a capability their current tool structurally cannot provide. Required-section enforcement is that capability. Discovery interviews confirmed this pattern across all four participants with Confluence experience [fictional].
 - Product Implication: Positioning should lead with "templates with teeth" and the governance gap. Do not compete with Confluence on ecosystem depth or Notion on flexibility.
 
 ---

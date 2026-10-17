@@ -47,7 +47,7 @@ show me where the two methods agree.
 
 ## Executive Summary
 
-We size the US market for an AI book-curation consumer subscription at ~$8/month. Top-down (a slice of US consumer book spend) puts TAM near $2.0B. The serviceable market converges from two directions: a top-down filter to digital-curation adopters and a bottom-up build from willing-to-pay avid readers both land near ~$230M SAM [fictional]. A 3-year SOM at 2% share is ~$4.6M [fictional]. The most important assumption is the share of avid readers willing to pay for curation (assumed 8%). Confidence: Medium.
+We size the US market for an AI book-curation consumer subscription at ~$8/month. Top-down (a slice of US consumer book spend) puts TAM near $2.0B [fictional]. The serviceable market converges from two directions: a top-down filter to digital-curation adopters and a bottom-up build from willing-to-pay avid readers both land near ~$230M SAM [fictional]. A 3-year SOM at 2% share is ~$4.6M [fictional]. The most important assumption is the share of avid readers willing to pay for curation (assumed 8%). Confidence: Medium.
 
 ## Market Definition
 
@@ -59,38 +59,38 @@ We size the US market for an AI book-curation consumer subscription at ~$8/month
 
 | Layer | Number | Method | Source / Assumption | Confidence |
 |---|---|---|---|---|
-| TAM | ~$2.0B | Slice of consumer book spend | US consumer book market ~$28B [fictional, replace with AAP StatShot] x ~7% redirectable to a curation/discovery service | Low |
-| SAM | ~$230M | Filter to digital-curation adopters | ~30M US avid readers [fictional] x 8% curation-payer rate x $8/mo x 12 | Medium |
-| SOM | ~$4.6M | Market-share assumption | 2% of SAM by year 3 | Low |
+| TAM | ~$2.0B [fictional] | Slice of consumer book spend | US consumer book market ~$28B [fictional, replace with AAP StatShot] x ~7% redirectable to a curation/discovery service | Low |
+| SAM | ~$230M [fictional] | Filter to digital-curation adopters | ~30M US avid readers [fictional] x 8% curation-payer rate x $8/mo x 12 | Medium |
+| SOM | ~$4.6M [fictional] | Market-share assumption | 2% of SAM by year 3 | Low |
 
 ## Bottom-Up Sizing
 
 | Scenario | # Payers | ARPU | Estimate | Method | Basis |
 |---|---|---|---|---|---|
-| Base (8% of avid readers pay) | ~2.4M [fictional] | $96/yr ($8/mo) | ~$230M | Bottom-up | 30M avid readers x 8% willing-to-pay |
-| High (15% pay) | ~4.5M [fictional] | $96/yr | ~$432M | Bottom-up (alternate) | Higher willing-to-pay rate on the same population |
+| Base (8% of avid readers pay) | ~2.4M [fictional] | $96/yr ($8/mo) | ~$230M [fictional] | Bottom-up | 30M avid readers x 8% willing-to-pay |
+| High (15% pay) | ~4.5M [fictional] | $96/yr | ~$432M [fictional] | Bottom-up (alternate) | Higher willing-to-pay rate on the same population |
 
-The two rows are alternate willing-to-pay rates on the same avid-reader population, not additive segments. Heavy readers (25+ books/yr) are a subset of avid readers and are the likeliest to convert, so they sit inside these figures rather than adding to them. Bottom-up range: ~$230M (base) to ~$432M (high).
+The two rows are alternate willing-to-pay rates on the same avid-reader population, not additive segments. Heavy readers (25+ books/yr) are a subset of avid readers and are the likeliest to convert, so they sit inside these figures rather than adding to them. Bottom-up range: ~$230M [fictional] (base) to ~$432M [fictional] (high).
 
 ## Multi-Framework Synthesis
 
-- **Where they agree:** Top-down SAM (~$230M) and the bottom-up base (~$230M) converge tightly at the 8% willing-to-pay rate; the bottom-up high case (~$432M at 15% pay) lines up with the sensitivity range. Good convergence for a consumer category.
-- **Where they diverge:** Top-down TAM ($2.0B) is much larger than bottom-up, because TAM counts a redirectable slice of all book spend while bottom-up counts only willing-to-pay avid readers. This is expected: TAM is the ceiling, bottom-up is the realistic serviceable base. They are answering different questions.
-- **Synthesized estimate:** TAM ~$2.0B, SAM ~$230M, SOM ~$4.6M at 2% in 3 years. Low/high TAM band: $1.2B / $2.8B.
+- **Where they agree:** Top-down SAM (~$230M [fictional]) and the bottom-up base (~$230M [fictional]) converge tightly at the 8% willing-to-pay rate; the bottom-up high case (~$432M [fictional] at 15% pay) lines up with the sensitivity range. Good convergence for a consumer category.
+- **Where they diverge:** Top-down TAM ($2.0B [fictional]) is much larger than bottom-up, because TAM counts a redirectable slice of all book spend while bottom-up counts only willing-to-pay avid readers. This is expected: TAM is the ceiling, bottom-up is the realistic serviceable base. They are answering different questions.
+- **Synthesized estimate:** TAM ~$2.0B [fictional], SAM ~$230M [fictional], SOM ~$4.6M [fictional] at 2% in 3 years. Low/high TAM band: $1.2B / $2.8B [fictional].
 - **Synthesis confidence:** Medium. Convergence of the SAM-level numbers is reassuring; the willing-to-pay rate is the soft spot.
 
 ## Sensitivity Analysis
 
 | Assumption varied | Low | Mid | High |
 |---|---|---|---|
-| Curation willing-to-pay rate | 4% (SAM = $115M) | 8% (SAM = $230M) | 15% (SAM = $432M) |
-| Year-3 market share | 1% (SOM = $2.3M) | 2% (SOM = $4.6M) | 5% (SOM = $11.5M) |
+| Curation willing-to-pay rate | 4% (SAM = $115M [fictional]) | 8% (SAM = $230M [fictional]) | 15% (SAM = $432M [fictional]) |
+| Year-3 market share | 1% (SOM = $2.3M [fictional]) | 2% (SOM = $4.6M [fictional]) | 5% (SOM = $11.5M [fictional]) |
 
 ## Key Assumptions
 
 | Assumption | Source / Rationale | Confidence | What changes if wrong |
 |---|---|---|---|
-| US consumer book market ~$28B | AAP StatShot category (figure illustrative) | Low | Scales top-down TAM |
+| US consumer book market ~$28B [fictional] | AAP StatShot category (figure illustrative) | Low | Scales top-down TAM |
 | ~30M US avid readers (12+ books/yr) | Reading-survey estimates [fictional] | Low | Scales SAM and bottom-up |
 | 8% willing to pay for curation | Assumption; the central uncertainty | Low | Largest swing (see sensitivity) |
 | $8/mo ARPU | Product pricing decision | Medium | Scales revenue linearly |
@@ -106,4 +106,4 @@ The two rows are alternate willing-to-pay rates on the same avid-reader populati
 
 - Run a willing-to-pay survey with avid readers to replace the 8% assumption
 - Pull comparable subscriber economics from any public reading-app or curation competitor
-- Conviction threshold: a SAM near $230M with a believable 2% share is generally enough to justify a seed raise for a consumer subscription; validate willingness-to-pay first
+- Conviction threshold: a SAM near $230M [fictional] with a believable 2% share is generally enough to justify a seed raise for a consumer subscription [fictional]; validate willingness-to-pay first

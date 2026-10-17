@@ -155,7 +155,7 @@ As a department head assigned as a Blueprint approver, I want to receive a notif
 
 ## Context & Background
 
-Department heads reported in discovery interviews that their primary frustration with the current process is receiving incomplete documents that waste review time. With required-section enforcement (BLUE-101) ensuring completeness at submission, the approval gate focuses on making the review experience fast and clear. The median approval cycle count is 2.3 cycles per Blueprint [fictional]; the target is 1.5 or fewer [fictional]. Reducing cycle count depends on two factors: the completeness enforcement upstream (BLUE-101) and the clarity of the approve/reject actions in this story.
+Department heads reported in discovery interviews that their primary frustration with the current process is receiving incomplete documents that waste review time [fictional]. With required-section enforcement (BLUE-101) ensuring completeness at submission, the approval gate focuses on making the review experience fast and clear. The median approval cycle count is 2.3 cycles per Blueprint [fictional]; the target is 1.5 or fewer [fictional]. Reducing cycle count depends on two factors: the completeness enforcement upstream (BLUE-101) and the clarity of the approve/reject actions in this story.
 
 Approval chains are configured per template by the template admin. Two modes are supported: sequential (approvers review in a defined order, each seeing the prior approver's feedback) and parallel (all approvers review simultaneously and independently). The choice of mode is stored at the template level and snapshotted when a Blueprint is created, so template changes do not affect in-flight approvals.
 

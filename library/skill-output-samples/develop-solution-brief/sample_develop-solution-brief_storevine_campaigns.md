@@ -61,7 +61,7 @@ Success metrics, trade-offs (what we're NOT building), and top risks.
 
 ## Problem Recap
 
-Sixty-eight percent of active Storevine merchants [fictional] use a third-party email tool . primarily Klaviyo or Mailchimp . because the platform's built-in email features lack purchase-based audience segmentation and revenue attribution. Q4 exit surveys confirmed that 22% [fictional] of merchants who canceled cited email gaps as a primary reason, making this the highest-ROI retention investment currently on the roadmap.
+Sixty-eight percent of active Storevine merchants [fictional] use a third-party email tool . primarily Klaviyo or Mailchimp [fictional] . because the platform's built-in email features lack purchase-based audience segmentation and revenue attribution. Q4 exit surveys confirmed that 22% [fictional] of merchants who canceled cited email gaps as a primary reason, making this the highest-ROI retention investment currently on the roadmap [fictional].
 
 ## Proposed Solution
 
@@ -73,11 +73,11 @@ Campaigns is a native email marketing feature built into the Storevine admin tha
 
 2. **Guided first-campaign flow:** A setup path that pre-populates an email template with the merchant's top products and an automatically filtered audience, reducing the blank-canvas abandonment that currently drives a 12% [fictional] first-send completion rate among non-adopters.
 
-3. **Revenue attribution:** Open and click events from SendGrid are linked to subsequent Storevine purchase records via a 7-day attribution window, giving merchants a direct answer to "which email drove which sales" . the most common reason merchants cite for choosing Klaviyo over a built-in tool.
+3. **Revenue attribution:** Open and click events from SendGrid are linked to subsequent Storevine purchase records via a 7-day attribution window, giving merchants a direct answer to "which email drove which sales" . the most common reason merchants cite for choosing Klaviyo over a built-in tool [fictional].
 
 4. **CAN-SPAM/GDPR compliance built in:** Unsubscribe link, physical sender address, and EU consent tracking are automatic in every send . no merchant configuration required and no Legal exposure from a merchant who did not know the requirements.
 
-5. **Abandoned cart automation:** A pre-configured trigger email to customers who add products to cart but do not complete checkout within 4 hours . the single highest-ROI automation for ecommerce merchants, requiring no flow-building experience to activate.
+5. **Abandoned cart automation:** A pre-configured trigger email to customers who add products to cart but do not complete checkout within 4 hours . the single highest-ROI automation for ecommerce merchants [fictional], requiring no flow-building experience to activate.
 
 ## Success Metrics
 
@@ -91,9 +91,9 @@ Campaigns is a native email marketing feature built into the Storevine admin tha
 
 | What We're Not Doing | Why |
 |---------------------|-----|
-| Klaviyo migration tooling (list import wizard, flow migration) | Klaviyo-integrated merchants have structural switching costs (data lock-in, workflow dependency) that require a dedicated migration product; v1 targets non-adopters who have no migration cost |
+| Klaviyo migration tooling (list import wizard, flow migration) | Klaviyo-integrated merchants have structural switching costs (data lock-in, workflow dependency) [fictional] that require a dedicated migration product; v1 targets non-adopters who have no migration cost |
 | A/B testing for subject lines and content | Non-adopters do not need optimization tooling on their first send; shipping A/B testing in v1 would add engineering complexity without serving the primary target segment |
-| SMS campaigns | Incremental compliance overhead (TCPA in the US, additional GDPR requirements for EU) is disproportionate to v1 scope; merchants who need SMS are predominantly already on Klaviyo and are not the primary target |
+| SMS campaigns | Incremental compliance overhead (TCPA in the US, additional GDPR requirements for EU) is disproportionate to v1 scope; merchants who need SMS are predominantly already on Klaviyo and are not the primary target [fictional] |
 | White-labeling a third-party email platform | Deep integration with Storevine order and customer data requires native implementation; a white-labeled tool would not support the zero-setup, always-synced data model that is Campaigns' primary competitive differentiator |
 
 ## Risks & Mitigations
@@ -101,7 +101,7 @@ Campaigns is a native email marketing feature built into the Storevine admin tha
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
 | Legal review surfaces GDPR data model changes mid-build | Medium | High | Submit CAN-SPAM/GDPR requirements brief to Legal by Mar 1, 2026 . four weeks before backend build begins; scope EU merchant access as a v1.1 contingency if review is not complete by GA |
-| Revenue attribution engineering overrun | Low | High | Attribution spike completed Feb 18; schema and API contract defined; estimated M effort [fictional] within current Q2 squad capacity |
+| Revenue attribution engineering overrun | Low | High | Attribution spike completed Feb 18; schema and API contract defined [fictional]; estimated M effort [fictional] within current Q2 squad capacity |
 | Klaviyo partner surprise at GA announcement | Medium | Medium | Proactive 48-hour email to Klaviyo partnership contact before public GA; lead with "complementary, not a replacement" framing and v1 feature gap data |
 
 ## Next Steps

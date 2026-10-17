@@ -82,7 +82,7 @@ Please generate the full retrospective document.
 
 ### Context
 
-Blueprints v1 GA launched on April 28, 2026 after a 4-week A/B test (March 9 through April 5) validated the required-section enforcement hypothesis. The progressive rollout (10%, 25%, 50%, 100%) completed on May 5. As of the retrospective date (May 12), 320 of 500 enterprise accounts [fictional] have activated Blueprints, with the remaining 180 in the onboarding pipeline.
+Blueprints v1 GA launched on April 28, 2026 after a 4-week A/B test (March 9 through April 5) [fictional] validated the required-section enforcement hypothesis. The progressive rollout (10%, 25%, 50%, 100%) completed on May 5. As of the retrospective date (May 12), 320 of 500 enterprise accounts [fictional] have activated Blueprints, with the remaining 180 in the onboarding pipeline.
 
 Key launch metrics at the two-week mark:
 - Median time-to-approved: 2.4 days [fictional] (target: ≤2.5 days [fictional]), on target
@@ -96,15 +96,15 @@ This retrospective covers the full lifecycle from closed beta through GA, with e
 
 ### Action Items from Last Retro
 
-The previous retrospective was the post-A/B-test review (April 14, 2026). Action items and their status:
+The previous retrospective was the post-A/B-test review (April 14, 2026) [fictional]. Action items and their status:
 
 | Action item | Owner | Status |
 |---|---|---|
-| Remove A/B experiment flags and ship required-sections as default | Karen L. | Complete (Apr 16) |
-| Finalize instrumentation spec for GA events | Leo M. | Complete (Apr 18) |
-| Build post-launch monitoring dashboard | Leo M. | Complete (Apr 25) |
-| Load test WebSocket provider at 500-room scale | Nate P. | Complete (Apr 20) |
-| Publish IT admin provisioning guide | Rachel V. | Complete (Apr 24) |
+| Remove A/B experiment flags and ship required-sections as default | Karen L. | Complete (Apr 16) [fictional] |
+| Finalize instrumentation spec for GA events | Leo M. | Complete (Apr 18) [fictional] |
+| Build post-launch monitoring dashboard | Leo M. | Complete (Apr 25) [fictional] |
+| Load test WebSocket provider at 500-room scale | Nate P. | Complete (Apr 20) [fictional] |
+| Publish IT admin provisioning guide | Rachel V. | Complete (Apr 24) [fictional] |
 
 All five action items from the previous retro were completed before GA. No carryover items. The team noted that completing all prior items before the next retro is a positive pattern worth maintaining.
 
@@ -112,39 +112,39 @@ All five action items from the previous retro were completed before GA. No carry
 
 ### Team Highlights
 
-**Data-driven ship decision.** The A/B test methodology (account-level randomization, pre-registered MDE, Mann-Whitney U test) gave the team and leadership high confidence in the ship decision. Sandra C. noted that this was the most rigorous product decision she had seen at Workbench. The 40% reduction in time-to-approved [fictional] left no ambiguity about whether to ship. The pre-registration of the minimum detectable effect was especially valuable because it prevented post-hoc rationalization of a marginal result.
+**Data-driven ship decision.** The A/B test methodology (account-level randomization, pre-registered MDE, Mann-Whitney U test) [fictional] gave the team and leadership high confidence in the ship decision. Sandra C. noted that this was the most rigorous product decision she had seen at Workbench [fictional]. The 40% reduction in time-to-approved [fictional] left no ambiguity about whether to ship. The pre-registration of the minimum detectable effect was especially valuable because it prevented post-hoc rationalization of a marginal result.
 
-**Progressive rollout caught issues early.** The SSO attribute-mapping incident on day 2 affected only the first 10% rollout tier (approximately 50 accounts [fictional]). Because the issue was caught at 10%, the team fixed it before the 25% tier launched, preventing impact to 375 additional accounts [fictional]. The feature-flag infrastructure (LaunchDarkly) worked exactly as intended. Karen L. noted that the investment in feature flags during the Develop phase paid for itself in this single incident.
+**Progressive rollout caught issues early.** The SSO attribute-mapping incident on day 2 affected only the first 10% rollout tier (approximately 50 accounts [fictional]). Because the issue was caught at 10%, the team fixed it before the 25% tier launched, preventing impact to 375 additional accounts [fictional]. The feature-flag infrastructure (LaunchDarkly) worked exactly as intended [fictional]. Karen L. noted that the investment in feature flags during the Develop phase paid for itself in this single incident [fictional].
 
-**Co-editing performance exceeded targets.** Nate P.'s Yjs implementation delivered 32ms p95 merge latency [fictional] in production, well below the 50ms target [fictional]. Zero data-loss incidents were reported during the launch period. The offline-first architecture handled three reported network-disruption scenarios without user intervention, confirming that the CRDT spike back in December was the right architectural investment.
+**Co-editing performance exceeded targets.** Nate P.'s Yjs implementation delivered 32ms p95 merge latency [fictional] in production, well below the 50ms target [fictional]. Zero data-loss incidents were reported during the launch period [fictional]. The offline-first architecture handled three reported network-disruption scenarios [fictional] without user intervention, confirming that the CRDT spike back in December was the right architectural investment.
 
 ### Process Wins
 
-**Edge-case analysis was a lifesaver.** Karen L. credited the edge-case document with preventing at least two potential launch-blocking bugs. The "required section deleted after submission" scenario (EC-05) was caught in QA specifically because the test plan was generated from the edge-case catalogue. Without it, this would have been a day-1 production bug.
+**Edge-case analysis was a lifesaver.** Karen L. credited the edge-case document with preventing at least two potential launch-blocking bugs [fictional]. The "required section deleted after submission" scenario (EC-05) was caught in QA specifically because the test plan was generated from the edge-case catalogue [fictional]. Without it, this would have been a day-1 production bug.
 
-**Cross-functional coordination peaked.** Derek H.'s marketing launch (blog post, email campaign, sales enablement deck) was ready on time and aligned with the product messaging. Mei-Lin T.'s enterprise sales team had their first Blueprints-driven deal close within 10 days of GA [fictional]. The weekly cross-functional sync Rachel V. introduced during the Develop phase was cited by multiple team members as the coordination mechanism that made this possible.
+**Cross-functional coordination peaked.** Derek H.'s marketing launch (blog post, email campaign, sales enablement deck) was ready on time and aligned with the product messaging. Mei-Lin T.'s enterprise sales team had their first Blueprints-driven deal close within 10 days of GA [fictional]. The weekly cross-functional sync Rachel V. introduced during the Develop phase was cited by multiple team members as the coordination mechanism that made this possible [fictional].
 
 ### Individual Shoutouts
 
 - **Nate P.:** Yjs integration was technically excellent and well ahead of schedule. The CRDT spike back in December set the foundation for a smooth implementation.
-- **Leo M.:** The A/B test analysis and post-launch dashboard were polished and trustworthy. The team never questioned the data.
-- **Aisha K.:** The wizard/canvas hybrid implementation was complex and she delivered it with zero P1 bugs.
+- **Leo M.:** The A/B test analysis and post-launch dashboard were polished and trustworthy. The team never questioned the data [fictional].
+- **Aisha K.:** The wizard/canvas hybrid implementation was complex and she delivered it with zero P1 bugs [fictional].
 
 ## What to Improve
 
 ### Challenges Faced
 
-**Approval UX confusion.** Twenty-three support tickets in the first week came from first-time approvers who could not find the reject button [fictional]. The floating action bar placed "Approve" prominently but "Reject" and "Request Changes" were behind a secondary menu. Tomás G. acknowledged this was a design trade-off to emphasize the positive action, but it backfired with users who needed to reject. The approval flow is a critical workflow for compliance-oriented customers, and any friction here undermines the value proposition of governance-ready Blueprints.
+**Approval UX confusion.** Twenty-three support tickets in the first week came from first-time approvers who could not find the reject button [fictional]. The floating action bar placed "Approve" prominently but "Reject" and "Request Changes" were behind a secondary menu. Tomás G. acknowledged this was a design trade-off to emphasize the positive action [fictional], but it backfired with users who needed to reject. The approval flow is a critical workflow for compliance-oriented customers, and any friction here undermines the value proposition of governance-ready Blueprints.
 
-**SSO attribute-mapping incident.** On day 2 (April 29), 12 enterprise accounts [fictional] were blocked from accessing Blueprints for approximately 3 hours due to a misconfigured SAML attribute mapping. The root cause was a manual configuration step in the SSO provisioning process that was not validated automatically. The IT admin provisioning guide documented the correct mapping, but 12 accounts had already been provisioned before the guide was published. Nate P. noted that the 3-hour resolution time was acceptable but could have been 30 minutes with automated detection.
+**SSO attribute-mapping incident.** On day 2 (April 29), 12 enterprise accounts [fictional] were blocked from accessing Blueprints for approximately 3 hours [fictional] due to a misconfigured SAML attribute mapping. The root cause was a manual configuration step in the SSO provisioning process that was not validated automatically. The IT admin provisioning guide documented the correct mapping, but 12 accounts [fictional] had already been provisioned before the guide was published. Nate P. noted that the 3-hour resolution time [fictional] was acceptable but could have been 30 minutes [fictional] with automated detection.
 
-**Wizard threshold rigidity.** Eight enterprise customers reported that their templates with 15 or more sections [fictional] could not use the guided wizard at all, because the hardcoded 12-section threshold automatically disabled it. These customers wanted the wizard for onboarding new team members to complex templates, which is exactly the scenario where guided step-by-step creation is most valuable. The hardcoded threshold made sense as an initial default but should have been configurable from the start.
+**Wizard threshold rigidity.** Eight enterprise customers reported that their templates with 15 or more sections [fictional] could not use the guided wizard at all, because the hardcoded 12-section threshold automatically disabled it. These customers wanted the wizard for onboarding new team members to complex templates [fictional], which is exactly the scenario where guided step-by-step creation is most valuable. The hardcoded threshold made sense as an initial default but should have been configurable from the start.
 
 ### Process Pain Points
 
-**QA coverage gap on P2 scenarios.** The edge-case document included 11 P2 test scenarios, but QA only completed 7 of them before launch [fictional]. The four untested P2 scenarios included the "prolonged offline merge" case (EC-10), which has not yet caused a production issue but remains a risk. The team agreed that insufficient QA capacity for the scope of the launch was a planning gap, not a QA team failure.
+**QA coverage gap on P2 scenarios.** The edge-case document included 11 P2 test scenarios [fictional], but QA only completed 7 of them [fictional] before launch. The four untested P2 scenarios [fictional] included the "prolonged offline merge" case (EC-10), which has not yet caused a production issue but remains a risk. The team agreed that insufficient QA capacity for the scope of the launch was a planning gap, not a QA team failure.
 
-**Monitoring dashboard was ready just 3 days before launch.** Leo M. completed the dashboard on April 25, leaving only 3 days for the team to familiarize themselves with it before launch. Earlier delivery would have allowed the team to practice monitoring workflows and catch dashboard bugs (one filter did not work correctly on launch day).
+**Monitoring dashboard was ready just 3 days before launch.** Leo M. completed the dashboard on April 25, leaving only 3 days [fictional] for the team to familiarize themselves with it before launch. Earlier delivery would have allowed the team to practice monitoring workflows and catch dashboard bugs (one filter did not work correctly on launch day) [fictional].
 
 ### Themes Identified
 
@@ -156,13 +156,13 @@ All five action items from the previous retro were completed before GA. No carry
 
 ### Topic 1: Approval UX Redesign Priority
 
-The team discussed whether the approval UX should be redesigned before v1.1 or addressed as a quick fix. Tomás G. proposed promoting the Reject and Request Changes buttons to the primary action bar (equal visual weight with Approve). Karen L. estimated 2 story points for the change. Rachel V. confirmed this should be the first item in the v1.1 sprint. Sandra C. agreed that 23 support tickets in week 1 [fictional] is a strong signal that warrants immediate action, and added that Mei-Lin T. had received direct feedback from two enterprise prospects about the approval flow.
+The team discussed whether the approval UX should be redesigned before v1.1 or addressed as a quick fix. Tomás G. proposed promoting the Reject and Request Changes buttons to the primary action bar (equal visual weight with Approve). Karen L. estimated 2 story points for the change. Rachel V. confirmed this should be the first item in the v1.1 sprint. Sandra C. agreed that 23 support tickets in week 1 [fictional] is a strong signal that warrants immediate action, and added that Mei-Lin T. had received direct feedback from two enterprise prospects about the approval flow [fictional].
 
 **Decision:** Approval UX fix is the highest-priority item for v1.1 Sprint 1.
 
 ### Topic 2: SSO Provisioning Automation
 
-Nate P. proposed building an automated SAML attribute validation step that runs during account provisioning and flags misconfigurations before they block users. Karen L. estimated 5 story points. The team agreed this is important but less urgent than the approval UX fix because the IT admin guide now covers the correct configuration and no new incidents have occurred since the guide was published. The automation would prevent future incidents as Workbench onboards the remaining 180 accounts in the pipeline.
+Nate P. proposed building an automated SAML attribute validation step that runs during account provisioning and flags misconfigurations before they block users. Karen L. estimated 5 story points. The team agreed this is important but less urgent than the approval UX fix because the IT admin guide now covers the correct configuration and no new incidents have occurred since the guide was published [fictional]. The automation would prevent future incidents as Workbench onboards the remaining 180 accounts in the pipeline.
 
 **Decision:** SSO validation automation is a v1.1 Sprint 1 item, lower priority than the approval UX fix.
 
@@ -204,16 +204,16 @@ Team morale and confidence are at their highest levels since the Blueprints proj
 
 | Theme | Occurrences | Status |
 |---|---|---|
-| Secondary persona usability gaps | 2nd retro in a row | Action item AI-05 created |
+| Secondary persona usability gaps | 2nd retro in a row [fictional] | Action item AI-05 created |
 | Manual configuration risks | New | Action item AI-02 created |
-| Enterprise configurability needs | 2nd retro in a row | Action item AI-03 created |
-| QA coverage pressure | 3rd retro in a row | Ongoing; team to discuss QA capacity in v1.1 planning |
+| Enterprise configurability needs | 2nd retro in a row [fictional] | Action item AI-03 created |
+| QA coverage pressure | 3rd retro in a row [fictional] | Ongoing; team to discuss QA capacity in v1.1 planning |
 
 ## Facilitator Notes
 
-The session ran 85 of the 90 allocated minutes. Participation was strong across all team members. Sandra C.'s presence as an observer did not appear to constrain candor: the team raised the SSO incident and QA coverage gap openly. The "What Went Well" section generated more energy than usual, reflecting genuine pride in the launch outcome.
+The session ran 85 [fictional] of the 90 allocated minutes. Participation was strong across all team members. Sandra C.'s presence as an observer did not appear to constrain candor: the team raised the SSO incident and QA coverage gap openly [fictional]. The "What Went Well" section generated more energy than usual, reflecting genuine pride in the launch outcome [fictional].
 
-One facilitation adjustment for next time: allocate more time for Discussion Notes. The approval UX and SSO topics consumed 30 minutes, leaving limited time for the wizard threshold discussion, which was resolved quickly but could have benefited from more exploration. Rachel V. plans to timebox each discussion topic at 12 minutes in the next session.
+One facilitation adjustment for next time: allocate more time for Discussion Notes. The approval UX and SSO topics consumed 30 minutes [fictional], leaving limited time for the wizard threshold discussion, which was resolved quickly but could have benefited from more exploration. Rachel V. plans to timebox each discussion topic at 12 minutes in the next session.
 
 ## Next Retrospective
 

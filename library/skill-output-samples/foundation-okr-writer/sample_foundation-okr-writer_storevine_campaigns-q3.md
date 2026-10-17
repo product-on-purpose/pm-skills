@@ -116,10 +116,10 @@ just usage frequency.)
     activated-merchant cohort.
   - Owner: growth-pm.
   - Indicator class: leading.
-  - Confidence: medium. The 14 to 28 jump is roughly 2x and assumes
+  - Confidence: medium. The 14 [fictional] to 28 [fictional] jump is roughly 2x and assumes
     lifecycle triggers + templates v2 deliver.
 
-- KR2: Increase 90-day campaign retention from 22.8% to 38% [fictional] for
+- KR2: Increase 90-day campaign retention from 22.8% [fictional] to 38% [fictional] for
   merchants who send their first campaign in Q3.
   - Metric: percentage of first-time senders in Q3 who send at least 3
     campaigns within 90 days of first send.
@@ -157,7 +157,7 @@ just usage frequency.)
     audience re-engagement reminder, seasonal prompt) will send 30%
     [fictional] more campaigns over a 30-day window than control.
   - Dependency: Storevine notification platform team for delivery
-    infrastructure (already scoped, no blocker).
+    infrastructure (already scoped, no blocker [fictional]).
 
 - Initiative 2: Templates v2 (seasonal and event-driven templates).
   - Expected KR impact: KR1 and KR2.
@@ -178,30 +178,30 @@ just usage frequency.)
 ## Guardrails and Health Checks
 
 - Guardrail 1: Email unsubscribe rate stays below 0.95% [fictional]
-  threshold (Q2 baseline 0.72%).
+  threshold (Q2 baseline 0.72% [fictional]).
   - Why: lifecycle triggers risk increasing send volume. Unsub rate is
     the canonical signal of merchant audience fatigue. If unsub spikes,
     we are damaging merchant relationships with their customers, which
     Storevine's brand depends on.
 
 - Guardrail 2: Spam complaint rate stays below 0.1% [fictional]
-  (Q2 baseline 0.04%).
+  (Q2 baseline 0.04% [fictional]).
   - Why: regulatory and deliverability risk. A spam-rate breach affects
     all Storevine merchants via shared sending reputation.
 
 ## Alignment Notes
 
 - Parent or strategy link: Company OKR "Reduce 12-month merchant churn
-  from 18% to 14% by year-end." This Campaigns OKR is one of three known
-  retention levers (the others are Inventory team and Onboarding team).
+  from 18% [fictional] to 14% [fictional] by year-end." This Campaigns OKR is one of three known
+  retention levers [fictional] (the others are Inventory team and Onboarding team).
 - Peer dependencies:
   - Campaigns Analytics team owns Initiative 3 dashboard work. Confirmed
-    capacity in 2026-06 cross-team planning.
+    capacity in 2026-06 cross-team planning [fictional].
   - Storevine Notifications platform team owns infra for Initiative 1.
     No new asks from us this quarter.
 - Known conflicts:
   - The Onboarding team's Q3 OKR includes "Increase Campaigns activation
-    rate among new merchants from 35.8% to 50% [fictional]." If they
+    rate among new merchants from 35.8% [fictional] to 50% [fictional]." If they
     succeed, our KR1 baseline shifts mid-cycle (more activated merchants
     means a different denominator for "weekly active senders").
     Mitigation: we will rebaseline KR1 in mid-cycle review using the

@@ -79,9 +79,9 @@ a bundled email-plus-SMS consent checkbox under any circumstance.
 
 **Target Users.** Drawn from the recorded interview synthesis rather than re-derived here:
 
-- **Compliance-blocked non-adopters.** Merchants who have declined SMS specifically over consent liability, including one whose legal review rejected a vendor over its consent record. This is the largest segment in the research and the one this release is scoped for.
+- **Compliance-blocked non-adopters.** Merchants who have declined SMS specifically over consent liability, including one whose legal review rejected a vendor over its consent record [fictional]. This is the largest segment in the research [fictional] and the one this release is scoped for.
 - **Considered-and-stopped merchants.** Merchants who evaluated SMS more than once and stopped at the bundled-consent question. They are addressable without any new capability, only a credible consent story.
-- **Standalone-provider switchers.** Merchants already paying for SMS elsewhere who keep it separate deliberately. Their stated switching condition is that the consent record transfers or is re-collected cleanly.
+- **Standalone-provider switchers.** Merchants already paying for SMS elsewhere who keep it separate deliberately. Their stated switching condition is that the consent record transfers or is re-collected cleanly [fictional].
 
 ## Goals & Success Metrics
 
@@ -109,7 +109,7 @@ The registration-completion metric is the primary decision metric. The research 
 
 **Out of scope, deliberately.** Campaign composition, scheduling, automation, segmentation, templates, and analytics. All are v2.1. Also out: non-US jurisdictions, since the recorded research covers 10DLC and TCPA obligations only and no participant operated outside the US.
 
-**Explicitly rejected.** A bundled email-plus-SMS consent checkbox. Four of six research participants raised bundled consent unprompted as disqualifying, and one abandoned a competing plugin over exactly that pattern. Offering it as an option would deter the segment this release targets.
+**Explicitly rejected.** A bundled email-plus-SMS consent checkbox. Four of six research participants raised bundled consent unprompted as disqualifying [fictional], and one abandoned a competing plugin over exactly that pattern [fictional]. Offering it as an option would deter the segment this release targets.
 
 ## Solution Design
 

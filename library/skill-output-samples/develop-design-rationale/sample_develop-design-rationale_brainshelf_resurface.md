@@ -72,7 +72,7 @@ The Resurface feature delivers a daily email digest containing 3 - 5 saved items
 
 ### User Need
 
-Users described their ideal resurfacing experience as feeling like a "personal recommendation from a friend" rather than a "marketing blast" (interview synthesis, January 2026). The emotional framing matters: the digest must feel like a curated gift, not a reminder of the guilt pile. Five of seven interview participants said they immediately archive or delete emails that "look like a newsletter" . meaning image-heavy layouts with promotional design patterns (large hero images, colored CTA buttons, multi-column grids) are likely to be ignored regardless of content quality.
+Users described their ideal resurfacing experience as feeling like a "personal recommendation from a friend" rather than a "marketing blast" (interview synthesis, January 2026) [fictional]. The emotional framing matters: the digest must feel like a curated gift, not a reminder of the guilt pile. Five of seven interview participants said they immediately archive or delete emails that "look like a newsletter" [fictional] . meaning image-heavy layouts with promotional design patterns (large hero images, colored CTA buttons, multi-column grids) are likely to be ignored regardless of content quality.
 
 ### Constraints
 
@@ -82,7 +82,7 @@ Users described their ideal resurfacing experience as feeling like a "personal r
 | Business | The A/B experiment's primary metric is click-through rate; the layout must maximize CTR without inflating unsubscribe rate (guardrail: ≤2% per week). The experiment has a 4-week window . there is no time for a layout iteration mid-test |
 | Timeline | Template must be built and QA'd within Sprint 8 (Feb 3 - 16, 2026). Dan K. has 3 design days allocated; Sam W. has 1.5 days for React Email template implementation |
 | Resources | No dedicated email developer on the team; Sam W. (frontend) will build the template using React Email, which he has not used before |
-| Brand/Platform | Brainshelf has no established email brand identity; this is the first email the product has ever sent. The layout will define the email brand going forward |
+| Brand/Platform | Brainshelf has no established email brand identity; this is the first email the product has ever sent [fictional]. The layout will define the email brand going forward |
 
 ### Design Principles Applied
 
@@ -122,7 +122,7 @@ Users described their ideal resurfacing experience as feeling like a "personal r
 - Fast to scan; a user can evaluate all 3 - 5 items in under 5 seconds without scrolling on mobile
 - No dependency on external images eliminates rendering inconsistencies, dark mode issues, and Gmail clip risk; the email is lightweight (<20 KB [fictional]) and renders identically across all clients
 - The text-forward aesthetic signals "personal" rather than "promotional," directly addressing the interview insight that users ignore emails that "look like a newsletter"
-- Template implementation is straightforward; Sam W. estimated 1 day of React Email work versus 3 days for Option A
+- Template implementation is straightforward; Sam W. estimated 1 day of React Email work versus 3 days for Option A [fictional]
 
 **Cons:**
 - Less visually distinctive; without images, the digest may not stand out in a crowded inbox preview pane
@@ -173,8 +173,8 @@ Users described their ideal resurfacing experience as feeling like a "personal r
 
 ### User Research Input
 
-- Preference test (n=12, unmoderated, January 29, 2026): participants were shown static screenshots of all three options and asked "Which of these would you be most likely to open and click?" Nine of twelve selected Option B. Stated reasons included "fast," "doesn't look like spam," "I'd actually read this," and "the read time estimate is really useful" [fictional].
-- Two participants preferred Option A, citing the thumbnails as "more interesting to look at." One participant preferred Option C, saying "I trust plain text more than anything styled" [fictional].
+- Preference test (n=12, unmoderated, January 29, 2026 [fictional]): participants were shown static screenshots of all three options and asked "Which of these would you be most likely to open and click?" [fictional] Nine of twelve selected Option B. Stated reasons included "fast," "doesn't look like spam," "I'd actually read this," and "the read time estimate is really useful" [fictional].
+- Two participants preferred Option A, citing the thumbnails as "more interesting to look at." [fictional] One participant preferred Option C, saying "I trust plain text more than anything styled" [fictional].
 - No participant raised concerns about Option B looking "too plain" or "low quality," despite the design team's initial concern about this perception [fictional].
 
 ---
@@ -191,7 +191,7 @@ The deciding factor was the deliverability-trust combination. Option A's visual 
 
 ### Dissenting Opinions
 
-Jordan L. (Growth) initially advocated for Option A, arguing that the visual richness would drive higher initial CTR and that promotions tab risk could be mitigated with careful sender reputation management. After seeing the preference test results, Jordan agreed that Option B was the right choice for the first version but requested that Option A be revisited for a potential v2 iteration if the experiment succeeds and the team invests in a dedicated email deliverability setup (custom IP, domain warm-up).
+Jordan L. (Growth) initially advocated for Option A, arguing that the visual richness would drive higher initial CTR and that promotions tab risk could be mitigated with careful sender reputation management [fictional]. After seeing the preference test results, Jordan agreed that Option B was the right choice for the first version but requested that Option A be revisited for a potential v2 iteration if the experiment succeeds and the team invests in a dedicated email deliverability setup (custom IP, domain warm-up) [fictional].
 
 ---
 
@@ -210,7 +210,7 @@ Jordan L. (Growth) initially advocated for Option A, arguing that the visual ric
 | Risk | Likelihood | Mitigation |
 |------|------------|------------|
 | Option B's CTR is lower than Option A would have been because the layout lacks visual engagement | Medium | The preference test (n=12) showed clear user preference for Option B, which is a directional signal; if CTR is below the 8pp MDE threshold, the team can test Option A in a follow-up experiment |
-| Users perceive the plain layout as "cheap" and associate it with product quality concerns | Low | No preference test participant raised this concern; monitor qualitative feedback from the post-experiment survey for signals |
+| Users perceive the plain layout as "cheap" and associate it with product quality concerns | Low | No preference test participant raised this concern [fictional]; monitor qualitative feedback from the post-experiment survey for signals |
 | The read time estimate is inaccurate for some content types (e.g., video pages, interactive articles) and erodes trust in the digest's accuracy | Medium | Calculate read time using word count only; exclude pages with <200 words (likely non-article content) from the digest. Add a fallback label ("Quick read" / "Long read") for items where word count extraction fails |
 
 ---

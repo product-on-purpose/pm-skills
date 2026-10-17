@@ -39,16 +39,16 @@ plus an open text "biggest friction in your day?". tell us what to prioritize.
 
 # Survey Analysis: Workbench Dev-Experience Pulse
 
-> Read this first: N=65 (of ~280 engineers, ~23% response). This sample is large enough to spot directional themes but too small for statistically reliable conclusions or capital-allocation decisions. Everything below is direction-only. Treat it as a signal of where to look, not as a mandate of what to fund.
+> Read this first: N=65 (of ~280 engineers, ~23% response `[fictional]`). This sample is large enough to spot directional themes but too small for statistically reliable conclusions or capital-allocation decisions. Everything below is direction-only. Treat it as a signal of where to look, not as a mandate of what to fund.
 
 ## Executive Summary
 
-Sixty-five engineers responded. The data is directional only and should not drive headcount or large investment decisions on its own. The clearest signal - consistent across the likert scores and the open text - is **slow and flaky CI** as the top friction. Local environment setup is a strong second. Confidence: Low (sample size), but the convergence of likert and open-text on the same theme raises the qualitative confidence in CI as the place to look next. The most important caveat: this is a self-selected fifth of the org.
+Sixty-five engineers responded. The data is directional only and should not drive headcount or large investment decisions on its own. The clearest signal - consistent across the likert scores and the open text - is **slow and flaky CI** as the top friction `[fictional]`. Local environment setup is a strong second `[fictional]`. Confidence: Low (sample size), but the convergence of likert and open-text on the same theme raises the qualitative confidence in CI as the place to look next. The most important caveat: this is a self-selected fifth of the org.
 
 ## Survey Methodology Summary
 
 - **Sample size (N):** 65 of ~280 engineers (~23% response `[fictional]`)
-- **Recruitment method:** Slack announcement + email; voluntary
+- **Recruitment method:** Slack announcement + email; voluntary `[fictional]`
 - **Who responded vs. who was invited:** Self-selected; engineers with strong feelings (especially frustrations) over-represented
 - **Selection bias risks:** Voluntary response skews toward the dissatisfied; quiet-but-content engineers under-represented
 - **Question-design risks:** Likert "rate your dev experience" is vague; open-text "biggest friction" prompts complaints
@@ -72,17 +72,17 @@ Segment cuts are NOT reported. Splitting 65 responses by team or tenure produces
 
 ## Open-Text Thematic Clustering
 
-AI-assisted clustering of 58 open-text responses; quotes illustrative `[fictional]`. This is where a small exploratory survey earns its keep.
+AI-assisted clustering of 58 `[fictional]` open-text responses; quotes illustrative `[fictional]`. This is where a small exploratory survey earns its keep.
 
 | Theme | Approx. mentions | Representative quotes | Valence | Note |
 |---|---|---|---|---|
-| Slow / flaky CI | ~30 | "I rerun CI 3 times to get a green build" `[fictional]` | Negative | Matches the low Q2 score |
-| Local env setup | ~16 | "Setting up a new service eats a whole day" `[fictional]` | Negative | Matches Q3 |
-| Unclear ownership / docs | ~12 | "I never know which team owns what" `[fictional]` | Negative | New theme not in likert |
-| Too many tools | ~8 | "context-switching across 5 dashboards" `[fictional]` | Negative | Minor |
-| Things are fine | ~5 | "honestly it's pretty good" `[fictional]` | Positive | Under-represented by design |
+| Slow / flaky CI | ~30 `[fictional]` | "I rerun CI 3 times to get a green build" `[fictional]` | Negative | Matches the low Q2 score |
+| Local env setup | ~16 `[fictional]` | "Setting up a new service eats a whole day" `[fictional]` | Negative | Matches Q3 |
+| Unclear ownership / docs | ~12 `[fictional]` | "I never know which team owns what" `[fictional]` | Negative | New theme not in likert |
+| Too many tools | ~8 `[fictional]` | "context-switching across 5 dashboards" `[fictional]` | Negative | Minor |
+| Things are fine | ~5 `[fictional]` | "honestly it's pretty good" `[fictional]` | Positive | Under-represented by design |
 
-Convergence note: CI is both the lowest likert score (Q2) and the most-mentioned open-text theme. When two independent measures point the same way, the qualitative confidence in that direction rises even though the sample is small.
+Convergence note: CI is both the lowest likert score (Q2) and the most-mentioned open-text theme `[fictional]`. When two independent measures point the same way, the qualitative confidence in that direction rises even though the sample is small.
 
 ## Hypothesis Validation
 

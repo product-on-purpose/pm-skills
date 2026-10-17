@@ -96,7 +96,7 @@ status: draft
 ### Background
 
 - Q1 Campaigns research overran by 18% [fictional] due to a user-research round triggered by unexpected customer interview findings
-- Priya-ceo was vocal in Q1 exec review (2026-03-20 recap) that "we need capacity discipline". her phrase
+- Priya-ceo was vocal in Q1 exec review (2026-03-20 recap) that "we need capacity discipline" [fictional]. her phrase
 - Q1 overrun absorbed without slipping Q1 deliverables; but the overrun is the lens priya will view Q2 through
 - Rachel-vp aligned with campaigns Q2 in 1:1 yesterday (2026-04-15); she'll speak if asked, won't co-present
 
@@ -124,7 +124,7 @@ status: draft
 
 ### Key messages
 
-1. "Q1 overrun had a specific cause: customer interviews surfaced a problem reframe we couldn't ignore. We've added a 'research-triggered scope review' checkpoint to prevent recurrence."
+1. "Q1 overrun had a specific cause: customer interviews surfaced a problem reframe we couldn't ignore [fictional]. We've added a 'research-triggered scope review' checkpoint to prevent recurrence [fictional]."
 2. "Campaigns Q2 commitment is 8 sprint-weeks [fictional]. Here's the scope-cut map if you want to lock a tighter cap."
 3. "I'd welcome a monthly Q2 review so you have a formal mechanism to catch issues early."
 
@@ -132,8 +132,8 @@ status: draft
 
 | Question | Prepared response |
 |----------|-------------------|
-| "Why should I trust Q2 after Q1?" | Q1 root cause was research-triggered scope change (specific, now addressed via checkpoint). Not capacity estimation. Walk-through ready. |
-| "What if we cut scope?" | Scope-cut map prepared (show doc). Cutting SMS saves 3 sprint-weeks but cuts the headline value prop. Cutting segmentation saves 2 but leaves Campaigns under-differentiated. |
+| "Why should I trust Q2 after Q1?" | Q1 root cause was research-triggered scope change (specific, now addressed via checkpoint) [fictional]. Not capacity estimation. Walk-through ready. |
+| "What if we cut scope?" | Scope-cut map prepared (show doc). Cutting SMS saves 3 sprint-weeks [fictional] but cuts the headline value prop. Cutting segmentation saves 2 [fictional] but leaves Campaigns under-differentiated. |
 | "What does Q2 success look like?" | [fictional] 15% lift in repeat-merchant campaign engagement + 5% increase in campaign-sourced GMV. Monthly milestones available. |
 
 ### Risks and tensions
@@ -143,7 +143,7 @@ status: draft
 
 ### Asks
 
-- **From priya-ceo**: verbal yes on Q2 Campaigns (8 sprint-weeks, monthly review cadence)
+- **From priya-ceo**: verbal yes on Q2 Campaigns (8 sprint-weeks [fictional], monthly review cadence)
 - **From rachel-vp**: reinforce if priya asks for VP view; do not co-present
 
 ### Success signals

@@ -24,7 +24,7 @@ Become the default first-30-second incident-response surface for senior SREs at 
 ## Sprint Questions
 
 1. Will senior SREs in a simulated incident-time disorientation phase identify "what is happening" + "what to look at first" within 60 sec of opening Workbench?
-2. Does the redesigned one-screen reduce revert-to-source rate from 50% to under 20%?
+2. Does the redesigned one-screen reduce revert-to-source rate from 50% [fictional] to under 20%?
 3. Do SREs describe the one-screen as augmenting (not replacing) existing tools?
 4. Will SREs pay USD 150-300 per-seat per month?
 5. When SREs revert to a source tool, do they describe a specific data gap or a comprehension gap?
@@ -48,38 +48,38 @@ Become the default first-30-second incident-response surface for senior SREs at 
 
 **Key player:** Senior SRE on-call at Series B-D company; opens Workbench at incident-time within first 5 minutes of PagerDuty alert.
 
-**Map narrative:** PagerDuty fires; SRE has ~30 seconds of conscious thought before muscle memory kicks in. If Workbench is open within those 30 sec AND orients comprehensibly within the next 60 sec, the SRE stays. If not, the SRE reverts to source tools (Datadog, etc.) and Workbench loses the incident. The pilot's 50% revert rate is the comprehension gap; this sprint tests whether the new UX closes it.
+**Map narrative:** PagerDuty fires; SRE has ~30 seconds of conscious thought before muscle memory kicks in [fictional]. If Workbench is open within those 30 sec AND orients comprehensibly within the next 60 sec, the SRE stays. If not, the SRE reverts to source tools (Datadog, etc.) and Workbench loses the incident. The pilot's 50% revert rate [fictional] is the comprehension gap; this sprint tests whether the new UX closes it.
 
 ## Expert Interview Notes
 
-### Expert 1: Kai Sato, ex-Datadog incident-response engineer (20 min, 13:30 PT)
+### Expert 1: Kai Sato, ex-Datadog incident-response engineer [fictional] (20 min, 13:30 PT) [fictional]
 
-- Disorientation phase is shorter than people think; SREs hit muscle-memory tool default within ~90 seconds of alert.
+- Disorientation phase is shorter than people think; SREs hit muscle-memory tool default within ~90 seconds of alert [fictional].
 - The "what is happening" question is actually two questions: "what is broken" + "is it spreading"; one-screen UX should answer both visually.
 - HMW: HMW design a one-screen that answers "what is broken" + "is it spreading" without requiring the SRE to read text?
 
-### Expert 2: Lin Chen, SRE lead at Series D ecommerce; 12-person team (20 min, 14:00 PT)
+### Expert 2: Lin Chen, SRE lead at Series D ecommerce [fictional]; 12-person team [fictional] (20 min, 14:00 PT) [fictional]
 
 - "Augment don't replace" only works if the tool genuinely takes 0 time at incident-time. Any onboarding-during-incident kills the tool.
 - The biggest tool-adoption killer in SRE land is "I don't trust the data." If Workbench shows different numbers than Datadog, the SRE will distrust Workbench.
 - HMW: HMW make the data sources visible without making the one-screen a meta-dashboard?
 
-### Expert 3: Devon Patel, on-call rotation at Series B AI startup (15 min, 14:30 PT)
+### Expert 3: Devon Patel, on-call rotation at Series B AI startup [fictional] (15 min, 14:30 PT) [fictional]
 
-- Phone vs laptop matters. 40% of alerts happen when the SRE is away from desk; one-screen must work on phone first.
+- Phone vs laptop matters. 40% of alerts happen when the SRE is away from desk [fictional]; one-screen must work on phone first.
 - Color-coded severity is table stakes; specific anomaly indicators matter more (which service, what pattern, what changed).
 
 ## HMW Cluster Board
 
-Total HMWs: 61 (team + experts). 5 themes. Heat-map: 4 voters x 3 dots = 12.
+Total HMWs: 61 [fictional] (team + experts). 5 themes. Heat-map: 4 voters x 3 dots = 12.
 
 | Cluster | Theme | HMW count | Votes |
 |---|---|---|---|
-| C1 | What is broken + is it spreading (visual answer) | 15 | 5 |
-| C2 | Source-data visibility (trust signals) | 13 | 3 |
-| C3 | Phone-first one-screen | 11 | 2 |
-| C4 | "What to look at first" prioritization | 14 | 2 |
-| C5 | Augment-not-replace UI signals | 8 | 0 |
+| C1 | What is broken + is it spreading (visual answer) | 15 [fictional] | 5 |
+| C2 | Source-data visibility (trust signals) | 13 [fictional] | 3 |
+| C3 | Phone-first one-screen | 11 [fictional] | 2 |
+| C4 | "What to look at first" prioritization | 14 [fictional] | 2 |
+| C5 | Augment-not-replace UI signals | 8 [fictional] | 0 |
 
 ## Target Moment
 

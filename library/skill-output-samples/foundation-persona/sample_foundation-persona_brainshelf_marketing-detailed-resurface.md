@@ -183,7 +183,7 @@ Brainshelf stops treating conversion as a feature-access gate and starts treatin
   - Subscription fatigue is a stronger conversion barrier than price sensitivity or competitive alternatives.
   - Habit evidence during trial is the primary lever for overcoming commitment avoidance.
   - Monthly billing with easy cancellation materially reduces conversion friction for this persona.
-  - The 28% limit-hit rate represents a reachable audience, not just power users.
+  - The 28% [fictional] limit-hit rate represents a reachable audience, not just power users.
 - **Confidence:** Medium
 - **Confidence rationale:** Pattern aligns strongly with consumer subscription research and user interview themes, but conversion funnel segmentation by engagement depth has not been validated with controlled cohort analysis.
 

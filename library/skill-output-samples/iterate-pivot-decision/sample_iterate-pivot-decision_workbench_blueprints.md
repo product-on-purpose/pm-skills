@@ -86,10 +86,10 @@ Blueprints v1 ships as a horizontal feature available to all enterprise departme
 
 | Date | Event |
 |---|---|
-| Oct 2025 | Discovery interviews (6 enterprise team leads); ops managers were most engaged |
+| Oct 2025 | Discovery interviews (6 enterprise team leads) [fictional]; ops managers were most engaged [fictional] |
 | Nov 2025 | Problem statement and opportunity tree; governance gap identified as primary opportunity |
 | Dec 2025 through Jan 2026 | Develop phase; all architecture decisions focused on document governance (not code/engineering workflows) |
-| Mar through Apr 2026 | A/B test; participants were predominantly ops/compliance teams |
+| Mar through Apr 2026 | A/B test; participants were predominantly ops/compliance teams [fictional] |
 | Apr 28, 2026 | GA launch; horizontal positioning |
 | May 10, 2026 | Post-launch analysis reveals adoption skew |
 | May 14, 2026 | Sales pipeline review confirms regulated-industry demand |
@@ -108,9 +108,9 @@ Blueprints v1 ships as a horizontal feature available to all enterprise departme
 
 ### Data That Triggered This Evaluation
 
-1. **Adoption skew:** 68% of active Blueprints are created by users in operations or compliance roles [fictional]. Engineering team adoption is 8% [fictional] despite equal access to the feature. The remaining 24% is distributed across marketing (9%), legal (8%), and other departments (7%) [fictional].
+1. **Adoption skew:** 68% of active Blueprints are created by users in operations or compliance roles [fictional]. Engineering team adoption is 8% [fictional] despite equal access to the feature. The remaining 24% [fictional] is distributed across marketing (9% [fictional]), legal (8% [fictional]), and other departments (7% [fictional]).
 
-2. **Template usage:** The top 5 most-used Blueprint templates are all ops/compliance documents: Project Kickoff (25% [fictional]), Compliance Review (18% [fictional]), Process Change Request (12% [fictional]), Vendor Assessment (8% [fictional]), Audit Preparation (5% [fictional]). No engineering-specific template appears in the top 10. Leo M. confirmed that engineering teams who do use Blueprints typically repurpose the Project Kickoff template rather than creating engineering-specific templates, suggesting the current template structure does not meet their needs.
+2. **Template usage:** The top 5 most-used Blueprint templates are all ops/compliance documents: Project Kickoff (25% [fictional]), Compliance Review (18% [fictional]), Process Change Request (12% [fictional]), Vendor Assessment (8% [fictional]), Audit Preparation (5% [fictional]). No engineering-specific template appears in the top 10 [fictional]. Leo M. confirmed that engineering teams who do use Blueprints typically repurpose the Project Kickoff template rather than creating engineering-specific templates, suggesting the current template structure does not meet their needs [fictional].
 
 3. **Sales pipeline concentration:** Of the 8 stalled enterprise deals totaling $1.8M ARR [fictional], 6 are in regulated industries (2 healthcare, 2 financial services, 1 government contracting, 1 pharmaceutical [fictional]). All 6 cite the same 3 missing features: audit trail export, regulatory template library, and compliance officer role.
 
@@ -122,13 +122,13 @@ Blueprints v1 ships as a horizontal feature available to all enterprise departme
 
 ### Market Signals
 
-- Atlassian launched "Confluence Compliance Controls" in Q1 2026, targeting regulated industries with audit logging and template locking. Early reviews note that the enforcement is template-level only (no section-level granularity), a gap Blueprints can exploit because section-level enforcement is the core differentiator validated by the A/B test.
+- Atlassian launched "Confluence Compliance Controls" in Q1 2026 [fictional], targeting regulated industries with audit logging and template locking. Early reviews note that the enforcement is template-level only (no section-level granularity) [fictional], a gap Blueprints can exploit because section-level enforcement is the core differentiator validated by the A/B test.
 - The enterprise document governance market for regulated industries is estimated at $4.2B [fictional] and growing at 12% annually [fictional], driven by increasing regulatory requirements (FDA, SOX, HIPAA, GDPR).
-- Monday.com and Notion have not announced compliance-specific features, leaving a window for Workbench to establish a position before the market consolidates.
+- Monday.com and Notion have not announced compliance-specific features [fictional], leaving a window for Workbench to establish a position before the market consolidates.
 
 ### Internal Learnings
 
-- The A/B test participants were predominantly ops/compliance teams, which means the strong experimental results (40% reduction in time-to-approved [fictional]) are most representative of that segment. The effect may be weaker for engineering teams who have different documentation workflows.
+- The A/B test participants were predominantly ops/compliance teams [fictional], which means the strong experimental results (40% reduction in time-to-approved [fictional]) are most representative of that segment. The effect may be weaker for engineering teams who have different documentation workflows.
 - The CRDT co-editing and offline-first architecture are differentiators for any segment, but the required-section enforcement and approval gates are specifically valuable for governance-heavy workflows.
 
 ## Hypothesis Review
@@ -231,7 +231,7 @@ Narrow the Blueprints v1.x roadmap to operations and compliance teams in regulat
 
 1. **Data-driven:** 68% of adoption is in ops/compliance [fictional]. The market is telling us where Blueprints has product-market fit.
 2. **Revenue-driven:** $1.8M ARR [fictional] is stalled on three features that are scoped and estimable. Building them is a direct path to revenue.
-3. **Competitively urgent:** Atlassian launched Confluence Compliance Controls in Q1 2026. Workbench has a window to establish a differentiated position (section-level enforcement vs. Confluence's template-level controls) before Atlassian iterates.
+3. **Competitively urgent:** Atlassian launched Confluence Compliance Controls in Q1 2026 [fictional]. Workbench has a window to establish a differentiated position (section-level enforcement vs. Confluence's template-level controls) before Atlassian iterates.
 4. **Sequencing, not abandonment:** This pivot does not close the door on engineering teams. It sequences the investment: win compliance first (where PMF is proven), use that revenue to fund engineering capabilities in v2.
 
 ### Trade-offs Accepted
@@ -244,7 +244,7 @@ Narrow the Blueprints v1.x roadmap to operations and compliance teams in regulat
 
 **Sandra C. (Head of Product)** expressed concern that narrowing the segment would weaken the Series C fundraising narrative. She prefers a platform story ("Workbench governs all enterprise documentation") over a vertical story ("Workbench governs compliance documentation"). Rachel V. and Mei-Lin T. countered that regulated-industry governance is a $4.2B TAM [fictional], that investors value demonstrated PMF over TAM breadth, and that the horizontal vision remains the v2 and beyond story. Sandra agreed to support the pivot after reviewing the adoption data and pipeline analysis, contingent on the v2 engineering roadmap being drafted before Series C materials are prepared.
 
-**Karen L. (Engineering Lead)** noted that the compliance officer role requires a new permission model that adds complexity to the access control system. She requested that the role be implemented as an extension of the existing RBAC system rather than a parallel permission layer, to preserve the horizontal architecture for v2. The team agreed, and this architectural constraint is captured in the implementation plan.
+**Karen L. (Engineering Lead)** noted that the compliance officer role requires a new permission model that adds complexity to the access control system [fictional]. She requested that the role be implemented as an extension of the existing RBAC system rather than a parallel permission layer, to preserve the horizontal architecture for v2. The team agreed, and this architectural constraint is captured in the implementation plan.
 
 ## Implementation Plan
 

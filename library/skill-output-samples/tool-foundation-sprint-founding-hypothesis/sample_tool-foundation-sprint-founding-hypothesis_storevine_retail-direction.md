@@ -19,10 +19,10 @@ context: "Storevine Day 2 end (15:30-16:30 PT 2026-05-19); Founding Hypothesis s
 
 ## Why We Believe This
 
-1. The 31 customer interviews showed weekly buying decisions are made from gut + spreadsheet in 100% of cases; existing analytics tools are unused even when paid for.
-2. The "doing nothing" alternative is creating measurable margin loss (interview data: $40k in 2 weeks at one 14-store retailer).
-3. Specialty retail buying decisions are sector-shaped enough that templates work (outdoor merchandising rules are not grocery merchandising rules); the templates differentiate us from generic BI.
-4. The 15-minute Monday read maps to existing merchandiser routines we observed in customer interviews.
+1. The 31 customer interviews [fictional] showed weekly buying decisions are made from gut + spreadsheet in 100% of cases [fictional]; existing analytics tools are unused even when paid for [fictional].
+2. The "doing nothing" alternative is creating measurable margin loss [fictional] (interview data: $40k in 2 weeks at one 14-store retailer [fictional]).
+3. Specialty retail buying decisions are sector-shaped enough that templates work [fictional] (outdoor merchandising rules are not grocery merchandising rules); the templates differentiate us from generic BI.
+4. The 15-minute Monday read maps to existing merchandiser routines we observed in customer interviews [fictional].
 5. Carlos's lived 5-year experience with 4 stores validates the buyer-side empathy without us having to build it from scratch.
 
 ## What Could Prove Us Wrong

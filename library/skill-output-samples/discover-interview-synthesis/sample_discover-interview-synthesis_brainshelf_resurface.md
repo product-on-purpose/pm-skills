@@ -62,19 +62,19 @@ Understand why Brainshelf users save content at a high rate (~47 items/month ave
 - **Format:** Video call (Zoom)
 - **Duration:** 30 - 45 minutes per interview
 - **Interviewer(s):** Priya M. (PM)
-- **Date Range:** January 6 to January 17, 2026
+- **Date Range:** January 6 to January 17, 2026 [fictional]
 
 ### Participant Summary
 
 | ID | Role/Segment | Tenure | Interview Date | Notes |
 |----|--------------|--------|----------------|-------|
-| P1 | Heavy saver, software engineer | 18 months [fictional] | Jan 6 | 200+ saved items; revisits ~5/month [fictional] |
-| P2 | Casual saver, grad student | 6 months [fictional] | Jan 7 | Saves research papers and blog posts; using Brainshelf for thesis |
-| P3 | Power user, journalist | 24 months [fictional] | Jan 8 | Uses Brainshelf as a clipping archive for source material |
-| P4 | Occasional user, designer | 12 months [fictional] | Jan 10 | Saves design inspiration; rarely reads full articles |
-| P5 | Heavy saver, researcher | 14 months [fictional] | Jan 13 | 400+ saved items; self-described "information hoarder" [fictional] |
-| P6 | Casual saver, marketing manager | 8 months [fictional] | Jan 15 | Saves industry articles for reference; reads fewer than 10% [fictional] |
-| P7 | Churned user, freelance writer | Was active for 9 months [fictional] | Jan 17 | Stopped using Brainshelf 3 months ago; switched to browser bookmarks |
+| P1 | Heavy saver, software engineer [fictional] | 18 months [fictional] | Jan 6 [fictional] | 200+ saved items; revisits ~5/month [fictional] |
+| P2 | Casual saver, grad student [fictional] | 6 months [fictional] | Jan 7 [fictional] | Saves research papers and blog posts; using Brainshelf for thesis [fictional] |
+| P3 | Power user, journalist [fictional] | 24 months [fictional] | Jan 8 [fictional] | Uses Brainshelf as a clipping archive for source material [fictional] |
+| P4 | Occasional user, designer [fictional] | 12 months [fictional] | Jan 10 [fictional] | Saves design inspiration; rarely reads full articles [fictional] |
+| P5 | Heavy saver, researcher [fictional] | 14 months [fictional] | Jan 13 [fictional] | 400+ saved items; self-described "information hoarder" [fictional] |
+| P6 | Casual saver, marketing manager [fictional] | 8 months [fictional] | Jan 15 [fictional] | Saves industry articles for reference; reads fewer than 10% [fictional] |
+| P7 | Churned user, freelance writer [fictional] | Was active for 9 months [fictional] | Jan 17 [fictional] | Stopped using Brainshelf 3 months ago; switched to browser bookmarks [fictional] |
 
 ## Key Themes
 
@@ -82,7 +82,7 @@ Understand why Brainshelf users save content at a high rate (~47 items/month ave
 
 **Prevalence:** 5 of 7 participants
 
-**Summary:** Five participants independently described their saved library in negative emotional terms . "guilt pile," "graveyard," "overwhelming," "anxiety-inducing." The saved library, rather than being a resource that users feel good about, has become a source of guilt. Users feel they should be reading what they saved, and the growing backlog makes them feel worse the longer it grows. The library is experienced as a record of failed intentions rather than a useful collection.
+**Summary:** Five participants independently described their saved library in negative emotional terms . "guilt pile," "graveyard" [fictional], "overwhelming," "anxiety-inducing" [fictional]. The saved library, rather than being a resource that users feel good about, has become a source of guilt. Users feel they should be reading what they saved, and the growing backlog makes them feel worse the longer it grows. The library is experienced as a record of failed intentions rather than a useful collection.
 
 **Evidence:**
 - P1: "Honestly I try not to open the library tab anymore. It just makes me feel bad about all the things I said I'd read and didn't." [fictional]
@@ -93,7 +93,7 @@ Understand why Brainshelf users save content at a high rate (~47 items/month ave
 
 **Prevalence:** 7 of 7 participants
 
-**Summary:** Every participant described their revisit behavior as entirely self-initiated. There is no external cue . no notification, no email, no habit tied to a daily routine . that prompts them to return to their saved library. When asked "What makes you go back to read something you saved?", the most common answer was a variant of "I just remember it exists" or "I'm bored and think of it." Revisiting is accidental, not habitual. Several participants described specific moments where they needed a saved article and couldn't find it because they had forgotten they saved it.
+**Summary:** Every participant described their revisit behavior as entirely self-initiated. There is no external cue . no notification, no email, no habit tied to a daily routine . that prompts them to return to their saved library. When asked "What makes you go back to read something you saved?", the most common answer was a variant of "I just remember it exists" or "I'm bored and think of it." Revisiting is accidental, not habitual. Several participants described specific moments where they needed a saved article and couldn't find it because they had forgotten they saved it [fictional].
 
 **Evidence:**
 - P2: "Nothing reminds me. I save something, close the tab, and it's just... gone from my brain. The only time I go back is when I'm actively looking for something specific." [fictional]
@@ -102,7 +102,7 @@ Understand why Brainshelf users save content at a high rate (~47 items/month ave
 
 ### Theme 3: Saving to Read vs. Saving to Have
 
-**Prevalence:** 4 of 7 participants (explicitly; 2 more showed the pattern without naming it)
+**Prevalence:** 4 of 7 participants (explicitly; 2 more showed the pattern without naming it) [fictional]
 
 **Summary:** When prompted to reflect on their saving intent, four participants recognized a distinction they hadn't previously articulated: not every save is a "read later" save. Some items are saved as reference material ("I might need this someday"), some as aspirational markers ("I want to be the kind of person who reads this"), and some as genuinely intended reading. The problem is that Brainshelf treats all saves identically . there is no mechanism to distinguish intent at save time or to filter the library by intent type later. This makes the library feel undifferentiated and overwhelming.
 
@@ -144,7 +144,7 @@ Not a single participant described a self-sustaining habit of returning to their
 
 ### Insight 3: Not All Saves Are Created Equal
 
-Users save content with at least three different intents . "to read later," "to reference when needed," and "to aspirationally have" . but Brainshelf treats all saves as a flat, undifferentiated list. This makes the library feel overwhelming because every item appears to demand the same attention, even though the user's relationship to each item is different. A library of 400 items feels more manageable if the user can distinguish the 50 they actually want to read from the 350 they want to reference or keep.
+Users save content with at least three different intents . "to read later," "to reference when needed," and "to aspirationally have" [fictional] . but Brainshelf treats all saves as a flat, undifferentiated list. This makes the library feel overwhelming because every item appears to demand the same attention, even though the user's relationship to each item is different. A library of 400 items feels more manageable if the user can distinguish the 50 they actually want to read from the 350 they want to reference or keep [fictional].
 
 **Implication:** Resurface (the email digest) should not attempt to surface the entire library equally. It should prioritize items where the user's likely intent was "to read later" . recent saves of articles and blog posts, not design screenshots or reference links saved months ago. Longer term, offering intent categorization at save time (or inferred from content type) would reduce guilt pile anxiety by making the library feel curated rather than accumulated.
 
@@ -170,7 +170,7 @@ The interview finding that users save with different intents (read vs. reference
 
 ### Methodology Notes
 
-Interviews followed a semi-structured format with open-ended questions designed to avoid leading language. The interview guide covered five areas: (1) how and when users save content, (2) what happens after they save, (3) how they describe their saved library, (4) what prompts them to return to saved items, and (5) what would make them return more often. Participants were recruited from Brainshelf's active user base via an in-app survey prompt; P7 (churned user) was recruited through a follow-up email to users who had not logged in for 60+ days [fictional].
+Interviews followed a semi-structured format with open-ended questions designed to avoid leading language. The interview guide covered five areas: (1) how and when users save content, (2) what happens after they save, (3) how they describe their saved library, (4) what prompts them to return to saved items, and (5) what would make them return more often [fictional]. Participants were recruited from Brainshelf's active user base via an in-app survey prompt [fictional]; P7 (churned user) was recruited through a follow-up email to users who had not logged in for 60+ days [fictional].
 
 ### Limitations
 
@@ -181,4 +181,4 @@ Interviews followed a semi-structured format with open-ended questions designed 
 
 ### Raw Notes
 
-Interview transcripts and raw notes are stored in the Brainshelf research repository (internal). Summary cards for each participant are available in the team's Notion workspace.
+Interview transcripts and raw notes are stored in the Brainshelf research repository (internal) [fictional]. Summary cards for each participant are available in the team's Notion workspace [fictional].

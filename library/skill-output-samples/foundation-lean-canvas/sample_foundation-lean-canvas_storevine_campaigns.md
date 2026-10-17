@@ -70,7 +70,7 @@ The canvas should feed directly into the v1 PRD so be concrete on revenue math a
 - Non-consumption: accepting that cart abandoners are lost customers
 
 **Confidence**: High
-**Rationale**: Win-loss interviews (n=14 in Jan 2026) plus Klaviyo S-1 disclosure both anchor the "too many tools" pattern. Merchant segment behavior is well-documented.
+**Rationale**: Win-loss interviews (n=14 in Jan 2026) [fictional] plus Klaviyo S-1 disclosure both anchor the "too many tools" pattern. Merchant segment behavior is well-documented.
 
 ---
 
@@ -83,7 +83,7 @@ The canvas should feed directly into the v1 PRD so be concrete on revenue math a
 - Storevine merchants with 100 to 500 monthly orders who have installed and then churned from Klaviyo or Mailchimp within the last 12 months. This cohort is approximately 4% of the base [fictional] and has the sharpest memory of the juggling pain; they are pre-qualified on "willing to try an embedded alternative."
 
 **Confidence**: Medium
-**Rationale**: Base segment is measured from Storevine merchant data. The specific "churned from Klaviyo within 12 months" subset is inferred from the win-loss cohort and needs direct validation via a targeted outreach round of 20 to 30 merchants.
+**Rationale**: Base segment is measured from Storevine merchant data [fictional]. The specific "churned from Klaviyo within 12 months" subset is inferred from the win-loss cohort and needs direct validation via a targeted outreach round of 20 to 30 merchants.
 
 ---
 
@@ -96,7 +96,7 @@ Bring re-engagement into the store you already run, so you keep more customers w
 Klaviyo inside your store, with zero integration work.
 
 **Confidence**: Medium
-**Rationale**: UVP language tested well in 9 of 14 interviews when framed as "no second tool" but the "zero integration work" specificity is untested. "Klaviyo inside your store" analogy works with merchants familiar with Klaviyo; for merchants new to the category, a different analogy may be needed.
+**Rationale**: UVP language tested well in 9 of 14 interviews [fictional] when framed as "no second tool" but the "zero integration work" specificity is untested. "Klaviyo inside your store" analogy works with merchants familiar with Klaviyo; for merchants new to the category, a different analogy may be needed.
 
 ---
 
@@ -134,8 +134,8 @@ Klaviyo inside your store, with zero integration work.
 - **Model**: Per-store subscription add-on, with usage-based overage for SMS.
 - **Price**: $39 per month flat (includes 5,000 emails and 500 SMS), with $0.01 per additional email and $0.05 per additional SMS.
 - **Volume (Year 1)**: 2,700 merchants on Campaigns at end of Year 1 (18% of base) [fictional].
-- **LTV**: Assuming $39 per month base + $12 average overage = $51 per merchant per month, with 22-month average lifetime, LTV is approximately $1,120.
-- **Math**: 2,700 merchants x $51 x 12 = $1.65M ARR at end of Year 1 (base case).
+- **LTV**: Assuming $39 per month base + $12 average overage [fictional] = $51 per merchant per month [fictional], with 22-month average lifetime [fictional], LTV is approximately $1,120 [fictional].
+- **Math**: 2,700 merchants [fictional] x $51 [fictional] x 12 = $1.65M ARR [fictional] at end of Year 1 (base case).
 
 **Confidence**: Medium
 **Rationale**: Price point is calibrated against Klaviyo's entry SKU ($45) discounted for bundled positioning. 18% adoption is an aspirational estimate based on merchant interviews; we have not run a paid pilot.
@@ -146,7 +146,7 @@ Klaviyo inside your store, with zero integration work.
 
 - **CAC**: Approximately $80 per merchant (embedded acquisition, low relative to standalone SaaS) [fictional].
 - **Fixed costs**: 4-engineer team + 1 designer + shared infrastructure. Roughly $1.1M annual in Year 1 [fictional].
-- **Variable costs**: SMS carrier fees ($0.03 to $0.04 per SMS), email infrastructure ($0.0001 per send), deliverability monitoring.
+- **Variable costs**: SMS carrier fees ($0.03 to $0.04 per SMS) [fictional], email infrastructure ($0.0001 per send) [fictional], deliverability monitoring.
 - **Cost driver**: SMS volume, not email. If SMS adoption outpaces email by more than 2x, variable cost per merchant compresses margin faster than projected.
 
 **Confidence**: Low
@@ -180,15 +180,15 @@ We already have the merchant's complete customer list and product catalog in can
 
 ### Validated
 
-- "Too many tools" pain pattern: 6 of 14 wins in January 2026 win-loss interviews cited this directly.
+- "Too many tools" pain pattern: 6 of 14 wins in January 2026 win-loss interviews cited this directly [fictional].
 - Klaviyo pricing floor of $45 per month for SMB plans: Klaviyo public pricing page, accessed April 2026.
-- SMB merchants treat email-marketing setup as a rolling TODO: Klaviyo S-1 filing corroborates, and 11 of 14 interviewees described the same pattern.
+- SMB merchants treat email-marketing setup as a rolling TODO: Klaviyo S-1 filing corroborates, and 11 of 14 interviewees described the same pattern [fictional].
 
 ### Assumed
 
-- 18% Year 1 adoption of eligible merchant base. Calibrated from interview intent signals, not measured.
-- 45% first-send activation within 14 days. Based on comparable lifecycle onboarding benchmarks, not our product.
-- SMS-to-email volume mix will stay within 2:1 ratio. Extrapolated from SMS growth trends in SMB ecommerce; not measured for our segment.
+- 18% Year 1 adoption of eligible merchant base [fictional]. Calibrated from interview intent signals, not measured.
+- 45% first-send activation within 14 days [fictional]. Based on comparable lifecycle onboarding benchmarks, not our product.
+- SMS-to-email volume mix will stay within 2:1 ratio. Extrapolated from SMS growth trends in SMB ecommerce [fictional]; not measured for our segment.
 
 ### Open Questions
 

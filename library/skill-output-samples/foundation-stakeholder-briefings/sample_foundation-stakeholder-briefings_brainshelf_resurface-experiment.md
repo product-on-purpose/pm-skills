@@ -59,7 +59,7 @@ go
 **Risks and open questions**
 
 - M7: Open rate is unreliable because Apple Mail Privacy Protection inflates email opens, so the read leans on clicks and downstream return-visits, not opens.
-- M8: The window is 4 weeks, so the return-rate lift is directionally durable (it rose week over week) but not yet proven beyond ~8-12 weeks at scale.
+- M8: The window is 4 weeks, so the return-rate lift is directionally durable (it rose week over week [fictional]) but not yet proven beyond ~8-12 weeks at scale.
 - M9: The in-app card is not dead as a concept; its structural weakness is that it cannot be an external trigger, which is the original reason it was deprioritized.
 
 **Asks**
@@ -82,7 +82,7 @@ go
 
 **What this means for the Data team**
 
-The test cleanly separates the two triggers. Email click-through was 17.2% [fictional] against the in-app card's 6.4% [fictional], a +15% relative lift [fictional]. On the primary outcome, the email arm lifted 7-day return rate to 23.4% [fictional] vs 18.1% control [fictional] (+5.3pp, p = 0.008 [fictional]), while the in-app arm moved it only +0.9pp [fictional] and did not reach significance. Guardrails held: unsubscribe 1.3%/week [fictional], no uninstall increase, no save-rate drop. Two caveats to carry forward as the result of record. First, Apple Mail Privacy Protection inflates email opens, so we report clicks and return-visits, never opens, as the success signal. Second, the 4-week window makes the lift directional (it grew week over week) but not yet a scale-and-duration proof; an 8-12 week recheck is warranted. Please confirm this is the canonical read, because the exec and PMM briefings project from it.
+The test cleanly separates the two triggers. Email click-through was 17.2% [fictional] against the in-app card's 6.4% [fictional], a +15% relative lift [fictional]. On the primary outcome, the email arm lifted 7-day return rate to 23.4% [fictional] vs 18.1% control [fictional] (+5.3pp, p = 0.008 [fictional]), while the in-app arm moved it only +0.9pp [fictional] and did not reach significance. Guardrails held: unsubscribe 1.3%/week [fictional], no uninstall increase, no save-rate drop. Two caveats to carry forward as the result of record. First, Apple Mail Privacy Protection inflates email opens, so we report clicks and return-visits, never opens, as the success signal. Second, the 4-week window makes the lift directional (it grew week over week [fictional]) but not yet a scale-and-duration proof; an 8-12 week recheck is warranted. Please confirm this is the canonical read, because the exec and PMM briefings project from it.
 
 --- END ---
 

@@ -54,7 +54,7 @@ go
 
 **Status**
 
-- M4: Email digest is live and healthy (17.2% click-through, 1.3%/week unsubscribe [fictional]); extension trigger is a proposal, not yet built.
+- M4: Email digest is live and healthy (17.2% [fictional] click-through, 1.3%/week unsubscribe [fictional]); extension trigger is a proposal, not yet built.
 
 **Risks and open questions**
 
@@ -119,7 +119,7 @@ The retention thesis is playing out. Our first re-engagement bet (the morning em
 ## Translations applied (internal)
 
 - Exec vs Board split made explicit: the Executive block owns the operational reprioritize-the-sprints call (M8); the Board block owns the strategy/moat narrative (M7) and never asks for a sprint decision. Both draw on M2/M3 but lead with different decisions.
-- "+5.3pp retention lift / 17.2% click-through" kept precise in the master; rendered as "lifted retention +5.3pp" for Exec, and as "validated that resurfacing drives users back" (no numbers) for the Board.
+- "+5.3pp [fictional] retention lift / 17.2% [fictional] click-through" kept precise in the master; rendered as "lifted retention +5.3pp [fictional]" for Exec, and as "validated that resurfacing drives users back" (no numbers) for the Board.
 - "paywall detection / contextual matching / per-browser builds" kept precise for Engineering; collapsed to "costs more, separate build per browser" for Exec; omitted from the Board block (execution detail, not thesis).
 
 **Flagged but kept** (may need review):

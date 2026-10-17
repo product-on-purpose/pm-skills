@@ -57,7 +57,7 @@ casual is fine. go
 
 **Risks and open questions**
 
-- M6: Top risk is email deliverability at scale: going from ~12K to ~290K emails/month [fictional] can hurt sender reputation; first-week inbox placement is watched daily.
+- M6: Top risk is email deliverability at scale: going from ~12K [fictional] to ~290K emails/month [fictional] can hurt sender reputation; first-week inbox placement is watched daily.
 - M7: Two known issues users may hit: paywalled saved articles open to a paywall when clicked (we link to the original URL, we do not bypass paywalls), and quiet-hours timing can feel off if the user's device timezone is stale.
 - M8: Apple Mail Privacy Protection inflates email opens, so we do not quote open rate to users or internally; clicks and returns are the real measure.
 
@@ -109,7 +109,7 @@ Resurface is opt-in and rolling out in phases (25% / 50% / 100% over three days)
 
 **What this means for Marco**
 
-Resurface, the morning digest, ships as the headline of the next App Store update. It is validated (it moved retention and cleared its guardrails in test [fictional]) and the build and email infrastructure are done. We are launching it as a phased rollout: 25% of eligible users on day 1, 50% day 2, 100% day 3, with each step gated on email deliverability and unsubscribe rate staying healthy. The one risk worth your attention is deliverability at scale: our email volume jumps from roughly 12K to 290K messages a month [fictional], which can dent sender reputation, so we watch inbox placement daily in week one and the gate lets us pause if it slips. Decision needed from you: approve the launch-day go/no-go and the gate criteria for advancing the rollout.
+Resurface, the morning digest, ships as the headline of the next App Store update. It is validated (it moved retention and cleared its guardrails in test [fictional]) and the build and email infrastructure are done. We are launching it as a phased rollout: 25% of eligible users on day 1, 50% day 2, 100% day 3, with each step gated on email deliverability and unsubscribe rate staying healthy. The one risk worth your attention is deliverability at scale: our email volume jumps from roughly 12K [fictional] to 290K messages a month [fictional], which can dent sender reputation, so we watch inbox placement daily in week one and the gate lets us pause if it slips. Decision needed from you: approve the launch-day go/no-go and the gate criteria for advancing the rollout.
 
 --- END ---
 
@@ -119,7 +119,7 @@ Resurface, the morning digest, ships as the headline of the next App Store updat
 
 - "deliverability / sender reputation / inbox placement" kept plain for the Executive block as a single "deliverability risk"; surfaced to CS/Support only as the reason for phased rollout, not as a metric.
 - "Apple Mail Privacy Protection inflates opens" kept as an internal note in CS/Support ("do not quote open rate to users"); not surfaced to PMM (not part of the story) or Executive (already settled on clicks/returns).
-- "+5.3pp 7-day return-rate lift / 17.2% click-through" kept precise in the master; rendered as "a measured retention lift" / "people actually came back" for PMM and "moved retention and cleared its guardrails" for Executive.
+- "+5.3pp 7-day return-rate lift / 17.2% click-through" [fictional] kept precise in the master; rendered as "a measured retention lift" / "people actually came back" for PMM and "moved retention and cleared its guardrails" for Executive.
 
 **Flagged but kept** (may need review):
 

@@ -17,11 +17,11 @@ context: "Workbench Day 1 PM Differentiation block, 2x2 axis-selection stalling;
 
 "Which two axes should the Workbench Differentiation 2x2 chart use?"
 
-The Differentiation block had stalled at 14:35 PT with team members proposing different axis pairs. The chart needs two orthogonal axes that meaningfully separate Workbench from the competitor set. Three candidate pairs had emerged:
+The Differentiation block had stalled at 14:35 PT [fictional] with team members proposing different axis pairs. The chart needs two orthogonal axes that meaningfully separate Workbench from the competitor set. Three candidate pairs had emerged:
 
-- Priya: Always-on vs Incident-time on X; Disorientation-phase strength (weak to strong) on Y
-- Marcus: Data depth (shallow to deep) on X; Tool scope (narrow to broad) on Y
-- Jin: Setup friction (low to high) on X; Incident-relevance (low to high) on Y
+- Priya: Always-on vs Incident-time on X; Disorientation-phase strength (weak to strong) on Y [fictional]
+- Marcus: Data depth (shallow to deep) on X; Tool scope (narrow to broad) on Y [fictional]
+- Jin: Setup friction (low to high) on X; Incident-relevance (low to high) on Y [fictional]
 
 The facilitator (Ari, rotating) called for a `tool-note-and-vote` rather than continuing open argument. Decider (Priya) confirmed.
 
@@ -38,13 +38,13 @@ The facilitator (Ari, rotating) called for a `tool-note-and-vote` rather than co
 
 **Step 1: Silent ideation (4 minutes).** Each participant wrote 2-3 candidate axis pairs on individual stickies.
 
-**Step 2: Affinity clustering (3 minutes).** Ari clustered 11 individual sticky notes into 5 candidate pairs on the wall.
+**Step 2: Affinity clustering (3 minutes).** Ari clustered 11 individual sticky notes into 5 candidate pairs on the wall [fictional].
 
 **Step 3: Silent voting (2 minutes).** Each participant gets 2 dot-votes; can split or stack.
 
 **Step 4: Decider supervote (4 minutes).** Priya reviews + brief discussion + commits.
 
-**Step 5: Capture (3 minutes).** Marcus records the decision; Ari resumes Differentiation at 15:05 PT.
+**Step 5: Capture (3 minutes).** Marcus records the decision; Ari resumes Differentiation at 15:05 PT [fictional].
 
 Total elapsed: 16 minutes. Differentiation block resumed without further axis debate.
 

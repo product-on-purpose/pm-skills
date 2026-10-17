@@ -45,7 +45,7 @@ would tighten it.
 
 ## Executive Summary
 
-We size the external market for DevEx tooling platforms sold per developer seat. Because no primary report is available, this is a quick estimate. Top-down (developer population x assumed DevEx spend per seat) suggests a TAM near $4.5B; bottom-up (engineering organizations x ACV) suggests ~$2.6B. The ~1.7x gap is driven by how much per-seat DevEx spend is assumed. Defensible TAM band: $2-6B. SAM (mid-to-large engineering orgs, English-speaking markets) ~$900M [fictional]; 3-year SOM at 3% ~$27M [fictional]. Confidence: Low across the board - this is directional only.
+We size the external market for DevEx tooling platforms sold per developer seat. Because no primary report is available, this is a quick estimate. Top-down (developer population x assumed DevEx spend per seat) suggests a TAM near $4.5B [fictional]; bottom-up (engineering organizations x ACV) suggests ~$2.6B [fictional]. The ~1.7x gap is driven by how much per-seat DevEx spend is assumed. Defensible TAM band: $2-6B [fictional]. SAM (mid-to-large engineering orgs, English-speaking markets) ~$900M [fictional]; 3-year SOM at 3% ~$27M [fictional]. Confidence: Low across the board - this is directional only.
 
 ## Market Definition
 
@@ -57,40 +57,40 @@ We size the external market for DevEx tooling platforms sold per developer seat.
 
 | Layer | Number | Method | Source / Assumption | Confidence |
 |---|---|---|---|---|
-| TAM | ~$4.5B | Developer population x DevEx spend/seat | ~25M professional developers in target markets [fictional] x $180/seat/yr assumed DevEx tooling spend | Low |
-| SAM | ~$900M | Filter to mid-large orgs | ~20% of developers at orgs large enough to buy a DevEx platform | Low |
-| SOM | ~$27M | Market-share assumption | 3% of SAM by year 3 | Low |
+| TAM | ~$4.5B [fictional] | Developer population x DevEx spend/seat | ~25M professional developers in target markets [fictional] x $180/seat/yr assumed DevEx tooling spend [fictional] | Low |
+| SAM | ~$900M [fictional] | Filter to mid-large orgs | ~20% [fictional] of developers at orgs large enough to buy a DevEx platform | Low |
+| SOM | ~$27M [fictional] | Market-share assumption | 3% of SAM by year 3 | Low |
 
 ## Bottom-Up Sizing
 
 | Segment | # Customers | Revenue / Customer (ACV) | Sub-total | Method | Source |
 |---|---|---|---|---|---|
-| Orgs with 100-500 engineers | ~6,000 [fictional] | $60K | ~$360M | Bottom-up | Assumption |
-| Orgs with 500-2000 engineers | ~1,800 [fictional] | $250K | ~$450M | Bottom-up | Assumption |
-| Orgs with 2000+ engineers | ~600 [fictional] | $3M | ~$1.8B | Bottom-up | Assumption |
-| **Total** | **~8,400 orgs** | - | **~$2.6B** | - | - |
+| Orgs with 100-500 engineers | ~6,000 [fictional] | $60K [fictional] | ~$360M [fictional] | Bottom-up | Assumption |
+| Orgs with 500-2000 engineers | ~1,800 [fictional] | $250K [fictional] | ~$450M [fictional] | Bottom-up | Assumption |
+| Orgs with 2000+ engineers | ~600 [fictional] | $3M [fictional] | ~$1.8B [fictional] | Bottom-up | Assumption |
+| **Total** | **~8,400 orgs [fictional]** | - | **~$2.6B [fictional]** | - | - |
 
 ## Multi-Framework Synthesis
 
-- **Where they diverge:** Top-down ($4.5B) exceeds bottom-up ($2.6B) by ~1.7x. The driver is the assumed per-seat DevEx spend ($180): bottom-up ACVs imply effective per-seat spend closer to $100-120 once spread across all developers in a buying org.
+- **Where they diverge:** Top-down ($4.5B [fictional]) exceeds bottom-up ($2.6B [fictional]) by ~1.7x. The driver is the assumed per-seat DevEx spend ($180 [fictional]): bottom-up ACVs imply effective per-seat spend closer to $100-120 [fictional] once spread across all developers in a buying org.
 - **What would narrow it:** A real per-seat DevEx benchmark (a pricing study or competitor disclosures) would reconcile the two. Until then, the gap is honest uncertainty, not error.
-- **Synthesized estimate:** TAM ~$3.5B (midpoint), band $2-6B. SAM ~$900M, SOM ~$27M at 3% in 3 years.
+- **Synthesized estimate:** TAM ~$3.5B [fictional] (midpoint), band $2-6B [fictional]. SAM ~$900M [fictional], SOM ~$27M [fictional] at 3% in 3 years.
 - **Synthesis confidence:** Low. Both methods rest on assumptions; the convergence within ~2x is the only reassuring signal.
 
 ## Sensitivity Analysis
 
 | Assumption varied | Low | Mid | High |
 |---|---|---|---|
-| DevEx spend per seat | $100 (TAM = $2.5B) | $180 (TAM = $4.5B) | $260 (TAM = $6.5B) |
-| Year-3 market share | 1% (SOM = $9M) | 3% (SOM = $27M) | 6% (SOM = $54M) |
+| DevEx spend per seat | $100 [fictional] (TAM = $2.5B [fictional]) | $180 [fictional] (TAM = $4.5B [fictional]) | $260 [fictional] (TAM = $6.5B [fictional]) |
+| Year-3 market share | 1% (SOM = $9M [fictional]) | 3% (SOM = $27M [fictional]) | 6% (SOM = $54M [fictional]) |
 
 ## Key Assumptions
 
 | Assumption | Source / Rationale | Confidence | What changes if wrong |
 |---|---|---|---|
 | ~25M professional developers (target markets) | Developer-population estimates [fictional] | Low | Scales top-down TAM |
-| $180 DevEx spend per seat | Assumption; the central uncertainty | Low | Largest swing (see sensitivity) |
-| ~8,400 target engineering orgs | Derived assumption | Low | Scales bottom-up |
+| $180 [fictional] DevEx spend per seat | Assumption; the central uncertainty | Low | Largest swing (see sensitivity) |
+| ~8,400 [fictional] target engineering orgs | Derived assumption | Low | Scales bottom-up |
 | 3% year-3 share | GTM judgment for a new commercial entrant | Low | Scales SOM |
 
 ## Confidence and Limitations

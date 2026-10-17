@@ -118,9 +118,9 @@ status: draft
 
 ## What's NOT in v1.1 (parked to v1.2)
 
-- Mobile-responsive approval UI (2 of 6 customers mentioned; lower priority)
-- Exportable approval reports (2 of 6; dependency on reporting module)
-- Custom approval status labels (1 of 6; edge case)
+- Mobile-responsive approval UI (2 of 6 customers mentioned [fictional]; lower priority)
+- Exportable approval reports (2 of 6 [fictional]; dependency on reporting module)
+- Custom approval status labels (1 of 6 [fictional]; edge case)
 
 **CS talking points**: if customers ask about these, confirm they're on the v1.2 roadmap and note that specific customer interest would accelerate prioritization.
 

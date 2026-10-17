@@ -210,7 +210,7 @@ Format: Full stakeholder summary with influence/interest map, detailed profiles,
 - Clear feature matrix showing Blueprints vs. Confluence vs. Notion for enterprise sales battle card
 
 **Concerns:**
-- If Blueprints ships with AI-assisted drafting as "Partial" (per competitive analysis), competitors will attack the AI gap in head-to-head evaluations
+- If Blueprints ships with AI-assisted drafting as "Partial" (per competitive analysis) [fictional], competitors will attack the AI gap in head-to-head evaluations
 - A phased GA rollout (Mei-Lin's resistance notwithstanding) could fragment the launch message
 
 **What Motivates Them:**
@@ -328,7 +328,7 @@ Format: Full stakeholder summary with influence/interest map, detailed profiles,
 |---------|---------------|------------|
 | Mei-Lin T. vs. Sandra C. / Karen L. | Scope: Mei-Lin wants all features at GA; Sandra and Karen want a phased approach to protect timeline quality | High |
 | James W. vs. Sandra C. | Timeline: James prefers conservative estimates and may push back on the February closed-beta target if the CRDT spike reveals complexity | Medium |
-| Derek H. vs. Rachel V. | AI messaging: Derek wants to position Blueprints as AI-powered; Rachel's competitive analysis shows AI drafting is Partial, which creates a gap if competitors attack it | Low |
+| Derek H. vs. Rachel V. | AI messaging: Derek wants to position Blueprints as AI-powered; Rachel's competitive analysis shows AI drafting is Partial [fictional], which creates a gap if competitors attack it | Low |
 
 ## Communication Plan
 
@@ -348,7 +348,7 @@ Format: Full stakeholder summary with influence/interest map, detailed profiles,
 
 | Stakeholder | Concern | Mitigation Strategy | Owner |
 |-------------|---------|---------------------|-------|
-| Mei-Lin T. | Wants full feature set at GA; resists phased rollout | Share interview evidence showing required sections plus approvals alone justify migration. Align on "v1 closes deals; v1.1 expands them" narrative. Provide Mei-Lin with early access to the competitive battle card so she can validate the v1 story against live deal objections. | Rachel V. |
+| Mei-Lin T. | Wants full feature set at GA; resists phased rollout | Share interview evidence showing required sections plus approvals alone justify migration [fictional]. Align on "v1 closes deals; v1.1 expands them" narrative. Provide Mei-Lin with early access to the competitive battle card so she can validate the v1 story against live deal objections. | Rachel V. |
 | James W. | CRDT complexity and timeline risk | Complete CRDT spike before sprint 1; present findings at architecture review with realistic estimate and fallback options | Karen L. |
 
 ### Political Risks
@@ -356,7 +356,7 @@ Format: Full stakeholder summary with influence/interest map, detailed profiles,
 | Risk | Impact | Mitigation |
 |------|--------|------------|
 | Mei-Lin escalates scope requests directly to Sandra, bypassing Rachel | Scope creep; team whiplash if Sandra overrides sprint plan | Establish a shared intake process: all feature requests go through Rachel's triage doc; Sandra reviews weekly |
-| Derek positions Blueprints as AI-first despite Partial AI capability | Competitor attack ads at GA; credibility damage in enterprise evaluations | Align on "governance-first" positioning in product-marketing sync; AI messaging limited to roadmap teasers |
+| Derek positions Blueprints as AI-first despite Partial AI capability [fictional] | Competitor attack ads at GA; credibility damage in enterprise evaluations | Align on "governance-first" positioning in product-marketing sync; AI messaging limited to roadmap teasers |
 | Confluence-migrant account churns during closed beta, creating negative internal narrative | Sandra loses confidence in Blueprints viability; GA timeline questioned | Assign dedicated Customer Success manager to the 5 highest-value migrant accounts; weekly health checks during first 30 days |
 
 ## Action Items

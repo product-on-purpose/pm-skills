@@ -68,7 +68,7 @@ Decision makers: Design Lead, Growth PM, Engineering Lead.
 
 ### Problem Statement
 
-Audience selection . choosing which customers receive a campaign . is the step in email marketing workflows where non-expert users most commonly abandon. In merchant interviews, P3, P6, and P8 all described email marketing as "overwhelming" or impossible to start; competitive analysis confirmed that Klaviyo's segment builder, while powerful, is one of the primary barriers to adoption for merchants who are not data analysts. The Campaigns v1 audience selection UX must serve the non-adopter merchant (primary v1 target) without excluding merchants who need more control than a pre-built list provides.
+Audience selection . choosing which customers receive a campaign . is the step in email marketing workflows where non-expert users most commonly abandon. In merchant interviews, P3, P6, and P8 all described email marketing as "overwhelming" or impossible to start [fictional]; competitive analysis confirmed that Klaviyo's segment builder, while powerful, is one of the primary barriers to adoption for merchants who are not data analysts [fictional]. The Campaigns v1 audience selection UX must serve the non-adopter merchant (primary v1 target) without excluding merchants who need more control than a pre-built list provides.
 
 ### User Need
 
@@ -163,7 +163,7 @@ Non-adopter merchants need to identify a reasonable audience for their first ema
 
 ### User Research Input
 
-- Interview data: 3 of 8 merchant participants (P3, P6, P8) abandoned email marketing due to setup complexity; none of these participants described needing custom segment logic . they simply could not get started with a blank filter interface.
+- Interview data: 3 of 8 merchant participants (P3, P6, P8) abandoned email marketing due to setup complexity; none of these participants described needing custom segment logic . they simply could not get started with a blank filter interface [fictional].
 - Competitive analysis: Mailchimp's hybrid approach (named conditions + custom filters) is the documented standard in the SMB email category; Campaigns Option C is consistent with this approach and does not position Campaigns below Mailchimp's baseline capability.
 
 ---
@@ -172,7 +172,7 @@ Non-adopter merchants need to identify a reasonable audience for their first ema
 
 ### Why Option C?
 
-Option C is the only choice that serves the non-adopter primary target at full quality without foreclosing the secondary use case of moderate-sophistication merchants who need a segment the curated list does not cover. Option B would have been acceptable if Campaigns were solely targeting merchants who have never sent an email . but the merchant interview cohort includes merchants like P2 (Mailchimp user considering a switch) who have specific segment needs, and a product that cannot accommodate a time-based custom segment will lose these evaluators at the audience selection step.
+Option C is the only choice that serves the non-adopter primary target at full quality without foreclosing the secondary use case of moderate-sophistication merchants who need a segment the curated list does not cover. Option B would have been acceptable if Campaigns were solely targeting merchants who have never sent an email . but the merchant interview cohort includes merchants like P2 (Mailchimp user considering a switch) who have specific segment needs [fictional], and a product that cannot accommodate a time-based custom segment will lose these evaluators at the audience selection step.
 
 ### Key Differentiators
 
@@ -180,7 +180,7 @@ Option A was eliminated primarily on the non-adopter usability criterion . the e
 
 ### Dissenting Opinions
 
-The Engineering Lead's initial preference was Option B on the grounds that the simpler implementation reduces build risk in a sprint that already carries the attribution webhook integration as a medium-effort item. This preference was noted and addressed by reducing the custom filter panel scope . AND-only conditions, no nested logic, no OR operators . to bring the engineering effort below the original estimate for a full query builder. The simplified custom filter panel was re-estimated at S effort [fictional] and the Engineering Lead accepted the updated scope in the design review.
+The Engineering Lead's initial preference was Option B on the grounds that the simpler implementation reduces build risk in a sprint that already carries the attribution webhook integration as a medium-effort item [fictional]. This preference was noted and addressed by reducing the custom filter panel scope . AND-only conditions, no nested logic, no OR operators . to bring the engineering effort below the original estimate for a full query builder. The simplified custom filter panel was re-estimated at S effort [fictional] and the Engineering Lead accepted the updated scope in the design review.
 
 ---
 
@@ -198,7 +198,7 @@ The Engineering Lead's initial preference was Option B on the grounds that the s
 | Risk | Likelihood | Mitigation |
 |------|------------|------------|
 | Disclosure pattern not discovered by non-adopters who could benefit from custom segments | Low | The disclosure link copy will be tested in usability testing before GA; if discovery rates are low, the link can be promoted to a visible secondary button without a schema change |
-| Custom filter panel creates support ticket volume from merchants trying to reproduce Klaviyo-style segments | Low | Support FAQ will document the AND-only limitation clearly; the named segment library covers the most common Klaviyo segment patterns used by merchants in the interview cohort |
+| Custom filter panel creates support ticket volume from merchants trying to reproduce Klaviyo-style segments | Low | Support FAQ will document the AND-only limitation clearly; the named segment library covers the most common Klaviyo segment patterns used by merchants in the interview cohort [fictional] |
 
 ---
 

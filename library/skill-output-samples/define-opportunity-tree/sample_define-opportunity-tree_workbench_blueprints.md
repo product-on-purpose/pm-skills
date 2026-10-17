@@ -61,14 +61,14 @@ Stakeholders: Sandra C. (Head of Product), Karen L. (Eng Lead), Mei-Lin T. (Ente
 ## Desired Outcome
 
 **Outcome Statement:** Expand Workbench enterprise customer base from 500 to 650 accounts within 12 months of Blueprints GA launch [fictional]
-**Current State:** 500 enterprise customers; 18% annual churn in compliance-heavy segments; 8 pipeline deals ($1.8M combined ARR [fictional]) stalled on governance gaps
+**Current State:** 500 enterprise customers [fictional]; 18% annual churn in compliance-heavy segments [fictional]; 8 pipeline deals ($1.8M combined ARR [fictional]) stalled on governance gaps
 **Target State:** 650 enterprise customers (net +150, accounting for churn replacement) [fictional]
 **Timeframe:** 12 months from Blueprints GA launch (target: Q2 2026 GA, outcome measured by Q2 2027)
 **Owner:** Sandra C., Head of Product
 
 ### Why This Outcome Matters
 
-Enterprise customer expansion is the primary growth lever for Workbench's Series C fundraise (planned late 2026). The current product serves enterprise collaboration needs but lacks the governance and compliance features that unlock the largest enterprise segments: healthcare, financial services, and government. Blueprints is designed to fill this gap. Without enterprise expansion, the Series C narrative weakens and the company's trajectory shifts from growth-stage to efficiency-stage earlier than planned [fictional]. The net +150 target accounts for an estimated 90 accounts lost to churn (18% of 500) plus 240 new acquisitions, meaning the gross acquisition target is substantially higher than the net figure suggests [fictional].
+Enterprise customer expansion is the primary growth lever for Workbench's Series C fundraise (planned late 2026) [fictional]. The current product serves enterprise collaboration needs but lacks the governance and compliance features that unlock the largest enterprise segments: healthcare, financial services, and government [fictional]. Blueprints is designed to fill this gap. Without enterprise expansion, the Series C narrative weakens and the company's trajectory shifts from growth-stage to efficiency-stage earlier than planned [fictional]. The net +150 target accounts for an estimated 90 accounts lost to churn (18% of 500) plus 240 new acquisitions, meaning the gross acquisition target is substantially higher than the net figure suggests [fictional].
 
 ---
 
@@ -77,7 +77,7 @@ Enterprise customer expansion is the primary growth lever for Workbench's Series
 ```
                          [OUTCOME]
               Expand enterprise base
-                  500 → 650 accounts
+                  500 → 650 accounts [fictional]
                          |
          ┌───────────────┼───────────────┐
          |               |               |
@@ -102,14 +102,14 @@ Sections  Approval + Audit  Type II Import  Migration
 
 ### Opportunity 1: Documentation Governance Gap
 
-**Description:** Enterprise teams use document templates but no tool enforces template completion before a document enters an approval workflow. 38% of Blueprints in closed beta reach approval with at least one empty required section [fictional], inflating median approval time to 4.0 days [fictional]. Enterprise buyers in compliance-heavy segments (healthcare, financial services, government) have explicitly identified governance enforcement as the capability that would justify tool migration. This opportunity is unique because it targets a structural gap that no competitor has addressed, rather than competing on incremental feature improvements.
+**Description:** Enterprise teams use document templates but no tool enforces template completion before a document enters an approval workflow. 38% of Blueprints in closed beta reach approval with at least one empty required section [fictional], inflating median approval time to 4.0 days [fictional]. Enterprise buyers in compliance-heavy segments (healthcare, financial services, government) have explicitly identified governance enforcement as the capability that would justify tool migration [fictional]. This opportunity is unique because it targets a structural gap that no competitor has addressed, rather than competing on incremental feature improvements [fictional].
 **Impact Potential:** High
 **Confidence:** High
 
 **Evidence:**
 - Discovery interviews (Oct 2025): "Templates without enforcement are just suggestions with formatting." P1, VP Ops [fictional]
 - Closed-beta telemetry: 38% incomplete submission rate [fictional]; median time to first approval 4.0 days [fictional]
-- Competitive analysis (Feb 2026): No doc-first competitor offers section enforcement; this is the only unoccupied white space in the governance dimension
+- Competitive analysis (Feb 2026): No doc-first competitor offers section enforcement [fictional]; this is the only unoccupied white space in the governance dimension [fictional]
 
 #### Solutions
 
@@ -135,7 +135,7 @@ Sections  Approval + Audit  Type II Import  Migration
 
 **Evidence:**
 - Discovery interviews (Oct 2025): "IT security will block deployment if the tool doesn't have SAML and audit logs. It's not a discussion." P2, Director of Compliance [fictional]
-- Stakeholder analysis (Oct 2025): IT Security Leads are a neutral-but-blocking stakeholder; they gate deployment regardless of end-user enthusiasm
+- Stakeholder analysis (Oct 2025): IT Security Leads are a neutral-but-blocking stakeholder [fictional]; they gate deployment regardless of end-user enthusiasm [fictional]
 - Competitive analysis (Feb 2026): Confluence, Notion, Coda, and Monday.com all offer SSO and SAML; this is table stakes
 
 #### Solutions
@@ -156,14 +156,14 @@ Sections  Approval + Audit  Type II Import  Migration
 
 ### Opportunity 3: Confluence Migration Path
 
-**Description:** Confluence is the installed base for the target enterprise segment. Discovery interviews revealed that UX improvements alone (Notion, Coda) are insufficient to justify migration cost. Enterprise teams will migrate when a new tool offers a capability Confluence structurally cannot provide. Blueprints governance enforcement is that capability, but migration still requires a smooth transition path for existing Confluence content and workflows. The 15 Confluence-migrant accounts in the closed beta [fictional] represent a natural test population for migration tooling.
+**Description:** Confluence is the installed base for the target enterprise segment. Discovery interviews revealed that UX improvements alone (Notion, Coda) are insufficient to justify migration cost [fictional]. Enterprise teams will migrate when a new tool offers a capability Confluence structurally cannot provide. Blueprints governance enforcement is that capability, but migration still requires a smooth transition path for existing Confluence content and workflows. The 15 Confluence-migrant accounts in the closed beta [fictional] represent a natural test population for migration tooling.
 **Impact Potential:** Medium
 **Confidence:** Medium
 
 **Evidence:**
 - Discovery interviews (Oct 2025): "We've evaluated Notion twice. Both times the answer was 'it's nicer but it doesn't solve our approval problem.' That's not enough to justify migrating 400 people." P1, VP Ops [fictional]
 - Stakeholder analysis: Estimated 15 of 80 closed-beta accounts [fictional] are actively migrating from Confluence
-- Competitive analysis: Confluence has 3,000+ Marketplace apps and deep Jira integration; Workbench cannot compete on ecosystem depth
+- Competitive analysis: Confluence has 3,000+ Marketplace apps and deep Jira integration; Workbench cannot compete on ecosystem depth [fictional]
 
 #### Solutions
 
@@ -187,7 +187,7 @@ Sections  Approval + Audit  Type II Import  Migration
 
 **Priority Opportunity:** Opportunity 1, Documentation Governance Gap
 **Priority Solution:** Solution 1A, Required-Section Enforcement
-**Rationale:** Highest impact, highest confidence, and the only capability that is both (a) unmatched by any competitor and (b) sufficient to justify Confluence migration. Required-section enforcement is the foundation of the Blueprints value proposition; all other features build on it. Karen L. has confirmed that the enforcement gate is architecturally straightforward to implement, with the primary complexity residing in edge cases around concurrent editing via the Yjs CRDT layer.
+**Rationale:** Highest impact, highest confidence, and the only capability that is both (a) unmatched by any competitor and (b) sufficient to justify Confluence migration. Required-section enforcement is the foundation of the Blueprints value proposition; all other features build on it. Karen L. has confirmed that the enforcement gate is architecturally straightforward to implement, with the primary complexity residing in edge cases around concurrent editing via the Yjs CRDT layer [fictional].
 
 ### Opportunity Ranking
 
@@ -200,7 +200,7 @@ Sections  Approval + Audit  Type II Import  Migration
 ### Parking Lot
 
 - **AI-assisted section drafting:** Section-aware AI that suggests content for required sections based on organizational context. High potential but requires significant ML investment; deferred to post-GA roadmap.
-- **Multi-stage approval chains:** Support for sequential approval workflows (manager review, then compliance review, then department head sign-off). Requested by P5 (government contractor); deferred to v1.1 based on demand signal from GA customers.
+- **Multi-stage approval chains:** Support for sequential approval workflows (manager review, then compliance review, then department head sign-off). Requested by P5 (government contractor) [fictional]; deferred to v1.1 based on demand signal from GA customers.
 - **Blueprint analytics dashboard:** Adoption and approval-cycle metrics per department. Useful for customer success and expansion conversations; deferred to post-experiment (need data from the A/B test first).
 
 ---

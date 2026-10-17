@@ -60,7 +60,7 @@ a/b test (mar 9 - apr 5), decision (apr 11).
 
 ### Problem Statement
 
-Brainshelf users save content at a high rate (~47 items/month average [fictional]) but almost never return to read it: fewer than 9% of saved items are revisited within 30 days [fictional]. The 7-day return rate is 18% [fictional], well below the Q1 retention OKR target of 25% [fictional]. The root cause is the absence of any external trigger to return . users save, close the tab, and the saved item disappears from their attention because nothing prompts them to come back. The saved library has become a guilt pile rather than a reading resource, actively discouraging re-engagement. See the full problem statement for additional detail.
+Brainshelf users save content at a high rate (~47 items/month average [fictional]) but almost never return to read it: fewer than 9% of saved items are revisited within 30 days [fictional]. The 7-day return rate is 18% [fictional], well below the Q1 retention OKR target of 25% [fictional]. The root cause is the absence of any external trigger to return [fictional] . users save, close the tab, and the saved item disappears from their attention because nothing prompts them to come back. The saved library has become a guilt pile rather than a reading resource, actively discouraging re-engagement [fictional]. See the full problem statement for additional detail.
 
 ### Solution Summary
 
@@ -68,7 +68,7 @@ Resurface is a daily morning email digest that delivers 3 - 5 saved items matche
 
 ### Target Users
 
-Active savers: Brainshelf users who have saved 10 or more items and have been active within the past 30 days (at least one save event). This segment represents approximately 9,800 users, or ~45% of Brainshelf's 22,000 MAU [fictional]. These users have demonstrated saving intent but have not formed a return-and-read habit.
+Active savers: Brainshelf users who have saved 10 or more items and have been active within the past 30 days (at least one save event). This segment represents approximately 9,800 users [fictional], or ~45% [fictional] of Brainshelf's 22,000 MAU [fictional]. These users have demonstrated saving intent but have not formed a return-and-read habit.
 
 ## Goals & Success Metrics
 
@@ -123,7 +123,7 @@ See the detailed user stories document for full acceptance criteria.
 - In-app resurfacing (notification card on home screen) . deferred to post-experiment
 - Push notifications . too aggressive for first version
 - Smart collections / auto-categorization . addresses a different opportunity (library overwhelm), not the trigger gap
-- Annotation-based resurfacing . requires highlighting, which most Brainshelf users do not do
+- Annotation-based resurfacing . requires highlighting, which most Brainshelf users do not do [fictional]
 - Custom send time . the default is 7:30 AM local; custom time selection is a future iteration
 
 ### Future Considerations
@@ -181,8 +181,8 @@ The email template follows the structured text layout selected in the design rat
 ### Constraints
 
 - Backend team is 2 engineers (Alex R., Jess T.); Sprint 8 must deliver the complete digest pipeline, opt-in flow backend, and topic-matching algorithm within 10 business days
-- No existing email infrastructure; DNS configuration (SPF, DKIM, DMARC) must be completed before any email can be sent from the brainshelf.app domain
-- TF-IDF vectors must be pre-computed for all existing saved items (~460K items across 9,800 eligible users [fictional]) in a batch migration before the A/B test begins
+- No existing email infrastructure [fictional]; DNS configuration (SPF, DKIM, DMARC) must be completed before any email can be sent from the brainshelf.app domain
+- TF-IDF vectors must be pre-computed for all existing saved items (~460K items [fictional] across 9,800 eligible users [fictional]) in a batch migration before the A/B test begins
 
 ### Integration Points
 
@@ -193,7 +193,7 @@ The email template follows the structured text layout selected in the design rat
 
 ### Data Requirements
 
-User email addresses are already stored in the Brainshelf user table (required for account creation). No additional PII collection is needed. The opt-in flow confirms the existing email address rather than collecting a new one. Email delivery logs (send time, click events, unsubscribe events) will be stored in a new `digest_events` table with a 90-day retention policy. TF-IDF vectors are derived data and can be recomputed from source URLs if needed.
+User email addresses are already stored in the Brainshelf user table (required for account creation) [fictional]. No additional PII collection is needed. The opt-in flow confirms the existing email address rather than collecting a new one. Email delivery logs (send time, click events, unsubscribe events) will be stored in a new `digest_events` table with a 90-day retention policy. TF-IDF vectors are derived data and can be recomputed from source URLs if needed.
 
 ## Dependencies & Risks
 

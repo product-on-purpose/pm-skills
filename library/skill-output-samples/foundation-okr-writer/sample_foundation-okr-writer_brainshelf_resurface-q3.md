@@ -83,16 +83,16 @@ Source of truth: company OKR doc in Linear at L-OKR-Q3-Resurface
   planning input, not the live tracker.
 - Strategic input: Company OKR to increase 30-day member retention from
   31% to 42% [fictional] by year-end. Resurface is the largest single
-  retention lever per H1 2026 cohort analysis (3.4x retention multiplier
-  in the beta cohort vs control).
+  retention lever [fictional] per H1 2026 cohort analysis [fictional]
+  (3.4x retention multiplier in the beta cohort vs control [fictional]).
 - Assumptions:
-  - The 3.4x multiplier observed in beta will hold or attenuate at general
+  - The 3.4x multiplier [fictional] observed in beta will hold or attenuate at general
     rollout. Treated as working hypothesis; KR2 design lets us measure
     the actual multiplier on the broader population.
   - Algo v1 quality is good enough to scale. KR3 guardrail catches
     degradation if rollout reveals issues the beta did not.
   - Push notification infrastructure exists and is approved for
-    Resurface use.
+    Resurface use [fictional].
 
 ## Objective
 
@@ -113,19 +113,19 @@ specific cadence.)
     post-rollout).
   - Target: 41% [fictional] by 2026-09-30.
   - Evidence source: Mixpanel `resurface_item_interaction` event,
-    segmented by activated-member cohort.
+    segmented by activated-member cohort [fictional].
   - Owner: priya-pm.
   - Indicator class: leading.
   - Confidence: medium. The 22 to 41 jump nearly doubles current state
     and assumes algo v1.5 plus push triggers deliver.
 
 - KR2: Increase 30-day retention among Resurface-engaged members from
-  56% to 68% [fictional] (vs 31% baseline among non-Resurface members).
+  56% to 68% [fictional] (vs 31% baseline [fictional] among non-Resurface members).
   - Metric: percentage of members who engaged with Resurface at least
     once in week 1 and returned at least once in days 8-30.
   - Baseline: 56% [fictional] (Q2 2026 cohort).
   - Target: 68% [fictional] by 2026-09-30.
-  - Evidence source: cohort dashboard `resurface-30d-retention-q3`.
+  - Evidence source: cohort dashboard `resurface-30d-retention-q3` [fictional].
   - Owner: priya-pm.
   - Indicator class: lagging (30-day window).
   - Confidence: medium. Depends on whether the multiplier holds at
@@ -137,7 +137,7 @@ specific cadence.)
     survey ("How relevant was this to you?").
   - Baseline: 4.2 / 5 [fictional] (Q2 2026 average).
   - Target: maintain or improve.
-  - Evidence source: post-interaction survey (~5% sample rate).
+  - Evidence source: post-interaction survey (~5% sample rate) [fictional].
   - Owner: priya-pm.
   - Indicator class: guardrail.
   - Confidence: high. Protects against the failure mode where push
@@ -171,12 +171,12 @@ specific cadence.)
 ## Guardrails and Health Checks
 
 - Guardrail 1: Member-reported "Resurface item felt repetitive" rate
-  stays below 8% [fictional] threshold (Q2 baseline 5%).
+  stays below 8% [fictional] threshold (Q2 baseline 5% [fictional]).
   - Why: algo v1.5 may over-surface a narrow content set. If users
     perceive repetition, engagement gains are hollow.
 
 - Guardrail 2: Push notification opt-out rate stays below 6% [fictional]
-  (Q2 baseline 3.1%).
+  (Q2 baseline 3.1% [fictional]).
   - Why: aggressive push triggers risk users disabling all Brainshelf
     notifications, which damages retention well beyond Resurface.
 
@@ -184,11 +184,11 @@ specific cadence.)
 
 - Parent or strategy link: Company OKR "Increase 30-day member retention
   from 31% to 42% [fictional] by year-end." This Resurface OKR is the
-  primary retention lever; Onboarding team and Sharing team have
-  secondary retention OKRs.
+  primary retention lever [fictional]; Onboarding team and Sharing team have
+  secondary retention OKRs [fictional].
 - Peer dependencies:
   - Onboarding team owns Initiative 3 first-session UX. Confirmed
-    capacity in Q3 planning.
+    capacity in Q3 planning [fictional].
   - Notifications platform team owns push infrastructure for Initiative
     2. No new asks from us this quarter.
 - Known conflicts:
@@ -205,7 +205,7 @@ specific cadence.)
 ## Quality Audit
 
 - Strategic fit: pass. Clear link to company retention OKR via
-  "Resurface is the largest single retention lever" logic.
+  "Resurface is the largest single retention lever" [fictional] logic.
 - Objective quality: pass. "Reason members come back each week" implies
   a habit-forming behavior change, not a feature delivery.
 - KR outcome quality: pass. All three KRs measure member behavior or
@@ -228,8 +228,8 @@ specific cadence.)
 
 ## Open Questions
 
-1. The 3.4x retention multiplier was observed in a 500-user beta cohort
-   that self-selected into the program. Will it hold at population
+1. The 3.4x retention multiplier [fictional] was observed in a 500-user beta cohort
+   that self-selected into the program [fictional]. Will it hold at population
    scale, where members did not opt in? KR2 design will measure this,
    but the team should pre-commit to a "validated multiplier" threshold
    below which the strategy needs to change next cycle.
