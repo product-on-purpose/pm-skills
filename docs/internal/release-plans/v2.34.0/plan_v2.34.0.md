@@ -200,3 +200,16 @@ The evaluation-sizing block produced zero findings across the nine rounds after 
 **Do not let this cycle inherit twelve rounds as a norm.** A cycle whose fixes delete or mark should converge in the two or three rounds v2.32.0 took. If round counts start climbing again, that is the signal that the fixes have turned from deleting into authoring.
 
 Pre-register the stopping condition before the gate opens, per D23. A quality-shaped rule ("stop when findings fall below severity X") assumes findings converge; when the fix rate equals the damage rate, that rule never fires.
+
+---
+
+## G1 adversarial review: the stopping condition, pre-registered 2026-10-17
+
+This rule is committed before round 1 runs, so the end of the gate cannot be argued as a moved goalpost. It applies the v2.33.0 D23 option A rule from the first round instead of after the eleventh.
+
+- **Instrument of record.** The Codex companion `adversarial-review` runs with base `v2.33.0` and branch scope. Its focus is the user-facing change set: `deliver-prd` 3.1.0, `deliver-acceptance-criteria` 1.1.1, `utility-pm-skill-builder` 1.3.0, `utility-pm-skill-iterate` 1.1.0, the `[fictional]` convention text, the widened samples checker, and the release runbook. Codex returns the findings; Claude transcribes them and never authors one. A run that exits with "Turn failed" or a usage-limit message is an aborted round, not a clean one, and it is re-run rather than counted.
+- **Round 1 reviews the whole branch.** A finding Codex rates critical or high is closed before the tag. It is deferred to v2.35.0 with a written rationale only if closing it means authoring new methodology. A medium or low finding is closed or acknowledged.
+- **Fixes delete or mark.** A fix removes the claim, marks it, or corrects a fact. A fix that would author new structure or methodology is deferred instead, because the v2.33.0 gate measured that authored fixes churn.
+- **Round 2 is the last adversarial round.** If round 1 produces a fix pass, one scoped recheck reviews only the surfaces that the fix pass changed. Whatever it returns, findings on those surfaces are closed by deleting or marking, and findings elsewhere are deferred to v2.35.0 with a rationale. The resulting fix pass is verified by a recorded finding-versus-result table, not by another round, and then the gate is attested.
+- **A clean round 1 ends the gate.** If round 1 returns no material findings and did not abort, the gate is attested after round 1 with no recheck.
+- **Fallback instrument.** If Codex cannot complete a round in this session after one re-run, an independent Claude reviewer runs the same focus, and this record states that the instrument changed.
