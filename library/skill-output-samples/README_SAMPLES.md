@@ -142,7 +142,13 @@ Unmarked method is what makes an invented synthesis read as corroborated, and an
 - **A thread team's own process.** The team's votes, polls and sign-offs, such as a dot count on a sketch, are the artifact's own decision record and are not marked.
 - **Restated claims.** Every occurrence is marked, because a reader who lands mid-section reads the claim, not an earlier marker.
 
-**Never marked:** the three thread companies and their team members, which are fictional by definition, and that team's own votes, polls and sign-offs; real competitor and vendor names, and stable public facts about them; decisions the artifact makes; and the artifact's own scaffolding, such as structural headings, requirement IDs and its own date.
+**Edge cases, ruled 2026-10-17.** The sweep of the library samples showed three more.
+
+- **Positional charts.** An ASCII chart whose invented content is where items sit, such as a positioning map or a 2x2, takes the code-fence notice line instead of inline markers, because no marker can attach to a position. An ASCII chart that shows numbers or claims as text still takes inline markers.
+- **Persona narrative.** A persona's archetype narrative, meaning its traits, routines, scenes, dialogue and objections, is the artifact's own construction and is not marked. Evidence inside a persona is marked: a statistic, a count, a research finding, a quote attributed to a research participant, or a named source.
+- **A thread team's own attributes.** A team member's role, background or prior employer, and the thread company's funding stage or team size, are scenario setup like the names, and are not marked. The thread company's business metrics, such as customer counts, revenue, rates and usage, are observations and are marked.
+
+**Never marked:** the three thread companies and their team members, which are fictional by definition, along with the team's roles, backgrounds and size, and its own votes, polls and sign-offs; a persona's archetype narrative; real competitor and vendor names, and stable public facts about them; decisions the artifact makes; and the artifact's own scaffolding, such as structural headings, requirement IDs and its own date.
 
 **What the check covers.** `scripts/check-sample-no-fabricated-metrics.mjs` is an advisory heuristic that flags only percentages. It scans both places the convention applies: library samples, where the input is the region before `## Output`, and every skill's `references/EXAMPLE.md`, where the input is empty. It cannot tell a decision from an invented observation, so it also flags targets and thresholds that are correctly left unmarked. Passing it does not mean a file follows this convention, and a finding does not mean the file breaks it.
 

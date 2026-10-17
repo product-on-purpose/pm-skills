@@ -41,14 +41,14 @@ context: "Workbench Day 1 AM (10:00-12:30 PT 2026-05-21); Basics block bundled a
 
 ## Team Advantage
 
-**Statement:** The Workbench team combines three capabilities rare in combination: (1) deep observability-platform product expertise (Priya was Datadog senior PM for tracing and dashboarding [fictional]), (2) distributed-tracing engineering pedigree (Marcus shipped Splunk's distributed-tracing infrastructure end to end [fictional]), (3) current target-customer empathy (Jin is actively on-call as a Series C SRE every week [fictional]).
+**Statement:** The Workbench team combines three capabilities rare in combination: (1) deep observability-platform product expertise (Priya was Datadog senior PM for tracing and dashboarding), (2) distributed-tracing engineering pedigree (Marcus shipped Splunk's distributed-tracing infrastructure end to end), (3) current target-customer empathy (Jin is actively on-call as a Series C SRE every week).
 
 **Why us, why now:**
 
-- Priya knows the observability category's commercial structure (pricing, sales motion, churn drivers) from the inside [fictional]
-- Marcus knows the production realities of distributed-tracing at scale; he knows where Datadog and competitors hit the wall [fictional]
-- Jin gives weekly customer-side reality checks: when product proposals would not actually help during an on-call shift, Jin flags it [fictional]
-- Ari's Plaid background includes payments-network debugging experience: a different but adjacent SRE-shaped problem space [fictional]
+- Priya knows the observability category's commercial structure (pricing, sales motion, churn drivers) from the inside
+- Marcus knows the production realities of distributed-tracing at scale; he knows where Datadog and competitors hit the wall
+- Jin gives weekly customer-side reality checks: when product proposals would not actually help during an on-call shift, Jin flags it
+- Ari's Plaid background includes payments-network debugging experience: a different but adjacent SRE-shaped problem space
 
 **What the team is NOT:**
 
