@@ -71,27 +71,27 @@ Understand how enterprise teams currently manage documentation standards, where 
 ### Methodology
 
 - **Format:** 45-minute semi-structured video calls
-- **Duration:** 38-52 minutes (average 44 minutes)
+- **Duration:** 38-52 minutes (average 44 minutes) [fictional]
 - **Interviewer(s):** Rachel V. (Technical PM, Blueprints); Tomas G. (Design Lead) observed 4 of 6 sessions
 - **Date Range:** October 6, 2025 to October 24, 2025
-- **Analysis Method:** Affinity mapping across all six transcripts, with themes validated against closed-beta telemetry where available
+- **Analysis Method:** Affinity mapping across all six transcripts, with themes validated against closed-beta telemetry where available [fictional]
 
 ### Participant Summary
 
 | ID | Role/Segment | Tenure | Interview Date | Notes |
 |----|--------------|--------|----------------|-------|
-| P1 | VP Ops, financial services (8,000 emp.) | 6 years in role | Oct 6 | Confluence power user; manages 40-person ops team [fictional] |
-| P2 | Director of Compliance, healthcare SaaS (2,200 emp.) | 4 years in role | Oct 9 | Regulatory audit background; SOC 2 and HIPAA workflows [fictional] |
-| P3 | Head of Product, logistics platform (1,500 emp.) | 3 years in role | Oct 14 | Migrated from Confluence to Notion 18 months ago [fictional] |
-| P4 | Engineering Manager, insurance carrier (4,000 emp.) | 5 years in role | Oct 16 | Dual-tool environment: Confluence for docs, SharePoint for approvals [fictional] |
-| P5 | Program Director, government contractor (6,500 emp.) | 8 years in role | Oct 21 | SharePoint-only; strict compliance requirements; no modern doc tool [fictional] |
-| P6 | Operations Lead, manufacturing SaaS (900 emp.) | 2 years in role | Oct 24 | Coda user; smallest org in sample; wears PM and ops hats [fictional] |
+| P1 | VP Ops, financial services (8,000 emp.) | 6 years in role [fictional] | Oct 6 | Confluence power user; manages 40-person ops team [fictional] |
+| P2 | Director of Compliance, healthcare SaaS (2,200 emp.) | 4 years in role [fictional] | Oct 9 | Regulatory audit background; SOC 2 and HIPAA workflows [fictional] |
+| P3 | Head of Product, logistics platform (1,500 emp.) | 3 years in role [fictional] | Oct 14 | Migrated from Confluence to Notion 18 months ago [fictional] |
+| P4 | Engineering Manager, insurance carrier (4,000 emp.) | 5 years in role [fictional] | Oct 16 | Dual-tool environment: Confluence for docs, SharePoint for approvals [fictional] |
+| P5 | Program Director, government contractor (6,500 emp.) | 8 years in role [fictional] | Oct 21 | SharePoint-only; strict compliance requirements; no modern doc tool [fictional] |
+| P6 | Operations Lead, manufacturing SaaS (900 emp.) | 2 years in role [fictional] | Oct 24 | Coda user; smallest org in sample; wears PM and ops hats [fictional] |
 
 ## Key Themes
 
 ### Theme 1: Documentation Inconsistency Is Treated as Inevitable
 
-**Prevalence:** 6 of 6 participants
+**Prevalence:** 6 of 6 participants [fictional]
 
 **Summary:** Every participant described documentation inconsistency as a known, accepted problem rather than one they actively try to solve. Teams create templates, but compliance with those templates is left to individual discipline. No participant reported having a mechanism that ensures a document is complete before it reaches an approver. Several participants noted that they had attempted process-based fixes (checklists, review meetings, Slack reminders) that degraded within weeks as teams reverted to old habits.
 
@@ -102,7 +102,7 @@ Understand how enterprise teams currently manage documentation standards, where 
 
 ### Theme 2: Approvers Are the Bottleneck, and They Know It
 
-**Prevalence:** 5 of 6 participants
+**Prevalence:** 5 of 6 participants [fictional]
 
 **Summary:** Approvers, typically department heads, compliance leads, or senior managers, are the most time-constrained people in the workflow. When they receive an incomplete document, they have two options: reject it (adding days to the cycle) or approve it anyway (creating compliance risk). Most approvers oscillate between both depending on urgency, which means the process has no predictable standard. The inconsistency of approver behavior was itself cited as a source of confusion for authors, who cannot predict whether an incomplete submission will be tolerated or rejected.
 
@@ -112,9 +112,9 @@ Understand how enterprise teams currently manage documentation standards, where 
 
 ### Theme 3: Confluence Fatigue Is Real but Migration Is Painful
 
-**Prevalence:** 4 of 6 participants (the 4 with Confluence experience)
+**Prevalence:** 4 of 6 participants (the 4 with Confluence experience) [fictional]
 
-**Summary:** Participants with Confluence experience described a consistent pattern: Confluence is entrenched, leadership is dissatisfied with it, but migration is considered too expensive and risky to pursue unless a new tool offers a clearly differentiated capability. Flexibility alone (Notion, Coda) is not sufficient motivation; the new tool must solve a problem Confluence cannot. P3, who completed a Confluence-to-Notion migration, described the experience as consuming four months of team bandwidth and ultimately failing to resolve the governance problem that motivated the switch.
+**Summary:** Participants with Confluence experience described a consistent pattern: Confluence is entrenched, leadership is dissatisfied with it, but migration is considered too expensive and risky to pursue unless a new tool offers a clearly differentiated capability. Flexibility alone (Notion, Coda) is not sufficient motivation; the new tool must solve a problem Confluence cannot. P3, who completed a Confluence-to-Notion migration, described the experience as consuming four months of team bandwidth [fictional] and ultimately failing to resolve the governance problem that motivated the switch.
 
 **Evidence:**
 - P1: "We've evaluated Notion twice. Both times the answer was 'it's nicer but it doesn't actually solve our approval problem; it just makes the writing experience better.' That's not enough to justify migrating 400 people." [fictional]
@@ -123,7 +123,7 @@ Understand how enterprise teams currently manage documentation standards, where 
 
 ### Theme 4: "Docs Police" Burden Falls on Middle Managers
 
-**Prevalence:** 4 of 6 participants
+**Prevalence:** 4 of 6 participants [fictional]
 
 **Summary:** In the absence of tool-enforced standards, middle managers become the enforcement mechanism, manually reviewing documents for completeness before they reach the formal approver. This creates a shadow approval layer that is undocumented, inconsistent, and resented by the people doing it. The burden is invisible to leadership because it does not appear in any workflow tool or time-tracking system; it is simply absorbed as overhead by the manager's day.
 
@@ -133,22 +133,22 @@ Understand how enterprise teams currently manage documentation standards, where 
 
 ## Notable Quotes
 
-> "Templates without enforcement are just suggestions with formatting."
+> "Templates without enforcement are just suggestions with formatting." [fictional]
 > P1, VP Ops, describing Confluence templates
 
-> "I don't want to be the docs police. I want the tool to be the docs police."
+> "I don't want to be the docs police. I want the tool to be the docs police." [fictional]
 > P6, Operations Lead, on manual completeness checks
 
-> "If you could guarantee that every document I see is complete, every section filled in, every field answered, I would pay for that tomorrow. That's not a feature, that's a workflow."
+> "If you could guarantee that every document I see is complete, every section filled in, every field answered, I would pay for that tomorrow. That's not a feature, that's a workflow." [fictional]
 > P2, Director of Compliance, on required-section enforcement
 
-> "We evaluated Notion. It's beautiful. It doesn't solve our problem. Our problem isn't writing; it's finishing."
+> "We evaluated Notion. It's beautiful. It doesn't solve our problem. Our problem isn't writing; it's finishing." [fictional]
 > P4, Engineering Manager, on the distinction between authoring UX and governance
 
-> "The approval cycle is 4 days on average, and I'd bet 3 of those days are the document sitting in someone's queue because it's not ready to approve. The actual approval decision takes 10 minutes."
-> P1, VP Ops, estimating approval latency [fictional]
+> "The approval cycle is 4 days on average, and I'd bet 3 of those days are the document sitting in someone's queue because it's not ready to approve. The actual approval decision takes 10 minutes." [fictional]
+> P1, VP Ops, estimating approval latency
 
-> "Confluence is like a filing cabinet that everyone has a key to. The files go in, but nobody checks if they're complete."
+> "Confluence is like a filing cabinet that everyone has a key to. The files go in, but nobody checks if they're complete." [fictional]
 > P3, Head of Product, after migrating away from Confluence
 
 ## Insights
@@ -167,7 +167,7 @@ Participants who evaluated or attempted Confluence migration reported that UX im
 
 ### Insight 3: Middle Managers Will Champion a Tool That Removes Their Shadow Approval Burden
 
-Four of six participants described an informal pre-approval review layer performed by middle managers who manually check document completeness before formal submission. This work is uncompensated, undocumented, and resented. Any tool that automates this check removes a concrete burden from a specific, identifiable persona: the middle manager who currently acts as the "docs police." These managers are also the most accessible entry point for bottom-up adoption because they experience the pain daily and have the organizational credibility to advocate for a new tool.
+Four of six participants [fictional] described an informal pre-approval review layer performed by middle managers who manually check document completeness before formal submission. This work is uncompensated, undocumented, and resented. Any tool that automates this check removes a concrete burden from a specific, identifiable persona: the middle manager who currently acts as the "docs police." These managers are also the most accessible entry point for bottom-up adoption because they experience the pain daily and have the organizational credibility to advocate for a new tool.
 
 **Implication:** Middle managers (ops leads, team leads, program managers) are the most likely internal champions for Blueprints adoption. They experience the pain daily, they have organizational credibility, and they will advocate for a tool that eliminates a task they dislike. Enterprise sales should target this persona for bottom-up evangelism alongside the top-down IT buyer conversation.
 
@@ -184,7 +184,7 @@ Four of six participants described an informal pre-approval review layer perform
 
 **1. Required-Section Enforcement as P0**
 
-Every interview confirmed that completeness, not authoring quality, is the enterprise documentation bottleneck. Blueprints must ship with the ability for template admins to designate sections as required and for the submission flow to block incomplete documents. This is the single most differentiated capability in the competitive set (no competitor has it; see competitive analysis) and is the capability that justifies Confluence migration. Karen L. and the engineering squad should treat this as the non-negotiable core of the v1 build.
+Every interview confirmed that completeness, not authoring quality, is the enterprise documentation bottleneck. Blueprints must ship with the ability for template admins to designate sections as required and for the submission flow to block incomplete documents. This is the single most differentiated capability in the competitive set (no competitor has it [fictional]; see competitive analysis) and is the capability that justifies Confluence migration. Karen L. and the engineering squad should treat this as the non-negotiable core of the v1 build.
 
 **2. Governance-First Positioning**
 
@@ -194,13 +194,13 @@ Marketing and sales should position Blueprints as a governance tool first, colla
 
 ### Methodology Notes
 
-Semi-structured interview guide with 12 core questions covering current documentation practices, approval workflows, tool satisfaction, and appetite for enforcement. Questions were open-ended; interviewers followed participant-led tangents when relevant. All sessions were recorded with participant consent and transcribed using Otter.ai. Thematic analysis was conducted using affinity mapping across all six transcripts. Tomas G. captured UX-specific observations in a separate design research log that will inform the Blueprint creation flow wireframes in January 2026.
+Semi-structured interview guide with 12 core questions [fictional] covering current documentation practices, approval workflows, tool satisfaction, and appetite for enforcement. Questions were open-ended; interviewers followed participant-led tangents when relevant. All sessions were recorded with participant consent and transcribed using Otter.ai [fictional]. Thematic analysis was conducted using affinity mapping across all six transcripts [fictional]. Tomas G. captured UX-specific observations in a separate design research log that will inform the Blueprint creation flow wireframes in January 2026 [fictional].
 
 ### Limitations
 
 - Sample skewed toward larger enterprises (4 of 6 participants at 2,000+ employees); findings may not generalize to SMB or mid-market buyers.
 - No participants from engineering-documentation-heavy organizations (e.g., developer tooling companies) where Confluence satisfaction may be higher due to Jira integration.
-- All participants were sourced through Workbench's existing prospect pipeline, which may over-represent buyers already dissatisfied with their current tools.
+- All participants were sourced through Workbench's existing prospect pipeline [fictional], which may over-represent buyers already dissatisfied with their current tools.
 - Participant count (6) is sufficient for thematic saturation on core themes but insufficient for quantitative claims about prevalence. Leo M. (Data Analyst) will supplement these qualitative findings with closed-beta telemetry analysis to validate the 38% incomplete-submission rate [fictional] quantitatively.
 
 ### Raw Notes

@@ -99,14 +99,14 @@ More: [full recap](2026-04-24_13-00EST_campaigns-pricing-decision_recap.md) | [t
 
 **Translations applied**:
 
-- "ARPU lift" from recap rephrased as "revenue per customer" (support audience)
+- "ARPU lift" from recap [fictional] rephrased as "revenue per customer" (support audience)
 - "Grandfathering" kept as-is (common term)
 - "Pro-rated billing" kept as-is (support audience familiar)
 - "Tier-feature matrix" link instead of inline table (support will have the matrix when it ships by 2026-05-08)
 
 **Flagged but kept**:
 
-- "Migration". customer-facing but ambiguous; support team has a different meaning for this internally. If playbook gets external-facing version, use "transition" instead.
+- "Migration". customer-facing but ambiguous; support team has a different meaning for this internally [fictional]. If playbook gets external-facing version, use "transition" instead.
 
 ---
 

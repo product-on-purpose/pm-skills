@@ -57,8 +57,8 @@ need the formal decision doc for marco. decision date: april 11, 2026.
 | **Decision Date** | April 11, 2026 |
 | **Decision Maker(s)** | Marco S. (CEO), Priya M. (Product Manager) |
 | **Product/Initiative** | Resurface . Morning Email Digest |
-| **Time in Market** | 8 weeks (feature shipped Feb 16, 2026; A/B test ran Mar 9  -  Apr 5, 2026) |
-| **Investment to Date** | 1 sprint (Sprint 8, 2 weeks, 2 backend engineers + 1 frontend + 1 designer) + 4 weeks of A/B test operation |
+| **Time in Market** | 8 weeks (feature shipped Feb 16, 2026; A/B test ran Mar 9  -  Apr 5, 2026) [fictional] |
+| **Investment to Date** | 1 sprint (Sprint 8, 2 weeks, 2 backend engineers + 1 frontend + 1 designer) + 4 weeks of A/B test operation [fictional] |
 
 ---
 
@@ -66,7 +66,7 @@ need the formal decision doc for marco. decision date: april 11, 2026.
 
 **Decision:** Persevere . ship the Resurface email digest to all eligible users and invest in v2 improvements.
 
-The 4-week A/B test produced a clear positive result: the treatment group's 7-day return rate was 23.4% [fictional] vs. 18.1% for control [fictional], a statistically significant +5.3pp lift (p = 0.008 [fictional]). All guardrail metrics passed (unsubscribe rate 1.3%/week [fictional], no app uninstall increase, no save rate decrease). The result validates the external trigger hypothesis and directly advances the Q1 retention OKR. The team will roll out the digest to all 9,800 eligible users [fictional] and begin Resurface v2 improvements (embedding-based topic matching, in-app complement, cadence experiment) in Sprint 9.
+The 4-week A/B test [fictional] produced a clear positive result: the treatment group's 7-day return rate was 23.4% [fictional] vs. 18.1% for control [fictional], a statistically significant +5.3pp lift (p = 0.008 [fictional]). All guardrail metrics passed (unsubscribe rate 1.3%/week [fictional], no app uninstall increase, no save rate decrease). The result validates the external trigger hypothesis and directly advances the Q1 retention OKR. The team will roll out the digest to all 9,800 eligible users [fictional] and begin Resurface v2 improvements (embedding-based topic matching, in-app complement, cadence experiment) in Sprint 9.
 
 ---
 
@@ -80,28 +80,28 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 
 | Metric | Current (Treatment) | Target | Gap |
 |--------|---------------------|--------|-----|
-| 7-day return rate | 23.4% [fictional] | 25% [fictional] | −1.6pp (approaching target) |
-| Email CTR | 17.2% [fictional] | ≥15% [fictional] | +2.2pp (exceeded target) |
+| 7-day return rate | 23.4% [fictional] | 25% [fictional] | −1.6pp (approaching target) [fictional] |
+| Email CTR | 17.2% [fictional] | ≥15% [fictional] | +2.2pp (exceeded target) [fictional] |
 | Unsubscribe rate (per week) | 1.3% [fictional] | ≤2% [fictional] | Within guardrail |
-| Opt-in rate | 41.0% [fictional] | ≥10% [fictional] | +31pp (far exceeded target) |
+| Opt-in rate | 41.0% [fictional] | ≥10% [fictional] | +31pp (far exceeded target) [fictional] |
 
 ### Timeline of Events
 
 | Date | Milestone | Outcome |
 |------|-----------|---------|
-| Feb 16, 2026 | Resurface shipped behind feature flag | 340 UK/EU timezone bug (patched within 2 hours) [fictional] |
+| Feb 16, 2026 | Resurface shipped behind feature flag [fictional] | 340 UK/EU timezone bug (patched within 2 hours) [fictional] |
 | Mar 2, 2026 | Opt-in enrollment begins | 41% opt-in rate by day 7 (4x target) [fictional] |
 | Mar 9, 2026 | A/B test starts | First digests sent to treatment group |
-| Apr 5, 2026 | A/B test ends (4 weeks) | Primary metric: +5.3pp, p = 0.008 [fictional] |
+| Apr 5, 2026 | A/B test ends (4 weeks) [fictional] | Primary metric: +5.3pp, p = 0.008 [fictional] |
 | Apr 6, 2026 | Results analyzed | Recommendation: ship |
 
 ### Resources Invested
 
 | Resource | Amount |
 |----------|--------|
-| Time | 8 weeks (2-week build sprint + 1 week setup + 4 weeks test + 1 week analysis) |
+| Time | 8 weeks (2-week build sprint + 1 week setup + 4 weeks test + 1 week analysis) [fictional] |
 | Budget | ~$20/month Resend (Developer plan) [fictional]; no additional infrastructure cost |
-| Team | 2 backend engineers × 2 weeks (Sprint 8); 1 frontend × 1 week; 1 designer × 1 week; 1 data analyst × 2 weeks (setup + analysis) |
+| Team | 2 backend engineers × 2 weeks (Sprint 8); 1 frontend × 1 week; 1 designer × 1 week; 1 data analyst × 2 weeks (setup + analysis) [fictional] |
 | Opportunity cost | Sprint 8 could have been used for library search improvements (deferred to Sprint 10) |
 
 ---
@@ -110,7 +110,7 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 
 ### Data That Triggered This Evaluation
 
-1. A/B test primary metric exceeded the pre-registered success threshold: +5.3pp lift in 7-day return rate (p = 0.008 [fictional]), meeting the ≥5pp MDE
+1. A/B test primary metric exceeded the pre-registered success threshold: +5.3pp lift in 7-day return rate [fictional] (p = 0.008 [fictional]), meeting the ≥5pp MDE
 2. Email CTR of 17.2% [fictional] exceeded the 15% target, indicating that the digest content is compelling enough to drive clicks
 3. Week-over-week return rate in the treatment group increased from 21.2% (week 1) to 25.1% (week 4) [fictional], showing habit formation rather than novelty decay
 
@@ -128,7 +128,7 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 ### Market Signals
 
 - Pocket (Mozilla) announced a "Resurface" feature in their February 2026 product update, validating the resurfacing concept in the read-later category [fictional]
-- Readwise continues to grow in the premium PKM segment; Brainshelf's freemium resurfacing differentiates from Readwise's $8 - 10/month offering
+- Readwise continues to grow in the premium PKM segment [fictional]; Brainshelf's freemium resurfacing differentiates from Readwise's $8 - 10/month offering [fictional]
 
 ### Internal Learnings
 
@@ -193,7 +193,7 @@ The Resurface email digest is live behind a feature flag for 400 treatment users
 - Push deep-links directly into the Brainshelf app, increasing in-app session time
 
 **Risks:**
-- Push notification fatigue is a well-documented risk; daily push notifications from consumer apps have high disable rates (~40% within 30 days per industry benchmarks)
+- Push notification fatigue is a well-documented risk; daily push notifications from consumer apps have high disable rates (~40% within 30 days per industry benchmarks) [fictional]
 - Brainshelf's current notification permission rate is unknown . if it is low, the addressable population may be smaller than email opt-in
 - Rebuilding the trigger mechanism as push requires a new sprint of development; the validated email approach is discarded
 
@@ -266,7 +266,7 @@ The in-app card (Option 3) will be built as a v2 complement because it can serve
 | Trade-off | Impact | Why Acceptable |
 |-----------|--------|----------------|
 | Ongoing email operational complexity | Team must maintain Resend integration and monitor inbox placement | Operational cost is low ($20/month [fictional]) and the alternative (no external trigger) has a higher cost (continued retention decline) |
-| ~59% of eligible users not yet opted in | Email trigger reaches only opted-in users [fictional] | In-app card (v2) will extend resurfacing to non-opted-in users; opt-in rate may continue to grow |
+| ~59% of eligible users not yet opted in [fictional] | Email trigger reaches only opted-in users [fictional] | In-app card (v2) will extend resurfacing to non-opted-in users; opt-in rate may continue to grow |
 | TF-IDF precision ~72% [fictional] | Some users receive irrelevant items | Embedding upgrade (v2) will improve precision to ~84% [fictional]; current unsubscribe rate is comfortably below guardrail |
 
 ### Dissenting Views

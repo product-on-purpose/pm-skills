@@ -40,7 +40,7 @@ Idea: A skill for defining email campaign measurement frameworks -- funnel metri
 
 Create new skill.
 
-Why Gate evidence: (1) `measure-dashboard-requirements` produced a dashboard spec but skipped funnel definition and attribution; (2) `measure-instrumentation-spec` produced event schemas but not the analytical framework connecting events to outcomes; (3) `measure-experiment-design` assumed A/B test structure rather than ongoing measurement. [fictional]
+Why Gate evidence: (1) `measure-dashboard-requirements` produced a dashboard spec but skipped funnel definition and attribution [fictional]; (2) `measure-instrumentation-spec` produced event schemas but not the analytical framework connecting events to outcomes [fictional]; (3) `measure-experiment-design` assumed A/B test structure rather than ongoing measurement. [fictional]
 
 ## Classification
 
@@ -59,7 +59,7 @@ measure-dashboard-requirements, measure-instrumentation-spec, measure-experiment
 
 ### Findings
 
-Existing skills assume the PM already knows which metrics matter or are scoped to A/B tests. None address funnel definition, cohort segmentation, or revenue attribution. [fictional]
+Existing skills assume the PM already knows which metrics matter or are scoped to A/B tests. [fictional] None address funnel definition, cohort segmentation, or revenue attribution. [fictional]
 
 ### Why this skill is still needed
 
@@ -92,7 +92,7 @@ metadata:
 
 ## Validation Checklist
 
-All 9 CI checks pass (name, description, version, updated, license, phase consistency, TEMPLATE.md sections, command path, AGENTS.md format). All 6 quality checks pass (EXAMPLE.md 180 lines, output contract, quality checklist, dominant zone identified, gap analysis on 6 skills, Why Gate names 3 prompts). [fictional]
+All 9 CI checks pass (name, description, version, updated, license, phase consistency, TEMPLATE.md sections, command path, AGENTS.md format). [fictional] All 6 quality checks pass (EXAMPLE.md 180 lines, output contract, quality checklist, dominant zone identified, gap analysis on 6 skills, Why Gate names 3 prompts). [fictional]
 
 ## Next Steps
 

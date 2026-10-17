@@ -109,7 +109,7 @@ The clear line to hold is that no healthcare or PHI-bearing deal closes until a 
 
 **What this means for Engineering**
 
-Two findings are yours to scope. The hard one: Blueprint content is stored as opaque Yjs binary, and there is no redaction or selective-deletion path inside the co-editing document (M4). That is non-trivial because the CRDT format is append-oriented and not designed for targeted removal, so honoring "delete this PHI" or "redact this field" likely means changes to the storage model, not a UI toggle. The smaller one: audit-log retention is 12 months today, and HIPAA-aligned customers expect 6 years for access logs (M5) - a retention-policy and storage-cost change more than an architecture change.
+Two findings are yours to scope. The hard one: Blueprint content is stored as opaque Yjs binary, and there is no redaction or selective-deletion path inside the co-editing document (M4). That is non-trivial because the CRDT format is append-oriented and not designed for targeted removal, so honoring "delete this PHI" or "redact this field" likely means changes to the storage model, not a UI toggle. The smaller one: audit-log retention is 12 months [fictional] today, and HIPAA-aligned customers expect 6 years [fictional] for access logs (M5) - a retention-policy and storage-cost change more than an architecture change.
 
 Both have real cost that competes with other roadmap work (M8), so the deliverable here is an honest scope, not a fix yet: estimate the CRDT redaction/selective-deletion path and the extended-retention change separately, with effort and risk, so the scope decision is made on real numbers rather than a hunch. Flag clearly if the redaction path is large enough to be its own multi-sprint effort.
 
@@ -153,7 +153,7 @@ The decision is binary and it is yours (M9): put HIPAA readiness in scope now - 
 
 - "PHI stored as opaque Yjs binary with no redaction/selective-deletion path" kept precise for Engineering; rendered for Legal as "no way to honor deletion and minimization obligations yet" and omitted from the CS/Support and Executive blocks as a mechanism (audience-specific).
 - "Business Associate Agreement (BAA)" expanded on first use and kept for Legal and Executive; for CS/Support reduced to "we will not take PHI until we can do it properly" so frontline staff are not negotiating contract terms.
-- "audit-log retention 12 months vs. 6 years expected" kept as a concrete spec for Engineering; surfaced to others only as part of "the three gaps" (audience: Engineering owns the fix).
+- "audit-log retention 12 months [fictional] vs. 6 years [fictional] expected" kept as a concrete spec for Engineering; surfaced to others only as part of "the three gaps" (audience: Engineering owns the fix).
 - "hard blocker" kept literal for Legal and Engineering (it gates the deal); rendered for the Executive as "legal exposure, not feature polish" to frame the stakes of deciding.
 
 **Flagged but kept** (may need review):

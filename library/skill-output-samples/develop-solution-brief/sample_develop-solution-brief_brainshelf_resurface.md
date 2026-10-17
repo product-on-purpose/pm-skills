@@ -56,7 +56,7 @@ doing topic matching instead).
 
 ## Problem Recap
 
-Brainshelf users save content enthusiastically (~47 items/month average [fictional]) but almost never return to read it: fewer than 9% of saved items are revisited within 30 days [fictional], and the 7-day return rate is 18% [fictional] . well below the Q1 retention OKR target of 25% [fictional]. The root cause identified in the January 2026 user interviews is the absence of any external trigger to return: users save, close the tab, and never think about the saved item again because nothing reminds them. The saved library has become a guilt pile rather than a reading resource.
+Brainshelf users save content enthusiastically (~47 items/month average [fictional]) but almost never return to read it: fewer than 9% of saved items are revisited within 30 days [fictional], and the 7-day return rate is 18% [fictional] . well below the Q1 retention OKR target of 25% [fictional]. The root cause identified in the January 2026 user interviews [fictional] is the absence of any external trigger to return: users save, close the tab, and never think about the saved item again because nothing reminds them [fictional]. The saved library has become a guilt pile rather than a reading resource.
 
 ## Proposed Solution
 
@@ -96,7 +96,7 @@ Resurface is a daily morning email digest that surfaces 3 - 5 saved items matche
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
 | Opt-in rate is below 10% [fictional], making the A/B experiment underpowered | Medium | High . experiment cannot reach statistical significance within 4 weeks if sample is too small | Monitor opt-in rate daily in week 1; if below 5% at day 7, extend enrollment window and test a revised opt-in prompt with stronger value proposition copy |
-| Digest emails land in Gmail promotions tab, reducing effective delivery | Medium | High . emails in promotions are opened at ~5% rate vs. ~20% for primary inbox | Use text-only layout (no images, no marketing patterns); configure SPF, DKIM, DMARC on day 1; monitor inbox placement using seed list testing in the first week |
+| Digest emails land in Gmail promotions tab, reducing effective delivery | Medium | High . emails in promotions are opened at ~5% rate [fictional] vs. ~20% for primary inbox [fictional] | Use text-only layout (no images, no marketing patterns); configure SPF, DKIM, DMARC on day 1; monitor inbox placement using seed list testing in the first week |
 | Topic-matching algorithm surfaces irrelevant items, eroding user trust | Medium | Medium . irrelevant items increase unsubscribe rate and reduce CTR | Set a minimum relevance score threshold; if fewer than 3 items pass the threshold, reduce the digest to the qualifying items rather than padding with low-relevance content. Monitor item-level CTR to identify consistently ignored topic categories |
 | Timezone handling error delivers digests at the wrong local time | Low | Medium . a 7:30 AM email delivered at 3:30 AM is ignored or creates a negative impression | Store timezone at opt-in; validate timezone against device locale; add integration test coverage for DST transitions and UTC offset edge cases |
 

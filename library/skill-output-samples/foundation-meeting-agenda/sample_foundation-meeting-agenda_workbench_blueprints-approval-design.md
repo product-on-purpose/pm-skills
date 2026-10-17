@@ -145,7 +145,7 @@ Co-design the approval-gate user experience for Blueprints v1.1. Outcome: a whit
 
 **Recommended context**
 
-- [Confluence approval-gate walkthrough (competitor)](https://notion.example/confluence-approval-teardown): for the shared-vocabulary pattern
+- [Confluence approval-gate walkthrough (competitor)](https://notion.example/confluence-approval-teardown) [fictional]: for the shared-vocabulary pattern
 
 **Come ready to**
 

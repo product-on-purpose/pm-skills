@@ -69,7 +69,7 @@ Please generate the full launch checklist with go/no-go criteria and a rollback 
 |---|---|
 | Launch name | Blueprints v1 GA |
 | Target date | April 28, 2026 |
-| Rollout scope | 80 closed-beta accounts to ~500 enterprise customers [fictional] |
+| Rollout scope | 80 closed-beta accounts [fictional] to ~500 enterprise customers [fictional] |
 | Launch owner | Rachel V. (Technical PM) |
 | Ship decision | Confirmed by Sandra C. (Head of Product), April 14, 2026 |
 | Feature flag | `blueprints_ga_enabled` (progressive rollout via LaunchDarkly) |
@@ -98,7 +98,7 @@ Please generate the full launch checklist with go/no-go criteria and a rollback 
 - [ ] Audit log retention policy enforced (12-month minimum per SOC 2 requirements)
 - [ ] SAML SSO integration tested with Okta, Azure AD, and OneLogin; generic SAML 2.0 fallback validated
 - [ ] All P1 bugs from closed beta resolved; zero open P1s at launch
-- [ ] Performance budget confirmed: client bundle ≤460KB gzipped (420KB baseline + 38KB Yjs [fictional])
+- [ ] Performance budget confirmed: client bundle ≤460KB gzipped (420KB baseline [fictional] + 38KB Yjs [fictional])
 - [ ] Yjs binary document export utility validated for data portability compliance
 
 ## QA & Testing

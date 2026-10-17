@@ -79,7 +79,7 @@ design notes, technical notes, and dependencies. P0 priority.
 
 ## Context & Background
 
-Merchant interviews identified three participants (P3, P6, P8) who have no email program despite acknowledging they should have one. All three cited setup complexity as the barrier: the moment they see a blank template or a list of filter options, they close the tab. The guided first-campaign flow eliminates that moment by presenting a ready-to-send campaign on first open . the merchant's own products in a pre-designed template, addressed to an audience that makes intuitive sense (customers who have already purchased). The hypothesis tied to this story targets an increase in first-send rate from 12% [fictional] to 30% [fictional] within 60 days of GA. This story is the primary delivery mechanism for that hypothesis.
+Merchant interviews identified three participants (P3, P6, P8) who have no email program despite acknowledging they should have one [fictional]. All three cited setup complexity as the barrier: the moment they see a blank template or a list of filter options, they close the tab [fictional]. The guided first-campaign flow eliminates that moment by presenting a ready-to-send campaign on first open . the merchant's own products in a pre-designed template, addressed to an audience that makes intuitive sense (customers who have already purchased). The hypothesis tied to this story targets an increase in first-send rate from 12% [fictional] to 30% [fictional] within 60 days of GA. This story is the primary delivery mechanism for that hypothesis.
 
 ## Acceptance Criteria
 

@@ -65,17 +65,17 @@ Approximate margin of error at N=180 is about +/- 7 percentage points (95%); tre
 
 | Q# | Question | Distribution (top picks) | Confidence | What it shows | What it does NOT show |
 |---|---|---|---|---|---|
-| Q1 | Your #1 most-wanted feature | Accuracy transparency 34% / Supplier lead-time 22% / Multi-warehouse 19% / Seasonal adj 15% / Mobile 10% `[fictional]` | Medium-High | Accuracy transparency leads cross-segment | Willingness to pay |
-| Q2 | Rate each feature 1-5 importance | Accuracy transparency mean 4.4; Multi-warehouse 3.6 `[fictional]` | Medium-High | Confirms the ranking | Intensity vs. actual usage |
-| Q3 | Company size (segment) | Small 45 / Mid 60 / Large 75 | - | Enables the segment cut | - |
+| Q1 | Your #1 most-wanted feature | Accuracy transparency 34% [fictional] / Supplier lead-time 22% [fictional] / Multi-warehouse 19% [fictional] / Seasonal adj 15% [fictional] / Mobile 10% [fictional] | Medium-High | Accuracy transparency leads cross-segment | Willingness to pay |
+| Q2 | Rate each feature 1-5 importance | Accuracy transparency mean 4.4 [fictional]; Multi-warehouse 3.6 [fictional] | Medium-High | Confirms the ranking | Intensity vs. actual usage |
+| Q3 | Company size (segment) | Small 45 [fictional] / Mid 60 [fictional] / Large 75 [fictional] | - | Enables the segment cut | - |
 
 ## Persona / Segment Breakdown
 
 | Segment | n | #1 feature | Note |
 |---|---|---|---|
-| Small (under 200 emp) | 45 | Accuracy transparency (42%) | Multi-warehouse near zero |
-| Mid (200-1000) | 60 | Accuracy transparency (33%) | Supplier lead-time strong here |
-| Large (1000+) | 75 | Multi-warehouse (38%) | Drives the entire multi-warehouse signal `[fictional]` |
+| Small (under 200 emp) | 45 [fictional] | Accuracy transparency (42% [fictional]) | Multi-warehouse near zero |
+| Mid (200-1000) | 60 [fictional] | Accuracy transparency (33% [fictional]) | Supplier lead-time strong here |
+| Large (1000+) | 75 [fictional] | Multi-warehouse (38% [fictional]) | Drives the entire multi-warehouse signal `[fictional]` |
 
 All three segments exceed n=30, so the cuts are defensible. The key finding: **multi-warehouse demand lives almost entirely in the large segment**; overall it looked like a mid-tier ask only because large customers pulled it up.
 
@@ -85,17 +85,17 @@ AI-assisted clustering of the optional comment field (96 responses `[fictional]`
 
 | Theme | Approx. mentions | Representative quotes | Valence | Note |
 |---|---|---|---|---|
-| Trust in the forecast | ~40 | "I need to know when to trust a number" `[fictional]` | Request | Reinforces accuracy-transparency |
-| Multi-warehouse (large only) | ~20 | "We run 6 DCs, single-warehouse is a dealbreaker" `[fictional]` | Negative | Large-segment only |
-| Supplier lead-time | ~18 | "lead-time variance wrecks our reorders" `[fictional]` | Request | Strong in mid |
+| Trust in the forecast | ~40 [fictional] | "I need to know when to trust a number" `[fictional]` | Request | Reinforces accuracy-transparency |
+| Multi-warehouse (large only) | ~20 [fictional] | "We run 6 DCs, single-warehouse is a dealbreaker" `[fictional]` | Negative | Large-segment only |
+| Supplier lead-time | ~18 [fictional] | "lead-time variance wrecks our reorders" `[fictional]` | Request | Strong in mid |
 
 ## Hypothesis Validation
 
 | Hypothesis | Status | Evidence | Confidence |
 |---|---|---|---|
-| H1: Multi-warehouse is the top ask | CONTRADICTED | Ranks 3rd overall (19%); demand is large-segment-only | Medium-High |
-| H2: Seasonal adjustment is a close second | INCONCLUSIVE | Ranks 4th (15%); no strong segment signal | Medium |
-| Emergent: Accuracy transparency is the top cross-segment ask | SUPPORTED | #1 overall (34%), highest importance mean, top in 2 of 3 segments | Medium-High |
+| H1: Multi-warehouse is the top ask | CONTRADICTED | Ranks 3rd overall (19% [fictional]); demand is large-segment-only | Medium-High |
+| H2: Seasonal adjustment is a close second | INCONCLUSIVE | Ranks 4th (15% [fictional]); no strong segment signal | Medium |
+| Emergent: Accuracy transparency is the top cross-segment ask | SUPPORTED | #1 overall (34% [fictional]), highest importance mean, top in 2 of 3 segments | Medium-High |
 
 ## What the Data Does NOT Show
 

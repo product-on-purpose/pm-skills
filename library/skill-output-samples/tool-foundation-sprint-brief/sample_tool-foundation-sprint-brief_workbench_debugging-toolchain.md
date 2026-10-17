@@ -18,16 +18,16 @@ context: "Workbench pre-seed developer tooling; brief authored after Go readines
 **Name:** Workbench Foundation Sprint
 **Purpose:** Resolve specialized-debugger vs general-observability strategic direction in 2 days, ending with a ratified Founding Hypothesis to guide design-partner pilot conversations and the 8-12 week v0.1 build plan.
 
-**Why a Foundation Sprint:** Stakes are meaningful (8-12 months of build before market signal). Priya and Marcus have credible but opposing starting beliefs. Team has existing SRE knowledge but is split on direction. Readiness verdict is Go with awareness on validation path (covered separately by Priya's design-partner conversion track).
+**Why a Foundation Sprint:** Stakes are meaningful (8-12 months of build before market signal). Priya and Marcus have credible but opposing starting beliefs [fictional]. Team has existing SRE knowledge but is split on direction [fictional]. Readiness verdict is Go with awareness on validation path (covered separately by Priya's design-partner conversion track).
 
 ## Team
 
 | Role | Member | Capacity confirmation |
 |---|---|---|
 | Decider | Priya (founder, PM) | Confirmed: full both days |
-| Engineering | Marcus (engineering lead, ex-Splunk) | Confirmed: full both days |
-| Design | Ari (design lead, ex-Plaid) | Confirmed: full both days |
-| Customer expert | Jin (advisor; current Series C SRE) | Confirmed: full both days |
+| Engineering | Marcus (engineering lead, ex-Splunk [fictional]) | Confirmed: full both days |
+| Design | Ari (design lead, ex-Plaid [fictional]) | Confirmed: full both days |
+| Customer expert | Jin (advisor; current Series C SRE [fictional]) | Confirmed: full both days |
 | Facilitator | Ari (Days 1 + 2 AM); Priya (Day 2 PM Magic Lenses) | Confirmed |
 
 Team size: 4 people including Decider. Within canonical 3-5 range.
@@ -37,8 +37,8 @@ Team size: 4 people including Decider. Within canonical 3-5 range.
 **Dates:** 2026-05-21 (Day 1) + 2026-05-22 (Day 2)
 **Hours:** 10:00-18:00 PT both days, with 1-hour lunch
 **Location:** Workbench Oakland office, "Bay 7" conference room; FigJam board for asynchronous capture
-**Pre-sprint comms:** Priya sends brief + 19-interview synthesis to team 2 days before (2026-05-19 EOD)
-**During-sprint comms:** No Slack, no email, phones in basket at door (Jin gets exception via SMS for active production incidents at his employer)
+**Pre-sprint comms:** Priya sends brief + 19-interview [fictional] synthesis to team 2 days before (2026-05-19 EOD)
+**During-sprint comms:** No Slack, no email, phones in basket at door (Jin gets exception via SMS for active production incidents at his employer [fictional])
 
 ## Success Criteria
 
@@ -47,7 +47,7 @@ The sprint succeeds when all four are true at end of Day 2:
 1. **A single Founding Hypothesis exists** matching the strict canonical template, ratified by Priya at Day 2 end Decider Checkpoint.
 2. **A top bet AND a backup plan exist** for the v0.1 build direction. Top bet enters design-partner conversion + 8-12 week build; backup is documented for explicit pivot.
 3. **An assumption scorecard exists** with 5-7 named assumptions, ranked by risk, with the highest-risk assumption identified as the primary validation target.
-4. **Priya is willing to commit Workbench to the chosen direction publicly** to design-partner candidates and to the seed-round investors she's beginning conversations with.
+4. **Priya is willing to commit Workbench to the chosen direction publicly** to design-partner candidates and to the seed-round investors she's beginning conversations with [fictional].
 
 Counter-criteria (the sprint did NOT succeed if):
 
@@ -79,10 +79,10 @@ Counter-criteria (the sprint did NOT succeed if):
 
 | Risk | Mitigation |
 |---|---|
-| Priya and Marcus have opposing starting beliefs (specialized vs general) | Use `tool-note-and-vote` whenever conversation stalls; Decider supervote binding |
-| Jin's lived experience is one-company-specific | Jin's voice in Basics is heavy but team explicitly cross-checks with the broader 19-interview synthesis |
+| Priya and Marcus have opposing starting beliefs (specialized vs general) [fictional] | Use `tool-note-and-vote` whenever conversation stalls; Decider supervote binding |
+| Jin's lived experience is one-company-specific [fictional] | Jin's voice in Basics is heavy but team explicitly cross-checks with the broader 19-interview [fictional] synthesis |
 | Team tempted to ship "specialized debugger that grows into observability platform" (combined fantasy) | Mini Manifesto negative-positioning paragraph explicitly forbids the combination in v0.1 |
-| Marcus has Splunk muscle memory that bends toward general-observability shape | Priya monitors and surfaces if it shows up; not an issue, just an awareness item |
+| Marcus has Splunk muscle memory that bends toward general-observability shape [fictional] | Priya monitors and surfaces if it shows up; not an issue, just an awareness item |
 
 ## Output Path
 

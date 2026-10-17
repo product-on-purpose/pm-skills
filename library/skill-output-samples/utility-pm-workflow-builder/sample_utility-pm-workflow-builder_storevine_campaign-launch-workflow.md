@@ -45,7 +45,7 @@ the Campaigns team can run it the same way.
 
 **Build it.** The Why Gate fired against Feature Kickoff and Post-Launch Learning and was passed with specific evidence:
 
-1. "Template release every 2-3 weeks" is a recurring comms-and-readiness loop; Feature Kickoff frames a NEW feature from the problem up and would re-litigate settled scope every run.
+1. "Template release every 2-3 weeks" [fictional] is a recurring comms-and-readiness loop; Feature Kickoff frames a NEW feature from the problem up and would re-litigate settled scope every run.
 2. "Merchant release notes and the internal update must tell the same story" requires both artifacts in one pass; no existing workflow sequences release notes with a stakeholder update.
 3. Post-Launch Learning starts AFTER ship (instrumentation, results); this loop ends at ship.
 

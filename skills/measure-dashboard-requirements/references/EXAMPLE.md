@@ -215,8 +215,8 @@ context: Product health dashboard for SaaS platform
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  [DAU: 12.4K]  [Stickiness: 32%]  [D30 Ret: 42%]  [TTFV: 2.3d]    │
-│     ▲ +5%          ▼ -2%              ▲ +3%           ▼ +0.2d      │
+│  [DAU: 12.4K [fictional]]  [Stickiness: 32% [fictional]]  [D30 Ret: 42% [fictional]]  [TTFV: 2.3d [fictional]]    │
+│     ▲ +5% [fictional]          ▼ -2% [fictional]              ▲ +3% [fictional]           ▼ +0.2d [fictional]      │
 ├────────────────────────────────┬────────────────────────────────────┤
 │                                │                                    │
 │  📈 Engagement Trend           │  📊 Feature Adoption               │

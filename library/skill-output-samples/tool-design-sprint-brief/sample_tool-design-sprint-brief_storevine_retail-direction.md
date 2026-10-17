@@ -19,7 +19,7 @@ Following the readiness Go verdict 2026-07-01, Carlos confirmed 6 slots by 2026-
 
 ## Challenge Statement and Why-Now
 
-Redesign the Monday brief interface to lift merchandiser comprehension of the top 3 ranked actions to under 5 minutes (currently ~8 min) and actionability rating to 4.2 of 5 (currently 3.6). This week because the pilot retention conversations close 2026-07-31 and Mei's call to convert to paid GA depends on interface validation; missing this window pushes seed-round fundraising into Q4.
+Redesign the Monday brief interface to lift merchandiser comprehension of the top 3 ranked actions to under 5 minutes (currently ~8 min [fictional]) and actionability rating to 4.2 of 5 (currently 3.6 [fictional]). This week because the pilot retention conversations close 2026-07-31 and Mei's call to convert to paid GA depends on interface validation; missing this window pushes seed-round fundraising into Q4.
 
 ## Sprint Questions
 
@@ -62,7 +62,7 @@ Redesign the Monday brief interface to lift merchandiser comprehension of the to
 
 **Medium:** Clickable Figma of Monday brief PDF + companion web page.
 
-**Rationale:** Brief format is what's being tested; Figma fakes the PDF + web page convincingly for a 30-min interview without requiring real data-pipeline + analyst-review backend. Tasha has built comparable Figma prototypes; medium is proven.
+**Rationale:** Brief format is what's being tested; Figma fakes the PDF + web page convincingly for a 30-min interview without requiring real data-pipeline + analyst-review backend. Tasha has built comparable Figma prototypes [fictional]; medium is proven.
 
 **Build owners:** Tasha (Maker + Stitcher) + Devon (data realism; sample brief data).
 

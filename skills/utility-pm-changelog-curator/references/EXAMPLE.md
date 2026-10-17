@@ -81,6 +81,8 @@ Hidden justification comments are included after each entry for maintainer audit
 
 ## Status
 
+Values in the block below are [fictional].
+
 ```yaml
 status: draft
 target_version: v2.16.0

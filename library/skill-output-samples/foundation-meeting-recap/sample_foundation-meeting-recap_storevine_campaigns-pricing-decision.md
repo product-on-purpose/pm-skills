@@ -100,13 +100,13 @@ Full recap linked below.
 ### Meeting details
 
 - **Date**: 2026-04-24
-- **Actual duration**: 50 min (ran 5 over)
+- **Actual duration**: 50 min (ran 5 over) [fictional]
 - **Attendees present**: jonathan-pm, maria-eng, alex-marketing, sam-data
 - **Recording**: https://meet.example/campaigns-pricing-recording
 
 ### Overall summary
 
-All three planned decisions landed: two-tier structure ($19 / $49), 12-month grandfathering for beta users, and 2026-06-10 rollout. An emergent question on comms-plan ownership was resolved (alex-marketing owns). Meeting ran 5 minutes over due to the comms-plan discussion.
+All three planned decisions landed: two-tier structure ($19 [fictional] / $49 [fictional]), 12-month grandfathering for beta users, and 2026-06-10 rollout. An emergent question on comms-plan ownership was resolved (alex-marketing owns). Meeting ran 5 minutes over [fictional] due to the comms-plan discussion.
 
 ### Agenda reconciliation
 
@@ -122,7 +122,7 @@ All three planned decisions landed: two-tier structure ($19 / $49), 12-month gra
 
 **Discussion**
 
-Reviewed three options from the pricing proposal: single-tier, two-tier, and three-tier. Competitive reference: Klaviyo's pricing structure (real). Sam's data showed [fictional] 68% of current Campaigns beta users correlate with Storevine merchants earning $10K-$100K/mo GMV, supporting a two-tier model matching merchant revenue bands.
+Reviewed three options from the pricing proposal: single-tier, two-tier, and three-tier. Competitive reference: Klaviyo's pricing structure (real). Sam's data showed 68% of current Campaigns beta users correlate with Storevine merchants earning $10K-$100K/mo GMV [fictional], supporting a two-tier model matching merchant revenue bands.
 
 **Decisions made**
 
@@ -144,11 +144,11 @@ Reviewed three options from the pricing proposal: single-tier, two-tier, and thr
 
 **Discussion**
 
-Beta users currently pay a promotional $9/mo [fictional]. Options discussed: no grandfathering (migration on launch), 6-month grandfathering, 12-month grandfathering. Alex flagged that abrupt migration would generate support volume and damage trust; sam flagged that [fictional] 12-month grandfathering costs ~$18K in foregone revenue but preserves ~340 accounts.
+Beta users currently pay a promotional $9/mo [fictional]. Options discussed: no grandfathering (migration on launch), 6-month grandfathering, 12-month grandfathering. Alex flagged that abrupt migration would generate support volume and damage trust; sam flagged that 12-month grandfathering costs ~$18K in foregone revenue but preserves ~340 accounts [fictional].
 
 **Decisions made**
 
-- **12-month grandfathering at current beta pricing ($9/mo) for existing Campaigns beta users**. rationale: preserves trust; cost is bounded; standard pm-skills pattern for paid-tier migration
+- **12-month grandfathering at current beta pricing ($9/mo [fictional]) for existing Campaigns beta users**. rationale: preserves trust; cost is bounded; standard pm-skills pattern for paid-tier migration
 
 **Actions**
 
@@ -222,7 +222,7 @@ Alex raised the question of who owns the customer-comms rollout sequence. Consen
 ### Meeting quality signals
 
 - **Outcomes achieved**: 3 of 3 stated outcomes met
-- **Time management**: on time start; 5 min over due to emergent comms-plan topic
+- **Time management**: on time start; 5 min over [fictional] due to emergent comms-plan topic
 - **Key attendee presence**: all decision-makers present
 
 ### Next steps
@@ -236,7 +236,7 @@ Alex raised the question of who owns the customer-comms rollout sequence. Consen
 
 ### Primary inputs
 
-- Transcript: otter-recording-2026-04-24 (50 min, speaker-attributed)
+- Transcript: otter-recording-2026-04-24 (50 min [fictional], speaker-attributed)
 - jonathan-live-notes.md (supplementary for action-item context)
 
 ### Referenced artifacts

@@ -4,7 +4,7 @@ Friday 2026-06-05. Trial run passed Thursday 17:15 PT [fictional] (one minor cop
 
 ## Per-Customer Interview Observation Notes
 
-### Customer 1: UI-Panel-A (09:00 slot)
+### Customer 1: UI-Panel-A (09:00 slot) [fictional]
 
 **Profile summary:** US, age 38, M [fictional], reads ~35 books per year [fictional], currently uses paper journal + memory [fictional]; pre-screen score 8/10 on books-as-memory framing [fictional].
 
@@ -23,7 +23,7 @@ Friday 2026-06-05. Trial run passed Thursday 17:15 PT [fictional] (one minor cop
 - "The geolocation thing is the killer feature. I'd want it for the bookstore moment specifically." [fictional]
 - Pricing: "Maybe USD 4-5 a month. I'd pay for it if it works as fast as you just showed me." [fictional]
 
-### Customer 2: Discord-1 (10:30 slot)
+### Customer 2: Discord-1 (10:30 slot) [fictional]
 
 **Profile summary:** UK, age 31, F [fictional], reads ~50 books per year [fictional], currently uses Goodreads grudgingly + memory [fictional]; pre-screen score 9/10 [fictional].
 
@@ -42,7 +42,7 @@ Friday 2026-06-05. Trial run passed Thursday 17:15 PT [fictional] (one minor cop
 - "The undo is good. The whole 'are you sure?' thing in Goodreads is the worst." [fictional]
 - Pricing: "Five pounds a month. Easy. I'd pay seven if it had the search-by-context thing more prominently." [fictional]
 
-### Customer 3: Discord-4 (12:00 slot; buffer-activated Tuesday)
+### Customer 3: Discord-4 (12:00 slot; buffer-activated Tuesday) [fictional]
 
 **Profile summary:** US, age 36, M [fictional], reads ~28 books per year [fictional], currently uses no system [fictional]; pre-screen score 7/10 [fictional].
 
@@ -61,7 +61,7 @@ Friday 2026-06-05. Trial run passed Thursday 17:15 PT [fictional] (one minor cop
 - "The capture is good. The library felt empty - I'd want to see what it's like with a bunch of books in there." [fictional]
 - Pricing: "Maybe USD 3 a month? I'm not sure I'd actually use it enough to pay much more." [fictional]
 
-### Customer 4: Discord-3 (14:00 slot)
+### Customer 4: Discord-3 (14:00 slot) [fictional]
 
 **Profile summary:** Canada, age 29, M [fictional], reads ~30 books per year [fictional], currently uses Notes app + paper journal [fictional]; pre-screen score 8/10 [fictional].
 
@@ -80,7 +80,7 @@ Friday 2026-06-05. Trial run passed Thursday 17:15 PT [fictional] (one minor cop
 - "I want notes. I want to add my own context to each capture. The geolocation is great but I want my words too." [fictional]
 - Pricing: "Six dollars a month feels right. Eight if you had the notes thing." [fictional]
 
-### Customer 5: UI-Panel-B (15:30 slot)
+### Customer 5: UI-Panel-B (15:30 slot) [fictional]
 
 **Profile summary:** Australia, age 52, F [fictional], reads ~60 books per year [fictional], currently uses Bookly + paper notebooks [fictional]; pre-screen score 9/10 [fictional].
 

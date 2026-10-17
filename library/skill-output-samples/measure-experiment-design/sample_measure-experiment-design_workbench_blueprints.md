@@ -79,7 +79,7 @@ Stakeholders: Head of Product, Data Science, Engineering Lead (Blueprints)
 
 ## Background
 
-Blueprints closed beta telemetry shows that 38% of submitted Blueprints reach the approval queue with at least one empty section [fictional]. Approvers are the most senior stakeholders in the workflow, typically department heads and compliance leads, and the most common approval-stage action is rejection with a comment requesting missing content. This creates a back-and-forth cycle that inflates time-to-approval. In closed-beta interviews, several approvers described the cycle as "frustrating and avoidable," noting that they would prefer to review complete documents even if those documents take longer to arrive.
+Blueprints closed beta telemetry shows that 38% of submitted Blueprints reach the approval queue with at least one empty section [fictional]. Approvers are the most senior stakeholders in the workflow, typically department heads and compliance leads [fictional], and the most common approval-stage action is rejection with a comment requesting missing content. This creates a back-and-forth cycle that inflates time-to-approval. In closed-beta interviews, several approvers described the cycle as "frustrating and avoidable," [fictional] noting that they would prefer to review complete documents even if those documents take longer to arrive [fictional].
 
 The Define-phase hypothesis proposed that blocking submission until all required sections are complete would compress this cycle by ensuring Blueprints arrive at the approval queue ready for a substantive decision, not a completeness check. The risk is that enforcement creates authoring friction, causing authors to abandon Blueprints rather than complete them, which would move the bottleneck upstream rather than eliminate it. This experiment is designed to detect both the benefit and the risk.
 
@@ -146,7 +146,7 @@ The Define-phase hypothesis proposed that blocking submission until all required
 | **Blueprints per variant** | 250 [fictional] |
 | **Total Blueprints needed** | 500 [fictional] |
 
-*Note: Time-to-approval is right-skewed (most Blueprints approved in 1-2 days; a long tail runs to 10+ days). The Mann-Whitney U test is used over a t-test because it does not assume normality and is more appropriate for this distribution. Sample size was estimated using a simulation-based power analysis against the observed closed-beta distribution. Leo M. ran 10,000 simulated experiments to confirm that 250 Blueprints per variant provides 80% power at the specified MDE.*
+*Note: Time-to-approval is right-skewed (most Blueprints approved in 1-2 days; a long tail runs to 10+ days) [fictional]. The Mann-Whitney U test is used over a t-test because it does not assume normality and is more appropriate for this distribution. Sample size was estimated using a simulation-based power analysis against the observed closed-beta distribution. Leo M. ran 10,000 simulated experiments [fictional] to confirm that 250 Blueprints per variant provides 80% power at the specified MDE.*
 
 ### Duration Estimate
 
@@ -158,7 +158,7 @@ The Define-phase hypothesis proposed that blocking submission until all required
 | **Weeks to reach sample size** | ~2 weeks for sample; 4 weeks recommended |
 | **Recommended duration** | 4 weeks (ends 2026-04-05) |
 
-*Four weeks is recommended despite reaching sample size in approximately 2 weeks. Enterprise tools exhibit strong weekly patterns (Monday kickoff docs, Friday approval delays, month-end compliance pushes); a 4-week window captures two full business cycles and reduces the risk of a week-specific anomaly driving the result. Additionally, the longer window provides a more robust read on guardrail metrics like abandonment, which may take days to manifest after initial exposure to the treatment.*
+*Four weeks is recommended despite reaching sample size in approximately 2 weeks. Enterprise tools exhibit strong weekly patterns (Monday kickoff docs, Friday approval delays, month-end compliance pushes) [fictional]; a 4-week window captures two full business cycles and reduces the risk of a week-specific anomaly driving the result. Additionally, the longer window provides a more robust read on guardrail metrics like abandonment, which may take days to manifest after initial exposure to the treatment.*
 
 ## Audience Targeting
 
@@ -226,5 +226,5 @@ Primary metric shows a positive direction but effect size is below MDE (< 1.0 da
 
 - [Hypothesis: Blueprint Required Sections Reduce Time-to-Approval](#) (Define-phase hypothesis document)
 - [Figma: Blueprints Authoring, Current State and Treatment Mockups](#)
-- [Blueprints Closed Beta Telemetry Summary, Sprint 8](#) (baseline approval data and abandonment rates)
+- [Blueprints Closed Beta Telemetry Summary, Sprint 8](#) [fictional] (baseline approval data and abandonment rates)
 - LinkedIn Engineering: "Experiment Rigor at LinkedIn" (MDE methodology and enterprise experiment duration guidance)

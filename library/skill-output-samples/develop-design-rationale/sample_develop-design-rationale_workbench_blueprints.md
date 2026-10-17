@@ -59,7 +59,7 @@ Stakeholders: Sandra C. (Head of Product), Karen L. (Eng Lead), Tomas G. (Design
 
 ## Decision Summary
 
-**Selected Option C (Hybrid):** Guided wizard for first-time Blueprint creation, blank canvas for returning authors. The wizard walks authors through each required section with inline guidance and validation, then transitions to the canvas experience after the author has completed at least one Blueprint from that template. Authors can switch to canvas mode at any time via a "Skip wizard" option. This approach directly addresses the tension surfaced in discovery interviews, where middle managers reported spending significant time policing document completeness rather than reviewing content quality.
+**Selected Option C (Hybrid):** Guided wizard for first-time Blueprint creation, blank canvas for returning authors. The wizard walks authors through each required section with inline guidance and validation, then transitions to the canvas experience after the author has completed at least one Blueprint from that template. Authors can switch to canvas mode at any time via a "Skip wizard" option. This approach directly addresses the tension surfaced in discovery interviews, where middle managers reported spending significant time policing document completeness rather than reviewing content quality [fictional].
 
 **Decision Date:** January 15, 2026
 **Decision Maker:** Rachel V. (Technical PM, Blueprints)
@@ -85,7 +85,7 @@ Enterprise authors creating a Blueprint for the first time need clear guidance o
 
 ### Design Principles Applied
 
-- **Progressive disclosure:** Show complexity only when the user is ready for it. New authors see guidance; experienced authors see the canvas. This mirrors how onboarding works in the best enterprise tools, where initial hand-holding fades once the user demonstrates competence.
+- **Progressive disclosure:** Show complexity only when the user is ready for it. New authors see guidance; experienced authors see the canvas. This mirrors how onboarding works in the best enterprise tools, where initial hand-holding fades once the user demonstrates competence [fictional].
 - **Enforcement through UX, not friction:** Required sections should feel like a helpful checklist, not a gate. The wizard frame makes enforcement feel structured rather than blocking.
 - **Respect the expert:** Experienced authors should never be forced through a flow they have already completed. The "Skip wizard" escape hatch and automatic transition to canvas mode honor author expertise.
 
@@ -96,7 +96,7 @@ Enterprise authors creating a Blueprint for the first time need clear guidance o
 Step-by-step flow with one section per screen, a progress indicator showing completion status, and inline validation that confirms each section is complete before advancing. The author cannot submit until all required sections show a green checkmark. The wizard also provides helper text for each section, explaining what the section expects and offering a brief example.
 
 **Pros:** Highest first-submission completeness; clear enforcement without ambiguity; onboarding-like experience reduces the need for separate training materials.
-**Cons:** Experienced authors find wizards patronizing; adds 1 sprint of engineering effort [fictional]; does not scale well to templates with 15+ sections (too many steps); the sequential flow prevents authors from drafting sections out of order, which some beta testers flagged as frustrating.
+**Cons:** Experienced authors find wizards patronizing; adds 1 sprint of engineering effort [fictional]; does not scale well to templates with 15+ sections (too many steps); the sequential flow prevents authors from drafting sections out of order, which some beta testers flagged as frustrating [fictional].
 
 ### Option B: Blank Canvas
 
@@ -136,11 +136,11 @@ Guided wizard for first-time creation, blank canvas for returning authors. The s
 
 ### User Research Input
 
-Closed-beta preference test with 8 users [fictional] (4 first-time Blueprint creators, 4 who had created at least 2 Blueprints):
+Closed-beta preference test with 8 users [fictional] (4 first-time Blueprint creators, 4 who had created at least 2 Blueprints) [fictional]:
 
 - 6 of 8 users preferred the wizard for their first Blueprint. Primary reason: "I didn't know what the sections expected until the wizard explained it." [fictional]
 - 5 of 8 users preferred the canvas after their second Blueprint. Primary reason: "I already know what goes where. Just let me write." [fictional]
-- 3 of 8 users explicitly mentioned the "Skip wizard" option as important. One user said: "I'd be annoyed if I couldn't skip it on my second document." [fictional]
+- 3 of 8 users explicitly mentioned the "Skip wizard" option as important [fictional]. One user said: "I'd be annoyed if I couldn't skip it on my second document." [fictional]
 - 2 of 8 users noted they would have preferred to jump between sections in the wizard rather than following a strict sequence, reinforcing the importance of the "Skip wizard" escape hatch [fictional].
 
 ## Decision Rationale
@@ -149,12 +149,12 @@ Closed-beta preference test with 8 users [fictional] (4 first-time Blueprint cre
 
 The hybrid approach directly addresses the tension between first-time completeness and expert efficiency. The preference test showed a clear split: new authors need guidance, experienced authors resent it. Option C is the only option that adapts to the author's experience level without manual configuration. It also aligns with the broader Blueprints value proposition, which positions required-section enforcement as a productivity tool rather than a compliance burden.
 
-The incremental engineering cost (+0.5 sprints over Option A [fictional]) is justified by the long-term reduction in author friction. Enterprise Blueprints is a retention feature; if experienced authors find the creation flow patronizing, they will resist adoption and the governance value proposition degrades. Mei-Lin T. (Enterprise Sales Lead) reinforced this point, noting that two prospects in active sales conversations specifically asked whether Blueprints would "feel like another form to fill out."
+The incremental engineering cost (+0.5 sprints over Option A [fictional]) is justified by the long-term reduction in author friction. Enterprise Blueprints is a retention feature; if experienced authors find the creation flow patronizing, they will resist adoption and the governance value proposition degrades. Mei-Lin T. (Enterprise Sales Lead) reinforced this point, noting that two prospects in active sales conversations specifically asked whether Blueprints would "feel like another form to fill out." [fictional]
 
 ### Key Differentiators
 
 - Automatic transition from wizard to canvas removes the need for manual preference settings, admin configuration, or per-template flow selection.
-- The "Skip wizard" escape hatch ensures that no author is ever trapped in a flow they do not want, which is critical for enterprise adoption where author autonomy is culturally important.
+- The "Skip wizard" escape hatch ensures that no author is ever trapped in a flow they do not want, which is critical for enterprise adoption where author autonomy is culturally important [fictional].
 - Auto-disabling the wizard for templates with 12+ sections [fictional] prevents the worst-case UX (a 15-step wizard) while still providing guidance on shorter, more common templates. In the closed beta, 90% of templates had 8 or fewer sections [fictional], so the wizard covers the vast majority of use cases.
 
 ### Dissenting Opinions
@@ -165,7 +165,7 @@ Karen L. (Engineering Lead) initially preferred Option B (canvas) to minimize en
 
 ### What We Gave Up
 
-- **Simplicity:** The hybrid approach is more complex to implement and test than either standalone option. Two flows means two sets of edge cases, two sets of accessibility audits, and two code paths to maintain. The edge-case analysis for Blueprints v1 includes dedicated scenarios for wizard-to-canvas transition failures.
+- **Simplicity:** The hybrid approach is more complex to implement and test than either standalone option. Two flows means two sets of edge cases, two sets of accessibility audits, and two code paths to maintain. The edge-case analysis for Blueprints v1 includes dedicated scenarios for wizard-to-canvas transition failures [fictional].
 - **Admin control:** Template admins cannot force authors into the wizard flow. Some admins may want new team members to always use the wizard regardless of prior experience. This is a deliberate choice: author experience, not admin preference, determines the flow.
 
 ### Risks
@@ -199,7 +199,7 @@ Karen L. (Engineering Lead) initially preferred Option B (canvas) to minimize en
 
 ## Supporting Materials
 
-- [Preference Test Results: Blueprint Creation Flow (8 users)](#), Tomas G., January 2026
+- [Preference Test Results: Blueprint Creation Flow (8 users) [fictional]](#), Tomas G., January 2026
 - [Figma: Wizard Flow Mockups (6 screens)](#), Tomas G.
 - [Figma: Canvas Flow with Required Section Labels](#), Tomas G.
 - Nielsen Norman Group: "Wizard Design Pattern," nngroup.com

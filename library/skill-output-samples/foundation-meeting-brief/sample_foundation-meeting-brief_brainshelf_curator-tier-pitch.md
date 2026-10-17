@@ -96,7 +96,7 @@ status: draft
 
 ### Background
 
-- Curator tier concept has been on priya's roadmap for 6 weeks; first formal pitch
+- Curator tier concept has been on priya's roadmap for 6 weeks [fictional]; first formal pitch
 - Prior conversations have been informal; no written record of cofounder positions
 - Brainshelf currently has a single paid tier (Pro at $8/mo [fictional]); Curator would add a premium tier at ~$16/mo [fictional] targeting power users who curate for others
 - [fictional] User-research round (2026-03-18) identified 12% of Pro users who explicitly asked about "sharing curated sets". signal supporting the pitch
@@ -109,7 +109,7 @@ status: draft
 - **Stakes**: leo owns the pricing-strategy narrative with investors; adding a tier is a visible story change
 - **Likely concerns**: "does Pro conversion suffer if Curator exists?"; "are we solving a real problem or assuming demand?"
 - **Relationship state**: neutral; direct, data-first
-- **Tactical notes**: lead with the user-research signal (12% explicit ask); frame as experiment with kill criteria, not a tier launch; bring specific economics not a concept
+- **Tactical notes**: lead with the user-research signal (12% [fictional] explicit ask); frame as experiment with kill criteria, not a tier launch; bring specific economics not a concept
 
 **noor-cofounder-2**
 
@@ -126,7 +126,7 @@ status: draft
 
 ### Key messages
 
-1. "12% of Pro users explicitly asked for curated-sharing in user research (data citation). This isn't an assumption. it's a signal."
+1. "12% [fictional] of Pro users explicitly asked for curated-sharing in user research (data citation). This isn't an assumption. it's a signal."
 2. "I'm asking for a 4-week experiment with kill criteria, not a tier launch. If we hit <2% conversion or <10% retention lift, we kill it."
 3. "Cost of the experiment: [fictional] ~3 eng-days + $300 in tools. Cost of doing nothing: we keep guessing about this segment."
 

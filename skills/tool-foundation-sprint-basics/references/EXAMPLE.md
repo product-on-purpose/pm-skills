@@ -37,11 +37,11 @@ Note-and-vote outcome: team selected "low-friction capture UX" and "private-by-d
 
 | Competitor / Alternative | What customers use it for | Why people leave (or stay) |
 |---|---|---|
-| **Goodreads** | Social shelving, friend feeds | Too social; owned by Amazon; stale UX; private surface dropped |
-| **StoryGraph** | Tracking + recommendation alternative to Goodreads | Better than Goodreads but still social-first; limited iOS polish |
-| **Bookly** | Reading-stats tracking on mobile | Feels like a gym tracker, not a memory tool |
-| **LibraryThing** | Cataloging-focused, hobbyist | Dense UI, learning curve |
-| **Notion / Apple Notes / Excel** | DIY tracking | Friction to set up; no book metadata |
+| **Goodreads** | Social shelving, friend feeds | Too social [fictional]; owned by Amazon; stale UX [fictional]; private surface dropped [fictional] |
+| **StoryGraph** | Tracking + recommendation alternative to Goodreads | Better than Goodreads but still social-first [fictional]; limited iOS polish [fictional] |
+| **Bookly** | Reading-stats tracking on mobile | Feels like a gym tracker, not a memory tool [fictional] |
+| **LibraryThing** | Cataloging-focused, hobbyist | Dense UI, learning curve [fictional] |
+| **Notion / Apple Notes / Excel** | DIY tracking | Friction to set up; no book metadata [fictional] |
 | **Paper journal / bullet journal** | Manual tracking | Lossy; not searchable |
 | **Do nothing** | Memory + bookstore browse | Books re-bought; recommendations forgotten |
 

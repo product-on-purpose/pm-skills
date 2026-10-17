@@ -37,13 +37,15 @@ The Brainshelf team is in Day 1 afternoon of their Foundation Sprint. Basics is 
 
 **1. Capture speed: sub-3-second log from any context.**
 
-The single biggest pain among the 22-interview cohort is the friction of opening Goodreads, searching, adding, tagging, exiting. Brainshelf wins if the team can get from "I just finished or want to remember this book" to "logged" in under three seconds, including book metadata resolution. Sam's mobile and offline-first engineering background makes this deliverable.
+The single biggest pain among the 22-interview cohort [fictional] is the friction of opening Goodreads, searching, adding, tagging, exiting [fictional]. Brainshelf wins if the team can get from "I just finished or want to remember this book" to "logged" in under three seconds, including book metadata resolution. Sam's mobile and offline-first engineering background [fictional] makes this deliverable.
 
 **2. Personal recall: surface what you've read and what you thought.**
 
-The second consistent pain is "did I already read this?" at the bookstore or "what did I think of that book my friend recommended?" later. Brainshelf wins if it answers those questions faster and more confidently than any alternative, including memory and paper journals.
+The second consistent pain is "did I already read this?" at the bookstore or "what did I think of that book my friend recommended?" later [fictional]. Brainshelf wins if it answers those questions faster and more confidently than any alternative, including memory and paper journals.
 
 ## 2x2 Differentiation Chart
+
+Values in the block below are [fictional].
 
 ```text
                   HIGH Personal Recall
@@ -82,7 +84,7 @@ Brainshelf occupies the unoccupied upper-right quadrant: high capture speed AND 
 >
 > We're building the fastest way to capture a book and the most useful way to recall what you've read. Nothing more. Nothing that gets in the way of those two things.
 >
-> If you read 25 books a year and want them to stay with you, this is for you. If you want social validation around your reading, there are good tools for that, and we're not one of them.
+> If you read 25 books a year [fictional] and want them to stay with you, this is for you. If you want social validation around your reading, there are good tools for that, and we're not one of them.
 
 ## Note-and-Vote Trace
 

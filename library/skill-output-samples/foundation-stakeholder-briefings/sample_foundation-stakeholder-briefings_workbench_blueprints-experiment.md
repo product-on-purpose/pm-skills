@@ -54,11 +54,11 @@ Sandra C. (Head of Product). Eng lead: Karen L.
 **What and why**
 
 - M1: The required-vs-optional-sections A/B test asked whether enforcing required sections (vs. leaving them optional) improves Blueprint completeness and approval speed without hurting author throughput.
-- M2: The test was account-level randomized over four weeks (Mar 9 - Apr 5) on 80 beta accounts split roughly 40/40 [fictional], with a pre-registered minimum detectable effect set before launch.
+- M2: The test was account-level randomized over four weeks (Mar 9 - Apr 5) on 80 beta accounts split roughly 40/40 [fictional], with a pre-registered minimum detectable effect set before launch [fictional].
 
 **Decisions**
 
-- M3: The result is a clean, statistically significant win: required-section enforcement cut median time-to-approved by 40%, from 4.0 days to 2.4 days [fictional] (Mann-Whitney U, p < 0.01, effect above the pre-registered MDE).
+- M3: The result is a clean, statistically significant win: required-section enforcement cut median time-to-approved by 40%, from 4.0 days to 2.4 days [fictional] (Mann-Whitney U, p < 0.01, effect above the pre-registered MDE [fictional]).
 - M4: Secondary metrics moved the same direction: empty-section rate fell from 38% to 7% [fictional], and approval cycles per Blueprint fell from 2.3 to 1.5 [fictional].
 
 **Status**
@@ -91,7 +91,7 @@ Sandra C. (Head of Product). Eng lead: Karen L.
 
 **What this means for the Data team**
 
-The design holds up to scrutiny: account-level randomization, a pre-registered MDE set before launch, four weeks, ~40/40 split on 80 accounts [fictional] (M2). The primary result is a 40% cut in median time-to-approved (4.0 to 2.4 days [fictional]), significant at p < 0.01 and above the pre-registered MDE (M3), with secondary metrics moving the same way - empty-section rate 38% to 7%, approval cycles 2.3 to 1.5 [fictional] (M4) - and the throughput guardrail held, so no abandonment signal (M5). This is the kind of result that does not need post-hoc defense.
+The design holds up to scrutiny: account-level randomization, a pre-registered MDE set before launch, four weeks, ~40/40 split on 80 accounts [fictional] (M2). The primary result is a 40% cut in median time-to-approved (4.0 to 2.4 days [fictional]), significant at p < 0.01 and above the pre-registered MDE [fictional] (M3), with secondary metrics moving the same way - empty-section rate 38% to 7%, approval cycles 2.3 to 1.5 [fictional] (M4) - and the throughput guardrail held, so no abandonment signal [fictional] (M5). This is the kind of result that does not need post-hoc defense.
 
 The one thing to carry forward is the skip-and-submit caveat: ~4% of treatment Blueprints cleared the gate with trivial content [fictional] (M7), which means a sliver of the completeness gain could be cosmetic. The ask is to make sure the GA dashboard does not lose this: keep the trivial-content detector live so empty-section rate at scale is reported alongside a "gamed-completeness" rate, and the win stays monitored rather than assumed.
 
@@ -107,7 +107,7 @@ The one thing to carry forward is the skip-and-submit caveat: ~4% of treatment B
 
 **What this means for the Executive sponsor**
 
-We ran a controlled test of the core Blueprints bet - does enforcing required sections actually help, or just annoy authors (M1). The answer is unambiguous: enforcement cut the time from creation to approval by 40%, from four days to under two and a half [fictional] (M3), and it did so without reducing how much authors actually got done - the throughput guardrail held (M5). This is the rare case where the upside is large and the feared downside did not materialize.
+We ran a controlled test of the core Blueprints bet - does enforcing required sections actually help, or just annoy authors (M1). The answer is unambiguous: enforcement cut the time from creation to approval by 40%, from four days to under two and a half [fictional] (M3), and it did so without reducing how much authors actually got done - the throughput guardrail held [fictional] (M5). This is the rare case where the upside is large and the feared downside did not materialize.
 
 The decision in front of you is clean: make required-section enforcement the default behavior at GA (M9). The data supports a "go." Approving it now lets engineering remove the experiment scaffolding and harden the single shipping path rather than maintaining both behaviors into launch.
 
@@ -133,13 +133,13 @@ There is one functional change to fold in, not just a cleanup. The test surfaced
 
 ## Translations applied (internal)
 
-- "Mann-Whitney U, p < 0.01, effect above the pre-registered MDE" kept precise for Data; rendered for the Executive as "unambiguous" and "the data supports a go" (audience: Executive).
-- "throughput guardrail held / sends per active author did not drop" kept as the guardrail metric for Data; rendered for the Executive as "without reducing how much authors actually got done" (audience: Executive).
-- "skip-and-submit, ~4% of treatment Blueprints" kept as the caveat for all three; rendered as a monitoring requirement for Data, a hardening requirement for Engineering, and omitted from the Executive ask line so it does not muddy a clean go-decision (it stays available in the master).
+- "Mann-Whitney U, p < 0.01, effect above the pre-registered MDE" [fictional] kept precise for Data; rendered for the Executive as "unambiguous" and "the data supports a go" (audience: Executive).
+- "throughput guardrail held / sends per active author did not drop" [fictional] kept as the guardrail metric for Data; rendered for the Executive as "without reducing how much authors actually got done" (audience: Executive).
+- "skip-and-submit, ~4% of treatment Blueprints" [fictional] kept as the caveat for all three; rendered as a monitoring requirement for Data, a hardening requirement for Engineering, and omitted from the Executive ask line so it does not muddy a clean go-decision (it stays available in the master).
 
 **Flagged but kept** (may need review):
 
-- "make required-section enforcement the default" - the Executive block treats the win as decisive; the master records the GA-scale caveat (M8, effect not yet observed at scale). The Exec block intentionally does not surface M8 to keep the decision crisp; confirm Sandra C. is comfortable deciding on beta-scale evidence, or add M8 to her block.
+- "make required-section enforcement the default" - the Executive block treats the win as decisive; the master records the GA-scale caveat (M8, effect not yet observed at scale) [fictional]. The Exec block intentionally does not surface M8 to keep the decision crisp; confirm Sandra C. is comfortable deciding on beta-scale evidence, or add M8 to her block.
 
 ## Sources and References
 

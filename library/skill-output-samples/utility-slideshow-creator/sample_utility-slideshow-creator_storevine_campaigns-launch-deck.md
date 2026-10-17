@@ -40,6 +40,8 @@ Context:
 
 ## JSON Deck Specification
 
+Values in the block below are [fictional].
+
 ```json
 {
   "title": "Campaigns Launch Review",

@@ -84,7 +84,7 @@ Storevine's value proposition is "everything you need to run your online store i
 
 ### Business Impact
 
-Email-related churn represents an estimated 4.8 percentage points [fictional] of Storevine's 22% [fictional] annual churn rate, based on Q4 exit survey data. Recapturing this cohort reduces the annual rate to approximately 17.2% [fictional] before any other retention initiative. At an average merchant lifetime value of $3,200 [fictional] per retained account, each percentage-point reduction in annual churn represents approximately $576,000 [fictional] in retained annual revenue across the ~18,000 active merchant base.
+Email-related churn represents an estimated 4.8 percentage points [fictional] of Storevine's 22% [fictional] annual churn rate, based on Q4 exit survey data. Recapturing this cohort reduces the annual rate to approximately 17.2% [fictional] before any other retention initiative. At an average merchant lifetime value of $3,200 [fictional] per retained account, each percentage-point reduction in annual churn represents approximately $576,000 [fictional] in retained annual revenue across the ~18,000 [fictional] active merchant base.
 
 ### Why Now?
 
@@ -104,7 +104,7 @@ Q4 2025 churn data surfaced email gaps as a top-three cancellation driver for th
 - CAN-SPAM and GDPR compliance are non-negotiable legal requirements for any production email send capability. Legal review of the compliance architecture must complete before Campaigns is enabled for any merchant, regardless of GA timeline pressure.
 - Campaigns v1 must not deprecate or disrupt the existing Klaviyo-Storevine API integration. Merchants who choose to continue using Klaviyo alongside Campaigns must be able to do so without data conflicts or degraded integration performance.
 - Engineering capacity is fixed at two product squads through Q2 2026 [fictional]. All v1 scope decisions must fit within this constraint; features requiring a third squad must be deferred to v2 or a follow-on sprint.
-- Revenue attribution requires a confirmed SendGrid open/click webhook integration with the Storevine order database. The Engineering Lead has confirmed technical feasibility; this integration is not yet scheduled and must be prioritized in sprint planning before backend scope is locked.
+- Revenue attribution requires a confirmed SendGrid open/click webhook integration with the Storevine order database. The Engineering Lead has confirmed technical feasibility [fictional]; this integration is not yet scheduled and must be prioritized in sprint planning before backend scope is locked.
 - The GDPR consent architecture for EU merchants may require a separate consent data model. If this path is not complete by GA, a US-first launch with EU merchant access as a v1.1 follow-on is the preferred contingency to avoid delaying US GA.
 
 ## Open Questions

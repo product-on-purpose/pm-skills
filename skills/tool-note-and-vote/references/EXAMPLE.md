@@ -44,17 +44,17 @@ Multi-vote (each participant gets 2 dots); Decider gets an additional supervote 
 
 | Option | Votes | Voted by |
 |---|---|---|
-| 25+ books/year, books-as-memory readers (Riley) | 3 [fictional] | Jamie, Alex, Riley [fictional] |
-| Individual collectors (Jamie) | 1 [fictional] | Alex [fictional] |
-| Active social readers (Jamie) | 1 [fictional] | Sam [fictional] |
-| Multi-format readers (Alex) | 1 [fictional] | Jamie [fictional] |
-| Goodreads churn readers (Sam) | 1 [fictional] | Riley [fictional] |
-| Book club coordinators (Riley) | 0 [fictional] | - |
-| Romance / genre readers (Riley) | 0 [fictional] | - |
-| Spreadsheet trackers (Sam) | 0 [fictional] | - |
-| "Book hoarders" (Alex) | 0 [fictional] | - |
+| 25+ books/year, books-as-memory readers (Riley) | 3 | Jamie, Alex, Riley |
+| Individual collectors (Jamie) | 1 | Alex |
+| Active social readers (Jamie) | 1 | Sam |
+| Multi-format readers (Alex) | 1 | Jamie |
+| Goodreads churn readers (Sam) | 1 | Riley |
+| Book club coordinators (Riley) | 0 | - |
+| Romance / genre readers (Riley) | 0 | - |
+| Spreadsheet trackers (Sam) | 0 | - |
+| "Book hoarders" (Alex) | 0 | - |
 
-**Total votes cast:** 8 (4 participants x 2 dots each) [fictional]
+**Total votes cast:** 8 (4 participants x 2 dots each)
 
 ## Discussion Notes
 
@@ -80,7 +80,7 @@ Multi-vote (each participant gets 2 dots); Decider gets an additional supervote 
 - "Book hoarders" (rejected: subset of books-as-memory; not distinct enough to be its own segment)
 - Spreadsheet trackers (rejected: too small a niche [fictional])
 
-**Confidence:** High. Three of four voters aligned independently [fictional]; Decider rationale matches the customer interview synthesis [fictional]. The team will not re-vote on this during the sprint without explicit invalidation evidence.
+**Confidence:** High. Three of four voters aligned independently; Decider rationale matches the customer interview synthesis [fictional]. The team will not re-vote on this during the sprint without explicit invalidation evidence.
 
 **Signed:** Jamie (Decider), 2026-05-13 09:30 PT
 

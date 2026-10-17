@@ -100,58 +100,58 @@ Six semi-structured [fictional] interviews, 45 minutes each [fictional], conduct
 
 ### Theme 1: Consent Is the Product, Not a Setting
 
-Every participant who had not adopted SMS described consent as the reason, and none described it as a feature they wanted configured. They described it as a liability they wanted absorbed. M4 and M5 both asked, unprompted, who would hold the consent record if Storevine sent the message. M5's legal review had already declined one SMS vendor over exactly that question. The merchants who did use SMS (M1, M3) had both accepted their provider's consent tooling wholesale rather than customizing it.
+Every participant who had not adopted SMS described consent as the reason, and none described it as a feature they wanted configured [fictional]. They described it as a liability they wanted absorbed [fictional]. M4 and M5 both asked, unprompted, who would hold the consent record if Storevine sent the message [fictional]. M5's legal review had already declined one SMS vendor over exactly that question [fictional]. The merchants who did use SMS (M1, M3) had both accepted their provider's consent tooling wholesale rather than customizing it [fictional].
 
 The distinction that matters for scope: merchants are not asking for a consent feature. They are asking for the platform to own the consent obligation and to be able to prove it later.
 
 ### Theme 2: Bundled Consent Is a Non-Starter, and Merchants Know It
 
-Four participants raised, without being asked, that they did not want SMS consent bundled into the existing email signup. M2 had considered SMS twice and stopped both times at this question, describing a bundled checkbox as "the thing that gets you sued." M6 abandoned a plugin specifically because it added phone collection to the existing email form with one shared checkbox.
+Four participants raised, without being asked, that they did not want SMS consent bundled into the existing email signup [fictional]. M2 had considered SMS twice and stopped both times at this question [fictional], describing a bundled checkbox as "the thing that gets you sued" [fictional]. M6 abandoned a plugin specifically because it added phone collection to the existing email form with one shared checkbox [fictional].
 
 This is a stronger signal than it appears. Merchants are declining a shortcut the platform could easily have shipped, which means the constraint is externally imposed and stable rather than a preference the product could argue them out of.
 
 ### Theme 3: The Second Sender Is a Reputation Risk, Not Just Infrastructure
 
-M1, M3 and M5 each independently connected SMS to the email deliverability work they had already done. M1 described spending eight months [fictional] rebuilding sender reputation after a bad list import and said flatly that they would not put that at risk again. M3 kept SMS on a separate provider deliberately, describing it as "not worth mixing." M5 framed it as a governance question: different channel, different consent basis, different audit trail.
+M1, M3 and M5 each independently connected SMS to the email deliverability work they had already done [fictional]. M1 described spending eight months [fictional] rebuilding sender reputation after a bad list import and said flatly that they would not put that at risk again [fictional]. M3 kept SMS on a separate provider deliberately, describing it as "not worth mixing" [fictional]. M5 framed it as a governance question: different channel, different consent basis, different audit trail [fictional].
 
 This reframes the v1 deferral note. "Separate sending infrastructure" was recorded as a platform engineering cost. Merchants experience the same separation as a desirable property they want preserved.
 
 ### Theme 4: Abandonment Happens at Setup, Not at Send
 
-M6 is the only participant who started and stopped. The abandonment point was not sending, cost, or results. It was the registration step: the plugin surfaced 10DLC brand registration as a form with no explanation of what it was, how long it took, or what happened if it was rejected. M6 filled it in, waited, heard nothing, and stopped. Neither M2 nor M4 had reached that step, but both anticipated it as the likely stopping point.
+M6 is the only participant who started and stopped [fictional]. The abandonment point was not sending, cost, or results [fictional]. It was the registration step: the plugin surfaced 10DLC brand registration as a form with no explanation of what it was, how long it took, or what happened if it was rejected [fictional]. M6 filled it in, waited, heard nothing, and stopped [fictional]. Neither M2 nor M4 had reached that step, but both anticipated it as the likely stopping point [fictional].
 
 ## Notable Quotes
 
-- "I do not want to configure consent. I want to not be the one holding it." (M4)
-- "The bundled checkbox is the thing that gets you sued." (M2)
+- "I do not want to configure consent. I want to not be the one holding it." (M4) [fictional]
+- "The bundled checkbox is the thing that gets you sued." (M2) [fictional]
 - "I spent eight months getting our email reputation back. I am not putting that near a new channel." (M1) [fictional]
-- "Legal did not say no to SMS. They said no to that vendor's consent record." (M5)
-- "I filled in the registration, waited, and never heard anything. So I stopped." (M6)
-- "We keep SMS separate on purpose. Not worth mixing." (M3)
+- "Legal did not say no to SMS. They said no to that vendor's consent record." (M5) [fictional]
+- "I filled in the registration, waited, and never heard anything. So I stopped." (M6) [fictional]
+- "We keep SMS separate on purpose. Not worth mixing." (M3) [fictional]
 
 ## Insights
 
 ### Insight 1: The Deferral Reasons Were Right, for the Wrong Reason
 
-The v1 PRD deferred SMS for carrier compliance, opt-in flows, and separate sending infrastructure, framed as launch risk to Storevine. The interviews confirm all three matter, but as merchant-side blockers rather than platform-side cost. Compliance is a liability merchants want absorbed, opt-in is a legal exposure they will not bundle, and separate infrastructure is a property they want preserved. A v2 that solves these as engineering problems without addressing the ownership question would ship the capability and not move adoption.
+The v1 PRD deferred SMS for carrier compliance, opt-in flows, and separate sending infrastructure, framed as launch risk to Storevine. The interviews confirm all three matter, but as merchant-side blockers rather than platform-side cost [fictional]. Compliance is a liability merchants want absorbed, opt-in is a legal exposure they will not bundle, and separate infrastructure is a property they want preserved [fictional]. A v2 that solves these as engineering problems without addressing the ownership question would ship the capability and not move adoption.
 
 ### Insight 2: Registration Is the Real Funnel, and It Is Currently Invisible
 
-The only observed abandonment happened at 10DLC registration, and the two non-adopters furthest along both named it as their expected stopping point. Registration is asynchronous, externally controlled, and can be rejected, which is a shape no other part of Campaigns has. Treating it as a form is what lost M6. It needs status, expected duration, and a rejection path.
+The only observed abandonment happened at 10DLC registration, and the two non-adopters furthest along both named it as their expected stopping point [fictional]. Registration is asynchronous, externally controlled, and can be rejected, which is a shape no other part of Campaigns has. Treating it as a form is what lost M6 [fictional]. It needs status, expected duration, and a rejection path.
 
 ### Insight 3: The Existing SMS Users Are a Switching Opportunity, Not a Retention Risk
 
-M1 and M3 both pay a standalone provider and both described the separation as deliberate rather than satisfying. Neither had evaluated switching, because neither knew Storevine intended to offer it. Their stated switching condition was identical: the consent record must transfer or be re-collected cleanly, because losing it means losing the list.
+M1 and M3 both pay a standalone provider and both described the separation as deliberate rather than satisfying [fictional]. Neither had evaluated switching, because neither knew Storevine intended to offer it [fictional]. Their stated switching condition was identical [fictional]: the consent record must transfer or be re-collected cleanly, because losing it means losing the list.
 
 ## Recommendations
 
 ### Recommendation Details
 
 1. **Make consent ownership an explicit product claim, not an implied one.** State in the product who holds the consent record, how it is retained, and how a merchant exports it under audit. This is the single most repeated ask and it is currently unaddressed.
-2. **Ship SMS consent as a separate opt-in from email, and do not offer a bundled option.** Four of six raised this unprompted, and offering the bundle would actively deter the compliance-sensitive segment.
-3. **Treat 10DLC registration as a tracked, multi-day workflow with visible status and a rejection path.** It is the only observed abandonment point and the anticipated one for two more participants.
-4. **Preserve sender separation between email and SMS, and say so.** Merchants read a shared sender as a risk to work they have already done. The engineering separation the v1 PRD treated as a cost is a feature to name.
-5. **Scope a consent-record import path for switchers.** M1 and M3 are addressable, and both named the consent record as the switching condition.
+2. **Ship SMS consent as a separate opt-in from email, and do not offer a bundled option.** Four of six raised this unprompted [fictional], and offering the bundle would actively deter the compliance-sensitive segment.
+3. **Treat 10DLC registration as a tracked, multi-day workflow with visible status and a rejection path.** It is the only observed abandonment point and the anticipated one for two more participants [fictional].
+4. **Preserve sender separation between email and SMS, and say so.** Merchants read a shared sender as a risk to work they have already done [fictional]. The engineering separation the v1 PRD treated as a cost is a feature to name.
+5. **Scope a consent-record import path for switchers.** M1 and M3 are addressable, and both named the consent record as the switching condition [fictional].
 
 ## Appendix
 
@@ -166,6 +166,8 @@ Six participants across one platform is directional, not representative. The sam
 ### Project memory entry recorded
 
 At the end of this run the skill proposed the following entry, and the operator confirmed it. This is what the companion PRD sample reads instead of re-collecting the research.
+
+Values in the block below are [fictional].
 
 ```yaml
 artifacts:

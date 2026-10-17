@@ -25,7 +25,7 @@ The Brainshelf team is in Day 2 morning of their Foundation Sprint. Day 1 strate
 
 **Why it's a good idea:**
 
-Eliminates typing entirely. Sub-3-second capture is achievable. Naturally private (no feed). Matches how people physically encounter books they want to remember. The 22 customer interviews repeatedly named typing-friction as the #1 reason for abandoning Goodreads; this approach attacks that pain directly.
+Eliminates typing entirely. Sub-3-second capture is achievable [fictional]. Naturally private (no feed). Matches how people physically encounter books they want to remember. The 22 customer interviews repeatedly named typing-friction as the #1 reason for abandoning Goodreads [fictional]; this approach attacks that pain directly.
 
 **Sketch:**
 
@@ -56,7 +56,7 @@ Eliminates typing entirely. Sub-3-second capture is achievable. Naturally privat
 
 **Why it's a good idea:**
 
-Beautiful default state. Matches mental model of a physical shelf. Recall is one tap. Customers who use Apple Books or Kindle's library view recognize the pattern immediately.
+Beautiful default state. Matches mental model of a physical shelf. Recall is one tap. Customers who use Apple Books or Kindle's library view recognize the pattern immediately. [fictional]
 
 **Sketch:**
 
@@ -117,7 +117,7 @@ Hands-free. Captures opinions, not just titles. Especially fast from physical co
 
 **Why it's a good idea:**
 
-Surfaces personal recall at the highest-friction moment. Solves the "did I already read this?" pain directly. Differentiated against every competitor.
+Surfaces personal recall at the highest-friction moment. Solves the "did I already read this?" pain directly. Differentiated against every competitor. [fictional]
 
 **Sketch:**
 
@@ -149,7 +149,7 @@ Surfaces personal recall at the highest-friction moment. Solves the "did I alrea
 
 **Why it's a good idea:**
 
-Solves the "I get recommendations and lose them" pain directly. Models the product on Pocket / Instapaper, which is a familiar mental model.
+Solves the "I get recommendations and lose them" pain directly. Models the product on Pocket / Instapaper, which is a familiar mental model. [fictional]
 
 **Sketch:**
 

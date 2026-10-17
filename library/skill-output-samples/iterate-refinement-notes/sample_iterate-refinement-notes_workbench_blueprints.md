@@ -166,7 +166,7 @@ Leo M. confirmed that the export should include the same event properties define
 | Owner | Nate P. (backend) / Tomás G. (design) |
 | Priority | P2 |
 
-**Discussion:** The PDF export depends on BLUE-202 (CSV export) for the underlying data query layer. Additionally, the PDF format for regulatory submissions needs legal review because FDA 21 CFR Part 11 and SOX Section 404 have specific requirements for electronic records, including digital signatures and tamper-evidence. Rachel V. will schedule a legal review for the PDF template before this story can be unblocked. Mei-Lin T. confirmed that two of the six stalled pipeline deals specifically require the PDF export format, making this story the highest-priority blocked item.
+**Discussion:** The PDF export depends on BLUE-202 (CSV export) for the underlying data query layer. Additionally, the PDF format for regulatory submissions needs legal review because FDA 21 CFR Part 11 and SOX Section 404 have specific requirements for electronic records, including digital signatures and tamper-evidence. Rachel V. will schedule a legal review for the PDF template before this story can be unblocked. Mei-Lin T. confirmed that two of the six stalled pipeline deals specifically require the PDF export format [fictional], making this story the highest-priority blocked item.
 
 **Blocker details:**
 1. BLUE-202 must be complete (provides the data query infrastructure)
@@ -187,7 +187,7 @@ Leo M. confirmed that the export should include the same event properties define
 
 **Discussion:** The team confirmed that the default threshold stays at 12 sections (consistent with v1 behavior). The new setting is exposed in the template admin interface as a numeric input with a range of 5 to 30 [fictional]. Templates with section counts above the configured threshold show the canvas view only; templates at or below the threshold offer the wizard to first-time authors.
 
-Aisha K. noted that this is a straightforward frontend change since the wizard-disable logic already checks a threshold value; it just needs to read from the template configuration instead of a hardcoded constant. The 2-point estimate reflects the simplicity of the change. This addresses the 8 enterprise customers who reported the issue during launch week.
+Aisha K. noted that this is a straightforward frontend change since the wizard-disable logic already checks a threshold value; it just needs to read from the template configuration instead of a hardcoded constant. The 2-point estimate reflects the simplicity of the change. This addresses the 8 enterprise customers who reported the issue during launch week. [fictional]
 
 **Acceptance criteria confirmed:**
 - Template admin interface includes a "Wizard section limit" field (numeric, range 5-30 [fictional], default 12)
@@ -283,7 +283,7 @@ Karen L. emphasized that this role must be implemented as an extension of the ex
 |---|---|---|
 | Audit trail export covers lifecycle events only (not section edit history) | Section edit history requires integration with the version history feature, which is not yet built | Leo M., Rachel V., Karen L. |
 | Completeness score word-count threshold hardcoded at 20 words | Shipping speed over configurability; revisit in v1.2 if 20 words proves too high or low | Tomás G., Karen L., Rachel V. |
-| Wizard threshold default remains 12 sections | Consistency with v1 behavior; now configurable by template admins (range 5-30) | Aisha K., Rachel V. |
+| Wizard threshold default remains 12 sections | Consistency with v1 behavior; now configurable by template admins (range 5-30 [fictional]) | Aisha K., Rachel V. |
 | BLUE-201 estimate increased from 2 to 3 points | Animation transition work and cross-browser testing for the redesigned action bar | Aisha K., Tomás G. |
 
 ## Action Items
@@ -306,7 +306,7 @@ Karen L. emphasized that this role must be implemented as an extension of the ex
 
 - **Template locking and in-flight Blueprints (Q-03):** When a compliance officer locks a template, what happens to Blueprints that are currently in draft or in the approval queue? Options: (a) in-flight Blueprints continue with their snapshot of the template, (b) in-flight Blueprints are frozen and cannot be edited until the lock is released. This needs an architectural decision from Karen L. as part of the BLUE-206 design.
 - **Completeness score for optional sections:** Should optional sections also show word-count indicators, or only required sections? Deferred to v1.2 refinement.
-- **Audit trail retention configurability:** Some regulated industries require longer than the default 24-month retention. Should retention be configurable per account? Deferred to v1.2.
+- **Audit trail retention configurability:** Some regulated industries require longer than the default 24-month retention. [fictional] Should retention be configurable per account? Deferred to v1.2.
 
 ## Next Session
 

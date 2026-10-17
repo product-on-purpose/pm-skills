@@ -120,13 +120,13 @@ The treatment consistently outperformed control throughout the experiment period
 
 ```
 Conversion Rate by Day
-       70% |
+       70% [fictional] |
            |    ████████████████████████  (Treatment)
-       65% |████████████████████████████
+       65% [fictional] |████████████████████████████
            |
-       60% |████████████████████████████  (Control)
+       60% [fictional] |████████████████████████████  (Control)
            |
-       55% |________________________________
+       55% [fictional] |________________________________
               Dec 15                Jan 10
 ```
 
@@ -177,7 +177,7 @@ Conversion Rate by Day
 
 **Rationale:**
 
-The experiment delivered a clear, statistically significant improvement that exceeded our success threshold [fictional]. The +3.2% lift in checkout conversion represents approximately $840K in additional annual revenue at current traffic levels [fictional]. No guardrail metrics were violated, and the improvement was consistent across the experiment duration [fictional].
+The experiment delivered a clear, statistically significant improvement that exceeded our success threshold [fictional]. The +3.2% lift in checkout conversion [fictional] represents approximately $840K in additional annual revenue at current traffic levels [fictional]. No guardrail metrics were violated [fictional], and the improvement was consistent across the experiment duration [fictional].
 
 The segment analysis reveals even higher impact on mobile and new customers [fictional].our strategic growth priorities.
 

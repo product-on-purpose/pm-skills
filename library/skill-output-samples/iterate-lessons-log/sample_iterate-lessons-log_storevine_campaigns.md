@@ -70,7 +70,7 @@ Need: structured lessons log entry for the team knowledge base.
 
 ## Summary
 
-When Storevine tested a guided first-campaign flow against the standard blank-canvas experience, the treatment's first-send rate (31.7% [fictional]) more than doubled the control (13.4% [fictional]) . but not for the reason the team expected. Funnel analysis showed that flow entry rates were nearly identical between variants (34.2% control vs. 35.8% treatment [fictional]), a difference that did not reach statistical significance. The entire treatment advantage appeared at the template and subject line step: completion from that step to Send was 88.5% of openers in treatment vs. 39.2% in control [fictional]. Pre-populated product content . not the progress indicator, step sequencing, or explicit guided prompts . was the activation mechanism. Future activation features should invest in content quality and data-driven auto-population before investing in UX scaffolding.
+When Storevine tested a guided first-campaign flow against the standard blank-canvas experience, the treatment's first-send rate (31.7% [fictional]) more than doubled the control (13.4% [fictional]) . but not for the reason the team expected. Funnel analysis showed that flow entry rates were nearly identical between variants (34.2% [fictional] control vs. 35.8% treatment [fictional]), a difference that did not reach statistical significance [fictional]. The entire treatment advantage appeared at the template and subject line step: completion from that step to Send was 88.5% [fictional] of openers in treatment vs. 39.2% in control [fictional]. Pre-populated product content . not the progress indicator, step sequencing, or explicit guided prompts . was the activation mechanism. Future activation features should invest in content quality and data-driven auto-population before investing in UX scaffolding.
 
 ---
 
@@ -87,7 +87,7 @@ Campaigns v1 launched on April 28, 2026, with the primary hypothesis that non-ad
 | Jan 2026 | Merchant interviews identify setup complexity as the primary non-adopter barrier |
 | Feb 2026 | Hypothesis formalized: guided flow + pre-populated templates → ≥30% first-send rate within 60 days |
 | Apr 28, 2026 | Campaigns GA; A/B test begins (guided flow treatment vs. blank canvas control) |
-| Jun 27, 2026 | 60-day test window closes; primary metric result: 31.7% vs. 13.4% [fictional], p < 0.001 |
+| Jun 27, 2026 | 60-day test window closes; primary metric result: 31.7% vs. 13.4% [fictional], p < 0.001 [fictional] |
 | Jul 2, 2026 | Funnel step analysis in Amplitude reveals mechanism concentrated at template + subject line step |
 | Jul 10, 2026 | Ship decision: guided flow set as default for all new non-adopter merchants; feature flag removed |
 
@@ -109,12 +109,12 @@ Campaigns v1 launched on April 28, 2026, with the primary hypothesis that non-ad
 
 ### Sequence of Events
 
-1. At experiment close (June 27, 2026), the primary metric result was unambiguous: treatment first-send rate 31.7% [fictional] vs. control 13.4% [fictional], p < 0.001.
+1. At experiment close (June 27, 2026), the primary metric result was unambiguous: treatment first-send rate 31.7% [fictional] vs. control 13.4% [fictional], p < 0.001 [fictional].
 2. The growth PM ran the funnel step analysis in Amplitude to understand where in the flow the treatment advantage was concentrated.
-3. Funnel data showed that Campaigns flow entry rates were nearly identical: 34.2% control vs. 35.8% treatment [fictional] . a difference of 1.6 percentage points that did not reach statistical significance (p = 0.31).
-4. The first divergence appeared at the audience selection step: 71.3% of control openers vs. 88.6% of treatment openers [fictional] selected or confirmed an audience. A meaningful gap, but not the primary divergence point.
-5. At the template and subject line step, treatment completion was 79.2% of openers vs. 52.4% for control [fictional] . the steepest single-step drop in the control funnel and the step where the pre-populated content is most directly reducing friction.
-6. By the Send button, treatment completion reached 88.5% of openers vs. 39.2% for control [fictional], confirming that the template and subject line step . the point of content creation . was where the treatment did its work.
+3. Funnel data showed that Campaigns flow entry rates were nearly identical: 34.2% control vs. 35.8% treatment [fictional] . a difference of 1.6 percentage points [fictional] that did not reach statistical significance (p = 0.31) [fictional].
+4. The first divergence appeared at the audience selection step: 71.3% [fictional] of control openers vs. 88.6% of treatment openers [fictional] selected or confirmed an audience. A meaningful gap, but not the primary divergence point.
+5. At the template and subject line step, treatment completion was 79.2% [fictional] of openers vs. 52.4% for control [fictional] . the steepest single-step drop in the control funnel and the step where the pre-populated content is most directly reducing friction.
+6. By the Send button, treatment completion reached 88.5% [fictional] of openers vs. 39.2% for control [fictional], confirming that the template and subject line step . the point of content creation . was where the treatment did its work.
 
 ### Key Decisions Made
 
@@ -122,7 +122,7 @@ Campaigns v1 launched on April 28, 2026, with the primary hypothesis that non-ad
 |----------|-----------|---------|
 | Document the mechanism, not just the headline metric | The "what" (guided flow wins) was known; the "why" (content pre-population, not UX scaffolding) was the actionable finding for v1.1 investment decisions | Lesson entered into team knowledge base; v1.1 roadmap updated |
 | Carry the mechanism into v1.1 content strategy | If content quality is the lever, v1.1 investment should go to template depth (3 vs. 5 products, category-specific content), not to additional UX scaffolding | v1.1 follow-on experiment: 3 vs. 5 products in guided template added to roadmap |
-| Do not extend the experiment | p < 0.001 result is robust; 60-day window is sufficient for the hypothesis | Result valid; ship decision made without re-run |
+| Do not extend the experiment | p < 0.001 [fictional] result is robust; 60-day window is sufficient for the hypothesis | Result valid; ship decision made without re-run |
 
 ### Outcome
 
@@ -139,7 +139,7 @@ The experiment shipped and the guided flow is now the default experience for all
 **Supporting Observations:**
 - Flow entry rates being nearly identical between variants means the barrier was never "merchants don't know how to start" . they found the starting point; they gave up during the creation step
 - The template and subject line step is where blank-canvas complexity converts motivation into abandonment; pre-populated content converts the same motivation into a completed send
-- The second-campaign send rate difference (22.8% treatment vs. 9.1% control [fictional] at 90 days) suggests that first-send content quality also builds merchant confidence for sending again . the content scaffolding trains the merchant, not just assists them once
+- The second-campaign send rate difference (22.8% treatment [fictional] vs. 9.1% control [fictional] at 90 days) suggests that first-send content quality also builds merchant confidence for sending again . the content scaffolding trains the merchant, not just assists them once
 
 ### Why This Matters
 

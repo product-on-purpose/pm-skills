@@ -75,11 +75,11 @@ Apply fixes from validation report:
 >
 > | Campaign | First-Touch Revenue | Multi-Touch Revenue | Delta |
 > |----------|--------------------|--------------------|-------|
-> | Spring Sale | $18,400 | $14,200 | -$4,200 [fictional] |
-> | New Arrivals | $9,200 | $11,800 | +$2,600 [fictional] |
-> | Win-Back | $6,100 | $7,700 | +$1,600 [fictional] |
+> | Spring Sale | $18,400 [fictional] | $14,200 [fictional] | -$4,200 [fictional] |
+> | New Arrivals | $9,200 [fictional] | $11,800 [fictional] | +$2,600 [fictional] |
+> | Win-Back | $6,100 [fictional] | $7,700 [fictional] | +$1,600 [fictional] |
 >
-> **Insight**: First-touch over-credits the Spring Sale campaign because many of those buyers also received the New Arrivals email before converting. Multi-touch redistributes $4,200 of attributed revenue to downstream touchpoints. This gap will widen as drip sequences add more touchpoints per buyer journey. [fictional]
+> **Insight**: First-touch over-credits the Spring Sale campaign because many of those buyers also received the New Arrivals email before converting. Multi-touch redistributes $4,200 of attributed revenue to downstream touchpoints [fictional]. This gap will widen as drip sequences add more touchpoints per buyer journey. [fictional]
 
 ### skills/measure-campaign-analytics/SKILL.md
 

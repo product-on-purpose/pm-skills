@@ -69,7 +69,7 @@ Approach labels: A=Yellow Camera, B=Blue Library, C=Green Voice, D=Red Bookstore
 | Yellow Camera | No. Goodreads has cover scanning today [fictional]. |
 | Blue Library | Partially. Brainshelf's principles (private, no feed) make this strategically distinct. |
 | Green Voice | Yes. Goodreads is unlikely to commit to voice; mobile-app-first companies dominate [fictional]. |
-| Red Bookstore | Yes. Goodreads is owned by Amazon [fictional]; geofencing physical bookstores is awkward for them. |
+| Red Bookstore | Yes. Goodreads is owned by Amazon; geofencing physical bookstores is awkward for them. |
 | Purple Triage | Partially. The triage pattern is well-known. |
 
 **Top per Defensibility Lens:** Red, Green.

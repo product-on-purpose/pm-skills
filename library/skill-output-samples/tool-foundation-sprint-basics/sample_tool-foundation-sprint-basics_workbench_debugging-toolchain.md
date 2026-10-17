@@ -29,46 +29,46 @@ context: "Workbench Day 1 AM (10:00-12:30 PT 2026-05-21); Basics block bundled a
 
 ## Important Problem
 
-**Statement:** When a production incident hits a distributed system at a Series B-D growth-stage startup, the SRE on call faces 5-20 minutes of "what is actually happening" disorientation: which service is failing, which version is deployed where, which dependency is causing it, what state preceded the failure. Existing tools (Datadog, Honeycomb, Sentry) excel at always-on observability but force the SRE to manually correlate across dashboards during the worst possible cognitive moment. The MTTR (mean time to recovery) penalty is dominated by this disorientation phase, not by the fix itself once the cause is known.
+**Statement:** When a production incident hits a distributed system at a Series B-D growth-stage startup, the SRE on call faces 5-20 minutes of "what is actually happening" disorientation [fictional]: which service is failing, which version is deployed where, which dependency is causing it, what state preceded the failure. Existing tools (Datadog, Honeycomb, Sentry) excel at always-on observability but force the SRE to manually correlate across dashboards during the worst possible cognitive moment [fictional]. The MTTR (mean time to recovery) penalty is dominated by this disorientation phase, not by the fix itself once the cause is known [fictional].
 
-**Concrete examples from the 19 SRE interviews:**
+**Concrete examples from the 19 SRE interviews [fictional]:**
 
-- An SRE at a Series C fintech took 14 minutes to discover that an upstream dependency had silently retried-then-circuit-broken during a partial outage; the trace existed but was buried under 3 levels of correlation in Datadog
-- A platform-team lead at a Series D logistics startup said their last 4 incidents had MTTR > 30 min where 80% of the time was "figuring out what was happening, not fixing it"
-- A senior SRE at a Series B SaaS specifically said "I have 6 tools open during an incident; I want 1"
+- An SRE at a Series C fintech took 14 minutes to discover that an upstream dependency had silently retried-then-circuit-broken during a partial outage; the trace existed but was buried under 3 levels of correlation in Datadog [fictional]
+- A platform-team lead at a Series D logistics startup said their last 4 incidents had MTTR > 30 min where 80% of the time was "figuring out what was happening, not fixing it" [fictional]
+- A senior SRE at a Series B SaaS specifically said "I have 6 tools open during an incident; I want 1" [fictional]
 
-**Why this problem matters now:** Service-mesh adoption + Kubernetes operator complexity + AI/ML inference services creating new failure modes has compounded distributed-systems complexity at the Series B-D band specifically. Pre-Kubernetes, MTTR was dominated by fix time. Now MTTR is dominated by understanding time.
+**Why this problem matters now:** Service-mesh adoption + Kubernetes operator complexity + AI/ML inference services creating new failure modes has compounded distributed-systems complexity at the Series B-D band specifically [fictional]. Pre-Kubernetes, MTTR was dominated by fix time. Now MTTR is dominated by understanding time [fictional].
 
 ## Team Advantage
 
-**Statement:** The Workbench team combines three capabilities rare in combination: (1) deep observability-platform product expertise (Priya was Datadog senior PM for tracing and dashboarding), (2) distributed-tracing engineering pedigree (Marcus shipped Splunk's distributed-tracing infrastructure end to end), (3) current target-customer empathy (Jin is actively on-call as a Series C SRE every week).
+**Statement:** The Workbench team combines three capabilities rare in combination: (1) deep observability-platform product expertise (Priya was Datadog senior PM for tracing and dashboarding [fictional]), (2) distributed-tracing engineering pedigree (Marcus shipped Splunk's distributed-tracing infrastructure end to end [fictional]), (3) current target-customer empathy (Jin is actively on-call as a Series C SRE every week [fictional]).
 
 **Why us, why now:**
 
-- Priya knows the observability category's commercial structure (pricing, sales motion, churn drivers) from the inside
-- Marcus knows the production realities of distributed-tracing at scale; he knows where Datadog and competitors hit the wall
-- Jin gives weekly customer-side reality checks: when product proposals would not actually help during an on-call shift, Jin flags it
-- Ari's Plaid background includes payments-network debugging experience: a different but adjacent SRE-shaped problem space
+- Priya knows the observability category's commercial structure (pricing, sales motion, churn drivers) from the inside [fictional]
+- Marcus knows the production realities of distributed-tracing at scale; he knows where Datadog and competitors hit the wall [fictional]
+- Jin gives weekly customer-side reality checks: when product proposals would not actually help during an on-call shift, Jin flags it [fictional]
+- Ari's Plaid background includes payments-network debugging experience: a different but adjacent SRE-shaped problem space [fictional]
 
 **What the team is NOT:**
 
-- We are not deeply enterprise; the Series B-D band is intentional and we won't have credible enterprise references for 12-18 months
+- We are not deeply enterprise; the Series B-D band is intentional and we won't have credible enterprise references for 12-18 months [fictional]
 - We are not a security team; SIEM and SecOps tooling is adjacent but not in scope
-- We don't have AWS or GCP partnership relationships (yet); GTM is direct sales to SRE leaders
+- We don't have AWS or GCP partnership relationships (yet) [fictional]; GTM is direct sales to SRE leaders
 
 ## Competitors and Alternatives
 
 | Category | Specific competitors | Strengths | Why customers leave / never start |
 |---|---|---|---|
-| Full observability platforms | Datadog, New Relic, Dynatrace | Comprehensive; widely deployed | Expensive at scale; UX optimized for always-on, not for incident-time |
+| Full observability platforms | Datadog, New Relic, Dynatrace | Comprehensive; widely deployed | Expensive at scale [fictional]; UX optimized for always-on, not for incident-time [fictional] |
 | Tracing specialists | Honeycomb, Lightstep, Sentry | Strong on traces; good UX | Tracing is one piece; SREs need state + dependency view during incidents |
 | Open-source stack | Grafana + Prometheus + Loki + Tempo + Jaeger | Free; flexible | Significant setup; teams under 5 SRE often can't maintain it |
 | Logs-first tools | Splunk, Sumo Logic | Strong on search; mature | Logs alone don't reconstruct distributed call paths fast enough |
 | SRE platform suites | PagerDuty, Incident.io, Rootly | Strong on incident workflow | Don't help with "what is actually happening"; they help orchestrate response |
-| Doing nothing / multi-tool juggle | (status quo: 5-7 dashboards during incident) | Familiar | The 14-minute MTTR penalty per interviews |
+| Doing nothing / multi-tool juggle | (status quo: 5-7 dashboards during incident [fictional]) | Familiar | The 14-minute MTTR penalty per interviews [fictional] |
 | Internal homegrown tools | Custom Grafana dashboards, internal trace viewers | Tailored | Bus-factor risk, no investment in UX, drift over time |
 
-**Critical alternative often missed: multi-tool juggling is the status quo.** Most Series B-D SREs operate during incidents by switching between 5-7 tools open in browser tabs. This is the dominant competitor, not Datadog as a single product.
+**Critical alternative often missed: multi-tool juggling is the status quo.** Most Series B-D SREs operate during incidents by switching between 5-7 tools open in browser tabs [fictional]. This is the dominant competitor, not Datadog as a single product.
 
 ## Decider Checkpoint
 

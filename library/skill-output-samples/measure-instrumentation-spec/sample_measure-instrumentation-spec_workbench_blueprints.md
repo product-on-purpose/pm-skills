@@ -110,7 +110,7 @@ Fired when a required section transitions from empty (no non-whitespace content)
 
 **Trigger:** The Yjs document state change handler detects that a required section has transitioned from empty to non-empty. Debounced by 2 seconds to avoid firing on rapid typing and deleting.
 
-**Notes:** Fires only for required sections. Optional section completions are not tracked in v1 (can be added later if needed). In co-editing scenarios, the `user_id` is the author whose specific edit caused the transition, determined by the Yjs awareness protocol. The 2-second debounce window was chosen based on Nate P.'s analysis of typical typing patterns during the closed beta.
+**Notes:** Fires only for required sections. Optional section completions are not tracked in v1 (can be added later if needed). In co-editing scenarios, the `user_id` is the author whose specific edit caused the transition, determined by the Yjs awareness protocol. The 2-second debounce window was chosen based on Nate P.'s analysis of typical typing patterns during the closed beta [fictional].
 
 ### section_cleared
 
@@ -248,12 +248,12 @@ The following user-level properties are maintained in the analytics user profile
 - All analytics events are covered by Workbench's existing data processing agreement (DPA) and terms of service, which include analytics data collection.
 - Enterprise accounts in the EU are covered by the GDPR-compliant DPA. No additional consent mechanism is required for these events because they contain no PII.
 - If a user exercises their right to data deletion (GDPR Article 17), their `user_id` is removed from all events via the existing anonymization pipeline. Events are retained with `user_id` set to `null`.
-- The legal team reviewed the event schema on April 10, 2026, and confirmed compliance with both GDPR and SOC 2 requirements.
+- The legal team reviewed the event schema on April 10, 2026, and confirmed compliance with both GDPR and SOC 2 requirements [fictional].
 
 ### Data Retention
 
 - Analytics events: 24 months in the primary warehouse, then archived to cold storage for an additional 36 months (total 5 years).
-- Audit log events (same data, separate table): 12-month minimum retention per SOC 2 requirements. Actual retention: 24 months to match the analytics pipeline.
+- Audit log events (same data, separate table): 12-month minimum retention per SOC 2 requirements [fictional]. Actual retention: 24 months to match the analytics pipeline.
 - User properties: retained as long as the user account is active. Deleted 30 days after account deletion.
 
 ## Implementation Notes

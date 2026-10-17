@@ -96,7 +96,7 @@ Need: full refinement notes for Sprint 12 planning.
 | **Assignee** | Backend Engineer |
 
 **Discussion Notes:**
-- Backend Engineer confirmed that Amplitude already captures `email_opened` and `email_clicked` events per `campaign_id`; implementing open rate and click rate for v1.1 is a dashboard query addition, not a new instrumentation event
+- Backend Engineer confirmed that Amplitude already captures `email_opened` and `email_clicked` events per `campaign_id` [fictional]; implementing open rate and click rate for v1.1 is a dashboard query addition, not a new instrumentation event
 - Open rate denominator question was raised (see Questions Raised); team agreed to resolve before implementation begins
 - Growth PM confirmed the metrics should appear on the Campaign detail page, not on the main Campaigns dashboard . the main dashboard tracks aggregate adoption metrics, not per-campaign performance
 

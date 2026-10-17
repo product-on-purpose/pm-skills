@@ -64,13 +64,13 @@ feature sticks.
 |-------|-------|
 | **Question to Answer** | Can the team build a topic-matching algorithm that surfaces saved items relevant to the user's recent reading interests with ≥70% precision, without adding an external API dependency? |
 | **Time-Box** | 3 days |
-| **Actual Time Spent** | 2.5 days |
+| **Actual Time Spent** | 2.5 days [fictional] |
 | **Spike Lead** | Alex R., Engineering Lead |
 | **Date Completed** | 2026-01-24 |
 
 ## Background
 
-The Resurface feature requires a mechanism to select 3 - 5 saved items for each user's daily digest email. The items must be relevant to the user's recent reading interests . not random, not chronological, and not repetitive. The January 2026 user interviews identified irrelevant suggestions as one of the primary reasons users ignore recommendation-style features ("If it showed me random stuff I saved six months ago, I'd unsubscribe immediately" . P3 [fictional]). The team set a 70% precision target as the minimum acceptable accuracy: at least 7 out of 10 surfaced items should be rated "relevant" by the user, meaning the algorithm must do meaningfully better than random selection but does not need to achieve the precision of a full recommendation engine. The spike was scoped to answer whether this target is achievable within the team's current capabilities and infrastructure constraints (no ML infrastructure, no GPU, pre-Series A budget).
+The Resurface feature requires a mechanism to select 3 - 5 saved items for each user's daily digest email. The items must be relevant to the user's recent reading interests . not random, not chronological, and not repetitive. The January 2026 user interviews identified irrelevant suggestions as one of the primary reasons users ignore recommendation-style features [fictional] ("If it showed me random stuff I saved six months ago, I'd unsubscribe immediately" . P3 [fictional]). The team set a 70% precision target as the minimum acceptable accuracy: at least 7 out of 10 surfaced items should be rated "relevant" by the user, meaning the algorithm must do meaningfully better than random selection but does not need to achieve the precision of a full recommendation engine. The spike was scoped to answer whether this target is achievable within the team's current capabilities and infrastructure constraints (no ML infrastructure, no GPU, pre-Series A budget).
 
 ## Approach
 
@@ -93,10 +93,10 @@ The Resurface feature requires a mechanism to select 3 - 5 saved items for each 
 
 ### Finding 1: Tag-Based Matching Achieves ~55% Precision . Below the 70% Threshold
 
-Tag-based matching correctly identified relevant items approximately 55% of the time [fictional] across the three benchmark libraries. The primary failure mode was false negatives: items that were topically relevant but had different domains and non-overlapping OG tags were missed entirely. For example, a user who recently read a TechCrunch article about AI regulation and had a saved Substack post about EU tech policy would not see the Substack post because the two items share no metadata attributes. Tag-based matching works well when users save heavily from a small number of domains (high domain overlap) but fails when reading interests span diverse sources, which is the common pattern in the Brainshelf user base.
+Tag-based matching correctly identified relevant items approximately 55% of the time [fictional] across the three benchmark libraries. The primary failure mode was false negatives: items that were topically relevant but had different domains and non-overlapping OG tags were missed entirely. For example, a user who recently read a TechCrunch article about AI regulation and had a saved Substack post about EU tech policy would not see the Substack post because the two items share no metadata attributes. Tag-based matching works well when users save heavily from a small number of domains (high domain overlap) but fails when reading interests span diverse sources, which is the common pattern in the Brainshelf user base [fictional].
 
 **Evidence:**
-- Benchmark precision: 54%, 57%, 53% across the three libraries (mean: 54.7% [fictional])
+- Benchmark precision: 54% [fictional], 57% [fictional], 53% [fictional] across the three libraries (mean: 54.7% [fictional])
 - False negative rate: 38% of items rated "relevant" in the benchmark were not surfaced by the tag-based approach [fictional]
 - The approach performed best on Library 2 (57% [fictional]), which had the highest domain concentration (62% of items from 4 domains [fictional])
 
@@ -105,17 +105,17 @@ Tag-based matching correctly identified relevant items approximately 55% of the 
 TF-IDF vectorization with cosine similarity correctly identified relevant items approximately 72% of the time [fictional] across the three benchmark libraries. The approach captures topic-level similarity regardless of domain or metadata, which resolves the primary failure mode of tag-based matching. The main weakness is vocabulary mismatch: items that discuss the same topic using different terminology (e.g., "machine learning" vs. "AI" vs. "neural networks") receive lower similarity scores than expected. Stop word removal and stemming improved precision by approximately 4 percentage points [fictional] over the raw vectorization baseline.
 
 **Evidence:**
-- Benchmark precision: 70%, 74%, 71% across the three libraries (mean: 71.7% [fictional])
+- Benchmark precision: 70% [fictional], 74% [fictional], 71% [fictional] across the three libraries (mean: 71.7% [fictional])
 - False negative rate: 19% [fictional] . significantly lower than tag-based matching
 - Computation time: ~120ms per user library of 300 items on Alex's development machine (M2 MacBook) [fictional]; acceptable for a cron-scheduled batch process that runs once per user per day
-- Text extraction success rate: 89% of saved URLs yielded usable article text via Cheerio [fictional]; the remaining 11% were paywalled, dynamically rendered (JS-only), or non-article pages (videos, interactive tools)
+- Text extraction success rate: 89% of saved URLs yielded usable article text via Cheerio [fictional]; the remaining 11% [fictional] were paywalled, dynamically rendered (JS-only), or non-article pages (videos, interactive tools)
 
 ### Finding 3: OpenAI Embeddings Achieve ~84% Precision . Highest Accuracy but Adds External Dependency
 
-Embedding similarity using `text-embedding-3-small` achieved approximately 84% precision [fictional], meaningfully outperforming TF-IDF. The embedding approach handles vocabulary mismatch well (the "machine learning" / "AI" / "neural networks" problem) because embeddings encode semantic meaning rather than lexical overlap. However, the approach introduces three new constraints: (1) an external API dependency . if the OpenAI API is down, digest generation fails; (2) a per-call cost of approximately $0.02 per 1M tokens, which at Brainshelf's scale would be roughly $15 - 25/month for initial embedding generation plus $2 - 5/month for ongoing new-save embeddings [fictional]; and (3) a latency overhead of ~200ms per API call for embedding generation [fictional], which is acceptable for batch processing but adds complexity to the save-time pipeline if embeddings are generated synchronously.
+Embedding similarity using `text-embedding-3-small` achieved approximately 84% precision [fictional], meaningfully outperforming TF-IDF. The embedding approach handles vocabulary mismatch well (the "machine learning" / "AI" / "neural networks" problem) because embeddings encode semantic meaning rather than lexical overlap. However, the approach introduces three new constraints: (1) an external API dependency . if the OpenAI API is down, digest generation fails; (2) a per-call cost of approximately $0.02 per 1M tokens [fictional], which at Brainshelf's scale would be roughly $15 - 25/month for initial embedding generation plus $2 - 5/month for ongoing new-save embeddings [fictional]; and (3) a latency overhead of ~200ms per API call for embedding generation [fictional], which is acceptable for batch processing but adds complexity to the save-time pipeline if embeddings are generated synchronously.
 
 **Evidence:**
-- Benchmark precision: 82%, 86%, 83% across the three libraries (mean: 83.7% [fictional])
+- Benchmark precision: 82% [fictional], 86% [fictional], 83% [fictional] across the three libraries (mean: 83.7% [fictional])
 - False negative rate: 11% [fictional] . the lowest of the three approaches
 - Cost estimate: ~$15 - 25 one-time for embedding 150K existing saved items [fictional]; ~$2 - 5/month ongoing for new saves [fictional]
 - API latency: ~200ms per embedding call [fictional]; batch generation of a 300-item library takes ~60 seconds [fictional]
@@ -126,7 +126,7 @@ Embedding similarity using `text-embedding-3-small` achieved approximately 84% p
 
 TF-IDF meets the 70% precision threshold (71.7% mean [fictional]) without introducing an external API dependency, an ongoing cost, or a new infrastructure component. For a pre-Series A team with two backend engineers, operational simplicity matters as much as accuracy . the team cannot afford an on-call rotation for an external API dependency during the A/B test window. TF-IDF also has the advantage of being fully deterministic and inspectable: when a surfaced item seems irrelevant, the team can examine the term vectors to understand why, which is harder with opaque embedding representations.
 
-The 12-point precision gap between TF-IDF (72% [fictional]) and embeddings (84% [fictional]) is real and worth closing in a future iteration. The recommendation is to ship the A/B test with TF-IDF, measure whether the Resurface feature moves the 7-day return rate, and then invest in an embedding migration only if the feature is validated and the precision gap becomes the binding constraint on user satisfaction.
+The 12-point precision gap [fictional] between TF-IDF (72% [fictional]) and embeddings (84% [fictional]) is real and worth closing in a future iteration. The recommendation is to ship the A/B test with TF-IDF, measure whether the Resurface feature moves the 7-day return rate, and then invest in an embedding migration only if the feature is validated and the precision gap becomes the binding constraint on user satisfaction.
 
 ### If Proceeding
 

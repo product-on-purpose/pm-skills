@@ -78,7 +78,7 @@ content mode is fine. be honest about what we don't know.
 
 ### Early Adopters
 
-- Knowledge-worker users with 50+ saved items who have also turned on desktop notifications. This cohort (roughly 12% of the active base) has already signaled openness to proactive nudges and has enough save volume to power a daily digest. Approximately 2,300 users [fictional].
+- Knowledge-worker users with 50+ saved items who have also turned on desktop notifications. This cohort (roughly 12% of the active base [fictional]) has already signaled openness to proactive nudges and has enough save volume to power a daily digest. Approximately 2,300 users [fictional].
 
 **Confidence**: Medium
 **Rationale**: Active cohort is measurable. "50+ saves + notifications-on" as the early-adopter heuristic is directional; needs a pilot to confirm it maps to actual Resurface engagement.
@@ -132,11 +132,11 @@ Day-one reminder for your second brain.
 - **Model**: Freemium with a Curator paid tier.
 - **Price**: $5 per month, or $50 per year (with annual discount). Curator tier unlocks unlimited saves, advanced relevance controls, and priority sync.
 - **Volume (Year 1)**: 8% free-to-paid conversion of active base = approximately 1,600 paid users at end of Year 1 [fictional].
-- **LTV**: $5 per month x 14-month average lifetime = approximately $70 per user.
-- **Math**: 1,600 paid users x $60 average annual = $96k ARR at end of Year 1. Modest alone; the real bet is that Resurface lifts engagement enough to compound paid conversion over 12 to 18 months.
+- **LTV**: $5 per month x 14-month average lifetime [fictional] = approximately $70 per user.
+- **Math**: 1,600 paid users x $60 average annual = $96k ARR at end of Year 1 [fictional]. Modest alone; the real bet is that Resurface lifts engagement enough to compound paid conversion over 12 to 18 months.
 
 **Confidence**: Low
-**Rationale**: 8% free-to-paid conversion is at the optimistic end of consumer-freemium benchmarks. Brainshelf has no prior paid tier, so we have no internal baseline; this is pure assumption.
+**Rationale**: 8% free-to-paid conversion [fictional] is at the optimistic end of consumer-freemium benchmarks. Brainshelf has no prior paid tier, so we have no internal baseline; this is pure assumption.
 
 ---
 
@@ -178,15 +178,15 @@ Open question. No defensible moat yet. Candidate: our existing save-behavior dat
 
 ### Validated
 
-- Save-to-read ratio of roughly 1:0.3: Brainshelf internal analytics (Q1 2026).
-- Users with 3+ saves per week have 3.4x retention: Brainshelf internal cohort analysis.
+- Save-to-read ratio of roughly 1:0.3 [fictional]: Brainshelf internal analytics (Q1 2026) [fictional].
+- Users with 3+ saves per week have 3.4x retention [fictional]: Brainshelf internal cohort analysis [fictional].
 - Readwise Reader pricing and review-email feature pattern: Readwise public pricing page.
 
 ### Assumed
 
 - Morning window is highest-signal for deliberate engagement. Based on RescueTime research in general knowledge work, not measured for our users specifically.
 - Contextual relevance scoring will outperform chronological rotation. Pure hypothesis.
-- 8% free-to-paid conversion. Consumer-freemium benchmark; not measured internally (no paid tier exists yet).
+- 8% free-to-paid conversion [fictional]. Consumer-freemium benchmark; not measured internally (no paid tier exists yet).
 - "Knowledge worker with 50+ saves and notifications on" is the right early-adopter segment. Heuristic, not validated.
 
 ### Open Questions

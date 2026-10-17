@@ -26,7 +26,7 @@ User retention is our primary growth lever. Our acquisition costs are high ($45 
 
 ```
                         [OUTCOME]
-            Increase 30-day retention 40% → 55%
+            Increase 30-day retention 40% [fictional] → 55%
                            |
         ┌──────────────────┼──────────────────┐
         |                  |                  |
@@ -47,7 +47,7 @@ Survey]  A/B]      Usage]   Prototype]
 
 ## Opportunity Branches
 
-### Opportunity 1: Users don't understand the product's value in their first session
+### Opportunity 1: Users don't understand the product's value in their first session [fictional]
 
 **Description:** New users sign up but don't experience an "aha moment" in their first session. They leave without understanding what the product can do for them.
 **Impact Potential:** High
@@ -81,7 +81,7 @@ Survey]  A/B]      Usage]   Prototype]
 
 ---
 
-### Opportunity 2: Users can't find the features they need when they need them
+### Opportunity 2: Users can't find the features they need when they need them [fictional]
 
 **Description:** Users come back with intent but can't locate features, get frustrated, and leave. The product has grown complex and discovery is poor.
 **Impact Potential:** Medium
@@ -115,7 +115,7 @@ Survey]  A/B]      Usage]   Prototype]
 
 ---
 
-### Opportunity 3: Users forget to come back.nothing prompts their return
+### Opportunity 3: Users forget to come back.nothing prompts their return [fictional]
 
 **Description:** Users have initial intent but without habits formed or external triggers, they simply forget the product exists until they need it again (if ever).
 **Impact Potential:** High
@@ -155,7 +155,7 @@ Survey]  A/B]      Usage]   Prototype]
 
 ### Current Focus
 
-**Priority Opportunity:** Opportunity 1 - Users don't understand value in first session
+**Priority Opportunity:** Opportunity 1 - Users don't understand value in first session [fictional]
 **Priority Solution:** Solution 1A - Interactive Onboarding Wizard
 **Rationale:** Highest confidence (strong evidence), addresses earliest stage of user journey (biggest impact window), medium effort (achievable this quarter). If users never understand value, no amount of re-engagement will save them.
 

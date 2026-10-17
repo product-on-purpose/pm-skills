@@ -105,10 +105,10 @@ cursor> /utility-pm-skill-auditor --scope full --severity-floor P1
 
 ## Disposition recommendations
 
-- 0 P0 findings: clean to advance G0 gate (conductor would PASS)
-- 2 P1 findings: F-01 resolves automatically when Phase 5 ships; F-02 should be scheduled (Phase 6 or v2.17)
-- 2 P2 findings: F-03 cosmetic; F-04 in-progress (Phase 6 closes)
-- P3 findings hidden by --severity-floor P1
+- 0 P0 findings [fictional]: clean to advance G0 gate (conductor would PASS)
+- 2 P1 findings [fictional]: F-01 resolves automatically when Phase 5 ships; F-02 should be scheduled (Phase 6 or v2.17)
+- 2 P2 findings [fictional]: F-03 cosmetic; F-04 in-progress (Phase 6 closes)
+- P3 findings hidden by --severity-floor P1 [fictional]
 
 ---
 
@@ -123,6 +123,8 @@ All 16 enforcing validators pass [fictional]. No cross-cutting issues block ship
 **Refusal triggered:** no.
 
 ## Status
+
+Values in the block below are [fictional].
 
 ```yaml
 status: pass

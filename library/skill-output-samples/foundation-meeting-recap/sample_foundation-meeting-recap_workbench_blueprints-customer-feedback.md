@@ -125,7 +125,7 @@ Reviewed the approval-gate design with 6 enterprise customers over the past two 
 
 **Discussion**
 
-Sasha walked the current approval-gate design. Linda confirmed compliance conformance (HIPAA workflow requirements met). Raj noted implementation is 70% complete.
+Sasha walked the current approval-gate design. Linda confirmed compliance conformance (HIPAA workflow requirements met). Raj noted implementation is 70% complete [fictional].
 
 **Decisions made**
 
@@ -172,8 +172,8 @@ Applied 5-of-6 threshold (majority-signal) as must-fix criterion. Themes 1, 2, 3
 
 **Decisions made**
 
-- **Must-fix for v1.1**: audit-log granularity (Theme 1), bulk-amend flow (Theme 2), role-based approval shortcut (Theme 3). rationale: 3+ of 6 customers cited these; compliance and workflow dependencies
-- **Capacity fit confirmed**: raj confirmed 3 items fit within v1.1 capacity (4 eng-days of work)
+- **Must-fix for v1.1**: audit-log granularity (Theme 1), bulk-amend flow (Theme 2), role-based approval shortcut (Theme 3). rationale: 3+ of 6 customers cited these [fictional]; compliance and workflow dependencies
+- **Capacity fit confirmed**: raj confirmed 3 items fit within v1.1 capacity (4 eng-days of work [fictional])
 
 **Actions**
 
@@ -198,7 +198,7 @@ Themes 4, 5, 6 parked to v1.2 backlog with rationale.
 
 **Decisions made**
 
-- **Parked to v1.2**: mobile-responsive approval UI, exportable approval reports, custom approval status labels. rationale: low signal (<3 of 6 customers); dependencies on other initiatives (tooling integration); edge-case for label customization
+- **Parked to v1.2**: mobile-responsive approval UI, exportable approval reports, custom approval status labels. rationale: low signal (<3 of 6 customers [fictional]); dependencies on other initiatives (tooling integration); edge-case for label customization
 
 **Actions**
 

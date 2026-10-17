@@ -123,20 +123,20 @@ plan, and risk mitigation for Klaviyo and resistant stakeholders.
 
 **Role:** Technical lead for the Campaigns backend and API integration build; point person for the SendGrid integration, compliance architecture, and the abandoned cart event stream confirmation.
 **Influence Level:** High . scope changes during the build sprint originate from or require sign-off by the engineering lead; the GA timeline is effectively controlled by this stakeholder.
-**Interest Level:** High . actively participated in PRD review and authored the ADR decision on SendGrid infrastructure.
-**Current Alignment:** Supportive . participated in PRD review and signed off on the scope and infrastructure decisions.
+**Interest Level:** High . actively participated in PRD review and authored the ADR decision on SendGrid infrastructure [fictional].
+**Current Alignment:** Supportive . participated in PRD review and signed off on the scope and infrastructure decisions [fictional].
 
 **Needs:**
-- A PRD that does not change materially during the build sprint; scope creep is the primary risk this stakeholder has explicitly flagged.
+- A PRD that does not change materially during the build sprint; scope creep is the primary risk this stakeholder has explicitly flagged [fictional].
 - Compliance requirements from Legal before the backend data model is finalized, not after . the consent fields and suppression list architecture need to be designed in from the start.
 
 **Concerns:**
-- Legal review has not yet started; if it surfaces new data model requirements during the build, the timeline breaks. This is the highest-priority risk from the engineering lead's perspective.
+- Legal review has not yet started; if it surfaces new data model requirements during the build, the timeline breaks. This is the highest-priority risk from the engineering lead's perspective [fictional].
 - The abandoned cart event stream confirmation (platform team) is still an open item from the PRD; automation cannot be estimated until this is resolved.
 
 **What Motivates Them:**
 - Clean handoffs . clear requirements, no ambiguity on edge cases, decisions documented in ADRs so there is a single source of truth.
-- Shipping on time; Q2 2026 is a high-demand sprint period and timeline slippage creates downstream staffing conflicts.
+- Shipping on time; Q2 2026 is a high-demand sprint period and timeline slippage creates downstream staffing conflicts [fictional].
 
 **Preferred Communication:**
 - Channel: Slack (#campaigns-build) for async; weekly engineering/PM sync for decisions
@@ -149,7 +149,7 @@ plan, and risk mitigation for Klaviyo and resistant stakeholders.
 
 **Role:** Owner of merchant-facing launch communications, in-product announcement copy, and first-line support for Campaigns questions post-launch.
 **Influence Level:** High . a poorly prepared launch communication plan or under-trained support team is a direct risk to merchant satisfaction scores and early adoption rates.
-**Interest Level:** High . the Merchant Success team has been involved in discovery and is invested in Campaigns as a response to the churn signal they have been tracking.
+**Interest Level:** High . the Merchant Success team has been involved in discovery and is invested in Campaigns as a response to the churn signal they have been tracking [fictional].
 
 **Needs:**
 - Access to a staging environment or beta build at least two weeks before GA to prepare the team with hands-on product familiarity.
@@ -160,7 +160,7 @@ plan, and risk mitigation for Klaviyo and resistant stakeholders.
 - The power-user merchants in the discovery cohort have high expectations based on interview conversations; if v1 scope falls short of what was described, Merchant Success will absorb the resulting complaints before the PM does.
 
 **What Motivates Them:**
-- Merchant satisfaction and NPS . Campaigns is positioned as a direct response to a top-three churn driver; the team wants to be able to tell that story in merchant communications credibly.
+- Merchant satisfaction and NPS . Campaigns is positioned as a direct response to a top-three churn driver [fictional]; the team wants to be able to tell that story in merchant communications credibly.
 - Clear ownership: Merchant Success wants to be the launch communication owner, not a passive recipient of content produced by the PM or Marketing.
 
 **Preferred Communication:**
@@ -192,7 +192,7 @@ plan, and risk mitigation for Klaviyo and resistant stakeholders.
 **Preferred Communication:**
 - Channel: Direct email to the Klaviyo partnership contact before GA announcement
 - Frequency: One proactive notice before GA; reactive follow-up based on their response
-- Style: Partnership framing; lead with "Campaigns v1 is designed for the segment of merchants who do not currently use Klaviyo" and the data supporting that (v1 lacks A/B testing, SMS, and predictive analytics that Klaviyo power users depend on)
+- Style: Partnership framing; lead with "Campaigns v1 is designed for the segment of merchants who do not currently use Klaviyo" and the data supporting that (v1 lacks A/B testing, SMS, and predictive analytics that Klaviyo power users depend on [fictional])
 
 ## Key Relationships
 

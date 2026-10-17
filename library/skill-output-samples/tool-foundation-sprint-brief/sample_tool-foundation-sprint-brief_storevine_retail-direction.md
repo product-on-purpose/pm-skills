@@ -37,7 +37,7 @@ Team size: 4 people including Decider. Within the canonical 3-5 range.
 **Dates:** 2026-05-18 (Day 1) + 2026-05-19 (Day 2)
 **Hours:** 09:00-17:00 PT both days, with 1-hour lunch
 **Location:** Storevine SF office, conference room "Aisle 1"; secondary Miro board for asynchronous capture
-**Pre-sprint comms:** Mei sends brief + 31-interview synthesis to team 2 days before (2026-05-16 EOD)
+**Pre-sprint comms:** Mei sends brief + 31-interview synthesis [fictional] to team 2 days before (2026-05-16 EOD)
 **During-sprint comms:** No Slack, no email, phones in basket at door (medical exceptions allowed via Carlos)
 
 ## Success Criteria

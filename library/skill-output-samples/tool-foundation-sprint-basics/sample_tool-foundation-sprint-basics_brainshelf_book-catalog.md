@@ -31,9 +31,9 @@ Note-and-vote outcome: 3 of 4 votes for this customer over "social readers in bo
 
 Why this is painful enough to matter:
 
-- Active readers report losing 15-20 minutes per book trying to remember "did I read this already?" at the bookstore or library.
-- Recommendations from friends and articles accumulate but are never captured because the friction is too high.
-- Goodreads collected 12 of the 22 interviewees' early enthusiasm and then lost them within 90 days. The reasons clustered as "too many notifications," "embarrassing public reading," "the data is theirs not mine."
+- Active readers report losing 15-20 minutes per book trying to remember "did I read this already?" at the bookstore or library. [fictional]
+- Recommendations from friends and articles accumulate but are never captured because the friction is too high. [fictional]
+- Goodreads collected 12 of the 22 interviewees' early enthusiasm and then lost them within 90 days. [fictional] The reasons clustered as "too many notifications," "embarrassing public reading," "the data is theirs not mine." [fictional]
 
 This is a painful enough problem to drive switching from "do nothing" or paper journals. It is not a mild annoyance.
 
@@ -41,10 +41,10 @@ This is a painful enough problem to drive switching from "do nothing" or paper j
 
 | Advantage | Evidence | Strength |
 |---|---|---|
-| Riley's network of 12k book bloggers | Active Discord; warm intros for customer research | Distribution + research access |
-| Alex's design heritage in low-friction capture tools | Shipped 2 features at Notion-like company | Capability: fast-capture UX |
-| Sam's mobile + offline-first engineering experience | Previously built Pocket-style sync engine | Capability: fast launch on iOS |
-| Jamie's reader-community background | 8 years running a private reading group of 60+ active readers | Insight: knows the audience |
+| Riley's network of 12k book bloggers [fictional] | Active Discord; warm intros for customer research [fictional] | Distribution + research access |
+| Alex's design heritage in low-friction capture tools [fictional] | Shipped 2 features at Notion-like company [fictional] | Capability: fast-capture UX |
+| Sam's mobile + offline-first engineering experience [fictional] | Previously built Pocket-style sync engine [fictional] | Capability: fast launch on iOS |
+| Jamie's reader-community background [fictional] | 8 years running a private reading group of 60+ active readers [fictional] | Insight: knows the audience |
 
 Note-and-vote outcome: team selected "low-friction capture UX" and "private-by-default reader insight" as the two advantages worth committing to.
 
@@ -52,11 +52,11 @@ Note-and-vote outcome: team selected "low-friction capture UX" and "private-by-d
 
 | Competitor / Alternative | What customers use it for | Why people leave (or stay) |
 |---|---|---|
-| **Goodreads** | Social shelving, friend feeds | Too social; owned by Amazon; stale UX; private surface dropped |
-| **StoryGraph** | Tracking + recommendation alternative to Goodreads | Better than Goodreads but still social-first; limited iOS polish |
-| **Bookly** | Reading-stats tracking on mobile | Feels like a gym tracker, not a memory tool |
-| **LibraryThing** | Cataloging-focused, hobbyist | Dense UI, learning curve |
-| **Notion / Apple Notes / Excel** | DIY tracking | Friction to set up; no book metadata |
+| **Goodreads** | Social shelving, friend feeds | Too social [fictional]; owned by Amazon; stale UX [fictional]; private surface dropped [fictional] |
+| **StoryGraph** | Tracking + recommendation alternative to Goodreads | Better than Goodreads but still social-first [fictional]; limited iOS polish [fictional] |
+| **Bookly** | Reading-stats tracking on mobile | Feels like a gym tracker, not a memory tool [fictional] |
+| **LibraryThing** | Cataloging-focused, hobbyist | Dense UI, learning curve [fictional] |
+| **Notion / Apple Notes / Excel** | DIY tracking | Friction to set up; no book metadata [fictional] |
 | **Paper journal / bullet journal** | Manual tracking | Lossy; not searchable |
 | **Do nothing** | Memory + bookstore browse | Books re-bought; recommendations forgotten |
 

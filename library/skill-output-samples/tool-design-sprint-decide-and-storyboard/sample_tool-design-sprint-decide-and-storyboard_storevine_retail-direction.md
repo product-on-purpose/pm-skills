@@ -56,7 +56,7 @@ Shared Figma frame; 4 sketches A/B/C/D side-by-side. Attribution stripped (sketc
 
 **Compelling:** $-impact projection.
 
-**What would worry me:** $-impact projections are hard to validate operationally (off by 20% = trust break); severity badges may feel manipulative; PDF-only loses drill-down value.
+**What would worry me:** $-impact projections are hard to validate operationally (off by 20% [fictional] = trust break); severity badges may feel manipulative; PDF-only loses drill-down value.
 
 ### Sketch D
 

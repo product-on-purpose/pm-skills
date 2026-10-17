@@ -81,12 +81,12 @@ The Resurface digest sends a daily email at 7:30 AM in the user's local timezone
 
 | Date | Event |
 |------|-------|
-| Feb 14, 2026 | Resurface deployed to production behind feature flag |
+| Feb 14, 2026 | Resurface deployed to production behind feature flag [fictional] |
 | Feb 16, 2026 | Feature flag enabled; opt-in enrollment begins; first digests sent |
 | Feb 18, 2026 | Alex R. notices that EU send log timestamps cluster at 07:30 UTC instead of varying by user timezone; investigates |
 | Feb 18, 2026 | Root cause identified: `Europe/Kyiv` not in server's IANA database; fallback to UTC triggered silently |
 | Feb 18, 2026 | Patch deployed within 2 hours: IANA database updated, fallback logging added, affected users' timezones re-resolved |
-| Feb 19, 2026 | All affected users receive their digest at the correct local time; no user-reported complaints |
+| Feb 19, 2026 | All affected users receive their digest at the correct local time; no user-reported complaints [fictional] |
 
 ### Team and Stakeholders
 
@@ -98,7 +98,7 @@ The Resurface digest sends a daily email at 7:30 AM in the user's local timezone
 ### Constraints
 
 - The feature was behind a feature flag, so the team could patch without a full rollback; the blast radius was limited to users who had already opted in and received at least one digest
-- Sprint 8 had no allocated time for integration testing of timezone behavior . the timeline pressure to ship before the A/B test setup week (March 2) compressed testing to unit tests only
+- Sprint 8 had no allocated time for integration testing of timezone behavior . the timeline pressure to ship before the A/B test setup week (March 2) compressed testing to unit tests only [fictional]
 
 ---
 
@@ -106,12 +106,12 @@ The Resurface digest sends a daily email at 7:30 AM in the user's local timezone
 
 ### Sequence of Events
 
-1. During Sprint 8 development, Jess T. implemented the timezone handling logic. Unit tests covered the scheduling calculation (given a timezone string, compute the correct UTC send time) but used hardcoded timezone strings (`America/New_York`, `Europe/London`, `Asia/Tokyo`) as test inputs.
+1. During Sprint 8 development, Jess T. implemented the timezone handling logic. Unit tests covered the scheduling calculation (given a timezone string, compute the correct UTC send time) but used hardcoded timezone strings (`America/New_York`, `Europe/London`, `Asia/Tokyo`) as test inputs. [fictional]
 2. The unit tests passed because they tested the scheduling math, not the server's ability to recognize an arbitrary IANA timezone string from a user's device.
-3. On February 16, users in Ukraine, and a small number of users whose devices returned `Europe/Kyiv` as their timezone, opted in. The backend's IANA database (bundled with the `moment-timezone` library, which had not been updated since the last `npm install` in November 2025) did not include the `Europe/Kyiv` entry.
+3. On February 16, users in Ukraine, and a small number of users whose devices returned `Europe/Kyiv` as their timezone, opted in. The backend's IANA database (bundled with the `moment-timezone` library, which had not been updated since the last `npm install` in November 2025 [fictional]) did not include the `Europe/Kyiv` entry.
 4. The timezone resolution function encountered the unrecognized string, logged no error (the fallback was designed as a silent default, not an error), and stored `UTC` as the user's timezone.
 5. These users received their digest at 7:30 AM UTC . which is 9:30 AM in Kyiv (UTC+2) and other incorrect times depending on actual timezone. For UK users, the difference was only 0 - 1 hour depending on DST, which is why no user complained.
-6. On February 18, Alex R. was reviewing the send log as part of the daily health check and noticed that all EU users in the log had a `scheduled_time_utc` of `07:30:00Z` . no variance . which should have been impossible if their timezones were correctly resolved. He investigated and found the root cause within 30 minutes.
+6. On February 18, Alex R. was reviewing the send log as part of the daily health check [fictional] and noticed that all EU users in the log had a `scheduled_time_utc` of `07:30:00Z` . no variance . which should have been impossible if their timezones were correctly resolved. He investigated and found the root cause within 30 minutes. [fictional]
 
 ### Key Decisions Made
 
@@ -119,11 +119,11 @@ The Resurface digest sends a daily email at 7:30 AM in the user's local timezone
 |----------|-----------|---------|
 | Update the IANA database immediately and re-deploy | The stale database was the root cause; updating it resolved the issue for all affected timezone strings | All 340 users received correct-time digests starting Feb 19 [fictional] |
 | Add explicit logging for timezone fallback (log a warning whenever the fallback to UTC is triggered) | The silent fallback masked the error; an explicit log entry would have been caught in the daily health check on day 1 | Warning log added; will trigger an automated alert if >5 fallbacks occur in a single day [fictional] |
-| Do NOT roll back the feature | The impact was a 0 - 2 hour delivery offset for 340 users, not a broken or missing feature; rolling back would remove the digest for all users, which is a worse outcome | Feature remained live; patch deployed within 2 hours of detection |
+| Do NOT roll back the feature | The impact was a 0 - 2 hour delivery offset for 340 users [fictional], not a broken or missing feature; rolling back would remove the digest for all users, which is a worse outcome | Feature remained live; patch deployed within 2 hours of detection |
 
 ### Outcome
 
-The patch resolved the issue within 2 hours of detection. No user-reported complaints were received, likely because the delivery offset (0 - 2 hours for UK/EU users) was small enough to go unnoticed or to be attributed to email delivery delays. The total affected population was approximately 340 users [fictional], or about 3.5% of the initial opt-in cohort.
+The patch resolved the issue within 2 hours of detection. No user-reported complaints were received, likely because the delivery offset (0 - 2 hours for UK/EU users) was small enough to go unnoticed or to be attributed to email delivery delays. The total affected population was approximately 340 users [fictional], or about 3.5% of the initial opt-in cohort. [fictional]
 
 ---
 
@@ -209,9 +209,9 @@ Brainshelf is building more time-dependent features: cadence scheduling (3x/week
 
 ### Artifacts
 
-- Sprint 8 retrospective notes (Iterate phase)
-- Resurface send log analysis (internal Datadog dashboard)
-- Patch PR: "fix: update IANA timezone database and add fallback logging" (internal Git)
+- Sprint 8 retrospective notes (Iterate phase) [fictional]
+- Resurface send log analysis (internal Datadog dashboard) [fictional]
+- Patch PR: "fix: update IANA timezone database and add fallback logging" (internal Git) [fictional]
 
 ---
 

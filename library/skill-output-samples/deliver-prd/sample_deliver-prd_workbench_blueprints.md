@@ -73,9 +73,9 @@ Please generate a complete PRD following the standard template.
 
 ### Problem Statement
 
-Enterprise teams using Workbench consistently produce incomplete project documentation. Across the current Blueprints closed beta (80 accounts [fictional]), 38% of Blueprints reach the approval stage with at least one required section left empty [fictional]. The median time from Blueprint creation to first approval is 4.0 days [fictional], driven largely by revision cycles when approvers reject incomplete submissions. At an organizational level, 60% of enterprise projects are handed off to execution teams without an approved kickoff document [fictional], creating alignment gaps, scope creep, and duplicated work.
+Enterprise teams using Workbench consistently produce incomplete project documentation. Across the current Blueprints closed beta (80 accounts [fictional]), 38% of Blueprints reach the approval stage with at least one required section left empty [fictional]. The median time from Blueprint creation to first approval is 4.0 days [fictional], driven largely by revision cycles when approvers reject incomplete submissions [fictional]. At an organizational level, 60% of enterprise projects are handed off to execution teams without an approved kickoff document [fictional], creating alignment gaps, scope creep, and duplicated work.
 
-This problem is acute for operations managers who are responsible for documentation quality across their teams but lack tooling to enforce completeness standards without manually reviewing every submission. In discovery interviews, these managers described themselves as "docs police," spending an estimated 3-4 hours per week chasing incomplete documents rather than reviewing content quality [fictional].
+This problem is acute for operations managers who are responsible for documentation quality across their teams but lack tooling to enforce completeness standards without manually reviewing every submission. In discovery interviews, these managers described themselves as "docs police," [fictional] spending an estimated 3-4 hours per week chasing incomplete documents rather than reviewing content quality [fictional].
 
 ### Solution Summary
 
@@ -277,7 +277,7 @@ See the dedicated edge-case analysis document for full coverage. Key cases handl
 
 | Milestone | Date | Owner |
 |---|---|---|
-| Closed beta: 80 accounts active | Jan 2026 (done) | Rachel V. |
+| Closed beta: 80 accounts active [fictional] | Jan 2026 (done) | Rachel V. |
 | A/B test: required vs. optional sections | Mar 9 through Apr 5, 2026 | Leo M. |
 | A/B test analysis and ship decision | Apr 6 through Apr 14, 2026 | Rachel V. / Leo M. |
 | SAML SSO certification complete | Mar 2026 (target) | IT Security |
@@ -296,7 +296,7 @@ See the dedicated edge-case analysis document for full coverage. Key cases handl
 
 ### Related Documents
 
-- Interview synthesis: 6 enterprise team-lead interviews (Oct 2025)
+- Interview synthesis: 6 enterprise team-lead interviews (Oct 2025 [fictional])
 - Problem statement: Documentation incompleteness and approval delays
 - Hypothesis: Required-section enforcement reduces time-to-approved
 - Opportunity tree: Governance gap as priority growth path

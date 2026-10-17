@@ -19,14 +19,14 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 
 ## Heat Map
 
-**Mechanic:** 3 small dots per voter; silent; 15 minutes (09:30-09:45 PT) [fictional]. 4 voters x 3 dots = 12 total dots [fictional]. Dots placed on Figma using comment-pin tool.
+**Mechanic:** 3 small dots per voter; silent; 15 minutes (09:30-09:45 PT) [fictional]. 4 voters x 3 dots = 12 total dots. Dots placed on Figma using comment-pin tool.
 
 | Sketch | Dot count | Hottest elements (3-5 most-dotted) |
 |---|---|---|
-| Sketch A | 4 [fictional] | Capture-as-rating with optional freeform "why did you grab this?"; captured-contexts library organization; chip filter UI |
-| Sketch B | 4 [fictional] | 5-second undo countdown after capture; "where you saw it" geolocation tag on confirmation card |
-| Sketch C | 1 [fictional] | Explicit two-step capture with confirmation; tabular sortable library |
-| Sketch D | 3 [fictional] | Polaroid-stack post-capture animation; "found in your library: 3 books that mention X" recall surface |
+| Sketch A | 4 | Capture-as-rating with optional freeform "why did you grab this?"; captured-contexts library organization; chip filter UI |
+| Sketch B | 4 | 5-second undo countdown after capture; "where you saw it" geolocation tag on confirmation card |
+| Sketch C | 1 | Explicit two-step capture with confirmation; tabular sortable library |
+| Sketch D | 3 | Polaroid-stack post-capture animation; "found in your library: 3 books that mention X" recall surface |
 
 ## Speed Critique Notes
 
@@ -66,7 +66,7 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 
 ## Straw Poll Results
 
-11:00-11:15 PT. 1 large dot per voter; silent; non-binding. [fictional]
+11:00-11:15 PT. 1 large dot per voter; silent; non-binding.
 
 | Voter | Picked |
 |---|---|
@@ -75,7 +75,7 @@ Wednesday 2026-06-03. Tuesday closed with 4 attribution-stripped solution sketch
 | Sam | Sketch B |
 | Riley | Sketch A |
 
-**Straw poll distribution:** Sketch A: 1; Sketch B: 2; Sketch C: 0; Sketch D: 1. [fictional]
+**Straw poll distribution:** Sketch A: 1; Sketch B: 2; Sketch C: 0; Sketch D: 1.
 
 ## Supervote
 

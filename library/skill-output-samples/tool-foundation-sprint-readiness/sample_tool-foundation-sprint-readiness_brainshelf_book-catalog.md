@@ -28,11 +28,11 @@ The Brainshelf founding team (Jamie, Alex, Sam, Riley) is preparing to run a two
 - Jamie (founder, PM; Decider candidate)
 - Alex (design)
 - Sam (engineering)
-- Riley (customer expert; runs a 12k-follower book-blogger Discord)
+- Riley (customer expert; runs a 12k-follower book-blogger Discord [fictional])
 
-**Decider name and availability:** Jamie, available full days May 13-14 with no calendar conflicts confirmed.
+**Decider name and availability:** Jamie, available full days May 13-14 with no calendar conflicts confirmed [fictional].
 
-**Existing customer/market knowledge level (self-assessed):** 7 of 10. The team has run 22 customer interviews with active readers in the last 8 weeks. Riley has deep network in social-reading. Less direct knowledge of pure private-collection users.
+**Existing customer/market knowledge level (self-assessed):** 7 of 10 [fictional]. The team has run 22 customer interviews with active readers in the last 8 weeks [fictional]. Riley has deep network in social-reading [fictional]. Less direct knowledge of pure private-collection users [fictional].
 
 ## Readiness Verdict: **Go**
 
@@ -42,7 +42,7 @@ The team meets the canonical readiness criteria with one addressable yellow flag
 |---|---|---|
 | 1. Initiative is named and concrete | PASS | Brainshelf product direction is named |
 | 2. Stakes are meaningful | PASS | Pre-seed founders; wrong choice is costly |
-| 3. Team has existing customer/market knowledge | PASS | 22 interviews + Riley's domain network |
+| 3. Team has existing customer/market knowledge | PASS | 22 interviews + Riley's domain network [fictional] |
 | 4. Decider is available | PASS | Jamie commits to both days |
 | 5. Team size is appropriate (max 5) | PASS | 4 people including Decider |
 | 6. Inputs are collected | YELLOW | Interview notes ready; competitor research scattered |
@@ -53,7 +53,7 @@ The team meets the canonical readiness criteria with one addressable yellow flag
 
 Seven of eight criteria pass cleanly. The single yellow flag is competitor research completeness.
 
-**Competitor and alternatives research is incomplete.** Goodreads is well-understood; paper journals and physical notebooks are understood as alternatives; but the team has not surfaced systematic notes on apps like StoryGraph, Bookly, or LibraryThing. This matters because Day 1 morning Basics depends on a real competitor map; without it, the team risks generic positioning ("we are better than Goodreads") instead of differentiated positioning against the full alternative set. The gap is addressable: a 90-minute prep window the evening before Day 1 can produce one-page summaries for each missing competitor.
+**Competitor and alternatives research is incomplete.** Goodreads is well-understood; paper journals and physical notebooks are understood as alternatives; but the team has not surfaced systematic notes on apps like StoryGraph, Bookly, or LibraryThing [fictional]. This matters because Day 1 morning Basics depends on a real competitor map; without it, the team risks generic positioning ("we are better than Goodreads") instead of differentiated positioning against the full alternative set. The gap is addressable: a 90-minute prep window the evening before Day 1 can produce one-page summaries for each missing competitor.
 
 No other risk factors found. The Go verdict is honest, not optimistic.
 
@@ -63,7 +63,7 @@ No other risk factors found. The Go verdict is honest, not optimistic.
 
 ## Recommended Pre-Sprint Activities
 
-1. **Print or screen-share the 22 interview synthesis notes** (Jamie owns; deadline: morning of 2026-05-13). For Day 1 morning reference during target customer and important problem decisions.
+1. **Print or screen-share the 22 interview synthesis notes** [fictional] (Jamie owns; deadline: morning of 2026-05-13). For Day 1 morning reference during target customer and important problem decisions.
 2. **Block calendars** (whole team owns; deadline: end of day 2026-05-11). No Slack, no email during sprint hours (09:00-17:00 PT) both days.
 3. **Prepare the room and digital workspace** (Alex owns; deadline: evening of 2026-05-12). Pre-load Miro board with the canonical Foundation Sprint board template.
 4. **Confirm Day 2 closing time is unambiguous** (Jamie owns; deadline: morning of 2026-05-13). Founding Hypothesis ratification cannot slip to Day 3.

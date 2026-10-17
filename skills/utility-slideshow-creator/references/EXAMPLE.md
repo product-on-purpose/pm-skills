@@ -33,6 +33,8 @@ Dark-light alternation: D, D, L, D, L, D, L, L, D -- slight imbalance at slides 
 
 ## JSON Deck Specification
 
+Values in the block below are [fictional].
+
 ```json
 {
   "title": "Q3 Product Update",

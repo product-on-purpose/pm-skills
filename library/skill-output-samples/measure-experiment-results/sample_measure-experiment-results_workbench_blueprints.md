@@ -78,7 +78,7 @@ Required-section enforcement reduced the median time from Blueprint creation to 
 
 **Hypothesis:** If we enforce required-section completeness at the submission gate (submit button disabled until all required sections contain content), then the median time-to-approved will decrease by at least 1.0 day [fictional] (minimum detectable effect) because approvers will receive complete documents that require fewer revision cycles.
 
-**Test design:** Account-level randomization across 80 closed-beta enterprise accounts [fictional]. Treatment group (40 accounts): required-section enforcement enabled. Control group (40 accounts): all sections optional, no enforcement. Duration: 28 days (March 9 through April 5, 2026). Statistical test: Mann-Whitney U (chosen because time-to-approved is right-skewed). Significance threshold: alpha = 0.05. The experiment ran for its full pre-registered duration without interim stopping.
+**Test design:** Account-level randomization across 80 closed-beta enterprise accounts [fictional]. Treatment group (40 accounts): required-section enforcement enabled. Control group (40 accounts): all sections optional, no enforcement. Duration: 28 days (March 9 through April 5, 2026). Statistical test: Mann-Whitney U (chosen because time-to-approved is right-skewed). Significance threshold: alpha = 0.05. The experiment ran for its full pre-registered duration without interim stopping [fictional].
 
 ## Results
 
@@ -102,7 +102,7 @@ The observed effect (-1.6 days [fictional]) exceeds the pre-registered minimum d
 
 The 6% empty-section rate in the treatment group [fictional] (down from 37% [fictional]) represents cases where authors found workarounds, likely pasting placeholder text or minimal content to satisfy the non-whitespace check. This is below the 10% target [fictional] but warrants monitoring post-launch to ensure the rate does not climb as more authors encounter the enforcement gate.
 
-The higher completion rate in the treatment group (78% vs. 71% [fictional]) suggests that required-section enforcement acts as a commitment device: authors who start a Blueprint are more likely to finish it when the structure guides them toward completion. This was not part of the original hypothesis but aligns with behavioral research on structured task completion.
+The higher completion rate in the treatment group (78% vs. 71% [fictional]) suggests that required-section enforcement acts as a commitment device: authors who start a Blueprint are more likely to finish it when the structure guides them toward completion. This was not part of the original hypothesis but aligns with behavioral research on structured task completion [fictional].
 
 ### Guardrail Metrics
 
@@ -112,7 +112,7 @@ The higher completion rate in the treatment group (78% vs. 71% [fictional]) sugg
 | Blueprint creation rate (per account/week) | 3.9 [fictional] | 3.7 [fictional] | -0.2 [fictional] | 0.31 | Pass (not significant) |
 | Average section word count | 128 words [fictional] | 142 words [fictional] | +11% [fictional] | 0.03 | Pass (positive direction) |
 
-No guardrail metric showed a significant negative effect. The slight dip in author satisfaction (-0.1 [fictional]) is not statistically significant and within normal survey noise. Blueprint creation rate did not decrease meaningfully, indicating that enforcement did not discourage authors from starting new Blueprints. This was a key concern raised by Sandra C. before the experiment launched, and the data clearly addresses it.
+No guardrail metric showed a significant negative effect. The slight dip in author satisfaction (-0.1 [fictional]) is not statistically significant and within normal survey noise. Blueprint creation rate did not decrease meaningfully, indicating that enforcement did not discourage authors from starting new Blueprints. This was a key concern raised by Sandra C. before the experiment launched [fictional], and the data clearly addresses it.
 
 The increase in average section word count (+11% [fictional], p=0.03) is a positive secondary effect: authors wrote more thoroughly when sections were marked as required. This suggests the visual "Required" badges serve as a psychological prompt to invest more effort in each section, rather than merely compelling authors to meet a minimum bar.
 
@@ -126,7 +126,7 @@ The increase in average section word count (+11% [fictional], p=0.03) is a posit
 | Mid (50-199 employees) | 34 [fictional] | 3.9 days [fictional] | 2.4 days [fictional] | -38% [fictional] |
 | Small (10-49 employees) | 28 [fictional] | 3.5 days [fictional] | 2.4 days [fictional] | -31% [fictional] |
 
-The effect is strongest in large enterprises (-44% [fictional]), where approval chains tend to be longer and the cost of revision cycles is highest. This aligns with our target customer profile for Blueprints GA and supports the thesis that Blueprints is especially valuable for organizations with complex governance structures. Even the smallest segment shows a meaningful improvement, confirming that the feature works across the full range of customer sizes in the beta cohort.
+The effect is strongest in large enterprises (-44% [fictional]), where approval chains tend to be longer and the cost of revision cycles is highest [fictional]. This aligns with our target customer profile for Blueprints GA and supports the thesis that Blueprints is especially valuable for organizations with complex governance structures. Even the smallest segment shows a meaningful improvement, confirming that the feature works across the full range of customer sizes in the beta cohort.
 
 ### By Template Type
 
@@ -136,7 +136,7 @@ The effect is strongest in large enterprises (-44% [fictional]), where approval 
 | Process documentation | 218 [fictional] | 3.5 days [fictional] | 2.3 days [fictional] | -35% [fictional] |
 | Meeting notes | 149 [fictional] | 2.8 days [fictional] | 2.2 days [fictional] | -22% [fictional] |
 
-Project kickoff templates benefit most from required-section enforcement (-45% [fictional]), likely because they have the most complex structure and the most required sections. These templates also tend to involve multiple stakeholders and formal approval chains, making them the highest-leverage target for enforcement. Meeting notes show the smallest improvement (-22% [fictional]), which makes sense because meeting notes tend to be shorter and simpler, with fewer sections that benefit from enforcement.
+Project kickoff templates benefit most from required-section enforcement (-45% [fictional]), likely because they have the most complex structure and the most required sections. These templates also tend to involve multiple stakeholders and formal approval chains, making them the highest-leverage target for enforcement [fictional]. Meeting notes show the smallest improvement (-22% [fictional]), which makes sense because meeting notes tend to be shorter and simpler, with fewer sections that benefit from enforcement [fictional].
 
 ### Segment Insights
 
@@ -148,7 +148,7 @@ Project kickoff templates benefit most from required-section enforcement (-45% [
 
 ### Primary Metric Over Time
 
-The median time-to-approved diverged between treatment and control groups within the first week and remained stable throughout the experiment. By day 7, the treatment group's median had settled at approximately 2.5 days [fictional], while the control group hovered around 4.0 days [fictional]. No novelty effect or regression toward control was observed, suggesting the improvement is durable rather than driven by initial author curiosity. The stability of the treatment effect across all four weeks strengthens confidence that the observed improvement will persist at scale.
+The median time-to-approved diverged between treatment and control groups within the first week and remained stable throughout the experiment. By day 7, the treatment group's median had settled at approximately 2.5 days [fictional], while the control group hovered around 4.0 days [fictional]. No novelty effect or regression toward control was observed [fictional], suggesting the improvement is durable rather than driven by initial author curiosity. The stability of the treatment effect across all four weeks strengthens confidence that the observed improvement will persist at scale.
 
 Weekly medians:
 
@@ -169,7 +169,7 @@ Weekly medians:
 | Approved on first cycle | 152 (48%) [fictional] | 208 (70%) [fictional] |
 | Approved (any cycle) | 223 (71%) [fictional] | 232 (78%) [fictional] |
 
-The most dramatic improvement is in first-cycle approval rate: 70% of treatment Blueprints were approved on the first submission [fictional], compared to 48% for control [fictional]. This confirms that required-section enforcement eliminates the most common rejection reason (incomplete sections) and reduces the back-and-forth that inflates time-to-approved. The 22-percentage-point improvement in first-cycle approvals is arguably the most important finding in the funnel analysis, as it directly translates to fewer interruptions for both authors and approvers.
+The most dramatic improvement is in first-cycle approval rate: 70% of treatment Blueprints were approved on the first submission [fictional], compared to 48% for control [fictional]. This confirms that required-section enforcement eliminates the most common rejection reason (incomplete sections) [fictional] and reduces the back-and-forth that inflates time-to-approved. The 22-percentage-point improvement in first-cycle approvals [fictional] is arguably the most important finding in the funnel analysis, as it directly translates to fewer interruptions for both authors and approvers.
 
 ## Learnings
 
@@ -183,8 +183,8 @@ The most dramatic improvement is in first-cycle approval rate: 70% of treatment 
 ### Surprising Findings
 
 1. **Word count increase.** We expected required-section enforcement to produce minimal-effort compliance (short text to clear the gate). Instead, authors wrote more. The "Required" badge appears to signal importance, prompting authors to invest effort rather than just meet the threshold. This finding has implications for how we design enforcement in other parts of the product.
-2. **No creation-rate decline.** Pre-experiment, some stakeholders worried that enforcement would discourage Blueprint creation. Creation rates were statistically identical between groups (3.7 vs. 3.9 per account/week [fictional], p=0.31), effectively eliminating this concern.
-3. **Small-company benefit.** We expected the effect to be concentrated in large enterprises. Small companies (10-49 employees) still saw a 31% reduction [fictional], suggesting that even lightweight teams benefit from structured document completion.
+2. **No creation-rate decline.** Pre-experiment, some stakeholders worried that enforcement would discourage Blueprint creation [fictional]. Creation rates were statistically identical between groups (3.7 vs. 3.9 per account/week [fictional], p=0.31), effectively eliminating this concern.
+3. **Small-company benefit.** We expected the effect to be concentrated in large enterprises [fictional]. Small companies (10-49 employees) still saw a 31% reduction [fictional], suggesting that even lightweight teams benefit from structured document completion.
 
 ### What We Still Don't Know
 
@@ -229,19 +229,19 @@ Not applicable; shipping as-is.
 
 ### Raw Data
 
-Raw experiment data is available in the Workbench analytics warehouse under the dataset `blueprints_ab_test_required_sections_2026Q1`. Access restricted to the Blueprints product team and data engineering. Contact Leo M. for query access.
+Raw experiment data is available in the Workbench analytics warehouse under the dataset `blueprints_ab_test_required_sections_2026Q1` [fictional]. Access restricted to the Blueprints product team and data engineering. Contact Leo M. for query access.
 
 ### Statistical Methodology
 
 - **Test:** Mann-Whitney U test (non-parametric, appropriate for right-skewed time-to-event data)
 - **Significance level:** alpha = 0.05 (two-tailed)
 - **Power analysis (pre-test):** 250 Blueprints per variant required for 80% power to detect a 1.0-day difference [fictional]. Actual: 298 treatment, 314 control [fictional], meaning the experiment was adequately powered.
-- **Multiple comparisons:** Secondary metrics are reported with unadjusted p-values. Bonferroni correction (alpha/3 = 0.017) does not change the significance of any secondary metric.
-- **Sequential testing:** No interim analyses were conducted. The test ran for the full pre-registered duration (28 days).
-- **Randomization check:** Pre-experiment account characteristics (company size, industry, historical Blueprint volume) were balanced between treatment and control groups (chi-squared test, p > 0.20 for all dimensions).
+- **Multiple comparisons:** Secondary metrics are reported with unadjusted p-values. Bonferroni correction (alpha/3 = 0.017) does not change the significance of any secondary metric [fictional].
+- **Sequential testing:** No interim analyses were conducted. The test ran for the full pre-registered duration (28 days) [fictional].
+- **Randomization check:** Pre-experiment account characteristics (company size, industry, historical Blueprint volume) were balanced between treatment and control groups (chi-squared test, p > 0.20 for all dimensions) [fictional].
 
 ### Known Issues
 
 1. **Six treatment-group accounts had fewer than 3 Blueprints during the test period [fictional].** These accounts are included in the analysis but contribute limited data. Excluding them does not meaningfully change the results (median time-to-approved shifts from 2.4 to 2.3 days [fictional]).
-2. **One control-group account migrated from Confluence mid-test [fictional].** Their Blueprint volume spiked in week 3 as the team moved existing documents into Workbench. Excluding this account does not change the primary metric (control median remains 4.0 days [fictional]).
+2. **One control-group account migrated from Confluence mid-test [fictional].** Their Blueprint volume spiked in week 3 as the team moved existing documents into Workbench [fictional]. Excluding this account does not change the primary metric (control median remains 4.0 days [fictional]).
 3. **Survey response rate for author satisfaction was 62% [fictional].** Non-response bias is possible but unlikely to be differential between groups (response rates were 61% treatment, 63% control [fictional]).

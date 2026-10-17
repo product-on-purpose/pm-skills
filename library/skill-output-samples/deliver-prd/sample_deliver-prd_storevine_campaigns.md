@@ -141,7 +141,7 @@ re-engagement.
 - SMS campaigns . deferred to v2
 - A/B testing of subject lines or content . requires sufficient list volume; v2
 - Advanced automation (multi-step sequences, conditional branching) . v2
-- Custom HTML email editor . template library covers estimated 85% of use cases; v2
+- Custom HTML email editor . template library covers estimated 85% of use cases [fictional]; v2
 - Transactional emails (order confirmation, shipping) . handled by existing system
 - Native landing page builder tied to campaigns
 
@@ -196,9 +196,9 @@ See [User Stories . Campaigns v1](#) for full acceptance criteria.
 - **Advanced automation (v2):** Multi-step sequences need a workflow engine;
   architecture decision required before design begins
 - **A/B testing (v2):** Valid results require list sizes most Storevine merchants
-  won't have at launch; add when median list size makes testing statistically viable
+  won't have at launch [fictional]; add when median list size makes testing statistically viable
 - **Custom HTML editor (v2):** Significant QA surface across email clients; template
-  library covers the majority of v1 use cases
+  library covers the majority of v1 use cases [fictional]
 
 ## Solution Design
 

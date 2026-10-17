@@ -27,7 +27,7 @@ Workbench just completed its design-partner pilot with the Series C fintech (202
 
 > Founding Hypothesis (2026-05-22): real-time multi-source aggregator for incident-time disorientation phase. Pilot validated A1 (technical feasibility); A2 (SREs actually use Workbench at incident time vs revert) showed mixed results - 60% open rate but 50% revert within 3 min. Pilot-derived A9 added: "One-screen UX comprehensibility determines whether SREs stay in Workbench or revert to source tools." A9 is the DS lead question.
 
-**Customer access status:** Jin owns recruiting; 2 slots filled by Series C fintech SREs (incl Jin's colleague on-call lead); 3 slots from Priya's network (2 Series B + 1 Series D SRE leads). Honorarium USD 150 per 60-min interview (B2B SRE rate). Estimated 9 days to confirm all 5.
+**Customer access status:** Jin owns recruiting; 2 slots filled by Series C fintech SREs (incl Jin's colleague on-call lead); 3 slots from Priya's network (2 Series B + 1 Series D SRE leads). Honorarium USD 150 per 60-min interview (B2B SRE rate [fictional]). Estimated 9 days to confirm all 5.
 
 **Decider name and availability:** Priya, full-week availability for 2026-08-03 to 2026-08-07.
 

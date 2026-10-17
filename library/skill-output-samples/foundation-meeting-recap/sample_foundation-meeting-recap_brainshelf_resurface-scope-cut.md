@@ -101,7 +101,7 @@ Full recap linked below.
 
 ### Overall summary
 
-Elena flagged earlier in the day that fitting both algorithm options into this sprint would overrun by 2 eng-days. Meeting decided to cut topic-clustered option to next sprint; ship recency-weighted this sprint. Short, focused decision meeting with no emergent topics.
+Elena flagged earlier in the day that fitting both algorithm options into this sprint would overrun by 2 eng-days [fictional]. Meeting decided to cut topic-clustered option to next sprint; ship recency-weighted this sprint. Short, focused decision meeting with no emergent topics.
 
 ### Agenda reconciliation
 

@@ -66,9 +66,9 @@ Participants: Karen L. (Engineering Lead), Nate P. (Backend Engineer), James W. 
 
 ## Context
 
-Blueprints requires real-time co-editing so that multiple enterprise authors can work simultaneously on the same document. The target performance requirement is 20+ concurrent editors per Blueprint with merge latency below 100ms [fictional]. Enterprise customers require offline-first capability (for field teams with unreliable connectivity), deterministic conflict resolution that preserves author intent, and per-user change attribution for audit trail compliance. These requirements reflect feedback from discovery interviews with six enterprise team leads (October 2025), where unreliable connectivity and compliance-driven change tracking emerged as non-negotiable constraints for any co-editing solution.
+Blueprints requires real-time co-editing so that multiple enterprise authors can work simultaneously on the same document. The target performance requirement is 20+ concurrent editors [fictional] per Blueprint with merge latency below 100ms [fictional]. Enterprise customers require offline-first capability (for field teams with unreliable connectivity), deterministic conflict resolution that preserves author intent, and per-user change attribution for audit trail compliance. These requirements reflect feedback from discovery interviews with six enterprise team leads (October 2025) [fictional], where unreliable connectivity and compliance-driven change tracking emerged as non-negotiable constraints for any co-editing solution [fictional].
 
-The current Workbench editor is built on ProseMirror with no collaboration layer. A 5-day CRDT spike (December 1-5, 2025) evaluated three libraries: Yjs, Automerge, and ShareDB. The spike produced functional prototypes for Yjs and ShareDB, and a partial prototype for Automerge (no ProseMirror binding available). Performance benchmarks were collected using a Playwright-based load test with 20 simulated concurrent editors. Nate P. led the spike and documented each prototype's integration steps, performance results, and qualitative assessment of developer ergonomics.
+The current Workbench editor is built on ProseMirror with no collaboration layer. A 5-day CRDT spike (December 1-5, 2025) evaluated three libraries: Yjs, Automerge, and ShareDB. The spike produced functional prototypes for Yjs and ShareDB, and a partial prototype for Automerge (no ProseMirror binding available). Performance benchmarks were collected using a Playwright-based load test with 20 simulated concurrent editors [fictional]. Nate P. led the spike and documented each prototype's integration steps, performance results, and qualitative assessment of developer ergonomics [fictional].
 
 ## Decision
 
@@ -81,7 +81,7 @@ Adopt **Yjs** (v13.6+, MIT license) as the CRDT library for Blueprints real-time
 - **2-day integration baseline:** The `y-prosemirror` binding provides cursor awareness, undo/redo per user, and document synchronization out of the box, reducing initial integration effort to an estimated 2 sprints for production-grade deployment [fictional]. This fast prototyping cycle also means the team can iterate on the collaboration UX without building foundational plumbing from scratch.
 - **Offline-first by default:** Yjs queues edits locally when disconnected and merges them automatically on reconnect, satisfying the enterprise offline-first requirement without additional engineering work. This is particularly important for field teams at customers like those in the logistics and healthcare verticals, where connectivity gaps are common.
 - **Sub-document support:** Yjs allows independent synchronization of document sections, reducing merge payloads for large Blueprints and enabling section-level lazy loading. For Blueprints with 10+ sections, this keeps merge payloads proportional to the section being edited rather than the full document.
-- **Active community:** 15K+ GitHub stars, weekly maintenance commits, and production adoption by Liveblocks, BlockSuite, and other ProseMirror-based editors. The `y-prosemirror` binding is maintained by the Yjs author.
+- **Active community:** 15K+ GitHub stars, weekly maintenance commits [fictional], and production adoption by Liveblocks, BlockSuite, and other ProseMirror-based editors. The `y-prosemirror` binding is maintained by the Yjs author.
 - **Performance within target:** 45ms median merge latency at 20 concurrent editors [fictional], well within the 100ms requirement. The 95th percentile latency measured during the spike was 72ms [fictional], still comfortably under the threshold.
 
 ### Negative
@@ -100,13 +100,13 @@ Adopt **Yjs** (v13.6+, MIT license) as the CRDT library for Blueprints real-time
 
 ### Automerge
 
-Automerge offers a theoretically cleaner CRDT model (JSON-like document structure) and the strongest offline-first story via its Rust core with WASM bindings. However, Automerge has no first-party ProseMirror binding. Building a custom binding was estimated at 3-4 weeks of dedicated engineering effort [fictional], and the WASM binary adds +120KB gzipped to the bundle [fictional] (3x the Yjs footprint). Enterprise CSP configurations may require additional IT approval for WASM loading, which introduces a deployment friction point for security-conscious customers.
+Automerge offers a theoretically cleaner CRDT model (JSON-like document structure) and the strongest offline-first story via its Rust core with WASM bindings. However, Automerge has no first-party ProseMirror binding. Building a custom binding was estimated at 3-4 weeks of dedicated engineering effort [fictional], and the WASM binary adds +120KB gzipped to the bundle [fictional] (3x the Yjs footprint [fictional]). Enterprise CSP configurations may require additional IT approval for WASM loading, which introduces a deployment friction point for security-conscious customers.
 
-**Rejected:** Integration cost (3-4 weeks custom binding + ongoing maintenance) exceeds the benefit. The team would carry first-mover maintenance risk without proportional advantage. If Automerge releases a first-party ProseMirror binding in the future, the team may revisit this decision.
+**Rejected:** Integration cost (3-4 weeks custom binding + ongoing maintenance) [fictional] exceeds the benefit. The team would carry first-mover maintenance risk without proportional advantage. If Automerge releases a first-party ProseMirror binding in the future, the team may revisit this decision.
 
 ### ShareDB
 
-ShareDB is an OT-based library that integrated with ProseMirror in 1.5 days (fastest of the three). Performance was acceptable (62ms merge latency at 20 concurrent editors [fictional]) and bundle size was the smallest (+22KB gzipped [fictional]).
+ShareDB is an OT-based library that integrated with ProseMirror in 1.5 days [fictional] (fastest of the three). Performance was acceptable (62ms merge latency at 20 concurrent editors [fictional]) and bundle size was the smallest (+22KB gzipped [fictional]).
 
 **Rejected:** ShareDB requires a central server for conflict resolution and has no offline support. Edits made while disconnected are lost. This is a hard failure against the enterprise offline-first requirement and introduces a single point of failure. Even if offline support were not required, the central-server dependency means that a server outage would freeze all active editing sessions, an unacceptable risk for enterprise reliability expectations.
 

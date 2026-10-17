@@ -45,6 +45,8 @@ copilot> /utility-pm-release-conductor v2.16.0 --dry-run
 
 The dispatch skill reads `agents/pm-skill-auditor.md` and executes its 4-step audit flow inline (no native chain). Inlined output:
 
+Values in the block below are [fictional].
+
 ```yaml
 status: pass
 p0_count: 0
@@ -95,6 +97,8 @@ Proceed to G2?
 ### Inlined: pm-changelog-curator at G2
 
 The dispatch skill reads `agents/pm-changelog-curator.md` and executes its 8-step drafting flow inline. Inlined output:
+
+Values in the block below are [fictional].
 
 ```yaml
 status: draft

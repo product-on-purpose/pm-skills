@@ -58,20 +58,20 @@ and where the white space is for us.
 
 ## Market Context
 
-**Market Size:** The global personal knowledge management tools market is estimated at $1.5B+ (2024), with the read-later/bookmarking segment representing a meaningful subset driven by Pocket's 35M+ registered users (Mozilla, public) and Readwise's growth in the highlight-and-review niche.
+**Market Size:** The global personal knowledge management tools market is estimated at $1.5B+ (2024) [fictional], with the read-later/bookmarking segment representing a meaningful subset driven by Pocket's 35M+ registered users (Mozilla, public) and Readwise's growth in the highlight-and-review niche.
 
-**Growth Trend:** Growing . driven by information overload, remote work, and increasing demand for tools that help users manage their reading intake.
+**Growth Trend:** Growing . driven by information overload, remote work, and increasing demand for tools that help users manage their reading intake [fictional].
 
 **Key Trends:**
-- Consolidation: Omnivore (open-source read-later app) was acquired by ElevenLabs in October 2024 and subsequently shut down, displacing its user base; Matter (podcast/article reader) also shut down in 2023
-- Shift from save-and-forget to save-and-resurface: Readwise's growth demonstrates that users want tools that bring saved content back to them, not just tools that store it
-- AI-powered summarization and recommendation: multiple PKM tools are experimenting with LLM-powered features (auto-tagging, summaries, related content suggestions), but no competitor has shipped a strong AI-driven resurfacing mechanism yet
+- Consolidation: Omnivore (open-source read-later app) was acquired by ElevenLabs in October 2024 and subsequently shut down, displacing its user base; Matter (podcast/article reader) also shut down in 2023 [fictional]
+- Shift from save-and-forget to save-and-resurface: Readwise's growth demonstrates that users want tools that bring saved content back to them, not just tools that store it [fictional]
+- AI-powered summarization and recommendation: multiple PKM tools are experimenting with LLM-powered features (auto-tagging, summaries, related content suggestions), but no competitor has shipped a strong AI-driven resurfacing mechanism yet [fictional]
 
 ## Competitors Analyzed
 
 | Competitor | Type | Target Market | Founded | Funding/Size |
 |------------|------|---------------|---------|--------------|
-| Readwise | Direct | Power readers, highlight-heavy users | 2019 | Bootstrap/profitable (estimated); no public funding round |
+| Readwise | Direct | Power readers, highlight-heavy users | 2019 | Bootstrap/profitable (estimated); no public funding round [fictional] |
 | Raindrop.io | Indirect | Designers, researchers, visual curators | 2014 | Bootstrap; solo founder (Rustem Mussabekov) |
 | Pocket (Mozilla) | Indirect | Mainstream readers, casual savers | 2007 | Acquired by Mozilla, 2017 |
 | Instapaper | Indirect | Minimalist readers, long-form focus | 2008 | Acquired by Instant Paper Inc. (via Pinterest sale) |
@@ -80,16 +80,16 @@ and where the white space is for us.
 
 | Feature | Brainshelf | Readwise | Raindrop.io | Pocket | Instapaper |
 |---------|------------|----------|-------------|--------|------------|
-| Web/article clipping | Full | Full | Full | Full | Full |
-| Organize/tag/collections | Partial | Partial | Full | Partial | Partial |
-| Full-text search | Full | Full | Full (Pro) | Full (Premium) | Full (Premium) |
-| Highlights/annotations | Partial | Full | Full (Pro) | None | Full |
-| Content resurfacing | None (planned) | Full | None | Partial | None |
-| Email digest | None (planned) | Full (daily) | None | Partial (weekly recs) | None |
-| Spaced repetition | None | Full | None | None | None |
-| In-app recommendations | None | None | None | Full | None |
-| Mobile app | Full | Full | Full | Full | Full |
-| API/integrations | Partial | Full | Full | Full | Partial |
+| Web/article clipping | Full [fictional] | Full [fictional] | Full [fictional] | Full [fictional] | Full [fictional] |
+| Organize/tag/collections | Partial [fictional] | Partial [fictional] | Full [fictional] | Partial [fictional] | Partial [fictional] |
+| Full-text search | Full [fictional] | Full [fictional] | Full (Pro) [fictional] | Full (Premium) [fictional] | Full (Premium) [fictional] |
+| Highlights/annotations | Partial [fictional] | Full [fictional] | Full (Pro) [fictional] | None [fictional] | Full [fictional] |
+| Content resurfacing | None (planned) [fictional] | Full [fictional] | None [fictional] | Partial [fictional] | None [fictional] |
+| Email digest | None (planned) [fictional] | Full (daily) [fictional] | None [fictional] | Partial (weekly recs) [fictional] | None [fictional] |
+| Spaced repetition | None [fictional] | Full [fictional] | None [fictional] | None [fictional] | None [fictional] |
+| In-app recommendations | None [fictional] | None [fictional] | None [fictional] | Full [fictional] | None [fictional] |
+| Mobile app | Full [fictional] | Full [fictional] | Full [fictional] | Full [fictional] | Full [fictional] |
+| API/integrations | Partial [fictional] | Full [fictional] | Full [fictional] | Full [fictional] | Partial [fictional] |
 
 ## Pricing Comparison
 
@@ -98,13 +98,15 @@ and where the white space is for us.
 | Brainshelf | Yes (core save/read) | $4.99/mo [fictional] | Freemium |
 | Readwise | 30-day trial only | ~$8 - 10/mo | Subscription (no free tier) |
 | Raindrop.io | Yes (core bookmarks) | $3/mo ($28/yr) | Freemium |
-| Pocket | Yes (core save) | ~$5/mo ($45/yr) | Freemium |
-| Instapaper | Yes (core save) | $3/mo ($30/yr) | Freemium |
+| Pocket | Yes (core save) | ~$5/mo ($45/yr) [fictional] | Freemium |
+| Instapaper | Yes (core save) | $3/mo ($30/yr) [fictional] | Freemium |
 
 ## Positioning Map
 
 **Axis X:** Simplicity (Low) → Power (High)
 **Axis Y:** Save Focus (Low) → Resurface Focus (High)
+
+Values in the block below are [fictional].
 
 ```
               [Resurface Focus]
@@ -133,17 +135,17 @@ and where the white space is for us.
 
 **Target Customer:** Power readers who highlight heavily across multiple sources and want a systematic review habit.
 
-**Key Differentiator:** The daily review email is Readwise's signature feature. It resurfaces highlights using a spaced repetition algorithm, creating a habit loop that no other read-later tool replicates. The review email has become the primary engagement driver . users open Readwise because the email brings them back, not because they self-initiate.
+**Key Differentiator:** The daily review email is Readwise's signature feature. It resurfaces highlights using a spaced repetition algorithm, creating a habit loop that no other read-later tool replicates. The review email has become the primary engagement driver . users open Readwise because the email brings them back, not because they self-initiate [fictional].
 
 **Strengths:**
 - Only competitor with a mature, proven content resurfacing mechanism (daily review email + spaced repetition)
 - Deep integration ecosystem: syncs highlights from Kindle, Apple Books, Kobo, Instapaper, Pocket, web clippers, and PDFs
-- Strong word-of-mouth among knowledge workers and the "Tools for Thought" community
+- Strong word-of-mouth among knowledge workers and the "Tools for Thought" community [fictional]
 
 **Weaknesses:**
-- No free tier . the ~$8 - 10/month price point is a barrier for casual users and students; Readwise self-selects for power users and excludes the broader market
-- Resurfacing is highlight-dependent . users must annotate content before it can be resurfaced; users who save but don't highlight (the majority of read-later users) get limited value from the review mechanism
-- Reader (the read-later product) is complex and feature-dense; onboarding friction is high for users who just want to save and revisit articles
+- No free tier . the ~$8 - 10/month price point is a barrier for casual users and students; Readwise self-selects for power users and excludes the broader market [fictional]
+- Resurfacing is highlight-dependent . users must annotate content before it can be resurfaced; users who save but don't highlight (the majority of read-later users) [fictional] get limited value from the review mechanism
+- Reader (the read-later product) is complex and feature-dense; onboarding friction is high for users who just want to save and revisit articles [fictional]
 
 **Recent Moves:** Continued expansion of Reader as a full-featured read-later app; added YouTube transcript support and PDF annotation; no movement toward a free tier or simplified product.
 
@@ -155,7 +157,7 @@ and where the white space is for us.
 
 **Target Customer:** Designers, researchers, and visual thinkers who value aesthetic organization and need to manage large reference libraries.
 
-**Key Differentiator:** Visual, design-forward organization. Raindrop.io's card-based UI and nested collection structure make it the most visually appealing bookmark manager available. Users who care about how their library looks and feels gravitate to Raindrop over text-heavy alternatives.
+**Key Differentiator:** Visual, design-forward organization. Raindrop.io's card-based UI and nested collection structure make it the most visually appealing bookmark manager available. Users who care about how their library looks and feels gravitate to Raindrop over text-heavy alternatives [fictional].
 
 **Strengths:**
 - Best-in-class organization and curation UX . nested collections, bulk tagging, drag-and-drop, and visual preview cards
@@ -181,18 +183,18 @@ and where the white space is for us.
 **Key Differentiator:** Content discovery, not content resurfacing. Pocket's recommendation engine surfaces new articles based on trending topics and user interests . but it surfaces new external content, not the user's own saved library. This is discovery, not re-engagement.
 
 **Strengths:**
-- Largest user base in the category (35M+ registered users, per Mozilla); strongest brand recognition
+- Largest user base in the category (35M+ registered users, per Mozilla); strongest brand recognition [fictional]
 - Firefox integration provides built-in distribution at browser level
-- Content recommendation engine surfaces interesting articles (new content), which drives regular app opens
+- Content recommendation engine surfaces interesting articles (new content), which drives regular app opens [fictional]
 - Free tier covers all core save-and-read functionality
 
 **Weaknesses:**
 - No re-engagement mechanism for saved content . Pocket's recommendations are about new content, not the user's own library; there is no "resurface your saved items" feature
 - Pocket's weekly email contains recommendations, not saved items . users receive editorial picks, not their own content brought back to them
-- Product development has slowed under Mozilla; no major feature additions in recent years
+- Product development has slowed under Mozilla; no major feature additions in recent years [fictional]
 - Premium tier adds full-text search and permanent library, but no resurfacing or engagement features
 
-**Recent Moves:** Limited recent product development; Mozilla's focus has been on Firefox and AI features rather than Pocket-specific investment.
+**Recent Moves:** Limited recent product development; Mozilla's focus has been on Firefox and AI features rather than Pocket-specific investment [fictional].
 
 ---
 
@@ -202,19 +204,19 @@ and where the white space is for us.
 
 **Target Customer:** Minimalist readers who value clean text formatting and distraction-free long-form reading over organization or discovery features.
 
-**Key Differentiator:** Reading experience purity. Instapaper strips articles down to clean text with customizable fonts, margins, and background colors . the best pure reading experience in the category.
+**Key Differentiator:** Reading experience purity. Instapaper strips articles down to clean text with customizable fonts, margins, and background colors . the best pure reading experience in the category [fictional].
 
 **Strengths:**
-- Cleanest, most focused reading experience . no distractions, no social features, no recommendations competing for attention
+- Cleanest, most focused reading experience . no distractions, no social features, no recommendations competing for attention [fictional]
 - Highlight and annotation export to third-party tools (including Readwise)
 - Affordable premium tier ($3/month) with search and unlimited highlights
-- Loyal niche audience that values simplicity
+- Loyal niche audience that values simplicity [fictional]
 
 **Weaknesses:**
 - No content resurfacing or re-engagement mechanism . like Raindrop, Instapaper is entirely pull-based with no outbound touchpoints
 - No email digest or notification system
-- Limited development velocity; feature set has not materially changed in years
-- Small team and uncertain long-term viability given ownership history
+- Limited development velocity; feature set has not materially changed in years [fictional]
+- Small team and uncertain long-term viability given ownership history [fictional]
 
 **Recent Moves:** Minimal recent product changes; continued maintenance-mode operation.
 
@@ -233,7 +235,7 @@ and where the white space is for us.
 2. **Mobile reading experience** . match Instapaper's clean reading UX for saved articles; the reading experience is the moment of value delivery for resurfaced content.
 
 ### Where to Differentiate
-1. **Resurface without highlights** . Readwise requires users to annotate before resurfacing works; Brainshelf should surface articles based on topic relevance and recency, not annotation history. This makes resurfacing accessible to the 80%+ of users who save but don't highlight.
+1. **Resurface without highlights** . Readwise requires users to annotate before resurfacing works; Brainshelf should surface articles based on topic relevance and recency, not annotation history. This makes resurfacing accessible to the 80%+ of users who save but don't highlight [fictional].
 2. **Freemium positioning** . Readwise has no free tier; Brainshelf should offer a meaningful free resurface experience to build the habit before upselling to Premium for advanced features (custom frequency, topic filters, archive integration).
 
 ### Messaging Implications

@@ -24,7 +24,7 @@ Thursday morning 2026-08-06, 09:30 PT. Wednesday closed with Sketch A supervoted
 | Maker | Ari | 09:30-16:30 PT | Owns 8 Figma frames; phone + laptop variants for frames 3-7 |
 | Stitcher | Ari (paired with Marcus) | 13:00-16:30 PT | Inter-frame interactions; deeplink flow Panel 2->3 |
 | Writer | Priya | 09:30-12:30 PT | Callout copy ("user-service is red; spreading to checkout"), top-action language, severity wording |
-| Asset Collector | Marcus | 09:30-15:00 PT | Anonymized incident-data from 3 real pilot incidents; service-graph for fintech use case |
+| Asset Collector | Marcus | 09:30-15:00 PT | Anonymized incident-data from 3 real pilot incidents [fictional]; service-graph for fintech use case |
 | Interviewer | Jin | 09:30-12:30 script + 14:00-15:00 mock-run + 15:30-17:00 trial run | Simulated-incident script |
 
 **Doubling-up:** 4-person team; Ari covers Maker + Stitcher.

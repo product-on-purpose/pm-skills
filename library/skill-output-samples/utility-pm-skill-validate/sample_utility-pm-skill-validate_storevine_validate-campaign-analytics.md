@@ -49,19 +49,19 @@ Errors: 0 | Warnings: 2 | Info: 1
 ## Structural Checks
 
 - PASS | structural | S-01 | `name` field matches directory name (campaign-analytics)
-- PASS | structural | S-02 | `description` is 34 words, single-line (within 20-100 range)
+- PASS | structural | S-02 | `description` is 34 words [fictional], single-line (within 20-100 range)
 - PASS | structural | S-03 | `version` field present (1.0.0)
 - PASS | structural | S-04 | `updated` field present (2026-04-11, valid ISO date)
 - PASS | structural | S-05 | `license` field present (Apache-2.0)
 - PASS | structural | S-06 | Phase/classification consistent (domain skill has `phase: measure`)
-- PASS | structural | S-07 | `references/TEMPLATE.md` exists with 7 `##` sections (minimum 3)
+- PASS | structural | S-07 | `references/TEMPLATE.md` exists with 7 `##` sections [fictional] (minimum 3)
 - PASS | structural | S-08 | Command file references correct path (`skills/measure-campaign-analytics/SKILL.md`)
 - PASS | structural | S-09 | AGENTS.md entry uses `#### campaign-analytics` + `**Path:**` format
 - PASS | structural | S-10 | No duplicate `version` key in frontmatter (single root-level only)
 
 ## Quality Checks
 
-- WARN | quality | Q-01 | EXAMPLE.md is 142 lines (recommendation: 150-300 lines)
+- WARN | quality | Q-01 | EXAMPLE.md is 142 lines [fictional] (recommendation: 150-300 lines)
 - PASS | quality | Q-02 | Output contract section present in SKILL.md
 - PASS | quality | Q-03 | Quality checklist section present in SKILL.md
 - WARN | quality | Q-04 | SKILL.md missing "When NOT to Use" section (recommended for all skills)

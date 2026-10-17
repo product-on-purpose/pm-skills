@@ -122,12 +122,12 @@ Created `skills/deliver-prd/HISTORY.md`:
 
 Release: TBD.
 
-Expanded the Output Format section to explicitly enumerate all 10 template
+Expanded the Output Format section to explicitly enumerate all 10 [fictional] template
 sections instead of a generic "use the template" reference. No new
 requirements -- existing compliant output remains valid.
 
 ### Changes
-- Output Format section now lists all 10 TEMPLATE.md sections by name
+- Output Format section now lists all 10 [fictional] TEMPLATE.md sections by name
 - Clarifies which sections are required in the output
 
 ## 2.0.0 (2026-01-26)

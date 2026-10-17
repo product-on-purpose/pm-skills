@@ -82,7 +82,7 @@ All four sketches produced in Figma frames sized 1170 x 2532 (iPhone Pro vertica
 - [x] Jamie confirms sketch attribution has been stripped before sketches are added to Wednesday's heat-map board (sketches renamed A / B / C / D in random order; sketcher names removed from Figma frame metadata).
 - [x] Jamie acknowledges that Wednesday's heat-map is blind (votes on sketches, not on sketchers); team has agreed not to discuss attribution until after the supervote.
 - [x] Jamie commits to attending Wednesday morning 09:00-12:30 PT for heat-map plus critique plus supervote.
-- [x] Jamie confirms recruiting tracker status: 1 cancellation absorbed by buffer activation; risk Low for Friday; one more cancellation triggers cohort-shrinks-to-4 protocol.
+- [x] Jamie confirms recruiting tracker status: 1 cancellation [fictional] absorbed by buffer activation; risk Low for Friday; one more cancellation triggers cohort-shrinks-to-4 protocol.
 
 **Signed:** Jamie (founder, PM), 2026-06-02 16:50 PT.
 

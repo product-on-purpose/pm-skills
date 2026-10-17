@@ -108,7 +108,7 @@ want a proper stakeholder map with communication plan.
 
 **Role:** CEO/Co-founder
 **Influence Level:** High . final decision authority on resource allocation and feature priority; sets the company narrative for investors and board
-**Interest Level:** High . has publicly framed Resurface as "the feature that proves Brainshelf is a daily habit, not a save-and-forget tool" in the most recent team all-hands
+**Interest Level:** High . has publicly framed Resurface as "the feature that proves Brainshelf is a daily habit, not a save-and-forget tool" [fictional] in the most recent team all-hands
 **Current Alignment:** Supportive
 
 **Needs:**
@@ -138,7 +138,7 @@ want a proper stakeholder map with communication plan.
 
 **Needs:**
 - Clear, bounded scope for the v1 build . specifically, confirmation that the A/B test infrastructure (feature flags, variant assignment, experiment-specific event tracking) is a one-time investment, not a permanent engineering surface area
-- Enough time to build integration tests for the notification scheduling pipeline before launch (this was a Sprint 7 retro action item that got deprioritized and directly contributed to the timezone bug scenario)
+- Enough time to build integration tests for the notification scheduling pipeline before launch (this was a Sprint 7 retro action item that got deprioritized and directly contributed to the timezone bug scenario) [fictional]
 
 **Concerns:**
 - The topic-matching algorithm could become an unbounded engineering project if the team keeps iterating on matching quality; wants a clear "good enough" threshold defined before build starts
@@ -146,7 +146,7 @@ want a proper stakeholder map with communication plan.
 - Team bandwidth: the backend team is 2 engineers (Alex + Jess T. [fictional]); Resurface is the only major project they can take on this quarter without cutting stability work
 
 **What Motivates Them:**
-- Shipping quality software; takes professional pride in clean architecture and comprehensive test coverage; the timezone bug was personally frustrating
+- Shipping quality software; takes professional pride in clean architecture and comprehensive test coverage; the timezone bug [fictional] was personally frustrating
 
 **Preferred Communication:**
 - Channel: Slack DMs for quick decisions; 1:1 meeting for scope discussions

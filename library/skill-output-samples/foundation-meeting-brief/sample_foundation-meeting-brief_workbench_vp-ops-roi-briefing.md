@@ -94,8 +94,8 @@ status: draft
 ### Background
 
 - Carlos pushed back on Blueprints Q1 investment (2026-02-05_14-00EST_q1-investment-review_recap.md): concerns centered on ROI speculation vs. customer evidence
-- Compliance investment case approved 2026-03-15 (2026-03-15_14-00EST_compliance-investment-case_recap.md), contingent on Q1 customer evidence
-- Q1 customer evidence just landed: 6 healthcare customer interviews (customer-interview-synthesis.md); 5 of 6 indicate strong willingness-to-pay and specific workflow requirements
+- Compliance investment case approved 2026-03-15 (2026-03-15_14-00EST_compliance-investment-case_recap.md), contingent on Q1 customer evidence [fictional]
+- Q1 customer evidence just landed: 6 healthcare customer interviews (customer-interview-synthesis.md); 5 of 6 indicate strong willingness-to-pay and specific workflow requirements [fictional]
 - Tuesday's CEO review will decide whether to fund Blueprints expansion for Q2/Q3
 
 ### Stakeholder reads
@@ -106,7 +106,7 @@ status: draft
 - **Stakes**: Carlos owns the cost-discipline narrative; a visible ROI miss damages it; he also owns operational-excellence narrative that Blueprints aligns with
 - **Likely concerns**: "are 6 interviews sufficient evidence?"; "what's the sales-cycle assumption?"; "how does this affect Q2 capacity?"; "what does kill-criteria look like?"
 - **Relationship state**: neutral; direct, data-first; will say no if data is thin; will champion if data is strong
-- **Tactical notes**: lead with the customer-evidence specifics (5 of 6 willing-to-pay, specific workflow detail); frame Q2 investment with explicit ROI measurement and kill criteria; have the Tuesday-CEO-review deck ready to show so Carlos sees full argument
+- **Tactical notes**: lead with the customer-evidence specifics (5 of 6 willing-to-pay, specific workflow detail [fictional]); frame Q2 investment with explicit ROI measurement and kill criteria; have the Tuesday-CEO-review deck ready to show so Carlos sees full argument
 
 ### Desired outcomes (ranked)
 
@@ -116,7 +116,7 @@ status: draft
 
 ### Key messages
 
-1. "Customer evidence is specific and consistent: 5 of 6 healthcare customers expressed willingness-to-pay; all 6 described the same workflow requirement. This isn't 'we think customers want this'. it's 'we heard them say it.'"
+1. "Customer evidence is specific and consistent: 5 of 6 healthcare customers expressed willingness-to-pay [fictional]; all 6 described the same workflow requirement [fictional]. This isn't 'we think customers want this'. it's 'we heard them say it.'"
 2. "Q2 investment is $[fictional] 480K for a 6-month expansion pilot with explicit kill criteria at 3-month checkpoint."
 3. "ROI measurement approach: 3 named healthcare customers signed for pilot by end Q3 at target ACV. If <2 of 3 by Q3-end, we reduce investment."
 
@@ -124,10 +124,10 @@ status: draft
 
 | Question | Prepared response |
 |----------|-------------------|
-| "Are 6 interviews enough evidence?" | Small sample with strong consistency beats large sample with weak signal. 5 of 6 = 83% same-direction signal. Willing to add 4 more interviews in Q2 as validation. |
+| "Are 6 interviews enough evidence?" | Small sample with strong consistency beats large sample with weak signal. 5 of 6 = 83% same-direction signal [fictional]. Willing to add 4 more interviews in Q2 as validation. |
 | "What if healthcare customers don't convert to paid?" | Kill criteria addresses this: <2 of 3 named customers sign by end Q3 → investment reduces. Measurable checkpoint. |
-| "How does Blueprints affect Q2 platform capacity?" | Separate conversation; platform team has already committed Q2 capacity (per 2026-03-15 recap). Blueprints doesn't consume that capacity. |
-| "Why not wait for more evidence?" | Signal decay: healthcare buyers move on 6-month cycles; missing this window means waiting 6+ months for re-engagement. |
+| "How does Blueprints affect Q2 platform capacity?" | Separate conversation; platform team has already committed Q2 capacity (per 2026-03-15 recap) [fictional]. Blueprints doesn't consume that capacity. |
+| "Why not wait for more evidence?" | Signal decay: healthcare buyers move on 6-month cycles [fictional]; missing this window means waiting 6+ months for re-engagement. |
 
 ### Risks and tensions
 

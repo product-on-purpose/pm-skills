@@ -60,13 +60,13 @@ items. Will share with PM and Engineering Lead to unblock sprint planning.
 |-------|-------|
 | **Question to Answer** | Can SendGrid open/click webhook events be linked to Storevine purchase records to power revenue attribution in Campaigns v1 within the current sprint timeline? |
 | **Time-Box** | 5 business days |
-| **Actual Time Spent** | 4.5 business days |
+| **Actual Time Spent** | 4.5 business days [fictional] |
 | **Spike Lead** | Backend Engineer, Platform Squad |
 | **Date Completed** | February 18, 2026 |
 
 ## Background
 
-Revenue attribution . the ability for merchants to see which email campaigns drove which purchases and how much revenue each campaign generated . was identified as a launch-gate requirement in the merchant interview synthesis. Interview Insight 3 stated: "Every merchant who uses a third-party tool cited revenue attribution as a feature they rely on. Without attribution, merchants cannot make the business case to keep using the tool." The engineering ADR signed during PRD review selected SendGrid as the Campaigns email delivery infrastructure, which introduced the question of whether SendGrid's event data could be reliably connected to Storevine's existing order database without a new data warehouse or third-party analytics integration.
+Revenue attribution . the ability for merchants to see which email campaigns drove which purchases and how much revenue each campaign generated . was identified as a launch-gate requirement in the merchant interview synthesis. Interview Insight 3 stated: "Every merchant who uses a third-party tool cited revenue attribution as a feature they rely on. Without attribution, merchants cannot make the business case to keep using the tool." [fictional] The engineering ADR signed during PRD review selected SendGrid as the Campaigns email delivery infrastructure, which introduced the question of whether SendGrid's event data could be reliably connected to Storevine's existing order database without a new data warehouse or third-party analytics integration.
 
 ## Approach
 
@@ -112,7 +112,7 @@ Real-time attribution (purchase within the same browser session as the email cli
 
 **Evidence:**
 - POC measured average SendGrid webhook delivery latency of 1.8 seconds [fictional] in the staging environment . well within the threshold for deferred attribution
-- Klaviyo's default attribution window is 5-day click / 1-day open; Campaigns' 7-day click window is slightly more generous and better suited for merchants in lower-frequency purchase categories (fashion, home goods) where the consideration cycle is longer
+- Klaviyo's default attribution window is 5-day click / 1-day open; Campaigns' 7-day click window is slightly more generous and better suited for merchants in lower-frequency purchase categories (fashion, home goods) where the consideration cycle is longer [fictional]
 - A 7-day window is consistent with Shopify's marketing attribution model for email apps on its platform
 
 ## Recommendation
