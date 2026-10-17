@@ -1,7 +1,7 @@
 # Skill Implementation Packet: Change Communication
 
 > **Created**: 2026-03-22
-> **Builder version**: 1.3.0
+> **Builder version**: 2.0.0
 > **Status**: Draft
 
 ---

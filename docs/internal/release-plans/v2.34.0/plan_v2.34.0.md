@@ -213,3 +213,14 @@ This rule is committed before round 1 runs, so the end of the gate cannot be arg
 - **Round 2 is the last adversarial round.** If round 1 produces a fix pass, one scoped recheck reviews only the surfaces that the fix pass changed. Whatever it returns, findings on those surfaces are closed by deleting or marking, and findings elsewhere are deferred to v2.35.0 with a rationale. The resulting fix pass is verified by a recorded finding-versus-result table, not by another round, and then the gate is attested.
 - **A clean round 1 ends the gate.** If round 1 returns no material findings and did not abort, the gate is attested after round 1 with no recheck.
 - **Fallback instrument.** If Codex cannot complete a round in this session after one re-run, an independent Claude reviewer runs the same focus, and this record states that the instrument changed.
+
+### Round 1, 2026-10-17: four findings, all closed by correction
+
+Codex completed the round (exit 0, verdict "needs-attention") against the branch at `16e19e3e`. Every finding was closed in one fix pass. Each fix corrects a claim or a classification, and none authors new structure.
+
+| # | Codex severity | Finding | Disposition |
+|---|---|---|---|
+| F1 | high | `deliver-prd` told authors to restate an unbacked rate requirement as a pass rule per case, which silently weakens a release gate | **Closed.** The rate is kept and its verification is marked unresolved until a designed sample exists; pass rules per case are additional evidence. Corrected in the template, `SKILL.md`, both HISTORY.md files and the `deliver-acceptance-criteria` pointer |
+| F2 | medium | AB-4 forbade instructions in any content the model did not author, which includes a style guide the user deliberately supplies | **Closed.** The row now covers content that neither the product's instructions nor the user told the model to obey. Corrected in the template, `SKILL.md` and HISTORY.md |
+| F3 | medium | `utility-pm-skill-builder` added HISTORY.md to the Output Contract's MUST list and called it a minor | **Closed by retype to 2.0.0 major.** The tie-breaker rule says a new required output is major. 1.3.0 never shipped; the HISTORY.md row and section say so, as `deliver-prd` 3.0.0 did for 2.3.0 |
+| F4 | medium | The runbook and the release conductor let a delivery P0 be logged as a known regression, which would close a release that reached nobody | **Closed.** The delivery check now has no waiver: the release stays awaiting delivery until the check exits 0 |

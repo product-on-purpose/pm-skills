@@ -4,7 +4,7 @@ description: Guides contributors from a PM skill idea to a complete Skill Implem
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.3.0"
+  version: "2.0.0"
   updated: 2026-10-16
   category: coordination
   frameworks: [triple-diamond]

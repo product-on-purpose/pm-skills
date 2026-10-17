@@ -28,7 +28,7 @@ Acceptance criteria define the observable behavior that must be true for a story
 - You need systematic failure coverage across a whole feature -> use `deliver-edge-cases`; this skill stays story-scoped
 - There is no story or slice to bind criteria to yet -> use `deliver-prd` or `deliver-user-stories` first
 - You are defining success metrics for an experiment, not done-ness for a story -> use `measure-experiment-design`
-- The criterion is a rate over model output, such as "90% of answers are faithful to their sources" -> use the AI Behavior and Evaluation section of `deliver-prd`, which says a rate needs a designed sample and how to state a pass rule per case instead
+- The criterion is a rate over model output, such as "90% of answers are faithful to their sources" -> use the AI Behavior and Evaluation section of `deliver-prd`, which says a rate needs a designed sample to verify it, and what to record until one exists
 
 ## Instructions
 

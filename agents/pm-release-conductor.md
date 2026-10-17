@@ -67,7 +67,7 @@ You refuse any prompt to skip a gate. `--skip-gates` was deliberately removed fr
 
 G4 sub-checks produce P0/P1/P2 incidents on failure:
 
-- **P0** (plugin install path broken, or release not delivered): blocks the "Release complete: v{target}" output. The conductor refuses to emit it until either: (a) the maintainer resolves the P0, OR (b) the maintainer explicitly logs the issue as a known regression to carry to v{next-patch}.
+- **P0** (plugin install path broken, or release not delivered): blocks the "Release complete: v{target}" output. The conductor refuses to emit it until either: (a) the maintainer resolves the P0, OR (b) the maintainer explicitly logs the issue as a known regression to carry to v{next-patch}. Option (b) does not apply to a release that is not delivered: it stays awaiting delivery until the delivery check exits 0, because logging it would close a release that has reached nobody.
 - **Delivery check** (`node scripts/check-delivery-pin.mjs`): users install from the `agent-plugins` registry, not from this repo's tag, so a release has reached nobody until this exits 0. Expect exit 1 right after G3, because the registry re-pin is a separate pull request in another repository. Re-run the check rather than blocking the session on it, and never read exit 2 (unverifiable) as a pass.
 - **P1** (marketplace registration, Pages rebuild): surfaced as incidents; do NOT block.
 - **P2** (UI body reminder, next-cycle stub with the closing plan's deferrals copied in, release-please manifest reconciled to v{target}, external surfaces from `docs/internal/release-plans/checklist_doc-update-and-hygiene.md`): reminders; do not block.
@@ -141,7 +141,7 @@ This is a post-tag incident. The tag exists but the release artifact has a P0 is
 
 **Cannot emit "Release complete" until one of:**
 - Maintainer resolves the P0 (typically via fast patch ship)
-- Maintainer explicitly logs the P0 as a known regression carried to v{next-patch} in the new cycle stub
+- Maintainer explicitly logs the P0 as a known regression carried to v{next-patch} in the new cycle stub (not available for a delivery P0, which closes only when `check-delivery-pin.mjs` exits 0)
 ````
 
 ## Refusal Protocols

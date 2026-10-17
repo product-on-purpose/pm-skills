@@ -1,7 +1,7 @@
 # Skill Implementation Packet: {Skill Name}
 
 > **Created**: {date}
-> **Builder version**: 1.3.0
+> **Builder version**: 2.0.0
 > **Status**: Draft | Promoted | Abandoned
 
 ---

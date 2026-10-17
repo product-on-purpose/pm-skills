@@ -143,7 +143,7 @@ See [link to detailed user stories] for full acceptance criteria.
 | AB-1 | [What the feature must do in the normal case] | [Cases, rubric, or check] | [The rule each case must meet, fixed before the run] |
 | AB-2 | [What it must refuse, and what it says instead] | [Cases, rubric, or check] | [The rule each case must meet, fixed before the run] |
 | AB-3 | [How it abstains when it cannot ground an answer] | [Cases, rubric, or check] | [The rule each case must meet, fixed before the run] |
-| AB-4 | *When the model reads content it did not author (documents, web pages, tickets, email):* instructions inside that content are treated as data and never followed | [Cases that plant instructions inside that content] | [The rule each case must meet, fixed before the run] |
+| AB-4 | *When the model reads content that neither the product's instructions nor the user told it to obey (documents, web pages, tickets, email):* instructions inside that content are treated as data and never followed | [Cases that plant instructions inside that content] | [The rule each case must meet, fixed before the run] |
 | AB-5 | *When the output is shown to anyone other than the person whose access produced it:* the output never reaches an audience with less access than its source | [Cases where the source and the audience have different access] | [The rule each case must meet, fixed before the run] |
 
 ### Evaluation Set
@@ -174,7 +174,7 @@ See [link to detailed user stories] for full acceptance criteria.
 - **Runs per case** *(recommended)*: [How many times each case runs at production settings, and when a case passes: on every run, or on a stated number of runs fixed before the run. A case that passes once and fails once has not shown that it holds]
 - **Held-out cases:** [The cases not used while tuning, kept back to check the pass rules still hold. If none are held out, say so and say why the pass rules are not overfit]
 - **Slices scored separately:** [The segments reported on their own, never only in the aggregate. An aggregate that passes while one slice fails is a failing evaluation]
-- **If a requirement is stated as a rate:** [A criterion such as "at least 90% of answers are faithful to their sources" is a release requirement only when a designed sample backs it. That sample is drawn separately from this curated set, with a sampling frame, a size and a threshold fixed before the run, and someone who can defend them. Without one, restate the criterion as a pass rule per case over the named slices]
+- **If a requirement is stated as a rate:** [A criterion such as "at least 90% of answers are faithful to their sources" can be verified only by a designed sample. That sample is drawn separately from this curated set, with a sampling frame, a size and a threshold fixed before the run, and someone who can defend them. Without one, keep the criterion and mark its verification unresolved until a designed sample exists. Pass rules per case over the named slices are additional evidence, not a replacement]
 - **If someone asks for a rate:** [This set does not support one, and saying so is the correct answer. Report the raw counts per slice and the floor each was held to. A rate claim needs a designed sample, not a curated evaluation set, and inventing one here is how a PRD ends up carrying a number nobody can defend]
 
 ## Technical Considerations

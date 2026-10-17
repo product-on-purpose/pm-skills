@@ -19,10 +19,10 @@ Two proposed AI skills, an evaluation spec and a behavior spec, were tested agai
 
 ### Changes
 - **Runs per case, recommended.** The Evaluation Set asks how many times each case runs at production settings and when a case counts as passed, because the same case can pass once and fail the next time.
-- **AB-4, content the model reads is data.** A recommended row, included when the model reads content it did not author: instructions inside that content are never followed.
+- **AB-4, content the model reads is data.** A recommended row, included when the model reads content that neither the product's instructions nor the user told it to obey: instructions inside that content are never followed.
 - **AB-5, no lower-access audience.** A recommended row, included when the output is shown to people other than the one whose access produced it: the output never reaches an audience with less access than its source.
 - **"Passing threshold" becomes "Pass rule".** The column invited percentage thresholds while the Evaluation Set guidance said a curated set supports no rate. The pass rule is fixed before the run and applies per case. A rate belongs there only when a designed sample, drawn separately from the curated set, backs it.
-- **If a requirement is stated as a rate.** A conditional field in the Evaluation Set: a rate is a release requirement only when a designed sample backs it, and otherwise is restated as a pass rule per case. The 3.0.0 guidance already said a rate needs a designed sample, so this restates that rule where requirements are written rather than adding a new one.
+- **If a requirement is stated as a rate.** A conditional field in the Evaluation Set: a rate can be verified only by a designed sample. Until one exists, the rate is kept with its verification marked unresolved, and pass rules per case count as additional evidence. The 3.0.0 guidance already said a rate needs a designed sample, so this restates that rule where requirements are written rather than adding a new one.
 - **Trigger scope.** A property that a deterministic check can decide does not bring a feature under this section just because a model produced the output.
 
 Not added: a per-property question asking whether deciding a property requires a model. It was a candidate from the same test, but nothing tested it, so it stays out.
