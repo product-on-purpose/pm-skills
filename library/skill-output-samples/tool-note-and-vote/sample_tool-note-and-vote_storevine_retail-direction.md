@@ -17,7 +17,7 @@ context: "Storevine Day 1 AM Basics block, target customer scope debate stalling
 
 "Which specific retailer segment should Storevine target in v0.1?"
 
-The Basics block had stalled at 10:10 PT with the team unable to converge on target customer specificity. Three positions had emerged:
+The Basics block had stalled at 10:10 PT [fictional] with the team unable to converge on target customer specificity. Three positions had emerged:
 
 - Devon: "All SMB retailers; we'll discover the segment that pulls hardest"
 - Mei: "Specialty retailers only; that's where Carlos's expertise + Faire-adjacent design pattern work"
@@ -46,7 +46,7 @@ The facilitator (Devon, rotating role) called for a `tool-note-and-vote` rather 
 
 **Step 5: Capture (3 minutes).** Tasha records the decision and rationale; Devon resumes Basics block at 10:40 PT.
 
-Total elapsed: 20 minutes versus the open-discussion 30-minute stall.
+Total elapsed: 20 minutes versus the open-discussion 30-minute stall [fictional].
 
 ## Candidate Set (After Affinity)
 

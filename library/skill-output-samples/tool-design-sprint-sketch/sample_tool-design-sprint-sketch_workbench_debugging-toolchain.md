@@ -74,7 +74,7 @@ Tuesday 2026-08-04. Monday closed with Priya selecting the first-60-second orien
 
 ## Recruiting Tracker Update
 
-All 5 + 1 buffer confirmed. No cancellations Tuesday.
+All 5 + 1 buffer confirmed [fictional]. No cancellations Tuesday [fictional].
 
 ## Decider Checkpoint
 
